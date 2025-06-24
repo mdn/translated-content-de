@@ -1,14 +1,15 @@
 ---
-title: "GPURenderPassEncoder: setBlendConstant()-Methode"
+title: "GPURenderPassEncoder: setBlendConstant() Methode"
 short-title: setBlendConstant()
 slug: Web/API/GPURenderPassEncoder/setBlendConstant
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setBlendConstant()`**-Methode des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces setzt die konstante Mischfarbe und Alpha-Werte, die mit den Blendfaktoren `"constant"` und `"one-minus-constant"` verwendet werden (wie im Deskriptor der Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) im `blend`-Eigenschaft gesetzt).
+Die **`setBlendConstant()`** Methode der
+[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) Schnittstelle setzt die konstante Mischfarbe und Alphawerte, die mit den Mischfaktoren `"constant"` und `"one-minus-constant"` verwendet werden (wie im Deskriptor der Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline), in der Eigenschaft `blend`, festgelegt).
 
 ## Syntax
 
@@ -20,22 +21,22 @@ setBlendConstant(color)
 
 - `color`
 
-  - : Ein Objekt oder Array, das die Farbe repräsentiert, die beim Mischen verwendet werden soll — die `r`, `g`, `b` und `a` Komponenten werden als Gleitkommazahlen zwischen 0.0 und 1.0 dargestellt.
+  - : Ein Objekt oder Array, das die beim Mischen verwendete Farbe darstellt — die Komponenten `r`, `g`, `b` und `a` werden als Gleitkommazahlen zwischen 0.0 und 1.0 dargestellt.
 
-    Nachfolgend ein Objektbeispiel:
+    Nachfolgend ein Beispiel für ein Objekt:
 
     ```js
     const color = { r: 0.0, g: 0.5, b: 1.0, a: 1.0 };
     ```
 
-    Das äquivalente Array würde folgendermaßen aussehen:
+    Das Array-Äquivalent würde folgendermaßen aussehen:
 
     ```js
     const color = [0.0, 0.5, 1.0, 1.0];
     ```
 
 > [!NOTE]
-> Wenn kein Aufruf von `setBlendConstant()` erfolgt, wird der konstante Mischfarbwert für jeden Renderdurchlauf standardmäßig auf `(0, 0, 0, 0)` gesetzt.
+> Wenn kein `setBlendConstant()` Aufruf gemacht wird, ist der Standardwert der Mischkonstantenfarbe für jeden Render-Pass `(0, 0, 0, 0)`.
 
 ### Rückgabewert
 

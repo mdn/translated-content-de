@@ -3,12 +3,12 @@ title: "RemotePlayback: cancelWatchAvailability() Methode"
 short-title: cancelWatchAvailability()
 slug: Web/API/RemotePlayback/cancelWatchAvailability
 l10n:
-  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Remote Playback API")}}
 
-Die **`cancelWatchAvailability()`**-Methode der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle storniert die Anfrage zum Überwachen eines oder aller verfügbaren Geräte.
+Die **`cancelWatchAvailability()`** Methode des [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Interfaces storniert die Anfrage, um auf ein oder alle verfügbaren Geräte zu achten.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ cancelWatchAvailability(id)
 
   - : Die `callbackId` eines bestimmten Remote-Playback-Geräts.
 
-    Wenn eine `callbackId` eines spezifischen Geräts übergeben wird, wird dieses Gerät aus der Liste der überwachten Geräte entfernt. Andernfalls wird die gesamte Liste gelöscht.
+    Wenn eine `callbackId` eines spezifischen Geräts übergeben wird, dann wird dieses Gerät aus der Liste der überwachten Geräte entfernt. Andernfalls wird die gesamte Liste gelöscht.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`disableRemotePlayback`](/de/docs/Web/API/HTMLMediaElement/disableRemotePlayback) für das Medien-Element `true` ist.
+  - : Wird ausgelöst, wenn [`disableRemotePlayback`](/de/docs/Web/API/HTMLMediaElement/disableRemotePlayback) für das Medienelement auf `true` gesetzt ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine `id` übergeben wird, die jedoch keiner verfügbaren `callbackId` entspricht.
+  - : Wird ausgelöst, wenn eine `id` übergeben wird, die keiner verfügbaren `callbackId` entspricht.
 
 ## Beispiele
 
-Sobald ein Remote-Playback-Gerät identifiziert und verbunden wurde, kann die Überwachung verfügbarer Geräte mit `cancelWatchAvailability()` gestoppt werden.
+Sobald ein Remote-Playback-Gerät identifiziert und verbunden wurde, kann die Überwachung der verfügbaren Geräte mit `cancelWatchAvailability()` gestoppt werden.
 
 ```js
 function switchToRemoteUI() {

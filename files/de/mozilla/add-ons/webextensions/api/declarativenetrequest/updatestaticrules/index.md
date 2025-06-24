@@ -2,14 +2,14 @@
 title: declarativeNetRequest.updateStaticRules
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateStaticRules
 l10n:
-  sourceCommit: 39a2c86675005f0682b7c5d0c32c8066be412aac
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ändert den aktivierten Zustand von Regeln in einem statischen Regelsatz. Die Anzahl der Regeln, die in einem Regelsatz deaktiviert werden können, ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
+Ändert den Aktivierungszustand von Regeln in einem statischen Regelwerk. Die Anzahl der Regeln, die in einem Regelwerk deaktiviert werden können, ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
 
-Regeln können aktiviert und deaktiviert werden, während der Regelsatz, der sie enthält, deaktiviert ist. Alle Änderungen werden wirksam, wenn der Regelsatz aktiviert wird.
+Regeln können aktiviert und deaktiviert werden, während das Regelwerk, das sie enthält, deaktiviert ist. Alle Änderungen werden wirksam, wenn das Regelwerk aktiviert wird.
 
 ## Syntax
 
@@ -22,10 +22,9 @@ let updatedStaticRules = browser.declarativeNetRequest.updateStaticRules(
 ### Parameter
 
 - `options`
-
-  - : Ein Objekt, das einen statischen Regelsatz und die zu aktivierenden oder zu deaktivierenden Regeln in diesem Regelsatz angibt.
+  - : Ein Objekt, das ein statisches Regelwerk angibt und die Regeln, die in diesem Regelwerk aktiviert oder deaktiviert werden sollen.
     - `rulesetId` rulesetId
-      - : `string` Die ID des zu ändernden statischen Regelsatzes.
+      - : `string` Die ID des statischen Regelwerks, das geändert werden soll.
     - `disableRuleIds` {{optional_inline}}
       - : Ein Array von `number`. IDs der zu deaktivierenden Regeln. Ungültige IDs werden ignoriert.
     - `enableRuleIds` {{optional_inline}}
@@ -42,34 +41,31 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn 
 {{Compat}}
 
 <!--
-// Copyright 2015 Die Chromium-Autoren. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Nutzung in Quell- und Binärform, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen erlaubt:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverteilungen des Quellcodes müssen den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// enthalten.
-//    * Weiterverteilungen in binärer Form müssen den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
-// enthalten, die mit der Verteilung bereitgestellt werden.
-//    * Weder der Name Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von
-// dieser Software abgeleitet wurden, ohne vorherige schriftliche Genehmigung
-// zu bewerben oder zu fördern.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
-// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
-// STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR
-// EINEN BESTIMMTEN ZWECK, SIND AUSGESCHLOSSEN. IN KEINEM FALL SOLL
-// DER INHABER DES COPYRIGHTS ODER DIE MITWIRKENDEN FÜR JEGLICHE DIREKTEN, INDIREKTEN,
-// ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN HAFTBAR SEIN
-// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON
-// ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER
-// PROFITE; ODER GESCHÄFTSUNTERBRECHUNG) VERSCHIEDENE HAFTUNGSTHEORIEN,
-// OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
-// FAHRLÄSSIGKEIT ODER ANDERWEITIG) AUFTRETEN, SELBST WENN AUF DIE MÖGLICHKEIT
-// SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

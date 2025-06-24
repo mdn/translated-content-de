@@ -1,14 +1,14 @@
 ---
-title: Einführung in das plattformübergreifende Testen
+title: Einführung in das Cross-Browser-Testing
 short-title: Introduction
 slug: Learn_web_development/Extensions/Testing/Introduction
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{NextMenu("Learn_web_development/Extensions/Testing/Testing_strategies", "Learn_web_development/Extensions/Testing")}}
 
-Dieser Artikel bietet einen Überblick über das plattformübergreifende Testen: was plattformübergreifendes Testen ist, einige häufige Probleme und einige Ansätze zum Debuggen/Fehlerbehebung.
+Dieser Artikel gibt einen Überblick über das Cross-Browser-Testing: was Cross-Browser-Testing ist, einige häufige Probleme und einige Ansätze zum Debuggen/Fehlerbehebung.
 
 <table>
   <tbody>
@@ -23,113 +23,111 @@ Dieser Artikel bietet einen Überblick über das plattformübergreifende Testen:
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein Verständnis der übergeordneten Konzepte des plattformübergreifenden Testens zu erlangen.
+        Ein Verständnis für die wichtigsten Konzepte im Cross-Browser-Testing zu erlangen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Was ist plattformübergreifendes Testen?
+## Was ist Cross-Browser-Testing?
 
-Plattformübergreifendes Testen ist die Praxis, sicherzustellen, dass eine Website in verschiedenen Browsern und auf verschiedenen Geräten funktioniert. Webentwickler sollten Folgendes berücksichtigen:
+Cross-Browser-Testing ist die Praxis sicherzustellen, dass eine Website in verschiedenen Browsern und auf verschiedenen Geräten funktioniert. Webentwickler sollten Folgendes berücksichtigen:
 
 - Verschiedene Browser, einschließlich etwas älterer, die nicht alle neuesten JS/CSS-Funktionen unterstützen.
-- Verschiedene Geräte, von Desktops und Laptops bis hin zu Tablets und Smartphones, bis zu Smart-TVs, mit unterschiedlichen Hardwarefähigkeiten.
-- Menschen mit Behinderungen, die möglicherweise auf Hilfstechnologien wie Bildschirmlesegeräte angewiesen sind oder nur eine Tastatur verwenden.
+- Verschiedene Geräte, von Desktops und Laptops bis hin zu Tablets und Smartphones sowie Smart-TVs mit unterschiedlichen Hardwarefähigkeiten.
+- Menschen mit Behinderungen, die auf unterstützende Technologien wie Screenreader angewiesen sein können oder nur eine Tastatur verwenden.
 
-Denken Sie daran, dass Sie nicht Ihre Benutzer sind – nur weil Ihre Seite auf Ihrem MacBook Pro oder einem High-End Galaxy Nexus funktioniert, heißt das nicht, dass sie für alle Ihre Benutzer funktionieren wird!
+Denken Sie daran, dass Sie nicht Ihre Benutzer sind — nur weil Ihre Seite auf Ihrem MacBook Pro oder einem High-End Galaxy Nexus funktioniert, bedeutet das nicht, dass sie für alle Ihre Benutzer funktioniert!
 
-> **Note:** [Make the web work for everyone](https://hacks.mozilla.org/2016/07/make-the-web-work-for-everyone/) behandelt die verschiedenen Browser, deren Marktanteil und damit verbundene plattformübergreifende Kompatibilitätsprobleme.
+> [!NOTE] > [Make the web work for everyone](https://hacks.mozilla.org/2016/07/make-the-web-work-for-everyone/) diskutiert die verschiedenen Browser, deren Marktanteile und damit verbundene Cross-Browser-Kompatibilitätsprobleme.
 
-Websites sollten über verschiedene Browser und Geräte hinweg zugänglich sein und auch für Menschen mit Behinderungen zugänglich sein (z. B. bildschirmleserfreundlich). Eine Seite muss nicht die exakt gleiche Erfahrung in allen Browsern und Geräten liefern, solange die Kernfunktionen auf irgendeine Weise zugänglich sind. Zum Beispiel könnte ein moderner Browser etwas animiertes, 3D und glänzendes haben, während ältere Browser nur eine flache Grafik mit denselben Informationen anzeigen.
+Websites sollten in verschiedenen Browsern und auf verschiedenen Geräten sowie für Menschen mit Behinderungen (z. B. screenreader-freundlich) zugänglich sein. Eine Website muss nicht in allen Browsern und auf allen Geräten das gleiche Erlebnis bieten, solange die Kernfunktionalität in irgendeiner Weise zugänglich ist. Zum Beispiel könnte ein moderner Browser etwas Animiertes, 3D und Glänzendes haben, während ältere Browser nur eine flache Grafik mit denselben Informationen anzeigen.
 
-Es ist außerdem praktisch unmöglich, dass eine Website auf ALLEN Browsern und Geräten funktioniert. Daher sollte ein Webentwickler eine Vereinbarung mit dem Website-Besitzer treffen, auf welcher Bandbreite von Browsern und Geräten der Code funktionieren wird.
+Es ist auch nahezu unmöglich, dass eine Website in ALLEN Browsern und auf allen Geräten funktioniert, daher sollte ein Webentwickler mit dem Seiteninhaber eine Vereinbarung darüber treffen, in welcher Bandbreite von Browsern und Geräten der Code funktionieren wird.
 
-## Warum treten plattformübergreifende Probleme auf?
+## Warum treten Cross-Browser-Probleme auf?
 
-Es gibt viele verschiedene Gründe, warum plattformübergreifende Probleme auftreten, und beachten Sie, dass wir hier über Probleme sprechen, bei denen sich Dinge in verschiedenen Browsern/Geräten/Browsereinstellungen unterschiedlich verhalten. Bevor Sie überhaupt zu plattformübergreifenden Problemen kommen, sollten Sie bereits Fehler in Ihrem Code behoben haben (siehe [Debugging HTML](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML), [Debugging CSS](/de/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS) und [What went wrong? Troubleshooting JavaScript](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong), um Ihr Gedächtnis bei Bedarf aufzufrischen).
+Es gibt viele verschiedene Gründe, warum Cross-Browser-Probleme auftreten, und beachten Sie, dass hier über Probleme gesprochen wird, bei denen sich Dinge in verschiedenen Browsern/Geräten/Browsereinstellungen unterschiedlich verhalten. Bevor Sie überhaupt zu Cross-Browser-Problemen kommen, sollten Sie bereits Fehler in Ihrem Code behoben haben (siehe [Debugging HTML](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML), [Debugging CSS](/de/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS) und [Was ist schiefgelaufen? Fehlersuche in JavaScript](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong) aus früheren Themen, um Ihr Gedächtnis aufzufrischen, falls nötig).
 
-Plattformübergreifende Probleme treten häufig auf, weil:
+Cross-Browser-Probleme treten häufig auf, weil:
 
-- manchmal Browser Bugs haben oder Funktionen unterschiedlich implementieren. Diese Situation ist bei weitem nicht mehr so schlimm wie früher; als IE4 und Netscape 4 in den 1990er Jahren darum kämpften, der dominierende Browser zu sein, implementierten die Browserunternehmen absichtlich Dinge unterschiedlich, um sich einen Wettbewerbsvorteil zu verschaffen, was das Leben der Entwickler zur Hölle machte. Heutzutage folgen Browser viel besser den Standards, aber Unterschiede und Bugs schleichen sich manchmal immer noch ein.
-- einige Browser möglicherweise unterschiedliche Unterstützungsstufen für Technologie-Features haben als andere. Dies ist unvermeidlich, wenn Sie mit modernen Features zu tun haben, die Browser gerade beginnen zu implementieren, oder wenn Sie sehr alte Browser unterstützen müssen, die nicht mehr weiterentwickelt werden und möglicherweise lange eingefroren wurden, bevor ein neues Feature überhaupt erfunden wurde. Als Beispiel: Wenn Sie hochmoderne JavaScript-Features auf Ihrer Seite verwenden möchten, funktionieren diese möglicherweise nicht in älteren Browsern. Wenn Sie ältere Browser unterstützen müssen, können Sie diese möglicherweise nicht verwenden oder müssen Ihren Code mithilfe eines Cross-Compilers in eine altmodische Syntax konvertieren.
-- einige Geräte Einschränkungen haben, die dazu führen, dass eine Website langsam läuft oder schlecht angezeigt wird. Wenn eine Seite beispielsweise so gestaltet wurde, dass sie auf einem Desktop-PC gut aussieht, wird sie auf einem mobilen Gerät wahrscheinlich winzig erscheinen und schwer zu lesen sein. Wenn Ihre Seite viele große Animationen enthält, könnte sie auf einem High-End-Tablet in Ordnung laufen, jedoch auf einem Low-End-Gerät langsam oder ruckelig sein.
+- Browser manchmal Bugs haben oder Funktionen unterschiedlich implementieren. Diese Situation ist viel weniger schlimm als früher; als IE4 und Netscape 4 in den 1990er Jahren darum kämpften, der dominierende Browser zu sein, implementierten Browserunternehmen absichtlich Dinge unterschiedlich, um einen Wettbewerbsvorteil zu erlangen, was das Leben von Entwicklern zur Hölle machte. Heutzutage sind Browser viel besser darin, Standards zu folgen, aber Unterschiede und Bugs schleichen sich manchmal trotzdem ein.
+- Einige Browser möglicherweise unterschiedliche Unterstützungsniveaus für Technologiefunktionen haben als andere. Dies ist unvermeidlich, wenn Sie mit brandneuen Funktionen zu tun haben, die Browser gerade erst implementieren, oder wenn Sie sehr alte Browser unterstützen müssen, die nicht mehr entwickelt werden und lange vor der Erfindung einer neuen Funktion eingefroren wurden. Wenn Sie beispielsweise hochmoderne JavaScript-Funktionen auf Ihrer Website verwenden möchten, funktionieren diese möglicherweise nicht in älteren Browsern. Wenn Sie ältere Browser unterstützen müssen, müssen Sie diese möglicherweise nicht verwenden oder Ihren Code mit einem Cross-Compiler in altmodische Syntax umwandeln, wo nötig.
+- Einige Geräte können Einschränkungen haben, die dazu führen, dass eine Website langsam läuft oder schlecht angezeigt wird. Wenn eine Website beispielsweise so gestaltet wurde, dass sie auf einem Desktop-PC gut aussieht, wird sie wahrscheinlich winzig und schwer lesbar auf einem mobilen Gerät aussehen. Wenn Ihre Seite eine Menge großer Animationen enthält, mag sie auf einem hochspezifizierten Tablet in Ordnung sein, könnte jedoch auf einem Gerät mit niedriger Leistung träge oder ruckartig sein.
 
 …und noch mehr Gründe.
 
-In späteren Artikeln werden wir häufige plattformübergreifende Probleme erkunden und uns deren Lösungen ansehen.
+In späteren Artikeln werden wir häufige Cross-Browser-Probleme untersuchen und nach Lösungen suchen.
 
-## Arbeitsabläufe für plattformübergreifendes Testen
+## Workflows für das Cross-Browser-Testing
 
-Das ganze plattformübergreifende Testen klingt möglicherweise zeitaufwändig und beängstigend, muss es aber nicht sein – Sie müssen nur sorgfältig dafür planen und sicherstellen, dass Sie ausreichend in den richtigen Bereichen testen, um nicht auf unerwartete Probleme zu stoßen. Wenn Sie an einem großen Projekt arbeiten, sollten Sie es regelmäßig testen, um sicherzustellen, dass neue Funktionen für Ihr Zielpublikum funktionieren und dass neue Ergänzungen zum Code keine alten, zuvor funktionierenden Funktionen brechen.
+All dieses Cross-Browser-Testing-Geschäft mag zeitaufwendig und beängstigend klingen, aber das muss es nicht sein — Sie müssen es nur sorgfältig planen und sicherstellen, dass Sie genug Tests an den richtigen Stellen durchführen, um sicherzustellen, dass Sie nicht auf unerwartete Probleme stoßen. Wenn Sie an einem großen Projekt arbeiten, sollten Sie es regelmäßig testen, um sicherzustellen, dass neue Funktionen für Ihr Zielpublikum funktionieren und dass neue Ergänzungen zum Code keine alten, zuvor funktionierenden Funktionen brechen.
 
-Wenn Sie alle Tests bis zum Ende eines Projekts aufschieben, sind die von Ihnen entdeckten Bugs viel teurer und zeitaufwändiger zu beheben, als wenn Sie sie entdecken und beheben, während Sie vorankommen.
+Wenn Sie alle Tests bis zum Ende eines Projekts aufschieben, werden alle entdeckten Bugs viel teurer und zeitaufwendiger zu beheben sein, als wenn Sie sie aufdecken und beheben, während Sie fortfahren.
 
-Der Arbeitsablauf für Tests und Bugfixes eines Projekts kann grob in die folgenden vier Phasen unterteilt werden (dies ist nur sehr grob – verschiedene Personen können Dinge ganz anders machen):
+Der Workflow für Tests und Fehlerbehebungen in einem Projekt kann grob in die folgenden vier Phasen unterteilt werden (dies ist nur sehr grob — verschiedene Personen können Dinge ziemlich anders machen als dies):
 
-**Erste Planung** > **Entwicklung** > **Testen/Entdeckung** > **Korrekturen/Iteration**
+**Initiale Planung** > **Entwicklung** > **Testen/Entdeckung** > **Fehlerbehebungen/Iteration**
 
-Schritte 2–4 werden so oft wie nötig wiederholt, um alle Implementierungen abzuschließen. Wir werden die verschiedenen Teile des Testprozesses in nachfolgenden Artikeln viel detaillierter betrachten, allerdings fassen wir zunächst zusammen, was in jedem Schritt vorkommen könnte.
+Die Schritte 2–4 werden so oft wie nötig wiederholt, um alle Implementierungen abzuschließen. Wir werden uns die verschiedenen Teile des Testprozesses in viel detaillierterer Weise in nachfolgenden Artikeln ansehen, aber vorerst fassen wir kurz zusammen, was in jedem Schritt geschehen könnte.
 
-### Erste Planung
+### Initiale Planung
 
-In der ersten Planungsphase werden Sie wahrscheinlich mehrere Planungstreffen mit dem Site-Inhaber/Klienten haben (dies könnte Ihr Vorgesetzter sein oder jemand von einem externen Unternehmen, für das Sie eine Website erstellen), in denen Sie genau bestimmen, was die Website sein soll — welchen Inhalt und welche Funktionen sie haben soll, wie sie aussehen soll usw. Zu diesem Zeitpunkt möchten Sie auch wissen, wie viel Zeit Sie zur Entwicklung der Website haben — was ist ihre Frist und wie viel werden sie Ihnen für Ihre Arbeit bezahlen? Wir werden hier nicht ins Detail gehen, aber plattformübergreifende Probleme können erhebliche Auswirkungen auf solche Planungen haben.
+In der initialen Planungsphase werden Sie wahrscheinlich mehrere Planungstreffen mit dem Website-Inhaber/Kunden haben (das könnte Ihr Chef sein oder jemand von einem externen Unternehmen, für das Sie eine Website erstellen), in denen Sie genau bestimmen, was die Website sein soll — welchen Inhalt und welche Funktionalität sie haben sollte, wie sie aussehen soll usw. Zu diesem Zeitpunkt möchten Sie auch wissen, wie viel Zeit Sie für die Entwicklung der Seite haben — was ist ihr Zeitrahmen und wie viel werden sie Ihnen für Ihre Arbeit bezahlen? Wir werden hier nicht weiter ins Detail gehen, aber Cross-Browser-Probleme können einen ernsthaften Einfluss auf eine solche Planung haben.
 
-Sobald Sie eine Idee der erforderlichen Funktionen haben und welche Technologien Sie wahrscheinlich für deren Herstellung verwenden werden, sollten Sie beginnen, die Zielgruppe zu erkunden — welche Browser, Geräte usw. wird die Zielgruppe für diese Website verwenden? Der Kunde hat möglicherweise bereits Daten darüber aus früheren Recherchen, die sie durchgeführt haben, z. B. von anderen Websites, die sie besitzen, oder von vorherigen Versionen der Website, an der Sie jetzt arbeiten. Falls nicht, können Sie sich ein gutes Bild machen, indem Sie andere Quellen betrachten, wie z. B. Nutzungsstatistiken von Wettbewerbern oder Länder, die die Website bedienen wird. Sie können auch etwas Intuition verwenden.
+Sobald Sie eine Vorstellung von den benötigten Funktionen haben und wissen, mit welchen Technologien Sie diese Funktionen möglicherweise implementieren werden, sollten Sie damit beginnen, das Zielpublikum zu erkunden — welche Browser, Geräte usw. wird das Zielpublikum für diese Seite verwenden? Der Kunde hat möglicherweise bereits Daten hierzu aus früheren Recherchen, die er durchgeführt hat, z. B. von anderen Websites, die er besitzt, oder von früheren Versionen der Website, an der Sie jetzt arbeiten. Wenn nicht, können Sie eine gute Vorstellung gewinnen, indem Sie andere Quellen prüfen, wie z. B. Nutzungsstatistiken von Wettbewerbern oder Ländern, die die Seite bedienen wird. Sie können auch ein wenig Intuition verwenden.
 
-Beispielsweise könnten Sie eine E-Commerce-Website erstellen, die Kunden in Nordamerika bedient. Die Website sollte voll funktionsfähig in den letzten Versionen der beliebtesten Desktop- und mobilen Browser sein — dies sollte Chrome (und Edge, Opera, da sie auf derselben Rendering-Engine wie Chrome basieren), Firefox und Safari umfassen.
-Es sollte auch mit WCAG AA-Konformität zugänglich sein.
+Angenommen, Sie bauen beispielsweise eine E-Commerce-Website, die Kunden in Nordamerika bedient. Die Seite sollte vollständig in den letzten Versionen der beliebtesten Desktop- und Mobilbrowser funktionieren — dies sollte Chrome (und Edge, Opera, da sie auf der gleichen Rendering-Engine wie Chrome basieren), Firefox und Safari umfassen. Sie sollte auch mit der WCAG AA-Konformität zugänglich sein.
 
-Jetzt, wo Sie Ihre Ziel-Testplattformen kennen, sollten Sie zurückgehen und die erforderlichen Funktionen und Technologien, die Sie verwenden werden, erneut überprüfen.
-Zum Beispiel, wenn der E-Commerce-Site-Inhaber eine WebGL-unterstützte 3D-Führung durch jedes Produkt auf den Produktseiten integriert haben möchte, müssen sie akzeptieren, dass dies einfach nicht in allen alten Browserversionen funktioniert.
+Jetzt kennen Sie Ihre Ziel-Testplattformen und sollten die erforderlichen Funktionalitäten und Technologien, die Sie verwenden möchten, überprüfen. Beispielsweise, wenn der E-Commerce-Website-Inhaber einen WebGL-gestützten 3D-Rundgang jedes Produkts in die Produktseiten einbauen möchte, müssen sie akzeptieren, dass dies einfach nicht in allen älteren Browserversionen funktionieren wird.
 
-Sie sollten eine Liste mit potenziellen Problemfeldern erstellen.
+Sie sollten eine Liste von potenziellen Problembereichen zusammenstellen.
 
 > [!NOTE]
-> Sie können Browser-Kompatibilitätsinformationen für Technologien finden, indem Sie die verschiedenen Features auf MDN nachschlagen — die Website, auf der Sie sich befinden! Sie sollten auch [caniuse.com](https://caniuse.com/) konsultieren, für einige weitere nützliche Details.
+> Sie können Kompatibilitätsinformationen zu Browsern für Technologien finden, indem Sie die verschiedenen Funktionen auf MDN nachschlagen - genau auf der Seite, auf der Sie sich befinden! Sie sollten auch [caniuse.com](https://caniuse.com/) konsultieren, für einige weitere nützliche Details.
 
-Sobald Sie sich auf diese Details geeinigt haben, können Sie mit der Entwicklung der Website beginnen.
+Sobald Sie sich über diese Details geeinigt haben, können Sie mit der Entwicklung der Website beginnen.
 
 ### Entwicklung
 
-Weiter zur Entwicklung der Website. Sie sollten die verschiedenen Teile der Entwicklung in Module unterteilen, beispielsweise könnten Sie die verschiedenen Bereiche der Website aufteilen — Startseite, Produktseite, Einkaufswagen, Zahlungsablauf usw. Sie könnten diese dann noch weiter unterteilen — gemeinsame Site-Kopf- und Fußzeile implementieren, Produktseite Detailansicht implementieren, persistentes Einkaufswagen-Widget implementieren usw.
+Nun zur Entwicklung der Website. Sie sollten die verschiedenen Teile der Entwicklung in Module aufteilen, zum Beispiel könnten Sie die verschiedenen Bereiche der Website aufteilen — Startseite, Produktseite, Einkaufswagen, Zahlungsprozess usw. Sie könnten diese dann weiter unterteilen — ein gemeinsames Website-Header und Footer implementieren, Detailansicht der Produktseite implementieren, beständige Einkaufswagen-Widgets implementieren usw.
 
-Es gibt mehrere allgemeine Strategien für die plattformübergreifende Entwicklung, zum Beispiel:
+Es gibt mehrere allgemeine Strategien für die Entwicklung über mehrere Browser hinweg, zum Beispiel:
 
-- Alle Funktionen so nah wie möglich in allen Ziel-Browsern arbeiten lassen. Dies kann das Schreiben von verschiedenen Code-Pfaden erfordern, die die Funktionalität auf unterschiedliche Weise reproduzieren, die für verschiedene Browser gedacht sind, oder ein {{Glossary("Polyfill", "Polyfill")}} verwenden, um fehlende Unterstützung mithilfe von JavaScript oder anderen Technologien zu imitieren, oder eine Bibliothek verwenden, die es Ihnen ermöglicht, einen einzigen Code zu schreiben und dann im Hintergrund verschiedene Dinge je nach Browser-Unterstützung zu tun.
-- Akzeptieren, dass einige Dinge nicht auf allen Browsern gleich funktionieren werden, und unterschiedliche (akzeptable) Lösungen in Browsern bereitstellen, die die volle Funktionalität nicht unterstützen. Manchmal ist dies unvermeidlich aufgrund von Geräteeinschränkungen — ein Kinobreitbildschirm wird nicht dasselbe visuelle Erlebnis wie ein 4-Zoll-Bildschirm bieten, unabhängig davon, wie Sie Ihre Website programmieren.
-- Akzeptieren, dass Ihre Website einfach auf einigen älteren Browsern nicht funktionieren wird, und weitermachen. Dies ist in Ordnung, vorausgesetzt Ihr Kunde/Nutzerkreis ist damit einverstanden.
+- Die gesamte Funktionalität so nah wie möglich in allen Zielbrowsern zum Laufen bringen. Dies kann das Schreiben verschiedener Codepfade, die Funktionalität auf unterschiedliche Weise für unterschiedliche Browser reproduzieren, das Verwenden eines {{Glossary("Polyfill", "Polyfills")}} beinhalten, um fehlende Unterstützung mit JavaScript oder anderen Technologien nachzuahmen, oder eine Bibliothek verwenden, die es ermöglicht, einen einzigen Code zu schreiben, und dann im Hintergrund abhängig davon, was der Browser unterstützt, unterschiedliche Dinge tun.
+- Akzeptieren, dass einige Dinge nicht gleich in allen Browsern funktionieren, und unterschiedliche (akzeptable) Lösungen in Browsern bieten, die die vollständige Funktionalität nicht unterstützen. Manchmal ist dies aufgrund von Gerätebeschränkungen unumgänglich — ein Kino-Breitbildschirm wird nicht die gleiche visuelle Erfahrung bieten wie ein 4-Zoll-Mobilscreen, unabhängig davon, wie Sie Ihre Website programmieren.
+- Akzeptieren, dass Ihre Website einfach in einigen älteren Browsern nicht funktionieren wird, und weitermachen. Dies ist in Ordnung, vorausgesetzt, Ihr Kunde/Nutzerbasis ist damit einverstanden.
 
-Normalerweise wird Ihre Entwicklung eine Kombination der oben genannten drei Ansätze beinhalten. Das Wichtigste ist, dass Sie jeden kleinen Teil testen, bevor Sie ihn endgültig festlegen — lassen Sie nicht alle Tests bis zum Ende!
+Normalerweise umfasst Ihre Entwicklung eine Kombination der oben genannten drei Ansätze. Das Wichtigste ist, dass Sie jede kleine Komponente testen, bevor Sie sie festschreiben — lassen Sie nicht alle Tests bis zum Schluss!
 
 ### Testen/Entdeckung
 
-Nach jeder Implementierungsphase müssen Sie die neue Funktionalität testen. Zunächst sollten Sie sicherstellen, dass es keine allgemeinen Probleme mit Ihrem Code gibt, die das Funktionieren Ihres Features stoppen:
+Nach jeder Implementierungsphase müssen Sie die neue Funktionalität testen. Zunächst sollten Sie sicherstellen, dass keine allgemeinen Probleme mit Ihrem Code vorliegen, die Ihre Funktion daran hindern:
 
 1. Testen Sie es in einigen stabilen Browsern auf Ihrem System, wie Firefox, Safari, Chrome oder Edge.
-2. Führen Sie einige einfache Barrierefreiheitsprüfungen durch, beispielsweise indem Sie versuchen, Ihre Website nur mit der Tastatur zu verwenden, oder Ihre Website über einen Bildschirmleser verwenden, um zu sehen, ob sie navigierbar ist.
-3. Testen Sie auf einer mobilen Plattform, z. B. Android oder iOS.
+2. Führen Sie einen lo-fi Barrierefreiheitstest durch, z. B. versuchen Sie, Ihre Website nur mit der Tastatur zu verwenden oder Ihre Website über einen Screenreader zu navigieren, um zu sehen, ob sie navigierbar ist.
+3. Testen Sie auf einer mobilen Plattform, wie Android oder iOS.
 
-Zu diesem Zeitpunkt beheben Sie alle Probleme, die Sie mit Ihrem neuen Code finden.
+An diesem Punkt beheben Sie alle Probleme, die Sie mit Ihrem neuen Code finden.
 
-Als Nächstes sollten Sie versuchen, Ihre Liste der Test-Browser auf eine vollständige Liste der Zielpublikum-Browser zu erweitern und sich darauf konzentrieren, plattformübergreifende Probleme zu beseitigen (siehe der nächste Artikel für weitere Informationen darüber, wie Sie Ihren Zielbrowser bestimmen können: [determining your target browsers](/de/docs/Learn_web_development/Extensions/Testing/Testing_strategies)). Zum Beispiel:
+Als nächstes sollten Sie Ihre Liste der Testbrowser auf eine vollständige Liste von Zielgruppenbrowsern erweitern und beginnen, sich auf die Ausmerzung von Cross-Browser-Problemen zu konzentrieren (siehe den nächsten Artikel für weitere Informationen zu [Bestimmung Ihrer Zielbrowser](/de/docs/Learn_web_development/Extensions/Testing/Testing_strategies)). Beispielsweise:
 
-- Versuchen Sie, die neueste Änderung auf allen modernen Desktop-Browsern zu testen, die Sie können — einschließlich Firefox, Chrome, Opera, Edge und Safari auf Desktop (Mac, Windows und Linux, idealerweise).
-- Testen Sie es in gängigen Telefon- und Tablet-Browsern (z. B. iOS Safari auf iPhone/iPad, Chrome und Firefox auf iPhone/iPad/Android),
-- Führen Sie auch Tests in anderen Browsern durch, die Sie in Ihre Zielliste aufgenommen haben.
+- Versuchen Sie, die neuesten Änderungen in allen modernen Desktop-Browsern zu testen, die Sie können — einschließlich Firefox, Chrome, Opera, Edge und Safari auf dem Desktop (idealerweise Mac, Windows und Linux).
+- Testen Sie es in gängigen Handy- und Tablet-Browsern (z. B. iOS Safari auf iPhone/iPad, Chrome und Firefox auf iPhone/iPad/Android),
+- Führen Sie auch Tests in allen anderen Browsern durch, die Sie in Ihre Ziel-Liste aufgenommen haben.
 
-Die einfachste Möglichkeit ist, einfach alle Tests, die Sie können, selbst durchzuführen (indem Sie, falls Sie in einem Team arbeiten, Teammitglieder zur Hilfe heranziehen). Sie sollten versuchen, es auf echten physischen Geräten, wenn möglich, zu testen.
+Die lo-fi Option besteht darin, alle Tests selbst durchzuführen (oder Teamkollegen einzubeziehen, wenn Sie in einem Team arbeiten). Sie sollten versuchen, es auf echten physischen Geräten zu testen, wo es möglich ist.
 
-Wenn Sie nicht die Mittel haben, all diese verschiedenen Browser-, Betriebsplattform- und Geräte-Kombinationen auf physischer Hardware zu testen, können Sie auch Emulatoren verwenden (ein Gerät mithilfe von Software auf Ihrem Desktop-Computer simulieren) und virtuelle Maschinen (Software, die es Ihnen ermöglicht, mehrere Betriebssysteme/Softwarekombinationen auf Ihrem Desktop-Computer zu simulieren). Dies ist eine sehr beliebte Wahl, insbesondere in einigen Fällen — zum Beispiel erlaubt Windows nicht, dass Sie mehrere Windows-Versionen gleichzeitig auf demselben Rechner installiert haben, daher ist die Verwendung mehrerer virtueller Maschinen hier oft die einzige Option.
+Wenn Sie nicht die Mittel haben, all diese unterschiedlichen Browser-, Betriebssystem- und Gerätekombinationen auf physischer Hardware zu testen, können Sie auch Emulatoren verwenden (ein Gerät mit Software auf Ihrem Desktop-Computer emulieren) und virtuelle Maschinen (Software, die es Ihnen ermöglicht, mehrere Betriebssystem-/Softwarekombinationen auf Ihrem Desktop-Computer zu emulieren). Dies ist eine sehr beliebte Wahl, besonders in einigen Fällen — zum Beispiel ermöglicht Windows es Ihnen nicht, mehrere Versionen von Windows gleichzeitig auf derselben Maschine installiert zu haben, daher ist die Verwendung mehrerer virtueller Maschinen oft die einzige Option hier.
 
-Eine weitere Möglichkeit sind Benutzergruppen — die Nutzung einer Gruppe von Menschen außerhalb Ihres Entwicklungsteams, um Ihre Website zu testen. Dies könnte eine Gruppe von Freunden oder Familienmitgliedern, eine Gruppe anderer Mitarbeiter, eine Klasse an einer lokalen Universität oder ein professionelles Benutzertest-Setup sein, bei dem Personen bezahlt werden, um Ihre Website zu testen und Ergebnisse bereitzustellen.
+Eine andere Option sind Benutzergruppen — die Benutzung einer Gruppe von Personen außerhalb Ihres Entwicklungsteams, um Ihre Website zu testen. Dies könnte eine Gruppe von Freunden oder Familie sein, eine Gruppe anderer Mitarbeiter, eine Klasse an einer lokalen Universität oder ein professionelles Benutzertestsystem, bei dem Menschen dafür bezahlt werden, Ihre Website zu testen und Ergebnisse zu liefern.
 
-Schließlich können Sie mit Ihrem Testen intelligenter werden, indem Sie Auditierungs- oder Automatisierungstools verwenden; dies ist eine sinnvolle Wahl, wenn Ihre Projekte größer werden, da all dieses Testen per Hand begonnen kann, wirklich lange zu dauern. Sie können Ihr eigenes Testautomatisierungssystem einrichten ([Selenium](https://www.selenium.dev/) ist die beliebte Wahl), das beispielsweise Ihre Website in einer Anzahl verschiedener Browser laden und:
+Schließlich können Sie mit Ihrem Testen durch Audits oder Automatisierung intelligenter werden; dies ist eine sinnvolle Wahl, wenn Ihre Projekte größer werden, da all dieses Testen von Hand sehr lange dauern kann. Sie können Ihr eigenes Testautomatisierungssystem einrichten ([Selenium](https://www.selenium.dev/) ist die beliebte App der Wahl), das zum Beispiel Ihre Seite in einer Anzahl verschiedener Browser laden könnte, und:
 
-- prüfen kann, ob ein Button-Klick erfolgreich etwas bewirkt (wie zum Beispiel die Anzeige einer Karte), wobei die Ergebnisse angezeigt werden, sobald die Tests abgeschlossen sind,
-- einen Screenshot von jedem machen kann, sodass Sie sehen können, ob ein Layout in den verschiedenen Browsern konsistent ist.
+- überprüfen, ob ein Klick auf einen Button erfolgreich etwas bewirkt (wie z. B. das Anzeigen einer Karte), die Ergebnisse anzeigen, sobald die Tests abgeschlossen sind
+- einen Screenshot von jedem machen, um zu sehen, ob ein Layout in den verschiedenen Browsern konsistent ist.
 
-Wenn Sie Geld in Tests investieren möchten, gibt es auch kommerzielle Tools, die viel von der Einrichtung und dem Testen für Sie automatisieren können (wie [Sauce Labs](https://saucelabs.com/) und [Browser Stack](https://www.browserstack.com/)). Diese Art von Tools ermöglicht normalerweise einen kontinuierlichen Integrationsworkflow, bei dem Codeänderungen automatisch getestet werden, bevor sie in Ihr Code-Repository eingereicht werden dürfen.
+Wenn Sie Geld in das Testen investieren möchten, gibt es auch kommerzielle Tools, die einen Großteil der Einrichtung und des Testens für Sie automatisieren können (wie [Sauce Labs](https://saucelabs.com/) und [Browser Stack](https://www.browserstack.com/)). Diese Arten von Tools ermöglichen in der Regel einen kontinuierlichen Integrationsworkflow, bei dem Codeänderungen automatisch getestet werden, bevor sie in Ihr Code Repository eingereicht werden dürfen.
 
 #### Testen auf Vorabversionen von Browsern
 
@@ -141,23 +139,23 @@ Es ist oft eine gute Idee, auf Vorabversionen von Browsern zu testen; siehe die 
 - [Chrome Canary](https://www.google.com/chrome/canary/)
 - [Opera Developer](https://www.opera.com/opera/developer)
 
-Dies ist besonders verbreitet, wenn Sie sehr neue Technologien auf Ihrer Website verwenden und gegen die neuesten Implementierungen testen möchten, oder wenn Sie auf einen Bug in der neuesten Release-Version eines Browsers stoßen und sehen möchten, ob die Entwickler des Browsers den Bug in einer neueren Version behoben haben.
+Dies ist besonders wichtig, wenn Sie sehr neue Technologien auf Ihrer Seite verwenden und gegen die neuesten Implementierungen testen möchten, oder wenn Sie auf einen Fehler in der neuesten Release-Version eines Browsers stoßen und sehen möchten, ob die Entwickler des Browsers den Fehler in einer neueren Version behoben haben.
 
-### Korrekturen/Iteration
+### Fehlerbehebungen/Iteration
 
-Sobald Sie einen Bug entdeckt haben, müssen Sie versuchen, ihn zu beheben.
+Sobald Sie einen Fehler entdeckt haben, müssen Sie versuchen, ihn zu beheben.
 
-Das Erste, was zu tun ist, den Bereich, in dem der Bug auftritt, so weit wie möglich einzugrenzen. Holen Sie so viele Informationen wie möglich von der Person ein, die den Bug meldet — welche Plattform(en), Gerät(e), Browserversion(en) etc. Versuchen Sie es mit ähnlichen Konfigurationen (z. B. dieselbe Browserversion auf verschiedenen Desktop-Plattformen oder ein paar verschiedene Versionen desselben Browsers auf derselben Plattform), um zu sehen, wie weit verbreitet der Bug ist.
+Das erste, was zu tun ist, ist, den Ort des Fehlers so weit wie möglich einzugrenzen. Holen Sie sich so viele Informationen wie möglich von der Person, die den Fehler meldet — welches/welche Plattform(en), Gerät(e), Browserversion(en) usw. Versuchen Sie es auf ähnlichen Konfigurationen (z. B. dieselbe Browserversion auf verschiedenen Desktop-Plattformen oder ein paar verschiedene Versionen des gleichen Browsers auf derselben Plattform), um zu sehen, wie weit verbreitet der Fehler ist.
 
-Es könnte nicht Ihre Schuld sein — wenn ein Bug in einem Browser existiert, dann wird der Anbieter diesen hoffentlich schnell beheben. Es könnte schon behoben worden sein — beispielsweise, wenn ein Bug in der Firefox-Version 49 vorhanden ist, aber nicht mehr in Firefox Nightly (Version 52), dann haben sie ihn behoben. Wenn er nicht behoben ist, dann möchten Sie möglicherweise einen Bug melden (siehe unten [Melden von Bugs](#melden_von_bugs)).
+Es könnte nicht Ihr Fehler sein — wenn ein Fehler in einem Browser existiert, dann wird der Anbieter ihn hoffentlich schnell beheben. Er könnte bereits behoben worden sein — zum Beispiel, wenn ein Fehler in Firefox Version 49 vorliegt, aber in Firefox Nightly (Version 52) nicht mehr vorhanden ist, dann wurde er behoben. Wenn er nicht behoben ist, möchten Sie möglicherweise einen Fehler melden (siehe [Fehler melden](#fehler_melden), unten).
 
-Wenn es Ihr Fehler ist, müssen Sie ihn beheben! Das Finden der Ursache des Bugs beinhaltet dieselbe Strategie wie bei jedem Webentwicklungs-Bug (siehe erneut [Debugging HTML](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML), [Debugging CSS](/de/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS) und [What went wrong? Troubleshooting JavaScript](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong)). Sobald Sie herausgefunden haben, was Ihren Bug verursacht, müssen Sie entscheiden, wie Sie es in dem bestimmten Browser umgehen, in dem es Probleme verursacht — Sie können das Problemverursachende Code nicht einfach ändern, da dies den Code in anderen Browsern brechen könnte. Der allgemeine Ansatz besteht normalerweise darin, den Code auf irgendeine Weise zu verzweigen, z. B. JavaScript-Feature-Erkennungscode zu verwenden, um Situationen zu erkennen, in denen ein Problem-Feature nicht funktioniert, und in diesen Fällen anderen Code auszuführen, der funktioniert.
+Wenn es Ihr Fehler ist, müssen Sie ihn beheben! Das Finden der Ursache des Fehlers folgt derselben Strategie wie bei jedem anderen Webentwicklungsfehler (siehe wiederum [Debugging HTML](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML), [Debugging CSS](/de/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS) und [Was ist schiefgelaufen? Fehlersuche in JavaScript](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong)). Sobald Sie herausgefunden haben, was Ihren Fehler verursacht, müssen Sie entscheiden, wie Sie ihn in dem speziellen Browser, in dem das Problem auftritt, umgehen — Sie können den problematischen Code nicht einfach ändern, da dies den Code in anderen Browsern brechen könnte. Der allgemeine Ansatz besteht normalerweise darin, den Code auf irgendeine Weise zu verzweigen, zum Beispiel JavaScript-Funktionsdetektion zu verwenden, um Situationen zu erkennen, in denen eine problematische Funktion nicht funktioniert, und in diesen Fällen, in denen es funktioniert, einen anderen Code auszuführen.
 
-Sobald eine Korrektur vorgenommen wurde, möchten Sie Ihren Testprozess erneut durchlaufen, um sicherzustellen, dass Ihre Korrektur in Ordnung ist und die Website nicht anderweitig oder in anderen Browsern beschädigt.
+Sobald ein Fix vorgenommen wurde, möchten Sie Ihren Testprozess wiederholen, um sicherzustellen, dass Ihr Fix in Ordnung ist und die Seite nicht an anderen Stellen oder in anderen Browsern gebrochen hat.
 
-## Melden von Bugs
+## Fehler melden
 
-Um das oben Gesagte zu wiederholen, wenn Sie Bugs in Browsern entdecken, sollten Sie sie melden:
+Um das oben Gesagte nochmals zu wiederholen: Wenn Sie Fehler in Browsern entdecken, sollten Sie diese melden:
 
 - [Firefox Bugzilla](https://bugzilla.mozilla.org/)
 - [Safari](https://bugs.webkit.org/)
@@ -166,6 +164,6 @@ Um das oben Gesagte zu wiederholen, wenn Sie Bugs in Browsern entdecken, sollten
 
 ## Zusammenfassung
 
-Dieser Artikel sollte Ihnen ein übergeordnetes Verständnis der wichtigsten Konzepte gegeben haben, die Sie über plattformübergreifendes Testen wissen müssen. Mit diesem Wissen sind Sie jetzt bereit, weiterzumachen und beginnen, mehr über plattformübergreifende Teststrategien zu lernen.
+Dieser Artikel sollte Ihnen ein grundlegendes Verständnis der wichtigsten Konzepte zum Cross-Browser-Testing vermittelt haben. Mit diesem Wissen sind Sie nun bereit, weiterzumachen und mehr über Cross-Browser-Testing-Strategien zu lernen.
 
 {{NextMenu("Learn_web_development/Extensions/Testing/Testing_strategies", "Learn_web_development/Extensions/Testing")}}

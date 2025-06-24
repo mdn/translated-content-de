@@ -3,14 +3,12 @@ title: "ResizeObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/ResizeObserver/observe
 l10n:
-  sourceCommit: f35733893f8c17dcbf8e9d5cf2551f6fb1cbecd5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Resize Observer API")}}
 
-Die **`observe()`** Methode des
-[`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Interfaces beginnt mit der Beobachtung des angegebenen
-[`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
+Die **`observe()`** Methode des [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Interfaces beginnt mit der Beobachtung des angegebenen [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 ## Syntax
 
@@ -22,21 +20,17 @@ observe(target, options)
 ### Parameter
 
 - `target`
-  - : Eine Referenz zu einem [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement), das beobachtet werden soll.
+  - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement), das beobachtet werden soll.
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt, das es Ihnen ermöglicht, Optionen für die Beobachtung festzulegen. Derzeit gibt es nur eine mögliche Option, die festgelegt werden kann:
-
     - `box`
-
-      - : Legt fest, welches Box-Modell der Observer auf Änderungen beobachten wird. Mögliche Werte sind:
-
+      - : Legt fest, welches Boxmodell der Observer beobachten wird. Mögliche Werte sind:
         - `content-box` (der Standardwert)
           - : Größe des Inhaltsbereichs, wie in CSS definiert.
         - `border-box`
-          - : Größe des Rahmenbereichs, wie in CSS definiert.
+          - : Größe des Randbereichs der Box, wie in CSS definiert.
         - `device-pixel-content-box`
-          - : Die Größe des Inhaltsbereichs, wie in CSS definiert, in {{Glossary("device_pixel", "Gerätepixeln")}}, bevor CSS-Transformationen auf das Element oder seine Vorfahren angewendet werden.
+          - : Die Größe des Inhaltsbereichs, wie in CSS definiert, gemessen in {{Glossary("device_pixel", "Gerätepixeln")}}, bevor CSS-Transformationen auf das Element oder seine Vorfahren angewendet werden.
 
 ### Rückgabewert
 
@@ -48,8 +42,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Code-Snippet stammt aus dem [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html)
-([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) Beispiel:
+Das folgende Snippet stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)):
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

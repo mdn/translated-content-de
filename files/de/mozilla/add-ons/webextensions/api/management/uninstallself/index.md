@@ -2,16 +2,16 @@
 title: management.uninstallSelf()
 slug: Mozilla/Add-ons/WebExtensions/API/management/uninstallSelf
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
 Deinstalliert das aufrufende Add-on.
 
-Diese API _erfordert nicht_ die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API _erfordert nicht_ die Berechtigung "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Diese Funktion ist asynchron und gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück.
 
 ## Syntax
 
@@ -24,11 +24,9 @@ let uninstallingSelf = browser.management.uninstallSelf(
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : `object`. Objekt, das zwei Eigenschaften haben kann, beide optional:
-
     - `showConfirmDialog` {{optional_inline}}
-      - : Boolean. Wenn `showConfirmDialog` auf `true` gesetzt ist, zeigt der Browser ein Dialogfenster, in dem der Benutzer gefragt wird, ob das Add-on deinstalliert werden soll. Standardmäßig ist es `false`.
+      - : Boolean. Wenn `showConfirmDialog` `true` ist, zeigt der Browser einen Dialog an, der den Benutzer bittet zu bestätigen, dass das Add-on deinstalliert werden soll. Standardwert ist `false`.
     - `dialogMessage` {{optional_inline}}
       - : String. Eine zusätzliche Nachricht, die im Bestätigungsdialog angezeigt wird.
 
@@ -42,9 +40,9 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Deinstallieren Sie das Add-on und fragen Sie den Benutzer nach einer Bestätigung. Im Callback wird überprüft, ob der Benutzer die Deinstallation abgebrochen hat.
+Deinstallieren Sie das Add-on, wobei der Benutzer um Bestätigung gebeten wird. Im Callback überprüfen Sie, ob der Benutzer die Deinstallation abgebrochen hat.
 
-Beachten Sie, dass wir keinen Erfüllungs-Handler übergeben haben, da, wenn die Deinstallation erfolgreich ist, das Add-on nicht mehr vorhanden ist, um es zu verarbeiten.
+Beachten Sie, dass wir keinen Fulfillment-Handler übergeben haben, da das Add-on, wenn die Deinstallation erfolgreich ist, nicht mehr vorhanden ist, um es zu bearbeiten.
 
 ```js
 function onCanceled(error) {
@@ -58,7 +56,7 @@ let uninstalling = browser.management.uninstallSelf({
 uninstalling.then(null, onCanceled);
 ```
 
-Dasselbe, aber mit einer zusätzlichen benutzerdefinierten Nachricht im Dialog:
+Das Gleiche, aber mit einer benutzerdefinierten Nachricht im Dialog:
 
 ```js
 function onCanceled(error) {
@@ -76,7 +74,7 @@ uninstalling.then(null, onCanceled);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-uninstallSelf) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-uninstallSelf) API. Diese Dokumentation stammt von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,14 +2,14 @@
 title: <box-edge>
 slug: Web/CSS/box-edge
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`<box-edge>`** Wertetyp repräsentiert ein [Box-Kanten](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Schlüsselwort, wie zum Beispiel [`content-box`](#content-box) und [`border-box`](#border-box). Die Box-Kanten-Schlüsselwörter werden verwendet, um verschiedene Aspekte des Box-Modells eines Elements zu definieren und wie Elemente auf dem Bildschirm positioniert und gerendert werden.
+Die **`<box-edge>`** Werttypen repräsentieren ein [Box-Kante](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Schlüsselwort, wie [`content-box`](#content-box) und [`border-box`](#border-box). Die Box-Kante-Schlüsselwörter werden verwendet, um verschiedene Aspekte des Boxmodells eines Elements zu definieren und wie Elemente auf dem Bildschirm positioniert und gerendert werden.
 
-Die Box-Kanten-Schlüsselwörter sind Komponenten von, aber nicht beschränkt auf, die Datentypen `<visual-box>`, `<layout-box>`, `<paint-box>`, `<coord-box>` und `<geometry-box>`. Diese Typen werden auf Eigenschaften wie {{cssxref("transform-box")}} und {{cssxref("background-clip")}} angewendet.
+Die Box-Kante-Schlüsselwörter sind Komponenten von, aber nicht beschränkt auf, die Datentypen `<visual-box>`, `<layout-box>`, `<paint-box>`, `<coord-box>` und `<geometry-box>`. Diese Typen werden auf Eigenschaften wie {{cssxref("transform-box")}} und {{cssxref("background-clip")}} angewendet.
 
 ## Syntax
 
@@ -27,22 +27,22 @@ Ein `<box-edge>` kann vom Typ `<visual-box>`, `<layout-box>`, `<paint-box>`, `<c
 
 - `<visual-box>`
 
-  - : Bezieht sich auf das rechteckige Feld, das für ein Element erzeugt wird, wie es von einem Benutzer auf einer Webseite gesehen wird. Es umfasst den Inhalt des Elements, den Innenabstand und den Rahmen. Auch als `<box>` bezeichnet, schließt dieser Wert den Randbereich aus. Dieser Wertetyp wird für die Eigenschaften {{cssxref("background-clip")}} und {{cssxref("overflow-clip-margin")}} verwendet.
+  - : Bezieht sich auf das rechteckige Feld, das für ein Element generiert wird, wie es von einem Benutzer auf einer Webseite gesehen wird. Es umfasst den Inhalt, den Innenabstand und die Grenze des Elements. Auch als `<box>` bezeichnet, schließt dieser Wert den Randbereich aus. Dieser Werttyp wird für die Eigenschaften {{cssxref("background-clip")}} und {{cssxref("overflow-clip-margin")}} verwendet.
 
 - `<layout-box>`
 
-  - : Bezieht sich auf den Raum, der von einem Element eingenommen wird, einschließlich seines Inhalts, Innenabstands, Rahmens und Randes. Dieser Wertetyp wird für Layout- und Positionierungszwecke verwendet. Auch als `<shape-box>` bezeichnet, wird dieser Wertetyp für die Eigenschaft {{cssxref("shape-outside")}} verwendet.
+  - : Bezieht sich auf den vom Element belegten Raum, einschließlich Inhalt, Innenabstand, Grenze und Rand. Dieser Werttyp wird für Layout- und Positionierungszwecke verwendet. Auch als `<shape-box>` bezeichnet, wird dieser Werttyp für die Eigenschaft {{cssxref("shape-outside")}} verwendet.
 
 - `<paint-box>`
 
-  - : Bezieht sich auf den Bereich innerhalb des Layout-Box, der zur visuellen Darstellung des Inhalts verwendet wird. Dies schließt den Bereich ein, in dem der Hintergrund und die Ränder des Elements bemalt werden. Da der bemalbare Bereich eines Elements seine Ränder nicht umfasst, schließt dieser Wert `margin-box` aus.
+  - : Bezieht sich auf den Bereich innerhalb der Layout-Box, der visuell den Inhalt darstellt. Dies umfasst den Bereich, in dem der Hintergrund und die Grenzen des Elements gemalt werden. Da der bemalbare Bereich eines Elements seine Ränder nicht einschließt, schließt dieser Wert `margin-box` aus.
 
 - `<coord-box>`
 
-  - : Bezieht sich auf die Koordinatenbox, die zur Positionierung und Größenänderung eines Elements innerhalb seines übergeordneten Containers verwendet wird. Sie wird verwendet, um zu steuern, wie sich der Inhalt um die Kanten der Box herum bewegt. Sie schließt den Randbereich aus. Dieser Wertetyp wird für die Eigenschaft {{cssxref("offset-path")}} verwendet.
+  - : Bezieht sich auf die Koordinatenbox, die für die Positionierung und Dimensionierung eines Elements innerhalb seines übergeordneten Containers verwendet wird. Sie wird verwendet, um zu steuern, wie der Inhalt um die Ränder der Box fließt. Sie schließt den Randbereich aus. Dieser Werttyp wird für die Eigenschaft {{cssxref("offset-path")}} verwendet.
 
 - `<geometry-box>`
-  - : Definiert die Referenzbox für eine [Grundform](/de/docs/Web/CSS/basic-shape), oder wenn sie alleine angegeben ist, führt sie dazu, dass die Kanten der angegebenen Box, einschließlich jeglicher Eckformen (wie etwa ein {{cssxref("border-radius")}}), den Clipping-Pfad darstellen. Dieser Wertetyp wird für die Eigenschaften {{cssxref("clip-path")}}, {{cssxref("mask-clip")}}, und {{cssxref("mask-origin")}} sowie das SVG-Attribut {{SVGAttr("clip-path")}} verwendet.
+  - : Definiert die Referenzbox für eine [Grundform](/de/docs/Web/CSS/basic-shape), oder wenn sie selbst spezifiziert ist, verursacht sie, dass die Kanten der spezifizierten Box, einschließlich jeder Eckenformung (wie ein {{cssxref("border-radius")}}), der Clipping-Pfad sind. Dieser Werttyp wird für die Eigenschaften {{cssxref("clip-path")}}, {{cssxref("mask-clip")}}, und {{cssxref("mask-origin")}} und das SVG-Attribut {{SVGAttr("clip-path")}} verwendet.
 
 ### Schlüsselwörter
 
@@ -58,7 +58,7 @@ Die `<box-edge>` Schlüsselwörter sind wie folgt definiert:
 
 - `border-box`
 
-  - : Bezieht sich auf die Außenkante des Rahmens der Box. Wenn auf einer Seite kein Rahmen vorhanden ist, ist der Wert derselbe wie `padding-box`. In SVG wird `border-box` als `stroke-box` behandelt. Der Rahmenbereich umgibt den Innenabstandsbereich und beginnt an der Außenkante der Padding-Box.
+  - : Bezieht sich auf die Außenkante der Grenze der Box. Wenn auf einer Seite keine Grenze vorhanden ist, ist der Wert derselbe wie `padding-box`. In SVG wird `border-box` als `stroke-box` behandelt. Der Grenzbereich umgibt den Innenabstandsbereich und beginnt an der Außenkante der Padding-Box.
 
 - `margin-box`
 
@@ -66,17 +66,16 @@ Die `<box-edge>` Schlüsselwörter sind wie folgt definiert:
 
 - `fill-box`
 
-  - : Bezieht sich auf die Objektbegrenzungsbox in SVG. In CSS wird `fill-box` als `content-box` behandelt. Es wird verwendet, um den Inhalt um die durch die `coord-box` Werte definierten Kanten zu wickeln.
+  - : Bezieht sich auf die Objektbegrenzungsbox in SVG. In CSS wird `fill-box` als `content-box` behandelt. Es wird verwendet, um den Inhalt um die durch die `coord-box` Werte definierten Kanten herum zu umschließen.
 
 - `stroke-box`
 
-  - : Bezieht sich auf die Rahmenbegrenzungsbox in SVG. In CSS wird `stroke-box` als `border-box` behandelt. Es wird verwendet, um die Form des Elements zu definieren, wenn Striche angewendet werden.
+  - : Bezieht sich auf die Strichbegrenzungsbox in SVG. In CSS wird `stroke-box` als `border-box` behandelt. Es wird verwendet, um die Form des Elements zu definieren, wenn Striche angewendet werden.
 
 - `view-box`
-
-  - : Bezieht sich auf die Ursprungsbox des nächsten SVG-Ansichtsfensterelements. Die Ursprungsbox ist ein Rechteck mit der Breite und Höhe des initialen SVG-Nutzerkoordinatensystems, das durch das {{svgattr("viewBox")}} Attribut für dieses Element etabliert wird. Die Ursprungsbox ist so positioniert, dass ihre obere linke Ecke am [Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) Ursprung verankert ist. In CSS wird `view-box` als `border-box` behandelt.
+  - : Bezieht sich auf die Ursprungsbox des nächsten SVG-Viewport-Elements. Die Ursprungsbox ist ein Rechteck mit der Breite und Höhe des initialen SVG-Benutzerkoordinatensystems, das durch das {{svgattr("viewBox")}} Attribut für dieses Element festgelegt wird. Die Ursprungsbox ist so positioniert, dass ihre obere linke Ecke am Ursprung des [Koordinatensystems](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) verankert ist. In CSS wird `view-box` als `border-box` behandelt.
     > [!NOTE]
-    > Wenn das SVG-Ansichtsfenster nicht am Ursprung verankert ist, entspricht die Ursprungsbox nicht dem SVG-Ansichtsfenster.
+    > Wenn das SVG-Viewport nicht am Ursprung verankert ist, entspricht die Ursprungsbox nicht dem SVG-Viewport.
 
 ## Spezifikationen
 

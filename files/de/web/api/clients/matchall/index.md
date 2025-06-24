@@ -3,13 +3,12 @@ title: "Clients: matchAll() Methode"
 short-title: matchAll()
 slug: Web/API/Clients/matchAll
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`matchAll()`** Methode der [`Clients`](/de/docs/Web/API/Clients) Schnittstelle gibt ein {{jsxref("Promise")}} für eine Liste von Service Worker
-[`Client`](/de/docs/Web/API/Client) Objekten zurück. Schließen Sie den `options`-Parameter ein, um alle Service Worker-Clients zurückzugeben, deren Herkunft mit der des zugehörigen Service Workers identisch ist. Wenn keine Optionen einbezogen werden, gibt die Methode nur die vom Service Worker gesteuerten Service Worker-Clients zurück.
+Die **`matchAll()`**-Methode der [`Clients`](/de/docs/Web/API/Clients)-Schnittstelle gibt ein {{jsxref("Promise")}} für eine Liste von Service Worker-[`Client`](/de/docs/Web/API/Client)-Objekten zurück. Schließen Sie den `options`-Parameter ein, um alle Service Worker-Clients zurückzugeben, deren Ursprung derselbe ist wie der Ursprung des zugehörigen Service Workers. Wenn keine Optionen eingeschlossen sind, gibt die Methode nur die vom Service Worker kontrollierten Service Worker-Clients zurück.
 
 ## Syntax
 
@@ -21,17 +20,15 @@ matchAll(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt, mit dem Sie Optionen für den Matching-Vorgang festlegen können. Verfügbare Optionen sind:
-
     - `includeUncontrolled`
-      - : Ein boolescher Wert — wenn er auf `true` gesetzt ist, gibt der Matching-Vorgang alle Service Worker-Clients zurück, die denselben Ursprung wie der aktuelle Service Worker haben. Andernfalls gibt er nur die vom aktuellen Service Worker gesteuerten Service Worker-Clients zurück. Der Standardwert ist `false`.
+      - : Ein boolescher Wert — wenn auf `true` gesetzt, wird der Matching-Vorgang alle Service Worker-Clients zurückgeben, die denselben Ursprung wie der aktuelle Service Worker teilen. Andernfalls werden nur die Service Worker-Clients zurückgegeben, die vom aktuellen Service Worker kontrolliert werden. Der Standardwert ist `false`.
     - `type`
       - : Legt den Typ der Clients fest, die Sie abgleichen möchten. Verfügbare Werte sind `"window"`, `"worker"`, `"sharedworker"` und `"all"`. Der Standardwert ist `"window"`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in ein Array von [`Client`](/de/docs/Web/API/Client) Objekten aufgelöst wird. In Chrome 46/Firefox 54 und später gibt diese Methode die Clients in der Reihenfolge der zuletzt fokussierten zurück, gemäß der Spezifikation.
+Ein {{jsxref("Promise")}}, das zu einem Array von [`Client`](/de/docs/Web/API/Client)-Objekten auflöst. In Chrome 46/Firefox 54 und später gibt diese Methode Clients in der Reihenfolge der zuletzt fokussierten, korrekt gemäß Spezifikation, zurück.
 
 ## Beispiele
 

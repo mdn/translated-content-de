@@ -3,11 +3,10 @@ title: Firefox 141 für Entwickler
 short-title: Firefox 141 (Nightly)
 slug: Mozilla/Firefox/Releases/141
 l10n:
-  sourceCommit: 1f8d3bebb12dfb1e982ff907956b27c4a986b02b
+  sourceCommit: e482e164bfb8135fd1c957bb62d816f41a4659dc
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
-Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 141, die Entwickler betreffen. Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
@@ -15,8 +14,7 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ### HTML
 
-- Das HTML-Attribut [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) und die entsprechende Eigenschaft [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) werden jetzt auf Firefox Android unterstützt.
-  Das Attribut kann gesetzt werden, um anzugeben, dass ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element die Auswahl von Verzeichnissen statt Dateien ermöglichen soll. ([Firefox Fehler 1887878](https://bugzil.la/1887878)).
+- Das HTML-Attribut [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) und die entsprechende Eigenschaft [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) werden jetzt auf Firefox Android unterstützt. Das Attribut kann gesetzt werden, um anzugeben, dass ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element die Auswahl von Verzeichnissen anstelle von Dateien ermöglichen soll. ([Firefox Bug 1887878](https://bugzil.la/1887878)).
 
 #### Entfernungen
 
@@ -33,6 +31,8 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 #### Entfernungen
 
 ### HTTP
+
+- Die [`"cache"`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache)-Direktive des {{httpheader("Clear-Site-Data")}} Antwort-Headers löscht nun den {{Glossary("bfcache", "bfcache")}} (Backwards-Forwards-Cache). Dies ermöglicht es einer Website sicherzustellen, dass, wenn jemand nach der Abmeldung des Benutzers rückwärts navigiert, private Details, die während der Initialsitzung sichtbar waren, nicht offengelegt werden. ([Firefox Bug 1930501](https://bugzil.la/1930501)).
 
 #### Entfernungen
 
@@ -62,17 +62,15 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ## Änderungen für Add-on-Entwickler
 
-- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Dies ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, die Details zu den im Browser eingestellten Gebietsschemas zurückgibt. ([Firefox Fehler 1888486](https://bugzil.la/1888486))
+- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Diese ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, die Details der im Browser gesetzten Gebietsschemas zurückgibt. ([Firefox Bug 1888486](https://bugzil.la/1888486))
 
 ### Entfernungen
 
 ### Sonstiges
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Features
 
-Diese Funktionen sind in Firefox 141 enthalten, werden aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie diese auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 141 enthalten, aber standardmäßig deaktiviert. Um sie zu testen, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

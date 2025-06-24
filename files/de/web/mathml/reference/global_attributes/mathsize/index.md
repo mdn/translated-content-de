@@ -2,7 +2,7 @@
 title: mathsize
 slug: Web/MathML/Reference/Global_attributes/mathsize
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{Deprecated_Header}}
@@ -10,7 +10,7 @@ l10n:
 Das **`mathsize`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [Schriftgröße](/de/docs/Web/CSS/font-size) eines MathML-Elements fest.
 
 > [!NOTE]
-> Verwenden Sie wann immer möglich CSS, um MathML zu stylen. Das `mathsize`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen und wird von der CSS `font-size`-Eigenschaft überschrieben, falls festgelegt.
+> Verwenden Sie nach Möglichkeit CSS, um MathML zu stylen. Das `mathsize`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht kennen, und wird von der CSS-Eigenschaft `font-size` überschrieben, falls gesetzt.
 
 ## Beispiel
 
@@ -68,15 +68,15 @@ body {
   - : Ein positiver {{cssxref("&lt;percentage&gt;")}}-Wert, relativ zur Schriftgröße des Elternelements.
 
 > [!NOTE]
-> Einige Browser können auch [Legacy MathML-Längen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths) akzeptieren.
+> Einige Browser akzeptieren möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurden die Schlüsselwörter `small`, `normal` und `big`, sowie die MathML3-spezifische Syntax für Längen unterstützt. Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;length-percentage&gt;")}}-Werten.
+- In MathML 3 und früheren Versionen wurden die Schlüsselwörter `small`, `normal` und `big` sowie die MathML3-spezifische Syntax für Längen unterstützt. Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;length-percentage&gt;")}}-Werten.
 
-- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die nicht CSS-kompatibel sind. Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die CSS nicht kennen. Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
 
 ## Browser-Kompatibilität
 

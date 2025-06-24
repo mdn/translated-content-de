@@ -2,23 +2,23 @@
 title: runtime.lastError
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/lastError
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{AddonSidebar}}
 
 Dieser Wert wird verwendet, um eine Fehlermeldung von einer asynchronen API zu melden, wenn der asynchronen API ein Callback übergeben wird. Dies ist nützlich für Erweiterungen, die die Callback-basierte Version der WebExtension-APIs verwenden.
 
-Sie müssen diese Eigenschaft nicht überprüfen, wenn Sie die Promise-basierte Version der APIs verwenden: Geben Sie stattdessen einen Fehlerbehandler an das Promise weiter:
+Sie müssen diese Eigenschaft nicht überprüfen, wenn Sie die auf Versprechen basierende Version der APIs verwenden: Übergeben Sie stattdessen einen Fehlerbehandler an das Versprechen:
 
 ```js
 const gettingCookies = browser.cookies.getAll();
 gettingCookies.then(onGot, onError);
 ```
 
-Die Eigenschaft `runtime.lastError` wird gesetzt, wenn eine asynchrone Funktion ein Fehlerzustand meldet, den sie an ihren Aufrufer weitergeben muss.
+Die Eigenschaft `runtime.lastError` wird gesetzt, wenn eine asynchrone Funktion eine Fehlerbedingung hat, die sie ihrem Aufrufer melden muss.
 
-Wenn Sie eine asynchrone Funktion aufrufen, die möglicherweise `lastError` setzt, wird erwartet, dass Sie den Fehler überprüfen, wenn Sie das Ergebnis der Funktion behandeln. Wenn `lastError` gesetzt wurde und Sie es innerhalb der Callback-Funktion nicht überprüfen, wird ein Fehler ausgelöst.
+Wenn Sie eine asynchrone Funktion aufrufen, die möglicherweise `lastError` setzt, wird von Ihnen erwartet, dass Sie den Fehler überprüfen, wenn Sie das Ergebnis der Funktion verarbeiten. Wenn `lastError` gesetzt wurde und Sie es nicht innerhalb der Callback-Funktion überprüfen, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ let myError = browser.runtime.lastError;  // null or Error object
 
 ### Wert
 
-Ein {{jsxref("Error")}}-Objekt, das den Fehler repräsentiert. Die {{jsxref("Error.message", "message")}}-Eigenschaft ist ein `string` mit einer für Menschen lesbaren Beschreibung des Fehlers. Wenn `lastError` nicht gesetzt wurde, ist der Wert `null`.
+Ein {{jsxref("Error")}}-Objekt, das den Fehler repräsentiert. Die Eigenschaft {{jsxref("Error.message", "message")}} ist ein `string` mit einer menschenlesbaren Beschreibung des Fehlers. Wenn `lastError` nicht gesetzt wurde, ist der Wert `null`.
 
 ## Beispiele
 
-Setzen Sie ein Cookie, indem Sie ein Callback verwenden, um das neue Cookie zu protokollieren oder einen Fehler zu melden:
+Setzen Sie ein Cookie und verwenden Sie ein Callback, um das neue Cookie zu protokollieren oder einen Fehler zu melden:
 
 ```js
 function logCookie(c) {
@@ -46,7 +46,7 @@ function logCookie(c) {
 browser.cookies.set({ url: "https://developer.mozilla.org/" }, logCookie);
 ```
 
-Das Gleiche, aber Verwendung eines Promises zur Bearbeitung des Ergebnisses von `setCookie()`:
+Das Gleiche, aber mit einem Versprechen, um das Ergebnis von `setCookie()` zu verarbeiten:
 
 ```js
 function logCookie(c) {
@@ -64,7 +64,7 @@ const setCookie = browser.cookies.set({
 setCookie.then(logCookie, logError);
 ```
 
-> **Note:** `runtime.lastError` ist ein Alias für {{WebExtAPIRef("extension.lastError")}}. Sie werden zusammen gesetzt, und die Überprüfung von einem von beiden funktioniert.
+> [!NOTE] > `runtime.lastError` ist ein Alias für {{WebExtAPIRef("extension.lastError")}}. Sie werden zusammen gesetzt, und das Überprüfen eines von beiden wird funktionieren.
 
 ## Browser-Kompatibilität
 

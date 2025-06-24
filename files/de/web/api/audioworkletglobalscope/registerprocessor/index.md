@@ -3,12 +3,12 @@ title: "AudioWorkletGlobalScope: registerProcessor()-Methode"
 short-title: registerProcessor()
 slug: Web/API/AudioWorkletGlobalScope/registerProcessor
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`registerProcessor`**-Methode der [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Schnittstelle registriert einen Klassenkonstruktor, der von der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Schnittstelle abgeleitet ist, unter einem angegebenen _Namen_.
+Die **`registerProcessor`**-Methode des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Interfaces registriert einen Klassenkonstruktor, der von der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Schnittstelle abgeleitet ist, unter einem angegebenen _Namen_.
 
 ## Syntax
 
@@ -25,7 +25,8 @@ registerProcessor(name, processorCtor)
 
 > [!NOTE]
 > Ein Schlüssel-Wert-Paar `{ name: constructor }`
-> wird intern in der [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) gespeichert, sobald der Prozessor registriert ist. Der _Name_ wird verwendet, wenn ein [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) basierend auf dem registrierten Prozessor erstellt wird. Intern wird ein neuer Prozessor mit dem angegebenen Namen erstellt und mit dem neuen Knoten assoziiert.
+> wird intern im [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) gespeichert, sobald der Prozessor
+> registriert ist. Der _Name_ ist zu referenzieren, wenn ein [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) basierend auf dem registrierten Prozessor erstellt wird. Ein neuer Prozessor mit dem angegebenen Namen wird intern erstellt und mit dem neuen Knoten verknüpft.
 
 ### Rückgabewert
 
@@ -35,23 +36,21 @@ Keiner ({{jsxref("undefined")}}).
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird unter folgenden Bedingungen ausgelöst:
-
+  - : Wird unter den folgenden Bedingungen ausgelöst:
     - Der _Name_ ist ein leerer String.
-    - Ein Konstruktor unter dem angegebenen _Namen_ ist bereits registriert. Das Registrieren desselben Namens zweimal ist nicht erlaubt.
+    - Ein Konstruktor unter dem angegebenen _Namen_ ist bereits registriert. Die zweimalige Registrierung desselben Namens ist nicht erlaubt.
 
 - {{jsxref("TypeError")}}
-
-  - : Wird unter folgenden Bedingungen ausgelöst:
-
+  - : Wird unter den folgenden Bedingungen ausgelöst:
     - Der _processorCtor_ ist kein aufrufbarer Konstruktor.
     - Die [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)-Eigenschaft des Konstruktors existiert und gibt kein Array von auf [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor) basierenden Objekten zurück.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen benutzerdefinierten `AudioWorkletNode`, der Stille erzeugt.
+In diesem Beispiel erstellen wir einen benutzerdefinierten `AudioWorkletNode`, der Stille ausgibt.
 
-Zuerst müssen wir einen benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) definieren und registrieren. Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
+Zuerst müssen wir einen benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) definieren und registrieren.
+Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
 
 ```js
 // test-processor.js
@@ -64,7 +63,7 @@ class TestProcessor extends AudioWorkletProcessor {
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Anschließend laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von `AudioWorkletNode`—und übergeben ihr den Prozessor-Namen, den wir beim Aufruf von `registerProcessor` verwendet haben—und verbinden ihn mit einem Audio-Graph.
+Als nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von `AudioWorkletNode` – indem wir ihm den Prozessor-Namen übergeben, den wir bei der Aufrufung von `registerProcessor` verwendet haben – und verbinden ihn mit einem Audiografen.
 
 ```js
 const audioContext = new AudioContext();

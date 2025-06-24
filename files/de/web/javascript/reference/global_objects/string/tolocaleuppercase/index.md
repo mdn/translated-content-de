@@ -3,12 +3,12 @@ title: String.prototype.toLocaleUpperCase()
 short-title: toLocaleUpperCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Die **`toLocaleUpperCase()`** Methode von {{jsxref("String")}}-Werten gibt diesen String in Großbuchstaben zurück, entsprechend lokalspezifischer Groß-/Kleinschreibungs-Mappings.
+Die Methode **`toLocaleUpperCase()`** von {{jsxref("String")}}-Werten gibt diesen String in Großbuchstaben zurück, entsprechend der lokalspezifischen Groß-/Kleinschreibung.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.toLocaleUpperCase()")}}
 
@@ -33,19 +33,24 @@ toLocaleUpperCase(locales)
 
 - `locales` {{optional_inline}}
 
-  - : Ein String mit einem BCP 47-Sprachtag oder ein Array solcher Strings. Gibt die zu verwendende Lokale an, um Großbuchstaben entsprechend lokalspezifischer Mappings zu konvertieren. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprachcode oder ein Array solcher Strings. Gibt die Locale an, die zur Umwandlung in Großbuchstaben entsprechend lokalspezifischer Groß-/Kleinschreibung verwendet werden soll. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
-    Anders als bei anderen Methoden, die das `locales`-Argument verwenden, erlaubt `toLocaleUpperCase()` kein Lokale-Matching. Daher verwendet `toLocaleUpperCase()` nach Überprüfung der Gültigkeit des `locales`-Arguments immer die erste Locale in der Liste (oder die Standard-Locale, wenn die Liste leer ist), selbst wenn diese Locale von der Implementierung nicht unterstützt wird.
+    Anders als bei anderen Methoden, die das `locales`-Argument nutzen, erlaubt `toLocaleUpperCase()` kein Locale-Matching. Daher verwendet `toLocaleUpperCase()` nach der Überprüfung der Gültigkeit des `locales`-Arguments immer die erste Locale in der Liste (oder die Standardlocale, wenn die Liste leer ist), selbst wenn diese Locale von der Implementierung nicht unterstützt wird.
 
 ### Rückgabewert
 
-Ein neuer String, der den aufrufenden String darstellt, konvertiert in Großbuchstaben entsprechend lokalspezifischer Mappings.
+Ein neuer String, der den aufrufenden String in Großbuchstaben umgewandelt darstellt, gemäß jeder
+lokalspezifischen Groß-/Kleinschreibung.
 
 ## Beschreibung
 
-Die `toLocaleUpperCase()`-Methode gibt den Wert des Strings zurück, konvertiert in Großbuchstaben entsprechend lokalspezifischer Mappings. `toLocaleUpperCase()` beeinflusst den Wert des Strings selbst nicht. In den meisten Fällen wird dies das gleiche Ergebnis wie {{jsxref("String/toUpperCase", "toUpperCase()")}} produzieren, aber für einige Lokalisierungen, wie z.B. Türkisch, deren Groß-/Kleinschreibungs-Mappings nicht den Standards in Unicode folgen, kann es ein anderes Ergebnis geben.
+Die Methode `toLocaleUpperCase()` gibt den Wert des Strings zurück, der gemäß jeder lokalspezifischen Groß-/Kleinschreibung in Großbuchstaben umgewandelt ist.
+`toLocaleUpperCase()` beeinflusst nicht den Wert des Strings selbst. In den meisten
+Fällen wird dies das gleiche Ergebnis wie {{jsxref("String/toUpperCase", "toUpperCase()")}} liefern, aber für einige Locales, wie das Türkische, deren Groß-/Kleinschreibung nicht der Standard-Unicode-Groß-/Kleinschreibung folgt, kann es ein anderes Ergebnis geben.
 
-Beachten Sie auch, dass die Konvertierung nicht zwingend eine 1:1-Zeichenabbildung ist, da einige Zeichen in zwei (oder sogar mehr) Zeichen umgewandelt werden können, wenn sie in Großbuchstaben umgewandelt werden. Daher kann die Länge des Ergebnis-Strings von der Eingabelänge abweichen. Dies impliziert auch, dass die Konvertierung nicht stabil ist, sodass beispielsweise folgendes `false` zurückgeben kann:
+Es ist auch zu beachten, dass die Umwandlung nicht unbedingt 1:1-Zeichenabbildung ist, da einige
+Zeichen als Resultat zwei (oder sogar mehr) Zeichen ergeben können, wenn sie in Großbuchstaben umgewandelt werden.
+Deshalb kann die Länge der Ergebniszeichenfolge von der Eingabelänge abweichen. Dies impliziert auch, dass die Umwandlung nicht stabil ist, sodass zum Beispiel Folgendes `false` zurückgeben kann:
 `x.toLocaleLowerCase() === x.toLocaleUpperCase().toLocaleLowerCase()`
 
 ## Beispiele

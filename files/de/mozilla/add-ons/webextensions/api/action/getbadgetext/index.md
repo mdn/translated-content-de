@@ -2,12 +2,12 @@
 title: action.getBadgeText()
 slug: Mozilla/Add-ons/WebExtensions/API/action/getBadgeText
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ruft den Text des Badges der Browser-Action ab.
+Holt den Text des Browser-Aktionsabzeichens.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -25,26 +25,24 @@ let gettingText = browser.action.getBadgeText(
 ### Parameter
 
 - `details`
-
-  - : Ein Objekt mit folgenden Eigenschaften:
-
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `tabId` {{optional_inline}}
-      - : `integer`. Gibt den Tab an, von dem der Badge-Text abgerufen werden soll.
+      - : `integer`. Gibt den Tab an, von dem der Abzeichentext abgerufen wird.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, von dem der Badge-Text abgerufen werden soll.
+      - : `integer`. Gibt das Fenster an, von dem der Abzeichentext abgerufen wird.
 
 <!---->
 
-- Wenn sowohl windowId als auch tabId angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl windowId als auch tabId weggelassen werden, wird der globale Badge-Text zurückgegeben.
+- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` weggelassen werden, wird der globale Abzeichentext zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Badge-Text enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Abzeichentext enthält.
 
 ## Beispiele
 
-Den Badge-Text protokollieren:
+Den Abzeichentext protokollieren:
 
 ```js
 function gotBadgeText(text) {

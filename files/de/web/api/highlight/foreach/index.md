@@ -1,9 +1,9 @@
 ---
-title: "Highlight: forEach()-Methode"
+title: "Highlight: forEach() Methode"
 short-title: forEach()
 slug: Web/API/Highlight/forEach
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
@@ -23,16 +23,15 @@ forEach(callbackFn, thisArg)
 
 - `callback`
 
-  - : Funktion, die für jedes `Range`-Objekt ausgeführt wird, mit drei Argumenten:
-
+  - : Funktion, die für jedes `Range`-Objekt ausgeführt werden soll und drei Argumente nimmt:
     - `range`, `key`
-      - : Das aktuelle `Range`-Objekt, das im `Highlight` verarbeitet wird. Da es keine
-        Schlüssel im `Highlight` gibt, wird der `range` sowohl für beide Argumente übergeben.
+      - : Das aktuelle `Range`-Objekt, das im `Highlight` verarbeitet wird. Da es in `Highlight` keine
+        Schlüssel gibt, wird das `range` für beide Argumente übergeben.
     - `highlight`
-      - : Das `Highlight`-Objekt, auf das `forEach()` angewendet wurde.
+      - : Das `Highlight`-Objekt, bei dem `forEach()` aufgerufen wurde.
 
 - `thisArg`
-  - : Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
+  - : Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
 
 ### Rückgabewert
 
@@ -40,7 +39,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codebeispiel wird gezeigt, wie ein neues Highlight mit zwei Bereichen erstellt wird und dann die Bereiche mit der `forEach()`-Methode protokolliert werden:
+Der folgende Code zeigt, wie man ein neues Highlight mit zwei Bereichen erstellt und dann die Bereiche mithilfe der `forEach()`-Methode protokolliert:
 
 ```js
 function logRanges(range, key, highlight) {
@@ -75,4 +74,4 @@ myHighlight.forEach(logRanges);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

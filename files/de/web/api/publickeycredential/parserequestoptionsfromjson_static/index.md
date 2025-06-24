@@ -1,16 +1,16 @@
 ---
-title: "PublicKeyCredential: parseRequestOptionsFromJSON() Methode"
+title: "PublicKeyCredential: parseRequestOptionsFromJSON() statische Methode"
 short-title: parseRequestOptionsFromJSON()
 slug: Web/API/PublicKeyCredential/parseRequestOptionsFromJSON_static
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`parseRequestOptionsFromJSON()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Interfaces konvertiert eine {{Glossary("JSON_type_representation", "JSON-Typ-Darstellung")}} in eine Instanz von [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions).
+Die **`parseRequestOptionsFromJSON()`** statische Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces wandelt eine {{Glossary("JSON_type_representation", "JSON-Darstellungstyp")}} in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz um.
 
-Die Methode ist eine bequeme Funktion, um Informationen, die von einem vertrauenswürdigen Server bereitgestellt werden, in eine Web-App zu konvertieren, um eine bestehende Anmeldeinformation anzufordern.
+Diese Methode ist eine bequeme Funktion, um Informationen, die von einem verlassenden Server zur Verfügung gestellt werden, in einer Web-App zur Anforderung eines vorhandenen Berechtigungsnachweises zu konvertieren.
 
 ## Syntax
 
@@ -21,33 +21,32 @@ PublicKeyCredential.parseRequestOptionsFromJSON(options)
 ### Parameter
 
 - `options`
-
-  - : Ein Objekt mit derselben Struktur wie eine Instanz von [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions), aber mit {{Glossary("Base64", "base64url")}}-kodierten Zeichenfolgen anstelle von Puffer-Eigenschaften.
+  - : Ein Objekt mit derselben Struktur wie eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz, jedoch mit {{Glossary("Base64", "base64url")}}-kodierten Zeichenfolgen anstelle von Buffer-Eigenschaften.
 
 ### Rückgabewert
 
-Eine Instanz von [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions).
+Eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz.
 
 ### Ausnahmen
 
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Teil des `options` Objekts nicht in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions) Instanz konvertiert werden kann.
+  - : Wird ausgelöst, wenn ein Teil des `options`-Objekts nicht in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz konvertiert werden kann.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die RP-Domain ist nicht gültig.
 
 ## Beschreibung
 
-Der Web-Authentifizierungsprozess für die [Authentifizierung eines (registrierten) Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user) beinhaltet, dass ein vertrauenswürdiger Server der Web-App die Informationen zur Verfügung stellt, die benötigt werden, um eine bestehende Anmeldeinformation zu finden, einschließlich Details zur Benutzeridentität, zur vertrauenswürdigen Partei, einer "Herausforderung" und optional dazu, wo die Anmeldeinformation zu suchen ist: zum Beispiel auf einem lokalen eingebauten Authenticator oder auf einem externen über USB, BLE und so weiter.
-Die Web-App übergibt diese Informationen einem Authenticator, um die Anmeldeinformation zu finden, indem sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem Argument aufruft, das die vom Server bereitgestellten Daten als Instanz von [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions) enthält.
+Der Web-Authentifizierungsprozess zur [Authentifizierung eines (registrierten) Nutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user) beinhaltet, dass ein vertrauender Server der Web-App die Informationen bereitstellt, die benötigt werden, um einen vorhandenen Berechtigungsnachweis zu finden, einschließlich Details über die Nutzeridentität, die vertrauende Partei, eine "Challenge" und optional, wo der Berechtigungsnachweis zu suchen ist: zum Beispiel auf einem lokalen integrierten Authenticator oder auf einem externen über USB, BLE usw.
+Die Web-App übermittelt diese Informationen an einen Authenticator, um den Berechtigungsnachweis zu finden, indem sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem Argument aufruft, das die vom Server bereitgestellten Daten als [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz enthält.
 
-Die Spezifikation definiert nicht, wie die Informationen für die Anforderung einer Anmeldeinformation gesendet werden.
-Ein praktischer Ansatz ist, dass der Server die Informationen in einer {{Glossary("JSON_type_representation", "JSON-Typ-Darstellung")}} einer [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions) Instanz kapselt, die deren Struktur widerspiegelt, aber Puffer-Eigenschaften wie die `challenge` als {{Glossary("Base64", "base64url")}}-Zeichenketten kodiert.
-Dieses Objekt kann in einen {{Glossary("JSON", "JSON")}}-String serialisiert, an die Web-App gesendet, deserialisiert und dann mit **`parseRequestOptionsFromJSON()`** in eine Instanz von [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions) konvertiert werden.
+Die Spezifikation definiert nicht, wie die Informationen, die für die Anforderung eines Berechtigungsnachweises benötigt werden, gesendet werden.
+Ein praktischer Ansatz besteht darin, dass der Server die Informationen in einer {{Glossary("JSON_type_representation", "JSON-Darstellungstyp")}} einer [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz kapselt, die seine Struktur widerspiegelt, aber Buffer-Eigenschaften wie die `challenge` als {{Glossary("Base64", "base64url")}}-Zeichenfolgen kodiert.
+Dieses Objekt kann in eine {{Glossary("JSON", "JSON")}}-Zeichenfolge serialisiert, an die Web-App gesendet, deserialisiert und dann mit **`parseRequestOptionsFromJSON()`** in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz umgewandelt werden.
 
 ## Beispiele
 
-Bei der Autorisierung eines bereits registrierten Benutzers stellt ein vertrauenswürdiger Server der Web-App Informationen zu den angeforderten Anmeldeinformationen, der vertrauenswürdigen Partei und einer Herausforderung bereit.
-Der folgende Code definiert diese Informationen in der Form, die im [Parameter `options`](#options) oben beschrieben ist:
+Bei der Autorisierung eines bereits registrierten Nutzers wird ein vertrauender Server der Web-App Informationen über die angeforderten Berechtigungsnachweise, die vertrauende Partei und eine Challenge bereitstellen.
+Der unten stehende Code definiert diese Informationen in der im [`options`-Parameter](#options) beschriebenen Form:
 
 ```js
 const requestCredentialOptionsJSON = {
@@ -63,14 +62,14 @@ const requestCredentialOptionsJSON = {
 };
 ```
 
-Da dieses Objekt nur JSON-Datentypen verwendet, kann es mit [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) in JSON serialisiert und an die Web-App gesendet werden.
+Da dieses Objekt nur JSON-Datentypen verwendet, kann es mithilfe von [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) in JSON konvertiert und an die Web-App gesendet werden.
 
 ```js
 JSON.stringify(requestCredentialOptionsJSON);
 ```
 
-Die Web-App kann den JSON-String zurück in ein `requestCredentialOptionsJSON` Objekt deserialisieren (nicht gezeigt).
-Die **`parseRequestOptionsFromJSON()`** Methode wird verwendet, um dieses Objekt in die Form zu konvertieren, die in `navigator.credentials.get()` verwendet werden kann:
+Die Web-App kann die JSON-Zeichenfolge zurück in ein `requestCredentialOptionsJSON`-Objekt deserialisieren (nicht gezeigt).
+Die **`parseRequestOptionsFromJSON()`**-Methode wird verwendet, um dieses Objekt in die Form zu konvertieren, die in `navigator.credentials.get()` verwendet werden kann:
 
 ```js
 // Convert options to form used by get()

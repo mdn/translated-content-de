@@ -1,14 +1,16 @@
 ---
-title: "TextEncoder: encodeInto()-Methode"
+title: "TextEncoder: encodeInto() Methode"
 short-title: encodeInto()
 slug: Web/API/TextEncoder/encodeInto
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextEncoder.encodeInto()`**-Methode nimmt einen zu kodierenden String und ein Ziel-{{jsxref("Uint8Array")}}, in das der resultierende UTF-8-kodierte Text eingefügt wird, und gibt ein Wörterbuchobjekt zurück, das den Fortschritt der Kodierung anzeigt. Dies ist potenziell leistungsfähiger als die ältere `encode()`-Methode – besonders dann, wenn der Zielpuffer eine Ansicht in einen Wasm-Heap ist.
+Die **`TextEncoder.encodeInto()`**-Methode nimmt einen
+zu kodierenden String und ein Ziel-{{jsxref("Uint8Array")}}, in das der resultierende {{Glossary("UTF-8", "UTF-8")}}-kodierte Text eingefügt wird, und gibt ein Wörterbuchobjekt zurück, das den Fortschritt der Kodierung anzeigt.
+Dies ist potenziell leistungsfähiger als die ältere `encode()`-Methode — insbesondere wenn der Zielpuffer eine Ansicht in einen Wasm-Heap ist.
 
 ## Syntax
 
@@ -21,20 +23,24 @@ encodeInto(string, uint8Array)
 - `string`
   - : Ein String, der den zu kodierenden Text enthält.
 - `uint8Array`
-  - : Eine {{jsxref("Uint8Array")}}-Objektinstanz, in die der resultierende UTF-8-kodierte Text platziert werden soll.
+  - : Eine {{jsxref("Uint8Array")}}-Objektinstanz, in die der resultierende UTF-8-kodierte Text eingefügt werden soll.
 
 ### Rückgabewert
 
-Ein Objekt, das zwei Mitglieder enthält:
+Ein Objekt, das zwei Elemente enthält:
 
 - `read`
-  - : Die Anzahl der UTF-16-Einheiten aus dem Quelltext, die in UTF-8 umgewandelt wurden. Dies kann kleiner sein als `string.length`, wenn `uint8Array` nicht genügend Platz hatte.
+  - : Die Anzahl der {{Glossary("UTF-16", "UTF-16 Codeeinheiten")}} aus der Quelle, die in UTF-8 konvertiert wurden.
+    Dies kann kleiner sein als `string.length`, wenn `uint8Array` nicht genug Platz hatte.
 - `written`
-  - : Die Anzahl der Bytes, die im Ziel-`Uint8Array` modifiziert wurden. Die geschriebenen Bytes bilden garantiert vollständige UTF-8-Byte-Sequenzen.
+  - : Die Anzahl der im Ziel-`Uint8Array` modifizierten Bytes.
+    Die geschriebenen Bytes bilden garantiert vollständige UTF-8-Byte-Sequenzen.
 
 ## Kodierung in eine bestimmte Position
 
-`encodeInto()` setzt seine Ausgabe immer am Anfang des Arrays ein. Es ist jedoch manchmal nützlich, den Ausgabeanfang an einem bestimmten Index zu setzen. Die Lösung ist [`TypedArray.prototype.subarray()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/subarray):
+`encodeInto()` setzt seine Ausgabe immer am Anfang des Arrays ein.
+Es ist jedoch manchmal nützlich, die Ausgabe an einem bestimmten Index beginnen zu lassen.
+Die Lösung ist [`TypedArray.prototype.subarray()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/subarray):
 
 ```js
 const encoder = new TextEncoder();
@@ -51,30 +57,44 @@ encodeIntoAtPosition("hello", u8array, 2);
 console.log(u8array.join()); // 0,0,104,101,108,108,111,0
 ```
 
-## Puffergroße
+## Puffergrößenbestimmung
 
-Um einen JavaScript-String `s` zu konvertieren, ist der benötigte Ausgabespeicherplatz für eine vollständige Konvertierung nie geringer als `s.length` Bytes und nie größer als `s.length * 3` Bytes. Das genaue UTF-8-zu-UTF-16-Längenverhältnis für Ihren String hängt von der Sprache ab, mit der Sie arbeiten:
+Um einen JavaScript-String `s` zu konvertieren, ist der Platzbedarf für eine vollständige Konvertierung niemals kleiner als `s.length` Bytes und niemals größer als `s.length * 3` Bytes.
+Das genaue Verhältnis von UTF-8 zu UTF-16 Längen für Ihren String hängt von der Sprache ab, mit der Sie arbeiten:
 
 - Für einfachen englischen Text, der hauptsächlich ASCII-Zeichen verwendet, liegt das Verhältnis nahe bei 1.
-- Für Texte in Schriften, die Zeichen U+0080 bis U+07FF verwenden, zu denen Griechisch, Kyrillisch, Hebräisch, Arabisch usw. gehören, liegt das Verhältnis bei etwa 2.
-- Für Texte in Schriften, die Zeichen U+0800 bis U+FFFF verwenden, zu denen Chinesisch, Japanisch, Koreanisch usw. gehören, liegt das Verhältnis bei etwa 3.
-- Es ist nicht üblich, dass ganze Schriften in [Nicht-BMP-Zeichen](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) geschrieben werden (obwohl sie existieren). Diese Zeichen sind normalerweise mathematische Symbole, Emojis, historische Schriften usw. Das Verhältnis für diese Zeichen beträgt 2, da sie 4 Byte in UTF-8 und 2 in UTF-16 benötigen.
+- Für Texte in Schriften, die Zeichen von U+0080 bis U+07FF verwenden, zu denen Griechisch, Kyrillisch, Hebräisch, Arabisch usw. gehören, liegt das Verhältnis bei etwa 2.
+- Für Texte in Schriften, die Zeichen von U+0800 bis U+FFFF verwenden, zu denen Chinesisch, Japanisch, Koreanisch usw. gehören, liegt das Verhältnis bei etwa 3.
+- Es ist nicht üblich, dass ganze Schriften in [non-BMP-Zeichen](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) geschrieben werden (obwohl sie existieren). Diese Zeichen sind meist mathematische Symbole, Emojis, historische Schriften etc. Das Verhältnis für diese Zeichen beträgt 2, weil sie 4 Bytes in UTF-8 und 2 in UTF-16 benötigen.
 
-Wenn die Ausgabezuteilung (typischerweise im Wasm-Heap) voraussichtlich nur von kurzer Dauer ist, ist es sinnvoll, `s.length * 3` Bytes für die Ausgabe zuzuweisen, wobei der erste Konvertierungsversuch garantiert den gesamten String konvertiert.
+Wenn die Ausgabebelegung (typischerweise innerhalb des Wasm-Heaps) voraussichtlich von kurzer Dauer ist, macht es Sinn `s.length * 3` Bytes für die Ausgabe zuzuweisen, in welchem Fall der erste Konvertierungsversuch garantiert den gesamten String konvertiert.
 
-Zum Beispiel, wenn Ihr Text hauptsächlich Englisch ist, ist es unwahrscheinlich, dass langer Text `s.length * 2` Bytes in der Länge überschreitet. Daher könnte ein optimistischeres Vorgehen darin bestehen, `s.length * 2 + 5` Bytes zuzuweisen und bei der seltenen Gelegenheit, dass die optimistische Vorhersage falsch war, eine erneute Zuweisung vorzunehmen.
+Beispielsweise, wenn Ihr Text hauptsächlich Englisch ist, ist es unwahrscheinlich, dass langer Text eine Länge von `s.length * 2` Bytes überschreitet.
+Daher könnte ein optimistischeres Vorgehen darin bestehen, `s.length * 2 + 5` Bytes zuzuweisen und bei der selten vorkommenden Gelegenheit, dass die optimistische Vorhersage falsch war, eine Neubelegung vorzunehmen.
 
-Wenn die Ausgabe voraussichtlich lange bestehen bleibt, ist es sinnvoll, die Minimalzuweisung `roundUpToBucketSize(s.length)`, die maximale Zuweisungsgröße `s.length * 3` zu berechnen und einen gewählten Schwellenwert `t` (als Kompromiss zwischen Speicherverbrauch und Geschwindigkeit) festzulegen, der besagt, dass wenn `roundUpToBucketSize(s.length) + t >= s.length * 3`, Sie für `s.length * 3` zuweisen. Andernfalls zuerst für `roundUpToBucketSize(s.length)` zuweisen und konvertieren. Wenn das `read`-Element im Rückgabewörterbuch `s.length` ist, ist die Konvertierung abgeschlossen. Wenn nicht, den Zielpuffer auf `written + (s.length - read) * 3` neu zuweisen und dann den Rest durch die Entnahme eines Substrings von `s`, beginnend bei Index `read` und eines Subpuffers des Zielpuffers, beginnend bei Index `written`, konvertieren.
+Wenn davon ausgegangen wird, dass die Ausgabe von langer Lebensdauer ist, macht es Sinn, die minimale Zuweisung `roundUpToBucketSize(s.length)` zu berechnen, die maximale Zuweisungsgröße `s.length * 3`, und eine gewählte (als Kompromiss zwischen Speichernutzung und Geschwindigkeit) Schwelle `t` zu haben, so dass, wenn `roundUpToBucketSize(s.length) + t >= s.length * 3`, Sie für `s.length * 3` allokieren.
+Andernfalls allokieren Sie zuerst für `roundUpToBucketSize(s.length)` und konvertieren.
+Wenn das `read`-Element im Rückgabewörterbuch `s.length` ist, ist die Konvertierung abgeschlossen.
+Falls nicht, allokieren Sie den Zielpuffer neu für `written + (s.length - read) * 3` und konvertieren dann den Rest, indem Sie einen Substring von `s` ab Index `read` und einen Subpuffer des Zielpuffers ab Index `written` nehmen.
 
-Oben ist `roundUpToBucketSize()` eine Funktion, die auf die Speicherzuweisungs-Bucketgröße aufrundet. Zum Beispiel, wenn Ihr Wasm-Speicherzuweiser dafür bekannt ist, Potenzen von zwei zu verwenden, sollte `roundUpToBucketSize()` das Argument zurückgeben, wenn es eine Zweierpotenz ist oder die nächste Zweierpotenz. Wenn das Verhalten des Wasm-Speicherzuweisers unbekannt ist, sollte `roundUpToBucketSize()` eine Identitätsfunktion sein.
+Oberhalb ist `roundUpToBucketSize()` eine Funktion, die auf die Größe des Zuweisungsbuckets aufrundet.
+Zum Beispiel, wenn Ihr Wasm-Allocator bekannt ist, Zweierpotenzen für Buckets zu verwenden, sollte `roundUpToBucketSize()` das Argument zurückgeben, wenn es eine Zweierpotenz ist, oder die nächste Zweierpotenz sonst.
+Wenn das Verhalten des Wasm-Allocators unbekannt ist, sollte `roundUpToBucketSize()` eine Identitätsfunktion sein.
 
-Wenn das Verhalten Ihres Speicherzuweisers unbekannt ist, möchten Sie möglicherweise bis zu zwei Zuweisungsschritte durchführen und den ersten Zuweisungsschritt mit der doppelten _verbleibenden nicht konvertierten_ Länge anstatt mit drei multiplizieren. In diesem Fall ist es jedoch sinnvoll, das übliche Multiplizieren mit zwei der _bereits geschriebenen_ Pufflänge nicht zu implementieren, da in einem solchen Fall, wenn eine zweite Zuweisung stattfand, immer im Vergleich zur ursprünglichen Länge mal drei überzuweisen würde. Der oben angegebene Rat geht davon aus, dass Sie keinen Speicherplatz für einen Nullterminator benötigen. Das heißt, auf der Wasm-Seite arbeiten Sie mit Rust-Strings oder einer nicht-nullterminierenden C++-Klasse. Wenn Sie mit C++ `std::string` arbeiten, müssen Sie, auch wenn die logische Länge Ihnen angezeigt wird, beim Berechnen des Aufrunden auf die Speicherzuweisungs-Bucketgröße das zusätzliche Terminator-Byte berücksichtigen. Siehe den nächsten Abschnitt zu C-Strings.
+Wenn das Verhalten Ihres Allocators unbekannt ist, möchten Sie möglicherweise bis zu zwei Neuzuordnungsschritte durchführen und den ersten Neuzuordnungsschritt den _noch nicht konvertierten_ Rest multiplizieren, anstatt drei.
+Jedoch, in diesem Fall macht es Sinn, das übliche Multiplizieren mit zwei der _bereits geschriebenen_ Puffergröße nicht durchzuführen, denn in einem solchen Fall, wenn eine zweite Neuzuordnung stattfand, würde sie immer überproportional zur ursprünglichen Länge multipliziert mit drei allokiert werden.
+Die obigen Ratschläge setzen voraus, dass Sie keinen Platz für einen Nullterminator allokieren müssen.
+Das heißt, auf der Wasm-Seite arbeiten Sie mit Rust-Strings oder einer nicht nullterminierenden C++-Klasse.
+Wenn Sie mit C++ `std::string` arbeiten, auch wenn die logische Länge Ihnen angezeigt wird, müssen Sie das zusätzliche Terminator-Byte berücksichtigen, wenn Sie das Aufrunden auf die Größe des Zuweisungsbuckets berechnen.
+Siehe den nächsten Abschnitt über C-Strings.
 
-## Keine Null-terminierung
+## Keine Nullterminierung
 
-Wenn der Eingabestring das Zeichen U+0000 enthält, wird `encodeInto()` ein 0x00 Byte in die Ausgabe schreiben. `encodeInto()` schreibt _nicht_ ein C-stilisches 0x00-Sentinel-Byte nach der logischen Ausgabe.
+Wenn der Eingabestring das Zeichen U+0000 enthält, wird `encodeInto()` ein 0x00-Byte in die Ausgabe schreiben.
+`encodeInto()` _schreibt nicht_ das C-Style 0x00-Signalbyte nach der logischen Ausgabe.
 
-Wenn Ihr Wasm-Programm C-Strings verwendet, liegt es in Ihrer Verantwortung, das `0x00`-Sentinel zu schreiben, und Sie können Ihr Wasm-Programm nicht daran hindern, einen logisch abgeschnittenen String zu sehen, wenn der JavaScript-String `U+0000` enthielt. Beachten Sie:
+Wenn Ihr Wasm-Programm C-Strings verwendet, liegt es in Ihrer Verantwortung, das `0x00`-Signal zu schreiben, und Sie können nicht verhindern, dass Ihr Wasm-Programm einen logisch abgeschnittenen String sieht, wenn der JavaScript-String `U+0000` enthielt.
+Beachten Sie:
 
 ```js
 const encoder = new TextEncoder();

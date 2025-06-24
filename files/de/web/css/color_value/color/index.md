@@ -2,14 +2,14 @@
 title: color()
 slug: Web/CSS/color_value/color
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`color()`**-Funktionsnotation ermöglicht es, eine Farbe in einem bestimmten, festgelegten {{Glossary("color_space", "Farbraum")}} anzugeben, anstatt im impliziten sRGB-Farbraum, in dem die meisten anderen Farbfunktionen arbeiten.
+Die **`color()`** Funktionalnotation ermöglicht es, eine Farbe in einem bestimmten, angegebenen {{Glossary("color_space", "Farbraum")}} zu spezifizieren, anstatt im impliziten sRGB-Farbraum, in dem die meisten anderen Farbfunktionsarbeiten arbeiten.
 
-Die Unterstützung für einen bestimmten Farbraum kann mit der CSS-Medienfunktion [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) erkannt werden.
+Die Unterstützung für einen bestimmten Farbraum kann mit dem CSS-Media-Feature [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) erkannt werden.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ color(from #0000FF xyz calc(x + 0.75) y calc(z - 0.35))
 
 ### Werte
 
-Unten sind die Beschreibungen der erlaubten Werte für sowohl absolute als auch [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) aufgelistet.
+Im Folgenden sind die Beschreibungen der zulässigen Werte sowohl für absolute als auch für [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) aufgeführt.
 
 #### Absolute Wertsyntax
 
@@ -37,18 +37,17 @@ Die Parameter sind wie folgt:
 
 - `colorspace`
 
-  - : Ein {{CSSXref("&lt;ident&gt;")}}, das einen der vordefinierten Farbräume bezeichnet: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
+  - : Ein {{CSSXref("&lt;ident&gt;")}}, das einen der vordefinierten Farbräume angibt: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
 
 - `c1`, `c2`, `c3`
 
-  - : Jeder Wert kann als {{CSSXref("number")}}, als {{CSSXref("percentage")}} oder als das Schlüsselwort `none` (entspricht in diesem Fall `0`) geschrieben werden. Diese Werte repräsentieren die Komponentenwerte für den Farbraum. Bei Verwendung eines `<number>`-Wertes repräsentiert im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind erlaubt, liegen jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum. Bei Verwendung eines Prozentwertes repräsentiert `100%` `1` und `0%` entspricht `0`.
+  - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}}, oder das Schlüsselwort `none` (in diesem Fall äquivalent zu `0`) geschrieben werden. Diese Werte repräsentieren die Komponentenwerte für den Farbraum. Bei Verwendung eines `<number>`-Wertes stellen im Allgemeinen `0` bis `1` die Grenzen des Farbraums dar. Werte außerhalb dieses Bereichs sind erlaubt, werden jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum liegen. Bei Verwendung eines Prozentwerts stellt `100%` `1` und `0%` `0` dar.
 
 - `A` {{optional_inline}}
-
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig undurchsichtig) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Ist der `A`-Kanalwert nicht explizit angegeben, wird er standardmäßig auf 100% gesetzt. Wenn er eingeschlossen ist, wird der Wert mit einem Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alpha-Kanal-Wert der Farbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) entspricht und `1` `100%` (vollständig opak). Zusätzlich kann das Schlüsselwort `none` verwendet werden, um keinen Alpha-Kanal explizit anzugeben. Wenn der `A`-Kanal-Wert nicht explizit angegeben wird, beträgt er standardmäßig 100%. Wenn er enthalten ist, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Weitere Informationen zum Effekt von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components).
+> Weitere Informationen zu den Auswirkungen von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components).
 
 #### Relative Wertsyntax
 
@@ -59,45 +58,45 @@ color(from <color> colorspace c1 c2 c3[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-  - : Das Schlüsselwort `from` wird immer eingeschlossen, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann eine _beliebige_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
+  - : Das Schlüsselwort `from` wird immer verwendet, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}} Syntax sein, einschließlich einer anderen relativen Farbe.
 - `colorspace`
-  - : Ein {{CSSXref("&lt;ident&gt;")}}, das den {{Glossary("color_space", "Farbraum")}} der Ausgabefarbe bezeichnet, in der Regel einer der vordefinierten Farbräume: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
+  - : Ein {{CSSXref("&lt;ident&gt;")}}, das den {{Glossary("color_space", "Farbraum")}} der Ausgabefarbe angibt, normalerweise einer der vordefinierten Farbräume: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
 - `c1`, `c2`, `c3`
-  - : Jeder Wert kann als {{CSSXref("number")}}, als {{CSSXref("percentage")}} oder als das Schlüsselwort `none` (entspricht in diesem Fall `0`) geschrieben werden. Diese Werte repräsentieren die Komponentenwerte für die Ausgabefarbe. Bei Verwendung eines `<number>`-Wertes repräsentiert im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind erlaubt, liegen jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum. Im Allgemeinen entspricht bei Verwendung eines Prozentwertes `100%` `1` und `0%` `0`.
+  - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}}, oder das Schlüsselwort `none` (in diesem Fall äquivalent zu `0`) geschrieben werden. Diese Werte repräsentieren die Komponentenwerte für die Ausgabefarbe. Bei Verwendung eines `<number>`-Wertes stellen im Allgemeinen `0` bis `1` die Grenzen des Farbraums dar. Werte außerhalb dieses Bereichs sind erlaubt, werden jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum liegen. Im Allgemeinen repräsentiert bei Verwendung eines Prozentwertes `100%` `1` und `0%` `0`.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Ausgabefarbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig undurchsichtig) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben ist, wird er auf den Alphakanalwert der Ursprungsfarbe standardisiert. Wenn er eingeschlossen ist, wird der Wert mit einem Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alpha-Kanal-Wert der Ausgabefarbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) entspricht und `1` `100%` (vollständig opak). Zusätzlich kann das Schlüsselwort `none` verwendet werden, um keinen Alpha-Kanal explizit anzugeben. Wenn der `A`-Kanal-Wert nicht explizit angegeben wird, entspricht er standardmäßig dem Alpha-Kanal-Wert der Ursprungsfarbe. Wenn er enthalten ist, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
-#### Definition der Komponentenkanäle der relativen Farbausgabe
+#### Definieren von relativen Farbkanalkomponenten für die Ausgabe
 
-Bei Verwendung der relativen Farbsyntax innerhalb einer `color()`-Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente Farbe im angegebenen Farbraum (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei verschiedene Farbkanaalwerte plus einem Alphakannalwert (`alpha`) definiert. Diese Kanalwerte sind innerhalb der Funktion verfügbar, um bei der Definition der Ausgabefarbkanaalwerte verwendet zu werden:
+Wenn die relative Farbsyntax innerhalb einer `color()` Funktion verwendet wird, konvertiert der Browser die Ursprungsfarbe in eine äquivalente Farbe im angegebenen Farbraum (falls sie nicht bereits so angegeben ist). Die Farbe wird als drei getrennte Farbkanalwerte plus einem Alpha-Kanalwert (`alpha`) definiert. Diese Kanalwerte sind innerhalb der Funktion verfügbar, um bei der Definition der Ausgabefarbkanalwerte verwendet zu werden:
 
-- Die drei Farbkanaalwerte der Ursprungsfarbe werden auf eine `<number>`-Wertkurve aufgelöst. Für vordefinierte Farbräume, je nachdem welcher spezifiziert ist, sind diese Werte eines der folgenden:
+- Die drei Farbkanalwerte der Ursprungsfarbe werden zu einem `<number>` aufgelöst. Für vordefinierte Farbräume, abhängig davon, welcher angegeben ist, sind diese Werte entweder:
 
-  - `r`, `g`, und `b`: Farbkanaalwerte für die auf RGB basierenden Farbräume `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb` und `rec2020`.
-  - `x`, `y`, und `z`: Farbkanaalwerte für die auf CIE XYZ basierenden Farbräume `xyz`, `xyz-d50` und `xyz-d65`.
-
-    > [!NOTE]
-    > Jeder dieser Werte liegt normalerweise zwischen `0` und `1`, kann aber, wie oben erläutert, außerhalb dieser Grenzen liegen.
+  - `r`, `g`, und `b`: Farbkanalwerte für die auf RGB basierenden Farbräume `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb` und `rec2020`.
+  - `x`, `y`, und `z`: Farbkanalwerte für die auf CIE XYZ basierenden Farbräume `xyz`, `xyz-d50` und `xyz-d65`.
 
     > [!NOTE]
-    > Das Referenzieren von `r`, `g` und `b` Werten innerhalb einer `color()`-Funktion mit einem XYZ-basierten Farbraum, `x`, `y` und `z` Werten innerhalb einer `color()`-Funktion mit einem RGB-basierten Farbraum oder anderen Zeichen ist ungültig. Die verfügbaren Ursprungsfarbkanalwerte innerhalb der Funktion müssen mit dem spezifizierten Farbraumtyp übereinstimmen.
+    > Jeder dieser Werte liegt normalerweise zwischen `0` und `1`, aber, wie oben erklärt, können sie auch außerhalb dieser Grenzen liegen.
 
-- `alpha`: Der Transparenzwert der Farbe, aufgelöst in einen `<number>` zwischen `0` und `1`, einschließlich.
+    > [!NOTE]
+    > Das Referenzieren der `r`, `g`, und `b` Werte in einer `color()` Funktion mit einem XYZ-basierten Farbraum, `x`, `y`, und `z` Werte in einer `color()` Funktion mit einem RGB-basierten Farbraum, oder andere Zeichen ist ungültig. Die Ursprungsfarbkanalwerte, die innerhalb der Funktion verfügbar sind, müssen dem angegebenen Typ des Farbraums entsprechen.
 
-Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf verschiedene Arten ausgedrückt werden. Im Folgenden untersuchen wir einige Beispiele, um diese zu veranschaulichen.
+- `alpha`: Der Transparenzwert der Farbe, der auf einen `<number>` zwischen `0` und `1`, inklusive, aufgelöst wird.
 
-In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Das erste gibt jedoch die gleiche Farbe wie die Ursprungsfarbe aus und das zweite gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Diese erzeugen nicht wirklich relative Farben! Sie würden solche wahrscheinlich niemals in einem echten Codebestand verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt für das Lernen der relativen `color()`-Syntax aufgenommen.
+Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf mehrere verschiedene Arten ausgedrückt werden. Im Folgenden sehen wir uns einige Beispiele an, um dies zu veranschaulichen.
 
-Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (äquivalent zu `rot`). Obwohl Sie die folgenden Funktionen wahrscheinlich niemals schreiben würden, da sie die gleiche Farbe wie die Ursprungsfarbe ausgeben, demonstrieren sie, wie die Ursprungsfarbkanalwerte als Ausgabefarbkanalwerte verwendet werden:
+In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Das erste Beispiel gibt jedoch dieselbe Farbe wie die Ursprungsfarbe aus, und das zweite Beispiel gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen nicht wirklich relative Farben! Sie würden diese wahrscheinlich nie in einem echten Code verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt zum Lernen über die relative `color()` Syntax aufgenommen.
+
+Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (entspricht `rot`). Während Sie die folgenden Funktionen wahrscheinlich nie schreiben würden, weil sie dieselbe Farbe wie die Ursprungsfarbe ausgeben, demonstriert dies, wie die Ursprungsfarbkanalwerte als Ausgabekanalwerte verwendet werden können:
 
 ```css
 color(from hsl(0 100% 50%) srgb r g b)
 color(from hsl(0 100% 50%) xyz x y z)
 ```
 
-Die Ausgabefarben dieser Funktionen sind `color(srgb 1 0 0)` und `color(xyz-d65 0.412426 0.212648 0.0193173)`, jeweils.
+Diese Funktionen geben die Farben `color(srgb 1 0 0)` und `color(xyz-d65 0.412426 0.212648 0.0193173)` aus.
 
-Die nächsten Funktionen verwenden absolute Werte für die Ausgabefarbkanalwerte und geben völlig unterschiedliche Farben aus, die nicht auf der Ursprungsfarbe basieren:
+Die nächsten Funktionen verwenden absolute Werte für die Ausgabefarbkanalwerte, die vollständig unterschiedliche Farben ausgeben, die nicht auf der Ursprungsfarbe basieren:
 
 ```css
 color(from hsl(0 100% 50%) srgb 0.749938 0 0.609579)
@@ -107,7 +106,7 @@ color(from hsl(0 100% 50%) xyz 0.75 0.6554 0.1)
 /* Computed output color: color(xyz-d65 0.75 0.6554 0.1 */
 ```
 
-Die folgenden Funktionen verwenden zwei der Ursprungsfarbkanalwerte für die Ausgabefarbkanalwerte (`r` und `b`, und `x` und `y`, jeweils), aber verwenden einen neuen Wert für den anderen Ausgabefarbkanalwert (`g` und `z`, jeweils), und erzeugen eine relative Farbe, basierend auf der Ursprungsfarbe in jedem Fall:
+Die folgenden Funktionen verwenden zwei der Ursprungsfarbkanalwerte für die Ausgabefarbkanalwerte (`r` und `b`, sowie `x` und `y`, jeweils), aber verwenden einen neuen Wert für den anderen Ausgabekanalwert (`g` und `z`, jeweils), wodurch eine relative Farbe erstellt wird, die in jedem Fall auf der Ursprungsfarbe basiert:
 
 ```css
 color(from hsl(0 100% 50%) srgb r 1 b)
@@ -118,11 +117,11 @@ color(from hsl(0 100% 50%) xyz x y 0.5)
 ```
 
 > [!NOTE]
-> Wie oben erwähnt, wird die Ursprungsfarbe im Hintergrund in das gleiche Modell wie die Ausgabefarbe konvertiert, wenn das Ausgabefarbmodell von dem der Ursprungsfarbe abweicht, um in einer kompatiblen Weise (d.h. mit den gleichen Kanälen) dargestellt werden zu können. Zum Beispiel wird die {{cssxref("color_value/hsl", "hsl()")}}-Farbe `hsl(0 100% 50%)` im ersten Fall oben in `color(srgb 1 0 0)` und im zweiten Fall in `color(xyz 0.412426 0.212648 0.5)` konvertiert.
+> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, sodass sie auf eine Weise dargestellt werden kann, die kompatibel ist (d.h. mit denselben Kanälen). Zum Beispiel wird die {{cssxref("color_value/hsl", "hsl()")}} Farbe `hsl(0 100% 50%)` im ersten Fall oben in `color(srgb 1 0 0)` und im zweiten Fall in `color(xyz 0.412426 0.212648 0.5)` umgewandelt.
 
-In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alphakanal der Ausgabefarbe nicht angegeben wird, entspricht er standardmäßig dem Alphawert der Ursprungsfarbe. Wenn der Alphakanal der Ursprungsfarbe nicht angegeben wird (und es sich nicht um eine relative Farbe handelt), beträgt er standardmäßig `1`. Daher sind die Ursprungs- und Ausgabealphakanalwerte für die obigen Beispiele `1`.
+In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alpha-Kanal der Ausgabefarbe nicht spezifiziert ist, wird er standardmäßig auf denselben Wert wie der Alpha-Kanal der Ursprungsfarbe gesetzt. Wenn der Alpha-Kanal der Ursprungsfarbe nicht spezifiziert ist (und es sich nicht um eine relative Farbe handelt), beträgt er standardmäßig `1`. Daher sind die Ursprungs- und Ausgabefarbkanalwerte für die obigen Beispiele `1`.
 
-Schauen wir uns einige Beispiele an, die die Ursprungs- und Ausgabefarb-Alphakanalwerte angeben. Das erste Beispiel spezifiziert den Ausgabefarb-Alphakanalwert als gleich dem Ursprungs-Alphakanalwert, während das zweite einen anderen Ausgabefarb-Alphakanalwert angibt, der nicht mit dem Ursprungs-Alphakanalwert zusammenhängt.
+Sehen wir uns einige Beispiele an, die Ursprungs- und Ausgabe-Alpha-Kanalwerte spezifizieren. Das erste Beispiel spezifiziert den Ausgabe-Alpha-Kanalwert als denselben wie den Alpha-Kanalwert der Ursprungsfarbe, während das zweite Beispiel einen anderen Ausgabe-Alpha-Kanalwert angibt, der nicht mit dem Alpha-Kanalwert der Ursprungsfarbe zusammenhängt.
 
 ```css
 color(from hsl(0 100% 50% / 0.8) srgb r g b / alpha)
@@ -132,7 +131,7 @@ color(from hsl(0 100% 50% / 0.8) xyz x y z / 0.5)
 /* Computed output color: color(xyz-d65 0.412426 0.212648 0.0193173 / 0.5) */
 ```
 
-Die folgenden Beispiele verwenden {{cssxref("calc")}}-Funktionen, um neue Kanalwerte für die Ausgabefarben zu berechnen, die relativ zu den Ursprungsfarbkanalwerten sind:
+Die folgenden Beispiele verwenden {{cssxref("calc")}} Funktionen, um neue Kanalwerte für die Ausgabefarben zu berechnen, die relativ zu den Kanälen der Ursprungsfarbe sind:
 
 ```css
 color(from hsl(0 100% 50%) srgb calc(r - 0.4) calc(g + 0.1) calc(b + 0.6) / calc(alpha - 0.1))
@@ -143,7 +142,7 @@ color(from hsl(0 100% 50%) xyz calc(x - 0.3) calc(y + 0.3) calc(z + 0.3) / calc(
 ```
 
 > [!NOTE]
-> Da die Ursprungsfarbkanalwerte auf `<number>`-Werte aufgelöst werden, müssen Sie Zahlen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>` funktioniert beispielsweise nicht.
+> Da die Kanalwerte der Ursprungsfarbe auf `<number>` Werte aufgelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, auch in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>`, oder andere Wertetypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>`, zum Beispiel, funktioniert nicht.
 
 ## Formale Syntax
 
@@ -151,9 +150,9 @@ color(from hsl(0 100% 50%) xyz calc(x - 0.3) calc(y + 0.3) calc(z + 0.3) / calc(
 
 ## Beispiele
 
-### Verwendung vordefinierter Farbräume mit color()
+### Verwendung von vordefinierten Farbräumen mit color()
 
-Das folgende Beispiel zeigt die Wirkung der Variation der Helligkeit, der a-Achse und der b-Achse Werte der `color()`-Funktion.
+Das folgende Beispiel zeigt den Effekt, wenn die Helligkeit, der a-Achsen- und der b-Achsen-Wert der `color()` Funktion variiert werden.
 
 #### HTML
 
@@ -206,7 +205,7 @@ div {
 
 ### Verwendung des xyz-Farbraums mit color()
 
-Das folgende Beispiel zeigt, wie der `xyz`-Farbraum verwendet wird, um eine Farbe anzugeben.
+Das folgende Beispiel zeigt, wie man den `xyz` Farbraum verwendet, um eine Farbe zu spezifizieren.
 
 #### HTML
 
@@ -247,9 +246,9 @@ div {
 
 {{EmbedLiveSample("using_the_xyz_color_space_with_color")}}
 
-### Verwendung von color-gamut-Medienabfragen mit color()
+### Verwendung von color-gamut Media Queries mit color()
 
-Dieses Beispiel zeigt, wie die [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut)-Medienabfrage verwendet wird, um die Unterstützung für einen bestimmten Farbraum zu erkennen und diesen Farbraum zur Angabe einer Farbe zu verwenden.
+Dieses Beispiel zeigt, wie die [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) Media Query verwendet wird, um die Unterstützung eines bestimmten Farbraums zu erkennen und diesen Farbraum zu verwenden, um eine Farbe zu spezifizieren.
 
 #### HTML
 
@@ -296,11 +295,11 @@ div {
 
 {{EmbedLiveSample("using_color-gamut_media_queries_with_color")}}
 
-### Verwendung relativer Farben mit color()
+### Verwendung von relativen Farben mit color()
 
-Dieses Beispiel stylt drei {{htmlelement("div")}}-Elemente mit verschiedenen Hintergrundfarben. Dem mittleren Element wird die unveränderte `--base-color` zugewiesen, während die linken und rechten Elemente aufgehellte und abgedunkelte Varianten dieser `--base-color` erhalten.
+In diesem Beispiel werden drei {{htmlelement("div")}} Elemente mit unterschiedlichen Hintergrundfarben gestylt. Das mittlere erhält die unveränderte `--base-color`, während die linken und rechten hellere und dunklere Varianten dieser `--base-color` erhalten.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) wird in eine `color()`-Funktion übergeben, und die Ausgabefarben haben ihre `g`- und `b`-Kanäle geändert, um den gewünschten Effekt über `calc()`-Funktionen zu erzielen. Die aufgehellte Farbe hat 15% zu diesen Kanälen hinzugefügt, und die abgedunkelte Farbe hat 15% von diesen Kanälen abgezogen.
+Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) wird in eine `color()` Funktion übergeben und die Ausgabefarben haben ihre `g` und `b` Kanäle modifiziert, um den gewünschten Effekt durch `calc()` Funktionen zu erzielen. Der aufgehellte Farbton hat 15% zu diesen Kanälen hinzugerechnet, der abgedunkelte Farbton hat 15% abgezogen.
 
 ```html hidden
 <div id="container">
@@ -367,7 +366,7 @@ Diese Varianten werden unter Verwendung relativer Farben definiert — die `--ba
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Der Output ist wie folgt:
 
 {{ EmbedLiveSample("Using relative colors with color()", "100%", "200") }}
 
@@ -381,9 +380,9 @@ Die Ausgabe ist wie folgt:
 
 ## Siehe auch
 
-- [Der `<color>` Datentyp](/de/docs/Web/CSS/color_value) für eine Liste aller Farbkodierungen
+- [Der `<color>` Datentyp](/de/docs/Web/CSS/color_value) für eine Liste aller Farbnzeiten
 - [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [sRGB-Farbauswahl und -Konvertierungstool](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
-- [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) Medieneigenschaft
-- [Breites Gamut in CSS mit Display-p3](https://webkit.org/blog/10042/wide-gamut-color-in-css-with-display-p3/)
+- [sRGB Farbwähler- und Umwandlungstool](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) Media Feature
+- [Breite Gamut-Farbe in CSS mit Display-p3](https://webkit.org/blog/10042/wide-gamut-color-in-css-with-display-p3/)

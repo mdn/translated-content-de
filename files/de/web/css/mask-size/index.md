@@ -2,12 +2,12 @@
 title: mask-size
 slug: Web/CSS/mask-size
 l10n:
-  sourceCommit: 55fadd3dd555d051279bd316763033ede0d1ed86
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`mask-size`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größen der angegebenen Maskenbilder fest. Maskenbildgrößen können vollständig oder teilweise eingeschränkt werden, um ihre {{Glossary("aspect_ratio", "intrinsischen Seitenverhältnisse")}} zu bewahren.
+Die **`mask-size`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größen der angegebenen Maskenbilder fest. Die Maskenbildgrößen können vollständig oder teilweise eingeschränkt werden, um ihre {{Glossary("aspect_ratio", "intrinsischen Seitenverhältnisse")}} zu bewahren.
 
 ## Syntax
 
@@ -47,56 +47,56 @@ mask-size: unset;
 
 ### Werte
 
-Die `mask-size`-Eigenschaft akzeptiert eine durch Kommas getrennte Liste von `<bg-size>`-Werten. Ein `<bg-size>`-Wert ist entweder `cover`, `contain`, ein Paar von Werten, die die Breite und Höhe angeben (in dieser Reihenfolge), oder ein einzelner Wert, der die Breite angibt (wobei die Höhe auf `auto` gesetzt wird). Werte umfassen:
+Die `mask-size` Eigenschaft akzeptiert eine durch Kommas getrennte Liste von `<bg-size>` Werten. Ein `<bg-size>` Wert ist entweder `cover`, `contain`, ein Paar von Werten, die die Breite und Höhe angeben (in dieser Reihenfolge), oder ein einzelner Wert, der die Breite angibt (wobei in diesem Fall die Höhe auf `auto` gesetzt wird). Mögliche Werte sind:
 
 - `contain`
 
-  - : Skaliert das Maskenbild nach oben oder unten, während das Seitenverhältnis beibehalten wird, und macht die Maske so groß wie möglich innerhalb ihres Containers, ohne sie zuzuschneiden oder zu strecken.
-    Wenn das Maskenbild kleiner als der Container ist, wird die Maske gekachelt oder wiederholt, es sei denn, die {{cssxref("mask-repeat")}}-Eigenschaft wird auf `no-repeat` gesetzt.
+  - : Skalieren des Maskenbildes nach oben oder unten, während das Seitenverhältnis beibehalten wird, sodass die Maske so groß wie möglich innerhalb ihres Containers ist, ohne dass sie zugeschnitten oder gestreckt wird.
+    Wenn das Maskenbild kleiner als der Container ist, wird die Maske gekachelt, oder sie wiederholt sich, es sei denn, die {{cssxref("mask-repeat")}} Eigenschaft ist auf `no-repeat` gesetzt.
 
 - `cover`
 
-  - : Skaliert das Maskenbild auf die kleinstmögliche Größe, um den Container vollständig zu füllen und dabei das Seitenverhältnis beizubehalten. Wenn das Seitenverhältnis des Maskenbilds vom Element abweicht, wird es vertikal oder horizontal beschnitten.
+  - : Skalieren des Maskenbildes auf die kleinstmögliche Größe, um den Container zu füllen, während das Seitenverhältnis beibehalten wird. Wenn das Seitenverhältnis des Maskenbildes sich von dem des Elements unterscheidet, wird es vertikal oder horizontal zugeschnitten.
 
 - `auto`
 
-  - : Beibehaltung des ursprünglichen Seitenverhältnisses der Maskenquelle. Wenn sowohl für die Breite als auch die Höhe eingestellt, wird die originale Größe der Maskenressource verwendet. Andernfalls skaliert `auto` das Maskenbild in der entsprechenden Richtung, sodass das ursprüngliche Seitenverhältnis beibehalten wird.
+  - : Beibehaltung des ursprünglichen Seitenverhältnisses der Maskenquelle. Wenn sowohl Breite als auch Höhe auf `auto` gesetzt sind, wird die ursprüngliche Größe der Maskenressource verwendet. Andernfalls skaliert `auto` das Maskenbild in der entsprechenden Richtung, sodass das ursprüngliche Seitenverhältnis beibehalten wird.
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Rendert das Maskenbild in der angegebenen Länge in der entsprechenden Dimension (Breite, wenn als erster oder einziger Wert festgelegt, Höhe, wenn als zweiter Wert festgelegt). Negative Werte sind nicht erlaubt.
+  - : Darstellung des Maskenbildes mit der angegebenen Länge in der entsprechenden Dimension (Breite, wenn als erster oder einziger Wert gesetzt, Höhe, wenn als zweiter Wert gesetzt). Negative Werte sind nicht erlaubt.
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Rendert das Maskenbild in der entsprechenden Dimension mit dem angegebenen Prozentsatz des Ursprungsbereichs der Box, wie durch die {{cssxref("mask-origin")}}-Eigenschaft definiert, die standardmäßig auf `padding-box` gesetzt ist. Negative Werte sind nicht erlaubt.
+  - : Darstellung des Maskenbildes in der entsprechenden Dimension als den angegebenen Prozentsatz des Ursprungsflächenbereichs, wie von der {{cssxref("mask-origin")}} Eigenschaft definiert, die standardmäßig `padding-box` ist. Negative Werte sind nicht erlaubt.
 
 ## Beschreibung
 
-Die `mask-size`-Eigenschaft wird verwendet, um Maskenschichten zu dimensionieren.
+Die `mask-size` Eigenschaft wird verwendet, um Maskenebenen zu dimensionieren.
 
-Ein Element kann mehrere Maskenschichten aufweisen. Die Anzahl der Maskenschichten wird durch die Anzahl der durch Kommas getrennten Werte im {{cssxref("mask-image")}}-Eigenschaftswert bestimmt (ein Wert erstellt eine Maskenschicht, auch wenn er `none` ist).
+Ein Element kann mehrere Maskenschichten haben. Die Anzahl der Maskenschichten wird durch die Anzahl der durch Kommas getrennten Werte im Wert der {{cssxref("mask-image")}} Eigenschaft bestimmt (ein Wert erstellt eine Maskenschicht, auch wenn er `none` ist).
 
-Jeder `mask-size`-Wert in der durch Kommas getrennten Liste von Werten wird mit einer zugehörigen Maskenschicht abgeglichen, wie durch die Liste der `mask-image`-Werte definiert. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist:
+Jeder `mask-size` Wert in der durch Kommas getrennten Liste von Werten wird mit einer zugehörigen Maskenschicht abgeglichen, wie von der Liste von `mask-image` Werten in Reihenfolge definiert. Falls die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist:
 
 - Wenn `mask-size` mehr Werte hat als `mask-image`, werden die überschüssigen Werte von `mask-size` nicht verwendet.
-- Wenn `mask-size` weniger Werte hat als `mask-image`, werden die `mask-size`-Werte wiederholt.
+- Wenn `mask-size` weniger Werte hat als `mask-image`, werden die `mask-size` Werte wiederholt.
 
-Jeder `mask-size`-Wert ist ein `<bg-size>`-Wert. Es gibt drei Möglichkeiten, jedes `<bg-size>` zu deklarieren: ein Schlüsselwort, zwei Längen, Prozentsätze oder das Schlüsselwort `auto`, oder eine Länge, Prozentsatz oder `auto`:
+Jeder `mask-size` Wert ist ein `<bg-size>` Wert. Es gibt drei Möglichkeiten, jedes `<bg-size>` zu deklarieren: ein Schlüsselwort, zwei Längen, Prozentsätze oder das Schlüsselwort `auto`, oder eine Länge, ein Prozentsatz oder `auto`:
 
 - Die verfügbaren Schlüsselwörter sind `cover` und `contain`.
-- Wenn zwei Werte angegeben sind, definiert der erste die Breite der Maske und der zweite ihre Höhe.
-- Wenn ein Wert angegeben ist, definiert er nur die Breite der Maske, wobei die Höhe auf `auto` gesetzt wird.
+- Wenn zwei Werte angegeben sind, definiert der erste die Maskenbreite und der zweite ihre Höhe.
+- Wenn ein Wert angegeben ist, definiert dieser nur die Maskenbreite, wobei die Höhe auf `auto` gesetzt wird.
 
-Die Breiten- und Höheneinträge sind ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}}, oder das Schlüsselwort `auto`, das der Standard ist. Das Setzen eines oder beider Werte auf `auto` bewahrt das ursprüngliche Seitenverhältnis des Maskenbilds.
+Die Breiten- und Höhenwerte sind ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}}, oder das `auto` Schlüsselwort, welches der Standard ist. Wenn einer oder beide Werte auf `auto` gesetzt sind, wird das ursprüngliche Seitenverhältnis des Maskenbildes beibehalten.
 
-Die gerenderte Größe des Maskenbilds wird wie folgt berechnet:
+Die gerenderte Größe des Maskenbildes wird wie folgt berechnet:
 
-- Wenn beide Komponenten von `mask-size` angegeben und nicht `auto` sind, wird das Maskenbild in der angegebenen Größe gerendert.
-- Wenn die `mask-size` `contain` oder `cover` ist, wird das Bild unter Wahrung seines Seitenverhältnisses in der größten Größe gerendert, die innerhalb des oder den Maskenpositionierungsbereich abdeckend. Wenn das Bild keine intrinsische Proportion hat, wie bei Verläufen, wird es in der Größe des Maskenpositionierungsbereichs gerendert.
-- Wenn die `mask-size` `auto` ist (was zu `auto auto` aufgelöst wird), wird es in der Größe gerendert, in der die Maske angezeigt würde, wenn kein CSS angewendet würde, um das Rendering zu ändern; dies ist ihre {{Glossary("intrinsic_size", "intrinsische Größe")}}. Wenn sie keine intrinsischen Dimensionen und keine intrinsische Proportion hat, wie es bei [CSS-Verläufen](/de/docs/Web/CSS/gradient) der Fall ist, wird sie in der Größe des Maskenpositionierungsbereichs gerendert, wie durch die {{cssxref("mask-origin")}} (die standardmäßig `border-box` ist) definiert.
-  Wenn die Maskenquelle keine Abmessungen hat, aber eine Proportion (Seitenverhältnis), wird ein Wert von `auto` es so rendern, als wäre `contain` angegeben. Wenn das Bild eine intrinsische Dimension und eine Proportion hat, wird es in der durch diese eine Dimension und die Proportion bestimmten Größe gerendert. Wenn das Bild eine intrinsische Dimension hat, aber keine Proportion, wird es unter Verwendung der intrinsischen Dimension und der entsprechenden Dimension des Maskenpositionierungsbereichs gerendert.
-- Wenn `mask-size` eine `auto`-Komponente und eine nicht-`auto`-Komponente hat, die auf alle einwertigen Werte angewendet wird, wird das Seitenverhältnis beibehalten, wenn die Maskenquelle eine intrinsische Proportion hat. Wenn es keine intrinsischen Proportionen gibt, wird angenommen, dass der `auto`-Wert die Dimension des Maskenpositionierungsbereichs ist.
+- Wenn beide Komponenten von `mask-size` spezifiziert und nicht `auto` sind, wird das Maskenbild in der angegebenen Größe dargestellt.
+- Wenn `mask-size` `contain` oder `cover` ist, wird das Bild gerendert, indem sein Seitenverhältnis bei der größten Größe, die innerhalb oder über den Maskenpositionierungsbereich enthalten ist, beibehalten wird. Wenn das Bild keine intrinsische Proportion hat, wie bei Verläufen, wird es in der Größe des Maskenpositionierungsbereichs gerendert.
+- Wenn `mask-size` `auto` ist (was auf `auto auto` auflöst), wird es in der Größe gerendert, in der das Maskenbild angezeigt würde, wenn kein CSS angewendet worden wäre, um die Darstellung zu ändern; dies ist seine {{Glossary("intrinsic_size", "intrinsische Größe")}}. Wenn es keine intrinsischen Dimensionen und keine intrinsische Proportion hat, wie es bei [CSS-Verläufen](/de/docs/Web/CSS/gradient) der Fall ist, wird es in der Größe des Maskenpositionierungsbereichs gerendert, der durch die {{cssxref("mask-origin")}} definiert ist (was standardmäßig `border-box` ist).
+  Wenn die Maskenquelle keine Dimensionen aber eine Proportion hat (Seitenverhältnis), wird ein Wert von `auto` es so rendern, als ob `contain` angegeben worden wäre. Wenn das Bild eine intrinsische Dimension und eine Proportion hat, wird es in der durch diese Dimension und die Proportion bestimmten Größe gerendert. Wenn das Bild eine intrinsische Dimension aber keine Proportion hat, wird es mit der intrinsischen Dimension und der entsprechenden Dimension des Maskenpositionierungsbereichs gerendert.
+- Wenn `mask-size` eine `auto` Komponente und eine nicht-`auto` Komponente hat, was für alle einwertigen Werte zutrifft, wird das Seitenverhältnis beibehalten, wenn die Maskenquelle eine intrinsische Proportion hat. Wenn es keine intrinsischen Proportionen gibt, wird davon ausgegangen, dass der `auto` Wert die Dimension des Maskenpositionierungsbereichs ist.
 
-Wie bei allen Langform-Komponenten der Kurzform-Eigenschaft, wenn die {{cssxref("mask")}} Kurzform-Eigenschaft gesetzt ist und der Wert der `mask-size`-Eigenschaft nicht innerhalb einer Maskenschicht definiert ist, wird der `mask-size`-Wert für diese Maskenschichten auf seinen Anfangswert `auto` zurückgesetzt.
+Wie bei allen Langhandkomponenten der Kurzform-Eigenschaft, wenn die {{cssxref("mask")}} Kurzform-Eigenschaft gesetzt ist und der Wert der `mask-size` Eigenschaft innerhalb einer Maskenebene nicht definiert ist, wird der `mask-size` Wert für diese Maskenebenen auf seinen Ausgangswert von `auto` zurückgesetzt.
 
 ## Formale Definition
 
@@ -108,13 +108,13 @@ Wie bei allen Langform-Komponenten der Kurzform-Eigenschaft, wenn die {{cssxref(
 
 ## Beispiele
 
-### Festlegen der Maskengröße als Prozentsatz
+### Setzen der Maskengröße als Prozentsatz
 
-Dieses Beispiel zeigt die grundlegende Verwendung, während auch Prozentwerte für `mask-size` demonstriert werden.
+Dieses Beispiel zeigt die grundlegende Verwendung und demonstriert auch Prozentwerte für `mask-size`.
 
 #### HTML
 
-Wir fügen zwei {{htmlelement("div")}}-Elemente ein:
+Wir fügen zwei {{htmlelement("div")}} Elemente ein:
 
 ```html
 <div class="width"></div>
@@ -123,7 +123,7 @@ Wir fügen zwei {{htmlelement("div")}}-Elemente ein:
 
 #### CSS
 
-Die `<div>`-Elemente sind definiert, doppelt so hoch wie breit zu sein, mit einem Farbverlauf als Hintergrund und einer Maske:
+Die `<div>` Elemente sind so definiert, dass sie doppelt so hoch wie breit sind, mit einem Verlaufs-Hintergrund und einer Maske:
 
 ```css
 div {
@@ -134,7 +134,7 @@ div {
 }
 ```
 
-Die Breite der Maske eines `<div>`-Elements ist auf `50%` gesetzt, wobei die Höhe standardmäßig auf `auto` gesetzt ist. Die Höhe der Maske für das zweite `<div>`-Element ist auf `50%` gesetzt, während die Breite auf `auto` gesetzt ist:
+Die Breite eines `<div>` Elements Maske ist auf `50%` gesetzt, wobei die Höhe auf `auto` standardmäßig bleibt. Die Höhe der Maske für das zweite `<div>` Element ist auf `50%` gesetzt, mit der Breite auf `auto` gesetzt:
 
 ```css
 .width {
@@ -146,8 +146,8 @@ Die Breite der Maske eines `<div>`-Elements ist auf `50%` gesetzt, wobei die Hö
 }
 ```
 
-Im `width`-Fall wird die Maske `100px` breit gerendert (`50%` des `200px` breiten Elements). Die Höhe wird standardmäßig auf `auto` gesetzt und das Seitenverhältnis der Maske wird beibehalten.
-Im `height`-Fall wird die Maske `200px` hoch gerendert (`50%` des `400px` hohen Containers). Die Breite wird explizit auf `auto` gesetzt, um das Seitenverhältnis der Maske beizubehalten.
+Im Fall der `width` wird die Maske `100px` breit dargestellt (`50%` des `200px` breiten Elements). Die Höhe bleibt standardmäßig auf `auto`, wobei das Seitenverhältnis der Maske beibehalten wird.
+Im Fall der `height` wird die Maske `200px` hoch dargestellt (`50%` des `400px` hohen Containers). Die Breite ist explizit auf `auto` gesetzt, was das Seitenverhältnis der Maske beibehält.
 
 ```css hidden
 body {
@@ -166,7 +166,7 @@ Dieses Beispiel zeigt die Schlüsselwortwerte für `mask-size`.
 
 #### HTML
 
-Drei {{htmlelement("section")}}-Elemente sind definiert, jedes mit einem anderen Klassennamen, und jedes enthält ein `<div>`.
+Drei {{htmlelement("section")}} Elemente sind definiert, jedes mit einem anderen Klassennamen und jedes enthält ein `<div>`.
 
 ```html
 <section class="auto">
@@ -182,7 +182,7 @@ Drei {{htmlelement("section")}}-Elemente sind definiert, jedes mit einem anderen
 
 #### CSS
 
-Die `<div>`-Elemente sind definiert, doppelt so hoch wie breit zu sein, mit einem Farbverlauf als Hintergrund und einer Maske:
+Die `<div>` Elemente sind so definiert, dass sie doppelt so hoch wie breit sind, mit einem Verlaufs-Hintergrund und einer Maske:
 
 ```css
 div {
@@ -193,7 +193,7 @@ div {
 }
 ```
 
-Die `mask-size` von zwei der `<div>`-Elemente ist auf einen der Schlüsselwortwerte der Eigenschaft gesetzt. Das dritte `<div>` hat eine `mask-size` von `auto` gesetzt, um die ursprünglichen intrinsischen Dimensionen der Maske zu demonstrieren:
+Die `mask-size` von zwei der `<div>` Elemente ist auf einen der Schlüsselwortwerte der Eigenschaft gesetzt. Das dritte `<div>` hat eine `mask-size` von `auto` gesetzt, wodurch die ursprünglichen intrinsischen Dimensionen der Maske demonstriert werden:
 
 ```css
 .auto div {
@@ -209,7 +209,7 @@ Die `mask-size` von zwei der `<div>`-Elemente ist auf einen der Schlüsselwortwe
 }
 ```
 
-Die Eigenschaftswerte werden mit [generierten Inhalten](/de/docs/Web/CSS/CSS_generated_content) angezeigt.
+Die Eigenschaftswerte werden mit [generiertem Inhalt](/de/docs/Web/CSS/CSS_generated_content) angezeigt.
 
 ```css
 section::before {
@@ -235,11 +235,11 @@ section {
 
 {{EmbedLiveSample("Cover and contain", "", "430px")}}
 
-Mit `auto` wird der Stern in seiner intrinsischen Größe von `100px` mal `100px` angezeigt. Mit `cover` wächst der Stern auf `400px` Höhe, um den gesamten Ursprungsbereich zu bedecken. Mit `contain` wächst der Stern, bis eine Dimension gleich der entsprechenden Dimension der [Ursprungsbox](/de/docs/Web/CSS/mask-origin) ist, was bedeutet, dass der Stern so groß wie möglich ist (`200px` breit), aber dennoch darin enthalten ist.
+Mit `auto` wird der Stern in seiner intrinsischen Größe von `100px` mal `100px` angezeigt. Mit `cover` wächst der Stern auf `400px` Höhe, um den gesamten Ursprungsbox zu bedecken. Mit `contain` wächst der Stern, bis eine Dimension derselben Dimension der [Ursprungsbox](/de/docs/Web/CSS/mask-origin) entspricht, was bedeutet, dass der Stern so groß wie möglich ist (`200px` breit), aber immer noch von ihr eingeschlossen wird.
 
 ### Wenn die Maske größer als der Container ist
 
-Mit demselben HTML und CSS wie oben, jedoch mit einer anderen Größe des Ursprungsbereichs, wird in diesem Beispiel gezeigt, was passiert, wenn der Ursprungsbereich kleiner als die intrinsischen Abmessungen der Maske ist.
+Verwenden Sie den gleichen HTML- und CSS-Code wie oben, mit nur einer anderen Ursprungsbox-Größe. Dieses Beispiel untersucht, was passiert, wenn die Ursprungsbox kleiner als die intrinsischen Dimensionen der Maske ist.
 
 ```html hidden
 <section class="auto">
@@ -288,7 +288,7 @@ section {
 }
 ```
 
-Der einzige Unterschied ist die Größe der umgebenden Box (und der generierte Inhalt):
+Der einzige Unterschied ist die Größe der Box, die sie enthält (und der generierte Inhalt):
 
 ```css
 div {
@@ -299,7 +299,7 @@ div {
 
 {{EmbedLiveSample("When the mask is larger than the container", "", "120px")}}
 
-Der `contain`-Wert enthält die Maske innerhalb des Ursprungsbereichs. Der `cover`-Wert deckt sie ab. In beiden Fällen schrumpft die Maske unter Beibehaltung des ursprünglichen Seitenverhältnisses. Mit `auto` wird die Maske abgeschnitten, da die intrinsischen Abmessungen größer als die Boxabmessungen sind.
+Der Wert `contain` enthält die Maske innerhalb der Ursprungsbox. Der Wert `cover` bedeckt sie. In beiden Fällen schrumpft die Maske, während das ursprüngliche Seitenverhältnis beibehalten wird. Mit `auto` wird die Maske abgeschnitten, da die intrinsischen Dimensionen größer als die Boxdimensionen sind.
 
 ## Spezifikationen
 

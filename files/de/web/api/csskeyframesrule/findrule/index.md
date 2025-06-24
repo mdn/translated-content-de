@@ -1,14 +1,14 @@
 ---
-title: "CSSKeyframesRule: findRule()-Methode"
+title: "CSSKeyframesRule: findRule() Methode"
 short-title: findRule()
 slug: Web/API/CSSKeyframesRule/findRule
 l10n:
-  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("CSSOM") }}
 
-Die **`findRule()`**-Methode der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle findet die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule), die dem angegebenen Keyframe-Selektor entspricht.
+Die **`findRule()`** Methode des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) Interfaces sucht die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule), die mit dem angegebenen Keyframe-Selektor übereinstimmt.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ findRule(select)
     - eine durch Kommas getrennte Liste von Prozentwerten zwischen 0% und 100%;
     - oder die Schlüsselwörter `from` oder `to`
 
-    Beachten Sie, dass Anzahl und Reihenfolge der Werte im angegebenen Keyframe-Selektor mit denen der angezielten Keyframe-Regel(n) übereinstimmen müssen. Leerzeichen werden ignoriert.
+    Beachten Sie, dass die Anzahl und Reihenfolge der Werte im angegebenen Keyframe-Selektor mit denen der anvisierten Keyframe-Regel(n) übereinstimmen müssen. Leerzeichen werden ignoriert.
 
 ### Rückgabewert
 
-Eine [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule), die die zuletzt passende Regel ist. Wenn keine Regeln gefunden werden, wird nichts zurückgegeben.
+Eine [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule), die die zuletzt gefundene Regel ist. Wenn keine Regeln gefunden werden, wird nichts zurückgegeben.
 
 ## Beispiele
 
 Das CSS enthält eine Keyframes-At-Regel. Diese wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück. Der Aufruf von findRule("to") gibt eine [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) zurück, die die zweite Regel darstellt.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule) Objekt zurück. Der Aufruf von findRule("to") gibt eine [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) zurück, die die zweite Regel darstellt.
 
 ```css
 @keyframes slide-in {

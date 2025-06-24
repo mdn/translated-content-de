@@ -2,12 +2,12 @@
 title: text-indent
 slug: Web/CSS/text-indent
 l10n:
-  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des leeren Raums (Einrückung) fest, der vor Zeilen von Text in einem Block eingefügt wird.
+Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des leeren Raums (Einzug) fest, der vor den Textzeilen in einem Block eingefügt wird.
 
 {{InteractiveExample("CSS Demo: text-indent")}}
 
@@ -66,7 +66,7 @@ section {
 }
 ```
 
-Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei einer von rechts nach links verlaufenden Anordnung) Rand der Inhaltsbox des umschließenden Block-Elementes.
+Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei einer von rechts nach links verlaufenden Layout) Rand der Inhaltsbox des umgebenden Blockelementes.
 
 ## Syntax
 
@@ -95,13 +95,13 @@ text-indent: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Einrückung wird als absoluter {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
+  - : Der Einzug wird als absolutes {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Einrückung ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
+  - : Der Einzug entspricht einem {{cssxref("&lt;percentage&gt;")}} der Breite des umgebenden Blocks.
 - `each-line`
-  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, jedoch nicht die Zeilen nach einem _weichen Zeilenumbruch_.
+  - : Der Einzug wirkt sich sowohl auf die erste Zeile des Blockcontainers als auch auf jede Zeile nach einem _erzwungenen Zeilenumbruch_ aus, jedoch nicht auf Zeilen nach einem _weichen Zeilenumbruch_.
 - `hanging`
-  - : Umkehrt, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
+  - : Kehrt die Zeilen um, die eingezogen werden. Alle Zeilen _außer_ der ersten Zeile werden eingezogen.
 
 ## Formale Definition
 
@@ -113,7 +113,7 @@ text-indent: unset;
 
 ## Beispiele
 
-### Grundlegende Einrückung
+### Einfacher Einzug
 
 #### HTML
 
@@ -141,11 +141,11 @@ p {
 
 {{ EmbedLiveSample('Basic_indent','100%','100%') }}
 
-### Auslassen der Einrückung beim ersten Absatz
+### Überspringen des Einzugs beim ersten Absatz
 
-Eine übliche typografische Praxis, wenn Absatzeinrückung vorhanden ist, besteht darin, die Einrückung für den ersten Absatz auszulassen. Wie in _The Chicago Manual of Style_ erwähnt wird, "kann die erste Textzeile nach einem Untertitel bündig links beginnen oder mit der üblichen Absatzeinrückung eingerückt werden."
+Eine übliche typografische Praxis, wenn Absatzeinzüge vorhanden sind, ist das Überspringen des Einzugs beim ersten Absatz. Wie _The Chicago Manual of Style_ es ausdrückt: "die erste Textzeile nach einer Zwischenüberschrift kann linksbündig oder mit dem üblichen Absatzeinzug beginnen."
 
-Die unterschiedliche Behandlung von ersten und nachfolgenden Absätzen kann mit dem [Nachbar-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
+Das unterschiedliche Behandeln der ersten Absätze im Vergleich zu den nachfolgenden Absätzen kann mit dem [next-sibling Kombinator](/de/docs/Web/CSS/Next-sibling_combinator) umgesetzt werden, wie im folgenden Beispiel:
 
 #### HTML
 
@@ -208,7 +208,7 @@ p + p {
 
 {{ EmbedLiveSample('Skipping_indentation_on_the_first_paragraph','','500px') }}
 
-### Prozentuale Einrückung
+### Prozentualer Einzug
 
 #### HTML
 
@@ -256,5 +256,5 @@ p {
   - [`text-transform`](/de/docs/Web/CSS/text-transform)
   - {{cssxref('hanging-punctuation')}}
 
-- [CSS Text Decoration](/de/docs/Web/CSS/CSS_text_decoration) CSS-Modul
-- [CSS Text Modul](/de/docs/Web/CSS/CSS_text)
+- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) CSS-Modul
+- [CSS Textmodul](/de/docs/Web/CSS/CSS_text)

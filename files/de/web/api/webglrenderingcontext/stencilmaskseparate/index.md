@@ -1,16 +1,16 @@
 ---
-title: "WebGLRenderingContext: stencilMaskSeparate() Methode"
+title: "WebGLRenderingContext: stencilMaskSeparate()-Methode"
 short-title: stencilMaskSeparate()
 slug: Web/API/WebGLRenderingContext/stencilMaskSeparate
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.stencilMaskSeparate()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) steuert das Ein- und Ausschalten des Schreibens einzelner Bits in den Stencil-Ebenen für die Vorder- und/oder Rückseite.
+Die **`WebGLRenderingContext.stencilMaskSeparate()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) steuert das Ein- und Ausschalten des Schreibens individueller Bits in den Stenzelebenen für die Vorder- und/oder Rückseite.
 
-Die Methode [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask) kann gleichzeitig sowohl die Vorder- als auch Rückseiten-Stencil-Schreibmasken auf einen Wert setzen.
+Die [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask)-Methode kann sowohl die vorderen als auch die hinteren Stenzelebenen auf einen Wert gleichzeitig setzen.
 
 ## Syntax
 
@@ -22,15 +22,13 @@ stencilMaskSeparate(face, mask)
 
 - `face`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Vorder- und/oder Rückseiten-Stencil-Schreibmaske
-    aktualisiert wird. Die möglichen Werte sind:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Schreibmaske der vorderen und/oder hinteren Stenzelebenen aktualisiert wird. Die möglichen Werte sind:
     - `gl.FRONT`
     - `gl.BACK`
     - `gl.FRONT_AND_BACK`
 
 - `mask`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das eine Bitmaske angibt, um das Schreiben einzelner Bits in den Stencil-Ebenen zu aktivieren oder zu deaktivieren. Standardmäßig ist die Maske auf alle 1 gesetzt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der eine Bitmaske angibt, um das Schreiben einzelner Bits in den Stenzelebenen zu aktivieren oder deaktivieren. Standardmäßig ist die Maske auf alle 1 gesetzt.
 
 ### Rückgabewert
 
@@ -42,8 +40,8 @@ Keiner ({{jsxref("undefined")}}).
 gl.stencilMaskSeparate(gl.FRONT, 110101);
 ```
 
-Um die aktuellen Stencil-Masken zu ermitteln, fragen Sie die Konstanten `STENCIL_WRITEMASK`,
-`STENCIL_BACK_WRITEMASK` oder `STENCIL_BITS` ab.
+Um die aktuellen Stenzelschreiber-Masken zu erhalten, fragen Sie die `STENCIL_WRITEMASK`,
+`STENCIL_BACK_WRITEMASK` oder `STENCIL_BITS` Konstanten ab.
 
 ```js
 gl.getParameter(gl.STENCIL_WRITEMASK);

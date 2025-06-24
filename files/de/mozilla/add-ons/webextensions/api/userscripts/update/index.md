@@ -2,12 +2,12 @@
 title: userScripts.update()
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts/update
 l10n:
-  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Aktualisiert von der Erweiterung registrierte Benutzerskripte.
+Aktualisiert von der Erweiterung registrierte Benutzer-Skripte.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ let updatingUserScript = browser.userScripts.update(
 
 - `scripts`
 
-  - : `array` von {{WebExtAPIRef("userScripts.RegisteredUserScript")}}. Details der zu aktualisierenden Benutzerskripte.
+  - : `array` von {{WebExtAPIRef("userScripts.RegisteredUserScript")}}. Details zu den zu aktualisierenden Benutzer-Skripten.
 
     Eigenschaften, die `null` sind oder weggelassen werden, werden nicht geändert. Das Übergeben eines leeren Arrays an `matches`, `excludeMatches`, `globs` und `excludeGlobs` löscht diese Eigenschaften.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn alle angeforderten Benutzerskripte aktualisiert werden. Wenn das Aktualisieren eines Benutzerskripts fehlschlägt oder die Anforderung aus einem anderen Grund fehlschlägt, werden keine Skripte aktualisiert, und das Promise wird mit einer Fehlermeldung zurückgewiesen.
+Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn alle angeforderten Benutzer-Skripte aktualisiert sind. Wenn ein Benutzer-Skript nicht aktualisiert wird oder die Anfrage aus einem anderen Grund fehlschlägt, wird keines der Skripte aktualisiert, und das Promise wird mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt zwei Aktualisierungen von Benutzerskripten. Die erste Aktualisierung schlägt fehl, da versucht wird, eine ungültige Skriptregistrierung zu erstellen. Das zweite Beispiel zeigt eine erfolgreiche Aktualisierung.
+Dieses Beispiel zeigt zwei Aktualisierungen von Benutzer-Skripten. Das erste Update schlägt fehl, da es versucht, eine ungültige Skriptregistrierung zu erstellen. Das zweite Beispiel zeigt ein erfolgreiches Update.
 
 ```js
 // Valid registration:

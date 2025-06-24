@@ -1,14 +1,14 @@
 ---
-title: "Document: caretPositionFromPoint() Methode"
+title: "Dokument: caretPositionFromPoint() Methode"
 short-title: caretPositionFromPoint()
 slug: Web/API/Document/caretPositionFromPoint
 l10n:
-  sourceCommit: ae524b0c327f8aaea51cc6a5c59e0301bde646c0
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("CSSOM View")}}
 
-Die **`caretPositionFromPoint()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt zurück, das das DOM-Element sowie den Cursor und dessen Zeichenoffset in diesem Element enthält.
+Die **`caretPositionFromPoint()`** Methode der [`Document`](/de/docs/Web/API/Document) Schnittstelle gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition) Objekt zurück, das das DOM-Element sowie die Einfügemarke und den Zeichenoffset der Einfügemarke innerhalb dieses Elements enthält.
 
 ## Syntax
 
@@ -20,31 +20,30 @@ caretPositionFromPoint(x, y, options)
 ### Parameter
 
 - `x`
-  - : Die horizontale Koordinate eines Punktes.
+  - : Die horizontale Koordinate eines Punkts.
 - `y`
-  - : Die vertikale Koordinate eines Punktes.
+  - : Die vertikale Koordinate eines Punkts.
 - `options` {{optional_inline}}
-
   - : Die folgenden optionalen Eigenschaften können ebenfalls angegeben werden.
-
     - `shadowRoots` {{optional_inline}}
-      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten.
-        Die Methode kann eine Cursorposition für ein Element zurückgeben, das innerhalb des Shadow-DOM eines angegebenen Shadow-Roots definiert ist.
-        Wenn sich die Cursorposition innerhalb eines nicht angegebenen Shadow-Roots befindet, wird die zurückgegebene `CaretPosition` auf das Element abgebildet, das der Host des Shadow-Roots ist.
+      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Objekten.
+        Die Methode kann eine Einfügemarkenposition für ein Element zurückgeben, das innerhalb des Shadow DOM eines bereitgestellten Shadow Roots definiert ist.
+        Wenn sich die Einfügemarkenposition innerhalb eines nicht bereitgestellten Shadow Roots befindet, wird die zurückgegebene `CaretPosition` auf das Element abgebildet, das der Host des Shadow Roots ist.
 
 ### Rückgabewert
 
-Ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt oder `null`.
+Ein [`CaretPosition`](/de/docs/Web/API/CaretPosition) Objekt oder `null`.
 
-Der zurückgegebene Wert ist `null`, falls kein Viewport mit dem Dokument verknüpft ist, wenn `x` oder `y` negativ oder außerhalb des Viewport-Bereichs liegen, oder wenn die Koordinaten einen Punkt angeben, an dem kein Textcursor-Indikator eingefügt werden kann.
+Der zurückgegebene Wert ist `null`, wenn kein Viewport mit dem Dokument assoziiert ist, wenn `x` oder `y` negativ oder außerhalb des Viewport-Bereichs liegen oder wenn die Koordinaten auf einen Punkt zeigen, an dem kein Texteinfügeposition-Indikator eingefügt werden könnte.
 
 ## Beispiele
 
-### Textknoten an Cursorposition im DOM teilen
+### Textelemente im DOM an der Einfügemarkenposition aufteilen
 
-Dieses Beispiel zeigt, wie man die Cursorposition von einem ausgewählten DOM-Knoten erhält, die Position verwendet, um den Knoten zu teilen, und einen Zeilenumbruch zwischen den beiden Knoten einfügt. Das Beispiel nutzt `caretPositionFromPoint()`, um die Cursorposition zu erhalten, falls unterstützt, mit der nicht standardmäßigen Methode [`Document.caretRangeFromPoint()`](/de/docs/Web/API/Document/caretRangeFromPoint) als Fallback.
+Dieses Beispiel demonstriert, wie die Einfügemarkenposition von einem ausgewählten DOM-Element erhalten, das Element aufgeteilt und ein Zeilenumbruch zwischen den beiden Elementen eingefügt wird.
+Das Beispiel verwendet `caretPositionFromPoint()`, um die Einfügemarkenposition zu erhalten, falls unterstützt, und fällt andernfalls auf die nicht standardisierte [`Document.caretRangeFromPoint()`](/de/docs/Web/API/Document/caretRangeFromPoint) Methode zurück.
 
-Beachten Sie, dass einige Teile des Codes ausgeblendet sind, einschließlich Code für das Protokollieren, da dies zum Verständnis dieser Methode nicht erforderlich ist.
+Beachten Sie, dass einige Teile des Codes verborgen sind, einschließlich des Codes, der für das Logging verwendet wird, da dies für das Verständnis dieser Methode nicht nützlich ist.
 
 #### HTML
 
@@ -112,9 +111,10 @@ reload.addEventListener("click", () => {
 
 #### JavaScript
 
-Die Methode prüft zunächst die Unterstützung von `document.caretPositionFromPoint` und verwendet diese, um den Textknoten und den Offset an der Cursorposition zu erhalten. Wenn der Browser diese Methode nicht unterstützt, prüft der Code dann auf [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) und verwendet stattdessen diese.
+Die Methode unten prüft zuerst die Unterstützung für `document.caretPositionFromPoint` und verwendet diese, um das Textelement und den Offset an der Einfügemarkenposition zu erhalten.
+Wenn der Browser diese Methode nicht unterstützt, überprüft der Code dann [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) und verwendet diese stattdessen.
 
-Wenn der Knoten an der Cursorposition ein Textknoten ist, teilt der Code den Knoten an dem gewählten Offset und fügt einen Zeilenumbruch dazwischen.
+Wenn das Element an der Einfügemarkenposition ein Textelement ist, teilt der Code dann das Element an dem ausgewählten Offset und fügt zwischen den beiden ein Zeilenumbruch ein.
 
 ```js
 function insertBreakAtPoint(e) {
@@ -153,7 +153,7 @@ function insertBreakAtPoint(e) {
 }
 ```
 
-Die Methode wird dann als Klick-Ereignishandler für alle Absatz-Elemente hinzugefügt.
+Die Methode wird dann als Klick-Event-Handler für alle Absatz-Elemente hinzugefügt.
 
 ```js
 const paragraphs = document.getElementsByTagName("p");
@@ -188,19 +188,24 @@ if (document.caretPositionFromPoint) {
 
 #### Ergebnisse
 
-Klicken Sie irgendwo im **Lorem ipsum ...** Absatz unten, um an der Stelle, an der Sie klicken, einen Zeilenumbruch einzufügen. Beachten Sie, dass das Protokoll den `nodeName`, den Offset und einen Ausschnitt des ausgewählten Knotens mit einem `^` Zeichen bei dem Offset zeigt.
+Klicken Sie irgendwo in den **Lorem ipsum ...** Absatz unten, um einen Zeilenumbruch an der Stelle einzufügen, an der Sie klicken.
+Beachten Sie, dass das Protokoll den `nodeName`, den Offset und ein Fragment des ausgewählten Elements mit einem `^` Zeichen am Offset zeigt.
 
 {{EmbedLiveSample('Split text nodes at caret position in DOM','100%','400px')}}
 
-### Textknoten an Cursorpositionen in einem Shadow-DOM teilen
+### Textknoten an Einfügemarkenpositionen im Shadow DOM aufteilen
 
-Dieses Beispiel zeigt, wie man die Cursorposition von einem ausgewählten Knoten innerhalb eines Shadow-Roots erhält. Das Beispiel ist dem oben beschriebenen DOM-nur Beispiel sehr ähnlich, außer dass ein Teil des Textes innerhalb eines Shadow-Roots liegt. Wir bieten eine Schaltfläche an, mit der Sie den Unterschied sehen können, wenn ein Shadow-Root an `caretPositionFromPoint()` übergeben wird oder nicht.
+Dieses Beispiel zeigt, wie man die Einfügemarkenposition von einem ausgewählten Knoten innerhalb eines Shadow Roots erhält.
+Das Beispiel ist dem oben genannten DOM-only Beispiel sehr ähnlich, außer dass einige der Texte innerhalb eines Shadow Roots liegen.
+Wir stellen eine Schaltfläche zur Verfügung, mit der Sie den Unterschied sehen können, wenn ein Shadow Root an `caretPositionFromPoint()` übergeben oder nicht übergeben wird.
 
-Beachten Sie, dass einige Teile des Codes ausgeblendet sind, einschließlich Code für das Protokollieren, da dies zum Verständnis dieser Methode nicht erforderlich ist.
+Beachten Sie, dass einige Teile des Codes verborgen sind, einschließlich des Codes, der für das Logging verwendet wird, da dies für das Verständnis dieser Methode nicht nützlich ist.
 
 #### HTML
 
-Das HTML definiert einen Absatz von Text innerhalb eines {{htmlelement("div")}} Elements. Der Absatz enthält ein {{htmlelement("span")}} Element mit der `id` "host", das wir als Host für einen Shadow-Root verwenden. Es gibt auch einige Schaltflächen, die wir verwenden werden, um das Beispiel zurückzusetzen und das Shadow-Root-Optionsargument zu `caretPositionFromPoint()` hinzuzufügen/zu entfernen.
+Das HTML definiert einen Absatz von Text innerhalb eines {{htmlelement("div")}} Elements.
+Der Absatz enthält ein {{htmlelement("span")}} Element mit der `id` "host", das wir als Host für ein Shadow Root verwenden werden.
+Es gibt auch einige Schaltflächen, die wir verwenden werden, um das Beispiel zurückzusetzen und die Shadow Root-Option zu `caretPositionFromPoint()` hinzuzufügen oder zu entfernen.
 
 ```html hidden
 <div id="message">
@@ -229,7 +234,8 @@ Das HTML definiert einen Absatz von Text innerhalb eines {{htmlelement("div")}} 
 
 #### CSS
 
-Hier verwenden wir CSS, um das `#host` Element rot und fett zu machen. Dies erleichtert die Unterscheidung zwischen Text im DOM und Text im Shadow-DOM.
+Hier verwenden wir CSS, um das `#host` Element rot und fett darzustellen.
+Dies erleichtert die Unterscheidung zwischen Text im DOM und Text im Shadow DOM.
 
 ```css
 #host {
@@ -276,7 +282,9 @@ reload.addEventListener("click", () => {
 });
 ```
 
-Zuerst haben wir etwas Code, um unser Shadow-DOM zu befüllen. Wir verwenden JavaScript, um ein Shadow-Root dynamisch anzuhängen, da das MDN-Beispielsystem nicht erlaubt, dies deklarativ mit dem {{htmlelement("template")}} Element zu tun. Der Inhalt des Shadow-DOM ist ein {{htmlelement("span")}} Element, das den Text "I'm in the shadow DOM" enthält.
+Zuerst haben wir etwas Code, um unser Shadow DOM zu befüllen.
+Wir verwenden JavaScript, um ein Shadow Root dynamisch zu verknüpfen, da das MDN-Beispielsystem uns nicht erlaubt, dies deklarativ mit dem {{htmlelement("template")}} Element zu tun.
+Der Inhalt des Shadow DOM ist ein {{htmlelement("span")}} Element, das den Text "I'm in the shadow DOM" enthält.
 
 ```js
 const host = document.querySelector("#host");
@@ -286,7 +294,8 @@ shadowSpan.textContent = "I'm in the shadow DOM";
 shadow.appendChild(shadowSpan);
 ```
 
-Als nächstes fügen wir einen Handler für unsere "Enable/Disable shadow" Schaltfläche hinzu. Dieser Code schaltet den Wert der Variablen `useShadows` um und aktualisiert den Schaltflächentext entsprechend.
+Als nächstes fügen wir einen Handler für unsere "Enable/Disable shadow" Schaltfläche hinzu.
+Dieser Code schaltet den Wert der `useShadows` Variablen um und aktualisiert den Schaltflächentext entsprechend.
 
 ```js
 let useShadows = false;
@@ -298,11 +307,12 @@ shadowButton.addEventListener("click", () => {
 });
 ```
 
-Die Methode prüft zunächst die Unterstützung von `document.caretPositionFromPoint` und verwendet diese, um den Textknoten und den Offset an der Cursorposition zu erhalten. Der Wert der Variablen `useShadows` wird verwendet, um zu bestimmen, ob der im Text gehostete Shadow-Root an `caretPositionFromPoint()` übergeben wird.
+Die Methode unten überprüft zuerst die Unterstützung von `document.caretPositionFromPoint` und verwendet sie, um das Textelement und den Offset an der Einfügemarkenposition zu erhalten.
+Der Wert der `useShadows` Variablen wird verwendet, um zu bestimmen, ob das Shadow Root in unserem Text an `caretPositionFromPoint()` übergeben wird.
 
-- Wenn der Browser diese Methode nicht unterstützt, prüft der Code dann auf [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) und verwendet stattdessen diese.
-- Wenn der Knoten an der Cursorposition ein Textknoten ist, teilt der Code den Knoten an dem gewählten Offset und fügt einen Zeilenumbruch dazwischen.
-- Wenn der Knoten ein Elementknoten ist, fügt der Code an dem Offset einen Elementknoten für den Zeilenumbruch ein.
+- Wenn der Browser diese Methode nicht unterstützt, überprüft der Code dann [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) und verwendet diese stattdessen.
+- Wenn das Element an der Einfügemarkenposition ein Textelement ist, teilt der Code dann das Element an dem ausgewählten Offset und fügt zwischen ihnen einen Zeilenumbruch ein.
+- Wenn das Element ein Elementknoten ist, fügt der Code an dieser Stelle ein Zeilenumbruch-Elementknoten ein.
 
 ```js
 function insertBreakAtPoint(e) {
@@ -365,7 +375,8 @@ ${caretInText}`,
 }
 ```
 
-Schließlich fügen wir zwei Klick-Ereignishandler für Absatzelemente im DOM und im Shadow-Root hinzu. Beachten Sie, dass wir die Elemente innerhalb des `shadowRoot` speziell abfragen müssen, da sie nicht für normale DOM-Abfragemethoden sichtbar sind.
+Abschließend fügen wir zwei Klick-Event-Handler für Absatzelemente im DOM und im Shadow Root hinzu.
+Beachten Sie, dass wir spezifisch die Elemente innerhalb des `shadowRoot` abfragen müssen, da sie für normale DOM-Abfragemethoden nicht sichtbar sind.
 
 ```js
 // Click event handler <p> elements in the DOM
@@ -408,11 +419,15 @@ if (document.caretPositionFromPoint) {
 
 #### Ergebnisse
 
-Klicken Sie im **Lorem ipsum ...** Absatz vor oder nach dem Shadow-DOM-Text, um an der Stelle, an der Sie klicken, einen Zeilenumbruch einzufügen. Beachten Sie, dass in diesem Fall das Protokoll zeigt, dass Sie einen `TEXT_NODE` ausgewählt haben, den Offset und einen Ausschnitt des ausgewählten Knotens mit einem `^` Zeichen bei dem Offset.
+Klicken Sie im **Lorem ipsum ...** Absatz vor oder nach dem Shadow DOM-Text, um an der Stelle, an der Sie klicken, einen Zeilenumbruch hinzuzufügen.
+Beachten Sie, dass in diesem Fall das Protokoll anzeigt, dass Sie einen `TEXT_NODE` ausgewählt haben, den Offset und ein Fragment des ausgewählten Elements mit einem `^` Zeichen am Offset.
 
-Zunächst wird der Shadow-Root nicht an `caretPositionFromPoint()` übergeben. Wenn Sie auf den Text "I'm in the shadow DOM" klicken, ist der zurückgegebene Cursorpositionsknoten der übergeordnete Knoten des Hosts am Offset des Shadow-Roots. Der Zeilenumbruch wird daher vor dem Knoten statt an der ausgewählten Stelle hinzugefügt. Beachten Sie, dass der Cursorpositionsknoten in diesem Fall den Typ `ELEMENT_NODE` hat.
+Anfangs wird das Shadow Root nicht an `caretPositionFromPoint()` übergeben, sodass, wenn Sie auf den Text "I'm in the shadow DOM" klicken, der zurückgegebene Einfügemarkenpositionsknoten das übergeordnete Element des Hosts ist, am Offset des Shadow Roots.
+Der Zeilenumbruch wird daher vor dem Element hinzugefügt, anstatt an dem Punkt, den Sie ausgewählt haben.
+Beachten Sie, dass der Einfügemarkenpositionsknoten in diesem Fall den Typ `ELEMENT_NODE` hat.
 
-Wenn Sie die Schaltfläche "Add shadow" klicken, wird der Shadow-Root an `caretPositionFromPoint()` übergeben, so dass die zurückgegebene Cursorposition der spezifische ausgewählte Knoten innerhalb des Shadow-DOM ist. Dadurch verhält sich der Shadow-DOM-Text wie der andere Absatztext.
+Wenn Sie die "Add shadow" Taste klicken, wird das Shadow Root an `caretPositionFromPoint()` übergeben, sodass die zurückgegebene Einfügemarkenposition der spezifische ausgewählte Knoten innerhalb des Shadow DOM ist.
+Dadurch verhält sich der Shadow-DOM-Text wie der andere Absatztext.
 
 {{EmbedLiveSample('Split text nodes at caret positions in a Shadow DOM','100%','400px')}}
 

@@ -2,12 +2,12 @@
 title: pageAction.setTitle()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/setTitle
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Legt den Titel der Seitenaktion fest. Der Titel wird in einem Tooltip angezeigt, wenn der Benutzer über die Seitenaktion fährt.
+Setzt den Titel der Page Action. Der Titel wird in einem Tooltip angezeigt, wenn der Benutzer über die Page Action fährt.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ browser.pageAction.setTitle(
 
       - : `string` oder `null`. Der Tooltip-Text.
 
-        Wenn hier `null` übergeben wird, wird der Titel auf den Titel zurückgesetzt, der im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Manifest-Schlüssel angegeben wurde.
+        Wenn hier `null` übergeben wird, wird der Titel auf den im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Manifest festgelegten Titel zurückgesetzt.
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ browser.pageAction.setTitle(
 
 ## Beispiele
 
-Immer wenn ein Tab aktualisiert wird, zeigen Sie die Seitenaktion für diesen Tab an und setzen Sie den Titel so, dass die ID des Tabs angezeigt wird:
+Wann immer ein Tab aktualisiert wird, zeigt die Page Action für diesen Tab an und setzt deren Titel, um die ID des Tabs anzuzeigen:
 
 ```js
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
@@ -52,7 +52,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setTitle)-API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setTitle) API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

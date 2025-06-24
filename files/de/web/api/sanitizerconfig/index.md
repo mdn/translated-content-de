@@ -2,104 +2,104 @@
 title: SanitizerConfig
 slug: Web/API/SanitizerConfig
 l10n:
-  sourceCommit: b97dae0887fb02713db610eed4855545a9c81bcd
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Das **`SanitizerConfig`** Wörterbuch der [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) repräsentiert ein Konfigurationsobjekt für den Sanitizer.
-Die Konfiguration gibt an, welche Elemente, Attribute und Kommentare erlaubt sind oder entfernt werden sollen, wenn HTML-Strings in ein [`Element`](/de/docs/Web/API/Element) oder [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) eingefügt werden oder wenn eine HTML-Zeichenkette in ein [`Document`](/de/docs/Web/API/Document) geparst werden soll.
+Das **`SanitizerConfig`** Wörterbuch der [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) repräsentiert ein Konfigurationsobjekt eines Sanitizers.
+Die Konfiguration gibt an, welche Elemente, Attribute und Kommentare erlaubt sind oder entfernt werden sollen, wenn HTML-Strings in ein [`Element`](/de/docs/Web/API/Element) oder [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) eingefügt werden, oder wenn ein HTML-String in ein [`Document`](/de/docs/Web/API/Document) geparst wird.
 
-Eine Instanz dieses Typs kann dem [`Sanitizer()`](/de/docs/Web/API/Sanitizer/Sanitizer) Konstruktor übergeben werden, um einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) zu konfigurieren, und wird von [`Sanitizer.get()`](/de/docs/Web/API/Sanitizer/get) zurückgegeben.
-Außerdem kann sie als das `option.sanitizer`-Parameter bei der Aufruf der [Sanitization-Methoden](/de/docs/Web/API/HTML_Sanitizer_API#sanitization_methods) übergeben werden:
+Eine Instanz dieses Typs kann an den [`Sanitizer()`](/de/docs/Web/API/Sanitizer/Sanitizer)-Konstruktor übergeben werden, um einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) zu konfigurieren, und wird von [`Sanitizer.get()`](/de/docs/Web/API/Sanitizer/get) zurückgegeben.
+Sie kann auch als `option.sanitizer`-Parameter übergeben werden, wenn die [Sanitisierungs-Methoden](/de/docs/Web/API/HTML_Sanitizer_API#sanitization_methods) aufgerufen werden:
 
-- [`setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) auf [`Element`](/de/docs/Web/API/Element).
-- [`setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) oder [`setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) auf [`ShadowRoot`](/de/docs/Web/API/ShadowRoot).
+- [`setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) auf einem [`Element`](/de/docs/Web/API/Element).
+- [`setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) oder [`setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) auf einem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot).
 - [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static) oder [`Document.parseHTML()`](/de/docs/Web/API/Document/parseHTML_static) statische Methoden.
 
-Beachten Sie, dass normalerweise eine [`Sanitizer`](/de/docs/Web/API/Sanitizer) Instanz statt `SanitizerConfig` in den oben genannten Methoden als Option übergeben würde, insbesondere weil `sanitizer`-Instanzen effizienter zu teilen und zu ändern sind.
+Beachten Sie, dass normalerweise eine [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Instanz anstelle von `SanitizerConfig` in den obigen Methoden übergeben würde, insbesondere weil `sanitizer`-Instanzen effizienter zu teilen und zu bearbeiten sind.
 
 ## Instanz-Eigenschaften
 
 - `elements`
 
-  - : Ein Array, das die zuzulassenden Elemente beim Bereinigen von HTML angibt, wobei optional auch deren erlaubte oder entfernte Attribute spezifiziert werden können.
+  - : Ein Array, das die Elemente angibt, die bei der Sanitisierung von HTML erlaubt sind, und optional auch deren erlaubte oder zu entfernende Attribute.
 
-    Jedes Element kann entweder durch seinen Namen (ein Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+    Jedes Element kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
     - `name`
-      - : Eine Zeichenkette, die den Namen des Elements enthält.
+      - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
-      - : Eine Zeichenkette, die den Namespace des Elements enthält.
-        Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
+      - : Ein String, der den Namensraum des Elements enthält.
+        Der Standard-Namensraum ist `"http://www.w3.org/1999/xhtml"`.
     - `attributes` {{optional_inline}}
 
-      - : Ein Array, das die erlaubten Attribute dieses Elements bei der HTML-Bereinigung angibt.
+      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element erlaubt sind, wenn HTML sanitisiert wird.
 
-        Jedes Attribut kann durch seinen Namen (eine Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+        Jedes Attribut kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
         - `name`
-          - : Eine Zeichenkette, die den Namen des Attributs enthält.
+          - : Ein String, der den Namen des Attributs enthält.
         - `namespace` {{optional_inline}}
-          - : Eine Zeichenkette, die den Namespace des Attributs enthält, der standardmäßig `null` ist.
+          - : Ein String, der den Namensraum des Attributs enthält, welcher standardmäßig `null` ist.
 
     - `removeAttributes` {{optional_inline}}
 
-      - : Ein Array, das die zu entfernenden Attribute dieses Elements bei der HTML-Bereinigung angibt.
+      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element entfernt werden sollen, wenn HTML sanitisiert wird.
 
-        Jedes Attribut kann durch seinen Namen (eine Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+        Jedes Attribut kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
         - `name`
-          - : Eine Zeichenkette, die den Namen des Attributs enthält.
+          - : Ein String, der den Namen des Attributs enthält.
         - `namespace` {{optional_inline}}
-          - : Eine Zeichenkette, die den Namespace des Attributs enthält, der standardmäßig `null` ist.
+          - : Ein String, der den Namensraum des Attributs enthält, welcher standardmäßig `null` ist.
 
 - `removeElements`
 
-  - : Ein Array, das die zu entfernenden Elemente bei der HTML-Bereinigung angibt.
+  - : Ein Array, das die Elemente angibt, die entfernt werden sollen, wenn HTML sanitisiert wird.
 
-    Jedes Element kann entweder durch seinen Namen (ein Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+    Jedes Element kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
     - `name`
-      - : Eine Zeichenkette, die den Namen des Elements enthält.
+      - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
-      - : Eine Zeichenkette, die den Namespace des Elements enthält.
-        Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
+      - : Ein String, der den Namensraum des Elements enthält.
+        Der Standard-Namensraum ist `"http://www.w3.org/1999/xhtml"`.
 
 - `replaceWithChildrenElements`
 
-  - : Ein Array, das die Elemente angibt, die beim Bereinigen von HTML mit ihrem Inhalt ersetzt werden sollen.
-    Dies wird hauptsächlich verwendet, um Stil von Text zu entfernen (zum Beispiel könnten Sie dies verwenden, um `<b>einige text</b>` zu `einige text` zu ändern).
+  - : Ein Array, das die Elemente angibt, die durch ihren Inhalt ersetzt werden sollen, wenn HTML sanitisiert wird.
+    Dies wird vor allem verwendet, um Stile von Texten zu entfernen (zum Beispiel könnte man dies verwenden, um `<b>some text</b>` in `some text` zu ändern).
 
-    Jedes Element kann entweder durch seinen Namen (ein Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+    Jedes Element kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
     - `name`
-      - : Eine Zeichenkette, die den Namen des Elements enthält.
+      - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
-      - : Eine Zeichenkette, die den Namespace des Elements enthält.
-        Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
+      - : Ein String, der den Namensraum des Elements enthält.
+        Der Standard-Namensraum ist `"http://www.w3.org/1999/xhtml"`.
 
 - `attributes`
 
-  - : Ein Array, das die zu erlaubenden Attribute beim Bereinigen von HTML angibt.
+  - : Ein Array, das die Attribute angibt, die bei der Sanitisierung von HTML erlaubt sind.
 
-    Jedes Attribut kann durch seinen Namen (eine Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+    Jedes Attribut kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
     - `name`
-      - : Eine Zeichenkette, die den Namen des Attributs enthält.
+      - : Ein String, der den Namen des Attributs enthält.
     - `namespace` {{optional_inline}}
-      - : Eine Zeichenkette, die den Namespace des Attributs enthält, der standardmäßig `null` ist.
+      - : Ein String, der den Namensraum des Attributs enthält, welcher standardmäßig `null` ist.
 
 - `removeAttributes`
 
-  - : Ein Array, das die zu entfernenden Attribute von Elementen beim Bereinigen von HTML angibt.
+  - : Ein Array, das die Attribute angibt, die aus Elementen entfernt werden sollen, wenn HTML sanitisiert wird.
 
-    Jedes Attribut kann durch seinen Namen (eine Zeichenkette) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+    Jedes Attribut kann durch den Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
 
     - `name`
-      - : Eine Zeichenkette, die den Namen des Attributs enthält.
+      - : Ein String, der den Namen des Attributs enthält.
     - `namespace` {{optional_inline}}
-      - : Eine Zeichenkette, die den Namespace des Attributs enthält, der standardmäßig `null` ist.
+      - : Ein String, der den Namensraum des Attributs enthält, welcher standardmäßig `null` ist.
 
 - `comments`
   - : `true`, wenn Kommentare erlaubt sind, und `false`, wenn sie entfernt werden sollen.
@@ -108,9 +108,9 @@ Beachten Sie, dass normalerweise eine [`Sanitizer`](/de/docs/Web/API/Sanitizer) 
 
 ## Beispiele
 
-### Erstellen einer "erlauben" Konfiguration
+### Erstellung einer "Erlauben"-Konfiguration
 
-Dieses Beispiel zeigt, wie Sie eine "erlauben" Konfiguration für den Sanitizer erstellen können und in diesem Fall dem [`Sanitizer()`](/de/docs/Web/API/Sanitizer/Sanitizer) Konstruktor übergeben.
+Dieses Beispiel zeigt, wie Sie eine "Erlauben"-Sanitizer-Konfiguration erstellen und in diesem Fall an den [`Sanitizer()`](/de/docs/Web/API/Sanitizer/Sanitizer)-Konstruktor übergeben können.
 
 ```js
 const sanitizer = new Sanitizer({
@@ -122,11 +122,11 @@ const sanitizer = new Sanitizer({
 });
 ```
 
-Beachten Sie, dass Sie nicht sowohl Erlauben- als auch Entfernen-Listen in derselben Konfiguration angeben können, ohne bei der Übergabe der Konfiguration an den Konstruktor oder eine Bereinigungsmethode eine Ausnahme zu verursachen.
+Beachten Sie, dass Sie nicht gleichzeitig Erlauben- und Entfernen-Listen in derselben Konfiguration angeben können, ohne eine Ausnahme zu verursachen, wenn die Konfiguration an den Konstruktor oder eine Sanitisierungs-Methode übergeben wird.
 
-### Erstellen einer "entfernen" Konfiguration
+### Erstellung einer "Entfernen"-Konfiguration
 
-Dieses Beispiel zeigt, wie Sie eine "entfernen" Konfiguration für den Sanitizer erstellen können und in diesem Fall dem [`Sanitizer()`](/de/docs/Web/API/Sanitizer/Sanitizer) Konstruktor übergeben.
+Dieses Beispiel zeigt, wie Sie eine "Entfernen"-Sanitizer-Konfiguration erstellen und in diesem Fall an den [`Sanitizer()`](/de/docs/Web/API/Sanitizer/Sanitizer)-Konstruktor übergeben können.
 
 ```js
 const sanitizer = new Sanitizer({
@@ -136,7 +136,7 @@ const sanitizer = new Sanitizer({
 });
 ```
 
-Beachten Sie, dass Sie nicht sowohl Erlauben- als auch Entfernen-Listen in derselben Konfiguration angeben können, ohne bei der Übergabe der Konfiguration an den Konstruktor oder eine Bereinigungsmethode eine Ausnahme zu verursachen.
+Beachten Sie, dass Sie nicht gleichzeitig Erlauben- und Entfernen-Listen in derselben Konfiguration angeben können, ohne eine Ausnahme zu verursachen, wenn die Konfiguration an den Konstruktor oder eine Sanitisierungs-Methode übergeben wird.
 
 ## Spezifikationen
 

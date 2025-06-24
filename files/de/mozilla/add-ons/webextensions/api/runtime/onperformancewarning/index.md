@@ -2,7 +2,7 @@
 title: runtime.onPerformanceWarning
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onPerformanceWarning
 l10n:
-  sourceCommit: 0bbf7b0f1c3e0966ce9534e70de5e8749a23e2b2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -22,30 +22,26 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob mindestens ein Listener für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob mindestens ein Listener für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es abgehört wird, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `details`
-
       - : `object`. Ein Objekt mit den folgenden Eigenschaften:
-
         - `category`
           - : {{WebExtAPIRef("runtime.OnPerformanceWarningCategory")}}. Die Kategorie der Warnung.
         - `severity`
-          - : {{WebExtAPIRef("runtime.OnPerformanceWarningSeverity")}}. Die Schwere der Warnung.
+          - : {{WebExtAPIRef("runtime.OnPerformanceWarningSeverity")}}. Der Schweregrad der Warnung.
         - `tabId` {{optional_inline}}
           - : `integer`. Die ID des Tabs, auf den sich die Leistungswarnung bezieht, falls vorhanden.
         - `description`
-          - : `string`. Eine Erklärung, was die Warnung bedeutet, möglicherweise mit Informationen dazu, wie das Problem behoben werden kann.
+          - : `string`. Eine Erklärung, was die Warnung bedeutet, möglicherweise mit Informationen darüber, wie sie behoben werden kann.
 
 ## Beispiele
 

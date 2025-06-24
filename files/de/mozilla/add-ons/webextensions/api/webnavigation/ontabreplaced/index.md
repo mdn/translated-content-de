@@ -2,12 +2,12 @@
 title: webNavigation.onTabReplaced
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onTabReplaced
 l10n:
-  sourceCommit: 5c5ee35d66ac24bc6513c14f120750c74d779d20
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Inhalt des Tabs durch einen anderen (in der Regel zuvor vorgerenderten) Tab ersetzt wird.
+Wird ausgelöst, wenn der Inhalt der Registerkarte durch eine andere (normalerweise vorher vorgerenderte) Registerkarte ersetzt wird.
 
 ## Syntax
 
@@ -27,29 +27,27 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
-
     - `details`
-      - : `object`. Siehe den Abschnitt [details](#details) für weitere Informationen.
+      - : `object`. Weitere Informationen finden Sie im Abschnitt [details](#details).
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `replacedTabId`
-  - : `integer`. Die ID des Tabs, der ersetzt wurde.
+  - : `integer`. Die ID der Registerkarte, die ersetzt wurde.
 - `tabId`
-  - : `integer`. Die ID des Tabs, der den alten Tab ersetzt hat.
+  - : `integer`. Die ID der Registerkarte, die die alte Registerkarte ersetzt hat.
 - `timeStamp`
-  - : `number`. Die Zeit, wann der Austausch stattfand, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, als der Ersatz stattfand, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 
 ## Browser-Kompatibilität
 
@@ -68,7 +66,7 @@ browser.webNavigation.onTabReplaced.addListener(logOnTabReplaced);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onTabReplaced) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onTabReplaced) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

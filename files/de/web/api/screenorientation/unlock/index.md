@@ -3,7 +3,7 @@ title: "ScreenOrientation: unlock() Methode"
 short-title: unlock()
 slug: Web/API/ScreenOrientation/unlock
 l10n:
-  sourceCommit: 0e825c9d36e8598691198a6cd3983c4c860ba42a
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Screen Orientation")}}
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Das Versprechen kann mit den folgenden Ausnahmen abgelehnt werden:
+Das Promise kann mit den folgenden Ausnahmen abgelehnt werden:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
 
@@ -34,10 +34,9 @@ Das Versprechen kann mit den folgenden Ausnahmen abgelehnt werden:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn der Sichtbarkeitsstatus des Dokuments "versteckt" ist oder wenn das Dokument nicht berechtigt ist, die Funktion zu verwenden (zum Beispiel durch das Auslassen des Schlüsselworts `allow-orientation-lock` des `sandbox`-Attributs des `<iframe>`-Elements).
+  - : Wird ausgelöst, wenn der Sichtbarkeitsstatus des Dokuments verborgen ist oder wenn das Dokument die Verwendung der Funktion nicht erlaubt ist (zum Beispiel, indem das Schlüsselwort `allow-orientation-lock` im `sandbox`-Attribut des `iframe`-Elements weggelassen wird).
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn eine andere `lock()`-Methode aufgerufen wird.
 
 ## Spezifikationen

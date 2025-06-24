@@ -2,7 +2,7 @@
 title: tabs.onRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onRemoved
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -22,22 +22,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
     - `tabId`
-      - : `integer`. ID des Tabs, der geschlossen wurde.
+      - : `integer`. ID des geschlossenen Tabs.
     - `removeInfo`
-      - : `object`. Die Fenster-ID des Tabs und ein Boolescher Wert, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für weitere Details.
+      - : `object`. Die Fenster-ID des Tabs und ein Boolean, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -50,7 +48,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Auf Schließereignisse hören und die Informationen protokollieren:
+Lauschen Sie auf Schließereignisse und protokollieren Sie die Informationen:
 
 ```js
 function handleRemoved(tabId, removeInfo) {

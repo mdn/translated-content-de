@@ -1,26 +1,26 @@
 ---
-title: Nutzung der Storage Access API
+title: Verwendung der Storage Access API
 slug: Web/API/Storage_Access_API/Using
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{DefaultAPISidebar("Storage Access API")}}
 
-Die [Storage Access API](/de/docs/Web/API/Storage_Access_API) kann von eingebetteten Cross-Site-Dokumenten verwendet werden, um zu überprüfen, ob sie Zugang zu [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und [unpartitioniertem Zustand](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) haben und, falls nicht, den Zugang dazu zu beantragen. Wir betrachten kurz ein typisches Szenario für den Speicherzugriff.
+Die [Storage Access API](/de/docs/Web/API/Storage_Access_API) kann von eingebetteten, cross-site Dokumenten verwendet werden, um zu überprüfen, ob sie Zugang zu [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und [unpartitioniertem Zustand](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) haben, und gegebenenfalls den Zugang anzufordern. Wir werfen einen kurzen Blick auf ein gängiges Szenario für den Speicherzugriff.
 
 > [!NOTE]
-> Wenn wir im Kontext der Storage Access API von Drittanbieter-Cookies sprechen, meinen wir implizit [_unpartitionierte_](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Drittanbieter-Cookies.
+> Wenn wir im Kontext der Storage Access API über Drittanbieter-Cookies sprechen, meinen wir implizit [_unpartitionierte_](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Drittanbieter-Cookies.
 
 ## Nutzungshinweise
 
-Die Storage Access API ist so konzipiert, dass eingebettete Inhalte die Erlaubnis zum Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand anfordern können – die meisten modernen Browser blockieren diesen Zugriff standardmäßig, um die Privatsphäre der Benutzer zu schützen. Da eingebettete Inhalte nicht wissen, wie sich ein Browser in dieser Hinsicht verhalten wird, ist es am besten, immer zu überprüfen, ob das eingebettete {{htmlelement("iframe")}} Speicherzugriff hat, bevor versucht wird, einen Cookie zu lesen oder zu schreiben. Dies gilt insbesondere für den Zugriff auf [`Document.cookie`](/de/docs/Web/API/Document/cookie), da Browser oft ein leeres Cookie-Glas zurückgeben, wenn der Zugriff auf Drittanbieter-Cookies blockiert ist.
+Die Storage Access API ist so konzipiert, dass eingebettete Inhalte den Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand anfordern können — die meisten modernen Browser blockieren solchen Zugriff standardmäßig zum Schutz der Privatsphäre der Nutzer. Da eingebettete Inhalte nicht wissen, wie sich ein Browser in dieser Hinsicht verhalten wird, ist es am besten, immer zu überprüfen, ob das eingebettete {{htmlelement("iframe")}} Speicherzugriff hat, bevor versucht wird, ein Cookie zu lesen oder zu schreiben. Dies gilt insbesondere für den Zugriff auf [`Document.cookie`](/de/docs/Web/API/Document/cookie), da Browser häufig ein leeres Cookie-Glas zurückgeben, wenn der Zugriff auf Drittanbieter-Cookies blockiert ist.
 
-Im folgenden Beispiel zeigen wir, wie ein eingebettetes Cross-Site-{{htmlelement("iframe")}} unter einer Browser-Speicherzugriffspolitik Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand erhalten kann, die ansonsten den Zugriff darauf blockieren würde.
+Im folgenden Beispiel zeigen wir, wie ein eingebettetes, cross-site {{htmlelement("iframe")}} Zugang zu Drittanbieter-Cookies und unpartitioniertem Zustand unter einer Browser-Speicherzugriffspolicy erlangen kann, die ansonsten den Zugriff darauf blockieren würde.
 
 ## Erlauben eines sandboxed `<iframe>` zur Nutzung der API
 
-Zuallererst muss, wenn das `<iframe>` sandboxed ist, die einbettende Website das `allow-storage-access-by-user-activation` [sandbox-Token](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox) hinzufügen, um Anfragen der Storage Access API erfolgreich zu machen, zusammen mit `allow-scripts` und `allow-same-origin`, damit es ein Skript ausführen kann, um die API aufzurufen und in einem Ursprungsbereich auszuführen, der Cookies und Zustand haben kann:
+Zunächst einmal, wenn das `<iframe>` sandboxed ist, muss die einbettende Website das `allow-storage-access-by-user-activation` [sandbox-Token](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox) hinzufügen, um erfolgreich Anfragen an die Storage Access API zu ermöglichen, zusammen mit `allow-scripts` und `allow-same-origin`, um ein Skript zum Aufrufen und Ausführen der API in einem Ursprung zu ermöglichen, der Cookies und Zustand haben kann:
 
 ```html
 <iframe
@@ -33,15 +33,15 @@ Zuallererst muss, wenn das `<iframe>` sandboxed ist, die einbettende Website das
 
 ## Überprüfen und Anfordern von Speicherzugriff
 
-Nun zum Code, der innerhalb des eingebetteten Dokuments ausgeführt wird. In diesem Code:
+Nun zum im eingebetteten Dokument ausgeführten Code. In diesem Code:
 
-1. Zuerst verwenden wir Feature-Detektion (`if (document.hasStorageAccess) {}`), um zu überprüfen, ob die API unterstützt wird. Wenn nicht, führen wir unseren Code aus, der auf Cookies zugreift, und hoffen, dass es funktioniert. Es sollte defensiv kodiert werden, um mit solchen Eventualitäten umzugehen.
+1. Zuerst verwenden wir Feature-Detection (`if (document.hasStorageAccess) {}`), um zu überprüfen, ob die API unterstützt wird. Falls nicht, führen wir unseren Code aus, der trotzdem auf Cookies zugreift, in der Hoffnung, dass er funktioniert. Er sollte defensiv codiert sein, um mit solchen Eventualitäten umgehen zu können.
 2. Wenn die API unterstützt wird, rufen wir `document.hasStorageAccess()` auf.
-3. Wenn dieser Aufruf `true` zurückgibt, bedeutet dies, dass dieses {{htmlelement("iframe")}} bereits Zugriff hat, und wir können sofort unseren Code ausführen, der auf Cookies und Zustand zugreift.
-4. Wenn dieser Aufruf `false` zurückgibt, rufen wir [`Permissions.query()`](/de/docs/Web/API/Permissions/query) auf, um zu überprüfen, ob die Erlaubnis, auf Drittanbieter-Cookies und unpartitionierten Zustand zuzugreifen, bereits erteilt wurde (d.h. zu einem anderen gleichseitigen Einbettung). Wir verpacken diesen gesamten Abschnitt in einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) Block, da [einige Browser die `"storage-access"` Berechtigung nicht unterstützen](/de/docs/Web/API/Storage_Access_API#api.permissions.permission_storage-access), was dazu führen kann, dass der `query()` Aufruf eine Ausnahme auslöst. Wenn er eine Ausnahme auslöst, melden wir dies der Konsole und versuchen trotzdem, den Cookie-Code auszuführen.
-5. Wenn der Berechtigungsstatus `"granted"` ist, rufen wir sofort `document.requestStorageAccess()` auf. Dieser Aufruf wird automatisch aufgelöst, was dem Benutzer Zeit spart, dann können wir unseren Code ausführen, der auf Cookies und Zustand zugreift.
-6. Wenn der Berechtigungsstatus `"prompt"` ist, rufen wir `document.requestStorageAccess()` nach einer Benutzerinteraktion auf. Dieser Aufruf kann eine Aufforderung für den Benutzer auslösen. Wenn dieser Aufruf aufgelöst wird, können wir unseren Code ausführen, der auf Cookies und Zustand zugreift.
-7. Wenn der Berechtigungsstatus `"denied"` ist, hat der Benutzer unsere Anfragen zum Zugriff auf Drittanbieter-Cookies oder unpartitionierten Zustand abgelehnt, und unser Code kann sie nicht verwenden.
+3. Wenn dieser Aufruf `true` zurückgibt, bedeutet das, dass dieses {{htmlelement("iframe")}} bereits Zugriff erlangt hat, und wir können unseren Code zum Zugriff auf Cookies und Zustand sofort ausführen.
+4. Wenn dieser Aufruf `false` zurückgibt, rufen wir [`Permissions.query()`](/de/docs/Web/API/Permissions/query) auf, um zu prüfen, ob die Erlaubnis zum Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand bereits gewährt wurde (d.h. zu einem anderen gleiche Domain-Einbettung). Wir umschließen diesen gesamten Abschnitt in einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) Block, weil [einige Browser die Erlaubnis `"storage-access"` nicht unterstützen](/de/docs/Web/API/Storage_Access_API#api.permissions.permission_storage-access), was dazu führen kann, dass der `query()` Aufruf ein Ausnahme auslöst. Wenn eine Ausnahme ausgelöst wird, melden wir das an die Konsole und versuchen, den Cookie-Code dennoch auszuführen.
+5. Wenn der Erlaubnisstatus `"granted"` ist, rufen wir sofort `document.requestStorageAccess()` auf. Dieser Aufruf wird automatisch aufgelöst, was dem Nutzer Zeit spart, dann können wir unseren Code ausführen, der auf Cookies und Zustand zugreift.
+6. Wenn der Erlaubnisstatus `"prompt"` ist, rufen wir `document.requestStorageAccess()` nach einer Benutzerinteraktion auf. Dieser Aufruf kann eine Aufforderung an den Nutzer auslösen. Wenn dieser Aufruf aufgelöst wird, können wir unseren Code zum Zugriff auf Cookies und Zustand ausführen.
+7. Wenn der Erlaubnisstatus `"denied"` ist, hat der Nutzer unsere Anfragen zum Zugriff auf Drittanbieter-Cookies oder unpartitionierten Zustand abgelehnt, und unser Code kann sie nicht verwenden.
 
 ```js
 function doThingsWithCookies() {
@@ -113,21 +113,21 @@ async function handleCookieAccess() {
 }
 ```
 
-> **Hinweis:** `requestStorageAccess()` Anfragen werden automatisch abgelehnt, es sei denn, der eingebettete Inhalt verarbeitet derzeit eine Nutzeraktion wie einen Tipp oder Klick ({{Glossary("transient_activation", "vorübergehende Aktivierung")}}), oder wenn die Erlaubnis zuvor erteilt wurde. Wenn die Erlaubnis nicht zuvor erteilt wurde, müssen `requestStorageAccess()` Anfragen innerhalb eines benutzergesteuerten gesteuerten Ereignishandlers ausgeführt werden, wie oben gezeigt.
+> [!NOTE] > `requestStorageAccess()` Anfragen werden automatisch abgelehnt, es sei denn, der eingebettete Inhalt verarbeitet gerade eine Benutzeraktion wie ein Tippen oder Klicken ({{Glossary("transient_activation", "transiente Aktivierung")}}), oder wenn die Erlaubnis bereits zuvor gewährt wurde. Wenn die Erlaubnis nicht vorher gewährt wurde, müssen `requestStorageAccess()` Anfragen innerhalb eines benutzeraktionsbasierten Ereignishandlers ausgeführt werden, wie oben gezeigt.
 
 ### Verwandte Website-Sets
 
-Die Chrome-exklusive[verwandte Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) Funktion kann als progressive Verbesserungsmechanismus betrachtet werden, der neben der Storage Access API funktioniert – unterstützende Browser gewähren standardmäßig Drittanbieter-Cookie- und unpartitionierten Zustand zwischen Websites im selben Set. Dies bedeutet, dass die übliche Benutzerberechtigungsanforderungs-Workflow wie oben beschrieben nicht durchlaufen werden muss, was ein benutzerfreundlicheres Erlebnis für Benutzer von Websites im Set bedeutet.
+Das nur für Chrome verfügbare Feature [verwandte Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) kann als progressive Verbesserungsmechanismus betrachtet werden, der zusammen mit der Storage Access API funktioniert — unterstützende Browser gewähren standardmäßig den Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand zwischen Websites im gleichen Set. Dies bedeutet, dass der übliche Workflow zum Erlauben von Benutzeraufforderungen, der oben beschrieben wird, nicht durchlaufen werden muss, was eine benutzerfreundlichere Erfahrung für Nutzer von Websites im Set bedeutet.
 
-## Anfordern von Speicherzugriff von der obersten Websiteebene im Namen eingebetteter Ressourcen
+## Anfordern von Speicherzugriff von der oberen Website im Auftrag von eingebetteten Ressourcen
 
-Die oben beschriebenen Funktionen der Storage Access API ermöglichen es einem eingebetteten Dokument, eigenen Drittanbieter-Cookie-Zugriff anzufordern. Es gibt eine zusätzliche experimentelle Methode, [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor), eine vorgeschlagene Erweiterung der Storage Access API, die es der obersten Websiteebene ermöglicht, Speicherzugriff im Namen bestimmter verwandter Ursprünge anzufordern.
+Die oben genannten Funktionen der Storage Access API ermöglichen es einem eingebetteten Dokument, selbst den Zugriff auf Drittanbieter-Cookies zu beantragen. Es gibt eine zusätzliche experimentelle Methode, [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor), einen vorgeschlagenen Erweiterung der Storage Access API, die es oberen Websites ermöglicht, Speicherzugriff im Auftrag spezifischer verwandter Ursprünge zu beantragen.
 
-Die `requestStorageAccessFor()` Methode löst Herausforderungen bei der Übernahme der Storage Access API auf oberster Websiteebene, die Cross-Site-Bilder oder -Skripte verwendet, die Cookies erfordern. Sie kann Drittanbieter-Cookie-Zugriff für Cross-Site-Ressourcen direkt in die oberste Website einbetten, die nicht in der Lage sind, ihren eigenen Speicherzugriff anzufordern, zum Beispiel über {{htmlelement("img")}} oder {{htmlelement("script")}} Elemente.
+Die Methode `requestStorageAccessFor()` adressiert Herausforderungen bei der Einführung der Storage Access API auf oberen Websites, die cross-site Bilder oder Skripte verwenden, die Cookies benötigen. Es kann den Zugriff auf Drittanbieter-Cookies für cross-site Ressourcen direkt in die oberste Website eingebettet aktivieren, die nicht in der Lage sind, ihren eigenen Speicherzugriff zu beantragen, z.B. über {{htmlelement("img")}} oder {{htmlelement("script")}}-Elemente.
 
-Damit `requestStorageAccessFor()` funktioniert, müssen sowohl die aufrufende oberste Seite als auch die eingebettete Ressource, für die sie Speicherzugriff anfordert, Teil desselben [verwandten Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sein.
+Damit `requestStorageAccessFor()` funktioniert, müssen sowohl die aufrufende oberste Seite als auch die eingebettete Ressource, für die sie Speicherzugriff beantragt, Teil desselben [verwandten Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sein.
 
-Die typische Nutzung von `requestStorageAccessFor()` sieht folgendermaßen aus (diesmal im normalen Promise-Stil anstatt async/await):
+Typische Verwendung von `requestStorageAccessFor()` sieht so aus (dieses Mal in regulärem Promise-Stil statt async/await):
 
 ```js
 navigator.permissions
@@ -167,9 +167,9 @@ function rSAFor() {
 ```
 
 > [!NOTE]
-> Im Gegensatz zu `requestStorageAccess()` überprüft Chrome bei einem Aufruf von `requestStorageAccessFor()` nicht, ob eine Interaktion in einem Dokument auf höchster Ebene innerhalb der letzten 30 Tage stattgefunden hat, da sich der Benutzer bereits auf der Seite befindet. Siehe [Browser-spezifische Variationen > Chrome](/de/docs/Web/API/Storage_Access_API#chrome) für weitere Details zu diesem Verhalten.
+> Anders als bei `requestStorageAccess()` überprüft Chrome bei `requestStorageAccessFor()` nicht, ob innerhalb der letzten 30 Tage eine Interaktion in einem obersten Dokument stattgefunden hat, weil der Nutzer bereits auf der Seite ist. Siehe [Browser-spezifische Variationen > Chrome](/de/docs/Web/API/Storage_Access_API#chrome) für weitere Details zu diesem Verhalten.
 
-Beim Abfragen des Berechtigungsstatus für Speicherzugriffsanfragen im Namen eines anderen Ursprungs wird ein anderer Berechtigungsname als im Rest der Storage Access API verwendet: `"top-level-storage-access"` anstelle von `"storage-access"`. Im obigen Code verwenden wir den folgenden Aufruf:
+Beim Abfragen des Erlaubnisstatus für Speicherzugriffsanfragen im Namen eines anderen Ursprungs wird für die Erlaubnis ein anderer Name verwendet als für den Rest der Storage Access API: `"top-level-storage-access"` statt `"storage-access"`. Im obigen Code verwenden wir den folgenden Aufruf:
 
 ```js
 navigator.permissions.query({
@@ -178,12 +178,12 @@ navigator.permissions.query({
 });
 ```
 
-um zu erfahren, ob dem Ursprung bereits die Erlaubnis erteilt wurde oder ob noch Cookie-Zugriff angefordert werden muss.
+um herauszufinden, ob dem Ursprung zuvor die Erlaubnis erteilt wurde oder ob der Cookie-Zugriff noch angefordert werden muss.
 
-- Wenn der Berechtigungsstatus `"granted"` ist, können wir sofort Cookies verwenden; `requestStorageAccessFor()` wurde bereits aufgerufen, sodass es nicht erneut aufgerufen werden muss.
-- Wenn der Berechtigungsstatus `"prompt"` ist, müssen wir `document.requestStorageAccessFor("https://example.com")` innerhalb einer Benutzeraktion wie einem Klick auf eine Schaltfläche aufrufen.
+- Wenn der Erlaubnisstatus `"granted"` ist, können wir anfangen, Cookies zu verwenden; `requestStorageAccessFor()` wurde bereits aufgerufen, also ist es nicht nötig, es erneut aufzurufen.
+- Wenn der Erlaubnisstatus `"prompt"` ist, müssen wir `document.requestStorageAccessFor("https://example.com")` innerhalb einer Benutzeraktion aufrufen, wie zum Beispiel einem Klick auf einen Button.
 
-Nachdem die `"top-level-storage-access"` Berechtigung erteilt wurde, werden Cookies bei Cross-Site-Anfragen einbezogen, wenn sie [CORS](/de/docs/Web/HTTP/Guides/CORS) / [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin) enthalten, sodass Websites möglicherweise warten möchten, bevor sie eine Anfrage auslösen. Solche Anfragen müssen die [`credentials: "include"`](/de/docs/Web/API/RequestInit#credentials) Option verwenden und Ressourcen müssen das `crossorigin="use-credentials"` Attribut enthalten.
+Nachdem die Erlaubnis `"top-level-storage-access"` erteilt wurde, werden cross-site Anfragen Cookies enthalten, wenn sie [CORS](/de/docs/Web/HTTP/Guides/CORS) / [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin) beinhalten, so dass Websites möglicherweise warten möchten, bevor sie eine Anfrage auslösen. Solche Anfragen müssen die Option [`credentials: "include"`](/de/docs/Web/API/RequestInit#credentials) verwenden und Ressourcen müssen das Attribut `crossorigin="use-credentials"` enthalten.
 
 Zum Beispiel:
 

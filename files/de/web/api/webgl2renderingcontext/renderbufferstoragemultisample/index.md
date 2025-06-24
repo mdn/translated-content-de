@@ -1,16 +1,14 @@
 ---
-title: "WebGL2RenderingContext: Methode renderbufferStorageMultisample()"
+title: "WebGL2RenderingContext: renderbufferStorageMultisample() Methode"
 short-title: renderbufferStorageMultisample()
 slug: Web/API/WebGL2RenderingContext/renderbufferStorageMultisample
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode
-**`WebGL2RenderingContext.renderbufferStorageMultisample()`**
-des [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher eines Renderbuffer-Objekts und ermöglicht es, eine Anzahl von zu verwendenden Samples anzugeben.
+Die **`WebGL2RenderingContext.renderbufferStorageMultisample()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher eines Renderbuffer-Objekts und ermöglicht die Angabe einer Anzahl von zu verwendenden Mustern.
 
 ## Syntax
 
@@ -22,18 +20,15 @@ renderbufferStorageMultisample(target, samples, internalFormat, width, height)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel-Renderbuffer-Objekt spezifiziert. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
     - `gl.RENDERBUFFER`
-      - : Pufferdatenspeicher für einzelne Bilder in einem
-        renderbaren internen Format.
+      - : Pufferdatenablage für einzelne Bilder in einem renderbaren internen Format.
 
 - `samples`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der für den Renderbuffer-Speicher zu verwendenden Samples angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu verwendenden Muster für die Renderbuffer-Speicherung angibt.
 - `internalFormat`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das interne Format des Renderbuffers angibt. Mögliche Werte (unterstützt nicht `gl.DEPTH_STENCIL`):
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das interne Format des Renderbuffers angibt. Mögliche Werte (Unterstützt `gl.DEPTH_STENCIL` nicht):
     - `gl.R8`
     - `gl.R8UI`
     - `gl.R8I`
@@ -71,13 +66,13 @@ renderbufferStorageMultisample(target, samples, internalFormat, width, height)
     - `gl.STENCIL_INDEX8`
 
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Renderbuffers in Pixeln spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Renderbuffers in Pixel angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Renderbuffers in Pixeln spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Renderbuffers in Pixel angibt.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

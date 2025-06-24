@@ -3,7 +3,7 @@ title: Temporal.Duration.from()
 short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/from
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}{{SeeCompatTable}}
@@ -20,10 +20,10 @@ Temporal.Duration.from(info)
 
 - `info`
 
-  - : Eines der folgenden:
+  - : Einer der folgenden:
 
-    - Eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Kopie der Instanz erstellt.
-    - Ein [ISO 8601](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format)-String, der eine Dauer repräsentiert.
+    - Eine {{jsxref("Temporal.Duration")}} Instanz, die eine Kopie der Instanz erstellt.
+    - Ein [ISO 8601](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) String, der eine Dauer darstellt.
     - Ein Objekt, das mindestens eine der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
 
       - {{jsxref("Temporal/Duration/days", "days")}}
@@ -47,12 +47,12 @@ Ein neues `Temporal.Duration`-Objekt, möglicherweise [unausgeglichen](/de/docs/
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Eine der anerkannten Eigenschaften im `info`-Objekt ist keine ganze Zahl (einschließlich unendlicher Werte).
+    - Eine der anerkannten Eigenschaften im `info`-Objekt ist keine Ganzzahl (einschließlich nicht-endlicher Werte).
     - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen absoluten Wert ≥ 2<sup>32</sup>.
-    - Der nicht-kalendergebundene Teil der Dauer (Tage und darunter), wenn in Sekunden ausgedrückt, hat einen absoluten Wert ≥ 2<sup>53</sup>.
+    - Der nicht kalenderbezogene Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `info` ist kein Objekt oder String.
+    - `info` ist kein Objekt oder ein String.
     - Alle anerkannten Eigenschaften im `info`-Objekt sind `undefined`.
 
 ## Beispiele

@@ -2,12 +2,12 @@
 title: stdDeviation
 slug: Web/SVG/Reference/Attribute/stdDeviation
 l10n:
-  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 Das **`stdDeviation`**-Attribut definiert die Standardabweichung für die Unschärfeoperation.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feDropShadow")}}
 - {{SVGElement("feGaussianBlur")}}
@@ -50,7 +50,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungsnotizen
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,9 +77,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste Zahl den Standardabweichungswert entlang der X-Achse. Der zweite Wert steht für eine Standardabweichung entlang der Y-Achse. Wenn eine Zahl angegeben ist, wird dieser Wert für sowohl X als auch Y verwendet.
+  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste Zahl den Standardabweichungswert entlang der x-Achse. Die zweite Zahl repräsentiert die Standardabweichung entlang der y-Achse. Wenn nur eine Zahl angegeben ist, wird dieser Wert für sowohl X als auch Y verwendet.
 
-    Ein negativer Wert ist verboten. Ein Wert von null deaktiviert den Effekt der gegebenen Filter-Primitiven (d.h. das Ergebnis ist das Filtereingabebild). Wenn `stdDeviation` nur in X oder Y 0 ist, dann wird die Unschärfe nur in die Richtung angewandt, die einen vom Nullwert verschiedenen Wert hat.
+    Ein negativer Wert ist verboten. Ein Wert von null deaktiviert den Effekt des angegebenen Filterprimitives (d.h. das Ergebnis ist das Filtereingangsbild). Wenn `stdDeviation` nur in einer Richtung von X oder Y null ist, dann wird die Unschärfe nur in der Richtung angewendet, die einen nicht-null Wert hat.
 
 ## Spezifikationen
 

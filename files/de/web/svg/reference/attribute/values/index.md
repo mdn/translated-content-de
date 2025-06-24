@@ -1,13 +1,13 @@
 ---
-title: Werte
+title: values
 slug: Web/SVG/Reference/Attribute/values
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das `values`-Attribut hat unterschiedliche Bedeutungen, abhängig vom Kontext, in dem es verwendet wird. Entweder definiert es eine Sequenz von Werten, die im Laufe einer Animation verwendet werden, oder es ist eine Liste von Zahlen für eine Farbmatrix, die unterschiedlich interpretiert wird, je nachdem, welcher Farbwechsel ausgeführt werden soll.
+Das `values`-Attribut hat je nach Kontext unterschiedliche Bedeutungen. Entweder definiert es eine Sequenz von Werten, die im Verlauf einer Animation verwendet werden, oder es handelt sich um eine Liste von Zahlen für eine Farbmatrix, die je nach Art der Farbänderung unterschiedlich interpretiert wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -16,7 +16,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## animate, animateMotion, animateTransform
 
-Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement("animateTransform")}} ist `values` eine Liste von Werten, die die Sequenz von Werten im Verlauf der Animation definiert. Wenn dieses Attribut angegeben ist, werden alle {{SVGAttr("from")}}, {{SVGAttr("to")}} und {{SVGAttr("by")}} Attributwerte, die am Element gesetzt sind, ignoriert.
+Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement("animateTransform")}} ist `values` eine Liste von Werten, die die Sequenz der Werte im Verlauf der Animation definiert. Wenn dieses Attribut angegeben ist, werden alle {{SVGAttr("from")}}, {{SVGAttr("to")}} und {{SVGAttr("by")}} Attributwerte, die auf dem Element festgelegt sind, ignoriert.
 
 <table class="properties">
   <tbody>
@@ -79,12 +79,10 @@ Für das {{SVGElement("feColorMatrix")}}-Element ist `values` eine Liste von Zah
 </table>
 
 - `<list-of-numbers>`
-
-  - : Der Wert ist eine Liste von Zahlen, die unterschiedlich interpretiert wird, abhängig vom Wert des `type`-Attributs:
-
-    - Für `type="matrix"` ist `values` eine Liste von 20 Matrixwerten (a00 a01 a02 a03 a04 a10 a11 … a34), getrennt durch Leerzeichen und/oder ein Komma.
+  - : Der Wert ist eine Liste von Zahlen, die je nach Wert des `type`-Attributs unterschiedlich interpretiert wird:
+    - Für `type="matrix"` ist `values` eine Liste von 20 Matrixwerten (a00 a01 a02 a03 a04 a10 a11 … a34), getrennt durch Leerzeichen und/oder Kommas.
     - Für `type="saturate"` ist `values` ein einzelner reeller Zahlenwert (0 bis 1).
-    - Für `type="hueRotate"` ist `values` ein einzelner reeller Zahlenwert (Grad).
+    - Für `type="hueRotate"` ist `values` ein einziger reeller Zahlenwert (Grad).
     - Für `type="luminanceToAlpha"` ist `values` nicht anwendbar.
 
 ## Spezifikationen

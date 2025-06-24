@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: getActiveUniform()-Methode"
+title: "WebGLRenderingContext: getActiveUniform() Methode"
 short-title: getActiveUniform()
 slug: Web/API/WebGLRenderingContext/getActiveUniform
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getActiveUniform()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)-Objekt zurück, das die Größe, den Typ und den Namen eines Uniform-Attributs enthält. Sie wird üblicherweise verwendet, wenn unbekannte Uniforms entweder zur Fehlersuche oder zur Erstellung generischer Bibliotheken abgefragt werden.
+Die **`WebGLRenderingContext.getActiveUniform()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)-Objekt zurück, das Größe, Typ und Namen eines Uniform-Attributs enthält. Sie wird im Allgemeinen verwendet, wenn unbekannte Uniforms abgefragt werden, sei es für Debugging oder die Erstellung generischer Bibliotheken.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ getActiveUniform(program, index)
 ### Parameter
 
 - `program`
-  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das das WebGL-Shader-Programm angibt, aus dem die Informationen der Uniform-Variable abgerufen werden sollen.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das das WebGL-Shader-Programm angibt, von dem die Informationen über die Uniform-Variable abgerufen werden sollen.
 - `index`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des abzurufenden Uniform-Attributs angibt. Dieser Wert ist ein Index von 0 bis N - 1, wie er durch [`gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter) zurückgegeben wird.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des Uniform-Attributs angibt, das abgerufen werden soll. Dieser Wert ist ein Index von 0 bis N - 1, wie zurückgegeben von [`gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter).
 
 ### Rückgabewert
 
@@ -46,8 +46,7 @@ Das `type`-Attribut des Rückgabewerts wird einer der folgenden sein:
 - `gl.FLOAT_MAT4`
 - `gl.SAMPLER_2D`
 - `gl.SAMPLER_CUBE`
-- Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte möglich:
-
+- Beim Verwenden eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte möglich:
   - `gl.UNSIGNED_INT`
   - `gl.UNSIGNED_INT_VEC2`
   - `gl.UNSIGNED_INT_VEC3`
@@ -72,26 +71,26 @@ Das `type`-Attribut des Rückgabewerts wird einer der folgenden sein:
   - `gl.UNSIGNED_INT_SAMPLER_CUBE`
   - `gl.UNSIGNED_INT_SAMPLER_2D_ARRAY`
 
-Wenn `gl.linkProgram` aufgerufen wird, erstellt WebGL eine Liste aktiver Uniforms. Dies sind mögliche Werte des `name`-Attributs von Rückgabewerten von `getActiveUniform`. WebGL generiert ein oder mehrere Einträge in der Liste, abhängig vom deklarierten Typ der Uniform im Shader:
+Wenn `gl.linkProgram` aufgerufen wird, erstellt WebGL eine Liste von aktiven Uniforms. Dies sind mögliche Werte des `name`-Attributs der Rückgabewerte von `getActiveUniform`. WebGL generiert einen oder mehrere Einträge in der Liste abhängig von dem im Shader deklarierten Typ des Uniform:
 
-- Einzelner Basistyp: Ein Eintrag mit dem Namen der Uniform. Z.B. `uniform vec4 a;` wird zu `a`.
-- Array von Basistypen: Ein Eintrag mit dem Namen der Uniform, gefolgt von `[0]`. Z.B. `uniform vec4 b[];` wird zu `b[0]`.
-- Strukturtyp: Ein Eintrag für jedes Mitglied der Struktur. Z.B. `uniform struct { float foo; vec4 bar; } c;` wird zu `c.foo` und `c.bar`.
-- Arrays von Strukturen oder Arrays: Jeder Eintrag des Arrays erzeugt seine eigenen Einträge. Z.B. `uniform struct { float foo; vec4 bar; } d[2];` wird zu:
+- Einzelner Basistyp: ein Eintrag mit dem Namen des Uniforms. Z.B. `uniform vec4 a;` ergibt `a`.
+- Array eines Basistyps: ein Eintrag mit dem Namen des Uniforms, gefolgt von `[0]`. Z.B. `uniform vec4 b[];` ergibt `b[0]`.
+- Strukt-Typ: ein Eintrag für jedes Mitglied der Struktur. Z.B. `uniform struct { float foo; vec4 bar; } c;` ergibt `c.foo` und `c.bar`.
+- Arrays von Strukturen oder Arrays: jeder Eintrag im Array erzeugt eigene Einträge. Z.B. `uniform struct { float foo; vec4 bar; } d[2];` ergibt:
 
   - `d[0].foo`
   - `d[0].bar`
   - `d[1].foo`
   - `d[1].bar`
 
-- Uniform-Blöcke: Ein Eintrag für jedes Mitglied. Wenn der Uniform-Block einen Instanznamen hat, wird dieser vorangestellt. Z.B. `uniform Block { float foo; };` wird zu `foo`, und `uniform Block { float bar; } e;` wird zu `e.bar`.
+- Uniform-Blöcke: ein Eintrag für jedes Mitglied. Wenn der Uniform-Block einen Instanznamen hat, wird der Blockname vorangestellt. Z.B. `uniform Block { float foo; };` ergibt `foo`, und `uniform Block { float bar; } e;` ergibt `e.bar`.
 
-Das `size`-Attribut des Rückgabewerts entspricht der Länge des Arrays für Uniforms, die als Arrays deklariert sind. Andernfalls ist es 1 (dies schließt Schnittstellenblöcke ein, die mit Arrays instanziiert werden).
+Das `size`-Attribut des Rückgabewerts entspricht der Länge des Arrays für Uniforms, die als Arrays deklariert sind. Andernfalls ist es 1 (dies schließt Interface-Blöcke ein, die mit Arrays instanziiert sind).
 
 ### Ausnahmen
 
-- `gl.INVALID_VALUE` wird erzeugt, wenn das Programm [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ungültig ist (nicht verknüpft, gelöscht usw.).
-- `gl.INVALID_VALUE` wird erzeugt, wenn der Index nicht im Bereich \[0, `gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)` - 1] liegt.
+- `gl.INVALID_VALUE` wird generiert, wenn das Programm [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ungültig ist (nicht verlinkt, gelöscht, etc.).
+- `gl.INVALID_VALUE` wird generiert, wenn der Index nicht im Bereich \[0, `gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)` - 1] liegt.
 
 ## Beispiele
 

@@ -2,12 +2,12 @@
 title: declarativeNetRequest.getDisabledRuleIds
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getDisabledRuleIds
 l10n:
-  sourceCommit: 39a2c86675005f0682b7c5d0c32c8066be412aac
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Gibt die IDs der deaktivierten Regeln in einem statischen Regelwerk zurück. Die Anzahl der deaktivierten Regeln in einem Regelwerk ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
+Gibt die IDs der deaktivierten Regeln in einem statischen Regelsatz zurück. Die Anzahl der deaktivierten Regeln in einem Regelsatz ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
 
 ## Syntax
 
@@ -20,14 +20,13 @@ let ruleIds = await browser.declarativeNetRequest.getDisabledRuleIds(
 ### Parameter
 
 - `options`
-
-  - : Ein Objekt, das Details des Regelwerks enthält, für das deaktivierte Regeln zurückgegeben werden sollen.
+  - : Ein Objekt, das Details des Regelsatzes enthält, für das die deaktivierten Regeln zurückgegeben werden sollen.
     - `rulesetId`
-      - : `string` Die ID des statischen Regelwerks, das abgefragt werden soll.
+      - : `string` Die ID des statischen Regelsatzes, der abgefragt werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von statischen [Regel-IDs](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Rule#id) oder einem leeren Array erfüllt wird, wenn keine deaktivierten Regeln vorhanden sind. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von statischen [Regel-IDs](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Rule#id) erfüllt wird, oder ein leeres Array, wenn keine deaktivierten Regeln vorhanden sind. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples("h2")}}
 

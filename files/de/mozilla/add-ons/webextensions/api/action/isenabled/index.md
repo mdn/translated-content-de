@@ -2,7 +2,7 @@
 title: action.isEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/action/isEnabled
 l10n:
-  sourceCommit: b30a10c08b986ebabd44733fb62f67667350403e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -25,13 +25,11 @@ let gettingIsEnabled = browser.action.isEnabled(
 ### Parameter
 
 - `details`
-
-  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` enthält, um zu überprüfen.
-
+  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` zum Überprüfen enthält.
     - `tabId` {{optional_inline}}
-      - : `integer`. ID eines Tabs, der überprüft werden soll.
+      - : `integer`. Die ID eines Tabs zum Überprüfen.
     - `windowId` {{optional_inline}}
-      - : `integer`. ID eines Fensters, das überprüft werden soll.
+      - : `integer`. Die ID eines Fensters zum Überprüfen.
 
 <!---->
 
@@ -40,7 +38,7 @@ let gettingIsEnabled = browser.action.isEnabled(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und sonst mit `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und mit `false`, wenn nicht.
 
 ## Beispiele
 
@@ -52,7 +50,7 @@ browser.action.isEnabled({}).then((result) => {
 });
 ```
 
-Überprüfen des Zustands des aktuell aktiven Tabs:
+Überprüfen des Zustands des derzeit aktiven Tabs:
 
 ```js
 async function enabledInActiveTab() {

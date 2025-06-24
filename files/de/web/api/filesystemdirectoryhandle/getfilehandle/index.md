@@ -1,14 +1,14 @@
 ---
-title: "FileSystemDirectoryHandle: Methode getFileHandle()"
+title: "FileSystemDirectoryHandle: getFileHandle() Methode"
 short-title: getFileHandle()
 slug: Web/API/FileSystemDirectoryHandle/getFileHandle
 l10n:
-  sourceCommit: f10fbe2d2dc4857bf29ce955689a7ba7c1ffac8b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`getFileHandle()`** Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Schnittstelle gibt ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) für eine Datei mit dem angegebenen Namen innerhalb des Verzeichnisses zurück, in dem die Methode aufgerufen wird.
+Die **`getFileHandle()`**-Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Schnittstelle gibt ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) für eine Datei mit dem angegebenen Namen innerhalb des Verzeichnisses zurück, in dem die Methode aufgerufen wird.
 
 ## Syntax
 
@@ -20,17 +20,15 @@ getFileHandle(name, options)
 ### Parameter
 
 - `name`
-  - : Ein String, der den [`FileSystemHandle.name`](/de/docs/Web/API/FileSystemHandle/name) der Datei repräsentiert, die Sie abrufen möchten.
+  - : Ein String, der den [`FileSystemHandle.name`](/de/docs/Web/API/FileSystemHandle/name) der Datei darstellt, die Sie abrufen möchten.
 - `options` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `create` {{optional_inline}}
-      - : Ein {{jsxref('Boolean')}}. Standardmäßig `false`. Wenn auf `true` gesetzt, wird eine Datei mit dem angegebenen Namen erstellt und zurückgegeben, falls die Datei nicht gefunden wird.
+      - : Ein {{jsxref('Boolean')}}. Standardmäßig `false`. Wenn auf `true` gesetzt und die Datei nicht gefunden wird, wird eine Datei mit dem angegebenen Namen erstellt und zurückgegeben.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) aufgelöst wird.
+Ein {{jsxref('Promise')}}, der ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) auflöst.
 
 ### Ausnahmen
 
@@ -45,7 +43,7 @@ Ein {{jsxref('Promise')}}, das mit einem [`FileSystemFileHandle`](/de/docs/Web/A
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen Datei-Handle mit dem angegebenen Namen zurück; falls die Datei nicht existiert, wird sie erstellt.
+Das folgende Beispiel gibt einen Dateihandle mit dem angegebenen Namen zurück; wenn die Datei nicht existiert, wird sie erstellt.
 
 ```js
 const fileName = "fileToGetName";

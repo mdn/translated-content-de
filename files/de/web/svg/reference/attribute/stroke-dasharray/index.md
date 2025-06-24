@@ -2,15 +2,15 @@
 title: stroke-dasharray
 slug: Web/SVG/Reference/Attribute/stroke-dasharray
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das Attribut **`stroke-dasharray`** ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, mit dem die Umrisse der Form gezeichnet werden.
+Das **`stroke-dasharray`** Attribut ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, das verwendet wird, um die Umrisse der Form zu malen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-dasharray` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-dasharray")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
+> Als Präsentationsattribut hat `stroke-dasharray` auch ein gleichnamiges CSS-Eigenschaftsgegenstück: {{cssxref("stroke-dasharray")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -83,9 +83,9 @@ svg {
 
 - \<dasharray>
 
-  - : Eine Liste von durch Kommas und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken angeben.
+  - : Eine Liste von durch Komma und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken spezifizieren.
 
-    Wenn eine ungerade Anzahl von Werten angegeben ist, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu ergeben. Daher ist `5,3,2` äquivalent zu `5,3,2,5,3,2`.
+    Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu erzielen. So ist `5,3,2` gleichwertig mit `5,3,2,5,3,2`.
 
 ## Spezifikationen
 
@@ -97,4 +97,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-dasharray")}} Eigenschaft
+- Die CSS-Eigenschaft {{cssxref("stroke-dasharray")}}

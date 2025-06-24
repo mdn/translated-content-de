@@ -3,12 +3,12 @@ title: Object.defineProperty()
 short-title: defineProperty()
 slug: Web/JavaScript/Reference/Global_Objects/Object/defineProperty
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.defineProperty()`** definiert eine neue Eigenschaft direkt auf einem Objekt oder modifiziert eine bestehende Eigenschaft eines Objekts und gibt das Objekt zurück.
+Die **`Object.defineProperty()`** statische Methode definiert eine neue Eigenschaft direkt auf einem Objekt oder modifiziert eine bestehende Eigenschaft eines Objekts und gibt das Objekt zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.defineProperty()")}}
 
@@ -36,54 +36,54 @@ Object.defineProperty(obj, prop, descriptor)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, an dem die Eigenschaft definiert werden soll.
+  - : Das Objekt, auf dem die Eigenschaft definiert werden soll.
 - `prop`
-  - : Ein String oder {{jsxref("Symbol")}}, der den Schlüssel der Eigenschaft angibt, die definiert oder modifiziert werden soll.
+  - : Ein String oder ein {{jsxref("Symbol")}}, das den Schlüssel der zu definierenden oder zu modifizierenden Eigenschaft angibt.
 - `descriptor`
-  - : Der Deskriptor für die zu definierende oder zu modifizierende Eigenschaft.
+  - : Der Deskriptor für die definierte oder modifizierte Eigenschaft.
 
 ### Rückgabewert
 
-Das an die Funktion übergebene Objekt, mit der hinzugefügten oder modifizierten Eigenschaft.
+Das Objekt, das an die Funktion übergeben wurde, mit der hinzugefügten oder modifizierten Eigenschaft.
 
 ## Beschreibung
 
-`Object.defineProperty()` ermöglicht das präzise Hinzufügen oder Ändern einer Eigenschaft auf einem Objekt. Normale Eigenschaftsergänzungen durch [Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Assignment) erzeugen Eigenschaften, die während der Eigenschaftsauflistung ({{jsxref("Statements/for...in", "for...in")}}, {{jsxref("Object.keys()")}} usw.) sichtbar sind, deren Werte geändert werden können und die {{jsxref("Operators/delete", "gelöscht")}} werden können. Diese Methode erlaubt es, diese zusätzlichen Details von ihren Standardwerten zu ändern. Standardmäßig sind Eigenschaften, die mit `Object.defineProperty()` hinzugefügt werden, nicht beschreibbar, nicht aufzählbar und nicht konfigurierbar. Zusätzlich verwendet `Object.defineProperty()` die interne Methode [`[[DefineOwnProperty]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty), anstelle von [`[[Set]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set), sodass es keine [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) aufruft, selbst wenn die Eigenschaft bereits vorhanden ist.
+`Object.defineProperty()` erlaubt das präzise Hinzufügen oder Ändern einer Eigenschaft auf einem Objekt. Das normale Hinzufügen von Eigenschaften durch [Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Assignment) erstellt Eigenschaften, die bei der Eigenschaftsaufzählung erscheinen ({{jsxref("Statements/for...in", "for...in")}}, {{jsxref("Object.keys()")}} etc.), deren Werte verändert werden können und die {{jsxref("Operators/delete", "gelöscht werden können", "", 1)}}. Diese Methode ermöglicht es, diese zusätzlichen Details von ihren Standardwerten zu ändern. Standardmäßig sind Eigenschaften, die mit `Object.defineProperty()` hinzugefügt werden, weder beschreibbar, noch aufzählbar oder konfigurierbar. Darüber hinaus verwendet `Object.defineProperty()` die interne Methode [`[[DefineOwnProperty]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty), anstatt [`[[Set]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set), sodass es keine [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) aufruft, auch wenn die Eigenschaft bereits vorhanden ist.
 
-Eigenschaftsdeskriptoren in Objekten kommen in zwei Hauptvarianten vor: Datendeskriptoren und Accessor-Deskriptoren. Ein **Datendeskriptor** ist eine Eigenschaft mit einem Wert, der möglicherweise beschreibbar ist oder auch nicht. Ein **Accessor-Deskriptor** ist eine Eigenschaft, die durch ein Getter-Setter-Paar von Funktionen beschrieben wird. Ein Deskriptor muss eine dieser beiden Varianten sein; er kann nicht beides sein.
+Eigenschaftsdeskriptoren, die in Objekten vorhanden sind, treten in zwei Hauptvarianten auf: Daten-Deskriptoren und Accessor-Deskriptoren. Ein **Daten-Deskriptor** ist eine Eigenschaft mit einem Wert, der möglicherweise beschreibbar ist. Ein **Accessor-Deskriptor** ist eine Eigenschaft, die durch ein Getter-Setter-Paar von Funktionen beschrieben wird. Ein Deskriptor muss eine dieser beiden Varianten sein; er kann nicht beide sein.
 
-Sowohl Daten- als auch Accessor-Deskriptoren sind Objekte. Sie teilen die folgenden optionalen Schlüssel (bitte beachten: Die hier genannten **Standards** gelten im Fall der Definition von Eigenschaften mit `Object.defineProperty()`):
+Sowohl Daten- als auch Accessor-Deskriptoren sind Objekte. Sie teilen die folgenden optionalen Schlüssel (bitte beachten Sie: die hier genannten **Standards** gelten für das Definieren von Eigenschaften mit `Object.defineProperty()`):
 
 - `configurable`
 
-  - : Wenn dies auf `false` gesetzt ist:
+  - : wenn dies auf `false` gesetzt ist,
 
     - kann der Typ dieser Eigenschaft nicht zwischen Dateneigenschaft und Accessor-Eigenschaft geändert werden, und
     - die Eigenschaft kann nicht gelöscht werden, und
-    - andere Attribute ihres Deskriptors können nicht geändert werden (wenn es jedoch ein Datendeskriptor mit `writable: true` ist, kann der `value` geändert werden, und `writable` kann auf `false` geändert werden).
+    - andere Attribute des Deskriptors können nicht geändert werden (wenn es sich jedoch um einen Daten-Deskriptor mit `writable: true` handelt, kann der `value` geändert werden und `writable` kann auf `false` geändert werden).
 
-    **Standardwert ist `false`.**
+    **Standardmäßig `false`.**
 
 - `enumerable`
-  - : `true`, wenn und nur wenn diese Eigenschaft während der Aufzählung der Eigenschaften auf dem entsprechenden Objekt erscheint. **Standardwert ist `false`.**
+  - : `true` wenn und nur wenn diese Eigenschaft während der Aufzählung der Eigenschaften des entsprechenden Objekts erscheint. **Standardmäßig `false`.**
 
-Ein **Datendeskriptor** hat zusätzlich die folgenden optionalen Schlüssel:
+Ein **Daten-Deskriptor** hat außerdem die folgenden optionalen Schlüssel:
 
 - `value`
-  - : Der mit der Eigenschaft verknüpfte Wert. Kann ein beliebiger gültiger JavaScript-Wert sein (Nummer, Objekt, Funktion usw.). **Standardwert ist {{jsxref("undefined")}}.**
+  - : Der mit der Eigenschaft verknüpfte Wert. Kann jeder gültige JavaScript-Wert sein (Zahl, Objekt, Funktion, etc.). **Standardmäßig {{jsxref("undefined")}}.**
 - `writable`
-  - : `true`, wenn der mit der Eigenschaft verknüpfte Wert mit einem [Zuweisungsoperator](/de/docs/Web/JavaScript/Reference/Operators#assignment_operators) geändert werden kann. **Standardwert ist `false`.**
+  - : `true`, wenn der mit der Eigenschaft verknüpfte Wert mit einem [Zuweisungsoperator](/de/docs/Web/JavaScript/Reference/Operators#assignment_operators) verändert werden kann. **Standardmäßig `false`.**
 
 Ein **Accessor-Deskriptor** hat zusätzlich die folgenden optionalen Schlüssel:
 
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt. Wenn die Eigenschaft aufgerufen wird, wird diese Funktion ohne Argumente und mit `this` auf das Objekt gesetzt, durch das die Eigenschaft aufgerufen wird (dies muss nicht das Objekt sein, auf dem die Eigenschaft definiert ist, aufgrund der Vererbung). Der Rückgabewert wird als Wert der Eigenschaft verwendet. **Standardwert ist {{jsxref("undefined")}}.**
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt. Wenn auf die Eigenschaft zugegriffen wird, wird diese Funktion ohne Argumente aufgerufen, und `this` ist auf das Objekt gesetzt, durch das auf die Eigenschaft zugegriffen wird (dies ist möglicherweise nicht das Objekt, auf dem die Eigenschaft definiert ist, aufgrund von Vererbung). Der Rückgabewert wird als Wert der Eigenschaft verwendet. **Standardmäßig {{jsxref("undefined")}}.**
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt. Wenn der Eigenschaft ein Wert zugewiesen wird, wird diese Funktion mit einem Argument (dem der Eigenschaft zugewiesenen Wert) aufgerufen und mit `this` auf das Objekt gesetzt, durch das die Eigenschaft zugewiesen wird. **Standardwert ist {{jsxref("undefined")}}.**
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt. Wenn der Eigenschaft ein Wert zugewiesen wird, wird diese Funktion mit einem Argument (dem zuzuweisenden Wert) aufgerufen, und `this` ist auf das Objekt gesetzt, durch das der Eigenschaft ein Wert zugewiesen wird. **Standardmäßig {{jsxref("undefined")}}.**
 
-Wenn ein Deskriptor keinen der `value`, `writable`, `get` oder `set` Schlüssel hat, wird er als Datendeskriptor behandelt. Wenn ein Deskriptor sowohl ein Datendeskriptor (weil er `value` oder `writable` hat) als auch ein Accessor-Deskriptor (weil er `get` oder `set` hat) ist, wird eine Ausnahme ausgelöst.
+Wenn ein Deskriptor keine der `value`, `writable`, `get` und `set` Schlüssel hat, wird er als Daten-Deskriptor behandelt. Wenn ein Deskriptor sowohl ein Daten-Deskriptor (weil er `value` oder `writable` hat) als auch ein Accessor-Deskriptor ist (weil er `get` oder `set` hat), wird eine Ausnahme ausgelöst.
 
-Diese Attribute sind nicht unbedingt die eigenen Eigenschaften des Deskriptors. Geerbte Eigenschaften werden ebenfalls berücksichtigt. Um sicherzustellen, dass diese Standardeinstellungen erhalten bleiben, können Sie bereits vorhandene Objekte in der Prototypenkette des Deskriptorobjekts im Vorfeld einfrieren, alle Optionen explizit angeben oder ein [Objekt mit `null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) erstellen.
+Diese Attribute müssen nicht unbedingt die eigenen Eigenschaften des Deskriptors sein. Geerbte Eigenschaften werden ebenfalls berücksichtigt. Um sicherzustellen, dass diese Standards erhalten bleiben, können Sie bestehende Objekte in der Prototypenkette des Deskriptorobjekts im Voraus einfrieren, alle Optionen explizit angeben oder ein [Objekt mit `null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) erstellen.
 
 ```js
 const obj = {};
@@ -107,17 +107,17 @@ Object.defineProperty(obj, "key2", {
 Object.freeze(Object.prototype);
 ```
 
-Wenn die Eigenschaft bereits existiert, versucht `Object.defineProperty()`, die Eigenschaft gemäß den Werten im Deskriptor und der aktuellen Konfiguration der Eigenschaft zu ändern.
+Wenn die Eigenschaft bereits existiert, versucht `Object.defineProperty()`, die Eigenschaft gemäß den Werten im Deskriptor und der aktuellen Konfiguration der Eigenschaft zu modifizieren.
 
-Wenn das alte Deskriptor das Attribut `configurable` auf `false` gesetzt hat, wird die Eigenschaft als _nicht konfigurierbar_ bezeichnet. Es ist nicht möglich, ein Attribut einer nicht konfigurierbaren Accessor-Eigenschaft zu ändern, und es ist nicht möglich, zwischen Daten- und Accessor-Eigenschaftstypen zu wechseln. Für Dateneigenschaften mit `writable: true` ist es möglich, den Wert zu ändern und das `writable`-Attribut von `true` auf `false` zu ändern. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn versucht wird, nicht konfigurierbare Eigenschaftenattribute zu ändern (außer `value` und `writable`, wenn zulässig), es sei denn, der gleiche Wert wie der ursprüngliche Wert wird bei einer Dateneigenschaft definiert.
+Wenn das alte Deskriptor-Attribut `configurable` auf `false` gesetzt ist, wird die Eigenschaft als _nicht konfigurierbar_ bezeichnet. Es ist nicht möglich, ein Attribut einer nicht konfigurierbaren Accessor-Eigenschaft zu ändern, und es ist nicht möglich, zwischen Daten- und Accessor-Eigenschaftstypen zu wechseln. Bei Dateneigenschaften mit `writable: true` ist es möglich, den Wert zu ändern und das `writable`-Attribut von `true` auf `false` zu ändern. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn versucht wird, nicht-konfigurierbare Eigenschaftenattribute zu ändern (außer `value` und `writable`, wenn zulässig), es sei denn, es wird ein Wert definiert, der mit dem Ursprungswert einer Dateneigenschaft identisch ist.
 
-Wenn die aktuelle Eigenschaft konfigurierbar ist, bedeutet das Definieren eines Attributs auf `undefined`, dass es effektiv gelöscht wird. Wenn `o.k` zum Beispiel eine Accessor-Eigenschaft ist, wird `Object.defineProperty(o, "k", { set: undefined })` den Setter entfernen, wodurch `k` nur noch einen Getter hat und schreibgeschützt wird. Wenn ein Attribut im neuen Deskriptor fehlt, bleibt der Wert des alten Deskriptorattributs erhalten (er wird nicht implizit auf `undefined` neu definiert). Es ist möglich, zwischen Daten- und Accessor-Eigenschaft zu wechseln, indem ein Deskriptor eines anderen "Geschmacks" vorgegeben wird. Zum Beispiel, wenn der neue Deskriptor ein Datendeskriptor ist (mit `value` oder `writable`), werden die `get`- und `set`-Attribute des ursprünglichen Deskriptors beide entfernt.
+Wenn die aktuelle Eigenschaft konfigurierbar ist, führt die Definition eines Attributs zu `undefined` effektives Löschen durch. Beispielsweise, wenn `o.k` eine Accessor-Eigenschaft ist, wird `Object.defineProperty(o, "k", { set: undefined })` den Setter entfernen, wodurch `k` nur einen Getter hat und schreibgeschützt wird. Wenn ein Attribut im neuen Deskriptor fehlt, bleibt der Wert des alten Deskriptors unverändert (es wird nicht implizit zu `undefined` neu definiert). Es ist möglich, zwischen Daten- und Accessor-Eigenschaft zu wechseln, indem ein Deskriptor eines anderen "Flavors" angegeben wird. Beispielsweise werden, wenn der neue Deskriptor ein Daten-Deskriptor ist (mit `value` oder `writable`), die `get`- und `set`-Attribute des ursprünglichen Deskriptors beide entfernt.
 
 ## Beispiele
 
 ### Erstellen einer Eigenschaft
 
-Wenn die angegebene Eigenschaft im Objekt nicht existiert, erstellt `Object.defineProperty()` eine neue Eigenschaft wie beschrieben. Felder können im Deskriptor ausgelassen werden, und Standardwerte für diese Felder werden eingesetzt.
+Wenn die angegebene Eigenschaft nicht im Objekt existiert, erstellt `Object.defineProperty()` eine neue Eigenschaft wie beschrieben. Felder können im Deskriptor weggelassen werden, und Standardwerte für diese Felder werden eingegeben.
 
 ```js
 const o = {}; // Creates a new object
@@ -164,11 +164,11 @@ Object.defineProperty(o, "conflict", {
 
 ### Modifizieren einer Eigenschaft
 
-Beim Modifizieren einer vorhandenen Eigenschaft bestimmt die aktuelle Eigenschaftskonfiguration, ob der Operator erfolgreich ist, nichts tut oder ein {{jsxref("TypeError")}} auslöst.
+Beim Modifizieren einer bestehenden Eigenschaft bestimmt die aktuelle Konfiguration der Eigenschaft, ob der Operator Erfolg hat, nichts tut oder einen {{jsxref("TypeError")}} auslöst.
 
-#### Austauschbares Attribut
+#### Beschreibbares Attribut
 
-Wenn das `writable`-Eigenschaftsmerkmal `false` ist, dann wird die Eigenschaft als "nicht beschreibbar" bezeichnet. Sie kann nicht neu zugewiesen werden. Der Versuch, in strengen Modus zu einer nicht beschreibbaren Eigenschaft zu schreiben, ändert sie nicht und führt zu einem Fehler.
+Wenn das `writable`-Eigenschaftsmerkmal `false` ist, wird die Eigenschaft als "nicht beschreibbar" bezeichnet. Sie kann nicht neu zugewiesen werden. Ein Schreibversuch in eine nicht beschreibbare Eigenschaft ändert diese nicht und führt im [strengen Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) zu einem Fehler.
 
 ```js
 const o = {}; // Creates a new object
@@ -199,7 +199,7 @@ console.log(o.a); // 37; the assignment didn't work
 
 #### Aufzählbares Attribut
 
-Das `enumerable`-Eigenschaftsmerkmal definiert, ob die Eigenschaft von {{jsxref("Object.assign()")}} oder dem [Spread-Operator](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) berücksichtigt wird. Bei nicht-{{jsxref("Symbol")}}-Eigenschaften definiert es auch, ob es in einer {{jsxref("Statements/for...in", "for...in")}}-Schleife und {{jsxref("Object.keys()")}} erscheint oder nicht. Weitere Informationen finden Sie unter [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties).
+Das `enumerable`-Eigenschaftsmerkmal definiert, ob die Eigenschaft von {{jsxref("Object.assign()")}} oder dem [Spread-Operator](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) berücksichtigt wird. Für Nicht-{{jsxref("Symbol")}}-Eigenschaften definiert es auch, ob sie in einer {{jsxref("Statements/for...in", "for...in")}} Schleife und {{jsxref("Object.keys()")}} erscheinen oder nicht. Weitere Informationen finden Sie unter [Enumerabilität und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties).
 
 ```js
 const o = {};
@@ -249,9 +249,9 @@ p[Symbol.for("f")]; // undefined
 
 #### Konfigurierbares Attribut
 
-Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob deren Attribute (außer `value` und `writable`) geändert werden können.
+Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Eigenschaften (außer `value` und `writable`) geändert werden können.
 
-Dieses Beispiel veranschaulicht eine nicht konfigurierbare Accessor-Eigenschaft.
+Dieses Beispiel illustriert eine nicht konfigurierbare Accessor-Eigenschaft.
 
 ```js
 const o = {};
@@ -287,9 +287,9 @@ delete o.a; // Nothing happens; throws an error in strict mode
 console.log(o.a); // 1
 ```
 
-Wenn das `configurable`-Attribut von `o.a` `true` gewesen wäre, würden keine Fehler ausgelöst und die Eigenschaft am Ende gelöscht werden.
+Wenn das `configurable`-Attribut von `o.a` `true` gewesen wäre, wären keine der Fehler ausgelöst worden und die Eigenschaft wäre am Ende gelöscht worden.
 
-Dieses Beispiel veranschaulicht eine nicht konfigurierbare, aber beschreibbare Dateneigenschaft. Der `value` der Eigenschaft kann immer noch geändert werden, und `writable` kann weiterhin von `true` auf `false` umgeschaltet werden.
+Dieses Beispiel zeigt eine nicht konfigurierbare, aber beschreibbare Dateneigenschaft. Der `value` der Eigenschaft kann immer noch geändert werden, und `writable` kann weiterhin von `true` auf `false` umgeschaltet werden.
 
 ```js
 const o = {};
@@ -315,7 +315,7 @@ Object.defineProperty(o, "b", {
 // or restore its writability
 ```
 
-Dieses Beispiel veranschaulicht eine konfigurierbare, aber nicht beschreibbare Dateneigenschaft. Der `value` der Eigenschaft kann immer noch mit `defineProperty` ersetzt werden (aber nicht mit Zuweisungsoperatoren), und `writable` kann umgeschaltet werden.
+Dieses Beispiel zeigt eine konfigurierbare, aber nicht beschreibbare Dateneigenschaft. Der `value` der Eigenschaft kann immer noch mit `defineProperty` ersetzt werden (aber nicht mit Zuweisungsoperatoren), und `writable` kann umgeschaltet werden.
 
 ```js
 const o = {};
@@ -330,7 +330,7 @@ console.log(o.b); // 1
 o.b = 2; // throws TypeError in strict mode: cannot change a non-writable property's value with assignment
 ```
 
-Dieses Beispiel veranschaulicht eine nicht konfigurierbare und nicht beschreibbare Dateneigenschaft. Es gibt keine Möglichkeit, ein Attribut der Eigenschaft zu aktualisieren, einschließlich ihres `value`.
+Dieses Beispiel zeigt eine nicht konfigurierbare und nicht beschreibbare Dateneigenschaft. Es gibt keine Möglichkeit, ein Attribut der Eigenschaft zu aktualisieren, einschließlich ihres `value`.
 
 ```js
 const o = {};
@@ -345,7 +345,7 @@ Object.defineProperty(o, "b", {
 
 ### Hinzufügen von Eigenschaften und Standardwerten
 
-Es ist wichtig, zu berücksichtigen, wie die Standardwerte der Attribute angewendet werden. Oft gibt es einen Unterschied zwischen der Verwendung von [Eigenschaftszugriffen](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) zum Zuweisen eines Werts und der Verwendung von `Object.defineProperty()`, wie im folgenden Beispiel gezeigt wird.
+Es ist wichtig, die Art und Weise zu berücksichtigen, wie Standardwerte von Attributen angewendet werden. Oft gibt es einen Unterschied zwischen dem Verwenden von [Eigenschaftszuweisern](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors), um einen Wert zuzuweisen, und der Verwendung von `Object.defineProperty()`, wie im folgenden Beispiel gezeigt wird.
 
 ```js
 const o = {};
@@ -372,7 +372,7 @@ Object.defineProperty(o, "a", {
 
 ### Benutzerdefinierte Setter und Getter
 
-Das Beispiel unten zeigt, wie ein sich selbst archivierendes Objekt implementiert werden kann. Wenn die `temperature`-Eigenschaft gesetzt wird, erhält das `archive`-Array einen Logeintrag.
+Das folgende Beispiel zeigt, wie man ein selbstarchivierendes Objekt implementiert. Wenn die `temperature`-Eigenschaft gesetzt wird, erhält das `archive`-Array einen Logeintrag.
 
 ```js
 function Archiver() {
@@ -426,7 +426,7 @@ console.log(instance.myName); // this is my name string
 
 ### Vererbung von Eigenschaften
 
-Wenn eine Accessor-Eigenschaft geerbt wird, werden ihre `get`- und `set`-Methoden aufgerufen, wenn die Eigenschaft in abgeleiteten Objekten aufgerufen oder geändert wird. Wenn diese Methoden eine Variable zum Speichern des Werts verwenden, wird dieser Wert von allen Objekten geteilt.
+Wenn eine Accessor-Eigenschaft geerbt wird, werden ihre `get`- und `set`-Methoden aufgerufen, wenn die Eigenschaft auf nachfolgenden Objekten abgerufen und modifiziert wird. Wenn diese Methoden eine Variable zum Speichern des Wertes verwenden, wird dieser Wert von allen Objekten geteilt.
 
 ```js
 function MyClass() {}
@@ -447,7 +447,7 @@ a.x = 1;
 console.log(b.x); // 1
 ```
 
-Dies kann behoben werden, indem der Wert in einer anderen Eigenschaft gespeichert wird. In den `get`- und `set`-Methoden verweist `this` auf das Objekt, das zur Zugriff oder zum Ändern der Eigenschaft verwendet wird.
+Dies kann behoben werden, indem der Wert in einer anderen Eigenschaft gespeichert wird. In `get`- und `set`-Methoden verweist `this` auf das Objekt, das verwendet wird, um auf die Eigenschaft zuzugreifen oder sie zu modifizieren.
 
 ```js
 function MyClass() {}
@@ -467,7 +467,7 @@ a.x = 1;
 console.log(b.x); // undefined
 ```
 
-Anders als Accessor-Eigenschaften, werden Dateneigenschaften immer auf dem Objekt selbst und nicht auf einem Prototyp gesetzt. Wenn jedoch eine nicht beschreibbare Dateneigenschaft geerbt wird, wird immer noch verhindert, dass sie auf dem Objekt geändert wird.
+Im Gegensatz zu Accessor-Eigenschaften werden Dateneigenschaften immer direkt auf dem Objekt gesetzt, nicht auf einem Prototyp. Wenn eine nicht beschreibbare Dateneigenschaft geerbt wird, ist es jedoch weiterhin nicht möglich, sie auf dem Objekt zu modifizieren.
 
 ```js
 function MyClass() {}
@@ -497,7 +497,7 @@ console.log(MyClass.prototype.y); // 1
 
 ## Siehe auch
 
-- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Enumerabilität und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.defineProperties()")}}
 - {{jsxref("Object.prototype.propertyIsEnumerable()")}}
 - {{jsxref("Object.getOwnPropertyDescriptor()")}}

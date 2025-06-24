@@ -2,10 +2,10 @@
 title: <xsl:number>
 slug: Web/XML/XSLT/Reference/Element/number
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das `<xsl:number>`-Element zählt Dinge sequenziell. Es kann auch verwendet werden, um schnell eine Zahl zu formatieren.
+Das `<xsl:number>` Element zählt Dinge sequenziell. Es kann auch verwendet werden, um eine Zahl schnell zu formatieren.
 
 ## Syntax
 
@@ -29,26 +29,24 @@ Keine.
 ### Optionale Attribute
 
 - `count`
-  - : Spezifiziert, was im Quellbaum sequenziell nummeriert werden soll. Es verwendet einen XPath-Ausdruck.
+  - : Gibt an, was im Quellbaum sequenziell nummeriert werden soll. Es verwendet einen XPath-Ausdruck.
 - `level`
 
-  - : Definiert, wie Ebenen des Quellbaums bei der Erzeugung sequenzieller Nummern berücksichtigt werden sollen. Es hat drei gültige Werte: `single`, `multiple` und `any`. Der Standardwert ist `single`:
-
+  - : Definiert, wie Ebenen des Quellbaums bei der Generierung sequenzieller Zahlen betrachtet werden sollen. Es hat drei gültige Werte: `single`, `multiple` und `any`. Der Standardwert ist `single`:
     - `single`
-      - : Nummeriert Geschwisterknoten sequenziell, wie in den Elementen einer Liste. Der Prozessor geht zum ersten Knoten in der [`ancestor-or-self`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor-or-self)-Achse, der mit dem `count`-Attribut übereinstimmt, und zählt dann diesen Knoten plus alle seine vorhergehenden Geschwister (stoppt, wenn er eine Übereinstimmung mit dem `from`-Attribut erreicht, falls vorhanden), die ebenfalls mit dem `count`-Attribut übereinstimmen. Wenn keine Übereinstimmung gefunden wird, ist die Sequenz eine leere Liste.
+      - : Nummeriert Geschwisterknoten sequenziell, wie in den Elementen einer Liste. Der Prozessor geht zum ersten Knoten in der [`ancestor-or-self`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor-or-self) Achse, der dem `count` Attribut entspricht, und zählt dann diesen Knoten sowie alle seine vorhergehenden Geschwister (Stoppen bei einem Treffer des `from` Attributs, falls vorhanden), die ebenfalls dem `count` Attribut entsprechen. Wenn kein Treffer gefunden wird, ist die Sequenz eine leere Liste.
     - `multiple`
-      - : Nummeriert Knoten als zusammengesetzte Sequenz, die die hierarchische Position des Knotens widerspiegelt, z.B., 1.2.2.5. (Das verschachtelte Format kann mit dem `format`-Attribut angegeben werden, z.B., A.1.1). Der Prozessor betrachtet alle [`ancestors`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor) des aktuellen Knotens und den aktuellen Knoten selbst und stoppt, wenn er eine Übereinstimmung mit dem `from`-Attribut erreicht, falls vorhanden. Für jeden Knoten in dieser Liste, der mit dem `count`-Attribut übereinstimmt, zählt der Prozessor, wie viele vorhergehende übereinstimmende Geschwister er hat, und fügt eins für den Knoten selbst hinzu. Wenn keine Übereinstimmung gefunden wird, ist die Sequenz eine leere Liste.
+      - : Nummeriert Knoten als zusammengesetzte Sequenz, die die hierarchische Position des Knotens widerspiegelt, z.B. 1.2.2.5. (Das verschachtelte Format kann mit dem `format` Attribut angegeben werden, z.B. A.1.1). Der Prozessor betrachtet alle [`ancestors`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor) des aktuellen Knotens und den aktuellen Knoten selbst, bis er auf ein `from` Attribut stößt, falls vorhanden. Für jeden Knoten in dieser Liste, der dem `count` Attribut entspricht, zählt der Prozessor, wie viele vorausgehende übereinstimmende Geschwister er hat, und fügt eins für den Knoten selbst hinzu. Wenn kein Treffer gefunden wird, ist die Sequenz eine leere Liste.
     - `any` (Derzeit nicht unterstützt.)
-      - : Nummeriert alle übereinstimmenden Knoten unabhängig von der Ebene sequenziell. Die [`ancestor`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor)-, [`self`](/de/docs/Web/XML/XPath/Reference/Axes#self)- und [`preceding`](/de/docs/Web/XML/XPath/Reference/Axes#preceding)-Achsen werden alle berücksichtigt. Der Prozessor startet am aktuellen Knoten und bewegt sich in umgekehrter Dokumentreihenfolge vorwärts, stoppt, falls er eine Übereinstimmung zu irgendeinem `from`-Attribut erreicht. Wenn keine Übereinstimmung mit dem `count`-Attribut gefunden wird, ist die Sequenz eine leere Liste. Diese Ebene wird derzeit nicht unterstützt.
+      - : Nummeriert alle übereinstimmenden Knoten, unabhängig von der Ebene, sequenziell. Die [`ancestor`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor), [`self`](/de/docs/Web/XML/XPath/Reference/Axes#self), und [`preceding`](/de/docs/Web/XML/XPath/Reference/Axes#preceding) Achsen werden alle betrachtet. Der Prozessor beginnt am aktuellen Knoten und fährt in umgekehrter Dokumentenreihenfolge fort, wobei er stoppt, wenn er auf ein `from` Attribut stößt. Wenn kein `count` Attribut gefunden wird, ist die Sequenz eine leere Liste. Diese Ebene wird derzeit nicht unterstützt.
 
 - `from`
-  - : Gibt an, wo die Nummerierung beginnen oder neu anfangen soll. Die Sequenz beginnt mit dem ersten Nachkommen des Knotens, der mit dem `from`-Attribut übereinstimmt.
+  - : Gibt an, wo die Nummerierung beginnen oder neu beginnen soll. Die Sequenz beginnt mit dem ersten Nachkommen des Knotens, der dem `from` Attribut entspricht.
 - `value`
-  - : Wendet ein gegebenes Format auf eine Zahl an. Dies ist eine schnelle Möglichkeit, eine vom Benutzer bereitgestellte Zahl (im Gegensatz zu einer Knotensequenznummer) in eines der standardmäßigen `<xsl:number>`-Formate zu formatieren.
+  - : Wendet ein bestimmtes Format auf eine Zahl an. Dies ist eine schnelle Möglichkeit, eine benutzergelieferte Zahl (im Gegensatz zu einer Knotensequenznummer) in einem der Standardformate von `<xsl:number>` zu formatieren.
 - `format`
 
-  - : Definiert das Format der generierten Zahl:
-
+  - : Definiert das Format der generierten Nummer:
     - `format="1"`
       - : `1 2 3 . . .` (Dies ist das einzige derzeit unterstützte Format)
     - `format="01"`
@@ -63,13 +61,13 @@ Keine.
       - : `I II III IV V . . .`
 
 - `lang` (Derzeit nicht unterstützt.)
-  - : Spezifiziert, welches Alphabet der Sprache in buchstabenbasierten Nummerierungsformaten verwendet werden soll.
+  - : Gibt an, welches Alphabet der Sprache in buchstabenbasierten Nummerierungsformaten verwendet werden soll.
 - `letter-value`
-  - : Unterscheidet zwischen Nummerierungssequenzen, die Buchstaben verwenden. Einige Sprachen haben mehr als ein Nummerierungssystem, das Buchstaben verwendet. Wenn beide Systeme mit demselben Token beginnen, kann es zu Zweideutigkeiten kommen. Dieses Attribut kann den Wert `alphabetic` oder `traditional` haben. Der Standardwert ist `alphabetic`.
+  - : Unterscheidet zwischen Nummerierungssequenzen, die Buchstaben verwenden. Einige Sprachen haben mehr als ein Nummerierungssystem, das Buchstaben verwendet. Wenn beide Systeme mit demselben Token beginnen, kann es zu Mehrdeutigkeiten kommen. Dieses Attribut kann den Wert `alphabetic` oder `traditional` haben. Der Standard ist `alphabetic`.
 - `grouping-separator`
-  - : Gibt an, welches Zeichen als Gruppierungszeichen (z.B. Tausendertrenner) verwendet werden soll. Der Standardwert ist das Komma (`,`).
+  - : Gibt an, welches Zeichen als Gruppen-Trennzeichen (z.B. Tausender) verwendet werden soll. Der Standard ist das Komma (`,`).
 - `grouping-size`
-  - : Gibt die Anzahl der Ziffern an, aus denen eine numerische Gruppe besteht. Der Standardwert ist `3`.
+  - : Gibt die Anzahl der Ziffern an, die eine numerische Gruppe bilden. Der Standardwert ist `3`.
 
 ### Typ
 
@@ -81,4 +79,4 @@ XSLT, Abschnitt 7.7
 
 ## Gecko-Unterstützung
 
-Teilweise Unterstützung. Siehe obige Anmerkungen.
+Teilweise Unterstützung. Siehe oben stehende Kommentare.

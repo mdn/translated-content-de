@@ -3,12 +3,13 @@ title: Object.defineProperties()
 short-title: defineProperties()
 slug: Web/JavaScript/Reference/Global_Objects/Object/defineProperties
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.defineProperties()`** definiert neue oder ändert bestehende Eigenschaften direkt an einem Objekt und gibt das Objekt zurück.
+Die statische Methode **`Object.defineProperties()`** definiert neue oder
+modifiziert bestehende Eigenschaften direkt auf einem Objekt und gibt das Objekt zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.defineProperties()")}}
 
@@ -36,43 +37,44 @@ Object.defineProperties(obj, props)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, an dem Eigenschaften definiert oder geändert werden sollen.
+  - : Das Objekt, auf dem Eigenschaften definiert oder modifiziert werden sollen.
 - `props`
 
-  - : Ein Objekt, dessen Schlüssel die Namen der zu definierenden oder zu ändernden Eigenschaften repräsentieren, und dessen Werte Objekte sind, die diese Eigenschaften beschreiben. Jedes Wertobjekt in `props` muss entweder ein Daten-Deskriptor oder ein Accessor-Deskriptor sein; es kann nicht beides gleichzeitig sein (siehe {{jsxref("Object.defineProperty()")}} für mehr Details).
+  - : Ein Objekt, dessen Schlüssel die Namen der Eigenschaften repräsentieren, die definiert oder modifiziert werden sollen, und dessen Werte Objekte sind, die diese Eigenschaften beschreiben. Jeder Wert in `props` muss entweder ein Datendeskriptor oder ein Zugriffsbeschreiber sein; es kann nicht beides sein (siehe
+    {{jsxref("Object.defineProperty()")}} für weitere Details).
 
-    Daten-Deskriptoren und Accessor-Deskriptoren können optional die folgenden Schlüssel enthalten:
+    Daten- und Zugriffsbeschreiber können optional die folgenden Schlüssel enthalten:
 
     - `configurable`
-      - : `true`, wenn und nur wenn der Typ dieses Eigenschaftsdeskriptors geändert werden kann und ob die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
-        **Standardmäßig `false`.**
+      - : `true`, wenn und nur wenn der Typ dieses Eigenschaftsbeschreibers geändert werden kann und wenn die Eigenschaft vom entsprechenden Objekt gelöscht werden kann.
+        **Standardwert ist `false`.**
     - `enumerable`
       - : `true`, wenn und nur wenn diese Eigenschaft während der Aufzählung der Eigenschaften auf dem entsprechenden Objekt angezeigt wird.
-        **Standardmäßig `false`.**
+        **Standardwert ist `false`.**
 
-    Ein Daten-Deskriptor hat auch die folgenden optionalen Schlüssel:
+    Ein Datendeskriptor hat außerdem die folgenden optionalen Schlüssel:
 
     - `value`
-      - : Der Wert, der mit der Eigenschaft verknüpft ist. Kann jeder gültige JavaScript-Wert sein (Zahl, Objekt, Funktion usw.).
-        **Standardmäßig {{jsxref("undefined")}}.**
+      - : Der Wert, der mit der Eigenschaft verknüpft ist. Kann jeder gültige JavaScript-Wert sein (Zahl, Objekt, Funktion, etc.).
+        **Standardwert ist {{jsxref("undefined")}}.**
     - `writable`
-      - : `true`, wenn und nur wenn der Wert, der mit der Eigenschaft verknüpft ist, mit einem {{jsxref("Operators", "Zuordnungsoperator", "assignment_operators", 1)}} geändert werden kann.
-        **Standardmäßig `false`.**
+      - : `true`, wenn und nur wenn der mit der Eigenschaft verknüpfte Wert durch einen {{jsxref("Operators", "Zuweisungsoperator", "assignment_operators", 1)}} geändert werden kann.
+        **Standardwert ist `false`.**
 
-    Ein Accessor-Deskriptor hat auch die folgenden optionalen Schlüssel:
+    Ein Zugriffsbeschreiber hat außerdem die folgenden optionalen Schlüssel:
 
     - `get`
-      - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Getter vorhanden ist. Der Rückgabewert der Funktion wird als Wert der Eigenschaft verwendet.
-        **Standardmäßig {{jsxref("undefined")}}.**
+      - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt. Der Rückgabewert der Funktion wird als Wert der Eigenschaft verwendet.
+        **Standardwert ist {{jsxref("undefined")}}.**
     - `set`
-      - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Setter vorhanden ist. Die Funktion erhält als einziges Argument den neuen Wert, der der Eigenschaft zugewiesen wird.
-        **Standardmäßig {{jsxref("undefined")}}.**
+      - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt. Die Funktion erhält als einziges Argument den neuen Wert, der der Eigenschaft zugewiesen wird.
+        **Standardwert ist {{jsxref("undefined")}}.**
 
-    Wenn ein Deskriptor weder `value`, `writable`, `get` noch `set` Schlüssel hat, wird er als Daten-Deskriptor behandelt. Wenn ein Deskriptor sowohl `value` oder `writable` als auch `get` oder `set` Schlüssel hat, wird eine Ausnahme ausgelöst.
+    Wenn ein Deskriptor weder über `value` noch `writable`, `get` und `set` Schlüssel verfügt, wird er als Datendeskriptor behandelt. Wenn ein Deskriptor sowohl `value` oder `writable` als auch `get` oder `set` Schlüssel besitzt, wird eine Ausnahme ausgelöst.
 
 ### Rückgabewert
 
-Das Objekt, das der Funktion übergeben wurde.
+Das an die Funktion übergebene Objekt.
 
 ## Beispiele
 
@@ -107,4 +109,4 @@ Object.defineProperties(obj, {
 - [es-shims Polyfill von `Object.defineProperties`](https://www.npmjs.com/package/object.defineproperties)
 - {{jsxref("Object.defineProperty()")}}
 - {{jsxref("Object.keys()")}}
-- [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Enumerierbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)

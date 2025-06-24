@@ -2,7 +2,7 @@
 title: userScripts.register()
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts/register
 l10n:
-  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -21,17 +21,17 @@ let registeredUserScript = browser.userScripts.register(
 
 - `scripts`
 
-  - : `array` von {{WebExtAPIRef("userScripts.RegisteredUserScript")}}. Details der zu registrierenden Benutzerskripte.
+  - : `Array` von {{WebExtAPIRef("userScripts.RegisteredUserScript")}}. Details der zu registrierenden Benutzerskripte.
 
-    Jedes {{WebExtAPIRef("userScripts.RegisteredUserScript")}} Objekt muss die `js` Eigenschaft als nicht-leeres Array und ein nicht-leeres Array entweder in `matches` oder `includeGlobs` enthalten.
+    Jedes {{WebExtAPIRef("userScripts.RegisteredUserScript")}}-Objekt muss die `js`-Eigenschaft als nicht-leeres Array und ein nicht-leeres Array in entweder `matches` oder `includeGlobs` enthalten.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn alle angeforderten Benutzerskripte registriert sind. Wenn es nicht gelingt, eines der Benutzerskripte zu registrieren oder die Anfrage aus einem anderen Grund fehlschlägt, werden keine Skripte registriert, und das Promise wird mit einer Fehlermeldung abgelehnt.
+Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn alle angeforderten Benutzerskripte registriert sind. Wenn es einem der Benutzerskripte nicht gelingt, sich zu registrieren, oder wenn die Anforderung aus einem anderen Grund fehlschlägt, werden keine Skripte registriert und das Promise wird mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Snippet registriert den Hello-World-Code in der `"myScriptId"` Ausführungswelt, um auf allen Websites ausgeführt zu werden, die mit `"*://example.com/*"` übereinstimmen.
+Dieses Snippet registriert einen Hallo-Welt-Code in der Ausführungswelt `"myScriptId"`, um auf allen Websites auszuführen, die mit `"*://example.com/*"` übereinstimmen.
 
 ```js
 await browser.userScripts.register([

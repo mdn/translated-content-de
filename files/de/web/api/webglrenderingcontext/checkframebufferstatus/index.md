@@ -1,15 +1,15 @@
 ---
-title: "WebGLRenderingContext: Methode checkFramebufferStatus()"
+title: "WebGLRenderingContext: checkFramebufferStatus() Methode"
 short-title: checkFramebufferStatus()
 slug: Web/API/WebGLRenderingContext/checkFramebufferStatus
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.checkFramebufferStatus()`**-Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Komplettheitsstatus
+Die **`WebGLRenderingContext.checkFramebufferStatus()`** Methode
+der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Vollständigkeitsstatus
 des [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekts zurück.
 
 ## Syntax
@@ -22,44 +22,38 @@ checkFramebufferStatus(target)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) spezifiziert. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
+      - : Sammlung von Puffer-Datenspeichern für Farb-, Alpha-,
+        Tiefen- und Stencil-Puffer, die zum Rendern eines Bildes verwendet werden.
 
-      - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die verwendet werden, um ein Bild darzustellen.
-
-    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
-    sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Context](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich folgende Werte zur Verfügung:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
-        Wird als Ziel für Zeichnungs-, Render-, Lösch- und Schreiboperationen verwendet.
+        Wird als Ziel für Zeichnungs-, Rendering-, Lösch- und Schreiboperationen verwendet.
     - `gl.READ_FRAMEBUFFER`
-      - : Wird als Quelle für Lesevorgänge verwendet.
+      - : Wird als Quelle für Leseoperationen verwendet.
 
 ### Rückgabewert
 
-Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Komplettheitsstatus des Framebuffers angibt, oder
-`0`, wenn ein Fehler auftritt. Mögliche Rückgabewerte des Enums:
+Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Vollständigkeitsstatus des Framebuffers anzeigt, oder
+`0` falls ein Fehler auftritt. Mögliche Enum-Rückgabewerte:
 
 - `gl.FRAMEBUFFER_COMPLETE`: Der Framebuffer ist bereit zur Anzeige.
-- `gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT`: Die Anhangstypen
-  sind nicht übereinstimmend oder nicht alle Framebuffer-Anhangspunkte sind Framebuffer-Anhangs-komplett.
+- `gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT`: Die Anhangstypen stimmen nicht überein oder nicht alle Framebuffer-Anhangspunkte sind Framebuffer-Anhang vollständig.
 - `gl.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT`: Es gibt keinen Anhang.
 - `gl.FRAMEBUFFER_INCOMPLETE_DIMENSIONS`: Höhe und Breite des
   Anhangs sind nicht gleich.
-- `gl.FRAMEBUFFER_UNSUPPORTED`: Das Format des Anhangs wird nicht
-  unterstützt oder wenn Tiefen- und Stencil-Anhänge nicht derselbe Renderbuffer sind.
-- Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
-  können zusätzlich die folgenden Werte zurückgegeben werden:
+- `gl.FRAMEBUFFER_UNSUPPORTED`: Das Format des Anhangs wird nicht unterstützt oder wenn Tiefen- und Stencil-Anhänge nicht der gleiche Renderbuffer sind.
+- Bei Verwendung eines [WebGL 2 Context](/de/docs/Web/API/WebGL2RenderingContext) können zusätzlich folgende Werte zurückgegeben werden:
 
   - `gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE`: Die Werte von
-    `gl.RENDERBUFFER_SAMPLES` sind zwischen den angehängten Renderbuffern unterschiedlich
-    oder sind ungleich null, wenn die angehängten Bilder eine Mischung aus Renderbuffern und Texturen sind.
+    `gl.RENDERBUFFER_SAMPLES` sind unterschiedlich zwischen den angehängten Renderbuffers
+    oder sind ungleich null, wenn die angehängten Bilder eine Mischung aus Renderbuffers und Texturen sind.
 
-- Bei Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2)-Erweiterung kann der folgende Wert
-  zusätzlich zurückgegeben werden:
-
+- Bei Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2) Erweiterung kann zusätzlich folgender Wert zurückgegeben werden:
   - `ext.FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR`: Wenn
     `baseViewIndex` nicht für alle Framebuffer-Anhangspunkte gleich ist,
     bei denen der Wert von `FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE` nicht
@@ -90,4 +84,4 @@ gl.checkFramebufferStatus(gl.FRAMEBUFFER);
 - [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
 - [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
 - [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
-- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

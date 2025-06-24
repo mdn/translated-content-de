@@ -2,14 +2,14 @@
 title: lang
 slug: Web/SVG/Reference/Attribute/lang
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`lang`**-Attribut gibt die primäre Sprache an, die in Inhalten und Attributen verwendet wird, die Textinhalte bestimmter Elemente enthalten.
+Das **`lang`** Attribut gibt die primäre Sprache an, die in Inhalten und Attributen verwendet wird, die Textinhalt bestimmter Elemente enthalten.
 
-Es gibt auch ein {{SVGAttr("xml:lang")}}-Attribut (mit Namespace). Wenn beide definiert sind, wird dasjenige mit Namespace verwendet und das ohne wird ignoriert.
+Es gibt auch ein {{SVGAttr("xml:lang")}} Attribut (mit Namensraum). Wenn beide definiert sind, wird das mit Namensraum verwendet und das ohne wird ignoriert.
 
-In SVG 1.1 gab es ein `lang`-Attribut, das mit einer anderen Bedeutung definiert war und nur für `<glyph>`-Elemente galt. Dieses Attribut spezifizierte eine Liste von Sprachen gemäß {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}}. Das Glyph sollte verwendet werden, wenn das `xml:lang`-Attribut genau mit einer der in diesem Parameter angegebenen Sprachen übereinstimmte oder wenn das `xml:lang`-Attribut genau einem Präfix einer der in diesem Parameter angegebenen Sprachen entsprach, sodass das erste Zeichen des Tags nach dem Präfix ein "-" war.
+In SVG 1.1 gab es ein `lang` Attribut mit einer anderen Bedeutung, das nur für `<glyph>` Elemente galt. Dieses Attribut spezifizierte eine Liste von Sprachen gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}. Das Glyph sollte verwendet werden, wenn das `xml:lang` Attribut genau mit einer der in diesem Parameter angegebenen Sprachen übereinstimmte, oder wenn das `xml:lang` Attribut genau einem Präfix einer der in diesem Parameter angegebenen Sprachen entsprach, so dass das erste Tag-Zeichen nach dem Präfix "- " war.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
@@ -21,7 +21,7 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </svg>
 ```
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -42,9 +42,9 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 - `<language-tag>`
 
-  - : Dieser Wert gibt die Sprache an, die für das Element verwendet wird. Die Syntax dieses Wertes ist in {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}} definiert.
+  - : Dieser Wert gibt die für das Element verwendete Sprache an. Die Syntax dieses Wertes ist in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert.
 
-    Die gebräuchlichste Syntax ist ein Wert, der aus einem zweistelligen, in Kleinbuchstaben gehaltenen Teil für die Sprache und einem zweistelligen, in Großbuchstaben gehaltenen Teil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z.B. `en-US` für US-Amerikanisches Englisch oder `de-AT` für Österreichisches Deutsch.
+    Die gebräuchlichste Syntax ist ein Wert, der aus einem zweistelligen Kleinbuchstabenteil für die Sprache und einem zweistelligen Großbuchstabenteil für die Region oder das Land besteht, getrennt durch ein Minuszeichen, z.B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
 
 ## Spezifikationen
 
@@ -56,4 +56,4 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 ## Siehe auch
 
-- {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}}
+- {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}

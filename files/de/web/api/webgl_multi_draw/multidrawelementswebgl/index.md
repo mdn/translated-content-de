@@ -3,15 +3,14 @@ title: "WEBGL_multi_draw: multiDrawElementsWEBGL() Methode"
 short-title: multiDrawElementsWEBGL()
 slug: Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_multi_draw.multiDrawElementsWEBGL()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) rendert mehrere Primitive aus
-Array-Daten. Sie ist
-identisch mit mehreren Aufrufen der
+Die **`WEBGL_multi_draw.multiDrawElementsWEBGL()`** Methode des
+[WebGL API](/de/docs/Web/API/WebGL_API) rendert mehrere Primitiven aus
+Array-Daten. Sie ist identisch mit mehreren Aufrufen der
 [`gl.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements)
 Methode.
 
@@ -29,50 +28,34 @@ multiDrawElementsWEBGL(mode,
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types),
-    der den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den zu rendernden Primitivtyp angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
-    - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
-    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt und
-      verbindet den
-      letzten Scheitelpunkt zurück zum ersten.
-    - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Scheitelpunkten.
+    - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
+    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Vertex und
+      verbindet den letzten Vertex zurück zum ersten.
+    - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Vertices.
     - [`gl.TRIANGLE_STRIP`](https://en.wikipedia.org/wiki/Triangle_strip)
     - [`gl.TRIANGLE_FAN`](https://en.wikipedia.org/wiki/Triangle_fan)
-    - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Scheitelpunkten.
+    - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Vertices.
 
 - `countsList`
-  - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
-    oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    (von [`GLint`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste von Anzahlen von Indizes angibt, die gerendert werden sollen.
+  - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array) oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) (von [`GLint`](/de/docs/Web/API/WebGL_API/Types)), das eine Liste von Anzahlen der zu rendernden Indizes angibt.
 - `countsOffset`
-  - : Ein [`GLUint`](/de/docs/Web/API/WebGL_API/Types),
-    der den Ausgangspunkt in das `countsList` Array definiert.
+  - : Ein [`GLUint`](/de/docs/Web/API/WebGL_API/Types), das den Anfangspunkt im `countsList` Array definiert.
 - `type`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der
-    den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`
-    - Bei Verwendung der [`OES_element_index_uint`](/de/docs/Web/API/OES_element_index_uint)
-      Erweiterung:
-
+    - Bei Verwendung der [`OES_element_index_uint`](/de/docs/Web/API/OES_element_index_uint) Erweiterung:
       - `gl.UNSIGNED_INT`
 
 - `offsetsList`
-  - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
-    oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste von Startindizes für die Arrays von Vektorpunkten angibt.
+  - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array) oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)), das eine Liste von Anfangsindizes für die Arrays der Vektorpunkte angibt.
 - `offsetsOffset`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types),
-    der den Ausgangspunkt in das `offsetsList` Array definiert.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das den Anfangspunkt im `offsetsList` Array definiert.
 - `drawCount`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types),
-    der die Anzahl der Instanzen des Elementbereichs angibt, die ausgeführt werden sollen.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der Instanzen des Bereichs von Elementen angibt, die ausgeführt werden sollen.
 
 ### Rückgabewert
 

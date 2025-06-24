@@ -1,9 +1,9 @@
 ---
-title: "File: File()-Konstruktor"
+title: "Datei: Konstruktor File()"
 short-title: File()
 slug: Web/API/File/File
 l10n:
-  sourceCommit: 8fd2ee72038310e3ecc387df235ffac1cb08775c
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
@@ -20,21 +20,17 @@ new File(fileBits, fileName, options)
 ### Parameter
 
 - `fileBits`
-  - : Ein [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)
-    Objekt wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}},
-    {{jsxref("TypedArray")}}, {{jsxref("DataView")}}, [`Blob`](/de/docs/Web/API/Blob), Zeichenketten oder eine Mischung solcher Elemente enthält, die in der [`File`](/de/docs/Web/API/File) gespeichert werden. Beachten Sie, dass Zeichenketten hier als UTF-8 kodiert sind, im Gegensatz zu den üblichen JavaScript UTF-16-Zeichenketten.
+  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}}s, {{jsxref("TypedArray")}}s, {{jsxref("DataView")}}s, [`Blob`](/de/docs/Web/API/Blob)s, Zeichenfolgen oder eine Mischung solcher Elemente enthält, die in die [`File`](/de/docs/Web/API/File) eingefügt werden. Beachten Sie, dass Zeichenfolgen hier als {{Glossary("UTF-8", "UTF-8")}} kodiert werden, im Gegensatz zu den üblichen JavaScript {{Glossary("UTF-16", "UTF-16")}} Zeichenfolgen.
 - `fileName`
-  - : Eine Zeichenkette, die den Dateinamen oder den Pfad zur Datei darstellt.
+  - : Eine Zeichenfolge, die den Dateinamen oder den Pfad zur Datei darstellt.
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt, das optionale Attribute für die Datei enthält. Verfügbare Optionen sind wie folgt:
-
     - `type` {{optional_inline}}
-      - : Eine Zeichenkette, die den MIME-Typ des Inhalts darstellt, der in die Datei eingefügt wird. Standardmäßig auf einen Wert von `""` gesetzt.
+      - : Eine Zeichenfolge, die den MIME-Typ des Inhalts darstellt, der in die Datei eingefügt wird. Standardmäßig ist der Wert `""`.
     - `endings` {{optional_inline}}
-      - : Wie Zeilenumbrüche (`\n`) innerhalb des Inhalts interpretiert werden, wenn die Daten Text sind. Der Standardwert `transparent` kopiert die Zeilenumbrüche in den Blob, ohne sie zu ändern. Um Zeilenumbrüche in das native Format des Hosts zu konvertieren, geben Sie den Wert `native` an.
+      - : Wie Zeilenumbrüche (`\n`) innerhalb der Inhalte interpretiert werden, wenn die Daten Text sind. Der Standardwert, `transparent`, kopiert Zeilenumbrüche in das Blob, ohne sie zu ändern. Um Zeilenumbrüche in das native Konvention des Hostsystems zu konvertieren, geben Sie den Wert `native` an.
     - `lastModified` {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Millisekunden zwischen der Unix-Zeit-Epoche und dem letzten Änderungsdatum der Datei darstellt. Standardmäßig auf einen Wert von {{jsxref("Date.now()")}} gesetzt.
+      - : Eine Zahl, die die Anzahl der Millisekunden zwischen der Unix-Zeit-Epoche und dem Zeitpunkt darstellt, an dem die Datei zuletzt geändert wurde. Standardmäßig ist der Wert {{jsxref("Date.now()")}}.
 
 ## Beispiele
 

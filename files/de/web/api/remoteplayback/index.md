@@ -2,55 +2,53 @@
 title: RemotePlayback
 slug: Web/API/RemotePlayback
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Remote Playback API")}}
 
-Das **`RemotePlayback`**-Interface der [Remote Playback API](/de/docs/Web/API/Remote_Playback_API) ermöglicht es der Seite, die Verfügbarkeit von Remote-Wiedergabegeräten zu erkennen und dann die Wiedergabe auf diesen Geräten zu verbinden und zu steuern.
+Das **`RemotePlayback`** Interface der [Remote Playback API](/de/docs/Web/API/Remote_Playback_API) ermöglicht es der Seite, die Verfügbarkeit von Fernwiedergabegeräten zu erkennen, sich mit diesen zu verbinden und die Wiedergabe auf diesen Geräten zu steuern.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Eigenschaften von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) {{ReadOnlyInline}}
-
-  - : Repräsentiert den Status der `RemotePlayback`-Verbindung. Einer von:
-
+  - : Representiert den Zustand der `RemotePlayback`-Verbindung. Einer der folgenden Werte:
     - `"connecting"`
-      - : Der Benutzeragent versucht, eine Remote-Wiedergabe mit dem ausgewählten Gerät zu initiieren.
+      - : Der Benutzeragent versucht, die Fernwiedergabe mit dem ausgewählten Gerät zu initiieren.
     - `"connected"`
-      - : Der Übergang von lokaler zu Remote-Wiedergabe hat stattgefunden, alle Befehle erfolgen jetzt auf dem Remote-Gerät.
+      - : Der Übergang von der lokalen zur Fernwiedergabe ist erfolgt, alle Befehle werden nun auf dem Fernwiedergabegerät ausgeführt.
     - `"disconnected"`
-      - : Die Remote-Wiedergabe wurde nicht initiiert, die Initialisierung ist fehlgeschlagen oder sie wurde gestoppt.
+      - : Die Fernwiedergabe wurde nicht initiiert, konnte nicht initiiert werden oder wurde gestoppt.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Methoden von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`RemotePlayback.watchAvailability()`](/de/docs/Web/API/RemotePlayback/watchAvailability)
-  - : Überwacht die Liste der verfügbaren Remote-Wiedergabegeräte und gibt ein {{jsxref("Promise")}} zurück, das mit einer `callbackId` eines verfügbaren Remote-Wiedergabegeräts aufgelöst wird.
+  - : Überwacht die Liste der verfügbaren Fernwiedergabegeräte und gibt ein {{jsxref("Promise")}} zurück, das mit einer `callbackId` eines verfügbaren Fernwiedergabegeräts aufgelöst wird.
 - [`RemotePlayback.cancelWatchAvailability()`](/de/docs/Web/API/RemotePlayback/cancelWatchAvailability)
-  - : Bricht die Anforderung zur Überwachung der Verfügbarkeit von Remote-Wiedergabegeräten ab.
+  - : Bricht die Anfrage zum Überwachen der Verfügbarkeit von Fernwiedergabegeräten ab.
 - [`RemotePlayback.prompt()`](/de/docs/Web/API/RemotePlayback/prompt)
-  - : Fordert den Benutzer auf, ein Remote-Wiedergabegerät auszuwählen und die Berechtigung zur Verbindung zu erteilen.
+  - : Fordert den Benutzer auf, ein Fernwiedergabegerät auszuwählen und die Erlaubnis zur Verbindung zu erteilen.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Ereignisse von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`connecting`](/de/docs/Web/API/RemotePlayback/connecting_event)
-  - : Wird ausgelöst, wenn der Benutzeragent die Remote-Wiedergabe initiiert.
+  - : Wird ausgelöst, wenn der Benutzeragent die Fernwiedergabe initiiert.
 - [`connect`](/de/docs/Web/API/RemotePlayback/connect_event)
-  - : Wird ausgelöst, wenn der Benutzeragent erfolgreich eine Verbindung zum Remote-Gerät herstellt.
+  - : Wird ausgelöst, wenn der Benutzeragent erfolgreich mit dem Fernwiedergabegerät verbunden ist.
 - [`disconnect`](/de/docs/Web/API/RemotePlayback/disconnect_event)
-  - : Wird ausgelöst, wenn der Benutzeragent die Verbindung zum Remote-Gerät trennt.
+  - : Wird ausgelöst, wenn der Benutzeragent die Verbindung zum Fernwiedergabegerät trennt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen Player mit benutzerdefinierten Steuerungen, die Remote-Wiedergabe unterstützen. Anfangs ist die Schaltfläche zum Auswählen eines Geräts verborgen:
+Das folgende Beispiel zeigt einen Player mit benutzerdefinierten Steuerungen, die Fernwiedergabe unterstützen. Der anfangs verwendete Knopf zur Auswahl eines Geräts ist verborgen:
 
 ```html
 <video id="videoElement" src="https://example.org/media.ext">
@@ -64,7 +62,7 @@ Das folgende Beispiel zeigt einen Player mit benutzerdefinierten Steuerungen, di
 }
 ```
 
-Die Methode [`RemotePlayback.watchAvailability()`](/de/docs/Web/API/RemotePlayback/watchAvailability) wird verwendet, um nach verfügbaren Remote-Wiedergabegeräten zu suchen. Wenn ein Gerät verfügbar ist, zeigt der Callback die Schaltfläche an.
+Die Methode [`RemotePlayback.watchAvailability()`](/de/docs/Web/API/RemotePlayback/watchAvailability) wird verwendet, um nach verfügbaren Fernwiedergabegeräten zu suchen. Wenn ein Gerät verfügbar ist, verwenden Sie den Callback, um den Knopf anzuzeigen.
 
 ```js
 const deviceBtn = document.getElementById("deviceBtn");

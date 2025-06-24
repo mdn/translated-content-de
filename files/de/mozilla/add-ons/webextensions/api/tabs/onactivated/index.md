@@ -2,12 +2,12 @@
 title: tabs.onActivated
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onActivated
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich der aktive Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise nicht festgelegt ist, wenn dieses Ereignis ausgelöst wird. Sie können jedoch {{WebExtAPIRef("tabs.onUpdated")}}-Ereignisse abhören, um benachrichtigt zu werden, wenn eine URL festgelegt wird.
+Wird ausgelöst, wenn sich der aktive Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise zum Zeitpunkt der Auslösung dieses Ereignisses noch nicht festgelegt ist. Sie können jedoch auf {{WebExtAPIRef("tabs.onUpdated")}}-Ereignisse lauschen, um benachrichtigt zu werden, wenn eine URL festgelegt wird.
 
 ## Syntax
 
@@ -22,18 +22,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es abgehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `activeInfo`
       - : `object`. ID des Tabs, der aktiv gemacht wurde, und ID seines Fensters. Siehe den Abschnitt [activeInfo](#activeinfo_2) für weitere Details.
 
@@ -42,7 +40,7 @@ Ereignisse haben drei Funktionen:
 ### activeInfo
 
 - `previousTabId`
-  - : `integer`. Die ID des zuvor aktivierten Tabs, falls dieser Tab noch geöffnet ist.
+  - : `integer`. Die ID des zuvor aktivierten Tabs, wenn dieser Tab noch geöffnet ist.
 - `tabId`
   - : `integer`. Die ID des Tabs, der aktiv geworden ist.
 - `windowId`
@@ -50,7 +48,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Ereignisse der Tab-Aktivierung abhören und protokollieren:
+Auf Tab-Aktivierungsereignisse lauschen und protokollieren:
 
 ```js
 function handleActivated(activeInfo) {
@@ -67,7 +65,7 @@ browser.tabs.onActivated.addListener(handleActivated);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActivated). Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActivated)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

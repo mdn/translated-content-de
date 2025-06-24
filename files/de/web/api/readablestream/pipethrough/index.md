@@ -1,16 +1,16 @@
 ---
-title: "ReadableStream: pipeThrough()-Methode"
+title: "ReadableStream: pipeThrough() Methode"
 short-title: pipeThrough()
 slug: Web/API/ReadableStream/pipeThrough
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`pipeThrough()`**-Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle bietet eine kaskadierbare Möglichkeit, den aktuellen Stream durch einen Transformationsstream oder ein beliebiges anderes schreib-/lesepaar zu leiten.
+Die **`pipeThrough()`** Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle bietet eine kaskadierbare Möglichkeit, den aktuellen Stream durch einen Transform-Stream oder ein anderes schreibbares/lesbares Paar zu leiten.
 
-Ein Stream wird beim Piping in der Regel für die Dauer des Pipes gesperrt, wodurch andere Leser daran gehindert werden, ihn zu sperren.
+Das Leiten eines Streams sperrt diesen in der Regel für die Dauer der Pipe, was verhindert, dass andere Leser ihn sperren können.
 
 ## Syntax
 
@@ -23,45 +23,44 @@ pipeThrough(transformStream, options)
 
 - `transformStream`
 
-  - : Ein [`TransformStream`](/de/docs/Web/API/TransformStream) (oder ein Objekt mit der Struktur `{writable, readable}`), das aus einem lesbaren und einem beschreibbaren Stream besteht, die zusammenarbeiten, um einige Daten von einer Form in eine andere zu transformieren.
-    Daten, die in den `writable`-Stream geschrieben werden, können in einem transformierten Zustand vom `readable`-Stream gelesen werden.
-    Beispielsweise hat ein [`TextDecoder`](/de/docs/Web/API/TextDecoder) Bytes, die in ihn geschrieben werden, und Zeichenketten, die aus ihm gelesen werden, während ein Videodecoder kodierte Bytes in ihn geschrieben und unkomprimierte Videoframes aus ihm gelesen werden.
+  - : Ein [`TransformStream`](/de/docs/Web/API/TransformStream) (oder ein Objekt mit der Struktur `{writable, readable}`), bestehend aus einem lesbaren und einem schreibbaren Stream, die zusammenarbeiten, um Daten von einer Form in eine andere zu transformieren.
+    Daten, die in den `writable` Stream geschrieben werden, können in einem transformierten Zustand vom `readable` Stream gelesen werden.
+    Beispielsweise werden in einen [`TextDecoder`](/de/docs/Web/API/TextDecoder) Bytes geschrieben und Zeichenketten ausgelesen, während ein Videodecoder codierte Bytes geschrieben und unkomprimierte Videoframes ausgelesen werden.
 
 - `options` {{optional_inline}}
 
-  - : Die Optionen, die beim Piping zum `writable`-Stream verwendet werden sollen.
+  - : Die Optionen, die beim Leiten zum `writable` Stream verwendet werden sollen.
     Verfügbare Optionen sind:
 
     - `preventClose`
 
-      - : Wenn diese Option auf `true` gesetzt ist, führt das Schließen des Quell-`ReadableStream` nicht mehr dazu, dass der Ziel-`WritableStream` geschlossen wird.
+      - : Wenn dies auf `true` gesetzt ist, führt das Schließen des Quellen-`ReadableStream` nicht mehr dazu, dass der Ziel-`WritableStream` geschlossen wird.
 
     - `preventAbort`
 
-      - : Wenn diese Option auf `true` gesetzt ist, führen Fehler im Quell-`ReadableStream` nicht mehr dazu, dass der Ziel-`WritableStream` abgebrochen wird.
+      - : Wenn dies auf `true` gesetzt ist, führen Fehler im Quellen-`ReadableStream` nicht mehr dazu, dass der Ziel-`WritableStream` abgebrochen wird.
 
     - `preventCancel`
 
-      - : Wenn diese Option auf `true` gesetzt ist, führen Fehler im Ziel-`WritableStream` nicht mehr dazu, dass der Quell-`ReadableStream` abgebrochen wird.
+      - : Wenn dies auf `true` gesetzt ist, führen Fehler im Ziel-`WritableStream` nicht mehr dazu, dass der Quellen-`ReadableStream` abgebrochen wird.
 
     - `signal`
-
-      - : Wenn ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt gesetzt ist, können laufende Pipe-Operationen über den entsprechenden [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen werden.
+      - : Wenn auf ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt gesetzt, können laufende Pipe-Operationen dann über den entsprechenden [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen werden.
 
 ### Rückgabewert
 
-Die `readable`-Seite des `transformStream`.
+Die `readable` Seite des `transformStream`.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn die `writable`- und/oder `readable`-Eigenschaft von `transformStream` nicht definiert ist.
+  - : Wird ausgelöst, wenn die `writable` und/oder `readable` Eigenschaft von `transformStream` undefiniert sind.
 
 ## Beispiele
 
-Im folgenden Beispiel (siehe [Unpack chunks of a PNG](https://mdn.github.io/dom-examples/streams/png-transform-stream/) für den vollständigen Code, der live ausgeführt wird, und [png-transform-stream](https://github.com/mdn/dom-examples/tree/main/streams/png-transform-stream) für den Quellcode) wird ein Bild abgerufen und dessen Body als [`ReadableStream`](/de/docs/Web/API/ReadableStream) abgerufen.
+Im folgenden Beispiel (siehe [Unpack chunks of a PNG](https://mdn.github.io/dom-examples/streams/png-transform-stream/) für den vollständigen, live ausgeführten Code und [png-transform-stream](https://github.com/mdn/dom-examples/tree/main/streams/png-transform-stream) für den Quellcode) wird ein Bild abgerufen und sein Körper als [`ReadableStream`](/de/docs/Web/API/ReadableStream) erfasst.
 
-Anschließend protokollieren wir den Inhalt des lesbaren Streams, verwenden `pipeThrough()`, um ihn an eine neue Funktion zu senden, die eine grau gefärbte Version des Streams erstellt, und protokollieren dann auch den neuen Streaminhalt.
+Als Nächstes protokollieren wir den Inhalt des lesbaren Streams, verwenden `pipeThrough()`, um ihn an eine neue Funktion zu senden, die eine grau skalierte Version des Streams erstellt, und protokollieren dann auch den neuen Stream-Inhalt.
 
 ```js
 // Fetch the original image
@@ -84,5 +83,5 @@ fetch("png-logo.png")
 
 ## Siehe auch
 
-- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor
-- [Pipe-Ketten](/de/docs/Web/API/Streams_API/Using_readable_streams#pipe_chains)
+- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream) Konstruktor
+- [Pipe chains](/de/docs/Web/API/Streams_API/Using_readable_streams#pipe_chains)

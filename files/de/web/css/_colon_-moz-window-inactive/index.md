@@ -2,17 +2,17 @@
 title: :-moz-window-inactive
 slug: Web/CSS/:-moz-window-inactive
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS)-[Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element auswählt, während es sich in einem inaktiven Fenster befindet.
+Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die auf jedes Element angewendet werden kann, während es sich in einem inaktiven Fenster befindet.
 
 `:-moz-window-inactive` funktioniert auch in HTML-Dokumenten.
 
 > [!NOTE]
-> Vor der Einführung dieser Pseudo-Klasse wurde das Anwenden verschiedener Stile für Hintergrundfenster durch das Setzen eines Attributs (`active="true"`) im obersten XUL-Chrom-Fenster erreicht. Dieses Attribut wird nicht mehr verwendet.
+> Vor der Einführung dieser Pseudoklasse war es möglich, verschiedenen Hintergrundfenstern unterschiedliche Stile zu geben, indem ein Attribut (`active="true"`) auf das oberste XUL-Chrome-Fenster gesetzt wurde. Dieses Attribut wird nicht mehr verwendet.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS)-[Pseudo-Klasse](/de/docs
 
 ## Beispiele
 
-Dieses Beispiel ändert das Erscheinungsbild des Hintergrunds einer Box, abhängig davon, ob sich ihr Fenster aktiv oder inaktiv befindet.
+In diesem Beispiel wird das Aussehen des Hintergrunds einer Box je nach Aktivität des Fensters geändert.
 
 ### HTML
 
@@ -50,13 +50,13 @@ Dieses Beispiel ändert das Erscheinungsbild des Hintergrunds einer Box, abhäng
 
 ### Ergebnis
 
-Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch auf einer {{LiveSampleLink('Examples', 'separate page')}} ansehen.
+Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} ansehen.
 
 {{EmbedLiveSample('Examples', 220, 220)}}
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 
@@ -69,4 +69,4 @@ Nicht Teil eines Standards.
 
   - [`:active`](/de/docs/Web/CSS/:active)
 
-- Die [`Document.activeElement`](/de/docs/Web/API/Document/activeElement)-Eigenschaft für regulären DOM und die [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement)-Eigenschaft für [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Root-Elemente.
+- Die [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) Eigenschaft für das reguläre DOM und die [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement) Eigenschaft für [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Wurzeln.

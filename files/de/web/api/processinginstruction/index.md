@@ -2,19 +2,19 @@
 title: ProcessingInstruction
 slug: Web/API/ProcessingInstruction
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ProcessingInstruction`**-Schnittstelle repräsentiert eine [Processing Instruction](https://www.w3.org/TR/xml/#sec-pi); also einen [`Node`](/de/docs/Web/API/Node), der eine Anweisung für eine spezifische Anwendung einbettet, aber von allen anderen Anwendungen, die die Anweisung nicht erkennen, ignoriert werden kann.
+Die **`ProcessingInstruction`**-Schnittstelle repräsentiert eine [Verarbeitungsanweisung](https://www.w3.org/TR/xml/#sec-pi); das heißt, ein [`Node`](/de/docs/Web/API/Node), der eine Anweisung enthält, die auf eine bestimmte Anwendung abzielt, aber von anderen Anwendungen, die die Anweisung nicht erkennen, ignoriert werden kann.
 
-> **Warning:** `ProcessingInstruction`-Knoten werden nur in XML-Dokumenten unterstützt, nicht in HTML-Dokumenten. In HTML-Dokumenten wird eine Processing Instruction als Kommentar betrachtet und als [`Comment`](/de/docs/Web/API/Comment)-Objekt im DOM-Baum dargestellt.
+> [!WARNING] > `ProcessingInstruction`-Knoten werden nur in XML-Dokumenten unterstützt, nicht in HTML-Dokumenten. In diesen wird eine Verarbeitungsanweisung als Kommentar betrachtet und als [`Comment`](/de/docs/Web/API/Comment)-Objekt im Baum dargestellt.
 
-Eine Processing Instruction kann sich von der [XML-Deklaration](/de/docs/Web/XML/Guides/XML_introduction#xml_declaration) unterscheiden.
+Eine Verarbeitungsanweisung kann sich von der [XML-Deklaration](/de/docs/Web/XML/Guides/XML_introduction#xml_declaration) unterscheiden.
 
 > [!NOTE]
-> Benutzerdefinierte Processing Instructions dürfen nicht mit `"xml"` beginnen, da Namensziele von Processing Instructions, die mit `xml`-präfixiert sind, durch die XML-Spezifikation für bestimmte Standardverwendungen reserviert sind (siehe z. B. `<?xml-stylesheet ?>`).
+> Benutzerdefinierte Verarbeitungsanweisungen dürfen nicht mit `"xml"` beginnen, da `xml`-präfixierte Verarbeitungsanweisungszielnamen von der XML-Spezifikation für bestimmte, standardisierte Verwendungen reserviert sind (siehe zum Beispiel `<?xml-stylesheet ?>`).
 
 Zum Beispiel:
 
@@ -22,7 +22,7 @@ Zum Beispiel:
 <?xml version="1.0"?>
 ```
 
-ist eine Processing Instruction, deren `target` `xml` ist.
+ist eine Verarbeitungsanweisung, deren `target` `xml` ist.
 
 {{InheritanceDiagram}}
 
@@ -32,14 +32,14 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihren übergeordneten Schnittst
 
 - [`ProcessingInstruction.sheet`](/de/docs/Web/API/ProcessingInstruction/sheet) {{ReadOnlyInline}}
 
-  - : Gibt das zugehörige [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, falls vorhanden; andernfalls `null`.
+  - : Gibt das zugehörige [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, falls vorhanden; oder `null`, wenn keines vorhanden ist.
 
 - [`ProcessingInstruction.target`](/de/docs/Web/API/ProcessingInstruction/target) {{ReadOnlyInline}}
-  - : Ein Name, der die Anwendung identifiziert, an die die Anweisung gerichtet ist.
+  - : Ein Name, der die Anwendung identifiziert, für die die Anweisung bestimmt ist.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden, erbt jedoch Methoden von ihren übergeordneten Schnittstellen, [`CharacterData`](/de/docs/Web/API/CharacterData), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Diese Schnittstelle hat keine spezifische Methode, erbt jedoch Methoden von ihren übergeordneten Schnittstellen, [`CharacterData`](/de/docs/Web/API/CharacterData), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Spezifikationen
 

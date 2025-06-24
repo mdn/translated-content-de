@@ -3,12 +3,12 @@ title: "Content-Security-Policy: img-src-Direktive"
 short-title: img-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/img-src
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`img-src`** gibt gültige Quellen für Bilder und Favoritenicons an.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} **`img-src`**-Direktive legt gültige Quellen für Bilder und Favicons fest.
 
 <table class="properties">
   <tbody>
@@ -21,7 +21,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`img-src`** gibt 
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}}-Fallback</th>
+      <th scope="row">{{CSP("default-src")}} fallback</th>
       <td>
         Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
         <code>default-src</code>-Direktive.
@@ -40,20 +40,18 @@ Content-Security-Policy: img-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die Anführungszeichen sind zwingend erforderlich.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
-
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verstoßfälle
+### Verstöße
 
-Gegeben dieser CSP-Header:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: img-src https://example.com/

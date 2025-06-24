@@ -1,14 +1,14 @@
 ---
-title: "MediaStreamAudioDestinationNode: MediaStreamAudioDestinationNode()-Konstruktor"
+title: "MediaStreamAudioDestinationNode: MediaStreamAudioDestinationNode() Konstruktor"
 short-title: MediaStreamAudioDestinationNode()
 slug: Web/API/MediaStreamAudioDestinationNode/MediaStreamAudioDestinationNode
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`MediaStreamAudioDestinationNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue Instanz des [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)-Objekts.
+Der **`MediaStreamAudioDestinationNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue Instanz eines [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)-Objekts.
 
 ## Syntax
 
@@ -20,25 +20,22 @@ new MediaStreamAudioDestinationNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audio-Kontext darstellt, mit dem der Knoten verbunden werden soll.
+  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), das den Audio-Kontext repräsentiert, mit dem der Knoten verknüpft werden soll.
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, das die Eigenschaften definiert, die der `MediaStreamAudioDestinationNode` haben soll:
-
+  - : Ein Objekt, das die Eigenschaften definiert, die Sie dem `MediaStreamAudioDestinationNode` zuweisen möchten:
     - `channelCount`
-      - : Eine Ganzzahl, die angibt, wie viele Kanäle beim
-        [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing)
-        von Verbindungen zu Eingängen des Knotens verwendet werden. (Weitere Informationen finden Sie unter
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount).) Seine Verwendung und präzise
+      - : Eine ganze Zahl, die bestimmt, wie viele Kanäle verwendet werden, wenn Verbindungen zu beliebigen Eingängen des Knotens
+        [hoch- und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing)
+        werden. (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue
         Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Ein String, der beschreibt, wie die Kanäle zwischen
-        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Weitere Informationen, einschließlich der Standardwerte, finden Sie unter [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
+      - : Ein String, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen, einschließlich der Standardwerte.)
     - `channelInterpretation`
-      - : Ein String, der die Bedeutung der Kanäle beschreibt. Diese Interpretation definiert, wie Audio
-        [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing)
-        erfolgen wird. Mögliche Werte sind `"speakers"` oder `"discrete"`. (Weitere Informationen, einschließlich der Standardwerte, finden Sie unter
-        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
+      - : Ein String, der die Bedeutung der Kanäle beschreibt. Diese Interpretation wird definieren, wie das Audio
+        [hoch- und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing)
+        werden wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
 
 ## Beispiele
 

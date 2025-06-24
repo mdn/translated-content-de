@@ -2,41 +2,41 @@
 title: TextDecoder
 slug: Web/API/TextDecoder
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Das **`TextDecoder`** Interface repräsentiert einen Dekodierer für eine bestimmte Textcodierung, wie `UTF-8`, `ISO-8859-2`, `KOI8-R`, `GBK` usw. Ein Dekodierer nimmt einen Byte-Strom als Eingabe und gibt einen Strom von Codepunkten aus.
+Das **`TextDecoder`**-Interface repräsentiert einen Decoder für eine spezifische Textkodierung, wie `UTF-8`, `ISO-8859-2`, `KOI8-R`, `GBK`, etc. Ein Decoder nimmt einen Byte-Strom als Eingabe und gibt einen JavaScript-String zurück.
 
 ## Konstruktor
 
 - [`TextDecoder()`](/de/docs/Web/API/TextDecoder/TextDecoder)
-  - : Gibt einen neu konstruierten `TextDecoder` zurück, der einen Codepunktstrom mit der im Parameter angegebenen Dekodiermethode erzeugt.
+  - : Gibt einen neu konstruierten `TextDecoder` zurück, der einen Code-Punkt-Strom mit der im Parameter spezifizierten Dekodierungsmethode erzeugt.
 
-## Instanz Eigenschaften
+## Instanz-Eigenschaften
 
 _Das `TextDecoder`-Interface erbt keine Eigenschaften._
 
 - [`TextDecoder.encoding`](/de/docs/Web/API/TextDecoder/encoding) {{ReadOnlyInline}}
-  - : Ein String, der den Namen des Dekodierers enthält, welcher die Methode beschreibt, die der `TextDecoder` verwenden wird.
+  - : Ein String, der den Namen des Decoders enthält, welcher die Methode beschreibt, die der `TextDecoder` verwenden wird.
 - [`TextDecoder.fatal`](/de/docs/Web/API/TextDecoder/fatal) {{ReadOnlyInline}}
-  - : Ein {{jsxref('Boolean')}}-Wert, der angibt, ob der Fehlermodus fatal ist.
+  - : Ein {{jsxref('Boolean')}}, der anzeigt, ob der Fehlermodus fatal ist.
 - [`TextDecoder.ignoreBOM`](/de/docs/Web/API/TextDecoder/ignoreBOM) {{ReadOnlyInline}}
-  - : Ein {{jsxref('Boolean')}}-Wert, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) ignoriert wird.
+  - : Ein {{jsxref('Boolean')}}, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) ignoriert wird.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Das `TextDecoder`-Interface erbt keine Methoden._
+_Das `TextDecoder`-Interface erbt keine Methoden_.
 
 - [`TextDecoder.decode()`](/de/docs/Web/API/TextDecoder/decode)
-  - : Gibt einen String zurück, der den mittels der Methode des spezifischen `TextDecoder`-Objekts dekodierten Text enthält.
+  - : Gibt einen String zurück, der den mit der Methode des spezifischen `TextDecoder`-Objekts dekodierten Text enthält.
 
 ## Beispiele
 
-### Text mit typisierten Arrays darstellen
+### Darstellung von Text mit getypten Arrays
 
-Dieses Beispiel zeigt, wie man ein chinesisch/japanisches Zeichen ![Chinesisches Zeichen, das Glück bedeutet](2019-05-21_191907.png) dekodiert, dargestellt durch fünf verschiedene typisierte Arrays: {{jsxref("Uint8Array")}}, {{jsxref("Int8Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int16Array")}}, und {{jsxref("Int32Array")}}.
+Dieses Beispiel zeigt, wie ein chinesisches/japanisches Zeichen ![Chinesisches Zeichen für Glück](2019-05-21_191907.png) dekodiert wird, das durch fünf verschiedene getypte Arrays repräsentiert wird: {{jsxref("Uint8Array")}}, {{jsxref("Int8Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int16Array")}}, und {{jsxref("Int32Array")}}.
 
 ```js
 let utf8decoder = new TextDecoder(); // default 'utf-8' or 'utf8'
@@ -56,7 +56,7 @@ console.log(utf8decoder.decode(i32arr));
 
 ### Umgang mit nicht-UTF8-Text
 
-In diesem Beispiel dekodieren wir den russischen Text "Привет, мир!", was "Hallo, Welt." bedeutet. In unserem [`TextDecoder()`](/de/docs/Web/API/TextDecoder/TextDecoder) Konstruktor geben wir die Windows-1251-Zeichenkodierung an, die für die kyrillische Schrift geeignet ist.
+In diesem Beispiel dekodieren wir den russischen Text "Привет, мир!", was "Hallo, Welt" bedeutet. In unserem [`TextDecoder()`](/de/docs/Web/API/TextDecoder/TextDecoder)-Konstruktor spezifizieren wir die Windows-1251-Zeichenkodierung, die für kyrillische Schrift geeignet ist.
 
 ```js
 const win1251decoder = new TextDecoder("windows-1251");
@@ -76,6 +76,6 @@ console.log(win1251decoder.decode(bytes)); // Привет, мир!
 
 ## Siehe auch
 
-- Das [`TextEncoder`](/de/docs/Web/API/TextEncoder) Interface, das die inverse Operation beschreibt.
-- Ein [Shim](https://github.com/inexorabletash/text-encoding), das es ermöglicht, dieses Interface in Browsern zu verwenden, die es nicht unterstützen.
+- Das [`TextEncoder`](/de/docs/Web/API/TextEncoder)-Interface, das die inverse Operation beschreibt.
+- Ein [Shim](https://github.com/inexorabletash/text-encoding), der es ermöglicht, dieses Interface in Browsern zu verwenden, die es nicht unterstützen.
 - [Node.js unterstützt den globalen Export ab v11.0.0](https://nodejs.org/api/util.html#util_class_util_textdecoder)

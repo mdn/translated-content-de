@@ -3,15 +3,15 @@ title: "Node: isDefaultNamespace() Methode"
 short-title: isDefaultNamespace()
 slug: Web/API/Node/isDefaultNamespace
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("DOM")}}
 
-Die **`isDefaultNamespace()`** Methode des [`Node`](/de/docs/Web/API/Node) Interfaces nimmt einen Namespace-URI als Argument an. Sie gibt einen booleschen Wert zurück, der `true` ist, wenn der Namespace der Standard-Namensraum des gegebenen Knotens ist, und `false`, wenn nicht.
+Die **`isDefaultNamespace()`** Methode des [`Node`](/de/docs/Web/API/Node) Schnittstelle akzeptiert eine Namespace-URI als Argument. Sie gibt einen booleschen Wert zurück, der `true` ist, wenn der Namespace der Standard-Namespace auf dem gegebenen Knoten ist, und `false`, wenn nicht.
 
 > [!NOTE]
-> Der Standard-Namensraum eines HTML-Elements ist immer `""`. Für ein SVG-Element wird er durch das `xmlns` Attribut festgelegt.
+> Der Standard-Namespace eines HTML-Elements ist immer `""`. Für ein SVG-Element wird er durch das `xmlns`-Attribut festgelegt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ isDefaultNamespace(namespaceURI)
 
 - `namespaceURI`
   - : Ein String, der den Namespace darstellt, gegen den das Element überprüft wird.
-    > **Hinweis:** `namespaceURI` ist kein optionaler Parameter, kann jedoch `null` sein.
+    > [!NOTE] > `namespaceURI` ist kein optionaler Parameter, kann jedoch `null` sein.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` oder `false` zurückgibt und angibt, ob der Parameter der Standard-Namensraum ist oder nicht.
+Ein boolescher Wert, der den Rückgabewert `true` oder `false` hält, um anzugeben, ob der Parameter der Standard-Namespace ist oder nicht.
 
 ## Beispiel
 

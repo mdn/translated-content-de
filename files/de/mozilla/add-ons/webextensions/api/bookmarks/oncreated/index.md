@@ -2,12 +2,12 @@
 title: bookmarks.onCreated
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/onCreated
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Lesezeichen-Element (ein Lesezeichen oder ein Ordner) erstellt wird.
+Wird ausgelöst, wenn ein Lesezeichenobjekt (ein Lesezeichen oder ein Ordner) erstellt wird.
 
 ## Syntax
 
@@ -22,22 +22,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
     - `id`
-      - : `string`. Die ID des neuen Lesezeichen-Elements.
+      - : `string`. Die ID des neuen Lesezeichenobjekts.
     - `bookmark`
-      - : {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}}. Informationen über das neue Lesezeichen-Element.
+      - : {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}}. Informationen über das neue Lesezeichenobjekt.
 
 ## Beispiele
 
@@ -57,7 +55,7 @@ browser.bookmarks.onCreated.addListener(handleCreated);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onCreated) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onCreated) API. Diese Dokumentation ist aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

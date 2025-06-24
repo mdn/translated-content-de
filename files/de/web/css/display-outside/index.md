@@ -2,25 +2,25 @@
 title: <display-outside>
 slug: Web/CSS/display-outside
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die `<display-outside>`-Schlüsselwörter spezifizieren den äußeren Typ der {{CSSxRef("display")}}-Eigenschaft eines Elements, was im Wesentlichen dessen Rolle im Flusslayout beschreibt. Diese Schlüsselwörter werden als Werte der `display`-Eigenschaft verwendet und können aus Kompatibilitätsgründen als einzelnes Schlüsselwort oder gemäß der Level-3-Spezifikation zusammen mit einem Wert aus den {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwörtern definiert werden.
+Die Schlüsselwörter `<display-outside>` geben den äußeren {{CSSxRef("display")}}-Typ des Elements an, der im Wesentlichen seine Rolle im Flusslayout bestimmt. Diese Schlüsselwörter werden als Werte der `display`-Eigenschaft verwendet und können für Legacy-Zwecke als einzelnes Schlüsselwort verwendet werden oder wie in der Level-3-Spezifikation definiert zusammen mit einem Wert aus den {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwörtern.
 
 ## Syntax
 
 Gültige `<display-outside>`-Werte:
 
 - `block`
-  - : Das Element erzeugt ein Blockelement-Kasten, wodurch sowohl vor als auch nach dem Element in normalem Fluss Zeilenumbrüche generiert werden.
+  - : Das Element erzeugt eine Blockelement-Box, die Zeilenumbrüche sowohl vor als auch nach dem Element im normalen Fluss erzeugt.
 - `inline`
-  - : Das Element erzeugt einen oder mehrere Inlineelement-Kästen, die keine Zeilenumbrüche vor oder nach sich selbst erzeugen. Im normalen Fluss wird das nächste Element, sofern Platz vorhanden ist, in derselben Zeile angezeigt.
+  - : Das Element erzeugt ein oder mehrere Inlineelement-Boxen, die keine Zeilenumbrüche vor oder nach sich selbst erzeugen. Im normalen Fluss wird das nächste Element auf derselben Linie sein, wenn Platz vorhanden ist.
 
 > [!NOTE]
-> Wenn Browser auf eine `display`-Eigenschaft mit nur einem **äußeren** `display`-Wert stoßen (z. B. `display: block` oder `display: inline`), wird der innere Wert standardmäßig auf `flow` gesetzt (z. B. `display: block flow` und `display: inline flow`).
-> Dies ist rückwärtskompatibel mit der Syntax mit einem Schlüsselwort.
+> Wenn Browser auf eine Display-Eigenschaft mit nur einem **äußeren** `display`-Wert stoßen (z.B. `display: block` oder `display: inline`), wird der innere Wert standardmäßig auf `flow` gesetzt (z.B. `display: block flow` und `display: inline flow`).
+> Dies ist abwärtskompatibel mit der Einzel-Schlüsselwort-Syntax.
 
 ## Formale Syntax
 
@@ -28,7 +28,7 @@ Gültige `<display-outside>`-Werte:
 
 ## Beispiele
 
-Im folgenden Beispiel werden `span`-Elemente (normalerweise als Inline-Elemente angezeigt) auf `display: block` gesetzt. Dadurch werden sie auf neuen Zeilen dargestellt und dehnen sich in der Inline-Dimension so weit wie möglich aus, um ihren Container auszufüllen.
+Im folgenden Beispiel sind Span-Elemente (normalerweise als Inline-Elemente dargestellt) auf `display: block` gesetzt, daher brechen sie in neue Zeilen um und dehnen sich in der Inline-Dimension aus, um ihren Container auszufüllen.
 
 ### HTML
 

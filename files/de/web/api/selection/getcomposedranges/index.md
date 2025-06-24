@@ -3,25 +3,19 @@ title: "Selection: getComposedRanges() Methode"
 short-title: getComposedRanges()
 slug: Web/API/Selection/getComposedRanges
 l10n:
-  sourceCommit: ca5cf1046e4619808440e4505d9fa579a1309ead
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.getComposedRanges()`** Methode gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange) Objekten zurück, die die aktuellen Auswahlbereiche darstellen und Bereiche zurückgeben können, die potenziell Schattenbaum-Grenzen überschreiten.
+Die **`Selection.getComposedRanges()`** Methode gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zurück, die die aktuellen Auswahlbereiche repräsentieren, und kann Bereiche zurückgeben, die potenziell Schatten-Grenzen überschreiten.
 
-Da die Endpunkte des Auswahlbereichs möglicherweise innerhalb eines Schattenbaums oder sogar in verschiedenen Schattenbäumen liegen und diese geschlossen sein können, kann die Methode standardmäßig keine Knoten aus einem Schattenbaum zurückgeben.
-Wenn die Methode eine Auswahl zurückgeben muss, die Knoten innerhalb von Schattenbäumen umfasst, müssen die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Objekte für diese Bäume als Argumente an die Methode übergeben werden.
-Wenn entsprechende Wurzeln nicht bereitgestellt werden und der Beginn oder das Ende der Auswahl innerhalb eines Schattenbaums liegt, wird der zurückgegebene Bereich neu konfiguriert, um den Host des Schattenwurzels anstelle eines Knotens innerhalb des Wurzels einzuschließen.
+Da die Endpunkte des Auswahlbereichs innerhalb eines Schattenbaums oder sogar verschiedener Schattenbäume liegen können und diese möglicherweise geschlossen sind, kann die Methode standardmäßig keine Knoten aus einem Schattenbaum zurückgeben. Wenn die Methode eine Auswahl zurückgeben muss, die Knoten innerhalb von Schattenbäumen umfasst, müssen die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekte für diese Bäume als Argumente an die Methode übergeben werden. Wenn keine entsprechenden Wurzeln bereitgestellt werden und der Start- oder Endpunkt der Auswahl sich innerhalb eines Schattenbaums befindet, wird der zurückgegebene Bereich neu abgerenzt, um den Host des Schattenwurzel einzuschließen, anstatt einen Knoten innerhalb der Wurzel.
 
-Die zurückgegebenen Bereiche repräsentieren den Bereich zu dem Zeitpunkt, als `getComposedRanges()` aufgerufen wurde.
-Wenn das DOM oder ein Schatten-DOM verändert wird, ist der ausgewählte Bereich wahrscheinlich nicht korrekt.
-Anwendungscode könnte einen [`MutationObserver`](/de/docs/Web/API/MutationObserver) verwenden, um DOM-Änderungen zu überwachen und dann [`Selection.setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent) aufzurufen, um die Auswahl zu aktualisieren.
+Die zurückgegebenen Bereiche repräsentieren den Bereich zum Zeitpunkt des Aufrufs von `getComposedRanges()`. Wenn das DOM oder ein Schatten-DOM geändert wird, ist der ausgewählte Bereich wahrscheinlich fehlerhaft. Anwendungscode könnte einen [`MutationObserver`](/de/docs/Web/API/MutationObserver) verwenden, um auf DOM-Änderungen zu überwachen und dann [`Selection.setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent) aufzurufen, um die Auswahl zu aktualisieren.
 
 > [!NOTE]
-> Diese Methode sollte anstelle von [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) verwendet werden, wenn Bereiche ausgewählt werden, die potenziell Schattenwurzel-Grenzen überschreiten können.
-> [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) kennt Schattenwurzeln nicht.
-> Der zurückgegebene Bereich ist nicht spezifiziert und variiert zwischen Browsern.
+> Diese Methode sollte anstelle von [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) verwendet werden, wenn Bereiche ausgewählt werden, die potenziell Schattenwurzel-Grenzen überschreiten können. [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) ist sich der Schattenwurzeln nicht bewusst. Der zurückgegebene Bereich ist nicht spezifiziert und variiert zwischen Browsern.
 
 ## Syntax
 
@@ -33,34 +27,28 @@ getComposedRanges(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
-  - : Ein Objekt mit den folgenden Eigenschaften, alle optional:
-
+  - : Ein Objekt mit den folgenden optionalen Eigenschaften:
     - `shadowRoots` {{optional_inline}}
-      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Objekten.
-        Wenn ein Auswahl-Endpunkt innerhalb einer der angegebenen Schattenwurzeln liegt, kann der Bereich Knoten innerhalb seines entsprechenden Shadow DOM-Baums zurückgeben.
-        Andernfalls, wenn die Auswahl eine Schattengrenze überschreitet und die entsprechende `ShadowRoot` nicht bereitgestellt wird, wird der zurückgegebene Bereich angepasst, um das gesamte Host-Element für die Schattenwurzel einzuschließen.
+      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten. Wenn ein Auswahlendpunkt innerhalb einer der bereitgestellten Schattenwurzeln liegt, kann der Bereich Knoten innerhalb des entsprechenden Schatten-DOM-Baums zurückgeben. Andernfalls, wenn die Auswahl eine Schattengrenze überschreitet und die entsprechende `ShadowRoot` nicht bereitgestellt wird, wird der zurückgegebene Bereich angepasst, um das gesamte Host-Element für die Schattenwurzel einzuschließen.
 
 > [!NOTE]
-> In der ursprünglichen Spezifikation wurden Schattenwurzeln als Satz von [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) angegeben. Einige Browser unterstützen möglicherweise noch diese veraltete Syntax.
+> In der ursprünglichen Spezifikation wurden Schattenwurzeln als ein Satz von [Rest-Parametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) spezifiziert. Einige Browser unterstützen möglicherweise noch diese ältere Syntax.
 
 ### Rückgabewert
 
-Ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange) Objekten, die die ausgewählten Bereiche innerhalb des zusammengesetzten (abgeflachten) Baums des Dokuments darstellen.
-Zum Zeitpunkt des Schreibens erwartet die Spezifikation, dass dieses Array nur ein Objekt enthält.
+Ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten, die die ausgewählten Bereiche innerhalb des komponierten (abgeflachten) Baums des Dokuments darstellen. Zum Zeitpunkt des Schreibens der Spezifikation wird erwartet, dass dieses Array nur ein Objekt enthält.
 
 ## Beispiele
 
-### Auswahl über Inline-Schattenwurzeln hinweg
+### Auswahl über inline Schattenwurzeln
 
-Dieses Beispiel demonstriert, wie `getComposedRanges()` sich verhält, sowohl wenn Schattenwurzeln übergeben werden als auch nicht, und kontrastiert mit [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt).
+Dieses Beispiel zeigt, wie sich `getComposedRanges()` verhält, sowohl wenn Schattenwurzeln übergeben werden als auch wenn nicht, und vergleicht dies mit [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt).
 
-Es ermöglicht Ihnen, Text auszuwählen, der in verschiedenen Knoten im DOM und in offenen und geschlossenen Schattenwurzeln definiert ist, den Bereich der Auswahl mit den verschiedenen Ansätzen zu kopieren und dann den Bereich erneut anzuwenden, um zu sehen, wie gut die ursprüngliche Auswahl funktioniert hat.
+Es ermöglicht Ihnen, Text auszuwählen, der in verschiedenen Knoten im DOM und in offenen und geschlossenen Schattenwurzeln definiert ist, den Bereich für die Auswahl mit den verschiedenen Ansätzen zu kopieren und dann den Bereich erneut anzuwenden, um zu sehen, wie gut die ursprüngliche Auswahl funktioniert hat.
 
 #### HTML
 
-Das HTML definiert einige Textknoten mit einigen `<span>` Elementen, an die wir mit JavaScript eine Schattenwurzel anhängen werden.
-Wir fügen auch einige Tasten hinzu, um die Auswahl mit einer Reihe von unterschiedlichen Methoden zu kopieren und anzuwenden.
+Das HTML definiert einige Textknoten mit `<span>`-Elementen, an die wir eine Schattenwurzel mit JavaScript anhängen werden. Wir fügen auch einige Buttons hinzu, um die Auswahl mit verschiedenen Methoden zu kopieren und anzuwenden.
 
 ```html
 <p>
@@ -83,8 +71,7 @@ Wir fügen auch einige Tasten hinzu, um die Auswahl mit einer Reihe von untersch
 
 #### CSS
 
-Das CSS macht nichts Interessantes.
-Wir legen die Tasten nur vertikal an, damit sie leichter zu lesen sind.
+Das CSS macht nichts Interessantes. Wir legen die Buttons einfach vertikal an, damit sie leichter zu lesen sind.
 
 ```css
 button {
@@ -109,8 +96,7 @@ function log(text) {
 }
 ```
 
-Der Großteil der Arbeit erfolgt im JavaScript.
-Zuerst protokollieren wir, wenn `getComposedRanges()` nicht unterstützt wird, obwohl wir nicht tatsächlich verhindern, dass der Rest des Beispiels versucht, es zu verwenden.
+Der Großteil der Arbeit wird im JavaScript erledigt. Zuerst protokollieren wir, ob `getComposedRanges()` nicht unterstützt wird, obwohl wir das restliche Beispiel nicht daran hindern, es zu verwenden.
 
 ```js
 if (!("getComposedRanges" in Selection.prototype)) {
@@ -118,8 +104,7 @@ if (!("getComposedRanges" in Selection.prototype)) {
 }
 ```
 
-Dann erstellen wir eine offene und eine geschlossene Schattenwurzel und hängen sie an die zwei `<span>` Elemente an, die wir im HTML erstellt haben.
-Diese enthalten etwas einfachen Text in Fettschrift, damit wir die Schattenknoten leichter erkennen können, wenn das HTML angezeigt wird.
+Dann erstellen wir eine offene und eine geschlossene Schattenwurzel und hängen sie an die zwei `<span>`-Elemente an, die wir im HTML erstellt haben. Diese enthalten einfachen fettgedruckten Text, sodass wir die Schattenknoten leicht identifizieren können, wenn das HTML gerendert wird.
 
 ```js
 let openRoot = openHost.attachShadow({ mode: "open" });
@@ -129,9 +114,7 @@ let closedRoot = closedHost.attachShadow({ mode: "closed" });
 closedRoot.innerHTML = `<b>Closed Shadow DOM Text</b>`;
 ```
 
-Als Nächstes erstellen wir Code, um die ausgewählten Bereiche mit `getComposedRanges()` zu erhalten, wenn die ersten beiden Tasten angeklickt werden.
-Die erste Taste ruft `getComposedRanges()` auf, ohne Schattenwurzeln zu übergeben, während die zweite beide Schattenwurzeln übergibt.
-In beiden Fällen wird der zusammengesetzte Bereich in einer Variablen gespeichert.
+Als nächstes erstellen wir Code, um die ausgewählten Bereiche mit `getComposedRanges()` abzurufen, wenn die ersten beiden Buttons geklickt werden. Der erste Button ruft `getComposedRanges()` auf, ohne Schattenwurzeln zu übergeben, während der zweite beide Schattenwurzeln übergibt. In beiden Fällen wird der komponierte Bereich in einer Variablen gespeichert.
 
 ```js
 const copySelectionButton = document.querySelector("#copySelection");
@@ -152,8 +135,7 @@ copySelectionWithShadowRootsButton.addEventListener("click", () => {
 });
 ```
 
-Der Handler für die "Auswahl anwenden"-Taste wird unten gezeigt.
-Dieser ruft [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent) auf, um die aktuelle Auswahl festzulegen, wobei die Knoten und Offsets aus dem gespeicherten Bereich übergeben werden.
+Der Handler für den "Auswahl anwenden"-Button ist unten gezeigt. Dieser ruft [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent) auf, um die aktuelle Auswahl festzulegen, indem die Knoten und Offsets aus dem gespeicherten Bereich übergeben werden.
 
 ```js
 const applySelectionButton = document.querySelector("#applySelection");
@@ -174,7 +156,7 @@ applySelectionButton.addEventListener("click", () => {
 });
 ```
 
-Der letzte Teil des Codes definiert Tasten, um den aktuellen Auswahlbereich mit [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) zu kopieren und dann die Auswahl erneut anzuwenden.
+Der letzte Teil des Codes definiert Buttons, um den aktuellen Auswahlbereich mit [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) zu kopieren und dann die Auswahl erneut anzuwenden.
 
 ```js
 const copySelectionRangeAtButton = document.querySelector(
@@ -217,16 +199,11 @@ applySelectionGetRangeAtButton.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Das laufende Beispiel ist unten dargestellt.
-Wählen Sie Text in der oberen Linie aus, beginnend mit normalem Text und endend in einem fettgedruckten Abschnitt, sodass Sie Knoten vom DOM in eine Schattenwurzel ausgewählt haben.
-Wenn Sie "Bereich kopieren mit Schattenwurzeln übergeben" und dann die "Auswahl anwenden"-Taste auswählen, werden Sie feststellen, dass sich die Auswahl nicht ändert, da der Code Zugriff auf alle Knoten in der Schattenwurzel gewährt hat, auch wenn sie geschlossen ist.
-Wenn Sie dann die Taste "Bereich kopieren ohne Schattenwurzeln zu übergeben" auswählen und dann anwenden, wird die Auswahl bis zum Ende des Textes in der Schattenwurzel erweitert.
-Dies liegt daran, dass die Auswahl auf das Ende des Hostknotens neu konfiguriert wird, da die `getComposedRanges()`-Methode keine Sichtbarkeit innerhalb des Schattenbaums hatte.
+Das laufende Beispiel wird unten gezeigt. Wählen Sie Text in der oberen Zeile aus, beginnend mit normalem Text und endend in einem fettgedruckten Abschnitt, sodass Sie Knoten vom DOM in eine Schattenwurzel ausgewählt haben. Wenn Sie "Bereich kopieren, Schattenwurzeln übergeben" und dann den "Auswahl anwenden"-Button auswählen, werden Sie feststellen, dass sich die Auswahl nicht ändert, da der Code Zugriff auf alle Knoten in der Schattenwurzel gegeben hat, selbst wenn sie geschlossen ist. Wenn Sie dann den Button "Bereich kopieren, Schattenwurzeln nicht übergeben" auswählen und dann anwenden, wird die Auswahl bis zum Ende des Texts in der Schattenwurzel erweitert. Dies liegt daran, dass die Auswahl neu abgegrenzt wird, um das Ende des Host-Knotens einzuschließen, da die `getComposedRanges()`-Methode keine Sichtbarkeit innerhalb des Schattenbaums hatte.
 
-Testen Sie auch, was passiert, wenn Sie die "Bereich mit getRangeAt() kopieren" und "Auswahl anwenden"-Tasten verwenden.
-Sie sollten feststellen, dass der ausgewählte Bereich ziemlich willkürlich ist, wenn Sie in die Schattenwurzel übergehen, und sich je nach dem verwendeten Browser unterscheidet.
+Testen Sie auch, was passiert, wenn Sie die "Bereich kopieren mit getRangeAt()" und "Auswahl anwenden"-Buttons verwenden. Sie sollten feststellen, dass der ausgewählte Bereich ziemlich willkürlich ist, wenn Sie in die Schattenwurzel übergehen, und es hängt davon ab, welchen Browser Sie verwenden.
 
-{{EmbedLiveSample('Auswahl über Inline-Schattenwurzeln hinweg', '100%', '240px')}}
+{{EmbedLiveSample('Selecting across inline shadow roots', '100%', '240px')}}
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: Number() Konstruktor
 short-title: Number()
 slug: Web/JavaScript/Reference/Global_Objects/Number/Number
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}
 
-Der **`Number()`** Konstruktor erstellt {{jsxref("Number")}} Objekte. Wenn er als Funktion aufgerufen wird, gibt er primitive Werte vom Typ Number zurück.
+Der **`Number()`** Konstruktor erstellt {{jsxref("Number")}} Objekte. Wird er als Funktion aufgerufen, gibt er primitive Werte des Typs Number zurück.
 
 ## Syntax
 
@@ -17,25 +17,25 @@ new Number(value)
 Number(value)
 ```
 
-> **Hinweis:** `Number()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, hat aber unterschiedliche Effekte. Siehe [Rückgabewert](#rückgabewert).
+> [!NOTE] > `Number()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
 - `value`
-  - : Der numerische Wert des Objekts, das erstellt wird.
+  - : Der numerische Wert des zu erstellenden Objekts.
 
 ### Rückgabewert
 
-Wenn `Number()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [in einen Zahlenwert umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) zurück. Insbesondere werden [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) Werte in Zahlen konvertiert, anstatt eine Ausnahme auszulösen. Wenn `value` fehlt, wird es zu `0`.
+Wenn `Number()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [zu einem Zahlen-Primitiv coerced](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) zurück. Insbesondere werden [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) in Zahlen umgewandelt, anstatt einen Fehler auszulösen. Ist `value` nicht vorhanden, wird es `0`.
 
-Wenn `Number()` als Konstruktor (mit `new`) aufgerufen wird, verwendet es den oben genannten Umwandlungsprozess und gibt ein umschließendes {{jsxref("Number")}} Objekt zurück, welches **kein** primitiver Wert ist.
+Wenn `Number()` als Konstruktor (mit `new`) aufgerufen wird, verwendet es den oben beschriebenen Coercion-Prozess und gibt ein eingeschlossenes {{jsxref("Number")}} Objekt zurück, das **kein** Primitiv ist.
 
 > [!WARNING]
 > Sie sollten `Number` selten als Konstruktor verwenden.
 
 ## Beispiele
 
-### Erstellen von Number-Objekten
+### Number-Objekte erstellen
 
 ```js
 const a = new Number("123"); // a === 123 is false
@@ -46,9 +46,9 @@ typeof a; // "object"
 typeof b; // "number"
 ```
 
-### Verwenden von Number(), um ein BigInt in eine Zahl umzuwandeln
+### Verwendung von Number() zur Umwandlung eines BigInt in eine Zahl
 
-`Number()` ist der einzige Fall, bei dem ein BigInt ohne Ausnahme in eine Zahl umgewandelt werden kann, da dies sehr explizit ist.
+`Number()` ist der einzige Fall, in dem ein BigInt in eine Zahl umgewandelt werden kann, ohne einen Fehler auszulösen, da es sehr explizit ist.
 
 ```js example-bad
 +1n; // TypeError: Cannot convert a BigInt value to a number

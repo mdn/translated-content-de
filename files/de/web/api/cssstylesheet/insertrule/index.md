@@ -3,7 +3,7 @@ title: "CSSStyleSheet: insertRule() Methode"
 short-title: insertRule()
 slug: Web/API/CSSStyleSheet/insertRule
 l10n:
-  sourceCommit: 546c31e548e0c03ada8e4c5f37883549299e17ea
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("CSSOM")}}
@@ -12,8 +12,8 @@ Die **`CSSStyleSheet.insertRule()`**-Methode fügt eine neue [CSS-Regel](/de/doc
 
 > [!NOTE]
 > Obwohl `insertRule()` ausschließlich eine Methode von
-> [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) ist, fügt sie die Regel tatsächlich in
-> `[CSSStyleSheet](/de/docs/Web/API/CSSStyleSheet).cssRules` ein — ihrer internen
+> [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) ist, wird die Regel tatsächlich in
+> `[CSSStyleSheet](/de/docs/Web/API/CSSStyleSheet).cssRules` eingefügt – seine interne
 > [`CSSRuleList`](/de/docs/Web/API/CSSRuleList).
 
 ## Syntax
@@ -27,15 +27,14 @@ insertRule(rule, index)
 
 - `rule`
 
-  - : Ein String, der die einzufügende Regel enthält. Der Inhalt der eingefügten Regel hängt von ihrem Typ ab:
-
-    - **Für [Regelsätze](/de/docs/Web/CSS/CSS_syntax/Syntax#css_statements)** sowohl
+  - : Ein String, der die einzufügende Regel enthält. Was die eingefügte Regel enthalten muss, hängt von ihrem Typ ab:
+    - **Für [Regel-Sets](/de/docs/Web/CSS/CSS_syntax/Syntax#css_statements)**, sowohl
       ein [Selektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) als auch eine Stil-Deklaration.
-    - **Für [at-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)** sowohl ein
-      at-Identifikator als auch der Regelinhalt.
+    - **Für [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)**, sowohl ein
+      At-Identifikator als auch der Regelinhalt.
 
 - `index` {{optional_inline}}
-  - : Eine positive Ganzzahl, die kleiner oder gleich `stylesheet.cssRules.length` ist und die Position der neu eingefügten Regel in `[CSSStyleSheet](/de/docs/Web/API/CSSStyleSheet).cssRules` darstellt. Der Standardwert ist `0`. (In älteren Implementierungen war dies erforderlich. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.)
+  - : Eine positive ganze Zahl, die kleiner oder gleich `stylesheet.cssRules.length` ist und die Position der neu eingefügten Regel in `[CSSStyleSheet](/de/docs/Web/API/CSSStyleSheet).cssRules` darstellt. Der Standardwert ist `0`. (Bei älteren Implementierungen war dies erforderlich. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.)
 
 ### Rückgabewert
 
@@ -44,25 +43,25 @@ Der Index der neu eingefügten Regel innerhalb der Regel-Liste des Stylesheets.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` > `[CSSRuleList](/de/docs/Web/API/CSSRuleList).length` ist.
+  - : Wird ausgelöst, wenn `index` > `[CSSRuleList](/de/docs/Web/API/CSSRuleList).length`.
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `rule` aufgrund einer CSS-Beschränkung nicht an dem angegebenen Index eingefügt werden kann; zum Beispiel: der Versuch, eine {{cssxref("@import")}} at-Regel nach einer Stilregel einzufügen.
+  - : Wird ausgelöst, wenn `rule` aufgrund einer CSS-Einschränkung nicht an der angegebenen Position eingefügt werden kann; zum Beispiel: der Versuch, eine {{cssxref("@import")}} At-Regel nach einer Stilregel einzufügen.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn mehr als eine Regel im `rule`-Parameter angegeben wird.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `rule` eine {{cssxref("@namespace")}}-Regel ist und die Regel-Liste mehr als nur `@import` at-Regeln und/oder `@namespace` at-Regeln enthält.
+  - : Wird ausgelöst, wenn `rule` {{cssxref("@namespace")}} ist und die Regel-Liste mehr als nur `@import` At-Regeln und/oder `@namespace` At-Regeln enthält.
 
 ## Beispiele
 
 ### Einfügen einer neuen Regel
 
-Dieses Beispiel fügt eine neue Regel an der Spitze meines Stylesheets hinzu.
+Dieses Snippet fügt eine neue Regel an die Spitze meines Stylesheets ein.
 
 ```js
 myStyle.insertRule("#blanc { color: white }", 0);
 ```
 
-### Funktion zum Hinzufügen einer Stylesheet-Regel
+### Funktion zum Hinzufügen einer Stylesheetregel
 
 ```js
 /**
@@ -128,4 +127,4 @@ function addStylesheetRules(rules) {
 ## Siehe auch
 
 - [`CSSStyleSheet.deleteRule`](/de/docs/Web/API/CSSStyleSheet/deleteRule)
-- [Konstruktive Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
+- [Konstruktionsfähige Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)

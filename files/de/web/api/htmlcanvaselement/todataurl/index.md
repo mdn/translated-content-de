@@ -3,22 +3,20 @@ title: "HTMLCanvasElement: toDataURL() Methode"
 short-title: toDataURL()
 slug: Web/API/HTMLCanvasElement/toDataURL
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.toDataURL()`** Methode gibt eine [Data-URL](/de/docs/Web/URI/Reference/Schemes/data) zurück, die eine Darstellung des Bildes im durch den `type` Parameter angegebenen Format enthält.
+Die **`HTMLCanvasElement.toDataURL()`** Methode gibt eine [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) zurück, die eine Darstellung des Bildes im Format enthält, das durch den `type` Parameter angegeben wird.
 
-Das gewünschte Dateiformat und die Bildqualität können angegeben werden.
-Wenn das Dateiformat nicht angegeben ist oder das angegebene Format nicht unterstützt wird, wird die Datei als `image/png` exportiert.
-Mit anderen Worten, wenn der zurückgegebene Wert mit `data:image/png` beginnt, obwohl ein anderes `type` angefordert wurde, wird dieses Format nicht unterstützt.
+Das gewünschte Dateiformat und die Bildqualität können angegeben werden. Wenn das Dateiformat nicht spezifiziert ist oder das angegebene Format nicht unterstützt wird, wird die Daten als `image/png` exportiert. Mit anderen Worten, wenn der zurückgegebene Wert mit `data:image/png` für jeden anderen angeforderten `type` beginnt, wird dieses Format nicht unterstützt.
 
-Browser sind verpflichtet, `image/png` zu unterstützen; viele werden zusätzliche Formate wie `image/jpeg` und `image/webp` unterstützen.
+Browser müssen `image/png` unterstützen; viele werden zusätzliche Formate unterstützen, einschließlich `image/jpeg` und `image/webp`.
 
-Die erstellten Bilddaten haben eine Auflösung von 96 dpi für Dateiformate, die das Kodieren von Auflösungsmetadaten unterstützen.
+Die erstellten Bilddaten haben eine Auflösung von 96dpi für Dateiformate, die die Kodierung von Auflösungsmetadaten unterstützen.
 
-> **Warning:** `toDataURL()` kodiert das gesamte Bild in einem In-Memory-String. Bei größeren Bildern kann dies Auswirkungen auf die Leistung haben und sogar das URL-Längenlimit von Browsern überschreiten, wenn es einem [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src) zugewiesen wird. Sie sollten generell [`toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) in Kombination mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) bevorzugen.
+> [!WARNING] > `toDataURL()` kodiert das gesamte Bild in einem Speicher-String. Bei größeren Bildern kann dies Leistungseinbußen verursachen und möglicherweise die URL-Längenbegrenzung des Browsers überschreiten, wenn es der [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src) zugewiesen wird. Sie sollten im Allgemeinen [`toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) anstelle dessen bevorzugen, in Kombination mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static).
 
 ## Syntax
 
@@ -31,33 +29,30 @@ toDataURL(type, quality)
 ### Parameter
 
 - `type` {{optional_inline}}
-  - : Ein String, der das Bildformat angibt.
-    Der Standardtyp ist `image/png`; dieses Bildformat wird auch verwendet, wenn der angegebene Typ nicht unterstützt wird.
+  - : Ein String, der das Bildformat angibt. Der Standardtyp ist `image/png`; dieses Bildformat wird auch verwendet, wenn der angegebene Typ nicht unterstützt wird.
 - `quality` {{optional_inline}}
-  - : Eine {{jsxref("Number")}} zwischen `0` und `1`, die die Bildqualität angibt, die beim Erstellen von Bildern mit Dateiformaten, die verlustbehaftete Kompression unterstützen (wie `image/jpeg` oder `image/webp`), verwendet werden soll.
-    Ein User-Agent verwendet seinen Standardqualitätswert, wenn diese Option nicht angegeben ist oder wenn die Zahl außerhalb des zulässigen Bereichs liegt.
+  - : Eine {{jsxref("Number")}} zwischen `0` und `1`, die die Bildqualität angibt, die bei der Erstellung von Bildern verwendet werden soll, die Dateiformate mit verlustbehafteter Kompression unterstützen (wie `image/jpeg` oder `image/webp`). Ein Benutzeragent verwendet seinen Standardqualitätswert, wenn diese Option nicht angegeben ist oder wenn die Zahl außerhalb des erlaubten Bereichs liegt.
 
 ### Rückgabewert
 
-Ein String, der die angeforderte [Data-URL](/de/docs/Web/URI/Reference/Schemes/data) enthält.
+Ein String, der die angeforderte [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) enthält.
 
 Wenn die Höhe oder Breite der Leinwand `0` oder größer als die [maximale Leinwandgröße](/de/docs/Web/HTML/Reference/Elements/canvas#maximum_canvas_size) ist, wird der String `"data:,"` zurückgegeben.
 
 ### Ausnahmen
 
 - `SecurityError`
-  - : Das Bitmap der Leinwand ist nicht origin-sauber;
-    mindestens einige seiner Inhalte wurden von einer anderen Website geladen oder könnten von einer anderen Website geladen worden sein als der, von der das Dokument selbst geladen wurde.
+  - : Der Bitmap der Leinwand ist nicht ursprungsrein; mindestens einige ihrer Inhalte wurden oder könnten von einer anderen Site geladen worden sein als der, von der das Dokument selbst geladen wurde.
 
 ## Beispiele
 
-Angenommen, dieses {{HTMLElement("canvas")}} Element:
+Gegebenes {{HTMLElement("canvas")}} Element:
 
 ```html
 <canvas id="canvas" width="5" height="5"></canvas>
 ```
 
-Sie können eine Data-URL der Leinwand mit den folgenden Zeilen erhalten:
+Sie können eine Daten-URL der Leinwand mit den folgenden Zeilen erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -67,7 +62,7 @@ console.log(dataURL);
 // blAAAADElEQVQImWNgoBMAAABpAAFEI8ARAAAAAElFTkSuQmCC"
 ```
 
-### Festlegen der Bildqualität mit JPEGs
+### Bildqualität mit JPEGs festlegen
 
 ```js
 const fullQuality = canvas.toDataURL("image/jpeg", 1.0);
@@ -78,7 +73,7 @@ const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
 
 ### Beispiel: Bilder dynamisch ändern
 
-Sie können diese Technik in Kombination mit Mausereignissen verwenden, um Bilder dynamisch zu ändern (Graustufen vs. Farbe in diesem Beispiel):
+Sie können diese Technik in Koordination mit Maus-Ereignissen verwenden, um Bilder dynamisch zu ändern (grau vs. Farbe in diesem Beispiel):
 
 #### HTML
 
@@ -143,4 +138,4 @@ function removeColors() {
 
 ## Siehe auch
 
-- [Data-URLs](/de/docs/Web/URI/Reference/Schemes/data) im [HTTP](/de/docs/Web/HTTP) Leitfaden.
+- [Daten-URLs](/de/docs/Web/URI/Reference/Schemes/data) in der [HTTP](/de/docs/Web/HTTP) Referenz.

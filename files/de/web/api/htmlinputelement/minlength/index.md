@@ -3,23 +3,23 @@ title: "HTMLInputElement: minLength-Eigenschaft"
 short-title: minLength
 slug: Web/API/HTMLInputElement/minLength
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`minLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die minimale Anzahl von Zeichen (in UTF-16-Codeeinheiten) an, die für den Wert des {{HTMLElement("input")}}-Elements erforderlich sind, um gültig zu sein. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut des Elements wider. Der Wert `-1` bedeutet, dass keine Mindestlängenanforderung besteht.
+Die **`minLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die minimale Anzahl von Zeichen (in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}) an, die für den Wert des {{HTMLElement("input")}}-Elements erforderlich sind, um gültig zu sein. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut des Elements wider. `-1` bedeutet, dass keine Mindestlängenanforderung besteht.
 
 > [!NOTE]
-> Wenn das Eingabefeld einen Wert hat und dieser Wert weniger Zeichen als im `minlength`-Attribut erforderlich enthält, wird das Element als ungültig angesehen und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Object-Eigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) wird `true` sein.
+> Wenn das Eingabefeld einen Wert hat und dieser Wert weniger Zeichen enthält, als das `minlength`-Attribut erfordert, wird das Element als ungültig betrachtet und die [`tooShort`](/de/docs/Web/API/ValidityState/tooShort)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `minlength`-Attribut des Elements darstellt, falls vorhanden, oder `-1`.
+Eine Zahl, die das `minlength` des Elements angibt, wenn vorhanden, oder `-1`.
 
 ## Beispiel
 
-Angenommen, folgendes HTML:
+Angenommen, folgendes HTML ist gegeben:
 
 ```html
 <p>

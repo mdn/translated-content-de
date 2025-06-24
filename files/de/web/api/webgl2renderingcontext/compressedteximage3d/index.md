@@ -1,18 +1,16 @@
 ---
-title: "WebGL2RenderingContext: compressedTexImage3D() Methode"
+title: "WebGL2RenderingContext: compressedTexImage3D()-Methode"
 short-title: compressedTexImage3D()
 slug: Web/API/WebGL2RenderingContext/compressedTexImage3D
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`compressedTexImage3D()`** Methode der [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) Schnittstelle
-der [WebGL API](/de/docs/Web/API/WebGL_API) legt ein dreidimensionales Texturbild in einem komprimierten Format fest.
+Die **`compressedTexImage3D()`**-Methode des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Interfaces der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein dreidimensionales Texturbild in einem komprimierten Format.
 
-Komprimierte Bildformate müssen durch [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor
-diese Methoden verwendet werden können.
+Komprimierte Bildformate müssen durch [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methoden verwendet werden können.
 
 ## Syntax
 
@@ -31,20 +29,14 @@ compressedTexImage3D(target, level, internalformat, width, height, depth, border
 
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) der aktiven Textur angibt.
     Mögliche Werte für `compressedTexImage3D`:
-
     - `gl.TEXTURE_2D_ARRAY`
     - `gl.TEXTURE_3D`
 
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Detailniveau angibt. Level 0 ist das Basisbild
-    und Level _n_ ist die n-te Mipmap-Reduktionsstufe.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das das Detaillierungsgradniveau angibt. Level 0 ist das Basisbildniveau und Level _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `internalformat`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das komprimierte Bildformat angibt. Komprimierte Bildformate
-    müssen durch [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methode
-    verwendet wird. Siehe
-    [komprimierte Texturformate](/de/docs/Web/API/WebGL_API/Compressed_texture_formats), um zu erfahren, welche für `compressedTexImage3D` gültig sind. Mögliche
-    Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das komprimierte Bildformat angibt. Komprimierte Bildformate müssen durch [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methode verwendet werden kann. Siehe [komprimierte Texturformate](/de/docs/Web/API/WebGL_API/Compressed_texture_formats) für gültige Formate für `compressedTexImage3D`. Mögliche Werte:
 
     - Bei Verwendung der [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc)-Erweiterung:
 
@@ -108,25 +100,23 @@ compressedTexImage3D(target, level, internalformat, width, height, depth, border
       - `ext.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT`
 
     - Bei Verwendung der [`EXT_texture_compression_rgtc`](/de/docs/Web/API/EXT_texture_compression_rgtc)-Erweiterung:
-
       - `ext.COMPRESSED_RED_RGTC1_EXT`
       - `ext.COMPRESSED_SIGNED_RED_RGTC1_EXT`
       - `ext.COMPRESSED_RED_GREEN_RGTC2_EXT`
       - `ext.COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT`
 
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur angibt.
 - `depth`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur/die Anzahl der Texturen
-    in einem `TEXTURE_2D_ARRAY` angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Tiefe der Textur bzw. die Anzahl der Texturen in einem `TEXTURE_2D_ARRAY` angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Randes angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Breite des Randes angibt. Muss 0 sein.
 - `imageSize`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Bytes angibt, die aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden sollen.
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Offset in Bytes angibt, ab dem aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden soll.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Offset in Bytes angibt, von dem aus aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden soll.
 
 ### Rückgabewert
 

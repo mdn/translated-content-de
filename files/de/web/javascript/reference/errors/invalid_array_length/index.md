@@ -1,19 +1,22 @@
 ---
-title: "RangeError: Ungültige Array-Länge"
+title: "RangeError: ungültige Array-Länge"
 slug: Web/JavaScript/Reference/Errors/Invalid_array_length
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Ungültige Array-Länge" tritt auf, wenn eine Array-Länge angegeben wird, die entweder negativ ist, eine Gleitkommazahl darstellt oder die maximale Länge überschreitet, die von der Plattform unterstützt wird (z. B. wenn ein {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}} erstellt wird oder beim Festlegen der {{jsxref("Array/length", "Länge")}}-Eigenschaft).
+Die JavaScript-Ausnahme "Ungültige Array-Länge" tritt auf, wenn eine Array-Länge angegeben wird, die entweder negativ, eine Gleitkommazahl ist oder das von der Plattform unterstützte Maximum überschreitet (d.h. beim Erstellen eines {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}}, oder beim Setzen der {{jsxref("Array/length", "length")}} Eigenschaft).
 
-Die maximal zulässige Array-Länge hängt von der Plattform, dem Browser und der Browserversion ab. Für {{jsxref("Array")}} beträgt die maximale Länge 2<sup>32</sup>-1. Für {{jsxref("ArrayBuffer")}} beträgt das Maximum auf 32-Bit-Systemen 2<sup>31</sup>-1 (2GiB-1). Ab Firefox Version 89 beträgt der maximale Wert von {{jsxref("ArrayBuffer")}} auf 64-Bit-Systemen 2<sup>33</sup> (8GiB).
+Die maximal zulässige Array-Länge hängt von der Plattform, dem Browser und der Browserversion ab.
+Für {{jsxref("Array")}} beträgt die maximale Länge 2<sup>32</sup>-1.
+Für {{jsxref("ArrayBuffer")}} ist das Maximum auf 32-Bit-Systemen 2<sup>31</sup>-1 (2GiB-1).
+Ab Firefox-Version 89 ist der Maximalwert von {{jsxref("ArrayBuffer")}} 2<sup>33</sup> (8GiB) auf 64-Bit-Systemen.
 
-> **Note:** `Array` und `ArrayBuffer` sind unabhängige Datenstrukturen (die Implementierung der einen beeinflusst die andere nicht).
+> [!NOTE] > `Array` und `ArrayBuffer` sind unabhängige Datenstrukturen (die Implementierung eines beeinflusst nicht die des anderen).
 
-## Meldung
+## Nachricht
 
 ```plain
 RangeError: invalid array length (V8-based & Firefox)
@@ -23,19 +26,19 @@ RangeError: Invalid array buffer length (V8-based)
 RangeError: length too large (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("RangeError")}}
 
 ## Was ist schiefgelaufen?
 
-Der Fehler kann auftreten, wenn versucht wird, ein {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}} mit einer ungültigen Länge zu erzeugen, was Folgendes beinhaltet:
+Der Fehler kann auftreten, wenn versucht wird, ein {{jsxref("Array")}} oder {{jsxref("ArrayBuffer")}} mit einer ungültigen Länge zu erzeugen, was Folgendes umfasst:
 
-- Negative Länge, über den Konstruktor oder beim Einstellen der {{jsxref("Array/length", "Länge")}}-Eigenschaft.
-- Nicht-ganzzahlige Länge, über den Konstruktor oder beim Einstellen der {{jsxref("Array/length", "Länge")}}-Eigenschaft. (Der `ArrayBuffer`-Konstruktor zwingt die Länge zu einer Ganzzahl, aber der `Array`-Konstruktor tut dies nicht.)
-- Überschreiten der maximalen Länge, die von der Plattform unterstützt wird. Für Arrays beträgt die maximale Länge 2<sup>32</sup>-1. Für `ArrayBuffer` beträgt die maximale Länge auf 32-Bit-Systemen 2<sup>31</sup>-1 (2GiB-1) oder auf 64-Bit-Systemen 2<sup>33</sup> (8GiB). Dies kann über den Konstruktor, das Einstellen der Länge oder durch Array-Methoden geschehen, die implizit die Längen-Eigenschaft setzen (wie {{jsxref("Array/push", "push")}} und {{jsxref("Array/concat", "concat")}}).
+- Negative Länge, entweder über den Konstruktor oder das Setzen der {{jsxref("Array/length", "length")}} Eigenschaft.
+- Nicht-ganzzahlige Länge, entweder über den Konstruktor oder das Setzen der {{jsxref("Array/length", "length")}} Eigenschaft. (Der `ArrayBuffer`-Konstruktor wandelt die Länge in eine ganze Zahl um, der `Array`-Konstruktor jedoch nicht.)
+- Überschreiten der maximalen auf der Plattform unterstützten Länge. Für Arrays ist die maximale Länge 2<sup>32</sup>-1. Für `ArrayBuffer` ist die maximale Länge 2<sup>31</sup>-1 (2GiB-1) auf 32-Bit-Systemen oder 2<sup>33</sup> (8GiB) auf 64-Bit-Systemen. Dies kann über den Konstruktor, das Setzen der `length`-Eigenschaft oder Array-Methoden, die implizit die `length`-Eigenschaft setzen (wie {{jsxref("Array/push", "push")}} und {{jsxref("Array/concat", "concat")}}), geschehen.
 
-Wenn Sie ein `Array` mit dem Konstruktor erstellen, möchten Sie wahrscheinlich stattdessen die Literal-Schreibweise verwenden, da das erste Argument als Länge des `Array` interpretiert wird. Andernfalls sollten Sie die Länge möglicherweise begrenzen, bevor Sie die Länge festlegen oder sie als Argument des Konstruktors verwenden.
+Wenn Sie ein `Array` mit dem Konstruktor erstellen, möchten Sie wahrscheinlich stattdessen die Literalnotation verwenden, da das erste Argument als Länge des `Array` interpretiert wird. Andernfalls möchten Sie möglicherweise die Länge begrenzen, bevor Sie die `length`-Eigenschaft setzen oder sie als Argument des Konstruktors verwenden.
 
 ## Beispiele
 
@@ -93,5 +96,5 @@ arr.forEach((e) => arr.push(e * 10));
 ## Siehe auch
 
 - {{jsxref("Array")}}
-- {{jsxref("Array/length", "Länge")}}
+- {{jsxref("Array/length", "length")}}
 - {{jsxref("ArrayBuffer")}}

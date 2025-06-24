@@ -2,14 +2,14 @@
 title: Ungültige Cookie-Domain
 slug: Web/WebDriver/Reference/Errors/InvalidCookieDomain
 l10n:
-  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Der Fehler **ungültige Cookie-Domain** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein unerlaubter Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} als der aktuellen des Dokuments zu setzen.
+Der **ungültige Cookie-Domain**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein unerlaubter Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} als der des aktuellen Dokuments zu setzen.
 
 Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontextes")}} des [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
-Dieser Fehler tritt auch auf, wenn das Dokument _cookieunverträglich_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
+Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, also wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wurde.
 
 ## Beispiel
 
@@ -38,9 +38,9 @@ Ausgabe:
 InvalidCookieDomainException: https://example.org/
 ```
 
-### Cookieunverträgliche Dokumente
+### Cookie-averse Dokumente
 
-Dieser Fehler kann auch auftreten, wenn Sie ein cookieunverträgliches Dokument besuchen, wie beispielsweise eine Datei auf Ihrer lokalen Festplatte:
+Dieser Fehler kann auch auftreten, wenn Sie ein cookie-averses Dokument besuchen, wie zum Beispiel eine Datei auf Ihrer lokalen Festplatte:
 
 ```python
 from selenium import webdriver
@@ -65,7 +65,6 @@ InvalidCookieDomainException: Document is cookie-averse
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors)
 - Relevante WebDriver-Befehle:
-
   - [Add Cookie](/de/docs/Web/WebDriver/Reference/Commands/AddCookie)
   - [Delete Cookie](/de/docs/Web/WebDriver/Reference/Commands/DeleteCookie)
   - [Delete All Cookies](/de/docs/Web/WebDriver/Reference/Commands/DeleteAllCookies)

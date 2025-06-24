@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: bindTexture() Methode"
 short-title: bindTexture()
 slug: Web/API/WebGLRenderingContext/bindTexture
 l10n:
-  sourceCommit: 2fdcabd0a02325da5e03858d53f55b6407e96f59
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.bindTexture()`** Methode des [WebGL API](/de/docs/Web/API/WebGL_API) bindet eine gegebene
+Die **`WebGLRenderingContext.bindTexture()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet eine gegebene
 [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) an ein Ziel (Bindungspunkt).
 
 ## Syntax
@@ -21,14 +21,14 @@ bindTexture(target, texture)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (das Ziel) angibt. Mögliche Werte:
 
     - `gl.TEXTURE_2D`
       - : Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`
-      - : Eine Cube-Map-Textur.
+      - : Eine Würfelkarten-Textur.
 
-    Bei der Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
 
     - `gl.TEXTURE_3D`
       - : Eine dreidimensionale Textur.
@@ -37,7 +37,7 @@ bindTexture(target, texture)
 
 - `texture`
   - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) Objekt, das gebunden werden soll.
-    Wenn `null` übergeben wird, wird die derzeit gebundene Textur für das angegebene Ziel gelöst.
+    Wenn `null` übergeben wird, wird die derzeit gebundene Textur für das angegebene Ziel getrennt.
 
 ### Rückgabewert
 
@@ -51,7 +51,7 @@ Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn `target` nicht
 
 ## Beispiele
 
-### Eine Textur binden
+### Binden einer Textur
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -61,16 +61,16 @@ const texture = gl.createTexture();
 gl.bindTexture(gl.TEXTURE_2D, texture);
 ```
 
-### Eine Textur lösen
+### Trennen einer Textur
 
 ```js
 // Unbind any texture currently bound to TEXTURE_2D
 gl.bindTexture(gl.TEXTURE_2D, null);
 ```
 
-### Aktuelle Bindungen abrufen
+### Abrufen der aktuellen Bindungen
 
-Um die aktuelle Texturbindung zu prüfen, fragen Sie die `gl.TEXTURE_BINDING_2D` oder
+Um die aktuelle Texturbindung zu überprüfen, fragen Sie die `gl.TEXTURE_BINDING_2D` oder
 `gl.TEXTURE_BINDING_CUBE_MAP` Konstanten ab.
 
 ```js

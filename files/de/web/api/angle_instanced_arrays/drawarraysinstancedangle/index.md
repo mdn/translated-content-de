@@ -3,12 +3,12 @@ title: "ANGLE_instanced_arrays: drawArraysInstancedANGLE() Methode"
 short-title: drawArraysInstancedANGLE()
 slug: Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}
 
-Die **`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten ähnlich der [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) Methode. Zusätzlich kann sie mehrere Instanzen des Bereichs von Elementen ausführen.
+Die **`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`** Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten wie die Methode [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays). Zusätzlich kann sie mehrere Instanzen des Bereichs von Elementen ausführen.
 
 > [!NOTE]
 > Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced) verfügbar.
@@ -23,22 +23,21 @@ drawArraysInstancedANGLE(mode, first, count, primcount)
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), welcher den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
-    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt und verbindet den letzten Scheitelpunkt wieder mit dem ersten.
+    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt und verbindet den letzten Scheitelpunkt zurück zum ersten.
     - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Scheitelpunkten.
     - [`gl.TRIANGLE_STRIP`](https://en.wikipedia.org/wiki/Triangle_strip)
     - [`gl.TRIANGLE_FAN`](https://en.wikipedia.org/wiki/Triangle_fan)
     - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Scheitelpunkten.
 
 - `first`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den Startindex im Array der Vektorpunkte angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Startindex im Array der Vektorpunkte angibt.
 - `count`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der zu rendernden Indizes angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Indizes angibt.
 - `primcount`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der auszuführenden Instanzen des Bereichs von Elementen angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Instanzen des Bereichs von Elementen angibt, die ausgeführt werden sollen.
 
 ### Rückgabewert
 

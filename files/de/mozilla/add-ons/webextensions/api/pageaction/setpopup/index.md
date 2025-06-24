@@ -2,12 +2,12 @@
 title: pageAction.setPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/setPopup
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Legt das HTML-Dokument fest, das als Popup angezeigt wird, wenn der Benutzer auf das Symbol der Seitenauswahl klickt.
+Setzt das HTML-Dokument, das als Popup geöffnet werden soll, wenn der Benutzer auf das Symbol der Seitenaktion klickt.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ browser.pageAction.setPopup(
       - : `integer`. Die ID des Tabs, für den Sie das Popup festlegen möchten.
     - `popup`
 
-      - : `string` oder `null`. URL zur HTML-Datei, die in einem Popup angezeigt werden soll.
+      - : `string` oder `null`. URL zur HTML-Datei, die im Popup angezeigt werden soll.
 
-        Wenn hier eine leere Zeichenkette (`""`) übergeben wird, wird das Popup deaktiviert und die Erweiterung empfängt {{WebExtAPIRef("pageAction.onClicked")}}-Ereignisse.
+        Wenn hier ein leerer String (`""`) übergeben wird, wird das Popup deaktiviert und die Erweiterung erhält {{WebExtAPIRef("pageAction.onClicked")}}-Ereignisse.
 
-        Wenn `null` hier übergeben wird, wird das Popup auf das zurückgesetzt, das im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Manifest-Schlüssel angegeben wurde.
+        Wenn hier `null` übergeben wird, wird das Popup auf das Popup zurückgesetzt, das im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Manifest-Schlüssel angegeben wurde.
 
 ## Browser-Kompatibilität
 
@@ -63,7 +63,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setPopup)-API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setPopup). Diese Dokumentation leitet sich ab von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -3,12 +3,12 @@ title: "CSSTranslate: CSSTranslate()-Konstruktor"
 short-title: CSSTranslate()
 slug: Web/API/CSSTranslate/CSSTranslate
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Der **`CSSTranslate()`**-Konstruktor erstellt ein neues [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Objekt, das den [translate()](/de/docs/Web/CSS/transform-function/translate)-Wert der individuellen {{CSSXref('transform')}}-Eigenschaft in CSS darstellt.
+Der **`CSSTranslate()`**-Konstruktor erstellt ein neues [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Objekt, das den [translate()](/de/docs/Web/CSS/transform-function/translate)-Wert der individuellen {{CSSXref('transform')}}-Eigenschaft in CSS repräsentiert.
 
 ## Syntax
 
@@ -35,9 +35,9 @@ new CSSTranslate(x, y, z)
 ### Ausnahmen
 
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Ausgelöst, wenn der Wert von `CSSTranslate.x` oder `CSSTranslate.y` keine {{cssxref('length-percentage')}} ist.
+  - : Tritt auf, wenn der Wert von `CSSTranslate.x` oder `CSSTranslate.y` keine {{cssxref('length-percentage')}} ist.
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Ausgelöst, wenn der Wert von `CSSTranslate.z` existiert, aber keine {{cssxref('length')}} ist.
+  - : Tritt auf, wenn der Wert von `CSSTranslate.z` existiert, aber kein {{cssxref('length')}} ist.
 
 ## Beispiele
 

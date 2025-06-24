@@ -1,22 +1,32 @@
 ---
-title: "ReadableStreamBYOBReader: read()-Methode"
+title: "ReadableStreamBYOBReader: read() Methode"
 short-title: read()
 slug: Web/API/ReadableStreamBYOBReader/read
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`read()`** Methode des [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Interfaces wird verwendet, um Daten in eine Ansicht auf einem vom Benutzer bereitgestellten Puffer aus einem zugehörigen [lesbaren Byte-Stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) zu lesen. Eine Anforderung für Daten wird aus den internen Warteschlangen des Streams erfüllt, wenn dort Daten vorhanden sind. Wenn die Stream-Warteschlangen leer sind, kann die Anforderung als Zero-Copy-Übertragung aus der zugrunde liegenden Byte-Quelle bereitgestellt werden.
+Die **`read()`** Methode der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) Schnittstelle wird verwendet, um Daten in eine Ansicht eines vom Benutzer bereitgestellten Puffers aus einem zugehörigen [lesbaren Byte-Strom](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) zu lesen.
+Ein Datenanfrage wird aus den internen Warteschlangen des Streams erfüllt, wenn Daten vorhanden sind.
+Wenn die Stream-Warteschlangen leer sind, kann die Anfrage als Zero-Copy-Übertragung aus der zugrunde liegenden Byte-Quelle bereitgestellt werden.
 
-Die Methode nimmt als Argument eine Ansicht auf einen Puffer, in den die bereitgestellten Daten gelesen werden sollen, und gibt ein {{jsxref("Promise")}} zurück. Das Promise wird mit einem Objekt erfüllt, das die Eigenschaften `value` und `done` enthält, wenn Daten verfügbar werden oder wenn der Stream abgebrochen wird. Wenn der Stream einen Fehler aufweist, wird das Promise mit dem entsprechenden Fehlerobjekt abgelehnt.
+Die Methode nimmt als Argument eine Ansicht eines Puffers, in die die bereitgestellten Daten gelesen werden sollen, und gibt ein {{jsxref("Promise")}} zurück.
+Das Promise erfüllt sich mit einem Objekt, das die Eigenschaften `value` und `done` hat, wenn Daten verfügbar werden oder wenn der Stream abgebrochen wird.
+Wenn der Stream fehlerhaft ist, wird das Promise mit dem entsprechenden Fehlerobjekt abgelehnt.
 
-Wenn ein Datenblock bereitgestellt wird, enthält die Eigenschaft `value` eine neue Ansicht. Dies wird eine Ansicht über denselben Puffer/oder denselben Speicher (und vom gleichen Typ) wie die ursprünglich an die `read()`-Methode übergebene `view` sein, die jetzt mit dem neuen Datenblock gefüllt ist. Beachten Sie, dass die ursprüngliche an die Methode übergebene `view` nach Erfüllung des Promises abgetrennt und nicht mehr verwendbar ist. Das Promise wird mit einem `value: undefined` erfüllt, wenn der Stream abgebrochen wurde. In diesem Fall wird der zugrunde liegende Speicherbereich von `view` verworfen und nicht an den Aufrufer zurückgegeben (alle zuvor gelesenen Daten im Puffer der Ansicht gehen verloren).
+Wenn ein Datenblock bereitgestellt wird, enthält die `value`-Eigenschaft eine neue Ansicht.
+Dies wird eine Ansicht über denselben Speicherpuffer/-speicher (und vom gleichen Typ) wie die ursprüngliche `view`-Ansicht sein, die an die `read()` Methode übergeben wurde, jetzt gefüllt mit dem neuen Datenblock.
+Beachten Sie, dass sobald das Promise erfüllt ist, die ursprüngliche `view`-Ansicht, die an die Methode übergeben wurde, getrennt und nicht mehr nutzbar ist.
+Das Promise wird mit einem `value: undefined` erfüllt, wenn der Stream abgebrochen wurde.
+In diesem Fall wird der Speicherbereich der `view` verworfen und nicht an den Aufrufer zurückgegeben (alle zuvor in den Puffer der Ansicht gelesenen Daten gehen verloren).
 
-Die `done`-Eigenschaft zeigt an, ob noch weitere Daten erwartet werden. Der Wert ist `true`, wenn der Stream geschlossen oder abgebrochen wird, und `false` andernfalls.
+Die `done`-Eigenschaft gibt an, ob weitere Daten erwartet werden.
+Der Wert wird auf `true` gesetzt, wenn der Stream geschlossen oder abgebrochen wird, und `false` ansonsten.
 
-Die Methode hat auch ein optionales `options.min`-Argument, das verwendet werden kann, um die Mindestanzahl von Elementen anzugeben, die verfügbar sein müssen, bevor das Promise während der Aktivität des Streams erfüllt wird. Die in der `value`-Eigenschaft zurückgegebene Ansicht wird immer mindestens diese Anzahl von Elementen haben, es sei denn, der Stream ist geschlossen.
+Die Methode hat auch ein optionales `options.min`-Argument, das verwendet werden kann, um die Mindestanzahl von Elementen zu spezifizieren, die verfügbar sein müssen, bevor das Promise erfüllt wird, solange der Stream aktiv ist.
+Die in der `value`-Eigenschaft zurückgegebene Ansicht wird immer mindestens diese Anzahl von Elementen haben, außer wenn der Stream geschlossen ist.
 
 ## Syntax
 
@@ -30,52 +40,54 @@ read(view, options)
 - `view`
   - : Die Ansicht, in die die Daten gelesen werden sollen.
 - `options` {{optional_inline}}
-
   - : Optionen sind wie folgt:
-
     - `min`
-      - : Die minimale Anzahl von Elementen, die gelesen werden müssen, bevor das Promise während der Aktivität des Streams erfüllt wird.
-        Wenn nicht angegeben, wird das Promise mit mindestens einem Element bis zur maximalen Größe der Ansicht aufgelöst.
+      - : Die Mindestanzahl von Elementen, die gelesen werden müssen, bevor das Promise erfüllt wird, solange der Stream aktiv ist.
+        Wenn nicht angegeben, wird das Promise mit mindestens einem Element aufgelöst, bis zur maximalen Größe der Ansicht.
         Diese Zahl darf nicht größer sein als die Ansicht, in die gelesen wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das abhängig vom Zustand des Streams ein Ergebnis erfüllt/ablehnt. Das Ergebnisobjekt enthält zwei Eigenschaften: `value` und `done`.
+Ein {{jsxref("Promise")}}, das sich mit einem Ergebnis erfüllt/ablehnt, abhängig vom Zustand des Streams. Das Ergebnisobjekt enthält zwei Eigenschaften, `value` und `done`.
 
-Die folgenden Möglichkeiten sind gegeben:
+Folgende Möglichkeiten bestehen:
 
-- Wenn ein Datenblock verfügbar ist und der Stream noch aktiv ist, ist `done` des Ergebnisses `false` und `value` ist eine Ansicht, die die neuen Daten enthält.
-  Dies ist eine Ansicht desselben Typs und über denselben Speicher wie die an die `read()`-Methode übergebene `view`.
-  Die ursprüngliche `view` wird abgetrennt und ist nicht mehr verwendbar.
+- Wenn ein Datenblock verfügbar ist und der Stream weiterhin aktiv ist, ist das `done` des Ergebnisses `false` und `value` ist eine Ansicht, die die neuen Daten enthält.
+  Dies ist eine Ansicht des gleichen Typs und über denselben Sperrspeicher wie die `view`, die an die `read()`-Methode übergeben wurde.
+  Die ursprüngliche `view` wird getrennt und nicht mehr nutzbar sein.
 
-- Wenn der Stream geschlossen ist, ist `done` des Ergebnisses `true` und `value` hat dieselben Eigenschaften wie oben.
+- Wenn der Stream geschlossen ist, ist das `done` des Ergebnisses `true` und `value` hat die gleichen Eigenschaften wie oben.
 
-- Wenn der Stream abgebrochen ist, ist `done` des Ergebnisses `true` und `value` ist `undefined`.
-  In diesem Fall wird der zugrunde liegende Speicher verworfen.
+- Wenn der Stream abgebrochen wird, ist das `done` des Ergebnisses `true` und `value` ist `undefined`.
+  In diesem Fall wird der Speicher verworfen.
 
-- Wenn der Stream einen Fehler auswirft, wird das Promise mit dem entsprechenden Fehler abgelehnt.
+- Wenn der Stream einen Fehler wirft, lehnt das Promise mit dem entsprechenden Fehler ab.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamBYOBReader`, der Stream hat keinen Besitzer, die Ansicht ist kein Objekt oder wurde getrennt, die Länge der Ansicht ist 0, `options.min` ist 0, oder [`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock) wird aufgerufen (wenn es eine ausstehende Leseanforderung gibt).
+  - : Das Quellobjekt ist kein `ReadableStreamBYOBReader`, der Stream hat keinen Besitzer, die Ansicht ist kein Objekt oder wurde getrennt, die Länge der Ansicht ist 0, `options.min` ist 0 oder [`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock) wird aufgerufen (wenn eine Leseanfrage aussteht).
 - {{jsxref("RangeError")}}
-  - : Der Wert von `options.min` ist größer als die in die geschrieben werdende Ansicht.
+  - : Der Wert `options.min` ist größer als die Ansicht, in die geschrieben wird.
 
 ## Beispiele
 
 ### Lesen in eine Ansicht
 
-Der hier gezeigte Beispielcode stammt aus den Live-Beispielen in [Using readable byte streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
+Der hier gezeigte Beispielcode stammt aus den Live-Beispielen in [Verwendung lesbarer Byte-Ströme](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
 
-Zuerst erstellen wir den Reader mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf dem Stream und geben `mode: "byob"` im Optionsparameter an. Wir müssen auch ein `ArrayBuffer` erstellen, das der "zugrunde liegende Speicher" der Ansichten ist, in die wir schreiben werden.
+Zuerst erstellen wir den Leser mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf dem Stream, wobei `mode: "byob"` im Optionsparameter angegeben wird.
+Wir müssen auch einen `ArrayBuffer` erstellen, der das "Speicherbasis" der Ansichten ist, in die wir schreiben werden.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
 let buffer = new ArrayBuffer(4000);
 ```
 
-Eine Funktion, die den Reader verwendet, wird unten gezeigt. Diese ruft rekursiv die `read()`-Methode auf, um Daten in den Puffer zu lesen. Die Methode nimmt ein [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) [typisiertes Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), das eine Ansicht über den Teil des ursprünglichen Array-Puffers ist, der noch nicht beschrieben wurde. Die Parameter der Ansicht werden aus den Daten berechnet, die in früheren Aufrufen empfangen wurden, die einen Offset in den ursprünglichen Array-Puffer definieren.
+Eine unten gezeigte Funktion verwendet den Leser.
+Diese ruft die `read()` Methode rekursiv auf, um Daten in den Puffer zu lesen.
+Die Methode nimmt ein [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) [typisiertes Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), das eine Ansicht über den Teil des ursprünglichen Array-Puffers ist, der noch nicht beschrieben wurde.
+Die Parameter der Ansicht werden aus den in früheren Aufrufen empfangenen Daten berechnet, die einen Offset in den ursprünglichen Array-Puffer definieren.
 
 ```js
 readStream(reader);
@@ -112,15 +124,17 @@ function readStream(reader) {
 }
 ```
 
-Wenn keine Daten mehr im Stream vorhanden sind, erfüllt die `read()`-Methode mit einem Objekt, dessen Eigenschaft `done` auf `true` gesetzt ist, und die Funktion gibt zurück.
+Wenn keine Daten mehr im Stream sind, erfüllt die `read()`-Methode mit einem Objekt mit der Eigenschaft `done`, die auf `true` gesetzt ist, und die Funktion kehrt zurück.
 
 ### Lesen einer Mindestanzahl von Elementen
 
-Dieses Beispiel ist fast genau dasselbe wie das vorherige, außer dass wir den Code modifiziert haben, um bei jeder Iteration mindestens 101 Elemente zu lesen.
+Dieses Beispiel ist fast genau das gleiche wie das vorherige, außer dass wir den Code modifiziert haben, um mindestens 101 Elemente pro Iteration zu lesen.
 
-Wir haben es auch in ein Live-Beispiel umgewandelt. Beachten Sie, dass der größte Teil des Codes für das Beispiel nicht relevant ist und daher ausgeblendet ist. Weitere Informationen finden Sie unter [Using readable byte streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
+Wir haben es auch in ein Live-Beispiel verwandelt.
+Beachten Sie, dass der größte Teil des Codes für das Beispiel nicht relevant ist und daher verborgen bleibt.
+Weitere Informationen finden Sie unter [Verwendung lesbarer Byte-Ströme](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
 
-<!-- Hereunter verbirgt sich die Live-Implementierung -->
+<!-- Ab hier ist die Live-Implementierung verborgen -->
 
 ```js hidden
 class MockHypotheticalSocket {
@@ -216,7 +230,7 @@ class MockHypotheticalSocket {
 }
 ```
 
-<!-- Der folgende HTML- und JS-Code richtet das Reporting ein. Versteckt, da es für die Leser nicht nützlich ist -->
+<!-- Der folgende HTML- und JS-Code richtet die Berichterstattung ein. Versteckt, da er für die Leser nicht nützlich ist -->
 
 ```css hidden
 .input {
@@ -389,9 +403,10 @@ reader.closed
 
 #### Ergebnis
 
-Die Protokollierung der zugrunde liegenden Push-Quelle (links) und des Konsumenten (rechts) wird unten gezeigt. Beachten Sie, dass, wenn der Browser das `options.min`-Argument unterstützt, mindestens 101 Elemente jedes Mal zurückgegeben werden (und oft mehr), außer wenn der Stream geschlossen wird.
+Das Logging aus der zugrunde liegenden Push-Quelle (links) und dem Verbraucher (rechts) wird unten gezeigt.
+Beachten Sie, dass, wenn der Browser das `options.min`-Argument unterstützt, jedes Mal mindestens 101 Elemente zurückgegeben werden (und oft mehr), außer wenn der Stream schließt.
 
-{{EmbedLiveSample("Reading a minimum number of elements","100%","500px")}}
+{{EmbedLiveSample("Lesen einer Mindestanzahl von Elementen","100%","500px")}}
 
 ## Spezifikationen
 
@@ -404,4 +419,4 @@ Die Protokollierung der zugrunde liegenden Push-Quelle (links) und des Konsument
 ## Siehe auch
 
 - [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader) Konstruktor
-- [Using readable byte stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwendung lesbarer Byte-Strom](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

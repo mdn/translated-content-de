@@ -2,20 +2,20 @@
 title: Veralteter Elementverweis
 slug: Web/WebDriver/Reference/Errors/StaleElementReference
 l10n:
-  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Der Fehler des **veralteten Elementverweises** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/Reference/WebElement) nicht mehr an das {{Glossary("DOM", "DOM")}} angehängt ist.
+Der **veraltete Elementverweis**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/Reference/WebElement) nicht mehr an den {{Glossary("DOM", "DOM")}} angehängt ist.
 
-Jedes DOM-Element wird in WebDriver durch eine eindeutige Identifikationsreferenz dargestellt, bekannt als _[Webelement](/de/docs/Web/WebDriver/Reference/WebElement)_. Die Webelement-Referenz ist eine {{Glossary("UUID", "UUID")}}, die verwendet wird, um Befehle auszuführen, die auf spezifische Elemente abzielen, wie z.B. [den Tag-Namen eines Elements abzurufen](/de/docs/Web/WebDriver/Reference/Commands/GetElementTagName) und [eine Eigenschaft](/de/docs/Web/WebDriver/Reference/Commands/GetElementProperty) eines Elements abzurufen.
+Jedes DOM-Element wird in WebDriver durch eine eindeutige Identifikationsreferenz dargestellt, bekannt als _[Webelement](/de/docs/Web/WebDriver/Reference/WebElement)_. Die Webelement-Referenz ist eine {{Glossary("UUID", "UUID")}}, die verwendet wird, um Befehle auszuführen, die auf bestimmte Elemente abzielen, wie z.B. [den Tag-Namen eines Elements zu erhalten](/de/docs/Web/WebDriver/Reference/Commands/GetElementTagName) und [eine Eigenschaft eines Elements abzurufen](/de/docs/Web/WebDriver/Reference/Commands/GetElementProperty).
 
-Wenn ein Element nicht mehr an das DOM angehängt ist, d.h. es aus dem Dokument entfernt wurde oder das Dokument sich geändert hat, wird es als _veraltet_ bezeichnet. Veralterung tritt zum Beispiel auf, wenn Sie eine Webelement-Referenz haben und das Dokument, aus dem sie abgerufen wurde, navigiert.
+Wenn ein Element nicht mehr an den DOM angehängt ist, d.h. es wurde aus dem Dokument entfernt oder das Dokument hat sich geändert, gilt es als _veraltet_. Veraltetsein tritt zum Beispiel auf, wenn Sie eine Webelement-Referenz haben und das Dokument, aus dem sie abgerufen wurde, navigiert.
 
 ## Beispiele
 
 ### Dokumentnavigation
 
-Bei der Navigation werden alle Webelement-Referenzen zu dem vorherigen Dokument zusammen mit dem Dokument verworfen. Dies führt dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/Reference/WebElement) mit dem Fehler des veralteten Elementverweises fehlschlägt:
+Beim Navigieren werden alle Webelement-Referenzen auf das vorherige Dokument zusammen mit dem Dokument verworfen. Dies führt dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/Reference/WebElement) mit dem veralteten Elementverweis-Fehler fehlschlägt:
 
 ```python
 import urllib
@@ -45,7 +45,7 @@ StaleElementReferenceException: The element reference of e75a1764-ff73-40fa-93c1
 
 ### Knotenentfernung
 
-Wird ein Dokumentknoten aus dem DOM entfernt, wird seine Webelement-Referenz ungültig. Dies führt ebenfalls dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/Reference/WebElement) mit dem Fehler des veralteten Elementverweises fehlschlägt:
+Wenn ein Dokumentknoten aus dem DOM entfernt wird, wird seine Webelement-Referenz ungültig. Dies führt ebenfalls dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/Reference/WebElement) mit dem veralteten Elementverweis-Fehler fehlschlägt:
 
 ```python
 import urllib
@@ -78,9 +78,8 @@ StaleElementReferenceException: The element reference of e75a1764-ff73-40fa-93c1
 
 ## Siehe auch
 
-- [WebElement](/de/docs/Web/WebDriver/Reference/WebElement)
+- [Webelement](/de/docs/Web/WebDriver/Reference/WebElement)
 - Zugehörige Befehle:
-
   - [Element finden](/de/docs/Web/WebDriver/Reference/Commands/FindElement)
   - [Elemente finden](/de/docs/Web/WebDriver/Reference/Commands/FindElements)
   - [Element von Element finden](/de/docs/Web/WebDriver/Reference/Commands/FindElementFromElement)

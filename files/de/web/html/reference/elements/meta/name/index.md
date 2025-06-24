@@ -1,16 +1,18 @@
 ---
-title: <meta>-Attribut name
+title: <meta> name-Attribut
 short-title: <meta> name
 slug: Web/HTML/Reference/Elements/meta/name
 l10n:
-  sourceCommit: d9b6cad3b5e14b42061608fb5283e32c75808a3d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar}}
 
-Das **`name`**-Attribut des {{htmlelement("meta")}}-Elements stellt Metadaten in Form von Name-Wert-Paaren bereit. Wenn ein `<meta>`-Element ein `name`-Attribut hat, definiert ein [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attribut den entsprechenden Wert. Die Metadaten sind _Dokument-Metadaten_, die für die gesamte Seite gelten.
+Das **`name`**-Attribut des {{htmlelement("meta")}}-Elements bietet Metadaten in Name-Wert-Paaren an.
+Wenn ein `<meta>`-Element ein `name`-Attribut hat, definiert ein [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attribut den entsprechenden Wert.
+Die Metadaten sind _dokumentenweite Metadaten_, die für die gesamte Seite gelten.
 
-Zum Beispiel bietet der folgende `<meta>`-Tag eine `description` als Metadaten für ein Dokument:
+Zum Beispiel bietet das folgende `<meta>`-Tag eine `description` als Metadaten für ein Dokument an:
 
 ```html
 <meta
@@ -22,12 +24,14 @@ Zum Beispiel bietet der folgende `<meta>`-Tag eine `description` als Metadaten f
 
 ### In der HTML-Spezifikation definierte Meta-Namen
 
-Die HTML-Spezifikation definiert die folgende Reihe von Standard-Metadaten-Namen:
+Die HTML-Spezifikation definiert die folgende Menge an Standard-Metadaten-Namen:
 
 - `application-name`
 
-  - : Browser können dies verwenden, um die auf der Webseite laufende Anwendung zu identifizieren.
-    Es unterscheidet sich vom {{HTMLElement("title")}}-Element, das einen Anwendungs- (oder Website-) Namen enthalten kann, aber ein `<title>` kann kontextbezogene Informationen wie einen Dokumentnamen oder einen Status hinzufügen. Einzelne Seiten sollten nicht ihren eigenen, eindeutigen `application-name` definieren. Um Übersetzungen bereitzustellen, verwenden Sie mehrere `<meta>`-Tags mit dem `lang`-Attribut für jede Sprache:
+  - : Browser können dies verwenden, um die Anwendung zu identifizieren, die auf der Webseite läuft.
+    Es unterscheidet sich vom {{HTMLElement("title")}}-Element, das möglicherweise einen Anwendungs- (oder Website-) Namen enthält, aber ein `<title>` kann kontextuelle Informationen wie einen Dokumentnamen oder einen Status hinzufügen.
+    Einzelne Seiten sollten keinen eigenen, einzigartigen `application-name` definieren.
+    Um Übersetzungen bereitzustellen, verwenden Sie mehrere `<meta>`-Tags mit dem `lang`-Attribut für jede Sprache:
 
     ```html
     <meta name="application-name" content="Weather Wizard" lang="en" />
@@ -37,37 +41,44 @@ Die HTML-Spezifikation definiert die folgende Reihe von Standard-Metadaten-Namen
 - `author`
   - : Der Name des Dokumentautors.
 - [`color-scheme`](/de/docs/Web/HTML/Reference/Elements/meta/name/color-scheme)
-  - : Gibt eine oder mehrere Farbschemata an, mit denen das Dokument kompatibel ist. Der Browser verwendet diese Informationen zusammen mit den Einstellungen des Benutzers im Browser oder Gerät, um zu bestimmen, welche Farben für alles verwendet werden sollen, von Hintergrund und Vordergrund bis zu Formularelementen und Scrollleisten. Der Hauptzweck von `<meta name="color-scheme">` ist die Angabe der Kompatibilität und der Präferenzreihenfolge für helle und dunkle Farbmodi.
+  - : Gibt ein oder mehrere Farbschemata an, mit denen das Dokument kompatibel ist.
+    Der Browser wird diese Information zusammen mit den Einstellungen des Benutzers oder Geräts verwenden, um zu bestimmen, welche Farben für alles von Hintergründen und Vordergründen bis hin zu Formularelementen und Scrollleisten verwendet werden sollen.
+    Die Hauptverwendung von `<meta name="color-scheme">` besteht darin, die Kompatibilität und Reihenfolge der Präferenz für helle und dunkle Farbmodi anzugeben.
 - `description`
-  - : Eine kurze und genaue Zusammenfassung des Inhalts der Seite, oft als "Meta-Beschreibung" bezeichnet. Suchmaschinen wie Google verwenden diese Metadaten, um [das Aussehen einer Webseite in den Suchergebnissen](https://developers.google.com/search/docs/appearance/snippet#meta-descriptions) anzupassen.
+  - : Eine kurze und präzise Zusammenfassung des Seiteninhalts, die üblicherweise als "Meta-Beschreibung" bezeichnet wird.
+    Suchmaschinen wie Google verwenden diese Metadaten, um [das Erscheinungsbild einer Webseite in Suchergebnissen](https://developers.google.com/search/docs/appearance/snippet#meta-descriptions) anzupassen.
 - `generator`
-  - : Der Bezeichner der Software, die die Seite erzeugt hat.
+  - : Die Kennung der Software, die die Seite generiert hat.
 - `keywords`
-  - : Durch Kommas getrennte Wörter, die für den Inhalt der Seite relevant sind.
+  - : Wörter, die für den Seiteninhalt relevant sind, durch Kommas getrennt.
 - [`referrer`](/de/docs/Web/HTML/Reference/Elements/meta/name/referrer)
   - : Steuert den HTTP-{{httpheader("Referer")}}-Header von Anfragen, die vom Dokument gesendet werden.
 - [`theme-color`](/de/docs/Web/HTML/Reference/Elements/meta/name/theme-color)
-  - : Gibt eine empfohlene Farbe an, die Benutzeragenten verwenden sollten, um das Erscheinungsbild der Seite oder der umgebenden Benutzeroberfläche anzupassen. Das [`content`](/de/docs/Web/HTML/Reference/Attributes/content)-Attribut enthält einen gültigen CSS {{cssxref("&lt;color&gt;")}}. Das [`media`](/de/docs/Web/HTML/Reference/Elements/meta#media)-Attribut mit einer gültigen Medienabfrageliste kann hinzugefügt werden, um die Medien festzulegen, auf die sich die Theme-Color-Metadaten beziehen.
+  - : Gibt eine empfohlene Farbe an, die Benutzeragenten verwenden sollten, um die Darstellung der Seite oder der umgebenden Benutzeroberfläche anzupassen.
+    Das [`content`](/de/docs/Web/HTML/Reference/Attributes/content)-Attribut enthält ein gültiges CSS {{cssxref("&lt;color&gt;")}}.
+    Das [`media`](/de/docs/Web/HTML/Reference/Elements/meta#media)-Attribut mit einer gültigen Medienabfrage-Liste kann eingeschlossen werden, um die Medien festzulegen, auf die sich die Metadaten zur Themenfarbe beziehen.
 
 ### In anderen Spezifikationen definierte Meta-Namen
 
-Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadaten-Namen:
+Die CSS-Geräteanpassungs-Spezifikation definiert den folgenden Metadatennamen:
 
 - [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)
   - : Gibt Hinweise zur Größe der anfänglichen Größe des {{Glossary("viewport", "Viewports")}}.
 
 ### Im WHATWG MetaExtensions-Wiki definierte Meta-Namen
 
-Die [WHATWG Wiki MetaExtensions-Seite](https://wiki.whatwg.org/wiki/MetaExtensions) enthält eine große Anzahl nicht standardisierter Metadaten-Namen. Einige der enthaltenen Namen werden in der Praxis ziemlich häufig verwendet, insbesondere die folgenden:
+Die [WHATWG-Wiki-Seite zu MetaExtensions](https://wiki.whatwg.org/wiki/MetaExtensions) enthält eine große Menge nicht-standardisierter Metadaten-Namen.
+Einige der enthaltenen Namen werden in der Praxis recht häufig verwendet, insbesondere die folgenden:
 
 - `creator`
-  - : Der Name des Erstellers des Dokuments, wie zum Beispiel eine Organisation oder Institution. Wenn es mehr als einen gibt, sollten mehrere {{HTMLElement("meta")}}-Elemente verwendet werden.
+  - : Der Name des Erstellers des Dokuments, wie eine Organisation oder Institution.
+    Falls es mehrere gibt, sollten mehrere {{HTMLElement("meta")}}-Elemente verwendet werden.
 - `googlebot`
-  - : Ein Synonym für `robots`, wird nur von Googlebot (dem Indexierungs-Crawler von Google) befolgt.
+  - : Ein Synonym für `robots`, das nur von Googlebot (dem Indexierungs-Crawler für Google) befolgt wird.
 - `publisher`
-  - : Der Name des Dokumentherausgebers.
+  - : Der Name des Dokumentenherausgebers.
 - [`robots`](/de/docs/Web/HTML/Reference/Elements/meta/name/robots)
-  - : Eine durch Kommas getrennte Liste von Werten, die das Crawl-Verhalten definieren, das kooperative Crawler (oder "Roboter") bei der Seite verwenden sollen.
+  - : Eine durch Kommas getrennte Liste von Werten, die das Crawl-Verhalten definieren, das kooperative Crawler (oder "Roboter") mit der Seite verwenden sollten.
 
 ## Spezifikationen
 

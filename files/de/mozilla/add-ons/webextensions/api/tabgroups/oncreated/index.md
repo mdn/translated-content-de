@@ -2,14 +2,14 @@
 title: tabGroups.onCreated
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/onCreated
 l10n:
-  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
 Wird ausgelöst, wenn eine Tab-Gruppe erstellt wird.
 
-In Chrome wird dieses Ereignis auch ausgelöst, wenn eine Tab-Gruppe zwischen Fenstern verschoben wird, anstatt {{WebExtAPIRef("tabGroups.onMoved")}}.
+In Chrome wird dieses Ereignis auch ausgelöst, wenn eine Tab-Gruppe zwischen Fenstern verschoben wird, anstelle von {{WebExtAPIRef("tabGroups.onMoved")}}.
 
 ## Syntax
 
@@ -24,24 +24,22 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Hören auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
-
     - `group`
-      - : {{WebExtAPIRef("tabGroups.TabGroup")}}. Details des Zustands der erstellten Tab-Gruppe.
+      - : {{WebExtAPIRef("tabGroups.TabGroup")}}. Details zum Zustand der erstellten Tab-Gruppe.
 
 ## Beispiele
 
-Überwachen und protokollieren der Erstellung von Tab-Gruppen:
+Lauschen auf das Erstellen von Tab-Gruppen und Protokollierung:
 
 ```js
 function tabGroupCreated(group) {

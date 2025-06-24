@@ -2,12 +2,12 @@
 title: offset-distance
 slug: Web/CSS/offset-distance
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`offset-distance`** [CSS](/de/docs/Web/CSS) Eigenschaft legt eine Position entlang eines {{CSSxRef("offset-path")}} für ein Element fest, um platziert zu werden.
+Die **`offset-distance`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt eine Position entlang eines {{CSSxRef("offset-path")}} an, an der ein Element platziert werden soll.
 
 {{InteractiveExample("CSS Demo: offset-distance")}}
 
@@ -68,9 +68,9 @@ offset-distance: unset;
 
 - {{cssxref('&lt;length-percentage&gt;')}}
 
-  - : Eine Länge, die angibt, wie weit das Element entlang des Pfades ist (definiert mit {{cssxref('offset-path')}}).
+  - : Eine Länge, die angibt, wie weit das Element entlang des Pfades (definiert mit {{cssxref('offset-path')}}) ist.
 
-    100 % repräsentiert die gesamte Länge des Pfades (wenn der `offset-path` als Grundform oder `path()` definiert ist).
+    100% repräsentiert die gesamte Länge des Pfades (wenn der `offset-path` als Grundform oder `path()` definiert ist).
 
 ## Formale Definition
 
@@ -84,7 +84,7 @@ offset-distance: unset;
 
 ### Verwendung von offset-distance in einer Animation
 
-Der Bewegungsaspekt im CSS Motion Path ergibt sich typischerweise aus der Animation der `offset-distance` Eigenschaft. Wenn Sie ein Element entlang seines gesamten Pfades animieren möchten, definieren Sie seinen {{cssxref('offset-path')}} und richten dann eine Animation ein, die den `offset-distance` von `0%` bis `100%` nimmt.
+Der Bewegungseffekt im CSS Motion Path kommt typischerweise von der Animation der `offset-distance` Eigenschaft. Wenn Sie ein Element entlang seines gesamten Pfades animieren möchten, würden Sie dessen {{cssxref('offset-path')}} definieren und dann eine Animation einrichten, die die `offset-distance` von `0%` bis `100%` animiert.
 
 #### HTML
 

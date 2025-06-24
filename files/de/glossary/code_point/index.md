@@ -2,15 +2,15 @@
 title: Code point
 slug: Glossary/Code_point
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{GlossarySidebar}}
 
-Ein **Codepoint** ist eine Zahl, die zugewiesen wird, um ein abstraktes Zeichen in einem System zur Darstellung von Text (wie Unicode) darzustellen. In Unicode wird ein Codepoint in der Form "U+1234" ausgedrückt, wobei "1234" die zugewiesene Zahl ist. Zum Beispiel ist dem Zeichen "A" der Codepoint U+0041 zugewiesen.
+Ein **Codepunkt** ist eine Zahl, die verwendet wird, um ein abstraktes Zeichen in einem System zur Darstellung von Text (wie Unicode) zu repräsentieren. In Unicode wird ein Codepunkt in der Form "U+1234" ausgedrückt, wobei "1234" die zugeordnete Zahl ist. Zum Beispiel hat das Zeichen "A" den Codepunkt U+0041.
 
-Zeichenkodierungsformen wie UTF-8 und UTF-16 bestimmen, wie ein Unicode-Codepoint als Byte-Sequenz kodiert werden soll. Verschiedene Kodierungsformen können denselben Codepoint als unterschiedliche Byte-Sequenzen kodieren: zum Beispiel wird das kyrillische Zeichen "Ф", dessen Codepoint U+0424 ist, in UTF-8 als `0xd0a4` und in UTF-16 als `0x0424` kodiert.
+Zeichencodierungsformen, wie {{Glossary("UTF-8", "UTF-8")}} und {{Glossary("UTF-16", "UTF-16")}}, bestimmen, wie ein Unicode-Codepunkt als eine Folge von Bytes codiert werden soll. Verschiedene Codierungsformen können denselben Codepunkt als verschiedene Bytesequenzen codieren: beispielsweise wird das kyrillische Zeichen "Ф", dessen Codepunkt U+0424 ist, in UTF-8 als `0xd0a4` und in UTF-16 als `0x0424` kodiert.
 
 ## Siehe auch
 
-- [Der Unicode-Standard: Codepoints und Zeichen](https://www.unicode.org/versions/Unicode14.0.0/ch02.pdf#G25564)
+- [Der Unicode-Standard: Codepunkte und Zeichen](https://www.unicode.org/versions/Unicode14.0.0/ch02.pdf#G25564)

@@ -3,17 +3,17 @@ title: "Sanitizer: allowAttribute() Methode"
 short-title: allowAttribute()
 slug: Web/API/Sanitizer/allowAttribute
 l10n:
-  sourceCommit: baec726bf3fe1bd82cf22a0f8ba9523e0f7ccd80
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`allowAttribute()`** Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces definiert ein Attribut, das bei allen Elementen erlaubt sein soll.
+Die **`allowAttribute()`** Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle setzt ein Attribut, das an allen Elementen erlaubt sein soll.
 
-Das angegebene Attribut wird der Liste der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) in der Konfiguration dieses Sanitizers hinzugefügt.
-Falls das Attribut in der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) Liste vorhanden ist, wird es daraus entfernt.
+Das angegebene Attribut wird zur Liste der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) in der Konfiguration dieses Sanitizers hinzugefügt.
+Das Attribut wird aus der Liste der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) entfernt, falls es dort vorhanden ist.
 
-Beachten Sie, dass zum Erlauben/Verbieten von Attributen nur auf spezifischen Elementen die Methode [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwendet werden sollte.
+Beachten Sie, dass Sie, um Attribute nur auf bestimmten Elementen zu erlauben/zu verbieten, [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwenden können.
 
 ## Syntax
 
@@ -24,23 +24,21 @@ allowAttribute(attribute)
 ### Parameter
 
 - `attribute`
-
-  - : Ein String, der den Namen des Attributs angibt, das global bei Elementen erlaubt sein soll, oder ein Objekt mit den folgenden Eigenschaften:
-
+  - : Ein String, der den Namen des Attributs angibt, das global auf Elementen erlaubt werden soll, oder ein Objekt mit den folgenden Eigenschaften:
     - `name`
       - : Ein String, der den Namen des Attributs enthält.
     - `namespace` {{optional_inline}}
-      - : Ein String, der den Namespace des Attributs enthält. Standardmäßig ist dieser `null`.
+      - : Ein String, der den Namensraum des Attributs enthält, der standardmäßig auf `null` gesetzt ist.
 
 ### Rückgabewert
 
-Kein (`undefined`).
+Keiner (`undefined`).
 
 ## Beispiele
 
-### Anleitung: Wie man spezifische Attribute bei Elementen erlaubt
+### Anleitung: spezifische Attribute für Elemente zulassen
 
-Dieses Beispiel zeigt, wie `allowAttribute()` verwendet wird, um anzugeben, dass ein Attribut bei Elementen erlaubt ist.
+Dieses Beispiel zeigt, wie `allowAttribute()` verwendet wird, um festzulegen, dass ein Attribut auf Elementen erlaubt ist.
 
 ```html hidden
 <pre id="log"></pre>
@@ -64,8 +62,8 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfänglich keine Attribute erlaubt.
-Dann rufen wir `allowAttribute()` mit den Attributen `title` und `mathcolor` auf.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfangs keine Attribute erlaubt.
+Wir rufen dann `allowAttribute()` mit den Attributen `title` und `mathcolor` auf.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -96,7 +94,7 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 #### Ergebnisse
 
 Die endgültige Konfiguration wird unten protokolliert.
-Beachten Sie, wie beide Attribute jetzt zur [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) Liste hinzugefügt sind (andere Attribute werden bei Elementen nicht erlaubt, wenn der Sanitizer verwendet wird).
+Beachten Sie, wie beide Attribute jetzt zur [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) Liste hinzugefügt wurden (andere Attribute werden auf Elementen nicht erlaubt sein, wenn der Sanitizer verwendet wird).
 
 {{EmbedLiveSample("How to allow specific attributes on elements","100","480px")}}
 

@@ -1,19 +1,19 @@
 ---
-title: "XMLHttpRequest: open()-Methode"
+title: "XMLHttpRequest: open() Methode"
 short-title: open()
 slug: Web/API/XMLHttpRequest/open
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
 Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode **`open()`**
-initialisiert eine neu erstellte Anfrage oder re-initialisiert eine bestehende.
+initialisiert eine neu erstellte Anfrage oder initialisiert eine bestehende Anfrage neu.
 
 > [!NOTE]
-> Diese Methode für eine bereits aktive Anfrage aufzurufen
-> (eine, für die `open()` bereits aufgerufen wurde), entspricht dem Aufruf von
+> Wenn diese Methode für eine bereits aktive Anfrage aufgerufen wird
+> (eine, für die `open()` bereits aufgerufen wurde), ist dies gleichbedeutend mit dem Aufruf von
 > [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort).
 
 ## Syntax
@@ -30,27 +30,27 @@ open(method, url, async, user, password)
 - `method`
   - : Die zu verwendende [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods), wie
     `"GET"`, `"POST"`, `"PUT"`, `"DELETE"`,
-    etc. Wird für nicht HTTP(S)-URLs ignoriert.
+    usw. Wird für nicht-HTTP(S)-URLs ignoriert.
 - `url`
-  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts — das die URL der Ressource bereitstellt, an die die Anfrage gesendet werden soll.
+  - : Ein String oder ein beliebiges anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts —, das die URL der Ressource angibt, an die die Anfrage gesendet werden soll.
 - `async` {{optional_inline}}
 
-  - : Ein optionaler boolescher Parameter, der standardmäßig auf `true` gesetzt ist und angibt, ob die Operation asynchron ausgeführt werden soll oder nicht. Wenn dieser Wert `false` ist,
-    kehrt die `send()`-Methode nicht zurück, bis die Antwort empfangen wird. Wenn
-    `true`, wird die Benachrichtigung einer abgeschlossenen Transaktion mithilfe von Event-Listenern bereitgestellt. Dies _muss_ wahr sein, wenn das `multipart`-Attribut
-    `true` ist, andernfalls wird eine Ausnahme ausgelöst.
+  - : Ein optionaler Boolean-Parameter, der standardmäßig auf `true` gesetzt ist und angibt, ob die Operation asynchron ausgeführt werden soll. Wenn dieser Wert `false` ist,
+    gibt die `send()`-Methode erst zurück, wenn die Antwort empfangen wurde. Wenn
+    `true`, wird die Benachrichtigung über eine abgeschlossene Transaktion mithilfe von Ereignislistenern bereitgestellt. Dies _muss_ true sein, wenn das `multipart`-Attribut
+    `true` ist, da sonst eine Ausnahme ausgelöst wird.
 
     > [!NOTE]
-    > Synchrone Anfragen im Haupt-Thread können
+    > Synchrone Anfragen im Hauptthread können
     > die Benutzererfahrung leicht stören und sollten vermieden werden; tatsächlich haben viele
-    > Browser die Unterstützung für synchrones XHR im Haupt-Thread vollständig eingestellt.
-    > Synchrone Anfragen sind in [`Worker`](/de/docs/Web/API/Worker)n erlaubt.
+    > Browser die Unterstützung für synchrone XHR im Hauptthread vollständig aufgehoben.
+    > Synchrone Anfragen sind in [`Worker`](/de/docs/Web/API/Worker)s erlaubt.
 
 - `user` {{optional_inline}}
-  - : Der optionale Benutzername für Authentifizierungszwecke; standardmäßig ist dies der
+  - : Der optionale Benutzername, der für Authentifizierungszwecke verwendet werden soll; standardmäßig ist dies der
     `null`-Wert.
 - `password` {{optional_inline}}
-  - : Das optionale Passwort für Authentifizierungszwecke; standardmäßig ist dies der
+  - : Das optionale Passwort, das für Authentifizierungszwecke verwendet werden soll; standardmäßig ist dies der
     `null`-Wert.
 
 ### Rückgabewert

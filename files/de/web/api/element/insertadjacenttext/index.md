@@ -1,14 +1,14 @@
 ---
-title: "Element: Methode insertAdjacentText()"
+title: "Element: insertAdjacentText()-Methode"
 short-title: insertAdjacentText()
 slug: Web/API/Element/insertAdjacentText
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die **`insertAdjacentText()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces fügt, basierend auf einer relativen Position und einem String, einen neuen Textknoten an der angegebenen Position relativ zu dem Element, von dem aus sie aufgerufen wird, ein.
+Die **`insertAdjacentText()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces fügt an einer angegebenen relativen Position und basierend auf einem übergebenen String einen neuen Textknoten relativ zu dem Element ein, von dem sie aufgerufen wird.
 
 ## Syntax
 
@@ -20,15 +20,14 @@ insertAdjacentText(where, data)
 
 - `where`
 
-  - : Ein String, der die Position relativ zu dem Element angibt, von dem die Methode aufgerufen wird; muss einer der folgenden Strings sein:
-
+  - : Ein String, der die Position relativ zu dem Element darstellt, von dem die Methode aufgerufen wird. Er muss einer der folgenden Strings sein:
     - `'beforebegin'`: Vor dem `element` selbst.
-    - `'afterbegin'`: Direkt im `element`, vor seinem ersten Kind.
-    - `'beforeend'`: Direkt im `element`, nach seinem letzten Kind.
+    - `'afterbegin'`: Direkt innerhalb des `element`, vor dessen erstem Kind.
+    - `'beforeend'`: Direkt innerhalb des `element`, nach dessen letztem Kind.
     - `'afterend'`: Nach dem `element` selbst.
 
 - `data`
-  - : Ein String, aus dem ein neuer Textknoten erstellt werden soll, der an der angegebenen Position `where` relativ zu dem Element eingefügt wird, von dem die Methode aufgerufen wird.
+  - : Ein String, aus dem ein neuer Textknoten erstellt wird, der an der angegebenen Position `where` relativ zu dem Element eingefügt wird, von dem die Methode aufgerufen wird.
 
 ### Rückgabewert
 
@@ -37,7 +36,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `where` kein anerkannter Wert ist.
+  - : Wird ausgelöst, wenn `where` keinen anerkannten Wert hat.
 
 ### Visualisierung der Positionsnamen
 
@@ -52,7 +51,7 @@ Keiner ({{jsxref("undefined")}}).
 ```
 
 > [!NOTE]
-> Die Positionen `beforebegin` und `afterend` funktionieren nur, wenn der Knoten in einem Baum ist und ein Element-Parent hat.
+> Die Positionen `beforebegin` und `afterend` funktionieren nur, wenn der Knoten sich in einem Baum befindet und ein Element-Elternteil hat.
 
 ## Beispiele
 
@@ -66,7 +65,8 @@ afterBtn.addEventListener("click", () => {
 });
 ```
 
-Sehen Sie sich unser [insertAdjacentText.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentText.html) Demo auf GitHub an (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentText.html) an). Hier haben wir einen einfachen Absatz. Sie können Text in das Formularelement eingeben und dann die Buttons _Vorher einfügen_ und _Nachher einfügen_ drücken, um ihn mit `insertAdjacentText()` vor oder nach dem vorhandenen Absatztext einzufügen. Beachten Sie, dass der vorhandene Textknoten nicht erweitert wird—weitere Textknoten werden erstellt, die die neuen Ergänzungen enthalten.
+Werfen Sie einen Blick auf unser [insertAdjacentText.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentText.html)
+Demo auf GitHub (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentText.html)). Hier haben wir einen einfachen Absatz. Sie können etwas Text in das Formularelement eingeben und dann die Schaltflächen _Insert before_ und _Insert after_ drücken, um ihn vor oder nach dem bestehenden Absatztext mit `insertAdjacentText()` einzufügen. Beachten Sie, dass der vorhandene Textknoten nicht ergänzt wird – es werden weitere Textknoten erstellt, die die neuen Ergänzungen enthalten.
 
 ## Spezifikationen
 

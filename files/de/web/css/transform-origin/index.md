@@ -2,12 +2,12 @@
 title: transform-origin
 slug: Web/CSS/transform-origin
 l10n:
-  sourceCommit: 0145c6497d2f2206dca1326593fe308f7b771a08
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`transform-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung für die Transformationen eines Elements fest.
+Die **`transform-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung für Transformationen eines Elements fest.
 
 {{InteractiveExample("CSS Demo: transform-origin")}}
 
@@ -149,7 +149,7 @@ window.addEventListener("load", () => {
 
 Der Transformationsursprung ist der Punkt, um den eine Transformation angewendet wird. Zum Beispiel ist der Transformationsursprung der [`rotate()`](/de/docs/Web/CSS/transform-function/rotate) Funktion das Rotationszentrum.
 
-Tatsächlich umschließt diese Eigenschaft ein Paar von Translationen um die anderen Transformationen des Elements. Die erste Translation bewegt den Transformationsursprung zum tatsächlichen Ursprung bei <math><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></math>. Dann werden die anderen Transformationen angewendet, und da der Transformationsursprung bei <math><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></math> liegt, wirken diese Transformationen auf den Transformationsursprung. Schließlich wird die entgegengesetzte Translation angewendet, um den Transformationsursprung wieder an seinen ursprünglichen Ort zu versetzen. Folglich führt diese Definition
+Im Endeffekt umschließt diese Eigenschaft ein Paar von Translationen um die anderen Transformationen des Elements. Die erste Translation verschiebt den Transformationsursprung zum tatsächlichen Ursprung bei <math><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></math>. Dann werden die anderen Transformationen angewendet, und da sich der Transformationsursprung bei <math><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></math> befindet, wirken diese Transformationen um den Transformationsursprung herum. Schließlich wird die entgegengesetzte Translation angewendet, die den Transformationsursprung wieder an seinen ursprünglichen Ort verschiebt. Folglich führt diese Definition
 
 ```css
 transform-origin: -100% 50%;
@@ -163,9 +163,9 @@ transform-origin: 0 0;
 transform: translate(-100%, 50%) rotate(45deg) translate(100%, -50%);
 ```
 
-Von rechts nach links gelesen, ist `translate(100%, -50%)` die Translation, um den Transformationsursprung zum tatsächlichen Ursprung zu bringen, `rotate(45deg)` ist die ursprüngliche Transformation und `translate(-100%, 50%)` ist die Translation, um den Transformationsursprung wieder zu seinem ursprünglichen Ort zurückzusetzen.
+Von rechts nach links gelesen, ist `translate(100%, -50%)` die Translation, um den Transformationsursprung zum tatsächlichen Ursprung zu bringen, `rotate(45deg)` die ursprüngliche Transformation und `translate(-100%, 50%)` die Translation, um den Transformationsursprung wieder an seinen ursprünglichen Ort zu bringen.
 
-Standardmäßig liegt der Ursprung einer Transformation im `center`.
+Standardmäßig ist der Ursprung einer Transformation `center`.
 
 ## Syntax
 
@@ -206,40 +206,39 @@ transform-origin: revert-layer;
 transform-origin: unset;
 ```
 
-Die `transform-origin` Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden, wobei jeder Wert einen Offset darstellt. Offsets, die nicht explizit definiert sind, werden auf ihre entsprechenden [Standardwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) zurückgesetzt.
+Die `transform-origin` Eigenschaft kann unter Verwendung von einem, zwei oder drei Werten angegeben werden, wobei jeder Wert ein Offset darstellt. Offsets, die nicht explizit definiert sind, werden auf ihre entsprechenden [Initialwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) zurückgesetzt.
 
-Wenn ein einzelner {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert definiert ist, repräsentiert er den horizontalen Offset.
+Wenn ein einzelner {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert definiert ist, stellt er das horizontale Offset dar.
 
-Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwort ist oder das einzige verwendete Schlüsselwort `center` ist, dann repräsentiert der erste Wert den horizontalen Offset und der zweite den vertikalen Offset.
+Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwort ist oder das einzige verwendete Schlüsselwort `center` ist, dann stellt der erste Wert das horizontale Offset dar und der zweite das vertikale Offset.
 
-- Einwertige Syntax:
+- Ein-Wert-Syntax:
 
   - Der Wert muss ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder eines der Schlüsselwörter `left`, `center`, `right`, `top` und `bottom` sein.
 
-- Zweiwertige Syntax:
+- Zwei-Wert-Syntax:
 
   - Ein Wert muss ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder eines der Schlüsselwörter `left`, `center` und `right` sein.
   - Der andere Wert muss ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder eines der Schlüsselwörter `top`, `center` und `bottom` sein.
 
-- Dreiwertige Syntax:
-
-  - Die ersten beiden Werte sind wie bei der zweiwertigen Syntax.
-  - Der dritte Wert muss ein {{cssxref("&lt;length&gt;")}} sein. Er repräsentiert immer den Z-Offset.
+- Drei-Wert-Syntax:
+  - Die ersten beiden Werte sind identisch mit der Zwei-Wert-Syntax.
+  - Der dritte Wert muss ein {{cssxref("&lt;length&gt;")}} sein. Er stellt immer das Z-Offset dar.
 
 ### Werte
 
 - _x-offset_
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, das beschreibt, wie weit vom linken Rand der Box der Ursprung der Transformation eingestellt ist.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, das beschreibt, wie weit vom linken Rand der Box der Ursprung der Transformation festgelegt ist.
 - _offset-keyword_
-  - : Ist eines der Schlüsselwörter `left`, `right`, `top`, `bottom` oder `center`, das den entsprechenden Offset beschreibt.
+  - : Ist eines der Schlüsselwörter `left`, `right`, `top`, `bottom` oder `center`, das das entsprechende Offset beschreibt.
 - _y-offset_
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, das beschreibt, wie weit vom oberen Rand der Box der Ursprung der Transformation eingestellt ist.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, das beschreibt, wie weit vom oberen Rand der Box der Ursprung der Transformation festgelegt ist.
 - _x-offset-keyword_
-  - : Ist eines der Schlüsselwörter `left`, `right` oder `center`, das beschreibt, wie weit vom linken Rand der Box der Ursprung der Transformation eingestellt ist.
+  - : Ist eines der Schlüsselwörter `left`, `right` oder `center`, das beschreibt, wie weit vom linken Rand der Box der Ursprung der Transformation festgelegt ist.
 - _y-offset-keyword_
-  - : Ist eines der Schlüsselwörter `top`, `bottom` oder `center`, das beschreibt, wie weit vom oberen Rand der Box der Ursprung der Transformation eingestellt ist.
+  - : Ist eines der Schlüsselwörter `top`, `bottom` oder `center`, das beschreibt, wie weit vom oberen Rand der Box der Ursprung der Transformation festgelegt ist.
 - _z-offset_
-  - : Ist ein {{cssxref("&lt;length&gt;")}} (und niemals ein {{cssxref("&lt;percentage&gt;")}}, was die Anweisung ungültig machen würde), das beschreibt, wie weit vom Auge des Benutzers der z=0 Ursprung eingestellt ist.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} (und niemals ein {{cssxref("&lt;percentage&gt;")}}, was die Aussage ungültig machen würde), das beschreibt, wie weit von der Benutzeransicht der Ursprung des z=0 festgelegt ist.
 
 Die Schlüsselwörter sind bequeme Abkürzungen und entsprechen den folgenden {{cssxref("&lt;percentage&gt;")}} Werten:
 
@@ -256,7 +255,7 @@ Die Schlüsselwörter sind bequeme Abkürzungen und entsprechen den folgenden {{
 {{CSSInfo}}
 
 > [!NOTE]
-> Der Anfangswert von `transform-origin` ist `0 0` für alle SVG-Elemente, außer für Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die ein direkter Nachkomme eines [foreignObject](/de/docs/Web/SVG/Reference/Element/foreignObject) sind, und deren `transform-origin` `50% 50%` ist, wie bei anderen CSS-Elementen. Siehe das [SVG transform-origin](/de/docs/Web/SVG/Reference/Attribute/transform-origin) Attribut für weitere Informationen.
+> Der Initialwert von `transform-origin` ist `0 0` für alle SVG-Elemente außer für die Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die ein direktes Kind eines [foreignObject](/de/docs/Web/SVG/Reference/Element/foreignObject) sind, und deren `transform-origin` ist `50% 50%`, wie bei anderen CSS-Elementen. Weitere Informationen finden Sie im [SVG transform-origin](/de/docs/Web/SVG/Reference/Attribute/transform-origin) Attribut.
 
 ## Formale Syntax
 
@@ -266,7 +265,7 @@ Die Schlüsselwörter sind bequeme Abkürzungen und entsprechen den folgenden {{
 
 ### Eine Demonstration verschiedener Transformationswerte
 
-Dieses Beispiel zeigt die Wirkung der Wahl unterschiedlicher `transform-origin` Werte für eine Vielzahl von Transformationsfunktionen.
+Dieses Beispiel zeigt die Auswirkung der Wahl verschiedener `transform-origin` Werte für eine Vielzahl von Transformationsfunktionen.
 
 ```html hidden
 <div class="container">

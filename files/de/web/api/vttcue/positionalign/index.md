@@ -3,7 +3,7 @@ title: "VTTCue: positionAlign-Eigenschaft"
 short-title: positionAlign
 slug: Web/API/VTTCue/positionAlign
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebVTT")}}
@@ -15,22 +15,20 @@ Die **`positionAlign`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Inte
 Ein String, der einen der folgenden Werte enthält:
 
 - `"line-left"`
-  - : Linien-linke Ausrichtung.
+  - : Zeilenlinke Ausrichtung.
 - `"center"`
-  - : Zentrums-Ausrichtung.
+  - : Zentrierte Ausrichtung.
 - `"line-right"`
-  - : Linien-rechte Ausrichtung.
+  - : Zeilenrechte Ausrichtung.
 - `"auto"`
-
-  - : Automatische Ausrichtung, die von der Textausrichtung des Cue abhängt und wie folgt interpretiert wird:
-
-    - **line-left:** wenn die Textausrichtung links ist, der Cue eine LTR-Sprache verwendet und die Textausrichtung Anfang ist, oder der Cue eine RTL-Sprache verwendet und die Textausrichtung Ende ist.
-    - **line-right:** wenn die Textausrichtung rechts ist, der Cue eine RTL-Sprache verwendet und die Textausrichtung Anfang ist, oder der Cue eine LTR-Sprache verwendet und die Textausrichtung Ende ist.
+  - : Automatische Ausrichtung, die von der Textausrichtung des Cues abhängt und wie folgt interpretiert wird:
+    - **line-left:** wenn die Textausrichtung links ist, der Cue eine LTR-Sprache verwendet und die Textausrichtung Start ist, oder der Cue eine RTL-Sprache verwendet und die Textausrichtung Ende ist.
+    - **line-right:** wenn die Textausrichtung rechts ist, der Cue eine RTL-Sprache verwendet und die Textausrichtung Start ist, oder der Cue eine LTR-Sprache verwendet und die Textausrichtung Ende ist.
     - **center:** wenn keine Textausrichtungsposition festgelegt ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `positionAlign` auf `"line-right"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `positionAlign` auf `"line-right"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

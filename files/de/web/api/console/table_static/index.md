@@ -3,12 +3,12 @@ title: "console: table() statische Methode"
 short-title: table()
 slug: Web/API/console/table_static
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.table()`** zeigt tabellarische Daten als Tabelle an.
+Die **`console.table()`** statische Methode zeigt tabellarische Daten als Tabelle an.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ console.table(data, columns)
 
 - `data`
 
-  - : Die anzuzeigenden Daten. Diese müssen entweder ein Array oder ein Objekt sein. Jedes Element im Array oder jede Eigenschaft im Objekt wird durch eine Zeile in der Tabelle dargestellt. Die erste Spalte in der Tabelle ist mit `(index)` beschriftet, und ihre Werte sind die Array-Indizes oder die Eigenschaftsnamen.
+  - : Die anzuzeigenden Daten. Diese müssen entweder ein Array oder ein Objekt sein. Jedes Element im Array oder jede Eigenschaft im Objekt wird durch eine Zeile in der Tabelle repräsentiert. Die erste Spalte der Tabelle ist mit `(index)` beschriftet, und ihre Werte sind die Array-Indizes oder Eigenschaftsnamen.
 
-    Wenn die Elemente im Array oder die Eigenschaften im Objekt selbst Arrays oder Objekte sind, werden ihre Elemente oder Eigenschaften in der Zeile aufgelistet, jeweils eine pro Spalte.
+    Wenn die Elemente im Array oder die Eigenschaften im Objekt selbst Arrays oder Objekte sind, dann werden ihre Elemente oder Eigenschaften in der Zeile aufgelistet, jeweils eine pro Spalte.
 
-    Beachten Sie, dass in Firefox `console.table()` darauf beschränkt ist, 1000 Zeilen anzuzeigen, einschließlich der Kopfzeile.
+    Beachten Sie, dass `console.table()` in Firefox auf die Anzeige von 1000 Zeilen begrenzt ist, einschließlich der Überschriftenzeile.
 
 - `columns` {{optional_inline}}
-  - : Ein Array, das verwendet werden kann, um die in der Tabelle angezeigten Spalten einzuschränken. Es enthält Indizes, wenn jedes Element von `data` ein Array ist, oder Eigenschaftsnamen, wenn jedes Element von `data` ein Objekt ist. Die resultierende Tabelle enthält dann nur Spalten für Elemente, die den angegebenen Indizes oder Namen entsprechen.
+  - : Ein Array, das verwendet werden kann, um die in der Tabelle angezeigten Spalten einzuschränken. Es enthält Indizes, wenn jeder Eintrag von `data` ein Array ist, oder Eigenschaftsnamen, wenn jeder Eintrag von `data` ein Objekt ist. Die resultierende Tabelle enthält dann nur Spalten für Elemente, die den angegebenen Indizes oder Namen entsprechen.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Sammlungen primitiver Typen
+### Kollektionen von primitiven Typen
 
 Das `data`-Argument kann ein Array oder ein Objekt sein.
 
@@ -70,9 +70,9 @@ console.table(me);
 | firstName | 'Tyrone' |
 | lastName  | 'Jones'  |
 
-### Sammlungen zusammengesetzter Typen
+### Kollektionen von zusammengesetzten Typen
 
-Wenn die Elemente im Array oder die Eigenschaften im Objekt selbst Arrays oder Objekte sind, werden ihre Elemente oder Eigenschaften in der Zeile aufgelistet, jeweils eine pro Spalte:
+Wenn die Elemente im Array oder die Eigenschaften im Objekt selbst Arrays oder Objekte sind, dann werden ihre Elemente oder Eigenschaften in der Zeile aufgelistet, jeweils eine pro Spalte:
 
 ```js
 // an array of arrays
@@ -106,7 +106,7 @@ const maria = new Person("Maria", "Cruz");
 console.table([tyrone, janet, maria]);
 ```
 
-Wenn das Array Objekte enthält, werden die Spalten mit dem Eigenschaftsnamen beschriftet.
+Wenn das Array Objekte enthält, werden die Spalten mit den Eigenschaftsnamen beschriftet.
 
 | (index) | firstName | lastName |
 | ------- | --------- | -------- |
@@ -167,6 +167,6 @@ console.table([tyrone, janet, maria], ["firstName"]);
 
 ## Siehe auch
 
-- [Microsoft Edge Dokumentation für `console.table()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#table)
-- [Node.js Dokumentation für `console.table()`](https://nodejs.org/docs/latest/api/console.html#consoletabletabulardata-properties)
-- [Google Chrome Dokumentation für `console.table()`](https://developer.chrome.com/docs/devtools/console/api/#table)
+- [Microsoft Edge's Dokumentation zu `console.table()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#table)
+- [Node.js-Dokumentation zu `console.table()`](https://nodejs.org/docs/latest/api/console.html#consoletabletabulardata-properties)
+- [Google Chrome's Dokumentation zu `console.table()`](https://developer.chrome.com/docs/devtools/console/api/#table)

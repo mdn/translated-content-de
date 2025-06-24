@@ -1,14 +1,14 @@
 ---
-title: "SubtleCrypto: generateKey()-Methode"
+title: "SubtleCrypto: generateKey() Methode"
 short-title: generateKey()
 slug: Web/API/SubtleCrypto/generateKey
 l10n:
-  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`generateKey()`**-Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle wird verwendet, um einen neuen Schlüssel (für symmetrische Algorithmen) oder ein Schlüsselpaar (für Public-Key-Algorithmen) zu generieren.
+Die **`generateKey()`**-Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle wird verwendet, um einen neuen Schlüssel (für symmetrische Algorithmen) oder ein Schlüsselpaar (für öffentliche Schlüsselalgorithmen) zu generieren.
 
 ## Syntax
 
@@ -20,8 +20,7 @@ generateKey(algorithm, extractable, keyUsages)
 
 - `algorithm`
 
-  - : Ein Objekt, das den zu generierenden Schlüsseltyp definiert und zusätzliche algorithmenspezifische Parameter bereitstellt.
-
+  - : Ein Objekt, das den Typ des zu generierenden Schlüssels definiert und zusätzliche, algorithmusspezifische Parameter bereitstellt.
     - Für [RSASSA-PKCS1-v1_5](/de/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/de/docs/Web/API/SubtleCrypto/sign#rsa-pss),
       oder [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep):
       übergeben Sie ein [`RsaHashedKeyGenParams`](/de/docs/Web/API/RsaHashedKeyGenParams)-Objekt.
@@ -31,15 +30,14 @@ generateKey(algorithm, extractable, keyUsages)
     - Für [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr), [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc),
       [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm), oder [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw):
       übergeben Sie ein [`AesKeyGenParams`](/de/docs/Web/API/AesKeyGenParams)-Objekt.
-    - Für [Ed25519](/de/docs/Web/API/SubtleCrypto/sign#ed25519): übergeben Sie den String `Ed25519` oder ein Objekt der Form `{ name: "Ed25519" }`.
-    - Für [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519): übergeben Sie den String `X25519` oder ein Objekt der Form `{ name: "X25519" }`.
+    - Für [Ed25519](/de/docs/Web/API/SubtleCrypto/sign#ed25519): übergeben Sie den String `Ed25519` oder ein Objekt in der Form `{ name: "Ed25519" }`.
+    - Für [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519): übergeben Sie den String `X25519` oder ein Objekt in der Form `{ name: "X25519" }`.
 
 - `extractable`
   - : Ein boolescher Wert, der angibt, ob es möglich sein wird, den Schlüssel mit [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) zu exportieren.
 - `keyUsages`
-
-  - : Ein {{jsxref("Array")}} von Zeichenfolgen, die angeben, was mit dem neu generierten Schlüssel gemacht werden kann. Mögliche Werte für Array-Elemente sind:
-
+  - : Ein {{jsxref("Array")}} von Strings, die angeben, was mit dem neu generierten Schlüssel gemacht werden kann.
+    Mögliche Werte für Array-Elemente sind:
     - `encrypt`
       - : Der Schlüssel kann verwendet werden, um Nachrichten zu [verschlüsseln](/de/docs/Web/API/SubtleCrypto/encrypt).
     - `decrypt`
@@ -47,38 +45,38 @@ generateKey(algorithm, extractable, keyUsages)
     - `sign`
       - : Der Schlüssel kann verwendet werden, um Nachrichten zu [signieren](/de/docs/Web/API/SubtleCrypto/sign).
     - `verify`
-      - : Der Schlüssel kann verwendet werden, um Signaturen zu [überprüfen](/de/docs/Web/API/SubtleCrypto/verify).
+      - : Der Schlüssel kann verwendet werden, um Signaturen zu [verifizieren](/de/docs/Web/API/SubtleCrypto/verify).
     - `deriveKey`
       - : Der Schlüssel kann verwendet werden, um [einen neuen Schlüssel abzuleiten](/de/docs/Web/API/SubtleCrypto/deriveKey).
     - `deriveBits`
       - : Der Schlüssel kann verwendet werden, um [Bits abzuleiten](/de/docs/Web/API/SubtleCrypto/deriveBits).
     - `wrapKey`
-      - : Der Schlüssel kann verwendet werden, um einen [Schlüssel zu verpacken](/de/docs/Web/API/SubtleCrypto/wrapKey).
+      - : Der Schlüssel kann verwendet werden, um [einen Schlüssel zu verpacken](/de/docs/Web/API/SubtleCrypto/wrapKey).
     - `unwrapKey`
-      - : Der Schlüssel kann verwendet werden, um einen [Schlüssel zu entpacken](/de/docs/Web/API/SubtleCrypto/unwrapKey).
+      - : Der Schlüssel kann verwendet werden, um [einen Schlüssel zu entpacken](/de/docs/Web/API/SubtleCrypto/unwrapKey).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`CryptoKey`](/de/docs/Web/API/CryptoKey) (für symmetrische Algorithmen) oder einem [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) (für Public-Key-Algorithmen) erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einem [`CryptoKey`](/de/docs/Web/API/CryptoKey) (für symmetrische Algorithmen) oder einem [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) (für öffentliche Schlüsselalgorithmen) erfüllt wird.
 
 ### Ausnahmen
 
 Das Promise wird abgelehnt, wenn die folgende Ausnahme auftritt:
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Ergebnis ein [`CryptoKey`](/de/docs/Web/API/CryptoKey) vom Typ `secret` oder `private` ist, aber `keyUsages` leer oder für den Algorithmustyp ungültig ist.
+  - : Wird ausgelöst, wenn das Ergebnis ein [`CryptoKey`](/de/docs/Web/API/CryptoKey) vom Typ `secret` oder `private` ist, aber `keyUsages` leer oder ungültig für den Algorithmustyp ist.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Ergebnis ein [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) ist und sein `privateKey.usages`-Attribut leer oder für den Algorithmustyp ungültig ist.
+  - : Wird ausgelöst, wenn das Ergebnis ein [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) ist und sein Attribut `privateKey.usages` leer oder ungültig für den Algorithmustyp ist.
 
 ## Beispiele
 
 > [!NOTE]
 > Sie können die [funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html).
 
-### RSA-Schlüsselpaar-Generierung
+### Erzeugung eines RSA-Schlüsselpaares
 
-Dieser Code generiert ein RSA-OAEP Verschlüsselungs-Schlüsselpaar.
-[Sehen Sie sich den vollständigen Code auf GitHub an.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/rsa-oaep.js)
+Dieser Code generiert ein RSA-OAEP-Verschlüsselungsschlüsselpaar.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/rsa-oaep.js)
 
 ```js
 let keyPair = await window.crypto.subtle.generateKey(
@@ -93,10 +91,10 @@ let keyPair = await window.crypto.subtle.generateKey(
 );
 ```
 
-### Elliptische-Kurve-Schlüsselpaar-Generierung
+### Erzeugung eines elliptischen Kurven-Schlüsselpaares
 
-Dieser Code generiert ein ECDSA-Signaturschlüsselpaar.
-[Sehen Sie sich den vollständigen Code auf GitHub an.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/ecdsa.js)
+Dieser Code generiert ein ECDSA-Signierschlüsselpaar.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/ecdsa.js)
 
 ```js
 let keyPair = await window.crypto.subtle.generateKey(
@@ -109,10 +107,10 @@ let keyPair = await window.crypto.subtle.generateKey(
 );
 ```
 
-### HMAC-Schlüsselerzeugung
+### Erzeugung eines HMAC-Schlüssels
 
-Dieser Code generiert einen HMAC-Signaturschlüssel.
-[Sehen Sie sich den vollständigen Code auf GitHub an.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/hmac.js)
+Dieser Code generiert einen HMAC-Signierschlüssel.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/hmac.js)
 
 ```js
 let key = await window.crypto.subtle.generateKey(
@@ -125,10 +123,10 @@ let key = await window.crypto.subtle.generateKey(
 );
 ```
 
-### AES-Schlüsselerzeugung
+### Erzeugung eines AES-Schlüssels
 
-Dieser Code generiert einen AES-GCM Verschlüsselungsschlüssel.
-[Sehen Sie sich den vollständigen Code auf GitHub an.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-gcm.js)
+Dieser Code generiert einen AES-GCM-Verschlüsselungsschlüssel.
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-gcm.js)
 
 ```js
 let key = await window.crypto.subtle.generateKey(
@@ -141,10 +139,10 @@ let key = await window.crypto.subtle.generateKey(
 );
 ```
 
-### Ed25519-Schlüsselerzeugung
+### Erzeugung eines Ed25519-Schlüssels
 
-Dieser Code generiert ein Ed25519 Signatur-Schlüsselpaar.
-Er stammt aus [diesem Quellcode auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/ed25519.js), den Sie [hier live ausführen können](https://mdn.github.io/dom-examples/web-crypto/sign-verify/).
+Dieser Code generiert ein Ed25519-Signierschlüsselpaar.
+Er basiert auf [diesem Quellcode auf GitHub](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/ed25519.js), den Sie [hier live ausführen können](https://mdn.github.io/dom-examples/web-crypto/sign-verify/).
 
 ```html hidden
 <input id="run-button" type="button" value="Run" />
@@ -172,11 +170,11 @@ function log(text) {
 
 #### JavaScript
 
-Der Code zur Erzeugung eines Schlüsselpaares mit dem `Ed25519`-Algorithmus und zum Protokollieren der Informationen in jedem Schlüssel wird unten gezeigt.
+Der Code zur Erzeugung eines Schlüsselpaares mit dem `Ed25519`-Algorithmus und Ausgabe der Informationen in jedem Schlüssel wird unten gezeigt.
 Beachten Sie, dass der Code in einem `try..catch`-Block ausgeführt wird, da nicht alle Browser diesen Algorithmus unterstützen.
 
-Das JavaScript holt zuerst die `#sign-button` und `#message` {{HTMLElement("input")}} Elemente und fügt dann einen Listener für das `click` Ereignis auf dem Button hinzu.
-Der Ereignishandler löscht das Protokoll und führt die anderen Operationen aus, indem er den Inhalt des `<input>` Elements übergibt.
+Im JavaScript wird zunächst das `#sign-button` und `#message` {{HTMLElement("input")}}-Element abgerufen, dann wird ein Listener für das `click`-Ereignis auf dem Button hinzugefügt.
+Der Ereignishandler leert das Log und führt die anderen Operationen aus, indem der Inhalt des `<input>`-Elements übergeben wird.
 
 ```js
 const button = document.querySelector("#run-button");
@@ -220,13 +218,13 @@ async function test() {
 
 #### Ergebnis
 
-Die Informationen zu den erstellten Schlüsseln werden unten protokolliert (oder eine Fehlermeldung, wenn der Browser das Erstellen des Schlüssels nicht zulässt).
+Die Informationen über die erstellten Schlüssel werden unten protokolliert (oder ein Fehler-String, wenn der Browser die Erstellung des Schlüssels nicht zulässt).
 
 {{EmbedLiveSample("Ed25519", "100%", "240px")}}
 
-### X25519-Schlüsselerzeugung
+### Erzeugung eines X25519-Schlüssels
 
-Dieser Code generiert ein X25519-Öffentliches und Privates Schlüsselpaar, das in [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) zum Erstellen eines gemeinsamen Schlüssels oder in [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits) zum Erstellen eines gemeinsamen Geheimnisses verwendet werden kann.
+Dieser Code generiert ein X25519-Öffentliches und privates Schlüsselpaar, das in [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) zur Erstellung eines gemeinsamen Schlüssels oder in [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits) zur Erstellung eines gemeinsamen Geheimnisses verwendet werden kann.
 
 ```html hidden
 <input id="run-button" type="button" value="Run" />
@@ -254,11 +252,11 @@ function log(text) {
 
 #### JavaScript
 
-Der Code zur Erzeugung eines Schlüsselpaares mit dem `X25519`-Algorithmus und zum Protokollieren der Informationen in jedem Schlüssel wird unten gezeigt.
+Der Code zur Erzeugung eines Schlüsselpaares mit dem `X25519`-Algorithmus und Ausgabe der Informationen in jedem Schlüssel wird unten gezeigt.
 Beachten Sie, dass der Code in einem `try..catch`-Block ausgeführt wird, da nicht alle Browser diesen Algorithmus unterstützen.
 
-Das JavaScript holt zuerst die `#run-button` und `#log` {{HTMLElement("input")}} Elemente und fügt dann einen Listener für das `click` Ereignis auf dem Button hinzu.
-Der Ereignishandler löscht das Protokoll, generiert ein X25519-Schlüsselpaar und protokolliert einige seiner Eigenschaften.
+Im JavaScript wird zunächst das `#run-button` und `#log` {{HTMLElement("input")}}-Element abgerufen, dann wird ein Listener für das `click`-Ereignis auf dem Button hinzugefügt.
+Der Ereignishandler leert das Log, generiert ein X25519-Schlüsselpaar und protokolliert einige seiner Eigenschaften.
 
 ```js
 const button = document.querySelector("#run-button");
@@ -302,7 +300,7 @@ async function test() {
 
 #### Ergebnis
 
-Die Informationen zu den erstellten Schlüsseln werden unten protokolliert (oder eine Fehlermeldung, wenn der Browser das Erstellen des Schlüssels nicht zulässt).
+Die Informationen über die erstellten Schlüssel werden unten protokolliert (oder ein Fehler-String, wenn der Browser die Erstellung des Schlüssels nicht zulässt).
 
 {{EmbedLiveSample("X25519", "100%", "240px")}}
 
@@ -317,4 +315,4 @@ Die Informationen zu den erstellten Schlüsseln werden unten protokolliert (oder
 ## Siehe auch
 
 - [Empfehlungen zur Länge kryptografischer Schlüssel](https://www.keylength.com/).
-- [NIST Transitioning the Use of Cryptographic Algorithms and Key Lengths](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final).
+- [NIST Übergang zur Verwendung kryptografischer Algorithmen und Schlüssellängen](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final).

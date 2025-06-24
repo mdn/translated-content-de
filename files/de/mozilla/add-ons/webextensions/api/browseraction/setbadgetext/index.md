@@ -2,14 +2,14 @@
 title: browserAction.setBadgeText()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Setzt den Badge-Text für die Browser-Aktion. Der Badge wird oberhalb des Symbols angezeigt.
+Setzt den Badge-Text für die Browser-Aktion. Der Badge wird über dem Symbol angezeigt.
 
-Tabs ohne einen spezifischen Badge-Text übernehmen den globalen Badge-Text, der standardmäßig `""` ist.
+Tabs ohne spezifischen Badge-Text übernehmen den globalen Badge-Text, der standardmäßig `""` ist.
 
 ## Syntax
 
@@ -29,18 +29,18 @@ Diese API ist auch als `chrome.browserAction.setBadgeText()` verfügbar.
 
     - `text`
 
-      - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, aber nur etwa vier passen in den verfügbaren Raum.
+      - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, jedoch passen nur etwa vier in den Platz.
 
-        Verwenden Sie einen leeren String - `""` - wenn Sie keinen Badge wünschen.
+        Verwenden Sie eine leere Zeichenkette - `""` - wenn Sie keinen Badge wünschen.
 
-        Wenn ein `tabId` angegeben ist, entfernt `null` den tab-spezifischen Badge-Text, sodass der Tab den globalen Badge-Text übernimmt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
+        Wenn eine `tabId` angegeben ist, entfernt `null` den tab-spezifischen Badge-Text, sodass der Tab den globalen Badge-Text übernimmt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
 
         Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Badge-Text, sodass der Tab den globalen Badge-Text übernimmt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzen Sie den Badge-Text nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
+      - : `integer`. Setzt den Badge-Text nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzen Sie den Badge-Text für das angegebene Fenster.
+      - : `integer`. Setzt den Badge-Text für das angegebene Fenster.
 
 <!---->
 
@@ -53,7 +53,7 @@ Diese API ist auch als `chrome.browserAction.setBadgeText()` verfügbar.
 
 ## Beispiele
 
-Fügen Sie einen Badge hinzu, der anzeigt, wie oft der Benutzer den Button geklickt hat:
+Fügen Sie einen Badge hinzu, der angibt, wie oft der Benutzer den Button angeklickt hat:
 
 ```js
 let clicks = 0;
@@ -68,7 +68,7 @@ browser.browserAction.onClicked.addListener(increment);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeText) API von Chromium. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeText) API von Chromium. Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

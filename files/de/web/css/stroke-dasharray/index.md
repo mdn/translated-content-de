@@ -2,14 +2,14 @@
 title: stroke-dasharray
 slug: Web/CSS/stroke-dasharray
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`stroke-dasharray`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert ein Muster von Strichen und Lücken, das beim Zeichnen des Strichs einer [SVG](/de/docs/Web/SVG) Form verwendet wird. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-dasharray")}} Attribut des Elements.
+Die **`stroke-dasharray`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert ein Muster aus Strichen und Lücken, das beim Zeichnen der Linien eines [SVG](/de/docs/Web/SVG) Shapes verwendet wird. Falls vorhanden, überschreibt es das {{SVGAttr("stroke-dasharray")}} Attribut des Elements.
 
-Diese Eigenschaft gilt für jede SVG-Form oder Textinhalt-Element (siehe {{SVGAttr("stroke-dasharray")}} für eine vollständige Liste), kann jedoch als vererbte Eigenschaft auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche der Nachfahrelemente haben.
+Diese Eigenschaft kann auf jede SVG-Form oder Textinhaltselement angewendet werden (siehe {{SVGAttr("stroke-dasharray")}} für eine vollständige Liste), aber als eine vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem die beabsichtigte Wirkung auf die Linien von Nachfahrelementen haben.
 
 ## Syntax
 
@@ -40,19 +40,18 @@ Der Wert ist eine Liste von durch Kommas und/oder Leerzeichen getrennten `<numbe
 
 - `none`
 
-  - : Der Strich wird ohne Striche gezeichnet. Der Standardwert.
+  - : Der Strich wird ohne gestricheltes Muster gezeichnet. Der Standardwert.
 
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Eine Anzahl von SVG-Einheiten, deren Größe durch den aktuellen Einheitenspace definiert ist. Negative Werte sind ungültig.
+  - : Eine Anzahl von SVG-Einheiten, deren Größe durch den aktuellen Einheitenraum definiert ist. Negative Werte sind ungültig.
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Pixeleinheiten werden wie SVG-Einheiten behandelt (siehe `<number>`, oben), und längenbasierte Längen wie `em` werden in Bezug auf den SVG-Wert der Textgröße des Elements berechnet; die Auswirkungen anderer Längeneinheiten können vom Browser abhängen. Negative Werte sind ungültig.
+  - : Pixeleinheiten werden genauso wie SVG-Einheiten behandelt (siehe `<number>` oben) und schriftbasierte Längen wie `em` werden in Bezug auf den SVG-Wert der Textgröße des Elements berechnet; die Auswirkungen anderer Längeneinheiten können vom Browser abhängen. Negative Werte sind ungültig.
 
 - {{cssxref("&lt;percentage&gt;")}}
-
-  - : Prozentwerte beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Ansichtsfensters, die als <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math> berechnet wird. Negative Werte sind ungültig.
+  - : Prozentsätze beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>. Negative Werte sind ungültig.
 
 ## Formale Definition
 
@@ -64,13 +63,13 @@ Der Wert ist eine Liste von durch Kommas und/oder Leerzeichen getrennten `<numbe
 
 ## Beispiele
 
-### Grundlegendes Strichmuster
+### Grundlegendes Streifenmuster
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `stroke-dasharray` Eigenschaft unter Verwendung von leerzeichengetrennten `<number>` Werten.
+Dieses Beispiel zeigt die grundlegende Nutzung der `stroke-dasharray` Eigenschaft mit durch Leerzeichen getrennten `<number>` Werten.
 
 #### HTML
 
-Zuerst richten wir eine grundlegende SVG-Rechteckform ein. Auf dieses Rechteck wird eine rote Linie mit einer Breite von `2` angewendet.
+Zuerst richten wir eine grundlegende SVG-Rechteckform ein. Auf dieses Rechteck wird ein roter Strich mit einer Breite von `2` angewendet.
 
 ```html
 <svg viewBox="0 0 100 50" width="500" height="250">
@@ -87,7 +86,7 @@ Zuerst richten wir eine grundlegende SVG-Rechteckform ein. Auf dieses Rechteck w
 
 #### CSS
 
-Wir definieren ein Strichmuster für den Strich: zehn Einheiten Strich, gefolgt von fünf Einheiten Leerraum. Das bedeutet, dass die Lücken zwischen den Strichen halb so lang sind wie die Striche selbst.
+Wir definieren ein Strichmuster für die Linie: zehn Einheiten Strich, gefolgt von fünf Einheiten Zwischenraum. Das bedeutet, die Lücken zwischen den Strichen sind halb so lang wie die Striche selbst.
 
 ```css
 rect {
@@ -99,11 +98,11 @@ rect {
 
 {{EmbedLiveSample("Basic dash array", "500", "250")}}
 
-Wo der Strich sich um eine Ecke biegt, wird das Muster quasi fortgeführt. An der oberen linken Ecke, wo Anfang und Ende des Strichs aufeinander treffen, scheint der zehn Einheiten lange Startstrich mit dem Teil des Strichmusters am Ende des Pfades zu verschmelzen, wodurch eine wie eine längere als zehn Einheiten erscheinende Linie um die Ecke biegt.
+Wo der Strich eine Ecke bildet, setzt sich das Muster fort. In der oberen linken Ecke, wo Anfang und Ende des Strichs aufeinandertreffen, scheint der zehn Einheiten lange Anfangstrich mit dem am Ende des Pfades sichtbaren Teil des Strichmusters verbunden zu sein, wodurch es erscheint, als wäre eine längere als zehn Einheiten lange Linie um die Ecke gebogen.
 
-### Wiederholung des Strichmusters
+### Wiederholung des Streifenmusters
 
-Dieses Beispiel beinhaltet eine ungerade Anzahl an `,` getrennten `<number>` Werten und zeigt, wie der Wert wiederholt wird, wenn eine ungerade Anzahl von Werten angegeben wird, um eine gerade Anzahl von Werten festzulegen.
+Dieses Beispiel enthält eine ungerade Anzahl von durch Kommas getrennten `<number>` Werten, um zu zeigen, wie der Wert wiederholt wird, wenn eine ungerade Anzahl von Werten angegeben wird, um eine gerade Anzahl von Werten festzulegen.
 
 #### HTML
 
@@ -132,7 +131,7 @@ In diesem Fall definieren wir zwei Rechtecke.
 
 #### CSS
 
-Für das erste Rechteck definieren wir ein Strichmuster von `5, 5, 1`, welches fünf Einheiten Strich, fünf Einheiten Leerraum und eine Einheit Strich anfordert. Da dies jedoch eine ungerade Anzahl von Zahlen ist, wird der gesamte Satz Zahlen wiederholt, wodurch ein Wert entsteht, der identisch mit dem angewendeten auf das zweite Rechteck ist.
+Für das erste Rechteck definieren wir ein Dasharray von `5, 5, 1`, was fünf Einheiten Strich, fünf Einheiten Lücke und eine Einheit Strich erfordert. Da dies jedoch eine ungerade Anzahl von Zahlen ist, wird der gesamte Satz von Zahlen wiederholt, wodurch ein Wert entsteht, der mit dem beim zweiten Rechteck angewendeten identisch ist.
 
 ```css
 rect:nth-of-type(1) {
@@ -147,11 +146,11 @@ rect:nth-of-type(2) {
 
 {{EmbedLiveSample("Dash array repetition", "500", "500")}}
 
-Der Grund, warum eine gerade Anzahl von Zahlen erforderlich ist, liegt darin, dass jedes Strichmuster mit einem Strich beginnt und mit einer Lücke endet. Das so definierte Muster ist ein fünf Einheiten langer Strich, eine fünf Einheiten lange Lücke, ein ein Einheiten langer Strich, eine fünf Einheiten lange Lücke, ein fünf Einheiten langer Strich und eine ein Einheiten lange Lücke. Im resultierenden Strich zeigt jede Instanz einer ein Einheiten Lücke zwischen zwei fünf Einheiten langen Strichen eine Stelle an, an der das Strichmuster neu beginnt.
+Der Grund, warum eine gerade Anzahl von Zahlen erforderlich ist, liegt darin, dass jedes Strichmuster mit einem Strich beginnt und mit einer Lücke endet. Somit wird das definierte Muster zu einem fünf Einheiten langen Strich, einer fünf Einheiten langen Lücke, einem ein Einheiten langen Strich, einer fünf Einheiten langen Lücke, einem fünf Einheiten langen Strich und einer ein Einheiten langen Lücke. Im resultierenden Strich zeigt jede Instanz einer ein Einheiten langen Lücke zwischen zwei fünf Einheiten langen Strichen an, wo das Strichmuster erneut beginnt.
 
-### Prozent- und Pixelwerte
+### Prozentuale und Pixelwerte
 
-Dieses Beispiel demonstriert die Verwendung von `<percentage>` und `<length>` Werten innerhalb des `stroke-dasharray` Eigenschaftswerts.
+Dieses Beispiel zeigt die Verwendung von `<percentage>` und `<length>` Werten innerhalb des `stroke-dasharray` Eigenschaftswerts.
 
 #### HTML
 
@@ -180,7 +179,7 @@ Wie im vorherigen Beispiel definieren wir zwei Rechtecke.
 
 #### CSS
 
-Diesmal verwenden wir anstelle von bloßen Zahlen Pixeleinheiten und Prozentwerte.
+Diesmal verwenden wir anstelle von alleinstehenden Zahlen Pixel-Einheiten und Prozentsätze.
 
 ```css
 rect:nth-of-type(1) {

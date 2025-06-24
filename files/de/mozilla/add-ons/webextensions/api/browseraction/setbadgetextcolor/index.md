@@ -2,12 +2,12 @@
 title: browserAction.setBadgeTextColor()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeTextColor
 l10n:
-  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Legt die Textfarbe für das Badge der Browser-Aktion fest. Tabs ohne eine spezifische Badge-Textfarbe übernehmen die globale Badge-Textfarbe.
+Legt die Textfarbe für das Badge der Browser-Aktion fest. Tabs ohne eine spezifische Badge-Textfarbe erben die globale Badge-Textfarbe.
 
 ## Syntax
 
@@ -26,10 +26,9 @@ browser.browserAction.setBadgeTextColor(
     - `color`
 
       - : Die Farbe, angegeben als eine der folgenden Möglichkeiten:
-
-        - ein String: jeder CSS [\<color>](/de/docs/Web/CSS/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Promise zurückgewiesen und die Textfarbe wird nicht geändert.
+        - ein String: ein beliebiger CSS [\<color>](/de/docs/Web/CSS/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe darstellt, wird das zurückgegebene Versprechen abgelehnt und die Textfarbe wird nicht geändert.
         - ein {{WebExtAPIRef('browserAction.ColorArray')}} Objekt.
-        - `null`. Wenn eine `tabId` angegeben ist, wird die tab-spezifische Badge-Textfarbe entfernt, sodass der Tab die globale Badge-Textfarbe übernimmt. Andernfalls wird die globale Badge-Textfarbe auf den Standardwert zurückgesetzt.
+        - `null`. Wenn eine `tabId` angegeben ist, entfernt es die tab-spezifische Badge-Textfarbe, sodass der Tab die globale Badge-Textfarbe erbt. Andernfalls wird die globale Badge-Textfarbe auf den Standardwert zurückgesetzt.
 
     - `tabId` {{optional_inline}}
       - : `integer`. Legt die Badge-Textfarbe nur für den angegebenen Tab fest. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
@@ -39,7 +38,7 @@ browser.browserAction.setBadgeTextColor(
 <!---->
 
 - Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird stattdessen die globale Badge-Textfarbe gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird stattdessen die globale Badge-Textfarbe festgelegt.
 
 ## Browser-Kompatibilität
 
@@ -47,7 +46,7 @@ browser.browserAction.setBadgeTextColor(
 
 ## Beispiele
 
-Eine Badge-Textfarbe, die zuerst rot ist und sich grün färbt, wenn die Browser-Aktion angeklickt wird:
+Eine Badge-Textfarbe, die als Rot beginnt und Grün wird, wenn auf die Browser-Aktion geklickt wird:
 
 ```js
 browser.browserAction.setBadgeText({ text: "1234" });
@@ -75,7 +74,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeBackgroundColor) API. Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeBackgroundColor) API. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

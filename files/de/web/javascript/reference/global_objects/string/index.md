@@ -2,20 +2,20 @@
 title: String
 slug: Web/JavaScript/Reference/Global_Objects/String
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Das **`String`**-Objekt wird verwendet, um eine Sequenz von Zeichen darzustellen und zu manipulieren.
+Das **`String`**-Objekt wird verwendet, um eine Zeichenfolge darzustellen und zu manipulieren.
 
 ## Beschreibung
 
-Strings sind nützlich zum Speichern von Daten, die in Textform dargestellt werden können. Einige der meistgenutzten Operationen mit Strings sind das Überprüfen ihrer {{jsxref("String/length", "Länge")}}, das Erstellen und Verbinden mit den [`+` und `+=` String-Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#string_operators), das Überprüfen auf das Vorhandensein oder den Standort von Teilstrings mit der Methode {{jsxref("String/indexOf", "indexOf()")}} oder das Extrahieren von Teilstrings mit der Methode {{jsxref("String/substring", "substring()")}}.
+Strings sind nützlich, um Daten zu speichern, die in Textform dargestellt werden können. Einige der am häufigsten verwendeten Operationen mit Strings sind das Überprüfen ihrer {{jsxref("String/length", "length")}}, das Erstellen und Verketten von Strings mithilfe der [`+` und `+=` String-Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#string_operators), das Überprüfen auf das Vorhandensein oder die Position von Unterstrings mit der Methode {{jsxref("String/indexOf", "indexOf()")}} oder das Extrahieren von Unterstrings mit der Methode {{jsxref("String/substring", "substring()")}}.
 
-### Erstellen von Strings
+### Strings erstellen
 
-Strings können als Primitive, aus String-Literalen oder als Objekte unter Verwendung des {{jsxref("String/String", "String()")}}-Konstruktors erstellt werden:
+Strings können als primitive Datentypen, aus Zeichenfolgenliteralen oder als Objekte mithilfe des {{jsxref("String/String", "String()")}}-Konstruktors erstellt werden:
 
 ```js-nolint
 const string1 = "A string primitive";
@@ -27,29 +27,29 @@ const string3 = `Yet another string primitive`;
 const string4 = new String("A String object");
 ```
 
-String-Primitiven und String-Objekte teilen sich viele Verhaltensweisen, weisen aber auch wichtige Unterschiede und Fallstricke auf. Siehe "[String-Primitiven und String-Objekte](#string-primitiven_und_string-objekte)" unten.
+String-Primitiven und String-Objekte teilen viele Verhaltensweisen, haben jedoch andere wichtige Unterschiede und Vorbehalte. Siehe "[String-Primitiven und String-Objekte](#string-primitiven_und_string-objekte)" unten.
 
-String-Literale können mit einfachen oder doppelten Anführungszeichen angegeben werden, die identisch behandelt werden, oder mit dem Backtick-Zeichen <kbd>`</kbd>. Diese letzte Form spezifiziert ein [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals): Mit dieser Form können Sie Ausdrücke interpolieren. Weitere Informationen zur Syntax von String-Literalen finden Sie in der [lexikalischen Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals).
+Zeichenfolgenliterale können entweder mit einfachen oder doppelten Anführungszeichen angegeben werden, die identisch behandelt werden, oder mit dem Backtick-Zeichen <kbd>`</kbd>. Diese letzte Form gibt ein [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals) an: Mit dieser Form können Sie Ausdrücke interpolieren. Weitere Informationen zur Syntax von Zeichenfolgenliteralen finden Sie im [lexikalischen Grammar](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals).
 
-### Zeichen-Zugriff
+### Zeichenzugriff
 
-Es gibt zwei Möglichkeiten, auf ein individuelles Zeichen in einem String zuzugreifen. Die erste ist die Methode {{jsxref("String/charAt", "charAt()")}},
+Es gibt zwei Möglichkeiten, auf ein einzelnes Zeichen in einem String zuzugreifen. Die erste ist die Methode {{jsxref("String/charAt", "charAt()")}}:
 
 ```js
 "cat".charAt(1); // gives value "a"
 ```
 
-Die andere Möglichkeit besteht darin, den String als array-ähnliches Objekt zu behandeln, bei dem einzelne Zeichen einem numerischen Index entsprechen:
+Die andere Möglichkeit besteht darin, den String wie ein array-ähnliches Objekt zu behandeln, wobei einzelne Zeichen einem numerischen Index entsprechen:
 
 ```js
 "cat"[1]; // gives value "a"
 ```
 
-Bei der Verwendung der Klammernotation für den Zeichen-Zugriff wird der Versuch, diese Eigenschaften zu löschen oder ihnen einen Wert zuzuweisen, nicht erfolgreich sein. Die beteiligten Eigenschaften sind weder beschreibbar noch konfigurierbar. (Siehe {{jsxref("Object.defineProperty()")}} für weitere Informationen.)
+Wenn Sie die Klammernotation für den Zeichenzugriff verwenden, schlägt der Versuch, einen Wert diesen Eigenschaften zu löschen oder zuzuweisen, fehl. Die betroffenen Eigenschaften sind weder schreibbar noch konfigurierbar. (Siehe {{jsxref("Object.defineProperty()")}} für weitere Informationen.)
 
-### Vergleichen von Strings
+### Strings vergleichen
 
-Verwenden Sie die [Kleiner-als und Größer-als Operatoren](/de/docs/Web/JavaScript/Reference/Operators), um Strings zu vergleichen:
+Verwenden Sie die [Kleiner- und Größer-als-Operatoren](/de/docs/Web/JavaScript/Reference/Operators), um Strings zu vergleichen:
 
 ```js
 const a = "a";
@@ -64,7 +64,7 @@ if (a < b) {
 }
 ```
 
-Beachten Sie, dass alle Vergleichsoperatoren, einschließlich [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) und [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality), Strings groß-/kleinschreibungssensitiv vergleichen. Eine übliche Methode, um Strings ohne Berücksichtigung der Groß-/Kleinschreibung zu vergleichen, ist, beide in denselben Fall (groß oder klein) zu konvertieren, bevor sie verglichen werden.
+Beachten Sie, dass alle Vergleichsoperatoren, einschließlich [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) und [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality), Strings unter Berücksichtigung der Groß- und Kleinschreibung vergleichen. Eine übliche Methode, Strings ohne Berücksichtigung der Groß- und Kleinschreibung zu vergleichen, besteht darin, beide in denselben Fall (groß oder klein) umzuwandeln, bevor sie verglichen werden.
 
 ```js
 function areEqualCaseInsensitive(str1, str2) {
@@ -72,7 +72,7 @@ function areEqualCaseInsensitive(str1, str2) {
 }
 ```
 
-Die Wahl, ob [`toUpperCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) oder [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) verwendet wird, ist meist willkürlich, und keine ist vollständig robust, wenn sie über das lateinische Alphabet hinaus erweitert wird. Zum Beispiel werden der deutsche Kleinbuchstabe `ß` und `ss` beide zu `SS` durch `toUpperCase()` transformiert, während der türkische Buchstabe `ı` fälschlicherweise als ungleich zu `I` durch `toLowerCase()` gemeldet würde, es sei denn, er verwendet speziell [`toLocaleLowerCase("tr")`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase).
+Die Wahl, ob durch [`toUpperCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) oder [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) transformiert wird, ist weitgehend willkürlich, und keine der beiden ist vollständig robust, wenn sie über das lateinische Alphabet hinausgeht. Zum Beispiel werden der deutsche Kleinbuchstabe `ß` und `ss` beide durch `toUpperCase()` in `SS` umgewandelt, während der türkische Buchstabe `ı` fälschlicherweise als ungleich zu `I` gemeldet würde, es sei denn, man verwendet speziell [`toLocaleLowerCase("tr")`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase).
 
 ```js
 const areEqualInUpperCase = (str1, str2) =>
@@ -84,7 +84,7 @@ areEqualInUpperCase("ß", "ss"); // true; should be false
 areEqualInLowerCase("ı", "I"); // false; should be true
 ```
 
-Eine lokale und robuste Lösung für das Testen auf Groß-/Kleinschreibungs-Unabhängigkeit ist, die {{jsxref("Intl.Collator")}} API oder die Methode [`localeCompare()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare) des Strings zu verwenden – beide teilen die gleiche Schnittstelle – mit der [`sensitivity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity) Option auf `"accent"` oder `"base"` gesetzt.
+Eine lokalbewusste und robuste Lösung zum Testen von Gleichheit ohne Berücksichtigung der Groß- und Kleinschreibung ist die Verwendung der {{jsxref("Intl.Collator")}} API oder der `localeCompare()`-Methode des Strings — sie haben dieselbe Schnittstelle — mit der [`sensitivity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity)-Option, die auf `"accent"` oder `"base"` gesetzt ist.
 
 ```js
 const areEqual = (str1, str2, locale = "en-US") =>
@@ -94,13 +94,13 @@ areEqual("ß", "ss", "de"); // false
 areEqual("ı", "I", "tr"); // true
 ```
 
-Die Methode `localeCompare()` ermöglicht den String-Vergleich in ähnlicher Weise wie `strcmp()` - sie ermöglicht das Sortieren von Strings in einer lokalen Weise.
+Die `localeCompare()` Methode ermöglicht einen String-Vergleich in ähnlicher Weise wie `strcmp()` — sie ermöglicht das Sortieren von Strings in einem lokalbewussten Stil.
 
 ### String-Primitiven und String-Objekte
 
-Beachten Sie, dass JavaScript zwischen `String`-Objekten und {{Glossary("Primitive", "primitiven Strings")}} unterscheidet. (Dasselbe gilt für {{jsxref("Boolean")}} und {{jsxref("Number", "Numbers")}})
+Beachten Sie, dass JavaScript zwischen `String`-Objekten und {{Glossary("Primitive", "primitiven String")}}-Werten unterscheidet. (Dasselbe gilt für {{jsxref("Boolean")}} und {{jsxref("Number", "Numbers")}}.)
 
-String-Literale (bezeichnet durch doppelte oder einfache Anführungszeichen) und Strings, die von `String`-Aufrufen in einem non-konstruktiven Kontext zurückgegeben werden (also ohne Verwendung des {{jsxref("Operators/new", "new")}} Schlüsselworts), sind primitive Strings. In Kontexten, in denen eine Methode auf einem primitiven String aufgerufen oder ein Eigenschaftslookup ausgeführt werden soll, wird JavaScript den String-Primitiven automatisch umhüllen und die Methode auf dem Wrapper-Objekt aufrufen oder den Eigenschaftslookup darauf ausführen.
+Zeichenfolgenliterale (angegeben durch doppelte oder einfache Anführungszeichen) und Zeichenfolgen, die von `String`-Aufrufen in einem Nicht-Konstruktor-Kontext (das heißt, ohne das Schlüsselwort {{jsxref("Operators/new", "new")}} verwendet) zurückgegeben werden, sind primitive Strings. In Kontexten, in denen eine Methode auf einem primitiven String aufgerufen oder ein Lesezugriff auf eine Eigenschaft erfolgt, wird JavaScript den String-Primitive automatisch umhüllen und die Methode auf dem Wrapper-Objekt aufrufen oder den Zugriff auf die Eigenschaft durchführen.
 
 ```js
 const strPrim = "foo"; // A literal is a string primitive
@@ -117,7 +117,7 @@ console.log(typeof strObj); // "object"
 > [!WARNING]
 > Sie sollten selten `String` als Konstruktor verwenden.
 
-String-Primitiven und `String`-Objekte geben auch verschiedene Ergebnisse bei der Verwendung von {{jsxref("Global_Objects/eval", "eval()")}}. Primitiven, die an `eval` übergeben werden, werden als Quellcode behandelt; `String`-Objekte hingegen werden wie alle anderen Objekte behandelt, indem das Objekt zurückgegeben wird. Zum Beispiel:
+String-Primitiven und `String`-Objekte geben auch unterschiedliche Ergebnisse, wenn {{jsxref("Global_Objects/eval", "eval()")}} verwendet wird. Primitive, die an `eval` übergeben werden, werden als Quellcode behandelt; `String`-Objekte werden wie alle anderen Objekte behandelt, indem das Objekt zurückgegeben wird. Zum Beispiel:
 
 ```js
 const s1 = "2 + 2"; // creates a string primitive
@@ -126,51 +126,51 @@ console.log(eval(s1)); // returns the number 4
 console.log(eval(s2)); // returns the string "2 + 2"
 ```
 
-Aus diesen Gründen kann der Code fehlschlagen, wenn er auf `String`-Objekte trifft, wenn er stattdessen einen primitiven String erwartet, obwohl sich Autoren im Allgemeinen keine Sorgen über die Unterscheidung machen müssen.
+Aus diesen Gründen kann der Code brechen, wenn er auf `String`-Objekte trifft, wenn er stattdessen einen primitiven String erwartet, obwohl sich Autoren im Allgemeinen nicht um die Unterscheidung kümmern müssen.
 
-Ein `String`-Objekt kann immer mit der Methode {{jsxref("String/valueOf", "valueOf()")}} in sein primitives Gegenstück konvertiert werden.
+Ein `String`-Objekt kann immer mit der Methode {{jsxref("String/valueOf", "valueOf()")}} in sein primitives Gegenstück umgewandelt werden.
 
 ```js
 console.log(eval(s2.valueOf())); // returns the number 4
 ```
 
-### String-Konvertierung
+### String-Umwandlung
 
-Viele eingebaute Operationen, die Strings erwarten, zwingen zuerst ihre Argumente zu Strings (was weitgehend der Grund dafür ist, dass `String`-Objekte sich ähnlich wie String-Primitiven verhalten). [Der Vorgang](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring) kann wie folgt zusammengefasst werden:
+Viele eingebettete Operationen, die Strings erwarten, wandeln ihre Argumente zunächst in Strings um (was weitgehend der Grund ist, warum `String`-Objekte ähnlich wie String-Primitiven funktionieren). [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring) kann wie folgt zusammengefasst werden:
 
 - Strings werden unverändert zurückgegeben.
 - [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) wird zu `"undefined"`.
 - [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) wird zu `"null"`.
 - `true` wird zu `"true"`; `false` wird zu `"false"`.
-- Zahlen werden mit dem gleichen Algorithmus wie [`toString(10)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) konvertiert.
-- [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) werden mit dem gleichen Algorithmus wie [`toString(10)`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString) konvertiert.
-- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) werfen einen {{jsxref("TypeError")}}.
-- Objekte werden zuerst [in ein primitives Objekt umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion), indem seine Methoden [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit `"string"` als Hinweis), `toString()` und `valueOf()` in dieser Reihenfolge aufgerufen werden. Das resultierende primitive Objekt wird dann in einen String konvertiert.
+- Zahlen werden mit dem gleichen Algorithmus wie [`toString(10)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) umgewandelt.
+- [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) werden mit dem gleichen Algorithmus wie [`toString(10)`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString) umgewandelt.
+- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) werfen eine {{jsxref("TypeError")}}.
+- Objekte werden zuerst [in einen primitiven Wert umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion), indem ihre Methoden [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit `"string"` als Hinweis), `toString()` und `valueOf()` in dieser Reihenfolge aufgerufen werden. Der resultierende primitive Wert wird dann in einen String umgewandelt.
 
 Es gibt mehrere Möglichkeiten, fast denselben Effekt in JavaScript zu erzielen.
 
-- [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals): `` `${x}` `` führt genau die oben erklärten String-Konvertierungsschritte für den eingebetteten Ausdruck aus.
-- Die [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String) Funktion: `String(x)` verwendet den gleichen Algorithmus zur Konvertierung von `x`, außer dass [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) keinen {{jsxref("TypeError")}} werfen, sondern `"Symbol(description)"`, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist.
-- Die Verwendung des [`+` Operators](/de/docs/Web/JavaScript/Reference/Operators/Addition): `"" + x` zwingt seinen Operanden in ein _primitives_ statt eines _Strings_, und hat für einige Objekte völlig andere Verhaltensweisen als die normale String-Konvertierung. Weitere Einzelheiten finden Sie auf der [Referenzseite](/de/docs/Web/JavaScript/Reference/Operators/Addition).
+- [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals): `` `${x}` `` führt genau die oben beschriebenen String-Konvertierungsschritte für den eingebetteten Ausdruck durch.
+- Die [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String)-Funktion: `String(x)` verwendet denselben Algorithmus, um `x` zu konvertieren, außer dass [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) keine {{jsxref("TypeError")}} werfen, sondern `"Symbol(description)"` zurückgeben, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist.
+- Die Verwendung des [`+` Operators](/de/docs/Web/JavaScript/Reference/Operators/Addition): `"" + x` zwingt sein Operand zu einem _primitiven_ Wert anstelle eines _Strings_ zu werden, und hat für einige Objekte ein völlig anderes Verhalten als normale String-Umwandlung. Siehe die [Referenzseite](/de/docs/Web/JavaScript/Reference/Operators/Addition) für weitere Details.
 
-Abhängig von Ihrem Anwendungsfall möchten Sie möglicherweise `` `${x}` `` (um das eingebaute Verhalten nachzuahmen) oder `String(x)` (um Symbolwerte zu behandeln, ohne dass ein Fehler auftritt) verwenden, aber Sie sollten nicht `"" + x` verwenden.
+Abhängig von Ihrem Anwendungsfall möchten Sie möglicherweise `` `${x}` `` (um das eingebettete Verhalten nachzuahmen) oder `String(x)` (um Symbol-Werte ohne Fehler zu behandeln) verwenden, aber Sie sollten nicht `"" + x` verwenden.
 
 ### UTF-16-Zeichen, Unicode-Codepunkte und Graphem-Cluster
 
-Strings werden grundsätzlich als Sequenzen von [UTF-16-Codeeinheiten](https://en.wikipedia.org/wiki/UTF-16) dargestellt. In der UTF-16-Codierung ist jede Code-Einheit exakt 16 Bits lang. Das bedeutet, dass maximal 2<sup>16</sup>, also 65536 mögliche Zeichen als einzelne UTF-16-Codeeinheiten darstellbar sind. Diese Zeichenmenge wird als [Basic Multilingual Plane (BMP)](<https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane>) bezeichnet und umfasst die häufigsten Zeichen wie die lateinischen, griechischen, kyrillischen Alphabete sowie viele ostasiatische Zeichen. Jede Codierungseinheit kann in einem String mit `\u` gefolgt von genau vier Hex-Ziffern geschrieben werden.
+Strings werden grundsätzlich als Sequenzen von [UTF-16-Codeeinheiten](https://en.wikipedia.org/wiki/UTF-16) dargestellt. In der UTF-16-Kodierung ist jede Code-Einheit genau 16 Bit lang. Dies bedeutet, dass es maximal 2<sup>16</sup>, oder 65536 mögliche Zeichen gibt, die als einzelne UTF-16-Codeeinheiten darstellbar sind. Diese Zeichenmenge wird als [Basic Multilingual Plane (BMP)](<https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane>) bezeichnet und umfasst die häufigsten Zeichen wie die lateinischen, griechischen und kyrillischen Alphabete sowie viele ostasiatische Zeichen. Jede Codeeinheit kann in einem String mit `\u` gefolgt von genau vier Hexadezimalziffern geschrieben werden.
 
-Jedoch ist der gesamte Unicode-Zeichensatz viel größer als 65536. Die zusätzlichen Zeichen werden in UTF-16 als _Surrogate-Paare_ gespeichert, bei denen es sich um Paare von 16-Bit-Codierungseinheiten handelt, die ein einzelnes Zeichen darstellen. Um Mehrdeutigkeiten zu vermeiden, müssen die beiden Teile des Paares zwischen `0xD800` und `0xDFFF` liegen, und diese Codeeinheiten werden nicht zum Codieren von Einzelcodeeinheit-Zeichen verwendet. (Genauer gesagt, haben führende Surrogate, auch High-Surrogate-Codeeinheiten genannt, Werte zwischen `0xD800` und `0xDBFF`, während nachfolgende Surrogate, auch Low-Surrogate-Codeeinheiten genannt, Werte zwischen `0xDC00` und `0xDFFF` aufweisen.) Jedes Unicode-Zeichen, das aus einer oder zwei UTF-16-Codierungseinheiten besteht, wird auch als _Unicode-Codepunkt_ bezeichnet. Jeder Unicode-Codepunkt kann in einem String mit `\u{xxxxxx}` geschrieben werden, wobei `xxxxxx` 1–6 Hex-Ziffern darstellt.
+Das gesamte Unicode-Zeichenset ist jedoch weitaus größer als 65536. Die zusätzlichen Zeichen werden in UTF-16 als _Surrogate-Paare_ gespeichert, die Paare von 16-Bit-Codeeinheiten sind, die ein einzelnes Zeichen darstellen. Um Mehrdeutigkeiten zu vermeiden, müssen die beiden Teile des Paares zwischen `0xD800` und `0xDFFF` liegen, und diese Codeeinheiten werden nicht verwendet, um einzelne Codeeinheiten-Zeichen zu codieren. (Genauer gesagt liegen führende Surrogate, auch Hoch-Surrogate genannt, zwischen `0xD800` und `0xDBFF` inklusive, während nachfolgende Surrogate, auch Nieder-Surrogate genannt, Werte zwischen `0xDC00` und `0xDFFF` inklusive haben.) Jedes Unicode-Zeichen, das aus einer oder zwei UTF-16-Codeeinheiten besteht, wird auch als _Unicode-Codepunkt_ bezeichnet. Jeder Unicode-Codepunkt kann in einem String mit `\u{xxxxxx}` geschrieben werden, wobei `xxxxxx` 1-6 Hexadezimalziffern darstellt.
 
-Ein "einsames Surrogat" ist eine 16-Bit-Codeeinheit, die eine der folgenden Beschreibungen erfüllt:
+Ein "einsamer Surrogat" ist eine 16-Bit-Codeeinheit, die eine der folgenden Beschreibungen erfüllt:
 
-- Es liegt im Bereich `0xD800`–`0xDBFF`, aber es ist die letzte Codeeinheit im String, oder die nächste Codeeinheit ist kein nachfolgendes Surrogat.
-- Es liegt im Bereich `0xDC00`–`0xDFFF`, aber es ist die erste Codeeinheit im String, oder die vorherige Codeeinheit ist kein führendes Surrogat.
+- Er liegt im Bereich `0xD800`–`0xDBFF` inklusive (d.h. er ist ein führender Surrogat), aber er ist die letzte Codeeinheit im String, oder die nächste Codeeinheit ist kein nachfolgender Surrogat.
+- Er liegt im Bereich `0xDC00`–`0xDFFF` inklusive (d.h. er ist ein nachfolgender Surrogat), aber er ist die erste Codeeinheit im String, oder die vorherige Codeeinheit ist kein führender Surrogat.
 
-Einsame Surrogate stellen kein Unicode-Zeichen dar. Obwohl die meisten eingebauten JavaScript-Methoden sie korrekt behandeln, da sie alle auf UTF-16-Codierungseinheiten basieren, sind alleinstehende Surrogate oft keine gültigen Werte, wenn sie mit anderen Systemen interagieren - zum Beispiel wird [`encodeURI()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) einen {{jsxref("URIError")}} für einsame Surrogate auslösen, da bei der URI-Codierung UTF-8-Codierung verwendet wird, die keine Codierung für einsame Surrogate hat. Strings, die keine einsamen Surrogate enthalten, werden als _wohlgeformte_ Strings bezeichnet und sind sicher mit Funktionen zu verwenden, die nicht mit UTF-16 arbeiten (wie `encodeURI()` oder [`TextEncoder`](/de/docs/Web/API/TextEncoder)). Sie können überprüfen, ob ein String wohlgeformt ist mit der Methode {{jsxref("String/isWellFormed", "isWellFormed()")}}, oder einsame Surrogate mit der Methode {{jsxref("String/toWellFormed", "toWellFormed()")}} bereinigen.
+Einsame Surrogate repräsentieren kein Unicode-Zeichen. Obwohl die meisten eingebauten JavaScript-Methoden sie korrekt behandeln, da sie alle auf UTF-16-Codeeinheiten basieren, sind einsame Surrogate oft keine gültigen Werte beim Interagieren mit anderen Systemen — zum Beispiel wirft [`encodeURI()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) einen {{jsxref("URIError")}} für einsame Surrogate, da die URI-Kodierung UTF-8 verwendet, die keine Kodierung für einsame Surrogate hat. Strings, die keine einsamen Surrogate enthalten, werden als _wohlgeformte_ Strings bezeichnet und können sicher mit Funktionen verwendet werden, die nicht mit UTF-16 (wie `encodeURI()` oder [`TextEncoder`](/de/docs/Web/API/TextEncoder)) arbeiten. Sie können überprüfen, ob ein String wohlgeformt ist, mit der Methode {{jsxref("String/isWellFormed", "isWellFormed()")}} oder einsame Surrogate mit der Methode {{jsxref("String/toWellFormed", "toWellFormed()")}} bereinigen.
 
-Neben Unicode-Zeichen gibt es bestimmte Sequenzen von Unicode-Zeichen, die als eine visuelle Einheit behandelt werden sollten, bekannt als _Graphem-Cluster_. Der häufigste Fall sind Emojis: Viele Emojis, die eine Reihe von Variationen aufweisen, werden tatsächlich durch mehrere Emojis gebildet, üblicherweise verbunden durch das \<ZWJ> (`U+200D`)-Zeichen.
+Neben Unicode-Zeichen gibt es bestimmte Sequenzen von Unicode-Zeichen, die als eine visuelle Einheit behandelt werden sollten, bekannt als _Graphem-Cluster_. Der häufigste Fall sind Emojis: Viele Emojis, die eine Vielzahl von Variationen haben, werden tatsächlich durch mehrere Emojis gebildet, normalerweise verbunden durch den \<ZWJ> (`U+200D`) Charakter.
 
-Sie müssen vorsichtig sein, auf welcher Ebene von Zeichen Sie iterieren. Zum Beispiel wird [`split("")`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) nach UTF-16-Codierungseinheiten aufteilen und Surrogat-Paare trennen. String-Indizes beziehen sich auch auf den Index jeder UTF-16-Codierungseinheit. Andererseits iteriert [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) nach Unicode-Codepunkten. Das Iterieren durch Graphem-Cluster erfordert etwas benutzerdefinierten Code.
+Sie müssen vorsichtig sein, auf welcher Ebene von Zeichen Sie iterieren. Zum Beispiel trennt [`split("")`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) nach UTF-16-Codeeinheiten und wird Surrogate-Paare trennen. String-Indizes beziehen sich auch auf den Index jeder UTF-16-Codeeinheit. Andererseits iteriert [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) auf Unicode-Codepunkten. Das Iterieren von Graphem-Cluster erfordert einige benutzerdefinierte Codes.
 
 ```js
 "😄".split(""); // ['\ud83d', '\ude04']; splits into two lone surrogates
@@ -193,39 +193,39 @@ Sie müssen vorsichtig sein, auf welcher Ebene von Zeichen Sie iterieren. Zum Be
 ## Konstruktor
 
 - {{jsxref("String/String", "String()")}}
-  - : Erstellt `String`-Objekte. Wenn als Funktion aufgerufen, gibt es primitive Werte des Typs String zurück.
+  - : Erstellt `String`-Objekte. Wenn sie als Funktion aufgerufen wird, gibt sie primitive Werte vom Typ String zurück.
 
 ## Statische Methoden
 
 - {{jsxref("String.fromCharCode()")}}
-  - : Gibt einen String zurück, der aus der angegebenen Sequenz von Unicode-Werten erstellt wurde.
+  - : Gibt einen String zurück, der durch die Verwendung der angegebenen Sequenz von Unicode-Werten erstellt wurde.
 - {{jsxref("String.fromCodePoint()")}}
-  - : Gibt einen String zurück, der aus der angegebenen Sequenz von Codepunkten erstellt wurde.
+  - : Gibt einen String zurück, der durch die Verwendung der angegebenen Sequenz von Codepunkten erstellt wurde.
 - {{jsxref("String.raw()")}}
   - : Gibt einen String zurück, der aus einem rohen Template-String erstellt wurde.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `String.prototype` definiert und werden von allen `String`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "String.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `String`-Instanzen ist der Anfangswert der {{jsxref("String/String", "String")}}-Konstruktor.
+  - : Die Konstruktor-Funktion, die das Instanzobjekt erstellt hat. Für `String`-Instanzen ist der Anfangswert der {{jsxref("String/String", "String")}}-Konstruktor.
 
-Diese Eigenschaften sind eigene Eigenschaften jeder `String`-Instanz.
+Diese Eigenschaften sind Eigen-Eigenschaften jeder `String`-Instanz.
 
 - {{jsxref("String/length", "length")}}
-  - : Gibt die `Länge` des Strings wieder. Schreibgeschützt.
+  - : Entspricht der `length` des Strings. Nur lesen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("String.prototype.at()")}}
-  - : Gibt das Zeichen (genau eine UTF-16-Codierungseinheit) am angegebenen `Index` zurück. Akzeptiert negative Ganzzahlen, die vom letzten String-Zeichen zurückzählen.
+  - : Gibt das Zeichen (genau eine UTF-16-Codeeinheit) am angegebenen `index` zurück. Akzeptiert negative ganze Zahlen, die vom letzten Zeichen der Zeichenfolge aus zählen.
 - {{jsxref("String.prototype.charAt()")}}
-  - : Gibt das Zeichen (genau eine UTF-16-Codierungseinheit) an dem angegebenen `Index` zurück.
+  - : Gibt das Zeichen (genau eine UTF-16-Codeeinheit) am angegebenen `index` zurück.
 - {{jsxref("String.prototype.charCodeAt()")}}
-  - : Gibt eine Zahl zurück, die den UTF-16-Codierungseinheit-Wert an dem gegebenen `Index` darstellt.
+  - : Gibt eine Zahl zurück, die dem Wert der UTF-16-Codeeinheit am angegebenen `index` entspricht.
 - {{jsxref("String.prototype.codePointAt()")}}
-  - : Gibt eine nichtnegative Ganzzahlen-Zahl zurück, die den Codepunkt-Wert des UTF-16-codierten Codepunktes am angegebenen `pos` darstellt.
+  - : Gibt eine nichtnegative ganze Zahl zurück, die dem Wert des UTF-16-kodierten Codepunkts entspricht, der an der angegebenen `pos` beginnt.
 - {{jsxref("String.prototype.concat()")}}
   - : Kombiniert den Text von zwei (oder mehr) Strings und gibt einen neuen String zurück.
 - {{jsxref("String.prototype.endsWith()")}}
@@ -233,78 +233,78 @@ Diese Eigenschaften sind eigene Eigenschaften jeder `String`-Instanz.
 - {{jsxref("String.prototype.includes()")}}
   - : Bestimmt, ob der aufrufende String `searchString` enthält.
 - {{jsxref("String.prototype.indexOf()")}}
-  - : Gibt den Index innerhalb dieses Strings der ersten Vorkommen von `searchValue` zurück, oder `-1` wenn nicht gefunden.
+  - : Gibt den Index innerhalb dieses Strings der ersten Vorkommen von `searchValue` oder `-1`, wenn nicht gefunden, zurück.
 - {{jsxref("String.prototype.isWellFormed()")}}
-  - : Gibt einen Boolean zurück, der angibt, ob dieser String [einsame Surrogate](#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
+  - : Gibt einen Boolean zurück, der angibt, ob dieser String keine [einsamen Surrogate](#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
 - {{jsxref("String.prototype.lastIndexOf()")}}
-  - : Gibt den Index innerhalb dieses Strings der letzten Vorkommen von `searchValue` zurück, oder `-1` wenn nicht gefunden.
+  - : Gibt den Index innerhalb dieses Strings der letzten Vorkommen von `searchValue` oder `-1`, wenn nicht gefunden, zurück.
 - {{jsxref("String.prototype.localeCompare()")}}
-  - : Gibt eine Zahl zurück, die angibt, ob der Referenz-String `compareString` vor, nach oder äquivalent zu dem gegebenen String in Sortierreihenfolge steht.
+  - : Gibt eine Zahl zurück, die angibt, ob der Referenzstring `compareString` vor, nach oder gleich dem gegebenen String in der Sortierreihenfolge kommt.
 - {{jsxref("String.prototype.match()")}}
-  - : Wird verwendet, um mit einem regulären Ausdruck `regexp` einen String abzugleichen.
+  - : Wird verwendet, um den regulären Ausdruck `regexp` gegen einen String abzugleichen.
 - {{jsxref("String.prototype.matchAll()")}}
-  - : Gibt einen Iterator für alle Übereinstimmungen von `regexp` zurück.
+  - : Gibt einen Iterator aller Übereinstimmungen von `regexp` zurück.
 - {{jsxref("String.prototype.normalize()")}}
-  - : Gibt die Unicode-Normalisierungsform des aufrufenden Stringwerts zurück.
+  - : Gibt die Unicode-Normalisierungsform des aufrufenden String-Werts zurück.
 - {{jsxref("String.prototype.padEnd()")}}
-  - : Füllt den aktuellen String vom Ende mit einem gegebenen String auf und gibt einen neuen String der Länge `targetLength` zurück.
+  - : Füllt den aktuellen String von hinten mit einem gegebenen String auf und gibt einen neuen String der Länge `targetLength` zurück.
 - {{jsxref("String.prototype.padStart()")}}
-  - : Füllt den aktuellen String vom Anfang mit einem gegebenen String auf und gibt einen neuen String der Länge `targetLength` zurück.
+  - : Füllt den aktuellen String von vorne mit einem gegebenen String auf und gibt einen neuen String der Länge `targetLength` zurück.
 - {{jsxref("String.prototype.repeat()")}}
-  - : Gibt einen String zurück, der aus den Elementen des Objekts besteht, die `count`-Mal wiederholt werden.
+  - : Gibt einen String zurück, der aus den Elementen des Objekts besteht, die `count`-mal wiederholt werden.
 - {{jsxref("String.prototype.replace()")}}
-  - : Wird verwendet, um Vorkommen von `searchFor` durch `replaceWith` zu ersetzen. `searchFor` kann ein String oder ein regulärer Ausdruck sein, und `replaceWith` kann ein String oder eine Funktion sein.
+  - : Wird verwendet, um Vorkommen von `searchFor` mit `replaceWith` zu ersetzen. `searchFor` kann ein String oder ein regulärer Ausdruck sein und `replaceWith` kann ein String oder eine Funktion sein.
 - {{jsxref("String.prototype.replaceAll()")}}
-  - : Wird verwendet, um alle Vorkommen von `searchFor` durch `replaceWith` zu ersetzen. `searchFor` kann ein String oder ein regulärer Ausdruck sein, und `replaceWith` kann ein String oder eine Funktion sein.
+  - : Wird verwendet, um alle Vorkommen von `searchFor` mit `replaceWith` zu ersetzen. `searchFor` kann ein String oder ein regulärer Ausdruck sein und `replaceWith` kann ein String oder eine Funktion sein.
 - {{jsxref("String.prototype.search()")}}
-  - : Suche nach einer Übereinstimmung zwischen einem regulären Ausdruck `regexp` und dem aufrufenden String.
+  - : Sucht nach einer Übereinstimmung zwischen einem regulären Ausdruck `regexp` und dem aufrufenden String.
 - {{jsxref("String.prototype.slice()")}}
   - : Extrahiert einen Abschnitt eines Strings und gibt einen neuen String zurück.
 - {{jsxref("String.prototype.split()")}}
-  - : Gibt ein Array von Strings zurück, das durch Aufteilen des aufrufenden Strings an den Vorkommen des Teilstrings `sep` erzeugt wird.
+  - : Gibt ein Array von Strings zurück, das durch das Teilen des aufrufenden Strings an Vorkommen des Unterstrings `sep` gefüllt wird.
 - {{jsxref("String.prototype.startsWith()")}}
   - : Bestimmt, ob der aufrufende String mit den Zeichen des Strings `searchString` beginnt.
 - {{jsxref("String.prototype.substr()")}} {{deprecated_inline}}
-  - : Gibt einen Teil des Strings zurück, der am angegebenen Index beginnt und sich für eine angegebene Anzahl von Zeichen danach erstreckt.
+  - : Gibt einen Teil des Strings zurück, der am angegebenen Index beginnt und sich über eine bestimmte Anzahl von Zeichen danach erstreckt.
 - {{jsxref("String.prototype.substring()")}}
-  - : Gibt einen neuen String zurück, der Zeichen des aufrufenden Strings von (oder zwischen) dem angegebenen Index (oder den Indizes) enthält.
+  - : Gibt einen neuen String zurück, der die Zeichen des aufrufenden Strings von (oder zwischen) dem angegebenen Index (oder den Indizes) enthält.
 - {{jsxref("String.prototype.toLocaleLowerCase()")}}
 
-  - : Die Zeichen innerhalb eines Strings werden respektvoll zur aktuellen Lokalisierung in Kleinbuchstaben umgewandelt.
+  - : Die Zeichen in einem String werden unter Berücksichtigung der aktuellen lokalen Einstellungen in Kleinbuchstaben umgewandelt.
 
-    Für die meisten Sprachen wird dies dasselbe zurückgeben wie {{jsxref("String/toLowerCase", "toLowerCase()")}}.
+    Für die meisten Sprachen wird das gleiche zurückgegeben wie {{jsxref("String/toLowerCase", "toLowerCase()")}}.
 
 - {{jsxref("String.prototype.toLocaleUpperCase()")}}
 
-  - : Die Zeichen innerhalb eines Strings werden respektvoll zur aktuellen Lokalisierung in Großbuchstaben umgewandelt.
+  - : Die Zeichen in einem String werden unter Berücksichtigung der aktuellen lokalen Einstellungen in Großbuchstaben umgewandelt.
 
-    Für die meisten Sprachen wird dies dasselbe zurückgeben wie {{jsxref("String/toUpperCase", "toUpperCase()")}}.
+    Für die meisten Sprachen wird dasselbe zurückgegeben wie {{jsxref("String/toUpperCase", "toUpperCase()")}}.
 
 - {{jsxref("String.prototype.toLowerCase()")}}
-  - : Gibt den aufrufenden Stringwert in Kleinbuchstaben umgewandelt zurück.
+  - : Gibt den aufrufenden String-Wert in Kleinbuchstaben umgewandelt zurück.
 - {{jsxref("String.prototype.toString()")}}
   - : Gibt einen String zurück, der das angegebene Objekt darstellt. Überschreibt die Methode {{jsxref("Object.prototype.toString()")}}.
 - {{jsxref("String.prototype.toUpperCase()")}}
-  - : Gibt den aufrufenden Stringwert in Großbuchstaben umgewandelt zurück.
+  - : Gibt den aufrufenden String-Wert in Großbuchstaben umgewandelt zurück.
 - {{jsxref("String.prototype.toWellFormed()")}}
-  - : Gibt einen String zurück, bei dem alle [einsamen Surrogate](#utf-16_characters_unicode_code_points_and_grapheme_clusters) dieses Strings durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden.
+  - : Gibt einen String zurück, in dem alle [einsamen Surrogate](#utf-16_characters_unicode_code_points_and_grapheme_clusters) dieses Strings durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden.
 - {{jsxref("String.prototype.trim()")}}
-  - : Entfernt Leerzeichen vom Anfang und Ende des Strings.
+  - : Schneidet Leerzeichen vom Anfang und Ende des Strings ab.
 - {{jsxref("String.prototype.trimEnd()")}}
-  - : Entfernt Leerzeichen vom Ende des Strings.
+  - : Schneidet Leerzeichen vom Ende des Strings ab.
 - {{jsxref("String.prototype.trimStart()")}}
-  - : Entfernt Leerzeichen vom Anfang des Strings.
+  - : Schneidet Leerzeichen vom Anfang des Strings ab.
 - {{jsxref("String.prototype.valueOf()")}}
   - : Gibt den primitiven Wert des angegebenen Objekts zurück. Überschreibt die Methode {{jsxref("Object.prototype.valueOf()")}}.
 - [`String.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator)
-  - : Gibt ein neues Iterator-Objekt zurück, das über die Codepunkte eines String-Werts iteriert, wobei jeder Codepunkt als String-Wert zurückgegeben wird.
+  - : Gibt ein neues Iterator-Objekt zurück, das über die Codepunkte eines String-Wertes iteriert und jeden Codepunkt als String-Wert zurückgibt.
 
 ### HTML-Wrapper-Methoden
 
 > [!WARNING]
 > Veraltet. Vermeiden Sie diese Methoden.
 >
-> Sie sind von begrenztem Nutzen, da sie auf einem sehr alten HTML-Standard basieren und nur einen Teil der derzeit verfügbaren HTML-Tags und Attribute bereitstellen. Viele von ihnen erzeugen heute veraltetes oder nicht standardisiertes Markup. Darüber hinaus führen sie eine String-Konzatenation ohne jegliche Validierung oder Sanierung durch, was sie zu einem potenziellen Sicherheitsrisiko macht, wenn sie direkt über [`innerHTML`](/de/docs/Web/API/Element/innerHTML) eingefügt werden. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Sie sind von begrenztem Nutzen, da sie auf einem sehr alten HTML-Standard basieren und nur einen Teil der derzeit verfügbaren HTML-Tags und Attribute bieten. Viele von ihnen erzeugen heute veraltete oder nicht-standardmäßige Markup. Außerdem führen sie String-Konkatenation ohne jegliche Validierung oder Bereinigung durch, was sie zu einer potenziellen Sicherheitsbedrohung macht, wenn sie direkt mit [`innerHTML`](/de/docs/Web/API/Element/innerHTML) eingefügt werden. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 - {{jsxref("String.prototype.anchor()")}} {{deprecated_inline}}
   - : [`<a name="name">`](/de/docs/Web/HTML/Reference/Elements/a#name) (Hypertext-Ziel)
@@ -333,13 +333,13 @@ Diese Eigenschaften sind eigene Eigenschaften jeder `String`-Instanz.
 - {{jsxref("String.prototype.sup()")}} {{deprecated_inline}}
   - : {{HTMLElement("sup")}}
 
-Beachten Sie, dass diese Methoden nicht überprüfen, ob der String selbst HTML-Tags enthält, sodass es möglich ist, ungültiges HTML zu erzeugen:
+Beachten Sie, dass diese Methoden nicht überprüfen, ob der String selbst HTML-Tags enthält, sodass es möglich ist, ungültiges HTML zu erstellen:
 
 ```js
 "</b>".bold(); // <b></b></b>
 ```
 
-Das einzige Escaping, das sie durchführen, ist das Ersetzen von `"` im Attributwert (für {{jsxref("String/anchor", "anchor()")}}, {{jsxref("String/fontcolor", "fontcolor()")}}, {{jsxref("String/fontsize", "fontsize()")}}, und {{jsxref("String/link", "link()")}}) durch `&quot;`.
+Das einzige Escaping, das sie vornehmen, ist das Ersetzen von `"` im Attributwert (für {{jsxref("String/anchor", "anchor()")}}, {{jsxref("String/fontcolor", "fontcolor()")}}, {{jsxref("String/fontsize", "fontsize()")}} und {{jsxref("String/link", "link()")}}) durch `&quot;`.
 
 ```js
 "foo".anchor('"Hello"'); // <a name="&quot;Hello&quot;">foo</a>
@@ -347,9 +347,9 @@ Das einzige Escaping, das sie durchführen, ist das Ersetzen von `"` im Attribut
 
 ## Beispiele
 
-### String-Konvertierung
+### String-Umwandlung
 
-Die `String()` Funktion ist eine zuverlässigere Methode zur Konvertierung von Werten in Strings als das Aufrufen der `toString()` Methode des Werts, da die erstere auch auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} funktioniert. Zum Beispiel:
+Die Funktion `String()` ist eine zuverlässigere Methode zum Konvertieren von Werten in Strings als der Aufruf der `toString()`-Methode des Wertes, da die erstere funktioniert, wenn sie auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} angewendet wird. Zum Beispiel:
 
 ```js
 // You cannot access properties on null or undefined
@@ -373,5 +373,5 @@ String(undefinedVar); // "undefined"
 
 ## Siehe auch
 
-- Leitfaden zu [Nummern und Strings](/de/docs/Web/JavaScript/Guide/Numbers_and_strings)
+- [Zahlen und Strings](/de/docs/Web/JavaScript/Guide/Numbers_and_strings) Leitfaden
 - {{jsxref("RegExp")}}

@@ -1,16 +1,16 @@
 ---
-title: "Content-Security-Policy: media-src Anweisung"
+title: "Content-Security-Policy: media-src-Direktive"
 short-title: media-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/media-src
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`media-src`** Anweisung legt gültige Quellen für das Laden von
-Medien mit den {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elementen fest.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`media-src`**-Direktive legt gültige Quellen für das Laden
+von Medien unter Verwendung der {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente fest.
 
 <table class="properties">
   <tbody>
@@ -19,14 +19,14 @@ Medien mit den {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elementen f
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Anweisungstyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch directive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>{{Glossary("Fetch_directive", "Abrufdirektive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}}-Fallback</th>
       <td>
-        Ja. Wenn diese Anweisung fehlt, wird der Benutzeragent nach der
-        <code>default-src</code> Anweisung suchen.
+        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
+        <code>default-src</code>-Direktive.
       </td>
     </tr>
   </tbody>
@@ -39,30 +39,28 @@ Content-Security-Policy: media-src 'none';
 Content-Security-Policy: media-src <source-expression-list>;
 ```
 
-Diese Anweisung kann einen der folgenden Werte haben:
+Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Anweisung sind die folgenden Quellausdruckswerte anwendbar:
-
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verstöße
+### Verstoßfälle
 
-Bei diesem CSP-Header:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: media-src https://example.com/
 ```
 
-werden die folgenden {{HTMLElement("audio")}}, {{HTMLElement("video")}} und
-{{HTMLElement("track")}} Elemente blockiert und nicht geladen:
+Die folgenden {{HTMLElement("audio")}}, {{HTMLElement("video")}} und
+{{HTMLElement("track")}}-Elemente werden blockiert und laden nicht:
 
 ```html
 <audio src="https://not-example.com/audio"></audio>

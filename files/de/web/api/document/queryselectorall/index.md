@@ -1,15 +1,14 @@
 ---
-title: "Dokument: querySelectorAll() Methode"
+title: "Dokument: Methode querySelectorAll()"
 short-title: querySelectorAll()
 slug: Web/API/Document/querySelectorAll
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die [`Document`](/de/docs/Web/API/Document)-Methode **`querySelectorAll()`**
-gibt eine statische (nicht live) [`NodeList`](/de/docs/Web/API/NodeList) zurück, die eine Liste der Dokumentelemente darstellt, die mit der angegebenen Gruppe von Selektoren übereinstimmen.
+Die [`Document`](/de/docs/Web/API/Document)-Methode **`querySelectorAll()`** gibt eine statische (nicht live) [`NodeList`](/de/docs/Web/API/NodeList) zurück, die eine Liste der Elemente des Dokuments darstellt, die mit der angegebenen Gruppe von Selektoren übereinstimmen.
 
 ## Syntax
 
@@ -21,18 +20,16 @@ querySelectorAll(selectors)
 
 - `selectors`
 
-  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String
-    muss ein gültiger CSS-Selektor-String sein; wenn er es nicht ist, wird eine `SyntaxError`-Ausnahme
-    ausgelöst.
+  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; wenn er es nicht ist, wird eine `SyntaxError`-Ausnahme ausgelöst.
 
-    Beachten Sie, dass die HTML-Spezifikation nicht erfordert, dass Attributwerte gültige CSS-Bezeichner sind. Wenn ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributwert kein gültiger CSS-Bezeichner ist, müssen Sie ihn vor der Verwendung in einem Selektor entweder mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf dem Wert escapen oder eine der in [Zeichen escapen](/de/docs/Web/CSS/ident#escaping_characters) beschriebenen Techniken anwenden. Siehe [Attributwerte escapen](#attributwerte_escapen) für ein Beispiel.
+    Beachten Sie, dass die HTML-Spezifikation nicht vorschreibt, dass Attributwerte gültige CSS-Identifikatoren sein müssen. Wenn ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributwert kein gültiger CSS-Identifikator ist, müssen Sie ihn vor der Verwendung in einem Selektor entkommen lassen, entweder durch Aufrufen von [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) für den Wert oder durch eine der in [Entkommende Zeichen](/de/docs/Web/CSS/ident#escaping_characters) beschriebenen Techniken. Siehe [Entkommende Attributwerte](#entkommende_attributwerte) für ein Beispiel.
 
 ### Rückgabewert
 
-Eine nicht-live [`NodeList`](/de/docs/Web/API/NodeList), die ein [`Element`](/de/docs/Web/API/Element)-Objekt für jedes Element enthält, das mit mindestens einem der angegebenen Selektoren übereinstimmt, oder eine leere [`NodeList`](/de/docs/Web/API/NodeList) im Falle keiner Übereinstimmungen. Die Elemente sind in Dokumentreihenfolge — das heißt, Eltern vor Kindern, frühere Geschwister vor späteren Geschwistern.
+Eine nicht-live [`NodeList`](/de/docs/Web/API/NodeList), die ein [`Element`](/de/docs/Web/API/Element)-Objekt für jedes Element enthält, das mit mindestens einem der angegebenen Selektoren übereinstimmt, oder eine leere [`NodeList`](/de/docs/Web/API/NodeList) im Falle keiner Übereinstimmungen. Die Elemente sind in Dokumentenreihenfolge, d.h. Eltern vor Kindern, frühere Geschwister vor späteren Geschwistern.
 
 > [!NOTE]
-> Wenn die angegebenen `selectors` ein [CSS-Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) enthalten, ist die zurückgegebene Liste immer leer.
+> Wenn die angegebenen `selectors` ein [CSS-Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) enthalten, ist die zurückgegebene Liste immer leer.
 
 ### Ausnahmen
 
@@ -41,7 +38,7 @@ Eine nicht-live [`NodeList`](/de/docs/Web/API/NodeList), die ein [`Element`](/de
 
 ## Beispiele
 
-### Eine Liste von Übereinstimmungen erhalten
+### Erhalten einer Liste von Übereinstimmungen
 
 Um eine [`NodeList`](/de/docs/Web/API/NodeList) aller {{HTMLElement("p")}}-Elemente im Dokument zu erhalten:
 
@@ -62,24 +59,24 @@ const container = document.querySelector("#test");
 const matches = container.querySelectorAll("div.highlighted > p");
 ```
 
-Dieses Beispiel verwendet einen [Attributselektor](/de/docs/Web/CSS/Attribute_selectors), um eine Liste der {{HTMLElement("iframe")}}-Elemente im Dokument zurückzugeben, die ein Attribut namens `data-src` enthalten:
+Dieses Beispiel verwendet einen [Attributselektor](/de/docs/Web/CSS/Attribute_selectors), um eine Liste von {{HTMLElement("iframe")}}-Elementen im Dokument zurückzugeben, die ein Attribut mit dem Namen `data-src` enthalten:
 
 ```js
 const matches = document.querySelectorAll("iframe[data-src]");
 ```
 
-Hier wird ein Attributselektor verwendet, um eine Liste der Listenelemente innerhalb einer Liste mit der ID `user-list` zurückzugeben, die ein `data-active`-Attribut mit dem Wert `1` haben:
+Hier wird ein Attributselektor verwendet, um eine Liste der Listenelemente zurückzugeben, die sich in einer Liste mit der ID `user-list` befinden und ein `data-active`-Attribut mit dem Wert `1` haben:
 
 ```js
 const container = document.querySelector("#user-list");
 const matches = container.querySelectorAll("li[data-active='1']");
 ```
 
-### Auf die Übereinstimmungen zugreifen
+### Zugriff auf die Übereinstimmungen
 
-Sobald die [`NodeList`](/de/docs/Web/API/NodeList) der übereinstimmenden Elemente zurückgegeben wird, können Sie sie wie jedes Array untersuchen. Wenn das Array leer ist (das heißt, seine `length`-Eigenschaft ist 0), wurden keine Übereinstimmungen gefunden.
+Sobald die [`NodeList`](/de/docs/Web/API/NodeList) der übereinstimmenden Elemente zurückgegeben wurde, können Sie sie wie jedes Array untersuchen. Wenn das Array leer ist (d.h. seine `length`-Eigenschaft ist 0\), wurden keine Übereinstimmungen gefunden.
 
-Andernfalls können Sie die Standard-Array-Notation verwenden, um auf den Inhalt der Liste zuzugreifen. Sie können jede übliche Schleifenanweisung verwenden, wie z.B.:
+Andernfalls können Sie die Standardarray-Notation verwenden, um auf die Inhalte der Liste zuzugreifen. Sie können jede übliche Schleifenanweisung verwenden, wie z.B.:
 
 ```js
 const highlightedItems = userList.querySelectorAll(".highlighted");
@@ -89,13 +86,13 @@ highlightedItems.forEach((userItem) => {
 });
 ```
 
-### Attributwerte escapen
+### Entkommende Attributwerte
 
-Dieses Beispiel zeigt, dass wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) ist, wir den Attributwert escapen müssen, bevor wir ihn in `querySelectorAll()` verwenden.
+Dieses Beispiel zeigt, dass, wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Identifikator](/de/docs/Web/CSS/ident) ist, wir den Attributwert vor der Verwendung in `querySelectorAll()` entkommen lassen müssen.
 
 #### HTML
 
-In dem folgenden Code hat ein {{htmlelement("div")}}-Element eine `id` von `"this?element"`, die kein gültiger CSS-Bezeichner ist, da das Zeichen `"?"` in CSS-Bezeichnern nicht erlaubt ist.
+Im folgenden Code hat ein {{htmlelement("div")}}-Element eine `id` von `"this?element"`, die kein gültiger CSS-Identifikator ist, da das Zeichen `"?"` in CSS-Identifikatoren nicht erlaubt ist.
 
 Wir haben auch drei Schaltflächen und ein {{htmlelement("pre")}}-Element zum Protokollieren von Fehlern.
 
@@ -122,11 +119,11 @@ div {
 
 #### JavaScript
 
-Alle drei Schaltflächen versuchen beim Klicken, das `<div>` auszuwählen und dann dessen Hintergrundfarbe zufällig zu ändern.
+Alle drei Schaltflächen versuchen bei Klick, das `<div>` auszuwählen und dann die Hintergrundfarbe auf einen zufälligen Wert zu setzen.
 
 - Die erste Schaltfläche verwendet den Wert `"this?element"` direkt.
-- Die zweite Schaltfläche escaped den Wert mithilfe von [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
-- Die dritte Schaltfläche escaped explizit das Zeichen `"?"` mithilfe eines Backslashes. Beachten Sie, dass wir den Backslash selbst auch mit einem weiteren Backslash escapen müssen, wie: `"\\?"`.
+- Die zweite Schaltfläche lässt den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) entkommen.
+- Die dritte Schaltfläche entkommt dem `"?"`-Zeichen explizit mit einem Backslash. Beachten Sie, dass wir auch den Backslash selbst mit einem weiteren Backslash entkommen lassen müssen, wie: `"\\?"`.
 
 ```js
 const log = document.querySelector("#log");
@@ -162,7 +159,7 @@ document.querySelector("#manual-escape").addEventListener("click", () => {
 
 #### Ergebnis
 
-Beim Klicken auf die erste Schaltfläche wird ein Fehler angezeigt, während die zweite und dritte Schaltfläche ordnungsgemäß funktionieren.
+Das Klicken auf die erste Schaltfläche führt zu einem Fehler, während die zweite und dritte Schaltfläche ordnungsgemäß funktionieren.
 
 {{embedlivesample("escaping_attribute_values", "", 200)}}
 
@@ -176,10 +173,9 @@ Beim Klicken auf die erste Schaltfläche wird ein Fehler angezeigt, während die
 
 ## Siehe auch
 
-- [DOM-Elemente mit Selektoren lokalisieren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
-- [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) im CSS Leitfaden
-- [Attributselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) im MDN Learning Area
+- [Auffinden von DOM-Elementen mit Selektoren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
+- [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) im CSS-Leitfaden
+- [Attributselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) im MDN Lernbereich
 - [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector) und [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector)
-- [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector) und
-  [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll)
+- [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector) und [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll)

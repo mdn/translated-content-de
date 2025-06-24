@@ -1,15 +1,14 @@
 ---
-title: "GravitySensor: GravitySensor() Konstruktor"
+title: "GravitySensor: GravitySensor()-Konstruktor"
 short-title: GravitySensor()
 slug: Web/API/GravitySensor/GravitySensor
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`GravitySensor()`**
-Konstruktor erstellt ein neues [`GravitySensor`](/de/docs/Web/API/GravitySensor) Objekt, das bei jedem Lesevorgang die auf das Gerät wirkende Schwerkraft entlang aller drei Achsen bereitstellt.
+Der **`GravitySensor()`**-Konstruktor erstellt ein neues [`GravitySensor`](/de/docs/Web/API/GravitySensor)-Objekt, das bei jedem Abruf die auf das Gerät wirkende Schwerkraft entlang aller drei Achsen bereitstellt.
 
 ## Syntax
 
@@ -21,11 +20,9 @@ new GravitySensor(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Die Optionen sind wie folgt:
-
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Messungen pro Sekunde, was bedeutet, wie oft pro Sekunde das [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis aufgerufen wird. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, letzterer für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Gerätehardware ab und kann folglich geringer als angefordert sein. Die Standardfrequenz ist diejenige, die durch die zugrunde liegende Plattform definiert ist.
+      - : Gibt die gewünschte Anzahl an Abtastungen pro Sekunde an, d.h. die Anzahl der Aufrufe des [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignisses pro Sekunde. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, letztere für Frequenzen von weniger als einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann somit geringer sein als die angeforderte Frequenz. Die Standardfrequenz ist die, die von der zugrunde liegenden Plattform definiert wird.
     - `referenceFrame` {{optional_inline}}
       - : Das lokale Koordinatensystem, das den Referenzrahmen darstellt. Es kann entweder `'device'` oder `'screen'` sein. Der Standardwert ist `'device'`.
 
@@ -44,4 +41,4 @@ new GravitySensor(options)
 
 ## Siehe auch
 
-- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis

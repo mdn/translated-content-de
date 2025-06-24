@@ -1,14 +1,14 @@
 ---
-title: "DOMMatrixReadOnly: DOMMatrixReadOnly() Konstruktor"
+title: "DOMMatrixReadOnly: DOMMatrixReadOnly()-Konstruktor"
 short-title: DOMMatrixReadOnly()
 slug: Web/API/DOMMatrixReadOnly/DOMMatrixReadOnly
 l10n:
-  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Der **`DOMMatrixReadOnly`** Konstruktor erstellt ein neues [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Objekt, das 4x4 Matrizen repräsentiert und sich für 2D- und 3D-Operationen eignet.
+Der **`DOMMatrixReadOnly`**-Konstruktor erstellt ein neues [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Objekt, das 4x4-Matrizen repräsentiert und für 2D- und 3D-Operationen geeignet ist.
 
 ## Syntax
 
@@ -21,12 +21,12 @@ DOMMatrixReadOnly(init)
 
 - `init` {{optional_inline}}
 
-  - : Entweder ein String, der eine Sequenz von Zahlen enthält, oder ein Array von Zahlen, das die gewünschte Matrix angibt.
+  - : Entweder ein String, der eine Folge von Zahlen enthält, oder ein Array von Zahlen, die die Matrix spezifizieren, die Sie erstellen möchten.
 
-    Wenn ein Array von Zahlen übergeben wird, hängt das Verhalten von der Länge des Arrays ab:
+    Falls ein Array von Zahlen übergeben wird, hängt das Verhalten von der Länge des Arrays ab:
 
-    - Für ein Array mit 6 Elementen in der Form `[a, b, c, d, e, f]` wird eine 2D-Read-Only-Matrix erstellt, die mit den bereitgestellten Komponenten initialisiert wird.
-    - Für ein Array mit 16 Elementen (in der Spalten-major-Ordnung) in der Form `[m11, m12, m13, …, m42, m43, m44]` wird eine 3D-Read-Only-Matrix erstellt, die mit den bereitgestellten Komponenten initialisiert wird.
+    - Für ein Array mit 6 Elementen in der Form `[a, b, c, d, e, f]` wird eine 2D-Read-only-Matrix erstellt, die mit den angegebenen Komponenten initialisiert wird.
+    - Für ein Array mit 16 Elementen in (spaltenweiser Reihenfolge) in der Form `[m11, m12, m13, …, m42, m43, m44]` wird eine 3D-Read-only-Matrix erstellt, die mit den angegebenen Komponenten initialisiert wird.
 
 ## Spezifikationen
 

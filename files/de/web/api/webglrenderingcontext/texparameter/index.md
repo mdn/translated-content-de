@@ -1,15 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode texParameter[fi]()"
+title: "WebGLRenderingContext: texParameter[fi]() Methode"
 short-title: texParameter[fi]()
 slug: Web/API/WebGLRenderingContext/texParameter
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.texParameter[fi]()`** Methoden des
-[WebGL-API](/de/docs/Web/API/WebGL_API) setzen Texturparameter.
+Die **`WebGLRenderingContext.texParameter[fi]()`** Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) setzen Textureinstellungen.
 
 ## Syntax
 
@@ -22,12 +21,12 @@ texParameteri(target, pname, param)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Target) angibt. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP`: Eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP`: Eine Würfelkarten-Textur.
 
-    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
@@ -38,7 +37,7 @@ texParameteri(target, pname, param)
     [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Wert für den angegebenen Parameter angibt.
 
 - `pname`
-  - : Der `pname`-Parameter ist ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den einzustellenden Texturparameter angibt.
+  - : Der `pname`-Parameter ist ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welcher Textureparameter gesetzt werden soll.
 
 <table class="standard-table">
   <thead>
@@ -54,12 +53,12 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MAG_FILTER</code></td>
-      <td>Texturvergrößerungsfilter</td>
+      <td>Textur-Magnifikationsfilter</td>
       <td><code>gl.LINEAR</code> (Standardwert), <code>gl.NEAREST</code>.</td>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MIN_FILTER</code></td>
-      <td>Texturminimierungsfilter</td>
+      <td>Textur-Minifikationsfilter</td>
       <td>
         <code>gl.LINEAR</code>, <code>gl.NEAREST</code>,
         <code>gl.NEAREST_MIPMAP_NEAREST</code>,
@@ -70,7 +69,7 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_WRAP_S</code></td>
-      <td>Wickelfunktion für Texturkoordinate <code>s</code></td>
+      <td>Wicklungsfunktion für Texturkoordinate <code>s</code></td>
       <td>
         <code>gl.REPEAT</code> (Standardwert), <code>gl.CLAMP_TO_EDGE</code>,
         <code>gl.MIRRORED_REPEAT</code>.
@@ -78,7 +77,7 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_WRAP_T</code></td>
-      <td>Wickelfunktion für Texturkoordinate <code>t</code></td>
+      <td>Wicklungsfunktion für Texturkoordinate <code>t</code></td>
       <td>
         <code>gl.REPEAT</code> (Standardwert), <code>gl.CLAMP_TO_EDGE</code>,
         <code>gl.MIRRORED_REPEAT</code>.
@@ -96,12 +95,12 @@ texParameteri(target, pname, param)
       <td>Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) Wert.</td>
     </tr>
     <tr>
-      <th colspan="3">Zusätzlich verfügbar bei Verwendung eines WebGL 2 Kontexts</th>
+      <th colspan="3">Zusätzlich verfügbar bei Verwendung eines WebGL 2-Kontexts</th>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_BASE_LEVEL</code></td>
       <td>Textur-Mipmap-Level</td>
-      <td>Beliebige int-Werte.</td>
+      <td>Beliebige Ganzzahlen.</td>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_COMPARE_FUNC</code></td>
@@ -122,22 +121,22 @@ texParameteri(target, pname, param)
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MAX_LEVEL</code></td>
-      <td>Maximales Textur-Mipmap-Array-Level</td>
-      <td>Beliebige int-Werte.</td>
+      <td>Maximale Textur-Mipmap-Array-Ebene</td>
+      <td>Beliebige Ganzzahlen.</td>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MAX_LOD</code></td>
-      <td>Maximaler Detailgradwert der Textur</td>
-      <td>Beliebige float-Werte.</td>
+      <td>Maximaler Level-of-Detail-Wert der Textur</td>
+      <td>Beliebige Gleitkommazahlen.</td>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_MIN_LOD</code></td>
-      <td>Minimaler Detailgradwert der Textur</td>
-      <td>Beliebige float-Werte.</td>
+      <td>Minimaler Level-of-Detail-Wert der Textur</td>
+      <td>Beliebige Gleitkommazahlen.</td>
     </tr>
     <tr>
       <td><code>gl.TEXTURE_WRAP_R</code></td>
-      <td>Wickelfunktion für Texturkoordinate <code>r</code></td>
+      <td>Wicklungsfunktion für Texturkoordinate <code>r</code></td>
       <td>
         <code>gl.REPEAT</code> (Standardwert), <code>gl.CLAMP_TO_EDGE</code>,
         <code>gl.MIRRORED_REPEAT</code>.
@@ -148,7 +147,7 @@ texParameteri(target, pname, param)
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

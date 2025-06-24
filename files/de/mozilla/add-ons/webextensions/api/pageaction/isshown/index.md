@@ -2,7 +2,7 @@
 title: pageAction.isShown()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/isShown
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -22,15 +22,13 @@ let gettingIsShown = browser.pageAction.isShown(
 ### Parameter
 
 - `details`
-
-  - : `object`. Ein Objekt, das die `tabId` zum Überprüfen enthält.
-
+  - : `object`. Ein Objekt, das die zu überprüfende `tabId` enthält.
     - `tabId`
       - : `integer`. ID des zu überprüfenden Tabs.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Seitenaktion der Erweiterung für den angegebenen Tab angezeigt wird, und mit `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Seitenaktion der Erweiterung für den angegebenen Tab angezeigt wird, und ansonsten mit `false`.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +36,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Überprüfen Sie den Status des aktuell aktiven Tabs:
+Überprüfen Sie den Status des derzeit aktiven Tabs:
 
 ```js
 async function shownInActiveTab() {

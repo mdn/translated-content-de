@@ -3,7 +3,7 @@ title: "WebGLRenderingContext: getRenderbufferParameter()-Methode"
 short-title: getRenderbufferParameter()
 slug: Web/API/WebGLRenderingContext/getRenderbufferParameter
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
@@ -20,52 +20,48 @@ getRenderbufferParameter(target, pname)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Zielrenderbuffer-Objekt spezifiziert. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel-Renderbuffer-Objekt spezifiziert. Mögliche Werte:
     - `gl.RENDERBUFFER`
-      - : Buffer-Datenspeicher für einzelne Bilder in einem renderbaren internen Format.
+      - : Puffer-Datenspeicher für Einzelbilder in einem renderbaren internen Format.
 
 - `pname`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragende Information festlegt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragenden Informationen spezifiziert. Mögliche Werte:
 
     - `gl.RENDERBUFFER_WIDTH`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Breite des Bildes des aktuell gebundenen Renderbuffers angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Breite des Bildes des aktuell gebundenen Renderbuffers angibt.
     - `gl.RENDERBUFFER_HEIGHT`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Höhe des Bildes des aktuell gebundenen Renderbuffers angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Höhe des Bildes des aktuell gebundenen Renderbuffers angibt.
     - `gl.RENDERBUFFER_INTERNAL_FORMAT`
 
-      - : Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der das interne Format des aktuell gebundenen Renderbuffers angibt. Der Standard ist `gl.RGBA4`. Mögliche Rückgabewerte:
-
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das das interne Format des aktuell gebundenen Renderbuffers angibt. Der Standard ist `gl.RGBA4`. Mögliche Rückgabewerte:
         - `gl.RGBA4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alpha-Bits.
         - `gl.RGB565`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
         - `gl.RGB5_A1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alpha-Bit.
         - `gl.DEPTH_COMPONENT16`: 16 Tiefen-Bits.
-        - `gl.STENCIL_INDEX8`: 8 Stencil-Bits.
+        - `gl.STENCIL_INDEX8`: 8 Schablonen-Bits.
 
     - `gl.RENDERBUFFER_GREEN_SIZE`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für die grüne Farbe ist.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die grüne Farbe ist.
     - `gl.RENDERBUFFER_BLUE_SIZE`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für die blaue Farbe ist.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die blaue Farbe ist.
     - `gl.RENDERBUFFER_RED_SIZE`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für die rote Farbe ist.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die rote Farbe ist.
     - `gl.RENDERBUFFER_ALPHA_SIZE`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für den Alpha-Kanal ist.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Alpha-Komponente ist.
     - `gl.RENDERBUFFER_DEPTH_SIZE`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für den Tiefen-Kanal ist.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Tiefenkomponente ist.
     - `gl.RENDERBUFFER_STENCIL_SIZE`
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Schablonen-Komponente ist.
 
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für den Stencil-Kanal ist.
-
-    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
-    steht zusätzlich der folgende Wert zur Verfügung:
+    Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext) ist zusätzlich der folgende Wert verfügbar:
 
     - `gl.RENDERBUFFER_SAMPLES`
-      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Anzahl der Samples des Bildes des aktuell gebundenen Renderbuffers angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der Proben des Bildes des aktuell gebundenen Renderbuffers angibt.
 
 ### Rückgabewert
 
-Hängt von den angeforderten Informationen ab (wie mit `pname` spezifiziert). Entweder ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
+Abhängig von den angeforderten Informationen (wie mit `pname` spezifiziert). Entweder ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 

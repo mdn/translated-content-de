@@ -2,7 +2,7 @@
 title: Ungültiger Selektor
 slug: Web/WebDriver/Reference/Errors/InvalidSelector
 l10n:
-  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 Der **ungültige Selektor**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein Befehl zur Elementabfrage mit einer unbekannten [Webelement](/de/docs/Web/WebDriver/Reference/WebElement)-Selektorstrategie verwendet wird.
@@ -14,8 +14,7 @@ Die verfügbaren Selektorstrategien sind [CSS](/de/docs/Web/WebDriver/Reference/
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors)
 - [WebElement](/de/docs/Web/WebDriver/Reference/WebElement)
 - Befehle zur Elementabfrage:
-
-  - [Element finden](/de/docs/Web/WebDriver/Reference/Commands/FindElement)
-  - [Elemente finden](/de/docs/Web/WebDriver/Reference/Commands/FindElements)
-  - [Element aus Element finden](/de/docs/Web/WebDriver/Reference/Commands/FindElementFromElement)
-  - [Elemente aus Element finden](/de/docs/Web/WebDriver/Reference/Commands/FindElementsFromElement)
+  - [Find Element](/de/docs/Web/WebDriver/Reference/Commands/FindElement)
+  - [Find Elements](/de/docs/Web/WebDriver/Reference/Commands/FindElements)
+  - [Find Element From Element](/de/docs/Web/WebDriver/Reference/Commands/FindElementFromElement)
+  - [Find Elements From Element](/de/docs/Web/WebDriver/Reference/Commands/FindElementsFromElement)

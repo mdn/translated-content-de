@@ -1,16 +1,16 @@
 ---
-title: "FileSystemFileHandle: Methode createWritable()"
+title: "FileSystemFileHandle: createWritable() Methode"
 short-title: createWritable()
 slug: Web/API/FileSystemFileHandle/createWritable
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`createWritable()`**-Methode der [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Schnittstelle erzeugt einen [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream), der zum Schreiben in eine Datei verwendet werden kann. Die Methode gibt ein {{jsxref('Promise')}} zurück, das zu diesem erstellten Stream aufgelöst wird.
+Die **`createWritable()`** Methode der [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) Schnittstelle erstellt einen [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream), der verwendet werden kann, um in eine Datei zu schreiben. Die Methode gibt ein {{jsxref('Promise')}} zurück, das sich zu diesem erstellten Stream auflöst.
 
-Änderungen, die über den Stream vorgenommen werden, werden in der durch den File-Handle vertretenen Datei erst sichtbar, wenn der Stream geschlossen wurde. Dies wird typischerweise implementiert, indem Daten in eine temporäre Datei geschrieben werden, und erst wenn der schreibbare Dateistream geschlossen wird, wird die durch den File-Handle vertretene Datei durch die temporäre Datei ersetzt.
+Jegliche Änderungen, die über den Stream vorgenommen werden, werden nicht in der Datei widergespiegelt, die durch den Dateihandle dargestellt wird, bis der Stream geschlossen wurde. Dies wird typischerweise implementiert, indem Daten in eine temporäre Datei geschrieben werden, und die Datei, die durch den Dateihandle repräsentiert wird, erst durch die temporäre Datei ersetzt wird, wenn der schreibfähige Dateistream geschlossen ist.
 
 ## Syntax
 
@@ -22,40 +22,39 @@ createWritable(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `keepExistingData` {{optional_inline}}
-      - : Ein {{jsxref('Boolean')}}. Standardmäßig `false`.
-        Wenn auf `true` gesetzt, wird, falls die Datei existiert, die bestehende Datei zunächst in die temporäre Datei kopiert. Andernfalls beginnt die temporäre Datei leer.
+      - : Ein {{jsxref('Boolean')}}. Standardwert ist `false`.
+        Wenn auf `true` gesetzt, wird, falls die Datei existiert, die bestehende Datei zuerst in die temporäre Datei kopiert.
+        Andernfalls ist die temporäre Datei zu Beginn leer.
     - `mode` {{optional_inline}} {{non-standard_inline}}
-      - : Eine Zeichenkette, die den Sperrmodus für den schreibbaren Dateistream angibt. Der Standardwert ist `"siloed"`.
+      - : Ein String, der den Sperrmodus für den schreibfähigen Dateistream angibt. Der Standardwert ist `"siloed"`.
         Mögliche Werte sind:
         - `"exclusive"`
-          - : Es kann nur ein `FileSystemWritableFileStream`-Schreiber geöffnet werden. Der Versuch, nachfolgende Schreiber zu öffnen, bevor der erste Schreiber geschlossen ist, führt zu einer `NoModificationAllowedError`-Ausnahme.
+          - : Nur ein `FileSystemWritableFileStream` Schreiber kann geöffnet werden. Der Versuch, nachfolgende Schreiber zu öffnen, bevor der erste Schreiber geschlossen ist, führt zu einer `NoModificationAllowedError` Ausnahme.
         - `"siloed"`
-          - : Mehrere `FileSystemWritableFileStream`-Schreiber können gleichzeitig geöffnet werden, jeder mit seiner eigenen Swap-Datei, beispielsweise wenn dieselbe App in mehreren Tabs verwendet wird. Der zuletzt eröffnete Schreiber hat seine Daten geschrieben, da die Daten bei jedem Schließen eines Schreibers geflutet werden.
+          - : Mehrere `FileSystemWritableFileStream` Schreiber können gleichzeitig geöffnet werden, jeder mit seiner eigenen Swap-Datei, zum Beispiel wenn dieselbe App in mehreren Tabs verwendet wird. Der zuletzt geöffnete Schreiber hat seine Daten geschrieben, da die Daten gespült werden, wenn jeder Schreiber geschlossen wird.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das zu einem [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Objekt aufgelöst wird.
+Ein {{jsxref('Promise')}}, das sich zu einem [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream) Objekt auflöst.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle nicht `'granted'` im `readwrite`-Modus ist.
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `readwrite` Modus nicht `'granted'` ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Browser nicht in der Lage ist, eine Sperre auf die dem File-Handle zugeordnete Datei zu erlangen. Dies könnte daran liegen, dass `mode` auf `exclusive` gesetzt ist und ein Versuch unternommen wird, mehrere Schreiber gleichzeitig zu öffnen.
+  - : Wird ausgelöst, wenn der Browser nicht in der Lage ist, eine Sperre für die Datei zu erwerben, die mit dem Dateihandle verknüpft ist. Dies könnte geschehen, weil `mode` auf `exclusive` gesetzt ist und versucht wird, mehrere Schreiber gleichzeitig zu öffnen.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn benutzerdefinierte Malware-Scans und Sicherheitsbrowser-Überprüfungen fehlschlagen.
+  - : Wird ausgelöst, wenn implementation-definierte Malware-Scans und Safe-Browsing-Überprüfungen fehlschlagen.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Die folgende asynchrone Funktion schreibt den angegebenen Inhalt in das Dateihandle und somit auf die Festplatte.
+Die folgende asynchrone Funktion schreibt die angegebenen Inhalte in den Dateihandle und somit auf die Festplatte.
 
 ```js
 async function writeFile(fileHandle, contents) {
@@ -72,17 +71,17 @@ async function writeFile(fileHandle, contents) {
 
 ### Erweiterte Verwendung mit Optionen
 
-Unser Beispiel [`createWritable()` mode test](https://createwritable-mode-test.glitch.me/) bietet einen {{htmlelement("button")}}, um eine Datei zum Schreiben auszuwählen, ein Text-{{htmlelement("input")}}-Feld, in das Sie einen Text zum Schreiben in die Datei eingeben können, und einen zweiten `<button>`, um den Text in die Datei zu schreiben.
+Unser [Beispiel zum Testen des `createWritable()` Modus](https://createwritable-mode-test.glitch.me/) bietet einen {{htmlelement("button")}}, um eine Datei auszuwählen, in die geschrieben werden soll, ein Textfeld {{htmlelement("input")}}, in das Sie Text eingeben können, der in die Datei geschrieben werden soll, und einen zweiten `<button>`, um den Text in die Datei zu schreiben.
 
-Im obigen Demo-Vorgang probieren Sie aus, eine Textdatei auf Ihrem Dateisystem auszuwählen (oder einen neuen Dateinamen einzugeben), einen Text in das Eingabefeld einzugeben und den Text in die Datei zu schreiben. Öffnen Sie die Datei auf Ihrem Dateisystem, um zu überprüfen, ob das Schreiben erfolgreich war.
+Versuchen Sie im obigen Demo, eine Textdatei auf Ihrem Dateisystem auszuwählen (oder einen neuen Dateinamen einzugeben), Text in das Eingabefeld einzugeben und den Text in die Datei zu schreiben. Öffnen Sie die Datei auf Ihrem Dateisystem, um zu überprüfen, ob das Schreiben erfolgreich war.
 
-Öffnen Sie auch die Seite gleichzeitig in zwei Browser-Tabs. Wählen Sie eine Datei zum Schreiben im ersten Tab aus und versuchen Sie dann sofort, dieselbe Datei im zweiten Tab zum Schreiben auszuwählen. Sie sollten eine Fehlermeldung erhalten, da wir `mode: "exclusive"` im `createWritable()`-Aufruf eingestellt haben.
+Versuchen Sie auch, die Seite gleichzeitig in zwei Browser-Tabs zu öffnen. Wählen Sie im ersten Tab eine Datei zum Schreiben aus, und versuchen Sie dann sofort, dieselbe Datei im zweiten Tab auszuwählen. Sie sollten eine Fehlermeldung erhalten, weil wir `mode: "exclusive"` in dem `createWritable()` Aufruf gesetzt haben.
 
-Nachfolgend werden wir den Code erkunden.
+Im Folgenden werden wir den Code untersuchen.
 
 #### HTML
 
-Die zwei {{htmlelement("button")}}-Elemente und das Text-{{htmlelement("input")}}-Feld sehen folgendermaßen aus:
+Die beiden {{htmlelement("button")}} Elemente und das Textfeld {{htmlelement("input")}} sehen wie folgt aus:
 
 ```html
 <ol>
@@ -100,7 +99,7 @@ Die zwei {{htmlelement("button")}}-Elemente und das Text-{{htmlelement("input")}
 </ol>
 ```
 
-Das Texteingabefeld und der Schreibtext-Button sind anfänglich über das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)-Attribut deaktiviert — sie sollen nicht verwendet werden, bis der Benutzer eine Datei zum Schreiben ausgewählt hat.
+Das Texteingabefeld und der Schreibtext-Button sind anfangs über das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) Attribut deaktiviert — sie sollten erst verwendet werden, nachdem der Benutzer eine Datei zum Schreiben ausgewählt hat.
 
 ```css hidden
 li {
@@ -110,7 +109,7 @@ li {
 
 #### JavaScript
 
-Wir beginnen mit dem Erfassen von Referenzen auf den Dateiauswahl-Button, den Schreibtext-Button und das Texteingabefeld. Wir deklarieren auch eine globale Variable `writableStream`, die eine Referenz auf den schreibbaren Stream speichern wird, um den Text in die Datei zu schreiben, sobald dieser erstellt wurde. Wir setzen ihn zunächst auf `null`.
+Wir beginnen damit, Verweise auf den Datei-Auswahl-Button, den Schreibtext-Button und das Texteingabefeld zu erfassen. Wir deklarieren auch eine globale Variable `writableStream`, die einen Verweis auf den schreibfähigen Stream speichert, um den Text in die Datei zu schreiben, sobald er erstellt wurde. Zunächst setzen wir sie auf `null`.
 
 ```js
 const selectBtn = document.querySelector(".select");
@@ -120,14 +119,14 @@ const fileText = document.querySelector("#file-text");
 let writableStream = null;
 ```
 
-Als nächstes erstellen wir eine asynchrone Funktion namens `selectFile()`, die wir aufrufen, wenn der Auswahl-Button gedrückt wird. Diese verwendet die [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker)-Methode, um dem Benutzer einen Dateiauswahldialog anzuzeigen und ein Dateihandle für die von ihm gewählte Datei zu erstellen. An diesem Handle rufen wir die `createWritable()`-Methode auf, um einen Stream zu erstellen, um den Text in die ausgewählte Datei zu schreiben. Sollte der Aufruf fehlschlagen, protokollieren wir einen Fehler in der Konsole.
+Als Nächstes erstellen wir eine asynchrone Funktion namens `selectFile()`, die wir aufrufen, wenn der Auswahl-Button gedrückt wird. Diese verwendet die Methode [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker), um dem Benutzer einen Dateiauswahldialog anzuzeigen und einen Dateihandle für die von ihm gewählte Datei zu erstellen. Auf diesem Handle rufen wir die `createWritable()` Methode auf, um einen Stream zu erstellen, der den Text in die ausgewählte Datei schreibt. Wenn der Aufruf fehlschlägt, protokollieren wir einen Fehler in der Konsole.
 
-Wir übergeben `createWritable()` ein Optionsobjekt, das die folgenden Optionen enthält:
+Wir übergeben `createWritable()` ein Optionsobjekt mit folgenden Optionen:
 
-- `keepExistingData: true`: Wenn die ausgewählte Datei bereits existiert, werden die darin enthaltenen Daten vor Beginn des Schreibens in die temporäre Datei kopiert.
-- `mode: "exclusive"`: Gibt an, dass nur ein Schreiber gleichzeitig auf das Dateihandle geöffnet sein kann. Wenn ein zweiter Benutzer das Beispiel lädt und versucht, eine Datei auszuwählen, erhält er eine Fehlermeldung.
+- `keepExistingData: true`: Wenn die ausgewählte Datei bereits existiert, werden die darin enthaltenen Daten in die temporäre Datei kopiert, bevor das Schreiben beginnt.
+- `mode: "exclusive"`: Gibt an, dass nur ein Schreiber gleichzeitig auf dem Dateihandle geöffnet sein kann. Wenn ein zweiter Benutzer das Beispiel lädt und versucht, eine Datei auszuwählen, erhält er einen Fehler.
 
-Zuletzt aktivieren wir das Eingabefeld und den Schreibtext-Button, da diese für den nächsten Schritt benötigt werden, und deaktivieren den Dateiauswahl-Button (dies wird derzeit nicht benötigt).
+Zuletzt aktivieren wir das Eingabefeld und den Schreibtext-Button, da sie für den nächsten Schritt benötigt werden, und deaktivieren den Datei-Auswahl-Button (dies wird derzeit nicht benötigt).
 
 ```js
 async function selectFile() {
@@ -157,7 +156,7 @@ async function selectFile() {
 }
 ```
 
-Unsere nächste Funktion, `writeFile()`, schreibt den in das Eingabefeld eingegebenen Text mithilfe von [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write) in die ausgewählte Datei und leert dann das Eingabefeld. Anschließend schließen wir den schreibbaren Stream mit [`WritableStream.close()`](/de/docs/Web/API/WritableStream/close) und setzen das Demo zurück, sodass es erneut ausgeführt werden kann — die `disabled`-Zustände der Steuerelemente werden auf ihre ursprünglichen Zustände zurückgeschaltet und die Variable `writableStream` wird wieder auf `null` gesetzt.
+Unsere nächste Funktion, `writeFile()`, schreibt den in das Eingabefeld eingegebenen Text in die ausgewählte Datei mittels [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write), und leert dann das Eingabefeld. Dann schließen wir den schreibfähigen Stream mit [`WritableStream.close()`](/de/docs/Web/API/WritableStream/close) und setzen die Demo zurück, sodass sie erneut ausgeführt werden kann — die `disabled` Zustände der Steuerelemente werden in ihre ursprünglichen Zustände zurückgesetzt, und die `writableStream` Variable wird wieder auf `null` gesetzt.
 
 ```js
 async function writeFile() {
@@ -178,7 +177,7 @@ async function writeFile() {
 }
 ```
 
-Um das Demo zum Laufen zu bringen, setzen wir Ereignis-Listener an den Buttons, sodass die entsprechende Funktion ausgeführt wird, wenn jeder von ihnen angeklickt wird.
+Um die Demo zum Laufen zu bringen, setzen wir Ereignislistener auf die Buttons, sodass die entsprechende Funktion ausgeführt wird, wenn jeder Button geklickt wird.
 
 ```js
 selectBtn.addEventListener("click", selectFile);
@@ -195,5 +194,5 @@ writeBtn.addEventListener("click", writeFile);
 
 ## Siehe auch
 
-- [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Dateisystem-API](/de/docs/Web/API/File_System_API)
+- [Die File System Access API: Zugriff auf lokale Dateien vereinfachen](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

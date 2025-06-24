@@ -2,14 +2,14 @@
 title: <input type="radio">
 slug: Web/HTML/Reference/Elements/input/radio
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{HTMLSidebar}}
 
-{{htmlelement("input")}}-Elemente vom Typ **`radio`** werden normalerweise in **Radiogruppen** verwendet – Sammlungen von Optionsfeldern, die eine Reihe verwandter Optionen beschreiben.
+{{htmlelement("input")}}-Elemente des Typs **`radio`** werden im Allgemeinen in **Radiogruppen** verwendet – Sammlungen von Optionsfeldern, die eine Reihe verwandter Optionen beschreiben.
 
-In einer bestimmten Radiogruppe kann immer nur ein Optionsfeld ausgewählt werden. Optionsfelder werden typischerweise als kleine Kreise angezeigt, die ausgefüllt oder hervorgehoben werden, wenn sie ausgewählt sind.
+In einer gegebenen Gruppe kann nur ein Optionsfeld gleichzeitig ausgewählt werden. Optionsfelder werden typischerweise als kleine Kreise dargestellt, die gefüllt oder hervorgehoben werden, wenn sie ausgewählt sind.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;radio&quot;&gt;", "tabbed-standard")}}
 
@@ -47,25 +47,25 @@ input {
 }
 ```
 
-Sie werden als Optionsfelder bezeichnet, weil sie ähnlich aussehen und funktionieren wie die Drucktasten auf altmodischen Radios, wie das unten gezeigte.
+Sie werden Radiobuttons genannt, weil sie ähnlich funktionieren wie die Drucktasten alter Radios, wie das unten gezeigte.
 
-![Zeigt, wie Optionsfelder in früheren Zeiten aussahen.](old-radio.jpg)
+![Zeigt, wie Radioknöpfe früher aussahen.](old-radio.jpg)
 
-> **Note:** [Checkboxes](/de/docs/Web/HTML/Reference/Elements/input/checkbox) sind ähnlich wie Optionsfelder, unterscheiden sich jedoch in einem wichtigen Punkt: Optionsfelder sind dafür ausgelegt, einen Wert aus einer Menge auszuwählen, während Checkboxes es ermöglichen, einzelne Werte ein- oder auszuschalten. Wo mehrere Steuerungen vorhanden sind, erlauben Optionsfelder die Auswahl eines Werts aus allen, während Checkboxes die Auswahl mehrerer Werte erlaubt.
+> [!NOTE] > [Checkboxen](/de/docs/Web/HTML/Reference/Elements/input/checkbox) sind ähnlich wie Radioknöpfe, aber mit einem wichtigen Unterschied: Radioknöpfe sind dafür ausgelegt, einen Wert aus einer Menge auszuwählen, während Checkboxen es erlauben, einzelne Werte ein- und auszuschalten. Wo mehrere Steuerungen existieren, erlauben Radioknöpfe, einen aus allen auszuwählen, während Checkboxen mehrere Werte gleichzeitig erlauben.
 
 ## Wert
 
-Das `value`-Attribut ist ein String, der den Wert des Optionsfeldes enthält. Der Wert wird dem Benutzer niemals von seinem {{Glossary("user_agent", "User-Agent")}} angezeigt. Stattdessen wird er verwendet, um festzustellen, welches Optionsfeld in einer Gruppe ausgewählt ist.
+Das `value`-Attribut ist ein Zeichenfolgenwert, der den Wert eines Radioknopfes enthält. Der Wert wird dem Benutzer nie durch ihr {{Glossary("user_agent", "User-Agent")}} angezeigt. Stattdessen wird er verwendet, um zu identifizieren, welcher Radioknopf in einer Gruppe ausgewählt ist.
 
-### Definition einer Radiogruppe
+### Definieren einer Radiogruppe
 
-Eine Radiogruppe wird definiert, indem jedem Optionsfeld in der Gruppe derselbe [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) zugewiesen wird. Sobald eine Radiogruppe festgelegt ist, führt die Auswahl eines beliebigen Optionsfeldes in dieser Gruppe automatisch dazu, dass ein derzeit ausgewähltes Optionsfeld in derselben Gruppe abgewählt wird.
+Eine Radiogruppe wird definiert, indem jedem Radioknopf in der Gruppe derselbe [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) zugewiesen wird. Sobald eine Radiogruppe eingerichtet ist, wird durch das Auswählen eines Radioknopfes in dieser Gruppe automatisch jeder aktuell ausgewählte Radioknopf in derselben Gruppe deselektiert.
 
-Auf einer Seite können Sie so viele Radiogruppen haben, wie Sie möchten, solange jede ihren eigenen eindeutigen `name` hat.
+Sie können so viele Radiogruppen auf einer Seite haben, wie Sie möchten, solange jede ihren eigenen eindeutigen `name` hat.
 
-Wenn Ihr Formular beispielsweise den Benutzer nach seiner bevorzugten Kontaktmethode fragen muss, könnten Sie drei Optionsfelder erstellen, die alle die `name`-Eigenschaft auf `contact` gesetzt haben, aber eines mit dem Wert `email`, eines mit dem Wert `phone` und eines mit dem Wert `mail`. Der Benutzer sieht nie den `value` oder den `name` (es sei denn, Sie fügen ausdrücklich Code hinzu, um ihn anzuzeigen).
+Zum Beispiel, wenn Ihr Formular den Benutzer nach ihrer bevorzugten Kontaktmethode fragen muss, könnten Sie drei Radioknöpfe erstellen, jeder mit der `name`-Eigenschaft auf `contact` gesetzt, aber einer mit dem Wert `email`, einer mit dem Wert `phone` und einer mit dem Wert `mail`. Der Benutzer sieht weder den `value` noch den `name` (es sei denn, Sie fügen ausdrücklich Code hinzu, um ihn anzuzeigen).
 
-Der resultierende HTML-Code sieht folgendermaßen aus:
+Das resultierende HTML sieht folgendermaßen aus:
 
 ```html
 <form>
@@ -88,7 +88,7 @@ Der resultierende HTML-Code sieht folgendermaßen aus:
 </form>
 ```
 
-Hier sehen Sie die drei Optionsfelder, jedes mit dem `name` auf `contact` gesetzt und jedes mit einem eindeutigen `value`, das dieses individuelle Optionsfeld innerhalb der Gruppe eindeutig identifiziert. Sie haben auch jeweils eine eindeutige [`id`](/de/docs/Web/API/Element/id), die vom {{HTMLElement("label")}}-Element mit dem [`for`](/de/docs/Web/HTML/Reference/Elements/label#for)-Attribut verwendet wird, um die Beschriftungen mit den Optionsfeldern zu verbinden.
+Hier sehen Sie die drei Radioknöpfe, jeder mit dem `name` auf `contact` gesetzt und jeder mit einem eindeutigen `value`, der diesen individuellen Radioknopf innerhalb der Gruppe eindeutig identifiziert. Sie haben auch alle ein eindeutiges [`id`](/de/docs/Web/API/Element/id), das vom {{HTMLElement("label")}}-Element verwendet wird, um die Labels mit den Radioknöpfen über das [`for`](/de/docs/Web/HTML/Reference/Elements/label#for)-Attribut zu verknüpfen.
 
 Sie können dieses Beispiel hier ausprobieren:
 
@@ -96,16 +96,16 @@ Sie können dieses Beispiel hier ausprobieren:
 
 ### Datenrepräsentation einer Radiogruppe
 
-Wenn das obige Formular mit einem ausgewählten Optionsfeld abgeschickt wird, enthält die Formulardaten einen Eintrag im Formular `contact=value`. Zum Beispiel, wenn der Benutzer auf das "Phone"-Optionsfeld klickt und dann das Formular abschickt, werden die Formulardaten die Zeile `contact=phone` enthalten.
+Wenn das obige Formular mit einem ausgewählten Radioknopf abgesendet wird, enthält die Formulardaten einen Eintrag im Form `contact=value`. Beispielsweise, wenn der Benutzer auf den Radioknopf "Phone" klickt und das Formular absendet, enthalten die Formulardaten die Zeile `contact=phone`.
 
-Wenn Sie das `value`-Attribut im HTML weglassen, weist der abgesendete Formularwert der Gruppe den Wert `on` zu. In diesem Szenario, wenn der Benutzer die "Phone"-Option klickt und das Formular übermittelt, würden die resultierenden Formulardaten `contact=on` lauten, was nicht hilfreich ist. Vergessen Sie also nicht, Ihre `value`-Attribute zu setzen!
+Wenn Sie das `value`-Attribut im HTML weglassen, weist die übermittelte Formulardaten der Gruppe den Wert `on` zu. In diesem Szenario, wenn der Benutzer die Option "Phone" anklickt und das Formular absendet, wären die resultierenden Formulardaten `contact=on`, was nicht hilfreich ist. Vergessen Sie also nicht, Ihre `value`-Attribute zu setzen!
 
 > [!NOTE]
-> Wenn kein Optionsfeld ausgewählt ist, wenn das Formular abgesendet wird, wird die Radiogruppe überhaupt nicht in die gesendeten Formulardaten aufgenommen, da kein Wert zu melden ist.
+> Wenn kein Radioknopf ausgewählt ist, wenn das Formular gesendet wird, wird die Radiogruppe überhaupt nicht in die gesendeten Formulardaten aufgenommen, da es keinen zu berichtenden Wert gibt.
 
-Es ist ziemlich untypisch, tatsächlich zu wünschen, dass das Formular abgeschickt werden darf, ohne dass eines der Optionsfelder in einer Gruppe ausgewählt ist, daher ist es normalerweise klug, einen Standard im `checked`-Status zu haben. Siehe [Auswahl eines Standards für ein Optionsfeld](#auswahl_eines_standards_für_ein_optionsfeld) unten.
+Es ist ziemlich ungewöhnlich, das Formular tatsächlich ohne ein ausgewähltes Radioknopf abzusenden, daher ist es im Allgemeinen ratsam, ein Standardauswahl auf den `checked`-Zustand zu setzen. Sehen Sie [Auswahl eines Radioknopfes als Standard](#auswahl_eines_radioknopfes_als_standard) weiter unten.
 
-Lassen Sie uns etwas Code zu unserem Beispiel hinzufügen, damit wir die von diesem Formular generierten Daten untersuchen können. Der HTML-Code wird überarbeitet, um einen {{HTMLElement("pre")}}-Block hinzuzufügen, um die Formulardaten auszugeben:
+Lassen Sie uns ein wenig Code zu unserem Beispiel hinzufügen, damit wir die von diesem Formular generierten Daten untersuchen können. Das HTML wird überarbeitet, um einen {{HTMLElement("pre")}}-Block hinzuzufügen, um die Formulardaten auszugeben:
 
 ```html
 <form>
@@ -127,7 +127,7 @@ Lassen Sie uns etwas Code zu unserem Beispiel hinzufügen, damit wir die von die
 <pre id="log"></pre>
 ```
 
-Dann fügen wir etwas [JavaScript](/de/docs/Web/JavaScript) hinzu, um einen Event-Listener für das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis einzurichten, das gesendet wird, wenn der Benutzer auf die Schaltfläche "Absenden" klickt:
+Dann fügen wir etwas [JavaScript](/de/docs/Web/JavaScript) hinzu, um einen Event-Listener für das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis einzurichten, das gesendet wird, wenn der Benutzer auf den "Submit"-Button klickt:
 
 ```js
 const form = document.querySelector("form");
@@ -148,34 +148,34 @@ form.addEventListener(
 );
 ```
 
-Probieren Sie dieses Beispiel aus und sehen Sie, wie es nie mehr als ein Ergebnis für die `contact`-Gruppe gibt.
+Versuchen Sie dieses Beispiel aus und sehen Sie, wie es nie mehr als ein Ergebnis für die `contact`-Gruppe gibt.
 
 {{EmbedLiveSample("Data_representation_of_a_radio_group", 600, 130)}}
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den allgemeinen Attributen, die alle {{HTMLElement("input")}}-Elemente teilen, unterstützen `radio`-Eingaben die folgenden Attribute.
+Zusätzlich zu den allgemeinen Attributen, die alle {{HTMLElement("input")}}-Elemente gemeinsam nutzen, unterstützen `radio`-Eingaben die folgenden Attribute.
 
 - `checked`
 
-  - : Ein Boolean-Attribut, welches, falls vorhanden, angibt, dass dieses Optionsfeld das standardmäßig ausgewählte in der Gruppe ist.
+  - : Ein Boolean-Attribut, das, falls vorhanden, angibt, dass dieser Radioknopf der standardmäßig ausgewählte in der Gruppe ist.
 
-    Anders als andere Browser, [persistiert Firefox standardmäßig den dynamischen checked-Status](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über Seitenladevorgänge hinweg. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete)-Attribut, um diese Funktion zu steuern.
+    Im Gegensatz zu anderen Browsern speichert Firefox standardmäßig [den dynamischen Checked-Zustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über Seitenladevorgänge hinweg. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete)-Attribut, um diese Funktion zu steuern.
 
 - `value`
 
-  - : Das `value`-Attribut ist eines, das alle {{HTMLElement("input")}}s teilen; jedoch hat es einen speziellen Zweck für Eingaben vom Typ `radio`: Wenn ein Formular abgeschickt wird, werden nur Optionsfelder, die derzeit ausgewählt sind, an den Server gesendet, und der gemeldete Wert ist der Wert des `value`-Attributs. Wenn der `value` nicht anders angegeben ist, ist er standardmäßig der String `on`. Dies wird im Abschnitt [Wert](#wert) oben erläutert.
+  - : Das `value`-Attribut ist eines, das alle {{HTMLElement("input")}}s gemeinsam haben; es hat jedoch einen speziellen Zweck für Eingaben des Typs `radio`: Wenn ein Formular gesendet wird, werden nur Radioknöpfe, die derzeit ausgewählt sind, an den Server übermittelt, und der gemeldete Wert ist der Wert des `value`-Attributs. Wenn der `value` nicht anders angegeben ist, ist dies standardmäßig die Zeichenfolge `on`. Dies wird im Abschnitt [Wert](#wert) oben demonstriert.
 
 - [`required`](/de/docs/Web/HTML/Reference/Attributes/required)
-  - : Das `required`-Attribut ist eines, das die meisten {{HTMLElement("input")}}s teilen. Wenn irgendein Optionsfeld in einer gleichnamigen Gruppe von Optionsfeldern das `required`-Attribut hat, muss ein Optionsfeld in dieser Gruppe ausgewählt sein, obwohl es nicht das sein muss, das das Attribut angewendet hat.
+  - : Das `required`-Attribut ist eines, das die meisten {{HTMLElement("input")}}s gemeinsam haben. Wenn ein Radioknopf in einer gleichnamigen Gruppe von Radioknöpfen das `required`-Attribut hat, muss ein Radioknopf in dieser Gruppe ausgewählt werden, obwohl es nicht der sein muss, auf den das Attribut angewendet wurde.
 
-## Verwendung von Radio-Inputs
+## Verwendung von Radio-Eingaben
 
-Wir haben oben bereits die Grundlagen von Radio-Buttons behandelt. Schauen wir uns jetzt die anderen gängigen Features und Techniken im Zusammenhang mit Radio-Buttons an, die Sie kennen sollten.
+Wir haben bereits die Grundlagen der Radioknöpfe oben behandelt. Lassen Sie uns nun die anderen gängigen Funktionen und Techniken im Zusammenhang mit Radioknöpfen betrachten, die Sie kennen müssen.
 
-### Auswahl eines Standards für ein Optionsfeld
+### Auswahl eines Radioknopfes als Standard
 
-Um ein Optionsfeld standardmäßig ausgewählt zu machen, fügen Sie das `checked`-Attribut hinzu, wie in dieser überarbeiteten Version des vorherigen Beispiels gezeigt:
+Um einen Radioknopf standardmäßig auszuwählen, fügen Sie das `checked`-Attribut hinzu, wie in dieser überarbeiteten Version des vorherigen Beispiels gezeigt:
 
 ```html
 <form>
@@ -205,24 +205,24 @@ Um ein Optionsfeld standardmäßig ausgewählt zu machen, fügen Sie das `checke
 
 {{EmbedLiveSample('Selecting_a_radio_button_by_default', 600, 130)}}
 
-In diesem Fall ist das erste Optionsfeld jetzt standardmäßig ausgewählt.
+In diesem Fall ist der erste Radioknopf nun standardmäßig ausgewählt.
 
 > [!NOTE]
-> Wenn Sie das `checked`-Attribut auf mehr als ein Optionsfeld setzen, überschreiben spätere Instanzen frühere; das heißt, das letzte `checked`-Optionsfeld wird das sein, das ausgewählt ist. Dies liegt daran, dass nur ein Optionsfeld in einer Gruppe gleichzeitig ausgewählt sein kann und der User-Agent automatisch andere abwählt, jedes Mal, wenn ein neues als ausgewählt markiert wird.
+> Wenn Sie das `checked`-Attribut auf mehr als einen Radioknopf legen, überschreiben spätere Instanzen frühere; das bedeutet, dass der zuletzt mit `checked` markierte Radioknopf derjenige ist, der ausgewählt wird. Dies liegt daran, dass nur ein Radioknopf in einer Gruppe jemals gleichzeitig ausgewählt werden kann, und der User-Agent wählt automatisch andere ab, jedes Mal, wenn ein neuer als ausgewählt markiert wird.
 
-### Bereitstellung eines größeren Klickbereichs für Ihre Optionsfelder
+### Bereitstellen eines größeren Auswahlbereichs für Ihre Radioknöpfe
 
-In den obigen Beispielen haben Sie vielleicht bemerkt, dass Sie ein Optionsfeld auswählen können, indem Sie auf das zugehörige {{htmlelement("label")}}-Element klicken, genauso wie auf das Optionsfeld selbst. Dies ist eine wirklich nützliche Funktion von HTML-Formularbeschriftungen, die es den Benutzern erleichtert, die gewünschte Option anzuklicken, insbesondere auf kleinen Bildschirmen wie Smartphones.
+In den obigen Beispielen haben Sie möglicherweise bemerkt, dass Sie einen Radioknopf auswählen können, indem Sie auf sein zugehöriges {{htmlelement("label")}}-Element klicken, sowie auf den Radioknopf selbst. Dies ist eine wirklich nützliche Funktion von HTML-Formular-Labels, die es Benutzern erleichtert, die gewünschte Option auszuwählen, insbesondere auf Geräten mit kleinem Bildschirm wie Smartphones.
 
-Neben der Barrierefreiheit ist dies ein weiterer guter Grund, `<label>`-Elemente in Ihren Formularen richtig einzurichten.
+Neben der Barrierefreiheit ist dies ein weiterer guter Grund, auf Ihren Formularen ordnungsgemäße `<label>`-Elemente einzurichten.
 
 ## Validierung
 
-Im Falle eines Optionsfeldes mit dem [`required`](/de/docs/Web/HTML/Reference/Attributes/required)-Attribut oder einer gleichnamigen Gruppe von Optionsfeldern, in der mindestens ein Mitglied `required` gesetzt hat, muss ein Optionsfeld ausgewählt sein, damit die Steuerung als gültig angesehen wird. Wenn kein Optionsfeld ausgewählt ist, gibt die [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)-Eigenschaft eines [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts während der Validierung `true` zurück, und der Browser wird den Benutzer auffordern, eine Option auszuwählen.
+Im Falle eines Radioknopfes mit dem [`required`](/de/docs/Web/HTML/Reference/Attributes/required)-Attribut oder einer gleichnamigen Gruppe von Radioknöpfen, von denen mindestens einer `required` gesetzt hat, muss ein Radioknopf ausgewählt sein, damit die Steuerung als gültig angesehen wird. Wenn kein Radioknopf ausgewählt ist, gibt die [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)-Eigenschaft eines [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts während der Validierung `true` zurück, und der Browser wird den Benutzer bitten, eine Option auszuwählen.
 
-## Styling von Radio-Inputs
+## Styling von Radio-Eingaben
 
-Das folgende Beispiel zeigt eine etwas ausführlichere Version des Beispiels, das wir im Artikel gesehen haben, mit zusätzlichem Styling und mit besseren Semantiken durch die Verwendung spezialisierter Elemente. Der HTML-Code sieht folgendermaßen aus:
+Das folgende Beispiel zeigt eine etwas ausführlichere Version des Beispiels, das wir im gesamten Artikel gesehen haben, mit zusätzlichem Styling und mit besseren semantischen Elementen durch die Verwendung spezialisierter Elemente. Das HTML sieht folgendermaßen aus:
 
 ```html
 <form>
@@ -250,7 +250,7 @@ Das folgende Beispiel zeigt eine etwas ausführlichere Version des Beispiels, da
 </form>
 ```
 
-Das CSS in diesem Beispiel ist etwas umfangreicher:
+Das in diesem Beispiel verwendete CSS ist etwas umfangreicher:
 
 ```css
 html {
@@ -309,14 +309,14 @@ button:active {
 }
 ```
 
-Hier fällt besonders die Verwendung der {{cssxref("appearance")}}-Eigenschaft auf (mit Präfixen, die zur Unterstützung einiger Browser erforderlich sind). Standardmäßig werden Optionsfelder (und [Checkboxes](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) mit den nativen Stilen des Betriebssystems für diese Steuerungen gestaltet. Durch die Angabe von `appearance: none` können Sie das native Styling ganz entfernen und eigene Stile für sie erstellen. Hier haben wir eine {{cssxref("border")}} in Verbindung mit {{cssxref("border-radius")}} und einer {{cssxref("transition")}} verwendet, um eine schöne animierende Optionsfeld-Auswahl zu erstellen. Beachten Sie auch, wie die {{cssxref(":checked")}}-Pseudoklasse verwendet wird, um die Stile für das Erscheinungsbild des Optionsfeldes beim Auswählen zu bestimmen.
+Besonders bemerkenswert ist hier die Verwendung der {{cssxref("appearance")}}-Eigenschaft (mit Präfixen, die für einige Browser benötigt werden). Standardmäßig sind Radioknöpfe (und [Checkboxen](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) mit den nativen Styles des Betriebssystems für diese Steuerungen gestylt. Durch die Angabe von `appearance: none` können Sie das native Styling vollständig entfernen und Ihre eigenen Stile für sie erstellen. Hier haben wir eine {{cssxref("border")}} zusammen mit {{cssxref("border-radius")}} und einer {{cssxref("transition")}} verwendet, um eine schöne animierte Radio-Auswahl zu erstellen. Beachten Sie auch, wie die {{cssxref(":checked")}} Pseudoklasse verwendet wird, um die Stile für das Erscheinungsbild des Radioknopfes im ausgewählten Zustand zu spezifizieren.
 
 > [!NOTE]
-> Wenn Sie die {{cssxref("appearance")}}-Eigenschaft verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert deren Implementierung stark. In älteren Browsern hat sogar das Schlüsselwort `none` nicht in allen Browsern die gleiche Wirkung, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern kleiner.
+> Wenn Sie die {{cssxref("appearance")}}-Eigenschaft verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert ihre Implementierung stark. In älteren Browsern hat selbst das Schlüsselwort `none` nicht den gleichen Effekt in verschiedenen Browsern, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern kleiner.
 
 {{EmbedLiveSample('Styling_radio_inputs', 600, 120)}}
 
-Beachten Sie, dass beim Klicken auf ein Optionsfeld ein schöner, sanfter Fade-Out/Fade-In-Effekt auftritt, wenn sich die beiden Knöpfe im Zustand wechseln. Darüber hinaus sind der Stil und die Farbgebung der Legende und der Absenden-Schaltfläche angepasst, um einen starken Kontrast zu gewährleisten. Dies ist möglicherweise nicht das Aussehen, das Sie in einer realen Webanwendung wünschen würden, aber es zeigt definitiv die Möglichkeiten.
+Beachten Sie, dass beim Klicken auf einen Radioknopf ein schöner, glatter Ein-/Ausblendeffekt zu sehen ist, wenn die beiden Knöpfe den Zustand wechseln. Darüber hinaus sind der Stil und die Farbgebung der Legende und des Absende-Buttons so angepasst, dass sie einen starken Kontrast bieten. Dies ist möglicherweise nicht das Aussehen, das Sie in einer echten Webanwendung möchten, aber es zeigt sicherlich die Möglichkeiten auf.
 
 ## Technische Zusammenfassung
 
@@ -325,7 +325,8 @@ Beachten Sie, dass beim Klicken auf ein Optionsfeld ein schöner, sanfter Fade-O
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der den Wert des Optionsfeldes darstellt.
+        Eine Zeichenfolge, die den Wert des
+        Radioknopfes darstellt.
       </td>
     </tr>
     <tr>
@@ -375,5 +376,5 @@ Beachten Sie, dass beim Klicken auf ein Optionsfeld ein schöner, sanfter Fade-O
 
 ## Siehe auch
 
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
-- [`RadioNodeList`](/de/docs/Web/API/RadioNodeList): die Schnittstelle, die eine Liste von Optionsfeldern beschreibt
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, die es implementiert.
+- [`RadioNodeList`](/de/docs/Web/API/RadioNodeList): die Schnittstelle, die eine Liste von Radioknöpfen beschreibt.

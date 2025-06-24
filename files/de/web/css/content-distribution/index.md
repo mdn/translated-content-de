@@ -2,12 +2,12 @@
 title: <content-distribution>
 slug: Web/CSS/content-distribution
 l10n:
-  sourceCommit: 35f63ce08742ec649bca904ea12e11a3b018ad6f
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`<content-distribution>`** {{Glossary("enumerated", "aufgezählte")}} Wertetyp wird von den Eigenschaften {{cssxref("justify-content")}} und {{cssxref("align-content")}}, sowie dem Kurzschreibweise {{cssxref("place-content")}} verwendet, um den zusätzlichen Raum eines Containers unter seinen {{Glossary("alignment_subject", "Ausrichtungsobjekten")}} zu verteilen.
+Der **`<content-distribution>`** {{Glossary("enumerated", "enumerated")}} Werttyp wird von den Eigenschaften {{cssxref("justify-content")}} und {{cssxref("align-content")}} sowie der {{cssxref("place-content")}} Kurzform verwendet, um den zusätzlichen Raum eines Containers auf seine {{Glossary("alignment_subject", "alignment subjects")}} zu verteilen.
 
 ## Syntax
 
@@ -17,23 +17,22 @@ Der **`<content-distribution>`** {{Glossary("enumerated", "aufgezählte")}} Wert
 
 ## Werte
 
-Die folgenden Schlüsselwortwerte werden durch den `<content-distribution>` Grammatikausdruck repräsentiert:
+Die folgenden Schlüsselwortwerte werden durch den `<content-distribution>` Grammatikbegriff dargestellt:
 
 - `space-between`
 
-  - : Verteilt das {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} gleichmäßig innerhalb des {{Glossary("alignment_container", "Ausrichtungscontainers")}}. Das erste Element wird bündig mit der Startkante des Ausrichtungscontainers platziert, das letzte Element bündig mit der Endkante, und die verbleibenden Elemente werden so gleichmäßig verteilt, dass der Abstand zwischen zwei benachbarten Elementen gleich ist. Die standardmäßige Fallback-Ausrichtung für `space-between` ist `safe flex-start` für das Flexlayout und `start` in anderen Fällen. Wenn es nur ein Element gibt, wird dieses bündig mit der Startkante sein.
+  - : Verteilt das {{Glossary("alignment_subject", "alignment subject")}} gleichmäßig innerhalb des {{Glossary("alignment_container", "alignment container")}}. Das erste Element liegt bündig an der Startkante des Ausrichtungscontainers an, das letzte Element liegt bündig an der Endkante des Ausrichtungscontainers an, und die übrigen Elemente werden gleichmäßig verteilt, sodass der Abstand zwischen zwei angrenzenden Elementen gleich ist. Die Standard-Rückfallausrichtung für `space-between` ist `safe flex-start` bei Flex-Layout, und `start` sonst. Wenn es nur ein Element gibt, liegt dieses Element bündig an der Startkante.
 
 - `space-around`
 
-  - : Die Elemente werden gleichmäßig im Container verteilt, wobei an beiden Enden ein halb so großer Abstand vorhanden ist. Der Abstand zwischen zwei benachbarten Elementen ist der gleiche, und der Abstand vor dem ersten und nach dem letzten Element ist halb so groß wie der andere Abstand. Die standardmäßige Fallback-Ausrichtung für `space-around` ist `safe center`. Wenn der Container nur ein Kind hat, wird das Element zentriert.
+  - : Die Elemente werden gleichmäßig im Container verteilt, mit einem halb so großen Abstand an beiden Enden. Der Abstand zwischen zwei angrenzenden Elementen ist derselbe, und der Abstand vor dem ersten und nach dem letzten Element beträgt die Hälfte des anderen Abstands. Die Standard-Rückfallausrichtung für `space-around` ist `safe center`. Wenn der Container nur ein Kind hat, wird das Element zentriert.
 
 - `space-evenly`
 
-  - : Die Elemente werden gleichmäßig im Container verteilt, mit einem gleich großen Abstand an beiden Enden. Der Abstand zwischen zwei benachbarten Elementen, vor dem ersten Element und nach dem letzten Element, ist überall gleich. Die standardmäßige Fallback-Ausrichtung für `space-evenly` ist `safe center`. Wenn der Container nur ein Kind hat, wird das Element zentriert.
+  - : Die Elemente werden gleichmäßig im Container verteilt, mit vollem Abstand an beiden Enden. Der Abstand zwischen zwei angrenzenden Elementen, vor dem ersten Element und nach dem letzten Element ist überall gleich. Die Standard-Rückfallausrichtung für `space-evenly` ist `safe center`. Wenn der Container nur ein Kind hat, wird das Element zentriert.
 
 - `stretch`
-
-  - : Wenn die kombinierte Größe der Elemente kleiner ist als die Größe des Containers, wird die Größe aller wachsenden Elemente gleichmäßig (nicht proportional) erhöht, während die durch {{cssxref("max-height")}}, {{cssxref("max-width")}} oder gleichwertige Funktionen auferlegten Einschränkungen beachtet werden, sodass die kombinierte Größe der Elemente genau den Container füllt. Die standardmäßige Fallback-Ausrichtung für `stretch` ist `flex-start` im Flexbox, und `start` in anderen Layoutmodi. Wenn es nur ein Element gibt und dieses wachsen kann, wird es wachsen, um den Container zu füllen.
+  - : Wenn die kombinierte Größe der Elemente kleiner ist als die Größe des Containers, wird jedes Element, das wachsen kann, gleichmäßig (nicht proportional) vergrößert, während die durch {{cssxref("max-height")}}, {{cssxref("max-width")}} oder gleichwertige Funktionalitäten auferlegten Beschränkungen respektiert werden, sodass die kombinierte Größe der Elemente genau den Container füllt. Die Standard-Rückfallausrichtung für `stretch` ist `flex-start` im Flexboxmodell und `start` in anderen Layoutmodi. Gibt es nur ein Element, das wachsen kann, wird es die Größe des Containers einnehmen.
 
 ## Spezifikationen
 
@@ -42,7 +41,7 @@ Die folgenden Schlüsselwortwerte werden durch den `<content-distribution>` Gram
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("align-content")}}, {{cssxref("justify-content")}}, {{cssxref("place-content")}}
-- Andere Box-Ausrichtungsdatentypen: {{cssxref("baseline-position")}}, {{cssxref("content-position")}}, {{cssxref("overflow-position")}}, und {{cssxref("self-position")}}
+- Andere Box-Alignment-Datentypen: {{cssxref("baseline-position")}}, {{cssxref("content-position")}}, {{cssxref("overflow-position")}}, und {{cssxref("self-position")}}
 - [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
-- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul

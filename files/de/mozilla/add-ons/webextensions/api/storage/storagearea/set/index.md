@@ -2,16 +2,16 @@
 title: StorageArea.set()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/set
 l10n:
-  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Speichert einen oder mehrere Einträge im Speicherbereich oder aktualisiert gespeicherte Einträge.
+Speichert ein oder mehrere Elemente im Speicherbereich oder aktualisiert gespeicherte Elemente.
 
 Wenn Sie einen Wert mit dieser API speichern oder aktualisieren, wird das Ereignis {{WebExtAPIRef("storage.onChanged")}} ausgelöst.
 
-Beachten Sie, dass beim Speichern von Einträgen im [`sync`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync) Speicherbereich der Browser Quoten für die Datenmenge erzwingt, die jede Erweiterung speichern kann. Siehe [Speicherquoten für synchronisierte Daten](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync#storage_quotas_for_sync_data).
+Beachten Sie, dass bei der Speicherung von Elementen im [`sync`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync) Speicherbereich der Browser Quoten für die Menge an Daten erzwingt, die jede Erweiterung speichern kann. Siehe [Speicherquoten für synchrone Daten](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync#storage_quotas_for_sync_data).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,24 +23,24 @@ let settingItem = browser.storage.<storageType>.set(
 )
 ```
 
-Dabei ist `<storageType>` einer der beschreibbaren Speichertypen—{{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
+Wo `<storageType>` einer der beschreibbaren Speichertypen ist — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
 
 ### Parameter
 
 - `keys`
 
-  - : Ein Objekt mit einem oder mehreren Schlüssel/Werte-Paaren, die gespeichert werden sollen. Wenn ein Eintrag bereits im Speicher ist, wird dessen Wert aktualisiert.
+  - : Ein Objekt, das ein oder mehrere Schlüssel/Wert-Paare enthält, die gespeichert werden sollen. Wenn ein Element im Speicher ist, wird dessen Wert aktualisiert.
 
-    Werte können {{Glossary("Primitive", "primitiv")}} (wie eine Zahl, ein Boolean oder ein String), {{jsxref("Array")}}- oder {{jsxref("Object")}}-Typen sein.
+    Werte können {{Glossary("Primitive", "primitive")}} (wie eine Zahl, Boolean oder String), {{jsxref("Array")}} oder {{jsxref("Object")}} Typen sein.
 
-    Es ist im Allgemeinen nicht möglich, andere Typen wie `Function`, `Date`, `RegExp`, `Set`, `Map`, `ArrayBuffer` und so weiter zu speichern. Einige nicht unterstützte Typen werden als leeres Objekt wiederhergestellt, während andere dazu führen, dass `set()` einen Fehler auslöst. Das Verhalten ist browser-spezifisch.
+    Es ist generell nicht möglich, andere Typen zu speichern, wie `Function`, `Date`, `RegExp`, `Set`, `Map`, `ArrayBuffer` usw. Einige nicht unterstützte Typen werden als leeres Objekt wiederhergestellt, während andere dazu führen, dass `set()` einen Fehler auslöst. Das Verhalten ist browserspezifisch.
 
 > [!NOTE]
-> Wenn Sie Schlüssel aus dem Speicher entfernen möchten, verwenden Sie {{WebExtAPIRef("storage.storageArea.remove")}}. Wenn Sie einen Wert mit einem leeren Wert überschreiben möchten, verwenden Sie `null`, z.B. `key: null`.
+> Wenn Sie Schlüssel aus dem Speicher entfernen möchten, verwenden Sie {{WebExtAPIRef("storage.storageArea.remove")}}. Wenn Sie einen Wert mit einem leeren Wert überschreiben möchten, verwenden Sie `null`, also `key: null`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich ist. Scheitert die Operation, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich ist. Wenn die Operation fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -88,4 +88,4 @@ browser.storage.local.get("monster").then(gotMonster, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation ist aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

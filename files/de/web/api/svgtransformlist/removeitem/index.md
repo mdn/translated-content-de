@@ -1,14 +1,14 @@
 ---
-title: "SVGTransformList: removeItem()-Methode"
+title: "SVGTransformList: Methode removeItem()"
 short-title: removeItem()
 slug: Web/API/SVGTransformList/removeItem
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("SVG")}}
 
-Die Methode `removeItem()` des [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Interfaces entfernt ein vorhandenes Element aus der Liste.
+Die `removeItem()`-Methode der Schnittstelle [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) entfernt ein vorhandenes Element aus der Liste.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeItem(index)
 ### Parameter
 
 - `index`
-  - : Ein `integer`; der Index des Elements, das als unsigned long entfernt werden soll.
+  - : Ein `integer`; der Index des Elements, das entfernt werden soll, als `unsigned long`.
 
 ### Rückgabewert
 
@@ -27,14 +27,14 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das entfernte Elemen
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
+Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
   - : Wird ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Indexnummer größer oder gleich der [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) ist.
+  - : Wird ausgelöst, wenn die Indexnummer größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) ist.
 
 ## Beispiele
 

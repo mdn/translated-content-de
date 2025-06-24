@@ -1,16 +1,16 @@
 ---
-title: "HTMLElement: dragend Ereignis"
+title: "HTMLElement: dragend Event"
 short-title: dragend
 slug: Web/API/HTMLElement/dragend_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}
 
-Das `dragend` Ereignis wird ausgelöst, wenn eine Ziehoperation endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
+Das `dragend`-Ereignis wird ausgelöst, wenn eine Ziehoperation endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
 
-Dieses Ereignis kann abgebrochen werden und kann bis zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) Objekt nach oben blubbern.
+Dieses Ereignis ist abbrechbar und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochbubbeln.
 
 ## Syntax
 
@@ -30,20 +30,20 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Zurücksetzen der Opazität bei dragend
+### Opazität bei dragend zurücksetzen
 
-In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, zu ziehen und dann loszulassen.
+In diesem Beispiel haben wir ein Ziehelement innerhalb eines Containers. Versuchen Sie, das Element zu greifen, zu ziehen und loszulassen.
 
-Wir machen das Element halbtransparent, während es gezogen wird, und hören auf das `dragend` Ereignis, um die Opazität des Elements zurückzusetzen, wenn es losgelassen wird.
+Wir machen das Element halbtransparent, während es gezogen wird, und lauschen dem `dragend`-Ereignis, um die Opazität des Elements zurückzusetzen, wenn es losgelassen wird.
 
-Für ein vollständiges Beispiel von Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
+Für ein vollständiges Beispiel von Drag and Drop, sehen Sie sich die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis an.
 
 #### HTML
 
@@ -108,8 +108,7 @@ source.addEventListener("dragend", (event) => {
 
 ## Siehe auch
 
-- Andere Drag-and-Drop-Ereignisse:
-
+- Weitere Drag-and-Drop-Ereignisse:
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
   - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)

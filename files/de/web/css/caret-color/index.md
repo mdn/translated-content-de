@@ -2,12 +2,12 @@
 title: caret-color
 slug: Web/CSS/caret-color
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`caret-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe des **Einfügemarkers** fest, des sichtbaren Markers, an dem das nächste eingegebene Zeichen eingefügt wird. Dies wird manchmal als **Texteingabecursor** bezeichnet. Der Cursor erscheint in Elementen wie {{HTMLElement("input")}} oder in solchen mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable). Der Cursor ist typischerweise eine dünne vertikale Linie, die blinkt, um besser sichtbar zu sein. Standardmäßig ist er schwarz, aber seine Farbe kann mit dieser Eigenschaft geändert werden.
+Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des **Eingabescheitels** fest, des sichtbaren Markers, an dem das nächste eingegebene Zeichen eingefügt wird. Dies wird manchmal als **Text-Eingabecursor** bezeichnet. Der Scheitel erscheint in Elementen wie {{HTMLElement("input")}} oder solchen mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut. Der Scheitel ist typischerweise eine dünne vertikale Linie, die blinkt, um auffälliger zu sein. Standardmäßig ist er schwarz, aber seine Farbe kann mit dieser Eigenschaft geändert werden.
 
 {{InteractiveExample("CSS Demo: caret-color")}}
 
@@ -38,7 +38,7 @@ caret-color: transparent;
 }
 ```
 
-Beachten Sie, dass der Einfügemarker nur eine Art von Cursor ist. Viele Browser haben beispielsweise einen "Navigationscursor", der ähnlich wie ein Einfügemarker funktioniert, sich aber in nicht bearbeitbarem Text bewegen lässt. Andererseits ist das Mauszeigersymbol, das angezeigt wird, wenn man über Text schwebt, bei dem die {{cssxref("cursor")}}-Eigenschaft `auto` ist, oder wenn man über ein Element schwebt, bei dem die `cursor`-Eigenschaft `text` oder `vertical-text` ist, kein Cursor (auch wenn er manchmal wie ein Marker aussieht).
+Beachten Sie, dass der Eingabescheitel nur eine Art von Scheitel ist. Zum Beispiel haben viele Browser einen "Navigationsscheitel", der ähnlich wie ein Eingabescheitel funktioniert, jedoch in nicht editierbarem Text bewegt werden kann. Das Mauszeigerbild, das beim Überfahren von Text angezeigt wird, bei dem die {{cssxref("cursor")}} Eigenschaft auf `auto` steht, oder beim Überfahren eines Elements, bei dem die `cursor` Eigenschaft auf `text` oder `vertical-text` steht, ist zwar manchmal ähnlich einem Scheitel, jedoch kein Scheitel (es ist ein Cursor).
 
 ## Syntax
 
@@ -66,13 +66,13 @@ caret-color: unset;
 
 - `auto`
 
-  - : Der Benutzeragent wählt eine geeignete Farbe für den Marker aus. Dies ist im Allgemeinen {{cssxref("&lt;color&gt;","currentcolor","#currentcolor_keyword")}}, aber der Benutzeragent kann eine andere Farbe wählen, um gute Sichtbarkeit und Kontrast zum umliegenden Inhalt zu gewährleisten, wobei er den Wert von `currentcolor`, den Hintergrund, Schatten und andere Faktoren berücksichtigt.
+  - : Der User-Agent wählt eine passende Farbe für den Scheitel. Dies ist im Allgemeinen {{cssxref("&lt;color&gt;","currentcolor","#currentcolor_keyword")}}, aber der User-Agent kann eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast mit dem umliegenden Inhalt zu gewährleisten, wobei der Wert von `currentcolor`, der Hintergrund, Schatten und andere Faktoren berücksichtigt werden.
 
     > [!NOTE]
-    > Auch wenn Benutzeragenten `currentcolor` (das normalerweise animierbar ist) für den `auto`-Wert verwenden können, wird `auto` nicht in Übergängen und Animationen interpoliert.
+    > Während User-Agents `currentcolor` (was normalerweise animierbar ist) für den Wert `auto` verwenden können, wird `auto` bei Übergängen und Animationen nicht interpoliert.
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des Markers.
+  - : Die Farbe des Scheitels.
 
 ## Formale Definition
 
@@ -84,7 +84,7 @@ caret-color: unset;
 
 ## Beispiele
 
-### Setzen einer benutzerdefinierten Markerfarbe
+### Festlegen einer benutzerdefinierten Scheitelfarbe
 
 #### HTML
 
@@ -128,7 +128,7 @@ p.custom {
 
 ## Siehe auch
 
-- Das {{HTMLElement("input")}}-Element
-- Das HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), das verwendet werden kann, um den Text jedes Elements bearbeitbar zu machen
+- Das {{HTMLElement("input")}} Element
+- Das HTML [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut, das verwendet werden kann, um den Text eines beliebigen Elements bearbeitbar zu machen
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
 - Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, und {{cssxref("column-rule-color")}}

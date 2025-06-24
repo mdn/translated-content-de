@@ -2,12 +2,12 @@
 title: <generic-family>
 slug: Web/CSS/generic-family
 l10n:
-  sourceCommit: 09877330004e55244a9e8eee2ca04a750970f72d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert die Schlüsselwortwerte für generische Schriftfamilien, die in den {{cssxref("font")}} Kurzschrift- und {{cssxref("font-family")}} Langschrifteigenschaften verwendet werden. Die `<generic-family>` repräsentiert eine oder mehrere lokal installierte Schriftarten, die zu dieser Kategorie von Schriftarten gehören.
+Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert die Schlüsselwortwerte für generische Schriftfamilien, die in den {{cssxref("font")}}-Kurzschreibweise und {{cssxref("font-family")}}-Langschreibweise-Eigenschaften verwendet werden. Die `<generic-family>` repräsentiert eine oder mehrere lokal installierte Schriftarten, die zu dieser Schriftartkategorie gehören.
 
 ## Syntax
 
@@ -18,62 +18,62 @@ Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/C
 
 ## Werte
 
-Der `<generic-family>` {{Glossary("enumerated", "enumerierte")}} Typ wird durch einen der unten aufgeführten Werte angegeben:
+Der `<generic-family>` {{Glossary("enumerated", "aufgezählte")}} Typ wird mittels eines der unten aufgelisteten Werte angegeben:
 
 - `serif`
 
-  - : Ein Serif ist eine kleine Linie oder ein Strich, der am Ende eines größeren Strichs in einem Buchstaben angebracht ist. In Serifenschriften haben Glyphen abschließende Striche, Flügel oder verjüngte Enden. Beispiele umfassen Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio und URW Palladio.
+  - : Eine Serif ist eine kleine Linie oder ein Strich, der am Ende eines größeren Strichs in einem Buchstaben angebracht ist. In Serifenschriften haben Glyphen Abschlussstriche, auslaufende oder sich verjüngende Enden. Beispiele sind Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio und URW Palladio.
 
 - `sans-serif`
 
-  - : Eine Schriftart ohne Serifen; Glyphen haben einfache Strichabschlüsse, ohne Verzierungen. Beispielhafte sans-serif Schriftarten sind Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans und Nimbus Sans L.
+  - : Eine Schrift ohne Serifen; Glyphen haben einfache Strichenden ohne Verzierungen. Beispielhafte sans-serif Schriften sind Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans und Nimbus Sans L.
 
 - `monospace`
 
-  - : Alle Glyphen haben die gleiche feste Breite. Beispielhafte monospace Schriftarten sind Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco und Lucida Console.
+  - : Alle Glyphen haben die gleiche feste Breite. Beispielhafte Monospace-Schriften sind Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco und Lucida Console.
 
 - `cursive`
 
-  - : Glyphen in Schreibschriftarten verwenden im Allgemeinen eine Schreibschrift oder einen anderen Handschriftstil, und das Ergebnis sieht mehr nach handgeschriebener Stift- oder Pinsel-Schrift aus als nach gedrucktem Satz. CSS verwendet den Begriff "cursive", um eine Schriftart für jedes Alphabet anzuwenden, einschließlich solcher, die keine verbindenden Striche haben. Beispielhafte Schreibschriftarten sind Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting und Apple Chancery.
+  - : Glyphen in kursiven Schriften verwenden im Allgemeinen eine Kursive oder einen anderen Handschriftstil, und das Ergebnis sieht mehr wie handgeschriebene Stift- oder Pinsel-Schrift aus als gedruckte Schriftsatz. CSS verwendet den Begriff "cursive", um auf eine Schrift für jedes Skript anzuwenden, einschließlich solcher, die keine verbindenden Striche haben. Beispielhafte kursiv Schriften sind Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting und Apple Chancery.
 
 - `fantasy`
 
-  - : Fantasieschriften sind hauptsächlich dekorative Schriften, die verspielte Darstellungen von Zeichen enthalten. Beispielhafte Fantasieschriften sind Papyrus, Herculanum, Party LET, Curlz MT, Harrington und Comic Sans MS.
+  - : Fantasieschriften sind primär dekorative Schriften, die spielerische Darstellungen von Zeichen enthalten. Beispielhafte Fantasieschriften sind Papyrus, Herculanum, Party LET, Curlz MT, Harrington und Comic Sans MS.
 
 - `system-ui`
 
-  - : Glyphen werden aus der standardmäßigen Benutzeroberflächenschrift auf einer gegebenen Plattform entnommen. Da sich die typografischen Traditionen weltweit stark unterscheiden, wird diese generische Familie für Schriftarten bereitgestellt, die nicht sauber in die anderen passen.
+  - : Glyphen werden von der Standardschriftart der Benutzeroberfläche auf einer bestimmten Plattform übernommen. Da die typografischen Traditionen weltweit stark variieren, ist diese generische Familie für Schriftarten vorgesehen, die nicht eindeutig in die anderen passen.
 
 - `ui-serif`
 
-  - : Die standardmäßige Benutzeroberfläche-Serifenschrift. Siehe die obige Definition von `serif`.
+  - : Die Standard-Serifenschrift der Benutzeroberfläche. Siehe die Definition von `serif` oben.
 
 - `ui-sans-serif`
 
-  - : Die standardmäßige Benutzeroberfläche-Sans-Serifenschrift. Siehe die obige Definition von `sans-serif`.
+  - : Die Standard-Sans-Serifenschrift der Benutzeroberfläche. Siehe die Definition von `sans-serif` oben.
 
 - `ui-monospace`
 
-  - : Die standardmäßige Benutzeroberfläche-Monospaceschrift. Siehe die obige Definition von `monospace`.
+  - : Die Standard-Monospace-Schrift der Benutzeroberfläche. Siehe die Definition von `monospace` oben.
 
 - `ui-rounded`
 
-  - : Die standardmäßige Benutzeroberflächenschrift mit abgerundeten Merkmalen.
+  - : Die Standardschrift der Benutzeroberfläche, die abgerundete Merkmale hat.
 
 - `math`
 
-  - : Schriftarten zur Darstellung mathematischer Ausdrücke, zum Beispiel hochgestellte und tiefgestellte Zeichen, Klammern, die mehrere Zeilen überspannen, verschachtelte Ausdrücke und doppelt gestrichene Glyphen mit unterschiedlichen Bedeutungen.
+  - : Schriften zum Anzeigen mathematischer Ausdrücke, zum Beispiel Hoch- und Tiefstellungen, Klammern, die über mehrere Zeilen gehen, verschachtelte Ausdrücke und durchgestochene Glyphen mit besonderen Bedeutungen.
 
 - `emoji`
 
-  - : Schriftarten, die speziell entwickelt wurden, um Emojis darzustellen.
+  - : Schriften, die speziell zum Rendern von Emojis entwickelt wurden.
 
 - `fangsong`
-  - : Ein bestimmter Stil chinesischer Zeichen, der zwischen dem serifenartigen Song und den Schreibstil Kai Formen liegt. Dieser Stil wird oft für Regierungsdokumente verwendet.
+  - : Ein besonderer Stil chinesischer Schriftzeichen, der zwischen Serif-Style Song und Cursive-Style Kai Formen liegt. Dieser Stil wird oft für Regierungsdokumente verwendet.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert mehrere der `<generic-family>` enumerierten Werte für die {{cssxref("font-family")}} Eigenschaft.
+Dieses Beispiel zeigt mehrere der `<generic-family>` aufgezählten Werte für die {{cssxref("font-family")}}-Eigenschaft.
 
 ### HTML
 
@@ -126,4 +126,4 @@ ul {
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("font-family")}} und {{cssxref("font")}}
-- [CSS-Schriftartenmodul](/de/docs/Web/CSS/CSS_fonts)
+- [CSS-Schriftenmodul](/de/docs/Web/CSS/CSS_fonts)

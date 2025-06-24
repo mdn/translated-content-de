@@ -2,12 +2,12 @@
 title: tabGroups.update
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/update
 l10n:
-  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ändert den Zustand einer Tab-Gruppe.
+Ändert den Status einer Tabgruppe.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ let updatedTabGroup = await browser.tabGroups.update(
 
 - `groupId`
 
-  - : `integer` Die ID der zu aktualisierenden Tab-Gruppe.
+  - : `integer` Die ID der zu aktualisierenden Tabgruppe.
 
 - `updateProperties`
-  - : Ein Objekt, das Details der zu aktualisierenden Eigenschaften dieser Tab-Gruppe enthält. Eigenschaften, die nicht angegeben sind, werden nicht verändert.
+  - : Ein Objekt, das Details zu den Eigenschaften enthält, die für diese Tabgruppe aktualisiert werden sollen. Eigenschaften, die nicht angegeben sind, werden nicht geändert.
     - `collapsed` {{optional_inline}}
-      - : `boolean`. Gibt an, ob die Tab-Gruppe in der Tab-Leiste eingeklappt oder ausgeklappt ist.
+      - : `boolean`. Gibt an, ob die Tabgruppe in der Tableiste eingeklappt oder ausgeklappt ist.
     - `color` {{optional_inline}}
-      - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die für die Tab-Gruppe verwendet werden soll.
+      - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die für die Tabgruppe verwendet werden soll.
     - `title` {{optional_inline}}
-      - : `string`. Der Name der Tab-Gruppe.
+      - : `string`. Der Name der Tabgruppe.
 
 ### Rückgabewert
 

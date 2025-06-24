@@ -3,12 +3,12 @@ title: "TrustedTypePolicyFactory: createPolicy() Methode"
 short-title: createPolicy()
 slug: Web/API/TrustedTypePolicyFactory/createPolicy
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`createPolicy()`**-Methode der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle erstellt ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Objekt, das die als `policyOptions` übergebenen Regeln implementiert.
+Die **`createPolicy()`** Methode des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) Interfaces erstellt ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) Objekt, das die als `policyOptions` übermittelten Regeln umsetzt.
 
 ## Syntax
 
@@ -21,32 +21,30 @@ createPolicy(policyName, policyOptions)
 - `policyName`
   - : Ein String mit dem Namen der Richtlinie.
 - `policyOptions` {{optional_inline}}
-
-  - : Vom Benutzer definierte Funktionen zur Umwandlung von Zeichenfolgen in vertrauenswürdige Werte.
-
+  - : Vom Benutzer definierte Funktionen zur Umwandlung von Strings in vertrauenswürdige Werte.
     - `createHTML(input[,args])`
-      - : Eine Callback-Funktion in Form eines Strings, die Code enthält, der beim Erstellen eines [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekts ausgeführt wird.
+      - : Eine Callback-Funktion in Form eines Strings, der den auszuführenden Code beim Erstellen eines [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekts enthält.
     - `createScript(input[,args])`
-      - : Eine Callback-Funktion in Form eines Strings, die Code enthält, der beim Erstellen eines [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekts ausgeführt wird.
+      - : Eine Callback-Funktion in Form eines Strings, der den auszuführenden Code beim Erstellen eines [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekts enthält.
     - `createScriptURL(input[,args])`
-      - : Eine Callback-Funktion in Form eines Strings, die Code enthält, der beim Erstellen eines [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekts ausgeführt wird.
+      - : Eine Callback-Funktion in Form eines Strings, der den auszuführenden Code beim Erstellen eines [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Objekts enthält.
 
 ### Rückgabewert
 
-Ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Objekt.
+Ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn Richtliniennamen durch die [Content-Security-Policy `trusted-types`-Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) eingeschränkt sind und dieser Name nicht auf der Positivliste steht.
+  - : Ausgelöst, wenn Richtliniennamen durch die [Content Security Policy `trusted-types` Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) eingeschränkt sind und dieser Name nicht auf der Zulassungsliste steht.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der Name ein Duplikat ist und die [Content-Security-Policy trusted-types-Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) nicht `allow-duplicates` verwendet.
+  - : Ausgelöst, wenn der Name ein Duplikat ist und die [Content Security Policy trusted-types Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) `allow-duplicates` nicht verwendet.
 
 ## Beispiele
 
-### Erstellen einer Richtlinie für HTML-Senken
+### Eine Richtlinie für HTML-Senken erstellen
 
-Der untenstehende Code erstellt eine Richtlinie mit dem Namen `"myEscapePolicy"` und einer definierten Funktion für `createHTML()`, die HTML bereinigt.
+Der untenstehende Code erstellt eine Richtlinie mit dem Namen `"myEscapePolicy"` mit einer definierten Funktion für `createHTML()`, die HTML bereinigt.
 
 ```js
 const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {
@@ -54,11 +52,11 @@ const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {
 });
 ```
 
-### Erstellen einer Standardrichtlinie
+### Eine Standardrichtlinie erstellen
 
-Auf einer Seite, auf der Trusted Types durch eine Content-Security-Policy mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-Direktive mit dem Wert `script` erzwungen werden, erwartet jedes Injektionsskript, das ein Skript akzeptiert, ein Trusted Type-Objekt. Falls stattdessen eine Zeichenfolge eingefügt wird, wird eine [Standardrichtlinie](/de/docs/Web/API/Trusted_Types_API#the_default_policy) verwendet.
+Auf einer Website, auf der Trusted Types durch eine Content Security Policy mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) Direktive auf `script` gesetzt erzwungen werden, erwartet jedes Injektionsskript, das ein Skript akzeptiert, ein Trusted Type Objekt. Für den Fall, dass stattdessen ein String eingefügt wird, wird eine [Standardrichtlinie](/de/docs/Web/API/Trusted_Types_API#the_default_policy) verwendet.
 
-Die Standardrichtlinie protokolliert eine Nachricht in der Konsole, um den Entwickler daran zu erinnern, diesen Teil der Anwendung anzupassen, um ein Trusted Type-Objekt zu verwenden. Sie hängt auch Details der Verwendung der Standardrichtlinie, des Typs und der Injektionssenke an den zurückgegebenen Wert an.
+Die Standardrichtlinie protokolliert eine Nachricht in der Konsole, um den Entwickler daran zu erinnern, diesen Teil der Anwendung zu überarbeiten, um ein Trusted Type Objekt zu verwenden. Sie fügt auch Details zur Verwendung der Standardrichtlinie, des Typs und der Injektionssenke zum zurückgegebenen Wert hinzu.
 
 ```js
 trustedTypes.createPolicy("default", {

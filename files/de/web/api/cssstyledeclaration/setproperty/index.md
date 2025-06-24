@@ -3,12 +3,12 @@ title: "CSSStyleDeclaration: setProperty() Methode"
 short-title: setProperty()
 slug: Web/API/CSSStyleDeclaration/setProperty
 l10n:
-  sourceCommit: 20a1c2be8e8eeb4bf6e5f8fa29c01b1759bfb29f
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die Schnittstelle der Methode **`CSSStyleDeclaration.setProperty()`** setzt einen neuen Wert für eine Eigenschaft eines CSS-Style-Declaration-Objekts.
+Die Schnittstelle der **`CSSStyleDeclaration.setProperty()`**-Methode setzt einen neuen Wert für eine Eigenschaft eines CSS-Stil-Deklarationsobjekts.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ setProperty(propertyName, value, priority)
 ### Parameter
 
 - `propertyName`
-  - : Ein String, der den CSS-Eigenschaftsnamen (im Bindestrichformat) darstellt, der geändert werden soll.
+  - : Ein String, der den Namen der zu ändernden CSS-Eigenschaft (in Bindestrich-Notation) darstellt.
 - `value` {{optional_inline}}
-  - : Ein String, der den neuen Eigenschaftswert enthält. Wenn nicht angegeben, wird er als leerer String behandelt. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso wie ein leerer String (`""`) behandelt.
-    > **Note:** `value` darf nicht `"!important"` enthalten, das sollte über den `priority`-Parameter gesetzt werden.
+  - : Ein String, der den neuen Eigenschaftswert enthält. Falls nicht angegeben, wird dies als leerer String betrachtet. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
+    > [!NOTE] > `value` darf nicht `"!important"` enthalten; dies sollte über den `priority`-Parameter gesetzt werden.
 - `priority` {{optional_inline}}
 
-  - : Ein String, der ermöglicht, die CSS-Priorität auf important zu setzen. Nur die unten aufgelisteten Werte werden akzeptiert:
+  - : Ein String, der es erlaubt, die CSS-Priorität auf wichtig zu setzen. Nur die unten aufgeführten Werte werden akzeptiert:
 
-    - `"important"` (ohne Berücksichtigung der Groß- und Kleinschreibung) um die Eigenschaft als `!important` zu setzen;
-    - `""`, `undefined` oder `null`, um das `!important`-Flag zu entfernen, falls es vorhanden ist.
+    - `"important"` (nicht fallabhängig), um die Eigenschaft als `!important` zu setzen;
+    - `""`, `undefined` oder `null`, um das `!important`-Flag zu entfernen, falls vorhanden.
 
-    Alles andere führt dazu, dass die Methode frühzeitig zurückkehrt und keine Änderung vorgenommen wird (es sei denn, `value` ist leer, in diesem Fall wird die Eigenschaft unabhängig vom `priority`-Wert entfernt). `false` zum Beispiel ist kein gültiger Prioritätswert.
+    Alles andere führt dazu, dass die Methode frühzeitig zurückkehrt und keine Änderung passiert (es sei denn, `value` ist leer; in diesem Fall wird die Eigenschaft unabhängig vom `priority`-Wert entfernt). `false` ist zum Beispiel kein gültiger Prioritätswert.
 
 ### Rückgabewert
 
@@ -40,11 +40,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Eigenschaft oder das Deklarationsblock nur lesbar ist.
+  - : Wird ausgelöst, wenn die Eigenschaft oder der Deklarationsblock schreibgeschützt ist.
 
-## Alternative Verwendung
+## Alternative Nutzung
 
-Wenn `priority` weggelassen werden kann, bietet JavaScript eine spezielle, einfachere Syntax zum Setzen einer CSS-Eigenschaft auf einem Style-Declaration-Objekt:
+Wenn `priority` weggelassen werden kann, hat JavaScript eine spezielle einfachere Syntax zum Setzen einer CSS-Eigenschaft auf einem Stil-Deklarationsobjekt:
 
 ```js
 style.cssPropertyName = "value";
@@ -52,13 +52,11 @@ style.cssPropertyName = "value";
 
 ## Beispiele
 
-In diesem Beispiel haben wir drei Schaltflächen, die gedrückt werden können, um die Rahmen, die Hintergrundfarbe und die Textfarbe unseres Box-Paragraphen dynamisch auf zufällige Werte zu ändern (siehe das Live-Beispiel am Ende dieses Abschnitts).
+In diesem Beispiel haben wir drei Schaltflächen, die gedrückt werden können, um den Rand, die Hintergrundfarbe und die Textfarbe unseres Absatzes mit einem Kasten dynamisch auf zufällige Werte zu ändern (siehe das Live-Beispiel am Ende dieses Abschnitts).
 
-Wir wissen, dass die Regel, die wir ändern möchten, sich im zweiten Stylesheet befindet, das auf die Seite angewendet wird, deshalb greifen wir auf eine Referenz darauf zu mittels [`document.styleSheets[1]`](/de/docs/Web/API/Document/styleSheets).
-Wir durchlaufen dann die verschiedenen Regeln, die sich im Stylesheet befinden und im Array bei [`stylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) enthalten sind; für jede überprüfen wir, ob ihre
-[`CSSStyleRule.selectorText`](/de/docs/Web/API/CSSStyleRule/selectorText)-Eigenschaft gleich dem Selektor `.box p` ist, was anzeigt, dass es diejenige ist, die wir wollen.
+Wir wissen, dass die Regel, die wir ändern möchten, im zweiten auf die Seite angewendeten Stylesheet enthalten ist, also greifen wir darauf zu, indem wir eine Referenz darauf mit [`document.styleSheets[1]`](/de/docs/Web/API/Document/styleSheets) holen. Dann durchlaufen wir die verschiedenen Regeln, die im Stylesheet enthalten sind, welche in dem Array gefunden werden, das unter [`stylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) enthalten ist; für jede davon überprüfen wir, ob ihre [`CSSStyleRule.selectorText`](/de/docs/Web/API/CSSStyleRule/selectorText) Eigenschaft dem Selektor `.box p` entspricht, was anzeigt, dass es diejenige ist, die wir wollen.
 
-Falls ja, speichern wir eine Referenz zu diesem `CSSStyleRule`-Objekt in einer Variablen. Wir verwenden dann drei Funktionen, um zufällige Werte für die betreffenden Eigenschaften zu generieren und die Regel mit diesen Werten zu aktualisieren. In jedem Fall wird dies mit der `setProperty()`-Methode durchgeführt, zum Beispiel `boxParaRule.style.setProperty('border', newBorder);`.
+Wenn ja, speichern wir eine Referenz zu diesem `CSSStyleRule`-Objekt in einer Variablen. Anschließend verwenden wir drei Funktionen, um Zufallswerte für die betreffenden Eigenschaften zu erzeugen und aktualisieren die Regel mit diesen Werten. In jedem Fall wird dies mit der `setProperty()`-Methode durchgeführt, zum Beispiel `boxParaRule.style.setProperty('border', newBorder);`.
 
 ### HTML
 

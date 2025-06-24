@@ -2,21 +2,21 @@
 title: <display-listitem>
 slug: Web/CSS/display-listitem
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudo-Element mit dem durch seine {{CSSxRef("list-style")}} Eigenschaften angegebenen Inhalt erzeugt (zum Beispiel ein Aufzählungspunkt), zusammen mit einem Hauptfeld des angegebenen Typs für die eigenen Inhalte.
+Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudo-Element mit dem Inhalt erzeugt, der durch seine {{CSSxRef("list-style")}} Eigenschaften angegeben wird (zum Beispiel ein Aufzählungspunkt), zusammen mit einem Hauptblock des angegebenen Typs für seine eigenen Inhalte.
 
 ## Syntax
 
-Ein einzelner Wert von `list-item` führt dazu, dass das Element sich wie ein Listenelement verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
+Ein einzelner Wert von `list-item` führt dazu, dass das Element sich wie ein Listenpunkt verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
 
-`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}}-Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwörtern kombiniert werden.
+`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} Schlüsselwörtern kombiniert werden.
 
 > [!NOTE]
-> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, falls kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, erhält das Hauptfeld einen äußeren Anzeigetyp von `block`.
+> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, wenn kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, hat der Hauptblock einen äußeren Anzeigetyp von `block`.
 
 ## Formale Syntax
 
@@ -54,7 +54,6 @@ Ein einzelner Wert von `list-item` führt dazu, dass das Element sich wie ein Li
 ## Siehe auch
 
 - {{CSSxRef("display")}}
-
   - {{CSSxRef("&lt;display-outside&gt;")}}
   - {{CSSxRef("&lt;display-inside&gt;")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}

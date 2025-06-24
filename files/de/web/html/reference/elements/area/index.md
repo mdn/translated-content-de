@@ -1,13 +1,13 @@
 ---
-title: "<area>: Das Image Map Area-Element"
+title: "<area>: Das Bildkarten-Bereichselement"
 slug: Web/HTML/Reference/Elements/area
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar}}
 
-Das **`<area>`** [HTML](/de/docs/Web/HTML)-Element definiert einen Bereich innerhalb einer Image-Map, die vordefinierte anklickbare Bereiche hat. Eine _Image-Map_ ermöglicht es, geometrische Bereiche auf einem Bild mit {{Glossary("Hyperlink", "Hypertext-Links")}} zu verknüpfen.
+Das **`<area>`** [HTML](/de/docs/Web/HTML)-Element definiert einen Bereich innerhalb einer Bildkarte, der vordefinierte anklickbare Bereiche hat. Eine _Bildkarte_ ermöglicht es, geometrische Bereiche auf einem Bild mit {{Glossary("Hyperlink", "Hypertext-Links")}} zu verknüpfen.
 
 Dieses Element wird nur innerhalb eines {{HTMLElement("map")}}-Elements verwendet.
 
@@ -58,62 +58,73 @@ img {
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements schließen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
 
 - `alt`
-  - : Ein alternativer Textstring, der in Browsern angezeigt wird, die keine Bilder anzeigen. Der Text sollte so formuliert sein, dass er dem Benutzer dieselbe Art von Auswahl präsentiert, wie das Bild es ohne den alternativen Text tun würde. Dieses Attribut ist nur erforderlich, wenn das [`href`](#href)-Attribut verwendet wird.
+  - : Ein alternativer Textstring, der in Browsern angezeigt wird, die keine Bilder darstellen.
+    Der Text sollte so formuliert sein, dass er dem Benutzer dieselbe Art von Auswahl bietet, wie es das Bild täte, wenn es ohne den alternativen Text angezeigt würde.
+    Dieses Attribut ist nur erforderlich, wenn das [`href`](#href)-Attribut verwendet wird.
 - `coords`
 
-  - : Das `coords`-Attribut beschreibt die Koordinaten des [`shape`](#shape)-Attributs in Bezug auf Größe, Form und Platzierung einer `<area>`.
+  - : Das `coords`-Attribut beschreibt die Koordinaten des [`shape`](#shape)-Attributs in Größe, Form und Platzierung eines `<area>`.
     Dieses Attribut darf nicht verwendet werden, wenn `shape` auf `default` gesetzt ist.
 
-    - `rect`: Der Wert ist `x1,y1,x2,y2`.
+    - `rect`: der Wert ist `x1,y1,x2,y2`.
       Der Wert gibt die Koordinaten der oberen linken und unteren rechten Ecke des Rechtecks an.
-      Zum Beispiel gibt bei `<area shape="rect" coords="0,0,253,27" href="#" target="_blank" alt="Mozilla">` der Wert `0,0` und `253,27` die obere linke und die untere rechte Ecke des Rechtecks an.
-    - `circle`: Der Wert ist `x,y,radius`. Der Wert gibt die Koordinaten des Kreismittelpunkts und des Radius an.
+      Zum Beispiel, in `<area shape="rect" coords="0,0,253,27" href="#" target="_blank" alt="Mozilla">` sind die Koordinaten `0,0` und `253,27`, die jeweils die obere linke und die untere rechte Ecke des Rechtecks anzeigen.
+    - `circle`: der Wert ist `x,y,radius`. Der Wert gibt die Koordinaten des Kreismittelpunkts und den Radius an.
       Zum Beispiel: `<area shape="circle" coords="130,136,60" href="#" target="_blank" alt="MDN">`
-    - `poly`: Der Wert ist `x1,y1,x2,y2,..,xn,yn`. Der Wert gibt die Koordinaten der Eckpunkte des Polygons an.
-      Wenn das erste und das letzte Koordinatenpaar nicht gleich sind, fügt der Browser das letzte Koordinatenpaar hinzu, um das Polygon zu schließen.
+    - `poly`: der Wert ist `x1,y1,x2,y2,..,xn,yn`. Der Wert gibt die Koordinaten der Kanten des Polygons an.
+      Wenn die ersten und letzten Koordinatenpaare nicht identisch sind, fügt der Browser das letzte Koordinatenpaar hinzu, um das Polygon zu schließen.
 
     Die Werte sind Zahlen in CSS-Pixeln.
 
 - `download`
-  - : Dieses Attribut zeigt, falls vorhanden, an, dass die verlinkte Ressource heruntergeladen und nicht im Browser angezeigt werden soll. Siehe {{HTMLElement("a")}} für eine vollständige Beschreibung des [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)-Attributs.
+  - : Dieses Attribut zeigt, falls vorhanden, an, dass die verlinkte Ressource heruntergeladen und nicht im Browser angezeigt werden soll.
+    Siehe {{HTMLElement("a")}} für eine vollständige Beschreibung des [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)-Attributs.
 - `href`
-  - : Das Hyperlink-Ziel für den Bereich. Sein Wert ist eine gültige URL. Dieses Attribut kann weggelassen werden; in diesem Fall repräsentiert das `<area>`-Element keinen Hyperlink.
+  - : Das Ziel des Hyperlinks für den Bereich.
+    Sein Wert ist eine gültige URL.
+    Dieses Attribut kann weggelassen werden; falls ja, repräsentiert das `<area>`-Element keinen Hyperlink.
 - `ping`
-  - : Enthält eine durch Leerzeichen getrennte Liste von URLs, an die, wenn der Hyperlink gefolgt wird, {{HTTPMethod("POST")}}-Anfragen mit dem Körper `PING` vom Browser (im Hintergrund) gesendet werden. Typischerweise für Tracking verwendet.
+  - : Enthält eine durch Leerzeichen getrennte Liste von URLs, zu denen beim Befolgen des Hyperlinks {{HTTPMethod("POST")}}-Anfragen mit dem Körper `PING` vom Browser (im Hintergrund) gesendet werden.
+    Typischerweise für das Tracking verwendet.
 - `referrerpolicy`
 
-  - : Ein String, der angibt, welchen Referrer verwendet werden soll, wenn die Ressource abgerufen wird:
-
+  - : Ein String, der angibt, welchen Referrer beim Abrufen der Ressource zu verwenden ist:
     - `no-referrer`: Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
-    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Ursprung")}}e ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
-    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
-    - `origin-when-cross-origin`: Der Referrer, der an andere Ursprünge gesendet wird, ist auf das Schema, den Host und den Port beschränkt. Navigationen auf demselben Ursprung enthalten weiterhin den Pfad.
-    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "gleichen Ursprung")}} gesendet, aber Anfragen über verschiedene Ursprünge enthalten keine Referrer-Informationen.
-    - `strict-origin`: Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitseingestufte Protokoll gleich bleibt (HTTPS→HTTPS), aber sendet es nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
-    - `strict-origin-when-cross-origin` (default): Sendet eine vollständige URL, wenn eine Anfrage an denselben Ursprung gestellt wird, sendet nur den Ursprung, wenn das Sicherheitseingestufte Protokoll gleich bleibt (HTTPS→HTTPS), und sendet keinen Header zu einem weniger sicheren Ziel (HTTPS→HTTP).
-    - `unsafe-url`: Der Referrer enthält den Ursprung _und_ den Pfad (aber nicht den [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), das [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder den [Benutzernamen](/de/docs/Web/API/HTMLAnchorElement/username)).
-      **Dieser Wert ist unsicher**, weil er Ursprünge und Pfade von TLS-geschützten Ressourcen zu unsicheren Ursprüngen leckt.
+    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Ursprünge")}} ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
+    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: das [Schema](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
+    - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigationen im gleichen Ursprung enthalten weiterhin den Pfad.
+    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "den gleichen Ursprung")}} gesendet, aber fremd-ursprüngliche Anfragen enthalten keine Referrer-Informationen.
+    - `strict-origin`: Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
+    - `strict-origin-when-cross-origin` (Standard): Sendet eine vollständige URL bei einer gleichen Ursprungsanfrage, sendet nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und sendet keinen Header an ein weniger sicheres Ziel (HTTPS→HTTP).
+    - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad umfassen (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder [Benutzername](/de/docs/Web/API/HTMLAnchorElement/username)).
+      **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergibt.
 
 - [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)
-  - : Für Anker, die das [`href`](#href)-Attribut enthalten, gibt dieses Attribut die Beziehung des Zielobjekts zum Link-Objekt an. Der Wert ist eine durch Leerzeichen getrennte Liste von Link-Typen. Die Werte und ihre Semantik werden von einer Autorität registriert, die für den Dokumentautor von Bedeutung sein könnte. Die Standardbeziehung, wenn keine andere angegeben ist, ist leer. Verwenden Sie dieses Attribut nur, wenn das [`href`](#href)-Attribut vorhanden ist.
+  - : Für Anker, die das [`href`](#href)-Attribut enthalten, gibt dieses Attribut die Beziehung des Zielobjekts zum Linkobjekt an.
+    Der Wert ist eine durch Leerzeichen getrennte Liste von Linktypen.
+    Die Werte und ihre Semantik werden von einer Behörde registriert, die für den Dokumentautor von Bedeutung sein könnte.
+    Die Standardbeziehung, falls keine andere angegeben wird, ist void. Verwenden Sie dieses Attribut nur, wenn das [`href`](#href)-Attribut vorhanden ist.
 - `shape`
-  - : Die Form des zugeordneten Hotspots. Die Spezifikationen für HTML definieren die Werte `rect`, die einen rechteckigen Bereich definieren; `circle`, die einen kreisförmigen Bereich definieren; `poly`, die ein Polygon definieren; und `default`, das den gesamten Bereich jenseits aller definierten Formen angibt.
+  - : Die Form des zugehörigen Hotspots. Die Spezifikationen für HTML definieren die Werte `rect`, die einen rechteckigen Bereich definieren; `circle`, der einen kreisförmigen Bereich definiert; `poly`, das ein Polygon definiert; und `default`, was den gesamten Bereich über alle definierten Formen hinaus angibt.
 - `target`
 
-  - : Ein Schlüsselwort oder ein vom Autor definierter Name des {{Glossary("browsing_context", "Browsing-Kontexts")}}, in dem die verlinkte Ressource angezeigt werden soll. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
+  - : Ein Schlüsselwort oder ein vom Autor definierter Name des {{Glossary("browsing_context", "Browsing-Kontextes")}}, in dem die verlinkte Ressource angezeigt wird.
+    Die folgenden Schlüsselwörter haben besondere Bedeutungen:
 
-    - `_self` (default): Zeigt die Ressource im aktuellen Browsing-Kontext an.
-    - `_blank`: Zeigt die Ressource in einem neuen, unbenannten Browsing-Kontext an.
-    - `_parent`: Zeigt die Ressource im übergeordneten Browsing-Kontext des aktuellen an, falls die aktuelle Seite innerhalb eines Rahmens ist. Wenn es keinen übergeordneten Kontext gibt, verhält es sich wie `_self`.
-    - `_top`: Zeigt die Ressource im obersten Browsing-Kontext an (dem Browsing-Kontext, der ein Vorfahre des aktuellen Kontextes ist und keinen übergeordneten Kontext hat). Wenn es keinen übergeordneten Kontext gibt, verhält es sich wie `_self`.
+    - `_self` (Standard): Zeigen Sie die Ressource im aktuellen Browsing-Kontext an.
+    - `_blank`: Zeigen Sie die Ressource in einem neuen, unbenannten Browsing-Kontext an.
+    - `_parent`: Zeigen Sie die Ressource im übergeordneten Browsing-Kontext des aktuellen an, wenn die aktuelle Seite in einem Rahmen eingebettet ist.
+      Wenn es keinen übergeordneten gibt, wirkt sich das genauso aus wie `_self`.
+    - `_top`: Zeigen Sie die Ressource im obersten Browsing-Kontext an (der Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen Elternteil hat).
+      Wenn es keinen Elternteil gibt, wirkt sich das genauso aus wie `_self`.
 
     Verwenden Sie dieses Attribut nur, wenn das [`href`](#href)-Attribut vorhanden ist.
 
     > [!NOTE]
-    > Wenn `target="_blank"` bei `<area>`-Elementen eingestellt ist, bietet es implizit dasselbe `rel`-Verhalten wie [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener), das `window.opener` nicht setzt. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für den Unterstützungsstatus.
+    > Die Einstellung von `target="_blank"` für `<area>`-Elemente bietet implizit dasselbe `rel`-Verhalten wie die Einstellung von [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener), das `window.opener` nicht setzt. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für den Unterstützungsstatus.
 
 ## Beispiele
 
@@ -150,25 +161,25 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließende Inhalte</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalte</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalte</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void-Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
+      <td>Must have a start tag and must not have an end tag.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalte</a> akzeptiert. Das <code>&#x3C;area></code>-Element muss einen Vorfahren {{HTMLElement("map")}} haben, aber es muss kein direkter Elternteil sein.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalte</a> akzeptiert. Das <code>&#x3C;area></code>-Element muss einen Vorfahren {{HTMLElement("map")}} haben, aber es muss kein direkter Elternteil sein.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/link_role"><code>link</code></a> wenn das <a href="#href"><code>href</code></a>-Attribut vorhanden ist, andernfalls
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"><code>generic</code></a>

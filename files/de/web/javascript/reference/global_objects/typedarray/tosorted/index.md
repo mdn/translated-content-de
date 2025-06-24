@@ -3,12 +3,12 @@ title: TypedArray.prototype.toSorted()
 short-title: toSorted()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toSorted
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Die **`toSorted()`** Methode von {{jsxref("TypedArray")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("TypedArray/sort", "sort()")}} Methode. Sie gibt ein neues typisiertes Array zurück, dessen Elemente in aufsteigender Reihenfolge sortiert sind. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toSorted()")}}, außer dass die Werte standardmäßig numerisch und nicht als Strings sortiert werden.
+Die **`toSorted()`** Methode von {{jsxref("TypedArray")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("TypedArray/sort", "sort()")}} Methode. Sie gibt ein neues typisiertes Array zurück, wobei die Elemente in aufsteigender Reihenfolge sortiert sind. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toSorted()")}}, außer dass die Werte standardmäßig numerisch statt als Strings sortiert werden.
 
 ## Syntax
 
@@ -20,22 +20,21 @@ toSorted(compareFn)
 ### Parameter
 
 - `compareFn` {{optional_inline}}
-
-  - : Eine Funktion, die die Reihenfolge der Elemente bestimmt. Falls diese weggelassen wird, werden die Elemente des typisierten Arrays nach ihrem numerischen Wert sortiert. Weitere Informationen finden Sie unter {{jsxref("TypedArray/sort", "sort()")}}.
+  - : Eine Funktion, die die Reihenfolge der Elemente bestimmt. Wenn sie weggelassen wird, werden die Elemente des typisierten Arrays nach ihrem numerischen Wert sortiert. Weitere Informationen finden Sie unter {{jsxref("TypedArray/sort", "sort()")}}.
 
 ### Rückgabewert
 
-Ein neues typisiertes Array, dessen Elemente in aufsteigender Reihenfolge sortiert sind.
+Ein neues typisiertes Array mit den Elementen in aufsteigender Reihenfolge sortiert.
 
 ## Beschreibung
 
-Weitere Details finden Sie unter {{jsxref("Array.prototype.toSorted()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen angewendet werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.toSorted()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
 ### Sortieren eines Arrays
 
-Für weitere Beispiele siehe auch die {{jsxref("Array.prototype.sort()")}} Methode.
+Weitere Beispiele finden Sie auch in der {{jsxref("Array.prototype.sort()")}} Methode.
 
 ```js
 const numbers = new Uint8Array([40, 1, 5, 200]);

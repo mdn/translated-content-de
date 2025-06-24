@@ -3,12 +3,13 @@ title: "WebGLRenderingContext: bindFramebuffer()-Methode"
 short-title: bindFramebuffer()
 slug: Web/API/WebGLRenderingContext/bindFramebuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.bindFramebuffer()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) bindet den angegebenen Zielpunkt an die bereitgestellte [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), oder, wenn das `framebuffer`-Argument null ist, den standardmäßigen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), der mit dem Canvas-Rendering-Kontext verbunden ist.
+Die **`WebGLRenderingContext.bindFramebuffer()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) bindet an das angegebene Ziel das bereitgestellte [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer). Ist das `framebuffer`-Argument null, wird das Standard-[`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) gebunden, das mit dem Canvas-Rendering-Kontext verknüpft ist.
 
 ## Syntax
 
@@ -20,12 +21,12 @@ bindFramebuffer(target, framebuffer)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
-      - : Datenspeicher für eine Sammlung von Farb-, Alpha-, Tiefen- und Stencil-Puffern, die sowohl als Ziel für Zeichnungen als auch als Quelle für das Lesen verwendet werden (siehe unten).
+      - : Sammlungspufferdaten für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die sowohl als Ziel für das Zeichnen als auch als Quelle für das Lesen verwendet werden (siehe unten).
 
-    Wenn ein [WebGL 2-Kontext](/de/docs/Web/API/WebGL2RenderingContext) verwendet wird, sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich folgende Werte zur Verfügung:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Wird als Ziel für Zeichenoperationen wie `gl.draw*`, `gl.clear*` und `gl.blitFramebuffer` verwendet.
@@ -33,7 +34,7 @@ bindFramebuffer(target, framebuffer)
       - : Wird als Quelle für Leseoperationen wie `gl.readPixels` und `gl.blitFramebuffer` verwendet.
 
 - `framebuffer`
-  - : Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt zum Binden, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zum Binden des mit dem Rendering-Kontext verbundenen [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
+  - : Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt, das gebunden werden soll, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) für die Bindung des [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts, das mit dem Rendering-Kontext verknüpft ist.
 
 ### Rückgabewert
 
@@ -41,11 +42,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` nicht `gl.FRAMEBUFFER`, `gl.DRAW_FRAMEBUFFER` oder `gl.READ_FRAMEBUFFER` ist.
+Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` nicht
+`gl.FRAMEBUFFER`, `gl.DRAW_FRAMEBUFFER` oder
+`gl.READ_FRAMEBUFFER` ist.
 
 ## Beispiele
 
-### Einen Framebuffer binden
+### Ein Framebuffer binden
 
 ```js
 const canvas = document.getElementById("canvas");

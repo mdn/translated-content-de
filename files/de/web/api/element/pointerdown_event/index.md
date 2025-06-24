@@ -3,17 +3,17 @@ title: "Element: pointerdown event"
 short-title: pointerdown
 slug: Web/API/Element/pointerdown_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}
 
-Das `pointerdown` Event wird ausgelöst, wenn ein Zeigegerät aktiv wird. Bei der Maus wird es ausgelöst, wenn der Übergang von keinen gedrückten Tasten zu mindestens einer gedrückten Taste erfolgt. Bei Berührung wird es ausgelöst, wenn physischer Kontakt mit dem Digitalisierer hergestellt wird. Beim Stift wird es ausgelöst, wenn der Stift physischen Kontakt mit dem Digitalisierer herstellt.
+Das `pointerdown`-Ereignis wird ausgelöst, wenn ein Zeigegerät aktiv wird. Bei der Maus wird es ausgelöst, wenn der Wechsel von keinem gedrückten Knopf zu mindestens einem gedrückten Knopf stattfindet. Bei Berührung wird es ausgelöst, wenn physischer Kontakt mit dem Digitalisierer hergestellt wird. Bei einem Stift wird es ausgelöst, wenn der Stift physischen Kontakt mit dem Digitalisierer herstellt.
 
-Dieses Verhalten unterscheidet sich von [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Events. Bei der Verwendung einer physischen Maus werden `mousedown` Events jedes Mal ausgelöst, wenn eine Taste einer Maus gedrückt wird. `pointerdown` Events werden nur beim ersten Tastendruck ausgelöst; nachfolgende Tastendrücke lösen keine `pointerdown` Events aus.
+Dieses Verhalten unterscheidet sich von [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignissen. Bei der Verwendung einer physischen Maus werden `mousedown`-Ereignisse immer dann ausgelöst, wenn eine beliebige Taste einer Maus heruntergedrückt wird. `pointerdown`-Ereignisse werden nur beim ersten Drücken einer Taste ausgelöst; nachfolgende Tastenbetätigungen lösen keine `pointerdown`-Ereignisse aus.
 
 > [!NOTE]
-> Bei Touchscreen-Browsern, die [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) ermöglichen, löst ein `pointerdown` Event eine [implizite Zeigererfassung](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture) aus, wodurch das Ziel alle nachfolgenden Zeigereignisse erfasst, als ob sie über das erfassende Ziel auftreten würden. Folglich werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**, solange diese Erfassung aktiv ist. Die Erfassung kann manuell aufgehoben werden, indem [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) auf das Ziel-Element angewandt wird, oder sie wird implizit nach einem `pointerup` oder `pointercancel` Event aufgehoben.
+> Bei Touchscreen-Browsern, die [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) zulassen, löst ein `pointerdown`-Ereignis eine [implizite Zeigererfassung](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture) aus, was dazu führt, dass das Ziel alle nachfolgenden Zeigereignisse erfasst, als ob sie über dem erfassenden Ziel stattfänden. Demzufolge werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**, solange diese Erfassung gesetzt ist. Die Erfassung kann manuell durch Aufruf von [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) auf dem Zielelement aufgehoben werden, oder sie wird automatisch nach einem `pointerup`- oder `pointercancel`-Ereignis aufgehoben.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ addEventListener("pointerdown", (event) => { })
 onpointerdown = (event) => { }
 ```
 
-## Eventtyp
+## Ereignistyp
 
 Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
@@ -36,29 +36,29 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen einer Transducer-Achse (einem Zeiger oder Stift) und der X-Y-Ebene eines Geräts dar.
+  - : Repräsentiert den Winkel zwischen der Achse eines Gebers (einem Zeiger oder Stift) und der X-Y-Ebene eines Geräte-Bildschirms.
 - [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Transducer-Achse (ein Zeiger oder Stift) als auch die Y-Achse enthält.
+  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Achse des Gebers (einem Zeiger oder Stift) als auch die Y-Achse enthält.
 - [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine einzigartige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
+  - : Eine eindeutige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
 - [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
-  - : Eine einzigartige Kennung für den Zeiger, der das Ereignis verursacht.
+  - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
 - [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
-  - : Die Breite (Magnitude auf der X-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+  - : Die Breite (Größe auf der X-Achse) in CSS-Pixeln der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
-  - : Die Höhe (Magnitude auf der Y-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+  - : Die Höhe (Größe auf der Y-Achse) in CSS-Pixeln der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen bzw. maximalen Druck darstellen, den die Hardware erkennen kann.
+  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen bzw. maximalen Druck darstellen, den die Hardware zu erkennen vermag.
 - [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Barrel-Druck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die Neutralstellung der Kontrolle ist.
+  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch als Fassdruck oder [Zylinderstress](https://en.wikipedia.org/wiki/Cylinder_stress) bekannt) im Bereich von `-1` bis `1`, wobei `0` die Neutralposition des Reglers ist.
 - [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Winkel der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift) als auch die Y-Achse enthält.
+  - : Der Winkel der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z.B. einem Stiftstift) als auch die Y-Achse enthält.
 - [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Winkel der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift) als auch die X-Achse enthält.
+  - : Der Winkel der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z.B. einem Stiftstift) als auch die X-Achse enthält.
 - [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z.B. Stift) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
+  - : Die Drehung im Uhrzeigersinn des Zeigers (z.B. einem Stiftstift) um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
 - [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
+  - : Zeigt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
 - [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
   - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
 
@@ -74,7 +74,7 @@ para.addEventListener("pointerdown", (event) => {
 });
 ```
 
-Verwendung der `onpointerdown` Ereignis-Handler-Eigenschaft:
+Verwendung der `onpointerdown`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const para = document.querySelector("p");
@@ -95,7 +95,6 @@ para.onpointerdown = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse
-
   - [`gotpointercapture`](/de/docs/Web/API/Element/gotpointercapture_event)
   - [`lostpointercapture`](/de/docs/Web/API/Element/lostpointercapture_event)
   - [`pointerover`](/de/docs/Web/API/Element/pointerover_event)

@@ -5213,7 +5213,7 @@
 /de/docs/Learn/CSS/CSS_layout/Introduction	/de/docs/Learn_web_development/Core/CSS_layout/Introduction
 /de/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods	/de/docs/Learn_web_development/Core/CSS_layout/Legacy_Layout_Methods
 /de/docs/Learn/CSS/CSS_layout/Media_queries	/de/docs/Learn_web_development/Core/CSS_layout/Media_queries
-/de/docs/Learn/CSS/CSS_layout/Multicol_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Multicolumn
+/de/docs/Learn/CSS/CSS_layout/Multicol_skills	/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout
 /de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout	/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout
 /de/docs/Learn/CSS/CSS_layout/Normal_Flow	/de/docs/Learn_web_development/Core/CSS_layout/Introduction
 /de/docs/Learn/CSS/CSS_layout/Position_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Position
@@ -5764,8 +5764,9 @@
 /de/docs/Learn_web_development/Core/CSS_layout/Flexbox_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Flexbox
 /de/docs/Learn_web_development/Core/CSS_layout/Floats_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Floats
 /de/docs/Learn_web_development/Core/CSS_layout/Grid_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Grid
-/de/docs/Learn_web_development/Core/CSS_layout/Multicol_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Multicolumn
+/de/docs/Learn_web_development/Core/CSS_layout/Multicol_skills	/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout
 /de/docs/Learn_web_development/Core/CSS_layout/Position_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Position
+/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Multicolumn	/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout
 /de/docs/Learn_web_development/Core/CSS_layout/rwd_skills	/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Responsive_design
 /de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Arrays	/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Arrays
 /de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Conditionals	/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Conditionals

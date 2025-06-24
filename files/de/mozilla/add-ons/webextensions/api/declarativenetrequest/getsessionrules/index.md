@@ -2,12 +2,12 @@
 title: declarativeNetRequest.getSessionRules
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getSessionRules
 l10n:
-  sourceCommit: 787fd072f8bc00cbdf62cef85921f0a6d9f0b4a7
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Gibt die aktive Menge von sitzungsspezifischen Regeln für die Erweiterung zurück.
+Gibt die aktive Menge von sitzungsbezogenen Regeln für die Erweiterung zurück.
 
 ## Syntax
 
@@ -18,14 +18,13 @@ let sessionRules = await browser.declarativeNetRequest.getSessionRules();
 ### Parameter
 
 - `filter` {{optional_inline}}
-
   - : Ein Objekt, um die Liste der zurückgegebenen Regeln zu filtern.
     - `ruleIds` {{optional_inline}}
       - : Ein Array von `integer`. Die IDs der zurückzugebenden Regeln.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}} Objekten erfüllt wird. Wenn keine Regeln aktiv sind, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}-Objekten erfüllt wird. Wenn keine Regeln aktiv sind, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

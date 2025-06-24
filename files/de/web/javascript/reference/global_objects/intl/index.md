@@ -2,107 +2,107 @@
 title: Intl
 slug: Web/JavaScript/Reference/Global_Objects/Intl
 l10n:
-  sourceCommit: 35512ec91d6a464ebee803d20c2d47464c9ce4e7
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Das **`Intl`**-Namensraumobjekt enthält mehrere Konstruktoren sowie Funktionen, die den Internationalisierungskonstruktoren und anderen sprachsensitiven Funktionen gemeinsam sind. Zusammen bilden sie die ECMAScript Internationalization API, die sprachsensitive Zeichenfolgenvergleiche, Zahlenformatierung, Datums- und Uhrzeitformatierung und mehr bietet.
+Das **`Intl`** Namensraumobjekt enthält mehrere Konstruktoren sowie Funktionalitäten, die für die Internationalisierungskonstruktoren und andere sprachsensitive Funktionen typisch sind. Zusammen bilden sie die ECMAScript Internationalization API, die sprachsensitive Zeichenfolgenvergleichung, Zahlenformatierung, Datum- und Zeitformatierung und mehr bietet.
 
 ## Beschreibung
 
-Im Gegensatz zu den meisten globalen Objekten ist `Intl` kein Konstruktor. Sie können es nicht mit dem [`new` operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden oder das `Intl`-Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Intl` sind statisch (genau wie das {{jsxref("Math")}}-Objekt).
+Im Gegensatz zu den meisten globalen Objekten ist `Intl` kein Konstruktor. Sie können es weder mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden noch das `Intl` Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Intl` sind statisch (genau wie das {{jsxref("Math")}} Objekt).
 
-Die Internationalisierungskonstruktoren sowie mehrere sprachsensitive Methoden anderer Konstruktoren (im Abschnitt [siehe auch](#siehe_auch) aufgeführt) verwenden ein gemeinsames Muster zur Identifikation von `locales` und ermitteln die Locale, die sie tatsächlich verwenden werden: Sie akzeptieren alle `locales`- und `options`-Argumente und verhandeln die angeforderten Locale(s) gegen die, die sie unterstützen, unter Verwendung eines im `options.localeMatcher`-Eigenschaft definierten Algorithmus.
+Die Internationalisierungskonstruktoren sowie mehrere sprachsensitive Methoden anderer Konstruktoren (siehe [Siehe auch](#siehe_auch)) verwenden ein gemeinsames Muster zur Identifizierung von Regionen und zur Bestimmung der tatsächlich verwendeten. Sie akzeptieren alle `locales` und `options` Argumente und führen die angeforderten Regionen gegen die von ihnen unterstützten Regionen mithilfe eines im `options.localeMatcher` Property angegebenen Algorithmus aus.
 
-### locales-Argument
+### locales Argument
 
-Das `locales`-Argument wird verwendet, um die Locale zu bestimmen, die in einer gegebenen Operation verwendet wird. Die JavaScript-Implementierung untersucht `locales` und berechnet dann eine Locale, die sie versteht und die am nächsten daran kommt, die geäußerte Präferenz zu erfüllen. `locales` kann sein:
+Das `locales` Argument wird verwendet, um die Region zu bestimmen, die in einer bestimmten Operation verwendet wird. Die JavaScript-Implementierung untersucht `locales` und berechnet dann eine Region, die ihren Präferenzen am nächsten entspricht. `locales` kann sein:
 
-- `undefined` (oder ausgelassen): Die Standard-Locale der Implementierung wird verwendet.
-- Eine Locale: Ein Locale-Bezeichner oder ein [`Intl.Locale`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)-Objekt, das einen Locale-Bezeichner umschließt.
-- Eine Liste von Locales: Jeder andere Wert, der in ein Objekt umgewandelt und dann als Array von Locales behandelt wird.
+- `undefined` (oder ausgelassen): Die Standardregion der Implementierung wird verwendet.
+- Eine Region: Ein Regionsbezeichner oder ein [`Intl.Locale`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale) Objekt, das einen Regionsbezeichner umschließt.
+- Eine Liste von Regionen: Jeder andere Wert, der in ein Objekt umgewandelt und dann als Array von Regionen behandelt wird.
 
-In den beiden letzteren Fällen ist die tatsächlich verwendete Locale die am besten unterstützte Locale, die durch [Locale-Verhandlung](#locale-identifikation_und_verhandlung) bestimmt wird. Wenn ein Locale-Bezeichner kein String oder Objekt ist, wird ein {{jsxref("TypeError")}} ausgelöst. Wenn ein Locale-Bezeichner ein syntaktisch ungültiger String ist, wird ein {{jsxref("RangeError")}} ausgelöst. Wenn ein Locale-Bezeichner wohlgeformt ist, aber von der Implementierung nicht erkannt wird, wird er ignoriert und die nächste Locale in der Liste in Betracht gezogen, wobei schließlich auf die System-Locale zurückgegriffen wird. Sie sollten sich jedoch nicht darauf verlassen, dass ein bestimmter Locale-Bezeichner ignoriert wird, da die Implementierung Daten für jede Locale in Zukunft hinzufügen kann. Zum Beispiel verwendet `new Intl.DateTimeFormat("default")` die Standard-Locale der Implementierung nur, weil `"default"` syntaktisch gültig, aber nicht als Locale erkannt wird.
+In den beiden letztgenannten Fällen ist die tatsächlich verwendete Region die am besten unterstützte, die durch [Regionenverhandlung](#regionsidentifikation_und_-verhandlung) bestimmt wird. Wenn ein Regionsbezeichner keine Zeichenfolge oder kein Objekt ist, wird ein {{jsxref("TypeError")}} ausgelöst. Wenn ein Regionsbezeichner eine syntaktisch ungültige Zeichenfolge ist, wird ein {{jsxref("RangeError")}} ausgelöst. Wenn ein Regionsbezeichner gültig, aber der Implementierung nicht bekannt ist, wird er ignoriert und die nächste Region in der Liste wird betrachtet, sodass schließlich auf die Systemregion zurückgegriffen wird. Sie sollten sich jedoch nicht darauf verlassen, dass ein bestimmter Regionsname ignoriert wird, da die Implementierung jederzeit Daten für jede Region hinzufügen kann. Zum Beispiel verwendet `new Intl.DateTimeFormat("default")` nur die Standardregion der Implementierung, weil `"default"` syntaktisch gültig, aber nicht als Region anerkannt ist.
 
-Ein Locale-Bezeichner ist ein String, der besteht aus:
+Ein Regionsbezeichner ist eine Zeichenfolge bestehend aus:
 
 1. Einem Sprachsubtag mit 2–3 oder 5–8 Buchstaben
 2. Einem Skriptsubtag mit 4 Buchstaben {{optional_inline}}
 3. Einem Regionssubtag mit entweder 2 Buchstaben oder 3 Ziffern {{optional_inline}}
-4. Einem oder mehreren Variantensubtags (die alle einzigartig sein müssen), jeweils mit entweder 5–8 alphanumerischen Zeichen oder einer Ziffer gefolgt von 3 alphanumerischen Zeichen {{optional_inline}}
-5. Einer oder mehreren BCP 47-Erweiterungssequenzen {{optional_inline}}
-6. Einer privat genutzten Erweiterungssequenz {{optional_inline}}
+4. Einem oder mehreren einzigartigen Variantentags, jedes mit entweder 5–8 alphanumerischen oder einer Ziffer gefolgt von 3 alphanumerischen Zeichen {{optional_inline}}
+5. Einer oder mehreren BCP 47 Erweiterungssequenzen {{optional_inline}}
+6. Einer privat verwendeten Erweiterungssequenz {{optional_inline}}
 
-Jeder Subtag und jede Sequenz sind durch Bindestriche getrennt. Locale-Bezeichner sind {{Glossary("ASCII", "ASCII")}}-unempfindlich. Es ist jedoch üblich, im Titel Schreibung (der erste Buchstabe ist groß, die folgenden sind klein) für Skriptsubtags, Großbuchstaben für Regionssubtags und Kleinschreibung für alles andere zu verwenden. Zum Beispiel:
+Jeder Subtag und jede Sequenz werden durch Bindestriche getrennt. Regionsbezeichner sind {{Glossary("ASCII", "ASCII")}} Groß-/Kleinschreibung ignorierend. Allerdings ist es üblich, den Skriptsubtag in Großschreibung (der erste Buchstabe wird großgeschrieben, nachfolgende Buchstaben sind klein) zu verwenden, die Regionssubtags in Großbuchstaben und alles andere in Kleinbuchstaben zu schreiben. Zum Beispiel:
 
 - `"hi"`: Hindi (Sprache)
-- `"de-AT"`: Deutsch (Sprache), wie in Österreich (Region) verwendet
-- `"zh-Hans-CN"`: Chinesisch (Sprache) in vereinfachten Schriftzeichen (Skript) wie in China (Region) verwendet
+- `"de-AT"`: Deutsch (Sprache) wie in Österreich (Region) verwendet
+- `"zh-Hans-CN"`: Chinesisch (Sprache) geschrieben in vereinfachten Zeichen (Skript) wie in China (Region) verwendet
 - `"en-emodeng"`: Englisch (Sprache) im Dialekt "Frühneuenglisch" (Variante)
 
-Subtags, die Sprachen, Skripte, Regionen (einschließlich Länder) und (selten verwendete) Varianten identifizieren, sind im [IANA Language Subtag Registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) registriert. Dieses Register wird periodisch aktualisiert, und Implementierungen können nicht immer aktuell sein, daher verlassen Sie sich nicht zu sehr auf Subtags, die universell unterstützt werden.
+Subtags zur Identifizierung von Sprachen, Skripten, Regionen (einschließlich Ländern) und (selten verwendeten) Varianten sind im [IANA Language Subtag Registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) registriert. Dieses Register wird regelmäßig aktualisiert, und Implementierungen sind möglicherweise nicht immer auf dem neuesten Stand, daher sollten Sie sich nicht zu sehr darauf verlassen, dass Subtags universell unterstützt werden.
 
-BCP 47-Erweiterungssequenzen bestehen aus einer einzelnen Ziffer oder einem Buchstaben (außer `"x"`) und einem oder mehreren zwei- bis achtbuchstabigen- oder ziffern Subtags, die durch Bindestriche getrennt sind. Nur eine Sequenz ist für jede Ziffer oder jeden Buchstaben erlaubt: `"de-a-foo-a-foo"` ist ungültig. BCP 47-Erweiterungssubtags sind im [Unicode CLDR Project](https://github.com/unicode-org/cldr/tree/main/common/bcp47) definiert. Derzeit haben nur zwei Erweiterungen definierte Bedeutungen:
+BCP 47 Erweiterungssequenzen bestehen aus einer einzelnen Ziffer oder einem Buchstaben (außer `"x"`) und einem oder mehreren zwei- bis achtbuchstabigen oder ziffernhaltigen Subtags, die durch Bindestriche getrennt sind. Für jede Ziffer oder jeden Buchstaben ist nur eine Sequenz erlaubt: `"de-a-foo-a-foo"` ist ungültig. BCP 47 Erweiterungs-Subtags sind im [Unicode CLDR Project](https://github.com/unicode-org/cldr/tree/main/common/bcp47) definiert. Derzeit haben nur zwei Erweiterungen definierte Semantiken:
 
-- Die `"u"` (Unicode)-Erweiterung kann verwendet werden, um eine zusätzliche Anpassung von `Intl` API-Objekten anzufordern. Beispiele:
+- Die `"u"` (Unicode) Erweiterung kann verwendet werden, um eine zusätzliche Anpassung der `Intl` API-Objekte anzufordern. Beispiele:
 
-  - `"de-DE-u-co-phonebk"`: Verwenden Sie die Variante des deutschen Sortierauftrags im Telefonbuch, die umgelautete Vokale als entsprechende Zeichenpaare interpretiert: ä → ae, ö → oe, ü → ue.
-  - `"th-TH-u-nu-thai"`: Verwenden Sie thailändische Ziffern (๐, ๑, ๒, ๓, ๔, ๕, ๖, ๗, ๘, ๙) in der Zahlenformatierung.
-  - `"ja-JP-u-ca-japanese"`: Verwenden Sie den japanischen Kalender in der Datums- und Uhrzeitformatierung, so dass 2013 als Jahr 25 der Heisei-Periode, oder 平成 25, ausgedrückt wird.
-  - `"en-GB-u-ca-islamic-umalqura"`: Verwenden Sie britisches Englisch mit dem Umm al-Qura (Hijri) Kalender, wo das gregorianische Datum 14. Oktober 2017 der Hijri-Datum 24 Muharram, 1439, ist.
+  - `"de-DE-u-co-phonebk"`: Verwendung der Telefonbuchvariante der deutschen Sortierreihenfolge, die umlautierte Vokale als entsprechende Zeichenpaare interpretiert: ä → ae, ö → oe, ü → ue.
+  - `"th-TH-u-nu-thai"`: Verwendung thailändischer Ziffern (๐, ๑, ๒, ๓, ๔, ๕, ๖, ๗, ๘, ๙) in der Zahlenformatierung.
+  - `"ja-JP-u-ca-japanese"`: Verwendung des japanischen Kalenders in der Datums- und Zeitformatierung, sodass 2013 als das Jahr 25 der Heisei-Periode oder 平成 25 ausgedrückt wird.
+  - `"en-GB-u-ca-islamic-umalqura"`: Verwendung des britischen Englisch mit dem Umm al-Qura (Hijri) Kalender, wobei das gregorianische Datum 14. Oktober 2017 das Hijri-Datum 24. Muharram 1439 ist.
 
-- Die `"t"` (transformed) Erweiterung zeigt transformierten Inhalt an: zum Beispiel Text, der aus einer anderen Locale übersetzt wurde. Keine `Intl`-Funktionalität berücksichtigt derzeit die `"t"`-Erweiterung. Diese Erweiterung enthält jedoch manchmal eine verschachtelte Locale (ohne Erweiterungen): zum Beispiel enthält die transformierte Erweiterung in `"de-t-en"` das Locale-Bezeichner für Englisch. Wenn eine verschachtelte Locale vorhanden ist, muss sie ein gültiger Locale-Bezeichner sein. Zum Beispiel, weil `"en-emodeng-emodeng"` ungültig ist (weil es einen doppelten `emodeng`-Variantensubtag enthält), ist auch `"de-t-en-emodeng-emodeng"` ungültig.
+- Die `"t"` (transformierte) Erweiterung zeigt transformierten Inhalt an: zum Beispiel Text, der aus einer anderen Region übersetzt wurde. Keine `Intl` Funktionalität berücksichtigt derzeit die `"t"` Erweiterung. Diese Erweiterung enthält jedoch manchmal eine verschachtelte Region (ohne Erweiterungen): Beispielsweise enthält die transformierte Erweiterung in `"de-t-en"` den Regionsbezeichner für Englisch. Wenn eine verschachtelte Region vorhanden ist, muss sie ein gültiger Regionsbezeichner sein. Zum Beispiel, weil `"en-emodeng-emodeng"` ungültig ist (da es ein doppeltes `emodeng` Variantensubtag enthält), ist auch `"de-t-en-emodeng-emodeng"` ungültig.
 
-Schließlich kann eine privat genutzte Erweiterungssequenz mit dem Buchstaben `"x"` erscheinen, gefolgt von einem oder mehreren eins- bis achtbuchstabigen- oder ziffern Subtags, die durch Bindestriche getrennt sind. Dadurch können Anwendungen Informationen für ihren eigenen privaten Gebrauch kodieren, die von allen `Intl`-Operationen ignoriert werden.
+Schließlich kann eine privat verwendete Erweiterungssequenz, die den Buchstaben `"x"` verwendet, erscheinen, gefolgt von einem oder mehreren eins- bis achtbuchstabigen oder ziffernhaltigen Subtags, die durch Bindestriche getrennt sind. Dies ermöglicht Anwendungen, Informationen für ihren eigenen privaten Gebrauch zu codieren, die von allen `Intl` Operationen ignoriert werden.
 
-### options-Argument
+### options Argument
 
-Das `options`-Argument muss ein Objekt mit Eigenschaften sein, die je nach Konstruktoren und Funktionen variieren. Wenn das `options`-Argument nicht bereitgestellt oder nicht definiert ist, werden für alle Eigenschaften Standardwerte verwendet.
+Das `options` Argument muss ein Objekt mit Eigenschaften sein, die je nach Konstruktor und Funktion variieren. Wenn das `options` Argument nicht bereitgestellt oder undefiniert ist, werden für alle Eigenschaften Standardwerte verwendet.
 
-Eine Eigenschaft wird von allen sprachsensitiven Konstruktoren und Funktionen unterstützt: Die `localeMatcher`-Eigenschaft, deren Wert ein String `"lookup"` oder `"best fit"` sein muss, und die einen der unten beschriebenen Locale-Matching-Algorithmen auswählt.
+Eine Eigenschaft wird von allen sprachsensitiven Konstruktoren und Funktionen unterstützt: Die `localeMatcher` Eigenschaft, deren Wert eine Zeichenkette `"lookup"` oder `"best fit"` sein muss und die eines der unten beschriebenen Regionenabgleichsalgorithmen auswählt.
 
-### Locale-Identifikation und Verhandlung
+### Regionsidentifikation und -verhandlung
 
-Die Liste der von dem `locales`-Argument angegebenen Locales, nachdem Unicode-Erweiterungen von ihnen entfernt wurden, wird als priorisierte Anforderung der Anwendung interpretiert. Die Laufzeitumgebung vergleicht sie mit den verfügbaren Locales und wählt die beste verfügbare aus. Es gibt zwei Matching-Algorithmen: der `"lookup"`-Matcher folgt dem in [BCP 47](https://datatracker.ietf.org/doc/html/rfc4647#section-3.4) spezifizierten Lookup-Algorithmus; der `"best fit"`-Matcher lässt der Laufzeitumgebung eine Locale bereitstellen, die mindestens, aber möglicherweise mehr, für die Anforderung geeignet ist als das Ergebnis des Lookup-Algorithmus. Wenn die Anwendung kein `locales`-Argument bereitstellt oder die Laufzeitumgebung keine Locale hat, die der Anforderung entspricht, wird die Standard-Locale der Laufzeitumgebung verwendet. Der Matcher kann mit einer Eigenschaft des `options`-Arguments ausgewählt werden (siehe unten).
+Die Liste der Regionen, die durch das `locales` Argument angegeben ist, nachdem Unicode-Erweiterungen daraus entfernt wurden, wird als priorisierte Anforderung der Anwendung interpretiert. Die Laufzeit vergleicht sie mit den verfügbaren Regionen und wählt die beste verfügbare. Es gibt zwei Abgleichsalgorithmen: Der `"lookup"` Abgleicher folgt dem Lookup-Algorithmus, der in [BCP 47](https://datatracker.ietf.org/doc/html/rfc4647#section-3.4) spezifiziert ist; der `"best fit"` Abgleicher lässt die Laufzeit eine Region bereitstellen, die mindestens, aber möglicherweise mehr, für die Anforderung geeignet ist als das Ergebnis des Lookup-Algorithmus. Wenn die Anwendung kein `locales` Argument bereitstellt oder die Laufzeit keine Region hat, die zur Anfrage passt, wird die Standardregion der Laufzeit verwendet. Der Abgleicher kann über eine Eigenschaft des `options` Arguments ausgewählt werden (siehe unten).
 
-Wenn der ausgewählte Locale-Bezeichner eine Unicode-Erweiterungssequenz hatte, wird diese Erweiterung jetzt verwendet, um das konstruierte Objekt oder das Verhalten der Funktion zu spezifizieren. Jeder Konstruktor oder jede Funktion unterstützt nur eine Teilmenge der für die Unicode-Erweiterung definierten Schlüssel, und die unterstützten Werte hängen oft von dem Locale-Bezeichner ab. Beispielsweise wird der `"co"`-Schlüssel (Kollation) nur von {{jsxref("Intl.Collator")}} unterstützt, und sein `"phonebk"`-Wert wird nur für Deutsch unterstützt.
+Wenn der ausgewählte Regionsbezeichner eine Unicode-Erweiterungssequenz hatte, wird diese Erweiterung jetzt verwendet, um das konstruierte Objekt oder das Verhalten der Funktion anzupassen. Jeder Konstruktor oder jede Funktion unterstützt nur eine Teilmenge der für die Unicode-Erweiterung definierten Schlüssel, und die unterstützten Werte hängen oft vom Regionsbezeichner ab. Zum Beispiel wird der `"co"` Schlüssel (Kollation) nur von {{jsxref("Intl.Collator")}} unterstützt, und sein `"phonebk"` Wert wird nur für Deutsch unterstützt.
 
 ## Statische Eigenschaften
 
 - {{jsxref("Intl.Collator")}}
-  - : Konstruktor für Kollatoren, die Objekte sind, die sprachsensitive Zeichenfolgenvergleiche ermöglichen.
+  - : Konstruktor für Kollatoren, die objekten darstellen, die eine sprachsensitive Zeichenfolgenvergleichung ermöglichen.
 - {{jsxref("Intl.DateTimeFormat")}}
-  - : Konstruktor für Objekte, die sprachsensitive Datums- und Uhrzeitformatierung ermöglichen.
+  - : Konstruktor für Objekte, die eine sprachsensitive Datum- und Zeitformatierung ermöglichen.
 - {{jsxref("Intl.DisplayNames")}}
-  - : Konstruktor für Objekte, die eine konsistente Übersetzung von Sprache-, Regions- und Skriptanzeigennamen ermöglichen.
+  - : Konstruktor für Objekte, die die konsistente Übersetzung von Sprach-, Regions- und Skriptnamen ermöglichen.
 - {{jsxref("Intl.DurationFormat")}}
-  - : Konstruktor für Objekte, die locale-sensible Dauerformatierung ermöglichen.
+  - : Konstruktor für Objekte, die eine loaclesensitive Dauerformatierung ermöglichen.
 - {{jsxref("Intl.ListFormat")}}
-  - : Konstruktor für Objekte, die sprachsensitive Listenformatierung ermöglichen.
+  - : Konstruktor für Objekte, die eine sprachsensitive Listenformatierung ermöglichen.
 - {{jsxref("Intl.Locale")}}
   - : Konstruktor für Objekte, die einen Unicode-Locale-Bezeichner darstellen.
 - {{jsxref("Intl.NumberFormat")}}
-  - : Konstruktor für Objekte, die sprachsensitive Zahlenformatierung ermöglichen.
+  - : Konstruktor für Objekte, die eine sprachsensitive Zahlenformatierung ermöglichen.
 - {{jsxref("Intl.PluralRules")}}
-  - : Konstruktor für Objekte, die pluran-sensible Formatierung und sprachenspezifische Regeln für Plurale ermöglichen.
+  - : Konstruktor für Objekte, die eine plural-sensitive Formatierung und sprachspezifische Regeln für Plurale ermöglichen.
 - {{jsxref("Intl.RelativeTimeFormat")}}
-  - : Konstruktor für Objekte, die sprachsensitive relative Zeitformatierung ermöglichen.
+  - : Konstruktor für Objekte, die eine sprachsensitive relative Zeitformatierung ermöglichen.
 - {{jsxref("Intl.Segmenter")}}
-  - : Konstruktor für Objekte, die locale-sensitives Textsegmentierung ermöglichen.
+  - : Konstruktor für Objekte, die eine loaclesensitive Textsegmentierung ermöglichen.
 - `Intl[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist die Zeichenkette `"Intl"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Statische Methoden
 
 - {{jsxref("Intl.getCanonicalLocales()")}}
-  - : Gibt kanonische Locale-Namen zurück.
+  - : Gibt kanonische Regionsnamen zurück.
 - {{jsxref("Intl.supportedValuesOf()")}}
-  - : Gibt ein sortiertes Array zurück, das die unterstützten einzigartigen Kalender-, Kollations-, Währungs-, Nummerierungssysteme oder Einheitenwerte enthält, die von der Implementierung unterstützt werden.
+  - : Gibt ein sortiertes Array zurück, das die unterstützten einzigartigen Kalender-, Kollations-, Währungs-, Nummerierungssystem- oder Einheitentwerte der Implementierung enthält.
 
 ## Beispiele
 
-### Daten und Zahlen formatieren
+### Formatieren von Daten und Zahlen
 
 Sie können `Intl` verwenden, um Daten und Zahlen in einer Form zu formatieren, die für eine bestimmte Sprache und Region konventionell ist:
 
@@ -123,9 +123,9 @@ log("en-US"); // 5/24/2012 26,254.39
 log("de-DE"); // 24.5.2012 26.254,39
 ```
 
-### Die bevorzugte Sprache des Browsers verwenden
+### Verwenden der bevorzugten Sprache des Browsers
 
-Anstelle eines fest codierten Locale-Namens für die `Intl`-Methoden können Sie die vom Benutzer bevorzugte Sprache verwenden, die von [`navigator.language`](/de/docs/Web/API/Navigator/language) bereitgestellt wird:
+Anstatt einen hardcodierten Regionsnamen an die `Intl` Methoden zu übergeben, können Sie die vom Benutzer bevorzugte Sprache verwenden, die von [`navigator.language`](/de/docs/Web/API/Navigator/language) bereitgestellt wird:
 
 ```js
 const date = new Date("2012-05-24");
@@ -133,7 +133,7 @@ const date = new Date("2012-05-24");
 const formattedDate = new Intl.DateTimeFormat(navigator.language).format(date);
 ```
 
-Alternativ bietet die Eigenschaft [`navigator.languages`](/de/docs/Web/API/Navigator/languages) eine sortierte Liste der vom Benutzer bevorzugten Sprachen. Diese Liste kann direkt an die `Intl`-Konstruktoren übergeben werden, um eine auf Präferenzen basierende Fallback-Auswahl von Locales zu implementieren. Der [Locale-Verhandlungsprozess](#locale-identifikation_und_verhandlung) wird verwendet, um die am besten geeignete verfügbare Locale auszuwählen:
+Alternativ bietet die [`navigator.languages`](/de/docs/Web/API/Navigator/languages) Eigenschaft eine sortierte Liste der vom Benutzer bevorzugten Sprachen. Diese Liste kann direkt an die `Intl` Konstruktoren übergeben werden, um eine Präferenz-basierte Rückfallauswahl von Regionen zu implementieren. Der Prozess der [Regionenverhandlung](#regionsidentifikation_und_-verhandlung) wird verwendet, um die am besten geeignete verfügbare Region auszuwählen:
 
 ```js
 const count = 26254.39;

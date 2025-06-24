@@ -2,12 +2,12 @@
 title: windows.update()
 slug: Mozilla/Add-ons/WebExtensions/API/windows/update
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Aktualisiert die Eigenschaften eines Fensters. Verwenden Sie dies, um ein Fenster zu verschieben, die Größe zu ändern und ein Fenster (zu) fokussieren, etc.
+Aktualisiert die Eigenschaften eines Fensters. Verwenden Sie dies, um ein Fenster zu bewegen, die Größe zu ändern und den Fokus (ab)zuwenden usw.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,29 +25,27 @@ let updating = browser.windows.update(
 - `windowId`
   - : `integer`. ID des Fensters, das aktualisiert werden soll.
 - `updateInfo`
-
   - : `object`. Objekt, das die zu aktualisierenden Eigenschaften enthält.
-
     - `drawAttention` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird das Fenster so angezeigt, dass es die Aufmerksamkeit des Benutzers auf das Fenster lenkt, ohne das fokussierte Fenster zu ändern. Der Effekt dauert an, bis der Benutzer den Fokus auf das Fenster ändert. Diese Option hat keine Wirkung, wenn das Fenster bereits den Fokus hat. Setzen Sie auf `false`, um eine vorherige `drawAttention`-Anfrage abzubrechen.
+      - : `boolean`. Wenn `true`, wird das Fenster so angezeigt, dass es die Aufmerksamkeit des Benutzers auf das Fenster lenkt, ohne das fokussierte Fenster zu ändern. Der Effekt hält an, bis der Benutzer den Fokus auf das Fenster ändert. Diese Option hat keine Wirkung, wenn das Fenster bereits den Fokus hat. Setzen Sie diesen Wert auf `false`, um eine vorherige `drawAttention`-Anfrage abzubrechen.
     - `focused` {{optional_inline}}
       - : `boolean`. Wenn `true`, wird das Fenster in den Vordergrund gebracht. Wenn `false`, wird das nächste Fenster in der Z-Reihenfolge in den Vordergrund gebracht.
     - `height` {{optional_inline}}
-      - : `integer`. Die Höhe, auf die das Fenster in Pixeln geändert werden soll. Dieser Wert wird für Panels ignoriert.
+      - : `integer`. Die Höhe, auf die das Fenster in Pixeln angepasst werden soll. Dieser Wert wird für Panels ignoriert.
     - `left` {{optional_inline}}
-      - : `integer`. Der Abstand von der linken Kante des Bildschirms, zu dem das Fenster in Pixeln verschoben werden soll. Dieser Wert wird für Panels ignoriert.
+      - : `integer`. Der Versatz von der linken Bildschirmkante, auf den das Fenster in Pixeln verschoben werden soll. Dieser Wert wird für Panels ignoriert.
     - `state` {{optional_inline}}
       - : {{WebExtAPIRef('windows.WindowState')}}. Der neue Zustand des Fensters. Die Zustände `minimized`, `maximized` und `fullscreen` können nicht mit `left`, `top`, `width` oder `height` kombiniert werden.
     - `titlePreface` {{optional_inline}}
-      - : `string`. Verwenden Sie dies, um dem Titel des Browserfensters eine Zeichenfolge voranzustellen. Abhängig vom zugrunde liegenden Betriebssystem funktioniert dies möglicherweise nicht bei Browserfenstern, die keinen Titel haben (wie zum Beispiel about:blank in Firefox).
+      - : `string`. Verwenden Sie dies, um eine Zeichenkette am Anfang des Titels des Browserfensters hinzuzufügen. Je nach zugrunde liegendem Betriebssystem funktioniert dies möglicherweise nicht bei Browserfenstern, die keinen Titel haben (wie z.B. about:blank in Firefox).
     - `top` {{optional_inline}}
-      - : `integer`. Der Abstand von der oberen Kante des Bildschirms, zu dem das Fenster in Pixeln verschoben werden soll. Dieser Wert wird für Panels ignoriert.
+      - : `integer`. Der Versatz von der oberen Bildschirmkante, auf den das Fenster in Pixeln verschoben werden soll. Dieser Wert wird für Panels ignoriert.
     - `width` {{optional_inline}}
-      - : `integer`. Die Breite, auf die das Fenster in Pixeln geändert werden soll. Dieser Wert wird für Panels ignoriert.
+      - : `integer`. Die Breite, auf die das Fenster in Pixeln angepasst werden soll. Dieser Wert wird für Panels ignoriert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('windows.Window')}}-Objekt erfüllt wird, das die Details des aktualisierten Fensters enthält. Bei einem Fehler wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('windows.Window')}}-Objekt erfüllt wird, das die Details des aktualisierten Fensters enthält. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -55,7 +53,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Wenn der Benutzer auf das Symbol einer Browseraktion klickt, verschieben Sie das Fenster in die obere linke Ecke:
+Wenn der Benutzer auf das Symbol einer Browseraktion klickt, soll das Fenster in die obere linke Ecke verschoben werden:
 
 ```js
 function onUpdated(windowInfo) {
@@ -78,7 +76,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-update) API. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-update). Diese Dokumentation ist abgeleitet aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,26 +1,22 @@
 ---
-title: "RTCPeerConnection: Methode addIceCandidate()"
+title: "RTCPeerConnection: addIceCandidate() Methode"
 short-title: addIceCandidate()
 slug: Web/API/RTCPeerConnection/addIceCandidate
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`addIceCandidate()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces fügt der Remote-Beschreibung der Verbindung einen neuen Remote-Kandidaten hinzu, der den Zustand des Remote-Endes der Verbindung beschreibt.
+Die **`addIceCandidate()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces fügt der Remote-Beschreibung der Verbindung einen neuen Remote-Kandidaten hinzu, der den Zustand des entfernten Endes der Verbindung beschreibt.
 
-Wenn eine Website oder App, die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet, einen neuen ICE-Kandidaten vom Remote-Peer über seinen Signalisierungskanal empfängt, liefert sie den neu empfangenen Kandidaten an den ICE-Agenten des Browsers, indem sie **`RTCPeerConnection.addIceCandidate()`** aufruft.
-Dies fügt diesen neuen Remote-Kandidaten der Remote-Beschreibung der `RTCPeerConnection` hinzu, die den Zustand des Remote-Endes der Verbindung beschreibt.
+Wenn eine Website oder App, die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet, einen neuen ICE-Kandidaten vom Remote-Peer über seinen Signalisierungskanal erhält, wird der neu empfangene Kandidat durch Aufruf von **`RTCPeerConnection.addIceCandidate()`** an den {{Glossary("ICE", "ICE")}}-Agent des Browsers übermittelt. Dadurch wird dieser neue Remote-Kandidat zur Remote-Beschreibung der `RTCPeerConnection` hinzugefügt, die den Zustand des entfernten Endes der Verbindung beschreibt.
 
-Wenn der `candidate`-Parameter fehlt oder beim Aufruf von `addIceCandidate()` ein Wert von `null` angegeben wird, ist der hinzugefügte ICE-Kandidat ein "Ende-der-Kandidaten"-Indikator.
-Gleiches gilt, wenn der Wert des angegebenen Objekts [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate) entweder fehlt oder eine leere Zeichenkette (`""`) ist, signalisiert es, dass alle Remote-Kandidaten geliefert wurden.
+Wenn der `candidate`-Parameter fehlt oder ein Wert von `null` beim Aufruf von `addIceCandidate()` angegeben wird, ist der hinzugefügte ICE-Kandidat ein "end-of-candidates"-Indikator. Gleiches gilt, wenn der Wert des angegebenen Objekts [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate) entweder fehlt oder ein Leerstring (`""`) ist, signalisiert dies, dass alle Remote-Kandidaten übermittelt wurden.
 
-Die Ende-der-Kandidaten-Benachrichtigung wird an den Remote-Peer unter Verwendung eines Kandidaten mit einem a-line-Wert von `end-of-candidates` übertragen.
+Die End-of-Candidates-Benachrichtigung wird an den Remote-Peer unter Verwendung eines Kandidaten mit einem a-line-Wert von `end-of-candidates` übermittelt.
 
-Während der Verhandlung wird Ihre App wahrscheinlich viele Kandidaten erhalten, die Sie dem ICE-Agenten auf diese Weise übermitteln, damit er eine Liste potenzieller Verbindungsmethoden aufbauen kann.
-Dies wird detaillierter in den Artikeln [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity) und
-[Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) behandelt.
+Während der Aushandlung wird Ihre App wahrscheinlich viele Kandidaten erhalten, die Sie dem ICE-Agenten auf diese Weise übermitteln, was ihm ermöglicht, eine Liste potenzieller Verbindungsmethoden aufzubauen. Dies wird ausführlicher in den Artikeln [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity) und [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) behandelt.
 
 ## Syntax
 
@@ -41,68 +37,64 @@ addIceCandidate(candidate, successCallback, failureCallback) // deprecated
 
     - `candidate` {{optional_inline}}
 
-      - : Eine Zeichenfolge, die die Eigenschaften des Kandidaten beschreibt, direkt aus dem [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp)-Attribut `"candidate"` entnommen.
-        Die Kandidatenzeichenfolge spezifiziert die Netzwerkkonnektivitätsinformationen für den Kandidaten.
-        Wenn der `candidate` eine leere Zeichenkette (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat ist als "Ende-der-Kandidaten"-Marker bekannt.
+      - : Ein String, der die Eigenschaften des Kandidaten beschreibt, direkt entnommen aus dem [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp)-Attribut `"candidate"`.
+        Der Kandidaten-String gibt die Netzwerkkonnektivitätsinformationen für den Kandidaten an.
+        Wenn der `candidate` ein Leerstring (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat ist als "end-of-candidates"-Marker bekannt.
 
-        Die Syntax der Kandidatenzeichenfolge wird in {{RFC(5245, "", 15.1)}} beschrieben.
-        Für eine a-line (Attributzeile), die so aussieht:
+        Die Syntax des Kandidaten-Strings wird in {{RFC(5245, "", 15.1)}} beschrieben. Für eine a-line (Attributzeile), die so aussieht:
 
         ```plain
         a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host
         ```
 
-        wird der entsprechende Wert der `candidate`-Zeichenfolge sein:
+        wird der entsprechende Wert des `candidate`-Strings lauten:
 
         ```plain
         "candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"`
         ```
 
-        Der {{Glossary("user_agent", "User-Agent")}} bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alles andere gleich ist.
-        Im obigen Beispiel ist die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge.
+        Der {{Glossary("user_agent", "user agent")}} bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn sonst alles gleich ist. Im obigen Beispiel beträgt die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge.
         Die vollständige Liste der Attribute für diesen Beispielkandidaten ist:
 
         - [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation) = 4234997325
-        - [`component`](/de/docs/Web/API/RTCIceCandidate/component) = `"rtp"` (die Zahl 1 wird in diese Zeichenkette kodiert; 2 wird zu `"rtcp"`)
+        - [`component`](/de/docs/Web/API/RTCIceCandidate/component) = `"rtp"` (die Zahl 1 wird in diesen String kodiert; 2 wird zu `"rtcp"`)
         - [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol) = `"udp"`
         - [`priority`](/de/docs/Web/API/RTCIceCandidate/priority) = 2043278322
         - [`ip`](/de/docs/Web/API/RTCIceCandidate/address) = `"192.0.2.172"`
         - [`port`](/de/docs/Web/API/RTCIceCandidate/port) = 44323
         - [`type`](/de/docs/Web/API/RTCIceCandidate/type) = `"host"`
 
-        Weitere Informationen finden Sie in [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate).
+        Zusätzliche Informationen finden Sie in [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate).
 
         > [!NOTE]
-        > Für die Abwärtskompatibilität mit älteren Versionen der WebRTC-Spezifikation akzeptiert der Konstruktor diese Zeichenkette auch direkt als Argument.
+        > Zur Abwärtskompatibilität mit älteren Versionen der WebRTC-Spezifikation akzeptiert der Konstruktor diesen String auch direkt als Argument.
 
     - `sdpMid` {{optional_inline}}
 
-      - : Eine Zeichenfolge, die das Identifikations-Tag des Medienstroms enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein zugehöriger Medienstrom vorhanden ist. Der Standardwert ist `null`.
+      - : Ein String, der das Identifizierungstoken des Medienstreams enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein zugeordneter Medienstream vorhanden ist. Der Standardwert ist `null`.
 
-        Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
+        Zusätzliche Informationen finden Sie in [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
 
     - `sdpMLineIndex` {{optional_inline}}
 
-      - : Eine Zahlen-Eigenschaft, die den null-basierten Index der m-line enthält, mit der der Kandidat im [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn keine solche Verknüpfung vorhanden ist. Der Standardwert ist `null`.
+      - : Eine Zahleneigenschaft, die den nullbasierten Index der m-line enthält, mit der der Kandidat innerhalb der [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn keine solche Zuordnung besteht. Der Standardwert ist `null`.
 
-        Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
+        Zusätzliche Informationen finden Sie in [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
 
     - `usernameFragment` {{optional_inline}}
 
-      - : Eine Zeichenfolge, die das Benutzernamen-Fragment enthält (in der Regel als "ufrag" oder "ice-ufrag" abgekürzt).
-        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich der Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server).
+      - : Ein String, der das Benutzernamensfragment enthält (normalerweise in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet).
+        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeglicher Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server).
 
-        Die Zeichenfolge wird von WebRTC zu Beginn der Sitzung erzeugt.
-        Sie kann bis zu 256 Zeichen lang sein und mindestens 24 Bit müssen zufällige Daten enthalten.
-        Sie hat keinen Standardwert und ist nicht vorhanden, außer sie wird explizit gesetzt.
+        Der String wird von WebRTC zu Beginn der Sitzung generiert. Er kann bis zu 256 Zeichen lang sein, und mindestens 24 Bits müssen Zufallsdaten enthalten. Er hat keinen Standardwert und ist nicht vorhanden, es sei denn, er wird explizit gesetzt.
 
-        Weitere Informationen finden Sie in [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
+        Zusätzliche Informationen finden Sie in [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
 
     Die Methode wirft eine {{jsxref("TypeError")}}-Ausnahme, wenn sowohl `sdpMid` als auch `sdpMLineIndex` `null` sind.
 
-    Der Inhalt des Objekts sollte aus einer Nachricht erstellt werden, die über den Signalisierungskanal empfangen wurde und einen neu empfangenen ICE-Kandidaten beschreibt, der an den lokalen ICE-Agenten geliefert werden soll.
+    Der Inhalt des Objekts sollte aus einer Nachricht konstruiert werden, die über den Signalisierungskanal empfangen wurde und einen neu empfangenen ICE-Kandidaten beschreibt, der bereit ist, an den lokalen ICE-Agenten übermittelt zu werden.
 
-    Wenn kein `candidate`-Objekt angegeben ist oder dessen Wert `null` ist, wird ein Ende-der-Kandidaten-Signal an den Remote-Peer mit der `end-of-candidates` a-line gesendet, die wie folgt formatiert ist:
+    Wenn kein `candidate`-Objekt angegeben wird oder sein Wert `null` ist, wird ein End-of-Candidates-Signal unter Verwendung der `end-of-candidates` a-line an den Remote-Peer gesendet, formatiert wie folgt:
 
     ```plain
     a=end-of-candidates
@@ -110,41 +102,36 @@ addIceCandidate(candidate, successCallback, failureCallback) // deprecated
 
 ### Veraltete Parameter
 
-In älterem Code und Dokumentation könnte eine rückrufbasierte Version dieser Funktion zu sehen sein.
-Diese wurde veraltet und ihre Verwendung ist **stark** abzuraten.
-Sie sollten vorhandenen Code aktualisieren, um die auf {{jsxref("Promise")}} basierende Version von `addIceCandidate()` zu verwenden.
-Die Parameter für die ältere Form von `addIceCandidate()` sind unten beschrieben, um bei der Aktualisierung vorhandenen Codes zu helfen.
+In älterem Code und Dokumentationen können Sie eine Callback-basierte Version dieser Funktion sehen. Diese ist veraltet, und ihre Verwendung wird **dringend** abgeraten. Sie sollten vorhandenen Code aktualisieren, um die {{jsxref("Promise")}}-basierte Version von `addIceCandidate()` stattdessen zu verwenden. Die Parameter der älteren Form von `addIceCandidate()` sind unten beschrieben, um beim Aktualisieren vorhandenen Codes zu helfen.
 
 - `successCallback` {{deprecated_inline}}
-  - : Eine Funktion, die aufgerufen wird, wenn der ICE-Kandidat erfolgreich hinzugefügt wurde.
-    Diese Funktion erhält keine Eingabeparameter und gibt keinen Wert zurück.
+  - : Eine Funktion, die aufgerufen wird, wenn der ICE-Kandidat erfolgreich hinzugefügt wurde. Diese Funktion erhält keine Eingabeparameter und gibt keinen Wert zurück.
 - `failureCallback` {{deprecated_inline}}
-  - : Eine Funktion, die aufgerufen wird, wenn das Hinzufügen des ICE-Kandidaten fehlschlägt.
-    Sie erhält ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das beschreibt, warum der Fehler aufgetreten ist.
+  - : Eine Funktion, die aufgerufen wird, wenn der Versuch, den ICE-Kandidaten hinzuzufügen, fehlschlägt. Sie erhält als Eingabe ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das beschreibt, warum der Fehler aufgetreten ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das erfüllt wird, wenn der Kandidat erfolgreich von dem ICE-Agenten zur Remote-Beschreibung des Remote-Peers hinzugefügt wurde. Das Versprechen erhält keine Eingabeparameter.
+Ein {{jsxref("Promise")}}, das erfüllt wird, wenn der Kandidat erfolgreich von dem ICE-Agenten zur Beschreibung des Remote-Peers hinzugefügt wurde. Das Promise erhält keine Eingabeparameter.
 
 ### Ausnahmen
 
-Wenn beim Versuch, den ICE-Kandidaten hinzuzufügen, ein Fehler auftritt, wird das von dieser Methode zurückgegebene {{jsxref("Promise")}} abgelehnt und gibt einen der unten stehenden Fehler als [`name`](/de/docs/Web/API/DOMException/name)-Attribut im angegebenen [`DOMException`](/de/docs/Web/API/DOMException)-Objekt zurück, das dem Ablehnungs-Handler übergeben wird.
+Wenn ein Fehler beim Versuch auftritt, den ICE-Kandidaten hinzuzufügen, wird das von dieser Methode zurückgegebene {{jsxref("Promise")}} abgelehnt und gibt einen der unten aufgeführten Fehler als [`name`](/de/docs/Web/API/DOMException/name)-Attribut im angegebenen [`DOMException`](/de/docs/Web/API/DOMException)-Objekt zurück, das an den Ablehnungs-Handler übergeben wird.
 
 - {{jsxref("TypeError")}}
-  - : Wird zurückgegeben, wenn sowohl das angegebene `sdpMid` des Kandidaten als auch das `sdpMLineIndex` `null` sind.
+  - : Wird zurückgegeben, wenn sowohl [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid) als auch [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex) des angegebenen Kandidaten `null` sind.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn die `RTCPeerConnection` derzeit keinen Remote-Peer etabliert hat ([`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) ist `null`).
+  - : Wird zurückgegeben, wenn die `RTCPeerConnection` derzeit keinen Remote-Peer hat ([`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) ist `null`).
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird in einer der folgenden Situationen zurückgegeben:
-    - Der angegebene Wert für `sdpMid` ist nicht-`null` und entspricht nicht der Medienbeschreibungs-ID einer der Medienbeschreibungen, die in der `remoteDescription` enthalten sind.
-    - Der angegebene Wert von `sdpMLineIndex` ist größer oder gleich der Anzahl der Medienbeschreibungen, die in der Remote-Beschreibung enthalten sind.
+    - Der angegebene Wert für [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid) ist nicht-`null` und stimmt nicht mit der Medienbeschreibungs-ID einer Medienbeschreibung in der [`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) überein.
+    - Der angegebene Wert von [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex) ist größer oder gleich der Anzahl der in der Remote-Beschreibung enthaltenen Medienbeschreibungen.
     - Das angegebene [`ufrag`](/de/docs/Web/API/RTCIceCandidate/usernameFragment) stimmt nicht mit dem `ufrag`-Feld in einer der in Betracht gezogenen Remote-Beschreibungen überein.
-    - Einer oder mehrere der Werte in der `candidate`-Zeichenfolge sind ungültig oder konnten nicht analysiert werden.
-    - Der Versuch, den Kandidaten hinzuzufügen, schlägt aus irgendeinem Grund fehl.
+    - Einer oder mehrere Werte im [`candidate`](/de/docs/Web/API/RTCIceCandidate)-String sind ungültig oder konnten nicht analysiert werden.
+    - Jeglicher Versuch, den Kandidaten hinzuzufügen, schlägt aus irgendeinem Grund fehl.
 
 ## Beispiele
 
-Dieses Codebeispiel zeigt, wie ICE-Kandidaten über einen beliebigen Signalisierungskanal signalisiert werden.
+Dieses Code-Snippet zeigt, wie Sie ICE-Kandidaten über einen beliebigen Signalisierungskanal signalisieren können.
 
 ```js
 // This example assumes that the other peer is using a signaling channel as follows:
@@ -175,14 +162,13 @@ signalingChannel.onmessage = (receivedString) => {
 };
 ```
 
-Der letzte Kandidat, der auf diese Weise vom Remote-Peer signalisiert wird, ist ein spezieller Kandidat, der das Ende-der-Kandidaten anzeigt.
-Aus Interesse kann Ende-der-Kandidaten wie folgt manuell angezeigt werden:
+Der letzte Kandidat, der auf diese Weise vom Remote-Peer signalisiert wird, ist ein spezieller Kandidat, der das Ende der Kandidaten signalisiert. Aus Interesse kann das Ende der Kandidaten manuell wie folgt angegeben werden:
 
 ```js
 pc.addIceCandidate({ candidate: "" });
 ```
 
-In den meisten Fällen müssen Sie jedoch nicht explizit danach suchen, da die Ereignisse, die die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ansteuern, dies für Sie erledigen und die entsprechenden Ereignisse senden werden.
+In den meisten Fällen müssen Sie jedoch nicht ausdrücklich nach diesem suchen, da die Ereignisse, die die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) steuern, dies für Sie erledigen und die entsprechenden Ereignisse senden werden.
 
 ## Spezifikationen
 
@@ -195,7 +181,7 @@ In den meisten Fällen müssen Sie jedoch nicht explizit danach suchen, da die E
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
-- [Einführung in die WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
+- [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
+- [Einführung in WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
-- [Lebenszeit einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
+- [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)

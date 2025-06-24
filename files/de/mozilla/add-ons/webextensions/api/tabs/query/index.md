@@ -2,12 +2,12 @@
 title: tabs.query()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/query
 l10n:
-  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ermittelt alle Tabs, die die angegebenen Eigenschaften haben, oder alle Tabs, wenn keine Eigenschaften angegeben sind.
+Ruft alle Tabs ab, die die angegebenen Eigenschaften aufweisen, oder alle Tabs, wenn keine Eigenschaften angegeben sind.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ let querying = browser.tabs.query(queryInfo)
 
 - `queryInfo`
 
-  - : `object`. Die Funktion `query()` ermittelt die Tabs, deren Eigenschaften den hier enthaltenen Eigenschaften entsprechen.
+  - : `object`. Die Funktion `query()` ruft die Tabs ab, deren Eigenschaften mit den hier angegebenen übereinstimmen.
 
     Siehe die Dokumentation zu {{WebExtAPIRef("tabs.Tab")}}, um mehr über diese Eigenschaften zu erfahren.
 
@@ -30,17 +30,17 @@ let querying = browser.tabs.query(queryInfo)
     - `audible` {{optional_inline}}
       - : `boolean`. Ob die Tabs hörbar sind.
     - `autoDiscardable` {{optional_inline}}
-      - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
+      - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn dieser auf `false` gesetzt ist, kann der Browser den Tab nicht automatisch verwerfen. Jedoch kann der Tab durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
     - `cookieStoreId` {{optional_inline}}
-      - : `string` oder `array` von `string`. Verwenden Sie dies, um Tabs zurückzugeben, deren `tab.cookieStoreId` mit einem der `cookieStoreId`-Strings übereinstimmt. Diese Option ist nur verfügbar, wenn das Add-on die Berechtigung `"cookies"` [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+      - : `string` oder `array` von `string`. Verwenden Sie dies, um Tabs zurückzugeben, deren `tab.cookieStoreId` mit einem der `cookieStoreId`-Strings übereinstimmt. Diese Option ist nur verfügbar, wenn das Add-on die `"cookies"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
     - `currentWindow` {{optional_inline}}
       - : `boolean`. Ob die Tabs im aktuellen Fenster sind.
     - `discarded` {{optional_inline}}
-      - : `boolean`. Ob die Tabs verworfen sind. Ein verworfener Tab ist einer, dessen Inhalt aus dem Speicher entladen wurde, aber immer noch in der Tableiste sichtbar ist. Sein Inhalt wird beim nächsten Aktivieren neu geladen.
+      - : `boolean`. Ob die Tabs verworfen sind. Ein verworfener Tab ist einer, dessen Inhalt aus dem Speicher entladen wurde, aber weiterhin in der Tableiste sichtbar ist. Sein Inhalt wird beim nächsten Aktivieren neu geladen.
     - `groupId` {{optional_inline}}
-      - : `integer`. Die ID der Tab-Gruppe, in der die Tabs sind, oder `-1` ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}) für nicht gruppierte Tabs. Weitere Informationen zu Tab-Gruppen finden Sie in {{WebExtAPIRef("tabGroups")}}.
+      - : `integer`. Die ID der Tab-Gruppe, in der sich die Tabs befinden, oder `-1` ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}) für nicht gruppierte Tabs. Weitere Informationen zu Tab-Gruppen finden Sie unter {{WebExtAPIRef("tabGroups")}}.
     - `hidden` {{optional_inline}}
-      - : `boolean`. Ob die Tabs ausgeblendet sind.
+      - : `boolean`. Ob die Tabs versteckt sind.
     - `highlighted` {{optional_inline}}
       - : `boolean`. Ob die Tabs hervorgehoben sind.
     - `index` {{optional_inline}}
@@ -54,19 +54,19 @@ let querying = browser.tabs.query(queryInfo)
     - `status` {{optional_inline}}
       - : {{WebExtAPIRef('tabs.TabStatus')}}. Ob die Tabs das Laden abgeschlossen haben.
     - `title` {{optional_inline}}
-      - : `string`. Abgleich von Seitentiteln mit einem Muster. Erfordert die Berechtigung "tabs" oder [host permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), damit der Tab übereinstimmt.
+      - : `string`. Seitentitel nach einem Muster abgleichen. Erfordert die "tabs"-Berechtigung oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), damit der Tab übereinstimmt.
     - `url` {{optional_inline}}
-      - : `string` oder `array` von `string`. Abgleich von Tabs mit einem oder mehreren [Übereinstimmungsmustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Beachten Sie, dass Fragmentbezeichner nicht abgeglichen werden. Erfordert die Berechtigung "tabs" oder [host permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), damit der Tab übereinstimmt.
+      - : `string` oder `array` von `string`. Tabs mit einem oder mehreren [Musterabhichen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) abgleichen. Beachten Sie, dass Fragmentbezeichner nicht übereinstimmen. Erfordert die "tabs"-Berechtigung oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), damit der Tab übereinstimmt.
     - `windowId` {{optional_inline}}
-      - : `integer`. Die `id` des übergeordneten Fensters oder {{WebExtAPIRef('windows.WINDOW_ID_CURRENT')}} für das aktuelle Fenster.
+      - : `integer`. Die `id` des übergeordneten Fensters, oder {{WebExtAPIRef('windows.WINDOW_ID_CURRENT')}} für das aktuelle Fenster.
     - `windowType` {{optional_inline}}
-      - : {{WebExtAPIRef('tabs.WindowType')}}. Der Typ des Fensters, in dem sich die Tabs befinden.
+      - : {{WebExtAPIRef('tabs.WindowType')}}. Der Fenstertyp, in dem sich die Tabs befinden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, das Informationen über jeden übereinstimmenden Tab enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, die Informationen über jeden übereinstimmenden Tab enthält.
 
-Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -145,4 +145,4 @@ browser.tabs.query({ url: "*://*.mozilla.org/*" }).then(logTabs, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-query) API. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-query) API. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

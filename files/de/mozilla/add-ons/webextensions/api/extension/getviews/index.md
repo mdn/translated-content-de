@@ -2,19 +2,19 @@
 title: extension.getViews()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/getViews
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Dazu gehören beispielsweise:
+Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Dies umfasst beispielsweise:
 
 - die Hintergrundseite, falls eine definiert ist
 - alle Pop-up-Seiten, falls definiert und geladen
 - alle Optionsseiten, falls definiert und geladen
-- alle Browser-Tabs, die Inhalte der Erweiterung hosten
+- alle Browser-Tabs, die mit der Erweiterung verpackten Inhalt hosten
 
-In Firefox wird der Rückgabewert, wenn diese Methode von einer Seite aufgerufen wird, die Teil eines privaten Browserfensters ist, wie zum Beispiel eine Seitenleiste in einem privaten Fenster oder ein Pop-up, das von einem privaten Fenster geöffnet wird, die Hintergrundseite der Erweiterung nicht enthalten.
+In Firefox, wenn diese Methode von einer Seite aufgerufen wird, die Teil eines privaten Browsing-Fensters ist, wie ein Sidebar in einem privaten Fenster oder ein Pop-up, das von einem privaten Fenster aus geöffnet wurde, dann wird der Rückgabewert nicht die Hintergrundseite der Erweiterung enthalten.
 
 ## Syntax
 
@@ -27,13 +27,11 @@ let windows = browser.extension.getViews(
 ### Parameter
 
 - `fetchProperties` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `type` {{optional_inline}}
-      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}}, der den Typ der abzurufenden Ansicht angibt. Falls weggelassen, gibt diese Funktion alle Ansichten zurück.
+      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}}, der den Typ der Ansicht angibt, die abgerufen werden soll. Falls weggelassen, gibt diese Funktion alle Ansichten zurück.
     - `windowId` {{optional_inline}}
-      - : `integer`. Das Fenster, auf das die Suche beschränkt werden soll. Falls weggelassen, gibt diese Funktion alle Ansichten zurück. In Firefox Version 92 und früher werden Seitenleisten-Ansichten nicht berücksichtigt und daher nicht zurückgegeben.
+      - : `integer`. Das Fenster, in dem die Suche eingeschränkt werden soll. Bei Weglassen gibt diese Funktion alle Ansichten zurück. In Firefox-Version 92 und früher werden Sidebar-Ansichten nicht abgeglichen und daher nicht zurückgegeben.
 
 ### Rückgabewert
 
@@ -45,7 +43,7 @@ let windows = browser.extension.getViews(
 
 ## Beispiele
 
-Alle Fenster dieser Erweiterung abrufen und deren URLs protokollieren:
+Holen Sie sich alle Fenster, die zu dieser Erweiterung gehören, und protokollieren Sie deren URLs:
 
 ```js
 const windows = browser.extension.getViews();
@@ -55,13 +53,13 @@ for (const extensionWindow of windows) {
 }
 ```
 
-Nur Fenster in Browser-Tabs abrufen, die Inhalte der Erweiterung hosten:
+Holen Sie sich nur Fenster in Browser-Tabs, die Inhalte hosten, die mit der Erweiterung verpackt sind:
 
 ```js
 const windows = browser.extension.getViews({ type: "tab" });
 ```
 
-Nur Fenster in Pop-ups abrufen:
+Holen Sie sich nur Fenster in Pop-ups:
 
 ```js
 const windows = browser.extension.getViews({ type: "popup" });

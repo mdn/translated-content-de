@@ -2,10 +2,10 @@
 title: media
 slug: Web/SVG/Reference/Attribute/media
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`media`**-Attribut gibt eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) an, die erfüllt sein muss, damit ein Stylesheet angewendet wird.
+Das **`media`**-Attribut gibt eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) an, die übereinstimmen muss, damit ein Stylesheet angewendet wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -68,7 +68,7 @@ svg {
 
 - `<media-query-list>`
 
-  - : Dieser Wert enthält eine Media Query, die erfüllt sein muss, damit das Stylesheet angewendet wird.
+  - : Dieser Wert enthält eine Media Query, die übereinstimmen muss, damit das Stylesheet angewendet wird.
 
     Wenn nicht angegeben, wird das Stylesheet bedingungslos angewendet.
 

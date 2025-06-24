@@ -3,14 +3,14 @@ title: Temporal.PlainYearMonth.compare()
 short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/compare
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.PlainYearMonth.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob das erste Jahr-Monat vor dem zweiten Jahr-Monat liegt, gleich wie dieses ist oder danach kommt. Es entspricht dem Vergleich ihrer zugrunde liegenden ISO-8601-Daten. Zwei Jahr-Monate aus verschiedenen Kalendern können als gleich angesehen werden, wenn sie am gleichen ISO-Datum beginnen.
+Die **`Temporal.PlainYearMonth.compare()`** statische Methode liefert eine Zahl (-1, 0 oder 1) zurück, die anzeigt, ob das erste Jahr-Monat vor, gleich oder nach dem zweiten Jahr-Monat kommt. Es ist äquivalent zum Vergleich ihrer zugrunde liegenden ISO 8601-Daten. Zwei Jahr-Monate aus verschiedenen Kalendern können als gleich betrachtet werden, wenn sie am selben ISO-Datum beginnen.
 
-> **Hinweis:** `PlainYearMonth`-Objekte behalten einen Referenz-ISO-Tag im Auge, der auch im Vergleich verwendet wird. Dieser Tag wird automatisch gesetzt, wenn die Methode {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} verwendet wird, kann jedoch manuell mit dem {{jsxref("Temporal/PlainYearMonth/PlainYearMonth", "Temporal.PlainYearMonth()")}}-Konstruktor festgelegt werden, was dazu führt, dass zwei äquivalente Jahr-Monate als unterschiedlich betrachtet werden, wenn sie unterschiedliche Referenztage haben. Aus diesem Grund sollten Sie vermeiden, den Konstruktor direkt zu verwenden, und besser die `from()`-Methode nutzen.
+> [!NOTE] > `PlainYearMonth`-Objekte verfolgen einen Referenz-ISO-Tag, der auch im Vergleich verwendet wird. Dieser Tag wird automatisch gesetzt, wenn die {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} Methode verwendet wird, kann aber manuell mit dem {{jsxref("Temporal/PlainYearMonth/PlainYearMonth", "Temporal.PlainYearMonth()")}}-Konstruktor gesetzt werden, wodurch zwei äquivalente Jahr-Monate als verschieden betrachtet werden, wenn sie unterschiedliche Referenztage haben. Aus diesem Grund sollten Sie vermeiden, den Konstruktor direkt zu verwenden und stattdessen die `from()`-Methode bevorzugen.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Temporal.PlainYearMonth.compare(yearMonth1, yearMonth2)
 ### Parameter
 
 - `yearMonth1`
-  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.PlainYearMonth")}}, die das erste zu vergleichende Jahr-Monat darstellt. Es wird in ein `Temporal.PlainYearMonth`-Objekt umgewandelt, unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}}.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainYearMonth")}} Instanz, die das erste Jahr-Monat zum Vergleichen darstellt. Es wird mit demselben Algorithmus in ein `Temporal.PlainYearMonth`-Objekt umgewandelt wie {{jsxref("Temporal.PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}}.
 - `yearMonth2`
-  - : Das zweite zu vergleichende Jahr-Monat, wird mit dem gleichen Algorithmus wie `yearMonth1` in ein `Temporal.PlainYearMonth`-Objekt umgewandelt.
+  - : Das zweite Jahr-Monat zum Vergleichen, umgewandelt in ein `Temporal.PlainYearMonth`-Objekt mit demselben Algorithmus wie `yearMonth1`.
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `yearMonth1` vor `yearMonth2` liegt, `0` wenn sie gleich sind, und `1` wenn `yearMonth1` nach `yearMonth2` kommt. Sie werden anhand ihrer zugrunde liegenden Datumswerte verglichen (üblicherweise der erste Tag des Monats), wobei ihre Kalender ignoriert werden.
+Gibt `-1` zurück, wenn `yearMonth1` vor `yearMonth2` kommt, `0` wenn sie gleich sind, und `1` wenn `yearMonth1` nach `yearMonth2` kommt. Sie werden anhand ihrer zugrunde liegenden Datumswerte verglichen (normalerweise der erste Tag des Monats), wobei ihre Kalender ignoriert werden.
 
 ## Beispiele
 
@@ -65,7 +65,7 @@ console.log(Temporal.PlainYearMonth.compare(ym1, ym3)); // 1
 
 ### Sortieren eines Arrays von Jahr-Monaten
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Vergleichsfunktion zu fungieren, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
+Der Zweck dieser `compare()`-Funktion ist es, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
 
 ```js
 const months = [

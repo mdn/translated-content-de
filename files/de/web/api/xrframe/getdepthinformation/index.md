@@ -1,14 +1,14 @@
 ---
-title: "XRFrame: getDepthInformation() Methode"
+title: "XRFrame: `getDepthInformation()` Methode"
 short-title: getDepthInformation()
 slug: Web/API/XRFrame/getDepthInformation
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getDepthInformation()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame) Schnittstelle liefert ein [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation) Objekt, das CPU-Tiefeninformationen für den aktiven und animierten Frame enthält.
+Die **`getDepthInformation()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation)-Objekt zurück, das CPU-Tiefeninformationen für den aktiven und animierten Frame enthält.
 
 ## Syntax
 
@@ -19,22 +19,20 @@ getDepthInformation(view)
 ### Parameter
 
 - `view`
-  - : Ein [`XRView`](/de/docs/Web/API/XRView) Objekt, das von einer Betrachterpose erhalten wird.
+  - : Ein [`XRView`](/de/docs/Web/API/XRView)-Objekt, das von einer Betrachterpose erhalten wurde.
 
 ### Rückgabewert
 
-Ein [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation) Objekt.
+Ein [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation)-Objekt.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `"depth-sensing"` nicht in der Liste der aktivierten Funktionen für diese [`XRSession`](/de/docs/Web/API/XRSession) enthalten ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn:
-
-    - das `XRFrame` weder aktiv noch animiert ist. Das Abrufen von Tiefeninformationen ist nur innerhalb des [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) Rückrufs gültig.
-    - die [`depthUsage`](/de/docs/Web/API/XRSession/depthUsage) der Sitzung nicht auf `"cpu-optimized"` gesetzt ist.
+    - das `XRFrame` weder aktiv noch animiert ist. Das Abrufen von Tiefeninformationen ist nur innerhalb des [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Callbacks gültig.
+    - die [`depthUsage`](/de/docs/Web/API/XRSession/depthUsage) der Sitzung nicht `"cpu-optimized"` ist.
 
 ## Beispiele
 

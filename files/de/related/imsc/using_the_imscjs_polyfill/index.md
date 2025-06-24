@@ -2,14 +2,14 @@
 title: Verwendung des imscJS-Polyfills
 slug: Related/IMSC/Using_the_imscJS_polyfill
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Derzeit benötigen Sie ein Polyfill, um IMSC im Web darzustellen. imscJS ist eine gute Wahl, da es aktiv gewartet wird und nahezu alle IMSC-Funktionen abdeckt. Dieser Artikel zeigt Ihnen, wie Sie imscJS nutzen und es auf Ihrer eigenen Website integrieren können.
+Derzeit benötigen Sie einen Polyfill, um IMSC im Web darzustellen. imscJS ist eine gute Wahl, da es aktiv gepflegt wird und fast die vollständige Abdeckung der IMSC-Funktionen bietet. Dieser Artikel zeigt Ihnen, wie Sie imscJS nutzen und es in Ihre eigene Website integrieren können.
 
 ## Einführung in imscJS
 
-[imscJS](https://github.com/sandflow/imscJS) ist eine JavaScript-Bibliothek zur Darstellung von IMSC-Dokumenten in HTML. Im Folgenden werden wir zuerst ein einfaches Beispiel zur Nutzung von imscJS durchgehen, bevor wir uns ein komplexeres Beispiel ansehen, das Untertitel zu passenden Zeiten über ein Video legt. Den Quellcode des [ersten Beispiels finden Sie auf GitHub](https://github.com/mdn/imsc-examples/blob/main/imscjs-simple-sample/imscjs-simple-sample.html).
+[imscJS](https://github.com/sandflow/imscJS) ist eine JavaScript-Bibliothek zur Darstellung von IMSC-Dokumenten in HTML. Im Folgenden werden wir zunächst ein Beispiel durchgehen, wie imscJS verwendet wird, dann schauen wir uns ein komplexeres Beispiel an, das tatsächlich Untertitel zeitgerecht auf einem Video darstellt. Sie finden den Quellcode des [ersten Beispiels auf GitHub](https://github.com/mdn/imsc-examples/blob/main/imscjs-simple-sample/imscjs-simple-sample.html).
 
 ## Einbetten von imscJS
 
@@ -19,60 +19,60 @@ Zuerst müssen Sie die imscJS-Bibliothek einbetten:
 <script src="https://unpkg.com/imsc@1.1.0-beta.2/build/umd/imsc.all.min.js"></script>
 ```
 
-Sobald die imscJS-Bibliothek geladen ist, kann sie in drei verschiedenen Schritten verwendet werden, um ein IMSC-Dokument darzustellen. Diese Schritte werden in den folgenden Abschnitten erklärt.
+Sobald die imscJS-Bibliothek geladen ist, kann sie in drei verschiedenen Schritten verwendet werden, um ein IMSC-Dokument darzustellen, die in den unten stehenden Abschnitten erklärt werden.
 
 ## Parsen des IMSC-Dokuments
 
-Zuerst wird das IMSC-Dokument in ein unveränderliches JavaScript-Objekt (`doc`, in unserem Fall) geparst:
+Zuerst wird das IMSC-Dokument in ein unveränderliches JavaScript-Objekt (`doc` in unserem Fall) geparst:
 
 ```js
 const doc = imsc.fromXML(source);
 ```
 
-Dieser Schritt muss nur einmal für jedes IMSC-Dokument durchgeführt werden. Das `doc`-Objekt hat eine einzige Methode, `getMediaTimeEvents()`, die ein Array von Zeitoffsets (in Sekunden) zurückgibt, die angeben, wann sich die visuelle Darstellung des IMSC-Dokuments ändert.
+Dieser Schritt muss nur einmal für jedes IMSC-Dokument erfolgen. Das `doc`-Objekt verfügt über eine einzige Methode, `getMediaTimeEvents()`, die ein Array von Zeitversätzen (in Sekunden) zurückgibt, die anzeigen, wann sich die visuelle Darstellung des IMSC-Dokuments ändert.
 
 ```js
 const t = doc.getMediaTimeEvents();
 ```
 
-## Erstellen eines IMSC-Snapshots
+## Erzeugen eines IMSC-Schnappschusses
 
-Im zweiten Schritt wird mit `imsc.generateISD()` ein Snapshot des IMSC-Dokuments zu einem bestimmten Zeitpunkt (`isd`) erstellt.
+Im zweiten Schritt wird ein Schnappschuss des IMSC-Dokuments zu einem bestimmten Zeitpunkt (`isd`) mit `imsc.generateISD()` erstellt.
 
 ```js
 const isd = imsc.generateISD(doc, t[1]);
 ```
 
-Dieser Zeitpunkt muss nicht einer der durch `getMediaTimeEvents()` zurückgegebenen Werte sein, ist es aber üblicherweise. Im obigen Beispiel wird der Snapshot zum zweiten Zeitpunkt erstellt, an dem sich das IMSC-Dokument ändert (`t[1]`). In einem typischen Szenario würde eine Anwendung vor der Wiedergabe des Mediums und für jeden durch `getMediaTimeEvents()` zurückgegebenen Offset einen Snapshot erstellen und seine Präsentation zum jeweiligen Offset planen.
+Dieser Zeitpunkt muss nicht einer der von `getMediaTimeEvents()` zurückgegebenen Werte sein, ist es aber normalerweise. Im obigen Beispiel wird der Schnappschuss zum zweiten Zeitpunkt erstellt, an dem sich das IMSC-Dokument ändert (`t[1]`). In einem typischen Szenario würde eine Anwendung vor der Medienwiedergabe und für jeden von `getMediaTimeEvents()` zurückgegebenen Versatz einen Schnappschuss erstellen und seine Darstellung zum angegebenen Versatz planen.
 
-## Darstellung eines IMSC-Snapshots
+## Rendierung eines IMSC-Schnappschusses
 
-Im dritten und letzten Schritt wird ein Snapshot mit `imsc.renderHTML()` in ein HTML-{{htmlelement("div")}} gerendert:
+Im dritten und letzten Schritt wird ein Schnappschuss mittels `imsc.renderHTML()` in ein HTML-{{htmlelement("div")}} gerendert:
 
 ```js
 const renderDiv = document.getElementById("render-div");
 imsc.renderHTML(isd, renderDiv);
 ```
 
-## Erstellen eines IMSC-Players
+## Aufbau eines IMSC-Players
 
-Schauen wir uns ein erweitertes Beispiel an und zeigen Ihnen, wie Sie Untertitel mit imscJS auf einem eingebetteten HTML-Video darstellen können. Als Beispiel verwenden wir das folgende Video mit Untertiteln.
+Schauen wir uns ein erweitertes Beispiel an und zeigen Ihnen, wie Sie mit imscJS Untertitel auf einem eingebetteten HTML-Video rendern können. Als Beispiel verwenden wir das folgende Video mit Untertiteln.
 
 {{EmbedGHLiveSample("imsc-examples/imscjs-demo/imscjs-demo.html", '100%', 320)}}
 
-Sie finden die [HTML-Markup](https://github.com/mdn/imsc-examples/blob/main/imscjs-demo/imscjs-demo.html) und den [JavaScript-Quellcode](https://github.com/mdn/imsc-examples/blob/main/imscjs-demo/js/index.js) im [MDN-Repository für IMSC-Beispiele](https://github.com/mdn/imsc-examples).
+Sie finden das [HTML-Markup](https://github.com/mdn/imsc-examples/blob/main/imscjs-demo/imscjs-demo.html) und den [JavaScript-Quellcode](https://github.com/mdn/imsc-examples/blob/main/imscjs-demo/js/index.js) im [MDN-Repository für IMSC-Beispiele](https://github.com/mdn/imsc-examples).
 
 ## Zugriff auf das DOM
 
-Ein IMSC-Untertitel wird durch HTML-Markup mit eingebettetem CSS gerendert. Es stellt die IMSC-Untertitel während eines bestimmten Zeitraums in der Timeline des zugehörigen Medienelements dar. Wie wir im Abschnitt [Darstellung eines IMSC-Snapshots](#darstellung_eines_imsc-snapshots) oben gesehen haben, wird das Markup mit der Methode `renderHtml()` in ein `<div>`-Element eingefügt. Wir können dieses `<div>`-Element als Container für das von IMSC-Code generierte HTML betrachten. Später übergeben wir das entsprechende DOM-Element als Parameter an die Methode `renderHtml()`.
+Ein IMSC-Untertitel wird durch HTML-Markup mit Inline-CSS gerendert. Es repräsentiert die IMSC-Untertitel während eines bestimmten Zeitraums auf der Zeitachse des zugehörigen Medienelements. Wie wir im Abschnitt [Rendierung eines IMSC-Schnappschusses](#rendierung_eines_imsc-schnappschusses) oben gesehen haben, wird das Markup mittels der Methode `renderHtml()` in ein `<div>`-Element eingefügt. Wir können dieses `<div>`-Element als Container für das HTML betrachten, das aus dem IMSC-Code generiert wurde. Später übergeben wir das entsprechende DOM-Element als Parameter an die Methode `renderHtml()`.
 
-Zum Komfort weisen wir dieses DOM-Element einer Variablen zu.
+Der Einfachheit halber weisen wir dieses DOM-Element einer Variablen zu.
 
 ```js
 const renderDiv = document.getElementById("render-div");
 ```
 
-Wir verwenden HTML-Cues, die mit HTML-Textspuren verbunden sind, um Ereignisse auszulösen, wann immer ein IMSC-Untertitel angezeigt oder ausgeblendet werden soll. In diesem Beispiel verwenden wir ein {{htmlelement("track")}}-Element, das wir im HTML-Markup deklariert haben, wir könnten jedoch auch eine Textspur "on the fly" erstellen und dem {{htmlelement("video")}} hinzufügen.
+Wir verwenden HTML-Cues, die mit HTML-Textspuren verbunden sind, um bei Bedarf Ereignisse auszulösen, wann ein IMSC-Untertitel erscheinen oder verschwinden sollte. In diesem Beispiel verwenden wir ein {{htmlelement("track")}} Element, das wir im HTML-Markup deklariert haben, aber wir könnten auch eine Textspur dynamisch erstellen und zum {{htmlelement("video")}} hinzufügen.
 
 ```js
 const myVideo = document.getElementById("imscVideo");
@@ -87,18 +87,18 @@ const ttmlUrl = myVideo.getElementsByTagName("track")[0].src;
 
 ## Abrufen der IMSC-Datei
 
-Der Browser ruft das Dokument nicht automatisch für uns ab. In den meisten Browsern ist derzeit nur [WebVTT](/de/docs/Web/API/WebVTT_API) implementiert. Diese Browser erwarten daher, dass der Wert des `src`-Attributs auf eine WebVTT-Datei verweist. Ist dies nicht der Fall, verwenden sie es nicht und wir haben auch keinen direkten Zugriff auf die Datei, auf die das `src`-Attribut verweist. Wir verwenden das `src`-Attribut daher nur, um die URL der IMSC-Datei zu speichern. Wir müssen die Datei abrufen und sie in einen JavaScript-String einlesen. Im Beispiel verwenden wir dazu die [`fetch()`](/de/docs/Web/API/Window/fetch)-API:
+Der Browser ruft das Dokument nicht automatisch für uns ab. In den meisten Browsern ist derzeit nur [WebVTT](/de/docs/Web/API/WebVTT_API) implementiert. Daher erwarten diese Browser, dass der Wert des `src`-Attributs auf eine WebVTT-Datei zeigt. Falls nicht, nutzen sie es nicht und wir haben auch keinen direkten Zugriff auf die Datei, auf die das `src`-Attribut zeigt. Wir verwenden das `src`-Attribut daher nur, um die URL der IMSC-Datei zu speichern. Wir müssen die Datei abrufen und sie in eine JavaScript-String einlesen. In dem Beispiel verwenden wir die [`fetch()`](/de/docs/Web/API/Window/fetch) API für diese Aufgabe:
 
 ```js
 const response = await fetch(ttmlUrl);
 initTrack(await response.text());
 ```
 
-## Festlegen des Textspurmodus
+## Einstellen des Textspurmodus
 
-Es gibt eine weitere Nebenwirkung. Da die Browser keine gültige WebVTT-Datei aus dem `src`-Attribut erhalten, deaktivieren sie die Spur. Die Eigenschaft `mode` der Textspur ist auf den Wert `disable` gesetzt.
+Es gibt noch eine Nebenwirkung. Da Browser keine gültige WebVTT-Datei aus dem `src`-Attribut erhalten, deaktivieren sie die Spur. Die `mode`-Eigenschaft der Textspur wird auf den Wert `disable` gesetzt.
 
-Aber das ist nicht das, was wir wollen. Im deaktivierten Modus löst ein Cue keine Ereignisse zu seinen Start- und Endzeiten aus. Da wir diese Ereignisse zum Darstellen der IMSC-Untertitel benötigen, ändern wir den Modus der Textspur in `hidden`. In diesem Modus löst der Browser die Ereignisse der Cues aus, rendert aber den Wert der Cue-Text-Eigenschaft nicht.
+Aber das ist nicht das, was wir wollen. Im deaktivierten Modus wirft ein Cue keine Ereignisse zu seinen Start- und Endzeiten. Da wir diese Ereignisse für die Rendierung der IMSC-Untertitel benötigen, ändern wir den Modus der Textspur auf `hidden`. In diesem Modus wirft der Browser die Ereignisse der Cues, rendert aber den Wert der Cues-Text-Eigenschaft nicht.
 
 ```js
 myTrack.mode = "hidden";
@@ -106,9 +106,9 @@ myTrack.mode = "hidden";
 
 Nachdem wir alles eingerichtet haben, können wir uns auf die Implementierung der IMSC-Untertiteldarstellung konzentrieren.
 
-## Erzeugen von "Untertitel-Zuständen"
+## Generieren von "Untertitelzuständen"
 
-Oben haben wir erklärt, dass wir IMSC-Snapshots erzeugen müssen. Im folgenden Abschnitt gehen wir etwas tiefer darauf ein, was das bedeutet und warum dies notwendig ist.
+Oben haben wir erklärt, dass wir IMSC-Schnappschüsse generieren müssen. Im Folgenden gehen wir etwas tiefer darauf ein, was das bedeutet und warum dies notwendig ist.
 
 Wie wir im Abschnitt [Parsen des IMSC-Dokuments](#parsen_des_imsc-dokuments) gelernt haben, ist der erste Schritt, das IMSC-Dokument in ein imscJS-Objekt zu parsen.
 
@@ -116,11 +116,11 @@ Wie wir im Abschnitt [Parsen des IMSC-Dokuments](#parsen_des_imsc-dokuments) gel
 const imscDoc = imsc.fromXML(text);
 ```
 
-Wir möchten Cues für die Darstellung der IMSC-Untertitel verwenden. Jeder Cue hat Eigenschaften, die seine Start- und Endzeit darstellen. Die Browser-Engine löst Ereignisse aus, wenn die Zeitleiste des Mediums die Start- oder Endzeit eines Cues erreicht. Wir können Funktionsaufrufe für diese Ereignisse registrieren. Wir verwenden sie, um das von imscJS generierte HTML darzustellen und wieder zu entfernen, wenn es erforderlich ist.
+Wir möchten Cues zur Darstellung der IMSC-Untertitel verwenden. Jeder Cue hat Eigenschaften, die seine Start- und Endzeit darstellen. Die Browser-Engine wirft Ereignisse, immer wenn die Zeitachse der Medien die Start- und Endzeit eines Cues erreicht. Wir können Funktionsaufrufe für diese Ereignisse registrieren. Wir verwenden sie, um das durch imscJS generierte HTML zu rendern und es bei Bedarf wieder zu entfernen.
 
-Aber die Zuordnung von IMSC-Untertiteln zu den Start- und Endzeiten von Cues ist nicht so einfach, wie Sie vielleicht denken. Natürlich könnten Sie einfach `<p>`-Elemente mit `begin`- und `end`-Attributen verwenden. Dies würde perfekt zum Cue-Interface mit seinen `start`- und `end`-Eigenschaften passen.
+Aber die Zuordnung von IMSC-Untertiteln zu Start- und Endzeiten der Cues ist nicht so einfach, wie Sie vielleicht denken. Natürlich könnten Sie einfach `<p>`-Elemente mit `begin` und `end` Attributen verwenden. Dies würde perfekt zur Cue-Schnittstelle mit ihren `start` und `end` Eigenschaften passen.
 
-Betrachten Sie jedoch folgenden IMSC-Code:
+Aber nehmen Sie folgendes IMSC-Code-Beispiel:
 
 ```html
 <p>
@@ -128,25 +128,25 @@ Betrachten Sie jedoch folgenden IMSC-Code:
 </p>
 ```
 
-Dies kann als Beispiel für einen "akkumulierenden" Untertitel betrachtet werden, bei dem Wort für Wort zu einer Zeile hinzugefügt wird. In einigen Ländern ist dies gängige Praxis für Live-Untertitelungen.
+Dies kann als Beispiel für einen "akkumulierenden" Untertitel genommen werden, bei dem Wort für Wort zu einer Zeile hinzugefügt wird. In einigen Ländern ist dies bei Live-Untertiteln eine gängige Praxis.
 
-Was passiert, ist folgendes:
+Was geschieht, ist Folgendes:
 
-- In Sekunde 0 gibt es keinen Untertitel.
-- In Sekunde 1 muss der Text "Hello" erscheinen.
-- In Sekunde 2 muss der Text "Hello" noch "auf dem Bildschirm" bleiben, aber der Text "world!" muss hinzugefügt werden. Also haben wir von Sekunde 2 bis 3 einen Untertitel, der den Text "Hello world!" darstellt.
+- In der ersten Sekunde gibt es keinen Untertitel.
+- In der zweiten Sekunde muss der Text "Hello" erscheinen.
+- In der dritten Sekunde muss der Text "Hello" immer noch "auf dem Bildschirm" bleiben, aber der Text "world!" muss hinzugefügt werden. Also haben wir von Sekunde 2 bis 3 einen Untertitel, der den Text "Hello world!" darstellt.
 
-Um dies in HTML zu überführen, benötigen wir mindestens zwei Cues: einen, der den Text "Hello" von Sekunde 1-2 darstellt, und einen anderen, der den Text "Hello world!" von Sekunde 2-3 darstellt.
+Um dies in HTML abzubilden, benötigen wir mindestens zwei Cues: einen, der von der zweiten bis zur dritten Sekunde den Text "Hello" darstellt, und den anderen, der von der dritten bis zur vierten Sekunde den Text "Hello world!" darstellt.
 
-Aber dies ist ein vereinfachtes einfaches Szenario. Stellen Sie sich vor, Sie haben 5 weitere Wörter, die sich ansammeln. Sie könnten alle die gleiche Endzeit, aber unterschiedliche Startzeiten haben. Oder stellen Sie sich vor, Sie haben einen Untertitel an einem anderen Ort (z.B. einen anderen Sprecher darstellend). Dieser Untertitel wird parallel zu dem anderen Untertitel gezeigt, aber die sich ansammelnden Wörter könnten unterschiedliche Startzeiten und daher unterschiedliche Intervalle haben.
+Aber dies ist ein vereinfachtes einfaches Szenario. Stellen Sie sich vor, dass Sie 5 weitere Wörter hinzufügen. Sie könnten alle dieselbe Endzeit, aber unterschiedliche Startzeiten haben. Oder stellen Sie sich vor, Sie haben einen Untertitel an einem anderen Ort (z. B. einen anderen Sprecher darstellend). Dieser Untertitel wird parallel zum anderen Untertitel angezeigt, aber die akkumulierenden Wörter könnten unterschiedliche Startzeiten und daher unterschiedliche Intervalle haben.
 
-Glücklicherweise ist dieses Szenario in IMSC und imscJS recht einfach abzudecken, weil IMSC einen Mechanismus für zustandsloses Untertitel-Rendering hat.
+Glücklicherweise ist dieses Szenario in IMSC und imscJS recht einfach zu handhaben, da IMSC einen Mechanismus zur zustandslosen Untertitel-Rendierung hat.
 
-Lassen Sie uns genauer anschauen, was das bedeutet.
+Schauen wir uns genauer an, was das bedeutet.
 
-In unserer HTML/CSS-Implementierung können wir uns die IMSC-Untertitel als eine Rendering-Ebene vorstellen, die über das Video gelegt wird. Zu jedem Zeitpunkt auf der Zeitachse des Mediums hat die Rendering-Ebene einen bestimmten Zustand. Für diese "Zustände" hat IMSC ein konzeptionelles Modell, das "intermediäre synchrone Dokumentformat", welches das darstellt, was schließlich in dieser Ebene gerendert wird. Jedes Mal, wenn das Rendering sich ändern muss, wird eine neue Darstellung erstellt. Was erstellt wird, nennt man ein **Intermediate Synchronous Document** oder **ISD**. Dieses ISD hat keine Abhängigkeit von den ISD's, die davor oder danach kommen. Es ist vollständig zustandslos und enthält alle Informationen, die benötigt werden, um den Untertitel darzustellen.
+In unserer HTML/CSS-Implementierung können wir IMSC-Untertitel als eine Rendierschicht betrachten, die über das Video gelegt wird. Zu jedem Zeitpunkt auf der Medientimeline hat die Rendierschicht einen spezifischen Zustand. Für diese "Zustände" hat IMSC ein konzeptionelles Modell, das "intermediate synchronous document format", das darstellt, was letztlich in dieser Schicht gerendert wird. Jedes Mal, wenn sich die Rendierung ändern muss, wird eine neue Darstellung erstellt. Was erstellt wird, wird als **Intermediate Synchronous Document** oder **ISD** bezeichnet. Dieses ISD hat keine Abhängigkeit von den ISDs, die davor oder danach kommen. Es ist völlig zustandslos und hat alle Informationen, die zum Rendern des Untertitels benötigt werden.
 
-Wie können wir also die Zeiten ermitteln, wann sich das ISD ändert?
+Also, wie können wir die Zeiten herausfinden, wann sich das ISD ändert?
 
 Das ist einfach: Wir rufen einfach die Methode `getMediaTimeEvents()` auf dem imscJS-Dokumentobjekt auf (siehe auch [Parsen des IMSC-Dokuments](#parsen_des_imsc-dokuments)):
 
@@ -154,7 +154,7 @@ Das ist einfach: Wir rufen einfach die Methode `getMediaTimeEvents()` auf dem im
 const timeEvents = imscDoc.getMediaTimeEvents(); // timeEvents = [0,1,2,3]
 ```
 
-Um ein ISD-Dokument zu erhalten, das einem Zeitereignis entspricht, müssen wir die imscJS-Methode `generateISD()` aufrufen. Wir haben dies in [Erstellen eines IMSC-Snapshots](#erstellen_eines_imsc-snapshots) kurz erklärt. Für das ISD bei Sekunde 2 müssen wir Folgendes tun:
+Um ein ISD-Dokument zu erhalten, das einem Zeitevent entspricht, müssen wir die imscJS-Methode `generateISD()` aufrufen. Dies haben wir kurz im Abschnitt [Erzeugen eines IMSC-Schnappschusses](#erzeugen_eines_imsc-schnappschusses) erklärt. Für das ISD in der dritten Sekunde müssen wir Folgendes tun:
 
 ```js
 imsc.generateISD(imscDoc, 2);
@@ -162,14 +162,13 @@ imsc.generateISD(imscDoc, 2);
 
 ## Erstellen von Textspur-Cues
 
-Mit zwei Methoden können wir nun alle notwendigen Zustände der IMSC-Rendering-Schicht erzeugen. Dies tun wir wie folgt:
+Mit zwei Methoden können wir nun alle notwendigen Zustände der IMSC-Rendierschicht generieren. Wir tun dies wie folgt:
 
-- Über das Array iterieren, das wir von `getMediaEvents()` zurückbekommen
-- Für jedes Zeitereignis:
-
-  - Einen entsprechenden Cue erstellen.
-  - Ein `onenter`-Ereignis verwenden, um das ISD zu rendern.
-  - Ein `onexit`-Ereignis verwenden, um die Rendering-Schicht wieder zu entfernen.
+- Iterieren über das Array, das wir von `getMediaEvents()` zurückbekommen
+- Für jedes Zeitevent:
+  - Erstellen eines entsprechenden Cues.
+  - Verwendung eines `onenter`-Events zum Rendern des ISD.
+  - Verwendung eines `onexit`-Events zum Entfernen der Rendierschicht.
 
 ```js
 for (let i = 0; i < timeEvents.length; i++) {
@@ -197,24 +196,24 @@ for (let i = 0; i < timeEvents.length; i++) {
 
 Schauen wir uns das genauer an.
 
-Während wir durch die `timeEvents` schleifen, können wir den Wert des Zeitereignisses als Startzeit des Cues nutzen. Wir können dann den Wert des nächsten Zeitereignisses als Endzeit des Cues verwenden, da dies angibt, dass die Rendering-Schicht geändert werden muss:
+Während wir durch die `timeEvents` iterieren, können wir den Wert des Zeitevents als Startzeit des Cues nehmen. Wir können dann den Wert des nächsten Zeitevents als Endzeit des Cues verwenden, da dies anzeigt, dass sich die Rendierschicht ändern muss:
 
 ```js
 myCue = new Cue(timeEvents[i], timeEvents[i + 1], "");
 ```
 
 > [!NOTE]
-> In den meisten Browsern sind Textspur-Cues derzeit nur für das WebVTT-Format implementiert. Normalerweise erstellen Sie also einen Cue mit allen WebVTT-Eigenschaften, einschließlich der WebVTT-Text-Eigenschaft. Wir verwenden diese Eigenschaften nie, aber es ist wichtig, sich daran zu erinnern, dass sie immer noch da sind. Im Konstruktor müssen wir auch den VTTCue-Text als dritten Parameter hinzufügen.
+> In den meisten Browsern sind Textspur-Cues derzeit nur für das WebVTT-Format implementiert. Normalerweise erstellen Sie also einen Cue mit allen WebVTT-Eigenschaften einschließlich der WebVTT-Text-Eigenschaft. Wir verwenden diese Eigenschaften nie, aber es ist wichtig zu bedenken, dass sie immer noch vorhanden sind. Im Konstruktor müssen wir auch den VTTCue-Text als dritten Parameter hinzufügen.
 
-Aber wie sollten wir die Endzeit des letzten Zeitereignisses berechnen? Es hat kein "nächstes" Zeitereignis, von dem wir die Endzeit nehmen könnten.
+Aber wie sollten wir die Endzeit des letzten Zeitevents berechnen? Es hat kein "nächstes" Zeitevent, von dem wir die Endzeit nehmen könnten.
 
-Wenn es kein weiteres Zeitereignis gibt, bedeutet dies tatsächlich, dass die Rendering-Schicht bis zum Ende der Wiedergabezeit des Mediums aktiv ist. Wir können also die Endzeit auf die Dauer des zugehörigen Mediums setzen:
+Wenn kein weiteres Zeitevent vorhanden ist, bedeutet dies tatsächlich, dass die Rendierschicht bis zum Ende der Spielzeit der Medien aktiv ist. Wir können also die Endzeit auf die Dauer des zugehörigen Audios setzen:
 
 ```js
 myCue = new Cue(timeEvents[i], myVideo.duration, "");
 ```
 
-Nachdem wir das Cue-Objekt konstruiert haben, können wir die Funktion registrieren, die "beim Betreten" des Cues aufgerufen wird:
+Sobald wir das Cue-Objekt konstruieren, können wir die Funktion registrieren, die beim "Betreten" des Cues aufgerufen wird:
 
 ```js
 myCue.onenter = function () {
@@ -224,9 +223,9 @@ myCue.onenter = function () {
 };
 ```
 
-Wir erzeugen das ISD, das mit dem Cue verbunden ist, und verwenden dann die imscJS-Methode `renderHTML()`, um das entsprechende HTML in den "Rendering-Container" zu rendern.
+Wir erzeugen das mit dem Cue verbundene ISD und verwenden dann die imscJS-Methode `renderHTML()`, um das entsprechende HTML im "Rendiercontainer" zu rendern.
 
-Um sicherzustellen, dass keine verbleibende Untertitelschicht vorhanden ist, entfernen wir zuerst die Untertitelschicht, falls eine vorhanden ist. Dafür definieren wir eine Funktion, die wir später beim Ende des Cues wiederverwenden können:
+Um sicherzustellen, dass keine verbleibende Untertitel-Schicht vorhanden ist, entfernen wir zuerst diese Schicht, falls eine vorhanden ist. Dafür definieren wir eine Funktion, die wir später wiederverwenden können, wenn das Cue endet:
 
 ```js
 function clearSubFromScreen() {
@@ -237,7 +236,7 @@ function clearSubFromScreen() {
 }
 ```
 
-Wir rufen diese Funktion erneut auf, sobald das `onexit`-Ereignis des Cues ausgelöst wird:
+Wir rufen diese Funktion erneut auf, sobald das `onexit`-Event des Cues ausgelöst wird:
 
 ```js
 myCue.onexit = function () {
@@ -245,22 +244,22 @@ myCue.onexit = function () {
 };
 ```
 
-Am Ende müssen wir nur noch den generierten Cue zur Textspur hinzufügen:
+Am Ende müssen wir nur noch das generierte Cue zur Textspur hinzufügen:
 
 ```js
 myTrack.addCue(myCue);
 ```
 
-## Verwenden der nativen Videoplayer-Steuerelemente
+## Verwendung nativer Videoplayer-Steuerelemente
 
-In der Regel möchten Sie dem Benutzer einige Optionen zur Steuerung der Videowiedergabe geben. Mindestens sollten sie in der Lage sein, das Video abzuspielen, zu pausieren und fortzusetzen. Die einfachste Methode wäre, die nativen Videosteuerungen des Webbrowsers zu verwenden, oder? Ja, das stimmt, wenn Sie keine zusätzlichen Funktionen wünschen.
+Normalerweise möchten Sie dem Benutzer einige Optionen zur Steuerung der Videowiedergabe geben. Zumindest sollten sie in der Lage sein, das Video abzuspielen, zu pausieren und zu spulen. Die einfachste Methode wäre, die nativen Video-Steuerelemente des Webbrowsers zu verwenden, nicht wahr? Ja, das stimmt, wenn Sie keine zusätzlichen Funktionen wünschen.
 
-Native Videoplayer-Steuerelemente sind Teil des Browsers und nicht des HTML-Markups. Auch wenn sie auf DOM-Ereignisse reagieren und einige ihrer eigenen erzeugen, haben Sie als Webentwickler keinen direkten Zugriff darauf.
+Natürliche Videoplayer-Steuerelemente sind Teil des Browsers und nicht des HTML-Markups. Obwohl sie auf DOM-Ereignisse reagieren und einige ihrer eigenen erzeugen, haben Sie als Webentwickler keinen direkten Zugriff auf sie.
 
-Dies führt zu zwei Problemen bei der Verwendung von imscJS:
+Dies verursacht zwei Probleme bei der Verwendung von imscJS:
 
-1. Die IMSC-HTML-Überlagerung deckt das gesamte Video ab. Sie sitzt über dem `<video>`-Element. Obwohl Sie die Steuerelemente des Players sehen können (weil der größte Teil der Überlagerung einen transparenten Hintergrund hat), kommen Zeigerereignisse wie Mausklicks nicht zu den Steuerelementen durch. Da sie nicht durch Standard-CSS zugänglich sind, können Sie die z-index der Steuerelemente auch nicht ändern, um dieses Problem zu lösen. Wenn Sie also immer eine Untertitelüberlagerung haben, können Sie das Video nicht stoppen, sobald es gestartet wurde. Dies wäre eine sehr schlechte Benutzererfahrung.
-2. Gewöhnlich haben die nativen Videoplayer-Steuerelemente eine Benutzeroberfläche für Untertitel. Sie können eine Textspur auswählen oder das Rendering der Untertitel ausschalten. Leider steuert die Benutzeroberfläche für Untertitel nur die Darstellung von WebVTT-Untertiteln. Der Browser weiß nicht, dass wir Untertitel mit imscJS rendern, daher haben diese Steuerelemente keine Auswirkung.
+1. Der IMSC HTML-Overlay deckt das gesamte Video ab. Es liegt über dem `<video>`-Element. Obwohl Sie die Player-Steuerelemente sehen können (weil der größte Teil des Overlays einen transparenten Hintergrund hat), werden Zeigereignisse wie Mausklicks nicht an die Steuerelemente weitergeleitet. Da sie nicht mit Standard-CSS zugänglich sind, können Sie auch nicht den z-Index der Steuerelemente ändern, um dieses Problem zu lösen. Wenn Sie also immer ein Untertitel-Overlay haben, können Sie das Video nicht stoppen, sobald es gestartet wurde. Dies würde eine sehr schlechte Benutzererfahrung ergeben.
+2. Normalerweise haben die nativen Videoplayer-Steuerelemente eine Untertitel-Benutzeroberfläche. Sie können eine Textspur auswählen oder die Darstellung von Untertiteln ausschalten. Leider steuert die Untertitel-Benutzeroberfläche nur die Wiedergabe von WebVTT-Untertiteln. Der Browser weiß nicht, dass wir Untertitel mit imscJS rendern, sodass diese Steuerelemente keinen Effekt haben.
 
 Für das erste Problem gibt es eine einfache CSS-Lösung. Wir müssen die CSS-Eigenschaft `pointer-events` auf `none` setzen (siehe den [Beispielcode](https://github.com/mdn/imsc-examples/blob/main/imscjs-demo/css/style.css) auf GitHub für das vollständige CSS).
 
@@ -270,26 +269,26 @@ Für das erste Problem gibt es eine einfache CSS-Lösung. Wir müssen die CSS-Ei
 }
 ```
 
-Dies hat den Effekt, dass Zeigerereignisse "durch" die Überlagerung hindurchgehen (siehe [Referenzdokumentation für Zeigerereignisse](/de/docs/Web/CSS/pointer-events) für mehr Details).
+Dies hat den Effekt, dass Zeigereignisse "durch" das Overlay hindurchgehen (siehe [Referenzdokumentation für Zeigereignisse](/de/docs/Web/CSS/pointer-events) für weitere Details).
 
-Das Problem mit der Untertitel-Benutzeroberfläche ist etwas schwieriger zu lösen. Obwohl wir auf Ereignisse hören können, wird das Aktivieren einer Spur über die Benutzeroberfläche für Untertitel auch das Rendering der entsprechenden WebVTT aktivieren. Da wir VTTCues für das IMSC-Rendering verwenden, kann dies unerwünschtes Präsentationsverhalten verursachen. Die Texteigenschaft des VTTCue hat immer den leeren String als Wert, aber in manchen Browsern kann dies dennoch zur Darstellung von Artefakten führen.
+Das Problem mit der Untertitel-Benutzeroberfläche ist etwas schwieriger zu lösen. Obwohl wir Ereignisse abhören können, wird durch das Aktivieren einer Spur mit der Untertitel-Benutzeroberfläche auch die Darstellung der entsprechenden WebVTT aktiviert. Da wir VTTCues für die IMSC-Rendierung verwenden, kann dies unerwünschtes Präsentationsverhalten verursachen. Die Texteigenschaft des VTTCue hat immer den leeren String als Wert, aber in einigen Browsern kann dies dennoch zur Darstellung von Artefakten führen.
 
-Die beste Lösung besteht darin, eigene benutzerdefinierte Steuerelemente zu erstellen. Erfahren Sie in unserem [Erstellen eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player) Tutorial, wie das geht.
+Die beste Lösung ist, eigene benutzerdefinierte Steuerelemente zu erstellen. Erfahren Sie, wie in unserem [Custom Video Player Leitfaden](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player).
 
 <section id="Quick_links">
   <ol>
     <li><a href="/de/docs/Related/IMSC/"><strong>IMSC</strong></a></li>
     <li class="toggle">
       <details open>
-        <summary>IMSC-Leitfäden</summary>
+        <summary>IMSC Leitfäden</summary>
         <ol>
-          <li><a href="/de/docs/Related/IMSC/Basics">Grundlagen von IMSC</a></li>
+          <li><a href="/de/docs/Related/IMSC/Basics">IMSC-Grundlagen</a></li>
           <li><a href="/de/docs/Related/IMSC/Using_the_imscJS_polyfill">Verwendung des imscJS-Polyfills</a></li>
           <li><a href="/de/docs/Related/IMSC/Styling">Styling von IMSC-Dokumenten</a></li>
-          <li><a href="/de/docs/Related/IMSC/Subtitle_placement">Untertitelplatzierung in IMSC</a></li>
+          <li><a href="/de/docs/Related/IMSC/Subtitle_placement">Platzierung von Untertiteln in IMSC</a></li>
           <li><a href="/de/docs/Related/IMSC/Namespaces">Namespaces in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Timing_in_IMSC">Timing in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Mapping_video_time_codes_to_IMSC">Zuordnung von Videocode zu IMSC</a></li>
+          <li><a href="/de/docs/Related/IMSC/Timing_in_IMSC">Zeitsteuerung in IMSC</a></li>
+          <li><a href="/de/docs/Related/IMSC/Mapping_video_time_codes_to_IMSC">Zuordnung von Videozeitcodes zu IMSC</a></li>
           <li><a href="/de/docs/Related/IMSC/IMSC_and_other_standards">IMSC und andere Standards</a></li>
         </ol>
       </details>

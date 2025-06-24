@@ -1,17 +1,17 @@
 ---
-title: Mikrofonberechtigung des Browsers erhalten
+title: Erhalten der Berechtigung des Browsers für das Mikrofon
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Get_microphone_permission
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Show_hide_html")}}
 
-Nachdem Sie den Peer erstellt haben, möchten Sie die Berechtigung des Browsers erhalten, um auf das Mikrofon zuzugreifen. Wir werden die Methode [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf dem Objekt [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) verwenden. Der `getUserMedia()`-Endpunkt nimmt ein `constraints`-Objekt, das angibt, welche Berechtigungen benötigt werden. `getUserMedia()` ist ein Promise, das, wenn es erfolgreich aufgelöst wird, ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt zurückgibt. In unserem Fall wird dies den Audioinhalt unseres Streams enthalten. Wenn das Promise nicht erfolgreich aufgelöst wird, sollten Sie den Fehler abfangen und anzeigen.
+Nachdem Sie den Peer erstellt haben, möchten Sie die Berechtigung des Browsers erhalten, auf das Mikrofon zuzugreifen. Wir werden die Methode [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf dem Objekt [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) verwenden. Der `getUserMedia()`-Endpunkt nimmt ein `constraints`-Objekt, das die benötigten Berechtigungen angibt. `getUserMedia()` ist ein Promise, das bei erfolgreicher Auflösung ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt zurückgibt. In unserem Fall wird es den Ton aus unserem Stream enthalten. Wenn das Promise nicht erfolgreich aufgelöst wird, sollten Sie den Fehler abfangen und anzeigen.
 
-1. Fügen Sie den folgenden Code am Ende Ihrer `script.js`-Datei hinzu:
+1. Fügen Sie den folgenden Code am Ende Ihrer Datei `script.js` hinzu:
 
    ```js
    function getLocalStream() {
@@ -30,26 +30,26 @@ Nachdem Sie den Peer erstellt haben, möchten Sie die Berechtigung des Browsers 
 
    Lassen Sie uns die wichtigsten Zeilen erklären:
 
-   - `window.localStream = stream` hängt das `MediaStream`-Objekt (welches wir in der vorherigen Zeile `stream` zugewiesen haben) an das Fenster als `localStream`.
-   - `window.localAudio.srcObject = stream` setzt das `src`-Attribut des [`<audio>`-Elements](/de/docs/Web/HTML/Reference/Elements/audio) mit der ID `localAudio` auf den `MediaStream`, der vom Promise zurückgegeben wird, sodass unser Stream abgespielt wird.
-   - `window.localAudio.autoplay = true` setzt das `autoplay`-Attribut des `<audio>`-Elements auf true, sodass das Audio automatisch abgespielt wird.
+   - `window.localStream = stream` hängt das `MediaStream`-Objekt (das wir in der vorherigen Zeile `stream` zugewiesen haben) als `localStream` an das Fenster an.
+   - `window.localAudio.srcObject = stream` setzt das `src`-Attribut des [`<audio>`-Elements](/de/docs/Web/HTML/Reference/Elements/audio) mit der ID `localAudio` auf den `MediaStream`, der durch das Promise zurückgegeben wird, sodass unser Stream wiedergegeben wird.
+   - `window.localAudio.autoplay = true` setzt das `autoplay`-Attribut des `<audio>`-Elements auf true, damit der Ton automatisch abgespielt wird.
 
    > [!WARNING]
-   > Wenn Sie online etwas recherchiert haben, sind Sie möglicherweise auf [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) gestoßen und haben angenommen, dass Sie das anstelle von `navigator.mediaDevices.getUserMedia` verwenden können. Das wäre falsch. Erstere ist eine veraltete Methode, die Rückrufe und Einschränkungen als Argumente erfordert. Letztere verwendet ein Promise, sodass Sie keine Rückrufe verwenden müssen.
+   > Wenn Sie online ein wenig recherchiert haben, sind Sie möglicherweise auf [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) gestoßen und haben angenommen, dass Sie diese Methode anstelle von `navigator.mediaDevices.getUserMedia` verwenden können. Das wäre falsch. Ersteres ist eine veraltete Methode, die sowohl Rückruffunktionen als auch Constraints als Argumente erfordert. Letzteres verwendet ein Promise, sodass Sie keine Rückruffunktionen verwenden müssen.
 
-2. Versuchen Sie, Ihre `getLocalStream`-Funktion aufzurufen, indem Sie die folgende Zeile am Ende Ihres Codes hinzufügen:
+2. Versuchen Sie, Ihre Funktion `getLocalStream` aufzurufen, indem Sie die folgende Zeile am Ende Ihres Codes hinzufügen:
 
    ```js
    getLocalStream();
    ```
 
-3. Aktualisieren Sie Ihre App, die noch unter `localhost:8000` laufen sollte; Sie sollten die folgende Berechtigungsmeldung sehen:
+3. Aktualisieren Sie Ihre Anwendung, die immer noch unter `localhost:8000` ausgeführt werden sollte; Sie sollten das folgende Berechtigungs-Popup sehen:
 
-   ![Ein Browser-Berechtigungsdialog, der sagt "http://localhost:8000 möchte Ihr Mikrofon verwenden" mit zwei Optionen: "blockieren" und "erlauben"](use_microphone_dialogue_box.png)
+   ![Ein Browser-Berechtigungsdialogfeld, das sagt: "http://localhost:8000 möchte Ihr Mikrofon verwenden" mit zwei Optionen: "blockieren" und "zulassen"](use_microphone_dialogue_box.png)
 
-4. Stecken Sie Kopfhörer ein, bevor Sie die Mikrofonbenutzung erlauben, damit Sie, wenn Sie sich später selbst entstummten, kein Feedback bekommen. Wenn Sie die Berechtigungsaufforderung nicht gesehen haben, öffnen Sie den Inspektor, um zu sehen, ob Sie Fehler haben. Stellen Sie auch sicher, dass Ihre JavaScript-Datei korrekt mit Ihrer `index.html` verknüpft ist.
+4. Schließen Sie einige Kopfhörer an, bevor Sie die Mikrofonnutzung zulassen, damit Sie später, wenn Sie sich selbst entstummen, kein Feedback erhalten. Wenn Sie die Berechtigungsanfrage nicht gesehen haben, öffnen Sie den Inspektor, um zu sehen, ob Sie Fehler haben. Stellen Sie auch sicher, dass Ihre JavaScript-Datei korrekt mit Ihrer `index.html` verknüpft ist.
 
-So sollte es zusammen aussehen:
+So sollte alles zusammen aussehen:
 
 ```js
 /* global Peer */

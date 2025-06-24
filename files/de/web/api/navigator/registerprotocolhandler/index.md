@@ -3,20 +3,20 @@ title: "Navigator: registerProtocolHandler() Methode"
 short-title: registerProtocolHandler()
 slug: Web/API/Navigator/registerProtocolHandler
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML DOM")}}{{securecontext_header}}
 
 Die **[`Navigator`](/de/docs/Web/API/Navigator)** Methode **`registerProtocolHandler()`** ermöglicht es Websites, ihre Fähigkeit zu registrieren, bestimmte URL-Schemata (auch als Protokolle bekannt) zu öffnen oder zu bearbeiten.
 
-Beispielsweise erlaubt diese API Webmail-Sites, `mailto:` URLs zu öffnen, oder VoIP-Sites, `tel:` URLs zu öffnen.
+Zum Beispiel können Webmail-Seiten mit dieser API `mailto:` URLs öffnen oder VoIP-Seiten `tel:` URLs.
 
 Um einen Protokoll-Handler zu registrieren, ruft eine Website `registerProtocolHandler()` auf und übergibt das zu registrierende Protokoll und eine URL-Vorlage.
 
-Wenn der Nutzer einen Link aktiviert, der das registrierte Protokoll verwendet, wird der Browser die [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) vom aktivierten Link in die während der Registrierung des Handlers angegebene URL-Vorlage einfügen und die aktuelle Seite zur resultierenden URL navigieren.
+Wenn der Benutzer einen Link aktiviert, der das registrierte Protokoll verwendet, fügt der Browser das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) des aktivierten Links in die während der Registrierung des Handlers bereitgestellte URL-Vorlage ein und navigiert die aktuelle Seite zur resultierenden URL.
 
-Der Browser kann den Benutzer bitten zu bestätigen, dass die Seite das Protokoll bearbeiten darf, entweder wenn das Protokoll registriert wird oder wenn der Benutzer den Link aktiviert.
+Der Browser kann den Benutzer entweder bei der Registrierung des Protokolls oder bei der Aktivierung des Links fragen, ob die Seite das Protokoll bearbeiten darf.
 
 ## Syntax
 
@@ -28,13 +28,13 @@ registerProtocolHandler(scheme, url)
 
 - `scheme`
 
-  - : Ein String, der das Schema für das Protokoll enthält, welches die Seite bearbeiten möchte.
+  - : Ein String, der das Schema für das Protokoll enthält, das die Seite bearbeiten möchte.
 
-    Dies kann ein benutzerdefiniertes Schema sein, in welchem Fall der Name des Schemas:
+    Dies kann ein benutzerdefiniertes Schema sein, in diesem Fall:
 
-    - Mit `web+` beginnt
-    - Nach dem `web+` Präfix mindestens einen Buchstaben enthält
-    - Nur aus Kleinbuchstaben im {{Glossary("ASCII", "ASCII")}} besteht.
+    - Beginnt es mit `web+`
+    - Enthält mindestens einen Buchstaben nach dem `web+` Präfix
+    - Enthält nur Kleinbuchstaben des {{Glossary("ASCII", "ASCII")}} Zeichensatzes.
 
     Andernfalls muss das Schema eines der folgenden sein:
 
@@ -63,14 +63,14 @@ registerProtocolHandler(scheme, url)
     - `wtai`
     - `xmpp`
 
-    <!-- Dies muss dem entsprechen: https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme -->
+    <!-- Dies muss übereinstimmen: https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme -->
 
 - `url`
 
   - : Ein String, der die URL des Handlers enthält.
-    Diese URL muss `%s` als Platzhalter enthalten, der durch die zu bearbeitende, [escapte](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) URL ersetzt wird.
+    Diese URL muss `%s` enthalten, als Platzhalter, der durch die [escapte](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) URL ersetzt wird, die behandelt werden soll.
 
-    Die Handler-URL muss das `https`-Schema verwenden und muss vom gleichen {{Glossary("origin", "Ursprung")}} wie die Webseite sein, die versucht, den Handler zu registrieren.
+    Die Handler-URL muss das `https` Schema verwenden und muss von demselben {{Glossary("origin", "Ursprung")}} sein wie die Webseite, die versucht, den Handler zu registrieren.
 
 ### Rückgabewert
 
@@ -81,9 +81,8 @@ Keiner ({{jsxref("undefined")}}).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
   - : Der Benutzeragent hat die Registrierung blockiert.
-    Dies kann passieren, wenn:
-
-    - Das registrierte Schema (Protokoll) ungültig ist, z.B. ein Schema, das der Browser selbst bearbeitet (`https:`, `about:`, etc.)
+    Dies könnte passieren, wenn:
+    - Das registrierte Schema (Protokoll) ungültig ist, zum Beispiel ein Schema, das der Browser selbst verarbeitet (`https:`, `about:`, etc.)
     - Der {{Glossary("origin", "Ursprung")}} der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
     - Das Schema der Handler-URL nicht `https` ist.
 
@@ -92,27 +91,27 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Registrieren eines Handlers für das mailto-Protokoll
+### Registrierung eines Handlers für das mailto-Protokoll
 
-Es ist ziemlich üblich, dass Webseiten zu Ressourcen mit nicht-`https` Protokollen verlinken. Ein Beispiel ist das `mailto:`-Protokoll. Webautoren können einen `mailto`-Link verwenden, wenn sie eine bequeme Möglichkeit für Nutzer bereitstellen möchten, direkt von der Webseite aus eine E-Mail zu senden:
+Es ist ziemlich üblich, dass Webseiten auf Ressourcen mit nicht-`https` Protokollen verlinken. Ein Beispiel ist das `mailto:` Protokoll. Web-Autoren können einen `mailto` Link verwenden, wenn sie eine bequeme Möglichkeit bieten möchten, damit Benutzer direkt von der Webseite aus eine E-Mail senden können:
 
 ```html
 <a href="mailto:webmaster@example.com">Web Master</a>
 ```
 
-Wenn der Link aktiviert wird, sollte der Browser die Standardeinstellungsanwendung für die Bearbeitung von E-Mails starten. Sie können dies als einen _desktop-basierten_ Protokoll-Handler betrachten.
+Wenn der Link aktiviert wird, sollte der Browser die Standard-Desktop-Anwendung zum Verarbeiten von E-Mails starten. Sie können dies als einen _desktop-basierten_ Protokoll-Handler betrachten.
 
-Webbasierte Protokoll-Handler ermöglichen es auch webbasierten Anwendungen, an diesem Prozess teilzunehmen. Eine E-Mail-Webanwendung bei `mail.example.org` kann so registriert werden, dass sie `mailto`-Links bearbeitet, mit Code wie diesem:
+Web-basierte Protokoll-Handler ermöglichen es auch web-basierten Anwendungen, an diesem Prozess teilzunehmen. Eine E-Mail-Webanwendung unter `mail.example.org` kann sich registrieren, um `mailto` Links zu bearbeiten, mit Code wie diesem:
 
 ```js
 navigator.registerProtocolHandler("mailto", "https://mail.example.org/?to=%s");
 ```
 
-Danach, wenn der Nutzer auf einen `mailto`-Link auf irgendeiner Webseite klickt, wird der Browser (nach einer möglichen Bestätigung durch den Browser) zu `https://mail.example.org/?to=mailto:webmaster@example.com` navigieren. Diese Seite könnte den URL-Parameter analysieren, um die Adresse zu extrahieren und damit die E-Mail zu initialisieren.
+Danach, wenn der Benutzer auf einen `mailto` Link auf irgendeiner Website klickt, wird der Browser (möglicherweise nach einer Bestätigung des Browsers) zu `https://mail.example.org/?to=mailto:webmaster@example.com` navigieren. Diese Seite könnte den URL-Parameter analysieren, um die Adresse zu extrahieren und diese verwenden, um eine E-Mail zu initialisieren.
 
-### Registrieren eines Handlers für ein benutzerdefiniertes Protokoll
+### Registrierung eines Handlers für ein benutzerdefiniertes Protokoll
 
-In diesem Beispiel registriert eine Seite einen Handler für das `web+burger`-Protokoll mit Code wie diesem:
+In diesem Beispiel registriert eine Seite einen Handler für das `web+burger` Protokoll mit folgendem Code:
 
 ```js
 navigator.registerProtocolHandler(
@@ -121,13 +120,13 @@ navigator.registerProtocolHandler(
 );
 ```
 
-Danach besucht der Nutzer eine Seite mit einem Link wie diesem:
+Anschließend besucht der Benutzer eine Seite mit einem Link wie diesem:
 
 ```html
 <a href="web+burger:cheeseburger">cheeseburger</a>
 ```
 
-Wenn der Nutzer den `web+burger`-Link aktiviert, wird der Browser (nach einer möglichen Bestätigung durch den Nutzer) zu `https://burgers.example.org/?burger=web+burger:cheeseburger` navigieren.
+Wenn der Benutzer den `web+burger` Link aktiviert, wird der Browser (möglicherweise nach einer Bestätigung des Benutzers) zu `https://burgers.example.org/?burger=web+burger:cheeseburger` navigieren.
 
 ## Spezifikationen
 

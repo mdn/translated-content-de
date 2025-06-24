@@ -1,26 +1,26 @@
 ---
-title: "Window: load-Event"
+title: "Window: load event"
 short-title: load
 slug: Web/API/Window/load_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef}}
 
-Das **`load`**-Event wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets, Skripte, `iframes` und Bilder, mit Ausnahme derer, die [lazy geladen](/de/docs/Web/Performance/Guides/Lazy_loading#images_and_iframes) werden.
-Dies steht im Gegensatz zu [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), das ausgelöst wird, sobald das DOM der Seite geladen wurde, ohne darauf zu warten, dass die Ressourcen fertig geladen sind.
+Das **`load`**-Ereignis wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets, Skripte, iframes und Bilder, mit Ausnahme derer, die [lazy geladen](/de/docs/Web/Performance/Guides/Lazy_loading#images_and_iframes) werden.
+Das steht im Gegensatz zu [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), das ausgelöst wird, sobald der DOM der Seite geladen ist, ohne darauf zu warten, dass Ressourcen vollständig geladen sind.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht stornierbar und wird nicht weitergegeben.
 
-> **Note:** _Alle Ereignisse mit dem Namen `load` werden nicht an `Window` weitergeleitet_, selbst wenn `bubbles` auf `true` initialisiert ist. Um `load`-Ereignisse auf dem `window` zu erfassen, muss dieses `load`-Ereignis direkt an das `window` gesendet werden.
+> [!NOTE] > _Alle Ereignisse namens `load` werden nicht auf das `Window` übertragen_, auch wenn `bubbles` auf `true` gesetzt ist. Um `load`-Ereignisse auf `window` zu erfassen, muss dieses `load`-Ereignis direkt an das `window` gesendet werden.
 
 > [!NOTE]
-> Das `load`-Event, das ausgelöst wird, wenn das Hauptdokument geladen ist, _wird_ auf dem `window` ausgelöst, hat jedoch zwei veränderte Eigenschaften: `target` ist `document` und `path` ist `undefined`. Diese beiden Eigenschaften sind aufgrund der Einhaltung älterer Standards verändert.
+> Das `load`-Ereignis, das gesendet wird, wenn das Hauptdokument geladen ist, _wird_ auf dem `window` gesendet, hat jedoch zwei veränderte Eigenschaften: `target` ist `document`, und `path` ist `undefined`. Diese beiden Eigenschaften sind aufgrund von Legacy-Konformität verändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js-nolint
 addEventListener("load", (event) => { })
@@ -42,7 +42,7 @@ window.addEventListener("load", (event) => {
 });
 ```
 
-Dasselbe, aber mit der `onload`-Ereignishandler-Eigenschaft:
+Dasselbe, aber mit der `onload`-Ereignishandlereigenschaft:
 
 ```js
 window.onload = (event) => {

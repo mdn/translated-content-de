@@ -2,12 +2,12 @@
 title: scale
 slug: Web/SVG/Reference/Attribute/scale
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`scale`** Attribut definiert den Verschiebungsmaßstab, der bei einer {{SVGElement("feDisplacementMap")}} Filterprimitiv verwendet wird. Die Menge wird im Koordinatensystem ausgedrückt, das durch das {{SVGAttr("primitiveUnits")}} Attribut auf dem {{SVGElement("filter")}} Element festgelegt wird.
+Das **`scale`**-Attribut definiert den Verschiebungsfaktor, der bei einer {{SVGElement("feDisplacementMap")}} Filterprimitive verwendet wird. Der Betrag wird im Koordinatensystem ausgedrückt, das durch das {{SVGAttr("primitiveUnits")}}-Attribut am {{SVGElement("filter")}}-Element festgelegt wird.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feDisplacementMap")}}
 
@@ -50,9 +50,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "480", "200")}}
+{{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungsnotizen
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -73,9 +73,9 @@ svg {
 
 - `<number>`
 
-  - : Dieser Wert definiert den Maßstabsfaktor für die Verschiebung.
+  - : Dieser Wert definiert den Skalierungsfaktor für die Verschiebung.
 
-    Wenn der Wert dieses Attributs `0` ist, hat diese Operation keinen Effekt auf das Quellbild.
+    Wenn der Wert dieses Attributs `0` ist, hat diese Operation keine Wirkung auf das Quellbild.
 
 ## Spezifikationen
 

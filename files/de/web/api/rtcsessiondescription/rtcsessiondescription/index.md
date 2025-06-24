@@ -3,18 +3,15 @@ title: "RTCSessionDescription: RTCSessionDescription() Konstruktor"
 short-title: RTCSessionDescription()
 slug: Web/API/RTCSessionDescription/RTCSessionDescription
 l10n:
-  sourceCommit: b913cece0d35b5a7d1b5d3f4c628dcbbddfc7435
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebRTC")}}{{deprecated_header}}
 
-Der **`RTCSessionDescription()`**-Konstruktor erstellt eine neue
-[`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) mit ihren Eigenschaften, die wie im angegebenen Objekt beschrieben initialisiert sind.
+Der **`RTCSessionDescription()`** Konstruktor erstellt eine neue [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) mit ihren Eigenschaften, die wie im angegebenen Objekt beschrieben initialisiert sind.
 
 > [!NOTE]
-> Dieser Konstruktor wurde veraltet, da
-> [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) und andere Methoden, die SDP als Eingabe verwenden, jetzt direkt ein Objekt akzeptieren, das die Eigenschaften [`type`](/de/docs/Web/API/RTCSessionDescription/type) und [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) enthält, sodass Sie kein
-> `RTCSessionDescription` selbst instanziieren müssen.
+> Dieser Konstruktor ist veraltet, da [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) und andere Methoden, die SDP als Eingabe verwenden, nun direkt ein Objekt akzeptieren, das die Eigenschaften [`type`](/de/docs/Web/API/RTCSessionDescription/type) und [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) enthält. Daher ist es nicht mehr notwendig, eine `RTCSessionDescription` selbst zu instanziieren.
 
 ## Syntax
 
@@ -25,23 +22,18 @@ new RTCSessionDescription(options)
 ### Werte
 
 - `options`
-
   - : Ein Objekt, das die Standardwerte für die Sitzungsbeschreibung bereitstellt. Es sollte die folgenden Eigenschaften enthalten:
-
     - `type`
-      - : **Erforderlich.** Ein String, der verwendet wird, um die `type`-Eigenschaft des neuen `RTCSessionDescription`-Objekts festzulegen. Muss einer der gültigen [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type) Werte sein.
+      - : **Erforderlich.** Ein String, der verwendet wird, um die `type`-Eigenschaft des neuen `RTCSessionDescription` Objekts festzulegen. Muss einer der gültigen [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type) Werte sein.
     - `sdp` {{optional_inline}}
-      - : Ein String, der eine {{Glossary("SDP", "SDP")}}-Nachricht beschreibt, die die Sitzung beschreibt. Dieser Wert ist standardmäßig ein leerer String (`""`) und darf nicht `null` sein.
+      - : Ein String, der eine {{Glossary("SDP", "SDP")}} Nachricht beschreibt, die die Sitzung beschreibt. Dieser Wert ist standardmäßig ein leerer String (`""`) und darf nicht `null` sein.
 
 ## Beispiel
 
-Dieses Beispiel verwendet den Konstruktor, um ein SDP-Angebot in ein
-`RTCSessionDescription`-Objekt zu konvertieren.
+Dieses Beispiel verwendet den Konstruktor, um ein SDP-Angebot in ein `RTCSessionDescription` Objekt umzuwandeln.
 
 > [!NOTE]
-> Das ist jedoch nicht mehr notwendig;
-> [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) und andere Methoden, die SDP als Eingabe verwenden, akzeptieren jetzt direkt einfache Objekte, sodass Sie kein
-> `RTCSessionDescription` selbst instanziieren müssen.
+> Dies ist jedoch nicht mehr notwendig; [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) und andere Methoden, die SDP als Eingabe verwenden, akzeptieren jetzt direkt einfache Objekte, sodass es nicht erforderlich ist, eine `RTCSessionDescription` selbst zu instanziieren.
 
 ```js
 navigator.getUserMedia({ video: true }, (stream) => {

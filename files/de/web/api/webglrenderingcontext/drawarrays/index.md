@@ -3,7 +3,7 @@ title: "WebGLRenderingContext: drawArrays()-Methode"
 short-title: drawArrays()
 slug: Web/API/WebGLRenderingContext/drawArrays
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
@@ -20,33 +20,37 @@ drawArrays(mode, first, count)
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
 
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
-    - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
-    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt und verbindet den letzten Scheitelpunkt wieder mit dem ersten.
-    - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Scheitelpunkten.
+    - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
+    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Vertex und
+      verbindet den letzten Vertex zurück zum ersten.
+    - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Vertices.
     - [`gl.TRIANGLE_STRIP`](https://en.wikipedia.org/wiki/Triangle_strip)
     - [`gl.TRIANGLE_FAN`](https://en.wikipedia.org/wiki/Triangle_fan)
-    - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Scheitelpunkten.
+    - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Vertices.
 
     > [!NOTE]
-    > Wenn der `mode` `POINTS` ist, muss möglicherweise [`gl_PointSize`](https://registry.khronos.org/OpenGL-Refpages/gl4/html/gl_PointSize.xhtml) gesetzt werden, damit `drawArrays` rendert, da dessen Wert unbekannt ist, wenn er nicht explizit geschrieben wird. Nur einige GPUs setzen dessen Standardwert auf `1.0`.
+    > Wenn `mode` `POINTS` ist, muss möglicherweise [`gl_PointSize`](https://registry.khronos.org/OpenGL-Refpages/gl4/html/gl_PointSize.xhtml) gesetzt werden, damit `drawArrays` rendert, da sein Wert unbekannt ist, wenn er nicht explizit geschrieben wird. Nur einige GPUs setzen seinen Standardwert auf `1.0`.
 
 - `first`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Startindex im Array der Vektorpunkte angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Startindex im Array von Vektor-Punkten angibt.
 - `count`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Indizes angibt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `mode` nicht einer der akzeptierten Werte ist, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
-- Wenn `first` oder `count` negativ sind, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
-- wenn `gl.CURRENT_PROGRAM` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, wird ein `gl.INVALID_OPERATION`-Fehler ausgelöst.
+- Wenn `mode` nicht einer der akzeptierten Werte ist, wird ein
+  `gl.INVALID_ENUM`-Fehler ausgelöst.
+- Wenn `first` oder `count` negativ sind, wird ein
+  `gl.INVALID_VALUE`-Fehler ausgelöst.
+- Wenn `gl.CURRENT_PROGRAM` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, wird ein
+  `gl.INVALID_OPERATION`-Fehler ausgelöst.
 
 ## Beispiele
 

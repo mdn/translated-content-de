@@ -1,16 +1,16 @@
 ---
-title: "TextDecoder: Methode decode()"
+title: "TextDecoder: decode()-Methode"
 short-title: decode()
 slug: Web/API/TextDecoder/decode
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextDecoder.decode()`**-Methode gibt einen Zeichenfolgeninhalt zurück, der aus dem als Parameter übergebenen Puffer dekodiert wird.
+Die Methode **`TextDecoder.decode()`** gibt einen String zurück, der aus dem übergebenen Puffer decodierten Text enthält.
 
-Die Dekodierungsmethode ist im aktuellen [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Objekt definiert. Dies umfasst die erwartete Kodierung der Daten und die Behandlung von Dekodierungsfehlern.
+Die Decodiermethode ist im aktuellen [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Objekt definiert. Dies umfasst die erwartete Kodierung der Daten und wie Dekodierungsfehler behandelt werden.
 
 ## Syntax
 
@@ -23,15 +23,11 @@ decode(buffer, options)
 ### Parameter
 
 - `buffer` {{Optional_Inline}}
-  - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das den zu dekodierenden Text enthält.
+  - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}-Objekt, das den zu decodierenden kodierten Text enthält.
 - `options` {{Optional_Inline}}
-
   - : Ein Objekt mit der Eigenschaft:
-
     - `stream`
-      - : Ein boolesches Flag, das angibt, ob zusätzliche Daten bei nachfolgenden Aufrufen von `decode()` folgen werden.
-        Setzen Sie es auf `true`, wenn die Daten in Teilen verarbeitet werden, und auf `false` für das letzte Stück oder wenn die Daten nicht in Teilen vorliegen.
-        Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der anzeigt, ob zusätzliche Daten in nachfolgenden Aufrufen von `decode()` folgen werden. Setzen Sie ihn auf `true`, wenn die Daten in Teilen verarbeitet werden, und auf `false` für das letzte Teil oder wenn die Daten nicht in Teilen vorliegen. Der Standardwert ist `false`.
 
 ### Ausnahmen
 
@@ -40,11 +36,11 @@ decode(buffer, options)
 
 ### Rückgabewert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-Dieses Beispiel kodiert und dekodiert das Eurosymbol, €.
+Dieses Beispiel kodiert und decodiert das Euro-Symbol, €.
 
 ### HTML
 

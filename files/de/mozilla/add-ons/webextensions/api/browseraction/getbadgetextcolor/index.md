@@ -2,14 +2,14 @@
 title: browserAction.getBadgeTextColor()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeTextColor
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ermittelt die Textfarbe für das Badge der Browseraktion.
+Ruft die Textfarbe für das Badge der Browser-Aktion ab.
 
-Ab Firefox 63 wird die Textfarbe des Badges, sofern nicht explizit mit {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} festgelegt, automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast mit der angegebenen Hintergrundfarbe des Badges zu maximieren. Wenn beispielsweise die Hintergrundfarbe des Badges auf Weiß gesetzt wird, wird die Standardtextfarbe des Badges auf Schwarz gesetzt und umgekehrt.
+Ab Firefox 63 wird, sofern die Textfarbe des Badges nicht explizit mit {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} festgelegt ist, die Textfarbe des Badges automatisch auf Schwarz oder Weiß gesetzt, um den maximalen Kontrast mit der angegebenen Hintergrundfarbe des Badges zu gewährleisten. Beispielsweise wird, wenn Sie die Hintergrundfarbe des Badges auf Weiß setzen, die Standardtextfarbe des Badges auf Schwarz gesetzt und umgekehrt.
 
 Andere Browser verwenden immer eine weiße Textfarbe.
 
@@ -26,9 +26,7 @@ browser.browserAction.getBadgeTextColor(
 ### Parameter
 
 - `details`
-
   - : `object`.
-
     - `tabId` {{optional_inline}}
       - : `integer`. Gibt den Tab an, von dem die Textfarbe des Badges abgerufen werden soll.
     - `windowId` {{optional_inline}}
@@ -36,7 +34,7 @@ browser.browserAction.getBadgeTextColor(
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
+- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl.
 - Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird die globale Textfarbe des Badges zurückgegeben.
 
 ### Rückgabewert
@@ -49,7 +47,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokolliert die Textfarbe des Badges:
+Protokollieren Sie die Textfarbe des Badges:
 
 ```js
 function onGot(color) {
@@ -66,7 +64,7 @@ browser.browserAction.getBadgeTextColor({}).then(onGot, onFailure);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getBadgeBackgroundColor) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getBadgeBackgroundColor) API von Chromium. Diese Dokumentation ist aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

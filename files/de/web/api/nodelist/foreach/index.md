@@ -1,15 +1,14 @@
 ---
-title: "NodeList: forEach()-Methode"
+title: "NodeList: forEach() Methode"
 short-title: forEach()
 slug: Web/API/NodeList/forEach
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`**-Methode der [`NodeList`](/de/docs/Web/API/NodeList)
-Schnittstelle ruft den im Parameter angegebenen Callback einmal für jedes Wertpaar in der Liste in Einfüge-Reihenfolge auf.
+Die **`forEach()`** Methode der [`NodeList`](/de/docs/Web/API/NodeList) Schnittstelle ruft die im Parameter übergebene Rückruffunktion einmal für jedes Wertpaar in der Liste in Einfügereihenfolge auf.
 
 ## Syntax
 
@@ -22,20 +21,16 @@ forEach(callback, thisArg)
 
 - `callback`
 
-  - : Eine Funktion, die für jedes Element von `someNodeList` ausgeführt wird. Sie akzeptiert 3 Parameter:
-
+  - : Eine Funktion, die auf jedes Element der `someNodeList` angewendet wird. Sie akzeptiert 3 Parameter:
     - `currentValue`
       - : Das aktuelle Element, das in `someNodeList` verarbeitet wird.
     - `currentIndex` {{Optional_inline}}
-      - : Der Index des `currentValue`, das in
-        `someNodeList` verarbeitet wird.
+      - : Der Index des `currentValue`, das in `someNodeList` verarbeitet wird.
     - `listObj` {{Optional_inline}}
       - : Die `someNodeList`, auf die `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als
-    [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)
-    beim Ausführen des `callback` verwendet wird.
+  - : Wert, der als [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwendet wird, wenn `callback` ausgeführt wird.
 
 ### Rückgabewert
 

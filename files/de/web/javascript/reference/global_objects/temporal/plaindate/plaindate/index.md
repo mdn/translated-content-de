@@ -2,14 +2,14 @@
 title: Temporal.PlainDate()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/PlainDate
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
 Der **`Temporal.PlainDate()`** Konstruktor erstellt {{jsxref("Temporal.PlainDate")}} Objekte.
 
-Dieser Konstruktor ermöglicht das Erstellen von Instanzen durch direktes Bereitstellen der zugrunde liegenden Daten. Wie alle anderen `Temporal` Klassen sollten Sie normalerweise `Temporal.PlainDate` Objekte mit der {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} statischen Methode konstruieren, die verschiedene Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen durch direkte Angabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal` Klassen sollten Sie normalerweise `Temporal.PlainDate` Objekte mit der statischen Methode {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} konstruieren, die eine Vielzahl von Eingabedaten verarbeiten kann.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ new Temporal.PlainDate(year, month, day)
 new Temporal.PlainDate(year, month, day, calendar)
 ```
 
-> **Hinweis:** `Temporal.PlainDate()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> [!NOTE] > `Temporal.PlainDate()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `year`
-  - : Eine Zahl, abgerundet auf eine Ganzzahl, die das Jahr im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, abgeschnitten auf eine ganze Zahl, die das Jahr im ISO-Kalendersystem darstellt.
 - `month`
-  - : Eine Zahl, abgerundet auf eine Ganzzahl, die den Monat im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, abgeschnitten auf eine ganze Zahl, die den Monat im ISO-Kalendersystem darstellt.
 - `day`
-  - : Eine Zahl, abgerundet auf eine Ganzzahl, die den Tag des Monats im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, abgeschnitten auf eine ganze Zahl, die den Tag des Monats im ISO-Kalendersystem darstellt.
 - `calendar` {{optional_inline}}
-  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, der benutzt werden soll. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen. Standardmäßig `"iso8601"`. Beachten Sie, dass unabhängig vom `calendar`, `year`, `month` und `day` im ISO 8601 Kalendersystem sein müssen.
+  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der verwendet werden soll. Sehen Sie sich [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen an. Standardwert ist `"iso8601"`. Beachten Sie, dass unabhängig vom `calendar` die `year`, `month` und `day` im ISO 8601-Kalendersystem sein müssen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate` Objekt, das das durch `year`, `month`, `day` (im ISO-Kalender) angegebene Datum darstellt, interpretiert im durch `calendar` angegebenen Kalendersystem.
+Ein neues `Temporal.PlainDate` Objekt, das das durch `year`, `month`, `day` (im ISO-Kalender) angegebene Datum darstellt, interpretiert im Kalendersystem, das durch `calendar` angegeben wird.
 
 ### Ausnahmen
 

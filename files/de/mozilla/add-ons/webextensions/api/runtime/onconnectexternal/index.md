@@ -2,16 +2,16 @@
 title: runtime.onConnectExternal
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onConnectExternal
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine Erweiterung eine Verbindungsanfrage von einer anderen Erweiterung erhält.
+Wird ausgelöst, wenn eine Erweiterung eine Verbindungsanforderung von einer anderen Erweiterung erhält.
 
-Um eine Nachricht zu senden, die vom `onConnectExternal`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.connect()")}}, indem Sie die ID des Empfängers im `extensionId`-Parameter angeben.
+Um eine Nachricht zu senden, die vom `onConnectExternal` Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.connect()")}} und übergeben Sie die ID des Empfängers im `extensionId` Parameter.
 
-Dem Listener wird ein {{WebExtAPIRef('runtime.Port')}} Objekt übergeben, das verwendet werden kann, um Nachrichten zu senden und zu empfangen. Das `Port`-Objekt enthält auch eine `sender`-Eigenschaft, die ein {{WebExtAPIRef("runtime.MessageSender")}} Objekt ist und vom Empfänger zur Überprüfung der Sender-ID verwendet werden kann.
+Dem Listener wird ein {{WebExtAPIRef('runtime.Port')}} Objekt übergeben, das zum Senden und Empfangen von Nachrichten verwendet werden kann. Das `Port`-Objekt enthält auch eine `sender`-Eigenschaft, die ein {{WebExtAPIRef("runtime.MessageSender")}} Objekt ist und mit der der Empfänger die ID des Senders überprüfen kann.
 
 ## Syntax
 
@@ -21,25 +21,23 @@ browser.runtime.onConnectExternal.removeListener(listener)
 browser.runtime.onConnectExternal.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Ereignisse besitzen drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn ein Listener angemeldet ist, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `function`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `port`
-      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit der anderen Erweiterung verbindet, zu der es eine Verbindung herstellt.
+      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit der anderen Erweiterung verbindet, zu der es verbunden wird.
 
 ## Browser-Kompatibilität
 
@@ -47,7 +45,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-In diesem Beispiel verbindet sich die Erweiterung Hänsel mit der Erweiterung Gretel:
+In diesem Beispiel verbindet sich die Erweiterung Hansel mit der Erweiterung Gretel:
 
 ```js
 console.log("connecting to Gretel");
@@ -62,7 +60,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Gretel lauscht auf die Verbindung und überprüft, ob der Absender wirklich Hänsel ist:
+Gretel hört auf die Verbindung und überprüft, ob der Absender wirklich Hansel ist:
 
 ```js
 let portFromHansel;

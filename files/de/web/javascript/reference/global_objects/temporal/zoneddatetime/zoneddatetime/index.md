@@ -2,14 +2,14 @@
 title: Temporal.ZonedDateTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/ZonedDateTime
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Der **`Temporal.ZonedDateTime()`**-Konstruktor erstellt {{jsxref("Temporal.ZonedDateTime")}}-Objekte.
+Der **`Temporal.ZonedDateTime()`** Konstruktor erstellt {{jsxref("Temporal.ZonedDateTime")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie die zugrunde liegenden Daten direkt bereitstellen. Wie bei allen anderen `Temporal`-Klassen sollten Sie normalerweise `Temporal.ZonedDateTime`-Objekte mit der statischen Methode {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen direkt durch die Bereitstellung der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal` Klassen sollten Sie normalerweise `Temporal.ZonedDateTime` Objekte unter Verwendung der {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} statischen Methode konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ new Temporal.ZonedDateTime(epochNanoseconds, timeZone)
 new Temporal.ZonedDateTime(epochNanoseconds, timeZone, calendar)
 ```
 
-> **Note:** `Temporal.ZonedDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE] > `Temporal.ZonedDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `epochNanoseconds`
-  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}}-Eigenschaft entspricht.
+  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} Eigenschaft entspricht.
 - `timeZone`
-  - : Ein String, der der {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}}-Eigenschaft entspricht. Im Gegensatz zu allen anderen `Temporal`-APIs muss es ein gültiger Zeitzonenbezeichner (entweder benannt oder als Offset) sein und kann nicht eine `Temporal.ZonedDateTime`-Instanz oder ein Datum-Uhrzeit-String sein.
+  - : Ein String, der der {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}} Eigenschaft entspricht. Anders als bei allen anderen `Temporal` APIs muss es sich um einen gültigen Zeitzonenbezeichner (entweder benannt oder verschoben) handeln und kann keine `Temporal.ZonedDateTime` Instanz oder ein Datum-Zeit-String sein.
 - `calendar` {{optional_inline}}
-  - : Ein String, der der {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}}-Eigenschaft entspricht. Sehen Sie sich [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen an. Standard ist `"iso8601"`.
+  - : Ein String, der der {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen. Standardmäßig `"iso8601"`.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime`-Objekt, das den spezifischen Zeitpunkt repräsentiert, der durch die Parameter angegeben wurde.
+Ein neues `Temporal.ZonedDateTime` Objekt, das den spezifischen Moment darstellt, der durch die Parameter angegeben ist.
 
 ### Ausnahmen
 

@@ -3,17 +3,18 @@ title: "SVGGraphicsElement: getBBox() Methode"
 short-title: getBBox()
 slug: Web/API/SVGGraphicsElement/getBBox
 l10n:
-  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGGraphicsElement.getBBox()`**-Methode ermöglicht es uns, die Koordinaten des kleinsten Rechtecks zu ermitteln, in das das Objekt passt. Die zurückgegebenen Koordinaten beziehen sich auf den aktuellen SVG-Raum (nach der Anwendung aller Geometrie-Attribute auf alle im Zielelement enthaltenen Elemente).
+Die **`SVGGraphicsElement.getBBox()`** Methode ermöglicht es uns, die Koordinaten des kleinsten Rechtecks zu bestimmen, in das das Objekt passt. Die zurückgegebenen Koordinaten beziehen sich auf den aktuellen SVG-Raum (nach Anwendung aller Geometrieattribute auf alle im Zielelement enthaltenen Elemente).
 
-> **Hinweis:** `getBBox()` muss das tatsächliche Begrenzungsrechteck zu dem Zeitpunkt zurückgeben, an dem die Methode aufgerufen wurde – auch wenn das Element noch nicht gerendert wurde. Es berücksichtigt zudem keine auf das Element oder seine Eltern angewandten Transformationen.
+> [!NOTE] > `getBBox()` muss die tatsächliche Begrenzungsbox zu dem Zeitpunkt zurückgeben, an dem die Methode aufgerufen wurde - selbst wenn das Element noch nicht gerendert wurde. Es berücksichtigt auch keine Transformationen, die auf das Element oder seine Eltern angewandt wurden.
 
-> **Hinweis:** `getBBox` gibt andere Werte zurück als
-> [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), da letztere Werte relativ zum Viewport zurückgibt.
+> [!NOTE] > `getBBox` liefert andere Werte als
+> [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), da
+> letzteres Werte relativ zur Ansicht zurückgibt.
 
 ## Syntax
 
@@ -25,21 +26,19 @@ getBBox(options)
 ### Parameter
 
 - `options` {{experimental_inline}} {{optional_inline}}
-
-  - : Ein Options-Wörterbuch, das verwendet wird, um zu steuern, welche Teile des Elements im Begrenzungsrahmen enthalten sind. Die verfügbaren Optionen sind:
-
+  - : Ein Options-Dictionary, das verwendet wird, um zu steuern, welche Teile des Elements in die Begrenzungsbox aufgenommen werden sollen. Die verfügbaren Optionen sind:
     - `fill`
-      - : Ein boolescher Wert, der angibt, dass die Füllung im Begrenzungsrahmen enthalten sein soll, standardmäßig `true`.
+      - : Ein booleanes Wert, der angibt, dass die Füllung in die Begrenzungsbox aufgenommen werden soll, standardmäßig `true`.
     - `stroke`
-      - : Ein boolescher Wert, der angibt, dass der Strich im Begrenzungsrahmen enthalten sein soll, standardmäßig `false`.
+      - : Ein booleanes Wert, der angibt, dass der Strich in die Begrenzungsbox aufgenommen werden soll, standardmäßig `false`.
     - `markers`
-      - : Ein boolescher Wert, der angibt, dass die Markierungen im Begrenzungsrahmen enthalten sein sollen, standardmäßig `false`.
+      - : Ein booleanes Wert, der angibt, dass die Markierungen in die Begrenzungsbox aufgenommen werden sollen, standardmäßig `false`.
     - `clipped`
-      - : Ein boolescher Wert, der angibt, dass der Begrenzungsrahmen ausgeschnitten werden soll, standardmäßig `false`.
+      - : Ein booleanes Wert, der angibt, dass die Begrenzungsbox beschnitten werden soll, standardmäßig `false`.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt, das den Begrenzungsrahmen definiert. Dieser Wert ist unabhängig von einem darauf angewandten Transformationsattribut oder den Elternelementen.
+Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect) Objekt, das die Begrenzungsbox definiert. Dieser Wert ist unabhängig von jeglichen Transformationen, die darauf oder auf den übergeordneten Elementen angewandt werden.
 
 ## Beispiele
 
@@ -90,4 +89,4 @@ rectBoundingClientRect.setAttribute("height", boundingClientRectGroup.height);
 
 ## Siehe auch
 
-- [getBBox im SVG Primer](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html#getBBox)
+- [getBBox in SVG Primer](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html#getBBox)

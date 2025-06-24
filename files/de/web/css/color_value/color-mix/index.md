@@ -2,19 +2,19 @@
 title: color-mix()
 slug: Web/CSS/color_value/color-mix
 l10n:
-  sourceCommit: df5d7dd8462b6968523e89428c110652c4432d4e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die funktionale Notation **`color-mix()`** nimmt zwei {{cssxref("&lt;color&gt;")}} Werte an und gibt das Ergebnis ihrer Mischung in einem bestimmten Farbraum mit einem bestimmten Anteil zurück.
+Die funktionale Notation **`color-mix()`** nimmt zwei {{cssxref("&lt;color&gt;")}}-Werte und gibt das Ergebnis der Mischung dieser beiden Farben in einem bestimmten Farbraum und in einer bestimmten Menge zurück.
 
-Die Wahl des richtigen Farbraums ist entscheidend, um die gewünschten Ergebnisse zu erzielen. Je nach Interpolationsfall können unterschiedliche Farbräume bei den gleichen Mischfarben besser geeignet sein.
+Die Auswahl des richtigen Farbraums ist wichtig, um die gewünschten Ergebnisse zu erzielen. Abhängig vom Einsatz der Interpolation können bei denselben zu mischenden Farben unterschiedliche Farbräume geeigneter sein.
 
-- Wenn das Ergebnis des physischen Mischens von zwei farbigen Lichtern gewünscht ist, sind der CIE XYZ oder der srgb-lineare Farbraum geeignet, da sie linear in der Lichtintensität sind.
-- Wenn Farben perzeptuell gleichmäßig verteilt werden müssen (wie bei einem Verlauf), sind der Oklab-Farbraum (und der ältere Lab) geeignet, da sie so gestaltet sind, dass sie perzeptuell gleichmäßig sind.
-- Wenn man beim Mischen von Farben eine Vergrauung vermeiden möchte, d.h. die Chroma während der gesamten Übergänge maximieren möchte, sind Oklch (und der ältere LCH) gut geeignet.
-- Verwenden Sie sRGB nur, wenn Sie das Verhalten eines bestimmten Geräts oder einer Software, die sRGB verwendet, nachahmen müssen. Der sRGB-Farbraum ist weder linear im Licht noch perzeptuell gleichmäßig und erzeugt schlechtere Ergebnisse wie zu dunkle oder gräuliche Mischungen.
+- Wenn das Ergebnis eines physikalischen Mischens von zwei farbigen Lichtern gewünscht ist, ist der CIE XYZ- oder srgb-linear-Farbraum geeignet, da sie linear in der Lichtintensität sind.
+- Wenn Farben gleichmäßig wahrnehmbar verteilt sein sollen (z. B. in einem Farbverlauf), ist der Oklab-Farbraum (und der ältere Lab) geeignet, da sie so konzipiert sind, dass sie wahrnehmbar gleichmäßig sind.
+- Wenn ein Ausgrauen bei der Farbmischung vermieden werden soll, das heißt, wenn das Maximieren der Chroma während des gesamten Übergangs gewünscht ist, funktionieren Oklch (und das ältere LCH) gut.
+- Verwenden Sie sRGB nur, wenn Sie das Verhalten eines bestimmten Geräts oder einer Software, die sRGB verwendet, nachbilden müssen. Der sRGB-Farbraum ist weder linear im Licht noch wahrnehmbar gleichmäßig und erzeugt schlechtere Ergebnisse wie übermäßig dunkle oder graue Mischung.
 
 ## Syntax
 
@@ -39,31 +39,31 @@ Funktionale Notation: `color-mix(<color-interpolation-method>, <color>[<percenta
 
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
 
-  - : Gibt an, welche Interpolationsmethode zum Mischen der Farben verwendet werden soll. Sie besteht aus dem Schlüsselwort `in`, gefolgt von einem {{Glossary("color_space", "Farbraumnamen")}}. Die folgenden drei Typen sind verfügbar:
+  - : Gibt an, welche Interpolationsmethode zur Mischung der Farben verwendet werden soll. Sie besteht aus dem `in`-Schlüsselwort gefolgt von einem {{Glossary("color_space", "Farbraumnamen")}}. Die folgenden drei Typen sind verfügbar:
 
     - `<rectangular-color-space>`: {{Glossary("Color_space#srgb", "`srgb`")}}, {{Glossary("Color_space#srgb-linear", "`srgb-linear`")}}, {{Glossary("Color_space#display-p3", "`display-p3`")}}, {{Glossary("Color_space#a98-rgb", "`a98-rgb`")}}, {{Glossary("Color_space#prophoto-rgb", "`prophoto-rgb`")}}, {{Glossary("Color_space#rec2020", "`rec2020`")}}, {{Glossary("Color_space#cielab_color_spaces", "`lab`")}}, {{Glossary("Color_space#oklab", "`oklab`")}}, {{Glossary("Color_space#xyz_color_spaces", "`xyz`")}}, {{Glossary("Color_space#xyz", "`xyz-d50`")}}, und {{Glossary("Color_space#xyz-d50", "`xyz-d65`")}}.
     - `<polar-color-space>`: [`hsl`](/de/docs/Web/CSS/color_value/hsl), [`hwb`](/de/docs/Web/CSS/color_value/hwb), [`lch`](/de/docs/Web/CSS/color_value/lch), und [`oklch`](/de/docs/Web/CSS/color_value/oklch).
-    - benutzerdefinierter Farbraum: [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident#using_with_color-profile) bezogen auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/@color-profile)
+    - custom-color-space: [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident#using_with_color-profile), das sich auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/@color-profile) bezieht.
 
     > [!NOTE]
-    > Wenn Browser {{cssxref("@color-profile")}} unterstützen, können benutzerdefinierte Farbräume unterstützt werden. Derzeit muss der Farbraum einer der im [formal_syntax](#formale_syntax) aufgeführten verfügbaren Farbräume sein.
+    > Wenn Browser {{cssxref("@color-profile")}} unterstützen, können benutzerdefinierte Farbräume unterstützt werden. Der Farbraum muss derzeit einer der verfügbaren Farbräume sein, die im [formal_syntax](#formale_syntax) aufgeführt sind.
 
 - `<color>`
 
-  - : Ein {{CSSXref("&lt;color&gt;")}} Wert zum Mischen.
+  - : Ein {{CSSXref("&lt;color&gt;")}}-Wert, der gemischt werden soll.
 
 - `<percentage>` {{optional_inline}}
 
-  - : Ein {{CSSXref("&lt;percentage&gt;")}} Wert zwischen `0%` und `100%`, der den Anteil der entsprechenden Farbe zum Mischen angibt.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}}-Wert zwischen `0%` und `100%`, der angibt, wie viel von der entsprechenden Farbe gemischt werden soll.
 
-    Die beiden Farbprozentsätze (wir bezeichnen sie als `p1` und `p2`) werden wie folgt normalisiert:
+    Die beiden Farbanteile (wir bezeichnen sie als `p1` und `p2`) werden wie folgt normalisiert:
 
     - Wenn sowohl `p1` als auch `p2` weggelassen werden, dann `p1 = p2 = 50%`.
     - Wenn `p1` weggelassen wird, dann `p1 = 100% - p2`.
     - Wenn `p2` weggelassen wird, dann `p2 = 100% - p1`.
     - Wenn `p1 = p2 = 0%`, ist die Funktion ungültig.
     - Wenn `p1 + p2 ≠ 100%`, dann `p1' = p1 / (p1 + p2)` und `p2' = p2 / (p1 + p2)`, wobei `p1'` und `p2'` die Normalisierungsergebnisse sind.
-      - Wenn `p1 + p2 < 100%`, wird ein Alpha-Multiplikator von `p1 + p2` auf die resultierende Farbe angewendet. Dies ist ähnlich wie das Mischen in [`transparent`](/de/docs/Web/CSS/named-color#transparent), mit dem Prozentsatz `pt = 100% - p1 - p2`.
+      - Wenn `p1 + p2 < 100%`, wird ein Alphamultiplikator von `p1 + p2` auf die resultierende Farbe angewendet. Dies ist vergleichbar mit dem Mischen von [`transparent`](/de/docs/Web/CSS/named-color#transparent), mit dem Anteil `pt = 100% - p1 - p2`.
 
 ## Formale Syntax
 
@@ -71,15 +71,15 @@ Funktionale Notation: `color-mix(<color-interpolation-method>, <color>[<percenta
 
 ## Beispiele
 
-### Farbenmischer
+### Farbmischer
 
-Das folgende Live-Demo mischt zwei Farben, `color-one` und `color-two`, mit der Funktion `color-mix()`. Die Quellfarben werden außen angezeigt, und die gemischte Farbe wird in der Mitte angezeigt. Sie können die Farben ändern, indem Sie darauf klicken und eine neue Farbe mit dem resultierenden Farbwähler auswählen. Sie können auch den Prozentsatz der im Mix enthaltenen Farben mithilfe der Schieberegler ändern und den Farbraum über das Dropdown-Menü ändern.
+Das folgende Live-Demo mischt zwei Farben, `color-one` und `color-two`, mit der Funktion `color-mix()`. Die Ausgangsfarben werden außen angezeigt, und die gemischte Farbe wird in der Mitte angezeigt. Sie können die Farben ändern, indem Sie darauf klicken und im erscheinenden Farbwähler eine neue Farbe auswählen. Sie können auch den Prozentsatz jeder Farbe, die in der Mischung enthalten ist, mit den Schiebereglern ändern und den Farbraum über das Dropdown-Menü auswählen.
 
 {{EmbedGHLiveSample("css-examples/tools/color-mixer/", '100%', 400)}}
 
-### Zwei Farben mischen
+### Mischen von zwei Farben
 
-Dieses Beispiel zeigt das Mischen zweier Farben, Rot `#a71e14` in unterschiedlichen Prozentsätzen und Weiß ohne Angabe eines Prozentsatzes. Je höher der Anteil von `#a71e14` gemischt wird, desto mehr Rot und weniger Weiß hat die Ausgabefarbe.
+Dieses Beispiel zeigt, wie zwei Farben gemischt werden: Rot `#a71e14` mit unterschiedlichen Prozentsätzen und Weiß ohne angegebenen Prozentsatz. Je höher der Prozentsatz von `#a71e14` in der Mischung ist, desto röter und weniger weiß wird die Ausgabefarbe.
 
 #### HTML
 
@@ -96,7 +96,7 @@ Dieses Beispiel zeigt das Mischen zweier Farben, Rot `#a71e14` in unterschiedlic
 
 #### CSS
 
-Die `color-mix()` Funktion wird verwendet, um zunehmende Anteile von Rot zu erhöhen, bis zu 100%. Das 6. {{htmlelement("li")}} enthält keinen Prozentsatz für eine der beiden Farben.
+Die Funktion `color-mix()` wird verwendet, um zunehmende Anteile von Rot bis zu 100% hinzuzufügen. Das 6. {{htmlelement("li")}} enthält keinen Prozentsatz für eine der beiden Farben.
 
 ```css hidden
 ul {
@@ -148,11 +148,11 @@ li:nth-child(6) {
 
 {{EmbedLiveSample("mixing_two_colors", "100%", 120)}}
 
-Der Gesamtwert beider Farben in einer `color-mix()` Funktion beträgt 100%, selbst wenn die vom Entwickler festgelegten Werte nicht 100% ergeben. In diesem Beispiel, da nur einer Farbe ein Prozentsatz zugewiesen ist, erhält die andere Farbe implizit einen prozentualen Wert, sodass die Gesamtmenge 100% ergibt. Im letzten {{htmlelement("li")}}, wo keiner Farbe ein Prozentsatz zugewiesen ist, sind beide standardmäßig 50%.
+Der Gesamtwert beider Farben in einer `color-mix()`-Funktion beträgt 100%, auch wenn die vom Entwickler festgelegten Werte nicht das Gesamt von 100% erreichen. In diesem Beispiel wird, da nur einer Farbe ein Prozentsatz zugewiesen ist, der anderen Farbe automatisch ein Prozentsatz zugeteilt, sodass die gesamte Summe 100% ergibt. Im letzten {{htmlelement("li")}}, wo keiner Farbe ein Prozentsatz zugewiesen ist, wird für beide standardmäßig 50% angenommen.
 
-### Transparenz hinzufügen
+### Hinzufügen von Transparenz
 
-Dieses Beispiel zeigt die Verwendung der `color-mix()` Funktion, um Transparenz zu einer Farbe hinzuzufügen, indem eine beliebige Farbe mit [`transparent`](/de/docs/Web/CSS/named-color#transparent) gemischt wird.
+Dieses Beispiel zeigt, wie die Funktion `color-mix()` verwendet wird, um einer Farbe Transparenz hinzuzufügen, indem eine beliebige Farbe mit [`transparent`](/de/docs/Web/CSS/named-color#transparent) gemischt wird.
 
 #### HTML
 
@@ -169,7 +169,7 @@ Dieses Beispiel zeigt die Verwendung der `color-mix()` Funktion, um Transparenz 
 
 #### CSS
 
-Die `color-mix()` Funktion wird verwendet, um steigende Anteile von `red` hinzuzufügen, die mit einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) namens `--base` deklariert ist, die auf dem {{cssxref(":root")}} definiert ist. Das 6. {{htmlelement("li")}} enthält keinen Prozentsatz, wodurch eine Ausgabefarbe erzeugt wird, die halb so undurchsichtig ist wie die `--base` Farbe. Wir fügen einen gestreiften Hintergrund zum {{htmlelement("ul")}} hinzu, um die Transparenz sichtbar zu machen.
+Die Funktion `color-mix()` wird verwendet, um zunehmende Anteile von `red` hinzuzufügen, das mit einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) namens `--base` deklariert ist, die auf {{cssxref(":root")}} definiert ist. Der 6. {{htmlelement("li")}} enthält keinen Prozentsatz und erzeugt eine Ausgabefarbe, die halb so undurchsichtig ist wie die `--base`-Farbe. Wir fügen einen gestreiften Hintergrund auf die {{htmlelement("ul")}} ein, um die Transparenz sichtbar zu machen.
 
 ```css hidden
 ul {
@@ -233,13 +233,13 @@ li:nth-child(6) {
 
 {{EmbedLiveSample("adding transparency", "100%", 120)}}
 
-Auf diese Weise kann die `color-mix()` Funktion verwendet werden, um Transparenz zu jeder Farbe hinzuzufügen, selbst wenn die Farbe bereits nicht undurchsichtig ist (mit einem Alpha-Kanal-Wert < 1). Jedoch kann `color-mix()` nicht verwendet werden, um eine halbtransparente Farbe vollständig undurchsichtig zu machen. Dazu verwenden Sie eine [relative Farbe](/de/docs/Web/CSS/CSS_colors/Relative_colors) mit einer CSS [Farbfunktion](/de/docs/Web/CSS/CSS_colors#functions). Relative Farben können den Wert eines beliebigen Farbkanals ändern, einschließlich der Erhöhung eines Alphakanals, um die Farbe vollständig undurchsichtig zu machen.
+Auf diese Weise kann die Funktion `color-mix()` verwendet werden, um jeder Farbe Transparenz hinzuzufügen, selbst wenn die Farbe bereits nicht vollständig deckend ist (mit einem Alphakanalwert < 1). Allerdings kann `color-mix()` nicht verwendet werden, um eine semitransparente Farbe vollständig deckend zu machen. Dafür verwenden Sie eine [relative Farbe](/de/docs/Web/CSS/CSS_colors/Relative_colors) mit einer CSS-[Farb-Funktion](/de/docs/Web/CSS/CSS_colors#functions). Relative Farben können den Wert eines beliebigen Farbkanals ändern, einschließlich der Erhöhung des Alphakanals einer Farbe, um diese vollständig deckend darzustellen.
 
-### Verwendung der Farbton-Interpolation in color-mix()
+### Verwendung von Hue-Interpolation in color-mix()
 
-Dieses Beispiel zeigt die in der Funktion `color-mix()` verfügbaren Farbton-Interpolationsmethoden. Bei der Verwendung der Farbton-[Interpolation](/de/docs/Web/CSS/color_value#interpolation) liegt der resultierende Farbton zwischen den Farbtonwerten der beiden gemischten Farben. Der Wert wird unterschiedlich sein, je nachdem, welcher Weg auf dem Farbkreis genommen wird.
+Dieses Beispiel zeigt die Hue-Interpolationsmethoden der Funktion `color-mix()` auf. Bei Verwendung der Hue-[Interpolation](/de/docs/Web/CSS/color_value#interpolation) liegt der resultierende Farbton zwischen den Farbtonwerten der beiden gemischten Farben. Der Wert unterscheidet sich je nach dem gewählten Weg um den Farbkreis.
 
-Weitere Informationen siehe {{cssxref("&lt;hue-interpolation-method&gt;")}}.
+Für weitere Informationen siehe {{cssxref("&lt;hue-interpolation-method&gt;")}}.
 
 ```html hidden
 <p>longer</p>
@@ -282,9 +282,9 @@ Weitere Informationen siehe {{cssxref("&lt;hue-interpolation-method&gt;")}}.
 
 #### CSS
 
-Die `shorter hue` Interpolationsmethode nimmt den kürzeren Weg um den Farbkreis, während die `longer hue` Interpolationsmethode den längeren Weg nimmt. Mit `increasing hue` beginnt die Route mit steigenden Werten. Mit `decreasing hue` nimmt der Wert ab. Wir mischen zwei {{cssxref("named-color")}} Werte, um eine Serie von `lch()` Zwischenfarben zu erstellen, die sich basierend auf dem gewählten Weg um den Farbkreis unterscheiden. Die gemischten Farben umfassen `rot`, `blau` und `gelb` mit LCH-Farbtonwerten von ungefähr 41grad, 301grad, und 100grad.
+Die Interpolationsmethode `shorter hue` nimmt den kürzeren Weg um den Farbkreis, während die Methode `longer hue` den längeren Weg nimmt. Mit `increasing hue` beginnt der Weg mit zunehmenden Werten. Bei `decreasing hue` nimmt der Wert ab. Wir mischen zwei {{cssxref("named-color")}}-Werte, um eine Serie von `lch()` Zwischenfarben zu erzeugen, die sich basierend auf der gewählten Route um den Farbkreis unterscheiden. Die gemischten Farben umfassen `red`, `blue` und `yellow` mit LCH-Farbtonwerten von ungefähr 41 Grad, 301 Grad und 100 Grad.
 
-Um Redundanz im Code zu reduzieren, haben wir [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) sowohl für Farben als auch für die Interpolationsmethode verwendet und unterschiedliche Werte auf jedem {{htmlelement("ul")}} gesetzt.
+Um Code-Redundanz zu reduzieren, haben wir [CSS-Benutzereigenschaften](/de/docs/Web/CSS/--*) sowohl für die Farben als auch für die Interpolationsmethode verwendet, wobei unterschiedliche Werte auf jede {{htmlelement("ul")}} gesetzt wurden.
 
 ```css hidden
 body {
@@ -385,7 +385,7 @@ li:nth-child(6) {
 
 {{EmbedLiveSample("using_hue_interpolation_in_color_mix", "100%", 440)}}
 
-Mit `longer hue` sind die Inkrement- oder Dekrementwerte zwischen den Farben immer gleich oder größer als bei der Verwendung von `shorter hue`. Verwenden Sie `increasing hue` oder `decreasing hue`, wenn die Richtung der Änderung des Farbtonwerts wichtiger ist als die Länge zwischen den Werten.
+Mit `longer hue` werden die Inkremente oder Dekremente zwischen den Farben immer gleich oder größer als bei der Verwendung von `shorter hue` sein. Verwenden Sie `increasing hue` oder `decreasing hue`, wenn die Richtung der Änderung des Farbtonwerts wichtiger ist als der Abstand zwischen den Werten.
 
 ## Spezifikationen
 
@@ -400,4 +400,4 @@ Mit `longer hue` sind die Inkrement- oder Dekrementwerte zwischen den Farben imm
 - {{CSSXref("&lt;color&gt;")}}
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
 - {{cssxref("&lt;hue&gt;")}}
-- [CSS relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [CSS relative colors](/de/docs/Web/CSS/CSS_colors/Relative_colors)

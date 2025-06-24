@@ -1,18 +1,18 @@
 ---
-title: "ExtendableCookieChangeEvent: changed-Eigenschaft"
+title: "ExtendableCookieChangeEvent: changed Eigenschaft"
 short-title: changed
 slug: Web/API/ExtendableCookieChangeEvent/changed
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`changed`**-Eigenschaft der [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent)-Schnittstelle gibt alle Cookies zurück, die durch die gegebene `ExtendableCookieChangeEvent`-Instanz geändert wurden.
+Die **`changed`** schreibgeschützte Eigenschaft der [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent) Schnittstelle gibt alle Cookies zurück, die durch die gegebene `ExtendableCookieChangeEvent`-Instanz verändert wurden.
 
 ## Wert
 
-Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt besitzt die folgenden Eigenschaften:
 
 - `name`
   - : Ein String, der den Namen des Cookies enthält.
@@ -23,26 +23,25 @@ Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt enth�
 - `path`
   - : Ein String, der den Pfad des Cookies enthält.
 - `expires`
-  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, gegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 - `secure`
-  - : Ein {{jsxref("boolean")}}, der angibt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS statt HTTP).
+  - : Ein {{jsxref("boolean")}}, der anzeigt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS statt HTTP).
 - `sameSite`
 
-  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte:
-
+  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) Werte:
     - `"strict"`
-      - : Cookies werden nur in einem Erstparteien-Kontext gesendet und nicht mit Anfragen, die von Drittanbieter-Websites initiiert wurden.
+      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites.
     - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Anforderungen nicht gesendet (z. B. beim Laden von Bildern oder Frames auf einer Drittanbieter-Site), werden jedoch gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d.h. beim Folgen eines Links).
+      - : Cookies werden nicht bei normalen Cross-Site-Unteranfragen gesendet (zum Beispiel beim Laden von Bildern oder Frames auf einer Drittanbieter-Seite), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d.h. beim Folgen eines Links).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `partitioned`
-  - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
+  - : Ein Boolean-Wert, der angibt, ob es sich um ein partitioniertes Cookie (`true`) handelt oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
 
 ## Beispiele
 
-In diesem Beispiel, wenn das Cookie gesetzt wird, protokolliert der Ereignis-Listener die `changed`-Eigenschaft in der Konsole. Das erste Element in diesem Array enthält ein Objekt, das das soeben gesetzte Cookie darstellt.
+In diesem Beispiel wird beim Setzen des Cookies die `changed` Eigenschaft des Event-Listeners in die Konsole geloggt. Das erste Element in diesem Array enthält ein Objekt, das das Cookie repräsentiert, das gerade gesetzt wurde.
 
 ```js
 self.addEventListener("cookiechange", (event) => {

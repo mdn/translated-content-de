@@ -1,16 +1,18 @@
 ---
-title: "HTMLSlotElement: assignedElements()-Methode"
+title: "HTMLSlotElement: assignedElements() Methode"
 short-title: assignedElements()
 slug: Web/API/HTMLSlotElement/assignedElements
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Shadow DOM API")}}
 
-Die **`assignedElements()`**-Methode des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Interfaces gibt eine Sequenz der Elemente zurück, die diesem Slot (und keinen anderen Knoten) zugewiesen sind.
+Die **`assignedElements()`** Methode des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)
+Interfaces gibt eine Sequenz der Elemente zurück, die diesem Slot zugewiesen sind (und keine
+anderen Knoten).
 
-Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz sowohl der Elemente zurück, die diesem Slot zugewiesen sind, als auch der Elemente, die anderen Slots, die Nachkommen dieses Slots sind, zugewiesen sind. Wenn keine zugewiesenen Elemente gefunden werden, gibt sie den Fallback-Inhalt des Slots zurück.
+Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz von sowohl den Elementen zurück, die diesem Slot zugewiesen sind, als auch den Elementen, die zu anderen Slots gehören, die Nachfolger dieses Slots sind. Wenn keine zugewiesenen Elemente gefunden werden, wird der Fallback-Inhalt des Slots zurückgegeben.
 
 ## Syntax
 
@@ -22,11 +24,11 @@ assignedElements(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das Optionen für die zurückzugebenden Knoten festlegt. Die verfügbaren Optionen sind:
-
     - `flatten`
-      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Elemente aller verfügbaren Kind-`<slot>`-Elemente (`true`) zurückgegeben werden sollen oder nicht (`false`). Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die
+        zugewiesenen Elemente von beliebigen vorhandenen untergeordneten `<slot>`-Elementen
+        zurückgegeben werden sollen (`true`) oder nicht (`false`). Der Standardwert ist `false`.
 
 ### Rückgabewert
 

@@ -2,14 +2,14 @@
 title: <text-edge>
 slug: Web/CSS/text-edge
 l10n:
-  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`<text-edge>`** {{Glossary("enumerated", "aufgezählte")}} [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) definiert Schlüsselwörter, die Schriftmetriken angeben, die spezifische Bereiche an der Block-Startkante und Block-Endkante einer Schriftart repräsentieren. Jedes Schlüsselwort spezifiziert eine Position der oberen und/oder unteren Kante einer Schrift.
+Der **`<text-edge>`** {{Glossary("enumerated", "aufzählbare")}} [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) definiert Schlüsselwörter, die Schriftmetriken spezifizieren, die bestimmte Bereiche auf der Block-Startkante und Block-Endkante einer Schrift repräsentieren. Jedes Schlüsselwort legt eine Position der Über- und/oder Unterkante einer Schrift fest.
 
-Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft verwendet, um die Menge an Raum anzugeben, die von der Block-Startkante und der Block-Endkante eines Text-Elementblockcontainers abgeschnitten werden soll.
+Die `<text-edge>` Werte werden in der {{cssxref("text-box-edge")}} Eigenschaft verwendet, um eine Menge Platz zu definieren, die von der Block-Start- und Block-Endkante des Block-Containers eines Textelements abgeschnitten werden soll.
 
 ## Syntax
 
@@ -20,38 +20,38 @@ Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft v
 ```
 
 > [!NOTE]
-> Die Schlüsselwörter `ideographic` und `ideographic-ink` sollen obere und untere Randpositionen angeben, die spezifisch für [CJK-Sprachzeichen](https://en.wikipedia.org/wiki/CJK_characters) sind. Derzeit wird über ihr genaues Verhalten diskutiert und sie werden von keinem Browser unterstützt.
+> Die Schlüsselwörter `ideographic` und `ideographic-ink` sollen Über- und Unterkantenpositionen spezifizieren, die speziell für [CJK Sprachzeichen](https://en.wikipedia.org/wiki/CJK_characters) relevant sind. Derzeit wird ihr genaues Verhalten diskutiert und sie werden von keinem Browser unterstützt.
 
 ## Werte
 
-Der `<text-edge>`-Datentyp besteht aus einem oder zwei Schlüsselwörtern, die spezifische Bereiche an der Block-Startkante (oben) und/oder Block-Endkante (unten) einer Schriftart repräsentieren:
+Der `<text-edge>` Datentyp besteht aus einem oder zwei Schlüsselwörtern, die bestimmte Bereiche auf der Block-Start (Über-)Kante und/oder Block-End (Unter-)Kante einer Schrift repräsentieren:
 
-- Wenn ein Wert angegeben ist, wird die Position der oberen und unteren Kante der Schrift mit demselben Schlüsselwort angegeben.
-- Wenn zwei Werte angegeben sind, gibt der erste Wert die Position der oberen Kante der Schrift an, und der zweite Wert gibt die Position der unteren Kante der Schrift an.
+- Wenn ein Wert angegeben wird, wird die Position der Über- und Unterkante der Schrift mit demselben Schlüsselwort spezifiziert.
+- Wenn zwei Werte angegeben werden, spezifiziert der erste Wert die Position der Überkante der Schrift, und der zweite Wert spezifiziert die Position der Unterkante der Schrift.
 
 ### Einzelne Schlüsselwortwerte
 
 - `text`
 
-  - : Die oberen und unteren Kanten der Schrift sind ihre Text-über-Baseline/Text-unter-Baseline: dies umfasst die Aufstriche und Abstriche der Schrift, aber schließt den {{Glossary("Leading", "Halb-Lead")}} ein, der im Text festgelegt ist.
+  - : Die Über- und Unterkanten der Schrift sind die Baseline über/unter des Textes: Dies umfasst die Aufstriche und Abstriche der Schrift, schließt jedoch das {{Glossary("Leading", "halbe Durchschuss")}} aus, das auf den Text gesetzt ist.
 
     > [!NOTE]
-    > Die Menge des in einem Textelement enthaltenen Halb-Leads kann mit der {{cssxref("line-height")}}-Eigenschaft gesteuert werden.
+    > Die Menge der im Textelement enthaltenen halben Durchschuss kann mit der {{cssxref("line-height")}} Eigenschaft gesteuert werden.
 
 ### Zwei Schlüsselwortwerte
 
 - `alphabetic`
-  - : Die untere Kante der Schrift ist ihre alphabetische Baseline, die den unteren Rand ihrer kurzen Kleinbuchstaben (zum Beispiel „m“, „n“ und „o“) oder Großbuchstaben bildet.
+  - : Die Unterkante der Schrift ist ihre alphabetische Baseline, was der untere Teil ihrer kurzen Kleinbuchstaben (z.B. "m", "n" und "o") oder Großbuchstaben ist.
 - `cap`
-  - : Die obere Kante der Schrift ist ihre Kapitälchenhöhe-Baseline, die den oberen Rand ihrer Großbuchstaben bildet.
+  - : Die Überkante der Schrift ist ihre Versalhöhe-Baseline, was der obere Teil ihrer Großbuchstaben ist.
 - `ex`
-  - : Die obere Kante der Schrift ist ihre x-Höhe-Baseline, die den oberen Rand ihrer kurzen Kleinbuchstaben bildet.
+  - : Die Überkante der Schrift ist ihre x-Höhe-Baseline, was der obere Teil ihrer kurzen Kleinbuchstaben ist.
 - `text`
-  - : Die obere Kante der Schrift ist ihre Text-über-Baseline (umfasst die Aufstriche der Schrift, aber schließt den oberen Kantenhalb-Lead aus), oder die untere Kante ist ihre Text-unter-Baseline (umfasst die Abstriche der Schrift, aber schließt den unteren Kantenhalb-Lead aus), abhängig davon, für welche Kante der Wert festgelegt ist.
+  - : Die Überkante der Schrift ist ihre Baseline über dem Text (umfasst die Aufstriche der Schrift, schließt jedoch den überkanten Durchschuss aus), oder ihre Unterkante ist ihre Baseline unter dem Text (umfasst die Abstriche der Schrift, schließt jedoch den unterkanten Durchschuss aus), abhängig davon, für welche Kante der Wert festgelegt wird.
 
 ## Beispiele
 
-Siehe [`text-box-edge`-Beispiele](/de/docs/Web/CSS/text-box-edge#examples)
+Siehe [`text-box-edge` Beispiele](/de/docs/Web/CSS/text-box-edge#examples)
 
 ## Spezifikationen
 

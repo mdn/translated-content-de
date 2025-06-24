@@ -3,7 +3,7 @@ title: "ScrollTimeline: ScrollTimeline() Konstruktor"
 short-title: ScrollTimeline()
 slug: Web/API/ScrollTimeline/ScrollTimeline
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("History API")}}
@@ -23,17 +23,17 @@ new ScrollTimeline(options)
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
 
     - `source`
-      - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das das scrollbare Element (_Scroller_) repräsentiert, dessen Scrollposition den Fortschritt der Zeitleiste steuert.
+      - : Eine Referenz zu einem [`Element`](/de/docs/Web/API/Element), das das scrollbare Element (_Scroller_) darstellt, dessen Scrollposition den Fortschritt der Zeitleiste steuern wird.
     - `axis` {{optional_inline}}
 
-      - : Ein enumerierter Wert, der die Scrollachse repräsentiert, die den Fortschritt der Zeitleiste steuern wird. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der die Scrollachse darstellt, die den Fortschritt der Zeitleiste steuern wird. Mögliche Werte sind:
 
-        - `"block"`: Die Scrollleiste auf der Blockachse des Scrollcontainers, die die Achse in der Richtung senkrecht zum Fluss des Textes innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie im Standardenglisch, ist dies dasselbe wie `"y"`, während es bei vertikalen Schreibrichtungen dasselbe wie `"x"` ist.
-        - `"inline"`: Die Scrollleiste auf der Inline-Achse des Scrollcontainers, die die Achse in der Richtung parallel zum Fluss des Textes in einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es bei vertikalen Schreibrichtungen dasselbe wie `"y"` ist.
-        - `"y"`: Die Scrollleiste auf der vertikalen Achse des Scrollcontainers.
-        - `"x"`: Die Scrollleiste auf der horizontalen Achse des Scrollcontainers.
+        - `"block"`: Der Scrollbalken auf der Block-Achse des Scroll-Containers, was die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie Standard-Englisch, entspricht dies der Achse `"y"`, während es für vertikale Schreibrichtungen der Achse `"x"` entspricht.
+        - `"inline"`: Der Scrollbalken auf der Inline-Achse des Scroll-Containers, was die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibrichtungen entspricht dies der Achse `"x"`, während es für vertikale Schreibrichtungen der Achse `"y"` entspricht.
+        - `"y"`: Der Scrollbalken auf der vertikalen Achse des Scroll-Containers.
+        - `"x"`: Der Scrollbalken auf der horizontalen Achse des Scroll-Containers.
 
-        Wenn nicht angegeben, ist der Standardwert für `axis` `"block"`.
+        Wenn weggelassen, wird `axis` standardmäßig als `"block"` gesetzt.
 
 ### Rückgabewert
 

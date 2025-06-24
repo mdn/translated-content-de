@@ -2,12 +2,12 @@
 title: function*
 slug: Web/JavaScript/Reference/Statements/function*
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`function*`** Deklaration erstellt eine {{Glossary("binding", "Binding")}} einer neuen Generatorfunktion mit einem gegebenen Namen. Eine Generatorfunktion kann beendet und später erneut betreten werden, wobei ihr Kontext (Variable-{{Glossary("binding", "Bindings")}}) über erneute Aufrufe hinweg gespeichert bleibt.
+Die **`function*`**-Deklaration erstellt eine neue {{Glossary("binding", "Bindung")}} einer Generatorfunktion mit einem gegebenen Namen. Eine Generatorfunktion kann beendet und später wieder betreten werden, wobei ihr Kontext (variable {{Glossary("binding", "Bindungen")}}) zwischen den Wiedereintrittspunkten gespeichert wird.
 
 Sie können Generatorfunktionen auch mit dem [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*) definieren.
 
@@ -45,26 +45,27 @@ function* name(param0, param1, /* …, */ paramN) {
 > [!NOTE]
 > Generatorfunktionen haben keine Gegenstücke bei Pfeilfunktionen.
 
-> **Hinweis:** `function` und `*` sind separate Token, sodass sie durch [Leerzeichen oder Zeilenabschlüsse](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) getrennt werden können.
+> [!NOTE] > `function` und `*` sind separate Tokens und können daher durch [Leerraum oder Zeilenumbrüche](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) getrennt werden.
 
 ### Parameter
 
 - `name`
   - : Der Funktionsname.
 - `param` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter siehe die [Referenz für Funktionen](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter siehe die [Funktionen-Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Körper der Funktion bilden.
+  - : Die Anweisungen, die den Rumpf der Funktion bilden.
 
 ## Beschreibung
 
-Eine `function*` Deklaration erstellt ein {{jsxref("GeneratorFunction")}} Objekt. Jedes Mal, wenn eine Generatorfunktion aufgerufen wird, gibt sie ein neues {{jsxref("Generator")}} Objekt zurück, das dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) entspricht. Wenn die `next()`-Methode des Iterators aufgerufen wird, wird der Körper der Generatorfunktion bis zum ersten {{jsxref("Operators/yield", "yield")}}-Ausdruck ausgeführt, der den Wert spezifiziert, der vom Iterator zurückgegeben wird, oder, mit {{jsxref("Operators/yield*", "yield*")}}, an eine andere Generatorfunktion delegiert. Die `next()`-Methode gibt ein Objekt mit einer `value`-Eigenschaft, die den erzeugten Wert enthält, und einer `done`-Eigenschaft zurück, die als Boolean angibt, ob der Generator seinen letzten Wert erzeugt hat. Der Aufruf der `next()`-Methode mit einem Argument führt zur Fortsetzung der Ausführung der Generatorfunktion, wobei der `yield`-Ausdruck, an dem die Ausführung pausiert wurde, durch das Argument von `next()` ersetzt wird.
+Eine `function*`-Deklaration erstellt ein {{jsxref("GeneratorFunction")}} Objekt. Jedes Mal, wenn eine Generatorfunktion aufgerufen wird, gibt sie ein neues {{jsxref("Generator")}} Objekt zurück, das dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) entspricht. Wenn die `next()` Methode des Iterators aufgerufen wird, wird der Rumpf der Generatorfunktion bis zum ersten
+{{jsxref("Operators/yield", "yield")}}-Ausdruck ausgeführt, welcher den Wert angibt, der vom Iterator zurückgegeben werden soll, oder mit {{jsxref("Operators/yield*", "yield*")}} an eine andere Generatorfunktion delegiert. Die `next()`-Methode gibt ein Objekt mit einer `value`-Eigenschaft zurück, das den ausgegebenen Wert enthält, und einer `done`-Eigenschaft, die als Boolean angibt, ob der Generator seinen letzten Wert ausgegeben hat. Das Aufrufen der `next()`-Methode mit einem Argument setzt die Ausführung der Generatorfunktion fort und ersetzt die `yield`-Ausdrucksstelle, an der die Ausführung pausiert wurde, durch das Argument von `next()`.
 
-Generatoren in JavaScript sind — insbesondere in Kombination mit Promises — ein sehr leistungsstarkes Werkzeug für die asynchrone Programmierung, da sie die Probleme von Callbacks, wie z. B. [Callback Hell](http://callbackhell.com/) und [Inversion of Control](https://frontendmasters.com/courses/rethinking-async-js/callback-problems-inversion-of-control/) abmildern — wenn nicht sogar ganz eliminieren. Eine noch einfachere Lösung für diese Probleme kann jedoch mit {{jsxref("Statements/async_function", "async Funktionen", "", 1)}} erreicht werden.
+Generatoren in JavaScript, insbesondere in Kombination mit Promises, sind ein sehr leistungsstarkes Werkzeug für asynchrone Programmierung, da sie die Probleme mit Rückrufen wie [Callback Hell](http://callbackhell.com/) und [Inversion of Control](https://frontendmasters.com/courses/rethinking-async-js/callback-problems-inversion-of-control/) mindern oder sogar völlig beseitigen. Eine noch einfachere Lösung für diese Probleme kann jedoch mit {{jsxref("Statements/async_function", "async functions", "", 1)}} erreicht werden.
 
-Eine `return`-Anweisung in einem Generator bewirkt, dass der Generator abgeschlossen wird (d.h. die `done`-Eigenschaft des Objekts, das von ihm zurückgegeben wird, wird auf `true` gesetzt). Wenn ein Wert zurückgegeben wird, wird er als `value`-Eigenschaft des Objekts, das vom Generator zurückgegeben wird, gesetzt. Ähnlich wie eine `return`-Anweisung wird ein innerhalb des Generators ausgelöster Fehler den Generator abschließen — es sei denn, er wird innerhalb des Körpers des Generators abgefangen. Wenn ein Generator abgeschlossen ist, werden nachfolgende `next()`-Aufrufe keinen Code dieses Generators ausführen, sondern einfach ein Objekt dieser Form zurückgeben: `{value: undefined, done: true}`.
+Eine `return`-Anweisung in einem Generator führt dazu, dass der Generator beendet wird (d.h. die `done`-Eigenschaft des Objekts, das von ihm zurückgegeben wird, wird auf `true` gesetzt). Wenn ein Wert zurückgegeben wird, wird er als `value`-Eigenschaft des vom Generator zurückgegebenen Objekts gesetzt. Ähnlich wie eine `return`-Anweisung führt ein Fehler, der innerhalb des Generators geworfen wird, dazu, dass der Generator beendet wird — es sei denn, er wird innerhalb des Generatorrumpfs abgefangen. Wenn ein Generator beendet ist, werden nachfolgende `next()`-Aufrufe keinen Code dieses Generators ausführen, sondern nur ein Objekt dieser Form zurückgeben: `{value: undefined, done: true}`.
 
-`function*` Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}} Deklarationen — sie werden im Zusammenhang ihres Bereichs {{Glossary("Hoisting", "gehoisted")}} und können überall in ihrem Geltungsbereich aufgerufen werden, und sie können nur in bestimmten Kontexten neu deklariert werden.
+`function*`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen — sie werden an den Anfang ihres Gültigkeitsbereichs {{Glossary("Hoisting", "gehoben")}} und können überall in ihrem Gültigkeitsbereich aufgerufen werden. Sie können nur in bestimmten Kontexten erneut deklariert werden.
 
 ## Beispiele
 
@@ -131,7 +132,7 @@ gen.next("california"); // 2 california
 gen.next("mayonnaise"); // 3 mayonnaise
 ```
 
-### Rückgabeanweisung in einem Generator
+### Return-Anweisung in einem Generator
 
 ```js
 function* yieldAndReturn() {
@@ -146,7 +147,7 @@ console.log(gen.next()); // { value: "R", done: true }
 console.log(gen.next()); // { value: undefined, done: true }
 ```
 
-### Generator als Objekt-Eigenschaft
+### Generator als Objekteigenschaft
 
 ```js
 const someObj = {
@@ -204,7 +205,7 @@ console.log(Array.from(new Foo())); // [ 1, 2 ]
 console.log(Array.from(SomeObj)); // [ 'a', 'b' ]
 ```
 
-### Generatoren sind nicht instanziierbar
+### Generatoren sind nicht konstruierbar
 
 ```js
 function* f() {}
@@ -257,8 +258,8 @@ for (const power of powers(2)) {
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
-- [Leitfaden über Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
+- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("GeneratorFunction")}}
 - [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
@@ -270,6 +271,6 @@ for (const power of powers(2)) {
 - {{jsxref("Operators/yield*", "yield*")}}
 - {{jsxref("Generator")}}
 - [Regenerator](https://github.com/facebook/regenerator) auf GitHub
-- [Promises und Generatoren: Utopie der Ablaufsteuerung](https://youtu.be/qbKWsbJ76-s) Präsentation von Forbes Lindesay auf der JSConf (2013)
+- [Promises and Generators: control flow utopia](https://youtu.be/qbKWsbJ76-s) Präsentation von Forbes Lindesay bei JSConf (2013)
 - [Task.js](https://github.com/mozilla/task.js) auf GitHub
 - [You Don't Know JS: Async & Performance, Ch.4: Generators](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch4.md) von Kyle Simpson

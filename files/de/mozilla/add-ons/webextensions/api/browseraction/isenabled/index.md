@@ -2,7 +2,7 @@
 title: browserAction.isEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/isEnabled
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -22,9 +22,7 @@ let gettingIsEnabled = browser.browserAction.isEnabled(
 ### Parameter
 
 - `details`
-
-  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` enthält, die überprüft werden sollen.
-
+  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` zum Überprüfen enthält.
     - `tabId` {{optional_inline}}
       - : `integer`. ID eines Tabs, der überprüft werden soll.
     - `windowId` {{optional_inline}}
@@ -32,12 +30,12 @@ let gettingIsEnabled = browser.browserAction.isEnabled(
 
 <!---->
 
-- Falls sowohl windowId als auch tabId angegeben werden, schlägt die Funktion fehl.
-- Falls sowohl windowId als auch tabId weggelassen werden, wird der globale Aktivierungs-/Deaktivierungsstatus zurückgegeben.
+- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird der globale Aktiviert-/Deaktiviert-Status zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und mit `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und `false` andernfalls.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +43,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Überprüfen des globalen Zustands:
+Überprüfen des globalen Status:
 
 ```js
 browser.browserAction.isEnabled({}).then((result) => {
@@ -53,7 +51,7 @@ browser.browserAction.isEnabled({}).then((result) => {
 });
 ```
 
-Überprüfen des Zustands des aktuell aktiven Tabs:
+Überprüfen des Status des aktuell aktiven Tabs:
 
 ```js
 async function enabledInActiveTab() {

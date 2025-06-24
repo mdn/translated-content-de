@@ -2,12 +2,12 @@
 title: :any-link
 slug: Web/CSS/:any-link
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`:any-link`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das als Quellanker eines Hyperlinks fungiert, unabhängig davon, ob es besucht wurde. Anders ausgedrückt, er passt auf jedes {{HTMLElement("a")}} oder {{HTMLElement("area")}}-Element, das ein `href`-Attribut besitzt. Somit stimmt es mit allen Elementen überein, die zu {{cssxref(":link")}} oder {{cssxref(":visited")}} passen.
+Der **`:any-link`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das als Ankerquelle eines Hyperlinks dient, unabhängig davon, ob es besucht wurde. Mit anderen Worten, es stimmt mit jedem {{HTMLElement("a")}} oder {{HTMLElement("area")}} Element überein, das ein `href` Attribut hat. Somit stimmt es mit allen Elementen überein, die mit {{cssxref(":link")}} oder {{cssxref(":visited")}} übereinstimmen.
 
 {{InteractiveExample("CSS Demo: :any-link", "tabbed-shorter")}}
 
@@ -91,8 +91,7 @@ a:-webkit-any-link {
 ## Siehe auch
 
 - [Erstellen von Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links)
-- Passt zu HTML-Elementen: [`<a>`](/de/docs/Web/HTML/Reference/Elements/a) und [`<area>`](/de/docs/Web/HTML/Reference/Elements/area) mit einem [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut
+- Stimmt mit HTMLElementen überein: [`<a>`](/de/docs/Web/HTML/Reference/Elements/a) und [`<area>`](/de/docs/Web/HTML/Reference/Elements/area) mit einem [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) Attribut
 - Verwandte CSS-Selektoren:
-
   - [`:visited`](/de/docs/Web/CSS/:visited)
   - [`:link`](/de/docs/Web/CSS/:link)

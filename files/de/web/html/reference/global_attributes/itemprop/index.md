@@ -1,18 +1,18 @@
 ---
-title: HTML itemprop globales Attribut
+title: HTML-Attribut `itemprop` (global)
 short-title: itemprop
 slug: Web/HTML/Reference/Global_attributes/itemprop
 l10n:
-  sourceCommit: d9b6cad3b5e14b42061608fb5283e32c75808a3d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`itemprop`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) wird verwendet, um einem Element Eigenschaften hinzuzufügen. Jedes HTML-Element kann ein `itemprop`-Attribut angegeben haben, und ein `itemprop` besteht aus einem Name-Wert-Paar. Jedes Name-Wert-Paar wird als **Eigenschaft** bezeichnet, und eine Gruppe von einer oder mehreren Eigenschaften bildet ein **Element**. Eigenschaftswerte sind entweder ein String oder eine URL und können mit einer Vielzahl von Elementen verknüpft werden, einschließlich {{HTMLElement("audio")}}, {{HTMLElement("embed")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("object")}}, {{HTMLElement("source")}}, {{HTMLElement("track")}} und {{HTMLElement("video")}}.
+Das globale **`itemprop`**-[Attribut](/de/docs/Web/HTML/Reference/Global_attributes) wird verwendet, um Eigenschaften zu einem Element hinzuzufügen. Jedes HTML-Element kann ein `itemprop`-Attribut haben, und ein `itemprop` besteht aus einem Name-Wert-Paar. Jedes Name-Wert-Paar wird als **Eigenschaft** bezeichnet, und eine Gruppe von einer oder mehreren Eigenschaften bildet ein **Element**. Eigenschaftswerte sind entweder eine Zeichenkette oder eine URL und können mit einer sehr großen Bandbreite von Elementen wie {{HTMLElement("audio")}}, {{HTMLElement("embed")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("object")}}, {{HTMLElement("source")}}, {{HTMLElement("track")}} und {{HTMLElement("video")}} verknüpft werden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt den Quellcode für eine Reihe von Elementen, die mit `itemprop`-Attributen versehen sind, gefolgt von einer Tabelle, die die resultierenden strukturierten Daten darstellt.
+Das folgende Beispiel zeigt den Quellcode für eine Reihe von Elementen, die mit `itemprop`-Attributen versehen sind, gefolgt von einer Tabelle, die die resultierenden strukturierten Daten zeigt.
 
 ### HTML
 
@@ -68,9 +68,9 @@ Das folgende Beispiel zeigt den Quellcode für eine Reihe von Elementen, die mit
 
 ## Eigenschaften
 
-Eigenschaften haben Werte, die entweder ein String oder eine URL sind. Wenn ein String-Wert eine URL ist, wird er mithilfe des {{HTMLElement("a")}}-Elements und seines [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attributs, des {{HTMLElement("img")}}-Elements und seines [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attributs oder anderer Elemente, die auf externe Ressourcen verweisen oder diese einbetten, ausgedrückt.
+Eigenschaften haben Werte, die entweder eine Zeichenkette oder eine URL sind. Wenn ein Zeichenkettenwert eine URL ist, wird er mithilfe des {{HTMLElement("a")}}-Elements und seinem [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut, des {{HTMLElement("img")}}-Elements und seinem [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attribut oder anderer Elemente ausgedrückt, die auf externe Ressourcen verlinken oder diese einbetten.
 
-### Drei Eigenschaften mit Werten, die Strings sind
+### Drei Eigenschaften mit Werten, die Zeichenketten sind
 
 ```html
 <div itemscope>
@@ -88,11 +88,11 @@ Eigenschaften haben Werte, die entweder ein String oder eine URL sind. Wenn ein 
 </div>
 ```
 
-Wenn ein String-Wert nicht leicht lesbar und verständlich für eine Person ist (z. B. eine lange Zeichenfolge aus Nummern und Buchstaben), kann er mit dem value-Attribut des data-Elements angezeigt werden, wobei die für Menschen besser verständliche Version im Inhalt des Elements angegeben wird (die nicht Teil der strukturierten Daten ist - siehe folgendes Beispiel).
+Wenn ein Zeichenkettenwert nicht leicht lesbar und von einer Person verständlich ist (z.B. eine lange Zeichenfolge aus Zahlen und Buchstaben), kann er unter Verwendung des `value`-Attributs des `data`-Elements angezeigt werden, wobei die für Menschen verständlichere Version im Inhalt des Elements (der nicht Teil der strukturierten Daten ist – siehe Beispiel unten) angegeben wird.
 
 ### Ein Element mit einer Eigenschaft, deren Wert eine Produkt-ID ist
 
-Die ID ist nicht menschenfreundlich, daher wird stattdessen der Name des Produkts verwendet.
+Die ID ist nicht benutzerfreundlich, daher wird der Produktname stattdessen verwendet.
 
 ```html
 <h1 itemscope>
@@ -100,9 +100,9 @@ Die ID ist nicht menschenfreundlich, daher wird stattdessen der Name des Produkt
 </h1>
 ```
 
-Für numerische Daten können das meter-Element und sein value-Attribut verwendet werden.
+Für numerische Daten können das `meter`-Element und sein `value`-Attribut verwendet werden.
 
-### Ein meter-Element
+### Ein `meter`-Element
 
 ```html
 <div itemscope itemtype="http://schema.org/Product">
@@ -121,7 +121,7 @@ Für numerische Daten können das meter-Element und sein value-Attribut verwende
 </div>
 ```
 
-Ähnlich können für datums- und zeitbezogene Daten das time-Element und sein datetime-Attribut verwendet werden.
+Ähnlich können für daten- und zeitbezogene Daten das `time`-Element und sein `datetime`-Attribut verwendet werden.
 
 ### Ein Element mit einer Eigenschaft, "birthday", deren Wert ein Datum ist
 
@@ -132,9 +132,9 @@ Für numerische Daten können das meter-Element und sein value-Attribut verwende
 </div>
 ```
 
-Eigenschaften können auch Gruppen von Name-Wert-Paaren sein, indem das itemscope-Attribut auf dem Element gesetzt wird, das die Eigenschaft deklariert. Jeder Wert ist entweder ein String oder eine Gruppe von Name-Wert-Paaren (d.h. ein Element).
+Eigenschaften können auch Gruppen von Name-Wert-Paaren sein, indem das `itemscope`-Attribut auf dem Element gesetzt wird, das die Eigenschaft deklariert. Jeder Wert ist entweder eine Zeichenkette oder eine Gruppe von Name-Wert-Paaren (d.h. ein Element).
 
-### Ein äußeres Element, das eine Person repräsentiert, und ein inneres, das eine Band repräsentiert
+### Ein äußeres Element, das eine Person darstellt, und ein inneres, das eine Band darstellt
 
 ```html
 <div itemscope>
@@ -149,11 +149,11 @@ Eigenschaften können auch Gruppen von Name-Wert-Paaren sein, indem das itemscop
 </div>
 ```
 
-Das äußere Element oben hat zwei Eigenschaften, "name" und "band". Der "name" ist "Amanda", und das "band" ist ein eigenes Element mit zwei Eigenschaften, "name" und "size". Der "name" der Band ist "Jazz Band", und die "size" ist "12". Das äußere Element in diesem Beispiel ist ein Mikrodatenelement auf oberster Ebene. Elemente, die nicht Teil anderer sind, werden Mikrodatenelemente auf oberster Ebene genannt.
+Das äußere Element oben hat zwei Eigenschaften, "name" und "band". Der "name" ist "Amanda" und die "band" ist ein eigenes Element mit zwei Eigenschaften, "name" und "size". Der "name" der Band ist "Jazz Band" und die "size" ist "12". Das äußere Element in diesem Beispiel ist ein oberstes Mikrodatenelement. Elemente, die nicht Teil anderer Elemente sind, werden oberste Mikrodatenelemente genannt.
 
-### Alle Eigenschaften getrennt von ihren Elementen
+### Alle Eigenschaften von ihren Elementen getrennt
 
-Dieses Beispiel ist dasselbe wie das vorherige, aber alle Eigenschaften sind von ihren Elementen getrennt.
+Dieses Beispiel ist das gleiche wie das vorherige, aber alle Eigenschaften sind von ihren Elementen getrennt.
 
 ```html
 <div itemscope id="amanda" itemref="a b"></div>
@@ -165,7 +165,7 @@ Dieses Beispiel ist dasselbe wie das vorherige, aber alle Eigenschaften sind von
 </div>
 ```
 
-Dies ergibt das gleiche Ergebnis wie das vorherige Beispiel. Das erste Element hat zwei Eigenschaften, "name", gesetzt auf "Amanda", und "band", gesetzt auf ein anderes Element. Dieses zweite Element hat zwei weitere Eigenschaften, "name", gesetzt auf "Jazz Band", und "size", gesetzt auf "12".
+Dies ergibt das gleiche Ergebnis wie das vorherige Beispiel. Das erste Element hat zwei Eigenschaften, "name", festgelegt auf "Amanda", und "band", festgelegt auf ein anderes Element. Dieses zweite Element hat zwei weitere Eigenschaften, "name", festgelegt auf "Jazz Band", und "size", festgelegt auf "12".
 
 Ein Element kann mehrere Eigenschaften mit demselben Namen und unterschiedlichen Werten haben.
 
@@ -183,9 +183,9 @@ Ein Element kann mehrere Eigenschaften mit demselben Namen und unterschiedlichen
 
 Dies ergibt ein Element mit zwei Eigenschaften, beide mit dem Namen "flavor" und den Werten "Lemon sorbet" und "Apricot sorbet".
 
-Ein Element, das eine Eigenschaft einführt, kann auch mehrere Eigenschaften auf einmal einführen, um Duplikate zu vermeiden, wenn einige der Eigenschaften denselben Wert haben.
+Ein Element, das eine Eigenschaft einführt, kann auch mehrere Eigenschaften gleichzeitig einführen, um Duplikationen zu vermeiden, wenn einige der Eigenschaften denselben Wert haben.
 
-### Ein Element mit zwei Eigenschaften, "favorite-color" und "favorite-fruit", beide mit dem Wert "orange" gesetzt
+### Ein Element mit zwei Eigenschaften, "favorite-color" und "favorite-fruit", beide mit dem Wert "orange"
 
 ```html
 <div itemscope>
@@ -198,11 +198,11 @@ Ein Element, das eine Eigenschaft einführt, kann auch mehrere Eigenschaften auf
 ```
 
 > [!NOTE]
-> Es besteht keine Beziehung zwischen den Mikrodatenelementen und dem Inhalt des Dokuments, in dem die Mikrodatenelemente markiert sind.
+> Es besteht keine Beziehung zwischen den Mikrodatenelementen und dem Inhalt des Dokuments, in dem die Mikrodatenelemente ausgezeichnet sind.
 
-### Dieselben strukturierten Daten auf zwei verschiedene Weisen markiert
+### Gleiche strukturierte Daten auf zwei verschiedene Weisen ausgezeichnet
 
-Es gibt keinen semantischen Unterschied zwischen den folgenden beiden Beispielen
+Es gibt keinen semantischen Unterschied zwischen den folgenden beiden Beispielen:
 
 ```html
 <figure>
@@ -221,11 +221,11 @@ Es gibt keinen semantischen Unterschied zwischen den folgenden beiden Beispielen
 </figure>
 ```
 
-Beide haben eine Abbildung mit einer Beschreibung, und beide, völlig unabhängig von der Abbildung, haben ein Element mit einem Name-Wert-Paar mit dem Namen "name" und dem Wert "The Castle". Der einzige Unterschied besteht darin, dass, wenn der Benutzer die figcaption aus dem Dokument zieht, das Element in den Drag-and-Drop-Daten enthalten sein wird. Das mit dem Element verknüpfte Bild wird nicht einbezogen.
+Beide haben eine Abbildung mit einer Bildunterschrift und beide, völlig unabhängig von der Abbildung, ein Element mit einem Name-Wert-Paar mit dem Namen "name" und dem Wert "The Castle". Der einzige Unterschied besteht darin, dass, wenn der Benutzer die `figcaption` aus dem Dokument herauszieht, das Element in den Drag-and-Drop-Daten enthalten sein wird. Das mit dem Element verknüpfte Bild wird nicht enthalten sein.
 
 ## Namen und Werte
 
-Eine Eigenschaft ist eine unsortierte Menge von eindeutigen Token, die **groß-/kleinschreibungssensitiv** sind und die Name-Wert-Paare darstellen. Der Eigenschaftswert muss mindestens ein Token enthalten. Im folgenden Beispiel ist jede Datenzelle ein Token.
+Eine Eigenschaft ist eine ungeordnete Menge von eindeutigen Token, die Groß- und Kleinschreibung beachten und die Name-Wert-Paare darstellen. Der Eigenschaftswert muss mindestens ein Token haben. Im folgenden Beispiel ist jede Datenzelle ein Token.
 
 ### Namensbeispiele
 
@@ -274,24 +274,23 @@ Eine Eigenschaft ist eine unsortierte Menge von eindeutigen Token, die **groß-/
   </tbody>
 </table>
 
-**Token** sind entweder Strings oder URLs. Ein Element wird als **typisiertes Element** bezeichnet, wenn es sich um eine URL handelt. Andernfalls ist es ein String. Strings dürfen keinen Punkt oder Doppelpunkt enthalten (siehe unten).
+**Token** sind entweder Zeichenketten oder URLs. Ein Element wird als **typisiertes Element** bezeichnet, wenn es eine URL ist. Andernfalls ist es eine Zeichenkette. Zeichenketten können keinen Punkt oder Doppelpunkt enthalten (siehe unten).
 
 1. Wenn das Element ein typisiertes Element ist, muss es entweder:
 
-   1. Ein definierter Eigenschaftsname sein oder
-   2. Eine gültige URL sein, die sich auf die Vokabulardefinition bezieht, oder
-   3. Eine gültige URL sein, die als proprietärer Element-Eigenschaftsname verwendet wird (d.h. einer, der nicht in einer öffentlichen Spezifikation definiert ist), oder
+   1. Ein definierter Eigenschaftsname sein, oder
+   2. Eine gültige URL, die auf die Vokabular-Definition verweist, oder
+   3. Eine gültige URL, die als proprietärer Element-Eigenschaftsname verwendet wird (d.h. ein Name, der nicht in einer öffentlichen Spezifikation definiert ist), oder
 
-2. Wenn das Element kein typisiertes Element ist, muss es folgendes sein:
-
-   1. Ein String, der keine `.` (U+002E FULL STOP)-Zeichen und keine `:`-Zeichen (U+003A COLON) enthält und als proprietärer Element-Eigenschaftsname verwendet wird (wiederum einer, der nicht in einer öffentlichen Spezifikation definiert ist).
+2. Wenn das Element kein typisiertes Element ist, muss es:
+   1. Eine Zeichenkette sein, die keine `.` (U+002E FULL STOP)-Zeichen und keine `:` (U+003A COLON)-Zeichen enthält und als proprietärer Element-Eigenschaftsname verwendet wird (wiederum ein Name, der nicht in einer öffentlichen Spezifikation definiert ist).
 
 > [!NOTE]
-> Die obigen Regeln schließen ":"-Zeichen in Nicht-URL-Werten aus, da sie sonst nicht von URLs unterschieden werden könnten. Werte mit "."-Zeichen sind für zukünftige Erweiterungen reserviert. Leerzeichen sind ausgeschlossen, da sonst die Werte als mehrere Token geparst würden.
+> Die oben genannten Regeln verbieten `:`-Zeichen in Nicht-URL-Werten, da sie sonst nicht von URLs unterschieden werden könnten. Werte mit `.`-Zeichen sind für zukünftige Erweiterungen reserviert. Leerzeichen sind nicht erlaubt, da die Werte sonst als mehrere Token analysiert würden.
 
 ## Wert
 
-Der Eigenschaftswert eines Name-Wert-Paares ist wie angegeben für den ersten übereinstimmenden Fall in der folgenden Liste:
+Der Eigenschaftswert eines Name-Wert-Paares wird wie in der folgenden Liste angegeben für den ersten übereinstimmenden Fall gegeben:
 
 - Wenn das Element ein `itemscope`-Attribut hat
 
@@ -299,41 +298,40 @@ Der Eigenschaftswert eines Name-Wert-Paares ist wie angegeben für den ersten ü
 
 - Wenn das Element ein `meta`-Element ist
 
-  - Der Wert ist der Wert des `content`-Attributes des Elements
+  - Der Wert ist der Wert des `content`-Attributs des Elements
 
 - Wenn das Element ein `audio`, `embed`, `iframe`, `img`, `source`, `track` oder `video`-Element ist
 
-  - Der Wert ist die resultierende URL-Zeichenkette, die sich aus der Analyse des Wertes des src-Attributs des Elements relativ zum Node-Dokument (Teil der [Microdata DOM API](/de/docs/Web/HTML/Guides/Microdata)) des Elements ergibt, wenn das Attribut gesetzt wird
+  - Der Wert ist die resultierende URL-Zeichenfolge, die sich aus dem Parsen des Wertes des `src`-Attributs des Elements relativ zum Knotendokument (Teil der [Microdata DOM API](/de/docs/Web/HTML/Guides/Microdata)) des Elements ergibt, wenn das Attribut gesetzt ist
 
 - Wenn das Element ein `a`, `area` oder `link`-Element ist
 
-  - Der Wert ist die resultierende URL-Zeichenkette, die sich aus der Analyse des Wertes des href-Attributs des Elements relativ zum Node-Dokument des Elements ergibt, wenn das Attribut gesetzt wird
+  - Der Wert ist die resultierende URL-Zeichenfolge, die sich aus dem Parsen des Wertes des `href`-Attributs des Elements relativ zum Knotendokument des Elements ergibt, wenn das Attribut gesetzt ist
 
 - Wenn das Element ein `object`-Element ist
 
-  - Der Wert ist die resultierende URL-Zeichenkette, die sich aus der Analyse des Wertes des data-Attributs des Elements relativ zum Node-Dokument des Elements ergibt, wenn das Attribut gesetzt wird
+  - Der Wert ist die resultierende URL-Zeichenfolge, die sich aus dem Parsen des Wertes des `data`-Attributs des Elements relativ zum Knotendokument des Elements ergibt, wenn das Attribut gesetzt ist
 
 - Wenn das Element ein `data`-Element ist
 
-  - Der Wert ist der Wert des value-Attributs des Elements
+  - Der Wert ist der Wert des `value`-Attributs des Elements
 
 - Wenn das Element ein `meter`-Element ist
 
   - Der Wert ist der Wert des `value`-Attributs des Elements
 
 - Wenn das Element ein `time`-Element ist
-
   - Der Wert ist der `datetime`-Wert des Elements
 
 Andernfalls
 
 - Der Wert ist der _textContent_ des Elements.
 
-Wenn der Wert einer Eigenschaft eine `URL` ist, muss die Eigenschaft mithilfe eines URL-Eigenschaftselements angegeben werden. Die URL-Eigenschaftselemente sind die `a`, `area`, `audio`, `embed`, `iframe`, `img`, `link`, `object`, `source`, `track` und `video` Elemente.
+Wenn der Wert einer Eigenschaft eine `URL` ist, muss die Eigenschaft unter Verwendung eines URL-Eigenschaftselements angegeben werden. Die URL-Eigenschaftselemente sind die Elemente `a`, `area`, `audio`, `embed`, `iframe`, `img`, `link`, `object`, `source`, `track` und `video`.
 
-### Reihenfolge der Namen
+### Namensreihenfolge
 
-Namen sind im Vergleich zueinander ungeordnet, aber wenn ein bestimmter Name mehrere Werte hat, haben diese eine relative Reihenfolge.
+Namen sind relativ zueinander ungeordnet, aber wenn ein bestimmter Name mehrere Werte hat, haben diese eine relative Reihenfolge.
 
 Im folgenden Beispiel hat die Eigenschaft "a" die Werte "1" und "2", _in dieser Reihenfolge_, aber ob die Eigenschaft "a" vor der Eigenschaft "b" kommt oder nicht, ist nicht wichtig.
 
@@ -373,9 +371,9 @@ Hier sind mehrere gleichwertige Beispiele:
 </div>
 ```
 
-### Repräsentation von strukturierten Daten für ein Buch
+### Darstellung strukturierter Daten für ein Buch
 
-Dieses Beispiel verwendet Mikrodateneigenschaften, um die folgenden strukturierten Daten darzustellen:
+Dieses Beispiel verwendet Mikrodatenelemente, um die folgenden strukturierten Daten darzustellen:
 
 <table class="standard-table">
   <tbody>
@@ -430,9 +428,8 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um die folgenden strukturiert
 
 ## Siehe auch
 
-- [Andere verschiedene globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
-- Andere mit Mikrodata verwandte globale Attribute:
-
+- [Andere unterschiedliche globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
+- Andere microdatenbezogene globale Attribute:
   - [`itemid`](/de/docs/Web/HTML/Reference/Global_attributes/itemid)
   - [`itemref`](/de/docs/Web/HTML/Reference/Global_attributes/itemref)
   - [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope)

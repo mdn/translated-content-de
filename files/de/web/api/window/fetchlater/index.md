@@ -3,20 +3,20 @@ title: "Window: fetchLater() Methode"
 short-title: fetchLater()
 slug: Web/API/Window/fetchLater
 l10n:
-  sourceCommit: 6554598011aad3c338b589ffb2dcec37ae6595c1
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("fetchLater API")}}{{SeeCompatTable}}
 
-Die **`fetchLater()`** Methode des [`Window`](/de/docs/Web/API/Window) Interfaces erstellt einen verzögerten Abruf.
+Die **`fetchLater()`** Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle erstellt einen verzögerten Abruf.
 
-Eine `fetchLater()` Anfrage wird gesendet, sobald die Seite verlassen wird (sie zerstört wird oder in den {{Glossary("bfcache", "bfcache")}} eintritt) oder nach einem angegebenen `activateAfter` Timeout – je nachdem, was zuerst eintritt.
+Eine `fetchLater()`-Anfrage wird gesendet, sobald die Seite verlassen wird (sei es, weil sie zerstört wird oder den {{Glossary("bfcache", "bfcache")}} betritt), oder nach einem angegebenen `activateAfter`-Timeout – je nachdem, was zuerst eintritt.
 
-Die `fetchLater()` Methode gibt ein [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult) Objekt zurück, das einen einzigen `activated` Wert enthält, der angibt, ob die Anfrage bereits gesendet wurde. Beachten Sie, dass die Methode nicht das Ergebnis des tatsächlichen Abrufs zurückgibt, wenn dieser geschieht (da er oft gesendet wird, nachdem das Dokument zerstört wurde) und die gesamte Antwort des Abrufs, einschließlich Körper und Header, ignoriert wird.
+Die `fetchLater()`-Methode gibt ein [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult)-Objekt zurück, das einen einzigen `activated`-Wert enthält, der angibt, ob die Anfrage bereits gesendet wurde. Beachten Sie, dass die Methode nicht das Ergebnis des tatsächlichen Abrufs zurückgibt, wenn dieser passiert (da er oft gesendet wird, nachdem das Dokument zerstört wurde), und die gesamte Antwort des Abrufs, einschließlich des Inhalts und der Header, ignoriert wird.
 
-Anfragen, deren Körper ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) ist, können nicht aufgeschoben werden.
+Anfragen, deren Inhalt ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) ist, können nicht verzögert werden.
 
-Die `fetchLater()` Methode wird durch die `connect-src` [Content Security Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) Direktive gesteuert, anstatt durch die Direktive der abgerufenen Ressourcen.
+Die `fetchLater()`-Methode wird durch die `connect-src` [Content Security Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy)-Direktive kontrolliert und nicht durch die Direktive der abgerufenen Ressourcen.
 
 ## Syntax
 
@@ -27,18 +27,16 @@ fetchLater(resource, options)
 
 ### Parameter
 
-Die `fetchLater()` Methode nimmt dieselben Parameter wie [`fetch()`](/de/docs/Web/API/Window/fetch), jedoch mit einer zusätzlichen `activateAfter` Option.
+Die `fetchLater()`-Methode nimmt alle gleichen Parameter wie [`fetch()`](/de/docs/Web/API/Window/fetch) an, jedoch mit einer zusätzlichen `activateAfter`-Option.
 
 - `resource`
 
-  - : Dies definiert die Ressource, die Sie abrufen möchten. Genau wie bei [`fetch()`](/de/docs/Web/API/Window/fetch) kann dies entweder sein:
-
-    - Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}} – einschließlich eines [`URL`](/de/docs/Web/API/URL) Objekts – das die URL der Ressource bereitstellt, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, die im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments ist.
-    - Ein [`Request`](/de/docs/Web/API/Request) Objekt.
+  - : Dies definiert die Ressource, die Sie abrufen möchten. Identisch wie bei [`fetch()`](/de/docs/Web/API/Window/fetch), kann dies entweder sein:
+    - Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts — das die URL der Ressource liefert, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, welche die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments im Fensterkontext ist.
+    - Ein [`Request`](/de/docs/Web/API/Request)-Objekt.
 
 - `options` {{optional_inline}}
-
-  - : Ein [`DeferredRequestInit`](/de/docs/Web/API/DeferredRequestInit) Objekt, das alle benutzerdefinierten Einstellungen enthält, die Sie auf die Anfrage anwenden möchten, einschließlich eines `activateAfter` Timeout-Werts, der definiert, wie lange das Ergebnis aufgeschoben werden soll, bevor es gesendet wird.
+  - : Ein [`DeferredRequestInit`](/de/docs/Web/API/DeferredRequestInit)-Objekt, das alle benutzerdefinierten Einstellungen enthält, die Sie auf die Anfrage anwenden möchten, einschließlich eines `activateAfter`-Timeout-Wertes, der definiert, wie lange das Ergebnis verzögert werden soll, bevor es gesendet wird.
 
 ### Ausnahmen
 
@@ -46,35 +44,35 @@ Die [gleichen Ausnahmen wie bei `fetch()`](/de/docs/Web/API/Window/fetch#excepti
 
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Die Nutzung dieses Features wurde blockiert, da das verfügbare Kontingent überschritten wurde. Siehe [`fetchLater()` Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) für weitere Details. Aufrufer von `fetchLater()` sollten defensiv sein und `QuotaExceededError` Fehler in fast allen Fällen abfangen, insbesondere wenn sie Drittanbieter-JavaScript einbetten.
+  - : Die Nutzung dieser Funktion wurde gesperrt, da das verfügbare Kontingent überschritten wurde. Weitere Details finden Sie unter [`fetchLater()`-Kontingente](/de/docs/Web/API/fetchLater_API/fetchLater_quotas). Aufrufer von `fetchLater()` sollten in fast allen Fällen defensive Maßnahmen ergreifen und `QuotaExceededError`-Fehler abfangen, insbesondere wenn sie Drittanbieter-JavaScript einbetten.
 
 - `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn ein negativer `activateAfter` Wert angegeben wird.
+  - : Ausgelöst, wenn ein negativer `activateAfter`-Wert angegeben wird.
 
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Zusätzlich zu den Gründen für `fetch()` wird diese Ausnahme auch bei einer [`ReadableStream`](/de/docs/Web/API/ReadableStream) Anfrage (die nicht aufgeschoben werden kann) oder bei der Verwendung von unsicheren URLs (wie `http://`) ausgelöst.
+  - : Zusätzlich zu den Gründen für `fetch()` wird diese Ausnahme auch für eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Anfrage (die nicht verzögert werden kann) oder bei der Nutzung nicht vertrauenswürdiger URLs (wie `http://`) ausgelöst.
 
 ### Rückgabewert
 
-Ein [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult) mit einer `activated` booleschen Eigenschaft, die angibt, ob die Anfrage bereits gesendet wurde.
+Ein [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult), das eine `activated`-Boolesche Eigenschaft enthält, die angibt, ob die Anfrage bereits gesendet wurde.
 
 > [!NOTE]
-> Sobald die Abrufanfrage gesendet wird, ist ihre Antwort – einschließlich des Körpers und der Header – nicht verfügbar und wird ignoriert.
+> Sobald die Abrufanforderung gesendet wird, wird ihre Antwort — einschließlich des Inhalts und der Header — nicht verfügbar gemacht und ignoriert.
 
 ## Beispiele
 
-Der Artikel zu den [`fetchLater()` Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) bietet Beispiele dafür, wie die Quoten angewendet werden.
+Der Artikel zu [`fetchLater()`-Kontingente](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) bietet Beispiele dafür, wie die Kontingente angewendet werden.
 
-### Einen `GET`-Anfrage aufschieben, bis die Seite verlassen oder geschlossen wird
+### Verzögern einer `GET`-Anfrage, bis die Seite verlassen oder geschlossen wird
 
 ```js
 fetchLater("/send_beacon");
 ```
 
-### Eine `POST`-Anfrage für etwa eine Minute aufschieben
+### Verzögern einer `POST`-Anfrage um etwa eine Minute
 
-In diesem Beispiel erstellen wir eine [`Request`](/de/docs/Web/API/Request) und geben einen `activateAfter` Wert an, um das Senden der Anfrage für 60.000 Millisekunden (oder eine Minute) zu verzögern:
+In diesem Beispiel erstellen wir einen [`Request`](/de/docs/Web/API/Request) und geben einen `activateAfter`-Wert an, um das Senden der Anfrage um 60.000 Millisekunden (oder eine Minute) zu verzögern:
 
 ```js
 fetchLater("/send_beacon", {
@@ -85,11 +83,11 @@ fetchLater("/send_beacon", {
 ```
 
 > [!NOTE]
-> Der tatsächliche Sendezeitpunkt ist unbekannt, da der Browser möglicherweise eine längere oder kürzere Zeit wartet, z.B. um die Gruppenbildung aufgeschobener Abrufe zu optimieren.
+> Die tatsächliche Sendezeit ist unbekannt, da der Browser möglicherweise länger oder kürzer wartet, zum Beispiel, um das Batchen von verzögerten Abrufen zu optimieren.
 
-### Eine `POST`-Anfrage für etwa eine Minute mit einem try/catch aufschieben
+### Verzögern einer `POST`-Anfrage um etwa eine Minute mit try/catch
 
-Dasselbe Beispiel wie oben, aber die Best Practice besteht darin, dies in einem try/catch zu umschließen:
+Dasselbe Beispiel wie oben, aber die bewährte Methode ist, dies in ein try/catch einzuschließen:
 
 ```js
 try {
@@ -107,7 +105,7 @@ try {
 }
 ```
 
-### Eine `POST`-Anfrage für etwa eine Minute aufschieben und eine Funktion erstellen, um zu prüfen, ob sie gesendet wurde
+### Verzögern einer `POST`-Anfrage um etwa eine Minute und eine Funktion erstellen, um zu überprüfen, ob gesendet wurde
 
 ```js
 const result = fetchLater("https://report.example.com", {
@@ -154,7 +152,7 @@ function createBeacon(data) {
 
 ### Ungültige Beispiele
 
-Jeder der folgenden Aufrufe von `fetchLater()` würde eine Ausnahme auslösen:
+Jeder der folgenden Aufrufe von `fetchLater()` würde einen Fehler auslösen:
 
 ```js
 // Only potentially trustworthy URLs are supported
@@ -180,6 +178,6 @@ detachedWindow.fetchLater("https://origin.example.com");
 ## Siehe auch
 
 - [`fetchLater()` API](/de/docs/Web/API/fetchLater_API)
-- [`fetchLater()` Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas)
+- [`fetchLater()`-Kontingente](/de/docs/Web/API/fetchLater_API/fetchLater_quotas)
 - [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult)
 - [Fetch API](/de/docs/Web/API/Fetch_API)

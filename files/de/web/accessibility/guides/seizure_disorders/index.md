@@ -1,184 +1,184 @@
 ---
-title: Barrierefreiheit im Web für Krampfanfälle und körperliche Reaktionen
-short-title: Vorbeugung von Krampfanfällen und körperlichen Reaktionen
+title: Barrierefreiheit im Web für Anfälle und körperliche Reaktionen
+short-title: Verhinderung von Anfällen und körperlichen Reaktionen
 slug: Web/Accessibility/Guides/Seizure_disorders
 l10n:
-  sourceCommit: a3693d282028046f4e0dadf0b1aa068b407d1158
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Dieser Artikel führt in Konzepte ein, um Webinhalte für Personen mit vestibulären Störungen zugänglich zu machen und wie man Inhalte bewertet und vermeidet, die zu Krampfanfällen und/oder anderen körperlichen Reaktionen führen können.
+Dieser Artikel führt Konzepte ein, wie Webinhalte für Personen mit vestibulären Störungen zugänglich gemacht werden können, und wie man Maßnahmen ergreifen kann, um Inhalte zu verhindern, die zu Anfällen und/oder anderen körperlichen Reaktionen führen könnten.
 
 ## Überblick
 
-### Krampfanfälle
+### Anfälle
 
-Durch Licht verursachte Krampfanfälle sind als fotosensitive Epilepsie bekannt. Inhalte, die flackern, blinken oder blitzen, können eine fotosensitive Epilepsie auslösen. Webtechnologien, die Videos, animierte GIFs, animierte PNGs, animierte SVGs, {{Glossary("Canvas", "Canvas")}} sowie CSS- oder JavaScript-Animationen nutzen, können Inhalte erzeugen, die Krampfanfälle oder andere lähmende körperliche Reaktionen auslösen. Bestimmte visuelle Muster, insbesondere Streifen, können ebenfalls körperliche Reaktionen hervorrufen, obwohl sie nicht animiert sind. Fotosensitive Epilepsie ist eigentlich eine Art "Reflexepilepsie" — Krampfanfälle, die als Reaktion auf einen Auslöser auftreten. Im Falle von fotosensitiver Epilepsie werden Krampfanfälle speziell durch blitzende Lichter ausgelöst, aber andere Arten von Reflexepilepsien können durch das Lesen oder durch Geräusche ausgelöst werden. Muster und Bilder können ebenfalls Epilepsie auslösen.
+Durch Licht verursachte Anfälle sind als photosensitive Epilepsie bekannt. Inhalte, die flimmern, blitzen oder blinken, können eine photosensitive Epilepsie auslösen. Webtechnologien, die Video, animierte GIFs, animierte PNGs, animierte SVGs, {{Glossary("Canvas", "Canvas")}} sowie CSS oder JavaScript-Animationen verwenden, können alle Inhalte produzieren, die Anfälle oder andere lähmende körperliche Reaktionen hervorrufen können. Bestimmte visuelle Muster, insbesondere Streifen, können ebenfalls körperliche Reaktionen verursachen, auch wenn sie nicht animiert sind. Die photosensitive Epilepsie ist tatsächlich eine Art der "Reflexepilepsie"—Anfälle, die als Reaktion auf einen Auslöser auftreten. Bei der photosensitiven Epilepsie werden Anfälle speziell durch blinkende Lichter ausgelöst, aber andere Arten von Reflexepilepsien können durch das Lesen oder durch Geräusche ausgelöst werden. Muster und Bilder können ebenfalls Epilepsie auslösen.
 
-Dass statische Bilder Krampfanfälle und andere Störungen verursachen können, wird in Artikeln wie ["Gamma-Oszillationen und fotosensitive Epilepsie"](https://linkinghub.elsevier.com/retrieve/pii/S0960982217304062) dokumentiert, wo es heißt: "_Bestimmte visuelle Bilder, selbst ohne Bewegung oder Flackern, können bei Patienten mit fotosensitiver Epilepsie Krampfanfälle auslösen_". Die Epilepsy Foundation spricht in ihrem Artikel ["Shedding Light on Photosensitivity, One of Epilepsy's Most Complex Conditions"](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions) über statische Bilder und Muster: "_Statische oder bewegte Muster von erkennbaren hellen und dunklen Streifen haben den gleichen Effekt wie blitzende Lichter, weil sie abwechselnde dunkle und helle Bereiche enthalten._" Die Arbeitsgruppe der Epilepsy Foundation of America kann das Problem ein wenig "quantifizieren": "_Ein Muster mit dem Potenzial, Krampfanfälle zu provozieren, enthält deutlich erkennbare Streifen, die mehr als fünf hell-dunkel Paare von Streifen in irgendeiner Ausrichtung aufweisen._" Neben Streifen sind laut Cedars-Sinai auch karierte Muster bekannt dafür, fotosensitive Krampfanfälle auszulösen.
+Die Tatsache, dass statische Bilder Anfälle und andere Störungen verursachen können, ist in Artikeln wie ["Gamma-Oszillationen und photosensitive Epilepsie"](https://linkinghub.elsevier.com/retrieve/pii/S0960982217304062) dokumentiert, wo bemerkt wird: "_Bestimmte visuelle Bilder können selbst in Abwesenheit von Bewegung oder Flimmern bei Patienten mit photosensitiver Epilepsie Anfälle auslösen_". Die Epilepsy Foundation spricht in ihrem Artikel ["Lichtempfindlichkeit bei Epilepsie, eine der komplexesten Bedingungen"](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions) über statische Bilder und Muster: "_Statische oder bewegte Muster von erkennbar hellen und dunklen Streifen haben denselben Effekt wie blinkende Lichter, da die dunklen und hellen Bereiche abwechseln._" Die Epilepsy Foundation of America Working Group ist in der Lage, das Problem ein wenig zu "quantifizieren": _"Ein Muster mit dem Potenzial, Anfälle zu provozieren, enthält deutlich erkennbare Streifen, die mehr als fünf hell-dunkel-Paare von Streifen in irgendeiner Ausrichtung zählen."_ Zusätzlich zu Streifen sind laut [Cedars-Sinai](https://www.cedars-sinai.org/health-library/diseases-and-conditions/p/photosensitive-seizures.html) auch Schachbrettmuster dafür bekannt, photosensitive Anfälle zu verursachen.
 
-Obwohl statische Bilder als Auslöser möglich sind, sind sie weniger konsistent. Der gut etablierte und starke Auslöser sind blitzende/Stroboskoplichter. Dr. Selim Benbadis vom Comprehensive Epilepsy Program der USF stellt fest: "_Das einzige, was wirklich dokumentiert ist, sind blitzende Lichter, die bei Patienten mit fotosensitiver Epilepsie Krampfanfälle auslösen können. Nur wenige Arten von Epilepsien sind fotosensitiv, die überwiegende Mehrheit der Epilepsien ist es jedoch nicht._" Neben Krampfanfällen, die durch Fotosensitivität ausgelöst werden, kann das Hören bestimmter Musikstücke ebenfalls zu sogenannten musikogenen Krampfanfällen führen, obwohl diese Art von Krampfanfällen viel seltener zu sein scheint. Ein guter Einstieg in das Thema musikogene Krampfanfälle findet sich auf der Webseite von Epilepsy Ontario zu [Musicogenic Seizures](https://epilepsyontario.org/musicogenic-seizures/).
+Obwohl statische Bilder als Auslöser möglich sind, sind sie weniger konsistent. Der gut etablierte und starke Auslöser sind blinkende/stroboskopische Lichter. Dr. Selim Benbadis vom Comprehensive Epilepsy Program der USF bemerkt: _"Das Einzige, das wirklich dokumentiert ist, sind blinkende Lichter, die bei Patienten mit photosensitiver Epilepsie Anfälle auslösen können. Aber nur wenige Arten von Epilepsien sind photosensitiv, und die überwiegende Mehrheit der Epilepsien sind es nicht."_ Zusätzlich zu den durch Photosensitivität hervorgerufenen Anfällen kann das Hören bestimmter Musikstücke sogenannte musikogene Anfälle auslösen, obwohl diese Art von Anfällen weitaus seltener zu sein scheint. Eine großartige Einführung über musikogene Anfälle finden Sie auf der Webseite von Epilepsy Ontario über [Musikogene Anfälle](https://epilepsyontario.org/musicogenic-seizures/).
 
-Krampfanfälle und Epilepsie sind nicht dasselbe. In ihrem Artikel ["A Revised Definition of Epilepsy"](https://www.epilepsy.com/stories/revised-definition-epilepsy) stellt die Epilepsy Foundation fest: "_Ein Krampfanfall ist ein Ereignis und Epilepsie ist die Erkrankung, die wiederkehrende unprovozierte Krampfanfälle umfasst_." Laut der Seite der Epilepsy Foundation ["How Serious Are Seizures?"](https://www.epilepsy.com/what-is-epilepsy/understanding-seizures/how-serious-are-seizures) ist "_der plötzliche unerwartete Tod bei Epilepsie (SUDEP) wahrscheinlich die häufigste krankheitsbezogene Todesursache bei Epilepsie. Er ist nicht häufig, aber ein sehr reales Problem, und die Menschen müssen sich seines Risikos bewusst sein_".
+Anfälle und Epilepsie sind nicht dasselbe. In ihrem Artikel ["Eine überarbeitete Definition von Epilepsie"](https://www.epilepsy.com/stories/revised-definition-epilepsy) bemerkt die Epilepsy Foundation, dass "_ein Anfall ist ein Ereignis und Epilepsie ist die Krankheit, die wiederkehrende unprovozierte Anfälle umfasst_." Laut der Seite der Epilepsy Foundation ["Wie ernst sind Anfälle?"](https://www.epilepsy.com/what-is-epilepsy/understanding-seizures/how-serious-are-seizures), _"Der plötzliche unerwartete Tod bei Epilepsie (SUDEP) ist wahrscheinlich die häufigste krankheitsbedingte Todesursache bei Menschen mit Epilepsie. Es kommt nicht häufig vor, aber es ist ein sehr reales Problem, und Menschen müssen sich seines Risikos bewusst sein."_
 
-Das bedeutet, dass Krampfanfälle tödlich sein können und Entwickler und Designer unglaublich wichtig dafür sind, das Web für Menschen mit Empfindlichkeiten gegenüber fotosensitiven oder musikogenen Auslösern sicherer zu machen.
+Der Punkt ist, Anfälle können definitiv tödlich sein und Entwickler und Designer sind unglaublich wichtig, um das Web zu einem sichereren Ort für diejenigen zu machen, die empfindlich auf photosensitive oder musikogene Auslöser reagieren.
 
-Krampfanfälle können tödlich sein, aber selbst die, die "nur" schwächend sind, können so schwer sein, dass sie den Benutzer außer Gefecht setzen. Andere Störungen, wie Desorientierung, Übelkeit, Erbrechen und mehr, können ebenfalls so schwerwiegend sein, dass der Benutzer nicht funktional ist. Der Artikel der Epilepsy Foundation, ["Photosensitivity and Seizures"](https://www.epilepsy.com/what-is-epilepsy/seizure-triggers/photosensitivity), listet Auslöser auf, die bei fotosensitiven Menschen Krampfanfälle verursachen können; hier ist ein Auszug aus dieser Liste:
+Anfälle können tödlich sein, aber selbst die, die "nur" lähmend sind, können so schwerwiegend sein, dass sie den Benutzer handlungsunfähig machen. Andere Störungen wie Desorientierung, Übelkeit, Erbrechen und mehr können ebenfalls so schwerwiegend sein, dass der Benutzer nicht in der Lage ist, zu funktionieren. Der Artikel der Epilepsy Foundation, ["Lichtempfindlichkeit und Anfälle"](https://www.epilepsy.com/what-is-epilepsy/seizure-triggers/photosensitivity), bietet eine Liste von Auslösern, die bei photosensitiven Menschen Anfälle verursachen können; hier ist ein Auszug aus dieser Liste:
 
-- Fernsehbildschirme oder Computermonitore aufgrund von Flackern oder rollenden Bildern.
-- Bestimmte Videospiele oder Fernsehsendungen, die schnelle Blitzbilder oder abwechselnde Muster unterschiedlicher Farben enthalten.
-- Starke Stroboskoplichter wie visuelle Feuermelder.
-- Natürliches Licht, wie Sonnenlicht, insbesondere wenn es auf Wasser schimmert, durch Bäume oder durch die Lamellen von Jalousien flackert.
+- Fernsehbildschirme oder Computermonitore aufgrund des Flackerns oder der rollenden Bilder.
+- Bestimmte Videospiele oder Fernsehsendungen, die schnelle Blitze oder wechselnde Muster verschiedener Farben enthalten.
+- Intensive Stroboskoplichter wie visuelle Feueralarme.
+- Natürliches Licht, wie Sonnenlicht, insbesondere wenn es über Wasser schimmert, durch Bäume flimmert oder durch die Lamellen von Jalousien.
 - Bestimmte visuelle Muster, insbesondere Streifen kontrastreicher Farben.
 
-Der gleiche Artikel erklärt weiter, dass viele Faktoren zusammenkommen müssen, um die fotosensitive Reaktion auszulösen. Besonders bemerkenswert ist, dass auch die Wellenlänge des Lichts als möglicher Faktor einbezogen wird; Wellenlängen im roten Teil des Spektrums scheinen besonders problematisch zu sein. Der Artikel ["Understanding WCAG 2.0 Three Flashes or Below Threshold"](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html) stellt allgemein fest: "_Personen, die an einer fotosensitiven Krampfanfallserkrankung leiden, können durch Inhalte, die mit bestimmten Frequenzen länger als ein paar Mal blitzen, einen Anfall auslösen_" und bemerkt sehr spezifisch: "_Menschen sind sogar empfindlicher gegen rotes Blitzen als gegen andere Farben, deshalb gibt es einen speziellen Test für gesättigtes rotes Blitzen_".
+Der gleiche Artikel fährt fort, dass viele Faktoren zusammenkommen müssen, um die photosensitive Reaktion auszulösen. Bemerkenswert ist, dass er die Wellenlänge des Lichts als möglichen Faktor einschließt; Wellenlängen im roten Teil des Spektrums scheinen besonders problematisch zu sein. Im Artikel ["Verständnis von WCAG 2.0 Drei Blitze oder darunter Schwelle"](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html) wird allgemein darauf hingewiesen: _"Personen mit photosensitiven Anfallsleiden können durch Inhalte mit Blitzeffekten bei bestimmten Frequenzen Anfälle erleiden, wenn diese mehr als ein paar Mal blitzen"_ und es wird sehr spezifisch darauf hingewiesen, dass: "_Menschen sind sogar empfindlicher gegenüber roten Blitzeffekten als gegenüber anderen Farben, weshalb ein spezieller Test für gesättigte rote Blitze bereitgestellt wird_".
 
-Es ist nicht einmal nötig, ein Bild oder Video zu haben, um Schaden anzurichten. Ein {{HTMLElement('div')}}-Element, das so eingestellt ist, dass es Farbe und Helligkeit mit hoher Frequenz ändert, was leicht über JavaScript durchgeführt werden kann, kann echten Schaden anrichten. Und das Flackern kann überall auftreten. Beispielsweise können "Spinners", die häufig zum Anzeigen verwendet werden, während Seiten geladen werden, leicht "flackern", während sie sich drehen.
+Um Schäden zu verursachen, benötigen Sie nicht einmal ein Bild oder Video. Ein {{HTMLElement('div')}} Element, das mit hoher Frequenz Farbe und Leuchtkraft ändert, was einfach per JavaScript zu bewerkstelligen ist, kann echten Schaden anrichten. Und Flackern kann überall auftreten. Zum Beispiel können die üblicherweise verwendeten "Spinners" zum Anzeigen während des Ladens von Seiten leicht "flackern", während sie sich drehen.
 
-Für Menschen mit motorischen Problemen bestehen zusätzliche Bedenken. Zum Beispiel bemerkt die Seite des Trace Research & Development Center's [Photosensitive Epilepsy Analysis Tool](https://trace.umd.edu/peat/): "_Fotosensitive Krampfanfälle können durch bestimmte Arten von Flackern in Web- oder Computerinhalten ausgelöst werden, einschließlich Maus-Over, die große Bereiche des Bildschirms schnell ein- und ausschalten lassen._"
+Es gibt zusätzliche Bedenken für Personen mit motorischen Problemen. Zum Beispiel merkt die Seite des Trace Research & Development Center's [Photosensitive Epilepsy Analysis Tool](https://trace.umd.edu/peat/), dass _"photosensitive Anfälle durch bestimmte Arten von Blitzen in Web- oder Computerinhalten provoziert werden können, einschließlich Mausbewegungen, die dazu führen, dass große Bereiche des Bildschirms schnell aufblitzen und wiederholt ausgehen"_.
 
-### Andere körperliche Reaktionen
+### Andere physische Reaktionen
 
-Übelkeit, Schwindel (oder Benommenheit) und Desorientierung sind sehr unspezifische Symptome, die mit allen Arten von Krankheiten in Verbindung gebracht werden und nicht besonders auf Krampfanfälle hinweisen (außer vielleicht Desorientierung, die bei Krampfanfällen beobachtet wird). Krampfanfälle sind jedoch nicht die einzige mögliche negative körperliche Reaktion auf Blitzlicht, Flackern, Blinken und andere solche Reize. 1997 zeigte ein japanischer Cartoon eine animierte "Virenbombe". Einige der Kinder, die den Cartoon sahen, reagierten mit Krampfanfällen, andere mit Übelkeit, Zittern und Erbrechen von Blut. Die Reaktionen der Kinder waren so schwerwiegend, dass sie ins Krankenhaus gebracht werden mussten. Die unten aufgeführten körperlichen Störungen sind alle mögliche Konsequenzen: Jede dieser körperlichen Reaktionen kann so schwerwiegend sein, dass sie unfähig macht.
+Übelkeit, Schwindel (oder Benommenheit) und Desorientierung sind sehr unspezifische Symptome, die mit allen möglichen Krankheiten in Verbindung gebracht werden und nicht besonders auf Anfälle hindeuten (außer vielleicht Desorientierung, die bei Anfällen zu beobachten ist). Anfälle sind jedoch nicht die einzige mögliche negative körperliche Reaktion auf Blitzen, Flackern, Blinken und andere derartige Stimuli. 1997 zeigte ein japanischer Cartoon eine animierte "Virenbombe". Einige der Kinder, die den Cartoon sahen, reagierten mit Anfällen, andere erlitten Übelkeit, Zittern und erbrachen Blut. Die Reaktionen der Kinder waren so schwerwiegend, dass sie in die Notaufnahme gebracht werden mussten. Die unten aufgeführten physischen Störungen sind alles mögliche Folgen: Jede dieser physischen Reaktionen kann so schwerwiegend sein, dass sie lähmend ist.
 
-- Krampfanfälle
+- Anfälle
 - Vestibuläre Störungen
 - Migräne
 - Übelkeit
 - Erbrechen
 
-## Blinken, Flackern & Blitzen
+## Blitzen, Blinken & Flackern
 
-Obwohl "Blinken" und "Blitzen" manchmal synonym verwendet werden, sind sie nicht dasselbe. Laut W3C ist Blinken ein Ablenkungsproblem, während Blitzen sich auf Inhalte bezieht, die mehr als 3 Mal pro Sekunde auftreten und ausreichend groß und hell sind. [Section 508](https://www.section508.gov/content/guide-accessible-web-design-development/#flashing) verbietet Flackereffekte mit einer Frequenz von mehr als 3 Hz (Flackern pro Sekunde) und weniger als 55 Hz. Der Artikel der Epilepsy Foundation ["Shedding Light on Photosensitivity, One of Epilepsy's Most Complex Conditions"](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions) hebt hervor: "_Generell sind blitzende Lichter zwischen den Frequenzen von fünf bis 30 Blitzen pro Sekunde (Hertz) am wahrscheinlichsten, Krampfanfälle auszulösen. Um sicher zu sein, empfiehlt der Konsens, dass fotosensitive Personen nicht Blitzen von mehr als drei pro Sekunde ausgesetzt werden sollten._" Für einige Menschen können jedoch Blitze/Blinken selbst bei weniger als 3 Hz Symptome verursachen.
+Obwohl "blitzen" und "blinken" manchmal synonym verwendet werden, sind sie nicht dasselbe. Laut W3C ist Blinken ein Ablenkungsproblem, während Blitzen sich auf Inhalte bezieht, die mehr als 3 Mal pro Sekunde auftreten und ausreichend groß und hell sind. [Section 508](https://www.section508.gov/content/guide-accessible-web-design-development/#flashing) verbietet Flackereffekte mit einer Frequenz von mehr als 3 Hz (Flackern pro Sekunde) und unter 55 Hz. Der Artikel der Epilepsy Foundation ["Lichtempfindlichkeit bei Epilepsie, eine der komplexesten Bedingungen"](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions) stellt fest, dass _"In der Regel sind Blitze in Frequenzen zwischen fünf und 30 Blitzen pro Sekunde (Hertz) am wahrscheinlichsten, um Anfälle auszulösen. Um sicher zu sein, empfiehlt der Konsens, dass photosensitive Personen nicht Blitzen ausgesetzt werden sollten, die mehr als drei pro Sekunde betragen."_ Für einige Menschen können Blitzen/Blinken jedoch auch bei weniger als 3 Hz Symptome hervorrufen.
 
-Es ist wichtig zu beachten, dass nicht alle Blitze und Blitzlichter schlecht sind. Die NASA stellt in ihrem Dokument mit dem Titel ["Blinking, Flashing, and Temporal Response"](https://colorusage.arc.nasa.gov/flashing.php) fest, dass Blinken und Blitzlichter leistungsstarke Werkzeuge sein können, um Aufmerksamkeit zu erregen - wie es für Warnknöpfe notwendig ist (dies setzt voraus, dass Benutzer den Bildschirm noch sehen können, während Elemente blinken, was nicht immer zutrifft). Für einige Benutzer warnen blinkende Knöpfe auch, dass sie sparsam und mit Sorgfalt verwendet werden müssen. In Bezug auf Webdesign müssen Systeme, die Unternehmensmitarbeiter auf Gefahren aufmerksam machen, indem sie den Bildschirm "kapern", um eine blinkende Notfallwarnung anzuzeigen, die Rate, Größe und Helligkeitsänderungen auf dem Bildschirm berücksichtigen, während diese Warnungen blinken.
+Es ist wichtig zu beachten, dass nicht alles Blitzen und Blinken schlecht ist. Die NASA stellt in ihrem Dokument ["Blinken, Blitzen und Zeitliche Reaktion"](https://colorusage.arc.nasa.gov/flashing.php) fest, dass Blinken und Blitzen mächtige Werkzeuge sein können, um Aufmerksamkeit zu erregen, wie es bei Warnknöpfen notwendig ist (vorausgesetzt, die Benutzer können den Bildschirm noch sehen, während Elemente blinken, was nicht immer der Fall ist). Für einige Benutzer warnen blinkende Knöpfe auch, dass diese sparsam und mit Bedacht verwendet werden müssen. Wie es auf das Webdesign zutrifft, müssen Systeme, die Unternehmensmitarbeiter auf Gefahren aufmerksam machen, indem sie den Bildschirm kapern, um ein blinkendes Notfallwarnsignal anzuzeigen, die Rate, Größe und Leuchtkraftänderungen auf dem Bildschirm berücksichtigen, wenn diese Warnungen blinken.
 
-### Blitzen und Flackern - wie wird Gefahr quantifiziert?
+### Blitzen und Flackern—Wie wird Gefahr quantifiziert?
 
-Laut dem Artikel ["Photic- and pattern-induced seizures: expert consensus of the Epilepsy Foundation of America Working Group",](https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1528-1167.2005.31405.x) ist "_ein Blitz eine potenzielle Gefahr, wenn er eine Leuchtdichte von ≥20 cd/m<sup>2</sup> hat, mit einer Frequenz von ≥3 Hz auftritt und einen soliden visuellen Winkel von ≥0,006 Steradiant (etwa 10 % des zentralen Sichtfelds oder 25 % der Bildschirmfläche bei typischen Betrachtungsabständen) einnimmt._"
+Laut dem Artikel ["Photisch- und Muster-induzierte Anfälle: Expertenkonsens der Epilepsy Foundation of America Working Group"](https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1528-1167.2005.31405.x) _"ist ein Blitz potenziell gefährlich, wenn er eine Leuchtdichte von ≥20 cd/m<sup>2</sup> hat, mit einer Frequenz von ≥3 Hz auftritt und einen soliden visuellen Winkel von ≥0.006 Steradian (ungefähr 10% des zentralen Gesichtsfeldes oder 25% der Bildschirmfläche bei typischen Betrachtungsabständen) einnimmt."_
 
-Wie weit ist ein typischer Betrachtungsabstand? Die zum Zeitpunkt des Schreibens in Betracht gezogene Empfehlung für einen typischen Betrachtungsabstand war "_der Bereich kann als anwendbar auf einen Bereich >25 % der Fläche eines Fernsehbildschirms angesehen werden, wobei ein Standardbetrachtungsabstand von ≥2 m (etwa 9 Fuß) angenommen wird_". Vieles hat sich seitdem verändert und wir sind jetzt viel näher an unseren Bildschirmen.
+Wie weit ist ein typischer Betrachtungsabstand? Die Empfehlung zur Berücksichtigung eines typischen Betrachtungsabstandes zum Zeitpunkt des Schreibens war "_das Gebiet kann als auf ein Gebiet >25% der Fläche eines Fernsehbildschirms angewendet werden, unter der Annahme standardmäßiger Betrachtungsabstände von ≥2 m (∼9 Fuß)"_. Seit dieser Zeit hat sich viel verändert, und wir sind jetzt viel näher an unseren Bildschirmen.
 
-Bestimmte Farben und/oder Farbkombinationen spielen ebenfalls eine Rolle. ["Certain Colors More Likely To Cause Epileptic Fits, Researchers Find"](https://www.sciencedaily.com/releases/2009/09/090925092858.htm) stellt fest: "_…die Komplexitäten, die den Dynamiken des Gehirns zugrunde liegen, könnten durch bestimmte Farbkombinationen mehr moduliert werden als durch andere, zum Beispiel führt ein Rot-Blau-Flackerreiz zu größerer kortikaler Erregung als ein Rot-Grün oder Blau-Grün Reiz._"
+Bestimmte Farben und/oder Farbkombinationen sind ebenfalls wichtig. ["Bestimmte Farben sind eher dazu geeignet, epileptische Anfälle auszulösen, finden Forscher heraus"](https://www.sciencedaily.com/releases/2009/09/090925092858.htm) stellt fest, dass _"…Komplexitäten, die den dynamischen Prozessen im Gehirn zugrunde liegen, durch bestimmte Farbkombinationen stärker als durch andere moduliert werden können, zum Beispiel verursacht ein rot-blauer flimmernder Stimulus stärkere kortikale Erregungen als ein rot-grüner oder blau-grüner Stimulus."_
 
-### Blitzen & rotes Blitzen
+### Blitzen & Rotes Blitzen
 
-[WCAG 2.3.1 allgemeine Blitz- und rote Blitzschwellen](https://www.w3.org/WAI/WCAG21/Understanding/three-flashes-or-below-threshold.html) sind wie folgt definiert:
+[WCAG 2.3.1 Allgemeine Blitz- und Rote Blitz-Schwellen](https://www.w3.org/WAI/WCAG21/Understanding/three-flashes-or-below-threshold.html) sind wie folgt definiert:
 
-- Ein **allgemeines Blitzen** ist definiert als ein Paar entgegengesetzter Änderungen in der [relativen Leuchtdichte](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) von 10 % oder mehr der maximalen relativen Leuchtdichte, wobei die relative Leuchtdichte des dunkleren Bildes unter 0,80 liegt und "ein Paar entgegengesetzter Änderungen" eine Erhöhung gefolgt von einer Verringerung oder eine Verringerung gefolgt von einer Erhöhung ist;
-- Ein **rotes Blitzen** ist definiert als ein Paar entgegengesetzter Übergänge, die ein gesättigtes Rot beinhalten.
+- Ein **allgemeiner Blitz** wird definiert als ein Paar entgegengesetzter Änderungen in [relativer Leuchtkraft](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) von 10% oder mehr der maximalen relativen Leuchtkraft, wobei die relative Leuchtkraft des dunkleren Bildes unter 0,80 liegt und "ein Paar entgegengesetzter Änderungen" eine Zunahme gefolgt von einer Abnahme ist oder umgekehrt.
+- Ein **roter Blitz** wird definiert als jedes Paar entgegengesetzter Übergänge, die einen gesättigten Rotton beinhalten.
 
-Diese Standards basieren auf früheren Forschungen. Im Jahr 2004 veranstaltete die Epilepsy Foundation of America einen Workshop, um einen [Konsens](https://pubmed.ncbi.nlm.nih.gov/16146438/) zu fotosensitiven Krampfanfällen zu entwickeln, der besagt: "_Ein Blitz ist eine potenzielle Gefahr, wenn er eine Leuchtdichte von mindestens 20 cd/m<sup>2</sup> hat, mit einer Frequenz von mindestens 3 Hz auftritt und einen soliden visuellen Winkel von mindestens 0,006 Steradiant einnimmt (etwa 10 % des zentralen Sichtfelds oder 25 % der Bildschirmfläche bei typischen Betrachtungsabständen)._" Der Übergang zu oder von einem gesättigten Rot ist wichtig und stellt ein Risiko für sich dar: "_Unabhängig von der Leuchtdichte wird ein Übergang zu oder von einem gesättigten Rot ebenfalls als Risiko betrachtet._"
+Diese Standards basieren auf früheren Forschungen. Im Jahr 2004 veranstaltete die Epilepsy Foundation of America einen Workshop, um einen [Konsens](https://pubmed.ncbi.nlm.nih.gov/16146438/) über photosensitive Anfälle zu entwickeln, und erklärte: _"Ein Blitz ist potenziell gefährlich, wenn er eine Leuchtdichte von mindestens 20 cd/m<sup>2</sup> hat, bei einer Frequenz von mindestens 3 Hz auftritt und einen soliden visuellen Winkel von mindestens 0.006 Steradian (ungefähr 10% des zentralen Sichtfeldes oder 25% der Bildschirmfläche bei typischen Betrachtungsabständen) einnimmt."_ Der Übergang zu oder von einem gesättigten Rot ist wichtig und stellt ein Risiko für sich dar: "_Unabhängig von der Leuchtdichte wird ein Übergang zu oder von einem gesättigten Rot ebenfalls als Risiko betrachtet._"
 
-### Größe und Entfernung
+### Größe und Abstand
 
 #### Wie groß? Es kommt darauf an
 
-"Sowohl relative" Größe als auch Entfernung sind relevant. Laut [PEAT](https://trace.umd.edu/peat/), "_Die kombinierte Fläche der gleichzeitig auftretenden Blitze beansprucht nicht mehr als insgesamt ein Viertel eines beliebigen 341 x 256 Pixel Rechtecks irgendwo auf der angezeigten Bildschirmfläche, wenn der Inhalt bei 1024 mal 768 Pixeln betrachtet wird._"
+"Sowohl relative" Größe als auch Abstand sind wichtig. Laut [PEAT](https://trace.umd.edu/peat/), _"Die kombinierte Fläche der gleichzeitig auftretenden Blitze nimmt nicht mehr als ein Viertel eines jeden 341 x 256 Pixel Rechtecks irgendwo auf der dargestellten Bildschirmfläche ein, wenn die Inhalte mit 1024 mal 768 Pixeln betrachtet werden."_
 
-Der Punkt, dass das Blickfeld eine wichtige Überlegung ist, ergibt sich im Artikel, der sich mit WCAG 2.3.1 befasst: "_Der 1024 x 768 Bildschirm wird als Referenzauflösung für die Bewertung verwendet. Der 341 x 256 Pixel Block repräsentiert einen 10-Grad-Sichtbereich bei typischen Betrachtungsabständen. (Das 10-Grad-Feld stammt aus den ursprünglichen Spezifikationen und repräsentiert den zentralen Sehbereich des Auges, wo Menschen am anfälligsten für fotostimuli sind.)_"
+Der Punkt, dass das Sichtfeld eine wichtige Überlegung ist, wird in dem Artikel, der WCAG 2.3.1 behandelt, weiter ausgeführt: "_Der 1024 x 768 Bildschirm wird als die Referenzbildschirmauflösung für die Bewertung verwendet. Der 341 x 256 Pixel Block repräsentiert ein 10-Grad-Sichtfeld bei einem typischen Betrachtungsabstand. (Das 10-Grad-Sichtfeld ist den ursprünglichen Spezifikationen entnommen und repräsentiert den zentralen Sehbereich des Auges, wo Menschen am anfälligsten für Fotostimuli sind.)_"
 
-Dieses Pixel-Flächenverhältnis berechnet die relative Größe, aber auch die Entfernung zählt.
+Dieses Pixel-Flächenverhältnis berechnet die relative Größe, aber auch der Abstand ist wichtig.
 
-Die Entfernung spielt eine Rolle, weil sie das gesamte Sehfeld beeinflusst. Wenn Zuschauer Augenausrüstung für Spiele tragen, wird das Sehfeld wahrscheinlich in seiner Gesamtheit vom Bildschirm umhüllt. [WebXR](/de/docs/Web/API/WebXR_Device_API) ist eine offene Spezifikation, die es ermöglicht, VR in Ihrem Browser zu erleben, die sowohl auf Handys, Computern als auch Headsets erlebt werden kann. Die Sorge um blinkende Bilder in einer Augenausrüstung wächst, da der Bildschirm so nahe an den Augen ist.
+Der Abstand ist wichtig, weil er das gesamte Sichtfeld beeinflusst. Wenn Betrachter Augenmasken für Spiele tragen, wird das Sichtfeld wahrscheinlich vollständig vom Bildschirm eingenommen. [WebXR](/de/docs/Web/API/WebXR_Device_API) ist eine offene Spezifikation, die es ermöglicht, VR in Ihrem Browser zu erleben, was auf dem Telefon, Computer oder mit einem Headset erlebt werden kann. Das Problem des flackernden Bildes in einer Augenmaske wird immer drängender, da die Maske so nah an den Augen ist.
 
-Untersuchungen deuten generell darauf hin, dass die Nutzung von VR möglicherweise sogar sicherer ist als der normale Konsum von Bildschirmen, aufgrund höherer Bildwiederholraten. Wie [Fisher et al. 2022](https://onlinelibrary.wiley.com/doi/full/10.1111/epi.17175) zusammenfasst: "_Die bisher verfügbaren begrenzten Daten lassen in Bezug auf VR-Technologie keine besonderen Bedenken hinsichtlich Krampfanfällen erkennen, obwohl sich diese Sichtweise mit mehr Erfahrung ändern kann. Bestimmte Arten von VR-Inhalten, einschließlich heller Blitze, provokativer Muster oder Farbänderungen, würden voraussichtlich Krampfanfälle auslösen, genauso wie sie es in der realen Welt tun._"
+Untersuchungen allgemein deuten darauf hin, dass die Nutzung von VR tatsächlich sicherer sein könnte als der normale Bildschirmkonsum, aufgrund höherer Bildwiederholraten. Wie aus [Fisher et al. 2022](https://onlinelibrary.wiley.com/doi/full/10.1111/epi.17175) hervorgeht, _"Die bisher verfügbaren begrenzten Daten geben keine besonderen Bedenken hinsichtlich Anfällen in Bezug auf VR-Technologie auf, obwohl sich diese Einschätzung mit mehr Erfahrung ändern könnte. Bestimmte Arten von VR-Inhalten, einschließlich heller Blitze, provokativer Muster oder Farbänderungen, würden erwarten lassen, dass sie Anfälle auslösen, genauso wie in der realen Welt."_
 
-(Beachten Sie, dass einige Benutzer bei blinkenden Cursorn nichts sehen können und möglicherweise Migräne, Reisekrankheit und Desorientierung bekommen, obwohl blinkende Cursor einen viel kleineren Bereich des Bildschirms einnehmen.)
+(Beachten Sie, dass einige Benutzer nicht sehen können, wenn der Cursor blinkt, und möglicherweise Migräne, Bewegungskrankheit und Desorientierung bekommen, obwohl blinkende Cursor einen viel kleineren Bereich des Bildschirms einnehmen.)
 
-### Muster und Parallax
+### Muster und Parallaxe
 
-Kontrastierende dunkle und helle geometrische Muster sind ein bekannter Übeltäter; Streifen und Karos sind die bekanntesten Beispiele. Die Arbeitsgruppe der Epilepsy Foundation of America listet auf, wie viele hell-dunkle Streifenpaare wahrscheinlich Krampfanfälle provozieren, und unter welchen Bedingungen. Wenn ein Muster unverändert und gerade ist, sind acht Linien das maximal erlaubte, aber wenn es sich bewegt, sind nicht mehr als fünf Linien zulässig.
+Kontrastreiche dunkle und helle geometrische Muster sind als Übeltäter bekannt; Streifen und Quadrate sind die bekanntesten Beispiele. Die Epilepsy Foundation of America Working Group listet auf, wie viele hell-dunkel-Paare von Streifen wahrscheinlich Anfälle auslösen und unter welchen Bedingungen. Wenn ein Muster unveränderlich und gerade ist, ist die maximale zulässige Anzahl acht Linien, aber wenn es sich wellenförmig bewegt, dürfen es nicht mehr als fünf Linien sein.
 
-Parallax-Effekte können Desorientierung verursachen. Nutzen Sie Parallax-Effekte mit Vorsicht; wenn Sie sie verwenden müssen, stellen Sie sicher, dass der Benutzer eine Kontrolle hat, um sie auszuschalten.
+Parallaxeeffekte können Desorientierung verursachen. Verwenden Sie Parallaxeeffekte mit Vorsicht; wenn Sie sie verwenden müssen, stellen Sie sicher, dass der Benutzer eine Kontrolle hat, um sie auszuschalten.
 
-"Ein Muster mit dem Potenzial, Krampfanfälle zu provozieren, enthält deutlich erkennbare Streifen, die in irgendeiner Ausrichtung mehr als fünf hell-dunkle Streifenpaare zählen. Wenn die hell-dunklen Streifen eines beliebigen Musters vom minimal erwarteten Betrachtungsabstand aus ein solides Winkelmaß von >0,006 Steradian am Auge einnehmen, die Leuchtdichte des hellsten Streifens >50 cd/m<sup>2</sup> beträgt und das Muster für ≥0,5 s angezeigt wird, sollte das Muster nicht mehr als fünf hell-dunkle Streifenpaare zeigen, wenn die Streifen ihre Richtung ändern, oszillieren, blitzen oder den Kontrast umkehren; wenn das Muster unverändert ist oder gleichmäßig in eine Richtung driftet, nicht mehr als acht Streifen."
+"Ein Muster mit dem Potenzial zur Provokation von Anfällen enthält klar unterscheidbare Streifen, die mehr als fünf hell-dunkel-Paare von Streifen in irgendeiner Ausrichtung zählen. Wenn die hell-dunkel Streifen eines Musters zusammen am Auge vom minimal zu erwartenden Betrachtungsabstand einen soliden Winkel von >0.006 Steradianen aufweisen, die Leuchtdichte des hellsten Streifens >50 cd/m<sup>2</sup> beträgt und das Muster ≥0,5 s präsentiert wird, sollte das Muster nicht mehr als fünf hell-dunkel Streifenpaare anzeigen, wenn sich die Streifenrichtung ändert, sie oszillieren, blitzen oder im Kontrast umkehren; wenn das Muster unveränderlich oder sanft in eine Richtung driftet, nicht mehr als acht Streifen."
 
-Nicht alles ist bekannt, und selbst bei den oben genannten Metriken kommen zusätzliche Faktoren ins Spiel. Zum Beispiel erhöht sich die Wahrscheinlichkeit, dass das Gehirn reagiert, wenn man von einem kleineren Bereich zu einem größeren wechselt, ebenso wie bei erhöhtem Kontrast und erhöhter räumlicher Frequenz von einer niedrigen zu einer mittleren. Es ist auch bekannt, obwohl der Grund dafür nicht verstanden wird, dass der Wechsel von einfachen (z. B. Streifen) zu mehreren Orientierungen (z. B. dem Schachbrettmuster, das entsteht, wenn man ein Streifenmuster quer über das ursprüngliche legt) das Gehirn beeinflusst.
+Es ist noch nicht alles bekannt, und selbst mit den oben genannten Metriken spielen zusätzliche Faktoren eine Rolle. Zum Beispiel erhöht sich die Wahrscheinlichkeit, dass das Gehirn reagiert, wenn man von einem kleineren Bereich zu einem größeren wechselt, sowie der Kontrast und die Raumfrequenz von niedrig zu mittel. Es ist auch bekannt, obwohl die Begründung dahinter nicht verstanden wird, dass das Gehirn beeinflusst wird, wenn man von grundlegenden Orientierungen (zum Beispiel Streifen) zu einer mehrfachen (zum Beispiel das Schachbrettmuster, das entsteht, wenn man einen Satz von Streifen auf, aber senkrecht zu, dem ursprünglichen Satz legt) wechselt.
 
 ### Farben
 
-Das Verständnis von Farben ist wichtig für Barrierefreiheit. Siehe [Farben und Leuchtdichte verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance), wie es sich auf Web-Zugänglichkeit und Zugänglichkeit im Allgemeinen bezieht.
+Das Verständnis von Farben ist wichtig für die Barrierefreiheit. Siehe [Verstehen von Farben und Leuchtdichte](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance), wie es sich auf die Web-Barrierefreiheit und die Barrierefreiheit im Allgemeinen bezieht.
 
-Wie die Farbe sich auf ihren Hintergrund bezieht — gewöhnlich in Bezug auf Kontrast formuliert — und wie drastisch sich die Farbe von Frame zu Frame in einer Animation ändert, ist wichtig. Weitere Informationen dazu finden Sie unter [Drei Blitze oder weniger Schwellenwert verstehen SC 2.3.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html).
+Wie sich die Farbe auf ihren Hintergrund bezieht—normalerweise in Bezug auf Kontrast formuliert—und wie drastisch sich die Farbe von Bild zu Bild in einer Animation ändert, ist wichtig. Für mehr dazu siehe [Verstehen der Schwelle von Drei Blitzen oder Weniger SC 2.3.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html).
 
-#### Der spezielle Fall von Rot
+#### Der Sonderfall Rot
 
-Es wurde gezeigt, dass [einige Farben eher epileptische Anfälle auslösen als andere](https://www.sciencedaily.com/releases/2009/09/090925092858.htm). Die menschliche Physiologie und Psychologie werden im Allgemeinen von der Farbe Rot beeinflusst. Ihre Fähigkeit, das Verhalten zu beeinflussen, wurde sogar bei Tieren festgestellt.
+Es wurde gezeigt, dass [einige Farben eher epileptische Anfälle auslösen als andere](https://www.sciencedaily.com/releases/2009/09/090925092858.htm). Die menschliche Physiologie und Psychologie werden im Allgemeinen von der Farbe Rot beeinflusst. Ihr Einfluss auf das Verhalten wurde sogar bei Tieren beobachtet.
 
-- **Rote Desaturierungstests:** Das menschliche Auge ist so empfindlich auf Rot abgestimmt, dass Augenärzte es als Test verwenden. Der Rote Desaturierungstest bewertet die Integrität des Sehnervs. Weitere Informationen zur Verwendung dieses Tests durch einen Augenarzt finden Sie unter [Red Desaturation](https://www.smartoptometry.app/red-desaturation/).
-- **Rote Umgebung:** Studien haben gezeigt, dass bei Personen mit traumatischer Hirnverletzung [die kognitive Funktion in einer roten Umgebung reduziert ist](https://pubmed.ncbi.nlm.nih.gov/20649469/).
+- **Rot-Desensibilisierungstests:** Das menschliche Auge ist so empfindlich auf Rot abgestimmt, dass Augenärzte es zu einem Test gemacht haben. Der Red Desaturation Test bewertet die Integrität des Sehnervs. Weitere Informationen darüber, wie ein Augenarzt diesen Test verwendet, finden Sie unter [Red Desaturation](https://www.smartoptometry.app/red-desaturation/).
+- **Rote Umgebung:** Studien haben gezeigt, dass für diejenigen, die an einer traumatischen Hirnverletzung leiden, [die kognitive Funktion in einer roten Umgebung reduziert ist](https://pubmed.ncbi.nlm.nih.gov/20649469/).
 
-[Gesättigtes Rot](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance) ist ein spezieller, gefährlicher Fall, und es gibt spezifische Tests dafür. Neben der Beeinflussung der kognitiven Funktion von Personen mit traumatischen Hirnverletzungen erfordert die Farbe im roten Spektrum offensichtlich besondere Aufmerksamkeit und spezielle Tests. Dr. Gregg Vanderheiden, bei der Erprobung des Photosensitive Epilepsy Analysis Tool, stellte fest, dass die Anfallraten viel höher waren als erwartet. Sie fanden heraus, dass wir viel empfindlicher auf gesättigtes rotes Blinken reagieren. (Siehe das Video, [The Photosensitive Epilepsy Analysis Tool](https://www.pbs.org/video/university-place-the-photosensitive-epilepsy-analysis-tool-ep-429/).)
+[Gängiges Rot](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance) ist ein besonderer, gefährlicher Fall, und es gibt spezielle Tests dafür. Zusätzlich zu einer roten Umgebung, die die kognitive Funktion von Menschen mit traumatischen Hirnverletzungen beeinflusst, scheint die Farbe im roten Spektralwellenlängenbereich besondere Besorgnis und spezielle Tests zu erfordern. Dr. Gregg Vanderheiden bemerkte bei der Testung des Photosensitive Epilepsy Analysis Tool, dass die Anfallsraten viel höher waren als erwartet. Sie fanden heraus, dass wir viel empfindlicher auf gesättigtes rotes Blitzen reagieren. (Siehe das Video, [The Photosensitive Epilepsy Analysis Tool](https://www.pbs.org/video/university-place-the-photosensitive-epilepsy-analysis-tool-ep-429/).)
 
-#### Websicher bedeutet nicht sicher vor Krampfanfällen
+#### Websafe bedeutet nicht krampfsicher
 
-Beachten Sie, dass die Farbe **#990000** als "**websicher**" angesehen wird. Das bedeutet _nicht_, dass sie "sicher ist, keine Anfälle zu verursachen"; es bedeutet lediglich, dass die Farbe von der Technologie, die verwendet wird, um Farbe auf Bildschirmen zu erzeugen, genau reproduziert werden kann.
+Beachten Sie, dass die Farbe **#990000** als "**websafe**" betrachtet wird. Das bedeutet _nicht_, dass sie "sicher vor Anfallsauslösung" ist, sondern nur, dass die Farbe möglicherweise "sicher" von der Technologie, die für die Farbdarstellung auf Bildschirmen verwendet wird, genau wiedergegeben wird.
 
-## Messung zur Schadensvermeidung
+## Messen zur Schadensvermeidung
 
-Die Messung des potenziellen Schadens ist ein guter Ausgangspunkt. Zu den in Tests berücksichtigten Faktoren gehören Farbe, Helligkeit, Größe, Kontrast und, im Falle von Animationen, Frequenz. WCAG 2.1 bietet Leitlinien zur Bewertung von Inhalten.
+Das Messen des Potenzials für Schaden ist ein guter Ausgangspunkt. In Tests berücksichtigte Faktoren sind Farbe, Leuchtdichte, Größe, Kontrast und im Fall von Animationen die Frequenz. WCAG 2.1 gibt Leitlinien für die Bewertung von Inhalten.
 
-Im August 2004 hielt die Epilepsy Foundation of America einen Workshop ab, um einen Expertenkonsens zu fotosensitiven Krampfanfällen zu erarbeiten. Die folgenden, fachkundigen und autoritativen Informationen stammen aus: [Photic- and pattern-induced seizures: expert consensus of the Epilepsy Foundation of America Working Group.](https://pubmed.ncbi.nlm.nih.gov/16146438/)
+Im August 2004 veranstaltete die Epilepsy Foundation of America einen Workshop, um einen Expertenkonsens über photosensitive Anfälle zu entwickeln. Die folgende Information von Experten und Autoritäten stammt aus: [Photisch- und musterinduzierte Anfälle: Expertenkonsens der Epilepsy Foundation of America Working Group.](https://pubmed.ncbi.nlm.nih.gov/16146438/)
 
-> Ein Blitz ist eine potenzielle Gefahr, wenn er eine Leuchtdichte von ≥20 cd/m<sup>2</sup> hat, mit einer Frequenz von ≥3 Hz auftritt und einen soliden visuellen Winkel von ≥0,006 Steradian (etwa 10 % des zentralen Sichtfeldes oder 25 % der Bildschirmfläche bei typischen Betrachtungsabständen) einnimmt. Ein Übergang zu oder von gesättigtem Rot wird ebenfalls als Risiko betrachtet. Ein Muster mit dem Potenzial, Krampfanfälle auszulösen, enthält deutlich erkennbare Streifen, die in irgendeiner Ausrichtung mehr als fünf hell-dunkel Streifenpaare zählen. Wenn die hell-dunkel Streifen eines beliebigen Musters vom minimal erwarteten Betrachtungsabstand aus ein solides Winkelmaß von >0,006 Steradian einnehmen, die Leuchtdichte des hellsten Streifens >50 cd/m2 beträgt und das Muster für ≥0,5 s angezeigt wird, sollte das Muster nicht mehr als fünf hell-dunkel Streifenpaare zeigen, wenn die Streifen ihre Richtung ändern, oszillieren, blitzen oder den Kontrast umkehren; wenn das Muster unverändert ist oder gleichmäßig in eine Richtung driftet, nicht mehr als acht Streifen. Diese Prinzipien sind leichter anzuwenden bei feststehenden Medien, zum Beispiel einer aufgezeichneten Fernsehsendung, die bildweise analysiert werden kann, im Vergleich zu interaktiven Medien.
+> Ein Blitz ist potenziell gefährlich, wenn er eine Leuchtdichte von ≥20 cd/m<sup>2</sup> aufweist, bei einer Frequenz von ≥3 Hz auftritt und einen soliden visuellen Winkel von ≥0.006 Steradian (ungefähr 10% des zentralen Sichtfeldes oder 25% der Bildschirmfläche bei typischen Betrachtungsabständen) einnimmt. Ein Übergang zu oder von gesättigtem Rot wird ebenfalls als Risiko gewertet. Ein Muster mit dem Potenzial zur Provokation von Anfällen enthält klar erkennbare Streifen, die mehr als fünf hell-dunkel Paare von Streifen in irgendeiner Ausrichtung zählen. Wenn die hell-dunkel Streifen eines Musters zusammen am Auge einen soliden Winkel von >0.006 Steradianen vom minimal erwartbaren Betrachtungsabstand einnehmen, die Leuchtdichte des hellsten Streifens >50 cd/m2 beträgt, und das Muster ≥0,5 s präsentiert wird, dann sollte das Muster nicht mehr als fünf hell-dunkel Paare von Streifen anzeigen, wenn die Streifen die Richtung ändern, oszillieren, blitzen oder im Kontrast umkehren; wenn sich das Muster nicht ändert oder sanft in eine Richtung driftet, nicht mehr als acht Streifen. Diese Prinzipien sind einfacher anzuwenden im Fall von fixen Medien, wie zum Beispiel bei einer aufgezeichneten Fernsehsendung, die Bild für Bild analysiert werden kann, im Vergleich zu interaktiven Medien.
 
-Die "cd/m<sup>2</sup>" bezieht sich auf Candela pro Quadratmeter. Also, für den Webentwickler, wie bezieht sich dieses auf Messungen für Farbe, Leuchtdichte und Sättigung?
+Das "cd/m<sup>2</sup>" bezieht sich auf Candela pro Quadratmeter. Wie bezieht sich das für den Webentwickler auf Messungen für Farbe, Leuchtdichte und Sättigung?
 
-Die Candela ist eine SI-Einheit (Internationales Einheitensystem) für Lichtstärke. Es ist ein photometrischer Begriff, und Photometrie befasst sich mit der Messung von sichtbarem Licht, wie es von menschlichen Augen wahrgenommen wird. Wikipedia's Artikel über ["Candela per square metre"](https://en.wikipedia.org/wiki/Candela_per_square_metre) bringt es in Begriffe, mit denen wir als Entwickler vertraut sind: auf einem Anzeigegerät und im RGB-Farbraum. Das ist hilfreich, denn es gibt einen spezifischen Standard, der erwartet wird, auf Monitoren, Druckern und im Internet verwendet zu werden, und dieser ist der **sRGB** (standard Red Green Blue).
+Die Candela ist eine SI-Einheit (Internationales Einheitensystem) der Lichtstärke. Es ist ein photometrischer Begriff, und Photometrie beschäftigt sich mit der Messung des sichtbaren Lichts, wie es von menschlichen Augen wahrgenommen wird. Der Wikipedia-Artikel zu ["Candela pro Quadratmeter"](https://en.wikipedia.org/wiki/Candela_per_square_metre) stellt es in Bezug, was wir als Entwickler durch sRGB kennen: auf einem Anzeigegerät und im RGB-Raum. Dies ist hilfreich, weil es einen spezifischen Standard gibt, der auf Monitoren, Druckern und im Internet angenommen wird, und es ist das **sRGB** (Standard Rot Grün Blau).
 
-> Als Maßstab für das emittierte Licht pro Flächeneinheit wird diese Einheit häufig verwendet, um die Helligkeit eines Anzeigegerätes zu spezifizieren. Die [sRGB](https://en.wikipedia.org/wiki/SRGB)-Speziifikation für Monitore zielt auf 80 cd/m<sup>2</sup> ab. Normalerweise sollten kalibrierte Monitore eine Helligkeit von 120 cd/m<sup>2</sup> haben. Die meisten Verbraucher-Desktop- [Liquid Crystal Displays](https://en.wikipedia.org/wiki/Liquid_crystal_display) haben Leuchtdichten von 200 bis 300 cd/m<sup>2</sup>. [High-definition televisions](https://en.wikipedia.org/wiki/High-definition_television) reichen von 450 bis etwa 1500 cd/m<sup>2</sup>.
+> Als Maß für das ausgestrahlte Licht pro Flächeneinheit wird diese Einheit häufig verwendet, um die Helligkeit eines Anzeigegeräts anzugeben. Die [sRGB](https://en.wikipedia.org/wiki/SRGB) Spezifikation für Monitore zielt auf 80 cd/m<sup>2</sup> ab. Typischerweise sollten kalibrierte Monitore eine Helligkeit von 120 cd/m<sup>2</sup> haben. Die meisten Verbraucher-Desktop [Flachbildschirme](https://en.wikipedia.org/wiki/Liquid_crystal_display) haben Leuchtdichten von 200 bis 300 cd/m<sup>2</sup>. [Hochauflösende Fernseher](https://en.wikipedia.org/wiki/High-definition_television) reichen von 450 bis etwa 1500 cd/m<sup>2</sup>.
 
-Die Quintessenz ist, dass der **sRGB**-Farbraum ein gemeinsamer Berührungspunkt zwischen Forschung, Bewertungswerkzeugen und Entwicklern ist, da er leicht aus dem häufig verwendeten Hex-Code konvertiert werden kann.
+Der wichtigste Punkt ist, dass der **sRGB** Farbraum eine gemeinsame Ausgangsbasis ist zwischen Forschung, Bewertungstools und Entwicklern, da er leicht vom häufig verwendeten Hex-Code konvertiert werden kann.
 
 ### Menschliche Physiologie und Psychologie als Überlegung
 
-Viele Experten arbeiten daran, in größtmöglichem Umfang Arten von Webinhalten zu quantifizieren und zu messen, die als Auslöser für Krampfanfälle dienen können. Das gesagt, es darf nicht vergessen werden, dass Farbe ebenso viel mit menschlicher Wahrnehmung im Gehirn zu tun hat, wie mit der Messung von Licht, das von einem Computerbildschirm kommt.
+Viele Experten arbeiten daran, die Art von Webinhalten, die als Auslöser für Anfälle dienen können, soweit wie möglich zu quantifizieren und zu messen. Das gesagt, es darf nicht vergessen werden, dass Farbe genauso sehr über menschliche Wahrnehmung im Gehirn geht wie über die Messung des vom Computerbildschirm kommenden Lichts.
 
-Zusätzlich zu den psychologischen Variablen gibt es auch physiologische Unterschiede unter uns. Es wird Variationen und Nuancen geben, wie ein realer Mensch Farbe und Licht wahrnimmt und darauf reagiert. Zum Beispiel bemerkt Tom Jewett, Dozent Emeritus für Informatik an der Cal State University Long Beach, Folgendes in Bezug auf [Lichtstärke im HSL-Farbraum](https://colortutorial.design/hsb.html): "_…Der Unterschied zwischen Stufen der Lichtstärke ist nicht tatsächlich linear, wie es die HSL-Skala andeuten würde; wir sind viel empfindlicher auf Veränderungen in helleren Werten als auf dunklere._"
+Zusätzlich zu den psychologischen Unterschieden gibt es auch physiologische Unterschiede unter uns. Es wird Varianzen und Nuancen darin geben, wie ein realer Mensch Farbe und Licht wahrnimmt und darauf reagiert. Zum Beispiel bemerkt Tom Jewett, emeritierter Dozent der Informatik an der Cal State University Long Beach, das Folgende in Bezug auf [Helligkeit in der HSL-Farbskala](https://colortutorial.design/hsb.html) _"…Die Unterscheidung zwischen Helligkeitsstufen ist nicht tatsächlich linear, wie die HSL-Skala impliziert; wir sind viel empfindlicher gegenüber Veränderungen in helleren Werten als dunkleren."_
 
-Es ist wichtig zu verstehen, dass Licht und seine Messungen linear sind, aber das menschliche Sehen und die menschliche Wahrnehmung nicht. Forschungs- und Diskussionsaktivitäten sind im Gange, wie man die maschinelle Lichtmessung in Zusammenhang mit der Entfernung zum menschlichen Auge, gefiltert durch das menschliche Sehen, und dann im menschlichen Gehirn manipuliert, setzen kann.
+Es ist wichtig zu verstehen, dass Licht und seine Messungen linear sind, aber das menschliche Sehen und die menschliche Wahrnehmung sind es nicht. Die Untersuchung und Diskussion darüber, wie die maschinelle Messung des Lichts, das von einem Computerbildschirm durch die Entfernung zum menschlichen Auge tritt, gefiltert von der menschlichen Sicht, und dann im menschlichen Gehirn manipuliert wird, in Beziehung gesetzt werden kann, wird fortgesetzt.
 
-Selbst Alter und Geschlecht können eine Rolle spielen. Laut der Epilepsy Foundation's Artikel, ["Shedding Light on Photosensitivity, One of Epilepsy's Most Complex Conditions"](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions), "_Kinder und Jugendliche sind anfälliger als Erwachsene für eine abnormale Reaktion auf Lichteinwirkung, und der erste lichtinduzierte Anfall tritt fast immer vor dem 20. Lebensjahr auf._" Der Artikel folgt mit dieser Statistik: "_Mädchen (60 %) sind häufiger betroffen als Jungen (40 %), obwohl Anfälle bei Jungen häufiger sind, weil sie eher Videospiele spielen. Videospiele enthalten oft provokativ beleuchtete Lichtstimuli._"
+Sogar Alter und Geschlecht können eine Rolle spielen. Laut dem Artikel der Epilepsy Foundation, ["Lichtempfindlichkeit bei Epilepsie, eine der komplexesten Bedingungen"](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions), _"Kinder und Jugendliche sind anfälliger als Erwachsene für eine abnorme Reaktion auf Lichtstimulation, und der erste lichtinduzierte Anfall tritt fast immer vor dem 20. Lebensjahr auf"._ Der Artikel folgt dieser Statistik: _"Mädchen (60 Prozent) sind häufiger betroffen als Jungen (40 Prozent), obwohl Anfälle bei Jungen häufiger sind, da sie eher Videospiele spielen. Videospiele enthalten oft potenziell provozierende Lichtstimulationen."_
 
-**Benutzertests sind sehr problematisch**. Natürlich möchte niemand eine anfällige Person einem Benutzertest unterziehen. Es ist gefährlich. In diesem Sinne ist eine der ethischsten Dinge, die Entwickler und Designer tun können, die Nutzung von Werkzeugen, die von Experten auf diesem Gebiet entwickelt wurden, die Hand in Hand mit Ärzten zusammengearbeitet haben, um das Werkzeug zu entwickeln. Zum Zeitpunkt des Schreibens gibt es zwei allgemein verfügbare Werkzeuge, die ethisch und professionell von Forschern und Ärzten für Filme/Videos entwickelt wurden: **PEAT** und der **Harding-Test**.
+**Benutzertests sind sehr problematisch.** Natürlich möchte niemand eine anfallgefährdete Person einem Benutzertest unterziehen. Es ist gefährlich. In diesem Sinne ist eine der ethischsten Dinge, die Entwickler und Designer tun können, die Verwendung von Tools, die von Experten auf dem Gebiet entwickelt wurden, die Hand-in-Hand mit Ärzten zusammengearbeitet haben, um das Tool zu entwickeln. Zum Zeitpunkt des Schreibens gibt es zwei allgemein verfügbare Tools, die ethisch und professionell von Forschern und Ärzten für Film/Videos entwickelt wurden: **PEAT** und der **Harding Test**.
 
 ### Photosensitive Epilepsy Analysis Tool (PEAT)
 
-Das [Trace Research and Development Center](https://trace.umd.edu/) hat einen Goldstandard für ein [Photosensitive Epilepsy Analysis Tool](https://trace.umd.edu/peat/) etabliert und betont, dass es **_kostenlos_** zum Download bereitgestellt wird. PEAT kann Autoren dabei helfen, festzustellen, ob Animationen oder Videos in ihren Inhalten wahrscheinlich Krampfanfälle verursachen. Bitte beachten Sie die Einschränkung seiner Verwendung: **_Verwendung von PEAT zur Bewertung kommerziell produzierten Materials für Fernsehsendungen, Filme, Home Entertainment oder Spieleindustrie ist untersagt. Verwenden Sie den Harding-Test oder andere Werkzeuge für kommerzielle Zwecke._**
+Das [Trace Research and Development Center](https://trace.umd.edu/) hat einen Goldstandard für ein [Photosensitive Epilepsy Analysis Tool](https://trace.umd.edu/peat/) gesetzt, und sie haben sich bemüht, es **_kostenlos_** herunterzuladen. PEAT kann Autoren dabei helfen, festzustellen, ob Animationen oder Videos in ihren Inhalten wahrscheinlich Anfälle verursachen. Bitte beachten Sie die Einschränkungen bei der Nutzung: **_Die Verwendung von PEAT zur Bewertung von Materialien, die kommerziell für Fernsehausstrahlungen, Filme, Heimunterhaltung oder Spiele hergestellt werden, ist verboten. Verwenden Sie den Harding Test oder andere Tools für kommerzielle Zwecke._**
 
 Um eine kostenlose Kopie des Photosensitive Epilepsy Analysis Tool der University of Maryland zu erhalten, besuchen Sie das [Trace Research & Development Center](https://trace.umd.edu/).
 
 ![University of Maryland College of Information Studies Photosensitive Epilepsy Analysis Tool.](peatversion1pt6.png)
 
-### Der Harding-Test
+### Der Harding Test
 
-Da die Nutzung des PEAT-Tools für kommerzielle Zwecke untersagt ist, können Fernsehprogramme den Harding-Test bei [HardingTest.com](https://hardingtest.com/) verwenden. Der Harding-Test ist ein weiterer Goldstandard. Fernsehprogramme in verschiedenen Ländern müssen diesen Test bestehen, bevor sie ausgestrahlt werden können, sodass die Gruppe bei [HardingTest.com](https://hardingtest.com/) sowohl Analyse als auch Zertifizierung von Videoinhalten bereitstellt.
+Da die Nutzung des PEAT-Tools für kommerzielle Zwecke verboten ist, können Fernsehmacher den Harding Test auf [HardingTest.com](https://hardingtest.com/) verwenden. Der Harding Test ist ein weiterer Goldstandard. Fernsehsender in verschiedenen Ländern müssen diesen Test bestehen, bevor sie senden dürfen, daher bietet die Gruppe auf [HardingTest.com](https://hardingtest.com/) sowohl die Analyse als auch die Zertifizierung von Videoinhalten an.
 
 ![Harding Flash and Pattern Analyzer.](screen_shot_2019-06-20_at_11.16.17_am.png)
 
-## Barrierefreiheit-Lösungen für Entwickler
+## Barrierefreiheitslösungen für Entwickler
 
-Alle Animationen sind potenziell gefährlich. Als Designer und Entwickler liegt unsere Verantwortung darin, sicherzustellen, dass wir keine Schäden absichtlich oder unabsichtlich verursachen. Wenn wir etwas einschließen müssen, das potenziell schädlich sein könnte, ist es wichtig, dass Benutzer nicht versehentlich auf die schädlichen Inhalte stoßen und Wege zur Verfügung gestellt werden, durch die Benutzer Animationen verhindern und steuern können, um potenziellen Schaden zu mindern.
+Alle Animationen sind potenziell gefährlich. Als Designer und Entwickler liegt es in unserer Verantwortung sicherzustellen, dass wir keinen Schaden beabsichtigt oder unbeabsichtigt verursachen. Wenn wir etwas einfügen müssen, das Schaden verursachen könnte, ist es entscheidend, Benutzer daran zu hindern, den schädlichen Inhalt versehentlich zu begegnen, und Möglichkeiten zu bieten, wie Benutzer Animationen verhindern und steuern können, um potenzielle Gefahren zu mindern.
 
 ### Was der Webentwickler tun kann
 
-#### Kein Unheil anrichten
+#### Keinen Schaden verursachen
 
-[WCAG Leitfaden 2.3 Krampfanfälle und Körperreaktionen](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-21/) bietet einen Überblick: "_Gestalten Sie keine Inhalte in einer Weise, die bekanntermaßen Krampfanfälle oder physische Reaktionen verursacht_". Keine Animation einzufügen, die ein Benutzer nicht kontrollieren kann. Verwenden Sie keine Muster, die bekanntermaßen Probleme verursachen. Wenn Sie ein GIF oder PNG mit Blitzen einfügen müssen, zeichnen Sie es stattdessen im Videoformat auf, damit dem Benutzer Steuerungsmöglichkeiten zur Verfügung stehen. Bieten Sie dem Benutzer die Möglichkeit, es zu vermeiden, auszuschalten oder weniger schädlich zu machen.
+[WCAG-Leitfaden 2.3 Anfälle und körperliche Reaktionen](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-21/) bietet einen Überblick: _"Gestalten Sie Inhalte nicht so, dass sie bekanntermaßen Anfälle oder körperliche Reaktionen verursachen."_ Fügen Sie keine Animation ein, die ein Benutzer nicht steuern kann. Entwerfen Sie nicht mit Mustern, die bekanntermaßen Probleme verursachen. Wenn Sie ein GIF oder PNG mit darin enthaltenem Blitzen einfügen müssen, nehmen Sie es stattdessen im Videoformat auf, damit dem Benutzer Kontrollen zur Verfügung stehen. Geben Sie dem Benutzer die Möglichkeit, es zu vermeiden, es auszuschalten oder es weniger schädlich zu machen.
 
-#### Verstehen von Bosheit
+#### Verstehen von Boshaftigkeit
 
-Stellen Sie sich als Entwickler oder Designer die Frage, ob blitzende Inhalte wirklich auf Ihrer Webseite sein müssen. Selbst wenn sie ordnungsgemäß gehandhabt werden, gibt es jene, die schädliche Inhalte von Ihrer Seite herunterladen und sie als Waffe verwenden könnten. Es wird angenommen, dass der erste dokumentierte Versuch, Computer zu verwenden, um physischen Schaden über Animationen zu verursachen, am Samstag, den 22. März 2008 begann: Die Webseite der Epilepsy Foundation wurde gehackt, indem Beiträge mit blitzenden Bildern und Links, die fälschlicherweise als hilfreich ausgegeben wurden, eingefügt wurden. Benutzer mit vestibulären Störungen, die Hilfe auf der Seite suchten, waren betroffen.
+Fragen Sie sich als Entwickler oder Designer, ob stroboartige Inhalte wirklich auf Ihre Webseite gehören. Selbst wenn sie ordnungsgemäß gehandhabt werden, gibt es diejenigen, die beleidigende Inhalte von Ihrer Seite herunterladen und als Waffe einsetzen könnten. Es wird angenommen, dass der erste dokumentierte Versuch, Computer zu nutzen, um physischen Schaden durch Animationen zu verursachen, am Samstag, den 22. März 2008, begann: Die Website der Epilepsy Foundation wurde über Beiträge mit blinkenden Bildern und Links, die fälschlicherweise behaupteten, hilfreich zu sein, gehackt. Benutzer mit vestibulären Störungen, die Hilfe auf der Seite suchten, waren betroffen.
 
-Eine Reihe von rechtlichen Überlegungen ist im Gange, nachdem der Journalist Kurt Eichenwald, ein bekannter Epileptiker, einen Anfall erlitt, nachdem ihm im Dezember 2016 ein animiertes Gif gesendet wurde: das blitzende Gif trug die Nachricht, "_Sie verdienen einen Anfall für Ihre Beiträge_".
+Eine Serie rechtlicher Überlegungen ist im Gange, nachdem der Journalist Kurt Eichenwald, ein bekannter Epileptiker, im Dezember 2016 einen Anfall erlitt, nachdem er ein animiertes GIF geschickt bekam: Das blinkende GIF trug die Nachricht, _"Du verdienst einen Anfall für deine Posts"_.
 
 #### Exposition kontrollieren, Zugang kontrollieren
 
-Die Kontrolle des Exposition zur Seite ist der Schlüssel, um sicherzustellen, dass jemand, der anfällig für Krampfanfälle ist, nicht versehentlich darauf stößt. WCAG stellt fest, dass ein einzelnes Objekt die gesamte Seite unbrauchbar machen kann.
+Die Kontrolle der Exposition zur Seite ist der Schlüssel, um sicherzustellen, dass jemand mit Anfälligkeit für Anfälle nicht versehentlich darauf stößt. WCAG stellt fest, dass ein einziges Objekt die gesamte Seite unbenutzbar machen kann.
 
-Wenn Sie glauben, dass Sie möglicherweise ein Bild oder eine Animation haben, die Krampfanfälle auslösen könnte, kontrollieren Sie den Zugang dazu, indem Sie zunächst eine Warnung über den Inhalt anzeigen und ihn dann in einer Position platzieren, wo der Benutzer sich bewusst dafür entscheiden muss, darauf zuzugreifen, z.B. durch Klicken eines Knopfes oder indem Sie sicherstellen, dass der Link zur Seite eine deutliche und offensichtliche Warnung hat.
+Wenn Sie glauben, dass Sie ein Bild oder eine Animation haben könnten, die Anfälle verursachen kann, kontrollieren Sie den Zugriff darauf, indem Sie zunächst eine Warnung über den Inhalt anzeigen, und ihn dann an einem Ort platzieren, an dem der Benutzer sich anmelden muss, um darauf zuzugreifen, wie zum Beispiel durch das Klicken eines Buttons oder das Sicherstellen, dass der Link zur Seite eine deutliche und offensichtliche Warnung hat.
 
-Erwägen Sie, Crawl-Direktiven für Suchmaschinen festzulegen, um anzudeuten, dass sie potenziell schädliche Ressourcen nicht in ihre Suchindizes aufnehmen sollten. Sie können dies tun, indem Sie Metadaten in einem [`<meta name="robots">`](/de/docs/Web/HTML/Reference/Elements/meta/name/robots)-Element mit restriktiven Regeln wie `noindex, nofollow` einschließen. Durch das Nichtindizieren der Seite (`noindex`) und das Nichtfolgen von Links auf der Seite (`nofollow`) wird die Wahrscheinlichkeit verringert, dass Benutzer über die Suche darauf stoßen:
+Erwägen Sie, Suchmaschinen-Richtlinien zu verwenden, um darauf hinzuweisen, dass sie möglicherweise schädliche Ressourcen nicht in ihren Suchindizes aufnehmen sollten. Dies kann durch Verwendung von Metadaten in einem [`<meta name="robots">`](/de/docs/Web/HTML/Reference/Elements/meta/name/robots) Element mit restriktiven Regeln wie `noindex, nofollow` geschehen. Indem die Seite nicht indexiert wird (`noindex`) und Links auf der Seite nicht verfolgt werden (`nofollow`), wird die Wahrscheinlichkeit verringert, dass Nutzer über die Suche darauf stoßen:
 
 ```html
 <html lang="en">
@@ -189,7 +189,7 @@ Erwägen Sie, Crawl-Direktiven für Suchmaschinen festzulegen, um anzudeuten, da
 </html>
 ```
 
-Für nicht-HTML-Ressourcen können Sie Crawl-Direktiven in einem {{httpheader("X-Robots-Tag")}} HTTP-Response-Header festlegen:
+Für nicht-HTML-Ressourcen können Sie die Crawling-Richtlinien in einem {{httpheader("X-Robots-Tag")}} HTTP-Antwortheader festlegen:
 
 ```http
 X-Robots-Tag: noindex
@@ -197,18 +197,18 @@ X-Robots-Tag: noindex
 
 ### Animierte GIFs
 
-Alle Bildtypen sind potenziell gefährlich, jedoch verdienen animierte GIFs besonderer Erwähnung wegen ihrer Allgegenwärtigkeit und der Tatsache, dass die Animationsgeschwindigkeit tatsächlich innerhalb der GIF-Datei selbst gesteuert wird.
+Alle Bildtypen sind potenziell gefährlich, jedoch verdienen animierte GIFs besondere Erwähnung wegen ihrer Allgegenwärtigkeit und der Tatsache, dass die Animationsgeschwindigkeit tatsächlich innerhalb der GIF-Datei selbst gesteuert wird.
 
 #### Erkennen, ob ein GIF animiert ist
 
-- Das [animated-gif-detector](https://www.npmjs.com/package/animated-gif-detector) npm-Paket ermöglicht die Möglichkeit, früher im Verlauf einer gegebenen HTTP-Anfrage zu bestimmen, ob ein Bild animiert ist.
-- Zakirt bietet einen Gist für [animated-gif-detect.js](https://gist.github.com/zakirt/faa4a58cec5a7505b10e3686a226f285) an.
+- Das [animated-gif-detector](https://www.npmjs.com/package/animated-gif-detector) npm-Paket ermöglicht die Fähigkeit, Animation _so früh wie möglich_ in einer gegebenen HTTP-Anfrage zu bestimmen.
+- Zakirt bietet ein Beispiel für [animated-gif-detect.js](https://gist.github.com/zakirt/faa4a58cec5a7505b10e3686a226f285)
 
-Stellen Sie bei animierten GIFs sicher, dass die Animation inaktiv ist, bis der Benutzer sich entscheidet, sie zu aktivieren. Zum Beispiel muss der Benutzer einen Knopf drücken oder ein Kästchen ankreuzen, um die Animation zu starten.
+Bei animierten GIFs stellen Sie sicher, dass Animation inaktiv ist, bis der Benutzer beschließt, sie zu aktivieren. Beispielsweise muss der Benutzer einen Button drücken oder ein Kästchen ankreuzen, um die Animation zu starten.
 
 ### Videos
 
-Wie im Fall von animierten GIFs muss der Benutzer einen Knopf drücken oder ein Kästchen ankreuzen, um die Animation zu starten. Es gibt viele Möglichkeiten, dies zu tun, etwa indem das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay)-Attribut für `<video controls>` nicht hinzugefügt wird oder indem {{CSSxRef('animation-play-state')}} auf `paused` als Ausgangszustand gesetzt wird. Um ein mächtiges Beispiel zu sehen, wie dies tatsächlich funktionieren kann, sehen Sie sich den Artikel von Kirupa, ["Toggling Animations On and Off"](https://www.kirupa.com/html5/toggling_animations_on_off.htm) an. Kirupa verwendet `animation-play-state` in Verbindung mit {{CSSxRef('transition')}}, {{CSSxRef('transform')}} und [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion), um ein sehr zugängliches Erlebnis zu schaffen, das der Benutzer kontrollieren kann.
+Wie im Fall von animierten GIFs, muss der Benutzer einen Button drücken oder ein Kästchen anhaken, um die Animation zu starten. Es gibt viele Möglichkeiten, dies zu tun, wie zum Beispiel das NICHT Hinzufügen des [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Attributs zu `<video controls>`, oder das Setzen von {{CSSxRef('animation-play-state')}} auf `paused` als Anfangszustand. Um ein gutes Beispiel dafür zu sehen, wie dies eigentlich funktioniert, siehe den Artikel von Kirupa, ["Das Umschalten von Animationen Ein und Aus"](https://www.kirupa.com/html5/toggling_animations_on_off.htm). Kirupa nutzt `animation-play-state` in Kombination mit {{CSSxRef('transition')}}, {{CSSxRef('transform')}} und [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion), um eine sehr zugängliche Erfahrung unter der Kontrolle des Benutzers zu schaffen.
 
 [`animation-play-state`](/de/docs/Web/CSS/animation-play-state) ist eine CSS-Eigenschaft, die festlegt, ob eine Animation läuft oder pausiert ist.
 
@@ -226,9 +226,9 @@ div {
 }
 ```
 
-### Sicherstellen, dass der Benutzer auch Animationen stoppen kann, nicht nur starten
+### Sicherstellen, dass der Benutzer auch Animationen stoppen kann
 
-Ein {{HTMLElement('video')}}-Element mit keinen Attributen wird nicht automatisch abgespielt und hat auch keine Steuerungen. Stellen Sie sicher, dass Sie das `controls`-Attribut dem Videoelement hinzufügen, damit der Benutzer das Video sowohl stoppen als auch starten kann.
+Ein {{HTMLElement('video')}} Element ohne Attribute spielt nicht automatisch ab und hat auch keine Steuerung. Stellen Sie sicher, dass Sie das `controls` Attribut zu dem Video-Element hinzufügen, damit der Benutzer das Video sowohl stoppen als auch starten kann.
 
 ```html
 <video controls>
@@ -240,11 +240,11 @@ Ein {{HTMLElement('video')}}-Element mit keinen Attributen wird nicht automatisc
 
 #### Programmgesteuert sicherstellen, dass Steuerungen verfügbar sind
 
-Die `HTMLMediaElement.controls`-Eigenschaft spiegelt das `controls` HTML-Attribut wider, welches steuert, ob Benutzeroberflächensteuerungen zum Abspielen des Mediaelements angezeigt werden sollen.
+Die `HTMLMediaElement.controls` Eigenschaft spiegelt das `controls` HTML-Attribut wider, das steuert, ob Benutzerschnittstellensteuerungen für das Abspielen des Medienelements angezeigt werden.
 
 ##### Video
 
-Um sicherzustellen, dass ein Video Steuerungen hat, auf die ein Benutzer zugreifen kann, stellen Sie sicher, dass Sie das Wort "controls" zu HTML-Videos und Audio-Elementen hinzufügen.
+Um sicherzustellen, dass ein Video Steuerungen hat, die ein Benutzer zugreifen kann, stellen Sie sicher, dass Sie das Wort "controls" zu HTML-Video und -Audio-Elementen hinzufügen.
 
 `<video controls>`
 
@@ -261,7 +261,7 @@ Um sicherzustellen, dass ein Video Steuerungen hat, auf die ein Benutzer zugreif
 
 ##### Audio
 
-Unter Anwendung dieses gleichen Beispiels auf Audio:
+Nehmen Sie dieses Beispiel und wenden es auf Audio an:
 
 `<audio controls>`
 
@@ -278,7 +278,7 @@ Unter Anwendung dieses gleichen Beispiels auf Audio:
 
 ##### Audio als Teil von Video
 
-Beachten Sie, dass das Audio in Videos durch das `muted`-Inhaltsattribut gesteuert werden kann, auch wenn der Inhalt sich innerhalb des {{HTMLElement('video')}}-Elements befindet und nicht des {{HTMLElement('audio')}}-Elements. Dieses Beispiel stammt aus dem Abschnitt über die Beschreibung des [muted media attribute](https://html.spec.whatwg.org/multipage/media.html#concept-media-muted) aus dem HTML Living Standard. Es erklärt, dass das Video leise im Hintergrund automatisch abgespielt wird, bis der Benutzer Maßnahmen ergreift, um das Audio freizuschalten.
+Beachten Sie, dass das Audio in Videos durch das `muted` Inhaltsattribut kontrolliert werden kann, auch wenn der Inhalt innerhalb des {{HTMLElement('video')}} Elements statt des {{HTMLElement('audio')}} Elements ist. Dieses Beispiel stammt aus dem Abschnitt über [stummgeschaltetes Medienattribut](https://html.spec.whatwg.org/multipage/media.html#concept-media-muted) Beschreibung aus dem HTML Living Standard. Es erklärt, dass das Video still im Hintergrund automatisch abgespielt wird, bis der Benutzer die Aktion ergreift, um das Audio stummzuschalten.
 
 ```html
 <video src="adverts.cgi?kind=video" controls autoplay loop muted></video>
@@ -286,41 +286,41 @@ Beachten Sie, dass das Audio in Videos durch das `muted`-Inhaltsattribut gesteue
 
 ### Geschwindigkeit kontrollieren
 
-Das scheint offensichtlich, aber aufgrund der zahlreichen MIME-Typen variieren die Mechanismen für ihre Handhabung stark, und aus diesem Grund gibt es keine allgemein gültige Lösung für das Problem. Dies wird weiter durch die Tatsache verkompliziert, dass sogar die Art und Weise, wie Dateien klassifiziert werden, erschwert, wie sie gehandhabt werden sollten. Zum Beispiel wird das .gif-Dateiformat gewöhnlich als Bild verstanden, wird aber in einigen Kreisen auch als Video-Dateiformat betrachtet, weil es animiert werden kann. Für eine umfassende Auflistung von Medientypen, besuchen Sie bitte die [IANA.org-Seite für Medientypen](https://www.iana.org/assignments/media-types/media-types.xhtml).
+Dies scheint offensichtlich, aber da es so viele MIME-Typen gibt, variieren die Mechanismen zu ihrer Handhabung stark, und aus diesem Grund gibt es keine universelle Lösung für das Problem. Dies wird weiter dadurch verkompliziert, dass auch die Klassifizierung von Dateien die Art und Weise, wie sie gehandhabt werden sollen, verkompliziert. Zum Beispiel wird das .gif-Dateiformat in der Regel als Bild verstanden, wird jedoch auch in einigen Kreisen als Video-Dateiformat betrachtet, weil es animiert werden kann. Für eine ausführliche Liste von Medienarten besuchen Sie bitte [IANA.org-Seite für Medienarten](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
-Die Methoden zum Aufspüren sind keine beiläufige Übung. Sie könnten daran interessiert sein, den [MIME-Sniffing](https://mimesniff.spec.whatwg.org/) Standard bei whatwg.org zu verfolgen. Praktisch jede Art von Bild kann animiert werden; wie sie animiert werden, variiert, und daher variiert die Kontrolle über die Animation.
+Die Methoden, sie zu erkennen, sind keine leichte Aufgabe. Sie könnten daran interessiert sein, den [MIME Sniffing](https://mimesniff.spec.whatwg.org/) Standard auf whatwg.org zu verfolgen. Nahezu jede Art von Bild kann animiert werden; wie sie animiert werden, variiert, und daher variiert auch die Kontrolle der Animation.
 
-#### Gewöhnlich animierte Dateitypen
+#### Häufig animierte Dateitypen
 
 - **Bitmap**: Animation
-- **Canvas**: MDNs Tutorial zu Canvas bietet einen großartigen Abschnitt zu [grundlegenden Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations). `setInterval()` ist ein Grundpfeiler im Bereich der Canvas-Animation, jedoch ist es auch interessant zu sehen, wie es mit Bildwiederholraten interagiert. Siehe den Artikel, ["Controlling fps with requestAnimationFrame?"](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe) in dem die Mechanik der Implementierung von `requestAnimationFrame` vor dem Hintergrund der Bildwiederholraten diskutiert werden.
-- **GIFs (Raster)**: Schwierig zu knacken, da die Steuerung ihrer Animation sich innerhalb der GIF-Dateien selbst befindet. Für Informationen über die Steuerung der Geschwindigkeit von GIFs siehe W3Cs ["G152: Setting animated gif images to stop blinking after n cycles (within 5 seconds)"](https://www.w3.org/TR/WCAG20-TECHS/G152.html). Ein großartiger Stack Overflow-Artikel zu diesem Thema ist, ["Can you control GIF animation with JavaScript?"](https://stackoverflow.com/questions/2385203/can-you-control-gif-animation-with-javascript)
-- **GIFV (Raster)**: Betrachten Sie es als eine Variante, die Video-Version von GIF. Das Format ist nicht standardisiert und muss eine "reale" Videodatei (z.B., eine .webm-Datei) referenzieren, die anderswo existieren muss.
+- **Canvas**: MDNs Anleitung zu Canvas hat einen großartigen Abschnitt über [grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations). `setInterval()` ist ein wesentlicher Bestandteil der Canvas-Animation, es ist aber auch interessant zu sehen, wie es mit dem Bildschirm-Refresh interagiert. Siehe den Artikel, ["Steuern der FPS mit requestAnimationFrame?"](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe) in dem darüber diskutiert wird, wie die Implementierung von `requestAnimationFrame` im Kontext des Bildschirm-Refreshs funktioniert.
+- **GIFs (Raster)**: Schwierig zu steuern, da die Steuerung ihrer Animation innerhalb der GIF-Dateien selbst liegt. Für Informationen zur Steuerung der Geschwindigkeit von GIFs siehe W3Cs ["G152: Setzen von animierten gif Bildern so, dass sie Blinken nach n Zyklen stoppen (innerhalb von 5 Sekunden)"](https://www.w3.org/TR/WCAG20-TECHS/G152.html). Ein großartiger Stack Overflow-Artikel zum Thema ist, ["Kann man GIF-Animationen mit JavaScript kontrollieren?"](https://stackoverflow.com/questions/2385203/can-you-control-gif-animation-with-javascript)
+- **GIFV (Raster)**: Wird als Variante, videoähnliche Version eines GIFs betrachtet. Das Format ist nicht standardisiert und muss auf eine "echte" Videodatei (z.B. eine .webm-Datei) verweisen, die anderswo existieren muss.
 - **JPG (Raster)**
-- **MNG (Raster)**: Mehrfach-Bild-Netzwerk-Grafiken ist ein Grafikdateiformat für animierte Bilder. Auch von einigen als Videoformat betrachtet.
+- **MNG (Raster)**: Multiple-image Network Graphics ist ein Grafikdateiformat für animierte Bilder. Wird auch von einigen als Videoformat betrachtet.
 - **PNG, APNG (Raster)**: Portable Network Graphics und Animated Portable Network Graphics können beide animiert werden.
-- **SVGs (Vektor)**: Das MDN-Dokument, ["SVG: Scalable Vector Graphics"](/de/docs/Web/SVG), stellt fest, dass "_SVG ist ein textbasiertes offenes Web-Standard. Es ist explizit darauf ausgelegt, mit anderen Web-Standards wie [CSS](/de/docs/Web/CSS), [DOM](/de/docs/Web/API/Document_Object_Model) und [SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL) zu arbeiten._" SVGs können als Bild verwendet werden wie in diesem Beispiel: `<img src="example.svg" alt="Dies ist ein Bild, das ein SVG als Quelle verwendet">`. Dies bedeutet, dass das Aussehen und die Animation von SVGs über CSS-Keyframes und Animationen gesteuert werden können. Für die Interaktion mit JavaScript siehe die MDN-Dokumente zu [SVG-Interfaces](/de/docs/Web/API/Document_Object_Model#svg_dom) und [Anwenden von SVG-Effekten auf HTML-Inhalt](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content).
-- **Voxel (Raster)**: Dreidimensionale [Voxel](https://en.wikipedia.org/wiki/Voxel)-Rastergrafiken werden in Videospielen sowie in der medizinischen Bildgebung verwendet.
+- **SVGs (Vektor)**: Das MDN-Dokument ["SVG: Scalable Vector Graphics"](/de/docs/Web/SVG), bemerkt, dass _"SVG ist ein textbasiertes offenes Webstandard. Es ist ausdrücklich dazu bestimmt, mit anderen Webstandards wie [CSS](/de/docs/Web/CSS), [DOM](/de/docs/Web/API/Document_Object_Model) und [SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL) zu arbeiten."_. SVGs können als Bild wie in diesem Beispiel verwendet werden: `<img src="example.svg" alt="Dies ist ein Bild, das ein SVG als Quelle verwendet">`. Dies bedeutet, dass SVG-Aussehen und -Animation durch CSS-Frames und -Animationen gesteuert werden können. Für die Interaktion mit JavaScript siehe die MDN-Dokumente über [SVG-Interfaces](/de/docs/Web/API/Document_Object_Model#svg_dom) und [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content).
+- **Voxel (Raster)**: Dreidimensionale [Voxels](https://en.wikipedia.org/wiki/Voxel) Rastergrafik wird in Videospielen sowie in der medizinischen Bildgebung verwendet.
 
-#### Text kann ebenfalls animiert werden
+#### Text kann auch animiert werden
 
-Übersetzungen und Transformationen können Text in einem Div animieren und Schaden anrichten. Bewegter Text kann Krampfanfälle auslösen, aus den gleichen Gründen, aus denen bewegte Bilder dies tun können, also vermeiden Sie es, Ihren Text zu animieren. Es ist ohnehin eine gute Idee, auf die Verwendung von bewegtem Text zu verzichten, da viele Bildschirmlesegeräte keinen bewegten Text lesen können und es eine schlechte Benutzererfahrung ist, selbst für diejenigen ohne Seh- oder vestibuläre Probleme.
+Translations und Transfomationen können Text in einem div animieren und Schaden anrichten. Bewegter Text kann Anfälle hervorrufen, aus den gleichen Gründen, aus denen auch bewegte Bilder Anfälle verursachen, vermeiden Sie daher die Animation Ihres Textes. Es ist ohnehin eine gute Idee, die Verwendung von bewegtem Text zu vermeiden, da viele Screenreader bewegten Text nicht lesen können und es sogar für Personen ohne Seh- oder Gleichgewichtsprobleme eine schlechte Benutzererfahrung ist.
 
-### CSS für Animationen
+### CSS für Animation
 
-Im Stylesheet oder innerhalb des {{HTMLElement('style')}}-Elements können viele Optionen zusammen kombiniert werden, um dem Benutzer ein kraftvolles Erlebnis zu bieten. Wir haben das `animation`-Eigenschaft bereits früher in diesem Dokument erwähnt. Es ist in Wirklichkeit eine Kurzform für alle Animationseigenschaften, einschließlich:
+Im Stylesheet oder innerhalb des {{HTMLElement('style')}} Elements können viele Optionen zusammen kombiniert werden, um eine mächtige Erfahrung für den Benutzer zu schaffen. Wir haben die `animation` Eigenschaft bereits früher in diesem Dokument erwähnt. Es ist tatsächlich eine Abkürzung für alle Animationseigenschaften, einschließlich:
 
 - `animation-play-state`
-- `animation-duration` hat einen Wert von `<time>`; dies ist die Zeit, die eine Animation benötigt, um einen Zyklus abzuschließen. Dies kann entweder in Sekunden `(s)` oder Millisekunden `(ms)` angegeben werden. Ein Standardwert von `0s` zeigt an, dass keine Animation erfolgen sollte.
+- `animation-duration` hat einen Wert von `<time>`; dies ist die Dauer, die eine Animation braucht, um einen Zyklus zu vollenden. Dies kann entweder in Sekunden `(s)` oder Millisekunden `(ms)` angegeben werden. Ein Standardwert von `0s` bedeutet, dass keine Animation auftreten sollte.
 - `animation-timing-function`
 
-Die Animations-Eigenschaft ist allein schon mächtig, aber in Kombination mit anderen Eigenschaften und Abfragen wie `prefers-reduced-motion`, kann ein machtvolles Set von Optionen für den Benutzer eingerichtet werden. Die Einstellung `animation-duration` und `transition-duration`-Eigenschaften auf eine kurze Dauer, anstatt sie auf `animation: none` und `transition: none` zu setzen, stellt eine Sicherheitsmaßnahme dar, um Probleme in jedem Fall zu vermeiden, in dem eine Abhängigkeit davon besteht, dass die Animation ausgeführt wird.
+Die Animationseigenschaft ist bereits allein mächtig, aber kombiniert mit anderen Eigenschaften und Abfragen wie `prefers-reduced-motion`, kann eine mächtige Menge von Optionen für den Benutzer eingerichtet werden. Die Eigenschaften `animation-duration` und `transition-duration` auf eine kurze Dauer anstatt `animation: none` und `transition: none` zu setzen, ermöglicht eine Sicherungsmaßnahme, um Probleme zu verhindern, falls es eine Abhängigkeit davon gibt, dass die Animation ausgeführt wird.
 
 ### JavaScript-Animation
 
-JavaScript wird oft verwendet, um {{HTMLElement('canvas')}}-Elemente und SVGs zu steuern. Der Großteil des JavaScript-Codes, der auf HTML-Videos angewendet wird, gilt auch für Audio. `HTMLMediaElement.playbackRate` wird verwendet, um Benutzersteuerungen für die Wiedergabegeschwindigkeit sowohl für Videos als auch für Audios zu implementieren. Ein Wert von 1.0 ist der Standard und gilt als normale Geschwindigkeit; ein Wert von 0.5 ist halb so schnell, ein Wert von 2.0 ist doppelt so schnell. Eine negative Zahl spielt das Video oder Audio rückwärts ab. Setzen Sie die Wiedergabegeschwindigkeiteigenschaft: `HTMLMediaElement.playbackRate = playbackSpeed`.
+JavaScript wird oft zur Kontrolle von {{HTMLElement('canvas')}} Elementen und SVGs verwendet. Der meiste JavaScript-Code, der auf HTML-Video angewendet wird, gilt auch für Audio. `HTMLMediaElement.playbackRate` wird verwendet, um Nutzerschnittstellen für die Wiedergabegeschwindigkeit sowohl für Video als auch für Audio zu implementieren. Ein Wert von 1,0 ist der Standard und wird als normale Geschwindigkeit betrachtet; ein Wert von 0,5 ist die halbe Geschwindigkeit, ein Wert von 2,0 ist doppelte Geschwindigkeit. Eine negative Zahl spielt das Video oder Audio rückwärts ab. Setzen Sie die Wiedergabegeschwindigkeitseigenschaft: `HTMLMediaElement.playbackRate = playbackSpeed`.
 
-[document.getAnimations()](/de/docs/Web/API/Document=getAnimations) ist eine experimentelle Technologie und umfasst [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API). Die MDN-Seite zu [Document.getAnimations()](/de/docs/Web/API/Document/getAnimations) bietet folgendes Codebeispiel, um alle Animationen auf einer Seite auf halbe Geschwindigkeit zu verlangsamen:
+[document.getAnimations()](/de/docs/Web/API/Document/getAnimations) ist eine experimentelle Technologie und umfasst [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Webanimations](/de/docs/Web/API/Web_Animations_API). Die MDN-Seite zu [Document.getAnimations()](/de/docs/Web/API/Document/getAnimations) bietet das folgende Code-Beispiel dafür, wie man alle Animationen auf einer Seite auf halbe Geschwindigkeit verlangsamt:
 
 ```js
 document.getAnimations().forEach((animation) => {
@@ -328,42 +328,40 @@ document.getAnimations().forEach((animation) => {
 });
 ```
 
-#### Bildquellen für Animationen
+#### Bildquellen für Animation
 
-Eine der einfachsten Möglichkeiten besteht darin, mit einem bereits vorhandenen Bild zu beginnen, es als Bildquelle zu verwenden und dann zu animieren. Denken Sie daran, dass Sie GIFs, JPGs, PNGs, SVGs und andere Dateitypen hier als Bildquelle verwenden können, solange sie erlaubte Dateitypen und -größen in Ihrem Umfeld sind. SVGs werden oft nicht erlaubt, wegen Sicherheitsbedenken. Das MDN-Dokument, [Grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations), bietet hervorragende Beispiele dafür, indem es mehrere Bildquellen für Sonne, Erde und Mond benutzt und mehrere Canvas-Methoden verwendet, um die Geschwindigkeit und Animation der Erde zu steuern, während sie sich um die Sonne dreht, und des Mondes, während er sich um die Erde dreht. Verwenden Sie das mit diesem Tutorial verfügbare Codepen, um `ctx.rotate` im Code anzupassen, um zu sehen, wie sich die Animation ändert, wenn Änderungen vorgenommen werden.
+Eine der einfachsten Möglichkeiten ist, mit einem bereits vorhandenen Bild zu beginnen, es als Bildquelle zu verwenden und es dann zu animieren. Denken Sie daran, dass Sie GIFs, JPGs, PNGs, SVGs und andere Dateitypen hier als Bildquelle verwenden können, solange es sich um erlaubte Dateiarten—und Größen—in Ihrer Umgebung handelt. SVGs sind oft nicht erlaubt, wegen Sicherheitsbedenken. Das MDN-Dokument, [Grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations), bietet hervorragende Beispiele dafür, mit der Verwendung mehrerer Bildquellen für die Sonne, die Erde und den Mond und mehreren Canvas-Methoden zur Steuerung der Geschwindigkeit und Animation der Erde, während sie um die Sonne, und des Mondes, während er um die Erde kreist. Benutzen Sie das in diesem Tutorial verfügbare CodePen, um `ctx.rotate` im Code anzupassen, um zu sehen, wie sich die Animation ändert, wenn Änderungen vorgenommen werden.
 
-#### Wenn Sie absolut, unbedingt eine blitzende Animation verwenden müssen…
+#### Falls Sie unbedingt eine blitzende Animation verwenden müssen…
 
-Stellen Sie sicher, dass sie eine Steuerung darauf hat. Stellen Sie sicher, dass sie ausgeschaltet ist, wenn der Betrachter sie zuerst sieht, und dass der Benutzer die Option hat, sich bewusst dafür zu entscheiden, die Animation zu sehen.
+Stellen Sie sicher, dass sie eine Kontrolle darauf hat. Stellen Sie sicher, dass sie ausgeschaltet ist, wenn der Betrachter sie erstmals sieht und dass ein Benutzer sich anmelden muss, um die Animation zu sehen.
 
-Ein Beispiel für ein Format, das keine Steuerungen für den Benutzer bereitstellt, ist eine gif-Datei. Die Animationsgeschwindigkeit wird innerhalb des gif-Bildes selbst gesteuert. Durch das Umwandeln eines animierten gifs in Video kann Kontrolle über die Animation ausgeübt werden und dem Benutzer wird Entscheidungsfreiheit gegeben. Es gibt viele kostenlose Online-Konverter, die zur Verfügung stehen, wie [EZGif](https://ezgif.com/) und [GIF zu MP4](https://gif-2-mp4.com/).
+Ein Beispiel für ein Format, das keine Kontrollen bietet, ist eine gif-Datei. Die Animationsgeschwindigkeit wird innerhalb des gif-Bildes selbst gesteuert. Durch die Konvertierung eines animierten gifs in ein Video können Kontrollen auf der Animation angebracht werden und dem Benutzer Handlungsspielraum gegeben werden. Es gibt viele kostenlose Online-Konverter, die genutzt werden können, wie [EZGif](https://ezgif.com/) und [GIF zu MP4](https://gif-2-mp4.com/).
 
-#### Benutzern die Erwartungen setzen
+#### Erwartung des Benutzers setzen
 
-Geben Sie Benutzern einen Hinweis darauf, was passieren wird, bevor sie auf diesen Link klicken. Beschreiben Sie die folgende Animation. Siehe [WCAG 2.2 Erfolgskriterium 3.2.5 Änderung auf Anfrage](https://w3c.github.io/wcag/guidelines/22/#change-on-request).
+Geben Sie den Benutzern eine Vorwarnung darüber, was passieren wird, bevor sie auf diesen Link klicken. Beschreiben Sie die darauf folgende Animation. Siehe [WCAG 2.2 Erfolgskriterium 3.2.5 Änderung auf Anfrage](https://w3c.github.io/wcag/guidelines/22/#change-on-request).
 
 #### Halten Sie es klein
 
-Wenn Sie absolut notwendig haben, damit es blitzt, halten Sie es klein. Im Allgemeinen begrenzen Sie die Größe des Blitzes auf einen Bereich von etwa 341 x 256 Pixel oder weniger. Diese Pixelgröße geht davon aus, dass ein Zuschauer in einem typischen Abstand zum Bildschirm ist. Wie bereits erwähnt, kann diese Größe zu groß sein, wenn das Bild in der Nähe angeschaut wird, zum Beispiel mit einer VR-Brille. WebVR ist eine offene Spezifikation, die es ermöglicht, VR in Ihrem Browser zu erleben. WebVR kann auf Handys, Computern oder Headsets erlebt werden.
+Wenn Sie unbedingt blitzen müssen, halten Sie es klein. Im Allgemeinen sollten Sie die Größe des Blitzes auf ein Gebiet von etwa 341 mal 256 Pixel begrenzen oder weniger. Diese Pixelgröße geht davon aus, dass ein Betrachter sich in typischer Entfernung zum Bildschirm befindet. Wie bereits erwähnt, mag diese Größe zu groß sein, wenn das Bild aus der Nähe betrachtet werden sollte, wie in einem VR-Headset. WebVR ist eine offene Spezifikation, die es ermöglicht, VR im Browser zu erleben. WebVR kann auf Telefon, Computer oder Headset erlebt werden.
 
-Wenn Sie für ein Spiel oder VR entwerfen, das eine Augenmaske verwendet, **oder verwendet werden kann von einer Augenmaske**, wie in Firefox Reality (ein Browser für virtuelle Realität), stellen Sie sicher, dass die Größe des Rechtecks viel kleiner als 341 x 256 Pixel ist, weil das Bild viel näher an den Augen eines Benutzers ist.
+Wenn Sie für ein Spiel oder VR, das eine Augenmaske verwendet, entwerfen, **oder KANN mit einer Augenmaske verwendet werden**, wie es in Firefox Reality möglich ist (ein Browser für virtuelle Realität), stellen Sie sicher, dass die Größe des Rechtecks viel kleiner als 341 mal 256 Pixel ist, weil das Bild viel näher an den Augen des Benutzers ist.
 
 #### Kontrast reduzieren
 
-Normalerweise ist ein höherer Kontrast eine gute Sache, wenn es um Barrierefreiheit geht. Je größer der Kontrast einer Textfarbe zu ihrem Hintergrund ist (technisch genannt _Luminositätskontrastverhältnis,_ laut W3.org's Seite zu [Farben mit gutem Kontrast](https://www.w3.org/WAI/perspective-videos/contrast/)), desto leichter ist ein solcher Inhalt lesbar. Benutzer mit geringer Sehfähigkeit schätzen insbesondere Bemühungen, einen hohen Kontrast zwischen Text und Hintergrund zu sicherzustellen. Wenn der Inhalt jedoch animiert wird, ist das **_Reduzieren_** des Kontrasts tatsächlich eine Möglichkeit, die Wahrscheinlichkeit zu verringern, dass der animierte Inhalt Krampfanfälle verursacht. Verringern Sie das Kontrastverhältnis, wenn innerhalb einer Sekunde drei Blitze erkennen.
+Normalerweise ist höherer Kontrast eine gute Sache, wenn es um Barrierefreiheit geht. Je größer der Kontrast einer Textfarbe zu ihrem Hintergrund (technisch als _Leuchtdichten-Kontrastverhältnis_ bezeichnet, laut W3.org Seite zu [Farben mit gutem Kontrast](https://www.w3.org/WAI/perspective-videos/contrast/), desto einfacher ist es, solche Inhalte zu lesen. Benutzer mit Sehschwächen sind besonders dankbar für die Bemühungen, den hohen Kontrast von Text gegen seinen Hintergrund sicherzustellen. Wenn die Inhalte jedoch animiert sind, ist es tatsächlich ein Weg zur Reduzierung der Wahrscheinlichkeit von Anfällen, den Kontrast **_zu senken_**. Senken Sie das Kontrastverhältnis, wenn drei Blitze innerhalb einer Sekunde erkannt werden.
 
 Das Kontrastverhältnis wird in [WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/) wie folgt definiert:
 
 - _Kontrastverhältnis_
-
   - : (L1 + 0.05) / (L2 + 0.05), wobei
-
-    - L1 die [relative Leuchtdichte](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) der helleren Farbe ist, und
+    - L1 die [relative Leuchtdichte](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) der helleren Farbe ist und
     - L2 die [relative Leuchtdichte](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) der dunkleren Farbe ist.
 
-Idealerweise sollte der Kontrast angepasst werden, bevor er hochgeladen oder im Web veröffentlicht wird. Für Videos und animierte GIFs sind die Adobe-Produktreihe ein phänomenales Mittel für traditionelle Bilder. Auch für Bilder ist ein Online-Tool verfügbar, nämlich pinetools.com's [Brightness and contrast online](https://pinetools.com/brightness-contrast-image). Wenn Sie beabsichtigen, animierte GIFs zu machen, beginnen Sie zum Beispiel mit einem, das ein niedrigeres Kontrastverhältnis hat.
+Es ist am besten, wenn Sie den Kontrast anpassen, bevor er hochgeladen oder veröffentlicht wird. Für Videos und animierte GIFs sind die Adobe Suite von Produkten eine phänomenale Ressource für traditionelle Bilder. Auch für Bilder ist ein Online-Tool verfügbar, nämlich pinetools.com's [Helligkeits- und Kontrast-Online](https://pinetools.com/brightness-contrast-image). Wenn Sie beabsichtigen, animierte GIFs zu erstellen, beginnen Sie beispielsweise mit einem, das ein niedrigeres Kontrastverhältnis hat.
 
-JavaScript ist auch eine Option, um Kontraste dynamisch zu reduzieren. Hier ist ein Codebeispiel aus dem Abschnitt mit dem Titel, ["Beispiel: Die Hintergrundfarbe eines Paragraphen setzen"](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces#setting_the_background_color_of_a_paragraph) aus dem MDN-Dokument, [Traversieren einer HTML-Tabelle mit JavaScript und DOM-Interfaces](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces). Beachten Sie, dass die Farbwerte im Beispiel im **RGB**-Farbraum beschrieben werden.
+JavaScript ist auch eine Option zur dynamischen Reduzierung des Kontrasts. Hier ist ein Code-Beispiel aus dem Abschnitt mit dem Titel, ["Beispiel: Festlegen der Hintergrundfarbe eines Absatzes"](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces#setting_the_background_color_of_a_paragraph) aus dem MDN-Dokument, [Traversieren einer HTML-Tabelle mit JavaScript und DOM-Interfaces](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces). Beachten Sie, dass die Farbe im Beispiel im **RGB** Farbraum beschrieben wird.
 
 **HTML-Inhalt [(Link zur Quellseite)](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces#html_2)**
 
@@ -392,25 +390,25 @@ function setBackground() {
 document.querySelector("input").addEventListener("click", setBackground);
 ```
 
-#### Vermeiden von vollständig gesättigtem Rot für blitzende Inhalte
+#### Vermeiden Sie voll gesättigte Rottöne für blitzende Inhalte
 
-Wie bereits früher in diesem Dokument erwähnt, hielt die Epilepsy Foundation of America im August 2004 einen Workshop ab, um einen Expertenkonsens zu fotosensitiven Krampfanfällen zu entwickeln. Unter ihren Ergebnissen war die Erkenntnis, dass "_ein Blitz eine potenzielle Gefahr ist, wenn er eine Leuchtdichte von mindestens 20 cd/m2 hat, bei einer Frequenz von mindestens 3 Hz auftritt und einen soliden visuellen Winkel von mindestens 0,006 Steradian einnimmt (etwa 10% des zentralen Sichtfelds oder 25% der Bildschirmfläche bei typischen Betrachtungsabständen). Ein Übergang zu oder von gesättigtem Rot wird ebenfalls als Risiko betrachtet."_ Sie stellten auch fest, dass in demselben Konsens: "_Unabhängig von der Leuchtdichte wird ein Übergang zu oder von einem gesättigten Rot ebenfalls als Risiko betrachtet._"
+Wie bereits früher in diesem Dokument erwähnt, veranstaltete die Epilepsy Foundation of America im August 2004 einen Workshop, um einen Expertenkonsens über photosensitive Anfälle zu entwickeln. Zu ihren Ergebnissen gehörte das Verständnis, dass _"Ein Blitz ein potenzielles Risiko darstellt, wenn er eine Leuchtdichte von mindestens 20 cd/m2 besitzt, mit einer Frequenz von mindestens 3 Hz auftritt und einen festen visuellen Winkel von mindestens 0.006 Steradian (ungefähr 10% des zentralen Sichtfeldes oder 25% der Bildschirmfläche bei typischen Betrachtungsabständen) einnimmt. Ein Übergang zu oder von gesättigtem Rot wird ebenfalls als Risiko gewertet."_
 
-### Alternative CSS-Stile bereitstellen
+### Alternativen CSS-Stile bereitstellen
 
-Mit dem Verständnis, dass viele Animationen und Blitze durch CSS-Methoden gesteuert werden können, ist es wichtig, Wege zu erkunden, um Benutzern alternative Optionen zur Verfügung zu stellen und die Kontrolle dieser Optionen bequem und sichtbar zu machen.
+Mit dem Verständnis, dass viel von der Animation und dem Blitzen durch CSS-Methoden kontrolliert werden kann, ist es wichtig, Möglichkeiten zu erkunden, um alternative Optionen für Benutzer bereitzustellen und die Kontrolle dieser Optionen bequem und sichtbar zu machen.
 
 #### Alternative Stylesheets
 
-Moderne Browser zeigen die alternativen CSS-Optionen in alternativen Stylesheets an, wenn die Benutzer wissen, wo sie suchen müssen. In einigen Fällen werden die alternativen Stile im Ansichtsmenü offengelegt, in anderen Fällen manifestieren sie sich in den Einstellungven, manchmal beides. Nicht alle Benutzer wissen, dass sie diese Optionen über den Browser oder die Einstellungen suchen müssen, daher ist es erwägenswert, es auf die altmodische Weise zu tun, mit offensichtlichen Knöpfen oder Links, um den Stil zu ändern, damit Benutzer sie sehen können. Die Verwendung dieser Optionen steht nicht im Widerspruch zu oder überschreibt die Möglichkeit des Browsers, die alternativen Stylesheets zu lesen, oder die Möglichkeit des Benutzers, Präferenzen in den Einstellungen festzulegen.
+Moderne Browser zeigen die alternativen CSS an, die in alternativen Stylesheets verfügbar sind, wenn die Benutzer wissen, wo sie nachsehen sollen. In einigen Fällen werden die alternativen Stile angezeigt, wenn die Benutzer das Menü Ansicht durchgehen, in anderen Fällen zeigen sie sich in den Einstellungen, manchmal beides. Nicht alle Benutzer wissen, dass sie über den Browser oder die Einstellungen nach diesen Optionen suchen sollten, daher lohnt es sich, darüber nachzudenken, es auf die altmodische Weise mit offensichtlichen Buttons oder Links zu tun, um den Stil zu ändern, sodass Benutzer diese sehen können. Auf diese Weise wird nicht mit der Fähigkeit des Browsers, die alternativen Stylesheets zu lesen, interferiert, oder mit der Fähigkeit des Benutzers, Präferenzen in den Einstellungen zu setzen.
 
-Es ist wichtig zu wissen, dass bestimmte Benutzer, wie solche, die auf sprachgesteuerte Systeme angewiesen sind, oft auf Legacy-Buttons und Links zurückgreifen, because they can't use a mouse because of their disability, or benefit from touch events on mobile tablets.
+Es ist wichtig zu wissen, dass bestimmte Benutzer, wie diejenigen, die sich auf Spracherkennungssysteme verlassen, oft auf altmodische Buttons und Links angewiesen sind, weil ihre Behinderung sie daran hindert, eine Maus zu benutzen, oder von den Berührungsereignissen auf mobilen Tablets profitieren zu können.
 
-Gewöhnliche Wege, alternative Stylesheets in Ihre HTML-Dokumente einzubeziehen, sind die Nutzung des {{HTMLElement('link')}}-Elements und von {{CSSxRef('@import')}}.
+Gängige Wege, um die alternativen Stylesheets in Ihre HTML-Dokumente einzubinden, sind die Verwendung des {{HTMLElement('link')}} Elements und {{CSSxref('@import')}}.
 
-#### Das {{HTMLElement('link')}}-Element
+#### Das {{HTMLElement('link')}} Element
 
-Verwenden Sie das {{HTMLElement('link')}}-Element zusammen mit den Attributen von `rel="alternate stylesheet"` und für den Titel `title="…"` im {{HTMLElement('head')}}-Bereich des Webbrowsers.
+Verwenden Sie das {{HTMLElement('link')}} Element, zusammen mit und gemeinsam mit den Attributen von `rel="alternate stylesheet"` und für Title, `title="…"` im {{HTMLElement('head')}} Abschnitt der Webseite.
 
 ```html
 <head>
@@ -427,22 +425,22 @@ Verwenden Sie das {{HTMLElement('link')}}-Element zusammen mit den Attributen vo
 </head>
 ```
 
-**{{CSSxRef('@import')}}** ist auch eine Möglichkeit, Stylesheets einzufügen, wird jedoch nicht ganz so gut unterstützt wie das {{HTMLElement('link')}}-Element.
+**{{CSSxref('@import')}}** ist auch ein Weg, um Stylesheets einzubinden, ist aber nicht ganz so gut unterstützt wie das {{HTMLElement('link')}} Element.
 
 ```css
 @import url(alternate1.css);
 @import url(alternate2.css);
 ```
 
-Durch die Verwendung alternativer Stylesheets (denken Sie daran, Titel hinzuzufügen) richten Sie es für Benutzer ein, ihre Browser zu verwenden, um alternative Stile auszuwählen.
+Durch die Verwendung alternativer Stylesheets (nicht vergessen, die Titel hinzuzufügen) stellen Sie sicher, dass Benutzer in der Lage sind, ihre Browser zu verwenden, um alternative Styles auszuwählen.
 
-### Dynamisches Stilschalten
+### Dynamisches Umschalten von Styles
 
-Ein Problem dabei, sich darauf zu verlassen, dass der Browser alternative Stile offenlegt, ist, dass nicht alle Benutzer technisch versiert genug sind, um die alternativen Stile zu entdecken. Oder sind aufgrund ihrer Behinderung nicht in der Lage dazu. Knöpfe oder Links machen es offensichtlich, dass Optionen für viele dankbare Benutzer verfügbar sind. Es gibt viele Möglichkeiten, um Umschaltknöpfe hinzuzufügen, damit Benutzer zu verschiedenen Stylesheets wechseln können. Das gesagt, die Verwendung alternativer Stylesheets sind nicht die einzige Option. Eine weitere Möglichkeit besteht darin, den Stil der Seite selbst zu manipulieren. Laut dem MDN-Dokument, [Verwenden dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information), "_wo es möglich ist, ist es wirklich am besten, Klassen dynamisch über die [`className`](/de/docs/Web/API/Element/className)-Eigenschaft zu manipulieren, da das ultimative Erscheinungsbild aller Stil-Hooks in einem einzigen Stylesheet kontrolliert werden kann_." Eines der besten Beispiele, wie man dies umsetzen kann, ist von der W3C-Seite, ["C29: Die Verwendung eines Stil-Switchers, um eine konforme Alternative-Version bereitzustellen"](https://www.w3.org/TR/WCAG20-TECHS/C29.html).
+Ein Problem mit der Abhängigkeit vom Browser, alternative Styles zu zeigen, ist, dass nicht alle Benutzer technisch versiert genug sind, um die alternativen Styles zu entdecken. Oder, aufgrund ihrer Behinderung, nicht in der Lage sind, das zu tun. Buttons oder Links machen es offensichtlich, dass Optionen für viele dankbare Benutzer verfügbar sind. Es gibt eine Vielzahl von Möglichkeiten, Umschalt-Buttons hinzuzufügen, um es dem Benutzer zu ermöglichen, zu den verschiedenen Stylesheets zu wechseln. Das gesagt, die Nutzung von alternativen Stylesheets sind nicht die einzige Option. Eine andere Option ist, den Stil der Seite selbst zu manipulieren. Laut dem MDN-Dokument, [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information), _"wo möglich, ist es wirklich eine bewährte Vorgehensweise, Klassen über die [`className`](/de/docs/Web/API/Element/className) Eigenschaft dynamisch zu manipulieren, da die endgültige Erscheinung aller Stilhaken in einem einzigen Stylesheet kontrolliert werden kann."_. Eines der besten Beispiele dafür, wie das zu tun ist, ist von der W3C-Seite, ["C29: Verwendung eines Style-Schalters, um eine konforme alternative Version bereitzustellen"](https://www.w3.org/TR/WCAG20-TECHS/C29.html).
 
-### Extreme Fälle: Nur-Text-Alternativen
+### Extreme Fälle: Text-Only-Alternativen
 
-Ein separates, alternatives Stylesheet, das verhindert, dass Bilder angezeigt werden, ist leicht zu erstellen. Es ist eine drakonische Lösung, aber sie ist manchmal notwendig für Lehrer und andere öffentliche Bedienstete, die denen mit extremer Empfindlichkeit dienen müssen. Diese öffentlichen Bediensteten können ihre Entwickler bitten, ein spezielles alternatives Stylesheet zu erstellen, das `display: none` verwendet. So wird dies über CSS gemacht:
+Ein separates, alternatives Stylesheet, das verhindert, dass Bilder angezeigt werden, ist einfach zu erstellen. Es ist eine drastische Lösung; es ist aber eine, die manchmal für Lehrer oder andere öffentliche Bedienstete erforderlich ist, die diejenigen mit extremer Empfindlichkeit bedienen müssen. Diese öffentlichen Bediensteten können ihre Entwickler bitten, ein spezielles alternatives Stylesheet zu entwickeln, das `display: none` verwendet. So geht das via CSS:
 
 ```css
 img {
@@ -450,13 +448,13 @@ img {
 }
 ```
 
-#### Medienabfragen mit {{HTMLElement('style')}} nutzen
+#### Nutzen Sie Media Queries mit {{HTMLElement('style')}}
 
-Wenn Sie Medienabfragen einrichten, aktivieren Sie die Steuerung durch den Benutzer; diese Steuerungen werden im Browser oder im Betriebssystem verfügbar gemacht. Weitere Einzelheiten, wie ein Benutzer auf die Steuerungen zugreifen kann, finden Sie im MDN-Dokument, [Barrierefreiheit: Was Benutzer tun können, um sicherer zu surfen](/de/docs/Web/Accessibility/Guides/Browsing_safely).
+Durch das Einrichten von Media Queries ermöglichen Sie dem Benutzer Kontrollen; diese Kontrollen werden im Browser oder im OS zur Verfügung gestellt. Sehen Sie sich das MDN-Dokument, [Barrierefreiheit: Was Benutzer tun können, um sicherer zu stöbern](/de/docs/Web/Accessibility/Guides/Browsing_safely), an, um mehr Details darüber zu erfahren, wie ein Benutzer auf die Kontrollen zugreifen kann.
 
 #### `prefers-reduced-motion`
 
-Das Wachstum der Unterstützung für `prefers-reduced-motion` in modernen Browsern ist steigend.
+Die Unterstützung für `prefers-reduced-motion` in modernen Browsern wächst.
 
 ```css
 @media screen and (prefers-reduced-motion: reduce) {
@@ -465,7 +463,7 @@ Das Wachstum der Unterstützung für `prefers-reduced-motion` in modernen Browse
 }
 ```
 
-Um ein großartiges Beispiel dafür, wie man den Code `prefers-reduced-motion` nutzt, zu sehen, besuchen Sie das MDN-Dokument, [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion), oder sehen Sie das Beispiel unten aus dem Abschnitt ["Neu in Chrome 74"](https://developer.chrome.com/blog/new-in-chrome-74/).
+Um ein großartiges Beispiel dafür zu sehen, wie der Code `prefers-reduced-motion` verwendet werden kann, besuchen Sie das MDN-Dokument, [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion), oder sehen Sie das untenstehende Beispiel aus dem Abschnitt ["Neu in Chrome 74"](https://developer.chrome.com/blog/new-in-chrome-74/).
 
 ```css
 button {
@@ -481,7 +479,7 @@ button {
 
 #### `prefers-color-scheme`
 
-Dies kann nützlich sein, wenn die Umgebungslicht-API nicht verfügbar ist. Unterstützung ist im Kommen.
+Dies kann nützlich sein, wenn die Umgebungslicht-API nicht verfügbar ist. Unterstützung entsteht.
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -491,18 +489,18 @@ Dies kann nützlich sein, wenn die Umgebungslicht-API nicht verfügbar ist. Unte
 
 #### Window.matchMedia()
 
-Es gibt ein leistungsfähiges Werkzeug, das Entwicklern zur Verfügung steht und das Window.matchMedia() genannt wird. Eine großartige Ressource ist das MDN-Dokument über [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia).
+Es gibt ein mächtiges Werkzeug, das Entwicklern über das Fenster.matchMedia() zur Verfügung steht. Eine großartige Ressource ist das MDN-Dokument über [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia).
 
-#### Medienaktualisierungsfunktion
+#### Medien-Update-Funktion
 
-Je häufiger der Bildschirm aktualisiert wird, desto stabiler erscheint er dem menschlichen Auge und desto weniger "flackert" er. Die große Mehrheit moderner Technologien aktualisiert sich mit einer Rate, die keine Probleme mit der Fotosensibilität verursacht. Dennoch ist nicht jeder wohlhabend genug, um sich die neueste Technologie leisten zu können: Ältere oder leistungsschwache Computer können niedrige Bildwiederholraten haben. Das [AbilityNet-Factsheet (November 2015) Computer und Epilepsie](https://www.abilitynet.org.uk/sites/abilitynet.org.uk/files/Epilepsy%20und%20Computing%20Nov%202015.pdf) beschreibt mehr Details zu Bildwiederholungsraten.
+Je häufiger der Bildschirm aktualisiert wird, desto stabiler erscheint er dem menschlichen Auge, und desto weniger flackert er. Die überwiegende Mehrheit der modernen Technologie aktualisiert in einer Rate, die keine Probleme mit Photosensitivität verursacht. Allerdings kann sich nicht jeder die neueste Technologie leisten: Ältere oder unterdimensionierte Computer können niedrige Bildwiederholraten haben. [AbilityNets Factsheet (November 2015) Computer und Epilepsie](https://www.abilitynet.org.uk/sites/abilitynet.org.uk/files/Epilepsy%20and%20Computing%20Nov%202015.pdf) beschreiben mehr Details zu Bildwiederholraten.
 
-Ein sehr alter Artikel, Tech Republic's ["Epilepsie und CRT/LCD-Bildschirmflackern"](https://www.techrepublic.com/forums/discussions/epilepsy-and-crt-lcd-screen-flicker/), hatte eine interessante Antwort in Bezug auf die Bildwiederholraten in Hz:
+Ein sehr alter Artikel, Tech Republic's ["Epilepsie und CRT/LCD Bildschirmflackern"](https://www.techrepublic.com/forums/discussions/epilepsy-and-crt-lcd-screen-flicker/), hatte eine interessante Antwort auf Bildwiederholraten in Hz:
 
-- "_Dieser Effekt ist spürbar und dokumentiert bis zu 70 Hz._"
-- "_Diese Studien würden zu dem Schluss kommen, dass man Auffrischungsraten unter 70 Hz meiden und eine Rate verwenden sollte, die nicht durch 10 teilbar ist._"
+- _"Dieser Effekt ist bis zu 70 Hz spürbar und dokumentiert."_
+- _"Diese Studien scheinen darauf hinzudeuten, dass Sie Bildwiederholraten unter 70 Hz vermeiden, und eine Rate verwenden sollten, die nicht durch 10 teilbar ist."_
 
-Eric Bailey, von CSS-Tricks, fand eine innovative Verwendung der Aktualisierungsfunktion die, in Kombination mit animation-duration oder transition-duration verwendet wird, um eine Rate zu erzielen, die für das menschliche Auge nicht wahrnehmbar ist. Mit anderen Worten, Erics Techniken adressieren das Problem der Bildwiederholungsraten. Das nachfolgende CSS stammt aus dem CSS-Tricks-Artikel ["Revisiting prefers-reduced-motion, the reduced motion media query"](https://css-tricks.com/revisiting-prefers-reduced-motion/).
+Eric Bailey, von CSS-Tricks, fand eine innovative Nutzung der Aktualisierungsfunktion, die in Kombination mit /animation-duration oder transition-duration verwendet wird, um in einer Rate zu enden, die dem menschlichen Auge nicht wahrnehmbar ist. Mit anderen Worten, Erics Techniken befassen sich mit dem Problem der Bildwiederholrate. Das unten stehende CSS stammt aus dem CSS-Tricks Artikel, ["Neuer Besuch von prefers-reduced-motion, der abgedimmten Bewegungsabfrage"](https://css-tricks.com/revisiting-prefers-reduced-motion/).
 
 ```css
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
@@ -514,110 +512,110 @@ Eric Bailey, von CSS-Tricks, fand eine innovative Verwendung der Aktualisierungs
 }
 ```
 
-Das [`update`](/de/docs/Web/CSS/@media/update)-Medienmerkmal wird verwendet, um die Fähigkeit des Ausgabegeräts abzufragen, das Aussehen von Inhalten zu ändern, nachdem sie gerendert wurden. Es hat die Werte "none", "slow" und "fast".
+Die [`update`](/de/docs/Web/CSS/@media/update) Medianfunktion wird verwendet, um die Fähigkeit des Ausgabegeräts, das Erscheinungsbild des Inhalts zu ändern, sobald es gerendert wurde, abzufragen. Sie hat die Werte "none", "slow" und "fast".
 
 ## Entwicklungs- und experimentelle Funktionen
 
 ### Medienabfragen Stufe 5
 
-EnvironmentMQ (geplant bei Medienabfragen Stufe 5)
+EnvironmentMQ (Geplant in Medienabfragen Stufe 5)
 
 - `light-level`
-  - : [`light-level`](https://drafts.csswg.org/mediaqueries-5/#light-level) hat drei gültige Werte: dim, normal und washed. Interessanterweise verzichtet die Spezifikation darauf, die drei Ebenen tatsächlich in Form einer Messung von Lux zu definieren, weil Geräte mit einem Lichtsensor in der Regel die Helligkeit des Bildschirms automatisch anpassen. Die Spezifikationen beachten auch die Unterschiede in der Technologie, wie E-Ink, die auch bei hellem Tageslicht lesbar bleibt, während Flüssigkristalle dies nicht tun.
+  - : [`light-level`](https://drafts.csswg.org/mediaqueries-5/#light-level) hat drei gültige Werte: dim, normal und washed. Interessanterweise verzichtet die Spezifikation darauf, die drei Stufen tatsächlich in Form eines Lux-Wertes zu definieren, da Geräte mit Lichtsensor normalerweise die Helligkeit des Bildschirms automatisch anpassen. Die Spezifikationen merken auch die Technologiedifferenzen an, wie elektronische Tinte, die bleibt in hellem Tageslicht lesbar, im Gegensatz zu Flüssigkristallen, die nicht lesbar sind.
 - `environment-blending`
-  - : Aus W3Cs Entwurfsdokument, Medienabfragen Stufe 5: _"Das [`environment-blending`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-environment-blending)-Medienmerkmal wird genutzt, um die Eigenschaften des Displays abzufragen, sodass der Autor den Stil des Dokuments anpassen kann. Ein Autor könnte sich entscheiden, die visuellen und/oder das Layout der Seite abhängig von der Anzeigetechnologie anzupassen, um die Attraktivität zu erhöhen oder die Lesbarkeit zu verbessern."_
+  - : Aus der W3C-Entwurfsdokumentation, Medienabfragen Stufe 5: _"Die [`environment-blending`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-environment-blending) Medianfunktion wird verwendet, um die Eigenschaften des Displays des Benutzers abzufragen, damit der Autor den Stil des Dokuments anpassen kann. Ein Autor könnte wählen, die visuellen Einstellungen und/oder das Layout der Seite angepasst an die Displaytechnologie zu gestalten, um die Attraktivität zu erhöhen oder die Lesbarkeit zu verbessern."_
 
-#### Benutzerpräferenz-Medienmerkmale (geplant in Medienabfragen Stufe 5)
+#### Benutzervorlieben Medienfunktion (Geplant in Medienabfragen Stufe 5)
 
-[Benutzerpräferenz-Medienmerkmale](https://drafts.csswg.org/mediaqueries-5/#mf-user-preferences) im [W3C-Editor's-Entwurfsdokument Medienabfragen Stufe 5](https://drafts.csswg.org/mediaqueries-5/) sind besonders vielversprechend, um den Benutzern Kontrolle über die Medien zu geben. Hier sind einige Highlights:
+[Benutzervorlieben Medienfunktion](https://drafts.csswg.org/mediaqueries-5/#mf-user-preferences) im [W3C Editor's Draft Medienabfragen Stufe 5](https://drafts.csswg.org/mediaqueries-5/) sind besonders vielversprechend, um den Benutzern Kontrolle über Medien zu geben. Hier sind einige Höhepunkte:
 
 - `inverted-colors`
-  - : Laut dem Abschnitt, [Benutzerpräferenz-Medienmerkmale](https://drafts.csswg.org/mediaqueries-5/#mf-user-preferences), "Das [`inverted-colors`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-inverted-colors)-Medienmerkmal kennzeichnet, ob die Inhalte normal angezeigt werden oder ob die Farben invertiert wurden."
+  - : Laut dem Abschnitt, [Benutzervorlieben Medienfunktion](https://drafts.csswg.org/mediaqueries-5/#mf-user-preferences), "Die [`inverted-colors`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-inverted-colors) Medianfunktion weist darauf hin, ob der Inhalt normal angezeigt wird oder ob die Farben invertiert wurden."
 - [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors)
-  - : In [`forced-colors-mode`](https://drafts.csswg.org/css-color-adjust-1/#forced-colors-mode) erzwingt der Benutzeragent die bevorzugte Farbpalette des Benutzers auf der Seite und überschreibt die vom Autor gewählten Farben. Aus W3C's Entwurfsdokument, Medienabfragen Stufe 5 Abschnitt zu forced-colors: _"Das forced-colors-Medienmerkmal wird genutzt, um zu erkennen, ob der Benutzeragent einen [forced colors mode](https://drafts.csswg.org/css-color-adjust-1/#forced-colors-mode) aktiviert hat, bei dem er eine vom Benutzer ausgewählte begrenzte Farbpalette auf der Seite erzwingt." Der Benutzer muss auf diese Fähigkeit aufmerksam gemacht werden und sie muss gut mit dem geeigneten Wert für die prefers-color-scheme-Medienabfrage harmonieren._
+  - : In [`forced-colors-mode`](https://drafts.csswg.org/css-color-adjust-1/#forced-colors-mode) erzwingt der Benutzeragent die bevorzugte Farbpalette des Benutzers auf der Seite, indem er die vom Autor gewählten Farben überlagert. Aus der W3C-Entwurfsdokumentation, Medienabfragen Stufe 5 Abschnitt über forcierte Farben: _"Die forcierten Farben Medianfunktion wird verwendet, um festzustellen, ob der Benutzeragent einen [forcierten Farbenmodus](https://drafts.csswg.org/css-color-adjust-1/#forced-colors-mode) aktiviert hat, bei dem eine vom Benutzer gewählte eingeschränkte Farbpalette auf der Seite erzwungen wird."_. Der Benutzer muss sich dieser Fähigkeit bewusst sein und es muss mit dem entsprechenden Wert für die Medienabfrage prefers-color-scheme gut zusammenarbeiten.
 - `light-level`
-  - : Aus W3C's Entwurfsdokument, Medienabfragen Stufe 5 Abschnitt zu light-level: _"Das [`light-level`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-light-level)-Medienmerkmal wird genutzt, um das Umgebungslichtniveau abzufragen, bei dem das Gerät verwendet wird, um dem Autor die Anpassung des Stils des Dokuments als Reaktion darauf zu ermöglichen."_ Dies wird für diejenigen von uns ein Segen sein, die motorische Probleme oder einige mit kognitiven Schwierigkeiten haben, die nicht den richtigen "Knopf" finden können, um ihre Bildschirmeinstellungen zu ändern.
+  - : Aus der W3C-Entwurfsdokumentation, Medienabfragen Stufe 5 zu Licht-Level: _"Die [`light-level`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-light-level) Medianfunktion wird verwendet, um den Umgebungslicht-Level abzufragen, in dem das Gerät verwendet wird, um dem Autor die Möglichkeit zu geben, den Stil des Dokuments als Antwort anzupassen."_. Dies wird ein Segen für diejenigen mit motorischen Problemen oder für einige mit kognitiven Schwierigkeiten sein, die nicht den richtigen "Knopf" finden können, um ihre Bildschirmeinstellungen zu ändern.
 - prefers-contrast
-  - : Aus W3C's Entwurfsdokument, Medienabfragen Stufe 5 Abschnitt zu [`prefers-contrast`](/de/docs/Web/CSS/@media/prefers-contrast): _"Das prefers-contrast-Medienmerkmal wird genutzt, um zu erkennen, ob der Benutzer das System dazu aufgefordert hat, die Menge an Kontrast zwischen benachbarten Farben zu erhöhen oder zu verringern. Zum Beispiel haben viele Benutzer Schwierigkeiten, Text zu lesen, der einen geringen Kontrast zum Hintergrund aufweist und würden einen größeren Kontrast bevorzugen."_ Manchmal kann es so etwas wie zu viel Kontrast geben; ein Heiligeffekt um Text herum kann in solchen Situationen auftreten und tatsächlich die Lesbarkeit verringern. Den Kontrast in die Kontrolle des Benutzers zu geben, ist ein definitives Geschenk für die Barrierefreiheit.
+  - : Aus der W3C-Entwurfsdokumentation, Medienabfragen Stufe 5 zu [`prefers-contrast`](/de/docs/Web/CSS/@media/prefers-contrast): _"Die `prefers-contrast` Medianfunktion wird verwendet, um zu erkennen, wenn der Benutzer das System gebeten hat, den Kontrast zwischen angrenzenden Farben zu erhöhen oder zu verringern. Zum Beispiel haben viele Benutzer Schwierigkeiten, Text, der nur einen geringen Kontrast umgibt, zu lesen, und würden einen größeren Kontrast bevorzugen."_ Manchmal kann auch zu viel Kontrast sein; ein Halo-Effekt um Text kann in solchen Situationen auftreten und tatsächlich die Lesbarkeit reduzieren. Das Ausmaß des Kontrastes in die Kontrolle des Benutzers zu bringen, ist ein definitives Geschenk für die Barrierefreiheit.
 
-#### `MediaQueryList` Schnittstelle
+#### MediaQueryList-Schnittstelle
 
-Abschnitt 4.2 der CSSWG.org-Entwürfe integriert sich mit der im [Ereignisschleife](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop) definierten Eventschleife in HTML. [HTML](https://drafts.csswg.org/cssom-view/#biblio-html) für das [`MediaQueryList`](https://drafts.csswg.org/cssom-view/#mediaquerylist) Objekt. Mehr Informationen finden Sie im MDN-Dokument, [MediaQueryList](/de/docs/Web/API/MediaQueryList).
+Abschnitt 4.2 von den CSSWG.org-Entwürfen integriert mit der [Ereignisschleife](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop), die in HTML definiert ist. [HTML](https://drafts.csswg.org/cssom-view/#biblio-html) für das [`MediaQueryList`](https://drafts.csswg.org/cssom-view/#mediaquerylist) Objekt. Weitere Informationen finden Sie im MDN-Dokument, [MediaQueryList](/de/docs/Web/API/MediaQueryList).
 
-#### Personalisierungshilfe und Unterstützung
+#### Personalisierung Unterstützung und Hilfe
 
-Die Anforderung für die `literal`-Eigenschaft stammt von [WAI-Adapt: Help and Support](https://w3c.github.io/adapt/help/#literal-explanation).
+Die Anforderung für die `literal` Eigenschaft ist entnommen aus [WAI-Adapt: Hilfe und Unterstützung](https://w3c.github.io/adapt/help/#literal-explanation).
 
-**Anforderung:** Einige Benutzer können keinen nicht-wörtlichen Text und Symbole wie Metaphern, Redewendungen usw. verstehen. Die `literal`-Eigenschaft soll Text oder Bilder als nicht wörtlich kennzeichnen und ermöglicht es dem Autor, nicht-wörtlichen Text und Bilder den Benutzern zu erklären.
+**Anforderung:** Einige Benutzer können nicht wörtlichen Text und Symbole wie Metaphern, Idiome usw. nicht verstehen. Die `literal` Eigenschaft soll Text oder Bilder als nicht wörtlich identifizieren und ermöglicht dem Autor, nicht wörtlichen Text und Bilder Benutzern zu erklären.
 
 ## Siehe auch
 
 ### MDN
 
 - [Barrierefreiheit: Was Nutzer tun können, um sicherer zu surfen](/de/docs/Web/Accessibility/Guides/Browsing_safely)
-- [Barrierefreiheit: Verständnis von Farbe und Leuchtkraft](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+- [Barrierefreiheit: Verstehen von Farben und Luminanz](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [Anwendung von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)
 - [Grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) (Canvas-Tutorial)
-- [Canvas-API](/de/docs/Web/API/Canvas_API)
+- [Canvas API](/de/docs/Web/API/Canvas_API)
 - [CanvasRenderingContext2D.drawImage()](/de/docs/Web/API/CanvasRenderingContext2D/drawImage)
 - [\<color>](/de/docs/Web/CSS/color_value)
 - [Document Object Model](/de/docs/Web/API/Document_Object_Model)
 - [MediaQueryList](/de/docs/Web/API/MediaQueryList)
-- [Verwendung von dynamischen Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Stil-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
 - [WebGL: 2D- und 3D-Grafiken für das Web](/de/docs/Web/API/WebGL_API)
 - [WebVR API](/de/docs/Web/API/WebVR_API)
 
-### Farbe
+### Farben
 
-- [Color Tutorial: Beschreibung von Farbe](https://colortutorial.design/) Tom Jewett
-- [Formel zur Bestimmung der Helligkeit von RGB-Farben](https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color) Diskussionsforum von Stack Exchange
-- [Wie die Farbe Rot unser Verhalten beeinflusst](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/) Scientific American Von Susana Martinez-Conde, Stephen L. Macknik am 1. November 2014
+- [Color Tutorial: describing color](https://colortutorial.design/) Tom Jewett
+- [Formel zur Bestimmung der Helligkeit von RGB-Farben](https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color) Stack Exchange Diskussionsthread
+- [Wie die Farbe Rot unser Verhalten beeinflusst](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/) Scientific American von Susana Martinez-Conde, Stephen L. Macknik am 1. November 2014
 
 ### Diskussionen
 
-- [Probleme mit der WCAG 2.0 Definition von Blitzen #553](https://github.com/w3c/wcag/issues/553)
-- [WCAG 2.1 Verständnis von 2.3.1 - fehlende/unklare Dimensionsdefinitionen #585](https://github.com/w3c/wcag/issues/585)
+- [Probleme mit der WCAG 2.0-Blitzdefinition #553](https://github.com/w3c/wcag/issues/553)
+- [WCAG 2.1 Verständnis 2.3.1 - fehlende/unklare Dimensionsdefinitionen #585](https://github.com/w3c/wcag/issues/585)
 
 ### Epilepsie und Anfälle
 
-- [Licht auf Photosensitivität werfen, eine der komplexesten Bedingungen der Epilepsie](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions) Epilepsy Foundation: _"Bestimmte Individuen sind von Geburt an besonders empfindlich gegenüber flackernden Lichtern oder kontrastreichen visuellen Mustern, wie Streifen, Gittern und Schachbrettmustern. Aufgrund dieser Sensitivität erzeugt ihr Gehirn Anfalls-ähnliche Entladungen, wenn sie dieser Art von visueller Stimulation ausgesetzt sind."_
-- [Gamma-Oszillationen und photosensitive Epilepsie](https://www.sciencedirect.com/science/article/pii/S0960982217304062?via%3Dihub) Current Biology [Band 27, Ausgabe 9](https://www.sciencedirect.com/journal/current-biology/vol/27/issue/9), 8. Mai 2017, Seiten R336-R338: _"Bestimmte [visuelle Bilder](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/retina-image), selbst ohne Bewegung oder Flimmern, können bei Patienten mit photosensitiver Epilepsie Anfälle auslösen."_
-- [Photosensitive Anfälle. Cedars-Sinai](https://www.cedars-sinai.org/health-library/diseases-and-conditions/p/photosensitive-seizures.html) "_Photosensitive Anfälle werden durch flackernde oder blitzende Lichter ausgelöst. Diese Anfälle können auch durch bestimmte Muster wie Streifen ausgelöst werden._"
-- [Photic-und musterinduzierte Anfälle: Expertenkonsens der Epilepsy Foundation of America Working Group](https://pubmed.ncbi.nlm.nih.gov/16146438/) Eplepsia 2005 Sept, 46(9):1423-5 PubMed.gov NCBI [Harding G](https://pubmed.ncbi.nlm.nih.gov/?term=Harding%20G%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Wilkins AJ](https://pubmed.ncbi.nlm.nih.gov/?term=Wilkins%20AJ%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Erba G](https://pubmed.ncbi.nlm.nih.gov/?term=Erba%20G%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Barkley GL](https://pubmed.ncbi.nlm.nih.gov/?term=Barkley%20GL%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Fisher RS](https://pubmed.ncbi.nlm.nih.gov/?term=Fisher%20RS%5BAuthor%5D&cauthor=true&cauthor_uid=16146438); [Epilepsy Foundation of America Working Group](https://pubmed.ncbi.nlm.nih.gov/?term=Epilepsy%20Foundation%20of%20America%20Working%20Group%5BCorporate%20Author%5D).
+- [Licht auf die Photosensitivität werfen, eine der komplexesten Bedingungen der Epilepsie](https://www.epilepsy.com/stories/shedding-light-photosensitivity-one-epilepsys-most-complex-conditions) Epilepsy Foundation: _"Bestimmte Menschen werden mit einer besonderen Empfindlichkeit gegenüber flackernden Lichtern oder kontrastierenden visuellen Mustern wie Streifen, Gittern und Schachbrettmustern geboren. Aufgrund dieser Bedingung produziert ihr Gehirn anfallsartige Entladungen, wenn es diesem visuellen Reiz ausgesetzt ist."_
+- [Gamma-Oszillationen und photosensitive Epilepsie](https://www.sciencedirect.com/science/article/pii/S0960982217304062?via%3Dihub) Current Biology [Volume 27, Ausgabe 9](https://www.sciencedirect.com/journal/current-biology/vol/27/issue/9), 8. Mai 2017, Seiten R336-R338: _"Bestimmte [visuelle Bilder](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/retina-image), selbst in Abwesenheit von Bewegung oder Flackern, können bei Patienten mit photosensitiver Epilepsie Anfälle auslösen."_
+- [Photosensitive Anfälle. Cedars-Sinai](https://www.cedars-sinai.org/health-library/diseases-and-conditions/p/photosensitive-seizures.html) "_Photosensitive Anfälle werden durch blinkende oder flackernde Lichter ausgelöst. Diese Anfälle können auch durch bestimmte Muster wie Streifen ausgelöst werden._"
+- [Licht- und Muster-induzierte Anfälle: Expertenkonsens der Arbeitsgruppe der Epilepsy Foundation of America](https://pubmed.ncbi.nlm.nih.gov/16146438/) Eplepsia 2005 Sept, 46(9):1423-5 PubMed.gov NCBI [Harding G](https://pubmed.ncbi.nlm.nih.gov/?term=Harding%20G%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Wilkins AJ](https://pubmed.ncbi.nlm.nih.gov/?term=Wilkins%20AJ%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Erba G](https://pubmed.ncbi.nlm.nih.gov/?term=Erba%20G%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Barkley GL](https://pubmed.ncbi.nlm.nih.gov/?term=Barkley%20GL%5BAuthor%5D&cauthor=true&cauthor_uid=16146438), [Fisher RS](https://pubmed.ncbi.nlm.nih.gov/?term=Fisher%20RS%5BAuthor%5D&cauthor=true&cauthor_uid=16146438); [Epilepsy Foundation of America Working Group](https://pubmed.ncbi.nlm.nih.gov/?term=Epilepsy%20Foundation%20of%20America%20Working%20Group%5BCorporate%20Author%5D).
 
 ### GPII
 
-- [Barrierefreiheit Masterliste](https://ds.gpii.net/learn/accessibility-masterlist) Gregg Vanderheiden Ph.D. Herausgeber
+- [Accessibility Master List](https://ds.gpii.net/learn/accessibility-masterlist) Gregg Vanderheiden Ph.D. Herausgeber
 
 ### Harding
 
-Zusammen mit dem PEAT-Tool wird allgemein als einer der beiden "Goldstandards" für die Analyse von Blitzen anerkannt.
+Zusammen mit dem PEAT-Werkzeug wird es allgemein als einer der beiden "Goldstandards" zur Analyse von Blitzen anerkannt.
 
-- [Harding Flash- und Pattern-Analyzer](https://www.hardingfpa.com/)
+- [Harding Flash and Pattern Analyzer](https://www.hardingfpa.com/)
 
 ### ISO
 
-- [IEC 61966-2-2:2003(en)](https://www.iso.org/obp/ui/#iso:std:iec:61966:-2-2:ed-1:v1:en) Multimedia-Systeme und -Geräte — Farbmessung und -verwaltung — Teil 2-2: Farbverwaltung — Erweiterter RGB-Farbraum — scRGB
+- [IEC 61966-2-2:2003(en)](https://www.iso.org/obp/ui/#iso:std:iec:61966:-2-2:ed-1:v1:en) Multimediasysteme und -geräte — Farbmessung und Management — Teil 2-2: Farbmanagement — Erweiterter RGB-Farbraum — scRGB
 
-### Photosensitive Epilepsie Analyse-Tool
+### Analysewerkzeug für photosensitive Epilepsie
 
-Zusammen mit dem Harding-Tool wird allgemein als einer der beiden "Goldstandards" für die Analyse von Blitzen anerkannt.
+Zusammen mit dem Harding-Werkzeug wird es allgemein als einer der beiden "Goldstandards" zur Analyse von Blitzen anerkannt.
 
 - [Trace Research and Development Center](https://trace.umd.edu/peat/)
-- [Verwendung von PEAT zur Erstellung anfallsfreier Webanimationen](https://www.useragentman.com/blog/2017/04/02/using-peat-to-create-seizureless-web-animations/)
+- [Verwendung von PEAT zur Erstellung von anfallsfreien Web-Animationen](https://www.useragentman.com/blog/2017/04/02/using-peat-to-create-seizureless-web-animations/)
 
 ### W3C
 
-- [WAI-Adapt Explainer](https://w3c.github.io/adapt/)
+- [WAI-Adapt Erklärer](https://w3c.github.io/adapt/)
 - [WAI-Adapt: Tools Module](https://www.w3.org/TR/adapt-tools/) Arbeitsentwurf
-- [Drei Blitze oder darunter Schwellenwert Verständnis SC 2.3.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html) Verständnis der WCAG 2.0 (älter, aber enthält einige Erklärungen zu Referenzen der WCAG 2.1 Kriterien)
-- [Drei Blitze oder darunter Schwellenwert Verständnis Erfolgs-Kriterium 2.3.1](https://www.w3.org/WAI/WCAG21/Understanding/three-flashes-or-below-threshold.html) Verständnis der WCAG 2.1
-- [Verständnis der Erfolgs-Kriterien 1.4.3: Kontrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+- [Drei Blitze oder darunter Schwellenwert Verständnis SC 2.3.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html) Verständnis von WCAG 2.0 (Älter, aber enthält einige Erklärungen zu Referenzen in den WCAG 2.1 Kriterien)
+- [Drei Blitze oder darunter Schwellenwert Verständnis Erfolgskriterium 2.3.1](https://www.w3.org/WAI/WCAG21/Understanding/three-flashes-or-below-threshold.html) Verständnis von WCAG 2.1
+- [Verständnis Erfolgskriterien 1.4.3: Kontrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
 - [Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
-- [Richtlinien für die Barrierefreiheit von Webinhalten (WCAG) 2.2](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) Definition der relativen Leuchtdichte
+- [Web Content Accessibility Guidelines (WCAG) 2.2](https://w3c.github.io/wcag/guidelines/22/#dfn-relative-luminance) Definition von relativer Luminanz
 
 ## Mitwirkende
 
-Ein herzlicher Dank an Teal; Wayne Dick von der [Low Vision Task Force of the W3C](https://www.w3.org/WAI/GL/task-forces/low-vision-a11y-tf/); Tom Jewett und Eric Eggert von [Knowbility](https://knowbility.org/); Jim Allan vom [Diagram Center](http://diagramcenter.org/); und Dr. Selim R. Benbadis, Direktor, [Comprehensive Epilepsy Program and Clinical Neurophysiology Laboratory at USF and TGH in Tampa, Florida](https://health.usf.edu/medicine/neurology/epilepsy) für ihre großartige, großartige Unterstützung und Diskussionen zu diesem Thema.
+Herzlichen Dank an Teal; Wayne Dick von der [Low Vision Task Force der W3C](https://www.w3.org/WAI/GL/task-forces/low-vision-a11y-tf/); Tom Jewett und Eric Eggert von [Knowbility](https://knowbility.org/); Jim Allan vom [Diagram Center](http://diagramcenter.org/); und Dr. Selim R. Benbadis, Direktor, [Comprehensive Epilepsy Program and Clinical Neurophysiology Laboratory bei USF und TGH in Tampa, Florida](https://health.usf.edu/medicine/neurology/epilepsy) für ihre großartige Unterstützung und Diskussionen zu diesem Thema.
 
-Wir sind _allen_ zutiefst dankbar dem Trace Research & Development Center für die Bereitstellung ihres erstaunlichen Werkzeugs, dem [Photosensitive Epilepsy Analysis Tool (PEAT)](https://trace.umd.edu/peat/) kostenlos.
+Wir sind _alle_ äußerst dankbar gegenüber dem Trace Research & Development Center dafür, dass sie ihr großartiges Werkzeug, das [Photosensitive Epilepsy Analysis Tool (PEAT)](https://trace.umd.edu/peat/) kostenlos zur Verfügung stellen.

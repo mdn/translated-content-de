@@ -1,14 +1,15 @@
 ---
-title: "WebGLRenderingContext: stencilOpSeparate()-Methode"
+title: "WebGLRenderingContext: stencilOpSeparate() Methode"
 short-title: stencilOpSeparate()
 slug: Web/API/WebGLRenderingContext/stencilOpSeparate
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.stencilOpSeparate()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt die Aktionen für den front- und/oder rückseitigen Stencil-Test fest.
+Die **`WebGLRenderingContext.stencilOpSeparate()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) legt die Aktionen des Stencil-Tests für die Vorder- und/oder Rückseite fest.
 
 ## Syntax
 
@@ -20,22 +21,21 @@ stencilOpSeparate(face, fail, zfail, zpass)
 
 - `face`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob der front- und/oder rückseitige Stencil-Zustand
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob der Stencil-Zustand der Vorder- und/oder Rückseite
     aktualisiert wird. Die möglichen Werte sind:
-
     - `gl.FRONT`
     - `gl.BACK`
     - `gl.FRONT_AND_BACK`
 
 - `fail`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Funktion angibt, die verwendet werden soll, wenn der Stencil-Test fehlschlägt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Funktion angibt, die verwendet wird, wenn der Stencil-Test fehlschlägt.
     Der Standardwert ist `gl.KEEP`.
 - `zfail`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Funktion angibt, die verwendet werden soll, wenn der Stencil-Test besteht,
-    aber der Tiefentest fehlschlägt. Der Standardwert ist `gl.KEEP`.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Funktion angibt, die verwendet wird, wenn der Stencil-Test besteht,
+    der Tiefentest jedoch fehlschlägt. Der Standardwert ist `gl.KEEP`.
 - `zpass`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Funktion angibt, die verwendet werden soll, wenn sowohl der Stencil-Test
-    als auch der Tiefentest bestehen, oder wenn der Stencil-Test besteht und es keinen Tiefenpuffer gibt
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Funktion angibt, die verwendet wird, wenn sowohl der Stencil-Test
+    als auch der Tiefentest bestehen, oder wenn der Stencil-Test besteht und kein Tiefenpuffer vorhanden ist
     oder der Tiefentest deaktiviert ist. Der Standardwert ist `gl.KEEP`.
 
 ### Rückgabewert
@@ -49,27 +49,27 @@ Keiner ({{jsxref("undefined")}}).
 - `gl.ZERO`
   - : Setzt den Wert des Stencil-Puffers auf 0.
 - `gl.REPLACE`
-  - : Setzt den Wert des Stencil-Puffers auf den Referenzwert, wie er von
-    [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc) angegeben wird.
+  - : Setzt den Wert des Stencil-Puffers auf den Referenzwert, wie durch
+    [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc) angegeben.
 - `gl.INCR`
-  - : Erhöht den aktuellen Wert des Stencil-Puffers. Begrenzung auf den maximal darstellbaren
-    unveränderten Wert.
+  - : Erhöht den aktuellen Wert des Stencil-Puffers. Begrenzt auf den maximal darstellbaren
+    vorzeichenlosen Wert.
 - `gl.INCR_WRAP`
-  - : Erhöht den aktuellen Wert des Stencil-Puffers. Umschlagen des Werts im Stencil-Puffer auf Null, wenn
-    der maximal darstellbare unveränderte Wert erhöht wird.
+  - : Erhöht den aktuellen Wert des Stencil-Puffers. Setzt den Stencil-Pufferwert auf null zurück, wenn
+    der maximal darstellbare vorzeichenlose Wert überschritten wird.
 - `gl.DECR`
-  - : Verringert den aktuellen Wert des Stencil-Puffers. Begrenzung auf 0.
+  - : Verringert den aktuellen Wert des Stencil-Puffers. Begrenzt auf 0.
 - `gl.DECR_WRAP`
-  - : Verringert den aktuellen Wert des Stencil-Puffers. Umschlagen des Werts im Stencil-Puffer auf den
-    maximal darstellbaren unveränderten Wert, wenn ein Stencil-Puffer-Wert von 0 verringert wird.
+  - : Verringert den aktuellen Wert des Stencil-Puffers. Setzt den Stencil-Pufferwert auf den
+    maximal darstellbaren vorzeichenlosen Wert, wenn der Stencil-Pufferwert 0 beträgt.
 - `gl.INVERT`
   - : Invertiert den aktuellen Wert des Stencil-Puffers bitweise.
 
 ## Beispiele
 
 Das Stencil-Testing ist standardmäßig deaktiviert. Um das Stencil-Testing zu aktivieren oder zu deaktivieren, verwenden Sie
-die [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)- und
-[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable)-Methoden mit dem Argument
+die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und
+[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument
 `gl.STENCIL_TEST`.
 
 ```js
@@ -77,7 +77,7 @@ gl.enable(gl.STENCIL_TEST);
 gl.stencilOpSeparate(gl.FRONT, gl.INCR, gl.DECR, gl.INVERT);
 ```
 
-Um die aktuellen Informationen über Stencil- und Tiefenpass oder -fehler zu erhalten, fragen Sie die
+Um aktuelle Informationen über das Bestehen oder Nichtbestehen von Stencil- und Tiefentests zu erhalten, fragen Sie die
 folgenden Konstanten mit [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) ab.
 
 ```js

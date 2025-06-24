@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: bindBufferBase()-Methode"
+title: "WebGL2RenderingContext: bindBufferBase() Methode"
 short-title: bindBufferBase()
 slug: Web/API/WebGL2RenderingContext/bindBufferBase
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.bindBufferBase()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet einen gegebenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen gegebenen Bindungspunkt (`target`) bei einem bestimmten `index`.
+Die **`WebGL2RenderingContext.bindBufferBase()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein gegebenes [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen bestimmten Bindungspunkt (`target`) an einem bestimmten `index`.
 
 ## Syntax
 
@@ -20,15 +20,14 @@ bindBufferBase(target, index, buffer)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel für die Bindungsoperation angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel für die Bindungsoperation angibt. Mögliche Werte:
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
     - `gl.UNIFORM_BUFFER`
 
 - `index`
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des `target` angibt.
 - `buffer`
-  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der an den Bindungspunkt (`target`) gebunden werden soll.
+  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der an den Bindungspunkt (`target`) gebunden wird.
 
 ### Rückgabewert
 

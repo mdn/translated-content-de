@@ -2,56 +2,54 @@
 title: WakeLockSentinel
 slug: Web/API/WakeLockSentinel
 l10n:
-  sourceCommit: 59a92ab5609f0a021602f11843f3b00b16e67e6d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Screen Wake Lock API")}}
 
-Das **`WakeLockSentinel`** Interface der [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) kann verwendet werden, um den Status der Plattform-Bildschirmsperre zu überwachen und die Sperre bei Bedarf manuell freizugeben.
+Die **`WakeLockSentinel`**-Schnittstelle der [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) kann verwendet werden, um den Status der Plattform-Bildschirmwachschaltung zu überwachen und bei Bedarf den Lock manuell zu lösen.
 
-Die Bildschirmsperre verhindert, dass Gerätebildschirme gedimmt oder gesperrt werden, wenn eine Anwendung weiterlaufen muss.
+Die Bildschirmwachschaltung verhindert, dass Geräteschirme gedimmt oder gesperrt werden, wenn eine Anwendung weiterlaufen muss.
 
-Eine Bildschirmsperre wird mit der Methode [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) angefordert, die ein {{jsxref('Promise')}} zurückgibt, das bei Gewährung der Sperre mit einem `WakeLockSentinel` Objekt erfüllt wird.
+Ein Bildschirm-Wachschaltung wird mit der Methode [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) angefordert, die ein {{jsxref('Promise')}} zurückgibt, das mit einem `WakeLockSentinel`-Objekt erfüllt wird, wenn der Lock gewährt wird.
 
-Eine erworbene Bildschirmsperre kann manuell über die Methode [`release()`](/de/docs/Web/API/WakeLockSentinel/release) oder automatisch über die Plattform-Bildschirmsperre freigegeben werden. Letzteres kann geschehen, wenn das Dokument inaktiv oder unsichtbar wird, wenn das Gerät wenig Energie hat, oder wenn der Benutzer einen Energiesparmodus aktiviert.
-Ein freigegebenes `WakeLockSentinel` kann nicht erneut verwendet werden: Ein neues Sentinel muss mit [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) angefordert werden, wenn eine neue Sperre benötigt wird.
-Das Freigeben aller `WakeLockSentinel` Instanzen eines bestimmten Typs von Sperre führt dazu, dass die zugrunde liegende Plattform-Sperre freigegeben wird.
+Ein erworbener Bildschirm-Wachschaltung kann manuell über die Methode [`release()`](/de/docs/Web/API/WakeLockSentinel/release) oder automatisch über die Plattform-Bildschirmwachschaltung gelöst werden. Letzteres kann geschehen, wenn das Dokument inaktiv wird oder die Sichtbarkeit verliert, wenn das Gerät wenig Strom hat oder der Benutzer den Energiesparmodus aktiviert.
+Ein freigegebener `WakeLockSentinel` kann nicht wiederverwendet werden: Ein neuer Sentinel muss mit [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) angefordert werden, wenn ein neuer Lock benötigt wird.
+Das Freigeben aller `WakeLockSentinel`-Instanzen eines bestimmten Typs von Wachschaltung führt dazu, dass der zugrunde liegende Plattform-Lock gelöst wird.
 
-Ein Ereignis wird am `WakeLockSentinel` ausgelöst, wenn die Plattform-Sperre freigegeben wird, was es Anwendungen ermöglicht, ihre Benutzeroberfläche zu konfigurieren und die Sperre bei Bedarf erneut anzufordern.
+Ein Ereignis wird an den `WakeLockSentinel` ausgelöst, wenn der Plattform-Lock gelöst wird, sodass Anwendungen ihre Benutzeroberfläche entsprechend konfigurieren und, falls erforderlich, den Lock erneut anfordern können.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt auch Eigenschaften von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`released`](/de/docs/Web/API/WakeLockSentinel/released) {{ReadOnlyInline}}
-  - : Gibt einen Boolean zurück, der angibt, ob das `WakeLockSentinel` freigegeben wurde.
+  - : Gibt einen Booleschen Wert zurück, der anzeigt, ob der `WakeLockSentinel` freigegeben wurde.
 - [`type`](/de/docs/Web/API/WakeLockSentinel/type) {{ReadOnlyInline}}
+  - : Gibt eine Zeichenkettenrepräsentation des derzeit erworbenen `WakeLockSentinel`-Typs zurück.
+    Rückgabewerte sind:
+    - `screen`: Eine Bildschirm-Wachschaltung.
+      Verhindert, dass Geräte den Bildschirm dimmen oder sperren.
 
-  - : Gibt eine Zeichenfolgenrepräsentation des aktuell erworbenen `WakeLockSentinel` Typs zurück.
-    Mögliche Rückgabewerte sind:
-
-    - `screen`: Eine Bildschirmsperre.
-      Verhindert, dass Gerätebildschirme gedimmt oder gesperrt werden.
-
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`release()`](/de/docs/Web/API/WakeLockSentinel/release)
-  - : Gibt das `WakeLockSentinel` frei und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald das Sentinel erfolgreich freigegeben wurde.
+  - : Löst den `WakeLockSentinel` und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Sentinel erfolgreich freigegeben wurde.
 
 ## Ereignisse
 
 - [`release`](/de/docs/Web/API/WakeLockSentinel/release_event)
-  - : Wird ausgelöst, wenn die Methode [`release()`](/de/docs/Web/API/WakeLockSentinel/release) aufgerufen wird oder die Sperre vom User-Agent freigegeben wird.
+  - : Wird ausgelöst, wenn die Methode [`release()`](/de/docs/Web/API/WakeLockSentinel/release) aufgerufen wird oder der Wachschaltung vom Benutzer-Agent freigegeben wird.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir eine asynchrone Funktion, die ein `WakeLockSentinel` anfordert.
-Sobald die Bildschirmsperre erworben wurde, hören wir auf das `release` Ereignis, das verwendet werden kann, um entsprechendes Feedback an die Benutzeroberfläche zu geben.
-Das Sentinel kann durch entsprechende Interaktionen erworben oder freigegeben werden.
+In diesem Beispiel erstellen wir eine asynchrone Funktion, die einen `WakeLockSentinel` anfordert.
+Sobald die Bildschirm-Wachschaltung erlangt ist, lauschen wir dem `release`-Ereignis, das verwendet werden kann, um entsprechendes UI-Feedback zu geben.
+Der Sentinel kann durch entsprechende Interaktionen erworben oder freigegeben werden.
 
 ```js
 // create a reference for the wake lock

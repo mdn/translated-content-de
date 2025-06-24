@@ -2,7 +2,7 @@
 title: <xsl:text>
 slug: Web/XML/XSLT/Reference/Element/text
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 Das `<xsl:text>`-Element schreibt wörtlichen Text in den Ausgabebaum. Es kann `#PCDATA`, wörtlichen Text und Entitätsreferenzen enthalten.
@@ -23,10 +23,10 @@ Keine.
 
 - `disable-output-escaping`
 
-  - : Legt fest, ob Sonderzeichen beim Schreiben in die Ausgabe maskiert werden. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird beispielsweise das Zeichen `>` als `>` ausgegeben und nicht als `&gt;`.
+  - : Gibt an, ob Sonderzeichen beim Schreiben in die Ausgabe umgewandelt werden. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird zum Beispiel das Zeichen `>` als `>` ausgegeben und nicht als `&gt;`.
 
     > [!NOTE]
-    > Ältere Browser könnten das Ergebnis der Transformation (die "Ausgabe" unten) nicht serialisieren, wodurch dieses Attribut in solchen Kontexten irrelevant ist. Um HTML-Entitäten auszugeben, verwenden Sie stattdessen numerische Werte, z. B. `&#160;` für `&nbsp;`.
+    > Ältere Browser könnten das Ergebnis der Transformation (die "Ausgabe" unten) nicht serialisieren, was dieses Attribut in solchen Kontexten irrelevant macht. Um HTML-Entitäten auszugeben, verwenden Sie stattdessen numerische Werte, z.B. `&#160;` für `&nbsp;`.
 
 ### Typ
 

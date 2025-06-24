@@ -2,12 +2,12 @@
 title: scope_extensions
 slug: Web/Progressive_web_apps/Manifest/Reference/scope_extensions
 l10n:
-  sourceCommit: 7cd2415e24a105ad4a457bb8eba32b0146dea211
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{SeeCompatTable}}
 
-Der `scope_extensions` Manifestmitglied wird verwendet, um den Umfang einer Webanwendung auf andere Ursprünge zu erweitern. Dies ermöglicht es, mehrere Domains als eine einzige Webanwendung darzustellen.
+Das `scope_extensions` Manifestmitglied wird verwendet, um den Geltungsbereich einer Web-App zu erweitern, sodass andere Ursprünge eingeschlossen werden. Dadurch können mehrere Domains als eine einzige Web-App dargestellt werden.
 
 ## Syntax
 
@@ -23,23 +23,21 @@ Der `scope_extensions` Manifestmitglied wird verwendet, um den Umfang einer Weba
 ### Werte
 
 - `scope_extensions`
-
   - : Ein Array von Objekten, die jeweils die folgenden Eigenschaften enthalten:
-
     - `type`
-      - : Ein String, der den Typ der Umfangserweiterung definiert. Derzeit ist dies immer `origin`, aber zukünftige Erweiterungen könnten andere Typen hinzufügen.
+      - : Ein String, der den Typ der Erweiterung des Geltungsbereichs definiert. Derzeit ist dies immer `origin`, aber zukünftige Erweiterungen könnten andere Typen hinzufügen.
     - `origin`
-      - : Ein String, der einen Ursprung repräsentiert, den die Webanwendung in ihren Umfang einbeziehen möchte.
+      - : Ein String, der einen Ursprung darstellt, den die Web-App in ihren Geltungsbereich aufnehmen möchte.
 
 ## Beschreibung
 
-Der `scope_extensions` Manifestmitglied kann den Umfang einer Webanwendung erweitern, um andere Ursprünge einzuschließen. Typische Anwendungsfälle sind:
+Das `scope_extensions` Manifestmitglied kann den Geltungsbereich einer Web-App erweitern, um andere Ursprünge einzuschließen. Typische Anwendungsfälle sind:
 
-- Verschiedene Subdomains für Inhalte oder Funktionalitäten, zum Beispiel `https://support.example.com`, `https://shop.example.com`, `https://maps.example.com`, `https://auth.example.com`.
-- Verschiedene Subdomains für Sprache/Locale, zum Beispiel `https://uk.example.com`, `https://de.example.com`, `https://jp.example.com`, `https://no.example.com`.
-- Verwandte unabhängige Domains, zum Beispiel `https://example.jp`, `https://my-example.com`, `https://my-partner-site.com`, `https://example.slack.com`.
+- Verschiedene Subdomains für Inhalte oder Funktionalitäten, beispielsweise `https://support.example.com`, `https://shop.example.com`, `https://maps.example.com`, `https://auth.example.com`.
+- Verschiedene Subdomains für Sprache/Region, beispielsweise `https://uk.example.com`, `https://de.example.com`, `https://jp.example.com`, `https://no.example.com`.
+- Verwandte unabhängige Domains, beispielsweise `https://example.jp`, `https://my-example.com`, `https://my-partner-site.com`, `https://example.slack.com`.
 
-Die Haupt-Webanwendung (zum Beispiel, `https://example.com`) muss die Ursprünge, die sie in ihren Umfang aufnehmen möchte, in ihrem `scope_extensions` Manifestmitglied einbeziehen:
+Die Haupt-Web-App (beispielsweise `https://example.com`) muss die Ursprünge, die sie in ihren Geltungsbereich einbeziehen möchte, in ihrem `scope_extensions` Manifestmitglied aufführen:
 
 ```json
 "scope_extensions": [
@@ -52,9 +50,9 @@ Die Haupt-Webanwendung (zum Beispiel, `https://example.com`) muss die Ursprünge
 
 ### Opt-in über eine .well-known Datei
 
-Um sich für die Assoziation anzumelden, müssen die Websites, deren Ursprünge im `scope_extensions` Manifestmitglied der Webanwendung als in-Scope angegeben sind, eine [.well-known](https://en.wikipedia.org/wiki/Well-known_URI) Datei namens `web-app-origin-association` unter einer relativen URL von `/.well-known/web-app-origin-association` enthalten. Diese muss eine JSON-Struktur enthalten, die eine oder mehrere Eigenschaften enthält, deren Schlüssel den [`id`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/id) Manifest-Mitgliedern jeder Webanwendung entsprechen, in deren Umfang die Website aufgenommen werden soll.
+Um der Assoziation beizutreten, müssen die Seiten, deren Ursprünge im `scope_extensions` Manifestmitglied der Web-App als im Geltungsbereich angegeben sind, eine [.well-known](https://en.wikipedia.org/wiki/Well-known_URI) Datei namens `web-app-origin-association` unter der relativen URL `/.well-known/web-app-origin-association` enthalten. Diese muss eine JSON-Struktur enthalten, die mindestens eine Eigenschaft umfasst, deren Schlüssel den [`id`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/id) Manifestmitgliedern derjenigen Web-Apps entspricht, deren Geltungsbereich die Seite einbeziehen möchte.
 
-Zum Beispiel:
+Beispiel:
 
 ```json
 {
@@ -67,20 +65,20 @@ Zum Beispiel:
 }
 ```
 
-Der Wert jeder Eigenschaft ist ein Objekt, das eine `scope` Eigenschaft enthält, mit einem Wert, der den genauen Pfad angibt, der im Umfang der referenzierenden Webanwendung liegen wird.
+Der Wert jeder Eigenschaft ist ein Objekt, das eine `scope`-Eigenschaft mit einem Wert enthält, der den genauen Pfad angibt, der im Geltungsbereich der verweisenden Web-App liegt.
 
 > [!NOTE]
-> Es ist nicht möglich, verschiedene Umfänge für dieselbe Webanwendung anzugeben — Sie können nicht mehrere Einträge für denselben Schlüssel einbeziehen.
+> Es ist nicht möglich, unterschiedliche Geltungsbereiche für dieselbe Web-App anzugeben — Sie können nicht mehrere Einträge für denselben Schlüssel einfügen.
 
-### Effekt von `scope_extensions`
+### Wirkung von `scope_extensions`
 
-Sobald die in der `scope_extensions` der Webanwendung enthaltenen Ursprünge erfolgreich angemeldet sind, können Sie dann zu Orten innerhalb des Umfangs dieser Ursprünge verlinken, und wenn die Links gefolgt werden, erscheinen die Orte im App-Fenster genauso wie Orte innerhalb des eigenen Umfangs der Webanwendung.
+Sobald die Ursprünge, die im `scope_extensions` der Web-App enthalten sind, erfolgreich beigetreten sind, können Sie zu Orten innerhalb des Geltungsbereichs dieser Ursprünge verlinken. Wenn die Links gefolgt werden, erscheinen die Orte im App-Fenster genauso wie Orte im eigenen Geltungsbereich der Web-App.
 
-Wenn Sie einem Link zu einem Ort folgen, der nicht im Umfang der Webanwendung liegt, wird er wie erwartet als externer Ort angezeigt.
+Wenn Sie einem Link zu einem Ort folgen, der nicht im Geltungsbereich der Web-App liegt, erscheint er als externer Ort, wie erwartet.
 
 ## Beispiele
 
-Nehmen Sie eine Beispiel-Webanwendung unter `https://example.com/app`:
+Betrachten Sie eine Beispiel-Web-App unter `https://example.com/app`:
 
 ```json
 {
@@ -102,7 +100,7 @@ Nehmen Sie eine Beispiel-Webanwendung unter `https://example.com/app`:
 }
 ```
 
-Um sich in den Umfang der App einzuschreiben, müssten `https://example.co.uk` und `https://help.example.com` einen `/.well-known/web-app-origin-association` enthalten, der folgendermaßen aussieht:
+Um in den Geltungsbereich der App einzutreten, müssten `https://example.co.uk` und `https://help.example.com` eine `/.well-known/web-app-origin-association` enthalten, die folgendermaßen aussieht:
 
 ```json
 {
@@ -113,7 +111,7 @@ Um sich in den Umfang der App einzuschreiben, müssten `https://example.co.uk` u
 ```
 
 > [!NOTE]
-> Sehen Sie sich die [Scope Extensions API Demo](https://main-pwa-origin-2.glitch.me/) für ein funktionierendes Beispiel an.
+> Siehe [Scope Extensions API Demo](https://main-pwa-origin-2.glitch.me/) für ein funktionierendes Beispiel.
 
 ## Spezifikationen
 

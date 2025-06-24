@@ -2,15 +2,15 @@
 title: fill-opacity
 slug: Web/CSS/fill-opacity
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`fill-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft des Malvorgangs (Farbe, Verlauf, Muster usw.), der auf SVG-Formen oder Textelemente angewendet wird, um das Element auszufüllen. Die Eigenschaft definiert nur die Deckkraft des `fill` des Elements; sie beeinflusst nicht den `stroke`. Falls vorhanden, überschreibt sie das {{SVGAttr("fill-opacity")}} Attribut des Elements.
+Die **`fill-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft des Farbabstrichs (Farbe, Verlauf, Muster, etc.), der auf SVG-Formen oder Textinhaltelemente angewendet wird, um das Element zu füllen. Die Eigenschaft definiert nur die Deckkraft des `fill` des Elements; sie beeinflusst nicht den Umriss. Wenn vorhanden, überschreibt sie das {{SVGAttr("fill-opacity")}} Attribut des Elements.
 
 > [!NOTE]
-> Die `fill-opacity` Eigenschaft gilt nur für {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}, {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `fill-opacity`-Eigenschaft gilt nur für {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}, {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,17 +29,16 @@ fill-opacity: unset;
 
 ### Werte
 
-Die {{cssxref("number")}} und {{cssxref("percentage")}} Werte geben die Deckkraft des `fill` des Elements an.
+Die Werte {{cssxref("number")}} und {{cssxref("percentage")}} geben die Deckkraft des `fill` des Elements an.
 
 - {{cssxref("number")}}
 
-  - : Ein Zahlenwert zwischen `0` und `1`, einschließlich.
+  - : Ein numerischer Wert zwischen `0` und `1`, einschließlich.
 
 - {{cssxref("percentage")}}
+  - : Ein prozentualer Wert zwischen `0%` und `100%`, einschließlich.
 
-  - : Ein Prozentwert zwischen `0%` und `100%`, einschließlich.
-
-Bei `0` oder `0%` ist das Element vollständig transparent. Bei `1` oder `100%` ist das Element vollständig undurchsichtig. Bei Werten dazwischen ist das Element halbtransparent, und der Inhalt hinter dem Element ist sichtbar.
+Mit `0` oder `0%` ist das Element vollständig transparent. Mit `1` oder `100%` ist das Element vollständig undurchsichtig. Mit Werten dazwischen ist das Element halbtransparent, wobei der Inhalt hinter dem Element sichtbar wird.
 
 ## Formale Definition
 
@@ -51,13 +50,13 @@ Bei `0` oder `0%` ist das Element vollständig transparent. Bei `1` oder `100%` 
 
 ## Beispiele
 
-### Festlegen der Deckkraft von SVG-Elementen
+### Die Deckkraft von SVG-Elementen definieren
 
-Dieses Beispiel zeigt den grundlegenden Anwendungsfall von `fill-opacity` und wie die CSS-Eigenschaft `fill-opacity` Vorrang vor dem `fill-opacity` Attribut hat und keinerlei Einfluss auf einen etwaigen `stroke` einer Form hat.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `fill-opacity` und wie die CSS-Eigenschaft `fill-opacity` den Vorrang gegenüber dem `fill-opacity`-Attribut hat und keinen Einfluss auf einen angewendeten `stroke` eines Objekts hat.
 
 #### HTML
 
-Wir fügen mehrere verschiedene SVG-Grafikelemente ein und setzen das `fill-opacity` Attribut jedes einzelnen auf `1` (außer `line`), was bedeutet, dass die Füllung jedes Elements undurchsichtig ist. Das `fill-opacity` SVG-Attribut gilt nicht für {{SVGElement("line")}}.
+Wir fügen mehrere unterschiedliche SVG-Graphikelemente ein und setzen das `fill-opacity`-Attribut jedes einzelnen auf `1` (außer `line`), was bedeutet, dass das Füllung jedes Elements undurchsichtig ist. Das `fill-opacity` SVG-Attribut gilt nicht für {{SVGElement("line")}}.
 
 ```html
 <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
@@ -75,11 +74,11 @@ Wir fügen mehrere verschiedene SVG-Grafikelemente ein und setzen das `fill-opac
 
 #### CSS
 
-Mit CSS verwenden wir die `fill-opacity` Eigenschaft, um den Wert des SVG-{{SVGAttr("fill-opacity")}} Attributs zu überschreiben und jedem SVG-Element einen anderen Wert zu geben.
+Mit CSS nutzen wir die `fill-opacity`-Eigenschaft, um den Wert des SVG-Attributs {{SVGAttr("fill-opacity")}} zu überschreiben, wobei wir jedem SVG-Element einen anderen Wert zuweisen.
 
-Wir fügen einen {{cssxref("stroke")}} zum Kreis und zur Ellipse hinzu, um zu demonstrieren, dass die Deckkraft des `stroke` nicht von der `fill-opacity` Eigenschaft beeinträchtigt wird.
+Wir fügen einem Kreis und einer Ellipse einen {{cssxref("stroke")}} hinzu, um zu demonstrieren, dass die Deckkraft des Umrisses nicht durch die `fill-opacity`-Eigenschaft beeinflusst wird.
 
-Andere SVG-Stile werden gesetzt, einschließlich eines Hintergrundbildes, um die Deckkraft jedes Elements leichter sichtbar zu machen. Diese sind aus Gründen der Kürze nicht gezeigt.
+Weitere SVG-Stile sind gesetzt, einschließlich eines Hintergrundbildes, um die Deckkraft jedes Elements leichter sichtbar zu machen. Diese werden aus Gründen der Kürze nicht gezeigt.
 
 ```css hidden
 svg {
@@ -127,7 +126,7 @@ ellipse {
 
 {{EmbedLiveSample("Defining the fill opacity of SVG elements", "300", "360")}}
 
-Nur zwei Elemente sind vollständig undurchsichtig: das erste Rechteck und die Linie. Das erste Rechteck wird von keinem der Selektoren erfasst, daher wird kein CSS angewendet und das `fill` ist vollständig undurchsichtig. Die `line` wird erfasst, mit `fill-opacity: 10%` gesetzt. Da die Linie jedoch keine `fill`-Farboperation hat — nur der `stroke` ist sichtbar — hat die Deklaration keinen Effekt.
+Nur zwei Elemente sind vollständig undurchsichtig: das erste Rechteck und die Linie. Das erste Rechteck wird von keinem der Selektoren getroffen, es wird also kein CSS angewendet und das `fill` ist vollständig undurchsichtig. Die `line` wird getroffen, mit `fill-opacity: 10%` gesetzt. Da die Linie jedoch keine `fill`-Malmethode hat — nur der `stroke` ist sichtbar — hat die Deklaration keinen Effekt.
 
 ## Spezifikationen
 

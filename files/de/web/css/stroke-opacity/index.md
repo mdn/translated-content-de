@@ -2,16 +2,16 @@
 title: stroke-opacity
 slug: Web/CSS/stroke-opacity
 l10n:
-  sourceCommit: 4d2346118b6ef233ce9a2b91b95a0295ebe145e2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft eines [SVG](/de/docs/Web/SVG) Linienzugs. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, wird jedoch nur auf den Linienzug angewendet und nicht auf das gesamte Element. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-opacity")}} Attribut des Elements.
+Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Deckkraft der Kontur eines [SVG](/de/docs/Web/SVG)-Shapes. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, wird jedoch nur auf die Kontur angewendet, nicht auf das gesamte Element. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-opacity")}}-Attribut des Elements.
 
-Diese Eigenschaft gilt für SVG-Formen und textbasierte Elemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste). Da sie eine vererbte Eigenschaft ist, kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch den gewünschten Effekt auf die Linienzüge der Nachkommenelemente.
+Diese Eigenschaft gilt für SVG-Shapes und Textinhaltelemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem den gewünschten Effekt auf die Konturen der Nachkommenelemente haben.
 
-Beachten Sie, dass ein Linienzug teilweise die Füllung dieser Form überdeckt, sodass ein Linienzug mit einer Deckkraft von weniger als `1` die Füllung mit dem Linienzug dort vermischt, wo sie sich überlappen. Um diesen Effekt zu vermeiden, kann eine globale Deckkraft mit der {{cssxref('opacity')}} Eigenschaft angewendet oder der Linienzug mit dem {{cssxref('paint-order')}} Attribut hinter die Füllung gelegt werden.
+Beachten Sie, dass die Kontur eines Shapes teilweise die Füllung dieses Shapes überdeckt. Eine Kontur mit einer Deckkraft von weniger als `1` zeigt die Füllung, die mit der Kontur dort vermischt wird, wo sie sich überschneiden. Um diesen Effekt zu vermeiden, ist es möglich, eine globale Deckkraft mit der {{cssxref('opacity')}}-Eigenschaft anzuwenden oder die Kontur hinter die Füllung mit dem {{cssxref('paint-order')}}-Attribut zu legen.
 
 ## Syntax
 
@@ -33,11 +33,10 @@ stroke-opacity: unset;
 
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Linienzug vollständig transparent, und ein Wert von `1` macht ihn vollständig undurchsichtig. Werte außerhalb des Bereichs von 0 – 1 werden an das nächstgelegene Ende dieses Bereichs geclippt, sodass negative Werte zu `0` geclippt werden.
+  - : Eine beliebige reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht die Kontur vollständig transparent, und ein Wert von `1` macht sie vollständig undurchsichtig. Werte außerhalb des Bereichs 0 – 1 werden auf das nächstgelegene Ende dieses Bereichs gekürzt; negative Werte werden somit auf `0` gekürzt.
 
 - {{cssxref("&lt;percentage&gt;")}}
-
-  - : Dasselbe wie `<number>` (siehe oben), außer dass der erlaubte Bereich von 0% bis 100% reicht und Clipping in Bezug auf diesen Bereich erfolgt.
+  - : Das gleiche wie `<number>` (siehe oben), außer dass der zulässige Bereich 0% bis 100% beträgt und das Kürzen in Bezug auf diesen Bereich erfolgt.
 
 ## Formale Definition
 
@@ -49,13 +48,13 @@ stroke-opacity: unset;
 
 ## Beispiele
 
-### Verschiedene Deckkräfte des Linienzugs
+### Verschiedene Kontur-Deckkraftstufen
 
-Dieses Beispiel zeigt die grundlegende Verwendung der `stroke-opacity` Eigenschaft und wie, da ein Linienzug einer Form teilweise ihre Füllung überdeckt, ein Linienzug mit einer Deckkraft von weniger als `1` sich mit der Füllung dort vermischt, wo sie sich überlappen.
+Dieses Beispiel demonstriert die grundlegende Verwendung der `stroke-opacity`-Eigenschaft und wie eine Kontur, da sie teilweise die Füllung ihres Shapes überdeckt, mit der Füllung dort vermischt wird, wo sie sich überschneiden, wenn ihre Deckkraft weniger als `1` beträgt.
 
 #### HTML
 
-Zuerst erstellen wir fünf mehrsegmentige Pfade, die alle einen schwarzen Linienzug mit einer Breite von eins und eine `dodgerblue` Füllung für die Teilpfade verwenden. Jeder Pfad erzeugt eine Reihe von Bergsymbolen, die von links (ein flacher Winkel) nach rechts (ein extremer Winkel) geht.
+Zuerst richten wir fünf Pfade mit mehreren Segmenten ein, die alle einen schwarzen Strich mit einer Breite von eins und eine `dodgerblue`-Füllung für die Teilpfade verwenden. Jeder Pfad erstellt eine Reihe von Bergsymbolen, die von links (ein flacher Eckwinkel) nach rechts (ein extremer Eckwinkel) gehen.
 
 ```html
 <svg viewBox="0 0 39 36" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +79,7 @@ Zuerst erstellen wir fünf mehrsegmentige Pfade, die alle einen schwarzen Linien
 
 #### CSS
 
-Auf diese Pfade wenden wir sukzessiv höhere Deckkraftwerte für den Linienzug an. Bei den ersten vier Pfaden kann die Füllung durch die innere Hälfte des Linienzuges gesehen werden, obwohl es beim vierten Pfad möglicherweise schwer zu erkennen ist. Beim fünften und letzten Pfad ist der Linienzug vollständig undurchsichtig, sodass die Füllung nicht durch den Linienzug sichtbar ist.
+Auf diese Pfade wenden wir einen sukzessiv höheren Wert für die Kontur-Deckkraft an. Bei den ersten vier Pfaden kann die Füllung durch die innere Hälfte des Konturpfads gesehen werden, obwohl es beim vierten Pfad schwer zu erkennen sein mag. Beim fünften und letzten Pfad ist die Kontur vollständig undurchsichtig, sodass die Füllung nicht durch die Kontur hindurch zu sehen ist.
 
 ```css
 g path:nth-child(1) {
@@ -124,4 +123,4 @@ g path:nth-child(5) {
 - {{cssxref("stroke-linejoin")}}
 - {{cssxref("stroke-miterlimit")}}
 - {{cssxref("stroke-width")}}
-- SVG {{SVGAttr("stroke-opacity")}} Attribut
+- SVG {{SVGAttr("stroke-opacity")}}-Attribut

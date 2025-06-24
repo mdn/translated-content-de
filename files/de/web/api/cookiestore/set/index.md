@@ -3,12 +3,12 @@ title: "CookieStore: set() Methode"
 short-title: set()
 slug: Web/API/CookieStore/set
 l10n:
-  sourceCommit: 372d2f15b56a753235002946c7775d0b38f6f3eb
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`set()`**-Methode des [`CookieStore`](/de/docs/Web/API/CookieStore)-Interfaces setzt ein Cookie mit dem gegebenen `name` und `value` oder einem `options`-Objekt.
+Die **`set()`** Methode der [`CookieStore`](/de/docs/Web/API/CookieStore) Schnittstelle setzt ein Cookie mit dem angegebenen `name` und `value` oder einem `options`-Objekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ set(options)
 
 ### Parameter
 
-Diese Methode erfordert einen der folgenden Parameter:
+Diese Methode erfordert eine der folgenden Angaben:
 
 - `name` {{optional_inline}}
   - : Ein String mit dem Namen des Cookies.
@@ -29,30 +29,28 @@ Diese Methode erfordert einen der folgenden Parameter:
 Oder
 
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, das Folgendes enthält:
-
+  - : Ein Objekt, das folgende enthält:
     - `domain` {{Optional_Inline}}
-      - : Ein String, der die Domain des Cookies enthält. Standardmäßig `null`.
+      - : Ein String, der die Domain des Cookies enthält. Standardwert ist `null`.
     - `expires` {{Optional_Inline}}
-      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardmäßig `null`.
+      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardwert ist `null`.
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `partitioned` {{Optional_Inline}}
-      - : Ein boolescher Wert, der standardmäßig auf `false` gesetzt ist. Wenn auf `true` gesetzt, wird das gesetzte Cookie ein partitioniertes Cookie sein. Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
+      - : Ein boolescher Wert, der standardmäßig auf `false` steht. Wenn er auf `true` gesetzt wird, wird das gesetzte Cookie ein partitioniertes Cookie sein. Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
     - `path` {{Optional_Inline}}
-      - : Ein String, der den Pfad des Cookies enthält. Standardmäßig `/`.
+      - : Ein String, der den Pfad des Cookies enthält. Standardwert ist `/`.
     - `sameSite` {{Optional_Inline}}
       - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte: [`"strict"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#strict), [`"lax"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#lax) oder [`"none"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#none).
     - `value`
       - : Ein String mit dem Wert des Cookies.
 
 > [!NOTE]
-> Während die Werte hier gesetzt werden können und intern verwendet werden, geben einige Browser nur `name` und `value`-Optionen von [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get) und [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll) zurück.
+> Obwohl die Werte hier gesetzt werden können und intern verwendet werden, werden einige Browser nur `name` und `value` Optionen von [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get) und [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll) zurückgeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit {{jsxref("undefined")}} aufgelöst wird, wenn das Setzen des Cookies abgeschlossen ist.
+Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} auflöst, wenn das Setzen des Cookies abgeschlossen ist.
 
 ### Ausnahmen
 
@@ -63,15 +61,15 @@ Ein {{jsxref("Promise")}}, der mit {{jsxref("undefined")}} aufgelöst wird, wenn
 
 ## Beispiele
 
-<!-- Die Beispiele funktionieren nicht als Live-Beispiele in der MDN-Umgebung (aufgrund unbekannter Fehler) -->
+<!-- Die Beispiele funktionieren in der MDN-Umgebung nicht als Live-Beispiele (aufgrund unbekannter Fehler) -->
 
 ### Setzen eines Cookies mit Name und Wert
 
-Dieses Beispiel setzt ein Cookie durch Übergeben eines `name` und `value` von "cookie1" und "cookie1-value", entsprechend.
-Die anderen Eigenschaften des Cookies werden mit Standardwerten gesetzt, wie im [`options`](#options)-Parameter definiert.
+Dieses Beispiel setzt ein Cookie, indem ein `name` und `value` von "cookie1" beziehungsweise "cookie1-value" übergeben wird.
+Die anderen Eigenschaften des Cookies werden mit Standardwerten gesetzt, wie im [`options`](#options) Parameter definiert.
 
-Der Code wartet zuerst darauf, dass das Cookie gesetzt wird: da diese Operation fehlschlagen kann, wird sie in einem `try...catch`-Block durchgeführt und Fehler werden in die Konsole protokolliert.
-Dann wird das gerade gesetzte Cookie abgerufen und protokolliert.
+Der Code wartet zuerst darauf, dass das Cookie gesetzt wird: Da diese Operation fehlschlagen kann, wird die Operation in einem `try...catch` Block durchgeführt und alle Fehler werden an die Konsole protokolliert.
+Danach wird das gerade gesetzte Cookie geholt und protokolliert.
 
 ```js
 async function cookieTest() {
@@ -90,10 +88,10 @@ async function cookieTest() {
 
 ### Setzen eines Cookies mit Optionen
 
-Dieses Beispiel setzt ein Cookie durch Übergeben eines `options`-Objekts mit `name`, `value`, `expires` und `partitioned`.
+Dieses Beispiel setzt ein Cookie, indem ein `options`-Objekt mit `name`, `value`, `expires` und `partitioned` übergeben wird.
 
-Der Code wartet zuerst darauf, dass das Cookie gesetzt wird: da diese Operation fehlschlagen kann, wird sie in einem `try...catch`-Block durchgeführt und Fehler werden in die Konsole protokolliert.
-Dann wird das gerade gesetzte Cookie abgerufen und protokolliert.
+Der Code wartet zuerst darauf, dass das Cookie gesetzt wird: Da diese Operation fehlschlagen kann, wird die Operation in einem `try...catch` Block durchgeführt und alle Fehler werden an die Konsole protokolliert.
+Danach wird das gerade gesetzte Cookie geholt und protokolliert.
 
 ```js
 async function cookieTest() {

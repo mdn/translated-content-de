@@ -1,16 +1,16 @@
 ---
-title: Boolean()-Konstruktor
+title: Boolean() Konstruktor
 short-title: Boolean()
 slug: Web/JavaScript/Reference/Global_Objects/Boolean/Boolean
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}
 
-Der **`Boolean()`**-Konstruktor erstellt {{jsxref("Boolean")}}-Objekte. Wenn er als Funktion aufgerufen wird, gibt er primitive Werte des Typs Boolean zurück.
+Der **`Boolean()`** Konstruktor erstellt {{jsxref("Boolean")}} Objekte. Wenn er als Funktion aufgerufen wird, gibt er primitive Werte vom Typ Boolean zurück.
 
-{{InteractiveExample("JavaScript Demo: Boolean() constructor")}}
+{{InteractiveExample("JavaScript-Demo: Boolean() Konstruktor")}}
 
 ```js interactive-example
 const flag = new Boolean();
@@ -33,18 +33,18 @@ new Boolean(value)
 Boolean(value)
 ```
 
-> **Hinweis:** `Boolean()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
+> [!NOTE] > `Boolean()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, hat jedoch unterschiedliche Effekte. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
 - `value`
-  - : Der Anfangswert des `Boolean`-Objekts.
+  - : Der Anfangswert des `Boolean` Objekts.
 
 ### Rückgabewert
 
-Wenn `Boolean()` als Funktion aufgerufen wird (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)), wird `value` [in einen booleschen primitiven Wert umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Wenn `Boolean()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [in einen booleschen primitiven Wert umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion) zurück.
 
-Wenn `Boolean()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in einen booleschen primitiven Wert umgewandelt und ein umhüllendes {{jsxref("Boolean")}}-Objekt zurückgegeben, das **kein** primitiver Wert ist.
+Wenn `Boolean()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in einen booleschen primitiven Wert umgewandelt und es wird ein umhüllendes {{jsxref("Boolean")}} Objekt zurückgegeben, das **kein** Primitivwert ist.
 
 > [!WARNING]
 > Sie sollten selten `Boolean` als Konstruktor verwenden.
@@ -54,7 +54,7 @@ Wenn `Boolean()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in ei
 Der als erster Parameter übergebene Wert wird [in einen booleschen Wert konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion). Wenn der Wert weggelassen wird oder `0`, `-0`, `0n`, [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), `false`, {{jsxref("NaN")}}, {{jsxref("undefined")}} oder der leere String (`""`) ist, hat das Objekt einen Anfangswert von `false`. Alle anderen Werte, einschließlich jedes Objekts, eines leeren Arrays (`[]`) oder des Strings `"false"`, erzeugen ein Objekt mit einem Anfangswert von `true`.
 
 > [!NOTE]
-> Wenn die nicht standardmäßige Eigenschaft [`document.all`](/de/docs/Web/API/Document/all) als Argument für diesen Konstruktor verwendet wird, ist das Ergebnis ein `Boolean`-Objekt mit dem Wert `false`. Diese Eigenschaft ist veraltet und nicht standardisiert und sollte nicht verwendet werden.
+> Wenn die nicht-standardmäßige Eigenschaft [`document.all`](/de/docs/Web/API/Document/all) als Argument für diesen Konstruktor verwendet wird, ist das Ergebnis ein `Boolean` Objekt mit dem Wert `false`. Diese Eigenschaft ist veraltet und sollte nicht verwendet werden.
 
 ## Beispiele
 
@@ -70,9 +70,9 @@ typeof bfalse; // "object"
 Boolean(bfalse); // true
 ```
 
-Beachten Sie, dass das Konvertieren eines `Boolean`-Objekts in einen primitiven Wert mit `Boolean()` immer `true` ergibt, selbst wenn das Objekt den Wert `false` hält. Daher wird immer empfohlen, die Konstruktion von `Boolean`-Wrapper-Objekten zu vermeiden.
+Beachten Sie, wie das Konvertieren eines `Boolean` Objekts in ein primitives mit `Boolean()` immer `true` ergibt, selbst wenn das Objekt den Wert `false` hält. Daher wird immer geraten, `Boolean` Umhüllungsobjekte zu vermeiden.
 
-Wenn Sie den primitiven Wert aus dem Wrapper-Objekt entnehmen müssen, verwenden Sie statt der `Boolean()`-Funktion die [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean/valueOf)-Methode des Objekts.
+Wenn Sie den primitiven Wert des Umhüllungsobjekts benötigen, verwenden Sie anstelle der `Boolean()` Funktion die [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean/valueOf) Methode des Objekts.
 
 ```js
 const bfalse = new Boolean(false);
@@ -80,7 +80,7 @@ const bfalse = new Boolean(false);
 bfalse.valueOf(); // false
 ```
 
-### Erstellen von `Boolean`-Objekten mit einem Anfangswert von `true`
+### Erstellen von `Boolean` Objekten mit einem Anfangswert von `true`
 
 ```js
 const btrue = new Boolean(true);

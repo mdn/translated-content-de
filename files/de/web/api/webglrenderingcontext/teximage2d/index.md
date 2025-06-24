@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: texImage2D() Methode"
+title: "WebGLRenderingContext: texImage2D()-Methode"
 short-title: texImage2D()
 slug: Web/API/WebGLRenderingContext/texImage2D
 l10n:
-  sourceCommit: d4ea77f1c9e15e472e484d9561319597c5cce716
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.texImage2D()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein zweidimensionales Texturbild.
+Die **`WebGLRenderingContext.texImage2D()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt ein zweidimensionales Texturbild fest.
 
 ## Syntax
 
@@ -28,19 +28,17 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Target) der aktiven Textur angibt.
-    Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) der aktiven Textur angibt. Mögliche Werte:
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Seite für eine Würfel-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Seite für eine Würfel-Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Seite für eine Würfel-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Seite für eine Würfel-Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Seite für eine Würfel-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Seite für eine Würfel-Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Fläche für eine texturierte Würfelfläche.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Fläche für eine texturierte Würfelfläche.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Fläche für eine texturierte Würfelfläche.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Fläche für eine texturierte Würfelfläche.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Fläche für eine texturierte Würfelfläche.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Fläche für eine texturierte Würfelfläche.
 
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Detailniveau angibt. Niveau 0 ist das Basisbildniveau und Niveau _n_ ist das n-te Mipmap-Reduktionsniveau.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Detailebene angibt. Ebene 0 ist die Basisebene und Ebene _n_ ist die n-te Mipmap-Reduktionsebene.
 - `internalformat`
 
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Farbkomponenten in der Textur angibt.
@@ -108,16 +106,16 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
       </tbody>
     </table>
 
-    Andere mögliche Werte in WebGL2 für die Versionen von `texImage2D`, die eine {{jsxref("TypedArray")}}, eine {{jsxref("DataView")}} oder einen `GLintptr offset` als Parameter akzeptieren
+    Andere mögliche Werte in WebGL2 für die Versionen von `texImage2D`, die ein {{jsxref("TypedArray")}}, einen {{jsxref("DataView")}} oder einen `GLintptr offset` verwenden
 
     <table>
       <thead>
         <tr>
           <td>
-            <strong>Größenformat</strong>
+            <strong>Format<br />mit Größe</strong>
           </td>
           <td>
-            <strong>Basisformat</strong>
+            <strong>Basis-<br />Format</strong>
           </td>
           <td>
             <strong>R<br />Bits</strong>
@@ -135,10 +133,10 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
             <strong>Geteilte<br />Bits</strong>
           </td>
           <td>
-            <strong>Farbrenderbar</strong>
+            <strong>Farb-<br />darstellbar</strong>
           </td>
           <td>
-            <strong>Texturfilterbar</strong>
+            <strong>Textur-<br />filterbar</strong>
           </td>
         </tr>
       </thead>
@@ -685,25 +683,25 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
       </tbody>
     </table>
 
-    Mögliche Werte in WebGL2 für die Versionen von `texImage2D`, die eine Textur eines `HTMLImageElement`, `HTMLCanvasElement`, `HTMLVideoElement`, `ImageBitmap` oder `ImageData` verwenden
+    Mögliche Werte in WebGL2 für die Versionen von `texImage2D`, die eine Textur von einem `HTMLImageElement`, `HTMLCanvasElement`, `HTMLVideoElement`, `ImageBitmap` oder `ImageData` nehmen
 
-    - `gl.ALPHA`: Verwift die roten, grünen und blauen Komponenten und liest die Alphakomponente.
-    - `gl.RGB`: Verwift die Alphakomponenten und liest die roten, grünen und blauen Komponenten.
-    - `gl.RGBA`: Rot-, Grün-, Blau- und Alphakomponenten werden aus dem Farbpuffer gelesen.
+    - `gl.ALPHA`: Verwirft die Rot-, Grün- und Blaukomponenten und liest die Alphakomponente.
+    - `gl.RGB`: Verwirft die Alphakomponenten und liest die Rot-, Grün- und Blaukkomponenten.
+    - `gl.RGBA`: Rot-, Grün-, Blau- und Alphakomponenten werden aus dem Farbbuffer gelesen.
     - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, Alpha ist 1.0.
     - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz-/Alphakomponente.
 
-    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture) Erweiterung:
+    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung:
 
     - `gl.DEPTH_COMPONENT`
     - `gl.DEPTH_STENCIL`
 
-    Bei Verwendung der [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB) Erweiterung:
+    Bei Verwendung der [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)-Erweiterung:
 
     - `ext.SRGB_EXT`
     - `ext.SRGB_ALPHA_EXT`
 
-    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext) sind folgende Werte zusätzlich verfügbar:
 
     - `gl.R8`
     - `gl.R16F`
@@ -733,13 +731,13 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
     - `gl.RGBA8UI`
 
 - `width`
-  - : Eine [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), die die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
 - `height`
-  - : Eine [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), die die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Randes angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Rands angibt. Muss 0 sein.
 - `format`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format der Texeldaten angibt. In WebGL 1 muss dies dasselbe sein wie `internalformat` (siehe oben). In WebGL 2 sind die Kombinationen in [dieser Tabelle](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE) aufgeführt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format der Texeldaten angibt. In WebGL 1 muss dies dasselbe wie `internalformat` sein (siehe oben). In WebGL 2 sind die Kombinationen in [dieser Tabelle](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE) aufgelistet.
 - `type`
 
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Texeldaten angibt. Mögliche Werte:
@@ -749,21 +747,21 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
     - `gl.UNSIGNED_SHORT_4_4_4_4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alphabits.
     - `gl.UNSIGNED_SHORT_5_5_5_1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alphabit.
 
-    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture) Erweiterung:
+    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung:
 
     - `gl.UNSIGNED_SHORT`
     - `gl.UNSIGNED_INT`
     - `ext.UNSIGNED_INT_24_8_WEBGL` (Konstante, die von der Erweiterung bereitgestellt wird)
 
-    Bei Verwendung der [`OES_texture_float`](/de/docs/Web/API/OES_texture_float) Erweiterung:
+    - Bei Verwendung der [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung:
+      - `gl.FLOAT`
 
-    - `gl.FLOAT`
-
-    Bei Verwendung der [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float) Erweiterung:
+    Bei Verwendung der [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung:
 
     - `ext.HALF_FLOAT_OES` (Konstante, die von der Erweiterung bereitgestellt wird)
 
-    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext),
+    sind folgende Werte zusätzlich verfügbar:
 
     - `gl.BYTE`
     - `gl.UNSIGNED_SHORT`
@@ -776,7 +774,8 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
     - `gl.UNSIGNED_INT_10F_11F_11F_REV`
     - `gl.UNSIGNED_INT_5_9_9_9_REV`
     - `gl.UNSIGNED_INT_24_8`
-    - `gl.FLOAT_32_UNSIGNED_INT_24_8_REV` (Pixel müssen [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein)
+    - `gl.FLOAT_32_UNSIGNED_INT_24_8_REV` (Pixels müssen
+      [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein)
 
 - `pixels`
 
@@ -791,12 +790,17 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
     Die folgenden Typen können nur als Pixelquelle verwendet werden, wenn `width`, `height` und `border` angegeben sind:
 
     - {{jsxref("Uint8Array")}} (muss verwendet werden, wenn `type` `gl.UNSIGNED_BYTE` ist)
-    - {{jsxref("Uint16Array")}} (muss verwendet werden, wenn `type` entweder `gl.UNSIGNED_SHORT_5_6_5`, `gl.UNSIGNED_SHORT_4_4_4_4`, `gl.UNSIGNED_SHORT_5_5_5_1`, `gl.UNSIGNED_SHORT` oder `ext.HALF_FLOAT_OES` ist)
+    - {{jsxref("Uint16Array")}} (muss verwendet werden, wenn `type` entweder
+      `gl.UNSIGNED_SHORT_5_6_5`, `gl.UNSIGNED_SHORT_4_4_4_4`,
+      `gl.UNSIGNED_SHORT_5_5_5_1`, `gl.UNSIGNED_SHORT` oder
+      `ext.HALF_FLOAT_OES` ist)
     - {{jsxref("Uint32Array")}} (muss verwendet werden, wenn `type` `gl.UNSIGNED_INT` oder `ext.UNSIGNED_INT_24_8_WEBGL` ist)
     - {{jsxref("Float32Array")}} (muss verwendet werden, wenn `type` `gl.FLOAT` ist)
 
 - `offset`
-  - : (Nur WebGL 2) Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) Byte-Offset in den Datenspeicher des [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten in die derzeit gebundene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) aus dem an `PIXEL_UNPACK_BUFFER` gebundenen `WebGLBuffer` hochzuladen.
+  - : (Nur WebGL 2) Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) Byte-Offset in den Datenspeicher des
+    [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten in die derzeit gebundene
+    [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) vom `WebGLBuffer`, das an das `PIXEL_UNPACK_BUFFER`-Target gebunden ist, hochzuladen.
 
 ### Rückgabewert
 

@@ -2,12 +2,12 @@
 title: declarativeNetRequest.setExtensionActionOptions
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/setExtensionActionOptions
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Konfiguriert, ob die Aktionsanzahl für Tabs als Badge-Text der Erweiterungsaktion angezeigt wird und bietet eine Möglichkeit, die Aktionsanzahl zu erhöhen.
+Konfiguriert, ob die Aktionsanzahl für Tabs als Badge-Text des Erweiterungssymbols angezeigt wird und bietet eine Möglichkeit, die Aktionsanzahl zu erhöhen.
 
 ## Syntax
 
@@ -20,12 +20,11 @@ let count = browser.declarativeNetRequest.setExtensionActionOptions(
 ### Parameter
 
 - `extensionActionOptions`
-
   - : Ein Objekt, das die Konfigurationsdetails für die Aktionsanzahl für Tabs enthält.
     - `displayActionCountAsBadgeText` {{optional_inline}}
-      - : `boolean` Ob die Aktionsanzahl für eine Seite automatisch als Badge-Text der Erweiterung angezeigt wird. Diese Präferenz bleibt über Sitzungen hinweg erhalten.
+      - : `boolean` Ob die Aktionsanzahl für eine Seite automatisch als Badge-Text der Erweiterung angezeigt wird. Diese Einstellung bleibt über Sitzungen hinweg bestehen.
     - `tabUpdate` {{optional_inline}}
-      - : `object`. Details darüber, wie die Aktionsanzahl des Tabs angepasst werden soll. Siehe den Abschnitt [tabUpdate](#tabupdate_2) für weitere Details.
+      - : `object`. Details dazu, wie die Aktionsanzahl des Tabs angepasst werden soll. Siehe den Abschnitt [tabUpdate](#tabupdate_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -38,7 +37,7 @@ let count = browser.declarativeNetRequest.setExtensionActionOptions(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Wenn die Anforderung fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

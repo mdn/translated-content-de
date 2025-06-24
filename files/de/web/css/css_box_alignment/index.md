@@ -1,19 +1,19 @@
 ---
-title: CSS-Box-Ausrichtung
+title: CSS Box-Ausrichtung
 slug: Web/CSS/CSS_box_alignment
 l10n:
-  sourceCommit: f3d3298130d8e22fb89ba123a0648ad3cb7b3655
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Das **CSS-Box-Ausrichtungsmodul** definiert CSS-Funktionen zur Ausrichtung von Boxen innerhalb ihrer Container. Es legt die Ausrichtung der verschiedenen CSS-Box-Layout-Modelle fest, einschließlich Block-Layout, Tabellen-Layout, Flexbox-Layout und Gitter-Layout (Grid), und schafft so eine konsistente Ausrichtungsmethode für ganz CSS.
+Das **CSS Box-Ausrichtungsmodul** spezifiziert CSS-Funktionen, die sich auf die Ausrichtung von Boxen innerhalb ihrer Container beziehen. Es definiert die Ausrichtung der verschiedenen CSS-Box-Layout-Modelle, einschließlich Block-Layout, Tabellen-Layout, flexiblen Box-Layout (Flexbox) und Gitter-Layout, und schafft eine konsistente Ausrichtungsmethode in der gesamten CSS.
 
-Das Modul beschreibt die Ausrichtungsterminologie, wodurch Ausrichtungs-Eigenschaften in mehreren Layout-Modulen verwendet werden können, anstatt auf eine bestimmte Layout-Methode beschränkt zu sein.
+Das Modul erläutert die Ausrichtungs-Terminologie und ermöglicht es, Ausrichtungseigenschaften in mehreren Layoutmodulen zu verwenden, anstatt auf eine bestimmte Layoutmethode beschränkt zu sein.
 
-Die Ausrichtung ist mit Schreibmodi verbunden. Wenn wir ein Element ausrichten, betrachten wir dabei nicht die physischen Dimensionen von oben, rechts, unten und links. Stattdessen beschreiben wir die Ausrichtung in Bezug auf Anfang und Ende der spezifischen Dimension, mit der wir arbeiten. Dies stellt sicher, dass die Ausrichtung auf dieselbe Weise funktioniert, unabhängig davon, welcher Schreibmodus das Dokument hat.
+Die Ausrichtung ist mit Schreibrichtungen verknüpft, da wir bei der Ausrichtung eines Elements nicht bedenken, ob wir es an den physischen Dimensionen von oben, rechts, unten und links ausrichten. Stattdessen beschreiben wir die Ausrichtung in Bezug auf den Anfang und das Ende der besonderen Dimension, mit der wir arbeiten. Auf diese Weise funktioniert die Ausrichtung auf die gleiche Weise, unabhängig davon, welches Schreibrichtung der Dokument hat.
 
-Die Ausrichtung von Text und Inline-Inhalten wird im [CSS-Textmodul](/de/docs/Web/CSS/CSS_text) und im [CSS-Inline-Modul](/de/docs/Web/CSS/CSS_inline_layout) definiert.
+Die Ausrichtung von Text und inline-Inhalt wird im [CSS Textmodul](/de/docs/Web/CSS/CSS_text) und im [CSS Inline-Modul](/de/docs/Web/CSS/CSS_inline_layout) definiert.
 
 ## Referenz
 
@@ -44,32 +44,31 @@ Die Ausrichtung von Text und Inline-Inhalten wird im [CSS-Textmodul](/de/docs/We
 
 - {{Glossary("Alignment_container", "Ausrichtungs-Container")}}
 - {{Glossary("Alignment_subject", "Ausrichtungs-Subjekt")}}
-- [Baseline-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment#baseline_alignment)
+- [Basislinienausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment#baseline_alignment)
 - [Verteilte Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment#distributed_alignment)
 - {{Glossary("Fallback_alignment", "Fallback-Ausrichtung")}}
 - [Positionale Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment#positional_alignment)
 
 ## Leitfäden
 
-- [Übersicht zur Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
+- [Überblick über die Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
 
-  - : Überblick über die allgemeinen Konzepte des CSS-Box-Ausrichtungsmoduls.
+  - : Überblick über die allgemeinen Konzepte, die im CSS Box-Ausrichtungsmodul zu finden sind.
 
 - [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
 
   - : Wie die Box-Ausrichtung im Kontext von Flexbox funktioniert.
 
-- [Box-Ausrichtung im CSS-Gitter-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [Box-Ausrichtung im CSS Grid Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
 
-  - : Wie die Box-Ausrichtung im Kontext des Gitter-Layouts funktioniert.
+  - : Wie die Box-Ausrichtung im Kontext von Gitter-Layout funktioniert.
 
-- [Box-Ausrichtung in Mehrspalten-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout)
+- [Box-Ausrichtung im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout)
 
-  - : Wie die Box-Ausrichtung im Kontext des Mehrspalten-Layouts funktioniert.
+  - : Wie die Box-Ausrichtung im Kontext von Mehrspalten-Layout funktioniert.
 
 - [Box-Ausrichtung für Block-, absolut positionierte und Tabellen-Layouts](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables)
-
-  - : Wie die Box-Ausrichtung im Kontext von Block-Layouts funktioniert, einschließlich gefloateter, positionierter und Tabellen-Elemente.
+  - : Wie die Box-Ausrichtung im Kontext von Block-Layout funktioniert, einschließlich schwebender, positionierter und Tabellenelemente.
 
 ## Verwandte Konzepte
 
@@ -86,9 +85,9 @@ Die Ausrichtung von Text und Inline-Inhalten wird im [CSS-Textmodul](/de/docs/We
 
 ## Siehe auch
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Box-Ausrichtung im Gitter-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
-- [CSS-Display-Modul](/de/docs/Web/CSS/CSS_display)
-- [CSS-Flexbox-Layout-Modul](/de/docs/Web/CSS/CSS_flexible_box_layout)
-- [CSS-Gitter-Layout-Modul](/de/docs/Web/CSS/CSS_grid_layout)
+- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul

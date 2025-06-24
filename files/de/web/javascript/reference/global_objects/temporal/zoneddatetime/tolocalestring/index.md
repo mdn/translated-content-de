@@ -3,14 +3,14 @@ title: Temporal.ZonedDateTime.prototype.toLocaleString()
 short-title: toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toLocaleString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`toLocaleString()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine zeichenfolgenbasierte, sprachabhängige Darstellung dieses Datums-Zeitwerts zurück. In Implementierungen mit Unterstützung für die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) delegiert diese Methode an `Intl.DateTimeFormat` und übergibt dieses Datum-Zeitwert in ein {{jsxref("Temporal.Instant")}} konvertiert (da `Intl.DateTimeFormat` ein `Temporal.ZonedDateTime` nicht direkt formatieren kann).
+Die Methode **`toLocaleString()`** von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine zeichenkettenspezifische Darstellung dieses Datums und dieser Uhrzeit zurück. In Implementierungen mit Unterstützung der [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) delegiert diese Methode an `Intl.DateTimeFormat` und übergibt diese Datum-Uhrzeit, konvertiert in ein {{jsxref("Temporal.Instant")}} (weil `Intl.DateTimeFormat` eine `Temporal.ZonedDateTime` nicht direkt formatieren kann).
 
-Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungszeichenfolgen durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode häufig mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}} Objekt zu erstellen und dessen {{jsxref("Intl/DateTimeFormat/format", "format()")}} Methode zu verwenden, da ein `DateTimeFormat` Objekt sich die übergebenen Argumente merkt und entscheiden kann, einen Teil der Datenbank zwischenzuspeichern, sodass zukünftige `format`-Aufrufe innerhalb eines stärker eingegrenzten Kontexts nach Lokalisierungszeichenfolgen suchen können. Allerdings unterstützt `Intl.DateTimeFormat` derzeit nicht das Formatieren von `Temporal.ZonedDateTime` Objekten, daher müssen Sie sie zuerst in `Temporal.Instant` Objekte umwandeln, bevor Sie sie an `format()` übergeben.
+Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungszeichenfolgen durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode häufig mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/DateTimeFormat/format", "format()")}}-Methode zu verwenden, da ein `DateTimeFormat`-Objekt sich die übergebenen Argumente merkt und möglicherweise einen Teil der Datenbank zwischenspeichert. Dadurch können zukünftige `format`-Aufrufe innerhalb eines eingeschränkten Kontexts nach Lokalisierungszeichenfolgen suchen. Derzeit unterstützt `Intl.DateTimeFormat` jedoch nicht das Formatieren von `Temporal.ZonedDateTime`-Objekten. Daher müssen Sie diese zuerst in `Temporal.Instant`-Objekte umwandeln, bevor Sie sie an `format()` übergeben.
 
 ## Syntax
 
@@ -22,43 +22,41 @@ toLocaleString(locales, options)
 
 ### Parameter
 
-Die Parameter `locales` und `options` passen das Verhalten der Funktion an und lassen Anwendungen die Sprache spezifizieren, deren Formatierungskonventionen verwendet werden sollen.
+Die Parameter `locales` und `options` passen das Verhalten der Funktion an und lassen Anwendungen die Sprache angeben, deren Formatierungskonventionen verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) Konstruktors. Implementierungen ohne `Intl.DateTimeFormat` Unterstützung geben exakt dieselbe Zeichenfolge wie {{jsxref("Temporal/ZonedDateTime/toString", "toString()")}} zurück, wobei beide Parameter ignoriert werden.
+In Implementierungen, die die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des Konstruktors von [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat). Implementierungen ohne `Intl.DateTimeFormat`-Unterstützung geben denselben String zurück wie {{jsxref("Temporal/ZonedDateTime/toString", "toString()")}} und ignorieren beide Parameter.
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47 Sprach-Tag oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales) Parameter des `Intl.DateTimeFormat()` Konstruktors.
+  - : Ein String mit einem BCP 47-Sprach-Tag oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales)-Parameter des `Intl.DateTimeFormat()`-Konstruktors.
 - `options` {{optional_inline}}
+  - : Ein Objekt zur Anpassung des Ausgabeformats. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)-Parameter des `Intl.DateTimeFormat()`-Konstruktors. Falls der Kalender dieses Datums-Uhrzeits nicht `"iso8601"` ist, muss die Option `calendar` mit demselben Wert angegeben werden; andernfalls kann die Option `calendar` einen beliebigen Wert haben, wenn der Kalender dieses Datums-Uhrzeits `"iso8601"` ist. Die Option `timeZone` darf nicht bereitgestellt werden, da sie automatisch auf die `timeZoneId` der Datum-Uhrzeit gesetzt wird. Bezüglich der [Datum-Uhrzeit-Komponenten-Optionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) und der Stilabkürzungen (`dateStyle` und `timeStyle`) sollten die Optionen eine der folgenden Formen haben:
+    - Keine davon angeben: `year`, `month`, `day`, `hour`, `minute` und `second` werden auf `"numeric"` gesetzt.
+    - Mindestens eine von `dateStyle` oder `timeStyle` angeben: Die Datum-Uhrzeit-Komponenten werden entsprechend dem angegebenen Stil und der Sprache eingerichtet.
+    - Einige Datum-Uhrzeit-Komponenten-Optionen angeben. Nur die angegebenen Datum-Uhrzeit-Komponenten werden in der Ausgabe enthalten sein.
 
-  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options) Parameter des `Intl.DateTimeFormat()` Konstruktors. Wenn der Kalender dieses Datums-Zeitwerts nicht `"iso8601"` ist, muss die `calendar` Option mit demselben Wert bereitgestellt werden; andernfalls kann die `calendar` Option jeden Wert haben, wenn der Kalender dieses Datums-Zeitwerts `"iso8601"` ist. Die `timeZone` Option darf nicht bereitgestellt werden, da sie automatisch auf die `timeZoneId` des Datums-Zeitwerts gesetzt wird. In Bezug auf die [Datums-Zeit-Komponentenoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) und die Stil-Abkürzungen (`dateStyle` und `timeStyle`) sollten die Optionen eine der folgenden Formen annehmen:
-
-    - Keine davon bereitstellen: `year`, `month`, `day`, `hour`, `minute` und `second` werden auf `"numeric"` voreingestellt.
-    - Mindestens eine der Optionen `dateStyle` oder `timeStyle` bereitstellen: Die Datums-Zeit-Komponenten werden gemäß dem angegebenen Stil und der Sprache eingestellt.
-    - Einige Datums-Zeit-Komponentenoptionen bereitstellen. Nur die angegebenen Datums-Zeit-Komponenten werden in die Ausgabe aufgenommen.
-
-Sehen Sie den [`Intl.DateTimeFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und deren Verwendung.
+Siehe den [`Intl.DateTimeFormat()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und deren Verwendung.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die das gegebene Datum-Zeit nach sprachspezifischen Konventionen darstellt.
+Eine Zeichenkette, die die gegebene Datum-Uhrzeit gemäß sprachspezifischen Konventionen darstellt.
 
-In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTimeFormat(locales, { ...options, timeZone: dateTime.timeZoneId }).format(dateTime.toInstant())`, wobei `options` wie oben beschrieben normalisiert wurde.
+In Implementierungen mit `Intl.DateTimeFormat` ist dies gleichbedeutend mit `new Intl.DateTimeFormat(locales, { ...options, timeZone: dateTime.timeZoneId }).format(dateTime.toInstant())`, wobei `options` wie oben beschrieben normalisiert wurde.
 
 > [!NOTE]
-> Meistens ist die Formatierung, die von `toLocaleString()` zurückgegeben wird, konsistent. Allerdings kann die Ausgabe zwischen Implementierungen, sogar innerhalb derselben Sprache, variieren — Ausgabeschwankungen sind beabsichtigt und durch die Spezifikation erlaubt. Sie kann auch nicht das sein, was Sie erwarten. Beispielsweise könnte die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
+> In den meisten Fällen ist das von `toLocaleString()` zurückgegebene Format konsistent. Allerdings kann sich die Ausgabe zwischen Implementierungen unterscheiden, selbst innerhalb derselben Sprache – diese Variationen sind absichtlich und durch die Spezifikation zugelassen. Die Ausgabe entspricht möglicherweise nicht Ihren Erwartungen. Zum Beispiel kann die Zeichenkette nichttrennende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn eine der Optionen ungültig ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn eine der Optionen nicht vom erwarteten Typ ist.
+  - : Wird ausgelöst, wenn eine der Optionen nicht den erwarteten Typ hat.
 
 ## Beispiele
 
 ### Verwendung von toLocaleString()
 
-Die grundlegende Verwendung dieser Methode ohne Angabe einer `locale` gibt eine formatierte Zeichenfolge in der Standardsprache und mit Standardoptionen zurück.
+Die grundsätzliche Verwendung dieser Methode ohne Angabe einer `locale` gibt eine formatierte Zeichenkette in der Standard-Sprache mit Standardoptionen zurück.
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -68,7 +66,7 @@ const zdt = Temporal.ZonedDateTime.from(
 console.log(zdt.toLocaleString()); // 8/1/2021, 12:34:56 PM EDT (assuming en-US locale)
 ```
 
-Wenn der Kalender des Datums nicht mit dem Standardkalender der Sprache übereinstimmt und der Kalender des Datums nicht `iso8601` ist, muss explizit eine `calendar` Option mit demselben Wert angegeben werden.
+Wenn der Kalender des Datums nicht mit dem Standardkalender der Sprache übereinstimmt und der Kalender des Datums nicht `iso8601` ist, muss eine explizite `calendar`-Option mit demselben Wert angegeben werden.
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -80,7 +78,7 @@ zdt.toLocaleString("ja-JP", { calendar: "japanese" }); // R3/8/1 12:34:56 JST
 
 ### Verwendung von toLocaleString() mit Optionen
 
-Sie können anpassen, welche Teile des Datums in die Ausgabe aufgenommen werden, indem Sie den `options` Parameter übergeben.
+Sie können anpassen, welche Teile des Datums in der Ausgabe enthalten sind, indem Sie den `options`-Parameter bereitstellen.
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(

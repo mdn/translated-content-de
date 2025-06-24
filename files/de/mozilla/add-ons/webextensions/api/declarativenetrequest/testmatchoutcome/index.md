@@ -2,12 +2,12 @@
 title: declarativeNetRequest.testMatchOutcome
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/testMatchOutcome
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Prüft, ob eine der `declarativeNetRequest`-Regeln der Erweiterung mit einer hypothetischen Anfrage übereinstimmen würde. Diese Funktion ist nur während der Testphase verfügbar, da sie für die Entwicklung von Erweiterungen gedacht ist. Siehe [Testen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Details dazu, wie Tests in jedem Browser aktiviert werden.
+Prüft, ob eine der `declarativeNetRequest`-Regeln der Erweiterung eine hypothetische Anfrage entsprechen würde. Nur während des Testens verfügbar, da dies während der Entwicklung von Erweiterungen verwendet werden soll. Siehe [Testing](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Details, wie Tests in jedem Browser aktiviert werden.
 
 ## Syntax
 
@@ -24,30 +24,29 @@ let result = await browser.declarativeNetRequest.testMatchOutcome(
 
   - : Die Details der zu testenden Anfrage.
     - `initiator` {{optional_inline}}
-      - : Ein `string`. Die initiatorische URL (falls vorhanden) für die hypothetische Anfrage.
+      - : Ein `string`. Die Initiator-URL (falls vorhanden) für die hypothetische Anfrage.
     - `method` {{optional_inline}}
-      - : Ein `string`. Die standardmäßige (kleingeschriebene) HTTP-Methode der hypothetischen Anfrage. Voreinstellung ist `"get"` für HTTP-Anfragen und wird für Nicht-HTTP-Anfragen ignoriert.
+      - : Ein `string`. Die standardmäßige (klein geschriebene) HTTP-Methode der hypothetischen Anfrage. Standard ist `"get"` für HTTP-Anfragen und wird für Nicht-HTTP-Anfragen ignoriert.
     - `tabId` {{optional_inline}}
-      - : Eine `number`. Die ID des Tabs, in dem die hypothetische Anfrage stattfindet. Muss nicht mit einer realen Tab-ID übereinstimmen. Standard ist `-1`, was bedeutet, dass die Anfrage nicht mit einem Tab verbunden ist.
+      - : Eine `number`. Die ID des Tabs, in dem die hypothetische Anfrage stattfindet. Muss nicht mit einer realen Tab-ID übereinstimmen. Standard ist `-1`, was bedeutet, dass die Anfrage nicht mit einem Tab zusammenhängt.
     - `type`
       - : {{WebExtAPIRef("declarativeNetRequest.ResourceType")}}. Der Ressourcentyp der hypothetischen Anfrage.
     - `url`
       - : Ein `string`. Die URL der hypothetischen Anfrage.
 
 - `options` {{optional_inline}}
-
   - : Details der Optionen für die Anfrage.
     - `includeOtherExtensions` {{optional_inline}}
-      - : Ein `boolean`. Ob übereinstimmende Regeln von anderen Erweiterungen in `matchedRules` enthalten sind. Wenn Regeln von anderen Erweiterungen übereinstimmen, enthält die resultierende `matchedRule` eine `extensionId`-Eigenschaft. Standard ist `false`.
+      - : Ein `boolean`. Ob übereinstimmende Regeln von anderen Erweiterungen in `matchedRules` eingeschlossen werden. Wenn Regeln von anderen Erweiterungen übereinstimmen, hat die resultierende `matchedRule`-Eigenschaft eine `extensionId`. Standard ist `false`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ein Objekt mit diesen Eigenschaften liefert:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das folgende Eigenschaften enthält:
 
 - `matchedRules`
-  - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details der Regeln (falls vorhanden), die mit der hypothetischen Anfrage übereinstimmen.
+  - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details der Regeln (falls vorhanden), die der hypothetischen Anfrage entsprechen.
 
-Wenn keine Regeln übereinstimmen, ist das `matchedRules`-Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn keine Regeln übereinstimmen, ist das `matchedRules`-Array leer. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

@@ -2,10 +2,10 @@
 title: string
 slug: Web/XML/XPath/Reference/Functions/string
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Die `string` Funktion konvertiert das gegebene Argument in einen String.
+Die Funktion `string` konvertiert das angegebene Argument in einen String.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ string( [object] )
 ### Parameter
 
 - `object` (optional)
-  - : Das Objekt, das in einen String konvertiert werden soll. Wenn es weggelassen wird, wird der Kontextknoten verwendet.
+  - : Das Objekt, das in einen String konvertiert werden soll. Wird es weggelassen, wird der Kontextknoten verwendet.
 
 ### Rückgabewert
 
@@ -24,9 +24,8 @@ Ein String
 
 ## Beschreibung
 
-- Wenn das Objekt eine Knotenmenge ist, wird der String-Wert des ersten Knotens in der Menge zurückgegeben.
+- Wenn das Objekt eine Knoten-Menge ist, wird der String-Wert des ersten Knotens im Satz zurückgegeben.
 - Eine Zahl wird wie folgt konvertiert:
-
   - NaN wird in den String NaN konvertiert.
   - Positive Null wird in den String 0 konvertiert.
   - Negative Null wird in den String 0 konvertiert.

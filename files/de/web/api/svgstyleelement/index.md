@@ -2,51 +2,51 @@
 title: SVGStyleElement
 slug: Web/API/SVGStyleElement
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGStyleElement`**-Schnittstelle entspricht dem SVG {{SVGElement("style")}}-Element.
+Das **`SVGStyleElement`**-Interface entspricht dem SVG {{SVGElement("style")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGStyleElement.type`](/de/docs/Web/API/SVGStyleElement/type) {{deprecated_inline}}
 
-  - : Ein String, der dem {{SVGAttr("type")}}-Attribut des angegebenen Elements entspricht.
+  - : Ein String, der dem {{SVGAttr("type")}}-Attribut des gegebenen Elements entspricht.
 
 - [`SVGStyleElement.media`](/de/docs/Web/API/SVGStyleElement/media)
 
-  - : Ein String, der dem {{SVGAttr("media")}}-Attribut des angegebenen Elements entspricht.
+  - : Ein String, der dem {{SVGAttr("media")}}-Attribut des gegebenen Elements entspricht.
 
 - [`SVGStyleElement.title`](/de/docs/Web/API/SVGStyleElement/title)
 
-  - : Ein String, der dem [`title`](/de/docs/Web/SVG/Reference/Element/style#title)-Attribut des angegebenen Elements entspricht.
+  - : Ein String, der dem [`title`](/de/docs/Web/SVG/Reference/Element/style#title)-Attribut des gegebenen Elements entspricht.
 
 - [`SVGStyleElement.sheet`](/de/docs/Web/API/SVGStyleElement/sheet) {{ReadOnlyInline}}
 
-  - : Gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt zurück, das mit dem angegebenen Element verknüpft ist, oder `null`, falls keines vorhanden ist.
+  - : Gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt zurück, das mit dem gegebenen Element assoziiert ist, oder `null`, wenn keines vorhanden ist.
 
 - [`SVGStyleElement.disabled`](/de/docs/Web/API/SVGStyleElement/disabled)
-  - : Ein boolescher Wert, der angibt, ob das zugehörige Stylesheet deaktiviert ist oder nicht.
+  - : Ein Boolescher Wert, der angibt, ob das assoziierte Stylesheet deaktiviert ist oder nicht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface implementiert keine spezifischen Methoden, erbt jedoch Methoden von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Beispiele
 
 ### Dynamisches Hinzufügen eines SVG-Style-Elements
 
-Um ein SVG-Style-Element (`SVGStyleElement`) dynamisch zu erstellen, müssen Sie [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) verwenden und ein `style`-Element im SVG-Namespace spezifizieren.
+Um ein SVG-Style-Element (`SVGStyleElement`) dynamisch zu erstellen, müssen Sie [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) verwenden und dabei ein `style`-Element im SVG-Namespace angeben.
 
-> **Note:** [`Document.createElement()`](/de/docs/Web/API/Document/createElement) kann nicht verwendet werden, um SVG-Style-Elemente zu erstellen (diese Methode gibt ein [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) zurück).
+> [!NOTE] > [`Document.createElement()`](/de/docs/Web/API/Document/createElement) kann nicht verwendet werden, um SVG-Style-Elemente zu erstellen (es gibt ein [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) zurück).
 
-Angenommen, das folgende SVG-Element:
+Angenommen ist das folgende SVG-Element:
 
 ```html
 <svg
@@ -71,12 +71,12 @@ style.appendChild(node);
 svg.appendChild(style);
 ```
 
-### Zugriff auf ein bestehendes SVG-Style
+### Zugriff auf ein vorhandenes SVG-Style
 
-Sie können auf ein SVG-Style-Element, das in HTML (oder in einer SVG-Datei) definiert ist, mit den normalen HTML-Methoden für das Abrufen von Tags, IDs usw. zugreifen.
-Dazu gehören: [`Document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById), [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) und andere.
+Sie können auf ein SVG-Style-Element zugreifen, das in HTML (oder einer SVG-Datei) definiert wurde, indem Sie die normalen HTML-Methoden zum Abrufen von Tags, IDs usw. verwenden.
+Dazu gehören: [`Document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById), [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) usw.
 
-Zum Beispiel, betrachten Sie den folgenden HTML-Code, der eine SVG-Datei mit einem Style-Element definiert.
+Beispielsweise betrachten Sie das untenstehende HTML, das eine SVG-Datei mit einem Style-Element definiert.
 
 ```html
 <svg
@@ -107,7 +107,7 @@ const svg = document.querySelector("svg");
 const style = svg.getElementById("circle_style_id");
 ```
 
-Oder das Element einfach aus dem Dokument per ID abrufen (in diesem Fall mit `document.querySelector()`):
+Oder Sie erhalten einfach das Element aus dem Dokument nach ID (in diesem Fall mit `document.querySelector()`):
 
 ```js
 const style = document.querySelector("#circle_style_id");
@@ -115,11 +115,11 @@ const style = document.querySelector("#circle_style_id");
 
 ## Abrufen und Festlegen von Eigenschaften
 
-Dieses Beispiel zeigt, wie man die Eigenschaften eines Style-Elements abruft und festlegt, das in einer SVG-Definition angegeben wurde.
+Dieses Beispiel zeigt, wie man die Eigenschaften eines Style-Elements abrufen und festlegen kann, das in diesem Fall in einer SVG-Definition angegeben wurde.
 
 ### HTML
 
-Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Reference/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Reference/Element/style)-Element, zusammen mit einem HTML-`<button>`-Element [/de/docs/Web/HTML/Reference/Elements/button), das verwendet wird, um den Style zu aktivieren und zu deaktivieren, sowie ein HTML-`<textarea>`-Element für die Protokollierung der Eigenschaftswerte.
+Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Reference/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Reference/Element/style)-Element, zusammen mit einem HTML-[`<button>`](/de/docs/Web/HTML/Reference/Elements/button)-Element, das verwendet wird, um den Stil zu aktivieren und zu deaktivieren, sowie ein HTML-`<textarea>`-Element zum Protokollieren der Eigenschaftswerte.
 
 ```html
 <button>Disable</button>
@@ -139,11 +139,11 @@ Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/R
 ```
 
 Beachten Sie, dass wir oben das `media`-Attribut im `style`-Tag gesetzt haben.
-Wir haben `type` nicht gesetzt, da es veraltet ist, oder `disabled`, da es ein solches Attribut nicht gibt (nur die Eigenschaft auf dem Element).
+Wir haben `type` nicht gesetzt, da es veraltet ist, oder `disabled`, weil es kein solches Attribut gibt (nur die Eigenschaft im Element).
 
 ### JavaScript
 
-Der folgende Code ruft das `style`-Element (ein `SVGStyleElement`) mit seiner ID ab.
+Der folgende Code erhält das `style`-Element (ein `SVGStyleElement`) unter Verwendung seiner ID.
 
 ```js
 const svg = document.querySelector("svg");
@@ -151,7 +151,7 @@ const style = svg.getElementById("circle_style_id");
 ```
 
 Wir fügen dann eine Funktion hinzu, um die Style-Eigenschaften zu protokollieren.
-Diese wird nach der Initialisierung, bei jeder Größenänderung des Frames und wenn der Button gedrückt wird, aufgerufen.
+Diese wird nach der Initialisierung, bei jeder Rahmengrößenänderung und wenn der Button gedrückt wird, aufgerufen.
 
 ```js
 // Get logging text area
@@ -175,7 +175,7 @@ addEventListener("resize", () => {
 });
 ```
 
-Zuletzt setzen wir einen Ereignishandler für den Button.
+Zuletzt haben wir einen Ereignishandler für den Button gesetzt.
 Wenn der Button geklickt wird, wird die [`disabled`](/de/docs/Web/API/SVGStyleElement/disabled)-Eigenschaft umgeschaltet.
 Dies aktualisiert auch das Protokoll und den Button-Text.
 
@@ -193,9 +193,9 @@ button.addEventListener("click", () => {
 
 ### Ergebnis
 
-Das Ergebnis wird unten gezeigt.
+Das Ergebnis wird unten angezeigt.
 Schalten Sie den Button um, um das SVG-Style-Element zu aktivieren und zu deaktivieren.
-Wenn der SVG-Style nicht deaktiviert ist, können Sie auch die Fensterbreite ändern, um die Wirkung der `media`-Eigenschaft auf den Style zu sehen, wenn der Frame des Live-Beispiels 600px breit ist.
+Wenn das SVG-Style nicht deaktiviert ist, können Sie auch die Fensterbreite ändern, um die Wirkung der `media`-Eigenschaft auf den Stil zu sehen, wenn der Rahmen mit dem Live-Beispiel 600px breit ist.
 
 {{EmbedLiveSample("Getting and setting properties","200","250")}}
 

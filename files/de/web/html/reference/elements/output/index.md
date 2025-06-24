@@ -2,37 +2,37 @@
 title: "<output>: Das Output-Element"
 slug: Web/HTML/Reference/Elements/output
 l10n:
-  sourceCommit: 1eabc08d295e60d7d8eab6bce858d2fb0833be2b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar}}
 
-Das **`<output>`** [HTML](/de/docs/Web/HTML)-Element ist ein Containerelement, in das eine Website oder App die Ergebnisse einer Berechnung oder das Ergebnis einer Benutzeraktion einfügen kann.
+Das **`<output>`**-Element [HTML](/de/docs/Web/HTML) ist ein Container-Element, in das eine Webseite oder App die Ergebnisse einer Berechnung oder das Ergebnis einer Benutzeraktion einfügen kann.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`for`](/de/docs/Web/HTML/Reference/Attributes/for)
-  - : Eine durch Leerzeichen getrennte Liste von `id`s anderer Elemente, die darauf hinweist, dass diese Elemente Eingabewerte zur Berechnung beigetragen haben (oder diese anderweitig beeinflusst haben).
+  - : Eine durch Leerzeichen getrennte Liste von `id`s anderer Elemente, die anzeigt, dass diese Elemente Eingabewerte für die Berechnung bereitgestellt haben (oder diese anderweitig beeinflusst haben).
 - `form`
 
-  - : Das {{HTMLElement("form")}}-Element, mit dem das Output-Element verknüpft werden soll (sein _Formulareigentümer_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>`-Elements im selben Dokument sein. (Ist dieses Attribut nicht gesetzt, wird das `<output>` mit seinem übergeordneten `<form>`-Element verknüpft, falls vorhanden.)
+  - : Das {{HTMLElement("form")}}-Element, dem das Ergebnis zugeordnet werden soll (sein _form owner_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>` im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird das `<output>` mit seinem Vorfahren `<form>`-Element assoziiert, falls vorhanden.)
 
-    Dieses Attribut ermöglicht es Ihnen, `<output>`-Elemente zu `<form>`-Elementen überall im Dokument zuzuordnen, nicht nur innerhalb eines `<form>`. Es kann auch ein übergeordnetes `<form>`-Element überschreiben. Der Name und der Inhalt des `<output>`-Elements werden nicht übermittelt, wenn das Formular übermittelt wird.
+    Dieses Attribut ermöglicht es Ihnen, `<output>`-Elemente mit `<form>`-Elementen irgendwo im Dokument zu verknüpfen, nicht nur innerhalb eines `<form>`. Es kann auch ein Vorfahren-`<form>`-Element überschreiben. Der Name und Inhalt des `<output>`-Elements werden beim Absenden des Formulars nicht übermittelt.
 
 - `name`
-  - : Der Name des Elements. Verwendet in der [`form.elements`](/de/docs/Web/API/HTMLFormElement/elements)-API.
+  - : Der Name des Elements. Wird in der [`form.elements`](/de/docs/Web/API/HTMLFormElement/elements)-API verwendet.
 
-Der Wert, Name und Inhalt des `<output>`-Elements werden NICHT während der Formularübermittlung übermittelt.
+Der `<output>`-Wert, -Name und -Inhalt werden während der Formularübermittlung NICHT übermittelt.
 
 ## Barrierefreiheit
 
-Viele Browser implementieren dieses Element als [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)-Bereich. Unterstützende Technologien kündigen dadurch die Ergebnisse von UI-Interaktionen an, die darin veröffentlicht werden, ohne dass der Fokus von den Steuerelementen, die diese Ergebnisse erzeugen, weg wechseln muss.
+Viele Browser implementieren dieses Element als [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)-Region. Assistive Technologien kündigen somit die Ergebnisse von Benutzerinteraktionen an, die darin gepostet werden, ohne dass der Fokus von den Steuerelementen wegbewegt werden muss, die diese Ergebnisse erzeugen.
 
 ## Beispiele
 
-Im folgenden Beispiel enthält das Formular einen Schieberegler, dessen Wert zwischen `0` und `100` liegen kann, und ein {{HTMLElement("input")}}-Element, in das Sie eine zweite Zahl eingeben können. Die beiden Zahlen werden addiert, und das Ergebnis wird im `<output>`-Element angezeigt, jedes Mal wenn sich der Wert eines der Steuerelemente ändert.
+Im folgenden Beispiel bietet das Formular einen Schieberegler, dessen Wert zwischen `0` und `100` liegen kann, und ein {{HTMLElement("input")}}-Element, in das Sie eine zweite Zahl eingeben können. Die beiden Zahlen werden addiert, und das Ergebnis wird im `<output>`-Element angezeigt, jedes Mal, wenn sich der Wert eines der Steuerelemente ändert.
 
 ```html
 <form id="example-form">
@@ -61,7 +61,7 @@ updateResult();
 
 ### Ergebnis
 
-{{EmbedLiveSample('Examples')}}
+{{ EmbedLiveSample('Examples')}}
 
 ## Technische Zusammenfassung
 
@@ -75,13 +75,13 @@ updateResult();
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >Phrasing-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#listed"
-          >aufgeführt</a
+          >aufgelistet</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#labelable"
           >beschriftbar</a
@@ -91,28 +91,28 @@ updateResult();
         >
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content"
-          >form-assoziiertes Element</a
+          >formularzugeordnetes Element</a
         >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen von Tags</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind verpflichtend.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >Phrasing-Inhalt</a
         >
         akzeptiert.
       </td>
@@ -122,8 +122,8 @@ updateResult();
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role"><code>status</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

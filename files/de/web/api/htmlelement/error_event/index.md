@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: error Event"
+title: "HTMLElement: error Ereignis"
 short-title: error
 slug: Web/API/HTMLElement/error_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}
 
-Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Beispielsweise, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden werden kann oder ungültig ist.
+Das `error` Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden wird oder ungültig ist.
 
-Dieses Ereignis ist nicht abbruchfähig und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("error", (event) => { })
@@ -24,7 +24,7 @@ onerror = (event) => { }
 
 ## Ereignistyp
 
-Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzeroberflächenelement erzeugt wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) andernfalls.
+Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzerschnittstellenelement generiert wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) anderweitig.
 
 {{InheritanceDiagram("UIEvent")}}
 
@@ -120,6 +120,5 @@ imgError.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse
-
   - Window: [`error`](/de/docs/Web/API/Window/error_event) Ereignis
   - HTMLElement: [`load`](/de/docs/Web/API/HTMLElement/load_event) Ereignis

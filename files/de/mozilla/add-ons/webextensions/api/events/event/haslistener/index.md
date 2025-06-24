@@ -2,7 +2,7 @@
 title: Event.hasListener()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/hasListener
 l10n:
-  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -18,12 +18,11 @@ events.Event.hasListener(listener)
 ### Parameter
 
 - `listener`
-
-  - : `function`. Der Listener, der überprüft werden soll.
+  - : `function`. Der zu überprüfende Listener.
 
 ### Rückgabewert
 
-Ein boolescher Wert: `true`, wenn der Listener für das Ereignis registriert ist. Andernfalls `false`.
+Ein boolescher Wert: `true` wenn der Listener für das Ereignis registriert ist. Andernfalls `false`.
 
 ## Browser-Kompatibilität
 

@@ -3,23 +3,23 @@ title: "HTMLTextAreaElement: minLength-Eigenschaft"
 short-title: minLength
 slug: Web/API/HTMLTextAreaElement/minLength
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`minLength`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt die minimale Anzahl von Zeichen (in UTF-16 Code-Einheiten) an, die erforderlich sind, damit der Wert des {{HTMLElement("textarea")}}-Elements gültig ist. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Reference/Elements/textarea#minlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Mindestlängenanforderung gibt.
+Die **`minLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die minimale Anzahl von Zeichen (in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}) an, die erforderlich sind, damit der Wert des {{HTMLElement("textarea")}}-Elements gültig ist. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Reference/Elements/textarea#minlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Mindestlängenanforderung gibt.
 
 > [!NOTE]
-> Wenn das Textarea-Element einen Wert hat und dieser Wert weniger Zeichen als das `minlength`-Attribut erfordert, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekteigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) wird `true` sein.
+> Wenn das Textarea-Element einen Wert hat und dieser Wert weniger Zeichen als durch das `minlength`-Attribut gefordert enthält, wird das Element als ungültig angesehen und die [`tooShort`](/de/docs/Web/API/ValidityState/tooShort)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `minlength` des Elements darstellt, falls vorhanden, oder `-1`.
+Eine Zahl, die das `minlength` des Elements angibt, falls vorhanden, oder `-1`.
 
 ## Beispiel
 
-Angenommen, folgende HTML:
+Angenommen, folgendes HTML ist gegeben:
 
 ```html
 <p>

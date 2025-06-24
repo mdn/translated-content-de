@@ -1,27 +1,24 @@
 ---
-title: HTML `autocorrect` globales Attribut
+title: HTML autocorrect globales Attribut
 short-title: autocorrect
 slug: Web/HTML/Reference/Global_attributes/autocorrect
 l10n:
-  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`autocorrect`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das steuert, ob die Autokorrektur von bearbeitbarem Text für Rechtschreib- und/oder Zeichensetzungsfehler aktiviert ist.
+Das **`autocorrect`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das steuert, ob die Autokorrektur von bearbeitbarem Text für Rechtschreib- und/oder Interpunktionsfehler aktiviert ist.
 
-Das spezifische Autokorrekturverhalten, einschließlich welcher Wörter ersetzt werden, hängt vom Benutzeragenten und den Diensten des zugrunde liegenden Geräts ab.
-Zum Beispiel könnte auf macOS ein Benutzeragent auf [registrierte Ersetzungstexte und Zeichensetzung](https://support.apple.com/en-vn/guide/mac-help/mh35735/mac) zurückgreifen.
-Andere Geräte und Browser können einen anderen Ansatz verwenden.
+Das spezifische Verhalten der Autokorrektur, einschließlich der Ersetzung bestimmter Wörter, hängt vom Benutzeragenten und den vom zugrunde liegenden Gerät bereitgestellten Diensten ab. Zum Beispiel könnte ein Benutzeragent auf macOS auf [registrierten Ersetzungstext und Interpunktion](https://support.apple.com/en-vn/guide/mac-help/mh35735/mac) zurückgreifen. Andere Geräte und Browser können einen anderen Ansatz verwenden.
 
-Autokorrektur ist relevant für bearbeitbare Text-Elemente:
+Autokorrektur ist relevant für bearbeitbare Textelemente:
 
-- {{htmlelement("input")}} Elemente, außer für [`password`](/de/docs/Web/HTML/Reference/Elements/input/password), [`email`](/de/docs/Web/HTML/Reference/Elements/input/email) und [`url`](/de/docs/Web/HTML/Reference/Elements/input/url), die keine Autokorrektur unterstützen.
-- {{htmlelement("textarea")}} Elemente.
-- Jedes Element, das das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut gesetzt hat.
+- {{htmlelement("input")}}-Elemente, außer [`password`](/de/docs/Web/HTML/Reference/Elements/input/password), [`email`](/de/docs/Web/HTML/Reference/Elements/input/email) und [`url`](/de/docs/Web/HTML/Reference/Elements/input/url), die keine Autokorrektur unterstützen.
+- {{htmlelement("textarea")}}-Elemente.
+- Jedes Element, das das Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) gesetzt hat.
 
-Bearbeitbare Elemente haben die Autokorrektur standardmäßig aktiviert, außer in einem {{htmlelement("form")}} Element, wo der Standardwert möglicherweise vom Formular vererbt wird.
-Das explizite Setzen des Attributs überschreibt den Standardwert.
+Bearbeitbare Elemente haben standardmäßig die Autokorrektur aktiviert, außer innerhalb eines {{htmlelement("form")}}-Elements, wo der Standardwert möglicherweise vom Formular geerbt wird. Das explizite Setzen des Attributs überschreibt den Standard.
 
 ## Wert
 
@@ -29,28 +26,26 @@ Mögliche Werte sind:
 
 - `on` oder `""` (die leere Zeichenfolge)
 
-  - : Aktivieren der automatischen Korrektur von Rechtschreib- und Zeichensetzungsfehlern.
+  - : Aktiviert die automatische Korrektur von Rechtschreib- und Interpunktionsfehlern.
 
 - `off`
+  - : Deaktiviert die automatische Korrektur von bearbeitbarem Text.
 
-  - : Deaktivieren der automatischen Korrektur von bearbeitbarem Text.
+Die {{htmlelement("input")}}-Elementtypen, die keine Autokorrektur unterstützen, haben immer den Zustand `off`: [`password`](/de/docs/Web/HTML/Reference/Elements/input/password), [`email`](/de/docs/Web/HTML/Reference/Elements/input/email) und [`url`](/de/docs/Web/HTML/Reference/Elements/input/url).
 
-Die {{htmlelement("input")}} Elementtypen, die keine Autokorrektur unterstützen, haben immer den `off` Zustand: [`password`](/de/docs/Web/HTML/Reference/Elements/input/password), [`email`](/de/docs/Web/HTML/Reference/Elements/input/email) und [`url`](/de/docs/Web/HTML/Reference/Elements/input/url).
+Für alle anderen bearbeitbaren Elemente wird jede andere als die oben aufgeführten Werte immer als `on` behandelt. Der Standardwert für Elemente, die nicht in einem `<form>` verschachtelt sind, ist `on`.
 
-Für alle anderen bearbeitbaren Elemente wird jede andere als die oben aufgeführten Werte immer als `on` behandelt.
-Der Standardwert für Elemente, die nicht in einem `<form>` verschachtelt sind, ist `on`.
-
-Wenn sie in einem `<form>` verschachtelt sind, erben die folgenden Elemente ihren Standardwert von `autocorrect` vom Formular, falls dieses gesetzt wurde: {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}.
+Wenn sie in ein `<form>` verschachtelt sind, erben die folgenden Elemente ihren Standardwert von `autocorrect` vom Formular, wenn es gesetzt wurde: {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
-Dieses Beispiel demonstriert die grundlegende Verwendung des `autocorrect` Attributs.
+Dieses Beispiel zeigt die grundlegende Verwendung des `autocorrect`-Attributs.
 
 #### HTML
 
-Wir fügen zwei Text `<input>` Elemente mit unterschiedlichen Werten für ihre `autocorrect` Attribute ein:
+Wir fügen zwei Text-`<input>`-Elemente mit unterschiedlichen Werten für ihre `autocorrect`-Attribute ein:
 
 ```html
 <label for="vegetable">A vegetable: </label>
@@ -64,20 +59,17 @@ Wir fügen zwei Text `<input>` Elemente mit unterschiedlichen Werten für ihre `
 
 {{EmbedLiveSample("Basic example", "100%", "75")}}
 
-Geben Sie ungültigen Text in die Obst- und Gemüse-Textfelder oben ein.
-Wenn die Autokorrektur in Ihrem Browser unterstützt wird und es eine geeignete Ersetzung durch das zugrunde liegende Gerät gibt, sollte ein Tippfehler bei der Eingabe eines Gemüsenamens automatisch korrigiert werden.
-Tippfehler sollten im Fruchtnamenfeld nicht korrigiert werden.
+Geben Sie ungültigen Text in die oben aufgeführten Eingabefelder für Obst und Gemüse ein. Wenn die automatische Korrektur in Ihrem Browser unterstützt wird und es eine geeignete Ersetzung durch das zugrunde liegende Gerät gibt, sollte ein Tippfehler in einem Gemüsenamen automatisch korrigiert werden. Tippfehler sollten im Feld für den Obstnamen nicht korrigiert werden.
 
-### Autokorrektur aktivieren und deaktivieren
+### Aktivieren und Deaktivieren der Autokorrektur
 
-Dieses Beispiel zeigt, wie Sie die Autokorrektur mit dem `autocorrect` Attribut aktivieren und deaktivieren können.
+Dieses Beispiel zeigt, wie Sie die Autokorrektur mit dem `autocorrect`-Attribut aktivieren und deaktivieren können.
 
 #### HTML
 
-Das HTML-Markup definiert einen {{htmlelement("button")}}, ein "name" {{htmlelement("input")}} Element vom [`type="text"`](/de/docs/Web/HTML/Reference/Elements/input/text), ein "bio" {{htmlelement("textarea")}} Element und zwei {{htmlelement("label")}} Elemente.
+Das HTML-Markup definiert einen {{htmlelement("button")}}, ein "name" {{htmlelement("input")}}-Element vom [`type="text"`](/de/docs/Web/HTML/Reference/Elements/input/text), ein "bio" {{htmlelement("textarea")}}-Element und zwei {{htmlelement("label")}}-Elemente.
 
-Das "username" Element hat `autocorrect="off"` gesetzt, da die Autokorrektur eines Namens lästig wäre!
-Für die Bio ist kein Wert für `autocorrect` angegeben, was bedeutet, dass es aktiviert ist (wir hätten jeden anderen Wert als `off` setzen können).
+Das "username"-Element hat `autocorrect="off"` gesetzt, da das automatische Korrigieren eines Namens störend wäre! Die Biografie gibt keinen Wert für `autocorrect` an, was bedeutet, dass sie aktiviert ist (wir könnten jeden Wert außer `off` gesetzt haben).
 
 ```html
 <button id="reset">Reset</button>
@@ -116,11 +108,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code überprüft, ob `autocorrect` unterstützt wird, indem er prüft, ob es im Prototyp vorhanden ist.
-Wenn es nicht vorhanden ist, wird dies protokolliert.
-Wenn es vorhanden ist, wird der Wert der `autocorrect` Eigenschaft für jedes der Texteingabeelemente protokolliert.
+Der Code überprüft, ob `autocorrect` unterstützt wird, indem er prüft, ob es im Prototyp vorhanden ist. Falls es nicht vorhanden ist, wird dies protokolliert. Falls es vorhanden ist, wird der Wert der `autocorrect`-Eigenschaft für jedes der Texteintrags-Elemente protokolliert.
 
-Ein Klick-Handler wird für den Button hinzugefügt, der es Ihnen erlaubt, den eingegebenen Text und das Protokoll zurückzusetzen.
+Ein Klick-Handler wird für den Button hinzugefügt, der es Ihnen ermöglicht, den eingegebenen Text und die Protokollierung zurückzusetzen.
 
 ```js
 const resetButton = document.querySelector("#reset");
@@ -142,12 +132,11 @@ resetButton.addEventListener("click", (e) => {
 
 #### Ergebnisse
 
-Wenn die Autokorrektur von Ihrem Browser unterstützt wird, sollte der Protokollbereich unter den "Biografie"- und "Name"-Eingaben anzeigen, dass sie für "Biografie"-Eingaben aktiviert ist, aber nicht für "Name"-Eingaben.
+Falls die Autokorrektur von Ihrem Browser unterstützt wird, sollte der Protokollbereich unter den Eingabefeldern "Biografie" und "Name" zeigen, dass sie für die "Biografie"-Eingaben, aber nicht für die "Name"-Eingaben aktiviert ist.
 
 {{EmbedLiveSample("Enabling and disabling autocorrection", "100%", "250")}}
 
-Geben Sie ungültigen Text in die Name- und Biografie-Textfelder ein.
-Wenn das Gerät einen Ersatz für das eingegebene Wort hat, wird dieser verwendet, um Text im "Biografie" Eingabefeld (nur) automatisch zu korrigieren.
+Geben Sie ungültigen Text in die Eingabefelder für Name und Biografie ein. Wenn das Gerät einen Ersatz für das eingegebene Wort hat, wird dieser verwendet, um den Text nur im "Biografie"-Eingabefeld zu korrigieren.
 
 ## Spezifikationen
 

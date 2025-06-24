@@ -1,38 +1,21 @@
 ---
-title: Code unit
+title: Code-Einheit
 slug: Glossary/Code_unit
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{GlossarySidebar}}
 
-Eine **Code-Einheit** ist die grundlegende Komponente, die von einem Zeichencodierungssystem (wie UTF-8 oder UTF-16) verwendet wird. Ein Zeichencodierungssystem verwendet eine oder mehrere Code-Einheiten, um einen Unicode-{{Glossary("code_point", "Codepunkt")}} zu kodieren.
+Eine **Code-Einheit** ist die grundlegende Komponente, die von einem Zeichencodierungssystem (wie UTF-8 oder UTF-16) verwendet wird. Ein Zeichencodierungssystem verwendet eine oder mehrere Code-Einheiten, um einen Unicode-{{Glossary("code_point", "Codepunkt")}} zu codieren.
 
-In UTF-16 (dem Codierungssystem, das für JavaScript-Strings verwendet wird) sind Code-Einheiten 16-Bit-Werte. Das bedeutet, dass Operationen wie das Indizieren in einen String oder das Ermitteln der Länge eines Strings auf diesen 16-Bit-Einheiten basieren. Diese Einheiten stimmen nicht immer 1-zu-1 mit dem überein, was wir als Zeichen ansehen könnten.
+In {{Glossary("UTF-8", "UTF-8")}} wird jeder Codepunkt mit einer bis vier 8-Bit-Code-Einheiten codiert.
 
-Zum Beispiel können Zeichen mit diakritischen Zeichen wie Akzenten manchmal mit zwei Unicode-Codepunkten dargestellt werden:
-
-```js
-const myString = "\u006E\u0303";
-console.log(myString); // ñ
-console.log(myString.length); // 2
-```
-
-Außerdem passen nicht alle von Unicode definierten Codepunkte in 16 Bits, viele Unicode-Codepunkte werden als Paar von UTF-16-Code-Einheiten kodiert, was als _Surrogatpaar_ bezeichnet wird:
-
-```js
-const face = "🥵";
-console.log(face.length); // 2
-```
-
-Die {{jsxref("String/codePointAt", "codePointAt()")}}-Methode des JavaScript-{{jsxref("String")}}-Objekts ermöglicht es Ihnen, den Unicode-Codepunkt aus seiner kodierten Form abzurufen:
-
-```js
-const face = "🥵";
-console.log(face.codePointAt(0)); // 129397
-```
+In {{Glossary("UTF-16", "UTF-16")}} wird jeder Codepunkt mit einer oder zwei 16-Bit-Code-Einheiten codiert.
 
 ## Siehe auch
 
-- [Häufig gestellte Fragen zur Unicode-Codierung](https://www.unicode.org/faq/utf_bom.html)
+- {{Glossary("Code_point", "Codepunkt")}}
+- {{Glossary("UTF-8", "UTF-8")}}
+- {{Glossary("UTF-16", "UTF-16")}}
+- [Unicode Encoding FAQ](https://www.unicode.org/faq/utf_bom.html)

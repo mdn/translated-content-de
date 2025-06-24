@@ -2,12 +2,12 @@
 title: <display-internal>
 slug: Web/CSS/display-internal
 l10n:
-  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Einige Layout-Modelle wie `table` und `ruby` haben eine komplexe interne Struktur mit mehreren unterschiedlichen Rollen, die ihre Kinder und Nachkommen ausfüllen können. Diese Seite definiert diese "internen" Display-Werte, die nur innerhalb dieses speziellen Layout-Modus Bedeutung haben.
+Einige Layout-Modelle wie `table` und `ruby` haben eine komplexe interne Struktur, mit mehreren unterschiedlichen Rollen, die ihre Kinder und Nachkommen erfüllen können. Diese Seite definiert jene "internen" Display-Werte, die nur innerhalb dieses bestimmten Layout-Modus Bedeutung haben.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Gültige `<display-internal>` Werte:
 - `ruby-text`
   - : Diese Elemente verhalten sich wie {{HTMLElement("rt")}} HTML-Elemente.
 - `ruby-base-container`
-  - : Diese Elemente werden als anonyme Boxen erzeugt.
+  - : Diese Elemente werden als anonyme Boxen generiert.
 - `ruby-text-container`
   - : Diese Elemente verhalten sich wie {{HTMLElement("rtc")}} HTML-Elemente.
 
@@ -46,7 +46,7 @@ Gültige `<display-internal>` Werte:
 
 ### CSS-Tabellenbeispiel
 
-Das folgende Beispiel zeigt, wie ein Formular mit CSS-Tabellenlayout angeordnet wird.
+Das folgende Beispiel demonstriert das Layout eines Formulars unter Verwendung von CSS-Tabelle-Layout.
 
 #### HTML
 
@@ -96,7 +96,6 @@ input {
 ## Siehe auch
 
 - {{CSSxRef("display")}}
-
   - {{CSSxRef("&lt;display-outside&gt;")}}
   - {{CSSxRef("&lt;display-inside&gt;")}}
   - {{CSSxRef("&lt;display-listitem&gt;")}}

@@ -3,13 +3,12 @@ title: "ServiceWorkerRegistration: showNotification() Methode"
 short-title: showNotification()
 slug: Web/API/ServiceWorkerRegistration/showNotification
 l10n:
-  sourceCommit: 09ad551d5fecae5872328ece2871fdf02b115b6e
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`showNotification()`** Methode des
-[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces erstellt eine Benachrichtigung auf einem aktiven Service Worker.
+Die **`showNotification()`** Methode der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Schnittstelle erzeugt eine Benachrichtigung in einem aktiven Service Worker.
 
 ## Syntax
 
@@ -28,58 +27,58 @@ showNotification(title, options)
 
     - `actions` {{optional_inline}} {{experimental_inline}}
 
-      - : Ein Array von Aktionen, die in der Benachrichtigung angezeigt werden sollen, wobei das Standardwert ein leeres Array ist. Jedes Element im Array kann ein Objekt mit den folgenden Mitgliedern sein:
+      - : Ein Array von Aktionen, die in der Benachrichtigung angezeigt werden sollen, wobei standardmäßig ein leeres Array verwendet wird. Jedes Element im Array kann ein Objekt mit den folgenden Mitgliedern sein:
 
         - `action`
-          - : Ein String, der eine Benutzeraktion identifiziert, die in der Benachrichtigung angezeigt werden soll.
+          - : Ein String, der eine Benutzeraktion identifiziert, die auf der Benachrichtigung angezeigt werden soll.
         - `title`
-          - : Ein String, der den Aktions-Text enthält, der dem Benutzer angezeigt werden soll.
+          - : Ein String, der den Aktionstext enthält, der dem Benutzer angezeigt werden soll.
         - `icon` {{optional_inline}}
           - : Ein String, der die URL eines Symbols enthält, das mit der Aktion angezeigt werden soll.
 
-        Angemessene Reaktionen werden unter Verwendung von `event.action` innerhalb des [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event)-Ereignisses erstellt.
+        Geeignete Antworten werden mit `event.action` innerhalb des [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) Ereignisses erstellt.
 
     - `badge` {{optional_inline}} {{experimental_inline}}
-      - : Ein String, der die URL des Bildes enthält, das die Benachrichtigung repräsentiert, wenn nicht genügend Platz vorhanden ist, um die Benachrichtigung selbst anzuzeigen; beispielsweise die Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Abzeichen für Geräte bis zu einer 4x-Auflösung, etwa 96x96px, geeignet sein, und das Bild wird automatisch maskiert werden.
+      - : Ein String, der die URL des Bildes enthält, das verwendet wird, um die Benachrichtigung zu repräsentieren, wenn nicht genügend Platz vorhanden ist, um die Benachrichtigung selbst anzuzeigen; zum Beispiel die Android-Mitteilungsleiste. Auf Android-Geräten sollte das Abzeichen Geräte bis zu einer Auflösung von 4x abdecken, etwa 96x96 px, und das Bild wird automatisch maskiert.
     - `body` {{optional_inline}}
-      - : Ein String, der den Textkörper der Benachrichtigung darstellt, der unter dem Titel angezeigt wird. Der Standard ist der leere String.
+      - : Ein String, der den Textkörper der Benachrichtigung repräsentiert, der unter dem Titel angezeigt wird. Standardmäßig ist dies der leere String.
     - `data` {{optional_inline}} {{experimental_inline}}
-      - : Beliebige Daten, die Sie mit der Benachrichtigung verknüpfen möchten. Dies kann jeder [strukturklonbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) Datentyp sein. Der Standard ist `null`.
+      - : Beliebige Daten, die mit der Benachrichtigung assoziiert werden sollen. Dies kann jeder [Struktur-klonbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) Datentyp sein. Standardmäßig ist dies `null`.
     - `dir` {{optional_inline}}
-      - : Die Richtung, in der die Benachrichtigung angezeigt werden soll. Der Standard ist `auto`, was einfach das Spracheinstellungsverhalten des Browsers übernimmt, aber Sie können dieses Verhalten überschreiben, indem Sie die Werte `ltr` und `rtl` einstellen (obwohl die meisten Browser diese Einstellungen zu ignorieren scheinen).
+      - : Die Richtung, in der die Benachrichtigung angezeigt werden soll. Standardmäßig ist dies `auto`, was nur das Spracheinstellungen-Verhalten des Browsers übernimmt, aber Sie können dieses Verhalten übersteuern, indem Sie die Werte `ltr` und `rtl` festlegen (obwohl die meisten Browser diese Einstellungen zu ignorieren scheinen).
     - `icon` {{optional_inline}}
       - : Ein String, der die URL eines Symbols enthält, das in der Benachrichtigung angezeigt werden soll.
     - `image` {{optional_inline}} {{experimental_inline}}
       - : Ein String, der die URL eines Bildes enthält, das in der Benachrichtigung angezeigt werden soll.
     - `lang` {{optional_inline}}
-      - : Die Sprache der Benachrichtigung, wie sie durch einen String festgelegt wird, der ein Sprach-Tag gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} darstellt. Siehe die Sitepoint-Seite [ISO 2 letter language codes](https://www.sitepoint.com/iso-2-letter-language-codes/) für eine einfache Referenz. Der Standard ist der leere String.
+      - : Die Sprache der Benachrichtigung, angegeben durch einen String, der ein Sprach-Tag nach {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} repräsentiert. Sehen Sie sich die Sitepoint [ISO 2 letter language codes](https://www.sitepoint.com/iso-2-letter-language-codes/) Seite für eine einfache Referenz an. Standardmäßig ist dies der leere String.
     - `renotify` {{optional_inline}} {{experimental_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Benutzer benachrichtigt werden soll, nachdem eine neue Benachrichtigung eine alte ersetzt hat. Der Standard ist `false`, was bedeutet, dass sie nicht benachrichtigt werden. Wenn `true`, muss auch `tag` gesetzt sein.
+      - : Ein boolescher Wert, der angibt, ob der Benutzer benachrichtigt werden soll, nachdem eine neue Benachrichtigung eine alte ersetzt hat. Standardmäßig ist dies `false`, was bedeutet, dass sie nicht benachrichtigt werden. Wenn `true`, muss auch `tag` gesetzt werden.
     - `requireInteraction` {{optional_inline}} {{experimental_inline}}
-      - : Gibt an, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer sie anklickt oder ablehnt, anstatt automatisch zu schließen. Der Standardwert ist `false`.
+      - : Gibt an, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer darauf klickt oder sie schließt, anstatt automatisch zu schließen. Standardmäßig ist der Wert `false`.
     - `silent` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die Benachrichtigung stumm (keine Töne oder Vibrationen werden ausgegeben), unabhängig von den Geräteeinstellungen, ist. Der Standard `null` bedeutet, die Gerätestandards zu respektieren. Wenn `true`, darf `vibrate` nicht vorhanden sein.
+      - : Ein boolescher Wert, der angibt, ob die Benachrichtigung stumm sein soll (keine Töne oder Vibrationen), unabhängig von den Geräteeinstellungen. Standardmäßig bedeutet `null`, dass die Geräteeinstellungen respektiert werden. Wenn `true`, darf `vibrate` nicht vorhanden sein.
     - `tag` {{optional_inline}}
-      - : Ein String, der ein identifizierendes Tag für die Benachrichtigung darstellt. Der Standard ist der leere String.
+      - : Ein String, der einen identifizierenden Tag für die Benachrichtigung darstellt. Standardmäßig ist dies der leere String.
     - `timestamp` {{optional_inline}}
-      - : Ein Zeitstempel, der als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden angegeben ist und die mit der Benachrichtigung verknüpfte Zeit darstellt. Dies könnte in der Vergangenheit liegen, wenn eine Benachrichtigung für eine Nachricht verwendet wird, die nicht sofort zugestellt werden konnte, weil das Gerät offline war, oder in der Zukunft für ein Meeting, das gleich beginnt.
+      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der die mit der Benachrichtigung verbundene Zeit repräsentiert. Dies könnte in der Vergangenheit liegen, wenn eine Benachrichtigung für eine Nachricht verwendet wird, die nicht sofort geliefert werden konnte, weil das Gerät offline war, oder in der Zukunft für ein Treffen, das bald beginnt.
     - `vibrate` {{optional_inline}} {{experimental_inline}}
-      - : Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) für die Vibrationshardware des Geräts zur Ausgabe mit der Benachrichtigung. Wenn angegeben, darf `silent` nicht `true` sein.
+      - : Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) für die Vibrationstechnik des Geräts, die mit der Benachrichtigung ausgegeben werden soll. Wenn spezifiziert, darf `silent` nicht `true` sein.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das sich auf `undefined` auflöst.
+Ein {{jsxref('Promise')}}, das sich in `undefined` auflöst.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
     - Der aktuelle Status des Service Workers nicht `activating` oder `activated` ist.
-    - Der Benutzer die Anfrage des Browsers, die API zu verwenden, ausdrücklich abgelehnt hat.
-    - Die `silent` Option `true` ist und die `vibrate` Option angegeben ist.
-    - Die `renotify` Option `true` ist, aber die `tag` Option leer ist.
+    - Der Benutzer die Berechtigungsanfrage des Browsers zur Nutzung der API ausdrücklich abgelehnt hat.
+    - Die Option `silent` auf `true` gesetzt ist und die Option `vibrate` angegeben ist.
+    - Die Option `renotify` auf `true` gesetzt ist, aber die Option `tag` leer ist.
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Serialisierung der Option `data` aus irgendeinem Grund fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn das Serialisieren der `data` Option aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
 
@@ -102,11 +101,9 @@ function showNotification() {
 }
 ```
 
-Um die obige Funktion zu einem geeigneten Zeitpunkt aufzurufen, könnten Sie das
-[`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event)-Ereignis anhören.
+Um die obige Funktion zu einem geeigneten Zeitpunkt aufzurufen, könnten Sie auf das [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) Ereignis hören.
 
-Sie können auch Details zu den [`Notification`](/de/docs/Web/API/Notification)s abrufen, die vom aktuellen Service Worker ausgelöst wurden, indem Sie
-[`ServiceWorkerRegistration.getNotifications()`](/de/docs/Web/API/ServiceWorkerRegistration/getNotifications) verwenden.
+Sie können auch Details zu den [`Notification`](/de/docs/Web/API/Notification)s abrufen, die vom aktuellen Service Worker ausgelöst wurden, indem Sie [`ServiceWorkerRegistration.getNotifications()`](/de/docs/Web/API/ServiceWorkerRegistration/getNotifications) verwenden.
 
 ## Spezifikationen
 

@@ -2,20 +2,20 @@
 title: menus.getTargetElement()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement
 l10n:
-  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{AddonSidebar}}
 
 Gibt das Element für eine gegebene `targetElementId` zurück.
 
-Diese Methode ist in allen Extension-Skriptkontexten verfügbar (Content Scripts, Hintergrundseiten und andere Extension-Seiten) und gibt das Element für eine gegebene `info.targetElementId` zurück, vorausgesetzt, dass das Element in dem Dokument, in dem die Methode aufgerufen wird, noch existiert.
+Diese Methode steht allen Erweiterungsskript-Kontexten zur Verfügung (Inhalts-Skripte, Hintergrundseiten und andere Erweiterungsseiten) und gibt das Element für eine gegebene `info.targetElementId` zurück, vorausgesetzt, dass das Element im Dokument, in dem die Methode aufgerufen wird, noch existiert.
 
-Die Methode funktioniert nur in dem Dokument, das das Rechtsklick-Element enthält, und die `targetElementId` wird ungültig, wenn der Benutzer ein weiteres Kontextmenü öffnet.
+Die Methode funktioniert nur im Dokument, das das mit der rechten Maustaste angeklickte Element enthält, und die `targetElementId` läuft ab, wenn der Benutzer ein anderes Kontextmenü öffnet.
 
-> **Note:** `menus.getTargetElement` gibt das angeforderte Element nur zurück, wenn es im selben Kontext wie das Dokument aufgerufen wird, das das Element enthält, beispielsweise mit Content Scripts (wie im unten stehenden Beispiel gezeigt).
+> [!NOTE] > `menus.getTargetElement` gibt das angeforderte Element nur zurück, wenn es im selben Kontext aufgerufen wird wie das Dokument, das das Element enthält, zum Beispiel unter Verwendung von Inhalts-Skripten (siehe Beispiel unten).
 
-Eine Erweiterung benötigt die Berechtigung "menus", um diese API zu verwenden.
+Eine Erweiterung benötigt die Berechtigung "menus", um diese API zu nutzen.
 
 ## Syntax
 
@@ -26,15 +26,15 @@ let elem = browser.menus.getTargetElement(targetElementId);
 ### Parameter
 
 - `targetElementId`
-  - : Die Eigenschaft des {{WebExtAPIRef("menus.OnClickData")}} Objekts, das an den {{WebExtAPIRef("menus.onClicked")}} Handler oder das {{WebExtAPIRef("menus.onShown")}} Ereignis übergeben wird.
+  - : Die Eigenschaft des {{WebExtAPIRef("menus.OnClickData")}} Objekts, das dem {{WebExtAPIRef("menus.onClicked")}} Handler oder dem {{WebExtAPIRef("menus.onShown")}} Ereignis übergeben wird.
 
 ### Rückgabewert
 
-Das Element, auf das durch den `targetElementId` Parameter verwiesen wird. Wenn der `targetElementId` Parameter nicht gültig ist, gibt die Methode `null` zurück.
+Das Element, auf das durch den `targetElementId` Parameter verwiesen wird. Wenn der `targetElementId` Parameter ungültig ist, gibt die Methode `null` zurück.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die `getTargetElement` Methode, um das Element zu erhalten, auf das durch die `info.targetElementId` Eigenschaft verwiesen wird, und entfernt es dann.
+Im folgenden Beispiel wird die Methode `getTargetElement` verwendet, um das durch die `info.targetElementId` Eigenschaft referenzierte Element zu erhalten und es dann zu entfernen.
 
 ```js
 browser.menus.create({

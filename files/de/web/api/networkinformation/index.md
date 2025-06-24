@@ -2,34 +2,31 @@
 title: NetworkInformation
 slug: Web/API/NetworkInformation
 l10n:
-  sourceCommit: 8bb6752a4d3ed3d54ab681636d16602e6bf1d74d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Network Information API")}} {{AvailableInWorkers}}
 
-Das **`NetworkInformation`** Interface der [Network Information API](/de/docs/Web/API/Network_Information_API) liefert Informationen über die Verbindung, die ein Gerät zur Kommunikation mit dem Netzwerk nutzt, und bietet eine Möglichkeit für Skripte, benachrichtigt zu werden, wenn sich der Verbindungstyp ändert.
-Das `NetworkInformation` Interface kann nicht instanziiert werden. Stattdessen wird es über die `connection` Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator) Interfaces oder des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) Interfaces aufgerufen.
+Das **`NetworkInformation`**-Interface der [Network Information API](/de/docs/Web/API/Network_Information_API) liefert Informationen über die Verbindung, die ein Gerät zur Kommunikation mit dem Netzwerk verwendet, und bietet eine Möglichkeit für Skripte, benachrichtigt zu werden, wenn sich der Verbindungstyp ändert. Das `NetworkInformation`-Interface kann nicht instanziiert werden. Es wird stattdessen über die `connection`-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces oder des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces aufgerufen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften seines Elternteils, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Eigenschaften seiner Eltern, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`NetworkInformation.downlink`](/de/docs/Web/API/NetworkInformation/downlink) {{ReadOnlyInline}}
-  - : Gibt die effektive Bandbreitenschätzung in Megabit pro Sekunde zurück, gerundet auf das nächste Vielfache von 25 Kilobit pro Sekunde.
+  - : Gibt die geschätzte effektive Bandbreite in Megabit pro Sekunde zurück, gerundet auf das nächste Vielfache von 25 Kilobit pro Sekunde.
 - [`NetworkInformation.downlinkMax`](/de/docs/Web/API/NetworkInformation/downlinkMax) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die maximale Downlink-Geschwindigkeit in Megabit pro Sekunde (Mbps) für die zugrunde liegende Verbindungstechnologie zurück.
 - [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType) {{ReadOnlyInline}}
-  - : Gibt den effektiven Verbindungstyp zurück, der einer der folgenden sein kann: 'slow-2g', '2g', '3g' oder '4g'. Dieser Wert wird unter Verwendung einer Kombination aus kürzlich beobachteten Round-Trip-Zeiten und Downlink-Werten bestimmt.
+  - : Gibt den effektiven Verbindungstyp zurück, der entweder 'slow-2g', '2g', '3g', oder '4g' ist. Dieser Wert wird durch eine Kombination aus kürzlich beobachteten Round-Trip-Zeiten und Downlink-Werten bestimmt.
 - [`NetworkInformation.rtt`](/de/docs/Web/API/NetworkInformation/rtt) {{ReadOnlyInline}}
   - : Gibt die geschätzte effektive Round-Trip-Zeit der aktuellen Verbindung zurück, gerundet auf das nächste Vielfache von 25 Millisekunden.
 - [`NetworkInformation.saveData`](/de/docs/Web/API/NetworkInformation/saveData) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn der Nutzer eine Option zur reduzierten Datennutzung im User-Agent eingestellt hat.
+  - : Gibt `true` zurück, wenn der Benutzer im Benutzeragent eine Option für reduzierte Datennutzung gesetzt hat.
 - [`NetworkInformation.type`](/de/docs/Web/API/NetworkInformation/type) {{ReadOnlyInline}} {{Experimental_Inline}}
-
-  - : Gibt den Verbindungstyp zurück, den ein Gerät zur Kommunikation mit dem Netzwerk verwendet. Er wird einen der folgenden Werte haben:
-
+  - : Gibt den Verbindungstyp zurück, den ein Gerät zur Kommunikation mit dem Netzwerk verwendet. Es wird einer der folgenden Werte sein:
     - `bluetooth`
     - `cellular`
     - `ethernet`
@@ -39,14 +36,14 @@ _Dieses Interface erbt auch Eigenschaften seines Elternteils, [`EventTarget`](/d
     - `other`
     - `unknown`
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden seines Elternteils, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Methoden seiner Eltern, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Events
+## Ereignisse
 
 - [`change`](/de/docs/Web/API/NetworkInformation/change_event)
-  - : Das Event, das ausgelöst wird, wenn sich die Verbindungsinformationen ändern.
+  - : Das Ereignis, das ausgelöst wird, wenn sich die Verbindungsinformationen ändern.
 
 ## Spezifikationen
 
@@ -58,4 +55,4 @@ _Dieses Interface erbt auch Methoden seines Elternteils, [`EventTarget`](/de/doc
 
 ## Siehe auch
 
-- [Online- und Offline-Events](/de/docs/Web/API/Navigator/onLine)
+- [Online- und Offline-Ereignisse](/de/docs/Web/API/Navigator/onLine)

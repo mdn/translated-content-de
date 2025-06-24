@@ -2,12 +2,12 @@
 title: fit-content()
 slug: Web/CSS/fit-content_function
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`fit-content()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) begrenzt eine gegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximum size, max(minimum size, argument))`.
+Die **`fit-content()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) begrenzt eine gegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximale Größe, max(minimale Größe, Argument))`.
 
 {{InteractiveExample("CSS Demo: fit-content()")}}
 
@@ -52,15 +52,15 @@ grid-template-columns: fit-content(40%) fit-content(40%) 1fr;
 }
 ```
 
-Die Funktion kann als Spurgröße in [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) Eigenschaften verwendet werden, wobei die maximale Größe durch `max-content` und die minimale Größe durch `auto` definiert wird. Diese wird ähnlich wie `auto` berechnet (d.h. [`minmax(auto, max-content)`](/de/docs/Web/CSS/minmax)), außer dass die Spurgröße bei _argument_ begrenzt wird, wenn sie größer als das `auto`-Minimum ist.
+Die Funktion kann als Spurgröße in [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) Eigenschaften verwendet werden, wobei die maximale Größe durch `max-content` und die minimale Größe durch `auto` definiert wird. Dies wird ähnlich wie `auto` berechnet (also [`minmax(auto, max-content)`](/de/docs/Web/CSS/minmax)), außer dass die Spurgröße bei _Argument_ begrenzt wird, wenn es größer als das `auto` Minimum ist.
 
-Weitere Informationen zu den Schlüsselwörtern `max-content` und `auto` finden Sie auf der Seite {{cssxref("grid-template-columns")}}.
+Besuchen Sie die Seite zu {{cssxref("grid-template-columns")}}, um mehr über die Schlüsselwörter `max-content` und `auto` zu erfahren.
 
 Die `fit-content()` Funktion kann auch als ausgelegte Boxgröße für {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet werden, wobei sich die maximalen und minimalen Größen auf die Inhaltsgröße beziehen.
 
 ## Syntax
 
-Die `fit-content()` Funktion nimmt ein `<length>` oder ein `<percentage>` als Argument an.
+Die `fit-content()` Funktion akzeptiert ein `<length>` oder ein `<percentage>` als Argument.
 
 ```css
 /* <length> values */
@@ -79,9 +79,9 @@ fit-content(40%)
   - : Eine absolute Länge.
 - {{cssxref("&lt;percentage&gt;")}}
 
-  - : Ein Prozentsatz relativ zum verfügbaren Raum in der gegebenen Achse.
+  - : Ein Prozentsatz relativ zum verfügbaren Platz in der angegebenen Achse.
 
-    In Gridgeeigenschaften bezieht sich dies auf die Inline-Größe des Gittercontainers in Spalten und auf die Blockgröße des Gittercontainers für Reihen. Andernfalls bezieht es sich auf die verfügbare Inline- oder Blockgröße der ausgelegten Box, abhängig vom Schreibmodus.
+    In Grider Eigenschaften ist es relativ zur Inline-Größe des Grid-Containers bei Spalten und zur Block-Größe des Grid-Containers bei Zeilen. Andernfalls ist es relativ zur verfügbaren Inline-Größe oder Block-Größe der ausgelegten Box, abhängig vom Schreibmodus.
 
 ## Formale Syntax
 
@@ -89,7 +89,7 @@ fit-content(40%)
 
 ## Beispiele
 
-### Grid-Spalten mit fit-content dimensionieren
+### Größenanpassung von Grid-Spalten mit fit-content
 
 #### HTML
 
@@ -148,5 +148,5 @@ fit-content(40%)
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
-- [Zeilenbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Grid Template Areas: Gitterdefinition Abkürzungen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Linienbasiertes Platzieren mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Grid Template Areas: Grid Definition Shorthands](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)

@@ -1,23 +1,23 @@
 ---
-title: "EventTarget: removeEventListener() Methode"
+title: "EventTarget: removeEventListener()-Methode"
 short-title: removeEventListener()
 slug: Web/API/EventTarget/removeEventListener
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`removeEventListener()`** Methode des [`EventTarget`](/de/docs/Web/API/EventTarget)-Interfaces entfernt einen zuvor mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) registrierten Ereignis-Listener vom Ziel. Der zu entfernende Ereignis-Listener wird durch eine Kombination des Ereignistyps, der Ereignis-Listener-Funktion selbst und verschiedener optionaler Optionen identifiziert, die den Abgleichsprozess beeinflussen können; siehe [Entsprechende Ereignis-Listener zur Entfernung](#entsprechende_ereignis-listener_zur_entfernung).
+Die **`removeEventListener()`**-Methode des [`EventTarget`](/de/docs/Web/API/EventTarget)-Interfaces entfernt einen zuvor mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) registrierten Event-Listener vom Ziel. Der zu entfernende Event-Listener wird durch eine Kombination aus dem Event-Typ, der Event-Listener-Funktion selbst und verschiedenen optionalen Optionen identifiziert, die den Zuordnungsprozess beeinflussen können; siehe [Zuordnen von Event-Listenern zur Entfernung](#zuordnen_von_event-listenern_zur_entfernung).
 
-Ein Aufruf von `removeEventListener()` mit Argumenten, die keinen aktuell registrierten [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) auf dem `EventTarget` identifizieren, hat keine Wirkung.
+Ein Aufruf von `removeEventListener()` mit Argumenten, die keinen derzeit registrierten [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) auf dem `EventTarget` identifizieren, hat keine Auswirkung.
 
-Wenn ein [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) von einem [`EventTarget`](/de/docs/Web/API/EventTarget) entfernt wird, während ein anderer Listener des Ziels ein Ereignis verarbeitet, wird er nicht durch das Ereignis ausgelöst. Er kann jedoch neu angehängt werden.
+Wenn ein [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) von einem [`EventTarget`](/de/docs/Web/API/EventTarget) entfernt wird, während ein anderer Listener des Ziels ein Event verarbeitet, wird er durch das Event nicht ausgelöst. Er kann jedoch wieder angefügt werden.
 
 > [!WARNING]
-> Wenn ein Listener zweimal registriert ist, einmal mit gesetztem _capture_-Flag und einmal ohne, müssen Sie jeden einzeln entfernen. Das Entfernen eines Capturing-Listeners wirkt sich nicht auf eine Nicht-Capturing-Version desselben Listeners aus und umgekehrt.
+> Wenn ein Listener zweimal registriert wird, einmal mit gesetztem _capture_-Flag und einmal ohne, müssen Sie jeden separat entfernen. Das Entfernen eines Listener im Capture-Modus hat keine Auswirkungen auf die Nicht-Capture-Version desselben Listeners und umgekehrt.
 
-Ereignis-Listener können auch entfernt werden, indem ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) an einen [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) übergeben und dann später [`abort()`](/de/docs/Web/API/AbortController/abort) auf dem Controller, der das Signal besitzt, aufgerufen wird.
+Event-Listener können auch entfernt werden, indem ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) an ein [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) übergeben und anschließend [`abort()`](/de/docs/Web/API/AbortController/abort) auf dem die Signal besitzenden Controller aufgerufen wird.
 
 ## Syntax
 
@@ -30,57 +30,56 @@ removeEventListener(type, listener, useCapture)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses angibt, für das ein Ereignis-Listener entfernt werden soll.
+  - : Ein String, der den Typ des Events angibt, für das ein Event-Listener entfernt werden soll.
 - `listener`
-  - : Die [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback)-Funktion des zu entfernenden Ereignis-Handlers vom Ereignis-Ziel.
+  - : Die [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback)-Funktion des Event-Handlers, die vom Event-Ziel entfernt werden soll.
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt, das Merkmale des Ereignis-Listners angibt.
+  - : Ein Optionen-Objekt, das Merkmale über den Event-Listener spezifiziert.
 
     Die verfügbaren Optionen sind:
 
-    - `capture`: Ein boolescher Wert, der angibt, ob der zu entfernende [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) als Capturing-Listener registriert ist oder nicht. Wenn dieser Parameter nicht vorhanden ist, wird der Standardwert `false` angenommen.
+    - `capture`: Ein Boolean-Wert, der angibt, ob der zu entfernende [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) als capturing Listener registriert ist oder nicht. Wenn dieser Parameter nicht vorhanden ist, wird der Standardwert `false` angenommen.
 
 - `useCapture` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob der zu entfernende [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) als Capturing-Listener registriert ist oder nicht. Wenn dieser Parameter nicht vorhanden ist, wird der Standardwert `false` angenommen.
+  - : Ein Boolean-Wert, der angibt, ob der [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback) als capturing Listener registriert ist oder nicht. Wenn dieser Parameter nicht vorhanden ist, wird der Standardwert `false` angenommen.
 
 ### Rückgabewert
 
 Keiner.
 
-### Entsprechende Ereignis-Listener zur Entfernung
+### Zuordnen von Event-Listenern zur Entfernung
 
-Angenommen, Sie haben einen Ereignis-Listener hinzugefügt, indem Sie
-[`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen haben, und möchten ihn schließlich entfernen. Offensichtlich müssen Sie die gleichen `type`- und `listener`-Parameter für `removeEventListener()` angeben. Aber was ist mit den Parametern `options` oder `useCapture`?
+Angenommen, ein Event-Listener wurde zuvor durch Aufruf von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt, es kann irgendwann nötig werden, ihn zu entfernen. Offensichtlich müssen Sie dieselben `type`- und `listener`-Parameter für `removeEventListener()` angeben. Aber was ist mit den Parametern `options` oder `useCapture`?
 
-Auch wenn `addEventListener()` es Ihnen ermöglicht, denselben Listener mehrmals für denselben Typ hinzuzufügen, wenn die Optionen unterschiedlich sind, überprüft `removeEventListener()` nur das `capture`/`useCapture`-Flag. Sein Wert muss übereinstimmen, damit `removeEventListener()` übereinstimmt, aber die anderen Werte nicht.
+Obwohl `addEventListener()` es Ihnen erlaubt, denselben Listener mehr als einmal für denselben Typ hinzuzufügen, wenn die Optionen unterschiedlich sind, überprüft `removeEventListener()` nur die `capture`/`useCapture`-Option. Deren Wert muss übereinstimmen, damit `removeEventListener()` erfolgreich ist, aber die anderen Werte sind unwichtig.
 
-Beispielsweise betrachten Sie diesen Aufruf von `addEventListener()`:
+Betrachten Sie zum Beispiel diesen Aufruf von `addEventListener()`:
 
 ```js
 element.addEventListener("mousedown", handleMouseDown, true);
 ```
 
-Betrachten Sie nun jeden dieser beiden Aufrufe von `removeEventListener()`:
+Betrachten Sie dann jeden dieser beiden Aufrufe von `removeEventListener()`:
 
 ```js
 element.removeEventListener("mousedown", handleMouseDown, false); // Fails
 element.removeEventListener("mousedown", handleMouseDown, true); // Succeeds
 ```
 
-Der erste Aufruf schlägt fehl, weil der Wert von `useCapture` nicht übereinstimmt. Der zweite gelingt, da `useCapture` übereinstimmt.
+Der erste Aufruf schlägt fehl, weil der Wert von `useCapture` nicht übereinstimmt. Der zweite ist erfolgreich, da `useCapture` übereinstimmt.
 
-Nun betrachten Sie dies:
+Betrachten Sie nun dies:
 
 ```js
 element.addEventListener("mousedown", handleMouseDown, { passive: true });
 ```
 
-Hier geben wir ein `options`-Objekt an, bei dem `passive` auf `true` gesetzt ist, während die anderen Optionen auf den Standardwert `false` gesetzt bleiben.
+Hier spezifizieren wir ein `options`-Objekt, in dem `passive` auf `true` gesetzt ist, während die anderen Optionen auf den Standardwert `false` gesetzt sind.
 
-Schauen Sie sich nun jeden dieser Aufrufe von `removeEventListener()` an. Jeder Aufruf, bei dem `capture` oder `useCapture` auf `true` gesetzt ist, schlägt fehl; alle anderen gelingen.
+Schauen Sie sich nun die Aufrufe von `removeEventListener()` der Reihe nach an. Jeder Aufruf, bei dem `capture` oder `useCapture` auf `true` gesetzt ist, schlägt fehl; alle anderen sind erfolgreich.
 
-Nur die Einstellung `capture` ist wichtig für `removeEventListener()`.
+Nur die Einstellung `capture` ist für `removeEventListener()` von Bedeutung.
 
 ```js
 element.removeEventListener("mousedown", handleMouseDown, { passive: true }); // Succeeds
@@ -91,11 +90,11 @@ element.removeEventListener("mousedown", handleMouseDown, false); // Succeeds
 element.removeEventListener("mousedown", handleMouseDown, true); // Fails
 ```
 
-Es ist erwähnenswert, dass einige Browser-Versionen hier inkonsistent waren, und es ist wahrscheinlich klug, die gleichen Werte wie für den Aufruf von `addEventListener()` zu verwenden, wenn Sie `removeEventListener()` aufrufen, sofern Sie keine spezifischen Gründe dafür haben.
+Es ist erwähnenswert, dass einige Browserversionen in dieser Hinsicht inkonsistent waren, und sofern Sie keinen spezifischen Grund haben, ist es wahrscheinlich sinnvoll, dieselben Werte zu verwenden, wie beim Aufruf von `addEventListener()`, wenn Sie `removeEventListener()` aufrufen.
 
 ## Beispiel
 
-Dieses Beispiel zeigt, wie ein `mouseover`-basierter Ereignis-Listener hinzugefügt wird, der einen `click`-basierten Ereignis-Listener entfernt.
+Dieses Beispiel zeigt, wie ein `mouseover`-basierter Event-Listener hinzugefügt wird, der einen `click`-basierten Event-Listener entfernt.
 
 ```js
 const body = document.querySelector("body");

@@ -2,12 +2,12 @@
 title: grid-auto-columns
 slug: Web/CSS/grid-auto-columns
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{CSSRef}}
 
-Die **`grid-auto-columns`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Größe einer implizit erstellten Grid-Spalte {{Glossary("grid_tracks", "track")}} oder eines Musters von Tracks.
+Die **`grid-auto-columns`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe einer implizit erstellten Gitterspalte {{Glossary("grid_tracks", "track")}} oder eines Muster von Tracks fest.
 
 {{InteractiveExample("CSS Demo: grid-auto-columns")}}
 
@@ -64,7 +64,7 @@ grid-auto-columns: minmax(10px, auto);
 }
 ```
 
-Wenn ein Grid-Element in eine Spalte positioniert wird, die nicht explizit durch {{cssxref("grid-template-columns")}} dimensioniert ist, werden implizite {{Glossary("grid", "grid")}} Tracks erstellt, um es zu halten. Dies kann entweder durch das explizite Positionieren in eine Spalte außerhalb des Bereichs geschehen oder durch den Auto-Platzierungsalgorithmus, der zusätzliche Spalten erstellt.
+Wenn ein Gitterelement in eine Spalte positioniert wird, die nicht explizit durch {{cssxref("grid-template-columns")}} dimensioniert ist, werden implizite {{Glossary("grid", "grid")}} Tracks erstellt, um es zu halten. Dies kann entweder dadurch geschehen, dass explizit in eine Spalte positioniert wird, die außerhalb des Bereichs liegt, oder durch den Auto-Platzierungsalgorithmus, der zusätzliche Spalten erstellt.
 
 ## Syntax
 
@@ -119,30 +119,30 @@ grid-auto-columns: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Ist eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}} Wert relativ zur Blockgröße des Grid-Containers. Wenn die Blockgröße des Grid-Containers undefiniert ist, wird der Prozentwert wie `auto` behandelt.
+  - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}} Wert relativ zur Blockgröße des Gittercontainers. Wenn die Blockgröße des Gittercontainers unbestimmt ist, wird der Prozentwert wie `auto` behandelt.
 - {{cssxref("&lt;flex&gt;")}}
 
   - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-dimensionierte Track nimmt einen Anteil des verbleibenden Raums im Verhältnis zu seinem Flex-Faktor ein.
 
-    Wenn es außerhalb einer `minmax()` Notation erscheint, impliziert es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
+    Wenn er außerhalb einer `minmax()` Notation erscheint, impliziert er ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 
 - {{cssxref("max-content")}}
-  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Grid-Elemente darstellt, die den Grid-Track einnehmen.
+  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Gitterelemente repräsentiert, die den Gitter-Track belegen.
 - {{cssxref("min-content")}}
-  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Grid-Elemente darstellt, die den Grid-Track einnehmen.
+  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Gitterelemente repräsentiert, die den Gitter-Track belegen.
 - {{cssxref("minmax", "minmax(min, max)")}}
-  - : Ist eine funktionale Notation, die einen Größenbereich größer oder gleich _min_ und kleiner oder gleich _max_ definiert. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Als Maximum setzt ein `<flex>` Wert den Flex-Faktor des Tracks. Als Minimum wird es als null (oder minimaler Inhalt, wenn der Grid-Container unter einer minimalen Inhaltsbeschränkung dimensioniert ist) behandelt.
+  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner ist als _min_, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Als Maximum setzt ein `<flex>` Wert den Flex-Faktor des Tracks. Als Minimum wird er als null behandelt (oder als minimaler Inhalt, wenn der Gittercontainer unter einer minimalen Inhaltsbegrenzung dimensioniert ist).
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Stellt die Formel `min(max-content, max(auto, argument))` dar, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Track-Größe am _argument_ festgeklemmt wird, wenn dieser größer als das `auto` Minimum ist.
+  - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Trackgröße am _Argument_ begrenzt wird, wenn es größer ist als das `auto` Minimum.
 - `auto`
 
   - : Als Maximum repräsentiert die größte {{cssxref("max-content")}} Größe der Elemente in diesem Track.
 
-    Als Minimum repräsentiert die größte Mindestgröße der Elemente in diesem Track (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}} Größe.
+    Als Minimum repräsentiert die größte minimale Größe der Elemente in diesem Track (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}} Größe.
 
     Wenn außerhalb der {{cssxref("minmax", "minmax()")}} Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
 
-    > **Hinweis:** `auto` Track-Größen (und nur `auto` Track-Größen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt ein `auto` dimensionierter Track standardmäßig jeden verbleibenden Platz im Grid-Container ein.
+    > [!NOTE] > `auto` Trackgrößen (und nur `auto` Trackgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt standardmäßig ein `auto` dimensionierter Track jeden verbleibenden Raum im Gittercontainer ein.
 
 ## Formale Definition
 
@@ -154,7 +154,7 @@ grid-auto-columns: unset;
 
 ## Beispiele
 
-### Festlegen der Grid-Spaltengröße
+### Gitterspaltengröße festlegen
 
 #### HTML
 
@@ -199,5 +199,5 @@ grid-auto-columns: unset;
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
 - {{cssxref("grid")}}
-- [Automatische Platzierung im Grid-Layout: Zeilen in der impliziten Grid dimensionieren](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout#sizing_rows_in_the_implicit_grid)
-- Video: [Einführung in die automatische Platzierung und Reihenfolge im Grid](https://gridbyexample.com/video/series-auto-placement-order/)
+- [Automatische Platzierung im Gitterlayout: Zeilen in dem impliziten Gitter dimensionieren](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout#sizing_rows_in_the_implicit_grid)
+- Video: [Einführung in automatische Platzierung und Reihenfolge im Gitter](https://gridbyexample.com/video/series-auto-placement-order/)

@@ -1,16 +1,14 @@
 ---
-title: "WebGL2RenderingContext: copyTexSubImage3D() Methode"
+title: "WebGL2RenderingContext: copyTexSubImage3D()-Methode"
 short-title: copyTexSubImage3D()
 slug: Web/API/WebGL2RenderingContext/copyTexSubImage3D
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.copyTexSubImage3D()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen
-[`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein bestehendes 3D-Textur-Unterbild.
+Die **`WebGL2RenderingContext.copyTexSubImage3D()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein bestehendes 3D-Textur-Subimage.
 
 ## Syntax
 
@@ -22,28 +20,27 @@ copyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindepunkt (Ziel) der aktiven Textur spezifiziert.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) der aktiven Textur angibt.
     Mögliche Werte:
-
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das das Detaillevel angibt. Level 0 ist das Basisbildlevel und Level _n_ ist das n-te Mipmap-Reduktionslevel.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Detailstufe angibt. Stufe 0 ist das Basisbildniveau und Stufe _n_ ist das n-te Mipmap-Reduktionsniveau.
 - `xoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den x-Offset innerhalb des Texturbildes spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den x-Versatz innerhalb des Texturbildes angibt.
 - `yoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den y-Offset innerhalb des Texturbildes spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den y-Versatz innerhalb des Texturbildes angibt.
 - `zoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den z-Offset innerhalb des Texturbildes spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den z-Versatz innerhalb des Texturbildes angibt.
 - `x`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die x-Koordinate der unteren linken Ecke angibt, an der mit dem Kopieren begonnen wird.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die x-Koordinate der unteren linken Ecke angibt, von wo das Kopieren beginnt.
 - `y`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die y-Koordinate der unteren linken Ecke angibt, an der mit dem Kopieren begonnen wird.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die y-Koordinate der unteren linken Ecke angibt, von wo das Kopieren beginnt.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
 
 ### Rückgabewert
 

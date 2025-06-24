@@ -1,16 +1,16 @@
 ---
-title: "Selection: setBaseAndExtent() Methode"
+title: "Auswahl: setBaseAndExtent()-Methode"
 short-title: setBaseAndExtent()
 slug: Web/API/Selection/setBaseAndExtent
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`setBaseAndExtent()`** Methode des [`Selection`](/de/docs/Web/API/Selection) Interfaces setzt die Auswahl auf einen Bereich, der alle oder Teile von zwei angegebenen DOM-Knoten und jegliche Inhalte dazwischen enthält.
+Die **`setBaseAndExtent()`**-Methode des [`Selection`](/de/docs/Web/API/Selection)-Interfaces setzt die Auswahl auf einen Bereich, der alle oder Teile von zwei angegebenen DOM-Knoten sowie sämtliche dazwischen liegenden Inhalte umfasst.
 
-Die Anker- und Fokus-Knoten können sich in einem {{Glossary("shadow_tree", "Schattenbaum")}} befinden, wenn dieser vom Browser unterstützt wird.
+Die Anker- und Fokus-Knoten können sich in einem {{Glossary("shadow_tree", "Shadow-Baum")}} befinden, wenn sie vom Browser unterstützt werden.
 
 ## Syntax
 
@@ -24,26 +24,20 @@ setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)
   - : Der Knoten am Anfang der Auswahl.
 - `anchorOffset`
 
-  - : Die Anzahl der Kindknoten vom Beginn des Ankerknotens, die von der Auswahl ausgeschlossen werden sollen.
-    Wenn der Wert z.B. 0 ist, ist der gesamte Knoten eingeschlossen.
-    Ist der Wert 1, ist der gesamte Knoten minus dem ersten Kindknoten eingeschlossen.
-    Und so weiter.
+  - : Die Anzahl von untergeordneten Knoten vom Beginn des Ankerknotens, die von der Auswahl ausgeschlossen werden sollen. Wenn der Wert beispielsweise 0 ist, ist der gesamte Knoten enthalten. Wenn der Wert 1 ist, ist der gesamte Knoten minus dem ersten untergeordneten Knoten enthalten. Und so weiter.
 
-    Wenn `anchorNode` ein [`Text`](/de/docs/Web/API/Text) Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Beginn des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die von der Auswahl ausgeschlossen werden sollen.
+    Wenn `anchorNode` ein [`Text`](/de/docs/Web/API/Text)-Knoten ist, bezieht sich der Offset auf die Anzahl von Zeichen vom Anfang des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die von der Auswahl ausgeschlossen werden sollen.
 
 - `focusNode`
   - : Der Knoten am Ende der Auswahl.
 - `focusOffset`
 
-  - : Die Anzahl der Kindknoten vom Beginn des Fokus-Knotens, die in der Auswahl enthalten sein sollen.
-    Wenn der Wert z.B. 0 ist, ist der gesamte Knoten ausgeschlossen.
-    Ist der Wert 1, ist der erste Kindknoten eingeschlossen. Und so weiter.
+  - : Die Anzahl von untergeordneten Knoten vom Beginn des Fokus-Knotens, die in die Auswahl aufgenommen werden sollen. Wenn der Wert beispielsweise 0 ist, wird der gesamte Knoten ausgeschlossen. Wenn der Wert 1 ist, ist der erste untergeordnete Knoten enthalten. Und so weiter.
 
-    Wenn `focusNode` ein [`Text`](/de/docs/Web/API/Text) Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Beginn des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die in der Auswahl enthalten sein sollen.
+    Wenn `focusNode` ein [`Text`](/de/docs/Web/API/Text)-Knoten ist, bezieht sich der Offset auf die Anzahl von Zeichen vom Anfang des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die in die Auswahl aufgenommen werden sollen.
 
 > [!NOTE]
-> Wenn die Fokusposition im Dokument vor der Ankerposition erscheint, wird die Richtung der Auswahl umgekehrt — der Cursor wird am Anfang des Textes statt am Ende platziert, was für alle folgenden Tastaturbefehle wichtig ist.
-> Beispielsweise würde <kbd>Shift</kbd> + <kbd>➡︎</kbd> dazu führen, dass die Auswahl vom Anfang her verengt statt am Ende erweitert wird.
+> Wenn die Fokus-Position vor der Anker-Position im Dokument erscheint, wird die Richtung der Auswahl umgekehrt — der Cursor wird am Anfang des Textes platziert und nicht am Ende, was für jede folgende Tastenkombination von Bedeutung ist. Ein Beispiel wäre <kbd>Umschalt</kbd> + <kbd>➡︎</kbd>, wodurch die Auswahl am Anfang verengt anstatt am Ende erweitert wird.
 
 ### Rückgabewert
 
@@ -52,17 +46,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `anchorOffset` größer ist als die Anzahl der Kindknoten innerhalb von `anchorNode`, oder wenn `focusOffset` größer ist als die Anzahl der Kindknoten innerhalb von `focusNode`.
+  - : Wird ausgelöst, wenn `anchorOffset` größer als die Anzahl der untergeordneten Knoten innerhalb von `anchorNode` ist oder wenn `focusOffset` größer als die Anzahl der untergeordneten Knoten innerhalb von `focusNode` ist.
 
 ## Beispiele
 
-In diesem Beispiel haben wir zwei Absätze, die jeweils ein `<span>` enthalten, das ein einziges Wort enthält.
-Der erste ist als `anchorNode` und der zweite als `focusNode` festgelegt.
-Wir haben auch einen zusätzlichen Absatz, der zwischen den beiden Knoten liegt.
+In diesem Beispiel haben wir zwei Absätze mit Spans, von denen jeder ein einzelnes Wort enthält. Der erste wird als `anchorNode` festgelegt und der zweite als `focusNode`. Wir haben auch einen zusätzlichen Absatz, der zwischen den beiden Knoten sitzt.
 
-Des Weiteren gibt es zwei Formulareingaben, mit denen Sie den `anchorOffset` und `focusOffset` festlegen können — beide haben einen Standardwert von 0.
+Weiterhin haben wir zwei Formulareingaben, die es Ihnen ermöglichen, `anchorOffset` und `focusOffset` zu setzen — beide haben einen Standardwert von 0.
 
-Ebenfalls gibt es einen Button, der beim Drücken eine Funktion aufruft, die die `setBaseAndExtent()` Methode mit den angegebenen Offsets ausführt und die Auswahl in den Ausgabepunkt am Ende des HTML kopiert.
+Es gibt auch eine Schaltfläche, die, wenn sie gedrückt wird, eine Funktion aufruft, die die `setBaseAndExtent()`-Methode mit den angegebenen Offsets ausführt und die Auswahl in den Ausgabepunkt am unteren Ende des HTML kopiert.
 
 ```html
 <h1>setBaseAndExtent example</h1>
@@ -92,9 +84,9 @@ Ebenfalls gibt es einen Button, der beim Drücken eine Funktion aufruft, die die
 ```
 
 > [!NOTE]
-> Es gibt absichtlich keinen [Leerraum](/de/docs/Web/API/Document_Object_Model/Whitespace) zwischen den `<p class="one">` und `<p class="two">` Start-Tags und den darauf folgenden `<span>` Start-Tags — um die Anwesenheit von Textknoten zu vermeiden, die die erwartete Anzahl von Kindknoten beeinflussen könnten. (Auch wenn diese Textknoten nur Leerzeichen enthalten würden, wären sie dennoch zusätzliche Kindknoten; erfahren Sie mehr im [`Node.firstChild` Beispiel](/de/docs/Web/API/Node/firstChild#example)).
+> Zwischen den Start-Tags `<p class="one">` und `<p class="two">` und den ihnen folgenden `<span>`-Start-Tags gibt es absichtlich kein [Leerzeichen](/de/docs/Web/API/Document_Object_Model/Whitespace) — um die Anwesenheit von Textknoten zu vermeiden, die die erwartete Anzahl von untergeordneten Knoten beeinflussen würden. (Auch wenn diese Textknoten nur aus Leerzeichen bestehen würden, wären sie trotzdem zusätzliche untergeordnete Knoten; erfahren Sie mehr aus dem [`Node.firstChild` Beispiel](/de/docs/Web/API/Node/firstChild#example).)
 
-Das JavaScript sieht folgendermaßen aus:
+Der JavaScript-Code sieht folgendermaßen aus:
 
 ```js
 const one = document.querySelector(".one");
@@ -121,12 +113,12 @@ button.onclick = () => {
 };
 ```
 
-Spielen Sie mit dem Live-Beispiel unten und ändern Sie die Offset-Werte, um zu sehen, wie sich dies auf die Auswahl auswirkt.
+Probieren Sie das Live-Beispiel unten aus, indem Sie verschiedene Offset-Werte einstellen, um zu sehen, wie dies die Auswahl beeinflusst.
 
 {{ EmbedLiveSample('Examples', '100%', 370) }}
 
 > [!NOTE]
-> Sie können dieses [Beispiel auf GitHub finden](https://github.com/chrisdavidmills/selection-api-examples/blob/master/setBaseAndExtent.html) ([sehen Sie es sich auch live an](https://chrisdavidmills.github.io/selection-api-examples/setBaseAndExtent.html).)
+> Sie finden dieses [Beispiel auf GitHub](https://github.com/chrisdavidmills/selection-api-examples/blob/master/setBaseAndExtent.html) ([sehen Sie es auch live](https://chrisdavidmills.github.io/selection-api-examples/setBaseAndExtent.html).)
 
 ## Spezifikationen
 

@@ -2,14 +2,14 @@
 title: <baseline-position>
 slug: Web/CSS/baseline-position
 l10n:
-  sourceCommit: 35f63ce08742ec649bca904ea12e11a3b018ad6f
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`<baseline-position>`** {{Glossary("enumerated", "enumerierte")}} Werttyp repräsentiert die `baseline` Schlüsselwortwerte sowie die `first` und `last` Modifikatoren, die für die {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}} Eigenschaften sowie die {{cssxref("place-content")}}, {{cssxref("place-items")}} und {{cssxref("place-self")}} Kurzschreibweisen verwendet werden.
+Der **`<baseline-position>`** {{Glossary("enumerated", "enumerierte")}} Werttyp repräsentiert die `baseline` Schlüsselwortwerte sowie die Modifikatoren `first` und `last`, welche für die Eigenschaften {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}} sowie die Kurzschreibweisen {{cssxref("place-content")}}, {{cssxref("place-items")}} und {{cssxref("place-self")}} verwendet werden.
 
-Die Werte `first` und `last` geben einer Box eine Basislinien-Ausrichtungspräferenz, wobei bei Weglassen des Modifikators standardmäßig `first` verwendet wird.
+Die Werte `first` und `last` geben einer Box eine Präferenz für die Baseline-Ausrichtung, wobei `first` standardmäßig angenommen wird, wenn der Modifikator weggelassen wird.
 
 ## Syntax
 
@@ -19,18 +19,18 @@ Die Werte `first` und `last` geben einer Box eine Basislinien-Ausrichtungspräfe
 
 ## Werte
 
-Der `<baseline-position>` enumerierte Werttyp wird unter Verwendung eines optionalen `first` oder `last` Modifikators mit dem `baseline` Wert spezifiziert. Wenn eine Box nicht zu einem gemeinsamen Ausrichtungskontext gehört, dann wird die alternative Ausrichtung verwendet. Die alternative Ausrichtung wird auch verwendet, um die Gruppe, die die Basislinie teilt, innerhalb ihres {{Glossary("alignment_container", "Ausrichtungscontainers")}} auszurichten.
+Der enumerierte Werttyp `<baseline-position>` wird mit einem optionalen `first` oder `last` Modifikator zusammen mit dem Wert `baseline` angegeben. Wenn eine Box nicht zu einem gemeinsamen Ausrichtungskontext gehört, wird die Fallback-Ausrichtung verwendet. Die Fallback-Ausrichtung wird auch verwendet, um die Baseline-Teilungsgruppe innerhalb ihres {{Glossary("alignment_container", "Ausrichtungscontainers")}} auszurichten.
 
 - `baseline`
 
-  - : Wird zu `first baseline`, wie unten definiert, berechnet.
+  - : Errechnet sich zu `first baseline`, wie unten definiert.
 
 - `first baseline`
 
-  - : Richtet die Ausrichtungs-Basislinie des ersten Basisliniensatzes der Box mit der entsprechenden Basislinie ihrer Basislinien-Teilungsgruppe aus. Die alternative Ausrichtung ist `safe self-start` für die Selbstausrichtung oder `safe start` für die Inhaltsverteilung.
+  - : Richtet die Ausrichtungs-Baseline des ersten Baseline-Sets der Box mit der entsprechenden Baseline ihrer Baseline-Teilungsgruppe aus. Die Fallback-Ausrichtung ist `safe self-start` für die Eigen-Ausrichtung oder `safe start` für die Inhaltsverteilung.
 
 - `last baseline`
-  - : Richtet die Ausrichtungs-Basislinie des letzten Basisliniensatzes der Box mit der entsprechenden Basislinie ihrer Basislinien-Teilungsgruppe aus. Die alternative Ausrichtung ist `safe self-end` für die Selbstausrichtung oder `safe end` für die Inhaltsverteilung.
+  - : Richtet die Ausrichtungs-Baseline des letzten Baseline-Sets der Box mit der entsprechenden Baseline ihrer Baseline-Teilungsgruppe aus. Die Fallback-Ausrichtung ist `safe self-end` für die Eigen-Ausrichtung oder `safe end` für die Inhaltsverteilung.
 
 ## Spezifikationen
 
@@ -38,8 +38,8 @@ Der `<baseline-position>` enumerierte Werttyp wird unter Verwendung eines option
 
 ## Siehe auch
 
-- Eigenschaften, die diesen Datentyp verwenden: {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}}, {{cssxref("justify-self")}}, {{cssxref("place-content")}}, {{cssxref("place-items")}}, und {{cssxref("place-self")}}
-- Andere Box-Ausrichtungs-Datentypen: {{cssxref("content-distribution")}}, {{cssxref("content-position")}}, {{cssxref("overflow-position")}}, und {{cssxref("self-position")}}
-- [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- Eigenschaften, die diesen Datentyp verwenden: {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}}, {{cssxref("justify-self")}}, {{cssxref("place-content")}}, {{cssxref("place-items")}} und {{cssxref("place-self")}}
+- Andere Box-Ausrichtungsdatentypen: {{cssxref("content-distribution")}}, {{cssxref("content-position")}}, {{cssxref("overflow-position")}} und {{cssxref("self-position")}}
+- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
+- [CSS-Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul

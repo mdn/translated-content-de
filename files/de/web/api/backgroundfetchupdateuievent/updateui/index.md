@@ -3,14 +3,14 @@ title: "BackgroundFetchUpdateUIEvent: updateUI() Methode"
 short-title: updateUI()
 slug: Web/API/BackgroundFetchUpdateUIEvent/updateUI
 l10n:
-  sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`updateUI()`**-Methode der [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent)-Schnittstelle aktualisiert den Titel und das Symbol in der Benutzeroberfläche, um den Status eines Hintergrundabrufs anzuzeigen.
+Die **`updateUI()`**-Methode des [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent)-Interfaces aktualisiert den Titel und das Symbol in der Benutzeroberfläche, um den Status eines Hintergrundabrufs anzuzeigen.
 
-Diese Methode darf nur einmal ausgeführt werden, um den Benutzer bei einem fehlgeschlagenen oder erfolgreichen Abruf zu benachrichtigen.
+Diese Methode kann nur einmal ausgeführt werden, um den Benutzer über einen fehlgeschlagenen oder erfolgreichen Abruf zu informieren.
 
 ## Syntax
 
@@ -23,20 +23,19 @@ updateUI(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das eines der folgenden enthält:
+  - : Ein Objekt, das eines oder mehrere der folgenden enthält:
 
     - `icons` {{optional_inline}}
 
-      - : Eine Liste von einem oder mehreren Bildressourcen, die Symbole für die Verwendung in der Benutzeroberfläche enthalten. Eine Bildressource ist ein Objekt, das enthält:
-
+      - : Eine Liste von einem oder mehreren Bildressourcen, die Symbole für die Verwendung in der Benutzeroberfläche enthalten. Eine Bildressource ist ein Objekt, das Folgendes enthält:
         - `src`
           - : Ein String, der eine URL eines Bildes ist.
         - `sizes` {{optional_inline}}
           - : Ein String, der dem `sizes`-Attribut des {{HTMLElement("link")}}-Elements entspricht.
         - `type` {{optional_inline}}
-          - : Ein String, der einen MIME-Typ des Bildes enthält.
+          - : Ein String, der einen Bild-MIME-Typ enthält.
         - `label` {{optional_inline}}
-          - : Ein String, der einen Namen für das zugehörige Bild angibt.
+          - : Ein String, der einen Namen für das zugehörige Bild bereitstellt.
 
     - `title` {{optional_inline}}
       - : Ein String, der den neuen Titel der Benutzeroberfläche enthält.
@@ -49,13 +48,13 @@ Ein {{jsxref("Promise")}}.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eines der folgenden zutrifft:
-    - Die [`isTrusted`](/de/docs/Web/API/Event/isTrusted)-Eigenschaft ist `false`.
-    - Das UI-Update-Flag des [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent) ist bereits gesetzt, was darauf hinweist, dass die `updateUI()`-Methode bereits aufgerufen wurde.
-    - Das [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent) ist nicht aktiv.
+    - Die Eigenschaft [`isTrusted`](/de/docs/Web/API/Event/isTrusted) ist `false`.
+    - Das `BackgroundFetchUpdateUIEvent`-UI-aktualisierte-Flag ist bereits gesetzt, was darauf hinweist, dass die `updateUI()`-Methode bereits aufgerufen wurde.
+    - Das `BackgroundFetchUpdateUIEvent` ist nicht aktiv.
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert das Aktualisieren der Benutzeroberfläche mit einem Titel und einem Bildsymbol bei einem erfolgreichen Abruf.
+Das folgende Beispiel zeigt, wie die Benutzeroberfläche mit einem Titel und einem Bildsymbol bei einem erfolgreichen Abruf aktualisiert wird.
 
 ```js
 addEventListener("backgroundfetchsuccess", (event) => {

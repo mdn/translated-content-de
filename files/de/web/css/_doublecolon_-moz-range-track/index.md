@@ -2,15 +2,15 @@
 title: ::-moz-range-track
 slug: Web/CSS/::-moz-range-track
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-range-track`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die _Leiste_ (d.h. die Spur) repräsentiert, in der der Indikator in einem {{HTMLElement("input")}} mit `type="range"` gleitet.
+Das **`::-moz-range-track`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die das _Track_ (d.h. die Rille) darstellt, in der der Indikator in einem {{HTMLElement("input")}} vom `type="range"` gleitet.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-range-track` mit einem anderen Element als `<input type="range">` stimmt mit nichts überein und hat keine Wirkung.
+> Die Verwendung von `::-moz-range-track` mit etwas anderem als einem `<input type="range">` führt zu keinem Treffer und hat keine Wirkung.
 
 ## Syntax
 
@@ -40,13 +40,13 @@ input[type="range"]::-moz-range-track {
 
 {{EmbedLiveSample("Examples", 300, 50)}}
 
-Ein Range-Slider, der diesen Stil verwendet, könnte ungefähr so aussehen:
+Ein Schieberegler mit diesem Stil könnte so aussehen:
 
-![Ein Range-Slider mit grünem Track](screen_shot_2015-12-04_at_10.14.34.png)
+![Ein Bereich mit grünem Track](screen_shot_2015-12-04_at_10.14.34.png)
 
 ## Spezifikationen
 
-Ist Teil keines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -54,14 +54,14 @@ Ist Teil keines Standards.
 
 ## Siehe auch
 
-- Die von Gecko verwendeten Pseudo-Elemente zum Stylen anderer Teile eines Range-Inputs:
+- Die von Gecko verwendeten Pseudoelemente zur Gestaltung anderer Teile eines Range-Inputs:
 
-  - {{cssxref("::-moz-range-thumb")}} repräsentiert den Indikator, der in der Leiste gleitet.
-  - {{cssxref("::-moz-range-progress")}} repräsentiert den unteren Teil der Leiste.
+  - {{cssxref("::-moz-range-thumb")}} stellt den Indikator dar, der in der Rille gleitet.
+  - {{cssxref("::-moz-range-progress")}} stellt den unteren Teil des Tracks dar.
 
-- Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
+- Ähnliche Pseudoelemente, die von anderen Browsern verwendet werden:
 
-  - {{cssxref("::-webkit-slider-runnable-track")}}, ein Pseudo-Element, das von WebKit und Blink (Safari, Chrome und Opera) unterstützt wird.
+  - {{cssxref("::-webkit-slider-runnable-track")}}, Pseudoelement unterstützt von WebKit und Blink (Safari, Chrome und Opera)
 
 - [CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [QuirksMode: Styling and scripting sliders](https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)

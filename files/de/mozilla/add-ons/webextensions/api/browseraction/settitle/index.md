@@ -2,12 +2,12 @@
 title: browserAction.setTitle()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setTitle
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Legt den Titel der Browseraktion fest. Der Titel wird in einem Tooltip über dem Symbol der Browseraktion angezeigt. Sie können optional eine `tabId` oder eine `windowId` übergeben — wenn Sie dies tun, wird der Titel nur für den angegebenen Tab oder das angegebene Fenster geändert. Tabs oder Fenster ohne spezifischen Titel erben den globalen Titeltext, der standardmäßig dem [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) entspricht, der im Manifest angegeben ist.
+Setzt den Titel der Browser-Aktion. Der Titel wird in einem Tooltip über dem Icon der Browser-Aktion angezeigt. Sie können eine `tabId` oder eine `windowId` als optionalen Parameter übergeben — wenn Sie dies tun, wird der Titel nur für den angegebenen Tab oder das angegebene Fenster geändert. Tabs oder Fenster ohne einen spezifischen Titel erben den globalen Titeltext, der standardmäßig dem [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) entspricht, wie im Manifest angegeben.
 
 ## Syntax
 
@@ -25,15 +25,15 @@ browser.browserAction.setTitle(
 
     - `title`
 
-      - : `string` oder `null`. Der Text, den die Browseraktion beim Überfahren mit der Maus anzeigen soll.
+      - : `string` oder `null`. Der String, der angezeigt werden soll, wenn die Maus über die Browser-Aktion bewegt wird.
 
-        Wenn `title` eine leere Zeichenkette ist, wird der verwendete Titel der Name der Erweiterung sein, aber {{WebExtAPIRef("browserAction.getTitle")}} wird dennoch die leere Zeichenkette ausgeben.
+        Wenn `title` eine leere Zeichenkette ist, wird der Erweiterungsname als Titel verwendet, aber {{WebExtAPIRef("browserAction.getTitle")}} liefert dennoch die leere Zeichenkette.
 
         Wenn `title` `null` ist:
 
-        - Wenn `tabId` angegeben ist und der Tab einen tab-spezifischen Titel hat, dann übernimmt der Tab den Titel von dem Fenster, zu dem er gehört.
-        - Wenn `windowId` angegeben ist und das Fenster einen fenster-spezifischen Titel hat, dann übernimmt das Fenster den globalen Titel.
-        - Andernfalls wird der globale Titel auf den Manifesteintrag zurückgesetzt.
+        - Wenn `tabId` angegeben ist und der Tab einen tab-spezifischen Titel gesetzt hat, wird der Tab den Titel vom Fenster erben, zu dem er gehört.
+        - Wenn `windowId` angegeben ist und das Fenster einen fensterspezifischen Titel gesetzt hat, wird das Fenster den globalen Titel erben.
+        - Andernfalls wird der globale Titel auf den im Manifest angegebenen Titel zurückgesetzt.
 
     - `tabId` {{optional_inline}}
       - : `integer`. Setzt den Titel nur für den angegebenen Tab.
@@ -51,7 +51,7 @@ browser.browserAction.setTitle(
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browseraktion klickt:
+Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browser-Aktion klickt:
 
 ```js
 function toggleTitle(title) {
@@ -71,34 +71,34 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setTitle) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setTitle) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions von Quellcode müssen den obigen Copyright-Hinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss beibehalten.
+//    * Redistributions in binärer Form müssen den obigen Copyright-Hinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der Verteilung geliefert
+// werden, enthalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Beitragszahler dürfen zur Unterstützung oder Bewerbung von Produkten,
+// die von dieser Software abgeleitet wurden, ohne spezifische vorherige
+// schriftliche Genehmigung verwendet werden.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VOM COPYRIGHT-INHABER UND DEN BEITRAGSLEISTERN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN
+// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN
+// GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK,
+// WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE COPYRIGHT-EIGENTÜMER ODER BEITRAGSLEISTENDE
+// FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER
+// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON
+// ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSVERLUSTEN, DATEN ODER GEWINNEN;
+// ODER GESCHÄFTSUNTERBRECHUNGEN) HAFTBAR, WIE AUCH IMMER URSACHEN SIND UND SELBST
+// WENN SIE AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDEN.
 -->

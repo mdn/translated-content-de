@@ -3,14 +3,14 @@ title: "FileSystemWritableFileStream: write()-Methode"
 short-title: write()
 slug: Web/API/FileSystemWritableFileStream/write
 l10n:
-  sourceCommit: f10fbe2d2dc4857bf29ce955689a7ba7c1ffac8b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`write()`**-Methode des [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Interfaces schreibt Inhalte in die Datei, auf die die Methode aufgerufen wird, an der aktuellen Datei-Cursor-Position.
+Die **`write()`**-Methode des [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream) Interfaces schreibt Inhalte in die Datei, auf die die Methode aufgerufen wird, an der aktuellen Datei-Cursor-Position.
 
-Es werden keine Änderungen in die eigentliche Datei auf der Festplatte geschrieben, bis der Stream geschlossen wurde. Änderungen werden in der Regel stattdessen in eine temporäre Datei geschrieben. Diese Methode kann auch verwendet werden, um zu einem bestimmten Bytepunkt innerhalb des Streams zu suchen und zu kürzen, um die Gesamtanzahl der Bytes in der Datei zu ändern.
+Es werden keine Änderungen an der tatsächlichen Datei auf der Festplatte vorgenommen, bis der Stream geschlossen wurde. Änderungen werden stattdessen typischerweise in eine temporäre Datei geschrieben. Diese Methode kann auch verwendet werden, um zu einem Byte-Punkt innerhalb des Streams zu springen und zu kürzen, um die Gesamtanzahl der Bytes, die die Datei enthält, zu ändern.
 
 ## Syntax
 
@@ -21,39 +21,36 @@ write(data)
 ### Parameter
 
 - `data`
-
   - : Kann eines der folgenden sein:
-
-    - Die zu schreibenden Dateidaten in Form eines {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, {{jsxref("DataView")}}, [`Blob`](/de/docs/Web/API/Blob) oder Strings.
+    - Die zu schreibenden Dateidaten, in Form eines {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, {{jsxref("DataView")}}, [`Blob`](/de/docs/Web/API/Blob) oder Strings.
     - Ein Objekt, das die folgenden Eigenschaften enthält:
-
       - `type`
-        - : Ein String, der einer der folgenden ist: `"write"`, `"seek"` oder `"truncate"`.
+        - : Ein String, der einer der folgenden Werte ist: `"write"`, `"seek"` oder `"truncate"`.
       - `data`
         - : Die zu schreibenden Dateidaten. Kann ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, {{jsxref("DataView")}}, [`Blob`](/de/docs/Web/API/Blob) oder ein String sein. Diese Eigenschaft ist erforderlich, wenn `type` auf `"write"` gesetzt ist.
       - `position`
-        - : Die Byte-Position, zu der der aktuelle Datei-Cursor wechseln soll, wenn der Typ `"seek"` verwendet wird. Kann auch gesetzt werden, wenn `type` `"write"` ist, wobei das Schreiben an der angegebenen Position beginnt.
+        - : Die Byte-Position, zu der der aktuelle Datei-Cursor wechseln soll, wenn `type` `"seek"` verwendet wird. Kann auch gesetzt werden, wenn `type` `"write"` ist, in diesem Fall beginnt das Schreiben an der angegebenen Position.
       - `size`
-        - : Eine Zahl, die die Anzahl der Bytes darstellt, die der Stream enthalten soll. Diese Eigenschaft ist erforderlich, wenn `type` auf `"truncate"` gesetzt ist.
+        - : Eine Zahl, die die Anzahl der Bytes angibt, die der Stream enthalten sollte. Diese Eigenschaft ist erforderlich, wenn `type` auf `"truncate"` gesetzt ist.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} der `undefined` zurückgibt.
+Ein {{jsxref('Promise')}}, das `undefined` zurückgibt.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die neue Größe der Datei größer als die ursprüngliche Größe der Datei ist und das [Speicher-Limit des Browsers](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) überschreitet.
+  - : Wird ausgelöst, wenn die neue Größe der Datei größer als die ursprüngliche Größe der Datei ist und das [Speicher-Limit](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) des Browsers überschreitet.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `data` undefiniert ist oder `position` oder `size` nicht gültig sind.
+  - : Wird ausgelöst, wenn `data` undefiniert ist oder wenn `position` oder `size` nicht gültig sind.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Dialog, der einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird ein beschreibbarer Stream mithilfe der [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable)-Methode erstellt.
+Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Dialog, der ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Aus diesem wird ein beschreibbarer Stream mit der Methode [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) erstellt.
 
-Ein Textstring wird dann in den Stream geschrieben, der anschließend geschlossen wird.
+Ein Textstring wird dann in den Stream geschrieben, der danach geschlossen wird.
 
 ```js
 async function saveFile() {

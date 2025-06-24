@@ -3,13 +3,13 @@ title: "WebGL2RenderingContext: texStorage3D()-Methode"
 short-title: texStorage3D()
 slug: Web/API/WebGL2RenderingContext/texStorage3D
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGL2RenderingContext.texStorage3D()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) legt alle Ebenen einer dreidimensionalen Textur oder einer zweidimensionalen Array-Textur fest.
+[WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert alle Ebenen einer dreidimensionalen Textur oder einer zweidimensionalen Array-Textur.
 
 ## Syntax
 
@@ -21,9 +21,8 @@ texStorage3D(target, levels, internalformat, width, height, depth)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (das Ziel) der aktiven Textur angibt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) der aktiven Textur angibt.
     Mögliche Werte:
-
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
@@ -31,7 +30,7 @@ texStorage3D(target, levels, internalformat, width, height, depth)
   - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Texturebenen angibt.
 - `internalformat`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format des Texturspeichers angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Speicherformat der Textur angibt. Mögliche Werte:
 
     - `gl.R8`
     - `gl.R16F`
@@ -57,7 +56,7 @@ texStorage3D(target, levels, internalformat, width, height, depth)
     - `gl.RGBA32F`
     - `gl.RGBA8UI`
 
-    Zusätzlich sind, wenn die [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)-Erweiterung unterstützt wird, auch die folgenden Werte möglich:
+    Zusätzlich, wenn die [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)-Erweiterung unterstützt wird, sind auch die folgenden Werte möglich:
 
     - `gl.COMPRESSED_R11_EAC`
     - `gl.COMPRESSED_SIGNED_R11_EAC`

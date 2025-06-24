@@ -3,12 +3,12 @@ title: String.prototype.toLocaleLowerCase()
 short-title: toLocaleLowerCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Die **`toLocaleLowerCase()`** Methode von {{jsxref("String")}}-Werten gibt diesen String in Kleinbuchstaben zurück, gemäß sämtlichen lokalespezifischen Fallunterscheidungen.
+Die **`toLocaleLowerCase()`**-Methode von {{jsxref("String")}}-Werten gibt diese Zeichenfolge in Kleinbuchstaben zurück, entsprechend den lokalespezifischen Groß- und Kleinschreibungszuordnungen.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.toLocaleLowerCase()")}}
 
@@ -33,18 +33,18 @@ toLocaleLowerCase(locales)
 
 - `locales` {{optional_inline}}
 
-  - : Ein String mit einem BCP 47-Sprachtag oder ein Array solcher Strings. Gibt die zu verwendende Lokale an, um gemäß allen lokalespezifischen Fallunterscheidungen in Kleinbuchstaben umgewandelt zu werden. Für die allgemeine Form und Interpretation des `locales`-Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprachtag oder ein Array solcher Strings. Gibt die zu verwendende Locale an, um in Kleinbuchstaben zu konvertieren, entsprechend den lokalespezifischen Groß- und Kleinschreibungszuordnungen. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
-    Im Gegensatz zu anderen Methoden, die das `locales`-Argument verwenden, erlaubt `toLocaleLowerCase()` kein Lokale-Matching. Daher wird nach Überprüfung der Gültigkeit des `locales`-Arguments von `toLocaleLowerCase()` immer die erste Lokale in der Liste verwendet (oder die Standard-Lokale, wenn die Liste leer ist), selbst wenn diese Lokale von der Implementierung nicht unterstützt wird.
+    Anders als andere Methoden, die das `locales`-Argument verwenden, erlaubt `toLocaleLowerCase()` kein Locale-Matching. Daher verwendet `toLocaleLowerCase()` nach Überprüfung der Gültigkeit des `locales`-Arguments immer die erste Locale in der Liste (oder die Standard-Locale, wenn die Liste leer ist), selbst wenn diese Locale nicht durch die Implementierung unterstützt wird.
 
 ### Rückgabewert
 
-Ein neuer String, der den aufrufenden String darstellt, umgewandelt in Kleinbuchstaben gemäß sämtlichen lokalespezifischen Fallunterscheidungen.
+Ein neuer String, der die aufrufende Zeichenfolge in Kleinbuchstaben konvertiert darstellt, entsprechend den lokalespezifischen Groß- und Kleinschreibungszuordnungen.
 
 ## Beschreibung
 
-Die `toLocaleLowerCase()`-Methode gibt den Wert des Strings zurück, umgewandelt in Kleinbuchstaben gemäß allen lokalespezifischen Fallunterscheidungen.
-`toLocaleLowerCase()` beeinflusst nicht den Wert des Strings selbst. In den meisten Fällen wird dies das gleiche Ergebnis wie {{jsxref("String/toLowerCase", "toLowerCase()")}} liefern, aber für einige Lokales, wie die türkische, deren Fallunterscheidungen nicht den Standard-Fallunterscheidungen in Unicode folgen, kann es ein unterschiedliches Ergebnis geben.
+Die `toLocaleLowerCase()`-Methode gibt den Wert der Zeichenfolge zurück, der in Kleinbuchstaben konvertiert wurde, entsprechend den lokalespezifischen Groß- und Kleinschreibungszuordnungen.
+`toLocaleLowerCase()` beeinflusst den Wert der Zeichenfolge selbst nicht. In den meisten Fällen wird dies dasselbe Ergebnis liefern wie {{jsxref("String/toLowerCase", "toLowerCase()")}}, aber für einige Locales, wie z.B. Türkisch, deren Groß- und Kleinschreibungszuordnungen nicht den Standard-Zuordnungen in Unicode folgen, kann es ein unterschiedliches Ergebnis geben.
 
 ## Beispiele
 

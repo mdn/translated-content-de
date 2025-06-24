@@ -3,39 +3,39 @@ title: "CanvasRenderingContext2D: textRendering-Eigenschaft"
 short-title: textRendering
 slug: Web/API/CanvasRenderingContext2D/textRendering
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.textRendering`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) liefert der Rendering-Engine Informationen darüber, worauf beim Rendern von Text optimiert werden soll.
+Die **`CanvasRenderingContext2D.textRendering`**-Eigenschaft der [Canvas-API](/de/docs/Web/API/Canvas_API) liefert dem Rendering-Engine Informationen darüber, worauf bei der Textdarstellung optimiert werden soll.
 
 Die Werte entsprechen dem SVG-Attribut [`text-rendering`](/de/docs/Web/SVG/Reference/Attribute/text-rendering) (und der CSS-Eigenschaft [`text-rendering`](/de/docs/Web/CSS/text-rendering)).
 
 ## Wert
 
-Ein Text-Rendering-Hinweis an die Browser-Engine.
-Dies ist einer der folgenden:
+Ein Hinweis zur Textdarstellung für das Browser-Engine.
+Dies ist einer von:
 
 - `auto`
-  - : Der Browser trifft fundierte Vermutungen darüber, wann bei der Darstellung von Text auf Geschwindigkeit, Lesbarkeit und geometrische Präzision optimiert werden soll.
+  - : Der Browser trifft fundierte Entscheidungen darüber, wann Geschwindigkeit, Lesbarkeit und geometrische Präzision beim Zeichnen von Text zu optimieren sind.
 - `optimizeSpeed`
-  - : Der Browser betont die Rendergeschwindigkeit über Lesbarkeit und geometrische Präzision beim Zeichnen von Text.
-    Es deaktiviert Kerning und Ligaturen.
+  - : Der Browser priorisiert die Rendergeschwindigkeit über Lesbarkeit und geometrische Präzision beim Zeichnen von Text.
+    Er deaktiviert Kerning und Ligaturen.
 - `optimizeLegibility`
-  - : Der Browser betont die Lesbarkeit über Rendergeschwindigkeit und geometrische Präzision.
-    Dies aktiviert Kerning und optionale Ligaturen.
+  - : Der Browser priorisiert Lesbarkeit über Rendergeschwindigkeit und geometrische Präzision.
+    Dies ermöglicht Kerning und optionale Ligaturen.
 - `geometricPrecision`
-  - : Der Browser betont die geometrische Präzision über Rendergeschwindigkeit und Lesbarkeit.
+  - : Der Browser priorisiert geometrische Präzision über Rendergeschwindigkeit und Lesbarkeit.
     Bestimmte Aspekte von Schriftarten — wie Kerning — skalieren nicht linear.
-    Bei großen Skalierungsfaktoren könnten Sie weniger schöne Textrendering-Ergebnisse sehen, aber die Größe entspricht den Erwartungen (weder nach oben noch unten auf die nächste vom zugrunde liegenden Betriebssystem unterstützte Schriftgröße gerundet).
+    Bei großen Skalierungsfaktoren könnte weniger schöne Textdarstellung sichtbar werden, aber die Größe entspricht den Erwartungen (weder nach oben noch nach unten auf die nächste von dem zugrunde liegenden Betriebssystem unterstützte Schriftgröße gerundet).
 
-Diese Eigenschaft kann verwendet werden, um den Wert abzurufen oder festzulegen.
+Die Eigenschaft kann verwendet werden, um den Wert zu lesen oder zu setzen.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text "Hello World" unter Verwendung jedes der unterstützten Werte der `textRendering`-Eigenschaft an.
-Der Wert wird auch für jeden Fall durch das Lesen der Eigenschaft angezeigt.
+In diesem Beispiel zeigen wir den Text "Hello World" mit jedem der unterstützten Werte der `textRendering`-Eigenschaft.
+Der Wert wird auch für jeden Fall angezeigt, indem die Eigenschaft gelesen wird.
 
 ### HTML
 

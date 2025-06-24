@@ -2,14 +2,14 @@
 title: Tutorials
 slug: Web/Progressive_web_apps/Tutorials
 l10n:
-  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Diese Seite listet Anleitungen auf, die Ihnen helfen, das Entwickeln von PWAs zu erlernen. Anleitungen führen Sie Schritt für Schritt durch die Erstellung einer App, von Anfang bis Ende, und erklären, wie die verschiedenen Funktionen der App implementiert werden.
+Diese Seite listet Tutorials auf, um beim Erlernen der Entwicklung von PWAs zu helfen. Tutorials führen Schritt für Schritt durch die Erstellung einer App, von Anfang bis Ende, und erklären, wie die verschiedenen Funktionen der App implementiert werden.
 
 - [Erstellen Ihrer ersten PWA](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker)
 
-  - : Diese Anleitung für Einsteiger führt durch die Erstellung einer PWA zur Verfolgung von Menstruationszyklen. Die Lektionen umfassen eine Einführung in das erforderliche HTML, CSS und JavaScript, um eine voll funktionsfähige Web-App zu erstellen, das Einrichten einer Testumgebung und umfassende Erklärungen, die dem Lernenden helfen, die Web-App zu einer PWA aufzurüsten; einschließlich der Entwicklung und Überprüfung eines Manifests, dem Hinzufügen eines Service Workers und der Verwendung des Service Workers zum Löschen veralteter Caches.
+  - : Dieses Tutorial auf Anfängerniveau führt durch die Erstellung einer PWA zur Verfolgung von Menstruationszyklen. Die Lektionen beinhalten eine Durchsicht des HTML, CSS und JavaScript, die erforderlich sind, um eine voll funktionsfähige Web-App zu erstellen, das Einrichten einer Testumgebung und vollständige Erklärungen, die den Lernenden durch die Aufwertung der Web-App zu einer PWA führen; einschließlich der Entwicklung und Überprüfung eines Manifests, dem Hinzufügen eines Service Workers und der Verwendung des Service Workers zum Löschen veralteter Caches.
 
-- [Vertiefung in PWA](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames)
-  - : Diese Anleitung für Fortgeschrittene führt durch die Erstellung einer PWA, die Informationen über Spiele auflistet, die in der A-Frame-Kategorie des [js13kGames 2017](https://2017.js13kgames.com/) Wettbewerbs eingereicht wurden. Diese Anleitung umfasst alle Grundlagen zur Erstellung einer PWA, mit zusätzlichen Funktionen wie Benachrichtigungen, Push-Dienste und App-Leistung.
+- [Tiefergehendes Verständnis von PWA](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames)
+  - : Dieses Tutorial auf mittlerem Niveau führt durch die Erstellung einer PWA, die Informationen über Spiele auflistet, die für die Kategorie A-Frame beim [js13kGames 2017](https://2017.js13kgames.com/) Wettbewerb eingereicht wurden. Dieses Tutorial enthält alle Grundlagen zur Erstellung einer PWA sowie zusätzliche Funktionen, einschließlich Benachrichtigungen, Push und App-Leistung.

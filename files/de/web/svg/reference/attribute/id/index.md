@@ -2,7 +2,7 @@
 title: id
 slug: Web/SVG/Reference/Attribute/id
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 Das **`id`**-Attribut weist einem Element einen eindeutigen Namen zu.
@@ -32,7 +32,7 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 {{EmbedLiveSample("Example", "120", "120")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -42,7 +42,7 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>Keine</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -53,12 +53,12 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 - \<id>
 
-  - : Gibt die ID des Elements an. Die ID muss innerhalb des Knotenbaums eindeutig sein, darf nicht leer sein und keine Leerzeichen enthalten.
+  - : Bestimmt die ID des Elements. Die ID muss eindeutig innerhalb des Knotens sein, darf kein leerer String sein und keine Leerzeichen enthalten.
 
     > [!NOTE]
-    > Sie sollten `id`-Werte vermeiden, die als SVG-Ansichtsspezifikationen (z. B. `MyDrawing.svg#svgView(viewBox(0,200,1000,1000))`) oder als grundlegender Medienfragment interpretiert werden würden, wenn sie als URL-Zielfragment verwendet werden.
+    > Sie sollten `id`-Werte vermeiden, die als SVG-Ansichtsspezifikation gelesen werden würden (z. B. `MyDrawing.svg#svgView(viewBox(0,200,1000,1000))`) oder ein grundlegendes Medienfragment darstellen, wenn sie als URL-Ziel verwendet werden.
 
-    Sie muss in XML-Dokumenten gültig sein. Ein eigenständiges SVG-Dokument verwendet die XML 1.0-Syntax, die festlegt, dass gültige IDs nur bestimmte Zeichen (Buchstaben, Ziffern und einige Satzzeichen) enthalten und nicht mit einer Ziffer, einem Punkt (.) oder einem Bindestrich (-) beginnen dürfen.
+    Die ID muss in XML-Dokumenten gültig sein. Ein eigenständiges SVG-Dokument verwendet die XML 1.0-Syntax, die angibt, dass gültige IDs nur bestimmte Zeichen (Buchstaben, Ziffern und einige Satzzeichen) enthalten und nicht mit einer Ziffer, einem Punkt (.) oder einem Bindestrich (-) beginnen.
 
 ## Spezifikationen
 

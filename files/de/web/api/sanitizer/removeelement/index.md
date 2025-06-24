@@ -3,15 +3,14 @@ title: "Sanitizer: removeElement() Methode"
 short-title: removeElement()
 slug: Web/API/Sanitizer/removeElement
 l10n:
-  sourceCommit: baec726bf3fe1bd82cf22a0f8ba9523e0f7ccd80
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`removeElement()`** Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer) Schnittstelle legt ein Element fest, das nicht zugelassen wird — es wird aus der Eingabe entfernt, wenn der Sanitizer verwendet wird.
+Die **`removeElement()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass ein Element nicht erlaubt ist – es wird aus dem Input entfernt, wenn der Sanitizer verwendet wird.
 
-Das angegebene Element wird der Liste von [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) in der Konfiguration dieses Sanitizers hinzugefügt.
-Das Element wird aus den Listen [`elements`](/de/docs/Web/API/SanitizerConfig#elements) oder [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt, falls vorhanden.
+Das angegebene Element wird zur Liste der [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) in der Konfiguration dieses Sanitizers hinzugefügt. Das Element wird von den Listen [`elements`](/de/docs/Web/API/SanitizerConfig#elements) oder [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt, falls es dort vorhanden ist.
 
 ## Syntax
 
@@ -22,14 +21,12 @@ removeElement(element)
 ### Parameter
 
 - `element`
-
-  - : Ein String, der den Namen des zu verbietenden Elements angibt, oder ein Objekt mit den folgenden Eigenschaften:
-
+  - : Ein String, der den Namen des nicht erlaubten Elements angibt, oder ein Objekt mit den folgenden Eigenschaften:
     - `name`
       - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
-      - : Ein String, der den Namensraum des Elements enthält.
-        Der Standard-Namensraum ist `"http://www.w3.org/1999/xhtml"`.
+      - : Ein String, der den Namespace des Elements enthält.
+        Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
 
 ### Rückgabewerte
 
@@ -37,9 +34,9 @@ Keiner (`undefined`).
 
 ## Beispiele
 
-### Anleitung zum Ausschließen von Elementen
+### Anleitung, um Elemente nicht zuzulassen
 
-Dieses Beispiel zeigt, wie `removeElement()` verwendet wird, um ein Element als "nicht erlaubt" festzulegen.
+Dieses Beispiel zeigt, wie `removeElement()` verwendet wird, um ein Element als „nicht erlaubt“ festzulegen.
 
 ```html hidden
 <pre id="log"></pre>
@@ -63,10 +60,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das ursprünglich {{htmlelement("div")}} und {{htmlelement("script")}} Elemente erlaubt und {{htmlelement("span")}}-Elemente durch ihre Kindelemente ersetzt.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfänglich {{htmlelement("div")}}- und {{htmlelement("script")}}-Elemente zulässt und {{htmlelement("span")}}-Elemente durch ihre Kindelemente ersetzt.
 
-Der Code ruft dann `removeElement()` auf, um {{htmlelement("p")}}, `<script>` und `<span>` Elemente zur [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) Liste in der Konfiguration hinzuzufügen.
-Beachten Sie, dass das Hinzufügen von `<script>` und `<span>` die Elemente aus ihren ursprünglichen Listen entfernt.
+Der Code ruft dann `removeElement()` auf, um {{htmlelement("p")}}, `<script>` und `<span>`-Elemente zur [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Liste in der Konfiguration hinzuzufügen. Beachten Sie, dass durch das Hinzufügen von `<script>` und `<span>` die Elemente aus ihren ursprünglichen Listen entfernt werden.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -99,15 +95,13 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 ```
 
 > [!NOTE]
-> Diese Konfiguration wird nur zu Demonstrationszwecken bereitgestellt.
-> Sanitizer-Konfigurationen sollten entweder nur die erlaubten Elemente ([`elements`](/de/docs/Web/API/SanitizerConfig#elements)) oder nur die nicht erlaubten Elemente ([`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)) enthalten, aber nicht beides.
-> In diesem Fall ist nur das `<div>` Element erlaubt und alle anderen Elemente werden aus der Eingabe entfernt: Die entfernten Elemente haben also keine Wirkung.
+> Diese Konfiguration wird nur zu Demonstrationszwecken bereitgestellt. Sanitizer-Konfigurationen sollten entweder nur die erlaubten Elemente ([`elements`](/de/docs/Web/API/SanitizerConfig#elements)) oder nur die nicht erlaubten Elemente ([`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)) enthalten, aber nicht beide. In diesem Fall ist nur das `<div>`-Element erlaubt und alle anderen Elemente werden aus dem Input entfernt: Somit haben die entfernten Elemente keine Wirkung.
 
 #### Ergebnisse
 
 Die endgültige Konfiguration wird unten protokolliert.
 
-{{EmbedLiveSample("Anleitung zum Ausschließen von Elementen","100","480px")}}
+{{EmbedLiveSample("How to disallow elements","100","480px")}}
 
 ## Spezifikationen
 

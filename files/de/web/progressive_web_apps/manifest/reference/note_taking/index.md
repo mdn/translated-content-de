@@ -1,21 +1,20 @@
 ---
-title: Notizen
+title: note_taking
 slug: Web/Progressive_web_apps/Manifest/Reference/note_taking
 l10n:
-  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{SeeCompatTable}}
 
-Das `note_taking`-Mitglied identifiziert eine Web-App als Notiz-App und definiert zugehörige Informationen, zum Beispiel eine URL, die auf eine Funktionalität zum Erstellen einer neuen Notiz verweist. Dies ermöglicht es Betriebssystemen, die Notizfunktionalität der App zu integrieren, z. B. indem eine Option "Neue Notiz" im Kontextmenü der App hinzugefügt oder die App als Option zum Erstellen von Notizen in anderen Apps bereitgestellt wird.
+Das `note_taking`-Mitglied identifiziert eine Web-App als Notiz-App und definiert zugehörige Informationen, wie zum Beispiel eine URL, die auf eine Funktion zum Erstellen einer neuen Notiz verweist. Dies ermöglicht es Betriebssystemen, die Notizfunktion der App zu integrieren, beispielsweise durch Einfügen einer Option "Neue Notiz" im Kontextmenü der App oder indem die App als Option zum Erstellen einer Notiz in anderen Apps bereitgestellt wird.
 
 ### Werte
 
 Ein Objekt, das die folgenden Werte enthalten kann:
 
 - `new_note_url` {{experimental_inline}}
-
-  - : Ein String, der die URL darstellt, die der Entwickler bevorzugen würde, wenn der Benutzeragent geladen wird, wenn der Benutzer eine neue Notiz über die Web-App erstellen möchte. Dieser Wert ist ein Hinweis, und verschiedene Implementierungen können entscheiden, ihn zu ignorieren oder an geeigneten Stellen als Auswahlmöglichkeit anzubieten. Die `new_note_url` wird mit der Basis-URL des Manifests der App geparst und ignoriert, wenn sie sich nicht innerhalb des [Scopes](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) des Manifests befindet.
+  - : Ein String, der die URL darstellt, die der Entwickler bevorzugt, wenn der Benutzer über die Web-App eine neue Notiz erstellen möchte. Dieser Wert ist ein Hinweis, und unterschiedliche Implementierungen können entscheiden, ihn zu ignorieren oder an geeigneten Stellen als Auswahlmöglichkeit bereitzustellen. Die `new_note_url` wird mit der Manifest-URL der App als Basis-URL geparst und ignoriert, wenn sie nicht innerhalb des [scope](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) des Manifests liegt.
 
 ## Beispiele
 

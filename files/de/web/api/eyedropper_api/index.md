@@ -2,33 +2,32 @@
 title: EyeDropper API
 slug: Web/API/EyeDropper_API
 l10n:
-  sourceCommit: 4458494807b6f4898d504b6c0af0a45f8031cbf3
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("EyeDropper API")}}{{SeeCompatTable}}
 
-Die **EyeDropper API** bietet einen Mechanismus zur Erstellung eines Farbaufnahmewerkzeugs. Mit diesem Tool können Benutzer Farben von ihren Bildschirmen aufnehmen, einschließlich außerhalb des Browserfensters.
+Die **EyeDropper-API** bietet einen Mechanismus zur Erstellung eines Pipettenwerkzeugs. Mit diesem Werkzeug können Nutzer Farben von ihren Bildschirmen abtasten, einschließlich außerhalb des Browserfensters.
 
 ## Konzept
 
-Kreative Anwendungen erlauben es oft Benutzern, Farben aus Zeichnungen oder Formen in der Anwendung zur Wiederverwendung aufzunehmen. Webanwendungen können die **EyeDropper API** nutzen, um einen ähnlichen Farbaufnahme-Modus bereitzustellen, der vom Browser bereitgestellt wird.
+Kreative Anwendungen erlauben es oft den Nutzern, Farben von Zeichnungen oder Formen in der Anwendung abzutasten, um sie wiederzuverwenden. Webanwendungen können die **EyeDropper-API** verwenden, um einen ähnlichen Pipettenmodus bereitzustellen, der vom Browser bereitgestellt wird.
 
-Mit der API kann eine Webanwendung den Farbaufnahme-Modus starten. Sobald gestartet, ändert sich der Cursor, um dem Benutzer anzuzeigen, dass der Modus aktiv ist. Der Benutzer kann dann entweder eine Farbe von irgendwo auf dem Bildschirm auswählen oder den Farbaufnahme-Modus durch Drücken der <kbd>Escape</kbd>-Taste beenden.
+Mit der API kann eine Webanwendung den Pipettenmodus starten. Sobald dieser gestartet ist, ändert sich der Cursor, um dem Nutzer anzuzeigen, dass der Modus aktiv ist. Der Nutzer kann dann entweder eine Farbe von überall auf dem Bildschirm auswählen oder den Pipettenmodus durch Drücken von <kbd>Escape</kbd> beenden.
 
 ## Sicherheits- und Datenschutzmaßnahmen
 
-Um zu verhindern, dass bösartige Websites unbemerkt Pixeldaten vom Bildschirm eines Benutzers abrufen, implementiert die **EyeDropper API** folgende Maßnahmen:
+Um zu verhindern, dass böswillige Websites Pixelinformationen vom Bildschirm eines Nutzers erhalten, ohne dass dieser es bemerkt, implementiert die **EyeDropper-API** folgende Maßnahmen:
 
-- Die API lässt den Farbaufnahme-Modus nicht ohne Benutzerabsicht starten. Die Methode [`EyeDropper.open()`](/de/docs/Web/API/EyeDropper/open) kann nur als Reaktion auf eine Benutzeraktion (wie z.B. einen Klick auf eine Schaltfläche) aufgerufen werden.
-- Keine Pixelinformationen können ohne Benutzerabsicht abgerufen werden. Das von [`EyeDropper.open()`](/de/docs/Web/API/EyeDropper/open) zurückgegebene Versprechen wird nur in eine Farbwert als Reaktion auf eine Benutzeraktion (Klicken auf ein Pixel) aufgelöst. Somit kann der Farbaufnehmer nicht im Hintergrund verwendet werden, ohne dass der Benutzer es bemerkt.
-- Um Benutzern zu helfen, den Farbaufnahme-Modus leichter zu bemerken, wird dieser von Browsern deutlich erkennbar gemacht. Der normale Mauszeiger verschwindet nach kurzer Verzögerung und stattdessen erscheint eine Lupe. Es gibt auch eine Verzögerung zwischen dem Start des Farbaufnahme-Modus und der Möglichkeit für den Benutzer, ein Pixel auszuwählen, um sicherzustellen, dass der Benutzer die Lupe sehen kann.
-- Benutzer können den Farbaufnahme-Modus auch jederzeit abbrechen (durch Drücken der <kbd>Escape</kbd>-Taste).
+- Die API lässt den Pipettenmodus nicht ohne Nutzungsabsicht starten. Die Methode [`EyeDropper.open()`](/de/docs/Web/API/EyeDropper/open) kann nur als Reaktion auf eine Nutzeraktion (z. B. einen Klick auf einen Button) aufgerufen werden.
+- Es können keine Pixelinformationen ohne Nutzungsabsicht abgerufen werden. Das Promise, das von [`EyeDropper.open()`](/de/docs/Web/API/EyeDropper/open) zurückgegeben wird, wird nur in Bezug auf eine Nutzeraktion (Klicken auf einen Pixel) zu einem Farbwert aufgelöst. So kann die Pipette nicht im Hintergrund verwendet werden, ohne dass der Nutzer dies bemerkt.
+- Um den Nutzern zu helfen, den Pipettenmodus leichter zu bemerken, wird er von den Browsern deutlich kenntlich gemacht. Der normale Mauszeiger verschwindet nach kurzer Verzögerung, und eine Lupe erscheint stattdessen. Es gibt auch eine Verzögerung zwischen dem Start des Pipettenmodus und der Möglichkeit des Nutzers, einen Pixel auszuwählen, um sicherzustellen, dass der Nutzer Zeit hatte, die Lupe zu bemerken.
+- Nutzer können den Pipettenmodus auch jederzeit abbrechen (durch Drücken der <kbd>Escape</kbd>-Taste).
 
 ## Schnittstellen
 
 - [`EyeDropper`](/de/docs/Web/API/EyeDropper) {{Experimental_Inline}}
-
-  - : Die **`EyeDropper`** Schnittstelle repräsentiert eine Instanz eines Farbaufnahmewerkzeugs, das geöffnet werden kann und von Benutzern zum Auswählen von Farben vom Bildschirm genutzt werden kann.
+  - : Die **`EyeDropper`**-Schnittstelle repräsentiert eine Instanz eines Pipettenwerkzeugs, das geöffnet und vom Nutzer verwendet werden kann, um Farben vom Bildschirm auszuwählen.
 
 ## Spezifikationen
 
@@ -40,5 +39,5 @@ Um zu verhindern, dass bösartige Websites unbemerkt Pixeldaten vom Bildschirm e
 
 ## Siehe auch
 
-- [Farben von beliebigen Pixeln auf dem Bildschirm mit der EyeDropper API aufnehmen](https://developer.chrome.com/docs/capabilities/web-apis/eyedropper)
-- [Die EyeDropper API W3C/SMPTE Joint Workshop](https://www.w3.org/2021/03/media-production-workshop/talks/patrick-brosset-eyedropper-api.html)
+- [Farben von beliebigen Pixeln auf dem Bildschirm mit der EyeDropper-API abtasten](https://developer.chrome.com/docs/capabilities/web-apis/eyedropper)
+- [Der EyeDropper-API W3C/SMPTE Joint Workshop](https://www.w3.org/2021/03/media-production-workshop/talks/patrick-brosset-eyedropper-api.html)

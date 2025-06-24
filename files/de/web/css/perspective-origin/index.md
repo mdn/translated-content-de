@@ -2,7 +2,7 @@
 title: perspective-origin
 slug: Web/CSS/perspective-origin
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
@@ -100,7 +100,7 @@ perspective-origin: 500% 200%;
 }
 ```
 
-Die **`perspective-origin`** und {{cssxref('perspective')}} Eigenschaften sind dem Elternteil eines in 3-dimensionalem Raum transformierten Kindelements zugeordnet, im Gegensatz zur [`perspective()`](/de/docs/Web/CSS/transform-function/perspective) Transformationsfunktion, die auf das transformierte Element angewendet wird.
+Die **`perspective-origin`** und {{cssxref('perspective')}} Eigenschaften sind an das übergeordnete Element eines in dreidimensionalem Raum transformierten Kindes gebunden, im Gegensatz zur [`perspective()`](/de/docs/Web/CSS/transform-function/perspective) Transformationsfunktion, die auf das zu transformierende Element angewendet wird.
 
 ## Syntax
 
@@ -125,23 +125,20 @@ perspective-origin: unset;
 
 ### Werte
 
-- _x-Position_
+- _x-position_
 
   - : Gibt die Position der Abszisse des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, die die Position als absoluten Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
+    - `left`, ein Schlüsselwort, das eine Abkürzung für den `0` Längenwert ist.
+    - `center`, ein Schlüsselwort, das eine Abkürzung für den `50%` Prozentwert ist.
+    - `right`, ein Schlüsselwort, das eine Abkürzung für den `100%` Prozentwert ist.
 
-    - {{cssxref("&lt;length-percentage&gt;")}} und gibt die Position als absoluten Längenwert oder relativ zur Breite des Elements an. Der Wert kann negativ sein.
-    - `left`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den prozentualen Wert `50%` ist.
-    - `right`, ein Schlüsselwort, das eine Abkürzung für den prozentualen Wert `100%` ist.
-
-- _y-Position_
-
+- _y-position_
   - : Gibt die Position der Ordinate des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
-
-    - {{cssxref("&lt;length-percentage&gt;")}} und gibt die Position als absoluten Längenwert oder relativ zur Höhe des Elements an. Der Wert kann negativ sein.
-    - `top`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den prozentualen Wert `50%` ist.
-    - `bottom`, ein Schlüsselwort, das eine Abkürzung für den prozentualen Wert `100%` ist.
+    - {{cssxref("&lt;length-percentage&gt;")}}, die die Position als absoluten Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
+    - `top`, ein Schlüsselwort, das eine Abkürzung für den `0` Längenwert ist.
+    - `center`, ein Schlüsselwort, das eine Abkürzung für den `50%` Prozentwert ist.
+    - `bottom`, ein Schlüsselwort, das eine Abkürzung für den `100%` Prozentwert ist.
 
 ## Formale Definition
 
@@ -153,9 +150,9 @@ perspective-origin: unset;
 
 ## Beispiele
 
-### Ändern des Perspektivursprungs
+### Ändern der Perspektivenursprung
 
-Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie in [Verwendung von CSS-Transformationen > Ändern des Perspektivursprungs](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#changing_the_perspective_origin).
+Ein Beispiel, wie man `perspective-origin` ändert, finden Sie unter [Verwendung von CSS-Transformationen > Ändern der Perspektivenursprung](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#changing_the_perspective_origin).
 
 ## Spezifikationen
 

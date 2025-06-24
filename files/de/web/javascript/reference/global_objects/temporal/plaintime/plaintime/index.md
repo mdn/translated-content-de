@@ -2,14 +2,14 @@
 title: Temporal.PlainTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/PlainTime
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
 Der **`Temporal.PlainTime()`** Konstruktor erstellt {{jsxref("Temporal.PlainTime")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen durch direkte Bereitstellung der zugrunde liegenden Daten zu erstellen. Wie alle anderen `Temporal`-Klassen sollten Sie `Temporal.PlainTime`-Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie direkt die zugrunde liegenden Daten bereitstellen. Wie bei allen anderen `Temporal` Klassen sollten Sie normalerweise `Temporal.PlainTime` Objekte mit der {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} statischen Methode konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ new Temporal.PlainTime(hour, minute, second, millisecond, microsecond)
 new Temporal.PlainTime(hour, minute, second, millisecond, microsecond, nanosecond)
 ```
 
-> **Note:** `Temporal.PlainTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> [!NOTE] > `Temporal.PlainTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `hour` {{optional_inline}}
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt ist und die Stundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird und die Stundenkomponente darstellt.
 - `minute` {{optional_inline}}
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt ist und die Minutenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird und die Minutenkomponente darstellt.
 - `second` {{optional_inline}}
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt ist und die Sekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird und die Sekundenkomponente darstellt.
 - `millisecond` {{optional_inline}}
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt ist und die Millisekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird und die Millisekundenkomponente darstellt.
 - `microsecond` {{optional_inline}}
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt ist und die Mikrosekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird und die Mikrosekundenkomponente darstellt.
 - `nanosecond` {{optional_inline}}
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt ist und die Nanosekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird und die Nanosekundenkomponente darstellt.
 
 ### Rückgabewert
 

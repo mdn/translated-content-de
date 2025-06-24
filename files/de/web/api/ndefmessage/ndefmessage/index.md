@@ -1,14 +1,14 @@
 ---
-title: "NDEFMessage: NDEFMessage() Konstruktor"
+title: "NDEFMessage: NDEFMessage()-Konstruktor"
 short-title: NDEFMessage()
 slug: Web/API/NDEFMessage/NDEFMessage
 l10n:
-  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{SecureContext_Header}}{{APIRef("Web NFC API")}}{{SeeCompatTable}}
 
-Der **`NDEFMessage()`** Konstruktor erstellt ein neues [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt, das mit den angegebenen NDEF-Datensätzen initialisiert wird.
+Der **`NDEFMessage()`**-Konstuktor erstellt ein neues [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt, das mit den angegebenen NDEF-Records initialisiert wird.
 
 ## Syntax
 
@@ -19,21 +19,19 @@ new NDEFMessage(records)
 ### Parameter
 
 - `records`
-
-  - : Ein Array von Objekten mit den folgenden Elementen:
-
+  - : Ein Array von Objekten mit folgenden Mitgliedern:
     - `data` {{optional_inline}}
-      - : Enthält die zu übertragenden Daten; entweder ein String, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}} oder ein Array von verschachtelten Datensätzen.
+      - : Enthält die zu übertragenden Daten; eines von einem String, einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}}, einem {{jsxref("DataView")}} oder einem Array von verschachtelten Records.
     - `encoding` {{optional_inline}}
-      - : Ein String, der die Codierung des Datensatzes angibt.
+      - : Ein String, der die Kodierung des Records angibt.
     - `id` {{optional_inline}}
-      - : Ein vom Entwickler definierter Bezeichner für den Datensatz.
+      - : Eine von der Entwicklerin / dem Entwickler definierte Kennung für den Record.
     - `lang` {{optional_inline}}
-      - : Ein gültiger Sprach-Tag gemäß {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}}.
+      - : Ein gültiger Sprachcode gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}.
     - `mediaType` {{optional_inline}}
       - : Ein gültiger [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types).
     - `recordType`
-      - : Ein String, der den Typ der in `data` gespeicherten Daten angibt. Er muss einen der folgenden Werte haben:
+      - : Ein String, der den Typ der in `data` gespeicherten Daten angibt. Er muss einer der folgenden Werte sein:
         - `"absolute-url"`
           - : Eine absolute URL zu den Daten.
         - `"empty"`
@@ -41,13 +39,13 @@ new NDEFMessage(records)
         - `"mime"`
           - : Ein gültiger [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types).
         - `"smart-poster"`
-          - : Ein Smart Poster, wie in der [NDEF-SMARTPOSTER](https://w3c.github.io/web-nfc/#bib-ndef-smartposter) Spezifikation definiert.
+          - : Ein Smart Poster wie in der [NDEF-SMARTPOSTER](https://w3c.github.io/web-nfc/#bib-ndef-smartposter)-Spezifikation definiert.
         - `"text"`
-          - : Text, wie in der [NDEF-TEXT](https://w3c.github.io/web-nfc/#bib-ndef-text) Spezifikation definiert.
+          - : Text wie in der [NDEF-TEXT](https://w3c.github.io/web-nfc/#bib-ndef-text)-Spezifikation definiert.
         - `"unknown"`
-          - : Der Datensatztyp ist nicht bekannt.
+          - : Der Recordtyp ist nicht bekannt.
         - `"URL"`
-          - : Eine URL, wie in der [NDEF-URI](https://w3c.github.io/web-nfc/#bib-ndef-uri) Spezifikation definiert.
+          - : Eine URL wie in der [NDEF-URI](https://w3c.github.io/web-nfc/#bib-ndef-uri)-Spezifikation definiert.
 
 ## Spezifikationen
 

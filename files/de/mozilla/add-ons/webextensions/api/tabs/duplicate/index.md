@@ -2,7 +2,7 @@
 title: tabs.duplicate()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/duplicate
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -25,20 +25,18 @@ let duplicating = browser.tabs.duplicate(
 - `tabId`
   - : `integer`. Die ID des Tabs, der dupliziert werden soll.
 - `duplicateProperties` {{optional_inline}}
-
   - : `object`. Ein Objekt, das beschreibt, wie der Tab dupliziert wird. Es enthält die folgenden Eigenschaften:
-
     - `index` {{optional_inline}}
       - : `integer`. Die Position des neuen Tabs im Fenster. Der Wert ist auf den Bereich von null bis zur Anzahl der Tabs im Fenster beschränkt.
     - `active` {{optional_inline}}
-      - : `boolean`. Ob der Tab im Fenster zum aktiven Tab wird. Hat keinen Einfluss darauf, ob das Fenster fokussiert ist. Standardmäßig `true`.
+      - : `boolean`. Ob der Tab der aktive Tab im Fenster wird. Beeinflusst nicht, ob das Fenster fokussiert ist. Standardmäßig `true`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Details über den duplizierten Tab enthält. Das `Tab`-Objekt enthält nur `url`, `title` und `favIconUrl`, wenn die Erweiterung die [`"tabs"` Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) hat. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Details über den duplizierten Tab enthält. Das `Tab`-Objekt enthält nur `url`, `title` und `favIconUrl`, wenn die Erweiterung die [`"tabs"`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) hat. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 > [!NOTE]
-> Ab Firefox 68 wird das Promise, das von `browser.tabs.duplicate()` zurückgegeben wird, unmittelbar aufgelöst, sobald der Tab dupliziert wurde. Zuvor wurde das Promise erst aufgelöst, wenn der Tab vollständig geladen war.
+> Ab Firefox 68 wird das Promise, das von browser.tabs.duplicate() zurückgegeben wird, aufgelöst, sobald der Tab dupliziert wurde. Früher wurde das Promise nur aufgelöst, wenn der Tab vollständig geladen war.
 
 ## Beispiele
 
@@ -74,7 +72,7 @@ querying.then(duplicateFirstTab, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-duplicate)-API von Chromium. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-duplicate) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

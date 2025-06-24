@@ -2,12 +2,12 @@
 title: box-sizing
 slug: Web/CSS/box-sizing
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`box-sizing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Gesamtbreite und -höhe eines Elements berechnet wird.
+Die **`box-sizing`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt fest, wie die Gesamtbreite und -höhe eines Elements berechnet wird.
 
 {{InteractiveExample("CSS Demo: box-sizing")}}
 
@@ -60,17 +60,17 @@ padding: 5px;
 }
 ```
 
-Standardmäßig im [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) wird die `width` und `height`, die Sie einem Element zuweisen, nur auf das Inhaltselement angewendet. Wenn das Element einen Rahmen oder eine Auffüllung (Padding) hat, wird dies zur `width` und `height` hinzugefügt, um die Größe des auf dem Bildschirm gerenderten Rahmens zu erhalten. Das bedeutet, dass Sie beim Festlegen von `width` und `height` den Wert anpassen müssen, um eventuelle hinzukommende Ränder oder Auffüllungen zu berücksichtigen. Wenn Sie beispielsweise vier Rahmen mit `width: 25%;` haben, passen diese nicht standardmäßig auf eine Zeile innerhalb der Grenzen des übergeordneten Containers, wenn einer davon eine linke oder rechte Auffüllung oder einen linken oder rechten Rand hat.
+Standardmäßig im [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) wird die von Ihnen zugewiesene `width` und `height` nur auf die Inhaltsbox eines Elements angewendet. Wenn das Element einen Rand oder eine Polsterung hat, wird diese zur `width` und `height` hinzugefügt, um die Größe der Box zu bestimmen, die auf dem Bildschirm dargestellt wird. Das bedeutet, dass Sie beim Einstellen von `width` und `height` den Wert anpassen müssen, um einen eventuell hinzugefügten Rand oder eine Polsterung zu berücksichtigen. Wenn Sie beispielsweise vier Boxen mit `width: 25%;` haben und eine davon links oder rechts Padding oder einen Rand hat, passen diese standardmäßig nicht in eine Zeile innerhalb der Begrenzungen des übergeordneten Containers.
 
 Die `box-sizing`-Eigenschaft kann verwendet werden, um dieses Verhalten anzupassen:
 
-- `content-box` gibt Ihnen das standardmäßige CSS Box-Sizing-Verhalten. Wenn Sie die Breite eines Elements auf 100 Pixel setzen, wird die Inhaltsbox des Elements 100 Pixel breit sein, und die Breite eines Rahmens oder einer Auffüllung wird zur endgültigen Breite hinzugefügt, wodurch das Element breiter als 100px wird.
-- `border-box` weist den Browser an, jeden Rahmen und jede Auffüllung in die von Ihnen angegebenen Werte für die Breite und Höhe eines Elements einzubeziehen. Wenn Sie die Breite eines Elements auf 100 Pixel setzen, werden diese 100 Pixel jeden hinzugefügten Rahmen oder jede Auffüllung umfassen, und die Inhaltsbox schrumpft, um diese zusätzliche Breite aufzunehmen. Dies macht es in der Regel viel einfacher, Elemente zu dimensionieren.
+- `content-box` bietet Ihnen das Standardverhalten der CSS-Box-Berechnung. Wenn Sie die Breite eines Elements auf 100 Pixel setzen, dann wird die Inhaltsbox des Elements 100 Pixel breit sein und die Breite eines Randes oder einer Polsterung wird zur endgültigen gerenderten Breite hinzugefügt, wodurch das Element breiter als 100px wird.
+- `border-box` weist den Browser an, jeden Rand und Padding in den von Ihnen angegebenen Werten für die Breite und Höhe eines Elements zu berücksichtigen. Wenn Sie die Breite eines Elements auf 100 Pixel setzen, umfassen diese 100 Pixel jeglichen hinzugefügten Rand oder Padding, und die Inhaltsbox wird verkleinert, um diese zusätzliche Breite aufzunehmen. Dies erleichtert in der Regel das Größenspezifizieren von Elementen erheblich.
 
-  `box-sizing: border-box` ist die Standardformatierung, die Browser für die {{htmlelement("table")}}, {{htmlelement("select")}} und {{htmlelement("button")}} Elemente verwenden, und für {{htmlelement("input")}} Elemente, deren Typ `{{htmlelement("input/radio", "radio")}}`, `{{htmlelement("input/checkbox", "checkbox")}}`, `{{htmlelement("input/reset", "reset")}}`, `{{htmlelement("input/button", "button")}}`, `{{htmlelement("input/submit", "submit")}}`, `{{htmlelement("input/color", "color")}}` oder `{{htmlelement("input/search", "search")}}` ist.
+  `box-sizing: border-box` ist das Standardstyling der Browser für die {{htmlelement("table")}}, {{htmlelement("select")}}, und {{htmlelement("button")}}-Elemente sowie für {{htmlelement("input")}}-Elemente, deren Typ `{{htmlelement("input/radio", "radio")}}`, `{{htmlelement("input/checkbox", "checkbox")}}`, `{{htmlelement("input/reset", "reset")}}`, `{{htmlelement("input/button", "button")}}`, `{{htmlelement("input/submit", "submit")}}`, `{{htmlelement("input/color", "color")}}`, oder `{{htmlelement("input/search", "search")}}` ist.
 
 > [!NOTE]
-> Es ist oft nützlich, `box-sizing` auf `border-box` zu setzen, um Elemente zu layouten. Dies macht den Umgang mit den Größen von Elementen wesentlich einfacher und beseitigt im Allgemeinen eine Reihe von Fallstricken, auf die Sie beim Layouten Ihres Inhalts stoßen können. Andererseits ermöglicht die Verwendung von `box-sizing: content-box` bei Verwendung von `position: relative` oder `position: absolute`, dass die Positionierungswerte relativ zum Inhalt und unabhängig von Änderungen der Rahmen- und Auffüllungsgrößen sind, was manchmal wünschenswert ist.
+> Es ist oft nützlich, `box-sizing` auf `border-box` zu setzen, um Elemente zu layouten. Dies erleichtert den Umgang mit den Größen von Elementen erheblich und beseitigt im Allgemeinen eine Reihe von Fallstricken, auf die Sie beim Layouten Ihres Inhalts stoßen können. Andererseits ermöglicht die Verwendung von `box-sizing: content-box` bei der Verwendung von `position: relative` oder `position: absolute`, dass die Positionswerte relativ zum Inhalt und unabhängig von Änderungen an Rand- und Polsterungsgrößen sind, was manchmal wünschenswert ist.
 
 ## Syntax
 
@@ -86,21 +86,21 @@ box-sizing: revert-layer;
 box-sizing: unset;
 ```
 
-Die `box-sizing` Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus der unten stehenden Liste von Werten ausgewählt wird.
+Die `box-sizing`-Eigenschaft wird durch ein einzelnes Schlüsselwort aus der unten stehenden Liste von Werten spezifiziert.
 
 ### Werte
 
 - `content-box`
 
-  - : Dies ist der initiale und standardmäßige Wert, wie er vom CSS-Standard angegeben wird. Die {{Cssxref("width")}} und {{Cssxref("height")}} Eigenschaften beinhalten den Inhalt, jedoch nicht die Auffüllung, den Rahmen oder den Rand. Zum Beispiel rendert `.box {width: 350px; border: 10px solid black;}` einen Rahmen, der 370px breit ist.
+  - : Dies ist der initiale und Standardwert, wie er vom CSS-Standard vorgegeben ist. Die {{Cssxref("width")}}- und {{Cssxref("height")}}-Eigenschaften umfassen den Inhalt, schließen jedoch nicht Padding, Rand oder Margin ein. Zum Beispiel rendert `.box {width: 350px; border: 10px solid black;}` eine Box, die 370px breit ist.
 
-    Hier werden die Dimensionen des Elements wie folgt berechnet: _width = Breite des Inhalts_, und _height = Höhe des Inhalts_. (Rahmen und Auffüllung sind nicht in der Berechnung enthalten.)
+    Hier werden die Dimensionen des Elements berechnet als: _width = Breite des Inhalts_, und _height = Höhe des Inhalts_. (Ränder und Padding sind nicht in der Berechnung enthalten.)
 
 - `border-box`
 
-  - : Die {{Cssxref("width")}} und {{Cssxref("height")}} Eigenschaften beinhalten den Inhalt, die Auffüllung und den Rahmen, jedoch nicht den Rand. Beachten Sie, dass Auffüllung und Rahmen innerhalb des Rahmens liegen. Zum Beispiel rendert `.box {width: 350px; border: 10px solid black;}` einen Rahmen, der 350px breit ist, mit einem Inhaltsbereich von 330px Breite. Die Inhaltsbox kann nicht negativ sein und wird auf 0 gerundet, wodurch es unmöglich ist, mit `border-box` das Element verschwinden zu lassen.
+  - : Die {{Cssxref("width")}}- und {{Cssxref("height")}}-Eigenschaften schließen den Inhalt, Padding und Rand ein, schließen jedoch nicht den Margin ein. Beachten Sie, dass Padding und Rand innerhalb der Box sein werden. Zum Beispiel rendert `.box {width: 350px; border: 10px solid black;}` eine Box, die 350px breit ist, wobei der Bereich für den Inhalt 330px breit ist. Die Inhaltsbox kann nicht negativ werden und wird auf 0 abgerundet, wodurch es unmöglich ist, `border-box` zu verwenden, um das Element verschwinden zu lassen.
 
-    Hier werden die Dimensionen des Elements wie folgt berechnet: _width = Rahmen + Auffüllung + Breite des Inhalts_, und _height = Rahmen + Auffüllung + Höhe des Inhalts_.
+    Hier werden die Dimensionen des Elements berechnet als: _width = Rand + Padding + Breite des Inhalts_, und _height = Rand + Padding + Höhe des Inhalts_.
 
 ## Formale Definition
 
@@ -114,7 +114,7 @@ Die `box-sizing` Eigenschaft wird als einzelnes Schlüsselwort angegeben, das au
 
 ### Boxgrößen mit content-box und border-box
 
-Dieses Beispiel zeigt, wie unterschiedliche `box-sizing` Werte die gerenderte Größe von zwei ansonsten identischen Elementen verändern.
+Dieses Beispiel zeigt, wie verschiedene `box-sizing`-Werte die gerenderte Größe von zwei ansonsten identischen Elementen verändern.
 
 #### HTML
 
@@ -166,4 +166,4 @@ div {
 
 ## Siehe auch
 
-- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)

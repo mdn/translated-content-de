@@ -3,23 +3,23 @@ title: "HTMLInputElement: maxLength Eigenschaft"
 short-title: maxLength
 slug: Web/API/HTMLInputElement/maxLength
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`maxLength`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt die maximale Anzahl von Zeichen (in UTF-16-Code-Einheiten) an, die für den Wert des {{HTMLElement("input")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, die für die Gültigkeit des Wertes erlaubt sind. Sie entspricht dem [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength)-Attribut des Elements. `-1` bedeutet, dass es keine Begrenzung für die Länge des Wertes gibt.
+Die **`maxLength`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt die maximale Anzahl von Zeichen (in {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}}) an, die für den Wert des {{HTMLElement("input")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, die für den Wert gültig sind. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Begrenzung der Länge des Wertes gibt.
 
 > [!NOTE]
-> In der Regel verhindern Browser, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollte die Länge überschritten werden, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt-Eigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
+> Browser verhindern in der Regel, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollte die Länge länger sein, wird das Element als ungültig angesehen und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekteigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `maxlength` des Elements darstellt, falls vorhanden, oder `-1`.
+Eine Zahl, die das `maxlength` des Elements angibt, falls vorhanden, oder `-1`.
 
 ## Beispiel
 
-Angenommen, folgendes HTML:
+Angesichts des folgenden HTMLs:
 
 ```html
 <p>
@@ -28,7 +28,7 @@ Angenommen, folgendes HTML:
 </p>
 ```
 
-Sie können die `maxLength`-Eigenschaft verwenden, um den Wert des `maxlength`-Attributs des `<input>`-Elements abzurufen oder festzulegen:
+Sie können die `maxLength`-Eigenschaft verwenden, um den `<input>` `maxlength`-Attributwert abzurufen oder festzulegen:
 
 ```js
 const inputElement = document.querySelector("#password");

@@ -2,7 +2,7 @@
 title: rotateZ()
 slug: Web/CSS/transform-function/rotateZ
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{CSSRef}}
@@ -37,20 +37,18 @@ transform: rotateZ(3.142rad);
 </section>
 ```
 
-Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die {{cssxref("transform-origin")}} CSS-Eigenschaft definiert wird.
 
-> **Note:** `rotateZ(a)` ist äquivalent zu
+> [!NOTE] > `rotateZ(a)` ist gleichwertig zu
 > `rotate(a)` oder
 > `rotate3d(0, 0, 1, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen normalerweise
-> nicht kommutativ. Das heißt, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Das heißt, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
-Die durch `rotateZ()` erzeugte Rotationsmenge wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Wenn
-positiv, wird die Bewegung im Uhrzeigersinn sein; wenn negativ, gegen den Uhrzeigersinn.
+Die durch `rotateZ()` erzeugte Rotationsmenge wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Wert positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, gegen den Uhrzeigersinn.
 
 ```css
 rotateZ(a)
@@ -59,7 +57,7 @@ rotateZ(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} der den Winkel der Rotation darstellt. Ein positiver Winkel steht für eine Rotation im Uhrzeigersinn, ein negativer Winkel für eine gegen den Uhrzeigersinn.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}} und stellt den Winkel der Rotation dar. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -73,7 +71,7 @@ rotateZ(a)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
+        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

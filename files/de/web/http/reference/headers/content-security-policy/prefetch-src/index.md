@@ -1,15 +1,16 @@
 ---
-title: "Content-Security-Policy: prefetch-src Directive"
+title: "Content-Security-Policy: prefetch-src Direktive"
 short-title: prefetch-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/prefetch-src
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{Non-standard_header}}
 
 Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`prefetch-src`**-Direktive spezifiziert gültige Ressourcen, die vorgeladen oder vorgerendert werden dürfen.
+**`prefetch-src`**-Direktive gibt gültige Ressourcen an, die
+vorausgeladen oder vorausgerendert werden dürfen.
 
 <table class="properties">
   <tbody>
@@ -19,7 +20,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <td>{{Glossary("Fetch_directive", "Fetch Directive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
@@ -41,18 +42,16 @@ Content-Security-Policy: prefetch-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-
-  - : Eine durch Leerzeichen getrennte Liste von _Source-Expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
-
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 ## Beispiel
 
-### Ressourcen, die vorgeladen werden, stimmen nicht mit dem Header überein
+### Vorausgeladene Ressourcen stimmen nicht mit dem Header überein
 
 Angenommen, eine Seite hat die folgende Content-Security-Policy:
 
@@ -60,7 +59,7 @@ Angenommen, eine Seite hat die folgende Content-Security-Policy:
 Content-Security-Policy: prefetch-src https://example.com/
 ```
 
-Fetches für den folgenden Code werden Netzwerkfehler zurückgeben, da die bereitgestellten URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
+Bei Abrufen für den folgenden Code werden Netzwerkfehler zurückgegeben, da die angegebenen URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
 
 ```html
 <link rel="prefetch" href="https://example.org/" />

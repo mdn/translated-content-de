@@ -2,14 +2,14 @@
 title: bookmarks.search()
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/search
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Die Funktion **`bookmarks.search()`** durchsucht Lesezeichenelemente, die der angegebenen Abfrage entsprechen.
+Die Funktion **`bookmarks.search()`** durchsucht die Lesezeichen-Baumknoten nach der Übereinstimmung mit der angegebenen Abfrage.
 
-Diese Funktion löst eine Ausnahme aus, wenn einer der Eingabeparameter ungültig ist oder nicht den entsprechenden Typ hat; suchen Sie im [Konsolenausgabe](https://extensionworkshop.com/documentation/develop/debugging/) nach der Fehlermeldung. Die Ausnahmen haben keine Fehler-IDs, und die Nachrichten selbst können sich ändern; schreiben Sie daher keinen Code, der versucht, sie zu interpretieren.
+Diese Funktion löst eine Ausnahme aus, wenn einer der Eingabeparameter ungültig ist oder nicht den geeigneten Typ hat; schauen Sie in der [Konsole](https://extensionworkshop.com/documentation/develop/debugging/) nach der Fehlermeldung. Die Ausnahmen haben keine Fehler-IDs und die Nachrichten selbst können sich ändern, also schreiben Sie keinen Code, der versucht, sie zu interpretieren.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,28 +25,28 @@ let searching = browser.bookmarks.search(
 
 - `query`
 
-  - : Ein {{jsxref("string")}} oder {{jsxref("object")}}, der die auszuführende Abfrage beschreibt.
+  - : Ein {{jsxref("string")}} oder {{jsxref("object")}}, das die durchzuführende Abfrage beschreibt.
 
-    Wenn `query` ein **string** ist, besteht er aus null oder mehr durch Leerzeichen getrennten Suchbegriffen. Jeder Suchbegriff stimmt überein, wenn es sich um eine Teilzeichenkette in der URL oder dem Titel des Lesezeichens handelt. Die Übereinstimmung erfolgt ohne Berücksichtigung der Groß-/Kleinschreibung. Damit ein Lesezeichen mit der Abfrage übereinstimmt, müssen alle Suchbegriffe der Abfrage erfüllt sein.
+    Wenn `query` ein **string** ist, besteht es aus null oder mehr durch Leerzeichen getrennte Suchbegriffe. Jeder Suchbegriff stimmt überein, wenn er ein Substring in der URL oder dem Titel des Lesezeichens ist. Die Übereinstimmung ist nicht case-sensitiv. Damit ein Lesezeichen der Abfrage entspricht, müssen alle Suchbegriffe der Abfrage übereinstimmen.
 
-    Wenn `query` ein **object** ist, besteht es aus null oder mehr der 3 Eigenschaften: `query`, `title` und `url`, die unten beschrieben sind. Damit ein Lesezeichen mit der Abfrage übereinstimmt, müssen alle Begriffe der Eigenschaften erfüllt sein.
+    Wenn `query` ein **object** ist, besteht es aus null oder mehr der 3 Eigenschaften: `query`, `title` und `url`, die unten beschrieben sind. Damit ein Lesezeichen der Abfrage entspricht, müssen alle Begriffe der Eigenschaften übereinstimmen.
 
     - `query` {{optional_inline}}
-      - : Ein {{jsxref("string")}}, der einen oder mehrere Begriffe zum Abgleich angibt; das Format ist identisch mit der string-Form des `query`-Parameters. Wenn dies kein string ist, wird eine Ausnahme ausgelöst.
+      - : Ein {{jsxref("string")}}, das ein oder mehrere Begriffe angibt, die abgeglichen werden sollen; das Format ist identisch mit der String-Form des `query`-Parameters. Wenn dies kein String ist, wird eine Ausnahme ausgelöst.
     - `url` {{optional_inline}}
 
-      - : Ein {{jsxref("string")}}, der genau mit der URL des Lesezeichens übereinstimmen muss. Die Übereinstimmung erfolgt ohne Berücksichtigung der Groß-/Kleinschreibung, und abschließende Schrägstriche werden ignoriert.
+      - : Ein {{jsxref("string")}}, das genau mit der URL des Lesezeichens übereinstimmen muss. Die Übereinstimmung ist nicht case-sensitiv, und abschließende Schrägstriche werden ignoriert.
 
         Wenn Sie eine ungültige URL übergeben, wird die Funktion eine Ausnahme auslösen.
 
     - `title` {{optional_inline}}
-      - : Ein {{jsxref("string")}}, der genau mit dem Titel des Lesezeichenelements übereinstimmen muss. Die Übereinstimmung erfolgt mit Berücksichtigung der Groß-/Kleinschreibung.
+      - : Ein {{jsxref("string")}}, das genau mit dem Titel des Lesezeichen-Baumknotens übereinstimmen muss. Die Übereinstimmung ist case-sensitiv.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}} Objekten erfüllt wird, die jeweils ein einzelnes übereinstimmendes Lesezeichenelement darstellen. Die Ergebnisse werden in der Reihenfolge zurückgegeben, in der die Knoten erstellt wurden. Das Array ist leer, wenn keine Ergebnisse gefunden wurden.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}}-Objekten erfüllt wird, wobei jedes Objekt einen einzelnen übereinstimmenden Lesezeichen-Baumknoten darstellt. Die Ergebnisse werden in der Reihenfolge zurückgegeben, in der die Knoten erstellt wurden. Das Array ist leer, wenn keine Ergebnisse gefunden wurden.
 
-Die [`BookmarkTreeNodes`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) — selbst Knoten vom Typ `"folder"` — die von `bookmarks.search()` zurückgegeben werden, fehlen die `children`-Eigenschaft. Um ein vollständiges `BookmarkTreeNode` zu erhalten, verwenden Sie [`bookmarks.getSubTree()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/getSubTree).
+Die von `bookmarks.search()` zurückgegebenen [`BookmarkTreeNodes`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) – selbst Knoten des Typs `"folder"` – fehlen die `children`-Eigenschaft. Um einen vollständigen `BookmarkTreeNode` zu erhalten, verwenden Sie [`bookmarks.getSubTree()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/getSubTree).
 
 ## Beispiel
 
@@ -66,7 +66,7 @@ function onRejected(error) {
 browser.bookmarks.search({}).then(onFulfilled, onRejected);
 ```
 
-Dieses Beispiel überprüft, ob der aktuell aktive Tab ein Lesezeichen ist:
+Dieses Beispiel prüft, ob der aktuell aktive Tab ein Lesezeichen ist:
 
 ```js
 function onFulfilled(bookmarkItems) {
@@ -95,4 +95,4 @@ browser.browserAction.onClicked.addListener(checkActiveTab);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-search) API. Diese Dokumentation stammt von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-search) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.

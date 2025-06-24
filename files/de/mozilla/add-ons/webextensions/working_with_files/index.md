@@ -2,84 +2,82 @@
 title: Arbeiten mit Dateien
 slug: Mozilla/Add-ons/WebExtensions/Working_with_files
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ihre Browser-Erweiterung muss möglicherweise mit Dateien arbeiten, um ihre volle Funktionalität bereitzustellen. Dieser Artikel behandelt die fünf Mechanismen, die Sie zum Umgang mit Dateien haben:
+Ihre Browsererweiterung benötigt möglicherweise den Umgang mit Dateien, um ihre volle Funktionalität zu entfalten. Dieser Artikel beschäftigt sich mit den fünf Mechanismen, die Sie zur Handhabung von Dateien haben:
 
-- Herunterladen von Dateien in den vom Benutzer ausgewählten Download-Ordner.
-- Öffnen von Dateien mittels eines Dateiauswahlers auf einer Webseite.
-- Öffnen von Dateien durch Drag-and-Drop auf eine Webseite.
-- Lokales Speichern von Dateien oder Blobs mit IndexedDB unter Verwendung der idb-file-storage-Bibliothek.
+- Herunterladen von Dateien in den vom Benutzer gewählten Download-Ordner.
+- Öffnen von Dateien über einen Dateiauswähler auf einer Webseite.
+- Öffnen von Dateien durch Drag & Drop auf eine Webseite.
+- Speichern von Dateien oder Blobs lokal mit IndexedDB unter Verwendung der `idb-file-storage`-Bibliothek.
 - Übergeben von Dateien an eine native Anwendung auf dem Computer des Benutzers.
 
-Für jeden dieser Mechanismen führen wir deren Verwendung mit Verweisen auf die relevante API-Dokumentation, Leitfäden und Beispiele ein, die zeigen, wie die API verwendet wird.
+Für jeden dieser Mechanismen führen wir in ihre Nutzung ein und verweisen auf die relevante API-Dokumentation, Leitfäden und mögliche Beispiele, die zeigen, wie die API verwendet wird.
 
-## Dateien mit der Downloads-API herunterladen
+## Dateien herunterladen mithilfe der Downloads-API
 
-Dieser Mechanismus ermöglicht es Ihnen, eine Datei von Ihrer Webseite (oder einem beliebigen als URL definierbaren Ort) auf den Computer des Benutzers zu übertragen. Die Hauptmethode ist {{WebExtAPIRef("downloads.download()")}}, die in ihrer einfachsten Form eine URL akzeptiert und die Datei von dieser URL in den Standard-Download-Ordner des Benutzers herunterlädt:
+Dieser Mechanismus ermöglicht es Ihnen, eine Datei von Ihrer Website (oder einem beliebigen Ort, den Sie als URL definieren können) auf den Computer des Benutzers zu erhalten. Die zentrale Methode ist {{WebExtAPIRef("downloads.download()")}}, die in ihrer einfachsten Form eine URL akzeptiert und die Datei von dieser URL in den Standard-Download-Ordner des Benutzers herunterlädt:
 
 ```js
 browser.downloads.download({ url: "https://example.org/image.png" });
 ```
 
-Sie können dem Benutzer erlauben, an einen anderen Ort herunterzuladen, indem Sie den Parameter `saveAs` angeben.
+Sie können dem Benutzer das Herunterladen an einen von ihm gewählten Ort ermöglichen, indem Sie den `saveAs`-Parameter angeben.
 
 > [!NOTE]
-> Mit [URL.createObjectURL()](/de/docs/Web/API/URL/createObjectURL_static) können Sie auch Dateien und Blobs herunterladen, die in Ihrem JavaScript definiert sind, einschließlich lokaler Inhalte, die aus IndexedDB abgerufen wurden.
+> Mit [URL.createObjectURL()](/de/docs/Web/API/URL/createObjectURL_static) können Sie auch Dateien und Blobs herunterladen, die in Ihrem JavaScript definiert sind, einschließlich lokaler Inhalte, die aus dem IndexedDB abgerufen werden.
 
-Die Downloads-API bietet außerdem Funktionen zum Abbrechen, Anhalten, Fortsetzen, Löschen und Entfernen von Downloads; Suchen nach heruntergeladenen Dateien im Download-Manager; Anzeigen heruntergeladener Dateien im Datei-Manager des Computers und Öffnen einer Datei in einer zugehörigen Anwendung.
+Die Downloads-API bietet auch Funktionen zum Abbrechen, Anhalten, Fortsetzen, Löschen und Entfernen von Downloads; zum Suchen nach heruntergeladenen Dateien im Download-Manager; zum Anzeigen heruntergeladener Dateien im Dateimanager des Computers und zum Öffnen einer Datei in einer zugeordneten Anwendung.
 
-Um diese API zu verwenden, müssen Sie die `"downloads"` [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei spezifiziert haben.
+Um diese API zu verwenden, müssen Sie die Berechtigung `"downloads"` [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei angeben.
 
-Beispiel: [Aktuellster Download](https://github.com/mdn/webextensions-examples/tree/main/latest-download)
-API-Referenz: [downloads API](/de/docs/Mozilla/Add-ons/WebExtensions/API/downloads)
+Beispiel: [Neuester Download](https://github.com/mdn/webextensions-examples/tree/main/latest-download)
+API-Referenz: [Downloads API](/de/docs/Mozilla/Add-ons/WebExtensions/API/downloads)
 
 ## Dateien in einer Erweiterung mit einem Dateiauswähler öffnen
 
-Wenn Sie mit einer Datei vom Computer des Benutzers arbeiten möchten, besteht eine Möglichkeit darin, dem Benutzer die Auswahl einer Datei mithilfe des Datei-Browsers des Computers zu ermöglichen. Erstellen Sie entweder eine neue Seite oder injizieren Sie Code in eine vorhandene Seite, um dem Benutzer mit dem `file`-Typ des HTML-`input`-Elements einen Dateiauswähler anzubieten. Sobald der Benutzer eine Datei oder Dateien ausgewählt hat, kann das mit der Seite verbundene Skript auf den Inhalt der Datei mit der [DOM File API](/de/docs/Web/API/File) zugreifen, genauso wie es eine Webanwendung tut.
+Wenn Sie mit einer Datei vom Computer des Benutzers arbeiten möchten, besteht eine Möglichkeit darin, dem Benutzer zu erlauben, eine Datei über den Dateibrowser des Computers auszuwählen. Erstellen Sie entweder eine neue Seite oder injizieren Sie Code in eine bestehende Seite, um das `file`-Attribut des HTML `input`-Elements zu verwenden und dem Benutzer einen Dateiauswähler anzubieten. Sobald der Benutzer eine Datei oder Dateien ausgewählt hat, kann das der Seite zugeordnete Skript auf den Inhalt der Datei mit der [DOM File API](/de/docs/Web/API/File) zugreifen, ähnlich wie es eine Webanwendung tut.
 
 Beispiel: [Imagify](https://github.com/mdn/webextensions-examples/tree/main/imagify)
-Leitfaden: [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
+Leitfaden: [Verwendung von Dateien in Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
 API-Referenzen: [HTML input Element](/de/docs/Web/HTML/Reference/Elements/input/file) | [DOM File API](/de/docs/Web/API/File)
 
 > [!NOTE]
-> Wenn Sie auf alle Dateien in einem ausgewählten Ordner zugreifen oder diese verarbeiten möchten, können Sie dies tun mit `<input type="file" webkitdirectory="true"/>`, um den Ordner auszuwählen und alle darin enthaltenen Dateien zurückzugeben.
+> Wenn Sie auf alle Dateien in einem ausgewählten Ordner zugreifen oder diese bearbeiten möchten, können Sie dies tun, indem Sie `<input type="file" webkitdirectory="true"/>` verwenden, um den Ordner auszuwählen und alle darin enthaltenen Dateien zurückzugeben.
 
-## Dateien in einer Erweiterung mit Drag-and-Drop öffnen
+## Dateien in einer Erweiterung mit Drag & Drop öffnen
 
-Die Web Drag and Drop API bietet eine Alternative zur Verwendung eines Dateiauswählers. Um diese Methode zu nutzen, richten Sie eine 'Drop-Zone' ein, die zu Ihrer Benutzeroberfläche passt, und fügen Sie dann den Elementen Listener für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event), [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisse hinzu. Im Handler für das Drop-Ereignis kann Ihr Code auf jede vom Benutzer abgeworfene Datei aus dem von der `dataTransfer`-Eigenschaft bereitgestellten Objekt mit [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) zugreifen. Ihr Code kann dann die Dateien mit der [DOM File API](/de/docs/Web/API/File) zugreifen und manipulieren.
+Die Web Drag and Drop API bietet eine Alternative zur Verwendung eines Dateiauswählers. Um diese Methode zu verwenden, erstellen Sie eine "Drop-Zone", die zu Ihrer Benutzeroberfläche passt, und fügen Sie dann Listener für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event), [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisse zu dem Element hinzu. In der Handler-Funktion für das Drop-Ereignis kann Ihr Code auf jede vom Benutzer fallengelassene Datei aus dem Objekt zugreifen, das durch die `dataTransfer`-Eigenschaft bereitgestellt wird, und die Dateien mit [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) zugreifen. Ihr Code kann dann die Dateien mit der [DOM File API](/de/docs/Web/API/File) bearbeiten.
 
 Beispiel: [Imagify](https://github.com/mdn/webextensions-examples/tree/main/imagify)
-Leitfäden: [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications) | [Drag-and-Drop von Dateien](/de/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop)
+Leitfäden: [Verwendung von Dateien in Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications) | [Datei Drag & Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop)
 API-Referenzen: [DOM File API](/de/docs/Web/API/File)
 
-## Dateidaten lokal mit der IndexedDB-Dateispeicherbibliothek speichern
+## Dateien lokal speichern mit der IndexedDB File Storage Library
 
-Wenn Ihre Erweiterung Dateien lokal speichern muss, bietet die [idb-file-storage-Bibliothek](https://www.npmjs.com/package/idb-file-storage) eine einfache, auf Promises basierende Hülle für die [IndexedDB API](/de/docs/Web/API/IndexedDB_API), die die Speicherung und den Abruf von Dateien und Blobs unterstützt.
+Wenn Ihre Erweiterung Dateien lokal speichern muss, bietet die [idb-file-storage Bibliothek](https://www.npmjs.com/package/idb-file-storage) eine einfache, auf Promises basierende Wrapper-Bibliothek für die [IndexedDB API](/de/docs/Web/API/IndexedDB_API), um das Speichern und Abrufen von Dateien und Blobs zu erleichtern.
 
 Die Hauptmerkmale der Bibliothek sind:
 
 - [getFileStorage](https://rpl.github.io/idb-file-storage/function/index.html#static-function-getFileStorage)
-  - : Gibt eine `IDBFileStorage`-Instanz zurück und erstellt den benannten Speicher, falls dieser nicht existiert.
+  - : Gibt eine `IDBFileStorage`-Instanz zurück, die den benannten Speicher erstellt, falls dieser nicht existiert.
 - [IDBFileStorage](https://rpl.github.io/idb-file-storage/class/src/idb-file-storage.js~IDBFileStorage.html)
+  - : Bietet die Methoden zum Speichern und Abrufen von Dateien, wie:
+    - list, um eine optional gefilterte Liste von Dateien in der Datenbank zu erhalten.
+    - put, um eine Datei oder ein Blob in der Datenbank hinzuzufügen.
+    - get, um eine Datei oder ein Blob aus der Datenbank abzurufen.
+    - remove, um eine Datei oder ein Blob aus der Datenbank zu löschen.
 
-  - : Bietet Methoden zum Speichern und Abrufen von Dateien, wie:
+Das [Store Collected Images](https://github.com/mdn/webextensions-examples/tree/main/store-collected-images/webextension-plain) Beispiel veranschaulicht, wie die meisten dieser Funktionen genutzt werden.
 
-    - list um eine optional gefilterte Liste von Dateien in der Datenbank zu erhalten.
-    - put um eine Datei oder Blob in der Datenbank hinzuzufügen.
-    - get um eine Datei oder Blob aus der Datenbank abzurufen.
-    - remove um eine Datei oder Blob aus der Datenbank zu löschen.
+Das Store Collected Images Beispiel lässt Benutzer Bilder zu einer Sammlung hinzufügen, indem eine Option im Bildkontextmenü verwendet wird. Ausgewählte Bilder werden in einem Popup gesammelt und können in einer benannten Sammlung gespeichert werden. Eine Symbolleisten-Schaltfläche ({{WebExtAPIRef("browserAction")}}) öffnet eine Navigationsseite der Sammlung, auf der der Benutzer gespeicherte Bilder anzeigen und löschen kann, mit einer Filteroption zur Eingrenzung der Auswahl. [Sehen Sie das Beispiel in Aktion](https://www.youtube.com/watch?v=t6aVqMMe2Rc&ab_channel=LucaGreco).
 
-Das [Store Collected Images](https://github.com/mdn/webextensions-examples/tree/main/store-collected-images/webextension-plain) Beispiel zeigt, wie die meisten dieser Funktionen verwendet werden.
+Das Funktionieren der Bibliothek kann durch das Betrachten von [image-store.js](https://github.com/mdn/webextensions-examples/blob/main/store-collected-images/webextension-plain/utils/image-store.js) in /utils/ verstanden werden:
 
-Das Store Collected Images Beispiel erlaubt es Benutzern, Bilder zu einer Sammlung hinzuzufügen, indem sie eine Option im Bildkontextmenü verwenden. Ausgewählte Bilder werden in einem Popup gesammelt und können in einer benannten Sammlung gespeichert werden. Eine Toolbar-Schaltfläche ({{WebExtAPIRef("browserAction")}}) öffnet eine Navigationsseite, auf der der Benutzer gespeicherte Bilder ansehen und löschen kann, mit einer Filteroption, um die Auswahl einzugrenzen. [Sehen Sie das Beispiel in Aktion](https://www.youtube.com/watch?v=t6aVqMMe2Rc&ab_channel=LucaGreco).
-
-Das Funktionieren der Bibliothek kann durch Betrachten von [image-store.js](https://github.com/mdn/webextensions-examples/blob/main/store-collected-images/webextension-plain/utils/image-store.js) in /utils/ verstanden werden:
-
-### Den Speicher erstellen und die Bilder speichern
+### Erstellen des Speichers und Speichern der Bilder
 
 ```js
 async function saveCollectedBlobs(collectionName, collectedBlobs) {
@@ -93,11 +91,11 @@ async function saveCollectedBlobs(collectionName, collectedBlobs) {
 
 `saveCollectedBlobs` wird aufgerufen, wenn der Benutzer im Popup auf Speichern klickt und einen Namen für die Bildersammlung angegeben hat.
 
-Zuerst erstellt `getFileStorage`, falls es nicht bereits existiert, die IndexedDB-Datenbank `"stored-images"` zum Objekt `storedImages`. `storedImages.put()` fügt dann jedes gesammelte Bild unter dem Sammlungsnamen mit der eindeutigen ID des Blobs (dem Dateinamen) zur Datenbank hinzu.
+Zunächst erstellt oder ruft `getFileStorage`, falls es noch nicht existiert, die IndexedDB-Datenbank `"stored-images"` zum Objekt `storedImages` ab. `storedImages.put()` fügt dann jedes gesammelte Bild unter dem Sammlungsnamen in die Datenbank hinzu, wobei die eindeutige Blob-ID (der Dateiname) verwendet wird.
 
-Wenn das zu speichernde Bild denselben Namen hat wie eines, das sich bereits in der Datenbank befindet, wird es überschrieben. Wenn Sie dies vermeiden möchten, fragen Sie die Datenbank zuerst mit `imagesStore.list()` ab und verwenden Sie einen Filter für den Dateinamen. Wenn die Liste eine Datei zurückgibt, fügen Sie dem Namen des neuen Bildes, das Sie speichern möchten, einen geeigneten Suffix hinzu, um ein separates Element zu speichern.
+Wenn das gespeicherte Bild denselben Namen wie ein bereits in der Datenbank vorhandenes Bild hat, wird es überschrieben. Wenn Sie dies vermeiden möchten, fragen Sie zunächst die Datenbank mit `imagesStore.list()` unter Verwendung eines Filters für den Dateinamen ab; und, wenn die Liste eine Datei zurückgibt, fügen Sie einen geeigneten Suffix zum Namen des neuen Bildes hinzu, um ein separates Element zu speichern.
 
-### Gespeicherte Bilder zur Anzeige abrufen
+### Abrufen gespeicherter Bilder zur Anzeige
 
 ```js
 export async function loadStoredImages(filter) {
@@ -113,9 +111,9 @@ export async function loadStoredImages(filter) {
 }
 ```
 
-`loadStoredImages()` wird aufgerufen, wenn der Benutzer in der Navigationsseite die Ansicht oder das Nachladen klickt. `getFileStorage()` öffnet die `"stored-images"`-Datenbank und `imagesStore.list()` erhält eine gefilterte Liste der gespeicherten Bilder. Diese Liste wird dann verwendet, um Bilder mit `imagesStore.get()` abzurufen und eine Liste zur Rückgabe an die Benutzeroberfläche zu erstellen.
+`loadStoredImages()` wird aufgerufen, wenn der Benutzer in der Navigationsseite der Sammlung auf Anzeigen oder Neu laden klickt. `getFileStorage()` öffnet die `"stored-images"` Datenbank, dann erhält `imagesStore.list()` eine gefilterte Liste der gespeicherten Bilder. Diese Liste wird dann verwendet, um Bilder mit `imagesStore.get()` abzurufen und eine Liste zur Rückgabe an die Benutzeroberfläche zu erstellen.
 
-Beachten Sie die Verwendung von [`URL.createObjectURL(blob)`](/de/docs/Web/API/URL/createObjectURL_static), um eine URL zu erstellen, die auf das Bild-Blob verweist. Diese URL wird dann in der Benutzeroberfläche ([navigate-collection.js](https://github.com/mdn/webextensions-examples/blob/main/store-collected-images/webextension-plain/navigate-collection.js)) verwendet, um das Bild anzuzeigen.
+Beachten Sie die Verwendung von [`URL.createObjectURL(blob)`](/de/docs/Web/API/URL/createObjectURL_static), um eine URL zu erstellen, die das Bild-Blob referenziert. Diese URL wird dann in der Benutzeroberfläche ([navigate-collection.js](https://github.com/mdn/webextensions-examples/blob/main/store-collected-images/webextension-plain/navigate-collection.js)) verwendet, um das Bild anzuzeigen.
 
 ### Gesammelte Bilder löschen
 
@@ -129,33 +127,33 @@ async function removeStoredImages(storedImages) {
 }
 ```
 
-`removeStoredImages()` wird aufgerufen, wenn der Benutzer in der Navigationsseite auf Löschen klickt. Erneut öffnet `getFileStorage()` die `"stored-images"`-Datenbank und `imagesStore.remove()` entfernt jedes Bild aus der gefilterten Liste der Bilder.
+`removeStoredImages()` wird aufgerufen, wenn der Benutzer in der Navigationsseite der Sammlung auf Löschen klickt. Wiederum öffnet `getFileStorage()` die `"stored-images"` Datenbank, dann entfernt `imagesStore.remove()` jedes Bild aus der gefilterten Liste der Bilder.
 
-Beachten Sie die Verwendung von [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um die Blob-URL explizit zu widerrufen. Dies ermöglicht es dem Garbage Collector, den der URL zugewiesenen Speicherplatz freizugeben. Wenn dies nicht getan wird, wird der Speicher erst zurückgegeben, wenn die Seite, auf der er erstellt wurde, geschlossen wird. Falls die URL auf einer Hintergrundseite einer Erweiterung erstellt wurde, wird diese nicht entladen, bis die Erweiterung deaktiviert, deinstalliert oder neu geladen wird. Das unnötige Halten dieses Speichers könnte die Browserleistung beeinträchtigen. Wird die URL auf einer Seite der Erweiterung erstellt (neuer Tab, Popup oder Sidebar), wird der Speicherplatz freigegeben, wenn die Seite geschlossen wird, aber es ist trotzdem eine gute Praxis, die URL zu widerrufen, wenn sie nicht mehr benötigt wird.
+Beachten Sie die Verwendung von [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um die Blob-URL explizit zu widerrufen. Dies ermöglicht es dem Garbage Collector, den der URL zugewiesenen Speicher freizugeben. Wenn dies nicht getan wird, wird der Speicher erst zurückgegeben, wenn die Seite, auf der er erstellt wurde, geschlossen wird. Wenn die URL auf der Hintergrundseite einer Erweiterung erstellt wurde, wird diese erst entladen, wenn die Erweiterung deaktiviert, deinstalliert oder neu geladen wird, sodass ein unnötiges Behalten dieses Speichers die Browserleistung beeinträchtigen könnte. Wenn die URL auf einer Seite der Erweiterung (neuer Tab, Popup oder Sidebar) erstellt wird, wird der Speicher freigegeben, wenn die Seite geschlossen wird, aber es ist trotzdem eine gute Praxis, die URL zu widerrufen, wenn sie nicht mehr benötigt wird.
 
-Sobald die Blob-URL widerrufen wurde, wird jeder Versuch, sie zu laden, zu einem Fehler führen. Beispielsweise, wenn die Blob-URL als `SRC`-Attribut eines `IMG`-Tags verwendet wurde, wird das Bild nicht geladen und nicht sichtbar. Daher ist es eine gute Praxis, alle widerrufenen Blob-URLs aus generierten HTML-Elementen zu entfernen, wenn die Blob-URL widerrufen wird.
+Sobald die Blob-URL widerrufen wurde, führt jeder Versuch, sie zu laden, zu einem Fehler. Wenn die Blob-URL beispielsweise als `SRC`-Attribut einer `IMG`-Marke verwendet wurde, wird das Bild nicht geladen und nicht sichtbar sein. Es ist daher eine gute Praxis, alle widerrufenen Blob-URLs aus generierten HTML-Elementen zu entfernen, wenn die Blob-URL widerrufen wird.
 
 Beispiel: [Store Collected Images](https://github.com/mdn/webextensions-examples/tree/main/store-collected-images/webextension-plain)
-API-Referenzen: [idb-file-storage Bibliothek](https://rpl.github.io/idb-file-storage/)
+API-Referenzen: [idb-file-storage-Bibliothek](https://rpl.github.io/idb-file-storage/)
 
 > [!NOTE]
-> Sie können auch die vollständige Web [IndexedDB API](/de/docs/Web/API/IndexedDB_API) verwenden, um Daten von Ihrer Erweiterung zu speichern. Dies kann nützlich sein, wenn Sie Daten speichern müssen, die nicht gut durch die einfachen Schlüssel/Wert-Paare der DOM [Storage API](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) verarbeitet werden.
+> Sie können auch die gesamte Web [IndexedDB API](/de/docs/Web/API/IndexedDB_API) verwenden, um Daten aus Ihrer Erweiterung zu speichern. Dies kann nützlich sein, wenn Sie Daten speichern müssen, die nicht gut durch die einfachen Schlüssel/Wert-Paare der DOM [Storage API](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) behandelt werden.
 
 ## Dateien in einer lokalen App verarbeiten
 
-Wenn Sie über eine native App verfügen oder zusätzliche native Funktionen zur Datei-Prozessierung bereitstellen möchten, verwenden Sie die native Messaging, um eine Datei zur Verarbeitung an eine native App zu übergeben.
+Wenn Sie eine native App haben oder zusätzliche native Funktionen zur Dateiverarbeitung bereitstellen möchten, verwenden Sie native Messaging, um eine Datei zur Verarbeitung an eine native App zu übergeben.
 
 Sie haben zwei Möglichkeiten:
 
-- Verbindungsbasiertes Messaging
-  - : Hierbei lösen Sie den Prozess mit `runtime.connectNative()` aus, das ein [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port) Objekt zurückgibt. Sie können dann eine JSON-Nachricht mit der `postMessage()`-Funktion von `Port` an die native Anwendung senden. Mit der Funktion `onMessage.addListener()` von `Port` können Sie Nachrichten von der nativen Anwendung empfangen. Die native Anwendung wird geöffnet, wenn sie nicht ausgeführt wird, wenn `runtime.connectNative()` aufgerufen wird und die Anwendung weiterhin läuft, bis die Erweiterung `Port.disconnect()` aufruft oder die Seite, die sie verbunden hat, geschlossen wird.
-- Verbindungsfreies Messaging
-  - : Hierbei verwenden Sie `runtime.sendNativeMessage()`, um eine JSON-Nachricht an eine neue, temporäre Instanz der nativen Anwendung zu senden. Der Browser schließt die native Anwendung, nachdem er eine Nachricht von der nativen Anwendung empfangen hat.
+- Mit Verbindungen basierende Nachrichten
+  - : Hier starten Sie den Prozess mit `runtime.connectNative()`, das ein [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt zurückgibt. Sie können dann eine JSON-Nachricht an die native Anwendung mit der Funktion `postMessage()` von `Port` übergeben. Mit der `onMessage.addListener()` Funktion von `Port` können Sie Nachrichten von der nativen Anwendung empfangen. Die native Anwendung wird geöffnet, wenn sie nicht läuft, wenn `runtime.connectNative()` aufgerufen wird, und die Anwendung bleibt so lange geöffnet, bis die Erweiterung `Port.disconnect()` aufruft oder die Seite, die damit verbunden ist, geschlossen wird.
+- Verbindungsloses Messaging
+  - : Hier verwenden Sie `runtime.sendNativeMessage()`, um eine JSON-Nachricht an eine neue, temporäre Instanz der nativen Anwendung zu senden. Der Browser schließt die native Anwendung, nachdem er eine Nachricht von der nativen Anwendung empfängt.
 
-Um die Datei oder das Blob hinzuzufügen, das die native Anwendung verarbeiten soll, verwenden Sie [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+Um die Datei oder das Blob hinzuzufügen, das von der nativen Anwendung verarbeitet werden soll, verwenden Sie [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
 
-Um diese Methode zu verwenden, muss die Erweiterung die `"nativeMessaging"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [optionale Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) in ihrer `manifest.json` Datei anfordern. Wenn eine optionale Berechtigung verwendet wird, denken Sie daran, zu überprüfen, ob die Berechtigung erteilt wurde und bei Bedarf die Berechtigung mit der {{WebExtAPIRef("permissions")}} API vom Benutzer anzufordern. Gegenseitig muss die native Anwendung der Erweiterung die Berechtigung erteilen, indem sie ihre ID im `"allowed_extensions"`-Feld des App-Manifests einfügt.
+Um diese Methode zu verwenden, muss die Erweiterung die Berechtigung `"nativeMessaging"` [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [optionale Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) in ihrer `manifest.json` Datei anfordern. Wenn optionale Berechtigung verwendet wird, denken Sie daran, zu prüfen, ob die Berechtigung erteilt wurde und gegebenenfalls um eine Berechtigung vom Benutzer mit der {{WebExtAPIRef("permissions")}} API zu bitten. Gegenseitig muss die native Anwendung der Erweiterung die Berechtigung erteilen, indem sie ihre ID im Feld `"allowed_extensions"` des App-Manifests einfügt.
 
-Beispiel: [Native Messaging](https://github.com/mdn/webextensions-examples/tree/main/native-messaging) (zeigt nur einfaches Messaging)
-Leitfäden: [Native messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging)
-API-Referenzen: [runtime API](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime)
+Beispiel: [Native Messaging](https://github.com/mdn/webextensions-examples/tree/main/native-messaging) (veranschaulicht nur einfaches Messaging)
+Leitfäden: [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging)
+API-Referenzen: [Runtime API](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime)

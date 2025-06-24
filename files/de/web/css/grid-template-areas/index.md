@@ -2,12 +2,12 @@
 title: grid-template-areas
 slug: Web/CSS/grid-template-areas
 l10n:
-  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft **`grid-template-areas`** gibt benannte {{Glossary("grid_areas", "Rasterbereiche")}} an, definiert die Zellen im Raster und weist ihnen Namen zu.
+Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert benannte {{Glossary("grid_areas", "Gitterbereiche")}}, indem sie die Zellen im Gitter festlegt und ihnen Namen zuweist.
 
 {{InteractiveExample("CSS Demo: grid-template-areas")}}
 
@@ -73,7 +73,7 @@ grid-template-areas:
 }
 ```
 
-Diese Bereiche sind mit keinem bestimmten Rasterelement verbunden, können jedoch von den Rasterplatzierungs-Eigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
+Diese Bereiche sind keinem bestimmten Gitterelement zugeordnet, können jedoch über die Gitter-Platzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 ## Syntax
 
@@ -98,12 +98,12 @@ grid-template-areas: unset;
 ### Werte
 
 - `none`
-  - : Der Rasterbehälter definiert keine benannten Rasterbereiche.
+  - : Der Gitter-Container definiert keine benannten Gitterbereiche.
 - {{cssxref("&lt;string&gt;")}}
 
-  - : Für jede separate Zeichenkette wird eine Reihe erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Token mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzelnen benannten Rasterbereich, der sich über die entsprechenden Rasterzellen erstreckt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
+  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit dem gleichen Namen innerhalb und zwischen Zeilen erzeugen einen einzigen benannten Gitterbereich, der die entsprechenden Gitterzellen überspannt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-    Alle restlichen unbenannten Bereiche in einem Raster können mit _Null-Zellen-Token_ referenziert werden. Ein Null-Zellen-Token ist eine Folge von einem oder mehreren `.` (U+002E VOLLSTANDPUNKT) Zeichen, z.B. `.`, `...`, oder `.....` usw. Ein Null-Zellen-Token kann verwendet werden, um leere Bereiche im Raster zu erstellen.
+    Alle übrigen unbenannten Bereiche in einem Gitter können mithilfe von _Null-Zellen-Tokens_ referenziert werden. Ein Null-Zellen-Token ist eine Folge eines oder mehrerer `.` (U+002E FULL STOP) Zeichen, z.B., `.`, `...` oder `.....` usw. Ein Null-Zellen-Token kann verwendet werden, um leere Räume im Gitter zu schaffen.
 
 ## Formale Definition
 
@@ -115,7 +115,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Rasterbereiche angeben
+### Benannte Gitterbereiche spezifizieren
 
 #### HTML
 
@@ -164,7 +164,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Rasterbehälter zu erstellen, den wir verwendet haben, um einen leeren Bereich in der unteren linken Ecke des Rasters zu erstellen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Gitter-Container zu erstellen, den wir benutzt haben, um einen leeren Raum in der unteren linken Ecke des Gitters zu erzeugen.
 
 #### Ergebnis
 
@@ -183,5 +183,5 @@ Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereic
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template")}}
-- [Rastervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- Video: [Rastervorlagenbereiche](https://gridbyexample.com/video/grid-template-areas/)
+- [Grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- Video: [Grid template areas](https://gridbyexample.com/video/grid-template-areas/)

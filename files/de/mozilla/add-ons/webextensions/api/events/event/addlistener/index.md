@@ -2,12 +2,12 @@
 title: Event.addListener()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/addListener
 l10n:
-  sourceCommit: 8bcd10489059539a341f82985eac9f1115e87483
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Registriert einen Ereignis-Listener-Callback zu einem Ereignis.
+Registriert einen Ereignis-Listener-Callback für ein Ereignis.
 
 ## Syntax
 
@@ -18,15 +18,14 @@ events.Event.addListener(listener)
 ### Parameter
 
 - `listener`
-
-  - : Funktion, die aufgerufen wird, wenn das Ereignis auftritt. Die Parameter dieser Funktion hängen von der Art des Ereignisses ab.
+  - : Funktion, die aufgerufen wird, wenn das Ereignis eintritt. Die Parameter dieser Funktion hängen vom Ereignistyp ab.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addListener) API. Diese Dokumentation ist aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addListener) API von Chromium. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

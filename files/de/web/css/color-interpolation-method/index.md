@@ -2,18 +2,18 @@
 title: <color-interpolation-method>
 slug: Web/CSS/color-interpolation-method
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Der **`<color-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert den {{Glossary("Color_space", "Farbraum")}}, der zur Interpolation zwischen {{CSSXref("&lt;color&gt;")}}-Werten verwendet wird. Es kann verwendet werden, um den Standard-Interpolations-Farbraum für farbbezogene funktionale Notationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
+Der **`<color-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert den {{Glossary("Color_space", "Farbraum")}}, der für die Interpolation zwischen {{CSSXref("&lt;color&gt;")}} Werten verwendet wird. Er kann verwendet werden, um den Standard-Farbraum für die Interpolation bei farbbezogenen funktionalen Notationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
 
-Bei der Interpolation von `<color>`-Werten ist der Standard-Interpolations-Farbraum Oklab.
+Bei der Interpolation von `<color>` Werten ist der Standard-Farbraum für die Interpolation Oklab.
 
 ## Syntax
 
-Das `<color-interpolation-method>` gibt an, ob eine rechteckige oder ein polarer Farbraum mit einer optionalen Methode zur Farbtoninterpolation verwendet werden soll:
+Der `<color-interpolation-method>` gibt an, ob die Interpolation einen rechteckigen Farbraum oder einen polaren Farbraum mit einer optionalen Methode zur Farbtoninterpolation verwenden soll:
 
 ```plain
 in <rectangular-color-space>
@@ -25,18 +25,18 @@ in <polar-color-space>[ <hue-interpolation method>]
 
 - `<rectangular-color-space>`
 
-  - : Einer der Schlüsselwörter `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `lab`, `oklab`, `xyz`, `xyz-d50` oder `xyz-d65`.
+  - : Eines der Schlüsselwörter `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `lab`, `oklab`, `xyz`, `xyz-d50` oder `xyz-d65`.
 
 - `<polar-color-space>`
 
-  - : Einer der Schlüsselwörter `hsl`, `hwb`, `lch` oder `oklch`.
+  - : Eines der Schlüsselwörter `hsl`, `hwb`, `lch` oder `oklch`.
 
 - {{CSSXref("&lt;hue-interpolation-method&gt;")}} {{optional_inline}}
 
-  - : Der Algorithmus zur Farbtoninterpolation. Standardmäßig wird `shorter hue` verwendet.
+  - : Der Algorithmus für die Farbtoninterpolation. Es wird standardmäßig `shorter hue` verwendet.
 
 - `<custom-color-space>`
-  - : Ein [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident#using_with_color-profile), das auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/@color-profile) verweist.
+  - : Ein [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident#using_with_color-profile), der auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/@color-profile) verweist.
 
 ## Formale Syntax
 
@@ -44,9 +44,9 @@ in <polar-color-space>[ <hue-interpolation method>]
 
 ## Beispiele
 
-### Vergleich von Interpolations-Farbräumen mit Gradienten
+### Vergleich von Interpolationsfarbräumen mit Verläufen
 
-Das folgende Beispiel zeigt die Auswirkungen der Verwendung verschiedener Interpolations-Farbräume für {{CSSXref("gradient/linear-gradient", "linear-gradient()")}}.
+Das folgende Beispiel zeigt die Wirkung der Verwendung verschiedener Interpolationsfarbräume für {{CSSXref("gradient/linear-gradient", "linear-gradient()")}}.
 
 #### HTML
 
@@ -81,12 +81,12 @@ Das folgende Beispiel zeigt die Auswirkungen der Verwendung verschiedener Interp
 
 {{EmbedLiveSample("comparing_interpolation_color_spaces_using_gradients", "100%", 250)}}
 
-### Farbinterpolation in wiederholenden Gradienten
+### Farbinterpolation in wiederholten Verläufen
 
-Das folgende Beispiel zeigt, wie ein Farbraum bei der Farbinterpolation in wiederholenden Gradienten angegeben wird.
-Drei Kästchen zeigen unterschiedliche Arten von wiederholenden Gradienten unter Verwendung der Funktionen [`repeating-conic-gradient()`](/de/docs/Web/CSS/gradient/repeating-conic-gradient), [`repeating-linear-gradient()`](/de/docs/Web/CSS/gradient/repeating-linear-gradient) und [`repeating-radial-gradient()`](/de/docs/Web/CSS/gradient/repeating-radial-gradient).
-Das erste Kästchen verwendet den Lab-Farbraum, um zwischen zwei Farbwerten zu interpolieren.
-Das zweite und dritte Kästchen verwenden Oklch und geben zusätzlich eine [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method) an, um zu spezifizieren, wie zwischen Farbtonwerten interpoliert werden soll.
+Das folgende Beispiel zeigt, wie ein Farbraum für die Interpolation von Farben in wiederholten Verläufen angegeben wird.
+Drei Boxen zeigen verschiedene Arten von wiederholten Verläufen unter Verwendung der Funktionen [`repeating-conic-gradient()`](/de/docs/Web/CSS/gradient/repeating-conic-gradient), [`repeating-linear-gradient()`](/de/docs/Web/CSS/gradient/repeating-linear-gradient) und [`repeating-radial-gradient()`](/de/docs/Web/CSS/gradient/repeating-radial-gradient).
+Die erste Box verwendet den Lab-Farbraum, um zwischen zwei Farbwerten zu interpolieren.
+Die zweite und dritte Box verwenden Oklch und geben zusätzlich eine [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method) an, um zu spezifizieren, wie zwischen Farbtonwerten interpoliert werden soll.
 
 #### HTML
 
@@ -98,7 +98,7 @@ Das zweite und dritte Kästchen verwenden Oklch und geben zusätzlich eine [`<hu
 
 #### CSS
 
-Es wurden dieselben zwei Farben in jedem Gradienten verwendet, um die unterschiedlichen Effekte von [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method) und {{Glossary("color_space", "Farbraum")}} auf die Farbinterpolation in Gradienten zu demonstrieren.
+Wir haben in jedem Verlauf dieselben zwei Farben verwendet, um die unterschiedlichen Effekte der [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method) und des {{Glossary("color_space", "Farbraums")}} auf die Farbinterpolation in Verläufen zu demonstrieren.
 
 ```css hidden
 .gradient {
@@ -141,8 +141,8 @@ Es wurden dieselben zwei Farben in jedem Gradienten verwendet, um die unterschie
 
 {{EmbedLiveSample("hue_interpolation_in_repeating_gradients", "100%", 250)}}
 
-Der Vergleich des ersten und zweiten Kästchens zeigt den Unterschied bei der Interpolation zwischen zwei Farben in verschiedenen Farbräumen.
-Der Vergleich des zweiten und dritten Kästchens zeigt den Unterschied zwischen [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method)s, wobei der lineare Gradient die kürzere Methode (Standard) und der radiale Gradient die längere Methode verwendet.
+Der Vergleich der ersten und zweiten Box zeigt den Unterschied der Interpolation zwischen zwei Farben in verschiedenen Farbräumen.
+Der Vergleich der zweiten und dritten Box zeigt den Unterschied zwischen [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method)s, wobei der lineare Verlauf die kürzere Methode (Standard) und der radiale Verlauf die längere Methode verwendet.
 
 ## Spezifikationen
 

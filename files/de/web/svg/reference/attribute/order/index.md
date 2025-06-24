@@ -2,10 +2,10 @@
 title: order
 slug: Web/SVG/Reference/Attribute/order
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`order`**-Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}}-Element verwendet werden soll.
+Das **`order`** Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}} Element verwendet werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -44,7 +44,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -71,9 +71,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernelmatrix an. Die angegebenen Werte müssen {{cssxref("integer")}}s größer als null sein. Werte, die keine Ganzzahlen sind, werden abgeschnitten, d.h. auf den nächstgelegenen ganzzahligen Wert in Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Falls keine zweite Zahl angegeben wird, wird der Wert der ersten Zahl übernommen.
+  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernel-Matrix an. Die angegebenen Werte müssen {{cssxref("integer")}} größer als null sein. Werte, die keine ganzen Zahlen sind, werden abgeschnitten, d.h. sie werden auf den nächsten ganzzahligen Wert in Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie standardmäßig auf die erste Zahl gesetzt.
 
-    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu einer sehr hohen CPU-Auslastung führen und produzieren normalerweise keine Ergebnisse, die die Auswirkungen auf die Leistung rechtfertigen.
+    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu einem sehr hohen CPU-Aufwand führen und liefern in der Regel keine Ergebnisse, die den Einfluss auf die Leistung rechtfertigen.
 
 ## Spezifikationen
 

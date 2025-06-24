@@ -1,14 +1,14 @@
 ---
-title: "RTCRtpReceiver: Methode getContributingSources()"
+title: "RTCRtpReceiver: getContributingSources()-Methode"
 short-title: getContributingSources()
 slug: Web/API/RTCRtpReceiver/getContributingSources
 l10n:
-  sourceCommit: 9716100b38b40f0f2ee8b3bfa2c692958868c5a6
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebRTC API")}}
 
-Die **`getContributingSources()`** Methode der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) Schnittstelle gibt ein Array von Objekten zurück, die jeweils einem CSRC (Contributing Source) Identifikator entsprechen, der vom aktuellen `RTCRtpReceiver` in den letzten zehn Sekunden empfangen wurde.
+Die **`getContributingSources()`**-Methode der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Schnittstelle gibt ein Array von Objekten zurück, von denen jedes einem CSRC (Contributing Source) Identifier entspricht, der vom aktuellen `RTCRtpReceiver` in den letzten zehn Sekunden empfangen wurde.
 
 ## Syntax
 
@@ -27,27 +27,27 @@ Diese Objekte enthalten die folgenden Eigenschaften:
 
 - `audioLevel` {{optional_inline}}
 
-  - : Ein Gleitkommawert zwischen 0,0 und 1,0, der den Audiopegel im letzten vom beitragenden Quellcode wiedergegebenen RTP-Paket angibt.
+  - : Ein Gleitkommawert zwischen 0,0 und 1,0, der den Audiopegel im letzten von der beitragenden Quelle gespielten RTP-Paket angibt.
 
-    Der Wert befindet sich auf einer linearen Skala und ist in Einheiten von dBov oder Dezibel (Übersteuerung) definiert.
-    Dies ist die Amplitude im Verhältnis zu dem Punkt, an dem das Clipping des Audios beginnt.
-    Ein Wert von 1,0 repräsentiert 0 dBov (maximale Lautstärke), ein Wert von 0,0 repräsentiert Stille, und ein Wert von 0,5 repräsentiert ungefähr eine Änderung des Schalldruckpegels von 6 dB SPL (Dezibel des Schalldruckpegels) gegenüber 0 dBov.
+    Der Wert ist auf einer linearen Skala und wird in Einheiten von dBov oder Dezibel (Übersteuerung) definiert.
+    Dies ist die Amplitude relativ zu dem Punkt, an dem das Clipping des Audios einsetzt.
+    Ein Wert von 1,0 repräsentiert 0 dBov (maximale Lautstärke), ein Wert von 0,0 repräsentiert Stille und ein Wert von 0,5 repräsentiert eine Änderung des Schalldruckpegels von circa 6 dB SPL (Dezibel Schalldruckpegel) von 0 dBov.
 
-    Wenn diese Eigenschaft nicht vorhanden ist, wurde vom Quellcode kein Lautstärkepegel bereitgestellt.
+    Wenn diese Eigenschaft nicht vorhanden ist, wurde vom Quellmedium keine Lautstärke bereitgestellt.
 
 - `rtpTimestamp` {{optional_inline}}
 
-  - : Der RTP-Zeitstempel (ein Ganzzahl-[`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) der Medien.
-    Dieser vom Quellcode erzeugte Zeitstempel gibt die Zeit an, zu der die Medien in diesem Paket, das zur Wiedergabe zu dem durch `timestamp` angegebenen Zeitpunkt geplant ist, ursprünglich abgetastet oder erzeugt wurden.
-    Es kann nützlich für Sequenzierungs- und Synchronisierungszwecke sein.
+  - : Der RTP-Zeitstempel (ein ganzzahliger [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) des Mediums.
+    Dieser von der Quelle generierte Zeitstempel gibt die Zeit an, zu der das im Paket enthaltene Medium, das zum im `timestamp` angegebenen Zeitpunkt ausgespielt werden soll, ursprünglich abgetastet oder erzeugt wurde.
+    Er kann für Sequenzierungs- und Synchronisationszwecke nützlich sein.
 
 - `source` {{optional_inline}}
 
-  - : Ein positiver Ganzzahlwert, der den CSRC-Identifikator der beitragenden Quelle angibt.
-    Dieser identifiziert eindeutig die Quelle der speziellen Stream-RTP-Pakete.
+  - : Ein positiver Integerwert, der den CSRC-Identifikator der beitragenden Quelle angibt.
+    Dies identifiziert eindeutig die Quelle des bestimmten Streams der RTP-Pakete.
 
 - `timestamp` {{optional_inline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den jüngsten Zeitpunkt angibt, zu dem ein von dieser Quelle stammendes Frame dem Empfänger 's[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) geliefert wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die aktuellste Zeit angibt, zu der ein von dieser Quelle stammendes Frame zum [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) des Empfangsgeräts geliefert wurde.
 
 ## Spezifikationen
 

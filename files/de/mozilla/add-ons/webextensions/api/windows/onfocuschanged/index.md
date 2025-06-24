@@ -2,15 +2,15 @@
 title: windows.onFocusChanged
 slug: Mozilla/Add-ons/WebExtensions/API/windows/onFocusChanged
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das aktuell fokussierte Fenster wechselt. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browserfenster den Fokus verloren haben.
+Wird ausgelöst, wenn sich das derzeit fokussierte Fenster ändert. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browser-Fenster den Fokus verloren haben.
 
 > [!NOTE]
-> In Windows und einigen Linux-Fenstermanagern wird WINDOW_ID_NONE immer unmittelbar vor einem Wechsel von einem Browserfenster zu einem anderen gesendet.
+> In Windows und einigen Linux-Fenster-Managern wird WINDOW_ID_NONE immer sofort vor einem Wechsel von einem Browser-Fenster zu einem anderen gesendet.
 
 ## Syntax
 
@@ -25,18 +25,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `windowId`
       - : `integer`. ID des neu fokussierten Fensters.
 
@@ -46,7 +44,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Fokusänderungen protokollieren:
+Protokollieren Sie Fokusänderungen:
 
 ```js
 browser.windows.onFocusChanged.addListener((windowId) => {

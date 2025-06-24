@@ -2,12 +2,12 @@
 title: history.onTitleChanged
 slug: Mozilla/Add-ons/WebExtensions/API/history/onTitleChanged
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Dieses Ereignis wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite erfasst wird. Um Besuche einer Seite zu überwachen, verwenden Sie {{WebExtAPIRef("history.onVisited")}}. Allerdings enthält das {{WebExtAPIRef("history.HistoryItem")}}, das dieses Ereignis an seinen Listener übergibt, nicht den Seitentitel, da der Seitentitel normalerweise nicht bekannt ist, wenn `history.onVisited` gesendet wird. Stattdessen wird das gespeicherte {{WebExtAPIRef("history.HistoryItem")}} mit dem Seitentitel aktualisiert, nachdem die Seite geladen wurde und der Titel bekannt ist. Das `history.onTitleChanged`-Ereignis wird zu diesem Zeitpunkt ausgelöst. Wenn Sie also die Titel der Seiten kennen müssen, während sie besucht werden, sollten Sie `history.onTitleChanged` überwachen.
+Ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite aufgezeichnet wird. Um Besuche auf einer Seite zu hören, verwenden Sie {{WebExtAPIRef("history.onVisited")}}. Das {{WebExtAPIRef("history.HistoryItem")}} jedoch, das dieses Ereignis an seinen Listener weitergibt, enthält keinen Seitentitel, da der Seitentitel normalerweise nicht bekannt ist, wenn `history.onVisited` gesendet wird. Stattdessen wird das gespeicherte {{WebExtAPIRef("history.HistoryItem")}} mit dem Seitentitel aktualisiert, nachdem die Seite geladen wurde, sobald der Titel bekannt ist. Das `history.onTitleChanged` Ereignis wird zu diesem Zeitpunkt ausgelöst. Wenn Sie also die Titel der besuchten Seiten wissen möchten, hören Sie auf `history.onTitleChanged`.
 
 ## Syntax
 
@@ -22,20 +22,18 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beenden des Zuhörens dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Hören auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird ein Objekt mit diesen Eigenschaften übergeben:
-
     - `id`
-      - : `String`. Die eindeutige Kennung für das mit diesem Besuch verknüpfte {{WebExtAPIRef("history.HistoryItem")}}.
+      - : `String`. Die eindeutige Kennung für das {{WebExtAPIRef("history.HistoryItem")}}, das mit diesem Besuch verknüpft ist.
     - `url`
       - : `String`. URL der besuchten Seite.
     - `title`
@@ -62,33 +60,34 @@ browser.history.onTitleChanged.addListener(handleTitleChanged);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisited)-API von Chromium. Diese Dokumentation wurde aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisited) API von Chromium. Diese Dokumentation stammt von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Verwendung im Quell- und Binärformat, mit oder ohne
-// Änderungen, sind unter den folgenden Bedingungen zulässig:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen von Quellcode müssen den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverbreitungen im Binärformat müssen den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss sowohl in der
-// Dokumentation als auch in anderen Materialien, die mit der Verbreitung geliefert
-// werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software abgeleitet
-// wurden, ohne ausdrückliche vorherige schriftliche Genehmigung zu unterstützen oder zu fördern.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT, UND ALLE AUSDRÜCKLICHEN ODER IMPLIZIERTEN
-// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN GARANTIEN
-// DER MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, SIND AUSGESCHLOSSEN. IN KEINEM FALL HAFTEN
-// DIE COPYRIGHT-INHABER ODER MITWIRKENDE FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
-// BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
-// AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSAUSFALL, DATENVERLUST ODER
-// GEWINNE ODER GESCHÄFTSUNTERBRECHUNG) JEDOCH VERURSACHT UND UNTER JEGLICHER HAFTUNGSTHEORIE,
-// OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER NUTZUNG DER SOFTWARE ENTSTEHEN,
-// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

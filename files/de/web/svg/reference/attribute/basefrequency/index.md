@@ -2,10 +2,10 @@
 title: baseFrequency
 slug: Web/SVG/Reference/Attribute/baseFrequency
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`baseFrequency`**-Attribut stellt den Basisfrequenzparameter für die Rauschfunktion der {{SVGElement("feTurbulence")}}-Filterprimitive dar.
+Das **`baseFrequency`**-Attribut repräsentiert den Basisfrequenzparameter für die Rauschfunktion der {{SVGElement("feTurbulence")}} Filterprimitive.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -72,7 +72,7 @@ svg {
 
 {{EmbedLiveSample("Beispiel 2", "220", "250")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -97,9 +97,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste die Basisfrequenz in horizontaler Richtung und die zweite die Basisfrequenz in vertikaler Richtung. Wenn eine Zahl angegeben ist, wird dieser Wert sowohl für x als auch y verwendet.
+  - : Wenn zwei Zahlen angegeben werden, repräsentiert die erste die Basisfrequenz in horizontaler Richtung und die zweite die Basisfrequenz in vertikaler Richtung. Wenn nur eine Zahl angegeben wird, wird dieser Wert sowohl für x als auch für y verwendet.
 
-    Negative Werte sind nicht erlaubt.
+    Negative Werte sind verboten.
 
 ## Spezifikationen
 

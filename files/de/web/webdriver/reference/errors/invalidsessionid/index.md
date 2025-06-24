@@ -2,16 +2,16 @@
 title: Ungültige Sitzungs-ID
 slug: Web/WebDriver/Reference/Errors/InvalidSessionID
 l10n:
-  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Der **ungültige Sitzungs-ID**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Server die eindeutige Sitzungskennung nicht erkennt. Dies passiert, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
+Der **ungültige Sitzungs-ID**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Server den eindeutigen Sitzungsbezeichner nicht erkennt. Dies passiert, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
 
 ## Beispiel
 
-### Explizite Sitzungsbeendigung
+### Explizite Sitzungslöschung
 
-Eine WebDriver-Sitzung wird explizit beendet, wenn man die Sitzung beendet:
+Eine WebDriver-Sitzung wird explizit beim Beenden gelöscht:
 
 ```python
 from selenium import webdriver
@@ -34,9 +34,9 @@ Current session is 46197c16-8373-469b-bc56-4c4d9e4132b4
 No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 ```
 
-### Implizite Sitzungsbeendigung
+### Implizite Sitzungslöschung
 
-Die Sitzung kann auch _implizit beendet_ werden, wenn Sie das letzte Fenster oder den letzten Tab schließen:
+Die Sitzung kann auch _implizit gelöscht_ werden, wenn Sie das letzte Fenster oder den letzten Tab schließen:
 
 ```python
 from selenium import webdriver
@@ -66,6 +66,5 @@ No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors)
 - [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
 - Verwandte WebDriver-Befehle:
-
   - [Neue Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession)
   - [Sitzung löschen](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession)

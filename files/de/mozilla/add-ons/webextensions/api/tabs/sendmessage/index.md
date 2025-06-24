@@ -2,19 +2,19 @@
 title: tabs.sendMessage()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Sendet eine einzelne Nachricht von den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie z.B. Popup-Skripte oder Optionsseitenskripte) an alle [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) oder Erweiterungsseiten/IFrames, die zur Erweiterung gehören und im angegebenen Tab ausgeführt werden.
+Sendet eine einzelne Nachricht von den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie z.B. Popup-Skripten oder Optionsseitenskripten) an beliebige [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) oder Erweiterungsseiten/Iframes, die zur Erweiterung gehören und im angegebenen Tab ausgeführt werden.
 
-Die Nachricht wird im Erweiterungskontext von jedem Listener des {{WebExtAPIRef("runtime.onMessage")}}-Ereignisses empfangen. Listener können dann optional etwas als Antwort an den Absender zurücksenden.
+Die Nachricht wird im Erweiterungskontext von allen Listenern des {{WebExtAPIRef("runtime.onMessage")}}-Ereignisses empfangen. Listener können optional etwas als Antwort an den Absender zurücksenden.
 
 Dies ist eine asynchrone Funktion, die ein {{jsxref("Promise")}} zurückgibt.
 
 > [!NOTE]
-> Sie können auch einen [verbindungsbasierten Ansatz zum Nachrichtenaustausch verwenden](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging).
+> Sie können auch einen [verbindungsbasierten Ansatz zum Austauschen von Nachrichten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging) verwenden.
 
 ## Syntax
 
@@ -29,19 +29,17 @@ const sending = browser.tabs.sendMessage(
 ### Parameter
 
 - `tabId`
-  - : `integer`. ID des Tabs, dessen Content-Skripten wir eine Nachricht senden wollen.
+  - : `integer`. ID des Tabs, dessen Inhalts-Skripte wir eine Nachricht senden möchten.
 - `message`
-  - : `any`. Ein Objekt, das serialisierbar ist (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
+  - : `any`. Ein Objekt, das serialisiert werden kann (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
 - `options` {{optional_inline}}
-
   - : `object`.
-
     - `frameId` {{optional_inline}}
-      - : `integer`. Sendet die Nachricht an einen spezifischen Frame, identifiziert durch `frameId`, anstatt an alle Frames im Tab. Ob das Content-Skript in allen Frames ausgeführt wird, hängt von der `all_frames`-Einstellung im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Abschnitt der `manifest.json` ab.
+      - : `integer`. Sendet die Nachricht an einen bestimmten Frame, der durch `frameId` identifiziert wird, anstatt an alle Frames im Tab. Ob das Inhalts-Skript in allen Frames ausgeführt wird, hängt von der `all_frames`-Einstellung im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Abschnitt von `manifest.json` ab.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem Antwortobjekt erfüllt wird, das vom Nachrichten-Handler im Content-Skript gesendet wird, oder ohne Argumente, falls das Content-Skript keine Antwort gesendet hat.
+Ein {{jsxref("Promise")}}, das mit dem Antwortobjekt erfüllt wird, das vom Handler der Nachricht im Inhalts-Skript gesendet wurde, oder ohne Argumente, wenn das Inhalts-Skript keine Antwort gesendet hat.
 
 Wenn ein Fehler beim Verbinden mit dem angegebenen Tab oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
@@ -49,7 +47,7 @@ Wenn mehrere Frames auf die Nachricht antworten, wird das Promise mit einer der 
 
 ## Beispiele
 
-Hier ist ein Beispiel für ein Hintergrundskript, das eine Nachricht an die Content-Skripte sendet, die im aktiven Tab laufen, wenn der Benutzer die Browser-Aktion anklickt. Das Hintergrundskript erwartet auch, dass das Content-Skript eine Antwort sendet:
+Hier ist ein Beispiel für ein Hintergrundskript, das eine Nachricht an die im aktiven Tab ausgeführten Inhalts-Skripte sendet, wenn der Benutzer auf die Browseraktion klickt. Das Hintergrundskript erwartet auch, dass das Inhalts-Skript eine Antwort sendet:
 
 ```js
 // background-script.js
@@ -82,7 +80,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Hier ist das entsprechende Content-Skript:
+Hier ist das entsprechende Inhalts-Skript:
 
 ```js
 // content-script.js
@@ -103,33 +101,3 @@ browser.runtime.onMessage.addListener((request) => {
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-sendMessage)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->

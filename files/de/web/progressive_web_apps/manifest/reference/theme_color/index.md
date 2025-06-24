@@ -2,10 +2,10 @@
 title: theme_color
 slug: Web/Progressive_web_apps/Manifest/Reference/theme_color
 l10n:
-  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das `theme_color`-Mitglied wird verwendet, um die Standardfarbe für die Benutzeroberfläche Ihrer Webanwendung festzulegen. Diese Farbe kann auf verschiedene Elemente der Browser-Benutzeroberfläche angewendet werden, wie z.B. die Symbolleiste, Adressleiste und Statusleiste. Sie kann insbesondere in Kontexten wie dem Aufgabenwechsler oder wenn die App zum Startbildschirm hinzugefügt wird, auffällig sein.
+Der `theme_color`-Eintrag wird verwendet, um die Standardfarbe für die Benutzeroberfläche Ihrer Webanwendung festzulegen. Diese Farbe kann auf verschiedene Browser-UI-Elemente angewendet werden, wie z.B. die Symbolleiste, die Adressleiste und die Statusleiste. Sie kann besonders in Kontexten wie dem Aufgabenumschalter oder wenn die App zum Startbildschirm hinzugefügt wird, auffallen.
 
 ## Syntax
 
@@ -27,23 +27,23 @@ Das `theme_color`-Mitglied wird verwendet, um die Standardfarbe für die Benutze
   - : Ein String, der einen gültigen [Farbwert](/de/docs/Web/CSS/color_value) angibt.
 
     > [!NOTE]
-    > Browser können die Alpha-Komponente der Farbe je nach Kontext ignorieren.
+    > Browser können den Alpha-Anteil der Farbe je nach Kontext ignorieren.
     > In den meisten Umgebungen kann `theme_color` nicht transparent sein.
-    > Es wird empfohlen, vollständig opake Farben (Alpha-Wert von 1 oder 100%) zu verwenden, um konsistentes Verhalten auf verschiedenen Plattformen und in verschiedenen Browsern sicherzustellen.
+    > Es wird empfohlen, vollständig opake Farben (Alpha-Wert von 1 oder 100%) zu verwenden, um ein konsistentes Verhalten auf verschiedenen Plattformen und in verschiedenen Browsern zu gewährleisten.
 
 ## Beschreibung
 
-Obwohl optional, ermöglicht das Festlegen einer `theme_color`, die visuelle Identität Ihrer App über ihre Inhaltsbereiche hinaus zu erweitern. Diese Farbanwendung kann ein nativeres App-ähnliches Erlebnis für Ihre Web-App bieten, insbesondere wenn sie im [Standalone](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display#standalone)-Modus geladen wird. Wählen Sie eine `theme_color`, die mit den Markenrichtlinien Ihrer App übereinstimmt, da dies die Benutzererkennung und das Erinnerungsvermögen verbessern kann, insbesondere wenn Ihre App neben anderen Anwendungen oder Systemoberflächen angezeigt wird.
+Obwohl optional, ermöglicht das Festlegen eines `theme_color` Ihnen, die visuelle Identität Ihrer App über die Inhaltsbereiche hinaus zu erweitern. Diese Farbgestaltung kann ein app-ähnlicheres Erlebnis für Ihre Web-App bieten, besonders wenn sie im [Standalone](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display#standalone)-Modus geladen wird. Wählen Sie eine `theme_color`, die zu den Markenvorgaben Ihrer App passt, da dies die Wiedererkennung und das Erinnern der Benutzer verbessern kann, insbesondere wenn Ihre App zusammen mit anderen Anwendungen oder Systemoberflächen betrachtet wird.
 
-In Browsern, die `theme_color` unterstützen, dient der im Manifestdatei angegebene Wert als Standard-Designfarbe für Ihre Web-App auf allen Seiten, auf denen das Manifest angewendet wird. Sie können diesen Standard auf folgende Weisen überschreiben:
+In Browsern, die `theme_color` unterstützen, dient der im Manifest angegebenen Wert als Standard-Theme-Farbe für Ihre Web-App auf allen Seiten, auf denen das Manifest angewendet wird. Sie können diesen Standard auf folgende Weisen überschreiben:
 
-- Verwendung des [`theme-color`](/de/docs/Web/HTML/Reference/Elements/meta/name/theme-color) Wertes des `name`-Attributs im HTML `<meta>`-Element: Sie können eine Designfarbe für eine Webseite festlegen, die sich von der im Manifest für Ihre App angegebenen `theme_color` unterscheidet. Dies ermöglicht es Ihnen, unterschiedliche Designfarben für einzelne Seiten innerhalb Ihrer App festzulegen.
+- Verwendung des [`theme-color`](/de/docs/Web/HTML/Reference/Elements/meta/name/theme-color)-Werts des `name`-Attributs im HTML-`<meta>`-Element: Sie können eine Theme-Farbe für eine Webseite angeben, die sich von der im Manifest festgelegten `theme_color` Ihrer App unterscheidet. Dies ermöglicht es Ihnen, unterschiedliche Theme-Farben für einzelne Seiten innerhalb Ihrer App festzulegen.
 
   ```html
   <meta name="theme-color" content="#9370DB" />
   ```
 
-- Kombination des `<meta name="theme-color">`-Elements mit Media Queries: Sie können die Designfarbe festlegen, die basierend auf der Farbpräferenz des Benutzers verwendet werden soll.
+- Kombination des `<meta name="theme-color">`-Elements mit Media-Queries: Sie können die zu verwendende Theme-Farbe basierend auf den Farbschema-Präferenzen des Benutzers angeben.
 
   ```html
   <meta
@@ -56,9 +56,9 @@ In Browsern, die `theme_color` unterstützen, dient der im Manifestdatei angegeb
     media="(prefers-color-scheme: dark)" />
   ```
 
-Diese Methoden zur Überschreibung bieten Ihnen die Flexibilität, das Erscheinungsbild Ihrer App für bestimmte Seiten oder Benutzerpräferenzen anzupassen, was die gesamte Benutzererfahrung verbessert.
+Diese Überschreibungsmethoden bieten Ihnen die Flexibilität, das Erscheinungsbild Ihrer App für bestimmte Seiten oder Benutzerpräferenzen anzupassen und dadurch die allgemeine Benutzererfahrung zu verbessern.
 
-Browser können auch die angewendete Designfarbe basierend auf den Benutzerpräferenzen anpassen. Wenn ein Benutzer eine Präferenz für den Licht- oder Dunkelmodus festgelegt hat, können Browser den `theme_color`-Wert des Manifests überschreiben, um jede in Ihrer CSS definierten [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Medienanfrage zu unterstützen.
+Browser können die angewendete Theme-Farbe auch basierend auf Benutzerpräferenzen anpassen. Wenn ein Benutzer eine Präferenz für den Hell- oder Dunkelmodus festgelegt hat, können Browser den im Manifest festgelegten `theme_color`-Wert überschreiben, um eine in Ihrer App-CSS festgelegte [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme)-Media-Query zu unterstützen.
 
 ```css
 body {
@@ -92,7 +92,7 @@ body {
 }
 ```
 
-### Verwendung eines Hexadezimalwerts
+### Verwendung eines hexadezimalen Werts
 
 ```json
 {
@@ -113,7 +113,7 @@ body {
 
 ## Siehe auch
 
-- [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display) Manifestmitglied
-- [`background_color`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/background_color) Manifestmitglied
-- [`scope`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) Manifestmitglied
-- [Passen Sie die Themen- und Hintergrundfarben Ihrer App an](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors), wenn Sie PWAs entwickeln
+- [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display) Manifest-Eintrag
+- [`background_color`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/background_color) Manifest-Eintrag
+- [`scope`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) Manifest-Eintrag
+- [Passen Sie die Theme- und Hintergrundfarben Ihrer App an](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors) beim Erstellen von PWAs

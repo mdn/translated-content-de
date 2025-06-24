@@ -2,12 +2,12 @@
 title: <feImage>
 slug: Web/SVG/Reference/Element/feImage
 l10n:
-  sourceCommit: 9bb1d5338fa4f9074a18a14c34396f6aa3d53532
+  sourceCommit: 68e3afd00cb531f3536ed9343aaa0f9e06e6ef94
 ---
 
-Das **`<feImage>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ruft Bilddaten aus einer externen Quelle ab und stellt die Pixel-Daten als Ausgabe bereit (das bedeutet, wenn die externe Quelle ein SVG-Bild ist, wird es gerastert).
+Das **`<feImage>`**-[SVG](/de/docs/Web/SVG)-Filter-Primitive holt Bilddaten aus einer externen Quelle und liefert die Pixeldaten als Ausgabe (das bedeutet, wenn die externe Quelle ein SVG-Bild ist, wird es gerastert.)
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -15,22 +15,12 @@ Das **`<feImage>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ruft Bilddaten aus 
 
 - {{SVGAttr("crossorigin")}}
 - {{SVGAttr("fetchpriority")}} {{experimental_inline}}
-  - : Gibt einen Hinweis auf die relative Priorität beim Abrufen eines externen Bildes.
-    Erlaubte Werte:
-    - `high`
-      - : Ruft das externe Bild mit hoher Priorität im Vergleich zu anderen externen Ressourcen ab.
-    - `low`
-      - : Ruft das externe Bild mit niedriger Priorität im Vergleich zu anderen externen Ressourcen ab.
-    - `auto`
-      - : Setzt keine Präferenz für die Abrufpriorität.
-        Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt wird.
-        Dies ist der Standardwert.
 - {{SVGAttr("preserveAspectRatio")}}
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -67,7 +57,7 @@ Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEIma
 
 ## Siehe auch
 
-- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
 - {{SVGAttr("flood-color")}} Attribut
 - {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}

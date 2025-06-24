@@ -3,12 +3,12 @@ title: "SVGPathElement: setPathData() Methode"
 short-title: setPathData()
 slug: Web/API/SVGPathElement/setPathData
 l10n:
-  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`SVGPathElement.setPathData()`** Methode setzt die Sequenz von Pfadsegmenten als neue Pfaddaten.
+Die **`SVGPathElement.setPathData()`** Methode setzt die Sequenz der Pfadsegmente als neue Pfaddaten.
 
 ## Syntax
 
@@ -19,10 +19,8 @@ setPathData(pathData)
 ### Parameter
 
 - `pathData`
-
   - : Ein Array von Pfadsegmenten.
     Jedes Pfadsegment ist ein Objekt mit den folgenden Eigenschaften:
-
     - `type`
       - : Ein [Pfadbefehl](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
         Wenn [`options.normalize`](/de/docs/Web/API/SVGPathElement/getPathData#normalize) wahr ist, wird dies einer der absoluten Befehle sein: `'M'`, `'L'`, `'C'` und `'Z'`.
@@ -45,8 +43,8 @@ Betrachten Sie das folgende `<path>` Element, das ein Quadrat zeichnet:
 </svg>
 ```
 
-Der unten stehende Code verwendet die [`getPathData()`](/de/docs/Web/API/SVGPathElement/getPathData) Methode, um die normalisierten Pfaddaten als [absolute Befehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) zurückzugeben.
-Das Zurücksetzen der zurückgegebenen Daten auf das `<path>` Element mit der `setPathData()` Methode führt zu einem anderen Satz von Pfadbefehl im DOM:
+Der untenstehende Code verwendet die Methode [`getPathData()`](/de/docs/Web/API/SVGPathElement/getPathData), um die normalisierten Pfaddaten als [absolute Befehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) zurückzugeben.
+Das Zurücksetzen der zurückgegebenen Daten auf das `<path>` Element mit der `setPathData()` Methode führt zu einer anderen Reihe von Pfadbefehlen im DOM:
 
 ```js
 const svgPath = document.querySelector("path");

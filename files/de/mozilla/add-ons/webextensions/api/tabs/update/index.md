@@ -2,14 +2,14 @@
 title: tabs.update()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/update
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Rufen Sie einen neuen URL auf oder ändern Sie andere Eigenschaften des Tabs.
+Navigieren Sie den Tab zu einer neuen URL oder ändern Sie andere Eigenschaften des Tabs.
 
-Um diese Funktion zu verwenden, übergeben Sie die ID des zu aktualisierenden Tabs und ein `updateProperties`-Objekt, das die zu ändernden Eigenschaften enthält. Eigenschaften, die im `updateProperties`-Objekt nicht angegeben sind, werden nicht geändert.
+Um diese Funktion zu verwenden, übergeben Sie die ID des zu aktualisierenden Tabs und ein `updateProperties`-Objekt, das die Eigenschaften enthält, die Sie aktualisieren möchten. Eigenschaften, die im `updateProperties`-Objekt nicht angegeben sind, werden nicht geändert.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,53 +28,53 @@ let updating = browser.tabs.update(
   - : `integer`. Standardmäßig der ausgewählte Tab des aktuellen Fensters.
 - `updateProperties`
 
-  - : `object`. Die Menge von Eigenschaften, die in diesem Tab aktualisiert werden sollen. Weitere Informationen zu diesen Eigenschaften finden Sie in der {{WebExtAPIRef("tabs.Tab")}}-Dokumentation.
+  - : `object`. Das Set der Eigenschaften, die für diesen Tab aktualisiert werden sollen. Um mehr über diese Eigenschaften zu erfahren, lesen Sie die {{WebExtAPIRef("tabs.Tab")}} Dokumentation.
 
     - `active` {{optional_inline}}
-      - : `boolean`. Ob der Tab aktiv werden soll. Hat keinen Einfluss darauf, ob das Fenster fokussiert wird (siehe {{WebExtAPIRef('windows.update')}}). Wenn `true`, werden nicht-aktive hervorgehobene Tabs nicht mehr hervorgehoben. Wenn `false`, passiert nichts.
+      - : `boolean`. Ob der Tab aktiv werden soll. Beeinflusst nicht, ob das Fenster im Fokus steht (siehe {{WebExtAPIRef('windows.update')}}). Wenn `true`, werden nicht-aktive, hervorgehobene Tabs nicht mehr hervorgehoben. Bei `false` passiert nichts.
     - `autoDiscardable` {{optional_inline}}
-      - : `boolean`. Ob der Tab durch den Browser verworfen werden kann. Der Standardwert ist `true`. Wenn `false` gesetzt ist, kann der Tab nicht automatisch verworfen werden. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
+      - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wird er auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
     - `highlighted` {{optional_inline}}
 
-      - : `boolean`. Fügt den Tab zur aktuellen Auswahl hinzu oder entfernt ihn daraus. Wenn `true` und der Tab nicht hervorgehoben ist, wird er standardmäßig aktiv.
+      - : `boolean`. Fügt den Tab der aktuellen Auswahl hinzu oder entfernt ihn daraus. Wenn `true` und der Tab nicht hervorgehoben ist, wird er standardmäßig aktiv.
 
-        Wenn Sie den Tab nur hervorheben möchten, ohne ihn zu aktivieren, akzeptiert Firefox das Setzen von `highlighted` auf `true` und `active` auf `false`. Andere Browser könnten den Tab auch in diesem Fall aktivieren.
+        Wenn Sie den Tab nur hervorheben möchten, ohne ihn zu aktivieren, akzeptiert Firefox das Setzen von `highlighted` auf `true` und `active` auf `false`. Andere Browser könnten den Tab in diesem Fall trotzdem aktivieren.
 
     - `loadReplace` {{optional_inline}}
 
-      - : `boolean`. Ob die neue URL die alte URL in der Navigationshistorie des Tabs, wie sie über die "Zurück"-Taste erreichbar ist, ersetzen soll.
+      - : `boolean`. Ob die neue URL die alte URL in der Navigationshistorie des Tabs ersetzen soll, wie sie über die Schaltfläche "Zurück" zugänglich ist.
 
-        Beispielsweise erstellt der Benutzer mit Strg+T einen neuen Tab. Standardmäßig würde in Firefox "about:newtab" geladen. Wenn Ihre Erweiterung anschließend diese Seite mithilfe von `tabs.update` aktualisiert, ohne `loadReplace`, wird die "Zurück"-Taste aktiviert sein und den Benutzer zu "about:newtab" zurückbringen. Wenn die Erweiterung `loadReplace` setzt, wird die "Zurück"-Taste deaktiviert, und es wird so sein, als ob der von der Erweiterung angegebene URL die erste aufgerufene Seite in diesem Tab wäre.
+        Beispielsweise, wenn der Benutzer einen neuen Tab mit Strg+T erstellt. Standardmäßig würde in Firefox "about:newtab" geladen werden. Wenn Ihre Erweiterung diese Seite dann mit `tabs.update` aktualisiert, ohne `loadReplace`, wird die Schaltfläche "Zurück" aktiviert und führt den Benutzer zurück zu "about:newtab". Wenn die Erweiterung `loadReplace` setzt, wird die Schaltfläche "Zurück" deaktiviert, und es ist so, als ob die von der Erweiterung bereitgestellte URL die erste besuchte Seite in diesem Tab wäre.
 
-        Beachten Sie jedoch, dass der ursprüngliche URL weiterhin in der globalen Browser-Historie erscheint.
+        Beachten Sie jedoch, dass die ursprüngliche URL immer noch in der globalen Historie des Browsers erscheint.
 
     - `muted` {{optional_inline}}
       - : `boolean`. Ob der Tab stummgeschaltet werden soll.
     - `openerTabId` {{optional_inline}}
-      - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat. Wenn angegeben, muss der öffnende Tab im selben Fenster sein wie dieser Tab. Setzen Sie den Wert auf `-1`, um den gesetzten `openerTabId` zu löschen.
+      - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat. Wenn angegeben, muss der öffnende Tab im selben Fenster wie dieser Tab sein. Setzen Sie `-1`, um die gesetzte `openerTabId` zu löschen.
     - `pinned` {{optional_inline}}
-      - : `boolean`. Ob der Tab angeheftet werden soll.
+      - : `boolean`. Ob der Tab angepinnt werden soll.
     - `selected` {{deprecated_inline}} {{optional_inline}}
       - : `boolean`. Ob der Tab ausgewählt werden soll. Diese Eigenschaft wurde durch `active` und `highlighted` ersetzt.
     - `successorTabId` {{optional_inline}}
-      - : `integer`. Die ID des Nachfolgers dieses Tabs.
+      - : `integer`. Die ID des Nachfolgers des Tabs.
     - `url` {{optional_inline}}
 
       - : `string`. Eine URL, zu der der Tab navigiert werden soll.
 
-        Aus Sicherheitsgründen darf dies in Firefox keine privilegierte URL sein. Das Übergeben eines der folgenden URLs schlägt fehl, wobei {{WebExtAPIRef("runtime.lastError")}} auf eine Fehlermeldung gesetzt wird:
+        Aus Sicherheitsgründen darf es in Firefox keine privilegierte URL sein. Daher wird das Übergeben einer der folgenden URLs fehlschlagen, wobei {{WebExtAPIRef("runtime.lastError")}} auf eine Fehlermeldung gesetzt wird:
 
         - chrome: URLs
         - [javascript: URLs](/de/docs/Web/URI/Reference/Schemes/javascript)
         - [data: URLs](/de/docs/Web/URI/Reference/Schemes/data)
-        - file: URLs (d.h. Dateien aus dem Dateisystem. Um jedoch eine in die Erweiterung gepackte Datei zu verwenden, siehe unten)
-        - privilegierte about: URLs (zum Beispiel `about:config`, `about:addons`, `about:debugging`, `about:newtab`). Nicht privilegierte URLs (z.B. `about:blank`) sind erlaubt.
+        - file: URLs (d.h. Dateien im Dateisystem. Um jedoch eine im Add-on verpackte Datei zu verwenden, siehe unten)
+        - privilegierte about: URLs (z. B. `about:config`, `about:addons`, `about:debugging`, `about:newtab`). Nicht-privilegierte URLs (z. B. `about:blank`) sind erlaubt.
 
-        Um eine Seite zu laden, die in Ihrer Erweiterung enthalten ist, geben Sie eine absolute URL ausgehend von der Manifest-Datei `manifest.json` an. Zum Beispiel: '/path/to/my-page.html'. Wenn der führende '/' weggelassen wird, wird die URL als relative URL behandelt, und verschiedene Browser könnten unterschiedliche absolute URLs daraus konstruieren.
+        Um eine Seite zu laden, die mit Ihrem Add-on verpackt ist, geben Sie eine absolute URL, beginnend bei der manifest.json-Datei des Add-ons, an. Zum Beispiel: '/path/to/my-page.html'. Wenn Sie das führende '/' weglassen, wird die URL als relative URL behandelt, und unterschiedliche Browser können unterschiedliche absolute URLs konstruieren.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Details über den aktualisierten Tab enthält. Das {{WebExtAPIRef('tabs.Tab')}}-Objekt enthält keinen `url`, `title` und `favIconUrl`, es sei denn, es wurden passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder die Berechtigung `"tabs"` angefordert. Wenn der Tab nicht gefunden werden kann oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}} Objekt erfüllt wird, das Details über den aktualisierten Tab enthält. Das {{WebExtAPIRef('tabs.Tab')}} Objekt enthält keine `url`, `title` und `favIconUrl`, es sei denn, passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder die `"tabs"` Berechtigung wurde angefordert. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -123,7 +123,7 @@ querying.then(updateFirstTab, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update)-API von Chromium. Diese Dokumentation wurde von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Quellcode.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

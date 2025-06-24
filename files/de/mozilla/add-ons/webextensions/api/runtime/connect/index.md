@@ -2,7 +2,7 @@
 title: runtime.connect()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/connect
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
@@ -11,12 +11,12 @@ Stellen Sie eine Verbindung zwischen verschiedenen Kontexten innerhalb der Erwei
 
 Sie können dies aufrufen:
 
-- in den Inhalts-Skripten einer Erweiterung, um eine Verbindung mit den Hintergrund-Skripten der Erweiterung (oder ähnlich privilegierten Skripten, wie z. B. Popup-Skripten oder Optionsseiten-Skripten) herzustellen.
-- in den Hintergrund-Skripten einer Erweiterung (oder ähnlich privilegierten Skripten), um eine Verbindung mit einer anderen Erweiterung herzustellen.
+- in den Inhalteskripten einer Erweiterung, um eine Verbindung zu den Hintergrundskripten der Erweiterung (oder ähnlich privilegierten Skripten, wie z. B. Pop-up-Skripten oder Optionen-Seitenskripten) herzustellen.
+- in den Hintergrundskripten einer Erweiterung (oder ähnlich privilegierten Skripten), um eine Verbindung zu einer anderen Erweiterung herzustellen.
 
-Beachten Sie, dass Sie diese Funktion nicht verwenden können, um eine Erweiterung mit ihren Inhalts-Skripten zu verbinden. Verwenden Sie dazu {{WebExtAPIRef('tabs.connect()')}}.
+Beachten Sie, dass Sie diese Funktion nicht nutzen können, um eine Erweiterung mit ihren Inhalteskripten zu verbinden. Dazu verwenden Sie {{WebExtAPIRef('tabs.connect()')}}.
 
-Standardmäßig ermöglicht diese Verbindung der Erweiterung den Nachrichtenaustausch mit sich selbst oder einer anderen Erweiterung (falls `extensionId` angegeben ist). Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken und die Kommunikation mit Websites zu ermöglichen. Verbindungen innerhalb der Erweiterung lösen das {{WebExtAPIRef('runtime.onConnect')}} Ereignis aus, Verbindungen von anderen Erweiterungen oder Webseiten lösen das {{WebExtAPIRef('runtime.onConnectExternal')}} Ereignis aus.
+Standardmäßig ermöglicht diese Verbindung der Erweiterung, Nachrichten mit sich selbst oder einer anderen Erweiterung (wenn `extensionId` angegeben ist) auszutauschen. Allerdings kann der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) Manifest-Schlüssel verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken und Kommunikation mit Websites zu ermöglichen. Verbindungen innerhalb der Erweiterung lösen das {{WebExtAPIRef('runtime.onConnect')}}-Ereignis aus, Verbindungen von anderen Erweiterungen oder Webseiten lösen das {{WebExtAPIRef('runtime.onConnectExternal')}}-Ereignis aus.
 
 ## Syntax
 
@@ -30,15 +30,13 @@ let port = browser.runtime.connect(
 ### Parameter
 
 - `extensionId` {{optional_inline}}
-  - : `string`. Die ID der Erweiterung, zu der eine Verbindung hergestellt werden soll. Wenn das Ziel explizit eine ID mit dem Schlüssel [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) in manifest.json festgelegt hat, sollte `extensionId` diesen Wert haben. Andernfalls sollte es die ID haben, die für das Ziel generiert wurde.
+  - : `string`. Die ID der Erweiterung, zu der verbunden werden soll. Wenn das Ziel explizit eine ID mit Hilfe des [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) Schlüssels in der manifest.json gesetzt hat, dann sollte `extensionId` diesen Wert haben. Andernfalls sollte es die für das Ziel generierte ID sein.
 - `connectInfo` {{optional_inline}}
-
-  - : `object`. Details zur Verbindung:
-
+  - : `object`. Details der Verbindung:
     - `name` {{optional_inline}}
-      - : `string`. Wird an {{WebExtAPIRef("runtime.onConnect")}} übergeben für Prozesse, die auf das Verbindungsevent warten.
+      - : `string`. Wird in {{WebExtAPIRef("runtime.onConnect")}} übermittelt für Prozesse, die auf das Verbindungsevent hören.
     - `includeTlsChannelId` {{optional_inline}}
-      - : `boolean`. Ob die TLS-Kanal-ID an {{WebExtAPIRef("runtime.onConnectExternal")}} übergeben wird für Prozesse, die auf das Verbindungsevent warten.
+      - : `boolean`. Ob die TLS-Kanal-ID in {{WebExtAPIRef("runtime.onConnectExternal")}} übermittelt wird für Prozesse, die auf das Verbindungsevent hören.
 
 ### Rückgabewert
 
@@ -50,11 +48,11 @@ let port = browser.runtime.connect(
 
 ## Beispiele
 
-Dieses Inhalts-Skript:
+Dieses Inhalteskript:
 
-- stellt eine Verbindung zum Hintergrund-Skript her und speichert den `Port` in einer Variablen namens `myPort`.
-- hört auf Nachrichten auf `myPort` und protokolliert sie.
-- sendet Nachrichten an das Hintergrund-Skript, indem es `myPort` verwendet, wenn der Benutzer auf das Dokument klickt.
+- verbindet sich mit dem Hintergrundskript und speichert den `Port` in einer Variablen namens `myPort`.
+- hört auf Nachrichten bei `myPort` und protokolliert sie.
+- sendet Nachrichten an das Hintergrundskript, unter Verwendung von `myPort`, wenn der Benutzer das Dokument anklickt.
 
 ```js
 // content-script.js
@@ -72,16 +70,16 @@ document.body.addEventListener("click", () => {
 });
 ```
 
-Das entsprechende Hintergrund-Skript:
+Das entsprechende Hintergrundskript:
 
-- hört auf Verbindungsversuche vom Inhalts-Skript.
-- wenn es einen Verbindungsversuch empfängt:
+- hört auf Verbindungsversuche vom Inhalteskript.
+- Wenn es einen Verbindungsversuch empfängt:
 
   - speichert es den Port in einer Variablen namens `portFromCS`.
-  - sendet dem Inhalts-Skript eine Nachricht über den Port.
-  - beginnt, Nachrichten zu empfangen, die über den Port gesendet werden, und protokolliert sie.
+  - sendet dem Inhalteskript eine Nachricht unter Verwendung des Ports.
+  - beginnt, auf Nachrichten zu hören, die über den Port empfangen werden, und protokolliert sie.
 
-- sendet Nachrichten an das Inhalts-Skript, indem es `portFromCS` verwendet, wenn der Benutzer auf die Browseraktion der Erweiterung klickt.
+- sendet Nachrichten an das Inhalteskript, unter Verwendung von `portFromCS`, wenn der Benutzer die Browseraktion der Erweiterung anklickt.
 
 ```js
 // background-script.js
@@ -107,7 +105,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connect) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connect)-API von Chromium. Diese Dokumentation ist abgeleitet aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

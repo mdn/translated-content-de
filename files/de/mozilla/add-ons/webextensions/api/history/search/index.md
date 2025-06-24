@@ -2,12 +2,12 @@
 title: history.search()
 slug: Mozilla/Add-ons/WebExtensions/API/history/search
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Durchsucht den Verlauf des Browsers nach {{WebExtAPIRef("history.HistoryItem")}}-Objekten, die den angegebenen Kriterien entsprechen.
+Durchsucht den Browserverlauf nach {{WebExtAPIRef("history.HistoryItem")}} Objekten, die den angegebenen Kriterien entsprechen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,13 +23,13 @@ let searching = browser.history.search(
 
 - `query`
 
-  - : Ein Objekt, das angibt, wonach im Browser-Verlauf gesucht werden soll. Dieses Objekt hat die folgenden Felder:
+  - : Ein Objekt, das angibt, wonach im Browserverlauf gesucht werden soll. Dieses Objekt hat die folgenden Felder:
 
     - `text`
 
-      - : `string`. Suchverlaufseinträge anhand von URL und Titel. Der String wird an Leerraumgrenzen in separate Suchbegriffe aufgeteilt. Jeder Suchbegriff wird ohne Beachtung der Groß-/Kleinschreibung mit der URL und dem Titel des Verlaufselements verglichen. Das Verlaufselement wird zurückgegeben, wenn alle Suchbegriffe übereinstimmen.
+      - : `string`. Durchsucht Verlaufsobjekte nach URL und Titel. Der String wird an Leerraumgrenzen in separate Suchbegriffe aufgeteilt. Jeder Suchbegriff wird ohne Berücksichtigung der Groß- und Kleinschreibung mit der URL und dem Titel des Verlaufsobjekts verglichen. Das Verlaufsobjekt wird zurückgegeben, wenn alle Suchbegriffe übereinstimmen.
 
-        Zum Beispiel, betrachten Sie dieses Element:
+        Zum Beispiel, betrachten Sie dieses Objekt:
 
         URL: `"http://example.org"`
 
@@ -43,22 +43,22 @@ let searching = browser.history.search(
         "main https"        -> does not match
         ```
 
-        Geben Sie einen leeren String (`""`) an, um alle {{WebExtAPIRef("history.HistoryItem")}}-Objekte abzurufen, die alle anderen Kriterien erfüllen.
+        Geben Sie einen leeren String (`""`) an, um alle {{WebExtAPIRef("history.HistoryItem")}} Objekte abzurufen, die alle anderen Kriterien erfüllen.
 
     - `startTime` {{optional_inline}}
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt, ein [ISO 8601-Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit der Epoche. Wenn es angegeben wird, schließt diese Option Ergebnisse aus, deren `lastVisitTime` früher als diese Zeit ist. Wenn es weggelassen wird, ist die Suche auf die letzten 24 Stunden beschränkt.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datumstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit dem Epoch. Wenn es angegeben wird, schließt diese Option Ergebnisse aus, deren `lastVisitTime` früher als diese Zeit ist. Wenn es weggelassen wird, ist die Suche auf die letzten 24 Stunden beschränkt.
     - `endTime` {{optional_inline}}
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt, ein [ISO 8601-Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit der Epoche. Wenn es angegeben wird, beschränkt diese Option die Ergebnisse auf diejenigen, die vor diesem Datum besucht wurden. Wenn es weggelassen wird, werden alle Einträge ab der Startzeit berücksichtigt.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datumstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit dem Epoch. Wenn es angegeben wird, beschränkt diese Option die Ergebnisse auf diejenigen, die vor diesem Datum besucht wurden. Wenn es weggelassen wird, werden alle Einträge ab der Startzeit berücksichtigt.
     - `maxResults` {{optional_inline}}
-      - : `number`. Die maximale Anzahl der abzurufenden Ergebnisse. Standardmäßig auf 100, mit einem Mindestwert von 1. Die Funktion gibt einen Fehler aus, wenn Sie ihr einen `maxResults`-Wert kleiner als 1 übergeben.
+      - : `number`. Die maximale Anzahl von Ergebnissen, die abgerufen werden sollen. Standardmäßig 100, mit einem Mindestwert von 1. Die Funktion löst einen Fehler aus, wenn Sie einen `maxResults`-Wert kleiner als 1 übergeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von Objekten des Typs {{WebExtAPIRef("history.HistoryItem")}} erfüllt, wobei jedes Objekt ein einzelnes passendes Verlaufselement beschreibt. Die Elemente sind in umgekehrter chronologischer Reihenfolge sortiert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von Objekten des Typs {{WebExtAPIRef("history.HistoryItem")}} erfüllt, die jeweils einen einzelnen passenden Verlaufsobjekt beschreiben. Die Objekte sind in umgekehrter chronologischer Reihenfolge sortiert.
 
 ## Beispiele
 
-Protokolliert die URL und die letzte Besuchszeit für alle Verlaufselemente, die in den letzten 24 Stunden besucht wurden:
+Protokolliert die URL und die letzte Besuchszeit für alle Verlaufsobjekte, die in den letzten 24 Stunden besucht wurden:
 
 ```js
 function onGot(historyItems) {
@@ -71,7 +71,7 @@ function onGot(historyItems) {
 browser.history.search({ text: "" }).then(onGot);
 ```
 
-Protokolliert die URL und die letzte Besuchszeit für alle jemals besuchten Verlaufselemente:
+Protokolliert die URL und die letzte Besuchszeit für alle jemals besuchten Verlaufsobjekte:
 
 ```js
 function onGot(historyItems) {
@@ -89,7 +89,7 @@ browser.history
   .then(onGot);
 ```
 
-Protokolliert die URL und die letzte Besuchszeit des letzten Besuchs einer Seite, die den String "mozilla" enthält:
+Protokolliert die URL und die letzte Besuchszeit des jüngsten Besuchs einer Seite, die den String "mozilla" enthält:
 
 ```js
 function onGot(historyItems) {
@@ -115,7 +115,7 @@ browser.history
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-search) API von Chromium. Diese Dokumentation wird von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-search) API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

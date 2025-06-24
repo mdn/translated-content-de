@@ -3,29 +3,22 @@ title: "Node: insertBefore() Methode"
 short-title: insertBefore()
 slug: Web/API/Node/insertBefore
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("DOM")}}
 
-Die **`insertBefore()`** Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
+Die **`insertBefore()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
 fügt einen Knoten vor einem _Referenzknoten_ als Kind eines angegebenen _Elternknotens_ ein.
 
-Wenn der angegebene Knoten bereits im Dokument existiert,
-verschiebt `insertBefore()` ihn von seiner aktuellen Position an die neue Position.
-(Das heißt, er wird automatisch von seinem vorhandenen Elternknoten entfernt,
-bevor er dem angegebenen neuen Elternknoten hinzugefügt wird.)
+Wenn der angegebene Knoten bereits im Dokument existiert, versetzt `insertBefore()` ihn von seiner aktuellen Position zur neuen Position. (Das bedeutet, er wird automatisch von seinem bestehenden Elternteil entfernt, bevor er dem angegebenen neuen Elternteil hinzugefügt wird.)
 
-Dies bedeutet, dass ein Knoten nicht gleichzeitig an zwei Stellen im Dokument vorhanden sein kann.
+Das bedeutet, dass ein Knoten nicht gleichzeitig an zwei Positionen im Dokument sein kann.
 
 > [!NOTE]
-> Der [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) kann verwendet werden, um eine Kopie
-> des Knotens zu erstellen, bevor er unter dem neuen Elternknoten hinzugefügt wird. Beachten Sie, dass die mit
-> `cloneNode()` erstellten Kopien nicht automatisch synchron gehalten werden.
+> Die Methode [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) kann benutzt werden, um eine Kopie des Knotens zu erstellen, bevor er unter dem neuen Elternteil angehängt wird. Beachten Sie, dass die mit `cloneNode()` erstellten Kopien nicht automatisch synchron gehalten werden.
 
-Wenn das angegebene Kind ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, wird der gesamte Inhalt des
-`DocumentFragment` in die Kinderliste des angegebenen Elternknotens
-verschoben.
+Wenn das angegebene Kind ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, wird der gesamte Inhalt des `DocumentFragment` in die Kinderliste des angegebenen Elternknotens verschoben.
 
 ## Syntax
 
@@ -36,23 +29,18 @@ insertBefore(newNode, referenceNode)
 ### Parameter
 
 - `newNode`
-  - : Der Knoten, der eingefügt werden soll.
+  - : Der einzufügende Knoten.
 - `referenceNode`
-  - : Der Knoten, vor dem `newNode` eingefügt wird. Wenn dies
-    `null` ist, wird `newNode` am Ende der
-    Kindknoten des Knotens eingefügt.
-    > **Hinweis:** `referenceNode` ist **kein** optionaler Parameter.
-    > Sie müssen explizit einen [`Node`](/de/docs/Web/API/Node) oder `null` übergeben.
-    > Bei Nichtbereitstellung oder ungültigen Werten kann es in verschiedenen Browserversionen [unterschiedlich](https://crbug.com/419780) [verhalten](https://bugzil.la/119489).
+  - : Der Knoten, vor dem `newNode` eingefügt wird. Ist dies `null`, wird `newNode` am Ende der Kindknoten des Knotens eingefügt.
+    > [!NOTE] > `referenceNode` ist **kein** optionaler Parameter. Sie müssen explizit einen [`Node`](/de/docs/Web/API/Node) oder `null` übergeben. Das Nichterfüllen dieser Anforderung oder das Übergeben ungültiger Werte kann in verschiedenen Browserversionen [unterschiedliches Verhalten](https://crbug.com/419780) [auslösen](https://bugzil.la/119489).
 
 ### Rückgabewert
 
-Gibt das hinzugefügte Kind zurück (es sei denn, `newNode` ist ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment),
-in diesem Fall wird das leere [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurückgegeben).
+Gibt das hinzugefügte Kind zurück (es sei denn, `newNode` ist ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), in diesem Fall wird das leere [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurückgegeben).
 
 ### Ausnahmen
 
-Vor-einfügen Gültigkeit
+Vor-Einfügungs-Gültigkeit
 
 ## Beispiel
 
@@ -109,22 +97,20 @@ parentDiv.insertBefore(sp1, sp2);
 ```
 
 > [!NOTE]
-> Es gibt keine Methode `insertAfter()`.
-> Diese kann emuliert werden, indem die Methode `insertBefore` zusammen mit [`Node.nextSibling`](/de/docs/Web/API/Node/nextSibling) verwendet wird.
+> Es gibt keine `insertAfter()`-Methode.
+> Sie kann emuliert werden, indem die Methode `insertBefore` mit [`Node.nextSibling`](/de/docs/Web/API/Node/nextSibling) kombiniert wird.
 >
-> Im vorherigen Beispiel könnte `sp1` nach `sp2` eingefügt werden mit:
+> Im vorherigen Beispiel könnte `sp1` nach `sp2` eingefügt werden, indem:
 >
 > ```js
 > parentDiv.insertBefore(sp1, sp2.nextSibling);
 > ```
 >
-> Wenn `sp2` kein nächstes Geschwister hat, dann muss es das letzte Kind sein —
-> `sp2.nextSibling` gibt `null` zurück und `sp1` wird
-> am Ende der Kindknotenliste eingefügt (unmittelbar nach `sp2`).
+> Wenn `sp2` kein nächstes Geschwisterelement hat, dann muss es das letzte Kind sein — `sp2.nextSibling` gibt `null` zurück, und `sp1` wird am Ende der Kindknotenliste eingefügt (unmittelbar nach `sp2`).
 
 ### Beispiel 3
 
-Einfügen eines Elements vor dem ersten Kindelement, unter Verwendung der
+Einfügen eines Elements vor dem ersten Kindelement unter Verwendung der
 [`firstChild`](/de/docs/Web/API/Node/firstChild)-Eigenschaft.
 
 ```js
@@ -140,11 +126,9 @@ const newElement = document.createElement("div");
 parentElement.insertBefore(newElement, theFirstChild);
 ```
 
-Wenn das Element kein erstes Kind hat, ist `firstChild`
-`null`. Das Element wird dennoch dem Elternknoten angefügt, nach dem letzten Kind.
+Wenn das Element kein erstes Kind hat, dann ist `firstChild` `null`. Das Element wird dennoch am Ende des Elternteils, nach dem letzten Kind, angehängt.
 
-Da das Elternelement kein erstes Kind hatte, hatte es auch kein letztes Kind.
-Folglich ist das neu eingefügte Element das _einzige_ Element.
+Da das Elternelement kein erstes Kind hatte, hatte es auch kein letztes Kind. Folglich ist das neu eingefügte Element das _einzige_ Element.
 
 ## Spezifikationen
 

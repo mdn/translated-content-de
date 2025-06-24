@@ -1,16 +1,20 @@
 ---
-title: "XRSystem: Methode requestSession()"
+title: "XRSystem: requestSession() Methode"
 short-title: requestSession()
 slug: Web/API/XRSystem/requestSession
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die Methode **`requestSession()`** des **[`XRSystem`](/de/docs/Web/API/XRSystem)**-Interfaces gibt ein {{jsxref("promise")}} zurück, das ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt auflöst, mit dem Sie den angeforderten WebXR-Sitzungstyp verwalten können.
+Die **[`XRSystem`](/de/docs/Web/API/XRSystem)**-Schnittstelle
+stellt die Methode **`requestSession()`** zur Verfügung, die ein {{jsxref("promise")}}
+zurückgibt, das zu einem [`XRSession`](/de/docs/Web/API/XRSession)-Objekt aufgelöst wird, über das Sie den
+angeforderten Typ der WebXR-Sitzung verwalten können.
 
-Während nur eine immersive VR-Sitzung gleichzeitig aktiv sein kann, können mehrere Inline-Sitzungen gleichzeitig laufen.
+Während jeweils nur eine immersive VR-Sitzung aktiv sein kann, können mehrere
+Inline-Sitzungen gleichzeitig aktiv sein.
 
 ## Syntax
 
@@ -23,89 +27,106 @@ requestSession(mode, options)
 
 - `mode`
 
-  - : Ein {{jsxref("String")}}, der den XR-Sitzungsmodus definiert. Unterstützte Modi sind:
-
-    - {{Experimental_Inline}} `immersive-ar`: Der Ausgabe der Sitzung wird exklusiver Zugriff auf das immersive Gerät gewährt, jedoch wird der gerenderte Inhalt mit der realen Umgebung vermischt. Der [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) der Sitzung gibt die Methode an, mit der die Inhalte zusammengeführt werden.
-    - `immersive-vr`: Gibt an, dass die gerenderte Sitzung in VR-Modus auf einem immersiven XR-Gerät angezeigt wird; sie soll nicht überlagert oder in die umgebende Umgebung integriert werden. Der [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) wird im Idealfall auf `opaque` erwartet, könnte aber `additive` sein, falls die Hardware dies erfordert.
-    - `inline`: Die Ausgabe wird inline innerhalb des Kontextes eines Elements in einem Standard-HTML-Dokument präsentiert, anstatt den gesamten visuellen Raum einzunehmen. Inline-Sitzungen können entweder im Mono- oder Stereo-Modus dargestellt werden und können mit oder ohne Viewer-Tracking verfügbar sein. Inline-Sitzungen erfordern keine spezielle Hardware und sollten auf jedem {{Glossary("user_agent", "User-Agent")}} verfügbar sein, der die WebXR-API unterstützt.
+  - : Ein {{jsxref("String")}}, der den XR-Sitzungsmodus definiert. Die unterstützten Modi sind:
+    - {{Experimental_Inline}} `immersive-ar`: Die Ausgabe der Sitzung erhält exklusiven Zugriff auf das immersive Gerät,
+      jedoch wird der gerenderte Inhalt mit der realen Umgebung vermischt.
+      Der [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) der Sitzung gibt die verwendete Methode
+      zum Mischen des Inhalts an.
+    - `immersive-vr`: Gibt an, dass die gerenderte Sitzung mit einem immersiven XR-Gerät
+      im VR-Modus angezeigt wird; sie soll nicht überlagert oder in die Umgebung integriert werden.
+      Der [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) soll wenn möglich
+      `opaque` sein, kann aber `additive` sein, wenn es die Hardware erfordert.
+    - `inline`: Die Ausgabe wird inline im Kontext eines Elements in einem standardmäßigen HTML-Dokument präsentiert,
+      anstatt den gesamten visuellen Raum zu nutzen. Inline-Sitzungen können entweder im Mono- oder Stereo-Modus präsentiert werden
+      und können je nach Benutzeragent sowohl mit als auch ohne Betrachterverfolgung verfügbar sein. Inline-Sitzungen erfordern keine spezielle Hardware und sollten
+      auf jedem {{Glossary("user_agent", "User-Agent")}}, der die WebXR-API unterstützt, verfügbar sein.
 
 - `options` {{Optional_Inline}}
-
-  - : Ein Objekt zur Konfiguration der [`XRSession`](/de/docs/Web/API/XRSession). Wenn keine enthalten sind, verwendet das Gerät eine Standard-Feature-Konfiguration für alle Optionen.
-    - `requiredFeatures` {{Optional_Inline}}: Ein Array von Werten, die die zurückgegebene [`XRSession`](/de/docs/Web/API/XRSession) _unterstützen muss_. Siehe [Sitzungsfeatures](#sitzungsfunktionen) unten.
-    - `optionalFeatures` {{Optional_Inline}}: Ein Array von Werten, die Features identifizieren, welche die zurückgegebene [`XRSession`](/de/docs/Web/API/XRSession) optional unterstützen kann. Siehe [Sitzungsfeatures](#sitzungsfunktionen) unten.
-    - `domOverlay` {{Optional_Inline}}: Ein Objekt mit einer erforderlichen `root`-Eigenschaft, die das Überlagerungselement angibt, das dem Benutzer als Inhalt der DOM-Überlagerung angezeigt wird. Siehe das [Beispiel unten](#anfordern_einer_sitzung_mit_dom-überlagerung).
-    - `depthSensing` {{Optional_Inline}}: Ein Objekt mit zwei erforderlichen Eigenschaften [`usagePreference`](/de/docs/Web/API/XRSession/depthUsage) und [`dataFormatPreference`](/de/docs/Web/API/XRSession/depthDataFormat) zur Konfiguration der Tiefenerfassung. Siehe das [Beispiel unten](#anfordern_einer_tiefenerfassungssitzung).
+  - : Ein Objekt zur Konfiguration der [`XRSession`](/de/docs/Web/API/XRSession). Wenn keine Optionen enthalten sind, verwendet das Gerät eine Standard-Feature-Konfiguration für alle Optionen.
+    - `requiredFeatures` {{Optional_Inline}}: Ein Array von Werten, die die zurückgegebene [`XRSession`](/de/docs/Web/API/XRSession)
+      _unterstützen muss_. Siehe [Session-Features](#sitzungs-features) unten.
+    - `optionalFeatures` {{Optional_Inline}}: Ein Array von Werten, die Features identifizieren, die die zurückgegebene
+      [`XRSession`](/de/docs/Web/API/XRSession) optional unterstützen kann. Siehe [Session-Features](#sitzungs-features) unten.
+    - `domOverlay` {{Optional_Inline}}: Ein Objekt mit einer erforderlichen `root`-Eigenschaft, die das Overlay-Element spezifiziert, das dem Benutzer als Inhalt des DOM-Overlays angezeigt wird. Siehe das [Beispiel unten](#anfordern_einer_sitzung_mit_einem_dom-overlay).
+    - `depthSensing` {{Optional_Inline}}: Ein Objekt mit zwei erforderlichen Eigenschaften [`usagePreference`](/de/docs/Web/API/XRSession/depthUsage) und [`dataFormatPreference`](/de/docs/Web/API/XRSession/depthDataFormat), um die Durchführung der Tiefenerfassung zu konfigurieren. Siehe das [Beispiel unten](#anfordern_einer_tiefenerfassungssitzung).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`XRSession`](/de/docs/Web/API/XRSession)-Objekt aufgelöst wird, wenn das Gerät und der User-Agent den angeforderten Modus und die Funktionen unterstützen.
+Ein {{jsxref("Promise")}}, das ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt auflöst, wenn das
+Gerät und der Benutzeragent den angeforderten Modus und die Features unterstützen.
 
 ### Ausnahmen
 
-Diese Methode wirft keine echten Ausnahmen; stattdessen wird das zurückgegebene Versprechen abgelehnt und ein [`DOMException`](/de/docs/Web/API/DOMException) übergeben, dessen `name` einer der folgenden ist:
+Diese Methode wirft keine echten Ausnahmen; stattdessen lehnt sie das zurückgegebene Promise ab
+und übergibt eine [`DOMException`](/de/docs/Web/API/DOMException), deren `name` einer der
+folgenden ist:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn der angeforderte Sitzungsmodus `immersive-vr` ist, aber bereits eine immersive VR-Sitzung entweder aktuell aktiv ist oder gerade eingerichtet wird. Es kann immer nur eine immersive VR-Sitzung geben.
+  - : Wird zurückgegeben, wenn der angeforderte Sitzungsmodus `immersive-vr` ist, aber bereits
+    eine immersive VR-Sitzung entweder aktiv oder im Aufbau ist. Es
+    kann jeweils nur eine immersive VR-Sitzung vorhanden sein.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn kein WebXR-kompatibles Gerät verfügbar ist oder das Gerät den angegebenen `sessionMode` nicht unterstützt; dies kann auch ausgelöst werden, wenn eine der _erforderlichen_ Optionen nicht unterstützt wird.
+  - : Wird zurückgegeben, wenn kein WebXR-kompatibles Gerät verfügbar ist oder das Gerät den
+    angegebenen `sessionMode` nicht unterstützt; dies kann auch ausgelöst werden, wenn einer der
+    _erforderlichen_ Optionen nicht unterstützt wird.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn die Erlaubnis zum Betreten des angegebenen XR-Modus verweigert wird. Dies kann aus mehreren Gründen geschehen, die ausführlicher in [Berechtigungen und Sicherheit](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security) behandelt werden.
+  - : Wird zurückgegeben, wenn die Erlaubnis zum Betreten des bestimmten XR-Modus verweigert wird. Dies kann aus mehreren Gründen geschehen, die in [Berechtigungen und Sicherheit](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security) ausführlicher behandelt werden.
 
-## Sitzungsfunktionen
+## Sitzungs-Features
 
-Die folgenden Sitzungsfunktionen und Referenzräume können entweder als `optionalFeatures` oder `requiredFeatures` angefordert werden.
+Die folgenden Sitzungs-Features und Referenzräume können entweder als `optionalFeatures` oder `requiredFeatures` angefordert werden.
 
 - `anchors`
-  - : Ermöglicht die Verwendung von [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Objekten.
+  - : Aktiviert die Verwendung von [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Objekten.
 - `bounded-floor`
-  - : Ähnlich dem Typ `local`, außer dass der Benutzer nicht erwartet wird, sich außerhalb eines vorgegebenen Bereichs zu bewegen, der von der [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) im zurückgegebenen Objekt definiert wird.
+  - : Ähnlich wie der `local`-Typ, außer dass der Benutzer sich nicht außerhalb einer vorher festgelegten Grenze, die durch die [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) im zurückgegebenen Objekt angegeben wird, bewegen soll.
 - `depth-sensing`
-  - : Ermöglicht die Fähigkeit, Tiefeninformationen mit Hilfe von [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)-Objekten zu erhalten.
+  - : Aktiviert die Möglichkeit, Tiefeninformationen mithilfe von [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)-Objekten zu erhalten.
 - `dom-overlay`
-  - : Ermöglicht das Festlegen eines DOM-Überlagerungselements, das dem Benutzer angezeigt wird.
+  - : Aktiviert die Möglichkeit, ein DOM-Overlay-Element zu spezifizieren, das dem Benutzer angezeigt wird.
 - `hand-tracking`
-  - : Ermöglicht artikulierte Handpose-Informationen von handbasierten Eingabegeräten (siehe [`XRHand`](/de/docs/Web/API/XRHand) und [`XRInputSource.hand`](/de/docs/Web/API/XRInputSource/hand)).
+  - : Ermöglicht die Erfassung der Artikulationshaltung der Hand von handbasierten Eingabereglern (siehe [`XRHand`](/de/docs/Web/API/XRHand) und [`XRInputSource.hand`](/de/docs/Web/API/XRInputSource/hand)).
 - `hit-test`
-  - : Ermöglicht Funktionen für Treffsicherheitstests gegen reale Geometrie.
+  - : Aktiviert Funktionen für den Hit-Test gegen reale Geometrien.
 - `layers`
-  - : Ermöglicht die Fähigkeit, verschiedene Schichtenarten zu erstellen (außer [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)).
+  - : Ermöglicht die Erstellung verschiedener Schichttypen (außer [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)).
 - `light-estimation`
-  - : Ermöglicht die Schätzung von Umgebungslichtbedingungen mit Hilfe von [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekten.
+  - : Ermöglicht die Schätzung von Lichtverhältnissen in der Umgebung mithilfe von [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekten.
 - `local`
-  - : Ermöglicht einen Tracking-Raum, dessen nativer Ursprung sich nahe der Position des Betrachters befindet, als die Sitzung erstellt wurde. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Der Benutzer wird nicht erwartet, sich viel oder überhaupt über seinen Ausgangsposition hinaus zu bewegen, und das Tracking ist für diesen Anwendungsfall optimiert.
+  - : Ermöglicht einen Verfolgungsraum, dessen nativer Ursprung sich in der Nähe der Position des Betrachters zum Zeitpunkt der Sitzungsführung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Der Benutzer soll sich nicht viel weiter als seine Ausgangsposition bewegen, und die Verfolgung ist für diesen Anwendungsfall optimiert.
 - `local-floor`
-  - : Ähnlich dem Typ `local`, außer dass die Startposition an einem sicheren Ort für den Betrachter zum Stehen platziert wird, wobei der Wert der y-Achse bei 0 auf Bodenhöhe liegt. Wenn diese Bodenhöhe nicht bekannt ist, wird der {{Glossary("user_agent", "User-Agent")}} die Bodenhöhe schätzen. Wenn die geschätzte Bodenhöhe ungleich null ist, wird erwartet, dass der Browser sie so abrundet, dass Fingerprinting vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
+  - : Ähnlich dem `local`-Typ, außer dass die Ausgangsposition an einem sicheren Standort für den Benutzer platziert wird, wobei der Wert der y-Achse auf 0 am Boden liegt. Wenn diese Bodenhöhe nicht bekannt ist, schätzt der {{Glossary("user_agent", "Benutzeragent")}} die Bodenhöhe. Wenn die geschätzte Bodenhöhe ungleich null ist, wird erwartet, dass der Browser sie entsprechend auf die nächste Ganzzahl rundet, um {{Glossary("Fingerprinting", "Fingerprinting")}} zu vermeiden (wahrscheinlich auf den nächsten Zentimeter).
 - `secondary-views`
-  - : Ermöglicht [`XRView`](/de/docs/Web/API/XRView)-Objekte als sekundäre Ansichten. Dies kann für First-Person-Observer-Ansichten verwendet werden, die für Videoaufnahmen verwendet werden, oder "Quad-Ansichten", bei denen es zwei Ansichten pro Auge gibt, mit unterschiedlichen Auflösungen und Blickwinkeln.
+  - : Ermöglicht [`XRView`](/de/docs/Web/API/XRView)-Objekte als sekundäre Ansichten. Dies kann für Erst-Person-Ansichten, die zur Videofortführung verwendet werden, oder für "Quad-Ansichten", bei denen zwei Ansichten pro Auge sind, mit unterschiedlichen Auflösungen und Sichtfeldern genutzt werden.
 - `unbounded`
-  - : Ermöglicht einen Tracking-Raum, der dem Benutzer völlige Bewegungsfreiheit erlaubt, möglicherweise über extrem weite Entfernungen von ihrem Ausgangspunkt. Der Betrachter wird überhaupt nicht getrackt; das Tracking ist für Stabilität um die aktuelle Position des Benutzers optimiert, sodass der native Ursprung bei Bedarf abdriften kann, um diese Notwendigkeit zu berücksichtigen.
+  - : Ermöglicht einen Verfolgungsraum, der Benutzern totale Bewegungsfreiheit erlaubt, möglicherweise über extreme Entfernungen von ihrem Ursprungsstandort hinweg. Der Betrachter wird nicht verfolgt; die Verfolgung ist auf Stabilität rund um den aktuellen Position des Benutzers optimiert, sodass der native Ursprung driftet, um dies zu ermöglichen.
 - `viewer`
-  - : Ermöglicht einen Tracking-Raum, dessen nativer Ursprung die Position und Orientierung des Betrachters verfolgt.
+  - : Ermöglicht einen Verfolgungsraum, dessen nativer Ursprung die Position und Orientierung des Betrachters verfolgt.
 
 ## Sicherheit
 
-Mehrere Sitzungsfunktionen und verschiedene Referenzräume haben minimale Sicherheits- und Datenschutzanforderungen, wie z. B. die Einholung der Zustimmung des Benutzers und/oder die Anforderung des {{HTTPHeader("Permissions-Policy")}}: [`xr-spatial-tracking`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/xr-spatial-tracking)-Direktive. Siehe auch [Berechtigungen und Sicherheit](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security) für weitere Details.
+Mehrere Sitzungs-Features und die verschiedenen Referenzräume haben minimale Sicherheits- und Datenschutzanforderungen, wie etwa das Einholen der Benutzererlaubnis und/oder das Einrichten der {{HTTPHeader("Permissions-Policy")}}: [`xr-spatial-tracking`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/xr-spatial-tracking)-Richtlinie. Siehe auch [Berechtigungen und Sicherheit](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security) für weitere Details.
 
-| Sitzungsfunktion | Benutzerzustimmungsanforderung          | Berechtigungsrichtlinienanforderung |
-| ---------------- | --------------------------------------- | ----------------------------------- |
-| `bounded-floor`  | Immer erforderlich                      | `xr-spatial-tracking`               |
-| `depth-sensing`  | —                                       | `xr-spatial-tracking`               |
-| `hand-tracking`  | Immer erforderlich                      | —                                   |
-| `hit-test`       | —                                       | `xr-spatial-tracking`               |
-| `local`          | Immer erforderlich für Inline-Sitzungen | `xr-spatial-tracking`               |
-| `local-floor`    | Immer erforderlich                      | `xr-spatial-tracking`               |
-| `unbounded`      | Immer erforderlich                      | `xr-spatial-tracking`               |
-| `viewer`         | Immer erforderlich                      | —                                   |
+| Sitzungs-Feature | Benutzererlaubnis erforderlich          | Richtlinie für Berechtigungen erforderlich |
+| ---------------- | --------------------------------------- | ------------------------------------------ |
+| `bounded-floor`  | Immer erforderlich                      | `xr-spatial-tracking`                      |
+| `depth-sensing`  | —                                       | `xr-spatial-tracking`                      |
+| `hand-tracking`  | Immer erforderlich                      | —                                          |
+| `hit-test`       | —                                       | `xr-spatial-tracking`                      |
+| `local`          | Immer erforderlich für Inline-Sitzungen | `xr-spatial-tracking`                      |
+| `local-floor`    | Immer erforderlich                      | `xr-spatial-tracking`                      |
+| `unbounded`      | Immer erforderlich                      | `xr-spatial-tracking`                      |
+| `viewer`         | Immer erforderlich                      | —                                          |
 
 Siehe auch [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation).
 
 ## Beispiele
 
-### Erstellen einer immersiven VR-Sitzung
+### Eine immersive VR-Sitzung erstellen
 
-Das folgende Beispiel ruft `requestSession()` auf, um eine
-`"immersive-vr"`-Sitzung anzufordern. Wenn das {{jsxref("Promise")}} aufgelöst wird, richtet es eine Sitzung ein und startet die Animationsschleife.
+Das folgende Beispiel ruft `requestSession()` auf und fordert eine
+`"immersive-vr"`-Sitzung an. Wenn das {{jsxref("Promise")}} aufgelöst wird, richtet es eine
+Sitzung ein und startet die Animationsschleife.
 
 ```js
 navigator.xr
@@ -124,10 +145,12 @@ navigator.xr
   });
 ```
 
-### Überprüfung der WebXR-Unterstützung und Verwenden eines Schalters zum Starten des VR-Modus
+### Überprüfen der WebXR-Unterstützung und Verwendung eines Buttons zur Aktivierung des VR-Modus
 
 Das folgende Beispiel zeigt, wie `isSessionSupported()` und
-`requestSession()` verwendet werden. Zuerst wird überprüft, ob WebXR verfügbar ist, indem die Existenz von [`navigator.xr`](/de/docs/Web/API/Navigator/xr) überprüft wird. Anschließend wird `isSessionSupported()` aufgerufen und die gewünschte Sitzungsoption übergeben, bevor die Steuerungen für den Eintritt in XR aktiviert werden. Das Hinzufügen von Steuerelementen ist ein notwendiger Schritt, da der Eintritt in XR eine Benutzeraktion erfordert. Schließlich ruft die Methode `onButtonClicked()` `requestSession()` mit derselben Sitzungsoption auf, die auch an `isSessionSupported()` übergeben wurde.
+`requestSession()` verwendet werden. Zuerst wird geprüft, ob WebXR verfügbar ist, indem das Vorhandensein von [`navigator.xr`](/de/docs/Web/API/Navigator/xr) überprüft wird. Dann wird `isSessionSupported()` aufgerufen, wobei die gewünschte Sitzungsoption übergeben wird, bevor die
+Steuerelemente für das Betreten von XR aktiviert werden. Das Hinzufügen von Steuerelementen ist notwendig, weil das Betreten von XR
+einen Benutzeraktion erfordert. Abschließend ruft die Methode `onButtonClicked()` `requestSession()` auf, wobei dieselbe Sitzungsoption verwendet wird, die auch an `isSessionSupported()` übergeben wurde.
 
 ```js
 if (navigator.xr) {
@@ -158,9 +181,9 @@ function onButtonClicked() {
 }
 ```
 
-### Anfordern einer Sitzung mit erforderlichen Funktionen
+### Anfordern einer Sitzung mit erforderlichen Features
 
-Erfordert eine unbegrenzte Erfahrung, bei der der Benutzer sich frei in seiner physischen Umgebung bewegen kann:
+Erfordern eines uneingeschränkten Erlebnisses, bei dem der Benutzer sich frei in seiner physischen Umgebung bewegen kann:
 
 ```js
 navigator.xr.requestSession("immersive-vr", {
@@ -168,7 +191,7 @@ navigator.xr.requestSession("immersive-vr", {
 });
 ```
 
-### Anfordern einer Sitzung mit DOM-Überlagerung
+### Anfordern einer Sitzung mit einem DOM-Overlay
 
 ```js
 navigator.xr.requestSession("immersive-ar", {
@@ -181,7 +204,7 @@ navigator.xr.requestSession("immersive-ar", {
 
 ### Anfordern einer Tiefenerfassungssitzung
 
-Hier kann der Anrufer sowohl CPU- als auch GPU-optimierte Nutzung sowie die Formate "luminance-alpha" und "float32" behandeln. Die Reihenfolge gibt die Präferenz für CPU und "luminance-alpha" an:
+Hier kann der Anrufer sowohl CPU- als auch GPU-optimierte Nutzung sowie die Formate "luminance-alpha" und "float32" handhaben. Die Reihenfolge gibt eine Präferenz für die CPU-Nutzung und "luminance-alpha" an:
 
 ```js
 navigator.xr.requestSession("immersive-ar", {

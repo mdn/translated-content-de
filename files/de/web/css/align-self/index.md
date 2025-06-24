@@ -2,12 +2,12 @@
 title: align-self
 slug: Web/CSS/align-self
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`align-self`** [CSS](/de/docs/Web/CSS) Eigenschaft überschreibt den Wert von {{cssxref("align-items")}} eines Grid- oder Flex-Items. In Grids richtet sie das Item innerhalb des {{Glossary("Grid_Areas", "Grid-Bereichs")}} aus. In Flexbox richtet sie das Item auf der {{Glossary("cross_axis", "Kreuzachse")}} aus.
+Die **`align-self`** [CSS](/de/docs/Web/CSS)-Eigenschaft überschreibt den {{cssxref("align-items")}}-Wert eines Grid- oder Flex-Elements. Im Grid richtet sie das Element innerhalb des {{Glossary("Grid_Areas", "Grid-Bereichs")}} aus. Im Flexbox-Modell richtet sie das Element an der {{Glossary("cross_axis", "Querachse")}} aus.
 
 {{InteractiveExample("CSS Demo: align-self")}}
 
@@ -53,7 +53,7 @@ align-self: end;
 }
 ```
 
-Die Eigenschaft gilt nicht für Block-Level-Boxen oder für Tabellenzellen. Wenn der Kreuzachsenrand eines Flexbox-Items `auto` ist, wird `align-self` ignoriert.
+Diese Eigenschaft gilt nicht für Block-Level-Boxen oder Tabellenzellen. Wenn der Querrand eines Flexbox-Elements `auto` ist, wird `align-self` ignoriert.
 
 ## Syntax
 
@@ -94,58 +94,37 @@ align-self: unset;
 ### Werte
 
 - `auto`
-
-  - : Berechnet sich zum Wert der übergeordneten {{cssxref("align-items")}}.
-
+  - : Wird zum `align-items`-Wert des Elternteils berechnet.
 - `normal`
 
-  - : Die Wirkung dieses Schlüsselworts hängt vom verwendeten Layout-Modus ab:
-
-    - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzen_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
-    - In statischer Position absolut positionierter Layouts verhält sich das Schlüsselwort wie `stretch`.
-    - Für Flex-Items verhält sich das Schlüsselwort wie `stretch`.
-    - Für Grid-Items führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer bei Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder einer intrinsischen Größe, bei denen es sich wie `start` verhält.
+  - : Die Wirkung dieses Schlüsselwortes hängt vom Layout-Modus ab:
+    - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
+    - In der statischen Position absolut positionierter Layouts verhält sich das Schlüsselwort wie `stretch`.
+    - Für Flex-Elemente verhält sich das Schlüsselwort wie `stretch`.
+    - Für Grid-Elemente führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer bei Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder einer intrinsischen Größe, wo es sich wie `start` verhält.
     - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenzellen.
 
 - `self-start`
-
-  - : Richtet die Items so aus, dass sie bündig mit dem Rand des Ausrichtungscontainers sind, der der Startseite des Items in der Kreuzachse entspricht.
-
+  - : Richtet die Elemente so aus, dass sie bündig mit der Kante des Ausrichtungscontainers sind, die der Startseite des Elements in der Querachse entspricht.
 - `self-end`
-
-  - : Richtet die Items so aus, dass sie bündig mit dem Rand des Ausrichtungscontainers sind, der der Endseite des Items in der Kreuzachse entspricht.
-
+  - : Richtet die Elemente so aus, dass sie bündig mit der Kante des Ausrichtungscontainers sind, die der Endseite des Elements in der Querachse entspricht.
 - `flex-start`
-
-  - : Der Kreuz-Start-Rand des Flex-Items ist mit dem Kreuz-Start-Rand der Linie bündig.
-
+  - : Der Querstart-Rand des Flex-Elements ist mit der Querstart-Kante der Linie bündig.
 - `flex-end`
-
-  - : Der Kreuz-End-Rand des Flex-Items ist mit dem Kreuz-End-Rand der Linie bündig.
-
+  - : Der Querend-Rand des Flex-Elements ist mit der Querend-Kante der Linie bündig.
 - `center`
-
-  - : Die Margin-Box des Flex-Items wird innerhalb der Linie auf der Kreuzachse zentriert. Wenn die Kreuzgröße des Items größer als der Flex-Container ist, wird sie gleichmäßig in beide Richtungen überlaufen.
-
+  - : Die Randbox des Flex-Elements wird innerhalb der Linie auf der Querachse zentriert. Wenn die Quergröße des Elements größer als der Flex-Container ist, wird es gleichmäßig in beide Richtungen überlaufen.
 - `baseline`, `first baseline`, `last baseline`
-
-  - : Gibt die Teilnahme an der ersten oder letzten Baseline-Ausrichtung an: richtet die Ausrichtungs-Baseline des ersten oder letzten Baseline-Sets der Box mit der entsprechenden Baseline im gemeinsamen ersten oder letzten Baseline-Set aller Boxen in ihrer Baseline-Sharing-Gruppe aus.
-    Das Fallback für `first baseline` ist `start`, das für `last baseline` ist `end`.
-
+  - : Gibt die Teilnahme an der ersten oder letzten Baseline-Ausrichtung an: richtet die Ausrichtungsbaseline des ersten oder letzten Baseline-Satzes der Box mit der entsprechenden Baseline im geteilten ersten oder letzten Baseline-Satz aller Boxen in ihrer Baseline-Sharing-Gruppe aus.
+    Die Fallback-Ausrichtung für `first baseline` ist `start`, für `last baseline` ist sie `end`.
 - `stretch`
-
-  - : Wenn die kombinierte Größe der Items entlang der Kreuzachse kleiner als die Größe des Ausrichtungscontainers ist und das Item `auto`-größenmäßig ist, wird seine Größe gleichmäßig (nicht proportional) erhöht, unter Beachtung der durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder entsprechende Funktionalität) auferlegten Beschränkungen, sodass die kombinierte Größe aller `auto`-größenmäßigen Items genau den Ausrichtungscontainer entlang der Kreuzachse ausfüllt.
-
+  - : Wenn die kombinierte Größe der Elemente entlang der Querachse kleiner als die Größe des Ausrichtungscontainers ist und das Element auf `auto`-Größe eingestellt ist, wird seine Größe gleichmäßig (nicht proportional) erhöht, wobei dennoch die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen berücksichtigt werden, sodass die kombinierte Größe aller `auto`-Größe-Elemente den Ausrichtungscontainer entlang der Querachse genau ausfüllt.
 - `anchor-center`
-
-  - : Im Fall von [verankerungs-positionierten](/de/docs/Web/CSS/CSS_anchor_positioning) Elementen, richtet das Item in der Blockrichtung auf das Zentrum des zugehörigen Ankerelements aus. Siehe [Zentrieren auf dem Anker mit `anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
-
+  - : Im Fall von [ankerverankerten](/de/docs/Web/CSS/CSS_anchor_positioning) Elementen richtet das Element mittig zum zugehörigen Ankerelement in der Blockrichtung aus. Siehe [Zentrierung am Anker mit `anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
 - `safe`
-
-  - : Wenn die Größe des Items den Ausrichtungscontainer überläuft, wird das Item stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
-
+  - : Wenn die Größe des Elements den Ausrichtungscontainer überläuft, wird das Element stattdessen so ausgerichtet, als wäre der Ausrichtungsmodus `start`.
 - `unsafe`
-  - : Unabhängig von den relativen Größen des Items und des Ausrichtungscontainers wird der angegebene Ausrichtungswert beachtet.
+  - : Ungeachtet der relativen Größen des Elements und des Ausrichtungscontainers wird der angegebene Ausrichtungswert beachtet.
 
 ## Formale Definition
 
@@ -203,8 +182,8 @@ div:nth-child(3) {
 
 ## Siehe auch
 
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Ausrichten von Items in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
 - [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)
 - {{cssxref("align-items")}}

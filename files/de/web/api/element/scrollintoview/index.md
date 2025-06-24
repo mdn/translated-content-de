@@ -3,12 +3,12 @@ title: "Element: scrollIntoView() Methode"
 short-title: scrollIntoView()
 slug: Web/API/Element/scrollIntoView
 l10n:
-  sourceCommit: 30aef1fff62894d4f47a0fc4c234248da007f504
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die [`Element`](/de/docs/Web/API/Element) Schnittstelle bietet die **`scrollIntoView()`** Methode, die die Vorfahren-Container des Elements so scrollt, dass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
+Die Methode **`scrollIntoView()`** der [`Element`](/de/docs/Web/API/Element) Schnittstelle scrollt die enthaltenen Vorfahren so, dass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
 
 ## Syntax
 
@@ -23,38 +23,35 @@ scrollIntoView(scrollIntoViewOptions)
 - `alignToTop` {{optional_inline}}
 
   - : Ein boolescher Wert:
-
-    - Wenn `true`, wird der obere Rand des Elements mit dem oberen Bereich des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "start", inline: "nearest"}`. Dies ist der Standardwert.
-    - Wenn `false`, wird der untere Rand des Elements mit dem unteren Bereich des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "end", inline: "nearest"}`.
+    - Wenn `true`, wird die Oberkante des Elements an der Oberkante des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "start", inline: "nearest"}`. Dies ist der Standardwert.
+    - Wenn `false`, wird die Unterkante des Elements an der Unterkante des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "end", inline: "nearest"}`.
 
 - `scrollIntoViewOptions` {{optional_inline}}
   {{experimental_inline}}
-
-  - : Ein Objekt mit den folgenden Eigenschaften:
-
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `behavior` {{optional_inline}}
-      - : Bestimmt, ob das Scrollen sofort oder mit einer sanften Animation erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Das Scrollen sollte sanft animiert werden
-        - `instant`: Das Scrollen sollte sofort in einem einzigen Schritt erfolgen
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Scrollen sollte sanft animieren
+        - `instant`: Scrollen sollte sofort in einem einzigen Sprung erfolgen
+        - `auto`: Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
     - `block` {{optional_inline}}
-      - : Definiert die vertikale Ausrichtung des Elements innerhalb des scrollbaren Vorfahren-Containers. Diese Option ist ein String und akzeptiert einen der folgenden Werte:
-        - `start`: Richtet die obere Kante des Elements mit der Oberseite des scrollbaren Containers aus, sodass das Element vertikal am Anfang des sichtbaren Bereichs erscheint.
+      - : Definiert die vertikale Ausrichtung des Elements innerhalb des scrollbaren Vorfahrencontainers. Diese Option ist ein String und akzeptiert einen der folgenden Werte:
+        - `start`: Richtet die Oberkante des Elements an der Oberkante des scrollbaren Containers aus und macht das Element am Anfang des sichtbaren Bereichs vertikal sichtbar.
         - `center`: Richtet das Element vertikal in der Mitte des scrollbaren Containers aus und positioniert es in der Mitte des sichtbaren Bereichs.
-        - `end`: Richtet die untere Kante des Elements mit der Unterseite des scrollbaren Containers aus und platziert das Element am Ende des sichtbaren Bereichs vertikal.
-        - `nearest`: Scrollt das Element zur nächstgelegenen Kante in vertikaler Richtung. Wenn das Element näher zur oberen Kante des scrollbaren Containers ist, wird es oben ausgerichtet; ist es näher zur unteren Kante, wird es unten ausgerichtet. Dies minimiert die Scroll-Distanz.
-        - Standard ist `start`.
+        - `end`: Richtet die Unterkante des Elements an der Unterkante des scrollbaren Containers aus und platziert das Element am Ende des sichtbaren Bereichs vertikal.
+        - `nearest`: Scrollt das Element zur nächstgelegenen Kante in vertikaler Richtung. Wenn das Element näher an der Oberkante des scrollbaren Containers ist, wird es nach oben ausgerichtet; wenn es näher an der Unterkante ist, wird es nach unten ausgerichtet. Dies minimiert die Scrollstrecke.
+        - Standardmäßig `start`.
     - `inline` {{optional_inline}}
-      - : Definiert die horizontale Ausrichtung des Elements innerhalb des scrollbaren Vorfahren-Containers. Diese Option ist ein String und akzeptiert einen der folgenden Werte:
-        - `start`: Richtet die linke Kante des Elements mit der linken Seite des scrollbaren Containers aus, sodass das Element horizontal am Anfang des sichtbaren Bereichs erscheint.
+      - : Definiert die horizontale Ausrichtung des Elements innerhalb des scrollbaren Vorfahrencontainers. Diese Option ist ein String und akzeptiert einen der folgenden Werte:
+        - `start`: Richtet die linke Kante des Elements an der linken Seite des scrollbaren Containers aus und macht das Element am Anfang des sichtbaren Bereichs horizontal sichtbar.
         - `center`: Richtet das Element horizontal in der Mitte des scrollbaren Containers aus und positioniert es in der Mitte des sichtbaren Bereichs.
-        - `end`: Richtet die rechte Kante des Elements mit der rechten Seite des scrollbaren Containers aus und platziert das Element am Ende des sichtbaren Bereichs horizontal.
-        - `nearest`: Scrollt das Element zur nächstgelegenen Kante in horizontaler Richtung. Wenn das Element näher zur linken Kante des scrollbaren Containers ist, wird es links ausgerichtet; ist es näher zur rechten Kante, wird es rechts ausgerichtet. Dies minimiert die Scroll-Distanz.
-        - Standard ist `nearest`.
+        - `end`: Richtet die rechte Kante des Elements an der rechten Seite des scrollbaren Containers aus und platziert das Element am Ende des sichtbaren Bereichs horizontal.
+        - `nearest`: Scrollt das Element zur nächstgelegenen Kante in horizontaler Richtung. Wenn das Element näher an der linken Kante des scrollbaren Containers ist, wird es nach links ausgerichtet; wenn es näher an der rechten Kante ist, wird es nach rechts ausgerichtet. Dies minimiert die Scrollstrecke.
+        - Standardmäßig `nearest`.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -69,9 +66,9 @@ element.scrollIntoView({ block: "end" });
 element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 ```
 
-### Kontrolle der oberen/unten Ausrichtung
+### Steuerung der Ausrichtung oben/unten
 
-Standardmäßig wird das Element an der oberen (oder unteren) Kante des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn eine feste Kopfzeile auf der Seite vorhanden ist.
+Standardmäßig wird das Element an der Ober- (oder Unter-)kante des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es eine feste Kopfzeile auf der Seite gibt.
 
 #### HTML
 

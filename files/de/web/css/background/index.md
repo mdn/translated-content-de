@@ -1,13 +1,13 @@
 ---
-title: Hintergrund
+title: background
 slug: Web/CSS/background
 l10n:
-  sourceCommit: f4cdba64bd820df07efbe9dd67577889c8ecfbd7
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`background`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt alle Hintergrundstileigenschaften auf einmal fest, wie Farbe, Bild, Ursprung und Größe oder Wiederholungsmethode. Komponenten-Eigenschaften, die nicht in der `background`-Kurzformwert-Deklaration festgelegt sind, werden auf ihre Standardwerte gesetzt.
+Die **`background`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt alle Hintergrundstil-Eigenschaften auf einmal fest, wie z. B. Farbe, Bild, Ursprung und Größe oder Wiederholmethode. Komponenteneigenschaften, die nicht in der Deklaration des `background`-Kurzform-Eigenschaftswerts festgelegt sind, werden auf ihre Standardwerte gesetzt.
 
 {{InteractiveExample("CSS Demo: background")}}
 
@@ -85,11 +85,11 @@ background: revert-layer;
 background: unset;
 ```
 
-Die `background`-Eigenschaft wird als eine oder mehrere Hintergrundebenen angegeben, die durch Kommas getrennt sind.
+Die `background`-Eigenschaft wird als eine oder mehrere Hintergrundebenen, getrennt durch Kommas, angegeben.
 
 Die Syntax jeder Ebene ist wie folgt:
 
-- Jede Ebene kann null oder eine Vorkommen der folgenden Werte enthalten:
+- Jede Ebene kann null oder eine Vorkommen von einem der folgenden Werte enthalten:
 
   - `<attachment>`
   - `<bg-image>`
@@ -97,16 +97,16 @@ Die Syntax jeder Ebene ist wie folgt:
   - `<bg-size>`
   - `<repeat-style>`
 
-- Der `<bg-size>`-Wert darf nur unmittelbar nach `<bg-position>` enthalten sein, getrennt durch das '/'-Zeichen, etwa so: `center/80%`.
-- Der `<visual-box>`-Wert kann null-, ein- oder zweimal enthalten sein. Wenn er einmal enthalten ist, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Wenn er zweimal enthalten ist, setzt das erste Vorkommen {{cssxref("background-origin")}}, und das zweite setzt {{cssxref("background-clip")}}.
-- Der `<'background-color'>`-Wert kann nur in der zuletzt angegebenen Ebene enthalten sein.
+- Der `<bg-size>`-Wert darf nur direkt nach `<bg-position>` enthalten sein, getrennt durch das '/'-Zeichen, so: `center/80%`.
+- Der `<visual-box>`-Wert kann null, einmal oder zweimal enthalten sein. Wenn er einmal enthalten ist, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Wenn er zweimal enthalten ist, setzt das erste Vorkommen {{cssxref("background-origin")}}, und das zweite setzt {{cssxref("background-clip")}}.
+- Der `<'background-color'>`-Wert darf nur in der zuletzt angegebenen Ebene enthalten sein.
 
 ### Werte
 
 - `<attachment>`
   - : Siehe {{cssxref("background-attachment")}}. Standard: `scroll`.
 - `<visual-box>`
-  - : Siehe {{cssxref("background-clip")}} und {{cssxref("background-origin")}}. Standard: `border-box` und `padding-box`.
+  - : Siehe {{cssxref("background-clip")}} und {{cssxref("background-origin")}}. Standard: `border-box` und `padding-box` jeweils.
 - `<'background-color'>`
   - : Siehe {{cssxref("background-color")}}. Standard: `transparent`.
 - `<bg-image>`
@@ -118,7 +118,7 @@ Die Syntax jeder Ebene ist wie folgt:
 - `<bg-size>`
   - : Siehe {{cssxref("background-size")}}. Standard: `auto`.
 
-Die folgenden drei CSS-Zeilen sind gleichwertig:
+Die folgenden drei Zeilen CSS sind gleichwertig:
 
 ```css
 background: none;
@@ -136,14 +136,14 @@ background: repeat scroll 0% 0% / auto padding-box border-box none transparent;
 
 ## Barrierefreiheit
 
-Browser bieten keine besonderen Informationen zu Hintergrundbildern für unterstützende Technologien. Dies ist vor allem für Bildschirmlesegeräte wichtig, da ein solches Gerät die Anwesenheit nicht ankündigt und somit nichts an seine Benutzer vermittelt. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des Gesamtszwecks der Seite sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Browser stellen keine besonderen Informationen über Hintergrundbilder für unterstützende Technologien bereit. Dies ist insbesondere für Bildschirmleseprogramme wichtig, da ein Bildschirmleser seine Anwesenheit nicht ankündigt und daher seinen Benutzern nichts vermittelt. Wenn das Bild Informationen enthält, die für das Verständnis des Hauptzwecks der Seite entscheidend sind, ist es besser, diese semantisch im Dokument zu beschreiben.
 
-- [MDN-Verständnis von WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis des Erfolgskriteriums 1.1.1 | W3C-Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Verständnis von WCAG, Leitfaden 1.1 Erläuterungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Beispiele
 
-### Hintergründe mit Farbkeywords und Bildern festlegen
+### Hintergründe mit Farb-Schlüsselwörtern und Bildern festlegen
 
 #### HTML
 
@@ -184,5 +184,5 @@ Browser bieten keine besonderen Informationen zu Hintergrundbildern für unterst
 ## Siehe auch
 
 - {{cssxref("box-decoration-break")}}
-- [Verwendung von Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
 - [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)

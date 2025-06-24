@@ -1,14 +1,15 @@
 ---
-title: "Dokumentation: getElementsByTagNameNS()-Methode"
+title: "Dokument: getElementsByTagNameNS() Methode"
 short-title: getElementsByTagNameNS()
 slug: Web/API/Document/getElementsByTagNameNS
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Gibt eine Liste von Elementen mit dem gegebenen Tag-Namen zurück, die zu dem angegebenen Namespace gehören. Das gesamte Dokument wird durchsucht, einschließlich des Wurzelknotens.
+Gibt eine Liste von Elementen mit dem angegebenen Tag-Namen zurück, die zum angegebenen Namensraum gehören.
+Das gesamte Dokument wird durchsucht, einschließlich des Wurzelknotens.
 
 ## Syntax
 
@@ -19,25 +20,27 @@ getElementsByTagNameNS(namespace, name)
 ### Parameter
 
 - `namespace`
-  - : Die Namespace-URI der zu suchenden Elemente (siehe [`element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)).
+  - : Die Namensraum-URI der zu suchenden Elemente (siehe [`element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)).
 - `name`
 
-  - : Entweder der lokale Name der zu suchenden Elemente oder der spezielle Wert `*`, der alle Elemente trifft (siehe [`element.localName`](/de/docs/Web/API/Element/localName)).
+  - : Entweder der lokale Name der zu suchenden Elemente oder der spezielle Wert `*`, der auf alle Elemente zutrifft (siehe [`element.localName`](/de/docs/Web/API/Element/localName)).
 
     > [!NOTE]
-    > Im Gegensatz zu [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName) sind die Parameter für `getElementsByTagNameNS()` case-sensitive.
+    > Im Gegensatz zu [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName) sind die Parameter für `getElementsByTagNameNS()` case-sensitiv.
 
 ### Rückgabewert
 
-Eine lebendige [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elemente in der Reihenfolge, in der sie im Baum erscheinen.
+Ein Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elemente in der Reihenfolge, in der sie im Baum erscheinen.
 
 ## Beispiele
 
 Im folgenden Beispiel beginnt `getElementsByTagNameNS` von einem bestimmten
-Elternelement und sucht rekursiv von oben nach unten durch das DOM von diesem Elternelement aus, um Kindelemente zu finden, die dem Tag-`name`-Parameter entsprechen.
+Elternelement aus und durchsucht rekursiv von oben nach unten das DOM von diesem Elternelement aus,
+wobei nach Kindelementen gesucht wird, die dem Tag-`name`-Parameter entsprechen.
 
-Beachten Sie, dass wenn der Knoten, auf dem `getElementsByTagName` aufgerufen wird, nicht der `document`-Knoten ist, in der Tat die
-Methode [`element.getElementsByTagNameNS`](/de/docs/Web/API/Element/getElementsByTagNameNS) verwendet wird.
+Beachten Sie, dass wenn der Knoten, auf dem `getElementsByTagName` aufgerufen wird, nicht
+der `document`-Knoten ist, tatsächlich die
+[`element.getElementsByTagNameNS`](/de/docs/Web/API/Element/getElementsByTagNameNS) Methode verwendet wird.
 
 Um das folgende Beispiel zu verwenden, kopieren Sie es einfach und fügen Sie es in eine neue Datei ein, die mit der Erweiterung .xhtml gespeichert wird.
 

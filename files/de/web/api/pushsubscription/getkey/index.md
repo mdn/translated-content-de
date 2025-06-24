@@ -1,14 +1,14 @@
 ---
-title: "PushSubscription: getKey()-Methode"
+title: "PushSubscription: getKey() Methode"
 short-title: getKey()
 slug: Web/API/PushSubscription/getKey
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die `getKey()`-Methode der [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Schnittstelle gibt einen {{jsxref("ArrayBuffer")}} zurück, der einen öffentlichen Schlüssel des Clients repräsentiert. Dieser kann dann an einen Server gesendet und zur Verschlüsselung von Push-Nachrichtendaten verwendet werden.
+Die `getKey()`-Methode der [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Schnittstelle gibt einen {{jsxref("ArrayBuffer")}} zurück, der einen öffentlichen Client-Schlüssel darstellt. Dieser kann dann an einen Server gesendet werden und zur Verschlüsselung von Push-Nachrichtendaten verwendet werden.
 
 ## Syntax
 
@@ -19,11 +19,12 @@ getKey(name)
 ### Parameter
 
 - `name`
-
-  - : Ein String, der die Verschlüsselungsmethode repräsentiert, die zur Erzeugung eines Client-Schlüssels verwendet wird. Der Wert kann sein:
-
+  - : Ein String, der die Verschlüsselungsmethode repräsentiert, die zur Generierung eines
+    Client-Schlüssels verwendet wird. Der Wert kann sein:
     - `p256dh`
-      - : Ein [Elliptic curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman)-Öffentlicher Schlüssel auf der P-256-Kurve (das heißt der NIST secp256r1 elliptischen Kurve). Der resultierende Schlüssel ist ein unkomprimierter Punkt im ANSI X9.62-Format.
+      - : Ein [Elliptic curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman) öffentlicher Schlüssel auf der P-256-Kurve (das heißt, der NIST
+        secp256r1 elliptische Kurve). Der resultierende Schlüssel ist ein unkomprimierter Punkt im ANSI
+        X9.62-Format.
     - `auth`
       - : Ein Authentifizierungsgeheimnis, wie in [Message Encryption for Web Push](https://datatracker.ietf.org/doc/html/draft-ietf-webpush-encryption-08) beschrieben.
 

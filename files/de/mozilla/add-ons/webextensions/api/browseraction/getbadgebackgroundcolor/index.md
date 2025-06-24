@@ -2,12 +2,12 @@
 title: browserAction.getBadgeBackgroundColor()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeBackgroundColor
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ruft die Hintergrundfarbe des Browser-Action-Buttons ab.
+Ruft die Hintergrundfarbe des Browser-Aktions-Badges ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,17 +22,15 @@ browser.browserAction.getBadgeBackgroundColor(
 ### Parameter
 
 - `details`
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `tabId` {{optional_inline}}
       - : `integer`. Gibt den Tab an, von dem die Hintergrundfarbe des Badges abgerufen werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, von dem die Hintergrundfarbe des Badges abgerufen werden soll.
+      - : `integer`. Gibt das Fenster an, aus dem die Hintergrundfarbe des Badges abgerufen werden soll.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
 - Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird die globale Hintergrundfarbe des Badges zurückgegeben.
 
 ### Rückgabewert

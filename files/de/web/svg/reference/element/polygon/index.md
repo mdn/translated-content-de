@@ -2,10 +2,10 @@
 title: <polygon>
 slug: Web/SVG/Reference/Element/polygon
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`<polygon>`** [SVG](/de/docs/Web/SVG)-Element definiert eine geschlossene Form, die aus einer Reihe verbundener gerader Liniensegmente besteht. Der letzte Punkt ist mit dem ersten Punkt verbunden.
+Das **`<polygon>`** [SVG](/de/docs/Web/SVG)-Element definiert eine geschlossene Form, die aus einer Reihe von verbundenen geraden Liniensegmenten besteht. Der letzte Punkt ist mit dem ersten Punkt verbunden.
 
 Für offene Formen siehe das {{SVGElement("polyline")}}-Element.
 
@@ -16,11 +16,11 @@ Für offene Formen siehe das {{SVGElement("polyline")}}-Element.
 ## Attribute
 
 - {{SVGAttr('points')}}
-  - : Dieses Attribut definiert die Liste der Punkte (Paare von `x,y`-Koordinaten) zum Zeichnen des Polygons.
+  - : Dieses Attribut definiert die Liste der Punkte (Paare von `x,y` absoluten Koordinaten), die erforderlich sind, um das Polygon zu zeichnen.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number)+; _Standardwert_: `""`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _keiner_; _Animierbar_: **ja**
+  - : Dieses Attribut ermöglicht es, die Gesamtlänge für den Pfad in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## DOM-Schnittstelle
 
@@ -60,8 +60,7 @@ svg {
 
 - [SVG-Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 
-- **Andere grundlegende SVG-Formen:**
-
+- **Andere SVG-Basisformen:**
   - {{ SVGElement('circle') }}
   - {{ SVGElement('ellipse') }}
   - {{ SVGElement('line') }}

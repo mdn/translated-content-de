@@ -3,12 +3,13 @@ title: "WebGLRenderingContext: enable()-Methode"
 short-title: enable()
 slug: Web/API/WebGLRenderingContext/enable
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.enable()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) aktiviert spezifische WebGL-Fähigkeiten für diesen Kontext.
+Die **`WebGLRenderingContext.enable()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) aktiviert bestimmte WebGL-Fähigkeiten
+für diesen Kontext.
 
 ## Syntax
 
@@ -20,29 +21,31 @@ enable(cap)
 
 - `cap`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche WebGL-Fähigkeit aktiviert werden soll. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche WebGL-Fähigkeit aktiviert werden soll. Mögliche
+    Werte:
 
     | Konstante                     | Beschreibung                                                                                                                                                                                    |
     | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `gl.BLEND`                    | Aktiviert das Mischen der berechneten Fragment-Farbwerte. Siehe [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc).                                        |
+    | `gl.BLEND`                    | Aktiviert das Mischen der berechneten Fragmentfarbwerte. Siehe [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc).                                         |
     | `gl.CULL_FACE`                | Aktiviert das Aussondern von Polygonen. Siehe [`WebGLRenderingContext.cullFace()`](/de/docs/Web/API/WebGLRenderingContext/cullFace).                                                            |
     | `gl.DEPTH_TEST`               | Aktiviert Tiefenvergleiche und Aktualisierungen des Tiefenpuffers. Siehe [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc).                               |
-    | `gl.DITHER`                   | Aktiviert das Dithern von Farbkomponenten, bevor sie in den Farb-Puffer geschrieben werden.                                                                                                     |
+    | `gl.DITHER`                   | Aktiviert das Dithering von Farbkomponenten, bevor sie in den Farb-Puffer geschrieben werden.                                                                                                   |
     | `gl.POLYGON_OFFSET_FILL`      | Aktiviert das Hinzufügen eines Offsets zu den Tiefenwerten der Fragmente eines Polygons. Siehe [`WebGLRenderingContext.polygonOffset()`](/de/docs/Web/API/WebGLRenderingContext/polygonOffset). |
     | `gl.SAMPLE_ALPHA_TO_COVERAGE` | Aktiviert die Berechnung eines temporären Deckungswertes, der durch den Alphawert bestimmt wird.                                                                                                |
-    | `gl.SAMPLE_COVERAGE`          | Aktiviert das Verknüpfen der Abdeckung des Fragments mit dem temporären Deckungswert. Siehe [`WebGLRenderingContext.sampleCoverage()`](/de/docs/Web/API/WebGLRenderingContext/sampleCoverage).  |
+    | `gl.SAMPLE_COVERAGE`          | Aktiviert das AND-Verknüpfen der Fragmentdeckung mit dem temporären Deckungswert. Siehe [`WebGLRenderingContext.sampleCoverage()`](/de/docs/Web/API/WebGLRenderingContext/sampleCoverage).      |
     | `gl.SCISSOR_TEST`             | Aktiviert den Scherentest, der Fragmente verwirft, die außerhalb des Scherrechtecks liegen. Siehe [`WebGLRenderingContext.scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).          |
-    | `gl.STENCIL_TEST`             | Aktiviert das Schablonentesten und Aktualisierungen des Schablonenpuffers. Siehe [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc).                   |
+    | `gl.STENCIL_TEST`             | Aktiviert Stencil-Tests und Aktualisierungen des Stencilpuffers. Siehe [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc).                             |
 
-    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
+    Bei der Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind die
+    folgenden Werte zusätzlich verfügbar:
 
-    | Konstante               | Beschreibung                                                                                                                                                         |
-    | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `gl.RASTERIZER_DISCARD` | Primitive werden sofort vor der Rasterisierungsstufe verworfen, jedoch nach der optionalen Transformationsrückkopplungsstufe. `gl.clear()`-Befehle werden ignoriert. |
+    | Konstante               | Beschreibung                                                                                                                                                   |
+    | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `gl.RASTERIZER_DISCARD` | Primitive werden unmittelbar vor der Rasterisierungsstufe, aber nach der optionalen Transform-Feedback-Stufe verworfen. `gl.clear()`-Befehle werden ignoriert. |
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -50,7 +53,7 @@ Kein ({{jsxref("undefined")}}).
 gl.enable(gl.DITHER);
 ```
 
-Um zu prüfen, ob eine Fähigkeit aktiviert ist, verwenden Sie die
+Um zu überprüfen, ob eine Fähigkeit aktiviert ist, verwenden Sie die
 [`WebGLRenderingContext.isEnabled()`](/de/docs/Web/API/WebGLRenderingContext/isEnabled)-Methode:
 
 ```js

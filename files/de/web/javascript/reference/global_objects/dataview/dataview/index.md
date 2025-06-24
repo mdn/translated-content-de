@@ -3,12 +3,12 @@ title: DataView()-Konstruktor
 short-title: DataView()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/DataView
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}
 
-Der **`DataView()`**-Konstruktor erzeugt {{jsxref("DataView")}}-Objekte.
+Der **`DataView()`**-Konstruktor erstellt {{jsxref("DataView")}}-Objekte.
 
 {{InteractiveExample("JavaScript Demo: DataView() constructor")}}
 
@@ -33,14 +33,15 @@ new DataView(buffer, byteOffset)
 new DataView(buffer, byteOffset, byteLength)
 ```
 
-> **Hinweis:** `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE] > `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `buffer`
-  - : Ein bestehendes {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, das als Speicher für das neue `DataView`-Objekt dient.
+  - : Ein bestehender {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als
+    Speicher für das neue `DataView`-Objekt verwendet wird.
 - `byteOffset` {{optional_inline}}
-  - : Der Offset, in Bytes, zum ersten Byte im obigen Puffer, auf den die neue Ansicht verweisen soll. Wenn nicht angegeben, beginnt die Pufferansicht mit dem ersten Byte.
+  - : Der Versatz in Bytes zum ersten Byte im obigen Puffer, auf den die neue Ansicht verweist. Wenn nicht angegeben, beginnt die Pufferansicht mit dem ersten Byte.
 - `byteLength` {{optional_inline}}
   - : Die Anzahl der Elemente im Byte-Array. Wenn nicht angegeben, entspricht die Länge der Ansicht der Länge des Puffers.
 

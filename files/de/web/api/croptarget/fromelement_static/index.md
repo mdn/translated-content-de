@@ -1,16 +1,16 @@
 ---
-title: "CropTarget: fromElement() statische Methode"
+title: "CropTarget: fromElement() Methode"
 short-title: fromElement()
 slug: Web/API/CropTarget/fromElement_static
 l10n:
-  sourceCommit: 01e8b5077df6d79e52f2521dfbe734e0923d1fc4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die statische Methode **`fromElement()`** des [`CropTarget`](/de/docs/Web/API/CropTarget)-Interfaces gibt eine `CropTarget`-Instanz zurück, die verwendet werden kann, um eine aufgenommene Video-Spur auf den Bereich zuzuschneiden, in dem ein bestimmtes Element gerendert wird.
+Die **`fromElement()`** statische Methode des [`CropTarget`](/de/docs/Web/API/CropTarget)-Interfaces gibt eine `CropTarget`-Instanz zurück, die verwendet werden kann, um einen aufgenommenen Videokanal auf den Bereich zu beschneiden, in dem ein bestimmtes Element gerendert wird.
 
-Da die Region Capture API auf einen Bereich des aktuellen Browser-Tabs zuschneidet, anstatt ein spezifisches Element aufzunehmen, wird jeglicher Inhalt, der über den zugeschnittenen Bereich gezeichnet wird, ebenfalls in der Aufnahme angezeigt.
+Da die Region Capture API auf einen Bereich des aktuellen Browser-Tabs zuschneidet, anstatt ein bestimmtes Element aufzunehmen, wird jeglicher Inhalt, der über dem zugeschnittenen Bereich gezeichnet wird, in der Aufnahme angezeigt.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ CropTarget.fromElement(element)
 
 - `element`
 
-  - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das Sie als Zuschneideziel verwenden möchten. Damit ein Element als Ziel verwendet werden kann, muss es:
+  - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das Sie als Zuschneideziel verwenden möchten. Damit ein Element als Zuschneideziel verwendet werden kann, muss es:
 
-    - Auf dem Bildschirm sichtbar sein
-    - Sichtbar sein, d.h. nicht beispielsweise über `display: none` ausgeblendet sein.
+    - Auf dem Bildschirm sein
+    - Sichtbar sein, das heißt, nicht beispielsweise durch `display: none` ausgeblendet.
 
-    Zusätzlich wird das Element nicht aufgenommen, wenn der eingeschränkte Track Klone aufweist (z. B. erstellt durch [`BrowserCaptureMediaStreamTrack.clone()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/clone)) oder aus einem anderen Tab als dem aktuellen Tab des Nutzers aufgenommen wird (z. B. über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) übermittelt).
+    Zusätzlich wird das Element nicht erfasst, wenn der eingeschränkte Kanal Klone hat (das heißt, erstellt durch [`BrowserCaptureMediaStreamTrack.clone()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/clone)) oder von einem anderen Tab als dem aktuellen Tab des Benutzers aufgenommen wird (zum Beispiel über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) übergeben).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der auf eine Instanz des [`CropTarget`](/de/docs/Web/API/CropTarget)-Objekts aufgelöst wird. Dieses Objekt kann dann an [`BrowserCaptureMediaStreamTrack.CropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) übergeben werden, um das im Track aufgenommene Video auf genau den Bereich zuzuschneiden, in dem das angegebene DOM-Element gerendert wird.
+Ein {{jsxref("Promise")}}, das zu einer [`CropTarget`](/de/docs/Web/API/CropTarget)-Objektinstanz aufgelöst wird, die dann an [`BrowserCaptureMediaStreamTrack.CropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) übergeben werden kann, um das im Kanal aufgenommene Video nur auf den Bereich, in dem das angegebene DOM-Element gerendert wird, zu beschneiden.
 
-`CropTarget`-Objekte sind serialisierbar. Sie können mit Mechanismen wie [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) an ein anderes Dokument übergeben werden.
+`CropTarget`-Objekte sind serialisierbar. Sie können an ein anderes Dokument mit Mechanismen wie [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) übergeben werden.
 
 ## Beispiele
 
@@ -59,7 +59,7 @@ await track.cropTo(cropTarget);
 videoElem.srcObject = stream;
 ```
 
-Lesen Sie [Verwendung der Element Capture- und Region Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für Beispielcode im Kontext.
+Sehen Sie [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für kontextbezogene Beispielcodes.
 
 ## Spezifikationen
 
@@ -72,4 +72,4 @@ Lesen Sie [Verwendung der Element Capture- und Region Capture-APIs](/de/docs/Web
 ## Siehe auch
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- [Verwendung der Element Capture- und Region Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
+- [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)

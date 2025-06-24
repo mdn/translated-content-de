@@ -1,16 +1,16 @@
 ---
-title: "HTMLElement: showPopover()-Methode"
+title: "HTMLElement: Methode showPopover()"
 short-title: showPopover()
 slug: Web/API/HTMLElement/showPopover
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`showPopover()`**-Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut besitzt) an, indem es zur {{Glossary("top_layer", "obersten Ebene")}} hinzugefügt wird.
+Die Methode **`showPopover()`** der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut hat) durch Hinzufügen zur {{Glossary("top_layer", "obersten Schicht")}} an.
 
-Wenn `showPopover()` auf ein Element mit dem [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut aufgerufen wird, das derzeit verborgen ist, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst, gefolgt von der Darstellung des Popovers und dann dem [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
+Wenn `showPopover()` auf einem Element mit dem [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut aufgerufen wird, das derzeit versteckt ist, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst, gefolgt von der Anzeige des Popovers, und anschließend wird das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis ausgelöst. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -22,15 +22,11 @@ showPopover(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
-
     - `source` {{optional_inline}}
-
-      - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Verweis; definiert programmatisch den Auslöser des mit der Anzeigeaktion verbundenen Popovers, also sein Steuerelement. Das Festlegen einer Beziehung zwischen einem Popover und seinem Auslöser mithilfe der `source`-Option hat zwei nützliche Effekte:
-
-        - Der Browser platziert das Popover an einer logischen Position in der Tastaturfokus-Navigationsreihenfolge, wenn es angezeigt wird. Dies macht das Popover für Tastaturbenutzer besser zugänglich (siehe auch [Popover-Zugänglichkeitsmerkmale](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
-        - Der Browser erstellt eine implizite Ankerreferenz zwischen den beiden, wodurch es sehr bequem ist, Popovers relativ zu ihren Steuerelementen mithilfe der [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zu positionieren. Siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning) für weitere Details.
+      - : Eine [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Referenz; definiert programmgesteuert den Auslöser des Popovers, der mit der Anzeigeaktion verbunden ist, also dessen Steuerelement. Die Herstellung einer Beziehung zwischen einem Popover und seinem Auslöser mit der Option `source` hat zwei nützliche Effekte:
+        - Der Browser platziert das Popover in einer logischen Position in der Tastaturfokus-Navigationsreihenfolge, wenn es angezeigt wird. Dies macht das Popover für Tastaturnutzer zugänglicher (siehe auch [Popover-Zugänglichkeitsfunktionen](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
+        - Der Browser erstellt eine implizite Anker-Referenz zwischen den beiden, was es sehr bequem macht, Popovers relativ zu ihren Steuerelementen mit [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zu positionieren. Siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning) für mehr Details.
 
 ### Rückgabewert
 
@@ -43,7 +39,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel bietet eine Funktionalität, um ein Popover anzuzeigen, indem eine bestimmte Taste auf der Tastatur gedrückt wird.
+Das folgende Beispiel bietet die Funktionalität, ein Popover durch Drücken einer bestimmten Taste auf der Tastatur anzuzeigen.
 
 Zuerst etwas HTML:
 

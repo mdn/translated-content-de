@@ -1,16 +1,16 @@
 ---
-title: "WebGLRenderingContext: compressedTexSubImage2D() Methode"
+title: "WebGLRenderingContext: compressedTexSubImage2D()-Methode"
 short-title: compressedTexSubImage2D()
 slug: Web/API/WebGLRenderingContext/compressedTexSubImage2D
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.compressedTexSubImage2D()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt ein zweidimensionales Unterrechteck für ein Texturbild in einem komprimierten Format fest.
+Die **`WebGLRenderingContext.compressedTexSubImage2D()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein zweidimensionales Unterrechteck für ein Texturbild in einem komprimierten Format.
 
-Komprimierte Bildformate müssen durch [WebGL Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methode verwendet wird, oder es muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) verwendet werden.
+Komprimierte Bildformate müssen durch [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methode verwendet wird, oder es muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) verwendet werden.
 
 ## Syntax
 
@@ -29,29 +29,28 @@ compressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, 
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) der aktiven komprimierten Textur angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (Ziel) der aktiven komprimierten Textur angibt. Mögliche Werte:
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Seite für eine würfelgemappte Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Seite für eine würfelgemappte Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Seite für eine würfelgemappte Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Seite für eine würfelgemappte Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Seite für eine würfelgemappte Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Seite für eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Fläche für eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Fläche für eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Fläche für eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Fläche für eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Fläche für eine würfelgemappte Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Fläche für eine würfelgemappte Textur.
 
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Detailniveau angibt. Level 0 ist das Basisebenenbild und Level _n_ ist das n-te Mipmap-Reduktionslevel.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Detailstufe angibt. Stufe 0 ist die Basisbildstufe und die Stufe _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `xoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den horizontalen Versatz innerhalb des komprimierten Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den horizontalen Versatz innerhalb des komprimierten Texturbildes angibt.
 - `yoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den vertikalen Versatz innerhalb des komprimierten Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den vertikalen Versatz innerhalb des komprimierten Texturbildes angibt.
 - `width`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der komprimierten Textur angibt.
 - `height`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der komprimierten Textur angibt.
 - `format`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das komprimierte Bildformat angibt. Komprimierte Bildformate müssen durch [WebGL Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methode verwendet wird. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das komprimierte Bildformat angibt. Komprimierte Bildformate müssen durch [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) aktiviert werden, bevor diese Methode verwendet wird. Mögliche Werte:
 
     - Bei Verwendung der [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc)-Erweiterung:
 
@@ -112,7 +111,6 @@ compressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, 
       - `ext.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT`
 
     - Bei Verwendung der [`EXT_texture_compression_rgtc`](/de/docs/Web/API/EXT_texture_compression_rgtc)-Erweiterung:
-
       - `ext.COMPRESSED_RED_RGTC1_EXT`
       - `ext.COMPRESSED_SIGNED_RED_RGTC1_EXT`
       - `ext.COMPRESSED_RED_GREEN_RGTC2_EXT`
@@ -121,9 +119,9 @@ compressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, 
 - `imageSize`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Bytes angibt, die aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden sollen.
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Offset in Bytes angibt, ab dem aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden soll.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Byteversatz angibt, ab dem aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden soll.
 - `srcData`
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, der als Datenspeicher für die komprimierten Bilddaten im Speicher verwendet wird.
+  - : Eine {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, die als Datenspeicher für die komprimierten Bilddaten im Speicher verwendet wird.
 
 ### Rückgabewert
 

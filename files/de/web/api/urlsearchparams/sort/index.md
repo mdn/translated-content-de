@@ -1,14 +1,14 @@
 ---
-title: "URLSearchParams: sort()-Methode"
+title: "URLSearchParams: sort() Methode"
 short-title: sort()
 slug: Web/API/URLSearchParams/sort
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`URLSearchParams.sort()`**-Methode sortiert alle Schlüssel/Wert-Paare, die in diesem Objekt enthalten sind, an Ort und Stelle und gibt `undefined` zurück. Die Sortierreihenfolge erfolgt gemäß den Unicode-Codepunkten der Schlüssel. Diese Methode verwendet einen stabilen Sortieralgorithmus (d.h. die relative Reihenfolge zwischen Schlüssel/Wert-Paaren mit gleichen Schlüsseln bleibt erhalten).
+Die **`URLSearchParams.sort()`**-Methode sortiert alle Schlüssel/Wert-Paare, die in diesem Objekt enthalten sind, an Ort und Stelle und gibt `undefined` zurück. Die Schlüssel/Wert-Paare werden nach den Werten der {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} der Schlüssel sortiert. Diese Methode verwendet einen stabilen Sortieralgorithmus (d.h. die relative Reihenfolge zwischen Schlüssel/Wert-Paaren mit gleichen Schlüsseln bleibt erhalten).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

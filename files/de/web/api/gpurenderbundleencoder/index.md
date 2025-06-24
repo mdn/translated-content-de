@@ -2,74 +2,74 @@
 title: GPURenderBundleEncoder
 slug: Web/API/GPURenderBundleEncoder
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPURenderBundleEncoder`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) wird verwendet, um Bündel von Befehlen vorab aufzuzeichnen.
+Die **`GPURenderBundleEncoder`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) wird verwendet, um Bündel von Befehlen voraufzuzeichnen.
 
-Die Befehlsbündel werden durch Aufrufen der Methoden von `GPURenderBundleEncoder` kodiert; sobald die gewünschten Befehle kodiert sind, werden sie mit der Methode [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) in eine [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) Objektinstanz aufgezeichnet. Diese Render-Bündel können dann über mehrere Render-Durchläufe hinweg wiederverwendet werden, indem die `GPURenderBundle` Objekte in [`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) Aufrufe übergeben werden.
+Die Befehlsbündel werden durch Aufrufen der Methoden von `GPURenderBundleEncoder` kodiert; sobald die gewünschten Befehle kodiert wurden, werden sie mithilfe der [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish)-Methode in eine Instanz eines [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)-Objekts aufgenommen. Diese Renderbündel können dann über mehrere Render-Passagen hinweg erneut verwendet werden, indem die `GPURenderBundle`-Objekte in Aufrufe von [`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) übergeben werden.
 
-Effektiv ist dies wie ein teiler Render-Durchlauf — `GPURenderBundleEncoder` haben alle Funktionalitäten wie [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)s, mit der Ausnahme, dass sie keine Occlusion-Queries beginnen und beenden können und nicht das Scherrechteck, die Viewport, die Mischkonstante und die Stencil-Referenz setzen können. Der `GPURenderBundle` wird all diese Werte von dem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) erben, der ihn ausführt.
-
-> [!NOTE]
-> Aktuell werden die gesetzten Vertex-Buffer, Index-Buffer, Bind-Gruppen und Pipeline alle gelöscht, bevor ein Render-Bündel ausgeführt wird und sobald das Render-Bündel die Ausführung abgeschlossen hat.
-
-Das Wiederverwenden vorab aufgezeichneter Befehle kann die Leistung von Apps erheblich verbessern, insbesondere in Situationen, in denen der JavaScript-Draw-Call-Overhead ein Engpass ist. Render-Bündel sind am effektivsten in Situationen, in denen eine Gruppe von Objekten auf die gleiche Weise über mehrere Ansichten oder Frames hinweg gezeichnet wird, wobei die einzigen Unterschiede im Pufferinhalt liegen (wie aktualisierte Matrix-Uniformen). Ein gutes Beispiel ist das Rendering für VR. Das Aufzeichnen des Renderings als Render-Bündel und das anschließende Anpassen der View-Matrix und das erneute Abspielen für jedes Auge ist eine effizientere Möglichkeit, Draw-Calls für beide Renderings der Szene auszuführen.
-
-Ein `GPURenderBundleEncoder` Objektinstanz wird über die [`GPUDevice.createRenderBundleEncoder()`](/de/docs/Web/API/GPUDevice/createRenderBundleEncoder) Eigenschaft erstellt.
+Im Effekt ist dies wie eine partielle Render-Passage — `GPURenderBundleEncoder` bieten die gleiche Funktionalität wie [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder), mit der Ausnahme, dass sie keine Okklusionsabfragen beginnen und beenden und das Scherrechteck, den Viewport, die Mischkonstante und die Stencil-Referenz nicht festlegen können. Der `GPURenderBundle` übernimmt alle diese Werte von dem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder), der ihn ausführt.
 
 > [!NOTE]
-> Die Methoden von `GPURenderBundleEncoder` sind funktional identisch mit ihren Äquivalenten, die auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) verfügbar sind, mit Ausnahme von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish), die in ihrer Funktion mit [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) vergleichbar ist.
+> Derzeitig gesetzte Vertex-Puffer, Index-Puffer, Bind-Gruppen und Pipelines werden alle vor und nach der Ausführung eines Render-Bündels gelöscht.
+
+Das Wiederverwenden von voraufgezeichneten Befehlen kann die App-Performance erheblich verbessern, wenn der JavaScript-Zeichenaufruf-Overhead ein Engpass ist. Render-Bündel sind am effektivsten in Situationen, in denen ein Batch von Objekten in gleicher Weise über mehrere Ansichten oder Frames gezeichnet wird, wobei die einzigen Unterschiede der verwendete Pufferinhalt sind (wie z.B. aktualisierte Matrix-Uniformen). Ein gutes Beispiel dafür ist das VR-Rendering. Das Aufzeichnen der Renderings als Render-Bündel und das anschließende Ändern der Sichtmatrix und das Wiederholen für jedes Auge ist eine effizientere Methode, um Zeichenaufrufe für beide Renderings der Szene auszugeben.
+
+Ein `GPURenderBundleEncoder`-Objekt wird über die [`GPUDevice.createRenderBundleEncoder()`](/de/docs/Web/API/GPUDevice/createRenderBundleEncoder)-Eigenschaft erstellt.
+
+> [!NOTE]
+> Die Methoden von `GPURenderBundleEncoder` sind funktional identisch mit ihren Entsprechungen auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder), mit Ausnahme von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish), welches in seiner Funktionalität dem [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) ähnelt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPURenderBundleEncoder/label)
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten oder Konsolenwarnungen.
+  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`draw()`](/de/docs/Web/API/GPURenderBundleEncoder/draw)
-  - : Zeichnet Primitive basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) bereitgestellten Vertex-Buffer.
+  - : Zeichnen von Primitiven basierend auf den durch [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) bereitgestellten Vertex-Puffern.
 - [`drawIndexed()`](/de/docs/Web/API/GPURenderBundleEncoder/drawIndexed)
-  - : Zeichnet indexierte Primitive basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) und [`setIndexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setIndexBuffer) bereitgestellten Vertex- und Index-Buffer.
+  - : Zeichnen von indizierten Primitiven basierend auf den durch [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) und [`setIndexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setIndexBuffer) bereitgestellten Vertex- und Index-Puffern.
 - [`drawIndirect()`](/de/docs/Web/API/GPURenderBundleEncoder/drawIndirect)
-  - : Zeichnet Primitive, indem Parameter aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+  - : Zeichnen von Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 - [`drawIndexedIndirect()`](/de/docs/Web/API/GPURenderBundleEncoder/drawIndexedIndirect)
 
-  - : Zeichnet indexierte Primitive, indem Parameter aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+  - : Zeichnen von indizierten Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 
 - [`finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish)
 
-  - : Vervollständigt die Aufzeichnung der aktuellen Render-Pass-Befehlsfolge.
+  - : Beendet die Aufzeichnung der aktuellen Render-Pass-Befehlssequenz.
 
 - [`insertDebugMarker()`](/de/docs/Web/API/GPURenderBundleEncoder/insertDebugMarker)
-  - : Markiert einen bestimmten Punkt in einer Serie von kodierten Befehlen mit einem Label.
+  - : Markiert einen bestimmten Punkt in einer Reihe von kodierten Befehlen mit einem Label.
 - [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup)
-  - : Beendet eine Debug-Gruppe, die mit einem [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup) Aufruf begonnen wurde.
+  - : Beendet eine Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup) begonnen wurde.
 - [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup)
-  - : Startet eine Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle bis zu einem [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup) Methodenaufruf enthält.
+  - : Beginnt eine Debug-Gruppe, die mit einem spezifischen Label markiert wird und alle nachfolgenden kodierten Befehle bis zur Ausführung der Methode [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup) enthält.
 - [`setBindGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/setBindGroup)
 
-  - : Setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bundle-Befehle für einen bestimmten Index verwendet werden soll.
+  - : Setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bündelbefehle an einem bestimmten Index verwendet werden soll.
 
 - [`setIndexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setIndexBuffer)
 
-  - : Setzt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Indexdaten für nachfolgende Zeichenbefehle bereitstellt.
+  - : Setzt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Indexdaten für nachfolgende Zeichnungsbefehle bereitstellt.
 
 - [`setPipeline()`](/de/docs/Web/API/GPURenderBundleEncoder/setPipeline)
 
   - : Setzt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die für dieses Render-Bündel verwendet werden soll.
 
 - [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer)
-  - : Setzt oder hebt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) auf, der Vertex-Daten für nachfolgende Zeichenbefehle bereitstellt.
+  - : Setzt oder entfernt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Vertexdaten für nachfolgende Zeichnungsbefehle bereitstellt.
 
 ## Beispiele
 
-Im WebGPU-Samples [Animometer Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/) werden viele gleichartige Operationen gleichzeitig auf vielen verschiedenen Objekten durchgeführt. Ein Bündel von Befehlen wird mit der folgenden Funktion kodiert:
+Im WebGPU-Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/) werden viele ähnliche Operationen gleichzeitig an vielen verschiedenen Objekten durchgeführt. Ein Bündel von Befehlen wird mit der folgenden Funktion kodiert:
 
 ```js
 function recordRenderPass(
@@ -95,7 +95,7 @@ function recordRenderPass(
 }
 ```
 
-Später wird ein `GPURenderBundleEncoder` erstellt, die Funktion aufgerufen und das Befehlsbündel in einer [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) mithilfe von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) aufgezeichnet:
+Später wird ein `GPURenderBundleEncoder` erstellt, die Funktion aufgerufen und das Befehlsbündel in ein [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) mit [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) aufgenommen:
 
 ```js
 const renderBundleEncoder = device.createRenderBundleEncoder({
@@ -105,7 +105,7 @@ recordRenderPass(renderBundleEncoder);
 const renderBundle = renderBundleEncoder.finish();
 ```
 
-[`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) wird dann verwendet, um die Arbeit über mehrere Render-Durchläufe hinweg wiederzuverwenden, um die Leistung zu verbessern. Studieren Sie die Beispielcode-Liste für den vollständigen Kontext.
+[`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) wird dann verwendet, um die Arbeit über mehrere Render-Passagen hinweg wiederzuverwenden und die Leistung zu verbessern. Untersuchen Sie den Beispielcode für den vollständigen Kontext.
 
 ```js
 // …

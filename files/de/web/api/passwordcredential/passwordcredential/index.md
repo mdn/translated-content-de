@@ -3,13 +3,14 @@ title: "PasswordCredential: PasswordCredential() Konstruktor"
 short-title: PasswordCredential()
 slug: Web/API/PasswordCredential/PasswordCredential
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Credential Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 Der **`PasswordCredential()`**
-Konstruktor erstellt ein neues [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse das `credential` aus dem `init`-Objekt für den globalen [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben bekommen.
+Konstruktor erstellt ein neues [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse das `credential`
+vom `init` Objekt für das globale [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden.
 
 ## Syntax
 
@@ -20,25 +21,24 @@ new PasswordCredential(form)
 
 ### Parameter
 
-Eines der folgenden:
+Einer der folgenden:
 
 - `data`
 
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `iconURL` {{optional_inline}}
-      - : Ein String, der die URL eines Icons oder Avatars darstellt, das mit den Anmeldeinformationen verknüpft werden soll.
+      - : Ein String, der die URL eines Symbols oder Avatars darstellt, das mit den Zugangsdaten in Verbindung gebracht werden soll.
     - `id`
-      - : Ein String, der eine eindeutige ID für die Anmeldeinformationen darstellt.
+      - : Ein String, der eine eindeutige ID für die Zugangsdaten darstellt.
     - `name` {{optional_inline}}
-      - : Ein String, der den Benutzernamen der Anmeldeinformationen darstellt.
+      - : Ein String, der den Benutzernamen der Zugangsdaten darstellt.
     - `origin`
-      - : Ein String, der die Herkunft der Anmeldeinformationen darstellt. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekte sind herkunftsgebunden, was bedeutet, dass sie nur an dem spezifischen Herkunftsbereich verwendet werden können, für den sie bestimmt sind.
+      - : Ein String, der den Ursprung der Zugangsdaten darstellt. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Objekte sind ursprungsgebunden, was bedeutet, dass sie nur am angegebenen Ursprung verwendet werden können, für den sie vorgesehen sind.
     - `password`
-      - : Ein String, der das Passwort der Anmeldeinformationen darstellt.
+      - : Ein String, der das Passwort der Zugangsdaten darstellt.
 
 - `form`
-  - : Ein Verweis auf ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) mit geeigneten Eingabefeldern. Das Formular sollte mindestens eine ID und ein Passwort enthalten. Es könnte auch ein CSRF-Token erforderlich sein.
+  - : Ein Verweis auf ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) mit entsprechenden Eingabefeldern. Das Formular sollte mindestens eine ID und ein Passwort enthalten. Es könnte auch ein CSRF-Token erfordern.
 
 ### Ausnahmen
 
@@ -47,9 +47,9 @@ Eines der folgenden:
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) einrichtet, um Daten zu erfassen, die wir verwenden, um ein [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt zu erstellen.
+Dieses Beispiel zeigt, wie ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) eingerichtet wird, um Daten zu erfassen, die wir zur Erstellung eines [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Objekts verwenden werden.
 
-Beginnen Sie mit dem Formularelement.
+Angefangen mit dem Formularelement.
 
 ```html
 <form id="form" method="post">
@@ -61,8 +61,7 @@ Beginnen Sie mit dem Formularelement.
 </form>
 ```
 
-Dann eine Referenz zu diesem Formularelement, die verwendet wird, um ein
-[`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt zu erstellen und es im Passwortsystem des Browsers zu speichern.
+Dann ein Verweis auf dieses Formularelement, das genutzt wird, um ein [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Objekt zu erstellen und es im Passwortsystem des Browsers zu speichern.
 
 ```js
 const form = document.querySelector("#form");

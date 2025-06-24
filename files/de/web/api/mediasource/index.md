@@ -2,72 +2,72 @@
 title: MediaSource
 slug: Web/API/MediaSource
 l10n:
-  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`MediaSource`**-Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) stellt eine Quelle für Mediendaten für ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekt dar. Ein `MediaSource`-Objekt kann an ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) angehängt werden, um im User-Agent abgespielt zu werden.
+Das **`MediaSource`**-Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) repräsentiert eine Quelle von Mediendaten für ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekt. Ein `MediaSource`-Objekt kann an ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) angehängt werden, um im Benutzeragenten abgespielt zu werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`MediaSource()`](/de/docs/Web/API/MediaSource/MediaSource)
-  - : Konstruiert und gibt ein neues `MediaSource`-Objekt ohne zugehörige Quellpuffer zurück.
+  - : Erstellt und gibt ein neues `MediaSource`-Objekt zurück, das keine zugeordneten Quellpuffer hat.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`MediaSource.activeSourceBuffers`](/de/docs/Web/API/MediaSource/activeSourceBuffers) {{ReadOnlyInline}}
-  - : Gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das eine Teilmenge der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, die innerhalb von [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) enthalten sind — die Liste von Objekten, die die ausgewählte Videospur, aktivierte Audiospuren und angezeigte/verdeckte Textspuren bereitstellen.
+  - : Gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das eine Teilmenge der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, die innerhalb von [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) enthalten sind – die Liste der Objekte, die den ausgewählten Videotrack, aktivierten Audiotracks und angezeigten/versteckten Texttracks bereitstellen.
 - [`MediaSource.duration`](/de/docs/Web/API/MediaSource/duration)
-  - : Ruft die Dauer des aktuellen Mediainhalts ab oder setzt sie, der präsentiert wird.
+  - : Ruft die Dauer des aktuell präsentierten Mediens ab und setzt sie.
 - [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle) {{ReadOnlyInline}}
-  - : Innerhalb eines dedizierten Workers gibt es ein [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zurück, einen Proxy für das `MediaSource`, das aus dem Worker zurück in den Hauptthread übertragen und über seine [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Medienelement angehängt werden kann.
+  - : Gibt innerhalb eines dedizierten Workers ein [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zurück, einen Proxy für die `MediaSource`, der vom Worker zurück in den Hauptthread übertragen und über die [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Media-Element angefügt werden kann.
 - [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) {{ReadOnlyInline}}
-  - : Gibt ein Enum zurück, das den Zustand des aktuellen `MediaSource` angibt, ob es nicht derzeit an ein Medienelement angehängt ist (`closed`), angehängt und bereit ist, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte zu empfangen (`open`), oder angehängt, aber der Stream über [`MediaSource.endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) beendet wurde (`ended`.
+  - : Gibt ein Enum zurück, das den Zustand der aktuellen `MediaSource` darstellt, ob sie derzeit nicht an ein Media-Element angeschlossen ist (`closed`), angeschlossen und bereit ist, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte zu empfangen (`open`), oder angeschlossen, aber der Stream wurde über [`MediaSource.endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) beendet (`ended`).
 - [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) {{ReadOnlyInline}}
-  - : Gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das die Liste von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten enthält, die mit dieser `MediaSource` verbunden sind.
+  - : Gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das die Liste der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, die mit dieser `MediaSource` verknüpft sind.
 
 ## Statische Eigenschaften
 
 - [`MediaSource.canConstructInDedicatedWorker`](/de/docs/Web/API/MediaSource/canConstructInDedicatedWorker_static) {{ReadOnlyInline}}
-  - : Ein boolescher Wert; gibt `true` zurück, wenn die `MediaSource`-Worker-Unterstützung implementiert ist, was einen Mechanismus zur Erkennung von Funktionen mit niedriger Latenz bietet.
+  - : Ein Boolean; gibt `true` zurück, wenn `MediaSource`-Worker-Unterstützung implementiert ist, was einen Mechanismus zur Erkennung von Features mit niedriger Latenz bietet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`MediaSource.addSourceBuffer()`](/de/docs/Web/API/MediaSource/addSourceBuffer)
-  - : Erzeugt einen neuen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) des angegebenen MIME-Typs und fügt ihn der [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Liste hinzu.
+  - : Erstellt einen neuen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) des angegebenen MIME-Typs und fügt ihn der Liste [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) hinzu.
 - [`MediaSource.clearLiveSeekableRange()`](/de/docs/Web/API/MediaSource/clearLiveSeekableRange)
-  - : Löscht einen zuvor mit einem Aufruf an `setLiveSeekableRange()` gesetzten suchbaren Bereich.
+  - : Löscht einen vorher mit einem Aufruf von `setLiveSeekableRange()` festgelegten suchbaren Bereich.
 - [`MediaSource.endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream)
   - : Signalisiert das Ende des Streams.
 - [`MediaSource.removeSourceBuffer()`](/de/docs/Web/API/MediaSource/removeSourceBuffer)
-  - : Entfernt den angegebenen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus der [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Liste.
+  - : Entfernt den angegebenen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus der Liste [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers).
 - [`MediaSource.setLiveSeekableRange()`](/de/docs/Web/API/MediaSource/setLiveSeekableRange)
-  - : Legt den Bereich fest, in dem der Benutzer im Medienelement suchen kann.
+  - : Legt den Bereich fest, zu dem der Benutzer im Media-Element springen kann.
 
 ## Statische Methoden
 
 - [`MediaSource.isTypeSupported()`](/de/docs/Web/API/MediaSource/isTypeSupported_static)
-  - : Gibt einen booleschen Wert zurück, der angibt, ob der gegebene MIME-Typ vom aktuellen User-Agent unterstützt wird — das heißt, ob es möglich ist, erfolgreich [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte für diesen MIME-Typ zu erstellen.
+  - : Gibt einen Boolean-Wert zurück, der angibt, ob der angegebene MIME-Typ vom aktuellen Benutzeragenten unterstützt wird – ob es also mögliche ist, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte für diesen MIME-Typ erfolgreich zu erstellen.
 
 ## Ereignisse
 
 - [`sourceclose`](/de/docs/Web/API/MediaSource/sourceclose_event)
-  - : Wird ausgelöst, wenn die `MediaSource`-Instanz nicht mehr an ein Medienelement angehängt ist.
+  - : Wird ausgelöst, wenn die `MediaSource`-Instanz nicht mehr an ein Media-Element angeschlossen ist.
 - [`sourceended`](/de/docs/Web/API/MediaSource/sourceended_event)
-  - : Wird ausgelöst, wenn die `MediaSource`-Instanz noch an ein Medienelement angehängt ist, aber [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) aufgerufen wurde.
+  - : Wird ausgelöst, wenn die `MediaSource`-Instanz immer noch an ein Media-Element angeschlossen ist, aber [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) aufgerufen wurde.
 - [`sourceopen`](/de/docs/Web/API/MediaSource/sourceopen_event)
-  - : Wird ausgelöst, wenn die `MediaSource`-Instanz von einem Medienelement geöffnet wurde und bereit ist, Daten zu den [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten in [`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) hinzugefügt zu bekommen.
+  - : Wird ausgelöst, wenn die `MediaSource`-Instanz von einem Media-Element geöffnet wurde und bereit ist, Daten zu den [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten in [`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) hinzuzufügen.
 
 ## Beispiele
 
-### Vollständiges einfaches Beispiel
+### Einfaches vollständiges Beispiel
 
-Das folgende einfache Beispiel lädt ein Video mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und spielt es ab, sobald es kann. Dieses Beispiel wurde von Nick Desaulniers geschrieben und kann [hier live angesehen werden](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) (Sie können auch [den Quellcode herunterladen](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) zur weiteren Untersuchung). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt ein `MediaSource` zurück.
+Das folgende einfache Beispiel lädt ein Video mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und spielt es so schnell wie möglich ab. Dieses Beispiel wurde von Nick Desaulniers geschrieben und kann [hier live angesehen werden](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) (Sie können den [Quellcode herunterladen](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html), um ihn weiter zu untersuchen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const video = document.querySelector("video");
@@ -112,9 +112,9 @@ function fetchAB(url, cb) {
 }
 ```
 
-### Konstruktion einer `MediaSource` in einem dedizierten Worker und Übergabe an den Hauptthread
+### Eine `MediaSource` in einem dedizierten Worker erstellen und an den Hauptthread übergeben
 
-Die [`handle`](/de/docs/Web/API/MediaSource/handle)-Eigenschaft kann innerhalb eines dedizierten Workers aufgerufen werden und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Hauptthread):
+Die [`handle`](/de/docs/Web/API/MediaSource/handle)-Eigenschaft kann innerhalb eines dedizierten Workers aufgerufen werden, und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread, der den Worker erstellt hat (in diesem Fall der Hauptthread), übertragen:
 
 ```js
 // Inside dedicated worker
@@ -131,7 +131,7 @@ mediaSource.addEventListener("sourceopen", () => {
 });
 ```
 
-Im Hauptthread empfangen wir das Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Event-Handler, hängen es an ein {{htmlelement("video")}} via seiner [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
+Im Hauptthread empfangen wir das Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Ereignishandler, fügen es einer {{htmlelement("video")}} über seine [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft hinzu und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
 
 ```js
 worker.addEventListener("message", (msg) => {
@@ -141,7 +141,7 @@ worker.addEventListener("message", (msg) => {
 });
 ```
 
-> **Note:** [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)s können nicht erfolgreich in einen gemeinsamen Worker oder einen Service Worker übertragen werden.
+> [!NOTE] > [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)s können nicht erfolgreich in einen Shared Worker oder Service Worker übertragen werden oder durch einen solchen hindurch.
 
 ## Spezifikationen
 

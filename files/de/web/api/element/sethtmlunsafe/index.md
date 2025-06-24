@@ -3,14 +3,14 @@ title: "Element: setHTMLUnsafe() Methode"
 short-title: setHTMLUnsafe()
 slug: Web/API/Element/setHTMLUnsafe
 l10n:
-  sourceCommit: 2033446e38e93f71eb28a0efd3f663a8e0e7aeb7
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die **`setHTMLUnsafe()`** Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, optional unerwünschte Elemente und Attribute und solche, die nicht in den Kontext gehören, herauszufiltern, und es dann zu verwenden, um den Teilbaum des Elements im DOM zu ersetzen.
+Die **`setHTMLUnsafe()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, wobei unerwünschte Elemente und Attribute herausgefiltert werden können, die im Kontext nicht benötigt werden. Anschließend wird es verwendet, um den Subtree des Elements im DOM zu ersetzen.
 
-Im Gegensatz zu [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) wird nicht garantiert, dass XSS-ungeeignete HTML-Entitäten entfernt werden.
+Im Gegensatz zu [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) wird bei `setHTMLUnsafe()` nicht garantiert, dass XSS-unsichere HTML-Entities entfernt werden.
 
 ## Syntax
 
@@ -22,15 +22,11 @@ setHTMLUnsafe(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String oder eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanz, die das zu parsende HTML definiert.
+  - : Ein String oder [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanz, die das zu parsende HTML definiert.
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
-
     - `sanitizer` {{optional_inline}}
-      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Objekt, welches definiert, welche Elemente des Eingabe-Strings erlaubt oder entfernt werden.
-        Beachten Sie, dass im Allgemeinen ein `"Sanitizer` effizienter erwartet wird als ein `SanitizerConfig`, wenn die Konfiguration wiederverwendet werden soll.
-        Wenn nicht angegeben, wird kein Sanitizer verwendet.
+      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Objekt, das definiert, welche Elemente der Eingabe erlaubt oder entfernt werden. Beachten Sie, dass im Allgemeinen ein `Sanitizer` effizienter erwartet wird als ein `SanitizerConfig`, wenn die Konfiguration wiederverwendet werden soll. Falls nicht angegeben, wird kein Sanitizer verwendet.
 
 ### Rückgabewert
 
@@ -39,37 +35,29 @@ Keiner (`undefined`).
 ### Ausnahmen
 
 - `TypeError`
-
-  - : Dieser wird geworfen, wenn:
-
-    - `input` ein String ist, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [von einer CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
-    - `options.sanitizer` eine:
-      - einen Wert, der kein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder String ist.
-      - nicht normalisierte [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) (eine, die sowohl "erlaubte" als auch "entfernte" Konfigurationseinstellungen enthält).
-      - String, der nicht den Wert `"default"` hat.
+  - : Diese Ausnahme wird geworfen, wenn:
+    - `input` ein String übergeben wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie festgelegt ist.
+    - `options.sanitizer` einen Wert übergeben bekommt, der kein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder String ist.
+      - eine nicht normalisierte [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) (eine, die sowohl "allowed" als auch "removed" Konfigurationseinstellungen enthält).
+      - ein String, der nicht den Wert `"default"` hat.
 
 ## Beschreibung
 
-Die **`setHTMLUnsafe()`** Methode wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, optional unerwünschte Elemente und Attribute und solche, die nicht in den Kontext gehören, herauszufiltern, und es dann zu verwenden, um den Teilbaum des Elements im DOM zu ersetzen.
+Die **`setHTMLUnsafe()`** Methode wird verwendet, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, wobei unerwünschte Elemente und Attribute herausgefiltert werden können, die im Kontext nicht benötigt werden. Anschließend wird es verwendet, um den Subtree des Elements im DOM zu ersetzen.
 
-Das Suffix "Unsafe" im Methodennamen zeigt an, dass die Methode zwar ermöglicht, den Eingabe-String von unerwünschten HTML-Entitäten zu filtern, sie jedoch nicht die Bereinigung oder Entfernung potenziell unsicherer XSS-bezogener Eingaben, wie z. B. {{htmlelement("script")}}-Elemente und Skript- oder Ereignis-Handler-Content-Attribute, erzwingt.
-Wenn keine Sanitizer-Konfiguration im `options.sanitizer` Parameter angegeben wird, wird `setHTMLUnsafe()` ohne jede Bereinigung verwendet.
+Die "Unsafe"-Endung im Methodennamen zeigt an, dass die Methode zwar erlaubt, den Eingabestring von unerwünschten HTML-Entities zu filtern, jedoch nicht die Sanierung oder Entfernung potenziell unsicherer, XSS-relevanter Eingaben, wie z. B. {{htmlelement("script")}}-Elemente und Skript- oder Ereignis-Handler-Content-Attribute, erzwingt. Wenn keine Konfiguration in `options.sanitizer` angegeben ist, wird `setHTMLUnsafe()` ohne jede Sanitization verwendet.
 
-Der Eingabe-HTML kann [declarative shadow roots](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) enthalten.
-Wenn der HTML-String mehr als eine [declarative shadow root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) in einem bestimmten Shadow-Host definiert, dann wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt — nachfolgende Deklarationen werden als `<template>` Elemente innerhalb dieser Shadow-Root geparst.
+Der HTML-Input kann [declarative shadow roots](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) umfassen. Wenn der HTML-String mehr als eine [declarative shadow root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) in einem bestimmten Schatten-Host definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt — nachfolgende Deklarationen werden als `<template>` Elemente innerhalb dieses Schatten-Roots geparst.
 
-Wie `setHTML()` kann `setHTMLUnsafe()` anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um HTML-Strings zu parsen, die möglicherweise deklarative Shadow-Roots enthalten.
-`setHTMLUnsafe()` sollte anstelle von [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwendet werden, wenn potenziell unsichere HTML-Strings geparst werden müssen, die aus irgendeinem Grund XSS-unsichere Elemente oder Attribute enthalten müssen.
-Wenn die zu injizierenden Strings keine unsicheren HTML-Entitäten enthalten müssen, sollten Sie immer [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwenden.
+Wie `setHTML()`, kann `setHTMLUnsafe()` anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um HTML-Strings zu parsen, die deklarative Schatten-Roots enthalten können. `setHTMLUnsafe()` sollte anstelle von [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwendet werden, wenn potenziell unsichere HTML-Strings analysiert werden sollen, die aus irgendeinem Grund XSS-unsichere Elemente oder Attribute enthalten müssen. Wenn die zu injectierenden Strings keine unsicheren HTML-Entities enthalten müssen, sollten Sie immer [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) nutzen.
 
-Da diese Methode nicht unbedingt Eingabestrings von XSS-unsicheren Entitäten bereinigt, sollten Eingabestrings auch unter Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) validiert werden.
-Wenn die Methode mit sowohl Trusted Types als auch einem Sanitizer verwendet wird, wird der Eingabestring durch die vertrauenswürdige Transformationsfunktion geleitet, bevor er bereinigt wird.
+Da diese Methode nicht zwangsläufig Eingabe-Strings mit XSS-unsafe Entities saniert, sollten Eingabe-Strings auch unter Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) validiert werden. Wenn die Methode sowohl mit trusted types als auch einem Sanitizer verwendet wird, wird der Eingabestring durch die vertrauenswürdige Transformationsfunktion geführt, bevor er saniert wird.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Dieses Beispiel zeigt einige Möglichkeiten, wie `setHTMLUnsafe()` verwendet werden kann, um einen HTML-String zu injizieren.
+Dieses Beispiel zeigt einige der Möglichkeiten, wie Sie `setHTMLUnsafe()` verwenden können, um einen HTML-String zu injecten.
 
 ```js
 // Define unsanitized string of HTML
@@ -96,13 +84,11 @@ target.setHTMLUnsafe(unsanitizedString, {
 
 ### `setHTMLUnsafe()` Live-Beispiel
 
-Dieses Beispiel bietet eine "Live"-Demonstration der Methode, wenn sie mit verschiedenen Sanitizern aufgerufen wird.
-Der Code definiert Schaltflächen, die Sie anklicken können, um einen HTML-String zu injizieren, der nicht bereinigt wird, und der jeweils einen benutzerdefinierten Sanitizer verwendet.
-Der ursprüngliche String und der injizierte HTML werden protokolliert, sodass Sie die Ergebnisse in jedem Fall überprüfen können.
+Dieses Beispiel bietet eine "Live"-Demonstration der Methode, die mit verschiedenen Sanitisatoren aufgerufen wird. Der Code definiert Schaltflächen, die Sie klicken können, um einen HTML-String zu injecten, der nicht sanitisiert wird, und der einen benutzerdefinierten Sanitizer verwendet. Der ursprüngliche String und das injectierte HTML werden protokolliert, sodass Sie die Ergebnisse in jedem Fall inspizieren können.
 
 #### HTML
 
-Das HTML definiert zwei {{htmlelement("button")}}-Elemente zum Aufrufen der Methode mit verschiedenen Sanitizern, einen weiteren Button, um das Beispiel zurückzusetzen, und ein {{htmlelement("div")}}-Element, um den String hineinzuspritzen.
+Das HTML definiert zwei {{htmlelement("button")}}-Elemente, um die Methode mit verschiedenen Sanitisatoren aufzurufen, eine weitere Schaltfläche, um das Beispiel zurückzusetzen, und ein {{htmlelement("div")}}-Element, in das der String injiziert wird.
 
 ```html
 <button id="buttonNoSanitizer" type="button">None</button>
@@ -139,9 +125,7 @@ function log(text) {
 if ("Sanitizer" in window) {
 ```
 
-Zuerst definieren wir den String, der bereinigt werden soll, der für alle Fälle gleich sein wird.
-Dieser enthält das {{htmlelement("script")}}-Element und den `onclick`-Handler, die beide als XSS-unsicher betrachtet werden.
-Wir definieren auch den Handler für die Neustart-Taste.
+Zuerst definieren wir den zu sanierenden String, der in allen Fällen der gleiche sein wird. Dieser enthält das {{htmlelement("script")}}-Element und den `onclick` Handler, die beide als XSS-unsicher gelten. Wir definieren auch den Handler für die Neu laden-Schaltfläche.
 
 ```js
 // Define unsafe string of HTML
@@ -156,9 +140,7 @@ const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => document.location.reload());
 ```
 
-Als nächstes definieren wir den Klick-Handler für den Button, der das HTML ohne Sanitizer setzt.
-Im Allgemeinen würden wir erwarten, dass die Methode Elemente im String fallen lässt, die im Kontext nicht erlaubt sind (wie tabellenspezifische Elemente in einem `<div>` Element), andernfalls sollte der Eingabestring jedoch dem Ausgabe-String entsprechen.
-In diesem Fall sollten die Strings übereinstimmen.
+Als nächstes definieren wir den Click-Handler für die Schaltfläche, die das HTML ohne Sanitizer setzt. Generell würden wir erwarten, dass die Methode Elemente im String verwirft, die im Kontext nicht erlaubt sind (wie tabellenspezifische Elemente in einem `<div>`-Element), ansonsten den Eingabestring abgleicht. In diesem Fall sollten die Strings übereinstimmen.
 
 ```js
 const buttonNoSanitizer = document.querySelector("#buttonNoSanitizer");
@@ -174,8 +156,7 @@ buttonNoSanitizer.addEventListener("click", () => {
 });
 ```
 
-Der nächste Klick-Handler setzt das Ziel-HTML mit einem benutzerdefinierten Sanitizer, der nur {{htmlelement("div")}}, {{htmlelement("p")}}, und {{htmlelement("script")}} Elemente erlaubt.
-Beachten Sie, dass weil wir die `setHTMLUnsafe()` Methode verwenden, `<script>` nicht entfernt wird!
+Der nächste Click-Handler setzt das Ziel-HTML mit einem benutzerdefinierten Sanitizer, der nur {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}}-Elemente erlaubt. Beachten Sie, dass wenn wir die `setHTMLUnsafe()` Methode verwenden, `<script>` nicht entfernt werden!
 
 ```js
 const allowScriptButton = document.querySelector("#buttonAllowScript");
@@ -202,11 +183,9 @@ allowScriptButton.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Klicken Sie auf die "None" und "allowScript" Buttons, um die Auswirkungen ohne Sanitizer bzw. mit einem benutzerdefinierten Sanitizer zu sehen.
+Klicken Sie auf die "None" und "allowScript" Schaltflächen, um die Effekte von keinem Sanitizer und einem benutzerdefinierten Sanitizer zu sehen.
 
-Wenn Sie auf die "None" Taste klicken, sollten Sie sehen, dass Eingabe und Ausgabe übereinstimmen, da kein Sanitizer angewendet wird.
-Wenn Sie die "allowScript"-Taste klicken, ist das `<script>`-Element immer noch vorhanden, aber das `<button>`-Element wird entfernt.
-Mit diesem Ansatz können Sie sicheres HTML erstellen, aber Sie sind nicht gezwungen.
+Wenn Sie die "None" Schaltfläche klicken, sollten Sie feststellen, dass Eingabe und Ausgabe übereinstimmen, da kein Sanitizer angewendet wird. Wenn Sie die "allowScript" Schaltfläche klicken, ist das `<script>` Element noch vorhanden, aber das `<button>` Element wird entfernt. Mit diesem Ansatz können Sie sicheres HTML erstellen, müssen es aber nicht erzwingen.
 
 {{EmbedLiveSample("setHTMLUnsafe() live example","100","380px")}}
 

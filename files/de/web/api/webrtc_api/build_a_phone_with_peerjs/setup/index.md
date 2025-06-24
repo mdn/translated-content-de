@@ -2,24 +2,24 @@
 title: Einrichtung
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Setup
 l10n:
-  sourceCommit: edb16c0a662d7e719efe67561389a7a087c1ace9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Build_the_server")}}
 
-Lassen Sie uns mit der Einrichtung der Grundlage für unsere WebRTC-basierte Telefon-App beginnen.
+Beginnen wir mit der Einrichtung der Grundlagen für unsere WebRTC-basierte Telefon-App.
 
-1. Finden Sie zunächst einen sinnvollen Ort in Ihrer lokalen Dateistruktur und führen Sie `mkdir audio_app` und dann `cd audio_app` aus, um ein Verzeichnis zu erstellen, das Ihre App enthalten wird, und betreten Sie es.
-2. Erstellen Sie als nächstes eine neue App, indem Sie `yarn init` ausführen. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
-3. Installieren Sie dann die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
+1. Finden Sie zunächst einen geeigneten Ort in Ihrer lokalen Dateistruktur und führen Sie `mkdir audio_app` und dann `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und es zu betreten.
+2. Erstellen Sie dann eine neue App, indem Sie `yarn init` ausführen. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
+3. Installieren Sie als nächstes die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
 
    - [Express](https://expressjs.com/): `yarn add express`
    - [PeerJS](https://peerjs.com/docs/): `yarn add peerjs`
    - [Peer](https://github.com/peers/peerjs-server): `yarn add peer`
 
-   Peer wird für den Peer-Server verwendet, und PeerJS wird genutzt, um auf die PeerJS-API und das Framework zuzugreifen. Ihre `package.json` sollte wie folgt aussehen, wenn Sie die Abhängigkeiten installiert haben:
+   Peer wird für den Peer-Server verwendet und PeerJS wird genutzt, um auf die PeerJS-API und das Framework zuzugreifen. Ihre `package.json` sollte in etwa so aussehen, wenn Sie die Abhängigkeiten installiert haben:
 
    ```json
    {
@@ -41,7 +41,7 @@ Lassen Sie uns mit der Einrichtung der Grundlage für unsere WebRTC-basierte Tel
    }
    ```
 
-4. Um die Einrichtung abzuschließen, sollten Sie die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projektordners kopieren. Sie können beide Dateien `index` nennen, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` heißen. Sie müssen diese in den folgenden Artikeln nicht großartig ändern.
+4. Um die Einrichtung abzuschließen, sollten Sie die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projektordners kopieren. Sie können beide Dateien `index` nennen, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` sein wird. Sie werden diese in den folgenden Artikeln nicht wesentlich ändern müssen.
 
 ```html
 <!DOCTYPE html>

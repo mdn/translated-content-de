@@ -3,12 +3,12 @@ title: "FileSystemHandle: queryPermission() Methode"
 short-title: queryPermission()
 slug: Web/API/FileSystemHandle/queryPermission
 l10n:
-  sourceCommit: 4e8bc4593e38b3902430fa701a6256c95d7bbbdc
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`queryPermission()`**-Methode des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces fragt den aktuellen Berechtigungsstatus des vorhandenen Handles ab.
+Die **`queryPermission()`** Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) Schnittstelle fragt den aktuellen Berechtigungsstatus des aktuellen Handles ab.
 
 ## Syntax
 
@@ -19,27 +19,24 @@ queryPermission(descriptor)
 ### Parameter
 
 - `descriptor` {{optional_inline}}
-
-  - : Ein Objekt, das den Berechtigungsmodus angibt, nach dem abgefragt werden soll. Die Optionen sind wie folgt:
-
+  - : Ein Objekt, das den Berechtigungsmodus spezifiziert, der abgefragt werden soll. Optionen sind wie folgt:
     - `'mode'` {{optional_inline}}
-
       - : Kann entweder `'read'` oder `'readwrite'` sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) aufgelöst wird, welcher einer der Werte `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einer der untenstehenden Ausnahmen abgelehnt werden.
+Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) aufgelöst wird, welches entweder `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einer der unten stehenden Ausnahmen abgelehnt werden.
 
-Wenn dies mit "prompt" aufgelöst wird, muss die Website `requestPermission()` aufrufen, bevor irgendwelche Operationen am Handle durchgeführt werden können. Wenn dies mit "denied" aufgelöst wird, werden alle Operationen abgelehnt. Normalerweise werden Handles, die von den lokalen Dateisystem-Handle-Fabriken zurückgegeben werden, anfänglich mit "granted" für ihren Leseberechtigungsstatus aufgelöst. Abgesehen davon, dass der Benutzer die Berechtigung widerruft, wird ein Handle, das von IndexedDB abgerufen wurde, wahrscheinlich auch mit "prompt" aufgelöst.
+Wenn dieses mit "prompt" aufgelöst wird, muss die Website `requestPermission()` aufrufen, bevor irgendwelche Operationen auf dem Handle durchgeführt werden können. Wenn dieses mit "denied" aufgelöst wird, werden alle Operationen abgelehnt. Normalerweise werden Handles, die von den lokalen Dateisystem-Handle-Fabriken zurückgegeben werden, anfänglich mit "granted" für ihren Lesezustand aufgelöst. Allerdings wird ein Handle, das aus dem IndexedDB abgerufen wird, auch wahrscheinlich mit "prompt" aufgelöst, außer die Berechtigung wird vom Benutzer widerrufen.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `mode` mit einem anderen Wert angegeben wird als `'read'` oder `'readwrite'`.
+  - : Wird ausgelöst, wenn `mode` mit einem anderen Wert als `'read'` oder `'readwrite'` spezifiziert wird.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion gibt true zurück, wenn dem Nutzer Lese- oder Lese-/Schreibberechtigungen für das Dateihandle erteilt wurden. Die Berechtigung wird angefordert, wenn nicht.
+Die folgende asynchrone Funktion gibt `true` zurück, wenn der Benutzer Lese- oder Lese-/Schreibberechtigungen für das Datei-Handle gewährt hat. Falls nicht, wird die Berechtigung angefordert.
 
 ```js
 // fileHandle is a FileSystemFileHandle

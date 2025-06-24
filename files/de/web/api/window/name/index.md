@@ -1,14 +1,15 @@
 ---
-title: "Fenster: Name-Eigenschaft"
+title: "Window: name-Eigenschaft"
 short-title: name
 slug: Web/API/Window/name
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef}}
 
-Die `Window.name`-Eigenschaft ruft den Namen des Browsing-Kontexts des Fensters ab/legt ihn fest.
+Die `Window.name`-Eigenschaft
+ruft den Namen des Browsing-Kontexts des Fensters ab oder setzt ihn.
 
 ## Wert
 
@@ -16,13 +17,18 @@ Ein String.
 
 ## Beschreibung
 
-Der Name des Fensters wird hauptsächlich verwendet, um Ziele für Hyperlinks und Formulare festzulegen. Browsing-Kontexte müssen keine Namen haben.
+Der Name des Fensters wird hauptsächlich zum Festlegen von Zielen für Hyperlinks und Formulare verwendet. Browsing-Kontexte müssen keine Namen haben.
 
-Moderne Browser setzen `Window.name` auf einen leeren String zurück, wenn ein Tab eine Seite von einer anderen Domain lädt, und stellen den Namen wieder her, wenn die ursprüngliche Seite neu geladen wird (z. B. durch Auswahl der "Zurück"-Schaltfläche). Dies verhindert, dass eine nicht vertrauenswürdige Seite auf Informationen zugreift, die die vorherige Seite möglicherweise in der Eigenschaft gespeichert hat (möglicherweise könnte die neue Seite solche Daten ebenfalls ändern, die dann von der ursprünglichen Seite gelesen werden könnten, wenn sie neu geladen wird).
+Moderne Browser setzen `Window.name` auf einen leeren String zurück, wenn ein Tab eine
+Seite von einer anderen Domäne lädt, und stellen den Namen wieder her, wenn die ursprüngliche Seite neu geladen wird (z. B. durch Auswahl der "Zurück"-Taste). Dadurch wird verhindert, dass eine nicht vertrauenswürdige Seite auf Informationen zugreift, die die vorherige Seite möglicherweise in der Eigenschaft gespeichert hat (potenziell könnte die neue Seite solche Daten auch ändern, die dann von der ursprünglichen Seite gelesen werden könnten, wenn sie neu geladen wird).
 
-`Window.name` wurde auch in einigen Frameworks zur Bereitstellung von Cross-Domain-Messaging als sicherere Alternative zu JSONP verwendet. Moderne Webanwendungen, die sensible Daten hosten, sollten sich jedoch nicht auf `window.name` für Cross-Domain-Messaging verlassen — das ist nicht der beabsichtigte Zweck und es gibt sicherere/bessere Möglichkeiten, Informationen zwischen Fenstern auszutauschen. [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) ist der empfohlene Mechanismus.
+`Window.name` wurde auch in einigen Frameworks für die Bereitstellung von
+Cross-Domain-Messaging als sicherere Alternative zu JSONP verwendet. Moderne Webanwendungen, die sensible Daten hosten, sollten sich jedoch nicht auf `window.name` für Cross-Domain-Messaging verlassen – das ist nicht der beabsichtigte Zweck und es gibt sicherere/bessere Wege, um Informationen zwischen Fenstern auszutauschen.
+[`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
+ist der empfohlene Mechanismus.
 
-> **Note:** `window.name` konvertiert alle gespeicherten Werte in ihre String-Repräsentationen mit der `toString`-Methode.
+> [!NOTE] > `window.name` konvertiert alle gespeicherten Werte in deren
+> String-Repräsentationen mittels der Methode `toString`.
 
 ## Beispiele
 

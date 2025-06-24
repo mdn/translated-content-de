@@ -2,28 +2,28 @@
 title: set()
 slug: Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set
 l10n:
-  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Verwenden Sie `BrowserSetting.set()`, um die Browsereinstellungen auf einen neuen Wert zu ändern.
+Verwenden Sie `BrowserSetting.set()`, um die Browsereinstellung auf einen neuen Wert zu ändern.
 
-Es gibt einige Regeln, die einschränken können, wann Erweiterungen Einstellungen ändern dürfen:
+Es gibt einige Regeln, die einschränken können, wann Erweiterungen in der Lage sind, Einstellungen zu ändern:
 
-- Einige Einstellungen sind gesperrt, sodass sie überhaupt nicht von Erweiterungen geändert werden können.
-- Wenn mehrere Erweiterungen versuchen, dieselbe Einstellung zu ändern, erhalten die Erweiterungen eine Vorrangordnung basierend darauf, wann sie installiert wurden. Neuere Erweiterungen haben Vorrang vor älteren Erweiterungen.
+- Einige Einstellungen sind gesperrt und können daher überhaupt nicht von Erweiterungen geändert werden
+- Wenn mehrere Erweiterungen versuchen, dieselbe Einstellung zu ändern, wird ihnen eine Vorrangordnung zugewiesen, basierend darauf, wann sie installiert wurden. Neu installierte Erweiterungen haben Vorrang vor weniger neu installierten Erweiterungen.
 
-Dies bedeutet, dass wenn Erweiterung X versucht, eine Einstellung zu ändern:
+Das bedeutet, wenn Erweiterung X versucht, eine Einstellung zu ändern:
 
-1. Wenn die Einstellung gesperrt ist, wird die Einstellung nicht geändert. Jedoch wird die Änderung von X gespeichert und steht in einer Warteschlange, geordnet nach dem Vorrang von X im Verhältnis zu anderen Erweiterungen, die versucht haben, die Einstellung zu ändern. Wenn die Einstellung später entsperrt wird, darf die erste Erweiterung in der Warteschlange die Änderung vornehmen.
-2. Andernfalls, wenn keine andere Erweiterung die Einstellung bereits geändert hat, gelingt es X, die Einstellung zu ändern und "kontrolliert" dann die Einstellung.
-3. Andernfalls, wenn eine Erweiterung Y mit niedrigerem Vorrang die Einstellung bereits geändert hat, gelingt es X, die Einstellung zu ändern und kontrolliert nun die Einstellung. Allerdings wird die Änderung von Y gespeichert und steht in einer Warteschlange in Vorrangsreihenfolge. Wenn X anschließend seinen Wert löscht oder wenn X deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung an der Einstellung vornehmen.
-4. Andernfalls, wenn eine Erweiterung Z mit höherem Vorrang die Einstellung bereits geändert hat, gelingt es X nicht, die Einstellung zu ändern, aber seine Änderung wird in die Warteschlange aufgenommen. Wenn Z anschließend seinen Wert löscht oder wenn Z deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung an der Einstellung vornehmen.
+1. Wenn die Einstellung gesperrt ist, wird die Einstellung nicht geändert. X's Änderung wird jedoch gespeichert und in einer Warteschlange geordnet nach X's Vorrang gegenüber anderen Erweiterungen, die versucht haben, die Einstellung zu ändern. Wenn die Einstellung später entsperrt wird, darf die erste Erweiterung in der Warteschlange die Einstellung ändern.
+2. Andernfalls, wenn keine andere Erweiterung die Einstellung bereits geändert hat, gelingt es X, die Einstellung zu ändern, und es wird gesagt, dass X die Einstellung "kontrolliert".
+3. Andernfalls, wenn eine weniger vorrangige Erweiterung Y die Einstellung bereits geändert hat, gelingt es X, die Einstellung zu ändern, und kontrolliert jetzt die Einstellung. Y's Änderung wird jedoch gespeichert und in einer Warteschlange in Vorrangordnung abgelegt. Wenn X anschließend seinen Wert löscht oder X deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung an der Einstellung durchführen.
+4. Andernfalls, wenn eine höher priorisierte Erweiterung Z die Einstellung bereits geändert hat, gelingt es X nicht, die Einstellung zu ändern, aber seine Änderung wird in die Warteschlange gestellt. Wenn Z anschließend seinen Wert löscht oder Z deaktiviert oder deinstalliert wird, darf die erste Erweiterung in der Warteschlange ihre Änderung an der Einstellung durchführen.
 
-Eine Erweiterung kann herausfinden, welches dieser Szenarien zutrifft, indem sie die Eigenschaft `levelOfControl` untersucht, die von einem Aufruf von [`BrowserSetting.get()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/get) zurückgegeben wird.
+Eine Erweiterung kann herausfinden, welches dieser Szenarien zutrifft, indem sie die `levelOfControl` Eigenschaft untersucht, die von einem Aufruf von [`BrowserSetting.get()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/get) zurückgegeben wird.
 
-Die Methode `BrowserSetting.set()` gibt ein Promise zurück, das zu einem Boolean aufgelöst wird: Wenn ein Einstellungsänderungsversuch tatsächlich dazu führt, dass die Einstellung geändert wird (Szenarien 2 und 3 oben), ist der Boolean `true`; andernfalls `false`.
+Die Methode `BrowserSetting.set()` gibt ein Promise zurück, das auf ein Boolean aufgelöst wird: Wenn ein Versuch, eine Einstellung zu ändern, tatsächlich zur Änderung der Einstellung führt (Szenarien 2 und 3 oben), ist das Boolean `true`: andernfalls ist es `false`.
 
 ## Syntax
 
@@ -36,15 +36,13 @@ let setting = setting.set(
 ### Parameter
 
 - `details`
-
   - : Ein Objekt, das die folgende Eigenschaft enthalten muss:
-
     - `value`
       - : `any`. Der Wert, in den Sie die Einstellung ändern möchten. Sein Typ hängt von der jeweiligen Einstellung ab.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `boolean` erfüllt wird: `true`, wenn die Einstellung geändert wurde, `false` andernfalls (zum Beispiel, weil die Erweiterung die Einstellung nicht kontrollierte).
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `boolean` erfüllt wird: `true`, wenn die Einstellung geändert wurde, andernfalls `false` (zum Beispiel, weil die Erweiterung die Einstellung nicht kontrollierte).
 
 ## Browser-Kompatibilität
 
@@ -52,7 +50,7 @@ Siehe {{WebExtAPIRef("types.BrowserSetting")}}.
 
 ## Beispiel
 
-Ändern Sie die Einstellung `hyperlinkAuditingEnabled` (hierfür ist die Berechtigung "privacy" erforderlich):
+Ändern Sie die Einstellung `hyperlinkAuditingEnabled` (dies erfordert die Berechtigung "privacy"):
 
 ```js
 function onSet(result) {
@@ -74,34 +72,36 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Verwendung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen von Quellcode müssen obigen Urheberrechtshinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// beibehalten.
+//    * Weiterverbreitungen in binärer Form müssen obigen Urheberrechtshinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien beifügen, die mit der
+// Verteilung verbreitet werden.
+//    * Weder der Name von Google Inc. noch die Namen der
+// Beitragenden dürfen verwendet werden, um Produkte zu unterstützen oder zu bewerben, die von dieser
+// Software abgeleitet wurden, ohne vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND ALLE AUSDRÜCKLICHEN ODER
+// IMPLIZIERTEN GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// IMPLIZIERTEN GARANTIEN DER MARKTFÄHIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN
+// ZWECK WERDEN ABGELEHNT. IN KEINEM FALL HAFTEN DIE URHEBERRECHTSINHABER ODER
+// BEITRAGENDEN FÜR JEGLICHE DIREKTE, INDIREKTE, BEILÄUFIGE,
+// BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF, ERSATZBESCHAFFUNGEN ODER DIENSTLEISTUNGEN; NUTZUNGSAUSFALL,
+// DATEN- ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG)
+// WIE AUCH WEG AUS DER HAFTUNGSTHEORIE, VERTRAG, UNERLAUBTER HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT) ODER ANDERWEITIG AUS DER NUTZUNG DIESER
+// SOFTWARE ENTSTEHEN, SEI ES AUCH NUR AUF DIE MÖGLICHKEIT EINES
+// SOLCHEN SCHADENS HINGEWIESEN WURDE.
 -->

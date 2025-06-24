@@ -2,14 +2,14 @@
 title: downloads.onCreated
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/onCreated
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
 Das **`onCreated()`** Ereignis der {{WebExtAPIRef("downloads")}} API wird ausgelöst, wenn ein Download beginnt, d.h. wenn {{WebExtAPIRef("downloads.download()")}} erfolgreich aufgerufen wird.
 
-Dem Listener wird das betreffende {{WebExtAPIRef('downloads.DownloadItem')}} Objekt als Parameter übergeben.
+Der Listener erhält das betreffende {{WebExtAPIRef('downloads.DownloadItem')}} Objekt als Parameter.
 
 ## Syntax
 
@@ -24,18 +24,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das `listener` Argument ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein gegebener `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob ein bestimmter `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn der Listener aktiv ist, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `function`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Dieser Funktion wird folgendes Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Diese Funktion erhält dieses Argument:
     - `downloadItem`
       - : Das betreffende {{WebExtAPIRef('downloads.DownloadItem')}} Objekt.
 
@@ -45,7 +43,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokollieren Sie die URL von Elementen, während sie heruntergeladen werden:
+Protokollieren Sie die URL von Elementen, sobald sie heruntergeladen werden:
 
 ```js
 function handleCreated(item) {
@@ -58,4 +56,4 @@ browser.downloads.onCreated.addListener(handleCreated);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#event-onCreated) API.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#event-onCreated) API von Chromium.

@@ -2,14 +2,14 @@
 title: "<button>: Das Button-Element"
 slug: Web/HTML/Reference/Elements/button
 l10n:
-  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar}}
 
-Das **`<button>`** [HTML](/de/docs/Web/HTML)-Element ist ein interaktives Element, das vom Nutzer mit einer Maus, Tastatur, Fingerberührung, Sprachbefehl oder anderer unterstützender Technologie aktiviert wird. Sobald es aktiviert wird, führt es eine Aktion aus, wie zum Beispiel das Absenden eines [Formulars](/de/docs/Learn_web_development/Extensions/Forms) oder das Öffnen eines Dialogs.
+Das **`<button>`** [HTML](/de/docs/Web/HTML)-Element ist ein interaktives Element, das von einem Benutzer mit Maus, Tastatur, Finger, Sprachbefehl oder anderer unterstützender Technologie aktiviert wird. Sobald es aktiviert ist, führt es eine Aktion aus, wie zum Beispiel das Absenden eines [Formulars](/de/docs/Learn_web_development/Extensions/Forms) oder das Öffnen eines Dialogs.
 
-Standardmäßig werden HTML-Buttons in einem Stil präsentiert, der dem des Plattform-User Agents entspricht, auf dem sie ausgeführt werden. Sie können jedoch das Aussehen von Buttons mit [CSS](/de/docs/Web/CSS) ändern.
+Standardmäßig werden HTML-Buttons in einem Stil präsentiert, der der Plattform ähnelt, auf der der {{Glossary("user_agent", "User-Agent")}} läuft. Sie können jedoch das Aussehen von Buttons mit [CSS](/de/docs/Web/CSS) ändern.
 
 {{InteractiveExample("HTML Demo: &lt;button&gt;", "tabbed-shorter")}}
 
@@ -52,130 +52,125 @@ Standardmäßig werden HTML-Buttons in einem Stil präsentiert, der dem des Plat
 
 ## Attribute
 
-Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `autofocus`
 
-  - : Dieses Boolesche Attribut gibt an, dass der Button den Eingabe-[Fokus](/de/docs/Web/API/HTMLElement/focus) haben soll, wenn die Seite geladen wird. **Nur ein Element in einem Dokument kann dieses Attribut haben.**
+  - : Dieses Boolean-Attribut gibt an, dass der Button beim Laden der Seite den [Fokus](/de/docs/Web/API/HTMLElement/focus) haben soll. **Nur ein Element in einem Dokument kann dieses Attribut haben.**
 
 - `command`
 
-  - : Gibt die Aktion an, die auf einem Element ausgeführt werden soll, das von einem Steuer-`<button>` kontrolliert wird, angegeben über das `commandfor`-Attribut. Mögliche Werte sind:
-
+  - : Gibt die Aktion an, die an einem Element, das von einem Steuerungs-`<button>` kontrolliert wird, mit dem `commandfor`-Attribut ausgeführt werden soll. Mögliche Werte sind:
     - `"show-modal"`
-      - : Der Button wird einen {{htmlelement("dialog")}} als Modal anzeigen. Wenn der Dialog bereits modal ist, wird keine Aktion ausgeführt. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) auf dem Dialog-Element.
+      - : Der Button wird ein {{htmlelement("dialog")}} als modal anzeigen. Wenn der Dialog bereits modal ist, wird keine Aktion ausgeführt. Dies ist ein deklaratives Äquivalent zum Aufruf der [`.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode am Dialogelement.
     - `"close"`
-      - : Der Button wird ein {{htmlelement("dialog")}} Element schließen. Wenn der Dialog bereits geschlossen ist, wird keine Aktion ausgeführt. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`.close()`](/de/docs/Web/API/HTMLDialogElement/close) auf dem Dialog-Element.
+      - : Der Button wird ein {{htmlelement("dialog")}}-Element schließen. Wenn der Dialog bereits geschlossen ist, wird keine Aktion ausgeführt. Dies ist ein deklaratives Äquivalent zum Aufruf der [`.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode am Dialogelement.
     - `"request-close"`
-      - : Der Button wird versuchen, ein {{htmlelement("dialog")}} Element zu schließen. Wenn der Dialog bereits geschlossen ist, wird keine Aktion ausgeführt. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`.requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) auf dem Dialog-Element.
+      - : Der Button wird anfordern, dass ein {{htmlelement("dialog")}}-Element geschlossen wird. Wenn der Dialog bereits geschlossen ist, wird keine Aktion ausgeführt. Dies ist ein deklaratives Äquivalent zum Aufruf der [`.requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)-Methode am Dialogelement.
     - `"show-popover"`
-      - : Der Button wird ein verstecktes Popover anzeigen. Wenn versucht wird, ein bereits sichtbares Popover anzuzeigen, wird keine Aktion ausgeführt. Siehe [Popover-API](/de/docs/Web/API/Popover_API) für weitere Details. Dies entspricht [`popovertargetaction`](#popovertargetaction) mit dem Wert `"show"`. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) auf dem Popover-Element.
+      - : Der Button wird ein verstecktes Popover anzeigen. Wenn Sie versuchen, ein bereits angezeigtes Popover anzuzeigen, wird keine Aktion ausgeführt. Siehe [Popover API](/de/docs/Web/API/Popover_API) für weitere Details. Dies entspricht [`popovertargetaction`](#popovertargetaction) mit dem Wert `"show"`. Dies ist ein deklaratives Äquivalent zum Aufruf der [`.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover)-Methode am Popover-Element.
     - `"hide-popover"`
-      - : Der Button wird ein sichtbares Popover verbergen. Wenn versucht wird, ein bereits verstecktes Popover zu verbergen, wird keine Aktion ausgeführt. Siehe [Popover-API](/de/docs/Web/API/Popover_API) für weitere Details. Dies entspricht [`popovertargetaction`](#popovertargetaction) mit dem Wert `"hide"`. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover) auf dem Popover-Element.
+      - : Der Button wird ein angezeigtes Popover ausblenden. Wenn Sie versuchen, ein bereits ausgeblendetes Popover auszublenden, wird keine Aktion ausgeführt. Siehe [Popover API](/de/docs/Web/API/Popover_API) für weitere Details. Dies entspricht [`popovertargetaction`](#popovertargetaction) mit dem Wert `"hide"`. Dies ist ein deklaratives Äquivalent zum Aufruf der [`.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover)-Methode am Popover-Element.
     - `"toggle-popover"`
-      - : Der Button wird ein Popover zwischen sichtbar und verborgen umschalten. Wenn das Popover verborgen ist, wird es angezeigt; wenn das Popover sichtbar ist, wird es verborgen. Siehe [Popover-API](/de/docs/Web/API/Popover_API) für weitere Details. Dies entspricht [`popovertargetaction`](#popovertargetaction) mit dem Wert `"toggle"`. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) auf dem Popover-Element.
+      - : Der Button wird ein Popover zwischen Anzeigen und Verbergen umschalten. Wenn das Popover ausgeblendet ist, wird es angezeigt; wenn das Popover angezeigt wird, wird es ausgeblendet. Siehe [Popover API](/de/docs/Web/API/Popover_API) für weitere Details. Dies entspricht [`popovertargetaction`](#popovertargetaction) mit dem Wert `"toggle"`. Dies ist ein deklaratives Äquivalent zum Aufruf der [`.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover)-Methode am Popover-Element.
     - Benutzerdefinierte Werte
-      - : Dieses Attribut kann benutzerdefinierte Werte darstellen, die mit zwei Minuszeichen (`--`) beginnen. Buttons mit einem benutzerdefinierten Wert lösen das [`CommandEvent`](/de/docs/Web/API/CommandEvent) auf dem gesteuerten Element aus.
+      - : Dieses Attribut kann benutzerdefinierte Werte darstellen, die mit einem doppelten Bindestrich (`--`) versehen sind. Tasten mit einem benutzerdefinierten Wert lösen das [`CommandEvent`](/de/docs/Web/API/CommandEvent) am gesteuerten Element aus.
 
 - `commandfor`
-  - : Wandelt ein `<button>`-Element in einen Befehlskontrollbutton um, der das angegebene interaktive Element steuert; nimmt als Wert die ID des zu steuernden Elements. Dies ist eine allgemeinere Version von [`popovertarget`](#popovertarget).
+  - : Wandelt ein `<button>`-Element in einen Steuerungsbutton um, der das angegebene interaktive Element steuert; übernimmt die ID des zu steuernden Elements als Wert. Dies ist eine allgemeinere Version von [`popovertarget`](#popovertarget).
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-  - : Dieses Boolesche Attribut verhindert, dass der Benutzer mit dem Button interagieren kann: Er kann nicht gedrückt oder fokussiert werden.
+  - : Dieses Boolean-Attribut verhindert, dass der Benutzer mit dem Button interagiert: Er kann nicht gedrückt oder fokussiert werden.
 - `form`
 
-  - : Das zugehörige {{HTMLElement("form")}}-Element (sein _Formular-Eigentümer_). Der Wert dieses Attributs muss die `id` eines `<form>` im gleichen Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird `<button>` mit seinem Vorfahren-`<form>`-Element assoziiert, falls vorhanden.)
+  - : Das {{HTMLElement("form")}}-Element, das mit dem Button verbunden werden soll (sein _Formularbesitzer_). Der Wert dieses Attributs muss die `id` eines `<form>` im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird das `<button>` mit seinem übergeordneten `<form>`-Element, falls vorhanden, verknüpft.)
 
-    Dieses Attribut ermöglicht es, `<button>`-Elemente überall im Dokument `<form>`s zu verknüpfen, nicht nur innerhalb eines `<form>`. Es kann auch ein Vorfahren-`<form>`-Element überschreiben.
+    Dieses Attribut ermöglicht es, `<button>`-Elemente mit `<form>`s im gesamten Dokument zu verknüpfen, nicht nur innerhalb eines `<form>`. Es kann auch ein übergeordnetes `<form>`-Element ersetzen.
 
 - `formaction`
-  - : Die URL, die die Informationen verarbeitet, die durch den Button übermittelt werden. Überschreibt das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)-Attribut des Formulareigentümers des Buttons. Tut nichts, wenn es keinen Formulareigentümer gibt.
+  - : Die URL, die die vom Button übermittelten Informationen verarbeitet. Überschreibt das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)-Attribut des Formularbesitzers des Buttons. Tut nichts, wenn es keinen Formularbesitzer gibt.
 - `formenctype`
 
-  - : Wenn der Button ein Absende-Button ist (er ist innerhalb/assoziiert mit einem `<form>` und hat nicht `type="button"`), gibt er an, wie die gesendeten Formulardaten kodiert werden. Mögliche Werte:
+  - : Wenn der Button ein Submit-Button ist (er ist in einem `<form>` innerhalb/verbunden und hat nicht `type="button"`), gibt er an, wie die übermittelten Formulardaten codiert werden sollen. Mögliche Werte:
 
-    - `application/x-www-form-urlencoded`: Die Standardeinstellung, wenn das Attribut nicht verwendet wird.
-    - `multipart/form-data`: Wird verwendet, um {{HTMLElement("input")}}-Elemente mit ihren [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attributen auf `file` gesetzt zu übermitteln.
-    - `text/plain`: Wird als Debugging-Hilfe angegeben; sollte nicht für echte Formularübertragungen verwendet werden.
+    - `application/x-www-form-urlencoded`: Der Standard, wenn das Attribut nicht verwendet wird.
+    - `multipart/form-data`: Wird verwendet, um {{HTMLElement("input")}}-Elemente mit ihrem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut auf `file` zu setzen.
+    - `text/plain`: Wird als Debugging-Hilfe angegeben; sollte nicht für echte Formularübermittlungen verwendet werden.
 
-    Wenn dieses Attribut angegeben ist, überschreibt es das [`enctype`](/de/docs/Web/HTML/Reference/Elements/form#enctype)-Attribut des Formulareigentümers des Buttons.
+    Wenn dieses Attribut angegeben ist, überschreibt es das [`enctype`](/de/docs/Web/HTML/Reference/Elements/form#enctype)-Attribut des Formularbesitzers des Buttons.
 
 - `formmethod`
 
-  - : Wenn der Button ein Absende-Button ist (er ist innerhalb/assoziiert mit einem `<form>` und hat nicht `type="button"`), gibt dieses Attribut die [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) an, die verwendet wird, um das Formular zu übermitteln. Mögliche Werte:
+  - : Wenn der Button ein Submit-Button ist (er ist in einem `<form>` innerhalb/verbunden und hat nicht `type="button"`), gibt dieses Attribut die [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) an, die verwendet wird, um das Formular zu übermitteln. Mögliche Werte:
 
-    - `post`: Die Daten des Formulars sind im Hauptteil der HTTP-Anforderung enthalten, wenn sie an den Server gesendet werden. Verwenden Sie dies, wenn das Formular Informationen enthält, die nicht öffentlich sein sollten, wie z. B. Anmeldedaten.
-    - `get`: Die Formulardaten werden an die `action`-URL des Formulars angehängt, mit einem `?` als Trennzeichen, und die resultierende URL wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebenwirkungen hat")}}, wie bei Suchformularen.
-    - `dialog`: Diese Methode wird verwendet, um anzugeben, dass der Button den [Dialog](/de/docs/Web/HTML/Reference/Elements/dialog) schließt, mit dem er assoziiert ist, und die Formulardaten überhaupt nicht überträgt.
+    - `post`: Die Daten aus dem Formular werden im Rumpf der HTTP-Anfrage bei der Übertragung an den Server eingebunden. Verwenden Sie dies, wenn das Formular Informationen enthält, die nicht öffentlich sein sollten, wie z.B. Anmeldedaten.
+    - `get`: Die Formulardaten werden an die `action`-URL des Formulars angehängt, mit einem `?` als Trennzeichen, und die resultierende URL wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebeneffekte hat")}}, wie Suchformulare.
+    - `dialog`: Diese Methode wird verwendet, um anzugeben, dass der Button den [Dialog](/de/docs/Web/HTML/Reference/Elements/dialog) schließt, mit dem er verbunden ist, und die Formulardaten nicht überträgt.
 
-    Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Reference/Elements/form#method)-Attribut des Formulareigentümers des Buttons.
+    Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Reference/Elements/form#method)-Attribut des Formularbesitzers des Buttons.
 
 - `formnovalidate`
 
-  - : Wenn der Button ein Absende-Button ist, gibt dieses Boolesche Attribut an, dass das Formular nicht [validiert](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) werden soll, wenn es übermittelt wird. Wenn dieses Attribut angegeben ist, überschreibt es das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate)-Attribut des Formulareigentümers des Buttons.
+  - : Wenn der Button ein Submit-Button ist, gibt dieses Boolean-Attribut an, dass das Formular nicht [validiert](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) werden soll, wenn es übermittelt wird. Wenn dieses Attribut angegeben ist, überschreibt es das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate)-Attribut des Formularbesitzers des Buttons.
 
-    Dieses Attribut ist auch verfügbar bei [`<input type="image">`](/de/docs/Web/HTML/Reference/Elements/input/image) und [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit).
+    Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Reference/Elements/input/image) und [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit)-Elementen verfügbar.
 
 - `formtarget`
 
-  - : Wenn der Button ein Absende-Button ist, ist dieses Attribut ein vom Autor definierter Name oder ein standardisiertes, unterstrichenes Schlüsselwort, das angibt, wo die Antwort auf die Formularübermittlung angezeigt werden soll. Dies ist der `name` oder das Schlüsselwort für einen _Browsing-Kontext_ (einen Tab, ein Fenster oder ein {{HTMLElement("iframe")}}). Wenn dieses Attribut angegeben ist, überschreibt es das [`target`](/de/docs/Web/HTML/Reference/Elements/form#target)-Attribut des Formulareigentümers des Buttons. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
-
-    - `_self`: Lade die Antwort im gleichen Browsing-Kontext wie den aktuellen. Dies ist die Standardeinstellung, wenn das Attribut nicht angegeben ist.
-    - `_blank`: Lade die Antwort in einem neuen, unbenannten Browsing-Kontext — normalerweise ein neuer Tab oder ein Fenster, abhängig von den Einstellungen des Benutzers.
-    - `_parent`: Lade die Antwort im übergeordneten Browsing-Kontext des aktuellen. Wenn es keinen übergeordneten Kontext gibt, verhält sich diese Option ebenso wie `_self`.
-    - `_top`: Lade die Antwort im top-level Browsing-Kontext (das ist derjenige Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen Elternteil hat). Wenn es keinen Elternteil hat, verhält sich diese Option ebenso wie `_self`.
+  - : Wenn der Button ein Submit-Button ist, ist dieses Attribut ein vom Autor definierter Name oder standardisiertes, unterstrich-präfixiertes Schlüsselwort, das angibt, wo die Antwort vom Absenden des Formulars angezeigt werden soll. Dies ist der `name` oder das Schlüsselwort für einen _Browsing-Kontext_ (ein Tab, Fenster oder {{HTMLElement("iframe")}}). Wenn dieses Attribut angegeben ist, überschreibt es das [`target`](/de/docs/Web/HTML/Reference/Elements/form#target)-Attribut des Formularbesitzers des Buttons. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
+    - `_self`: Lädt die Antwort in den gleichen Browsing-Kontext wie den aktuellen. Dies ist der Standard, wenn das Attribut nicht angegeben ist.
+    - `_blank`: Lädt die Antwort in einen neuen unbenannten Browsing-Kontext — normalerweise ein neuer Tab oder ein Fenster, abhängig von den Browsereinstellungen des Benutzers.
+    - `_parent`: Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen. Wenn es keinen übergeordneten gibt, verhält sich diese Option wie `_self`.
+    - `_top`: Lädt die Antwort in den obersten Browsing-Kontext (d.h. den Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen übergeordneten hat). Wenn es keinen übergeordneten gibt, verhält sich diese Option wie `_self`.
 
 - `name`
 
-  - : Der Name des Buttons, als Paar mit dem `value` des Buttons als Teil der Formulardaten übermittelt, wenn dieser Button verwendet wird, um das Formular zu übermitteln.
+  - : Der Name des Buttons, der als Paar mit dem `value` des Buttons als Teil der Formulardaten übermittelt wird, wenn dieser Button verwendet wird, um das Formular zu senden.
 
 - `popovertarget`
 
-  - : Wandelt ein `<button>`-Element in einen Popover-Kontrollbutton um; nimmt die ID des zu steuernden Popover-Elements als Wert. Das Herstellen einer Beziehung zwischen einem Popover und seinem auslösenden Button mit dem `popovertarget`-Attribut hat zwei zusätzliche nützliche Effekte:
-
-    - Der Browser erstellt eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)- und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Beziehung zwischen Popover und Auslöser und platziert das Popover in einer logischen Position in der Tastaturfokusnavigationsreihenfolge, wenn es angezeigt wird. Dies macht das Popover für Tastatur- und unterstützende Technologie (AT)-Nutzer zugänglicher (siehe auch [Popover-Zugänglichkeitseigenschaften](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
-    - Der Browser erzeugt eine implizite Ankerreferenz zwischen den beiden, was es sehr einfach macht, Popover relativ zu ihren Steuerungen mit [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zu positionieren. Siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning) für mehr Details.
+  - : Wandelt ein `<button>`-Element in einen Popover-Steuerungsbutton um; übernimmt die ID des zu steuernden Popover-Elements als Wert. Die Herstellung einer Beziehung zwischen einem Popover und seinem Auslöser-Button mittels des `popovertarget`-Attributs hat zwei zusätzliche nützliche Effekte:
+    - Der Browser erstellt eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)- und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Beziehung zwischen Popover und Auslöser und platziert das Popover beim Anzeigen in einer logischen Position in der Tastaturfokus-Navigationsreihenfolge. Dies macht das Popover zugänglicher für Tastatur- und unterstützende Technologie (AT)-Nutzer (siehe auch [Popover-Zugänglichkeitsfunktionen](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
+    - Der Browser erstellt eine implizite Anker-Referenz zwischen den beiden, was es sehr bequem macht, Popover mit CSS-Anker-Positionierung relativ zu ihren Steuerelementen zu positionieren. Siehe [Popover-Anker-Positionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning) für mehr Details.
 
 - `popovertargetaction`
 
-  - : Gibt die Aktion an, die auf ein Popover-Element ausgeführt werden soll, das von einem Steuer-`<button>` kontrolliert wird. Mögliche Werte sind:
-
+  - : Gibt die Aktion an, die an einem von einem Steuerungs-`<button>` kontrollierten Popover-Element ausgeführt werden soll. Mögliche Werte sind:
     - `"hide"`
-      - : Der Button wird ein sichtbares Popover verbergen. Wenn versucht wird, ein bereits verstecktes Popover zu verbergen, wird keine Aktion ausgeführt.
+      - : Der Button wird ein angezeigtes Popover ausblenden. Wenn Sie versuchen, ein bereits ausgeblendetes Popover auszublenden, wird keine Aktion ausgeführt.
     - `"show"`
-      - : Der Button wird ein verstecktes Popover anzeigen. Wenn versucht wird, ein bereits sichtbares Popover anzuzeigen, wird keine Aktion ausgeführt.
+      - : Der Button wird ein verstecktes Popover anzeigen. Wenn Sie versuchen, ein bereits angezeigtes Popover anzuzeigen, wird keine Aktion ausgeführt.
     - `"toggle"`
-      - : Der Button wird ein Popover zwischen sichtbar und verborgen umschalten. Wenn das Popover verborgen ist, wird es angezeigt; wenn das Popover sichtbar ist, wird es verborgen. Wenn `popovertargetaction` weggelassen wird, ist `"toggle"` die Standardaktion, die durch den Steuerbutton ausgeführt wird.
+      - : Der Button wird ein Popover zwischen Anzeigen und Verbergen umschalten. Wenn das Popover ausgeblendet ist, wird es angezeigt; wenn das Popover angezeigt wird, wird es ausgeblendet. Wenn `popovertargetaction` weggelassen wird, ist `"toggle"` die Standardaktion, die vom Steuerungsbutton ausgeführt wird.
 
 - `type`
 
   - : Das Standardverhalten des Buttons. Mögliche Werte sind:
-
-    - `submit`: Der Button übermittelt die Formulardaten an den Server. Dies ist die Standardeinstellung, wenn das Attribut für Buttons, die mit einem `<form>` assoziiert sind, nicht spezifiziert ist, oder wenn das Attribut einen leeren oder ungültigen Wert hat.
-    - `reset`: Der Button setzt alle Steuerungen auf ihre Anfangswerte zurück, ähnlich wie [\<input type="reset">](/de/docs/Web/HTML/Reference/Elements/input/reset). (Dieses Verhalten neigt dazu, Nutzer zu verärgern.)
-    - `button`: Der Button hat kein Standardverhalten und führt standardmäßig nichts aus, wenn er gedrückt wird. Er kann clientseitige Skripte haben, die auf die Ereignisse des Elements lauschen, die ausgelöst werden, wenn die Ereignisse eintreten.
+    - `submit`: Der Button übermittelt die Formulardaten an den Server. Dies ist der Standard, wenn das Attribut für Buttons, die mit einem `<form>` verbunden sind, nicht angegeben ist oder wenn das Attribut einen leeren oder ungültigen Wert hat.
+    - `reset`: Der Button setzt alle Steuerelemente auf ihre Ausgangswerte zurück, wie [\<input type="reset">](/de/docs/Web/HTML/Reference/Elements/input/reset). (Dieses Verhalten neigt dazu, Benutzer zu verärgern.)
+    - `button`: Der Button hat kein Standardverhalten und tut von Haus aus nichts, wenn er gedrückt wird. Er kann clientseitige Skripts haben, die auf die Ereignisse des Elements lauschen, die ausgelöst werden, wenn die Ereignisse eintreten.
 
 - `value`
-  - : Definiert den Wert, der mit dem `name` des Buttons assoziiert ist, wenn es zusammen mit den Formulardaten übermittelt wird. Dieser Wert wird an den Server in Parametern übergeben, wenn das Formular mit diesem Button übermittelt wird.
+  - : Definiert den Wert, der mit dem `name` des Buttons verknüpft ist, wenn es zusammen mit den Formulardaten gesendet wird. Dieser Wert wird beim Absenden des Formulars mit diesem Button als Parameter an den Server übergeben.
 
 ## Hinweise
 
-Ein Absende-Button mit gesetztem `formaction`-Attribut, aber ohne assoziiertes Formular tut nichts. Sie müssen einen Formular-Eigentümer setzen, entweder indem Sie es in ein `<form>` einbetten oder das Attribut `form` auf die id des Formulars setzen.
+Ein Submit-Button mit dem Attribut `formaction` gesetzt, aber ohne ein zugehöriges Formular tut nichts. Sie müssen einen Formularbesitzer festlegen, entweder indem Sie ihn in ein `<form>` einbetten oder das Attribut `form` auf die ID des Formulars setzen.
 
-`<button>`-Elemente sind viel einfacher zu stylen als {{HTMLElement("input")}}-Elemente. Sie können inneres HTML-Inhalt hinzufügen (denken Sie an `<i>`, `<br>` oder sogar `<img>`), und verwenden Sie {{Cssxref("::after")}} und {{Cssxref("::before")}} Pseudo-Elemente für komplexes Rendering.
+`<button>`-Elemente sind viel einfacher zu stylen als {{HTMLElement("input")}}-Elemente. Sie können inneren HTML-Inhalt hinzufügen (denken Sie an `<i>`, `<br>` oder sogar `<img>`), und {{Cssxref("::after")}} und {{Cssxref("::before")}} Pseudo-Elemente für komplexes Rendering verwenden.
 
-Wenn Ihre Buttons nicht dazu gedacht sind, Formulardaten an einen Server zu übermitteln, stellen Sie sicher, dass ihr `type`-Attribut auf `button` gesetzt ist. Andernfalls versuchen sie, Formulardaten zu übermitteln und die (nicht vorhandene) Antwort zu laden, was möglicherweise den aktuellen Zustand des Dokuments zerstört.
+Wenn Ihre Buttons nicht zum Übermitteln von Formulardaten an einen Server gedacht sind, stellen Sie sicher, dass ihr `type`-Attribut auf `button` gesetzt ist. Andernfalls versuchen sie, Formulardaten zu übermitteln und die (nicht vorhandene) Antwort zu laden, was möglicherweise den aktuellen Zustand des Dokuments zerstört.
 
-Während `<button type="button">` kein Standardverhalten hat, können Ereignishandler so programmiert werden, dass sie Verhaltensweisen auslösen. Ein aktivierter Button kann programmierbare Aktionen mithilfe von [JavaScript](/de/docs/Learn_web_development/Core/Scripting) durchführen, wie das Entfernen eines Elements aus einer Liste.
+Während `<button type="button">` kein Standardverhalten hat, können Ereignis-Handler geskriptet werden, um Aktionen auszulösen. Ein aktivierter Button kann programmierbare Aktionen mit [JavaScript](/de/docs/Learn_web_development/Core/Scripting) ausführen, wie z.B. das Entfernen eines Elements aus einer Liste.
 
-Standardmäßig stylen User Agents Buttons als `display: flow-root`, welches einen neuen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) etabliert und die Kinder des Buttons sowohl horizontal als auch vertikal zentriert, solange sie nicht überlaufen. Wenn der Button als Flex- oder Grid-Container definiert ist, verhalten sich die Kinder als Flex- oder Grid-Items. Ein Button, der auf `display: inline` gesetzt ist, wird gestylt, als wäre der Wert auf `display: inline-block` gesetzt.
+Standardmäßig stylen User-Agents Buttons als `display: flow-root`, welches einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt und die Kinder des Buttons sowohl horizontal als auch vertikal zentriert, solange sie nicht überlaufen. Wenn der Button als Flex- oder Grid-Container definiert ist, verhalten sich die Kinder als Flex- oder Grid-Elemente. Ein auf `display: inline` gesetzter Button wird so gestylt, als wäre der Wert `display: inline-block`.
 
 ## Barrierefreiheit
 
-### Icon-Buttons
+### Symbol-Buttons
 
-Buttons, die nur ein Icon anzeigen, haben keinen _{{Glossary("accessible_name", "zugänglichen Namen")}}_. Zugängliche Namen liefern Informationen für unterstützende Technologie, wie Bildschirmleser, auf die sie zugreifen, wenn sie das Dokument analysieren und [einen Barrierefreiheiten-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) generieren. Unterstützende Technologie verwendet dann den Barrierefreiheiten-Baum, um Inhalte der Seite zu navigieren und zu manipulieren.
+Buttons, die nur ein Symbol anzeigen, haben keinen _{{Glossary("accessible_name", "accessible name")}}_. Zugängliche Namen bieten Informationen für unterstützende Technologie, wie Bildschirmleser, die beim Parsen des Dokuments und Erstellen [eines Zugänglichkeitsbaumes](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugreifen können. Unterstützende Technologie verwendet dann den Zugänglichkeitsbaum, um auf den Seiteninhalt zuzugreifen und ihn zu manipulieren.
 
-Um einem Icon-Button einen zugänglichen Namen zu geben, platzieren Sie Text im `<button>`-Element, der kurz und präzise die Funktionalität des Buttons beschreibt.
+Um einem Symbol-Button einen zugänglichen Namen zu geben, setzen Sie einen Text in das `<button>`-Element, der die Funktionalität des Buttons prägnant beschreibt.
 
 #### Beispiele
 
@@ -195,51 +190,51 @@ Um einem Icon-Button einen zugänglichen Namen zu geben, platzieren Sie Text im 
 
 {{EmbedLiveSample('Icon buttons')}}
 
-Wenn Sie den Text des Buttons visuell ausblenden möchten, ist eine zugängliche Methode, eine [Kombination von CSS-Eigenschaften](https://www.a11yproject.com/posts/how-to-hide-content/) zu verwenden, um ihn visuell vom Bildschirm zu entfernen, ihn aber weiterhin für unterstützende Technologie analysierbar zu halten.
+Wenn Sie den Text des Buttons visuell ausblenden möchten, ist es eine zugängliche Möglichkeit, [eine Kombination von CSS-Eigenschaften](https://www.a11yproject.com/posts/how-to-hide-content/) zu verwenden, um ihn visuell vom Bildschirm zu entfernen, ihn aber von unterstützender Technologie weiterhin parsen zu lassen.
 
-Es sei jedoch angemerkt, dass das Sichtbarlassen des Textes des Buttons Menschen helfen kann, die möglicherweise nicht mit der Bedeutung des Icons vertraut sind oder den Zweck des Buttons verstehen. Dies ist besonders wichtig für Menschen, die nicht technologisch versiert sind oder unterschiedliche kulturelle Interpretationen des von dem Button verwendeten Icons haben könnten.
+Es ist jedoch erwähnenswert, dass das Belassen des Textes auf dem Button sichtbar Menschen helfen kann, die möglicherweise mit der Bedeutung des Symbols nicht vertraut sind oder die Funktion des Buttons nicht verstehen. Dies ist besonders wichtig für Menschen, die nicht technikaffin sind oder unterschiedliche kulturelle Interpretationen des Symbols auf dem Button haben könnten.
 
 - [Was ist ein zugänglicher Name? | The Paciello Group](https://www.tpgi.com/what-is-an-accessible-name/)
-- [MDN Verständnis von WCAG, Leitlinie 4.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust#guideline_4.1_—_compatible_maximize_compatibility_with_current_and_future_user_agents_including_assistive_technologies)
-- [Verständnis des Erfolgskriteriums 4.1.2 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html)
+- [MDN Verständnis der WCAG, Richtlinie 4.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust#guideline_4.1_—_compatible_maximize_compatibility_with_current_and_future_user_agents_including_assistive_technologies)
+- [Verständnis des Erfolgskriteriums 4.1.2 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html)
 
 ### Größe und Nähe
 
 #### Größe
 
-Interaktive Elemente wie Buttons sollten eine genügend große Fläche haben, um leicht aktiviert zu werden. Dies hilft einer Vielzahl von Menschen, einschließlich Menschen mit motorischen Kontrollproblemen und Menschen, die ungenaue Eingabemethoden wie einen Stift oder Finger verwenden. Eine Mindestgröße von 44×44 {{Glossary("CSS_pixel", "CSS-Pixel")}} wird empfohlen.
+Interaktive Elemente wie Buttons sollten eine ausreichend große Fläche haben, um einfach aktiviert zu werden. Dies hilft einer Vielzahl von Menschen, einschließlich Menschen mit motorischen Kontrollproblemen und Menschen, die ungenaue Eingabeformen wie einen Stift oder Finger verwenden. Eine minimale Interaktionsgröße von 44×44 {{Glossary("CSS_pixel", "CSS-Pixeln")}} wird empfohlen.
 
-- [Verständnis des Erfolgskriteriums 2.5.5: Zielgröße | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
+- [Verständnis des Erfolgskriteriums 2.5.5: Zielgröße | W3C Verständnis WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
 - [Zielgröße und 2.5.5 | Adrian Roselli](https://adrianroselli.com/2019/06/target-size-and-2-5-5.html)
-- [Schnelltest: Große Touchziele - Das A11Y-Projekt](https://www.a11yproject.com/posts/large-touch-targets/)
+- [Schnelltest: Große Touch-Ziele - Das A11Y-Projekt](https://www.a11yproject.com/posts/large-touch-targets/)
 
 #### Nähe
 
-Große Mengen interaktiver Inhalte – einschließlich Buttons – die visuell nah beieinander liegen, sollten durch Raum getrennt sein. Diese Abstände sind vorteilhaft für Menschen, die motorische Kontrollprobleme erleben und versehentlich den falschen interaktiven Inhalt aktivieren könnten.
+Große Mengen interaktiver Inhalte — einschließlich Buttons — die in enger visueller Nähe zueinander platziert werden, sollten durch Leerraum getrennt sein. Dieser Abstand ist für Menschen von Vorteil, die motorische Kontrollprobleme haben und versehentlich den falschen interaktiven Inhalt aktivieren könnten.
 
-Abstände können mit CSS-Eigenschaften wie {{cssxref("margin")}} erzeugt werden.
+Abstand kann mit CSS-Eigenschaften wie {{cssxref("margin")}} erstellt werden.
 
-- [Handtremor und das Riesenknopf-Problem - Axess Lab](https://axesslab.com/hand-tremors/)
+- [Handzittern und das Riesen-Button-Problem - Axess Lab](https://axesslab.com/hand-tremors/)
 
 ### ARIA-Zustandsinformationen
 
-Um den Zustand eines Buttons zu beschreiben, ist das richtige ARIA-Attribut [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) und nicht [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) oder [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected). Um mehr zu erfahren, lesen Sie die Informationen über die [ARIA-Button-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role).
+Um den Zustand eines Buttons zu beschreiben, ist das korrekte ARIA-Attribut [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) und nicht [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) oder [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected). Um mehr zu erfahren, lesen Sie die Informationen über die [ARIA-Button-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role).
 
 ### Button-Stile
 
-Es ist am besten, den Standard-Fokusring für Elemente, die den Fokus haben, nicht zu überschreiben. Wenn die Button-Stile überschrieben werden, ist es wichtig, **sicherzustellen, dass der Fokuszustand genügend Kontrast besitzt**, damit Menschen mit Sehschwächen ihn wahrnehmen können und Menschen mit kognitiven Unterschieden ihn verstehen können.
+Es ist am besten, den Standard-Fokusrahmen für fokussierte Elemente nicht zu überschreiben. Wenn die Button-Stile überschrieben werden, ist es wichtig, **sicherzustellen, dass der Fokuszustand ausreichend Kontrast** hat, damit Menschen mit Sehbehinderungen ihn wahrnehmen können und Menschen mit kognitiven Unterschieden ihn verstehen.
 
-Die {{cssxref(":focus-visible")}} Pseudo-Klasse kann verwendet werden, um Stile auf ein Element anzuwenden, das {{cssxref(":focus")}} hat, nur wenn die Heuristiken des Benutzer-Agents bestimmen, dass der Fokus hervorgehoben werden sollte, wie zum Beispiel, wenn ein `<button>` die Tastaturfokuss bekommt. Weitere Informationen finden Sie unter [:focus vs :focus-visible](/de/docs/Web/CSS/:focus-visible#focus_vs_focus-visible).
+Die {{cssxref(":focus-visible")}}-Pseudo-Klasse kann verwendet werden, um Stile auf ein Element anzuwenden, das {{cssxref(":focus")}} erhält, nur wenn die Heuristiken des Benutzer-Agents bestimmen, dass der Fokus hervorgehoben werden sollte, wie wenn ein `<button>` über Tastaturfokus verfügt. Siehe [:focus vs :focus-visible](/de/docs/Web/CSS/:focus-visible#focus_vs_focus-visible) für mehr Informationen.
 
-Das Farbkontrastverhältnis wird bestimmt, indem die Leuchtkraft der Buttontext- und Hintergrundfarbenwerte mit dem Hintergrund verglichen wird, auf dem der Button platziert ist. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Textinhalte und 3:1 für großen Text erforderlich. (Großer Text ist definiert als 18,66px und {{cssxref("font-weight", "bold")}} oder größer, oder 24px oder größer.)
+Das Farbkontrastverhältnis wird verglichen, indem die Helligkeit der Button-Text- und Hintergrundfarbwerte mit dem Hintergrund verglichen wird, auf dem der Button platziert ist. Um den aktuellen [Richtlinien für Webinhalte (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für großen Text erforderlich. (Großer Text wird definiert als 18,66px und {{cssxref("font-weight", "bold")}} oder größer, oder 24px oder größer.)
 
-- [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [WebAIM: Farbkontrast-Checker](https://webaim.org/resources/contrastchecker/)
+- [MDN Verständnis der WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ### Klicken und Fokus
 
-Ob das Klicken auf einen `<button>` oder {{HTMLElement("input")}}-Buttontypen standardmäßig dazu führt, dass er den Fokus erhält, hängt von Browser und Betriebssystem ab. Die meisten Browser geben einem anklickenden Button Fokus, aber [Safari tut dies absichtlich nicht](https://webkit.org/b/22261#c68).
+Ob das Klicken auf ein `<button>` oder {{HTMLElement("input")}}-Button-Typen dazu führt, dass sie (standardmäßig) fokussiert werden, variiert je nach Browser und Betriebssystem. Die meisten Browser fokussieren einen gerade geklickten Button, aber [Safari nicht, absichtlich](https://webkit.org/b/22261#c68).
 
 ## Beispiele
 
@@ -274,10 +269,10 @@ Ob das Klicken auf einen `<button>` oder {{HTMLElement("input")}}-Buttontypen st
           >gelistet</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#labelable"
-          >etikettierbar</a
+          >beschriftbar</a
         >, und
         <a href="/de/docs/Web/HTML/Guides/Content_categories#submittable"
-          >übermittelbar</a
+          >verschickbar</a
         >
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content"
@@ -292,17 +287,17 @@ Ob das Klicken auf einen `<button>` oder {{HTMLElement("input")}}-Buttontypen st
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phraseninhalt</a
         >
-        jedoch darf es keinen
+        aber es darf keinen
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#interactive_content"
           >interaktiven Inhalt</a
-        > geben. Wenn das <code>&lt;button&gt;</code> das erste Kind eines <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Auswahlelements</a> ist, dann kann es auch
-    null oder ein {{htmlelement("selectedcontent")}} Element enthalten.
+        > geben. Wenn das <code>&lt;button&gt;</code> das erste Kind eines <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Auswahl-Elements</a> ist, darf es auch ein {{htmlelement("selectedcontent")}}-Element enthalten
+.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch Endtag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -315,7 +310,7 @@ Ob das Klicken auf einen `<button>` oder {{HTMLElement("input")}}-Buttontypen st
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role"

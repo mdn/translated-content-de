@@ -1,14 +1,14 @@
 ---
-title: Proxy()-Konstruktor
+title: Proxy() Konstruktor
 short-title: Proxy()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}
 
-Der **`Proxy()`**-Konstruktor erzeugt {{jsxref("Proxy")}}-Objekte.
+Der **`Proxy()`** Konstruktor erstellt {{jsxref("Proxy")}} Objekte.
 
 ## Syntax
 
@@ -16,61 +16,61 @@ Der **`Proxy()`**-Konstruktor erzeugt {{jsxref("Proxy")}}-Objekte.
 new Proxy(target, handler)
 ```
 
-> **Note:** `Proxy()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE] > `Proxy()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `target`
-  - : Ein Zielobjekt, das mit `Proxy` umschlossen werden soll. Es kann sich um jede Art von Objekt handeln, einschließlich eines nativen Arrays, einer Funktion oder sogar eines anderen Proxy.
+  - : Ein Zielobjekt, das mit `Proxy` umwickelt werden soll. Es kann sich um jede Art von Objekt handeln, einschließlich eines nativen Arrays, einer Funktion oder sogar eines anderen Proxys.
 - `handler`
-  - : Ein Objekt, dessen Eigenschaften Funktionen sind, die das Verhalten des Proxy definieren, wenn eine Operation darauf ausgeführt wird.
+  - : Ein Objekt, dessen Eigenschaften Funktionen sind, die das Verhalten des Proxys definieren, wenn eine Operation darauf durchgeführt wird.
 
 ## Beschreibung
 
-Verwenden Sie den `Proxy()`-Konstruktor, um ein neues `Proxy`-Objekt zu erstellen. Dieser Konstruktor benötigt zwei obligatorische Argumente:
+Verwenden Sie den `Proxy()` Konstruktor, um ein neues `Proxy`-Objekt zu erstellen. Dieser Konstruktor benötigt zwei obligatorische Argumente:
 
-- `target` ist das Objekt, für das Sie den Proxy erstellen möchten
-- `handler` ist das Objekt, das das benutzerdefinierte Verhalten des Proxy definiert.
+- `target` ist das Objekt, für das Sie den Proxy erstellen möchten.
+- `handler` ist das Objekt, das das benutzerdefinierte Verhalten des Proxys definiert.
 
-Ein leerer Handler erstellt einen Proxy, der sich in fast allen Aspekten genau wie das Ziel verhält. Durch das Definieren einer Gruppe von Funktionen auf dem `handler`-Objekt können Sie bestimmte Aspekte des Proxy-Verhaltens anpassen. Zum Beispiel, durch das Definieren von `get()` können Sie eine angepasste Version des [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) des Ziels bereitstellen.
+Ein leerer Handler erzeugt einen Proxy, der sich in fast allen Aspekten genauso verhält wie das Zielobjekt. Durch das Definieren einer Gruppe von Funktionen auf dem `handler`-Objekt können Sie spezifische Aspekte des Verhaltens des Proxys anpassen. Zum Beispiel können Sie durch das Definieren von `get()` eine angepasste Version des [property accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) des Ziels bereitstellen.
 
-### Handler-Funktionen
+### Handlerfunktionen
 
-Dieser Abschnitt listet alle Handler-Funktionen auf, die Sie definieren können. Handler-Funktionen werden manchmal als _Traps_ bezeichnet, weil sie Aufrufe des zugrunde liegenden Zielobjekts abfangen.
+In diesem Abschnitt sind alle Handlerfunktionen aufgelistet, die Sie definieren können. Handlerfunktionen werden manchmal _Traps_ genannt, da sie Aufrufe an das zugrunde liegende Zielobjekt abfangen.
 
 - {{jsxref("Proxy/Proxy/apply", "handler.apply()")}}
-  - : Ein Trap für einen Funktionsaufruf.
+  - : Eine Trap für einen Funktionsaufruf.
 - {{jsxref("Proxy/Proxy/construct", "handler.construct()")}}
-  - : Ein Trap für den {{jsxref("Operators/new", "new")}}-Operator.
+  - : Eine Trap für den {{jsxref("Operators/new", "new")}} Operator.
 - {{jsxref("Proxy/Proxy/defineProperty", "handler.defineProperty()")}}
-  - : Ein Trap für {{jsxref("Object.defineProperty")}}.
+  - : Eine Trap für {{jsxref("Object.defineProperty")}}.
 - {{jsxref("Proxy/Proxy/deleteProperty", "handler.deleteProperty()")}}
-  - : Ein Trap für den {{jsxref("Operators/delete", "delete")}}-Operator.
+  - : Eine Trap für den {{jsxref("Operators/delete", "delete")}} Operator.
 - {{jsxref("Proxy/Proxy/get", "handler.get()")}}
-  - : Ein Trap für das Abrufen von Eigenschaftswerten.
+  - : Eine Trap für das Abrufen von Eigenschaftswerten.
 - {{jsxref("Proxy/Proxy/getOwnPropertyDescriptor", "handler.getOwnPropertyDescriptor()")}}
-  - : Ein Trap für {{jsxref("Object.getOwnPropertyDescriptor")}}.
+  - : Eine Trap für {{jsxref("Object.getOwnPropertyDescriptor")}}.
 - {{jsxref("Proxy/Proxy/getPrototypeOf", "handler.getPrototypeOf()")}}
-  - : Ein Trap für {{jsxref("Object.getPrototypeOf")}}.
+  - : Eine Trap für {{jsxref("Object.getPrototypeOf")}}.
 - {{jsxref("Proxy/Proxy/has", "handler.has()")}}
-  - : Ein Trap für den {{jsxref("Operators/in", "in")}}-Operator.
+  - : Eine Trap für den {{jsxref("Operators/in", "in")}} Operator.
 - {{jsxref("Proxy/Proxy/isExtensible", "handler.isExtensible()")}}
-  - : Ein Trap für {{jsxref("Object.isExtensible")}}.
+  - : Eine Trap für {{jsxref("Object.isExtensible")}}.
 - {{jsxref("Proxy/Proxy/ownKeys", "handler.ownKeys()")}}
-  - : Ein Trap für {{jsxref("Object.getOwnPropertyNames")}} und
+  - : Eine Trap für {{jsxref("Object.getOwnPropertyNames")}} und
     {{jsxref("Object.getOwnPropertySymbols")}}.
 - {{jsxref("Proxy/Proxy/preventExtensions", "handler.preventExtensions()")}}
-  - : Ein Trap für {{jsxref("Object.preventExtensions")}}.
+  - : Eine Trap für {{jsxref("Object.preventExtensions")}}.
 - {{jsxref("Proxy/Proxy/set", "handler.set()")}}
-  - : Ein Trap für das Festlegen von Eigenschaftswerten.
+  - : Eine Trap für das Setzen von Eigenschaftswerten.
 - {{jsxref("Proxy/Proxy/setPrototypeOf", "handler.setPrototypeOf()")}}
-  - : Ein Trap für {{jsxref("Object.setPrototypeOf")}}.
+  - : Eine Trap für {{jsxref("Object.setPrototypeOf")}}.
 
 ## Beispiele
 
-### Selektives Proxieren von Property-Accessoren
+### Selektives Proxying von Property Accessors
 
-In diesem Beispiel hat das Ziel zwei Eigenschaften, `notProxied` und `proxied`. Wir definieren einen Handler, der einen anderen Wert für `proxied` zurückgibt und alle anderen Zugriffe auf das Ziel durchlässt.
+In diesem Beispiel hat das Ziel zwei Eigenschaften, `notProxied` und `proxied`. Wir definieren einen Handler, der einen anderen Wert für `proxied` zurückgibt und alle anderen Zugriffe an das Zielobjekt weiterleitet.
 
 ```js
 const target = {
@@ -103,5 +103,5 @@ console.log(proxy.proxied); // "replaced value"
 
 ## Siehe auch
 
-- [Meta-Programmierung](/de/docs/Web/JavaScript/Guide/Meta_programming)-Leitfaden
+- [Meta Programming](/de/docs/Web/JavaScript/Guide/Meta_programming) Leitfaden
 - {{jsxref("Reflect")}}

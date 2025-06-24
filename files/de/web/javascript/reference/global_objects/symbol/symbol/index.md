@@ -3,7 +3,7 @@ title: Symbol() Konstruktor
 short-title: Symbol()
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}
@@ -37,7 +37,7 @@ Symbol()
 Symbol(description)
 ```
 
-> **Note:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Versuch, es mit `new` zu konstruieren, wirft einen {{jsxref("TypeError")}}.
+> [!NOTE] > `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Versuch, es mit `new` zu konstruieren, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -46,10 +46,10 @@ Symbol(description)
 
 ## Beispiele
 
-### Erstellen von Symbolen
+### Symbole erstellen
 
-Um ein neues primitives Symbol zu erstellen, schreiben Sie `Symbol()` mit einem optionalen
-String als Beschreibung:
+Um ein neues primitives Symbol zu erstellen, schreiben Sie `Symbol()` mit einer optionalen
+Zeichenfolge als Beschreibung:
 
 ```js
 const sym1 = Symbol();
@@ -57,7 +57,7 @@ const sym2 = Symbol("foo");
 const sym3 = Symbol("foo");
 ```
 
-Der obige Code erstellt drei neue Symbole. Beachten Sie, dass `Symbol("foo")` den String `"foo"` nicht in ein Symbol umwandelt. Es erstellt jedes Mal ein neues Symbol:
+Der obige Code erstellt drei neue Symbole. Beachten Sie, dass `Symbol("foo")` den String `"foo"` nicht in ein Symbol konvertiert. Es erstellt jedes Mal ein neues Symbol:
 
 ```js
 Symbol("foo") === Symbol("foo"); // false
@@ -72,7 +72,7 @@ Die folgende Syntax mit dem {{jsxref("Operators/new", "new")}} Operator wird ein
 const sym = new Symbol(); // TypeError
 ```
 
-Dies verhindert, dass Autoren ein explizites `Symbol`-Wrapper-Objekt erstellen, anstelle eines neuen Symbolwerts, und könnte überraschen, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel,
+Dies verhindert, dass Autoren ein explizites `Symbol`-Wrapper-Objekt erstellen, anstatt eines neuen Symbolwerts. Dies könnte überraschend sein, da es im Allgemeinen möglich ist, explizite Wrapper-Objekte um primitive Datentypen zu erstellen (zum Beispiel,
 `new Boolean`, `new String` und `new Number`).
 
 Wenn Sie wirklich ein `Symbol`-Wrapper-Objekt erstellen möchten, können Sie die

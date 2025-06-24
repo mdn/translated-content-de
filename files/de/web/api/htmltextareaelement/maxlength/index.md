@@ -3,15 +3,15 @@ title: "HTMLTextAreaElement: maxLength-Eigenschaft"
 short-title: maxLength
 slug: Web/API/HTMLTextAreaElement/maxLength
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`maxLength`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt die maximale Anzahl von Zeichen (in UTF-16-Codeeinheiten) an, die für den Wert des {{HTMLElement("textarea")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, damit der Wert gültig ist. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Reference/Elements/textarea#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Begrenzung der Wertlänge gibt.
+Die **`maxLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die maximale Anzahl von Zeichen (in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}) an, die für den Wert des {{HTMLElement("textarea")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, damit der Wert gültig ist. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Reference/Elements/textarea#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Begrenzung für die Länge des Wertes gibt.
 
 > [!NOTE]
-> Browser verhindern generell, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollten dennoch mehr Zeichen eingegeben werden, wird das Element als ungültig betrachtet und die [`tooLong`](/de/docs/Web/API/ValidityState/tooLong)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wird `true` sein.
+> Browser verhindern in der Regel, dass Benutzer mehr Zeichen als durch das `maxlength`-Attribut erlaubt eingeben. Sollte die Länge überschritten werden, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt-Eigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
 
 ## Wert
 
@@ -28,7 +28,7 @@ Angenommen, der folgende HTML-Code:
 </p>
 ```
 
-Sie können die `maxLength`-Eigenschaft verwenden, um den Wert des `maxlength`-Attributs des `<textarea>` abzurufen oder festzulegen:
+Sie können die `maxLength`-Eigenschaft verwenden, um den Wert des `maxlength`-Attributs des `<textarea>` zu lesen oder zu setzen:
 
 ```js
 const textareaElement = document.querySelector("#comment");

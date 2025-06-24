@@ -1,14 +1,14 @@
 ---
-title: "Element: insertAdjacentElement()-Methode"
+title: "Element: insertAdjacentElement() Methode"
 short-title: insertAdjacentElement()
 slug: Web/API/Element/insertAdjacentElement
 l10n:
-  sourceCommit: 09ca35c64fca160dd09efbad05a09caf9e993125
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die **`insertAdjacentElement()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle fügt einen gegebenen Elementknoten an einer angegebenen Position relativ zu dem Element ein, auf dem sie aufgerufen wird.
+Die **`insertAdjacentElement()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces fügt einen gegebenen Elementknoten an einer bestimmten Position relativ zu dem Element ein, auf dem sie aufgerufen wird.
 
 ## Syntax
 
@@ -20,8 +20,7 @@ insertAdjacentElement(position, element)
 
 - `position`
 
-  - : Ein String, der die Position relativ zum `targetElement` repräsentiert; muss (unabhängig von Groß-/Kleinschreibung) einer der folgenden Strings sein:
-
+  - : Ein String, der die Position relativ zu `targetElement` repräsentiert; muss (unabhängig von der Groß-/Kleinschreibung) mit einem der folgenden Strings übereinstimmen:
     - `'beforebegin'`: Vor dem `targetElement` selbst.
     - `'afterbegin'`: Direkt innerhalb des `targetElement`, vor dessen erstem Kind.
     - `'beforeend'`: Direkt innerhalb des `targetElement`, nach dessen letztem Kind.
@@ -37,7 +36,7 @@ Das eingefügte Element oder `null`, wenn das Einfügen fehlgeschlagen ist.
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angegebene `position` kein erkannter Wert ist.
+  - : Wird ausgelöst, wenn die angegebene `position` kein anerkannter Wert ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn das angegebene `element` kein gültiges Element ist.
 
@@ -54,15 +53,15 @@ Das eingefügte Element oder `null`, wenn das Einfügen fehlgeschlagen ist.
 ```
 
 > [!NOTE]
-> Die Positionen `beforebegin` und `afterend` funktionieren nur, wenn der Knoten in einem Baum ist und einen Element-Parent hat.
+> Die `beforebegin` und `afterend` Positionen funktionieren nur, wenn der Knoten in einem Baum ist und ein Elternelement hat.
 
 ## Beispiele
 
-### Einfügen vor und nach
+### Vor und nach Einfügen
 
-In diesem Beispiel haben wir eine Reihe quadratischer Boxen. Der Benutzer kann eine Box auswählen, indem er darauf klickt: Dies gibt der Box einen anderen Rahmen, um zu zeigen, dass sie ausgewählt ist.
+In diesem Beispiel haben wir eine Reihe quadratischer Kästchen. Der Benutzer kann ein Kästchen auswählen, indem er darauf klickt: Dies gibt dem Kästchen einen anderen Rahmen, um zu zeigen, dass es ausgewählt ist.
 
-Wenn eine Box ausgewählt ist und der Benutzer die Schaltflächen "Vorher einfügen" oder "Nachher einfügen" drückt, erstellt der Code eine neue Box, gibt ihr eine zufällige Farbe und fügt sie vor oder nach der ausgewählten Box ein.
+Wenn ein Kästchen ausgewählt ist und der Benutzer die Schaltflächen "Vor Einfügen" oder "Nach Einfügen" drückt, erstellt der Code ein neues Kästchen, gibt ihm eine zufällige Farbe und fügt es vor oder nach dem ausgewählten Kästchen ein.
 
 #### HTML
 
@@ -168,5 +167,5 @@ resetBtn.addEventListener("click", () => window.location.reload(true));
 
 - [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
 - [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)
-- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) (ähnlich wie `beforebegin`, jedoch mit anderen Argumenten)
-- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) (gleiche Wirkung wie `beforeend`)
+- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) (ähnlich wie `beforebegin`, mit unterschiedlichen Argumenten)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) (gleicher Effekt wie `beforeend`)

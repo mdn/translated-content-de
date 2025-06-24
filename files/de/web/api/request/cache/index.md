@@ -1,14 +1,14 @@
 ---
-title: "Request: cache-Eigenschaft"
+title: "Anfrage: cache-Eigenschaft"
 short-title: cache
 slug: Web/API/Request/cache
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`cache`** schreibgeschützte Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält den Cache-Modus der Anfrage. Sie steuert, wie die Anfrage mit dem [HTTP-Cache](/de/docs/Web/HTTP/Guides/Caching) des Browsers interagiert.
+Die schreibgeschützte **`cache`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Cache-Modus der Anfrage. Sie steuert, wie die Anfrage mit dem [HTTP-Cache](/de/docs/Web/HTTP/Guides/Caching) des Browsers interagiert.
 
 ## Wert
 
@@ -17,14 +17,14 @@ Ein `RequestCache`-Wert. Die verfügbaren Werte sind:
 - `default` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
   - Wenn es eine Übereinstimmung gibt und diese [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
-  - Wenn es eine Übereinstimmung gibt, diese jedoch [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) an den entfernten Server stellen. Wenn der Server angibt, dass die Ressource unverändert ist, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
+  - Wenn es eine Übereinstimmung gibt, die jedoch [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) an den entfernten Server stellen. Wenn der Server anzeigt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
   - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `no-store` — Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache nachzusehen, _und wird_ den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
-- `reload` — Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache nachzusehen, _aber_ wird den Cache mit der heruntergeladenen Ressource aktualisieren.
+- `no-store` — Der Browser ruft die Ressource vom entfernten Server ab, ohne vorher im Cache nachzusehen, und wird den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
+- `reload` — Der Browser ruft die Ressource vom entfernten Server ab, ohne vorher im Cache nachzusehen, wird aber dann den Cache mit der heruntergeladenen Ressource aktualisieren.
 - `no-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
-  - Wenn es eine Übereinstimmung gibt, _aktuell oder veraltet,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) an den entfernten Server stellen. Wenn der Server angibt, dass die Ressource unverändert ist, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
+  - Wenn es eine Übereinstimmung gibt, _aktuell oder veraltet,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) an den entfernten Server stellen. Wenn der Server anzeigt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
   - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
 - `force-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
@@ -35,9 +35,9 @@ Ein `RequestCache`-Wert. Die verfügbaren Werte sind:
 - `only-if-cached` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache. {{experimental_inline}}
 
   - Wenn es eine Übereinstimmung gibt, _aktuell oder veraltet_, wird sie aus dem Cache zurückgegeben.
-  - Wenn es keine Übereinstimmung gibt, wird der Browser mit einem [504 Gateway timeout](/de/docs/Web/HTTP/Reference/Status/504)-Status antworten.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser mit einem [504 Gateway timeout](/de/docs/Web/HTTP/Reference/Status/504) Status antworten.
 
-  Der `"only-if-cached"`-Modus kann nur verwendet werden, wenn der `mode` der Anfrage `"same-origin"` ist. Zwischengespeicherte Umleitungen werden gefolgt, wenn die `redirect`-Eigenschaft der Anfrage `"follow"` ist und die Umleitungen den `"same-origin"`-Modus nicht verletzen.
+  Der Modus `"only-if-cached"` kann nur verwendet werden, wenn der `mode` der Anfrage `"same-origin"` ist. Zwischengespeicherte Weiterleitungen werden befolgt, wenn die `redirect`-Eigenschaft der Anfrage `"follow"` ist und die Weiterleitungen den `"same-origin"`-Modus nicht verletzen.
 
 ## Beispiele
 

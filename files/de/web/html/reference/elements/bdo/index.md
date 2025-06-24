@@ -1,13 +1,13 @@
 ---
-title: "<bdo>: Das Element für die bidirektionale Textrichtungsüberschreibung"
+title: "<bdo>: Das Bidirektionale Text-Oversicherungselement"
 slug: Web/HTML/Reference/Elements/bdo
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{HTMLSidebar}}
 
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung angezeigt wird.
+Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textrichtung, sodass der Text darin in einer anderen Richtung dargestellt wird.
 
 {{InteractiveExample("HTML Demo: &lt;bdo&gt;", "tabbed-standard")}}
 
@@ -37,18 +37,16 @@ bdo {
 }
 ```
 
-Die Zeichen des Textes werden ausgehend von dem Startpunkt in der angegebenen Richtung gezeichnet; die Orientierung der einzelnen Zeichen wird nicht beeinflusst (die Zeichen werden also beispielsweise nicht rückwärts gezeichnet).
+Die Zeichen des Textes werden ab dem Startpunkt in der angegebenen Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (so werden Zeichen beispielsweise nicht rückwärts gezeichnet).
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `dir`
-
   - : Die Richtung, in der der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
-
-    - `ltr`: Gibt an, dass der Text in einer links-nach-rechts-Richtung verlaufen soll.
-    - `rtl`: Gibt an, dass der Text in einer rechts-nach-links-Richtung verlaufen soll.
+    - `ltr`: Gibt an, dass der Text in eine links-nach-rechts Richtung gehen soll.
+    - `rtl`: Gibt an, dass der Text in eine rechts-nach-links Richtung gehen soll.
 
 ## Beispiele
 
@@ -62,9 +60,9 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 {{EmbedLiveSample('Examples')}}
 
-## Hinweise
+## Anmerkungen
 
-Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; diese wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
 
 ## Technische Zusammenfassung
 
@@ -81,29 +79,29 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
           >Fließende Inhalte</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
-        >, spürbare Inhalte.
+          >phrasierende Inhalte</a
+        >, wahrnehmbare Inhalte.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
+          >Phrasierende Inhalte</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
-        > erlaubt.
+          >phrasierende Inhalte</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -111,7 +109,7 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>

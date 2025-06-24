@@ -2,28 +2,28 @@
 title: Beispiel für einen Stapelkontext 3
 slug: Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3
 l10n:
-  sourceCommit: ec0ac22d16171cb72b7391f4727d43c4ffcbee5b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
 ## Beschreibung
 
-Dieses Beispiel zeigt Probleme auf, die beim Mischen mehrerer positionierter Elemente in einer mehrstufigen HTML-Hierarchie auftreten können, insbesondere wenn `z-index`-Werte über Klassenselektoren zugewiesen werden.
+Dieses Beispiel zeigt Probleme, die auftreten, wenn mehrere positionierte Elemente in einer mehrstufigen HTML-Hierarchie gemischt und `z-index`-Werte mithilfe von Klassenselektoren zugewiesen werden.
 
-Das Beispiel beinhaltet ein dreistufiges hierarchisches Menü, das aus mehreren positionierten `div`-Elementen besteht. Zweite und dritte Ebene der `div`-Elemente erscheinen, wenn ein Benutzer mit der Maus darüber fährt oder darauf klickt. Normalerweise wird eine solche Art von Menü entweder clientseitig oder serverseitig skriptgeneriert, daher werden Stilregeln mit einem Klassenselektor anstelle des ID-Selektors zugewiesen.
+Das Beispiel hat ein dreistufiges hierarchisches Menü, das aus mehreren positionierten `div`-Elementen besteht. Zweitstufige und drittstufige `div`-Elemente erscheinen, wenn ein Benutzer über ihre Eltern schwebt oder auf sie klickt. Normalerweise wird diese Art von Menü entweder clientseitig oder serverseitig skriptgeneriert, sodass Stilregeln mit einem Klassenselektor anstelle des ID-Selektors zugewiesen werden.
 
-Wenn sich die drei Menüebenen teilweise überlappen, könnte das Stapeln problematisch werden.
+Wenn sich die drei Menüebenen teilweise überlappen, kann das Verwalten des Stapelns zu einem Problem werden.
 
-Das Menü der ersten Ebene ist relativ positioniert und schafft damit einen Stapelkontext.
+Das erststufige Menü ist relativ positioniert und erstellt einen Stapelkontext.
 
-Das Menü der zweiten Ebene ist absolut innerhalb des Elternelements positioniert. Um es über alle Menüs der ersten Ebene zu setzen, wird die `z-index`-Eigenschaft verwendet. Das Problem ist, dass für jedes Menü der zweiten Ebene ein Stapelkontext erstellt wird und jedes Menü der dritten Ebene zum Kontext seines Elternteils gehört.
+Das zweitstufige Menü ist absolut innerhalb des Elternelements positioniert. Um es über alle erststufigen Menüs zu legen, wird die `z-index`-Eigenschaft verwendet. Das Problem ist, dass für jedes zweitstufige Menü ein Stapelkontext erstellt wird und jedes drittstufige Menü dem Kontext seines Elternteils angehört.
 
-Daher wird ein Menü der dritten Ebene unter den folgenden Menüs der zweiten Ebene gestapelt, da alle Menüs der zweiten Ebene denselben `z-index`-Wert teilen und die Standard-Stapelregeln gelten.
+Also wird ein drittstufiges Menü unter den nachfolgenden zweitstufigen Menüs gestapelt, da alle zweitstufigen Menüs denselben `z-index`-Wert teilen und die Standard-Stapelregeln gelten.
 
-Um die Situation besser zu verstehen, hier ist die Stapelkontext-Hierarchie (die drei Punkte "..." stehen für mehrfache Wiederholung der vorherigen Zeile):
+Um die Situation besser zu verstehen, hier die Hierarchie des Stapelkontexts (die drei Punkte "..." stehen für mehrfache Wiederholung der vorhergehenden Zeile):
 
-- Root-Stapelkontext
+- Hauptstapelkontext
 
   - EBENE #1
 
@@ -41,10 +41,10 @@ Um die Situation besser zu verstehen, hier ist die Stapelkontext-Hierarchie (die
   - …
   - EBENE #1
 
-Dieses Problem kann vermieden werden, indem die Überlappung zwischen verschiedenen Menüebenen entfernt wird, individuelle (und unterschiedliche) `z-index`-Werte über ID-Selektor statt Klassenselektor zugewiesen werden oder die HTML-Hierarchie abgeflacht wird.
+Dieses Problem kann vermieden werden, indem das Überlappen zwischen verschiedenen Menüebenen entfernt wird, oder indem individuelle (und unterschiedliche) `z-index`-Werte zugewiesen durch den ID-Selektor anstelle des Klassenselektors verwendet werden, oder durch eine Abflachung der HTML-Hierarchie.
 
 > [!NOTE]
-> Im Quellcode werden Sie sehen, dass Menüs der zweiten und dritten Ebene aus mehreren `div`-Elementen bestehen, die in einem absolut positionierten Container enthalten sind. Dies ist nützlich, um alle auf einmal zu gruppieren und zu positionieren.
+> Im Quellcode werden Sie sehen, dass zweitstufige und drittstufige Menüs aus mehreren `div`-Elementen bestehen, die in einem absolut positionierten Container enthalten sind. Dies ist nützlich, um alle auf einmal zu gruppieren und zu positionieren.
 
 ## Beispiel
 
@@ -150,8 +150,8 @@ div {
 ## Siehe auch
 
 - [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Stapelung schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements): Wie schwebende Elemente mit Stapelung gehandhabt werden.
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index): Wie man `z-index` verwendet, um die Standard-Stapelung zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context): Anmerkungen zum Stapelkontext.
+- [Stapelung von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements): Wie schwebende Elemente mit Stapelung behandelt werden.
+- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index): Wie man `z-index` verwendet, um die Standardstapelung zu ändern.
+- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context): Notizen zum Stapelkontext.
 - [Beispiel für einen Stapelkontext 1](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1): 2-stufige HTML-Hierarchie, `z-index` auf der letzten Ebene
 - [Beispiel für einen Stapelkontext 2](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2): 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen

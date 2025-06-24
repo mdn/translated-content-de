@@ -2,34 +2,34 @@
 title: extensionTypes.ImageDetails
 slug: Mozilla/Add-ons/WebExtensions/API/extensionTypes/ImageDetails
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Details über das Format, die Qualität, den Bereich und die Skalierung eines aufgenommenen Bildes.
+Details zum Format, zur Qualität, zum Bereich und Maßstab eines erfassten Bildes.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `format` {{optional_inline}}
-  - : {{WebExtAPIRef('extensionTypes.ImageFormat')}}. Das Format des resultierenden Bildes. Standard ist `"png"`.
+  - : {{WebExtAPIRef('extensionTypes.ImageFormat')}}. Das Format des resultierenden Bildes. Standardmäßig ist es `"png"`.
 - `quality` {{optional_inline}}
-  - : `integer`. Wenn das Format `"jpeg"` ist, steuert dies die Qualität des resultierenden Bildes. Es ist eine Zahl zwischen 0 und 100, die in einen Wert zwischen 0 und 1 umgewandelt wird und dann als `encoderOptions`-Argument an [`HTMLCanvasElement.toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) verwendet wird. Wenn es weggelassen wird, wird 92 verwendet. Mit abnehmender Qualität wird das resultierende Bild mehr visuelle Artefakte enthalten, und die Anzahl der benötigten Bytes zur Speicherung nimmt ab. Dieser Wert wird für PNG-Bilder ignoriert.
+  - : `integer`. Wenn das Format `"jpeg"` ist, steuert dies die Qualität des resultierenden Bildes. Es ist eine Zahl zwischen 0 und 100, die in einen Wert zwischen 0 und 1 konvertiert wird und dann als `encoderOptions`-Argument für [`HTMLCanvasElement.toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) verwendet wird. Wenn es weggelassen wird, wird 92 verwendet. Mit abnehmender Qualität weist das resultierende Bild mehr visuelle Artefakte auf, und die Anzahl der Bytes, die zur Speicherung benötigt werden, nimmt ab. Dieser Wert wird für PNG-Bilder ignoriert.
 - `rect` {{optional_inline}}
 
-  - : Ein `object`, das den Bereich des Dokuments angibt, der erfasst werden soll, in CSS-Pixeln, relativ zur Seite. Alle Eigenschaften sind standardmäßig auf `0` gesetzt. Die Eigenschaften sind:
+  - : Ein `object`, das den Bereich des Dokuments angibt, der in CSS-Pixeln im Verhältnis zur Seite erfasst werden soll. Alle Eigenschaften standardmäßig auf `0`. Die Eigenschaften sind:
 
     - `x`: Die Koordinate der linken Seite des Rechtecks.
     - `y`: Die Koordinate der oberen Seite des Rechtecks.
     - `width`: Die Breite des Rechtecks.
     - `height`: Die Höhe des Rechtecks.
 
-    Diese Option wurde in Firefox 82 eingeführt. Wenn sie weggelassen wird, wird der derzeit sichtbare Viewport erfasst.
+    Diese Option wurde in Firefox 82 eingeführt. Wenn sie weggelassen wird, wird die derzeit sichtbare Ansicht erfasst.
 
 - `scale` {{optional_inline}}
-  - : `number`. Die Skalierung zum Rendern, Standard ist [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio). Diese Option wurde in Firefox 82 eingeführt.
+  - : `number`. Der Maßstab, bei dem dargestellt werden soll, standardmäßig auf [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio). Diese Option wurde in Firefox 82 eingeführt.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-ImageDetails) API von Chromium. Diese Dokumentation basiert auf [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-ImageDetails) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

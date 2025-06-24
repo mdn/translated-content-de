@@ -1,23 +1,23 @@
 ---
-title: "DedicatedWorkerGlobalScope: requestAnimationFrame()-Methode"
+title: "DedicatedWorkerGlobalScope: requestAnimationFrame() Methode"
 short-title: requestAnimationFrame()
 slug: Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame
 l10n:
-  sourceCommit: 19ca5f9271fc78eb033c448c9c21fb894e8743b9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}{{AvailableInWorkers("dedicated")}}
 
-Die **`requestAnimationFrame()`**-Methode der Schnittstelle [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) teilt dem Browser mit, dass Sie eine Animationsframe-Anfrage durchführen und eine benutzerdefinierte Callback-Funktion vor dem nächsten Neuzeichnen aufrufen möchten.
+Die **`requestAnimationFrame()`**-Methode der [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Schnittstelle teilt dem Browser mit, dass Sie eine Animations-Frame-Anfrage durchführen möchten und eine benutzerdefinierte Callback-Funktion vor dem nächsten Neuzeichnen aufrufen wollen.
 
-Die Häufigkeit der Aufrufe der Callback-Funktion entspricht im Allgemeinen der Bildwiederholrate des Displays. Die häufigste Bildwiederholrate ist 60 Hz (60 Zyklen/Bilder pro Sekunde), obwohl auch 75 Hz, 120 Hz und 144 Hz weit verbreitet sind. `requestAnimationFrame()`-Aufrufe werden in den meisten Browsern pausiert, wenn sie in Hintergrund-Tabs oder versteckten {{HTMLElement("iframe")}}s ausgeführt werden, um die Leistung und die Akkulaufzeit zu verbessern.
+Die Häufigkeit der Aufrufe der Callback-Funktion entspricht im Allgemeinen der Bildwiederholrate des Displays. Die gebräuchlichste Bildwiederholrate ist 60 Hz (60 Zyklen/Bilder pro Sekunde), obwohl auch 75 Hz, 120 Hz und 144 Hz weit verbreitet sind. `requestAnimationFrame()`-Aufrufe werden in den meisten Browsern pausiert, wenn sie in Hintergrund-Tabs oder versteckten {{HTMLElement("iframe")}}s ausgeführt werden, um die Leistung und die Akkulaufzeit zu verbessern.
 
-Ein Aufruf der `requestAnimationFrame()`-Methode plant nur einen einzigen Aufruf der Callback-Funktion. Wenn Sie ein weiteres Bild animieren möchten, muss Ihre Callback-Funktion `requestAnimationFrame()` erneut aufrufen.
+Ein Aufruf der `requestAnimationFrame()`-Methode sorgt nur für einen einzigen Aufruf der Callback-Funktion. Wenn Sie einen weiteren Frame animieren möchten, muss Ihre Callback-Funktion `requestAnimationFrame()` erneut aufrufen.
 
 > [!WARNING]
-> Stellen Sie sicher, dass Sie immer das erste Argument (oder eine andere Methode zur Ermittlung der aktuellen Zeit) verwenden, um zu berechnen, wie weit die Animation in einem Frame fortschreiten wird — **sonst läuft die Animation auf Bildschirmen mit hoher Bildwiederholrate schneller**. Für Methoden dazu, siehe die Beispiele unten.
+> Stellen Sie sicher, dass Sie immer das erste Argument (oder eine andere Methode zur Ermittlung der aktuellen Zeit) verwenden, um zu berechnen, wie viel die Animation in einem Frame fortschreitet — **ansonsten läuft die Animation auf Bildschirmen mit hoher Bildwiederholrate schneller**. Um Möglichkeiten dazu zu finden, siehe die untenstehenden Beispiele.
 
-Der Aufruf der `requestAnimationFrame()`-Methode erfordert, dass der aktuelle Worker ein zugehöriges Eigentümer-[`Fenster`](/de/docs/Web/API/Window) hat. Das bedeutet, dass der aktuelle Worker von einem [`Fenster`](/de/docs/Web/API/Window) oder von einem dedizierten Worker erstellt werden muss, der ebenfalls ein zugehöriges Eigentümer-[`Fenster`](/de/docs/Web/API/Window) hat.
+Das Aufrufen der `requestAnimationFrame()`-Methode erfordert, dass der aktuelle Worker ein zugehöriges Eigentümer-[`window`](/de/docs/Web/API/Window) hat. Das bedeutet, dass der aktuelle Worker von einem [`window`](/de/docs/Web/API/Window) oder von einem dedizierten Worker, der ebenfalls ein zugehöriges Eigentümer-[`window`](/de/docs/Web/API/Window) hat, erstellt worden sein muss.
 
 ## Syntax
 
@@ -33,16 +33,13 @@ requestAnimationFrame(callback)
 
     - `timestamp`
 
-      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Endzeit des Renderings des vorherigen Frames anzeigt (basierend auf der Anzahl der Millisekunden seit dem [time origin](/de/docs/Web/API/Performance/timeOrigin)). Der Zeitstempel ist eine Dezimalzahl in Millisekunden, aber mit einer minimalen Genauigkeit von 1 Millisekunde. Der Zeitstempelwert ist auch dem Aufruf von [`performance.now()`](/de/docs/Web/API/Performance/now) zu Beginn der Callback-Funktion ähnlich, ist jedoch niemals derselbe Wert.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Endzeit der Rendering-Verarbeitung des vorherigen Frames angibt (basierend auf der Anzahl der Millisekunden seit dem [Zeitursprung](/de/docs/Web/API/Performance/timeOrigin)). Der Zeitstempel ist eine Dezimalzahl in Millisekunden, aber mit einer minimalen Präzision von 1 Millisekunde. Der Zeitstempelwert ähnelt auch dem Aufrufen von [`performance.now()`](/de/docs/Web/API/Performance/now) zu Beginn der Callback-Funktion, ist jedoch niemals derselbe Wert.
 
-        Wenn mehrere von `requestAnimationFrame()` gequeue'te Callbacks in einem einzigen Frame ausgelöst werden, erhält jeder denselben Zeitstempel, obwohl während der Berechnung der Arbeitslast jedes vorhergehenden Callbacks Zeit vergangen ist.
+        Wenn mehrere durch `requestAnimationFrame()` eingereihten Callbacks in einem einzigen Frame abgefeuert werden, erhält jeder denselben Zeitstempel, auch wenn während der Berechnung der Arbeitslast jedes vorherigen Callbacks Zeit vergangen ist.
 
 ### Rückgabewert
 
-Ein `long`-Ganzwert, der die Anforderungs-ID eindeutig identifiziert
-in der Callback-Liste. Dies ist ein Wert ungleich null, aber Sie dürfen keine weiteren
-Annahmen darüber treffen. Sie können diesen Wert an
-[`cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) übergeben, um die Aktualisierungs-Callback-Anfrage zu stornieren. Die Stornoaktion muss im selben Worker durchgeführt worden sein.
+Ein `long`-Ganzzahlenwert, der die Anfrage-ID darstellt, die den Eintrag in der Callback-Liste eindeutig identifiziert. Dies ist ein von Null verschiedener Wert, aber Sie dürfen keine weiteren Annahmen darüber treffen. Sie können diesen Wert an [`cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) übergeben, um die Auffrischungs-Callback-Anfrage abzubrechen. Die Abbruchaktion muss im selben Worker durchgeführt worden sein.
 
 ### Ausnahmen
 
@@ -51,7 +48,7 @@ Annahmen darüber treffen. Sie können diesen Wert an
 
 ## Beispiele
 
-Im Haupt-Thread beginnen wir damit, die Kontrolle eines {{HTMLElement("canvas")}}-Elements auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) zu übertragen, indem wir [`HTMLCanvasElement.transferControlToOffscreen()`](/de/docs/Web/API/HTMLCanvasElement/transferControlToOffscreen) verwenden. Anschließend senden wir eine Nachricht an den Worker, um seine Arbeit mit dem Offscreen-Canvas mit dem Befehl `"start"` zu beginnen:
+Im Haupt-Thread beginnen wir mit der Übergabe der Kontrolle über ein {{HTMLElement("canvas")}}-Element an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), indem wir [`HTMLCanvasElement.transferControlToOffscreen()`](/de/docs/Web/API/HTMLCanvasElement/transferControlToOffscreen) verwenden und dann eine Nachricht an den Worker senden, seine Arbeit mit dem Offscreen-Canvas zu `"starten"`:
 
 ```js
 const offscreenCanvas = document
@@ -67,7 +64,7 @@ worker.postMessage(
 );
 ```
 
-Beim Empfang der `"start"`-Nachricht startet der Worker die Animation, indem er das Rechteck von links nach rechts bewegt. Beim Empfang einer `"stop"`-Nachricht wird die Animation gestoppt.
+Beim Empfang der `"start"`-Nachricht beginnt der Worker mit der Animation und bewegt das Rechteck von links nach rechts. Beim Empfang einer `"stop"`-Nachricht wird die Animation angehalten.
 
 ```js
 let ctx;
@@ -93,7 +90,7 @@ self.addEventListener("message", (e) => {
 });
 ```
 
-Schließlich, falls erforderlich, kann der Haupt-Thread eine `"stop"`-Nachricht an den Worker senden, um die Animation zu stoppen:
+Schließlich kann der Haupt-Thread, falls erforderlich, eine `"stop"`-Nachricht an den Worker senden, um die Animation zu stoppen:
 
 ```js
 worker.postMessage({

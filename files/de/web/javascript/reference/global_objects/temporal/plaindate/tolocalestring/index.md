@@ -3,14 +3,14 @@ title: Temporal.PlainDate.prototype.toLocaleString()
 short-title: toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toLocaleString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`toLocaleString()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine zeichenfolgendarstellung dieses Datums zurück, die sprachspezifisch ist. In Implementierungen mit Unterstützung für die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) delegiert diese Methode an `Intl.DateTimeFormat`.
+Die **`toLocaleString()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt einen sprachabhängigen String zurück, der diese Datum darstellt. In Implementierungen mit Unterstützung der [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) wird diese Methode an `Intl.DateTimeFormat` delegiert.
 
-Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungszeichenfolgen durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode häufig mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/DateTimeFormat/format", "format()")}}-Methode zu verwenden, da ein `DateTimeFormat`-Objekt sich die übergebenen Argumente merkt und möglicherweise entscheidet, einen Teil der Datenbank zwischenzuspeichern, sodass zukünftige `format`-Aufrufe innerhalb eines eingeschränkteren Kontexts nach Lokalisierungszeichenfolgen suchen können.
+Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungsstrings durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode häufig mit den gleichen Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}} Objekt zu erstellen und dessen {{jsxref("Intl/DateTimeFormat/format", "format()")}} Methode zu verwenden, da ein `DateTimeFormat` Objekt sich die übergebenen Argumente merkt und möglicherweise einen Ausschnitt der Datenbank zwischenspeichert, wodurch zukünftige `format` Aufrufe Lokalisierungsstrings innerhalb eines kleineren Kontextes suchen können.
 
 ## Syntax
 
@@ -22,30 +22,28 @@ toLocaleString(locales, options)
 
 ### Parameter
 
-Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache festzulegen, deren Formatierungskonventionen verwendet werden sollen.
+Die `locales` und `options` Parameter passen das Verhalten der Funktion an und ermöglichen es Anwendungen, anzugeben, welche Sprache für die Formatierung verwendet werden soll.
 
-In Implementierungen, die die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)-Konstruktors. Implementierungen ohne Unterstützung für `Intl.DateTimeFormat` geben genau dieselbe Zeichenfolge zurück wie {{jsxref("Temporal/PlainDate/toString", "toString()")}}, wobei beide Parameter ignoriert werden.
+In Implementierungen, die die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) Konstruktors. Implementierungen ohne Unterstützung von `Intl.DateTimeFormat` geben genau denselben String zurück wie {{jsxref("Temporal/PlainDate/toString", "toString()")}}, ignorieren jedoch beide Parameter.
 
 - `locales` {{optional_inline}}
-  - : Eine Zeichenfolge mit einem BCP 47-Sprachcode oder ein Array solcher Zeichenfolgen. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales)-Parameter des `Intl.DateTimeFormat()`-Konstruktors.
+  - : Ein String mit einem BCP 47 Sprach-Tag oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales) Parameter des `Intl.DateTimeFormat()` Konstruktors.
 - `options` {{optional_inline}}
+  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options) Parameter des `Intl.DateTimeFormat()` Konstruktors. Wenn der Kalender dieses Datums nicht `"iso8601"` ist, muss die `calendar` Option denselben Wert haben; andernfalls, wenn der Kalender dieses Datums `"iso8601"` ist, kann die `calendar` Option jeden Wert haben. Bezüglich der [Datum-Zeit-Komponenten-Optionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) und der Stilabkürzungen (`dateStyle` und `timeStyle`) sollten die Optionen eine der folgenden Formen aufweisen:
+    - Keine davon angeben: `year`, `month` und `day` werden standardmäßig auf `"numeric"` gesetzt.
+    - Nur `dateStyle` angeben: es erweitert sich zu `weekday`, `era`, `year`, `month` und `day` Formaten.
+    - Einige Datum-Zeit-Komponenten-Optionen angeben, wobei mindestens eine davon eine Datum-Option ist (`weekday`, `year`, `month`, `day`). Nur die angegebenen Datumskomponenten werden in die Ausgabe einbezogen.
 
-  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)-Parameter des `Intl.DateTimeFormat()`-Konstruktors. Wenn der Kalender dieses Datums nicht `"iso8601"` ist, muss die `calendar`-Option mit demselben Wert angegeben werden; andernfalls kann die `calendar`-Option bei einem `"iso8601"`-Kalender einen beliebigen Wert haben. In Bezug auf die [Datum-/Uhrzeit-Komponentenoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) und die Stilabkürzungen (`dateStyle` und `timeStyle`) sollten die Optionen eine der folgenden Formen haben:
-
-    - Keine dieser Optionen angeben: `year`, `month` und `day` verwenden standardmäßig `"numeric"`.
-    - Nur `dateStyle` angeben: Dies erweitert sich zu `weekday`, `era`, `year`, `month` und `day`-Formaten.
-    - Einige Datum-/Uhrzeit-Komponentenoptionen angeben, wobei mindestens eine davon eine Datumsoption (`weekday`, `year`, `month`, `day`) ist. Nur die angegebenen Datumskomponenten werden in der Ausgabe enthalten sein.
-
-Siehe den [`Intl.DateTimeFormat()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und deren Verwendung.
+Siehe den [`Intl.DateTimeFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und wie man sie verwendet.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die das angegebene Datum gemäß den sprachspezifischen Konventionen darstellt.
+Ein String, der das angegebene Datum gemäß den sprachspezifischen Konventionen darstellt.
 
-In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTimeFormat(locales, options).format(date)`, wobei `options` wie oben beschrieben normalisiert wurde.
+In Implementierungen mit `Intl.DateTimeFormat` ist dies gleichbedeutend mit `new Intl.DateTimeFormat(locales, options).format(date)`, wobei `options` wie oben beschrieben normalisiert wurde.
 
 > [!NOTE]
-> Meistens ist die von `toLocaleString()` zurückgegebene Formatierung konsistent. Allerdings kann die Ausgabe je nach Implementierung variieren, selbst innerhalb desselben Gebietsschemas — Ausgabevariationen sind von der Spezifikation vorgesehen und erlaubt. Es könnte auch nicht das sein, was Sie erwarten. Beispielsweise kann die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit hartkodierten Konstanten vergleichen.
+> Meistens ist das von `toLocaleString()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Locale — Variationen in der Ausgabe sind beabsichtigt und durch die Spezifikation erlaubt. Es kann auch nicht das sein, was Sie erwarten. Zum Beispiel kann der String nicht-unterbrechende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest kodierten Konstanten vergleichen.
 
 ### Ausnahmen
 
@@ -58,7 +56,7 @@ In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTim
 
 ### Verwendung von toLocaleString()
 
-Einfacher Gebrauch dieser Methode ohne Angabe eines `locale` gibt eine formatierte Zeichenfolge in der Standardsprache und mit Standardoptionen zurück.
+Die grundlegende Verwendung dieser Methode ohne Angabe einer `locale` gibt einen formatierten String in der Standard-Locale und mit Standardoptionen zurück.
 
 ```js
 const date = Temporal.PlainDate.from("2021-08-01");
@@ -66,7 +64,7 @@ const date = Temporal.PlainDate.from("2021-08-01");
 console.log(date.toLocaleString()); // 8/1/2021 (assuming en-US locale)
 ```
 
-Wenn der Kalender des Datums nicht mit dem Standardkalender des Gebietsschemas übereinstimmt und der Kalender des Datums nicht `iso8601` ist, muss eine explizite `calendar`-Option mit demselben Wert angegeben werden.
+Wenn der Kalender des Datums nicht mit dem Standardkalender der Locale übereinstimmt und der Kalender des Datums nicht `iso8601` ist, muss eine explizite `calendar` Option mit demselben Wert angegeben werden.
 
 ```js
 const date = Temporal.PlainDate.from("2021-08-01[u-ca=japanese]");
@@ -76,7 +74,7 @@ date.toLocaleString("ja-JP", { calendar: "japanese" }); // R3/8/1
 
 ### Verwendung von toLocaleString() mit Optionen
 
-Sie können anpassen, welche Teile des Datums in der Ausgabe enthalten sind, indem Sie den `options`-Parameter angeben.
+Sie können anpassen, welche Teile des Datums in der Ausgabe enthalten sind, indem Sie den `options` Parameter angeben.
 
 ```js
 const date = Temporal.PlainDate.from("2021-08-01");

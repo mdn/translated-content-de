@@ -1,17 +1,17 @@
 ---
-title: Verwendung von FormData-Objekten
+title: Verwenden von FormData-Objekten
 slug: Web/API/XMLHttpRequest_API/Using_FormData_Objects
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{DefaultAPISidebar("XMLHttpRequest API")}}
 
-Das [`FormData`](/de/docs/Web/API/FormData)-Objekt ermöglicht es Ihnen, eine Sammlung von Key/Value-Paaren zusammenzustellen, die Sie mit der [Fetch](/de/docs/Web/API/Fetch_API) oder der [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API) API senden können. Es ist in erster Linie dafür gedacht, Formulardaten zu senden, kann aber unabhängig von Formularen verwendet werden, um bestimmte Daten zu übertragen. Die übermittelten Daten haben das gleiche Format, das auch die [`submit()`](/de/docs/Web/API/HTMLFormElement/submit)-Methode eines Formulars verwenden würde, wenn der Encoding-Typ des Formulars auf `multipart/form-data` gesetzt wäre.
+Das [`FormData`](/de/docs/Web/API/FormData)-Objekt ermöglicht es Ihnen, eine Menge von Schlüssel/Wert-Paaren zu erstellen, die mit der [Fetch](/de/docs/Web/API/Fetch_API)- oder [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API)-API gesendet werden können. Es ist hauptsächlich zum Senden von Formulardaten gedacht, kann aber unabhängig von Formularen verwendet werden, um Schlüssel-Daten zu übermitteln. Die übertragenen Daten haben dasselbe Format, das die [`submit()`](/de/docs/Web/API/HTMLFormElement/submit)-Methode des Formulars verwenden würde, um die Daten zu senden, wenn der Codierungstyp des Formulars auf `multipart/form-data` eingestellt wäre.
 
 ## Erstellen eines `FormData`-Objekts von Grund auf
 
-Sie können ein `FormData`-Objekt selbst erstellen, indem Sie es instanziieren und anschließend Felder durch Aufruf der [`append()`](/de/docs/Web/API/FormData/append)-Methode hinzufügen, wie hier gezeigt:
+Sie können ein `FormData`-Objekt selbst erstellen, indem Sie es instanziieren und dann Felder hinzufügen, indem Sie seine [`append()`](/de/docs/Web/API/FormData/append)-Methode aufrufen, wie folgt:
 
 ```js
 const send = document.querySelector("#send");
@@ -39,15 +39,15 @@ send.addEventListener("click", async () => {
 ```
 
 > [!NOTE]
-> Die Felder `"avatar"` und `"webmasterFile"` enthalten beide eine Datei. Die Nummer, die dem Feld `"accountNum"` zugewiesen ist, wird sofort in einen String umgewandelt durch die [`FormData.append()`](/de/docs/Web/API/FormData/append)-Methode (der Wert des Felds kann ein [`Blob`](/de/docs/Web/API/Blob), [`File`](/de/docs/Web/API/File) oder ein String sein. Wenn der Wert weder ein `Blob` noch eine `File` ist, wird der Wert in einen String konvertiert).
+> Die Felder `"avatar"` und `"webmasterFile"` enthalten beide eine Datei. Die der Feldzuweisung zugeordnete Zahl `"accountNum"` wird unmittelbar durch die [`FormData.append()`](/de/docs/Web/API/FormData/append)-Methode in einen String umgewandelt (der Wert des Feldes kann ein [`Blob`](/de/docs/Web/API/Blob), ein [`File`](/de/docs/Web/API/File) oder ein String sein. Wenn der Wert weder ein `Blob` noch eine `File` ist, wird der Wert in einen String umgewandelt).
 
-Dieses Beispiel erstellt eine `FormData`-Instanz mit Werten für Felder mit den Namen `"username"`, `"accountNum"`, `"avatar"` und `"webmasterFile"` und verwendet dann [`fetch()`](/de/docs/Web/API/Window/fetch), um die Formulardaten zu senden. Das Feld `"webmasterFile"` ist ein [`Blob`](/de/docs/Web/API/Blob). Ein `Blob`-Objekt repräsentiert ein dateiähnliches Objekt von unveränderlichen, rohen Daten. Blobs stellen Daten dar, die nicht notwendigerweise in einem JavaScript-nativen Format vorliegen. Das [`File`](/de/docs/Web/API/File)-Interface basiert auf `Blob` und erweitert die Blob-Funktionalität, um Dateien auf dem Benutzersystem zu unterstützen. Um ein `Blob` zu erstellen, können Sie [den `Blob()`-Konstruktor](/de/docs/Web/API/Blob/Blob) aufrufen.
+Dieses Beispiel erstellt eine `FormData`-Instanz mit Werten für Felder namens `"username"`, `"accountNum"`, `"avatar"` und `"webmasterFile"` und verwendet dann [`fetch()`](/de/docs/Web/API/Window/fetch), um die Daten des Formulars zu senden. Das Feld `"webmasterFile"` ist ein [`Blob`](/de/docs/Web/API/Blob). Ein `Blob`-Objekt stellt ein dateiähnliches Objekt aus unveränderlichen, rohen Daten dar. Blobs repräsentieren Daten, die nicht unbedingt in einem JavaScript-nativen Format vorliegen. Das [`File`](/de/docs/Web/API/File)-Interface basiert auf `Blob`, erbt die Blob-Funktionalität und erweitert sie, um Dateien auf dem System des Benutzers zu unterstützen. Um ein `Blob` zu erstellen, können Sie [den `Blob()`-Konstruktor](/de/docs/Web/API/Blob/Blob) aufrufen.
 
-## Ein `FormData`-Objekt aus einem HTML-Formular abrufen
+## Abrufen eines `FormData`-Objekts aus einem HTML-Formular
 
-Um ein `FormData`-Objekt zu erstellen, das die Daten eines bestehenden {{ HTMLElement("form") }} enthält, geben Sie dieses Formelement beim Erstellen des `FormData`-Objekts an:
+Um ein `FormData`-Objekt zu konstruieren, das die Daten eines bestehenden {{ HTMLElement("form") }} enthält, geben Sie dieses Formularelement beim Erstellen des `FormData`-Objekts an:
 
-> **Hinweis:** `FormData` verwendet nur Eingabefelder, die das `name`-Attribut verwenden.
+> [!NOTE] > `FormData` verwendet nur Eingabefelder, die das `name`-Attribut verwenden.
 
 ```js
 const formData = new FormData(someFormElement);
@@ -71,7 +71,7 @@ send.addEventListener("click", async () => {
 });
 ```
 
-Sie können auch zusätzliche Daten zum `FormData`-Objekt hinzufügen, nachdem Sie es aus einem Formular abgerufen haben und bevor Sie es senden, wie hier gezeigt:
+Sie können dem `FormData`-Objekt auch zusätzliche Daten hinzufügen, nachdem Sie es aus einem Formular abgerufen haben und bevor Sie es senden, wie folgt:
 
 ```js
 const send = document.querySelector("#send");
@@ -89,11 +89,11 @@ send.addEventListener("click", async () => {
 });
 ```
 
-Dies ermöglicht es Ihnen, die Formulardaten vor dem Senden zu ergänzen, um zusätzliche Informationen zu enthalten, die nicht unbedingt vom Benutzer bearbeitbar sind.
+Dies ermöglicht es Ihnen, die Daten des Formulars vor dem Versand anzureichern, um zusätzliche Informationen einzuschließen, die nicht unbedingt vom Benutzer bearbeitbar sind.
 
-## Dateien mit einem `FormData`-Objekt senden
+## Versenden von Dateien mit einem `FormData`-Objekt
 
-Mit `FormData` können Sie auch Dateien senden. Fügen Sie ein {{ HTMLElement("input") }}-Element vom Typ `file` in Ihr {{htmlelement("form")}} ein:
+Sie können auch Dateien mit `FormData` senden. Fügen Sie ein {{ HTMLElement("input") }}-Element des Typs `file` in Ihr {{htmlelement("form")}} ein:
 
 ```html
 <form enctype="multipart/form-data" method="post" name="fileinfo" id="fileinfo">
@@ -128,7 +128,7 @@ Mit `FormData` können Sie auch Dateien senden. Fügen Sie ein {{ HTMLElement("i
 </form>
 ```
 
-Dann können Sie es mit einem Code wie dem folgenden senden:
+Dann können Sie es mit folgendem Code senden:
 
 ```js
 const form = document.querySelector("#fileinfo");
@@ -147,32 +147,32 @@ form.addEventListener("submit", async (event) => {
 ```
 
 > [!NOTE]
-> Wenn Sie eine Referenz auf das Formular übergeben, wird die [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods) verwendet, die im Formular angegeben ist, anstelle der in der `open()`-Aufruf spezifizierten Methode.
+> Wenn Sie eine Referenz zum Formular übergeben, wird die im Formular angegebene [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods) anstelle der in der `open()`-Aufruf angegebenen Methode verwendet.
 
 > [!WARNING]
-> Wenn Sie `FormData` verwenden, um POST-Anfragen mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder der [Fetch API](/de/docs/Web/API/Fetch_API) mit dem Content-Typ `multipart/form-data` einzureichen (z.B. beim Hochladen von Dateien und Blobs auf den Server), _setzen Sie nicht_ explizit den [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type)-Header für die Anfrage. Andernfalls kann der Browser den `Content-Type`-Header nicht mit dem Grenzausdruck setzen, den er zur Begrenzung der Formularfelder im Anfragetext verwenden wird.
+> Wenn Sie `FormData` verwenden, um POST-Anfragen mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder der [Fetch API](/de/docs/Web/API/Fetch_API) mit dem `multipart/form-data`-Content-Type zu senden (z.B. beim Hochladen von Dateien und Blobs zum Server), _setzen Sie nicht_ explizit den [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type)-Header in der Anfrage. Andernfalls kann der Browser den `Content-Type`-Header mit dem Grenzausdruck, den er verwenden wird, um Formularfelder im Anfragetext zu trennen, nicht setzen.
 
-Sie können auch eine [`File`](/de/docs/Web/API/File) oder einen [`Blob`](/de/docs/Web/API/Blob) direkt zum [`FormData`](/de/docs/Web/API/FormData)-Objekt hinzufügen, wie folgt:
+Sie können auch eine [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) direkt zum [`FormData`](/de/docs/Web/API/FormData)-Objekt hinzufügen, wie folgt:
 
 ```js
 data.append("myfile", myBlob, "filename.txt");
 ```
 
-Bei Verwendung der [`append()`](/de/docs/Web/API/FormData/append)-Methode ist es möglich, den dritten optionalen Parameter zu nutzen, um einen Dateinamen innerhalb des `Content-Disposition`-Headers an den Server zu übergeben. Wenn kein Dateiname angegeben ist (oder der Parameter nicht unterstützt wird), wird der Name "blob" verwendet.
+Wenn Sie die [`append()`](/de/docs/Web/API/FormData/append)-Methode verwenden, ist es möglich, den dritten optionalen Parameter zu verwenden, um einen Dateinamen innerhalb des `Content-Disposition`-Headers, der an den Server gesendet wird, zu übergeben. Wenn kein Dateiname angegeben ist (oder der Parameter nicht unterstützt wird), wird der Name "blob" verwendet.
 
 ## Verwendung eines `formdata`-Events
 
-Das [`formdata`-Event](/de/docs/Web/API/HTMLFormElement/formdata_event), das neuer ist als das [`FormData`](/de/docs/Web/API/FormData)-Objekt, wird auf einem [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Objekt ausgelöst, nachdem die Eintragsliste, die die Formulardaten darstellt, konstruiert wurde. Dies geschieht, wenn das Formular eingereicht wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
+Das [`formdata`-Ereignis](/de/docs/Web/API/HTMLFormElement/formdata_event), das neuer als das [`FormData`](/de/docs/Web/API/FormData)-Objekt ist, wird auf einem [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt ausgelöst, nachdem die Eintragsliste, die die Formulardaten repräsentiert, erstellt wurde. Dies geschieht beim Absenden des Formulars, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
 
-Dies ermöglicht es, ein [`FormData`](/de/docs/Web/API/FormData)-Objekt schnell als Reaktion auf ein auslösendes `formdata`-Event zu erhalten, anstatt es selbst zusammenstellen zu müssen.
+Dies ermöglicht es, ein [`FormData`](/de/docs/Web/API/FormData)-Objekt schnell in Antwort auf ein `formdata`-Ereignis zu erhalten, anstatt es selbst zusammenstellen zu müssen.
 
-Zum Beispiel, im JavaScript können wir auf ein Formular verweisen:
+Zum Beispiel können wir im JavaScript ein Formular referenzieren:
 
 ```js
 const formElem = document.querySelector("form");
 ```
 
-In unserem [`submit`-Event](/de/docs/Web/API/HTMLFormElement/submit_event)-Handler verwenden wir [`preventDefault`](/de/docs/Web/API/Event/preventDefault), um die Standardformulareinreichung zu stoppen, und rufen dann einen [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktor auf, um das `formdata`-Event auszulösen:
+In unserem [`submit`-Ereignis](/de/docs/Web/API/HTMLFormElement/submit_event)-Handler verwenden wir [`preventDefault`](/de/docs/Web/API/Event/preventDefault), um die Standardformularübermittlung zu stoppen, und rufen dann einen [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktor auf, um das `formdata`-Ereignis auszulösen:
 
 ```js
 formElem.addEventListener("submit", (e) => {
@@ -184,7 +184,7 @@ formElem.addEventListener("submit", (e) => {
 });
 ```
 
-Wenn das `formdata`-Event ausgelöst wird, können wir auf das [`FormData`](/de/docs/Web/API/FormData)-Objekt mit [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData) zugreifen und dann damit machen, was wir wollen (unten senden wir es mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) an den Server):
+Wenn das `formdata`-Ereignis ausgelöst wird, können wir auf das [`FormData`](/de/docs/Web/API/FormData)-Objekt über [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData) zugreifen und damit machen, was wir möchten (unten posten wir es mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) an den Server).
 
 ```js
 formElem.addEventListener("formdata", (e) => {
@@ -206,11 +206,11 @@ formElem.addEventListener("formdata", (e) => {
 
 ## Stolpersteine
 
-Das `FormData`-Objekt enthält keine Daten aus Feldern, die deaktiviert sind, oder aus fieldsets, die deaktiviert sind.
+Das `FormData`-Objekt enthält keine Daten aus Feldern, die deaktiviert sind, oder aus deaktivierten Fieldsets.
 
 ## Siehe auch
 
 - [Verwendung der Fetch API](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - [`Blob`](/de/docs/Web/API/Blob)
-- [Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)

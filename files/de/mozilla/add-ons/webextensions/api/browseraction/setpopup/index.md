@@ -2,12 +2,12 @@
 title: browserAction.setPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setPopup
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Setzt das HTML-Dokument, das als Popup geöffnet wird, wenn der Benutzer auf das Symbol der Browser-Aktion klickt. Tabs ohne ein spezifisches Popup erben das globale Popup, das standardmäßig im Manifest als [`default_popup`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) angegeben ist.
+Legt das HTML-Dokument fest, das als Popup geöffnet wird, wenn der Benutzer auf das Symbol der Browseraktion klickt. Tabs ohne spezifisches Popup erben das globale Popup, das standardmäßig dem im Manifest angegebenen [`default_popup`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) entspricht.
 
 ## Syntax
 
@@ -31,20 +31,20 @@ browser.browserAction.setPopup(
 
       - : `string` oder `null`. Die HTML-Datei, die in einem Popup angezeigt werden soll, angegeben als URL.
 
-        Dies kann auf eine Datei innerhalb der Erweiterung verweisen (zum Beispiel erstellt mit {{WebExtAPIRef("extension.getURL")}}), oder auf ein entferntes Dokument (z.B. `https://example.org/`).
+        Dies kann auf eine Datei verweisen, die innerhalb der Erweiterung gepackt ist (zum Beispiel erstellt mit {{WebExtAPIRef("extension.getURL")}}) oder auf ein entferntes Dokument (z. B. `https://example.org/`).
 
-        Wenn hier ein leerer String (`""`) übergeben wird, wird das Popup deaktiviert und die Erweiterung erhält {{WebExtAPIRef("browserAction.onClicked")}}-Ereignisse.
+        Wird hier ein leerer String (`""`) übergeben, ist das Popup deaktiviert, und die Erweiterung erhält {{WebExtAPIRef("browserAction.onClicked")}}-Ereignisse.
 
         Wenn `popup` `null` ist:
 
-        - Wenn `tabId` angegeben ist, entfernt es das tab-spezifische Popup, sodass der Tab das globale Popup erbt.
-        - Wenn `windowId` angegeben ist, entfernt es das fenster-spezifische Popup, sodass das Fenster das globale Popup erbt.
-        - Wenn `tabId` und `windowId` beide weggelassen werden, wird das globale Popup auf den Standardwert zurückgesetzt.
+        - Wenn `tabId` angegeben ist, entfernt es das tab-spezifische Popup, damit der Tab das globale Popup erbt.
+        - Wenn `windowId` angegeben ist, entfernt es das fensterspezifische Popup, damit das Fenster das globale Popup erbt.
+        - Wenn `tabId` und `windowId` beide ausgelassen werden, wird das globale Popup auf den Standardwert zurückgesetzt.
 
 <!---->
 
 - Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und das Popup wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Popup gesetzt.
+- Wenn `windowId` und `tabId` beide ausgelassen werden, wird das globale Popup gesetzt.
 
 ## Browser-Kompatibilität
 
@@ -52,7 +52,7 @@ browser.browserAction.setPopup(
 
 ## Beispiele
 
-Dieser Code fügt ein Paar von Kontextmenüelementen hinzu, mit denen Sie zwischen zwei Popups wechseln können. Beachten Sie, dass Sie die "contextMenus" [Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) im Manifest der Erweiterung setzen müssen, um Kontextmenüelemente zu erstellen.
+Dieser Code fügt ein Paar von Kontextmenüelementen hinzu, mit denen Sie zwischen zwei Popups wechseln können. Beachten Sie, dass Sie die Berechtigung "contextMenus" im Manifest der Erweiterung festlegen müssen, um Kontextmenüelemente zu erstellen.
 
 ```js
 function onCreated() {
@@ -97,7 +97,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setPopup)-API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setPopup) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

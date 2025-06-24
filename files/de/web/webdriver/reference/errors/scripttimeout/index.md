@@ -1,19 +1,19 @@
 ---
-title: Script-Timeout
+title: Skript-Timeout
 slug: Web/WebDriver/Reference/Errors/ScriptTimeout
 l10n:
-  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Der **Script-Timeout**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein vom Benutzer bereitgestelltes Script nicht abgeschlossen wurde, bevor die Script-Timeout-Dauer der Sitzung abgelaufen ist.
+Der **Skript-Timeout**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein Skript, das der Benutzer bereitgestellt hat, nicht abgeschlossen wurde, bevor die Timeout-Dauer des Sitzungsskripts abgelaufen ist.
 
-Die Script-Timeout-Dauer ist eine konfigurierbare Fähigkeit, was bedeutet, dass Sie ändern können, wie lange es dauert, bis der Treiber ein eingefügtes Script unterbricht. Standardmäßig wartet der Treiber 30 Sekunden, bevor er das Script unterbricht und mit einem Script-Timeout-Fehler zurückkehrt. Diese Dauer kann jedoch sowohl verlängert, begrenzt als auch auf unbestimmte Zeit eingestellt werden.
+Die Timeout-Dauer des Skripts ist eine konfigurierbare Fähigkeit, was bedeutet, dass Sie ändern können, wie lange es dauert, bis der Treiber ein eingefügtes Skript unterbricht. Der Treiber wartet standardmäßig 30 Sekunden, bevor er das Skript unterbricht und mit einem Skript-Timeout-Fehler zurückkehrt, aber dies kann sowohl verlängert, begrenzt als auch auf unbestimmte Zeit eingestellt werden.
 
-Wenn die Script-Timeout-Dauer der Sitzung durch Verwendung eines `null`-Werts auf unbestimmte Zeit gesetzt wird, besteht die Gefahr, dass die Sitzung in einen nicht wiederherstellbaren Zustand versetzt wird. Seien Sie sich bewusst, dass dies mit Vorsicht verwendet werden sollte.
+Wenn die Timeout-Dauer des Sitzungsskripts durch die Verwendung eines `null`-Werts auf unbestimmte Zeit eingestellt wird, besteht das Risiko, dass die Sitzung in einen nicht wiederherstellbaren Zustand versetzt wird. Beachten Sie, dass dies mit Vorsicht verwendet werden sollte.
 
 ## Beispiel
 
-Betrachten Sie das folgende asynchrone Script, das das Versprechen einlöst oder den Rückruf aufruft, nachdem 35 Sekunden vergangen sind:
+Betrachten Sie das folgende asynchrone Skript, das das Versprechen einlöst oder den Callback aufruft, nachdem 35 Sekunden vergangen sind:
 
 ```python
 from selenium import webdriver
@@ -35,7 +35,7 @@ Ausgabe:
 ScriptTimeoutException: Timed out after 35000 ms
 ```
 
-Es ist jedoch möglich, die standardmäßige Script-Timeout-Dauer der Sitzung mithilfe von Fähigkeiten zu _verlängern_, wenn Sie ein Script haben, von dem Sie erwarten, dass es länger dauert:
+Es ist jedoch möglich, den standardmäßigen Skript-Timeout der Sitzung durch die Verwendung von Fähigkeiten zu _verlängern_, wenn Sie ein Skript haben, das voraussichtlich länger dauern wird:
 
 ```python
 from selenium import webdriver
@@ -59,7 +59,6 @@ finished successfully
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors)
 - Zugehörige Befehle und Typen:
-
   - [JavaScript-Fehler](/de/docs/Web/WebDriver/Reference/Errors/JavaScriptError)
-  - [Script ausführen](/de/docs/Web/WebDriver/Reference/Commands/ExecuteScript)
-  - [Asynchrones Script ausführen](/de/docs/Web/WebDriver/Reference/Commands/ExecuteAsyncScript)
+  - [Skript ausführen](/de/docs/Web/WebDriver/Reference/Commands/ExecuteScript)
+  - [Asynchrones Skript ausführen](/de/docs/Web/WebDriver/Reference/Commands/ExecuteAsyncScript)

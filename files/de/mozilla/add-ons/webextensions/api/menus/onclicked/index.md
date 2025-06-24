@@ -2,14 +2,14 @@
 title: menus.onClicked
 slug: Mozilla/Add-ons/WebExtensions/API/menus/onClicked
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Menüelement angeklickt wird.
+Wird ausgelöst, wenn ein Menüeintrag angeklickt wird.
 
-Zur Kompatibilität mit anderen Browsern stellt Firefox dieses Ereignis sowohl im `contextMenus`-Namespace als auch im `menus`-Namespace zur Verfügung.
+Zur Kompatibilität mit anderen Browsern stellt Firefox dieses Ereignis sowohl über den `contextMenus`-Namespace als auch über den `menus`-Namespace zur Verfügung.
 
 ## Syntax
 
@@ -24,22 +24,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
     - `info`
-      - : {{WebExtAPIRef('menus.OnClickData')}}. Informationen über das angeklickte Element und den Kontext, in dem der Klick stattgefunden hat.
+      - : {{WebExtAPIRef('menus.OnClickData')}}. Informationen über das angeklickte Element und den Kontext, in dem der Klick stattfand.
     - `tab`
-      - : {{WebExtAPIRef('tabs.Tab')}}. Die Details des Tabs, in dem der Klick stattfand. Wenn der Klick nicht innerhalb eines Tabs stattfand, fehlt dieser Parameter.
+      - : {{WebExtAPIRef('tabs.Tab')}}. Die Details des Tabs, in dem der Klick stattfand. Falls der Klick nicht in oder auf einem Tab stattfand, fehlt dieser Parameter.
 
 ## Browser-Kompatibilität
 
@@ -47,7 +45,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Dieses Beispiel hört auf Klicks auf ein Menüelement und protokolliert dann die ID des Elements und die Tab-ID:
+Dieses Beispiel hört auf Klicks auf einen Menüeintrag und protokolliert dann die ID des Elements und die Tab-ID:
 
 ```js
 browser.menus.create({
@@ -64,7 +62,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#event-onClicked) API. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#event-onClicked)-API von Chromium. Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

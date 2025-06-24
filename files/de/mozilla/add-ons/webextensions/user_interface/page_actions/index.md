@@ -2,32 +2,31 @@
 title: Schaltfläche in der Adressleiste
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Page_actions
 l10n:
-  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Häufig als [Seitenaktion](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction)-Schaltfläche bezeichnet, ist diese Benutzeroberflächenoption eine Schaltfläche, die der Adressleiste des Browsers hinzugefügt wird. Benutzer klicken auf die Schaltfläche, um mit Erweiterungen zu interagieren.
+Oft wird diese Benutzeroberflächenoption als [Page-Action](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) Schaltfläche bezeichnet. Dabei handelt es sich um eine Schaltfläche, die der Browser-Adressleiste hinzugefügt wird. Benutzer klicken auf die Schaltfläche, um mit Erweiterungen zu interagieren.
 
-![Seitenaktionsknopf ist ein Symbol eines Hundepfotenabdrucks](address_bar_button.png)
+![Page-Action-Schaltfläche ist ein Symbol eines Hundepfotenabdrucks](address_bar_button.png)
 
-## Seitenaktionen und Browseraktionen
+## Page Actions und Browser Actions
 
-Die Schaltfläche in der Adressleiste (oder Seitenaktion) ähnelt der Symbolleistenschaltfläche (oder Browseraktion).
+Die Schaltfläche in der Adressleiste (oder Page Action) ist ähnlich der Symbolleistenschaltfläche (oder Browser Action).
 
 Die Unterschiede sind:
 
-- **Der Standort der Schaltfläche:**
+- **Die Position der Schaltfläche:**
 
-  - Die Seitenaktion wird innerhalb der Adressleiste des Browsers angezeigt.
-  - Die Browseraktion wird außerhalb der Adressleiste, in der Symbolleiste des Browsers, angezeigt.
+  - Die Page Action wird innerhalb der Browser-Adressleiste angezeigt.
+  - Die Browser Action wird außerhalb der Adressleiste, in der Browser-Symbolleiste, angezeigt.
 
 - **Die Sichtbarkeit der Schaltfläche:**
+  - Die Page Action ist standardmäßig ausgeblendet (obwohl dieser Standard über die Eigenschaften `show_matches` und `hide_matches` des [Manifest-Schlüssels](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) geändert werden kann), und Sie rufen [`pageAction.show()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show) und [`pageAction.hide()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/hide) auf, um sie in bestimmten Tabs anzuzeigen oder auszublenden.
+  - Die Browser Action wird immer angezeigt.
 
-  - Die Seitenaktion ist standardmäßig verborgen (obwohl diese Standardeinstellung über die `show_matches` und `hide_matches` [Schlüssel im Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) geändert werden kann), und Sie rufen [`pageAction.show()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show) und [`pageAction.hide()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/hide) auf, um sie in bestimmten Tabs anzuzeigen oder zu verbergen.
-  - Die Browseraktion wird immer angezeigt.
-
-Verwenden Sie eine Seitenaktion, wenn sich die Aktion auf die aktuelle Seite bezieht. Verwenden Sie eine Browseraktion, wenn sich die Aktion auf den Browser insgesamt oder auf viele Seiten bezieht. Zum Beispiel:
+Verwenden Sie eine Page Action, wenn die Aktion sich auf die aktuelle Seite bezieht. Nutzen Sie eine Browser Action, wenn die Aktion sich auf den gesamten Browser oder auf viele Seiten bezieht. Zum Beispiel:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -40,23 +39,23 @@ Verwenden Sie eine Seitenaktion, wenn sich die Aktion auf die aktuelle Seite bez
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Seitenaktion</th>
-      <td>Diese Seite als Lesezeichen speichern</td>
+      <th scope="row">page action</th>
+      <td>Diese Seite als Lesezeichen hinzufügen</td>
       <td>Reddit-Verbesserung</td>
       <td>Tab senden</td>
     </tr>
     <tr>
-      <th scope="row">Browseraktion</th>
+      <th scope="row">browser action</th>
       <td>Alle Lesezeichen anzeigen</td>
-      <td>Werbeblocker aktivieren</td>
+      <td>Werbungsblockierung aktivieren</td>
       <td>Alle offenen Tabs synchronisieren</td>
     </tr>
   </tbody>
 </table>
 
-## Festlegen der Seitenaktion
+## Festlegen der Page Action
 
-Sie definieren die Eigenschaften der Seitenaktion mit dem [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Schlüssel in der manifest.json:
+Sie definieren die Eigenschaften der Page Action mit dem [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Schlüssel in der manifest.json:
 
 ```json
 "page_action": {
@@ -70,24 +69,24 @@ Sie definieren die Eigenschaften der Seitenaktion mit dem [`page_action`](/de/do
 
 Der einzige obligatorische Schlüssel ist `default_icon`.
 
-Es gibt zwei Möglichkeiten, eine Seitenaktion anzugeben: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups).
+Es gibt zwei Möglichkeiten, eine Page Action zu spezifizieren: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups).
 
-- **Ohne ein Popup:** Wenn der Benutzer auf die Schaltfläche klickt, wird ein Ereignis an die Erweiterung gesendet, das die Erweiterung mit [`pageAction.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/onClicked) abfängt:
+- **Ohne ein Popup:** Wenn der Benutzer auf die Schaltfläche klickt, wird ein Ereignis an die Erweiterung gesendet, welches die Erweiterung mit [`pageAction.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/onClicked) überwacht:
 
   ```js
   browser.pageAction.onClicked.addListener(handleClick);
   ```
 
-- **Mit einem Popup:** Das `click`-Ereignis wird nicht gesendet. Stattdessen erscheint das Popup, wenn der Benutzer auf die Schaltfläche klickt. Der Benutzer interagiert dann mit dem Popup. Wenn der Benutzer außerhalb des Popups klickt, schließt es sich automatisch. Weitere Informationen zum Erstellen und Verwalten von Popups finden Sie im Artikel [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups).
+- **Mit einem Popup:** das `click`-Ereignis wird nicht gesendet. Stattdessen erscheint das Popup, wenn der Benutzer auf die Schaltfläche klickt. Der Benutzer interagiert dann mit dem Popup. Wenn der Benutzer außerhalb des Popups klickt, wird es automatisch geschlossen. Siehe den [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) Artikel für weitere Details zur Erstellung und Verwaltung von Popups.
 
-Beachten Sie, dass Ihre Erweiterung nur eine Seitenaktion haben kann.
+Beachten Sie, dass Ihre Erweiterung nur eine Page Action haben kann.
 
-Sie können alle Eigenschaften der Seitenaktion programmatisch mit der [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction)-API ändern.
+Sie können jede der Eigenschaften der Page Action programmatisch mit der [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) API ändern.
 
 ## Symbole
 
-Für Details, wie Sie Symbole für Ihre Seitenaktion erstellen, sehen Sie sich die [Ikonografie](https://acorn.firefox.com/latest/styles/iconography/overview-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation an.
+Für Details zur Erstellung von Symbolen, die Sie mit Ihrer Page Action verwenden können, sehen Sie unter [Iconography](https://acorn.firefox.com/latest/styles/iconography/overview-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation nach.
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples)-Repository auf GitHub enthält das [chill-out](https://github.com/mdn/webextensions-examples/tree/main/chill-out)-Beispiel, das eine Seitenaktion ohne Popup implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [chill-out](https://github.com/mdn/webextensions-examples/tree/main/chill-out) Beispiel, das eine Page Action ohne ein Popup implementiert.

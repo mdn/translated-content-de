@@ -2,14 +2,14 @@
 title: onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/commands/onChanged
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
 Wird ausgelöst, wenn die Tastenkombination für einen Befehl geändert wird.
 
-Dem Listener wird ein Objekt übergeben, das den Namen des Befehls, seine neue aktive Tastenkombination und seine alte Tastenkombination enthält.
+Der Listener erhält ein Objekt, das den Namen des Befehls, seine neue aktive Tastenkombination und seine alte Tastenkombination enthält.
 
 ## Syntax
 
@@ -24,24 +24,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Der `listener`-Parameter ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn sich die Tastenkombination eines Befehls ändert. Die Funktion erhält diese Argumente:
-
+  - : Die Funktion, die aufgerufen wird, wenn sich die Tastenkombination eines Befehls ändert. Der Funktion werden diese Argumente übergeben:
     - `changeInfo`
-
       - : `object`. Ein Objekt, das den Namen des Befehls, seine neue aktive Tastenkombination und seine alte Tastenkombination enthält.
-
         - `name`
-          - : `string`. Name des Befehls. Dies entspricht dem Namen, der dem Befehl in seinem [manifest.json Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) gegeben wurde.
+          - : `string`. Name des Befehls. Dieser entspricht dem Namen, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) gegeben wurde.
         - `newShortcut`
           - : `string`. Die neue aktive Tastenkombination für diesen Befehl oder leer, wenn keine Tastenkombination aktiv ist.
         - `oldShortcut`
@@ -53,7 +49,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Sie könnten Änderungen an Befehls-Tastenkombinationen wie folgt protokollieren:
+Sie könnten Änderungen an den Tastenkombinationen von Befehlen auf diese Weise protokollieren:
 
 ```js
 function handleChanged(changeInfo) {

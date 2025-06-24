@@ -2,20 +2,20 @@
 title: notifications.TemplateType
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/TemplateType
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Dies ist eine Zeichenkette und repräsentiert den Typ der Benachrichtigung, die erstellt werden soll. Es gibt vier Typen von Benachrichtigungen: "basic", "image", "list", "progress".
+Dies ist ein String und repräsentiert den Typ der Benachrichtigung, die erstellt werden soll. Es gibt vier Arten von Benachrichtigungen: "basic", "image", "list", "progress".
 
-Dies wird in {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} als `type`-Eigenschaft von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} übergeben.
+Dies wird als `type`-Eigenschaft von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} in {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} übergeben.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
-- `"basic"`: Die Benachrichtigung umfasst:
+- `"basic"`: Die Benachrichtigung enthält:
 
   - einen Titel (`NotificationOptions.title`)
   - eine Nachricht (`NotificationOptions.message`)
@@ -23,19 +23,18 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
   - eine zusätzliche Nachricht (`NotificationOptions.contextMessage`) {{optional_inline}}
   - bis zu zwei Schaltflächen (`NotificationOptions.buttons`) {{optional_inline}}
 
-- `"image"`: alles in `"basic"` und außerdem:
+- `"image"`: alles von `"basic"` und zusätzlich:
 
   - ein Bild (`NotificationOptions.imageUrl`)
 
-- `"list"`: alles in `"basic"` und außerdem:
+- `"list"`: alles von `"basic"` und zusätzlich:
 
   - eine Liste von Elementen (`NotificationOptions.items`)
 
-- `"progress"`: alles in `"basic"` und außerdem:
-
+- `"progress"`: alles von `"basic"` und zusätzlich:
   - einen Fortschrittsindikator (`NotificationOptions.progress`)
 
-Aktuell unterstützt Firefox nur "basic" hier.
+Derzeit unterstützt Firefox hier nur "basic".
 
 ## Browser-Kompatibilität
 

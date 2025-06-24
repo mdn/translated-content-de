@@ -2,12 +2,12 @@
 title: devtools.inspectedWindow.reload()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/reload
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Lädt das Fenster neu, an das die DevTools angehängt sind.
+Lädt das Fenster neu, an das die Entwicklerwerkzeuge angehängt sind.
 
 ## Syntax
 
@@ -20,15 +20,13 @@ browser.devtools.inspectedWindow.reload(
 ### Parameter
 
 - `reloadOptions` {{optional_inline}}
-
-  - : `object`. Optionen für die Funktion, wie folgt:
-
+  - : `object`. Optionen für die Funktion wie folgt:
     - `ignoreCache` {{optional_inline}}
-      - : `boolean`. Wenn true, wird beim Neuladen der Browser-Cache ignoriert (wie wenn der Benutzer Shift+Strg+R gedrückt hätte).
+      - : `boolean`. Wenn `true`, wird der Browser-Cache beim Neuladen ignoriert (als ob der Nutzer Shift+Strg+R gedrückt hätte).
     - `userAgent` {{optional_inline}}
-      - : `string`. Setzt einen benutzerdefinierten User-Agent für die Seite. Der hier angegebene String wird im [User-Agent](/de/docs/Web/HTTP/Reference/Headers/User-Agent)-Header des Browsers gesendet und bei Aufrufen von [`navigator.userAgent`](/de/docs/Web/API/Navigator/userAgent) zurückgegeben, die von in der Seite ausgeführten Skripten gemacht werden.
+      - : `string`. Setzen Sie einen benutzerdefinierten User-Agent für die Seite. Der hier angegebene String wird im [User-Agent](/de/docs/Web/HTTP/Reference/Headers/User-Agent)-Header des Browsers gesendet und von Aufrufen an [`navigator.userAgent`](/de/docs/Web/API/Navigator/userAgent) zurückgegeben, die von in der Seite laufenden Skripten gemacht werden.
     - `injectedScript` {{optional_inline}}
-      - : `string`. Injezieren Sie den angegebenen JavaScript-Ausdruck in alle Frames der Seite, bevor andere Skripte ausgeführt werden.
+      - : `string`. Injiziert den angegebenen JavaScript-Ausdruck in alle Frames der Seite, bevor andere Skripte geladen werden.
 
 ## Browser-Kompatibilität
 
@@ -36,7 +34,7 @@ browser.devtools.inspectedWindow.reload(
 
 ## Beispiele
 
-Laden Sie das untersuchte Fenster neu, setzen Sie den User-Agent und injizieren Sie ein Skript:
+Das inspizierte Fenster neu laden, indem der User-Agent gesetzt und ein Skript injiziert wird:
 
 ```js
 const reloadButton = document.querySelector("#reload-button");

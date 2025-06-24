@@ -3,18 +3,18 @@ title: "CookieChangeEvent: deleted-Eigenschaft"
 short-title: deleted
 slug: Web/API/CookieChangeEvent/deleted
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Die nur-lesbare **`deleted`**-Eigenschaft der [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent)-Schnittstelle gibt ein Array der Cookies zurück, die durch die gegebene `CookieChangeEvent`-Instanz gelöscht wurden.
+Die schreibgeschützte **`deleted`**-Eigenschaft des [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent)-Interfaces gibt ein Array der Cookies zurück, die von der gegebenen `CookieChangeEvent`-Instanz gelöscht wurden.
 
-Bitte beachten Sie, dass dies Cookies einschließt, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden, da diese Cookies sofort gelöscht werden.
+Beachten Sie, dass dies Cookies umfassen wird, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden, da diese Cookies sofort gelöscht werden.
 
 ## Wert
 
-Ein Array von Objekten, das die gelöschten Cookie(s) enthält. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein Array von Objekten, das die gelöschten Cookies enthält. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `name`
   - : Ein String, der den Namen des Cookies enthält.
@@ -31,20 +31,19 @@ Ein Array von Objekten, das die gelöschten Cookie(s) enthält. Jedes Objekt ent
 - `sameSite`
 
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte:
-
     - `"strict"`
-      - : Cookies werden nur in einem Erstanbieter-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites gesendet.
+      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen gesendet, die von Drittanbieter-Websites initiiert werden.
     - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Subrequests nicht gesendet (zum Beispiel, um Bilder oder Frames in eine Drittanbieter-Site zu laden), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungs-Site navigiert (d.h. wenn einem Link gefolgt wird).
+      - : Cookies werden bei normalen Cross-Site-Subanfragen (z. B. zum Laden von Bildern oder Frames auf einer Drittanbieter-Website) nicht gesendet, aber wenn ein Benutzer innerhalb der Ursprungs-Website navigiert (d.h. beim Folgen eines Links).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `partitioned`
-  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Siehe [Cookies mit unabhängigem partitionierten Status (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitioniertem Status (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
 
 ## Beispiele
 
-In diesem Beispiel, wenn das Cookie gelöscht wird, protokolliert der Ereignislistener das erste Element in der `CookieChangeEvent.deleted`-Eigenschaft auf der Konsole. Es enthält ein Objekt, das das gerade gelöschte Cookie repräsentiert.
+In diesem Beispiel protokolliert der Event-Listener, wenn das Cookie gelöscht wird, das erste Element in der `CookieChangeEvent.deleted`-Eigenschaft in der Konsole. Es enthält ein Objekt, das das gerade gelöschte Cookie darstellt.
 
 ```js
 cookieStore.addEventListener("change", (event) => {

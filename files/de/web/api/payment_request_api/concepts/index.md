@@ -1,68 +1,68 @@
 ---
-title: Konzepte der Zahlungsabwicklung
+title: Zahlungsabwicklungskonzepte
 slug: Web/API/Payment_Request_API/Concepts
 l10n:
-  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("Payment Request API")}}
 
-Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) erleichtert die Abwicklung von Zahlungen auf einer Website oder in einer App. In diesem Artikel werfen wir einen Blick darauf, wie die API funktioniert und welche Aufgaben die einzelnen Komponenten übernehmen.
+Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) erleichtert die Zahlungsabwicklung auf einer Website oder in einer App. In diesem Artikel werfen wir einen Blick darauf, wie die API funktioniert und welche Aufgaben ihre einzelnen Komponenten erfüllen.
 
 ## Terminologie
 
-Bevor wir ins Detail gehen, wie die API funktioniert, gibt es einige Begriffe, die Sie kennen sollten.
+Bevor wir uns mit den Details der API-Funktionalität befassen, gibt es einige Begriffe, die Sie kennen müssen.
 
 - Zahlungsempfänger (oder Händler)
-  - : Der Händler—entweder eine Person oder eine Organisation—dessen Website oder App mit der Payment Request API Geld erhalten möchte.
+  - : Der Händler – entweder eine Person oder eine Organisation –, dessen Website oder App Zahlungen über die Payment Request API erhalten möchte.
 - Zahler
-  - : Die Person oder Organisation, die mit einer Website oder App einen Kauf tätigt. Der Zahler authentifiziert sich zunächst und autorisiert dann die Zahlung, wie es die Zahlungsmethode erfordert.
+  - : Die Person oder Organisation, die über eine Website oder App einen Kauf tätigt. Der Zahler authentifiziert sich selbst und autorisiert dann die Zahlung, wie es die Zahlungsmethode erfordert.
 - Zahlungsmethode
-  - : Das Instrument, durch das die Zahlung eingereicht wird, wie zum Beispiel eine Kreditkarte oder ein Online-Zahlungsdienst.
-- Zahlungsdienstleister
-  - : Eine Organisation, die die Technologie zur Verfügung stellt, um Zahlungen mit einer bestimmten Zahlungsmethode einzureichen. Zum Beispiel ist der Kreditkartenabwicklungsdienst bei der Zahlung mit einer Kreditkarte der Zahlungsdienstleister.
-- Zahlungshandler
-  - : Die Implementierung des Codes, der benötigt wird, um mit einem bestimmten Zahlungsdienstleister zu interagieren, um Zahlungen abzuwickeln.
+  - : Das Instrument, über das die Zahlung eingereicht wird, wie z. B. eine Kreditkarte oder ein Online-Bezahldienst.
+- Anbieter von Zahlungsmethoden
+  - : Eine Organisation, die die Technologie bereitstellt, die benötigt wird, um Zahlungen mit einer bestimmten Zahlungsmethode einzureichen. Zum Beispiel ist der Kreditkartenabwicklungsdienst der Anbieter der Zahlungsmethode, wenn mit einer Kreditkarte bezahlt wird.
+- Zahlungsabwickler
+  - : Die Implementierung des Codes, der erforderlich ist, um mit einem bestimmten Anbieter von Zahlungsmethoden zu interagieren und Zahlungen zu verarbeiten.
 
-Einige Zahlungshandler verwenden die **Händler-Validierung**, bei der die Identität eines Händlers in irgendeiner Weise validiert wird, normalerweise mit einer Form von kryptografischer Antwort, wie einem öffentlichen Schlüssel. Validierte Händler dürfen mit einem Zahlungshandler interagieren.
+Einige Zahlungsabwickler verwenden die **Händlervalidierung**, bei der es darum geht, die Identität eines Händlers in irgendeiner Weise zu validieren, normalerweise unter Verwendung einer kryptografischen Antwort wie einem öffentlichen Schlüssel. Validierte Händler dürfen mit einem Zahlungsabwickler interagieren.
 
 ## Zahlungsmethoden-Identifikatoren
 
-Zahlungshandler werden durch **Zahlungsmethoden-Identifikatoren** identifiziert, die Zeichenfolgen sind, die den Zahlungshandler eindeutig identifizieren. Diese können entweder einer der standardisierten Zahlungshandler-Identifikatoren sein oder eine URL, die von dem Zahlungsdienst verwendet wird, um sich selbst zu identifizieren und Zahlungen abzuwickeln.
+Zahlungsabwickler werden durch **Zahlungsmethoden-Identifikatoren** identifiziert, die Zeichenfolgen sind, die den Zahlungsabwickler eindeutig identifizieren. Diese können entweder einer der standardisierten Zahlungsabwickler-Identifikatoren oder eine URL sein, die von dem Zahlungsabwicklungsdienst zur Identifizierung und Abwicklung von Zahlungen verwendet wird.
 
 ### Standardisierte Zahlungsmethoden-Identifikatoren
 
-Standardisierte Zahlungsmethoden-Identifikatoren sind in dem [payment method registry](https://w3c.github.io/payment-method-id/#registry) aufgeführt.
+Standardisierte Zahlungsmethoden-Identifikatoren sind diejenigen, die im [Zahlungsmethoden-Register](https://w3c.github.io/payment-method-id/#registry) aufgeführt sind.
 
 - `secure-payment-confirmation`
 
-  - : Identifiziert die [Secure Payment Confirmation](https://w3c.github.io/secure-payment-confirmation/) Methode. Die Zahlungsanfragedaten für diese Methode werden durch das [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest) Wörterbuch definiert. Weitere Informationen finden Sie unter [Using Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation).
+  - : Identifiziert die [Secure Payment Confirmation](https://w3c.github.io/secure-payment-confirmation/)-Methode. Die Zahlungsanfragedaten für diese Methode werden durch das [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest)-Wörterbuch definiert. Weitere Informationen finden Sie unter [Using Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation).
 
 - `basic-card`
-  - : Dieser Zahlungsmethoden-Identifikator war gedacht, um kartenbasierte Zahlungen im Web durch die Payment Request API zu erleichtern. **Die [Web Payments Working Group](https://www.w3.org/groups/wg/payments) hat diese Zahlungsmethode als veraltet eingestuft.**
+  - : Dieser Zahlungsabwickler-Identifikator war dazu gedacht, kartenbasierte Zahlungen im Web über die Payment Request API zu erleichtern. **Die [Web Payments Working Group](https://www.w3.org/groups/wg/payments) hat diese Zahlungsmethode veraltet.**
 
 ### URL-basierte Zahlungsmethoden-Identifikatoren
 
-Diese können je nach den spezifischen Anforderungen des Dienstes erheblich variieren, und ein bestimmter Zahlungsdienst kann je nach Version seiner API, seiner Kommunikationstechnologie usw. mehrere URLs verwenden.
+Diese können je nach den spezifischen Eigenschaften des Dienstes erheblich variieren, und ein bestimmter Abwicklungsdienst kann je nach Version seiner API, seiner Kommunikationstechnologie usw. mehrere URLs verwenden.
 
 - `https://apple.com/apple-pay`
-  - : Zahlungen werden mit dem [Apple Pay](https://www.apple.com/apple-pay/) Dienst abgewickelt. Apple Pay wird derzeit nur von Safari unterstützt.
+  - : Zahlungen werden über den [Apple Pay](https://www.apple.com/apple-pay/)-Service abgewickelt. Derzeit wird Apple Pay nur von Safari unterstützt.
 - `https://google.com/pay`
-  - : Zahlungen werden von [Google Pay](https://pay.google.com/payments/home) verarbeitet. Dies wird derzeit nur von Chrome und auf Chromium basierenden Browsern unterstützt.
+  - : Zahlungen werden von [Google Pay](https://pay.google.com/payments/home) verarbeitet. Dies wird derzeit nur von Chrome und Chromium-basierten Browsern unterstützt.
 
-## Funktionen eines Zahlungshandlers
+## Funktionen eines Zahlungsabwicklers
 
-Ein {{Glossary("user_agent", "user agent")}} kann integrierte Unterstützung für bestimmte Arten von Zahlungen bieten. Zusätzlich kann die [Payment Handler API](https://w3c.github.io/payment-handler/) verwendet werden, um Unterstützung für zusätzliche Zahlungsdienstleister in Browsern, die dies unterstützen, einzurichten. In beiden Fällen ist der Zahlungshandler verantwortlich für:
+Ein {{Glossary("user_agent", "User-Agent")}} kann integrierte Unterstützung für bestimmte Zahlungsarten bieten. Zusätzlich kann die [Payment Handler API](https://w3c.github.io/payment-handler/) verwendet werden, um Unterstützung für zusätzliche Anbieter von Zahlungsmethoden in Browsern zu etablieren, die dies unterstützen. In jedem Fall ist der Zahlungsabwickler dafür verantwortlich:
 
-1. **Sicherstellen, dass eine Zahlung durchgeführt werden kann.** Die Bedingungen, die eine Zahlung ermöglichen, variieren je nach Zahlungsmethode und Zahlungsanfrage des Benutzers; zum Beispiel, wenn der Benutzer mit einer Kreditkarte zahlen möchte, die vom Zahlungsempfänger nicht akzeptiert wird, kann die Zahlung nicht durchgeführt werden.
-2. **Wenn die Händler-Validierung vom Zahlungshandler unterstützt wird, auf Anfragen zur Händler-Validierung vom user agent antworten.** Siehe [Händler-Validierung](#händler-validierung) für Details.
-3. **Überprüfen, dass die vom Benutzer bereitgestellten Informationen zu einer gültigen Transaktion führen.** Dies führt zur Erstellung und Rücksendung eines spezifischen Zahlungsmethoden-Objekts, das die erforderlichen Informationen zur Abwicklung der Transaktion enthält.
+1. **Sicherzustellen, dass eine Zahlung durchgeführt werden kann.** Die Bedingungen, die eine Zahlung ermöglichen, variieren je nach Zahlungsmethode und Zahlungsanforderung des Benutzers; Zum Beispiel, wenn der Benutzer eine Kreditkarte wählen möchte, die nicht vom Zahlungsempfänger akzeptiert wird, kann die Zahlung nicht durchgeführt werden.
+2. **Falls die Händlervalidierung vom Zahlungsabwickler unterstützt wird, auf Händlervalidierungsanfragen vom User-Agent zu reagieren.** Details hierzu finden Sie unter [Händlervalidierung](#händlervalidierung).
+3. **Zu überprüfen, dass die vom Benutzer bereitgestellten Informationen zu einer gültigen Transaktion führen.** Dies führt zur Erstellung und Rückgabe eines zahlungsmethodenspezifischen Objekts, das die Informationen enthält, die zur Abwicklung der Transaktion benötigt werden.
 
-## Händler-Validierung
+## Händlervalidierung
 
-Einige Zahlungshandler verwenden _Händler-Validierung_, bei der die Identität eines Händlers in irgendeiner Weise validiert wird, normalerweise mit einer Form von kryptografischer Herausforderung. Wenn der Händler die Validierung nicht erfolgreich durchführt, darf er den Zahlungshandler nicht verwenden.
+Einige Zahlungsabwickler verwenden die _Händlervalidierung_, bei der es darum geht, die Identität eines Händlers in irgendeiner Weise zu validieren, normalerweise durch eine kryptografische Herausforderung. Wenn der Händler nicht erfolgreich validiert wird, darf er den Zahlungsabwickler nicht verwenden.
 
-Die genaue Validierungstechnologie hängt vom Zahlungshandler ab, und die Händler-Validierung ist vollständig optional. Am Ende ist die einzige Verantwortung der Website oder App, den Validierungsschlüssel des Händlers abzurufen und ihn in die [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete)-Methode des Ereignisses zu übergeben.
+Die genaue Validierungstechnologie hängt vom Zahlungsabwickler ab, und die Händlervalidierung ist völlig optional. Am Ende ist die einzige Verantwortung der Website oder App, den Validierungsschlüssel des Händlers abzurufen und ihn in die [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete)-Methode des Ereignisses einzugeben.
 
 ```js
 paymentRequest.onmerchantvalidation = (event) => {
@@ -70,11 +70,11 @@ paymentRequest.onmerchantvalidation = (event) => {
 };
 ```
 
-In diesem Beispiel ist `fetchValidationData()` eine Funktion, die die spezifischen Identifizierungsinformationen des Zahlungshandlers von der durch `validationURL` gegebenen Adresse lädt. Beachten Sie, dass diese Funktion über den Händler-Server gehen muss, da ein Client normalerweise nicht selbst auf die Validierungs-URL zugreift.
+In diesem Beispiel ist `fetchValidationData()` eine Funktion, die die zahlungsabwicklerspezifischen Identifikationsinformationen von der durch `validationURL` angegebenen Adresse lädt. Beachten Sie, dass diese Funktion über den Händler-Server gehen muss, da ein Client in der Regel keinen direkten Zugriff auf die Validierungs-URL hat.
 
-Durch die Übermittlung dieser Daten (oder eines {{jsxref("Promise")}}, das sich auf die geladenen Daten auflöst) an den Zahlungshandler, indem sie in `complete()` übergeben werden, kann der Zahlungshandler die abgerufenen Daten und alle anderen erforderlichen Algorithmen und Daten verwenden, um sicherzustellen, dass der Händler den Zahlungshandler nutzen kann.
+Indem diese Daten (oder ein {{jsxref("Promise")}}, das die geladenen Daten auflöst) dann dem Zahlungsabwickler durch die Übergabe an `complete()` zur Verfügung gestellt werden, kann der Zahlungsabwickler die abgerufenen Daten und jeden Algorithmus sowie andere unterstützende Daten verwenden, um zu verifizieren, dass der Händler den Zahlungsabwickler nutzen kann.
 
-Es ist daher wichtig zu beachten, dass der {{Glossary("user_agent", "user agent")}} niemals ein [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event)-Ereignis sendet, es sei denn, der user agent selbst implementiert einen Zahlungshandler. Beispielsweise hat Safari integrierte Unterstützung für Apple Pay, so dass der Apple Pay Zahlungshandler dies nutzt, um sicherzustellen, dass Apple Pay verwendet werden kann, um den Händler zu bezahlen, indem `merchantvalidation` an den Client gesendet wird und diesen anweist, die Validierungsdaten des Servers abzurufen und sie durch Aufrufen von `complete()` an den Zahlungshandler zu übermitteln.
+Daher ist es wichtig zu beachten, dass der {{Glossary("user_agent", "User-Agent")}} niemals ein [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event)-Ereignis sendet, es sei denn, der User-Agent selbst implementiert einen Zahlungsabwickler. Beispielsweise hat Safari eine integrierte Unterstützung für Apple Pay, sodass der Apple Pay-Zahlungsabwickler dies nutzt, um sicherzustellen, dass Apple Pay verwendet werden kann, um den Händler zu bezahlen, indem `merchantvalidation` an den Client gesendet wird und ihn anweist, die Validierungsdaten des Servers abzurufen und sie durch Aufruf von `complete()` dem Zahlungsabwickler zu übermitteln.
 
 ## Spezifikationen
 

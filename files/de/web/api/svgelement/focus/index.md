@@ -3,16 +3,14 @@ title: "SVGElement: focus() Methode"
 short-title: focus()
 slug: Web/API/SVGElement/focus
 l10n:
-  sourceCommit: 3b135a0ae3b80cb24f6495fa8956c6631f5ce1ba
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGElement.focus()`**-Methode setzt den Fokus auf das angegebene SVG-Element, sofern es fokussiert werden kann.
-Das fokussierte Element ist das Element, das standardmäßig Tastatur- und ähnliche Ereignisse empfängt.
+Die **`SVGElement.focus()`** Methode setzt den Fokus auf das angegebene SVG-Element, wenn es fokussierbar ist. Das fokussierte Element ist das Element, das standardmäßig Tastatur- und ähnliche Ereignisse erhält.
 
-Standardmäßig wird der Browser das Element nach dem Fokussieren in den sichtbaren Bereich scrollen und möglicherweise eine sichtbare Kennzeichnung des fokussierten Elements bereitstellen (typischerweise durch die Anzeige eines "Fokusrings" um das Element).
-Parameteroptionen werden bereitgestellt, um das automatische Scrollen zu deaktivieren und eine sichtbare Kennzeichnung auf Elementen zu erzwingen.
+Standardmäßig scrollt der Browser das Element nach dem Fokussieren in den Ansichtsbereich, und er kann auch eine sichtbare Hervorhebung des fokussierten Elements bereitstellen (typischerweise durch das Anzeigen eines "Fokus-Rings" um das Element). Parameteroptionen werden bereitgestellt, um das standardmäßige Scrollen zu deaktivieren und eine sichtbare Hervorhebung auf Elementen zu erzwingen.
 
 ## Syntax
 
@@ -24,14 +22,9 @@ focus(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
-  - : Ein optionales Objekt zur Steuerung von Aspekten des Fokussierungsprozesses.
-    Dieses Objekt kann die folgenden Eigenschaften enthalten:
-
+  - : Ein optionales Objekt zur Steuerung von Aspekten des Fokussierungsvorgangs. Dieses Objekt kann die folgenden Eigenschaften enthalten:
     - `preventScroll` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Browser das Dokument scrollen soll, um das neu fokussierte Element in den sichtbaren Bereich zu bringen.
-        Ein Wert von `false` für `preventScroll` (Standard) bedeutet, dass der Browser das Element nach dem Fokussieren in den sichtbaren Bereich scrollen wird.
-        Wenn `preventScroll` auf `true` gesetzt ist, erfolgt kein Scrollen.
+      - : Ein boolescher Wert, der angibt, ob der Browser das Dokument scrollen soll, um das neu fokussierte Element in den Ansichtsbereich zu bringen. Ein Wert von `false` für `preventScroll` (der Standardwert) bedeutet, dass der Browser das Element nach dem Fokussieren in den Ansichtsbereich scrollt. Wenn `preventScroll` auf `true` gesetzt ist, erfolgt kein Scrollen.
 
 ### Rückgabewert
 
@@ -39,9 +32,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Fokussieren eines SVG-Elements
+### Fokussierung eines SVG-Elements
 
-Dieses Beispiel verwendet eine Schaltfläche, um den Fokus auf ein SVG-Kreis-Element zu setzen.
+Dieses Beispiel verwendet einen Button, um den Fokus auf ein SVG-Kreis-Element zu setzen.
 
 #### HTML
 
@@ -67,7 +60,7 @@ document.getElementById("focusButton").addEventListener("click", () => {
 
 ## Hinweise
 
-- Wenn Sie `SVGElement.focus()` aus einem mousedown-Ereignis-Handler aufrufen, müssen Sie `event.preventDefault()` aufrufen, um zu verhindern, dass der Fokus das `SVGElement` verlässt.
+- Wenn Sie `SVGElement.focus()` von einem mousedown Event-Handler aus aufrufen, müssen Sie `event.preventDefault()` aufrufen, um zu verhindern, dass der Fokus das `SVGElement` verlässt.
 
 ## Browser-Kompatibilität
 
@@ -75,5 +68,5 @@ document.getElementById("focusButton").addEventListener("click", () => {
 
 ## Siehe auch
 
-- [`SVGElement.blur`](/de/docs/Web/API/SVGElement/blur) um den Fokus von einem Element zu entfernen.
+- [`SVGElement.blur`](/de/docs/Web/API/SVGElement/blur) zum Entfernen des Fokus von einem Element.
 - [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) eine ähnliche Methode für HTML-Elemente.

@@ -2,21 +2,28 @@
 title: Kontrollfluss und Fehlerbehandlung
 slug: Web/JavaScript/Guide/Control_flow_and_error_handling
 l10n:
-  sourceCommit: 3d53de838dbcb25b210ccd708c681771cdeb14e4
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{jsSidebar("JavaScript Guide")}}
 {{PreviousNext("Web/JavaScript/Guide/Grammar_and_types", "Web/JavaScript/Guide/Loops_and_iteration")}}
 
-JavaScript unterstützt eine kompakte Anzahl von Anweisungen, insbesondere Kontrollflussanweisungen, die Sie verwenden können, um Ihrem Anwendung eine hohe Interaktivität zu verleihen. Dieses Kapitel gibt einen Überblick über diese Anweisungen.
+JavaScript unterstützt eine kompakte Auswahl von Anweisungen, besonders
+Kontrollfluss-Anweisungen, die Sie verwenden können, um eine große Menge an Interaktivität
+in Ihrer Anwendung zu integrieren. Dieses Kapitel gibt einen Überblick über diese Anweisungen.
 
-Der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference/Statements) enthält umfangreiche Details zu den Anweisungen in diesem Kapitel. Das Semikolon (`;`) wird verwendet, um Anweisungen im JavaScript-Code zu trennen.
+Die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference/Statements)
+enthält ausführliche Details zu den Anweisungen in diesem Kapitel. Das Semikolon
+(`;`) Zeichen wird verwendet, um Anweisungen im JavaScript-Code zu trennen.
 
-Jeder JavaScript-Ausdruck ist auch eine Anweisung. Siehe [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators) für vollständige Informationen über Ausdrücke.
+Jeder JavaScript-Ausdruck ist auch eine Anweisung.
+Siehe [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators)
+für vollständige Informationen über Ausdrücke.
 
-## Blockanweisung
+## Block-Anweisung
 
-Die grundlegendste Anweisung ist eine _Blockanweisung_, die dazu verwendet wird, Anweisungen zu gruppieren. Der Block wird durch ein Paar geschweifter Klammern begrenzt:
+Die grundlegendste Anweisung ist eine _Block-Anweisung_, die verwendet wird, um
+Anweisungen zu gruppieren. Der Block wird durch ein Paar geschweifter Klammern abgegrenzt:
 
 ```js
 {
@@ -29,7 +36,8 @@ Die grundlegendste Anweisung ist eine _Blockanweisung_, die dazu verwendet wird,
 
 ### Beispiel
 
-Blockanweisungen werden häufig mit Kontrollflussanweisungen verwendet (`if`, `for`, `while`).
+Block-Anweisungen werden häufig mit Kontrollfluss-Anweisungen (`if`,
+`for`, `while`) verwendet.
 
 ```js
 while (x < 10) {
@@ -37,9 +45,10 @@ while (x < 10) {
 }
 ```
 
-Hier ist `{ x++; }` die Blockanweisung.
+Hier ist `{ x++; }` die Block-Anweisung.
 
-> **Note:** [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-deklarierten Variablen sind nicht blockbasiert, sondern auf die umgebende Funktion oder das Skript begrenzt, und die Auswirkungen ihrer Festlegung bestehen über den Block hinaus fort. Zum Beispiel:
+> [!NOTE]
+> Mit [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) deklarierte Variablen sind nicht blockweise, sondern auf die umgebende Funktion oder das Skript bezogen, und die Auswirkungen ihrer Einstellung bestehen über den Block hinaus. Zum Beispiel:
 >
 > ```js
 > var x = 1;
@@ -49,19 +58,21 @@ Hier ist `{ x++; }` die Blockanweisung.
 > console.log(x); // 2
 > ```
 >
-> Dies gibt `2` aus, da die `var x`-Anweisung innerhalb des Blocks in demselben Gültigkeitsbereich wie die `var x`-Anweisung vor dem Block liegt. (In C oder Java würde der entsprechende Code `1` ausgeben.)
+> Dies gibt `2` aus, da die `var x`-Anweisung innerhalb des Blocks im selben Rahmen wie die `var x`-Anweisung vor dem Block ist. (In C oder Java würde der äquivalente Code `1` ausgeben.)
 >
-> Dieser Gültigkeitsbereichseffekt kann durch die Verwendung von {{jsxref("Statements/let", "let")}} oder {{jsxref("Statements/const", "const")}} gemindert werden.
+> Dieser Scoping-Effekt kann durch die Verwendung von {{jsxref("Statements/let", "let")}} oder {{jsxref("Statements/const", "const")}} gemindert werden.
 
 ## Bedingte Anweisungen
 
-Eine bedingte Anweisung ist eine Reihe von Befehlen, die ausgeführt werden, wenn eine bestimmte Bedingung wahr ist. JavaScript unterstützt zwei bedingte Anweisungen: `if...else` und `switch`.
+Eine bedingte Anweisung ist eine Gruppe von Befehlen, die ausgeführt werden, wenn eine bestimmte Bedingung erfüllt ist. JavaScript unterstützt zwei bedingte Anweisungen: `if...else` und `switch`.
 
-### if...else Anweisung
+### if...else-Anweisung
 
-Verwenden Sie die `if`-Anweisung, um eine Anweisung auszuführen, wenn eine logische Bedingung `true` ist. Verwenden Sie die optionale `else`-Klausel, um eine Anweisung auszuführen, wenn die Bedingung `false` ist.
+Verwenden Sie die `if`-Anweisung, um eine Anweisung auszuführen, wenn eine logische Bedingung
+`true` ist. Verwenden Sie die optionale `else`-Klausel, um eine Anweisung auszuführen, falls
+die Bedingung `false` ist.
 
-Eine `if`-Anweisung sieht so aus:
+Eine `if`-Anweisung sieht wie folgt aus:
 
 ```js
 if (condition) {
@@ -71,11 +82,18 @@ if (condition) {
 }
 ```
 
-Hier kann die `condition` ein beliebiger Ausdruck sein, der zu `true` oder `false` ausgewertet wird. (Siehe [Boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#description) für eine Erklärung, was zu `true` und `false` ausgewertet wird.)
+Hierbei kann die `condition` jeder Ausdruck sein, der zu
+`true` oder `false` ausgewertet wird. (Siehe [Boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#description)
+für eine Erklärung, was zu `true` und `false` ausgewertet wird.)
 
-Wenn `condition` zu `true` ausgewertet wird, wird `statement1` ausgeführt. Andernfalls wird `statement2` ausgeführt. `statement1` und `statement2` können beliebige Anweisungen sein, einschließlich weiterer verschachtelter `if`-Anweisungen.
+Wenn `condition` zu `true` ausgewertet wird,
+wird `statement1` ausgeführt. Andernfalls wird
+`statement2` ausgeführt. `statement1` und
+`statement2` können jede Anweisung sein, einschließlich weiterer verschachtelter
+`if`-Anweisungen.
 
-Sie können die Anweisungen auch mit `else if` kombinieren, um mehrere Bedingungen in Folge zu testen, wie folgt:
+Sie können die Anweisungen auch mit `else if` kombinieren, um mehrere
+Bedingungen in der Reihe zu testen, wie folgt:
 
 ```js
 if (condition1) {
@@ -89,11 +107,14 @@ if (condition1) {
 }
 ```
 
-Im Falle mehrerer Bedingungen wird nur die erste logische Bedingung, die zu `true` ausgewertet wird, ausgeführt. Um mehrere Anweisungen auszuführen, gruppieren Sie sie in einer Blockanweisung (`{ /* … */ }`).
+Im Falle mehrerer Bedingungen wird nur die erste Bedingung, die zu
+`true` ausgewertet wird, ausgeführt. Um mehrere Anweisungen auszuführen, gruppieren Sie diese innerhalb einer
+Block-Anweisung (`{ /* … */ }`).
 
-#### Best Practice
+#### Beste Praktiken
 
-Im Allgemeinen ist es gute Praxis, immer Blockanweisungen zu verwenden—_insbesondere_ beim Verschachteln von `if`-Anweisungen:
+Im Allgemeinen ist es eine gute Praxis, immer Block-Anweisungen zu verwenden—_besonders_ beim
+Verschachteln von `if`-Anweisungen:
 
 ```js
 if (condition) {
@@ -105,7 +126,7 @@ if (condition) {
 }
 ```
 
-Im Allgemeinen ist es gute Praxis, kein `if...else` mit einer Zuweisung wie `x = y` als Bedingung zu haben:
+Im Allgemeinen ist es eine gute Praxis, keine `if...else` mit einer Zuweisung wie `x = y` als Bedingung zu haben:
 
 ```js-nolint example-bad
 if (x = y) {
@@ -113,7 +134,7 @@ if (x = y) {
 }
 ```
 
-In dem seltenen Fall, dass Sie etwas in dieser Art tun möchten, enthält die Dokumentation zur [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife einen Abschnitt über [Die Verwendung einer Zuordnung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit Hinweisen zu einer allgemeinen Best-Practice-Syntax, die Sie kennen sollten und der Sie folgen sollten.
+In dem seltenen Fall, dass Sie so etwas tun möchten, hat die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Dokumentation einen Abschnitt über [Verwenden einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit Anleitungen zu einer allgemeinen Best-Practice-Syntax, die Sie kennen und befolgen sollten.
 
 #### Falsy-Werte
 
@@ -126,7 +147,8 @@ Die folgenden Werte werden zu `false` ausgewertet (auch bekannt als {{Glossary("
 - `NaN`
 - der leere String (`""`)
 
-Alle anderen Werte—einschließlich aller Objekte—werden zu `true` ausgewertet, wenn sie an eine bedingte Anweisung übergeben werden.
+Alle anderen Werte—einschließlich aller Objekte—werden zu `true` ausgewertet, wenn sie
+einer bedingten Anweisung übergeben werden.
 
 > [!NOTE]
 > Verwechseln Sie nicht die primitiven booleschen Werte
@@ -138,16 +160,16 @@ Alle anderen Werte—einschließlich aller Objekte—werden zu `true` ausgewerte
 > ```js
 > const b = new Boolean(false);
 > if (b) {
->   // diese Bedingung wird zu true ausgewertet
+>   // diese Bedingung wird als true ausgewertet
 > }
 > if (b == true) {
->   // diese Bedingung wird zu false ausgewertet
+>   // diese Bedingung wird als false ausgewertet
 > }
 > ```
 
 #### Beispiel
 
-Im folgenden Beispiel gibt die Funktion `checkData` `true` zurück, wenn die Anzahl der Zeichen in einem `Text`-Objekt drei beträgt. Andernfalls zeigt sie einen Alarm an und gibt `false` zurück.
+Im folgenden Beispiel gibt die Funktion `checkData` `true` zurück, falls die Anzahl der Zeichen in einem `Text`-Objekt drei beträgt. Andernfalls zeigt sie eine Warnung an und gibt `false` zurück.
 
 ```js
 function checkData() {
@@ -163,9 +185,11 @@ function checkData() {
 
 ### switch-Anweisung
 
-Eine `switch`-Anweisung ermöglicht es einem Programm, einen Ausdruck zu bewerten und zu versuchen, den Wert des Ausdrucks mit einem `case`-Label zu vergleichen. Wenn eine Übereinstimmung gefunden wird, führt das Programm die zugehörige Anweisung aus.
+Eine `switch`-Anweisung ermöglicht es einem Programm, einen Ausdruck zu bewerten und zu versuchen,
+den Wert des Ausdrucks mit einem `case`-Label abzugleichen. Wenn ein Treffer gefunden wird, führt das
+Programm die zugehörige Anweisung aus.
 
-Eine `switch`-Anweisung sieht so aus:
+Eine `switch`-Anweisung sieht wie folgt aus:
 
 ```js
 switch (expression) {
@@ -183,20 +207,34 @@ switch (expression) {
 
 JavaScript bewertet die obige switch-Anweisung wie folgt:
 
-- Das Programm sucht zunächst nach einer `case`-Klausel mit einem Label, das mit dem Wert des Ausdrucks übereinstimmt, und überträgt dann die Kontrolle an diese Klausel, indem es die zugehörigen Anweisungen ausführt.
-- Wenn kein entsprechendes Label gefunden wird, sucht das Programm nach der optionalen `default`-Klausel:
-
-  - Wenn eine `default`-Klausel gefunden wird, überträgt das Programm die Kontrolle an diese Klausel und führt die zugehörigen Anweisungen aus.
-  - Wenn keine `default`-Klausel gefunden wird, setzt das Programm die Ausführung mit der Anweisung nach dem Ende des `switch` fort.
-  - (Üblicherweise wird die `default`-Klausel als letzte Klausel geschrieben, es muss aber nicht so sein.)
+- Das Programm sucht zunächst nach einer `case`-Klausel mit einem Label, das den
+  Wert des Ausdrucks abgleicht, und überträgt dann die Kontrolle auf diese Klausel und führt die
+  zugehörigen Anweisungen aus.
+- Wenn kein passendes Label gefunden wird, sucht das Programm nach der optionalen
+  `default`-Klausel:
+  - Wenn eine `default`-Klausel gefunden wird, überträgt das Programm die Kontrolle auf diese
+    Klausel und führt die zugehörigen Anweisungen aus.
+  - Wenn keine `default`-Klausel gefunden wird, setzt das Programm die Ausführung bei der
+    Anweisung fort, die dem Ende von `switch` folgt.
+  - (Nach Konvention wird die `default`-Klausel als letzte Klausel geschrieben,
+    aber sie muss nicht so sein.)
 
 #### break-Anweisungen
 
-Die optionale `break`-Anweisung, die mit jeder `case`-Klausel verbunden ist, stellt sicher, dass das Programm `switch` verlässt, sobald die übereinstimmende Anweisung ausgeführt wurde, und dann die Ausführung mit der Anweisung fortsetzt, die auf `switch` folgt. Wenn `break` weggelassen wird, wird die Ausführung des Programms innerhalb der `switch`-Anweisung fortgesetzt (und es werden die Anweisungen unter dem nächsten `case` ausgeführt, und so weiter).
+Die optionale `break`-Anweisung, die mit jeder `case`-Klausel verbunden ist,
+stellt sicher, dass das Programm die `switch` verlässt, sobald die gematchte Anweisung
+ausgeführt wird, und dann die Ausführung bei der Anweisung fortsetzt, die `switch` folgt.
+Wenn `break` weggelassen wird, setzt das Programm die Ausführung innerhalb der
+`switch`-Anweisung fort (und wird Anweisungen unter der nächsten `case` ausführen, und so weiter).
 
 ##### Beispiel
 
-Im folgenden Beispiel, wenn `fruitType` zu `"Bananas"` ausgewertet wird, vergleicht das Programm den Wert mit `case "Bananas"` und führt die zugehörige Anweisung aus. Wenn `break` auftritt, beendet das Programm `switch` und setzt die Ausführung mit der Anweisung nach `switch` fort. Wenn `break` weggelassen wird, wird auch die Anweisung für `case "Cherries"` ausgeführt.
+Im folgenden Beispiel, wenn `fruitType` zu
+`"Bananas"` ausgewertet wird, gleicht das Programm den Wert mit `case "Bananas"`
+ab und führt die zugehörige Anweisung aus. Wenn `break` auftritt, verlässt das
+Programm die `switch` und setzt die Ausführung von der Anweisung fort, die
+`switch` folgt. Wenn `break` weggelassen würde, würde die Anweisung für
+`case "Cherries"` ebenfalls ausgeführt.
 
 ```js
 switch (fruitType) {
@@ -224,29 +262,34 @@ switch (fruitType) {
 console.log("Is there anything else you'd like?");
 ```
 
-## Anweisungen zur Ausnahmebehandlung
+## Ausnahmebehandlungs-Anweisungen
 
-Sie können Ausnahmen mit der `throw`-Anweisung auslösen und sie mit der `try...catch`-Anweisung behandeln.
+Sie können Ausnahmen mit der `throw`-Anweisung werfen und mit
+den `try...catch`-Anweisungen behandeln.
 
-- [`throw` Anweisung](#throw-anweisung)
-- [`try...catch` Anweisung](#try...catch-anweisung)
+- [`throw`-Anweisung](#throw-anweisung)
+- [`try...catch`-Anweisung](#try...catch-anweisung)
 
 ### Ausnahmetypen
 
-Grundsätzlich kann jedes Objekt in JavaScript ausgelöst werden. Dennoch sind nicht alle ausgelösten Objekte gleichwertig. Während es üblich ist, Zahlen oder Zeichenketten als Fehler auszulösen, ist es häufig effektiver, einen der speziell für diesen Zweck erstellten Ausnahmetypen zu verwenden:
+Fast jedes Objekt kann in JavaScript geworfen werden. Dennoch sind nicht alle geworfenen Objekte
+gleich. Während es üblich ist, Zahlen oder Strings als Fehler zu werfen, ist es
+häufig effektiver, einen der speziell für diesen Zweck erstellten Ausnahmetypen zu verwenden:
 
-- [ECMAScript Ausnahmen](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types)
+- [ECMAScript-Ausnahmen](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types)
 - [`DOMException`](/de/docs/Web/API/DOMException)
 
 ### throw-Anweisung
 
-Verwenden Sie die `throw`-Anweisung, um eine Ausnahme auszulösen. Eine `throw`-Anweisung gibt den zu werfenden Wert an:
+Verwenden Sie die `throw`-Anweisung, um eine Ausnahme zu werfen. Eine `throw`-
+Anweisung gibt den zu werfenden Wert an:
 
 ```js
 throw expression;
 ```
 
-Sie können jeden Ausdruck werfen, nicht nur Ausdrücke eines bestimmten Typs. Der folgende Code wirft mehrere Ausnahmen unterschiedlicher Typen:
+Sie können jeden Ausdruck werfen, nicht nur Ausdrücke eines bestimmten Typs. Der folgende
+Code wirft mehrere Ausnahmen verschiedener Typen:
 
 ```js
 throw "Error2"; // String type
@@ -261,13 +304,29 @@ throw {
 
 ### try...catch-Anweisung
 
-Die `try...catch`-Anweisung markiert einen Block von Anweisungen, die versucht werden sollen, und gibt eine oder mehrere Antworten an, falls eine Ausnahme ausgelöst wird. Wenn eine Ausnahme ausgelöst wird, fängt die `try...catch`-Anweisung sie ab.
+Die `try...catch`-Anweisung markiert einen Block von Anweisungen, der versucht wird,
+und spezifiziert eine oder mehrere Reaktionen, sollte eine Ausnahme geworfen werden. Wird eine Ausnahme
+geworfen, fängt die `try...catch`-Anweisung sie ab.
 
-Die `try...catch`-Anweisung besteht aus einem `try`-Block, der eine oder mehrere Anweisungen enthält, und einem `catch`-Block, der Anweisungen enthält, die angeben, was zu tun ist, wenn im `try`-Block eine Ausnahme ausgelöst wird.
+Die `try...catch`-Anweisung besteht aus einem `try`-Block, der
+eine oder mehrere Anweisungen enthält, und einem `catch`-Block, der Anweisungen
+enthält, die angeben, was zu tun ist, wenn im `try`-Block eine Ausnahme geworfen wird.
 
-Mit anderen Worten, Sie möchten, dass der `try`-Block erfolgreich ist—aber wenn er das nicht ist, möchten Sie, dass die Kontrolle an den `catch`-Block übergeben wird. Wenn eine Anweisung innerhalb des `try`-Blocks (oder in einer Funktion, die aus dem `try`-Block aufgerufen wird) eine Ausnahme wirft, wechselt die Kontrolle _sofort_ zum `catch`-Block. Wenn im `try`-Block keine Ausnahme ausgelöst wird, wird der `catch`-Block übersprungen. Der `finally`-Block wird nach dem Ausführen des `try`- und `catch`-Blocks, jedoch vor den Anweisungen, die auf die `try...catch`-Anweisung folgen, ausgeführt.
+Mit anderen Worten, Sie möchten, dass der `try`-Block erfolgreich ist—aber wenn nicht,
+möchten Sie, dass die Kontrolle auf den `catch`-Block übergeht. Wenn eine Anweisung innerhalb des
+`try`-Blocks (oder in einer Funktion, die innerhalb des `try`-Blocks aufgerufen wird)
+eine Ausnahme wirft, wechselt die Kontrolle _sofort_ zum `catch`-
+Block. Wenn keine Ausnahme im `try`-Block geworfen wird, wird der `catch`-
+Block übersprungen. Der `finally`-Block wird nach den `try`- und
+`catch`-Blöcken ausgeführt, jedoch vor den Anweisungen, die der
+`try...catch`-Anweisung folgen.
 
-Das folgende Beispiel verwendet eine `try...catch`-Anweisung. Das Beispiel ruft eine Funktion auf, die einen Monatsnamen aus einem Array basierend auf dem Wert abruft, der an die Funktion übergeben wird. Wenn der Wert keiner Monatsnummer entspricht (`1` – `12`), wird eine Ausnahme mit dem Wert `'InvalidMonthNo'` ausgelöst und die Anweisungen im `catch`-Block setzen die Variable `monthName` auf `'unknown'`.
+Das folgende Beispiel verwendet eine `try...catch`-Anweisung. Das Beispiel ruft eine
+Funktion auf, die einen Monatsnamen aus einem Array basierend auf dem übergebenen Wert
+abrufen soll. Wenn der Wert keiner Monatsnummer
+(`1` – `12`) entspricht, wird eine Ausnahme mit dem Wert
+`'InvalidMonthNo'` geworfen und die Anweisungen im `catch`-Block setzen die
+`monthName`-Variable auf `'unknown'`.
 
 ```js
 function getMonthName(mo) {
@@ -294,7 +353,8 @@ try {
 
 #### Der catch-Block
 
-Sie können einen `catch`-Block verwenden, um alle Ausnahmen zu behandeln, die im `try`-Block generiert werden können.
+Sie können einen `catch`-Block verwenden, um alle Ausnahmen zu behandeln, die im
+`try`-Block erzeugt werden könnten.
 
 ```js-nolint
 catch (exception) {
@@ -302,11 +362,17 @@ catch (exception) {
 }
 ```
 
-Der `catch`-Block gibt einen Bezeichner an (`exception` im vorhergehenden Syntax), der den Wert enthält, der von der `throw`-Anweisung angegeben wurde. Sie können diesen Bezeichner verwenden, um Informationen über die ausgelöste Ausnahme zu erhalten.
+Der `catch`-Block spezifiziert einen Bezeichner (`exception`
+im vorstehenden Syntaxbeispiel), der den durch die `throw`-
+Anweisung angegebenen Wert enthält. Sie können diesen Bezeichner verwenden, um Informationen über die geworfene Ausnahme zu
+erhalten.
 
-JavaScript erstellt diesen Bezeichner, wenn der `catch`-Block betreten wird. Der Bezeichner existiert nur für die Dauer des `catch`-Blocks. Sobald der `catch`-Block die Ausführung beendet, existiert der Bezeichner nicht mehr.
+JavaScript erstellt diesen Bezeichner, wenn der `catch`-Block betreten wird. Der
+Bezeichner existiert nur während der Ausführungsdauer des `catch`-Blocks. Nach dem
+Ende des `catch`-Blocks existiert der Bezeichner nicht mehr.
 
-Zum Beispiel, der folgende Code führt eine Ausnahme aus. Wenn die Ausnahme auftritt, wechselt die Kontrolle in den `catch`-Block.
+Zum Beispiel wirft der folgende Code eine Ausnahme. Wenn die Ausnahme auftritt, wird die
+Kontrolle auf den `catch`-Block übertragen.
 
 ```js
 try {
@@ -319,19 +385,31 @@ try {
 
 > [!NOTE]
 > Beim Protokollieren von Fehlern in der Konsole innerhalb
-> eines `catch`-Blocks wird empfohlen, `console.error()` statt
-> `console.log()` für das Debuggen zu verwenden. Es formatiert die Nachricht als
+> eines `catch`-Blocks wird die Verwendung von `console.error()` anstelle von
+> `console.log()` zum Debuggen empfohlen. Es formatiert die Nachricht als
 > Fehler und fügt sie der Liste der von der Seite generierten Fehlermeldungen hinzu.
 
 #### Der finally-Block
 
-Der `finally`-Block enthält Anweisungen, die _nach_ dem Ausführen des `try`- und `catch`-Blocks ausgeführt werden. Zusätzlich wird der `finally`-Block _vor_ dem Code ausgeführt, der auf die `try…catch…finally`-Anweisung folgt.
+Der `finally`-Block enthält Anweisungen, die _nach_ den
+`try`- und `catch`-Blöcken ausgeführt werden. Außerdem wird der
+`finally`-Block _vor_ dem Code ausgeführt, der der
+`try…catch…finally`-Anweisung folgt.
 
-Es ist auch wichtig zu beachten, dass der `finally`-Block _unabhängig davon_ ausgeführt wird, ob eine Ausnahme ausgelöst wird oder nicht. Wenn jedoch eine Ausnahme ausgelöst wird, werden die Anweisungen im `finally`-Block ausgeführt, selbst wenn kein `catch`-Block die ausgelöste Ausnahme behandelt.
+Es ist auch wichtig zu beachten, dass der `finally`-Block ausgeführt wird,
+_unabhängig davon_, ob eine Ausnahme geworfen wird oder nicht. Wenn jedoch eine
+Ausnahme geworfen wird, werden die Anweisungen im `finally`-Block ausgeführt, auch wenn der
+`catch`-Block die geworfene Ausnahme nicht behandelt.
 
-Sie können den `finally`-Block verwenden, um Ihr Skript reibungslos zu beenden, wenn eine Ausnahme auftritt. Beispielsweise müssen Sie möglicherweise eine Ressource freigeben, die Ihr Skript in Anspruch genommen hat.
+Sie können den `finally`-Block verwenden, um das Skript bei einer
+Ausnahme fehlerfrei zu beenden. Beispielsweise müssen Sie möglicherweise eine Ressource freigeben, die Ihr Skript
+belegt hat.
 
-Das folgende Beispiel öffnet eine Datei und führt dann Anweisungen aus, die die Datei verwenden. (Serverseitiges JavaScript ermöglicht den Zugriff auf Dateien.) Wenn während das Öffnen eine Ausnahme ausgelöst wird, schließt der `finally`-Block die Datei, bevor das Skript fehlschlägt. Die Verwendung von `finally` stellt hier _sicher_, dass die Datei niemals offen bleibt, selbst wenn ein Fehler auftritt.
+Im folgenden Beispiel wird eine Datei geöffnet und dann Anweisungen ausgeführt, die die Datei
+verwenden. (Serverseitiges JavaScript ermöglicht Ihnen den Zugriff auf Dateien.) Wird während der
+Dateiöffnung eine Ausnahme geworfen, schließt der `finally`-Block die Datei,
+bevor das Skript fehlschlägt. Durch die Verwendung von `finally` wird _sichergestellt_,
+dass die Datei niemals offen bleibt, selbst wenn ein Fehler auftritt.
 
 ```js
 openMyFile();
@@ -344,7 +422,9 @@ try {
 }
 ```
 
-Wenn der `finally`-Block einen Wert zurückgibt, wird dieser Wert zum Rückgabewert des gesamten `try…catch…finally`-Konstrukts, unabhängig von allen `return`-Anweisungen in den `try`- und `catch`-Blöcken:
+Wenn der `finally`-Block einen Wert zurückgibt, wird dieser Wert zum Rückgabewert
+der gesamten `try…catch…finally`-Produktion, unabhängig von
+irgendwelchen `return`-Anweisungen in den `try`- und `catch`-Blöcken:
 
 ```js
 function f() {
@@ -368,7 +448,8 @@ function f() {
 console.log(f()); // 0, 1, 3, false
 ```
 
-Das Überschreiben von Rückgabewerten durch den `finally`-Block gilt auch für Ausnahmen, die im `catch`-Block geworfen oder erneut geworfen werden:
+Das Überschreiben von Rückgabewerten durch den `finally`-Block gilt auch für
+Ausnahmen, die im `catch`-Block geworfen oder neu geworfen werden:
 
 ```js
 function f() {
@@ -403,21 +484,30 @@ try {
 
 Sie können eine oder mehrere `try...catch`-Anweisungen verschachteln.
 
-Wenn ein innerer `try`-Block _keinen_ entsprechenden `catch`-Block hat:
+Wenn ein innerer `try`-Block _keinen_ entsprechenden
+`catch`-Block hat:
 
-1. muss er einen `finally`-Block enthalten, und
-2. wird der `catch`-Block der umgebenden `try...catch`-Anweisung
+1. _muss_ er einen `finally`-Block enthalten, und
+2. der `catch`-Block der umschließenden `try...catch`-Anweisung wird
    auf eine Übereinstimmung überprüft.
 
-Weitere Informationen finden Sie unter [verschachtelte try-Blöcke](/de/docs/Web/JavaScript/Reference/Statements/try...catch#nested_try_blocks) auf der [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Referenzseite.
+Für weitere Informationen siehe [verschachtelte try-Blöcke](/de/docs/Web/JavaScript/Reference/Statements/try...catch#nested_try_blocks)
+auf der [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)
+Referenzseite.
 
 ### Verwendung von Error-Objekten
 
-Abhängig vom Fehlertyp können Sie möglicherweise die Eigenschaften `name` und `message` verwenden, um eine genauere Nachricht zu erhalten.
+Je nach Art des Fehlers können Sie möglicherweise die Eigenschaften `name` und
+`message` verwenden, um eine genauere Nachricht zu erhalten.
 
-Die `name`-Eigenschaft bietet die allgemeine Klasse des `Error` (wie etwa `DOMException` oder `Error`), während `message` im Allgemeinen eine prägnantere Nachricht bietet, als man durch das Konvertieren des Fehlerobjekts in einen String erhalten würde.
+Die Eigenschaft `name` gibt die allgemeine Klasse des `Error` an (wie
+`DOMException` oder `Error`), während `message`
+in der Regel eine prägnantere Nachricht liefert, als wenn das Fehlerobjekt in einen String
+umgewandelt wird.
 
-Wenn Sie Ihre eigenen Ausnahmen werfen, um von diesen Eigenschaften zu profitieren (z. B. wenn Ihr `catch`-Block nicht zwischen Ihren eigenen Ausnahmen und Systemausnahmen unterscheidet), können Sie den `Error`-Konstruktor verwenden.
+Wenn Sie Ihre eigenen Ausnahmen werfen, um diese Eigenschaften nutzen zu können
+(wenn Ihr `catch`-Block nicht zwischen Ihren eigenen Ausnahmen und System-
+Ausnahmen unterscheidet), können Sie den `Error`-Konstruktor verwenden.
 
 Zum Beispiel:
 

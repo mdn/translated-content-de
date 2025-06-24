@@ -1,20 +1,20 @@
 ---
-title: "Element: pointerout-Ereignis"
+title: "Element: pointerout Ereignis"
 short-title: pointerout
 slug: Web/API/Element/pointerout_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}
 
-Das `pointerout`-Ereignis wird aus mehreren Gründen ausgelöst, einschließlich: Das Zeigegerät wird aus den _Hit-Test_-Grenzen eines Elements herausbewegt; Auslösen des [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignisses für ein Gerät, das keine Hover-Unterstützung bietet (siehe [`pointerup`](/de/docs/Web/API/Element/pointerup_event)); nach dem Auslösen des [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignisses (siehe [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)); wenn ein Stift die vom Digitalisierer erkennbare Hover-Range verlässt.
+Das `pointerout`-Ereignis wird aus mehreren Gründen ausgelöst, einschließlich: Das Zeigegerät wird aus den _Hit-Test_-Grenzen eines Elements bewegt; das Auslösen des [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignisses für ein Gerät, das kein Hover unterstützt (siehe [`pointerup`](/de/docs/Web/API/Element/pointerup_event)); nach dem Auslösen des [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignisses (siehe [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)); wenn ein Stift außerhalb des durch den Digitalisierer erkennbaren Hoverbereichs gelangt.
 
-`pointerout`-Ereignisse haben die gleichen Probleme wie [`mouseout`](/de/docs/Web/API/Element/mouseout_event). Wenn das Zielelement Kindelemente hat, werden `pointerout`- und `pointerover`-Ereignisse ausgelöst, sobald der Zeiger über die Grenzen dieser Elemente bewegt wird, und nicht nur das Zielelement selbst. In der Regel ist das Verhalten von [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event)- und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event)-Ereignissen sinnvoller, da sie nicht von Bewegungen in Kindelemente betroffen sind.
+`pointerout`-Ereignisse haben die gleichen Probleme wie [`mouseout`](/de/docs/Web/API/Element/mouseout_event). Wenn das Zielelement untergeordnete Elemente hat, werden `pointerout`- und `pointerover`-Ereignisse ebenfalls ausgelöst, wenn der Zeiger über die Grenzen dieser Elemente bewegt wird, nicht nur über das Zielelement selbst. Normalerweise ist das Verhalten der [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event)- und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event)-Ereignisse sinnvoller, da sie nicht vom Wechseln in untergeordnete Elemente betroffen sind.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("pointerout", (event) => { })
@@ -33,9 +33,9 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen einer Überträgerachse (ein Zeiger oder Stift) und der X-Y-Ebene eines Geräts dar.
+  - : Stellt den Winkel zwischen einer Transducer-Achse (ein Zeiger oder Stift) und der X-Y-Ebene eines Gerätebildschirms dar.
 - [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Überträgerachse (ein Zeiger oder Stift) als auch die Y-Achse enthält.
+  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Transducer-Achse (ein Zeiger oder Stift) als auch die Y-Achse enthält.
 - [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) {{ReadOnlyInline}} {{experimental_inline}}
   - : Eine eindeutige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
 - [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
@@ -45,17 +45,17 @@ _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/Mous
 - [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
   - : Die Höhe (Größe auf der Y-Achse), in CSS-Pixel, der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck der Zeigereingabe im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erfassen kann.
+  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erfassen kann.
 - [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck der Zeigereingabe (auch als Laufdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress) bekannt) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Fassdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
 - [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z. B. Stiftstift) als auch die Y-Achse umfasst.
+  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z. B. Stift) als auch die Y-Achse enthält.
 - [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z. B. Stiftstift) als auch die X-Achse umfasst.
+  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z. B. Stift) als auch die X-Achse enthält.
 - [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die im Uhrzeigersinn gerichtete Drehung des Zeigers (z. B. Stiftstift) um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
+  - : Die Drehung im Uhrzeigersinn des Zeigers (z. B. Stift) um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
 - [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Touch, etc.).
+  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
 - [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
   - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
 
@@ -71,7 +71,7 @@ para.addEventListener("pointerout", (event) => {
 });
 ```
 
-Verwendung der `onpointerout`-Event-Handler-Eigenschaft:
+Verwendung der `onpointerout` Event-Handler-Eigenschaft:
 
 ```js
 const para = document.querySelector("p");
@@ -92,7 +92,6 @@ para.onpointerout = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse
-
   - [`gotpointercapture`](/de/docs/Web/API/Element/gotpointercapture_event)
   - [`lostpointercapture`](/de/docs/Web/API/Element/lostpointercapture_event)
   - [`pointerover`](/de/docs/Web/API/Element/pointerover_event)

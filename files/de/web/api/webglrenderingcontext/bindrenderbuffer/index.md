@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: bindRenderbuffer()-Methode"
 short-title: bindRenderbuffer()
 slug: Web/API/WebGLRenderingContext/bindRenderbuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.bindRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet ein gegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) an ein Ziel, das `gl.RENDERBUFFER` sein muss.
+Die **`WebGLRenderingContext.bindRenderbuffer()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) bindet ein gegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) an ein Ziel, das `gl.RENDERBUFFER` sein muss.
 
 ## Syntax
 
@@ -20,13 +20,12 @@ bindRenderbuffer(target, renderbuffer)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (das Ziel) angibt. Mögliche Werte:
     - `gl.RENDERBUFFER`
-      - : Pufferdatenspeicher für einzelne Bilder in einem renderbaren internen Format.
+      - : Puffer-Datenspeicher für einzelne Bilder in einem renderbaren internen Format.
 
 - `renderbuffer`
-  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt zum Binden.
+  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
@@ -48,9 +47,9 @@ const renderbuffer = gl.createRenderbuffer();
 gl.bindRenderbuffer(gl.RENDERBUFFER, renderbuffer);
 ```
 
-### Abrufen der aktuellen Bindungen
+### Abrufen aktueller Bindungen
 
-Um die aktuelle Renderbuffer-Bindung zu überprüfen, fragen Sie die `RENDERBUFFER_BINDING`-Konstante ab.
+Um die aktuelle Renderbuffer-Bindung zu überprüfen, fragen Sie die Konstante `RENDERBUFFER_BINDING` ab.
 
 ```js
 gl.getParameter(gl.RENDERBUFFER_BINDING);

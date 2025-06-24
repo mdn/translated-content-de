@@ -2,38 +2,37 @@
 title: Beispiel für einen Stapelkontext 1
 slug: Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
 ## Beschreibung
 
-Beginnen wir mit einem grundlegenden Beispiel. Im Wurzel-Stapelkontext gibt es zwei relativ positionierte `<div>`-Elemente (DIV #1 und DIV #3) ohne `z-index`-Eigenschaften. Innerhalb von DIV #1 gibt es ein absolut positioniertes DIV #2, während es in DIV #3 ein absolut positioniertes DIV #4 gibt, beide ebenfalls ohne `z-index`-Eigenschaften.
+Beginnen wir mit einem einfachen Beispiel. Im Stammstapelkontext gibt es zwei relativ positionierte `<div>`-Elemente (DIV #1 und DIV #3) ohne `z-index`-Eigenschaften. Innerhalb von DIV #1 befindet sich ein absolut positioniertes DIV #2, während sich in DIV #3 ein absolut positioniertes DIV #4 befindet, beide ohne `z-index`-Eigenschaften.
 
-Der einzige Stapelkontext ist der Wurzelkontext. Ohne `z-index`-Werte werden die Elemente in der Reihenfolge ihres Auftretens gestapelt.
+Der einzige Stapelkontext ist der Stammkontext. Ohne `z-index`-Werte werden Elemente in der Reihenfolge ihres Auftretens gestapelt.
 
 ![Beispiel für einen Stapelkontext 1](understanding_zindex_05a.png)
 
-Wenn DIV #2 ein positiver (ungleich null und nicht automatisch) `z-index`-Wert zugewiesen wird, wird es über allen anderen DIVs gerendert.
+Wenn DIV #2 ein positiver (ungleich null und nicht auto) `z-index`-Wert zugewiesen wird, wird es über allen anderen DIVs dargestellt.
 
 ![Beispiel für einen Stapelkontext 1](understanding_zindex_05b.png)
 
-Wenn dann auch DIV #4 ein positiver `z-index` zugewiesen wird, der größer ist als der `z-index` von DIV #2, wird es über allen anderen DIVs einschließlich DIV #2 gerendert.
+Wenn dann auch DIV #4 ein positiver `z-index` zugewiesen wird, der größer ist als der von DIV #2, wird es über allen anderen DIVs einschließlich DIV #2 dargestellt.
 
 ![Beispiel für einen Stapelkontext 1](understanding_zindex_05c.png)
 
-In diesem letzten Beispiel sehen Sie, dass DIV #2 und DIV #4 keine Geschwister sind, da sie zu unterschiedlichen Eltern in der Hierarchie der HTML-Elemente gehören. Dennoch kann das Stapeln von DIV #4 in Bezug auf DIV #2 durch `z-index` gesteuert werden. Da DIV #1 und DIV #3 keinem `z-index`-Wert zugewiesen sind, erzeugen sie keinen Stapelkontext. Das bedeutet, dass ihr gesamter Inhalt, einschließlich DIV #2 und DIV #4, zum gleichen Wurzel-Stapelkontext gehört.
+In diesem letzten Beispiel sehen Sie, dass DIV #2 und DIV #4 keine Geschwister sind, weil sie verschiedenen Eltern in der Hierarchie der HTML-Elemente angehören. Dennoch kann die Stapelung von DIV #4 im Verhältnis zu DIV #2 durch `z-index` gesteuert werden. Da DIV #1 und DIV #3 keinen `z-index`-Wert zugewiesen bekommen, erzeugen sie keinen Stapelkontext. Dies bedeutet, dass ihr gesamter Inhalt, einschließlich DIV #2 und DIV #4, zum selben Stammstapelkontext gehört.
 
-In Bezug auf Stapelkontexte werden DIV #1 und DIV #3 in das Wurzelelement assimiliert, und die resultierende Hierarchie sieht folgendermaßen aus:
+In Bezug auf Stapelkontexte werden DIV #1 und DIV #3 in das Stamm-Element integriert, und die resultierende Hierarchie ist wie folgt:
 
-- Wurzel-Stapelkontext
-
+- Stammstapelkontext
   - DIV #2 (`z-index`: 1)
   - DIV #4 (`z-index`: 2)
 
 > [!NOTE]
-> DIV #1 und DIV #3 sind nicht durchscheinend. Es ist wichtig, sich daran zu erinnern, dass die Zuweisung einer Transparenz von weniger als 1 zu einem positionierten Element implizit einen Stapelkontext erzeugt, genau wie das Hinzufügen eines `z-index`-Wertes. Und dieses Beispiel zeigt, was passiert, wenn ein Elternelement keinen Stapelkontext erzeugt.
+> DIV #1 und DIV #3 sind nicht durchsichtig. Es ist wichtig zu bedenken, dass das Zuweisen einer Opazität von weniger als 1 zu einem positionierten Element implizit einen Stapelkontext erzeugt, genau wie das Hinzufügen eines `z-index`-Werts. Und dieses Beispiel zeigt, was passiert, wenn ein übergeordnetes Element keinen Stapelkontext erzeugt.
 
 ## Beispiel
 
@@ -114,4 +113,4 @@ In Bezug auf Stapelkontexte werden DIV #1 und DIV #3 in das Wurzelelement assimi
 - [Beispiel: 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2)
 - [Beispiel: 3-stufige HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3)
 - [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- Modul [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+- [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul

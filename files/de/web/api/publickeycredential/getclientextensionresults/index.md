@@ -3,16 +3,16 @@ title: "PublicKeyCredential: getClientExtensionResults()-Methode"
 short-title: getClientExtensionResults()
 slug: Web/API/PublicKeyCredential/getClientExtensionResults
 l10n:
-  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`getClientExtensionResults()`**-Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt eine Zuordnung zwischen den Bezeichnern der während der Anmeldeinformationen-Erstellung oder -Authentifizierung angeforderten Erweiterungen und deren Ergebnissen nach der Verarbeitung durch den Benutzeragenten zurück.
+Die **`getClientExtensionResults()`**-Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces gibt eine Zuordnung zwischen den Kennungen von Erweiterungen zurück, die während der Erstellung oder Authentifizierung von Anmeldeinformationen angefordert wurden, und deren Ergebnissen nach der Verarbeitung durch den Benutzeragenten.
 
-Während der Erstellung oder des Abrufs eines `PublicKeyCredential` (über [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) bzw. [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)) ist es möglich, eine "benutzerdefinierte" Verarbeitung durch den Client für verschiedene Erweiterungen anzufordern, die in der `extensions`-Eigenschaft der `publicKey`-Option angegeben sind. Weitere Informationen zum Anfordern der verschiedenen Erweiterungen finden Sie in den [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
+Während der Erstellung oder des Abrufs eines `PublicKeyCredential` (über [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) und [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) jeweils) ist es möglich, eine "benutzerdefinierte" Verarbeitung durch den Client für verschiedene Erweiterungen anzufordern, die in der `extensions`-Eigenschaft der `publicKey`-Option angegeben sind. Weitere Informationen zum Anfordern der verschiedenen Erweiterungen finden Sie in [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
 
-> **Note:** `getClientExtensionResults()` gibt nur die Ergebnisse von Erweiterungen zurück, die vom Benutzeragenten (Client) verarbeitet wurden. Die Ergebnisse von Erweiterungen, die vom Authentifikator verarbeitet wurden, finden Sie in den [Authentifikator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data), die in [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) verfügbar sind.
+> [!NOTE] > `getClientExtensionResults()` gibt nur die Ergebnisse von Erweiterungen zurück, die vom Benutzeragenten (Client) verarbeitet wurden. Die Ergebnisse von Erweiterungen, die vom Authenticator verarbeitet wurden, finden Sie in den [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data), die in [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) verfügbar sind.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Map", "map")}}, wobei jeder Eintrag eine Erweiterungs-Bezeichnerzeichenfolge als Schlüssel und das Ausgabewert der Verarbeitung der Erweiterung durch den Client als Wert ist.
+Ein {{jsxref("Map", "Map")}}, wobei jeder Eintrag einen Zeichenfolgenbezeichner der Erweiterung als Schlüssel und die Ausgabe der Verarbeitung der Erweiterung durch den Client als Wert enthält.
 
 ### Ausnahmen
 
@@ -69,10 +69,9 @@ navigator.credentials
 {{Compat}}
 
 > [!NOTE]
-> Erweiterungen sind optional, und verschiedene Browser können unterschiedliche Erweiterungen erkennen. Das Verarbeiten von Erweiterungen ist für den Client immer optional: Wenn ein Browser eine bestimmte Erweiterung nicht erkennt, wird sie einfach ignoriert. Informationen darüber, welche Erweiterungen von welchen Browsern unterstützt werden, finden Sie in den [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
+> Erweiterungen sind optional und verschiedene Browser können unterschiedliche Erweiterungen erkennen. Die Verarbeitung von Erweiterungen ist für den Client immer optional: Wenn ein Browser eine bestimmte Erweiterung nicht erkennt, ignoriert er sie einfach. Informationen darüber, welche Erweiterungen von welchen Browsern unterstützt werden, finden Sie unter [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
 
 ## Siehe auch
 
 - [Die Liste der aktuell definierten Erweiterungen](https://w3c.github.io/webauthn/#sctn-defined-extensions)
-- [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData), die das
-  Ergebnis der Erweiterungsverarbeitung des Authentifikators enthält
+- [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData), die das Ergebnis der Verarbeitung der Erweiterungen durch den Authenticator enthält

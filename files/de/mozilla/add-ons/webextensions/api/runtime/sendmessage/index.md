@@ -2,18 +2,18 @@
 title: runtime.sendMessage()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
 Sendet eine einzelne Nachricht an Ereignis-Listener innerhalb Ihrer Erweiterung oder einer anderen Erweiterung.
 
-Wenn Sie an Ihre Erweiterung senden, lassen Sie das Argument `extensionId` weg. Das {{WebExtAPIRef('runtime.onMessage')}}-Ereignis wird auf jeder Seite Ihrer Erweiterung ausgelöst, außer in dem Frame, der `runtime.sendMessage` aufgerufen hat.
+Wenn Sie an Ihre eigene Erweiterung senden, lassen Sie das Argument `extensionId` weg. Das Ereignis {{WebExtAPIRef('runtime.onMessage')}} wird auf jeder Seite Ihrer Erweiterung ausgelöst, außer im Frame, der `runtime.sendMessage` aufgerufen hat.
 
-Wenn Sie an eine andere Erweiterung senden, geben Sie das Argument `extensionId` an, das auf die ID der anderen Erweiterung gesetzt ist. {{WebExtAPIRef('runtime.onMessageExternal')}} wird in der anderen Erweiterung ausgelöst. Standardmäßig kann Ihre Erweiterung Nachrichten mit sich selbst und jeder anderen Erweiterung (definiert durch `extensionId`) austauschen. Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable)-Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken.
+Wenn Sie an eine andere Erweiterung senden, geben Sie das `extensionId`-Argument an, das auf die ID der anderen Erweiterung gesetzt ist. {{WebExtAPIRef('runtime.onMessageExternal')}} wird in der anderen Erweiterung ausgelöst. Standardmäßig kann Ihre Erweiterung Nachrichten mit sich selbst und jeder anderen Erweiterung (definiert durch `extensionId`) austauschen. Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken.
 
-Erweiterungen können mit dieser Methode keine Nachrichten an Inhalts-Skripte senden. Um Nachrichten an Inhalts-Skripte zu senden, verwenden Sie bitte {{WebExtAPIRef('tabs.sendMessage')}}.
+Erweiterungen können mit dieser Methode keine Nachrichten an Inhalts-Skripte senden. Um Nachrichten an Inhalts-Skripte zu senden, verwenden Sie {{WebExtAPIRef('tabs.sendMessage')}}.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -34,30 +34,30 @@ let sending = browser.runtime.sendMessage(
 
 - `extensionId` {{optional_inline}}
 
-  - : `string`. Die ID der Erweiterung, an die die Nachricht gesendet werden soll. Fügen Sie dies ein, um die Nachricht an eine andere Erweiterung zu senden. Wenn der beabsichtigte Empfänger eine ID explizit mit dem Schlüssel [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) in der manifest.json gesetzt hat, sollte `extensionId` diesen Wert haben. Ansonsten sollte es die ID haben, die für den beabsichtigten Empfänger generiert wurde.
+  - : `string`. Die ID der Erweiterung, an die die Nachricht gesendet werden soll. Geben Sie dies an, um die Nachricht an eine andere Erweiterung zu senden. Wenn der beabsichtigte Empfänger eine ID explizit mit dem [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) Schlüssel in manifest.json gesetzt hat, sollte `extensionId` diesen Wert haben. Andernfalls sollte es die ID haben, die für den beabsichtigten Empfänger generiert wurde.
 
-    Wenn `extensionId` weggelassen wird, wird die Nachricht an Ihre Erweiterung gesendet.
+    Wenn `extensionId` weggelassen wird, wird die Nachricht an Ihre eigene Erweiterung gesendet.
 
 - `message`
-  - : `any`. Ein Objekt, das als strukturiertes Klon-Serialisierung verwendet werden kann (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
+  - : `any`. Ein Objekt, das strukturiert klonbar serialisiert werden kann (siehe [Datenklonierungsalgorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
 - `options` {{optional_inline}}
 
   - : `object`.
 
     - `includeTlsChannelId` {{optional_inline}}
 
-      - : `boolean`. Ob die TLS-Kanal-ID in {{WebExtAPIRef('runtime.onMessageExternal')}} für Prozesse übergeben wird, die nach dem Verbindungsereignis lauschen.
+      - : `boolean`. Ob die TLS-Kanal-ID in {{WebExtAPIRef('runtime.onMessageExternal')}} für Prozesse übergeben wird, die auf das Verbindungsevent hören.
 
         Diese Option wird nur in Chromium-basierten Browsern unterstützt.
 
-Abhängig von den gegebenen Argumenten ist diese API manchmal mehrdeutig. Die folgenden Regeln werden verwendet:
+Je nach den gegebenen Argumenten ist diese API manchmal mehrdeutig. Die folgenden Regeln werden verwendet:
 
 - **wenn ein Argument gegeben ist**, ist es die Nachricht, die gesendet werden soll, und die Nachricht wird intern gesendet.
 - **wenn zwei Argumente gegeben sind:**
 
   - Die Argumente werden als `(message, options)` interpretiert, und die Nachricht wird intern gesendet, wenn das zweite Argument eines der folgenden ist:
 
-    1. ein gültiges `options`-Objekt (bedeutet, es ist ein Objekt, das nur die Eigenschaften von `options` enthält, die der Browser unterstützt)
+    1. ein gültiges `options` Objekt (das bedeutet, es ist ein Objekt, das nur die vom Browser unterstützten Eigenschaften von `options` enthält)
     2. null
     3. undefined
 
@@ -65,11 +65,11 @@ Abhängig von den gegebenen Argumenten ist diese API manchmal mehrdeutig. Die fo
 
 - **wenn drei Argumente gegeben sind**, werden die Argumente als `(extensionId, message, options)` interpretiert. Die Nachricht wird an die durch `extensionId` identifizierte Erweiterung gesendet.
 
-Beachten Sie, dass vor Firefox 55 die Regeln im Fall von zwei Argumenten anders waren. Nach den alten Regeln, wenn das erste Argument ein String war, wurde es als `extensionId` behandelt, mit der Nachricht als zweitem Argument. Das bedeutete, dass wenn Sie `sendMessage()` mit Argumenten wie `("my-message", {})` aufriefen, es eine leere Nachricht an die Erweiterung sendete, die als "my-message" identifiziert ist. Nach den neuen Regeln würden Sie mit diesen Argumenten die Nachricht "my-message" intern senden, mit einem leeren options-Objekt.
+Beachten Sie, dass vor Firefox 55 die Regeln im 2-Argument-Fall anders waren. Nach den alten Regeln wurde, wenn das erste Argument ein String war, es als `extensionId` behandelt, mit der Nachricht als zweites Argument. Das bedeutete, dass, wenn Sie `sendMessage()` mit Argumenten wie `("my-message", {})` aufriefen, es eine leere Nachricht an die durch "my-message" identifizierte Erweiterung senden würde. Nach den neuen Regeln würden Sie mit diesen Argumenten die Nachricht "my-message" intern senden, mit einem leeren Options-Objekt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Empfänger eine Antwort gesendet hat, wird dies mit der Antwort erfüllt. Andernfalls wird es ohne Argumente erfüllt. Wenn ein Fehler beim Verbinden mit der Erweiterung auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Empfänger eine Antwort gesendet hat, wird dies mit der Antwort erfüllt. Ansonsten wird es ohne Argumente erfüllt. Wenn ein Fehler beim Verbinden mit der Erweiterung auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -77,7 +77,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn 
 
 ## Beispiele
 
-Hier ist ein Inhalts-Skript, das beim Klicken des Benutzers auf das Inhaltsfenster eine Nachricht an das Hintergrundskript sendet. Die Nachrichtennutzlast ist `{greeting: "Greeting from the content script"}`, und der Absender erwartet auch, eine Antwort zu erhalten, die in der Funktion `handleResponse` behandelt wird:
+Hier ist ein Inhalts-Skript, das eine Nachricht an das Hintergrundskript sendet, wenn der Benutzer das Inhaltsfenster anklickt. Die Nutzlast der Nachricht ist `{greeting: "Greeting from the content script"}`, und der Sender erwartet auch, eine Antwort zu erhalten, die in der Funktion `handleResponse` verarbeitet wird:
 
 ```js
 // content-script.js
@@ -113,13 +113,13 @@ browser.runtime.onMessage.addListener(handleMessage);
 ```
 
 > [!NOTE]
-> Anstatt `sendResponse()` zu verwenden, ist das Zurückgeben eines [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) der empfohlene Ansatz für Firefox-Add-ons.
-> Beispiele, die ein Promise verwenden, sind im [Beispielabschnitt](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#examples) des {{WebExtAPIRef('runtime.onMessage')}}-Listeners verfügbar.
+> Anstatt `sendResponse()` zu verwenden, wird für Firefox-Add-ons ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) als empfohlener Ansatz zurückgegeben.
+> Beispiele für die Verwendung eines Promise sind im [Example-Bereich](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#examples) des {{WebExtAPIRef('runtime.onMessage')}} Listeners verfügbar.
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der `chrome.runtime`-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendMessage) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

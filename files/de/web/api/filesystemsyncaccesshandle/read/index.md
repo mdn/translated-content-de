@@ -1,14 +1,14 @@
 ---
-title: "FileSystemSyncAccessHandle: read()-Methode"
+title: "FileSystemSyncAccessHandle: `read()`-Methode"
 short-title: read()
 slug: Web/API/FileSystemSyncAccessHandle/read
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`read()`**-Methode des [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Interfaces liest den Inhalt der Datei, die mit dem Handle verknüpft ist, in einen angegebenen Puffer, optional an einem bestimmten Offset.
+Die **`read()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle liest den Inhalt der Datei, die mit dem Handle verknüpft ist, in einen angegebenen Puffer, optional an einem bestimmten Offset.
 
 ## Syntax
 
@@ -19,34 +19,32 @@ read(buffer, options)
 ### Parameter
 
 - `buffer`
-  - : Ein {{jsxref("ArrayBuffer")}} oder `ArrayBufferView` (wie ein {{jsxref("DataView")}}), der den Puffer darstellt, in den der Dateiinhalt gelesen werden soll. Beachten Sie, dass Sie die Inhalte eines `ArrayBuffer` nicht direkt manipulieren können. Stattdessen erstellen Sie eines der typisierten Array-Objekte wie ein {{jsxref("Int8Array")}} oder ein {{jsxref("DataView")}}-Objekt, welches den Puffer in einem bestimmten Format darstellt, und verwenden dieses, um die Inhalte des Puffers zu lesen und zu schreiben.
+  - : Ein {{jsxref("ArrayBuffer")}} oder `ArrayBufferView` (wie ein {{jsxref("DataView")}}), der den Puffer darstellt, in den der Dateiinhalte gelesen werden soll. Beachten Sie, dass Sie die Inhalte eines `ArrayBuffer` nicht direkt manipulieren können. Stattdessen erstellen Sie eines der typisierten Array-Objekte wie ein {{jsxref("Int8Array")}} oder ein {{jsxref("DataView")}}-Objekt, das den Puffer in einem bestimmten Format darstellt, und verwenden dieses, um die Inhalte des Puffers zu lesen und zu schreiben.
 - `options` {{optional_inline}}
-
-  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
-
+  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `at`
-      - : Eine Zahl, die den Offset in Bytes angibt, ab dem die Datei gelesen werden soll.
+      - : Eine Zahl, die den Offset in Bytes darstellt, ab dem die Datei gelesen werden soll.
 
 ### Rückgabewert
 
-Eine Zahl, die die Anzahl der aus der Datei gelesenen Bytes darstellt.
+Eine Zahl, die die Anzahl der Bytes darstellt, die aus der Datei gelesen wurden.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist.
+  - : Wird ausgelöst, wenn das zugehörige Zugriffshandle bereits geschlossen ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das zugrunde liegende Dateisystem das Lesen der Datei vom angegebenen Dateioffset nicht unterstützt.
+  - : Wird ausgelöst, wenn das zugrunde liegende Dateisystem das Lesen der Datei ab dem angegebenen Dateioffset nicht unterstützt.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignis-Handler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread:
+Die folgende asynchrone Ereignis-Handler-Funktion befindet sich in einem Web Worker. Beim Empfang einer Nachricht vom Haupt-Thread:
 
-- Erzeugt es ein synchrones Datei-Zugriffs-Handle.
+- Erstellt einen synchronen Dateizugriffshandle.
 - Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um diese zu enthalten.
-- Liest den Dateiinhalt in den Puffer.
+- Liest die Dateiinhalte in den Puffer.
 - Kodiert die Nachricht und schreibt sie an das Ende der Datei.
-- Persistiert die Änderungen auf der Festplatte und schließt das Zugriffs-Handle.
+- Speichert die Änderungen auf der Festplatte und schließt den Zugriffshandle.
 
 ```js
 onmessage = async (e) => {
@@ -79,7 +77,7 @@ onmessage = async (e) => {
 ```
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden angegeben, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
+> In früheren Versionen der Spezifikation waren [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
 
 ## Spezifikationen
 
@@ -92,4 +90,4 @@ onmessage = async (e) => {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Die File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

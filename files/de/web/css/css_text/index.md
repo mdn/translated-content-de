@@ -1,13 +1,13 @@
 ---
-title: CSS text
+title: CSS-Text
 slug: Web/CSS/CSS_text
 l10n:
-  sourceCommit: cb8f4ede62e0cc821eef8820f2c9eaea514111e2
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Das **CSS text** Modul definiert, wie Textmanipulation durchgeführt wird, wie z.B. Zeilenumbrüche, Blocksatz und Ausrichtung, Umgang mit Leerzeichen und Texttransformation.
+Das **CSS-Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, wie Zeilenumbruch, Ausrichtung und Justierung, Handhabung von Leerzeichen und Texttransformation.
 
 ## Referenz
 
@@ -19,7 +19,7 @@ Das **CSS text** Modul definiert, wie Textmanipulation durchgeführt wird, wie z
 - {{cssxref("hyphens")}}
 - {{cssxref("letter-spacing")}}
 - {{cssxref("line-break")}}
-- {{cssxref("overflow-wrap")}} (und das `word-wrap` Alias)
+- {{cssxref("overflow-wrap")}} (und das Alias `word-wrap`)
 - {{cssxref("tab-size")}}
 - {{cssxref("text-align")}}
 - {{cssxref("text-align-last")}}
@@ -35,12 +35,11 @@ Das **CSS text** Modul definiert, wie Textmanipulation durchgeführt wird, wie z
 - {{cssxref("word-break")}}
 - {{cssxref("word-spacing")}}
 
-Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-lines`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-autospace`, `text-group-align`, `text-spacing`, `white-space-trim`, `word-space-transform`, `wrap-after`, `wrap-before` und `wrap-inside`, die noch von keinem Browser unterstützt werden.
+Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-lines`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-autospace`, `text-group-align`, `text-spacing`, `white-space-trim`, `word-space-transform`, `wrap-after`, `wrap-before` und `wrap-inside`, die von keinem Browser unterstützt werden.
 
 ### Leitfäden
 
-- [Wrapping and breaking text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
-
+- [Umbruch und Trennung von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
   - : Ein Leitfaden zu den verschiedenen Möglichkeiten, wie überlaufender Text in CSS verwaltet werden kann.
 
 ## Verwandte Konzepte
@@ -75,8 +74,8 @@ Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyph
 
 ## Siehe auch
 
-- [CSS writing modes](/de/docs/Web/CSS/CSS_writing_modes) Modul
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS fonts](/de/docs/Web/CSS/CSS_fonts) Modul
-- [CSS ruby layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
-- [CSS text decoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Schriften](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS-Ruby-Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
+- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul

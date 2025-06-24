@@ -2,12 +2,12 @@
 title: Event.removeRules()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/removeRules
 l10n:
-  sourceCommit: 8bcd10489059539a341f82985eac9f1115e87483
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Entfernt Regeln, die bei einem deklarativen Ereignis mit {{WebExtAPIRef("events.Event.addRules()")}} registriert wurden.
+Entfernt Regeln, die auf einem deklarativen Ereignis unter Verwendung von {{WebExtAPIRef("events.Event.addRules()")}} registriert wurden.
 
 ## Syntax
 
@@ -22,7 +22,6 @@ events.Event.removeRules(ruleIdentifiers, callback)
   - : `array` von `string`. Bezeichner für die zu entfernenden Regeln. Wenn kein Array übergeben wird, werden alle Regeln entfernt.
 
 - `callback` {{optional_inline}}
-
   - : `function`. Wird ohne Argumente aufgerufen, wenn die Regeln entfernt wurden.
 
 ## Browser-Kompatibilität
@@ -30,7 +29,7 @@ events.Event.removeRules(ruleIdentifiers, callback)
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeRules) API. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeRules)-API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

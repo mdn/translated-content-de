@@ -2,14 +2,14 @@
 title: i18n.getMessage()
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/getMessage
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ruft die lokalisierte Zeichenkette für die angegebene Nachricht ab.
+Ruft die lokalisierte Zeichenfolge für die angegebene Nachricht ab.
 
-Für einen Leitfaden zur Verwendung dieser Funktion siehe die Seite zur [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization).
+Siehe die Seite [Internationalization](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Verwendung dieser Funktion.
 
 ## Syntax
 
@@ -24,20 +24,19 @@ browser.i18n.getMessage(
 
 - `messageName`
 
-  - : `string`. Der Name der Nachricht, wie im `messages.json`-Datei angegeben. Wenn die Nachricht nicht in `messages.json` gefunden werden kann:
-
-    - Firefox gibt "" zurück und protokolliert einen Fehler.
-    - Chrome gibt "" zurück und protokolliert keinen Fehler.
+  - : `string`. Der Name der Nachricht, wie in der messages.json-Datei angegeben. Wenn die Nachricht nicht in messages.json gefunden werden kann:
+    - Gibt Firefox "" zurück und protokolliert einen Fehler.
+    - Gibt Chrome "" zurück und protokolliert keinen Fehler.
 
 - `substitutions` {{optional_inline}}
 
-  - : `string` oder `array` von `string`. Eine einzelne Ersetzungszeichenkette oder ein Array von Ersetzungszeichenketten.
+  - : `string` oder `array` von `string`. Ein einzelner Ersetzungs-String oder ein Array von Ersetzungs-Strings.
 
-    In Chrome, wenn Sie mehr als 9 Ersetzungszeichenketten angeben, wird `getMessage()` `undefined` zurückgeben.
+    In Chrome, wenn Sie mehr als 9 Ersetzungs-Strings bereitstellen, wird `getMessage()` `undefined` zurückgeben.
 
 ### Rückgabewert
 
-`string`. Nachricht lokalisiert für die aktuelle Spracheinstellung.
+`string`. Nachricht, lokalisiert für das aktuelle Gebietsschema.
 
 ## Browser-Kompatibilität
 
@@ -45,14 +44,14 @@ browser.i18n.getMessage(
 
 ## Beispiele
 
-Holen Sie sich die lokalisierte Zeichenkette für `"messageContent"`, mit der Ersetzung `target.url`:
+Rufen Sie die lokalisierte Zeichenfolge für `"messageContent"` ab, mit `target.url` ersetzt:
 
 ```js
 let message = browser.i18n.getMessage("messageContent", target.url);
 console.log(message);
 ```
 
-Dies würde mit einer `_locales/en/messages.json`-Datei funktionieren, die folgendes enthält:
+Dies würde mit einer \_locales/en/messages.json-Datei funktionieren, die enthält:
 
 ```json
 {
@@ -69,7 +68,7 @@ Dies würde mit einer `_locales/en/messages.json`-Datei funktionieren, die folge
 }
 ```
 
-Wenn `target.url` "https\://developer.mozilla.org" ist, wäre der Wert der Nachricht in der "en" Sprachversion:
+Wenn `target.url` "https\://developer.mozilla.org" ist, wäre der Wert der Nachricht im "en"-Gebietsschema:
 
 ```plain
 "You clicked https://developer.mozilla.org."
@@ -78,7 +77,7 @@ Wenn `target.url` "https\://developer.mozilla.org" ist, wäre der Wert der Nachr
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getMessage) API von Chromium. Diese Dokumentation stammt aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getMessage) API. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

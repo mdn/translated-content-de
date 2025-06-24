@@ -1,14 +1,14 @@
 ---
-title: "Window: releaseEvents()-Methode"
+title: "Window: releaseEvents() Methode"
 short-title: releaseEvents()
 slug: Web/API/Window/releaseEvents
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef}}{{Deprecated_Header}}
 
-Hebt die Bindung des Fensters an Ereignisse eines bestimmten Typs auf.
+Gibt das Fenster frei, um Ereignisse eines bestimmten Typs nicht mehr abzufangen.
 
 ## Syntax
 
@@ -19,7 +19,6 @@ releaseEvents(eventType)
 ### Parameter
 
 - `eventType`
-
   - : `eventType` ist eine Kombination der folgenden Werte:
     `Event.ABORT`, `Event.BLUR`, `Event.CLICK`,
     `Event.CHANGE`, `Event.DBLCLICK`, `Event.DRAGDDROP`,
@@ -32,7 +31,7 @@ releaseEvents(eventType)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -40,9 +39,9 @@ Keiner ({{jsxref("undefined")}}).
 window.releaseEvents(Event.KEYPRESS);
 ```
 
-## Hinweise
+## Anmerkungen
 
-Beachten Sie, dass Sie dieser Methode eine Liste von Ereignissen mit der folgenden Syntax übergeben können:
+Beachten Sie, dass Sie dieser Methode eine Liste von Ereignissen übergeben können, indem Sie die folgende Syntax verwenden:
 `window.releaseEvents(Event.KEYPRESS | Event.KEYDOWN | Event.KEYUP)`.
 
 Siehe auch [`window.captureEvents`](/de/docs/Web/API/Window/captureEvents)

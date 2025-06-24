@@ -3,12 +3,12 @@ title: Intl.DateTimeFormat.prototype.format()
 short-title: format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{JSRef}}
 
-Die **`format()`**-Methode von Instanzen des {{jsxref("Intl.DateTimeFormat")}} formatiert ein Datum gemäß den Lokaleinstellungen und Formatierungsoptionen dieses `Intl.DateTimeFormat`-Objekts.
+Die **`format()`**-Methode von {{jsxref("Intl.DateTimeFormat")}}-Instanzen formatiert ein Datum gemäß den Gebietsschema- und Formatierungsoptionen dieses `Intl.DateTimeFormat`-Objekts.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.format()", "taller")}}
 
@@ -44,25 +44,25 @@ format(date)
 
 - `date`
 
-  - : Das zu formatierende Datum. Kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt sein, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass es mindestens ein relevantes Datumelement druckt.
+  - : Das zu formatierende Datum. Kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt sein, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass mindestens ein relevanter Teil des Datums gedruckt wird.
 
     > [!NOTE]
-    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt führt immer zu einem `TypeError`; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
+    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt wird immer einen `TypeError` auslösen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
 
-    Das Weglassen führt zur Formatierung des aktuellen Datums (wie durch {{jsxref("Date.now()")}} zurückgegeben), was leicht verwirrend sein kann, daher ist es ratsam, immer explizit ein Datum zu übergeben.
+    Wenn es weggelassen wird, wird das aktuelle Datum formatiert (wie von {{jsxref("Date.now()")}} zurückgegeben), was etwas verwirrend sein kann. Es wird daher empfohlen, immer explizit ein Datum zu übergeben.
 
 ### Rückgabewert
 
-Ein String, der das angegebene `date` gemäß den Lokaleinstellungen und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts formatiert darstellt.
+Ein String, der das angegebene `date` gemäß den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist das durch `format()` zurückgegebene Format konsistent. Jedoch kann die Ausgabe zwischen Implementierungen, selbst innerhalb derselben Lokalisierung, variieren – Abweichungen der Ausgabe sind beabsichtigt und durch die Spezifikation erlaubt. Es kann auch nicht Ihren Erwartungen entsprechen. Beispielsweise kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist das von `format()` zurückgegebene Format konsistent. Das Ergebnis kann jedoch zwischen Implementierungen variieren, selbst innerhalb desselben Gebietsschemas — Variationen sind absichtlich und durch die Spezifikation erlaubt. Es entspricht möglicherweise auch nicht Ihren Erwartungen. Beispielsweise kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit festcodierten Konstanten vergleichen.
 
 ## Beispiele
 
-### Verwendung von format
+### Verwenden von format
 
-Verwenden Sie die `format`-Getter-Funktion für die Formatierung eines einzelnen Datums, hier für Serbien:
+Verwenden Sie die `format`-Getter-Funktion, um ein einzelnes Datum zu formatieren, hier für Serbien:
 
 ```js
 const options = {
@@ -76,9 +76,9 @@ console.log(dateTimeFormat.format(new Date()));
 // "недеља, 7. април 2013."
 ```
 
-### Verwendung von format mit map
+### Verwenden von format mit map
 
-Verwenden Sie die `format`-Getter-Funktion, um alle Daten in einem Array zu formatieren. Beachten Sie, dass die Funktion an den {{jsxref("Intl.DateTimeFormat")}}, aus dem sie erhalten wurde, gebunden ist, sodass sie direkt an {{jsxref("Array.prototype.map()")}} übergeben werden kann.
+Verwenden Sie die `format`-Getter-Funktion, um alle Daten in einem Array zu formatieren. Beachten Sie, dass die Funktion an das {{jsxref("Intl.DateTimeFormat")}}, aus dem sie bezogen wurde, gebunden ist, sodass sie direkt an {{jsxref("Array.prototype.map()")}} übergeben werden kann.
 
 ```js
 const a = [new Date(2012, 8), new Date(2012, 11), new Date(2012, 3)];

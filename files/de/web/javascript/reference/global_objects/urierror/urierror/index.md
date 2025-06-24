@@ -3,7 +3,7 @@ title: URIError() Konstruktor
 short-title: URIError()
 slug: Web/JavaScript/Reference/Global_Objects/URIError/URIError
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{JSRef}}
@@ -26,7 +26,7 @@ URIError(message, fileName)
 URIError(message, fileName, lineNumber)
 ```
 
-> **Hinweis:** `URIError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `URIError` Instanz.
+> [!NOTE] > `URIError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `URIError` Instanz.
 
 ### Parameter
 
@@ -35,7 +35,7 @@ URIError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+      - : Eine Eigenschaft, die den spezifischen Grund des Fehlers angibt.
         Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
@@ -44,7 +44,7 @@ URIError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Ein URIError abfangen
+### Abfangen eines URIError
 
 ```js
 try {
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-### Einen URIError erstellen
+### Erstellen eines URIError
 
 ```js
 try {

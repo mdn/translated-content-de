@@ -2,17 +2,17 @@
 title: action.getBadgeTextColor()
 slug: Mozilla/Add-ons/WebExtensions/API/action/getBadgeTextColor
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{AddonSidebar}}
 
-Ermittelt die Textfarbe für das Badge der Browser-Aktion.
+Ruft die Textfarbe des Browser-Action-Badges ab.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-In Firefox wird die Textfarbe des Badges, sofern sie nicht explizit mit {{WebExtAPIRef("action.setBadgeTextColor()")}} festgelegt ist, automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast zur angegebenen Hintergrundfarbe des Badges zu maximieren. Beispielsweise wird die Standardfarbe für den Badge-Text auf Schwarz gesetzt, wenn Sie die Hintergrundfarbe des Badges auf Weiß einstellen, und umgekehrt.
+In Firefox wird die Badge-Textfarbe, sofern sie nicht explizit mit {{WebExtAPIRef("action.setBadgeTextColor()")}} festgelegt wird, automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast zur angegebenen Badge-Hintergrundfarbe zu maximieren. Zum Beispiel, wenn Sie die Badge-Hintergrundfarbe auf Weiß setzen, wird die Standard-Badge-Textfarbe auf Schwarz gesetzt und umgekehrt.
 
 Andere Browser verwenden immer eine weiße Textfarbe.
 
@@ -29,26 +29,24 @@ browser.action.getBadgeTextColor(
 ### Parameter
 
 - `details`
-
   - : `object`.
-
     - `tabId` {{optional_inline}}
-      - : `integer`. Gibt den Tab an, von dem die Textfarbe des Badges ermittelt werden soll.
+      - : `integer`. Gibt die Registerkarte an, von der die Badge-Textfarbe abgerufen werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, aus dem die Textfarbe des Badges ermittelt werden soll.
+      - : `integer`. Gibt das Fenster an, aus dem die Badge-Textfarbe abgerufen werden soll.
 
 <!---->
 
 - Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird die globale Textfarbe des Badges zurückgegeben.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird die globale Badge-Textfarbe zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit der ermittelten Farbe als {{WebExtAPIRef('action.ColorArray')}} erfüllt wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit der abgerufenen Farbe als {{WebExtAPIRef('action.ColorArray')}} erfüllt wird.
 
 ## Beispiele
 
-Protokollieren Sie die Textfarbe des Badges:
+Protokollieren der Textfarbe des Badges:
 
 ```js
 function onGot(color) {
@@ -69,7 +67,7 @@ browser.action.getBadgeTextColor({}).then(onGot, onFailure);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeBackgroundColor) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeBackgroundColor). Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

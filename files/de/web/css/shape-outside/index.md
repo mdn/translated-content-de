@@ -2,12 +2,12 @@
 title: shape-outside
 slug: Web/CSS/shape-outside
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{CSSRef}}
 
-Die **`shape-outside`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert eine Form – die nicht rechteckig sein muss –, um die sich angrenzender Inline-Inhalt wickeln soll. Standardmäßig wickelt sich der Inline-Inhalt um die Margin-Box; `shape-outside` bietet eine Möglichkeit, dieses Wickeln anzupassen, sodass Text auch um komplexe Objekte und nicht nur um rechteckige Boxen gewickelt werden kann.
+Die **`shape-outside`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert eine Form – die nicht-rechteckig sein kann –, um die sich angrenzender Inline-Inhalt wickeln soll. Standardmäßig wickelt sich Inline-Inhalt um seine Margin-Box; `shape-outside` bietet eine Möglichkeit, dieses Wickeln anzupassen und es möglich zu machen, Text um komplexe Objekte statt um rechteckige Boxen wickeln zu lassen.
 
 {{InteractiveExample("CSS Demo: shape-outside")}}
 
@@ -94,44 +94,43 @@ shape-outside: revert-layer;
 shape-outside: unset;
 ```
 
-Die Eigenschaft `shape-outside` wird unter Verwendung der unten aufgeführten Werte angegeben, die den _Flächenbereich_ für _Float-Elemente_ definieren. Der Flächenbereich bestimmt die Form, um die sich Inline-Inhalt (Float-Elemente) wickelt.
+Die `shape-outside` Eigenschaft wird mit den Werten aus der untenstehenden Liste angegeben, die den _Float-Bereich_ für _Fließ-Elemente_ definieren. Der Float-Bereich bestimmt die Form, um die sich Inline-Inhalt (Fließ-Elemente) wickeln.
 
 ### Werte
 
 - `none`
-  - : Der Flächenbereich bleibt unberührt. Inline-Inhalt wickelt sich wie gewohnt um die Margin-Box des Elements.
+  - : Der Float-Bereich wird nicht beeinflusst. Inline-Inhalt wickelt sich wie gewohnt um die Margin-Box des Elements.
 - `<shape-box>`
 
-  - : Der Flächenbereich wird gemäß der Form der Kanten eines Float-Elements berechnet (wie im [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) definiert). Dies kann eine `margin-box`, `border-box`, `padding-box` oder `content-box` sein. Die Form schließt jede Krümmung ein, die durch die Eigenschaft {{cssxref("border-radius")}} erstellt wird (ein Verhalten, das ähnlich ist wie {{cssxref("background-clip")}}).
-
+  - : Der Float-Bereich wird entsprechend der Form der Kanten eines Fließ-Elements berechnet (wie im [CSS Box Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) definiert). Dies kann `margin-box`, `border-box`, `padding-box` oder `content-box` sein. Die Form schließt jegliche Krümmung ein, die durch die {{cssxref("border-radius")}} Eigenschaft erzeugt wird (ähnliches Verhalten wie bei {{cssxref("background-clip")}}).
     - `margin-box`
-      - : Definiert die Form, die vom äußeren Rand des Margins eingeschlossen wird. Die Eckenradien dieser Form werden durch die entsprechenden Werte von {{cssxref("border-radius")}} und {{cssxref("margin")}} bestimmt. Wenn das Verhältnis von `border-radius / margin` `1` oder mehr beträgt, ist der Eckenradius der Margin-Box `border-radius + margin`. Wenn das Verhältnis kleiner als `1` ist, ist der Eckenradius der Margin-Box `border-radius + (margin * (1 + (ratio - 1) ^ 3))`.
+      - : Definiert die Form, die vom äußeren Rand der Margin eingeschlossen wird. Die Eckenradien dieser Form werden durch die entsprechenden {{cssxref("border-radius")}} und {{cssxref("margin")}} Werte bestimmt. Wenn das Verhältnis von `border-radius / margin` `1` oder mehr ist, dann ist der Eckenradius der Margin-Box `border-radius + margin`. Wenn das Verhältnis kleiner als `1` ist, dann ist der Eckenradius der Margin-Box `border-radius + (margin * (1 + (ratio - 1) ^ 3))`.
     - `border-box`
-      - : Definiert die Form, die vom äußeren Rand des Borders eingeschlossen wird. Die Form folgt den normalen Border-Radius-Formregeln für die Außenseite des Borders.
+      - : Definiert die Form, die vom äußeren Rand des Borders eingeschlossen wird. Die Form folgt den normalen Regeln zur Formgebung des Border-Radius für die Außenseite des Borders.
     - `padding-box`
-      - : Definiert die Form, die vom äußeren Rand des Paddings eingeschlossen wird. Die Form folgt den normalen Border-Radius-Formregeln für die Innenseite des Borders.
+      - : Definiert die Form, die vom äußeren Rand des Paddings eingeschlossen wird. Die Form folgt den normalen Regeln zur Formgebung des Border-Radius für die Innenseite des Borders.
     - `content-box`
-      - : Definiert die Form, die vom äußeren Rand des Inhalts eingeschlossen wird. Jeder Eckenradius dieser Box ist der größere von `0` oder `border-radius - border-width - padding`.
+      - : Definiert die Form, die vom äußeren Rand des Inhalts eingeschlossen wird. Jeder Eckenradius dieser Box ist das größere von `0` oder `border-radius - border-width - padding`.
 
 - {{cssxref("&lt;basic-shape&gt;")}}
-  - : Der Flächenbereich wird basierend auf der Form berechnet, die durch eine {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/circle","circle()")}}, {{cssxref("basic-shape/ellipse","ellipse()")}}, oder {{cssxref("basic-shape/polygon","polygon()")}} Funktion erstellt wird; andere `<basic-shape>` Funktionen sind ungültig. Wenn auch eine `<shape-box>` angegeben wird, definiert sie die Referenzbox für die `<basic-shape>` Funktion. Andernfalls wird die Referenzbox standardmäßig als `margin-box` verwendet.
+  - : Der Float-Bereich wird basierend auf der Form berechnet, die durch eine {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/circle","circle()")}}, {{cssxref("basic-shape/ellipse","ellipse()")}}, oder {{cssxref("basic-shape/polygon","polygon()")}} Funktion erstellt wird; andere `<basic-shape>` Funktionen sind ungültig. Wenn zusätzlich ein `<shape-box>` angegeben wird, definiert dieser die Referenzbox für die `<basic-shape>` Funktion. Andernfalls ist die Referenzbox standardmäßig `margin-box`.
 - {{cssxref("&lt;image&gt;")}}
-  - : Der Flächenbereich wird basierend auf dem Alphakanal des angegebenen {{cssxref("&lt;image&gt;")}} extrahiert und berechnet, wie durch {{cssxref("shape-image-threshold")}} definiert.
+  - : Der Float-Bereich wird basierend auf dem Alphakanal des angegebenen {{cssxref("&lt;image&gt;")}} extrahiert und berechnet, wie in {{cssxref("shape-image-threshold")}} definiert.
 
 > [!NOTE]
-> Wenn das Bild ungültig ist, wirkt es so, als ob das Schlüsselwort `none` angegeben worden wäre. Darüber hinaus muss das Bild mit {{Glossary("CORS", "CORS")}}-Headern bereitgestellt werden, die seine Verwendung zulassen.
+> Wenn das Bild ungültig ist, ist der Effekt, als ob das Schlüsselwort `none` angegeben worden wäre. Außerdem muss das Bild mit {{Glossary("CORS", "CORS")}} Headern geliefert werden, die seine Nutzung erlauben.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Text einleiten
+### Text kanalisieren
 
 #### HTML
 
@@ -192,8 +191,8 @@ p {
 
 ## Siehe auch
 
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes)
-- [Überblick über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [CSS shapes](/de/docs/Web/CSS/CSS_shapes)
+- [Übersicht über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 - {{cssxref("&lt;basic-shape&gt;")}}
 - {{cssxref("shape-margin")}}
 - {{cssxref("shape-image-threshold")}}

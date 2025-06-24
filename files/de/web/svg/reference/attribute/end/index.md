@@ -2,19 +2,19 @@
 title: end
 slug: Web/SVG/Reference/Attribute/end
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-Das **`end`** Attribut definiert einen Endwert für die Animation, der die aktive Dauer begrenzen kann.
+Das **`end`**-Attribut definiert einen Endwert für die Animation, der die aktive Dauer einschränken kann.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("set")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -33,21 +33,21 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Die `<end-value-list>` ist eine durch Semikolon getrennte Liste von Werten. Jeder Wert kann einer der folgenden sein:
+Die `<end-value-list>` ist eine durch Semikolons getrennte Liste von Werten. Jeder Wert kann eines der folgenden sein:
 
 - `<offset-value>`
   - : Dieser Wert definiert einen [clock-value](/de/docs/Web/SVG/Guides/Content_type#clock-value), der einen Zeitpunkt relativ zum Beginn des SVG-Dokuments (normalerweise das [`load`](/de/docs/Web/API/SVGElement/load_event)- oder [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis) darstellt. Negative Werte sind gültig.
 - `<syncbase-value>`
 
-  - : Dieser Wert definiert eine _syncbase_ und einen optionalen Offset von dieser _syncbase_. Die Endzeit der Elementanimation wird relativ zum Beginn oder aktiven Ende einer anderen Animation definiert.
+  - : Dieser Wert definiert eine _syncbase_ und einen optionalen Offset von dieser _syncbase_. Die Endzeit der Animation des Elements wird relativ zum Beginn oder aktiven Ende einer anderen Animation definiert.
 
-    Ein gültiger syncbase-value besteht aus einer ID-Referenz zu einem anderen Animationselement, gefolgt von einem Punkt und entweder `begin` oder `end`, um zu bestimmen, ob mit dem Beginn oder aktiven Ende des referenzierten Animationselements synchronisiert werden soll. Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann angehängt werden.
+    Ein gültiger syncbase-value besteht aus einer ID-Referenz zu einem anderen Animations-Element gefolgt von einem Punkt und entweder `begin` oder `end`, um festzulegen, ob mit dem Beginn oder aktiven Ende des referenzierten Animations-Elements synchronisiert werden soll. Ein optionaler Offsetwert, wie in `<offset-value>` definiert, kann angehängt werden.
 
 - `<event-value>`
 
-  - : Dieser Wert definiert ein Ereignis und einen optionalen Offset, der den Zeitpunkt bestimmt, zu dem die Animation des Elements enden soll. Die Endzeit der Animation wird relativ zu dem Zeitpunkt definiert, zu dem das angegebene Ereignis ausgelöst wird.
+  - : Dieser Wert definiert ein Ereignis und einen optionalen Offset, der bestimmt, wann die Animation des Elements enden soll. Die Endzeit der Animation wird relativ zu dem Zeitpunkt definiert, zu dem das angegebene Ereignis ausgelöst wird.
 
-    Ein gültiger event-value besteht aus einer Element-ID, gefolgt von einem Punkt und einem der unterstützten Ereignisse für dieses Element. Alle gültigen Ereignisse (nicht unbedingt von allen Elementen unterstützt) sind durch die DOM- und HTML-Spezifikationen definiert. Diese sind:
+    Ein gültiger event-value besteht aus einer Element-ID gefolgt von einem Punkt und einem der für dieses Element unterstützten Ereignisse. Alle gültigen Ereignisse (nicht zwingend von allen Elementen unterstützt) sind durch die DOM- und HTML-Spezifikationen definiert. Diese sind:
 
     - [`focus`](/de/docs/Web/API/Element/focus_event)
     - [`blur`](/de/docs/Web/API/Element/blur_event)
@@ -83,25 +83,25 @@ Die `<end-value-list>` ist eine durch Semikolon getrennte Liste von Werten. Jede
     - [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)
     - [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)
 
-    Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann angehängt werden.
+    Ein optionaler Offsetwert, wie in `<offset-value>` definiert, kann angehängt werden.
 
 - `<repeat-value>`
 
-  - : Dieser Wert definiert ein qualifiziertes Wiederholungsereignis. Die Endzeit der Elementanimation wird relativ zu dem Zeitpunkt definiert, an dem das Wiederholungsereignis mit dem angegebenen Iterationswert ausgelöst wird.
+  - : Dieser Wert definiert ein qualifiziertes Wiederholungsereignis. Die Endzeit der Animation des Elements wird relativ zu dem Zeitpunkt definiert, zu dem das Wiederholungsereignis mit dem angegebenen Iterationswert ausgelöst wird.
 
-    Ein gültiger Wiederholungswert besteht aus einer Element-ID, gefolgt von einem Punkt und der Funktion `repeat()` mit einem ganzzahligen Wert, der die Anzahl der Wiederholungen als Parameter angibt. Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann angehängt werden.
+    Ein gültiger repeat-value besteht aus einer Element-ID gefolgt von einem Punkt und der Funktion `repeat()` mit einem ganzzahligen Wert, der die Anzahl der Wiederholungen als Parameter angibt. Ein optionaler Offsetwert, wie in `<offset-value>` definiert, kann angehängt werden.
 
 - `<accessKey-value>`
 
-  - : Dieser Wert definiert eine Zugriffstaste, die das Ende der Animation auslösen soll. Die Elementanimation endet, wenn der Benutzer die angegebene Taste drückt.
+  - : Dieser Wert definiert einen Zugangsschlüssel, der das Ende der Animation auslösen soll. Die Animation des Elements endet, wenn der Benutzer die angegebene Taste drückt.
 
-    Ein gültiger accessKey-Wert besteht aus der Funktion `accessKey()` mit dem einzugebenden Zeichen als Parameter. Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann angehängt werden.
+    Ein gültiger accessKey-value besteht aus der Funktion `accessKey()` mit dem einzugebenden Zeichen als Parameter. Ein optionaler Offsetwert, wie in `<offset-value>` definiert, kann angehängt werden.
 
 - `<wallclock-sync-value>`
 
-  - : Dieser Wert definiert die Endzeit der Animation als reale Uhrzeit.
+  - : Dieser Wert definiert die Endzeit der Animation als Echtwelt-Uhrzeit.
 
-    Ein gültiger wallclock-sync-Wert besteht aus der Funktion `wallclock()` mit einem Zeitwert als Parameter. Die Zeitsyntax basiert auf der in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) definierten Syntax.
+    Ein gültiger wallclock-sync-value besteht aus der Funktion `wallclock()` mit einem Zeitwert als Parameter. Die Zeitsyntax basiert auf der in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) definierten Syntax.
 
 - `indefinite`
   - : Das Ende der Animation wird durch einen Aufruf der Methode [`SVGAnimationElement.endElement()`](/de/docs/Web/API/SVGAnimationElement/endElement) bestimmt.
@@ -167,7 +167,7 @@ Die `<end-value-list>` ist eine durch Semikolon getrennte Liste von Werten. Jede
 
 {{EmbedLiveSample('Offset_example', '100%', 130)}}
 
-### Ereignisbeispiel
+### Ereignis-Beispiel
 
 ```html
 <svg
