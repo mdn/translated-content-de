@@ -3,12 +3,12 @@ title: "GPUAdapterInfo: subgroupMinSize-Eigenschaft"
 short-title: subgroupMinSize
 slug: Web/API/GPUAdapterInfo/subgroupMinSize
 l10n:
-  sourceCommit: cb55676aaa55c97d098c26cab84dafa0ac75e0d9
+  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`subgroupMinSize`**-Eigenschaft des [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Interfaces gibt die minimale unterstützte [Subgruppen-Größe](https://gpuweb.github.io/gpuweb/wgsl/#subgroup-size) für den [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurück. Dies kann zusammen mit der `subgroups`- [Funktion](/de/docs/Web/API/GPUSupportedFeatures) verwendet werden.
+Die schreibgeschützte **`subgroupMinSize`**-Eigenschaft des [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Interfaces gibt die minimal unterstützte [Subgruppen-Größe](https://gpuweb.github.io/gpuweb/wgsl/#subgroup-size) für den [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurück. Diese kann zusammen mit dem `subgroups`-[Feature](/de/docs/Web/API/GPUSupportedFeatures) verwendet werden.
 
 ## Wert
 

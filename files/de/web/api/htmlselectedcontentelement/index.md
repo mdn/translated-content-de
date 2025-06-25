@@ -2,26 +2,26 @@
 title: HTMLSelectedContentElement
 slug: Web/API/HTMLSelectedContentElement
 l10n:
-  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
+  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`HTMLSelectedContentElement`**-Interface repräsentiert ein {{HTMLElement("selectedcontent")}}-Element im [DOM](/de/docs/Web/API/Document_Object_Model).
+Die **`HTMLSelectedContentElement`**-Schnittstelle repräsentiert ein {{HTMLElement("selectedcontent")}}-Element im [DOM](/de/docs/Web/API/Document_Object_Model).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Dieses Interface hat keine Eigenschaften, erbt aber Eigenschaften von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Dieses Interface hat keine Methoden, erbt aber Methoden von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
-Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/html/pull/10633 für den relevanten Spezifikations-PR.
+Gehört derzeit nicht zu einer Spezifikation. Siehe https://github.com/whatwg/html/pull/10633 für den relevanten Spezifikations-PR.
 
 ## Browser-Kompatibilität
 
@@ -29,4 +29,4 @@ Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/html/pul
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("selectedcontent")}}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("selectedcontent")}}.

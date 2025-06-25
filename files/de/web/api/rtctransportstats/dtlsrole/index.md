@@ -3,26 +3,25 @@ title: "RTCTransportStats: dtlsRole Eigenschaft"
 short-title: dtlsRole
 slug: Web/API/RTCTransportStats/dtlsRole
 l10n:
-  sourceCommit: 185acd0fe4bd6d0f4a5c6d79fa46b1b748d09ea1
+  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`dtlsRole`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) Wörterbuchs ist ein String, der die Rolle der zugehörigen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) in der DTLS-Verhandlung angibt.
+Die **`dtlsRole`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs ist ein String, der die Rolle der zugehörigen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) in der DTLS-Negotiation angibt.
 
-Genauer gesagt, ob es als Server fungierte und Verbindungen abhörte, als Client fungierte und die Verbindung initiierte, oder dass die Verhandlung noch nicht begonnen hat.
+Konkret, ob es wie ein Server agierte und auf Verbindungen wartete oder wie ein Client die Verbindung initiierte, oder ob die Negotiation noch nicht begonnen hat.
 
 ## Wert
 
-Ein String, der die DTLS-Rolle angibt.
-Dieser wird einer der folgenden sein:
+Ein String, der die DTLS-Rolle angibt. Dies wird einer der folgenden sein:
 
 - `client`
-  - : Der Peer hat das DTLS-Handshake initiiert.
+  - : Der Peer initiierte den DTLS-Handshake.
 - `server`
-  - : Der Peer hat auf das DTLS-Handshake gewartet.
+  - : Der Peer wartete auf den DTLS-Handshake.
 - `unknown`
-  - : Die DTLS-Verhandlung hat noch nicht begonnen.
+  - : Die DTLS-Negotiation hat noch nicht begonnen.
 
 ## Spezifikationen
 
