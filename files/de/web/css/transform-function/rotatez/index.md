@@ -2,12 +2,12 @@
 title: rotateZ()
 slug: Web/CSS/transform-function/rotateZ
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{CSSRef}}
 
-Die **`rotateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die z-Achse dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die z-Achse rotiert, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: rotateZ()")}}
 
@@ -37,18 +37,15 @@ transform: rotateZ(3.142rad);
 </section>
 ```
 
-Die Rotationsachse verläuft durch einen Ursprung, der durch die {{cssxref("transform-origin")}} CSS-Eigenschaft definiert wird.
-
-> [!NOTE] > `rotateZ(a)` ist gleichwertig zu
-> `rotate(a)` oder
-> `rotate3d(0, 0, 1, a)`.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Das heißt, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> `rotateZ(a)` ist äquivalent zu `rotate(a)` oder `rotate3d(0, 0, 1, a)`.
+
+> [!NOTE]
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen üblicherweise nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
-
-Die durch `rotateZ()` erzeugte Rotationsmenge wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Wert positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, gegen den Uhrzeigersinn.
 
 ```css
 rotateZ(a)
@@ -57,7 +54,7 @@ rotateZ(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}} und stellt den Winkel der Rotation dar. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, der den Winkel der Rotation darstellt. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -71,7 +68,7 @@ rotateZ(a)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

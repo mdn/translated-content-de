@@ -2,7 +2,7 @@
 title: rotateX()
 slug: Web/CSS/transform-function/rotateX
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{CSSRef}}
@@ -37,19 +37,16 @@ transform: rotateX(3.142rad);
 </section>
 ```
 
-Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
 
-> [!NOTE] > `rotateX(a)` ist äquivalent zu
+> [!NOTE]
+> `rotateX(a)` ist äquivalent zu
 > `rotate3d(1, 0, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen normalerweise
-> nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Das bedeutet, dass die Reihenfolge, in der die Rotationen angewendet werden, das Ergebnis beeinflusst.
 
 ## Syntax
-
-Der Umfang der durch `rotateX()` erzeugten Rotation wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Wenn
-positiv, erfolgt die Bewegung im Uhrzeigersinn; wenn negativ, gegen den Uhrzeigersinn.
 
 ```css
 rotateX(a)
@@ -58,7 +55,7 @@ rotateX(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, das den Winkel der Rotation darstellt. Ein positiver Winkel bedeutet eine Rotation im Uhrzeigersinn, ein negativer Winkel eine gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, der den Drehwinkel darstellt. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -72,7 +69,7 @@ rotateX(a)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf die Ebene abgebildet werden.
       </td>
       <td>
         <math display="block">

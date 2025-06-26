@@ -1,14 +1,14 @@
 ---
-title: "KeyboardLayoutMap: Methode entries()"
+title: "KeyboardLayoutMap: entries() Methode"
 short-title: entries()
 slug: Web/API/KeyboardLayoutMap/entries
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}
 
-Die **`entries()`**-Methode der Schnittstelle [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück, das die Schlüssel/Wert-Paare enthält, in derselben Reihenfolge wie sie von einer {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt wird (mit dem Unterschied, dass eine `for-in`-Schleife auch Eigenschaften in der Prototyp-Kette aufzählt).
+Die **`entries()`** Methode des [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) Interface gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) Objekt zurück, das die Schlüssel/Wert-Paare im gleichen Reihenfolge enthält, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine `for-in` Schleife auch Eigenschaften in der Prototypkette auflistet).
 
 Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.entries()")}}.
 
@@ -18,13 +18,17 @@ Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.entries()")}}.
 entries()
 ```
 
+### Parameter
+
+Keine.
+
 ### Rückgabewert
 
-Ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt.
+Ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über jeden standort- oder layoutspezifischen String und seinen zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
+Das folgende Beispiel durchläuft jeden orts- oder layout-spezifischen String und den zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

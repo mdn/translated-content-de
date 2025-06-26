@@ -3,12 +3,18 @@ title: "RTCPeerConnection: close() Methode"
 short-title: close()
 slug: Web/API/RTCPeerConnection/close
 l10n:
-  sourceCommit: 9f18116c362265a3dfb65185728548ec43cd12f4
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`close()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle schließt die aktuelle Peer-Verbindung.
+Die **`close()`** Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interface schließt die aktuelle Peer-Verbindung.
+
+Das Aufrufen dieser Methode beendet den ICE-Agent von `RTCPeerConnection`, beendet jegliche laufende ICE-Verarbeitung und alle aktiven Streams. Dies gibt auch alle Ressourcen frei, die vom ICE-Agent genutzt werden, einschließlich TURN-Berechtigungen. Alle [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) Objekte gelten als gestoppt, sobald dies zurückkehrt (sie können sich noch im Prozess des Stoppens befinden, aber sie gelten in jeder Hinsicht als gestoppt).
+
+Sobald diese Methode zurückkehrt, ist der Signalisierungszustand, wie er von [`RTCPeerConnection.signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) zurückgegeben wird, `closed`.
+
+Stellen Sie sicher, dass Sie alle Referenzen zur vorherigen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `löschen`, bevor Sie versuchen, eine neue zu erstellen, die sich mit dem gleichen entfernten Peer verbindet, da dies Fehler verursachen könnte, die je nach Browser variieren.
 
 ## Syntax
 
@@ -16,13 +22,13 @@ Die **`close()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConn
 close()
 ```
 
-_Diese Methode hat keine Parameter und gibt nichts zurück._
+### Parameter
 
-Das Aufrufen dieser Methode beendet den ICE-Agent der RTCPeerConnection, beendet jegliche laufende ICE-Verarbeitung und aktive Streams. Dies setzt auch alle vom ICE-Agent verwendeten Ressourcen frei, einschließlich TURN-Berechtigungen. Alle [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte gelten als gestoppt, sobald diese Methode zurückkehrt (sie können noch im Prozess des Stoppen sein, aber im Wesentlichen sind sie gestoppt).
+Keine.
 
-Sobald diese Methode zurückkehrt, ist der Signalisierungsstatus, wie er von [`RTCPeerConnection.signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) zurückgegeben wird, `closed`.
+### Rückgabewert
 
-Stellen Sie sicher, dass Sie alle Referenzen zur vorherigen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `löschen`, bevor Sie versuchen, eine neue Verbindung mit dem gleichen entfernten Peer zu erstellen, da dies je nach Browser zu einigen Fehlern führen könnte.
+Keiner (`undefined`).
 
 ## Beispiel
 

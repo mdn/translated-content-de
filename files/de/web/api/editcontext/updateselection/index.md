@@ -3,12 +3,12 @@ title: "EditContext: updateSelection() Methode"
 short-title: updateSelection()
 slug: Web/API/EditContext/updateSelection
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`updateSelection()`** Methode der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle aktualisiert den internen Zustand der Auswahl innerhalb des bearbeitbaren Textkontextes. Diese Methode wird verwendet, um den Auswahlzustand zu aktualisieren, wenn der Benutzer mit der Textdarstellung im zugehörigen Element des `EditContext` interagiert, z.B. durch Klicken oder Ziehen mit der Maus oder durch die Verwendung der Tastatur.
+Die **`updateSelection()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle aktualisiert den internen Zustand der Auswahl innerhalb des editierbaren Textkontexts. Diese Methode wird verwendet, um den Auswahlzustand zu aktualisieren, wenn der Benutzer mit der Textdarstellung im zugehörigen Element des `EditContext` interagiert, z. B. durch Klicken oder Ziehen der Maus oder durch die Verwendung der Tastatur.
 
 ## Syntax
 
@@ -19,22 +19,24 @@ updateSelection(start, end)
 ### Parameter
 
 - `start`
-  - : Eine Zahl, die den neuen Anfang der Auswahl darstellt.
+  - : Eine Zahl, die den neuen Auswahlbeginn darstellt.
 - `end`
-  - : Eine Zahl, die das neue Ende der Auswahl darstellt.
+  - : Eine Zahl, die das neue Auswahlende darstellt. Wenn die Werte von `start` und `end` identisch sind, entspricht die Auswahl einem Caret.
 
-Wenn die Werte für `start` und `end` gleich sind, entspricht die Auswahl einem Caret.
+### Rückgabewert
+
+Keiner (`undefined`).
 
 ### Ausnahmen
 
-- Wird nur ein Argument bereitgestellt, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn eines der Argumente keine nicht-negative Zahl ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn die Methode mit weniger als zwei Argumenten aufgerufen wird oder eines der Argumente keine nicht-negative Zahl ist.
 
 ## Beispiele
 
-### Aktualisierung der Auswahl, wenn der Benutzer mit dem Text interagiert
+### Aktualisieren der Auswahl, wenn der Benutzer mit dem Text interagiert
 
-Dieses Beispiel zeigt, wie die `updateSelection` Methode verwendet wird, um die Auswahl im `EditContext` eines `canvas` Elements zu aktualisieren, wenn die Pfeiltasten verwendet werden, um den Cursor zu bewegen oder Text im bearbeitbaren Bereich auszuwählen.
+Dieses Beispiel zeigt, wie die `updateSelection`-Methode verwendet wird, um die Auswahl im `EditContext` eines `canvas`-Elements zu aktualisieren, wenn die Pfeiltasten verwendet werden, um den Caret zu bewegen oder Text im editierbaren Bereich auszuwählen.
 
 ```html
 <canvas id="editor-canvas"></canvas>

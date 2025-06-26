@@ -1,19 +1,19 @@
 ---
-title: "Highlight: values() Methode"
+title: "Highlight: Methode `values()`"
 short-title: values()
 slug: Web/API/Highlight/values
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`values()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Werte für jedes `Range`-Objekt im `Highlight`-Objekt in der Einfügereihenfolge enthält.
+Die **`values()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Werte für jedes `Range`-Objekt im `Highlight`-Objekt in Einfügereihenfolge enthält.
 
 > [!NOTE]
-> Die **`keys()`**-Methode ist ein Alias für diese Methode. Sie verhält sich exakt gleich und gibt **Werte** der `Highlight`-Elemente zurück.
+> Die **`keys()`**-Methode ist ein Alias für diese Methode. Sie verhält sich genau gleich und gibt **Werte** von `Highlight`-Elementen zurück.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.values()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ähnelt dies der Verwendung von {{jsxref("Set.values()")}}.
 
 ## Syntax
 
@@ -21,13 +21,17 @@ Die **`values()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnitt
 values()
 ```
 
+### Parameter
+
+Keine.
+
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das jedes `Range`-Objekt im angegebenen `Highlight` in Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das jedes `Range`-Objekt im gegebenen `Highlight` in Einfügereihenfolge enthält.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie ein neues `Highlight`-Objekt mit drei `Range`-Objekten erstellt wird und wie der Iterator verwendet wird, der von der `values()`-Methode zurückgegeben wird, um die drei Bereiche zu protokollieren:
+Der folgende Code-Schnipsel zeigt, wie man ein neues `Highlight`-Objekt mit drei `Range`-Objekten erstellt und den Iterator verwendet, der von der `values()`-Methode zurückgegeben wird, um die drei Bereiche zu protokollieren:
 
 ```js
 const myHighlight = new Highlight();

@@ -3,7 +3,7 @@ title: "Highlight: keys()-Methode"
 short-title: keys()
 slug: Web/API/Highlight/keys
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
@@ -18,9 +18,13 @@ Die **`keys()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittst
 keys()
 ```
 
+### Parameter
+
+Keine.
+
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das jedes `Range`-Objekt im gegebenen `Highlight` in Einfüge-Reihenfolge enthält.
+Ein neues Iterator-Objekt, das jedes `Range`-Objekt im gegebenen `Highlight` in der Einfügereihenfolge enthält.
 
 ## Spezifikationen
 
@@ -33,4 +37,4 @@ Ein neues Iterator-Objekt, das jedes `Range`-Objekt im gegebenen `Highlight` in 
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

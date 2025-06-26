@@ -1,15 +1,14 @@
 ---
-title: "NodeList: Werte()-Methode"
+title: "NodeList: `values()` Methode"
 short-title: values()
 slug: Web/API/NodeList/values
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.values()`**-Methode gibt einen
-{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte zu durchlaufen. Die Werte sind [`Node`](/de/docs/Web/API/Node)-Objekte.
+Die **`NodeList.values()`** Methode gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte durchzugehen. Die Werte sind [`Node`](/de/docs/Web/API/Node) Objekte.
 
 ## Syntax
 
@@ -17,9 +16,13 @@ Die **`NodeList.values()`**-Methode gibt einen
 values()
 ```
 
+### Parameter
+
+Keine.
+
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiel
 

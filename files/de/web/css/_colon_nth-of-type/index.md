@@ -2,12 +2,12 @@
 title: :nth-of-type()
 slug: Web/CSS/:nth-of-type
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{CSSRef}}
 
-Die **`:nth-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern des gleichen Typs (Tag-Name) aus.
+Die **`:nth-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern des gleichen Typs (Tag-Name) aus.
 
 {{InteractiveExample("CSS Demo: :nth-of-type", "tabbed-shorter")}}
 
@@ -41,15 +41,17 @@ dd:nth-of-type(even) {
 
 ## Syntax
 
-Die `nth-of-type` Pseudoklasse wird mit einem einzigen Argument angegeben, das das Muster für die Auswahl von Elementen darstellt.
-
-Siehe {{Cssxref(":nth-child")}} für eine detailliertere Erklärung seiner Syntax.
-
 ```css-nolint
 :nth-of-type(<An+B> | even | odd) {
   /* ... */
 }
 ```
+
+### Parameter
+
+Die `:nth-of-type()` Pseudo-Klasse wird mit einem einzigen Argument angegeben, das das Muster für das Matching von Elementen darstellt.
+
+Siehe {{Cssxref(":nth-child")}} für eine detailliertere Erklärung der Syntax.
 
 ## Beispiele
 
@@ -98,7 +100,7 @@ p.fancy:nth-of-type(2n + 1) {
 {{EmbedLiveSample('Basic_example', 250, 250)}}
 
 > [!NOTE]
-> Es gibt keine Möglichkeit, die nth-of-class mit diesem Selektor auszuwählen. Der Selektor betrachtet nur den Typ beim Erstellen der Liste von Übereinstimmungen. Sie können jedoch CSS auf ein Element basierend auf der `:nth-of-type`-Position **und** einer Klasse anwenden, wie im obigen Beispiel gezeigt.
+> Es gibt keine Möglichkeit, das n-te Element einer Klasse mit diesem Selektor auszuwählen. Der Selektor betrachtet nur den Typ bei der Erstellung der Liste von Übereinstimmungen. Sie können jedoch CSS auf ein Element basierend auf dem `:nth-of-type`-Standort **und** einer Klasse anwenden, wie im obigen Beispiel gezeigt.
 
 ## Spezifikationen
 

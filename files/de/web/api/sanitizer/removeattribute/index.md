@@ -3,17 +3,16 @@ title: "Sanitizer: removeAttribute()-Methode"
 short-title: removeAttribute()
 slug: Web/API/Sanitizer/removeAttribute
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`removeAttribute()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle bestimmt, dass ein Attribut auf allen Elementen nicht erlaubt ist.
+Die **`removeAttribute()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle setzt ein Attribut, das auf allen Elementen nicht erlaubt sein soll.
 
-Das angegebene Attribut wird in die Liste der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) in der Konfiguration dieses Sanitizers aufgenommen.
-Das Attribut wird aus der Liste der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) entfernt, falls es vorhanden ist.
+Das angegebene Attribut wird der Liste von [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) in der Konfiguration dieses Sanitizers hinzugefügt. Das Attribut wird aus der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2)-Liste entfernt, falls es dort vorhanden ist.
 
-Beachten Sie, dass Sie, um Attribute nur auf spezifischen Elementen zu erlauben oder zu verbieten, [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwenden sollten.
+Beachten Sie, dass Sie zum Erlauben/Verbieten von Attributen nur auf bestimmten Elementen die Methode [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwenden sollten.
 
 ## Syntax
 
@@ -24,11 +23,11 @@ removeAttribute(attribute)
 ### Parameter
 
 - `attribute`
-  - : Ein String, der den Namen des Attributs angibt, das global auf Elementen nicht erlaubt sein soll, oder ein Objekt mit den folgenden Eigenschaften:
+  - : Ein String, der den Namen des global zu verbietenden Attributs auf Elementen angibt, oder ein Objekt mit den folgenden Eigenschaften:
     - `name`
       - : Ein String, der den Namen des Attributs enthält.
     - `namespace` {{optional_inline}}
-      - : Ein String, der den Namensraum des Attributs enthält, welcher standardmäßig `null` ist.
+      - : Ein String, der den Namensraum des Attributs enthält, der standardmäßig auf `null` gesetzt ist.
 
 ### Rückgabewert
 
@@ -38,7 +37,7 @@ Keiner (`undefined`).
 
 ### Anleitung zum Verbieten bestimmter Attribute
 
-Dieses Beispiel zeigt, wie `removeAttribute()` verwendet wird, um festzulegen, dass ein Attribut von Elementen entfernt werden sollte.
+Dieses Beispiel zeigt, wie `removeAttribute()` verwendet wird, um anzugeben, dass ein Attribut von Elementen entfernt werden sollte.
 
 ```html hidden
 <pre id="log"></pre>
@@ -62,8 +61,7 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfänglich keine Attribute oder Elemente spezifiziert.
-Dann rufen wir `removeAttribute()` mit den Attributen `title` und `mathcolor` auf.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfangs keine Attribute oder Elemente spezifiziert. Dann rufen wir `removeAttribute()` mit den Attributen `title` und `mathcolor` auf.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -93,10 +91,9 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Die endgültige Konfiguration wird unten protokolliert.
-Beachten Sie, wie beide Attribute nun zur Liste der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) hinzugefügt wurden (diese Attribute werden entfernt, falls sie auf Elementen vorhanden sind, wenn der Sanitizer verwendet wird).
+Die endgültige Konfiguration wird unten protokolliert. Beachten Sie, wie beide Attribute nun der Liste von [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) hinzugefügt sind (diese Attribute werden entfernt, wenn sie auf Elementen vorhanden sind, wenn der Sanitizer verwendet wird).
 
-{{EmbedLiveSample("How to disallow specific attributes","100","360px")}}
+{{EmbedLiveSample("Anleitung zum Verbieten bestimmter Attribute","100","360px")}}
 
 ## Spezifikationen
 

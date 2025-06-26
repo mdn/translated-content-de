@@ -1,16 +1,16 @@
 ---
-title: "Sanitizer: setComments() Methode"
+title: "Sanitizer: setComments()-Methode"
 short-title: setComments()
 slug: Web/API/Sanitizer/setComments
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`setComments()`** Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces legt fest, ob Kommentare vom Sanitizer zugelassen oder entfernt werden.
+Die **`setComments()`**-Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces legt fest, ob Kommentare von dem Sanitizer erlaubt oder entfernt werden.
 
-Die Methode setzt die [`comments`](/de/docs/Web/API/SanitizerConfig#comments)-Eigenschaft in der Konfiguration dieses Sanitizers.
+Die Methode legt die [`comments`](/de/docs/Web/API/SanitizerConfig#comments)-Eigenschaft in der Konfiguration dieses Sanitizers fest.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ setComments(allow);
 
 ### Rückgabewert
 
-Kein (`undefined`).
+Keiner (`undefined`).
 
 ## Beispiele
 
-### Anleitung zur Bereinigung von Kommentaren
+### Anleitung zum Desinfizieren von Kommentaren
 
-Der folgende Code zeigt die grundlegende Verwendung der `setComments()`-Methode.
+Der untenstehende Code zeigt die grundlegende Verwendung der `setComments()`-Methode.
 
 ```js
 // Create sanitizer (in this case the default)

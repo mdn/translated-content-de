@@ -3,18 +3,26 @@ title: "OffscreenCanvasRenderingContext2D: commit()-Methode"
 short-title: commit()
 slug: Web/API/OffscreenCanvasRenderingContext2D/commit
 l10n:
-  sourceCommit: 95036ee8bdd7ae80519c726f501aa032ad93585f
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
 
-Die Methode **`OffscreenCanvasRenderingContext2D.commit()`** der [Canvas 2D API](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) war gedacht, um das Bitmap des Rendering-Kontexts auf das Bitmap des Platzhalter-{{HtmlElement("canvas")}}-Elements des zugehörigen `OffscreenCanvas`-Objekts zu kopieren. Der Kopiervorgang ist synchron. Das Aufrufen dieser Methode ist für die Übertragung nicht erforderlich, da sie automatisch während der Ausführung der Ereignisschleife erfolgt.
+Die Methode **`OffscreenCanvasRenderingContext2D.commit()`** der [Canvas 2D API](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) sollte ursprünglich den Bitmap des Rendering-Kontexts auf den Bitmap des Platzhalters des zugehörigen `OffscreenCanvas`-Objekts kopieren. Der Kopiervorgang ist synchron. Der Aufruf dieser Methode ist für die Übertragung nicht erforderlich, da dies automatisch während der Ausführung der Ereignisschleife erfolgt.
 
 ## Syntax
 
 ```js-nolint
 commit()
 ```
+
+### Parameter
+
+Keine.
+
+### Rückgabewert
+
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -33,7 +41,7 @@ ctx.commit();
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -41,4 +49,4 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)

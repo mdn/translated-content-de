@@ -3,26 +3,16 @@ title: "EditContext: updateCharacterBounds() Methode"
 short-title: updateCharacterBounds()
 slug: Web/API/EditContext/updateCharacterBounds
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
 Die **`EditContext.updateCharacterBounds()`** Methode der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle sollte als Reaktion auf ein [`characterboundsupdate`](/de/docs/Web/API/EditContext/characterboundsupdate_event) Ereignis aufgerufen werden, um das Betriebssystem über die Position und Größe der Zeichen im `EditContext` Objekt zu informieren.
 
-Das `characterboundsupdate` Ereignis ist die einzige Gelegenheit, bei der Sie die `updateCharacterBounds()` Methode aufrufen müssen.
+Das `characterboundsupdate` Ereignis ist der einzige Zeitpunkt, an dem Sie die `updateCharacterBounds()` Methode aufrufen müssen.
 
-Die Informationen zu den Zeichenbegrenzungen werden dann vom Betriebssystem verwendet, um das Fenster des {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) korrekt zu positionieren, wenn dies erforderlich ist. Dies ist besonders wichtig in Situationen, in denen das Betriebssystem die Position und Größe der Zeichen nicht automatisch erkennen kann, wie z.B. beim Rendern von Text in einem `<canvas>` Element.
-
-### Plötzliche Sprünge der IME-Fensterposition vermeiden
-
-Die Berechnung der Zeichenbegrenzungen und der synchrone Aufruf von `updateCharacterBounds` innerhalb des `characterboundsupdate` Ereignisses stellt sicher, dass das Betriebssystem die benötigten Informationen hat, wenn es das IME-Fenster anzeigt. Wenn Sie `updateCharacterBounds()` nicht synchron innerhalb des Ereignis-Handlers aufrufen, können Benutzer beobachten, dass das IME-Fenster zunächst an der falschen Position angezeigt wird, bevor es an die richtige Position verschoben wird.
-
-### Welche Zeichen einzubeziehen sind
-
-Die `updateCharacterBounds()` Methode sollte nur aufgerufen werden, wenn das Betriebssystem angibt, dass es die Informationen benötigt, und nur für die Zeichen, die in der aktuellen IME-Komposition enthalten sind.
-
-Das an den `characterboundsupdate` Ereignis-Handler übergebene Ereignisobjekt enthält `rangeStart` und `rangeEnd` Eigenschaften, die den Bereich der derzeit komponierten Zeichen angeben. Die `updateCharacterBounds()` Methode sollte nur für die Zeichen in diesem Bereich aufgerufen werden.
+Die Informationen zu den Zeichenbegrenzungen werden dann vom Betriebssystem verwendet, um das {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) Fenster bei Bedarf korrekt zu positionieren. Dies ist besonders wichtig in Situationen, in denen das Betriebssystem die Position und Größe der Zeichen nicht automatisch erkennen kann, wie beim Rendern von Text in einem `<canvas>` Element.
 
 ## Syntax
 
@@ -33,20 +23,36 @@ updateCharacterBounds(rangeStart, characterBounds)
 ### Parameter
 
 - `rangeStart`
-  - : Eine Zahl, die den Beginn des Textbereichs angibt, für den Zeichenbegrenzungen bereitgestellt werden.
+  - : Eine Zahl, die den Beginn des Textbereichs darstellt, für den die Zeichenbegrenzungen angegeben werden.
 - `characterBounds`
-  - : Ein {{jsxref("Array")}}, das [`DOMRect`](/de/docs/Web/API/DOMRect) Objekte enthält, die die Zeichenbegrenzungen darstellen.
+  - : Ein {{jsxref("Array")}} enthaltend [`DOMRect`](/de/docs/Web/API/DOMRect) Objekte, die die Zeichenbegrenzungen darstellen.
+
+### Rückgabewert
+
+Keiner (`undefined`).
 
 ### Ausnahmen
 
-- Wenn weniger als zwei Argumente bereitgestellt werden, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn `rangeStart` keine Zahl ist oder `characterBounds` nicht iterierbar ist, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- {{jsxref("TypeError")}}
+  - : Ausgelöst, wenn die Methode mit weniger als zwei Argumenten aufgerufen wird oder wenn das erste Argument keine Zahl ist oder das zweite Argument nicht iterierbar ist (wie ein Array).
+
+## Nutzungshinweise
+
+### Vermeiden Sie plötzliche Sprünge in der IME-Fensterposition
+
+Das Berechnen der Zeichenbegrenzungen und das synchrone Aufrufen von `updateCharacterBounds` innerhalb des `characterboundsupdate` Ereignisses stellt sicher, dass das Betriebssystem die benötigten Informationen hat, wenn es das IME-Fenster anzeigt. Wenn Sie `updateCharacterBounds()` nicht synchron innerhalb des Ereignishandlers aufrufen, können Nutzer beobachten, dass das IME-Fenster an der falschen Position angezeigt wird, bevor es an die korrekte Position verschoben wird.
+
+### Welche Zeichen einzuschließen sind
+
+Die `updateCharacterBounds()` Methode sollte nur aufgerufen werden, wenn das Betriebssystem angibt, dass es die Informationen benötigt, und nur für die Zeichen, die in der aktuellen IME-Komposition enthalten sind.
+
+Das Ereignisobjekt, das an den `characterboundsupdate` Ereignishandler übergeben wird, enthält `rangeStart` und `rangeEnd` Eigenschaften, die den Bereich der Zeichen angeben, die derzeit komponiert werden. Die `updateCharacterBounds()` Methode sollte nur für die Zeichen in diesem Bereich aufgerufen werden.
 
 ## Beispiele
 
 ### Aktualisierung der Zeichenbegrenzungen bei Bedarf
 
-Dieses Beispiel zeigt, wie die `updateCharacterBounds` Methode verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `<canvas>` Elements zu aktualisieren, wenn das Betriebssystem angibt, dass es die Informationen benötigt. Beachten Sie, dass der `characterboundsupdate` Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zum Komponieren von Text verwendet werden.
+Dieses Beispiel zeigt, wie die `updateCharacterBounds` Methode verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `<canvas>` Elements zu aktualisieren, wenn das Betriebssystem angibt, dass es die Informationen benötigt. Beachten Sie, dass der `characterboundsupdate` Ereignislistener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen verwendet werden, um Text zu komponieren.
 
 ```html
 <canvas id="editor-canvas"></canvas>

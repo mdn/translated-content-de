@@ -1,16 +1,16 @@
 ---
-title: "EditContext: updateControlBounds()-Methode"
+title: "EditContext: updateControlBounds() Methode"
 short-title: updateControlBounds()
 slug: Web/API/EditContext/updateControlBounds
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`EditContext.updateControlBounds()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird verwendet, um das Betriebssystem über die Position und Größe des bearbeitbaren Textbereichs des `EditContext`-Objekts zu informieren.
+Die **`EditContext.updateControlBounds()`** Methode der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle wird verwendet, um das Betriebssystem über die Position und Größe des bearbeitbaren Textbereichs des `EditContext` Objekts zu informieren.
 
-Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen des derzeit bearbeitbaren Bereichs mitzuteilen. Sie sollten sie beim Initialisieren des EditContext und immer dann aufrufen, wenn sich die Grenzen des bearbeitbaren Bereichs ändern, z.B. wenn die Webseite in der Größe verändert wird. Diese Grenzen werden verwendet, um plattformabhängige, mit der Bearbeitung verbundene Benutzeroberflächen wie ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster zu positionieren.
+Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen des aktuellen bearbeitbaren Bereichs mitzuteilen. Sie sollten diese Methode beim Initialisieren des EditContext und jedes Mal aufrufen, wenn sich die Grenzen des bearbeitbaren Bereichs ändern, zum Beispiel wenn die Webseite in der Größe verändert wird. Diese Grenzen werden verwendet, um plattformspezifische, bearbeitungsbezogene Benutzeroberflächen wie ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) Fenster zu positionieren.
 
 ## Syntax
 
@@ -21,18 +21,22 @@ updateControlBounds(controlBounds)
 ### Parameter
 
 - `controlBounds`
-  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt, das die neuen Kontrollgrenzen darstellt.
+  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect) Objekt, das die neuen Kontrollgrenzen darstellt.
+
+### Rückgabewert
+
+Keiner (`undefined`).
 
 ### Ausnahmen
 
-- Wenn kein Argument bereitgestellt wird, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn das bereitgestellte Argument kein [`DOMRect`](/de/docs/Web/API/DOMRect) ist, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn die Methode ohne Argumente aufgerufen wird oder wenn das bereitgestellte Argument kein [`DOMRect`](/de/docs/Web/API/DOMRect) Objekt ist.
 
 ## Beispiele
 
-### Aktualisieren der Kontrollgrenzen bei der Initialisierung des Editors und bei Fenstergrößeänderungen
+### Aktualisieren der Kontrollgrenzen bei der Initialisierung des Editors und bei Größenänderung des Fensters
 
-Dieses Beispiel zeigt, wie die `updateControlBounds()`-Methode verwendet wird, um der Plattform jederzeit mitzuteilen, wo sich der bearbeitbare Bereich befindet.
+Dieses Beispiel zeigt, wie die `updateControlBounds()` Methode verwendet wird, um der Plattform jederzeit mitzuteilen, wo sich der bearbeitbare Bereich befindet.
 
 ```css
 #editor {
@@ -75,4 +79,4 @@ window.addEventListener("resize", updateControlBounds);
 
 ## Siehe auch
 
-- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der sie gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle, zu der sie gehört.

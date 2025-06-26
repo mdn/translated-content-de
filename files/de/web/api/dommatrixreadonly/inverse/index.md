@@ -1,22 +1,26 @@
 ---
-title: "DOMMatrixReadOnly: inverse() Methode"
+title: "DOMMatrixReadOnly: inverse()-Methode"
 short-title: inverse()
 slug: Web/API/DOMMatrixReadOnly/inverse
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`inverse()`** Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces erstellt eine neue Matrix, die das Inverse der ursprünglichen Matrix darstellt. Wenn die Matrix nicht invertiert werden kann, werden die Komponenten der neuen Matrix alle auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D)-Eigenschaft wird auf `false` gesetzt. Die ursprüngliche Matrix bleibt unverändert.
+Die **`inverse()`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt eine neue Matrix, die das Inverse der ursprünglichen Matrix ist. Wenn die Matrix nicht invertiert werden kann, werden alle Komponenten der neuen Matrix auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D)-Eigenschaft wird auf `false` gesetzt. Die ursprüngliche Matrix wird nicht verändert.
 
-Um die Matrix zu verändern, während Sie sie invertieren, siehe [`DOMMatrix.invertSelf()`](/de/docs/Web/API/DOMMatrix/invertSelf).
+Um die Matrix bei der Invertierung zu modifizieren, siehe [`DOMMatrix.invertSelf()`](/de/docs/Web/API/DOMMatrix/invertSelf).
 
 ## Syntax
 
 ```js-nolint
 inverse()
 ```
+
+### Parameter
+
+Keine.
 
 ### Rückgabewert
 
@@ -46,5 +50,5 @@ console.log(invertedMatrix.toString());
 - [`DOMMatrix.invertSelf()`](/de/docs/Web/API/DOMMatrix/invertSelf)
 - [`DOMMatrixReadOnly.flipX()`](/de/docs/Web/API/DOMMatrixReadOnly/flipX)
 - [`DOMMatrixReadOnly.flipY()`](/de/docs/Web/API/DOMMatrixReadOnly/flipY)
-- CSS {{CSSxRef("transform-function/matrix", "matrix()")}} Funktion
-- CSS {{CSSxRef("transform-function/matrix3d", "matrix3d()")}} Funktion
+- CSS {{CSSxRef("transform-function/matrix", "matrix()")}}-Funktion
+- CSS {{CSSxRef("transform-function/matrix3d", "matrix3d()")}}-Funktion

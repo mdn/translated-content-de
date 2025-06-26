@@ -1,20 +1,24 @@
 ---
-title: "HTMLIFrameElement: getSVGDocument()-Methode"
+title: "HTMLIFrameElement: getSVGDocument() Methode"
 short-title: getSVGDocument()
 slug: Web/API/HTMLIFrameElement/getSVGDocument
 l10n:
-  sourceCommit: fe10a1a162b45a32be7792f8dc79f565b0fe7f74
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`getSVGDocument()`**-Methode des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt das [`Document`](/de/docs/Web/API/Document)-Objekt des eingebetteten SVG zurück.
+Die **`getSVGDocument()`** Methode des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Interfaces gibt das [`Document`](/de/docs/Web/API/Document) Objekt des eingebetteten SVG zurück.
 
 ## Syntax
 
 ```js-nolint
 getSVGDocument()
 ```
+
+### Parameter
+
+Keine.
 
 ### Rückgabewert
 

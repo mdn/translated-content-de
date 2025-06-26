@@ -2,20 +2,18 @@
 title: "@container"
 slug: Web/CSS/@container
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{CSSRef}}
 
-Die **`@container`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ist eine bedingte Gruppenregel, die Stile auf einen [Einschließungskontext](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) anwendet. Stildeklarationen werden durch eine Bedingung gefiltert und angewendet, wenn die Bedingung wahr ist. Die Bedingung wird ausgewertet, wenn sich die abgefragte Containergröße, [`<style-feature>`](#container-stilabfragen) oder der Scroll-Zustand ändert.
+Die **`@container`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ist eine bedingte Gruppenregel, die Stile auf einen [Containment-Kontext](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) anwendet. Stildeklarationen werden durch eine Bedingung gefiltert und auf den Container angewendet, wenn die Bedingung wahr ist. Die Bedingung wird bewertet, wenn sich die Größe des angefragten Containers, [`<style-feature>`](#container-stilabfragen), oder der Scroll-Zustand ändert.
 
-Die {{cssxref("container-name")}}-Eigenschaft legt eine Liste von Abfragecontainernamen fest. Diese Namen können von `@container`-Regeln verwendet werden, um zu filtern, welche Abfragecontainer angesprochen werden. Das optionale, groß- und kleinschreibungssensitive `<container-name>` filtert die Abfragecontainer, die durch die Abfrage angesprochen werden.
+Die {{cssxref("container-name")}} Eigenschaft legt eine Liste von Abfrage-Container-Namen fest. Diese Namen können von `@container` Regeln verwendet werden, um zu filtern, welche Abfrage-Container anvisiert werden. Der optionale, groß-/kleinschreibungssensitive `<container-name>` filtert die Abfrage-Container, die durch die Abfrage anvisiert werden.
 
-Sobald ein geeigneter Abfragecontainer für ein Element ausgewählt wurde, wird jede Containerfunktion in der `<container-condition>` gegen diesen Abfragecontainer ausgewertet.
+Sobald ein geeigneter Abfrage-Container für ein Element ausgewählt wurde, wird jedes Container-Feature in der `<container-condition>` gegen jenen Abfragecontainer beurteilt.
 
 ## Syntax
-
-Die `@container`-At-Regel hat folgende Syntax:
 
 ```plain
 @container <container-condition># {
@@ -73,23 +71,22 @@ Beispielsweise:
 ### Werte
 
 - `<container-condition>`
-
-  - : Eine optionale Kombination aus `<container-name>` und `<container-query>`. Stile, die im `<stylesheet>` definiert sind, werden angewendet, wenn die Bedingung wahr ist.
+  - : Ein optionaler `<container-name>` und ein `<container-query>`. Im `<stylesheet>` definierte Stile werden angewendet, wenn die Bedingung wahr ist.
     - `<container-name>`
-      - : Optional. Der Name des Containers, auf den die Stile angewendet werden, wenn die Abfrage zu wahr ausgewertet wird, angegeben als ein {{cssxref("ident")}}.
+      - : Optional. Der Name des Containers, auf den die Stile angewendet werden, wenn die Abfrage mit "wahr" bewertet wird, angegeben als {{cssxref("ident")}}.
     - `<container-query>`
-      - : Eine Menge von Merkmalen, die beim Ändern der Größe, [`<style-feature>`](#container-stilabfragen) oder Scroll-Zustand des Containers gegen den Abfragecontainer ausgewertet werden.
+      - : Eine Menge von Features, die gegen den Abfrage-Container bewertet werden, wenn sich die Größe, [`<style-feature>`](#container-stilabfragen), oder der Scroll-Zustand des Containers ändert.
 
 - `<stylesheet>`
-  - : Eine Menge von CSS-Regeln oder Deklarationen.
+  - : Eine Menge von CSS-Regeln oder -Deklarationen.
 
-### Logische Schlüsselwörter in Containerabfragen
+### Logische Schlüsselwörter in Container-Abfragen
 
-Logische Schlüsselwörter können verwendet werden, um die Containerbedingung zu definieren:
+Logische Schlüsselwörter können verwendet werden, um die Container-Bedingung zu definieren:
 
 - `and` kombiniert zwei oder mehr Bedingungen.
 - `or` kombiniert zwei oder mehr Bedingungen.
-- `not` negiert die Bedingung. Pro Containerabfrage ist nur eine `not`-Bedingung erlaubt und kann nicht mit den Schlüsselwörtern `and` oder `or` verwendet werden.
+- `not` negiert die Bedingung. Pro Container-Abfrage ist nur eine 'not'-Bedingung erlaubt und kann nicht mit den Schlüsselwörtern `and` oder `or` verwendet werden.
 
 ```css
 @container (width > 400px) and (height > 400px) {
@@ -105,9 +102,9 @@ Logische Schlüsselwörter können verwendet werden, um die Containerbedingung z
 }
 ```
 
-### Benannte Einschließungskontexte
+### Benannte Containment-Kontexte
 
-Ein Einschließungskontext kann unter Verwendung der {{cssxref("container-name")}}-Eigenschaft benannt werden.
+Ein Containment-Kontext kann unter Verwendung der {{cssxref("container-name")}} Eigenschaft benannt werden.
 
 ```css
 .post {
@@ -116,7 +113,7 @@ Ein Einschließungskontext kann unter Verwendung der {{cssxref("container-name")
 }
 ```
 
-Die Kurzschreibweise hierfür ist die Verwendung von {{cssxref("container")}} in der Form `container: <name> / <type>`, zum Beispiel:
+Die Kurzschreibweise dafür ist, {{cssxref("container")}} in der Form `container: <name> / <type>` zu verwenden, zum Beispiel:
 
 ```css
 .post {
@@ -124,7 +121,7 @@ Die Kurzschreibweise hierfür ist die Verwendung von {{cssxref("container")}} in
 }
 ```
 
-In Containerabfragen wird die {{cssxref("container-name")}}-Eigenschaft verwendet, um die Menge der Container auf diejenigen mit einem passenden Abfragecontainernamen zu filtern:
+In Container-Abfragen wird die {{cssxref("container-name")}} Eigenschaft verwendet, um die Menge der Container auf diejenigen mit einem übereinstimmenden Abfrage-Container-Namen zu filtern:
 
 ```css
 @container sidebar (width > 400px) {
@@ -132,15 +129,15 @@ In Containerabfragen wird die {{cssxref("container-name")}}-Eigenschaft verwende
 }
 ```
 
-Details zur Verwendung und zu Namensbeschränkungen sind auf der {{cssxref("container-name")}}-Seite beschrieben.
+Details zur Nutzung und Namensbeschränkungen werden auf der {{cssxref("container-name")}} Seite beschrieben.
 
 ### Deskriptoren
 
-Die `<container-condition>`-Abfragen umfassen [Größe](#größen-container-deskriptoren) und [Scroll-Zustand](#scroll-zustand-container-deskriptoren) Container-Deskriptoren.
+Die `<container-condition>` Abfragen beinhalten [Größen](#größencontainer-deskriptoren) und [Scroll-Zustand](#scroll-zustand_container-deskriptoren) Container-Deskriptoren.
 
-#### Größen-Container-Deskriptoren
+#### Größencontainer-Deskriptoren
 
-Die `<container-condition>` kann eine oder mehrere boolesche Größenabfragen enthalten, die jeweils innerhalb eines Satzes von Klammern stehen. Eine Größenabfrage umfasst einen Größen-Deskriptor, einen Wert und – je nach Deskriptor – einen Vergleichsoperator. Die Syntax zur Einbeziehung mehrerer Bedingungen ist dieselbe wie für [`@media`](/de/docs/Web/CSS/@media)-Größenfunktionsabfragen.
+Die `<container-condition>` kann eine oder mehrere boolesche Größenabfragen enthalten, jede in einem Satz von Klammern. Eine Größenabfrage umfasst einen Größen-Deskriptor, einen Wert und — abhängig vom Deskriptor — einen Vergleichsoperator. Die Syntax, mehrere Bedingungen einzuschließen, ist dieselbe wie bei [`@media`](/de/docs/Web/CSS/@media) Größen-Feature-Abfragen.
 
 ```css
 @container (min-width: 400px) {
@@ -155,31 +152,26 @@ Die `<container-condition>` kann eine oder mehrere boolesche Größenabfragen en
 ```
 
 - `aspect-ratio`
-
-  - : Das {{cssxref("aspect-ratio")}} des Containers, berechnet als Breite zu Höhe des Containers, ausgedrückt als {{cssxref("ratio")}}-Wert.
+  - : Das {{cssxref("aspect-ratio")}} des Containers, berechnet als das Verhältnis der Breite zur Höhe des Containers, ausgedrückt als {{cssxref("ratio")}} Wert.
 
 - `block-size`
-
-  - : Die {{cssxref("block-size")}} des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
+  - : Die {{cssxref("block-size")}} des Containers, ausgedrückt als {{cssxref("length")}} Wert.
 
 - `height`
-
-  - : Die Höhe des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
+  - : Die Höhe des Containers, ausgedrückt als {{cssxref("length")}} Wert.
 
 - `inline-size`
-
-  - : Die {{cssxref("inline-size")}} des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
+  - : Die {{cssxref("inline-size")}} des Containers, ausgedrückt als {{cssxref("length")}} Wert.
 
 - `orientation`
-
   - : Die [Ausrichtung](/de/docs/Web/CSS/@media/orientation) des Containers, entweder `landscape` oder `portrait`.
 
 - `width`
-  - : Die Breite des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
+  - : Die Breite des Containers, ausgedrückt als {{cssxref("length")}} Wert.
 
-#### Scroll-Zustand-Container-Deskriptoren
+#### Scroll-Zustand Container-Deskriptoren
 
-Scroll-Zustand-Container-Deskriptoren werden innerhalb der `<container-condition>` in einem Klammerpaar nach dem Schlüsselwort `scroll-state` angegeben, zum Beispiel:
+Scroll-Zustand Container-Deskriptoren werden innerhalb der `<container-condition>` in einem Satz von Klammern angegeben, der dem Schlüsselwort `scroll-state` folgt, zum Beispiel:
 
 ```css
 @container scroll-state(scrollable: top) {
@@ -193,12 +185,10 @@ Scroll-Zustand-Container-Deskriptoren werden innerhalb der `<container-condition
 }
 ```
 
-Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfassen physische und {{Glossary("flow_relative_values", "flussrelativer Werte")}}.
+Unterstützte Schlüsselwörter für Scroll-Zustand Container-Deskriptoren beinhalten physische und {{Glossary("flow_relative_values", "fluss-relative Werte")}}.
 
 - `scrollable`
-
-  - : Überprüft, ob der Container in die angegebene Richtung durch benutzerinitiierte Scrollvorgänge wie das Ziehen der Bildlaufleiste oder eine Trackpad-Geste gescrollt werden kann. Mit anderen Worten: Gibt es überlaufenden Inhalt in der angegebenen Richtung, zu dem gescrollt werden kann? Gültige `scrollable`-Werte umfassen die folgenden Schlüsselwörter:
-
+  - : Prüft, ob der Container in der gegebenen Richtung durch benutzerinitiierte Scroll-Vorgänge, wie z.B. durch Ziehen der Scrollleiste oder durch ein Trackpad-Geste, gescrollt werden kann. Anders ausgedrückt, gibt es überfließenden Inhalt in der gegebenen Richtung, der gescrollt werden kann? Gültige `scrollable` Werte umfassen die folgenden Schlüsselwörter:
     - `none`
       - : Der Container ist kein {{Glossary("scroll_container", "Scroll-Container")}} oder kann anderweitig nicht in irgendeine Richtung gescrollt werden.
     - `top`
@@ -210,9 +200,9 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
     - `left`
       - : Der Container kann zu seiner linken Kante gescrollt werden.
     - `x`
-      - : Der Container kann horizontal zu seinen linken oder rechten Kanten gescrollt werden.
+      - : Der Container kann horizontal zu einer oder beiden seiner linken oder rechten Kanten gescrollt werden.
     - `y`
-      - : Der Container kann vertikal zu seinen oberen oder unteren Kanten gescrollt werden.
+      - : Der Container kann vertikal zu einer oder beiden seiner oberen oder unteren Kanten gescrollt werden.
     - `block-start`
       - : Der Container kann zu seiner Block-Startkante gescrollt werden.
     - `block-end`
@@ -222,13 +212,13 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
     - `inline-end`
       - : Der Container kann zu seiner Inline-Endkante gescrollt werden.
     - `block`
-      - : Der Container kann in seiner Blockrichtung zu seinen Block-Start- oder Block-Endkanten gescrollt werden.
+      - : Der Container kann in seiner Block-Richtung zu einer oder beiden seiner Block-Start- oder Block-Endkanten gescrollt werden.
     - `inline`
-      - : Der Container kann in seiner Inline-Richtung zu seinen Inline-Start- und Inline-Endkanten gescrollt werden.
+      - : Der Container kann in seiner Inline-Richtung zu einer oder beiden seiner Inline-Start- und Inline-Endkanten gescrollt werden.
 
-    Wenn der Test bestanden wird, werden die Regeln im `@container`-Block auf Nachkommen des Scroll-Containers angewendet.
+    Wenn der Test besteht, werden die Regeln innerhalb des `@container` Blocks auf die Nachkommen des Scroll-Containers angewendet.
 
-    Um zu überprüfen, ob ein Container scollbar ist, ohne sich um die Richtung zu kümmern, verwenden Sie den Wert `none` mit dem `not`-Operator:
+    Um zu bewerten, ob ein Container scrollbar ist, ohne sich um die Richtung zu kümmern, verwenden Sie den `none` Wert mit dem `not` Operator:
 
     ```css
     @container not scroll-state(scrollable: none) {
@@ -237,27 +227,25 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
     ```
 
 - `snapped`
-
-  - : Überprüft, ob der Container an einem [Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Container-Vorfahren entlang der angegebenen Achse eingeklinkt ist oder wird. Gültige `snapped`-Werte umfassen die folgenden Schlüsselwörter:
-
+  - : Prüft, ob der Container an einen [Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Container-Vorfahren entlang der gegebenen Achse angeschnappt ist oder wird. Gültige `snapped` Werte umfassen die folgenden Schlüsselwörter:
     - `none`
-      - : Der Container ist kein Scroll-{{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} für seinen Vorfahren-Scroll-Container. Beim Implementieren einer `snapped: none`-Abfrage werden Container, die _Snap-Ziele_ für den Scroll-Container sind, _nicht_ die `@container`-Stile anwenden, während Nicht-Snap-Ziele _werden_ die Stile anwenden.
+      - : Der Container ist kein Scroll-{{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} für seinen Vorfahren-Scroll-Container. Beim Implementieren einer `snapped: none` Abfrage, werden Container, die _Snap-Ziele_ für den Scroll-Container sind, die `@container` Stile _nicht_ übernehmen, während Nicht-Snap-Ziele die Stile _übernehmen_ werden.
     - `x`
-      - : Der Container ist ein horizontales Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, d.h. er ist horizontal zu seinem Vorfahren eingerastet.
+      - : Der Container ist ein horizontaler Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, das heißt, es snappt horizontal zu seinem Vorfahren.
     - `y`
-      - : Der Container ist ein vertikales Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, d.h. er ist vertikal zu seinem Vorfahren eingerastet.
+      - : Der Container ist ein vertikaler Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, das heißt, er snappt vertikal zu seinem Vorfahren.
     - `block`
-      - : Der Container ist ein Block-Achsen-Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, d.h. er rastet in der Blockrichtung zu seinem Vorfahren ein.
+      - : Der Container ist ein Block-Achsen-Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, das heißt, er snappt in der Block-Richtung zu seinem Vorfahren.
     - `inline`
-      - : Der Container ist ein Inline-Achsen-Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, d.h. er rastet in der Inline-Richtung zu seinem Vorfahren ein.
+      - : Der Container ist ein Inline-Achsen-Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container, das heißt, er snappt in der Inline-Richtung zu seinem Vorfahren.
     - `both`
-      - : Der Container ist sowohl ein horizontales als auch ein vertikales Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container und rastet in beide Richtungen zu seinem Vorfahren ein. Der Container passt nicht, wenn er nur entlang der horizontalen _oder_ vertikalen Achse zu seinem Vorfahren einrastet. Es muss beides sein.
+      - : Der Container ist sowohl ein horizontaler als auch ein vertikaler Scroll-Snap-Ziel für seinen Vorfahren-Scroll-Container und snappt in beide Richtungen zu seinem Vorfahren. Der Container wird nicht übereinstimmen, wenn er nur entlang der horizontalen _oder_ vertikalen Achse zu seinem Vorfahren snappt. Er muss in beiden sein.
 
-    Um einen Container mit einer nicht-`none` `snapped`-Scroll-Zustandsabfrage zu bewerten, muss er ein Container mit einem Scroll-Container-Vorfahren sein, der einen {{cssxref("scroll-snap-type")}}-Wert ungleich `none` hat. Eine `snapped: none`-Abfrage wird auch dann passen, wenn es keinen Scroll-Container-Vorfahren gibt.
+    Um einen Container mit einer nicht-`none` `snapped` Scroll-Zustand Abfrage zu bewerten, muss es ein Container mit einem Scroll-Container-Vorfahren sein, das einen {{cssxref("scroll-snap-type")}} Wert hat, der nicht `none` ist. Eine `snapped: none` Abfrage wird übereinstimmen, auch wenn es keinen Scroll-Container-Vorfahren gibt.
 
-    Bewertungen erfolgen, wenn [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignisse im Scroll-Snap-Container auftreten. Wenn der Test bestanden wird, werden die Regeln im `@container`-Block auf Nachkommen des Containers angewendet.
+    Bewertungen erfolgen, wenn [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) Ereignisse im Scroll-Snap-Container ausgelöst werden. Wenn der Test besteht, werden die Regeln innerhalb des `@container` Blocks auf die Nachkommen des Containers angewendet.
 
-    Um zu überprüfen, ob ein Container ein Snap-Ziel ist, ohne sich um die Richtung zu kümmern, verwenden Sie den Wert `none` mit dem `not`-Operator:
+    Um zu bewerten, ob ein Container ein Snap-Ziel ist, ohne sich um die Richtung zu kümmern, verwenden Sie den `none` Wert mit dem `not` Operator:
 
     ```css
     @container not scroll-state(snapped: none) {
@@ -266,31 +254,29 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
     ```
 
 - `stuck`
-
-  - : Überprüft, ob ein Container mit einem {{cssxref("position")}} Wert von [`sticky`](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#sticky_positioning) an eine Kante seines scrollenden Container-Vorfahren haftet. Gültige `stuck`-Werte umfassen die folgenden Schlüsselwörter:
-
+  - : Prüft, ob ein Container mit einem {{cssxref("position")}} Wert von [`sticky`](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#sticky_positioning) an einer Kante seines Scroll-Container-Vorfahren klebt. Gültige `stuck` Werte umfassen die folgenden Schlüsselwörter:
     - `none`
-      - : Der Container haftet nicht an einer Kante des Containers. Beachten Sie, dass `none`-Abfragen auch dann passen, wenn der Container `position: sticky` nicht gesetzt hat.
+      - : Der Container ist an keiner Kante seines Containers klebend. Beachten Sie, dass `none` Abfragen übereinstimmen, auch wenn der Container nicht `position: sticky` auf sich hat.
     - `top`
-      - : Der Container haftet an der oberen Kante seines Containers.
+      - : Der Container klebt an der oberen Kante seines Containers.
     - `right`
-      - : Der Container haftet an der rechten Kante seines Containers.
+      - : Der Container klebt an der rechten Kante seines Containers.
     - `bottom`
-      - : Der Container haftet an der unteren Kante seines Containers.
+      - : Der Container klebt an der unteren Kante seines Containers.
     - `left`
-      - : Der Container haftet an der linken Kante seines Containers.
+      - : Der Container klebt an der linken Kante seines Containers.
     - `block-start`
-      - : Der Container haftet an der Block-Start-Kante seines Containers.
+      - : Der Container klebt an der Block-Startkante seines Containers.
     - `block-end`
-      - : Der Container haftet an der Block-End-Kante seines Containers.
+      - : Der Container klebt an der Block-Endkante seines Containers.
     - `inline-start`
-      - : Der Container haftet an der Inline-Start-Kante seines Containers.
+      - : Der Container klebt an der Inline-Startkante seines Containers.
     - `inline-end`
-      - : Der Container haftet an der Inline-End-Kante seines Containers.
+      - : Der Container klebt an der Inline-Endkante seines Containers.
 
-    Um einen Container mit einer nicht-`none` `stuck`-Scroll-Zustandsabfrage zu bewerten, muss er `position: sticky` gesetzt haben und sich in einem Scroll-Container befinden. Wenn der Test bestanden wird, werden die Regeln im `@container`-Block auf Nachkommen des `position: sticky` Containers angewendet.
+    Um einen Container mit einer nicht-`none` `stuck` Scroll-Zustand Abfrage zu bewerten, muss es `position: sticky` auf sich haben und in einem Scroll-Container sein. Wenn der Test besteht, werden die Regeln innerhalb des `@container` Blocks auf die Nachkommen des `position: sticky` Containers angewendet.
 
-    Es ist möglich, dass gleichzeitig zwei Werte von gegenüberliegenden Achsen übereinstimmen:
+    Es ist möglich, dass zwei Werte von entgegengesetzten Achsen gleichzeitig übereinstimmen:
 
     ```css
     @container scroll-state((stuck: top) and (stuck: left)) {
@@ -298,7 +284,7 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
     }
     ```
 
-    Allerdings werden zwei Werte von gegenüberliegenden Kanten niemals gleichzeitig übereinstimmen:
+    Jedoch werden zwei Werte von entgegengesetzten Kanten niemals gleichzeitig übereinstimmen:
 
     ```css
     @container scroll-state((stuck: left) and (stuck: right)) {
@@ -306,7 +292,7 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
     }
     ```
 
-    Um zu überprüfen, ob ein Container haftet, ohne sich um die Richtung zu kümmern, verwenden Sie den Wert `none` mit dem `not`-Operator:
+    Um zu bewerten, ob ein Container festklebt, ohne sich um die Richtung zu kümmern, verwenden Sie den `none` Wert mit dem `not` Operator:
 
     ```css
     @container not scroll-state(stuck: none) {
@@ -322,7 +308,7 @@ Unterstützte Schlüsselwörter für Scroll-Zustand-Container-Deskriptoren umfas
 
 ### Stile basierend auf der Größe eines Containers festlegen
 
-Betrachten Sie das folgende Beispiel einer Kartenkomponente mit einem Titel und etwas Text:
+Betrachten Sie das folgende Beispiel eines Kartenkomponenten mit einem Titel und etwas Text:
 
 ```html
 <div class="post">
@@ -333,7 +319,8 @@ Betrachten Sie das folgende Beispiel einer Kartenkomponente mit einem Titel und 
 </div>
 ```
 
-Ein Einschließungskontext kann unter Verwendung der `container-type`-Eigenschaft erstellt werden, in diesem Fall mit dem `inline-size`-Wert auf der `.post`-Klasse. Sie können dann die `@container`-At-Regel verwenden, um Stile auf das Element mit der `.card`-Klasse in einem Container anzuwenden, der schmaler ist als `650px`.
+Ein Container-Kontext kann durch die `container-type` Eigenschaft erstellt werden, in diesem Fall mit dem `inline-size` Wert auf der `.post` Klasse.
+Sie können dann die `@container` At-Regel verwenden, um Stile auf das Element mit der `.card` Klasse in einem Container anzuwenden, der schmaler als `650px` ist.
 
 ```js hidden
 const post = document.querySelector(".post");
@@ -379,9 +366,9 @@ span {
 
 {{EmbedLiveSample("Setting_styles_based_on_a_container's_size", "100%", 230)}}
 
-### Erstellen von benannten Containerkontexten
+### Erstellen von benannten Container-Kontexten
 
-Das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Titel und etwas Text zeigt:
+Gegeben sei das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Titel und etwas Text ist:
 
 ```html
 <div class="post">
@@ -392,7 +379,7 @@ Das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Titel und etwas 
 </div>
 ```
 
-Zuerst erstellen Sie einen Einschließungskontext unter Verwendung der `container-type`- und `container-name`-Eigenschaften. Die Kurzschreibsyntax für diese Deklaration ist auf der {{cssxref("container")}}-Seite beschrieben.
+Erstellen Sie zuerst einen Container-Kontext unter Verwendung der `container-type` und `container-name` Eigenschaften. Die Kurzschreibweise für diese Deklaration wird auf der {{cssxref("container")}} Seite beschrieben.
 
 ```css
 .post {
@@ -401,7 +388,7 @@ Zuerst erstellen Sie einen Einschließungskontext unter Verwendung der `containe
 }
 ```
 
-Anschließend fügen Sie der Containerabfrage den Namen hinzu, um diesen Container zu adressieren:
+Ziel setzen Sie dann diesen Container, indem Sie den Namen zur Container-Abfrage hinzufügen:
 
 ```css
 @container summary (min-width: 400px) {
@@ -411,11 +398,11 @@ Anschließend fügen Sie der Containerabfrage den Namen hinzu, um diesen Contain
 }
 ```
 
-### Verschachtelte Containerabfragen
+### Verschachtelte Container-Abfragen
 
-Es ist nicht möglich, mehrere Container in einer einzigen Containerabfrage anzusprechen. Es ist jedoch möglich, verschachtelte Containerabfragen zu verwenden, die denselben Effekt haben.
+Es ist nicht möglich, mehrere Container in einer einzigen Container-Abfrage anzusprechen. Es ist jedoch möglich, Container-Abfragen zu verschachteln, was denselben Effekt hat.
 
-Die folgende Abfrage wird wahr ausgewertet und wendet den deklarierten Stil an, wenn der Container mit dem Namen `summary` breiter als `400px` ist und ein Vorfahre-Container breiter als `800px` ist:
+Die folgende Abfrage wird als wahr bewertet und wendet den deklarierten Stil an, wenn der Container, der `summary` genannt wird, breiter als `400px` ist und einen Vorfahrer-Container hat, der breiter als `800px` ist:
 
 ```css
 @container summary (min-width: 400px) {
@@ -427,7 +414,7 @@ Die folgende Abfrage wird wahr ausgewertet und wendet den deklarierten Stil an, 
 
 ### Container-Stilabfragen
 
-Containerabfragen können auch den berechneten Stil des Containerelements auswerten. Eine _Container-Stilabfrage_ ist eine `@container`-Abfrage, die eine oder mehrere `style()`-Funktionalnotationen verwendet. Die boolesche Syntax und die Logik zur Kombination von Stilfunktionen in einer Stilabfrage ist dieselbe wie bei [CSS-Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries).
+Container-Abfragen können auch den berechneten Stil des Container-Elements auswerten. Eine _Container-Stilabfrage_ ist eine `@container` Abfrage, die eine oder mehrere `style()` Funktionsnotationen verwendet. Die boolesche Syntax und Logik zur Kombination von Stil-Features zu einer Stil-Abfrage ist dieselbe wie für [CSS-Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries).
 
 ```css
 @container style(<style-feature>),
@@ -438,7 +425,7 @@ Containerabfragen können auch den berechneten Stil des Containerelements auswer
 }
 ```
 
-Der Parameter jedes `style()` ist eine einzelne `<style-feature>`. Ein **`<style-feature>`** ist eine gültige CSS-[Deklaration](/de/docs/Web/CSS/CSS_syntax/Syntax#css_declarations), eine CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/var#values).
+Der Parameter jedes `style()` ist ein einzelnes `<style-feature>`. Ein **`<style-feature>`** ist eine gültige CSS-[Deklaration](/de/docs/Web/CSS/CSS_syntax/Syntax#css_declarations), eine CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/var#values).
 
 ```css
 @container style(--themeBackground),
@@ -449,11 +436,11 @@ Der Parameter jedes `style()` ist eine einzelne `<style-feature>`. Ein **`<style
 }
 ```
 
-Eine Stilfunktion ohne Wert wird als wahr ausgewertet, wenn der berechnete Wert von dem Initialwert für die gegebene Eigenschaft abweicht.
+Ein Stil-Feature ohne Wert wird als wahr bewertet, wenn der berechnete Wert von dem Anfangswert der gegebenen Eigenschaft unterschiedlich ist.
 
-Wenn das `<style-feature>`, das als Argument der `style()`-Funktion übergeben wird, eine Deklaration ist, wird die Stilabfrage als wahr ausgewertet, wenn der Deklarationswert mit dem berechneten Wert dieser Eigenschaft für den abgefragten Container übereinstimmt. Andernfalls wird es als falsch ausgewertet.
+Wenn das `<style-feature>`, das als Argument der `style()` Funktion übergeben wird, eine Deklaration ist, wird die Stil-Abfrage als wahr bewertet, wenn der Wert der Deklaration mit dem berechneten Wert dieser Eigenschaft für den abgefragten Container übereinstimmt. Andernfalls wird es als falsch ausgewertet.
 
-Die folgende Containerabfrage überprüft, ob der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) der `--accent-color` des Containerelements `blue` ist:
+Die folgende Containerabfrage überprüft, ob der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) der `--accent-color` des Container-Elements `blue` ist:
 
 ```css
 @container style(--accent-color: blue) {
@@ -462,15 +449,15 @@ Die folgende Containerabfrage überprüft, ob der [berechnete Wert](/de/docs/Web
 ```
 
 > [!NOTE]
-> Wenn eine benutzerdefinierte Eigenschaft den Wert `blue` hat, stimmt der entsprechende Hexadezimalcode `#0000ff` nicht überein, es sei denn, die Eigenschaft wurde mit {{cssxref("@property")}} als Farbe definiert, sodass der Browser die berechneten Werte ordnungsgemäß vergleichen kann.
+> Wenn eine benutzerdefinierte Eigenschaft den Wert `blue` hat, wird der entsprechende hexadezimale Code `#0000ff` nicht übereinstimmen, es sei denn, die Eigenschaft wurde als Farbe mit {{cssxref("@property")}} definiert, damit der Browser berechnete Werte ordnungsgemäß vergleichen kann.
 
-Stilfunktionen, die eine Kurzschreibweise abfragen, sind wahr, wenn die berechneten Werte für jede ihrer Langschreibeigenschaften übereinstimmen, und andernfalls falsch. Zum Beispiel wird `@container style(border: 2px solid red)` als wahr ausgewertet, wenn alle 12 Langschreibeigenschaften (`border-bottom-style`, etc.), die diese Kurzschreibweise ausmachen, wahr sind.
+Stil-Features, die eine Kurzschreibweise abfragen, sind wahr, wenn die berechneten Werte für jede ihrer Langhand-Eigenschaften übereinstimmen, und andernfalls falsch. Zum Beispiel, `@container style(border: 2px solid red)` wird als wahr bewertet, wenn alle 12 Langhand-Eigenschaften (`border-bottom-style`, etc.), die diese Kurzschreibweise ausmachen, wahr sind.
 
-Die globalen Werte `revert` und `revert-layer` sind ungültig als Werte in einem `<style-feature>` und führen dazu, dass die Container-Stilabfrage als falsch ausgewertet wird.
+Die globalen `revert` und `revert-layer` sind als Werte in einem `<style-feature>` ungültig und führen dazu, dass die Container-Stilabfrage falsch ist.
 
-### Scroll-Zustand-Abfragen
+### Abfragen des Scroll-Zustandes
 
-Siehe [Verwendung von Scroll-Zustand-Abfragen für Container](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries) für vollständige Durchführungen von Scroll-Zustand-Abfragebeispielen.
+Siehe [Verwendung von Container Scroll-Zustand Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries) für vollständige Anleitungen zu Beispielen von Scroll-Zustand Abfragen.
 
 ## Spezifikationen
 
@@ -483,11 +470,11 @@ Siehe [Verwendung von Scroll-Zustand-Abfragen für Container](/de/docs/Web/CSS/C
 ## Siehe auch
 
 - [Verwendung von Containerabfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Containergrößen- und -stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- [Verwendung von Scroll-Zustand-Abfragen für Container](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
+- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [Verwendung von Container-Scroll-Zustands-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
 - {{Cssxref("container-name")}}
 - {{Cssxref("container-type")}}
 - {{Cssxref("contain")}}
 - {{Cssxref("content-visibility")}}
-- [CSS-Einschließungsmodul](/de/docs/Web/CSS/CSS_containment)
-- [CSS-At-Regel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
+- [CSS-Containment-Modul](/de/docs/Web/CSS/CSS_containment)
+- [CSS-At-Regel Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)

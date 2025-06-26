@@ -3,17 +3,15 @@ title: "RTCPeerConnection: getIdentityAssertion()-Methode"
 short-title: getIdentityAssertion()
 slug: Web/API/RTCPeerConnection/getIdentityAssertion
 l10n:
-  sourceCommit: 9f18116c362265a3dfb65185728548ec43cd12f4
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getIdentityAssertion()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces initiiert das Sammeln eines Identitätsnachweises.
-Dies hat nur eine Auswirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
+Die **`getIdentityAssertion()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces initiiert die Erfassung einer Identitätsbehauptung.
+Dies hat nur eine Wirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
 
-Die Methode gibt ein JavaScript {{jsxref("Promise")}} zurück, das zu einem als String codierten Identitätsnachweis aufgelöst wird.
-
-Es wird nicht erwartet, dass die Anwendung, die mit der `RTCPeerConnection` arbeitet, dies ausführt: dies geschieht automatisch; ein expliziter Aufruf erlaubt nur, den Bedarf vorherzusehen.
+Es wird nicht erwartet, dass die Anwendung, die mit der `RTCPeerConnection` arbeitet, dies explizit aufruft: Dies wird automatisch erledigt; ein expliziter Aufruf ermöglicht es nur, den Bedarf vorherzusehen.
 
 ## Syntax
 
@@ -21,7 +19,13 @@ Es wird nicht erwartet, dass die Anwendung, die mit der `RTCPeerConnection` arbe
 getIdentityAssertion()
 ```
 
-_Diese Methode hat weder Parameter noch einen Rückgabewert._
+### Parameter
+
+Keine.
+
+### Rückgabewert
+
+Ein {{jsxref("Promise")}}, der in eine als Zeichenkette kodierte Identitätsbehauptung aufgelöst wird.
 
 ## Beispiel
 

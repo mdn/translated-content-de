@@ -1,13 +1,13 @@
 ---
-title: CSS numerische Fabrikfunktionen
+title: CSS numeric factory functions
 slug: Web/API/CSS/factory_functions_static
 l10n:
-  sourceCommit: 458eb9af74287fd15ef8ba9f4ba9aa3423c4cac3
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **CSS numerischen Fabrikfunktionen**, wie `CSS.em()` und `CSS.turn()`, sind Methoden, die [CSSUnitValues](/de/docs/Web/API/CSSUnitValue) zurückgeben, wobei der Wert das numerische Argument ist und die Einheit der Name der verwendeten Methode. Diese Funktionen erstellen neue numerische Werte weniger umständlich als der Gebrauch des [`CSSUnitValue()`](/de/docs/Web/API/CSSUnitValue/CSSUnitValue) Konstruktors.
+Die **CSS numeric factory Funktionen**, wie `CSS.em()` und `CSS.turn()`, sind Methoden, die [CSSUnitValues](/de/docs/Web/API/CSSUnitValue) zurückgeben, wobei der Wert das numerische Argument und die Einheit der Name der verwendeten Methode ist. Diese Funktionen erstellen neue numerische Werte weniger umständlich als die Verwendung des [`CSSUnitValue()`](/de/docs/Web/API/CSSUnitValue/CSSUnitValue)-Konstruktors.
 
 ## Syntax
 
@@ -60,9 +60,18 @@ CSS.dppx(number)
 CSS.fr(number)
 ```
 
+### Parameter
+
+- `number`
+  - : Eine Zahl, die im CSS-Einheitswert verwendet werden soll.
+
+### Rückgabewert
+
+Ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Objekt mit dem angegebenen numerischen Wert und der Einheit.
+
 ## Beispiele
 
-Wir verwenden die `CSS.vmax()` numerische Fabrikfunktion, um einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zu erstellen:
+Wir verwenden die `CSS.vmax()` numeric factory Funktion, um einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zu erstellen:
 
 ```js
 const height = CSS.vmax(50);
@@ -72,7 +81,7 @@ console.log(height.value); // 50
 console.log(height.unit); // vmax
 ```
 
-In diesem Beispiel setzen wir den Rand unseres Elements mit der `CSS.px()` Fabrikfunktion:
+In diesem Beispiel setzen wir den Rand unseres Elements mit der `CSS.px()`-factory Funktion:
 
 ```js
 myElement.attributeStyleMap.set("margin", CSS.px(40));
