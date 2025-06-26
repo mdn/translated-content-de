@@ -1,14 +1,14 @@
 ---
-title: "Document: createTouchList()-Methode"
+title: "Dokument: Methode createTouchList()"
 short-title: createTouchList()
 slug: Web/API/Document/createTouchList
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
 ---
 
 {{APIRef("DOM")}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die **`Document.createTouchList()`**-Methode erstellt und gibt ein neues [`TouchList`](/de/docs/Web/API/TouchList)-Objekt zurück.
+Die Methode **`Document.createTouchList()`** erstellt und gibt ein neues [`TouchList`](/de/docs/Web/API/TouchList)-Objekt zurück.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ createTouchList(touch1, touch2, /* …, */ touchN)
 ### Parameter
 
 - `touch1`, …, `touchN`
-  - : Null oder mehr [`Touch`](/de/docs/Web/API/Touch)-Objekte. **Hinweis:** Firefox akzeptiert auch ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [`Touch`](/de/docs/Web/API/Touch)-Objekten.
+  - : Null oder mehr [`Touch`](/de/docs/Web/API/Touch)-Objekte. Firefox akzeptiert auch ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [`Touch`](/de/docs/Web/API/Touch)-Objekten.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ createTouchList(touch1, touch2, /* …, */ touchN)
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouchList()`-Methode zur Erstellung von [`TouchList`](/de/docs/Web/API/TouchList)-Objekten.
+Dieses Beispiel zeigt die Verwendung der Methode `Document.createTouchList()` zur Erstellung von [`TouchList`](/de/docs/Web/API/TouchList)-Objekten.
 
 Im folgenden Code-Snippet werden einige [`Touch`](/de/docs/Web/API/Touch)-Objekte für das `target`-Element erstellt, und diese Berührungspunkte werden dann verwendet, um einige [`TouchList`](/de/docs/Web/API/TouchList)-Objekte zu erstellen.
 
@@ -53,7 +53,7 @@ const list2 = document.createTouchList(touch1, touch2);
 
 ## Spezifikationen
 
-Diese Funktion ist derzeit nicht Teil einer Spezifikation. Sie ist nicht länger auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht Teil einer aktuellen Spezifikation. Sie steht nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -61,7 +61,7 @@ Diese Funktion ist derzeit nicht Teil einer Spezifikation. Sie ist nicht länger
 
 ## Siehe auch
 
-- [Touch events](/de/docs/Web/API/Touch_events)
+- [Touch-Ereignisse](/de/docs/Web/API/Touch_events)
 - [`Touch`](/de/docs/Web/API/Touch)
 - [`TouchEvent`](/de/docs/Web/API/TouchEvent)
 - [`TouchList`](/de/docs/Web/API/TouchList)

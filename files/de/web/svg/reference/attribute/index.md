@@ -1,14 +1,14 @@
 ---
-title: SVG-Attribut-Referenz
+title: SVG-Attributreferenz
 short-title: Attributes
 slug: Web/SVG/Reference/Attribute
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
 ---
 
-SVG-Elemente können mit Attributen modifiziert werden, die Details darüber spezifizieren, wie das Element behandelt oder gerendert werden soll.
+SVG-Elemente können durch Attribute modifiziert werden, die Details darüber angeben, wie genau das Element behandelt oder gerendert werden soll.
 
-Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Links zur Referenzdokumentation, die Ihnen helfen, zu lernen, welche Elemente sie unterstützen und wie sie funktionieren.
+Im Folgenden finden Sie eine Liste aller in SVG verfügbaren Attribute zusammen mit Links zur Referenzdokumentation, die Ihnen helfen, zu erfahren, welche Elemente sie unterstützen und wie sie funktionieren.
 
 ## SVG-Attribute von A bis Z
 
@@ -70,6 +70,7 @@ Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Li
 
 ### F
 
+- {{SVGAttr("fetchpriority")}}
 - {{SVGAttr("fill")}}
 - {{SVGAttr("fill-opacity")}}
 - {{SVGAttr("fill-rule")}}
@@ -292,9 +293,9 @@ Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Li
 
 ## SVG-Attribute nach Kategorie
 
-### Allgemeine Attribute
+### Generische Attribute
 
-- Kernattribute
+- Core-Attribute
 
   - {{SVGAttr("id")}}
   - {{SVGAttr("class")}}
@@ -319,10 +320,10 @@ Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Li
 - {{SVGAttr("xlink:show")}}
 - {{SVGAttr("xlink:actuate")}}
 
-### Präsentationsattribute
+### Darstellungsattribute
 
 > [!NOTE]
-> Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
+> Alle SVG-Darstellungsattribute können als CSS-Eigenschaften verwendet werden.
 
 - {{SVGAttr("alignment-baseline")}}
 - {{SVGAttr("baseline-shift")}}
@@ -396,24 +397,24 @@ Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Li
 - {{SVGAttr("x")}}
 - {{SVGAttr("y")}}
 
-### Filterattribute
+### Filter-Attribute
 
-- Filter-Primitivattribute
+- Filterprimitive-Attribute
   - : {{SVGAttr("height")}}, {{SVGAttr("result")}}, {{SVGAttr("width")}}, {{SVGAttr("x")}}, {{SVGAttr("y")}}
-- Transferfunktionsattribute
+- Übertragungsfunktions-Attribute
   - : {{SVGAttr("type")}}, {{SVGAttr("tableValues")}}, {{SVGAttr("slope")}}, {{SVGAttr("intercept")}}, {{SVGAttr("amplitude")}}, {{SVGAttr("exponent")}}, {{SVGAttr("offset")}}
 
 ### Animationsattribute
 
-- Attribute des Animationsziel-Elements
+- Animation-Target-Element-Attribute
   - : {{SVGAttr("href")}}
-- Animationsattribut-Zielattribute
+- Animation-Attribut-Target-Attribute
   - : {{SVGAttr("attributeType")}}, {{SVGAttr("attributeName")}}
-- Zeitliche Animationsattribute
+- Animation-Timing-Attribute
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
-- Animationswertattribute
+- Animation-Wert-Attribute
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}, {{SVGAttr("autoReverse")}}
-- Additionsattribute für Animationen
+- Animation-Additions-Attribute
   - : {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
 
 ### Ereignisattribute
@@ -488,6 +489,6 @@ Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Li
 
 ## Siehe auch
 
-- [SVG-Element-Referenz](/de/docs/Web/SVG/Reference/Element)
+- [SVG-Elementreferenz](/de/docs/Web/SVG/Reference/Element)
 - [SVG-Tutorial](/de/docs/Web/SVG/Tutorials/SVG_from_scratch)
 - [SVG-Schnittstellenreferenz](/de/docs/Web/API/SVG_API#interfaces)

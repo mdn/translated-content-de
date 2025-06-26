@@ -2,22 +2,22 @@
 title: "WebGL: 2D and 3D graphics for the web"
 slug: Web/API/WebGL_API
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{AvailableInWorkers}}
 
-**WebGL** (Web Graphics Library) ist eine JavaScript-API zur Darstellung leistungsstarker, interaktiver 3D- und 2D-Grafiken in jedem kompatiblen Webbrowser, ohne Plug-ins zu verwenden. WebGL führt dazu eine API ein, die eng an OpenGL ES 2.0 angelehnt ist und in HTML-`<canvas>`-Elementen verwendet werden kann. Diese Konformität ermöglicht es der API, die hardwarebasierte Grafikbeschleunigung des Geräts des Nutzers zu nutzen.
+**WebGL** (Web Graphics Library) ist eine JavaScript-API für das Rendern von hochleistungsfähigen interaktiven 3D- und 2D-Grafiken in jedem kompatiblen Webbrowser, ohne den Einsatz von Plug-ins. WebGL erreicht dies durch die Einführung einer API, die eng an OpenGL ES 2.0 angelehnt ist und in HTML-{{HTMLElement("canvas")}}-Elementen verwendet werden kann. Diese Konformität ermöglicht es der API, von der Hardware-Beschleunigung durch die Grafik des Geräts des Nutzers zu profitieren.
 
-Unterstützung für WebGL ist in allen modernen Browsern vorhanden (siehe die [Kompatibilitätstabellen](#browser-kompatibilität) unten); das Gerät des Nutzers muss jedoch auch über Hardware verfügen, die diese Funktionen unterstützt.
+Unterstützung für WebGL ist in allen modernen Browsern vorhanden (siehe die [Kompatibilitätstabellen](#browser-kompatibilität) unten); das Gerät des Nutzers muss jedoch auch Hardware besitzen, die diese Funktionen unterstützt.
 
-Die [WebGL 2](#webgl_2) API bringt Unterstützung für viele Features des OpenGL ES 3.0-Sets; sie wird über das [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Interface bereitgestellt.
+Die [WebGL 2](#webgl_2) API führt Unterstützung für viele Funktionen des OpenGL ES 3.0-Sets ein; sie wird über das [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Interface bereitgestellt.
 
-Das `<canvas>`-Element wird auch von der [Canvas API](/de/docs/Web/API/Canvas_API) verwendet, um 2D-Grafiken auf Webseiten zu erstellen.
+Das {{HTMLElement("canvas")}}-Element wird auch von der [Canvas API](/de/docs/Web/API/Canvas_API) verwendet, um 2D-Grafiken auf Webseiten zu erstellen.
 
 ## Referenz
 
-### Standard-Interfaces
+### Standard-Schnittstellen
 
 - [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)
 - [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)
@@ -90,69 +90,71 @@ Das `<canvas>`-Element wird auch von der [Canvas API](/de/docs/Web/API/Canvas_AP
 
 ### WebGL 2
 
-WebGL 2 ist ein bedeutendes Update zu WebGL, das über das [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Interface bereitgestellt wird. Es basiert auf OpenGL ES 3.0 und neue Funktionen umfassen:
+WebGL 2 ist ein bedeutendes Update für WebGL, welches durch das [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Interface bereitgestellt wird. Es basiert auf OpenGL ES 3.0 und neue Funktionen umfassen:
 
 - [3D-Texturen](/de/docs/Web/API/WebGL2RenderingContext/texImage3D),
 - [Sampler-Objekte](/de/docs/Web/API/WebGLSampler),
-- [Uniform Buffer-Objekte](/de/docs/Web/API/WebGL2RenderingContext#uniform_buffer_objects),
-- [Sync-Objekte](/de/docs/Web/API/WebGLSync),
-- [Query-Objekte](/de/docs/Web/API/WebGLQuery),
-- [Transform Feedback-Objekte](/de/docs/Web/API/WebGLTransformFeedback),
-- Erweiterungen, die nun Kernfunktionen von WebGL 2 sind: [Vertex Array-Objekte](/de/docs/Web/API/WebGLVertexArrayObject), [Instancing](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced), [mehrere Renderziele](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers), [Fragmenttiefe](/de/docs/Web/API/EXT_frag_depth).
+- [Uniform-Buffer-Objekte](/de/docs/Web/API/WebGL2RenderingContext#uniform_buffer_objects),
+- [Synchronisationsobjekte](/de/docs/Web/API/WebGLSync),
+- [Abfrageobjekte](/de/docs/Web/API/WebGLQuery),
+- [Transform-Feedback-Objekte](/de/docs/Web/API/WebGLTransformFeedback),
+- Aufgestiegene Erweiterungen, die jetzt Bestandteil von WebGL 2 sind: [Vertex-Array-Objekte](/de/docs/Web/API/WebGLVertexArrayObject), [Instancing](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced), [mehrere Render-Ziele](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers), [Fragmenttiefen](/de/docs/Web/API/EXT_frag_depth).
 
-Siehe auch den Blogbeitrag ["WebGL 2 lands in Firefox"](https://hacks.mozilla.org/2017/01/webgl-2-lands-in-firefox/) und [webglsamples.org/WebGL2Samples](https://webglsamples.org/WebGL2Samples/) für einige Demos.
+Sehen Sie auch den Blogbeitrag ["WebGL 2 landet in Firefox"](https://hacks.mozilla.org/2017/01/webgl-2-lands-in-firefox/) und [webglsamples.org/WebGL2Samples](https://webglsamples.org/WebGL2Samples/) für ein paar Demos.
 
-## Anleitungen und Tutorials
+## Leitfäden und Tutorials
 
-Im Folgenden finden Sie eine Auswahl von Leitfäden, die Ihnen helfen, WebGL-Konzepte zu verstehen, sowie Tutorials, die Schritt-für-Schritt-Lektionen und -Beispiele bieten.
+Nachfolgend finden Sie eine Auswahl von Leitfäden, die Ihnen helfen, WebGL-Konzepte zu lernen und Tutorials, die schrittweise Lektionen und Beispiele bieten.
 
 ### Leitfäden
 
 - [Daten in WebGL](/de/docs/Web/API/WebGL_API/Data)
-  - : Ein Leitfaden zu Variablen, Buffern und anderen Datentypen, die beim Schreiben von WebGL-Code verwendet werden.
-- [WebGL Best Practices](/de/docs/Web/API/WebGL_API/WebGL_best_practices)
-  - : Tipps und Vorschläge, die helfen, die Qualität, Leistung und Zuverlässigkeit Ihres WebGL-Inhalts zu verbessern.
-- [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions)
+  - : Ein Leitfaden zu Variablen, Puffern und anderen Datentypen, die beim Schreiben von WebGL-Code verwendet werden.
+- [Beste Praktiken für WebGL](/de/docs/Web/API/WebGL_API/WebGL_best_practices)
+  - : Tipps und Vorschläge, um die Qualität, Leistung und Zuverlässigkeit Ihres WebGL-Inhalts zu verbessern.
+- [Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions)
   - : Ein Leitfaden zur Verwendung von WebGL-Erweiterungen.
 
 ### Tutorials
 
 - [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial)
-  - : Ein Anfängerleitfaden zu den Kernkonzepten von WebGL. Ein guter Einstiegspunkt, wenn Sie keine Vorkenntnisse mit WebGL haben.
+  - : Ein Anfängerleitfaden zu den Kernkonzepten von WebGL. Ein guter Startpunkt, wenn Sie keine Vorkenntnisse mit WebGL haben.
 
 ### Beispiele
 
-- [Ein einfaches 2D-WebGL-Animationsbeispiel](/de/docs/Web/API/WebGL_API/Basic_2D_animation_example)
-  - : Dieses Beispiel demonstriert die einfache Animation einer einfarbigen Form. Untersuchte Themen sind das Anpassen an Unterschiede im {{Glossary("aspect_ratio", "Seitenverhältnis")}}, eine Funktion zum Erstellen von Shader-Programmen aus mehreren Shader-Sets und die Grundlagen des Zeichnens in WebGL.
-- [WebGL anhand von Beispielen](/de/docs/Web/API/WebGL_API/By_example)
-  - : Eine Reihe von Live-Beispielen mit kurzen Erklärungen, die WebGL-Konzepte und -Fähigkeiten zeigen. Die Beispiele sind nach Themen und Schwierigkeitsgrad sortiert und decken den WebGL-Rendering-Kontext, Shader-Programmierung, Texturen, Geometrie, Benutzerinteraktion und mehr ab.
+- [Ein einfaches 2D-WebGL-Animation-Beispiel](/de/docs/Web/API/WebGL_API/Basic_2D_animation_example)
+  - : Dieses Beispiel demonstriert die einfache Animation einer einfarbigen Form. Untersuchte Themen sind die Anpassung an Unterschiede im {{Glossary("aspect_ratio", "Seitenverhältnis")}}, eine Funktion, um Shader-Programme aus Sets von mehreren Shadern zu erstellen, und die Grundlagen des Zeichnens in WebGL.
+- [WebGL an Beispielen](/de/docs/Web/API/WebGL_API/By_example)
+  - : Eine Serie von Live-Beispielen mit kurzen Erklärungen, die WebGL-Konzepte und -Fähigkeiten zeigen. Die Beispiele sind nach Thema und Schwierigkeitsgrad sortiert und behandeln den WebGL-Rendering-Kontext, Shader-Programmierung, Texturen, Geometrie, Benutzerinteraktionen und mehr.
 
 ### Fortgeschrittene Tutorials
 
-- [WebGL Model View Projection](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection)
-  - : Eine detaillierte Erklärung der drei Kernmatrizen, die typischerweise verwendet werden, um eine 3D-Objektsicht darzustellen: die Modell-, die Ansichts- und die Projektionsmatrix.
-- [Matrix-Mathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
-  - : Ein nützlicher Leitfaden darüber, wie 3D-Transformationsmatrizen funktionieren und im Web verwendet werden können – sowohl für WebGL-Berechnungen als auch in CSS-Transformationen.
+- [Komprimierte Texturformate](/de/docs/Web/API/WebGL_API/Compressed_texture_formats)
+  - : Wie man komprimierte Texturformate für eine bessere Speicherleistung aktiviert und verwendet.
+- [WebGL-Modellansicht-Projektion](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection)
+  - : Eine detaillierte Erklärung der drei Kernmatrizen, die typischerweise verwendet werden, um eine 3D-Objektansicht darzustellen: die Modell-, Ansichts- und Projektionsmatrizen.
+- [Matrixmathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
+  - : Ein nützlicher Leitfaden, wie 3D-Transformationsmatrizen funktionieren und im Web verwendet werden können — sowohl für WebGL-Berechnungen als auch in CSS-Transformationen.
 
 ## Ressourcen
 
-- [Khronos WebGL-Seite](https://www.khronos.org/webgl/) Die Hauptwebsite für WebGL bei der Khronos Group.
-- [WebGL Fundamentals](https://web.dev/articles/webgl-fundamentals) Ein Grundlagentutorial zu WebGL.
-- [Raw WebGL: Eine Einführung in WebGL](https://www.youtube.com/embed/H4c8t6myAWU/?feature=player_detailpage) Ein Vortrag von Nick Desaulniers, der die Grundlagen von WebGL vermittelt.
-- [WebGL Academy](http://www.webglacademy.com/) Ein HTML/JavaScript-Editor mit Tutorials, um die Grundlagen der WebGL-Programmierung zu erlernen.
+- [Khronos WebGL-Website](https://www.khronos.org/webgl/) Die Hauptwebsite für WebGL bei der Khronos Gruppe.
+- [WebGL-Grundlagen](https://web.dev/articles/webgl-fundamentals) Ein grundlegendes Tutorial zu den Grundlagen von WebGL.
+- [Raw WebGL: Eine Einführung in WebGL](https://www.youtube.com/embed/H4c8t6myAWU/?feature=player_detailpage) Ein Vortrag von Nick Desaulniers, der die Grundlagen von WebGL vorstellt.
+- [WebGL Academy](http://www.webglacademy.com/) Ein HTML/JavaScript-Editor mit Tutorials, um die Grundlagen der WebGL-Programmierung zu lernen.
 - [WebGL Stats](https://webglreport.com/) Eine Website mit Statistiken über WebGL-Fähigkeiten in Browsern auf verschiedenen Plattformen.
 
 ### Bibliotheken
 
-- [three.js](https://threejs.org/) ist eine Open-Source-Bibliothek für vollständig ausgestattete 3D-WebGL-Anwendungen.
-- [Babylon.js](https://www.babylonjs.com/) ist eine leistungsstarke, einfache und offene Spiel- und 3D-Rendering-Engine in einem benutzerfreundlichen JavaScript-Framework.
-- [Pixi.js](https://pixijs.com/) ist ein schneller, quelloffener 2D-WebGL-Renderer.
-- [Phaser](https://phaser.io/) ist ein schnelles, kostenloses und unterhaltsames Open-Source-Framework für Canvas- und WebGL-basierte Browser-Spiele.
-- [PlayCanvas](https://playcanvas.com/) ist eine Open-Source-Spiel-Engine.
-- [glMatrix](https://github.com/toji/gl-matrix) ist eine JavaScript-Bibliothek für Matrizen und Vektoren für hochleistungsfähige WebGL-Apps.
-- [twgl](https://twgljs.org/) ist eine Bibliothek, um WebGL weniger umständlich zu gestalten.
-- [RedGL](https://github.com/redcamel/RedGL2) ist eine Open-Source-3D-WebGL-Bibliothek.
-- [vtk.js](https://kitware.github.io/vtk-js/) ist eine JavaScript-Bibliothek für wissenschaftliche Visualisierung im Browser.
+- [three.js](https://threejs.org/) ist eine Open-Source-, voll ausgestattete 3D-WebGL-Bibliothek.
+- [Babylon.js](https://www.babylonjs.com/) ist eine leistungsstarke, einfache und offene Spiel- und 3D-Rendering-Engine, verpackt in einem benutzerfreundlichen JavaScript-Framework.
+- [Pixi.js](https://pixijs.com/) ist ein schneller, Open-Source 2D-WebGL-Renderer.
+- [Phaser](https://phaser.io/) ist ein schnelles, kostenloses und unterhaltsames Open-Source-Framework für Canvas- und WebGL-basierte Browserspiele.
+- [PlayCanvas](https://playcanvas.com/) ist eine Open-Source-Spiele-Engine.
+- [glMatrix](https://github.com/toji/gl-matrix) ist eine JavaScript-Matrix- und Vektorbibliothek für leistungsstarke WebGL-Anwendungen.
+- [twgl](https://twgljs.org/) ist eine Bibliothek, die WebGL weniger umständlich machen soll.
+- [RedGL](https://github.com/redcamel/RedGL2) ist eine Open-Source 3D-WebGL-Bibliothek.
+- [vtk.js](https://kitware.github.io/vtk-js/) ist eine JavaScript-Bibliothek für die wissenschaftliche Visualisierung im Browser.
 - [webgl-lint](https://greggman.github.io/webgl-lint/) hilft dabei, Fehler in Ihrem WebGL-Code zu finden und nützliche Informationen bereitzustellen.
 
 ## Spezifikationen
@@ -163,22 +165,22 @@ Im Folgenden finden Sie eine Auswahl von Leitfäden, die Ihnen helfen, WebGL-Kon
 
 {{Compat}}
 
-### Kompatibilitätsnotizen
+### Kompatibilitäts-Hinweise
 
-Zusätzlich zum Browser muss auch die GPU das Feature unterstützen. Beispielsweise ist die S3-Texturkompression (S3TC) nur auf Tegra-basierten Tablets verfügbar. Die meisten Browser machen den WebGL-Kontext über den Kontextnamen `webgl` verfügbar, aber ältere benötigen auch `experimental-webgl`. Darüber hinaus ist das kommende [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) vollständig abwärtskompatibel und wird den Kontextnamen `webgl2` haben.
+Zusätzlich zum Browser muss auch die GPU selbst die Funktion unterstützen. Zum Beispiel ist S3 Texture Compression (S3TC) nur auf Tegra-basierten Tablets verfügbar. Die meisten Browser machen den WebGL-Kontext über den `webgl`-Kontextnamen verfügbar, aber ältere benötigen zusätzlich `experimental-webgl`. Außerdem ist das kommende [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) vollständig rückwärtskompatibel und wird den Kontextnamen `webgl2` haben.
 
-### Gecko-Notizen
+### Gecko-Hinweise
 
-#### WebGL-Debugging und -Testen
+#### WebGL-Debugging und -Tests
 
-Firefox bietet zwei Einstellungen, die es ermöglichen, die Fähigkeiten von WebGL zu Testzwecken zu steuern:
+Firefox bietet zwei verfügbare Einstellungen, die Ihnen erlauben, die Fähigkeiten von WebGL zu Testzwecken zu kontrollieren:
 
 - `webgl.min_capability_mode`
-  - : Eine boolesche Eigenschaft, die bei `true` einen Modus mit minimaler Fähigkeit aktiviert. In diesem Modus ist WebGL so konfiguriert, dass nur das notwendigste Funktionsset und die Mindestanforderungen unterstützt werden, die durch die WebGL-Spezifikation gefordert werden. Dies ermöglicht es Ihnen, sicherzustellen, dass Ihr WebGL-Code auf jedem Gerät oder Browser funktioniert, unabhängig von deren Fähigkeiten. Standard ist `false`.
+  - : Eine boolesche Eigenschaft, die, wenn sie `true` ist, einen Modus mit minimalen Fähigkeiten aktiviert. In diesem Modus wird WebGL so konfiguriert, dass es nur das absolute Minimum an Funktionen und Fähigkeiten unterstützt, das durch die WebGL-Spezifikation erforderlich ist. Dies lässt Sie sicherstellen, dass Ihr WebGL-Code auf jedem Gerät oder Browser funktioniert, unabhängig von deren Fähigkeiten. Dies ist standardmäßig `false`.
 - `webgl.disable_extensions`
-  - : Eine boolesche Eigenschaft, die bei `true` alle WebGL-Erweiterungen deaktiviert. Standard ist `false`.
+  - : Eine boolesche Eigenschaft, die, wenn sie `true` ist, alle WebGL-Erweiterungen deaktiviert. Dies ist standardmäßig `false`.
 
 ## Siehe auch
 
 - [Canvas API](/de/docs/Web/API/Canvas_API)
-- [Kompatibilitätsinformationen zu WebGL-Erweiterungen](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions#browser_compatibility)
+- [Kompatibilitätsinfos zu WebGL-Erweiterungen](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions#browser_compatibility)
