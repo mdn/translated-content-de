@@ -3,12 +3,12 @@ title: Grundlegende Mathematik in JavaScript — Zahlen und Operatoren
 short-title: Zahlen und Operatoren
 slug: Learn_web_development/Core/Scripting/Math
 l10n:
-  sourceCommit: abe8cffb30e5153747bb027cb0b4e532981a093c
+  sourceCommit: 045c634a3f8e2a1aa8cb02f27a224f640917d1ad
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Variables", "Learn_web_development/Core/Scripting/Strings", "Learn_web_development/Core/Scripting")}}
 
-An diesem Punkt im Kurs besprechen wir Mathematik in JavaScript — wie wir {{Glossary("Operator", "Operatoren")}} und andere Funktionen verwenden können, um Zahlen erfolgreich zu manipulieren und unsere Befehle auszuführen.
+An diesem Punkt des Kurses diskutieren wir Mathematik in JavaScript — wie wir {{Glossary("Operator", "Operatoren")}} und andere Funktionen nutzen können, um Zahlen erfolgreich zu manipulieren, damit sie unseren Anforderungen entsprechen.
 
 <table>
   <tbody>
@@ -21,12 +21,12 @@ An diesem Punkt im Kurs besprechen wir Mathematik in JavaScript — wie wir {{Gl
       <td>
         <ul>
           <li>Grundlegende Zahlenoperationen in JavaScript — addieren, subtrahieren, multiplizieren und dividieren.</li>
-          <li>Zahlen sind keine Zahlen, wenn sie als Strings definiert sind, und können Berechnungen fehlerhaft machen.</li>
-          <li>Strings in Zahlen umwandeln mit <code>Number()</code>.</li>
-          <li>Operatorpriorität.</li>
+          <li>Zahlen sind keine Zahlen, wenn sie als Strings definiert sind, und können zu falschen Berechnungen führen.</li>
+          <li>Konvertieren von Strings in Zahlen mit <code>Number()</code>.</li>
+          <li>Operatorenpräzedenz.</li>
           <li>Inkrementieren und Dekrementieren.</li>
           <li>Zuweisungs- und Vergleichsoperatoren.</li>
-          <li>Grundlegende Methoden des Math-Objekts wie <code>Math.random()</code>, <code>Math.floor()</code> und <code>Math.ceil()</code>.</li>
+          <li>Grundlegende Methoden des Math-Objekts, wie <code>Math.random()</code>, <code>Math.floor()</code> und <code>Math.ceil()</code>.</li>
         </ul>
       </td>
     </tr>
@@ -35,35 +35,35 @@ An diesem Punkt im Kurs besprechen wir Mathematik in JavaScript — wie wir {{Gl
 
 ## Jeder liebt Mathematik
 
-Okay, vielleicht nicht. Einige von uns mögen Mathematik, einige von uns haben Mathematik gehasst, seit wir in der Schule das Einmaleins und die lange Division lernen mussten, und einige von uns stehen irgendwo dazwischen. Aber keiner von uns kann leugnen, dass Mathematik ein grundlegender Bestandteil des Lebens ist, ohne den wir nicht sehr weit kommen können. Das gilt besonders, wenn wir lernen, JavaScript (oder irgendeine andere Sprache) zu programmieren — so viel von dem, was wir tun, basiert darauf, numerische Daten zu verarbeiten, neue Werte zu berechnen usw., dass Sie nicht überrascht sein werden zu lernen, dass JavaScript eine umfassende Reihe von Mathematikfunktionen bietet.
+Okay, vielleicht nicht. Einige von uns mögen Mathematik, einige von uns haben Mathematik gehasst, seit wir in der Schule das Einmaleins und die lange Division lernen mussten, und einige von uns befinden sich irgendwo dazwischen. Aber keiner kann leugnen, dass Mathematik ein grundlegender Bestandteil des Lebens ist, ohne den wir nicht weit kommen. Dies gilt besonders, wenn wir lernen, JavaScript (oder irgendeine andere Programmiersprache) zu programmieren — so vieles von dem, was wir tun, erfordert die Verarbeitung von numerischen Daten, die Berechnung neuer Werte und so weiter, dass es nicht überrascht, dass JavaScript eine voll ausgestattete Sammlung von Mathematikfunktionen zur Verfügung hat.
 
-Dieser Artikel behandelt nur die grundlegenden Teile, die Sie jetzt kennen müssen.
+Dieser Artikel behandelt nur die grundlegenden Teile, die Sie jetzt wissen müssen.
 
 ### Arten von Zahlen
 
-In der Programmierung ist schon das einfache Dezimalsystem, das wir alle so gut kennen, komplizierter, als Sie vielleicht denken. Wir verwenden unterschiedliche Begriffe, um verschiedene Arten von Dezimalzahlen zu beschreiben, zum Beispiel:
+In der Programmierung ist selbst das einfache Dezimalsystem, das wir alle so gut kennen, komplizierter, als Sie vielleicht denken. Wir verwenden verschiedene Begriffe, um verschiedene Arten von Dezimalzahlen zu beschreiben, zum Beispiel:
 
-- **Ganzzahlen** sind Zahlen ohne Bruchanteil. Sie können entweder positiv oder negativ sein, z.B. 10, 400 oder -5.
-- **Fließkommazahlen** (Floats) haben Dezimalpunkte und Dezimalstellen, z.B. 12.5 und 56.7786543.
+- **Ganze Zahlen** sind Zahlen ohne Bruchteile. Sie können positiv oder negativ sein, z.B. 10, 400 oder -5.
+- **Gleitkommazahlen** (Floats) haben Dezimalstellen, z.B. 12.5 und 56.7786543.
 
-Wir haben sogar unterschiedliche Zahlensysteme! Dezimal ist Basis 10 (bedeutet, dass es 0–9 in jeder Ziffer verwendet), aber wir haben auch Dinge wie:
+Es gibt sogar verschiedene Zahlensysteme! Dezimal ist Basis 10 (bedeutet, es verwendet 0–9 in jeder Ziffer), aber wir haben auch Dinge wie:
 
-- **Binär** — Die niedrigste Ebene der Computersprache; 0 und 1.
+- **Binär** — Die niedrigste Sprachebene von Computern; 0 und 1.
 - **Oktal** — Basis 8, verwendet 0–7 in jeder Ziffer.
-- **Hexadezimal** — Basis 16, verwendet 0–9 und dann a–f in jeder Ziffer. Diese Zahlen sind Ihnen vielleicht begegnet, als Sie [Farben in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#hexadecimal_rgb_values) setzten.
+- **Hexadezimal** — Basis 16, verwendet 0–9 und dann a–f in jeder Ziffer. Möglicherweise sind Sie diesen Zahlen bereits begegnet, wenn Sie [Farben in CSS einstellen](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#hexadecimal_rgb_values).
 
-**Bevor Sie sich Sorgen machen, dass Ihr Gehirn schmilzt, stoppen Sie sofort!** Wir werden für den Anfang einfach bei Dezimalzahlen bleiben; Sie werden nur selten auf die Notwendigkeit stoßen, über andere Typen nachzudenken, wenn überhaupt.
+**Bevor Sie anfangen, sich Sorgen zu machen, dass Ihr Gehirn schmilzt, hören Sie auf!** Zunächst werden wir uns auf Dezimalzahlen im gesamten Kurs beschränken; es ist selten, dass Sie auf die Notwendigkeit stoßen, über andere Typen nachzudenken, wenn überhaupt.
 
-Die zweite gute Nachricht ist, dass JavaScript, im Gegensatz zu einigen anderen Programmiersprachen, nur einen Datentyp für Zahlen hat, sowohl Ganzzahlen als auch Dezimalzahlen — Sie haben es erraten, {{jsxref("Number")}}. Das bedeutet, dass Sie unabhängig davon, mit welcher Art von Zahlen Sie in JavaScript arbeiten, sie genau auf die gleiche Weise behandeln.
+Die zweite gute Nachricht ist, dass JavaScript im Gegensatz zu einigen anderen Programmiersprachen nur einen Datentyp für Zahlen hat, sowohl für Ganzzahlen als auch für Dezimalzahlen — Sie haben es erraten, {{jsxref("Number")}}. Das bedeutet, dass, egal mit welchem Zahlentyp Sie in JavaScript arbeiten, Sie sie genau gleich handhaben.
 
 > [!NOTE]
-> Tatsächlich hat JavaScript einen zweiten Zahlentyp, {{Glossary("BigInt", "BigInt")}}, der für sehr, sehr große Ganzzahlen verwendet wird. Aber für die Zwecke dieses Kurses werden wir uns nur um `Number`-Werte kümmern.
+> Tatsächlich hat JavaScript einen zweiten Zahlentyp, {{Glossary("BigInt", "BigInt")}}, der für sehr große Ganzzahlen verwendet wird. Aber für die Zwecke dieses Kurses kümmern wir uns nur um `Number`-Werte.
 
-### Es sind alles nur Zahlen für mich
+### Es ist alles nur Zahlen für mich
 
-Lassen Sie uns schnell mit einigen Zahlen spielen, um uns mit der grundlegenden Syntax vertraut zu machen, die wir benötigen. Geben Sie die unten aufgeführten Befehle in Ihre [Entwicklerwerkzeuge JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) ein.
+Lasst uns schnell mit einigen Zahlen spielen, um uns mit der grundlegenden Syntax vertraut zu machen, die wir benötigen. Geben Sie die unten aufgeführten Befehle in Ihre [Entwicklertools-JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) ein.
 
-1. Lassen Sie uns zuerst ein paar Variablen deklarieren und sie mit einer Ganzzahl bzw. einem Float initialisieren, dann geben Sie die Variablennamen erneut ein, um zu überprüfen, dass alles in Ordnung ist:
+1. Zunächst deklarieren wir ein paar Variablen und initialisieren sie jeweils mit einer Ganzzahl und einem Float, dann geben Sie die Variablennamen wieder ein, um zu überprüfen, ob alles in Ordnung ist:
 
    ```js
    const myInt = 5;
@@ -73,20 +73,20 @@ Lassen Sie uns schnell mit einigen Zahlen spielen, um uns mit der grundlegenden 
    ```
 
 2. Zahlenwerte werden ohne Anführungszeichen eingegeben — versuchen Sie, ein paar weitere Variablen mit Zahlen zu deklarieren und zu initialisieren, bevor Sie weitermachen.
-3. Lassen Sie uns nun überprüfen, dass beide ursprünglichen Variablen vom gleichen Datentyp sind. In JavaScript gibt es einen Operator namens {{jsxref("Operators/typeof", "typeof")}}, der dies tut. Geben Sie die folgenden beiden Zeilen wie gezeigt ein:
+3. Jetzt prüfen wir, ob beide ursprünglichen Variablen vom gleichen Datentyp sind. Es gibt einen Operator namens {{jsxref("Operators/typeof", "typeof")}} in JavaScript, der dies tut. Geben Sie die beiden folgenden Zeilen wie gezeigt ein:
 
    ```js
    typeof myInt;
    typeof myFloat;
    ```
 
-   Es sollte in beiden Fällen `"number"` zurückgegeben werden — das macht es uns viel einfacher, als wenn unterschiedliche Zahlen unterschiedliche Datentypen hätten und wir sie auf verschiedene Weise behandeln müssten. Puh!
+   Sie sollten in beiden Fällen `"number"` als Rückgabewert erhalten — das macht es uns viel einfacher, als wenn verschiedene Zahlen unterschiedliche Datentypen hätten und wir sie auf unterschiedliche Weise behandeln müssten. Puh!
 
-### Nützliche Methoden des Number-Objekts
+### Nützliche Number-Methoden
 
-Das [`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Objekt, eine Instanz von dem alle Standardzahlen, die Sie in Ihrem JavaScript verwenden, darstellt, hat eine Reihe von nützlichen Methoden, die Ihnen zur Verfügung stehen, um Zahlen zu manipulieren. Wir decken diese nicht im Detail in diesem Artikel ab, weil wir es als Einführung halten wollten und nur die wirklich grundlegenden sogenannten Essentials behandeln; nachdem Sie jedoch dieses Modul ein paar Mal durchgelesen haben, lohnt es sich, auf die Objektreferenzseiten zu gehen und mehr darüber zu erfahren, was verfügbar ist.
+Das [`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Objekt, eine Instanz davon repräsentiert alle Standardzahlen, die Sie in Ihrem JavaScript verwenden, hat eine Reihe nützlicher Methoden, mit denen Sie Zahlen manipulieren können. Wir behandeln diese in diesem Artikel nicht im Detail, da wir ihn als Einführung und nur die wirklich grundlegenden Dinge behandeln wollten; jedoch lohnt es sich, nachdem Sie dieses Modul ein- oder zweimal durchgelesen haben, auf den Objektreferenzseiten mehr darüber zu erfahren, was verfügbar ist.
 
-Zum Beispiel, um Ihre Zahl auf eine feste Anzahl von Dezimalstellen zu runden, verwenden Sie die [`toFixed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)-Methode. Geben Sie die folgenden Zeilen in die [Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Ihres Browsers ein:
+Zum Beispiel verwenden Sie die [`toFixed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)-Methode, um Ihre Zahl auf eine feste Anzahl von Dezimalstellen zu runden. Geben Sie die folgenden Zeilen in die [Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Ihres Browsers ein:
 
 ```js
 const lotsOfDecimal = 1.7665849587;
@@ -95,24 +95,24 @@ const twoDecimalPlaces = lotsOfDecimal.toFixed(2);
 twoDecimalPlaces;
 ```
 
-### Konvertierung in Zahlen-Datentypen
+### Konvertierung zu Zahlen-Datentypen
 
-Manchmal könnte es sein, dass Sie am Ende mit einer Zahl stehen, die als String-Typ gespeichert ist, was es schwierig macht, Berechnungen damit durchzuführen. Dies passiert am häufigsten, wenn Daten in ein [Formular](/de/docs/Learn_web_development/Extensions/Forms)-Eingabefeld eingegeben werden und der [Eingabetyp Text ist](/de/docs/Web/HTML/Reference/Elements/input/text). Es gibt eine Möglichkeit, dieses Problem zu lösen — indem Sie den String-Wert in den [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)-Konstruktor übergeben, um eine Zahlenversion des gleichen Wertes zurückzugeben.
+Manchmal könnten Sie bei einer Zahl landen, die als String-Typ gespeichert ist, was es schwierig macht, Berechnungen mit ihr durchzuführen. Das passiert am häufigsten, wenn Daten in ein [Formular](/de/docs/Learn_web_development/Extensions/Forms) eingegeben werden und der [Eingabetyp ist Text](/de/docs/Web/HTML/Reference/Elements/input/text). Es gibt eine Möglichkeit, dieses Problem zu lösen — indem Sie den Stringwert an den [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)-Konstruktor übergeben, um eine Zahlenversion desselben Werts zurückzugeben.
 
-Versuchen Sie beispielsweise, diese Zeilen in Ihre Konsole einzugeben:
+Zum Beispiel versuchen Sie, diese Zeilen in Ihre Konsole einzugeben:
 
 ```js
 let myNumber = "74";
 myNumber += 3;
 ```
 
-Sie enden mit dem Ergebnis 743, nicht 77, weil `myNumber` tatsächlich als String definiert ist. Sie können dies überprüfen, indem Sie Folgendes eingeben:
+Sie erhalten das Ergebnis 743, nicht 77, da `myNumber` tatsächlich als String definiert ist. Sie können dies testen, indem Sie Folgendes eingeben:
 
 ```js
 typeof myNumber;
 ```
 
-Um die Berechnung zu korrigieren, können Sie Folgendes tun:
+Um die Berechnung zu korrigieren, können Sie dies tun:
 
 ```js
 let myNumber = "74";
@@ -138,7 +138,7 @@ Arithmetische Operatoren werden verwendet, um mathematische Berechnungen in Java
     <tr>
       <td><code>+</code></td>
       <td>Addition</td>
-      <td>Addiert zwei Zahlen zusammen.</td>
+      <td>Addiert zwei Zahlen miteinander.</td>
       <td><code>6 + 9</code></td>
     </tr>
     <tr>
@@ -161,28 +161,30 @@ Arithmetische Operatoren werden verwendet, um mathematische Berechnungen in Java
     </tr>
     <tr>
       <td><code>%</code></td>
-      <td>Rest (manchmal Modulo genannt)</td>
+      <td>Rest (manchmal auch Modulo genannt)</td>
       <td>
         <p>
-          Gibt den Rest zurück, der übrig bleibt, nachdem Sie die linke Zahl in eine Anzahl ganzzahliger Portionen gleich der rechten Zahl geteilt haben.
+          Gibt den Rest zurück, der übrig bleibt, nachdem Sie die linke Zahl in
+          eine Anzahl von ganzzahligen Portionen der rechten Zahl geteilt haben.
         </p>
       </td>
       <td>
         <p>
-          <code>8 % 3</code> (gibt 2 zurück, da drei zweimal in 8 passt, mit 2 übrig).
+          <code>8 % 3</code> (gibt 2 zurück, da drei in 8 zweimal passt,
+          wobei 2 übrig bleibt).
         </p>
       </td>
     </tr>
     <tr>
       <td><code>**</code></td>
-      <td>Exponenten</td>
+      <td>Exponential</td>
       <td>
-        Hebt eine <code>Basis</code>-Zahl auf die <code>Exponent</code>-Potenz,
-        das heißt, die <code>Basis</code>-Zahl multipliziert mit sich selbst,
-        <code>Exponent</code>-mal.
+        Erhöht eine <code>Basis</code>-Zahl auf die Potenz des <code>Exponenten</code>,
+        das heißt, die <code>Basis</code>-Nummer wird mit sich selbst
+        multipliziert, <code>Exponent</code>-mal.
       </td>
       <td>
-        <code>5 ** 2</code> (gibt <code>25</code> zurück, was das gleiche ist wie
+        <code>5 ** 2</code> (gibt <code>25</code> zurück, was dasselbe ist wie
         <code>5 * 5</code>).
       </td>
     </tr>
@@ -190,14 +192,14 @@ Arithmetische Operatoren werden verwendet, um mathematische Berechnungen in Java
 </table>
 
 > [!NOTE]
-> Manchmal wird in der Arithmetik von Zahlen als {{Glossary("Operand", "Operanden")}} gesprochen.
+> Zahlen, die an arithmetischen Operationen beteiligt sind, werden manchmal als {{Glossary("Operand", "Operanden")}} bezeichnet.
 
 > [!NOTE]
-> Sie können manchmal Exponenten sehen, die mit der älteren {{jsxref("Math.pow()")}}-Methode ausgedrückt werden, die auf sehr ähnliche Weise funktioniert. Zum Beispiel, in `Math.pow(7, 3)`, ist `7` die Basis und `3` der Exponent, also ist das Ergebnis des Ausdrucks `343`. `Math.pow(7, 3)` ist äquivalent zu `7**3`.
+> Manchmal sehen Sie Exponenten, die mit der älteren {{jsxref("Math.pow()")}}-Methode ausgedrückt werden, die auf sehr ähnliche Weise funktioniert. Zum Beispiel, in `Math.pow(7, 3)`, ist `7` die Basis und `3` der Exponent, so dass das Ergebnis des Ausdrucks `343` ist. `Math.pow(7, 3)` entspricht `7**3`.
 
-Wir müssen Ihnen wahrscheinlich nicht beibringen, wie man grundlegende Mathematik macht, aber wir möchten Ihr Verständnis der benötigten Syntax testen. Versuchen Sie, die untenstehenden Beispiele in Ihre [Entwicklerwerkzeuge JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) einzugeben, um sich mit der Syntax vertraut zu machen.
+Wahrscheinlich müssen wir Ihnen nicht beibringen, wie man grundlegende Mathematik macht, aber wir möchten Ihr Verständnis der damit verbundenen Syntax testen. Versuchen Sie, die unten stehenden Beispiele in Ihre [Entwicklertools-JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) einzugeben, um sich mit der Syntax vertraut zu machen.
 
-1. Versuchen Sie zuerst, einige einfache eigene Beispiele einzugeben, wie z.B.
+1. Versuchen Sie zuerst, einige einfache Beispiele selbst einzugeben, wie z.B.
 
    ```js
    10 + 7;
@@ -205,7 +207,7 @@ Wir müssen Ihnen wahrscheinlich nicht beibringen, wie man grundlegende Mathemat
    60 % 3;
    ```
 
-2. Sie können auch versuchen, einige Zahlen in Variablen zu deklarieren und zu initialisieren und versuchen, diese in den Berechnungen zu verwenden — die Variablen verhalten sich für die Zwecke der Berechnung genau wie die Werte, die sie halten. Zum Beispiel:
+2. Sie können auch versuchen, einige Zahlen in Variablen zu deklarieren und zu initialisieren und diese in den Rechnungen zu verwenden — die Variablen verhalten sich genau wie die Werte, die sie für die Berechnungen enthalten. Zum Beispiel:
 
    ```js
    const num1 = 10;
@@ -215,7 +217,7 @@ Wir müssen Ihnen wahrscheinlich nicht beibringen, wie man grundlegende Mathemat
    num2 / num1;
    ```
 
-3. Zuletzt in diesem Abschnitt, versuchen Sie, einige komplexere Ausdrücke einzugeben, wie z.B.:
+3. Zuletzt für diesen Abschnitt versuchen Sie, einige komplexere Ausdrücke einzugeben, wie:
 
    ```js
    5 + 10 * 3;
@@ -223,23 +225,23 @@ Wir müssen Ihnen wahrscheinlich nicht beibringen, wie man grundlegende Mathemat
    num2 + num1 / 8 + 2;
    ```
 
-Teile dieser letzten Berechnungssätze liefern möglicherweise nicht das Ergebnis, das Sie erwartet haben; der folgende Abschnitt könnte gut die Antwort darauf geben, warum.
+Teile dieser letzten Rechnung liefern vielleicht nicht das von Ihnen erwartete Ergebnis; der folgende Abschnitt könnte die Antwort darauf geben, warum.
 
-### Operatorpriorität
+### Operatorenpräzedenz
 
-Betrachten wir das letzte Beispiel von oben, wobei angenommen wird, dass `num2` den Wert 50 und `num1` den Wert 10 hat (wie ursprünglich angegeben):
+Schauen wir uns das letzte Beispiel von oben an, wobei wir davon ausgehen, dass `num2` den Wert 50 und `num1` den Wert 10 hat (wie ursprünglich angegeben):
 
 ```js
 num2 + num1 / 8 + 2;
 ```
 
-Als Mensch könnten Sie dies lesen als _"50 plus 10 ergibt 60"_, dann _"8 plus 2 ergibt 10"_, und schließlich _"60 dividiert durch 10 ergibt 6"_.
+Als Mensch lesen Sie dies vielleicht als _"50 plus 10 ergibt 60"_, dann _"8 plus 2 ergibt 10"_, und schließlich _"60 geteilt durch 10 ergibt 6"_.
 
-Aber der Browser führt _"10 dividiert durch 8 ergibt 1.25"_, dann _"50 plus 1.25 plus 2 ergibt 53.25"_ aus.
+Aber der Browser macht _"10 geteilt durch 8 ergibt 1,25"_, dann _"50 plus 1,25 plus 2 ergibt 53,25"_.
 
-Dies liegt an der **Operatorpriorität** — einige Operatoren werden angewendet, bevor andere angewendet werden, wenn das Ergebnis einer Berechnung (in der Programmierung als \_“Ausdruck” bezeichnet) berechnet wird. Die Operatorpriorität in JavaScript ist die gleiche, wie sie im Mathematikunterricht in der Schule gelehrt wird — multiplizieren und dividieren werden immer zuerst durchgeführt, dann addieren und subtrahieren (die Berechnung wird immer von links nach rechts ausgewertet).
+Das liegt an der **Operatorenpräzedenz** — einige Operatoren werden vor anderen bei der Berechnung des Ergebnisses eines Ausdrucks angewendet (in der Programmierung als _Ausdruck_ bezeichnet). Die Operatorenpräzedenz in JavaScript ist die gleiche, wie sie in Mathematikklassen in der Schule gelehrt wird — multiplizieren und dividieren werden immer zuerst ausgeführt, dann addieren und subtrahieren (die Berechnung wird immer von links nach rechts ausgewertet).
 
-Wenn Sie die Operatorpriorität außer Kraft setzen möchten, können Sie Klammern um die Teile setzen, die Sie explizit zuerst bearbeiten möchten. Um also ein Ergebnis von 6 zu erhalten, könnten wir Folgendes tun:
+Wenn Sie die Operatorenpräzedenz außer Kraft setzen möchten, können Sie Klammern um die Teile setzen, die Sie explizit zuerst verarbeitet haben möchten. Um also ein Ergebnis von 6 zu erhalten, könnten wir dies tun:
 
 ```js
 (num2 + num1) / (8 + 2);
@@ -248,36 +250,36 @@ Wenn Sie die Operatorpriorität außer Kraft setzen möchten, können Sie Klamme
 Versuchen Sie, die vorherige Zeile in die Konsole einzugeben, um dies zu testen.
 
 > [!NOTE]
-> Eine vollständige Liste aller JavaScript-Operatoren und ihrer Priorität finden Sie unter [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence).
+> Eine vollständige Liste aller JavaScript-Operatoren und ihrer Präzedenz finden Sie unter [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence).
 
 ## Inkrement- und Dekrement-Operatoren
 
-Manchmal möchten Sie wiederholt eins zu oder von einem numerischen Variablenwert hinzufügen oder subtrahieren. Dies kann bequem mit den Inkrement- (`++`) und Dekrement- (`--`) Operatoren durchgeführt werden. Wir haben `++` in unserem "Errate die Zahl"-Spiel in unserem [ersten Einstieg in JavaScript](/de/docs/Learn_web_development/Core/Scripting/A_first_splash) Artikel verwendet, als wir eins zu unserer `guessCount`-Variablen hinzugefügt haben, um nach jeder Runde zu verfolgen, wie viele Vermutungen der Benutzer noch hat.
+Manchmal möchten Sie wiederholt eins zu oder von einem numerischen Variablenwert addieren oder subtrahieren. Dies kann bequem mit den Inkrement-(`++`) und Dekrement-(`--`) Operatoren erfolgen. Wir haben `++` in unserem "Rate die Zahl"-Spiel in unserem [ersten Eintauchen in JavaScript](/de/docs/Learn_web_development/Core/Scripting/A_first_splash) Artikel verwendet, als wir 1 zu unserer `guessCount`-Variable hinzugefügt haben, um zu verfolgen, wie viele Versuche der Benutzer noch nach jeder Runde hat.
 
 ```js
 guessCount++;
 ```
 
-Lassen Sie uns versuchen, mit diesen in Ihrer Konsole zu spielen. Zuerst beachten Sie, dass Sie diese nicht direkt auf eine Zahl anwenden können, was seltsam erscheinen mag, aber wir weisen einer Variablen einen neuen aktualisierten Wert zu und betreiben nicht direkt auf dem Wert selbst. Das Folgende führt zu einem Fehler:
+Lassen Sie uns versuchen, damit in Ihrer Konsole zu spielen. Zunächst beachten Sie, dass Sie diese nicht direkt auf eine Zahl anwenden können, was seltsam erscheinen mag, aber wir weisen einer Variablen einen neuen aktualisierten Wert zu, nicht der Wert selbst. Folgendes wird einen Fehler zurückgeben:
 
 ```js example-bad
 3++;
 ```
 
-Also können Sie nur eine bestehende Variable inkrementieren. Versuchen Sie dies:
+Sie können also nur eine bestehende Variable inkrementieren. Versuchen Sie dies:
 
 ```js
 let num1 = 4;
 num1++;
 ```
 
-Okay, Seltsamkeit Nummer 2! Wenn Sie dies tun, sehen Sie einen Wert von 4 zurückgegeben — das liegt daran, dass der Browser den aktuellen Wert zurückgibt und _dann_ die Variable inkrementiert. Sie können sehen, dass sie inkrementiert wurde, wenn Sie den Variablenwert erneut zurückgeben:
+Okay, Seltsamkeit Nummer 2! Wenn Sie dies tun, wird ein Wert von 4 zurückgegeben — das liegt daran, dass der Browser den aktuellen Wert zurückgibt, _dann_ die Variable inkrementiert. Sie können sehen, dass sie inkrementiert wurde, wenn Sie den Variablenwert erneut abrufen:
 
 ```js
 num1;
 ```
 
-Das gleiche gilt für `--`: Versuchen Sie das Folgende
+Das Gleiche gilt für `--`: Versuchen Sie Folgendes
 
 ```js
 let num2 = 6;
@@ -286,11 +288,11 @@ num2;
 ```
 
 > [!NOTE]
-> Sie können den Browser dazu bringen, es andersherum zu tun — die Variable zu inkrementieren/dekrementieren und _dann_ den Wert zurückzugeben — indem Sie den Operator am Anfang der Variable statt am Ende setzen. Versuchen Sie die obigen Beispiele erneut, aber verwenden Sie diesmal `++num1` und `--num2`.
+> Sie können den Browser dazu bringen, es umgekehrt zu tun — die Variable inkrementieren/dekrementieren und _dann_ den Wert zurückgeben — indem Sie den Operator an den Anfang der Variablen anstatt an das Ende setzen. Versuchen Sie die obigen Beispiele erneut, aber verwenden Sie diesmal `++num1` und `--num2`.
 
 ## Zuweisungsoperatoren
 
-Zuweisungsoperatoren sind Operatoren, die einer Variablen einen Wert zuweisen. Wir haben den grundlegendsten davon, `=`, schon viele Male verwendet — er weist der Variablen auf der linken Seite den Wert zu, der auf der rechten Seite angegeben ist:
+Zuweisungsoperatoren sind Operatoren, die einer Variablen einen Wert zuweisen. Wir haben den grundlegendsten, `=`, schon oft verwendet — er weist der Variablen auf der linken Seite den auf der rechten Seite angegebenen Wert zu:
 
 ```js
 let x = 3; // x contains the value 3
@@ -298,7 +300,7 @@ let y = 4; // y contains the value 4
 x = y; // x now contains the same value y contains, 4
 ```
 
-Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihren Code übersichtlicher und effizienter zu gestalten. Die am häufigsten verwendeten sind unten aufgelistet:
+Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihren Code sauberer und effizienter zu halten. Die gebräuchlichsten sind unten aufgelistet:
 
 <table class="standard-table no-markdown">
   <thead>
@@ -315,7 +317,8 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>+=</code></td>
       <td>Additionszuweisung</td>
       <td>
-        Addiert den Wert auf der rechten Seite zum Variablenwert auf der linken Seite und gibt dann den neuen Variablenwert zurück
+        Addiert den Wert auf der rechten Seite zum Variablenwert auf der linken
+        Seite und gibt den neuen Variablenwert zurück
       </td>
       <td><code>x += 4;</code></td>
       <td><code>x = x + 4;</code></td>
@@ -324,7 +327,8 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>-=</code></td>
       <td>Subtraktionszuweisung</td>
       <td>
-        Subtrahiert den Wert auf der rechten Seite vom Variablenwert auf der linken Seite und gibt dann den neuen Variablenwert zurück
+        Subtrahiert den Wert auf der rechten Seite vom Variablenwert auf der
+        linken Seite und gibt den neuen Variablenwert zurück
       </td>
       <td><code>x -= 3;</code></td>
       <td><code>x = x - 3;</code></td>
@@ -333,7 +337,8 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>*=</code></td>
       <td>Multiplikationszuweisung</td>
       <td>
-        Multipliziert den Variablenwert auf der linken Seite mit dem Wert auf der rechten Seite und gibt dann den neuen Variablenwert zurück
+        Multipliziert den Variablenwert auf der linken Seite mit dem Wert auf
+        der rechten Seite und gibt den neuen Variablenwert zurück
       </td>
       <td><code>x *= 3;</code></td>
       <td><code>x = x * 3;</code></td>
@@ -342,7 +347,8 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>/=</code></td>
       <td>Divisionszuweisung</td>
       <td>
-        Dividiert den Variablenwert auf der linken Seite durch den Wert auf der rechten Seite und gibt dann den neuen Variablenwert zurück
+        Dividiert den Variablenwert auf der linken Seite durch den Wert auf der
+        rechten Seite und gibt den neuen Variablenwert zurück
       </td>
       <td><code>x /= 5;</code></td>
       <td><code>x = x / 5;</code></td>
@@ -350,9 +356,9 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
   </tbody>
 </table>
 
-Versuchen Sie, einige der obigen Beispiele in Ihre Konsole einzugeben, um ein Gefühl dafür zu bekommen, wie sie funktionieren. In jedem Fall sehen Sie, ob Sie den Wert erraten können, bevor Sie die zweite Zeile eingeben.
+Versuchen Sie, einige der obigen Beispiele in Ihre Konsole einzugeben, um eine Vorstellung davon zu bekommen, wie sie funktionieren. Sehen Sie in jedem Fall, ob Sie den Wert erraten können, bevor Sie die zweite Zeile eingeben.
 
-Beachten Sie, dass Sie gerne andere Variablen auf der rechten Seite jedes Ausdrucks verwenden können, zum Beispiel:
+Beachten Sie, dass Sie auf der rechten Seite jedes Ausdrucks ohne weiteres andere Variablen verwenden können, zum Beispiel:
 
 ```js
 let x = 3; // x contains the value 3
@@ -361,11 +367,11 @@ x *= y; // x now contains the value 12
 ```
 
 > [!NOTE]
-> Es gibt viele [andere verfügbare Zuweisungsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators), aber dies sind die grundlegenden, die Sie jetzt lernen sollten.
+> Es gibt viele [weitere Zuweisungsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators), aber dies sind die grundlegenden, die Sie jetzt lernen sollten.
 
-## Größe einer Canvas-Box ändern
+## Größenauswahl eines Canvas-Felds
 
-In dieser Übung werden Sie einige Zahlen und Operatoren manipulieren, um die Größe einer Box zu ändern. Die Box wird mit einer Browser-API namens [Canvas API](/de/docs/Web/API/Canvas_API) gezeichnet. Es ist nicht nötig, sich darüber zu sorgen, wie dies funktioniert — konzentrieren Sie sich jetzt auf die Mathematik. Die Breite und Höhe der Box (in Pixeln) sind durch die Variablen `x` und `y` definiert, denen anfangs beide der Wert 50 zugewiesen ist.
+In dieser Übung manipulieren Sie einige Zahlen und Operatoren, um die Größe eines Kastens zu ändern. Der Kasten wird mit einer Browser-API namens [Canvas API](/de/docs/Web/API/Canvas_API) gezeichnet. Es gibt keinen Grund, sich darum zu kümmern, wie dies funktioniert — konzentrieren Sie sich jetzt nur auf die Mathematik. Die Breite und Höhe des Kastens (in Pixeln) werden durch die Variablen `x` und `y` definiert, die jeweils zuerst einen Wert von 50 haben.
 
 ```html hidden live-sample___canvas-exercise
 <canvas id="canvas" width="400" height="200"></canvas>
@@ -389,39 +395,39 @@ para.textContent = `The rectangle is ${x}px wide and ${y}px high.`;
 
 {{EmbedLiveSample("canvas-exercise", '100%', 300)}}
 
-Öffnen Sie das obige Beispiel im MDN Playground, indem Sie auf die **"Play"**-Schaltfläche klicken, und befolgen Sie dann die Liste der Anweisungen unten, um die Box auf bestimmte Größen wachsen/klein zu machen, indem Sie in jedem Fall bestimmte Operatoren und/oder Werte verwenden:
+Öffnen Sie das obige Beispiel im MDN Playground, indem Sie die **"Play"**-Schaltfläche klicken, und folgen Sie dann der Liste der Anweisungen unten, um den Kasten auf bestimmte Größen wachsen/verkleinern zu lassen, indem Sie bestimmte Operatoren und/oder Werte in jedem Fall verwenden:
 
-- Ändern Sie die Zeile, die `x` berechnet, so dass die Box noch `50px` breit ist, aber die 50 mit den Zahlen 43 und 7 und einem arithmetischen Operator berechnet wird.
-- Ändern Sie die Zeile, die `y` berechnet, so dass die Box `75px` hoch ist, aber die 75 mit den Zahlen 25 und 3 und einem arithmetischen Operator berechnet wird.
-- Ändern Sie die Zeile, die `x` berechnet, so dass die Box `100px` breit ist, aber die 150 mit drei Zahlen und den Subtraktions- und Divisionoperatoren berechnet wird.
-- Ändern Sie die Zeile, die `y` berechnet, so dass die Box `200px` hoch ist, aber die 200 mit den Zahlen 2 und `x` und dem Multiplikationsoperator berechnet wird.
+- Ändern Sie die Zeile, die `x` berechnet, so dass der Kasten immer noch `50px` breit ist, aber die 50 mit den Zahlen 43 und 7 und einem arithmetischen Operator berechnet wird.
+- Ändern Sie die Zeile, die `y` berechnet, so dass der Kasten `75px` hoch ist, aber die 75 mit den Zahlen 25 und 3 und einem arithmetischen Operator berechnet wird.
+- Ändern Sie die Zeile, die `x` berechnet, so dass der Kasten `100px` breit ist, aber die 100 mit drei Zahlen und den Operatoren Subtraktion und Division berechnet wird.
+- Ändern Sie die Zeile, die `y` berechnet, so dass der Kasten `200px` hoch ist, aber die 200 mit den Zahlen 2 und `x`, und dem Multiplikationsoperator berechnet wird.
 
-Keine Sorge, wenn Sie den Code durcheinanderbringen. Sie können jederzeit die Reset-Schaltfläche drücken und von vorne anfangen.
+Machen Sie sich keine Sorgen, wenn Sie den Code durcheinanderbringen. Sie können jederzeit die Reset-Schaltfläche drücken und von vorne beginnen.
 
 ## Vergleichsoperatoren
 
-Manchmal möchten wir wahr/falsch Tests durchführen und dann je nach Ergebnis dieses Tests entsprechend handeln — dazu verwenden wir **Vergleichsoperatoren**.
+Manchmal möchten wir wahre/falsche Tests durchführen und je nach Ergebnis des Tests entsprechend handeln — dazu verwenden wir **Vergleichsoperatoren**.
 
-| Operator | Name                 | Zweck                                                             | Beispiel      |
-| -------- | -------------------- | ----------------------------------------------------------------- | ------------- |
-| `===`    | Strikte Gleichheit   | Prüft, ob die linken und rechten Werte identisch sind             | `5 === 2 + 4` |
-| `!==`    | Strikte Ungleichheit | Prüft, ob die linken und rechten Werte **nicht** identisch sind   | `5 !== 2 + 3` |
-| `<`      | Kleiner als          | Prüft, ob der linke Wert kleiner ist als der rechte               | `10 < 6`      |
-| `>`      | Größer als           | Prüft, ob der linke Wert größer ist als der rechte                | `10 > 20`     |
-| `<=`     | Kleiner oder gleich  | Prüft, ob der linke Wert kleiner oder gleich dem rechten Wert ist | `3 <= 2`      |
-| `>=`     | Größer oder gleich   | Prüft, ob der linke Wert größer oder gleich dem rechten Wert ist  | `5 >= 4`      |
+| Operator | Name                    | Zweck                                                                       | Beispiel      |
+| -------- | ----------------------- | --------------------------------------------------------------------------- | ------------- |
+| `===`    | Strikte Gleichheit      | Testet, ob die linken und rechten Werte identisch zueinander sind           | `5 === 2 + 4` |
+| `!==`    | Strikte Ungleichheit    | Testet, ob die linken und rechten Werte **nicht** identisch zueinander sind | `5 !== 2 + 3` |
+| `<`      | Kleiner als             | Testet, ob der linke Wert kleiner ist als der rechte.                       | `10 < 6`      |
+| `>`      | Größer als              | Testet, ob der linke Wert größer ist als der rechte.                        | `10 > 20`     |
+| `<=`     | Kleiner als oder gleich | Testet, ob der linke Wert kleiner oder gleich dem rechten ist.              | `3 <= 2`      |
+| `>=`     | Größer als oder gleich  | Testet, ob der linke Wert größer oder gleich dem rechten ist.               | `5 >= 4`      |
 
 > [!NOTE]
-> Sie können manchmal sehen, dass `==` und `!=` in Tests für Gleichheit und Ungleichheit verwendet werden. Diese sind gültige Operatoren in JavaScript, unterscheiden sich jedoch von `===`/`!==`. Die früheren Versionen prüfen, ob die Werte gleich sind, nicht jedoch, ob die Datentypen der Werte gleich sind. Die strengeren Versionen prüfen die Gleichheit sowohl der Werte als auch der Datentypen. Die strikturen Versionen neigen dazu, weniger Fehler zu verursachen, daher empfehlen wir, diese zu verwenden.
+> Sie sehen möglicherweise einige Leute, die `==` und `!=` in ihren Tests für Gleichheit und Ungleichheit verwenden. Diese sind in JavaScript gültige Operatoren, unterscheiden sich jedoch von `===`/`!==`. Die früheren Versionen testen, ob die Werte gleich sind, aber nicht, ob die Datentypen der Werte gleich sind. Die letzteren, strikten Versionen testen die Gleichheit sowohl der Werte als auch ihrer Datentypen. Die strikten Versionen führen tendenziell zu weniger Fehlern, weshalb wir empfehlen, diese zu verwenden.
 
-Wenn Sie einige dieser Werte in einer Konsole eingeben, sehen Sie, dass sie alle `true`/`false`-Werte zurückgeben — diese Booleans, die wir im letzten Artikel erwähnten. Diese sind sehr nützlich, da sie uns erlauben, Entscheidungen in unserem Code zu treffen, und sie werden jedes Mal verwendet, wenn wir irgendeine Art von Auswahl treffen möchten. Zum Beispiel können Booleans verwendet werden, um:
+Wenn Sie versuchen, einige dieser Werte in einer Konsole einzugeben, werden Sie feststellen, dass sie alle `true`/`false`-Werte zurückgeben — die Booleans, die wir im letzten Artikel erwähnt haben. Diese sind sehr nützlich, da sie uns erlauben, Entscheidungen in unserem Code zu treffen, und sie werden immer verwendet, wenn wir eine Art von Auswahl treffen möchten. Zum Beispiel können Booleans verwendet werden, um:
 
-- Den korrekten Text auf einem Button anzuzeigen, je nachdem, ob ein Feature ein- oder ausgeschaltet ist
-- Eine Spiel-Nachricht anzeigen, wenn ein Spiel zu Ende ist, oder eine Sieg-Nachricht, wenn das Spiel gewonnen wurde
-- Die korrekte saisonale Begrüßung anzeigen, je nachdem, welcher Feiertag gerade ist
-- Eine Karte ein- oder auszoomen, abhängig von der gewählten Zoomstufe
+- Den richtigen Text auf einer Schaltfläche anzuzeigen, je nachdem, ob eine Funktion ein- oder ausgeschaltet ist.
+- Eine Spielende-Nachricht anzuzeigen, wenn ein Spiel vorbei ist oder eine Siegesnachricht, wenn das Spiel gewonnen wurde.
+- Die korrekte saisonale Begrüßung anzuzeigen, je nachdem, welche Feiertagssaison es ist.
+- Eine Karte ein- oder auszuzoomen, je nachdem, welcher Zoomstufe ausgewählt ist.
 
-Wir werden uns ansehen, wie man solche Logik kodiert, wenn wir uns in einem zukünftigen Artikel bedingte Anweisungen ansehen. Schauen wir uns für den Moment ein kurzes Beispiel an:
+Wir werden uns ansehen, wie man solche Logik programmiert, wenn wir in einem zukünftigen Artikel bedingte Anweisungen untersuchen. Schauen wir uns jetzt ein kurzes Beispiel an:
 
 ```html live-sample___conditional
 <button>Start machine</button>
@@ -447,20 +453,20 @@ function updateBtn() {
 
 {{EmbedLiveSample("conditional", '100%', 100)}}
 
-Sie können den Gleichheitsoperator innerhalb der `updateBtn()`-Funktion sehen. In diesem Fall testen wir nicht, ob zwei mathematische Ausdrücke denselben Wert haben — wir prüfen, ob der Textinhalt eines Buttons eine bestimmte Zeichenfolge enthält — aber es ist immer noch dasselbe Prinzip am Werk. Sollte der Button beim Drücken "Start machine" anzeigen, ändern wir das Label in "Stop machine" und aktualisieren das Label entsprechend. Wenn der Button beim Drücken "Stop machine" anzeigt, ändern wir die Anzeige wieder zurück.
+Sie können den Gleichheitsoperator sehen, der direkt innerhalb der `updateBtn()`-Funktion verwendet wird. In diesem Fall testen wir nicht, ob zwei mathematische Ausdrücke denselben Wert haben — wir testen, ob der Textinhalt einer Schaltfläche eine bestimmte Zeichenfolge enthält — aber es ist immer noch das gleiche Prinzip am Werk. Wenn die Schaltfläche derzeit "Maschine starten" sagt, wenn sie gedrückt wird, ändern wir ihr Beschriftung auf "Maschine stoppen" und aktualisieren die Beschriftung entsprechend. Wenn die Schaltfläche derzeit "Maschine stoppen" sagt, wenn sie gedrückt wird, wechseln wir die Anzeige wieder zurück.
 
 > [!NOTE]
-> Eine solche Steuerung, die zwischen zwei Zuständen wechselt, wird allgemein als **Umschalter** bezeichnet. Es wechselt zwischen einem Zustand und einem anderen — Licht an, Licht aus, usw.
+> Eine solche Steuerung, die zwischen zwei Zuständen umschaltet, wird allgemein als **Umschalter** bezeichnet. Er wechselt zwischen einem Zustand und einem anderen — Licht an, Licht aus, usw.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Mathematik](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Math).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Mathematik](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Math).
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir die grundlegenden Informationen abgedeckt, die Sie für den Moment über Zahlen in JavaScript wissen müssen. Sie werden Zahlen wieder und wieder verwenden, während Sie JavaScript lernen, also ist es eine gute Idee, dies jetzt aus dem Weg zu schaffen. Wenn Sie zu den Leuten gehören, die Mathematik nicht gerne mögen, können Sie Trost daraus ziehen, dass dieses Kapitel ziemlich kurz war.
+In diesem Artikel haben wir die grundlegenden Informationen behandelt, die Sie über Zahlen in JavaScript wissen müssen, vorerst. Sie werden Zahlen immer wieder sehen, durch Ihr JavaScript-Lernen hindurch, daher ist es eine gute Idee, dies jetzt aus dem Weg zu räumen. Wenn Sie zu den Menschen gehören, die Mathematik nicht mögen, können Sie sich trösten, dass dieses Kapitel ziemlich kurz war.
 
-Im nächsten Artikel werden wir Text erkunden und wie JavaScript uns erlaubt, ihn zu manipulieren.
+Im nächsten Artikel werden wir Text untersuchen und wie JavaScript uns erlaubt, ihn zu manipulieren.
 
 ## Siehe auch
 
