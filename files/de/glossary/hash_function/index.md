@@ -1,37 +1,37 @@
 ---
-title: Hashfunktion
+title: Hash-Funktion
 slug: Glossary/Hash_function
 l10n:
-  sourceCommit: 7159a4c0a2f1e886c09268c41c103c4ac7100d63
+  sourceCommit: 183135f4f07714f07965e32e90532d7888a13848
 ---
 
 {{GlossarySidebar}}
 
-Eine Hashfunktion ist eine Funktion, die eine Eingabe variabler Länge nimmt und eine Ausgabe mit fester Länge erzeugt, auch _Digest_ (oder einfach "Hash") genannt. Hashfunktionen sollten schnell zu berechnen sein, und unterschiedliche Eingaben sollten nach Möglichkeit unterschiedliche Ausgaben erzeugen (dies wird _Kollisionsresistenz_ genannt).
+Eine **Hash-Funktion** ist eine Funktion, die eine Eingabe variabler Länge entgegennimmt und eine fixierte Länge als Ausgabe erzeugt, die auch als _Digest_ (oder einfach "Hash") bezeichnet wird. Hash-Funktionen sollten schnell zu berechnen sein, und verschiedene Eingaben sollten möglichst unterschiedliche Ausgaben produzieren (dies wird als _Kollisionsresistenz_ bezeichnet).
 
-Hashfunktionen haben sowohl {{Glossary("cryptography", "kryptografische")}} als auch nicht-kryptografische Verwendungen. Außerhalb der Kryptografie können Hashfunktionen zum Beispiel benutzt werden, um Schlüssel für ein assoziatives Array wie eine Map oder ein Wörterbuch zu generieren.
+Hash-Funktionen haben sowohl {{Glossary("cryptography", "kryptografische")}} als auch nicht-kryptografische Anwendungen. Außerhalb der Kryptografie können Hash-Funktionen beispielsweise verwendet werden, um die Schlüssel für ein assoziatives Array wie eine Map oder ein Wörterbuch zu generieren.
 
-Die Funktion [`digest()`](/de/docs/Web/API/SubtleCrypto/digest) des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces stellt Webanwendungen verschiedene Hashfunktionen zur Verfügung.
+Die Funktion [`digest()`](/de/docs/Web/API/SubtleCrypto/digest) der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle stellt Webanwendungen verschiedene Hash-Funktionen zur Verfügung.
 
-## Kryptografische Hashfunktionen
+## Kryptografische Hash-Funktionen
 
-In der Kryptografie haben Hashfunktionen viele Anwendungen, einschließlich {{Glossary("digital_signature", "digitaler Signaturen")}} und {{Glossary("HMAC", "Message Authentication Codes")}}.
+In der Kryptografie haben Hash-Funktionen viele Anwendungen, einschließlich {{Glossary("digital_signature", "digitaler Signaturen")}} und {{Glossary("HMAC", "Nachrichtenautentifizierungscodes")}}.
 
-Nicht alle Hashfunktionen sind für die Kryptografie geeignet. Um für die Kryptografie verwendet werden zu können, muss eine Hashfunktion folgende Eigenschaften haben:
+Nicht alle Hash-Funktionen sind für die Kryptografie geeignet. Um für die Kryptografie verwendet zu werden, muss eine Hash-Funktion:
 
-- schnell zu berechnen
-- einseitig: Angesichts der Ausgabe sollte es unpraktisch oder unmöglich sein, die ursprüngliche Eingabe zu rekonstruieren
-- manipulationsresistent: Jede Änderung an der Eingabe führt zu einer anderen Ausgabe
-- kollisionsresistent: Es sollte unpraktisch sein, zwei verschiedene Eingaben zu finden, die die gleiche Ausgabe erzeugen
+- schnell zu berechnen sein
+- einweg sein: Angesichts der Ausgabe sollte es unpraktisch oder unmöglich sein, die ursprüngliche Eingabe zu regenerieren
+- manipulationssicher sein: Jede Änderung der Eingabe führt zu einer anderen Ausgabe
+- kollisionsresistent sein: Es sollte unpraktisch sein, zwei verschiedene Eingaben zu finden, die dieselbe Ausgabe erzeugen
 
-Die in der Kryptografie am häufigsten verwendeten Hashfunktionen stammen aus der _SHA-2_ (Secure Hash Algorithm 2) Familie, deren Namen mit `"SHA-"` beginnen, gefolgt von der Länge des Ausgabe-Digests in Bits: zum Beispiel `"SHA-256"` und `"SHA-512"`.
+Die am häufigsten in der Kryptografie verwendeten Hash-Funktionen stammen aus der _SHA-2_ (Secure Hash Algorithm 2) Familie, deren Namen mit `"SHA-"` beginnen, gefolgt von der Länge des Ausgabedigest in Bits: zum Beispiel `"SHA-256"` und `"SHA-512"`.
 
-SHA-2 ist der Nachfolger des SHA-1-Algorithmus, der nicht mehr als sicher angesehen wird und in der Kryptografie nicht mehr verwendet werden sollte. Beachten Sie, dass auch der MD5-Algorithmus als unsicher gilt.
+SHA-2 ist der Nachfolger des SHA-1-Algorithmus, der nicht mehr als sicher gilt und in der Kryptografie nicht mehr verwendet werden sollte. Beachten Sie, dass auch der MD5-Algorithmus als unsicher gilt.
 
 ## Siehe auch
 
 - [`SubtleCrypto.digest()`](/de/docs/Web/API/SubtleCrypto/digest)
-- [Hashfunktion](https://en.wikipedia.org/wiki/Hash_function) auf Wikipedia
-- [Kryptografische Hashfunktion](https://en.wikipedia.org/wiki/Cryptographic_hash_function) auf Wikipedia
+- [Hash-Funktion](https://en.wikipedia.org/wiki/Hash_function) auf Wikipedia
+- [Kryptografische Hash-Funktion](https://en.wikipedia.org/wiki/Cryptographic_hash_function) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Symmetric-key_cryptography", "Symmetrische Kryptografie")}}
+  - {{Glossary("Symmetric-key_cryptography", "Symmetrische Schlüssel-Kryptografie")}}

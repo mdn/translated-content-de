@@ -3,15 +3,17 @@ title: "Dokument: forms-Eigenschaft"
 short-title: forms
 slug: Web/API/Document/forms
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 41018309bf920684054c0c2d81d362365b543493
 ---
 
 {{APIRef("DOM")}}
 
-Die **`forms`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist schreibgeschützt und gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
+Die **`forms`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
 
 > [!NOTE]
-> In ähnlicher Weise können Sie eine Liste der Benutzereingabekomponenten eines Formulars mit der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft aufrufen.
+> Ebenso können Sie eine Liste der Benutzereingabeelemente eines Formulars mit der Eigenschaft [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) abrufen.
+
+Benannte `<form>`-Elemente werden auch als Eigenschaften des `document`-Objekts selbst zugänglich gemacht. Zum Beispiel können sowohl `document["login-form"]` als auch `document.forms["login-form"]` auf das Formular mit dem Namen `login-form` zugreifen. Sich auf dieses Verhalten zu verlassen, ist riskant und wird nicht empfohlen. Es kann zu unerwarteten Konflikten mit einigen bestehenden oder zukünftigen APIs im Browser führen. Wenn beispielsweise Browser eine neue `document`-Eigenschaft mit demselben Namen wie Ihr Formular einführen, kann derselbe Code nicht mehr auf das Formularelement zugreifen. Verwenden Sie stattdessen immer `document.forms`.
 
 ## Wert
 
@@ -21,7 +23,7 @@ Wenn das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung lee
 
 ## Beispiele
 
-### Abrufen von Formularinformationen
+### Formularinformationen abrufen
 
 ```html
 <form id="robby">
@@ -45,7 +47,7 @@ document.querySelectorAll("input[type=button]").forEach((button, i) => {
 });
 ```
 
-### Abrufen eines Elements innerhalb eines Formulars
+### Ein Element innerhalb eines Formulars abrufen
 
 ```js
 const selectForm = document.forms[index];
@@ -78,5 +80,5 @@ loginForm.elements.password.placeholder = "password";
 
 ## Siehe auch
 
-- [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
+- [HTML Forms](/de/docs/Learn_web_development/Extensions/Forms)
 - {{HTMLElement("form")}} und das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interface
