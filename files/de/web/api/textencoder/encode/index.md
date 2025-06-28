@@ -3,12 +3,12 @@ title: "TextEncoder: encode() Methode"
 short-title: encode()
 slug: Web/API/TextEncoder/encode
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: ccd1540ad8c51242b318bf437dfabe2e5315b3fa
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextEncoder.encode()`** Methode nimmt einen String als Eingabe und gibt ein {{jsxref("Global_Objects/Uint8Array", "Uint8Array")}} zurück, das den im Parameter angegebenen Text enthält, der mit der spezifischen Methode dieses [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekts kodiert wurde.
+Die **`TextEncoder.encode()`** Methode nimmt einen String als Eingabe und gibt ein {{jsxref("Global_Objects/Uint8Array", "Uint8Array")}} zurück, das den String enthält, kodiert mit {{Glossary("UTF-8", "UTF-8")}}.
 
 ## Syntax
 
@@ -23,12 +23,12 @@ encode(string)
 
 ### Rückgabewert
 
-Ein {{jsxref("Uint8Array")}} Objekt.
+Ein {{jsxref("Uint8Array")}} Objekt, das die UTF-8-Kodierung des Eingabestrings enthält.
 
 ## Beispiele
 
 ```html
-<p class="source">This is a sample paragraph.</p>
+<p class="source">Sample paragraph.</p>
 <p class="result">Encoded result:</p>
 ```
 
@@ -39,8 +39,8 @@ const string = sourcePara.textContent;
 
 const textEncoder = new TextEncoder();
 
-let encoded = textEncoder.encode(string);
-resultPara.textContent += encoded;
+const encoded = textEncoder.encode(string);
+resultPara.textContent = `${resultPara.textContent} ${encoded}`;
 ```
 
 {{EmbedLiveSample('Examples')}}
@@ -55,4 +55,4 @@ resultPara.textContent += encoded;
 
 ## Siehe auch
 
-- Die [`TextEncoder`](/de/docs/Web/API/TextEncoder) Schnittstelle, zu der es gehört.
+- Das [`TextEncoder`](/de/docs/Web/API/TextEncoder) Interface, zu dem es gehört.

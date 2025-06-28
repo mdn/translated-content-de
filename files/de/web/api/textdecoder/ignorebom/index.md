@@ -3,16 +3,16 @@ title: "TextDecoder: ignoreBOM-Eigenschaft"
 short-title: ignoreBOM
 slug: Web/API/TextDecoder/ignoreBOM
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: ccd1540ad8c51242b318bf437dfabe2e5315b3fa
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`ignoreBOM`** schreibgeschützte Eigenschaft des [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Interfaces ist ein {{jsxref('Boolean')}}, der angibt, ob das [Byte Order Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
+Die **`ignoreBOM`** schreibgeschützte Eigenschaft des [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Interfaces ist ein {{jsxref('Boolean')}}, das angibt, ob die [Byte Order Mark](https://www.w3.org/International/questions/qa-byte-order-mark) im Ausgabewert enthalten sein oder übersprungen wird. Der Wert der Eigenschaft wird im [`ignoreBOM`](/de/docs/Web/API/TextDecoder/TextDecoder#ignoreBOM)-Argument des Konstruktors des Decoders gesetzt.
 
 ## Wert
 
-`true`, wenn das [Byte Order Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in den dekodierten Text einbezogen wird; `false`, wenn es beim Dekodieren übersprungen und weggelassen wird.
+`true`, wenn die [Byte Order Mark](https://www.w3.org/International/questions/qa-byte-order-mark) im dekodierten Text enthalten sein wird; `false`, wenn sie beim Decodieren übersprungen und ausgelassen wird.
 
 ## Spezifikationen
 

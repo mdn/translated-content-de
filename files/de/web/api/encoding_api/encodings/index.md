@@ -1,17 +1,15 @@
 ---
-title: Encoding API Encodings
+title: Encoding API Kodierungen
 slug: Web/API/Encoding_API/Encodings
 l10n:
-  sourceCommit: 041cf35a6932dfc59c00df24eebe381ea252cd29
+  sourceCommit: ccd1540ad8c51242b318bf437dfabe2e5315b3fa
 ---
 
 {{DefaultAPISidebar("Encoding API")}}
 
-Die Konstruktoren für die [Encoding API](/de/docs/Web/API/Encoding_API)-Schnittstellen [`TextDecoder`](/de/docs/Web/API/TextDecoder) und [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) können ein optionales `label` erhalten, das die zu verwendende Kodierung darstellt.
-Standardmäßig wird `UTF-8` verwendet.
+Die Konstruktoren für die [Encoding API](/de/docs/Web/API/Encoding_API) Schnittstellen [`TextDecoder`](/de/docs/Web/API/TextDecoder) und [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) können ein optionales `label` Argument erhalten, das die zu verwendende Kodierung identifiziert.
 
-Die folgende Tabelle listet alle Kodierungsnamen und -bezeichnungen auf, die von Benutzeragenten unterstützt werden müssen, wie im Encoding Spec definiert.
-Diese sind im Allgemeinen überall anwendbar, wo Zeichenkodierungen verwendet werden.
+Die folgende Tabelle listet alle Kodierungsbezeichnungen auf, die von Benutzeragenten unterstützt werden müssen, zusammen mit der Kodierung, die die Bezeichnung identifiziert. Beachten Sie, dass die meisten Kodierungen mehr als eine Bezeichnung haben.
 
 <table class="no-markdown">
   <thead>
