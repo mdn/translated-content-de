@@ -2,12 +2,12 @@
 title: Objektinitialisierer
 slug: Web/JavaScript/Reference/Operators/Object_initializer
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Operators")}}
 
-Ein **Objektinitialisierer** ist eine kommagetrennte Liste von null oder mehr Paaren von Eigenschaftsnamen und zugehörigen Werten eines Objekts, eingeschlossen in geschweifte Klammern (`{}`). Objekte können auch mithilfe von [`Object.create()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/create) oder [durch Aufrufen einer Konstruktorfunktion](/de/docs/Web/JavaScript/Guide/Working_with_objects#using_a_constructor_function) mit dem [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator initialisiert werden.
+Ein **Objektinitialisierer** ist eine komma-getrennte Liste von null oder mehr Paaren von Eigenschaftsnamen und den zugehörigen Werten eines Objekts, eingeschlossen in geschweifte Klammern (`{}`). Objekte können auch initialisiert werden, indem [`Object.create()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/create) verwendet oder [eine Konstrukturfunktion](/de/docs/Web/JavaScript/Guide/Working_with_objects#using_a_constructor_function) mit dem `new`-Operator aufgerufen wird.
 
 {{InteractiveExample("JavaScript Demo: Object initializer", "taller")}}
 
@@ -60,17 +60,17 @@ o = {
 
 ## Beschreibung
 
-Ein Objektinitialisierer ist ein Ausdruck, der die Initialisierung eines {{jsxref("Object")}} beschreibt. Objekte bestehen aus _Eigenschaften_, die zur Beschreibung eines Objekts verwendet werden. Die Werte von Objekteigenschaften können entweder {{Glossary("Primitive", "primitive")}} Datentypen oder andere Objekte enthalten.
+Ein Objektinitialisierer ist ein Ausdruck, der die Initialisierung eines {{jsxref("Object")}} beschreibt. Objekte bestehen aus _Eigenschaften_, die verwendet werden, um ein Objekt zu beschreiben. Die Werte von Objekteigenschaften können entweder {{Glossary("Primitive", "primitive")}} Datentypen oder andere Objekte enthalten.
 
 ### Objektliteral-Syntax vs. JSON
 
-Die Objektliteral-Syntax ist nicht dasselbe wie die **J**ava**S**cript **O**bject **N**otation ({{Glossary("JSON", "JSON")}}). Obwohl sie ähnlich aussehen, gibt es Unterschiede zwischen ihnen:
+Die Objektliteral-Syntax ist nicht dasselbe wie **J**ava**S**cript **O**bjekt **N**otation ({{Glossary("JSON", "JSON")}}). Auch wenn sie ähnlich aussehen, gibt es Unterschiede zwischen ihnen:
 
-- JSON erlaubt _nur_ die Eigenschaftsdefinition mittels der Syntax `"property": value`. Der Eigenschaftsname muss in Anführungszeichen stehen, und die Definition kann keine Kurzform sein. Berechnete Eigenschaftsnamen sind ebenfalls nicht erlaubt.
-- JSON-Objekt-Eigenschaftswerte können nur Zeichenketten, Zahlen, `true`, `false`, `null`, Arrays oder ein anderes JSON-Objekt sein. Das bedeutet, dass JSON keine Methoden oder nicht-primitive Objekte wie [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) oder [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp) ausdrücken kann.
-- In JSON ist `"__proto__"` ein normaler Eigenschaftsschlüssel. In einem Objektliteral [setzt es das Prototypobjekt](#prototypen-setter).
+- JSON erlaubt _nur_ die Eigenschaftsdefinition mittels `"property": value`-Syntax. Der Eigenschaftsname muss doppelt in Anführungszeichen gesetzt werden und kann keine Kurzform haben. Berechnete Eigenschaftsnamen sind ebenfalls nicht erlaubt.
+- JSON-Objekteigenschaftswerte können nur Zeichenketten, Zahlen, `true`, `false`, `null`, Arrays oder ein weiteres JSON-Objekt sein. Das bedeutet, JSON kann keine Methoden oder nicht-gewöhnliche Objekte wie [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) oder [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp) ausdrücken.
+- In JSON ist `"__proto__"` ein normaler Eigenschaftsschlüssel. In einem Objektliteral [setzt es das Prototyp-Objekt](#prototyp-setter).
 
-JSON ist ein _striktes Teilmengen_ der Objektliteral-Syntax, was bedeutet, dass jeder gültige JSON-Text als Objektliteral geparst werden kann und wahrscheinlich keine Syntaxfehler verursacht. Die einzige Ausnahme ist, dass die Objektliteral-Syntax doppelte `__proto__`-Schlüssel verbietet, was für [`JSON.parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) nicht zutrifft. Letzteres behandelt `__proto__` als normale Eigenschaft und nimmt den letzten Aufruf als Wert der Eigenschaft. Die einzige Zeit, zu der sich der durch sie dargestellte Objektwert (d.h. ihre Semantik) unterscheidet, ist auch, wenn die Quelle den `__proto__`-Schlüssel enthält — für Objektliterale setzt es das Prototypobjekt; für JSON ist es eine normale Eigenschaft.
+JSON ist ein _striktes Teilmengen-Syntax_ des Objektliterals, was bedeutet, dass jeder gültige JSON-Text als Objektliteral analysiert werden kann und wahrscheinlich keine Syntaxfehler verursachen würde. Die einzige Ausnahme ist, dass die Objektliteral-Syntax doppelte `__proto__`-Schlüssel verbietet, was nicht für [`JSON.parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) zutrifft. Letzteres behandelt `__proto__` wie eine normale Eigenschaft und nimmt den letzten Vorfall als Eigenschaftswert. Der einzige Zeitpunkt, zu dem sich der darstellende Objektwert (auch als ihre Semantik bekannt) unterscheidet, ist auch, wenn die Quelle den `__proto__`-Schlüssel enthält — für Objektliterale setzt es den Prototyp des Objekts; für JSON ist es eine normale Eigenschaft.
 
 ```js
 console.log(JSON.parse('{ "__proto__": 0, "__proto__": 1 }')); // {__proto__: 1}
@@ -82,7 +82,7 @@ console.log({ "__proto__": {} }); // {} (with {} as prototype)
 
 ## Beispiele
 
-### Objekte erstellen
+### Erstellen von Objekten
 
 Ein leeres Objekt ohne Eigenschaften kann so erstellt werden:
 
@@ -90,9 +90,9 @@ Ein leeres Objekt ohne Eigenschaften kann so erstellt werden:
 const object = {};
 ```
 
-Der Vorteil der _Literal_- oder _Initialisierer_-Notation ist jedoch, dass Sie Objekte mit Eigenschaften innerhalb der geschweiften Klammern schnell erstellen können. Sie notieren eine Liste von `Schlüssel: Wert` Paaren, getrennt durch Kommas.
+Der Vorteil der _Literal_- oder _Initialisierungs_-notierung besteht jedoch darin, dass Sie Objekte mit Eigenschaften innerhalb der geschweiften Klammern schnell erstellen können. Sie notieren eine Liste von `Schlüssel: Wert`-Paaren durch Kommas getrennt.
 
-Der folgende Code erstellt ein Objekt mit drei Eigenschaften und die Schlüssel sind `"foo"`, `"age"` und `"baz"`. Die Werte dieser Schlüssel sind eine Zeichenkette `"bar"`, die Zahl `42` und ein weiteres Objekt.
+Der folgende Code erstellt ein Objekt mit drei Eigenschaften, und die Schlüssel sind `"foo"`, `"age"` und `"baz"`. Die Werte dieser Schlüssel sind eine Zeichenkette `"bar"`, die Zahl `42` und ein weiteres Objekt.
 
 ```js
 const object = {
@@ -102,9 +102,9 @@ const object = {
 };
 ```
 
-### Auf Eigenschaften zugreifen
+### Zugriff auf Eigenschaften
 
-Sobald Sie ein Objekt erstellt haben, möchten Sie möglicherweise auf sie zugreifen oder sie ändern. Auf Objekteigenschaften kann mit der Punktnotation oder der Klammernotation zugegriffen werden. (Siehe [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) für ausführliche Informationen.)
+Sobald Sie ein Objekt erstellt haben, möchten Sie es möglicherweise lesen oder ändern. Auf Objekteigenschaften kann mit der Punktnotation oder der Klammernotation zugegriffen werden. (Siehe [property accessors](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) für detaillierte Informationen.)
 
 ```js
 object.foo; // "bar"
@@ -115,7 +115,7 @@ object.baz.myProp; // 12
 
 ### Eigenschaftsdefinitionen
 
-Wir haben bereits gelernt, wie man Eigenschaften mit der Initialisierungssyntax notiert. Oft gibt es Variablen in Ihrem Code, die Sie in ein Objekt einfügen möchten. Sie werden Code wie diesen sehen:
+Wir haben bereits gelernt, wie man Eigenschaften mit der Initialisierer-Syntax notiert. Häufig gibt es Variablen in Ihrem Code, die Sie in ein Objekt aufnehmen möchten. Sie werden Code sehen wie diesen:
 
 ```js
 const a = "foo";
@@ -152,11 +152,11 @@ const a = { x: 1, x: 2 };
 console.log(a); // {x: 2}
 ```
 
-Nach ES2015 sind doppelte Eigenschaftsnamen überall erlaubt, einschließlich im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode#duplicate_property_names). Sie können auch doppelte Eigenschaftsnamen in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) haben. Die einzige Ausnahme sind [private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties), die im Klassenkörper einzigartig sein müssen.
+Nach ES2015 sind doppelte Eigenschaftsnamen überall erlaubt, einschließlich [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#duplicate_property_names). Sie können auch doppelte Eigenschaftsnamen in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) haben. Die einzige Ausnahme sind [private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements), die im Klassenkörper einzigartig sein müssen.
 
 ### Methodendefinitionen
 
-Eine Eigenschaft eines Objekts kann sich auch auf eine [Funktion](/de/docs/Web/JavaScript/Reference/Functions) oder eine [getter](/de/docs/Web/JavaScript/Reference/Functions/get) oder [setter](/de/docs/Web/JavaScript/Reference/Functions/set) Methode beziehen.
+Eine Eigenschaft eines Objekts kann auch auf eine [Funktion](/de/docs/Web/JavaScript/Reference/Functions) oder eine [Getter](/de/docs/Web/JavaScript/Reference/Functions/get)- oder [Setter](/de/docs/Web/JavaScript/Reference/Functions/set)-Methode verweisen.
 
 ```js
 const o = {
@@ -168,7 +168,7 @@ const o = {
 };
 ```
 
-Eine kürzere Notation steht zur Verfügung, sodass das Schlüsselwort `function` nicht mehr notwendig ist.
+Eine Kurznotation steht zur Verfügung, sodass das Schlüsselwort `function` nicht mehr notwendig ist.
 
 ```js
 // Shorthand method names
@@ -177,7 +177,7 @@ const o = {
 };
 ```
 
-Es gibt auch einen Weg, um generatorfunktionen prägnant zu definieren.
+Es gibt auch eine Möglichkeit, Generator-Methoden prägnant zu definieren.
 
 ```js
 const o = {
@@ -187,7 +187,7 @@ const o = {
 };
 ```
 
-Welche dieser ES5-ähnlichen Notation entspricht (aber beachten Sie, dass ECMAScript 5 keine Generatoren hat):
+Dies ist äquivalent zu dieser ES5-ähnlichen Notation (beachten Sie jedoch, dass ECMAScript 5 keine Generatoren hat):
 
 ```js
 const o = {
@@ -201,9 +201,9 @@ Für weitere Informationen und Beispiele zu Methoden siehe [Methodendefinitionen
 
 ### Berechnete Eigenschaftsnamen
 
-Die Objektinitialisierer-Syntax unterstützt auch berechnete Eigenschaftsnamen. Dies ermöglicht es Ihnen, einen Ausdruck in eckige Klammern `[]` zu setzen, der berechnet und als Eigenschaftsname verwendet wird. Dies erinnert an die Klammernotation der [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) Syntax, die Sie möglicherweise bereits verwendet haben, um Eigenschaften zu lesen und zu setzen.
+Die Objektinitialisierer-Syntax unterstützt auch berechnete Eigenschaftsnamen. Dies ermöglicht es, einen Ausdruck in eckige Klammern `[]` zu setzen, der berechnet und als Eigenschaftsname verwendet wird. Dies erinnert an die Klammernotation der [property accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) Syntax, die Sie möglicherweise bereits verwendet haben, um auf Eigenschaften zu lesen und zu setzen.
 
-Jetzt können Sie eine ähnliche Syntax auch in Objektliteralen verwenden:
+Nun können Sie eine ähnliche Syntax auch in Objektliteralen verwenden:
 
 ```js
 // Computed property names
@@ -238,7 +238,7 @@ console.log(config); // {size: 12, mobileSize: 4}
 
 Objektliterale unterstützen die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Sie kopiert eigene aufzählbare Eigenschaften von einem bereitgestellten Objekt auf ein neues Objekt.
 
-Oberflächliches Klonen (ohne `prototype`) oder Zusammenführen von Objekten ist jetzt mit einer kürzeren Syntax möglich als mit {{jsxref("Object.assign()")}}.
+Shallow-Klonen (ohne `prototype`) oder Objekte zusammenführen ist nun mit einer kürzeren Syntax als {{jsxref("Object.assign()")}} möglich.
 
 ```js
 const obj1 = { foo: "bar", x: 42 };
@@ -252,13 +252,13 @@ const mergedObj = { ...obj1, ...obj2 };
 ```
 
 > [!WARNING]
-> Beachten Sie, dass {{jsxref("Object.assign()")}} [Setters](/de/docs/Web/JavaScript/Reference/Functions/set) auslöst, während die Spread-Syntax dies nicht tut!
+> Beachten Sie, dass {{jsxref("Object.assign()")}} [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) auslöst, während die Spread-Syntax dies nicht tut!
 
-### Prototypen-Setter
+### Prototyp-Setter
 
-Eine Eigenschaftsdefinition der Form `__proto__: value` oder `"__proto__": value` erstellt keine Eigenschaft mit dem Namen `__proto__`. Stattdessen zeigt es, wenn der bereitgestellte Wert ein Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, das `[[Prototype]]` des erstellten Objekts auf diesen Wert. (Wenn der Wert kein Objekt oder `null` ist, wird das Objekt nicht verändert.)
+Eine Eigenschaftsdefinition der Form `__proto__: value` oder `"__proto__": value` erstellt keine Eigenschaft mit dem Namen `__proto__`. Stattdessen, wenn der bereitgestellte Wert ein Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, zeigt er den `[[Prototype]]` des erstellten Objekts auf diesen Wert. (Wenn der Wert kein Objekt oder `null` ist, wird das Objekt nicht geändert.)
 
-Beachten Sie, dass der `__proto__`-Schlüssel eine standardisierte Syntax ist, im Gegensatz zu den nicht standardisierten und nicht leistungsfähigen [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Zugriffen. Es setzt das `[[Prototype]]` während der Objekterstellung, ähnlich wie {{jsxref("Object.create")}} — anstatt die Prototypenkette zu ändern.
+Beachten Sie, dass der `__proto__`-Schlüssel standardisierte Syntax ist, im Gegensatz zu den nicht standardmäßigen und nicht performanten [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Accessoren. Es wird der `[[Prototype]]` während der Objekterstellung gesetzt, ähnlich wie bei {{jsxref("Object.create")}} — anstatt die Prototyp-Kette zu verändern.
 
 ```js-nolint
 const obj1 = {};
@@ -276,9 +276,9 @@ console.log(Object.getPrototypeOf(obj4) === Object.prototype); // true
 console.log(Object.hasOwn(obj4, "__proto__")); // false
 ```
 
-Nur ein ein einzelner Prototypen-Setter ist in einem Objektliteral erlaubt. Mehrere Prototypen-Setter sind ein Syntaxfehler.
+In einem Objektliteral ist nur ein einziger Prototyp-Setter erlaubt. Mehrere Prototyp-Setter sind ein Syntaxfehler.
 
-Eigenschaftsdefinitionen, die keine "Doppelpunkt"-Notation verwenden, sind keine Prototypen-Setter. Sie sind Eigenschaftsdefinitionen, die sich identisch wie ähnliche Definitionen mit jedem anderen Namen verhalten.
+Eigenschaftsdefinitionen, die keine "Doppelpunkt"-Notation verwenden, sind keine Prototyp-Setter. Sie sind Eigenschaftsdefinitionen, die sich identisch zu ähnlichen Definitionen mit einem anderen Namen verhalten.
 
 ```js
 const __proto__ = "variable";
@@ -323,8 +323,8 @@ const obj7 =  {
 
 ## Siehe auch
 
-- [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+- [Property accessors](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
 - [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)
 - [`set`](/de/docs/Web/JavaScript/Reference/Functions/set)
-- [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions)
-- [Lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar)
+- [Method definitions](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions)
+- [Lexical grammar](/de/docs/Web/JavaScript/Reference/Lexical_grammar)

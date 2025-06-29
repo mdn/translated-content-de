@@ -2,12 +2,12 @@
 title: Statische Initialisierungsblöcke
 slug: Web/JavaScript/Reference/Classes/Static_initialization_blocks
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Classes")}}
 
-**Statische Initialisierungsblöcke** werden innerhalb einer {{jsxref("Statements/class", "Klasse")}} deklariert. Sie enthalten Anweisungen, die während der Klasseninitialisierung ausgewertet werden. Dies ermöglicht flexiblere Initialisierungslogik als {{jsxref("Classes/static", "statische")}} Eigenschaften, wie z.B. die Verwendung von `try...catch` oder das Setzen mehrerer Felder aus einem einzigen Wert. Die Initialisierung erfolgt im Kontext der aktuellen Klassendeklaration mit Zugang zum privaten Zustand, wodurch es der Klasse ermöglicht wird, Informationen über ihre privaten Eigenschaften mit anderen Klassen oder Funktionen im gleichen Geltungsbereich zu teilen (analog zu "Freund"-Klassen in C++).
+**Statische Initialisierungsblöcke** werden innerhalb einer {{jsxref("Statements/class", "Klasse")}} deklariert. Sie enthalten Anweisungen, die während der Initialisierung der Klasse ausgewertet werden. Dies ermöglicht eine flexiblere Initialisierungslogik als {{jsxref("Classes/static", "statische")}} Eigenschaften, wie beispielsweise die Verwendung von `try...catch` oder das Setzen mehrerer Felder aus einem einzigen Wert. Die Initialisierung erfolgt im Kontext der aktuellen Klassendeklaration mit Zugang zu privatem Status, was es der Klasse ermöglicht, Informationen ihrer privaten Elemente mit anderen Klassen oder Funktionen im selben Gültigkeitsbereich zu teilen (analog zu "Freund"-Klassen in C++).
 
 {{InteractiveExample("JavaScript Demo: Class static initialization blocks")}}
 
@@ -50,11 +50,13 @@ class MyClass {
 MyClass.init();
 ```
 
-Dieser Ansatz offenbart jedoch ein Implementierungsdetail (die `init()`-Methode) dem Benutzer der Klasse. Andererseits hat jede außerhalb der Klasse deklarierte Initialisierungslogik keinen Zugriff auf private statische Felder. Statische Initialisierungsblöcke erlauben die Deklaration beliebiger Initialisierungslogik innerhalb der Klasse, die während der Klassenauswertung ausgeführt wird.
+Dieser Ansatz offenbart jedoch ein Implementierungsdetail (die `init()`-Methode) dem Benutzer der Klasse. Andererseits hat jede außerhalb der Klasse deklarierte Initialisierungslogik keinen Zugriff auf private statische Felder. Statische Initialisierungsblöcke erlauben es, beliebige Initialisierungslogik innerhalb der Klasse zu deklarieren und während der Klassenauswertung auszuführen.
 
-Eine {{jsxref("Statements/class", "Klasse")}} kann eine beliebige Anzahl von `static {}` Initialisierungsblöcken in ihrem Klassenrumpf haben. Diese werden [ausgewertet](/de/docs/Web/JavaScript/Reference/Classes#evaluation_order), zusammen mit jeder dazwischenliegenden statischen Felde-Initialisierung, in der Reihenfolge, in der sie deklariert sind. Jede statische Initialisierung einer Superklasse wird zuerst durchgeführt, vor der Initialisierung ihrer Unterklassen.
+Eine {{jsxref("Statements/class", "Klasse")}} kann eine beliebige Anzahl von `static {}` Initialisierungsblöcken in ihrem Klassenkörper haben.
+Diese werden [ausgewertet](/de/docs/Web/JavaScript/Reference/Classes#evaluation_order), zusammen mit interleaved statischen Feldinitialisierern, in der Reihenfolge, in der sie deklariert sind.
+Jede statische Initialisierung einer Oberklasse wird zuerst durchgeführt, vor der ihrer Unterklassen.
 
-Der Geltungsbereich der innerhalb des statischen Blocks deklarierten Variablen ist lokal für den Block. Dazu gehören `var`, `function`, `const` und `let` Deklarationen. `var`-Deklarationen werden nicht aus dem statischen Block herausgehoben.
+Die Reichweite der innerhalb des statischen Blocks deklarierten Variablen ist lokal zum Block. Dies schließt `var`, `function`, `const` und `let` Deklarationen ein. `var` Deklarationen werden nicht aus dem statischen Block herausgehoben.
 
 ```js
 var y = "Outer y";
@@ -74,24 +76,26 @@ class A {
 console.log(y); // 'Outer y'
 ```
 
-Das `this` in einem statischen Block bezieht sich auf das Konstruktorobjekt der Klasse. `super.property` kann verwendet werden, um auf statische Eigenschaften der Superklasse zuzugreifen. Beachten Sie jedoch, dass es ein Syntaxfehler ist, {{jsxref("Operators/super", "super()")}} in einem statischen Initialisierungsblock einer Klasse aufzurufen oder das {{jsxref("Functions/arguments", "arguments")}}-Objekt zu verwenden.
+`this` innerhalb eines statischen Blocks bezieht sich auf das Konstruktorobjekt der Klasse.
+`super.property` kann verwendet werden, um auf statische Eigenschaften der Oberklasse zuzugreifen.
+Beachten Sie jedoch, dass es ein Syntaxfehler ist, {{jsxref("Operators/super", "super()")}} in einem statischen Initialisierungsblock der Klasse aufzurufen oder das {{jsxref("Functions/arguments", "arguments")}} Objekt zu verwenden.
 
-Die Anweisungen werden synchron ausgewertet. Sie können {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} in diesem Block nicht verwenden. (Denken Sie an die Initialisierungsanweisungen, als ob sie implizit in eine Funktion eingebettet wären.)
+Die Anweisungen werden synchron ausgewertet. Es ist nicht möglich, {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} in diesem Block zu verwenden. (Betrachten Sie die Initialisierungsanweisungen als implizit in eine Funktion gewickelt.)
 
-Der Geltungsbereich des statischen Blocks ist _innerhalb_ des lexikalischen Geltungsbereichs des Klassenrumpfs eingebettet und kann auf [private Namen](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) zugreifen, die innerhalb der Klasse deklariert sind, ohne einen Syntaxfehler zu verursachen.
+Der Gültigkeitsbereich des statischen Blocks ist _innerhalb_ des lexikalischen Gültigkeitsbereichs des Klassenkörpers verschachtelt und hat Zugriff auf [private Namen](/de/docs/Web/JavaScript/Reference/Classes/Private_elements), die innerhalb der Klasse deklariert sind, ohne einen Syntaxfehler zu verursachen.
 
-[Statische Felder](/de/docs/Web/JavaScript/Reference/Classes/static) Initialisierer und statische Initialisierungsblöcke werden nacheinander ausgewertet. Der Initialisierungsblock kann sich auf Werte beziehen, die über ihm stehen, aber nicht unter ihm. Alle statischen Methoden werden dabei vorab hinzugefügt und sind zugänglich, auch wenn deren Aufruf möglicherweise nicht wie erwartet funktioniert, wenn sie sich auf Felder beziehen, die unter dem aktuellen Block liegen.
+[Statische Felder](/de/docs/Web/JavaScript/Reference/Classes/static) Initialisierer und statische Initialisierungsblöcke werden einzeln ausgewertet. Der Initialisierungsblock kann sich auf Feldwerte oberhalb davon beziehen, aber nicht darunter. Alle statischen Methoden werden vorher hinzugefügt und können zugegriffen werden, obwohl deren Aufruf möglicherweise nicht wie erwartet funktioniert, wenn sie sich auf Felder unterhalb des aktuellen Blocks beziehen.
 
 > [!NOTE]
-> Dies ist besonders wichtig bei [privaten statischen Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_properties), da der Zugriff auf ein nicht initialisiertes privates Feld einen {{jsxref("TypeError")}} auslöst, selbst wenn das private Feld darunter deklariert ist. (Wenn das private Feld nicht deklariert ist, würde es sich um einen frühen {{jsxref("SyntaxError")}} handeln.)
+> Dies ist wichtiger bei [privaten statischen Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements), da der Zugriff auf ein nicht initialisiertes privates Feld einen {{jsxref("TypeError")}} auslöst, selbst wenn das private Feld darunter deklariert ist. (Wenn das private Feld nicht deklariert ist, wäre es ein früher {{jsxref("SyntaxError")}}.)
 
-Ein statischer Initialisierungsblock darf keine Dekorateure haben (die Klasse selbst kann jedoch welche haben).
+Ein statischer Initialisierungsblock darf keine Dekoratoren haben (die Klasse selbst kann jedoch).
 
 ## Beispiele
 
 ### Mehrere Blöcke
 
-Der folgende Code zeigt eine Klasse mit statischen Initialisierungsblöcken und dazwischenliegenden statischen Felde-Initialisierern. Die Ausgabe zeigt, dass die Blöcke und Felder in Ausführungsreihenfolge ausgewertet werden.
+Der folgende Code zeigt eine Klasse mit statischen Initialisierungsblöcken und dazwischen liegenden statischen Feldinitialisierern. Die Ausgabe zeigt, dass die Blöcke und Felder in der Ausführungsreihenfolge ausgewertet werden.
 
 ```js
 class MyClass {
@@ -110,11 +114,11 @@ class MyClass {
 // 'static block2'
 ```
 
-Beachten Sie, dass jede statische Initialisierung einer Superklasse zuerst durchgeführt wird, bevor die ihrer Unterklassen erfolgt.
+Beachten Sie, dass jede statische Initialisierung einer Oberklasse zuerst durchgeführt wird, vor der ihrer Unterklassen.
 
 ### Verwendung von this und super
 
-Das `this` in einem statischen Block bezieht sich auf das Konstruktorobjekt der Klasse. Dieser Code zeigt, wie auf ein öffentliches statisches Feld zugegriffen wird.
+Das `this` innerhalb eines statischen Blocks bezieht sich auf das Konstruktorobjekt der Klasse. Dieser Code zeigt, wie auf ein öffentliches statisches Feld zugegriffen werden kann.
 
 ```js
 class A {
@@ -126,7 +130,7 @@ class A {
 // 'static field'
 ```
 
-Die [`super.property`](/de/docs/Web/JavaScript/Reference/Operators/super) Syntax kann innerhalb eines `static` Blocks verwendet werden, um statische Eigenschaften einer Superklasse zu referenzieren.
+Die [`super.property`](/de/docs/Web/JavaScript/Reference/Operators/super) Syntax kann innerhalb eines `static` Blocks verwendet werden, um statische Eigenschaften einer Oberklasse zu referenzieren.
 
 ```js
 class A {
@@ -141,9 +145,9 @@ class B extends A {
 // 'static field'
 ```
 
-### Zugriff auf private Eigenschaften
+### Zugriff auf private Elemente
 
-Das folgende Beispiel zeigt, wie der Zugriff auf ein privates Instanzfeld einer Klasse von einem Objekt außerhalb der Klasse gewährt werden kann (Beispiel vom [v8.dev Blog](https://v8.dev/features/class-static-initializer-blocks#access-to-private-fields)):
+Das folgende Beispiel zeigt, wie der Zugriff auf ein privates Instanzfeld einer Klasse von einem Objekt außerhalb der Klasse gewährt werden kann (Beispiel aus dem [v8.dev Blog](https://v8.dev/features/class-static-initializer-blocks#access-to-private-fields)):
 
 ```js
 let getDPrivateField;
@@ -175,5 +179,5 @@ console.log(getDPrivateField(new D("private"))); // 'private'
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)
 - {{jsxref("Classes/static", "static")}}
 - {{jsxref("Statements/class", "class")}}
-- [Klassen-statische Initialisierungsblöcke](https://v8.dev/features/class-static-initializer-blocks) auf v8.dev (2021)
-- [ES2022 Feature: Klassen-statische Initialisierungsblöcke](https://2ality.com/2021/09/class-static-block.html) von Dr. Axel Rauschmayer (2021)
+- [Klassenstatische Initialisierungsblöcke](https://v8.dev/features/class-static-initializer-blocks) auf v8.dev (2021)
+- [ES2022 Funktion: Klassenstatische Initialisierungsblöcke](https://2ality.com/2021/09/class-static-block.html) von Dr. Axel Rauschmayer (2021)

@@ -2,12 +2,12 @@
 title: instanceof
 slug: Web/JavaScript/Reference/Operators/instanceof
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **`instanceof`** Operator prüft, ob die `prototype`-Eigenschaft eines Konstruktors irgendwo in der Prototypenkette eines Objekts erscheint. Der Rückgabewert ist ein boolescher Wert. Sein Verhalten kann mit [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) angepasst werden.
+Der **`instanceof`** Operator überprüft, ob die `prototype`-Eigenschaft eines Konstruktors irgendwo in der Prototypenkette eines Objekts erscheint. Der Rückgabewert ist ein boolean-Wert. Sein Verhalten kann mit [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) angepasst werden.
 
 {{InteractiveExample("JavaScript Demo: instanceof operator")}}
 
@@ -37,16 +37,16 @@ object instanceof constructor
 - `object`
   - : Das zu testende Objekt.
 - `constructor`
-  - : Konstruktor, gegen den getestet wird.
+  - : Konstruktor, gegen den getestet werden soll.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `constructor` kein Objekt ist. Falls `constructor` keine [`[Symbol.hasInstance]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance)-Methode hat, muss es auch eine Funktion sein.
+  - : Wird ausgelöst, wenn `constructor` kein Objekt ist. Wenn `constructor` keine [`[Symbol.hasInstance]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) Methode hat, muss es auch eine Funktion sein.
 
 ## Beschreibung
 
-Der `instanceof` Operator prüft die Präsenz von `constructor.prototype` in der Prototypenkette von `object`. Dies bedeutet normalerweise (wenn auch [nicht immer](#überschreiben_des_verhaltens_von_instanceof)), dass `object` mit `constructor` konstruiert wurde.
+Der `instanceof` Operator testet das Vorhandensein von `constructor.prototype` in der Prototypenkette von `object`. Dies bedeutet normalerweise (obwohl [nicht immer](#überschreiben_des_verhaltens_von_instanceof)), dass `object` mit `constructor` konstruiert wurde.
 
 ```js
 // defining constructors
@@ -81,9 +81,9 @@ o3 instanceof D; // true
 o3 instanceof C; // true since C.prototype is now in o3's prototype chain
 ```
 
-Beachten Sie, dass sich der Wert eines `instanceof`-Tests ändern kann, wenn `constructor.prototype` nach der Erstellung des Objekts neu zugewiesen wird (was üblicherweise nicht empfohlen wird). Es kann auch durch das Ändern des Prototyps von `object` mittels [`Object.setPrototypeOf`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) verändert werden.
+Beachten Sie, dass sich der Wert eines `instanceof`-Tests ändern kann, wenn `constructor.prototype` nach der Erstellung des Objekts neu zugewiesen wird (was normalerweise nicht empfohlen wird). Er kann auch durch eine Änderung des Prototyps von `object` mittels [`Object.setPrototypeOf`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) verändert werden.
 
-Klassen verhalten sich gleichermaßen, da Klassen ebenfalls die `prototype`-Eigenschaft haben.
+Klassen verhalten sich auf die gleiche Weise, da Klassen auch die `prototype`-Eigenschaft haben.
 
 ```js
 class A {}
@@ -102,7 +102,7 @@ o2 instanceof A;
 o2 instanceof B;
 ```
 
-Für [gebundene Funktionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) sucht `instanceof` nach der `prototype`-Eigenschaft auf der Ziel-Funktion, da gebundene Funktionen kein `prototype` haben.
+Für [gebundene Funktionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) sucht `instanceof` nach der `prototype`-Eigenschaft in der Zilfunktion, da gebundene Funktionen kein `prototype` haben.
 
 ```js
 class Base {}
@@ -112,7 +112,7 @@ console.log(new Base() instanceof BoundBase); // true
 
 ### instanceof und Symbol.hasInstance
 
-Wenn `constructor` eine [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance)-Methode hat, wird diese Methode mit `object` als einziges Argument und `constructor` als `this` vorrangig aufgerufen.
+Wenn `constructor` eine [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) Methode hat, wird diese Methode mit Vorrang aufgerufen, wobei `object` ihr einziges Argument ist und `constructor` als `this`.
 
 ```js
 // This class allows plain objects to be disguised as this class's instance,
@@ -129,15 +129,15 @@ const obj = { [Forgeable.isInstanceFlag]: true };
 console.log(obj instanceof Forgeable); // true
 ```
 
-Weil alle Funktionen standardmäßig von `Function.prototype` erben, legt meist die [`Function.prototype[Symbol.hasInstance]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Symbol.hasInstance)-Methode das Verhalten von `instanceof` fest, wenn die rechte Seite eine Funktion ist. Siehe die {{jsxref("Symbol.hasInstance")}}-Seite für den genauen Algorithmus von `instanceof`.
+Da alle Funktionen standardmäßig von `Function.prototype` erben, legt die Methode [`Function.prototype[Symbol.hasInstance]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Symbol.hasInstance) meist das Verhalten von `instanceof` fest, wenn die rechte Seite eine Funktion ist. Siehe die Seite {{jsxref("Symbol.hasInstance")}} für den genauen Algorithmus von `instanceof`.
 
-### instanceof und multiple Realms
+### instanceof und mehrere Realms
 
-JavaScript-Ausführungsumgebungen (Fenster, Frames usw.) befinden sich jeweils in ihrem eigenen _Realm_. Das bedeutet, dass sie verschiedene Built-ins (unterschiedliche globale Objekte, unterschiedliche Konstruktoren usw.) haben. Dies könnte zu unerwarteten Ergebnissen führen. Zum Beispiel wird `[] instanceof window.frames[0].Array` `false` zurückgeben, weil `Array.prototype !== window.frames[0].Array.prototype` gilt und Arrays im aktuellen Realm von ersterem erben.
+JavaScript-Ausführungsumgebungen (Fenster, Frames usw.) befinden sich jeweils in ihrem eigenen _realm_. Das bedeutet, dass sie unterschiedliche Built-Ins haben (unterschiedliches globales Objekt, unterschiedliche Konstruktoren usw.). Dies kann zu unerwarteten Ergebnissen führen. Beispielsweise wird `[] instanceof window.frames[0].Array` `false` zurückgeben, weil `Array.prototype !== window.frames[0].Array.prototype` und Arrays im aktuellen Realm vom ersteren erben.
 
-Dies mag zunächst nicht sinnvoll erscheinen, doch für Skripte, die sich mit mehreren Frames oder Fenstern beschäftigen und Objekte durch Funktionen von einem Kontext zu einem anderen übergeben, ist dies ein gültiges und starkes Problem. Beispielsweise können Sie sicher überprüfen, ob ein gegebenes Objekt tatsächlich ein Array ist, indem Sie {{jsxref("Array.isArray()")}} verwenden, egal aus welchem Realm es stammt.
+Das mag zunächst keinen Sinn ergeben, aber für Skripte, die mit mehreren Frames oder Fenstern umgehen und Objekte von einem Kontext in einen anderen durch Funktionen weiterreichen, wird dies ein valides und bedeutendes Problem sein. Beispielsweise können Sie sicher überprüfen, ob ein gegebenes Objekt tatsächlich ein Array ist, indem Sie {{jsxref("Array.isArray()")}} verwenden, unabhängig davon, aus welchem Realm es stammt.
 
-Zum Beispiel können Sie, um zu überprüfen, ob ein [`Node`](/de/docs/Web/API/Node) ein [`SVGElement`](/de/docs/Web/API/SVGElement) in einem anderen Kontext ist, `myNode instanceof myNode.ownerDocument.defaultView.SVGElement` verwenden.
+Um beispielsweise zu überprüfen, ob ein [`Node`](/de/docs/Web/API/Node) ein [`SVGElement`](/de/docs/Web/API/SVGElement) in einem anderen Kontext ist, können Sie `myNode instanceof myNode.ownerDocument.defaultView.SVGElement` verwenden.
 
 ## Beispiele
 
@@ -203,7 +203,7 @@ nullObject instanceof Object; // false, prototype is end of prototype chain (nul
 
 ### Demonstration, dass myCar vom Typ Car und Typ Object ist
 
-Der folgende Code erstellt einen Objekttyp `Car` und eine Instanz dieses Objekttyps, `myCar`. Der `instanceof`-Operator zeigt, dass das `myCar`-Objekt vom Typ `Car` und vom Typ `Object` ist.
+Der folgende Code erstellt einen Objekttyp `Car` und eine Instanz dieses Objekttyps, `myCar`. Der `instanceof` Operator zeigt, dass das `myCar`-Objekt vom Typ `Car` und vom Typ `Object` ist.
 
 ```js
 function Car(make, model, year) {
@@ -216,9 +216,9 @@ const a = myCar instanceof Car; // returns true
 const b = myCar instanceof Object; // returns true
 ```
 
-### Kein instanceof
+### Nicht ein instanceof
 
-Um zu testen, ob ein Objekt **kein** `instanceof` eines bestimmten Konstruktors ist, können Sie folgendes tun:
+Um zu testen, ob ein Objekt nicht ein `instanceof` eines bestimmten Konstruktors ist, können Sie folgendes tun:
 
 ```js
 if (!(myCar instanceof Car)) {
@@ -227,7 +227,7 @@ if (!(myCar instanceof Car)) {
 }
 ```
 
-Dies ist wirklich etwas Anderes als:
+Dies ist wirklich unterschiedlich von:
 
 ```js-nolint example-bad
 if (!myCar instanceof Car) {
@@ -235,11 +235,11 @@ if (!myCar instanceof Car) {
 }
 ```
 
-Dies wird immer `false` sein. (`!myCar` wird vor `instanceof` ausgewertet, sodass Sie immer versuchen zu wissen, ob ein boolescher Wert eine Instanz von `Car` ist).
+Dies wird immer `false` sein. (`!myCar` wird ausgewertet, bevor `instanceof`, sodass Sie immer versuchen zu wissen, ob ein Boolean eine Instanz von `Car` ist).
 
 ### Überschreiben des Verhaltens von instanceof
 
-Ein häufiger Fallstrick bei der Verwendung von `instanceof` ist der Glaube, dass, wenn `x instanceof C`, dann `x` mit `C` als Konstruktor erstellt wurde. Das ist nicht wahr, weil `x` direkt mit `C.prototype` als sein Prototyp zugewiesen werden könnte. In diesem Fall würde Ihr Code beim Lesen von [private fields](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) von `C` aus `x` dennoch fehlschlagen:
+Ein häufiger Fehler bei der Verwendung von `instanceof` ist der Glaube, dass, wenn `x instanceof C` gilt, `x` mit `C` als Konstruktor erstellt wurde. Dies ist nicht wahr, da `x` direkt mit `C.prototype` als seinem Prototyp zugewiesen worden sein könnte. In diesem Fall würde Ihr Code, der [private Felder](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) von `C` aus `x` liest, trotzdem fehlschlagen:
 
 ```js
 class C {
@@ -256,7 +256,7 @@ if (x instanceof C) {
 }
 ```
 
-Um dies zu vermeiden, können Sie das Verhalten von `instanceof` überschreiben, indem Sie `C` eine `Symbol.hasInstance`-Methode hinzufügen, sodass es eine Markierungsüberprüfung mit [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) durchführt:
+Um dies zu vermeiden, können Sie das Verhalten von `instanceof` überschreiben, indem Sie eine `Symbol.hasInstance`-Methode zu `C` hinzufügen, sodass es eine markierte Überprüfung mit [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) durchführt:
 
 ```js
 class C {
@@ -279,14 +279,14 @@ if (x instanceof C) {
 }
 ```
 
-Beachten Sie, dass Sie dieses Verhalten auf die aktuelle Klasse beschränken möchten; andernfalls könnte es zu false positives für Unterklassen führen:
+Beachten Sie, dass Sie dieses Verhalten möglicherweise auf die aktuelle Klasse beschränken möchten, andernfalls könnte es zu falschen Positiven für Unterklassen führen:
 
 ```js
 class D extends C {}
 console.log(new C() instanceof D); // true; because D inherits [Symbol.hasInstance] from C
 ```
 
-Sie könnten dies erreichen, indem Sie prüfen, dass `this` der aktuelle Konstruktor ist:
+Sie könnten dies tun, indem Sie überprüfen, dass `this` der aktuelle Konstruktor ist:
 
 ```js
 class C {

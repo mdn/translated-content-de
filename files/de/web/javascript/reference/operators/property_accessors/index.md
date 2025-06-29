@@ -2,12 +2,12 @@
 title: Property accessors
 slug: Web/JavaScript/Reference/Operators/Property_accessors
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Operators")}}
 
-**Property Accessors** ermöglichen den Zugriff auf die Eigenschaften eines Objekts durch die Punktnotation oder die Klammernotation.
+**Property accessors** ermöglichen den Zugriff auf die Eigenschaften eines Objekts durch die Punktnotation oder die Klammernotation.
 
 {{InteractiveExample("JavaScript Demo: Property accessors", "taller")}}
 
@@ -38,7 +38,7 @@ object.#privateProperty
 
 ## Beschreibung
 
-Man kann sich ein Objekt als ein _assoziatives Array_ (auch bekannt als _Map_, _Dictionary_, _Hash_, _Nachschlagetabelle_) vorstellen. Die _Schlüssel_ in diesem Array sind die Namen der {{Glossary("Property/JavaScript", "Eigenschaften")}} des Objekts.
+Man kann sich ein Objekt als ein _assoziatives Array_ (auch bekannt als _Map_, _Dictionary_, _Hash_, _Lookup-Tabelle_) vorstellen. Die _Schlüssel_ in diesem Array sind die Namen der {{Glossary("Property/JavaScript", "Eigenschaften")}} des Objekts.
 
 Es gibt zwei Möglichkeiten, auf Eigenschaften zuzugreifen: _Punktnotation_ und _Klammernotation_.
 
@@ -63,13 +63,13 @@ object.1 = "bar"; // SyntaxError
 console.log(object.1); // SyntaxError
 ```
 
-Hier wird die Methode mit dem Namen `createElement` aus `document` abgerufen und aufgerufen.
+Hier wird die Methode `createElement` vom `document` abgerufen und aufgerufen.
 
 ```js
 document.createElement("pre");
 ```
 
-Wenn Sie eine Methode für ein numerisches Literal verwenden, und das numerische Literal keinen Exponenten und keinen Dezimalpunkt hat, sollten Sie {{Glossary("Whitespace", "Leerzeichen")}} vor dem Punkt lassen, der dem Methodenaufruf vorangeht, damit der Punkt nicht als Dezimalpunkt interpretiert wird.
+Wenn Sie eine Methode für ein numerisches Literal verwenden und das numerische Literal keinen Exponenten und keinen Dezimalpunkt hat, sollten Sie {{Glossary("Whitespace", "Leerzeichen")}} vor dem Punkt lassen, der dem Methodaufruf vorangeht, damit der Punkt nicht als Dezimalpunkt interpretiert wird.
 
 ```js-nolint
 77 .toExponential();
@@ -85,11 +85,11 @@ Wenn Sie eine Methode für ein numerisches Literal verwenden, und das numerische
 // because 77. === 77.0, no ambiguity
 ```
 
-Darüber hinaus können [private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) nur mit der Punktnotation innerhalb der Klasse, die sie definiert, zugegriffen werden.
+Darüber hinaus können [private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) nur mit Punktnotation innerhalb der Klasse, die sie definiert, darauf zugegriffen werden.
 
 ### Klammernotation
 
-Im `object[expression]`-Syntax sollte `expression` zu einem String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) auswerten, der den Namen der Eigenschaft repräsentiert. Daher kann es sich beispielsweise um jeden beliebigen String-Literal handeln, einschließlich `'1foo'`, `'!bar!'` oder sogar `' '` (ein Leerzeichen).
+Im `object[expression]`-Syntax sollte die `expression` zu einem String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) auswerten, der den Namen der Eigenschaft darstellt. Es kann also jede String-Schreibweise, zum Beispiel `'1foo'`, `'!bar!'` oder sogar `' '` (ein Leerzeichen) sein.
 
 ```js
 const variable = object[propertyName];
@@ -102,13 +102,13 @@ Dies tut genau dasselbe wie das vorherige Beispiel.
 document["createElement"]("pre");
 ```
 
-Ein Leerzeichen vor der Klammernotation ist zulässig.
+Ein Leerzeichen vor der Klammernotation ist erlaubt.
 
 ```js-nolint
 document ["createElement"]("pre");
 ```
 
-Das Übergeben von Ausdrücken, die sich zum Eigenschaftsnamen auswerten, erzielt dasselbe Ergebnis wie das direkte Übergeben des Eigenschaftsnamens.
+Das Übergeben von Ausdrücken, die zum Eigenschaftsnamen ausgewertet werden, bewirkt dasselbe wie das direkte Übergeben des Eigenschaftsnamen.
 
 ```js
 const key = "name";
@@ -120,11 +120,11 @@ Obj[key]; // evaluates to Obj["name"], and returns "Michel"
 Obj[getKey()]; // evaluates to Obj["name"], and returns "Michel"
 ```
 
-Achten Sie jedoch darauf, beim Zugriff auf Eigenschaften, deren Namen durch externe Eingaben bestimmt werden, eckige Klammern zu verwenden. Dies kann Ihren Code anfällig für [Objektinjektionsangriffe](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md) machen.
+Seien Sie jedoch vorsichtig bei der Verwendung von eckigen Klammern, um auf Eigenschaften zuzugreifen, deren Namen durch externe Eingaben vorgegeben werden. Dies kann Ihr Code für [Objekt-Injektionsangriffe](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md) anfällig machen.
 
 ### Eigenschaftsnamen
 
-Jeder Eigenschaftsname ist ein String oder ein [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol). Jeder andere Wert, einschließlich einer Zahl, wird in einen String umgewandelt. Dies gibt `'value'` aus, da `1` in `'1'` umgewandelt wird.
+Jeder Eigenschaftsname ist ein String oder ein [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol). Jeder andere Wert, einschließlich einer Zahl, wird in einen String konvertiert. Dies gibt `'value'` aus, da `1` in `'1'` umgewandelt wird.
 
 ```js
 const object = {};
@@ -132,7 +132,7 @@ object["1"] = "value";
 console.log(object[1]);
 ```
 
-Dies gibt ebenfalls `'value'` aus, da sowohl `foo` als auch `bar` in denselben String (`"[object Object]"`) umgewandelt werden.
+Dies gibt ebenfalls `'value'` aus, da sowohl `foo` als auch `bar` in denselben String (`"[object Object]"`) konvertiert werden.
 
 ```js
 const foo = { uniqueProp: 1 };
@@ -144,15 +144,15 @@ console.log(object[bar]);
 
 ### Methodenbindung
 
-Es ist typisch, bei der Diskussion von Objekteigenschaften zwischen Eigenschaften und Methoden zu unterscheiden. Diese Unterscheidung ist jedoch kaum mehr als eine Konvention. Eine Methode ist eine Eigenschaft, die aufgerufen werden kann (zum Beispiel, wenn sie einen Verweis auf eine {{jsxref("Function")}}-Instanz als Wert hat).
+Es ist typisch, wenn man von den Eigenschaften eines Objekts spricht, eine Unterscheidung zwischen Eigenschaften und Methoden zu machen. Allerdings ist die Unterscheidung zwischen Eigenschaft und Methode mehr als eine Konvention. Eine Methode ist eine Eigenschaft, die aufgerufen werden kann (zum Beispiel, wenn sie einen Verweis auf eine {{jsxref("Function")}}-Instanz als Wert hat).
 
-Eine Methode ist nicht an das Objekt gebunden, dem sie als Eigenschaft gehört. Speziell ist `this` in einer Methode nicht festgelegt und bezieht sich nicht notwendigerweise auf das Objekt, das die Methode enthält. Stattdessen wird `this` durch den Funktionsaufruf "übergeben". Siehe [die Referenz für `this`](/de/docs/Web/JavaScript/Reference/Operators/this).
+Eine Methode ist nicht an das Objekt gebunden, zu dem sie gehört. Insbesondere ist `this` in einer Methode nicht festgelegt und verweist nicht notwendigerweise auf das Objekt, das die Methode enthält. Stattdessen wird `this` durch den Funktionsaufruf "übergeben". Siehe [die Referenz für `this`](/de/docs/Web/JavaScript/Reference/Operators/this).
 
 ## Beispiele
 
 ### Klammernotation vs. eval()
 
-JavaScript-Anfänger machen oft den Fehler, {{jsxref("Global_Objects/eval", "eval()")}} zu verwenden, wo stattdessen die Klammernotation verwendet werden kann.
+JavaScript-Anfänger machen oft den Fehler, {{jsxref("Global_Objects/eval", "eval()")}} zu verwenden, wo die Klammernotation stattdessen verwendet werden kann.
 
 Zum Beispiel wird die folgende Syntax oft in vielen Skripten gesehen.
 
@@ -160,7 +160,7 @@ Zum Beispiel wird die folgende Syntax oft in vielen Skripten gesehen.
 const x = eval(`document.forms.form_name.elements.${strFormControl}.value`);
 ```
 
-`eval()` ist langsam und sollte, wenn möglich, vermieden werden. Auch `strFormControl` müsste einen Bezeichner enthalten, was für Namen und `id`s von Formularelementen nicht erforderlich ist. Es ist besser, stattdessen die Klammernotation zu verwenden:
+`eval()` ist langsam und sollte, wenn möglich, vermieden werden. Außerdem müsste `strFormControl` ein Bezeichner sein, was für Namen und `id`s von Formularelementen nicht erforderlich ist. Es ist besser, statt dessen die Klammernotation zu verwenden:
 
 ```js
 const x = document.forms.form_name.elements[strFormControl].value;
@@ -178,4 +178,4 @@ const x = document.forms.form_name.elements[strFormControl].value;
 
 - {{jsxref("Object")}}
 - {{jsxref("Object.defineProperty()")}}
-- [Optional Chaining (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Optionale Verkettung (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)

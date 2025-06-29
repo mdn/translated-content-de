@@ -2,14 +2,14 @@
 title: "TypeError: getting private setter-only property"
 slug: Web/JavaScript/Reference/Errors/Private_setter_only
 l10n:
-  sourceCommit: faee5a3a8399d43ca3ef49912fcb6cba5be6834c
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "getting private setter-only property" tritt auf, wenn versucht wird, den Wert einer [privaten Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) abzurufen, für die nur ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) definiert ist.
+Die JavaScript-Ausnahme "getting private setter-only property" tritt auf, wenn der Wert eines [privaten Elements](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) gelesen wird, für das nur ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) definiert ist.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: '#x' was defined without a getter (V8-based)
@@ -21,15 +21,15 @@ TypeError: Trying to access an undefined private getter (Safari)
 
 {{jsxref("TypeError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schiefgegangen?
 
-Es wird versucht, den Wert einer privaten Eigenschaft abzurufen, für die nur ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) angegeben ist. Im Gegensatz zu normalen Objekten, bei denen ein undefinierter Getter bedeutet, dass die Eigenschaft immer `undefined` zurückgeben würde, ist dies bei privaten Eigenschaften ein Fehler.
+Es wird versucht, den Wert eines privaten Elements zu ermitteln, für das nur ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) angegeben ist. Anders als bei normalen Objekten, bei denen ein undefinierter Getter lediglich bedeutet, dass die Eigenschaft immer undefined zurückgeben würde, ist dies bei privaten Elementen ein Fehler.
 
 ## Beispiele
 
-### Private Eigenschaft ohne Getter
+### Privates Element ohne Getter
 
-Hier hat `#name` keinen Getter, daher führt der Versuch, ihn mit `this.#name` zu lesen, zu einem Fehler.
+Hier hat `#name` keinen Getter, sodass der Versuch, es mit `this.#name` zu lesen, einen Fehler auslöst.
 
 ```js example-bad
 class Person {
@@ -44,9 +44,9 @@ const person = new Person();
 console.log(person.name);
 ```
 
-Es ist nicht üblich, dass eine private Eigenschaft einen Setter ohne einen Getter hat. Entweder fügen Sie einen Getter hinzu oder überarbeiten Sie Ihr Programm, sodass der Setter ebenfalls entfernt werden kann.
+Es ist unüblich, dass ein privates Element einen Setter ohne einen Getter hat. Entweder fügen Sie einen Getter hinzu oder refaktorisieren Sie Ihr Programm so, dass der Setter ebenfalls entfernt werden kann.
 
 ## Siehe auch
 
-- [Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)
+- [Private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements)
 - [`set`](/de/docs/Web/JavaScript/Reference/Functions/set)

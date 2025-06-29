@@ -2,15 +2,15 @@
 title: constructor
 slug: Web/JavaScript/Reference/Classes/constructor
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Classes")}}
 
-Die Methode **`constructor`** ist eine spezielle Methode einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) zum Erstellen und Initialisieren einer Objektinstanz dieser Klasse.
+Die **`constructor`**-Methode ist eine spezielle Methode einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) zum Erstellen und Initialisieren einer Objektinstanz dieser Klasse.
 
 > [!NOTE]
-> Diese Seite führt in die `constructor` Syntax ein. Für die `constructor` Eigenschaft, die in allen Objekten vorhanden ist, siehe {{jsxref("Object.prototype.constructor")}}.
+> Diese Seite führt die `constructor`-Syntax ein. Für die `constructor`-Eigenschaft, die in allen Objekten vorhanden ist, siehe {{jsxref("Object.prototype.constructor")}}.
 
 {{InteractiveExample("JavaScript Demo: Class constructor")}}
 
@@ -36,14 +36,14 @@ constructor(argument0, argument1) { /* … */ }
 constructor(argument0, argument1, /* …, */ argumentN) { /* … */ }
 ```
 
-Es gibt einige zusätzliche Syntaxbeschränkungen:
+Es gibt einige zusätzliche Syntax-Beschränkungen:
 
 - Eine Klassenmethode namens `constructor` kann kein [getter](/de/docs/Web/JavaScript/Reference/Functions/get), [setter](/de/docs/Web/JavaScript/Reference/Functions/set), [async](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder [generator](/de/docs/Web/JavaScript/Reference/Statements/function*) sein.
-- Eine Klasse kann nicht mehr als eine `constructor` Methode haben.
+- Eine Klasse kann nicht mehr als eine `constructor`-Methode haben.
 
 ## Beschreibung
 
-Ein Konstruktor ermöglicht es Ihnen, jede benutzerdefinierte Initialisierung bereitzustellen, die durchgeführt werden muss, bevor andere Methoden auf einem instanziierten Objekt aufgerufen werden können.
+Ein Konstruktor ermöglicht es Ihnen, jegliche benutzerdefinierte Initialisierung bereitzustellen, die durchgeführt werden muss, bevor andere Methoden auf einem instanziierten Objekt aufgerufen werden können.
 
 ```js
 class Person {
@@ -61,7 +61,8 @@ const otto = new Person("Otto");
 otto.introduce(); // Hello, my name is Otto
 ```
 
-Wenn Sie keinen eigenen Konstruktor bereitstellen, wird ein Standardkonstruktor für Sie bereitgestellt. Wenn Ihre Klasse eine Basisklasse ist, ist der Standardkonstruktor leer:
+Wenn Sie keinen eigenen Konstruktor bereitstellen, wird ein Standardkonstruktor für Sie bereitgestellt.
+Wenn Ihre Klasse eine Basisklasse ist, ist der Standardkonstruktor leer:
 
 ```js-nolint
 constructor() {}
@@ -76,9 +77,9 @@ constructor(...args) {
 ```
 
 > [!NOTE]
-> Der Unterschied zwischen einem expliziten Konstruktor wie dem oben gezeigten und dem Standardkonstruktor besteht darin, dass letzterer den [Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator) nicht tatsächlich durch [Argumentverteilung](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) aufruft.
+> Der Unterschied zwischen einem expliziten Konstruktor wie dem obigen und dem Standardkonstruktor besteht darin, dass Letzterer den [Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator) nicht tatsächlich durch [Argumente-spreading](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) aufruft.
 
-Das ermöglicht es, dass Code wie folgt funktioniert:
+Das ermöglicht Code wie diesen:
 
 ```js
 class ValidationError extends Error {
@@ -100,9 +101,11 @@ try {
 }
 ```
 
-Die `ValidationError` Klasse benötigt keinen expliziten Konstruktor, da sie keine benutzerdefinierte Initialisierung durchführen muss. Der Standardkonstruktor übernimmt dann die Initialisierung des übergebenen Arguments für das Eltern-`Error`.
+Die `ValidationError`-Klasse benötigt keinen expliziten Konstruktor, da sie keine benutzerdefinierte Initialisierung durchführen muss.
+Der Standardkonstruktor kümmert sich dann darum, den übergebenen Fehler des übergeordneten `Error` zu initialisieren.
 
-Wenn Sie jedoch einen eigenen Konstruktor bereitstellen und Ihre Klasse von einer Elternklasse abgeleitet ist, müssen Sie den Konstruktor der Elternklasse explizit mit [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) aufrufen. Beispielsweise:
+Wenn Sie jedoch Ihren eigenen Konstruktor bereitstellen und Ihre Klasse von einer übergeordneten Klasse abgeleitet ist, müssen Sie explizit den Konstruktor der übergeordneten Klasse mit [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) aufrufen.
+Zum Beispiel:
 
 ```js
 class ValidationError extends Error {
@@ -133,11 +136,11 @@ try {
 Die Verwendung von [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) für eine Klasse durchläuft die folgenden Schritte:
 
 1. (Wenn es sich um eine abgeleitete Klasse handelt) Der `constructor`-Körper vor dem `super()`-Aufruf wird ausgewertet. Dieser Teil sollte nicht auf `this` zugreifen, da es noch nicht initialisiert ist.
-2. (Wenn es sich um eine abgeleitete Klasse handelt) Der `super()`-Aufruf wird ausgewertet, was die Elternklasse durch denselben Prozess initialisiert.
+2. (Wenn es sich um eine abgeleitete Klasse handelt) Der `super()`-Aufruf wird ausgewertet, wodurch die übergeordnete Klasse durch denselben Prozess initialisiert wird.
 3. Die [Felder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) der aktuellen Klasse werden initialisiert.
 4. Der `constructor`-Körper nach dem `super()`-Aufruf (oder der gesamte Körper, wenn es sich um eine Basisklasse handelt) wird ausgewertet.
 
-Innerhalb des `constructor`-Körpers können Sie auf das zu erstellende Objekt durch [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) zugreifen und auf die Klasse, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen wurde, durch [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target). Beachten Sie, dass Methoden (einschließlich [Gettern](/de/docs/Web/JavaScript/Reference/Functions/get) und [Settern](/de/docs/Web/JavaScript/Reference/Functions/set)) und die [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) bereits auf `this` initialisiert sind, bevor der `constructor` ausgeführt wird. Sie können also sogar auf Methoden der Unterklasse aus dem Konstruktor der Oberklasse zugreifen. Wenn diese Methoden jedoch `this` verwenden, wird `this` noch nicht vollständig initialisiert sein. Das bedeutet, dass das Lesen öffentlicher Felder der abgeleiteten Klasse `undefined` ergibt, während das Lesen privater Felder zu einem `TypeError` führt.
+Innerhalb des `constructor`-Körpers können Sie über [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf das erstellte Objekt zugreifen und über [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) auf die Klasse, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen wird. Beachten Sie, dass Methoden (einschließlich [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set)) und die [Prototyp-Kette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) bereits auf `this` initialisiert sind, bevor der `constructor` ausgeführt wird. Das bedeutet, dass Sie sogar auf Methoden der Unterklasse aus dem Konstruktor der Oberklasse zugreifen können. Wenn jedoch diese Methoden `this` verwenden, ist `this` noch nicht vollständig initialisiert. Dies bedeutet, dass das Lesen öffentlicher Felder der abgeleiteten Klasse `undefined` ergibt, während das Lesen privater Felder zu einem `TypeError` führt.
 
 ```js example-bad
 new (class C extends class B {
@@ -155,7 +158,7 @@ new (class C extends class B {
 })();
 ```
 
-Die `constructor` Methode kann einen Rückgabewert haben. Während die Basisklasse aus ihrem Konstruktor alles zurückgeben kann, muss die abgeleitete Klasse ein Objekt oder `undefined` zurückgeben, sonst wird ein {{jsxref("TypeError")}} ausgelöst.
+Die `constructor`-Methode kann einen Rückgabewert haben. Während die Basisklasse alles aus ihrem Konstruktor zurückgeben kann, muss die abgeleitete Klasse ein Objekt oder `undefined` zurückgeben, andernfalls wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ```js
 class ParentClass {
@@ -177,9 +180,9 @@ class ChildClass extends ParentClass {
 console.log(new ChildClass()); // TypeError: Derived constructors may only return object or undefined
 ```
 
-Wenn der Konstruktor der Elternklasse ein Objekt zurückgibt, wird dieses Objekt als `this`-Wert verwendet, auf dem [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) der abgeleiteten Klasse definiert werden. Dieser Trick wird als ["Return Overriding"](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#returning_overriding_object) bezeichnet, der es ermöglicht, Felder der abgeleiteten Klasse (einschließlich [privater](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) Felder) auf nicht verwandten Objekten zu definieren.
+Wenn der Konstruktor der übergeordneten Klasse ein Objekt zurückgibt, wird dieses Objekt als `this`-Wert verwendet, auf dem die [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) der abgeleiteten Klasse definiert werden. Dieser Trick wird als ["Rückgabeüberschreibung"](/de/docs/Web/JavaScript/Reference/Classes/Private_elements#returning_overriding_object) bezeichnet, der es ermöglicht, die Felder der abgeleiteten Klasse (einschließlich [privater](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) Felder) auf nicht verbundenen Objekten zu definieren.
 
-Der `constructor` folgt der normalen [Methoden](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions)syntax, daher können [Standardparameterwerte](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) usw. alle verwendet werden.
+Der `constructor` folgt der normalen [Methoden-](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) Syntax, sodass [Standardwerte für Parameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) usw. verwendet werden können.
 
 ```js
 class Person {
@@ -195,7 +198,7 @@ const person = new Person();
 person.introduce(); // Hello, my name is Anonymous
 ```
 
-Der Konstruktor muss ein wörtlicher Name sein. [Berechnete Eigenschaften](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) können keine Konstruktoren werden.
+Der Konstruktor muss ein literaler Name sein. [Berechnete Eigenschaften](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) können keine Konstruktoren werden.
 
 ```js
 class Foo {
@@ -212,13 +215,13 @@ foo.constructor(); // Logs "called"
 console.log(foo); // Foo { a: 1 }
 ```
 
-Asynchrone Methoden, Generatormethoden, Zugriffsmethoden und Klassenfelder dürfen nicht `constructor` genannt werden. Private Namen dürfen nicht `#constructor` genannt werden. Jedes Mitglied namens `constructor` muss eine einfache Methode sein.
+Asynchrone Methoden, Generatormethoden, Zugriffsobjekte und Klassenfelder dürfen nicht `constructor` genannt werden. Private Namen dürfen nicht `#constructor` genannt werden. Jedes Mitglied mit dem Namen `constructor` muss eine einfache Methode sein.
 
 ## Beispiele
 
 ### Verwendung des Konstruktors
 
-Dieser Codeausschnitt stammt aus dem [Klassenbeispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html) ([Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html)).
+Dieser Codeausschnitt stammt aus dem [Klassen-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html) ([Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html)).
 
 ```js
 class Square extends Polygon {
@@ -242,9 +245,9 @@ class Square extends Polygon {
 }
 ```
 
-### Aufrufen von super in einem Konstruktor, der an einen anderen Prototyp gebunden ist
+### `super` in einem Konstruktor aufrufen, der an einen anderen Prototyp gebunden ist
 
-`super()` ruft den Konstruktor auf, der der Prototyp der aktuellen Klasse ist. Wenn Sie den Prototyp der aktuellen Klasse selbst ändern, ruft `super()` den Konstruktor auf, der der neue Prototyp ist. Das Ändern der Prototyp-Eigenschaft der aktuellen Klasse ändert nicht, welchen Konstruktor `super()` aufruft.
+`super()` ruft den Konstruktor auf, der der Prototyp der aktuellen Klasse ist. Wenn Sie den Prototyp der aktuellen Klasse selbst ändern, wird `super()` den Konstruktor des neuen Prototyps aufrufen. Das Ändern des Prototyps der `prototype`-Eigenschaft der aktuellen Klasse beeinflusst nicht, welchen Konstruktor `super()` aufruft.
 
 ```js
 class Polygon {

@@ -2,14 +2,14 @@
 title: "SyntaxError: Getter und Setter für privaten Namen #x sollten entweder beide statisch oder nicht statisch sein"
 slug: Web/JavaScript/Reference/Errors/Either_be_both_static_or_non-static
 l10n:
-  sourceCommit: 41cddfdaeed4a73fb8234c332150df8e54df31e9
+  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "mismatched placement" tritt auf, wenn ein privater [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) nicht übereinstimmen, ob sie {{jsxref("Classes/static", "static")}} sind oder nicht.
+Der JavaScript-Fehler "mismatched placement" tritt auf, wenn ein privater [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) nicht übereinstimmen, ob sie {{jsxref("Classes/static", "static")}} sind oder nicht.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Identifier '#x' has already been declared (V8-based)
@@ -23,7 +23,7 @@ SyntaxError: Cannot declare a private non-static getter if there is a static pri
 
 ## Was ist schiefgelaufen?
 
-Private [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) für denselben Namen müssen entweder beide {{jsxref("Classes/static", "static")}} oder beide nicht statisch sein. Diese Einschränkung existiert nicht für öffentliche Methoden.
+Private [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) für denselben Namen müssen entweder beide {{jsxref("Classes/static", "static")}} oder beide nicht statisch sein. Diese Einschränkung besteht nicht für öffentliche Methoden.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ class Test {
 // SyntaxError: getter and setter for private name #foo should either be both static or non-static
 ```
 
-Da `foo` [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) ist, müssen die Methoden entweder beide {{jsxref("Classes/static", "static")}} sein:
+Da `foo` [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) ist, müssen die Methoden entweder beide {{jsxref("Classes/static", "static")}} sein:
 
 ```js example-good
 class Test {
@@ -61,4 +61,4 @@ class Test {
 - {{jsxref("Functions/get", "get")}}
 - {{jsxref("Functions/set", "set")}}
 - {{jsxref("Classes/static", "static")}}
-- [Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)
+- [Private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements)
