@@ -2,7 +2,7 @@
 title: <filter-function>
 slug: Web/CSS/filter-function
 l10n:
-  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
+  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
 ---
 
 {{CSSRef}}
@@ -11,20 +11,20 @@ Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/
 
 ## Syntax
 
-Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, wenn es ungültig ist, dazu führt, dass kein Filter angewendet wird.
+Der `<filter-function>` Datentyp wird durch eine der unten aufgelisteten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, falls ungültig, dazu führt, dass kein Filter angewendet wird.
 
 - {{cssxref("filter-function/blur", "blur()")}}
-  - : Weichzeichnet das Bild.
+  - : Verwäscht das Bild.
 - {{cssxref("filter-function/brightness", "brightness()")}}
   - : Macht das Bild heller oder dunkler.
 - {{cssxref("filter-function/contrast", "contrast()")}}
   - : Erhöht oder verringert den Kontrast des Bildes.
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-  - : Fügt einen Schlagschatten hinter dem Bild hinzu.
+  - : Wendet einen Schatten hinter dem Bild an.
 - {{cssxref("filter-function/grayscale", "grayscale()")}}
-  - : Konvertiert das Bild in Graustufen.
+  - : Wandelt das Bild in Graustufen um.
 - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-  - : Ändert die gesamte Farbgebung des Bildes.
+  - : Ändert den gesamten Farbton des Bildes.
 - {{cssxref("filter-function/invert", "invert()")}}
   - : Kehrt die Farben des Bildes um.
 - {{cssxref("filter-function/opacity", "opacity()")}}
@@ -32,7 +32,7 @@ Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfu
 - {{cssxref("filter-function/saturate", "saturate()")}}
   - : Übersättigt oder entsättigt das Eingabebild.
 - {{cssxref("filter-function/sepia", "sepia()")}}
-  - : Konvertiert das Bild in Sepia.
+  - : Wandelt das Bild in Sepia um.
 
 ## Formale Syntax
 
@@ -42,22 +42,11 @@ Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfu
 
 ### Vergleich der Filterfunktionen
 
-Dieses Beispiel bietet eine Grafik, ein Auswahlmenü, um zwischen den verschiedenen Arten von Filterfunktionen zu wählen, und einen Schieberegler, um die innerhalb der Filterfunktion verwendeten Werte zu variieren. Das Aktualisieren der Steuerungen aktualisiert den Filtereffekt in Echtzeit, sodass Sie die Effekte verschiedener Filter untersuchen können.
+Dieses Beispiel bietet eine Grafik, ein Auswahlmenü, um zwischen den verschiedenen Arten von Filterfunktionen zu wählen, und einen Schieberegler, um die in der Filterfunktion verwendeten Werte zu variieren. Die Aktualisierung der Steuerelemente aktualisiert den Filtereffekt in Echtzeit, so dass Sie die Auswirkungen der verschiedenen Filter untersuchen können.
 
-```css
-div {
-  width: 100%;
-  height: 512px;
-  background: url(fx-nightly-512.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  filter: <filter-function>(<value>);
-}
-```
+Das Dropdown-Menü wählt den Funktionsnamen, und der Schieberegler setzt den Parameterwert für diese Funktion. Für `drop-shadow` wird der Wert sowohl für die horizontalen als auch die vertikalen Versätze verwendet, und der Radius wird auf die Hälfte des Wertes gesetzt.
 
-Dabei ist die `<filter-function>` der Filter, den Sie aus dem Dropdown-Menü auswählen, und der `<value>` die Werte, die Sie mit dem Schieber einstellen:
-
-```html live-sample___filter-functions
+```html hidden live-sample___filter-functions
 <div></div>
 <ul>
   <li>
@@ -82,11 +71,11 @@ Dabei ist die `<filter-function>` der Filter, den Sie aus dem Dropdown-Menü aus
 </ul>
 ```
 
-```css live-sample___filter-functions
+```css hidden live-sample___filter-functions
 div {
   width: 100%;
   height: 512px;
-  background-image: url(https://mdn.github.io/shared-assets/images/examples/fx-nightly-512.png);
+  background-image: url("https://mdn.github.io/shared-assets/images/examples/fx-nightly-512.png");
   background-repeat: no-repeat;
   background-position: center center;
 }

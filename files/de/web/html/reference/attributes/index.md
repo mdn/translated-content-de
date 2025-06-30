@@ -1,14 +1,14 @@
 ---
-title: HTML-Attributreferenz
+title: HTML-Attribut-Referenz
 short-title: Attributes
 slug: Web/HTML/Reference/Attributes
 l10n:
-  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
+  sourceCommit: a33c2c8081a1df867a0a334afc560057b2124bad
 ---
 
 {{HTMLSidebar("Attributes")}}
 
-Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die Elemente konfigurieren oder ihr Verhalten auf verschiedene Weise anpassen, um die gewünschten Kriterien der Benutzer zu erfüllen.
+Elemente in HTML haben **Attribute**; dies sind zusätzliche Werte, die die Elemente konfigurieren oder ihr Verhalten auf verschiedene Weise anpassen, um die Anforderungen der Benutzer zu erfüllen.
 
 ## Attributliste
 
@@ -28,14 +28,14 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{ HTMLElement("form") }}, {{ HTMLElement("input") }}
       </td>
-      <td>Liste von Typen, die der Server akzeptiert, typischerweise ein Dateityp.</td>
+      <td>Liste der vom Server akzeptierten Typen, typischerweise ein Dateityp.</td>
     </tr>
     <tr>
       <td>
         <code><a href="/de/docs/Web/HTML/Reference/Elements/form#accept-charset">accept-charset</a></code>
       </td>
       <td>{{ HTMLElement("form") }}</td>
-      <td>Der Zeichensatz, der gegebenenfalls auf <code>"UTF-8"</code> eingestellt sein muss.</td>
+      <td>Der Zeichensatz, der bereitgestellt werden muss, falls angegeben, als <code>"UTF-8"</code>.</td>
     </tr>
     <tr>
       <td>
@@ -44,7 +44,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Tastenkombination, um das Element zu aktivieren oder den Fokus darauf zu legen.</td>
+      <td>Tastenkombination, um das Element zu aktivieren oder den Fokus darauf zu setzen.</td>
     </tr>
     <tr>
       <td>
@@ -52,7 +52,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("form") }}</td>
       <td>
-        Die URI eines Programms, das die über das Formular übermittelten Daten verarbeitet.
+        Die URI eines Programms, das die über das Formular übermittelten Informationen verarbeitet.
       </td>
     </tr>
     <tr>
@@ -68,14 +68,14 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("tfoot") }}, {{ HTMLElement("th") }},
         {{ HTMLElement("thead") }}, {{ HTMLElement("tr") }}
       </td>
-      <td>Bestimmt die horizontale Ausrichtung des Elements.</td>
+      <td>Gibt die horizontale Ausrichtung des Elements an.</td>
     </tr>
     <tr>
       <td>
         <code><a href="/de/docs/Web/HTML/Reference/Elements/iframe#allow">allow</a></code>
       </td>
       <td>{{ HTMLElement("iframe") }}</td>
-      <td>Gibt eine Feature-Policy für das `iframe` an.</td>
+      <td>Legt eine Feature-Policy für das iframe fest.</td>
     </tr>
     <tr>
       <td>
@@ -85,7 +85,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("area") }},
         {{ HTMLElement("img") }}, {{ HTMLElement("input") }}
       </td>
-      <td>Alternativtext für den Fall, dass ein Bild nicht angezeigt werden kann.</td>
+      <td>Alternativer Text, falls ein Bild nicht angezeigt werden kann.</td>
     </tr>
     <tr>
       <td>
@@ -111,7 +111,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
       <td>
-        Bestimmt, ob Eingaben durch den Benutzer automatisch großgeschrieben werden.
+        Legt fest, ob Eingaben automatisch großgeschrieben werden, wenn sie vom Benutzer eingegeben werden
       </td>
     </tr>
     <tr>
@@ -124,8 +124,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("textarea") }}
       </td>
       <td>
-        Gibt an, ob Steuerelemente in diesem Formular standardmäßig ihre Werte
-        automatisch vom Browser vervollständigen lassen können.
+        Gibt an, ob Steuerelemente in diesem Formular standardmäßig automatisch vom Browser vervollständigt werden können.
       </td>
     </tr>
     <tr>
@@ -148,8 +147,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         Gibt die URL einer Bilddatei an.
         <div class="note notecard">
           <p>
-            <strong>Hinweis:</strong> Obwohl Browser und E-Mail-Clients dieses Attribut möglicherweise noch
-            unterstützen, ist es veraltet. Verwenden Sie stattdessen CSS
+            <strong>Hinweis:</strong> Obwohl Browser und E-Mail-Clients dieses Attribut möglicherweise noch unterstützen, ist es veraltet. Verwenden Sie stattdessen CSS
             {{ Cssxref("background-image") }}.
           </p>
         </div>
@@ -170,8 +168,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <p>Hintergrundfarbe des Elements.</p>
         <div class="note notecard">
           <p>
-            <strong>Hinweis:</strong> Dies ist ein veraltetes Attribut. Verwenden Sie bitte
-            die CSS-Eigenschaft {{ Cssxref("background-color") }}.
+            <strong>Hinweis:</strong> Dies ist ein älteres Attribut. Bitte verwenden Sie stattdessen die
+            CSS {{ Cssxref("background-color") }}-Eigenschaft.
           </p>
         </div>
       </td>
@@ -183,11 +181,11 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("table") }}
       </td>
       <td>
-        <p>Die Breite des Rahmens.</p>
+        <p>Die Rahmenbreite.</p>
         <div class="note notecard">
           <p>
-            <strong>Hinweis:</strong> Dies ist ein veraltetes Attribut. Verwenden Sie bitte
-            die CSS-Eigenschaft {{ Cssxref("border") }}.
+            <strong>Hinweis:</strong> Dies ist ein älteres Attribut. Bitte verwenden Sie stattdessen die
+            CSS {{ Cssxref("border") }}-Eigenschaft.
           </p>
         </div>
       </td>
@@ -198,8 +196,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("input") }}</td>
       <td>
-        Beim <a href="https://w3c.github.io/html-media-capture/#the-capture-attribute">Media Capture-Spezifikation</a>,
-        spezifiziert, dass eine neue Datei erfasst werden kann.
+        Aus der <a href="https://w3c.github.io/html-media-capture/#the-capture-attribute">Media Capture Spezifikation</a>,
+        gibt an, dass eine neue Datei erfasst werden kann.
       </td>
     </tr>
     <tr>
@@ -209,7 +207,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{ HTMLElement("meta") }}
       </td>
-      <td>Deklariert die Zeichenkodierung der Seite oder des Skripts.</td>
+      <td>Gibt die Zeichencodierung der Seite oder des Skripts an.</td>
     </tr>
     <tr>
       <td>
@@ -218,7 +216,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{ HTMLElement("input") }}
       </td>
-      <td>Gibt an, ob das Element beim Seitenladen aktiviert sein soll.</td>
+      <td>Gibt an, ob das Element beim Laden der Seite überprüft werden soll.</td>
     </tr>
     <tr>
       <td>
@@ -229,7 +227,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("del") }}, {{ HTMLElement("ins") }},
         {{ HTMLElement("q") }}
       </td>
-      <td>Enthält eine URI, die auf die Quelle des Zitats oder der Änderung verweist.</td>
+      <td>Enthält eine URI, die auf die Quelle des Zitats oder der Veränderung verweist.</td>
     </tr>
     <tr>
       <td>
@@ -238,7 +236,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Oftmals in Verbindung mit CSS verwendet, um Elemente mit gemeinsamen Eigenschaften zu stylen.</td>
+      <td>Wird häufig mit CSS verwendet, um Elemente mit gemeinsamen Eigenschaften zu stylen.</td>
     </tr>
     <tr>
       <td><code>color</code></td>
@@ -247,13 +245,13 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>
         <p>
-          Dieses Attribut setzt die Textfarbe, entweder mit einem benannten Farbennamen oder einer
-          im hexadezimalen #RRGGBB-Format angegebenen Farbe.
+          Dieses Attribut legt die Textfarbe fest, entweder durch eine benannte Farbe oder eine
+          im Hexadezimal-Format #RRGGBB.
         </p>
         <div class="note notecard">
           <p>
-            <strong>Hinweis:</strong> Dies ist ein veraltetes Attribut. Verwenden Sie bitte
-            die CSS-Eigenschaft {{ Cssxref("color") }}.
+            <strong>Hinweis:</strong> Dies ist ein älteres Attribut. Bitte verwenden Sie stattdessen die
+            CSS {{ Cssxref("color") }}-Eigenschaft.
           </p>
         </div>
       </td>
@@ -263,7 +261,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/textarea#cols">cols</a></code>
       </td>
       <td>{{ HTMLElement("textarea") }}</td>
-      <td>Definiert die Anzahl der Spalten in einem `textarea`.</td>
+      <td>Legt die Anzahl der Spalten in einem Textbereich fest.</td>
     </tr>
     <tr>
       <td>
@@ -273,7 +271,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("td") }}, {{ HTMLElement("th") }}
       </td>
       <td>
-        Das `colspan` Attribut definiert die Anzahl von Spalten, die eine Zelle umfassen soll.
+        Das colspan Attribut definiert die Anzahl der Spalten, die eine Zelle überspannen soll.
       </td>
     </tr>
     <tr>
@@ -282,7 +280,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("meta") }}</td>
       <td>
-        Ein Wert, der mit <code>http-equiv</code> oder <code>name</code> je nach Kontext verbunden ist.
+        Ein Wert, der je nach Kontext mit <code>http-equiv</code> oder
+        <code>name</code> assoziiert ist.
       </td>
     </tr>
     <tr>
@@ -303,7 +302,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("video") }}
       </td>
       <td>
-        Gibt an, ob der Browser dem Benutzer Steuerelemente zur Wiedergabe anzeigen soll.
+        Gibt an, ob der Browser dem Benutzer Steuerelemente für die Wiedergabe anzeigen soll.
       </td>
     </tr>
     <tr>
@@ -312,7 +311,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("area") }}</td>
       <td>
-        Eine Gruppe von Werten, die die Koordinaten der Hotspot-Region spezifizieren.
+        Ein Satz von Werten, die die Koordinaten der Bereichsmarkierung festlegen.
       </td>
     </tr>
     <tr>
@@ -324,7 +323,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("link") }}, {{ HTMLElement("script") }},
         {{ HTMLElement("video") }}
       </td>
-      <td>Wie das Element Cross-Origin-Anfragen handhabt</td>
+      <td>Wie das Element mit Cross-Origin-Anfragen umgeht</td>
     </tr>
     <tr>
       <td>
@@ -333,8 +332,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("iframe") }}</td>
       <td>
-        Gibt die Content Security Policy an, die ein eingebettetes Dokument
-        sich selbst durchsetzen muss.
+        Gibt die Content-Security-Policy an, die ein eingebettetes Dokument
+        bei sich durchsetzen muss.
       </td>
     </tr>
     <tr>
@@ -361,7 +360,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("del") }}, {{ HTMLElement("ins") }},
         {{ HTMLElement("time") }}
       </td>
-      <td>Gibt das Datum und die Uhrzeit an, die mit dem Element assoziiert sind.</td>
+      <td>Gibt das Datum und die Uhrzeit an, die mit dem Element verknüpft sind.</td>
     </tr>
     <tr>
       <td>
@@ -376,8 +375,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("track") }}</td>
       <td>
-        Gibt an, dass die Spur aktiviert werden sollte, es sei denn, die Benutzereinstellungen
-        geben etwas anderes an.
+        Gibt an, dass der Track aktiviert werden sollte, es sei denn, die Benutzerpräferenzen
+        zeigen etwas anderes an.
       </td>
     </tr>
     <tr>
@@ -386,7 +385,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("script") }}</td>
       <td>
-        Gibt an, dass das Skript nach dem Parsen der Seite ausgeführt werden soll.
+        Gibt an, dass das Skript ausgeführt werden soll, nachdem die Seite
+        analysiert wurde.
       </td>
     </tr>
     <tr>
@@ -397,8 +397,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
       <td>
-        Definiert die Textrichtung. Erlaubte Werte sind ltr (Left-To-Right) oder
-        rtl (Right-To-Left)
+        Definiert die Textrichtung. Erlaubte Werte sind ltr (Links-nach-Rechts) oder
+        rtl (Rechts-nach-Links)
       </td>
     </tr>
     <tr>
@@ -451,7 +451,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>{{ HTMLElement("form") }}</td>
       <td>
         Definiert den Inhaltstyp der Formulardaten, wenn die
-        <code>method</code> POST ist.
+        <code>method</code> auf POST gesetzt ist.
       </td>
     </tr>
     <tr>
@@ -464,11 +464,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>
         Das <a href="https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-enterkeyhint-attribute"><code>enterkeyhint</code></a>
-        spezifiziert, welches Aktionslabel (oder -symbol) für die Eingabetaste
-        auf virtuellen Tastaturen angezeigt werden soll. Das Attribut kann mit
-        Formularelementen (wie z.B. dem Wert von <code>textarea</code>-Elementen)
-        oder in Elementen in einem Editier-Host verwendet werden (z.B. mit dem
-        <code>contenteditable</code>-Attribut).
+        gibt an, welches Aktionslabel (oder Symbol) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll. Das Attribut kann mit Formularelementen verwendet werden (wie z.B. für den Wert von <code>textarea</code>-Elementen) oder in bearbeitbaren Hosts (z.B. unter Verwendung des <code>contenteditable</code>-Attributs).
       </td>
     </tr>
     <tr>
@@ -478,12 +474,12 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{htmlelement("img")}},
         {{SVGElement("image")}} Elemente innerhalb eines {{SVGElement("svg")}},
-        Posterbilder von {{htmlelement("video")}}-Elementen,
-        Elemente, die ein {{cssxref("background-image")}} haben,
+        Poster-Bilder von {{htmlelement("video")}}-Elementen,
+        Elemente mit einem {{cssxref("background-image")}},
         und Elemente, die Textknoten enthalten, wie ein {{htmlelement("p")}}
       </td>
       <td>
-        Gibt an, dass ein Element zur Beobachtung durch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekte mit dem Typ <code>"element"</code> markiert ist. Weitere Details siehe die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) Schnittstelle.
+        Gibt an, dass ein Element für das Tracking durch [`PerformanceObserver`]( /de/docs/Web/API/PerformanceObserver) Objekte mit dem <code>"element"</code> Typ markiert ist. Für weitere Details siehe die [`PerformanceElementTiming`]( /de/docs/Web/API/PerformanceElementTiming) Schnittstelle.
       </td>
     </tr>
     <tr>
@@ -512,7 +508,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("select") }},
         {{ HTMLElement("textarea") }}
       </td>
-      <td>Gibt das Formular an, das der Besitzer des Elements ist.</td>
+      <td>Gibt das Formular an, das der Eigentümer des Elements ist.</td>
     </tr>
     <tr>
       <td>
@@ -536,11 +532,10 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn es sich bei dem Button/Input um einen {{Glossary("submit_button", "Sende-Button")}} handelt (z.B., <code>type="submit"</code>),
-        legt dieses Attribut den Codierungstyp fest, der bei der
-        Formularübermittlung verwendet werden soll. Ist dieses Attribut vorhanden,
-        überschreibt es das <code>enctype</code>-Attribut des
-        Formulars des Buttons.
+        Wenn das Button/Input ein {{Glossary("submit_button", "Submit-Button")}} ist (z.B. <code>type="submit"</code>),
+        legt dieses Attribut den zu verwendenden Kodierungstyp während der Formularübermittlung fest. Wenn
+        dieses Attribut angegeben ist, überschreibt es das
+        <code>enctype</code>-Attribut des Formularbesitzers des Buttons.
       </td>
     </tr>
     <tr>
@@ -552,12 +547,11 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn es sich bei dem Button/Input um einen {{Glossary("submit_button", "Sende-Button")}} handelt (z.B., <code>type="submit"</code>),
-        legt dieses Attribut die Übertragungsmethode fest, die bei der
-        Formularübermittlung verwendet werden soll
-        (<code>GET</code>, <code>POST</code> usw.). Ist dieses Attribut
-        vorhanden, überschreibt es das <code>method</code>-Attribut des
-        Formulars des Buttons.
+        Wenn das Button/Input ein {{Glossary("submit_button", "Submit-Button")}} ist (z.B. <code>type="submit"</code>),
+        legt dieses Attribut die Übermittlungsmethode fest, die während der Formularübermittlung verwendet werden soll
+        (<code>GET</code>, <code>POST</code>, etc.). Wenn dieses Attribut
+        angegeben ist, überschreibt es das <code>method</code>-Attribut des
+        Formularbesitzers des Buttons.
       </td>
     </tr>
     <tr>
@@ -569,11 +563,10 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn es sich bei dem Button/Input um einen {{Glossary("submit_button", "Sende-Button")}} handelt (z.B., <code>type="submit"</code>),
-        gibt dieses boolesche Attribut an, dass das Formular bei der
-        Übermittlung nicht validiert werden soll. Ist dieses Attribut
-        vorhanden, überschreibt es das <code>novalidate</code>-Attribut des
-        Formulars des Buttons.
+        Wenn das Button/Input ein {{Glossary("submit_button", "Submit-Button")}} ist (z.B. <code>type="submit"</code>),
+        gibt dieses boolesche Attribut an, dass das Formular nicht validiert
+        werden soll, wenn es übermittelt wird. Wenn dieses Attribut angegeben ist,
+        überschreibt es das <code>novalidate</code>-Attribut des Formularbesitzers des Buttons.
       </td>
     </tr>
     <tr>
@@ -585,12 +578,11 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn es sich bei dem Button/Input um einen {{Glossary("submit_button", "Sende-Button")}} handelt (z.B., <code>type="submit"</code>),
-        spezifiziert dieses Attribut den Kontext (z.B., Tab, Fenster oder
-        Inline-Frame), in dem die Antwort angezeigt werden soll, die nach dem
-        Absenden des Formulars empfangen wird. Ist dieses Attribut
-        vorhanden, überschreibt es das <code>target</code>-Attribut des
-        Formulars des Buttons.
+        Wenn das Button/Input ein {{Glossary("submit_button", "Submit-Button")}} ist (z.B. <code>type="submit"</code>),
+        legt dieses Attribut den Browsing-Kontext (zum Beispiel Tab, Fenster
+        oder Inline-Frame) fest, in dem die nach der
+        Formularübermittlung empfangene Antwort angezeigt wird. Wenn dieses Attribut
+        angegeben ist, überschreibt es das <code>target</code>-Attribut des Formularbesitzers des Buttons.
       </td>
     </tr>
     <tr>
@@ -602,7 +594,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>
         IDs der <code>&#x3C;th></code>-Elemente, die auf dieses
-        Element angewendet werden.
+        Element zutreffen.
       </td>
     </tr>
     <tr>
@@ -617,15 +609,15 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>
         <p>
-          Spezifiziert die Höhe der hier aufgelisteten Elemente. Für alle anderen
-          Elemente verwenden Sie die CSS-Eigenschaft {{cssxref("height")}}.
+          Gibt die Höhe der hier aufgeführten Elemente an. Für alle anderen Elemente,
+          verwenden Sie die CSS {{cssxref("height")}}-Eigenschaft.
         </p>
         <div class="note notecard">
           <p>
             <strong>Hinweis:</strong> In einigen Fällen, wie
-            {{ HTMLElement("div") }}, handelt es sich um ein veraltetes
-            Attribut, in diesem Fall sollte die CSS-Eigenschaft {{ Cssxref("height") }}
-            verwendet werden.
+            {{ HTMLElement("div") }}, ist dies ein älteres Attribut, in
+            dem Fall sollte die CSS {{ Cssxref("height") }}-Eigenschaft
+            stattdessen verwendet werden.
           </p>
         </div>
       </td>
@@ -638,8 +630,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
       <td>
-        Verhindert die Darstellung des angegebenen Elements, während untergeordnete
-        Elemente, z. B. Skriptelemente, aktiv bleiben.
+        Verhindert die Darstellung des angegebenen Elements, während die Kindelemente, z.B.
+        Skriptelemente, aktiv bleiben.
       </td>
     </tr>
     <tr>
@@ -657,7 +649,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("a") }}, {{ HTMLElement("area") }},
         {{ HTMLElement("base") }}, {{ HTMLElement("link") }}
       </td>
-      <td>Die URL einer verknüpften Ressource.</td>
+      <td>Die URL einer verlinkten Ressource.</td>
     </tr>
     <tr>
       <td>
@@ -666,14 +658,14 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{ HTMLElement("a") }}, {{ HTMLElement("link") }}
       </td>
-      <td>Gibt die Sprache der verknüpften Ressource an.</td>
+      <td>Gibt die Sprache der verlinkten Ressource an.</td>
     </tr>
     <tr>
       <td>
-        <code><a href="/de/docs/Web/HTML/Reference/Elements/meta#http-equiv">http-equiv</a></code>
+        <code><a href="/de/docs/Web/HTML/Reference/Elements/meta/http-equiv">http-equiv</a></code>
       </td>
       <td>{{ HTMLElement("meta") }}</td>
-      <td>Definiert eine pragma-Direktive.</td>
+      <td>Definiert eine Pragma-Direktive.</td>
     </tr>
     <tr>
       <td>
@@ -683,8 +675,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
       <td>
-        Oft mit CSS verwendet, um ein spezifisches Element zu stylen. Der Wert
-        dieses Attributs muss eindeutig sein.
+        Wird häufig mit CSS verwendet, um ein bestimmtes Element zu stylen. Der Wert dieses
+        Attributs muss eindeutig sein.
       </td>
     </tr>
     <tr>
@@ -698,8 +690,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <p>
           Gibt einen
           <a href="/de/docs/Web/Security/Subresource_Integrity">Subresource Integrity</a>
-          Wert an, der es den Browsern ermöglicht zu überprüfen, was sie
-          herunterladen.
+          Wert an, der es Browsern ermöglicht, das, was sie abrufen, zu überprüfen.
         </p>
       </td>
     </tr>
@@ -710,8 +701,9 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("img") }}</td>
       <td>
-        Dieses Attribut teilt dem Browser mit, die eigentliche intrinsische Größe des
-        Bildes zu ignorieren und vorzugeben, es sei die im Attribut angegebene Größe.
+        Dieses Attribut weist den Browser an, die tatsächliche intrinsische Größe des
+        Bildes zu ignorieren und vorzugeben, dass es sich um die im Attribut
+        angegebene Größe handelt.
       </td>
     </tr>
     <tr>
@@ -723,12 +715,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <a href="/de/docs/Web/HTML/Reference/Global_attributes/contenteditable"><code>contenteditable</code></a>
       </td>
       <td>
-        Gibt einen Hinweis auf den Datentyp, der vom Benutzer eingegeben werden
-        könnte, während der Bearbeitung des Elements oder seines Inhalts. Das
-        Attribut kann mit Formularelementen (wie der Wert von
-        <code>textarea</code>-Elementen) oder in Elementen in einem
-        Bearbeitungshost verwendet werden (z.B. mit dem
-        <code>contenteditable</code>-Attribut).
+        Gibt einen Hinweis auf den Datentyp, der vom Benutzer während der Bearbeitung des Elements oder seines Inhalts eingegeben werden könnte. Das Attribut kann mit Formularelementen verwendet werden (wie z.B. für den Wert von <code>textarea</code>-Elementen) oder in editing hosts (z.B. unter Verwendung des <code>contenteditable</code>-Attributs).
       </td>
     </tr>
     <tr>
@@ -736,7 +723,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/img#ismap">ismap</a></code>
       </td>
       <td>{{ HTMLElement("img") }}</td>
-      <td>Gibt an, dass das Bild Teil einer serverseitigen Bildkarte ist.</td>
+      <td>Gibt an, dass das Bild Teil einer serverseitigen Image Map ist.</td>
     </tr>
     <tr>
       <td>
@@ -752,7 +739,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/track#kind">kind</a></code>
       </td>
       <td>{{ HTMLElement("track") }}</td>
-      <td>Bestimmt die Art der Textspur.</td>
+      <td>Gibt die Art des Texttracks an.</td>
     </tr>
     <tr>
       <td>
@@ -763,7 +750,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("option") }},
         {{ HTMLElement("track") }}
       </td>
-      <td>Gibt einen benutzerlesbaren Titel des Elements an.</td>
+      <td>Gibt einen für den Benutzer lesbaren Titel des Elements an.</td>
     </tr>
     <tr>
       <td>
@@ -772,7 +759,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Bestimmt die im Element verwendete Sprache.</td>
+      <td>Definiert die im Element verwendete Sprache.</td>
     </tr>
     <tr>
       <td>
@@ -788,8 +775,9 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("img") }}, {{ HTMLElement("iframe") }}
       </td>
       <td>
-        Gibt an, ob das Element verzögert (<code>loading="lazy"</code>) oder sofort
-        (<code>loading="eager"</code>) geladen werden soll.
+        Gibt an, ob das Element verzögert geladen werden soll
+        (<code>loading="lazy"</code>) oder sofort geladen werden soll
+        (<code>loading="eager"</code>).
       </td>
     </tr>
     <tr>
@@ -797,7 +785,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/input#list">list</a></code>
       </td>
       <td>{{ HTMLElement("input") }}</td>
-      <td>Identifiziert eine Liste vordefinierter Optionen, die dem Benutzer vorgeschlagen werden.</td>
+      <td>Identifiziert eine Liste von vordefinierten Optionen, die dem Benutzer vorgeschlagen werden sollen.</td>
     </tr>
     <tr>
       <td>
@@ -809,7 +797,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("video") }}
       </td>
       <td>
-        Gibt an, ob das Medium von Anfang an neu gestartet werden soll, wenn
+        Gibt an, ob das Medium von vorne beginnen soll, wenn
         es beendet ist.
       </td>
     </tr>
@@ -839,7 +827,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("input") }},
         {{ HTMLElement("textarea") }}
       </td>
-      <td>Definiert die maximale Anzahl der Zeichen, die im Element erlaubt sind.</td>
+      <td>Definiert die maximale Anzahl von Zeichen, die im Element erlaubt sind.</td>
     </tr>
     <tr>
       <td>
@@ -849,7 +837,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("input") }},
         {{ HTMLElement("textarea") }}
       </td>
-      <td>Definiert die minimale Anzahl der Zeichen, die im Element zulässig sind.</td>
+      <td>Definiert die minimale Anzahl von Zeichen, die im Element erlaubt sind.</td>
     </tr>
     <tr>
       <td>
@@ -861,7 +849,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("style") }}
       </td>
       <td>
-        Gibt einen Hinweis auf das Medium, für das die verknüpfte Ressource
+        Gibt einen Hinweis auf die Medien an, für die die verlinkte Ressource
         entworfen wurde.
       </td>
     </tr>
@@ -872,8 +860,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>{{ HTMLElement("form") }}</td>
       <td>
         Definiert, welche <a href="/de/docs/Web/HTTP">HTTP</a>-Methode beim
-        Absenden des Formulars verwendet werden soll. Kann <code>GET</code>
-        (Standard) oder <code>POST</code> sein.
+        Absenden des Formulars verwendet werden soll. Kann <code>GET</code> (Standard) oder
+        <code>POST</code> sein.
       </td>
     </tr>
     <tr>
@@ -895,7 +883,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("select") }}
       </td>
       <td>
-        Gibt an, ob mehrere Werte in einem `input` des Typs
+        Gibt an, ob mehrere Werte in einem Eingabefeld vom Typ
         <code>email</code> oder <code>file</code> eingegeben werden können.
       </td>
     </tr>
@@ -908,7 +896,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("video") }}
       </td>
       <td>
-        Gibt an, ob der Ton beim Seitenladen initial stummgeschaltet ist.
+        Gibt an, ob das Audio beim Laden der Seite zunächst stummgeschaltet ist.
       </td>
     </tr>
     <tr>
@@ -928,8 +916,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("param") }}
       </td>
       <td>
-        Name des Elements. Beispielsweise vom Server verwendet, um Felder bei
-        Formularübermittlungen zu identifizieren.
+        Name des Elements. Wird beispielsweise vom Server verwendet, um die
+        Felder bei der Formularübermittlung zu identifizieren.
       </td>
     </tr>
     <tr>
@@ -938,8 +926,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("form") }}</td>
       <td>
-        Dieses Attribut gibt an, dass das Formular bei der Übermittlung nicht
-        validiert werden sollte.
+        Dieses Attribut gibt an, dass das Formular nicht validiert werden soll, wenn
+        es übermittelt wird.
       </td>
     </tr>
     <tr>
@@ -951,9 +939,9 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("dialog") }}
       </td>
       <td>
-        Gibt an, ob der Inhalt im Moment sichtbar ist (im Fall eines
-        <code>&#x3C;details></code>-Elements) oder ob der Dialog aktiv
-        und interagierbar ist (im Fall eines
+        Gibt an, ob der Inhalt derzeit sichtbar ist (im Fall eines
+        <code>&#x3C;details></code>-Elements) oder ob der Dialog aktiv ist und
+        interaktiv genutzt werden kann (im Fall eines
         <code>&#x3C;dialog></code>-Elements).
       </td>
     </tr>
@@ -962,7 +950,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/meter#optimum">optimum</a></code>
       </td>
       <td>{{ HTMLElement("meter") }}</td>
-      <td>Gibt den optimalen numerischen Wert an.</td>
+      <td>Gibt den optimalen Zahlenwert an.</td>
     </tr>
     <tr>
       <td>
@@ -970,7 +958,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("input") }}</td>
       <td>
-        Definiert einen regulären Ausdruck, gegen den der Wert des Elements validiert wird.
+        Definiert einen regulären Ausdruck, gegen den der Wert des Elements validiert
+        wird.
       </td>
     </tr>
     <tr>
@@ -979,9 +968,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("a") }}, {{ HTMLElement("area") }}</td>
       <td>
-        Das `ping`-Attribut spezifiziert eine durch Leerzeichen getrennte Liste
-        von URLs, die benachrichtigt werden, wenn ein Benutzer dem Hyperlink
-        folgt.
+        Das <code>ping</code>-Attribut gibt eine durch Leerzeichen getrennte Liste von URLs an,
+        die benachrichtigt werden sollen, wenn ein Benutzer dem Hyperlink folgt.
       </td>
     </tr>
     <tr>
@@ -1001,7 +989,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{ HTMLElement("video") }}
       </td>
-      <td>Ein boolesches Attribut, das angibt, dass das Video "inline" abgespielt werden soll, das heißt innerhalb des Wiedergabebereichs des Elements. Beachten Sie, dass die Abwesenheit dieses Attributs nicht impliziert, dass das Video immer im Vollbildmodus abgespielt wird.</td>
+      <td>Ein Boolesches Attribut, das angibt, dass das Video "inline" abgespielt werden soll; d.h. innerhalb des Wiedergabebereichs des Elements. Beachten Sie, dass das Fehlen dieses Attributs nicht bedeutet, dass das Video immer im Vollbildmodus abgespielt wird.</td>
     </tr>
     <tr>
       <td>
@@ -1009,7 +997,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("video") }}</td>
       <td>
-        Eine URL, die einen Poster-Frame angibt, der angezeigt wird, bis der Benutzer das Video abspielt oder darin navigiert.
+        Eine URL, die ein Posterbild angibt, das angezeigt wird, bis der Benutzer das Video abspielt oder vorspult.
       </td>
     </tr>
     <tr>
@@ -1021,7 +1009,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("video") }}
       </td>
       <td>
-        Gibt an, ob die gesamte Ressource, Teile davon oder nichts vorab geladen werden sollen.
+        Gibt an, ob die gesamte Ressource, Teile davon oder nichts vorgeladen werden soll.
       </td>
     </tr>
     <tr>
@@ -1054,7 +1042,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("link") }}
       </td>
       <td>
-        Bestimmt die Beziehung des Zielobjekts zum Linkobjekt.
+        Gibt die Beziehung des Zielobjekts zum Linkobjekt an.
       </td>
     </tr>
     <tr>
@@ -1074,7 +1062,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("ol") }}</td>
       <td>
-        Gibt an, ob die Liste in absteigender Reihenfolge statt in aufsteigender Reihenfolge angezeigt werden soll.
+        Gibt an, ob die Liste in absteigender Reihenfolge angezeigt werden soll
+        anstelle einer aufsteigenden Reihenfolge.
       </td>
     </tr>
     <tr>
@@ -1082,7 +1071,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">role</a></code>
       </td>
       <td><a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a></td>
-      <td>Definiert eine explizite Rolle für ein Element zur Verwendung durch assistive Technologien.</td>
+      <td>Definiert eine explizite Rolle für ein Element zur Verwendung durch unterstützende Technologien.</td>
     </tr>
     <tr>
       <td>
@@ -1098,7 +1087,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         {{ HTMLElement("td") }}, {{ HTMLElement("th") }}
       </td>
-      <td>Definiert die Anzahl der Zeilen, die eine Tabellenzelle umfassen soll.</td>
+      <td>Definiert die Anzahl der Zeilen, die eine Tabellenzelle überspannen soll.</td>
     </tr>
     <tr>
       <td>
@@ -1106,7 +1095,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("iframe") }}</td>
       <td>
-        Verhindert, dass ein Dokument, das in einem `iframe` geladen wird, bestimmte Features nutzt (wie z.B. Formulare absenden oder neue Fenster öffnen).
+        Verhindert, dass ein in einem iframe geladenes Dokument bestimmte Funktionen verwendet (wie zum
+        Beispiel das Absenden von Formularen oder das Öffnen neuer Fenster).
       </td>
     </tr>
     <tr>
@@ -1115,7 +1105,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>{{ HTMLElement("th") }}</td>
       <td>
-        Definiert die Zellen, auf die sich der Kopftext (definiert im
+        Definiert die Zellen, auf die sich der Headertext (definiert im
         <code>th</code>-Element) bezieht.
       </td>
     </tr>
@@ -1150,8 +1140,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("select") }}
       </td>
       <td>
-        Legt die Breite des Elements (in Pixel) fest. Wenn das
-        <code>type</code>-Attribut des Elements <code>text</code> oder
+        Definiert die Breite des Elements (in Pixeln). Wenn das Attribut
+        <code>type</code> des Elements <code>text</code> oder
         <code>password</code> ist, dann ist es die Anzahl der Zeichen.
       </td>
     </tr>
@@ -1172,7 +1162,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Weist ein Element einem Slot in einem Schatten-DOM-Baum zu.</td>
+      <td>Weist einem Element in einem Shadow-DOM-Schattenbaum einen Slot zu.</td>
     </tr>
     <tr>
       <td>
@@ -1191,7 +1181,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Gibt an, ob eine Rechtschreibprüfung für das Element erlaubt ist.</td>
+      <td>Gibt an, ob die Rechtschreibprüfung für das Element zulässig ist.</td>
     </tr>
     <tr>
       <td>
@@ -1237,7 +1227,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/ol#start">start</a></code>
       </td>
       <td>{{ HTMLElement("ol") }}</td>
-      <td>Definiert die erste Nummer, falls sie nicht 1 ist.</td>
+      <td>Definiert die erste Nummer, wenn sie nicht 1 ist.</td>
     </tr>
     <tr>
       <td>
@@ -1253,7 +1243,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Definiert CSS-Stile, die zuvor gesetzte Stile überschreiben.</td>
+      <td>Definiert CSS-Stile, die zuvor festgelegte Stile überschreiben.</td>
     </tr>
     <tr>
       <td>
@@ -1271,7 +1261,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
       <td>
-        Überschreibt die Standard-Tab-Reihenfolge des Browsers und folgt stattdessen der angegebenen Reihenfolge.
+        Überschreibt die Standard-Tabulatorreihenfolge des Browsers und folgt stattdessen der angegebenen.
       </td>
     </tr>
     <tr>
@@ -1283,9 +1273,10 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("base") }}, {{ HTMLElement("form") }}
       </td>
       <td>
-        Bestimmt, wo das verlinkte Dokument geöffnet wird (bei einem
-        <code>&#x3C;a></code>-Element) oder wo die empfangene Antwort angezeigt wird
-        (bei einem <code>&#x3C;form></code>-Element).
+        Gibt an, wo das verlinkte Dokument geöffnet werden soll (im Fall eines
+        <code>&#x3C;a></code>-Elements) oder wo die nach dem
+        Absenden des Formulars empfangene Antwort angezeigt werden soll
+        (im Fall eines <code>&#x3C;form></code>-Elements).
       </td>
     </tr>
     <tr>
@@ -1295,7 +1286,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       <td>
         <a href="/de/docs/Web/HTML/Reference/Global_attributes">Globales Attribut</a>
       </td>
-      <td>Text, der in einem Tooltip angezeigt wird, wenn Sie über das Element fahren.</td>
+      <td>Text, der in einem Tooltip angezeigt wird, wenn über das Element schwebt.</td>
     </tr>
     <tr>
       <td>
@@ -1306,9 +1297,8 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>
         Gibt an, ob die Attributwerte eines Elements und die Werte seiner
-        <code><a href="https://dom.spec.whatwg.org/#text">Text</a></code>-Knotenkinder
-        übersetzt werden sollen, wenn die Seite lokalisiert wird, oder ob sie
-        unverändert bleiben sollen.
+        <code><a href="https://dom.spec.whatwg.org/#text">Text</a></code>-Nodo-Kinder beim Lokalisieren der Seite übersetzt oder
+        unverändert gelassen werden sollen.
       </td>
     </tr>
     <tr>
@@ -1351,7 +1341,7 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         {{ HTMLElement("param") }}
       </td>
       <td>
-        Definiert einen Standardwert, der im Element angezeigt wird, wenn die Seite geladen wird.
+        Definiert einen Standardwert, der im Element beim Laden der Seite angezeigt wird.
       </td>
     </tr>
     <tr>
@@ -1368,13 +1358,13 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
       </td>
       <td>
         <p>
-          Für die hier aufgelisteten Elemente wird die Breite des Elements festgelegt.
+          Für die hier aufgeführten Elemente legt dies die Breite des Elements fest.
         </p>
         <div class="note notecard">
           <p>
-            <strong>Hinweis:</strong> In anderen Fällen, wie
-            {{ HTMLElement("div") }}, ist dies ein veraltetes Attribut,
-            in dem Fall sollte die CSS-Eigenschaft {{ Cssxref("width") }}
+            <strong>Hinweis:</strong> Für alle anderen Fälle, wie
+            {{ HTMLElement("div") }}, ist dies ein älteres Attribut, in
+            dem Fall sollte die CSS {{ Cssxref("width") }}-Eigenschaft
             stattdessen verwendet werden.
           </p>
         </div>
@@ -1385,30 +1375,30 @@ Elemente in HTML besitzen **Attribute**; dies sind zusätzliche Werte, die die E
         <code><a href="/de/docs/Web/HTML/Reference/Elements/textarea#wrap">wrap</a></code>
       </td>
       <td>{{ HTMLElement("textarea") }}</td>
-      <td>Gibt an, ob der Text umbrochen werden soll.</td>
+      <td>Gibt an, ob der Text umgebrochen werden soll.</td>
     </tr>
   </tbody>
 </table>
 
-## Content- versus IDL-Attribute
+## Inhalt versus IDL-Attribute
 
 In HTML haben die meisten Attribute zwei Gesichter: das **Inhaltsattribut** und das **IDL-Attribut (Interface Definition Language)**.
 
-Das Inhaltsattribut ist das Attribut, wie Sie es aus dem Inhalt (dem HTML-Code) setzen, und Sie können es über [`element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) oder [`element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) setzen oder abrufen. Das Inhaltsattribut ist immer ein String, selbst wenn der erwartete Wert eine Ganzzahl sein sollte. Zum Beispiel, um `maxlength` eines {{HTMLElement("input")}}-Elements mit dem Inhaltsattribut auf 42 zu setzen, müssen Sie `setAttribute("maxlength", "42")` auf diesem Element aufrufen.
+Das Inhaltsattribut ist das Attribut, das Sie im Inhalt festlegen (der HTML-Code) und Sie können es mit [`element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) oder [`element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) setzen oder abrufen. Das Inhaltsattribut ist immer eine Zeichenkette, auch wenn der erwartete Wert eine Ganzzahl sein sollte. Um zum Beispiel das `maxlength` eines {{HTMLElement("input")}}-Elements mit dem Inhaltsattribut auf 42 zu setzen, müssen Sie `setAttribute("maxlength", "42")` auf diesem Element aufrufen.
 
-Das IDL-Attribut ist auch bekannt als eine JavaScript-Eigenschaft. Dies sind die Attribute, die Sie mit JavaScript-Eigenschaften wie `element.foo` lesen oder setzen können. Das IDL-Attribut verwendet in der Regel (kann aber transformieren) das zugrunde liegende Inhaltsattribut, um einen Wert zurückzugeben, wenn Sie es abrufen, und speichert etwas im Inhaltsattribut, wenn Sie es setzen. Mit anderen Worten spiegeln die IDL-Attribute im Wesentlichen die Inhaltsattribute wider.
+Das IDL-Attribut ist auch als JavaScript-Eigenschaft bekannt. Dies sind die Attribute, die Sie mit JavaScript-Eigenschaften wie `element.foo` lesen oder setzen können. Das IDL-Attribut wird immer (kann jedoch umwandeln) das zugrunde liegende Inhaltsattribut verwenden, um einen Wert anzugeben, wenn Sie es abrufen, und speichert etwas im Inhaltsattribut, wenn Sie es setzen. Mit anderen Worten, die IDL-Attribute spiegeln im Wesentlichen die Inhaltsattribute wider.
 
-In den meisten Fällen geben IDL-Attribute ihre Werte so zurück, wie sie wirklich verwendet werden. Beispielsweise ist der Standardtyp für {{HTMLElement("input")}}-Elemente "text", sodass, wenn Sie `input.type="foobar"` setzen, das `<input>`-Element vom Typ Text (in Erscheinung und Verhalten) sein wird, aber der Wert des Inhaltsattributs "type" wird "foobar" sein. Das `type`-IDL-Attribut gibt jedoch den String "text" zurück.
+Meistens geben IDL-Attribute ihre Werte so zurück, wie sie wirklich verwendet werden. Beispielsweise ist der Standard `type` für {{HTMLElement("input")}}-Elemente "text", daher wird das `<input>`-Element, wenn Sie `input.type="foobar"` setzen, vom Typ text sein (in der Erscheinung und im Verhalten), aber der Wert des "type"-Inhaltsattributs wird "foobar" sein. Das `type` IDL-Attribut gibt jedoch die Zeichenkette "text" zurück.
 
-IDL-Attribute sind nicht immer Strings; beispielsweise ist `input.maxlength` eine Zahl (ein vorzeichenloses langes). Wenn Sie IDL-Attribute verwenden, lesen oder setzen Sie Werte des gewünschten Typs, also gibt `input.maxlength` immer eine Zahl zurück, und wenn Sie `input.maxlength` setzen, möchte es eine Zahl. Wenn Sie einen anderen Typ übergeben, wird er automatisch in eine Zahl umgewandelt, wie es die standardmäßigen JavaScript-Regeln für die Typumwandlung vorschreiben.
+IDL-Attribute sind nicht immer Zeichenketten; zum Beispiel ist `input.maxlength` eine Zahl (ein vorzeichenbehaftetes Langformat). Wenn Sie IDL-Attribute verwenden, lesen oder setzen Sie Werte des gewünschten Typs, daher gibt `input.maxlength` immer eine Zahl zurück und wenn Sie `input.maxlength` setzen, will es eine Zahl. Wenn Sie einen anderen Typ übergeben, wird er gemäß den standardmäßigen JavaScript-Regeln zur Typumwandlung automatisch in eine Zahl umgewandelt.
 
-IDL-Attribute können [andere Typen widerspiegeln](https://html.spec.whatwg.org/multipage/urls-and-fetching.html), wie vorzeichenlose lange, URLs, Booleans usw. Leider gibt es keine klaren Regeln, und die Art und Weise, wie IDL-Attribute im Zusammenspiel mit ihren entsprechenden Inhaltsattributen verhalten, hängt vom Attribut ab. Meistens folgt es [den im Standard festgelegten Regeln](https://html.spec.whatwg.org/multipage/urls-and-fetching.html), aber manchmal nicht. HTML-Spezifikationen versuchen dies so benutzerfreundlich wie möglich zu gestalten, aber aus verschiedenen Gründen (meist historisch bedingt) verhalten sich einige Attribute seltsam (`select.size` zum Beispiel) und Sie sollten die Spezifikationen lesen, um zu verstehen, wie genau sie sich verhalten.
+IDL-Attribute können [andere Typen widerspiegeln](https://html.spec.whatwg.org/multipage/urls-and-fetching.html) wie vorzeichenlose längere Zahlen, URLs, Booleans usw. Leider gibt es keine klaren Regeln und die Art und Weise, wie IDL-Attribute in Verbindung mit ihren entsprechenden Inhaltsattributen sich verhalten, hängt vom Attribut ab. Meistens wird es [den im Standard festgelegten Regeln](https://html.spec.whatwg.org/multipage/urls-and-fetching.html) folgen, aber manchmal tut es das nicht. Die HTML-Spezifikationen versuchen, dies so benutzerfreundlich wie möglich zu machen, aber aus verschiedenen Gründen (meist historische) verhalten sich einige Attribute merkwürdig (`select.size`, zum Beispiel) und Sie sollten die Spezifikationen lesen, um zu verstehen, wie sie sich genau verhalten.
 
 ## Boolesche Attribute
 
-Einige Inhaltsattribute (z. B. `required`, `readonly`, `disabled`) werden [boolesche Attribute](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) genannt. Wenn ein boolesches Attribut vorhanden ist, ist sein Wert **true** (wahr), und wenn es fehlt, ist sein Wert **false** (falsch).
+Einige Inhaltsattribute (z.B. `required`, `readonly`, `disabled`) werden [boolesche Attribute](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) genannt. Wenn ein boolesches Attribut vorhanden ist, ist sein Wert **true**, und wenn es fehlt, ist sein Wert **false**.
 
-HTML definiert Einschränkungen für die zulässigen Werte von booleschen Attributen: Wenn das Attribut vorhanden ist, muss sein Wert entweder der leere String sein (gleichwertig dazu kann das Attribut unvergebenen Wert haben) oder ein Wert, der eine ASCII-fallunsensitive Übereinstimmung mit dem kanonischen Namen des Attributs ist, ohne führende oder nachfolgende Leerzeichen. Die folgenden Beispiele sind gültige Möglichkeiten, ein boolesches Attribut auszuzeichnen:
+HTML definiert Einschränkungen für die erlaubten Werte von booleschen Attributen: Wenn das Attribut vorhanden ist, muss sein Wert entweder der leere String sein (äquivalent kann das Attribut einen nicht zugewiesenen Wert haben) oder ein Wert, der in einer ASCII-Groß-/Kleinschreibung auf den kanonischen Namen des Attributs passt, ohne führende oder nachfolgende Leerzeichen. Die folgenden Beispiele sind gültige Arten, ein boolesches Attribut zu markieren:
 
 ```html-nolint
 <div itemscope>This is valid HTML but invalid XML.</div>
@@ -1419,16 +1409,16 @@ HTML definiert Einschränkungen für die zulässigen Werte von booleschen Attrib
 </div>
 ```
 
-Zur Klarstellung: Die Werte `"true"` und `"false"` sind bei booleschen Attributen nicht erlaubt. Um einen falschen Wert darzustellen, muss das Attribut vollständig weggelassen werden. Diese Einschränkung klärt einige häufige Missverständnisse: Mit `checked="false"` zum Beispiel würde das `checked`-Attribut des Elements als **true** interpretiert, weil das Attribut vorhanden ist.
+Um es klarzustellen, die Werte `"true"` und `"false"` sind bei booleschen Attributen nicht erlaubt. Um einen false-Wert darzustellen, muss das Attribut ganz weggelassen werden. Diese Einschränkung beseitigt einige häufige Missverständnisse: Mit `checked="false"` beispielsweise würde das `checked`-Attribut des Elements als **true** interpretiert, weil das Attribut vorhanden ist.
 
-## Event-Handler-Attribute
+## Ereignis-Handler-Attribute
 
 > [!WARNING]
-> Die Verwendung von Event-Handler-Inhaltsattributen wird nicht empfohlen. Die Mischung von HTML und JavaScript führt oft zu unwartbarem Code, und die Ausführung von Event-Handler-Attributen kann auch durch Content-Sicherheitsrichtlinien blockiert werden.
+> Die Verwendung von Ereignis-Handler-Inhaltsattributen wird nicht empfohlen. Die Mischung von HTML und JavaScript führt oft zu unwartbarem Code, und die Ausführung von Ereignis-Handler-Attributen kann auch durch Inhaltssicherheitsrichtlinien blockiert werden.
 
-Zusätzlich zu den in der obigen Tabelle aufgeführten Attributen können globale [Event-Handler](/de/docs/Web/Events/Event_handlers#using_onevent_properties) — wie [`onclick`](/de/docs/Web/API/Element/click_event) — auch als [Inhaltsattribute](#content-_versus_idl-attribute) auf allen Elementen angegeben werden.
+Zusätzlich zu den oben aufgeführten Attributen können globale [Ereignis-Handler](/de/docs/Web/Events/Event_handlers#using_onevent_properties) — wie [`onclick`](/de/docs/Web/API/Element/click_event) — auch als [Inhaltsattribute](#inhalt_versus_idl-attribute) auf allen Elementen spezifiziert werden.
 
-Alle Event-Handler-Attribute akzeptieren einen String. Der String wird verwendet, um eine [JavaScript-Funktion](/de/docs/Web/JavaScript/Reference/Functions) wie `function name(/*args*/) {body}` zu synthetisieren, wobei `name` der Name des Attributs und `body` der Wert des Attributs ist. Der Handler erhält dieselben Parameter wie sein JavaScript-Event-Handler-Gegenstück — die meisten Handler erhalten nur einen `event`-Parameter, während `onerror` fünf erhält: `event`, `source`, `lineno`, `colno`, `error`. Das bedeutet, dass Sie im Allgemeinen innerhalb des Attributs die `event`-Variable verwenden können.
+Alle Ereignis-Handler-Attribute akzeptieren einen String. Der String wird zur Synthese einer [JavaScript-Funktion](/de/docs/Web/JavaScript/Reference/Functions) wie `function name(/*args*/) {body}` verwendet, wobei `name` der Name des Attributs und `body` der Wert des Attributs ist. Der Handler erhält die gleichen Parameter wie sein JavaScript-Ereignis-Handler-Gegenstück — die meisten Handler erhalten nur einen `event`-Parameter, während `onerror` fünf erhält: `event`, `source`, `lineno`, `colno`, `error`. Das bedeutet, dass Sie im Allgemeinen die `event`-Variable innerhalb des Attributs verwenden können.
 
 ```html
 <div onclick="console.log(event)">Click me!</div>

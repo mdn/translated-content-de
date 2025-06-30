@@ -2,12 +2,12 @@
 title: <line-style>
 slug: Web/CSS/line-style
 l10n:
-  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
+  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
 ---
 
 {{CSSRef}}
 
-Der **`<line-style>`** {{Glossary("enumerated", "enumerierte")}} Wertetyp repräsentiert Schlüsselwortwerte, die den Stil einer Linie oder das Fehlen einer Linie definieren. Die `<line-style>` Schlüsselwortwerte werden in den folgenden Lang- und Kurzformen der [border](/de/docs/Web/CSS/CSS_backgrounds_and_borders) und [column](/de/docs/Web/CSS/CSS_multicol_layout) Eigenschaften verwendet:
+Der **`<line-style>`** {{Glossary("enumerated", "enumerierte")}} Werttyp repräsentiert Schlüsselwortwerte, die den Stil einer Linie oder das Fehlen einer Linie definieren. Die `<line-style>` Schlüsselwortwerte werden in den folgenden Lang- und Kurzform-[border](/de/docs/Web/CSS/CSS_backgrounds_and_borders) und [column](/de/docs/Web/CSS/CSS_multicol_layout) Eigenschaften verwendet:
 
 - {{cssxref("border")}}, {{cssxref("border-style")}}
 - {{cssxref("border-block")}}, {{cssxref("border-block-style")}}
@@ -24,49 +24,49 @@ Der **`<line-style>`** {{Glossary("enumerated", "enumerierte")}} Wertetyp reprä
 
 ## Syntax
 
-```css
-<line-style> = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset
-```
-
 ### Werte
 
-Der enumerierte Typ `<line-style>` wird mit einem der unten aufgeführten Werte spezifiziert:
+Der `<line-style>` enumerierte Typ wird mit einem der unten aufgeführten Werte angegeben:
 
 - `none`
-  - : Zeigt keine Linie an. Der berechnete Wert der Linienbreite ist `0`, selbst wenn ein Breitenwert angegeben ist. Im Fall von Tabellenzellen und Rand-Kollaps hat der `none` Wert die _niedrigste_ Priorität. Wenn ein anderer widersprüchlicher Rahmen gesetzt ist, wird dieser angezeigt. Der `none` Wert ist ähnlich wie `hidden`.
+  - : Zeigt keine Linie an. Der berechnete Wert der Linienbreite ist `0`, auch wenn ein Breitenwert angegeben ist. Im Fall von Tabellenzellen und Border-Collapsing hat der Wert `none` die _niedrigste_ Priorität. Wenn ein anderer im Konflikt stehender Rand gesetzt ist, wird er angezeigt. Der Wert `none` ist ähnlich wie `hidden`.
 - `hidden`
-  - : Zeigt keine Linie an. Die berechnete Breite der Linie ist `0`, selbst wenn ein Breitenwert angegeben ist. Im Fall von Tabellenzellen und Rand-Kollaps hat der `hidden` Wert die _höchste_ Priorität. Wenn ein anderer widersprüchlicher Rahmen gesetzt ist, wird dieser nicht angezeigt. Der `hidden` Wert ist ähnlich wie `none`, aber `hidden` ist kein gültiger Wert für Umrissstile.
+  - : Zeigt keine Linie an. Die berechnete Breite der Linie ist `0`, auch wenn ein Breitenwert angegeben ist. Bei Tabellenzellen und Border-Collapsing hat der Wert `hidden` die _höchste_ Priorität. Wenn ein anderer im Konflikt stehender Rand gesetzt ist, wird dieser nicht angezeigt. Der Wert `hidden` ist ähnlich wie `none`, aber `hidden` ist kein gültiger Wert für Outline-Stile.
 - `dotted`
-  - : Zeigt eine Serie von runden Punkten an. Der Radius der Punkte ist die Hälfte des berechneten Wertes der Linienbreite. Der Abstand der Punkte ist nicht durch die Spezifikation definiert und implementation-spezifisch.
+  - : Zeigt eine Aneinanderreihung von runden Punkten. Der Radius der Punkte ist die Hälfte des berechneten Werts der Linienbreite. Der Abstand der Punkte ist nicht von der Spezifikation definiert und implementierungsspezifisch.
 - `dashed`
-  - : Zeigt eine Serie von kurzen, quadratisch beendeten Strichen oder Linienelementen an. Die genaue Größe und Länge der Elemente ist nicht durch die Spezifikation definiert und implementation-spezifisch.
+  - : Zeigt eine Reihe von kurzen, quadratisch endenden Strichen oder Liniensegmenten. Die genaue Größe und Länge der Segmente ist nicht von der Spezifikation definiert und implementierungsspezifisch.
 - `solid`
-  - : Zeigt eine einzige, gerade, durchgehende Linie an.
+  - : Zeigt eine einzelne, gerade, durchgehende Linie.
 - `double`
-  - : Zeigt zwei gerade Linien mit etwas Abstand dazwischen an. Die Länge der Linien summiert sich auf die durch die Linienbreite definierte Pixelgröße.
+  - : Zeigt zwei gerade Linien mit etwas Abstand dazwischen. Die Länge der Linien summiert sich auf die durch die Linienbreite definierten Pixelgröße.
 - `groove`
-  - : Zeigt einen Rahmen mit einem geschnitzten Aussehen an. Dieser Wert ist das Gegenteil von `ridge`.
+  - : Zeigt einen Rand mit einer eingekerbten Erscheinung. Dieser Wert ist das Gegenteil von `ridge`.
 - `ridge`
-  - : Zeigt einen Rahmen mit einem erhabenen Aussehen an. Dieser Wert ist das Gegenteil von `groove`.
+  - : Zeigt einen Rand mit einer hervorgehobenen Erscheinung. Dieser Wert ist das Gegenteil von `groove`.
 - `inset`
-  - : Zeigt einen Rahmen an, der das Element eingebettet erscheinen lässt. Dieser Wert ist das Gegenteil von `outset`. Wenn auf einen Tabellenzellenrahmen angewendet und {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `groove`.
+  - : Zeigt einen Rand, der das Element eingebettet erscheinen lässt. Dieser Wert ist das Gegenteil von `outset`. Wenn er auf eine Tabellenzellenbegrenzung angewendet wird und {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `groove`.
 - `outset`
-  - : Zeigt einen Rahmen an, der das Element erhaben erscheinen lässt. Dieser Wert ist das Gegenteil von `inset`. Wenn auf eine Tabellenzelle angewendet und {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `ridge`.
+  - : Zeigt einen Rand, der das Element hervorgehoben erscheinen lässt. Dieser Wert ist das Gegenteil von `inset`. Wenn er auf eine Tabellenzelle angewendet wird, bei der {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `ridge`.
 
 > [!NOTE]
-> Wenn `<outline-style>` als Wertetyp für die Eigenschaften {{cssxref("outline")}} und {{cssxref("outline-style")}} verwendet wird, ist es ähnlich wie `<line-style>`, unterstützt jedoch nicht `hidden` und enthält den `auto` Wert. Wenn `auto` gesetzt ist, wird der vom User-Agent definierte `<line-style>` Wert verwendet.
+> Wenn `<outline-style>` als Wertetyp für die Eigenschaften {{cssxref("outline")}} und {{cssxref("outline-style")}} verwendet wird, ist er ähnlich wie `<line-style>`, unterstützt jedoch `hidden` nicht und enthält den Wert `auto`. Wenn `auto` gesetzt ist, wird der durch den Benutzeragenten definierte `<line-style>` Wert verwendet.
+
+## Formale Syntax
+
+{{CSSSyntaxRaw(`<line-style> = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset`)}}
 
 ## Beispiele
 
-Das erste Beispiel zeigt alle `<line-style>` Schlüsselwortwerte. Das zweite Beispiel verdeutlicht, wie einige Linienstilfarben auf unerwartete Weise angezeigt werden können.
+Das erste Beispiel demonstriert alle `<line-style>` Schlüsselwortwerte. Das zweite Beispiel demonstriert, wie einige Linienstilfarben auf unerwartete Weise angezeigt werden können.
 
-### Linienstile definieren
+### Definieren von Linienstilen
 
-Dieses Beispiel zeigt alle `<line-style>` Werte als Werte für die CSS {{cssxref("border-style")}} und {{cssxref("column-rule-style")}} Eigenschaften.
+Dieses Beispiel zeigt alle `<line-style>` Werte als Werte für die CSS-Eigenschaften {{cssxref("border-style")}} und {{cssxref("column-rule-style")}}.
 
 #### HTML
 
-Dieses Beispiel verwendet mehrere {{HTMLElement("div")}} Elemente, von denen jedes eine Klasse repräsentiert, die den `<line-style>` Wert darstellt, der demonstriert wird.
+Dieses Beispiel verwendet mehrere {{HTMLElement("div")}} Elemente, von denen jedes eine Klasse hat, die den dargestellten `<line-style>` Wert repräsentiert.
 
 ```html
 <div class="{line-style}">
@@ -120,7 +120,7 @@ Dieses Beispiel verwendet mehrere {{HTMLElement("div")}} Elemente, von denen jed
 
 #### CSS
 
-Im CSS dieses Beispiels wird für alle `<p>` Elemente die Rand- und Spaltenregelbreite auf `7px` und der Stilwert auf `double` gesetzt. Für jeden Absatz wird der `double` Wert dann überschrieben, indem ein anderer `<line-style>` Wert für die `border-style` und `column-rule-style` Eigenschaften angegeben wird.
+Im CSS für dieses Beispiel wird für alle `<p>` Elemente die Breite des Borders und der column-rule auf `7px` und der Stilwert auf `double` festgelegt. Bei jedem Absatz wird der Wert `double` dann überschrieben, indem ein anderer `<line-style>` Wert für die Eigenschaften `border-style` und `column-rule-style` angegeben wird.
 
 ```css hidden
 div {
@@ -203,13 +203,13 @@ p + p {
 
 Beachten Sie, dass der schwarze Rand nicht immer schwarz ist.
 
-### Linienstile und Farben definieren
+### Definieren von Linienstilen und Farben
 
-Dieses Beispiel zeigt Linienstil- und Farbwahl. Bei einigen `<line-style>` Schlüsselwortwerten ist die Farbe der Linie möglicherweise nicht das, was Sie erwarten. Um den erforderlichen „3D“-Effekt von `groove`, `ridge`, `inset` und `outset` Stilen zu erzeugen, verwenden die User Agents bei der Anzeige dieser Werte in Schwarz oder Weiß andere Farbberechnungen als bei allen anderen Farblinien-Kombinationen.
+Dieses Beispiel zeigt die Wahl von Linienstil und Farbe. Bei einigen `<line-style>` Schlüsselwortwerten ist die Farbe der Linie möglicherweise nicht wie erwartet. Um den gewünschten "3D"-Effekt der Stile `groove`, `ridge`, `inset` und `outset` zu erzeugen, verwenden Benutzeragenten bei der Anzeige dieser Werte in Schwarz oder Weiß verschiedene Farbberechnungen als bei allen anderen Farbkombinationen.
 
 #### HTML
 
-Dieses Beispiel verwendet mehrere {{HTMLElement("div")}} Elemente, von denen jedes eine andere `border-color` als inline [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) gesetzt hat.
+Dieses Beispiel verwendet mehrere {{HTMLElement("div")}} Elemente, von denen jedes eine andere `border-color` als Inline-[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) hat.
 
 ```html
 <div style="border-color: #000000"></div>
@@ -245,7 +245,7 @@ Dieses Beispiel verwendet mehrere {{HTMLElement("div")}} Elemente, von denen jed
 
 #### CSS
 
-Die vier Seiten jedes `<div>` haben einen anderen `<line-style>` Wert, und jedes Listenelement hat einen anderen {{cssxref("color_value", "&lt;color>")}} Wert. Wir verwenden [generierten Inhalt](/de/docs/Web/CSS/content), um den CSS-Inhalt inline anzuzeigen.
+Die vier Seiten jedes `<div>` haben einen anderen `<line-style>` Wert, und jedes Listenelement hat einen anderen {{cssxref("color_value", "&lt;color>")}} Wert. Wir verwenden [generierten Inhalt](/de/docs/Web/CSS/content), um den inline deklarierten CSS anzuzeigen.
 
 ```css hidden live-sample___line_style_colors
 section {
@@ -272,7 +272,7 @@ div::before {
 
 {{EmbedLiveSample("line_style_colors", "500", "400")}}
 
-Beachten Sie, dass die fast schwarze Farbe von `#000001` möglicherweise von dem tatsächlichen Schwarz abweicht und der Kontrast zwischen den dunklen und hellen Kanten deutlicher ist, wenn hellere Farben verwendet werden.
+Beachten Sie, dass die fast schwarze Farbe von `#000001` sich von dem tatsächlichen Schwarz unterscheiden kann und der Kontrast zwischen den dunklen und hellen Kanten deutlicher ist, wenn hellere Farben verwendet werden.
 
 ## Spezifikationen
 
@@ -284,6 +284,6 @@ Beachten Sie, dass die fast schwarze Farbe von `#000001` möglicherweise von dem
 
 ## Siehe auch
 
-- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
 - [CSS grundlegende Benutzeroberfläche](/de/docs/Web/CSS/CSS_basic_user_interface) Modul
 - [CSS Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) Modul

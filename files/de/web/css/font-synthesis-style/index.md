@@ -2,14 +2,14 @@
 title: font-synthesis-style
 slug: Web/CSS/font-synthesis-style
 l10n:
-  sourceCommit: 632d95c7aea678951a5776546160232b9ce2f764
+  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
 ---
 
 {{CSSRef}}
 
-Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, anzugeben, ob der Browser die oblique Schriftart synthetisieren darf, wenn sie in einer Schriftfamilie fehlt.
+Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen anzugeben, ob der Browser einen obliquen Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
 
-Es ist oft praktisch, die Abkürzungseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte für die Schrifterstellung zu steuern.
+Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftschnitt-Synthese zu steuern.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ font-synthesis-style: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass die fehlende oblique Schriftart bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass der fehlende oblique Schriftschnitt vom Browser bei Bedarf synthetisiert werden darf.
 - `none`
-  - : Gibt an, dass die Synthetisierung der fehlenden oblique Schriftart durch den Browser _nicht_ erlaubt ist.
+  - : Gibt an, dass die Synthese des fehlenden obliquen Schriftschnitts durch den Browser _nicht_ erlaubt ist.
 - `oblique-only`
-  - : Entspricht `auto`, jedoch findet keine Schrifterstellung statt, wenn `font-style: italic` gesetzt ist.
+  - : Dasselbe wie `auto`, aber keine Schriftsynthese tritt auf, wenn `font-style: italic` gesetzt ist.
 
 ## Formale Definition
 
@@ -46,9 +46,9 @@ font-synthesis-style: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthetisierung der obligen Schriftart
+### Deaktivieren der Synthese des obliquen Schriftschnitts
 
-Dieses Beispiel zeigt, wie die Synthetisierung der obligen Schriftart durch den Browser in der `Montserrat`-Schrift deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des obliquen Schriftschnitts durch den Browser in der `Montserrat`-Schrift deaktiviert wird.
 
 #### HTML
 
@@ -84,7 +84,7 @@ Dieses Beispiel zeigt, wie die Synthetisierung der obligen Schriftart durch den 
 
 ### Vergleich der font-synthesis-style Werte
 
-Dieses Beispiel vergleicht alle `font-synthesis-style` Werte mit kursiv und oblique gestylten Texten.
+Dieses Beispiel vergleicht alle `font-synthesis-style`-Werte mit kursiven und oblique formatierten Texten.
 
 #### HTML
 
@@ -95,8 +95,8 @@ Dieses Beispiel vergleicht alle `font-synthesis-style` Werte mit kursiv und obli
   <p class="italic">This text is set to <code>italic</code></p>
 </div>
 
-<div class="fss-oblique">
-  <h2>font-synthesis-style: oblique</h2>
+<div class="fss-auto">
+  <h2>font-synthesis-style: auto</h2>
   <p class="oblique">This text is set to <code>oblique</code></p>
   <p class="italic">This text is set to <code>italic</code></p>
 </div>
@@ -135,8 +135,8 @@ p {
   font-synthesis-style: none;
 }
 
-.fss-oblique {
-  font-synthesis-style: oblique;
+.fss-auto {
+  font-synthesis-style: auto;
 }
 
 .fss-oblique-only {
@@ -180,5 +180,5 @@ p {
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Abkürzung, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
+- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}

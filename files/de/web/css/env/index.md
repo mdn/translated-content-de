@@ -2,20 +2,20 @@
 title: env()
 slug: Web/CSS/env
 l10n:
-  sourceCommit: 0aacec9ffdd36089909527e1668967ca91363ab1
+  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
 ---
 
 {{CSSRef}}
 
-Die **`env()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) kann verwendet werden, um den Wert einer vom User-Agent definierten Umgebungsvariable in Ihr CSS einzufügen, ähnlich wie die Funktion {{cssxref("var", "var()")}} und die [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*). Der Unterschied besteht darin, dass Umgebungsvariablen vom User-Agent und nicht vom Autor definiert und global auf ein Dokument anwendbar sind, während benutzerdefinierte Eigenschaften auf das Element beschränkt sind, auf dem sie deklariert werden.
+Die **`env()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) kann verwendet werden, um den Wert einer vom Benutzeragenten definierten Umgebungsvariable in Ihr CSS einzufügen, ähnlich der {{cssxref("var", "var()")}} Funktion und [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*). Der Unterschied besteht darin, dass Umgebungsvariablen vom Benutzeragenten und nicht vom Autor definiert sind und global für ein Dokument gelten, während benutzerdefinierte Eigenschaften auf das Element oder die Elemente beschränkt sind, auf denen sie deklariert werden.
 
-Darüber hinaus, im Gegensatz zu benutzerdefinierten Eigenschaften, die außerhalb von Deklarationen nicht verwendet werden können, kann die `env()`-Funktion anstelle eines beliebigen Teils eines Eigenschaftswerts oder eines Deskriptors (z. B. in [Media-Query-Regeln](/de/docs/Web/CSS/@media)) verwendet werden. Während sich die Spezifikation weiterentwickelt, kann sie auch an anderen Stellen wie in Selektoren verwendet werden.
+Darüber hinaus kann die `env()` Funktion im Gegensatz zu benutzerdefinierten Eigenschaften, die außerhalb von Deklarationen nicht verwendet werden können, anstelle eines beliebigen Teils eines Eigenschaftswerts oder eines Deskriptors (z. B. in [Media-Query-Regeln](/de/docs/Web/CSS/@media)) verwendet werden. Mit der Weiterentwicklung der Spezifikation könnte sie auch an anderen Stellen wie Selektoren verwendet werden.
 
-Ursprünglich vom iOS-Browser bereitgestellt, um Entwicklern die Platzierung ihrer Inhalte in einem sicheren Bereich des Viewports zu ermöglichen, können die im Spezifikationsdokument festgelegten `safe-area-inset-*` Werte verwendet werden, um sicherzustellen, dass Inhalte selbst für Benutzer von nicht-rechteckigen Displays sichtbar sind.
+Ursprünglich vom iOS-Browser bereitgestellt, um Entwicklern zu ermöglichen, ihren Inhalt in einem sicheren Bereich des Ansichtsfensters zu platzieren, können die im Spezifikationsdokument definierten `safe-area-inset-*` Werte verwendet werden, um sicherzustellen, dass der Inhalt auch für Benutzer mit nicht rechteckigen Displays sichtbar ist.
 
-Ein häufiges Problem, das durch `env()` gelöst wird, ist, dass Gerätebenachrichtigungen Teile der Benutzeroberfläche einer App verdecken. Durch die Platzierung von festen Elementen mit `env()` können Sie sicherstellen, dass diese in einem sicheren Bereich des Viewports angezeigt werden.
+Ein häufiges Problem, das durch `env()` gelöst wird, ist, dass Gerätebenachrichtigungen einen Teil der Benutzeroberfläche der App überdecken. Indem Sie feste Elemente mit `env()` positionieren, können Sie sicherstellen, dass sie in einem sicheren Bereich des Ansichtsfensters angezeigt werden.
 
-Ein weiterer Anwendungsfall für `env()`-Variablen ist für Desktop [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs), die das Feature `Window Controls Overlay` nutzen, um die vollständige Fensterfläche der Anwendung auszunutzen. Mithilfe der `titlebar-area-*` Werte können Elemente dort positioniert werden, wo sich die Titelleiste befunden hätte, um sicherzustellen, dass der Inhalt nicht mit den Fenstersteuerungsknöpfen überlappt.
+Ein weiterer Anwendungsfall für `env()` Variablen sind Desktop [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs), die das Fenstersteuerungs-Overlay-Feature nutzen, um die gesamte Anwendungsfensteroberfläche auszunutzen. Mithilfe der `titlebar-area-*` Werte können sie Elemente dort positionieren, wo die Titelleiste gewesen wäre, und sicherstellen, dass der Inhalt nicht mit den Fenstersteuerungsschaltflächen überlappt.
 
 ## Syntax
 
@@ -36,16 +36,16 @@ env(safe-area-inset-left, 1.4rem);
 ### Werte
 
 - `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom`, `safe-area-inset-left`
-  - : Die `safe-area-inset-*` Variablen sind vier Umgebungsvariablen, die ein Rechteck durch seine oberen, rechten, unteren und linken Abstände vom Rand des Viewports definieren, die sicher für Inhalte genutzt werden können, ohne Gefahr zu laufen, durch die Form eines nicht-rechteckigen Displays abgeschnitten zu werden. Bei rechteckigen Viewports, wie bei einem durchschnittlichen Laptop-Monitor, ist ihr Wert gleich null. Bei nicht-rechteckigen Displays – wie einem runden Uhrendisplay – bilden die vom User-Agent gesetzten vier Werte ein Rechteck, sodass alle Inhalte innerhalb des Rechtecks sichtbar sind.
+  - : Die `safe-area-inset-*` Variablen sind vier Umgebungsvariablen, die ein Rechteck durch ihre oberen, rechten, unteren und linken Einzüge vom Rand des Ansichtsfensters definieren, in das der Inhalt eingefügt werden kann, ohne dass er durch die Form eines nicht rechteckigen Displays abgeschnitten wird. Für rechteckige Ansichtsfenster, wie etwa ein durchschnittlicher Laptop-Bildschirm, ist ihr Wert gleich null. Bei nicht rechteckigen Displays - wie etwa einem runden Zifferblatt - bilden die vier vom Benutzeragenten festgelegten Werte ein Rechteck, sodass der gesamte Inhalt innerhalb des Rechtecks sichtbar ist.
 - `safe-area-max-inset-top`, `safe-area-max-inset-right`, `safe-area-max-inset-bottom`, `safe-area-max-inset-left`
-  - : Die maximalen Einfügungsumgebungsvariablen des sicheren Bereichs repräsentieren den statischen Maximalwert ihres dynamischen Gegenstücks `safe-area-inset-*`.
+  - : Die maximalen Einzüge der sicheren Zone-Umgebungsvariablen stellen den statischen Maximalwert ihrer dynamischen `safe-area-inset-*` Variablenentsprechung dar.
 - `titlebar-area-x`, `titlebar-area-y`, `titlebar-area-width`, `titlebar-area-height`
-  - : Die `titlebar-area-*` Variablen sind nützlich für PWAs, die auf Desktop-Geräten installiert sind. Wenn eine Desktop-PWA den Wert `window-controls-overlay` im [display_override](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) verwendet, können die `titlebar-area-*` Variablen genutzt werden, um sicherzustellen, dass Inhalte nicht mit den Fenstersteuerungsknöpfen (d.h. Minimieren, Maximieren und Schließen) überlappen.
+  - : Die `titlebar-area-*` Variablen sind nützlich für PWAs, die auf Desktop-Geräten installiert sind. Wenn eine Desktop-PWA den `window-controls-overlay` [display_override](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) Wert verwendet, können sie die `titlebar-area-*` Variablen nutzen, um sicherzustellen, dass der Inhalt nicht mit den Fenstersteuerungsschaltflächen überlappt (d.h. Minimieren, Maximieren und Schließen).
 - `keyboard-inset-top`, `keyboard-inset-right`, `keyboard-inset-bottom`, `keyboard-inset-left`, `keyboard-inset-width`, `keyboard-inset-height`
-  - : Die `keyboard-inset-*` Variablen geben Informationen über das Erscheinen der Bildschirmtastatur an. Sie definieren ein Rechteck durch seine oberen, rechten, unteren und linken Abstände vom Rand des Viewports (die Breiten- und Höhenabstände werden aus den anderen Einfügungen berechnet). Um mehr zu erfahren, siehe die [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API).
+  - : Die `keyboard-inset-*` Variablen liefern Informationen über das Erscheinen der Bildschirmtastatur. Sie definieren ein Rechteck durch seine oberen, rechten, unteren und linken Einzüge vom Rand des Ansichtsfensters (die Breiten- und Höhenansätze werden aus den anderen Einzügen berechnet). Um mehr zu erfahren, siehe die [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API).
 
 > [!NOTE]
-> Im Gegensatz zu anderen CSS-Eigenschaften sind vom User-Agent definierte Eigenschaftsnamen Groß- und Kleinschreibung empfindlich.
+> Im Gegensatz zu anderen CSS-Eigenschaften sind die Eigenschaftsnamen, die vom Benutzeragenten definiert werden, case-sensitive.
 
 ## Formale Syntax
 
@@ -53,7 +53,7 @@ env(safe-area-inset-left, 1.4rem);
 
 ## Verwendung
 
-Um dem Browser mitzuteilen, den gesamten verfügbaren Raum auf dem Bildschirm zu nutzen und uns so die Verwendung von `env()`-Variablen zu ermöglichen, müssen wir einen neuen Viewport-Meta-Wert hinzufügen:
+Um dem Browser mitzuteilen, dass der gesamte verfügbare Platz auf dem Bildschirm genutzt werden soll, und uns so die Verwendung der `env()` Variablen ermöglicht, müssen wir einen neuen Meta-Wert für das Ansichtsfenster hinzufügen:
 
 ```html
 <meta name="viewport" content="viewport-fit=cover" />
@@ -70,9 +70,9 @@ body {
 
 ## Beispiele
 
-### Verwendung von env() um sicherzustellen, dass Buttons nicht von der Benutzeroberfläche des Geräts verdeckt werden
+### Verwendung von env(), um sicherzustellen, dass Schaltflächen nicht von der Geräte-UI verdeckt werden
 
-Im folgenden Beispiel wird `env()` verwendet, um sicherzustellen, dass feste App-Toolbar-Buttons nicht von Gerätbehinweisungen am unteren Bildschirmrand verdeckt werden. Auf dem Desktop beträgt `safe-area-inset-bottom` `0`. Auf Geräten jedoch, die Benachrichtigungen am unteren Bildschirmrand anzeigen, wie z. B. iOS, enthält es einen Wert, der Platz für die Anzeige der Benachrichtigung lässt. Dieser kann dann in den Wert für {{cssxref("padding-bottom")}} eingefügt werden, um eine Lücke zu erzeugen, die auf diesem Gerät natürlich wirkt.
+Im folgenden Beispiel wird `env()` verwendet, um sicherzustellen, dass feste App-Toolbar-Schaltflächen nicht von Gerätebenachrichtigungen verdeckt werden, die unten auf dem Bildschirm erscheinen. Auf dem Desktop ist `safe-area-inset-bottom` `0`. Auf Geräten, die Benachrichtigungen am unteren Bildschirmrand anzeigen, wie iOS, enthält es jedoch einen Wert, der Platz für die Anzeige der Benachrichtigung lässt. Dieser Wert kann dann in dem Wert für {{cssxref("padding-bottom")}} verwendet werden, um einen Abstand zu schaffen, der auf diesem Gerät natürlich wirkt.
 
 ```html
 <main>Main content of app here</main>
@@ -122,9 +122,9 @@ button {
 
 {{EmbedLiveSample("Using_env_to_ensure_buttons_are_not_obscured_by_device_UI", "200px", "500px")}}
 
-### Verwendung des Fallback-Wertes
+### Verwendung des Fallback-Werts
 
-Das folgende Beispiel nutzt den optionalen zweiten Parameter von `env()`, der es Ihnen ermöglicht, einen Fallback-Wert bereitzustellen, falls die Umgebungsvariable nicht verfügbar ist.
+Das folgende Beispiel nutzt den optionalen zweiten Parameter von `env()`, der es Ihnen ermöglicht, einen Fallback-Wert anzugeben, falls die Umgebungsvariable nicht verfügbar ist.
 
 ```html
 <p>
@@ -163,22 +163,22 @@ padding: env(x, 50px 20px);
 padding: env(x, 50px, 20px);
 ```
 
-Die Syntax des Fallbacks erlaubt, genauso wie die der benutzerdefinierten Eigenschaften, Kommata. Wenn der Eigenschaftswert jedoch keine Kommata unterstützt, ist der Wert ungültig.
+Die Syntax des Fallbacks erlaubt, ähnlich wie bei benutzerdefinierten Eigenschaften, Kommata. Aber wenn der Eigenschaftswert keine Kommata unterstützt, ist der Wert nicht gültig.
 
 > [!NOTE]
-> Benutzeragenteneigenschaften werden nicht durch die [all](/de/docs/Web/CSS/all) Eigenschaft zurückgesetzt.
+> Benutzeragenteigenschaften werden nicht durch die [all](/de/docs/Web/CSS/all) Eigenschaft zurückgesetzt.
 
-### Verwendung von env() um sicherzustellen, dass Inhalte nicht von Fenstersteuerungsknöpfen in Desktop-PWAs verdeckt werden
+### Verwendung von env(), um sicherzustellen, dass der Inhalt nicht von Fenstersteuerungsschaltflächen in Desktop-PWAs verdeckt wird
 
-Im folgenden Beispiel stellt `env()` sicher, dass Inhalte, die in einer Desktop Progressive Web App angezeigt werden, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwendet, nicht von den Fenstersteuerungsknöpfen des Betriebssystems verdeckt werden. Die `titlebar-area-*` Werte definieren ein Rechteck, in dem die Titelleiste normalerweise angezeigt worden wäre. Auf Geräten, die das Fenstersteuerungs-Overlay-Feature nicht unterstützen, wie z. B. Mobilgeräte, werden die Fallback-Werte verwendet.
+Im folgenden Beispiel stellt `env()` sicher, dass der in einer Desktop Progressive Web App angezeigte Inhalt, der die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwendet, nicht von den Fenstersteuerungsschaltflächen des Betriebssystems verdeckt wird. Die `titlebar-area-*` Werte definieren ein Rechteck, in dem die Titelleiste normalerweise angezeigt worden wäre. Auf Geräten, die das Fenstersteuerungsoverlay-Feature nicht unterstützen, wie mobile Geräte, werden die Fallback-Werte verwendet.
 
-So sieht eine auf einem Desktopgerät installierte PWA normalerweise aus:
+So sieht normalerweise eine auf einem Desktop-Gerät installierte PWA aus:
 
-![Illustration, wie eine auf dem Desktop installierte PWA normalerweise aussieht, mit Fenstersteuerungsknöpfen, einer Titelleiste und Webinhalten darunter](desktop-pwa-window.png)
+![Illustration, wie eine auf dem Desktop installierte PWA normalerweise aussieht, mit Fenstersteuerungsschaltflächen, einer Titelleiste und Web-Inhalt darunter](desktop-pwa-window.png)
 
-Mit dem Fenstersteuerungs-Overlay-Feature decken die Webinhalte die gesamte Fensterfläche der App ab, während die Fenstersteuerungs- und PWA-Knöpfe als Overlays angezeigt werden:
+Mit dem Fenstersteuerungsoverlay-Feature deckt der Web-Inhalt die gesamte Anwendungsfensteroberfläche ab, mit den Fenstersteuerungen und PWA-Schaltflächen, die als Overlays angezeigt werden:
 
-![Illustration, wie eine auf dem Desktop installierte PWA mit dem Fenstersteuerungs-Overlay-Feature aussieht, mit Fenstersteuerungsknöpfen, keiner Titelleiste und Webinhalten über das gesamte Fenster spannenden](desktop-pwa-window-wco.png)
+![Illustration, wie eine auf dem Desktop installierte PWA mit dem Fenstersteuerungsoverlay-Feature aussieht, mit Fenstersteuerungsschaltflächen, ohne Titelleiste und Web-Inhalt, der das gesamte Fenster abdeckt](desktop-pwa-window-wco.png)
 
 ```html
 <header>Title of the app here</header>
@@ -200,7 +200,7 @@ main {
 ```
 
 > [!NOTE]
-> Die Verwendung von `position:fixed` sorgt dafür, dass der Header nicht mit dem restlichen Inhalt scrollt, sondern auf Höhe der Fenstersteuerungsknöpfe bleibt, sogar auf Geräten/Browsers die elastisches Überscrollen (auch bekannt als Gummibandeffekt) unterstützen.
+> Die Verwendung von `position:fixed` sorgt dafür, dass der Header nicht mit dem Rest des Inhalts scrollt, sondern mit den Fenstersteuerungsschaltflächen ausgerichtet bleibt, selbst bei Geräten/Browsern, die elastisches Überscrollen (auch als "Rubber Banding" bekannt) unterstützen.
 
 ## Spezifikationen
 
@@ -213,9 +213,9 @@ main {
 ## Siehe auch
 
 - {{CSSxRef("var", "var(…)")}}
-- [CSS Custom Properties für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
-- [Benutzerdefinierte Eigenschaften (`--*`): CSS-Variablen](/de/docs/Web/CSS/--*)
-- [Verwendung von CSS-benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
-- [Passen Sie das Fenstersteuerungs-Overlay der Titelleiste Ihrer PWA an](https://web.dev/articles/window-controls-overlay)
-- [Zeige Inhalte in der Titelleiste an](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay)
-- [Ausbrechen aus dem Kasten](https://alistapart.com/article/breaking-out-of-the-box/)
+- [CSS benutzerdefinierte Eigenschaften für Kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [Benutzerdefinierte Eigenschaften (`--*`): CSS Variablen](/de/docs/Web/CSS/--*)
+- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
+- [Anpassen des Overlays der Fenstersteuerung in der Titelleiste Ihrer PWA](https://web.dev/articles/window-controls-overlay)
+- [Anzeige von Inhalten in der Titelleiste](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/window-controls-overlay)
+- [Ausbrechen aus der Box](https://alistapart.com/article/breaking-out-of-the-box/)

@@ -3,22 +3,22 @@ title: Konfiguration der Referrer-Policy
 short-title: Referrer policy
 slug: Web/Security/Practical_implementation_guides/Referrer_policy
 l10n:
-  sourceCommit: ade8d870ed7e18a71dc51fe25aa13d812fb82558
+  sourceCommit: a33c2c8081a1df867a0a334afc560057b2124bad
 ---
 
-Der [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy)-Header bietet eine fein abgestufte Kontrolle darüber, wie und wann Browser den [`Referer`](/de/docs/Web/HTTP/Reference/Headers/Referer)-Header übertragen.
+Der [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy) Header bietet detaillierte Kontrolle darüber, wie und wann Browser den [`Referer`](/de/docs/Web/HTTP/Reference/Headers/Referer) Header übermitteln.
 
 ## Problem
 
-Wenn ein Benutzer über einen Hyperlink zu einer Seite navigiert oder eine Website eine externe Ressource lädt, informieren Browser die Zielseite über den Ursprung der Anfragen über den HTTP `Referer`-Header. Obwohl dies für verschiedene Zwecke nützlich sein kann, kann es auch ein Risiko für die [Privatsphäre](/de/docs/Web/Privacy) der Nutzer darstellen.
+Wenn ein Nutzer über einen Hyperlink zu einer Website navigiert oder wenn eine Website eine externe Ressource lädt, informieren Browser die Zielseite über die Herkunft der Anfragen über den HTTP `Referer` (sic) Header. Obwohl dies aus verschiedenen Gründen nützlich sein kann, kann es auch ein Risiko für die [Privatsphäre](/de/docs/Web/Privacy) der Nutzer darstellen.
 
-Wenn beispielsweise eine Seite unter `https://example.com/page.html` den folgenden HTML-Code enthält:
+Zum Beispiel, wenn eine Seite unter `https://example.com/page.html` folgendes HTML enthält:
 
 ```html
 <img src="https://not.example.com/image.jpg" />
 ```
 
-Sendet der Browser eine Anfrage wie diese:
+Der Browser sendet eine Anfrage wie diese:
 
 ```http
 GET /image.jpg HTTP/1.1
@@ -26,46 +26,46 @@ Host: not.example.com
 Referer: https://example.com/page.html
 ```
 
-`not.example.com` weiß nun, woher die Anfrage stammt. Selbst diese geringe Menge an Informationen stellt ein Datenschutzrisiko dar.
+`not.example.com` weiß nun, woher die Anfrage kam. Selbst diese kleine Menge an Informationen stellt ein Privatsphäre-Risiko dar.
 
-Andere Fälle könnten dazu führen, dass der Browser URLs, die nur für den internen Gebrauch bestimmt sind, überträgt, die er möglicherweise nicht offenlegen wollte, oder URL-Parameter, die sensible Informationen enthalten.
+Andere Fälle könnten dazu führen, dass der Browser nur intern genutzte URLs übermittelt, die er möglicherweise nicht offenlegen wollte, oder URL-Parameter, die sensible Informationen enthalten.
 
 ## Lösung
 
-Verwenden Sie [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy), um die im `Referer`-Header verfügbaren Informationen zu beschränken oder zu verhindern, dass der `Referer`-Header überhaupt gesendet wird.
+Verwenden Sie [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy), um die im `Referer` Header verfügbaren Informationen zu begrenzen oder um zu verhindern, dass der `Referer` Header überhaupt gesendet wird.
 
-Die nützlichsten Direktiven, die für `Referrer-Policy` verfügbar sind, sind im Folgenden in abnehmender Strenge aufgeführt. Wählen Sie die strengste, die es Ihrer Website noch ermöglicht, ordnungsgemäß zu funktionieren:
+Die nützlichsten für `Referrer-Policy` verfügbaren Direktiven sind nachfolgend in abnehmender Strenge aufgeführt. Wählen Sie die strengste, die die Funktionsfähigkeit Ihrer Website dennoch gewährleistet:
 
-- `no-referrer`: Der `Referer`-Header wird niemals gesendet.
-- `same-origin`: Der `Referer`-Header wird nur bei Anfragen von derselben Quelle gesendet.
-- `strict-origin`: Der `Referer`-Header wird an alle Ursprünge gesendet, enthält jedoch nur die URL ohne Pfad (z. B. `https://example.com/`).
-- `strict-origin-when-cross-origin`: Der vollständige `Referer`-Header wird bei Anfragen von derselben Quelle gesendet und nur die URL ohne Pfad bei Anfragen an andere Ursprung. Dies ist der Standardwert.
+- `no-referrer`: Senden Sie den `Referer` Header niemals.
+- `same-origin`: Senden Sie den `Referer` Header, aber nur bei Anfragen zur gleichen Herkunft.
+- `strict-origin`: Senden Sie den `Referer` Header an alle Ursprünge, aber nur die URL ohne den Pfad (z.B. `https://example.com/`).
+- `strict-origin-when-cross-origin`: Senden Sie den kompletten `Referer` Header bei Anfragen zur gleichen Herkunft und nur die URL ohne den Pfad bei Anfragen zu anderen Ursprüngen. Dies ist der Standardwert.
 
-Obwohl es andere `Referrer-Policy`-Direktiven gibt, schützen sie die Privatsphäre der Nutzer oder beschränken die Offenlegung nicht so effektiv wie die oben aufgeführten Optionen. In den neuesten Versionen von Firefox und Safari verhalten sich „unsichere“ Direktiven (`no-referrer-when-downgrade`, `origin-when-cross-origin` und `unsafe-url`) wie `strict-origin-when-cross-origin`.
+Es gibt zwar andere `Referrer-Policy` Direktiven, jedoch schützen sie die Privatsphäre der Nutzer nicht so effektiv oder begrenzen die Exposition nicht so wirkungsvoll wie die oben aufgeführten Optionen. In neueren Versionen von Firefox und Safari verhalten sich "unsichere" Direktiven (`no-referrer-when-downgrade`, `origin-when-cross-origin` und `unsafe-url`) wie `strict-origin-when-cross-origin`.
 
-Wenn Sie den `Referrer-Policy`-Header nicht verwenden können, können Sie alternativ seitenweite Richtlinien mit einem [`<meta http-equiv="Referrer-Policy" content="…">`](/de/docs/Web/HTML/Reference/Elements/meta#http-equiv)-Element festlegen. Dies sollte das erste {{htmlelement("meta")}}-Element sein, das im Dokumentkopf {{htmlelement("head")}} erscheint. Sie können auch Richtlinien für einzelne Elemente mit dem [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/a#referrerpolicy)-HTML-Attribut und für einzelne [fetch](/de/docs/Web/API/Window/fetch)-Anfragen mit der [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy)-Eigenschaft festlegen.
+Wenn Sie den `Referrer-Policy` Header nicht verwenden können, können Sie alternativ seitenweite Richtlinien mit einem [`<meta http-equiv="Referrer-Policy" content="…">`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) Element festlegen. Dies sollte das erste {{htmlelement("meta")}} Element sein, das im Dokument {{htmlelement("head")}} erscheint. Sie können auch Richtlinien für einzelne Elemente mithilfe des [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/a#referrerpolicy) HTML-Attributs festlegen und für einzelne [fetch](/de/docs/Web/API/Window/fetch) Anfragen die [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy) Eigenschaft verwenden.
 
 ## Beispiele
 
-Auf `example.com`, senden Sie den `Referer`-Header nur beim Laden oder Verlinken zu anderen `example.com`-Ressourcen:
+Auf `example.com` den `Referer` Header nur senden, wenn auf andere `example.com` Ressourcen geladen oder verlinkt wird:
 
 ```http
 Referrer-Policy: same-origin
 ```
 
-Senden Sie den gekürzten Referrer bei Anfragen an andere Ursprünge und den vollständigen Referrer bei Anfragen von derselben Quelle:
+Den verkürzten Referrer bei Anfragen zu anderen Ursprüngen und den vollständigen Referrer bei Anfragen zur gleichen Herkunft senden:
 
 ```http
 Referrer-Policy: strict-origin-when-cross-origin
 ```
 
-Deaktivieren Sie Referrer für Browser, die `strict-origin-when-cross-origin` nicht unterstützen; verwenden Sie `strict-origin-when-cross-origin` für Browser, die dies tun:
+Referrer für Browser deaktivieren, die `strict-origin-when-cross-origin` nicht unterstützen; `strict-origin-when-cross-origin` für Browser verwenden, die dies unterstützen:
 
 ```http
 Referrer-Policy: no-referrer, strict-origin-when-cross-origin
 ```
 
-Machen Sie dasselbe mit einem `<meta>`-Element:
+Dasselbe tun, aber mit einem `<meta>` Element:
 
 ```html
 <meta
@@ -73,7 +73,7 @@ Machen Sie dasselbe mit einem `<meta>`-Element:
   content="no-referrer, strict-origin-when-cross-origin" />
 ```
 
-Das `referrerpolicy`-Attribut unterstützt keine Mehrfachwerte, also setzen Sie nur `no-referrer`:
+Das `referrerpolicy` Attribut unterstützt keine Mehrfachwerte, daher nur `no-referrer` setzen:
 
 ```html
 <a href="https://example.org/" referrerpolicy="no-referrer"> My link </a>
@@ -81,4 +81,4 @@ Das `referrerpolicy`-Attribut unterstützt keine Mehrfachwerte, also setzen Sie 
 
 ## Siehe auch
 
-- [Referer header: Privacy and security concerns](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns)
+- [Referer Header: Bedenken über Privatsphäre und Sicherheit](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns)

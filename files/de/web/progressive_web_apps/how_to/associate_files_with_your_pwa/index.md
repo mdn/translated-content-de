@@ -2,31 +2,31 @@
 title: Dateien mit Ihrer PWA verknüpfen
 slug: Web/Progressive_web_apps/How_to/Associate_files_with_your_PWA
 l10n:
-  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
+  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
 ---
 
-Auf einem Gerät sind Dateien normalerweise mit Apps verknüpft, sodass beim Öffnen der Datei das Betriebssystem die entsprechende App startet und die Datei an sie übergibt. Zum Beispiel werden HTML-Dateien oft in einem Webbrowser geöffnet, Textdateien in einem Texteditor und Videos in einem Videoplayer.
+Auf einem Gerät sind Dateien üblicherweise mit Apps verknüpft, sodass das Betriebssystem beim Öffnen einer Datei die entsprechende App startet und die Datei übergibt. Beispielsweise werden HTML-Dateien häufig im Webbrowser geöffnet, Textdateien in einem Texteditor und Videos in einem Videoplayer.
 
-Progressive Web Apps können an dieser Funktion teilnehmen, sodass wenn der Benutzer Dateien bestimmter Typen anklickt, die PWA gestartet werden kann, um diese zu verarbeiten.
+Progressive Web Apps können an dieser Funktion teilnehmen. Wenn der Benutzer auf Dateien bestimmter Typen klickt, kann die PWA gestartet werden, um sie zu verarbeiten.
 
-Es gibt zwei Teile zur Unterstützung des Datei-Handling:
+Es gibt zwei Teile, um die Unterstützung für die Dateiverarbeitung hinzuzufügen:
 
-- Deklarieren Sie die Unterstützung bestimmter Dateitypen über das [`file_handlers`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/file_handlers)-Mitglied der Web-App-Manifests.
-- Dateien über das [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Interface verarbeiten.
+- Erklären Sie die Unterstützung für bestimmte Dateitypen mithilfe des `file_handlers` Web-App-Manifestmitglieds.
+- Verarbeitung von Dateien mit dem `LaunchQueue` Interface.
 
 > [!NOTE]
-> Derzeit ist diese Funktion nur in Chromium-basierten Browsern und nur auf Desktop-Betriebssystemen verfügbar.
+> Derzeit ist diese Funktion nur in auf Chromium basierenden Browsern und nur auf Desktop-Betriebssystemen verfügbar.
 
-## Unterstützung für Dateitypen deklarieren
+## Unterstützung für Dateitypen erklären
 
-Um die Unterstützung für bestimmte Dateitypen zu deklarieren, fügen Sie das [`file_handlers`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/file_handlers)-Mitglied in Ihre [Manifestdatei](/de/docs/Web/Progressive_web_apps/Manifest) ein.
+Um die Unterstützung für bestimmte Dateitypen zu erklären, fügen Sie das `file_handlers` Mitglied in Ihrer [Manifestdatei](/de/docs/Web/Progressive_web_apps/Manifest) hinzu.
 
-Das `file_handlers`-Mitglied ist ein Array von Datei-Handler-Objekten. Jedes Datei-Handler-Objekt hat zwei obligatorische Eigenschaften: `action` und `accept`.
+Das `file_handlers` Mitglied ist ein Array von Dateihandler-Objekten. Jedes Dateihandler-Objekt hat zwei obligatorische Eigenschaften: `action` und `accept`.
 
-- Die `accept`-Eigenschaft enthält {{Glossary("MIME_Type", "MIME-Typen")}} und zugehörige Dateiendungen für Dateien, die der Handler verarbeiten kann.
-- Die `action`-Eigenschaft ist eine URL, zu der die PWA navigiert, wenn der Benutzer die Datei öffnet. Diese Seite muss im Geltungsbereich ("scope") der PWA liegen.
+- Die `accept` Eigenschaft enthält {{Glossary("MIME_Type", "MIME-Typen")}} und zugehörige Dateierweiterungen für Dateien, die der Handler verarbeiten kann.
+- Die `action` Eigenschaft ist eine URL, zu der die PWA navigieren wird, wenn der Benutzer die Datei öffnet. Diese Seite muss sich im Geltungsbereich der PWA befinden.
 
-Das untenstehende Beispiel der Manifestdatei enthält ein `file_handlers`-Mitglied mit einem einzelnen Handler, der {{Glossary("JPEG", "JPEG")}}- und {{Glossary("PNG", "PNG")}}-Dateien verarbeiten kann und zur Root-Seite der PWA navigiert, wenn der Benutzer eine dieser Dateien klickt.
+Die untenstehende Manifestdatei enthält ein `file_handlers` Mitglied mit einem einzelnen Handler, der {{Glossary("JPEG", "JPEG")}}- und {{Glossary("PNG", "PNG")}}-Dateien verarbeiten kann und zur Startseite der PWA navigiert, wenn der Benutzer auf eine dieser Dateien klickt.
 
 ```json
 {
@@ -54,27 +54,27 @@ Das untenstehende Beispiel der Manifestdatei enthält ein `file_handlers`-Mitgli
 
 Mit diesem Manifest kann die PWA, sobald sie installiert ist, geöffnet werden, wenn der Benutzer Dateien dieser Typen öffnet.
 
-In der Regel können mehrere Apps Dateien eines bestimmten Typs öffnen, daher stellt das Betriebssystem meist eine Funktion bereit, die es dem Benutzer ermöglicht, auszuwählen, welche App er zum Öffnen einer Datei verwenden möchte, und einen Standard-Handler festzulegen. Zum Beispiel kann der Benutzer auf macOS mit einem Rechtsklick auf eine Datei "Informationen" auswählen und den Standard-Handler im resultierenden Dialogfeld konfigurieren:
+Normalerweise können mehr als eine App Dateien eines bestimmten Typs öffnen, sodass das Betriebssystem in der Regel eine Funktion bietet, mit der der Benutzer auswählen kann, welche App verwendet werden soll, um eine Datei zu öffnen, und einen Standardhandler festlegen kann. Beispielsweise kann der Benutzer auf macOS mit einem Rechtsklick auf eine Datei "Informationen" auswählen und den Standardhandler im sich öffnenden Dialogfeld konfigurieren:
 
-![Standard-Handler auf macOS auswählen](macos-get-info-dialog.png)
+![Auswahl des Standardhandlers auf macOS](macos-get-info-dialog.png)
 
-## Berechtigung anfordern
+## Berechtigung erfragen
 
-Das erste Mal, wenn der Browser Ihre PWA startet, um eine oder mehrere Dateien zu verarbeiten, die der Benutzer geöffnet hat, wird der Benutzer gefragt, ob er Ihre PWA dafür verwenden möchte. Zum Beispiel sieht der Chrome-Dialog folgendermaßen aus:
+Das erste Mal, wenn der Browser Ihre PWA starten möchte, um eine oder mehrere vom Benutzer geöffnete Dateien zu verarbeiten, wird er den Benutzer fragen, ob er Ihre PWA verwenden möchte, um sie zu öffnen. Zum Beispiel sieht der Chrome-Dialog so aus:
 
-![Chrome-Warnungsdialog zum Starten der PWA zum Verarbeiten einer Datei](macos-chrome-launch-warning.png)
+![Chrome-Warndialog zum Starten der PWA zur Verarbeitung einer Datei](macos-chrome-launch-warning.png)
 
-## Dateien verarbeiten
+## Die Dateien verarbeiten
 
-Wenn der Browser Ihre PWA startet und zu der Seite navigiert, die Sie in der `action`-Eigenschaft des `file_handlers`-Manifestmitglieds angegeben haben, müssen Sie Code ausführen, um die Datei zu verarbeiten. Dieser Code läuft auf der Seite, die in der `action`-Eigenschaft spezifiziert wurde.
+Wenn der Browser Ihre PWA startet und zu der Seite navigiert, die Sie in der `action` Eigenschaft des `file_handlers` Manifestmitglieds angegeben haben, müssen Sie Code ausführen, um die Datei zu verarbeiten. Dieser Code wird auf der Seite ausgeführt, die in der `action` Eigenschaft angegeben wurde.
 
-Das zentrale Interface hierfür ist [`LaunchQueue`](/de/docs/Web/API/LaunchQueue), das als Eigenschaft des globalen [`Window`](/de/docs/Web/API/Window)-Objekts verfügbar ist.
+Das zentrale Interface hier ist `LaunchQueue`, welches als Eigenschaft des globalen `Window` Objekts verfügbar ist.
 
-Das `LaunchQueue`-Interface hat eine einzige Methode, [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer), die eine Callback-Funktion als Argument übernimmt. Diese wird aufgerufen, wenn der Browser die PWA mit einer oder mehreren zu verarbeitenden Dateien gestartet hat.
+Das `LaunchQueue` Interface hat eine einzige Methode, `setConsumer()`, die eine Callback-Funktion als Argument nimmt, die aufgerufen wird, wenn der Browser die PWA mit einer oder mehreren zu verarbeitenden Dateien gestartet hat.
 
-Der Callback wird ein [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekt übergeben, das eine [`files`](/de/docs/Web/API/LaunchParams/files)-Eigenschaft enthält, in der ein Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten enthalten ist, von denen jedes eines der vom Benutzer geöffneten Dateien repräsentiert.
+Der Callback wird ein `LaunchParams` Objekt übergeben, das eine `files` Eigenschaft enthält, die ein Array von `FileSystemHandle` Objekten umfasst, von denen jedes eine der vom Benutzer geöffneten Dateien darstellt.
 
-Das folgende Beispiel liest die Dateien ein und weist ihre Inhalte `{{HTMLElement("img")}}`-Elementen zu, die es der Seite hinzufügt:
+Zum Beispiel liest der untenstehende Code die Dateien und weist deren Inhalte `img` Elementen zu, die zur Seite hinzugefügt werden:
 
 ```js
 const imageContainer = document.querySelector("#container");
@@ -90,13 +90,13 @@ if ("launchQueue" in window) {
 }
 ```
 
-Beachten Sie, dass der Code überprüft, ob `launchQueue` existiert, bevor er es verwendet, um sicherzustellen, dass die App in Browsern, die die API nicht unterstützen, fehlerfrei funktioniert.
+Beachten Sie, dass der Code überprüft, ob `launchQueue` existiert, bevor es verwendet wird, um sicherzustellen, dass die App in Browsern, die die API nicht unterstützen, problemlos funktioniert.
 
 ## Siehe auch
 
-- [`file_handlers`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/file_handlers)-Manifestmitglied
-- [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Interface
+- `file_handlers` Manifestmitglied
+- `LaunchQueue` Interface
 - [File System API](/de/docs/Web/API/File_System_API)
 - [File API](/de/docs/Web/API/File_API)
-- [Allow installed web applications to be file handlers](https://developer.chrome.com/docs/capabilities/web-apis/file-handling) auf developer.chrome.com (2022)
-- [Dateien in Progressive Web Apps verarbeiten](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files) auf learn.microsoft.com (2023)
+- [Let installed web applications be file handlers](https://developer.chrome.com/docs/capabilities/web-apis/file-handling) auf developer.chrome.com (2022)
+- [Handle files in Progressive Web Apps](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/handle-files) auf learn.microsoft.com (2023)

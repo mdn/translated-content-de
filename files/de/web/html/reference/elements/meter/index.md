@@ -1,13 +1,13 @@
 ---
-title: "<meter>: Das HTML Meter-Element"
+title: "<meter>: Das HTML-Meter-Element"
 slug: Web/HTML/Reference/Elements/meter
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 40f6b1fee56f4045b4bc0b45dea18a7ae8456a69
 ---
 
 {{HTMLSidebar}}
 
-Das **`<meter>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert entweder einen skalaren Wert innerhalb eines bekannten Bereichs oder einen Bruchwert.
+Das **`<meter>`**-[HTML](/de/docs/Web/HTML) Element repräsentiert entweder einen skalaren Wert innerhalb eines bekannten Bereichs oder einen Bruchwert.
 
 {{InteractiveExample("HTML Demo: &lt;meter&gt;", "tabbed-shorter")}}
 
@@ -28,31 +28,28 @@ label {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `value`
-
-  - : Der aktuelle numerische Wert. Dieser muss zwischen den Minimal- und Maximalwerten (`min`-Attribut und `max`-Attribut) liegen, wenn sie angegeben sind. Wenn nicht angegeben oder fehlerhaft, beträgt der Wert `0`. Wenn angegeben, aber nicht innerhalb des durch die Attribute `min` und `max` definierten Bereichs, entspricht der Wert dem nächsten Ende des Bereichs.
+  - : Der aktuelle numerische Wert. Dieser muss zwischen den minimalen und maximalen Werten (`min` Attribut und `max` Attribut) liegen, falls sie angegeben sind. Falls nicht spezifiziert oder fehlerhaft, ist der Wert `0`. Falls spezifiziert, liegt er aber nicht innerhalb des durch das `min` Attribut und `max` Attribut angegebenen Bereichs, so entspricht der Wert dem nächstgelegenen Ende des Bereichs.
 
     > [!NOTE]
-    > Sofern das `value`-Attribut nicht zwischen `0` und `1` (einschließlich) liegt, sollten die Attribute `min` und `max` den Bereich so definieren, dass der Wert des `value`-Attributs innerhalb liegt.
+    > Sofern das `value` Attribut nicht zwischen `0` und `1` (einschließlich) liegt, sollten die `min` und `max` Attribute den Bereich so definieren, dass der Wert des `value` Attributs innerhalb dieses Bereichs liegt.
 
 - [`min`](/de/docs/Web/HTML/Reference/Attributes/min)
-  - : Die untere numerische Grenze des gemessenen Bereichs. Diese muss kleiner als der Maximalwert (`max`-Attribut) sein, wenn angegeben. Wenn nicht angegeben, beträgt der Mindestwert `0`.
+  - : Die untere numerische Grenze des gemessenen Bereichs. Diese muss kleiner sein als der maximale Wert (`max` Attribut), falls angegeben. Falls nicht angegeben, ist der minimale Wert `0`.
 - [`max`](/de/docs/Web/HTML/Reference/Attributes/max)
-  - : Die obere numerische Grenze des gemessenen Bereichs. Diese muss größer als der Minimalwert (`min`-Attribut) sein, wenn angegeben. Wenn nicht angegeben, beträgt der Höchstwert `1`.
+  - : Die obere numerische Grenze des gemessenen Bereichs. Diese muss größer sein als der minimale Wert (`min` Attribut), falls angegeben. Falls nicht angegeben, ist der maximale Wert `1`.
 - `low`
-  - : Die obere numerische Grenze des unteren Endes des gemessenen Bereichs. Diese muss größer als der Minimalwert (`min`-Attribut) sein und außerdem kleiner als der hohe Wert und der Maximalwert (`high`-Attribut bzw. `max`-Attribut), wenn welche angegeben sind. Wenn nicht angegeben oder wenn kleiner als der Minimalwert, entspricht der `low`-Wert dem Minimalwert.
+  - : Die obere numerische Grenze des unteren Endes des gemessenen Bereichs. Diese muss größer sein als der minimale Wert (`min` Attribut) und auch kleiner als der `high` Wert und der maximale Wert (`high` Attribut und `max` Attribut, falls angegeben). Falls nicht angegeben oder kleiner als der minimale Wert, entspricht der `low` Wert dem minimalen Wert.
 - `high`
-  - : Die untere numerische Grenze des hohen Endes des gemessenen Bereichs. Diese muss kleiner als der Maximalwert (`max`-Attribut) sein und außerdem größer als der niedrige Wert und der Minimalwert (`low`-Attribut bzw. `min`-Attribut), wenn welche angegeben sind. Wenn nicht angegeben oder wenn größer als der Maximalwert, entspricht der `high`-Wert dem Maximalwert.
+  - : Die untere numerische Grenze des oberen Endes des gemessenen Bereichs. Diese muss kleiner sein als der maximale Wert (`max` Attribut) und auch größer als der `low` Wert und der minimale Wert (`low` Attribut und `min` Attribut, falls angegeben). Falls nicht angegeben oder größer als der maximale Wert, entspricht der `high` Wert dem maximalen Wert.
 - `optimum`
-  - : Dieses Attribut gibt den optimalen numerischen Wert an. Es muss innerhalb des Bereichs (wie durch die Attribute `min` und `max` definiert) liegen. Wenn es mit den Attributen `low` und `high` verwendet wird, gibt es einen Hinweis darauf, wo im Bereich eine Präferenz besteht. Zum Beispiel, wenn es zwischen den Attributen `min` und `low` liegt, wird der untere Bereich als bevorzugt angesehen. Der Browser kann den Balken des Meters anders färben, abhängig davon, ob der Wert kleiner oder gleich dem optimalen Wert ist.
-- `form`
-  - : Dieses optionale Attribut wird verwendet, um explizit einen {{HTMLElement("form")}}-Eigentümer für das `<meter>`-Element festzulegen. Wenn es weggelassen wird, wird das `<meter>`-Element mit seinem übergeordneten `<form>`-Element assoziiert oder mit der Formularzuordnung, die durch das `form`-Attribut auf einem anderen übergeordneten Element, wie z.B. einem {{HTMLElement("fieldset")}}, festgelegt wird, falls vorhanden. Wenn es angegeben wird, muss der Wert die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>` im selben Baum sein.
+  - : Dieses Attribut gibt den optimalen numerischen Wert an. Er muss innerhalb des Bereichs (wie durch das `min` Attribut und `max` Attribut definiert) liegen. Wenn es zusammen mit dem `low` Attribut und `high` Attribut verwendet wird, gibt es an, welcher Bereich als vorzuziehen gilt. Zum Beispiel, wenn es zwischen dem `min` Attribut und dem `low` Attribut liegt, wird der untere Bereich als bevorzugt angesehen. Der Browser kann die Farbe des Balkens im `meter` Element abhängig davon ändern, ob der Wert kleiner oder gleich dem optimalen Wert ist.
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 #### HTML
 
@@ -64,9 +61,9 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/G
 
 {{EmbedLiveSample("Basic_example", 300, 60)}}
 
-### Beispiel mit hohem und niedrigem Bereich
+### Beispiel für hohe und niedrige Bereiche
 
-Beachten Sie, dass in diesem Beispiel das Attribute [`min`](#min) weggelassen wird. Dies ist zulässig, da es standardmäßig `0` wird.
+Beachten Sie, dass in diesem Beispiel das [`min`](#min) Attribut weggelassen wurde. Dies ist zulässig, da es standardmäßig auf `0` gesetzt wird.
 
 #### HTML
 
@@ -87,47 +84,34 @@ Beachten Sie, dass in diesem Beispiel das Attribute [`min`](#min) weggelassen wi
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >formulierende Inhalte</a
-        >, etikettierbare Inhalte, fühlbare Inhalte.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">formulierter Inhalt</a>, beschriftbarer Inhalt, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Formulierende Inhalte</a
-        >, aber es darf kein <code>&#x3C;meter></code>-Element unter seinen Nachkommen geben.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Formulierter Inhalt</a>, aber es darf kein <code>&#x3C;meter></code>-Element unter den Nachkommen sein.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der startende als auch der endende Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >formulierende Inhalte</a
-        > akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">formulierten Inhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">meter</a
-          ></code
-        >
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">meter</a></code>
       </td>
     </tr>
     <tr>
@@ -151,6 +135,6 @@ Beachten Sie, dass in diesem Beispiel das Attribute [`min`](#min) weggelassen wi
 
 ## Siehe auch
 
-- [Vertikale Formularsteuerelemente erstellen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- [Erstellung vertikaler Formularelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
 - {{HTMLElement("progress")}}
-- {{cssxref("::-webkit-meter-bar")}}, {{cssxref("::-webkit-meter-inner-element") }}, {{cssxref("::-webkit-meter-even-less-good-value")}}, {{cssxref("::-webkit-meter-optimum-value")}}, {{cssxref("::-webkit-meter-suboptimum-value")}}: nicht-standardisierte Pseudoelemente
+- {{cssxref("::-webkit-meter-bar")}}, {{cssxref("::-webkit-meter-inner-element")}}, {{cssxref("::-webkit-meter-even-less-good-value")}}, {{cssxref("::-webkit-meter-optimum-value")}}, {{cssxref("::-webkit-meter-suboptimum-value")}}: nicht-standardisierte Pseudo-Elemente
