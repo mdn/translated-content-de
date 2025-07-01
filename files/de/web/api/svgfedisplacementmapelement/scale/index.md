@@ -3,12 +3,12 @@ title: "SVGFEDisplacementMapElement: scale-Eigenschaft"
 short-title: scale
 slug: Web/API/SVGFEDisplacementMapElement/scale
 l10n:
-  sourceCommit: 243703c2241af83f51991c4dcdbdfbe6c8f6c8cd
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`scale`** schreibgeschützte Eigenschaft der [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle spiegelt das {{SVGAttr("scale")}}-Attribut des gegebenen {{SVGElement("feDisplacementMap")}}-Elements wider.
+Die **`scale`**-Schreibgeschützte Eigenschaft des [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Interfaces spiegelt das {{SVGAttr("scale")}}-Attribut des gegebenen {{SVGElement("feDisplacementMap")}}-Elements wider.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ## Beispiele
 
-### Auf den `scale`-Attribut zugreifen
+### Zugriff auf das `scale`-Attribut
 
-In diesem Beispiel enthält das in dem {{SVGElement("filter")}} definierte {{SVGElement("feDisplacementMap")}}-Element ein `scale`-Attribut.
+In diesem Beispiel enthält das im {{SVGElement("filter")}} definierte {{SVGElement("feDisplacementMap")}}-Element ein `scale`-Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@ In diesem Beispiel enthält das in dem {{SVGElement("filter")}} definierte {{SVG
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#filter1)" />
 </svg>
 ```

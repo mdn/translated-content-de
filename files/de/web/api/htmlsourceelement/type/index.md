@@ -3,12 +3,12 @@ title: "HTMLSourceElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLSourceElement/type
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} der Medienressource darstellt.
+Die **`type`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) Interfaces ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} der Medienressource darstellt.
 
 Sie spiegelt das `type`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -23,7 +23,7 @@ Ein String.
   id="el"
   src="large.webp"
   type="video/webp"
-  media="screen and (min-width: 600px)" />
+  media="screen and (width >= 600px)" />
 ```
 
 ```js

@@ -3,12 +3,12 @@ title: "SVGFESpotLightElement: limitingConeAngle-Eigenschaft"
 short-title: limitingConeAngle
 slug: Web/API/SVGFESpotLightElement/limitingConeAngle
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`limitingConeAngle`**-Schreibgeschützte Eigenschaft des [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Interfaces spiegelt das {{SVGAttr("limitingConeAngle")}}-Attribut des gegebenen {{SVGElement("feSpotLight")}}-Elements wider.
+Die **`limitingConeAngle`** schreibgeschützte Eigenschaft der [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Schnittstelle spiegelt das {{SVGAttr("limitingConeAngle")}}-Attribut des gegebenen {{SVGElement("feSpotLight")}}-Elements wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ### Zugriff auf das `limitingConeAngle`-Attribut des `<feSpotLight>`-Elements
 
-In diesem Beispiel greifen wir auf den Winkel in Grad zwischen der Achse des Scheinwerferlichts (d.h. der Achse zwischen der Lichtquelle und dem Punkt, auf den sie zeigt) und dem Kegel des Scheinwerferlichts zu, indem wir die schreibgeschützte `limitingConeAngle`-Eigenschaft des `SVGFESpotLightElement`-Interfaces verwenden.
+In diesem Beispiel greifen wir auf den Winkel in Grad zwischen der Achse des Spotlights (d.h. der Achse zwischen der Lichtquelle und dem Punkt, zu dem es zeigt) und dem Lichtkegel des Spotlights zu, indem wir die schreibgeschützte `limitingConeAngle`-Eigenschaft der `SVGFESpotLightElement`-Schnittstelle verwenden.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ In diesem Beispiel greifen wir auf den Winkel in Grad zwischen der Achse des Sch
     cx="100"
     cy="100"
     r="50"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#specularLightingFilter)" />
 </svg>
 ```

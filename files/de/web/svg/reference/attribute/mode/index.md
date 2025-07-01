@@ -2,10 +2,10 @@
 title: mode
 slug: Web/SVG/Reference/Attribute/mode
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`mode`** Attribut definiert den Mischmodus auf der {{SVGElement("feBlend")}} Filterprimitive.
+Das **`mode`**-Attribut definiert den Mischmodus auf der {{SVGElement("feBlend")}}-Filterprimitive.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -50,18 +50,19 @@ svg {
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#blending1);" />
+    filter="url(#blending1)" />
   <image
+    x="220"
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#blending2); transform:translateX(220px);" />
+    filter="url(#blending2)" />
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "480", "200")}}
+{{EmbedLiveSample("Beispiel", "480", "200")}}
 
-## Nutzungshinweise
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -80,7 +81,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe {{cssxref("blend-mode")}}.
+Eine Beschreibung der Werte finden Sie unter {{cssxref("blend-mode")}}.
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: preserveAlpha
 slug: Web/SVG/Reference/Attribute/preserveAlpha
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das Attribut `preserveAlpha` gibt an, wie ein {{SVGElement("feConvolveMatrix")}}-Element mit der Alphatransparenz umgeht.
+Das `preserveAlpha` Attribut gibt an, wie ein {{SVGElement("feConvolveMatrix")}} Element mit Alpha-Transparenz umgeht.
 
-Sie können dieses Attribut mit folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
@@ -36,18 +36,19 @@ svg {
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#convolveMatrix1);" />
+    filter="url(#convolveMatrix1)" />
   <image
+    x="220"
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#convolveMatrix2); transform:translateX(220px);" />
+    filter="url(#convolveMatrix2)" />
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "420", "200")}}
+{{EmbedLiveSample("Example", "420", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -67,9 +68,9 @@ svg {
 </table>
 
 - `true`
-  - : Dieser Wert gibt an, dass die Faltung nur auf die Farbkanäle angewendet wird. In diesem Fall entfernt der Filter vorübergehend die Vorausmultiplizierung des Alpha-Wertes von den Farbkomponentenwerten, wendet den Kernel an und wendet dann die Alpha-Vorausmultiplizierung als letzten Schritt erneut an.
+  - : Dieser Wert gibt an, dass die Faltung nur auf die Farbkanäle angewendet wird. In diesem Fall entfernt der Filter vorübergehend die Alpha-Vormultiplikation von den Farbkomponentenwerten, wendet den Kernel an und fügt anschließend die Alpha-Vormultiplikation als letzten Schritt wieder hinzu.
 - `false`
-  - : Dieser Wert gibt an, dass die Faltung auf alle Kanäle, einschließlich des Alpha-Kanals, angewendet wird.
+  - : Dieser Wert gibt an, dass die Faltung auf alle Kanäle angewendet wird, einschließlich des Alphakanals.
 
 ## Spezifikationen
 

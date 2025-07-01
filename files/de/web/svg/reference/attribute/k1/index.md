@@ -2,10 +2,10 @@
 title: k1
 slug: Web/SVG/Reference/Attribute/k1
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`k1`** Attribut definiert einen der Werte, der innerhalb der `arithmetic` Operation des {{SVGElement("feComposite")}} Filterprimitivs verwendet wird.
+Das **`k1`**-Attribut definiert einen der Werte, der innerhalb der `arithmetic`-Operation der {{SVGElement("feComposite")}}-Filterprimitive verwendet werden soll.
 
 Die Pixelkomposition wird mit der folgenden Formel berechnet:
 
@@ -54,14 +54,14 @@ svg {
     y="0"
     width="200"
     height="200"
-    style="filter: url(#composite1);" />
+    filter="url(#composite1)" />
   <image
     href="mdn.svg"
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
-    style="filter: url(#composite2); transform: translateX(220px);" />
+    filter="url(#composite2)" />
 </svg>
 ```
 

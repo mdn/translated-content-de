@@ -2,12 +2,12 @@
 title: isolation
 slug: Web/CSS/isolation
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
 ---
 
 {{CSSRef}}
 
-Die **`isolation`**-Eigenschaft von [CSS](/de/docs/Web/CSS) bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Stacking-Kontext")}} erstellen muss.
+Die **`isolation`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Stacking Context")}} erstellen muss.
 
 {{InteractiveExample("CSS Demo: isolation")}}
 
@@ -64,16 +64,16 @@ isolation: revert-layer;
 isolation: unset;
 ```
 
-Die `isolation`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `isolation` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Ein neuer Stacking-Kontext wird nur erstellt, wenn eine der auf das Element angewendeten Eigenschaften dies erfordert.
+  - : Ein neuer Stacking Context wird nur erstellt, wenn eine der auf das Element angewendeten Eigenschaften dies erfordert.
 - `isolate`
-  - : Ein neuer Stacking-Kontext muss erstellt werden.
+  - : Ein neuer Stacking Context muss erstellt werden.
 
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
@@ -83,12 +83,12 @@ Die `isolation`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwor
 
 ## Beispiele
 
-### Erzwingen eines neuen Stacking-Kontexts für ein Element
+### Erzwingen eines neuen Stacking Contexts für ein Element
 
 #### HTML
 
 ```html
-<div class="big-square ">
+<div class="big-square">
   <div class="isolation-auto">
     <div class="small-square">auto</div>
   </div>

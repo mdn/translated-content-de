@@ -2,14 +2,14 @@
 title: diffuseConstant
 slug: Web/SVG/Reference/Attribute/diffuseConstant
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das Attribut **`diffuseConstant`** repräsentiert den k<sub>d</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). In SVG kann dies jede nicht-negative Zahl sein.
+Das **`diffuseConstant`** Attribut repräsentiert den k<sub>d</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). In SVG kann dies jede nicht-negative Zahl sein.
 
-Es wird verwendet, um den endgültigen RGB-Wert eines bestimmten Pixels zu bestimmen. Je heller die Beleuchtungsfarbe ist, desto kleiner sollte diese Zahl sein.
+Es wird verwendet, um den endgültigen RGB-Wert eines bestimmten Pixels zu bestimmen. Je heller die Beleuchtungsfarbe, desto kleiner sollte dieser Wert sein.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDiffuseLighting")}}
 
@@ -36,24 +36,19 @@ svg {
     </feDiffuseLighting>
   </filter>
 
+  <rect x="0" y="0" width="200" height="200" filter="url(#diffuseLighting1)" />
   <rect
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
-    style="filter: url(#diffuseLighting1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#diffuseLighting2); transform: translateX(220px);" />
+    filter="url(#diffuseLighting2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

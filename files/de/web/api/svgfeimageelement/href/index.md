@@ -3,12 +3,12 @@ title: "SVGFEImageElement: href-Eigenschaft"
 short-title: href
 slug: Web/API/SVGFEImageElement/href
 l10n:
-  sourceCommit: 07472fa1111e7d7542c09e65ca169d86c9fb1002
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`href`** schreibgeschützte Eigenschaft der [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Schnittstelle spiegelt das {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen {{SVGElement("feImage")}}-Elements wider.
+Die schreibgeschützte **`href`**-Eigenschaft des [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Interfaces spiegelt das {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}}-Attribut ({{deprecated_inline}}) des gegebenen {{SVGElement("feImage")}}-Elements wider.
 
 ## Wert
 
@@ -38,7 +38,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
     y="50"
     width="200"
     height="100"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#image-filter)" />
 </svg>
 ```

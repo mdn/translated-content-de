@@ -2,12 +2,12 @@
 title: gradientTransform
 slug: Web/SVG/Reference/Attribute/gradientTransform
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`gradientTransform`**-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradienten-Koordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht beispielsweise das Verzerren des Gradienten. Diese zusätzliche Transformationsmatrix wird in (d.h. rechts von) alle zuvor definierten Transformationen, einschließlich der impliziten Transformation, die notwendig ist, um von den Einheiten des Objektrahmen-Bounding-Box in den Benutzerraum zu konvertieren, eingebracht.
+Das **`gradientTransform`**-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht es, den Gradienten beispielsweise zu verzerren. Diese zusätzliche Transformationsmatrix wird nachträglich mit (d.h. rechts von) allen zuvor definierten Transformationen multipliziert, einschließlich der impliziten Transformation, die notwendig ist, um von Objektrahmeneinheiten in den Benutzerbereich zu konvertieren.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
@@ -51,19 +51,13 @@ svg {
   </radialGradient>
 
   <rect x="0" y="0" width="200" height="200" fill="url(#gradient1)" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    fill="url(#gradient2)"
-    style="transform: translateX(220px);" />
+  <rect x="220" y="0" width="200" height="200" fill="url(#gradient2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -83,7 +77,7 @@ svg {
 </table>
 
 - `<transform-list>`
-  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradienten-Koordinatensystem auf das Zielkoordinatensystem spezifizieren.
+  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem festlegen.
 
 ## Spezifikationen
 

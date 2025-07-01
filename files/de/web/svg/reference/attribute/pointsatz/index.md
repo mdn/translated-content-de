@@ -2,12 +2,12 @@
 title: pointsAtZ
 slug: Web/SVG/Reference/Attribute/pointsAtZ
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`pointsAtZ`** Attribut repräsentiert die z-Position im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, an dem Punkt, zu dem die Lichtquelle zeigt. Dabei wird angenommen, dass in dem initialen lokalen Koordinatensystem die positive z-Achse auf die Person, die den Inhalt betrachtet, zugeht und eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
+Das **`pointsAtZ`** Attribut repräsentiert die Z-Position im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird. Dabei handelt es sich um den Punkt, auf den die Lichtquelle zeigt. Es wird angenommen, dass im anfänglichen lokalen Koordinatensystem die positive Z-Achse auf die Person, die den Inhalt betrachtet, zeigt und dass eine Einheit entlang der Z-Achse einer Einheit in X und Y entspricht.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feSpotLight")}}
 
@@ -34,13 +34,8 @@ svg {
     </feDiffuseLighting>
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter: url(#lighting1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#lighting2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#lighting1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#lighting2)" />
 </svg>
 ```
 

@@ -2,12 +2,12 @@
 title: stdDeviation
 slug: Web/SVG/Reference/Attribute/stdDeviation
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`stdDeviation`**-Attribut definiert die Standardabweichung für die Unschärfeoperation.
+Das **`stdDeviation`** Attribut definiert die Standardabweichung für die Unschärfeoperation.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDropShadow")}}
 - {{SVGElement("feGaussianBlur")}}
@@ -34,17 +34,9 @@ svg {
     <feGaussianBlur stdDeviation="10" />
   </filter>
 
-  <circle cx="100" cy="100" r="50" style="filter: url(#gaussianBlur1);" />
-  <circle
-    cx="100"
-    cy="100"
-    r="50"
-    style="filter: url(#gaussianBlur2); transform: translateX(140px);" />
-  <circle
-    cx="100"
-    cy="100"
-    r="50"
-    style="filter: url(#gaussianBlur3); transform: translateX(280px);" />
+  <circle cx="100" cy="100" r="50" filter="url(#gaussianBlur1)" />
+  <circle cx="240" cy="100" r="50" filter="url(#gaussianBlur2)" />
+  <circle cx="380" cy="100" r="50" filter="url(#gaussianBlur3)" />
 </svg>
 ```
 
@@ -76,10 +68,9 @@ svg {
 </table>
 
 - `<number-optional-number>`
+  - : Wenn zwei Zahlen angegeben werden, repräsentiert die erste Zahl einen Standardabweichungswert entlang der x-Achse. Der zweite Wert repräsentiert eine Standardabweichung entlang der y-Achse. Wenn eine Zahl angegeben wird, wird dieser Wert sowohl für X als auch für Y verwendet.
 
-  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste Zahl den Standardabweichungswert entlang der x-Achse. Die zweite Zahl repräsentiert die Standardabweichung entlang der y-Achse. Wenn nur eine Zahl angegeben ist, wird dieser Wert für sowohl X als auch Y verwendet.
-
-    Ein negativer Wert ist verboten. Ein Wert von null deaktiviert den Effekt des angegebenen Filterprimitives (d.h. das Ergebnis ist das Filtereingangsbild). Wenn `stdDeviation` nur in einer Richtung von X oder Y null ist, dann wird die Unschärfe nur in der Richtung angewendet, die einen nicht-null Wert hat.
+    Ein negativer Wert ist verboten. Ein Wert von null deaktiviert die Wirkung des angegebenen Filterprimitives (d.h. das Ergebnis ist das Filtereingabebild). Wenn `stdDeviation` nur in einer der Achsen X oder Y null ist, dann wird der Effekt nur in der Richtung angewendet, die einen von null verschiedenen Wert hat.
 
 ## Spezifikationen
 

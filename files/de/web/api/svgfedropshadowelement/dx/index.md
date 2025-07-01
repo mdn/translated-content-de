@@ -3,7 +3,7 @@ title: "SVGFEDropShadowElement: dx-Eigenschaft"
 short-title: dx
 slug: Web/API/SVGFEDropShadowElement/dx
 l10n:
-  sourceCommit: 7527a11a2b7fc7440aa6d518a9f5b4c061794ff3
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
@@ -40,7 +40,7 @@ In diesem Beispiel rufen wir die horizontale Verschiebung des `<feDropShadow>`-E
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#drop-shadow-filter)" />
 
   <!-- Circle with a red shadow -->
@@ -48,7 +48,7 @@ In diesem Beispiel rufen wir die horizontale Verschiebung des `<feDropShadow>`-E
     cx="100"
     cy="100"
     r="50"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#drop-shadow-filter)" />
 </svg>
 ```

@@ -2,7 +2,7 @@
 title: azimuth
 slug: Web/SVG/Reference/Attribute/azimuth
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 Das **`azimuth`**-Attribut gibt den Richtungswinkel für die Lichtquelle auf der XY-Ebene (im Uhrzeigersinn) in Grad von der x-Achse an.
@@ -34,18 +34,14 @@ svg {
     </feDiffuseLighting>
   </filter>
 
-  <circle cx="100" cy="100" r="80" style="filter: url(#distantLight1);" />
-  <circle
-    cx="100"
-    cy="100"
-    r="80"
-    style="filter: url(#distantLight2); transform: translateX(240px);" />
+  <circle cx="100" cy="100" r="80" filter="url(#distantLight1)" />
+  <circle cx="340" cy="100" r="80" filter="url(#distantLight2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

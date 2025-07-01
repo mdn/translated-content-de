@@ -1,14 +1,15 @@
 ---
-title: "CSSConditionRule: conditionText-Eigenschaft"
+title: "CSSConditionRule: Eigenschaft conditionText"
 short-title: conditionText
 slug: Web/API/CSSConditionRule/conditionText
 l10n:
-  sourceCommit: a32ebc1e559338b6dce3ffb4b2251074d8c418cd
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`conditionText`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle gibt den Text der CSS-Regel zurück oder setzt diesen.
+Die schreibgeschützte Eigenschaft **`conditionText`** des
+[`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Interfaces gibt den Text der CSS-Regel zurück oder setzt ihn.
 
 ## Wert
 
@@ -16,10 +17,12 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der Wert von `conditionText` in einer [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) gelesen wird, die die [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle implementiert.
+Das folgende Beispiel zeigt, wie der Wert von
+`conditionText` auf einer [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) ausgelesen wird, die das
+[`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Interface implementiert.
 
 ```css
-@media (min-width: 500px) {
+@media (width >= 500px) {
   body {
     color: blue;
   }
@@ -28,7 +31,7 @@ Das folgende Beispiel zeigt, wie der Wert von `conditionText` in einer [`CSSMedi
 
 ```js
 const targetRule = document.styleSheets[0].cssRules[0];
-console.log(targetRule.conditionText); // "(min-width: 500px)"
+console.log(targetRule.conditionText); // "(width >= 500px)"
 ```
 
 ## Spezifikationen
@@ -41,4 +44,4 @@ console.log(targetRule.conditionText); // "(min-width: 500px)"
 
 ## Siehe auch
 
-- [Verwendung von dynamischen Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

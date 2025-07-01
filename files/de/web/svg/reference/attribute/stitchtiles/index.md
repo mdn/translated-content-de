@@ -2,10 +2,10 @@
 title: stitchTiles
 slug: Web/SVG/Reference/Attribute/stitchTiles
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`stitchTiles`** Attribut definiert, wie sich die Perlin-Noise-Kacheln an den Rändern verhalten.
+Das **`stitchTiles`**-Attribut definiert, wie sich die Perlin-Noise-Kacheln am Rand verhalten.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -30,56 +30,21 @@ svg {
     <feTurbulence baseFrequency="0.025" stitchTiles="stitch" />
   </filter>
 
-  <rect x="0" y="0" width="100" height="100" style="filter: url(#noise1);" />
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise1); transform: translate(100px, 0);" />
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise1); transform: translate(0, 100px);" />
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise1); transform: translate(100px, 100px);" />
+  <rect x="0" y="0" width="100" height="100" filter="url(#noise1)" />
+  <rect x="100" y="0" width="100" height="100" filter="url(#noise1)" />
+  <rect x="0" y="100" width="100" height="100" filter="url(#noise1)" />
+  <rect x="100" y="100" width="100" height="100" filter="url(#noise1)" />
 
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise2); transform: translate(220px, 0);" />
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise2); transform: translate(320px, 0);" />
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise2); transform: translate(220px, 100px);" />
-  <rect
-    x="0"
-    y="0"
-    width="100"
-    height="100"
-    style="filter: url(#noise2); transform: translate(320px, 100px);" />
+  <rect x="220" y="0" width="100" height="100" filter="url(#noise2)" />
+  <rect x="320" y="0" width="100" height="100" filter="url(#noise2)" />
+  <rect x="220" y="100" width="100" height="100" filter="url(#noise2)" />
+  <rect x="320" y="100" width="100" height="100" filter="url(#noise2)" />
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "220")}}
+{{EmbedLiveSample("Beispiel", "420", "220")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -99,9 +64,9 @@ svg {
 </table>
 
 - `noStitch`
-  - : Dieser Wert zeigt an, dass kein Versuch unternommen wird, sanfte Übergänge an den Kachelgrenzen, die eine Turbulenzfunktion enthalten, zu erreichen. Manchmal wird das Ergebnis deutliche Diskontinuitäten an den Kachelgrenzen aufweisen.
+  - : Dieser Wert zeigt an, dass kein Versuch unternommen wird, um glatte Übergänge an den Rändern der Kacheln, die eine Turbulenzfunktion enthalten, zu erreichen. Manchmal zeigt das Ergebnis deutliche Diskontinuitäten an den Kachelrändern.
 - `stitch`
-  - : Dieser Wert zeigt an, dass der Benutzeragent die x- und y-Werte der Basisfrequenz automatisch anpasst, sodass die Breite und Höhe des {{SVGElement("feTurbulence")}} Knoten (d.h. die Breite und Höhe der aktuellen Subregion) eine ganze Anzahl der Kachelbreite und -höhe für die erste Oktave enthält.
+  - : Dieser Wert zeigt an, dass der Benutzeragent die x- und y-Werte der Basisfrequenz automatisch so anpasst, dass die Breite und Höhe des {{SVGElement("feTurbulence")}}-Knotens (d.h. die Breite und Höhe der aktuellen Subregion) eine ganze Zahl der Kachelbreite und -höhe für die erste Oktave enthalten.
 
 ## Spezifikationen
 

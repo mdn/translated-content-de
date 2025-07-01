@@ -3,20 +3,20 @@ title: "SVGMarkerElement: viewBox-Eigenschaft"
 short-title: viewBox
 slug: Web/API/SVGMarkerElement/viewBox
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
 ---
 
 {{APIRef("SVG")}}
 
-Die **`viewBox`** schreibgeschützte Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces liefert ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt zurück, das die Werte enthält, die durch das {{SVGattr("viewBox")}}-Attribut auf dem {{SVGElement("marker")}} gesetzt wurden.
+Die schreibgeschützte **`viewBox`**-Eigenschaft der [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle gibt ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt zurück, das die durch das {{SVGattr("viewBox")}}-Attribut auf dem {{SVGElement("marker")}} gesetzten Werte enthält.
 
 ## Wert
 
-Ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt zurück, aus dem die `x`- und `y`-Koordinaten sowie die `width` und `height` des {{SVGElement("marker")}}-{{SVGattr("viewBox")}}-Attributs abgerufen werden können.
+Ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt zurück, aus dem die `x`- und `y`-Koordinaten sowie die `width` und `height` des {{SVGElement("marker")}}-{{SVGattr("viewBox")}}-Attributs zurückgegeben werden können.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie der Wert der `width`, die für das {{SVGattr("viewBox")}}-Attribut des {{SVGElement("marker")}} festgelegt wurde, abgerufen werden kann.
+Dieses Beispiel zeigt, wie der Wert der für das {{SVGattr("viewBox")}}-Attribut des {{SVGElement("marker")}} gesetzten `width` zurückgegeben wird.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@ Dieses Beispiel zeigt, wie der Wert der `width`, die für das {{SVGattr("viewBox
       viewBox="0 0 10 10"
       refX="5"
       refY="5"
-      viewBox="xMidYMid meet"
+      preserveAspectRatio="xMidYMid meet"
       markerWidth="6"
       markerHeight="6"
       orient="auto-start-reverse">

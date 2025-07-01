@@ -2,12 +2,12 @@
 title: <feTurbulence>
 slug: Web/SVG/Reference/Element/feTurbulence
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv erzeugt ein Bild unter Verwendung der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese künstlicher Texturen wie Wolken oder Marmor. Das resultierende Bild füllt die gesamte Teilregion des Filter-Primitives aus.
+Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erzeugt ein Bild mit der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese von künstlichen Texturen wie Wolken oder Marmor. Das resultierende Bild füllt die gesamte Filter-Primitive-Subregion aus.
 
-Wie andere Filter-Primitiven behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
 ## Verwendungskontext
 
@@ -47,7 +47,7 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
       yChannelSelector="G" />
   </filter>
 
-  <circle cx="100" cy="100" r="100" style="filter: url(#displacementFilter)" />
+  <circle cx="100" cy="100" r="100" filter="url(#displacementFilter)" />
 </svg>
 ```
 
@@ -82,4 +82,4 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

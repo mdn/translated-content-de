@@ -2,12 +2,12 @@
 title: divisor
 slug: Web/SVG/Reference/Attribute/divisor
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das Attribut **`divisor`** gibt den Wert an, durch den die resultierende Zahl bei der Anwendung der {{SVGAttr("kernelMatrix")}} eines {{SVGElement("feConvolveMatrix")}}-Elements auf den Eingabebildfarbwert geteilt wird, um den Zielfarbwert zu erhalten.
+Das **`divisor`**-Attribut gibt den Wert an, durch den die Zahl, die sich aus der Anwendung der {{SVGAttr("kernelMatrix")}} eines {{SVGElement("feConvolveMatrix")}}-Elements auf den Eingabebildfarbwert ergibt, geteilt wird, um den Zielfarbwert zu erhalten.
 
-Ein Divisor, der die Summe aller Matrix-Werte ist, hat tendenziell einen ausgleichenden Effekt auf die Gesamtfarbintensität des Ergebnisses.
+Ein Divisor, der die Summe aller Matrixwerte ist, hat tendenziell einen ausgleichenden Effekt auf die gesamte Farbintensität des Ergebnisses.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -36,12 +36,13 @@ svg {
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#convolveMatrix1);" />
+    filter="url(#convolveMatrix1)" />
   <image
+    x="220"
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#convolveMatrix2); transform:translateX(220px);" />
+    filter="url(#convolveMatrix2)" />
 </svg>
 ```
 

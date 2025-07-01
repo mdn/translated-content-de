@@ -1,28 +1,24 @@
 ---
-title: "MediaQueryListEvent: matches Eigenschaft"
+title: "MediaQueryListEvent: matches-Eigenschaft"
 short-title: matches
 slug: Web/API/MediaQueryListEvent/matches
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte Eigenschaft **`matches`** des
-[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent) Interfaces ist ein boolescher Wert, der
-`true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt,
-oder `false`, wenn nicht.
+Die **`matches`**-Schreibgeschützte Eigenschaft der [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Schnittstelle ist ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
 
 ## Wert
 
-Ein boolescher Wert; gibt `true` zurück, wenn das [`document`](/de/docs/Web/API/Document)
-derzeit mit der Media Query-Liste übereinstimmt, `false`, wenn nicht.
+Ein boolescher Wert; gibt `true` zurück, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt, `false`, wenn nicht.
 
 ## Beispiele
 
 ```js
 const para = document.querySelector("p"); // This is the UI element where to display the text
-const mql = window.matchMedia("(max-width: 600px)");
+const mql = window.matchMedia("(width <= 600px)");
 
 mql.addEventListener("change", (event) => {
   if (event.matches) {

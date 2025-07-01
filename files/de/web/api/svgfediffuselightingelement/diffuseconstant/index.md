@@ -3,12 +3,12 @@ title: "SVGFEDiffuseLightingElement: diffuseConstant-Eigenschaft"
 short-title: diffuseConstant
 slug: Web/API/SVGFEDiffuseLightingElement/diffuseConstant
 l10n:
-  sourceCommit: e9ef767e76e5e04884293f12e393deb9455c87af
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`diffuseConstant`**-Eigenschaft, die nur gelesen werden kann, des [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)-Interfaces spiegelt das {{SVGAttr("diffuseConstant")}}-Attribut des angegebenen {{SVGElement("feDiffuseLighting")}}-Elements wider.
+Die schreibgeschützte **`diffuseConstant`**-Eigenschaft der [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)-Schnittstelle spiegelt das {{SVGAttr("diffuseConstant")}}-Attribut des angegebenen {{SVGElement("feDiffuseLighting")}}-Elements wider.
 
 ## Wert
 
@@ -35,7 +35,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#diffuseLightingFilter)" />
 </svg>
 ```

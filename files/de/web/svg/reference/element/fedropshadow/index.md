@@ -2,15 +2,15 @@
 title: <feDropShadow>
 slug: Web/SVG/Reference/Element/feDropShadow
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<feDropShadow>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv erzeugt einen Schlagschatten des Eingabebildes. Es kann nur innerhalb eines {{SVGElement('filter')}} Elements verwendet werden.
+Der **`<feDropShadow>`** [SVG](/de/docs/Web/SVG)-Filter-Primitiv erzeugt einen Schlagschatten des Eingangsbildes. Es kann nur innerhalb eines {{SVGElement('filter')}}-Elements verwendet werden.
 
 > [!NOTE]
-> Die Farbe und Deckkraft des Schattens können mithilfe der Präsentationsattribute {{SVGAttr('flood-color')}} und {{SVGAttr('flood-opacity')}} geändert werden.
+> Die Farbe und Deckkraft des Schattens können durch die Präsentationsattribute {{SVGAttr('flood-color')}} und {{SVGAttr('flood-opacity')}} geändert werden.
 
-Wie andere Filter-Primitiven verarbeitet es standardmäßig Farbkomponenten im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitives behandelt es die Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
 ## Verwendungskontext
 
@@ -20,17 +20,17 @@ Wie andere Filter-Primitiven verarbeitet es standardmäßig Farbkomponenten im `
 
 - {{SVGAttr("dx")}}
   - : Dieses Attribut definiert den x-Versatz des Schattens.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("dy")}}
   - : Dieses Attribut definiert den y-Versatz des Schattens.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("stdDeviation")}}
-  - : Dieses Attribut definiert die Standardabweichung für die Unschärfeoperation im Schlagschatten.
-    _Werttyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Guides/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Standardabweichung für die Weichzeichnungsoperation im Schlagschatten.
+    _Wertetyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Guides/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -61,11 +61,9 @@ svg {
     </filter>
   </defs>
 
-  <circle cx="5" cy="50%" r="4" style="fill:pink; filter:url(#shadow);" />
-
-  <circle cx="15" cy="50%" r="4" style="fill:pink; filter:url(#shadow2);" />
-
-  <circle cx="25" cy="50%" r="4" style="fill:pink; filter:url(#shadow3);" />
+  <circle cx="5" cy="50%" r="4" fill="pink" filter="url(#shadow)" />
+  <circle cx="15" cy="50%" r="4" fill="pink" filter="url(#shadow2)" />
+  <circle cx="25" cy="50%" r="4" fill="pink" filter="url(#shadow3)" />
 </svg>
 ```
 
@@ -81,5 +79,5 @@ svg {
 
 ## Siehe auch
 
-- [SVG Filterprimitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes) einschließlich {{SVGAttr('height')}}, {{SVGAttr('in')}}, {{SVGAttr('result')}}, {{SVGAttr('x')}}, {{SVGAttr('y')}}, und {{SVGAttr('width')}}.
-- [SVG Präsentations-Attribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes), einschließlich {{SVGAttr('flood-color')}}, und {{SVGAttr('flood-opacity')}}.
+- [SVG-Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes) einschließlich {{SVGAttr('height')}}, {{SVGAttr('in')}}, {{SVGAttr('result')}}, {{SVGAttr('x')}}, {{SVGAttr('y')}}, und {{SVGAttr('width')}}.
+- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes), einschließlich {{SVGAttr('flood-color')}}, und {{SVGAttr('flood-opacity')}}.

@@ -2,10 +2,10 @@
 title: limitingConeAngle
 slug: Web/SVG/Reference/Attribute/limitingConeAngle
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`limitingConeAngle`**-Attribut repräsentiert den Winkel in Grad zwischen der Achse des Spotlichts (d.h. der Achse zwischen der Lichtquelle und dem Punkt, auf den sie zeigt) und dem Spotlichtkegel. Es definiert einen begrenzenden Kegel, der den Bereich einschränkt, in dem das Licht projiziert wird. Außerhalb des Kegels wird kein Licht projiziert.
+Das **`limitingConeAngle`**-Attribut repräsentiert den Winkel in Grad zwischen der Spotlichtachse (d.h. der Achse zwischen der Lichtquelle und dem Punkt, auf den sie gerichtet ist) und dem Spotlichtkegel. Es definiert somit einen begrenzenden Kegel, der den Bereich einschränkt, in dem das Licht projiziert wird. Außerhalb des Kegels wird kein Licht projiziert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -46,24 +46,14 @@ svg {
     </feDiffuseLighting>
   </filter>
 
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#spotLight1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#spotLight2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#spotLight1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#spotLight2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

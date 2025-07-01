@@ -2,12 +2,12 @@
 title: tableValues
 slug: Web/SVG/Reference/Attribute/tableValues
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Lookup-Tabelle von Werten für eine Übertragungsfunktion einer Farbkomponente bestimmt.
+Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Nachschlagetabelle von Werten für eine Farbkomponenten-Übertragungsfunktion festlegt.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
@@ -61,20 +61,20 @@ svg {
     width="200"
     height="200"
     fill="url(#gradient)"
-    style="filter: url(#componentTransfer1);" />
+    filter="url(#componentTransfer1)" />
   <rect
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
     fill="url(#gradient)"
-    style="filter: url(#componentTransfer2); transform: translateX(220px);" />
+    filter="url(#componentTransfer2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -100,8 +100,7 @@ svg {
 </table>
 
 - `<list-of-numbers>`
-
-  - : Dieser Wert enthält eine durch Kommata und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Lookup-Tabelle für die Übertragungsfunktion der Farbkomponente definieren. Jede Zahl kann zwischen `0` und `1` liegen.
+  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Nachschlagetabelle für die Farbkomponenten-Übertragungsfunktion definieren. Jede Zahl kann zwischen `0` und `1` liegen.
 
     Eine leere Liste führt zu einer Identitätsübertragungsfunktion.
 

@@ -2,18 +2,18 @@
 title: 429 Too Many Requests
 slug: Web/HTTP/Reference/Status/429
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`429 Too Many Requests`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat.
-Dieser Mechanismus, bei dem der Client gebeten wird, die Anfragerate zu verlangsamen, wird üblicherweise als "{{Glossary("rate_limit", "Rate-Limiting")}}" bezeichnet.
+Der HTTP-Statuscode **`429 Too Many Requests`** [Clientfehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Client zu viele Anfragen in einer bestimmten Zeit gesendet hat.
+Dieser Mechanismus, bei dem der Client gebeten wird, die Anzahl der Anfragen zu verringern, wird allgemein als "{{Glossary("rate_limit", "rate limiting")}}" bezeichnet.
 
-Ein {{HTTPHeader("Retry-After")}}-Header kann in diese Antwort aufgenommen werden, um anzugeben, wie lange der Client warten soll, bevor er die Anfrage erneut stellt.
+Ein {{HTTPHeader("Retry-After")}}-Header kann in dieser Antwort enthalten sein, um anzugeben, wie lange ein Client warten soll, bevor er die Anfrage erneut stellt.
 
-Implementierungen von Rate-Limiting variieren; Beschränkungen können serverweit oder pro Ressource gelten.
-Typischerweise basieren Rate-Limiting-Beschränkungen auf der IP des Clients, können jedoch spezifisch für Benutzer oder autorisierte Anwendungen sein, wenn Anfragen authentifiziert oder Cookies enthalten.
+Die Implementierungen der Ratenbegrenzung variieren; Einschränkungen können serverweit oder pro Ressource gelten.
+Typischerweise basieren die Einschränkungen der Ratenbegrenzung auf der IP des Clients, können jedoch auch spezifisch für Benutzer oder autorisierte Anwendungen sein, wenn Anfragen authentifiziert sind oder ein {{Glossary("cookie", "cookie")}} enthalten.
 
 ## Status
 
@@ -25,22 +25,22 @@ Typischerweise basieren Rate-Limiting-Beschränkungen auf der IP des Clients, k�
 
 ### Antwort mit Retry-After-Header
 
-Die folgende Anfrage wird von einem falsch konfigurierten Client wiederholt in einer Schleife gesendet:
+Die folgende Anfrage wird von einem fehlkonfigurierten Client wiederholt in einer Schleife gesendet:
 
 ```http
 GET /reports/mdn HTTP/1.1
 Host: example.com
 ```
 
-In diesem Beispiel ist ein serverweites Rate-Limiting aktiv, wenn ein Client einen festgelegten Schwellenwert von Anfragen pro Minute überschreitet.
-Eine 429-Antwort wird mit einem {{HTTPHeader("Retry-After")}}-Header zurückgegeben, der anzeigt, dass Anfragen für diesen Client in 60 Minuten wieder erlaubt sein werden:
+In diesem Beispiel ist eine serverweite Ratenbegrenzung aktiv, wenn ein Client einen festgelegten Schwellenwert von Anfragen pro Minute überschreitet.
+Eine 429-Antwort wird zurückgegeben, mit einem {{HTTPHeader("Retry-After")}}-Header, der anzeigt, dass Anfragen für diesen Client in 60 Minuten wieder erlaubt sind:
 
 ```http
 HTTP/1.1 429 Too Many Requests
 Content-Type: text/html
 Retry-After: 3600
 
-<html>
+<html lang="en-US">
   <head>
     <title>Too Many Requests</title>
   </head>

@@ -3,12 +3,12 @@ title: "SVGFEImageElement: preserveAspectRatio-Eigenschaft"
 short-title: preserveAspectRatio
 slug: Web/API/SVGFEImageElement/preserveAspectRatio
 l10n:
-  sourceCommit: 07472fa1111e7d7542c09e65ca169d86c9fb1002
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`preserveAspectRatio`**-Eigenschaft der Schnittstelle [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement) spiegelt das {{SVGAttr("preserveAspectRatio")}}-Attribut des angegebenen {{SVGElement("feImage")}}-Elements wider.
+Die schreibgeschützte **`preserveAspectRatio`**-Eigenschaft der [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Schnittstelle spiegelt das {{SVGAttr("preserveAspectRatio")}}-Attribut des angegebenen {{SVGElement("feImage")}}-Elements wider.
 
 ## Wert
 
@@ -39,7 +39,7 @@ Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspec
     y="50"
     width="200"
     height="100"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#image-filter)" />
 </svg>
 ```

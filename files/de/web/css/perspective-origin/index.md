@@ -2,12 +2,12 @@
 title: perspective-origin
 slug: Web/CSS/perspective-origin
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`perspective-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Position, von der aus der Betrachter schaut. Sie wird als _Fluchtpunkt_ von der {{cssxref("perspective")}} Eigenschaft verwendet.
+Die **`perspective-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt die Position, aus der der Betrachter schaut. Sie wird als _Fluchtpunkt_ von der {{cssxref("perspective")}}-Eigenschaft verwendet.
 
 {{InteractiveExample("CSS Demo: perspective-origin")}}
 
@@ -70,37 +70,37 @@ perspective-origin: 500% 200%;
 }
 
 .front {
-  background: rgba(90, 90, 90, 0.7);
+  background: rgb(90 90 90 / 0.7);
   transform: translateZ(50px);
 }
 
 .back {
-  background: rgba(0, 210, 0, 0.7);
+  background: rgb(0 210 0 / 0.7);
   transform: rotateY(180deg) translateZ(50px);
 }
 
 .right {
-  background: rgba(210, 0, 0, 0.7);
+  background: rgb(210 0 0 / 0.7);
   transform: rotateY(90deg) translateZ(50px);
 }
 
 .left {
-  background: rgba(0, 0, 210, 0.7);
+  background: rgb(0 0 210 / 0.7);
   transform: rotateY(-90deg) translateZ(50px);
 }
 
 .top {
-  background: rgba(210, 210, 0, 0.7);
+  background: rgb(210 210 0 / 0.7);
   transform: rotateX(90deg) translateZ(50px);
 }
 
 .bottom {
-  background: rgba(210, 0, 210, 0.7);
+  background: rgb(210 0 210 / 0.7);
   transform: rotateX(-90deg) translateZ(50px);
 }
 ```
 
-Die **`perspective-origin`** und {{cssxref('perspective')}} Eigenschaften sind an das übergeordnete Element eines in dreidimensionalem Raum transformierten Kindes gebunden, im Gegensatz zur [`perspective()`](/de/docs/Web/CSS/transform-function/perspective) Transformationsfunktion, die auf das zu transformierende Element angewendet wird.
+Die **`perspective-origin`**- und {{cssxref('perspective')}}-Eigenschaften sind an das übergeordnete Element eines in einem dreidimensionalen Raum transformierten Kindes gebunden, anders als die [`perspective()`](/de/docs/Web/CSS/transform-function/perspective)-Transformationsfunktion, die auf das transformierte Element angewendet wird.
 
 ## Syntax
 
@@ -125,34 +125,33 @@ perspective-origin: unset;
 
 ### Werte
 
-- _x-position_
+- _x-Position_
+  - : Gibt die Abszissenposition des _Fluchtpunkts_ an. Es kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluten Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
+    - `left`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.
+    - `center`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `50%` ist.
+    - `right`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `100%` ist.
 
-  - : Gibt die Position der Abszisse des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
-    - {{cssxref("&lt;length-percentage&gt;")}}, die die Position als absoluten Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
-    - `left`, ein Schlüsselwort, das eine Abkürzung für den `0` Längenwert ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den `50%` Prozentwert ist.
-    - `right`, ein Schlüsselwort, das eine Abkürzung für den `100%` Prozentwert ist.
+- _y-Position_
+  - : Gibt die Ordinatenposition des _Fluchtpunkts_ an. Es kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluten Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
+    - `top`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.
+    - `center`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `50%` ist.
+    - `bottom`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `100%` ist.
 
-- _y-position_
-  - : Gibt die Position der Ordinate des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
-    - {{cssxref("&lt;length-percentage&gt;")}}, die die Position als absoluten Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
-    - `top`, ein Schlüsselwort, das eine Abkürzung für den `0` Längenwert ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den `50%` Prozentwert ist.
-    - `bottom`, ein Schlüsselwort, das eine Abkürzung für den `100%` Prozentwert ist.
-
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formelle Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Ändern der Perspektivenursprung
+### Änderung des Perspektivursprungs
 
-Ein Beispiel, wie man `perspective-origin` ändert, finden Sie unter [Verwendung von CSS-Transformationen > Ändern der Perspektivenursprung](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#changing_the_perspective_origin).
+Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie unter [Using CSS transforms > Changing the perspective origin](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#changing_the_perspective_origin).
 
 ## Spezifikationen
 
@@ -164,8 +163,8 @@ Ein Beispiel, wie man `perspective-origin` ändert, finden Sie unter [Verwendung
 
 ## Siehe auch
 
-- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [Using CSS Transforms](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
 - {{cssxref('transform-style')}}
 - {{cssxref('transform-function')}}
 - {{cssxref('perspective')}}
-- [`transform: perspective()`](/de/docs/Web/CSS/transform-function/perspective) Funktion
+- [`transform: perspective()`](/de/docs/Web/CSS/transform-function/perspective)-Funktion

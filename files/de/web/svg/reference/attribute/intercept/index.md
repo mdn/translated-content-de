@@ -2,21 +2,21 @@
 title: intercept
 slug: Web/SVG/Reference/Attribute/intercept
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`intercept`**-Attribut definiert den Schnittpunkt der linearen Funktion von Farbkomponentenübertragungen, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
+Das **`intercept`**-Attribut definiert den Achsenabschnitt der linearen Funktion für die Übertragung von Farbkomponenten, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
 
-Die `linear`-Funktion ist definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, `intercept` einen Basiswert für das Ergebnis bereitstellt und die [`slope`](/de/docs/Web/SVG/Reference/Attribute/slope) ein Skalierungsfaktor ist.
+Die `linear`-Funktion ist definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, der `intercept` einen Basiswert für das Ergebnis bereitstellt und der [`slope`](/de/docs/Web/SVG/Reference/Attribute/slope) ein Skalierungsfaktor ist.
 
-Das `intercept`-Attribut wird von den Kind-Elementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt und wird mit den folgenden SVG-Komponentenübertragungsfunktions-Elementen verwendet, wenn `type="linear"` gesetzt ist:
+Das `intercept`-Attribut wird von den Kind-Elementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt. Es wird mit den folgenden SVG-Komponententransfer-Funktionselementen verwendet, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
 - {{SVGElement("feFuncG")}}
 - {{SVGElement("feFuncR")}}
 
-## Anmerkungen zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -36,7 +36,7 @@ Das `intercept`-Attribut wird von den Kind-Elementen der {{SVGElement("feCompone
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den Schnittpunkt der linearen Komponentenübertragungsfunktionen an.
+  - : Dieser Wert gibt den Achsenabschnitt der linearen Komponententransfer-Funktionen an.
 
 ## Beispiel
 
@@ -85,14 +85,14 @@ svg {
     width="200"
     height="200"
     fill="url(#gradient)"
-    style="filter: url(#componentTransfer1);" />
+    filter="url(#componentTransfer1)" />
   <rect
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
     fill="url(#gradient)"
-    style="filter: url(#componentTransfer2); transform: translateX(220px);" />
+    filter="url(#componentTransfer2)" />
 </svg>
 ```
 

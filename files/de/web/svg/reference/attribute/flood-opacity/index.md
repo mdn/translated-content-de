@@ -2,13 +2,13 @@
 title: flood-opacity
 slug: Web/SVG/Reference/Attribute/flood-opacity
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`flood-opacity`**-Attribut gibt den Opazitätswert an, der über die aktuelle Unterschicht des Filterprimitives verwendet werden soll.
+Das **`flood-opacity`**-Attribut gibt den Opazitätswert an, der über die aktuelle Filterprimitive-Subregion verwendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `flood-opacity` auch ein entsprechendes CSS-Property: {{cssxref("flood-opacity")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `flood-opacity` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("flood-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -45,19 +45,14 @@ svg {
       height="200" />
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter: url(#flood1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#flood2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#flood1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#flood2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -66,7 +61,7 @@ svg {
       <td><code>&#x3C;alpha-value></code></td>
     </tr>
     <tr>
-      <th scope="row">Anfangswert</th>
+      <th scope="row">Initialwert</th>
       <td><code>1</code></td>
     </tr>
     <tr>
@@ -77,8 +72,8 @@ svg {
 </table>
 
 - `<alpha-value>`
-  - : Eine Zahl oder ein Prozentsatz, der den Opazitätswert angibt, der über die aktuelle Unterschicht des Filterprimitives verwendet werden soll.
-    Eine Zahl von `0` oder ein Prozentsatz von `0%` stellt eine vollständig transparente Farbe dar, `1` oder `100%` steht für eine vollständig opake Farbe.
+  - : Eine Zahl oder ein Prozentsatz, der den Opazitätswert angibt, der über die aktuelle Filterprimitive-Subregion verwendet wird.
+    Eine Zahl von `0` oder ein Prozentsatz von `0%` repräsentiert eine vollständig transparente Farbe, `1` oder `100%` repräsentiert eine vollständig opake Farbe.
 
 ## Spezifikationen
 

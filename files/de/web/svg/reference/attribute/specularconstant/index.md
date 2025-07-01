@@ -2,12 +2,12 @@
 title: specularConstant
 slug: Web/SVG/Reference/Attribute/specularConstant
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das Attribut **`specularConstant`** steuert das Verhältnis der Reflexion der spekulären Beleuchtung. Es repräsentiert den k<sub>s</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). Je größer der Wert, desto stärker die Reflexion.
+Das Attribut **`specularConstant`** steuert das Verhältnis der Reflexion der spekularen Beleuchtung. Es repräsentiert den k<sub>s</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). Je größer der Wert, desto stärker die Reflexion.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feSpecularLighting")}}
 
@@ -34,24 +34,19 @@ svg {
     </feSpecularLighting>
   </filter>
 
+  <rect x="0" y="0" width="200" height="200" filter="url(#specularLighting1)" />
   <rect
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
-    style="filter: url(#specularLighting1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#specularLighting2); transform: translateX(220px);" />
+    filter="url(#specularLighting2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -80,4 +75,4 @@ svg {
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Beleuchtungsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

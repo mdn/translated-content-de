@@ -1,14 +1,14 @@
 ---
-title: CSS-Verschachtelung von At-Regeln
+title: CSS-Nesting-At-Regeln
 short-title: Verschachtelung von At-Regeln
 slug: Web/CSS/CSS_nesting/Nesting_at-rules
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{CSSRef}}
 
-Jede [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), deren Körper Stilregeln enthält, kann mit CSS-Verschachtelung innerhalb einer anderen Stilregel verschachtelt werden. Stilregeln, die in At-Regeln verschachtelt sind, übernehmen ihre Verschachtelungsselektor-Definition von der nächstgelegenen übergeordneten Stilregel. Eigenschaften können direkt in einer verschachtelten At-Regel enthalten sein, als ob sie in einem `& {...}`-Block verschachtelt wären.
+Jede [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), deren Körper Style-Regeln enthält, kann mithilfe von CSS-Nesting innerhalb einer anderen Style-Regel verschachtelt werden. Style-Regeln, die innerhalb von At-Regeln verschachtelt sind, übernehmen ihre Verschachtelungsselektor-Definition von der nächsten übergeordneten Style-Regel. Eigenschaften können direkt in eine verschachtelte At-Regel aufgenommen werden und wirken, als wären sie in einem `& {...}` Block verschachtelt.
 
 ## At-Regeln, die verschachtelt werden können
 
@@ -21,9 +21,9 @@ Jede [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), deren Körper Stilregeln e
 
 ## Beispiele
 
-### Verschachtelte `@media`-At-Regel
+### Verschachtelte `@media` At-Regel
 
-In diesem Beispiel sehen wir drei Blöcke von CSS. Der erste zeigt, wie typische At-Regel-Verschachtelung geschrieben wird, der zweite ist eine erweiterte Methode, um die Verschachtelung so zu schreiben, wie der Browser sie analysiert, und der dritte zeigt das nicht-verschachtelte Äquivalent.
+In diesem Beispiel sehen wir drei Blöcke von CSS. Der erste zeigt, wie man typische At-Regel-Verschachtelungen schreibt, der zweite ist eine erweiterte Schreibweise der Verschachtelung, wie sie der Browser parst, und der dritte zeigt das nicht-verschachtelte Äquivalent.
 
 #### Verschachteltes CSS
 
@@ -63,7 +63,7 @@ In diesem Beispiel sehen wir drei Blöcke von CSS. Der erste zeigt, wie typische
 }
 ```
 
-### Mehrere verschachtelte `@media`-At-Regeln
+### Mehrere verschachtelte `@media` At-Regeln
 
 At-Regeln können innerhalb anderer At-Regeln verschachtelt werden. Unten sehen Sie ein Beispiel dafür und wie es ohne Verschachtelung geschrieben würde.
 
@@ -74,7 +74,7 @@ At-Regeln können innerhalb anderer At-Regeln verschachtelt werden. Unten sehen 
   display: grid;
   @media (orientation: landscape) {
     grid-auto-flow: column;
-    @media (min-width: 1024px) {
+    @media (width >= 1024px) {
       max-inline-size: 1024px;
     }
   }
@@ -92,20 +92,20 @@ At-Regeln können innerhalb anderer At-Regeln verschachtelt werden. Unten sehen 
     grid-auto-flow: column;
   }
 }
-@media (orientation: landscape) and (min-width: 1024px) {
+@media (orientation: landscape) and (width >= 1024px) {
   .foo {
     max-inline-size: 1024px;
   }
 }
 ```
 
-### Verschachtelte Kaskadenschichten (`@layer`)
+### Verschachtelung von Kaskadierungsschichten (`@layer`)
 
-[Kaskadenschichten](/de/docs/Web/CSS/@layer) können verschachtelt werden, um [untergeordnete Schichten zu erstellen](/de/docs/Web/CSS/@layer#nesting_layers). Diese werden mit einem `.` (Punkt) verbunden.
+[Kaskadierungsschichten](/de/docs/Web/CSS/@layer) können verschachtelt werden, um [Unter-Schichten zu erstellen](/de/docs/Web/CSS/@layer#nesting_layers). Diese werden mit einem `.` (Punkt) verbunden.
 
 #### Definition der übergeordneten und untergeordneten Schichten
 
-Wir beginnen mit der Definition der benannten Kaskadenschichten, bevor wir sie verwenden, ohne Stilzuweisungen.
+Wir beginnen mit der Definition der benannten Kaskadierungsschichten, bevor wir sie verwenden, ohne Zuweisung von Stilregeln.
 
 ```css
 @layer base {
@@ -113,9 +113,9 @@ Wir beginnen mit der Definition der benannten Kaskadenschichten, bevor wir sie v
 }
 ```
 
-#### Zuweisen von Regeln zu Schichten mit Verschachtelung
+#### Zuweisung von Regeln zu Schichten mit Verschachtelung
 
-Hier weist der `.foo`-Selektor seine Regeln der **Grundlage**-`@layer` zu. Die verschachtelte **Unterstützungs**-`@layer` erstellt die `base.support`-Unterschicht, und der `&`-Verschachtelungsselektor wird verwendet, um die Regeln für den `.foo .bar`-Selektor zu erstellen.
+Hier weist der `.foo` Selektor seine Regeln der **Basis-**`@layer` zu. Die verschachtelte **support** `@layer` erstellt die `base.support` Unter-Schicht, und der `&` Verschachtelungsselektor wird verwendet, um die Regeln für den `.foo .bar` Selektor zu erstellen.
 
 ```css
 .foo {
@@ -147,8 +147,8 @@ Hier weist der `.foo`-Selektor seine Regeln der **Grundlage**-`@layer` zu. Die v
 
 ## Siehe auch
 
-- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)
-- [`&`-Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector)
-- [Verwendung der CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+- [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) Modul
+- [`&` Nesting-Selektor](/de/docs/Web/CSS/Nesting_selector)
+- [Verwendung von CSS-Nesting](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
 - [Verschachtelung und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
-- [Verschachtelung von Containerabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#nested_queries)
+- [Verschachtelung von Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#nested_queries)

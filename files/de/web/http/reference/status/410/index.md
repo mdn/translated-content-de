@@ -2,14 +2,16 @@
 title: 410 Gone
 slug: Web/HTTP/Reference/Status/410
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`410 Gone`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) gibt an, dass die Zielressource auf dem Ursprungsserver nicht mehr verfügbar ist und dass dieser Zustand wahrscheinlich dauerhaft ist. Eine 410-Antwort ist standardmäßig zwischenspeicherbar.
+Der HTTP-Statuscode **`410 Gone`** der [Client-Fehlerantworten](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass die Zielressource auf dem Ursprungsserver nicht mehr verfügbar ist und dass dieser Zustand wahrscheinlich dauerhaft ist.
+Eine 410-Antwort ist standardmäßig zwischenzuspeichern.
 
-Clients sollten keine Anfragen für Ressourcen wiederholen, die eine 410-Antwort zurückgeben, und Website-Betreiber sollten Links, die diesen Code zurückgeben, entfernen oder ersetzen. Wenn Serverbetreiber nicht wissen, ob dieser Zustand vorübergehend oder dauerhaft ist, sollte stattdessen ein {{HTTPStatus(404)}} Statuscode verwendet werden.
+Clients sollten Anfragen für Ressourcen, die eine 410-Antwort zurückgeben, nicht wiederholen, und Website-Betreiber sollten Links entfernen oder ersetzen, die diesen Code zurückgeben.
+Wenn Server-Besitzer nicht wissen, ob dieser Zustand vorübergehend oder dauerhaft ist, sollte stattdessen ein {{HTTPStatus(404)}} Statuscode verwendet werden.
 
 ## Status
 
@@ -21,7 +23,7 @@ Clients sollten keine Anfragen für Ressourcen wiederholen, die eine 410-Antwort
 
 ### Anfordern einer veralteten Ressource
 
-Die folgende `GET`-Anfrage ist für eine Seite mit Werbeinhalten, die nicht mehr gültig sind:
+Die folgende `GET`-Anfrage bezieht sich auf eine Seite mit nicht mehr gültigen Werbeinhalten:
 
 ```http
 GET /promotions/summer-2023 HTTP/1.1
@@ -33,7 +35,7 @@ HTTP/1.1 410 Gone
 Content-Type: text/html
 Content-Length: 212
 
-<html>
+<html lang="en-US">
   <head>
     <title>Promotion expired</title>
   </head>
@@ -52,4 +54,4 @@ Content-Length: 212
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - {{HTTPStatus(404)}}
-- [410 Gone](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#410)
+- [410 gone](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#410)

@@ -2,16 +2,16 @@
 title: SVG-Filter
 slug: Web/SVG/Guides/SVG_filters
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-SVG ermöglicht es uns, ähnliche Werkzeuge wie die Bitmap-Beschreibungssprache zu verwenden, wie zum Beispiel Schatten-, Weichzeichnereffekte oder sogar das Zusammenführen der Ergebnisse verschiedener Filter. Mit dem Filterelement `<filter>` ist es möglich, diese Effekte hinzuzufügen und später an ein Objekt anzuhängen.
+SVG ermöglicht es uns, ähnliche Werkzeuge wie die Bitmap-Beschreibungssprache zu verwenden, wie etwa die Nutzung von Schatten-, Unschärfeeffekten oder sogar das Zusammenführen der Ergebnisse verschiedener Filter. Mit dem Filter-Element `<filter>` ist es möglich, diese Effekte hinzuzufügen und später an ein Objekt anzuhängen.
 
-Filter wirken wie Schichten. Beim Erstellen dieser Effekte sollten Sie die Effekte schrittweise anwenden und testen.
+Filter funktionieren wie Ebenen. Beim Erstellen sollten Sie versuchen, den Effekt Schritt für Schritt anzuwenden und zu testen.
 
-Dieses Element verfügt über verschiedene Attribute, die uns dabei helfen, die Clip-Region zu erstellen. Zwischen den Filter-Tags können wir die _Primitives_ definieren, die es uns ermöglichen, den gewünschten Effekt zu implementieren. Eine dieser Primitives ist der [`<feGaussianBlur>`](/de/docs/Web/SVG/Reference/Element/feGaussianBlur). Das Schlüsselwort [`SourceAlpha`](https://drafts.fxtf.org/filter-effects/#attr-valuedef-in-sourcealpha) identifiziert die Eingabe für diese Primitive, in diesem Fall die Eingabe `in`. Die Menge des anzuwendenden Weichzeichners wird mit dem Attribut `stdDeviation` festgelegt.
+Dieses Element verfügt über verschiedene Attribute, die uns helfen, die Ausschnittregion zu erstellen. Zwischen den Filter-Tags können wir die _Primitiven_ definieren, die es uns ermöglichen, den gewünschten Effekt umzusetzen. Eine dieser Primitiven ist die [`<feGaussianBlur>`](/de/docs/Web/SVG/Reference/Element/feGaussianBlur). Das Schlüsselwort [`SourceAlpha`](https://drafts.fxtf.org/filter-effects/#attr-valuedef-in-sourcealpha) identifiziert die Eingabe für diese Primitive, in diesem Fall die Eingabe `in`. Die Menge der anzuwendenden Unschärfe wird mit dem Attribut `stdDeviation` durchgeführt.
 
-## Beispiel für SVG-Filter
+## SVG-Filterbeispiel
 
 ```html
 <defs>
@@ -20,16 +20,16 @@ Dieses Element verfügt über verschiedene Attribute, die uns dabei helfen, die 
   </filter>
 </defs>
 
-<g id="ghost" style="filter: url(#drop-shadow);">
+<g id="ghost" filter="url(#drop-shadow)">
   <!--Ghost drawing in here-->
 </g>
 ```
 
-Das obige Beispiel wird nicht die gewünschte Ausgabe erzeugen. Stattdessen müssen wir mehr Filter-Primitives hinzufügen, die die gewünschte Darstellung erzeugen. Durch das Hinzufügen von `feoffset` und `result` wird die Effekt-Schicht definiert.
+Das obige Beispiel wird nicht die gewünschte Ausgabe erzeugen. Stattdessen müssen wir mehr Filter-Primitiven hinzufügen, die die gewünschte Darstellung erzeugen. Durch das Hinzufügen von `feoffset` und `result` wird die Effekt-Ebene definiert.
 
-Das `<result>`-Attribut ist ein Verweis, der später verwendet werden kann. Es unterscheidet sich deutlich von einer XML-ID und kann nur innerhalb des aktuellen `filter` referenziert werden. Die **`<feoffset>`**-Primitive hat das Weichzeichnergebnis des Gaussian Blur. Die **`<feMerge>`**-Primitive enthält die Nodes **`<feMergeNode>`**, die als Eingabe das Ergebnis offsetBlur nehmen, wodurch es unter dem `sourceGraphic` erscheint.
+Das `<result>`-Attribut ist ein Verweis, der später verwendet werden kann. Es ist ziemlich unterschiedlich zu einer XML-ID und kann nur innerhalb des aktuellen `filter` referenziert werden. Die **`<feoffset>`**-Primitive hat das Unschärfeergebnis des Gaußschen Unscharf-Effekts. Die **`<feMerge>`**-Primitive enthält die Knoten **`<feMergeNode>`**, die als Eingabe das Ergebnis offsetBlur verwenden, was es ermöglichen wird, dass es unterhalb der `sourceGraphic` erscheint.
 
-## Implementierung weiterer Primitives
+## Implementierung von weiteren Primitiven
 
 ```html
 <defs>

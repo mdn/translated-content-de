@@ -3,18 +3,18 @@ title: Available-Dictionary header
 short-title: Available-Dictionary
 slug: Web/HTTP/Reference/Headers/Available-Dictionary
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Available-Dictionary`** Request-Header ermöglicht es dem Browser, das am besten passende Wörterbuch anzugeben, das er hat, damit der Server {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} für eine Ressourcenanfrage verwenden kann.
+Der HTTP-Header **`Available-Dictionary`** erlaubt es dem Browser, das am besten passende Wörterbuch anzugeben, das er hat, um dem Server den Einsatz des {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} für eine Ressourcenanfrage zu ermöglichen.
 
-Weitere Informationen finden Sie im [Leitfaden zu Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
+Clients können einen `Available-Dictionary`-Header senden, wenn sie `dcb`- oder `dcz`-Codierungen unterstützen. Der Header ist ein durch Doppelpunkte begrenzter, base-64 kodierter SHA-256 {{Glossary("Hash_function", "Hash")}} der Wörterbuchinhalte.
+
+Weitere Informationen finden Sie im [Leitfaden zur Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
 
 ## Syntax
-
-Clients können einen `Available-Dictionary`-Header senden, wenn sie `dcb`- oder `dcz`-Kodierungen unterstützen. Der Header ist ein von Doppelpunkten umgebener base64-kodierter SHA-256 {{Glossary("Hash_function", "Hash")}} des Wörterbuchinhalts.
 
 ```http
 Available-Dictionary: :<base64-hash>:
@@ -23,7 +23,7 @@ Available-Dictionary: :<base64-hash>:
 ## Direktiven
 
 - `<base64-hash>`
-  - : Ein base64-kodierter SHA-256 {{Glossary("Hash_function", "Hash")}} des Wörterbuchinhalts.
+  - : Ein base-64 kodierter SHA-256 {{Glossary("Hash_function", "Hash")}} der Wörterbuchinhalte.
 
 ## Beispiele
 
@@ -42,6 +42,6 @@ Available-Dictionary: :pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=:
 
 ## Siehe auch
 
-- [Leitfaden zu Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
+- [Leitfaden zur Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
 - {{HTTPHeader("Use-As-Dictionary")}}
 - {{HTTPHeader("Dictionary-ID")}}

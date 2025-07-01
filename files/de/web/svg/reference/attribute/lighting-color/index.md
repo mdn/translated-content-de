@@ -2,10 +2,10 @@
 title: lighting-color
 slug: Web/SVG/Reference/Attribute/lighting-color
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`lighting-color`** Attribut definiert die Farbe der Lichtquelle für Beleuchtungsfilter-Primitiven.
+Das Attribut **`lighting-color`** definiert die Farbe der Lichtquelle für Beleuchtungsfilter-Primitiven.
 
 > [!NOTE]
 > Als Präsentationsattribut hat `lighting-color` auch ein entsprechendes CSS-Property: {{cssxref("lighting-color")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
@@ -38,24 +38,19 @@ svg {
     </feDiffuseLighting>
   </filter>
 
+  <rect x="0" y="0" width="200" height="200" filter="url(#diffuseLighting1)" />
   <rect
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
-    style="filter: url(#diffuseLighting1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#diffuseLighting2); transform: translateX(220px);" />
+    filter="url(#diffuseLighting2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -84,5 +79,5 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("lighting-color")}} Property
+- CSS-Attribut {{cssxref("lighting-color")}}
 - [Beschreibung des Phong-Beleuchtungsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

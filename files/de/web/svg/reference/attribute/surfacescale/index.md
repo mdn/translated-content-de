@@ -2,12 +2,12 @@
 title: surfaceScale
 slug: Web/SVG/Reference/Attribute/surfaceScale
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`surfaceScale`** Attribut repräsentiert die Höhe der Oberfläche für ein Lichtfilter-Primitive.
+Das Attribut **`surfaceScale`** repräsentiert die Höhe der Oberfläche für eine Lichtfilterprimitive.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDiffuseLighting")}}
 - {{SVGElement("feSpecularLighting")}}
@@ -35,18 +35,13 @@ svg {
     </feDiffuseLighting>
   </filter>
 
+  <rect x="0" y="0" width="200" height="200" filter="url(#diffuseLighting1)" />
   <rect
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
-    style="filter: url(#diffuseLighting1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#diffuseLighting2); transform: translateX(220px);" />
+    filter="url(#diffuseLighting2)" />
 </svg>
 ```
 
@@ -100,4 +95,4 @@ Für {{SVGElement("feDiffuseLighting")}} definiert `surfaceScale` die Höhe der 
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Reflektionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Beleuchtungsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

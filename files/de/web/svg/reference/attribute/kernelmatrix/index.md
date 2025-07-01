@@ -2,12 +2,12 @@
 title: kernelMatrix
 slug: Web/SVG/Reference/Attribute/kernelMatrix
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das Attribut **`kernelMatrix`** definiert die Liste von Zahlen, die die Kernel-Matrix für das {{SVGElement("feConvolveMatrix")}}-Element bilden.
+Das **`kernelMatrix`**-Attribut definiert die Liste von Zahlen, die die Kernel-Matrix für das {{SVGElement("feConvolveMatrix")}}-Element bilden.
 
-Werte werden durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` sein, wie im {{SVGAttr("order")}}-Attribut definiert.
+Werte werden durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` entsprechen, wie im {{SVGAttr("order")}}-Attribut definiert.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -36,18 +36,19 @@ svg {
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#convolveMatrix1);" />
+    filter="url(#convolveMatrix1)" />
   <image
+    x="220"
     href="mdn_logo_only_color.png"
     width="200"
     height="200"
-    style="filter:url(#convolveMatrix2); transform:translateX(220px);" />
+    filter="url(#convolveMatrix2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -73,10 +74,9 @@ svg {
 </table>
 
 - `<list of numbers>`
+  - : Die Liste von {{cssxref("number")}}n, die die Kernel-Matrix für die Faltung bilden. Werte werden durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss `<orderX>` mal `<orderY>` entsprechen.
 
-  - : Die Liste von {{cssxref("number")}}n, die die Kernel-Matrix für die Faltung bilden. Werte werden durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss `<orderX>` mal `<orderY>` sein.
-
-    Wenn das Ergebnis von `orderX` \* `orderY` nicht gleich der Anzahl der Einträge in der Wertliste ist, fungiert die Filterprimitve als Pass-Through-Filter.
+    Wenn das Ergebnis von `orderX` \* `orderY` nicht der Anzahl der Einträge in der Werteliste entspricht, wirkt der Filter-Primitive als Durchgangsfilter.
 
 ## Spezifikationen
 

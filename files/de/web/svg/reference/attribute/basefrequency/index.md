@@ -2,12 +2,12 @@
 title: baseFrequency
 slug: Web/SVG/Reference/Attribute/baseFrequency
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`baseFrequency`**-Attribut repräsentiert den Basisfrequenzparameter für die Rauschfunktion der {{SVGElement("feTurbulence")}} Filterprimitive.
+Das **`baseFrequency`** Attribut repräsentiert den Basisfrequenzparameter für die Rauschfunktion der {{SVGElement("feTurbulence")}} Filterprimitive.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feTurbulence")}}
 
@@ -32,13 +32,8 @@ svg {
     <feTurbulence baseFrequency="0.05" />
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter: url(#noise1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#noise2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#noise1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#noise2)" />
 </svg>
 ```
 
@@ -66,7 +61,7 @@ svg {
       yChannelSelector="G" />
   </filter>
 
-  <circle cx="100" cy="100" r="100" style="filter: url(#displacementFilter)" />
+  <circle cx="100" cy="100" r="100" filter="url(#displacementFilter)" />
 </svg>
 ```
 
@@ -96,10 +91,9 @@ svg {
 </table>
 
 - `<number-optional-number>`
+  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste die Basisfrequenz in horizontaler Richtung und die zweite die Basisfrequenz in vertikaler Richtung. Wenn eine Zahl angegeben ist, wird dieser Wert sowohl für x als auch für y verwendet.
 
-  - : Wenn zwei Zahlen angegeben werden, repräsentiert die erste die Basisfrequenz in horizontaler Richtung und die zweite die Basisfrequenz in vertikaler Richtung. Wenn nur eine Zahl angegeben wird, wird dieser Wert sowohl für x als auch für y verwendet.
-
-    Negative Werte sind verboten.
+    Negative Werte sind nicht erlaubt.
 
 ## Spezifikationen
 

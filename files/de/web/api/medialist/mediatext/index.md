@@ -3,32 +3,24 @@ title: "MediaList: mediaText-Eigenschaft"
 short-title: mediaText
 slug: Web/API/MediaList/mediaText
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`mediaText`**-Eigenschaft der [`MediaList`](/de/docs/Web/API/MediaList)
-Schnittstelle ist ein {{Glossary("stringifier", "Stringifier")}}, der einen String zurückgibt, der die
-`MediaList` als Text darstellt und es Ihnen auch ermöglicht, eine neue `MediaList` festzulegen.
+Die **`mediaText`**-Eigenschaft der [`MediaList`](/de/docs/Web/API/MediaList)-Schnittstelle ist ein {{Glossary("stringifier", "Stringifier")}}, der einen String zurückgibt, der die `MediaList` als Text darstellt, und es Ihnen auch ermöglicht, eine neue `MediaList` festzulegen.
 
 ## Wert
 
-Ein String, der die Media-Queries eines Stylesheets darstellt. Jede Media-Query wird durch ein Komma getrennt, zum Beispiel
-`screen and (min-width: 480px), print`.
+Ein String, der die Medienabfragen eines Stylesheets darstellt. Jede ist durch ein Komma getrennt, zum Beispiel `screen and (width >= 480px), print`.
 
-Wenn Sie neue Media-Queries im Dokument festlegen möchten, muss der String-Wert die
-verschiedenen Queries durch Kommata getrennt enthalten, z. B. `screen, print`. Beachten Sie, dass die
-`MediaList` eine Live-Liste ist; das Aktualisieren der Liste über
-`mediaText` wird sofort das Verhalten des
-Dokuments aktualisieren.
+Wenn Sie neue Medienabfragen im Dokument festlegen möchten, muss der Stringwert die verschiedenen Abfragen durch Kommas getrennt haben, z.B. `screen, print`. Beachten Sie, dass die `MediaList` eine Live-Liste ist; das Aktualisieren der Liste über `mediaText` wird das Verhalten des Dokuments sofort aktualisieren.
 
 Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `ml.mediaText = null` gleichbedeutend ist mit `ml.mediaText = ""`.
 
 ## Beispiele
 
-Das Folgende würde eine textuelle Darstellung der
-`MediaList` des ersten Stylesheets, das auf das aktuelle Dokument angewendet wird, in die Konsole loggen.
+Das folgende Beispiel würde eine textuelle Darstellung der `MediaList` des ersten Stylesheets, das auf das aktuelle Dokument angewendet wurde, in der Konsole protokollieren.
 
 ```js
 const stylesheets = document.styleSheets;

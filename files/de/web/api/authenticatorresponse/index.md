@@ -2,32 +2,32 @@
 title: AuthenticatorResponse
 slug: Web/API/AuthenticatorResponse
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: cf41a29c212c730c1beef36d6bf3474ebbfc6162
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Das **`AuthenticatorResponse`**-Interface der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) ist das Basis-Interface für Interfaces, die eine kryptografische Vertrauensbasis für ein Schlüsselpaar bereitstellen. Die untergeordneten Schnittstellen enthalten Informationen vom Browser, wie z. B. den Ursprung der Herausforderung, und können entweder von [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) zurückgegeben werden.
+Das **`AuthenticatorResponse`** Interface der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) ist das Basisinterface für Schnittstellen, die eine kryptografische Vertrauensbasis für ein Schlüsselpaar bieten. Die abgeleiteten Schnittstellen beinhalten Informationen vom Browser wie den Ursprungsherausforderung und können entweder von [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) zurückgegeben werden.
 
-## Auf dem AuthenticatorResponse basierende Schnittstellen
+## Schnittstellen basierend auf AuthenticatorResponse
 
-Im Folgenden finden Sie eine Liste von Schnittstellen, die auf dem AuthenticatorResponse-Interface basieren.
+Unten ist eine Liste der Schnittstellen, die auf dem AuthenticatorResponse-Interface basieren.
 
 - [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)
 - [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`AuthenticatorResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)
-  - : Ein [JSON](/de/docs/Learn_web_development/Core/Scripting/JSON)-String in einem {{jsxref("ArrayBuffer")}}, der die Client-Daten repräsentiert, die an [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) übergeben wurden.
+  - : Ein [JSON](/de/docs/Learn_web_development/Core/Scripting/JSON)-String in einem {{jsxref("ArrayBuffer")}}, der die Client-Daten darstellt, die an [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) übergeben wurden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 
 ## Beispiele
 
-### Abrufen einer AuthenticatorAssertionResponse
+### Erhalten eines AuthenticatorAssertionResponse
 
 ```js
 const options = {
@@ -46,7 +46,7 @@ navigator.credentials
   .catch((err) => console.error(err));
 ```
 
-### Abrufen einer AuthenticatorAttestationResponse
+### Erhalten eines AuthenticatorAttestationResponse
 
 ```js
 const publicKey = {
@@ -59,8 +59,8 @@ const publicKey = {
   },
   user: {
     id: new Uint8Array(16),
-    name: "jdoe@example.com",
-    displayName: "John Doe",
+    name: "msanchez@example.com",
+    displayName: "Maria Sanchez",
   },
   pubKeyCredParams: [
     {

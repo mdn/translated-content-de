@@ -1,20 +1,20 @@
 ---
-title: Umgang mit Überlauf im mehrspaltigen Layout
+title: Umgang mit Überlauf im Mehrspaltenlayout
 short-title: Umgang mit Überlauf
 slug: Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{CSSRef}}
 
-In diesem Leitfaden betrachten wir, wie der Überlauf in einem mehrspaltigen (_multicol_) Layout gehandhabt wird, sowohl innerhalb der Spaltenboxen als auch in Situationen, in denen mehr Inhalt vorhanden ist, als in das Container passt.
+In diesem Leitfaden betrachten wir, wie man mit Überlauf in einem Mehrspalten (_multicol_) Layout umgeht, sowohl innerhalb der Spaltenkästen als auch in Situationen, in denen mehr Inhalt vorhanden ist, als in den Container passt.
 
-## Überlauf innerhalb von Spaltenboxen
+## Überlauf innerhalb von Spaltenkästen
 
-Eine Überlaufsituation entsteht, wenn die Größe eines Elements größer ist als die Spaltenbox. Zum Beispiel könnte die Situation eintreten, wenn ein Bild in einer Spalte breiter ist als der `column-width` Wert oder die Breite der Spalte basierend auf der Anzahl der mit `column-count` deklarierten Spalten.
+Eine Überlaufsituation tritt auf, wenn die Größe eines Elements größer ist als der Spaltenkasten. Zum Beispiel könnte die Situation auftreten, wenn ein Bild in einer Spalte breiter ist als der `column-width` Wert oder die Breite der Spalte basierend auf der Anzahl der mit `column-count` deklarierten Spalten.
 
-In diesem Fall sollte der Inhalt sichtbar in die nächste Spalte überlaufen, anstatt von der Spaltenbox abgeschnitten zu werden.
+In diesem Fall sollte der Inhalt sichtbar in die nächste Spalte übergehen, anstatt vom Spaltenkasten abgeschnitten zu werden.
 
 ```html live-sample___image
 <div class="container">
@@ -51,9 +51,9 @@ body {
 
 {{EmbedLiveSample("image", "", "440px")}}
 
-Es gibt zwei Textspalten. In der linken Spalte befindet sich ein Foto, das breiter ist als die Spalte. Das Bild erstreckt sich in diese zweite Spalte und erscheint hinter dem Text der rechten Spalte. Der Textfluss in der rechten Spalte wird von dem herausragenden Foto nicht beeinflusst, aber das Erscheinungsbild schon.
+Es gibt zwei Textspalten. In der linken Spalte befindet sich ein Foto, das breiter als die Spalte ist. Das Bild erstreckt sich in die zweite Spalte und erscheint hinter dem Text der rechten Spalte. Der Textfluss in der rechten Spalte wird von dem vorstehenden Foto nicht beeinflusst, aber das Erscheinungsbild wird es.
 
-Wenn Sie möchten, dass ein Bild in die Spaltenbox passt, verhindert die Einstellung von `max-width: 100%`, dass das Bild über seinen Container hinauswächst, in diesem Fall die Spaltenbox.
+Wenn Sie möchten, dass ein Bild in den Spaltenkasten passt, verhindert das Setzen von `max-width: 100%`, dass das Bild über seinen Container hinaus wächst, in diesem Fall der Spaltenkasten.
 
 ```html hidden live-sample___image-max-width
 <div class="container">
@@ -93,13 +93,13 @@ img {
 
 {{EmbedLiveSample("image-max-width", "", "440px")}}
 
-## Mehr Spalten als passen
+## Mehr Spalten, als passen werden
 
-Wie überquellende Spalten gehandhabt werden, hängt davon ab, ob der Medienkontext fragmentiert ist, wie zum Beispiel im Druck, oder kontinuierlich, wie zum Beispiel eine Webseite.
+Wie überlaufende Spalten gehandhabt werden, hängt davon ab, ob der Medienkontext fragmentiert ist, wie beispielsweise im Druck, oder kontinuierlich, wie beispielsweise auf einer Webseite.
 
-In fragmentierten Medien, nachdem ein Fragment (zum Beispiel eine Seite) mit Spalten gefüllt ist, werden die Spalten auf eine neue Seite verschoben und füllen diese mit Spalten. In kontinuierlichen Medien werden die Spalten in Inline-Richtung überlaufen. Im Web bedeutet dies, dass ein horizontaler Scrollbalken erscheint.
+In fragmentierten Medien, nachdem ein Fragment (zum Beispiel eine Seite) mit Spalten gefüllt ist, werden die Spalten auf eine neue Seite verschoben und füllen diese mit Spalten auf. In kontinuierlichen Medien werden Spalten in Richtung der Inline-Achse überlaufen. Im Web bedeutet dies, dass Sie einen horizontalen Rollbalken erhalten.
 
-Das folgende Beispiel zeigt dieses Überlaufverhalten. Der Multicol-Container hat eine festgelegte {{CSSXref("height")}} und es gibt mehr Text als Platz, um Spalten zu erstellen; daher entstehen Spalten außerhalb des Containers.
+Das untenstehende Beispiel zeigt dieses Überlaufverhalten. Der Multicol-Container hat eine festgelegte {{CSSXref("height")}} und es gibt mehr Text als Platz, um Spalten zu erstellen; daher werden Spalten außerhalb des Containers erstellt.
 
 ```html live-sample___overflow-inline
 <div class="container">
@@ -135,11 +135,11 @@ body {
 
 {{EmbedLiveSample("overflow-inline", "", "240px")}}
 
-## Verwendung von vertikalen Media-Abfragen
+## Verwendung vertikaler Media Queries
 
-Ein Problem mit Multicol im Web ist, dass Leser, wenn die Spalten höher als der Viewport sind, die Seite hoch- und runterscrollen müssen, um zu lesen, was keine gute Benutzererfahrung ist. Eine Möglichkeit, dies zu vermeiden, besteht darin, die Spalteneigenschaften nur anzuwenden, wenn Sie wissen, dass genügend vertikaler Raum vorhanden ist.
+Ein Problem mit dem Mehrspaltenlayout im Web ist, dass, wenn die Spalten höher als der Ansichtsbereich sind, der Leser die Seite nach oben und unten scrollen muss, um alles zu lesen, was keine gute Benutzererfahrung ist. Eine Möglichkeit, dies zu vermeiden, besteht darin, die Spalteneigenschaften nur dann anzuwenden, wenn Sie wissen, dass genug vertikaler Platz vorhanden ist.
 
-Im folgenden Beispiel haben wir eine {{CSSXref("min-height")}} [@media query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet, um sicherzustellen, dass genügend vertikaler Raum vorhanden ist, bevor die Spalteneigenschaften angewendet werden.
+Im Beispiel unten haben wir eine `height` [@media query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet, um sicherzustellen, dass genügend vertikaler Platz vorhanden ist, bevor die Spalteneigenschaften angewendet werden.
 
 ```html hidden live-sample___min-height
 <div class="container">
@@ -166,7 +166,7 @@ body {
   font: 1.2em / 1.5 sans-serif;
 }
 
-@media (min-height: 300px) {
+@media (height >= 300px) {
   .container {
     column-width: 200px;
   }
@@ -177,4 +177,4 @@ body {
 
 ## Nächste Schritte
 
-Im letzten Leitfaden dieser Serie werden wir sehen, [wie Fragmentierung mit Multicol-Layouts funktioniert](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout), um uns Kontrolle darüber zu geben, wie Inhalt zwischen Spalten getrennt wird.
+Im letzten Leitfaden dieser Serie werden wir sehen, [wie Fragmentierung mit Mehrspaltenlayouts funktioniert](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout), um uns die Kontrolle darüber zu geben, wie Inhalte zwischen Spalten aufgeteilt werden.

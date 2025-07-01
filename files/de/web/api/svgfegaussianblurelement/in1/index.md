@@ -3,12 +3,12 @@ title: "SVGFEGaussianBlurElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEGaussianBlurElement/in1
 l10n:
-  sourceCommit: d8f5fcc34fed682a8085ea71a89223d73594ec03
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in1`** schreibgeschützte Eigenschaft des [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Interfaces spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feGaussianBlur")}}-Elements wider.
+Die schreibgeschützte **`in1`**-Eigenschaft der [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des angegebenen {{SVGElement("feGaussianBlur")}}-Elements wider.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei {{SVGElement("feGaussianBlur")}}-Elemente in einem Filter definiert, jedes mit einem anderen `in`-Attribut.
+In diesem Beispiel werden zwei {{SVGElement("feGaussianBlur")}}-Elemente in einem Filter definiert, jeweils mit einem unterschiedlichen `in`-Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@ In diesem Beispiel werden zwei {{SVGElement("feGaussianBlur")}}-Elemente in eine
     y="20"
     width="100"
     height="100"
-    style="fill:rebeccapurple;"
+    fill="rebeccapurple"
     filter="url(#gaussian-blur-filter)" />
 
   <!-- Circle with BackgroundImage blur effect -->
@@ -49,7 +49,7 @@ In diesem Beispiel werden zwei {{SVGElement("feGaussianBlur")}}-Elemente in eine
     cx="150"
     cy="100"
     r="50"
-    style="fill:hotpink;"
+    fill="hotpink"
     filter="url(#gaussian-blur-filter)" />
 </svg>
 ```

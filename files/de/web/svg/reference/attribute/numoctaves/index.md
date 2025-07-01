@@ -2,13 +2,12 @@
 title: numOctaves
 slug: Web/SVG/Reference/Attribute/numOctaves
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das Attribut **`numOctaves`** definiert die Anzahl der Oktaven für die Rauschfunktion des {{SVGElement("feTurbulence")}} Primitivs.
+Das Attribut **`numOctaves`** definiert die Anzahl der Oktaven für die Rauschfunktion des {{SVGElement("feTurbulence")}}-Primitives.
 
-Eine Oktave ist eine Rauschfunktion, die durch ihre Frequenz und Amplitude definiert ist. Eine Turbulenz wird durch das Akkumulieren mehrerer Oktaven mit zunehmenden Frequenzen und abnehmenden Amplituden erstellt.
-Je höher die Anzahl der Oktaven, desto natürlicher wirkt das Rauschen. Allerdings erfordern mehr Oktaven auch mehr Berechnungen, was sich negativ auf die Leistung auswirkt.
+Eine Oktave ist eine Rauschfunktion, die durch ihre Frequenz und Amplitude definiert ist. Eine Turbulenz entsteht durch das Akkumulieren mehrerer Oktaven mit steigenden Frequenzen und abnehmenden Amplituden. Je höher die Anzahl der Oktaven, desto natürlicher sieht das Rauschen aus. Allerdings erfordern mehr Oktaven auch mehr Berechnungen, was sich negativ auf die Leistung auswirkt.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -35,13 +34,8 @@ svg {
     <feTurbulence baseFrequency="0.025" numOctaves="3" />
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter: url(#noise1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#noise2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#noise1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#noise2)" />
 </svg>
 ```
 
@@ -65,13 +59,13 @@ svg {
       yChannelSelector="G" />
   </filter>
 
-  <circle cx="100" cy="100" r="100" style="filter: url(#displacementFilter)" />
+  <circle cx="100" cy="100" r="100" filter="url(#displacementFilter)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example 2", "220", "250")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

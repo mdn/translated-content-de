@@ -2,10 +2,10 @@
 title: elevation
 slug: Web/SVG/Reference/Attribute/elevation
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`elevation`**-Attribut gibt den Richtungswinkel für die Lichtquelle vom XY-Plane zur Z-Achse in Grad an. Beachten Sie, dass die positive Z-Achse zum Betrachter des Inhalts zeigt.
+Das **`elevation`**-Attribut gibt den Winkel der Richtung für die Lichtquelle von der XY-Ebene zur Z-Achse in Grad an. Beachten Sie, dass die positive Z-Achse in Richtung des Betrachters des Inhalts zeigt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -34,18 +34,14 @@ svg {
     </feDiffuseLighting>
   </filter>
 
-  <circle cx="100" cy="100" r="80" style="filter: url(#distantLight1);" />
-  <circle
-    cx="100"
-    cy="100"
-    r="80"
-    style="filter: url(#distantLight2); transform: translateX(240px);" />
+  <circle cx="100" cy="100" r="80" filter="url(#distantLight1)" />
+  <circle cx="340" cy="100" r="80" filter="url(#distantLight2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

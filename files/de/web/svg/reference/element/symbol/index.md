@@ -2,15 +2,15 @@
 title: <symbol>
 slug: Web/SVG/Reference/Element/symbol
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<symbol>`**-Element im [SVG](/de/docs/Web/SVG) wird verwendet, um grafische Vorlageobjekte zu definieren, die von einem {{SVGElement("use")}}-Element instanziiert werden können.
+Das **`<symbol>`** [SVG](/de/docs/Web/SVG)-Element wird verwendet, um grafische Vorlageobjekte zu definieren, die von einem {{SVGElement("use")}}-Element instanziiert werden können.
 
-Die Verwendung von `<symbol>`-Elementen für Grafiken, die mehrfach im selben Dokument verwendet werden, fügt Struktur und Semantik hinzu. Dokumente mit reicher Struktur können grafisch, als Sprache oder als Braille dargestellt werden und fördern somit die Barrierefreiheit.
+Die Verwendung von `<symbol>`-Elementen für Grafiken, die mehrfach im selben Dokument verwendet werden, fügt Struktur und Semantik hinzu. Dokumente, die reich an Struktur sind, können grafisch, als Sprache oder als Braille dargestellt werden und fördern somit die Barrierefreiheit.
 
 > [!NOTE]
-> Ein `<symbol>`-Element ist nicht dafür gedacht, gerendert zu werden. Nur Instanzen eines `<symbol>`-Elements (d.h. ein Verweis auf ein `<symbol>` durch ein {{SVGElement("use")}}-Element) werden gerendert. Das bedeutet, dass einige Browser sich weigern könnten, ein `<symbol>`-Element direkt anzuzeigen, selbst wenn die CSS-Eigenschaft {{cssxref('display')}} etwas anderes angibt.
+> Ein `<symbol>`-Element selbst ist nicht zur Darstellung vorgesehen. Nur Instanzen eines `<symbol>`-Elements (d.h. ein Verweis auf ein `<symbol>` durch ein {{SVGElement("use")}}-Element) werden dargestellt. Das bedeutet, dass einige Browser möglicherweise die direkte Anzeige eines `<symbol>`-Elements verweigern könnten, selbst wenn die CSS-Eigenschaft {{cssxref('display')}} etwas anderes angibt.
 
 ## Verwendungskontext
 
@@ -22,7 +22,7 @@ Die Verwendung von `<symbol>`-Elementen für Grafiken, die mehrfach im selben Do
   - : Dieses Attribut bestimmt die Höhe des Symbols.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment verformt werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
+  - : Dieses Attribut definiert, wie das SVG-Fragment deformiert werden muss, wenn es in ein Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet wird.
     _Wertetyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("refX")}}
   - : Dieses Attribut bestimmt die x-Koordinate des Referenzpunkts des Symbols.
@@ -31,7 +31,7 @@ Die Verwendung von `<symbol>`-Elementen für Grafiken, die mehrfach im selben Do
   - : Dieses Attribut bestimmt die y-Koordinate des Referenzpunkts des Symbols.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | `top` | `center` | `bottom`; _Standardwert_: Keiner; _Animierbar_: **ja**
 - {{SVGAttr("viewBox")}}
-  - : Dieses Attribut definiert die Begrenzung des SVG-Ansichtsfensters für das aktuelle Symbol.
+  - : Dieses Attribut definiert die Begrenzung des SVG-Viewports für das aktuelle Symbol.
     _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Dieses Attribut bestimmt die Breite des Symbols.
@@ -71,11 +71,11 @@ svg {
     stroke="pink" />
 
   <!-- All instances of our symbol -->
-  <use href="#myDot" x="5" y="5" style="opacity:1.0" />
-  <use href="#myDot" x="20" y="5" style="opacity:0.8" />
-  <use href="#myDot" x="35" y="5" style="opacity:0.6" />
-  <use href="#myDot" x="50" y="5" style="opacity:0.4" />
-  <use href="#myDot" x="65" y="5" style="opacity:0.2" />
+  <use href="#myDot" x="5" y="5" opacity="1.0" />
+  <use href="#myDot" x="20" y="5" opacity="0.8" />
+  <use href="#myDot" x="35" y="5" opacity="0.6" />
+  <use href="#myDot" x="50" y="5" opacity="0.4" />
+  <use href="#myDot" x="65" y="5" opacity="0.2" />
 </svg>
 ```
 

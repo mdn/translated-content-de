@@ -2,14 +2,14 @@
 title: <fePointLight>
 slug: Web/SVG/Reference/Element/fePointLight
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<fePointLight>`** [SVG](/de/docs/Web/SVG)-Filter-Element definiert eine Lichtquelle, die einen Punktlichteeffekt erzeugt. Es kann in einem Beleuchtungsfilter-Element wie {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}} verwendet werden.
+Das **`<fePointLight>`** [SVG](/de/docs/Web/SVG) Filterprimitiv definiert eine Lichtquelle, die es ermöglicht, einen Punktlichteffekt zu erzeugen. Es kann innerhalb eines Lichtfilterprimitivs verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
-Wie andere Filter-Elemente verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filterprimitive verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -21,7 +21,7 @@ Wie andere Filter-Elemente verarbeitet es Farbkomponenten standardmäßig im `li
 
 ## DOM-Interface
 
-Dieses Element implementiert das [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement)-Interface.
+Dieses Element implementiert das [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement) Interface.
 
 ## Beispiel
 
@@ -59,7 +59,7 @@ Dieses Element implementiert das [`SVGFEPointLightElement`](/de/docs/Web/API/SVG
     y="10%"
     width="80%"
     height="80%"
-    style="filter:url(#spotlight);" />
+    filter="url(#spotlight)" />
 </svg>
 ```
 

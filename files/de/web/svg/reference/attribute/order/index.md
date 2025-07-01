@@ -2,10 +2,10 @@
 title: order
 slug: Web/SVG/Reference/Attribute/order
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`order`** Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}} Element verwendet werden soll.
+Das **`order`**-Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}}-Element verwendet wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -32,19 +32,14 @@ svg {
     <feConvolveMatrix kernelMatrix="3 0 0 0 0 0 0 0 -4" order="3" />
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter:url(#emboss1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter:url(#emboss2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#emboss1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#emboss2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -70,10 +65,9 @@ svg {
 </table>
 
 - `<number-optional-number>`
+  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension der Kernel-Matrix an. Die angegebenen Werte müssen {{cssxref("integer")}} sein, die größer als null sind. Werte, die keine ganzen Zahlen sind, werden abgeschnitten, d.h. auf den nächsten ganzzahligen Wert Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie standardmäßig auf die erste Zahl gesetzt.
 
-  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernel-Matrix an. Die angegebenen Werte müssen {{cssxref("integer")}} größer als null sein. Werte, die keine ganzen Zahlen sind, werden abgeschnitten, d.h. sie werden auf den nächsten ganzzahligen Wert in Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie standardmäßig auf die erste Zahl gesetzt.
-
-    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu einem sehr hohen CPU-Aufwand führen und liefern in der Regel keine Ergebnisse, die den Einfluss auf die Leistung rechtfertigen.
+    Es wird empfohlen, nur kleine Werte (z. B. 3) zu verwenden; höhere Werte können zu sehr hoher CPU-Belastung führen und liefern in der Regel keine Ergebnisse, die die Auswirkungen auf die Leistung rechtfertigen.
 
 ## Spezifikationen
 

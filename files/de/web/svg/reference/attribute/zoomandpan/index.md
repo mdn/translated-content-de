@@ -2,16 +2,16 @@
 title: zoomAndPan
 slug: Web/SVG/Reference/Attribute/zoomAndPan
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{Deprecated_Header}}
 
-Das Attribut **`zoomAndPan`** gibt an, ob das SVG-Dokument vergrößert und verschoben werden kann.
+Das **`zoomAndPan`**-Attribut gibt an, ob das SVG-Dokument vergrößert und verschoben werden kann.
 
-Vergrößerung bedeutet in diesem Kontext den Effekt einer zusätzlichen Skalierungs- und Translations-Transformation auf das äußerste SVG-Dokumentfragment.
+Vergrößern bedeutet in diesem Kontext die Wirkung einer zusätzlichen Skalierungs- und Translationstransformation auf das äußerste SVG-Dokumentfragment.
 
-Verschieben stellt eine Translations- (d.h. Verschiebungs-) Transformation auf einem SVG-Dokumentfragment als Reaktion auf eine Benutzeroberflächenaktion dar.
+Verschieben stellt eine Translation (d.h. eine Verschiebung) auf ein SVG-Dokumentfragment als Reaktion auf eine Benutzeroberflächenaktion dar.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -39,12 +39,7 @@ svg {
     </feDiffuseLighting>
   </filter>
 
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#diffuseLighting);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#diffuseLighting)" />
 </svg>
 ```
 

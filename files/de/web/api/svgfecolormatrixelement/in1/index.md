@@ -3,20 +3,20 @@ title: "SVGFEColorMatrixElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEColorMatrixElement/in1
 l10n:
-  sourceCommit: b5f56e77f0fc3c786a1178eff5bbb89feffde91f
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`in1`**-Eigenschaft der Schnittstelle [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement) spiegelt das {{SVGAttr("in")}}-Attribut des betreffenden Elements wider.
+Die **`in1`**-Eigenschaft der Schnittstelle [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement) ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("in")}}-Attribut des gegebenen Elements widerspiegelt.
 
 ## Wert
 
-Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) Objekt.
+Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei {{SVGElement("feColorMatrix")}}-Elemente in einem Filter definiert, jedes mit einem anderen `in`-Attribut.
+In diesem Beispiel sind zwei {{SVGElement("feColorMatrix")}}-Elemente in einem Filter definiert, jedes mit einem anderen `in`-Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -35,13 +35,13 @@ In diesem Beispiel werden zwei {{SVGElement("feColorMatrix")}}-Elemente in einem
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#color-matrix-filter)" />
   <circle
     cx="100"
     cy="100"
     r="50"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#color-matrix-filter)" />
 </svg>
 ```

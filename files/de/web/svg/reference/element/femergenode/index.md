@@ -2,10 +2,10 @@
 title: <feMergeNode>
 slug: Web/SVG/Reference/Element/feMergeNode
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) übernimmt das Ergebnis eines anderen Filters, der von seinem übergeordneten {{ SVGElement("feMerge") }} verarbeitet wird.
+Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) Element verarbeitet das Ergebnis eines anderen Filters, der von seinem übergeordneten {{ SVGElement("feMerge") }} Element verarbeitet wird.
 
 ## Verwendungskontext
 
@@ -33,13 +33,10 @@ Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) übernimmt das Ergebnis eines an
     y="40"
     width="100"
     height="100"
-    style="stroke: #000000; fill: green; filter: url(#feOffset);" />
-  <rect
-    x="40"
-    y="40"
-    width="100"
-    height="100"
-    style="stroke: #000000; fill: green;" />
+    stroke="black"
+    fill="green"
+    filter="url(#feOffset)" />
+  <rect x="40" y="40" width="100" height="100" stroke="black" fill="green" />
 </svg>
 ```
 
@@ -51,9 +48,9 @@ Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) übernimmt das Ergebnis eines an
 
 - {{ SVGAttr("in") }}
 
-## DOM-Schnittstelle
+## DOM Schnittstelle
 
-Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement)-Schnittstelle.
+Dieses Element implementiert das [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement) Interface.
 
 ## Spezifikationen
 

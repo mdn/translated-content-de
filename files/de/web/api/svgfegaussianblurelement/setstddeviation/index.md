@@ -1,14 +1,14 @@
 ---
-title: "SVGFEGaussianBlurElement: Methode setStdDeviation()"
+title: "SVGFEGaussianBlurElement: setStdDeviation() Methode"
 short-title: setStdDeviation()
 slug: Web/API/SVGFEGaussianBlurElement/setStdDeviation
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die `setStdDeviation()`-Methode des [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Interfaces setzt die Werte für das {{SVGAttr("stdDeviation")}}-Attribut.
+Die `setStdDeviation()`-Methode der [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle setzt die Werte für das {{SVGAttr("stdDeviation")}}-Attribut.
 
 ## Syntax
 
@@ -48,7 +48,7 @@ Keiner ({{jsxref('undefined')}}).
     y="50"
     width="100"
     height="100"
-    style="fill:hotpink;"
+    fill="hotpink"
     filter="url(#gaussian-blur-filter)" />
 </svg>
 

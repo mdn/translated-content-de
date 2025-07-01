@@ -3,12 +3,12 @@ title: "SVGFEOffsetElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEOffsetElement/in1
 l10n:
-  sourceCommit: f9c8cab62b7d0349327fa0f56f09c9d3193f2db3
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in1`** schreibgeschützte Eigenschaft des [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Interfaces spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feOffset")}}-Elements wider.
+Die **`in1`**-Eigenschaft der [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feOffset")}}-Elements wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
 
 ### Zugriff auf das `in`-Attribut des `<feOffset>`-Elements
 
-In diesem Beispiel greifen wir auf den Wert des `in`-Attributs des `<feOffset>`-Elements zu, indem wir die schreibgeschützte `in1`-Eigenschaft des `SVGFEOffsetElement`-Interfaces verwenden.
+In diesem Beispiel greifen wir auf den Wert des `in`-Attributs des `<feOffset>`-Elements zu, indem wir die `in1`-Eigenschaft der `SVGFEOffsetElement`-Schnittstelle verwenden.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ In diesem Beispiel greifen wir auf den Wert des `in`-Attributs des `<feOffset>`-
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#offsetFilter)" />
 </svg>
 ```

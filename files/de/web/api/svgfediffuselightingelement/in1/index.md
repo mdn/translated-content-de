@@ -3,12 +3,12 @@ title: "SVGFEDiffuseLightingElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEDiffuseLightingElement/in1
 l10n:
-  sourceCommit: e9ef767e76e5e04884293f12e393deb9455c87af
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in1`** schreibgeschützte Eigenschaft des [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)-Interfaces spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feDiffuseLighting")}}-Elements wider.
+Die **`in1`** schreibgeschützte Eigenschaft des [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)-Interfaces spiegelt das {{SVGAttr("in")}}-Attribut des angegebenen {{SVGElement("feDiffuseLighting")}}-Elements wider.
 
 ## Wert
 
@@ -36,7 +36,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#diffuseLightingFilter)" />
 </svg>
 ```

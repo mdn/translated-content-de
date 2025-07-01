@@ -2,12 +2,12 @@
 title: <feImage>
 slug: Web/SVG/Reference/Element/feImage
 l10n:
-  sourceCommit: 68e3afd00cb531f3536ed9343aaa0f9e06e6ef94
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<feImage>`**-[SVG](/de/docs/Web/SVG)-Filter-Primitive holt Bilddaten aus einer externen Quelle und liefert die Pixeldaten als Ausgabe (das bedeutet, wenn die externe Quelle ein SVG-Bild ist, wird es gerastert.)
+Das **`<feImage>`** [SVG](/de/docs/Web/SVG) Filter-Primitive holt Bilddaten aus einer externen Quelle und liefert die Pixeldaten als Ausgabe (das bedeutet, wenn die externe Quelle ein SVG-Bild ist, wird es gerastert).
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -20,7 +20,7 @@ Das **`<feImage>`**-[SVG](/de/docs/Web/SVG)-Filter-Primitive holt Bilddaten aus 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement) Schnittstelle.
 
 ## Beispiel
 
@@ -39,7 +39,7 @@ Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEIma
     </filter>
   </defs>
 
-  <rect x="10%" y="10%" width="80%" height="80%" style="filter:url(#image);" />
+  <rect x="10%" y="10%" width="80%" height="80%" filter="url(#image)" />
 </svg>
 ```
 
@@ -57,7 +57,7 @@ Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEIma
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- [SVG-Filterprimitivattribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
 - {{SVGAttr("flood-color")}} Attribut
 - {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}

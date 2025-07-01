@@ -2,7 +2,7 @@
 title: border-bottom
 slug: Web/CSS/border-bottom
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
@@ -28,7 +28,7 @@ border-bottom: thick double #32a1ce;
 ```
 
 ```css interactive-example-choice
-border-bottom: 4mm ridge rgba(211, 220, 50, 0.6);
+border-bottom: 4mm ridge rgb(211 220 50 / 0.6);
 ```
 
 ```html interactive-example
@@ -49,23 +49,23 @@ border-bottom: 4mm ridge rgba(211, 220, 50, 0.6);
 }
 ```
 
-Wie bei allen Kurzschreibweise-Eigenschaften setzt `border-bottom` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt die nicht spezifizierten auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzschreibweisen setzt `border-bottom` stets die Werte aller Eigenschaften, die es festlegen kann, selbst wenn sie nicht spezifiziert sind. Nicht spezifizierte Eigenschaften werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
 
 ```css
 border-bottom-style: dotted;
 border-bottom: thick green;
 ```
 
-Er entspricht tatsächlich diesem:
+Dies entspricht tatsächlich diesem Code:
 
 ```css
 border-bottom-style: dotted;
 border-bottom: none thick green;
 ```
 
-Der Wert von {{cssxref("border-bottom-style")}}, der vor `border-bottom` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-bottom-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style` Teils zu keinem Rand.
+Der Wert von {{cssxref("border-bottom-style")}}, der vor `border-bottom` angegeben ist, wird ignoriert. Da der Standardwert von {{cssxref("border-bottom-style")}} `none` ist, führt das Weglassen des Teils `border-style` zu keinem Rand.
 
-## Einzelne Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -109,7 +109,7 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Einen unteren Rand anwenden
+### Anwenden eines unteren Rands
 
 #### HTML
 

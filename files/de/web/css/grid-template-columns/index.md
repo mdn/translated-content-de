@@ -2,12 +2,12 @@
 title: grid-template-columns
 slug: Web/CSS/grid-template-columns
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`grid-template-columns`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und die Spurgrößenfunktionen der {{Glossary("grid_column", "Grid-Spalten")}}.
+Die **`grid-template-columns`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Liniennamen und Spurgrößenfunktionen der {{Glossary("grid_column", "Gitterspalten")}}.
 
 {{InteractiveExample("CSS Demo: grid-template-columns")}}
 
@@ -51,7 +51,7 @@ grid-template-columns: 8ch auto;
 }
 
 #example-element > div {
-  background-color: rgba(0, 0, 255, 0.2);
+  background-color: rgb(0 0 255 / 0.2);
   border: 3px solid blue;
 }
 ```
@@ -96,43 +96,43 @@ grid-template-columns: unset;
 ### Werte
 
 - `none`
-  - : Gibt an, dass kein explizites Grid vorhanden ist. Alle Spalten werden implizit generiert, und ihre Größe wird durch die Eigenschaft {{cssxref("grid-auto-columns")}} bestimmt.
+  - : Gibt an, dass es kein explizites Gitter gibt. Alle Spalten werden implizit generiert und ihre Größe wird durch die Eigenschaft {{cssxref("grid-auto-columns")}} bestimmt.
 - `[line-name]`
-  - : Ein [`<custom-ident>`](/de/docs/Web/CSS/custom-ident), das einen Namen für die Linie an dieser Position angibt. Der Identifikator kann jede gültige Zeichenfolge sein, außer den reservierten Wörtern `span` und `auto`. Linien können mehrere Namen haben, die innerhalb der eckigen Klammern durch ein Leerzeichen getrennt sind, zum Beispiel `[line-name-a line-name-b]`.
+  - : Ein [`<custom-ident>`](/de/docs/Web/CSS/custom-ident), das einen Namen für die Linie an dieser Stelle angibt. Das Identifikat kann jede gültige Zeichenkette sein, außer den reservierten Wörtern `span` und `auto`. Linien können mehrere Namen haben, die in den eckigen Klammern durch ein Leerzeichen getrennt sind, zum Beispiel `[line-name-a line-name-b]`.
 - {{cssxref("&lt;length&gt;")}}
-  - : Eine nicht negative Länge, die die Breite der Spalte angibt.
+  - : Eine nicht-negative Länge, die die Breite der Spalte angibt.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein nicht negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert relativ zur Inline-Größe des Grid-Containers. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, muss der Prozentsatz als `auto` behandelt werden. Die Eigenbeiträge der Spurgröße können an die Größe des Grid-Containers angepasst werden und die endgültige Größe der Spur um den Mindestbetrag erhöhen, der erforderlich ist, um den Prozentsatz zu honorieren.
+  - : Ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert relativ zur Inline-Größe des Gittercontainers. Wenn die Größe des Gittercontainers von der Größe seiner Spuren abhängt, muss der Prozentsatz als `auto` behandelt werden.
+    Die intrinsischen Größenbeiträge der Spur können an die Größe des Gittercontainers angepasst werden und die endgültige Größe der Spur um den minimalen Betrag erhöhen, der erforderlich ist, um den Prozentsatz zu berücksichtigen.
 - {{cssxref("&lt;flex&gt;")}}
+  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-größte Spur nimmt einen Anteil des verbleibenden Raums im Verhältnis zu ihrem Flex-Faktor ein.
 
-  - : Eine nicht negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-größenbestimmte Spur nimmt einen Anteil des verbleibenden Raums im Verhältnis zu ihrem Flex-Faktor ein.
-
-    Wenn es außerhalb einer `minmax()` Notation erscheint, impliziert es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
+    Wenn es außerhalb einer `minmax()`-Notation erscheint, impliziert es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 
 - {{cssxref("max-content")}}
-  - : Ein Schlüsselwort, das den größten [maximalen Inhaltsbeitrag](https://drafts.csswg.org/css-sizing-3/#max-content) der Grid-Elemente repräsentiert, die die Spur belegen. Zum Beispiel, wenn das erste Element der Spur den Satz _"Repetitio est mater studiorum"_ enthält und das zweite Element den Satz _"Dum spiro, spero"_, wird der maximale Inhaltsbeitrag durch die Größe des größten Satzes unter allen Grid-Elementen definiert - _"Repetitio est mater studiorum"_.
+  - : Ein Schlüsselwort, das den größten [maximalen Inhaltsbeitrag](https://drafts.csswg.org/css-sizing-3/#max-content) der Gitterelemente darstellt, die die Gitterspur einnehmen. Zum Beispiel, wenn das erste Element der Gitterspur den Satz _"Repetitio est mater studiorum"_ enthält und das zweite Element den Satz _"Dum spiro, spero"_, wird der maximale Inhaltsbeitrag durch die Größe des größten Satzes aller Gitterelemente definiert - _"Repetitio est mater studiorum"_.
 - {{cssxref("min-content")}}
-  - : Ein Schlüsselwort, das den größten [minimalen Inhaltsbeitrag](https://drafts.csswg.org/css-sizing-3/#min-content) der Grid-Elemente repräsentiert, die die Spur belegen. Zum Beispiel, wenn das erste Element der Spur den Satz _"Repetitio est mater studiorum"_ enthält und das zweite Element den Satz _"Dum spiro, spero"_, wird der minimale Inhaltsbeitrag durch die Größe des größten Wortes unter allen Sätzen in den Grid-Elementen definiert - _"studiorum"_.
+  - : Ein Schlüsselwort, das den größten [minimalen Inhaltsbeitrag](https://drafts.csswg.org/css-sizing-3/#min-content) der Gitterelemente darstellt, die die Gitterspur einnehmen. Zum Beispiel, wenn das erste Element der Gitterspur den Satz _"Repetitio est mater studiorum"_ enthält und das zweite Element den Satz _"Dum spiro, spero"_, wird der minimale Inhaltsbeitrag durch die Größe des größten Wortes aller Sätze in den Gitterelementen definiert - _"studiorum"_.
 - {{cssxref("minmax", "minmax(min, max)")}}
   - : Eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion als _min_ behandelt. Als Maximum setzt ein `<flex>`-Wert den Flex-Faktor der Spur. Es ist als Minimum ungültig.
 - `auto`
+  - : Als Maximum stellt es die größte {{cssxref("max-content")}}-Größe der Elemente in dieser Spur dar.
 
-  - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}} Größe der Elemente in dieser Spur.
+    Als Minimum stellt es die größte Mindestgröße der Elemente in dieser Spur dar (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}}-Größe.
 
-    Als Minimum repräsentiert es die größte Mindestgröße der Elemente in dieser Spur (festgelegt durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}} Größe.
+    Wenn außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet, stellt `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum dar. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
 
-    Wenn außerhalb der {{cssxref("minmax", "minmax()")}} Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
-
-    > [!NOTE] > `auto` Spurgrößen (und nur `auto` Spurgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt eine `auto`-große Spur standardmäßig jeden verbleibenden Platz im Grid-Container ein.
+    > [!NOTE]
+    > `auto`-Spurgrößen (und nur `auto`-Spurgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gedehnt werden. Daher wird eine `auto`-große Spur standardmäßig jeden verbleibenden Raum im Gittercontainer einnehmen.
 
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Repräsentiert die Formel `max(minimum, min(limit, max-content))`, wobei _minimum_ ein `auto` Minimum repräsentiert (was oft, aber nicht immer, gleich einem {{cssxref("min-content")}} Minimum ist), und _limit_ die Spurgrößenfunktion ist, die als Argument an fit-content() übergeben wird. Dies wird im Wesentlichen als das kleinere von `minmax(auto, max-content)` und `minmax(auto, limit)` berechnet.
+  - : Stellt die Formel `max(minimum, min(limit, max-content))` dar, wobei _minimum_ ein `auto`-Minimum repräsentiert (was oft, aber nicht immer einem {{cssxref("min-content")}}-Minimum entspricht) und _limit_ die Spurgrößenfunktion ist, die als Argument an `fit-content()` übergeben wird. Dies wird im Wesentlichen als das Kleinere aus `minmax(auto, max-content)` und `minmax(auto, limit)` berechnet.
 - {{cssxref("repeat", "repeat( [ &lt;positive-integer&gt; | auto-fill | auto-fit ] , &lt;track-list&gt; )")}}
-  - : Repräsentiert ein wiederholtes Fragment der Spurliste, das es ermöglicht, eine große Anzahl von Spalten, die ein wiederkehrendes Muster aufweisen, in kompakterer Form zu schreiben.
+  - : Stellt ein wiederholtes Fragment der Spurliste dar und ermöglicht es, eine große Anzahl von Spalten mit einem sich wiederholenden Muster in kompakterer Form zu schreiben.
 - [`masonry`](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout)
-  - : Der Wert `masonry` gibt an, dass diese Achse entsprechend dem Masonry-Algorithmus ausgelegt werden sollte.
+  - : Der `masonry`-Wert gibt an, dass diese Achse gemäß dem Mauerwerks-Algorithmus angeordnet werden soll.
 - [`subgrid`](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)
-  - : Der Wert `subgrid` gibt an, dass das Grid den überlagerten Teil seines Eltern-Grids in dieser Achse übernehmen wird. Statt ausdrücklich angegeben zu werden, werden die Größen der Grid-Reihen/Spalten aus der Definition des Eltern-Grids übernommen.
+  - : Der `subgrid`-Wert gibt an, dass das Gitter den umspannten Teil des übergeordneten Gitters in dieser Achse übernehmen wird. Anstatt explizit angegeben zu werden, werden die Größen der Gitterreihen/-spalten aus der Definition des übergeordneten Gitters übernommen.
 
 ## Formale Definition
 
@@ -144,7 +144,7 @@ grid-template-columns: unset;
 
 ## Beispiele
 
-### Spezifizierung von Grid-Spaltengrößen
+### Spezifizieren der Gitterspaltengrößen
 
 #### HTML
 

@@ -1,14 +1,14 @@
 ---
-title: "HTMLSourceElement: Eigenschaft media"
+title: "HTMLSourceElement: media-Eigenschaft"
 short-title: media
 slug: Web/API/HTMLSourceElement/media
 l10n:
-  sourceCommit: da9701a81a92538abef8763e69d88158e6215703
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`media`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der das vorgesehene Zielmedium für die Ressource darstellt. Der Wert ist eine [media query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die eine kommagetrennte Liste von Medientypen, Medien-Features und logischen Operatoren ist.
+Die **`media`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der das beabsichtigte Zielmedium für die Ressource repräsentiert. Der Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die eine durch Kommas getrennte Liste von Medientypen, Medieneigenschaften und logischen Operatoren ist.
 
 Sie spiegelt das `media`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -23,13 +23,13 @@ Ein String.
   id="el"
   src="largeVideo.mov"
   type="video/quicktime"
-  media="screen and (min-width: 600px)" />
+  media="screen and (width >= 600px)" />
 ```
 
 ```js
 const el = document.getElementById("el");
-console.log(el.media); // Output: "screen and (min-width: 600px)"
-el.media = "(min-width: 800px)"; // Updates the media value
+console.log(el.media); // Output: "screen and (width >= 600px)"
+el.media = "(width >= 800px)"; // Updates the media value
 ```
 
 ## Spezifikationen
@@ -50,4 +50,4 @@ el.media = "(min-width: 800px)"; // Updates the media value
 - {{htmlelement("picture")}}
 - {{htmlelement("audio")}}
 - {{htmlelement("video")}}
-- [Using media queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)

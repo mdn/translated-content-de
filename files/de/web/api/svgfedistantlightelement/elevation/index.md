@@ -3,12 +3,12 @@ title: "SVGFEDistantLightElement: elevation-Eigenschaft"
 short-title: elevation
 slug: Web/API/SVGFEDistantLightElement/elevation
 l10n:
-  sourceCommit: 44ae1cfec900ae9d18a5e305c26b06b7912bab20
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`elevation`**-Eigenschaft der [`SVGFEDistantLightElement`](/de/docs/Web/API/SVGFEDistantLightElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("elevation")}}-Attribut des gegebenen {{SVGElement("feDistantLight")}}-Elements wiedergibt.
+Die schreibgeschützte **`elevation`**-Eigenschaft des [`SVGFEDistantLightElement`](/de/docs/Web/API/SVGFEDistantLightElement)-Interfaces spiegelt das {{SVGAttr("elevation")}}-Attribut des angegebenen {{SVGElement("feDistantLight")}}-Elements wider.
 
 ## Wert
 
@@ -33,7 +33,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="50"
     width="100"
     height="100"
-    style="fill:yellow;"
+    fill="yellow"
     filter="url(#lightingFilter)" />
 </svg>
 ```

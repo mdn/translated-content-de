@@ -2,10 +2,10 @@
 title: seed
 slug: Web/SVG/Reference/Attribute/seed
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`seed`**-Attribut repräsentiert die Startzahl für den Pseudo-Zufallszahlengenerator des {{SVGElement("feTurbulence")}} Filterprimitives.
+Das **`seed`**-Attribut repräsentiert die Startzahl für den Pseudo-Zufallszahlengenerator der {{SVGElement("feTurbulence")}}-Filterprimitive.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -32,17 +32,12 @@ svg {
     <feTurbulence baseFrequency="0.025" seed="100" />
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter:url(#noise1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter:url(#noise2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#noise1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#noise2)" />
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel 1", "220", "220")}}
+{{EmbedLiveSample("Example 1", "220", "220")}}
 
 ### Beispiel 2
 
@@ -62,13 +57,13 @@ svg {
       yChannelSelector="G" />
   </filter>
 
-  <circle cx="100" cy="100" r="100" style="filter: url(#displacementFilter)" />
+  <circle cx="100" cy="100" r="100" filter="url(#displacementFilter)" />
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel 2", "220", "250")}}
+{{EmbedLiveSample("Example 2", "220", "250")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -82,7 +77,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>

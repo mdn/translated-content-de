@@ -3,12 +3,12 @@ title: "SVGFEMorphologyElement: operator-Eigenschaft"
 short-title: operator
 slug: Web/API/SVGFEMorphologyElement/operator
 l10n:
-  sourceCommit: 55a2df9a3692842dc7cb9fd5440e41431678b537
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`operator`**-Eigenschaft der [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Schnittstelle gibt das {{SVGAttr("operator")}}-Attribut des angegebenen {{SVGElement("feMorphology")}}-Elements wieder. Sie nimmt einen der auf dieser Schnittstelle definierten `SVG_MORPHOLOGY_OPERATOR_*`-Konstanten an.
+Die **`operator`** schreibgeschützte Eigenschaft des [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Interfaces spiegelt das {{SVGAttr("operator")}}-Attribut des gegebenen {{SVGElement("feMorphology")}}-Elements wider. Sie nimmt einen der `SVG_MORPHOLOGY_OPERATOR_*`-Konstanten an, die auf dieser Schnittstelle definiert sind.
 
 ## Wert
 
@@ -31,7 +31,7 @@ Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#morphologyFilter)" />
 </svg>
 ```

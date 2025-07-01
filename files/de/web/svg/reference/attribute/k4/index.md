@@ -2,7 +2,7 @@
 title: k4
 slug: Web/SVG/Reference/Attribute/k4
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 Das **`k4`**-Attribut definiert einen der Werte, die innerhalb der `arithmetic`-Operation des {{SVGElement("feComposite")}} Filterprimitives verwendet werden.
@@ -54,20 +54,20 @@ svg {
     y="0"
     width="200"
     height="200"
-    style="filter: url(#composite1);" />
+    filter="url(#composite1)" />
   <image
     href="mdn.svg"
-    x="0"
+    x="220"
     y="0"
     width="200"
     height="200"
-    style="filter: url(#composite2); transform: translateX(220px);" />
+    filter="url(#composite2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Hinweise zur Nutzung
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

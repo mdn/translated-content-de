@@ -2,10 +2,10 @@
 title: fr
 slug: Web/SVG/Reference/Attribute/fr
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`fr`**-Attribut definiert den Radius des Brennpunkts für den radialen Verlauf.
+Das **`fr`** Attribut definiert den Radius des Brennpunkts für den radialen Farbverlauf.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -21,9 +21,9 @@ svg {
 }
 ```
 
-### Ändern des Wertes von `fr`
+### Ändern des Werts von `fr`
 
-Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` gesetzt hat.
+Das folgende Beispiel zeigt zwei Kreise: der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` hat.
 
 ```html
 <svg
@@ -57,20 +57,15 @@ Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, w�
   </defs>
 
   <circle cx="100" cy="100" r="100" fill="url(#gradient1)" />
-  <circle
-    cx="100"
-    cy="100"
-    r="100"
-    fill="url(#gradient2)"
-    style="transform: translateX(240px);" />
+  <circle cx="340" cy="100" r="100" fill="url(#gradient2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("changing_the_value_of_fr", "480", "200")}}
 
-### Die Beziehung des Brennpunktes zu `(fx, fy)`
+### Beziehung des Brennpunkts zu `(fx, fy)`
 
-Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die im SVG als solche gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Verlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbstop, in diesem Fall die Farbe Rot, beginnen soll, in den anderen Farbstop überzugehen, der in diesem Fall die Farbe Blau ist.
+Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die in der SVG als solche gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Farbverlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbstop, in diesem Fall die Farbe Rot, in den anderen Farbstop, der in diesem Fall Blau ist, übergehen soll.
 
 ```html
 <svg
@@ -139,7 +134,7 @@ Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>None</td>
+      <td>Keine</td>
     </tr>
   </tbody>
 </table>

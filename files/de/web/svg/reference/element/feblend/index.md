@@ -2,14 +2,14 @@
 title: <feBlend>
 slug: Web/SVG/Reference/Element/feBlend
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Objekte miteinander, gesteuert durch einen bestimmten Blend-Modus. Dies ist ähnlich dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen miteinander vermischt werden. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
+Das **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Objekte anhand eines bestimmten Mischmodus. Dies ist ähnlich zu dem, was in Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das {{SVGAttr("mode")}} Attribut definiert.
 
-Wie andere Filter-Primitives behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -53,7 +53,7 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
     y="10%"
     width="80%"
     height="80%"
-    style="filter:url(#spotlight);" />
+    filter="url(#spotlight)" />
 </svg>
 ```
 
@@ -90,4 +90,4 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Leitfaden: Filter-Effekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

@@ -2,14 +2,14 @@
 title: <feComponentTransfer>
 slug: Web/SVG/Reference/Element/feComponentTransfer
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Der **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv führt eine farbkomponentenweise Neuzuordnung der Daten für jedes Pixel durch. Es ermöglicht Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbbalance oder Schwellenwertbildung.
+Das **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG) Filterprimitive führt eine pixelweise Remapping der Farbbestandteile durch. Es ermöglicht Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbgleichgewicht oder Schwellenwertanpassung.
 
-Die Berechnungen werden an nicht vorgemischten Farbwerten durchgeführt. Die Farben werden modifiziert, indem jeder Kanal (R, G, B und A) in das Ergebnis geändert wird, das die Kinder {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als ein gleiches Element angegeben wird, wird das zuletzt angegebene verwendet. Wenn kein Element zum Modifizieren eines der Kanäle bereitgestellt wird, ist der Effekt derselbe, als ob eine Identitätstransformation für diesen Kanal gegeben worden wäre.
+Die Berechnungen werden auf nicht vorkomprimierten Farbwerten durchgeführt. Die Farben werden verändert, indem jeder Kanal (R, G, B und A) auf das Ergebnis dessen geändert wird, was die Kind-Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}}, und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als ein gleiches Element bereitgestellt wird, wird das zuletzt angegebene verwendet. Wenn für einen der Kanäle kein Element angegeben wird, ist der Effekt derselbe wie bei einer Identitätstransformation für diesen Kanal.
 
-Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filterprimitive verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
 ## Verwendungskontext
 
@@ -21,7 +21,7 @@ Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) Schnittstelle.
+Dieses Element implementiert das [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) Interface.
 
 ## Beispiel
 
@@ -85,40 +85,15 @@ Dieses Element implementiert die [`SVGFEComponentTransferElement`](/de/docs/Web/
     <text x="0" y="20">Default</text>
     <rect x="0" y="30" width="100%" height="20"></rect>
     <text x="0" y="70">Identity</text>
-    <rect
-      x="0"
-      y="80"
-      width="100%"
-      height="20"
-      style="filter:url(#identity)"></rect>
+    <rect x="0" y="80" width="100%" height="20" filter="url(#identity)"></rect>
     <text x="0" y="120">Table lookup</text>
-    <rect
-      x="0"
-      y="130"
-      width="100%"
-      height="20"
-      style="filter:url(#table)"></rect>
+    <rect x="0" y="130" width="100%" height="20" filter="url(#table)"></rect>
     <text x="0" y="170">Discrete table lookup</text>
-    <rect
-      x="0"
-      y="180"
-      width="100%"
-      height="20"
-      style="filter:url(#discrete)"></rect>
+    <rect x="0" y="180" width="100%" height="20" filter="url(#discrete)"></rect>
     <text x="0" y="220">Linear function</text>
-    <rect
-      x="0"
-      y="230"
-      width="100%"
-      height="20"
-      style="filter:url(#linear)"></rect>
+    <rect x="0" y="230" width="100%" height="20" filter="url(#linear)"></rect>
     <text x="0" y="270">Gamma function</text>
-    <rect
-      x="0"
-      y="280"
-      width="100%"
-      height="20"
-      style="filter:url(#gamma)"></rect>
+    <rect x="0" y="280" width="100%" height="20" filter="url(#gamma)"></rect>
   </g>
 </svg>
 ```
@@ -145,7 +120,7 @@ rect {
 
 ## Siehe auch
 
-- [SVG-Filterprimitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}

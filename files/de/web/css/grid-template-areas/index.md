@@ -2,12 +2,12 @@
 title: grid-template-areas
 slug: Web/CSS/grid-template-areas
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert benannte {{Glossary("grid_areas", "Gitterbereiche")}}, indem sie die Zellen im Gitter festlegt und ihnen Namen zuweist.
+Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS)-Eigenschaft spezifiziert benannte {{Glossary("grid_areas", "Grid-Bereiche")}}, legt die Zellen im Grid fest und weist ihnen Namen zu.
 
 {{InteractiveExample("CSS Demo: grid-template-areas")}}
 
@@ -55,25 +55,25 @@ grid-template-areas:
 }
 
 #example-element :nth-child(1) {
-  background-color: rgba(0, 0, 255, 0.2);
+  background-color: rgb(0 0 255 / 0.2);
   border: 3px solid blue;
   grid-area: a;
 }
 
 #example-element :nth-child(2) {
-  background-color: rgba(255, 0, 200, 0.2);
+  background-color: rgb(255 0 200 / 0.2);
   border: 3px solid rebeccapurple;
   grid-area: b;
 }
 
 #example-element :nth-child(3) {
-  background-color: rgba(94, 255, 0, 0.2);
+  background-color: rgb(94 255 0 / 0.2);
   border: 3px solid green;
   grid-area: c;
 }
 ```
 
-Diese Bereiche sind keinem bestimmten Gitterelement zugeordnet, können jedoch über die Gitter-Platzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
+Diese Bereiche sind nicht mit einem bestimmten Grid-Element assoziiert, können jedoch von den Grid-Platzierungs-Eigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} sowie deren Kürzeln {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 ## Syntax
 
@@ -98,12 +98,11 @@ grid-template-areas: unset;
 ### Werte
 
 - `none`
-  - : Der Gitter-Container definiert keine benannten Gitterbereiche.
+  - : Der Grid-Container definiert keine benannten Grid-Bereiche.
 - {{cssxref("&lt;string&gt;")}}
+  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzigen benannten Grid-Bereich, der die entsprechenden Grid-Zellen überspannt. Sofern diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit dem gleichen Namen innerhalb und zwischen Zeilen erzeugen einen einzigen benannten Gitterbereich, der die entsprechenden Gitterzellen überspannt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
-
-    Alle übrigen unbenannten Bereiche in einem Gitter können mithilfe von _Null-Zellen-Tokens_ referenziert werden. Ein Null-Zellen-Token ist eine Folge eines oder mehrerer `.` (U+002E FULL STOP) Zeichen, z.B., `.`, `...` oder `.....` usw. Ein Null-Zellen-Token kann verwendet werden, um leere Räume im Gitter zu schaffen.
+    Alle verbleibenden unbenannten Bereiche in einem Grid können durch _null Zell-Tokens_ referenziert werden. Ein Null-Zell-Token ist eine Sequenz aus einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zell-Token kann verwendet werden, um leere Plätze im Grid zu schaffen.
 
 ## Formale Definition
 
@@ -115,7 +114,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Gitterbereiche spezifizieren
+### Benannte Grid-Bereiche spezifizieren
 
 #### HTML
 
@@ -164,7 +163,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Gitter-Container zu erstellen, den wir benutzt haben, um einen leeren Raum in der unteren linken Ecke des Gitters zu erzeugen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir verwendet haben, um einen leeren Bereich in der unteren linken Ecke des Grids zu schaffen.
 
 #### Ergebnis
 

@@ -2,12 +2,12 @@
 title: font
 slug: Web/CSS/font
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{CSSRef}}
 
-Die **`font`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle unterschiedlichen Eigenschaften der Schrift eines Elements. Alternativ setzt sie die Schrift eines Elements auf eine Systemschrift.
+Die **`font`** CSS-[Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle unterschiedlichen Eigenschaften der Schriftart eines Elements. Alternativ setzt sie die Schriftart eines Elements auf eine Systemschriftart.
 
 {{InteractiveExample("CSS Demo: font")}}
 
@@ -72,11 +72,11 @@ section {
 }
 ```
 
-Wie bei jeder Kurzschreibweise wird jeder einzelne Wert, der nicht angegeben ist, auf seinen entsprechenden Initialwert gesetzt (möglicherweise überschreibt er Werte, die zuvor mit Nicht-Kurzschreibweise-Eigenschaften festgelegt wurden). Obwohl nicht direkt über `font` einstellbar, werden auch die Langschreibweisen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} auf ihre Initialwerte zurückgesetzt.
+Wie bei jeder Kurzform-Eigenschaft wird jeder nicht spezifizierte Einzelwert auf seinen entsprechenden Anfangswert gesetzt (möglicherweise Werte überschreibend, die zuvor mit nicht abgekürzten Eigenschaften gesetzt wurden). Obwohl nicht direkt durch `font` einstellbar, werden auch {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} auf ihre Anfangswerte zurückgesetzt.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -105,30 +105,28 @@ font: ultra-condensed small-caps 1.2em "Fira Sans", sans-serif;
 font: caption;
 ```
 
-Die `font`-Eigenschaft kann entweder als einzelnes Schlüsselwort, das eine Systemschrift auswählt, oder als Kurzschreibweise für verschiedene schriftbezogene Eigenschaften angegeben werden.
+Die `font`-Eigenschaft kann entweder als ein einzelnes Schlüsselwort angegeben werden, das eine Systemschriftart auswählt, oder als eine Kurzform für verschiedene schriftenbezogene Eigenschaften.
 
-Wenn `font` als Systemschlüsselwort angegeben ist, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
+Wenn `font` als Systemschlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
 
-Wenn `font` als Kurzschreibweise für mehrere schriftbezogene Eigenschaften angegeben ist, dann:
+Wenn `font` als Kurzform für mehrere schriftenbezogene Eigenschaften angegeben wird, dann:
 
-- muss sie Werte enthalten für:
-
+- muss es Werte enthalten für:
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
-- kann sie optional Werte enthalten für:
-
+- es kann optional Werte enthalten für:
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
   - {{cssxref("&lt;font-weight&gt;")}}
   - {{cssxref("&lt;font-stretch&gt;")}}
   - {{cssxref("&lt;line-height&gt;")}}
 
-- `font-style`, `font-variant` und `font-weight` müssen `font-size` voranstehen.
-- `font-variant` darf nur die in CSS 2.1 definierten Werte angeben, nämlich `normal` und `small-caps`.
-- `font-stretch` darf nur einen einzigen Schlüsselwort-Wert haben.
-- `line-height` muss unmittelbar nach `font-size` folgen, getrennt durch "/", so: `16px/3`.
-- `font-family` muss der letzte angegebene Wert sein.
+- `font-style`, `font-variant` und `font-weight` müssen `font-size` vorangehen.
+- `font-variant` darf nur die in CSS 2.1 definierten Werte angeben, also `normal` und `small-caps`.
+- `font-stretch` darf nur ein einzelnes Schlüsselwort sein.
+- `line-height` muss unmittelbar nach `font-size` folgen, eingeleitet durch "/", so: `16px/3`.
+- `font-family` muss als letzter Wert angegeben werden.
 
 ### Werte
 
@@ -147,22 +145,22 @@ Wenn `font` als Kurzschreibweise für mehrere schriftbezogene Eigenschaften ange
 - `<'font-family'>`
   - : Siehe die {{cssxref("font-family")}} CSS-Eigenschaft.
 
-#### Systemschrift-Werte
+#### Systemschriftwerte
 
 - `caption`
-  - : Die Systemschrift, die für beschriftete Steuerelemente verwendet wird (z. B. Buttons, Dropdowns usw.).
+  - : Die Systemschriftart, die für beschriftete Steuerelemente verwendet wird (z. B. Schaltflächen, Dropdowns usw.).
 - `icon`
-  - : Die Systemschrift, die zur Beschriftung von Symbolen verwendet wird.
+  - : Die Systemschriftart, die zur Beschriftung von Symbolen verwendet wird.
 - `menu`
-  - : Die Systemschrift, die in Menüs verwendet wird (z. B. Dropdown-Menüs und Menüliste).
+  - : Die Systemschriftart, die in Menüs verwendet wird (z. B. Dropdown-Menüs und Menüliste).
 - `message-box`
-  - : Die Systemschrift, die in Dialogboxen verwendet wird.
+  - : Die Systemschriftart, die in Dialogfeldern verwendet wird.
 - `small-caption`
-  - : Die Systemschrift, die zur Beschriftung kleiner Steuerelemente verwendet wird.
+  - : Die Systemschriftart, die zur Beschriftung kleiner Steuerelemente verwendet wird.
 - `status-bar`
-  - : Die Systemschrift, die in Fensterstatusleisten verwendet wird.
-- Präfixierte Systemschrift-Schlüsselwörter
-  - : Browser implementieren oft mehrere weitere, mit Präfix versehene Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
+  - : Die Systemschriftart, die in Fenster-Statusleisten verwendet wird.
+- Vorgestellte Systemschrift-Schlüsselwörter
+  - : Browser implementieren oft mehrere, vorgestellte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
 
 ## Formale Definition
 
@@ -174,7 +172,7 @@ Wenn `font` als Kurzschreibweise für mehrere schriftbezogene Eigenschaften ange
 
 ## Beispiele
 
-### Schrift-Eigenschaften setzen
+### Schrift-Eigenschaften festlegen
 
 ```css
 /* Set the font size to 12px and the line height to 14px.
@@ -219,29 +217,25 @@ p {
         id="font-style-none"
         name="font_style"
         checked=""
-        value=""
-        onchange="setCss()" />
+        value="" />
       <label for="font-style-none">none</label><br />
       <input
         type="radio"
         id="font-style-normal"
         name="font_style"
-        value="normal"
-        onchange="setCss()" />
+        value="normal" />
       <label for="font-style-normal">normal</label><br />
       <input
         type="radio"
         id="font-style-italic"
         name="font_style"
-        value="italic"
-        onchange="setCss()" />
+        value="italic" />
       <label for="font-style-italic">italic</label><br />
       <input
         type="radio"
         id="font-style-oblique"
         name="font_style"
-        value="oblique"
-        onchange="setCss()" />
+        value="oblique" />
       <label for="font-style-oblique">oblique</label>
     </div>
 
@@ -252,74 +246,53 @@ p {
         id="font-variant-none"
         name="font_variant"
         checked=""
-        value=" "
-        onchange="setCss()" />
+        value=" " />
       <label for="font-variant-none">none</label><br />
       <input
         type="radio"
         id="font-variant-normal"
         name="font_variant"
-        value="normal"
-        onchange="setCss()" />
+        value="normal" />
       <label for="font-variant-normal">normal</label><br />
       <input
         type="radio"
         id="font-variant-small-caps"
         name="font_variant"
-        value="small-caps"
-        onchange="setCss()" />
+        value="small-caps" />
       <label for="font-variant-small-caps">small-caps</label>
     </div>
 
     <div class="setPropCont">
       font-weight<br />
-      <input
-        type="radio"
-        id="font-weight-none"
-        name="font_weight"
-        value=""
-        onchange="setCss()" />
+      <input type="radio" id="font-weight-none" name="font_weight" value="" />
       <label for="font-weight-none">none</label><br />
       <input
         type="radio"
         id="font-weight-normal"
         checked=""
         name="font_weight"
-        value="400"
-        onchange="setCss()" />
+        value="400" />
       <label for="font-weight-normal">normal</label><br />
       <input
         type="radio"
         id="font-weight-bold"
         name="font_weight"
-        value="700"
-        onchange="setCss()" />
+        value="700" />
       <label for="font-weight-bold">bold</label>
     </div>
 
     <div class="setPropCont">
       font-size<br />
-      <input
-        type="radio"
-        id="font-size-12px"
-        name="font_size"
-        value="12px"
-        onchange="setCss()" />
+      <input type="radio" id="font-size-12px" name="font_size" value="12px" />
       <label for="font-size-12px">12px</label><br />
       <input
         type="radio"
         id="font-size-16px"
         name="font_size"
         value="16px"
-        checked=""
-        onchange="setCss()" />
+        checked="" />
       <label for="font-size-16px">16px</label><br />
-      <input
-        type="radio"
-        id="font-size-24px"
-        name="font_size"
-        value="24px"
-        onchange="setCss()" />
+      <input type="radio" id="font-size-24px" name="font_size" value="24px" />
       <label for="font-size-24px">24px</label>
     </div>
 
@@ -330,22 +303,15 @@ p {
         id="line-height-none"
         name="line_height"
         checked=""
-        value=""
-        onchange="setCss()" />
+        value="" />
       <label for="line-height-none">none</label><br />
       <input
         type="radio"
         id="line-height-1.2"
         name="line_height"
-        value="/1.2"
-        onchange="setCss()" />
+        value="/1.2" />
       <label for="line-height-1.2">1.2</label><br />
-      <input
-        type="radio"
-        id="line-height-3"
-        name="line_height"
-        value="/3"
-        onchange="setCss()" />
+      <input type="radio" id="line-height-3" name="line_height" value="/3" />
       <label for="line-height-3">3</label>
     </div>
     <br />
@@ -357,57 +323,49 @@ p {
         id="font-family-courier"
         name="font_family"
         checked=""
-        value="courier"
-        onchange="setCss(5,'courier')" />
+        value="courier" />
       <label for="font-family-courier">courier</label><br />
       <input
         type="radio"
         id="font-family-serif"
         name="font_family"
-        value="serif"
-        onchange="setCss()" />
+        value="serif" />
       <label for="font-family-serif">serif</label><br />
       <input
         type="radio"
         id="font-family-sans-serif"
         name="font_family"
-        value="sans-serif"
-        onchange="setCss()" />
+        value="sans-serif" />
       <label for="font-family-sans-serif">sans-serif</label><br />
       <input
         type="radio"
         id="font-family-arial"
         name="font_family"
-        value="arial"
-        onchange="setCss()" />
+        value="arial" />
       <label for="font-family-arial">Arial</label><br />
       <input
         type="radio"
         id="font-family-monospace"
         name="font_family"
-        value="monospace"
-        onchange="setCss()" />
+        value="monospace" />
       <label for="font-family-monospace">monospace</label><br />
       <input
         type="radio"
         id="font-family-cursive"
         name="font_family"
-        value="cursive"
-        onchange="setCss()" />
+        value="cursive" />
       <label for="font-family-cursive">cursive</label><br />
       <input
         type="radio"
         id="font-family-fantasy"
         name="font_family"
-        value="fantasy"
-        onchange="setCss()" />
+        value="fantasy" />
       <label for="font-family-fantasy">fantasy</label><br />
       <input
         type="radio"
         id="font-family-system-ui"
         name="font_family"
-        value="system-ui"
-        onchange="setCss()" />
+        value="system-ui" />
       <label for="font-family-system-ui">system-ui</label><br />
     </div>
   </div>
@@ -549,6 +507,10 @@ function injectCss(cssFragment) {
 }
 
 setCss();
+
+document.querySelectorAll("input[type='radio']").forEach((el) => {
+  el.addEventListener("change", setCss);
+});
 ```
 
 {{ EmbedLiveSample('Live_sample','100%', '440px')}}
@@ -565,4 +527,4 @@ setCss();
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Lernen: Grundlagen der Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegendes zu Text- und Schriftstilierung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

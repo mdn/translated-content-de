@@ -3,19 +3,14 @@ title: "MediaQueryList: removeListener() Methode"
 short-title: removeListener()
 slug: Web/API/MediaQueryList/removeListener
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("CSSOM")}}{{Deprecated_Header}}
 
-Die **`removeListener()`**-Methode der
-[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle entfernt einen Listener vom
-`MediaQueryListener`.
+Die **`removeListener()`**-Methode der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Schnittstelle entfernt einen Listener aus dem `MediaQueryListener`.
 
-In älteren Browsern hat `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt,
-daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
-Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es
-in den Browsern verfügbar ist, die Sie unterstützen müssen.
+In älteren Browsern hat `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt, daher wurde diese Methode als Alias für [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt. Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es in den Browsern verfügbar ist, die Sie unterstützen müssen.
 
 ## Syntax
 
@@ -26,8 +21,7 @@ removeListener(func)
 ### Parameter
 
 - `func`
-  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion repräsentiert, die Sie
-    entfernen möchten.
+  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion darstellt, die Sie entfernen möchten.
 
 ### Rückgabewert
 
@@ -37,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ```js
 const paragraph = document.querySelector("p");
-const mediaQueryList = window.matchMedia("(max-width: 600px)");
+const mediaQueryList = window.matchMedia("(width <= 600px)");
 
 function screenTest(e) {
   if (e.matches) {
@@ -67,8 +61,8 @@ mediaQueryList.removeListener(screenTest);
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Medienabfragen aus Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

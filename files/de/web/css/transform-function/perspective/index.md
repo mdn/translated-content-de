@@ -2,12 +2,12 @@
 title: perspective()
 slug: Web/CSS/transform-function/perspective
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`perspective()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die die Distanz zwischen dem Benutzer und der z=0-Ebene festlegt, aus der Perspektive, die der Betrachter hätte, wenn die zweidimensionale Oberfläche dreidimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`perspective()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0-Ebene festlegt, die Perspektive, aus der der Betrachter schauen würde, wenn die 2-dimensionale Oberfläche dreidimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}}-Datentyp.
 
 {{InteractiveExample("CSS Demo: perspective()")}}
 
@@ -71,37 +71,37 @@ transform: perspective(6.5cm);
 }
 
 .front {
-  background: rgba(90, 90, 90, 0.7);
+  background: rgb(90 90 90 / 0.7);
   transform: translateZ(50px);
 }
 
 .back {
-  background: rgba(0, 210, 0, 0.7);
+  background: rgb(0 210 0 / 0.7);
   transform: rotateY(180deg) translateZ(50px);
 }
 
 .right {
-  background: rgba(210, 0, 0, 0.7);
+  background: rgb(210 0 0 / 0.7);
   transform: rotateY(90deg) translateZ(50px);
 }
 
 .left {
-  background: rgba(0, 0, 210, 0.7);
+  background: rgb(0 0 210 / 0.7);
   transform: rotateY(-90deg) translateZ(50px);
 }
 
 .top {
-  background: rgba(210, 210, 0, 0.7);
+  background: rgb(210 210 0 / 0.7);
   transform: rotateX(90deg) translateZ(50px);
 }
 
 .bottom {
-  background: rgba(210, 0, 210, 0.7);
+  background: rgb(210 0 210 / 0.7);
   transform: rotateX(-90deg) translateZ(50px);
 }
 ```
 
-Die `perspective()` Transformationsfunktion ist Teil des {{cssxref('transform')}} Wertes, der auf das transformierte Element angewendet wird. Dies unterscheidet sich von den Eigenschaften {{cssxref('perspective')}} und {{cssxref('perspective-origin')}}, die dem übergeordneten Element eines in dreidimensionalem Raum transformierten Kind-Elements zugeordnet sind.
+Die `perspective()`-Transformationsfunktion ist Teil des {{cssxref('transform')}}-Wertes, der auf das zu transformierende Element angewendet wird. Dies unterscheidet sich von den Eigenschaften {{cssxref('perspective')}} und {{cssxref('perspective-origin')}}, die dem Elternteil eines in 3-dimensionalem Raum transformierten Kindes zugeordnet werden.
 
 ## Syntax
 
@@ -112,9 +112,9 @@ perspective(d)
 ### Werte
 
 - _d_
-  - : Ist ein {{cssxref("&lt;length&gt;")}}, das die Distanz zwischen dem Benutzer und der z=0-Ebene darstellt. Die z=0-Ebene ist die Ebene, auf der alles in einer zweidimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich Null) werden auf `1px` begrenzt. Negative Werte führen zu Syntaxfehlern.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} und repräsentiert den Abstand vom Benutzer zur z=0-Ebene. Die z=0-Ebene ist die Ebene, in der alles in einer zweidimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt. Negative Werte sind Syntaxfehler.
 
-    Andere Werte als `none` führen dazu, dass Elemente mit positiven z-Positionen größer erscheinen und Elemente mit negativen z-Positionen kleiner erscheinen. Elemente mit z-Positionen, die dem Perspektivwert entsprechen oder größer sind, verschwinden, als ob sie hinter dem Benutzer wären. Große Werte der Perspektive repräsentieren eine kleine Transformation; kleine Werte von `perspective()` repräsentieren eine große Transformation; `perspective(none)` stellt die Perspektive aus unendlicher Entfernung und keine Transformation dar.
+    Werte außer `none` bewirken, dass Elemente mit positiven z-Positionen größer erscheinen, und Elemente mit negativen z-Positionen kleiner erscheinen. Elemente mit z-Positionen, die gleich oder größer als der Perspektivenwert sind, verschwinden, als ob sie hinter dem Benutzer wären. Große Perspektivenwerte repräsentieren eine kleine Transformation; kleine Werte von `perspective()` repräsentieren eine große Transformation; `perspective(none)` repräsentiert Perspektiven aus unendlicher Entfernung und keine Transformation.
 
 <table class="standard-table">
   <thead>

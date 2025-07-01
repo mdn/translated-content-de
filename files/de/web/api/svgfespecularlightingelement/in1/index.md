@@ -1,22 +1,22 @@
 ---
-title: "SVGFESpecularLightingElement: Eigenschaft in1"
+title: "SVGFESpecularLightingElement: in1 Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFESpecularLightingElement/in1
 l10n:
-  sourceCommit: 85890fba7b6213df8f159e400f0a639779e3dff4
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in1`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement) spiegelt das {{SVGAttr("in")}} Attribut des angegebenen {{SVGElement("feSpecularLighting")}} Elements wider.
+Die **`in1`** schreibgeschützte Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feSpecularLighting")}}-Elements wider.
 
 ## Wert
 
-Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) Objekt.
+Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
 
 ## Beispiele
 
-### Zugriff auf die `in`-Eigenschaft des `feSpecularLighting` Elements
+### Zugriff auf die `in`-Eigenschaft des `feSpecularLighting`-Elements
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -37,12 +37,12 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#specularLightingFilter)" />
 </svg>
 ```
 
-Wir können auf das `in` Attribut des `feSpecularLighting` Elements zugreifen.
+Wir können auf das `in`-Attribut des `feSpecularLighting`-Elements zugreifen.
 
 ```js
 // Select the feSpecularLighting element

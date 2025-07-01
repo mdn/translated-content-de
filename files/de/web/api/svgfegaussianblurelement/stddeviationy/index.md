@@ -3,12 +3,12 @@ title: "SVGFEGaussianBlurElement: stdDeviationY-Eigenschaft"
 short-title: stdDeviationY
 slug: Web/API/SVGFEGaussianBlurElement/stdDeviationY
 l10n:
-  sourceCommit: d8f5fcc34fed682a8085ea71a89223d73594ec03
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`stdDeviationY`** schreibgeschützte Eigenschaft des [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Interface spiegelt die (möglicherweise automatisch berechnete) Y-Komponente des {{SVGAttr("stdDeviation")}}-Attributs des gegebenen {{SVGElement("feGaussianBlur")}}-Elements wider.
+Die **`stdDeviationY`**-Schreibeigenschaft der [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle spiegelt die (möglicherweise automatisch berechnete) Y-Komponente des {{SVGAttr("stdDeviation")}}-Attributs des angegebenen {{SVGElement("feGaussianBlur")}}-Elements wider.
 
 ## Wert
 
@@ -36,7 +36,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="50"
     width="100"
     height="100"
-    style="fill:hotpink;"
+    fill="hotpink"
     filter="url(#gaussian-blur-filter)" />
 </svg>
 ```

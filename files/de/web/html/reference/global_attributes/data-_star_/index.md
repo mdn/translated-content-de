@@ -1,14 +1,14 @@
 ---
-title: HTML-Daten-* globales Attribut
+title: HTML data-* globales Attribut
 short-title: data-*
 slug: Web/HTML/Reference/Global_attributes/data-*
 l10n:
-  sourceCommit: d9b6cad3b5e14b42061608fb5283e32c75808a3d
+  sourceCommit: 03e992bd263d9bd3d0c8db197dd1c4829e8dd206
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Die **`data-*`** [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) bilden eine Klasse von Attributen, die als **benutzerdefinierte Datenattribute** bezeichnet werden und proprietären Informationsaustausch zwischen dem [HTML](/de/docs/Web/HTML) und seiner [DOM](/de/docs/Web/API/Document_Object_Model)-Darstellung durch Skripte ermöglichen.
+Die **`data-*`** [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) bilden eine Klasse von Attributen, die als **benutzerdefinierte Datenattribute** bezeichnet werden. Diese ermöglichen es, proprietäre Informationen zwischen dem [HTML](/de/docs/Web/HTML) und seiner [DOM](/de/docs/Web/API/Document_Object_Model)-Darstellung durch Scripts auszutauschen.
 
 {{InteractiveExample("HTML Demo: data-*", "tabbed-standard")}}
 
@@ -42,7 +42,7 @@ li {
   padding-bottom: 10px;
 }
 
-li:after {
+li::after {
   content: "Data ID: " attr(data-id);
   position: absolute;
   top: -22px;
@@ -55,24 +55,24 @@ li:after {
   transition: 0.5s opacity;
 }
 
-li:hover:after {
+li:hover::after {
   opacity: 1;
 }
 ```
 
-Alle solchen benutzerdefinierten Daten sind über die Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement) des Elements verfügbar, auf dem das Attribut gesetzt ist. Die Eigenschaft [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) ermöglicht den Zugriff darauf. Das `*` kann durch jeden Namen ersetzt werden, der den [Produktionsregeln von XML-Namen](https://www.w3.org/TR/xml/#NT-Name) folgt, die folgende Empfehlungen enthalten:
+Alle solchen benutzerdefinierten Daten sind über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle des Elements, auf dem das Attribut gesetzt ist, verfügbar. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft gibt Zugriff auf sie. Das `*` kann durch jeden Namen ersetzt werden, der den [Produktionsregeln von XML-Namen](https://www.w3.org/TR/xml/#NT-Name) entspricht, die die folgenden Empfehlungen beinhalten:
 
-- Der Name sollte nicht mit `xml` (Groß-/Kleinschreibung wird nicht berücksichtigt) beginnen, da dies für zukünftige XML-Spezifikationen reserviert ist.
-- Der Name sollte keine Doppelpunkte (`:`) enthalten, da XML solchen Namen eine Bedeutung zuweist.
-- Der Name sollte keine Großbuchstaben enthalten, da XML nur Kleinbuchstaben verwendet.
+- Der Name sollte nicht mit `xml` (unabhängig von der Groß- und Kleinschreibung) beginnen, da dieser für zukünftige XML-Spezifikationen reserviert ist.
+- Der Name sollte keine Doppelpunkte (`:`) enthalten, da XML solchen Namen Bedeutung zuweist.
+- Der Name sollte keine Großbuchstaben enthalten, da XML komplett kleingeschrieben ist.
 
-Dies sind Empfehlungen. Wenn diese Namensempfehlungen nicht befolgt werden, treten keine Fehler auf. Die Attribute werden weiterhin mit CSS [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) übereinstimmen, wobei das Attribut nicht auf Groß-/Kleinschreibung achtet und jeder Attributwert groß-/kleinschreibungssensitiv ist. Attribute, die nicht diesen drei Empfehlungen entsprechen, werden auch weiterhin von der JavaScript-Eigenschaft [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) erkannt, und Benutzer-Agenten werden das Attribut in dem [`DOMStringMap`](/de/docs/Web/API/DOMStringMap) einschließen, das alle benutzerdefinierten Datenattribute für ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) enthält.
+Dies sind Empfehlungen. Wenn diese Namensempfehlungen nicht befolgt werden, treten keine Fehler auf. Die Attribute werden weiterhin mit CSS-[Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) abgeglichen, wobei das Attribut unabhängig von der Groß- und Kleinschreibung und jeder Attributwert in der Groß- und Kleinschreibung empfindlich ist. Attribute, die nicht diesen drei Empfehlungen entsprechen, werden ebenfalls weiterhin von der JavaScript-[`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft erkannt und User-Agents werden das Attribut im [`DOMStringMap`](/de/docs/Web/API/DOMStringMap) aufnehmen, das alle benutzerdefinierten Datenattribute für ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) enthält.
 
-Wenn Sie planen, [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) zu verwenden, kann der Abschnitt des Attributnamens nach dem `data-` nur Zeichen enthalten, die in JavaScript-Eigenschaftsnamen erlaubt sind (und Bindestriche, die entfernt werden). Die `dataset`-Version des Attributnamens entfernt das "data-" Präfix und wandelt den Rest des Namens von {{Glossary("kebab_case", "kebab-case")}} in camelCase um. Zum Beispiel ist `element.getAttribute("data-test")` äquivalent zu `element.dataset.test` und `data-test-abc` wird als `HTMLElement.dataset.testAbc` (oder durch `HTMLElement.dataset["testAbc"]`) zugänglich sein. Vermeiden Sie nicht-alphabetische Zeichen nach einem Bindestrich, wie `data-test-1` oder `data--test`, da sie von [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) nicht erkannt werden.
+Wenn Sie planen, [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) zu verwenden, darf der Teil des Attributnamens, der auf das `data-` folgt, nur Zeichen enthalten, die in JavaScript-Eigenschaftsnamen erlaubt sind (sowie Bindestriche, die entfernt werden). Die `dataset`-Version des Attributnamens entfernt das "data-" Präfix und konvertiert den Rest des Namens von {{Glossary("kebab_case", "kebab-case")}} zu camelCase. Zum Beispiel entspricht `element.getAttribute("data-test")` `element.dataset.test` und `data-test-abc` wird als `HTMLElement.dataset.testAbc` (oder durch `HTMLElement.dataset["testAbc"]`) zugänglich sein. Vermeiden Sie nicht-alphabetische Zeichen nach einem Bindestrich, wie `data-test-1` oder `data--test`, da diese nicht von [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) erkannt werden.
 
 ### Anwendungshinweise
 
-Durch das Hinzufügen von `data-*`-Attributen können sogar gewöhnliche HTML-Elemente zu recht komplexen und leistungsfähigen Programmobjekten werden. Beispielsweise könnte ein Raumschiff-"[Sprite](<https://en.wikipedia.org/wiki/Sprite_(computer_graphics)>)" in einem Spiel einfach ein {{HTMLElement("img")}}-Element mit einem [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attribut und mehreren `data-*`-Attributen sein:
+Durch Hinzufügen von `data-*`-Attributen können selbst gewöhnliche HTML-Elemente recht komplexe und leistungsfähige Programmobjekte werden. Ein Beispiel: Ein Raumschiff-„[Sprite](<https://en.wikipedia.org/wiki/Sprite_(computer_graphics)>)“ in einem Spiel könnte einfach ein {{HTMLElement("img")}}-Element mit einem [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attribut und mehreren `data-*`-Attributen sein:
 
 ```html
 <img
@@ -96,7 +96,7 @@ document.querySelectorAll("img.spaceship").forEach((ship) => {
 });
 ```
 
-Für ein ausführlicheres Tutorial zur Verwendung von HTML-Datenattributen siehe [Verwenden von Datenattributen](/de/docs/Web/HTML/How_to/Use_data_attributes).
+Für ein ausführlicheres Tutorial zur Verwendung von HTML-Datenattributen siehe [Verwendung von Datenattributen](/de/docs/Web/HTML/How_to/Use_data_attributes).
 
 ## Spezifikationen
 
@@ -109,5 +109,5 @@ Für ein ausführlicheres Tutorial zur Verwendung von HTML-Datenattributen siehe
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
-- Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft, die den Zugriff und die Änderung dieser Werte erlaubt.
-- [Verwenden von Datenattributen](/de/docs/Web/HTML/How_to/Use_data_attributes)
+- Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft, die den Zugriff und die Modifikation dieser Werte ermöglicht.
+- [Verwendung von Datenattributen](/de/docs/Web/HTML/How_to/Use_data_attributes)

@@ -1,18 +1,18 @@
 ---
-title: "SVGFEColorMatrixElement: values-Eigenschaft"
+title: "SVGFEColorMatrixElement: Werte-Eigenschaft"
 short-title: values
 slug: Web/API/SVGFEColorMatrixElement/values
 l10n:
-  sourceCommit: b5f56e77f0fc3c786a1178eff5bbb89feffde91f
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`values`**-Schreibgeschützte Eigenschaft der [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Schnittstelle spiegelt das {{SVGAttr("values")}}-Attribut des angegebenen Elements wider.
+Die **`values`** schreibgeschützte Eigenschaft der [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement) Schnittstelle spiegelt das {{SVGAttr("values")}} Attribut des angegebenen Elements wider.
 
 ## Wert
 
-Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList)-Objekt.
+Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList) Objekt.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#color-matrix-filter)" />
 </svg>
 ```

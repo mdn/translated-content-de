@@ -3,12 +3,12 @@ title: "SVGFESpotLightElement: specularExponent-Eigenschaft"
 short-title: specularExponent
 slug: Web/API/SVGFESpotLightElement/specularExponent
 l10n:
-  sourceCommit: b73d3668eba33e62e445d6f68fa27fa7885e3026
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`specularExponent`** der Schnittstelle [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) spiegelt das {{SVGAttr("specularExponent")}}-Attribut des gegebenen {{SVGElement("feSpotLight")}}-Elements wider.
+Die **`specularExponent`** schreibgeschützte Eigenschaft der [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Schnittstelle spiegelt das {{SVGAttr("specularExponent")}}-Attribut des gegebenen {{SVGElement("feSpotLight")}}-Elements wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ### Zugriff auf das `specularExponent`-Attribut des `<feSpotLight>`-Elements
 
-In diesem Beispiel greifen wir auf den Exponentenwert zu, der den Fokus der Lichtquelle des `<feSpotLight>`-Filterelements steuert, indem wir die schreibgeschützte Eigenschaft `specularExponent` der Schnittstelle `SVGFESpotLightElement` verwenden.
+In diesem Beispiel greifen wir auf den Exponentenwert zu, der den Fokus der Lichtquelle des `<feSpotLight>`-Filterelements steuert, indem wir die schreibgeschützte Eigenschaft `specularExponent` der `SVGFESpotLightElement`-Schnittstelle nutzen.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@ In diesem Beispiel greifen wir auf den Exponentenwert zu, der den Fokus der Lich
     cx="100"
     cy="100"
     r="50"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#specularLightingFilter)" />
 </svg>
 ```

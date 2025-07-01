@@ -2,24 +2,23 @@
 title: Einrichtung
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Setup
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: f20e6e3ea01fe15f7d95420e43d199432f4ea8c4
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Build_the_server")}}
 
-Beginnen wir mit der Einrichtung der Grundlagen für unsere WebRTC-basierte Telefon-App.
+Fangen wir also an, die Grundlage für unsere WebRTC-basierte Telefon-App zu schaffen.
 
-1. Finden Sie zunächst einen geeigneten Ort in Ihrer lokalen Dateistruktur und führen Sie `mkdir audio_app` und dann `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und es zu betreten.
-2. Erstellen Sie dann eine neue App, indem Sie `yarn init` ausführen. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
-3. Installieren Sie als nächstes die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
-
+1. Suchen Sie zunächst einen geeigneten Ort in Ihrer lokalen Dateistruktur und führen Sie `mkdir audio_app` und dann `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und in dieses Verzeichnis zu wechseln.
+2. Erstellen Sie als Nächstes eine neue App, indem Sie `yarn init` ausführen. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
+3. Installieren Sie anschließend die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
    - [Express](https://expressjs.com/): `yarn add express`
    - [PeerJS](https://peerjs.com/docs/): `yarn add peerjs`
    - [Peer](https://github.com/peers/peerjs-server): `yarn add peer`
 
-   Peer wird für den Peer-Server verwendet und PeerJS wird genutzt, um auf die PeerJS-API und das Framework zuzugreifen. Ihre `package.json` sollte in etwa so aussehen, wenn Sie die Abhängigkeiten installiert haben:
+   Peer wird für den Peer-Server verwendet und PeerJS wird genutzt, um auf die PeerJS-API und das Framework zuzugreifen. Ihr `package.json` sollte nach der Installation der Abhängigkeiten wie folgt aussehen:
 
    ```json
    {
@@ -41,40 +40,25 @@ Beginnen wir mit der Einrichtung der Grundlagen für unsere WebRTC-basierte Tele
    }
    ```
 
-4. Um die Einrichtung abzuschließen, sollten Sie die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projektordners kopieren. Sie können beide Dateien `index` nennen, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` sein wird. Sie werden diese in den folgenden Artikeln nicht wesentlich ändern müssen.
+4. Um die Einrichtung abzuschließen, sollten Sie die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projektordners kopieren. Sie können beide Dateien `index` nennen, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` heißt. Sie werden diese in den folgenden Artikeln kaum ändern müssen.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Lola's Web Phone!</title>
-
-    <meta property="og:title" content="Teleprompter!" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lady_ada_king" />
-    <meta name="twitter:creator" content="@lady_ada_king" />
-    <meta property="og:url" content="https://teleprompter.glitch.me" />
     <meta
       property="og:description"
-      content="Cast your computer to your phone or tablet to use it in a teleprompter" />
-    <meta
-      name="description"
-      content="Cast your computer to your phone or tablet to use it in a teleprompter" />
-    <!--     <meta property="og:image" content="https://cdn.glitch.com/1695682e-08d3-41c8-a322-1e235b5782e1%2Fimage.png?v=1561449954420"> -->
+      content="Cast your computer to your devices as a teleprompter" />
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/index.css" />
-
-    <link rel="manifest" href="/manifest.json" />
-
-    <!-- import the webpage's javascript file -->
+    <!-- import the javascript -->
+    <script src="script.js" defer></script>
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
-    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -106,8 +90,8 @@ Beginnen wir mit der Einrichtung der Grundlagen für unsere WebRTC-basierte Tele
 
 ```css
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -173,7 +157,7 @@ button {
   display: block;
   padding: 1rem;
   border-radius: 3rem;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 0.19);
   border: none;
   width: 50%;
 }

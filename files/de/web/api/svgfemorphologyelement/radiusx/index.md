@@ -3,12 +3,12 @@ title: "SVGFEMorphologyElement: radiusX-Eigenschaft"
 short-title: radiusX
 slug: Web/API/SVGFEMorphologyElement/radiusX
 l10n:
-  sourceCommit: 55a2df9a3692842dc7cb9fd5440e41431678b537
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`radiusX`** der [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Schnittstelle spiegelt die X-Komponente des {{SVGAttr("radius")}}-Attributs des gegebenen {{SVGElement("feMorphology")}}-Elements wider.
+Die **`radiusX`**-Eigenschaft der [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Schnittstelle, die nur gelesen werden kann, spiegelt die X-Komponente des {{SVGAttr("radius")}}-Attributs des angegebenen {{SVGElement("feMorphology")}}-Elements wider.
 
 ## Wert
 
@@ -31,7 +31,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#morphologyFilter)" />
 </svg>
 ```

@@ -2,10 +2,10 @@
 title: pointsAtX
 slug: Web/SVG/Reference/Attribute/pointsAtX
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`pointsAtX`**-Attribut stellt die x-Position im Koordinatensystem dar, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element des Punktes festgelegt wird, auf den die Lichtquelle zeigt.
+Das **`pointsAtX`**-Attribut repräsentiert die x-Position im Koordinatensystem, welches durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, an dem der Lichtpunkt ausgerichtet ist.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -34,19 +34,14 @@ svg {
     </feDiffuseLighting>
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter: url(#lighting1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#lighting2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#lighting1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#lighting2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "220", "220")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

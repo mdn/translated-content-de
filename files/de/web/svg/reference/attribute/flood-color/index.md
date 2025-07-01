@@ -2,13 +2,13 @@
 title: flood-color
 slug: Web/SVG/Reference/Attribute/flood-color
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`flood-color`** Attribut gibt an, welche Farbe verwendet werden soll, um die aktuelle Subregion der Filterprimitive zu fluten.
+Das **`flood-color`** Attribut gibt an, welche Farbe verwendet werden soll, um die aktuelle Filterprimitiv-Unterregion zu überfluten.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `flood-color` auch ein entsprechendes CSS-Property: {{cssxref("flood-color")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `flood-color` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("flood-color")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -34,19 +34,14 @@ svg {
     <feFlood flood-color="seagreen" x="0" y="0" width="200" height="200" />
   </filter>
 
-  <rect x="0" y="0" width="200" height="200" style="filter: url(#flood1);" />
-  <rect
-    x="0"
-    y="0"
-    width="200"
-    height="200"
-    style="filter: url(#flood2); transform: translateX(220px);" />
+  <rect x="0" y="0" width="200" height="200" filter="url(#flood1)" />
+  <rect x="220" y="0" width="200" height="200" filter="url(#flood2)" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -55,7 +50,7 @@ svg {
       <td>{{cssxref("color")}}</td>
     </tr>
     <tr>
-      <th scope="row">Anfangswert</th>
+      <th scope="row">Standardwert</th>
       <td><code>black</code></td>
     </tr>
     <tr>

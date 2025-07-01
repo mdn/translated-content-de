@@ -2,12 +2,12 @@
 title: grid-template
 slug: Web/CSS/grid-template
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zum Definieren von {{Glossary("grid_column", "Gitternetz-Spalten")}}, {{Glossary("grid_row", "Gitternetz-Zeilen")}} und {{Glossary("grid_areas", "Gitternetz-Bereichen")}}.
+Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zur Definition von {{Glossary("grid_column", "Grid-Spalten")}}, {{Glossary("grid_row", "Grid-Reihen")}} und {{Glossary("grid_areas", "Grid-Bereichen")}}.
 
 {{InteractiveExample("CSS Demo: grid-template")}}
 
@@ -53,27 +53,27 @@ grid-template:
 }
 
 #example-element :nth-child(1) {
-  background-color: rgba(0, 0, 255, 0.2);
+  background-color: rgb(0 0 255 / 0.2);
   border: 3px solid blue;
   grid-area: a;
 }
 
 #example-element :nth-child(2) {
-  background-color: rgba(255, 0, 200, 0.2);
+  background-color: rgb(255 0 200 / 0.2);
   border: 3px solid rebeccapurple;
   grid-area: b;
 }
 
 #example-element :nth-child(3) {
-  background-color: rgba(94, 255, 0, 0.2);
+  background-color: rgb(94 255 0 / 0.2);
   border: 3px solid green;
   grid-area: c;
 }
 ```
 
-## Zugehörige Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`grid-template-areas`](/de/docs/Web/CSS/grid-template-areas)
 - [`grid-template-columns`](/de/docs/Web/CSS/grid-template-columns)
@@ -114,18 +114,17 @@ grid-template: unset;
 ### Werte
 
 - `none`
-  - : Setzt alle drei Langform-Eigenschaften auf `none`, was bedeutet, dass kein explizites Gitter vorhanden ist. Es gibt keine benannten Gitternetz-Bereiche. Zeilen und Spalten werden implizit generiert; ihre Größe wird durch die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} bestimmt. Dies ist der Standardwert.
+  - : Setzt alle drei Langformen-Eigenschaften auf `none`, was bedeutet, dass kein explizites Grid vorhanden ist. Es gibt keine benannten Grid-Bereiche. Reihen und Spalten werden implizit generiert; ihre Größe wird durch die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} bestimmt. Dies ist der Standardwert.
 - `<'grid-template-rows'> / <'grid-template-columns'>`
-  - : Setzt {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} auf die angegebenen Werte und {{cssxref("grid-template-areas")}} auf `none`.
+  - : Setzt {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} auf die angegebenen Werte und setzt {{cssxref("grid-template-areas")}} auf `none`.
 - `[ <line-names>? <string> <track-size>? <line-names>? ]+ [ / <explicit-track-list> ]?`
-
-  - : Setzt {{cssxref("grid-template-areas")}} auf die aufgeführten Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die nach jeder Zeichenfolge folgenden Bahnengrößen (füllt `auto` für alle fehlenden Größen ein) und fügt die vor/nach jeder Größe definierten benannten Linien ein und {{cssxref("grid-template-columns")}} auf die nach dem Schrägstrich angegebene Bahnliste (oder `none`, falls nicht angegeben).
+  - : Setzt {{cssxref("grid-template-areas")}} auf die angegebenen Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die nach jeder Zeichenfolge folgenden Track-Größen (füllt `auto` für fehlende Größen ein) und fügt die benannten Linien vor/nach jeder Größe ein, und {{cssxref("grid-template-columns")}} auf die nach dem Schrägstrich angegebene Track-Liste (oder `none`, wenn nicht angegeben).
 
     > [!NOTE]
-    > Die {{cssxref("repeat", "repeat()")}} Funktion ist in diesen Bahnliste nicht erlaubt, da die Bahnen visuell eins zu eins mit den Zeilen/Spalten im "ASCII-Art" übereinstimmen sollen.
+    > Die {{cssxref("repeat", "repeat()")}} Funktion ist in diesen Track-Listen nicht erlaubt, da die Tracks visuell eins-zu-eins mit den Reihen/Spalten im "ASCII-Kunstwerk" übereinstimmen sollen.
 
 > [!NOTE]
-> Die {{cssxref("grid")}} Kurzform akzeptiert die gleiche Syntax, setzt aber auch die impliziten Gittereigenschaften auf ihre Anfangswerte zurück. Verwenden Sie `grid` (anstelle von `grid-template`), um zu verhindern, dass diese Werte separat übernommen werden.
+> Die {{cssxref("grid")}} Kurzschreibweise akzeptiert die gleiche Syntax, setzt jedoch auch die impliziten Grid-Eigenschaften auf ihre Ausgangswerte zurück. Verwenden Sie `grid` (anstatt `grid-template`), um zu verhindern, dass diese Werte separat kaskadieren.
 
 ## Formale Definition
 
@@ -137,7 +136,7 @@ grid-template: unset;
 
 ## Beispiele
 
-### Eine Gittervorlage definieren
+### Definition einer Grid-Vorlage
 
 #### CSS
 
@@ -202,6 +201,6 @@ footer {
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
-- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Gitternetz-Bereichsvorlagen: Gitternetz-Definition-Kurzformen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
-- Video: [Grid template shorthand](https://gridbyexample.com/video/grid-template-shorthand/)
+- [Linienbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Grid-Template-Bereiche: Kurzschreibweisen der Grid-Definition](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- Video: [Grid-Template-Kurzschreibweise](https://gridbyexample.com/video/grid-template-shorthand/)

@@ -2,12 +2,12 @@
 title: column-rule-color
 slug: Web/CSS/column-rule-color
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`column-rule-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe der Linie fest, die in einem Mehrspaltenlayout zwischen den Spalten gezeichnet wird.
+Die **`column-rule-color`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule-color")}}
 
@@ -16,11 +16,11 @@ column-rule-color: red;
 ```
 
 ```css interactive-example-choice
-column-rule-color: rgb(48, 125, 222);
+column-rule-color: rgb(48 125 222);
 ```
 
 ```css interactive-example-choice
-column-rule-color: hsla(120, 80%, 40%, 0.6);
+column-rule-color: hsl(120 80% 40% / 0.6);
 ```
 
 ```css interactive-example-choice
@@ -64,12 +64,12 @@ column-rule-color: revert-layer;
 column-rule-color: unset;
 ```
 
-Die `column-rule-color`-Eigenschaft wird als einzelner `<color>`-Wert angegeben.
+Die Eigenschaft `column-rule-color` wird als einzelner `<color>`-Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Regel, die die Spalten trennt.
+  - : Die Farbe der Linie, die die Spalten trennt.
 
 ## Formale Definition
 

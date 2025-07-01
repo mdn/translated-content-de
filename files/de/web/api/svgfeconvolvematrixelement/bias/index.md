@@ -3,12 +3,12 @@ title: "SVGFEConvolveMatrixElement: bias-Eigenschaft"
 short-title: bias
 slug: Web/API/SVGFEConvolveMatrixElement/bias
 l10n:
-  sourceCommit: 804a3f25cfa764e3dbdb87acb90f9fb5118c1425
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`bias`**-Eigenschaft des [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Interfaces spiegelt das {{SVGAttr("bias")}}-Attribut des gegebenen {{SVGElement("feConvolveMatrix")}}-Elements wider.
+Die schreibgeschützte **`bias`**-Eigenschaft der Schnittstelle [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement) spiegelt das {{SVGAttr("bias")}}-Attribut des gegebenen {{SVGElement("feConvolveMatrix")}}-Elements wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ### Zugriff auf die `bias`-Eigenschaft
 
-Die `bias`-Eigenschaft wird verwendet, um die Helligkeit der Ausgabe anzupassen.
+Die `bias`-Eigenschaft wird verwendet, um die Helligkeit des Ausgabes zu justieren.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ Die `bias`-Eigenschaft wird verwendet, um die Helligkeit der Ausgabe anzupassen.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#convolveFilterWithBias)" />
 </svg>
 ```

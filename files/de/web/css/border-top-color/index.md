@@ -2,12 +2,12 @@
 title: border-top-color
 slug: Web/CSS/border-top-color
 l10n:
-  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rands](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweisen-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} gesetzt werden.
+Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den abkürzenden CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} gesetzt werden.
 
 {{InteractiveExample("CSS Demo: border-top-color")}}
 
@@ -20,11 +20,11 @@ border-top-color: #32a1ce;
 ```
 
 ```css interactive-example-choice
-border-top-color: rgb(170, 50, 220, 0.6);
+border-top-color: rgb(170 50 220 / 0.6);
 ```
 
 ```css interactive-example-choice
-border-top-color: hsl(60, 90%, 50%, 0.8);
+border-top-color: hsl(60 90% 50% / 0.8);
 ```
 
 ```css interactive-example-choice
@@ -69,12 +69,12 @@ border-top-color: revert-layer;
 border-top-color: unset;
 ```
 
-Die `border-top-color` Eigenschaft wird als Einzelwert angegeben.
+Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des oberen Rands.
+  - : Die Farbe des oberen Rahmens.
 
 ## Formale Definition
 
@@ -86,7 +86,7 @@ Die `border-top-color` Eigenschaft wird als Einzelwert angegeben.
 
 ## Beispiele
 
-### Ein div mit einem Rand
+### Ein div mit einem Rahmen
 
 #### HTML
 
@@ -127,7 +127,7 @@ Die `border-top-color` Eigenschaft wird als Einzelwert angegeben.
 
 ## Siehe auch
 
-- Die mit Rändern verwandten CSS-Kurzschreibweisen-Eigenschaften: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
-- Die farbbezogenen CSS-Eigenschaften für die anderen Ränder: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
-- Die anderen mit Rändern verwandten CSS-Eigenschaften, die auf denselben Rand angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
-- Der Standard-Wert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Die den Rahmen betreffenden CSS-Abkürzungseigenschaften: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
+- Die den anderen Rahmen betreffende Farbeigenschaften: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
+- Die anderen den Rahmen betreffenden CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
+- Der Standardwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).

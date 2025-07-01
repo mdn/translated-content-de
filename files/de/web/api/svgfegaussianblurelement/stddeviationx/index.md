@@ -3,12 +3,12 @@ title: "SVGFEGaussianBlurElement: stdDeviationX-Eigenschaft"
 short-title: stdDeviationX
 slug: Web/API/SVGFEGaussianBlurElement/stdDeviationX
 l10n:
-  sourceCommit: d8f5fcc34fed682a8085ea71a89223d73594ec03
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`stdDeviationX`** schreibgeschützte Eigenschaft des [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Interfaces spiegelt die (möglicherweise automatisch berechnete) X-Komponente des {{SVGAttr("stdDeviation")}}-Attributs des angegebenen {{SVGElement("feGaussianBlur")}}-Elements wider.
+Die **`stdDeviationX`** schreibgeschützte Eigenschaft der [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle gibt die (möglicherweise automatisch berechnete) X-Komponente des {{SVGAttr("stdDeviation")}}-Attributs des angegebenen {{SVGElement("feGaussianBlur")}}-Elements wieder.
 
 ## Wert
 
@@ -36,7 +36,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="50"
     width="100"
     height="100"
-    style="fill:hotpink;"
+    fill="hotpink"
     filter="url(#gaussian-blur-filter)" />
 </svg>
 ```

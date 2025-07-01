@@ -1,14 +1,14 @@
 ---
-title: "MediaList: toString() Methode"
+title: "MediaList: toString()-Methode"
 short-title: toString()
 slug: Web/API/MediaList/toString
 l10n:
-  sourceCommit: 494edeb208c312a26b7f5efb0902799d89a2bb33
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`toString()`** {{Glossary("stringifier", "Stringifier")}} Methode der [`MediaList`](/de/docs/Web/API/MediaList) Schnittstelle gibt einen String zurück, der die Werte des Objekts darstellt. Der Wert ist eine durch Kommas getrennte Liste von Medienwerten im gleichen Format wie die [`MediaList.mediaText`](/de/docs/Web/API/MediaList/mediaText) Eigenschaft.
+Die **`toString()`**-Methode des [`MediaList`](/de/docs/Web/API/MediaList)-Interfaces gibt einen String zurück, der die Werte des Objekts repräsentiert. Der Wert ist eine durch Kommas getrennte Liste von Medienwerten im selben Format wie die [`MediaList.mediaText`](/de/docs/Web/API/MediaList/mediaText)-Eigenschaft.
 
 ## Syntax
 
@@ -34,17 +34,13 @@ const mediaList = firstStyleSheet.media; // the mediaList of the stylesheet
 mediaList.mediaText = "SCREEN AND (140PX <= WIDTH <= 380PX)";
 
 // add a second media value
-mediaList.appendMedium(
-  "SCREEN AND (MAX-HEIGHT: 400PX) AND (ORIENTATION: LANDSCAPE))",
-);
+mediaList.appendMedium("SCREEN AND (ORIENTATION: LANDSCAPE))");
 
 // erroneously, add the same media query again
-mediaList.appendMedium(
-  "SCREEN AND (MAX-HEIGHT: 400PX) AND (ORIENTATION: LANDSCAPE))",
-);
+mediaList.appendMedium("SCREEN AND (ORIENTATION: LANDSCAPE))");
 
 console.log(mediaList.toString());
-// "screen and (140px <= width <= 380px), screen and (max-height: 400px) and (orientation: landscape)"
+// "screen and (140px <= width <= 380px), screen and (orientation: landscape)"
 ```
 
 ## Spezifikationen

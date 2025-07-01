@@ -2,12 +2,12 @@
 title: result
 slug: Web/SVG/Reference/Attribute/result
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
-Das **`result`**-Attribut definiert den zugewiesenen Namen für dieses Filter-Primitive. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filter-Primitives resultieren, durch ein {{SVGAttr("in")}}-Attribut in einem nachfolgenden Filter-Primitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden. Wenn kein Wert angegeben ist, wird die Ausgabe nur zur Wiederverwendung als implizite Eingabe in das nächste Filter-Primitive zur Verfügung stehen, sofern dieses keine Wertangabe für sein `in`-Attribut bereitstellt.
+Das **`result`**-Attribut definiert den zugeordneten Namen für diese Filter-Primitive. Wenn es angegeben wird, können Grafiken, die aus der Verarbeitung dieser Filter-Primitive resultieren, durch ein {{SVGAttr("in")}}-Attribut an einer nachfolgenden Filter-Primitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden. Wenn kein Wert angegeben ist, wird die Ausgabe nur zur Wiederverwendung als impliziter Eingang der nächsten Filter-Primitive zur Verfügung stehen, wenn diese Filter-Primitive keinen Wert für ihr `in`-Attribut bereitstellt.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -53,7 +53,7 @@ svg {
       yChannelSelector="G" />
   </filter>
 
-  <circle cx="100" cy="100" r="100" style="filter: url(#displacementFilter)" />
+  <circle cx="100" cy="100" r="100" filter="url(#displacementFilter)" />
 </svg>
 ```
 
@@ -79,7 +79,7 @@ svg {
 </table>
 
 - `<filter-primitive-reference>`
-  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für das Filter-Primitive. Es ist nur innerhalb eines bestimmten {{SVGElement("filter")}}-Elements sinnvoll und hat daher nur lokalen Geltungsbereich. Es ist zulässig, dass derselbe `<filter-primitive-reference>` mehrfach innerhalb desselben `<filter>`-Elements erscheint. Wenn referenziert, verwendet dieser Wert das nächstgelegene vorhergehende Filter-Primitive mit dem angegebenen Ergebnis.
+  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für die Filter-Primitive. Er ist nur innerhalb eines bestimmten {{SVGElement("filter")}}-Elements sinnvoll und hat daher nur lokalen Geltungsbereich. Es ist legal, dass derselbe `<filter-primitive-reference>`-Wert mehrfach innerhalb desselben `<filter>`-Elements erscheint. Bei der Referenzierung verwendet dieser Wert die nächst vorhergehende Filter-Primitive mit dem angegebenen Ergebnis.
 
 ## Spezifikationen
 

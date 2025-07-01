@@ -2,14 +2,15 @@
 title: 402 Payment Required
 slug: Web/HTTP/Reference/Status/402
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: cf41a29c212c730c1beef36d6bf3474ebbfc6162
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`402 Payment Required`** für [Client-Fehlerantworten](/de/docs/Web/HTTP/Reference/Status#client_error_responses) ist ein **nicht standardmäßiger** Antwortstatuscode, der für zukünftige Verwendung reserviert ist.
+Der HTTP-Statuscode **`402 Payment Required`** ist ein [Client-Fehlerantwortcode](/de/docs/Web/HTTP/Reference/Status#client_error_responses), der als **nichtstandardmäßiger** Antwortcode für zukünftige Verwendung reserviert ist.
 
-Dieser Statuscode wurde geschaffen, um digitale Zahlungsmittel oder (Mikro-) Zahlungssysteme zu ermöglichen und würde anzeigen, dass angeforderter Inhalt erst verfügbar ist, wenn der Client eine Zahlung geleistet hat. Es gibt keine standardisierte Nutzungskonvention, und unterschiedliche Systeme verwenden ihn in unterschiedlichen Kontexten.
+Dieser Statuscode wurde erstellt, um digitale Bargeld- oder (Mikro-) Zahlungssysteme zu ermöglichen und würde anzeigen, dass die angeforderte Inhalte nicht verfügbar sind, bis der Client eine Zahlung leistet.
+Es existiert keine standardisierte Nutzungskonvention und verschiedene Systeme verwenden ihn in unterschiedlichen Kontexten.
 
 ## Status
 
@@ -19,9 +20,9 @@ Dieser Statuscode wurde geschaffen, um digitale Zahlungsmittel oder (Mikro-) Zah
 
 ## Beispiele
 
-### Fehler bei Zahlungsschnittstelle
+### Fehler der Zahlungs-API
 
-Einige Zahlungsschnittstellen verwenden die 402-Antwort als allgemeine Falle für fehlgeschlagene Zahlungsanforderungen. Im folgenden Beispiel wird versucht, mit einer POST-Anfrage einen Aufruf an eine Zahlungsschnittstelle zur Einleitung einer Transaktion zu richten:
+Einige Zahlungs-APIs verwenden die 402-Antwort als allgemeinen Sammelcode für fehlgeschlagene Zahlungsanfragen. Im folgenden Beispiel wird versucht, einen Aufruf einer Zahlungs-API mit einer POST-Anfrage zur Einleitung einer Transaktion zu tätigen:
 
 ```http
 POST /merchant/transfers/payment HTTP/1.1
@@ -36,13 +37,13 @@ Content-Length: 402
     "currency": "EUR",
     "sender_account_uri": "pan:5299920000000149;exp=2020-08;cvc=123",
     "sender": {
-      "first_name": "Brian",
-      "middle_name": "Smith",
+      "first_name": "Amelia",
+      "middle_name": "Rosenburg",
       "email": "test123@sender.example.com"
     },
     "recipient": {
-      "first_name": "John",
-      "middle_name": "Tyler",
+      "first_name": "Tyrone",
+      "middle_name": "Johnston",
       "email": "test123@example.com",
       "merchant_id": "123"
     },
@@ -74,7 +75,9 @@ Content-Length: 175
 
 ## Kompatibilitätsnotizen
 
-Dieser Statuscode ist _reserviert_, aber nicht definiert. Tatsächliche Implementierungen variieren im Format und Inhalt der Antwort. Kein Browser unterstützt eine 402, und ein Fehler wird als allgemeiner `4xx` Statuscode angezeigt.
+Dieser Statuscode ist _reserviert_, aber nicht definiert.
+Tatsächliche Implementierungen variieren im Format und Inhalt der Antwort.
+Kein Browser unterstützt eine 402, und ein Fehler wird als generischer `4xx`-Statuscode angezeigt.
 
 ## Siehe auch
 

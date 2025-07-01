@@ -3,20 +3,20 @@ title: "HTMLSourceElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLSourceElement/width
 l10n:
-  sourceCommit: d8a52569d8d465eb626af3d33600c8c638a7a322
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) Interface ist eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixel angibt.
 
-Die Eigenschaft hat nur eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
+Die Eigenschaft hat nur dann eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
 
 Sie spiegelt das `width`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
 ## Wert
 
-Eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
+Eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixel angibt.
 
 ## Beispiele
 
@@ -24,17 +24,17 @@ Eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
 <picture id="img">
   <source
     srcset="landscape.png"
-    media="(min-width: 1000px)"
+    media="(width >= 1000px)"
     width="1000"
     height="400" />
   <source
     srcset="square.png"
-    media="(min-width: 800px)"
+    media="(width >= 800px)"
     width="800"
     height="800" />
   <source
     srcset="portrait.png"
-    media="(min-width: 600px)"
+    media="(width >= 600px)"
     width="600"
     height="800" />
   <img

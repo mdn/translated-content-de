@@ -2,12 +2,13 @@
 title: translate3d()
 slug: Web/CSS/transform-function/translate3d
 l10n:
-  sourceCommit: 6d4cc8a3456ed6c0eba0d3ace7c14973137e93a5
+  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
 ---
 
 {{CSSRef}}
 
-Die **`translate3d()`**-Funktion von [CSS](/de/docs/Web/CSS) [verlagert](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ein Element im 3D-Raum. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element im 3D-Raum neu. Das Ergebnis ist ein
+{{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translate3d()")}}
 
@@ -67,37 +68,37 @@ transform: translate3d(5ch, 0.4in, 5em);
 }
 
 .front {
-  background: rgba(90, 90, 90, 0.7);
+  background: rgb(90 90 90 / 0.7);
   transform: translateZ(50px);
 }
 
 .back {
-  background: rgba(0, 210, 0, 0.7);
+  background: rgb(0 210 0 / 0.7);
   transform: rotateY(180deg) translateZ(50px);
 }
 
 .right {
-  background: rgba(210, 0, 0, 0.7);
+  background: rgb(210 0 0 / 0.7);
   transform: rotateY(90deg) translateZ(50px);
 }
 
 .left {
-  background: rgba(0, 0, 210, 0.7);
+  background: rgb(0 0 210 / 0.7);
   transform: rotateY(-90deg) translateZ(50px);
 }
 
 .top {
-  background: rgba(210, 210, 0, 0.7);
+  background: rgb(210 210 0 / 0.7);
   transform: rotateX(90deg) translateZ(50px);
 }
 
 .bottom {
-  background: rgba(210, 0, 210, 0.7);
+  background: rgb(210 0 210 / 0.7);
   transform: rotateX(-90deg) translateZ(50px);
 }
 ```
 
-Diese Transformation ist durch einen dreidimensionalen Vektor [tx, ty, tz] gekennzeichnet. Seine Koordinaten definieren, wie viel sich das Element in jede Richtung bewegt.
+Diese Transformation ist durch einen dreidimensionalen Vektor [tx, ty, tz] charakterisiert. Seine Koordinaten definieren, wie stark sich das Element in jede Richtung bewegt.
 
 ## Syntax
 
@@ -108,14 +109,14 @@ translate3d(tx, ty, tz)
 ### Werte
 
 - `tx`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse (horizontal, x-Komponente) des
-    Translationsvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Abszisse (horizontale, x-Komponente) des
+    Übersetzungvektors [tx, ty, tz] darstellt.
 - `ty`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikal, y-Komponente) des
-    Translationsvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Ordinate (vertikale, y-Komponente) des
+    Übersetzungvektors [tx, ty, tz] darstellt.
 - `tz`
-  - : Ist ein {{cssxref("&lt;length&gt;")}}, der die z-Komponente des Translationsvektors darstellt. Es kann kein
-    {{cssxref("&lt;percentage&gt;")}}-Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig angesehen [tx, ty, tz].
+  - : Ist ein {{cssxref("&lt;length&gt;")}}, das die z-Komponente des Übersetzungvektors darstellt. Es kann kein
+    {{cssxref("&lt;percentage&gt;")}} Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
 
 <table class="standard-table">
   <thead>
@@ -130,11 +131,11 @@ translate3d(tx, ty, tz)
     <tr>
       <td colspan="2">
         <p>
-          Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
+          Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
         </p>
       </td>
       <td>
-        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht unter Verwendung einer kartesischen Koordinatenmatrix dargestellt werden.
+        Eine Übersetzung ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -151,7 +152,7 @@ translate3d(tx, ty, tz)
 
 ## Beispiele
 
-### Verwendung einer Einzelachsen-Translation
+### Verwendung einer einachsigen Übersetzung
 
 #### HTML
 
@@ -181,7 +182,7 @@ div {
 
 {{EmbedLiveSample("Using_a_single_axis_translation", 250, 250)}}
 
-### Kombination von z-Achsen- und x-Achsen-Translation
+### Kombination von z-Achsen- und x-Achsen-Übersetzung
 
 #### HTML
 

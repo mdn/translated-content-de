@@ -3,16 +3,16 @@ title: "SVGFETurbulenceElement: stitchTiles-Eigenschaft"
 short-title: stitchTiles
 slug: Web/API/SVGFETurbulenceElement/stitchTiles
 l10n:
-  sourceCommit: 483599780f3f906327c6082860e8c26836258990
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`stitchTiles`**-Eigenschaft der [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Schnittstelle spiegelt das {{SVGAttr("stitchTiles")}}-Attribut des gegebenen {{SVGElement("feTurbulence")}}-Elements wider. Sie nimmt einen der auf dieser Schnittstelle definierten `SVG_STITCHTYPE_*`-Konstanten an.
+Die schreibgeschützte Eigenschaft **`stitchTiles`** der Schnittstelle [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement) spiegelt das {{SVGAttr("stitchTiles")}} Attribut des angegebenen {{SVGElement("feTurbulence")}} Elements wider. Sie nimmt einen der `SVG_STITCHTYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
 
 ## Wert
 
-Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt.
+Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration) Objekt.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt.
     y="20"
     width="160"
     height="160"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#turbulenceFilter)" />
 </svg>
 ```

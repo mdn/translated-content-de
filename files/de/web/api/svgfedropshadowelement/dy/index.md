@@ -3,22 +3,22 @@ title: "SVGFEDropShadowElement: dy-Eigenschaft"
 short-title: dy
 slug: Web/API/SVGFEDropShadowElement/dy
 l10n:
-  sourceCommit: 7527a11a2b7fc7440aa6d518a9f5b4c061794ff3
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`dy`** der [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Schnittstelle spiegelt das {{SVGAttr("dy")}}-Attribut des gegebenen {{SVGElement("feDropShadow")}}-Elements wider.
+Die **`dy`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement) spiegelt das {{SVGAttr("dy")}} Attribut des gegebenen {{SVGElement("feDropShadow")}} Elements wider.
 
 ## Wert
 
-Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
+Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) Objekt.
 
 ## Beispiele
 
-### Zugriff auf den `dy` Wert
+### Zugriff auf den `dy`-Wert
 
-In diesem Beispiel rufen wir die vertikale Verschiebung des `<feDropShadow>` ab, indem wir die schreibgeschützte Eigenschaft `dx` der `SVGFEDropShadowElement`-Schnittstelle verwenden.
+In diesem Beispiel rufen wir die vertikale Verschiebung des `<feDropShadow>`-Elements ab, indem wir die schreibgeschützte Eigenschaft `dy` der `SVGFEDropShadowElement` Schnittstelle verwenden.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@ In diesem Beispiel rufen wir die vertikale Verschiebung des `<feDropShadow>` ab,
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#drop-shadow-filter)" />
 
   <!-- Circle with a red shadow -->
@@ -48,7 +48,7 @@ In diesem Beispiel rufen wir die vertikale Verschiebung des `<feDropShadow>` ab,
     cx="100"
     cy="100"
     r="50"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#drop-shadow-filter)" />
 </svg>
 ```

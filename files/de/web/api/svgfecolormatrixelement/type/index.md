@@ -3,12 +3,12 @@ title: "SVGFEColorMatrixElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/SVGFEColorMatrixElement/type
 l10n:
-  sourceCommit: b5f56e77f0fc3c786a1178eff5bbb89feffde91f
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`type`**-Eigenschaft der [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("type")}}-Attribut des angegebenen Elements widerspiegelt. Sie nimmt einen der `SVG_FECOLORMATRIX_TYPE_*`-Konstanten an, die auf dieser Schnittstelle definiert sind.
+Die schreibgeschützte **`type`**-Eigenschaft der [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Schnittstelle spiegelt das {{SVGAttr("type")}}-Attribut des gegebenen Elements wider. Sie nimmt einen der `SVG_FECOLORMATRIX_TYPE_*`-Konstanten an, die in dieser Schnittstelle definiert sind.
 
 ## Wert
 
@@ -31,13 +31,13 @@ Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#color-matrix-filter)" />
   <circle
     cx="100"
     cy="100"
     r="50"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#color-matrix-filter)" />
 </svg>
 ```

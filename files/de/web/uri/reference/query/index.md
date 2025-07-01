@@ -3,18 +3,19 @@ title: URI-Abfrage
 short-title: Query
 slug: Web/URI/Reference/Query
 l10n:
-  sourceCommit: be9ba40fbef7f96beae73e5dd6d48a3ca875826f
+  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
 ---
 
-Die **Abfrage** eines URI ist der Abschnitt, der nach dem [Pfad](/de/docs/Web/URI/Reference/Path) kommt. Sie enthält nicht-hierarchische Daten, um eine Ressource im Rahmen des URI-[Schemas](/de/docs/Web/URI/Reference/Schemes) und der Namensautorität zu identifizieren, zusammen mit Daten im Pfad-Komponenten.
+Die **Abfrage** einer URI ist der Abschnitt, der nach dem [Pfad](/de/docs/Web/URI/Reference/Path) kommt. Sie enthält nicht-hierarchische Daten, um eine Ressource im Rahmen des [Schemas](/de/docs/Web/URI/Reference/Schemes) der URI und der Namensautorität zusammen mit Daten im Pfadkomponenten zu identifizieren.
 
 ## Syntax
 
-Die Abfrage wird durch das erste Fragezeichen (`?`) Zeichen angezeigt und durch ein Nummernzeichen (`#`) oder das Ende des URI beendet:
-
-```plain
-https://example.com/collection?<query>
+```url
+?query
 ```
+
+- `fragment`
+  - : Eine Folge von beliebigen Zeichen, außer dem `#` Zeichen, das den [Fragment](/de/docs/Web/URI/Reference/Fragment) beginnt. Das genaue Format der Abfrage wird durch die Ressource selbst definiert.
 
 ## Beschreibung
 
@@ -24,7 +25,7 @@ Betrachten Sie die folgende URL:
 http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument
 ```
 
-`?key1=value1&key2=value2` ist die Abfragekomponente, die Parameter für den Webserver zur Verarbeitung enthält. Die spezifischen Parameter im Beispiel sind eine Liste von Schlüssel/Wert-Paaren, die durch das `&` Zeichen getrennt sind. Webserver können die Parameter verwenden, um Antworten zu modifizieren, wie zum Beispiel das Anwenden von Filterung, Suche oder Sortierung der Ergebnisse, obwohl dies implementierungsspezifisch ist.
+`?key1=value1&key2=value2` ist der Abfragekomponenten, der Parameter für den Webserver enthält, die verarbeitet werden sollen. Die spezifischen Parameter im Beispiel sind eine Liste von Schlüssel/Wert-Paaren, die durch das Zeichen `&` getrennt sind. Webserver können die Parameter verwenden, um Antworten zu ändern, wie z. B. Filterungen, Suchen oder Sortieren von Ergebnissen anzuwenden, obwohl dies implementierungsspezifisch ist.
 
 ## Spezifikationen
 
