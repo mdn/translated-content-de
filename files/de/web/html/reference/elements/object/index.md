@@ -1,13 +1,13 @@
 ---
-title: "<object>: Das externe Objektelement"
+title: "<object>: Das Externe Objekt-Element"
 slug: Web/HTML/Reference/Elements/object
 l10n:
-  sourceCommit: 41018309bf920684054c0c2d81d362365b543493
+  sourceCommit: fd56a549d24a8002df09735ee8319ce1a721c233
 ---
 
 {{HTMLSidebar}}
 
-Das **`<object>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine externe Ressource, die als Bild, verschachtelter Browsing-Kontext oder als Ressource behandelt werden kann, die von einem Plugin verarbeitet wird.
+Das **`<object>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine externe Ressource, die als Bild, eingebetteter Browsing-Kontext oder als Ressource, die von einem Plugin verarbeitet wird, behandelt werden kann.
 
 {{InteractiveExample("HTML Demo: &lt;object&gt;", "tabbed-standard")}}
 
@@ -21,7 +21,7 @@ Das **`<object>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine externe
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `archive` {{deprecated_inline}}
   - : Eine durch Leerzeichen getrennte Liste von URIs für Archive von Ressourcen für das Objekt.
@@ -30,27 +30,27 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 - `classid` {{deprecated_inline}}
   - : Der URI der Implementierung des Objekts. Kann zusammen mit oder anstelle des **data**-Attributs verwendet werden.
 - `codebase` {{deprecated_inline}}
-  - : Der Basis-Pfad, der verwendet wird, um relative URIs aufzulösen, die durch **classid**, **data** oder **archive** angegeben sind. Wenn nicht angegeben, ist der Standard die Basis-URI des aktuellen Dokuments.
+  - : Der Basis-Pfad, der zum Auflösen relativer URIs verwendet wird, die durch **classid**, **data** oder **archive** angegeben werden. Wenn nicht angegeben, ist der Standardwert der Basis-URI des aktuellen Dokuments.
 - `codetype` {{deprecated_inline}}
-  - : Der Inhaltstyp der Daten, die durch **classid** angegeben sind.
+  - : Der Inhaltstyp der durch **classid** spezifizierten Daten.
 - `data`
   - : Die Adresse der Ressource als gültige URL. Mindestens eines der Attribute **data** und **type** muss definiert sein.
 - `declare` {{deprecated_inline}}
-  - : Das Vorhandensein dieses booleschen Attributs macht dieses Element nur zu einer Deklaration. Das Objekt muss durch ein nachfolgendes `<object>`-Element instanziiert werden. Wiederholen Sie das `<object>`-Element vollständig, jedes Mal wenn die Ressource wiederverwendet wird.
+  - : Das Vorhandensein dieses Booleschen Attributes macht dieses Element nur zu einer Deklaration. Das Objekt muss durch ein nachfolgendes `<object>`-Element instanziiert werden. Wiederholen Sie das `<object>`-Element vollständig, jedes Mal, wenn die Ressource erneut verwendet wird.
 - `form`
-  - : Das Formularelement, falls vorhanden, dem das Objektelement zugewiesen ist (sein _Formularbesitzer_). Der Wert des Attributs muss eine ID eines {{HTMLElement("form")}}-Elements im selben Dokument sein.
+  - : Das Formular-Element, sofern vorhanden, mit dem das Objekt-Element assoziiert ist (sein _Formularbesitzer_). Der Wert des Attributs muss eine ID eines {{HTMLElement("form")}}-Elements im selben Dokument sein.
 - `height`
-  - : Die Höhe der angezeigten Ressource, ausgedrückt in {{cssxref("&lt;integer&gt;")}} in {{Glossary("CSS_pixel", "CSS-Pixeln")}}.
+  - : Die Höhe der angezeigten Ressource, wie in {{cssxref("&lt;integer&gt;")}} in {{Glossary("CSS_pixel", "CSS-Pixeln")}}.
 - `name`
-  - : Der Name eines gültigen Browsing-Kontexts (HTML5) oder der Name des Steuerelements (HTML 4). Der Name wird zu einer Eigenschaft der [`Window`](/de/docs/Web/API/Window)- und [`Document`](/de/docs/Web/API/Document)-Objekte, die eine Referenz zum eingebetteten Fenster oder zu dem Element selbst enthalten.
+  - : Der Name des gültigen Browsing-Kontexts (HTML5) oder der Name des Steuerungselements (HTML 4). Der Name wird eine Eigenschaft der [`Window`](/de/docs/Web/API/Window)- und [`Document`](/de/docs/Web/API/Document)-Objekte, die einen Verweis auf das eingebettete Fenster oder das Element selbst enthält.
 - `standby` {{deprecated_inline}}
-  - : Eine Nachricht, die der Browser während des Ladens der Implementierung und Daten des Objekts anzeigen kann.
+  - : Eine Nachricht, die der Browser anzeigen kann, während die Implementierung und die Daten des Objekts geladen werden.
 - `type`
-  - : Der {{Glossary("MIME_type", "Inhaltstyp")}} der Ressource, die durch **data** angegeben ist. Mindestens eines der Attribute **data** und **type** muss definiert sein.
+  - : Der {{Glossary("MIME_type", "Inhaltstyp")}} der Ressource, die durch **data** spezifiziert wird. Mindestens eines der Attribute **data** und **type** muss definiert sein.
 - `usemap` {{deprecated_inline}}
-  - : Ein Hash-Name-Referenz zu einem {{HTMLElement("map")}}-Element; das heißt ein '#' gefolgt vom Wert eines [`name`](/de/docs/Web/HTML/Reference/Elements/map#name)-Attributs eines Mapelements.
+  - : Ein Hash-Name-Verweis auf ein {{HTMLElement("map")}}-Element; das ist ein '#' gefolgt vom Wert eines [`name`](/de/docs/Web/HTML/Reference/Elements/map#name)-Attributs eines Karte-Elements.
 - `width`
-  - : Die Breite der angezeigten Ressource, ausgedrückt in {{cssxref("&lt;integer&gt;")}} in {{Glossary("CSS_pixel", "CSS-Pixeln")}}.
+  - : Die Breite der angezeigten Ressource, wie in {{cssxref("&lt;integer&gt;")}} in {{Glossary("CSS_pixel", "CSS-Pixeln")}}.
 
 ## Beispiele
 
@@ -64,7 +64,9 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
   data="/shared-assets/videos/flower.webm"
   width="600"
   height="140">
-  <img src="path/image.jpg" alt="useful image description" />
+  <img
+    src="/shared-assets/images/examples/flowers.jpg"
+    alt="Some beautiful flowers" />
 </object>
 ```
 
@@ -72,7 +74,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 
 {{EmbedLiveSample("Embed a video")}}
 
-Wenn das Video im Beispiel nicht geladen wird, erhält der Benutzer ein Bild als Fallback-Inhalt. Das {{HTMLElement("img")}}-Tag wird verwendet, um ein Bild anzuzeigen. Wir fügen das `src`-Attribut hinzu, das auf den Pfad des einzubettenden Bildes verweist. Wir fügen auch das `alt`-Attribut hinzu, das dem Bild einen zugänglichen Namen gibt. Falls das Bild ebenfalls nicht geladen wird, wird der Inhalt des `alt`-Attributs angezeigt.
+Wenn das Video im Beispiel nicht geladen werden kann, wird dem Benutzer ein Bild als Fallback-Inhalt angezeigt. Der {{HTMLElement("img")}}-Tag wird verwendet, um ein Bild anzuzeigen. Wir fügen das `src`-Attribut hinzu, das auf den Pfad des Bildes verweist, das eingebettet werden soll. Wir fügen auch das `alt`-Attribut hinzu, das dem Bild einen zugänglichen Namen gibt. Wenn das Bild auch nicht geladen werden kann, wird der Inhalt des `alt`-Attributs angezeigt.
 
 ## Technische Zusammenfassung
 
@@ -83,34 +85,34 @@ Wenn das Video im Beispiel nicht geladen wird, erhält der Benutzer ein Bild als
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>;
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasender Inhalt</a>;
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#embedded_content">eingebetteter Inhalt</a>, greifbarer Inhalt; wenn das Element
-        ein <a href="#usemap"><code>usemap</code></a>-Attribut hat, <a href="/de/docs/Web/HTML/Guides/Content_categories#interactive_content">interaktiver Inhalt</a>;
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#listed">gelistet</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#submittable">einreichbar</a>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content">Formular-assoziiertes</a> Element.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließinhalt</a>;
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasinhalte</a>;
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#embedded_content">Eingebettete Inhalte</a>, wahrnehmbarer Inhalt; wenn das Element ein
+        <a href="#usemap"><code>usemap</code></a>-Attribut hat, <a href="/de/docs/Web/HTML/Guides/Content_categories#interactive_content">interaktiver Inhalt</a>;
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#listed">aufgeführt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#submittable">einsendbar</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content">formularassoziiertes</a> Element.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        null oder mehr {{HTMLElement("param")}}-Elemente, dann
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model">transparenter</a>.
+        Null oder mehr {{HTMLElement("param")}}-Elemente, dann
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model">transparentes</a> Modell.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#embedded_content">eingebetteten Inhalt</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#embedded_content">eingebettete Inhalte</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>

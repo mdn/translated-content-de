@@ -1,13 +1,13 @@
 ---
 title: from
-slug: Web/SVG/Reference/Attribute/From
+slug: Web/SVG/Reference/Attribute/from
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: ab279632b84d201ae9ddd3db3981bf0b01573371
 ---
 
-Das **`from`**-Attribut gibt den Anfangswert des Attributs an, das während der Animation verändert wird.
+Das Attribut **`from`** gibt den Anfangswert des Attributs an, das während der Animation geändert wird.
 
-Wenn es zusammen mit dem {{SVGAttr("to")}}-Attribut verwendet wird, ändert die Animation das modifizierte Attribut vom `from`-Wert zum `to`-Wert. Wird es mit dem {{SVGAttr("by")}}-Attribut verwendet, verändert die Animation das Attribut relativ vom `from`-Wert um den im `by`-Attribut angegebenen Wert.
+Wenn es mit dem {{SVGAttr("to")}}-Attribut verwendet wird, ändert die Animation das modifizierte Attribut vom `from`-Wert zum `to`-Wert. Wenn es mit dem {{SVGAttr("by")}}-Attribut verwendet wird, ändert die Animation das Attribut relativ vom `from`-Wert um den im `by` angegebenen Wert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -35,7 +35,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -56,7 +56,7 @@ svg {
 
 Der genaue Wertetyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert werden soll.
 
-Wenn eine Liste von Werten über das {{SVGAttr("values")}}-Attribut definiert ist, wird das `from`-Attribut ignoriert.
+Wenn eine Liste von Werten über das {{SVGAttr("values")}}-Attribut definiert wird, wird das `from`-Attribut ignoriert.
 
 ## Spezifikationen
 

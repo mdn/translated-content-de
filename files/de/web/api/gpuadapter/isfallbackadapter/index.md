@@ -1,18 +1,18 @@
 ---
-title: "GPUAdapter: isFallbackAdapter-Eigenschaft"
+title: "GPUAdapter: isFallbackAdapter Eigenschaft"
 short-title: isFallbackAdapter
 slug: Web/API/GPUAdapter/isFallbackAdapter
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
 ---
 
-{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`isFallbackAdapter`** schreibgeschützte Eigenschaft des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Interfaces gibt `true` zurück, wenn der Adapter ein [Fallback-Adapter](/de/docs/Web/API/GPU/requestAdapter#fallback_adapters) ist, und `false`, wenn nicht.
+Die schreibgeschützte Eigenschaft **`isFallbackAdapter`** der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt `true` zurück, wenn der Adapter ein [Fallback-Adapter](/de/docs/Web/API/GPU/requestAdapter#fallback_adapters) ist, und `false`, wenn nicht.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 

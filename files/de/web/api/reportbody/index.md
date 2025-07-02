@@ -2,12 +2,12 @@
 title: ReportBody
 slug: Web/API/ReportBody
 l10n:
-  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
+  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`ReportBody`**-Schnittstelle der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Hauptteil eines Berichts. Einzelne Berichtstypen erben von dieser Schnittstelle und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
+Das **`ReportBody`**-Interface der [Reporting-API](/de/docs/Web/API/Reporting_API) repräsentiert den Körper eines Berichts. Einzelne Berichtstypen erben von diesem Interface und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
 
 ### Berichte, die von `ReportBody` erben
 
@@ -15,16 +15,16 @@ Die **`ReportBody`**-Schnittstelle der [Reporting API](/de/docs/Web/API/Reportin
 - [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)
 - [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)
 
-Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben. Die Schnittstelle hat keinen Konstruktor.
+Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben. Das Interface besitzt keinen Konstruktor.
 
 ## Instanzmethoden
 
-- [`ReportBody.toJSON()`](/de/docs/Web/API/ReportBody/toJSON)
+- [`ReportBody.toJSON()`](/de/docs/Web/API/ReportBody/toJSON) {{deprecated_inline}}
   - : Ein _Serializer_, der eine JSON-Darstellung des `ReportBody`-Objekts zurückgibt.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten. Die Schnittstelle [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) erbt von `ReportBody`.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zur Beobachtung von Intervention Reports. Das [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interface erbt von `ReportBody`.
 
 ```js
 const options = {

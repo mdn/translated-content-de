@@ -3,22 +3,22 @@ title: "VideoFrame: flip-Eigenschaft"
 short-title: flip
 slug: Web/API/VideoFrame/flip
 l10n:
-  sourceCommit: 4c4e14a03ff66ad7fcdcef2a4c149bd892aacbce
+  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
 ---
 
-{{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
 Die **`flip`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das `VideoFrame` horizontal gespiegelt ist.
 
 ## Wert
 
-Ein boolescher Wert. Wenn `true`, wird eine horizontale Spiegelung angewendet. Standardmäßig ist der Wert `false`.
+Ein boolescher Wert. Wenn `true`, wird eine horizontale Spiegelung angewendet. Standardmäßig ist `false`.
 
 ## Beispiele
 
-### Erkennen, wann ein Kameravideo gespiegelt ist
+### Erkennen, wann ein Kameravideo gespiegelt wird
 
-Bei einem Stream von Videoframes von einer Kamera, der mit einem [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) erhalten wurde, können Sie die `flip`-Eigenschaft auf den `VideoFrame`-Objekten überprüfen, um festzustellen, ob die Frames gespiegelt sind.
+Angenommen, Sie haben einen Strom von Videoframes von einer Kamera, erhalten mit einem [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor). Sie können die `flip`-Eigenschaft der `VideoFrame`-Objekte überprüfen, um festzustellen, ob die Frames gespiegelt sind.
 
 ```js
 const stream = await navigator.mediaDevices.getUserMedia({ video: true });

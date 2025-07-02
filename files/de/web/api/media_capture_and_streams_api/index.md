@@ -2,28 +2,28 @@
 title: Media Capture and Streams API (Media Stream)
 slug: Web/API/Media_Capture_and_Streams_API
 l10n:
-  sourceCommit: 832bcb292fdf15ce9ba842f9a5025b5593454a65
+  sourceCommit: fd56a549d24a8002df09735ee8319ce1a721c233
 ---
 
 {{DefaultAPISidebar("Media Capture and Streams")}}
 
-Die **Media Capture and Streams** API, oft als **Media Streams API** oder **MediaStream API** bezeichnet, ist eine API im Zusammenhang mit [WebRTC](/de/docs/Web/API/WebRTC_API), die Unterstützung für das Streamen von Audio- und Videodaten bietet.
+Die **Media-Capture- und -Streams-API**, oft als **Media Streams API** oder **MediaStream API** bezeichnet, ist eine API im Zusammenhang mit [WebRTC](/de/docs/Web/API/WebRTC_API), die Unterstützung für das Streaming von Audio- und Videodaten bietet.
 
-Sie bietet die Schnittstellen und Methoden zum Arbeiten mit den Streams und deren einzelnen Tracks, Einschränkungen in Bezug auf Datenformate, Erfolgs- und Fehler-Callbacks bei der asynchronen Nutzung der Daten und die Ereignisse, die während des Prozesses ausgelöst werden.
+Sie bietet die Schnittstellen und Methoden zum Arbeiten mit Streams und deren einzelnen Tracks, die Einschränkungen im Zusammenhang mit Datenformaten, die Erfolgs- und Fehlerrückrufe bei der asynchronen Nutzung der Daten sowie die Ereignisse, die während des Prozesses ausgelöst werden.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Die API basiert auf der Manipulation eines [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekts, das einen Fluss von Audio- oder videobezogenen Daten darstellt. Sehen Sie ein Beispiel unter [Den Medienstream erhalten](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos#the_startup_function).
+Die API basiert auf der Manipulation eines [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekts, das einen Fluss von Audio- oder videobezogenen Daten darstellt. Siehe ein Beispiel in [Erhalte den Medien-Stream](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos#demo).
 
-Ein `MediaStream` besteht aus null oder mehr [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten, die verschiedene Audio- oder Video-**Tracks** repräsentieren. Jeder `MediaStreamTrack` kann einen oder mehrere **Kanäle** haben. Der Kanal stellt die kleinste Einheit eines Medienstreams dar, wie z.B. ein Audiosignal, das einem bestimmten Lautsprecher zugeordnet ist, etwa _links_ oder _rechts_ in einem Stereo-Audiotrack.
+Ein `MediaStream` besteht aus null oder mehr [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten, die verschiedene Audio- oder Videotracks **repräsentieren**. Jeder `MediaStreamTrack` kann über einen oder mehrere **Channels** verfügen. Der Channel stellt die kleinste Einheit eines Medien-Streams dar, wie z.B. ein Audiosignal, das mit einem bestimmten Lautsprecher verbunden ist, wie _links_ oder _rechts_ in einem Stereo-Audiotrack.
 
-`MediaStream`-Objekte haben einen einzigen **Eingang** und einen einzigen **Ausgang**. Ein durch [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erzeugtes `MediaStream`-Objekt wird _lokal_ genannt und hat als Eingangsquelle eine der Kameras oder Mikrofone des Benutzers. Ein nicht-lokales `MediaStream` kann ein Medienelement wie {{HTMLElement("video")}} oder {{HTMLElement("audio")}} darstellen, einen über das Netzwerk kommenden Stream, der über die WebRTC-API [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erhalten wurde, oder einen Stream, der unter Verwendung der [Web Audio API](/de/docs/Web/API/Web_Audio_API) [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode) erstellt wurde.
+`MediaStream`-Objekte haben einen einzelnen **Eingang** und einen einzelnen **Ausgang**. Ein von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) generiertes `MediaStream`-Objekt wird als _lokal_ bezeichnet und hat als Quelleneingang eine der Kameras oder Mikrofone des Benutzers. Ein nicht lokales `MediaStream` kann ein Medien-Element darstellen, wie z.B. {{HTMLElement("video")}} oder {{HTMLElement("audio")}}, einen über das Netzwerk stammenden Stream, der über die WebRTC-API [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erhalten wird, oder einen Stream, der mit der [Web Audio API](/de/docs/Web/API/Web_Audio_API) [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode) erstellt wurde.
 
-Der Ausgang des `MediaStream`-Objekts ist mit einem **Verbraucher** verbunden. Dies kann ein Medienelement wie {{HTMLElement("audio")}} oder {{HTMLElement("video")}} sein, die WebRTC-API [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder ein [Web Audio API](/de/docs/Web/API/Web_Audio_API) [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode).
+Der Ausgang des `MediaStream`-Objekts ist mit einem **Konsumenten** verbunden. Es kann sich um ein Medien-Element handeln, wie {{HTMLElement("audio")}} oder {{HTMLElement("video")}}, die WebRTC-API [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder eine [Web Audio API](/de/docs/Web/API/Web_Audio_API) [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode).
 
 ## Schnittstellen
 
-In diesen Referenzartikeln finden Sie die grundlegenden Informationen, die Sie über jede der Schnittstellen der Media Capture and Streams API wissen müssen.
+In diesen Referenzartikeln finden Sie die grundlegenden Informationen, die Sie über jede der Schnittstellen der Media-Capture- und -Streams-API wissen müssen.
 
 - [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack)
 - [`InputDeviceInfo`](/de/docs/Web/API/InputDeviceInfo)
@@ -47,9 +47,9 @@ In diesen Referenzartikeln finden Sie die grundlegenden Informationen, die Sie �
 
 ## Leitfäden und Tutorials
 
-Der Artikel [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) behandelt die Konzepte von **Einschränkungen** und **Fähigkeiten** sowie Medieneinstellungen und enthält einen [Einschränkungs-Übungsbereich](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser), mit dem Sie die Ergebnisse verschiedener Einschränkungssätze testen können, die auf die Audio- und Videotracks der A/V-Eingabegeräte des Computers (wie seine Webcam und sein Mikrofon) angewendet werden.
+Der Artikel [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) diskutiert die Konzepte von **Einschränkungen** und **Fähigkeiten** sowie Medieneinstellungen und beinhaltet einen [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser), mit dem Sie die Ergebnisse verschiedener Einschränkungssets ausprobieren können, die auf die Audio- und Videotracks der A/V-Eingabegeräte des Computers angewendet werden (wie die Webcam und das Mikrofon).
 
-Der Artikel [Stillfotos mit getUserMedia() aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos) zeigt, wie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet wird, um auf die Kamera eines Computers oder Mobiltelefons zuzugreifen, das `getUserMedia()` unterstützt, und damit ein Foto aufzunehmen.
+Der Artikel [Fotos mit getUserMedia() aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos) zeigt, wie Sie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwenden, um auf die Kamera eines Computers oder Mobiltelefons mit `getUserMedia()`-Unterstützung zuzugreifen und ein Foto damit aufzunehmen.
 
 ## Spezifikationen
 
@@ -61,5 +61,5 @@ Der Artikel [Stillfotos mit getUserMedia() aufnehmen](/de/docs/Web/API/Media_Cap
 
 ## Siehe auch
 
-- [WebRTC](/de/docs/Web/API/WebRTC_API) - die Einführungsseite zur API
-- [Stillfotos mit WebRTC aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos): Eine Demonstration und Anleitung zur Verwendung von `getUserMedia()`.
+- [WebRTC](/de/docs/Web/API/WebRTC_API) - die Einführungsseite der API
+- [Fotos mit WebRTC aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos): eine Demonstration und Anleitung zur Verwendung von `getUserMedia()`.

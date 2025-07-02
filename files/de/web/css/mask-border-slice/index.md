@@ -2,12 +2,12 @@
 title: mask-border-slice
 slug: Web/CSS/mask-border-slice
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: ab279632b84d201ae9ddd3db3981bf0b01573371
 ---
 
 {{CSSRef}}
 
-Die **`mask-border-slice`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt das durch {{cssxref("mask-border-source")}} festgelegte Bild in Regionen. Diese Regionen werden verwendet, um die Bestandteile des [Maskenrahmens](/de/docs/Web/CSS/mask-border) eines Elements zu bilden.
+Die **`mask-border-slice`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt das durch {{cssxref("mask-border-source")}} angegebene Bild in Regionen ein. Diese Regionen werden verwendet, um die Komponenten des [Maskenrands](/de/docs/Web/CSS/mask-border) eines Elements zu bilden.
 
 ## Syntax
 
@@ -35,37 +35,37 @@ mask-border-slice: revert-layer;
 mask-border-slice: unset;
 ```
 
-Die Eigenschaft `mask-border-slice` kann mit einem bis vier `<number-percentage>` Werten angegeben werden, um die Position jedes Bildschnitts darzustellen. Negative Werte sind ungültig; Werte, die ihre entsprechende Dimension überschreiten, werden auf `100%` begrenzt.
+Die `mask-border-slice` Eigenschaft kann mit ein bis vier `<number-percentage>` Werten angegeben werden, um die Position jedes Bildausschnitts darzustellen. Negative Werte sind ungültig; Werte, die ihre entsprechende Dimension überschreiten, werden auf `100%` begrenzt.
 
-- Wenn **eine** Position angegeben ist, werden alle vier Schnitte in gleicher Entfernung von ihren jeweiligen Seiten erstellt.
-- Wenn **zwei** Positionen angegeben sind, legt der erste Wert Schnitte fest, die von **oben und unten** gemessen werden, der zweite Wert erstellt Schnitte, die von **links und rechts** gemessen werden.
-- Wenn **drei** Positionen angegeben sind, erstellt der erste Wert einen Schnitt von **oben**, der zweite Wert erstellt Schnitte von **links und rechts**, und der dritte Wert erstellt einen Schnitt von **unten**.
-- Wenn **vier** Positionen angegeben sind, werden Schnitte in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn) erstellt.
+- Wenn **eine** Position angegeben wird, werden alle vier Schnitte auf demselben Abstand von ihren jeweiligen Seiten erstellt.
+- Wenn **zwei** Positionen angegeben werden, erstellt der erste Wert Schnitte, die von **oben und unten** gemessen werden, der zweite erstellt Schnitte, die von **links und rechts** gemessen werden.
+- Wenn **drei** Positionen angegeben werden, erstellt der erste Wert einen Schnitt, der von **oben** gemessen wird, der zweite erstellt Schnitte, die von **links und rechts** gemessen werden, der dritte erstellt einen Schnitt, der von **unten** gemessen wird.
+- Wenn **vier** Positionen angegeben werden, erstellen sie Schnitte, die der Reihe nach (im Uhrzeigersinn) von **oben**, **rechts**, **unten** und **links** gemessen werden.
 
-Der optionale Wert `fill`, wenn verwendet, kann überall in der Deklaration platziert werden.
+Der optionale `fill` Wert, falls verwendet, kann an beliebiger Stelle in der Deklaration platziert werden.
 
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Repräsentiert einen Kantenabstand in _Pixeln_ für Rasterbilder und _Koordinaten_ für Vektorbilder. Für Vektorbilder ist die Zahl relativ zur Größe des Elements, nicht zur Größe des Quellbildes, daher sind Prozentwerte in diesen Fällen generell vorzuziehen.
+  - : Repräsentiert einen Kantenversatz in _Pixeln_ für Rasterbilder und _Koordinaten_ für Vektorbilder. Für Vektorbilder ist die Zahl relativ zur Größe des Elements und nicht zur Größe des Quellbilds, daher sind in diesen Fällen Prozentsätze allgemein vorzuziehen.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Repräsentiert einen Kantenabstand als Prozentsatz der Größe des Quellbildes: die Breite des Bildes für horizontale Abstände, die Höhe für vertikale Abstände.
+  - : Repräsentiert einen Kantenversatz als Prozentsatz der Größe des Quellbilds: die Breite des Bildes für horizontale Versatz, die Höhe für vertikale Versatz.
 - `fill`
-  - : Bewahrt den mittleren Bildbereich. Seine Breite und Höhe werden so bemessen, dass sie den oberen und linken Bildbereichen entsprechen.
+  - : Erhält die mittlere Bildregion. Ihre Breite und Höhe werden so angepasst, dass sie zu den oberen und linken Bildregionen passen.
 
 ## Beschreibung
 
-Der Schneideprozess erzeugt insgesamt neun Bereiche: vier Ecken, vier Kanten und einen mittleren Bereich. Vier Schnittlinien, die in einem bestimmten Abstand von ihren jeweiligen Seiten liegen, steuern die Größe der Bereiche.
+Der Schneidevorgang erstellt insgesamt neun Regionen: vier Ecken, vier Kanten und eine mittlere Region. Vier Schnittlinien, die einen bestimmten Abstand von ihren jeweiligen Seiten haben, steuern die Größe der Regionen.
 
-![Die neun durch die Eigenschaften border-image oder border-image-slice definierten Regionen](border-image-slice.png)
+![Die neun Regionen, die durch die border-image oder border-image-slice Eigenschaften definiert werden](border-image-slice.png)
 
-Das obige Diagramm zeigt den Ort jeder Region.
+Das obige Diagramm zeigt die Lage jeder Region.
 
-- Zonen 1-4 sind Eckbereiche. Jede wird einmal verwendet, um die Ecken des abschließenden Rahmenbildes zu bilden.
-- Zonen 5-8 sind Kantenbereiche. Diese werden im endgültigen Rahmenbild [wiederholt, skaliert oder anderweitig verändert](/de/docs/Web/CSS/mask-border-repeat), um die Abmessungen des Elements anzupassen.
-- Zone 9 ist der mittlere Bereich. Er wird standardmäßig verworfen, aber er wird wie ein Hintergrundbild verwendet, wenn das Schlüsselwort `fill` gesetzt ist.
+- Zonen 1-4 sind Eckregionen. Jede wird einmal verwendet, um die Ecken des endgültigen Maskenrandbilds zu formen.
+- Zonen 5-8 sind Kantenregionen. Diese werden [wiederholt, skaliert oder anderweitig modifiziert](/de/docs/Web/CSS/mask-border-repeat), um den Abmessungen des Elements im endgültigen Maskenrandbild zu entsprechen.
+- Zone 9 ist die mittlere Region. Sie wird standardmäßig verworfen, aber wie ein Hintergrundbild verwendet, wenn das Schlüsselwort `fill` gesetzt ist.
 
-Die Eigenschaften {{cssxref("mask-border-repeat")}}, {{cssxref("mask-border-width")}}, und {{cssxref("mask-border-outset")}} bestimmen, wie diese Bereiche verwendet werden, um den endgültigen Maskenrahmen zu bilden.
+Die {{cssxref("mask-border-repeat")}}, {{cssxref("mask-border-width")}}, und {{cssxref("mask-border-outset")}} Eigenschaften bestimmen, wie diese Regionen verwendet werden, um die endgültige Maskengrenze zu bilden.
 
 ## Formale Definition
 
@@ -77,25 +77,25 @@ Die Eigenschaften {{cssxref("mask-border-repeat")}}, {{cssxref("mask-border-widt
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Diese Eigenschaft scheint derzeit nirgends unterstützt zu werden. Sobald sie schließlich unterstützt wird, dient sie dazu, die Größe der aus dem Quellbild entnommenen Schnitte zu definieren und den Maskenrahmen zu erstellen.
+`mask-border-slice` dient dazu, die Größe der aus dem Quellbild genommenen Schnitte zu definieren und wird verwendet, um den Maskenrand zu erstellen.
 
 ```css
 mask-border-slice: 30 fill;
 ```
 
-Chrom-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-slice` — mit einem Präfix:
+Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-slice` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-slice: 30 fill;
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten Maskenrahmeneigenschaften mit Präfixen, die in Chromium unterstützt werden), sodass Sie eine Vorstellung von der Wirkung bekommen können.
+> Die [`mask-border`](/de/docs/Web/CSS/mask-border) Seite enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, in Chromium unterstützten Prefixed-Maskenrandeigenschaften), damit Sie eine Vorstellung von der Wirkung bekommen können.
 
 > [!NOTE]
-> Das Schlüsselwort fill muss eingeschlossen werden, wenn der Inhalt des Elements sichtbar sein soll.
+> Das Schlüsselwort fill muss eingeschlossen werden, wenn Sie möchten, dass der Inhalt des Elements sichtbar ist.
 
 ## Spezifikationen
 

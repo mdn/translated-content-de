@@ -6949,8 +6949,8 @@
 /de/docs/SVG	/de/docs/Web/SVG
 /de/docs/SVG-TEST	/de/docs/Web/SVG
 /de/docs/SVG/Attribute	/de/docs/Web/SVG/Reference/Attribute
-/de/docs/SVG/Attribute/From	/de/docs/Web/SVG/Reference/Attribute/From
-/de/docs/SVG/Attribute/To	/de/docs/Web/SVG/Reference/Attribute/To
+/de/docs/SVG/Attribute/From	/de/docs/Web/SVG/Reference/Attribute/from
+/de/docs/SVG/Attribute/To	/de/docs/Web/SVG/Reference/Attribute/to
 /de/docs/SVG/Attribute/accent-height	/de/docs/Web/SVG/Reference/Attribute
 /de/docs/SVG/Attribute/accumulate	/de/docs/Web/SVG/Reference/Attribute/accumulate
 /de/docs/SVG/Attribute/additive	/de/docs/Web/SVG/Reference/Attribute/additive
@@ -14531,10 +14531,10 @@
 /de/docs/Web/SVG/Attribute/Conditional_Processing	/de/docs/Web/SVG/Reference/Attribute
 /de/docs/Web/SVG/Attribute/Core	/de/docs/Web/SVG/Reference/Attribute
 /de/docs/Web/SVG/Attribute/Events	/de/docs/Web/SVG/Reference/Attribute
-/de/docs/Web/SVG/Attribute/From	/de/docs/Web/SVG/Reference/Attribute/From
+/de/docs/Web/SVG/Attribute/From	/de/docs/Web/SVG/Reference/Attribute/from
 /de/docs/Web/SVG/Attribute/Presentation	/de/docs/Web/SVG/Reference/Attribute
 /de/docs/Web/SVG/Attribute/Styling	/de/docs/Web/SVG/Reference/Attribute
-/de/docs/Web/SVG/Attribute/To	/de/docs/Web/SVG/Reference/Attribute/To
+/de/docs/Web/SVG/Attribute/To	/de/docs/Web/SVG/Reference/Attribute/to
 /de/docs/Web/SVG/Attribute/accent-height	/de/docs/Web/SVG/Reference/Attribute
 /de/docs/Web/SVG/Attribute/accumulate	/de/docs/Web/SVG/Reference/Attribute/accumulate
 /de/docs/Web/SVG/Attribute/additive	/de/docs/Web/SVG/Reference/Attribute/additive

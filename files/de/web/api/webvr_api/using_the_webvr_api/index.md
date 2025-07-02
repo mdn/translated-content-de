@@ -2,72 +2,71 @@
 title: Verwendung der WebVR-API
 slug: Web/API/WebVR_API/Using_the_WebVR_API
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fd56a549d24a8002df09735ee8319ce1a721c233
 ---
 
 {{DefaultAPISidebar("WebVR API")}}{{deprecated_header}}
 
 > [!NOTE]
-> Die WebVR-API wurde durch die [WebXR API](/de/docs/Web/API/WebXR_Device_API) ersetzt. WebVR wurde nie als Standard ratifiziert, wurde in sehr wenigen Browsern implementiert und standardmäßig aktiviert, und unterstützte nur eine geringe Anzahl von Geräten.
+> Die WebVR-API wurde durch die [WebXR-API](/de/docs/Web/API/WebXR_Device_API) ersetzt. WebVR wurde nie als Standard ratifiziert, in sehr wenigen Browsern implementiert und standardmäßig aktiviert und unterstützte nur eine kleine Anzahl von Geräten.
 
-Die WebVR-API ist eine fantastische Erweiterung des Werkzeugkastens von Webentwicklern, die es ermöglicht, WebGL-Szenen in virtuellen Realitätssystemen wie Oculus Rift und HTC Vive darzustellen. Aber wie beginnen Sie mit der Entwicklung von VR-Apps für das Web? Dieser Artikel wird Sie durch die Grundlagen führen.
+Die WebVR-API ist eine fantastische Ergänzung zum Werkzeugkasten eines Webentwicklers und ermöglicht es, WebGL-Szenen in Virtual-Reality-Displays wie dem Oculus Rift und HTC Vive zu präsentieren. Aber wie beginnt man mit der Entwicklung von VR-Apps für das Web? Dieser Artikel wird Sie durch die Grundlagen führen.
 
 ## Erste Schritte
 
 Um loszulegen, benötigen Sie:
 
-- Unterstützende VR-Hardware.
+- Unterstützte VR-Hardware.
+  - Die günstigste Option ist die Nutzung eines mobilen Geräts, eines unterstützenden Browsers und einer Gerätehalterung (z.B. Google Cardboard). Das Erlebnis ist nicht ganz so gut wie mit dedizierter Hardware, aber Sie müssen keinen leistungsstarken Computer oder ein spezielles VR-Display kaufen.
+  - Dedizierte Hardware kann teuer sein, bietet aber ein besseres Erlebnis. Die derzeit am meisten WebVR-kompatible Hardware ist das HTC VIVE und das Oculus Rift. Auf der Startseite von [webvr.info](https://webvr.info/) finden Sie weitere nützliche Informationen über verfügbare Hardware und welche Browser diese unterstützen.
 
-  - Die günstigste Option ist die Verwendung eines mobilen Geräts, eines unterstützenden Browsers und einer Gerätehalterung (z. B. Google Cardboard). Dies bietet keine so gute Erfahrung wie dedizierte Hardware, aber Sie müssen keinen leistungsstarken Computer oder ein dediziertes VR-Display erwerben.
-  - Dedizierte Hardware kann teuer sein, bietet jedoch eine bessere Erfahrung. Die momentan am meisten WebVR-kompatible Hardware ist der HTC VIVE und der Oculus Rift. Auf der Startseite von [webvr.info](https://webvr.info/) finden Sie weitere nützliche Informationen über verfügbare Hardware und welche Browser sie unterstützen.
+- Einen Computer, der leistungsstark genug ist, um VR-Szenen mit Ihrer dedizierten VR-Hardware bei Bedarf zu rendern/anzeigen. Um eine Vorstellung davon zu bekommen, was Sie benötigen, schauen Sie sich den relevanten Leitfaden für die VR an, die Sie kaufen (z.B. [VIVE READY Computers](https://www.vive.com/us/vive-ready/)).
+- Einen unterstützenden Browser — die neueste [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) oder [Chrome](https://www.google.com/chrome/index.html) sind Ihre besten Optionen zurzeit, auf dem Desktop oder Mobilgerät.
 
-- Einen Computer, der leistungsfähig genug ist, um VR-Szenen mit Ihrer dedizierten VR-Hardware darzustellen, falls erforderlich. Um eine Vorstellung davon zu bekommen, was Sie benötigen, sehen Sie sich den entsprechenden Leitfaden für das VR-System an, das Sie kaufen (z. B. [VIVE READY Computer](https://www.vive.com/us/vive-ready/)).
-- Einen unterstützenden Browser installiert — der neueste [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) oder [Chrome](https://www.google.com/chrome/index.html) sind derzeit Ihre besten Optionen auf dem Desktop oder mobil.
+Sobald alles zusammengestellt ist, können Sie testen, ob Ihr Setup mit WebVR funktioniert, indem Sie zu unserem [einfachen A-Frame-Demo](https://mdn.github.io/webvr-tests/webvr/aframe-demo/) gehen und schauen, ob die Szene gerendert wird und ob Sie durch Drücken des Buttons unten rechts in den VR-Anzeigemodus wechseln können.
 
-Sobald Sie alles zusammengebaut haben, können Sie testen, ob Ihre Einrichtung mit WebVR funktioniert, indem Sie zu unserem [einfachen A-Frame-Demo](https://mdn.github.io/webvr-tests/webvr/aframe-demo/) gehen und überprüfen, ob die Szene gerendert wird und ob Sie den VR-Anzeigemodus durch Drücken der Schaltfläche unten rechts aktivieren können.
+[A-Frame](https://aframe.io/) ist bei weitem die beste Option, wenn Sie schnell eine WebVR-kompatible 3D-Szene erstellen möchten, ohne eine Menge neuer JavaScript-Code zu verstehen. Es zeigt Ihnen jedoch nicht, wie die rohe WebVR-API funktioniert, und das ist, was wir als Nächstes behandeln werden.
 
-[A-Frame](https://aframe.io/) ist mit Abstand die beste Option, wenn Sie schnell eine WebVR-kompatible 3D-Szene erstellen möchten, ohne dabei eine Menge neuer JavaScript-Codes zu verstehen. Es lehrt Sie allerdings nicht, wie die rohe WebVR-API funktioniert, und darauf kommen wir als nächstes.
+## Einführung unseres Demos
 
-## Vorstellung unseres Demos
-
-Um zu veranschaulichen, wie die WebVR-API funktioniert, werden wir unser raw-webgl-example untersuchen, das ungefähr so aussieht:
+Um zu veranschaulichen, wie die WebVR-API funktioniert, werden wir unser raw-webgl-Beispiel studieren, das in etwa so aussieht:
 
 ![Ein grauer rotierender 3D-Würfel](capture1.png)
 
 > [!NOTE]
-> Sie finden den [Quellcode unseres Demos](https://github.com/mdn/webvr-tests/tree/main/webvr/raw-webgl-example) auf GitHub und können es auch [live ansehen](https://mdn.github.io/webvr-tests/webvr/raw-webgl-example/).
+> Den [Quellcode unseres Demos](https://github.com/mdn/webvr-tests/tree/main/webvr/raw-webgl-example) finden Sie auf GitHub, und [sehen Sie es live](https://mdn.github.io/webvr-tests/webvr/raw-webgl-example/) auch.
 
 > [!NOTE]
-> Wenn WebVR in Ihrem Browser nicht funktioniert, müssen Sie möglicherweise sicherstellen, dass es über Ihre Grafikkarte läuft. Beispielsweise gibt es bei NVIDIA-Karten, wenn Sie das NVIDIA Control Panel erfolgreich eingerichtet haben, eine Kontextmenüoption — klicken Sie mit der rechten Maustaste auf Firefox und wählen Sie _Mit Grafikprozessor ausführen > Hochleistungs-NVIDIA-Prozessor_.
+> Wenn WebVR in Ihrem Browser nicht funktioniert, müssen Sie möglicherweise sicherstellen, dass es über Ihre Grafikkarte läuft. Zum Beispiel für NVIDIA-Karten: Wenn Sie das NVIDIA Control Panel erfolgreich eingerichtet haben, wird eine Kontextmenüoption verfügbar sein — klicken Sie mit der rechten Maustaste auf Firefox und wählen Sie _Mit Grafikprozessor ausführen > Hochleistungs-NVIDIA-Prozessor_.
 
-Unser Demo zeigt den heiligen Gral der WebGL-Demos — einen rotierenden 3D-Würfel. Wir haben dies mit rohem [WebGL API](/de/docs/Web/API/WebGL_API) Code implementiert. Wir werden weder grundlegendes JavaScript noch WebGL lehren, nur die WebVR-Teile.
+Unser Demo enthält den heiligen Gral der WebGL-Demos — einen rotierenden 3D-Würfel. Wir haben dies mithilfe von rohem [WebGL API](/de/docs/Web/API/WebGL_API) Code umgesetzt. Wir werden kein grundlegendes JavaScript oder WebGL lehren, sondern nur die WebVR-Teile.
 
-Unser Demo enthält auch:
+Unser Demo bietet auch:
 
-- Eine Schaltfläche, um unsere Szene zu starten (und zu stoppen), die im VR-Display präsentiert wird.
-- Eine Schaltfläche, um VR-Posendaten anzuzeigen (und auszublenden), d.h. die Position und Orientierung des Headsets, in Echtzeit aktualisiert.
+- Einen Button, um die Darstellung unserer Szene im VR-Display zu starten (und zu stoppen).
+- Einen Button, um VR-Posendaten anzuzeigen (und zu verstecken), d.h. die Position und Orientierung des Headsets, die in Echtzeit aktualisiert werden.
 
-Wenn Sie sich den Quellcode der [JavaScript-Hauptdatei unseres Demos](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) ansehen, können Sie die webVR-spezifischen Teile leicht finden, indem Sie nach dem String "WebVR" in den vorstehenden Kommentaren suchen.
+Wenn Sie sich den Quellcode der [JavaScript-Hauptdatei unseres Demos](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) ansehen, können Sie die spezifischen WebVR-Teile leicht finden, indem Sie nach der Zeichenfolge "WebVR" in den vorangehenden Kommentaren suchen.
 
 > [!NOTE]
-> Für mehr Informationen über grundlegendes JavaScript und WebGL, konsultieren Sie unser [JavaScript-Lernmaterial](/de/docs/Learn_web_development/Core/Scripting) und unser [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+> Um mehr über grundlegendes JavaScript und WebGL zu erfahren, konsultieren Sie unser [JavaScript-Lernmaterial](/de/docs/Learn_web_development/Core/Scripting) und unser [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 ## Wie funktioniert es?
 
-An diesem Punkt wollen wir uns ansehen, wie die WebVR-Teile des Codes funktionieren.
+An diesem Punkt werfen wir einen Blick darauf, wie die WebVR-Teile des Codes funktionieren.
 
-Eine typische (einfache) WebVR-App funktioniert so:
+Eine typische (einfache) WebVR-App funktioniert folgendermaßen:
 
-1. [`Navigator.getVRDisplays()`](/de/docs/Web/API/Navigator/getVRDisplays) wird verwendet, um eine Referenz auf Ihr VR-Display zu erhalten.
-2. [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent) wird verwendet, um mit der Präsentation auf dem VR-Display zu beginnen.
-3. Die dedizierte WebVR-Methode [`VRDisplay.requestAnimationFrame()`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) wird verwendet, um die Rendering-Schleife der App mit der richtigen Bildwiederholrate für das Display auszuführen.
-4. In der Rendering-Schleife holen Sie die Daten ab, die erforderlich sind, um den aktuellen Frame anzuzeigen ([`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData)), zeichnen die angezeigte Szene zweimal — einmal für die Sicht in jedem Auge — und übermitteln dann die gerenderte Ansicht an das Display, um sie dem Benutzer anzuzeigen ([`VRDisplay.submitFrame()`](/de/docs/Web/API/VRDisplay/submitFrame)).
+1. [`Navigator.getVRDisplays()`](/de/docs/Web/API/Navigator/getVRDisplays) wird verwendet, um eine Referenz zu Ihrem VR-Display zu erhalten.
+2. [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent) wird verwendet, um mit der Wiedergabe auf dem VR-Display zu beginnen.
+3. Die WebVR-eigene Methode [`VRDisplay.requestAnimationFrame()`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) wird verwendet, um die Rendering-Schleife der App mit der richtigen Bildwiederholrate für das Display auszuführen.
+4. Innerhalb der Rendering-Schleife erfasst man die Daten, die erforderlich sind, um den aktuellen Frame anzuzeigen ([`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData)), zeichnet die angezeigte Szene zweimal — einmal für den Blick jedes Auges — und übergibt dann die gerenderte Ansicht an das Display, um sie dem Benutzer anzuzeigen, über ([`VRDisplay.submitFrame()`](/de/docs/Web/API/VRDisplay/submitFrame)).
 
 In den folgenden Abschnitten werden wir unser raw-webgl-demo im Detail betrachten und sehen, wo genau die oben genannten Funktionen verwendet werden.
 
-### Beginnen mit einigen Variablen
+### Beginn mit einigen Variablen
 
-Der erste WebVR-bezogene Code, dem Sie begegnen werden, ist der folgende Block:
+Der erste WebVR-bezogene Code, auf den Sie stoßen werden, ist folgender Block:
 
 ```js
 // WebVR variables
@@ -93,36 +92,25 @@ let poseStatsDisplayed = false;
 
 Lassen Sie uns diese kurz erklären:
 
-- `frameData` enthält ein [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt, das mit dem [`VRFrameData()`](/de/docs/Web/API/VRFrameData/VRFrameData)-Konstruktor erstellt wurde. Dies ist anfangs leer, wird aber später die Daten enthalten, die erforderlich sind, um jeden Frame darzustellen, der im VR-Display gezeigt wird, und wird ständig aktualisiert, während die Rendering-Schleife läuft.
-- `vrDisplay` startet nicht initialisiert, wird aber später eine Referenz auf unser VR-Headset halten ([`VRDisplay`](/de/docs/Web/API/VRDisplay) — das zentrale Steuerobjekt der API).
-- `btn` und `poseStatsBtn` halten Referenzen auf die beiden Schaltflächen, die wir zur Steuerung unserer App verwenden.
-- `normalSceneFrame` und `vrSceneFrame` starten nicht initialisiert, werden aber später Referenzen auf die Aufrufe [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) und [`VRDisplay.requestAnimationFrame()`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) halten — diese werden den Betrieb einer normalen Rendering-Schleife und einer speziellen WebVR-Rendering-Schleife einleiten; wir werden später den Unterschied zwischen diesen beiden erklären.
-- Die anderen Variablen speichern Referenzen auf verschiedene Teile des VR-Posedaten-Anzeige-Bereichs, den Sie in der unteren rechten Ecke der Benutzeroberfläche sehen können.
+- `frameData` enthält ein [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt, das mit dem [`VRFrameData()`](/de/docs/Web/API/VRFrameData/VRFrameData) Konstruktor erstellt wurde. Dies ist anfangs leer, wird aber später die Daten enthalten, die erforderlich sind, um jeden Frame zu rendern, der im VR-Display angezeigt werden soll, und wird ständig aktualisiert, während die Rendering-Schleife läuft.
+- `vrDisplay` startet uninitialisiert, wird aber später eine Referenz auf unser VR-Headset enthalten ([`VRDisplay`](/de/docs/Web/API/VRDisplay) — das zentrale Steuerobjekt der API).
+- `btn` und `poseStatsBtn` enthalten Referenzen auf die beiden Buttons, die wir verwenden, um unsere App zu steuern.
+- `normalSceneFrame` und `vrSceneFrame` starten uninitialisiert, werden später aber Referenzen auf [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) und [`VRDisplay.requestAnimationFrame()`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) Aufrufe enthalten — diese werden das Ausführen einer normalen Rendering-Schleife und einer speziellen WebVR-Rendering-Schleife einleiten; wir werden den Unterschied zwischen diesen beiden später erklären.
+- Die anderen Variablen speichern Referenzen auf verschiedene Teile der VR-Pose-Datenanzeige-Box, die Sie in der unteren rechten Ecke der Benutzeroberfläche sehen können.
 
-### Eine Referenz auf unser VR-Display erhalten
+### Referenz auf unser VR-Display erhalten
 
-Eine der Hauptfunktionen in unserem Code ist `start()` — wir führen diese Funktion aus, wenn der Body das Laden beendet hat:
-
-```js
-// start
-//
-// Called when the body has loaded is created to get the ball rolling.
-
-document.body.onload = start;
-```
-
-Zu Beginn ruft `start()` einen WebGL-Kontext ab, um 3D-Grafiken in das {{htmlelement("canvas")}}-Element in [unserem HTML](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/index.html) zu rendern. Anschließend überprüfen wir, ob der `gl`-Kontext verfügbar ist — wenn ja, führen wir eine Reihe von Funktionen aus, um die Szene für die Darstellung vorzubereiten.
+Zuerst rufen wir einen WebGL-Kontext ab, um 3D-Grafiken in das {{htmlelement("canvas")}}-Element in [unserem HTML](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/index.html) zu rendern. Wir prüfen dann, ob der `gl` Kontext verfügbar ist — wenn ja, führen wir eine Anzahl von Funktionen aus, um die Szene zur Anzeige vorzubereiten.
 
 ```js
-function start() {
-  canvas = document.getElementById("gl-canvas");
+const canvas = document.getElementById("gl-canvas");
 
-  initWebGL(canvas); // Initialize the GL context
+initWebGL(canvas); // Initialize the GL context
 
-  // WebGL setup code here
+// WebGL setup code here
 ```
 
-Als nächstes beginnen wir mit dem eigentlichen Rendering der Szene auf dem Canvas, indem wir das Canvas auf die gesamte Ansicht des Browsers skalieren und die Rendering-Schleife (`drawScene()`) zum ersten Mal ausführen. Dies ist die nicht-WebVR — normale — Rendering-Schleife.
+Als Nächstes starten wir den Prozess, die Szene tatsächlich auf die Leinwand zu rendern, indem wir die Leinwand so einstellen, dass sie das gesamte Browser-Ansichtsfenster ausfüllt, und die Rendering-Schleife (`drawScene()`) zum ersten Mal ausführen. Dies ist die nicht-WebVR — normale — Rendering-Schleife.
 
 ```js
 // draw the scene normally, without WebVR - for those who don't have it and want to see the scene in their browser
@@ -132,208 +120,253 @@ canvas.height = window.innerHeight;
 drawScene();
 ```
 
-Nun zu unserem ersten WebVR-spezifischen Code. Zuerst überprüfen wir, ob [`Navigator.getVRDisplays`](/de/docs/Web/API/Navigator/getVRDisplays) existiert — dies ist der Einstieg in die API und daher eine gute grundlegende Funktionsprüfung für WebVR. Am Ende des Blocks (innerhalb der `else`-Klausel) sehen Sie, dass wir, wenn dies nicht existiert, eine Nachricht protokollieren, um anzuzeigen, dass WebVR 1.1 vom Browser nicht unterstützt wird.
+Nun zu unserem ersten WebVR-spezifischen Code. Zuerst prüfen wir, ob [`Navigator.getVRDisplays`](/de/docs/Web/API/Navigator/getVRDisplays) existiert — dies ist der Einstiegspunkt in die API und somit eine gute grundlegende Feature-Erkennung für WebVR. Wenn dies nicht existiert, protokollisieren wir eine Nachricht, um anzuzeigen, dass WebVR 1.1 nicht vom Browser unterstützt wird.
 
 ```js
-  // WebVR: Check to see if WebVR is supported
-  if (navigator.getVRDisplays) {
-    console.log("WebVR 1.1 supported");
+// WebVR: Check to see if WebVR is supported
+if (navigator.getVRDisplays) {
+  console.log("WebVR 1.1 supported");
+  // ...
+} else {
+  console.log("WebVR API not supported by this browser.");
+}
 ```
 
-Innerhalb unseres `if () { }` Blocks führen wir die [`Navigator.getVRDisplays()`](/de/docs/Web/API/Navigator/getVRDisplays) Funktion aus. Diese gibt ein Versprechen zurück, das mit einem Array erfüllt wird, das alle mit dem Computer verbundenen VR-Display-Geräte enthält. Wenn keines angeschlossen ist, wird das Array leer sein.
+Der Rest des Codes geht in den `if (navigator.getVRDisplays) { }` Block, damit er nur dann ausgeführt wird, wenn WebVR unterstützt wird.
+
+Wir führen zuerst die Funktion [`Navigator.getVRDisplays()`](/de/docs/Web/API/Navigator/getVRDisplays) aus. Dies gibt ein Versprechen zurück, welches mit einem Array erfüllt wird, das alle mit dem Computer verbundenen VR-Display-Geräte enthält. Wenn keine verbunden sind, ist das Array leer.
+
+Innerhalb des Versprechens `then()`-Blocks prüfen wir, ob die Array-Länge größer als 0 ist; wenn ja, setzen wir den Wert unserer `vrDisplay`-Variable auf den 0-Index-Artikel im Array. `vrDisplay` enthält jetzt ein [`VRDisplay`](/de/docs/Web/API/VRDisplay) Objekt, das unser verbundenes Display darstellt!
 
 ```js
-    // Then get the displays attached to the computer
-    navigator.getVRDisplays().then((displays) => {
+// Then get the displays attached to the computer
+navigator.getVRDisplays().then((displays) => {
+  // If a display is available, use it to present the scene
+  if (displays.length > 0) {
+    vrDisplay = displays[0];
+    console.log("Display found");
+    // ...
+  }
+});
 ```
 
-Innerhalb des `then()`-Blocks des Versprechens überprüfen wir, ob die Array-Länge größer als 0 ist; wenn ja, setzen wir den Wert unserer `vrDisplay`-Variablen auf das 0-Index-Element im Array. `vrDisplay` enthält nun ein [`VRDisplay`](/de/docs/Web/API/VRDisplay) Objekt, das unser verbundenes Display repräsentiert!
-
-```js
-      // If a display is available, use it to present the scene
-      if (displays.length > 0) {
-        vrDisplay = displays[0];
-        console.log("Display found");
-```
+Der Rest des Codes geht in den `if (displays.length > 0) { }` Block, damit er nur dann ausgeführt wird, wenn mindestens ein VR-Display verfügbar ist.
 
 > [!NOTE]
-> Es ist unwahrscheinlich, dass Sie mehrere VR-Displays an Ihren Computer angeschlossen haben, und dies ist nur eine einfache Demo, daher reicht das für den Moment aus.
+> Es ist unwahrscheinlich, dass Sie mehrere VR-Displays mit Ihrem Computer verbunden haben, und dies ist nur ein einfaches Demo, daher wird dies für jetzt ausreichen.
 
-### Start und Stopp der VR-Präsentation
+### Starten und Stoppen der VR-Präsentation
 
-Jetzt, da wir ein [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Objekt haben, können wir es verwenden, um eine Vielzahl von Dingen zu tun. Das nächste, was wir tun möchten, ist die Funktionalität zur Präsentation des WebGL-Inhalts auf das Display ein- und auszuschalten.
+Jetzt, da wir ein [`VRDisplay`](/de/docs/Web/API/VRDisplay) Objekt haben, können wir damit eine Reihe von Dingen tun. Das Nächste, was wir tun möchten, ist eine Funktionalität zu verdrahten, um die WebGL-Inhalte auf dem Display zu starten und zu stoppen.
 
-Wir setzen fort mit dem vorherigen Codeblock, indem wir nun einen Ereignislistener zu unserem Start/Stopp-Button (`btn`) hinzufügen — wenn dieser Button geklickt wird, möchten wir überprüfen, ob wir bereits auf dem Display präsentieren (wir tun dies auf recht dumme Weise, indem wir prüfen, was der Button [`textContent`](/de/docs/Web/API/Node/textContent) enthält).
+Weiter mit dem vorherigen Codeblock, fügen wir nun einen Event-Listener zu unserem Start/Stopp-Button (`btn`) hinzu — wenn dieser Button geklickt wird, möchten wir prüfen, ob wir bereits auf dem Display präsentieren (wir tun dies auf ziemlich dumme Weise, indem wir prüfen, was der Button [`textContent`](/de/docs/Web/API/Node/textContent) enthält).
 
-Wenn das Display noch nicht präsentiert wird, verwenden wir die Methode [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent), um den Browser zu bitten, mit der Präsentation von Inhalten auf dem Display zu beginnen. Dies nimmt als Parameter ein Array von [`VRLayerInit`](/de/docs/Web/API/VRLayerInit)-Objekten auf, die die Schichten repräsentieren, die Sie im Display präsentieren möchten.
+Wenn das Display nicht bereits präsentiert, verwenden wir die Methode [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent), um den Browser darum zu bitten, das Präsentieren von Inhalten auf dem Display zu starten. Dies nimmt als Parameter ein Array der [`VRLayerInit`](/de/docs/Web/API/VRLayerInit) Objekte an, die die Schichten repräsentieren, die Sie im Display präsentieren möchten.
 
-Da die maximale Anzahl von anzeigbaren Schichten derzeit 1 ist und das einzige erforderliche Objektmitglied die [`VRLayerInit.source`](/de/docs/Web/API/VRLayerInit/source)-Eigenschaft ist (die eine Referenz auf das {{htmlelement("canvas")}} ist, das Sie in dieser Schicht präsentieren möchten; die anderen Parameter haben sinnvolle Standardwerte — siehe [`leftBounds`](/de/docs/Web/API/VRLayerInit/leftBounds) und [`rightBounds`](/de/docs/Web/API/VRLayerInit/rightBounds))), ist der Parameter \[{ source: canvas }].
+Da die maximale Anzahl von Schichten, die Sie anzeigen können, derzeit 1 beträgt und das einzig obligatorische Objektmember die Eigenschaft [`VRLayerInit.source`](/de/docs/Web/API/VRLayerInit/source) (welche eine Referenz auf das {{htmlelement("canvas")}} ist, das Sie in dieser Schicht präsentieren möchten; die anderen Parameter haben sinnvolle Standardeinstellungen — siehe [`leftBounds`](/de/docs/Web/API/VRLayerInit/leftBounds) und [`rightBounds`](/de/docs/Web/API/VRLayerInit/rightBounds))) ist, ist der Parameter `[{ source: canvas }]`.
 
 `requestPresent()` gibt ein Versprechen zurück, das erfüllt wird, wenn die Präsentation erfolgreich beginnt.
 
 ```js
-        // Starting the presentation when the button is clicked: It can only be called in response to a user gesture
-        btn.addEventListener("click", () => {
-          if (btn.textContent === "Start VR display") {
-            vrDisplay.requestPresent([{ source: canvas }]).then(() => {
-              console.log("Presenting to WebVR display");
-```
-
-Nachdem unser Präsentationswunsch erfolgreich war, möchten wir nun mit der Einrichtung beginnen, Inhalte für den VRDisplay zu rendern. Zuerst setzen wir das Canvas auf die gleiche Größe wie der VR-Anzeigebereich. Wir tun dies, indem wir die [`VREyeParameters`](/de/docs/Web/API/VREyeParameters) für beide Augen mit [`VRDisplay.getEyeParameters()`](/de/docs/Web/API/VRDisplay/getEyeParameters) abrufen.
-
-Dann führen wir eine einfache mathematische Berechnung durch, um die Gesamthöhe des VRDisplay-Renderbereichs basierend auf der Augen- [`VREyeParameters.renderWidth`](/de/docs/Web/API/VREyeParameters/renderWidth) und [`VREyeParameters.renderHeight`](/de/docs/Web/API/VREyeParameters/renderHeight) zu berechnen.
-
-```js
-// Set the canvas size to the size of the vrDisplay viewport
-
-const leftEye = vrDisplay.getEyeParameters("left");
-const rightEye = vrDisplay.getEyeParameters("right");
-
-canvas.width = Math.max(leftEye.renderWidth, rightEye.renderWidth) * 2;
-canvas.height = Math.max(leftEye.renderHeight, rightEye.renderHeight);
-```
-
-Als nächstes [stornieren wir die Animations-Schleife](/de/docs/Web/API/Window/cancelAnimationFrame), die zuvor durch den Aufruf von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) innerhalb der `drawScene()`-Funktion in Gang gesetzt wurde, und rufen stattdessen `drawVRScene()` auf. Diese Funktion rendert dieselbe Szene wie zuvor, jedoch mit einigen speziellen WebVR-Magie. Die Schleife hier wird durch die spezielle [`VRDisplay.requestAnimationFrame`](/de/docs/Web/API/VRDisplay/requestAnimationFrame)-Methode von WebVR aufrechterhalten.
-
-```js
-// stop the normal presentation, and start the vr presentation
-window.cancelAnimationFrame(normalSceneFrame);
-drawVRScene();
-```
-
-Schließlich aktualisieren wir den Text der Schaltfläche, sodass beim nächsten Drücken die Präsentation auf dem VR-Display gestoppt wird.
-
-```js
-              btn.textContent = "Exit VR display";
-            });
-```
-
-Um die VR-Präsentation zu stoppen, wenn die Schaltfläche anschließend gedrückt wird, rufen wir [`VRDisplay.exitPresent()`](/de/docs/Web/API/VRDisplay/exitPresent) auf. Wir kehren auch den Textinhalt der Schaltfläche um und tauschen die `requestAnimationFrame`-Aufrufe aus. Sie sehen hier, dass wir [`VRDisplay.cancelAnimationFrame`](/de/docs/Web/API/VRDisplay/cancelAnimationFrame) verwenden, um die VR-Rendering-Schleife zu stoppen, und die normale Rendering-Schleife wieder starten, indem wir `drawScene()` aufrufen.
-
-```js
-          } else {
-            vrDisplay.exitPresent();
-            console.log("Stopped presenting to WebVR display");
-
-            btn.textContent = "Start VR display";
-
-            // Stop the VR presentation, and start the normal presentation
-            vrDisplay.cancelAnimationFrame(vrSceneFrame);
-            drawScene();
-          }
-        });
-      }
+// Starting the presentation when the button is clicked: It can only be called in response to a user gesture
+btn.addEventListener("click", () => {
+  if (btn.textContent === "Start VR display") {
+    vrDisplay.requestPresent([{ source: canvas }]).then(() => {
+      console.log("Presenting to WebVR display");
+      // ...
     });
   } else {
-    console.log("WebVR API not supported by this browser.");
+    // ...
   }
+});
+```
+
+Mit unserem erfolgreichen Präsentationsantrag möchten wir nun damit beginnen, Inhalte zu rendern, die dem VRDisplay präsentiert werden. Zuerst stellen wir die Leinwand auf die gleiche Größe wie die VR-Anzeige ein. Wir tun dies, indem wir die [`VREyeParameters`](/de/docs/Web/API/VREyeParameters) für beide Augen mit [`VRDisplay.getEyeParameters()`](/de/docs/Web/API/VRDisplay/getEyeParameters) erhalten.
+
+Wir führen dann einige einfache Berechnungen durch, um die Gesamtbreite des VRDisplay-Renderbereichs basierend auf den Augen-Parametern [`VREyeParameters.renderWidth`](/de/docs/Web/API/VREyeParameters/renderWidth) und [`VREyeParameters.renderHeight`](/de/docs/Web/API/VREyeParameters/renderHeight) zu berechnen.
+
+```js
+vrDisplay.requestPresent([{ source: canvas }]).then(() => {
+  // ...
+  // Set the canvas size to the size of the vrDisplay viewport
+
+  const leftEye = vrDisplay.getEyeParameters("left");
+  const rightEye = vrDisplay.getEyeParameters("right");
+
+  canvas.width = Math.max(leftEye.renderWidth, rightEye.renderWidth) * 2;
+  canvas.height = Math.max(leftEye.renderHeight, rightEye.renderHeight);
+  // ...
+});
+```
+
+Als Nächstes [stornieren wir die Animationsschleife](/de/docs/Web/API/Window/cancelAnimationFrame), die zuvor von dem [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) Aufruf in der `drawScene()` Funktion in Gang gesetzt wurde, und rufen stattdessen `drawVRScene()` auf. Diese Funktion rendert die gleiche Szene wie zuvor, mit etwas speziellem WebVR-Magie im Gange. Die Schleife darin wird von WebVRs spezieller [`VRDisplay.requestAnimationFrame`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) Methode aufrechterhalten.
+
+```js
+vrDisplay.requestPresent([{ source: canvas }]).then(() => {
+  // ...
+  // stop the normal presentation, and start the vr presentation
+  window.cancelAnimationFrame(normalSceneFrame);
+  drawVRScene();
+  // ...
+});
+```
+
+Schließlich aktualisieren wir den Text des Buttons, sodass beim nächsten Drücken die Präsentation am VR-Display gestoppt wird.
+
+```js
+vrDisplay.requestPresent([{ source: canvas }]).then(() => {
+  // ...
+  btn.textContent = "Exit VR display";
+});
+```
+
+Um die VR-Präsentation zu stoppen, wenn der Button anschließend gedrückt wird, rufen wir [`VRDisplay.exitPresent()`](/de/docs/Web/API/VRDisplay/exitPresent) auf. Wir kehren auch den Textinhalt des Buttons um und tauschen die `requestAnimationFrame` Aufrufe aus. Hier sehen Sie, dass wir [`VRDisplay.cancelAnimationFrame`](/de/docs/Web/API/VRDisplay/cancelAnimationFrame) verwenden, um die VR-Rendering-Schleife zu stoppen, und die normale Rendering-Schleife erneut starten, indem wir `drawScene()` aufrufen.
+
+```js
+if (btn.textContent === "Start VR display") {
+  // ...
+} else {
+  vrDisplay.exitPresent();
+  console.log("Stopped presenting to WebVR display");
+
+  btn.textContent = "Start VR display";
+
+  // Stop the VR presentation, and start the normal presentation
+  vrDisplay.cancelAnimationFrame(vrSceneFrame);
+  drawScene();
 }
 ```
 
-Sobald die Präsentation beginnt, können Sie die stereoskopische Ansicht im Browser sehen:
+Sobald die Präsentation beginnt, sehen Sie die stereoskopische Ansicht im Browser angezeigt:
 
 ![Stereoskopische Ansicht des 3D-Würfels](capture2.png)
 
-Sie werden unten lernen, wie die stereoskopische Ansicht tatsächlich erzeugt wird.
+Im Folgenden erfahren Sie, wie die stereoskopische Ansicht tatsächlich produziert wird.
 
-### Warum hat WebVR seine eigene requestAnimationFrame()?
+### Warum hat WebVR eine eigene requestAnimationFrame()?
 
-Dies ist eine gute Frage. Der Grund ist, dass für eine reibungslose Darstellung im VR-Display der Inhalt mit der nativen Bildwiederholrate des Displays dargestellt werden muss, nicht der des Computers. VR-Display-Bildwiederholraten sind größer als die der PCs und erreichen typischerweise bis zu 90fps. Die Rate wird sich von der Kernbildwiederholrate des Computers unterscheiden.
+Das ist eine gute Frage. Der Grund dafür ist, dass für flüssiges Rendern innerhalb des VR-Displays der Inhalt mit der nativen Bildwiederholrate des Displays gerendert werden muss, nicht mit der des Computers. VR-Display-Bildwiederholraten sind größer als PC-Bildwiederholraten, normalerweise bis zu 90fps. Die Rate wird von der Kerndrate des Computers abweichen.
 
-Beachten Sie, dass wenn das VR-Display nicht präsentiert, [`VRDisplay.requestAnimationFrame`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) identisch wie [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) läuft, sodass Sie, wenn Sie möchten, nur eine einzige Rendering-Schleife verwenden könnten, anstatt der zwei, die wir in unserer App verwenden. Wir haben zwei verwendet, weil wir leicht unterschiedliche Dinge tun wollten, je nachdem, ob das VR-Display präsentiert oder nicht, und um die Dinge zur besseren Verständlichkeit separat zu halten.
+Beachten Sie, dass [`VRDisplay.requestAnimationFrame`](/de/docs/Web/API/VRDisplay/requestAnimationFrame) identisch mit [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) läuft, wenn das VR-Display nicht präsentiert, sodass Sie, wenn Sie wollten, einfach eine einzelne Rendering-Schleife verwenden könnten, anstatt der zwei, die wir in unserer App verwenden. Wir haben zwei verwendet, weil wir leicht unterschiedliche Dinge tun wollten, je nachdem, ob das VR-Display präsentiert oder nicht, und um die Dinge aus Gründen der Verständlichkeit getrennt zu halten.
 
 ### Rendering und Anzeige
 
-An diesem Punkt haben wir den gesamten Code gesehen, der erforderlich ist, um auf die VR-Hardware zuzugreifen, zu fordern, dass wir unsere Szene auf der Hardware präsentieren, und die Rendering-Schleife zu starten. Sehen wir uns nun den Code für die Rendering-Schleife an und erklären, wie die WebVR-spezifischen Teile funktionieren.
+An diesem Punkt haben wir den gesamten Code gesehen, der erforderlich ist, um auf die VR-Hardware zuzugreifen, um zu beantragen, dass wir unsere Szene auf die Hardware präsentieren und beginnen, die Rendering-Schleife auszuführen. Lassen Sie uns nun den Code für die Rendering-Schleife ansehen und erklären, wie die spezifischen WebVR-Teile davon funktionieren.
 
-Zuerst beginnen wir mit der Definition unserer Rendering-Schleifenfunktion — `drawVRScene()`. Das erste, was wir innen tun, ist einen Anruf bei [`VRDisplay.requestAnimationFrame()`](/de/docs/Web/API/VRDisplay/requestAnimationFrame), um die Schleife nach dem ersten Aufruf am Laufen zu halten (dies geschah früher in unserem Code, als wir mit der Präsentation auf dem VR-Display begannen). Dieser Aufruf wird als Wert der globalen `vrSceneFrame`-Variable gesetzt, sodass wir die Schleife mit einem Aufruf von [`VRDisplay.cancelAnimationFrame()`](/de/docs/Web/API/VRDisplay/cancelAnimationFrame) stoppen können, sobald wir die VR-Präsentation verlassen.
+Zuerst beginnen wir mit der Definition unserer Rendering-Schleifenfunktion — `drawVRScene()`. Das erste, was wir hier drin machen, ist ein Aufruf von [`VRDisplay.requestAnimationFrame()`](/de/docs/Web/API/VRDisplay/requestAnimationFrame), um die Schleife am Laufen zu halten, nachdem sie einmal aufgerufen wurde (dies geschah früher in unserem Code, als wir begannen, auf dem VR-Display zu präsentieren). Dieser Aufruf wird als Wert der globalen Variable `vrSceneFrame` gesetzt, sodass wir die Schleife mit einem Aufruf von [`VRDisplay.cancelAnimationFrame`](/de/docs/Web/API/VRDisplay/cancelAnimationFrame) beenden können, sobald wir die VR-Präsentation verlassen.
 
 ```js
 function drawVRScene() {
   // WebVR: Request the next frame of the animation
   vrSceneFrame = vrDisplay.requestAnimationFrame(drawVRScene);
-```
-
-Als nächstes rufen wir [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData) auf, wobei wir den Namen der Variablen übergeben, die wir verwenden möchten, um die Frame-Daten zu enthalten. Dies haben wir bereits früher initialisiert — `frameData`. Nach dem Abschluss des Aufrufs wird diese Variable die Daten enthalten, die benötigt werden, um den nächsten Frame auf dem VR-Gerät darzustellen, verpackt als [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt. Dies enthält Dinge wie Projektions- und Ansichts-Matrizen, um die Szene korrekt für die linke und rechte Augenansicht darzustellen, und das aktuelle [`VRPose`](/de/docs/Web/API/VRPose) Objekt, das Daten über das VR-Display wie Orientierung, Position usw. enthält.
-
-Dies muss bei jedem Frame aufgerufen werden, damit die dargestellte Ansicht stets auf dem neuesten Stand ist.
-
-```js
-// Populate frameData with the data of the next frame to display
-vrDisplay.getFrameData(frameData);
-```
-
-Jetzt holen wir uns das aktuelle [`VRPose`](/de/docs/Web/API/VRPose) aus der [`VRFrameData.pose`](/de/docs/Web/API/VRFrameData/pose) Eigenschaft, speichern die Position und Orientierung zur späteren Verwendung und senden die aktuelle Pose an das Posendaten-Statistikfeld zur Anzeige, wenn die Variable `poseStatsDisplayed` auf wahr gesetzt ist.
-
-```js
-// You can get the position, orientation, etc. of the display from the current frame's pose
-
-const curFramePose = frameData.pose;
-const curPos = curFramePose.position;
-const curOrient = curFramePose.orientation;
-if (poseStatsDisplayed) {
-  displayPoseStats(curFramePose);
+  // ...
 }
 ```
 
-Wir löschen nun das Canvas, bevor wir darauf zeichnen, damit der nächste Frame klar zu sehen ist und wir nicht auch vorher gerenderte Frames sehen:
+Als nächstes rufen wir [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData) auf und übergeben den Namen der Variable, die wir zur Speicherung der Rahmendaten verwenden wollen. Wir haben dies früher als `frameData` initialisiert. Nach der Erfüllung des Aufrufs enthält diese Variable die Daten, die benötigt werden, um den nächsten Frame auf dem VR-Gerät zu rendern, verpackt als [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt. Dies enthält Dinge wie Projektions- und Ansichtsmatrizen zum korrekten Rendern der Szene für die Ansichten des linken und rechten Auges sowie das aktuelle [`VRPose`](/de/docs/Web/API/VRPose) Objekt, das Daten über das VR-Display wie Orientierung, Position usw. enthält.
+
+Dies muss bei jedem Frame aufgerufen werden, damit die gerenderte Ansicht immer auf dem neuesten Stand ist.
 
 ```js
-// Clear the canvas before we start drawing on it.
-
-gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+function drawVRScene() {
+  // ...
+  // Populate frameData with the data of the next frame to display
+  vrDisplay.getFrameData(frameData);
+  // ...
+}
 ```
 
-Nun rendern wir die Ansicht für beide Augen, links und rechts. Zuerst müssen wir Projektions- und Ansichts-Positionen für die Verwendung beim Rendering erstellen. Dies sind [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekte, die mit der Methode [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation) erstellt wurden, indem wir ihr die Kennung des Shader-Programms und einen identifizierenden Namen als Parameter übergeben.
+Nun rufen wir die aktuelle [`VRPose`](/de/docs/Web/API/VRPose) aus der [`VRFrameData.pose`](/de/docs/Web/API/VRFrameData/pose) Eigenschaft ab, speichern die Position und Orientierung zur späteren Verwendung und senden die aktuelle Pose an die Pose-Statistik-Box für die Anzeige, wenn die Variable `poseStatsDisplayed` auf wahr gesetzt ist.
 
 ```js
-// WebVR: Create the required projection and view matrix locations needed
-// for passing into the uniformMatrix4fv methods below
+function drawVRScene() {
+  // ...
+  // You can get the position, orientation, etc. of the display from the current frame's pose
 
-const projectionMatrixLocation = gl.getUniformLocation(
-  shaderProgram,
-  "projMatrix",
-);
-const viewMatrixLocation = gl.getUniformLocation(shaderProgram, "viewMatrix");
+  const curFramePose = frameData.pose;
+  const curPos = curFramePose.position;
+  const curOrient = curFramePose.orientation;
+  if (poseStatsDisplayed) {
+    displayPoseStats(curFramePose);
+  }
+  // ...
+}
 ```
 
-Der nächste Rendering-Schritt beinhaltet:
-
-- Festlegen der Viewport-Größe für das linke Auge mittels [`WebGLRenderingContext.viewport`](/de/docs/Web/API/WebGLRenderingContext/viewport) — dies ist logisch die erste Hälfte der Canvas-Breite und die volle Canvas-Höhe.
-- Festlegen der Ansichts- und Projektions-Matrix-Werte, die zum Rendern des linken Auges verwendet werden — dies geschieht mit der Methode [`WebGLRenderingContext.uniformMatrix4fv`](/de/docs/Web/API/WebGLRenderingContext/uniformMatrix), der wir die oben abgerufenen Positionswerte und die aus dem [`VRFrameData`](/de/docs/Web/API/VRFrameData)-Objekt erhaltenen linken Matrizen übergeben.
-- Ausführen der `drawGeometry()`-Funktion, die die eigentliche Szene rendert — aufgrund dessen, was wir in den vorherigen zwei Schritten spezifiziert haben, rendert wir es nur für das linke Auge.
+Nun löschen wir die Leinwand, bevor wir darauf zeichnen, damit der nächste Frame klar gesehen wird und wir keine vorherigen gerenderten Frames mehr sehen:
 
 ```js
-// WebVR: Render the left eye's view to the left half of the canvas
-gl.viewport(0, 0, canvas.width * 0.5, canvas.height);
-gl.uniformMatrix4fv(
-  projectionMatrixLocation,
-  false,
-  frameData.leftProjectionMatrix,
-);
-gl.uniformMatrix4fv(viewMatrixLocation, false, frameData.leftViewMatrix);
-drawGeometry();
+function drawVRScene() {
+  // ...
+  // Clear the canvas before we start drawing on it.
+
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  // ...
+}
 ```
 
-Wir machen nun genau dasselbe, aber für das rechte Auge:
+Nun rendern wir die Ansicht sowohl für das linke als auch für das rechte Auge. Zuerst müssen wir Projektion und Ansicht für die Verwendung beim Rendern erstellen. Diese sind [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekte, die mit der [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation) Methode erstellt werden, indem wir die Kennung des Shader-Programms und einen identifizierenden Namen als Parameter übergeben.
 
 ```js
-// WebVR: Render the right eye's view to the right half of the canvas
-gl.viewport(canvas.width * 0.5, 0, canvas.width * 0.5, canvas.height);
-gl.uniformMatrix4fv(
-  projectionMatrixLocation,
-  false,
-  frameData.rightProjectionMatrix,
-);
-gl.uniformMatrix4fv(viewMatrixLocation, false, frameData.rightViewMatrix);
-drawGeometry();
+function drawVRScene() {
+  // ...
+  // WebVR: Create the required projection and view matrix locations needed
+  // for passing into the uniformMatrix4fv methods below
+
+  const projectionMatrixLocation = gl.getUniformLocation(
+    shaderProgram,
+    "projMatrix",
+  );
+  const viewMatrixLocation = gl.getUniformLocation(shaderProgram, "viewMatrix");
+  // ...
+}
 ```
 
-Als nächstes definieren wir unsere `drawGeometry()`-Funktion. Der größte Teil davon ist nur allgemeiner WebGL-Code, der erforderlich ist, um unseren 3D-Würfel zu zeichnen. Sie werden einige WebVR-spezifische Teile in den `mvTranslate()`- und `mvRotate()`-Funktionsaufrufen sehen — diese übergeben Matrizen an das WebGL-Programm, die die Übersetzung und Rotation des Würfels für den aktuellen Frame definieren
+Der nächste Rendering-Schritt umfasst:
 
-Sie werden sehen, dass wir diese Werte durch die Position (`curPos`) und Orientierung (`curOrient`) des VR-Displays modifizieren, die wir aus dem [`VRPose`](/de/docs/Web/API/VRPose) Objekt erhalten haben. Das Ergebnis ist, dass sich zum Beispiel der Würfel nach rechts bewegt, während Sie Ihren Kopf nach links bewegen oder drehen, was Sie erwarten würden, wenn Sie etwas ansehen und dann Ihren Kopf nach links bewegen/drehen.
+- Festlegen der Größe des Ansichtsbereichs für das linke Auge mit [`WebGLRenderingContext.viewport`](/de/docs/Web/API/WebGLRenderingContext/viewport) — dies ist logisch die erste Hälfte der Leinwandbreite und die volle Leinwandhöhe.
+- Festlegen der Ansichts- und Projektionsmatrixwerte für das Rendern des linken Auges — dies geschieht mit der Methode [`WebGLRenderingContext.uniformMatrix4fv`](/de/docs/Web/API/WebGLRenderingContext/uniformMatrix), die die vorher abgerufenen Standortwerte und die linken Matrizen, die aus dem [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt erhalten wurden, übergeben werden.
+- Ausführen der `drawGeometry()` Funktion, die die eigentliche Szene rendert — aufgrund dessen, was wir in den vorherigen zwei Schritten spezifiziert haben, werden wir sie nur für das linke Auge rendern.
 
-Dies ist eine schnelle und einfache Möglichkeit, VR-Pose-Daten zu verwenden, aber es veranschaulicht das grundlegende Prinzip.
+```js
+function drawVRScene() {
+  // ...
+  // WebVR: Render the left eye's view to the left half of the canvas
+  gl.viewport(0, 0, canvas.width * 0.5, canvas.height);
+  gl.uniformMatrix4fv(
+    projectionMatrixLocation,
+    false,
+    frameData.leftProjectionMatrix,
+  );
+  gl.uniformMatrix4fv(viewMatrixLocation, false, frameData.leftViewMatrix);
+  drawGeometry();
+  // ...
+}
+```
+
+Nun tun wir genau das Gleiche, aber für das rechte Auge:
+
+```js
+function drawVRScene() {
+  // ...
+  // WebVR: Render the right eye's view to the right half of the canvas
+  gl.viewport(canvas.width * 0.5, 0, canvas.width * 0.5, canvas.height);
+  gl.uniformMatrix4fv(
+    projectionMatrixLocation,
+    false,
+    frameData.rightProjectionMatrix,
+  );
+  gl.uniformMatrix4fv(viewMatrixLocation, false, frameData.rightViewMatrix);
+  drawGeometry();
+  // ...
+}
+```
+
+Als nächstes definieren wir unsere `drawGeometry()` Funktion. Das meiste davon ist nur allgemeiner WebGL-Code, der erforderlich ist, um unseren 3D-Würfel zu zeichnen. Sie werden einige spezifische WebVR-Teile in den `mvTranslate()` und `mvRotate()` Funktion Aufrufen sehen — diese übergeben Matrizen in das WebGL-Programm, die die Translation und Rotation des Würfels für den aktuellen Frame definieren.
+
+Sie werden sehen, dass wir diese Werte durch die Position (`curPos`) und Orientierung (`curOrient`) des VR-Displays, das wir aus dem [`VRPose`](/de/docs/Web/API/VRPose) Objekt bekommen haben, modifizieren. Das Ergebnis ist, dass, wenn Sie zum Beispiel Ihren Kopf nach links bewegen oder drehen, der x-Positionswert (`curPos[0]`) und der y-Rotationswert (`[curOrient[1]`) dem x-Translationswert hinzugefügt werden, was bedeutet, dass sich der Würfel nach rechts bewegt, wie Sie es erwarten würden, wenn Sie auf etwas schauen und dann Ihren Kopf nach links bewegen/drehen.
+
+Dies ist eine schnelle und schmutzige Art, VR-Posedaten zu verwenden, aber es verdeutlicht das Grundprinzip.
 
 ```js
 function drawGeometry() {
@@ -383,32 +416,38 @@ function drawGeometry() {
 }
 ```
 
-Der nächste Teil des Codes hat nichts mit WebVR zu tun — er aktualisiert lediglich die Rotation des Würfels in jedem Frame:
+Der nächste Teil des Codes hat nichts mit WebVR zu tun — er aktualisiert einfach die Rotation des Würfels bei jedem Frame:
 
 ```js
-// Update the rotation for the next draw, if it's time to do so.
-let currentTime = new Date().getTime();
-if (lastCubeUpdateTime) {
-  const delta = currentTime - lastCubeUpdateTime;
+function drawVRScene() {
+  // ...
+  // Update the rotation for the next draw, if it's time to do so.
+  let currentTime = new Date().getTime();
+  if (lastCubeUpdateTime) {
+    const delta = currentTime - lastCubeUpdateTime;
 
-  cubeRotation += (30 * delta) / 1000.0;
+    cubeRotation += (30 * delta) / 1000.0;
+  }
+  lastCubeUpdateTime = currentTime;
+  // ...
 }
-lastCubeUpdateTime = currentTime;
 ```
 
-Im letzten Teil der Rendering-Schleife rufen wir [`VRDisplay.submitFrame()`](/de/docs/Web/API/VRDisplay/submitFrame) auf — nun, da alle Arbeiten erledigt sind und wir das Display auf dem {{htmlelement("canvas")}} gerendert haben, übermittelt diese Methode dann den Frame an das VR-Display, sodass es auch dort angezeigt wird.
+Der letzte Teil der Rendering-Schleife besteht darin, [`VRDisplay.submitFrame()`](/de/docs/Web/API/VRDisplay/submitFrame) aufzurufen — nun, da alle Arbeiten erledigt sind und die Anzeige auf dem {{htmlelement("canvas")}} gerendert wurde, übergibt diese Methode dann den Frame an die VR-Anzeige, sodass er auch dort angezeigt wird.
 
 ```js
+function drawVRScene() {
+  // ...
   // WebVR: Indicate that we are ready to present the rendered frame to the VR display
   vrDisplay.submitFrame();
 }
 ```
 
-### Anzeige der Pose (Position, Orientierung usw.) Daten
+### Pose (Position, Orientierung usw.) Daten anzeigen
 
-In diesem Abschnitt werden wir die Funktion `displayPoseStats()` diskutieren, die unsere aktualisierten Posendaten in jedem Frame anzeigt. Die Funktion ist ziemlich einfach.
+In diesem Abschnitt werden wir die Funktion `displayPoseStats()` besprechen, die unsere aktualisierten Posedaten bei jedem Frame anzeigt. Die Funktion ist ziemlich einfach.
 
-Zuerst speichern wir die sechs verschiedenen Eigenschaftswerte, die aus dem [`VRPose`](/de/docs/Web/API/VRPose)-Objekt abrufbar sind, in ihren eigenen Variablen — jede davon ist ein {{jsxref("Float32Array")}}.
+Zuerst speichern wir die sechs verschiedenen Eigenschaftswerte, die vom [`VRPose`](/de/docs/Web/API/VRPose) Objekt abrufbar sind, in ihren eigenen Variablen — jede ist ein {{jsxref("Float32Array")}}.
 
 ```js
 function displayPoseStats(pose) {
@@ -418,59 +457,69 @@ function displayPoseStats(pose) {
   const linAcc = pose.linearAcceleration;
   const angVel = pose.angularVelocity;
   const angAcc = pose.angularAcceleration;
+  // ...
+}
 ```
 
-Dann schreiben wir die Daten in die Informationsbox und aktualisieren sie in jedem Frame. Wir haben jeden Wert mit [`toFixed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) auf drei Dezimalstellen gekürzt, da sonst die Werte schwer zu lesen sind.
+Wir schreiben dann die Daten in die Informationsbox und aktualisieren sie bei jedem Frame. Wir haben jeden Wert mit [`toFixed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) auf drei Dezimalstellen begrenzt, da die Werte sonst schwer zu lesen sind.
 
-Sie sollten beachten, dass wir einen bedingten Ausdruck verwendet haben, um zu erkennen, ob die linearen Beschleunigungen und die Winkelbeschleunigungen erfolgreich zurückgegeben werden, bevor wir die Daten anzeigen. Diese Werte werden derzeit von den meisten VR-Hardware-Geräten noch nicht gemeldet, sodass der Code einen Fehler werfen würde, wenn wir dies nicht tun würden (die Arrays geben `null` zurück, wenn sie nicht erfolgreich gemeldet werden).
+Sie sollten beachten, dass wir einen Bedingungsausdruck verwendet haben, um zu erkennen, ob die lineare Beschleunigungs- und die Winkelbeschleunigungs-Arrays erfolgreich zurückgegeben werden, bevor wir die Daten anzeigen. Diese Werte werden von den meisten VR-Hardwaregeräten bisher nicht gemeldet, sodass der Code einen Fehler auslöst, wenn wir dies nicht tun (die Arrays geben `null` zurück, wenn sie nicht erfolgreich gemeldet werden).
 
 ```js
-  posStats.textContent = `Position: ` +
+function displayPoseStats(pose) {
+  // ...
+  posStats.textContent =
+    `Position: ` +
     `x ${pos[0].toFixed(3)}, ` +
     `y ${pos[1].toFixed(3)}, ` +
     `z ${pos[2].toFixed(3)}`;
-  orientStats.textContent = `Orientation: ` +
+  orientStats.textContent =
+    `Orientation: ` +
     `x ${orient[0].toFixed(3)}, ` +
     `y ${orient[1].toFixed(3)}, ` +
     `z ${orient[2].toFixed(3)}`;
-  linVelStats.textContent = `Linear velocity: ` +
+  linVelStats.textContent =
+    `Linear velocity: ` +
     `x ${linVel[0].toFixed(3)}, ` +
     `y ${linVel[1].toFixed(3)}, ` +
     `z ${linVel[2].toFixed(3)}`;
-  angVelStats.textContent = `Angular velocity: ` +
+  angVelStats.textContent =
+    `Angular velocity: ` +
     `x ${angVel[0].toFixed(3)}, ` +
     `y ${angVel[1].toFixed(3)}, ` +
     `z ${angVel[2].toFixed(3)}`;
 
   if (linAcc) {
-    linAccStats.textContent = `Linear acceleration: ` +
+    linAccStats.textContent =
+      `Linear acceleration: ` +
       `x ${linAcc[0].toFixed(3)}, ` +
       `y ${linAcc[1].toFixed(3)}, ` +
       `z ${linAcc[2].toFixed(3)}`;
   } else {
-    linAccStats.textContent = 'Linear acceleration not reported';
+    linAccStats.textContent = "Linear acceleration not reported";
   }
 
   if (angAcc) {
-    angAccStats.textContent = `Angular acceleration: ` +
-    `x ${angAcc[0].toFixed(3)}, ` +
-    `y ${angAcc[1].toFixed(3)}, ` +
-    `z ${angAcc[2].toFixed(3)}`;
+    angAccStats.textContent =
+      `Angular acceleration: ` +
+      `x ${angAcc[0].toFixed(3)}, ` +
+      `y ${angAcc[1].toFixed(3)}, ` +
+      `z ${angAcc[2].toFixed(3)}`;
   } else {
-    angAccStats.textContent = 'Angular acceleration not reported';
+    angAccStats.textContent = "Angular acceleration not reported";
   }
 }
 ```
 
 ## WebVR-Ereignisse
 
-Die WebVR-Spezifikation enthält eine Reihe von Ereignissen, die ausgelöst werden, sodass unser App-Code auf Änderungen des Zustands des VR-Displays reagieren kann (siehe [Window events](/de/docs/Web/API/WebVR_API#window_events)). Zum Beispiel:
+Die WebVR-Spezifikation enthält eine Reihe von Ereignissen, die ausgelöst werden, sodass unser App-Code auf Änderungen im Zustand des VR-Displays reagieren kann (siehe [Window Evente](/de/docs/Web/API/WebVR_API#window_events)). Zum Beispiel:
 
-- [`vrdisplaypresentchange`](/de/docs/Web/API/Window/vrdisplaypresentchange_event) — Wird ausgelöst, wenn sich der Präsentationsstatus eines VR-Displays ändert — d.h. wenn es von Präsentieren zu Nicht-Präsentieren wechselt oder umgekehrt.
+- [`vrdisplaypresentchange`](/de/docs/Web/API/Window/vrdisplaypresentchange_event) — Wird ausgelöst, wenn sich der Präsentationsstatus eines VR-Displays ändert, d.h. von Präsentieren zu Nicht-Präsentieren wechselt oder umgekehrt.
 - [`vrdisplayconnect`](/de/docs/Web/API/Window/vrdisplayconnect_event) — Wird ausgelöst, wenn ein kompatibles VR-Display mit dem Computer verbunden wurde.
 - [`vrdisplaydisconnect`](/de/docs/Web/API/Window/vrdisplaydisconnect_event) — Wird ausgelöst, wenn ein kompatibles VR-Display vom Computer getrennt wurde.
 
-Um zu demonstrieren, wie sie funktionieren, enthält unser einfaches Demo folgendes Beispiel:
+Um zu demonstrieren, wie sie funktionieren, enthält unser einfaches Demo das folgende Beispiel:
 
 ```js
 window.addEventListener("vrdisplaypresentchange", (e) => {
@@ -480,10 +529,10 @@ window.addEventListener("vrdisplaypresentchange", (e) => {
 });
 ```
 
-Wie Sie sehen können, bietet das [`VRDisplayEvent`](/de/docs/Web/API/VRDisplayEvent)-Objekt zwei nützliche Eigenschaften — [`VRDisplayEvent.display`](/de/docs/Web/API/VRDisplayEvent/display), das eine Referenz auf das [`VRDisplay`](/de/docs/Web/API/VRDisplay) enthält, auf das das Ereignis als Antwort ausgelöst wurde, und [`VRDisplayEvent.reason`](/de/docs/Web/API/VRDisplayEvent/reason), das einen lesbaren Grund angibt, warum das Ereignis ausgelöst wurde.
+Wie Sie sehen können, bietet das [`VRDisplayEvent`](/de/docs/Web/API/VRDisplayEvent) Objekt zwei nützliche Eigenschaften — [`VRDisplayEvent.display`](/de/docs/Web/API/VRDisplayEvent/display), das eine Referenz auf das [`VRDisplay`](/de/docs/Web/API/VRDisplay) enthält, auf das das Ereignis reagierte, und [`VRDisplayEvent.reason`](/de/docs/Web/API/VRDisplayEvent/reason), das einen menschenlesbaren Grund enthält, warum das Ereignis ausgelöst wurde.
 
-Dies ist ein sehr nützliches Ereignis; Sie könnten es verwenden, um Fälle zu handhaben, in denen das Display unerwartet getrennt wird, Fehler stoppen und sicherstellen, dass der Benutzer über die Situation informiert ist. In Googles webvr.info-Präsentationsdemo wird das Ereignis verwendet, um eine [`onVRPresentChange()` Funktion](https://github.com/toji/webvr.info/blob/master/samples/03-vr-presentation.html#L174) auszuführen, die die UI-Steuerelemente entsprechend aktualisiert und das Canvas anpasst.
+Dies ist ein sehr nützliches Ereignis; Sie könnten es nutzen, um Fälle zu behandeln, bei denen das Display unerwartet getrennt wird, um zu verhindern, dass Fehler ausgelöst werden, und um sicherzustellen, dass der Benutzer über die Situation informiert ist. In Googles webvr.info Präsentations-Demo wird das Ereignis verwendet, um eine [`onVRPresentChange()` Funktion](https://github.com/toji/webvr.info/blob/master/samples/03-vr-presentation.html#L174) auszuführen, die die UI-Steuerelemente geeignet aktualisiert und die Leinwandgröße anpasst.
 
 ## Zusammenfassung
 
-Dieser Artikel hat Ihnen die Grundlagen zur Erstellung einer einfachen WebVR 1.1-App vermittelt, um Ihnen den Einstieg zu erleichtern.
+Dieser Artikel hat Ihnen die Grundlagen vermittelt, wie man eine einfache WebVR 1.1-App erstellt, um Ihnen den Einstieg zu erleichtern.

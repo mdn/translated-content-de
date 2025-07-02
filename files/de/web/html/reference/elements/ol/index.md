@@ -2,12 +2,12 @@
 title: "<ol>: Das geordnete Listenelement"
 slug: Web/HTML/Reference/Elements/ol
 l10n:
-  sourceCommit: 6183d512fe034687017c4e216c7cbf54a16a528a
+  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
 ---
 
 {{HTMLSidebar}}
 
-Das **`<ol>`** [HTML](/de/docs/Web/HTML)-Element stellt eine geordnete Liste von Elementen dar — typischerweise als nummerierte Liste angezeigt.
+Das **`<ol>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine geordnete Liste von Elementen — typischerweise als nummerierte Liste dargestellt.
 
 {{InteractiveExample("HTML Demo: &lt;ol&gt;", "tabbed-shorter")}}
 
@@ -34,38 +34,38 @@ li {
 
 Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-- `compact` {{Deprecated_inline}}
-  - : Dieses Boolean-Attribut deutet an, dass die Liste in einem kompakten Stil angezeigt werden soll. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact` Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
+- `compact` {{Deprecated_inline}} {{non-standard_inline}}
+  - : Dieses Boolean-Attribut deutet an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 - `reversed`
-  - : Dieses Boolean-Attribut gibt an, dass die Listenelemente in umgekehrter Reihenfolge angezeigt werden. Elemente werden von hoch nach niedrig nummeriert.
+  - : Dieses Boolean-Attribut gibt an, dass die Elementreihenfolge umgekehrt ist. Elemente werden von hoch nach niedrig nummeriert.
 - `start`
-  - : Eine Ganzzahl, von der aus die Zählung der Listenelemente beginnt. Immer eine arabische Zahl (1, 2, 3, usw.), auch wenn der Nummerierungstyp Buchstaben oder römische Zahlen sind. Um beispielsweise Elemente mit dem Buchstaben "d" oder der römischen Zahl "iv" zu beginnen, verwenden Sie `start="4"`.
+  - : Eine Ganzzahl, von der aus die Listenelemente gezählt werden. Immer eine arabische Zahl (1, 2, 3, usw.), selbst wenn der Nummerierungstyp Buchstaben oder römische Zahlen sind. Um zum Beispiel die Nummerierung der Elemente mit dem Buchstaben "d" oder der römischen Zahl "iv" zu beginnen, verwenden Sie `start="4"`.
 - `type`
-  - : Legt den Nummerierungstyp fest:
-    - `a` für Kleinbuchstaben
-    - `A` für Großbuchstaben
+  - : Bestimmt den Nummerierungstyp:
+    - `a` für kleine Buchstaben
+    - `A` für große Buchstaben
     - `i` für römische Kleinbuchstaben
     - `I` für römische Großbuchstaben
     - `1` für Zahlen (Standard)
 
-    Der angegebene Typ wird für die gesamte Liste verwendet, es sei denn, ein anderes [`type`](/de/docs/Web/HTML/Reference/Elements/li#type) Attribut wird auf einem eingeschlossenen {{HTMLElement("li")}}-Element verwendet.
+    Der angegebene Typ wird für die gesamte Liste verwendet, es sei denn, ein anderes [`type`](/de/docs/Web/HTML/Reference/Elements/li#type) Attribut wird für ein enthaltenes {{HTMLElement("li")}} Element verwendet.
 
     > [!NOTE]
-    > Es sei denn, der Typ der Listennummer ist wichtig (wie in rechtlichen oder technischen Dokumenten, in denen Elemente nach ihrer Nummer/Buchstaben referenziert werden), verwenden Sie die CSS-Eigenschaft {{CSSxRef("list-style-type")}} stattdessen.
+    > Es sei denn, der Typ der Listennummer ist von Bedeutung (wie in rechtlichen oder technischen Dokumenten, in denen Elemente nach ihrer Nummer/Buchstabe referenziert werden), sollten Sie die CSS-Eigenschaft {{CSSxRef("list-style-type")}} verwenden.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Typischerweise werden geordnete Listenelemente mit einem vorangestellten [Marker](/de/docs/Web/CSS/::marker) wie einer Zahl oder einem Buchstaben angezeigt.
+In der Regel werden geordnete Listenelemente mit einem vorangestellten [Marker](/de/docs/Web/CSS/::marker) angezeigt, wie einer Zahl oder einem Buchstaben.
 
-Die `<ol>` und {{HTMLElement("ul")}} (oder das Synonym {{HTMLElement("menu")}}) Elemente können beliebig tief verschachtelt werden, und optional zwischen `<ol>`, `<ul>` (oder `<menu>`) wechseln, wie erforderlich.
+Die Elemente `<ol>` und {{HTMLElement("ul")}} (oder das Synonym {{HTMLElement("menu")}}) können beliebig tief verschachtelt werden, indem zwischen `<ol>`, `<ul>` (oder `<menu>`) nach Bedarf gewechselt wird.
 
-Die `<ol>` und {{HTMLElement("ul")}}-Elemente stellen beide eine Liste von Elementen dar. Der Unterschied besteht darin, dass beim `<ol>`-Element die Reihenfolge bedeutsam ist. Beispiele hierfür sind:
+Die Elemente `<ol>` und {{HTMLElement("ul")}} repräsentieren beide eine Liste von Elementen. Der Unterschied besteht darin, dass bei dem `<ol>`-Element die Reihenfolge von Bedeutung ist. Zum Beispiel:
 
 - Schritte in einem Rezept
-- Wegbeschreibungen
-- Die Liste der Zutaten in absteigender Reihenfolge auf Nährwertinformationen
+- Schritt-für-Schritt-Anleitungen
+- Die Zutatenliste auf Nährwertangaben-Etiketten in abnehmender Reihenfolge
 
-Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge der Listenelemente zu ändern; wenn sich die Bedeutung ändert, verwenden Sie das `<ol>`-Element — andernfalls können Sie {{HTMLElement("ul")}} verwenden oder {{HTMLElement("menu")}}, wenn Ihre Liste ein Menü ist.
+Um zu bestimmen, welche Liste verwendet werden soll, versuchen Sie, die Reihenfolge der Listenelemente zu ändern; wenn sich die Bedeutung ändert, verwenden Sie das `<ol>`-Element — andernfalls können Sie {{HTMLElement("ul")}} verwenden, oder {{HTMLElement("menu")}}, wenn Ihre Liste ein Menü ist.
 
 ## Beispiele
 
@@ -84,7 +84,7 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 {{EmbedLiveSample("Basic_example", 400, 100)}}
 
-### Verwendung des römischen Zahlen-Typs
+### Verwendung des römischen Zahlentyps
 
 ```html
 <ol type="i">
@@ -98,7 +98,7 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 {{EmbedLiveSample("Using_Roman_Numeral_type", 400, 100)}}
 
-### Verwendung des Start-Attributs
+### Verwendung des start Attributs
 
 ```html
 <p>Finishing places of contestants not in the winners' circle:</p>
@@ -114,7 +114,7 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 {{EmbedLiveSample("Using_the_start_attribute", 400, 100)}}
 
-### Verschachtelte Listen
+### Verschachtelung von Listen
 
 ```html
 <ol>
@@ -172,16 +172,16 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >, und wenn die Kinder des <code>&#x3C;ol></code>-Elements mindestens ein
-        {{HTMLElement("li")}}-Element enthalten,
+          >Fließender Inhalt</a
+        >, und wenn die Kinder des <code>&#x3C;ol></code>-Elements mindestens
+        ein {{HTMLElement("li")}}-Element enthalten,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >fühlbarer Inhalt</a
+          >fassbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         Null oder mehr {{ HTMLElement("li") }},
         {{HTMLElement("script")}} und
@@ -190,23 +190,23 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl Start- als auch End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließenden Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Impliziete ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role"
-            >Liste</a
+            >list</a
           ></code
         >
       </td>
@@ -239,9 +239,9 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 ## Siehe auch
 
-- Andere listenspezifische HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
-- CSS-Eigenschaften, die speziell nützlich sein können, um das `<ol>`-Element zu stylen:
-  - die {{CSSxRef("list-style")}} Eigenschaft, um die Anzeige der Ordnungsanzeige zu wählen
-  - [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe verschachtelte Listen zu handhaben
-  - die {{CSSxRef("line-height")}} Eigenschaft, um das veraltete `compact` Attribut zu simulieren
-  - die {{CSSxRef("margin")}} Eigenschaft, um die Listeneinrückung zu steuern
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
+- CSS-Eigenschaften, die besonders nützlich sein können, um das `<ol>`-Element zu stylen:
+  - die {{CSSxRef("list-style")}}-Eigenschaft, um die Darstellungsweise der Ordnungszeichen zu wählen
+  - [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um mit komplexen verschachtelten Listen umzugehen
+  - die {{CSSxRef("line-height")}}-Eigenschaft, um das veraltete `compact`-Attribut zu simulieren
+  - die {{CSSxRef("margin")}}-Eigenschaft, um den Listeneinzug zu steuern

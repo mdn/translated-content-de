@@ -1,14 +1,14 @@
 ---
-title: "console: error() statische Methode"
+title: "console: error()-Methode"
 short-title: error()
 slug: Web/API/console/error_static
 l10n:
-  sourceCommit: 7ed236277b061eb99a7ff66313aa068b9ffe69e5
+  sourceCommit: ab279632b84d201ae9ddd3db3981bf0b01573371
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.error()`** gibt eine Nachricht auf der Konsole auf der Protokollebene "error" aus. Die Nachricht wird dem Benutzer nur angezeigt, wenn die Konsole so konfiguriert ist, dass Fehlerausgaben angezeigt werden. In den meisten Fällen wird die Protokollebene in der Benutzeroberfläche der Konsole konfiguriert. Die Nachricht kann als Fehler formatiert sein, mit roter Farbe und Informationen zum Aufrufstack.
+Die **`console.error()`**-Methode gibt eine Nachricht auf der Konsole auf der Log-Ebene "error" aus. Die Nachricht wird dem Benutzer nur angezeigt, wenn die Konsole so konfiguriert ist, dass sie Fehlerausgaben anzeigt. In den meisten Fällen wird das Log-Level innerhalb der Konsole-Oberfläche konfiguriert. Die Nachricht kann als Fehler formatiert werden, mit roter Farbe und Informationen zum Aufruf-Stack.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ console.error(msg, subst1, /* …, */ substN)
 ### Parameter
 
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten, die ausgegeben werden sollen. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art von Trennung zwischen den einzelnen Werten auf der Konsole ausgegeben. Es gibt einen Sonderfall, wenn `val1` ein String ist, der nachfolgend beschrieben wird.
+  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Repräsentation jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art Trennzeichen dazwischen an die Konsole ausgegeben. Es gibt einen Sonderfall, wenn `val1` ein String ist, der anschließend beschrieben wird.
 - `msg`
-  - : Ein JavaScript-String, der null oder mehr Ersetzungszeichenfolgen enthält, welche durch `subst1` bis `substN` in aufeinanderfolgender Reihenfolge bis zur Anzahl der Ersetzungszeichenfolgen ersetzt werden. Siehe [Verwendung von Zeichenfolgenersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Ein JavaScript-String, der null oder mehr Ersetzungsstrings enthält, die in fortlaufender Reihenfolge bis zur Anzahl der Ersetzungsstrings mit `subst1` bis `substN` ersetzt werden. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, die Ersetzungszeichenfolgen innerhalb von `msg` ersetzen. Wenn es mehr Ersetzungswerte als Ersetzungszeichenfolgen gibt, werden die zusätzlichen Werte selbst in der Konsole ausgegeben, nach der detaillierten Assertionsnachricht, und zwar auf die gleiche Weise, wie es der Fall ist, wenn kein Formatstring verwendet wird.
+  - : JavaScript-Werte, mit denen Ersetzungsstrings innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungsstrings gibt, werden die zusätzlichen Werte selbst nach der detaillierten Assertionsnachricht auf die gleiche Weise an die Konsole ausgegeben, als wenn es keinen Formatstring gäbe.
 
-Siehe [Ausgabe von Text in die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console) für weitere Details.
+Weitere Informationen finden Sie unter [Textausgabe auf der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console).
 
 ### Rückgabewert
 
@@ -44,6 +44,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edge-Dokumentation für `console.error()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#error)
-- [Node.js-Dokumentation für `console.error()`](https://nodejs.org/docs/latest/api/console.html#consoleerrordata-args)
-- [Google Chrome-Dokumentation für `console.error()`](https://developer.chrome.com/docs/devtools/console/api/#error)
+- [Microsoft Edges Dokumentation für `console.error()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide/console/api#error)
+- [Node.js Dokumentation für `console.error()`](https://nodejs.org/docs/latest/api/console.html#consoleerrordata-args)
+- [Google Chromes Dokumentation für `console.error()`](https://developer.chrome.com/docs/devtools/console/api/#error)

@@ -3,23 +3,26 @@ title: "ImageData: data-Eigenschaft"
 short-title: data
 slug: Web/API/ImageData/data
 l10n:
-  sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
+  sourceCommit: 7ed95bd9e3e72ec095fd2dc9bc0deab0801b2e6e
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ImageData.data`**-Eigenschaft gibt ein
-{{jsxref("Uint8ClampedArray")}} zurück, das die Pixeldaten des [`ImageData`](/de/docs/Web/API/ImageData)-Objekts enthält. Die Daten werden als eindimensionales Array im RGBA-Format gespeichert, mit Ganzzahlen zwischen `0` und `255` (einschließlich).
+Die readonly-Eigenschaft **`ImageData.data`** gibt ein
+{{jsxref("Uint8ClampedArray")}} oder ein {{jsxref("Float16Array")}} zurück, das die Pixel-Daten des [`ImageData`](/de/docs/Web/API/ImageData)-Objekts enthält. Die Daten werden als eindimensionales Array in der RGBA-Reihenfolge gespeichert, mit ganzzahligen Werten zwischen `0` und `255` (einschließlich).
 
 ## Wert
 
-Ein {{jsxref("Uint8ClampedArray")}}.
+Der Typ hängt vom verwendeten [`ImageData.pixelFormat`](/de/docs/Web/API/ImageData/pixelFormat) ab:
+
+- Ein {{jsxref("Uint8ClampedArray")}}, wenn das `pixelFormat` `"rgba-unorm8"` ist.
+- Ein {{jsxref("Float16Array")}}, wenn das `pixelFormat` `"rgba-float16"` ist.
 
 ## Beispiele
 
-### Abrufen der Pixeldaten eines ImageData-Objekts
+### Abrufen der Pixel-Daten eines ImageData-Objekts
 
-Dieses Beispiel erstellt ein `ImageData`-Objekt, das 100 Pixel breit und 100 Pixel hoch ist, insgesamt also 10.000 Pixel. Das `data`-Array speichert vier Werte für jedes Pixel, was insgesamt 4 x 10.000 oder 40.000 Werte ergibt.
+Dieses Beispiel erstellt ein `ImageData`-Objekt, das 100 Pixel breit und 100 Pixel hoch ist, was insgesamt 10.000 Pixel ergibt. Das `data`-Array speichert vier Werte für jedes Pixel, was 4 x 10.000 oder insgesamt 40.000 Werte ergibt.
 
 ```js
 let imageData = new ImageData(100, 100);
@@ -27,7 +30,17 @@ console.log(imageData.data); // Uint8ClampedArray[40000]
 console.log(imageData.data.length); // 40000
 ```
 
-### Ausfüllen eines leeren ImageData-Objekts
+Wenn das `ImageData`-Objekt für Gleitpunkt-Pixel eingerichtet ist — zum Beispiel für Bilder mit hohem Dynamikbereich (HDR) — wird `data` stattdessen ein {{jsxref("Float16Array")}} sein.
+
+```js
+let floatArray = new Float16Array(4 * 200 * 200);
+let imageData = new ImageData(floatArray, 200, 200, {
+  pixelFormat: "rgba-float16",
+});
+console.log(imageData.data); // Float16Array
+```
+
+### Füllen eines leeren ImageData-Objekts
 
 Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit bunten Pixeln.
 
@@ -39,7 +52,7 @@ Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit bunten Pixe
 
 #### JavaScript
 
-Da jedes Pixel aus vier Werten im `data`-Array besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die Werte, die jedem Pixel zugeordnet sind, sind R (Rot), G (Grün), B (Blau) und A (Alpha), in dieser Reihenfolge.
+Da jedes Pixel aus vier Werten innerhalb des `data`-Arrays besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die Werte, die mit jedem Pixel verbunden sind, sind R (rot), G (grün), B (blau) und A (alpha), in dieser Reihenfolge.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -70,7 +83,7 @@ ctx.putImageData(imageData, 20, 20);
 
 ### Weitere Beispiele
 
-Für weitere Beispiele zur Verwendung von `ImageData.data` siehe [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas),
+Für weitere Beispiele zur Verwendung von `ImageData.data`, siehe [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas),
 [`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) und
 [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData).
 

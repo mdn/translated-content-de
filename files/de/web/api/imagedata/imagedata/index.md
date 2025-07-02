@@ -3,16 +3,14 @@ title: "ImageData: ImageData() Konstruktor"
 short-title: ImageData()
 slug: Web/API/ImageData/ImageData
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: 7ed95bd9e3e72ec095fd2dc9bc0deab0801b2e6e
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Der **`ImageData()`** Konstruktor gibt ein neu instanziiertes
-[`ImageData`](/de/docs/Web/API/ImageData) Objekt zurück, das aus dem angegebenen typisierten Array erstellt wurde und die angegebene Breite und Höhe hat.
+Der **`ImageData()`** Konstruktor gibt ein neu instanziiertes [`ImageData`](/de/docs/Web/API/ImageData)-Objekt zurück, das aus dem angegebenen typisierten Array erstellt wurde und die angegebene Breite und Höhe hat.
 
-Dieser Konstruktor ist der bevorzugte Weg, um ein solches Objekt in einem
-[`Worker`](/de/docs/Web/API/Worker) zu erstellen.
+Dieser Konstruktor ist die bevorzugte Methode, um ein solches Objekt in einem [`Worker`](/de/docs/Web/API/Worker) zu erstellen.
 
 ## Syntax
 
@@ -28,46 +26,66 @@ new ImageData(dataArray, width, height, settings)
 ### Parameter
 
 - `width`
-  - : Ein nicht vorzeichenbehafteter langer Wert, der die Breite des Bildes darstellt.
+  - : Ein unsigned long, der die Breite des Bildes darstellt.
 - `height`
-  - : Ein nicht vorzeichenbehafteter langer Wert, der die Höhe des Bildes darstellt. Dieser Wert ist optional, wenn ein Array angegeben ist: die Höhe wird aus der Größe des Arrays und der angegebenen Breite abgeleitet.
+  - : Ein unsigned long, der die Höhe des Bildes darstellt. Dieser Wert ist optional, wenn ein Array angegeben ist: Die Höhe wird aus der Größe des Arrays und der angegebenen Breite abgeleitet.
 - `settings` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
-    - `colorSpace`: Gibt den Farbraum der Bilddaten an. Kann auf `"srgb"` für den [sRGB Farb-Raum](https://de.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3 Farb-Raum](https://de.wikipedia.org/wiki/DCI-P3) gesetzt werden.
+    - `colorSpace`: Gibt den Farbraum der Bilddaten an. Kann auf `"srgb"` für den [sRGB-Farbraum](https://de.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3-Farbraum](https://de.wikipedia.org/wiki/DCI-P3) gesetzt werden.
+    - `pixelFormat`: Gibt das Pixelformat an. Mögliche Werte:
+      - `"rgba-unorm8"`, für RGBA mit 8-Bit pro Komponente unnormiertes Format, unter Verwendung eines {{jsxref("Uint8ClampedArray")}}.
+      - `"rgba-float16"`, für RGBA mit 16-Bit pro Komponente, unter Verwendung eines {{jsxref("Float16Array")}}. Gleitkomma-Pixelwerte ermöglichen die Darstellung von Farben in beliebig breiten Farbräumen und hoher Dynamik (HDR).
+
 - `dataArray`
-  - : Ein {{jsxref("Uint8ClampedArray")}}, das die zugrunde liegende Pixel-Darstellung des Bildes enthält. Wenn kein solches Array angegeben ist, wird ein Bild mit einem transparenten schwarzen Rechteck der angegebenen `width` und `height` erstellt.
+  - : Ein {{jsxref("Uint8ClampedArray")}}, das die zugrunde liegende Pixelrepräsentation des Bildes enthält. Wenn kein solches Array angegeben ist, wird ein Bild mit einem transparenten schwarzen Rechteck der angegebenen `width` und `height` erstellt.
 
 ### Rückgabewert
 
-Ein neues [`ImageData`](/de/docs/Web/API/ImageData) Objekt.
+Ein neues [`ImageData`](/de/docs/Web/API/ImageData)-Objekt.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `array` angegeben ist, aber seine Länge kein Vielfaches von `(4 * width)` oder `(4 * width * height)` ist.
+  - : Wird geworfen, wenn `dataArray` angegeben ist, aber seine Länge kein Vielfaches von `(4 * width)` oder `(4 * width * height)` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn `dataArray` vom Typ {{jsxref("Uint8ClampedArray")}} ist und `pixelFormat` nicht auf `"rgba-unorm8"` gesetzt ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn `dataArray` vom Typ {{jsxref("Float16Array")}} ist und `pixelFormat` nicht auf `"rgba-float16"` gesetzt ist.
 
 ## Beispiele
 
 ### Erstellen eines leeren ImageData-Objekts
 
-Dieses Beispiel erstellt ein `ImageData` Objekt, das 200 Pixel breit und 100 Pixel hoch ist und insgesamt 20.000 Pixel enthält.
+Dieses Beispiel erstellt ein `ImageData`-Objekt, das 200 Pixel breit und 100 Pixel hoch ist und insgesamt 20.000 Pixel enthält.
 
 ```js
 let imageData = new ImageData(200, 100);
 // ImageData { width: 200, height: 100, data: Uint8ClampedArray[80000] }
 ```
 
-### ImageData unter Verwendung des display-p3 Farbraums
+### ImageData mit dem display-p3-Farbraum
 
-Dieses Beispiel erstellt ein `ImageData` Objekt mit dem [display-p3 Farbraum](https://de.wikipedia.org/wiki/DCI-P3).
+Dieses Beispiel erstellt ein `ImageData`-Objekt mit dem [display-p3-Farbraum](https://de.wikipedia.org/wiki/DCI-P3).
 
 ```js
 let imageData = new ImageData(200, 100, { colorSpace: "display-p3" });
 ```
 
-### Initialisieren von ImageData mit einem Array
+### Gleitkomma-Pixeldaten für breite Farbräume und hohe Dynamik (HDR)
 
-Dieses Beispiel instanziiert ein `ImageData` Objekt mit Pixel-Farben, die durch ein Array definiert werden.
+Gleitkomma-Pixelwerte ermöglichen die Darstellung von Farben in beliebig breiten Farbräumen und hoher Dynamik (HDR). Sie können die `pixelFormat`-Einstellung auf `"rgba-float16"` setzen, um RGBA-Werte mit 16-Bit pro Komponente zu verwenden. Dies erfordert, dass `dataArray` ein {{jsxref("Float16Array")}} ist.
+
+```js
+let floatArray = new Float16Array(4 * 200 * 200);
+let imageData = new ImageData(floatArray, 200, 200, {
+  pixelFormat: "rgba-float16",
+});
+console.log(imageData.pixelFormat); // "rgba-float16"
+```
+
+### Initialisierung von ImageData mit einem Array
+
+Dieses Beispiel instanziiert ein `ImageData`-Objekt mit Pixelfarben, die durch ein Array definiert sind.
 
 #### HTML
 
@@ -77,7 +95,7 @@ Dieses Beispiel instanziiert ein `ImageData` Objekt mit Pixel-Farben, die durch 
 
 #### JavaScript
 
-Das Array (`arr`) hat eine Länge von `40000`: es besteht aus 10.000 Pixeln, von denen jedes durch 4 Werte definiert ist. Der `ImageData` Konstruktor gibt eine `width` von `200` für das neue Objekt an, sodass seine `height` standardmäßig 10.000 geteilt durch 200, also `50`, ist.
+Das Array (`arr`) hat eine Länge von `40000`: Es besteht aus 10.000 Pixeln, von denen jedes durch 4 Werte definiert ist. Der `ImageData`-Konstruktor gibt eine `width` von `200` für das neue Objekt an, sodass seine `height` standardmäßig 10.000 geteilt durch 200 ergibt, also `50`.
 
 ```js
 const canvas = document.getElementById("canvas");
