@@ -1,32 +1,31 @@
 ---
-title: Sicherheit-Änderungen in Firefox 3.5
+title: Sicherheitsänderungen in Firefox 3.5
 slug: Mozilla/Firefox/Releases/3.5/Security_changes
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
 Dieser Artikel behandelt sicherheitsrelevante Änderungen in Firefox 3.5.
 
-## Änderungen in der Chrome-Registrierung
+## Änderungen an der Chrome-Registrierung
 
-Eine Sicherheitslücke wurde geschlossen, um zu verhindern, dass Remote-Inhalte als Chrome verwendet werden. Dies könnte sich auf jede Erweiterung auswirken, die in ihrer `chrome.manifest`-Datei eine Ressource enthält, die auf eine Datei im Web verweist.
+Eine Sicherheitslücke wurde geschlossen, um zu verhindern, dass Remote-Inhalte als Chrome verwendet werden können. Dies könnte sich auf Add-ons auswirken, die in ihrer `chrome.manifest`-Datei eine Ressource enthalten, die auf eine Datei im Web verweist.
 
-Das Schließen dieses Fehlers wurde durch Hinzufügen eines neuen `URI_IS_LOCAL_RESOURCE`-Flags zur `nsIProtocolHandler`-Schnittstelle erreicht, das anzeigt, dass das Protokoll sicher als Chrome registriert werden kann. Jede Erweiterung, die ihren eigenen Protokoll-Handler erstellt und versucht, ihn in ihrer `chrome.manifest`-Datei zu registrieren, muss dieses Flag verwenden, um korrekt zu funktionieren.
+Das Beheben dieses Fehlers wurde durch die Hinzufügung eines neuen `URI_IS_LOCAL_RESOURCE`-Flags zur `nsIProtocolHandler`-Schnittstelle erreicht, das anzeigt, dass das Protokoll sicher ist, um als Chrome registriert zu werden. Jedes Add-on, das seinen eigenen Protokoll-Handler erstellt und versucht, es in seiner `chrome.manifest`-Datei zu registrieren, muss dieses Flag verwenden, um korrekt zu funktionieren.
 
 ## Privates Surfen
 
-Firefox 3.5 implementiert das private Surfen, einen Modus, in dem Cookies, Verlauf und andere potenziell private Informationen nicht dauerhaft auf dem Computer des Benutzers gespeichert werden. Erweiterungen und andere Add-ons können das private Surfen unterstützen, indem sie erkennen, wann es verwendet wird, damit sie das Speichern privater Informationen vermeiden können, während der private Surfmodus aktiviert ist. Siehe [Unterstützung des Privatmodus](/en-US/Supporting_private_browsing_mode) für Details.
+Firefox 3.5 implementiert das private Surfen, einen Modus, in dem Cookies, der Verlauf und andere potenziell private Informationen nicht dauerhaft auf dem Computer des Benutzers gespeichert werden. Erweiterungen und andere Add-ons können die Funktion des privaten Surfens unterstützen, indem sie erkennen, wann es in Gebrauch ist, damit sie vermeiden können, private Informationen zu speichern, während der Modus für privates Surfen aktiviert ist. Siehe [Unterstützung des privaten Surfmodus](/en-US/Supporting_private_browsing_mode) für Einzelheiten.
 
-Plugins können erkennen, ob der private Surfmodus aktiv ist, indem sie die Funktion [`NPN_GetValue()`](/de/docs/NPN_GetValue) verwenden, um den aktuellen Wert der Variablen `NPNVprivateModeBool` zu prüfen.
+Plug-ins können erkennen, ob der Modus für privates Surfen aktiv ist, indem sie die Funktion [`NPN_GetValue()`](/de/docs/NPN_GetValue) verwenden, um den aktuellen Wert der Variable `NPNVprivateModeBool` zu überprüfen.
 
-## Neue Behandlung von Zertifikatsfehlern
+## Neue Behandlung von Zertifikatfehlern
 
-In früheren Versionen von Firefox 3 führten SSL-Zertifikatsfehler zur Anzeige der standardmäßigen Netzwerkfehlerseite, `about:neterror`, im Browserfenster. Ab Firefox 3.5 gibt es eine neue Fehlerseite, `about:certerror`, die stattdessen angezeigt wird. Die Fehler-URL ist wie folgt formatiert:
+In vorherigen Versionen von Firefox 3 führten SSL-Zertifikatfehler zur Darstellung der Standard-Netzwerkfehlerseite `about:neterror` im Browserfenster. Ab Firefox 3.5 gibt es eine neue Fehlerseite, `about:certerror`, die stattdessen angezeigt wird. Die Fehler-URL ist wie folgt formatiert:
 
 `about:certerror?e=error&u=url&d=desc`
 
-Einbettungen, die benutzerdefinierte Zertifikatsfehlerseiten bereitstellen müssen, können dies jetzt tun, indem sie ihre eigene `about:`-Seitenimplementierung liefern und die Einstellung `security.alternate_certificate_error_page` auf den entsprechenden Seitennamen setzen (z.B. `"certerror"`).
+Einbettungen, die benutzerdefinierte Zertifikat-Fehlerseiten bereitstellen müssen, können dies jetzt tun, indem sie ihre eigene `about:`-Seitenimplementierung liefern und die Einstellung `security.alternate_certificate_error_page` auf den entsprechenden Seitennamen setzen (z.B. `"certerror"`).
 
 ## Siehe auch
 

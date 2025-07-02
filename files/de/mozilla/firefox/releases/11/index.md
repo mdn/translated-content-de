@@ -2,42 +2,40 @@
 title: Firefox 11 für Entwickler
 slug: Mozilla/Firefox/Releases/11
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
-
-Firefox 11 wurde am 13. März 2012 veröffentlicht. Dieser Artikel bietet Informationen über die neuen Funktionen und die wichtigsten behobenen Fehler in dieser Version sowie Links zu detaillierteren Dokumentationen sowohl für Webentwickler als auch für Add-on-Entwickler.
+Firefox 11 wurde am 13. März 2012 veröffentlicht. Dieser Artikel bietet Informationen über die neuen Funktionen und die wichtigsten behobenen Fehler in dieser Version sowie Links zu ausführlicherer Dokumentation für Webentwickler und Add-on-Entwickler.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-- Die Attribute `muted` und `loop` bei {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wurden implementiert.
+- Die Attribute `muted` und `loop` an {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wurden implementiert.
 
 ### DOM
 
-- Die [`element.outerHTML`](/de/docs/Web/API/Element/outerHTML)-Eigenschaft wird jetzt bei HTML-Elementen unterstützt.
+- Die [`element.outerHTML`](/de/docs/Web/API/Element/outerHTML) Eigenschaft wird jetzt bei HTML-Elementen unterstützt.
 - [`XMLHttpRequest` unterstützt HTML-Parsing](/de/docs/Web/API/XMLHttpRequest_API/HTML_in_XMLHttpRequest).
-- Unterstützung für die Verwendung der Attribute [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) `responseType` und `withCredentials` bei synchronen Anfragen wurde entfernt. Der Versuch, dies zu tun, wirft eine `NS_ERROR_DOM_INVALID_ACCESS_ERR`-Ausnahme. Diese Änderung wurde dem W3C zur Standardisierung vorgeschlagen.
-- Die neue Methode [`navigator.mozVibrate()`](/de/docs/Web/API/Navigator/vibrate) ermöglicht es, das Gerät vibrieren zu lassen, sofern unterstützt; dies ist in Gecko als `mozVibrate()` implementiert.
-- `navigator.mozApps` gibt ein [`Apps`](/de/docs/DOM/Apps)-Objekt zurück, das Sie zum Installieren und Verwalten von [Open-Web-Anwendungen](/de/docs/Web/Progressive_web_apps) verwenden können.
-- `MozBeforePaint`-Ereignisse werden nicht mehr ausgelöst. [`mozRequestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Verbraucher, die diese verwendeten, sollten stattdessen eine Callback-Funktion übergeben.
-- Unterstützung zum Abbrechen von Animationsrasteranforderungen wurde hinzugefügt; [`window.mozRequestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) gibt jetzt einen Anforderungs-ID-Wert zurück, den Sie an [`window.mozCancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) übergeben können, um die Anforderung abzubrechen.
-- Mehrere [`Event`](/de/docs/Web/API/Event)-Konstruktoren (`Event`, HTML-Ereignisse, `UIEvent` und `MouseEvent`), die in DOM4-Spezifikationen eingeführt wurden, werden jetzt unterstützt.
+- Unterstützung für die Verwendung der [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) `responseType` und `withCredentials` Attribute bei synchronen Anfragen wurde entfernt. Der Versuch führt zu einer `NS_ERROR_DOM_INVALID_ACCESS_ERR` Ausnahme. Diese Änderung wurde zur Standardisierung an das W3C vorgeschlagen.
+- Die neue Methode [`navigator.mozVibrate()`](/de/docs/Web/API/Navigator/vibrate) ermöglicht es, das Gerät vibrieren zu lassen, wo es unterstützt wird; dies wird in Gecko als `mozVibrate()` implementiert.
+- `navigator.mozApps` gibt ein [`Apps`](/de/docs/DOM/Apps) Objekt zurück, mit dem Sie [offene Webanwendungen](/de/docs/Web/Progressive_web_apps) installieren und verwalten können.
+- `MozBeforePaint`-Ereignisse werden nicht mehr ausgelöst. [`mozRequestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) Nutzer sollten stattdessen eine Callback-Funktion übergeben.
+- Unterstützung zum Abbrechen von Animations-Frame-Anfragen wurde hinzugefügt; [`window.mozRequestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) gibt jetzt einen Anfrage-ID-Wert zurück, den Sie an [`window.mozCancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) übergeben können, um die Anfrage abzubrechen.
+- Mehrere [`Event`](/de/docs/Web/API/Event) Konstruktoren (`Event`, HTML-Ereignisse, `UIEvent` und `MouseEvent`), die in den DOM4-Spezifikationen eingeführt wurden, werden jetzt unterstützt.
 - Die [Battery API](/de/docs/Web/API/Battery_Status_API) ist jetzt standardmäßig aktiviert.
-- Unterstützung für die Eigenschaften [`defaultMuted`](/de/docs/Web/API/HTMLMediaElement), [`loop`](/de/docs/Web/API/HTMLMediaElement) und [`muted`](/de/docs/Web/API/HTMLMediaElement) bei [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) wurde hinzugefügt.
-- Ein Aufruf von [`Document/exitFullscreen`](/de/docs/Web/API/Document/exitFullscreen) stellt jetzt das zuvor im Vollbildmodus befindliche Element wieder her, falls ein anderes Element im Vollbildmodus war, als die Methode [`Element/requestFullScreen`](/de/docs/Web/API/Element/requestFullscreen) des aktuellen Elements aufgerufen wurde.
-- Die Methode [`window.mozRequestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) unterstützt keine Form ohne Argument mehr. Diese Form wurde kaum verwendet und wird wahrscheinlich nicht Teil des Standards.
-- SVG als Bild kann nun ohne [tainting the canvas](/de/docs/Web/HTML/How_to/CORS_enabled_image#what_is_a_.22tainted.22_canvas.3f) in eine Leinwand gezeichnet werden.
-- Die nicht standardisierte Eigenschaft `countryCode` der Schnittstelle `GeoPositionAddress` wurde entfernt; siehe `nsIDOMGeoPositionAddress`.
-- [Server-Sent Events](/de/docs/Web/API/Server-sent_events) unterstützen nun [CORS](/de/docs/Web/HTTP/Guides/CORS).
-- In der Vergangenheit wurden die auf dem [`window.navigator`](/de/docs/Web/API/Window/navigator)-Objekt gesetzten Werte zur neuen Seite beibehalten, wenn der Benutzer einem Link folgte. Jetzt wird ein neues `navigator`-Objekt für die neue Seite erstellt. Dies macht Firefox verhalten wie alle anderen Browser.
+- Unterstützung für die [`defaultMuted`](/de/docs/Web/API/HTMLMediaElement), [`loop`](/de/docs/Web/API/HTMLMediaElement) und [`muted`](/de/docs/Web/API/HTMLMediaElement) Eigenschaften auf [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) wurde hinzugefügt.
+- Der Aufruf von [`Document/exitFullscreen`](/de/docs/Web/API/Document/exitFullscreen) stellt nun das zuvor im Vollbildmodus befindliche Element wieder her, wenn ein anderes Element im Vollbildmodus war, als die Methode [`Element/requestFullScreen`](/de/docs/Web/API/Element/requestFullscreen) des aktuellen Elements aufgerufen wurde.
+- Die Methode [`window.mozRequestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) unterstützt nicht mehr die Form ohne Argumente. Diese Form wurde nicht viel verwendet und wird vermutlich kein Standard.
+- SVG als Bild kann nun ohne [Verunreinigung der Leinwand](/de/docs/Web/HTML/How_to/CORS_enabled_image#what_is_a_.22tainted.22_canvas.3f) in eine Leinwand gezeichnet werden.
+- Die nicht standardmäßige `countryCode` Eigenschaft der `GeoPositionAddress` Schnittstelle wurde entfernt; siehe `nsIDOMGeoPositionAddress`.
+- [Server-sent events](/de/docs/Web/API/Server-sent_events) unterstützen jetzt [CORS](/de/docs/Web/HTTP/Guides/CORS).
+- In der Vergangenheit wurden beim Folgen eines Links die Werte, die auf dem [`window.navigator`](/de/docs/Web/API/Window/navigator) Objekt gesetzt wurden, von der neuen Seite beibehalten. Jetzt wird ein neues `navigator` Objekt für die neue Seite erstellt. Dadurch verhält sich Firefox wie alle anderen Browser.
 
 ### CSS
 
-- Die [`text-size-adjust`](/de/docs/Web/CSS/text-size-adjust)-Eigenschaft wird jetzt unterstützt.
-- [CSS3](/de/docs/CSS/CSS3) [Conditional Rules](/de/docs/CSS/CSS3#conditional_rules) werden jetzt besser unterstützt: Verschachtelte Anweisungen können jetzt zu [@media](/de/docs/Web/CSS/@media), [@-moz-document](/de/docs/Web/CSS/@document) hinzugefügt werden. (Siehe [CSS Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) und [CSS at-rules](/de/docs/Web/CSS/CSS_syntax/At-rule)).
+- die [`text-size-adjust`](/de/docs/Web/CSS/text-size-adjust) Eigenschaft wird jetzt unterstützt.
+- [CSS3](/de/docs/CSS/CSS3) [Bedingte Regeln](/de/docs/CSS/CSS3#conditional_rules) werden jetzt besser unterstützt: Verschachtelte Anweisungen können jetzt zu [@media](/de/docs/Web/CSS/@media), [@-moz-document](/de/docs/Web/CSS/@document) hinzugefügt werden. (Siehe [CSS Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) und [CSS at-rules](/de/docs/Web/CSS/CSS_syntax/At-rule)).
 
 ### JavaScript
 
@@ -45,19 +43,19 @@ _Keine Änderung._
 
 ### SVG
 
-- Die [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-DOM-Schnittstelle unterstützt nun die Methode `getElementById`.
+- Die [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement) DOM-Schnittstelle unterstützt jetzt die `getElementById` Methode.
 
 ### WebSocket
 
-- Die [WebSocket](/de/docs/Web/API/WebSockets_API)-API unterstützt jetzt binäre Nachrichten (siehe [Firefox-Bug 676439](https://bugzil.la/676439)).
-- Sowohl das Protokoll als auch die API wurden auf den neuesten Entwurf der Spezifikation aktualisiert, und die API wurde ohne Präfix versehen (siehe [Firefox-Bug 666349](https://bugzil.la/666349) und [Firefox-Bug 695635](https://bugzil.la/695635)).
-- Bisher waren mit WebSockets in Firefox gesendete und empfangene Nachrichten auf eine Größe von 16 MB beschränkt; sie können jetzt bis zu 2 GB groß sein (obwohl Speicherbeschränkungen sie daran hindern können, so groß zu werden, unterstützt Firefox dies).
+- Die [WebSocket](/de/docs/Web/API/WebSockets_API) API unterstützt jetzt binäre Nachrichten (siehe [Firefox Bug 676439](https://bugzil.la/676439)).
+- Sowohl das Protokoll als auch die API wurden auf den neuesten Entwurf der Spezifikation aktualisiert und die API wurde unpräfixiert (siehe [Firefox Bug 666349](https://bugzil.la/666349) und [Firefox Bug 695635](https://bugzil.la/695635)).
+- Bisher waren die in Firefox über WebSockets gesendeten und empfangenen Nachrichten auf 16 MB begrenzt; sie können jetzt bis zu 2 GB groß sein (obwohl Speicherkapazitätsbeschränkungen dies möglicherweise verhindern, unterstützt Firefox es).
 
 ### IndexedDB
 
-- Unterstützung für [IDBFactory.cmp()](/de/docs/Web/API/IDBFactory#cmp%28%29) wurde hinzugefügt.
-- Ein [IndexedDB-Schlüssel](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key) kann auch einer der folgenden Typen sein: Date, Arrays und Float (und nicht nur String und Integer).
-- Künftig werden Transaktionen gestartet, wenn die Transaktion erstellt wird, nicht wenn die erste Anfrage gestellt wird; zum Beispiel:
+- Die Unterstützung für [IDBFactory.cmp()](/de/docs/Web/API/IDBFactory#cmp%28%29) wurde hinzugefügt.
+- Ein [IndexedDB Schlüssel](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key) kann ebenfalls von einem der folgenden Typen sein: Date, Arrays und Float (und nicht nur String und Integer).
+- Ab sofort werden Transaktionen gestartet, wenn die Transaktion erstellt wird, nicht wenn die erste Anfrage gestellt wird; zum Beispiel:
 
   ```js
   var trans1 = db.transaction("foo", READ_WRITE);
@@ -67,26 +65,26 @@ _Keine Änderung._
   trans1.put("1", "key");
   ```
 
-  Nach dem Ausführen des Codes sollte der Objektspeicher den Wert "2" enthalten, da `trans2` nach `trans1` ausgeführt werden sollte.
+  Nachdem der Code ausgeführt wurde, sollte der Objektspeicher den Wert "2" enthalten, da `trans2` nach `trans1` ausgeführt werden sollte.
 
-- Vor Firefox 11 wurden `autoIncrement`-Zähler für Objektspeicher in einer Datenbank gemeinsam genutzt, während gemäß Spezifikation jeder Objektspeicher einen separaten Zähler haben sollte. Dies wurde jetzt behoben.
+- Vor Firefox 11 wurden Objektspeicher [`autoIncrement`](/de/docs/Web/API/IDBObjectStore/autoIncrement) Zähler über alle Objektspeicher für eine gegebene Datenbank hinweg geteilt, während laut Spezifikation jeder Objektspeicher einen separaten Zähler haben sollte. Dies ist jetzt behoben.
 - Es ist jetzt möglich, einen Index mit einem leeren `keyPath` zu [erstellen](/de/docs/Web/API/IDBObjectStore/createIndex).
-- Es ist jetzt möglich, einen Multi-Entry-Index zu erstellen (siehe [`IDBObjectStore.createIndex`-Parameter](/de/docs/Web/API/IDBObjectStore/createIndex#parameters).)
-- Das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)-Ereignis wird jetzt propagiert; zusätzlich wurde ein `onabort`-Handler hinzugefügt.
+- Es ist jetzt möglich, einen Mehrfacheintrag-Index zu erstellen (siehe [`IDBObjectStore.createIndex` Parameter](/de/docs/Web/API/IDBObjectStore/createIndex#parameters).)
+- Das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event) Ereignis wird jetzt weitergegeben; zusätzlich wurde ein `onabort` Handler hinzugefügt.
 - IndexedDB kann jetzt verwendet werden, um Dateien/Blobs zu speichern.
-- IndexedDB unterstützt jetzt komplexe Schlüsselpfade, z.B. `foo.bar` zum Zugriff auf die Eigenschaft `bar` der Eigenschaft `foo`.
-- IndexedDB kann jetzt ein Array als `keyPath` akzeptieren, wenn ein [Objektspeicher](/de/docs/Web/API/IDBDatabase/createObjectStore) oder ein [Index](/de/docs/Web/API/IDBObjectStore/createIndex) erstellt wird ([Firefox-Bug 694138](https://bugzil.la/694138).)
+- IndexedDB unterstützt jetzt komplexe Schlüsselpfade, z.B. `foo.bar`, um auf die Eigenschaft `bar` der Eigenschaft `foo` zuzugreifen.
+- IndexedDB kann jetzt ein Array als `keyPath` akzeptieren, wenn ein [Objektspeicher](/de/docs/Web/API/IDBDatabase/createObjectStore) oder ein [Index](/de/docs/Web/API/IDBObjectStore/createIndex) erstellt wird ([Firefox Bug 694138](https://bugzil.la/694138)).
 
 ### Netzwerk
 
-- Die Änderung in Firefox 8, die die Unterstützung für Anführungszeichen als Trennzeichen für {{rfc(2231)}} und {{rfc(5987)}} entfernte, wurde rückgängig gemacht, da dies einige Websites, einschließlich Outlook Web Access, beschädigte.
-- Der User-Agent-String in HTTP-Headern enthält jetzt einen Identifikator, der [dem Server mitteilt, ob der zugreifende Firefox auf einem Telefon oder einem Tablet läuft](/de/docs/Gecko_user_agent_string_reference#mobile_and_tablet_indicators).
+- Die Änderung in Firefox 8, die die Unterstützung für Anführungszeichen als Trennzeichen für {{rfc(2231)}} und {{rfc(5987)}} entfernte, wurde rückgängig gemacht, da dies einige Seiten wie Outlook Web Access beeinträchtigte.
+- Der User-Agent-String in HTTP-Headern enthält jetzt einen Bezeichner, der [dem Server mitteilt, ob der zugreifende Firefox ein Telefon oder ein Tablet ist](/de/docs/Gecko_user_agent_string_reference#mobile_and_tablet_indicators).
 
 ### Entwicklerwerkzeuge
 
-- Der [Seiteninspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) bietet jetzt eine [3D-Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/3d_view/index.html), wenn Ihr System [WebGL](/de/docs/Web/API/WebGL_API) unterstützt.
-- Der neue [Stil-Editor](https://firefox-source-docs.mozilla.org/devtools-user/style_editor/index.html) bietet eine Freiformmethode zum Bearbeiten und Erstellen von CSS-Stilen in Echtzeit.
-- Die [Quelltextanzeige](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html) verwendet jetzt den neuen HTML5-Parser anstelle des alten HTML-Parsers.
+- Der [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) bietet jetzt eine [3D-Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/3d_view/index.html), wenn Ihr System [WebGL](/de/docs/Web/API/WebGL_API) unterstützt.
+- Der neue [Style Editor](https://firefox-source-docs.mozilla.org/devtools-user/style_editor/index.html) bietet eine freie Möglichkeit, CSS-Stile in Echtzeit zu bearbeiten und zu verfassen.
+- Die [View Source Funktion](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html) verwendet jetzt den neuen HTML5-Parser anstelle des alten HTML-Parsers.
 
 ## Änderungen für Mozilla- und Add-on-Entwickler
 
@@ -94,43 +92,43 @@ _Keine Änderung._
 
 #### NetUtil.jsm
 
-- `readInputStreamToString()` hat einen neuen, optionalen Parameter, um die Zeichensatzinterpretation beim Lesen des Eingabestreams zu konfigurieren.
+- `readInputStreamToString()` hat einen neuen, optionalen Parameter zur Konfiguration der Zeichensatzinterpretation beim Lesen des Eingabestroms.
 
 #### Neue JavaScript-Code-Module
 
 - [`source-editor.jsm`](/de/docs/JavaScript_code_modules/source-editor.jsm)
-  - : Bietet einen benutzerfreundlichen Editor für Quellcode, den Sie in Ihren Add-ons verwenden können. Dies ist derselbe Editor, der von _Scratchpad_ und anderen in Firefox integrierten Entwicklerwerkzeugen verwendet wird.
+  - : Bietet einen praktischen, einfach zu bedienenden Quellcode-Editor, den Sie in Ihren Add-ons verwenden können. Dies ist derselbe Editor, der von _Scratchpad_ und anderen in Firefox integrierten Entwicklerwerkzeugen verwendet wird.
 
 ### Schnittstellenänderungen
 
-- Die `mozIAsyncHistory`-Schnittstelle hat eine neue Methode `mozIAsyncHistory.isURIVisited()`, um zu überprüfen, ob eine URI besucht wurde.
-- Eine neue Schnittstelle `mozIVisitStatusCallback` wurde hinzugefügt, um Callback-Handling-Funktionalität für `mozIAsyncHistory.isURIVisited()` bereitzustellen.
-- Die `nsIMacDockSupport`-Schnittstelle unterstützt jetzt das Hinzufügen eines Text-Abzeichens zum Anwendungs-Icon im Dock mit ihrem neuen `badgeText`-Attribut.
-- In der `nsINavHistoryResultObserver`-Schnittstelle müssen Sie jetzt `nsINavHistoryResultObserver.containerStateChanged()` implementieren anstelle der veralteten Methoden `containerOpened()` und `containerClosed()`.
+- Die `mozIAsyncHistory` Schnittstelle hat eine neue Methode `mozIAsyncHistory.isURIVisited()`, um zu überprüfen, ob eine URI besucht wurde.
+- Eine neue Schnittstelle `mozIVisitStatusCallback` wurde hinzugefügt, um Callback-Funktionalität für `mozIAsyncHistory.isURIVisited()` bereitzustellen.
+- Die `nsIMacDockSupport` Schnittstelle unterstützt jetzt das Hinzufügen eines Textabzeichens zum Anwendungsicon im Dock über ihr neues `badgeText` Attribut.
+- In der `nsINavHistoryResultObserver` Schnittstelle müssen Sie jetzt `nsINavHistoryResultObserver.containerStateChanged()` anstelle der veralteten `containerOpened()` und `containerClosed()` Methoden implementieren.
 
 #### Entfernte Schnittstellen
 
 Die folgenden Schnittstellen waren Implementierungsdetails, die nicht mehr benötigt werden:
 
 - `nsICharsetResolver`
-- `nsIDOMNSElement`, siehe [Bug707576](https://bugzil.la/707576), verwenden Sie stattdessen `nsIDOMElement`.
+- `nsIDOMNSElement`, siehe [bug707576](https://bugzil.la/707576), verwenden Sie stattdessen `nsIDOMElement`.
 
 ### Themenbezogene Änderungen
 
-- Die Datei `omni.jar` wird jetzt [`omni.ja`](</de/docs/Mozilla/About_omni.ja_(formerly_omni.jar)>) genannt.
+- Die `omni.jar` Datei heißt jetzt [`omni.ja`](</de/docs/Mozilla/About_omni.ja_(formerly_omni.jar)>).
 
 ### Präferenzänderungen
 
 - `ui.tooltipDelay`
-  - : Bestimmt die Verzögerung in Millisekunden zwischen dem Beginn des Hoverns des Mauszeigers und dem Anzeigen eines Tooltips.
+  - : Gibt die Verzögerung in Millisekunden an, zwischen dem Beginn des Überfahrens des Mauszeigers und der Anzeige eines Tooltips.
 
 ### Änderungen im Build-System
 
-- Die Build-Option `--enable-tracejit` wurde entfernt.
+- Die `--enable-tracejit` Build-Option wurde entfernt.
 
 ### Andere Änderungen
 
-- Add-ons, die seit langer Zeit nicht mehr aktualisiert wurden, werden nicht mehr standardmäßig als kompatibel angesehen; dies betrifft derzeit Add-ons, die eine `maxVersion` von 4.0 angeben.
+- Add-ons, die lange nicht aktualisiert wurden, werden nicht mehr standardmäßig als kompatibel angesehen; dies betrifft derzeit Add-ons, die eine `maxVersion` von 4.0 angeben.
 
 ## Siehe auch
 

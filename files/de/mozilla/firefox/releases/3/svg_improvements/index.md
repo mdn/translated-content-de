@@ -2,18 +2,15 @@
 title: SVG-Verbesserungen in Firefox 3
 slug: Mozilla/Firefox/Releases/3/SVG_improvements
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
-
-Firefox 3 bietet eine verbesserte Unterstützung für [Scalable Vector Graphics](/de/docs/Web/SVG) (SVG) im Vergleich zu früheren Versionen von Firefox. Obwohl diese Funktionen an anderer Stelle dokumentiert sind, dient dieser Artikel als praktische Liste, damit Sie leicht feststellen können, welche Funktionen in Firefox 3 hinzugefügt wurden.
+Firefox 3 bietet verbesserte Unterstützung für [Scalable Vector Graphics](/de/docs/Web/SVG) (SVG) im Vergleich zu früheren Versionen von Firefox. Während diese Funktionen an anderer Stelle dokumentiert sind, dient dieser Artikel als praktische Liste, damit Sie leicht feststellen können, welche Funktionen in Firefox 3 hinzugefügt wurden.
 
 - Das [`foreignObject`](/de/docs/Web/SVG/Reference/Element/foreignObject)-Element wird jetzt unterstützt ([Firefox-Bug 326966](https://bugzil.la/326966)).
 - Das [`pattern`](/de/docs/Web/SVG/Reference/Element/pattern)-Element wird jetzt unterstützt.
 - Das [`mask`](/de/docs/Web/SVG/Reference/Element/mask)-Element wird jetzt unterstützt.
 - Unterstützung für alle SVG 1.1 [Filter](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects) wurde hinzugefügt:
-
   - `filter`
   - `feDistantLight`
   - `fePointLight`
@@ -38,11 +35,11 @@ Firefox 3 bietet eine verbesserte Unterstützung für [Scalable Vector Graphics]
   - `feTurbulence`
   - `feTile`
 
-- Die Handhabung des `<a>`-Elements in SVG hat mehrere Fehlerbehebungen erfahren; siehe [Firefox-Bug 267664](https://bugzil.la/267664), [WebKit-Bug 268135](https://bugzil.la/268135), [WebKit-Bug 316248](https://bugzil.la/316248), [WebKit-Bug 317270](https://bugzil.la/317270) und [WebKit-Bug 320724](https://bugzil.la/320724).
-- Die SVG DOM-Methoden `getNumberOfChars()`, `getComputedTextLength()`, `getSubStringLength()`, `getStartPositionOfChar()`, `getEndPositionOfChar()`, `getRotationOfChar()` und `getCharNumAtPosition()` wurden implementiert.
+- Die Behandlung des `<a>`-Elements in SVG hat mehrere behobene Bugs; siehe [Firefox-Bug 267664](https://bugzil.la/267664), [WebKit-Bug 268135](https://bugzil.la/268135), [WebKit-Bug 316248](https://bugzil.la/316248), [WebKit-Bug 317270](https://bugzil.la/317270) und [WebKit-Bug 320724](https://bugzil.la/320724).
+- Die SVG-DOM-Methoden `getNumberOfChars()`, `getComputedTextLength()`, `getSubStringLength()`, `getStartPositionOfChar()`, `getEndPositionOfChar()`, `getRotationOfChar()` und `getCharNumAtPosition()` wurden implementiert.
 - Das [`xml:space`](/de/docs/Web/SVG/Reference/Attribute/xml:space)-Attribut wird jetzt unterstützt.
-- Fallback für `fill`/`stroke` wird jetzt unterstützt.
-- `em`- und `ex`-Einheiten werden jetzt zur Angabe von Längen unterstützt ([Firefox-Bug 305859](https://bugzil.la/305859)).
+- Fallback-`fill`/`stroke` werden jetzt unterstützt.
+- `em`- und `ex`-Einheiten werden jetzt zur Längenangabe unterstützt ([Firefox-Bug 305859](https://bugzil.la/305859)).
 
 ## Siehe auch
 

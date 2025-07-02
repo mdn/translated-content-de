@@ -3,38 +3,28 @@ title: "Testen Sie Ihre Fähigkeiten: Variablen"
 short-title: Variables
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Variables
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 2bde1cab935c3b36bf66dc9fbf1ffb6a20b5f708
 ---
 
-Das Ziel dieses Fähigkeitstests ist zu überprüfen, ob Sie unseren [Die benötigten Informationen speichern — Variablen](/de/docs/Learn_web_development/Core/Scripting/Variables)-Artikel verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie unseren Artikel [Speichern der benötigten Informationen — Variablen](/de/docs/Learn_web_development/Core/Scripting/Variables) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
-> Wenn ein Fehler in Ihrem Code auftritt, wird er im Ergebnisbereich auf dieser Seite oder in der JavaScript-Konsole protokolliert.
->
-> Wenn Sie stecken bleiben, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Für Aufgaben 1 und 2 können Sie Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Variablen 1
+## Interaktive Herausforderung
 
-In dieser Aufgabe sollen Sie:
+Zuerst präsentieren wir Ihnen eine unterhaltsame, interaktive Variablen-Herausforderung, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
 
-- Eine Variable namens `myName` deklarieren.
-- `myName` mit einem passenden Wert initialisieren, jedoch in einer separaten Zeile (Sie können Ihren tatsächlichen Namen verwenden oder etwas anderes).
-- Eine Variable namens `myAge` deklarieren und sie in derselben Zeile mit einem Wert initialisieren.
+Sehen Sie sich das eingebettete Scrim an und lösen Sie die Aufgabe auf der Zeitleiste (das kleine Geistersymbol), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~011" scrimtitle="Übung zu Variablen"></scrim-inline>
 
-{{EmbedGHLiveSample("learning-area/javascript/introduction-to-js-1/tasks/variables/variables1.html", '100%', 400)}}
+## Aufgabe 1
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/variables/variables1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+In dieser Aufgabe müssen Sie eine neue Zeile hinzufügen, um den im bestehenden `myName` Variablen gespeicherten Wert zu Ihrem eigenen Namen zu korrigieren.
 
-## Variablen 2
-
-In dieser Aufgabe müssen Sie eine neue Zeile hinzufügen, um den im vorhandenen `myName`-Variable gespeicherten Wert auf Ihren eigenen Namen zu korrigieren.
-
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu rekonstruieren:
 
 {{EmbedGHLiveSample("learning-area/javascript/introduction-to-js-1/tasks/variables/variables2.html", '100%', 400)}}
 
@@ -42,11 +32,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 >
 > [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/variables/variables2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-## Variablen 3
+## Aufgabe 2
 
-Die letzte Aufgabe für jetzt — in diesem Fall erhalten Sie einen bestehenden Code, der zwei Fehler enthält. Die Ergebnisseite sollte den Namen `Chris` und eine Aussage darüber ausgeben, wie alt Chris in 20 Jahren sein wird. Wie können Sie das Problem beheben und die Ausgabe korrigieren?
+Die letzte Aufgabe für jetzt - in diesem Fall wird Ihnen vorhandener Code bereitgestellt, der zwei Fehler enthält. Im Ergebnisfeld sollte der Name `Chris` ausgegeben werden und eine Aussage darüber, wie alt Chris in 20 Jahren sein wird. Wie können Sie das Problem beheben und die Ausgabe korrigieren?
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu rekonstruieren:
 
 {{EmbedGHLiveSample("learning-area/javascript/introduction-to-js-1/tasks/variables/variables3.html", '100%', 400)}}
 

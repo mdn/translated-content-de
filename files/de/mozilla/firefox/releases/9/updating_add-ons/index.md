@@ -1,30 +1,28 @@
 ---
-title: Aktualisierung von Add-ons für Firefox 9
+title: Aktualisieren von Add-ons für Firefox 9
 slug: Mozilla/Firefox/Releases/9/Updating_add-ons
 l10n:
-  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
-
-Firefox 9 bringt nur wenige Änderungen mit sich, die Kompatibilitätsprobleme für Add-on-Entwickler darstellen könnten. Es gibt jedoch einige potenzielle Punkte, die Sie überraschen könnten, daher schauen wir uns diese genauer an.
+Firefox 9 bringt nicht viele Änderungen mit sich, die Kompatibilitätsprobleme für Add-on-Entwickler darstellen sollten. Es gibt jedoch ein paar mögliche Stolpersteine, die wir uns ansehen sollten.
 
 ## Müssen Sie überhaupt etwas tun?
 
-Wenn Ihr Add-on über [addons.mozilla.org](https://addons.mozilla.org/de/firefox/) (AMO) verteilt wird, wurde es von einem automatisierten Kompatibilitätsprüfungs-Tool überprüft. Add-ons, die keine in Firefox 8 geänderten APIs nutzen und keine binären Komponenten besitzen (die für jede wichtige Firefox-Version neu kompiliert werden müssen), sind auf AMO automatisch aktualisiert worden, um anzuzeigen, dass sie mit Firefox 9 funktionieren.
+Wenn Ihr Add-on auf [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/) (AMO) verteilt wird, wurde es von einem automatischen Kompatibilitätsüberprüfungstool geprüft. Add-ons, die keine in Firefox 8 geänderten APIs verwenden und keine binären Komponenten enthalten (die für jede größere Firefox-Version neu kompiliert werden müssen), wurden auf AMO automatisch aktualisiert, um anzuzeigen, dass sie in Firefox 9 funktionieren.
 
-Sie sollten daher zunächst AMO besuchen und überprüfen, ob an Ihrem Add-on überhaupt gearbeitet werden muss.
+Sie sollten daher zunächst AMO besuchen und prüfen, ob Ihr Add-on überhaupt bearbeitet werden muss.
 
 > [!NOTE]
-> Sie sollten Ihr Add-on dennoch auf Firefox 9 testen, auch wenn es automatisch aktualisiert wurde. Es gibt Randfälle, die möglicherweise nicht automatisch erkannt werden.
+> Sie sollten Ihr Add-on in Firefox 9 trotzdem testen, auch wenn es automatisch aktualisiert wurde. Es gibt Grenzfälle, die möglicherweise nicht automatisch erkannt werden.
 
 Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kehren Sie zu dieser Seite zurück und lesen Sie weiter.
 
-## Bootstrapped-Add-ons können verzögert geladene Skripte entfernen
+## Bootstrap-Add-ons können verzögert geladene Skripte entfernen
 
-Wenn Ihr Add-on `nsIChromeFrameMessageManager.loadFrameScript()` mit dem verzögerten Ladeflag verwendet, wird das Skript in jeden ab diesem Zeitpunkt erstellten Frame geladen. Dies ist großartig, allerdings gab es bis Firefox 9 keine Möglichkeit, das Laden des Skripts zu stoppen, sodass es auch nach dem Herunterfahren Ihres Add-ons weiterhin geladen wurde.
+Wenn Ihr Add-on `nsIChromeFrameMessageManager.loadFrameScript()` mit gesetztem Verzögerungs-Flag verwendet, wird das Skript ab diesem Zeitpunkt in jeden neu erstellten Frame geladen. Das ist großartig, aber bis Firefox 9 gab es keine Möglichkeit, das Laden des Skripts zu stoppen, sodass es auch nach dem Herunterfahren Ihres Add-ons weiterhin geladen wurde.
 
-Ab Firefox 9 sollten Sie die neue Methode `nsIChromeFrameMessageManager.removeDelayedFrameScript()` aufrufen, um das Laden Ihres Skripts in neu erstellten Frames zu stoppen. Sie gehen dazu beispielsweise folgendermaßen vor:
+Ab Firefox 9 sollten Sie die neue Methode `nsIChromeFrameMessageManager.removeDelayedFrameScript()` aufrufen, um das Laden Ihres Skripts in neu erstellten Frames zu stoppen. Sie machen dies beispielsweise so:
 
 ```js
 browser.messageManager.removeDelayedFrameScript(
@@ -34,34 +32,34 @@ browser.messageManager.removeDelayedFrameScript(
 
 ## Schnittstellenänderungen
 
-- Die `nsIURL`-Schnittstelle wurde etwas verändert. Das `nsIURL.param`-Attribut wurde entfernt, und die Methode `nsIURLParser.parsePath()` hat zwei Argumente weniger als zuvor.
+- Die `nsIURL`-Schnittstelle wurde etwas verändert. Das Attribut `nsIURL.param` wurde entfernt und die Methode `nsIURLParser.parsePath()` hat zwei Argumente weniger als zuvor.
 - Zwei Methoden wurden aus `nsIBrowserHistory` entfernt: `registerOpenPage()` und `unregisterOpenPage()`. Diese Methoden waren veraltet.
-- Die Methode `nsIEditorSpellCheck.saveDefaultDictionary()` wurde als Teil der Unterstützung von site-spezifischen Rechtschreibprüfungseinstellungen entfernt. Außerdem nimmt `nsIEditorSpellCheck.updateCurrentDictionary()` keinen Parameter mehr entgegen.
-- Die `nsIGlobalHistory3`-Schnittstelle wurde entfernt. Ihre Funktionalität war für Add-ons von begrenztem (wenn überhaupt vorhandenen) Nutzen, daher sollte dies niemanden betreffen.
-- Mehrere Attribute der spezialisierten Kanäle wurden in die Basisschnittstelle `nsIChannel` zusammengeführt. Dies sollte die Kompatibilität überhaupt nicht beeinträchtigen, da diese Schnittstellen ohnehin von `nsIChannel` erben.
+- Die Methode `nsIEditorSpellCheck.saveDefaultDictionary()` wurde im Rahmen der Unterstützung von seitenbezogenen Rechtschreibprüfungseinstellungen entfernt. Außerdem nimmt `nsIEditorSpellCheck.updateCurrentDictionary()` keinen Parameter mehr an.
+- Die `nsIGlobalHistory3`-Schnittstelle wurde entfernt. Ihre Funktionalität war für Add-ons von begrenztem (wenn überhaupt) Nutzen, daher sollte dies niemanden betreffen.
+- Die Eigenschaften mehrerer spezialisierter Kanal-Schnittstellen wurden in die Basis-Schnittstelle `nsIChannel` integriert. Dies sollte die Kompatibilität nicht beeinträchtigen, da diese Schnittstellen ohnehin von `nsIChannel` erben.
 
 ## Präferenzänderungen
 
-Die `geo.wifi.*`-Präferenzen haben keine Standardwerte mehr, obwohl sie respektiert werden, wenn sie vorhanden sind. Wenn Ihr Code diese liest, ohne den Fall zu behandeln, dass sie nicht vorhanden sind, müssen Sie Ihren Code aktualisieren, um die Ausnahme zu handhaben, die geworfen wird, wenn sie nicht existieren.
+Die `geo.wifi.*`-Präferenzen haben keine Standardwerte mehr, obwohl sie beachtet werden, wenn sie existieren. Wenn Ihr Code diese liest, ohne den Fall zu behandeln, dass sie nicht existieren, müssen Sie Ihren Code aktualisieren, um mit der Ausnahme umzugehen, die geworfen wird, wenn sie nicht vorhanden sind.
 
-## XPConnect-Änderungen
+## Änderungen an XPConnect
 
-`nodePrincipal` und `baseURIObject` wurden von `nsDOMClassInfo` zu `XrayWrapper` verschoben. Dies sollte die meisten Add-ons nicht betreffen, da es nur dann ein Problem darstellen würde, wenn sie versuchen, auf diese Eigenschaften von DOM [`Node`](/de/docs/Web/API/Node)-Objekten aus einem nicht privilegierten Skript zuzugreifen, das XPConnect-Berechtigungen mit `enablePrivilege()` angefordert hat.
+`nodePrincipal` und `baseURIObject` wurden von `nsDOMClassInfo` nach `XrayWrapper` verschoben. Dies sollte nur wenige Add-ons beeinflussen, da es nur ein Problem wäre, wenn sie versuchen, auf diese Eigenschaften bei DOM-Objekten [`Node`](/de/docs/Web/API/Node) zuzugreifen, von unprivilegierten Skripten aus, die mit `enablePrivilege()` XPConnect-Berechtigungen angefordert haben.
 
-## DOM-Änderungen
+## Änderungen im DOM
 
-- Die längst veraltete Methode `Navigator.taintEnabled()` wurde entfernt. Sie hat seit sehr langer Zeit nichts mehr Nützliches getan, wurde aber oft in Browser-Erkennungsskripten verwendet, da sie spezifisch für Netscape war. Einen Aufruf dieser Methode zu machen, wirft ab Firefox 9 eine Ausnahme.
-- Ereignis-Handler werden jetzt als Standard IDL-Schnittstellen implementiert. In den meisten Fällen betrifft Sie das nicht, aber [es gibt Ausnahmen](/de/docs/Web/Events/Event_handlers#event_handler_changes_in_firefox_9).
+- Die lange veraltete Methode `Navigator.taintEnabled()` wurde entfernt. Sie hat seit sehr langer Zeit nichts Sinnvolles mehr getan, wurde aber oft in Browser-Erkennungsskripten verwendet, da sie Netscape-spezifisch war. Der Aufruf dieser Methode wirft ab Firefox 9 eine Ausnahme.
+- Ereignisbehandler werden nun als standardisierte IDL-Schnittstellen implementiert. In den meisten Fällen betrifft Sie das nicht, aber [es gibt Ausnahmen](/de/docs/Web/Events/Event_handlers#event_handler_changes_in_firefox_9).
 
-## Andere Änderungen, die die binäre Kompatibilität betreffen könnten
+## Weitere Änderungen, die die binäre Kompatibilität betreffen könnten
 
-Diese Änderungen sind bemerkenswert, da sie binäre XPCOM-Komponenten betreffen könnten. Diese müssen ohnehin neu kompiliert werden, da dies für jede Hauptversion von Firefox erforderlich ist, könnten jedoch zu Kompilierungsfehlern führen, daher lohnt es sich, diese besonders zu beachten.
+Diese Änderungen sind bemerkenswert, da sie binäre XPCOM-Komponenten betreffen könnten. Diese müssen ohnehin neu kompiliert werden, da das für jede größere Firefox-Version erforderlich ist, könnten jedoch während der Kompilierung zu Fehlern führen, weshalb sie besonders beachtet werden sollten.
 
-- Die `nsIDOMHTMLDocument`-Schnittstelle verfügt jetzt über ein neues `scripts`-Attribut, das das [`Document.scripts`](/de/docs/Web/API/Document/scripts)-Attribut implementiert.
-- Die Methode `nsIJumpListShortcut.iconImageUri()` wurde hinzugefügt, um es zu ermöglichen, Favicons auf Jump-List-URI-Einträgen unter Windows festzulegen.
+- Die `nsIDOMHTMLDocument`-Schnittstelle hat jetzt ein neues `scripts`-Attribut, das das Attribut [`Document.scripts`](/de/docs/Web/API/Document/scripts) implementiert.
+- Die Methode `nsIJumpListShortcut.iconImageUri()` wurde hinzugefügt, um die Einrichtung von Favicons bei Sprunglisteneinträgen auf Windows zu ermöglichen.
 
-## Themenänderungen
+## Änderungen im Thema
 
-Das `pending`-Attribut wurde dem `<tab>`-Element hinzugefügt. Wenn dieses Attribut vorhanden ist, befindet sich der Tab im Wiederherstellungsprozess durch den Sitzungswiederherstellungsdienst. Sie können dies nutzen, um den Tab während des Wiederherstellungsverfahrens zu stylen. Es ist bemerkenswert, dass, wenn der Benutzer die Präferenz "Tabs nicht laden, bis sie ausgewählt werden" aktiviert hat, das `pending`-Attribut auf Tabs gesetzt wird, bis sie geladen werden.
+Das Attribut `pending` wurde dem `<tab>`-Element hinzugefügt. Wenn dieses Attribut vorhanden ist, befindet sich der Tabulator im Prozess der Wiederherstellung durch den Sitzungs-Store-Dienst. Sie können dies verwenden, um den Tab während des Wiederherstellungsprozesses zu gestalten. Es ist erwähnenswert, dass, wenn der Benutzer die Option "Tabs erst bei Auswahl laden" aktiviert hat, das `pending`-Attribut auf Tabs gesetzt wird, bis sie geladen werden.
 
-Ähnlich haben Tabs nun auch ein `unread`-Attribut; diese Eigenschaft deutet an, dass der Tab seit dem letzten Aktivenzustand geändert wurde. Sie können dies nutzen, um Tabs anders zu gestalten, wenn sie geändert wurden, seit der Benutzer sie zuletzt angesehen hat. Dies ist auch bei Tabs vorhanden, die während der aktuellen Sitzung noch nicht betrachtet wurden.
+Ähnlich dazu haben Tabs jetzt auch ein `unread`-Attribut; wenn dieses Attribut vorhanden ist, gibt es an, dass sich der Tab seit dem letzten Mal, als er aktiv war, verändert hat. Sie können dies verwenden, um Tabs anders zu gestalten, wenn sie sich seit dem letzten Blick des Benutzers darauf verändert haben. Dies ist auch bei Tabs der Fall, die während der aktuellen Sitzung noch nicht betrachtet wurden.

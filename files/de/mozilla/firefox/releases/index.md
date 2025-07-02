@@ -1,14 +1,12 @@
 ---
-title: Veröffentlichungsnotizen für Entwickler von Firefox
-short-title: Veröffentlichungsnotizen für Entwickler
+title: Firefox-Releasehinweise für Entwickler
+short-title: Releasehinweise für Entwickler
 slug: Mozilla/Firefox/Releases
 l10n:
-  sourceCommit: 8827bbbc544491e3b0b23a6b2c85b7a8db9b41bb
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
-
-Unten finden Sie Links zu den Veröffentlichungsnotizen für Entwickler zu jeder Firefox-Version. Diese mit Sorgfalt erstellten Notizen bieten Details darüber, welche Funktionen und APIs hinzugefügt und verbessert wurden und welche Fehler in jeder Firefox-Version beseitigt wurden. Alles geschrieben, um Entwicklern wie Ihnen die Informationen zu geben, die Sie am meisten benötigen. Gern geschehen.
+Unten finden Sie Links zu den Entwickler-Releasehinweisen für jede Firefox-Version. Diese liebevoll erstellten Hinweise bieten Details darüber, welche Funktionen und APIs hinzugefügt und verbessert wurden und welche Fehler in jeder Version von Firefox behoben wurden. Alles geschrieben, um Entwicklern wie Ihnen die Informationen zu geben, die sie am meisten benötigen. Gern geschehen.
 
 {{ListSubpages("",1,1,1)}}
 

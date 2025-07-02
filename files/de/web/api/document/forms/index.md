@@ -1,29 +1,36 @@
 ---
-title: "Dokument: forms-Eigenschaft"
+title: "Dokumentation: forms Eigenschaft"
 short-title: forms
 slug: Web/API/Document/forms
 l10n:
-  sourceCommit: 41018309bf920684054c0c2d81d362365b543493
+  sourceCommit: b756b8ef42bfd3b9e2f3d46fb44d41e2d3f15e25
 ---
 
 {{APIRef("DOM")}}
 
-Die **`forms`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
+Die **`forms`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document) Interface gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
 
 > [!NOTE]
-> Ebenso können Sie eine Liste der Benutzereingabeelemente eines Formulars mit der Eigenschaft [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) abrufen.
+> Ebenso können Sie auf eine Liste der Benutzereingabe-Elemente einer Formular-Komponente über die [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) Eigenschaft zugreifen.
 
-Benannte `<form>`-Elemente werden auch als Eigenschaften des `document`-Objekts selbst zugänglich gemacht. Zum Beispiel können sowohl `document["login-form"]` als auch `document.forms["login-form"]` auf das Formular mit dem Namen `login-form` zugreifen. Sich auf dieses Verhalten zu verlassen, ist riskant und wird nicht empfohlen. Es kann zu unerwarteten Konflikten mit einigen bestehenden oder zukünftigen APIs im Browser führen. Wenn beispielsweise Browser eine neue `document`-Eigenschaft mit demselben Namen wie Ihr Formular einführen, kann derselbe Code nicht mehr auf das Formularelement zugreifen. Verwenden Sie stattdessen immer `document.forms`.
+Sie können auch auf benannte `<form>`-Elemente als Eigenschaften des `document`-Objekts zugreifen.
+Zum Beispiel können sowohl `document["login-form"]` als auch `document.forms["login-form"]` verwendet werden, um auf das Formular mit dem Namen `login-form` zuzugreifen.
+
+> [!WARNING]
+> Das Verlassen auf das Muster `document["form-name"]` ist gefährlich und wird nicht empfohlen, da es zu unerwarteten Konflikten mit bestehenden oder zukünftigen APIs im Browser führen kann.
+> Zum Beispiel, wenn ein Browser in Zukunft eine eingebaute `document["login-form"]`-Eigenschaft einführt, kann Ihr Code möglicherweise nicht mehr auf das Formularelement zugreifen.
+> Um solche Konflikte zu vermeiden, verwenden Sie immer `document.forms`, um auf benannte Formulare zuzugreifen.
 
 ## Wert
 
-Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt, das alle Formulare des Dokuments auflistet. Jedes Element in der Sammlung ist ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das ein einzelnes `<form>`-Element darstellt.
+Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) Objekt, das alle Formulare des Dokuments auflistet.
+Jedes Element in der Sammlung ist ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das ein einzelnes `<form>`-Element darstellt.
 
-Wenn das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
+Wenn das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung leer, mit einer Länge von null.
 
 ## Beispiele
 
-### Formularinformationen abrufen
+### Abrufen von Formularinformationen
 
 ```html
 <form id="robby">
@@ -47,7 +54,7 @@ document.querySelectorAll("input[type=button]").forEach((button, i) => {
 });
 ```
 
-### Ein Element innerhalb eines Formulars abrufen
+### Abrufen eines Elements innerhalb eines Formulars
 
 ```js
 const selectForm = document.forms[index];
@@ -80,5 +87,5 @@ loginForm.elements.password.placeholder = "password";
 
 ## Siehe auch
 
-- [HTML Forms](/de/docs/Learn_web_development/Extensions/Forms)
-- {{HTMLElement("form")}} und das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interface
+- [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
+- {{HTMLElement("form")}} und das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interface

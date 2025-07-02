@@ -3,50 +3,50 @@ title: Firefox 142 für Entwickler
 short-title: Firefox 142 (Nightly)
 slug: Mozilla/Firefox/Releases/142
 l10n:
-  sourceCommit: 90fe07f7d8a790094d90eddf70071dd64f821c76
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 142, die Entwickler betreffen.
-Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
+Dieser Artikel bietet Informationen über Änderungen in Firefox 142, die Entwickler betreffen.
+Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/de/firefox/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte entkommentieren Sie alle Überschriften, für die Sie Notizen schreiben -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften ein, für die Sie Notizen schreiben. -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwickler-Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### CSS -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### APIs -->
 
@@ -54,11 +54,11 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernung -->
+<!-- #### Entfernungen -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
@@ -70,15 +70,15 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 <!-- ## Änderungen für Add-on-Entwickler -->
 
-<!-- ### Entfernung -->
+<!-- ### Entfernungen -->
 
-<!-- ### Sonstige -->
+<!-- ### Sonstiges -->
 
 ## Experimentelle Web-Features
 
 Diese Funktionen sind in Firefox 142 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Präferenz und setzen Sie diese auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

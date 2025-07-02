@@ -1,17 +1,15 @@
 ---
-title: Vollständiges Seiten-Zoom
+title: Vollbild-Zoom
 slug: Mozilla/Firefox/Releases/3/Full_page_zoom
 l10n:
-  sourceCommit: 19f950a288d2da4738ce2855083e87f1d541de2a
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
-
-Vollständiges Seiten-Zoom (oder einfach fullZoom) ist ein neues Feature in [Firefox 3](/de/docs/Mozilla/Firefox/Releases/3).
+Vollbild-Zoom (oder einfach fullZoom) ist ein neues Feature in [Firefox 3](/de/docs/Mozilla/Firefox/Releases/3).
 
 ### Beispiel (XUL:browser)
 
-Das folgende Beispiel zeigt die Verwendung für das aktuelle fokussierte Browserfenster. Dies ist die typische Nutzung für eine Firefox-Erweiterung.
+Das folgende Beispiel zeigt die Verwendung für das aktuell fokussierte Browserfenster. Dies ist die typische Anwendung für eine Firefox-Erweiterung.
 
 ```js
 var zoom = ZoomManager.getZoomForBrowser(gBrowser.selectedBrowser);
@@ -23,7 +21,7 @@ ZoomManager.setZoomForBrowser(gBrowser.selectedBrowser, ZoomManager.MIN);
 
 Hinweis: Dies ist wahrscheinlich veraltet.
 
-Sie können die fullZoom-Funktion auch für ein `<XUL:iframe>` verwenden. Da ein iframe jedoch keine markupDocumentViewer-Eigenschaft hat, müssen wir diese zuerst abrufen:
+Sie können das fullZoom-Feature auch für ein `<XUL:iframe>` verwenden. Da ein iframe jedoch keine markupDocumentViewer-Eigenschaft hat, müssen wir diese zuerst besorgen:
 
 ```js
 var zoom = 1.5;
@@ -37,6 +35,6 @@ docViewer.fullZoom = zoom;
 
 ### Referenzen
 
-- Seiten-Zoom-Erweiterung von Ted Mielczarek [fullpagezoom.xpi](https://ted.mielczarek.org/code/mozilla/fullpagezoom.xpi) für die neuesten Firefox 3.0 Nightlies
-- Der [Bugzilla-Fehler](https://bugzil.la/4821) zu fullZoom.
-- Dokumentation zur `nsIMarkupDocumentViewer`-Schnittstelle.
+- Seitenerweiterung von Ted Mielczarek [fullpagezoom.xpi](https://ted.mielczarek.org/code/mozilla/fullpagezoom.xpi) für die neuesten Firefox 3.0 Nightlies
+- Der [Bugzilla-Bug](https://bugzil.la/4821) über fullZoom.
+- `nsIMarkupDocumentViewer` Schnittstellendokumentation.
