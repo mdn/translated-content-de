@@ -3,12 +3,13 @@ title: "NavigationTransition: from-Eigenschaft"
 short-title: from
 slug: Web/API/NavigationTransition/from
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`from`** schreibgeschützte Eigenschaft der [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Schnittstelle gibt das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem der Übergang ausgeht.
+Die **`from`**-Eigenschaft der
+[`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Schnittstelle gibt den [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem der Übergang ausgeht.
 
 ## Wert
 
@@ -30,6 +31,5 @@ console.log(navigation.transition.from);
 
 ## Siehe auch
 
-- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

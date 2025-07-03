@@ -3,12 +3,13 @@ title: "NavigateEvent: intercept() Methode"
 short-title: intercept()
 slug: Web/API/NavigateEvent/intercept
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`intercept()`** Methode des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Interface fängt diese Navigation ab und wandelt sie in eine Navigation innerhalb des gleichen Dokuments zur [`destination`](/de/docs/Web/API/NavigationDestination/url) URL um.
+Die **`intercept()`** Methode des
+[`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces verhindert diese Navigation und wandelt sie in eine Navigation im selben Dokument zur [`destination`](/de/docs/Web/API/NavigationDestination/url) URL um.
 
 ## Syntax
 
@@ -22,17 +23,17 @@ intercept(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `handler` {{optional_inline}}
-      - : Eine Callback-Funktion, die definiert, wie das Navigationsverhalten gehandhabt werden sollte. Dies betrifft im Allgemeinen das Abrufen von Ressourcen und gibt ein Versprechen zurück.
+      - : Eine Callback-Funktion, die definiert, wie das Navigationsverhalten sein soll. Diese behandelt im Allgemeinen das Abrufen von Ressourcen und gibt ein Promise zurück.
     - `focusReset` {{optional_inline}}
       - : Definiert das Fokusverhalten der Navigation. Dies kann einen der folgenden Werte annehmen:
         - `after-transition`
-          - : Sobald das Versprechen, das von Ihrer Handler-Funktion zurückgegeben wird, aufgelöst ist, fokussiert der Browser das erste Element mit dem [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus) Attribut oder das {{htmlelement("body")}} Element, wenn kein Element `autofocus` gesetzt hat. Dies ist der Standardwert.
+          - : Sobald das von Ihrer Handler-Funktion zurückgegebene Promise aufgelöst wird, fokussiert der Browser das erste Element mit dem [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus) Attribut oder das {{htmlelement("body")}} Element, falls kein Element `autofocus` gesetzt hat. Dies ist der Standardwert.
         - `manual`
           - : Deaktiviert das Standardverhalten.
     - `scroll` {{optional_inline}}
       - : Definiert das Scrollverhalten der Navigation. Dies kann einen der folgenden Werte annehmen:
         - `after-transition`
-          - : Ermöglicht dem Browser das Scrollen zu handhaben, z.B. indem zu dem relevanten Fragment-Identifikator gescrollt wird, wenn die URL ein Fragment enthält, oder die Scrollposition an die gleiche Stelle wie beim letzten Mal wiederhergestellt wird, wenn die Seite neu geladen wird oder eine Seite in der Historie erneut aufgerufen wird. Dies ist der Standardwert.
+          - : Erlaubt dem Browser das Scrollen zu handhaben, beispielsweise durch Scrollen zu dem relevanten Fragment-Identifier, wenn die URL ein Fragment enthält, oder durch Wiederherstellen der Scroll-Position an derselben Stelle wie beim letzten Mal, wenn die Seite neu geladen wird oder eine Seite in der Historie erneut aufgerufen wird. Dies ist der Standardwert.
         - `manual`
           - : Deaktiviert das Standardverhalten.
 
@@ -43,9 +44,9 @@ Keiner (`undefined`).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist oder wenn die Navigation abgebrochen wurde.
+  - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist oder die Navigation abgebrochen wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Ereignis durch einen [`dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) Aufruf und nicht durch den User-Agent ausgelöst wurde oder wenn die Navigation nicht abgefangen werden kann (z.B. wenn [`NavigateEvent.canIntercept`](/de/docs/Web/API/NavigateEvent/canIntercept) `false` ist).
+  - : Wird ausgelöst, wenn das Ereignis durch einen [`dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)-Aufruf und nicht vom Benutzeragenten ausgelöst wurde oder wenn die Navigation nicht abgefangen werden kann (d.h. [`NavigateEvent.canIntercept`](/de/docs/Web/API/NavigateEvent/canIntercept) ist `false`).
 
 ## Beispiele
 
@@ -77,7 +78,7 @@ navigation.addEventListener("navigate", (event) => {
 
 ### Verwendung von `focusReset` und `scroll`
 
-Das Absenden eines Formulars kann durch Abfragen der [`NavigateEvent.formData`](/de/docs/Web/API/NavigateEvent/formData) Eigenschaft erkannt werden. Das folgende Beispiel macht jede Formularübermittlung zu einer, die auf der aktuellen Seite bleibt. In diesem Fall aktualisieren Sie das DOM nicht, sodass Sie das Standardverhalten für Zurücksetzen und Scrollen mit `focusReset` und `scroll` abbrechen können.
+Formularübermittlungen können erkannt werden, indem die [`NavigateEvent.formData`](/de/docs/Web/API/NavigateEvent/formData) Eigenschaft abgefragt wird. Das folgende Beispiel verwandelt jede Formularübermittlung in eine, die auf der aktuellen Seite bleibt. In diesem Fall aktualisieren Sie das DOM nicht, sodass Sie jegliches Standard-Reset- und Scrollverhalten mit `focusReset` und `scroll` abbrechen können.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -115,6 +116,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

@@ -3,7 +3,7 @@ title: "AudioContext: sinkchange-Ereignis"
 short-title: sinkchange
 slug: Web/API/AudioContext/sinkchange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 29d7119ff6b46801a0e5a2ce69b734b668812035
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
@@ -12,7 +12,7 @@ Das **`sinkchange`**-Ereignis des [`AudioContext`](/de/docs/Web/API/AudioContext
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("sinkchange", (event) => { })
@@ -28,7 +28,7 @@ onsinkchange = (event) => { }
 
 ## Beispiele
 
-Ein `sinkchange`-Ereignis-Listener kann verwendet werden, um eine Änderung des Audio-Ausgabegeräts zu melden. Beachten Sie, dass wenn [`sinkId`](/de/docs/Web/API/AudioContext/sinkId) ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt enthält, dies darauf hinweist, dass das Audio geändert wurde, um auf keinem Ausgabegerät abgespielt zu werden.
+Ein `sinkchange`-Ereignislistener kann verwendet werden, um eine Änderung des Audioausgabegeräts zu melden. Beachten Sie, dass wenn [`sinkId`](/de/docs/Web/API/AudioContext/sinkId) ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt enthält, dies darauf hinweist, dass das Audio geändert wurde, um auf keinem Ausgabegerät abgespielt zu werden.
 
 ```js
 audioCtx.addEventListener("sinkchange", () => {
@@ -40,7 +40,7 @@ audioCtx.addEventListener("sinkchange", () => {
 });
 ```
 
-Sehen Sie sich unser [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/) für funktionierenden Code an.
+Siehe unser [SetSinkId-Testbeispiel](https://mdn.github.io/dom-examples/audiocontext-setsinkid/) für funktionierenden Code (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/audiocontext-setsinkid) an).
 
 ## Spezifikationen
 
@@ -52,7 +52,6 @@ Sehen Sie sich unser [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/) f�
 
 ## Siehe auch
 
-- [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/)
-- [Wechseln des Ausgabegeräts im Web-Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
+- [Ändern des Zielausgabegeräts in Web Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
 - [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
 - [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)

@@ -3,33 +3,33 @@ title: "AudioContext: sinkId-Eigenschaft"
 short-title: sinkId
 slug: Web/API/AudioContext/sinkId
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 29d7119ff6b46801a0e5a2ce69b734b668812035
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`sinkId`** des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt die Sink-ID des aktuellen Audioausgabegeräts zurück.
+Die schreibgeschützte **`sinkId`**-Eigenschaft des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt die Sink-ID des aktuellen Ausgabe-Audiogeräts zurück.
 
 ## Wert
 
-Diese Eigenschaft gibt je nach Einstellung der Sink-ID einen der folgenden Werte zurück:
+Diese Eigenschaft gibt einen der folgenden Werte zurück, abhängig davon, wie die Sink-ID gesetzt wurde:
 
 - Ein leerer String
-  - : Wenn keine Sink-ID explizit gesetzt wurde, wird das standardmäßige Audioausgabegerät des Systems verwendet und `sinkId` gibt einen leeren String zurück.
+  - : Wenn eine Sink-ID nicht explizit gesetzt wurde, wird das standardmäßige System-Audioausgabegerät verwendet, und `sinkId` gibt einen leeren String zurück.
 - Ein String
-  - : Wenn die Sink-ID als Stringwert gesetzt ist (mithilfe von [`setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId) oder der `sinkId`-Option des [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext)-Konstruktors), gibt `sinkId` diesen selben Stringwert zurück.
+  - : Ist die Sink-ID als String-Wert gesetzt (mit [`setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId) oder der `sinkId`-Option im [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext)-Konstruktor), gibt `sinkId` diesen gleichen String-Wert zurück.
 - Ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt
-  - : Wenn die Sink-ID als Optionsobjekt gesetzt ist (mithilfe von [`setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId) oder der `sinkId`-Option des [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext)-Konstruktors), gibt `sinkId` ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt zurück, das die gleichen Werte widerspiegelt, die im ursprünglichen Optionsobjekt festgelegt wurden.
+  - : Ist die Sink-ID als Optionsobjekt gesetzt (mit [`setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId) oder der `sinkId`-Option im [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext)-Konstruktor), gibt `sinkId` ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt zurück, das die gleichen in dem ursprünglichen Optionsobjekt gesetzten Werte widerspiegelt.
 
 ## Beispiele
 
-In unserem [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/) erstellen wir einen Audiographen, der einen dreisekündigen Ausbruch von Weißem Rauschen über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) erzeugt, den wir auch über einen [`GainNode`](/de/docs/Web/API/GainNode) laufen lassen, um die Lautstärke etwas zu reduzieren. Wir bieten dem Benutzer auch ein Dropdown-Menü, um das Audioausgabegerät zu ändern.
+In unserem [SetSinkId-Testbeispiel](https://mdn.github.io/dom-examples/audiocontext-setsinkid/) (sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/audiocontext-setsinkid) an) erstellen wir einen Audio-Graphen, der eine drei Sekunden lange Folge von weißem Rauschen über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) erzeugt, den wir auch durch einen [`GainNode`](/de/docs/Web/API/GainNode) leiten, um die Lautstärke etwas zu reduzieren. Wir bieten dem Benutzer außerdem ein Dropdown-Menü an, um das Audioausgabegerät zu ändern.
 
-Wenn der Abspiel-Button geklickt wird, bauen wir den Audiographen zusammen und starten ihn, und wir loggen auch Informationen über das aktuelle Gerät in der Konsole basierend auf dem Wert von `sinkId`:
+Wenn die Wiedergabe-Taste gedrückt wird, bauen wir den Audio-Graphen zusammen und starten die Wiedergabe. Außerdem protokollieren wir Informationen über das aktuelle Gerät in der Konsole basierend auf dem Wert von `sinkId`:
 
 - Ein leerer String bedeutet, dass das Standardgerät weiterhin verwendet wird.
 - Wenn der Wert ein Objekt ist, wird das Audio auf keinem Gerät abgespielt, da wir ein Optionsobjekt mit `type: 'none'` gesetzt haben.
-- Ansonsten wird der Wert eine Sink-ID als String sein, sodass wir diese loggen.
+- Andernfalls wird der Wert eine Sink-ID-String sein, und wir protokollieren diese.
 
 ```js
 playBtn.addEventListener("click", () => {
@@ -62,7 +62,6 @@ playBtn.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/)
-- [Ändern des Zielausgabegeräts in Web Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
+- [Ändern des Ziel-Ausgabegeräts im Web Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
 - [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
 - [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event)

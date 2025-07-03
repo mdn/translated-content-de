@@ -3,12 +3,12 @@ title: "Navigation: currentEntry-Eigenschaft"
 short-title: currentEntry
 slug: Web/API/Navigation/currentEntry
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`currentEntry`** des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort darstellt, zu dem der Benutzer momentan navigiert ist.
+Die schreibgeschützte **`currentEntry`**-Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort repräsentiert, an dem sich der Benutzer gerade befindet.
 
 ## Wert
 
@@ -47,6 +47,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

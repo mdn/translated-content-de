@@ -3,12 +3,12 @@ title: "NavigateEvent: downloadRequest-Eigenschaft"
 short-title: downloadRequest
 slug: Web/API/NavigateEvent/downloadRequest
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`downloadRequest`** schreibgeschützte Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Dateinamen der Datei zurück, die für einen Download angefordert wurde, im Falle einer Download-Navigation (z.B. ein {{htmlelement("a")}}- oder {{htmlelement("area")}}-Element mit einem `download`-Attribut), oder `null` andernfalls.
+Die **`downloadRequest`**-Schreibgeschützte Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Dateinamen der Datei zurück, die für den Download angefordert wurde, im Falle einer Download-Navigation (z. B. ein {{htmlelement("a")}} oder {{htmlelement("area")}}-Element mit einem `download`-Attribut), oder `null` andernfalls.
 
 ## Wert
 
@@ -51,6 +51,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne Client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

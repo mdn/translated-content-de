@@ -1,25 +1,25 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Grundlagen der HTML-Texte"
-short-title: Grundlagen der HTML-Texte
+title: "Testen Sie Ihre Fähigkeiten: HTML-Textgrundlagen"
+short-title: HTML text basics
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: a53950c7d4faad58184e06f0da370e685742a695
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Das Ziel dieses Fähigkeitstests ist zu überprüfen, ob Sie verstehen, wie Text in HTML ausgezeichnet werden kann, um ihm Struktur und Bedeutung zu verleihen.
+Ziel dieses Fähigkeitstests ist es zu beurteilen, ob Sie verstehen, wie man Text in HTML markiert, um ihm Struktur und Bedeutung zu verleihen.
 
 > [!NOTE]
-> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Falls Sie nicht mehr weiterkommen, können Sie sich an uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatz-Elementen auszeichnen.
+In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatzelementen markieren.
 
-Um zu beginnen, können Sie im Code-Block unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/basic-text/basic-text1-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie im Codeblock unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/basic-text/basic-text1-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
 
-Wenn Ihnen ein Fehler unterläuft, können Sie Ihre Arbeit mithilfe der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit im MDN Playground mit der _Zurücksetzen_-Taste löschen. Wenn Sie wirklich feststecken, können Sie sich die Lösung am Ende des Abschnitts ansehen.
 
 ```html-nolint live-sample___text-basics-1
 Basic HTML Animals
@@ -35,7 +35,7 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsamer/setup CSS-Code -->
+<!-- Gemeinsamer/Setup-CSS-Code -->
 
 ```css hidden live-sample___text-basics-1 hidden live-sample___text-basics-2 live-sample___text-basics-3 live-sample___text-basics-4
 body {
@@ -81,14 +81,14 @@ p {
 
 {{ EmbedLiveSample('text-basics-1', "100%", 130) }}
 
-Das fertige Beispiel sollte so aussehen:
+Das fertige Beispiel sollte folgendermaßen aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text1-finished.html", '100%', 300)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte folgendermaßen aussehen:
 
 ```html
 <h1>Basic HTML Animals</h1>
@@ -114,11 +114,11 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste umwandeln und die zweite in eine geordnete Liste.
+In dieser Aufgabe möchten wir, dass Sie die erste unausformung markierte Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
 
-Um zu beginnen, können Sie im Code-Block unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/basic-text/basic-text2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie im Codeblock unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/basic-text/basic-text2-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
 
-Wenn Ihnen ein Fehler unterläuft, können Sie Ihre Arbeit mithilfe der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit im MDN Playground mit der _Zurücksetzen_-Taste löschen. Wenn Sie wirklich feststecken, können Sie sich die Lösung am Ende des Abschnitts ansehen.
 
 ```html-nolint live-sample___text-basics-2
 <h1>Looking at lists</h1>
@@ -160,14 +160,14 @@ ul {
 
 {{ EmbedLiveSample('text-basics-2', "100%", 220) }}
 
-Das fertige Beispiel sollte so aussehen:
+Das fertige Beispiel sollte folgendermaßen aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text2-finished.html", '100%', 400)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte folgendermaßen aussehen:
 
 ```html
 <h1>Looking at lists</h1>
@@ -197,9 +197,9 @@ Ihr fertiges HTML sollte so aussehen:
 
 In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
 
-Um zu beginnen, können Sie im Code-Block unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/advanced-text/advanced-text1-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie im Codeblock unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/advanced-text/advanced-text1-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
 
-Wenn Ihnen ein Fehler unterläuft, können Sie Ihre Arbeit mithilfe der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit im MDN Playground mit der _Zurücksetzen_-Taste löschen. Wenn Sie wirklich feststecken, können Sie sich die Lösung am Ende des Abschnitts ansehen.
 
 ```html-nolint live-sample___text-basics-3
 <h1>Advanced HTML Animals</h1>
@@ -230,14 +230,14 @@ dt {
 
 {{ EmbedLiveSample('text-basics-3', "100%", 160) }}
 
-Das fertige Beispiel sollte so aussehen:
+Das fertige Beispiel sollte folgendermaßen aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/advanced-text/advanced-text1-finished.html", '100%', 250)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte folgendermaßen aussehen:
 
 ```html
 <h1>Advanced HTML Animals</h1>
@@ -262,11 +262,11 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 4
 
-In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige inline-Elemente zu verwenden, um einige geeignete Wörter mit starker Wichtigkeit hervorzuheben und einige mit Betonung zu versehen.
+In dieser Aufgabe wird Ihnen ein Absatz zur Verfügung gestellt und Ihr Ziel ist es, einige der geeigneten Wörter mit starker Bedeutung und einige mit Betonung durch Inline-Elemente zu markieren.
 
-Um zu beginnen, können Sie im Code-Block unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/basic-text/basic-text3-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie im Codeblock unten auf **"Play"** klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/basic-text/basic-text3-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
 
-Wenn Ihnen ein Fehler unterläuft, können Sie Ihre Arbeit mithilfe der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit im MDN Playground mit der _Zurücksetzen_-Taste löschen. Wenn Sie wirklich feststecken, können Sie sich die Lösung am Ende des Abschnitts ansehen.
 
 ```html live-sample___text-basics-4
 <h1>Emphasis and importance</h1>
@@ -295,14 +295,14 @@ em {
 
 {{ EmbedLiveSample('text-basics-4', "100%", 160) }}
 
-Das fertige Beispiel sollte so ähnlich aussehen:
+Das fertige Beispiel sollte ungefähr so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text3-finished.html", '100%', 120)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte folgendermaßen aussehen:
 
 ```html
 <h1>Emphasis and importance</h1>

@@ -1,14 +1,14 @@
 ---
-title: "Navigation: `entries()` Methode"
+title: "Navigation: `entries()`-Methode"
 short-title: entries()
 slug: Web/API/Navigation/entries
 l10n:
-  sourceCommit: 30da97f103149960ac51726db2509be38f67efda
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`entries()`** Methode der [`Navigation`](/de/docs/Web/API/Navigation) Schnittstelle gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekten zurück, die alle vorhandenen Verlaufseinträge darstellen.
+Die **`entries()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Verlaufseinträge darstellen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekten.
+Ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten.
 
 ### Ausnahmen
 
@@ -36,9 +36,9 @@ Keine.
 let numOfEntries = navigation.entries().length - 1;
 ```
 
-### Ein intelligenter Zurück-Button
+### Eine intelligente Zurück-Schaltfläche
 
-Ein von der Seite bereitgestellter "Zurück"-Button kann Sie zurückbringen, sogar nach einem Neuladen, indem er die vorherigen Verlaufseinträge inspiziert:
+Eine auf der Seite bereitgestellte "Zurück"-Schaltfläche kann Sie zurückbringen, sogar nach einem Neuladen, indem sie die vorherigen Verlaufseinträge inspiziert:
 
 ```js
 backButtonEl.addEventListener("click", () => {
@@ -65,6 +65,5 @@ backButtonEl.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)

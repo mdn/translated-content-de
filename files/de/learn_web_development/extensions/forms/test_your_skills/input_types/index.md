@@ -1,24 +1,24 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Input-Typen"
+title: "Testen Sie Ihre Fähigkeiten: Eingabetypen"
 short-title: Input types
 slug: Learn_web_development/Extensions/Forms/Test_your_skills/Input_types
 l10n:
-  sourceCommit: 93f54b6e1fdfef1375233abb265f101bd6866f99
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie unseren Artikel [Die HTML5-Input-Typen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie unseren Artikel [Die HTML5-Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) verstanden haben.
 
 > [!NOTE]
-> Sie können die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen in den interaktiven Editor auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## HTML-Steuerelemente 1
+## HTML-Kontrollen 1
 
-Lassen Sie uns zuerst einige Input-Typen erkunden. Erstellen Sie geeignete Eingaben, damit ein Benutzer seine Daten aktualisieren kann für:
+Zuerst wollen wir einige Eingabetypen erkunden. Erstellen Sie geeignete Eingabefelder, damit ein Benutzer seine Details aktualisieren kann:
 
 1. E-Mail
-2. Webseite
+2. Website
 3. Telefonnummer
 4. Lieblingsfarbe
 
@@ -30,13 +30,13 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 >
 > [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/html5-controls/html5-controls1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-## HTML-Steuerelemente 2
+## HTML-Kontrollen 2
 
-Als Nächstes sollen Sie ein Schieberegler-Steuerelement implementieren, mit dem der Benutzer die maximale Anzahl von Personen auswählen kann, die er zu seiner Party einladen möchte.
+Als nächstes möchten wir, dass Sie eine Schiebereglersteuerung implementieren, mit der der Benutzer die maximale Anzahl von Personen auswählen kann, die zu seiner Party eingeladen werden sollen.
 
-1. Implementieren Sie ein einfaches Schieberegler-Steuerelement, das zusammen mit dem bereitgestellten Label verwendet wird.
-2. Geben Sie ihm einen Mindestwert von 1, einen Höchstwert von 30, einen Anfangswert von 10 und die Element `id` von `max-invite`.
-3. Erstellen Sie ein entsprechendes Ausgabe-Element, um den aktuellen Wert des Schiebereglers anzuzeigen. Geben Sie ihm eine Klasse von `invite-output` und verknüpfen Sie es semantisch mit der Eingabe. Wenn Sie dies korrekt ausführen, wird der Wert des Ausgabeelements automatisch aktualisiert, wenn der Schieberegler bewegt wird.
+1. Implementieren Sie eine grundlegende Schiebereglersteuerung, die zusammen mit dem bereitgestellten Label verwendet wird.
+2. Geben Sie ihr einen Minimalwert von 1, einen Maximalwert von 30, einen Anfangswert von 10 und eine Element-`id` von `max-invite`.
+3. Erstellen Sie ein entsprechendes Ausgabeelement, um den aktuellen Wert des Schiebereglers anzuzeigen. Geben Sie ihm eine Klasse von `invite-output` und verknüpfen Sie es semantisch mit der Eingabe. Wenn Sie dies korrekt machen, wird der JavaScript-Code auf der Seite den Ausgabewert automatisch aktualisieren, wenn der Schieberegler bewegt wird.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 

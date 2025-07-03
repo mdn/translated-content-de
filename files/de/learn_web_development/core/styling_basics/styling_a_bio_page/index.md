@@ -1,22 +1,22 @@
 ---
-title: "Herausforderung: Gestaltung einer Biographie-Seite"
-short-title: "Herausforderung: Biographie-Seite"
+title: "Herausforderung: Gestaltung einer Biografie-Seite"
+short-title: "Herausforderung: Biografie-Seite"
 slug: Learn_web_development/Core/Styling_basics/Styling_a_bio_page
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Getting_started", "Learn_web_development/Core/Styling_basics/Basic_selectors", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Herausforderung werden Sie eine einfache Biografie-Seite gestalten und dabei einige der Fähigkeiten testen, die Sie in den letzten Lektionen gelernt haben, einschließlich dem Schreiben von Selektoren und der Textgestaltung.
+In dieser Herausforderung werden Sie eine einfache Biografie-Seite gestalten und dabei einige der Fähigkeiten testen, die Sie in den letzten Lektionen gelernt haben, einschließlich der Erstellung von Selektoren und der Textgestaltung.
 
 > [!NOTE]
-> Sie können auf "Play" in den Live-Beispielen unten klicken, um den Code im MDN-Playground zu öffnen, oder Sie können den Code in Ihre eigene IDE oder einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/), oder [Glitch](https://glitch.com/) kopieren und einfügen.
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) melden.
+> Sie können auf "Play" in den unten stehenden Live-Beispielen klicken, um den Code im MDN Playground zu öffnen, oder Sie können den Code in Ihre eigene IDE oder einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) kopieren und einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Projektbeschreibung
 
-Das folgende Live-Beispiel zeigt eine Biografie, die mit CSS gestaltet wurde. Die verwendeten CSS-Eigenschaften sind wie folgt — jede verlinkt auf ihre Eigenschaftsseite auf MDN, die Ihnen weitere Beispiele zur Verwendung bietet.
+Das folgende Live-Beispiel zeigt eine Biografie, die mit CSS gestaltet wurde. Die verwendeten CSS-Eigenschaften sind wie folgt — jede verlinkt auf ihre Eigenschaftsseite bei MDN, die Ihnen weitere Beispiele zur Verwendung bietet.
 
 - {{cssxref("font-family")}}
 - {{cssxref("color")}}
@@ -26,27 +26,27 @@ Das folgende Live-Beispiel zeigt eine Biografie, die mit CSS gestaltet wurde. Di
 - {{cssxref("font-style")}}
 - {{cssxref("text-decoration")}}
 
-Im Beispiel gibt es bereits etwas CSS, das Teile des Dokuments mit Elementselektoren, Klassen und Pseudoklassen auswählt. Nehmen Sie die folgenden Änderungen an diesem CSS vor:
+Im Beispiel sind bereits einige CSS-Regeln vorhanden, die Teile des Dokuments mit Elementselektoren, Klassen und Pseudoklassen auswählen. Nehmen Sie die folgenden Änderungen an diesem CSS vor:
 
-1. Machen Sie die Überschrift erster Ebene pink, indem Sie das CSS-Farbstichwort `hotpink` verwenden.
-2. Geben Sie der Überschrift einen 10px gestrichelten {{cssxref("border-bottom")}}, der das CSS-Farbstichwort `purple` verwendet.
+1. Machen Sie die Überschrift der ersten Ebene pink, indem Sie das CSS-Farbschlüsselwort `hotpink` verwenden.
+2. Geben Sie der Überschrift einen 10px gepunkteten {{cssxref("border-bottom")}}, der das CSS-Farbschlüsselwort `purple` verwendet.
 3. Machen Sie die Überschrift der zweiten Ebene kursiv.
-4. Verleihen Sie der `ul`, die für die Kontaktdaten verwendet wird, eine {{cssxref("background-color")}} von `#eeeeee` und einen 5px soliden purpurnen {{cssxref("border")}}. Verwenden Sie etwas {{cssxref("padding")}}, um den Inhalt vom Rand wegzudrücken.
-5. Machen Sie die Links beim Hover `green`.
+4. Verleihen Sie der für die Kontaktdaten verwendeten `ul` eine {{cssxref("background-color")}} von `#eeeeee` und einen 5px breiten, festen, violetten {{cssxref("border")}}. Verwenden Sie etwas {{cssxref("padding")}}, um den Inhalt von der Grenze wegzuschieben.
+5. Machen Sie die Links beim Hover `grün`.
 
-## Tipps und Hinweise
+## Hinweise und Tipps
 
-- Verwenden Sie den [W3C CSS-Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu entdecken — Fehler, die Sie sonst möglicherweise übersehen hätten — damit Sie sie beheben können.
-- Versuchen Sie danach, einige auf dieser Seite nicht erwähnte Eigenschaften im [MDN CSS-Referenz](/de/docs/Web/CSS/Reference) nachzuschlagen und werden Sie abenteuerlustig!
-- Denken Sie daran, dass es hier keine falschen Antworten gibt — in diesem Stadium Ihres Lernens können Sie es sich leisten, ein wenig Spaß zu haben.
+- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu erkennen — Fehler, die Sie möglicherweise übersehen hätten — damit Sie sie beheben können.
+- Versuchen Sie anschließend, einige auf dieser Seite nicht erwähnte Eigenschaften im [MDN CSS Reference](/de/docs/Web/CSS/Reference) nachzuschlagen und seien Sie experimentierfreudig!
+- Denken Sie daran, dass es hier keine falsche Antwort gibt — in diesem Stadium Ihres Lernprozesses können Sie sich ein wenig Spaß erlauben.
 
 ## Beispiel
 
-Sie sollten am Ende etwas wie dieses Bild erhalten.
+Am Ende sollte es so aussehen wie auf diesem Bild.
 
 ![Screenshot, wie das Beispiel nach Abschluss der Bewertung aussehen sollte.](learn-css-basics-assessment.png)
 
-Hier sind HTML- und CSS-Codeblöcke und das Ergebnis ihrer Kombination:
+Hier sind HTML- und CSS-Codeblöcke sowie das Ergebnis ihrer Kombination:
 
 ```html live-sample___biog
 <h1>Jane Doe</h1>

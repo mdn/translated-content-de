@@ -3,29 +3,29 @@ title: "NavigateEvent: navigationType-Eigenschaft"
 short-title: navigationType
 slug: Web/API/NavigateEvent/navigationType
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`navigationType`** schreibgeschützte Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Typ der Navigation zurück — `push`, `reload`, `replace` oder `traverse`.
+Die schreibgeschützte **`navigationType`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Typ der Navigation zurück — `push`, `reload`, `replace` oder `traverse`.
 
 ## Wert
 
-Ein aufgezählter Wert, der den Typ der Navigation darstellt.
+Ein enumerierter Wert, der den Typ der Navigation darstellt.
 
 Die möglichen Werte sind:
 
-- `push`: Ein neuer Ort wird navigiert, was dazu führt, dass ein neuer Eintrag in die Verlaufsliste aufgenommen wird.
+- `push`: Es wird zu einem neuen Standort navigiert, wodurch ein neuer Eintrag zur Historienliste hinzugefügt wird.
 - `reload`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
 - `replace`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
 - `traverse`: Der Browser navigiert von einem bestehenden Verlaufseintrag zu einem anderen bestehenden Verlaufseintrag.
 
 ## Beispiele
 
-### Asynchrone Übergänge mit spezieller Rückwärts-/Vorwärts-Behandlung
+### Asynchrone Übergänge mit spezieller Behandlung von Zurück-/Vorwärts-Navigationen
 
-Manchmal ist es wünschenswert, Rückwärts-/Vorwärts-Navigationen speziell zu behandeln, z.B. durch die Wiederverwendung von zwischengespeicherten Ansichten, indem sie wieder auf den Bildschirm gebracht werden. Dies kann durch folgende Verzweigung erreicht werden:
+Manchmal ist es wünschenswert, Zurück-/Vorwärts-Navigationen speziell zu behandeln, z. B. durch Wiederverwendung zwischengespeicherter Ansichten, indem sie auf den Bildschirm gebracht werden. Dies kann wie folgt durch Verzweigungen erreicht werden:
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -73,6 +73,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

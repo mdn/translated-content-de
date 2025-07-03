@@ -1,73 +1,73 @@
 ---
-title: "Herausforderung: Das Layout einer Schul-Homepage gestalten"
-short-title: "Herausforderung: Schul-Homepage"
+title: "Herausforderung: Setzen einer Homepage für eine Gemeinschaftsschule"
+short-title: "Herausforderung: Homepage der Gemeinschaftsschule"
 slug: Learn_web_development/Core/Text_styling/Typesetting_a_homepage
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Web_fonts", "Learn_web_development/Core/CSS_layout", "Learn_web_development/Core/Text_styling")}}
 
-In dieser Herausforderung werden wir Ihr Verständnis für alle im Verlauf dieses Moduls behandelten Techniken zum Textstyling testen, indem wir Sie die Texte für die Homepage einer Gemeinschaftsschule gestalten lassen. Vielleicht haben Sie dabei sogar ein wenig Spaß.
+In dieser Herausforderung testen wir Ihr Verständnis aller Textstilisierungstechniken, die wir in diesem Modul behandelt haben, indem Sie den Text für die Homepage einer Gemeinschaftsschule stilisieren. Vielleicht haben Sie dabei auch etwas Spaß.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu beginnen, sollten Sie:
+Um mit dieser Herausforderung zu beginnen, sollten Sie:
 
-- Die [HTML](https://github.com/mdn/learning-area/blob/main/css/styling-text/typesetting-a-homepage-start/index.html) und [CSS](https://github.com/mdn/learning-area/blob/main/css/styling-text/typesetting-a-homepage-start/style.css) Dateien für die Übung sowie das bereitgestellte [externes Link-Icon](https://github.com/mdn/learning-area/blob/main/css/styling-text/typesetting-a-homepage-start/external-link-52.png) herunterladen.
-- Machen Sie eine Kopie davon auf Ihrem lokalen Computer.
+- Die [HTML](https://github.com/mdn/learning-area/blob/main/css/styling-text/typesetting-a-homepage-start/index.html) und [CSS](https://github.com/mdn/learning-area/blob/main/css/styling-text/typesetting-a-homepage-start/style.css) Dateien für die Übung sowie das bereitgestellte [Link-Icon für externe Links](https://github.com/mdn/learning-area/blob/main/css/styling-text/typesetting-a-homepage-start/external-link-52.png) herunterladen.
+- Eine Kopie davon auf Ihrem lokalen Computer erstellen.
 
-Alternativ könnten Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie könnten den HTML-Code einfügen und das CSS in einen dieser Online-Editoren schreiben und das [externes Link-Icon](https://mdn.github.io/learning-area/css/styling-text/typesetting-a-homepage-start/external-link-52.png) als Hintergrundbild nutzen.
+Alternativ könnten Sie einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) verwenden. Sie könnten den HTML-Code einfügen und das CSS in einen dieser Online-Editoren ausfüllen und dieses [Link-Icon für externe Links](https://mdn.github.io/learning-area/css/styling-text/typesetting-a-homepage-start/external-link-52.png) als Hintergrundbild verwenden.
 
 > [!NOTE]
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Wenn Sie feststecken, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Projektbrief
+## Projektanweisung
 
-Sie haben einen Roh-HTML-Code für die Homepage eines fiktiven Community Colleges sowie CSS, das die Seite in einem Drei-Spalten-Layout mit einigen grundlegenden Styles gestaltet, erhalten. Sie sollen Ihre zusätzlichen CSS-Änderungen unter dem Kommentar am Ende der CSS-Datei schreiben, um sicherzustellen, dass klar erkennbar ist, welche Teile von Ihnen stammen. Machen Sie sich keine Sorgen, wenn einige der Selektoren wiederholt werden; in diesem Fall sehen wir darüber hinweg.
+Ihnen wurde ein unverarbeiteter HTML-Code für die Homepage eines imaginären Community Colleges zur Verfügung gestellt, zusammen mit etwas CSS, das die Seite in ein dreispaltiges Layout umwandelt und eine andere rudimentäre Stilgebung bereitstellt. Sie sollen Ihre CSS-Ergänzungen unter dem Kommentar am Ende der CSS-Datei schreiben, um sicherzustellen, dass die von Ihnen vorgenommenen Änderungen leicht zu erkennen sind. Machen Sie sich keine Sorgen, wenn einige der Selektoren sich wiederholen; wir sehen Ihnen das in diesem Fall nach.
 
 Schriften:
 
-- Laden Sie zuerst ein paar frei verfügbare Schriften herunter. Da es sich um ein College handelt, sollten die Schriften so gewählt werden, dass sie der Seite ein ernstes, formelles, vertrauenswürdiges Gefühl verleihen: eine serifenbetonte Schrift für den allgemeinen Fließtext und eine serifenlose oder Slab-Serif für die Überschriften könnte passend sein.
-- Verwenden Sie einen geeigneten Dienst, um `@font-face`-Code für diese beiden Schriften zu generieren, der in verschiedenen Browsern funktioniert.
-- Wenden Sie Ihre Fließtext-Schrift global auf die Seite an und Ihre Überschrift-Schrift auf die Überschriften.
+- Laden Sie zunächst ein paar frei verfügbare Schriften herunter. Da es sich um ein College handelt, sollten die Schriften so gewählt werden, dass sie der Seite ein recht ernstes, formales, vertrauenswürdiges Gefühl verleihen: eine serifenschriftweite Schriftart für den allgemeinen Fließtext, kombiniert mit einer Grotesk- oder Slab-Serif-Schriftart für die Überschriften könnte schön sein.
+- Verwenden Sie einen geeigneten Dienst, um fehlerfreien `@font-face`-Code für diese beiden Schriftarten zu generieren.
+- Wenden Sie die Körperschriftart auf die gesamte Seite an und Ihre Überschriftenschriftart auf Ihre Überschriften.
 
-Allgemeines Textstyling:
+Allgemeine Textstilisierung:
 
-- Vergeben Sie eine globale `font-size` von `10px`.
-- Vergeben Sie Ihren Überschriften und anderen Elementtypen geeignete Schriftgrößen, definiert mit einer passenden relativen Einheit.
-- Vergeben Sie Ihrem Fließtext einen geeigneten `line-height`.
+- Geben Sie der Seite eine seitenweite `font-size` von `10px`.
+- Geben Sie Ihren Überschriften und anderen Elementtypen geeignete Schriftgrößen, die mit einer geeigneten relativen Einheit definiert sind.
+- Geben Sie Ihrem Fließtext eine geeignete `line-height`.
 - Zentrieren Sie Ihre oberste Überschrift auf der Seite.
-- Geben Sie Ihren Überschriften ein wenig `letter-spacing`, damit sie nicht zu gedrückt wirken und die Buchstaben atmen können.
-- Geben Sie Ihrem Fließtext etwas `letter-spacing` und `word-spacing`, wie es passend ist.
-- Vergeben Sie dem ersten Absatz nach jeder Überschrift in einem `<section>` etwas Einzug, z. B. 20px.
+- Geben Sie Ihren Überschriften ein wenig `letter-spacing`, damit sie nicht zu zusammengedrängt sind und die Buchstaben etwas atmen können.
+- Geben Sie Ihrem Fließtext etwas `letter-spacing` und `word-spacing`, wo es passend ist.
+- Geben Sie dem ersten Absatz nach jeder Überschrift in der `<section>` einen kleinen Text-Einzug, sagen wir 20px.
 
 Links:
 
-- Vergeben Sie den Link-, Besucht-, Fokus- und Hover-Zuständen Farben, die zu den Farben der horizontalen Balken am oberen und unteren Rand der Seite passen.
-- Stellen Sie sicher, dass Links standardmäßig unterstrichen sind, aber wenn Sie darüber fahren oder sie fokussieren, das Unterstrichen-Sein verschwindet.
-- Entfernen Sie den standardmäßigen Fokusrahmen von ALLEN Links auf der Seite.
-- Vergeben Sie dem aktiven Zustand ein merklich anderes Styling, damit es sich gut abhebt und dennoch in das Gesamtdesign passt.
-- Stellen Sie sicher, dass _externe_ Links das externe Link-Icon neben sich haben.
+- Geben Sie den Link-, besuchten, Fokus- und Hover-Zuständen einige Farben, die zu den Farben der horizontalen Balken oben und unten auf der Seite passen.
+- Sorgen Sie dafür, dass Links standardmäßig unterstrichen sind, aber wenn Sie den Mauszeiger darauf bewegen oder den Fokus darauf setzen, verschwindet die Unterstreichung.
+- Entfernen Sie die standardmäßige Fokusumrandung von ALLEN Links auf der Seite.
+- Geben Sie dem aktiven Zustand ein merklich anderes Styling, sodass es sich schön abhebt, aber immer noch in das Gesamtdesign der Seite passt.
+- Sorgen Sie dafür, dass _externe_ Links das externe Link-Icon neben sich haben.
 
 Listen:
 
-- Achten Sie darauf, dass der Abstand Ihrer Listen und Listenelemente gut zum Gesamtstyling der Seite passt. Jedes Listenelement sollte die gleiche `line-height` haben wie eine Zeile des Fließtextes, und jede Liste sollte oben und unten den gleichen Abstand haben wie zwischen den Absätzen.
-- Vergeben Sie Ihren Listenelementen ein schönes Aufzählungszeichen, das zum Design der Seite passt. Es steht Ihnen frei, ein benutzerdefiniertes Aufzählungsbild oder etwas anderes zu wählen.
+- Achten Sie darauf, dass die Abstände Ihrer Listen und Listeneinträge gut mit dem Gesamtdesign der Seite harmonieren. Jeder Listeneintrag sollte den gleichen `line-height` wie eine Absatzlinie haben, und jede Liste sollte oben und unten den gleichen Abstand haben wie zwischen Absätzen.
+- Geben Sie Ihren Listeneinträgen ein nettes Symbol, das zum Design der Seite passt. Es liegt an Ihnen, ob Sie ein benutzerdefiniertes Symbolbild oder etwas anderes wählen.
 
 Navigationsmenü:
 
-- Gestalten Sie Ihr Navigationsmenü so, dass es mit der Seite harmoniert.
+- Stylen Sie Ihr Navigationsmenü so, dass es mit der Seite harmoniert.
 
-## Tipps und Hinweise
+## Hinweise und Tipps
 
-- Sie müssen den HTML-Code für diese Übung nicht bearbeiten.
-- Sie müssen das Navigationsmenü nicht unbedingt wie Schaltflächen aussehen lassen, aber es sollte etwas höher sein, damit es nicht seltsam an der Seite der Seite wirkt; denken Sie auch daran, dass dies ein vertikales Navigationsmenü sein muss.
+- Sie müssen den HTML-Code für diese Übung in keiner Weise bearbeiten.
+- Sie müssen das Navigationsmenü nicht unbedingt wie Buttons aussehen lassen, aber es muss etwas höher sein, damit es auf der Seite nicht dumm aussieht; denken Sie auch daran, dass es sich hierbei um ein vertikales Navigationsmenü handeln muss.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt ein Beispiel dafür, wie das fertige Design aussehen könnte:
+Der folgende Screenshot zeigt ein Beispiel, wie das fertige Design aussehen könnte:
 
-![Ein Screenshot des fertigen Design-Challenges. Der obere Titel lautet 'St Huxley's Community College'. Es gibt eine rote Linie, die den Banner-Header vom Inhalt trennt. Der Hauptinhalt hat drei Spalten, zwei davon enthalten Text und eine vertikale Navigationsleiste in der dritten Spalte.](example2.png)
+![Ein Screenshot des fertigen Herausforderungsdesigns. Die oberste Überschrift lautet 'St Huxley's Community College'. Es gibt eine rote Linie, die den Banner-Header vom Inhalt trennt. Der Hauptinhalt hat drei Spalten, zwei enthalten Text und eine vertikale Navigationsleiste in der dritten Spalte.](example2.png)
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Web_fonts", "Learn_web_development/Core/CSS_layout", "Learn_web_development/Core/Text_styling")}}

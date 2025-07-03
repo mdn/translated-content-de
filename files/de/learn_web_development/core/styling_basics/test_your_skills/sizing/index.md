@@ -1,27 +1,27 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Größenanpassung"
+title: "Testen Sie Ihr Können: Größenanpassung"
 short-title: Sizing
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Sizing
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Ziel dieses Tests ist es, zu beurteilen, ob Sie die verschiedenen Möglichkeiten zur [Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) verstehen.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie die verschiedenen Möglichkeiten zur [Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) verstehen.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und ihn in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Wenn Sie feststecken, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Klicken Sie **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Klemmbrettsymbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe haben Sie zwei Boxen. Die erste sollte so dimensioniert sein, dass die Höhe mindestens 100 Pixel beträgt, auch wenn es weniger Inhalt gibt, der sie auf diese Höhe bringen würde. Jedoch sollte der Inhalt nicht überlaufen, wenn es mehr Inhalt gibt, als in 100 Pixel passt. Testen Sie diese Box, indem Sie den Inhalt aus dem HTML entfernen, um sicherzustellen, dass Sie auch ohne Inhalt eine 100 Pixel hohe Box erhalten.
+In dieser Aufgabe haben Sie zwei Boxen. Die erste sollte so dimensioniert werden, dass die Höhe mindestens 100 Pixel beträgt, selbst wenn der Inhalt geringer ist und dadurch die Box nicht wachsen würde. Der Inhalt sollte jedoch nicht überlaufen, wenn es mehr Inhalt gibt, als in 100 Pixel passt. Testen Sie diese Box, indem Sie den Inhalt aus dem HTML entfernen, um sicherzustellen, dass Sie immer noch eine 100 Pixel hohe Box haben, selbst ohne Inhalt.
 
-Die zweite Box sollte auf 100 Pixel Höhe festgelegt sein, so dass der Inhalt überläuft, wenn es zu viel wird.
+Die zweite Box sollte fest auf 100 Pixel Höhe eingestellt sein, sodass der Inhalt überläuft, wenn es zu viel Inhalt gibt.
 
-![Zwei Boxen, eine mit überlaufendem Inhalt](mdn-sizing-height-min-height.png)
+![Zwei Boxen, eine mit überfließendem Inhalt](mdn-sizing-height-min-height.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubauen:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___height-min-height
 <div class="box box1">
@@ -69,7 +69,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es gibt zwei Boxen, die erste sollte eine Mindesthöhe haben, in diesem Fall wird sie sich vergrößern, um den zusätzlichen Inhalt aufzunehmen, aber wenn Sie Inhalt entfernen, wird die Box zumindest so hoch wie die `min-height` sein. Der zweiten wird eine feste Höhe zugewiesen, wodurch der Inhalt überlaufen wird.
+Es gibt zwei Boxen, die erste sollte eine Mindesthöhe haben, wobei sie sich bei zusätzlichem Inhalt ausdehnt, aber bei entfernten Inhalten mindestens so hoch wie die `min-height` bleibt. Die zweite hat eine feste Höhe, was dazu führt, dass der Inhalt überläuft.
 
 ```css
 .box1 {
@@ -85,13 +85,13 @@ Es gibt zwei Boxen, die erste sollte eine Mindesthöhe haben, in diesem Fall wir
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben Sie eine Box, die eine weitere Box enthält. Ihre Aufgabe ist es, die innere Box auf 60 % der Breite der äußeren Box zu setzen. Der Wert der {{cssxref("box-sizing")}}-Eigenschaft ist auf `border-box` gesetzt, was bedeutet, dass die Gesamtbreite jegliches Padding und den Rahmen einschließt. Sie sollten der inneren Box auch ein Padding von 10 % geben, indem Sie die Breite (oder die inline size) als Größe verwenden, von der dieser Prozentsatz berechnet wird.
+In dieser Aufgabe haben Sie eine Box, die eine weitere Box enthält. Ihre Aufgabe ist es, die innere Box 60% der Breite der äußeren Box zu machen. Der Wert der {{cssxref("box-sizing")}}-Eigenschaft ist auf `border-box` gesetzt, was bedeutet, dass die Gesamtbreite jegliche Polsterung und den Rand einschließt. Sie sollten der inneren Box auch eine Polsterung von 10% geben, wobei die Breite (oder Inline-Größe) als Basis verwendet wird, von der dieser Prozentsatz berechnet wird.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte dem untenstehenden Bild ähneln:
 
-![Eine Box mit einer weiteren Box darin verschachtelt](mdn-sizing-percentages.png)
+![Eine Box mit einer weiteren Box darin](mdn-sizing-percentages.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubauen:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___percentages
 <div class="box">
@@ -131,7 +131,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Machen Sie die Box 60 % des Containers und geben Sie ihr auf allen Seiten 10 % Padding. Alle Elemente haben bereits `box-sizing: border-box`, damit Sie sich nicht um die Breite kümmern müssen, die Sie verwenden:
+Machen Sie die Box 60% des Containers und geben Sie ihr auf allen Seiten eine Polsterung von 10%.
+Alle Elemente haben bereits `box-sizing: border-box`, damit Sie sich keine Gedanken darüber machen müssen, welche Breite Sie verwenden:
 
 ```css
 * {
@@ -147,13 +148,13 @@ Machen Sie die Box 60 % des Containers und geben Sie ihr auf allen Seiten 10 % P
 
 ## Aufgabe 3
 
-In dieser Aufgabe haben Sie zwei Bilder in Boxen. Ein Bild ist kleiner als die Box, das andere ist größer und bricht aus der Box heraus. Wenn Sie sich vorstellen, dass die Box responsive ist und daher wachsen und schrumpfen könnte, welche Eigenschaft würden Sie auf das Bild anwenden, sodass das große Bild in die Box hinein schrumpft, aber das kleine Bild sich nicht dehnt.
+In dieser Aufgabe haben Sie zwei Bilder in Boxen. Ein Bild ist kleiner als die Box, das andere ist größer und bricht aus der Box heraus. Wenn Sie sich vorstellen, dass die Box reaktionsfähig ist und daher wachsen und schrumpfen könnte, welche Eigenschaft würden Sie auf das Bild anwenden, damit das große Bild in die Box schrumpft, das kleine Bild jedoch nicht gedehnt wird.
 
-Ihr Endergebnis sollte wie die Bilder unten aussehen:
+Ihr Endergebnis sollte den untenstehenden Bildern ähneln:
 
 ![Zwei Boxen mit Bildern darin](mdn-sizing-max-width.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubauen:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___max-width
 <div class="box">
@@ -192,7 +193,7 @@ img {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Das Beispiel hat ein Bild, das aus der Box herausbricht, und eines, das kleiner ist als die Box. Sie müssen `max-width` auf 100 % setzen, um das größere Bild nur so groß wie die Box wachsen zu lassen. Wenn Sie `width: 100%` verwenden, wird das kleine Bild gestreckt.
+Das Beispiel hat ein Bild, das aus der Box herausbricht, und eines, das kleiner als die Box ist. Sie müssen `max-width` auf 100% setzen, damit das größere Bild nur so groß wie die Box wächst. Wenn Sie `width: 100%` verwenden, wird das kleine Bild gestreckt.
 
 ```css
 img {
@@ -204,4 +205,4 @@ img {
 
 ## Siehe auch
 
-- [CSS Styling Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [CSS Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)

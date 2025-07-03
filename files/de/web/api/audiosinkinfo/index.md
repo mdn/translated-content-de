@@ -2,23 +2,23 @@
 title: AudioSinkInfo
 slug: Web/API/AudioSinkInfo
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 29d7119ff6b46801a0e5a2ce69b734b668812035
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Das **`AudioSinkInfo`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert Informationen, die die Sink-ID eines [`AudioContext`](/de/docs/Web/API/AudioContext) beschreiben und über [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) abgerufen werden.
+Die **`AudioSinkInfo`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) stellt Informationen bereit, die die `sink ID` eines [`AudioContext`](/de/docs/Web/API/AudioContext) beschreiben und über [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) abgerufen werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`type`](/de/docs/Web/API/AudioSinkInfo/type) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Typ des Audioausgabegeräts zurück.
+  - : Gibt den Typ des Audio-Ausgabegeräts zurück.
 
 ## Beispiele
 
-Wenn ein neuer [`AudioContext`](/de/docs/Web/API/AudioContext) mit einem `sinkId`-Wert von `{ type: 'none' }` erstellt wird, gibt ein späterer Aufruf von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) ein `AudioSinkInfo`-Objekt zurück, das `type: 'none'` enthält. Dies ist derzeit der einzige verfügbare Wert.
+Wenn ein neuer [`AudioContext`](/de/docs/Web/API/AudioContext) mit einem `sinkId`-Wert von `{ type: 'none' }` erstellt wird, wird ein späterer Aufruf von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) im Code ein `AudioSinkInfo`-Objekt zurückgeben, das `type: 'none'` enthält. Dies ist derzeit der einzige verfügbare Wert.
 
 ```js
 audioCtx = new window.AudioContext({
@@ -40,7 +40,7 @@ audioCtx.sinkId;
 
 ## Siehe auch
 
-- [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/)
+- [SetSinkId-Testbeispiel](https://mdn.github.io/dom-examples/audiocontext-setsinkid/) (sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/audiocontext-setsinkid) an)
 - [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
 - [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)
 - [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event)

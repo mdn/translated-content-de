@@ -3,33 +3,33 @@ title: "Testen Sie Ihre Fähigkeiten: Flexbox"
 short-title: Flexbox
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Flexbox
 l10n:
-  sourceCommit: 2bde1cab935c3b36bf66dc9fbf1ffb6a20b5f708
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie verstehen, wie sich [Flexbox und Flex-Elemente](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) verhalten. Unten sind vier Sätze von Gestaltungsproblemen aufgeführt, die Sie mit Flexbox lösen können. Ihre Aufgabe ist es, die Probleme zu beheben.
+Das Ziel dieses Fähigkeitstests ist zu beurteilen, ob Sie verstehen, wie [flexbox und flex items](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) funktionieren. Unten finden Sie vier Sätze von Designproblemen, die Sie mit Flexbox lösen können. Ihre Aufgabe ist es, die Probleme zu beheben.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den Codeblöcken in Aufgaben 1, 2 und 3, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Klemmbrett-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Klicken Sie auf **"Play"** in den Codeblöcken in den Aufgaben 1, 2 und 3, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Interaktive Herausforderung
 
-Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Flexbox-Herausforderung, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
+Zuallererst bieten wir Ihnen eine unterhaltsame, interaktive Flexbox-Herausforderung, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds) [Scrimba](https://scrimba.com/home) erstellt wurde.
 
-Sehen Sie sich das eingebettete Scrim an und erledigen Sie alle Aufgaben in der Zeitleiste (die kleinen Geistersymbole), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Schauen Sie sich das eingebettete Scrim an und erledigen Sie alle Aufgaben auf der Zeitleiste (die kleinen Geister-Symbole), indem Sie die Anweisungen befolgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter anschauen, um zu sehen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<scrim-inline url="https://scrimba.com/frontend-path-c0j/~03a" scrimtitle="Flexbox alignment challenges"></scrim-inline>
+<scrim-inline url="https://scrimba.com/frontend-path-c0j/~03a" scrimtitle="Flexbox Ausrichtungsherausforderungen"></scrim-inline>
 
 ## Aufgabe 1
 
-In dieser Aufgabe sind die Listenelemente die Navigation für eine Website. Sie sollten als Reihe angeordnet werden, mit dem gleichen Abstand zwischen jedem Element.
+In dieser Aufgabe sind die Listenelemente die Navigation für eine Website. Sie sollten als Reihe angeordnet sein, mit einem gleichen Abstand zwischen jedem Element.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
 
-![Flex-Elemente als Reihe mit Abständen dazwischen angeordnet.](flex-task1.png)
+![Flex-Elemente als Reihe mit Abstand zwischen ihnen angeordnet.](flex-task1.png)
 
-Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel wiederherzustellen:
+Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___flexbox1
 <nav>
@@ -74,7 +74,7 @@ nav ul {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie können `display: flex` anwenden und die Abstände mit der Eigenschaft `justify-content` steuern:
+Sie können `display: flex` anwenden und den Abstand mit der Eigenschaft `justify-content` steuern:
 
 ```css
 nav ul {
@@ -87,15 +87,15 @@ nav ul {
 
 ## Aufgabe 2
 
-In dieser Aufgabe sind die Listenelemente alle unterschiedlich groß, aber wir möchten, dass sie als drei gleich große Spalten angezeigt werden, unabhängig davon, welcher Inhalt in jedem Element enthalten ist.
+In dieser Aufgabe sind die Listenelemente alle unterschiedlich groß, aber wir möchten, dass sie als drei gleich große Spalten angezeigt werden, unabhängig davon, welcher Inhalt sich in jedem Element befindet.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
 
-![Flex-Elemente als drei gleich große Spalten mit unterschiedlichem Inhalt angeordnet.](flex-task2.png)
+![Flex-Elemente als drei gleich große Spalten mit unterschiedlichem Inhalt.](flex-task2.png)
 
-**Bonusfrage:** Können Sie jetzt das erste Element doppelt so groß machen wie die anderen Elemente?
+**Bonusfrage:** Können Sie nun das erste Element doppelt so groß machen wie die anderen Elemente?
 
-Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel wiederherzustellen:
+Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___flexbox2
 <ul>
@@ -142,7 +142,7 @@ li {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist am besten, Kurzschreibweisen zu verwenden. In diesem Szenario ist `flex: 1` wahrscheinlich die beste Antwort, und das optimalste Ergebnis wäre:
+Es ist am besten, Kurzschreibweisen zu verwenden, daher ist in diesem Szenario `flex: 1` wahrscheinlich die beste Antwort, und das optimalste Ergebnis wäre:
 
 ```css
 ul {
@@ -166,11 +166,11 @@ li:first-child {
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass Sie diese Elemente als Reihen anordnen, wie auf dem Bild unten:
+In dieser Aufgabe möchten wir, dass Sie diese Elemente in Reihen anordnen, wie auf dem Bild unten:
 
-![Eine Reihe von Elementen, die als Reihen angezeigt werden.](flex-task4.png)
+![Eine Reihe von Elementen, die als Reihen dargestellt werden.](flex-task4.png)
 
-Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel wiederherzustellen:
+Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___flexbox4
 <ul>
@@ -221,7 +221,7 @@ li {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe erfordert ein Verständnis der Eigenschaft `flex-wrap`, um Flexlinien zu umbrechen. Zusätzlich müssen Sie, um sicherzustellen, dass Sie etwas erhalten, das wie das Beispiel aussieht, `flex: auto` auf das Kind setzen (oder `flex: 1 1 auto;`).
+Diese Aufgabe erfordert ein Verständnis der Eigenschaft `flex-wrap`, um Flexzeilen zu umbrechen. Um sicherzustellen, dass Sie etwas erhalten, das wie das Beispiel aussieht, müssen Sie `flex: auto` auf das Kind setzen (oder `flex: 1 1 auto;`).
 
 ```css
 ul {
@@ -238,4 +238,4 @@ li {
 
 ## Siehe auch
 
-- [CSS Styling Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [CSS Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)

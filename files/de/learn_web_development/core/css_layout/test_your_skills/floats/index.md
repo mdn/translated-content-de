@@ -3,23 +3,23 @@ title: "Testen Sie Ihre Fähigkeiten: Floats"
 short-title: Floats
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Floats
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Das Ziel dieses Skill-Tests ist es, zu beurteilen, ob Sie [Floats in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Floats) mithilfe der {{CSSxRef("float")}} und {{CSSxRef("clear")}} Eigenschaften und Werte sowie anderer Methoden zum Klären von Floats verstehen. Sie werden drei kleine Aufgaben durchlaufen, die verschiedene Elemente des gerade behandelten Materials verwenden.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie die [Floats in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Floats) anhand der {{CSSxRef("float")}}- und {{CSSxRef("clear")}}-Eigenschaften und Werte sowie anderer Methoden zum Freigeben von Floats verstehen. Sie werden drei kleine Aufgaben bearbeiten, die verschiedene Elemente des Materials verwenden, das Sie gerade behandelt haben.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den unten stehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Zwischensymbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Klicken Sie auf **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Zwischenablage-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
 > Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe müssen Sie die beiden Elemente mit einer Klasse von `float1` und `float2` links bzw. rechts floaten. Der Text sollte dann zwischen den beiden Kästen erscheinen, wie im Bild unten:
+In dieser Aufgabe müssen Sie die beiden Elemente mit einer Klasse von `float1` und `float2` links bzw. rechts schweben lassen. Der Text sollte dann zwischen den beiden Kästchen erscheinen, wie im Bild unten:
 
-![Zwei Blöcke, die links und rechts von etwas Text angezeigt werden.](float-task1.png)
+![Zwei Blöcke, die links und rechts von einem Text angezeigt werden.](float-task1.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___float1
 <div class="box">
@@ -63,7 +63,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie können `float` für beide Boxen verwenden:
+Sie können `float` für beide Kästchen verwenden:
 
 ```css
 .float1 {
@@ -79,13 +79,13 @@ Sie können `float` für beide Boxen verwenden:
 
 ## Aufgabe 2
 
-In dieser Aufgabe sollte das Element mit einer Klasse von `float` links floaten. Dann möchten wir, dass die erste Textzeile neben diesem Element angezeigt wird, aber die folgende Textzeile (die eine Klasse von `below` hat) darunter angezeigt wird.
+In dieser Aufgabe sollte das Element mit einer Klasse von `float` nach links schweben. Dann möchten wir, dass die erste Textzeile neben diesem Element angezeigt wird, aber die folgende Textzeile (die eine Klasse von `below` hat) darunter angezeigt wird.
 
-Ihr finales Ergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Kasten, der links von einer Textzeile angezeigt wird, mit weiterem Text darunter.](float-task2.png)
+![Ein Kasten, der links von einer Textzeile angezeigt wird, mit etwas mehr Text darunter.](float-task2.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___float2
 <div class="box">
@@ -129,7 +129,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen das Element nach links floaten lassen und dann `clear: left` zur Klasse des zweiten Absatzes hinzufügen:
+Sie müssen das Element nach links fließen lassen und dann `clear: left` zur Klasse für den zweiten Absatz hinzufügen:
 
 ```css
 .float {
@@ -145,11 +145,11 @@ Sie müssen das Element nach links floaten lassen und dann `clear: left` zur Kla
 
 ## Aufgabe 3
 
-In dieser Aufgabe haben wir ein gefloatetes Element. Die Box, die den Float und den Text umschließt, wird hinter dem Float angezeigt. Verwenden Sie die modernste verfügbare Methode, um den Hintergrund der Box zu veranlassen, sich bis unter den Float zu erstrecken, wie im Bild unten:
+In dieser Aufgabe haben wir ein schwebendes Element. Der Kasten, der den Float und den Text umschließt, wird hinter dem Float angezeigt. Verwenden Sie die modernste verfügbare Methode, um den Hintergrund des Kastens bis unter das Float zu erweitern, wie im Bild unten:
 
-![Ein Block, der rechts von etwas Text angezeigt wird, beide umschlossen von einer Box mit Hintergrundfarbe.](float-task3.png)
+![Ein Block, der rechts von einem Text angezeigt wird, beide umschlossen von einem Kasten mit Hintergrundfarbe.](float-task3.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___float3
 <div class="box">
@@ -201,8 +201,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Beseitigen Sie die Box unter dem gefloateten Element, indem Sie `display: flow-root` zur Klasse für `.box` hinzufügen.
-Andere Methoden könnten `overflow` oder ein clearfix Hack sein, jedoch beschreiben die Lernmaterialien die `flow-root` Methode als modernen Weg, dies zu erreichen.
+Entfernen Sie das Element unter dem schwebenden Element, indem Sie `display: flow-root` zur Klasse für `.box` hinzufügen. Andere Methoden könnten die Verwendung von `overflow` oder ein Clearfix-Hack sein, jedoch beschreiben die Lernmaterialien die `flow-root`-Methode als den modernen Weg, dies zu erreichen.
 
 ```css
 .box {
@@ -214,4 +213,4 @@ Andere Methoden könnten `overflow` oder ein clearfix Hack sein, jedoch beschrei
 
 ## Siehe auch
 
-- [CSS Styling Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [CSS Stil-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)

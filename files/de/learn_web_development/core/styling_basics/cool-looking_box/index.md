@@ -1,27 +1,27 @@
 ---
-title: "Herausforderung: Ein cool aussehender Kasten"
-short-title: "Herausforderung: Stilvolle Kastenstile"
+title: "Herausforderung: Eine cool aussehende Box"
+short-title: "Herausforderung: Elegante Box-Stile"
 slug: Learn_web_development/Core/Styling_basics/Cool-looking_box
 l10n:
-  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Bewertung erhalten Sie weitere Übung im Erstellen cool aussehender Kästen, indem Sie versuchen, einen auffälligen Kasten zu erstellen.
+In dieser Aufgabe üben Sie weiterhin das Erstellen von cool aussehenden Boxen, indem Sie versuchen, eine auffällige Box zu kreieren.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Bevor Sie sich an dieser Bewertung versuchen, sollten Sie bereits alle Artikel in diesem Modul durchgearbeitet haben.
+        Bevor Sie diese Aufgabe in Angriff nehmen, sollten Sie alle Artikel in diesem Modul bereits durchgearbeitet haben.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Das Verständnis des CSS-Boxmodells und anderer mit Kästen verbundener Funktionen wie Rahmen und Hintergründe zu testen.
+        Das Verständnis des CSS-Box-Modells und anderer boxbezogener Eigenschaften wie Ränder und Hintergründe zu testen.
       </td>
     </tr>
   </tbody>
@@ -29,9 +29,9 @@ In dieser Bewertung erhalten Sie weitere Übung im Erstellen cool aussehender K�
 
 ## Ausgangspunkt
 
-Um mit dieser Bewertung zu beginnen, sollten Sie:
+Um mit dieser Aufgabe zu beginnen, sollten Sie:
 
-- Speichern Sie das unten gezeigte HTML und CSS als zwei separate Dateien — `index.html` und `style.css` — in einem neuen Verzeichnis.
+- Den unten gezeigten HTML- und CSS-Code als zwei separate Dateien — `index.html` und `style.css` — in einem neuen Verzeichnis speichern.
 
 ### HTML
 
@@ -60,44 +60,44 @@ html {
 /* Your CSS below here */
 ```
 
-Alternativ können Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden.
-Sie können das HTML dort einfügen und das CSS in einem dieser Online-Editoren ausfüllen.
+Alternativ können Sie einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) verwenden.
+Sie können den HTML-Code einfügen und das CSS in einen dieser Online-Editoren einfüllen.
 
 > [!NOTE]
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich an uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) wenden.
 
 ## Projektbeschreibung
 
-Ihre Aufgabe ist es, einen coolen, stilvollen Kasten zu erstellen und den Spaß auszuprobieren, den wir mit CSS haben können.
+Ihre Aufgabe ist es, eine coole, elegante Box zu erstellen und die Möglichkeiten von CSS zu erkunden.
 
 ### Allgemeine Aufgaben
 
-- Wende das CSS auf das HTML an.
+- Wenden Sie das CSS auf das HTML an.
 
-### Stil des Kastens
+### Die Box stylen
 
-Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} stilisieren und ihm Folgendes geben:
+Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} wie folgt stylen:
 
-- Eine angemessene Breite für einen großen Kasten, sagen wir etwa 200 Pixel.
-- Eine angemessene Höhe für einen großen Kasten, bei vertikaler Zentrierung des Textes.
-- Zentrieren Sie den Kasten horizontal.
-- Zentrieren Sie den Text innerhalb des Kastens.
-- Eine leichte Erhöhung der Schriftgröße auf etwa 17-18 Pixel berechneten Stil. Verwenden Sie rems. Schreiben Sie einen Kommentar darüber, wie Sie den Wert ermittelt haben.
-- Eine Grundfarbe für das Design. Geben Sie dem Kasten diese Farbe als Hintergrundfarbe.
+- Eine angemessene Breite für eine große Box, sagen wir etwa 200 Pixel.
+- Eine angemessene Höhe für eine große Box, wobei der Text vertikal zentriert werden soll.
+- Zentrieren Sie die Box horizontal.
+- Zentrieren Sie den Text innerhalb der Box.
+- Eine leichte Erhöhung der Schriftgröße, auf etwa 17-18 Pixel im berechneten Stil. Verwenden Sie `rem`. Schreiben Sie einen Kommentar, wie Sie den Wert ermittelt haben.
+- Eine Grundfarbe für das Design. Geben Sie der Box diese Farbe als Hintergrundfarbe.
 - Eine kontrastierende Farbe für den Text und einen schwarzen Textschatten.
-- Ein ziemlich subtiler Rahmenradius.
-- Einen 1-Pixel-Solidenrahmen mit einer Farbe ähnlich der Grundfarbe, aber in einem etwas dunkleren Farbton.
-- Ein linearer halbtransparenter schwarzer Farbverlauf, der in die untere rechte Ecke verläuft. Er soll zu Beginn völlig transparent sein, bis zu einer Opazität von etwa 0,2 bis 30% übergehen und dann bis zum Ende dieselbe Farbe beibehalten.
-- Mehrere Box-Schatten. Geben Sie ihm einen Standard-Box-Schatten, um den Kasten leicht von der Seite abgehoben wirken zu lassen. Die anderen beiden sollten Innen-Kasten-Schatten sein — ein halbtransparenter weißer Schatten nahe der oberen linken Ecke und ein halbtransparenter schwarzer Schatten nahe der unteren rechten Ecke — um dem Kasten den schönen erhabenen 3D-Look zu verleihen.
+- Einen ziemlich subtilen Radius der Ecken.
+- Einen 1-Pixel-dicken durchgehenden Rand mit einer Farbe ähnlich der Grundfarbe, aber in einem etwas dunkleren Farbton.
+- Ein lineares halbtransparentes schwarzes verlauf, das zur unteren rechten Ecke verläuft. Es soll am Anfang komplett transparent sein und bei etwa 30 % eine Deckkraft von 0.2 erreichen und diese bis zum Ende beibehalten.
+- Mehrere Boxschatten. Verleihen Sie der Box einen Standard-Boxschatten, um die Box leicht von der Seite abgehoben wirken zu lassen. Die anderen zwei sollten eingekerbte Boxschatten sein — ein halbtransparenter weißer Schatten nahe der oberen linken Ecke und ein halbtransparenter schwarzer Schatten nahe der unteren rechten Ecke — um der Box ein schönes, erhabenes 3D-Design zu geben.
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um Fehler in Ihrem CSS aufzudecken und zu beheben.
+- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um Fehler in Ihrem CSS zu finden und zu beheben.
 
 ## Beispiel
 
 Der folgende Screenshot zeigt ein Beispiel, wie das fertige Design aussehen könnte:
 
-![Ein großer roter Kasten mit abgerundeten Ecken. Weißer Text mit Schlagschatten liest sich 'this is a cool box'.](fancy-box2.png)
+![Eine große rote Box mit abgerundeten Ecken. Weißer Text mit Schatten liest 'this is a cool box'.](fancy-box2.png)
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}

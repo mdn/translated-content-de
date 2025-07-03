@@ -1,18 +1,18 @@
 ---
-title: "Navigation: `navigate`-Event"
+title: "Navigation: navigate Event"
 short-title: navigate
 slug: Web/API/Navigation/navigate_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`navigate`**-Event des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, und ermöglicht es Ihnen, diese bei Bedarf abzufangen.
+Das **`navigate`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, sodass Sie bei Bedarf eingreifen können.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("navigate", (event) => { })
@@ -22,7 +22,7 @@ onnavigate = (event) => { }
 
 ## Ereignistyp
 
-Ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("NavigateEvent")}}
 
@@ -57,11 +57,11 @@ navigation.addEventListener("navigate", (event) => {
 ```
 
 > [!NOTE]
-> Bevor die Navigation API verfügbar war, hätten Sie, um etwas Ähnliches zu tun, alle Klick-Events auf Links abhören müssen, `event.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen und dann die Seitenansicht basierend auf der neuen URL einrichten müssen. Und das hätte nicht alle Navigationen behandelt — nur vom Benutzer initiierte Link-Klicks.
+> Bevor die Navigation API verfügbar war, musste man, um etwas Ähnliches zu tun, alle Klick-Ereignisse auf Links überwachen, `event.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen und dann die Seitenanzeige basierend auf der neuen URL einrichten. Und dies würde nicht alle Navigationsvorgänge behandeln – nur von Benutzern initiierte Link-Klicks.
 
 ### Umgang mit Scrollen mittels `scroll()`
 
-In diesem Beispiel zum Abfangen einer Navigation beginnt die Funktion `handler()` damit, einige Artikelinhalte abzurufen und darzustellen, und danach einige sekundäre Inhalte. Es ist sinnvoll, die Seite zu den Hauptartikelinhalten zu scrollen, sobald diese verfügbar sind, damit der Benutzer mit ihnen interagieren kann, anstatt zu warten, bis auch die sekundären Inhalte dargestellt sind. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen den beiden eingefügt.
+In diesem Beispiel der Abfangung einer Navigation beginnt die `handler()`-Funktion mit dem Abrufen und Rendern einiger Artikelinhalte, ruft dann aber anschließend einige sekundäre Inhalte ab und rendert diese. Es ist sinnvoll, die Seite zum Hauptartikelinhalt zu scrollen, sobald dieser verfügbar ist, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch die sekundären Inhalte gerendert sind. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen den beiden hinzugefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -96,6 +96,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modern client-side routing: the Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API explainer](https://github.com/WICG/navigation-api/blob/main/README.md)

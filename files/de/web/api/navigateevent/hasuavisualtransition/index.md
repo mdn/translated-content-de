@@ -3,14 +3,14 @@ title: "NavigateEvent: hasUAVisualTransition-Eigenschaft"
 short-title: hasUAVisualTransition
 slug: Web/API/NavigateEvent/hasUAVisualTransition
 l10n:
-  sourceCommit: 875b84034211b6e83150ba33efac9b0665074f17
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`hasUAVisualTransition`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn der User-Agent eine visuelle Übergangsanimation für diese Navigation durchgeführt hat, bevor dieses Ereignis ausgelöst wurde, oder `false` andernfalls.
+Die **`hasUAVisualTransition`**-Eigenschaft (nur lesbar) des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Interfaces gibt `true` zurück, wenn der User-Agent vor dem Auslösen dieses Ereignisses eine visuelle Transition für diese Navigation durchgeführt hat, andernfalls `false`.
 
-User-Agents können bei der Ausführung von Webseiten-Navigationen eine integrierte visuelle Übergangsanimation bereitstellen. Wenn der Webseitenautor ebenfalls eine visuelle Übergangsanimation hinzufügt, können User-Agent- und Autoren-Übergänge in Konflikt geraten und einen Besucher verwirren. Die Eigenschaft ermöglicht es, zu erkennen, ob ein UA-Übergang bereitgestellt wurde, sodass Sie Autoren-Übergänge überspringen können, um ein besseres Benutzererlebnis zu gewährleisten.
+User-Agents können eine eingebaute visuelle Transition bei der Ausführung von Seitennavigationen bereitstellen. Wenn der Seitenautor ebenfalls eine visuelle Transition hinzufügt, können der User-Agent und die Autor-Transitionen in Konflikt geraten und einen Besucher verwirren. Die Eigenschaft lässt Sie erkennen, ob eine UA-Transition bereitgestellt wurde, sodass Sie Autor-Transitionen für eine bessere Benutzererfahrung überspringen können.
 
 ## Wert
 
@@ -65,7 +65,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
-- [Same-document-Übergänge für Single-Page-Anwendungen](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)
+- [Moderne clientseitige Routen: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Same-document view transitions für Single-Page-Anwendungen](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)

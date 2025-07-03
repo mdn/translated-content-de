@@ -3,31 +3,31 @@ title: "Testen Sie Ihre Fähigkeiten: Links"
 short-title: Links
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Links
 l10n:
-  sourceCommit: a53950c7d4faad58184e06f0da370e685742a695
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
+Ziel dieses Tests ist es, zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
 
 > [!NOTE]
-> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie feststecken, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie helfen, die Links auf unserer Informationsseite über Wale zu ergänzen. Um die Aufgabe abzuschließen:
+In dieser Aufgabe möchten wir, dass Sie die Links auf unserer Informationsseite über Wale ergänzen. Um die Aufgabe zu vervollständigen:
 
-- Der erste Link sollte zu einer Seite namens `whales.html` führen, die sich im selben Verzeichnis wie die aktuelle Seite befindet.
-- Wir hätten auch gerne, dass der Link einen Tooltip anzeigt, der dem Benutzer beim Überfahren mit der Maus sagt, dass die Seite Informationen zu Blau- und Pottwalen enthält.
-- Der zweite Link sollte so gestaltet sein, dass er durch Klicken eine E-Mail in der Standard-Mail-Anwendung des Benutzers öffnet, wobei der Empfänger auf "whales\@example.com" gesetzt ist.
-- Bonuspunkte gibt es, wenn Sie auch festlegen, dass die Betreffzeile der E-Mail automatisch als "Question about Whales" ausgefüllt wird.
+- Der erste Link sollte auf eine Seite namens `whales.html` verweisen, die sich im selben Verzeichnis wie die aktuelle Seite befindet.
+- Wir möchten außerdem, dass er einen Tooltip hat, der dem Benutzer beim Überfahren mit der Maus mitteilt, dass die Seite Informationen über Blauwale und Pottwale enthält.
+- Der zweite Link sollte in einen Link umgewandelt werden, den der Benutzer anklicken kann, um eine E-Mail in der Standard-Mail-Anwendung zu öffnen, wobei der Empfänger auf „whales\@example.com“ gesetzt ist.
+- Bonuspunkte gibt es, wenn Sie es auch so einstellen, dass die Betreffzeile der E-Mail automatisch als „Frage zu Walen“ ausgefüllt wird.
 
 > [!NOTE]
-> Die Links im Ausgangscode haben das Attribut `target="_blank"` gesetzt, sodass sie beim Anklicken die verlinkte Seite in einem neuen Tab öffnen. Das ist nicht unbedingt best practice, aber wir haben es hier gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden, was Ihren Beispielcode löschen würde!
+> Die Links im Startcode haben das Attribut `target="_blank"`, sodass sie beim Anklicken die verlinkte Seite in einem neuen Tab öffnen. Das ist nicht unbedingt best practice, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode damit verloren geht!
 
-Um loszulegen, können Sie auf **"Play"** im Codeblock unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/links/links1-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie auf **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder Sie [laden den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/links/links1-download.html) und arbeiten lokal in Ihrem eigenen Editor.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_ Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts einsehen.
 
 ```html live-sample___links-1
 <h1>Information on Whales</h1>
@@ -75,9 +75,9 @@ p {
 {{ EmbedLiveSample('links-1', "100%", 170) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte folgendermaßen aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html-nolint
 <h1>Information on Whales</h1>
@@ -99,19 +99,19 @@ Ihr fertiges HTML sollte folgendermaßen aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die vier Links ausfüllen, damit sie zu den entsprechenden Zielen führen. Um die Aufgabe abzuschließen:
+In dieser Aufgabe möchten wir, dass Sie die vier Links so ausfüllen, dass sie zu den entsprechenden Orten verlinken. Um die Aufgabe zu vervollständigen:
 
-- Der erste Link sollte zu einem Bild namens `blue-whale.jpg` führen, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
-- Der zweite Link sollte zu einem Bild namens `narwhal.jpg` führen, das sich in einem Verzeichnis namens `narwhal` befindet, das sich eine Verzeichnisebene über dem aktuellen Verzeichnis befindet.
-- Der dritte Link sollte zur UK Google-Bildersuche führen. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
-- Der vierte Link sollte zum Absatz ganz unten auf der aktuellen Seite führen. Er hat die ID `bottom`.
+- Der erste Link sollte auf ein Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
+- Der zweite Link sollte auf ein Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal`, welches sich eine Verzeichnisebene oberhalb des aktuellen Verzeichnisses befindet.
+- Der dritte Link sollte auf die UK Google Bildersuche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
+- Der vierte Link sollte zu dem Absatz am Ende der aktuellen Seite verlinken. Dieser hat die ID `bottom`.
 
 > [!NOTE]
-> Die ersten drei Links im Beispiel haben das Attribut `target="_blank"` gesetzt, sodass sie beim Anklicken die verlinkte Seite in einem neuen Tab öffnen. Das ist nicht unbedingt best practice, aber wir haben es hier gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden, was Ihren Beispielcode löschen würde!
+> Die ersten drei Links im Beispiel haben das Attribut `target="_blank"`, sodass sie beim Anklicken die verlinkte Seite in einem neuen Tab öffnen. Das ist nicht unbedingt best practice, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode damit verloren geht!
 
-Um loszulegen, können Sie auf **"Play"** im Codeblock unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/links/links2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie auf **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder Sie [laden den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/links/links2-download.html) und arbeiten lokal in Ihrem eigenen Editor.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_ Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts einsehen.
 
 ```html live-sample___links-2
 <h1>List path tests</h1>
@@ -160,9 +160,9 @@ div {
 {{ EmbedLiveSample('links-2', "100%", 200) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte folgendermaßen aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html-nolint
 <h1>List path tests</h1>
@@ -191,17 +191,17 @@ Ihr fertiges HTML sollte folgendermaßen aussehen:
 
 ## Aufgabe 3
 
-Die folgenden Links führen zu einer Informationsseite über Narwale, einer Support-E-Mail-Adresse, und einer PDF-Datei, die 4MB groß ist. In dieser Aufgabe möchten wir, dass Sie:
+Die folgenden Links verweisen auf eine Info-Seite über Narwale, eine Support-E-Mail-Adresse und ein PDF-Datenblatt, das 4MB groß ist. In dieser Aufgabe möchten wir, dass Sie:
 
-- Die vorhandenen Absätze mit schlecht geschriebenem Linktext nehmen und sie so umschreiben, dass sie guten Linktext haben.
-- Eine Warnung zu Links hinzufügen, die eine Warnung benötigen.
+- Die bestehenden Absätze mit schlecht geschriebenen Linktexten nehmen und sie so umschreiben, dass sie guten Linktext haben.
+- Eine Warnung zu Links hinzufügen, die einer Warnung bedürfen.
 
 > [!NOTE]
-> Die ersten und dritten Links im Beispiel haben das Attribut `target="_blank"` gesetzt, sodass sie beim Anklicken die verlinkte Seite in einem neuen Tab öffnen. Das ist nicht unbedingt best practice, aber wir haben es hier gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden, was Ihren Beispielcode löschen würde!
+> Der erste und dritte Link im Beispiel haben das Attribut `target="_blank"`, sodass sie beim Anklicken die verlinkte Seite in einem neuen Tab öffnen. Das ist nicht unbedingt best practice, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode damit verloren geht!
 
-Um loszulegen, können Sie auf **"Play"** im Codeblock unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/links/links3-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie auf **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder Sie [laden den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/links/links3-download.html) und arbeiten lokal in Ihrem eigenen Editor.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_ Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts einsehen.
 
 ```html live-sample___links-3
 <p>
@@ -246,9 +246,9 @@ p {
 {{ EmbedLiveSample('links-3', "100%", 200) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte folgendermaßen aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html-nolint
 <p>

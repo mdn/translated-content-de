@@ -1,14 +1,14 @@
 ---
-title: "NavigationHistoryEntry: getState()-Methode"
+title: "NavigationHistoryEntry: getState() Methode"
 short-title: getState()
 slug: Web/API/NavigationHistoryEntry/getState
 l10n:
-  sourceCommit: 49bd8d27131e30c92c48f970c4cf9f07d4cb67e5
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`getState()`**-Methode der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt eine Kopie des vom Entwickler bereitgestellten Zustands zurück, der mit diesem Verlaufs-Eintrag verbunden ist.
+Die **`getState()`**-Methode des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt einen Klon des entwicklerseitig bereitgestellten Zustands zurück, der mit diesem Verlaufseintrag assoziiert ist.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein Wert, der den Zustand darstellt. Dies kann jeder [strukturierbar-kopierbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Datentyp sein.
+Ein Wert, der den Zustand darstellt. Dies kann jeder [struktur-klonbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Datentyp sein.
 
-Wenn kein Zustand definiert ist oder das aktuelle Dokument nicht vollständig aktiv ist, wird `undefined` zurückgegeben.
+Falls kein Zustand definiert ist oder das aktuelle Dokument nicht vollständig aktiv ist, wird `undefined` zurückgegeben.
 
 ### Ausnahmen
 
@@ -55,7 +55,6 @@ async function handleReload() {
 
 ## Siehe auch
 
-- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API-Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API-Live-Demo](https://gigantic-honored-octagon.glitch.me/)
-- Methoden, die es ermöglichen, den Zustand zu aktualisieren — [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload) und [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Methoden, die es erlauben, den Zustand zu aktualisieren — [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload), und [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry)

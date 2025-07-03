@@ -3,27 +3,27 @@ title: "Testen Sie Ihre Fähigkeiten: Positionierung"
 short-title: Positioning
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Position
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Das Ziel dieses Kompetenztests ist es, zu beurteilen, ob Sie die [Positionierung in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mit der CSS-{{CSSxRef("position")}}-Eigenschaft und ihren Werten verstehen. Sie werden zwei kleine Aufgaben durcharbeiten, die verschiedene Elemente des gerade behandelten Materials verwenden.
+Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie [Positionierung in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mithilfe der CSS-Eigenschaft {{CSSxRef("position")}} und deren Werten verstehen. Sie werden zwei kleine Aufgaben durcharbeiten, die unterschiedliche Elemente des Materials verwenden, das Sie gerade behandelt haben.
 
 > [!NOTE]
-> Klicken Sie **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN-Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Zwischenablage-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Klicken Sie auf **"Play"** in den Codeblöcken unten, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie das Element mit der Klasse `target` oben rechts innerhalb des Containers positionieren, der einen 5px grauen Rahmen hat.
+In dieser Aufgabe möchten wir, dass Sie das Element mit der Klasse `target` oben rechts im Container positionieren, der die 5px graue Grenze hat.
 
-Ihr Endergebnis sollte wie das folgende Bild aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Die grüne Box befindet sich oben rechts in einem Container mit grauem Rahmen.](position-task1.png)
+![Der grüne Kasten befindet sich oben rechts in einem Container mit grauer Umrandung.](position-task1.png)
 
-**Bonusfrage:** Können Sie das Ziel unterhalb des Textes anzeigen lassen?
+**Bonusfrage:** Können Sie das Ziel so ändern, dass es unter dem Text angezeigt wird?
 
-Versuchen Sie den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___position1
 <div class="container">
@@ -74,10 +74,10 @@ body {
 {{EmbedLiveSample("position1", "", "400px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
 
-Dies erfordert `position: relative` und `position: absolute` und das Verständnis, wie sie zueinander in Bezug auf die relative Positionierung und die Erstellung eines neuen Positionierungskontextes stehen.
-Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel relativ zum Viewport positioniert.
+Dies erfordert `position: relative` und `position: absolute` und das Verständnis, wie sie sich zueinander verhalten, wobei relative Positionierung einen neuen Positionierungskontext schafft.
+Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel gemäß dem Viewport positioniert.
 
 ```css
 .container {
@@ -91,17 +91,17 @@ Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kin
 }
 ```
 
-Für die Bonusfrage müssen Sie einen negativen `z-index` zum Ziel hinzufügen, zum Beispiel `z-index: -2`.
+Für die Bonusfrage müssen Sie dem Ziel einen negativen `z-index` hinzufügen, zum Beispiel `z-index: -2`.
 
 </details>
 
 ## Aufgabe 2
 
-In dieser Aufgabe scrollt das Seitenleiste-Element mit dem Inhalt, wenn Sie die Box im untenstehenden Beispiel scrollen. Ändern Sie es so, dass die Seitenleiste (`<div class="sidebar">`) an ihrem Platz bleibt und nur der Inhalt scrollt.
+In dieser Aufgabe scrollt, wenn Sie das Kästchen im folgenden Beispiel scrollen, die Seitenleiste mit dem Inhalt. Ändern Sie es so, dass die Seitenleiste (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt.
 
-![Der Inhalt wird gescrollt, aber die Seitenleiste ist an ihrem Platz geblieben.](position-task2.png)
+![Der Inhalt wurde gescrollt, aber die Seitenleiste bleibt an Ort und Stelle.](position-task2.png)
 
-Versuchen Sie den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___position2
 <div class="container">
@@ -174,7 +174,7 @@ body {
 {{EmbedLiveSample("position2", "", "400px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
 
 Wir testen Ihr Verständnis von `position: fixed` mit einem etwas anderen Beispiel als denen in den Lernmaterialien.
 
@@ -188,4 +188,4 @@ Wir testen Ihr Verständnis von `position: fixed` mit einem etwas anderen Beispi
 
 ## Siehe auch
 
-- [CSS-Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [CSS-Grundlagen der Gestaltung](/de/docs/Learn_web_development/Core/Styling_basics)

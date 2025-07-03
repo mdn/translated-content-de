@@ -2,12 +2,12 @@
 title: color
 slug: Web/CSS/color
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: f50b3b0a53fe62b6a04234583c7630c89f7e85b6
 ---
 
 {{CSSRef}}
 
-Die **`color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den Vordergrund-[Farbwert](/de/docs/Web/CSS/color_value) des Textes eines Elements und der [Textdekorationen](/de/docs/Web/CSS/text-decoration) und legt den Wert von [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) fest. `currentcolor` kann als indirekter Wert für _andere_ Eigenschaften verwendet werden und ist der Standard für andere Farbeigenschaften wie {{cssxref("border-color")}}.
+Die **`color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den Vordergrund-[Farbwert](/de/docs/Web/CSS/color_value) des Textes eines Elements und [Textdekorationen](/de/docs/Web/CSS/text-decoration) und setzt den Wert von [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword). `currentcolor` kann als ein indirekter Wert bei _anderen_ Eigenschaften verwendet werden und ist der Standardwert für andere Farbeigenschaften, wie z.B. {{cssxref("border-color")}}.
 
 {{InteractiveExample("CSS Demo: color")}}
 
@@ -28,7 +28,7 @@ color: hsl(30deg 82% 43%);
 ```
 
 ```css interactive-example-choice
-color: hsla(237deg 74% 33% / 61%);
+color: hsl(237deg 74% 33% / 61%);
 ```
 
 ```css interactive-example-choice
@@ -57,7 +57,7 @@ color: hwb(152deg 0% 58% / 70%);
 }
 ```
 
-Einen Überblick über die Verwendung von Farbe in HTML finden Sie unter [Applying color to HTML elements using CSS](/de/docs/Web/CSS/CSS_colors/Applying_color).
+Für einen Überblick über die Verwendung von Farben in HTML, siehe [Farbe auf HTML-Elemente anwenden mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color).
 
 ## Syntax
 
@@ -110,26 +110,26 @@ color: revert-layer;
 color: unset;
 ```
 
-Die `color` Eigenschaft wird als einzelner {{cssxref("&lt;color&gt;")}} Wert angegeben.
+Die `color`-Eigenschaft wird als einzelner {{cssxref("&lt;color&gt;")}}-Wert angegeben.
 
-Beachten Sie, dass der Wert eine einheitliche Farbe sein muss. Es kann kein {{cssxref("&lt;gradient&gt;")}} sein, das eigentlich eine Art von {{cssxref("&lt;image&gt;")}} ist.
+Beachten Sie, dass der Wert eine einheitliche Farbe sein muss. Er kann kein {{cssxref("&lt;gradient&gt;")}} sein, welcher eigentlich ein Typ von {{cssxref("&lt;image&gt;")}} ist.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Setzt die Farbe der textlichen und dekorativen Teile des Elements.
+  - : Setzt die Farbe der textuellen und dekorativen Teile des Elements.
 - [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword)
-  - : Setzt die Farbe auf den `color` Eigenschaftswert des Elements. Wenn dieser jedoch als Wert von `color` festgelegt wird, wird `currentcolor` als `inherit` behandelt.
+  - : Setzt die Farbe auf den `color`-Eigenschaftswert des Elements. Wenn jedoch als Wert von `color` gesetzt, wird `currentcolor` als `inherit` behandelt.
 
 ## Barrierefreiheit
 
-Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Farbe des Textes und dem Hintergrund, auf dem der Text platziert ist, hoch genug ist, damit Personen mit Sehbehinderungen den Inhalt der Seite lesen können.
+Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Farbe des Textes und dem Hintergrund, auf dem der Text platziert ist, hoch genug ist, damit Menschen mit Sehbehinderungen den Inhalt der Seite lesen können.
 
-Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtdichte der Text- und Hintergrundfarbwerte bestimmt. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text ist definiert als 18.66px und [fett](/de/docs/Web/CSS/font-weight) oder größer, oder 24px oder größer.
+Das Farbkontrastverhältnis wird bestimmt, indem die Helligkeit der Text- und Hintergrundfarbwerte verglichen wird. Um den aktuellen [Richtlinien für barrierefreie Webinhalte (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text wird definiert als 18.66px und [fett](/de/docs/Web/CSS/font-weight) oder größer, oder 24px oder größer.
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Understanding WCAG, Guideline 1.4 explanations](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.3 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis der WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Formale Definition
 
@@ -143,7 +143,7 @@ Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtdichte der Text- 
 
 ### Text rot machen
 
-Die folgenden Beispiele zeigen verschiedene Möglichkeiten, um den Text eines Absatzes rot zu machen:
+Die folgenden sind alles Wege, um den Text eines Absatzes rot zu machen:
 
 ```css
 p {
@@ -190,5 +190,5 @@ p {
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
 - Andere farbbezogene Eigenschaften: {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, {{cssxref("column-rule-color")}}, und {{cssxref("print-color-adjust")}}
 - SVG {{SVGAttr("color")}} Attribut
-- [Applying color to HTML elements using CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farbe auf HTML-Elemente anwenden mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [WCAG: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)

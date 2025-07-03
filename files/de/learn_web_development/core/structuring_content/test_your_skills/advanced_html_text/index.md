@@ -1,30 +1,30 @@
 ---
-title: "Testen Sie Ihr Wissen: Fortgeschrittener HTML-Text"
-short-title: Fortgeschrittener HTML-Text
+title: "Testen Sie Ihre Fähigkeiten: Erweitertes HTML-Text"
+short-title: Erweitertes HTML-Text
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text
 l10n:
-  sourceCommit: a53950c7d4faad58184e06f0da370e685742a695
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
 
-Ziel dieses Tests ist es, zu prüfen, ob Sie wissen, wie Sie [weniger bekannte HTML-Elemente verwenden, um erweiterte semantische Funktionen zu gestalten](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features).
+Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie Sie [weniger bekannte HTML-Elemente zur Markierung erweiterter semantischer Funktionen](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features) verwenden können.
 
 > [!NOTE]
-> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie der bereitgestellten HTML-Datei einige Semantiken hinzufügen:
+Bei dieser Aufgabe möchten wir, dass Sie einige Semantiken zu dem bereitgestellten HTML hinzufügen, wie folgt:
 
-- Verwandeln Sie den zweiten Absatz in ein Blockzitat und zeigen Sie semantisch an, dass das Zitat aus [Accessibility](/de/docs/Learn_web_development/Core/Accessibility) stammt.
-- Markieren Sie "HTML" und "CSS" semantisch als Akronyme und geben Sie die Erklärungen als Tooltips an.
-- Verwenden Sie Tiefgestellt- und Hochgestellt-Elemente, um die korrekte Semantik für die chemischen Formeln und Daten bereitzustellen und diese korrekt anzeigen zu lassen.
+- Verwandeln Sie den zweiten Absatz in ein blockweises Zitat und geben Sie semantisch an, dass das Zitat aus [Accessibility](/de/docs/Learn_web_development/Core/Accessibility) stammt.
+- Markieren Sie "HTML" und "CSS" semantisch als Akronyme und geben Sie Erweiterungen als Tooltips an.
+- Verwenden Sie Tief- und Hochschrift, um die chemischen Formeln und Daten korrekt zu markieren und korrekt anzuzeigen.
 - Verknüpfen Sie semantisch maschinenlesbare Daten mit den Daten im Text.
 
-Um zu beginnen, können Sie **"Play"** im Codeblock unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/advanced-text/advanced-text2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie auf **"Play"** im Codeblock unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/advanced-text/advanced-text2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unten im Abschnitt ansehen.
 
 ```html live-sample___advanced-text
 <h1>Advanced text semantics</h1>
@@ -76,14 +76,14 @@ time {
 
 {{ EmbedLiveSample('advanced-text', "100%", 260) }}
 
-Das fertige Beispiel sollte so aussehen:
+Das fertige Beispiel sollte wie folgt aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/advanced-text/advanced-text2-finished.html", '100%', 300)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiges HTML sollte wie folgt aussehen:
 
 ```html
 <h1>Advanced text semantics</h1>

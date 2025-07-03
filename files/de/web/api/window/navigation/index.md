@@ -3,18 +3,18 @@ title: "Window: navigation-Eigenschaft"
 short-title: navigation
 slug: Web/API/Window/navigation
 l10n:
-  sourceCommit: 38d151f66619ac3c8f527b9e4dd402b9a3cf32dd
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`navigation`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt das mit dem aktuellen `window` verknüpfte [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück.
+Die **`navigation`**-Schreibgeschützter Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt das mit dem aktuellen `window` assoziierte [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück.
 
 Dies ist der Einstiegspunkt für die [Navigation API](/de/docs/Web/API/Navigation_API).
 
 ## Wert
 
-Eine Instanz eines [`Navigation`](/de/docs/Web/API/Navigation)-Objekts.
+Eine Instanz des [`Navigation`](/de/docs/Web/API/Navigation)-Objekts.
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ let currentNavEntries = window.navigation.entries();
 
 - [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Navigation API Live-Demo](https://mdn.github.io/dom-examples/navigation-api/) ([Demo-Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/navigation-api))

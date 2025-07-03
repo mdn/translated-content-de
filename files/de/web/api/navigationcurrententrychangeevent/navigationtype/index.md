@@ -3,7 +3,7 @@ title: "NavigationCurrentEntryChangeEvent: navigationType-Eigenschaft"
 short-title: navigationType
 slug: Web/API/NavigationCurrentEntryChangeEvent/navigationType
 l10n:
-  sourceCommit: df3316c2c702c57514bfd8daba389765464ea653
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
@@ -12,13 +12,13 @@ Die schreibgeschützte **`navigationType`**-Eigenschaft des [`NavigationCurrentE
 
 ## Wert
 
-Ein enumerierter Wert, der den Navigationstyp darstellt.
+Ein aufgezählter Wert, der den Typ der Navigation darstellt.
 
 Die möglichen Werte sind:
 
-- `push`: Es wird zu einem neuen Ort navigiert, wodurch ein neuer Eintrag in die Verlaufsliste eingefügt wird.
+- `push`: Eine neue Adresse wird aufgerufen, wodurch ein neuer Eintrag in der Verlaufsliste hinzugefügt wird.
 - `reload`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
-- `replace`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
+- `replace`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag verwendet denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key), erhält jedoch eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id).
 - `traverse`: Der Browser navigiert von einem bestehenden Verlaufseintrag zu einem anderen bestehenden Verlaufseintrag.
 
 ## Beispiele
@@ -39,6 +39,5 @@ navigation.addEventListener("currententrychange", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

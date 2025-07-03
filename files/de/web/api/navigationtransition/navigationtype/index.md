@@ -3,12 +3,12 @@ title: "NavigationTransition: navigationType-Eigenschaft"
 short-title: navigationType
 slug: Web/API/NavigationTransition/navigationType
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`navigationType`**-Eigenschaft des [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Interfaces gibt den Typ der laufenden Navigation zurück.
+Die schreibgeschützte Eigenschaft **`navigationType`** der [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Schnittstelle gibt den Typ der laufenden Navigation zurück.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Ein enumerierter Wert, der den Typ der laufenden Navigation darstellt.
 
 Die möglichen Werte sind:
 
-- `push`: Ein neuer Ort wird navigiert, wodurch ein neuer Eintrag in die Verlaufsliste eingefügt wird.
-- `reload`: Die [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
-- `replace`: Die [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
-- `traverse`: Der Browser navigiert von einem bestehenden Verlaufs-Eintrag zu einem anderen bestehenden Verlaufs-Eintrag.
+- `push`: Es wird zu einem neuen Standort navigiert, was dazu führt, dass ein neuer Eintrag in die Verlaufs-Liste gepusht wird.
+- `reload`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
+- `replace`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, ihm wird jedoch eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen.
+- `traverse`: Der Browser navigiert von einem bestehenden Verlaufseintrag zu einem anderen bestehenden Verlaufseintrag.
 
 ## Beispiele
 
@@ -37,6 +37,5 @@ console.log(navigation.transition.navigationType);
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
