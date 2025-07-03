@@ -3,12 +3,12 @@ title: "LaunchParams: targetURL-Eigenschaft"
 short-title: targetURL
 slug: Web/API/LaunchParams/targetURL
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: c60eaa2dd90fefcaaafdaca69f3185b46d399d8b
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`targetURL`**-Eigenschaft des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Interfaces gibt die Ziel-URL des zugehörigen Web-App-Starts zurück.
+Die schreibgeschützte **`targetURL`**-Eigenschaft der [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Schnittstelle gibt die Ziel-URL des zugehörigen Web-App-Starts zurück.
 
 ## Wert
 
@@ -44,6 +44,5 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Steuern, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Steuern Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
-- [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App
