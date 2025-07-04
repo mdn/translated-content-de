@@ -1,17 +1,20 @@
 ---
-title: "Content-Security-Policy: object-src Direktive"
+title: "Content-Security-Policy: object-src Richtlinie"
 short-title: object-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/object-src
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} **`object-src`** Direktive legt gültige Quellen für die {{HTMLElement("object")}} und {{HTMLElement("embed")}} Elemente fest.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}}
+**`object-src`**-Richtlinie gibt gültige Quellen für die
+{{HTMLElement("object")}} und {{HTMLElement("embed")}} Elemente an.
 
 > [!NOTE]
-> Elemente, die durch `object-src` gesteuert werden, gelten möglicherweise zufällig als veraltete HTML-Elemente und erhalten keine neuen standardisierten Funktionen (wie z.B. die Sicherheitsattribute `sandbox` oder `allow` für `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Direktive einzuschränken (z.B. `object-src 'none'` explizit festzulegen, falls möglich).
+> Elemente, die von `object-src` gesteuert werden, gelten möglicherweise zufällig
+> als veraltete HTML-Elemente und erhalten keine neuen standardisierten Funktionen (wie
+> die Sicherheitsattribute `sandbox` oder `allow` für
+> `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Richtlinie einzuschränken (z.B. `object-src 'none'` ausdrücklich festzulegen, wenn möglich).
 
 <table class="properties">
   <tbody>
@@ -20,14 +23,14 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} **`object-src`** Direktive le
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive nicht vorhanden ist, sucht der User-Agent nach der
-        <code>default-src</code> Direktive.
+        Ja. Wenn diese Richtlinie fehlt, sucht der User-Agent nach der
+        <code>default-src</code>-Richtlinie.
       </td>
     </tr>
   </tbody>
@@ -40,21 +43,21 @@ Content-Security-Policy: object-src 'none';
 Content-Security-Policy: object-src <source-expression-list>;
 ```
 
-Diese Direktive kann einen der folgenden Werte haben:
+Diese Richtlinie kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellenausdrücke anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quellenausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen. Für diese Richtlinie sind folgende Quellenausdruck-Werte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verstöße
+### Verstoßfälle
 
-Gegeben sei dieser CSP-Header:
+Gegeben ist dieser CSP-Header:
 
 ```http
 Content-Security-Policy: object-src https://example.com/

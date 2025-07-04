@@ -3,28 +3,26 @@ title: Sec-Fetch-Mode header
 short-title: Sec-Fetch-Mode
 slug: Web/HTTP/Reference/Headers/Sec-Fetch-Mode
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP **`Sec-Fetch-Mode`** {{Glossary("fetch_metadata_request_header", "fetch metadata request header")}} gibt den [Modus](/de/docs/Web/API/Request/mode) der Anfrage an.
 
-Der HTTP-**`Sec-Fetch-Mode`**-{{Glossary("fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} zeigt den [Modus](/de/docs/Web/API/Request/mode) der Anfrage an.
-
-Im Allgemeinen ermöglicht dies einem Server, zwischen Anfragen, die von einem Nutzer stammen, der zwischen HTML-Seiten navigiert, und Anfragen zum Laden von Bildern und anderen Ressourcen zu unterscheiden. Beispielsweise würde dieser Header `navigate` für Anfragen zur Navigation auf oberster Ebene enthalten, während `no-cors` zum Laden eines Bildes verwendet wird.
+Im Allgemeinen ermöglicht dies einem Server, zwischen Anfragen zu unterscheiden, die von einem Benutzer stammen, der zwischen HTML-Seiten navigiert, und Anfragen zum Laden von Bildern und anderen Ressourcen. Zum Beispiel würde dieser Header `navigate` für Anfragen bei der Top-Level-Navigation enthalten, während `no-cors` zum Laden eines Bildes verwendet wird.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
-      <td>Ja (<code>Sec-</code>-Präfix)</td>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-gesicherter Anforderungsheader")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anfrage-Header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -49,21 +47,21 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 > Diese Direktiven entsprechen den Werten in [`Request.mode`](/de/docs/Web/API/Request/mode#value).
 
 - `cors`
-  - : Die Anfrage ist eine [CORS-Protokoll](/de/docs/Web/HTTP/Guides/CORS)-Anfrage.
+  - : Die Anfrage ist eine [CORS-Protokoll](/de/docs/Web/HTTP/Guides/CORS) Anfrage.
 - `navigate`
-  - : Die Anfrage wird durch Navigation zwischen HTML-Dokumenten initiiert.
+  - : Die Anfrage wird durch die Navigation zwischen HTML-Dokumenten initiiert.
 - `no-cors`
-  - : Die Anfrage ist eine no-cors-Anfrage (siehe [`Request.mode`](/de/docs/Web/API/Request/mode#value)).
+  - : Die Anfrage ist eine no-cors Anfrage (siehe [`Request.mode`](/de/docs/Web/API/Request/mode#value)).
 - `same-origin`
-  - : Die Anfrage stammt von derselben Quelle wie die Ressource, die angefordert wird.
+  - : Die Anfrage erfolgt von demselben Ursprung wie die Ressource, die angefordert wird.
 - `websocket`
-  - : Die Anfrage wird gestellt, um eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung herzustellen.
+  - : Die Anfrage wird gemacht, um eine [WebSocket](/de/docs/Web/API/WebSockets_API) Verbindung herzustellen.
 
 ## Beispiele
 
 ### Verwendung von Sec-Fetch-Mode
 
-Wenn ein Nutzer auf einen Seitenlink zu einer anderen Seite auf derselben Herkunft klickt, hätte die resultierende Anfrage die folgenden Header (beachten Sie, dass der Modus `navigate` ist):
+Wenn ein Benutzer auf einen Link zu einer anderen Seite desselben Ursprungs klickt, hätte die resultierende Anfrage die folgenden Header (beachten Sie, dass der Modus `navigate` ist):
 
 ```http
 Sec-Fetch-Dest: document
@@ -72,7 +70,7 @@ Sec-Fetch-Site: same-origin
 Sec-Fetch-User: ?1
 ```
 
-Eine cross-site Anfrage, die von einem {{HTMLElement("img")}}-Element erzeugt wird, würde zu einer Anfrage mit den folgenden HTTP-Anforderungs-Headern führen (beachten Sie, dass der Modus `no-cors` ist):
+Eine Cross-Site-Anfrage, die durch ein {{HTMLElement("img")}}-Element generiert wird, würde zu einer Anfrage mit den folgenden HTTP-Anfrage-Headern führen (beachten Sie, dass der Modus `no-cors` ist):
 
 ```http
 Sec-Fetch-Dest: image
@@ -90,6 +88,6 @@ Sec-Fetch-Site: cross-site
 
 ## Siehe auch
 
-- {{HTTPHeader("Sec-Fetch-Dest")}}, {{HTTPHeader("Sec-Fetch-Site")}}, {{HTTPHeader("Sec-Fetch-User")}} Fetch-Metadaten-Anforderungsheader
+- {{HTTPHeader("Sec-Fetch-Dest")}}, {{HTTPHeader("Sec-Fetch-Site")}}, {{HTTPHeader("Sec-Fetch-User")}} fetch metadata request headers
 - [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch Metadata Request Headers Playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Fetch Metadata Request Headers Spielwiese](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

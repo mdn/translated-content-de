@@ -3,17 +3,18 @@ title: Observe-Browsing-Topics header
 short-title: Observe-Browsing-Topics
 slug: Web/HTTP/Reference/Headers/Observe-Browsing-Topics
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
+{{SeeCompatTable}}{{non-standard_header}}
 
 > [!WARNING]
-> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standards-Positionen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
+> Diese Funktion wird derzeit von zwei Browser-Herstellern abgelehnt. Details zur Ablehnung finden Sie im Abschnitt [Standards positionen](/de/docs/Web/API/Topics_API#standards_positions).
 
-Der HTTP-**`Observe-Browsing-Topics`**-{{Glossary("response_header", "Antwort-Header")}} wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Seite (d.h. der Seite, auf der die Werbetechnologie wie ein {{HTMLElement("iframe")}} eingebettet ist) abgeleitet werden, wie sie in der Antwort auf eine durch eine [Funktion, die die Topics API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api) erstellte Anfrage beobachtet werden. Der Browser wird diese Themen anschließend verwenden, um die wichtigsten Themen für den aktuellen Benutzer für zukünftige Zeiträume zu berechnen.
+Der HTTP **`Observe-Browsing-Topics`** {{Glossary("response_header", "Antwort-Header")}} wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Website (d.h. der Website, auf der die Werbetechnologie {{HTMLElement("iframe")}} eingebettet ist) abgeleitet wurden, wie in der Antwort auf eine Anfrage beobachtet, die von einer [Funktion, die die Topics API ermöglicht](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde.
+Der Browser wird diese Themen anschließend verwenden, um die Top-Themen für den aktuellen Nutzer für zukünftige Epochen zu berechnen.
 
-Weitere Details finden Sie in [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using).
+Siehe [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
 
 <table class="properties">
   <tbody>
@@ -39,7 +40,7 @@ Observe-Browsing-Topics: ?1
 ### Direktiven
 
 - `?1`
-  - : Eine Zeichenfolge, die erklärt, dass die aus der URL der aufrufenden Seite abgeleiteten Themen von Interesse (d.h. der Seite, auf der die Werbetechnologie `<iframe>` eingebettet ist) als beobachtet gekennzeichnet sind. Der Browser wird diese Themen anschließend verwenden, um die Themen von Interesse für einen Benutzer in zukünftigen Zeiträumen zu berechnen.
+  - : Eine Zeichenfolge, die erklärt, dass Themen von Interesse, die aus der URL der aufrufenden Website (d.h. der Website, auf der die Werbetechnologie `<iframe>` eingebettet ist) abgeleitet wurden, als beobachtet gekennzeichnet sind. Der Browser wird diese Themen anschließend verwenden, um zukünftige Themen von Interesse für einen Nutzer zu berechnen.
 
 ## Spezifikationen
 

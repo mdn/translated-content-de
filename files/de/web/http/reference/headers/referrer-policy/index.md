@@ -3,21 +3,19 @@ title: Referrer-Policy header
 short-title: Referrer-Policy
 slug: Web/HTTP/Reference/Headers/Referrer-Policy
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Der HTTP **`Referrer-Policy`** {{Glossary("response_header", "Antwort-Header")}} steuert, wie viele [Referrer-Informationen](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) (gesendet mit dem {{HTTPHeader("Referer")}}-Header) in Anfragen enthalten sein sollten. Neben dem HTTP-Header können Sie [diese Richtlinie in HTML festlegen](#integration_mit_html).
+Der HTTP **`Referrer-Policy`** {{Glossary("response_header", "Response-Header")}} steuert, wie viele [Referrer-Informationen](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) (gesendet mit dem {{HTTPHeader("Referer")}}-Header) mit Anfragen gesendet werden sollen. Abgesehen vom HTTP-Header können Sie [diese Richtlinie in HTML festlegen](#integration_mit_html).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -37,35 +35,33 @@ Referrer-Policy: unsafe-url
 ```
 
 > [!NOTE]
-> Der Header-Name {{HTTPHeader("Referer")}} ist eine falsche Schreibweise des Wortes "referrer". Der `Referrer-Policy`-Header teilt diesen Rechtschreibfehler nicht.
+> Der Headername {{HTTPHeader("Referer")}} ist eine Falschschreibung des Wortes "Referrer". Der `Referrer-Policy`-Header teilt diesen Schreibfehler nicht.
 
 ## Direktiven
 
 - `no-referrer`
-  - : Der {{HTTPHeader("Referer")}}-Header wird ausgelassen: Gesendete Anfragen enthalten keinerlei Referrer-Informationen.
+  - : Der {{HTTPHeader("Referer")}}-Header wird ausgelassen: Gesendete Anfragen enthalten keine Referrer-Informationen.
 - `no-referrer-when-downgrade`
-  - : Senden Sie den {{Glossary("origin", "Ursprung")}}, Pfad und die Abfragezeichenfolge in {{HTTPHeader("Referer")}}, wenn das Sicherheitsniveau des Protokolls gleich bleibt oder verbessert wird (HTTP→HTTP, HTTP→HTTPS, HTTPS→HTTPS). Senden Sie den {{HTTPHeader("Referer")}}-Header nicht für Anfragen an weniger sichere Ziele (HTTPS→HTTP, HTTPS→file).
+  - : Sendet den {{Glossary("origin", "Origin")}}, den Pfad und die Abfragezeichenfolge in {{HTTPHeader("Referer")}}, wenn das Sicherheitsniveau des Protokolls gleich bleibt oder verbessert wird (HTTP→HTTP, HTTP→HTTPS, HTTPS→HTTPS). Der {{HTTPHeader("Referer")}}-Header wird nicht für Anfragen an weniger sichere Ziele gesendet (HTTPS→HTTP, HTTPS→file).
 - `origin`
-  - : Senden Sie nur den {{Glossary("origin", "Ursprung")}} im {{HTTPHeader("Referer")}}-Header. Beispielsweise sendet ein Dokument auf `https://example.com/page.html` den Referrer `https://example.com/`.
+  - : Sendet nur den {{Glossary("origin", "Origin")}} im {{HTTPHeader("Referer")}}-Header. Zum Beispiel sendet ein Dokument unter `https://example.com/page.html` den Referrer `https://example.com/`.
 - `origin-when-cross-origin`
-  - : Bei einer {{Glossary("Same-origin_policy", "gleichherkunftsbezogenen")}} Anfrage auf derselben Protokollebene (HTTP→HTTP, HTTPS→HTTPS) senden Sie den {{Glossary("origin", "Ursprung")}}, Pfad und die Abfragezeichenfolge. Senden Sie nur den Ursprung für Anfragen an fremde Ursprünge und Anfragen zu weniger sicheren Zielen (HTTPS→HTTP).
+  - : Bei {{Glossary("Same-origin_policy", "Same-Origin")}}-Anfragen mit gleichem Protokolllevel (HTTP→HTTP, HTTPS→HTTPS) werden der {{Glossary("origin", "Origin")}}, der Pfad und die Abfragezeichenfolge gesendet. Nur der Origin wird für Cross-Origin-Anfragen und Anfragen an weniger sichere Ziele (HTTPS→HTTP) gesendet.
 - `same-origin`
-  - : Senden Sie den {{Glossary("origin", "Ursprung")}}, Pfad und die Abfragezeichenfolge für {{Glossary("Same-origin_policy", "gleichherkunftsbezogene")}} Anfragen. Senden Sie den {{HTTPHeader("Referer")}}-Header nicht für Anfragen an fremde Ursprünge.
+  - : Sendet den {{Glossary("origin", "Origin")}}, den Pfad und die Abfragezeichenfolge für {{Glossary("Same-origin_policy", "Same-Origin")}}-Anfragen. Der {{HTTPHeader("Referer")}}-Header wird nicht für Cross-Origin-Anfragen gesendet.
 - `strict-origin`
-  - : Senden Sie nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS). Senden Sie den {{HTTPHeader("Referer")}}-Header nicht an weniger sichere Ziele (HTTPS→HTTP).
+  - : Sendet nur den Origin, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS). Der {{HTTPHeader("Referer")}}-Header wird nicht an weniger sichere Ziele gesendet (HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
-
-  - : Senden Sie den Ursprung, Pfad und die Abfragezeichenfolge bei einer gleichherkunftsbezogenen Anfrage. Für Anfragen an fremde Ursprünge senden Sie nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS). Senden Sie den {{HTTPHeader("Referer")}}-Header nicht an weniger sichere Ziele (HTTPS→HTTP).
+  - : Sendet den Origin, den Pfad und die Abfragezeichenfolge bei einer Same-Origin-Anfrage. Für Cross-Origin-Anfragen wird der Origin (nur) gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS). Der {{HTTPHeader("Referer")}}-Header wird nicht an weniger sichere Ziele gesendet (HTTPS→HTTP).
 
     > [!NOTE]
-    > Dies ist die Standardrichtlinie, wenn keine Richtlinie angegeben ist oder der angegebene Wert ungültig ist (siehe Spezifikationsrevision [November 2020](https://github.com/whatwg/fetch/pull/1066)). Früher war `no-referrer-when-downgrade` der Standard.
+    > Dies ist die Standardrichtlinie, wenn keine Richtlinie angegeben ist oder wenn der angegebene Wert ungültig ist (siehe Spezifikationsrevision [November 2020](https://github.com/whatwg/fetch/pull/1066)). Zuvor war der Standard `no-referrer-when-downgrade`.
 
 - `unsafe-url`
-
-  - : Senden Sie den Ursprung, Pfad und die Abfragezeichenfolge bei allen Anfragen, unabhängig von der Sicherheit.
+  - : Sendet den Origin, den Pfad und die Abfragezeichenfolge bei jeder Anfrage, unabhängig von der Sicherheit.
 
     > [!WARNING]
-    > Diese Richtlinie kann potenziell vertrauliche Informationen aus HTTPS-Ressourcen-URLs an unsichere Ursprünge weiterleiten. Überlegen Sie sorgfältig über die Auswirkungen dieser Einstellung.
+    > Diese Richtlinie wird potenziell private Informationen von HTTPS-Ressourcen-URLs an unsichere Ursprünge weitergeben. Überlegen Sie sorgfältig die Auswirkungen dieser Einstellung.
 
 ## Integration mit HTML
 
@@ -75,26 +71,26 @@ Sie können Referrer-Richtlinien auch in HTML festlegen. Zum Beispiel können Si
 <meta name="referrer" content="origin" />
 ```
 
-Sie können das `referrerpolicy`-Attribut an {{HTMLElement("a")}}, {{HTMLElement("area")}}, {{HTMLElement("img")}}, {{HTMLElement("iframe")}}, {{HTMLElement("script")}} oder {{HTMLElement("link")}}-Elementen angeben, um Referrer-Richtlinien für einzelne Anfragen festzulegen:
+Sie können das Attribut `referrerpolicy` auf {{HTMLElement("a")}}, {{HTMLElement("area")}}, {{HTMLElement("img")}}, {{HTMLElement("iframe")}}, {{HTMLElement("script")}} oder {{HTMLElement("link")}} Elementen festlegen, um Referrer-Richtlinien für einzelne Anfragen zu setzen:
 
 ```html
 <a href="http://example.com" referrerpolicy="origin">…</a>
 ```
 
-Alternativ können Sie eine `noreferrer` [Link-Beziehung](/de/docs/Web/HTML/Reference/Attributes/rel) an `a`, `area` oder `link`-Elementen festlegen:
+Alternativ können Sie eine `noreferrer`-[Link-Beziehung](/de/docs/Web/HTML/Reference/Attributes/rel) auf `a`-, `area`- oder `link`-Elementen setzen:
 
 ```html
 <a href="http://example.com" rel="noreferrer">…</a>
 ```
 
 > [!WARNING]
-> Wie oben zu sehen ist, wird die `noreferrer`-Link-Beziehung ohne Bindestrich geschrieben. Wenn Sie die Referrer-Richtlinie für das gesamte Dokument mit einem {{HTMLElement("meta")}}-Element angeben, sollte sie _mit_ Bindestrich geschrieben werden: `<meta name="referrer" content="no-referrer">`.
+> Wie oben gesehen, wird die `noreferrer`-Link-Beziehung ohne Bindestrich geschrieben. Wenn Sie die Referrer-Richtlinie für das gesamte Dokument mit einem {{HTMLElement("meta")}}-Element festlegen, sollte sie _mit_ einem Bindestrich geschrieben werden: `<meta name="referrer" content="no-referrer">`.
 
 ## Integration mit CSS
 
-CSS kann Ressourcen abrufen, die in Stylesheets referenziert werden. Diese Ressourcen folgen ebenfalls einer Referrer-Richtlinie:
+CSS kann Ressourcen abrufen, die in Stylesheets referenziert sind. Diese Ressourcen folgen ebenfalls einer Referrer-Richtlinie:
 
-- Externe CSS-Stylesheets verwenden die Standardrichtlinie (`strict-origin-when-cross-origin`), sofern sie nicht durch einen `Referrer-Policy`-HTTP-Header in der Antwort des CSS-Stylesheets überschrieben wird.
+- Externe CSS-Stylesheets verwenden die Standardrichtlinie (`strict-origin-when-cross-origin`), es sei denn, sie wird von einem `Referrer-Policy`-HTTP-Header auf der CSS-Stylesheet-Antwort überschrieben.
 - Für {{HTMLElement("style")}}-Elemente oder [`style`-Attribute](/de/docs/Web/API/HTMLElement/style) wird die Referrer-Richtlinie des eigenen Dokuments verwendet.
 
 ## Beispiele
@@ -157,29 +153,29 @@ CSS kann Ressourcen abrufen, die in Stylesheets referenziert werden. Diese Resso
 | -------------------------------- | ------------- | -------------------------------- |
 | `https://example.com/page?q=123` | _überall_     | `https://example.com/page?q=123` |
 
-### Eine Fallback-Richtlinie festlegen
+### Eine Fallback-Policy angeben
 
-Wenn Sie eine Fallback-Richtlinie angeben möchten, falls die gewünschte Richtlinie nicht umfassend genug von Browsern unterstützt wird, verwenden Sie eine durch Kommas getrennte Liste, wobei die gewünschte Richtlinie zuletzt angegeben wird:
+Wenn Sie eine Fallback-Richtlinie angeben möchten, falls die gewünschte Richtlinie keine ausreichende Browser-Unterstützung hat, verwenden Sie eine Komma-getrennte Liste mit der gewünschten Richtlinie als letztem Eintrag:
 
 ```http
 Referrer-Policy: no-referrer, strict-origin-when-cross-origin
 ```
 
-In dem oben genannten Szenario wird `no-referrer` nur verwendet, wenn der Browser die `strict-origin-when-cross-origin`-Richtlinie nicht unterstützt.
+In diesem Szenario wird `no-referrer` nur verwendet, wenn der Browser die Richtlinie `strict-origin-when-cross-origin` nicht unterstützt.
 
 > [!NOTE]
-> Die Angabe mehrerer Werte wird nur im `Referrer-Policy`-HTTP-Header unterstützt, nicht im `referrerpolicy`-Attribut.
+> Das Spezifizieren mehrerer Werte wird nur im `Referrer-Policy` HTTP-Header unterstützt, nicht im `referrerpolicy`-Attribut.
 
-## Browser-spezifische Einstellungen
+## Browserspezifische Einstellungen
 
 ### Firefox-Einstellungen
 
-Sie können die _standardmäßige_ Referrer-Richtlinie in den Firefox-Einstellungen konfigurieren. Die Präferenznamen sind versionsspezifisch:
+Sie können die _Standard_-Referrer-Richtlinie in den Firefox-Einstellungen konfigurieren. Die Namen der Einstellungen sind versionsspezifisch:
 
-- Firefox Version 59 und später: `network.http.referer.defaultPolicy` (und `network.http.referer.defaultPolicy.pbmode` für private Netzwerke)
-- Firefox Versionen 53 bis 58: `network.http.referer.userControlPolicy`
+- Firefox-Version 59 und später: `network.http.referer.defaultPolicy` (und `network.http.referer.defaultPolicy.pbmode` für private Netzwerke)
+- Firefox-Versionen 53 bis 58: `network.http.referer.userControlPolicy`
 
-Alle diese Einstellungen akzeptieren denselben Satz von Werten: `0 = no-referrer`, `1 = same-origin`, `2 = strict-origin-when-cross-origin`, `3 = no-referrer-when-downgrade`.
+Alle diese Einstellungen verwenden die gleichen Werte: `0 = no-referrer`, `1 = same-origin`, `2 = strict-origin-when-cross-origin`, `3 = no-referrer-when-downgrade`.
 
 ## Spezifikationen
 
@@ -191,8 +187,8 @@ Alle diese Einstellungen akzeptieren denselben Satz von Werten: `0 = no-referrer
 
 ## Siehe auch
 
-- [Web-Sicherheit > Referer-Header: Datenschutz und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns)
-- Bei Verwendung von [Fetch](/de/docs/Web/API/Fetch_API): [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy)
-- [Gleichherkunftsrichtlinie](/de/docs/Web/Security/Same-origin_policy)
-- [HTTP-Referer auf Wikipedia](https://en.wikipedia.org/wiki/HTTP_referer)
+- [Web-Sicherheit > Referer-Header: Datenschutz- und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns)
+- Beim Verwenden von [Fetch](/de/docs/Web/API/Fetch_API): [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy)
+- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- [HTTP Referer auf Wikipedia](https://en.wikipedia.org/wiki/HTTP_referer)
 - [Strengere Kontrolle über Ihre Referrer – Mozilla Security Blog](https://blog.mozilla.org/security/2015/01/21/meta-referrer/)

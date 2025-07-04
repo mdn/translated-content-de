@@ -2,15 +2,13 @@
 title: 411 Length Required
 slug: Web/HTTP/Reference/Status/411
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Der HTTP-Statuscode **`411 Length Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die Anfrage ohne definierten {{HTTPHeader("Content-Length")}} Header abgelehnt hat.
+Der HTTP-Statuscode **`411 Length Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die Anfrage ohne einen definierten {{HTTPHeader("Content-Length")}} Header abgelehnt hat.
 
 > [!NOTE]
-> Wenn Daten in einer Reihe von Blöcken gesendet werden, wird der `Content-Length` Header weggelassen, und zu Beginn jedes Blocks muss die Länge des aktuellen Blocks im Hexadezimalformat angegeben werden.
+> Beim Senden von Daten in einer Reihe von Teilen wird der `Content-Length` Header weggelassen. Am Anfang jedes Teils muss die Länge des aktuellen Teils im hexadezimalen Format enthalten sein.
 > Weitere Details finden Sie unter {{HTTPHeader("Transfer-Encoding")}}.
 
 ## Status
@@ -21,9 +19,9 @@ Der HTTP-Statuscode **`411 Length Required`** [Client-Fehlerantwort](/de/docs/We
 
 ## Beispiele
 
-### Chunked POST request
+### Chunked POST-Anfrage
 
-Die folgende Anfrage wird in Blöcken gesendet, was in einigen Fällen die Standardmethode für das Senden von Daten ist, wie zum Beispiel beim [Schreiben in Streams](https://nodejs.org/api/http.html#requestwritechunk-encoding-callback):
+Die folgende Anfrage wird in Teilen gesendet, was in einigen Fällen die Standardmethode zum Senden von Daten ist, zum Beispiel beim [Schreiben in Streams](https://nodejs.org/api/http.html#requestwritechunk-encoding-callback):
 
 ```http
 POST /translate/de HTTP/1.1
@@ -55,6 +53,6 @@ Content-Length: 110
 
 ## Siehe auch
 
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
+- [HTTP-Statuscodes für Antworten](/de/docs/Web/HTTP/Reference/Status)
 - {{HTTPHeader("Content-Length")}}
 - {{HTTPHeader("Transfer-Encoding")}}

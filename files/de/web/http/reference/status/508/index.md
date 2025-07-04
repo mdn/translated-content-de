@@ -2,14 +2,12 @@
 title: 508 Loop Detected
 slug: Web/HTTP/Reference/Status/508
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`508 Loop Detected`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass die gesamte Operation fehlgeschlagen ist, weil eine Endlosschleife bei der Verarbeitung einer Anfrage mit `Depth: infinity` erkannt wurde.
 
-Der HTTP-Statuscode **`508 Loop Detected`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass die gesamte Operation fehlschlug, da eine Endlosschleife beim Verarbeiten einer Anfrage mit `Depth: infinity` entdeckt wurde.
-
-Der Status kann im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) angegeben werden. Er wurde als Fallback eingeführt für Fälle, in denen WebDAV-Clients {{HTTPStatus("208", "208 Already Reported")}}-Antworten nicht unterstützen (wenn Anfragen nicht explizit einen `DAV`-Header enthalten).
+Der Status kann im Kontext des Web-basierten verteilten Authoring und Versioning ({{Glossary("WebDAV", "WebDAV")}}) angegeben werden. Er wurde als Rückfalloption eingeführt für Fälle, in denen WebDAV-Clients keine {{HTTPStatus("208", "208 Already Reported")}} Antworten unterstützen (wenn Anfragen nicht explizit einen `DAV`-Header einschließen).
 
 ## Status
 
@@ -19,7 +17,7 @@ Der Status kann im Kontext von Web Distributed Authoring and Versioning ({{Gloss
 
 ## Beispiele
 
-### Endlosschleife in WebDAV-Suche
+### Endlosschleife bei WebDAV-Suche
 
 ```http
 PROPFIND /Coll/ HTTP/1.1

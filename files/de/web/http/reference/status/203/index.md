@@ -2,16 +2,16 @@
 title: 203 Non-Authoritative Information
 slug: Web/HTTP/Reference/Status/203
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`203 Non-Authoritative Information`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass die Anfrage erfolgreich war, aber ein _transformierender {{Glossary("Proxy_server", "Proxy")}}_ die Header oder den eingeschlossenen Inhalt aus der {{HTTPStatus("200")}} (`OK`)-Antwort des Ursprungsservers modifiziert hat.
 
-Der HTTP-Statuscode **`203 Non-Authoritative Information`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass die Anfrage erfolgreich war, aber ein _transformierender {{Glossary("Proxy_server", "Proxy")}}_ die Header oder den beigefügten Inhalt der {{HTTPStatus("200")}} (`OK`)-Antwort des Ursprungsservers modifiziert hat.
+Der Zweck dieses Statuscodes besteht darin, transformierenden Proxies zu erlauben, Clients zu benachrichtigen, wenn Änderungen an erfolgreichen Antworten vorgenommen wurden, da dies Entscheidungen bezüglich des Inhalts später beeinflussen kann.
+Transformationen von Nachrichten können Modifikationen von Headern bedeuten, um anzuzeigen, dass eine Ressource von einem Spiegelserver oder einem Backup stammt, aber sie können auch bedeuten, den Inhalt auf eine Art zu ändern, die aus Sicht des Clients wünschenswert erscheint.
+Diese Änderungen können Malware-Filterung, Formatkonvertierung, Datenschutzfilterung oder andere Hinweise auf künftige Anfragen an den Client umfassen.
 
-Der Zweck dieses Statuscodes ist es, transformierenden Proxies zu erlauben, Clients zu benachrichtigen, wenn Änderungen an erfolgreichen Antworten vorgenommen wurden, da dies Entscheidungen hinsichtlich des Inhalts später beeinflussen könnte. Transformationen an Nachrichten können die Modifikation von Headern bedeuten, um anzuzeigen, dass eine Ressource von einem Spiegel oder einem Backup stammt, können aber auch eine Anpassung des Inhalts in einer Weise bedeuten, die für den Client als wünschenswert erachtet wird. Diese Modifikationen können das Filtern von Malware, das Transkodieren von Formaten, das Filtern von Datenschutzinformationen oder andere Hinweise an den Client bezüglich zukünftiger Anfragen umfassen.
-
-Die `203`-Antwort ähnelt dem [`214`](/de/docs/Web/HTTP/Reference/Headers/Warning#warning_codes) `Transformation Applied`-Wert des veralteten {{HTTPHeader("Warning")}} Headers, der auf Antworten mit jedem Statuscode anwendbar sein könnte.
+Die `203`-Antwort ist ähnlich dem [`214`](/de/docs/Web/HTTP/Reference/Headers/Warning#warning_codes)-Wert `Transformation Applied` des veralteten {{HTTPHeader("Warning")}}-Headers, der auf Antworten mit jedem Statuscode anwendbar sein kann.
 
 ## Status
 
@@ -30,7 +30,8 @@ GET /comments/123 HTTP/1.1
 Host: example.com
 ```
 
-Ein Proxy hat die Nachricht basierend auf Malware-Filterregeln für bekannte unsichere Anhänge verändert. Der Antwortinhalt wurde modifiziert, indem der `attachment_url`-Wert durch einen Link mit Informationen über den angewendeten Filter ersetzt wurde:
+Ein Proxy hat die Nachricht basierend auf Malware-Filterregeln für bekannte unsichere Anhänge geändert.
+Der Antwortinhalt wurde modifiziert, indem der Wert `attachment_url` durch einen Link mit Informationen über die angewandte Filterung ersetzt wurde:
 
 ```http
 HTTP/1.1 203 Non-Authoritative Information
@@ -52,7 +53,7 @@ Content-Length: 123
 ## Siehe auch
 
 - {{HTTPStatus("200")}}
-- {{Glossary("Proxy_server", "Proxyserver")}}
+- {{Glossary("Proxy_server", "Proxy-Server")}}
 - {{HTTPHeader("Warning")}}
-- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Reference/Methods)
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)

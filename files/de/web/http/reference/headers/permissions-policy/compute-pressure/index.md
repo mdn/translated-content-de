@@ -3,12 +3,12 @@ title: "Permissions-Policy: compute-pressure Direktive"
 short-title: compute-pressure
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/compute-pressure
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `compute-pressure` kontrolliert den Zugriff auf die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API).
+Der HTTP {{HTTPHeader("Permissions-Policy")}}-Header `compute-pressure`-Direktive steuert den Zugriff auf die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API).
 
 ## Syntax
 
@@ -17,25 +17,25 @@ Permissions-Policy: compute-pressure=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zum Verwenden des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Listenberechtigung für `compute-pressure` ist `self`, was die Nutzung in Ursprungs-konformen verschachtelten Rahmen erlaubt, aber Drittanbieter-Inhalte daran hindert, das Feature zu nutzen. Arbeiter (dedizierte und geteilte) halten sich an die Berechtigungsrichtlinie, die von ihrem eigenen Dokument(en) festgelegt wurde.
+Die Standard-Whitelist für `compute-pressure` ist `self`, was die Nutzung in gleichartigen, eingebetteten Frames erlaubt, jedoch die Nutzung durch Drittanbieterinhalte verhindert. Worker (dedizierte und gemeinsame) halten sich an die Berechtigungsrichtlinie, die von ihrem/dokumentarischen Eigentümer gesetzt wird.
 
 ## Beispiele
 
-### Aktivierung des Compute Pressure auf Drittanbieter-Inhalten
+### Aktivierung von Compute Pressure für Drittanbieterinhalte
 
-Die Nutzung durch Dritte kann selektiv über das `allow`-Attribut auf {{HTMLElement("iframe")}}-Elementen aktiviert werden:
+Die Nutzung durch Dritte kann selektiv durch das `allow`-Attribut auf {{HTMLElement("iframe")}}-Elementen aktiviert werden:
 
 ```html
 <iframe src="https://example.com" allow="compute-pressure"></iframe>
 ```
 
-### Deaktivierung der Compute Pressure API vollständig
+### Vollständiges Deaktivieren der Compute Pressure API
 
-Dieser HTTP-Antwortheader deaktiviert die Berechnung des Drucks vollständig:
+Dieser HTTP-Antwort-Header deaktiviert Compute Pressure vollständig:
 
 ```http
 Permissions-Policy: {"compute-pressure": []}
@@ -51,6 +51,6 @@ Permissions-Policy: {"compute-pressure": []}
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
 - [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API)

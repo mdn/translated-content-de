@@ -3,10 +3,8 @@ title: "Content-Security-Policy: manifest-src Direktive"
 short-title: manifest-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/manifest-src
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
-
-{{HTTPSidebar}}
 
 Die HTTP
 {{HTTPHeader("Content-Security-Policy")}} **`manifest-src`**
@@ -23,10 +21,10 @@ Direktive gibt an, welches [Manifest](/de/docs/Web/Progressive_web_apps/Manifest
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der Benutzeragent nach der
-        <code>default-src</code> Direktive suchen.
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code> Direktive.
       </td>
     </tr>
   </tbody>
@@ -42,9 +40,9 @@ Content-Security-Policy: manifest-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind folgende Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs können geladen werden, wenn sie mit einem der angegebenen Quell-Ausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quell-Ausdruck-Werte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
@@ -53,13 +51,13 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ### Verletzungsfälle
 
-Bei folgendem CSP-Header:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: manifest-src https://example.com/
 ```
 
-Wird das folgende {{HTMLElement("link")}} blockiert und nicht geladen:
+Das folgende {{HTMLElement("link")}} wird blockiert und nicht geladen:
 
 ```html
 <link rel="manifest" href="https://not-example.com/manifest" />

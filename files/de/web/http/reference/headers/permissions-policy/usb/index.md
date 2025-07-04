@@ -3,14 +3,14 @@ title: "Permissions-Policy: usb-Direktive"
 short-title: usb
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/usb
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der `usb`-Direktive steuert, ob das aktuelle Dokument die [WebUSB-API](/de/docs/Web/API/WebUSB_API) verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `usb` steuert, ob das aktuelle Dokument das [WebUSB-API](/de/docs/Web/API/WebUSB_API) verwenden darf.
 
-Speziell wenn eine definierte Richtlinie die Nutzung von WebHID blockiert, wird die Eigenschaft [`Navigator.usb`](/de/docs/Web/API/Navigator/usb) nicht verfügbar sein.
+Speziell dort, wo eine definierte Richtlinie die Nutzung von WebHID blockiert, wird die Eigenschaft [`Navigator.usb`](/de/docs/Web/API/Navigator/usb) nicht verfügbar sein.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: usb=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen (origins), für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Listenfreigabe für `usb` ist `self`.
+Die Standard-Allowlist für `usb` ist `self`.
 
 ## Spezifikationen
 

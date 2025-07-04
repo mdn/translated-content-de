@@ -2,14 +2,13 @@
 title: 505 HTTP Version Not Supported
 slug: Web/HTTP/Reference/Status/505
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`505 HTTP Version Not Supported`** [Serverfehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass die im Request verwendete HTTP-Version vom Server nicht unterstützt wird.
 
-Der HTTP-Statuscode **`505 HTTP Version Not Supported`** [Serverfehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass die im Antrag verwendete HTTP-Version vom Server nicht unterstützt wird.
-
-Es ist üblich, diesen Fehler zu sehen, wenn eine Anforderungszeile nicht korrekt formatiert ist, wie `GET /path to resource HTTP/1.1` oder mit `\n`, das die Anforderungszeile anstelle von `\r\n` beendet. Zum Beispiel können Vermittler wie Load-Balancer Anforderungszeilen einer weitergeleiteten Anfrage nicht korrekt verarbeiten, wie im untenstehenden Beispiel veranschaulicht wird.
+Dieser Fehler tritt häufig auf, wenn eine Anforderungszeile fehlerhaft formatiert ist, z. B. `GET /path to resource HTTP/1.1` oder mit `\n` die Anforderungszeile endet anstelle von `\r\n`.
+Zum Beispiel könnten Zwischeninstanzen wie Lastverteilersysteme die Anforderungszeilen eines weitergeleiteten Requests nicht korrekt behandeln, wie im untenstehenden Beispiel veranschaulicht.
 
 ## Status
 
@@ -19,9 +18,11 @@ Es ist üblich, diesen Fehler zu sehen, wenn eine Anforderungszeile nicht korrek
 
 ## Beispiele
 
-### Ein 505 aufgrund einer fehlerhaften Anforderungszeile
+### Ein 505 aufgrund einer missgebildeten Anforderungszeile
 
-Im folgenden Beispiel fordert ein Client `example.com/dog%20trainers` an, aber aufgrund einer falschen Konfiguration des Load-Balancers wird das {{Glossary("Percent-encoding", "Prozent-Encoding")}} in der URL nicht korrekt behandelt. In diesem Fall sieht der Ursprungsserver `trainers` anstelle der HTTP-Version und gibt stattdessen eine `505`-Antwort zurück. Ein Anforderungsbezeichner ist im Antworttext enthalten, um einen Weg zur Veranschaulichung aufzuzeigen, der Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
+Im folgenden Beispiel fordert ein Client `example.com/dog%20trainers` an, aber aufgrund einer falschen Lastverteilereinstellung wird die {{Glossary("Percent-encoding", "Prozentkodierung")}} in der URL nicht korrekt behandelt.
+In diesem Fall sieht der Ursprungsserver `trainers` anstelle der HTTP-Version, sodass eine `505`-Antwort zurückgegeben wird.
+Zur Veranschaulichung einer Methode, die den Serveradministratoren helfen könnte, die Ursache des Problems einzugrenzen, enthält der Antwortkörper eine Anforderungskennung:
 
 ```http
 GET /dog trainers HTTP/1.1
@@ -52,5 +53,5 @@ Content-Length: 123
 
 ## Siehe auch
 
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
-- {{HTTPHeader("Upgrade")}} Header
+- [HTTP-Statuscodes für Antworten](/de/docs/Web/HTTP/Reference/Status)
+- {{HTTPHeader("Upgrade")}} -Header

@@ -1,26 +1,24 @@
 ---
-title: "Content Security Policy: Die Einstellungen der Seite blockierten das Laden einer Ressource: xyz"
+title: "Content Security Policy: Die Einstellungen der Seite haben das Laden einer Ressource blockiert: xyz"
 slug: Web/HTTP/Guides/CSP/Errors/CSPViolation
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Die Warnung "Content Security Policy: Die Einstellungen der Seite blockierten das Laden einer Ressource: xyz" tritt auf, wenn die CSP-Konfiguration der Seite, angegeben durch `xyz`, das Laden der Ressource im Kontext des Dokuments verhindert.
+Die Warnung "Content Security Policy: Die Einstellungen der Seite haben das Laden einer Ressource blockiert: xyz" tritt auf, wenn die CSP-Konfiguration der Seite, angegeben durch `xyz`, das Laden der Ressource im Dokumentenkontext verhindert.
 
 ## Nachricht
 
 ### Firefox
 
-`Content Security Policy: Die Einstellungen der Seite blockierten das Laden einer Ressource: xyz`
+`Content Security Policy: Die Einstellungen der Seite haben das Laden einer Ressource blockiert: xyz`
 
 mit:
 
 - `xyz`
-  - : Der Name der CSP-Direktive, die die Ressource blockierte. Dies kann entweder als nur der Name der Direktive oder als der gesamte Richtliniendirektiv-String ausgedrückt werden.
+  - : Der Name der CSP-Direktive, die die Ressource blockiert hat. Dies kann entweder nur als Name der Direktive oder als der gesamte Direktivenstring ausgedrückt werden.
 - `uvw`
-  - : Text, der Informationen enthält, die Ihnen möglicherweise helfen, das Problem zu lösen, einschließlich spezifischer Änderungen, die Sie an der CSP-Konfiguration vornehmen könnten.
+  - : Text, der Informationen bereitstellt, die möglicherweise bei der Lösung des Problems helfen, möglicherweise einschließlich spezifischer Änderungen, die Sie an der CSP-Konfiguration vornehmen könnten.
 
 ### Chrome
 
@@ -32,9 +30,9 @@ mit:
 mit:
 
 - `xyz`
-  - : Der Name der CSP-Direktive, die die Ressource blockierte. Dies kann entweder als nur der Name der Direktive oder als der gesamte Richtliniendirektiv-String ausgedrückt werden.
+  - : Der Name der CSP-Direktive, die die Ressource blockiert hat. Dies kann entweder nur als Name der Direktive oder als der gesamte Direktivenstring ausgedrückt werden.
 - `uvw`
-  - : Text, der Informationen enthält, die Ihnen möglicherweise helfen, das Problem zu lösen, einschließlich spezifischer Änderungen, die Sie an der CSP-Konfiguration vornehmen könnten.
+  - : Text, der Informationen bereitstellt, die möglicherweise bei der Lösung des Problems helfen, möglicherweise einschließlich spezifischer Änderungen, die Sie an der CSP-Konfiguration vornehmen könnten.
 
 ## Was ist schiefgelaufen?
 

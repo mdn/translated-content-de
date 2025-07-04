@@ -2,19 +2,18 @@
 title: 408 Request Timeout
 slug: Web/HTTP/Reference/Status/408
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Der HTTP-Statuscode **`408 Request Timeout`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die ungenutzte Verbindung beenden möchte. Ein `408` wird manchmal von Servern über eine inaktive Verbindung gesendet, _auch ohne vorherige Anforderung durch den Client_.
+Der HTTP-Statuscode **`408 Request Timeout`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) gibt an, dass der Server diese ungenutzte Verbindung schließen möchte.
+Ein `408` wird auf einer inaktiven Verbindung von einigen Servern gesendet, _auch ohne vorherige Anfrage des Clients_.
 
 Ein Server sollte das Feld {{HTTPHeader("Connection", "Connection: close")}} im Header der Antwort senden, da `408` impliziert, dass der Server beschlossen hat, die Verbindung zu schließen, anstatt weiter zu warten.
 
-Diese Antwort wird viel häufiger verwendet, da einige Browser, wie Chrome und Firefox, HTTP-Vorverbindungsmechanismen nutzen, um das Surfen zu beschleunigen.
+Diese Antwort wird heutzutage häufiger verwendet, da einige Browser wie Chrome und Firefox HTTP-Vorverbindungsmechanismen benutzen, um das Surfen zu beschleunigen.
 
 > [!NOTE]
-> Einige Server beenden eine Verbindung, ohne diese Nachricht zu senden.
+> Einige Server schließen eine Verbindung, ohne diese Nachricht zu senden.
 
 ## Status
 
@@ -24,9 +23,9 @@ Diese Antwort wird viel häufiger verwendet, da einige Browser, wie Chrome und F
 
 ## Beispiele
 
-### Zeitüberschreitung bei der Formularübermittlung
+### Timeout bei Formularübermittlung
 
-Das folgende Beispiel zeigt, was ein Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element ein Bild bei einer Formularübermittlung mit `method="post"` verwendet:
+Das folgende Beispiel zeigt, was ein Client senden kann, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element ein Bild bei der Formularübermittlung mit `method="post"` verwendet:
 
 ```http
 POST /upload HTTP/1.1
@@ -42,7 +41,8 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Wenn die Daten aufgrund von Netzwerkproblemen oder Latenz nicht vollständig empfangen werden, könnte der Server die Verbindung beenden. Clients können die Anfrage erneut senden, und es wird eine neue Verbindung genutzt:
+Wenn die Daten aufgrund von Netzwerkproblemen oder Latenzzeiten nicht vollständig empfangen werden, kann der Server die Verbindung zeitlich befristen.
+Clients können die Anfrage erneut senden, und es wird eine neue Verbindung genutzt:
 
 ```http
 HTTP/1.1 408 Request Timeout

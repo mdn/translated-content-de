@@ -2,17 +2,15 @@
 title: 500 Internal Server Error
 slug: Web/HTTP/Reference/Status/500
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`500 Internal Server Error`** [Serverfehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass der Server auf eine unerwartete Bedingung gestoßen ist, die es ihm unmöglich machte, die Anfrage zu erfüllen.
+Dieser Fehler ist eine allgemeine "Catch-all"-Antwort für Serverprobleme und deutet darauf hin, dass der Server keinen passenderen [5XX-Fehler](/de/docs/Web/HTTP/Reference/Status#server_error_responses) finden kann, mit dem er antworten könnte.
 
-Der HTTP-Statuscode **`500 Internal Server Error`** [Serverfehler-Antwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass der Server auf ein unerwartetes Problem gestoßen ist, das ihn daran hindert, die Anfrage zu erfüllen.
-Dieser Fehler ist eine generische "Catch-All"-Antwort auf Serverprobleme und zeigt an, dass der Server keine passendere [5XX-Fehler](/de/docs/Web/HTTP/Reference/Status#server_error_responses) finden kann, um darauf zu antworten.
-
-Wenn Sie als Besucher `500`-Fehler auf einer Webseite sehen, erfordern diese Probleme eine Untersuchung durch die Serverbesitzer oder Administratoren.
-Es gibt viele mögliche Ursachen für `500`-Fehler, einschließlich: falsche Serverkonfiguration, Speichererschöpfung (OOM-Probleme), unbehandelte Ausnahmen, falsche Dateiberechtigungen oder andere komplexe Faktoren.
-Serveradministratoren können das Auftreten von Serverfehlerantworten wie dem `500`-Statuscode proaktiv protokollieren, mit Details zu den auslösenden Anfragen, um die Stabilität eines Dienstes in Zukunft zu verbessern.
+Wenn Sie ein Besucher sind, der `500`-Fehler auf einer Webseite sieht, erfordern diese Probleme eine Untersuchung durch die Serverinhaber oder -administratoren.
+Es gibt viele mögliche Ursachen für `500`-Fehler, darunter: unsachgemäße Serverkonfiguration, Speicherplatzprobleme (OOM), unbehandelte Ausnahmen, unsachgemäße Dateiberechtigungen oder andere komplexe Faktoren.
+Serveradministratoren können proaktiv das Auftreten von Serverfehlerantworten, wie dem `500`-Statuscode, protokollieren mit Details zu den anfragenden Anfragen, um die Stabilität eines Dienstes in Zukunft zu verbessern.
 
 ## Status
 
@@ -22,11 +20,11 @@ Serveradministratoren können das Auftreten von Serverfehlerantworten wie dem `5
 
 ## Beispiele
 
-### 500 Serverfehler-Antwort
+### 500 Serverfehlerantwort
 
 Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine 500-Antwort zurück.
-Der Antwortinhalt enthält eine Seite, die den Serverstatus beschreibt, mit einem Link zu einer Support-Seite für Besucher.
-Der Antwortinhalt enthält eine Kennung zur Veranschaulichung einer Methode, die den Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
+Der Antwortkörper enthält eine Seite, die den Serverzustand beschreibt, mit einem Link zu einer Unterstützungsseite für Besucher.
+Der Antwortkörper enthält einen Identifikator zur Veranschaulichung einer Methode, die den Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
 
 ```http
 GET /highlights HTTP/1.1

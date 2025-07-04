@@ -2,17 +2,17 @@
 title: 102 Processing
 slug: Web/HTTP/Reference/Status/102
 l10n:
-  sourceCommit: 67a409e7944352612272e095a26bf325ecfae822
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{deprecated_header}}
+{{deprecated_header}}
 
 Der HTTP-Statuscode **`102 Processing`** [informational response](/de/docs/Web/HTTP/Reference/Status#informational_responses) zeigt dem Client an, dass eine vollständige Anfrage empfangen wurde und der Server daran arbeitet.
-Dieser Statuscode wird nur gesendet, wenn der Server erwartet, dass die Anfrage erheblich Zeit in Anspruch nimmt.
+Dieser Statuscode wird nur gesendet, wenn der Server erwartet, dass die Anfrage beträchtliche Zeit in Anspruch nehmen wird.
 
 > [!NOTE]
-> Normale Webserver geben diese Antwort nicht zurück.
-> Dieser Statuscode wurde erstmals in Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) {{RFC("2518")}} eingeführt, wurde jedoch in WebDAV in {{RFC("4918")}} entfernt.
+> Reguläre Webserver geben diese Antwort nicht zurück.
+> Dieser Statuscode wurde zuerst in Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) {{RFC("2518")}} eingeführt, aber in {{RFC("4918")}} aus WebDAV entfernt.
 
 ## Status
 
@@ -26,7 +26,7 @@ Dieser Statuscode wird nur gesendet, wenn der Server erwartet, dass die Anfrage 
 
 ## Browser-Kompatibilität
 
-Dieses Feature ist veraltet und Browser ignorieren diesen Antwortstatuscode.
+Diese Funktion ist veraltet, und Browser werden diesen Antwortstatuscode ignorieren.
 
 ## Siehe auch
 

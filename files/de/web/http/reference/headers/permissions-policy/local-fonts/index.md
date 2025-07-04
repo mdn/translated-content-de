@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: local-fonts-Direktive"
+title: "Permissions-Policy: local-fonts Direktive"
 short-title: local-fonts
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/local-fonts
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der Direktive `local-fonts` steuert, ob das aktuelle Dokument berechtigt ist, Daten über die beim Benutzer lokal installierten Schriftarten über die Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) zu sammeln.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `local-fonts` steuert, ob das aktuelle Dokument Daten über die lokal installierten Schriftarten des Benutzers über die Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) sammeln darf.
 
-Speziell in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden von [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) zurückgegebene {{jsxref("Promise")}}s mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgewiesen.
+Insbesondere bei einer definierten Richtlinie, die die Nutzung dieser Funktion blockiert, werden die von [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) zurückgegebenen {{jsxref("Promise")}}s mit einer [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Permissions-Policy: local-fonts=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Nutzung der Funktion erlaubt ist. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
@@ -36,5 +36,5 @@ Die Standard-Whitelist für `local-fonts` ist `self`.
 ## Siehe auch
 
 - [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Richtlinie für Berechtigungen](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

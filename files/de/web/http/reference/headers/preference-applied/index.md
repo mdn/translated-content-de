@@ -3,14 +3,12 @@ title: Preference-Applied header
 short-title: Preference-Applied
 slug: Web/HTTP/Reference/Headers/Preference-Applied
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
-
-{{HTTPSidebar}}
 
 Der HTTP-Header **`Preference-Applied`** informiert den Client darüber, welche Präferenzen aus dem {{httpheader("Prefer")}}-Request-Header vom Server angewendet wurden.
 
-Der Server zeigt an, ob eine Präferenz auf eine Antwort angewendet wird, wenn dies für den Client sonst nicht eindeutig wäre.
+Der Server gibt an, ob eine Präferenz auf eine Antwort angewendet wurde, falls es sonst für den Client unklar wäre.
 
 <table class="properties">
   <tbody>
@@ -41,7 +39,7 @@ Preference-Applied: <preference>
 
 ## Beispiele
 
-### Server wendet Zeitzonenpräferenzen an
+### Server wendet Zeitzonen-Präferenzen an
 
 Die folgende Anfrage zeigt an, dass der Client bevorzugt, dass Ereignisse in einer bestimmten Zeitzone dargestellt werden:
 
@@ -72,5 +70,5 @@ Preference-Applied: timezone=America/Los_Angeles
 ## Siehe auch
 
 - {{HTTPHeader("Prefer")}}
-- [Prefer header](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#_Toc31358871) auf docs.oasis-open.org
-- [Prefer header](https://docs.postgrest.org/en/v12/references/api/preferences.html) auf docs.postgrest.org
+- [Prefer-Header](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#_Toc31358871) auf docs.oasis-open.org
+- [Prefer-Header](https://docs.postgrest.org/en/v12/references/api/preferences.html) auf docs.postgrest.org

@@ -3,14 +3,14 @@ title: "Permissions-Policy: payment-Direktive"
 short-title: payment
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/payment
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Das HTTP-Header-Feld {{HTTPHeader("Permissions-Policy")}} mit der `payment`-Direktive steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf.
+Das HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerfeld der `payment`-Direktive steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf.
 
-Insbesondere wenn durch eine definierte Richtlinie die Nutzung dieses Features blockiert wird, werden Aufrufe des Konstruktors [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Insbesondere wenn eine festgelegte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe des Konstruktors [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Permissions-Policy: payment=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Allowliste für `payment` ist `self`.
+Die Standard-Allowlist für `payment` ist `self`.
 
 ## Spezifikationen
 
@@ -35,5 +35,5 @@ Die Standard-Allowliste für `payment` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header-Feld
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}}-Headerfeld
+- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

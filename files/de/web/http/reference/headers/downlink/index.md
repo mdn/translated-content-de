@@ -3,19 +3,18 @@ title: Downlink header
 short-title: Downlink
 slug: Web/HTTP/Reference/Headers/Downlink
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP **`Downlink`** {{Glossary("request_header", "Request-Header")}} wird in [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) verwendet, um die ungefähre Bandbreite in Mbit/s der Verbindung des Clients zum Server bereitzustellen.
+Der HTTP **`Downlink`** {{Glossary("request_header", "Request-Header")}} wird in [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) verwendet, um die ungefähre Bandbreite in Mbps der Verbindung des Clients zum Server bereitzustellen.
 
-Der Hinweis ermöglicht es einem Server zu entscheiden, welche Informationen basierend auf der Netzwerkbandbreite gesendet werden.
-Beispielsweise könnte ein Server kleinere Versionen von Bildern und anderen Ressourcen auf Netzwerken mit geringer Bandbreite senden.
+Der Hinweis erlaubt einem Server zu entscheiden, welche Informationen basierend auf der Netzwerkbandbreite gesendet werden. Zum Beispiel könnte ein Server wählen, kleinere Versionen von Bildern und anderen Ressourcen bei Netzwerken mit niedriger Bandbreite zu senden.
 
 > [!NOTE]
-> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass eine andere Ressource für jeden unterschiedlichen Wert des Headers gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Guides/Caching#vary)).
-> Selbst wenn `Downlink` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollten Sie in Erwägung ziehen, ihn im {{HTTPHeader("Vary")}}-Header wegzulassen – er ändert sich wahrscheinlich oft, was die Ressource effektiv von der Zwischenspeicherung ausschließt.
+> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzugeben, dass für jeden unterschiedlichen Wert des Headers eine andere Ressource gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Guides/Caching#vary)).
+> Auch wenn `Downlink` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollten Sie in Betracht ziehen, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es wird wahrscheinlich oft geändert, was die Ressource effektiv uncachebar macht.
 
 <table class="properties">
   <tbody>
@@ -39,15 +38,15 @@ Beispielsweise könnte ein Server kleinere Versionen von Bildern und anderen Res
 Downlink: <number>
 ```
 
-## Direktiven
+## Anweisungen
 
 - `<number>`
-  - : Die Downlink-Rate in Mbit/s, gerundet auf die nächsten 25 Kilobit.
-    Die Downlink-Rate kann als {{Glossary("fingerprinting", "Fingerprinting")}}-Variable verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Potenzial für Missbrauch zu reduzieren.
+  - : Die Downlink-Rate in Mbps, gerundet auf die nächsten 25 Kilobit.
+    Die Downlink-Rate kann als {{Glossary("fingerprinting", "Fingerprinting")}}-Variable verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Potenzial für Missbrauch zu verringern.
 
 ## Beispiele
 
-Ein Server muss zuerst zustimmen, den `Downlink`-Header zu erhalten, indem er den {{HTTPHeader("Accept-CH")}}-Antwort-Header sendet, der `Downlink` enthält.
+Ein Server muss zuerst zustimmen, den `Downlink`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header sendet, der `Downlink` enthält.
 
 ```http
 Accept-CH: Downlink
@@ -69,7 +68,7 @@ Downlink: 1.7
 
 ## Siehe auch
 
-- [Verbesserung des Datenschutzes der Benutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - Netzwerk-Client-Hints
   - {{HTTPHeader("RTT")}}
   - {{HTTPHeader("ECT")}}

@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: accelerometer-Direktive"
+title: "Permissions-Policy: Beschleunigungsmesser-Direktive"
 short-title: accelerometer
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/accelerometer
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der Direktive `accelerometer` steuert, ob das aktuelle Dokument Informationen über die Beschleunigung des Geräts über die [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle sammeln darf.
+Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} `accelerometer` steuert, ob das aktuelle Dokument Informationen über die Beschleunigung des Geräts über die [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle sammeln darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des [`Accelerometer()`](/de/docs/Web/API/Accelerometer/Accelerometer)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, wird der Aufruf des Konstruktors [`Accelerometer()`](/de/docs/Web/API/Accelerometer/Accelerometer) einen [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: accelerometer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `accelerometer` ist: `self`.
+Die Standard-Whitelist für `accelerometer` ist: `self`.
 
 ## Spezifikationen
 

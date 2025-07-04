@@ -1,14 +1,14 @@
 ---
-title: "Content-Security-Policy: fenced-frame-src Directive"
+title: "Content-Security-Policy: fenced-frame-src directive"
 short-title: fenced-frame-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/fenced-frame-src
 l10n:
-  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`fenced-frame-src`** legt gültige Quellen für verschachtelte Browsing-Kontexte fest, die in {{HTMLElement("fencedframe")}}-Elementen geladen werden.
+Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`fenced-frame-src`**-Direktive spezifiziert gültige Quellen für verschachtelte Browsing-Kontexte, die in {{HTMLElement("fencedframe")}}-Elemente geladen werden.
 
 <table class="properties">
   <tbody>
@@ -23,9 +23,7 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`fenced-fra
     <tr>
       <th scope="row">Fallback</th>
       <td>
-        Wenn diese Direktive fehlt, sucht der User Agent nach der
-        {{CSP("frame-src")}}-Direktive (die auf die
-        {{CSP("child-src")}}-Direktive zurückfällt).
+        Wenn diese Direktive fehlt, wird der User-Agent nach der {{CSP("frame-src")}}-Direktive suchen (die als Fallback die {{CSP("child-src")}}-Direktive hat).
       </td>
     </tr>
   </tbody>
@@ -38,22 +36,22 @@ Content-Security-Policy: fenced-frame-src <source-expression-list>;
 ```
 
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs können geladen werden, wenn sie mit einem der angegebenen Quellen-Ausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellen-Ausdrücke anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen source expressions übereinstimmen. Für diese Direktive sind die folgenden source expression Werte anwendbar:
     - Der [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)-Wert `"https:"`
     - Der [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)-Wert `"https:"`
-    - Der String `"*"`
+    - Die Zeichenkette `"*"`
 
 ## Beispiele
 
 ### Verletzungsfälle
 
-Bei folgendem CSP-Header:
+Gegeben dieser CSP-Header:
 
 ```http
 Content-Security-Policy: fenced-frame-src https://example.com/
 ```
 
-Werden die folgenden Quellen nicht in einem fenced frame geladen:
+Die folgenden Quellen werden in einem fenced frame nicht geladen:
 
 - `https://not-example.com/` (Domain stimmt nicht überein)
 - `https://example.org/` (TLD stimmt nicht überein)

@@ -3,36 +3,31 @@ title: PATCH request method
 short-title: PATCH
 slug: Web/HTTP/Reference/Methods/PATCH
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Die HTTP-Methode **`PATCH`** wendet teilweise Modifikationen auf eine Ressource an.
 
-Die **`PATCH`** HTTP-Methode wendet teilweise Änderungen an einer Ressource an.
+`PATCH` ist in gewisser Weise analog zum Konzept der "Aktualisierung", das im {{Glossary("CRUD", "CRUD")}} zu finden ist (im Allgemeinen ist HTTP anders als {{Glossary("CRUD", "CRUD")}}, und die beiden sollten nicht verwechselt werden).
 
-`PATCH` ist in gewisser Weise analog zum "Update"-Konzept, das im {{Glossary("CRUD", "CRUD")}} vorkommt (im Allgemeinen ist HTTP anders als {{Glossary("CRUD", "CRUD")}} und die beiden sollten nicht verwechselt werden).
+Im Vergleich zu {{HTTPMethod("PUT")}} dient ein `PATCH` als eine Reihe von Anweisungen zur Modifizierung einer Ressource, während `PUT` eine vollständige Ersetzung der Ressource darstellt. Eine `PUT`-Anfrage ist immer {{Glossary("idempotent", "idempotent")}} (das Wiederholen derselben Anfrage führt dazu, dass die Ressource im gleichen Zustand verbleibt), während eine `PATCH`-Anfrage nicht immer idempotent sein muss. Wenn z. B. eine Ressource einen Autoincrement-Zähler enthält, wird eine `PUT`-Anfrage den Zähler überschreiben (da sie die gesamte Ressource ersetzt), aber eine `PATCH`-Anfrage möglicherweise nicht.
 
-Im Vergleich zu {{HTTPMethod("PUT")}} dient ein `PATCH` als eine Reihe von Anweisungen zur Änderung einer Ressource, während `PUT` einen vollständigen Ersatz der Ressource darstellt.
-Eine `PUT`-Anfrage ist immer {{Glossary("idempotent", "idempotent")}} (das wiederholte Senden derselben Anfrage führt dazu, dass die Ressource im gleichen Zustand verbleibt), während eine `PATCH`-Anfrage nicht immer idempotent ist.
-Beispielsweise, wenn eine Ressource einen automatisch inkrementierenden Zähler enthält, wird eine `PUT`-Anfrage den Zähler überschreiben (da sie die gesamte Ressource ersetzt), aber eine `PATCH`-Anfrage möglicherweise nicht.
+Wie {{HTTPMethod("POST")}} kann eine `PATCH`-Anfrage potenziell Seiteneffekte auf andere Ressourcen haben.
 
-Ähnlich wie {{HTTPMethod("POST")}} kann eine `PATCH`-Anfrage potenziell Nebeneffekte auf andere Ressourcen haben.
-
-Ein Server kann die Unterstützung für `PATCH` anzeigen, indem er es zur Liste in den Antwort-Headern {{HTTPHeader("Allow")}} oder {{HTTPHeader("Access-Control-Allow-Methods")}} (für [CORS](/de/docs/Web/HTTP/Guides/CORS)) hinzufügt.
-Ein weiteres implizites Anzeichen dafür, dass `PATCH` unterstützt wird, ist der {{HTTPHeader("Accept-Patch")}}-Header (normalerweise nach einer {{HTTPMethod("OPTIONS")}}-Anfrage für eine Ressource), der die Medientypen auflistet, die der Server in einer `PATCH`-Anfrage für eine Ressource verstehen kann.
+Ein Server kann Unterstützung für `PATCH` anzeigen, indem er es in die Liste der {{HTTPHeader("Allow")}} oder {{HTTPHeader("Access-Control-Allow-Methods")}} (für [CORS](/de/docs/Web/HTTP/Guides/CORS)) Antwort-Header aufnimmt. Ein weiteres implizites Anzeichen dafür, dass `PATCH` unterstützt wird, ist der {{HTTPHeader("Accept-Patch")}}-Header (gewöhnlich nach einer {{HTTPMethod("OPTIONS")}}-Anfrage zu einer Ressource), der die Medientypen auflistet, die der Server in einer `PATCH`-Anfrage für eine Ressource verstehen kann.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage enthält einen Body</th>
+      <th scope="row">Anfrage hat einen Body</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort enthält einen Body</th>
-      <td>Kann sein</td>
+      <th scope="row">Erfolgreiche Antwort hat einen Body</th>
+      <td>Kann</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Safe")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -40,8 +35,8 @@ Ein weiteres implizites Anzeichen dafür, dass `PATCH` unterstützt wird, ist de
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Cachefähig")}}</th>
-      <td>Nur wenn Frische-Informationen enthalten sind</td>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
+      <td>Nur wenn Frischeinformationen enthalten sind</td>
     </tr>
     <tr>
       <th scope="row">
@@ -59,17 +54,15 @@ PATCH <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn kombiniert mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen.
-    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird. Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) bei Anfragen an einen Ursprung-Server und eine absolute URL bei Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die mit einem Fragezeichen `?` eingeleitet wird.
-    Wird häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übermitteln.
+  - : Ein optionaler Abfragekomponente, der durch ein Fragezeichen `?` eingeleitet wird. Häufig verwendet, um Identifikationsinformationen in Form von `key=value`-Paaren zu übertragen.
 
 ## Beispiele
 
-### Erfolgreiches Modifizieren einer Ressource
+### Erfolgreiche Modifikation einer Ressource
 
-Angenommen, es gibt eine Ressource auf dem Server, die einen Benutzer mit einer numerischen ID von `123` im folgenden Format darstellt:
+Angenommen, auf dem Server gibt es eine Ressource, die einen Benutzer mit einer numerischen ID von `123` im folgenden Format darstellt:
 
 ```json
 {
@@ -88,8 +81,7 @@ Angenommen, es gibt eine Ressource auf dem Server, die einen Benutzer mit einer 
 }
 ```
 
-Anstatt ein JSON-Objekt zu senden, um eine Ressource vollständig zu überschreiben, modifiziert ein `PATCH` nur spezifische Teile der Ressource.
-Diese Anfrage aktualisiert das `status`-Feld:
+Anstatt ein JSON-Objekt zu senden, um eine Ressource vollständig zu überschreiben, ändert ein `PATCH` nur bestimmte Teile der Ressource. Diese Anfrage aktualisiert das `status`-Feld:
 
 ```http
 PATCH /users/123 HTTP/1.1
@@ -103,10 +95,7 @@ Authorization: Bearer ABC123
 }
 ```
 
-Die Interpretation und Authentifizierung der `PATCH`-Anfrage hängen von der Implementierung ab.
-Erfolg kann durch jeden der [erfolgreichen Antwort-Statuscodes](/de/docs/Web/HTTP/Reference/Status#successful_responses) angezeigt werden.
-In diesem Beispiel wird ein {{HTTPStatus("204", "204 No Content")}} verwendet, da es nicht notwendig ist, einen Body mit zusätzlichem Kontext zur Operation zu übertragen.
-Ein {{HTTPHeader("ETag")}} wird bereitgestellt, sodass der Anforderer eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) in Zukunft durchführen kann:
+Die Interpretation und Authentifizierung der `PATCH`-Anfrage hängt von der Implementierung ab. Der Erfolg kann durch jeden der [erfolgreichen Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status#successful_responses) angezeigt werden. In diesem Beispiel wird ein {{HTTPStatus("204", "204 No Content")}} verwendet, da es nicht notwendig ist, einen Body mit zusätzlichen Kontextinformationen über die Operation zu übermitteln. Ein {{HTTPHeader("ETag")}} wird bereitgestellt, damit der Anrufer eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) in Zukunft durchführen kann:
 
 ```http
 HTTP/1.1 204 No Content
@@ -120,15 +109,14 @@ ETag: "e0023aa4f"
 
 ## Browser-Kompatibilität
 
-Der Browser verwendet die `PATCH`-Methode nicht für vom Benutzer initiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
-Entwickler können diese Anforderungsmethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) setzen.
+Der Browser verwendet die `PATCH`-Methode nicht für vom Benutzer initiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht. Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) einstellen.
 
 ## Siehe auch
 
-- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Reference/Methods)
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
 - {{HTTPStatus("204")}}
 - {{HTTPHeader("Allow")}}, {{HTTPHeader("Access-Control-Allow-Methods")}} Header
-- {{HTTPHeader("Accept-Patch")}} – spezifiziert die vom Server akzeptierten Patch-Dokumentformate
+- {{HTTPHeader("Accept-Patch")}} – gibt die Patch-Dokumentformate an, die vom Server akzeptiert werden
 - [JSON Patch Generator](https://jsoning.com/jsonpatch/)

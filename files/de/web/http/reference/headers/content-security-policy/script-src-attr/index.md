@@ -3,16 +3,13 @@ title: "Content-Security-Policy: script-src-attr Richtlinie"
 short-title: script-src-attr
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/script-src-attr
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`script-src-attr`** Richtlinie legt gültige Quellen für JavaScript-Inline-Event-Handler fest.
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`script-src-attr`** Richtlinie gibt gültige Quellen für JavaScript Inline-Ereignishandler an.
-
-Diese Richtlinie spezifiziert nur gültige Quellen für Inline-Skript-Ereignishandler wie `onclick`.
-Sie gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen können, wie z. B. URLs, die direkt in {{HTMLElement("script")}} Elemente geladen werden und [XSLT-Stile](/de/docs/Web/XML/XSLT).
-(Gültige Quellen können für alle JavaScript-Skriptquellen mit {{CSP("script-src")}} oder nur für `<script>` Elemente mit {{CSP("script-src-elem")}} spezifiziert werden.)
+Diese Richtlinie gibt nur gültige Quellen für Inline-Script-Event-Handler wie `onclick` an. Sie gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen können, wie URLs, die direkt in {{HTMLElement("script")}}-Elemente geladen werden, und [XSLT-Stylesheets](/de/docs/Web/XML/XSLT).
+(Gültige Quellen können für alle JavaScript-Skriptquellen mit {{CSP("script-src")}} festgelegt werden oder nur für `<script>`-Elemente mit {{CSP("script-src-elem")}}.)
 
 <table class="properties">
   <tbody>
@@ -25,10 +22,10 @@ Sie gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen k
       <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
         Ja.
-        Wenn diese Richtlinie fehlt, sucht der Benutzeragent nach der {{CSP("script-src")}} Richtlinie, und wenn beide fehlen, wird auf die <code>default-src</code> Richtlinie zurückgegriffen.
+        Wenn diese Richtlinie fehlt, wird der User-Agent nach der {{CSP("script-src")}}-Richtlinie suchen, und wenn beide fehlen, auf die <code>default-src</code>-Richtlinie zurückgreifen.
       </td>
     </tr>
   </tbody>
@@ -44,14 +41,14 @@ Content-Security-Policy: script-src-attr <source-expression-list>;
 Diese Richtlinie kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie einem der angegebenen Quellausdrücke entsprechen. Für diese Richtlinie sind die folgenden Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellen übereinstimmen. Für diese Richtlinie sind die folgenden Quellausdruckswerte anwendbar:
     - [`'unsafe-hashes'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-hashes)
     - [`'unsafe-inline'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-inline)
     - [`'report-sample'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample)
 
-`script-src-attr` kann in Verbindung mit {{CSP("script-src")}} verwendet werden und wird diese Richtlinie für Prüfungen von Inline-Handlern überschreiben:
+`script-src-attr` kann zusammen mit {{CSP("script-src")}} verwendet werden und wird diese Richtlinie für Prüfungen an Inline-Handlern überschreiben:
 
 ```http
 Content-Security-Policy: script-src <source>;
@@ -62,19 +59,19 @@ Content-Security-Policy: script-src-attr <source>;
 
 ### Verstoßfall
 
-Bei diesem CSP-Header:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: script-src-attr 'none'
 ```
 
-…wird der folgende Inline-Ereignishandler blockiert und nicht geladen oder ausgeführt:
+...wird der folgende Inline-Event-Handler blockiert und weder geladen noch ausgeführt:
 
 ```html
 <button id="btn" onclick="doSomething()"></button>
 ```
 
-Beachten Sie, dass Sie Inline-Ereignishandler im Allgemeinen durch [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Aufrufe ersetzen sollten:
+Normalerweise sollten Sie Inline-Event-Handler durch Aufrufe von [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) ersetzen:
 
 ```js
 document.getElementById("btn").addEventListener("click", doSomething);

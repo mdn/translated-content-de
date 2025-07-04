@@ -2,14 +2,12 @@
 title: 426 Upgrade Required
 slug: Web/HTTP/Reference/Status/426
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`426 Upgrade Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) bedeutet, dass der Server sich geweigert hat, die Anfrage mit dem aktuellen Protokoll auszuführen. Der Server könnte jedoch bereit sein, dies zu tun, nachdem der Client auf ein anderes Protokoll umgestiegen ist.
 
-Der HTTP-Statuscode **`426 Upgrade Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) gibt an, dass der Server die Ausführung der Anfrage mit dem aktuellen Protokoll ablehnt, aber möglicherweise bereit ist, dies zu tun, nachdem der Client auf ein anderes Protokoll umgestiegen ist.
-
-Der Server sendet mit dieser Antwort einen {{HTTPHeader("Upgrade")}}-Header, um die erforderlichen Protokolle anzuzeigen.
+Der Server sendet einen {{HTTPHeader("Upgrade")}}-Header mit dieser Antwort, um die erforderlichen Protokolle anzuzeigen.
 
 ## Status
 
@@ -21,14 +19,14 @@ Der Server sendet mit dieser Antwort einen {{HTTPHeader("Upgrade")}}-Header, um 
 
 ### Upgrade erforderlich von HTTP/1.1
 
-Gegeben ist eine GET-Anfrage an ein System:
+Gegeben eine GET-Anfrage an ein System:
 
 ```http
 GET /resources HTTP/1.1
 Host: example.com
 ```
 
-Der Ursprung-Server erwartet, dass Anfragen in {{Glossary("HTTP_3", "HTTP/3")}} gestellt werden:
+Der Ursprungsserver erwartet, dass Anfragen in {{Glossary("HTTP_3", "HTTP/3")}} gestellt werden:
 
 ```http
 HTTP/1.1 426 Upgrade Required

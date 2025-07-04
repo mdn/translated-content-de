@@ -2,90 +2,93 @@
 title: HTTP-Authentifizierung
 slug: Web/HTTP/Guides/Authentication
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+HTTP stellt einen allgemeinen Rahmen für Zugangskontrolle und Authentifizierung bereit.
+Diese Seite ist eine Einführung in das HTTP-Framework für Authentifizierung und zeigt, wie Sie den Zugriff auf Ihren Server mithilfe des HTTP-"Basic"-Schemes einschränken können.
 
-HTTP bietet einen allgemeinen Rahmen für Zugriffskontrolle und Authentifizierung. Diese Seite ist eine Einführung in den HTTP-Authentifizierungsrahmen und zeigt, wie Sie den Zugriff auf Ihren Server mit dem HTTP-"Basic"-Schema einschränken können.
+## Das allgemeine HTTP-Authentifizierungsframework
 
-## Der allgemeine HTTP-Authentifizierungsrahmen
+{{RFC("7235")}} definiert das HTTP-Authentifizierungsframework, das von einem Server verwendet werden kann, um eine {{Glossary("challenge", "Herausforderung")}} an eine Client-Anfrage zu senden, und von einem Client, um Authentifizierungsinformationen bereitzustellen.
 
-{{RFC("7235")}} definiert den HTTP-Authentifizierungsrahmen, der von einem Server genutzt werden kann, um eine {{Glossary("challenge", "Challenge")}} an eine Client-Anfrage zu senden, und von einem Client, um Authentifizierungsinformationen bereitzustellen.
+Der Ablauf von Herausforderung und Antwort funktioniert folgendermaßen:
 
-Der Ablauf von Challenge und Antwort funktioniert so:
+1. Der Server antwortet einem Client mit einem {{HTTPStatus("401")}} (Unauthorized) Antwortstatus und liefert Informationen darüber, wie man sich mit einem {{HTTPHeader("WWW-Authenticate")}} Antwortheader autorisiert, der mindestens eine Herausforderung enthält.
+2. Ein Client, der sich beim Server authentifizieren möchte, kann dies dann tun, indem er einen {{HTTPHeader("Authorization")}} Anfrage-Header mit den Anmeldedaten einschließt.
+3. Normalerweise wird ein Client dem Benutzer eine Passwortaufforderung präsentieren und anschließend die Anfrage mit dem korrekten `Authorization`-Header senden.
 
-1. Der Server antwortet einem Client mit einem {{HTTPStatus("401")}} (Unauthorized)-Antwortstatus und liefert Informationen, wie man sich mit einem {{HTTPHeader("WWW-Authenticate")}}-Antwortheader, der mindestens eine Challenge enthält, autorisieren kann.
-2. Ein Client, der sich beim Server authentifizieren möchte, kann dies tun, indem er einen {{HTTPHeader("Authorization")}}-Anfrageheader mit den Anmeldedaten beifügt.
-3. In der Regel wird ein Client einem Benutzer ein Passwortfeld anzeigen und dann die Anfrage mit dem korrekten `Authorization`-Header senden.
+![Ein Sequenzdiagramm, das HTTP-Nachrichten zwischen einem Client und einem Server darstellt.](https://mdn.github.io/shared-assets/images/diagrams/http/authentication/basic-auth.svg)
 
-![Ein Sequenzdiagramm, das HTTP-Nachrichten zwischen einem Client und einem Server-Verlaufs zeigt.](https://mdn.github.io/shared-assets/images/diagrams/http/authentication/basic-auth.svg)
-
-Der allgemeine Nachrichtenfluss, wie oben beschrieben, ist der gleiche für die meisten (wenn nicht alle) [Authentifizierungsschemata](#authentifizierungsschemata). Die tatsächlichen Informationen in den Headern und die Art, wie sie kodiert sind, ändern sich!
+Der allgemeine Nachrichtenfluss oben ist derselbe für die meisten (wenn nicht alle) [Authentifizierungsschemes](#authentifizierungsschemes).
+Die tatsächlichen Informationen in den Headern und die Art und Weise, wie sie kodiert werden, ändern sich jedoch!
 
 > [!WARNING]
-> Das im obigen Diagramm verwendete "Basic"-Authentifizierungsschema sendet die Anmeldedaten kodiert, aber nicht verschlüsselt. Dies wäre völlig unsicher, es sei denn, der Austausch erfolgt über eine sichere Verbindung (HTTPS/TLS).
+> Das im obigen Diagramm verwendete "Basic"-Authentifizierungsschema sendet die Anmeldedaten kodiert, aber nicht verschlüsselt.
+> Dies wäre völlig unsicher, es sei denn, der Austausch erfolgt über eine sichere Verbindung (HTTPS/TLS).
 
 ### Proxy-Authentifizierung
 
-Der gleiche Mechanismus von Challenge und Antwort kann für _Proxy-Authentifizierung_ verwendet werden. Da sowohl Ressourcen-Authentifizierung als auch Proxy-Authentifizierung koexistieren können, ist eine andere Menge an Headern und Statuscodes erforderlich. Im Fall von Proxys ist der herausfordernde Statuscode {{HTTPStatus("407")}} (Proxy Authentication Required), der {{HTTPHeader("Proxy-Authenticate")}}-Antwortheader enthält mindestens eine Challenge, die auf den Proxy anwendbar ist, und der {{HTTPHeader("Proxy-Authorization")}}-Anfrageheader wird verwendet, um die Anmeldedaten dem Proxy-Server bereitzustellen.
+Der gleiche Mechanismus von Herausforderung und Antwort kann für die _Proxy-Authentifizierung_ verwendet werden.
+Da sowohl Ressourcen- als auch Proxy-Authentifizierung koexistieren können, wird ein anderer Satz von Headern und Statuscodes benötigt. Im Falle von Proxies ist der Herausforderung-Statuscode {{HTTPStatus("407")}} (Proxy Authentication Required), der {{HTTPHeader("Proxy-Authenticate")}} Antwort-Header enthält mindestens eine Herausforderung, die für den Proxy gilt, und der {{HTTPHeader("Proxy-Authorization")}} Anfrage-Header wird verwendet, um die Anmeldedaten an den Proxy-Server zu senden.
 
-### Zugriff verweigert
+### Zugang verweigert
 
-Wenn ein (Proxy-)Server _ungültige_ Anmeldedaten erhält, sollte er mit einem {{HTTPStatus("401")}} `Unauthorized` oder einem {{HTTPStatus("407")}} `Proxy Authentication Required` antworten, und der Benutzer kann eine neue Anfrage senden oder das {{HTTPHeader("Authorization")}}-Header-Feld ersetzen.
+Wenn ein (Proxy-)Server _ungültige_ Anmeldedaten erhält, sollte er mit einem {{HTTPStatus("401")}} `Unauthorized` oder mit einem {{HTTPStatus("407")}} `Proxy Authentication Required` antworten, und der Benutzer kann eine neue Anfrage senden oder das {{HTTPHeader("Authorization")}} Headerfeld austauschen.
 
-Wenn ein (Proxy-)Server gültige Anmeldedaten erhält, die _nicht ausreichen_, um auf eine bestimmte Ressource zuzugreifen, sollte der Server mit dem {{HTTPStatus("403")}}-Statuscode `Forbidden` antworten. Im Gegensatz zu {{HTTPStatus("401")}} `Unauthorized` oder {{HTTPStatus("407")}} `Proxy Authentication Required` ist eine Authentifizierung für diesen Benutzer unmöglich und Browser schlagen keinen neuen Versuch vor.
+Wenn ein (Proxy-)Server gültige Anmeldedaten erhält, die _nicht ausreichen_, um auf eine bestimmte Ressource zuzugreifen, sollte der Server mit dem Statuscode {{HTTPStatus("403")}} `Forbidden` antworten. Im Gegensatz zu {{HTTPStatus("401")}} `Unauthorized` oder {{HTTPStatus("407")}} `Proxy Authentication Required` ist die Authentifizierung für diesen Benutzer unmöglich und Browser werden keinen neuen Versuch vorschlagen.
 
-In allen Fällen kann der Server bevorzugen, einen {{HTTPStatus("404")}}-Statuscode `Not Found` zurückzugeben, um die Existenz der Seite vor einem Benutzer ohne ausreichende Berechtigungen oder nicht korrekt authentifiziert, zu verbergen.
+In allen Fällen kann der Server bevorzugen, einen {{HTTPStatus("404")}} `Not Found` Statuscode zurückzugeben, um die Existenz der Seite einem Benutzer ohne angemessene Berechtigungen oder nicht ordnungsgemäß authentifiziertem Benutzer zu verbergen.
 
 ### Authentifizierung von Cross-Origin-Bildern
 
-Ein potenzielles Sicherheitsloch (das mittlerweile in Browsern behoben wurde) war die Authentifizierung von Cross-Site-Bildern. Ab [Firefox 59](/de/docs/Mozilla/Firefox/Releases/59) können Bildressourcen, die von anderen Ursprüngen als dem aktuellen Dokument geladen werden, keine HTTP-Authentifizierungsdialoge mehr auslösen ([Firefox Bug 1423146](https://bugzil.la/1423146)), was verhindert, dass Benutzerdaten gestohlen werden, wenn Angreifer in der Lage wären, ein beliebiges Bild in eine Drittanbieterseite einzubetten.
+Ein potenzielles Sicherheitsloch (das mittlerweile in Browsern behoben wurde) war die Authentifizierung von Cross-Site-Bildern.
+Ab [Firefox 59](/de/docs/Mozilla/Firefox/Releases/59) können Bildressourcen, die von anderen Ursprüngen als dem aktuellen Dokument geladen wurden, keine HTTP-Authentifizierungsdialoge mehr auslösen ([Firefox-Bug 1423146](https://bugzil.la/1423146)), wodurch verhindert wird, dass Benutzerdaten gestohlen werden, wenn Angreifer in der Lage sind, ein beliebiges Bild in eine Drittanbieter-Seite einzufügen.
 
-### Zeichenkodierung der HTTP-Authentifizierung
+### Zeichencodierung der HTTP-Authentifizierung
 
-Browser verwenden `utf-8`-Kodierung für Benutzernamen und Passwörter.
+Browser verwenden `utf-8` Codierung für Benutzernamen und Passwörter.
 
-Firefox verwendete früher `ISO-8859-1`, wechselte jedoch zu `utf-8` zur Angleichung an andere Browser und zur Vermeidung potenzieller Probleme, wie im [Firefox Bug 1419658](https://bugzil.la/1419658) beschrieben.
+Firefox hat einst `ISO-8859-1` verwendet, ist jedoch zu `utf-8` gewechselt, um Parität mit anderen Browsern zu gewährleisten und potenzielle Probleme zu vermeiden, wie sie im [Firefox-Bug 1419658](https://bugzil.la/1419658) beschrieben sind.
 
-### WWW-Authenticate- und Proxy-Authenticate-Header
+### WWW-Authenticate und Proxy-Authenticate Header
 
-Die {{HTTPHeader("WWW-Authenticate")}}- und {{HTTPHeader("Proxy-Authenticate")}}-Antwortheader definieren die Authentifizierungsmethode, die zur Erlangung des Zugangs zu einer Ressource verwendet werden sollte. Sie müssen angeben, welches Authentifizierungsschema genutzt wird, damit der Client, der sich autorisieren möchte, weiß, wie er die Anmeldedaten bereitstellten kann.
+Die {{HTTPHeader("WWW-Authenticate")}} und {{HTTPHeader("Proxy-Authenticate")}} Antwort-Header definieren die Authentifizierungsmethode, die verwendet werden sollte, um Zugang zu einer Ressource zu erhalten. Sie müssen angeben, welches Authentifizierungsschema verwendet wird, damit der Client, der sich autorisieren möchte, weiß, wie er die Anmeldedaten bereitstellen soll.
 
-Die Syntax für diese Header ist folgende:
+Die Syntax für diese Header ist wie folgt:
 
 ```http
 WWW-Authenticate: <type> realm=<realm>
 Proxy-Authenticate: <type> realm=<realm>
 ```
 
-Hierbei ist `<type>` das Authentifizierungsschema ("Basic" ist das gebräuchlichste Schema und [wird unten vorgestellt](#basic-authentifizierungsschema)). Der _Realm_ wird verwendet, um den geschützten Bereich zu beschreiben oder um den Schutzbereich anzuzeigen. Dies könnte eine Nachricht wie "Zugang zur Staging-Seite" oder ähnliches sein, damit der Benutzer weiß, zu welchem Bereich er Zugang zu erhalten versucht.
+Hierbei ist `<type>` das Authentifizierungsschema („Basic“ ist das am häufigsten verwendete Schema und wird [unten vorgestellt](#basic-authentifizierungsschema)). Der _realm_ wird verwendet, um den geschützten Bereich zu beschreiben oder den Schutzumfang anzugeben. Dies könnte eine Nachricht wie „Zugang zur Staging-Site“ oder ähnliches sein, damit der Benutzer weiß, auf welchen Bereich er zugreifen möchte.
 
-### Authorization- und Proxy-Authorization-Header
+### Authorization und Proxy-Authorization Header
 
-Die {{HTTPHeader("Authorization")}}- und {{HTTPHeader("Proxy-Authorization")}}-Anfrageheader enthalten die Anmeldedaten, um einen Benutzer-Agent beim (Proxy-)Server zu authentifizieren. Hierbei wird wieder der `<type>` benötigt, gefolgt von den Anmeldedaten, die kodiert oder verschlüsselt sein können, abhängig vom verwendeten Authentifizierungsschema.
+Die {{HTTPHeader("Authorization")}} und {{HTTPHeader("Proxy-Authorization")}} Anfrage-Header enthalten die Anmeldedaten, um einen Benutzer-Agenten bei einem (Proxy-)Server zu authentifizieren. Hier wird erneut `<type>` benötigt, gefolgt von den Anmeldedaten, die je nach verwendetem Authentifizierungsschema kodiert oder verschlüsselt werden können.
 
 ```http
 Authorization: <type> <credentials>
 Proxy-Authorization: <type> <credentials>
 ```
 
-## Authentifizierungsschemata
+## Authentifizierungsschemes
 
-Der allgemeine HTTP-Authentifizierungsrahmen ist die Grundlage für eine Reihe von Authentifizierungsschemata.
+Das allgemeine HTTP-Authentifizierungsframework ist die Basis für eine Reihe von Authentifizierungsschemes.
 
-IANA pflegt eine [Liste von Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml), aber es gibt andere Schemata, die von Hostdiensten angeboten werden, wie z.B. Amazon AWS.
+IANA führt eine [Liste von Authentifizierungsschemes](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml), aber es gibt auch andere Schemes, die von Host-Services angeboten werden, wie Amazon AWS.
 
-Einige gängige Authentifizierungsschemata sind:
+Einige häufige Authentifizierungsschemes umfassen:
 
 - **Basic**
-  - : Siehe {{rfc(7617)}}, base64-kodierte Anmeldedaten. Weitere Informationen unten.
+  - : Siehe {{rfc(7617)}}, base64-kodierte Anmeldedaten. Mehr Informationen unten.
 - **Bearer**
   - : Siehe {{rfc(6750)}}, Bearer-Tokens zum Zugriff auf OAuth 2.0-geschützte Ressourcen
 - **Digest**
   - : Siehe {{rfc(7616)}}. Firefox 93 und später unterstützen den SHA-256-Algorithmus. Frühere Versionen unterstützen nur MD5-Hashing (nicht empfohlen).
 - **HOBA**
-  - : Siehe {{rfc(7486)}}, Abschnitt 3, **H**TTP **O**rigin-**B**ound **A**uthentication, signaturbasierte Authentifizierung
+  - : Siehe {{rfc(7486)}}, Abschnitt 3, **H**TTP **O**rigin-**B**ound **A**uthentication, digital-signaturbasiert
 - **Mutual**
   - : Siehe {{rfc(8120)}}
 - **Negotiate** / **NTLM**
@@ -95,21 +98,22 @@ Einige gängige Authentifizierungsschemata sind:
 - **SCRAM**
   - : Siehe {{rfc(7804)}}
 - **AWS4-HMAC-SHA256**
-  - : Siehe [AWS-Dokumentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html). Dieses Schema wird für die AWS3-Server-Authentifizierung verwendet.
+  - : Siehe [AWS-Dokumente](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html). Dieses Schema wird für die AWS3-Serverauthentifizierung verwendet.
 
-Schemata können sich in ihrer Sicherheitsstärke und ihrer Verfügbarkeit in Client- oder Server-Software unterscheiden.
+Die Schemes können sich in ihrer Sicherheitsstärke und in ihrer Verfügbarkeit in Client- oder Serversoftware unterscheiden.
 
-Das "Basic"-Authentifizierungsschema bietet eine sehr geringe Sicherheit, ist jedoch weit verbreitet und einfach einzurichten. Es wird im Folgenden näher erläutert.
+Das "Basic"-Authentifizierungsschema bietet sehr geringe Sicherheit, ist aber weit verbreitet und einfach einzurichten.
+Es wird im Folgenden ausführlicher dargestellt.
 
 ## Basic-Authentifizierungsschema
 
-Das "Basic" HTTP-Authentifizierungsschema ist in {{rfc(7617)}} definiert und überträgt Anmeldedaten als Benutzer-ID/Passwort paarweise, kodiert mit base64.
+Das "Basic" HTTP-Authentifizierungsschema ist in {{rfc(7617)}} definiert und überträgt Anmeldedaten als Benutzer-ID/Passwort-Paare, kodiert in base64.
 
 ### Sicherheit der Basic-Authentifizierung
 
-Da die Benutzer-ID und das Passwort über das Netzwerk im Klartext übermittelt werden (sie sind base64-kodiert, aber base64 ist eine umkehrbare Kodierung), ist das Basic-Authentifizierungsschema **nicht sicher**. HTTPS/TLS sollte mit Basic-Authentifizierung verwendet werden. Ohne diese zusätzlichen Sicherheitsvorkehrungen sollte die Basic-Authentifizierung nicht verwendet werden, um sensible oder wertvolle Informationen zu schützen.
+Da die Benutzer-ID und das Passwort als Klartext über das Netzwerk übertragen werden (sie sind base64-kodiert, aber base64 ist eine reversible Kodierung), ist das Basic-Authentifizierungsschema **nicht sicher**. HTTPS/TLS sollte mit Basic-Authentifizierung verwendet werden. Ohne diese zusätzlichen Sicherheitsverbesserungen sollte die Basic-Authentifizierung nicht verwendet werden, um sensible oder wertvolle Informationen zu schützen.
 
-### Zugangsbeschränkung mit Apache und Basic-Authentifizierung
+### Zugriffseinschränkung mit Apache und Basic-Authentifizierung
 
 Um ein Verzeichnis auf einem Apache-Server mit einem Passwort zu schützen, benötigen Sie eine `.htaccess`- und eine `.htpasswd`-Datei.
 
@@ -122,16 +126,17 @@ AuthUserFile /path/to/.htpasswd
 Require valid-user
 ```
 
-Die `.htaccess`-Datei verweist auf eine `.htpasswd`-Datei, in der jede Zeile aus einem Benutzernamen und einem durch einen Doppelpunkt (`:`) getrennten Passwort besteht. Sie können die tatsächlichen Passwörter nicht einsehen, da sie [gehasht](https://httpd.apache.org/docs/2.4/misc/password_encryptions.html) sind (unter Verwendung von MD5-basiertem Hashing, in diesem Fall). Beachten Sie, dass Sie die `.htpasswd`-Datei anders benennen können, wenn Sie möchten, aber denken Sie daran, dass diese Datei für niemanden zugänglich sein sollte. (Apache ist normalerweise so konfiguriert, dass der Zugriff auf `.ht*`-Dateien verhindert wird).
+Die `.htaccess`-Datei verweist auf eine `.htpasswd`-Datei, in der jede Zeile aus einem Benutzernamen und einem Passwort besteht, getrennt durch einen Doppelpunkt (`:`). Sie können die tatsächlichen Passwörter nicht sehen, da sie [gehasht](https://httpd.apache.org/docs/2.4/misc/password_encryptions.html) werden (unter Verwendung von MD5-basiertem Hashing in diesem Fall). Beachten Sie, dass Sie Ihre `.htpasswd`-Datei anders benennen können, wenn Sie möchten, aber beachten Sie, dass diese Datei für niemanden zugänglich sein sollte. (Apache ist normalerweise so konfiguriert, dass der Zugriff auf `.ht*`-Dateien verhindert wird).
 
 ```apacheconf
 aladdin:$apr1$ZjTqBB3f$IF9gdYAGlMrs2fuINjHsz.
 user2:$apr1$O04r.y2H$/vEkesPhVInBByJUkXitA/
 ```
 
-### Zugangsbeschränkung mit Nginx und Basic-Authentifizierung
+### Zugriffseinschränkung mit Nginx und Basic-Authentifizierung
 
-Für Nginx müssen Sie einen Standort angeben, den Sie schützen möchten, und die `auth_basic`-Directive, die den Namen für den passwortgeschützten Bereich angibt. Die `auth_basic_user_file`-Directive verweist dann auf eine `.htpasswd`-Datei, die die verschlüsselten Benutzerdaten enthält, genau wie im obigen Apache-Beispiel.
+Für Nginx müssen Sie einen Speicherort angeben, den Sie schützen möchten, und die `auth_basic`-Direktive, die dem Passwort-geschützten Bereich einen Namen gibt.
+Die `auth_basic_user_file`-Direktive verweist dann auf eine `.htpasswd`-Datei, die die verschlüsselten Benutzerdaten enthält, genau wie im obigen Apache-Beispiel.
 
 ```apacheconf
 location /status {
@@ -142,13 +147,14 @@ location /status {
 
 ### Zugriff mit Anmeldedaten in der URL
 
-Viele Clients lassen Sie auch das Anmeldefeld umgehen, indem Sie eine kodierte URL verwenden, die den Benutzernamen und das Passwort auf diese Weise enthält:
+Viele Clients lassen Sie auch die Anmeldeaufforderung umgehen, indem Sie eine kodierte URL verwenden, die den Benutzernamen und das Passwort wie folgt enthält:
 
 ```plain example-bad
 https://username:password@www.example.com/
 ```
 
-**Die Verwendung dieser URLs ist veraltet**. In Chrome wird der `username:password@`-Teil aus URLs [aus Subressourcen-URLs entfernt](https://codereview.chromium.org/2651943002) aus Sicherheitsgründen. In Firefox wird überprüft, ob die Seite tatsächlich eine Authentifizierung erfordert, und falls nicht, warnt Firefox den Benutzer mit einer Eingabeaufforderung "Sie sind dabei, sich auf der Seite `www.example.com` mit dem Benutzernamen `username` anzumelden, aber die Webseite verlangt keine Authentifizierung. Dies könnte ein Versuch sein, Sie zu täuschen." Sofern die Seite Authentifizierung erfordert, wird Firefox dennoch um eine Bestätigung des Benutzers bitten "Sie sind dabei, sich auf der Seite `www.example.com` mit dem Benutzernamen `username` anzumelden.", bevor die Anmeldedaten an die Seite gesendet werden. Beachten Sie, dass Firefox in beiden Fällen die Anfrage ohne Anmeldedaten sendet, bevor die Eingabeaufforderung angezeigt wird, um festzustellen, ob die Seite Authentifizierung erfordert.
+**Die Verwendung dieser URLs ist veraltet**.
+In Chrome wird der Teil `username:password@` in URLs [aus Subressourcen-URLs entfernt](https://codereview.chromium.org/2651943002) aus Sicherheitsgründen. In Firefox wird überprüft, ob die Site tatsächlich eine Authentifizierung benötigt, und wenn nicht, warnt Firefox den Benutzer mit einer Aufforderung "Sie sind dabei, sich bei der Site `www.example.com` mit dem Benutzernamen `username` anzumelden, aber die Website erfordert keine Authentifizierung. Dies könnte ein Versuch sein, Sie auszutricksen." Falls die Site tatsächlich eine Authentifizierung benötigt, wird Firefox trotzdem um eine Bestätigung des Benutzers bitten "Sie sind dabei, sich bei der Site `www.example.com` mit dem Benutzernamen `username` anzumelden." bevor die Anmeldedaten an die Site gesendet werden. Beachten Sie, dass Firefox die Anfrage in beiden Fällen ohne Anmeldedaten sendet, bevor die Eingabeaufforderung angezeigt wird, um festzustellen, ob die Site eine Authentifizierung erfordert.
 
 ## Siehe auch
 

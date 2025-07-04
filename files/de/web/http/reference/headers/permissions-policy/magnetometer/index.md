@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: magnetometer-Richtlinie"
+title: "Permissions-Policy: magnetometer-Direktive"
 short-title: magnetometer
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/magnetometer
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `magnetometer` steuert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Schnittstelle sammeln darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `magnetometer` steuert, ob das aktuelle Dokument Informationen über die Orientierung des Geräts über das [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Interface sammeln darf.
 
-Insbesondere werden, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, Aufrufe des Konstruktors [`Magnetometer()`](/de/docs/Web/API/Magnetometer/Magnetometer) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des [`Magnetometer()`](/de/docs/Web/API/Magnetometer/Magnetometer)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) des Typs `SecurityError` auslösen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: magnetometer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion gewährt wird. Weitere Einzelheiten finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `magnetometer` ist `self`.
+Die Standard-Allowlist für `magnetometer` ist `self`.
 
 ## Spezifikationen
 

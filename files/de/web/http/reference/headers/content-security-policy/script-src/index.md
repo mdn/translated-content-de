@@ -1,14 +1,12 @@
 ---
-title: "Content-Security-Policy: Direktive `script-src`"
+title: "Content-Security-Policy: script-src Richtlinie"
 short-title: script-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/script-src
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Die HTTP-Direktive **`script-src`** im {{HTTPHeader("Content-Security-Policy")}} (CSP) legt gültige Quellen für JavaScript fest. Dies betrifft nicht nur URLs, die direkt in {{HTMLElement("script")}}-Elemente geladen werden, sondern auch Dinge wie eingebettete Skriptereignishandler (`onclick`) und [XSLT-Stylesheets](/de/docs/Web/XML/XSLT), die Skriptausführung auslösen können.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`script-src`** Richtlinie gibt gültige Quellen für JavaScript an. Dies umfasst nicht nur URLs, die direkt in {{HTMLElement("script")}}-Elemente geladen werden, sondern auch Dinge wie Inline-Skript-Ereignishandler (`onclick`) und [XSLT-Stilelemente](/de/docs/Web/XML/XSLT), die Skriptausführungen auslösen können.
 
 <table class="properties">
   <tbody>
@@ -17,14 +15,14 @@ Die HTTP-Direktive **`script-src`** im {{HTTPHeader("Content-Security-Policy")}}
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Ersatz</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der Benutzeragent nach der
-        <code>default-src</code>-Direktive suchen.
+        Ja. Falls diese Richtlinie fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code> Richtlinie.
       </td>
     </tr>
   </tbody>
@@ -37,63 +35,63 @@ Content-Security-Policy: script-src 'none';
 Content-Security-Policy: script-src <source-expression-list>;
 ```
 
-Diese Direktive kann einen der folgenden Werte haben:
+Diese Richtlinie kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind alle in der [Fetch-Direktiven-Syntax](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#fetch_directive_syntax) aufgeführten Quellausdrücke anwendbar.
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Richtlinie sind alle der in [Fetch directive syntax](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#fetch_directive_syntax) aufgeführten Quellausdrücke anwendbar.
 
 ## Beispiele
 
-### Ressourcen von vertrauenswürdigen Domains erlauben
+### Zulassen von Ressourcen aus vertrauenswürdigen Domänen
 
-Angenommen, dieser CSP-Header erlaubt nur Skripte von `https://example.com`:
+Unter dieser CSP-Header, der nur Skripte von `https://example.com` erlaubt:
 
 ```http
 Content-Security-Policy: script-src https://example.com/
 ```
 
-Das folgende Skript wird blockiert und weder geladen noch ausgeführt:
+wird das folgende Skript blockiert und kann nicht geladen oder ausgeführt werden:
 
 ```html
 <script src="https://not-example.com/js/library.js"></script>
 ```
 
-Beachten Sie, dass auch eingebettete Ereignishandler blockiert werden:
+Beachten Sie, dass Inline-Ereignishandler ebenfalls blockiert werden:
 
 ```html
 <button id="btn" onclick="doSomething()"></button>
 ```
 
-Sie sollten diese durch [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Aufrufe ersetzen:
+Sie sollten sie durch [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Aufrufe ersetzen:
 
 ```js
 document.getElementById("btn").addEventListener("click", doSomething);
 ```
 
-Wenn Sie eingebettete Ereignishandler nicht ersetzen können, können Sie den Quellausdruck `'unsafe-hashes'` verwenden, um sie zuzulassen.
-Siehe [Unsichere Hashes](#unsichere_hashes) für weitere Informationen.
+Wenn Sie Inline-Ereignishandler nicht ersetzen können, können Sie den Quellausdruck `'unsafe-hashes'` verwenden, um sie zuzulassen.
+Siehe [Unsichere hashes](#unsichere_hashes) für weitere Informationen.
 
-### Externe Skripte mit Hashes erlauben
+### Zulassen externer Skripte mit Hashes
 
-Das Zulassen vertrauenswürdiger Domains, wie im obigen Abschnitt gezeigt, ist ein umfassender Ansatz für die Angabe der Orte, von denen sicherer Code geladen werden kann.
-Dies ist ein pragmatischer Ansatz, insbesondere wenn Ihre Website viele Ressourcen verwendet und Sie sicher sind, dass die vertrauenswürdige Seite nicht kompromittiert wird.
+Das Zulassen von vertrauenswürdigen Domänen, wie im obigen Abschnitt gezeigt, ist ein grober Ansatz, um anzugeben, von welchen Orten aus Code sicher geladen werden kann.
+Dies ist ein pragmatischer Ansatz, insbesondere wenn Ihre Website viele Ressourcen verwendet und Sie das Vertrauen haben, dass die vertrauenswürdige Seite nicht kompromittiert wird.
 
-Eine alternative Methode ist die Angabe erlaubter Skripte mit Dateihashes.
-Bei diesem Ansatz kann eine externe Datei in einem `<script>`-Element nur geladen und ausgeführt werden, wenn alle gültigen Hashwerte in ihrem [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity)-Attribut mit den erlaubten Werten im CSP-Header übereinstimmen.
-Das [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Feature prüft zusätzlich, ob die heruntergeladene Datei den angegebenen Hashwert hat und daher nicht verändert wurde.
-Dies ist sicherer als das Vertrauen auf eine Domain, da Dateien nur verwendet werden, wenn sie unverändert sind, selbst wenn sie von einer kompromittierten Seite geladen werden.
-Es ist jedoch detaillierter und erfordert, dass Hashwerte in den CSP- und Skript-Elementen aktualisiert werden, wann immer die zugehörigen Skripte geändert werden.
+Eine alternative Methode besteht darin, erlaubte Skripte unter Nutzung von Dateihashes anzugeben.
+Mit diesem Ansatz kann eine externe Datei in einem `<script>`-Element nur geladen und ausgeführt werden, wenn alle gültigen Hash-Werte in ihrem [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) Attribut mit den im CSP-Header erlaubten Werten übereinstimmen.
+Das [Subresource integrity](/de/docs/Web/Security/Subresource_Integrity) Feature überprüft zusätzlich, dass die heruntergeladene Datei den angegebenen Hash-Wert hat und somit nicht verändert wurde.
+Dies ist sicherer als das Vertrauen in eine Domäne, da Dateien nur verwendet werden, wenn sie unverändert sind, selbst wenn sie von einer kompromittierten Seite geladen werden.
+Es ist jedoch feiner eingestellt und erfordert, dass Hash-Werte in CSP- und Skriptelementen aktualisiert werden, wann immer die zugehörigen Skripte geändert werden.
 
-Der nachstehende CSP-Header zeigt den Ansatz.
+Der folgende CSP-Header demonstriert den Ansatz.
 Er erlaubt Skripte, für die der SHA384-Hash `oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC` oder der SHA256-Hash `fictional_value` ist.
 
 ```http
 Content-Security-Policy: script-src 'sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC' 'sha256-fictional_value'
 ```
 
-Das untenstehende Skript `example-framework.js` sollte geladen werden, da der Hashwert in seinem `integrity`-Attribut auch im CSP vorhanden ist (vorausgesetzt, die Datei hat beim Herunterladen tatsächlich diesen Hash!).
+Das `example-framework.js` Skript unten sollte geladen werden, da der Hash-Wert in seinem `integrity` Attribut auch im CSP vorhanden ist (vorausgesetzt, die Datei hat tatsächlich diesen Hash, sobald sie heruntergeladen wird!)
 
 ```html
 <script
@@ -102,9 +100,9 @@ Das untenstehende Skript `example-framework.js` sollte geladen werden, da der Ha
   crossorigin="anonymous"></script>
 ```
 
-Das `integrity`-Attribut kann mehrere Werte haben, wobei jeder einen Hash für die Datei bereitstellt, der mit einem anderen Algorithmus berechnet wurde.
-Damit ein externes Skript geladen wird, erfordert CSP, dass _alle_ gültigen Hashwerte im Attribut auch in der CSP `script-src`-Deklaration vorhanden sein müssen.
-Daher würde das untenstehende Skript nicht geladen, da der zweite Hash im obigen CSP-Header nicht vorhanden ist.
+Das `integrity` Attribut kann mehrere Werte haben, wobei jeder einen Hash für die Datei bereitstellt, der mit einem anderen Algorithmus berechnet wird.
+Um ein externes Skript zu laden, erfordert CSP, dass _alle_ gültigen Hash-Werte im Attribut auch in der `script-src` Deklaration des CSP vorhanden sein müssen.
+Daher würde das folgende Skript nicht geladen, da der zweite Hash im CSP-Header oben nicht vorhanden ist.
 
 ```html
 <script
@@ -113,8 +111,8 @@ Daher würde das untenstehende Skript nicht geladen, da der zweite Hash im obige
   crossorigin="anonymous"></script>
 ```
 
-Diese Regel gilt nur für _gültige_ Hashwerte.
-Vom Browser nicht als Hashes erkannte Werte werden ignoriert, sodass das folgende Skript geladen werden sollte:
+Diese Regel gilt nur für _gültige_ Hash-Werte.
+Werte, die vom Browser nicht als Hashes erkannt werden, werden ignoriert, daher sollte das folgende Skript geladen werden:
 
 ```html
 <script
@@ -123,18 +121,18 @@ Vom Browser nicht als Hashes erkannte Werte werden ignoriert, sodass das folgend
   crossorigin="anonymous"></script>
 ```
 
-[Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) enthält weitere Informationen zum Berechnen von Hashes und zur Verwendung des `integrity`-Attributs.
+[Subresource integrity](/de/docs/Web/Security/Subresource_Integrity) enthält mehr Informationen über das Berechnen von Hashes und die Verwendung des `integrity` Attributs.
 
-### Unsicheres eingebettetes Skript
+### Unsichere Inline-Skripte
 
 > [!NOTE]
-> Das Verbot von eingebetteten Stilen und eingebetteten Skripten ist einer der größten Sicherheitsgewinne, die CSP bietet.
-> Wenn Sie sie unbedingt verwenden müssen, gibt es einige Mechanismen, die sie erlauben.
-> Hashes gelten für eingebettete Skripte und Stile, jedoch nicht für Ereignishandler.
-> Siehe [Unsichere Hashes](#unsichere_hashes) für weitere Informationen.
+> Das Verbot von Inline-Stilen und Inline-Skripten ist einer der größten Sicherheitsgewinne von CSP.
+> Wenn Sie diese absolut verwenden müssen, gibt es einige Mechanismen, die sie erlauben.
+> Hashes gelten für Inline-Skripte und Stile, aber nicht für Ereignishandler.
+> Siehe [Unsichere hashes](#unsichere_hashes) für mehr Informationen.
 
-Um eingebettete Skripte und Stile zu erlauben, kann `'unsafe-inline'`, eine Nonce-Quelle oder eine Hash-Quelle angegeben werden, die mit dem eingebetteten Block übereinstimmt.
-Die folgende Content-Security-Policy erlaubt alle eingebetteten {{HTMLElement("script")}}-Elemente:
+Um Inline-Skripte und Stile zu erlauben, können `'unsafe-inline'`, eine nonce-source oder eine hash-source, die mit dem Inline-Block übereinstimmt, angegeben werden.
+Die folgende Content Security Policy wird alle Inline-{{HTMLElement("script")}}-Elemente erlauben:
 
 ```http
 Content-Security-Policy: script-src 'unsafe-inline';
@@ -149,15 +147,15 @@ Das folgende {{HTMLElement("script")}}-Element wird von der Richtlinie zugelasse
 </script>
 ```
 
-Das Erlauben aller eingebetteten Skripte wird als Sicherheitsrisiko betrachtet, daher wird empfohlen, stattdessen eine Nonce-Quelle oder eine Hash-Quelle zu verwenden.
-Um eingebettete Skripte und Stile mit einer Nonce-Quelle zu erlauben, müssen Sie einen zufälligen Nonce-Wert (unter Verwendung eines kryptografisch sicheren Zufallstoken-Generators) erzeugen und in der Richtlinie aufnehmen.
-Es ist wichtig, zu beachten, dass dieser Nonce-Wert dynamisch generiert werden muss, da er für jede HTTP-Anfrage einzigartig sein muss:
+Das Zulassen aller Inline-Skripte wird als Sicherheitsrisiko betrachtet, daher wird empfohlen, stattdessen eine nonce-source oder eine hash-source zu verwenden.
+Um Inline-Skripte und Stile mit einer nonce-source zu erlauben, müssen Sie einen zufälligen nonce-Wert (unter Verwendung eines kryptographisch sicheren, zufälligen Token-Generators) generieren und diesen in die Richtlinie einfügen.
+Es ist wichtig zu beachten, dass dieser nonce-Wert dynamisch generiert werden muss, da er für jede HTTP-Anfrage einzigartig sein muss:
 
 ```http
 Content-Security-Policy: script-src 'nonce-2726c7f26c'
 ```
 
-Dann müssen Sie denselben Nonce in das {{HTMLElement("script")}}-Element einfügen:
+Dann müssen Sie denselben nonce in das {{HTMLElement("script")}}-Element einfügen:
 
 ```html
 <script nonce="2726c7f26c">
@@ -166,13 +164,13 @@ Dann müssen Sie denselben Nonce in das {{HTMLElement("script")}}-Element einfü
 </script>
 ```
 
-Alternativ können Sie Hashes aus Ihren eingebetteten Skripten erstellen. CSP unterstützt sha256, sha384 und sha512.
+Alternativ können Sie Hashes von Ihren Inline-Skripten erstellen. CSP unterstützt sha256, sha384 und sha512.
 
 ```http
 Content-Security-Policy: script-src 'sha256-B2yPHKaXnvFWtRChIbabYmUBFZdVfKKXHbWtWidDVF8='
 ```
 
-Beim Erzeugen des Hashes dürfen die {{HTMLElement("script")}}-Tags nicht einbezogen werden, und es ist zu beachten, dass Groß-/Kleinschreibung und Leerzeichen bedeutsam sind, einschließlich führender oder nachfolgender Leerzeichen.
+Beim Erstellen des Hashes, schließen Sie die {{HTMLElement("script")}}-Tags nicht ein und beachten Sie, dass Groß-/Kleinschreibung und Leerzeichen, einschließlich führenden oder nachstehenden Leerzeichen, entscheidend sind.
 
 ```html
 <script>
@@ -182,7 +180,7 @@ Beim Erzeugen des Hashes dürfen die {{HTMLElement("script")}}-Tags nicht einbez
 
 ### Unsichere Hashes
 
-Richtlinien für eingebettete Ressourcen mit Hashes wie `script-src 'sha256-{HASHED_INLINE_SCRIPT}'` erlauben Skripte und Stile anhand ihres Hashs, jedoch keine Ereignishandler:
+Richtlinien für Inline-Ressourcen mit Hashes wie `script-src 'sha256-{HASHED_INLINE_SCRIPT}'` erlauben Skripte und Stile durch ihren Hash, jedoch keine Ereignishandler:
 
 ```html
 <!-- Allowed by CSP: script-src 'sha256-{HASHED_INLINE_SCRIPT}' -->
@@ -195,29 +193,28 @@ Richtlinien für eingebettete Ressourcen mit Hashes wie `script-src 'sha256-{HAS
 <button onclick="myScript()">Submit</button>
 ```
 
-Statt `'unsafe-inline'` zu erlauben, können Sie den Quellausdruck `'unsafe-hashes'` verwenden, wenn der Code nicht auf gleichwertige [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Aufrufe aktualisiert werden kann.
-Angenommen, eine HTML-Seite enthält den folgenden eingebetteten Ereignishandler:
+Anstelle von `'unsafe-inline'` können Sie den `'unsafe-hashes'` Quellausdruck verwenden, wenn der Code nicht in äquivalente [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Aufrufe geändert werden kann.
+Für eine HTML-Seite, die den folgenden Inline-Ereignishandler enthält:
 
 ```html
 <!-- I want to use addEventListener, but I can't :( -->
 <button onclick="myScript()">Submit</button>
 ```
 
-Der folgende CSP-Header erlaubt die Ausführung des Skripts:
+Wird der folgende CSP-Header das Skript ausführen lassen:
 
 ```http
 Content-Security-Policy:  script-src 'unsafe-hashes' 'sha256-{HASHED_EVENT_HANDLER}'
 ```
 
-### Unsichere Eval-Ausdrücke
+### Unsichere eval-Ausdrücke
 
-Der Quellausdruck `'unsafe-eval'` steuert mehrere Skriptausführungsmethoden, die Code aus Zeichenfolgen erstellen.
-Wenn eine Seite einen CSP-Header hat und `'unsafe-eval'` nicht mit der `script-src`-Direktive angegeben ist, werden die folgenden Methoden blockiert und haben keine Wirkung:
+Der `'unsafe-eval'` Quellausdruck steuert mehrere Methoden zur Skriptausführung, die Code aus Zeichenfolgen erstellen.
+Wenn eine Seite einen CSP-Header hat und `'unsafe-eval'` nicht mit der `script-src`-Richtlinie angegeben ist, werden die folgenden Methoden blockiert und haben keine Wirkung:
 
 - {{jsxref("Global_Objects/eval", "eval()")}}
 - {{jsxref("Function", "Function()")}}
-- Bei Übergabe eines Zeichenfolgenliterals an Methoden wie: `setTimeout("alert(\"Hallo Welt!\");", 500);`
-
+- Beim Übergeben von Zeichenfolgenliteralen an Methoden wie: `setTimeout("alert(\"Hello World!\");", 500);`
   - [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)
   - [`setInterval()`](/de/docs/Web/API/Window/setInterval)
   - [`setImmediate()`](/de/docs/Web/API/Window/setImmediate)
@@ -226,11 +223,11 @@ Wenn eine Seite einen CSP-Header hat und `'unsafe-eval'` nicht mit der `script-s
 
 ### Unsichere WebAssembly-Ausführung
 
-Der Quellausdruck `'wasm-unsafe-eval'` steuert die WebAssembly-Ausführung.
-Wenn eine Seite einen CSP-Header hat und `'wasm-unsafe-eval'` nicht in der `script-src`-Direktive angegeben ist, wird das Laden und Ausführen von WebAssembly auf der Seite blockiert.
+Der `'wasm-unsafe-eval'` Quellausdruck steuert die Ausführung von WebAssembly.
+Wenn eine Seite einen CSP-Header hat und `'wasm-unsafe-eval'` nicht in der `script-src`-Richtlinie angegeben ist, wird WebAssembly daran gehindert, auf der Seite geladen und ausgeführt zu werden.
 
-Der Quellausdruck `'wasm-unsafe-eval'` ist spezifischer als `'unsafe-eval'`, welches sowohl die Kompilierung (und Instanziierung) von WebAssembly als auch z.B. die Verwendung der `eval`-Operation in JavaScript erlaubt.
-Wird das Quellschlüsselwort `'unsafe-eval'` verwendet, überschreibt dies jedes Vorkommen von `'wasm-unsafe-eval'` in der CSP-Richtlinie.
+Der `'wasm-unsafe-eval'` Quellausdruck ist spezifischer als `'unsafe-eval'`, welches sowohl die Kompilierung (und Instanziierung) von WebAssembly als auch beispielsweise die Verwendung der `eval`-Operation in JavaScript erlaubt.
+Wenn das `'unsafe-eval'` Quellenschlüsselwort verwendet wird, überschreibt dieses jede Vorkommen von `'wasm-unsafe-eval'` in der CSP-Richtlinie.
 
 ```http
 Content-Security-Policy: script-src 'wasm-unsafe-eval'
@@ -238,9 +235,9 @@ Content-Security-Policy: script-src 'wasm-unsafe-eval'
 
 ### strict-dynamic
 
-Der Quellausdruck `'strict-dynamic'` gibt an, dass das ausdrücklich einem in der Markup vorhandenen Skript gegebene Vertrauen, indem es mit einer Nonce oder einem Hash versehen wird, auf alle Skripte, die von diesem Wurzelskript geladen werden, übertragen wird. Gleichzeitig werden alle Whitelists oder Quellausdrücke wie `'self'` oder `'unsafe-inline'` ignoriert.
+Der `'strict-dynamic'` Quellausdruck spezifiziert, dass das Vertrauen, das einem im Markup vorhandenen Skript durch Hinzufügen eines nonce oder eines Hashs explizit gegeben wird, auf alle von diesem Wurzelskript geladenen Skripte übertragen werden soll. Gleichzeitig werden alle Whitelist-Ausdrücke oder Quellausdrücke wie `'self'` oder `'unsafe-inline'` ignoriert.
 
-Zum Beispiel würde eine Richtlinie wie `script-src 'strict-dynamic' 'nonce-R4nd0m' https://allowlisted.example.com/` das Laden eines Wurzelskripts mit `<script nonce="R4nd0m" src="https://example.com/loader.js">` erlauben und dieses Vertrauen auf jedes von `loader.js` geladene Skript übertragen, jedoch das Laden von Skripten von `https://allowlisted.example.com/` verbieten, es sei denn, es wird mit einer Nonce begleitet oder von einem vertrauenswürdigen Skript geladen.
+Beispielsweise würde eine Richtlinie wie `script-src 'strict-dynamic' 'nonce-R4nd0m' https://allowlisted.example.com/` das Laden eines Wurzelskripts mit `<script nonce="R4nd0m" src="https://example.com/loader.js">` erlauben und diese Vertrauensstellung auf jedes von `loader.js` geladene Skript übertragen, aber das Laden von Skripten von `https://allowlisted.example.com/` untersagen, es sei denn, sie werden von einem nonce begleitet oder von einem vertrauenswürdigen Skript geladen.
 
 ```http
 Content-Security-Policy: script-src 'strict-dynamic' 'nonce-someNonce'
@@ -252,18 +249,18 @@ Oder:
 Content-Security-Policy: script-src 'strict-dynamic' 'sha256-base64EncodedHash'
 ```
 
-Es ist möglich, `strict-dynamic` auf rückwärtskompatible Weise bereitzustellen, ohne ein User-Agent-Sniffing zu erfordern.
+Es ist möglich, `strict-dynamic` in einer rückwärtskompatiblen Weise zu implementieren, ohne Nutzeragentenerkennung zu erfordern.
 Die Richtlinie:
 
 ```http
 Content-Security-Policy: script-src 'unsafe-inline' https: 'nonce-abcdefg' 'strict-dynamic'
 ```
 
-wird wie `'unsafe-inline' https:` in Browsern, die CSP1 unterstützen, `https: 'nonce-abcdefg'` in Browsern, die CSP2 unterstützen, und `'nonce-abcdefg' 'strict-dynamic'` in Browsern, die CSP3 unterstützen, funktionieren.
+wird sich in Browsern, die CSP1 unterstützen, wie `'unsafe-inline' https:` verhalten, `https: 'nonce-abcdefg'` in Browsern, die CSP2 unterstützen, und `'nonce-abcdefg' 'strict-dynamic'` in Browsern, die CSP3 unterstützen.
 
-### Zulassung von Spekulationsregeln
+### Zulassen von Spekulationsregeln
 
-Um [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) in ein Skriptelement aufzunehmen (siehe auch [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules)), müssen Sie die `script-src`-Direktive mit einem der `'inline-speculation-rules'`-Quellen, einer Hash-Quelle oder einer Nonce-Quelle verwenden. Zum Beispiel:
+Um [speculation rules](/de/docs/Web/API/Speculation_Rules_API) in einem Skriptelement aufzunehmen (siehe auch [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules)), müssen Sie die `script-src`-Richtlinie mit einem der `'inline-speculation-rules'`-Quellen, eines hash-source oder nonce-source verwenden. Zum Beispiel:
 
 ```http
 Content-Security-Policy: script-src 'inline-speculation-rules'

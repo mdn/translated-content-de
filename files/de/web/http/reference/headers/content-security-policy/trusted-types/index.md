@@ -1,16 +1,14 @@
 ---
-title: "Content-Security-Policy: trusted-types directive"
+title: "Content-Security-Policy: trusted-types Directive"
 short-title: trusted-types
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`trusted-types`**-Direktive weist Benutzeragenten an, die Erstellung von Trusted Types Policies einzuschränken - Funktionen, die nicht manipulierbare, typisierte Werte erstellen, die anstelle von Zeichenketten an DOM-XSS-Senken übergeben werden sollen.
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`trusted-types`** weist Benutzeragenten an, die Erstellung von Trusted Types-Richtlinien einzuschränken - Funktionen, die nicht manipulierbare, typisierte Werte erstellen, die anstelle von Zeichenfolgen an DOM XSS-Senken übergeben werden sollen.
-
-Zusammen mit der **[`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)** Direktive ermöglicht dies den Autoren, Regeln zu definieren, die das Schreiben von Werten an das DOM überwachen, und somit die DOM XSS-Angriffsfläche auf kleine, isolierte Teile des Webanwendungscodes zu reduzieren, was deren Überwachung und Codeüberprüfung erleichtert. Diese Direktive deklariert eine Weiße Liste von Namen vertrauenswürdiger Typenrichtlinien, die mit `trustedTypes.createPolicy` der Trusted Types API erstellt wurden.
+Zusammen mit der **[`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)**-Direktive ermöglicht dies Autoren, Regeln zum Schreiben von Werten in das DOM zu definieren und so die Angriffsfläche für DOM-XSS auf kleine, isolierte Teile des Codes der Webanwendung zu reduzieren, was ihre Überwachung und Codeüberprüfung erleichtert. Diese Direktive deklariert eine Positivliste von Trusted Type Policy-Namen, die mit `trustedTypes.createPolicy` aus der Trusted Types API erstellt wurden.
 
 ## Syntax
 
@@ -22,11 +20,11 @@ Content-Security-Policy: trusted-types <policyName> <policyName> 'allow-duplicat
 ```
 
 - \<policyName>
-  - : Ein gültiger Richtlinienname besteht nur aus alphanumerischen Zeichen oder einem der `-#=_/@.%`. Ein Sternchen (`*`) als Richtlinienname weist den Benutzeragenten an, einen beliebigen eindeutigen Richtliniennamen zuzulassen (`allow-duplicates` kann dies weiter lockern).
+  - : Ein gültiger Policy-Name besteht nur aus alphanumerischen Zeichen oder einem von `-#=_/@.%`. Ein Sternchen (`*`) als Policy-Name weist den Benutzeragenten an, jeden eindeutigen Policy-Namen zuzulassen (`allow-duplicates` kann dies weiter lockern).
 - `'none'`
-  - : Verhindert die Erstellung einer Trusted Types-Richtlinie (entspricht dem Nicht-Angeben eines _\<policyName>_).
+  - : Verhindert die Erstellung einer Trusted Type Policy (entspricht dem Nicht-Spezifizieren eines _\<policyName>_).
 - `'allow-duplicates'`
-  - : Erlaubt das Erstellen von Richtlinien mit einem bereits verwendeten Namen.
+  - : Erlaubt die Erstellung von Policies mit einem bereits verwendeten Namen.
 
 ## Beispiele
 
@@ -52,6 +50,6 @@ if (typeof trustedTypes !== "undefined") {
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{Glossary("Cross-site_scripting", "Cross-Site Scripting (XSS)")}}
-- [Verhindern von DOM-basierten Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
-- Trusted Types mit [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Filter
+- [Verhindern Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
+- Trusted Types mit [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Sanitizer
 - [Trusted Types Polyfill](https://github.com/w3c/trusted-types#polyfill)

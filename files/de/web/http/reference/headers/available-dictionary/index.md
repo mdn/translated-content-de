@@ -3,16 +3,16 @@ title: Available-Dictionary header
 short-title: Available-Dictionary
 slug: Web/HTTP/Reference/Headers/Available-Dictionary
 l10n:
-  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header **`Available-Dictionary`** erlaubt es dem Browser, das am besten passende Wörterbuch anzugeben, das er hat, um dem Server den Einsatz des {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} für eine Ressourcenanfrage zu ermöglichen.
+Der HTTP **`Available-Dictionary`** Anfrage-Header ermöglicht es dem Browser, das am besten passende Wörterbuch zu spezifizieren, das er hat, um dem Server die Nutzung des {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} für eine Ressourcenanfrage zu erlauben.
 
-Clients können einen `Available-Dictionary`-Header senden, wenn sie `dcb`- oder `dcz`-Codierungen unterstützen. Der Header ist ein durch Doppelpunkte begrenzter, base-64 kodierter SHA-256 {{Glossary("Hash_function", "Hash")}} der Wörterbuchinhalte.
+Clients können einen `Available-Dictionary` Header senden, wenn sie `dcb` oder `dcz` Kodierungen unterstützen. Der Header ist ein durch Doppelpunkte umschlossener base-64 kodierter SHA-256 {{Glossary("Hash_function", "Hash")}} der Wörterbuchinhalte.
 
-Weitere Informationen finden Sie im [Leitfaden zur Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
+Siehe den [Compression Dictionary Transport Leitfaden](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport) für weitere Informationen.
 
 ## Syntax
 
@@ -42,6 +42,6 @@ Available-Dictionary: :pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=:
 
 ## Siehe auch
 
-- [Leitfaden zur Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
+- [Compression Dictionary Transport Leitfaden](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
 - {{HTTPHeader("Use-As-Dictionary")}}
 - {{HTTPHeader("Dictionary-ID")}}

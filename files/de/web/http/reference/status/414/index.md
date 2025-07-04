@@ -2,18 +2,16 @@
 title: 414 URI Too Long
 slug: Web/HTTP/Reference/Status/414
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Der HTTP-Statuscode **`414 URI Too Long`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass eine vom Client angeforderte URI länger war, als der Server bereit ist zu interpretieren.
+Der HTTP-Statuscode **`414 URI Too Long`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass ein vom Client angefordertes URI länger ist, als der Server bereit ist zu interpretieren.
 
 Es gibt einige seltene Bedingungen, unter denen dieser Fehler auftreten kann:
 
-- ein Client hat eine {{HTTPMethod("POST")}}-Anfrage unsachgemäß in eine {{HTTPMethod("GET")}}-Anfrage mit langen Abfrageinformationen umgewandelt,
-- ein Client ist in eine Umleitungsschleife geraten (zum Beispiel, ein umgeleiteter URI-Präfix, der auf einen Suffix von sich selbst zeigt), oder
-- der Server wird von einem Client angegriffen, der versucht, potenzielle Sicherheitslücken auszunutzen.
+- Ein Client hat eine {{HTTPMethod("POST")}}-Anfrage unsachgemäß in eine {{HTTPMethod("GET")}}-Anfrage mit langen Abfrageinformationen umgewandelt,
+- Ein Client befindet sich in einer Schleife von Weiterleitungen (zum Beispiel ein umgeleitetes URI-Präfix, das auf ein Suffix von sich selbst verweist), oder
+- Der Server wird von einem Client angegriffen, der versucht, potenzielle Sicherheitslücken auszunutzen.
 
 Einige Systeme implementieren `414 URI Too Long` als `414 Request-URI Too Large`.
 
@@ -27,15 +25,15 @@ Einige Systeme implementieren `414 URI Too Long` als `414 Request-URI Too Large`
 
 ### Formularübermittlung mit GET
 
-Im folgenden Beispiel verwendet ein HTML-[`<form>`-Method](/de/docs/Web/HTML/Reference/Elements/form#method) versehentlich `get` anstelle von `post`.
-Eine große Menge an Formulardaten wird an die im `action`-Attribut des Formulars angegebene URL angehängt und als GET-Anfrage gesendet:
+Im folgenden Beispiel verwendet ein HTML-<form>-Element versehentlich die Methode `get` anstelle von `post`.
+Eine große Menge an Formulardaten wird der im `action`-Attribut des Formulars angegebenen URL angefügt und als GET-Anfrage gesendet:
 
 ```http
 GET /search?feedback=it+was+the+best+of+times+it+was+the+worst+of+times… HTTP/1.1
 Host: example.com
 ```
 
-Das URI-Längenlimit dieses bestimmten Servers wird mit dieser Anfrage erreicht und es wird eine 414 als Antwort gesendet:
+Bei dieser Anfrage wird das URI-Längenlimit des speziellen Servers erreicht, und eine 414-Antwort wird gesendet:
 
 ```http
 HTTP/1.1 414 URI Too Long

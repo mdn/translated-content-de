@@ -2,20 +2,18 @@
 title: 501 Not Implemented
 slug: Web/HTTP/Reference/Status/501
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`501 Not Implemented`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) bedeutet, dass der Server die für die Erfüllung der Anfrage erforderliche Funktionalität nicht unterstützt.
 
-Der HTTP-Statuscode **`501 Not Implemented`** [Serverfehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) bedeutet, dass der Server die Funktionalität, die zur Erfüllung der Anfrage erforderlich ist, nicht unterstützt.
+Eine Antwort mit diesem Status kann auch einen {{HTTPHeader("Retry-After")}}-Header enthalten, der dem Client mitteilt, dass er die Anfrage nach Ablauf der angegebenen Zeit wiederholen kann. Eine `501`-Antwort ist standardmäßig cachefähig, es sei denn, Caching-Header weisen anders an.
 
-Eine Antwort mit diesem Status kann auch einen {{HTTPHeader("Retry-After")}} Header enthalten, der dem Client mitteilt, dass er die Anfrage nach Ablauf der angegebenen Zeit erneut versuchen kann. Eine `501`-Antwort ist standardmäßig zwischenspeicherbar, es sei denn, Cache-Header geben etwas anderes an.
+`501` ist die angemessene Antwort, wenn der Server die Anfragemethode nicht erkennt und nicht in der Lage ist, sie für eine beliebige Ressource zu unterstützen. Server müssen {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} unterstützen und dürfen daher auf Anfragen mit diesen Methoden nicht mit `501` antworten. Wenn der Server die Methode erkennt, aber absichtlich nicht zulässt, ist die angemessene Antwort {{HTTPStatus("405", "405 Method Not Allowed")}}.
 
-`501` ist die angemessene Antwort, wenn der Server die Anfragemethode nicht erkennt und nicht in der Lage ist, sie für eine Ressource zu unterstützen. Server sind verpflichtet, die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} zu unterstützen und dürfen daher nicht mit `501` auf Anfragen mit diesen Methoden antworten. Wenn der Server die Methode erkennt, sie aber absichtlich nicht zulässt, ist die angemessene Antwort {{HTTPStatus("405", "405 Method Not Allowed")}}.
+Wenn Sie eine Webseite besucht haben und `501`-Fehler sehen, erfordern diese Probleme eine Untersuchung und Behebung durch die Serverbesitzer oder Administratoren. Sie können den Browser-Cache für die Domäne leeren, Proxys deaktivieren, wenn Sie einen verwenden, oder es später erneut versuchen, um zu sehen, ob es wie erwartet funktioniert.
 
-Wenn Sie eine Webseite besucht haben und `501`-Fehler sehen, erfordern diese Probleme eine Untersuchung und Behebung durch die Serverbesitzer oder -administratoren. Sie können den Browser-Cache für die Domain leeren, Proxys deaktivieren, falls Sie einen verwenden, oder später erneut versuchen, um zu sehen, ob es wie erwartet funktioniert.
-
-Eine `501`-Antwort kann auftreten, wenn Proxys nicht in der Lage sind, Anfragemethoden im Kontext von Anwendungen des HTTP Extension Framework ({{RFC("2774")}}) zu handhaben. Dieser Status kann auch in Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) auftreten, wenn für eine Anfragemethode (`SEARCH`, `PROPFIND`) kein URL-Handler konfiguriert ist, um sie zu verarbeiten.
+Eine `501`-Antwort kann auftreten, wenn Proxys die im Kontext von HTTP Extension Framework ({{RFC("2774")}}) Anwendungen verwendeten Anfragemethoden nicht verarbeiten können. Dieser Status kann auch bei Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) auftreten, wenn eine Anfragemethode (`SEARCH`, `PROPFIND`) keinen URL-Handler konfiguriert hat, um sie zu verarbeiten.
 
 ## Status
 
@@ -25,9 +23,9 @@ Eine `501`-Antwort kann auftreten, wenn Proxys nicht in der Lage sind, Anfrageme
 
 ## Beispiele
 
-### Erweiterungsmethode wird nicht unterstützt
+### Erweiterungsmethode nicht unterstützt
 
-Im folgenden Beispiel des HTTP Extension Framework sendet ein Client eine Anfrage mit einer zwingend erforderlichen Erweiterung, die im `C-MAN` Header angegeben ist. Der {{HTTPHeader("Connection")}} Header gibt an, dass diese Erweiterungen auf einer [hop-by-hop](/de/docs/Web/HTTP/Reference/Headers#hop-by-hop_headers) Basis behandelt werden sollen. Ein Proxy lehnt es ab, die `M-GET` Methode weiterzuleiten, und sendet als Antwort einen `501` Fehler:
+Im folgenden Beispiel des HTTP Extension Frameworks sendet ein Client eine Anfrage mit einer obligatorischen Erweiterung, die im `C-MAN`-Header angegeben ist. Der {{HTTPHeader("Connection")}}-Header gibt an, dass diese Erweiterungen auf einer [Hop-by-Hop](/de/docs/Web/HTTP/Reference/Headers#hop-by-hop_headers)-Basis behandelt werden sollen. Ein Proxy lehnt es ab, die `M-GET`-Methode weiterzuleiten, und sendet eine `501`-Fehlerantwort:
 
 ```http
 M-GET /document HTTP/1.1
@@ -48,4 +46,4 @@ HTTP/1.1 501 Not Implemented
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - {{HTTPStatus("510", "510 Not Extended")}}
-- [HTTP 501 Fehler](https://learn.microsoft.com/en-us/aspnet/web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications) in der Microsoft ASP.NET Dokumentation
+- [HTTP 501-Fehler](https://learn.microsoft.com/en-us/aspnet/web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications) in der Microsoft ASP.NET-Dokumentation

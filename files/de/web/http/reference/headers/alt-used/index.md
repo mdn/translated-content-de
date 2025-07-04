@@ -3,16 +3,14 @@ title: Alt-Used header
 short-title: Alt-Used
 slug: Web/HTTP/Reference/Headers/Alt-Used
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-**`Alt-Used`**-{{Glossary("request_header", "Anforderungs-Header")}} wird verwendet, um den alternativen Dienst zu identifizieren, genauso wie das {{HTTPHeader("Host")}} HTTP-Header-Feld den Host und Port des Ursprungs identifiziert.
 
-Der HTTP-**`Alt-Used`**-{{Glossary("request_header", "Anforderungs-Header")}} wird verwendet, um den genutzten alternativen Dienst zu identifizieren, ähnlich wie das {{HTTPHeader("Host")}} HTTP-Header-Feld den Host und Port des Ursprungs identifiziert.
+Dieser Header soll es alternativen Diensten ermöglichen, Schleifen zu erkennen, den Datenverkehr zu differenzieren, um Lastverteilung durchzuführen, und generell sicherzustellen, dass es möglich ist, das beabsichtigte Ziel des Datenverkehrs zu identifizieren. Denn es hat sich als problematisch erwiesen, diese Informationen nach der Einführung eines Protokolls hinzuzufügen.
 
-Der Zweck besteht darin, alternativen Diensten zu ermöglichen, Schleifen zu erkennen, den Datenverkehr zu Differenzierungszwecken wie Lastverteilung zu verwenden und im Allgemeinen sicherzustellen, dass das beabsichtigte Ziel des Datenverkehrs identifiziert werden kann, da es sich als problematisch herausgestellt hat, diese Informationen erst nach der Nutzung eines Protokolls einzuführen.
-
-Wenn ein Client einen alternativen Dienst für eine Anfrage nutzt, kann er dies dem Server mittels des HTTP-Headers `Alt-Used` anzeigen.
+Wenn ein Client für eine Anfrage einen alternativen Dienst verwendet, kann er dies dem Server über den `Alt-Used` HTTP-Header mitteilen.
 
 <table class="properties">
   <tbody>
@@ -38,7 +36,7 @@ Alt-Used: <host>:<port>
 - `<host>`
   - : Der Domainname des Servers.
 - `<port>` {{optional_inline}}
-  - : Die TCP-Portnummer, auf der der Server lauscht.
+  - : Die TCP-Portnummer, an der der Server lauscht.
 
 ## Beispiele
 

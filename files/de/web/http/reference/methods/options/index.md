@@ -3,25 +3,23 @@ title: OPTIONS request method
 short-title: OPTIONS
 slug: Web/HTTP/Reference/Methods/OPTIONS
 l10n:
-  sourceCommit: 1dc7706a4ae11461ab0666467e694e53b1cc894f
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Die **`OPTIONS`** HTTP-Methode fragt die erlaubten Kommunikationsoptionen für eine gegebene URL oder einen Server an. Dies kann verwendet werden, um die erlaubten HTTP-Methoden für eine Anfrage zu testen oder um festzustellen, ob eine Anfrage bei einer CORS-Preflight-Anfrage erfolgreich wäre. Ein Client kann eine URL mit dieser Methode angeben oder ein Sternchen (`*`), um auf den gesamten Server zu verweisen.
+Die **`OPTIONS`** HTTP-Methode fordert zulässige Kommunikationsoptionen für eine bestimmte URL oder einen Server an. Diese kann verwendet werden, um die erlaubten HTTP-Methoden für eine Anfrage zu testen oder um festzustellen, ob eine Anfrage erfolgreich wäre, wenn eine CORS-Preflight-Anfrage gestellt wird. Ein Client kann mit dieser Methode eine URL angeben oder ein Sternchen (`*`), um den gesamten Server zu adressieren.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat Inhalt</th>
-      <td>Darf*</td>
+      <th scope="row">Anfrage hat einen Body</th>
+      <td>Kann*</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat Inhalt</th>
-      <td>Darf</td>
+      <th scope="row">Erfolgreiche Antwort hat einen Body</th>
+      <td>Kann</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Safe/HTTP", "Safe")}}</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -29,7 +27,7 @@ Die **`OPTIONS`** HTTP-Methode fragt die erlaubten Kommunikationsoptionen für e
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Cachefähig")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -39,7 +37,7 @@ Die **`OPTIONS`** HTTP-Methode fragt die erlaubten Kommunikationsoptionen für e
   </tbody>
 </table>
 
-\* Obwohl eine `OPTIONS`-Nachricht mit einem Anfragetext technisch erlaubt ist, hat sie keine definierten Semantiken. Sie dürfen einen Text in eine `OPTIONS`-Nachricht einfügen, solange Sie einen gültigen {{HTTPHeader("Content-Type")}}-Header bereitstellen und Sie wissen, dass der Server dies erwartet, da das Verhalten implementierungsspezifisch ist.
+\* Obwohl eine `OPTIONS` Nachricht mit einem Anfrage-Body technisch erlaubt ist, hat sie keine definierten Semantiken. Sie können einen Body in einer `OPTIONS` Nachricht einschließen, solange Sie einen gültigen {{HTTPHeader("Content-Type")}}-Header bereitstellen und wenn Sie wissen, dass der Server ihn erwartet, da das Verhalten implementierungsspezifisch ist.
 
 ## Syntax
 
@@ -47,20 +45,20 @@ Die **`OPTIONS`** HTTP-Methode fragt die erlaubten Kommunikationsoptionen für e
 OPTIONS *|<request-target>["?"<query>] HTTP/1.1
 ```
 
-Das Anforderungsziel kann entweder in 'Sternchen-Form' `*` sein, was den gesamten Server anzeigt, oder ein Anforderungsziel, wie es bei anderen Methoden üblich ist:
+Das Anforderungsziel kann entweder in 'Asterisk-Form' `*` sein, was den gesamten Server anzeigt, oder ein Anforderungsziel, wie es bei anderen Methoden üblich ist:
 
 - `*`
-  - : Gibt an, dass der Client `OPTIONS` für den gesamten Server anfragen möchte, im Gegensatz zu einer spezifischen benannten Ressource dieses Servers.
+  - : Zeigt an, dass der Client `OPTIONS` für den gesamten Server anfordern möchte, im Gegensatz zu einer bestimmten benannten Ressource dieses Servers.
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den Informationen im {{HTTPHeader("Host")}}-Header kombiniert wird. Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Origin-Server und eine absolute URL bei Anfragen an Proxies (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert das Ziel der Anforderung in Kombination mit den Informationen, die im {{HTTPHeader("Host")}} Header bereitgestellt werden. Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) in Anforderungen an einen Ursprungserver und eine absolute URL in Anforderungen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` eingeleitet wird. Wird häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übermitteln.
+  - : Ein optionaler Abfragebestandteil, der durch ein Fragezeichen `?` eingeleitet wird. Wird oft verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu tragen.
 
 ## Beispiele
 
-### Ermittlung erlaubter Anfragemethoden
+### Identifizierung erlaubter Anfragemethoden
 
-Um herauszufinden, welche Anfragemethoden ein Server unterstützt, kann man das `curl` Befehlszeilenprogramm verwenden, um eine `OPTIONS`-Anfrage zu senden:
+Um herauszufinden, welche Anfragemethoden ein Server unterstützt, kann man das Kommandozeilenprogramm `curl` verwenden, um eine `OPTIONS`-Anfrage zu stellen:
 
 ```bash
 curl -X OPTIONS https://example.org -i
@@ -87,10 +85,10 @@ Server: EOS (lax004/2813)
 
 ### Preflight-Anfragen in CORS
 
-In [CORS](/de/docs/Web/HTTP/Guides/CORS) wird eine {{Glossary("Preflight_request", "Preflight-Anfrage")}} mit der `OPTIONS`-Methode gesendet, damit der Server darauf antworten kann, ob es akzeptabel ist, die Anfrage zu senden. In diesem Beispiel werden wir die Genehmigung für diese Parameter anfragen:
+In [CORS](/de/docs/Web/HTTP/Guides/CORS) wird mit der Methode `OPTIONS` eine {{Glossary("Preflight_request", "Preflight-Anfrage")}} gesendet, damit der Server antworten kann, ob es akzeptabel ist, die Anfrage zu senden. In diesem Beispiel werden wir um Erlaubnis für diese Parameter bitten:
 
-- Der {{HTTPHeader("Access-Control-Request-Method")}}-Header, der in der Preflight-Anfrage gesendet wird, zeigt dem Server, dass die tatsächliche Anfrage eine {{HTTPMethod("POST")}}-Anfragemethode haben wird.
-- Der {{HTTPHeader("Access-Control-Request-Headers")}}-Header teilt dem Server mit, dass die tatsächliche Anfrage die Header `X-PINGOTHER` und `Content-Type` haben wird.
+- Der {{HTTPHeader("Access-Control-Request-Method")}} Header, der in der Preflight-Anfrage gesendet wird, teilt dem Server mit, dass die tatsächliche Anfrage, wenn sie gesendet wird, eine {{HTTPMethod("POST")}}-Anfragemethode haben wird.
+- Der {{HTTPHeader("Access-Control-Request-Headers")}} Header teilt dem Server mit, dass die tatsächliche Anfrage die Header `X-PINGOTHER` und `Content-Type` haben wird.
 
 ```http
 OPTIONS /resources/post-here/ HTTP/1.1
@@ -104,16 +102,16 @@ Access-Control-Request-Method: POST
 Access-Control-Request-Headers: content-type,x-pingother
 ```
 
-Der Server kann nun antworten, ob er eine Anfrage unter diesen Umständen akzeptieren wird. In diesem Beispiel sagt die Serverantwort, dass:
+Der Server kann nun antworten, ob er eine Anfrage unter diesen Umständen akzeptiert. In diesem Beispiel sagt die Serverantwort:
 
 - {{HTTPHeader("Access-Control-Allow-Origin")}}
-  - : Der Ursprung `https://foo.example` darf die `bar.example/resources/post-here/` URL über die folgenden Methoden anfragen:
+  - : Der Ursprung `https://foo.example` darf die URL `bar.example/resources/post-here/` über Folgendes anfragen:
 - {{HTTPHeader("Access-Control-Allow-Methods")}}
-  - : {{HTTPMethod("POST")}}, {{HTTPMethod("GET")}}, und `OPTIONS` sind für die URL erlaubte Methoden. (Dieser Header ähnelt dem {{HTTPHeader("Allow")}}-Antwort-Header, wird jedoch nur für [CORS](/de/docs/Web/HTTP/Guides/CORS) verwendet.)
+  - : {{HTTPMethod("POST")}}, {{HTTPMethod("GET")}} und `OPTIONS` sind erlaubte Methoden für die URL. (Dieser Header ist dem {{HTTPHeader("Allow")}} Antwortheader ähnlich, wird aber nur für [CORS](/de/docs/Web/HTTP/Guides/CORS) verwendet.)
 - {{HTTPHeader("Access-Control-Allow-Headers")}}
-  - : `X-PINGOTHER` und `Content-Type` sind für die URL erlaubte Anfrage-Header.
+  - : `X-PINGOTHER` und `Content-Type` sind erlaubte Anfrage-Header für die URL.
 - {{HTTPHeader("Access-Control-Max-Age")}}
-  - : Die obigen Berechtigungen dürfen für 86.400 Sekunden (1 Tag) zwischengespeichert werden.
+  - : Die obigen Berechtigungen können für 86.400 Sekunden (1 Tag) zwischengespeichert werden.
 
 ```http
 HTTP/1.1 200 OK
@@ -141,8 +139,8 @@ Connection: Keep-Alive
 
 ## Siehe auch
 
-- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
-- [HTTP-Antwortstatus-Codes](/de/docs/Web/HTTP/Reference/Status)
+- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Reference/Methods)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
-- {{HTTPHeader("Allow")}}-Header
+- {{HTTPHeader("Allow")}} Header
 - [CORS](/de/docs/Web/HTTP/Guides/CORS)

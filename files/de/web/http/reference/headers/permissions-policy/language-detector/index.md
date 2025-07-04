@@ -3,14 +3,14 @@ title: "Permissions-Policy: language-detector directive"
 short-title: language-detector
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/language-detector
 l10n:
-  sourceCommit: a94222db08ada9dfbbdb880c064df91853204743
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `language-detector` steuert den Zugriff auf die Sprachenerkennungsfunktionalität der [Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `language-detector` steuert den Zugriff auf die Sprachenerkennungsfunktionalität der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung blockiert, führen jegliche Versuche, die Sprachenerkennungsmethoden der API aufzurufen, zu einem Fehlschlag mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException).
+Insbesondere dort, wo eine definierte Richtlinie die Nutzung blockiert, schlagen alle Versuche, die Sprachenerkennungsmethoden der API aufzurufen, mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehl.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: language-detector=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung für die Nutzung der Funktion erteilt ist. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt ist, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `language-detector` ist `self`.
+Die Standard-Zulassungsliste für `language-detector` ist `self`.
 
 ## Spezifikationen
 
@@ -35,5 +35,5 @@ Die Standard-Whitelist für `language-detector` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

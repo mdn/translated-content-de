@@ -3,23 +3,21 @@ title: DELETE request method
 short-title: DELETE
 slug: Web/HTTP/Reference/Methods/DELETE
 l10n:
-  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Die **`DELETE`**-HTTP-Methode fordert den Server auf, eine spezifizierte Ressource zu löschen.
 
-Die **`DELETE`** HTTP-Methode fordert den Server auf, eine angegebene Ressource zu löschen.
-
-Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtenkörper, daher sollte dieser leer sein.
+Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichteninhalt, daher sollte dieser leer sein.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat einen Körper</th>
+      <th scope="row">Anforderung hat Inhalt</th>
       <td>Darf</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
+      <th scope="row">Erfolgreiche Antwort hat Inhalt</th>
       <td>Darf</td>
     </tr>
     <tr>
@@ -31,7 +29,7 @@ Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtenkörpe
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Zwischenspeicherbar")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -50,10 +48,10 @@ DELETE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert das Ziel der Anfrage, wenn sie mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
-    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anforderung, wenn sie mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
+    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxy-Server (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die mit einem Fragezeichen `?` eingeleitet wird.
+  - : Eine optionale Abfragekomponente, der ein Fragezeichen `?` vorangestellt ist.
     Wird oft verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übermitteln.
 
 ## Beispiele
@@ -67,7 +65,7 @@ DELETE /file.html HTTP/1.1
 Host: example.com
 ```
 
-Wenn die Anfrage erfolgreich ist, gibt es mehrere mögliche [Statuscodes für erfolgreiche Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses).
+Wenn die Anfrage erfolgreich ist, gibt es mehrere mögliche [erfolgreiche Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status#successful_responses).
 Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client zurückgesendet werden müssen:
 
 ```http
@@ -90,7 +88,7 @@ Content-Length: 1234
 </html>
 ```
 
-Eine {{HTTPStatus("202", "202 Accepted")}}-Antwort bedeutet, dass die Anfrage angenommen wurde und wahrscheinlich erfolgreich sein wird, aber die Ressource noch nicht vom Server gelöscht wurde.
+Eine {{HTTPStatus("202", "202 Accepted")}}-Antwort bedeutet, dass die Anfrage akzeptiert wurde und wahrscheinlich erfolgreich sein wird, die Ressource jedoch noch nicht vom Server gelöscht wurde.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -112,12 +110,12 @@ Content-Length: 1234
 
 ## Browser-Kompatibilität
 
-Der Browser nutzt die `DELETE`-Methode nicht für vom Benutzer initiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
-Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) festlegen.
+Der Browser verwendet die `DELETE`-Methode nicht für benutzerinitiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
+Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) setzen.
 
 ## Siehe auch
 
 - HTTP-Statuscodes: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
-- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
+- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)

@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: Bild-in-Bild-Direktive"
+title: "Permissions-Policy: picture-in-picture-Direktive"
 short-title: picture-in-picture
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/picture-in-picture
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `picture-in-picture` steuert, ob das aktuelle Dokument ein Video im [Bild-in-Bild](/de/docs/Web/API/Picture-in-Picture_API) Modus abspielen darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `picture-in-picture` steuert, ob das aktuelle Dokument ein Video im [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Modus abspielen darf.
 
-Insbesondere wird, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, ein Aufruf von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) einen [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Speziell, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` werfen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: picture-in-picture=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt ist. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Zulassungsliste für `picture-in-picture` ist `*`.
+Die Standardberechtigungsliste für `picture-in-picture` ist `*`.
 
 ## Spezifikationen
 

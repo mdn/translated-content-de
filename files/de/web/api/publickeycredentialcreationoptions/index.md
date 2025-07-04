@@ -2,117 +2,138 @@
 title: PublicKeyCredentialCreationOptions
 slug: Web/API/PublicKeyCredentialCreationOptions
 l10n:
-  sourceCommit: cf41a29c212c730c1beef36d6bf3474ebbfc6162
+  sourceCommit: 8c426a99972c23906699bce5d4a73e9aef646ee7
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Das **`PublicKeyCredentialCreationOptions`**-Dictionary repräsentiert das Objekt, das an [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) als Wert der `publicKey`-Option übergeben wird: also bei der Verwendung von `create()`, um ein öffentliches Schlüssel-Anmeldeobjekt unter Verwendung der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) zu erstellen.
+Das **`PublicKeyCredentialCreationOptions`**-Wörterbuch repräsentiert das Objekt, das als Wert der `publicKey`-Option an [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) übergeben wird: das heißt, wenn `create()` verwendet wird, um ein Public Key Credential mit der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) zu erstellen.
 
 ## Instanz-Eigenschaften
 
 - `attestation` {{optional_inline}}
-  - : Ein String, der die Präferenz der vertrauenden Instanz (Relying Party) angibt, wie die Attestierungsdaten (d.h. die Bereitstellung überprüfbarer Nachweise der Authentizität des Authentifikators und seiner Daten) während der Erstellung des Anmeldedatensatzes übermittelt werden. Der Wert kann einer der folgenden sein:
+  - : Ein String, der die Präferenz der abhängigen Partei angibt, wie die Attestationserklärung (d.h. die Bereitstellung überprüfbarer Beweise für die Authentizität des Authenticator und seiner Daten) während der Credential-Erstellung übermittelt wird. Der Wert kann einer der folgenden sein:
     - `"none"`
-      - : Gibt an, dass die vertrauende Instanz kein Interesse an der Authentifikator-Attestierung hat. Dies könnte sein, um zusätzliche Nutzerzustimmungen für Hin- und Rückfahrten zum vertrauenden Instanz-Server zu vermeiden, um identifizierende Informationen zu übermitteln, oder für Fahrten zu einer Attestierungs-Zertifizierungsstelle (CA), mit dem Ziel, den Authentifizierungsprozess reibungsloser zu gestalten. Wenn `"none"` als `attestation`-Wert gewählt wird und der Authentifikator signalisiert, dass er eine CA verwendet, um seine Attestierung auszustellen, wird die Client-App diese durch eine "None"-Attestierung ersetzen, was bedeutet, dass keine Attestierung verfügbar ist.
+      - : Gibt an, dass die abhängige Partei nicht an der Authenticator-Attestation interessiert ist. Dies könnte dazu dienen, zusätzliche Benutzereinwilligungen für Rundreisen zum Server der abhängigen Partei zu vermeiden, um identifizierende Informationen weiterzugeben, oder Rundfahrten zu einer Attestation Certificate Authority (CA), mit dem Ziel, den Authentifizierungsprozess reibungsloser zu gestalten. Wenn `"none"` als `attestation`-Wert gewählt wird und der Authenticator signalisiert, dass er eine CA verwendet, um seine Attestationserklärung zu erstellen, wird die Client-App diese durch eine "None"-Attestationserklärung ersetzen, was darauf hinweist, dass keine Attestationerklärung verfügbar ist.
 
     - `"direct"`
-      - : Gibt an, dass die vertrauende Instanz die Attestierung so erhalten möchte, wie sie vom Authentifikator generiert wurde.
+      - : Gibt an, dass die abhängige Partei die von dem Authenticator generierte Attestationserklärung erhalten möchte.
 
     - `"enterprise"`
-      - : Gibt an, dass die vertrauende Instanz eine Attestierung erhalten möchte, die möglicherweise eindeutig identifizierende Informationen enthält. Dies ist für kontrollierte Implementierungen innerhalb eines Unternehmens gedacht, wo die Organisation Registrierungen an bestimmte Authentifikatoren binden möchte.
+      - : Gibt an, dass die abhängige Partei eine Attestationserklärung erhalten möchte, die möglicherweise eindeutig identifizierende Informationen enthält. Dies ist für kontrollierte Bereitstellungen innerhalb eines Unternehmens vorgesehen, bei denen die Organisation Registrierungen mit bestimmten Authenticatoren verbinden möchte.
 
     - `"indirect"`
-      - : Gibt an, dass die vertrauende Instanz eine überprüfbare Attestierung erhalten möchte, die Entscheidung über die Art und Weise der Empfangnahme jedoch dem Client überlässt. Zum Beispiel könnte der Client wählen, die Behauptung des Authentifikators durch eine von einer Anonymisierungs-CA generierte zu ersetzen, um die Privatsphäre des Nutzers zu schützen.
+      - : Gibt an, dass die abhängige Partei eine überprüfbare Attestationserklärung erhalten möchte, es dem Client jedoch überlassen wird, wie sie diese erhält. Der Client könnte zum Beispiel wählen, die Behauptungserklärung des Authenticator durch eine von einer Anonymisierungs-CA generierte Erklärung zu ersetzen, um die Privatsphäre des Benutzers zu schützen.
 
-    Wenn `attestation` weggelassen wird, ist der Standardwert `"none"`.
+    Wenn `attestation` weggelassen wird, wird es standardmäßig auf `"none"` gesetzt.
 
 - `attestationFormats` {{optional_inline}}
-  - : Ein Array von Strings, das die Präferenz der vertrauenden Instanz für das Format der vom Authentifikator verwendeten Attestierung angibt. Die Werte sollten von höchster zu niedrigster Präferenz geordnet werden und sollten als Hinweise gesehen werden — der Authentifikator kann sich entscheiden, eine Attestierung in einem anderen Format auszustellen. Eine Liste gültiger Formate finden Sie unter [WebAuthn Attestation Statement Format Identifiers](https://www.iana.org/assignments/webauthn/webauthn.xhtml#webauthn-attestation-statement-format-ids).
+  - : Ein Array von Strings, das die Präferenz der abhängigen Partei für das von dem Authenticator verwendete Attestationserklärungsformat angibt. Die Werte sollten in der Reihenfolge von höchster zu niedrigster Präferenz angegeben werden und sollten als Hinweise betrachtet werden — der Authenticator kann sich entscheiden, eine Attestationserklärung in einem anderen Format auszugeben. Für eine Liste der gültigen Formate siehe [WebAuthn Attestation Statement Format Identifiers](https://www.iana.org/assignments/webauthn/webauthn.xhtml#webauthn-attestation-statement-format-ids).
 
-    Wenn weggelassen, ist `attestationFormats` standardmäßig ein leeres Array.
+    Wenn weggelassen, standardisiert `attestationFormats` auf ein leeres Array.
 
 - `authenticatorSelection` {{optional_inline}}
-  - : Ein Objekt, dessen Eigenschaften Kriterien enthalten, die verwendet werden, um die möglichen Authentifikatoren für den Anmeldevorgang zu filtern. Dieses Objekt kann die Eigenschaften enthalten:
+  - : Ein Objekt, dessen Eigenschaften Kriterien sind, die verwendet werden, um potenzielle Authenticatoren für die Credential-Erstellungsoperation herauszufiltern. Dieses Objekt kann die folgenden Eigenschaften enthalten:
     - `authenticatorAttachment` {{optional_inline}}
-      - : Ein String, der angibt, welche Art der Authentifikator-Befestigung für den gewählten Authentifikator erlaubt sein soll. Mögliche Werte sind:
+      - : Ein String, der angibt, welcher Authenticator-Typ für den ausgewählten Authenticator zulässig sein soll. Mögliche Werte sind:
         - `"platform"`
-          - : Der Authentifikator ist Teil des Geräts, auf dem WebAuthn läuft (genannt ein **Platform-Authenticator**), daher kommuniziert WebAuthn über einen transportierenden Kanal, der für diese Plattform verfügbar ist, wie z. B. eine plattformspezifische API. Ein öffentliches Schlüssel-Anmeldeobjekt, das an einen Platform-Authenticator gebunden ist, wird als **Platform-Credential** bezeichnet.
+          - : Der Authenticator ist Teil des Geräts, auf dem WebAuthn ausgeführt wird (genannt **Plattformauthenticator**), daher kommuniziert WebAuthn mit ihm über einen für diese Plattform verfügbaren Transport, wie eine plattformspezifische API. Ein Public Key Credential, das an einen Plattformauthenticator gebunden ist, wird als **Plattform-Credential** bezeichnet.
         - `"cross-platform"`
-          - : Der Authentifikator ist nicht Teil des Geräts, auf dem WebAuthn läuft (genannt ein **Roaming-Authenticator**, da er zwischen verschiedenen Geräten wechseln kann), daher kommuniziert WebAuthn über ein plattformübergreifendes Transportprotokoll wie Bluetooth oder NFC. Ein öffentliches Schlüssel-Anmeldeobjekt, das an einen Roaming-Authenticator gebunden ist, wird als **Roaming-Credential** bezeichnet.
+          - : Der Authenticator ist nicht Teil des Geräts, auf dem WebAuthn ausgeführt wird (genannt **roaming Authenticator**, da er zwischen verschiedenen Geräten wechseln kann), daher kommuniziert WebAuthn mit ihm über ein plattformübergreifendes Transportprotokoll wie Bluetooth oder NFC. Ein Public Key Credential, das an einen roaming Authenticator gebunden ist, wird als **roaming Credential** bezeichnet.
 
-            Wenn weggelassen, kann jede Art von Authentifikator, entweder Plattform oder plattformübergreifend, für die Erstellung des Anmeldeobjekts ausgewählt werden.
+            Wird weggelassen, kann jeder Typ von Authenticator, entweder Plattform oder plattformübergreifend, für die Credential-Erstellungsoperation ausgewählt werden.
 
     - `requireResidentKey` {{optional_inline}}
-      - : Ein Boolean. Wenn auf `true` gesetzt, gibt es an, dass ein Resident Key erforderlich ist (siehe `residentKey`). Diese Eigenschaft ist veraltet, aber weiterhin in einigen Implementierungen verfügbar, um die Abwärtskompatibilität mit WebAuthn Level 1 zu gewährleisten. Der Wert sollte auf `true` gesetzt werden, wenn `residentKey` auf `"required"` gesetzt ist.
+      - : Ein Boolean. Wenn auf `true` gesetzt, gibt dies an, dass ein Resident Key erforderlich ist (siehe `residentKey`). Diese Eigenschaft ist veraltet, aber in einigen Implementierungen noch für die Rückwärtskompatibilität mit WebAuthn Level 1 verfügbar. Der Wert sollte auf `true` gesetzt werden, wenn `residentKey` auf `"required"` gesetzt ist.
 
-        Wenn weggelassen, ist der Standardwert für `requireResidentKey` `false`.
+        Wenn weggelassen, standardisiert `requireResidentKey` auf `false`.
 
     - `residentKey` {{optional_inline}}
-      - : Ein String, der das Ausmaß spezifiziert, in dem die vertrauende Instanz wünscht, ein client-seitiges [entdeckbares Anmeldeobjekt](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) zu erstellen (das heißt, eines, das in Authentifizierungsanfragen verwendet werden kann, bei denen die vertrauende Instanz keine Anmeldeobjekt-IDs bereitstellt — [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) wird mit einem leeren `allowCredentials`-Wert aufgerufen). Die Alternative ist ein **server-seitiges Anmeldeobjekt**, bei dem die vertrauende Instanz Anmeldeobjekt-IDs im `get()` `allowCredentials`-Wert bereitstellen muss.
+      - : Ein String, der angibt, in welchem Maße die abhängige Partei wünscht, ein clientseitiges [entdeckbares Credential](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) zu erstellen (das heißt, eines, das in Authentifizierungsanfragen verwendet werden kann, bei denen die abhängige Partei keine Credential-IDs bereitstellt — [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) wird mit einem leeren `allowCredentials`-Wert aufgerufen). Die Alternative ist ein **serverseitiges Credential**, bei dem die abhängige Partei Credential-IDs im `get()` `allowCredentials`-Wert bereitstellen muss.
         Mögliche Werte sind:
         - `"discouraged"`
-          - : Die vertrauende Instanz bevorzugt die Erstellung eines server-seitigen Anmeldeobjekts, wird jedoch ein client-seitiges entdeckbares Anmeldeobjekt akzeptieren.
+          - : Die abhängige Partei zieht die Erstellung eines serverseitigen Credentials vor, akzeptiert jedoch auch ein clientseitiges entdeckbares Credential.
         - `"preferred"`
-          - : Die vertrauende Instanz bevorzugt stark die Erstellung eines client-seitigen entdeckbaren Anmeldeobjekts, wird jedoch ein server-seitiges Anmeldeobjekt akzeptieren. Der Benutzeragent sollte den Nutzer, falls erforderlich, durch die Einrichtung der Nutzerauthentifizierung führen, um ein entdeckbares Anmeldeobjekt zu erstellen. Dies hat Vorrang vor der `userVerification`-Einstellung.
+          - : Die abhängige Partei zieht die Erstellung eines clientseitigen entdeckbaren Credentials stark vor, akzeptiert jedoch auch ein serverseitiges Credential. Der Benutzer-Agent sollte den Benutzer durch die Einrichtung der Benutzerüberprüfung führen, falls erforderlich, um ein entdeckbares Credential zu erstellen. Dies hat Vorrang vor der `userVerification`-Einstellung.
         - `"required"`
-          - : Die vertrauende Instanz erfordert ein client-seitiges entdeckbares Anmeldeobjekt. Wenn keines erstellt werden kann, wird eine `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Siehe die [`create()`-Ausnahmeliste](/de/docs/Web/API/CredentialsContainer/create#exceptions) für weitere Details.
+          - : Die abhängige Partei erfordert ein clientseitiges entdeckbares Credential. Falls eines nicht erstellt werden kann, wird eine `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Siehe die [Liste der Ausnahmen für `create()`](/de/docs/Web/API/CredentialsContainer/create#exceptions) für weitere Details.
 
-        Wenn weggelassen, ist `residentKey` standardmäßig `"required"`, wenn `requireResidentKey` `true` ist, andernfalls ist der Standardwert `"discouraged"`.
+        Wenn weggelassen, standardisiert `residentKey` auf `"required"`, wenn `requireResidentKey` `true` ist; andernfalls ist der Standardwert `"discouraged"`.
 
     - `userVerification` {{optional_inline}}
-      - : Ein String, der die Anforderungen der vertrauenden Instanz an die Nutzerauthentifizierung für den `create()`-Vorgang spezifiziert. Mögliche Werte sind:
+      - : Ein String, der die Anforderungen der abhängigen Partei für die Benutzerüberprüfung für die `create()`-Operation angibt. Mögliche Werte sind:
         - `"discouraged"`
-          - : Die vertrauende Instanz bevorzugt keine Nutzerauthentifizierung für den `create()`-Vorgang, um die Beeinträchtigung der Benutzererfahrung zu minimieren.
+          - : Die abhängige Partei bevorzugt keine Benutzerüberprüfung für die `create()`-Operation, um Störungen des Benutzererlebnisses zu minimieren.
         - `"preferred"`
-          - : Die vertrauende Instanz bevorzugt Nutzerauthentifizierung für den `create()`-Vorgang, wird jedoch nicht fehlschlagen, wenn die Nutzerauthentifizierung nicht durchgeführt werden kann.
+          - : Die abhängige Partei bevorzugt eine Benutzerüberprüfung für die `create()`-Operation, es wird jedoch nicht fehlschlagen, falls eine Benutzerüberprüfung nicht durchgeführt werden kann.
         - `"required"`
-          - : Die vertrauende Instanz erfordert Nutzerauthentifizierung für den `create()`-Vorgang — wenn die Nutzerauthentifizierung nicht durchgeführt werden kann, wird ein Fehler ausgelöst.
+          - : Die abhängige Partei erfordert eine Benutzerüberprüfung für die `create()`-Operation — falls eine Benutzerüberprüfung nicht durchgeführt werden kann, wird ein Fehler ausgelöst.
 
-        Wenn weggelassen, ist der Standardwert für `userVerification` `"preferred"`.
+        Wenn weggelassen, standardisiert `userVerification` auf `"preferred"`.
 
 - `challenge`
-  - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} bereitgestellt vom Server der vertrauenden Instanz und verwendet als [kryptografische Herausforderung](https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication). Dieser Wert wird vom Authentifikator signiert und die Signatur wird als Teil von [`AuthenticatorAttestationResponse.attestationObject`](/de/docs/Web/API/AuthenticatorAttestationResponse/attestationObject) zurückgesendet.
+  - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} bereitgestellt von dem Server der abhängigen Partei und verwendet als eine [kryptografische Herausforderung](https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication). Dieser Wert wird vom Authenticator signiert und die Signatur wird als Teil des [`AuthenticatorAttestationResponse.attestationObject`](/de/docs/Web/API/AuthenticatorAttestationResponse/attestationObject) zurückgesendet.
 
 - `excludeCredentials` {{optional_inline}}
-  - : Ein {{jsxref("Array")}} von Objekten, die bestehende Anmeldeobjekte beschreiben, die bereits diesem Benutzerkonto zugeordnet sind (identifiziert durch `user.id`). Dies wird von der vertrauenden Instanz bereitgestellt und vom Benutzeragenten überprüft, um die Erstellung eines neuen öffentlichen Schlüssel-Anmeldeobjekts auf einem Authentifikator zu vermeiden, der bereits ein Anmeldeobjekt für das angegebene Benutzerkonto zugeordnet hat. Jedes Element sollte die folgende Form haben:
+  - : Ein {{jsxref("Array")}} von Objekten, die vorhandene Credentials beschreiben, die bereits diesem Benutzerkonto zugeordnet sind (wie durch `user.id` identifiziert). Dies wird von der abhängigen Partei bereitgestellt und vom Benutzer-Agent überprüft, um zu vermeiden, dass ein neues Public Key Credential auf einem Authenticator erstellt wird, der bereits ein Credential für das angegebene Benutzerkonto zugewiesen hat. Jedes Element sollte folgende Form haben:
     - `id`
-      - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} repräsentiert die bestehende Anmeldeobjekt-ID.
+      - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}}, das die vorhandene Credential-ID darstellt.
 
     - `transports` {{optional_inline}}
-      - : Ein {{jsxref("Array")}} von Strings, die erlaubte Transporte repräsentieren. Mögliche Transporte sind: `"ble"`, `"hybrid"`, `"internal"`, `"nfc"`, und `"usb"` (siehe [`getTransports()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getTransports) für weitere Details).
+      - : Ein {{jsxref("Array")}} von Strings, die die erlaubten Transporte darstellen. Mögliche Transporte sind: `"ble"`, `"hybrid"`, `"internal"`, `"nfc"`, und `"usb"` (siehe [`getTransports()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getTransports) für mehr Details).
 
     - `type`
-      - : Ein String, der den Typ des zu erstellenden öffentlichen Schlüssel-Anmeldeobjekts definiert. Derzeit kann dies einen einzigen Wert annehmen, `"public-key"`, aber in Zukunft könnten weitere hinzugefügt werden.
+      - : Ein String, der den Typ des Public Key Credentials definiert, das erstellt werden soll. Dieser kann derzeit einen einzigen Wert, `"public-key"`, annehmen, es können aber in der Zukunft weitere hinzugefügt werden.
 
-    Wenn der `create()`-Aufruf versucht, ein doppeltes öffentliches Schlüssel-Anmeldeobjekt auf einem Authentifikator zu erstellen, wird der Benutzeragent den Benutzer anleiten, das Anmeldeobjekt mit einem anderen Authentifikator zu erstellen oder fehlschlagen, wenn dies nicht möglich ist.
+    Wenn der `create()`-Aufruf versucht, ein doppeltes Public Key Credential auf einem Authenticator zu erstellen, wird der Benutzer-Agent den Benutzer anleiten, das Credential mit einem anderen Authenticator zu erstellen oder fehlschlagen, falls das nicht möglich ist.
 
-    Wenn `excludeCredentials` weggelassen wird, ist der Standard ein leeres Array.
+    Falls `excludeCredentials` weggelassen wird, standardisiert es auf ein leeres Array.
 
 - `extensions` {{optional_inline}}
-  - : Ein Objekt, das Eigenschaften enthält, die die Eingabewerte für alle angeforderten Erweiterungen repräsentieren. Diese Erweiterungen werden verwendet, um spezifische zusätzliche Verarbeitungen durch den Client oder Authentifikator während des Anmeldeerstellungsprozesses anzugeben. Beispiele hierfür sind die Spezifizierung, ob ein zurückgegebenes Anmeldeobjekt entdeckbar ist oder ob die vertrauende Instanz große Blob-Daten, die mit einem Anmeldeobjekt verknüpft sind, speichern kann.
+  - : Ein Objekt, das Eigenschaften enthält, die die Eingabewerte für angeforderte Erweiterungen darstellen. Diese Erweiterungen werden verwendet, um zusätzliche Verarbeitungsanforderungen entweder durch den Client oder den Authenticator während des Credential-Erstellungsprozesses zu spezifizieren. Beispiele einschließlich der Angabe, ob ein zurückgegebenes Credential entdeckbar ist oder ob die abhängige Partei große Blob-Daten im Zusammenhang mit einem Credential speichern kann.
 
-    Erweiterungen sind optional und verschiedene Browser können unterschiedliche Erweiterungen erkennen. Das Verarbeiten von Erweiterungen ist für den Client immer optional: Wenn ein Browser eine bestimmte Erweiterung nicht erkennt, wird sie einfach ignoriert. Informationen zur Verwendung von Erweiterungen und welche von welchen Browsern unterstützt werden, finden Sie unter [Web Authentication extensions](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
+    Erweiterungen sind optional und verschiedene Browser können verschiedene Erweiterungen erkennen. Das Verarbeiten von Erweiterungen ist für den Client immer optional: Wenn ein Browser eine gegebene Erweiterung nicht erkennt, ignoriert er sie einfach. Weitere Informationen zur Verwendung von Erweiterungen und zu den von welchen Browsern unterstützten finden Sie unter [Web Authentication extensions](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
+
+- `hints` {{optional_inline}} {{experimental_inline}}
+  - : Ein Array von Strings, das Hinweise darauf gibt, welche Benutzeroberfläche der Browser bereitstellen sollte, damit der Benutzer ein Public Key Credential erstellen kann.
+
+    Die Strings können eines der folgenden sein:
+    - `"security-key"`
+      - : Die Benutzeroberfläche sollte empfehlen, einen separaten physischen Sicherheitsschlüssel (wie einen YubiKey) zu verwenden, um das Credential zu erstellen.
+    - `"client-device"`
+      - : Die Benutzeroberfläche sollte empfehlen, einen Authenticator zu verwenden, der auf demselben Gerät verfügbar ist, das sie verwenden, um auf den RP-Client zuzugreifen, um das Credential zu erstellen. Es ist analog zum `authenticatorAttachment`-Wert [`platform`](#platform).
+    - `"hybrid"`
+      - : Die Benutzeroberfläche sollte empfehlen, einen allgemeinen Authenticator zu verwenden, wie eine Smartphone-basierte Authenticator-App, um das Credential zu erstellen. Dies bevorzugt die Verwendung eines geräteübergreifenden Ansatzes zur Handhabung der Authentifizierung, was sich auf eine Kombination von Laptop und Smartphone stützt, zum Beispiel.
+
+    Der `authenticatorAttachment` [`cross-platform`](#cross-platform) Wert ist im Wesentlichen eine Kombination aus den `hints`-Optionen `security-key` und `hybrid` Werten — wenn ein Gerät kein Bluetooth hat und ein RP `attachment: "cross-platform"` angibt, wird die resultierende Benutzeroberfläche wahrscheinlich ähnlich wie die `hints: "security-key"` Benutzeroberfläche sein.
+
+    Wenn mehrere Strings im Array enthalten sind, gibt ihre Reihenfolge die Präferenzreihenfolge von hoch zu niedrig an. Unterstützende Browser, die die Hinweise respektieren, sollten den ersten verwenden, den sie verstehen.
+
+    Die `hints`-Option bietet eine flexiblere Möglichkeit, Bereitstellungsvorlieben für die Erstellung eines Credentials zu spezifizieren als die [`authenticatorAttachment`](#authenticatorattachment) Option, die die nicht gewählte Option vollständig verbirgt. `hints` erlauben es auch, eine Präferenz entweder für Sicherheitsschlüssel oder Hybrid anzugeben, was mit `authenticatorAttachment` nicht möglich ist.
+
+    Angegebene `hints` können den in der `authenticatorAttachment` Option bereitgestellten Hinweisen widersprechen. Wenn die bereitgestellten `hints` dieser Option widersprechen, haben die `hints` Vorrang. `hints` können von dem Browser auch unter bestimmten Umständen ignoriert werden, zum Beispiel, wenn ein angedeuteter Authenticator-Typ auf dem Gerät des Benutzers nicht verwendbar ist.
+
+    Für einige spezifische Code- und UI-Beispiele siehe [Introducing hints, Related Origin Requests and JSON serialization for WebAuthn in Chrome](https://developer.chrome.com/blog/passkeys-updates-chrome-129#hints).
 
 - `pubKeyCredParams`
-  - : Ein {{jsxref("Array")}} von Objekten, die die von der vertrauenden Instanz unterstützten Schlüsselt-Typen und Signaturalgorithmen angeben, geordnet von am meisten bis am wenigsten bevorzugt. Der Client und der Authentifikator werden sich bemühen, ein Anmeldeobjekt des am meisten bevorzugten Typs zu erstellen. Diese Objekte enthalten die folgenden Eigenschaften:
+  - : Ein {{jsxref("Array")}} von Objekten, die die Schlüsseltypen und Signaturalgorithmen spezifizieren, die die abhängige Partei unterstützt, in der Reihenfolge von am meisten bevorzugt zu am wenigsten bevorzugt. Der Client und der Authenticator werden sich bemühen, ein Credential des möglichst bevorzugten Typs zu erstellen. Diese Objekte enthalten die folgenden Eigenschaften:
     - `alg`
-      - : Eine Zahl, die einem [COSE Algorithm Identifier](https://www.iana.org/assignments/cose/cose.xhtml#algorithms) entspricht und den kryptografischen Algorithmus repräsentiert, der für diesen Anmeldetyp verwendet werden soll. Es wird empfohlen, dass vertrauende Instanzen, die eine breite Palette von Authentifikatoren unterstützen möchten, mindestens die folgenden Werte in den bereitgestellten Auswahlmöglichkeiten einschließen:
+      - : Eine Zahl, die einem [COSE Algorithm Identifier](https://www.iana.org/assignments/cose/cose.xhtml#algorithms) entspricht, der den kryptografischen Algorithmus darstellt, der für diesen Credential-Typ verwendet werden soll. Es wird empfohlen, dass die abhängigen Parteien, die eine breite Palette von Authenticatoren unterstützen möchten, mindestens die folgenden Werte in den bereitgestellten Auswahlmöglichkeiten einschließen:
         - `-8`: EdDSA
         - `-7`: ES256
         - `-257`: RS256
 
     - `type`
-      - : Ein String, der den Typ des zu erstellenden öffentlichen Schlüssel-Anmeldeobjekts definiert. Derzeit kann dies einen einzigen Wert annehmen, `"public-key"`, aber in Zukunft könnten weitere hinzugefügt werden.
+      - : Ein String, der den Typ des zu erstellenden Public Key Credentials definiert. Dieser kann derzeit einen einzigen Wert, `"public-key"`, annehmen, es können aber in der Zukunft weitere hinzugefügt werden.
 
-    Wenn keiner der aufgelisteten Anmeldetypen erstellt werden kann, schlägt die `create()`-Operation fehl.
+    Wenn keiner der aufgelisteten Credential-Typen erstellt werden kann, schlägt der `create()`-Vorgang fehl.
 
 - `rp`
-  - : Ein Objekt, das die vertrauende Instanz beschreibt, die die Anmeldeerstellung angefordert hat. Es kann die folgenden Eigenschaften enthalten:
+  - : Ein Objekt, das die abhängige Partei beschreibt, die die Credential-Erstellung angefordert hat. Es kann die folgenden Eigenschaften enthalten:
     - `id` {{optional_inline}}
-      - : Ein String, der die ID der vertrauenden Instanz repräsentiert. Ein öffentliches Schlüssel-Anmeldeobjekt kann nur zur Authentifizierung mit der gleichen vertrauenden Instanz verwendet werden (wie durch die `publicKey.rpId` in einem [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) Aufruf identifiziert), mit der es registriert wurde — die IDs müssen übereinstimmen.
+      - : Ein String, der die ID der abhängigen Partei darstellt. Ein Public Key Credential kann nur zur Authentifizierung bei derselben abhängigen Partei verwendet werden (wie durch das `publicKey.rpId` in einem [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) Aufruf identifiziert), mit der es registriert wurde — die IDs müssen übereinstimmen.
 
-        Die `id` kann keinen Port oder ein Schema wie ein Standard-Original enthalten, aber das Domain-Schema muss `https` sein. Die `id` muss gleich der effektiven Domain des Ursprungs oder einem Domain-Suffix davon sein. Wenn beispielsweise der Ursprung der vertrauenden Instanz `https://login.example.com:1337` ist, sind die folgenden `id`s gültig:
+        Das `id` kann keinen Port oder ein Schema wie ein Standard-Ursprung enthalten, aber das Domain-Schema muss ein `https`-Schema sein. Das `id` muss der effektiven Domain des Ursprungs entsprechen oder ein Domain-Suffix davon sein. Wenn beispielsweise der Ursprung der abhängigen Partei `https://login.example.com:1337` ist, sind die folgenden `id`s gültig:
         - `login.example.com`
         - `example.com`
 
@@ -120,43 +141,32 @@ Das **`PublicKeyCredentialCreationOptions`**-Dictionary repräsentiert das Objek
         - `m.login.example.com`
         - `com`
 
-        Wenn weggelassen, ist der Standardwert für `id` der Dokumenten-Ursprung — was in obigem Beispiel `login.example.com` wäre.
+        Falls weggelassen, standardisiert `id` auf den Dokumentursprung — was in obigem Beispiel `login.example.com` wäre.
 
     - `name`
-      - : Ein String, der den Namen der vertrauenden Instanz repräsentiert (z. B. `"Facebook"`). Das ist der Name, den der Benutzer bei der Erstellung oder Validierung einer WebAuthn-Operation angezeigt bekommt.
+      - : Ein String, der den Namen der abhängigen Partei darstellt (z. B. `"Facebook"`). Dies ist der Name, der dem Benutzer bei der Erstellung oder Validierung einer WebAuthn-Operation präsentiert wird.
 
 - `timeout` {{optional_inline}}
-  - : Ein numerischer Hinweis, in Millisekunden, der angibt, wie lange die aufrufende Web-App bereit ist, auf das Abschluss des Erstellungsprozesses zu warten. Dieser Hinweis kann vom Browser überschrieben werden.
+  - : Ein numerischer Hinweis in Millisekunden, der die Zeit angibt, die die aufrufende Web-App bereit ist, auf die Fertigstellung der Erstellungsoperation zu warten. Dieser Hinweis kann vom Browser überschrieben werden.
 
 - `user`
-  - : Ein Objekt, das das Benutzerkonto beschreibt, für das das Anmeldeobjekt generiert wird. Es kann die folgenden Eigenschaften enthalten:
+  - : Ein Objekt, das das Benutzerkonto beschreibt, für das das Credential generiert wird. Es kann die folgenden Eigenschaften enthalten:
     - `displayName`
-      - : Ein String, der einen benutzerfreundlichen Namen zum Anzeigen (Beispiel: `"Maria Sanchez"`) bereitstellt, der während der anfänglichen Registrierung durch den Benutzer bei der vertrauenden Instanz festgelegt wurde.
+      - : Ein String, der einen benutzerfreundlichen Benutzernamen bietet (Beispiel: `"Maria Sanchez"`), der vom Benutzer während der Erstregistrierung bei der abhängigen Partei festgelegt wurde.
 
     - `id`
-      - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}}, der eine eindeutige ID für das Benutzeraccount repräsentiert. Dieser Wert hat eine maximale Länge von 64 Bytes und ist nicht zur Anzeige an den Benutzer gedacht.
+      - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} repräsentiert eine eindeutige ID für das Benutzerkonto. Dieser Wert hat eine maximale Länge von 64 Bytes und ist nicht zur Anzeige an den Benutzer bestimmt.
 
     - `name`
-      - : Ein String, der einen benutzerfreundlichen Bezeichner für das Benutzerkonto bereitstellt, um zwischen verschiedenen Konten mit ähnlichen `displayName`s zu unterscheiden. Dies könnte eine E-Mail-Adresse (wie `"elaina.sanchez@example.com"`), eine Telefonnummer (zum Beispiel `"+12345678901"`) oder eine andere Art von Benutzerkonto-Bezeichner (zum Beispiel `"ElainaSanchez667"`) sein.
-
-- `hints` {{optional_inline}} {{experimental_inline}}
-  - : Ein Array von Strings, die Hinweise darauf geben, welche Authentifizierungs-UI der Benutzeragent dem Benutzer bereitstellen sollte.
-
-    Die Werte können einer der folgenden sein:
-    - `"security-key"`
-      - : Die Authentifizierung erfordert ein separates dediziertes physisches Gerät, um den Schlüssel bereitzustellen.
-    - `"client-device"`
-      - : Der Benutzer authentifiziert sich mit seinem eigenen Gerät, wie einem Telefon.
-    - `"hybrid"`
-      - : Die Authentifizierung beruht auf einer Kombination von Autorisierungs-/Authentifizierungsverfahren, möglicherweise abhängig von sowohl benutzer- als auch serverbasierten Mechanismen.
+      - : Ein String, der einen benutzerfreundlichen Bezeichner für das Benutzerkonto des Nutzers bietet, um zu helfen, zwischen verschiedenen Konten mit ähnlichen `displayName`s zu unterscheiden. Dies könnte eine E-Mail-Adresse (wie `"elaina.sanchez@example.com"`), eine Telefonnummer (zum Beispiel `"+12345678901"`), oder eine andere Art von Benutzerkonto-Bezeichner (zum Beispiel `"ElainaSanchez667"`) sein.
 
 ## Beispiele
 
-### Erstellen eines öffentlichen Schlüssel-Anmeldeobjekts
+### Erstellen eines Public Key Credentials
 
-Dieses Beispiel erstellt ein `PublicKeyCredentialCreationOptions`, das nur die erforderlichen Eigenschaften spezifiziert und für den Rest die Standardwerte verwendet.
+Dieses Beispiel erstellt ein `PublicKeyCredentialCreationOptions`, indem nur die erforderlichen Eigenschaften spezifiziert und die Standardwerte für den Rest verwendet werden.
 
-Es übergibt dann das Objekt an `navigator.credentials.create()`, um ein neues öffentliches Schlüssel-Anmeldeobjekt zu erstellen.
+Es übergibt dann das Objekt an `navigator.credentials.create()`, um ein neues Public Key Credential zu erstellen.
 
 ```js
 const publicKey = {
@@ -173,7 +183,7 @@ const publicKey = {
 const publicKeyCredential = await navigator.credentials.create({ publicKey });
 ```
 
-Ein erfolgreicher `create()`-Aufruf gibt ein Versprechen zurück, das bei Erfolg mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekten aufgelöst wird, welches ein öffentliches Schlüssel-Anmeldeobjekt repräsentiert, das später verwendet werden kann, um einen Benutzer über einen WebAuthn [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf zu authentifizieren. Seine [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält ein [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Objekt, das Zugriff auf verschiedene nützliche Informationen bietet, einschließlich der Authentifikatordaten, des öffentlichen Schlüssels, der Transportmechanismen und mehr.
+Ein erfolgreicher `create()`-Aufruf gibt ein Versprechen zurück, das mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekt aufgelöst wird, das ein Public Key Credential darstellt, das später verwendet werden kann, um einen Benutzer über einen WebAuthn-[`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf zu authentifizieren. Seine [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) Eigenschaft enthält ein [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Objekt, das Zugriff auf mehrere nützliche Informationen bietet, einschließlich der Authenticator-Daten, des öffentlichen Schlüssels, der Transportmechanismen und mehr.
 
 ```js
 navigator.credentials.create({ publicKey }).then((publicKeyCredential) => {
@@ -199,7 +209,7 @@ navigator.credentials.create({ publicKey }).then((publicKeyCredential) => {
 });
 ```
 
-Einige dieser Daten müssen auf dem Server für zukünftige Authentifizierungsvorgänge gegen dieses Anmeldeobjekt gespeichert werden — zum Beispiel der öffentliche Schlüssel, der verwendete Algorithmus und die zulässigen Transports.
+Einige dieser Daten müssen auf dem Server für zukünftige Authentifizierungsvorgänge gegen dieses Credential gespeichert werden — zum Beispiel der öffentliche Schlüssel, der verwendete Algorithmus und die zulässigen Transporte.
 
 Siehe [Erstellen eines Schlüsselpaares und Registrieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user) für weitere Informationen darüber, wie der gesamte Ablauf funktioniert.
 

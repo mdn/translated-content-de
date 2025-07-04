@@ -3,17 +3,14 @@ title: X-Forwarded-Proto header
 short-title: X-Forwarded-Proto
 slug: Web/HTTP/Reference/Headers/X-Forwarded-Proto
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-**`X-Forwarded-Proto`** (XFP) {{Glossary("request_header", "Request-Header")}} ist ein de-facto Standard-Header zur Identifizierung des Protokolls (HTTP oder HTTPS), das ein Client zur Verbindung mit einem {{Glossary("Proxy_server", "Proxy")}} oder Load Balancer verwendet hat.
 
-Der HTTP **`X-Forwarded-Proto`** (XFP) {{Glossary("request_header", "Request-Header")}} ist ein de-facto-Standard-Header zur Identifizierung des Protokolls (HTTP oder HTTPS), das ein Client verwendet hat, um sich mit einem {{Glossary("Proxy_server", "Proxy")}} oder Load Balancer zu verbinden.
+Server-Zugriffsprotokolle enthalten das zwischen dem Server und dem Load Balancer verwendete Protokoll, jedoch nicht das zwischen dem Client und dem Load Balancer verwendete Protokoll. Um das zwischen dem Client und dem Load Balancer verwendete Protokoll zu bestimmen, kann der `X-Forwarded-Proto`-Request-Header verwendet werden.
 
-Server-Zugriffsprotokolle enthalten das Protokoll, das zwischen dem Server und dem Load Balancer verwendet wurde, jedoch nicht das Protokoll, das zwischen dem Client und dem Load Balancer verwendet wurde.
-Um das Protokoll zu bestimmen, das zwischen dem Client und dem Load Balancer verwendet wurde, kann der `X-Forwarded-Proto`-Request-Header verwendet werden.
-
-Eine standardisierte Version dieses Headers ist der HTTP-{{HTTPHeader("Forwarded")}}-Header, obwohl er viel seltener verwendet wird.
+Eine standardisierte Version dieses Headers ist der HTTP-{{HTTPHeader("Forwarded")}}-Header, obwohl er weitaus seltener verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -41,7 +38,7 @@ X-Forwarded-Proto: <protocol>
 
 ## Beispiele
 
-### X-Forwarded-Proto-Client-Protokoll
+### X-Forwarded-Proto Client-Protokoll
 
 Der folgende Header zeigt an, dass die ursprüngliche Anfrage über HTTPS gestellt wurde, bevor sie von einem Proxy oder Load Balancer weitergeleitet wurde:
 
@@ -49,9 +46,9 @@ Der folgende Header zeigt an, dass die ursprüngliche Anfrage über HTTPS gestel
 X-Forwarded-Proto: https
 ```
 
-### Nicht standardisierte Formen
+### Nicht-standardmäßige Formen
 
-Die folgenden Formen können in Request-Headern zu sehen sein:
+Die folgenden Formen können in Request-Headern vorkommen:
 
 ```http
 # Microsoft

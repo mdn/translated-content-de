@@ -2,14 +2,12 @@
 title: 422 Unprocessable Content
 slug: Web/HTTP/Reference/Status/422
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`422 Unprocessable Content`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server den Inhaltstyp der Anforderungsinhalte verstanden hat und die Syntax der Anforderungsinhalte korrekt war, aber er nicht in der Lage war, die enthaltenen Anweisungen zu verarbeiten.
 
-Der HTTP-Statuscode **`422 Unprocessable Content`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server den Inhaltstyp des Anforderungsinhalts verstanden hat und die Syntax des Anforderungsinhalts korrekt war, aber die enthaltenen Anweisungen nicht verarbeiten konnte.
-
-Clients, die eine `422`-Antwort erhalten, sollten erwarten, dass das Wiederholen der Anfrage ohne Änderungen mit demselben Fehler fehlschlägt.
+Clients, die eine `422`-Antwort erhalten, sollten erwarten, dass das Wiederholen der Anforderung ohne Änderungen mit dem gleichen Fehler fehlschlägt.
 
 ## Status
 
@@ -21,8 +19,8 @@ Clients, die eine `422`-Antwort erhalten, sollten erwarten, dass das Wiederholen
 
 ### SHA-Validierungsfehler
 
-Das folgende Beispiel sendet eine Anfrage, um Datei-Inhalte zu aktualisieren ([basierend auf der GitHub-API](https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents)).
-Das `content`-Feld ist {{Glossary("Base64", "Base64")}} kodiert und verwendet `\n` Zeilenumbrüche alle 60 Zeichen, mit einem, das die Zeichenkette abschließt:
+Im folgenden Beispiel wird eine Anforderung zur Aktualisierung von Dateiinhalten gestellt ([basierend auf der GitHub-API](https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents)).
+Das `content`-Feld ist {{Glossary("Base64", "Base64")}} kodiert und verwendet `\n`-Zeilenumbrüche alle 60 Zeichen, wobei eines die Zeichenkette beendet:
 
 ```http
 PUT /repos/mdn/content/contents/README.md HTTP/1.1
@@ -39,8 +37,8 @@ Content-Length: 165
 }
 ```
 
-In dieser Implementierung erwartet der Server strikt [RFC 4648](https://tools.ietf.org/html/rfc4648)-konformen Base64-kodierten Inhalt (unter Verwendung [strenger Kodierungsmethoden](https://ruby-doc.org/3.3.2/stdlibs/base64/Base64.html#method-i-strict_encode64)).
-Eine `422` Unprocessable Content-Antwort wird zurückgegeben, und das `message`-Feld bietet Kontext zu dem Validierungsfehler:
+In dieser Implementierung erwartet der Server strikt {{rfc("4648")}}-kompatibel Base64-kodierte Inhalte (unter Verwendung von [strikten Kodierungsmethoden](https://ruby-doc.org/3.3.2/stdlibs/base64/Base64.html#method-i-strict_encode64)).
+Eine `422` Unprocessable Content-Antwort wird zurückgegeben und das `message`-Feld bietet Kontext über den Validierungsfehler:
 
 ```http
 HTTP/1.1 422 Unprocessable Content

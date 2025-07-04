@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: ambient-light-sensor-Richtlinie"
+title: "Permissions-Policy: ambient-light-sensor-Direktive"
 short-title: ambient-light-sensor
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/ambient-light-sensor
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die HTTP {{HTTPHeader('Permissions-Policy')}}-Header-Richtlinie `ambient-light-sensor` steuert, ob das aktuelle Dokument Informationen über die Lichtmenge in der Umgebung des Geräts durch die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle sammeln darf.
+Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der Direktive `ambient-light-sensor` steuert, ob das aktuelle Dokument Informationen über die Lichtmenge in der Umgebung des Geräts über die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle sammeln darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe des [`AmbientLightSensor()`](/de/docs/Web/API/AmbientLightSensor/AmbientLightSensor)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Konkret gilt: Wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird der Aufruf des Konstruktors [`AmbientLightSensor()`](/de/docs/Web/API/AmbientLightSensor/AmbientLightSensor) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: ambient-light-sensor=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wurde. Weitere Einzelheiten finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standardallowlist für `ambient-light-sensor` ist `self`.
+Die Standard-Allowlist für `ambient-light-sensor` ist `self`.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ Die Standardallowlist für `ambient-light-sensor` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader('Permissions-Policy')}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

@@ -3,36 +3,34 @@ title: Content-Language header
 short-title: Content-Language
 slug: Web/HTTP/Reference/Headers/Content-Language
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-**`Content-Language`**-{{Glossary("representation_header", "Darstellungs-Header")}} wird verwendet, um die Sprache(n) zu beschreiben, die für das Publikum vorgesehen sind, sodass Benutzer sie entsprechend ihrer eigenen bevorzugten Sprache unterscheiden können.
 
-Der HTTP-**`Content-Language`**-{{Glossary("representation_header", "Repräsentations-Header")}} wird verwendet, um die Sprache(n) zu beschreiben, die für das Publikum bestimmt sind, damit Benutzer sie gemäß ihrer eigenen bevorzugten Sprache unterscheiden können.
+Zum Beispiel gibt `Content-Language: de-DE` an, dass das Dokument für deutschsprachige Nutzer bestimmt ist. Das Dokument kann auf Englisch und nicht auf Deutsch verfasst sein, als Teil eines Sprachkurses für Deutschsprachige. Um die Sprache anzugeben, in der das Dokument **geschrieben ist**, verwenden Sie stattdessen das [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut.
 
-Zum Beispiel bedeutet `Content-Language: de-DE`, dass das Dokument für deutschsprachige Benutzer bestimmt ist. Das Dokument kann in Englisch verfasst sein, nicht in Deutsch, als Teil eines Sprachkurses für deutschsprachige Benutzer. Um die Sprache anzugeben, in der das Dokument **verfasst ist**, verwenden Sie stattdessen das [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut.
-
-Wenn kein `Content-Language` angegeben ist, wird standardmäßig angenommen, dass der Inhalt für alle Sprachzielgruppen gedacht ist. Mehrere Sprach-Tags sind ebenfalls möglich, ebenso wie die Anwendung des `Content-Language`-Headers auf verschiedene Medientypen und nicht nur auf Textdokumente.
+Wenn kein `Content-Language` angegeben ist, ist der Standard, dass der Inhalt für alle Sprachpublika bestimmt ist. Mehrere Sprach-Tags sind ebenfalls möglich, ebenso wie die Anwendung des `Content-Language`-Headers auf verschiedene Medientypen und nicht nur auf schriftliche Dokumente.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
+      <td>{{Glossary("Representation_header", "Darstellungs-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherter Antwort-Header")}}
       </th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anfrage-Header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-gesicherter Anforderungs-Header")}}
       </th>
       <td>
         Ja*
@@ -54,16 +52,16 @@ Content-Language: de-DE, en-CA
 ## Direktiven
 
 - `language-tag`
-  - : Mehrere Sprach-Tags werden durch ein Komma getrennt. Jedes Sprach-Tag ist eine Folge von einem oder mehreren nicht case-sensitiven Subtags, die jeweils durch ein Bindestrich-Zeichen (`-`) getrennt sind. In den meisten Fällen besteht ein Sprach-Tag aus einem primären Sprach-Subtag, der eine breite Familie verwandter Sprachen identifiziert (z.B. `en` = Englisch) und optional gefolgt von einer Reihe von Subtags, die das Spektrum dieser Sprache weiter verfeinern oder einschränken (z.B. `en-CA` = die Varietät des Englischen, wie sie in Kanada verwendet wird).
+  - : Mehrere Sprach-Tags werden durch ein Komma getrennt. Jedes Sprach-Tag ist eine Folge von einem oder mehreren Groß-/Kleinschreibungskontext-unabhängigen Untertags, die jeweils durch einen Bindestrich (`-`) getrennt sind. In den meisten Fällen besteht ein Sprach-Tag aus einem primären Sprach-Untertag, der eine breite Familie verwandter Sprachen identifiziert (z.B. `en` = Englisch), und wird optional von einer Reihe von Untertags gefolgt, die den Bereich dieser Sprache präzisieren oder einschränken (z.B. `en-CA` = die Variante des Englischen, wie sie in Kanada verwendet wird).
 
 > [!NOTE]
-> Sprach-Tags sind formal definiert in [BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt), die sich auf den [ISO 639](https://de.wikipedia.org/wiki/ISO_639)-Standard (sehr häufig die [ISO 639-1 Code-Liste](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes)) für [Sprachcodes](https://de.wikipedia.org/wiki/Sprachcode) stützen.
+> Sprach-Tags sind formal in [BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) definiert, die sich auf den [ISO 639](https://de.wikipedia.org/wiki/ISO_639)-Standard stützen (häufig die [ISO-639-1-Codeliste](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes)) für [Sprach-Codes](https://de.wikipedia.org/wiki/Sprachcode) zur Verwendung.
 
 ## Beispiele
 
 ### Angabe der Sprache, in der ein Dokument verfasst ist
 
-Das globale [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut wird auf HTML-Elementen verwendet, um die Sprache eines gesamten [HTML](/de/docs/Web/HTML)-Dokuments oder Teilen davon anzugeben.
+Das globale [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut wird auf HTML-Elementen verwendet, um die Sprache eines gesamten [HTML](/de/docs/Web/HTML)-Dokuments oder Teile davon anzugeben.
 
 ```html
 <html lang="de">
@@ -71,7 +69,7 @@ Das globale [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribu
 </html>
 ```
 
-Verwenden Sie **nicht** dieses Meta-Element, um die Dokumentensprache anzugeben, wie unten gezeigt:
+Verwenden Sie **nicht** dieses Meta-Element, um die Sprache des Dokuments anzugeben, wie unten gezeigt:
 
 ```html example-bad
 <meta http-equiv="content-language" content="de" />
@@ -79,7 +77,7 @@ Verwenden Sie **nicht** dieses Meta-Element, um die Dokumentensprache anzugeben,
 
 ### Angabe einer Zielgruppe für eine Ressource
 
-Der `Content-Language`-Header wird verwendet, um die **vorgesehene Zielgruppe** der Seite zu spezifizieren und kann angeben, dass diese mehr als eine Sprache umfasst.
+Der `Content-Language`-Header wird verwendet, um das **beabsichtigte Publikum der Seite** anzugeben und kann darauf hinweisen, dass es sich um mehr als eine Sprache handelt.
 
 ```http
 Content-Language: de, en
@@ -97,4 +95,4 @@ Content-Language: de, en
 
 - {{HTTPHeader("Accept-Language")}}
 - [HTTP-Header, Meta-Elemente und Sprachinformationen](https://www.w3.org/International/questions/qa-http-and-lang.en)
-- [HTML `lang`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/lang)
+- [HTML `lang` Attribut](/de/docs/Web/HTML/Reference/Global_attributes/lang)

@@ -3,32 +3,32 @@ title: Expect-CT header
 short-title: Expect-CT
 slug: Web/HTTP/Reference/Headers/Expect-CT
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Der `Expect-CT` {{Glossary("response_header", "Response-Header")}} ermöglicht es Websites, die Einhaltung und/oder Meldung von Anforderungen an die [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) zu aktivieren. Certificate Transparency (CT) zielt darauf ab, die unbemerkte Verwendung von falsch ausgestellten Zertifikaten für diese Seite zu verhindern.
+Der `Expect-CT` {{Glossary("response_header", "Response-Header")}} erlaubt es Websites, das Reporting und/oder die Durchsetzung von [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency)-Anforderungen zu aktivieren. Certificate Transparency (CT) zielt darauf ab, die Verwendung von falsch ausgestellten Zertifikaten für diese Website zu verhindern, die unbemerkt bleibt.
 
-Nur Google Chrome und andere auf Chromium basierende Browser haben `Expect-CT` implementiert. Chromium hat den Header ab Version 107 als veraltet markiert, da Chromium nun CT standardmäßig erzwingt. Siehe das [Chrome Platform Status](https://chromestatus.com/feature/6244547273687040) Update.
+Nur Google Chrome und andere auf Chromium basierende Browser haben `Expect-CT` implementiert, und Chromium hat den Header ab Version 107 veraltet, da Chromium jetzt CT standardmäßig erzwingt. Siehe das Update auf der [Chrome Platform Status](https://chromestatus.com/feature/6244547273687040)-Seite.
 
-CT-Anforderungen können über einen der folgenden Mechanismen erfüllt werden:
+CT-Anforderungen können durch einen der folgenden Mechanismen erfüllt werden:
 
-- X.509v3-Zertifikaterweiterung, um das Einbetten von signierten Zertifikatstimestamps von individuellen Logs zu ermöglichen. Die meisten online verwendeten TLS-Zertifikate von öffentlich vertrauenswürdigen CAs enthalten eingebettetes CT.
-- Eine TLS-Erweiterung vom Typ `signed_certificate_timestamp`, die während des Handshakes gesendet wird.
-- Unterstützung von OCSP-Stapling (das heißt, die `status_request` TLS-Erweiterung) und Bereitstellung einer `SignedCertificateTimestampList`.
-
-> [!NOTE]
-> Wenn eine Website den `Expect-CT` Header aktiviert, wird damit vom Browser verlangt, dass jedes Zertifikat für diese Website in **[öffentlichen CT-Logs](https://github.com/google/certificate-transparency-community-site/blob/master/docs/google/known-logs.md)** erscheint.
+- X.509v3-Zertifikats-Erweiterung, um das Einbetten von signierten Zertifikats-Timestamps zu ermöglichen, die von einzelnen Logs ausgegeben werden. Die meisten online genutzten TLS-Zertifikate, die von öffentlich vertrauenswürdigen CAs ausgestellt werden, enthalten eingebettete CT.
+- Eine TLS-Erweiterung vom Typ `signed_certificate_timestamp`, die während des Handshakes gesendet wird
+- Unterstützung von OCSP-Stapling (also die `status_request` TLS-Erweiterung) und Bereitstellung einer `SignedCertificateTimestampList`
 
 > [!NOTE]
-> Browser **ignorieren** den `Expect-CT` Header über HTTP; der Header hat nur Auswirkungen auf HTTPS-Verbindungen.
+> Wenn eine Website den `Expect-CT` Header aktiviert, fordert sie den Browser auf zu überprüfen, dass ein Zertifikat für diese Website in **[öffentlichen CT-Logs](https://github.com/google/certificate-transparency-community-site/blob/master/docs/google/known-logs.md)** erscheint.
 
 > [!NOTE]
-> Der `Expect-CT` ist seit Juni 2021 größtenteils obsolet.
+> Browser **ignorieren** den `Expect-CT` Header über HTTP; der Header wirkt sich nur auf HTTPS-Verbindungen aus.
+
+> [!NOTE]
+> Der `Expect-CT` ist seit Juni 2021 größtenteils veraltet.
 > Seit Mai 2018 wird erwartet, dass alle neuen TLS-Zertifikate standardmäßig SCTs unterstützen.
-> Zertifikate, die vor März 2018 ausgestellt wurden, durften eine Laufzeit von 39 Monaten haben, sodass sie im Juni 2021 abgelaufen waren.
-> Chromium plant, den `Expect-CT` Header zu verwerfen und schließlich zu entfernen.
+> Zertifikate, die vor März 2018 ausgestellt wurden, durften eine Lebensdauer von 39 Monaten haben, sodass sie im Juni 2021 abgelaufen sind.
+> Chromium plant, den `Expect-CT` Header zu veralten und schließlich zu entfernen.
 
 <table class="properties">
   <tbody>
@@ -37,7 +37,7 @@ CT-Anforderungen können über einen der folgenden Mechanismen erfüllt werden:
       <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -54,22 +54,19 @@ Expect-CT: report-uri="<uri>",
 ## Direktiven
 
 - `max-age`
+  - : Die Anzahl der Sekunden nach Empfang des `Expect-CT` Header-Feldes, während der der Benutzeragent den Host der empfangenen Nachricht als bekannten `Expect-CT` Host betrachten sollte.
 
-  - : Die Anzahl der Sekunden nach Empfang des `Expect-CT` Headerfeldes, während derer der User Agent den Host der empfangenen Nachricht als bekannten `Expect-CT` Host betrachten soll.
-
-    Wenn ein Cache einen Wert erhält, der größer ist als er darstellen kann, oder wenn eine seiner nachfolgenden Berechnungen überläuft, wird der Cache diesen Wert entweder als 2.147.483.648 (2^31) oder als größte positive ganze Zahl ansehen, die er darstellen kann.
+    Wenn ein Cache einen Wert erhält, der größer ist als er darstellen kann, oder wenn eine seiner nachfolgenden Berechnungen überläuft, wird der Cache diesen Wert entweder als 2.147.483.648 (2^31) oder als die größte positive Ganzzahl betrachten, die er darstellen kann.
 
 - `report-uri="<uri>"` {{optional_inline}}
+  - : Die URI, an die der Benutzeragent `Expect-CT` Fehler melden soll.
 
-  - : Die URI, an die der User Agent `Expect-CT`-Fehler melden soll.
-
-    Wenn zusammen mit der `enforce`-Direktive vorhanden, wird die Konfiguration als "enforce-and-report"-Konfiguration bezeichnet, die dem User Agent signalisiert, dass die Einhaltung der Certificate Transparency-Richtlinie sowohl durchgesetzt als auch Verstöße gemeldet werden sollen.
+    Wenn diese zusammen mit der `enforce` Direktive vorhanden ist, wird die Konfiguration als "enforce-and-report" Konfiguration bezeichnet, die dem Benutzeragenten signalisiert, dass die Einhaltung der Certificate Transparency-Richtlinie sowohl durchgesetzt als auch Verstöße gemeldet werden sollen.
 
 - `enforce` {{optional_inline}}
+  - : Signalisiert dem Benutzeragenten, dass die Einhaltung der Certificate Transparency-Richtlinie durchgesetzt werden soll (anstatt nur die Einhaltung zu melden) und dass der Benutzeragent zukünftige Verbindungen ablehnen sollte, die gegen seine Certificate Transparency-Richtlinie verstoßen.
 
-  - : Signalisiert dem User Agent, dass die Einhaltung der Certificate Transparency-Richtlinie durchgesetzt werden soll (anstatt nur die Einhaltung zu melden) und dass der User Agent zukünftige Verbindungen ablehnen soll, die gegen seine Certificate Transparency-Richtlinie verstoßen.
-
-    Wenn sowohl die `enforce`-Direktive als auch die `report-uri`-Direktive vorhanden sind, wird die Konfiguration als "enforce-and-report"-Konfiguration bezeichnet, die dem User Agent signalisiert, dass die Einhaltung der Certificate Transparency-Richtlinie sowohl durchgesetzt als auch Verstöße gemeldet werden sollen.
+    Wenn sowohl die `enforce` Direktive als auch die `report-uri` Direktive vorhanden sind, wird die Konfiguration als "enforce-and-report" Konfiguration bezeichnet, die dem Benutzeragenten signalisiert, dass die Einhaltung der Certificate Transparency-Richtlinie sowohl durchgesetzt als auch Verstöße gemeldet werden sollen.
 
 ## Beispiel
 
@@ -79,13 +76,13 @@ Das folgende Beispiel spezifiziert die Durchsetzung der Certificate Transparency
 Expect-CT: max-age=86400, enforce, report-uri="https://foo.example.com/report"
 ```
 
-## Hinweise
+## Anmerkungen
 
-Manuell zum Trust-Store hinzugefügte Root-CAs überschreiben und unterdrücken `Expect-CT`-Berichte/Durchsetzungen.
+Manuell dem Trust Store hinzugefügte Root-CAs überschreiben und unterdrücken `Expect-CT` Berichte/Durchsetzung.
 
-Browser werden sich eine `Expect-CT`-Richtlinie nicht merken, es sei denn, die Seite hat 'bewiesen', dass sie ein Zertifikat bereitstellen kann, das die Anforderungen der Certificate Transparency erfüllt. Browser implementieren ihr eigenes Vertrauensmodell, welche CT-Logs als vertrauenswürdig angesehen werden, damit das Zertifikat geloggt wurde.
+Browser werden sich keine `Expect-CT`-Richtlinie merken, es sei denn, die Website hat "bewiesen", dass sie ein Zertifikat ausliefern kann, das die Anforderungen der Certificate Transparency erfüllt. Browser implementieren ihr eigenes Vertrauensmodell, welche CT Logs als vertrauenswürdig betrachtet werden, damit das Zertifikat protokolliert worden ist.
 
-Builds von Chrome sind so konzipiert, dass sie die `Expect-CT`-Richtlinie 10 Wochen nach dem Erstellungsdatum der Installation nicht mehr durchsetzen.
+Builds von Chrome sind so gestaltet, dass sie die `Expect-CT` Richtlinie 10 Wochen nach dem Build-Datum der Installation nicht mehr durchsetzen.
 
 ## Spezifikationen
 
@@ -98,7 +95,7 @@ Builds von Chrome sind so konzipiert, dass sie die `Expect-CT`-Richtlinie 10 Woc
 ## Siehe auch
 
 - [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
-- Glossareinträge:
+- Glossarbegriffe:
   - {{Glossary("TLS", "Transport Layer Security (TLS)")}}
   - {{Glossary("SSL", "Secure Sockets Layer (SSL)")}}
   - {{Glossary("HTTPS", "HTTPS")}}

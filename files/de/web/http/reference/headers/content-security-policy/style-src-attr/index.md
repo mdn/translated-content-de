@@ -1,17 +1,15 @@
 ---
-title: "Content-Security-Policy: style-src-attr Direktive"
+title: "Content-Security-Policy: style-src-attr-Direktive"
 short-title: style-src-attr
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/style-src-attr
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-attr`** Direktive legt gültige Quellen für Inline-Stile fest, die auf einzelne DOM-Elemente angewendet werden.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-attr`**-Direktive gibt gültige Quellen für Inline-Styles an, die auf einzelne DOM-Elemente angewendet werden.
 
 Die Direktive legt keine gültigen Quellen für {{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` fest.
-Diese werden mit {{CSP("style-src-elem")}} festgelegt (und gültige Quellen für alle Stile können mit {{CSP("style-src")}} festgelegt werden).
+Diese werden mithilfe von {{CSP("style-src-elem")}} festgelegt (und gültige Quellen für alle Stile können mit {{CSP("style-src")}} festgelegt werden).
 
 <table class="properties">
   <tbody>
@@ -24,11 +22,11 @@ Diese werden mit {{CSP("style-src-elem")}} festgelegt (und gültige Quellen für
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}}-Fallback</th>
       <td>
         <p>
           Ja.
-          Wenn diese Direktive fehlt, sucht der Benutzeragent nach der {{CSP("style-src")}}-Direktive, und wenn beide fehlen, fällt sie auf die <code>default-src</code>-Direktive zurück.
+          Wenn diese Direktive fehlt, wird der Benutzeragent nach der {{CSP("style-src")}}-Direktive suchen, und wenn beide fehlen, auf die <code>default-src</code>-Direktive zurückgreifen.
         </p>
       </td>
     </tr>
@@ -47,12 +45,12 @@ Diese Direktive kann einen der folgenden Werte haben:
 - `'none'`
   - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruckswerten_. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind folgende Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs können geladen werden, wenn sie mit einem der angegebenen source expressions übereinstimmen. Für diese Direktive sind die folgenden source expression-Werte anwendbar:
     - [`'unsafe-hashes'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-hashes)
     - [`'unsafe-inline'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-inline)
     - [`'report-sample'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample)
 
-`style-src-attr` kann in Verbindung mit {{CSP("style-src")}} verwendet werden:
+`style-src-attr` kann zusammen mit {{CSP("style-src")}} verwendet werden:
 
 ```http
 Content-Security-Policy: style-src <source>;
@@ -61,15 +59,15 @@ Content-Security-Policy: style-src-attr <source>;
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Bei folgendem CSP-Header:
+Angenommen, dieser CSP-Header ist gesetzt:
 
 ```http
 Content-Security-Policy: style-src-attr 'none'
 ```
 
-... wird der Inline-Stil, der auf das nachstehende Element angewendet wird, nicht angewendet:
+…wird der Inline-Style, der auf das untenstehende Element angewendet wird, nicht angewendet:
 
 ```html
 <div style="display:none">Foo</div>
@@ -88,7 +86,7 @@ Stileigenschaften, die direkt auf der [`style`](/de/docs/Web/API/HTMLElement/sty
 document.querySelector("div").style.display = "none";
 ```
 
-Beachten Sie, dass die Verwendung von JavaScript möglicherweise unabhängig davon durch die {{CSP("script-src")}} CSP-Direktive blockiert wird.
+Beachten Sie, dass die Verwendung von JavaScript möglicherweise unabhängig mithilfe der {{CSP("script-src")}}-CSP-Direktive blockiert sein könnte.
 
 ## Spezifikationen
 
@@ -103,7 +101,7 @@ Beachten Sie, dass die Verwendung von JavaScript möglicherweise unabhängig dav
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("style-src")}}
 - {{CSP("style-src-elem")}}
-- {{HTTPHeader("Link")}} Header
+- {{HTTPHeader("Link")}}-Header
 - {{HTMLElement("style")}}, {{HTMLElement("link")}}
 - {{cssxref("@import")}}
 - [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

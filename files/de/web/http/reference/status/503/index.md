@@ -2,21 +2,19 @@
 title: 503 Service Unavailable
 slug: Web/HTTP/Reference/Status/503
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`503 Dienst nicht verfügbar`** [Serverfehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass der Server nicht bereit ist, die Anfrage zu bearbeiten.
 
-Der HTTP-Statuscode **`503 Service Unavailable`** für [Serverfehlerantworten](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass der Server nicht bereit ist, die Anfrage zu bearbeiten.
+Häufige Ursachen sind, dass ein Server wegen Wartungsarbeiten nicht verfügbar oder überlastet ist. Während der Wartung können Serveradministratoren vorübergehend den gesamten Datenverkehr auf eine `503`-Seite umleiten, oder dies kann während Software-Updates automatisch geschehen. Bei Überlastung lehnen einige serverseitige Anwendungen Anfragen mit einem `503`-Status ab, wenn Ressourcenschwellenwerte wie Speicher, CPU oder Verbindungspoollimits erreicht sind. Durch das Ablehnen eingehender Anfragen wird ein Druckaufbau vermieden, der verhindert, dass die Rechenressourcen des Servers erschöpft werden, um schwerwiegendere Ausfälle zu vermeiden. Wenn Anfragen von bestimmten Clients aufgrund eines {{Glossary("Rate_limit", "Rate Limitings")}} eingeschränkt werden, ist die passende Antwort {{HTTPStatus("429", "429 Too Many Requests")}}.
 
-Häufige Ursachen sind, dass ein Server wegen Wartungsarbeiten nicht erreichbar ist oder überlastet ist. Während der Wartung können Serveradministratoren temporär den gesamten Datenverkehr auf eine `503`-Seite umleiten, oder dies kann automatisch während Software-Updates geschehen. In Überlastungssituationen werden einige serverseitige Anwendungen Anfragen mit einem `503`-Status ablehnen, wenn Ressourcengrenzen wie Arbeitsspeicher, CPU oder Verbindungs-Pool-Limits erreicht werden. Das Verwerfen eingehender Anfragen erzeugt einen Rückstau, der verhindert, dass die Rechenressourcen des Servers erschöpft werden, und so schwerwiegendere Ausfälle vermieden werden. Wenn Anfragen von bestimmten Clients aufgrund von {{Glossary("Rate_limit", "Rate Limiting")}} eingeschränkt werden, sollte die entsprechende Antwort {{HTTPStatus("429", "429 Too Many Requests")}} sein.
-
-Diese Antwort sollte für vorübergehende Bedingungen verwendet werden und der HTTP-Header {{HTTPHeader("Retry-After")}} sollte, wenn möglich, die geschätzte Zeit für die Wiederherstellung des Dienstes enthalten.
+Diese Antwort sollte für vorübergehende Bedingungen verwendet werden, und der HTTP-Header {{HTTPHeader("Retry-After")}} sollte, falls möglich, die geschätzte Zeit für die Wiederherstellung des Dienstes enthalten.
 
 Eine benutzerfreundliche Seite, die das Problem erklärt, sollte zusammen mit dieser Antwort gesendet werden.
 
 > [!NOTE]
-> Caching-bezogene Header, die mit dieser Antwort gesendet werden, erfordern besondere Aufmerksamkeit; ein `503` zeigt ein vorübergehendes Problem an und Antworten sollten normalerweise nicht zwischengespeichert werden, da Clients veraltete Fehlerseiten erhalten könnten, nachdem eine Behebung implementiert wurde.
+> Die mit dieser Antwort gesendeten, cachingbezogenen Header erfordern besondere Aufmerksamkeit; ein `503` zeigt ein vorübergehendes Problem an und die Antworten sollten in der Regel nicht zwischengespeichert werden, da Clients nach einer Behebung veraltete Fehlerseiten erhalten könnten.
 
 ## Status
 
@@ -28,7 +26,7 @@ Eine benutzerfreundliche Seite, die das Problem erklärt, sollte zusammen mit di
 
 ### 503 Serverfehlerantwort
 
-Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine `503`-Antwort. Der Antworttext enthält eine Seite, die den Serverstatus beschreibt, mit einem Link zu einer Support-Seite für Besucher. Ein Identifikator ist im Antworttext enthalten, um eine Methode zu veranschaulichen, die Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
+Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine `503`-Antwort. Der Antworttext enthält eine Seite, die den Serverzustand beschreibt und einen Link zu einer Supportseite für Besucher bietet. Ein Bezeichner ist im Antworttext enthalten, um eine Methode zu veranschaulichen, die Serveradministratoren helfen könnte, die Ursache des Problems einzugrenzen:
 
 ```http
 GET /highlights HTTP/1.1
@@ -62,5 +60,5 @@ Content-Length: 123
 
 ## Siehe auch
 
-- [HTTP-Statuscodes für Antworten](/de/docs/Web/HTTP/Reference/Status)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - {{HTTPHeader("Retry-After")}}

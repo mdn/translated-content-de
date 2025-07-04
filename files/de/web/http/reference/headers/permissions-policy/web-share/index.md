@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: web-share-Direktive"
+title: "Permissions-Policy: web-share Direktive"
 short-title: web-share
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/web-share
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader('Permissions-Policy')}}-Direktive `web-share` steuert, ob das aktuelle Dokument die Methode [`Navigator.share()`](/de/docs/Web/API/Navigator/share) der Web Share API verwenden darf, um Text, Links, Bilder und andere Inhalte an beliebige Ziele nach Wahl des Nutzers zu teilen.
+Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der `web-share` Direktive steuert, ob das aktuelle Dokument die Methode [`Navigator.share()`](/de/docs/Web/API/Navigator/share) der Web Share API verwenden darf, um Text, Links, Bilder und andere Inhalte an beliebige Ziele nach Wahl des Nutzers zu teilen.
 
-Insbesondere in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`Navigator.share()`](/de/docs/Web/API/Navigator/share) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`Navigator.share()`](/de/docs/Web/API/Navigator/share) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `NotAllowedError` abgelehnt wird.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Permissions-Policy: web-share=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `web-share` ist `self`.
+Die Standard-`allowlist` für `web-share` ist `self`.
 
 ## Spezifikationen
 
@@ -34,10 +34,10 @@ Die Standard-Whitelist für `web-share` ist `self`.
 {{Compat}}
 
 <!--
-Die Implementierung im Browser wird in <https://github.com/w3c/web-share/issues/169> diskutiert.
+Die Implementierung im Browser wird unter <https://github.com/w3c/web-share/issues/169> diskutiert.
 -->
 
 ## Siehe auch
 
-- {{HTTPHeader('Permissions-Policy')}}-Header
-- [Permission Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader('Permissions-Policy')}} Header
+- [Berechtigungsrichtlinie (Permissions Policy)](/de/docs/Web/HTTP/Guides/Permissions_Policy)

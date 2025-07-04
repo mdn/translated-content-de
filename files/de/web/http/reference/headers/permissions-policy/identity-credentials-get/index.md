@@ -1,16 +1,16 @@
 ---
-title: "Berechtigungsrichtlinie: identity-credentials-get Direktive"
+title: "Permissions-Policy: identity-credentials-get Richtlinie"
 short-title: identity-credentials-get
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/identity-credentials-get
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `identity-credentials-get` steuert, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) verwenden darf, und genauer gesagt die Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `identity-credentials-get` steuert, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) verwenden darf, insbesondere die Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option.
 
-Wenn diese Richtlinie die Verwendung der API untersagt, wird das von `get()` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+Wo diese Richtlinie die Nutzung der API verbietet, wird das von dem `get()`-Aufruf zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: identity-credentials-get=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Verwendung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion gewährt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `identity-credentials-get` ist `self`.
+Die Standard-Whitelist für `identity-credentials-get` ist `self`.
 
 ## Spezifikationen
 
@@ -36,5 +36,5 @@ Die Standard-Allowlist für `identity-credentials-get` ist `self`.
 ## Siehe auch
 
 - [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API)
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

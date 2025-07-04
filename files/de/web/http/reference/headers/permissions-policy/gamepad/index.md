@@ -3,14 +3,14 @@ title: "Permissions-Policy: gamepad-Direktive"
 short-title: gamepad
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/gamepad
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `gamepad`-Direktive steuert, ob das aktuelle Dokument die [Gamepad-API](/de/docs/Web/API/Gamepad_API) verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der `gamepad`-Direktive steuert, ob das aktuelle Dokument die [Gamepad-API](/de/docs/Web/API/Gamepad_API) verwenden darf.
 
-Konkret bedeutet das, dass wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException) auslösen. Darüber hinaus werden die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, führen Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) zu einem `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException). Außerdem werden die Events [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
 
 ## Syntax
 
@@ -19,18 +19,17 @@ Permissions-Policy: gamepad=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `gamepad` ist `self`.
+Die Standard-Allowlist für `gamepad` ist `self`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Gamepad-API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und diejenigen, deren Ursprung `https://example.com` ist.
-Dies kann durch die Lieferung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
+SecureCorp Inc. möchte die Gamepad-API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und für Ursprünge, deren Ursprung `https://example.com` ist. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
 
 ```http
 Permissions-Policy: gamepad=(self "https://example.com")
@@ -38,20 +37,19 @@ Permissions-Policy: gamepad=(self "https://example.com")
 
 ### Mit einem `<iframe>`-Element
 
-FastCorp Inc. möchte `gamepad` für alle Cross-Origin-Kindrahmen deaktivieren, außer für ein spezifisches `<iframe>`.
-Dies kann durch die Lieferung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
+FastCorp Inc. möchte `gamepad` für alle fremden Kinderframes deaktivieren, außer für ein spezifisches `<iframe>`. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
 
 ```http
 Permissions-Policy: gamepad=(self)
 ```
 
-Fügen Sie dann ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut in das `<iframe>`-Element ein:
+Dann fügen Sie dem `<iframe>`-Element ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut hinzu:
 
 ```html
 <iframe src="https://other.com/game" allow="gamepad"></iframe>
 ```
 
-Iframe-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
+Iframe-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente aus demselben Ursprung enthalten.
 
 ## Spezifikationen
 
@@ -64,4 +62,4 @@ Iframe-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

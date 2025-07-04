@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: serial-Direktive"
+title: "Permissions-Policy: `serial` Direktive"
 short-title: serial
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/serial
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `serial` steuert, ob das aktuelle Dokument die [Web Serial API](/de/docs/Web/API/Web_Serial_API) verwenden darf, um mit seriellen Geräten zu kommunizieren, die entweder direkt über einen seriellen Anschluss oder über USB- oder Bluetooth-Geräte, die einen seriellen Anschluss emulieren, verbunden sind.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `serial`-Direktive steuert, ob das aktuelle Dokument die [Web Serial API](/de/docs/Web/API/Web_Serial_API) verwenden darf, um mit seriellen Geräten zu kommunizieren, die entweder direkt über einen seriellen Port oder über USB- oder Bluetooth-Geräte, die einen seriellen Port emulieren, verbunden sind.
 
-Insbesondere in Fällen, in denen eine definierte Richtlinie die Nutzung dieses Features blockiert, werden die Aufrufe von [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) und [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `SecurityError` abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden die Aufrufe [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) und [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts) ein {{jsxref("Promise")}} zurückgeben, das mit einer [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: serial=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, das Feature zu nutzen. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung erteilt wird, diese Funktion zu verwenden. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die standardmäßige Erlaubnisliste für `serial` ist `self`.
+Die Standard-Berechtigungsliste für `serial` ist `self`.
 
 ## Spezifikationen
 
@@ -35,5 +35,5 @@ Die standardmäßige Erlaubnisliste für `serial` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

@@ -2,18 +2,16 @@
 title: 301 Moved Permanently
 slug: Web/HTTP/Reference/Status/301
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`301 Moved Permanently`** [Umleitungsantwort](/de/docs/Web/HTTP/Reference/Status#redirection_messages) gibt an, dass die angeforderte Ressource dauerhaft zur URL im {{HTTPHeader("Location")}}-Header verschoben wurde.
 
-Der HTTP-Statuscode **`301 Moved Permanently`** [redirection response](/de/docs/Web/HTTP/Reference/Status#redirection_messages) zeigt an, dass die angeforderte Ressource dauerhaft zur URL im {{HTTPHeader("Location")}}-Header verschoben wurde.
-
-Ein Browser, der diesen Status erhält, wird automatisch die Ressource unter der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite umleiten. Suchmaschinen, die auf diese Antwort stoßen, werden Links zur ursprünglichen URL der umgeleiteten Ressource zuordnen und das {{Glossary("SEO", "SEO")}}-Ranking auf die neue URL übertragen.
+Ein Browser, der diesen Status erhält, wird automatisch die Ressource unter der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite weiterleiten. Suchmaschinen, die diese Antwort erhalten, werden Links zur ursprünglichen URL der weitergeleiteten Ressource zuordnen und das {{Glossary("SEO", "SEO")}}-Ranking an die neue URL weitergeben.
 
 > [!NOTE]
-> Im [Fetch Standard](https://fetch.spec.whatwg.org/#http-redirect-fetch), wenn ein User-Agent eine `301`-Antwort auf eine {{HTTPMethod("POST")}}-Anfrage erhält, verwendet er die {{HTTPMethod("GET")}}-Methode in der darauffolgenden Umleitungsanfrage, wie es die HTTP-[Spezifikation](#spezifikationen) erlaubt.
-> Um zu vermeiden, dass User-Agents die Anfrage ändern, verwenden Sie stattdessen {{HTTPStatus("308", "308 Permanent Redirect")}}, da das Ändern der Methode nach einer `308`-Antwort verboten ist.
+> Im [Fetch Standard](https://fetch.spec.whatwg.org/#http-redirect-fetch), wenn ein Benutzeragent eine `301`-Antwort auf eine {{HTTPMethod("POST")}}-Anfrage erhält, verwendet er die {{HTTPMethod("GET")}}-Methode in der nachfolgenden Umleitungsanfrage, wie es die HTTP-[Spezifikation](#spezifikationen) erlaubt.
+> Um zu verhindern, dass Benutzeragenten die Anfrage ändern, verwenden Sie stattdessen {{HTTPStatus("308", "308 Permanent Redirect")}}, da das Ändern der Methode nach einer `308`-Antwort untersagt ist.
 
 ## Status
 
@@ -25,7 +23,7 @@ Ein Browser, der diesen Status erhält, wird automatisch die Ressource unter der
 
 ### 301-Antwort auf eine verschobene Ressource
 
-Die folgende {{HTTPMethod("GET")}}-Anfrage wird an eine Ressource gestellt, die eine `301`-Umleitung implementiert hat.
+Die folgende {{HTTPMethod("GET")}}-Anfrage wird an eine Ressource gestellt, für die eine `301`-Weiterleitung eingerichtet ist.
 
 ```http
 GET /en-US/docs/AJAX HTTP/2
@@ -34,7 +32,7 @@ User-Agent: curl/8.6.0
 Accept: */*
 ```
 
-Die Antwort beinhaltet den `301`-Status zusammen mit dem {{HTTPHeader("Location")}}-Header, der die URL angibt, an die die Ressource verschoben wurde.
+Die Antwort enthält den `301`-Status zusammen mit dem {{HTTPHeader("Location")}}-Header, der die URL angibt, zu der die Ressource verschoben wurde.
 
 ```http
 HTTP/2 301
@@ -55,5 +53,5 @@ Moved Permanently. Redirecting to /en-US/docs/Learn_web_development/Core/Scripti
 
 - [Umleitungen in HTTP](/de/docs/Web/HTTP/Guides/Redirections)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
-- {{HTTPStatus("308", "308 Permanent Redirect")}} entspricht `301`, aber die Anfragemethode wird nicht geändert
+- {{HTTPStatus("308", "308 Permanent Redirect")}} gleichwertig zu `301`, aber die Anfragemethode wird nicht geändert
 - {{HTTPStatus("302", "302 Found")}} temporäre Umleitung

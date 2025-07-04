@@ -3,28 +3,28 @@ title: Pragma header
 short-title: Pragma
 slug: Web/HTTP/Reference/Headers/Pragma
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}{{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Der HTTP-**`Pragma`**-Header ist ein implementierungsspezifischer Header, der in der Anforderungs-Antwort-Kette verschiedene Effekte haben kann. Dieser Header dient der Abwärtskompatibilität mit HTTP/1.0 Caches, die den HTTP/1.1 {{HTTPHeader("Cache-Control")}}-Header nicht unterstützen.
+Der HTTP-Header **`Pragma`** ist ein implementationsspezifischer Header, der verschiedene Effekte entlang der Anfrage-Antwort-Kette haben kann. Dieser Header dient der Rückwärtskompatibilität mit HTTP/1.0-Caches, die den HTTP/1.1-Header {{HTTPHeader("Cache-Control")}} nicht unterstützen.
 
 > [!NOTE]
-> Der `Pragma`-Header ist für HTTP-Antworten nicht spezifiziert und daher kein zuverlässiger Ersatz für den HTTP/1.1 `Cache-Control`-Header, obwohl sein Verhalten dasselbe ist wie `Cache-Control: no-cache`, wenn das `Cache-Control`-Headerfeld in einer Anfrage weggelassen wird.
-> Verwenden Sie `Pragma` nur für die Abwärtskompatibilität mit HTTP/1.0-Clients.
+> Der `Pragma`-Header ist für HTTP-Antworten nicht spezifiziert und daher kein zuverlässiger Ersatz für den HTTP/1.1-`Cache-Control`-Header, obwohl dessen Verhalten dem von `Cache-Control: no-cache` entspricht, wenn das `Cache-Control`-Headerfeld in einer Anfrage weggelassen wird.
+> Verwenden Sie `Pragma` nur für die Rückwärtskompatibilität mit HTTP/1.0-Clients.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungs-Header")}},
-        {{Glossary("Response_header", "Antwort-Header")}} (Antwortverhalten ist nicht spezifiziert und implementierungsspezifisch).
+        {{Glossary("Request_header", "Anfrage-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}} (Verhalten der Antwort ist nicht spezifiziert und implementationsspezifisch).
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -45,7 +45,7 @@ Pragma: no-cache
 ## Direktiven
 
 - `no-cache`
-  - : Entspricht `Cache-Control: no-cache`. Erzwingt, dass Caches die Anfrage an den Ursprungsserver zur Validierung senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
+  - : Entspricht `Cache-Control: no-cache`. Zwingt Caches dazu, die Anfrage zur Validierung an den Ursprungsserver zu senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
 
 ## Beispiele
 

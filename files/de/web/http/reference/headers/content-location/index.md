@@ -3,14 +3,15 @@ title: Content-Location header
 short-title: Content-Location
 slug: Web/HTTP/Reference/Headers/Content-Location
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-**`Content-Location`**-{{Glossary("representation_header", "Repräsentations-Header")}} gibt einen alternativen Ort für die zurückgegebenen Daten an.
+Die Hauptverwendung besteht darin, die URL einer Ressource anzugeben, die als Ergebnis der [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) übertragen wird.
 
-Der HTTP-**`Content-Location`**-{{Glossary("representation_header", "Repräsentations-Header")}} gibt einen alternativen Speicherort für die zurückgegebenen Daten an. Seine Hauptanwendung besteht darin, die URL einer Ressource anzugeben, die infolge der [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) übertragen wurde.
-
-Der `Content-Location`-Header unterscheidet sich vom {{HTTPHeader("Location")}}-Header. `Content-Location` gibt die direkte URL an, um auf die Ressource zuzugreifen, wenn eine [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) stattgefunden hat. Dies ermöglicht es dem Client, zukünftige Inhaltsverhandlungen für diese Ressource zu umgehen. `Location` hingegen gibt entweder das Ziel einer `3XX`-Umleitung oder die URL einer neu erstellten Ressource in einer {{HTTPStatus("201", "201 Created")}}-Antwort an.
+Der `Content-Location`-Header unterscheidet sich vom {{HTTPHeader("Location")}}-Header.
+`Content-Location` gibt die direkte URL an, um auf die Ressource zuzugreifen, wenn eine [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) stattgefunden hat, was dem Client ermöglicht, zukünftige Inhaltsverhandlungen für diese Ressource zu umgehen.
+`Location` weist hingegen entweder auf das Ziel einer `3XX`-Weiterleitung oder die URL einer neu erstellten Ressource in einer {{HTTPStatus("201", "201 Created")}}-Antwort hin.
 
 <table class="properties">
   <tbody>
@@ -38,9 +39,9 @@ Content-Location: <url>
 
 ## Beispiele
 
-### Anfordern von Daten von einem Server in verschiedenen Formaten
+### Abfrage von Daten von einem Server in verschiedenen Formaten
 
-Angenommen, die API einer Site kann Daten in den Formaten {{Glossary("JSON", "JSON")}}, {{Glossary("XML", "XML")}} oder [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) zurückgeben. Wenn die URL für ein bestimmtes Dokument `https://example.com/documents/foo` ist, könnte die Site je nach {{HTTPHeader("Accept")}}-Header der Anforderung unterschiedliche URLs für `Content-Location` zurückgeben:
+Angenommen, eine API einer Website kann Daten in {{Glossary("JSON", "JSON")}}-, {{Glossary("XML", "XML")}}- oder [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)-Formaten zurückgeben. Wenn die URL für ein bestimmtes Dokument `https://example.com/documents/foo` ist, könnte die Website je nach {{HTTPHeader("Accept")}}-Header der Anfrage unterschiedliche URLs für `Content-Location` zurückgeben:
 
 | Anforderungs-Header                   | Antwort-Header                          |
 | ------------------------------------- | --------------------------------------- |
@@ -48,17 +49,15 @@ Angenommen, die API einer Site kann Daten in den Formaten {{Glossary("JSON", "JS
 | `Accept: application/xml, text/xml`   | `Content-Location: /documents/foo.xml`  |
 | `Accept: text/plain, text/*`          | `Content-Location: /documents/foo.txt`  |
 
-Diese URLs sind Beispiele — die Site könnte die verschiedenen Dateitypen mit jedem gewünschten URL-Muster bedienen, wie z.B. einem [Abfragezeichenfolgen-Parameter](/de/docs/Web/API/HTMLAnchorElement/search): `/documents/foo?format=json`, `/documents/foo?format=xml` und so weiter.
+Diese URLs sind Beispiele — die Website könnte die verschiedenen Dateitypen mit beliebigen URL-Mustern anbieten, zum Beispiel mit einem [Query-String-Parameter](/de/docs/Web/API/HTMLAnchorElement/search): `/documents/foo?format=json`, `/documents/foo?format=xml` und so weiter.
 
-Dann könnte sich der Client merken, dass die JSON-Version unter dieser speziellen URL verfügbar ist, und die Inhaltsverhandlungen beim nächsten Anfordern dieses Dokuments überspringen.
+Der Client könnte sich dann merken, dass die JSON-Version unter dieser bestimmten URL verfügbar ist, und bei der nächsten Anforderung dieses Dokuments die Inhaltsverhandlungen überspringen.
 
-Der Server könnte auch andere Header der [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) berücksichtigen, wie z.B. {{HTTPHeader("Accept-Language")}}.
+Der Server könnte auch andere [Inhaltsverhandlungs-](/de/docs/Web/HTTP/Guides/Content_negotiation) Header berücksichtigen, wie z. B. {{HTTPHeader("Accept-Language")}}.
 
 ### Angabe der URL des Ergebnisses einer Transaktion
 
-Angenommen, Sie haben ein
-[`<form>`](/de/docs/Web/HTML/Reference/Elements/form) zum Senden
-von Geld an einen anderen Benutzer einer Site.
+Angenommen, Sie haben ein [`<form>`](/de/docs/Web/HTML/Reference/Elements/form) für das Versenden von Geld an einen anderen Benutzer einer Website.
 
 ```html
 <form action="/send-payment" method="post">
@@ -80,7 +79,7 @@ von Geld an einen anderen Benutzer einer Site.
 </form>
 ```
 
-Wenn das Formular übermittelt wird, generiert die Site eine Quittung für die Transaktion. Der Server könnte `Content-Location` verwenden, um die URL der Quittung für zukünftigen Zugriff anzugeben.
+Wenn das Formular abgeschickt wird, erstellt die Website eine Quittung für die Transaktion. Der Server könnte `Content-Location` verwenden, um die URL dieser Quittung für zukünftigen Zugriff anzugeben.
 
 ```http
 HTTP/1.1 200 OK

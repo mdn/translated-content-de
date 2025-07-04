@@ -2,16 +2,12 @@
 title: 413 Content Too Large
 slug: Web/HTTP/Reference/Status/413
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`413 Content Too Large`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass die Anfrageeinheit größer als die vom Server definierten Grenzen war. Der Server könnte die Verbindung schließen oder ein {{HTTPHeader("Retry-After")}}-Headerfeld zurückgeben.
 
-Der HTTP-Statuscode für den Fehler **`413 Content Too Large`** [Clientfehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass die Anforderungseinheit größer war als die vom Server festgelegten Grenzen.
-Der Server könnte die Verbindung schließen oder ein {{HTTPHeader("Retry-After")}}-Headerfeld zurückgeben.
-
-Vor {{rfc("9110")}} war die Antwortphrase für den Status **`Payload Too Large`**.
-Diese Nachricht wird immer noch häufig verwendet.
+Vor {{rfc("9110")}} war der Antwortsatz für den Status **`Payload Too Large`**. Diese Meldung wird immer noch häufig verwendet.
 
 ## Status
 
@@ -21,9 +17,9 @@ Diese Nachricht wird immer noch häufig verwendet.
 
 ## Beispiele
 
-### Dateiupload-Limit überschritten
+### Datei-Upload-Limit überschritten
 
-Das folgende Beispiel zeigt, was der Client senden kann, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` beinhaltet:
+Das folgende Beispiel zeigt, was der Client senden kann, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element ein Bild beim Formularversand mit `method="post"` enthält:
 
 ```http
 POST /upload HTTP/1.1
@@ -39,7 +35,7 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Der Server kann den Upload ablehnen, wenn es eine Beschränkung der maximalen Dateigröße gibt, die er verarbeiten wird, und der Antwortkörper enthält eine `message` mit etwas Kontext:
+Der Server kann den Upload ablehnen, wenn es eine Beschränkung für die maximale Größe der zu verarbeitenden Dateien gibt, und der Antwortkörper kann eine `message` mit zusätzlichem Kontext enthalten:
 
 ```http
 HTTP/1.1 413 Content Too Large

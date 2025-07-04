@@ -2,10 +2,8 @@
 title: "Reason: CORS disabled"
 slug: Web/HTTP/Guides/CORS/Errors/CORSDisabled
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
-
-{{HTTPSidebar}}
 
 ## Grund
 
@@ -13,15 +11,18 @@ l10n:
 Reason: CORS disabled
 ```
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Ein Antrag, der die Verwendung von {{Glossary("CORS", "CORS")}} erfordert, wurde versucht, aber CORS ist im Browser des Benutzers deaktiviert. In diesem Fall muss der Benutzer CORS in seinem Browser wieder aktivieren.
+Ein Anfrage, die {{Glossary("CORS", "CORS")}} verwenden muss, wurde versucht, aber CORS ist im
+Browser des Benutzers deaktiviert. In diesem Fall muss der Benutzer CORS in seinem
+Browser wieder aktivieren.
 
-In Firefox ist die Präferenz, die CORS deaktiviert, `content.cors.disable`.
-Wenn dieser auf `true` gesetzt ist, wird CORS deaktiviert, und daher werden CORS-Anfragen immer mit diesem Fehler fehlschlagen.
+In Firefox ist die Einstellung, die CORS deaktiviert, `content.cors.disable`.
+Wenn dieser Wert auf `true` gesetzt ist, wird CORS deaktiviert, und CORS-Anfragen
+werden immer mit diesem Fehler fehlschlagen.
 
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/Guides/CORS/Errors)
 - Glossar: {{Glossary("CORS", "CORS")}}
-- [CORS-Einführung](/de/docs/Web/HTTP/Guides/CORS)
+- [Einführung in CORS](/de/docs/Web/HTTP/Guides/CORS)

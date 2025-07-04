@@ -3,32 +3,30 @@ title: Sec-Purpose header
 short-title: Sec-Purpose
 slug: Web/HTTP/Reference/Headers/Sec-Purpose
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP **`Sec-Purpose`** {{Glossary("fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} gibt den Zweck an, für den die angeforderte Ressource verwendet wird, wenn dieser Zweck etwas anderes ist als die unmittelbare Verwendung durch den User-Agent.
 
-Der HTTP **`Sec-Purpose`** {{Glossary("fetch_metadata_request_header", "Fetch Metadata Request Header")}} gibt den Zweck an, für den die angeforderte Ressource verwendet wird, wenn dieser Zweck etwas anderes als die unmittelbare Nutzung durch den User-Agent ist.
-
-Der einzige Zweck, der derzeit definiert ist, ist `prefetch`, was darauf hinweist, dass die Ressource in Erwartung angefordert wird, dass sie von einer Seite benötigt wird, zu der wahrscheinlich in naher Zukunft navigiert wird, wie eine Seite, die in Suchergebnissen verlinkt ist oder ein Link, über den ein Nutzer geschwebt hat.
-Der Server kann dieses Wissen nutzen, um das Ablaufdatum des Caches für die Anfrage anzupassen, die Anfrage zu verweigern oder sie vielleicht anders zu behandeln, wenn Seitenaufrufe gezählt werden.
+Der einzige Zweck, der derzeit definiert ist, ist `prefetch`, was darauf hinweist, dass die Ressource in Erwartung angefordert wird, dass sie von einer Seite benötigt wird, die wahrscheinlich in naher Zukunft aufgerufen wird, wie eine Seite in den Suchergebnissen oder ein Link, über den ein Benutzer mit der Maus schwebt.
+Der Server kann dieses Wissen nutzen, um: die Cache-Ablauffrist für die Anfrage anzupassen, die Anfrage zu verweigern oder möglicherweise anders zu behandeln, wenn Seitenbesuche gezählt werden.
 
 Der Header wird gesendet, wenn eine Seite geladen wird, die ein [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Element mit dem Attribut [`rel="prefetch"`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch) enthält.
-Beachten Sie, dass, wenn dieser Header gesetzt ist, ein {{HTTPHeader("Sec-Fetch-Dest")}}-Header in der Anfrage auf `empty` gesetzt sein muss (jeder Wert im [`<link>`](/de/docs/Web/HTML/Reference/Elements/link) Attribut [`as`](/de/docs/Web/HTML/Reference/Elements/link#as) wird ignoriert) und der {{HTTPHeader("Accept")}}-Header sollte mit dem für normale Navigationsanfragen verwendeten Wert übereinstimmen.
+Beachten Sie, dass, wenn dieser Header gesetzt ist, dann im der Anfrage ein {{HTTPHeader("Sec-Fetch-Dest")}} Header auf `empty` gesetzt sein muss (jeder Wert im [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Attribut [`as`](/de/docs/Web/HTML/Reference/Elements/link#as) wird ignoriert) und der {{HTTPHeader("Accept")}} Header sollte dem Wert für normale Navigationsanfragen entsprechen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}}</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
-      <td>Ja (<code>Sec-</code>-Präfix)</td>
+      <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -43,19 +41,19 @@ Sec-Purpose: prefetch
 
 ## Direktiven
 
-Die erlaubten Tokens sind:
+Die erlaubten Token sind:
 
 - `prefetch`
-  - : Der Zweck ist das Vorabladen einer Ressource, die in einer wahrscheinlichen zukünftigen Navigation benötigt werden könnte.
+  - : Der Zweck ist, eine Ressource vorab zu laden, die bei einer wahrscheinlichen zukünftigen Navigation benötigt werden könnte.
 
 ## Beispiele
 
-### Eine Vorababruf-Anfrage
+### Eine Prefetch-Anfrage
 
-Betrachten Sie den Fall, in dem ein Browser eine Datei mit einem [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Element lädt, das das Attribut `rel="prefetch"` und ein `href`-Attribut enthält, das die Adresse einer Bilddatei enthält.
-Der resultierende `fetch()` sollte in einer HTTP-Anfrage resultieren, in der `Sec-Purpose: prefetch`, `Sec-Fetch-Dest: empty` und ein `Accept`-Wert verwendet werden, der derselbe ist, den der Browser für die Seitennavigation verwendet.
+Betrachten Sie den Fall, in dem ein Browser eine Datei mit einem [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Element lädt, das das Attribut `rel="prefetch"` und ein `href`-Attribut mit der Adresse einer Bilddatei enthält.
+Das resultierende `fetch()` sollte zu einer HTTP-Anfrage führen, bei der `Sec-Purpose: prefetch`, `Sec-Fetch-Dest: empty` und ein `Accept`-Wert verwendet wird, der dem beim Browsen von Seiten entspricht.
 
-Ein Beispiel für einen solchen Header (auf Firefox) wird unten angegeben:
+Ein Beispiel für einen solchen Header (in Firefox) ist unten gegeben:
 
 ```http
 GET /images/some_image.png HTTP/1.1
@@ -74,9 +72,9 @@ Cache-Control: no-cache
 ```
 
 > [!NOTE]
-> Zum Zeitpunkt der Erstellung setzt Firefox den `Accept`-Header für Vorabrufe fälschlicherweise als `Accept: */*`.
-> Das Beispiel wurde angepasst, um zu zeigen, wie der `Accept`-Wert sein sollte.
-> Dieses Problem kann in [Firefox Bug 1836334](https://bugzil.la/1836334) nachverfolgt werden.
+> Zum Zeitpunkt des Schreibens setzt Firefox fälschlicherweise den `Accept`-Header als `Accept: */*` für Vorabladungen.
+> Das Beispiel wurde geändert, um zu zeigen, welcher `Accept`-Wert verwendet werden sollte.
+> Dieses Problem kann im [Firefox-Bug 1836334](https://bugzil.la/1836334) nachverfolgt werden.
 
 ## Spezifikationen
 
@@ -88,6 +86,6 @@ Cache-Control: no-cache
 
 ## Siehe auch
 
-- {{HTTPHeader("Sec-Fetch-Dest")}}, {{HTTPHeader("Sec-Fetch-Mode")}}, {{HTTPHeader("Sec-Fetch-Site")}}, {{HTTPHeader("Sec-Fetch-User")}} Fetch Metadata Request Headers
+- {{HTTPHeader("Sec-Fetch-Dest")}}, {{HTTPHeader("Sec-Fetch-Mode")}}, {{HTTPHeader("Sec-Fetch-Site")}}, {{HTTPHeader("Sec-Fetch-User")}} fetch metadaten Anforderungsheader
 - {{Glossary("Prefetch", "Prefetch")}} (Glossar)
 - [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Element mit Attribut [`rel="prefetch"`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch)

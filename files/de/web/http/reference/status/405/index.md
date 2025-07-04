@@ -2,14 +2,12 @@
 title: 405 Method Not Allowed
 slug: Web/HTTP/Reference/Status/405
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`405 Method Not Allowed`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) gibt an, dass der Server die Anforderungsmethode kennt, aber die Zielressource diese Methode nicht unterstützt. Der Server **muss** in einer 405-Antwort einen {{HTTPHeader("Allow")}}-Header erzeugen, der eine Liste der Methoden enthält, die die Zielressource derzeit unterstützt.
 
-Der HTTP-Statuscode **`405 Method Not Allowed`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die Anfragemethode kennt, aber die Zielressource diese Methode nicht unterstützt. Der Server **muss** in einer 405-Antwort einen {{HTTPHeader("Allow")}}-Header generieren, der eine Liste der Methoden enthält, die die Zielressource derzeit unterstützt.
-
-Unsachgemäß gesetzte Serverberechtigungen für Dateien oder Verzeichnisse können eine 405-Antwort verursachen, wenn die Anfrage ansonsten erfolgreich sein sollte.
+Unzureichende serverseitige Berechtigungen, die für Dateien oder Verzeichnisse festgelegt sind, können eine 405-Antwort verursachen, wenn die Anfrage sonst erfolgreich wäre.
 
 ## Status
 
@@ -21,7 +19,7 @@ Unsachgemäß gesetzte Serverberechtigungen für Dateien oder Verzeichnisse kön
 
 ### TRACE-Methode nicht erlaubt
 
-Serverbesitzer verbieten oft die Verwendung der `TRACE`-Methode aufgrund von Sicherheitsbedenken. Das folgende Beispiel zeigt eine typische Antwort, bei der ein Server die Verwendung von `TRACE` nicht erlaubt:
+Serverbetreiber verbieten häufig die Verwendung der `TRACE`-Methode aus Sicherheitsgründen. Das folgende Beispiel zeigt eine typische Antwort, bei der ein Server die Verwendung von `TRACE` nicht erlaubt:
 
 ```http
 TRACE / HTTP/1.1

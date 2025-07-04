@@ -2,10 +2,8 @@
 title: "Reason: CORS request external redirect not allowed"
 slug: Web/HTTP/Guides/CORS/Errors/CORSExternalRedirectNotAllowed
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
-
-{{HTTPSidebar}}
 
 ## Grund
 
@@ -15,11 +13,11 @@ Reason: CORS request external redirect not allowed
 
 ## Was ist schiefgelaufen?
 
-Die {{Glossary("CORS", "CORS")}}-Anfrage wurde vom Server mit einem HTTP-Redirect zu einer URL auf einem anderen Ursprung als der ursprünglichen Anfrage beantwortet, was bei CORS-Anfragen nicht erlaubt ist.
+Die {{Glossary("CORS", "CORS")}}-Anfrage wurde vom Server mit einer HTTP-Weiterleitung zu einer URL mit einem anderen Ursprung als die ursprüngliche Anfrage beantwortet, was bei CORS-Anfragen nicht erlaubt ist.
 
-Wenn beispielsweise die Seite `https://service.tld/fetchdata` angefordert wurde und die HTTP-Antwort "301 Moved Permanently", "307 Temporary Redirect" oder "308 Permanent Redirect" mit einem `Location` von `https://anotherservice.net/getdata` ist, wird die CORS-Anfrage auf diese Weise fehlschlagen.
+Wenn zum Beispiel die Seite `https://service.tld/fetchdata` angefordert wurde und die HTTP-Antwort "301 Moved Permanently", "307 Temporary Redirect" oder "308 Permanent Redirect" mit einem `Location` von `https://anotherservice.net/getdata` ist, wird die CORS-Anfrage auf diese Weise fehlschlagen.
 
-Um das Problem zu beheben, aktualisieren Sie Ihren Code, um die neue URL zu verwenden, die durch den Redirect gemeldet wurde, und vermeiden Sie so den Redirect.
+Um das Problem zu beheben, aktualisieren Sie Ihren Code, um die neue URL zu verwenden, wie sie durch die Weiterleitung gemeldet wird, und vermeiden Sie so die Weiterleitung.
 
 ## Siehe auch
 

@@ -2,69 +2,67 @@
 title: Content Security Policy (CSP)
 slug: Web/HTTP/Guides/CSP
 l10n:
-  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+**Content Security Policy** (CSP) ist eine Funktion, die hilft, das Risiko bestimmter Sicherheitsbedrohungen zu verhindern oder zu minimieren. Sie besteht aus einer Reihe von Anweisungen einer Website an einen Browser, die den Browser anweisen, Einschränkungen für die Aktivitäten des die Site bildenden Codes zu setzen.
 
-**Content Security Policy** (CSP) ist ein Feature, das dabei hilft, das Risiko bestimmter Arten von Sicherheitsbedrohungen zu verhindern oder zu minimieren. Es besteht aus einer Reihe von Anweisungen von einer Website an einen Browser, die den Browser anweisen, Einschränkungen für die Dinge zu setzen, die der Code, aus dem die Website besteht, tun darf.
+Der primäre Anwendungsfall für CSP ist die Kontrolle, welche Ressourcen, insbesondere JavaScript-Ressourcen, ein Dokument laden darf. Dies wird hauptsächlich als Verteidigung gegen {{Glossary("cross-site_scripting", "Cross-Site Scripting")}} (XSS)-Angriffe verwendet, bei denen ein Angreifer bösartigen Code in die Seite des Opfers einschleusen kann.
 
-Der Hauptverwendungszweck von CSP ist die Kontrolle darüber, welche Ressourcen, insbesondere JavaScript-Ressourcen, ein Dokument laden darf. Dies wird hauptsächlich als Schutz gegen {{Glossary("cross-site_scripting", "Cross-Site Scripting")}} (XSS)-Angriffe verwendet, bei denen ein Angreifer in der Lage ist, schädlichen Code in die Seite des Opfers zu injizieren.
+Ein weiterer Zweck von CSP kann die Verteidigung gegen [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) sein und die Sicherstellung, dass die Seiten einer Site über HTTPS geladen werden.
 
-Ein CSP kann auch zu anderen Zwecken verwendet werden, darunter der Schutz vor [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) und die Sicherstellung, dass die Seiten einer Website über HTTPS geladen werden.
+In diesem Leitfaden beginnen wir mit einer Beschreibung, wie eine CSP an einen Browser geliefert wird und wie sie auf hoher Ebene aussieht.
 
-In diesem Leitfaden beginnen wir mit der Beschreibung, wie ein CSP an einen Browser ausgeliefert wird und wie es auf hoher Ebene aussieht.
+Dann beschreiben wir, wie sie verwendet werden kann, um [zu kontrollieren, welche Ressourcen geladen werden](#kontrolle_des_ressourcennachladens), um XSS zu verhindern, sowie andere Anwendungsfälle wie [Clickjacking-Schutz](#clickjacking-schutz) und [Aufrüsten unsicherer Anfragen](#aufrüsten_unsicherer_anfragen). Beachten Sie, dass es keine Abhängigkeiten zwischen den verschiedenen Anwendungsfällen gibt: Wenn Sie Clickjacking-Schutz hinzufügen möchten, aber keine XSS-Minderung, können Sie einfach die Direktiven für diesen Anwendungsfall hinzufügen.
 
-Dann beschreiben wir, wie es verwendet werden kann, um [zu steuern, welche Ressourcen geladen werden](#kontrolle_der_ressourcennutzung), um sich gegen XSS zu schützen, sowie andere Anwendungsfälle wie [Clickjacking-Schutz](#clickjacking-schutz) und [das Upgraden unsicherer Anfragen](#upgraden_unsicherer_anfragen). Beachten Sie, dass es keine Abhängigkeit zwischen den verschiedenen Anwendungsfällen gibt: Wenn Sie Clickjacking-Schutz hinzufügen möchten, aber keine XSS-Abwehr, können Sie einfach die Direktiven für diesen Anwendungsfall hinzufügen.
+Schließlich beschreiben wir [Strategien zur Bereitstellung einer CSP](#testen_ihrer_richtlinie) und Werkzeuge, die diesen Prozess erleichtern können.
 
-Schließlich beschreiben wir [Strategien zur Implementierung eines CSP](#testen_ihrer_richtlinie) und Werkzeuge, die helfen können, diesen Prozess zu erleichtern.
+## CSP-Übersicht
 
-## CSP-Überblick
+Eine CSP sollte an den Browser im {{httpheader("Content-Security-Policy")}} Antwort-Header geliefert werden. Sie sollte für alle Antworten auf alle Anfragen gesetzt werden, nicht nur für das Hauptdokument.
 
-Ein CSP sollte im {{httpheader("Content-Security-Policy")}} Response-Header an den Browser geliefert werden. Es sollte auf alle Antworten auf alle Anfragen gesetzt werden, nicht nur auf das Hauptdokument.
+Sie können sie auch mit dem Attribut [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) des {{htmlelement("meta")}} Elements Ihres Dokuments angeben, was eine nützliche Option für einige Anwendungsfälle ist, z. B. eine client-seitig gerenderte {{Glossary("SPA", "Single Page App")}}, die nur statische Ressourcen hat, weil Sie dann nicht auf eine Serverinfrastruktur angewiesen sind. Diese Option unterstützt jedoch nicht alle CSP-Funktionen.
 
-Sie können es auch mithilfe des [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv)-Attributes Ihres Dokuments im {{htmlelement("meta")}}-Element angeben, und dies ist eine nützliche Option für einige Anwendungsfälle, wie z.B. eine clientseitig gerenderte {{Glossary("SPA", "Single Page App")}}, die nur statische Ressourcen hat, da Sie dann nicht auf jegliche Serverinfrastruktur angewiesen sind. Diese Option unterstützt jedoch nicht alle CSP-Funktionen.
+Die Richtlinie wird als eine Reihe von _Direktiven_ angegeben, die durch Semikolons getrennt sind. Jede Direktive steuert einen anderen Aspekt der Sicherheitsrichtlinie. Jede Direktive hat einen Namen, gefolgt von einem Leerzeichen, gefolgt von einem Wert. Unterschiedliche Direktiven können unterschiedliche Syntaxen haben.
 
-Die Richtlinie wird als eine Reihe von _Direktiven_ angegeben, die durch Semikolons getrennt sind. Jede Direktive kontrolliert einen anderen Aspekt der Sicherheitsrichtlinie. Jede Direktive hat einen Namen, gefolgt von einem Leerzeichen und einem Wert. Verschiedene Direktiven können unterschiedliche Syntaxen haben.
-
-Zum Beispiel betrachten Sie das folgende CSP:
+Betrachten Sie zum Beispiel die folgende CSP:
 
 ```http
 Content-Security-Policy: default-src 'self'; img-src 'self' example.com
 ```
 
-Es setzt zwei Direktiven:
+Sie setzt zwei Direktiven:
 
-- die `default-src` Direktive ist auf `'self'` gesetzt
-- die `img-src` Direktive ist auf `'self' example.com` gesetzt.
+- Die `default-src` Direktive ist auf `'self'` gesetzt
+- Die `img-src` Direktive ist auf `'self' example.com` gesetzt.
 
-![Ein CSP, aufgebrochen in seine Direktiven.](csp-overview.svg)
+![Eine CSP, aufgeschlüsselt in ihre Direktiven.](csp-overview.svg)
 
-Die erste Direktive, `default-src`, sagt dem Browser, nur Ressourcen zu laden, die gleich Herkunft wie das Dokument sind, es sei denn, andere spezifischere Direktiven setzen eine andere Richtlinie für andere Ressourcentypen. Die zweite, `img-src`, sagt dem Browser, Bilder zu laden, die gleich Herkunft sind oder von `example.com` bereitgestellt werden.
+Die erste Direktive, `default-src`, weist den Browser an, nur Ressourcen zu laden, die sich im gleichen Ursprung wie das Dokument befinden, es sei denn, andere spezifischere Direktiven setzen eine andere Richtlinie für andere Ressourcentypen. Die zweite, `img-src`, weist den Browser an, Bilder zu laden, die entweder gleichen Ursprung haben oder von `example.com` stammen.
 
-Im nächsten Abschnitt schauen wir uns die verfügbaren Werkzeuge zur Steuerung der Ressourcennutzung an, was die Hauptfunktion eines CSP ist.
+Im nächsten Abschnitt betrachten wir die verfügbaren Werkzeuge zur Kontrolle von Ressourcennachladen, welches die Hauptfunktion einer CSP ist.
 
-## Kontrolle der Ressourcennutzung
+## Kontrolle des Ressourcennachladens
 
-Ein CSP kann verwendet werden, um die Ressourcen zu steuern, die ein Dokument laden darf. Dies wird hauptsächlich zum Schutz gegen Cross-Site Scripting (XSS)-Angriffe verwendet.
+Eine CSP kann verwendet werden, um die Ressourcen zu kontrollieren, die ein Dokument laden darf. Dies wird hauptsächlich zum Schutz vor Cross-Site Scripting (XSS)-Angriffen verwendet.
 
-In diesem Abschnitt werden wir zuerst sehen, wie die Kontrolle der Ressourcennutzung helfen kann, sich gegen XSS zu schützen, dann die Werkzeuge, die CSP bietet, um zu kontrollieren, welche Ressourcen geladen werden. Schließlich beschreiben wir eine bestimmte empfohlene Strategie, die als "Strict CSP" bezeichnet wird.
+In diesem Abschnitt sehen wir zuerst, wie die Kontrolle von Ressourcennachladen helfen kann, XSS zu verhindern, dann die Werkzeuge, die CSP bereitstellt, um zu kontrollieren, welche Ressourcen geladen werden. Schließlich beschreiben wir eine besonders empfohlene Strategie, die "Strict CSP" genannt wird.
 
-### XSS und Ressourcennutzung
+### XSS und Ressourcennachladen
 
-Ein Cross-Site Scripting (XSS) Angriff ist ein Angriff, bei dem ein Angreifer seinen Code im Kontext der Zielwebsite ausführen kann. Dieser Code kann dann alles tun, was der eigene Code der Website tun könnte, einschließlich:
+Ein Cross-Site Scripting (XSS)-Angriff ist ein Angriff, bei dem ein Angreifer seinen Code im Kontext der Zielwebsite ausführen kann. Dieser Code kann dann alles tun, was der Code der Website selbst tun könnte, einschließlich z. B.:
 
-- Zugriff auf oder Änderung des Inhalts der geladenen Seiten der Website
-- Zugriff auf oder Änderung von Inhalten im lokalen Speicher
-- Erstellung von HTTP-Anfragen mit den Anmeldeinformationen des Benutzers, wodurch der Angreifer den Benutzer imitieren oder auf sensible Daten zugreifen kann
+- Zugreifen auf oder Modifizieren des Inhalts der geladenen Seiten der Website
+- Zugreifen auf oder Modifizieren des Inhalts im lokalen Speicher
+- HTTP-Anfragen mit den Anmeldedaten des Benutzers durchführen, wodurch es möglich wird, den Benutzer zu imitieren oder auf sensible Daten zuzugreifen
 
-Ein XSS-Angriff ist möglich, wenn eine Website irgendeine Eingabe akzeptiert, die vom Angreifer erstellt worden sein könnte (zum Beispiel URL-Parameter oder ein Kommentar in einem Blogbeitrag) und diese dann ohne _Bereinigung_ einbindet: das bedeutet, ohne sicherzustellen, dass sie nicht als JavaScript ausgeführt werden kann.
+Ein XSS-Angriff ist möglich, wenn eine Website eine Eingabe akzeptiert, die von einem Angreifer erstellt worden sein könnte (z. B. URL-Parameter oder ein Kommentar zu einem Blogpost), und diese dann in die Seite einschließt, ohne sie zu _sanitizeren_: das heißt, ohne sicherzustellen, dass sie nicht als JavaScript ausgeführt werden kann.
 
-Websites sollten sich gegen XSS schützen, indem sie diese Eingaben bereinigen, bevor sie in die Seite eingebunden werden. Ein CSP bietet einen ergänzenden Schutz, der die Website auch dann schützen kann, wenn die Bereinigung fehlschlägt.
+Websites sollten sich vor XSS schützen, indem sie diese Eingabe sanitiseren, bevor sie sie in die Seite einfügen. Eine CSP bietet einen ergänzenden Schutz, der die Website schützen kann, selbst wenn die Sanitization fehlschlägt.
 
-Wenn die Bereinigung fehlschlägt, gibt es verschiedene Formen, die der injizierte böswillige Code im Dokument annehmen kann, einschließlich:
+Wenn die Sanitization fehlschlägt, gibt es verschiedene Formen, die der eingeschleuste bösartige Code im Dokument annehmen kann, einschließlich:
 
-- Ein {{htmlelement("script")}} Tag, das zu einer böswilligen Quelle verlinkt:
+- Ein {{htmlelement("script")}} Tag, das auf eine bösartige Quelle verweist:
 
   ```html
   <script src="https://evil.example.com/hacker.js"></script>
@@ -78,7 +76,7 @@ Wenn die Bereinigung fehlschlägt, gibt es verschiedene Formen, die der injizier
   </script>
   ```
 
-- Ein Inline-Event-Handler:
+- Ein Inline-Ereignishandler:
 
   ```html
   <img onmouseover="console.log(`You've been hacked!`)" />
@@ -90,88 +88,88 @@ Wenn die Bereinigung fehlschlägt, gibt es verschiedene Formen, die der injizier
   <iframe src="javascript:console.log(`You've been hacked!`)"></iframe>
   ```
 
-- Ein Zeichenkettenargument an eine unsichere API wie [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval):
+- Ein String-Argument für eine unsichere API wie [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval):
 
   ```js
   eval("console.log(`You've been hacked!`)");
   ```
 
-Ein CSP kann für all diese Schutz bieten. Mit einem CSP können Sie:
+Eine CSP kann gegen all dies Schutz bieten. Mit einer CSP können Sie:
 
-- die zulässigen Quellen für JavaScript-Dateien und andere Ressourcen definieren und das Laden von `https://evil.example.com` effektiv blockieren
-- Inline-Skript-Tags deaktivieren
-- nur Skript-Tags erlauben, die das richtige Nonce oder den richtigen Hash haben
-- Inline-Event-Handler deaktivieren
+- die erlaubten Quellen für JavaScript-Dateien und andere Ressourcen definieren und dadurch das Laden von `https://evil.example.com` effektiv blockieren
+- Inline-Skripttags deaktivieren
+- nur Skripttags zulassen, die das korrekte `nonce` oder den korrekten `hash` haben
+- Inline-Ereignishandler deaktivieren
 - `javascript:` URLs deaktivieren
 - gefährliche APIs wie `eval()` deaktivieren
 
-Im nächsten Abschnitt werden wir über die Werkzeuge gehen, die CSP zur Verfügung stellt, um diese Dinge zu tun.
+Im nächsten Abschnitt gehen wir auf die von CSP bereitgestellten Werkzeuge ein, um diese Dinge zu tun.
 
 > [!NOTE]
-> Das Setzen eines CSP ist kein Ersatz für die Bereinigung von Eingaben. Websites sollten Eingaben bereinigen _und_ ein CSP setzen, um einen tiefgreifenden Schutz gegen XSS zu bieten.
+> Das Setzen einer CSP ist keine Alternative zur Sanitisierung von Eingaben. Websites sollten Eingaben sanitizeren _und_ eine CSP setzen, um einen tiefgehenden Schutz gegen XSS zu bieten.
 
-### Fetch-Direktiven
+### Abrufdirektiven
 
-Fetch-Direktiven werden verwendet, um eine bestimmte Kategorie von Ressourcen anzugeben, die ein Dokument laden darf — wie JavaScript, CSS Stylesheets, Bilder, Schriftarten und so weiter.
+Abrufdirektiven werden verwendet, um eine bestimmte Ressourcenkategorie anzugeben, die ein Dokument laden darf - z. B. JavaScript, CSS-Stylesheets, Bilder, Schriftarten usw.
 
-Es gibt verschiedene Fetch-Direktiven für verschiedene Arten von Ressourcen. Zum Beispiel:
+Es gibt unterschiedliche Abrufdirektiven für unterschiedliche Arten von Ressourcen. Zum Beispiel:
 
-- [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) setzt erlaubte Quellen für JavaScript.
-- [`style-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) setzt erlaubte Quellen für CSS Stylesheets.
-- [`img-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/img-src) setzt erlaubte Quellen für Bilder.
+- [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) legt erlaubte Quellen für JavaScript fest.
+- [`style-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) legt erlaubte Quellen für CSS-Stylesheets fest.
+- [`img-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/img-src) legt erlaubte Quellen für Bilder fest.
 
-Eine spezielle Fetch-Direktive ist `default-src`, die eine Rückfallrichtlinie für alle Ressourcen setzt, deren Direktiven nicht ausdrücklich aufgelistet sind.
+Eine spezielle Abrufdirektive ist `default-src`, die eine Fallback-Richtlinie für alle Ressourcen festlegt, deren Direktiven nicht explizit aufgelistet sind.
 
-Für die vollständige Liste der Fetch-Direktiven, siehe die [Referenzdokumentation](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#fetch_directives).
+Für die vollständige Liste der Abrufdirektiven siehe die [Referenzdokumentation](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#fetch_directives).
 
-Jede Fetch-Direktive wird entweder als einzelnes Schlüsselwort `'none'` oder eine oder mehrere _Quellenausdrücke_, getrennt durch Leerzeichen, angegeben. Wenn mehr als ein Quellenausdruck aufgelistet ist: Wenn eine der Methoden die Ressource erlaubt, dann ist die Ressource erlaubt.
+Jede Abrufdirektive wird entweder als das Einzelstichwort `'none'` oder als ein oder mehrere _Quellausdrücke_ angegeben, die durch Leerzeichen getrennt sind. Wenn mehr als ein Quellausdruck aufgelistet ist: Wenn eine der Methoden die Ressource zulässt, dann ist die Ressource erlaubt.
 
-Zum Beispiel, das folgende CSP setzt zwei Fetch-Direktiven:
+Zum Beispiel legt die folgende CSP zwei Abrufdirektiven fest:
 
-- `default-src` erhält den einzelnen Quellenausdruck `'self'`
-- `img-src` erhält zwei Quellenausdrücke: `'self'` und `example.com`
+- `default-src` erhält den Einzelquellausdruck `'self'`
+- `img-src` erhält zwei Quellausdrücke: `'self'` und `example.com`
 
-![CSP-Diagramm, das Quellenausdrücke zeigt](csp-source-expressions.svg)
+![CSP-Diagramm, das Quellausdrücke zeigt](csp-source-expressions.svg)
 
-Die Auswirkung davon ist, dass:
+Die Wirkung davon ist:
 
-- Bilder entweder gleicher Herkunft mit dem Dokument sein müssen oder von `example.com` geladen werden müssen
-- alle anderen Ressourcen gleicher Herkunft mit dem Dokument sein müssen.
+- Bilder müssen entweder den gleichen Ursprung haben wie das Dokument oder von `example.com` geladen werden.
+- Alle anderen Ressourcen müssen den gleichen Ursprung haben wie das Dokument.
 
-In den nächsten Abschnitten werden wir einige der Möglichkeiten beschreiben, wie Sie Quellenausdrücke verwenden können, um Ressourcennutzungen zu steuern. Beachten Sie, dass, obwohl wir sie separat beschreiben, diese Ausdrücke im Allgemeinen kombiniert werden können: zum Beispiel kann eine einzige Fetch-Direktive gleichzeitig Nonces und Hostnamen enthalten.
+In den nächsten Abschnitten beschreiben wir einige der Möglichkeiten, wie Sie Quellausdrücke verwenden können, um Ressourcennachladen zu kontrollieren. Beachten Sie, dass, obwohl wir sie separat beschreiben, diese Ausdrücke im Allgemeinen kombiniert werden können: Eine einzelne Abrufdirektive kann zum Beispiel Nonces sowie Hostnamen beinhalten.
 
-#### Blockierung von Ressourcen
+#### Blockieren von Ressourcen
 
-Um einen Ressourcentyp vollständig zu blockieren, verwenden Sie das `'none'` Schlüsselwort. Zum Beispiel blockiert die folgende Direktive alle {{htmlelement("object")}} und {{htmlelement("embed")}} Ressourcen:
+Um einen Ressourcentyp vollständig zu blockieren, verwenden Sie das Stichwort `'none'`. Zum Beispiel blockiert die folgende Direktive alle {{htmlelement("object")}} und {{htmlelement("embed")}} Ressourcen:
 
 ```http
 Content-Security-Policy: object-src 'none'
 ```
 
-Beachten Sie, dass `'none'` mit keiner anderen Methode in einer bestimmten Direktive kombiniert werden kann: In der Praxis, wenn irgendwelche anderen Quellenausdrücke zusammen mit `'none'` gegeben werden, dann werden sie ignoriert.
+Beachten Sie, dass `'none'` nicht mit einer anderen Methode in einer bestimmten Direktive kombiniert werden kann: Tatsächlich werden alle anderen Quellausdrücke, die neben `'none'` angegeben sind, ignoriert.
 
 #### Nonces
 
-Ein `nonce` ist der empfohlene Ansatz zur Einschränkung des Ladens von {{htmlelement("script")}} und {{htmlelement("style")}} Ressourcen.
+Ein `nonce` ist der empfohlene Ansatz, um das Laden von {{htmlelement("script")}} und {{htmlelement("style")}} Ressourcen zu beschränken.
 
-Mit einem Nonce generiert der Server für jede HTTP-Antwort einen zufälligen Wert und fügt ihn in eine `script-src` und/oder `style-src` Direktive ein:
+Bei einem `nonce` generiert der Server einen zufälligen Wert für jede HTTP-Antwort und fügt ihn in eine `script-src` und/oder eine `style-src` Direktive ein:
 
 ```http
 Content-Security-Policy:
   script-src 'nonce-416d1177-4d12-4e3b-b7c9-f6c409789fb8'
 ```
 
-Der Server fügt dann diesen Wert als `nonce` Attributwert zu allen `<script>` und/oder `<style>` Tags hinzu, die sie im Dokument einfügen möchten.
+Der Server fügt diesen Wert dann als Wert des `nonce` Attributs aller `<script>` und/oder `<style>` Tags ein, die sie in das Dokument einfügen möchten.
 
-Der Browser vergleicht die beiden Werte und lädt die Ressource nur, wenn sie übereinstimmen. Die Idee ist, dass, selbst wenn ein Angreifer in der Lage ist, etwas JavaScript in die Seite einzufügen, er nicht wissen wird, welches Nonce der Server verwenden wird, sodass der Browser das Skript nicht ausführen wird.
+Der Browser vergleicht die beiden Werte und lädt die Ressource nur, wenn sie übereinstimmen. Die Idee ist, dass selbst wenn ein Angreifer es schafft, JavaScript in die Seite einzufügen, er nicht wissen wird, welches `nonce` der Server verwenden wird, sodass der Browser das Skript ablehnt.
 
-Damit dieser Ansatz funktioniert, muss es unmöglich sein, dass ein Angreifer das Nonce errät.
+Damit dieser Ansatz funktioniert, muss es für einen Angreifer unmöglich sein, das `nonce` zu erraten.
 
-**In der Praxis bedeutet dies, dass das Nonce für jede HTTP-Antwort unterschiedlich sein muss und nicht vorhersehbar sein darf.**
+**In der Praxis bedeutet dies, dass das `nonce` für jede HTTP-Antwort unterschiedlich und nicht vorhersehbar sein muss.**
 
-Dies bedeutet wiederum, dass der Server kein statisches HTML bereitstellen kann, da er jedes Mal ein neues Nonce einfügen muss. Typischerweise würde der Server eine Template-Engine verwenden, um das Nonce einzufügen.
+Dies bedeutet wiederum, dass der Server kein statisches HTML ausliefern kann, da er jedes Mal ein neues `nonce` einfügen muss. Typischerweise würde der Server eine Template-Engine verwenden, um das `nonce` einzufügen.
 
-Hier ist ein Codeausschnitt von [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) zur Demonstration:
+Hier ist ein Ausschnitt aus [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) Code, um dies zu demonstrieren:
 
 ```js
 function content(nonce) {
@@ -189,23 +187,23 @@ app.get("/", (req, res) => {
 });
 ```
 
-Bei jeder Anfrage generiert der Server ein neues Nonce, fügt es in das CSP und in die {{htmlelement("script")}} Tags im zurückgegebenen Dokument ein. Beachten Sie, dass der Server:
+Bei jedem Request generiert der Server ein neues `nonce`, fügt es in die CSP ein und in die {{htmlelement("script")}} Tags im zurückgegebenen Dokument ein. Beachten Sie, dass der Server:
 
-- ein neues Nonce für jede Anfrage generiert
-- Nonces sowohl mit externen als auch mit Inline-Skripten verwenden kann
-- das gleiche Nonce für alle `<script>` Tags im Dokument verwendet
+- ein neues `nonce` für jede Anfrage generiert
+- Nonces sowohl für externe als auch für Inline-Skripte verwenden kann
+- das gleiche `nonce` für alle `<script>` Tags im Dokument verwendet
 
-Es ist wichtig, dass der Server irgendeine Form von Templates verwendet, um Nonces einzufügen und sie nicht einfach in alle `<script>` Tags einzufügen: Andernfalls könnte der Server versehentlich Nonces in Skripte einfügen, die von einem Angreifer injiziert wurden.
+Es ist wichtig, dass der Server eine Art Vorlagenverarbeitung verwendet, um Nonces einzufügen, und sie nicht einfach in alle `<script>`-Tags einfügt: Andernfalls könnte der Server unabsichtlich Nonces in Skripte einfügen, die von einem Angreifer eingeschleust wurden.
 
-Beachten Sie, dass Nonces nur für Elemente verwendet werden können, die ein `nonce` Attribut haben: das bedeutet, nur `<script>` und `<style>` Elemente.
+Beachten Sie, dass Nonces nur für Elemente verwendet werden können, die ein `nonce` Attribut haben: das heißt, nur `<script>` und `<style>` Elemente.
 
 #### Hashes
 
-Fetch-Direktiven können auch einen Hash des Skripts verwenden, um seine Integrität zu gewährleisten. Bei dieser Methode:
+Abrufdirektiven können auch einen Hash des Skripts verwenden, um seine Integrität zu garantieren. Bei diesem Verfahren:
 
-1. berechnet der Server einen Hash des Skriptinhalts mit einer {{Glossary("hash_function", "Hash-Funktion")}} (einem der SHA-256, SHA-384 oder SHA-512)
-2. erstellt eine {{Glossary("Base64", "Base64")}} Kodierung des Ergebnisses
-3. hängt einen Präfix an, das den verwendeten Hash-Algorithmus identifiziert (eines von `sha256-`, `sha384-`, oder `sha512-`).
+1. berechnet der Server einen Hash des Skriptinhalts mithilfe einer {{Glossary("hash_function", "Hashfunktion")}} (einer von SHA-256, SHA-384 oder SHA-512)
+2. erstellt ein {{Glossary("Base64", "Base64")}} Encoding des Ergebnisses
+3. fügt ein Präfix hinzu, das den verwendeten Hash-Algorithmus identifiziert (einer von `sha256-`, `sha384-` oder `sha512-`).
 
 Dann fügt er das Ergebnis der Direktive hinzu:
 
@@ -215,9 +213,9 @@ Content-Security-Policy: script-src 'sha256-cd9827ad...'
 
 Wenn der Browser das Dokument erhält, hasht er das Skript, vergleicht das Ergebnis mit dem Wert aus dem Header und lädt das Skript nur, wenn sie übereinstimmen.
 
-Externe Skripte müssen auch das [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) Attribut haben, damit diese Methode funktioniert.
+Externe Skripte müssen auch das [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) Attribut enthalten, damit diese Methode funktioniert.
 
-Hier ist ein Codeausschnitt von Express, um das zu demonstrieren:
+Hier ist ein Ausschnitt aus Express Code, um dies zu demonstrieren:
 
 ```js
 const hash1 = "sha256-ex2O7MWOzfczthhKm6azheryNVoERSFrPrdvxRtP8DI=";
@@ -240,33 +238,33 @@ Beachten Sie, dass:
 
 - Wir haben einen separaten Hash für jedes Skript im Dokument.
 - Für das externe Skript "main.js" fügen wir auch das `integrity` Attribut hinzu und geben ihm den gleichen Wert.
-- Im Gegensatz zum Beispiel mit Nonces können sowohl das CSP als auch der Inhalt statisch sein, da die Hashes gleich bleiben. Dies macht hashbasierte Richtlinien besser geeignet für statische Seiten oder Websites, die auf clientseitiges Rendering setzen.
+- Im Gegensatz zum Beispiel mit Nonces können sowohl die CSP als auch der Inhalt statisch sein, da die Hashes gleich bleiben. Dies macht hash-basierte Richtlinien besser geeignet für statische Seiten oder Websites, die auf client-seitigem Rendering basieren.
 
 #### Schema-basierte Richtlinien
 
-Fetch-Direktiven können ein Schema wie `https:` auflisten, um Ressourcen zu erlauben, die mit diesem Schema geliefert werden. Dies ermöglicht es beispielsweise einer Richtlinie, HTTPS für alle Ressourcennutzungen zu verlangen:
+Abrufdirektiven können ein Schema auflisten, wie `https:`, um Ressourcen zu erlauben, die mit diesem Schema geliefert werden. Dies ermöglicht es beispielsweise, eine Richtlinie festzulegen, die HTTPS für alle Ressourcennachladen erfordert:
 
 ```http
 Content-Security-Policy: default-src https:
 ```
 
-#### Standort-basierte Richtlinien
+#### Ortsbasierte Richtlinien
 
-Fetch-Direktiven können Ressourcennutzungen basierend darauf steuern, wo sich die Ressource befindet.
+Abrufdirektiven können Ressourcennachladen basierend darauf kontrollieren, wo sich die Ressource befindet.
 
-Das Schlüsselwort `'self'` erlaubt Ressourcen, die gleich Herkunft mit dem Dokument selbst sind:
+Das Stichwort `'self'` erlaubt Ressourcen, die den gleichen Ursprung wie das Dokument selbst haben:
 
 ```http
 Content-Security-Policy: img-src 'self'
 ```
 
-Sie können auch einen oder mehrere Hostnamen angeben, möglicherweise einschließlich Platzhalter, und nur Ressourcen, die von diesen Hosts bereitgestellt werden, sind erlaubt. Dies könnte verwendet werden, um beispielsweise Inhalte von einem vertrauenswürdigen CDN bereitstellen zu lassen.
+Sie können auch einen oder mehrere Hostnamen angeben, möglicherweise inklusive Wildcards. Nur Ressourcen, die von diesen Hosts geliefert werden, sind dann erlaubt. Dies könnte verwendet werden, um Inhalte von einem vertrauenswürdigen CDN zu laden.
 
 ```http
 Content-Security-Policy: img-src *.example.org
 ```
 
-Sie können mehrere Standorte angeben. Die folgende Direktive erlaubt nur Bilder, die gleich Herkunft mit dem aktuellen Dokument sind, oder von einem Subdomain von "example.org" oder von "example.com" bereitgestellt werden:
+Sie können mehrere Orte angeben. Die folgende Direktive erlaubt nur Bilder, die denselben Ursprung wie das aktuelle Dokument haben oder von einer Subdomain von "example.org" oder von "example.com" stammen:
 
 ```http
 Content-Security-Policy: img-src 'self' *.example.org  example.com
@@ -274,9 +272,9 @@ Content-Security-Policy: img-src 'self' *.example.org  example.com
 
 #### Inline-JavaScript
 
-Wenn ein CSP entweder eine `default-src` oder eine `script-src` Direktive enthält, dann darf Inline-JavaScript nicht ausgeführt werden, es sei denn, es werden zusätzliche Maßnahmen ergriffen, um es zu ermöglichen. Dies umfasst:
+Wenn eine CSP entweder eine `default-src` oder eine `script-src` Direktive enthält, wird Inline-JavaScript nicht ausgeführt, es sei denn, es werden zusätzliche Maßnahmen ergriffen, um es zu ermöglichen. Dies umfasst:
 
-- JavaScript, das innerhalb eines `<script>` Elements auf der Seite enthalten ist:
+- JavaScript, das sich in einem `<script>` Element auf der Seite befindet:
 
   ```html
   <script>
@@ -284,7 +282,7 @@ Wenn ein CSP entweder eine `default-src` oder eine `script-src` Direktive enthä
   </script>
   ```
 
-- JavaScript in einem Inline-Ereignishandlerattribut:
+- JavaScript in einem Inline-Ereignishandler-Attribut:
 
   ```html
   <img src="x" onerror="console.log('Hello from an inline event handler')" />
@@ -296,24 +294,24 @@ Wenn ein CSP entweder eine `default-src` oder eine `script-src` Direktive enthä
   <a href="javascript:console.log('Hello from a javascript: URL')"></a>
   ```
 
-Das `unsafe-inline` Schlüsselwort kann verwendet werden, um diese Beschränkung zu überschreiben. Zum Beispiel erfordert die folgende Direktive, dass alle Ressourcen gleicher Herkunft sind, erlaubt jedoch Inline-JavaScript:
+Das Stichwort `unsafe-inline` kann verwendet werden, um diese Einschränkung zu übergehen. Zum Beispiel erlaubt die folgende Direktive alle Ressourcen nur mit demselben Ursprung, erlaubt jedoch Inline-JavaScript:
 
 ```http example-bad
 Content-Security-Policy: default-src 'self' 'unsafe-inline'
 ```
 
 > [!WARNING]
-> Entwickler sollten `'unsafe-inline'` vermeiden, da es den Zweck eines CSP weitgehend zunichte macht. Inline-JavaScript ist einer der häufigsten XSS-Vektoren, und eines der grundlegendsten Ziele eines CSP ist es, dessen unkontrollierten Einsatz zu verhindern.
+> Entwickler sollten `'unsafe-inline'` vermeiden, da es einen Großteil des Zwecks einer CSP zerstört. Inline-JavaScript ist einer der häufigsten XSS-Vektoren, und eines der grundlegendsten Ziele einer CSP ist es, dessen unkontrollierte Verwendung zu verhindern.
 
-Inline `<script>` Elemente sind erlaubt, wenn sie durch ein Nonce oder einen Hash geschützt sind, wie oben beschrieben.
+Inline `<script>` Elemente sind erlaubt, wenn sie durch ein `nonce` oder einen `hash` geschützt sind, wie oben beschrieben.
 
-Wenn eine Direktive Nonce- oder Hashexpressionen enthält, wird das `unsafe-inline` Schlüsselwort von Browsern ignoriert.
+Wenn eine Direktive `nonce` oder `hash` Ausdrücke enthält, wird das Stichwort `unsafe-inline` von Browsern ignoriert.
 
 #### `eval()` und ähnliche APIs
 
-Wie bei Inline-JavaScript, wenn ein CSP entweder eine `default-src` oder `script-src` Direktive enthält, dann dürfen `eval()` und ähnliche APIs nicht ausgeführt werden. Dies schließt unter anderem folgende APIs ein:
+Wie Inline-JavaScript wird `eval()` und ähnliche APIs nicht ausgeführt, wenn eine CSP entweder eine `default-src` oder eine `script-src` Direktive enthält. Dies schließt unter anderem folgende APIs ein:
 
-- [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) selbst:
+- [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) selber:
 
   ```js
   eval('console.log("hello from eval()")');
@@ -325,24 +323,24 @@ Wie bei Inline-JavaScript, wenn ein CSP entweder eine `default-src` oder `script
   const sum = new Function("a", "b", "return a + b");
   ```
 
-- Das Zeichenkettenargument für [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`setInterval()`](/de/docs/Web/API/Window/setInterval):
+- Das String-Argument von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`setInterval()`](/de/docs/Web/API/Window/setInterval):
 
   ```js
   setTimeout("console.log('hello from setTimeout')", 1);
   ```
 
-Das `unsafe-eval` Schlüsselwort kann verwendet werden, um dieses Verhalten zu überschreiben, und aus den gleichen Gründen wie bei `unsafe-inline`: **Entwickler sollten `unsafe-eval` vermeiden**. Manchmal kann es schwierig sein, Verwendung von `eval()` zu entfernen: In diesen Situationen kann die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) es sicherer machen, indem sichergestellt wird, dass die Eingabe einer definierten Richtlinie entspricht.
+Das `unsafe-eval` Stichwort kann verwendet werden, um dieses Verhalten zu übergehen, und wie bei `unsafe-inline` sollten **Entwickler `unsafe-eval` vermeiden**. Manchmal kann es schwierig sein, Verwendungen von `eval()` zu entfernen: In diesen Situationen kann das [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) es sicherer machen, indem es sicherstellt, dass der Input eine definierte Richtlinie erfüllt.
 
-Im Gegensatz zu `unsafe-inline` funktioniert das `unsafe-eval` Schlüsselwort immer noch in einer Direktive, die Nonce- oder Hashexpressionen enthält.
+Im Gegensatz zu `unsafe-inline` funktioniert das Stichwort `unsafe-eval` jedoch weiterhin auch in einer Direktive, die `nonce` oder `hash` Ausdrücke enthält.
 
-### Strict CSP
+### Strikte CSP
 
-Um das Laden von Skripten als Schutzmaßnahme gegen XSS zu kontrollieren, ist es empfohlene Praxis, [Nonce](#nonces)- oder [Hash](#hashes)-basierte Fetch-Direktiven zu verwenden. Dies nennt man ein _strict CSP_. Diese Art von CSP hat zwei Hauptvorteile gegenüber einem ortsabhängigen CSP (gewöhnlich auch als _Whitelist CSP_ bezeichnet):
+Um das Laden von Skripten als Schutzmaßnahme gegen XSS zu kontrollieren, wird empfohlen, den [nonce-](#nonces) oder [hash-](#hashes) basierten Abrufdirektiven zu verwenden. Dies wird als _strikte CSP_ bezeichnet. Diese Art von CSP hat zwei Hauptvorteile gegenüber einer ortsbasierenden CSP (gewöhnlich als _Allowlist CSP_ genannt):
 
-- Whitelist-CSPs sind schwer richtig zu machen und oft führen Richtlinien unbeabsichtigt unsichere Domains auf die Whitelist und bieten daher keinen effektiven Schutz gegen XSS (siehe [CSP Is Dead, Long Live CSP! On the Insecurity of Whitelists and the Future of Content Security Policy](https://dl.acm.org/doi/pdf/10.1145/2976749.2978363)).
-- Whitelist-CSPs können sehr groß und schwer zu pflegen sein, insbesondere wenn Skripte verwendet werden, die außerhalb Ihrer Kontrolle liegen. Laut [How I learned to stop worrying and love the Content Security Policy](https://www.netlify.com/blog/general-availability-content-security-policy-csp-nonce-integration/) wird ein Entwickler, der Google Analytics integrieren möchte, gebeten, 187 Google-Domains auf die Whitelist zu setzen.
+- Allowlist CSPs sind schwer richtig zu gestalten und oft erlauben Richtlinien unbeabsichtigt unsichere Domains, und bieten daher keinen effektiven Schutz gegen XSS (siehe [CSP Is Dead, Long Live CSP! On the Insecurity of Whitelists and the Future of Content Security Policy](https://dl.acm.org/doi/pdf/10.1145/2976749.2978363)).
+- Allowlist CSPs können sehr groß und schwer zu warten sein, besonders wenn Sie Skripte verwenden, die außerhalb Ihrer Kontrolle liegen. Laut [How I learned to stop worrying and love the Content Security Policy](https://www.netlify.com/blog/general-availability-content-security-policy-csp-nonce-integration/), wird einem Entwickler allein für die Integration von Google Analytics gesagt, dass er 187 Google-Domains zur Allowlist hinzufügen muss.
 
-Ein Nonce-basiertes striktes CSP sieht so aus:
+Eine nonce-basierte strikte CSP sieht so aus:
 
 ```http
 Content-Security-Policy:
@@ -351,13 +349,13 @@ Content-Security-Policy:
   base-uri 'none';
 ```
 
-In diesem CSP:
+In dieser CSP:
 
-- verwenden wir Nonces, um zu kontrollieren, welche JavaScript-Ressourcen geladen werden dürfen
-- blockieren wir alle eingebetteten Objekte
-- blockieren wir alle Verwendungen des `<base>` Elements, um eine Basis-URI zu setzen.
+- verwenden wir Nonces, um zu steuern, welche JavaScript-Ressourcen geladen werden dürfen
+- blockieren wir alle Objekt-Einbettungen
+- blockieren wir alle Verwendungen des `<base>` Elements, um eine Basis-URI festzulegen.
 
-Ein Hash-basiertes striktes CSP ist dasselbe, außer dass es Hashes anstelle von Nonces verwendet:
+Eine hash-basierte strikte CSP ist gleich, außer dass sie Hashes anstelle von Nonces verwendet:
 
 ```http
 Content-Security-Policy:
@@ -366,15 +364,15 @@ Content-Security-Policy:
   base-uri 'none';
 ```
 
-Nonce-basierte Direktiven sind einfacher zu warten, wenn Sie Antworten, einschließlich des Inhalts selbst, dynamisch generieren können. Andernfalls müssen Sie auf Hash-basierte Direktiven zurückgreifen. Das Problem mit Hash-basierten Direktiven ist, dass Sie den Hash bei jeder Änderung der Skriptinhalte neu berechnen und anwenden müssen.
+Nonce-basierte Direktiven sind einfacher zu pflegen, wenn Sie Antworten, einschließlich des Inhalts selbst, dynamisch erzeugen können. Andernfalls müssen Sie hash-basierte Direktiven verwenden. Das Problem bei hash-basierten Direktiven ist, dass Sie den Hash neu berechnen und erneut anwenden müssen, wenn Änderungen am Skriptinhalt vorgenommen werden.
 
-#### Das Schlüsselwort `strict-dynamic`
+#### Das `strict-dynamic` Stichwort
 
-Wie oben dargestellt, ist das strikte CSP schwer zu implementieren, wenn Sie Skripte verwenden, die nicht unter Ihrer Kontrolle stehen. Wenn ein Drittanbieter-Skript zusätzliche Skripte lädt oder irgendwelche Inline-Skripte verwendet, dann wird dies fehlschlagen, da das Drittanbieter-Skript den Nonce oder Hash nicht weiterleitet.
+Wie bereits gezeigt, ist die strikte CSP schwierig umzusetzen, wenn Sie Skripte verwenden, die nicht unter Ihrer Kontrolle stehen. Wenn ein Drittanbieter-Skript weitere Skripte lädt oder Inline-Skripte verwendet, wird dies fehlschlagen, da das Drittanbieter-Skript den `nonce` oder `hash` nicht weitergeben wird.
 
-Das Schlüsselwort `strict-dynamic` wird bereitgestellt, um bei diesem Problem zu helfen. Es ist ein Schlüsselwort, das in eine Fetch-Direktive aufgenommen werden kann und hat die Wirkung, dass, wenn ein Skript ein Nonce- oder Hash-Attribut hat, dann darf dieses Skript weitere Skripte laden, die selbst keine Nonces oder Hashes haben. Das bedeutet, das Vertrauen, das einem Skript durch einen Nonce oder Hash entgegengebracht wird, wird an Skripte weitergegeben, die das ursprüngliche Skript lädt (und Skripte, die _sie_ laden, und so weiter).
+Das `strict-dynamic` Stichwort wird bereitgestellt, um bei diesem Problem zu helfen. Es ist ein Stichwort, das in eine Abrufdirektive aufgenommen werden kann, und hat den Effekt, dass wenn ein Skript einen `nonce` oder `hash` angehängt hat, dieses Skript weitere Skripte laden darf, die selbst keine Nonces oder Hashes haben. Das heißt, das Vertrauen, das in ein Skript durch einen Nonce oder Hash gesetzt wird, wird auf Skripte übertragen, die das ursprüngliche Skript lädt (und Skripte, die _sie_ laden usw.).
 
-Zum Beispiel betrachten Sie ein Dokument wie dieses:
+Betrachten Sie zum Beispiel ein Dokument wie dieses:
 
 ```html
 <html lang="en-US">
@@ -400,16 +398,16 @@ scriptElement.src = `main2.js`;
 document.head.appendChild(scriptElement);
 ```
 
-Wir liefern unser Dokument mit einem CSP wie diesem:
+Wir liefern unser Dokument mit einer CSP wie dieser:
 
 ```http
 Content-Security-Policy:
   script-src 'sha256-gEh1+8U9S1vkEuQSmmUMTZjyNSu5tIoECP4UXIEjMTk='
 ```
 
-Das "main.js" Skript wird geladen, da sein Hash mit dem Wert im CSP übereinstimmt. Aber sein Versuch, "main2.js" zu laden, wird scheitern.
+Das "main.js"-Skript wird geladen, da sein Hash mit dem Wert in der CSP übereinstimmt. Aber sein Versuch, "main2.js" zu laden, wird fehlschlagen.
 
-Wenn wir `'strict-dynamic'` zum CSP hinzufügen, dann wird "main.js" erlaubt, "main2.js" zu laden:
+Wenn wir `'strict-dynamic'` zur CSP hinzufügen, kann "main.js" "main2.js" laden:
 
 ```http
 Content-Security-Policy:
@@ -417,11 +415,11 @@ Content-Security-Policy:
   strict-dynamic
 ```
 
-Das `strict-dynamic` Schlüsselwort macht es viel einfacher, Nonce- oder Hash-basierte CSPs zu erstellen und zu pflegen, insbesondere wenn eine Website Drittanbieter-Skripte verwendet. Es macht Ihr CSP jedoch weniger sicher, da, wenn die von Ihnen eingeschlossenen Skripte `<script>` Elemente basierend auf potenziellen XSS-Quellen erstellen, das CSP sie nicht schützt.
+Das `'strict-dynamic'` Stichwort macht es viel einfacher, nonce- oder hash-basierte CSPs zu erstellen und zu pflegen, besonders, wenn eine Website Drittanbieter-Skripte verwendet. Es macht Ihre CSP jedoch weniger sicher, da, wenn die Skripte, die Sie einfügen, `<script>` Elemente basierend auf potenziellen XSS-Quellen erstellen, die CSP sie nicht schützen wird.
 
-#### Refaktorierung von Inline-JavaScript und `eval()`
+#### Inline-JavaScript und `eval()` refaktorisieren
 
-Wir haben oben gesehen, dass Inline-JavaScript standardmäßig in einem CSP nicht erlaubt ist. Mit Nonces oder Hashes kann ein Entwickler Inline-`<script>` Elemente verwenden, aber Sie müssen immer noch den Code refaktorieren, um andere nicht erlaubte Muster zu entfernen, einschließlich Inline-Ereignishandlungen, `javascript:` URLs und Verwendungen von `eval()`. Zum Beispiel sollten Inline-Ereignishandler normalerweise durch Aufrufe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ersetzt werden:
+Wie oben gesehen, wird Inline-JavaScript standardmäßig in einer CSP nicht erlaubt. Mit Nonces oder Hashes kann ein Entwickler Inline-`<script>`-Tags verwenden, aber Sie müssen immer noch den Code refaktorisieren, um andere nicht erlaubte Muster zu entfernen, einschließlich Inline-Ereignishandler, `javascript:` URLs und Verwendungen von `eval()`. Zum Beispiel sollten Inline-Ereignishandler normalerweise durch Aufrufe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ersetzt werden:
 
 ```html example-bad
 <p onclick="console.log('Hello from an inline event handler')">click me</p>
@@ -442,68 +440,68 @@ Wir haben oben gesehen, dass Inline-JavaScript standardmäßig in einem CSP nich
 
 ## Clickjacking-Schutz
 
-Die [`frame-ancestors`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) Direktive kann verwendet werden, um zu steuern, welche Dokumente, wenn überhaupt, dieses Dokument in einem verschachtelten Browsing-Kontext wie einem {{htmlelement("iframe")}} einbetten dürfen. Dies ist ein effektiver Schutz gegen Clickjacking-Angriffe, da diese Angriffe davon abhängen, dass die Zielsite in einer vom Angreifer kontrollierten Seite eingebettet wird.
+Die [`frame-ancestors`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) Direktive kann verwendet werden, um zu steuern, welche Dokumente, falls überhaupt, erlaubt sind, dieses Dokument in einem geschachtelten Browserkontext wie einem {{htmlelement("iframe")}} einzubetten. Dies ist ein effektiver Schutz gegen Clickjacking-Angriffe, da diese Angriffe davon abhängen, die Zielseite in einer vom Angreifer kontrollierten Seite einzubetten.
 
-Die Syntax von `frame-ancestors` ist ein Teil der Fetch-Direktivensyntax: Sie können das einzelne Schlüsselwort `'none'` oder einen oder mehrere Quellenausdrücke angeben. Die einzigen Quellenausdrücke, die Sie verwenden können, sind jedoch Schemas, Hostnamen oder das `'self'` Schlüsselwort.
+Die Syntax von `frame-ancestors` ist ein Untersetzer der Abrufdirektive-Syntax: Sie können den Einzelstichwortwert `'none'` oder einen oder mehrere Quellausdrücke angeben. Allerdings sind die einzigen Quellausdrücke, die Sie verwenden können, Schemas, Hostnamen oder der `'self'` Stichwortwert.
 
-Sofern es nicht erforderlich ist, dass Ihre Site eingebettet werden kann, sollten Sie `frame-ancestors` auf `'none'` setzen:
+Es sei denn, Sie möchten, dass Ihre Seite einbettbar ist, sollten Sie `frame-ancestors` auf `'none'` setzen:
 
 ```http
 Content-Security-Policy: frame-ancestors 'none'
 ```
 
-Diese Direktive ist ein flexiblerer Ersatz für den {{httpheader("X-Frame-Options")}} Header.
+Diese Direktive ist ein flexibler Ersatz für den {{httpheader("X-Frame-Options")}} Header.
 
-## Upgraden unsicherer Anfragen
+## Aufrüsten unsicherer Anfragen
 
-Webentwickler werden dringend ermutigt, alle ihre Inhalte über HTTPS zu servieren. Im Prozess der Umstellung einer Site auf HTTPS wird manchmal das Hauptdokument über HTTPS serviert, aber seine Ressourcen über HTTP, zum Beispiel mit einem Markup wie diesem:
+Webentwickler werden dringend ermutigt, alle ihre Inhalte über HTTPS bereitzustellen. Bei der Umstellung einer Site auf HTTPS wird manchmal das Hauptdokument über HTTPS bereitgestellt, während Ressourcen über HTTP bereitgestellt werden, z. B. mit einem Markup wie diesem:
 
 ```html
 <script src="http://example.org/my-cat.js"></script>
 ```
 
-Dies nennt man _mixed content_, und das Vorhandensein unsicherer Ressourcen schwächt den durch HTTPS gebotenen Schutz erheblich. Unter dem [mixed content Algorithmus](/de/docs/Web/Security/Mixed_content), den Browser implementieren, wird, wenn ein Dokument über HTTPS serviert wird, unsicherer Inhalt in "upgradbaren Inhalt" und "blockierbaren Inhalt" kategorisiert. Upgradabler Inhalt wird zu HTTPS hochgestuft, und blockierbarer Inhalt wird blockiert, was potenziell die Seite zerstören kann.
+Dies wird _gemischter Inhalt_ genannt, und das Vorhandensein unsicherer Ressourcen schwächt den durch HTTPS gewährten Schutz erheblich. Gemäß dem von den Browsern implementierten [gemischten Inhalt Algorithmus](/de/docs/Web/Security/Mixed_content) wird, wenn ein Dokument über HTTPS bereitgestellt wird, unsicherer Inhalt in "aufrüstbare Inhalte" und "blockierbare Inhalte" kategorisiert. Aufrüstbare Inhalte werden auf HTTPS aufgerüstet, und blockierbare Inhalte werden blockiert, was die Seite möglicherweise bricht.
 
-Die ultimative Lösung für mixed content ist, dass Entwickler alle Ressourcen über HTTPS laden. Selbst wenn eine Site tatsächlich in der Lage ist, alle Inhalte über HTTPS bereitzustellen, kann es dennoch sehr schwierig (oder sogar praktisch unmöglich, wenn es sich um archivierte Inhalte handelt) sein, alle von der Site verwendeten URLs zum Laden von Ressourcen von einem Entwickler umschreiben zu lassen.
+Die endgültige Lösung für gemischten Inhalt besteht darin, dass Entwickler alle Ressourcen über HTTPS laden. Selbst wenn eine Site tatsächlich in der Lage ist, alle Inhalte über HTTPS bereitzustellen, kann es jedoch immer noch sehr schwierig (oder sogar praktisch unmöglich, wenn es sich um archivierte Inhalte handelt) sein, dass ein Entwickler alle URLs, die die Site verwendet, um Ressourcen zu laden, neu schreibt.
 
-Die [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests) Direktive soll dieses Problem lösen. Diese Direktive hat keinen Wert: Um sie zu setzen, fügen Sie einfach den Namen der Direktive hinzu:
+Die [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests) Direktive soll dieses Problem lösen. Diese Direktive hat keinen Wert: Um sie zu setzen, fügen Sie einfach den Direktivnamen hinzu:
 
 ```http
 Content-Security-Policy: upgrade-insecure-requests
 ```
 
-Wenn diese Direktive auf einem Dokument gesetzt ist, wird der Browser automatisch alle HTTP-URLs in folgenden Fällen zu HTTPS hochstufen:
+Wenn diese Direktive auf ein Dokument gesetzt ist, wird der Browser automatisch alle HTTP-URLs in den folgenden Fällen auf HTTPS aufrüsten:
 
 - Anfragen zum Laden von Ressourcen (wie Bilder, Skripte oder Schriftarten)
-- Navigationsanfragen (wie Linkziele), die gleich Herkunft mit dem Dokument sind
-- Navigationsanfragen in verschachtelten Browsing-Kontexten, wie iframes
+- Navigationsanfragen (wie Linkziele), die gleichen Ursprungs mit dem Dokument sind
+- Navigationsanfragen in geschachtelten Browserkontexten, wie iframes
 - Formularübermittlungen
 
-Top-Level Navigationsanfragen, deren Ziel ein anderer Ursprung ist, werden jedoch nicht hochgestuft.
+Allerdings werden Top-Level-Navigationsanfragen, deren Ziel ein anderer Ursprung ist, nicht aufgerüstet.
 
-Zum Beispiel, angenommen das Dokument bei `https://example.org` wird mit einem CSP serviert, das die `upgrade-insecure-requests` Direktive enthält, und das Dokument enthält Markup wie dieses:
+Nehmen wir zum Beispiel an, dass das Dokument unter `https://example.org` mit einer CSP bereitgestellt wird, die die `upgrade-insecure-requests` Direktive enthält, und das Dokument folgenden Markup enthält:
 
 ```html
 <script src="http://example.org/my-cat.js"></script>
 <script src="http://not-example.org/another-cat.js"></script>
 ```
 
-Der Browser wird beide dieser Anfragen automatisch auf HTTPS hochstufen.
+Der Browser wird beide dieser Anfragen automatisch auf HTTPS aufrüsten.
 
-Angenommen, das Dokument enthält auch dies:
+Angenommen, das Dokument enthält außerdem dies:
 
 ```html
 <a href="http://example.org/more-cats">See some more cats!</a>
 <a href="http://not-example.org/even-more-cats">More cats, on another site!</a>
 ```
 
-Der Browser wird den ersten Link auf HTTPS hochstufen, jedoch nicht den zweiten, da er zu einem anderen Ursprung navigiert.
+Der Browser wird den ersten Link auf HTTPS aufrüsten, aber nicht den zweiten, da er zu einem anderen Ursprung navigiert.
 
-Diese Direktive ist kein Ersatz für den {{httpheader("Strict-Transport-Security")}} Header (auch bekannt als HSTS), da sie externe Links zu einer Site nicht hochstuft. Sites sollten diese Direktive und den `Strict-Transport-Security` Header einbeziehen.
+Diese Direktive ist kein Ersatz für den {{httpheader("Strict-Transport-Security")}} Header (auch bekannt als HSTS), da sie keine externen Links zu einer Site aufrüstet. Sites sollten diese Direktive und den `Strict-Transport-Security` Header einfügen.
 
 ## Testen Ihrer Richtlinie
 
-Um den Einsatz zu erleichtern, kann CSP im Report-Only-Modus eingesetzt werden. Die Richtlinie wird nicht durchgesetzt, aber alle Verstöße werden an den im CSP angegebenen Berichtsendpunkt gesendet. Außerdem kann ein Report-Only-Header verwendet werden, um eine zukünftige Überarbeitung einer Richtlinie zu testen, ohne sie tatsächlich bereitzustellen.
+Um die Bereitstellung zu erleichtern, kann CSP im Nur-Berichtsmodus bereitgestellt werden. Die Richtlinie wird nicht durchgesetzt, aber Verstöße werden an den in der Richtlinie angegebenen Berichts-Endpunkt gesendet. Zusätzlich kann ein Nur-Berichts-Header verwendet werden, um eine zukünftige Überarbeitung einer Richtlinie zu testen, ohne sie tatsächlich bereitzustellen.
 
 Sie können den {{HTTPHeader("Content-Security-Policy-Report-Only")}} HTTP-Header verwenden, um Ihre Richtlinie anzugeben, wie folgt:
 
@@ -511,38 +509,46 @@ Sie können den {{HTTPHeader("Content-Security-Policy-Report-Only")}} HTTP-Heade
 Content-Security-Policy-Report-Only: policy
 ```
 
-Wenn sowohl ein {{HTTPHeader("Content-Security-Policy-Report-Only")}} Header als auch ein {{HTTPHeader("Content-Security-Policy")}} Header in derselben Antwort vorhanden sind, werden beide Richtlinien berücksichtigt. Die in den `Content-Security-Policy` Headern angegebene Richtlinie wird durchgesetzt, während die `Content-Security-Policy-Report-Only` Richtlinie Berichte erzeugt, aber nicht durchgesetzt wird.
+Wenn sowohl ein {{HTTPHeader("Content-Security-Policy-Report-Only")}} Header als auch ein {{HTTPHeader("Content-Security-Policy")}} Header in derselben Antwort vorhanden sind, werden beide Richtlinien beachtet.
+Die in `Content-Security-Policy` Headern angegebene Richtlinie wird durchgesetzt, während die `Content-Security-Policy-Report-Only` Richtlinie Berichte erzeugt, aber nicht durchgesetzt wird.
 
-Beachten Sie, dass im Gegensatz zu einer normalen Content-Security-Policy eine Report-Only-Policy nicht in einem `<meta>` Element bereitgestellt werden kann.
+Beachten Sie, dass im Gegensatz zu einer normalen Inhalts-Sicherheitsrichtlinie eine Nur-Berichts-Richtlinie nicht in einem `<meta>` Element geliefert werden kann.
 
-### Verletzungsberichte
+### Verstoßsmeldung
 
-Die empfohlene Methode zum Melden von CSP-Verletzungen ist die Verwendung der [Reporting API](/de/docs/Web/API/Reporting_API), indem Endpunkte in {{HTTPHeader("Reporting-Endpoints")}} deklariert und einer von ihnen als CSP-Berichts-Ziel mit der {{CSP("report-to")}} Direktive des `Content-Security-Policy` Headers angegeben wird.
+Die empfohlene Methode zum Melden von CSP-Verstößen ist die Verwendung der [Reporting API](/de/docs/Web/API/Reporting_API), indem Endpunkte im {{HTTPHeader("Reporting-Endpoints")}} deklariert werden und einer von ihnen als CSP Berichts-Ziel mithilfe der `Content-Security-Policy` Header {{CSP("report-to")}} Direktive angegeben wird.
 
 > [!WARNING]
-> Sie können auch die CSP {{CSP("report-uri")}} Direktive verwenden, um eine Ziel-URL für CSP-Verletzungsberichte anzugeben. Dies sendet ein leicht anderes JSON-Berichtsformat via `POST` Operation mit einem {{HTTPHeader("Content-Type")}} von `application/csp-report`. Dieser Ansatz ist veraltet, aber Sie sollten beides deklarieren, bis {{CSP("report-to")}} in allen Browsern unterstützt wird. Für weitere Informationen zu diesem Ansatz siehe das {{CSP("report-uri")}} Thema.
+> Sie können auch die CSP {{CSP("report-uri")}} Direktive verwenden, um eine Ziel-URL für CSP-Verstoßsmeldungen anzugeben.
+> Dies sendet ein leicht anderes JSON-Berichtsformat über eine `POST`-Operation mit einem {{HTTPHeader("Content-Type")}} von `application/csp-report`.
+> Dieser Ansatz ist veraltet, aber Sie sollten beide erklären, bis {{CSP("report-to")}} in allen Browsern unterstützt wird.
+> Weitere Informationen zu dem Ansatz finden Sie im {{CSP("report-uri")}} Thema.
 
-Ein Server kann Clients darüber informieren, wo Berichte hinzusenden sind, indem der {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header verwendet wird. Dieser Header definiert eine oder mehrere Endpunkt-URLs als kommaseparierte Liste. Zum Beispiel, um einen Berichts-Endpunkt namens `csp-endpoint` zu definieren, der Berichte unter `https://example.com/csp-reports` annimmt, könnte die Serverantwort wie folgt aussehen:
+Ein Server kann Clients mitteilen, wohin Berichte gesendet werden sollen, indem er den {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header verwendet.
+Dieser Header definiert eine oder mehrere Endpunkt-URLs als kommagetrennte Liste.
+Um beispielsweise einen Berichts-Endpunkt namens `csp-endpoint` zu definieren, der Berichte unter `https://example.com/csp-reports` akzeptiert, könnte der Antwort-Header des Servers folgendermaßen aussehen:
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"
 ```
 
-Wenn Sie mehrere Endpunkte haben möchten, die verschiedene Arten von Berichten behandeln, würden Sie sie so angeben:
+Wenn Sie mehrere Endpunkte haben möchten, die unterschiedliche Arten von Berichten behandeln, würden Sie sie wie folgt angeben:
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports",
                      hpkp-endpoint="https://example.com/hpkp-reports"
 ```
 
-Sie können dann die {{CSP("report-to")}} Richtlinie des `Content-Security-Policy` Headers verwenden, um anzugeben, dass ein bestimmter definierter Endpunkt für Berichterstattung verwendet werden soll. Zum Beispiel, um CSP-Verletzungsberichte an `https://example.com/csp-reports` für `default-src` zu senden, könnten Sie Antwort-Header senden, die wie folgt aussehen:
+Sie können dann die `Content-Security-Policy` Header {{CSP("report-to")}} Direktive verwenden, um anzugeben, dass ein bestimmter definierter Endpunkt für Berichte verwendet werden soll.
+Um beispielsweise CSP-Verstoßberichte an `https://example.com/csp-reports` für `default-src` zu senden, könnten Sie folgende Antwort-Header senden:
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"
 Content-Security-Policy: default-src 'self'; report-to csp-endpoint
 ```
 
-Bei einer CSP-Verletzung sendet der Browser den Bericht als JSON-Objekt an den angegebenen Endpunkt mittels einer HTTP `POST` Operation, mit einem {{HTTPHeader("Content-Type")}} von `application/reports+json`. Der Bericht ist eine serialisierte Form des [`Reports`](/de/docs/Web/API/Report) Objekts enthalten eine `type` Eigenschaft mit einem Wert von `"csp-violation"`, und ein `body`, das die serialisierte Form eines [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) Objekts ist.
+Wenn ein CSP-Verstoß auftritt, sendet der Browser den Bericht als JSON-Objekt an den angegebenen Endpunkt über eine HTTP `POST`-Operation, mit einem {{HTTPHeader("Content-Type")}} von `application/reports+json`.
+Der Bericht ist eine serialisierte Form des [`Report`](/de/docs/Web/API/Report) Objekts, das eine `type` Eigenschaft mit einem Wert von `"csp-violation"` und einen `body` enthält, der die serialisierte Form eines [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) Objekts ist.
 
 Ein typisches Objekt könnte so aussehen:
 
@@ -568,12 +574,13 @@ Ein typisches Objekt könnte so aussehen:
 }
 ```
 
-Sie müssen einen Server einrichten, um Berichte mit dem gegebenen JSON-Format und Inhaltstyp zu empfangen. Der Server, der diese Anfragen bearbeitet, kann die eingehenden Berichte auf eine Weise speichern oder verarbeiten, die Ihren Bedürfnissen am besten entspricht.
+Sie müssen einen Server einrichten, um Berichte mit dem gegebenen JSON-Format und Inhaltstyp zu empfangen.
+Der Server, der diese Anfragen verarbeitet, kann dann die eingehenden Berichte auf eine Weise speichern oder verarbeiten, die am besten zu Ihren Bedürfnissen passt.
 
 ## Siehe auch
 
-- [CSP Fehler und Warnungen](/de/docs/Web/HTTP/Guides/CSP/Errors)
-- [Cross-Site Scripting mit einem strikten Content Security Policy mindern](https://web.dev/articles/strict-csp) auf web.dev (2024)
-- [Content Security Policy: Ein erfolgreicher Kompromiss zwischen Härtung und Minderung](https://infocondb.org/con/locomocosec/locomocosec-2019/content-security-policy-a-successful-mess-between-hardening-and-mitigation)
+- [CSP-Fehler und Warnungen](/de/docs/Web/HTTP/Guides/CSP/Errors)
+- [Milderung von Cross-Site Scripting mit einer strikten Content Security Policy](https://web.dev/articles/strict-csp) auf web.dev (2024)
+- [Content Security Policy: Ein erfolgreicher Durcheinander zwischen Härtung und Minderung](https://infocondb.org/con/locomocosec/locomocosec-2019/content-security-policy-a-successful-mess-between-hardening-and-mitigation)
 - [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html) auf owasp.org
 - [CSP Evaluator](https://csp-evaluator.withgoogle.com/)

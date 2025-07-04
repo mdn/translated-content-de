@@ -3,27 +3,24 @@ title: HEAD request method
 short-title: HEAD
 slug: Web/HTTP/Reference/Methods/HEAD
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Die **`HEAD`** HTTP-Methode fordert die Metadaten einer Ressource in Form von [Headers](/de/docs/Web/HTTP/Reference/Headers) an, die der Server gesendet hätte, wenn stattdessen die {{HTTPMethod("GET")}}-Methode verwendet worden wäre. Diese Methode kann in Fällen verwendet werden, in denen eine URL möglicherweise einen großen Download erzeugt. Zum Beispiel kann eine `HEAD`-Anfrage den {{HTTPHeader("Content-Length")}} Header lesen, um die Dateigröße zu prüfen, bevor die Datei mit einer `GET`-Anfrage heruntergeladen wird.
 
-Die **`HEAD`** HTTP-Methode fordert die Metadaten einer Ressource in Form von [Headern](/de/docs/Web/HTTP/Reference/Headers) an, die der Server gesendet hätte, wenn die {{HTTPMethod("GET")}}-Methode verwendet worden wäre. Diese Methode kann in Fällen eingesetzt werden, in denen eine URL möglicherweise einen großen Download erzeugen würde; zum Beispiel kann eine `HEAD`-Anfrage den {{HTTPHeader("Content-Length")}}-Header lesen, um die Dateigröße zu überprüfen, bevor die Datei mit einem `GET` heruntergeladen wird.
-
-Wenn die Antwort auf eine `HEAD`-Anfrage zeigt, dass eine zwischengespeicherte URL-Antwort nun veraltet ist, wird die zwischengespeicherte Kopie ungültig gemacht, selbst wenn keine `GET`-Anfrage durchgeführt wurde.
+Wenn die Antwort auf eine `HEAD`-Anfrage zeigt, dass eine zwischengespeicherte URL-Antwort veraltet ist, wird die zwischengespeicherte Kopie ungültig, auch wenn keine `GET`-Anfrage gestellt wurde.
 
 > [!WARNING]
-> Wenn eine Antwort auf eine `HEAD`-Anfrage einen Körper hat, muss der Antwortkörper ignoriert werden.
-> Alle {{Glossary("Representation_header", "Repräsentations-Header")}}, die den fehlerhaften Körper beschreiben, gelten als Beschreibung des Antwortkörpers, den eine `GET`-Anfrage erhalten hätte.
+> Wenn eine Antwort auf eine `HEAD`-Anfrage einen Body enthält, muss der Antwort-Body ignoriert werden. Alle {{Glossary("Representation_header", "Repräsentations-Header")}}, die den fehlerhaften Body beschreiben, gelten als Beschreibung des Antwort-Bodys, den eine `GET`-Anfrage erhalten hätte.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat einen Körper</th>
+      <th scope="row">Anfrage hat Body</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
+      <th scope="row">Antwort bei Erfolg hat Body</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -40,7 +37,7 @@ Wenn die Antwort auf eine `HEAD`-Anfrage zeigt, dass eine zwischengespeicherte U
     </tr>
     <tr>
       <th scope="row">
-        Erlaubt in <a href="/de/docs/Learn_web_development/Extensions/Forms">HTML-Formularen</a>
+        In <a href="/de/docs/Learn_web_development/Extensions/Forms">HTML-Formularen</a> erlaubt
       </th>
       <td>Nein</td>
     </tr>
@@ -54,11 +51,9 @@ HEAD <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den Informationen im {{HTTPHeader("Host")}}-Header kombiniert wird.
-    Dies ist ein absoluter Pfad (z.B., `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxies (z.B., `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage in Kombination mit den im {{HTTPHeader("Host")}} Header bereitgestellten Informationen. Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) in Anfragen an einen Ursprung-Server und eine absolute URL in Anfragen an Proxies (z.B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` vorangestellt wird.
-    Wird häufig verwendet, um Identifikationsinformationen in Form von `key=value`-Paaren zu transportieren.
+  - : Ein optionaler Abfrage-Komponenten, vorangestellt mit einem Fragezeichen `?`. Häufig verwendet, um Identifikationsinformationen in Form von `key=value` Paaren zu übermitteln.
 
 ## Beispiele
 
@@ -70,8 +65,7 @@ Der folgende `curl`-Befehl erstellt eine `HEAD`-Anfrage für `example.com`:
 curl --head example.com
 ```
 
-Dies entspricht einer `GET`-Anfrage, außer dass der Server keinen Nachrichtenkörper in die Antwort aufnehmen sollte.
-Es erstellt eine HTTP-Anfrage, die so aussieht:
+Dies entspricht einer `GET`-Anfrage, außer dass der Server keinen Nachrichten-Body in der Antwort einschließen sollte. Es erstellt eine HTTP-Anfrage, die so aussieht:
 
 ```http
 HEAD / HTTP/1.1
@@ -80,8 +74,7 @@ User-Agent: curl/8.6.0
 Accept: */*
 ```
 
-Der Server sendet eine {{HTTPStatus("200", "200 OK")}}-Antwort zurück, die nur aus Headern besteht.
-Die Antwort ist im Wesentlichen Metadaten, die die Ressource beschreiben, anstatt die Ressource selbst (einige [Caching-](/de/docs/Web/HTTP/Guides/Caching) Header sind in diesem Beispiel der Kürze halber weggelassen):
+Der Server sendet eine {{HTTPStatus("200", "200 OK")}} Antwort zurück, die nur aus Headers besteht. Die Antwort ist effektiv Metadaten, die die Ressource beschreiben, anstatt die Ressource selbst (einige [Caching](/de/docs/Web/HTTP/Guides/Caching) Header sind in diesem Beispiel aus Gründen der Kürze weggelassen):
 
 ```http
 HTTP/1.1 200 OK
@@ -102,5 +95,5 @@ Content-Length: 1234567
 
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
-- [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
+- [HTTP-Headers](/de/docs/Web/HTTP/Reference/Headers)
 - {{HTTPMethod("GET")}} Methode

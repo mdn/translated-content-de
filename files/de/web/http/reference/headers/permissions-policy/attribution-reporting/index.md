@@ -1,21 +1,21 @@
 ---
-title: "Permissions-Policy: Directive für Attribution-Reporting"
+title: "Permissions-Policy: Attribution-Reporting-Direktive"
 short-title: attribution-reporting
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/attribution-reporting
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `attribution-reporting` steuert, ob das aktuelle Dokument die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) verwenden darf.
+Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `attribution-reporting`-Direktive steuert, ob das aktuelle Dokument die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) verwenden darf.
 
-Konkret gilt, wenn eine definierte Richtlinie die Verwendung dieses Merkmals blockiert:
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert:
 
-- Hintergrund-`attributionsrc`-Anfragen werden nicht ausgeführt.
-- Die Methode [`XMLHttpRequest.setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) wird eine Ausnahme werfen, wenn sie aufgerufen wird.
-- Die Option [`attributionReporting`](/de/docs/Web/API/RequestInit#attributionreporting), wenn sie in einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf enthalten ist, wird dazu führen, dass eine Ausnahme geworfen wird.
-- Registrierungsheader ({{httpheader("Attribution-Reporting-Register-Source")}} und {{httpheader("Attribution-Reporting-Register-Trigger")}}) in HTTP-Antworten auf zugehörige Dokumente werden ignoriert.
+- `attributionsrc`-Anfragen im Hintergrund werden nicht durchgeführt.
+- Die Methode [`XMLHttpRequest.setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) wird eine Ausnahme auslösen, wenn sie aufgerufen wird.
+- Die [`attributionReporting`](/de/docs/Web/API/RequestInit#attributionreporting)-Option, wenn sie bei einem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) eingeschlossen wird, wird eine Ausnahme auslösen.
+- Anmelde-Header ({{httpheader("Attribution-Reporting-Register-Source")}} und {{httpheader("Attribution-Reporting-Register-Trigger")}}) in HTTP-Antworten auf zugehörigen Dokumenten werden ignoriert.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Permissions-Policy: attribution-reporting=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Merkmals gewährt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
@@ -40,6 +40,6 @@ Die Standard-`allowlist` für `attribution-reporting` ist `*`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
 - [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API)

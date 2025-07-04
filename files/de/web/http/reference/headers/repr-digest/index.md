@@ -3,19 +3,17 @@ title: Repr-Digest header
 short-title: Repr-Digest
 slug: Web/HTTP/Reference/Headers/Repr-Digest
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Der HTTP-**`Repr-Digest`**-{{Glossary("Request_header", "Anforderungs")}}- und {{Glossary("Response_header", "Antwort-Header")}} liefert einen {{Glossary("hash_function", "Digest")}} der ausgewählten Repräsentation der Zielressource.
+Der HTTP **`Repr-Digest`** {{Glossary("Request_header", "Request-Header")}} und {{Glossary("Response_header", "Response-Header")}} bietet eine {{Glossary("hash_function", "Digest")}} der ausgewählten Repräsentation der Zielressource.
 Er kann verwendet werden, um die Integrität der gesamten ausgewählten Repräsentation zu validieren, sobald sie empfangen und rekonstruiert wurde.
 
-Die _ausgewählte Repräsentation_ ist das spezifische Format einer Ressource, das durch die [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) gewählt wurde.
-Details über die Repräsentation können aus {{Glossary("Representation_header", "Repräsentations-Headern")}} wie {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Type")}} und {{HTTPHeader("Content-Encoding")}} bestimmt werden.
+Die _ausgewählte Repräsentation_ ist das spezifische Format einer Ressource, das durch [Content Negotiation](/de/docs/Web/HTTP/Guides/Content_negotiation) ausgewählt wird.
+Details zur Repräsentation können aus {{Glossary("Representation_header", "Repräsentations-Headern")}} wie {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Type")}} und {{HTTPHeader("Content-Encoding")}} ermittelt werden.
 
-Der Repräsentations-Digest bezieht sich auf die gesamte Repräsentation, nicht auf die Kodierung oder Stückelung der Nachrichten, die verwendet werden, um sie zu senden.
-Ein {{HTTPHeader("Content-Digest")}} bezieht sich auf den Inhalt einer spezifischen Nachricht und hat unterschiedliche Werte basierend auf dem {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}} jeder Nachricht.
+Der Repräsentations-Digest bezieht sich auf die gesamte Repräsentation und nicht auf die Kodierung oder das Chunking der Nachrichten, die zum Senden verwendet werden.
+Ein {{HTTPHeader("Content-Digest")}} bezieht sich auf den Inhalt einer spezifischen Nachricht und hat unterschiedliche Werte, basierend auf der {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}} jeder Nachricht.
 
 <table class="properties">
   <tbody>
@@ -24,7 +22,7 @@ Ein {{HTTPHeader("Content-Digest")}} bezieht sich auf den Inhalt einer spezifisc
       <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -42,29 +40,29 @@ Repr-Digest: <digest-algorithm>=<digest-value>,…,<digest-algorithmN>=<digest-v
 ## Direktiven
 
 - `<digest-algorithm>`
-  - : Der Algorithmus, der verwendet wird, um einen Digest der Repräsentation zu erstellen.
-    Nur zwei registrierte Digest-Algorithmen gelten als sicher: `sha-512` und `sha-256`.
+  - : Der Algorithmus, der zum Erstellen eines Digests der Repräsentation verwendet wird.
+    Nur zwei registrierte Digest-Algorithmen werden als sicher angesehen: `sha-512` und `sha-256`.
     Die unsicheren (veralteten) registrierten Digest-Algorithmen sind: `md5`, `sha` (SHA-1), `unixsum`, `unixcksum`, `adler` (ADLER32) und `crc32c`.
 - `<digest-value>`
   - : Der Digest in Bytes der Repräsentation unter Verwendung des `<digest-algorithm>`.
-    Die Wahl des Digest-Algorithmus bestimmt auch die zu verwendende Kodierung: `sha-512` und `sha-256` verwenden {{Glossary("base64", "Base64")}}-Kodierung, während einige ältere Digest-Algorithmen wie `unixsum` eine dezimale Ganzzahl verwenden.
-    Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-kodierten Digest-Bytes in Doppelpunkte (`:`, ASCII 0x3A) eingeschlossen, als Teil der [Dictionary-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences).
+    Die Wahl des Digest-Algorithmus bestimmt auch die zu verwendende Kodierung: `sha-512` und `sha-256` verwenden {{Glossary("base64", "Base64")}}-Kodierung, während einige veraltete Digest-Algorithmen wie `unixsum` eine Dezimalzahl verwenden.
+    Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-kodierten Digest-Bytes in Doppelpunkten (`:`, ASCII 0x3A) als Teil der [Wörterbuch-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) eingeschlossen.
 
-Die Verwendung unsicherer Digest-Algorithmen wird nicht empfohlen, da Kollisionen realistisch erzwungen werden können und damit die Nützlichkeit des Digests geschwächt wird.
-Es sei denn, Sie arbeiten mit Altsystemen (was unwahrscheinlich ist, da die meisten den veralteten `Digest`-Header erwarten und diese Spezifikation nicht verstehen), sollte erwogen werden, einen `Repr-Digest` nicht einzuschließen, anstatt ihn mit einem unsicheren Digest-Algorithmus zu verwenden.
+Die Verwendung unsicherer Digest-Algorithmen wird nicht empfohlen, da Kollisionen realistisch erzwungen werden können, was die Nützlichkeit des Digests schwächt.
+Außer bei der Arbeit mit veralteten Systemen (was unwahrscheinlich ist, da die meisten den veralteten `Digest`-Header erwarten und diese Spezifikation nicht verstehen), sollten Sie erwägen, einen `Repr-Digest` auszulassen, anstatt einen mit einem unsicheren Digest-Algorithmus einzubeziehen.
 
 ## Beschreibung
 
-Ein `Digest`-Header wurde in früheren Spezifikationen definiert, erwies sich jedoch als problematisch, da der Anwendungsbereich dessen, worauf sich der Digest bezog, nicht klar war.
-Insbesondere war es schwierig zu unterscheiden, ob sich ein Digest auf die gesamte Ressourcenrepräsentation oder auf den spezifischen Inhalt einer HTTP-Nachricht bezieht.
-Daher wurden zwei separate Header spezifiziert (`Content-Digest` und `Repr-Digest`), um HTTP-Nachrichteninhalts-Digests bzw. Ressourcenrepräsentations-Digests zu vermitteln.
+Ein `Digest`-Header wurde in früheren Spezifikationen definiert, erwies sich jedoch als problematisch, da der Anwendungsbereich des Digests unklar war.
+Es war insbesondere schwierig zu unterscheiden, ob ein Digest auf die gesamte Ressourcen-Repräsentation oder auf den spezifischen Inhalt einer HTTP-Nachricht angewendet wurde.
+Daher wurden zwei separate Header spezifiziert (`Content-Digest` und `Repr-Digest`), um die Inhalte von HTTP-Nachrichten und die Digest von Ressourcenrepräsentationen zu vermitteln.
 
 ## Beispiele
 
-### Benutzer-Agent sendet einen Repr-Digest in Anfragen
+### User-Agent, der einen Repr-Digest in Requests sendet
 
-Im folgenden Beispiel sendet ein Benutzer-Agent einen Digest des Nachrichteninhalts unter Verwendung von SHA-512.
-Es sendet sowohl einen `Content-Digest` als auch einen `Repr-Digest`, die sich aufgrund des `Content-Encoding` voneinander unterscheiden:
+Im folgenden Beispiel sendet ein User-Agent einen Digest des Nachrichteninhalts unter Verwendung von SHA-512.
+Es werden sowohl ein `Content-Digest` als auch ein `Repr-Digest` gesendet, die sich aufgrund der `Content-Encoding` unterscheiden:
 
 ```http
 POST /bank_transfer HTTP/1.1
@@ -79,12 +77,12 @@ Repr-Digest: sha-512=:DEF…=:
 }
 ```
 
-Der Server kann einen Digest des empfangenen Inhalts berechnen und das Ergebnis mit den `Content-Digest`- oder `Repr-Digest`-Headern vergleichen, um die Nachrichtenintegrität zu validieren.
-In Anfragen wie im obigen Beispiel ist der `Repr-Digest` für den Server nützlicher, da er über die decodierte Repräsentation berechnet wird und in verschiedenen Szenarien konsistenter wäre.
+Der Server kann einen Digest des empfangenen Inhalts berechnen und das Ergebnis mit den `Content-Digest`- oder `Repr-Digest`-Headern vergleichen, um die Integrität der Nachricht zu validieren.
+In Anfragen wie dem obigen Beispiel ist der `Repr-Digest` für den Server nützlicher, da er über die decodierte Repräsentation berechnet wird und in verschiedenen Szenarien konsistenter wäre.
 
 ### HTTP-Antwort, bei der `Repr-Digest` und `Content-Digest` übereinstimmen
 
-Ein HTTP-Server kann die gesamte Repräsentation in einer einzigen Nachricht unkomprimiert senden.
+Ein HTTP-Server kann die gesamte Repräsentation unverändert in einer einzigen Nachricht senden.
 In diesem Fall haben `Repr-Digest` und `Content-Digest` gleiche Werte für die gleichen Digest-Algorithmen:
 
 ```http
@@ -101,10 +99,10 @@ Content-Range: 0-38053/38054
 [message body]
 ```
 
-### HTTP-Antworten, bei denen `Repr-Digest` und `Content-Digest` auseinandergehen
+### HTTP-Antworten, bei denen `Repr-Digest` und `Content-Digest` auseinanderfallen
 
 Ein Server kann den Inhalt zum Senden komprimieren.
-In diesem Fall hängt {{HTTPHeader("Content-Digest")}} vom {{HTTPHeader("Content-Encoding")}} ab und hat daher einen anderen Wert als der `Repr-Digest`-Header in einer Antwort:
+In diesem Fall hängt der {{HTTPHeader("Content-Digest")}} von der {{HTTPHeader("Content-Encoding")}} ab und hat daher einen anderen Wert als der `Repr-Digest`-Header in einer Antwort:
 
 ```http
 …
@@ -118,7 +116,7 @@ Content-Encoding: br
 [message body]
 ```
 
-In einer anderen Antwort verwendet der Server eine andere Komprimierungsmethode, was zu einem neuen `Content-Digest`, aber gleichen `Repr-Digest`-Digests führt:
+In einer weiteren Antwort verwendet der Server eine andere Komprimierungsmethode, was zu einem neuen `Content-Digest`, aber denselben `Repr-Digest`-Digests führt:
 
 ```http
 …
@@ -132,9 +130,9 @@ Content-Encoding: zstd
 [message body]
 ```
 
-### Erfolgreiche HTTP-Anfrage-Antwort unter Verwendung von `Want-Repr-Digest`, `Repr-Digest` und `Content-Digest`
+### Erfolgreiche HTTP-Anfrage-Antwort mit `Want-Repr-Digest`, `Repr-Digest` und `Content-Digest`
 
-Der folgende {{HTTPMethod("PUT")}}-Request enthält einen `Want-Repr-Digest`-Header, was darauf hinweist, dass der Server einen `Repr-Digest`-Header mit einem `sha-256`-Digest einschließen sollte, wenn die Aktion erfolgreich ist:
+Die folgende {{HTTPMethod("PUT")}}-Anfrage enthält einen `Want-Repr-Digest`-Header, der anzeigt, dass der Server einen `Repr-Digest`-Header mit einem `sha-256`-Digest einschließen sollte, wenn der Vorgang erfolgreich ist:
 
 ```http
 PUT /api/transact HTTP/1.1
@@ -145,7 +143,7 @@ Content-Type: text/json
 [message body]
 ```
 
-Der Server antwortet mit einer erfolgreichen {{HTTPStatus("201", "201 Created")}}-Antwort, die `Repr-Digest`- und `Content-Digest`-Header mit `sha-256`-Digests der Repräsentation bzw. des Inhalts enthält:
+Der Server antwortet mit einer erfolgreichen {{HTTPStatus("201", "201 Created")}}-Antwort, die `Repr-Digest`- und `Content-Digest`-Header mit sha-256-Digests der Repräsentation und des Inhalts enthält:
 
 ```http
 HTTP/1.1 201 Created
@@ -157,9 +155,9 @@ Content-Digest: sha-256=:2IBI7hQn83oTCgB3Z/6apOl91WGoctRfRj/F9gkvVo8=:
 [message body]
 ```
 
-### Fehlgeschlagene HTTP-Anfrage-Antwort unter Verwendung von `Repr-Digest`
+### Fehlgeschlagene HTTP-Anfrage-Antwort mit `Repr-Digest`
 
-Im folgenden Nachricht fordert ein Benutzer-Agent eine Ressource mit einem bestimmten `sha-256`-Digest an:
+In der folgenden Nachricht fordert ein User-Agent eine Ressource mit einem spezifischen sha-256-Digest an:
 
 ```http
 GET /api/last-transaction HTTP/1.1
@@ -168,8 +166,8 @@ Repr-Digest: sha-256=:2IBI7hQn83oTCgB3Z/6apOl91WGoctRfRj/F9gkvVo8=:
 …
 ```
 
-Ein {{HTTPStatus("406", "406 Not Acceptable")}} wird vom Server zurückgegeben, um anzuzeigen, dass die Operation aufgrund eines bestimmten Digests für die Ressource fehlgeschlagen ist.
-Ein `Repr-Digest`-Header wird mit dem SHA-256-Digest-Wert enthalten, der zu einer erfolgreichen Antwort führen würde, wenn der Benutzer-Agent die Anfrage mit diesem Wert wiederholt:
+Ein {{HTTPStatus("406", "406 Not Acceptable")}} wird vom Server zurückgegeben, um anzuzeigen, dass die Operation aufgrund eines spezifischen Digests für die Ressource fehlgeschlagen ist.
+Ein `Repr-Digest`-Header ist mit dem SHA-256-Digest-Wert enthalten, der zu einer erfolgreichen Antwort führen würde, wenn der User-Agent die Anfrage mit diesem Wert wiederholt:
 
 ```http
 HTTP/1.1 406 Not Acceptable
@@ -183,12 +181,12 @@ Repr-Digest: sha-256=:W8oN3H3CmE/CBpV6ZPNozV2AIDzzQpWL7CCOXyDyDzI=:
 
 ## Browser-Kompatibilität
 
-Dieser Header hat keine spezifikationsdefinierte Browser-Integration (die "Browser-Kompatibilität" gilt nicht).
-Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um anwendungsspezifisches Implementierungsverhalten bereitzustellen.
+Dieser Header hat keine spezifikationsdefinierte Browser-Integration ("Browser-Kompatibilität" ist nicht anwendbar).
+Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um anwendungsspezifische Implementierungsverhalten bereitzustellen.
 
 ## Siehe auch
 
 - {{HTTPHeader("Content-Digest")}}, {{HTTPHeader("Want-Content-Digest")}}, {{HTTPHeader("Want-Repr-Digest")}}
 - {{HTTPHeader("ETag")}}
 - {{HTTPHeader("Content-Encoding")}}
-- [Digitale Signaturen für APIs](https://developer.ebay.com/develop/guides/digital-signatures-for-apis) SDK-Leitfaden verwendet `Content-Digest`s für digitale Signaturen in HTTP-Aufrufen (developer.ebay.com)
+- [Digitale Signaturen für APIs](https://developer.ebay.com/develop/guides/digital-signatures-for-apis) - Das SDK-Leitfaden verwendet `Content-Digests` für digitale Signaturen in HTTP-Anrufen (developer.ebay.com)

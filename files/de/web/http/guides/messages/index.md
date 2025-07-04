@@ -2,48 +2,46 @@
 title: HTTP-Nachrichten
 slug: Web/HTTP/Guides/Messages
 l10n:
-  sourceCommit: cd16ae6171a0a04eb3bc5955f939f57e02c1fa8d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+**HTTP-Nachrichten** sind der Mechanismus, der im HTTP-Protokoll zum Datenaustausch zwischen einem Server und einem Client verwendet wird.
+Es gibt zwei Arten von Nachrichten: **Anfragen**, die vom Client gesendet werden, um eine Aktion auf dem Server auszulösen, und **Antworten**, die Antwort, die der Server auf eine Anfrage sendet.
 
-**HTTP-Nachrichten** sind der Mechanismus, der zum Datenaustausch zwischen einem Server und einem Client im HTTP-Protokoll verwendet wird.
-Es gibt zwei Arten von Nachrichten: **Anfragen** (Requests), die vom Client gesendet werden, um eine Aktion auf dem Server zu initiieren, und **Antworten** (Responses), die Antwort, die der Server als Reaktion auf eine Anfrage sendet.
+Entwickler erstellen HTTP-Nachrichten selten, wenn überhaupt, von Grund auf neu.
+Anwendungen wie ein Browser, Proxy oder Webserver verwenden Software, die dafür entwickelt wurde, HTTP-Nachrichten zuverlässig und effizient zu erstellen.
+Wie Nachrichten erstellt oder transformiert werden, wird über APIs in Browsern, Konfigurationsdateien für Proxies oder Server, oder andere Schnittstellen gesteuert.
 
-Entwickler erstellen selten HTTP-Nachrichten von Grund auf.
-Anwendungen wie ein Browser, ein Proxy oder ein Webserver verwenden Software, die dafür entwickelt wurde, HTTP-Nachrichten zuverlässig und effizient zu erstellen.
-Wie Nachrichten erstellt oder umgewandelt werden, wird über APIs in Browsern, Konfigurationsdateien für Proxies oder Server oder andere Schnittstellen gesteuert.
+In den HTTP-Protokollversionen bis HTTP/2 sind Nachrichten textbasiert und relativ einfach zu lesen und zu verstehen, nachdem man sich mit dem Format vertraut gemacht hat.
+In HTTP/2 sind Nachrichten in binäre Rahmen eingepackt, wodurch sie etwas schwieriger ohne bestimmte Werkzeuge zu lesen sind.
+Die zugrunde liegende Semantik des Protokolls bleibt jedoch die gleiche, sodass Sie die Struktur und Bedeutung von HTTP-Nachrichten auf der Grundlage des textbasierten Formats von HTTP/1.x-Nachrichten lernen können und dieses Verständnis auf HTTP/2 und darüber hinaus anwenden können.
 
-In HTTP-Protokollversionen bis zu HTTP/2 sind Nachrichten textbasiert und relativ einfach zu lesen und zu verstehen, nachdem Sie sich mit dem Format vertraut gemacht haben.
-In HTTP/2 sind Nachrichten in binäre Rahmen eingebettet, was sie etwas schwerer lesbar macht, ohne bestimmte Tools zu verwenden.
-Die zugrunde liegende Semantik des Protokolls bleibt jedoch gleich, sodass Sie die Struktur und Bedeutung von HTTP-Nachrichten basierend auf dem textbasierten Format von HTTP/1.x-Nachrichten lernen und dieses Verständnis auf HTTP/2 und darüber hinaus anwenden können.
-
-Dieser Leitfaden verwendet HTTP/1.1-Nachrichten zur besseren Lesbarkeit und erklärt die Struktur von HTTP-Nachrichten im HTTP/1.1-Format.
-Wir heben einige Unterschiede hervor, die Sie möglicherweise benötigen, um HTTP/2 im letzten Abschnitt zu beschreiben.
+Dieser Leitfaden verwendet HTTP/1.1-Nachrichten zur besseren Lesbarkeit und erklärt die Struktur von HTTP-Nachrichten anhand des HTTP/1.1-Formats.
+Wir heben einige Unterschiede hervor, die Sie möglicherweise zur Beschreibung von HTTP/2 benötigen, im letzten Abschnitt.
 
 > [!NOTE]
-> Sie können HTTP-Nachrichten im **Netzwerk**-Tab der Entwickler-Tools eines Browsers sehen oder indem Sie HTTP-Nachrichten mit CLI-Tools wie [curl](https://curl.se/) auf der Konsole ausgeben lassen.
+> Sie können HTTP-Nachrichten im **Netzwerk**-Tab der Entwicklertools eines Browsers einsehen oder indem Sie HTTP-Nachrichten mittels CLI-Tools wie [curl](https://curl.se/) zur Konsole ausgeben, zum Beispiel.
 
 ## Anatomie einer HTTP-Nachricht
 
-Um zu verstehen, wie HTTP-Nachrichten funktionieren, schauen wir uns HTTP/1.1-Nachrichten an und untersuchen die Struktur.
-Die folgende Illustration zeigt, wie Nachrichten in HTTP/1.1 aussehen:
+Um zu verstehen, wie HTTP-Nachrichten funktionieren, betrachten wir HTTP/1.1-Nachrichten und untersuchen deren Struktur.
+Die folgende Abbildung zeigt, wie Nachrichten in HTTP/1.1 aussehen:
 
-![Anfragen und Antworten teilen eine gemeinsame Struktur in HTTP](https://mdn.github.io/shared-assets/images/diagrams/http/messages/http-message-anatomy.svg)
+![Anfragen und Antworten teilen in HTTP eine gemeinsame Struktur](https://mdn.github.io/shared-assets/images/diagrams/http/messages/http-message-anatomy.svg)
 
 Sowohl Anfragen als auch Antworten haben eine ähnliche Struktur:
 
-1. Eine _Startzeile_ ist eine einzelne Zeile, die die HTTP-Version zusammen mit der Anfragemethode oder dem Ergebnis der Anfrage beschreibt.
-2. Eine optionale Gruppe von _HTTP-Headern_, die Metadaten enthalten, die die Nachricht beschreiben. Zum Beispiel könnte eine Anfrage nach einer Ressource die erlaubten Formate dieser Ressource enthalten, während die Antwort Header enthalten könnte, um das tatsächlich zurückgegebene Format anzuzeigen.
-3. Eine leere Zeile zeigt an, dass die Metadaten der Nachricht vollständig sind.
-4. Ein optionaler _Body_, der mit der Nachricht verknüpfte Daten enthält. Dies könnte POST-Daten umfassen, die in einer Anfrage an den Server gesendet werden, oder eine Ressource, die in einer Antwort an den Client zurückgegeben wird.
-   Ob eine Nachricht einen Body enthält oder nicht, wird durch die Startzeile und die HTTP-Header bestimmt.
+1. Eine _Startzeile_, eine einzelne Zeile, die die HTTP-Version zusammen mit der Anfragemethode oder dem Ergebnis der Anfrage beschreibt.
+2. Eine optionale Gruppe von _HTTP-Headern_, die Metadaten enthalten, die die Nachricht beschreiben. Zum Beispiel könnte eine Anfrage nach einer Ressource die zulässigen Formate dieser Ressource beinhalten, während die Antwort Header enthalten könnte, die das tatsächlich zurückgegebene Format angeben.
+3. Eine leere Zeile, die angibt, dass die Metadaten der Nachricht vollständig sind.
+4. Ein optionaler _Körper_, der Daten enthält, die mit der Nachricht verbunden sind. Dies könnte POST-Daten sein, die in einer Anfrage an den Server gesendet werden, oder eine Ressource, die in einer Antwort an den Client zurückgegeben wird.
+   Ob eine Nachricht einen Körper enthält oder nicht, wird durch die Startzeile und die HTTP-Header bestimmt.
 
-Die Startzeile und die Header der HTTP-Nachricht werden zusammen als der _Kopf_ der Anfragen bezeichnet, und der Teil danach, der deren Inhalt enthält, wird als _Body_ bezeichnet.
+Die Startzeile und die Header der HTTP-Nachricht sind kollektiv als der _Kopf_ der Anfragen bekannt, und der Teil danach, der den Inhalt enthält, ist als der _Körper_ bekannt.
 
 ## HTTP-Anfragen
 
-Schauen wir uns das folgende Beispiel einer HTTP-`POST`-Anfrage an, die gesendet wird, nachdem ein Benutzer ein Formular auf einer Webseite abgeschickt hat:
+Betrachten wir das folgende Beispiel einer HTTP `POST`-Anfrage, die gesendet wird, nachdem ein Benutzer ein Formular auf einer Webseite abschickt:
 
 ```http
 POST /users HTTP/1.1
@@ -54,60 +52,60 @@ Content-Length: 49
 name=FirstName+LastName&email=bsmth%40example.com
 ```
 
-Die Startzeile in HTTP/1.x-Anfragen (`POST /users HTTP/1.1` im obigen Beispiel) wird als "Request-Line" bezeichnet und besteht aus drei Teilen:
+Die Startzeile in HTTP/1.x-Anfragen (`POST /users HTTP/1.1` im obigen Beispiel) wird als "Anfragelinie" bezeichnet und besteht aus drei Teilen:
 
 ```http
 <method> <request-target> <protocol>
 ```
 
 - `<method>`
-  - : Die [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) (auch als _HTTP-Verb_ bekannt) ist eines von mehreren definierten Wörtern, die die Bedeutung der Anfrage und das gewünschte Ergebnis beschreiben.
-    Zum Beispiel zeigt `GET` an, dass der Client eine Ressource im Gegenzug erhalten möchte, und `POST` bedeutet, dass der Client Daten an einen Server sendet.
+  - : Die [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) (auch als _HTTP-Verb_ bekannt) ist eines von mehreren definierten Wörtern, das die Bedeutung der Anfrage und das gewünschte Ergebnis beschreibt.
+    Zum Beispiel bedeutet `GET`, dass der Client gerne eine Ressource erhalten möchte, und `POST` bedeutet, dass der Client Daten an einen Server sendet.
 - `<request-target>`
-  - : Das Anfrageziel ist in der Regel eine absolute oder relative {{Glossary("URL", "URL")}} und wird durch den Kontext der Anfrage gekennzeichnet.
-    Das Format des Anfrageziels hängt von der verwendeten HTTP-Methode und dem Anfragekontext ab.
-    Es wird im Abschnitt [Request targets](#anfrageziele) unten ausführlicher beschrieben.
+  - : Das Anfrage-Ziel ist in der Regel eine absolute oder relative {{Glossary("URL", "URL")}} und wird durch den Kontext der Anfrage charakterisiert.
+    Das Format des Anfrage-Ziels hängt von der verwendeten HTTP-Methode und dem Anfragekontext ab.
+    Es wird im Abschnitt [Anfrage-Ziele](#anfrage-ziele) weiter unten ausführlicher beschrieben.
 - `<protocol>`
-  - : Die _HTTP-Version_, die die Struktur der verbleibenden Nachricht definiert und als Indikator für die erwartete Version für die Antwort dient.
+  - : Die _HTTP-Version_, die die Struktur der verbleibenden Nachricht definiert und als Indikator für die erwartete Version zur Antwortherstellung dient.
     Dies ist fast immer `HTTP/1.1`, da `HTTP/0.9` und `HTTP/1.0` veraltet sind.
-    In HTTP/2 und darüber hinaus ist die Protokollversion nicht in Nachrichten enthalten, da sie aus der Verbindungseinrichtung verstanden wird.
+    In HTTP/2 und höher ist die Protokollversion in den Nachrichten nicht enthalten, da diese aus der Verbindungsherstellung resultiert.
 
-### Anfrageziele
+### Anfrage-Ziele
 
-Es gibt einige Möglichkeiten, ein Anfrageziel zu beschreiben, aber bei weitem die häufigste ist die "Origin-Form".
-Hier ist eine Liste der Zieltypen und wann sie verwendet werden:
+Es gibt einige Möglichkeiten, ein Anfrage-Ziel zu beschreiben, aber die bei weitem häufigste ist die "origin form".
+Hier ist eine Liste der Arten von Zielen und wann sie verwendet werden:
 
-1. In _Origin-Form_ kombiniert der Empfänger einen absoluten Pfad mit den Informationen im {{HTTPHeader("Host")}}-Header.
-   Eine Abfragezeichenfolge kann an den Pfad für zusätzliche Informationen angehängt werden (in der Regel im `key=value`-Format).
+1. In der _origin form_ kombiniert der Empfänger einen absoluten Pfad mit den Informationen aus dem {{HTTPHeader("Host")}}-Header.
+   Eine Abfragezeichenkette kann für zusätzliche Informationen (in der Regel im `key=value`-Format) an den Pfad angehängt werden.
    Dies wird mit den Methoden `GET`, `POST`, `HEAD` und `OPTIONS` verwendet:
 
    ```http
    GET /en-US/docs/Web/HTTP/Guides/Messages HTTP/1.1
    ```
 
-2. Die _Absolute Form_ ist eine vollständige URL, einschließlich der Autorität, und wird mit `GET` verwendet, wenn eine Verbindung zu einem Proxy hergestellt wird:
+2. Die _absolute form_ ist eine vollständige URL inklusive der Authority und wird mit `GET` beim Verbinden zu einem Proxy verwendet:
 
    ```http
    GET https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages HTTP/1.1
    ```
 
-3. Die _Authority Form_ ist die Autorität und der Port, getrennt durch einen Doppelpunkt (`:`).
-   Sie wird nur mit der {{HTTPMethod("CONNECT")}}-Methode verwendet, wenn ein HTTP-Tunnel eingerichtet wird:
+3. Die _authority form_ ist die Authority und der Port, getrennt durch einen Doppelpunkt (`:`).
+   Sie wird nur mit der Methode {{HTTPMethod("CONNECT")}} verwendet, wenn ein HTTP-Tunnel aufgebaut wird:
 
    ```http
    CONNECT developer.mozilla.org:443 HTTP/1.1
    ```
 
-4. Die _Asterisk Form_ wird nur mit `OPTIONS` verwendet, wenn Sie den Server als Ganzes (`*`) anstelle einer benannten Ressource repräsentieren möchten:
+4. Die _asterisk form_ wird nur mit `OPTIONS` verwendet, wenn Sie den Server als Ganzes (`*`) darstellen möchten, im Gegensatz zu einer benannten Ressource:
 
    ```http
    OPTIONS * HTTP/1.1
    ```
 
-### Anfrageheader
+### Anfragen-Header
 
-Header sind Metadaten, die mit einer Anfrage nach der Startzeile und vor dem Body gesendet werden.
-Im [Beispiel der Formularübermittlung](#http-anfragen) oben sind dies die folgenden Zeilen der Nachricht:
+Header sind Metadaten, die nach der Startzeile und vor dem Körper mit einer Anfrage gesendet werden.
+Im [Beispiel für die Formularübermittlung](#http-anfragen) oben sind sie die folgenden Zeilen der Nachricht:
 
 ```http
 Host: example.com
@@ -115,29 +113,29 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 49
 ```
 
-In HTTP/1.x ist jeder Header eine **nicht case-sensitive** Zeichenkette, gefolgt von einem Doppelpunkt (`:`) und einem Wert, dessen Format von dem Header abhängt.
-Der ganze Header, einschließlich des Wertes, besteht aus einer einzigen Zeile.
-Diese Zeile kann in einigen Fällen ziemlich lang sein, wie beispielsweise der {{HTTPHeader("Cookie")}}-Header.
+In HTTP/1.x ist jeder Header eine **nicht-empfindliche** Zeichenkette, gefolgt von einem Doppelpunkt (`:`) und einem Wert, dessen Format vom Header abhängt.
+Der gesamte Header, einschließlich des Wertes, besteht aus einer einzigen Zeile.
+Diese Zeile kann in einigen Fällen recht lang sein, wie z.B. dem {{HTTPHeader("Cookie")}}-Header.
 
-![Beispiel von Headern in einer HTTP-Anfrage](https://mdn.github.io/shared-assets/images/diagrams/http/messages/request-headers.svg)
+![Beispiel für Header in einer HTTP-Anfrage](https://mdn.github.io/shared-assets/images/diagrams/http/messages/request-headers.svg)
 
-Einige Header werden ausschließlich in Anfragen verwendet, während andere sowohl in Anfragen als auch in Antworten gesendet werden können oder eine spezifischere Kategorisierung haben könnten:
+Einige Header werden ausschließlich in Anfragen verwendet, während andere sowohl in Anfragen als auch in Antworten gesendet werden können oder sie eine spezifische Kategorisierung haben:
 
-- {{Glossary("Request_header", "Anfrageheader")}} bieten zusätzlichen Kontext zu einer Anfrage oder fügen zusätzliche Logik hinzu, wie sie von einem Server behandelt werden soll (z. B. [bedingte Anfragen](/de/docs/Web/HTTP/Guides/Conditional_requests)).
-- {{Glossary("Representation_header", "Repräsentationsheader")}} werden in einer Anfrage gesendet, wenn die Nachricht einen Body hat, und beschreiben die ursprüngliche Form der Nachrichtendaten und jede angewendete Kodierung.
-  Damit kann der Empfänger verstehen, wie die Ressource rekonstruiert werden soll, wie sie vor der Übertragung über das Netzwerk war.
+- {{Glossary("Request_header", "Anfragen-Header")}} bieten zusätzlichen Kontext zu einer Anfrage oder fügen zusätzliche Logik hinzu, wie sie von einem Server behandelt werden sollte (z.B. [bedingte Anfragen](/de/docs/Web/HTTP/Guides/Conditional_requests)).
+- {{Glossary("Representation_header", "Repräsentations-Header")}} werden in einer Anfrage gesendet, wenn die Nachricht einen Körper hat, und sie beschreiben die ursprüngliche Form der Nachrichtendaten und jede angewandte Kodierung.
+  Dies ermöglicht dem Empfänger zu verstehen, wie die Ressource rekonstruiert werden kann, wie sie vor der Übertragung über das Netzwerk war.
 
-### Anfragebody
+### Anfrage-Körper
 
-Der Anfragebody ist der Teil einer Anfrage, der Informationen an den Server überträgt.
-Nur `PATCH`, `POST` und `PUT`-Anfragen haben einen Body.
-Im [Beispiel der Formularübermittlung](#http-anfragen) ist dies der Body:
+Der Anfrage-Körper ist der Teil einer Anfrage, der Informationen an den Server übermittelt.
+Nur `PATCH`-, `POST`- und `PUT`-Anfragen enthalten einen Körper.
+Im [Beispiel für die Formularübermittlung](#http-anfragen) ist dieser Teil der Körper:
 
 ```http
 name=FirstName+LastName&email=bsmth%40example.com
 ```
 
-Der Body in der Formularübermittlungsanfrage enthält eine relativ kleine Menge an Informationen als `key=value`-Paare, aber ein Anfragebody könnte andere Arten von Daten enthalten, die der Server erwartet:
+Der Körper der Formularübermittlungsanfrage enthält eine relativ kleine Menge an Informationen als `key=value`-Paare, aber ein Anfragekörper könnte andere Arten von Daten enthalten, die der Server erwartet:
 
 ```json
 {
@@ -165,8 +163,8 @@ Text file contents
 ## HTTP-Antworten
 
 Antworten sind die HTTP-Nachrichten, die ein Server als Antwort auf eine Anfrage zurücksendet.
-Die Antwort teilt dem Client mit, was das Ergebnis der Anfrage war.
-Hier ist ein Beispiel einer HTTP/1.1-Antwort auf eine `POST`-Anfrage, die einen neuen Benutzer erstellt hat:
+Die Antwort teilt dem Client mit, wie das Ergebnis der Anfrage war.
+Hier ist eine Beispielantwort auf eine HTTP/1.1 `POST`-Anfrage, die einen neuen Benutzer erstellt hat:
 
 ```http
 HTTP/1.1 201 Created
@@ -184,110 +182,110 @@ Location: http://example.com/users/123
 }
 ```
 
-Die Startzeile (`HTTP/1.1 201 Created` oben) wird in Antworten als "Statuszeile" bezeichnet und hat drei Teile:
+Die Startzeile (`HTTP/1.1 201 Created` obene) wird in Antworten als "Statuszeile" bezeichnet und hat drei Teile:
 
 ```http
 <protocol> <status-code> <status-text>
 ```
 
 - `<protocol>`
-  - : Die _HTTP-Version_ der verbleibenden Nachricht.
+  - : Die _HTTP-Version_ der restlichen Nachricht.
 - `<status-code>`
-  - : Ein numerischer [Statuscode](/de/docs/Web/HTTP/Reference/Status), der angibt, ob die Anfrage erfolgreich war oder fehlgeschlagen ist.
+  - : Ein numerischer [Statuscode](/de/docs/Web/HTTP/Reference/Status), der anzeigt, ob die Anfrage erfolgreich war oder fehlgeschlagen ist.
     Häufige Statuscodes sind {{HTTPStatus("200")}}, {{HTTPStatus("404")}} oder {{HTTPStatus("302")}}.
 - `<status-text>`
-  - : Der Status-Text ist eine kurze, rein informative, textuelle Beschreibung des Statuscodes, um einem Menschen das Verständnis der HTTP-Nachricht zu erleichtern.
+  - : Der Status-Text ist eine kurze, reine informative, textuelle Beschreibung des Statuscodes, um einem Menschen zu helfen, die HTTP-Nachricht zu verstehen.
 
-### Antwortheader
+### Antwort-Header
 
-Antwortheader sind die Metadaten, die mit einer Antwort gesendet werden.
-In HTTP/1.x ist jeder Header eine **nicht case-sensitive** Zeichenkette, gefolgt von einem Doppelpunkt (`:`) und einem Wert, dessen Format von dem verwendeten Header abhängt.
+Antwort-Header sind die Metadaten, die mit einer Antwort gesendet werden.
+In HTTP/1.x ist jeder Header eine **nicht-empfindliche** Zeichenkette, gefolgt von einem Doppelpunkt (`:`) und einem Wert, dessen Format davon abhängt, welcher Header verwendet wird.
 
-![Beispiel von Headern in einer HTTP-Antwort](https://mdn.github.io/shared-assets/images/diagrams/http/messages/response-headers.svg)
+![Beispiel für Header in einer HTTP-Antwort](https://mdn.github.io/shared-assets/images/diagrams/http/messages/response-headers.svg)
 
-Wie Anfrageheader gibt es viele verschiedene Header, die in Antworten erscheinen können, und sie werden wie folgt kategorisiert:
+Wie Anfrage-Header, gibt es viele verschiedene Header, die in Antworten erscheinen können, und sie sind kategorisiert als:
 
-- {{Glossary("Response_header", "Antwortheader")}}, die zusätzlichen Kontext über die Nachricht geben oder zusätzliche Logik hinzufügen, wie der Client nachfolgende Anfragen stellen sollte.
-  Zum Beispiel enthalten Header wie {{HTTPHeader("Server")}} Informationen über die Serversoftware, während {{HTTPHeader("Date")}} beinhaltet, wann die Antwort generiert wurde.
+- {{Glossary("Response_header", "Antwort-Header")}}, die zusätzlichen Kontext über die Nachricht geben oder zusätzliche Logik hinzufügen, wie der Client nachfolgende Anfragen stellen sollte.
+  Zum Beispiel enthalten Header wie {{HTTPHeader("Server")}} Informationen über die Server-Software, während {{HTTPHeader("Date")}} enthält, wann die Antwort generiert wurde.
   Es gibt auch Informationen über die zurückgegebene Ressource, wie ihren Inhaltstyp ({{HTTPHeader("Content-Type")}}) oder wie sie zwischengespeichert werden soll ({{HTTPHeader("Cache-Control")}}).
-- {{Glossary("Representation_header", "Repräsentationsheader")}}, wenn die Nachricht einen Body hat, beschreiben sie die Form der Nachrichtendaten und jede angewendete Kodierung.
-  Zum Beispiel könnte die gleiche Ressource in einem bestimmten Medientyp wie XML oder JSON formatiert werden, lokalisiert in einer bestimmten geschriebenen Sprache oder geografischen Region und/oder komprimiert oder auf andere Weise für die Übertragung kodiert.
-  Dies ermöglicht es einem Empfänger zu verstehen, wie die Ressource rekonstruiert werden soll, wie sie vor der Übertragung über das Netzwerk war.
+- {{Glossary("Representation_header", "Repräsentations-Header")}}, wenn die Nachricht einen Körper hat, beschreiben sie die Form der Nachrichtendaten und jede angewandte Kodierung.
+  Zum Beispiel könnte die gleiche Ressource in einem bestimmten Medientyp wie XML oder JSON formatiert sein, lokalisiert auf eine bestimmte Schriftsprache oder geografische Region, und/oder komprimiert oder anderweitig für die Übertragung kodiert sein.
+  Dies ermöglicht es einem Empfänger zu verstehen, wie die Ressource rekonstruiert werden kann, wie sie vor der Übertragung über das Netzwerk war.
 
-### Antwortbody
+### Antwort-Körper
 
-Ein Antwortbody ist in den meisten Nachrichten enthalten, wenn auf einen Client geantwortet wird.
-Bei erfolgreichen Anfragen enthält der Antwortbody die Daten, die der Client in einer `GET`-Anfrage angefordert hat.
-Wenn es Probleme mit der Anfrage des Clients gibt, beschreibt der Antwortbody oft, warum die Anfrage fehlgeschlagen ist, und gibt Hinweise darauf, ob sie dauerhaft oder vorübergehend ist.
+Ein Antwort-Körper ist in den meisten Nachrichten enthalten, wenn auf einen Client geantwortet wird.
+In erfolgreichen Anfragen enthält der Antwort-Körper die Daten, die der Client in einer `GET`-Anfrage angefordert hat.
+Wenn es Probleme mit der Anfrage des Clients gibt, ist es üblich, dass der Antwort-Körper beschreibt, warum die Anfrage fehlgeschlagen ist, und andeutet, ob es sich um ein permanentes oder temporäres Problem handelt.
 
-Antwortbodies können sein:
+Antwort-Körper können sein:
 
-- Einzelressourcen-Bodies, die durch die beiden Header definiert werden: {{HTTPHeader("Content-Type")}} und {{HTTPHeader("Content-Length")}}, oder von unbekannter Länge und in Blöcken kodiert mit {{HTTPHeader("Transfer-Encoding")}} auf `chunked` gesetzt.
-- [Mehrteilige Ressourcen-Bodies](/de/docs/Web/HTTP/Guides/MIME_types#multipartform-data), bestehend aus einem Body, der mehrere Teile enthält, wobei jeder einen anderen Informationsausschnitt enthält.
-  Mehrteilige Bodies sind typischerweise mit [HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms) verbunden, könnten aber auch als Antwort auf [Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests) gesendet werden.
+- Einzelressourcen-Körper, definiert durch die beiden Header: {{HTTPHeader("Content-Type")}} und {{HTTPHeader("Content-Length")}}, oder von unbekannter Länge und in Abschnitten kodiert mit {{HTTPHeader("Transfer-Encoding")}} auf `chunked` gesetzt.
+- [Mehrere Ressourcen-Körper](/de/docs/Web/HTTP/Guides/MIME_types#multipartform-data), bestehend aus einem Körper, der mehrere Teile enthält, von denen jeder ein anderes Informationsstück enthält.
+  Multipart-Körper sind in der Regel mit [HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms) assoziiert, können aber auch als Antwort auf [Range-Anfragen](/de/docs/Web/HTTP/Guides/Range_requests) gesendet werden.
 
-Antworten mit einem Statuscode, der die Anfrage beantwortet, ohne dass Nachrichteninhalt erforderlich ist, wie z.B. {{HTTPStatus("201", "201 Created")}} oder {{HTTPStatus("204", "204 No Content")}}, haben keinen Body.
+Antworten mit einem Statuscode, der die Anfrage beantwortet, ohne dass es erforderlich ist, dass Nachrichteninhalt enthalten ist, wie beispielsweise {{HTTPStatus("201", "201 Created")}} oder {{HTTPStatus("204", "204 No Content")}}, haben keinen Körper.
 
-## HTTP/2 Nachrichten
+## HTTP/2-Nachrichten
 
-HTTP/1.x verwendet textbasierte Nachrichten, die einfach zu lesen und zu konstruieren sind, aber dadurch einige Nachteile haben.
-Sie können die Nachrichtenbodies mit `gzip` oder anderen Kompressionsalgorithmen komprimieren, nicht jedoch die Header.
-Header sind oft ähnlich oder identisch in einer Client-Server-Interaktion, aber sie werden in aufeinanderfolgenden Nachrichten auf einer Verbindung wiederholt.
-Es gibt viele bekannte Methoden, um wiederholte Texteffizient zu komprimieren, was Einsparungen bei der Bandbreite ungenutzt lässt.
+HTTP/1.x verwendet textbasierte Nachrichten, die einfach zu lesen und zu erstellen sind, hat jedoch einige Nachteile.
+Sie können Nachrichten-Körper mit `gzip` oder anderen Komprimierungsalgorithmen komprimieren, aber nicht die Header.
+Header sind in einer Client-Server-Interaktion oft ähnlich oder identisch, werden jedoch in aufeinanderfolgenden Nachrichten einer Verbindung wiederholt.
+Es gibt viele bekannte Methoden, repetitive Texte sehr effizient zu komprimieren, wodurch ein Großteil des Bandbreite-Einsparungspotentials ungenutzt bleibt.
 
-HTTP/1.x hat auch ein Problem namens Head-of-Line-Blocking (HOL), bei dem ein Client auf eine Antwort des Servers warten muss, bevor er die nächste Anfrage senden kann.
-HTTP [Pipelining](/de/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x#http_pipelining) versuchte, dies zu umgehen, aber schlechte Unterstützung und Komplexität führen dazu, dass es selten benutzt wird und schwer richtig hinzubekommen ist.
-Mehrere Verbindungen müssen geöffnet werden, um Anfragen gleichzeitig zu senden, und warme (etablierte und beschäftigte) Verbindungen sind effizienter als kalte aufgrund des TCP-Slow-Starts.
+HTTP/1.x hat auch ein Problem namens "Head-of-line Blocking" (HOL), bei dem ein Client auf eine Antwort des Servers warten muss, bevor er die nächste Anfrage senden kann.
+HTTP [Pipelining](/de/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x#http_pipelining) versuchte, dies zu umgehen, aber schlechte Unterstützung und Komplexität führen dazu, dass es selten verwendet wird und schwer richtig zu implementieren ist.
+Mehrere Verbindungen müssen geöffnet werden, um Anfragen parallel zu senden; und warme (etablierte und ausgelastete) Verbindungen sind effizienter als kalte, aufgrund des langsamen Starts bei TCP.
 
-In HTTP/1.1 müssen Sie, wenn Sie zwei Anfragen parallel stellen möchten, zwei Verbindungen öffnen:
+In HTTP/1.1, wenn Sie zwei Anfragen parallel stellen möchten, müssen Sie zwei Verbindungen öffnen:
 
 ![Zwei HTTP-Anfragen parallel an einen Server stellen](https://mdn.github.io/shared-assets/images/diagrams/http/messages/http-1-connection.png)
 
-Das bedeutet, dass Browser in der Anzahl der Ressourcen limitiert sind, die sie gleichzeitig herunterladen und rendern können, was typischerweise auf 6 parallele Verbindungen beschränkt war.
+Das bedeutet, dass Browser in der Anzahl der Ressourcen, die sie gleichzeitig herunterladen und rendern können, begrenzt sind, was in der Regel auf 6 parallele Verbindungen begrenzt ist.
 
-HTTP/2 ermöglicht die Nutzung einer einzigen TCP-Verbindung für mehrere Anfragen und Antworten gleichzeitig.
-Dies wird erreicht, indem Nachrichten in einen binären Rahmen gewickelt und die Anfragen und Antworten in einem nummerierten **Stream** auf einer Verbindung gesendet werden.
-Daten- und Header-Rahmen werden separat behandelt, was es ermöglicht, Header über einen Algorithmus namens HPACK zu komprimieren.
-Das Verwenden derselben TCP-Verbindung, um mehrere Anfragen gleichzeitig zu bearbeiten, wird als _Multiplexing_ bezeichnet.
+HTTP/2 ermöglicht es, eine einzige TCP-Verbindung für mehrere Anfragen und Antworten gleichzeitig zu verwenden.
+Dies geschieht, indem Nachrichten in einen binären Rahmen gepackt und die Anfragen und Antworten in einem nummerierten **Stream** auf einer Verbindung gesendet werden.
+Daten- und Header-Rahmen werden separat gehandhabt, was es ermöglicht, Header mittels eines Algorithmus namens HPACK zu komprimieren.
+Der Einsatz derselben TCP-Verbindung zum gleichzeitigen Handhaben mehrerer Anfragen wird als _Multiplexing_ bezeichnet.
 
-![Multiplexen von Anfragen und Antworten in HTTP/2 über eine einzelne TCP-Verbindung.](https://mdn.github.io/shared-assets/images/diagrams/http/messages/http-2-connection.png)
+![Multiplexing von Anfragen und Antworten in HTTP/2 mit einer einzigen TCP-Verbindung.](https://mdn.github.io/shared-assets/images/diagrams/http/messages/http-2-connection.png)
 
-Anfragen müssen nicht unbedingt sequentiell sein: Stream 9 muss nicht auf das Ende von Stream 7 warten.
-Die Daten von mehreren Streams sind normalerweise auf der Verbindung verflochten, sodass Stream 9 und 7 gleichzeitig vom Client empfangen werden können.
-Es gibt einen Mechanismus für das Protokoll, um die Priorität für jeden Stream oder jede Ressource festzulegen.
-Ressourcen mit niedriger Priorität beanspruchen weniger Bandbreite als Ressourcen mit höherer Priorität, wenn sie über verschiedene Streams gesendet werden, oder sie könnten effektiv sequentiell auf derselben Verbindung gesendet werden, wenn es kritische Ressourcen gibt, die zuerst behandelt werden sollten.
+Anfragen sind nicht unbedingt sequenziell: Stream 9 muss nicht auf das Ende von Stream 7 warten, beispielsweise.
+Die Daten von mehreren Streams sind normalerweise auf der Verbindung verschachtelt, sodass Stream 9 und 7 gleichzeitig vom Client empfangen werden können.
+Es gibt einen Mechanismus im Protokoll, um jedem Stream oder jeder Ressource eine Priorität zuzuweisen.
+Niedrigpriorisierte Ressourcen nehmen weniger Bandbreite ein als höher priorisierte Ressourcen, wenn sie über verschiedene Streams gesendet werden, oder sie könnten effektiv auf derselben Verbindung sequentiell gesendet werden, wenn es kritische Ressourcen gibt, die zuerst behandelt werden sollten.
 
-Im Allgemeinen sind trotz all der Verbesserungen und Abstraktionen, die über HTTP/1.x hinzugefügt wurden, fast keine Änderungen in den von Entwicklern verwendeten APIs erforderlich, um HTTP/2 über HTTP/1.x zu nutzen.
-Wenn HTTP/2 sowohl im Browser als auch im Server verfügbar ist, wird es automatisch aktiviert und verwendet.
+Im Allgemeinen sind trotz aller Verbesserungen und Abstraktionen gegenüber HTTP/1.x kaum Änderungen in den APIs erforderlich, die Entwickler verwenden, um HTTP/2 anstelle von HTTP/1.x zu nutzen.
+Wenn HTTP/2 sowohl im Browser als auch auf dem Server verfügbar ist, wird es automatisch aktiviert und verwendet.
 
-### Pseudokopfzeilen
+### Pseudo-Header
 
-Eine bemerkenswerte Änderung an Nachrichten in HTTP/2 ist die Verwendung von Pseudokopfzeilen.
-Wo HTTP/1.x die Nachrichtenstartzeile verwendete, verwendet HTTP/2 spezielle Pseudokopfzeilenfelder, die mit `:` beginnen.
-In Anfragen gibt es die folgenden Pseudokopfzeilen:
+Eine bemerkenswerte Änderung an Nachrichten in HTTP/2 ist der Einsatz von Pseudo-Headern.
+Wo HTTP/1.x die Nachrichten-Startzeile verwendete, verwendet HTTP/2 spezielle Pseudo-Header-Felder, die mit `:` beginnen.
+In Anfragen gibt es die folgenden Pseudo-Header:
 
 - `:method` - die HTTP-Methode.
-- `:scheme` - der Schemaanteil der Ziel-URI, der oft HTTP(S) ist.
-- `:authority` - der Autoritätsanteil der Ziel-URI.
-- `:path` - der Pfad- und Abfrageteil der Ziel-URI.
+- `:scheme` - der Schema-Teil der Ziel-URI, der oft HTTP(S) ist.
+- `:authority` - der Authority-Teil der Ziel-URI.
+- `:path` - der Pfad und die Abfrageteile der Ziel-URI.
 
-In Antworten gibt es nur eine Pseudokopfzeile, und das ist der `:status`, der den Code der Antwort angibt.
+In Antworten gibt es nur einen Pseudo-Header, und das ist der `:status`, der den Code der Antwort liefert.
 
-Wir können eine HTTP/2-Anfrage mit [nghttp](https://github.com/nghttp2/nghttp2) stellen, um `example.com` abzurufen, wodurch die Anfrage in einer lesbareren Form ausgegeben wird.
-Sie können die Anfrage mit diesem Befehl stellen, wobei die Option `-n` die heruntergeladenen Daten verwirft und `-v` für 'verbose' steht und die Übertragung und den Empfang der Rahmen zeigt:
+Wir können eine HTTP/2-Anfrage mit [nghttp](https://github.com/nghttp2/nghttp2) stellen, um `example.com` abzurufen, der die Anfrage in einer lesbareren Form ausdruckt.
+Sie können die Anfrage mit diesem Befehl stellen, wobei die Option `-n` die heruntergeladenen Daten verwirft und `-v` für 'verbose' Ausgabe steht, die Empfang und Übertragung von Rahmen anzeigt:
 
 ```bash
 nghttp -nv https://www.example.com
 ```
 
-Wenn Sie sich die Ausgabe genauer ansehen, sehen Sie das Timing für jeden übertragenen und empfangenen Rahmen:
+Wenn Sie sich die Ausgabe anschauen, sehen Sie das Timing für jeden übertragenen und empfangenen Rahmen:
 
 ```plain
 [  0.123] <send|recv> <frame-type> <frame-details>
 ```
 
 Wir müssen nicht zu sehr ins Detail bei dieser Ausgabe gehen, aber achten Sie auf den `HEADERS`-Rahmen im Format `[  0.123] send HEADERS frame ...`.
-In den Zeilen nach der Header-Übertragung sehen Sie die folgenden Zeilen:
+In den Zeilen nach der Kopfzeilenübertragungen sehen Sie die folgenden Zeilen:
 
 ```http
 [  0.447] send HEADERS frame ...
@@ -301,9 +299,9 @@ In den Zeilen nach der Header-Übertragung sehen Sie die folgenden Zeilen:
           user-agent: nghttp2/1.61.0
 ```
 
-Dies sollte Ihnen bekannt vorkommen, wenn Sie bereits mit HTTP/1.x vertraut sind, und die in den vorherigen Abschnitten dieses Leitfadens behandelten Konzepte gelten weiterhin.
-Dies ist der Binärrahmen mit der `GET`-Anfrage an `example.com`, der von `nghttp` in eine lesbare Form umgewandelt wurde.
-Wenn Sie weiter unten in der Ausgabe des Befehls nachsehen, sehen Sie die `:status`-Pseudokopfzeile in einem der vom Server empfangenen Streams:
+Dies sollte Ihnen vertraut vorkommen, wenn Sie bereits mit der Arbeit mit HTTP/1.x vertraut sind, und die in früheren Abschnitten dieses Leitfadens behandelten Konzepte gelten weiterhin.
+Dies ist der binäre Rahmen mit der `GET`-Anfrage für `example.com`, umwandelt in eine lesbare Form durch `nghttp`.
+Wenn Sie weiter unten in der Ausgabe des Befehls schauen, werden Sie den `:status`-Pseudo-Header in einem der vom Server empfangenen Streams sehen:
 
 ```http
 [  0.433] recv (stream_id=13) :status: 200
@@ -316,7 +314,7 @@ Wenn Sie weiter unten in der Ausgabe des Befehls nachsehen, sehen Sie die `:stat
 ...
 ```
 
-Und wenn Sie das Timing und die Stream-ID aus dieser Nachricht entfernen, sollte es noch bekannter aussehen:
+Und wenn Sie das Timing und die Stream-ID aus dieser Nachricht entfernen, sollte es noch vertrauter sein:
 
 ```http
 :status: 200
@@ -324,26 +322,26 @@ content-encoding: gzip
 age: 112721
 ```
 
-Das tiefergehende Eintauchen in Nachrichtenrahmen, Stream-IDs und wie die Verbindung verwaltet wird, liegt außerhalb des Umfangs dieses Leitfadens, aber zum Verständnis und zur Fehlerbehebung von HTTP/2-Nachrichten sollten Sie mit dem Wissen und den Werkzeugen in diesem Artikel gut gerüstet sein.
+Tiefer in Nachrichtenrahmen, Stream-IDs und wie die Verbindung verwaltet wird zu dringen, überschreitet den Umfang dieses Leitfadens, aber zum Zweck des Verständnisses und der Fehlersuche von HTTP/2-Nachrichten, sollten Sie mit dem Wissen und den Werkzeugen in diesem Artikel gut gerüstet sein.
 
 ## Fazit
 
-Dieser Leitfaden bietet einen allgemeinen Überblick über die Anatomie von HTTP-Nachrichten, wobei das HTTP/1.1-Format zur Veranschaulichung verwendet wird.
-Wir haben auch HTTP/2-Nachrichtenrahmen untersucht, die eine Schicht zwischen der HTTP/1.x-Syntax und dem zugrunde liegenden Transportprotokoll einführen, ohne die Semantik von HTTP grundlegend zu ändern.
-HTTP/2 wurde eingeführt, um die im HTTP/1.x vorhandenen {{Glossary("head_of_line_blocking", "Head-of-Line-Blocking")}}-Probleme durch Aktivierung des Multiplexings von Anfragen zu lösen.
+Dieser Leitfaden bietet einen allgemeinen Überblick über die Anatomie von HTTP-Nachrichten, indem das HTTP/1.1-Format zur Veranschaulichung verwendet wird.
+Wir haben auch HTTP/2-Nachrichtenrahmen betrachtet, die eine Schicht zwischen der HTTP/1.x-Syntax und dem zugrunde liegenden Transportprotokoll einführen, ohne die Semantik von HTTP grundlegend zu ändern.
+HTTP/2 wurde eingeführt, um die Probleme von {{Glossary("head_of_line_blocking", "Head-of-line Blocking")}}, die in HTTP/1.x vorhanden sind, durch die Aktivierung von Multiplex-Anfragen zu lösen.
 
-Ein Problem, das in HTTP/2 geblieben ist, ist, dass auch wenn das Head-of-Line-Blocking auf Protokollebene behoben wurde, immer noch ein Leistungsengpass durch Head-of-Line-Blocking innerhalb von TCP (auf Transportrahmenebene) besteht.
-HTTP/3 behebt diese Einschränkung, indem es QUIC verwendet, ein auf UDP basierendes Protokoll, anstelle von TCP.
-Diese Änderung verbessert die Leistung, verkürzt die Verbindungsaufbauzeiten und erhöht die Stabilität bei degradierten oder unzuverlässigen Netzwerken.
-HTTP/3 behält die gleichen grundlegenden HTTP-Semantiken bei, sodass Funktionen wie Anfragemethoden, Statuscodes und Header über alle drei Hauptversionen von HTTP konsistent bleiben.
+Ein Problem, das in HTTP/2 bestehen bleibt, besteht darin, dass auch wenn das Head-of-line Blocking auf Protokollebene gelöst wurde, es immer noch einen Leistungsflaschenhals durch Head-of-line Blocking innerhalb von TCP (auf Transporteebene) gibt.
+HTTP/3 adressiert diese Einschränkung, indem es QUIC, ein auf UDP basierendes Protokoll, anstelle von TCP verwendet.
+Diese Änderung verbessert die Leistung, verkürzt die Verbindungsaufbauzeit, und erhöht die Stabilität auf degradierten oder unzuverlässigen Netzwerken.
+HTTP/3 behält die gleichen Kern-HTTP-Semantiken bei, sodass Funktionen wie Anfragemethoden, Statuscodes und Header über alle drei Haupt-HTTP-Versionen hinweg konsistent sind.
 
-Wenn Sie die Semantik von HTTP/1.1 verstehen, haben Sie bereits eine solide Grundlage, um HTTP/2 und HTTP/3 zu erfassen.
-Der Hauptunterschied liegt darin, **wie** diese Semantiken auf Transportebene implementiert werden.
-Indem Sie den Beispielen und Konzepten in diesem Leitfaden folgen, sollten Sie sich nun fähig fühlen, mit HTTP zu arbeiten und die Bedeutung von Nachrichten zu verstehen und wie Anwendungen HTTP verwenden, um Daten zu senden und zu empfangen.
+Wenn Sie die Semantik von HTTP/1.1 verstehen, haben Sie bereits eine solide Grundlage, um HTTP/2 und HTTP/3 zu verstehen.
+Der Hauptunterschied liegt darin, **wie** diese Semantiken auf Transporteebene implementiert sind.
+Indem Sie den Beispielen und Konzepten in diesem Leitfaden folgen, sollten Sie sich jetzt gut gerüstet fühlen, um mit HTTP zu arbeiten und die Bedeutung von Nachrichten zu verstehen, und wie Anwendungen HTTP verwenden, um Daten zu senden und zu empfangen.
 
 ## Siehe auch
 
-- [Entwicklung von HTTP](/de/docs/Web/HTTP/Guides/Evolution_of_HTTP)
+- [Evolution von HTTP](/de/docs/Web/HTTP/Guides/Evolution_of_HTTP)
 - [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism)
 - Glossarbegriffe:
   - {{Glossary("HTTP", "HTTP")}}

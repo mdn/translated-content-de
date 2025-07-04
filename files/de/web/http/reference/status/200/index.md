@@ -2,21 +2,22 @@
 title: 200 OK
 slug: Web/HTTP/Reference/Status/200
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`200 OK`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass eine Anfrage erfolgreich war.
+Eine `200 OK`-Antwort ist standardmäßig zwischenspeicherbar.
 
-Der HTTP-Statuscode **`200 OK`** zeigt an, dass eine Anfrage erfolgreich war. Eine `200 OK`-Antwort ist standardmäßig cachefähig.
+Eine `200 OK`-Antwort hat je nach HTTP-Anfragemethode eine unterschiedliche Bedeutung und Formatierung.
+Hier ist, wie sie sich für verschiedene Methoden unterscheiden:
 
-Eine `200 OK`-Antwort hat je nach HTTP-Anfragemethode eine unterschiedliche Bedeutung und Format. Hier ist, wie sie sich bei verschiedenen Methoden unterscheidet:
+- {{HTTPMethod("GET")}}: Eine Ressource wurde vom Server abgerufen und im Antworttext bereitgestellt.
+- {{HTTPMethod("POST")}}: Eine Aktion war erfolgreich; die Antwort enthält eine Nachricht, die das Ergebnis beschreibt.
+- {{HTTPMethod("HEAD")}}: Identisch zu `GET`, außer dass es keinen Nachrichtentext gibt.
+- {{HTTPMethod("TRACE")}}: Die Antwort enthält einen Nachrichtentext, der die Anfrage so enthält, wie sie vom Server empfangen wurde.
 
-- {{HTTPMethod("GET")}}: Eine Ressource wurde vom Server abgerufen und im Antwortkörper enthalten.
-- {{HTTPMethod("POST")}}: Eine Aktion war erfolgreich; die Antwort enthält einen Nachrichtentext, der das Ergebnis beschreibt.
-- {{HTTPMethod("HEAD")}}: Identisch mit `GET`, außer dass es keinen Nachrichtentext gibt.
-- {{HTTPMethod("TRACE")}}: Die Antwort enthält einen Nachrichtentext, der die vom Server empfangene Anfrage enthält.
-
-Obwohl es möglich ist, führen erfolgreiche {{HTTPMethod("PUT")}}- oder {{HTTPMethod("DELETE")}}-Anfragen oft nicht zu einer `200 OK`-Antwort. Wahrscheinlicher ist es, dass Sie {{HTTPStatus("201", "201 Created")}} sehen, wenn die Ressource zum ersten Mal hochgeladen oder erstellt wird, oder {{HTTPStatus("204", "204 No Content")}}, wenn eine Ressource erfolgreich gelöscht wurde.
+Obwohl möglich, führen erfolgreiche {{HTTPMethod("PUT")}}- oder {{HTTPMethod("DELETE")}}-Anfragen oft nicht zu einer `200 OK`-Antwort.
+Es ist üblicher, {{HTTPStatus("201", "201 Created")}} zu sehen, wenn die Ressource zum ersten Mal hochgeladen oder erstellt wird, oder {{HTTPStatus("204", "204 No Content")}} bei erfolgreicher Löschung einer Ressource.
 
 ## Status
 
@@ -26,9 +27,10 @@ Obwohl es möglich ist, führen erfolgreiche {{HTTPMethod("PUT")}}- oder {{HTTPM
 
 ## Beispiele
 
-### Erhalt eines `200 OK` für eine `GET`-Anfrage
+### Empfangen eines `200 OK` für eine `GET`-Anfrage
 
-In diesem Beispiel liefert eine erfolgreiche `GET`-Anfrage an `https://example.com` eine `200 OK`-Antwort. Die Antwort enthält Repräsentations-Header und einen Nachrichtentext mit dem HTML-Inhalt:
+In diesem Beispiel führt eine erfolgreiche `GET`-Anfrage an `https://example.com` zu einer `200 OK`-Antwort.
+Die Antwort enthält Präsentations-Header und einen Nachrichtentext mit den HTML-Inhalten:
 
 ```http
 HTTP/1.1 200 OK
@@ -48,9 +50,10 @@ Content-Length: 1256
 <!-- HTML content follows here -->
 ```
 
-### Erhalt eines `200 OK` für eine `POST`-Anfrage bei der Formularübermittlung
+### Empfangen eines `200 OK` für eine `POST`-Anfrage bei der Formularübermittlung
 
-Angenommen, ein Formular existiert, um Daten an einen Endpunkt zur Verwaltung von Abonnements bei `http://example.com/subscribe` zu senden. Eine `POST`-Anfrage, um einen Benutzer zu abonnieren, könnte wie folgt aussehen:
+Angenommen, es gibt ein Formular, um Daten an einen Endpoint zur Verwaltung von Abonnements unter `http://example.com/subscribe` zu senden.
+Eine `POST`-Anfrage, um einen Benutzer zu abonnieren, könnte wie folgt aussehen:
 
 ```http
 POST /subscribe HTTP/1.1
@@ -61,7 +64,7 @@ Content-Length: 50
 name=Brian%20Smith&email=brian.smith%40example.com
 ```
 
-In diesem Beispiel könnte eine Antwort mit einem `200 OK`-Status so aussehen:
+In diesem Beispiel könnte eine Antwort mit dem Status `200 OK` folgendermaßen aussehen:
 
 ```http
 HTTP/1.1 200 OK

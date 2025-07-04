@@ -2,16 +2,14 @@
 title: 502 Bad Gateway
 slug: Web/HTTP/Reference/Status/502
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
+Der HTTP-Statuscode **`502 Bad Gateway`** [Serverfehler-Antwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) bedeutet, dass ein Server als Gateway oder {{Glossary("Proxy_server", "Proxy")}} agierte und eine ungültige Antwort vom vorgelagerten Server erhielt.
 
-Der HTTP-Statuscode **`502 Bad Gateway`** der [Serverfehlerantwort](/de/docs/Web/HTTP/Reference/Status#server_error_responses) zeigt an, dass ein Server als Gateway oder {{Glossary("Proxy_server", "Proxy")}} fungierte und eine ungültige Antwort vom Upstream-Server erhalten hat.
+Diese Antwort ähnelt einer {{HTTPStatus("500", "500 Internal Server Error")}}-Antwort insofern, als dass sie ein allgemeiner "Catch-Call" für Serverfehler ist. Der Unterschied besteht darin, dass sie spezifisch für den Punkt in der Anforderungskette ist, an dem der Fehler aufgetreten ist. Wenn der Ursprungsserver eine gültige HTTP-Fehlerantwort an das Gateway sendet, sollte die Antwort an den Client weitergeleitet werden, anstatt eine `502`, um den Grund des Fehlers transparent zu machen. Wenn der Proxy oder das Gateway keine HTTP-Antwort vom Ursprung erhalten hat, sendet es stattdessen eine {{HTTPStatus("504", "504 Gateway Timeout")}} an den Client.
 
-Diese Antwort ähnelt einer {{HTTPStatus("500", "500 Internal Server Error")}}-Antwort, da sie ein generisches "Catch-All" für Serverfehler darstellt. Der Unterschied besteht darin, dass sie spezifisch für den Punkt in der Anforderungskette ist, an dem der Fehler aufgetreten ist. Wenn der Ursprungsserver eine gültige HTTP-Fehlerantwort an das Gateway sendet, sollte die Antwort anstelle einer `502` an den Client weitergegeben werden, um den Grund für das Scheitern transparent zu machen. Wenn der Proxy oder das Gateway keine HTTP-Antwort vom Ursprungsserver erhalten hat, sendet es stattdessen eine {{HTTPStatus("504", "504 Gateway Timeout")}} an den Client.
-
-Es gibt viele Ursachen für `502`-Fehler, und die Behebung solcher Probleme erfordert wahrscheinlich eine Untersuchung durch Serverbesitzer oder Administratoren. Ausnahmen sind Netzwerkfehler des Clients, insbesondere wenn der Dienst für andere Besucher funktioniert und wenn Clients VPNs oder andere benutzerdefinierte Netzwerkeinstellungen verwenden. In solchen Fällen sollten die Clients die Netzwerkeinstellungen, Firewall-Konfiguration, Proxy-Einstellungen, DNS-Konfiguration usw. überprüfen.
+Es gibt viele Ursachen für `502`-Fehler, und die Behebung solcher Probleme erfordert wahrscheinlich eine Untersuchung durch Serverbesitzer oder Administratoren. Ausnahmen sind Netzwerkfehler auf der Client-Seite, insbesondere wenn der Dienst für andere Besucher funktioniert und wenn Clients VPNs oder andere benutzerdefinierte Netzwerkkonfigurationen verwenden. In solchen Fällen sollten Clients ihre Netzwerkeinstellungen, Firewall-Konfigurationen, Proxy-Einstellungen, DNS-Konfigurationen usw. überprüfen.
 
 ## Status
 
@@ -23,7 +21,7 @@ Es gibt viele Ursachen für `502`-Fehler, und die Behebung solcher Probleme erfo
 
 ### 502 Gateway-Fehlerantwort
 
-Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine `502`-Antwort zurück. Der Antwortinhalt enthält eine Seite, die den Serverzustand beschreibt, mit einem Link zu einer Support-Seite für Besucher.
+Die folgende Anfrage versucht, eine Webseite abzurufen, erhält aber eine `502`-Antwort. Der Antworttext enthält eine Seite, die den Serverstatus beschreibt, mit einem Link zu einer Supportseite für Besucher.
 
 ```http
 GET /highlights HTTP/1.1

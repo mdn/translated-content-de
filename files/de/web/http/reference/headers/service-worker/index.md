@@ -3,21 +3,20 @@ title: Service-Worker header
 short-title: Service-Worker
 slug: Web/HTTP/Reference/Headers/Service-Worker
 l10n:
-  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Der HTTP **`Service-Worker`** {{Glossary("request_header", "Anforderungs-Header")}} wird bei Anfragen für die Skriptressource eines Service Workers eingeschlossen. Dieser Header hilft Administratoren, Anfragen für Service-Worker-Skripte zu protokollieren, um sie zu überwachen.
+Der HTTP-**`Service-Worker`**-{{Glossary("request_header", "Request-Header")}} wird bei Abfragen für die Skriptressource eines Service Workers einbezogen.
+Dieser Header hilft Administratoren, Anfragen nach Service-Worker-Skripten zu protokollieren, um Überwachungszwecke zu erfüllen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -33,7 +32,7 @@ Service-Worker: script
 
 - `script`
   - : Ein Wert, der angibt, dass es sich um ein Skript handelt.
-    Dies ist die einzige zulässige Direktive für diesen Header.
+    Dies ist die einzige erlaubte Direktive für diesen Header.
 
 ## Spezifikationen
 
@@ -45,5 +44,5 @@ Service-Worker: script
 
 ## Siehe auch
 
-- {{HTTPHeader("Service-Worker-Allowed")}} Header
+- {{HTTPHeader("Service-Worker-Allowed")}}-Header
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)

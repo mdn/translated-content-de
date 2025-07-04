@@ -3,13 +3,11 @@ title: "Content-Security-Policy: connect-src Direktive"
 short-title: connect-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-{{HTTPSidebar}}
-
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`connect-src`** Direktive beschränkt die URLs, die mithilfe von Skript-Schnittstellen geladen werden können. Die folgenden APIs werden durch diese Direktive gesteuert:
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`connect-src`** Direktive beschränkt die URLs, die über Skript-Schnittstellen geladen werden können. Folgende APIs werden durch diese Direktive kontrolliert:
 
 - Das [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping) Attribut in {{htmlelement("a")}} Elementen
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
@@ -19,17 +17,18 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
 - [`EventSource`](/de/docs/Web/API/EventSource)
 - [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
 
-> [!NOTE] > `connect-src 'self'` löst in allen Browsern nicht zu Websocket-Schemata auf, mehr Informationen in diesem [Problem](https://github.com/w3c/webappsec-csp/issues/7).
+> [!NOTE]
+> `connect-src 'self'` löst nicht in allen Browsern auf Websocket-Schemata aus. Weitere Informationen finden Sie in diesem [Problem](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">CSP Version</th>
+      <th scope="row">CSP-Version</th>
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Direktiv")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
@@ -51,7 +50,7 @@ Content-Security-Policy: connect-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
   - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
@@ -60,9 +59,9 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
-Angenommen, dieser CSP-Header ist gegeben:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: connect-src https://example.com/
