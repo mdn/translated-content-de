@@ -3,12 +3,12 @@ title: "Navigator: ink-Eigenschaft"
 short-title: ink
 slug: Web/API/Navigator/ink
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: bcc977bc3e79a87edd64cd9ef977b515f63daa2c
 ---
 
 {{SeeCompatTable}}{{APIRef("Ink API")}}
 
-Die **`ink`**-Schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`Ink`](/de/docs/Web/API/Ink)-Objekt für das aktuelle Dokument zurück, das Zugriff auf die Funktionalität der [Ink API](/de/docs/Web/API/Ink_API) bietet.
+Die schreibgeschützte **`ink`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`Ink`](/de/docs/Web/API/Ink)-Objekt für das aktuelle Dokument zurück und bietet Zugriff auf die Funktionalitäten der [Ink API](/de/docs/Web/API/Ink_API).
 
 ## Wert
 
@@ -32,7 +32,3 @@ async function inkInit() {
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

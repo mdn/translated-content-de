@@ -2,46 +2,46 @@
 title: Local Font Access API
 slug: Web/API/Local_Font_Access_API
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 6855bf0bdd644345f66b88b477fd219a5e7f866e
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Local Font Access API")}}
 
-Die **Local Font Access API** bietet die Möglichkeit, auf die lokal installierten Schriftartdaten des Benutzers zuzugreifen — dazu gehören auch höherstufige Details wie Namen, Stile und Familien sowie die Rohdaten der zugrunde liegenden Schriftartdateien.
+Die **Local Font Access API** bietet einen Mechanismus, um auf die lokal installierten Schriftartdaten des Benutzers zuzugreifen — dazu gehören höhere Details wie Namen, Stile und Familien sowie die Rohdaten der zugrunde liegenden Schriftartdateien.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-[Webfonts](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts) waren revolutionär, da sie Typografie im Web ermöglichten, indem sie Webdesignern die Möglichkeit gaben, benutzerdefinierte Schriftarten für ein Webdokument bereitzustellen. Angegeben über die {{cssxref("@font-face")}}-Regel, kann ein Webfont von einer in der `url()`-Funktion angegebenen URL geladen werden.
+[Webfonts](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts) waren revolutionär, indem sie Typografie im Web ermöglichten, da sie Webdesignern erlauben, benutzerdefinierte Schriften bereitzustellen, die in einem Webdokument verwendet werden können. Angegeben über die {{cssxref("@font-face")}}-Regel, kann ein Webfont von einer in der `url()`-Funktion bereitgestellten URL geladen werden.
 
-`@font-face` hat mehrere weitere nützliche Funktionen. Insbesondere können Sie auch den vollständigen oder Postscript-Namen der Schriftart in der `local()`-Funktion angeben, um dem Browser zu signalisieren, eine lokale Kopie zu verwenden, wenn der Benutzer die Schriftart auf seinem Computer installiert hat. Dies ist nicht ohne Probleme — `local()` ist berüchtigt als [Fingerprinting-Vektor](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts#local_fonts_as_fingerprint_vector) geworden.
+`@font-face` hat mehrere andere nützliche Funktionen. Insbesondere können Sie den vollständigen Namen oder Postscript-Namen der Schriftart in der Funktion `local()` angeben, um dem Browser mitzuteilen, dass er eine lokale Kopie verwenden soll, wenn der Benutzer die Schriftart auf seinem Computer installiert hat. Dies ist nicht ohne Probleme — `local()` ist berüchtigt geworden als ein [Fingerprinting-Vektor](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts#local_fonts_as_fingerprint_vector).
 
-Darüber hinaus war es historisch gesehen schwierig, hochwertige Design-Tools im Web bereitzustellen, da es Herausforderungen bei der genauen Schriftartenenumeration und dem Zugriff auf niedrigstufige Schriftartdaten (zum Beispiel zum Anwenden von Filtern und Transformationen) gibt. Aktuelle Apps verlassen sich oft auf Workarounds, wie das Hochladen von Schriftarten durch Benutzer auf einen Server, wo sie verarbeitet werden, um Rohdaten zu erhalten, oder die Installation eines separaten lokalen Programms, um zusätzliche Fähigkeiten bereitzustellen.
+Darüber hinaus waren High-End-Designtools historisch schwer im Web bereitzustellen, aufgrund von Herausforderungen bei der genauen Schrifterkennung und dem Zugriff auf niedere Schriftartdaten (zum Beispiel, um Filter und Transformationen anzuwenden). Aktuelle Apps verlassen sich oft auf Workarounds, wie zum Beispiel den Benutzern zu bitten, ihre Schriftarten auf einen Server hochzuladen, wo sie verarbeitet werden, um Rohdatendaten zu erhalten, oder ein separates lokales Programm zu installieren, um zusätzliche Funktionen bereitzustellen.
 
-Die Local Font Access API wurde entwickelt, um diese Probleme zu lösen.
+Die Local Font Access API wurde erstellt, um diese Probleme zu lösen.
 
-Die Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) bietet Zugriff auf ein Array von lokal installierten Schriftarten, die jeweils durch ein [`FontData`](/de/docs/Web/API/FontData)-Objektinstanz repräsentiert werden. [`FontData`](/de/docs/Web/API/FontData) verfügt über mehrere Eigenschaften, die Zugriff auf Namen, Stile und Familien bieten, und es hat auch eine [`blob()`](/de/docs/Web/API/FontData/blob)-Methode, die Zugriff auf ein [`Blob`](/de/docs/Web/API/Blob) enthält, das die Rohdaten der zugrunde liegenden Schriftdatei enthält.
+Die Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) bietet Zugriff auf ein Array lokal installierter Schriften, die jeweils durch eine [`FontData`](/de/docs/Web/API/FontData)-Objektinstanz repräsentiert werden. [`FontData`](/de/docs/Web/API/FontData) hat mehrere Eigenschaften, die Zugriff auf Namen, Stile und Familien bieten, und es hat auch eine [`blob()`](/de/docs/Web/API/FontData/blob)-Methode, die Zugriff auf ein [`Blob`](/de/docs/Web/API/Blob) bietet, das die Rohdaten der zugrunde liegenden Schriftartdatei enthält.
 
 In Bezug auf Datenschutz und Sicherheit:
 
-- Die Local Font Access API ist so konzipiert, dass sie nur Zugriff auf die Daten bietet, die erforderlich sind, um die oben genannten Probleme zu lösen. Es gibt auch keine Anforderung für Browser, die vollständige Liste der verfügbaren lokalen Schriftarten bereitzustellen, noch die Daten in der gleichen Reihenfolge wie sie auf der Festplatte erscheinen.
-- Wenn Sie [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) aufrufen, wird der Benutzer um Erlaubnis gebeten, auf seine lokalen Schriftarten zuzugreifen. Der Status dieser Erlaubnis kann über die [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden (die `local-fonts`-Berechtigung).
-- Sie können den Zugriff auf diese Funktion mithilfe einer {{httpheader("Permissions-Policy/local-fonts", "local-fonts")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) steuern.
+- Die Local Font Access API ist so konzipiert, dass sie nur den Zugang zu den Daten bietet, die zur Lösung der oben genannten Probleme erforderlich sind. Es gibt auch keine Anforderung an Browser, die vollständige Liste der verfügbaren lokalen Schriften bereitzustellen oder die Daten in derselben Reihenfolge zu liefern, wie sie auf der Festplatte erscheinen.
+- Wenn [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, auf seine lokalen Schriftarten zuzugreifen. Der Status dieser Erlaubnis kann über die [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden (die Berechtigung `local-fonts`).
+- Sie können den Zugang zu dieser Funktion mit einer {{httpheader("Permissions-Policy/local-fonts", "local-fonts")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) steuern.
 
 ## Schnittstellen
 
 - [`FontData`](/de/docs/Web/API/FontData)
-  - : Repräsentiert einen einzelnen lokalen Schriftartensatz.
+  - : Repräsentiert ein einzelnes lokales Schriftbild.
 
-## Erweiterungen anderer Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
 - [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData)-Objekten erfüllt wird, die die lokal verfügbaren Schriftarten darstellen.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData)-Objekten erfüllt wird, die die lokal verfügbaren Schriftbilder repräsentieren.
 
 ## Beispiele
 
-Für ein funktionierendes Live-Demo siehe [Font Select Demo](https://local-font-access.glitch.me/demo/).
+Für eine funktionierende Live-Demo, siehe unser [Local Font Access API-Demo](https://mdn.github.io/dom-examples/local-font-access/).
 
-### Funktionsprüfung
+### Feature-Erkennung
 
 ```js
 if ("queryLocalFonts" in window) {
@@ -49,9 +49,9 @@ if ("queryLocalFonts" in window) {
 }
 ```
 
-### Schriftartenenumeration
+### Schriftarten-Aufzählung
 
-Der folgende Ausschnitt wird alle verfügbaren Schriftarten abfragen und Metadaten protokollieren. Dies könnte beispielsweise verwendet werden, um ein Schriftart-Auswahlsteuerung zu füllen.
+Das folgende Snippet fragt nach allen verfügbaren Schriftarten und protokolliert Metadaten. Dies könnte verwendet werden, um beispielsweise ein Schriftarten-Auswahlsteuerung zu füllen.
 
 ```js
 async function logFontData() {
@@ -71,7 +71,7 @@ async function logFontData() {
 
 ### Zugriff auf niedrigstufige Daten
 
-Die [`blob()`](/de/docs/Web/API/FontData/blob)-Methode bietet Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten — dies ist ein Schriftart-Dateiformat, das andere Schriftformate enthalten kann, wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF).
+Die [`blob()`](/de/docs/Web/API/FontData/blob)-Methode bietet Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten — dies ist ein Schriftartdateiformat, das andere Schriftformate enthalten kann, wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF).
 
 ```js
 async function computeOutlineFormat() {
@@ -119,4 +119,4 @@ async function computeOutlineFormat() {
 
 - [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}
-- Die Richtlinie {{httpheader("Permissions-Policy/local-fonts", "local-fonts")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- Die {{httpheader("Permissions-Policy/local-fonts", "local-fonts")}}-Richtlinie [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

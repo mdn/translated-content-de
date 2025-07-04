@@ -2,12 +2,12 @@
 title: Funktionen und Klassen, die Web-Workern zur Verfügung stehen
 slug: Web/API/Web_Workers_API/Functions_and_classes_available_to_workers
 l10n:
-  sourceCommit: 407e167070e81eec6ca2231326242e3e354b9cd5
+  sourceCommit: d172ab534ac45c6acfda33782752b095ed98aea8
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Zusätzlich zu dem standardmäßigen Satz von [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) gibt es eine Vielzahl von Funktionen (und APIs), die in Workern verfügbar sind. Dieser Artikel bietet eine Liste dieser Funktionen.
+Zusätzlich zu dem standardmäßigen [JavaScript](/de/docs/Web/JavaScript)-Funktionssatz (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) stehen in Workern eine Vielzahl von Funktionen (und APIs) zur Verfügung. Dieser Artikel bietet eine Liste dieser Funktionen.
 
 ## Funktionen, die in Workern verfügbar sind
 
@@ -36,7 +36,7 @@ Die folgenden Funktionen sind **nur** in Workern verfügbar:
 ## Web-APIs, die in Workern verfügbar sind
 
 > [!NOTE]
-> Wenn eine gelistete API von einer Plattform in einer bestimmten Version unterstützt wird, kann generell angenommen werden, dass sie in Web-Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch mit der Seite testen: <https://worker-playground.glitch.me/>
+> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann im Allgemeinen davon ausgegangen werden, dass sie in Web-Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt oder eine Funktion mit dem [Worker Playground](https://mdn.github.io/dom-examples/web-workers/worker-playground/) testen.
 
 Die folgenden Web-APIs sind in Workern verfügbar:
 
@@ -50,7 +50,7 @@ Die folgenden Web-APIs sind in Workern verfügbar:
 - [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API)
 - [Console API](/de/docs/Web/API/Console_API)
 - [Content Index API](/de/docs/Web/API/Content_Index_API)
-- [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) (nur Service Worker)
+- [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) (nur Service-Worker)
 - [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API)
 - [Encoding API](/de/docs/Web/API/Encoding_API)
 - [Fetch API](/de/docs/Web/API/Fetch_API)
@@ -82,7 +82,7 @@ Die folgenden Web-APIs sind in Workern verfügbar:
 - [WebCodecs API](/de/docs/Web/API/WebCodecs_API)
 - [WebGL API](/de/docs/Web/API/WebGL_API)
 - [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebHID API](/de/docs/Web/API/WebHID_API) (nur dedizierte und Service Worker)
+- [WebHID API](/de/docs/Web/API/WebHID_API) (nur dedizierte und Service-Worker)
 - [WebUSB API](/de/docs/Web/API/WebUSB_API)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
@@ -96,5 +96,5 @@ Worker können auch andere Worker erstellen, sodass diese APIs ebenfalls verfüg
 
 ## Siehe auch
 
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [`Worker`](/de/docs/Web/API/Worker)

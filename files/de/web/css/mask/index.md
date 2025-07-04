@@ -2,14 +2,14 @@
 title: mask
 slug: Web/CSS/mask
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: be28a11d9b2f6ab4ad0e5947e72a13ce16d4a6f2
 ---
 
 {{CSSRef}}
 
-Die **`mask`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) verbirgt ein Element (teilweise oder vollständig) durch Maskieren oder Abschneiden eines festgelegten Bereichs des Bildes. Sie ist eine Kurzform für alle [`mask-*`](#untergeordnete_eigenschaften) Eigenschaften. Die Eigenschaft akzeptiert einen oder mehrere kommagetrennte Werte, wobei jeder Wert einem [`<mask-layer>`](#mask-layer) entspricht.
+Die **`mask`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) verbirgt ein Element (teilweise oder vollständig), indem sie einen bestimmten Bereich des Bildes maskiert oder beschneidet. Es ist eine Kurzform für alle [`mask-*`](#bestandteil-eigenschaften) Eigenschaften. Die Eigenschaft akzeptiert einen oder mehrere durch Kommas getrennte Werte, wobei jeder Wert einem [`<mask-layer>`](#mask-layer) entspricht.
 
-## Untergeordnete Eigenschaften
+## Bestandteil-Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -57,9 +57,9 @@ mask: unset;
 ### Werte
 
 - `<mask-layer>`
-  - : Ein oder mehrere kommagetrennte Maskenschichten, bestehend aus den folgenden Komponenten:
+  - : Eine oder mehrere durch Kommas getrennte Maskenschichten, bestehend aus den folgenden Komponenten:
     - `<mask-reference>`
-      - : Legt die Maskenbild-Quelle fest. Siehe {{cssxref("mask-image")}}.
+      - : Legt die Quelle des Maskenbildes fest. Siehe {{cssxref("mask-image")}}.
     - `<masking-mode>`
       - : Legt den Maskierungsmodus des Maskenbildes fest. Siehe {{cssxref("mask-mode")}}.
     - `<position>`
@@ -69,17 +69,17 @@ mask: unset;
     - `<repeat-style>`
       - : Legt die Wiederholung des Maskenbildes fest. Siehe {{cssxref("mask-repeat")}}.
     - `<geometry-box>`
-      - : Wenn nur ein `<geometry-box>` Wert angegeben ist, werden sowohl die {{cssxref("mask-origin")}} als auch die {{cssxref("mask-clip")}} Eigenschaftswerte festgelegt. Wenn zwei `<geometry-box>` Werte vorhanden sind, definiert der erste den `mask-origin` und der zweite den `mask-clip`.
+      - : Wenn nur ein `<geometry-box>` Wert angegeben ist, setzt er sowohl die {{cssxref("mask-origin")}} als auch die {{cssxref("mask-clip")}} Eigenschaftswerte. Wenn zwei `<geometry-box>` Werte vorhanden sind, definiert der erste den `mask-origin` und der zweite den `mask-clip`.
     - `<geometry-box> | no-clip`
-      - : Legt den Bereich fest, der von der Maske betroffen ist. Siehe {{cssxref("mask-clip")}}.
+      - : Legt den von dem Maskenbild betroffenen Bereich fest. Siehe {{cssxref("mask-clip")}}.
     - `<compositing-operator>`
-      - : Legt die Zusammensetzungsoperation für die aktuelle Maskenschicht fest. Siehe {{cssxref("mask-composite")}}.
+      - : Legt den Kompositionsvorgang fest, der auf die aktuelle Maskenschicht angewendet wird. Siehe {{cssxref("mask-composite")}}.
 
 ## Beschreibung
 
-Die `mask` Kurzform-Eigenschaft verbirgt Teile oder das gesamte Element, auf das sie angewendet wird. Die Teile des Elements, die verborgen, sichtbar oder teilweise sichtbar sind, hängen entweder von der Opazität (Alphakanal der Maske) oder der Helligkeit (Luminanz) der Maske ab. Bei der Alpha-Maskierung enthüllen undurchsichtige Bereiche der Maske das Element, während transparente Bereiche es verbergen. Bei der Luminanz-Maskierung enthüllen helle undurchsichtige Bereiche der Maske das Element, während dunkle oder transparente Bereiche es verbergen.
+Die `mask` Kurzform-Eigenschaft verbirgt Teile des Elements, auf das sie angewendet wird, oder das gesamte Element. Die Teile des Elements, die verborgen, sichtbar oder teilweise sichtbar sind, hängen entweder von der Opazität (Alphakanal der Maske) oder der Helligkeit (Luminanz) der Maske ab. Bei der Alpha-Maskierung zeigen undurchsichtige Bereiche der Maske das Element, während transparente Bereiche es verbergen. Bei der Luminanz-Maskierung zeigen helle undurchsichtige Bereiche der Maske das Element, während dunkle oder transparente Bereiche es verbergen.
 
-Obwohl nicht alle untergeordneten Maskeneigenschaften deklariert werden müssen, nehmen alle weggelassenen Werte ihre Initialwerte an, die sind:
+Während nicht alle bestandteilenden Maskeneigenschaften deklariert werden müssen, setzen alle ausgelassenen Werte ihre Anfangswerte, die sind:
 
 ```css
 mask-image: none;
@@ -94,9 +94,9 @@ mask-composite: add;
 
 Innerhalb jeder `<mask-layer>` muss die `mask-size` Komponente nach dem `mask-position` Wert kommen, wobei ein Schrägstrich (`/`) die beiden trennt.
 
-Wenn zwei `<geometry-box>` Werte vorhanden sind, ist der erste der `mask-origin` Wert, während der zweite der `mask-clip` Wert ist. Wenn ein `<geometry-box>` Wert und das `no-clip` Schlüsselwort vorhanden sind, ist das `<geometry-box>` der Wert der `mask-origin` Eigenschaft, da `no-clip` nur für die `mask-clip` Eigenschaft gültig ist. In diesem Fall spielt die Reihenfolge der beiden Werte keine Rolle. Ist nur ein `<geometry-box>` Wert vorhanden (ohne Angabe des `no-clip` Schlüsselworts), wird dieser Wert sowohl für die `mask-origin` als auch die `mask-clip` Eigenschaften verwendet.
+Wenn zwei `<geometry-box>` Werte vorhanden sind, ist der erste der `mask-origin` Wert, während der zweite der `mask-clip` Wert ist. Wenn ein `<geometry-box>` Wert und das Schlüsselwort `no-clip` vorhanden sind, ist der `<geometry-box>` der Wert der `mask-origin` Eigenschaft, da `no-clip` nur für die `mask-clip` Eigenschaft gültig ist. In diesem Fall spielt die Reihenfolge der beiden Werte keine Rolle. Wenn nur ein `<geometry-box>` Wert vorhanden ist (und kein `no-clip` Schlüsselwort angegeben ist), wird dieser Wert sowohl für die `mask-origin` als auch für die `mask-clip` Eigenschaften verwendet.
 
-Da die `mask` Kurzform alle `mask-border-*` Eigenschaften auf ihren `initial` Wert zurücksetzt, sollten diese Eigenschaften — oder die {{cssxref("mask-border")}} Kurzform — nach allen `mask` Deklarationen deklariert werden. Wenn Sie `mask` in Ihrem Deklarationsblock setzen, legen Sie auch implizit die folgenden Eigenschaften fest:
+Da die `mask` Kurzform alle `mask-border-*` Eigenschaften auf ihren `initial` Wert zurücksetzt, sollten diese Eigenschaften — oder die {{cssxref("mask-border")}} Kurzform — nach allen `mask` Deklarationen deklariert werden. Wenn `mask` in Ihrem Deklarationsblock festgelegt wird, setzen Sie implizit auch Folgendes:
 
 ```css
 mask-border-source: none;
@@ -107,7 +107,7 @@ mask-border-slice: 0;
 mask-border-width: auto;
 ```
 
-Aus diesem Grund empfiehlt die Spezifikation, die `mask` Kurzform anstelle der einzelnen Komponenteneigenschaften zu verwenden, um alle zuvor in der Kaskade gesetzten Masken zu überschreiben. Dies stellt sicher, dass auch der `mask-border` zurückgesetzt wurde.
+Aus diesem Grund empfiehlt die Spezifikation die Verwendung der `mask` Kurzform anstelle der einzelnen Bestandteileigenschaften, um alle vorher im Kaskadenablauf gesetzten Masken zu überschreiben. Dies stellt sicher, dass `mask-border` ebenfalls zurückgesetzt wurde.
 
 ## Formale Definition
 
@@ -119,13 +119,13 @@ Aus diesem Grund empfiehlt die Spezifikation, die `mask` Kurzform anstelle der e
 
 ## Beispiele
 
-### Maskieren eines Bildes
+### Maskierung eines Bildes
 
-In diesem Beispiel wird ein Bild mit einem CSS-generierten, sich wiederholenden konischen Farbverlauf als Maskenquelle maskiert. Wir zeigen den Farbverlauf auch als Hintergrundbild zum Vergleich.
+In diesem Beispiel wird ein Bild mit einem von CSS generierten sich wiederholenden Kegelverlauf als Maskenquelle maskiert. Wir zeigen auch den Gradienten als Hintergrundbild zum Vergleich.
 
 #### HTML
 
-Wir fügen einen {{htmlelement("img")}} und ein leeres {{htmlelement("div")}} Element ein.
+Wir binden ein {{htmlelement("img")}} und ein leeres {{htmlelement("div")}} Element ein.
 
 ```html
 <img
@@ -136,7 +136,7 @@ Wir fügen einen {{htmlelement("img")}} und ein leeres {{htmlelement("div")}} El
 
 #### CSS
 
-Wir setzen dasselbe {{cssxref("border")}}, {{cssxref("padding")}} und dieselbe Größe sowohl auf das `<img>` als auch auf das `<div>`.
+Wir setzen denselben {{cssxref("border")}}, {{cssxref("padding")}}, und Größen auf sowohl die `<img>` als auch die `<div>`.
 
 ```css
 img,
@@ -149,7 +149,7 @@ div {
 }
 ```
 
-Wir wenden dann eine Maske auf das `<img>` an. Das `mask-image` wird mithilfe einer {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} Funktion erzeugt. Wir definieren es als einen `100px` mal `100px` großen Farbverlauf, der sich ab der oberen linken Ecke des `content-box` des Bildes wiederholt. Wir fügen zwei `<geometry-box>` Werte hinzu; der erste setzt den `mask-origin` und der zweite definiert den `mask-clip` Eigenschaftswert. Der Farbverlauf reicht von transparent bis zu festem `lightgreen`. Wir haben `lightgreen` verwendet, um zu demonstrieren, dass nicht die Farbe der Maske wichtig ist, sondern deren Transparenz.
+Dann wird eine Maske auf das `<img>` angewendet. Das `mask-image` wird mithilfe einer {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} Funktion generiert. Wir definieren es als einen `100px` mal `100px` großen Gradient, der von der oberen linken Ecke der `content-box` des Bildes wiederholt wird. Wir fügen zwei `<geometry-box>` Werte hinzu; der erste setzt den `mask-origin` und der zweite definiert den `mask-clip` Eigenschaftswert. Der Verlauf reicht von transparent zu solidem `lightgreen`. Wir haben `lightgreen` verwendet, um zu demonstrieren, dass nicht die Farbe der Maske wichtig ist, sondern ihre Transparenz.
 
 ```css
 img {
@@ -162,7 +162,7 @@ img {
 }
 ```
 
-Schließlich verwenden wir denselben Wert für die {{cssxref("background")}} Kurzform-Eigenschaft des `<div>`, den wir auch für die Maske verwendet haben.
+Schließlich verwenden wir denselben Wert für die {{cssxref("background")}} Kurzform-Eigenschaft des `<div>` wie für die `mask`.
 
 ```css
 div {
@@ -191,6 +191,9 @@ div {
 
 - {{CSSxRef("clip-path")}}
 - {{CSSxRef("filter")}}
+- [Einführung in die CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
+- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
+- [Deklaration mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
 - [CSS-Maskierung](/de/docs/Web/CSS/CSS_masking) Modul
 - SVG {{SVGAttr("mask")}} Attribut
-- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)
+- [Anwenden von SVG-Effekten auf HTML-Inhalt](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

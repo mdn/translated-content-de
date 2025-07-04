@@ -1,16 +1,16 @@
 ---
-title: "FileSystemFileHandle: Methode createSyncAccessHandle()"
+title: "FileSystemFileHandle: createSyncAccessHandle() Methode"
 short-title: createSyncAccessHandle()
 slug: Web/API/FileSystemFileHandle/createSyncAccessHandle
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ac7a39584dc77b42aac19473cc522bbedbf13717
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`createSyncAccessHandle()`**-Methode der [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das in ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Objekt aufgelöst wird. Dieses Objekt kann synchron verwendet werden, um von einer Datei zu lesen und in eine Datei zu schreiben. Die synchrone Natur dieser Methode bringt Leistungsverbesserungen mit sich, kann jedoch nur innerhalb dedizierter [Web Workers](/de/docs/Web/API/Web_Workers_API) für Dateien im [origin-eigenen Dateisystem](/de/docs/Web/API/File_System_API/Origin_private_file_system) verwendet werden.
+Die **`createSyncAccessHandle()`** Methode des [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) Interfaces gibt ein {{jsxref('Promise')}} zurück, das in ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) Objekt aufgelöst wird, das verwendet werden kann, um synchron auf eine Datei zuzugreifen und sie zu bearbeiten. Die synchrone Natur dieser Methode bringt Leistungsverbesserungen, ist jedoch nur innerhalb dedizierter [Web Worker](/de/docs/Web/API/Web_Workers_API) für Dateien im [origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system) nutzbar.
 
-Das Erstellen eines [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) beansprucht eine exklusive Sperre für die Datei, die mit dem Datei-Handle verknüpft ist. Dies verhindert die Erstellung weiterer [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)s oder [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)s für die Datei, bis das bestehende Zugriffs-Handle geschlossen wird.
+Das Erstellen eines [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) nimmt eine exklusive Sperre auf die Datei ein, die mit dem Dateihandle verbunden ist. Dies verhindert die Erstellung weiterer [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)s oder [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)s für die Datei, bis das bestehende Zugriffshandle geschlossen wird.
 
 ## Syntax
 
@@ -24,34 +24,34 @@ createSyncAccessHandle(options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `mode` {{optional_inline}} {{non-standard_inline}}
-      - : Ein String, der den Sperrmodus für das Zugriffs-Handle angibt. Der Standardwert ist `"readwrite"`. Mögliche Werte sind:
+      - : Ein String, der den Sperrmodus für das Zugriffshandle angibt. Der Standardwert ist `"readwrite"`. Mögliche Werte sind:
         - `"read-only"`
-          - : Mehrere `FileSystemSyncAccessHandle`-Objekte können gleichzeitig auf einer Datei geöffnet werden (zum Beispiel, wenn dieselbe App in mehreren Tabs verwendet wird), vorausgesetzt, sie werden alle im `"read-only"`-Modus geöffnet. Sobald sie geöffnet sind, können leseartige Methoden auf den Handles aufgerufen werden — [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close).
+          - : Mehrere `FileSystemSyncAccessHandle` Objekte können gleichzeitig auf eine Datei geöffnet werden (zum Beispiel bei der Verwendung der gleichen Anwendung in mehreren Tabs), vorausgesetzt, sie werden alle im Modus `"read-only"` geöffnet. Sobald geöffnet, können leseähnliche Methoden auf den Handles aufgerufen werden — [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize), und [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close).
         - `"readwrite"`
-          - : Es kann nur ein `FileSystemSyncAccessHandle`-Objekt auf einer Datei geöffnet werden. Der Versuch, nachfolgende Handles zu öffnen, bevor das erste Handle geschlossen ist, führt dazu, dass eine `NoModificationAllowedError`-Ausnahme ausgelöst wird. Sobald geöffnet, kann jede verfügbare Methode auf dem Handle aufgerufen werden.
+          - : Nur ein `FileSystemSyncAccessHandle` Objekt kann auf eine Datei geöffnet werden. Der Versuch, weitere Handles zu öffnen, bevor das erste Handle geschlossen ist, führt zu einer `NoModificationAllowedError` Ausnahme. Sobald geöffnet, kann jede verfügbare Methode auf dem Handle aufgerufen werden.
         - `"readwrite-unsafe"`
-          - : Mehrere `FileSystemSyncAccessHandle`-Objekte können gleichzeitig auf einer Datei geöffnet werden, vorausgesetzt, sie werden alle im `"readwrite-unsafe"`-Modus geöffnet. Sobald geöffnet, kann jede verfügbare Methode auf den Handles aufgerufen werden.
+          - : Mehrere `FileSystemSyncAccessHandle` Objekte können gleichzeitig auf eine Datei geöffnet werden, vorausgesetzt, sie werden alle im Modus `"readwrite-unsafe"` geöffnet. Sobald geöffnet, kann jede verfügbare Methode auf den Handles aufgerufen werden.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das in ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Objekt aufgelöst wird.
+Ein {{jsxref('Promise')}} das in ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) Objekt aufgelöst wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das Handle im `readwrite`-Modus nicht `granted` ist.
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das Handle nicht `granted` im `readwrite` Modus ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Objekt keine Datei im [origin-eigenen Dateisystem](/de/docs/Web/API/File_System_API/Origin_private_file_system) repräsentiert.
+  - : Wird ausgelöst, wenn das [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) Objekt keine Datei im [origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system) darstellt.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Browser keine Sperre auf die Datei erlangen kann, die mit dem Datei-Handle verknüpft ist. Dies könnte daran liegen, dass `mode` auf `readwrite` gesetzt ist und versucht wird, mehrere Handles gleichzeitig zu öffnen.
+  - : Wird ausgelöst, wenn der Browser keine Sperre auf die mit dem Dateihandle verbundene Datei erwerben kann. Dies könnte der Fall sein, weil `mode` auf `readwrite` gesetzt ist und versucht wird, mehrere Handles gleichzeitig zu öffnen.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Der folgende asynchrone Event-Handler wird innerhalb eines Web Workers enthalten. Der darin enthaltene Codeausschnitt erstellt ein synchrones Datei-Zugriffs-Handle.
+Der folgende asynchrone Ereignis-Handler ist in einem Web Worker enthalten. Der darin enthaltene Code erstellt ein synchrones Dateizugriffshandle.
 
 ```js
 onmessage = async (e) => {
@@ -71,17 +71,17 @@ onmessage = async (e) => {
 };
 ```
 
-### Vollständiges Beispiel mit der `mode`-Option
+### Komplettes Beispiel mit `mode` Option
 
-Unser [Beispiel zur `createSyncAccessHandle()`-Modustest](https://createsyncaccesshandle-mode-test.glitch.me/) bietet ein {{htmlelement("input")}}-Feld zur Eingabe von Text und zwei Schaltflächen — eine zum Schreiben des eingegebenen Textes an das Ende einer Datei im origin-eigenen Dateisystem und eine zum Leeren der Datei, wenn sie zu voll wird.
+Unser [`createSyncAccessHandle()` Modus Test](https://mdn.github.io/dom-examples/file-system-api/createsyncaccesshandle-mode/) Beispiel (sehen Sie sich den [Quellcode an](https://github.com/mdn/dom-examples/tree/main/file-system-api/createsyncaccesshandle-mode)) stellt ein {{htmlelement("input")}} Feld bereit, um Text einzugeben, und zwei Tasten — eine, um eingegebenen Text an das Ende einer Datei im origin private file system zu schreiben, und eine, um die Datei zu leeren, wenn sie zu voll wird.
 
-Versuchen Sie, die Demo oben zu erkunden, mit der geöffneten Entwicklerkonsole des Browsers, um zu sehen, was passiert. Wenn Sie versuchen, die Demo in mehreren Browser-Tabs zu öffnen, werden Sie feststellen, dass mehrere Handles gleichzeitig geöffnet werden können, um zur selben Zeit in die Datei zu schreiben. Dies liegt daran, dass `mode: "readwrite-unsafe"` in den `createSyncAccessHandle()`-Aufrufen gesetzt wird.
+Versuchen Sie, das oben stehende Demo zu erkunden, während die Entwicklertools des Browsers geöffnet sind, damit Sie sehen, was passiert. Wenn Sie versuchen, das Demo in mehreren Browser-Tabs zu öffnen, werden Sie feststellen, dass mehrere Handles gleichzeitig geöffnet werden können, um gleichzeitig in die Datei zu schreiben. Dies liegt daran, dass `mode: "readwrite-unsafe"` auf den `createSyncAccessHandle()` Aufrufen gesetzt ist.
 
-Im Folgenden werden wir den Code erkunden.
+Nachfolgend werden wir den Code untersuchen.
 
 #### HTML
 
-Die zwei {{htmlelement("button")}}-Elemente und das Text-{{htmlelement("input")}}-Feld sehen folgendermaßen aus:
+Die zwei {{htmlelement("button")}} Elemente und das Text {{htmlelement("input")}} Feld sehen so aus:
 
 ```html
 <ol>
@@ -101,10 +101,10 @@ Die zwei {{htmlelement("button")}}-Elemente und das Text-{{htmlelement("input")}
 
 #### Haupt-JavaScript
 
-Das Haupt-JavaScript im HTML-Dokument wird unten gezeigt. Wir holen uns Referenzen zu der Schaltfläche zum Schreiben von Text, der Schaltfläche zum Leeren der Datei und dem Texteingabefeld, dann erstellen wir einen neuen Web Worker mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor. Wir definieren dann zwei Funktionen und setzen sie als Event-Handler auf die Schaltflächen:
+Das Haupt-JavaScript im HTML-Dokument ist unten gezeigt. Wir holen Verweise auf die Schreib-Taste, die Datei-Leer-Taste und das Texteingabefeld, dann erstellen wir einen neuen Web Worker mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker) Konstruktor. Wir definieren dann zwei Funktionen und legen sie als Ereignis-Handler für die Tasten fest:
 
-- `writeToOPFS()` wird ausgeführt, wenn die Schaltfläche zum Schreiben von Text geklickt wird. Diese Funktion postet den eingegebenen Wert des Textfelds an den Worker innerhalb eines Objektes über die Methode [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage), dann wird das Textfeld geleert und für den nächsten Eintrag vorbereitet. Beachten Sie, wie das übergebene Objekt auch eine `command: "write"`-Eigenschaft enthält, um anzugeben, dass wir eine Schreibaktion mit dieser Nachricht auslösen möchten.
-- `emptyOPFS()` wird ausgeführt, wenn die Schaltfläche zum Leeren der Datei geklickt wird. Diese postet ein Objekt mit einer `command: "empty"`-Eigenschaft an den Worker, der angibt, dass die Datei geleert werden soll.
+- `writeToOPFS()` wird ausgeführt, wenn die Schreib-Taste geklickt wird. Diese Funktion sendet den eingegebenen Wert des Textfeldes innerhalb eines Objekts an den Worker mit der [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) Methode, dann leert sie das Textfeld, um für die nächste Eingabe bereit zu sein. Beachten Sie, dass das gesendete Objekt auch eine `command: "write"` Eigenschaft enthält, um anzugeben, dass wir mit dieser Nachricht eine Schreibaktion auslösen möchten.
+- `emptyOPFS()` wird ausgeführt, wenn die Datei-Leer-Taste geklickt wird. Dies sendet ein Objekt, das eine `command: "empty"` Eigenschaft enthält, an den Worker, der angibt, dass die Datei geleert werden soll.
 
 ```js
 const writeBtn = document.querySelector(".write");
@@ -132,11 +132,11 @@ writeBtn.addEventListener("click", writeToOPFS);
 emptyBtn.addEventListener("click", emptyOPFS);
 ```
 
-#### Worker-JavaScript
+#### Worker JavaScript
 
 Das Worker-JavaScript wird unten gezeigt.
 
-Zuerst führen wir eine Funktion namens `initOPFS()` aus, die eine Referenz zum OPFS-Stamm mit [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory) erhält, eine Datei erstellt und deren Handle mit [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle) zurückgibt, und dann ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) mit `createSyncAccessHandle()` zurückgibt. Dieser Aufruf enthält die Eigenschaft `mode: "readwrite-unsafe"`, die es ermöglicht, dass mehrere Handles gleichzeitig auf dieselbe Datei zugreifen.
+Zuerst führen wir eine Funktion namens `initOPFS()` aus, die eine Referenz auf das OPFS-Root-Verzeichnis mit [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory) erhält, eine Datei erstellt und ihr Handle mit [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle) zurückgibt, und dann ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) mit `createSyncAccessHandle()` zurückgibt. Dieser Aufruf beinhaltet die `mode: "readwrite-unsafe"` Eigenschaft, die es mehreren Handles erlaubt, gleichzeitig auf die gleiche Datei zuzugreifen.
 
 ```js
 let accessHandle;
@@ -152,14 +152,14 @@ async function initOPFS() {
 initOPFS();
 ```
 
-Innerhalb der [Nachrichten-Ereignis](/de/docs/Web/API/Worker/message_event)-Handler-Funktion des Workers holen wir uns zuerst die Größe der Datei mit [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize). Dann überprüfen wir, ob die im Message-Daten gesendeten Daten eine `command`-Eigenschaft mit dem Wert `"empty"` enthalten. Wenn ja, leeren wir die Datei mit [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) mit einem Wert von `0` und aktualisieren die Dateigröße, die in der Variablen `size` enthalten ist.
+Innerhalb der [message event](/de/docs/Web/API/Worker/message_event)-Handler-Funktion des Workers erhalten wir zuerst die Größe der Datei mit [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize). Dann überprüfen wir, ob die mit der Nachricht gesendeten Daten eine `command` Eigenschaft mit dem Wert `"empty"` enthalten. Wenn ja, leeren wir die Datei mit [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) mit einem Wert von `0` und aktualisieren die Dateigröße in der `size` Variablen.
 
-Wenn die Nachrichten-Daten etwas anderes sind, dann:
+Wenn die Nachrichtendaten etwas anderes sind, tun wir Folgendes:
 
-- Erstellen wir einen neuen [`TextEncoder`](/de/docs/Web/API/TextEncoder) und [`TextDecoder`](/de/docs/Web/API/TextDecoder), um später den Textinhalt zu kodieren und zu dekodieren.
-- Kodieren wir die Nachrichtendaten und schreiben das Ergebnis an das Ende der Datei mit [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write), dann aktualisieren wir die Dateigröße, die in der Variablen `size` enthalten ist.
-- Erstellen wir eine {{jsxref("DataView")}}, um die Dateiinhalte zu enthalten, und lesen den Inhalt mit [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read) in diese ein.
-- Dekodieren wir den Inhalt des `DataView` und protokollieren ihn in die Konsole.
+- Wir erstellen einen neuen [`TextEncoder`](/de/docs/Web/API/TextEncoder) und [`TextDecoder`](/de/docs/Web/API/TextDecoder), um später den Textinhalt zu kodieren und zu dekodieren.
+- Wir kodieren die Nachrichtendaten und schreiben das Ergebnis ans Ende der Datei mit [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write), dann aktualisieren wir die Dateigröße in der `size` Variablen.
+- Wir erstellen eine {{jsxref("DataView")}}, um den Dateiinhalten Raum zu geben, und lesen den Inhalt in sie hinein mit [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read).
+- Wir dekodieren den `DataView` Inhalt und protokollieren ihn in die Konsole.
 
 ```js
 onmessage = function (e) {

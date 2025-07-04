@@ -1,36 +1,36 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Funktionen"
+title: "Testen Sie Ihr Können: Funktionen"
 short-title: Functions
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Functions
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 312c9980fc7a973cea1e16d4a6e9c33b430c8179
 ---
 
-Das Ziel dieses Fähigkeitstests ist zu überprüfen, ob Sie unsere Artikel über [Funktionen — wiederverwendbare Codeblöcke](/de/docs/Learn_web_development/Core/Scripting/Functions), [Erstellen Sie Ihre eigene Funktion](/de/docs/Learn_web_development/Core/Scripting/Build_your_own_function), und [Rückgabewerte von Funktionen](/de/docs/Learn_web_development/Core/Scripting/Return_values) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie unsere Artikel [Funktionen — wiederverwendbare Codeblöcke](/de/docs/Learn_web_development/Core/Scripting/Functions), [Erstellen Sie Ihre eigene Funktion](/de/docs/Learn_web_development/Core/Scripting/Build_your_own_function) und [Funktionsrückgabewerte](/de/docs/Learn_web_development/Core/Scripting/Return_values) verstanden haben.
 
 > [!NOTE]
-> Für Aufgaben 1–4 können Sie die Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn ein Fehler auftritt, wird er im Ergebnis-Panel auf der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
+> Für die Aufgaben 1–4 können Sie Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
+> Wenn ein Fehler auftritt, wird er im Ergebnisbereich der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
 >
-> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## DOM-Manipulation: als nützlich erachtet
 
-Für einige der folgenden Fragen müssen Sie etwas {{Glossary("DOM", "DOM")}} Manipulationscode schreiben — wie zum Beispiel neue HTML-Elemente erstellen, deren Textinhalte auf bestimmte Zeichenfolgenwerte setzen und sie in vorhandene Elemente auf der Seite einfügen — alles über JavaScript.
+Einige der unten stehenden Fragen erfordern, dass Sie etwas {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu vervollständigen — beispielsweise das Erstellen neuer HTML-Elemente, das Setzen ihres Textinhalts auf bestimmte String-Werte und das Einfügen in vorhandene Elemente auf der Seite — alles über JavaScript.
 
-Wir haben dies im Kurs noch nicht ausdrücklich gelehrt, aber Sie haben einige Beispiele gesehen, die es verwenden, und wir möchten, dass Sie einige Nachforschungen darüber anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Einführung in das DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) Tutorial.
+Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie haben einige Beispiele gesehen, die davon Gebrauch machen, und wir möchten, dass Sie etwas recherchieren, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Einführung ins DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting)-Tutorial.
 
 ## Interaktive Herausforderung
 
-Zuerst geben wir Ihnen eine unterhaltsame, interaktive Herausforderung, die Rückgabewerte von Funktionen beinhaltet, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
+Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Herausforderung, die sich mit Funktionsrückgabewerten befasst und von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
 
-Schauen Sie sich das eingebettete Scrim an und erledigen Sie die Aufgabe auf der Zeitleiste (das kleine Geistersymbol), indem Sie die Anweisungen befolgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich den eingebetteten Scrim an und erledigen Sie die Aufgabe auf der Timeline (das kleine Geistersymbol), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie den Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~02h" scrimtitle="Rückgabewerte in Funktionen"></scrim-inline>
+<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~02h" scrimtitle="Returning values in functions" survey="true"></scrim-inline>
 
 ## Aufgabe 1
 
-Für diese Aufgabe erstellen Sie eine einfache Funktion—`chooseName()`—die einen zufälligen Namen aus dem bereitgestellten Array (`names`) in den bereitgestellten Absatz (`para`) druckt und führen Sie sie dann einmal aus.
+Erstellen Sie für diese Aufgabe eine einfache Funktion—`chooseName()`—die einen zufälligen Namen aus dem bereitgestellten Array (`names`) in den bereitgestellten Absatz (`para`) ausgibt und führen Sie sie anschließend einmal aus.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -38,11 +38,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 > [!CALLOUT]
 >
-> [Laden Sie den Startpunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
 ## Aufgabe 2
 
-Für unsere nächste, mit Funktionen verknüpfte Aufgabe müssen Sie eine Funktion erstellen, die ein Rechteck auf den bereitgestellten `<canvas>` zeichnet (Referenzvariable `canvas`, Kontext verfügbar in `ctx`), basierend auf den fünf bereitgestellten Eingabevariablen:
+Für unsere nächste, funktionsbezogene Aufgabe müssen Sie eine Funktion erstellen, die ein Rechteck auf dem bereitgestellten `<canvas>` (Referenzvariable `canvas`, verfügbarer Kontext in `ctx`) zeichnet, basierend auf den fünf bereitgestellten Eingabevariablen:
 
 - `x` — die x-Koordinate des Rechtecks.
 - `y` — die y-Koordinate des Rechtecks.
@@ -50,7 +50,7 @@ Für unsere nächste, mit Funktionen verknüpfte Aufgabe müssen Sie eine Funkti
 - `height` — die Höhe des Rechtecks.
 - `color` — die Farbe des Rechtecks.
 
-Sie sollten die Leinwand löschen, bevor Sie zeichnen, damit im Falle der Live-Version, wenn der Code aktualisiert wird, nicht viele Rechtecke übereinander gezeichnet werden.
+Sie sollten die Leinwand vor dem Zeichnen löschen, damit beim Aktualisieren des Codes im Fall der Live-Version nicht viele Rechtecke übereinander gezeichnet werden.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -58,15 +58,15 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 > [!CALLOUT]
 >
-> [Laden Sie den Startpunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
 ## Aufgabe 3
 
-In dieser Aufgabe kehren Sie zu dem in Aufgabe 1 angesprochenen Problem zurück, mit dem Ziel, es zu verbessern. Die drei Verbesserungen, die Sie vornehmen sollen, sind:
+In dieser Aufgabe kehren Sie zu dem in Aufgabe 1 gestellten Problem zurück, mit dem Ziel, es zu verbessern. Die drei Verbesserungen, die Sie vornehmen sollen, sind:
 
-1. Refaktorieren Sie den Code, der die Zufallszahl generiert, in eine separate Funktion namens `random()`, die als Parameter zwei allgemeine Grenzen übernimmt, zwischen denen die Zufallszahl liegen sollte, und das Ergebnis zurückgibt.
-2. Aktualisieren Sie die `chooseName()` Funktion so, dass sie die Zufallszahlfunktion nutzt, das Array, aus dem gewählt werden soll, als Parameter übernimmt (um sie flexibler zu machen) und das Ergebnis zurückgibt.
-3. Drucken Sie das zurückgegebene Ergebnis in den `textContent` des Absatzes (`para`).
+1. Refaktorieren Sie den Code, der die Zufallszahl generiert, in eine separate Funktion namens `random()`, die als Parameter zwei allgemeine Grenzen annimmt, zwischen denen die Zufallszahl liegen soll, und geben Sie das Ergebnis zurück.
+2. Aktualisieren Sie die Funktion `chooseName()`, sodass sie die Zufallszahlenfunktion nutzt, das Array zur Auswahl als Parameter annimmt (um sie flexibler zu machen) und das Ergebnis zurückgibt.
+3. Geben Sie das zurückgegebene Ergebnis in den `textContent` des Absatzes (`para`) aus.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -74,11 +74,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 > [!CALLOUT]
 >
-> [Laden Sie den Startpunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
 ## Aufgabe 4
 
-In dieser Aufgabe haben wir ein Array von Namen, und wir verwenden {{jsxref("Array.filter()")}}, um ein Array von nur Namen kürzer als 5 Zeichen zu erhalten. Der Filter wird derzeit mit einer benannten Funktion `isShort()` übergeben, die die Länge des Namens überprüft und `true` zurückgibt, wenn der Name weniger als 5 Zeichen lang ist, und `false` andernfalls.
+In dieser Aufgabe haben wir ein Array von Namen, und wir verwenden {{jsxref("Array.filter()")}}, um ein Array mit nur Namen zu erhalten, die kürzer als 5 Zeichen sind. Der Filter wird derzeit mit einer benannten Funktion `isShort()` aufgerufen, die die Länge des Namens überprüft und `true` zurückgibt, wenn der Name weniger als 5 Zeichen lang ist, andernfalls `false`.
 
 Wir möchten, dass Sie dies in eine Pfeilfunktion ändern. Sehen Sie, wie kompakt Sie es machen können.
 
@@ -86,4 +86,4 @@ Wir möchten, dass Sie dies in eine Pfeilfunktion ändern. Sehen Sie, wie kompak
 
 > [!CALLOUT]
 >
-> [Laden Sie den Startpunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.

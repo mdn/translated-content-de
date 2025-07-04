@@ -1,14 +1,14 @@
 ---
-title: "Ink: requestPresenter() Methode"
+title: "Ink: requestPresenter()-Methode"
 short-title: requestPresenter()
 slug: Web/API/Ink/requestPresenter
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: bcc977bc3e79a87edd64cd9ef977b515f63daa2c
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die **`requestPresenter()`** Methode des [`Ink`](/de/docs/Web/API/Ink) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Objekt erfüllt wird, um das Rendern von Strichen zu handhaben.
+Die **`requestPresenter()`**-Methode der [`Ink`](/de/docs/Web/API/Ink)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekt erfüllt wird, um die Darstellung von Strichen zu handhaben.
 
 ## Syntax
 
@@ -21,16 +21,16 @@ requestPresenter(param)
 - `param` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `presentationArea` {{optional_inline}}
-      - : Ein [`Element`](/de/docs/Web/API/Element), innerhalb dessen die Darstellung der Tintenschläge eingeschränkt ist (genauer gesagt die Rahmenbox des Elements). Wenn `param` nicht enthalten ist oder `presentationArea` auf `null` gesetzt ist, ist die Tintenwiedergabe standardmäßig auf den enthaltenen Ansichtsbereich beschränkt.
+      - : Ein [`Element`](/de/docs/Web/API/Element), innerhalb dessen die Darstellung der Schriftstriche eingeschränkt ist (genauer gesagt die Rahmenbox des Elements). Wenn `param` nicht enthalten ist oder `presentationArea` auf `null` gesetzt ist, ist die Tintenwiedergabe standardmäßig auf das umgebende Ansichtsfenster beschränkt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf eine [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Objektinstanz aufgelöst wird.
+Ein {{jsxref("Promise")}}, das sich zu einer Instanz des [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekts auflöst.
 
 ### Ausnahmen
 
 - `Error` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ein Fehler wird ausgelöst und der Vorgang wird abgebrochen, wenn `presentationArea` kein gültiges [`Element`](/de/docs/Web/API/Element) ist oder nicht im selben Dokument wie das zugehörige [`Ink`](/de/docs/Web/API/Ink) Objekt vorliegt.
+  - : Ein Fehler wird ausgelöst und die Operation wird abgebrochen, wenn `presentationArea` kein gültiges [`Element`](/de/docs/Web/API/Element) ist oder nicht im selben Dokument wie das zugehörige [`Ink`](/de/docs/Web/API/Ink)-Objekt ist.
 
 ## Beispiel
 
@@ -50,7 +50,3 @@ async function inkInit() {
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [Optimierung von Ink auf dem Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

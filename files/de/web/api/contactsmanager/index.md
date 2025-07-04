@@ -2,25 +2,25 @@
 title: ContactsManager
 slug: Web/API/ContactsManager
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: f84cdbda4f9c642f57083e013341f170774f0973
 ---
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Das **`ContactsManager`**-Interface der [Contact Picker API](/de/docs/Web/API/Contact_Picker_API) ermöglicht es Benutzern, Einträge aus ihrer Kontaktliste auszuwählen und eingeschränkte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
+Das **`ContactsManager`** Interface der [Contact Picker API](/de/docs/Web/API/Contact_Picker_API) ermöglicht es Nutzern, Einträge aus ihrer Kontaktliste auszuwählen und begrenzte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
 
-Der `ContactsManager` ist über die globale Eigenschaft [`navigator.contacts`](/de/docs/Web/API/Navigator/contacts) verfügbar.
+Der `ContactsManager` ist über die globale [`navigator.contacts`](/de/docs/Web/API/Navigator/contacts) Eigenschaft verfügbar.
 
 ## Instanzmethoden
 
 - [`select()`](/de/docs/Web/API/ContactsManager/select) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das, wenn es aufgelöst wird, dem Benutzer einen Kontaktpicker präsentiert, mit dem Kontakte ausgewählt werden können, die sie teilen möchten.
+  - : Gibt ein {{jsxref('Promise')}} zurück, das, wenn es aufgelöst wird, dem Benutzer einen Kontaktpicker präsentiert, der es ihm ermöglicht, die Kontakte auszuwählen, die er teilen möchte.
 - [`getProperties()`](/de/docs/Web/API/ContactsManager/getProperties) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird, die angeben, welche Kontakteigenschaften verfügbar sind.
+  - : Gibt ein {{jsxref('Promise')}} zurück, welches sich mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} auflöst, die anzeigen, welche Kontakt-Eigenschaften verfügbar sind.
 
 ## Beispiele
 
-### Feature-Erkennung
+### Funktionsüberprüfung
 
 Der folgende Code überprüft, ob die Contact Picker API unterstützt wird.
 
@@ -28,9 +28,9 @@ Der folgende Code überprüft, ob die Contact Picker API unterstützt wird.
 const supported = "contacts" in navigator && "ContactsManager" in window;
 ```
 
-### Überprüfen der unterstützten Eigenschaften
+### Überprüfung auf unterstützte Eigenschaften
 
-Die folgende asynchrone Funktion verwendet die Methode `getProperties`, um die unterstützten Eigenschaften zu überprüfen.
+Die folgende asynchrone Funktion verwendet die Methode `getProperties`, um nach unterstützten Eigenschaften zu suchen.
 
 ```js
 async function checkProperties() {
@@ -53,11 +53,11 @@ async function checkProperties() {
 }
 ```
 
-### Auswählen von Kontakten
+### Kontakte auswählen
 
-Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, sowie ein Optionsobjekt, um die Auswahl mehrerer Kontakte zu ermöglichen.
+Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, sowie ein Optionsobjekt, das die Auswahl mehrerer Kontakte ermöglicht.
 
-Eine asynchrone Funktion wird dann definiert, die die Methode `select()` verwendet, um dem Benutzer eine Kontaktpicker-Oberfläche zu präsentieren und die gewählten Ergebnisse zu verarbeiten.
+Eine asynchrone Funktion wird dann definiert, die die Methode `select()` verwendet, um dem Benutzer eine Kontaktpicker-Schnittstelle zu präsentieren und die ausgewählten Ergebnisse zu verarbeiten.
 
 ```js
 const props = ["name", "email", "tel", "address", "icon"];
@@ -85,5 +85,5 @@ async function getContacts() {
 
 ## Siehe auch
 
-- [A Contact Picker for the Web](https://developer.chrome.com/docs/capabilities/web-apis/contact-picker)
-- [Ein Contact Picker-Demo auf glitch](https://contact-picker.glitch.me/)
+- [Ein Kontaktpicker für das Web](https://developer.chrome.com/docs/capabilities/web-apis/contact-picker)
+- [Live-Demo der Contact Picker API](https://mdn.github.io/dom-examples/contact-picker/)
