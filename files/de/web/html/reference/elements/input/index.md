@@ -1,13 +1,13 @@
 ---
-title: "<input>: Das HTML-Input-Element"
+title: "<input>: Das HTML Input-Element"
 slug: Web/HTML/Reference/Elements/input
 l10n:
-  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
+  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
 ---
 
 {{HTMLSidebar}}
 
-Das **`<input>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um interaktive Steuerungen für webbasierte Formulare zu erstellen, um Daten vom Benutzer zu akzeptieren; je nach Gerät und {{Glossary("user_agent", "Benutzeragent")}} stehen eine Vielzahl von Eingabedatentypen und Steuerungswidgets zur Verfügung. Das `<input>`-Element ist eines der mächtigsten und komplexesten in ganz HTML, aufgrund der schieren Anzahl von Kombinationen von Eingabetypen und Attributen.
+Das **`<input>`**-Element [HTML](/de/docs/Web/HTML) wird verwendet, um interaktive Steuerelemente für webbasierte Formulare zu erstellen, um Daten vom Benutzer zu akzeptieren; Eine Vielzahl von Eingabedatenarten und Steuerelementen sind verfügbar, abhängig vom Gerät und dem {{Glossary("user_agent", "User-Agent")}}. Das `<input>`-Element ist eines der leistungsfähigsten und komplexesten in HTML aufgrund der Vielzahl an Kombinationen von Eingabetypen und Attributen.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;text&quot;&gt;", "tabbed-shorter")}}
 
@@ -38,9 +38,9 @@ label {
 }
 ```
 
-## `<input>` Typen
+## `<input>`-Typen
 
-Wie ein `<input>` funktioniert, variiert erheblich in Abhängigkeit vom Wert seines [`type`](#type)-Attributs, weshalb die verschiedenen Typen auf eigenen separaten Referenzseiten behandelt werden. Wenn dieses Attribut nicht angegeben ist, wird als Standardtyp `text` angenommen.
+Wie ein `<input>` funktioniert, variiert erheblich, je nach Wert seines [`type`](#type)-Attributs. Daher werden die verschiedenen Typen auf ihren eigenen separaten Referenzseiten behandelt. Wenn dieses Attribut nicht angegeben ist, wird standardmäßig der Typ `text` angenommen.
 
 Die verfügbaren Typen sind wie folgt:
 
@@ -52,16 +52,16 @@ Die verfügbaren Typen sind wie folgt:
   </colgroup>
   <thead>
     <tr>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Beschreibung</th>
-      <th>Grundlegende Beispiele</th>
+      <th>Einfache Beispiele</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>{{HTMLElement("input/button", "button")}}</td>
       <td>
-        Eine Schaltfläche ohne Standardverhalten, die den Wert des <a href="#value"><code>value</code></a>-Attributs anzeigt, standardmäßig leer.
+        Ein Druckknopf ohne Standardverhalten, der den Wert des <a href="#value"><code>value</code></a>-Attributs anzeigt, standardmäßig leer.
       </td>
       <td id="examplebutton">
         <pre class="brush: html hidden">
@@ -71,7 +71,7 @@ Die verfügbaren Typen sind wie folgt:
     </tr>
     <tr>
       <td>{{HTMLElement("input/checkbox", "checkbox")}}</td>
-      <td>Ein Kontrollkästchen, das Einzelwerte ausgewählt/nicht ausgewählt werden lässt.</td>
+      <td>Ein Kontrollkästchen, das es ermöglicht, einzelne Werte auszuwählen oder abzuwählen.</td>
       <td id="examplecheckbox">
         <pre class="brush: html hidden">
 &#x3C;input type="checkbox" name="checkbox"/></pre>
@@ -81,7 +81,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/color", "color")}}</td>
       <td>
-        Eine Steuerung zur Angabe einer Farbe; Bei Aktivierung öffnet sich in unterstützten Browsern ein Farbwähler.
+        Ein Steuerelement zur Angabe einer Farbe; öffnet einen Farbwähler, wenn es in unterstützenden Browsern aktiv ist.
       </td>
       <td id="examplecolor">
         <pre class="brush: html hidden">
@@ -92,9 +92,8 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/date", "date")}}</td>
       <td>
-        Eine Steuerung zur Eingabe eines Datums (Jahr, Monat und Tag, ohne Zeit).
-        Öffnet einen Datumsauswahl- oder numerisches Rad für Jahr, Monat und Tag bei Aktivierung
-        in unterstützten Browsern.
+        Ein Steuerelement zum Eingeben eines Datums (Jahr, Monat und Tag, ohne Zeit).
+        Öffnet einen Datumsauswahl oder numerische Räder für Jahr, Monat, Tag, wenn es in unterstützenden Browsern aktiv ist.
       </td>
       <td id="exampledate">
         <pre class="brush: html hidden">
@@ -107,8 +106,7 @@ Die verfügbaren Typen sind wie folgt:
         {{HTMLElement("input/datetime-local", "datetime-local")}}
       </td>
       <td>
-        Eine Steuerung zur Eingabe eines Datums und einer Uhrzeit, ohne Zeitzone. Öffnet eine Datumsauswahl
-        oder numerische Räder für Datum- und Zeitkomponenten bei Aktivierung in unterstützten Browsern.
+        Ein Steuerelement zum Eingeben eines Datums und einer Zeit, ohne Zeitzone. Öffnet einen Datumsauswahl oder numerische Räder für Datum- und Zeitkomponenten, wenn es in unterstützenden Browsern aktiv ist.
       </td>
       <td id="exampledtl">
         <pre class="brush: html hidden">
@@ -119,9 +117,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/email", "email")}}</td>
       <td>
-        Ein Feld zur Bearbeitung einer E-Mail-Adresse. Sieht aus wie ein
-        <code>text</code>-Eingabefeld, verfügt jedoch über Validierungsparameter und relevante
-        Tastatur in unterstützten Browsern und Geräten mit dynamischen Tastaturen.
+        Ein Feld zur Bearbeitung einer E-Mail-Adresse. Sieht aus wie ein <code>text</code>-Eingabefeld, verfügt jedoch über Validierungsparameter und ein passendes Keyboard in unterstützenden Browsern und Geräten mit dynamischen Keyboards.
       </td>
       <td id="exampleemail">
         <pre class="brush: html hidden">
@@ -132,8 +128,8 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/file", "file")}}</td>
       <td>
-        Eine Steuerung, die es dem Benutzer ermöglicht, eine Datei auszuwählen.
-        Verwenden Sie das <a href="#accept"><code>accept</code></a>-Attribut, um die Arten von Dateien zu definieren, die die Steuerung auswählen kann.
+        Ein Steuerelement, das es dem Benutzer ermöglicht, eine Datei auszuwählen.
+        Verwenden Sie das <a href="#accept"><code>accept</code></a>-Attribut, um die Dateitypen zu definieren, die das Steuerelement auswählen kann.
       </td>
       <td id="examplefile">
         <pre class="brush: html hidden">
@@ -144,8 +140,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/hidden", "hidden")}}</td>
       <td>
-        Eine Steuerung, die nicht angezeigt wird, deren Wert jedoch an den
-        Server gesendet wird. Es gibt ein Beispiel in der nächsten Spalte, aber es ist versteckt!
+        Ein Steuerelement, das nicht angezeigt wird, aber dessen Wert an den Server übermittelt wird. Es gibt ein Beispiel in der nächsten Spalte, aber es ist verborgen!
       </td>
       <td id="examplehidden">
         <pre class="brush: html hidden">
@@ -157,7 +152,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/image", "image")}}</td>
       <td>
-        Ein grafischer <code>submit</code>-Button. Zeigt ein Bild an, das durch das <code>src</code>-Attribut definiert ist.
+        Ein graphischer <code>submit</code>-Button. Zeigt ein durch das <code>src</code>-Attribut definiertes Bild an.
         Das <a href="#alt"><code>alt</code></a>-Attribut wird angezeigt, wenn das Bild <a href="#src"><code>src</code></a> fehlt.
       </td>
       <td id="exampleimage">
@@ -168,7 +163,7 @@ Die verfügbaren Typen sind wie folgt:
     </tr>
     <tr>
       <td>{{HTMLElement("input/month", "month")}}</td>
-      <td>Eine Steuerung zur Eingabe eines Monats und Jahres, ohne Zeitzone.</td>
+      <td>Ein Steuerelement zur Eingabe eines Monats und Jahres, ohne Zeitzone.</td>
       <td id="examplemonth">
         <pre class="brush: html hidden">
 &#x3C;input type="month" name="month"/></pre>
@@ -178,9 +173,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/number", "number")}}</td>
       <td>
-        Eine Steuerung zur Eingabe einer Zahl. Zeigt einen Spinner an und fügt standardmäßig
-        Validierung hinzu. Zeigt eine numerische Tastatur auf einigen Geräten
-        mit dynamischen Tastaturen an.
+        Ein Steuerelement zur Eingabe einer Zahl. Zeigt einen Spinner an und fügt eine Standardvalidierung hinzu. Zeigt eine numerische Tastatur in einigen Geräten mit dynamischen Tastaturen an.
       </td>
       <td id="examplenumber">
         <pre class="brush: html hidden">
@@ -191,7 +184,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/password", "password")}}</td>
       <td>
-        Ein einzeiliges Textfeld, dessen Wert verborgen ist.
+        Ein einzeiliges Textfeld, dessen Wert verschleiert ist.
         Warnt den Benutzer, wenn die Seite nicht sicher ist.
       </td>
       <td id="examplepassword">
@@ -203,7 +196,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/radio", "radio")}}</td>
       <td>
-        Ein Optionsfeld, das es ermöglicht, einen einzigen Wert aus mehreren Optionen auszuwählen, die denselben <a href="#name"><code>name</code></a>-Wert haben.
+        Ein Optionsknopf, der es ermöglicht, einen einzelnen Wert aus mehreren Optionen mit demselben <a href="#name"><code>name</code></a>-Wert auszuwählen.
       </td>
       <td id="exampleradio">
         <pre class="brush: html hidden">
@@ -215,8 +208,8 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/range", "range")}}</td>
       <td>
-        Eine Steuerung zur Eingabe einer Zahl, deren exakter Wert nicht wichtig ist.
-        Wird als Bereichs-Widget angezeigt, das standardmäßig auf den mittleren Wert eingestellt ist.
+        Ein Steuerelement zur Eingabe einer Zahl, deren exakter Wert nicht wichtig ist.
+        Wird als Bereichs-Widget dargestellt, standardmäßig mit dem mittleren Wert.
         Wird in Verbindung mit <a href="#min"><code>min</code></a> und <a href="#max"><code>max</code></a> verwendet, um den Bereich der akzeptablen Werte zu definieren.
       </td>
       <td id="examplerange">
@@ -228,7 +221,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/reset", "reset")}}</td>
       <td>
-        Eine Schaltfläche, die den Inhalt des Formulars auf die Standardwerte zurücksetzt. Nicht empfohlen.
+        Ein Button, der die Inhalte des Formulars auf Standardwerte zurücksetzt. Nicht empfohlen.
       </td>
       <td id="examplereset">
         <pre class="brush: html hidden">
@@ -240,9 +233,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/search", "search")}}</td>
       <td>
-        Ein einzeiliges Textfeld zur Eingabe von Suchzeichenfolgen. Zeilenumbrüche werden
-        automatisch aus dem Eingabewert entfernt. Kann in unterstützten Browsern ein Löschsymbol enthalten, mit dem das Feld gelöscht werden kann. Zeigt
-        stattdessen ein Suchsymbol anstelle der Eingabetaste auf einigen Geräten mit dynamischen Tastaturen an.
+        Ein einzeiliges Textfeld zur Eingabe von Suchbegriffen. Zeilenumbrüche werden automatisch aus dem Eingabewert entfernt. Kann ein Löschsymbol in unterstützenden Browsern enthalten, das zum Löschen des Feldes verwendet werden kann. Zeigt ein Suchsymbol anstelle der Enter-Taste auf einigen Geräten mit dynamischen Tastaturen an.
       </td>
       <td id="examplesearch">
         <pre class="brush: html hidden">
@@ -252,7 +243,7 @@ Die verfügbaren Typen sind wie folgt:
     </tr>
     <tr>
       <td>{{HTMLElement("input/submit", "submit")}}</td>
-      <td>Eine Schaltfläche, die das Formular absendet.</td>
+      <td>Ein Button, der das Formular absendet.</td>
       <td id="examplesubmit">
         <pre class="brush: html hidden">
 &#x3C;input type="submit" name="submit"/></pre>
@@ -262,8 +253,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/tel", "tel")}}</td>
       <td>
-        Eine Steuerung zur Eingabe einer Telefonnummer. Zeigt eine Telefon-Tastatur
-        auf einigen Geräten mit dynamischen Tastaturen an.
+        Ein Steuerelement zur Eingabe einer Telefonnummer. Zeigt eine Telefontastatur auf einigen Geräten mit dynamischen Tastaturen an.
       </td>
       <td id="exampletel">
         <pre class="brush: html hidden">
@@ -274,8 +264,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/text", "text")}}</td>
       <td>
-        Der Standardwert. Ein einzeiliges Textfeld. Zeilenumbrüche werden
-        automatisch aus dem Eingabewert entfernt.
+        Der Standardwert. Ein einzeiliges Textfeld. Zeilenumbrüche werden automatisch aus dem Eingabewert entfernt.
       </td>
       <td id="exampletext">
         <pre class="brush: html hidden">
@@ -286,7 +275,7 @@ Die verfügbaren Typen sind wie folgt:
     </tr>
     <tr>
       <td>{{HTMLElement("input/time", "time")}}</td>
-      <td>Eine Steuerung zur Eingabe eines Zeitwertes ohne Zeitzone.</td>
+      <td>Ein Steuerelement zur Eingabe eines Zeitwertes ohne Zeitzone.</td>
       <td id="exampletime">
         <pre class="brush: html hidden">
 &#x3C;input type="time" name="time"/></pre>
@@ -296,9 +285,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/url", "url")}}</td>
       <td>
-        Ein Feld zur Eingabe einer URL. Sieht aus wie eine <code>text</code>-Eingabe, hat jedoch
-        Validierungsparameter und relevante Tastatur in unterstützten Browsern
-        und Geräten mit dynamischen Tastaturen.
+        Ein Feld zur Eingabe einer URL. Sieht aus wie ein <code>text</code>-Eingabefeld, hat jedoch Validierungsparameter und ein passendes Keyboard in unterstützenden Browsern und Geräten mit dynamischen Keyboards.
       </td>
       <td id="exampleurl">
         <pre class="brush: html hidden">
@@ -310,7 +297,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td>{{HTMLElement("input/week", "week")}}</td>
       <td>
-        Eine Steuerung zur Eingabe eines Datums bestehend aus einer Jahr-Woche-Nummer und einer Wochenzahl ohne Zeitzone.
+        Ein Steuerelement zur Eingabe eines Datums bestehend aus einer Wochennummer und einer Jahreszahl ohne Zeitzone.
       </td>
       <td id="exampleweek">
         <pre class="brush: html hidden">
@@ -324,7 +311,7 @@ Die verfügbaren Typen sind wie folgt:
     <tr>
       <td><code>datetime</code> {{deprecated_inline}}</td>
       <td>
-        Eine Steuerung zur Eingabe von Datum und Uhrzeit (Stunde, Minute, Sekunde und Bruchteil einer Sekunde) basierend auf der UTC-Zeitzone.
+        Ein Steuerelement zur Eingabe eines Datums und einer Zeit (Stunde, Minute, Sekunde und Bruchteile von Sekunden) basierend auf der UTC-Zeitzone.
       </td>
       <td id="exampledatetime">
         <pre class="brush: html hidden">
@@ -337,103 +324,96 @@ Die verfügbaren Typen sind wie folgt:
 
 ## Attribute
 
-Das `<input>`-Element ist so mächtig wegen seiner Attribute; das [`type`](#type)-Attribut, das oben mit Beispielen beschrieben wurde, ist das Wichtigste. Da jedes `<input>`-Element, unabhängig vom Typ, auf der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle basiert, teilen sie technisch gesehen den gleichen Satz von Attributen. In Wirklichkeit haben die meisten Attribute jedoch nur Auswirkungen auf eine bestimmte Untermenge von Eingabetypen. Zudem beeinflussen einige Attribute die Eingabe unterschiedlich, je nach Eingabetyp, und beeinflussen verschiedene Eingabetypen auf unterschiedliche Weise.
+Das `<input>`-Element ist so leistungsfähig wegen seiner Attribute; das [`type`](#type)-Attribut, oben mit Beispielen beschrieben, ist das wichtigste. Da jedes `<input>`-Element, unabhängig vom Typ, auf der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle basiert, teilen sie sich technisch denselben Satz von Attributen. In der Realität wirken sich jedoch die meisten Attribute nur auf eine bestimmte Untermenge von Eingabetypen aus. Darüber hinaus hängt die Art und Weise, wie einige Attribute eine Eingabe beeinflussen, vom Eingabetyp ab und beeinflusst unterschiedliche Eingabetypen auf unterschiedliche Weise.
 
-Dieser Abschnitt bietet eine Tabelle mit allen Attributen und einer kurzen Beschreibung. An diese Tabelle schließt sich eine Liste an, in der jedes Attribut detaillierter beschrieben wird, zusammen mit den Eingabetypen, mit denen sie verbunden sind. Attribute, die den meisten oder allen Eingabetypen gemeinsam sind, werden unten detaillierter definiert. Attribute, die einzigartig für bestimmte Eingabetypen sind oder Attribute, die für alle Eingabetypen gelten, aber bei einem bestimmten Eingabetyp spezielle Verhaltensweisen haben, werden hingegen auf den jeweiligen Typen-Seiten dokumentiert.
+Dieser Abschnitt bietet eine Tabelle mit einer Liste von Attributen und einer kurzen Beschreibung. Auf diese Tabelle folgt eine Liste, die jedes Attribut im Detail beschreibt, zusammen mit den Eingabetypen, mit denen es verbunden ist. Diejenigen, die für die meisten oder alle Eingabetypen gemeinsam sind, werden im Folgenden ausführlicher definiert. Attribute, die für bestimmte Eingabetypen einzigartig sind – oder Attribute, die für alle Eingabetypen gemeinsam sind, aber ein spezielles Verhalten haben, wenn sie bei einem bestimmten Eingabetyp verwendet werden – sind stattdessen auf den Seiten dieser Typen dokumentiert.
 
 Attribute für das `<input>`-Element umfassen die [globalen HTML-Attribute](/de/docs/Web/HTML/Reference/Global_attributes) und zusätzlich:
 
-| Attribut                                      | Typ(en)                                                                | Beschreibung                                                                                             |
-| --------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [`accept`](#accept)                           | `file`                                                                 | Hinweis für erwarteten Dateityp in Datei-Upload-Steuerungen                                              |
-| [`alt`](#alt)                                 | `image`                                                                | alt-Attribut für den Bildtyp. Erforderlich für Barrierefreiheit                                          |
-| [`autocapitalize`](#autocapitalize)           | alle außer `url`, `email` und `password`                               | Steuerung der automatischen Großschreibung bei eingegebenem Text.                                        |
-| [`autocomplete`](#autocomplete)               | alle außer `checkbox`, `radio` und Buttons                             | Hinweis für die Formular-Autofill-Funktion                                                               |
-| [`capture`](#capture)                         | `file`                                                                 | Medienaufnahme-Eingabemethode in Datei-Upload-Steuerungen                                                |
-| [`checked`](#checked)                         | `checkbox`, `radio`                                                    | Ob der Befehl oder die Steuerung aktiv ist                                                               |
-| [`dirname`](#dirname)                         | `hidden`, `text`, `search`, `url`, `tel`, `email`                      | Name des Formularfeldes zum Senden der Elemente Intentionins Mahlfluss bei Formulareinsendung            |
-| [`disabled`](#disabled)                       | alle                                                                   | Ob die Formularsteuerung deaktiviert ist                                                                 |
-| [`form`](#form)                               | alle                                                                   | Verknüpft die Steuerung mit einem Formularelement                                                        |
-| [`formaction`](#formaction)                   | `image`, `submit`                                                      | URL, die für die Formularübermittlung verwendet werden soll                                              |
-| [`formenctype`](#formenctype)                 | `image`, `submit`                                                      | Datensatzkodierungstyp für Formularübermittlung                                                          |
-| [`formmethod`](#formmethod)                   | `image`, `submit`                                                      | HTTP-Methode für die Formularübermittlung                                                                |
-| [`formnovalidate`](#formnovalidate)           | `image`, `submit`                                                      | Formularsteuerungsvalidierung für Formularübermittlung umgehen                                           |
-| [`formtarget`](#formtarget)                   | `image`, `submit`                                                      | Browsing-Kontext für die Formularübermittlung                                                            |
-| [`height`](#height)                           | `image`                                                                | Entspricht dem Attribut height für {{htmlelement('img')}}; vertikale Dimension                           |
-| [`list`](#list)                               | alle außer `hidden`, `password`, `checkbox`, `radio` und Buttons       | Wert des id-Attributs der {{htmlelement('datalist')}} mit Autovervollständigungsvorschlägen              |
-| [`max`](#max)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`   | Maximalwert                                                                                              |
-| [`maxlength`](#maxlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                    | Maximale Länge (Anzahl der Zeichen) von `value`                                                          |
-| [`min`](#min)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`   | Minimalwert                                                                                              |
-| [`minlength`](#minlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                    | Minimale Länge (Anzahl der Zeichen) von `value`                                                          |
-| [`multiple`](#multiple)                       | `email`, `file`                                                        | Boolean. Ob mehrere Werte erlaubt sind                                                                   |
-| [`name`](#name)                               | alle                                                                   | Name der Formularsteuerung. Wird mit dem Formular als Teil eines Name/Wert-Paares übermittelt            |
-| [`pattern`](#pattern)                         | `text`, `search`, `url`, `tel`, `email`, `password`                    | Muster, dem der `value` entsprechen muss, um gültig zu sein                                              |
-| [`placeholder`](#placeholder)                 | `text`, `search`, `url`, `tel`, `email`, `password`, `number`          | Text, der im Formularelement angezeigt wird, wenn kein Wert festgelegt ist                               |
-| [`popovertarget`](#popovertarget)             | `button`                                                               | Markiert ein `<input type="button">` als Steuerung für ein Popover-Element                               |
-| [`popovertargetaction`](#popovertargetaction) | `button`                                                               | Gibt die Aktion an, die eine Popover-Steuerung ausführen soll                                            |
-| [`readonly`](#readonly)                       | alle außer `hidden`, `range`, `color`, `checkbox`, `radio` und Buttons | Boolean. Der Wert ist nicht editierbar                                                                   |
-| [`required`](#required)                       | alle außer `hidden`, `range`, `color` und Buttons                      | Boolean. Ein Wert ist erforderlich oder muss angekreuzt sein, damit das Formular abgeschickt werden kann |
-| [`size`](#größe)                              | `text`, `search`, `url`, `tel`, `email`, `password`                    | Größe der Steuerung                                                                                      |
-| [`src`](#src)                                 | `image`                                                                | Entspricht dem Attribut `src` für {{htmlelement('img')}}; Adresse der Bildressource                      |
-| [`step`](#step)                               | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`   | Inkrementelle Werte, die gültig sind                                                                     |
-| [`type`](#type)                               | alle                                                                   | Typ der Formularsteuerung                                                                                |
-| [`value`](#value)                             | alle außer `image`                                                     | Der Wert der Steuerung. Wenn im HTML angegeben, entspricht er dem Anfangswert                            |
-| [`width`](#width)                             | `image`                                                                | Entspricht dem Attribut `width` für {{htmlelement('img')}}                                               |
+| Attribut                                      | Typ(en)                                                                | Beschreibung                                                                                        |
+| --------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [`accept`](#accept)                           | `file`                                                                 | Hinweis auf erwarteten Dateityp in Datei-Upload-Steuerelementen                                     |
+| [`alt`](#alt)                                 | `image`                                                                | alt-Attribut für den Bildtyp. Erforderlich für Barrierefreiheit                                     |
+| [`autocapitalize`](#autocapitalize)           | alle außer `url`, `email` und `password`                               | Steuert die automatische Großschreibung bei eingegebenem Text.                                      |
+| [`autocomplete`](#autocomplete)               | alle außer `checkbox`, `radio` und Buttons                             | Hinweis für Formular-Autovervollständigungsfunktion                                                 |
+| [`capture`](#capture)                         | `file`                                                                 | Methode der Medienaufnahme in Datei-Upload-Steuerelementen                                          |
+| [`checked`](#checked)                         | `checkbox`, `radio`                                                    | Ob der Befehl oder das Steuerelement aktiviert ist                                                  |
+| [`dirname`](#dirname)                         | `hidden`, `text`, `search`, `url`, `tel`, `email`                      | Name des Formularfeldes zur Verwendung beim Senden der Elementrichtung bei der Formularübermittlung |
+| [`disabled`](#disabled)                       | alle                                                                   | Ob das Formular-Steuerelement deaktiviert ist                                                       |
+| [`form`](#form)                               | alle                                                                   | Verknüpft das Steuerelement mit einem Formularelement                                               |
+| [`formaction`](#formaction)                   | `image`, `submit`                                                      | URL für die Formularübermittlung zu verwenden                                                       |
+| [`formenctype`](#formenctype)                 | `image`, `submit`                                                      | Formular-Datensatz-Codierungsart zur Verwendung bei der Formularübermittlung                        |
+| [`formmethod`](#formmethod)                   | `image`, `submit`                                                      | HTTP-Methode zur Verwendung bei der Formularübermittlung                                            |
+| [`formnovalidate`](#formnovalidate)           | `image`, `submit`                                                      | Überspringt die Formularsteuerungsvalidierung für die Formularübermittlung                          |
+| [`formtarget`](#formtarget)                   | `image`, `submit`                                                      | Browsing-Kontext für die Formularübermittlung                                                       |
+| [`height`](#height)                           | `image`                                                                | Gleich wie das height-Attribut für {{htmlelement('img')}}; vertikale Dimension                      |
+| [`list`](#list)                               | alle außer `hidden`, `password`, `checkbox`, `radio` und Buttons       | Wert des id-Attributs der {{htmlelement('datalist')}} mit Autovervollständigungsoptionen            |
+| [`max`](#max)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`   | Höchstwert                                                                                          |
+| [`maxlength`](#maxlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                    | Maximale Länge (Anzahl der Zeichen) von `value`                                                     |
+| [`min`](#min)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`   | Minimalwert                                                                                         |
+| [`minlength`](#minlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                    | Minimale Länge (Anzahl der Zeichen) von `value`                                                     |
+| [`multiple`](#multiple)                       | `email`, `file`                                                        | Boolean. Ob es erlaubt ist, mehrere Werte zuzulassen                                                |
+| [`name`](#name)                               | alle                                                                   | Name des Formularsteuerelements. Wird mit dem Formular als Teil eines name/value-Paares übermittelt |
+| [`pattern`](#pattern)                         | `text`, `search`, `url`, `tel`, `email`, `password`                    | Muster, das der `value` erfüllen muss, um gültig zu sein                                            |
+| [`placeholder`](#placeholder)                 | `text`, `search`, `url`, `tel`, `email`, `password`, `number`          | Text, der im Formularsteuerelement angezeigt wird, wenn es keinen Wert hat                          |
+| [`popovertarget`](#popovertarget)             | `button`                                                               | Bezeichnet ein `<input type="button">` als Steuerungselement für ein Popover-Element                |
+| [`popovertargetaction`](#popovertargetaction) | `button`                                                               | Gibt die Aktion an, die ein Popover-Steuerungselement ausführen soll                                |
+| [`readonly`](#readonly)                       | alle außer `hidden`, `range`, `color`, `checkbox`, `radio` und Buttons | Boolean. Der Wert kann nicht bearbeitet werden                                                      |
+| [`required`](#required)                       | alle außer `hidden`, `range`, `color` und Buttons                      | Boolean. Ein Wert ist erforderlich oder muss überprüft werden, damit das Formular übermittelbar ist |
+| [`size`](#größe)                              | `text`, `search`, `url`, `tel`, `email`, `password`                    | Größe des Steuerelements                                                                            |
+| [`src`](#src)                                 | `image`                                                                | Gleich wie das `src`-Attribut für {{htmlelement('img')}}; Adresse der Bildressource                 |
+| [`step`](#step)                               | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`   | Inkrementelle Werte, die gültig sind                                                                |
+| [`type`](#type)                               | alle                                                                   | Typ des Formularsteuerelements                                                                      |
+| [`value`](#value)                             | alle außer `image`                                                     | Der Wert des Steuerelements. Bei Angabe im HTML entspricht er dem Anfangswert                       |
+| [`width`](#width)                             | `image`                                                                | Gleich wie das `width`-Attribut für {{htmlelement('img')}}                                          |
 
-Einige zusätzliche nicht standardisierte Attribute sind nach den Beschreibungen der Standardattribute aufgeführt.
+Einige zusätzliche nicht-standardmäßige Attribute werden nach den Beschreibungen der standardmäßigen Attribute aufgelistet.
 
-### Einzelne Attribute
+### Einzelattribute
 
 - [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)
-
-  - : Gültig nur für den `file` Eingabetyp, definiert das `accept`-Attribut, welche Dateitypen in einer `file` Upload-Steuerung auswählbar sind. Siehe den {{HTMLElement("input/file", "file")}} Eingabetyp.
+  - : Gültig nur für den `file`-Eingabetyp, definiert das `accept`-Attribut, welche Dateitypen in einem `file`-Upload-Steuerelement ausgewählt werden können. Siehe den {{HTMLElement("input/file", "file")}}-Eingabetyp.
 
 - `alt`
-
-  - : Gültig nur für die `image` Schaltfläche, stellt das `alt`-Attribut alternativen Text für das Bild bereit und zeigt den Wert des Attributs an, wenn das Bild [`src`](#src) fehlt oder anderweitig nicht geladen werden kann. Siehe den {{HTMLElement("input/image", "image")}} Eingabetyp.
+  - : Gültig nur für den `image`-Button, bietet das `alt`-Attribut alternativen Text für das Bild und zeigt den Wert des Attributs an, wenn das Bild[`src`](#src) fehlt oder anderweitig nicht geladen werden kann. Siehe den {{HTMLElement("input/image", "image")}}-Eingabetyp.
 
 - `autocapitalize`
-
-  - : Steuert, ob eingegebener Text automatisch großgeschrieben wird, und falls ja, in welcher Weise. Weitere Informationen finden Sie auf der globalen Attributseite für [`autocapitalize`](/de/docs/Web/HTML/Reference/Global_attributes/autocapitalize).
+  - : Steuert, ob eingegebener Text automatisch großgeschrieben wird und, falls ja, in welcher Weise. Weitere Informationen finden Sie auf der Seite des globalen Attributs [`autocapitalize`](/de/docs/Web/HTML/Reference/Global_attributes/autocapitalize).
 
 - [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)
+  - : (**Kein** Boolean-Attribut!) Das [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut nimmt als Wert eine durch Leerzeichen getrennte Zeichenkette, die beschreibt, welcher Art von Autovervollständigungsfunktionalität die Eingabe bereitstellen soll, wenn überhaupt. Eine typische Implementierung der Autovervollständigung erinnert sich an zuvor eingegebene Werte im selben Eingabefeld, aber komplexere Formen der Autovervollständigung können existieren. Zum Beispiel könnte ein Browser mit der Kontaktliste eines Geräts integriert werden, um `email`-Adressen in einem E-Mail-Eingabefeld zu vervollständigen. Siehe [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete#value) für erlaubte Werte.
 
-  - : (**Kein** Boolean-Attribut!) Das Attribut [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete) nimmt als Wert eine durch Leerzeichen getrennte Zeichenkette an, die beschreibt, welche Art von Autovervollständigungsfunktionalität das Eingabefeld bereitstellen soll, falls vorhanden. Eine typische Implementierung der Autovervollständigung ruft vorher eingegebene Werte im gleichen Eingabefeld ab, aber es können auch komplexere Formen existieren. So könnte beispielsweise ein Browser mit der Kontaktliste eines Geräts integriert werden, um `email`-Adressen in einem Eingabefeld für E-Mails zu vervollständigen. Siehe [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete#value) für zulässige Werte.
+    Das `autocomplete`-Attribut ist auf `hidden`, `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`, `color` und `password` gültig. Dieses Attribut hat keine Auswirkung auf Eingabetypen, die keine numerischen oder Textdaten zurückgeben, und ist für alle Eingabetypen außer `checkbox`, `radio`, `file` oder einer der Button-Typen gültig.
 
-    Das Attribut `autocomplete` ist gültig auf `hidden`, `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`, `color` und `password`. Dieses Attribut hat keine Auswirkung auf Eingabetypen, die keine numerischen oder textuellen Daten liefern, d.h. es gilt für alle Eingabetypen außer `checkbox`, `radio`, `file` oder einer der Button-Typen.
-
-    Siehe das Attribut [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete) für weitere Informationen, einschließlich Informationen zur Passwortsicherheit und wie `autocomplete` für `hidden` ein wenig anders ist als für andere Eingabetypen.
+    Weitere Informationen, einschließlich Informationen zu Passwortsicherheit und wie `autocomplete` bei `hidden` leicht anders als bei anderen Eingabetypen ist, finden Sie unter [`autocomplete` attribute](/de/docs/Web/HTML/Reference/Attributes/autocomplete).
 
 - `autofocus`
-
-  - : Ein Boolean-Attribut, das, falls vorhanden, angibt, dass das Eingabefeld automatisch den Fokus erhalten soll, wenn die Seite vollständig geladen ist (oder wenn das {{HTMLElement("dialog")}}, das das Element enthält, sichtbar gemacht wird).
+  - : Ein Boolean-Attribut, welches, falls vorhanden, angibt, dass das Eingabefeld automatisch den Fokus erhalten soll, nachdem die Seite geladen wurde (oder wenn das {{HTMLElement("dialog")}}-Element angezeigt wurde).
 
     > [!NOTE]
-    > Ein Element mit dem `autofocus`-Attribut kann den Fokus erhalten, bevor das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis ausgelöst wird.
+    > Ein Element mit dem `autofocus`-Attribut kann den Fokus erhalten, bevor das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst wird.
 
-    Nicht mehr als ein Element im Dokument darf das `autofocus`-Attribut haben. Wenn es in mehr als einem Element verwendet wird, erhält das erste Element mit dem Attribut den Fokus.
+    Nicht mehr als ein Element im Dokument darf das `autofocus`-Attribut haben. Wenn es auf mehr als einem Element platziert ist, erhält das erste mit dem Attribut den Fokus.
 
     Das `autofocus`-Attribut kann nicht auf Eingaben des Typs `hidden` verwendet werden, da versteckte Eingaben nicht fokussiert werden können.
 
     > [!WARNING]
-    > Automatisches Fokussieren auf ein Formularelement kann Menschen mit Sehbehinderungen, die Bildschirmlesetechnologie verwenden, und Menschen mit kognitiven Beeinträchtigungen verwirren. Wenn `autofocus` zugewiesen ist, "teleportieren" Bildschirmleser ihren Benutzer ohne Vorwarnung zum Formularelement.
+    > Das automatische Fokussieren eines Formularsteuerelements kann visuell eingeschränkte Menschen, die Bildschirmlesetechnologie verwenden, und Menschen mit kognitiven Beeinträchtigungen verwirren. Wenn `autofocus` zugewiesen ist, "teleportieren" Bildschirmleser ihren Benutzer ohne vorherige Warnung zu dem Formularsteuerelement.
 
-    Berücksichtigen Sie Barrierefreiheit sorgfältig, wenn Sie das `autofocus`-Attribut anwenden. Automatisches Fokussieren auf eine Steuerung kann dazu führen, dass die Seite beim Laden scrollt. Der Fokus kann auch dazu führen, dass auf einigen Touch-Geräten dynamische Tastaturen angezeigt werden. Während ein Bildschirmlesegerät das Etikett der fokussierten Formularsteuerung ankündigt, zeigt es nichts vor dem Etikett an, und der sehende Benutzer auf einem kleinen Gerät verpasst gleichermaßen den Kontext, der durch den vorhergehenden Inhalt geschaffen wird.
+    Verwenden Sie das `autofocus`-Attribut unter Berücksichtigung der Barrierefreiheit. Automatisches Fokussieren auf ein Steuerelement kann dazu führen, dass die Seite beim Laden scrollt. Der Fokus kann auch dynamische Tastaturen auf einigen Touch-Geräten anzeigen. Während ein Bildschirmlesegerät das Label des Formularsteuerelements mit Fokus ankündigen wird, wird es vor dem Label nichts ankündigen, und der sehende Benutzer auf einem kleinen Gerät wird genauso den Kontext durch den vorhergehenden Inhalt verpassen.
 
 - [`capture`](/de/docs/Web/HTML/Reference/Attributes/capture)
-  - : Eingeführt in der HTML Media Capture-Spezifikation und nur für den `file` Eingabetyp gültig, definiert das `capture`-Attribut, welches Medium — Mikrofon, Video oder Kamera — zur Aufnahme einer neuen Datei für den Upload mit `file`-Upload-Steuerung in unterstützten Szenarien verwendet werden soll. Siehe den {{HTMLElement("input/file", "file")}} Eingabetyp.
+  - : Eingeführt in der HTML Media Capture-Spezifikation und nur für den `file`-Eingabetyp gültig, definiert das `capture`-Attribut, welches Medium—Mikrofon, Video oder Kamera—verwendet werden soll, um eine neue Datei für den Upload mit `file`-Upload-Steuerelement in unterstützenden Szenarien zu erfassen. Siehe den {{HTMLElement("input/file", "file")}}-Eingabetyp.
 - `checked`
-
-  - : Gültig für beide `radio` und `checkbox` Typen, `checked` ist ein Boolean-Attribut. Wenn es bei einem `radio`-Typ vorhanden ist, zeigt es an, dass die Optionsschaltfläche die derzeit ausgewählte in der Gruppe von gleichnamigen Optionsschaltflächen ist. Wenn es bei einem `checkbox`-Typ vorhanden ist, zeigt es an, dass das Kontrollkästchen standardmäßig aktiviert ist (wenn die Seite geladen wird). Es gibt _nicht_ an, ob dieses Kontrollkästchen derzeit aktiviert ist: Wenn sich der Zustand des Kontrollkästchens ändert, wird dieses Inhaltsattribut nicht aktualisiert. (Nur das [`HTMLInputElement`'s `checked` IDL-Attribut](/de/docs/Web/API/HTMLInputElement) wird aktualisiert.)
+  - : Gültig für sowohl `radio`- als auch `checkbox`-Typen, ist `checked` ein Boolean-Attribut. Falls bei einem `radio`-Typ vorhanden, gibt es an, dass der Optionsknopf der aktuell ausgewählte in der Gruppe von gleichnamigen Radio-Buttons ist. Falls bei einem `checkbox`-Typ vorhanden, gibt es an, dass das Kontrollkästchen standardmäßig aktiviert ist (wenn die Seite lädt). Es gibt _nicht_ an, ob dieses Kontrollkästchen aktuell aktiviert ist: wenn der Zustand des Kontrollkästchens geändert wird, spiegelt dieses Inhaltsattribut die Änderung nicht wider. (Nur das [`HTMLInputElement`'s `checked` IDL-Attribut](/de/docs/Web/API/HTMLInputElement) wird aktualisiert.)
 
     > [!NOTE]
-    > Im Gegensatz zu anderen Eingabesteuerungen werden der Wert von Kontrollkästchen und Optionsschaltflächen nur dann in die übermittelten Daten aufgenommen, wenn sie derzeit `checked` sind. Wenn sie es sind, werden der Name und die Wert(e) der aktivierten Steuerungen übermittelt.
+    > Anders als andere Eingabesteuerungen, werden ein Kontrollkästchen und Radio-Buttons-Werte nur in die übermittelten Daten einbezogen, wenn sie derzeit `checked` sind. Wenn sie es sind, werden der Name und die Wert(e) der aktivierten Steuerelemente übermittelt.
     >
-    > Wenn zum Beispiel ein Kontrollkästchen, dessen `name` `fruit` ist, einen `value` von `cherry` hat, und das Kontrollkästchen aktiviert ist, werden die Formulardaten `fruit=cherry` enthalten. Wenn das Kontrollkästchen nicht aktiv ist, wird es überhaupt nicht in den Formulardaten aufgelistet. Der Standard `value` für Kontrollkästchen und Optionsschaltflächen ist `on`.
+    > Zum Beispiel, wenn ein Kontrollkästchen, dessen `name` `fruit` ist, einen `value` von `cherry` hat und das Kontrollkästchen aktiviert ist, werden die übermittelten Formulardaten `fruit=cherry` beinhalten. Wenn das Kontrollkästchen nicht aktiv ist, wird es überhaupt nicht in den Formulardaten aufgeführt. Der Standardwert `value` für Kontrollkästchen und Radio-Buttons ist `on`.
 
 - [`dirname`](/de/docs/Web/HTML/Reference/Attributes/dirname)
-
-  - : Gültig für `hidden`, `text`, `search`, `url`, `tel` und `email` Eingabetypen, ermöglicht das `dirname`-Attribut die Übermittlung der Richtung des Elements. Wenn es enthalten ist, wird die Formularkontrolle mit zwei Namens-/Wertepaaren übermittelt: das erste ist das [`name`](#name) und [`value`](#value) Paar, und das zweite ist der Wert des `dirname`-Attributs als Name, mit einem Wert von `ltr` oder `rtl`, wie vom Browser festgelegt.
+  - : Gültig für `hidden`, `text`, `search`, `url`, `tel` und `email`-Eingabetypen, ermöglicht das `dirname`-Attribut die Übermittlung der Richtungsangabe des Elements. Wenn es enthalten ist, wird das Formularsteuerelement mit zwei Name/Wert-Paaren übermittelt: das erste ist der [`name`](#name) und [`value`](#value), und das zweite ist der Wert des `dirname`-Attributs als Name, mit einem Wert von `ltr` oder `rtl` wie vom Browser festgelegt.
 
     ```html
     <form action="page.html" method="post">
@@ -446,104 +426,95 @@ Einige zusätzliche nicht standardisierte Attribute sind nach den Beschreibungen
     <!-- page.html?fruit=cherry&fruit-dir=ltr -->
     ```
 
-    Wenn das obige Formular übermittelt wird, führt die Eingabe dazu, dass sowohl das `name` / `value` Paar von `fruit=cherry` als auch das `dirname` / Richtungs-Paar von `fruit-dir=ltr` gesendet wird. Weitere Informationen finden Sie im Attribut [`dirname`](/de/docs/Web/HTML/Reference/Attributes/dirname).
+    Wenn das obenstehende Formular übermittelt wird, wird die Eingabe sowohl das `name` / `value`-Paar `fruit=cherry` als auch das `dirname` / Richtungs-Paar `fruit-dir=ltr` senden.
+    Für weitere Informationen siehe das [`dirname` attribute](/de/docs/Web/HTML/Reference/Attributes/dirname).
 
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-
-  - : Ein Boolean-Attribut, das, falls vorhanden, darauf hinweist, dass der Benutzer nicht mit der Eingabe interagieren sollte. Deaktivierte Eingaben werden typischerweise mit einer gedimmten Farbe oder in einer anderen Form angezeigt, die anzeigt, dass das Feld nicht verfügbar ist.
+  - : Ein Boolean-Attribut, das, falls vorhanden, anzeigt, dass der Benutzer nicht mit der Eingabe interagieren können soll. Deaktivierte Eingaben werden typischerweise mit einer dunkleren Farbe oder in irgendeiner anderen Form angezeigt, die anzeigt, dass das Feld nicht zur Benutzung verfügbar ist.
 
     Insbesondere erhalten deaktivierte Eingaben nicht das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis, und deaktivierte Eingaben werden nicht mit dem Formular übermittelt.
 
     > [!NOTE]
-    > Obwohl nicht von der Spezifikation verlangt, wird der dynamische deaktivierte Zustand eines `<input>` von Firefox standardmäßig [über Seiten-Ladevorgänge hinweg beibehalten](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing). Verwenden Sie das Attribut [`autocomplete`](#autocomplete), um diese Funktion zu steuern.
+    > Auch wenn es nicht von der Spezifikation gefordert wird, wird Firefox standardmäßig den [dynamischen deaktivierten Status speichern](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über Seitenladungen. Verwenden Sie das [`autocomplete`](#autocomplete)-Attribut, um diese Funktion zu steuern.
 
 - `form`
+  - : Ein String, der das {{HTMLElement("form")}}-Element angibt, mit dem die Eingabe verknüpft ist (d.h. sein **Formularinhaber**). Der Wert dieses Strings, falls vorhanden, muss mit der [`id`](#id) eines `<form>`-Elements im selben Dokument übereinstimmen. Wenn dieses Attribut nicht angegeben wird, ist das `<input>`-Element mit dem am nächsten gelegenen beinhaltenden Formular verknüpft, falls vorhanden.
 
-  - : Eine Zeichenkette, die das {{HTMLElement("form")}} Element angibt, mit dem die Eingabe verknüpft ist (d.h. ihr **Formularinhaber**). Der Wert dieser Zeichenkette, falls vorhanden, muss mit der [`id`](#id) eines `<form>`-Elements im selben Dokument übereinstimmen. Wenn dieses Attribut nicht angegeben ist, wird das `<input>`-Element mit dem nächstgelegenen enthaltenen Formular verknüpft, sofern vorhanden.
-
-    Das `form`-Attribut ermöglicht es, eine Eingabe überall im Dokument zu platzieren, aber diese mit einem Formular anderswo im Dokument einzuschließen.
+    Das `form`-Attribut ermöglicht es, eine Eingabe irgendwo im Dokument zu platzieren, aber sie mit einem Formular an einer anderen Stelle im Dokument einzuschließen.
 
     > [!NOTE]
     > Eine Eingabe kann nur mit einem Formular verknüpft werden.
 
 - `formaction`
-  - : Gültig nur für die `image` und `submit` Eingabetypen. Weitere Informationen finden Sie beim {{HTMLElement("input/submit", "submit")}} Eingabetyp.
+  - : Gültig nur für die Eingabetypen `image` und `submit`. Siehe den {{HTMLElement("input/submit", "submit")}}-Eingabetyp für weitere Informationen.
 - `formenctype`
-  - : Gültig nur für die `image` und `submit` Eingabetypen. Weitere Informationen finden Sie beim {{HTMLElement("input/submit", "submit")}} Eingabetyp.
+  - : Gültig nur für die Eingabetypen `image` und `submit`. Siehe den {{HTMLElement("input/submit", "submit")}}-Eingabetyp für weitere Informationen.
 - `formmethod`
-  - : Gültig nur für die `image` und `submit` Eingabetypen. Weitere Informationen finden Sie beim {{HTMLElement("input/submit", "submit")}} Eingabetyp.
+  - : Gültig nur für die Eingabetypen `image` und `submit`. Siehe den {{HTMLElement("input/submit", "submit")}}-Eingabetyp für weitere Informationen.
 - `formnovalidate`
-  - : Gültig nur für die `image` und `submit` Eingabetypen. Weitere Informationen finden Sie beim {{HTMLElement("input/submit", "submit")}} Eingabetyp.
+  - : Gültig nur für die Eingabetypen `image` und `submit`. Siehe den {{HTMLElement("input/submit", "submit")}}-Eingabetyp für weitere Informationen.
 - `formtarget`
-  - : Gültig nur für die `image` und `submit` Eingabetypen. Weitere Informationen finden Sie beim {{HTMLElement("input/submit", "submit")}} Eingabetyp.
+  - : Gültig nur für die Eingabetypen `image` und `submit`. Siehe den {{HTMLElement("input/submit", "submit")}}-Eingabetyp für weitere Informationen.
 - `height`
-  - : Gültig nur für die `image` Eingabeschaltfläche, ist die `height` die Höhe der Bilddatei, die angezeigt werden soll, um die grafische Absende-Schaltfläche darzustellen. Weitere Informationen finden Sie beim {{HTMLElement("input/image", "image")}} Eingabetyp.
+  - : Gültig nur für den `image`-Eingabe-Button, ist die `height` die Höhe der Bilddatei, die angezeigt werden soll, um den grafischen Senden-Button darzustellen. Siehe den {{HTMLElement("input/image", "image")}}-Eingabetyp.
 - `id`
-  - : Globales Attribut, das für alle Elemente gültig ist, einschließlich aller Eingabetypen, es definiert einen eindeutigen Identifikator (ID), der im gesamten Dokument eindeutig sein muss. Sein Zweck ist es, das Element beim Verlinken zu identifizieren. Der Wert wird als Wert des `for`-Attributs des {{htmlelement('label')}} verwendet, um das Label mit der Formularkontrolle zu verknüpfen. Siehe {{htmlelement('label')}}.
+  - : Globales Attribut, gültig für alle Elemente, einschließlich aller Eingabetypen, definiert eine eindeutige Kennung (ID), die im gesamten Dokument einzigartig sein muss. Sein Zweck ist die Identifizierung des Elements bei Verlinkungen. Der Wert wird als Wert der `for`-Eigenschaft des {{htmlelement('label')}}-Elements verwendet, um das Label mit dem Formularsteuerelement zu verknüpfen. Siehe {{htmlelement('label')}}.
 - `inputmode`
-  - : Globaler Wert, der für alle Elemente gültig ist, bietet es einen Hinweis für Browser, welche Art von Konfiguration der virtuellen Tastatur verwendet werden soll, wenn dieser Inhalt bearbeitet wird. Zu den Werten gehören `none`, `text`, `tel`, `url`, `email`, `numeric`, `decimal` und `search`.
+  - : Globaler Wert, gültig für alle Elemente, gibt Hinweis an Browser, welche Art von virtueller Keyboard-Konfiguration bei der Bearbeitung dieses Elements oder seines Inhalts zu verwenden ist. Werte umfassen `none`, `text`, `tel`, `url`, `email`, `numeric`, `decimal` und `search`.
 - `list`
+  - : Der dem `list`-Attribut gegebene Wert sollte die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements im selben Dokument sein. Die `<datalist>` bietet eine Liste von vordefinierten Werten an, die dem Benutzer als Vorschläge für diese Eingabe angeboten werden. Alle in der Liste enthaltenen Werte, die nicht mit dem [`type`](#type) kompatibel sind, sind nicht in den vorgeschlagenen Optionen enthalten. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert bereitstellen.
 
-  - : Der dem `list`-Attribut gegebene Wert sollte die [`id`](/de/docs/Web/API/Element/id) eines im selben Dokument befindlichen {{HTMLElement("datalist")}}-Elements sein. Die `<datalist>` stellt eine Liste vordefinierter Werte bereit, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle in der Liste enthaltenen Werte, die nicht mit dem [`type`](#type) kompatibel sind, sind nicht in den vorgeschlagenen Optionen enthalten. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+    Es ist gültig auf `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range` und `color`.
 
-    Er ist gültig auf `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range` und `color`.
+    Gemäß den Spezifikationen wird das `list`-Attribut nicht von den Typen `hidden`, `password`, `checkbox`, `radio`, `file` oder irgendeinem der Button-Typen unterstützt.
 
-    Laut den Spezifikationen wird das `list`-Attribut von `hidden`, `password`, `checkbox`, `radio`, `file` oder einem der Button-Typen nicht unterstützt.
-
-    Abhängig vom Browser kann der Benutzer eine benutzerdefinierte Farbpalette vorgeschlagen sehen, Strichmarkierungen entlang eines Bereichs oder sogar eine Eingabe, die sich wie ein {{HTMLElement("select")}} öffnet, aber nicht aufgelistete Werte erlaubt. Schauen Sie sich die [Tabelle zur Browser-Kompatibilität](/de/docs/Web/HTML/Reference/Elements/datalist#browser_compatibility) für die anderen Eingabetypen an.
+    Abhängig vom Browser sieht der Benutzer möglicherweise eine benutzerdefinierte Farbpalette als Vorschlag, Taktmarken entlang eines Bereichs oder sogar eine Eingabe, die wie eine {{HTMLElement("select")}} öffnet, aber nicht gelistete Werte zulässt. Schauen Sie sich die [Browser-Kompatibilitätstabelle](/de/docs/Web/HTML/Reference/Elements/datalist#browser_compatibility) für die anderen Eingabetypen an.
 
     Siehe das {{htmlelement('datalist')}}-Element.
 
 - [`max`](/de/docs/Web/HTML/Reference/Attributes/max)
+  - : Gültig für `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`, es definiert den größten Wert im Bereich der zulässigen Werte. Wenn der [`value`](#value), der in das Element eingegeben wird, diesen überschreitet, schlägt das Element bei der [Beschränkungsprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der Wert des `max`-Attributs keine Zahl ist, hat das Element keinen Höchstwert.
 
-  - : Gültig für `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`, definiert es den größten Wert im Bereich der zulässigen Werte. Wenn der eingegebene [`value`](#value) diesen überschreitet, schlägt das Element die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der Wert des `max`-Attributs keine Zahl ist, hat das Element keinen Maximalwert.
-
-    Es gibt einen Sonderfall: Wenn der Datentyp periodisch ist (wie zum Beispiel für Daten oder Zeiten), darf der Wert von `max` geringer sein als der Wert von `min`, was darauf hinweist, dass der Bereich umwickelbar ist; das Beispiel erlaubt es, einen Zeitbereich von 22:00 Uhr bis 4:00 Uhr anzugeben.
+    Es gibt einen Sonderfall: wenn der Datentyp periodisch ist (zum Beispiel für Daten oder Zeiten), kann der Wert von `max` niedriger als der Wert von `min` sein, was anzeigt, dass der Bereich umlaufen darf; zum Beispiel ermöglicht dies, einen Zeitbereich von 22 Uhr bis 4 Uhr morgens festzulegen.
 
 - [`maxlength`](/de/docs/Web/HTML/Reference/Attributes/maxlength)
+  - : Gültig für `text`, `search`, `url`, `tel`, `email`, und `password`, definiert die maximale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}), die der Benutzer in das Feld eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert angegeben ist, hat das Feld keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
 
-  - : Gültig für `text`, `search`, `url`, `tel`, `email` und `password`, definiert es die maximale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}}), die der Benutzer in das Feld eintragen kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat das Feld keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
-
-    Die Eingabe schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl, wenn die Länge des in das Feld eingegebenen Textes größer als `maxlength` {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}} ist. Standardmäßig verhindern Browser, dass Benutzer mehr Zeichen eingeben können, als durch das Attribut `maxlength` erlaubt ist. Die Einschränkungsvalidierung wird nur dann angewendet, wenn der Wert vom Benutzer geändert wird. Weitere Informationen finden Sie unter [Client-seitige Validierung](#client-seitige_validierung).
+    Die Eingabe wird bei der [Beschränkungsprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) fehlschlagen, wenn die Länge des Textes, der in das Feld eingegeben wird, länger als die `maxlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} ist. Standardmäßig verhindern Browser, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Die Beschränkungsprüfung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Weitere Informationen finden Sie unter [Client-side validation](#client-seitige_validierung).
 
 - [`min`](/de/docs/Web/HTML/Reference/Attributes/min)
+  - : Gültig für `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`, es definiert den geringsten Wert im Bereich der zulässigen Werte. Wenn der [`value`](#value), der in das Element eingegeben wird, weniger als das ist, schlägt das Element bei der [Beschränkungsprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der `min`-Attributwert keine Zahl ist, hat das Element keinen Mindestwert.
 
-  - : Gültig für `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`, definiert es den kleinsten Wert im Bereich der zulässigen Werte. Wenn der eingegebene [`value`](#value) geringer ist als dieser, schlägt das Element die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der Wert des `min`-Attributs keine Zahl ist, hat das Element keinen Minimalwert.
+    Dieser Wert muss kleiner oder gleich dem des `max`-Attributs sein. Wenn das `min`-Attribut vorhanden ist, aber nicht angegeben oder ungültig ist, wird kein Mindeswert angewendet. Wenn das `min`-Attribut gültig ist und ein nicht leerer Wert niedriger ist als das Minimum, das durch `min` erlaubt ist, wird die Beschränkungsprüfung die Formularübermittlung verhindern. Weitere Informationen finden Sie unter [Client-side validation](#client-seitige_validierung).
 
-    Dieser Wert muss geringer oder gleich dem Wert des `max`-Attributs sein. Wenn das `min`-Attribut vorhanden, aber nicht angegeben oder ungültig ist, wird kein `min`-Wert angewendet. Wenn das `min`-Attribut gültig ist und ein nicht leerer Wert geringer ist als das Minimum, das durch das `min`-Attribut erlaubt ist, verhindert die Einschränkungsvalidierung die Formularübermittlung. Weitere Informationen finden Sie unter [Client-seitige Validierung](#client-seitige_validierung).
-
-    Es gibt einen Sonderfall: Wenn der Datentyp periodisch ist (wie zum Beispiel für Daten oder Zeiten), darf der Wert von `max` geringer sein als der Wert von `min`, was darauf hinweist, dass der Bereich umwickelbar ist; das Beispiel erlaubt es, einen Zeitbereich von 22:00 Uhr bis 4:00 Uhr anzugeben, wie bereits erläutert.
+    Es gibt einen Sonderfall: wenn der Datentyp periodisch ist (zum Beispiel für Daten oder Zeiten), kann der Wert von `max` niedriger als der Wert von `min` sein, was anzeigt, dass der Bereich umlaufen darf; zum Beispiel ermöglicht dies, einen Zeitbereich von 22 Uhr bis 4 Uhr morgens festzulegen.
 
 - [`minlength`](/de/docs/Web/HTML/Reference/Attributes/minlength)
+  - : Gültig für `text`, `search`, `url`, `tel`, `email`, und `password`, definiert die minimale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16 Codeeinheiten")}}), die der Benutzer in das Eingabefeld eingeben kann. Dies muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem Wert von `maxlength` ist. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert angegeben ist, hat die Eingabe keine Mindestlänge.
 
-  - : Gültig für `text`, `search`, `url`, `tel`, `email` und `password`, definiert es die minimale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}}), die der Benutzer in das Eingabefeld einfügen kann. Dies muss ein ganzzahliger Nicht-Negativwert sein, der kleiner oder gleich dem durch `maxlength` spezifizierten Wert ist. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat die Eingabe keine Mindestlänge.
-
-    Die Eingabe schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl, wenn die Länge des in das Feld eingegebenen Textes weniger als `minlength` {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}} beträgt, was die Formularübermittlung verhindert. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Weitere Informationen finden Sie unter [Client-seitige Validierung](#client-seitige_validierung).
+    Die Eingabe wird bei der [Beschränkungsprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) fehlschlagen, wenn die Länge des Textes, der in das Feld eingegeben wird, kürzer als `minlength` {{Glossary("UTF-16", "UTF-16 Codeeinheiten")}} ist, wodurch die Formularübermittlung verhindert wird. Die Beschränkungsprüfung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Weitere Informationen finden Sie unter [Client-side validation](#client-seitige_validierung).
 
 - [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)
-
-  - : Das Boolean-Attribut `multiple`, wenn es gesetzt ist, bedeutet, dass der Benutzer kommagetrennte E-Mail-Adressen im E-Mail-Widget eingeben oder mehr als eine Datei mit dem `file` Eingabesteuerung wählen kann. Siehe den {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/file", "file")}} Eingabetyp.
+  - : Das Boolean-Attribut `multiple`, falls gesetzt, bedeutet, dass der Benutzer Komma getrennte E-Mail-Adressen im E-Mail-Widget eingeben oder mehr als eine Datei mit der `file`-Eingabe auswählen kann. Sehen Sie den {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/file", "file")}} Eingabetyp.
 
 - `name`
+  - : Ein String, der einen Namen für das Eingabefeld angibt. Dieser Name wird zusammen mit dem Wert des Steuerelements übermittelt, wenn die Formulardaten übermittelt werden.
 
-  - : Eine Zeichenkette, die einen Namen für das Eingabesteuerungsfeld spezifiziert. Dieser Name wird zusammen mit dem Wert der Steuerung übermittelt, wenn die Formulardaten übermittelt werden.
-
-    Betrachten Sie den `name` als ein Pflichtattribut (auch wenn es das nicht ist). Wenn eine Eingabe keinen angegebenen `name` hat oder der `name` leer ist, wird der Wert der Eingabe nicht mit dem Formular übermittelt! (Deaktivierte Steuerungen, nicht aktivierte Optionsschaltflächen, nicht aktivierte Kontrollkästchen und Zurücksetzen-Schaltflächen werden ebenfalls nicht gesendet.)
+    Betrachten Sie den `name` als ein erforderliches Attribut (auch wenn es nicht so ist). Wenn eine Eingabe kein angegebenes `name` hat oder das `name` leer ist, wird der Eingabewert nicht mit dem Formular übermittelt! (Deaktivierte Steuerelemente, nicht aktivierte Radio-Buttons, nicht aktivierte Kontrollkästchen und Reset-Buttons werden ebenfalls nicht gesendet.)
 
     Es gibt zwei Sonderfälle:
-
-    1. `_charset_` : Wenn als Name eines `<input>`-Elements vom Typ {{HTMLElement("input/hidden", "hidden")}} verwendet, wird der `value` der Eingabe automatisch vom {{Glossary("user_agent", "Benutzeragent")}} auf die Zeichencodierung gesetzt, die zur Übermittlung des Formulars verwendet wird.
+    1. `_charset_` : Wenn es als Name eines `<input>`-Elements vom Typ {{HTMLElement("input/hidden", "hidden")}} verwendet wird, wird der Eingabewert automatisch vom {{Glossary("user_agent", "User-Agent")}} auf die Zeichencodierung gesetzt, die zur Übermittlung des Formulars verwendet wird.
     2. `isindex`: Aus historischen Gründen ist der Name [`isindex`](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name) nicht erlaubt.
 
-    Das [`name`](#name) Attribut erzeugt ein einzigartiges Verhalten für Optionsschaltflächen.
+    Das [`name`](#name)-Attribut erzeugt ein einzigartiges Verhalten für Radio-Buttons.
 
-    Nur eine Optionsschaltfläche in einer gleichnamigen Gruppe von Optionsschaltflächen kann jeweils aktiviert sein. Wenn eine in der Gruppe ausgewählt wird, werden alle derzeit in derselben Gruppe ausgewählten Optionsschaltflächen automatisch deselektiert. Der Wert dieser einen aktivierten Optionsschaltfläche wird zusammen mit dem Namen gesendet, wenn das Formular übermittelt wird.
+    Nur einer der Radio-Buttons in einer gleichnamigen Gruppe von Radio-Buttons kann gleichzeitig aktiviert werden. Das Auswählen eines der Radio-Buttons in dieser Gruppe deaktiviert automatisch alle aktuell ausgewählten Radio-Buttons in derselben Gruppe. Der Wert dieses einen aktivierten Radio-Buttons wird zusammen mit dem Namen übermittelt, wenn das Formular übermittelt wird.
 
-    Wenn durch eine Gruppe gleichnamiger Optionsschaltflächen getabbt wird, erhält diejenige, die aktiviert ist, den Fokus. Wenn sie nicht zusammen in der Quellreihenfolge gruppiert sind, beginnt das Tabben in der Gruppe, sobald die erste in der Gruppe erreicht ist, und überspringt alle, die nicht aktiviert sind. Mit anderen Worten, wenn eine aktiviert ist, wird das Tabben an den nicht aktivierten Optionsschaltflächen in der Gruppe vorbeigeführt. Wenn keine aktiviert sind, erhält die Gruppe von Optionsschaltflächen den Fokus, wenn die erste Optionsschaltfläche in der gleichnamigen Gruppe erreicht ist.
+    Beim Wechseln in eine Serie von gleichnamigen Radio-Button-Gruppen, wenn einer aktiviert ist, erhält dieser den Fokus. Wenn sie in der Quellreihenfolge nicht zusammen gruppiert sind, wenn einer der Gruppe aktiviert ist, beginnt das Wechseln in die Gruppe, wenn der erste in der Gruppe erreicht wird und überspringt alle, die nicht aktiviert sind. Mit anderen Worten, wenn einer aktiviert ist, wird das Wechseln die nicht aktivierten Radio-Buttons in der Gruppe überspringen. Wenn keiner aktiviert ist, erhält die Radio-Button-Gruppe den Fokus, wenn der erste Button in der gleichnamigen Gruppe erreicht ist.
 
-    Sobald eine der Optionsschaltflächen in einer Gruppe fokussiert ist, navigieren die Pfeiltasten durch alle gleichnamigen Optionsschaltflächen, auch wenn die Optionsschaltflächen in der Quellreihenfolge nicht zusammen gruppiert sind.
+    Sobald einer der Radio-Buttons in einer Gruppe den Fokus hat, navigieren die Pfeiltasten durch alle Radio-Buttons desselben Namens, selbst wenn die Radio-Buttons nicht in der Quellreihenfolge gruppiert sind.
 
-    Wenn einem Eingabeelement ein `name` gegeben wird, wird dieser Name zu einer Eigenschaft des [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigentums des Formularinhabers. Wenn Sie eine Eingabe haben, deren `name` auf `guest` gesetzt ist und eine andere, deren `name` `hat-size` ist, kann der folgende Code verwendet werden:
+    Wenn ein Eingabefeld ein `name` zugewiesen bekommt, wird dieser zu einer Eigenschaft der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft des Formular-Elements, dem es gehört. Wenn Sie eine Eingabe haben, deren `name` auf `guest` gesetzt ist und eine andere, deren `name` auf `hat-size` gesetzt ist, kann der folgende Code verwendet werden:
 
     ```js
     let form = document.querySelector("form");
@@ -552,112 +523,97 @@ Einige zusätzliche nicht standardisierte Attribute sind nach den Beschreibungen
     let hatSize = form.elements["hat-size"];
     ```
 
-    Wenn dieser Code ausgeführt wurde, wird `guestName` das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) für das `guest`-Feld sein, und `hatSize` das Objekt für das `hat-size`-Feld.
+    Nachdem dieser Code ausgeführt wurde, wird `guestName` das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) für das `guest`-Feld sein und `hatSize` das Objekt für das `hat-size`-Feld.
 
     > [!WARNING]
-    > Vermeiden Sie es, Formularelemente so zu benennen, dass dies einer eingebauten Eigenschaft des Formulars entspricht, da Sie sonst die vordefinierte Eigenschaft oder Methode mit diesem Verweis auf das entsprechende Eingabefeld überschreiben.
+    > Vermeiden Sie es, Formularelementen einen `name` zu geben, der einem eingebauten Attribut des Formulars entspricht, da Sie dann das vordefinierte Attribut oder die Methode mit diesem Bezug auf das entsprechende Eingabefeld überschreiben würden.
 
 - [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)
+  - : Gültig für `text`, `search`, `url`, `tel`, `email` und `password`, wird das `pattern`-Attribut verwendet, um eine reguläre Ausdrücke zu erstellen, die [`value`](#value) der Eingabe erfüllen muss, um die [Beschränkungsprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er von der {{jsxref("RegExp")}}-Typ verwendet wird und wie in unserem [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert. Es sollten keine Schrägstriche um den Mustertext angegeben werden. Beim Kompilieren des regulären Ausdrucks:
+    1. wird das Muster automatisch mit `^(?:` und `)$` umschlossen, sodass das Muster einen Match gegen den _ganzen_ Eingabewert erfordert, d.h. `^(?:<pattern>)$`.
+    2. wird das `'v'`-Flag spezifiziert, sodass das Muster als Sequenz von Unicode-Kodepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}.
 
-  - : Gültig für `text`, `search`, `url`, `tel`, `email` und `password`, wird das `pattern`-Attribut verwendet, um einen regulären Ausdruck zu kompiliert, den der `value` der Eingabe erfüllen muss, um bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert. Um den Mustertext sollten keine Schrägstriche angegeben werden. Beim Kompilieren des regulären Ausdrucks:
-
-    1. wird das Muster implizit mit `^(?:` und `)$` umschlossen, so dass die Übereinstimmung gegen den _gesamten_ Eingabewert erforderlich ist, d.h. `^(?:<pattern>)$`.
-    2. wird das `'v'`-Flag gesetzt, damit das Muster als Folge von Unicode-Codepunkten behandelt wird, anstelle von {{Glossary("ASCII", "ASCII")}}.
-
-    Wenn das `pattern`-Attribut vorhanden, aber nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut vollständig ignoriert. Wenn das `pattern`-Attribut gültig ist und ein nicht leerer Wert dem Muster nicht entspricht, verhindert die Einschränkungsvalidierung die Formularübermittlung. Wenn das Attribut [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple) vorhanden ist, wird der kompilierte reguläre Ausdruck gegen jeden kommagetrennten Wert abgeglichen.
+    Wenn das `pattern`-Attribut vorhanden ist, aber nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird völlig ignoriert. Wenn das Muster-Attribut gültig ist und ein nicht leerer Wert nicht dem Muster entspricht, wird die Beschränkungsprüfung die Formularübermittlung verhindern. Wenn das [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple) vorhanden ist, wird der kompilierte reguläre Ausdruck gegen jeden durch Komma getrennten Wert gematcht.
 
     > [!NOTE]
-    > Wenn Sie das Attribut `pattern` verwenden, informieren Sie den Benutzer über das erwartete Format, indem Sie einen erklärenden Text in der Nähe einschließlich. Sie können auch ein [`title`](#title)-Attribut angeben, um die Anforderungen zur Übereinstimmung mit dem Muster zu erklären; die meisten Browser werden diesen Titel als Tooltip anzeigen. Die sichtbare Erklärung ist für die Barrierefreiheit erforderlich. Der Tooltip ist eine Verbesserung.
+    > Wenn Sie das `pattern`-Attribut verwenden, informieren Sie den Benutzer über das erwartete Format, indem Sie erklärenden Text in der Nähe einfügen. Sie können auch ein [`title`](#title)-Attribut einschließen, um zu erklären, was die Anforderungen sind, um dem Muster zu entsprechen; die meisten Browser werden diesen Titel als Tooltip anzeigen. Die sichtbare Erklärung ist für die Barrierefreiheit erforderlich. Der Tooltip ist eine Verbesserung.
 
-    Weitere Informationen finden Sie unter [Client-seitige Validierung](#client-seitige_validierung).
+    Weitere Informationen finden Sie unter [Client-side validation](#client-seitige_validierung).
 
 - [`placeholder`](/de/docs/Web/HTML/Reference/Attributes/placeholder)
-
-  - : Gültig für `text`, `search`, `url`, `tel`, `email`, `password` und `number`, bietet das Attribut `placeholder` einen kurzen Hinweis auf den Benutzer, welche Art von Informationen in dem Feld erwartet werden. Es sollte sich um ein Wort oder einen kurzen Satz handeln, der einen Hinweis auf den erwarteten Datentyp gibt, anstatt eine Erklärung oder Aufforderung. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten. Zum Beispiel, wenn erwartet wird, dass ein Feld den Vornamen eines Benutzers erfasst, und dessen Label "Vorname" lautet, könnte ein geeigneter Platzhalter "z.B., Mustafa" sein.
+  - : Gültig für `text`, `search`, `url`, `tel`, `email`, `password` und `number`, bietet das `placeholder`-Attribut einen kurzen Hinweis für den Benutzer, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die einen Hinweis auf die erwartete Art der Daten bietet, anstatt eine Erklärung oder Eingabeaufforderung. Der Text _darf nicht_ Wagenrückläufe oder Zeilenvorschübe enthalten. Wenn zum Beispiel ein Feld erwartet, den Vornamen eines Benutzers zu erfassen, und sein Label "Vorname" ist, könnte ein geeignetes Platzhalter "z.B. Mustafa" sein.
 
     > [!NOTE]
-    > Das Attribut `placeholder` ist nicht so semantisch nützlich wie andere Wege zur Erklärung Ihres Formulars und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Weitere Informationen finden Sie unter [Labels](#labels).
+    > Das `placeholder`-Attribut ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Weitere Informationen finden Sie unter [Labels](#labels).
 
 - `popovertarget`
-
-  - : Macht ein `<input type="button">` zu einer Popover-Steuerungsschaltfläche; nimmt die ID des Popover-Elements an, das es steuern soll. Weitere Details finden Sie auf der [Popover API](/de/docs/Web/API/Popover_API) Hauptseite. Die Herstellung einer Beziehung zwischen einem Popover und seiner Auslöser-Schaltfläche mit dem Attribut `popovertarget` hat zwei zusätzliche nützliche Effekte:
-    - Der Browser erstellt eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) Beziehung zwischen Popover und Auslöser und positioniert das Popover in einer logischen Position in der Tastaturnavigation, wenn angezeigt. Dies macht das Popover für Benutzer von Tastatur und assistive Technologie (AT) besser zugänglich (siehe auch [Popover accessibility features](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
-    - Der Browser erstellt einen impliziten Anker zwischen beiden, was es sehr bequem macht, Popovers relativ zu ihren Steuerungen mit [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zu positionieren. Weitere Details finden Sie unter [Popover anchor positioning](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning).
+  - : Schaltet ein `<input type="button">`-Element in eine Popover-Steuerung um; nimmt die ID des Popover-Elements, das gesteuert werden soll, als Wert. Weitere Informationen finden Sie auf der [Popover API](/de/docs/Web/API/Popover_API)-Startseite. Das Erstellen einer Beziehung zwischen einem Popover und ihrem Aufrufer-Button mit dem `popovertarget`-Attribut hat zwei zusätzliche nützliche Effekte:
+    - Der Browser erstellt eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Beziehung zwischen Popover und Aufrufer und platziert das Popover in einer logischen Position in der Tastaturnavigationsfolge, wenn es angezeigt wird. Das macht das Popover zugänglicher für Tastatur- und unterstützende Technologie-Benutzer (AT-Benutzer) (siehe auch [Popover-Zugänglichkeitsfunktionen](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
+    - Der Browser erstellt eine implizite Ankerreferenz zwischen den beiden, was es sehr komfortabel macht, Popovers relativ zu ihren Steuerungen mit [CSS-Ankers-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zu positionieren. Weitere Informationen finden Sie unter [Popover-Anker-Positionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning).
 
 - `popovertargetaction`
-
-  - : Gibt die Aktion an, die auf ein vom Steuerung `<input type="button">` verwaltetes Popover-Element ausgeführt werden soll. Mögliche Werte sind:
+  - : Gibt die Aktion an, die auf ein Popover-Element angewendet werden soll, das von einer Steuerung `<input type="button">` gesteuert wird. Mögliche Werte sind:
     - `"hide"`
-      - : Die Schaltfläche versteckt ein angezeigtes Popover. Wenn Sie versuchen, ein bereits verborgenes Popover zu verstecken, wird keine Aktion unternommen.
+      - : Der Button wird ein angezeigtes Popover verstecken. Wenn Sie versuchen, ein bereits verstecktes Popover zu verstecken, wird keine Aktion durchgeführt.
     - `"show"`
-      - : Die Schaltfläche zeigt ein verborgenes Popover an. Wenn Sie versuchen, ein bereits angezeigtes Popover anzuzeigen, wird keine Aktion unternommen.
+      - : Der Button wird ein verstecktes Popover anzeigen. Wenn Sie versuchen, ein bereits angezeigtes Popover anzuzeigen, wird keine Aktion durchgeführt.
     - `"toggle"`
-      - : Die Schaltfläche schaltet ein Popover zwischen sichtbar und verborgen um. Wenn das Popover verborgen ist, wird es angezeigt; wenn das Popover sichtbar ist, wird es verborgen. Wenn `popovertargetaction` weggelassen wird, ist `"toggle"` die Standardaktion, die von der Steuerungsschaltfläche ausgeführt wird.
+      - : Der Button wird ein Popover zwischen Anzeigemodus und Verborgenheitsmodus umschalten. Wenn das Popover versteckt ist, wird es angezeigt; wenn das Popover angezeigt wird, wird es versteckt. Wenn `popovertargetaction` weggelassen wird, ist `"toggle"` die Standardaktion, die von der Steuerung ausgeführt wird.
 
 - [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly)
+  - : Ein Boolean-Attribut, das, falls vorhanden, anzeigt, dass der Benutzer den Wert der Eingabe nicht bearbeiten kann. Das `readonly`-Attribut wird von den Eingabetypen `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number` und `password` unterstützt.
 
-  - : Ein Boolean-Attribut, das, wenn es vorhanden ist, angibt, dass der Benutzer den Wert des Eingabefelds nicht bearbeiten können soll. Das `readonly`-Attribut wird von den Eingabetypen `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number` und `password` unterstützt.
-
-    Weitere Informationen finden Sie auf der Seite [HTML-Attribut: `readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly).
+    Weitere Informationen finden Sie im [HTML-Attribut `readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly).
 
 - [`required`](/de/docs/Web/HTML/Reference/Attributes/required)
+  - : `required` ist ein Boolean-Attribut, das, falls vorhanden, anzeigt, dass der Benutzer einen Wert für die Eingabe angeben muss, bevor das Formular, zu dem es gehört, übermittelt werden kann. Das `required`-Attribut wird von den Eingabetypen `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `password`, `checkbox`, `radio` und `file` unterstützt.
 
-  - : `required` ist ein Boolean-Attribut, das, falls vorhanden, darauf hinweist, dass der Benutzer einen Wert für die Eingabe angeben muss, bevor das Formular übermittelt werden kann. Das `required`-Attribut wird von den Eingaben `text`, `search`, `url`, `tel`, `email`, `date`, `month`, `week`, `time`, `datetime-local`, `number`, `password`, `checkbox`, `radio` und `file` unterstützt.
-
-    Weitere Informationen finden Sie unter [Client-seitige Validierung](#client-seitige_validierung) und dem [HTML-Attribut: `required`](/de/docs/Web/HTML/Reference/Attributes/required).
+    Weitere Informationen finden Sie unter [Client-side validation](#client-seitige_validierung) und im [HTML-Attribut `required`](/de/docs/Web/HTML/Reference/Attributes/required).
 
 - [`size`](/de/docs/Web/HTML/Reference/Attributes/size)
-
-  - : Gültig für `email`, `password`, `tel`, `url` und `text`, das `size`-Attribut gibt an, wie viel von der Eingabe angezeigt wird. Erzeugt im Wesentlichen dasselbe Ergebnis wie das Festlegen der CSS-Eigenschaft [`width`](/de/docs/Web/CSS/width) mit einigen Spezialfällen. Die tatsächliche Einheit des Wertes hängt vom Eingabetyp ab. Für `password` und `text` ist es eine Anzahl von Zeichen (oder `em`-Einheiten) mit einem Standardwert von `20`, und für andere sind es Pixel (oder `px`-Einheiten). CSS `width` hat Vorrang über das `size`-Attribut.
+  - : Gültig für `email`, `password`, `tel`, `url` und `text`, spezifiziert das `size`-Attribut, wie viel der Eingabe angezeigt wird. Grundsätzlich erzielt es das gleiche Ergebnis, wie das Setzen der CSS [`width`](/de/docs/Web/CSS/width) Eigenschaft mit ein paar Besonderheiten. Der tatsächliche Einheit des Wertes hängt vom Eingabetyp ab. Für `password` und `text` ist es eine Anzahl von Zeichen (oder `em` Einheiten) mit einem Standardwert von `20`, und für andere ist es Pixel (oder `px` Einheiten). CSS `width` hat Vorrang über das `size`-Attribut.
 
 - `src`
-
-  - : Gültig nur für die `image` Eingabeschaltfläche, das `src` ist eine Zeichenkette, die die URL der Bilddatei angibt, die angezeigt werden soll, um die grafische Absende-Schaltfläche darzustellen. Weitere Informationen finden Sie beim {{HTMLElement("input/image", "image")}} Eingabetyp.
+  - : Gültig nur für den `image`-Eingabe-Button, ist das `src` ein String, der die URL der Bilddatei angibt, die angezeigt werden soll, um den grafischen Senden-Button darzustellen. Siehe den {{HTMLElement("input/image", "image")}}-Eingabetyp.
 
 - [`step`](/de/docs/Web/HTML/Reference/Attributes/step)
+  - : Gültig für `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`, ist das [`step`](/de/docs/Web/HTML/Reference/Attributes/step)-Attribut eine Zahl, die die Granularität angibt, an die sich der Wert halten muss.
 
-  - : Gültig für `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`, das Attribut [`step`](/de/docs/Web/HTML/Reference/Attributes/step) ist eine Zahl, die die Granularität angibt, an die sich der Wert anpassen muss.
+    Wenn nicht explizit eingeschlossen:
+    - `step` ist standardmäßig 1 für `number` und `range`.
+    - Jeder Datum-/Uhrzeit-Eingabetyp hat einen Standardwert für `step`, der für den Typ geeignet ist; siehe die individuellen Eingabeseiten: [`date`](/de/docs/Web/HTML/Reference/Elements/input/date#step), [`datetime-local`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local#step), [`month`](/de/docs/Web/HTML/Reference/Elements/input/month#step), [`time`](/de/docs/Web/HTML/Reference/Elements/input/time#step) und [`week`](/de/docs/Web/HTML/Reference/Elements/input/week#step).
 
-    Wenn nicht ausdrücklich enthalten:
+    Der Wert muss eine positive Zahl—ganz oder mit Komma—sein oder der spezielle Wert `any`, was bedeutet, dass kein Schrittverhalten angenommen wird und jeder Wert erlaubt ist (ausgenommen andere Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
-    - Ist `step` standardmäßig 1 für `number` und `range`.
-    - Jeder Eingabetyp für Daten/Zeit hat einen standardmäßigen `step`-Wert, der für den Typ geeignet ist; siehe die einzelnen Eingabeseiten: [`date`](/de/docs/Web/HTML/Reference/Elements/input/date#step), [`datetime-local`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local#step), [`month`](/de/docs/Web/HTML/Reference/Elements/input/month#step), [`time`](/de/docs/Web/HTML/Reference/Elements/input/time#step) und [`week`](/de/docs/Web/HTML/Reference/Elements/input/week#step).
+    Wenn `any` nicht explizit gesetzt ist, sind gültige Werte für die `number`, Datum/Uhrzeit-Eingabefelder und `range` Eingabefelder gleichbedeutend zur Basis für den Schritt—dem [`min`](#min)-Wert und Inkrementen des Schrittwerts, bis zum [`max`](#max)-Wert, falls angegeben.
 
-    Der Wert muss eine positive Zahl sein—ganz oder gekürzt—oder der spezielle Wert `any`, was bedeutet, dass kein Schritt impliziert wird und alle Werte erlaubt sind (außer anderen Einschränkungen wie [`min`](#min) und [`max`](#max)).
-
-    Wenn `any` nicht ausdrücklich gesetzt ist, sind gültige Werte für die `number`, Eingabetypen für Daten/Zeit und `range` Eingabetypen gleich dem Basiswert für die Schritte—dem [`min`](#min)-Wert und ansteigenden Einheiten des Schrittwertes bis zum [`max`](#max)-Wert, wenn angegeben.
-
-    Beispielsweise, wenn Sie `<input type="number" min="10" step="2">` haben, dann ist jede gerade Ganzzahl, `10` oder größer, gültig. Wenn weggelassen, `<input type="number">`, ist jede ganze Zahl gültig, aber gekürzte (wie `4.2`) sind nicht gültig, weil `step` standardmäßig `1` ist. Für `4.2` gültig zu sein, hätte `step` auf `any`, 0.1, 0.2 gesetzt werden müssen, oder der `min`-Wert hätte eine Zahl endend auf `.2` sein müssen, wie z.B. `<input type="number" min="-5.2">`.
+    Zum Beispiel, wenn Sie `<input type="number" min="10" step="2">` haben, dann ist jede gerade Ganzzahl, `10` oder größer, gültig. Wenn weggelassen, `<input type="number">`, ist jede Ganzzahl gültig, aber Fließkommazahlen (wie `4.2`) sind nicht gültig, weil `step` standardmäßig `1` ist. Damit `4.2` gültig ist, hätte `step` auf `any`, 0.1, 0.2, oder der `min`-Wert hätte eine Zahl sein müssen, die auf `.2` endet, wie `<input type="number" min="-5.2">`.
 
     > [!NOTE]
-    > Wenn die vom Benutzer eingegebenen Daten nicht den Schritt-Konfigurationen entsprechen, wird der Wert bei der Einschränkungsvalidierung als ungültig angesehen und trifft auf die `:invalid` Pseudoklasse zu.
+    > Wenn die vom Benutzer eingegebenen Daten nicht der Schritt-Konfiguration entsprechen, wird der Wert in der Beschränkungsprüfung als ungültig angesehen und entspricht dem `:invalid` Pseudoklasse.
 
-    Weitere Informationen finden Sie unter [Client-seitige Validierung](#client-seitige_validierung).
+    Weitere Informationen finden Sie unter [Client-side validation](#client-seitige_validierung).
 
 - `tabindex`
-
-  - : Globales Attribut, das für alle Elemente gültig ist, einschließlich aller Eingabetypen, ein ganzzahliges Attribut, das angibt, ob das Element den Eingabefokus annehmen kann (fokusfähig ist) und ob es an der sequentiellen Tastaturnavigation teilnehmen soll. Da alle Eingabetypen außer `hidden` fokussierbar sind, sollte dieses Attribut nicht auf Formularelementen verwendet werden, da dies das Management der Fokusreihenfolgen für alle Elemente im Dokument mit sich bringen und die Benutzerfreundlichkeit und Barrierefreiheit beeinträchtigen könnte, wenn es nicht richtig durchgeführt wird.
+  - : Globales Attribut, gültig für alle Elemente, einschließlich aller Eingabetypen, ein ganzzahliges Attribut, das angibt, ob das Element den Eingabefokus erlangen kann (fokusierbar ist) und ob es an der sequentiellen Tastaturnavigation teilnehmen soll. Da alle Eingabetypen mit Ausnahme von `hidden` fokusierbar sind, sollte dieses Attribut nicht auf Formularelementen verwendet werden, weil dies ein Management der Fokusreihenfolge für alle Elemente innerhalb des Dokuments erfordern würde, mit dem Risiko, die Benutzerfreundlichkeit und Barrierefreiheit zu beeinträchtigen, wenn es falsch gemacht wird.
 
 - `title`
-
-  - : Globales Attribut, das für alle Elemente gültig ist, einschließlich aller Eingabetypen, enthält es einen Text, der Beratungsinformationen in Bezug auf das Element, zu dem es gehört, darstellt. Solche Informationen können typischerweise, aber nicht notwendigerweise, dem Benutzer als Tooltip gezeigt werden. Der Titel darf NICHT als primäre Erklärung des Zwecks der Formularkontrolle verwendet werden. Verwenden Sie stattdessen das {{htmlelement('label')}}-Element mit einem `for`-Attribut, das auf das [`id`](#id) Attribut der Formularkontrolle gesetzt ist. Weitere Informationen finden Sie unter [Labels](#labels) unten.
+  - : Globales Attribut, gültig für alle Elemente, einschließlich aller Eingabetypen, das Text enthält, der Beratung zu dem Element bietet, zu dem es gehört. Solche Informationen können typischerweise, aber nicht notwendigerweise, dem Benutzer als Tooltip präsentiert werden. Der Titel sollte NICHT als primäre Erklärung des Zwecks des Formularsteuerelements verwendet werden. Stattdessen verwenden Sie das {{htmlelement('label')}}-Element mit einer `for`-Eigenschaft, die auf die [`id`](#id)-Eigenschaft des Formularsteuerelements gesetzt ist. Siehe [Labels](#labels) unten.
 
 - `type`
+  - : Ein String, der den zu rendernden Steuerungstyp angibt. Zum Beispiel, um eine Checkbox zu erstellen, wird ein Wert von `checkbox` verwendet. Wenn weggelassen (oder ein unbekannter Wert angegeben wird), wird der Eingabetyp `text` verwendet, was ein Klartext-Eingabefeld erstellt.
 
-  - : Eine Zeichenkette, die den Typ der Steuerung angibt, die gerendert werden soll. Beispielsweise wird eine durch das Festlegen auf `checkbox` eine Auswahlmöglichkeit erstellt. Wenn weggelassen (oder ein unbekannter Wert angegeben wird), wird die Eingabe `text` verwendet, was ein Klartextfeld erstellt.
-
-    Erlaubte Werte sind wie in den [Eingabetypen](#input_types) oben aufgelistet.
+    Erlaubte Werte sind in [Eingabetypen](#input_types) oben aufgeführt.
 
 - `value`
-
-  - : Der Wert der Eingabesteuerung. Wenn es im HTML angegeben wird, entspricht dies dem Anfangswert und kann danach jederzeit durch den Zugriff auf das `value` Attribut des entsprechenden [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Objekts geändert oder abgerufen werden. Das `value` Attribut ist immer optional, sollte jedoch als verpflichtend für `checkbox`, `radio` und `hidden` betrachtet werden.
+  - : Der Wert des Eingabefeld-Steuerelements. Bei Angabe im HTML, ist dies der Anfangswert, und danach kann dieser jederzeit geändert oder abgerufen werden, indem JavaScript verwendet wird, um auf die entsprechende [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekteigenschaft `value` zuzugreifen. Das `value`-Attribut ist immer optional, sollte jedoch als obligatorisch für `checkbox`, `radio` und `hidden` betrachtet werden.
 
 - `width`
-  - : Gültig nur für die `image` Eingabeschaltfläche, ist die `width` die Breite der Bilddatei, die angezeigt werden soll, um die grafische Absende-Schaltfläche darzustellen. Weitere Informationen finden Sie beim {{HTMLElement("input/image", "image")}} Eingabetyp.
+  - : Gültig nur für den `image`-Eingabe-Button, ist die `width` die Breite der Bilddatei, die angezeigt werden soll, um den grafischen Senden-Button darzustellen. Siehe den {{HTMLElement("input/image", "image")}}-Eingabetyp.
 
-### Nicht standardisierte Attribute
+### Nicht-standardmäßige Attribute
 
-Die folgenden nicht standardisierten Attribute sind auch in einigen Browsern verfügbar. Generell sollten Sie vermeiden, sie zu verwenden, es sei denn, es lässt sich nicht vermeiden.
+Die folgenden nicht-standardmäßigen Attribute sind auf einigen Browsern ebenfalls verfügbar. Als allgemeine Regel sollten Sie vermeiden, diese zu verwenden, es sei denn, es ist nicht zu vermeiden.
 
 <table class="no-markdown">
   <thead>
@@ -670,26 +626,26 @@ Die folgenden nicht standardisierten Attribute sind auch in einigen Browsern ver
     <tr>
       <td><a href="#incremental"><code>incremental</code></a></td>
       <td>
-        Gibt an, ob wiederholte [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignisse gesendet werden sollen, um die Live-Suchergebnisse zu aktualisieren, während der Benutzer den Wert des Feldes bearbeitet.
-        <strong>Nur WebKit und Blink (Safari, Chrome, Opera, etc.).</strong>
+        Ob wiederholte [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignisse gesendet werden sollen, um das Live-Update von Suchergebnissen zu ermöglichen, während der Benutzer noch den Wert des Feldes bearbeitet.
+        <strong>Nur WebKit und Blink (Safari, Chrome, Opera, usw.).</strong>
       </td>
     </tr>
     <tr>
       <td><code>mozactionhint</code> {{deprecated_inline}}</td>
       <td>
-        <p>Eine Zeichenkette, die den Typ der Aktion angibt, die ausgeführt wird, wenn der Benutzer die <kbd>Eingabetaste</kbd> oder <kbd>Return</kbd> drückt, während das Feld bearbeitet wird; dies wird verwendet, um eine passende Beschriftung für diese Taste auf einer virtuellen Tastatur zu bestimmen. <strong>Da dieses Attribut veraltet ist, verwenden Sie <a href="/de/docs/Web/HTML/Reference/Global_attributes/enterkeyhint"><code>enterkeyhint</code></a> stattdessen.</strong></p>
+        <p>Ein String, der den Typ der Aktion angibt, die ausgeführt wird, wenn der Benutzer die <kbd>Enter</kbd> oder <kbd>Return</kbd>-Taste drückt, während er das Feld bearbeitet; dies wird verwendet, um ein geeignetes Label für diese Taste auf einer virtuellen Tastatur zu bestimmen. <strong>Da dieses Attribut veraltet ist, verwenden Sie <a href="/de/docs/Web/HTML/Reference/Global_attributes/enterkeyhint"><code>enterkeyhint</code></a> stattdessen.</strong></p>
       </td>
     </tr>
     <tr>
       <td><a href="#orient"><code>orient</code></a></td>
       <td>
-        Legt die Ausrichtung des Bereichsschiebers fest. <strong>Nur Firefox.</strong>.
+        Legt die Ausrichtung des Bereichsschiebers fest. <strong>Nur Firefox</strong>.
       </td>
     </tr>
     <tr>
       <td><a href="#results"><code>results</code></a></td>
       <td>
-        Die maximale Anzahl der Elemente, die in der Dropdown-Liste der vorherigen Suchanfragen angezeigt werden sollen. <strong>Nur Safari.</strong>
+        Die maximale Anzahl von Elementen, die in der Dropdown-Liste der vorherigen Suchanfragen angezeigt werden sollen. <strong>Nur Safari.</strong>
       </td>
     </tr>
     <tr>
@@ -697,70 +653,65 @@ Die folgenden nicht standardisierten Attribute sind auch in einigen Browsern ver
         <a href="#webkitdirectory"><code>webkitdirectory</code></a>
       </td>
       <td>
-        Ein Boolean, der angibt, ob dem Benutzer nur erlaubt wird, ein Verzeichnis (oder Verzeichnisse, wenn <a href="#multiple"><code>multiple</code></a> ebenfalls vorhanden ist)
+        Ein Boolean, der angibt, ob nur das Wählen eines Verzeichnisses (oder Verzeichnisse, wenn <a href="#multiple"><code>multiple</code></a> ebenfalls vorhanden ist) erlaubt ist.
       </td>
     </tr>
   </tbody>
 </table>
 
 - `incremental` {{non-standard_inline}}
+  - : Das Boolean-Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also unterstützt durch Safari, Opera, Chrome, usw.), die, falls vorhanden, dem {{Glossary("user_agent", "User-Agent")}} angibt, die Eingabe als Live-Suche zu verarbeiten. Während der Benutzer den Wert des Feldes bearbeitet, sendet der Nutzer-Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, das die Suchbox darstellt. Dadurch kann Ihr Code die Suchergebnisse in Echtzeit aktualisieren, während der Benutzer die Suche bearbeitet.
 
-  - : Das Boolean-Attribut `incremental` ist eine WebKit und Blink Erweiterung (deshalb unterstützt von Safari, Opera, Chrome, etc.), das, falls vorhanden, den {{Glossary("user_agent", "Benutzeragent")}} anweist, die Eingabe als Live-Suche zu verarbeiten. Während der Benutzer den Wert des Feldes bearbeitet, sendet der Benutzeragent [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, das das Suchfeld darstellt. Dies ermöglicht Ihrem Code, die Suchergebnisse in Echtzeit zu aktualisieren, während der Benutzer die Suche bearbeitet.
+    Wenn `incremental` nicht angegeben ist, wird das [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignis nur gesendet, wenn der Benutzer die Suche ausdrücklich initiiert (z.B. indem er die <kbd>Enter</kbd> oder <kbd>Return</kbd>-Taste während der Bearbeitung des Feldes drückt).
 
-    Wenn `incremental` nicht angegeben ist, wird das [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignis nur gesendet, wenn der Benutzer explizit eine Suche initiiert (wie durch Drücken der <kbd>Eingabetaste</kbd> oder <kbd>Return</kbd> während der Bearbeitung des Feldes).
-
-    Das `search`-Ereignis ist so limitiert, dass es nicht häufiger als ein implementierungsdefiniertes Intervall gesendet wird.
+    Das `search`-Ereignis ist ratifiziert, sodass es nicht häufiger als in einem implementierungsdefinierten Intervall gesendet wird.
 
 - `orient` {{non-standard_inline}}
-
-  - : Ähnlich der nicht-standardisierten `-moz-orient` CSS-Eigenschaft, die die {{htmlelement('progress')}} und {{htmlelement('meter')}}-Elemente betrifft, definiert das Attribut `orient` die Ausrichtung des Bereichsschiebers. Zu den Werten gehören `horizontal`, was bedeutet, dass der Bereich horizontal gerendert wird, und `vertical`, wo der Bereich vertikal gerendert wird. Weitere Informationen finden Sie unter [Erstellung vertikaler Formularelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls).
+  - : Ähnlich wie die nicht-standardmäßige CSS-Eigenschaft -moz-orient, die die {{htmlelement('progress')}}- und {{htmlelement('meter')}}-Elemente beeinflusst, definiert das `orient`-Attribut die Ausrichtung des Bereichsschiebers. Werte umfassen `horizontal`, was bedeutet, dass der Bereich horizontal gerendert wird, und `vertical`, wo der Bereich vertikal gerendert wird. Siehe [Vertical form controls erstellen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls) für einen modernen Ansatz zum Erstellen von vertikalen Formularelementen.
 
 - `results` {{non-standard_inline}}
+  - : Das `results`-Attribut – nur von Safari unterstützt – ist ein Zählwert, der Ihnen ermöglicht, die maximale Anzahl von Einträgen zu überschreiben, die im nativ bereitgestellten Dropdown-Menü des `<input>`-Elements von vorherigen Suchanfragen angezeigt werden.
 
-  - : Das `results`-Attribut — nur von Safari unterstützt — ist ein numerischer Wert, der es Ihnen erlaubt, das Maximum von Einträgen zu überschreiben, die in dem vom `<input>`-Element nativ bereitgestellten Dropdown-Menü der vorherigen Suchanfragen angezeigt werden.
-
-    Der Wert muss eine nicht-negative Dezimalzahl sein. Wenn nicht bereitgestellt oder ein ungültiger Wert angegeben wird, wird die standardmäßige maximale Anzahl von Einträgen des Browsers verwendet.
+    Der Wert muss eine nicht negative Dezimalzahl sein. Wenn nicht bereitgestellt oder ein ungültiger Wert gegeben wird, wird die standardmäßige maximale Eintragsmenge des Browsers verwendet.
 
 - `webkitdirectory` {{non-standard_inline}}
+  - : Das Boolean-Attribut `webkitdirectory`, falls vorhanden, gibt an, dass nur Verzeichnisse durch den Benutzer in der Dateiauswahl-Schnittstelle ausgewählt werden können. Weitere Einzelheiten und Beispiele finden Sie unter [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory).
 
-  - : Das Boolean-Attribut `webkitdirectory`, falls vorhanden, gibt an, dass nur Verzeichnisse vom Benutzer in der Dateiauswahloberfläche ausgewählt werden sollen. Weitere Details und Beispiele finden Sie unter [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory).
-
-    Obwohl ursprünglich nur für WebKit-basierte Browser implementiert, ist `webkitdirectory` auch in Microsoft Edge sowie in Firefox 50 und später verwendbar. Allerdings, obwohl es eine relativ breite Unterstützung hat, ist es noch nicht standardisiert und sollte nicht verwendet werden, es sei denn, Sie haben keine Alternative.
+    Obwohl es ursprünglich nur für WebKit-basierte Browser implementiert wurde, ist `webkitdirectory` auch in Microsoft Edge und Firefox 50 und später verwendbar. Obwohl es eine relativ breite Unterstützung hat, ist es immer noch nicht standardisiert und sollte nicht verwendet werden, es sei denn, es gibt keine Alternative.
 
 ## Methoden
 
-Die folgenden Methoden werden von der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle bereitgestellt, die `<input>`-Elemente im DOM darstellt. Auch verfügbar sind die Methoden, die durch die Elternschnittstellen spezifiziert sind, [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`Element`](/de/docs/Web/API/Element), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget).
+Die folgenden Methoden werden von der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle bereitgestellt, die `<input>`-Elemente im DOM darstellt. Auch verfügbar sind die Methoden, die von den sich übergeordneten Schnittstellen, [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`Element`](/de/docs/Web/API/Element), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget) spezifiziert werden.
 
 - [`checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
-  - : Gibt `true` zurück, wenn der Wert des Elements die Gültigkeitsprüfungen besteht; andernfalls gibt es `false` zurück und löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis am Element aus.
+  - : Gibt `true` zurück, wenn der Wert des Elements die Gültigkeitsprüfungen besteht; andernfalls gibt es `false` zurück und löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis am Element aus.
 - [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity)
-  - : Gibt `true` zurück, wenn der Wert des Elements die Gültigkeitsprüfungen besteht; andernfalls gibt es `false` zurück, löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis am Element aus und meldet (wenn das Ereignis nicht abgesagt wird) das Problem dem Benutzer.
+  - : Gibt `true` zurück, wenn der Wert des Elements die Gültigkeitsprüfungen besteht; andernfalls gibt es `false` zurück, löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis am Element aus und meldet (falls das Ereignis nicht abgebrochen wird) das Problem dem Benutzer.
 - [`select()`](/de/docs/Web/API/HTMLInputElement/select)
-  - : Wählt den gesamten Inhalt des `<input>`-Elements aus, wenn der Inhalt des Elements auswählbar ist. Bei Elementen ohne auswählbaren Textinhalt (wie ein visueller Farbwähler oder Kalenderdateneingabe) tut diese Methode nichts.
+  - : Wählt den gesamten Inhalt des `<input>`-Elements aus, wenn der Inhalt des Elements auswählbar ist. Für Elemente ohne auswählbaren Textinhalt (wie ein visuelles Farbwähler oder Kalenderdatum-Eingabe) tut diese Methode nichts.
 - [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)
-  - : Legt eine benutzerdefinierte Nachricht fest, die angezeigt wird, wenn der Wert des Eingabefelds nicht gültig ist.
+  - : Setzt eine benutzerdefinierte Nachricht, die angezeigt wird, wenn der Wert des Eingabefelds nicht gültig ist.
 - [`setRangeText()`](/de/docs/Web/API/HTMLInputElement/setRangeText)
-  - : Setzt den Inhalt des angegebenen Zeichenbereichs im Eingabefeld auf eine gegebene Zeichenkette. Ein `selectMode` Parameter ist verfügbar, um zu steuern, wie der bestehende Inhalt betroffen ist.
+  - : Legt den Inhalt des angegebenen Bereichs von Zeichen im Eingabefeld auf eine gegebene Zeichenfolge fest. Ein Parameter `selectMode` ist verfügbar, um zu steuern, wie der vorhandene Inhalt beeinflusst wird.
 - [`setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)
-  - : Wählt den angegebenen Zeichenbereich innerhalb eines Text-Eingabefelds aus. Tut nichts für Eingaben, die nicht als Texteingabefelder dargestellt werden.
+  - : Wählt den angegebenen Bereich von Zeichen innerhalb eines textuellen Eingabe-Elements aus. Macht nichts für Eingaben, die nicht als Text-Eingabefelder angezeigt werden.
 - [`showPicker()`](/de/docs/Web/API/HTMLInputElement/showPicker)
-  - : Zeigt den Browser-Auswähler für das Eingabefeld an, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, jedoch durch das Drücken einer Schaltfläche oder eine andere Benutzerinteraktion ausgelöst.
+  - : Zeigt den Browser-Picker für das Eingabeelement an, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, aber von einem Button-Drücker oder einem anderen Benutzerinteraktion ausgelöst wird.
 - [`stepDown()`](/de/docs/Web/API/HTMLInputElement/stepDown)
-  - : Verringert den Wert einer numerischen Eingabe standardmäßig um eins oder um die angegebene Anzahl von Einheiten.
+  - : Verringert den Wert einer numerischen Eingabe um eins, standardmäßig oder um die angegebene Anzahl von Einheiten.
 - [`stepUp()`](/de/docs/Web/API/HTMLInputElement/stepUp)
-  - : Erhöht den Wert einer numerischen Eingabe um eins oder um die angegebene Anzahl von Einheiten.
+  - : Erhöht den Wert einer numerischen Eingabe um eins oder durch die angegebene Anzahl von Einheiten.
 
 ## CSS
 
-Da Eingaben ersetzte Elemente sind, haben sie einige Merkmale, die nicht für Nicht-Formularelemente gelten. Es gibt CSS-Selektoren, die speziell Formularelemente basierend auf ihren UI-Funktionen ansprechen können, auch bekannt als UI-Pseudoklassen. Das Eingabeelement kann auch nach Typ mit Attributselektoren angesprochen werden. Es gibt einige Eigenschaften, die ebenfalls besonders nützlich sind.
+Eingaben, die ersetzbare Elemente sind, haben einige Merkmale, die nicht auf Nicht-Formularelemente anwendbar sind. Es gibt CSS-Selektoren, die spezifisch Formularsteuerungen basierend auf ihren UI-Funktionen anvisieren können, auch bekannt als UI-Pseudoklassen. Das Eingabeelement kann auch nach Typ mit Attributselektoren gezielt werden. Es gibt einige Eigenschaften, die besonders nützlich sind.
 
 ### UI-Pseudoklassen
 
 <table class="no-markdown">
   <caption>
-    Pseudoklassen, die für das
-    <code>&#x3C;input></code>
-    Element relevant sind:
+    Pseudoklassen relevant für das
+    <code>&#x3C;input></code>-Element:
   </caption>
   <thead>
     <tr>
@@ -772,136 +723,110 @@ Da Eingaben ersetzte Elemente sind, haben sie einige Merkmale, die nicht für Ni
     <tr>
       <td>{{Cssxref(":enabled")}}</td>
       <td>
-        Jedes derzeit aktivierte Element, das aktiviert werden kann (ausgewählt, angeklickt,
-        eingegeben, etc.) oder den Fokus akzeptieren kann und auch einen deaktivierten Zustand hat,
-        in dem es nicht aktiviert oder den Fokus akzeptieren kann.
+        Jedes derzeit aktivierte Element, das aktiviert werden kann (ausgewählt, angeklickt, beschrieben usw.) oder den Fokus akzeptiert und auch einen deaktivierten Zustand hat, in dem es nicht aktiviert oder den Fokus akzeptieren kann.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":disabled")}}</td>
       <td>
-        Jedes derzeit deaktivierte Element, das einen aktivierten Zustand hat, was bedeutet, dass es
-        ansonsten aktiviert werden könnte (ausgewählt, angeklickt, eingegeben, etc.) oder den Fokus
-        akzeptieren könnte, wäre es nicht deaktiviert.
+        Jedes derzeit deaktivierte Element, das einen aktivierten Zustand hat, was bedeutet, dass es ansonsten aktiviert (ausgewählt, angeklickt, beschrieben usw.) oder den Fokus akzeptiert werden könnte, wenn es nicht deaktiviert wäre.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":read-only")}}</td>
-      <td>Element nicht bearbeitbar durch den Benutzer</td>
+      <td>Nicht durch den Nutzer bearbeitbares Element.</td>
     </tr>
     <tr>
       <td>{{Cssxref(":read-write")}}</td>
-      <td>Element, das vom Benutzer bearbeitet werden kann.</td>
+      <td>Vom Nutzer bearbeitbares Element.</td>
     </tr>
     <tr>
       <td>{{Cssxref(":placeholder-shown")}}</td>
       <td>
-        Element, das derzeit <a href="#placeholder"><code>placeholder</code> Text</a> anzeigt,
-        einschließlich <code>&#x3C;input></code> und {{HTMLElement("textarea")}} Elementen mit dem <a href="#placeholder"><code>placeholder</code></a> Attribut, das noch keinen Wert hat.
+        Element, das derzeit <a href="#placeholder"><code>placeholder</code>-Text</a> anzeigt, einschließlich <code>&#x3C;input></code> und {{HTMLElement("textarea")}}-Elemente mit dem <a href="#placeholder"><code>placeholder</code></a>-Attribut, das noch keinen Wert hat.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":default")}}</td>
       <td>
-        Formularelemente, die standardmäßig in einer Gruppe verwandter Elemente sind.
-        Passt zu {{HTMLElement("input/checkbox", "checkbox")}} und
-        {{HTMLElement("input/radio", "radio")}} Eingabetypen, die
-        beim Laden oder Rendern der Seite aktiviert waren.
+        Formularelemente, die in einer Gruppe verwandter Elemente standardmäßig sind. Passt für die {{HTMLElement("input/checkbox", "checkbox")}} und {{HTMLElement("input/radio", "radio")}} Input-Typen, die beim Laden oder Rendern der Seite überprüft wurden.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":checked")}}</td>
       <td>
-        Passt zu {{HTMLElement("input/checkbox", "checkbox")}} und
-        {{HTMLElement("input/radio", "radio")}} Eingabetypen, die
-        derzeit aktiviert sind (und die {{HTMLElement("option")}} in einem
-        {{HTMLElement("select")}}, das derzeit ausgewählt ist).
+        Passt zu {{HTMLElement("input/checkbox", "checkbox")}} und {{HTMLElement("input/radio", "radio")}} Input-Typen, die derzeit überprüft werden (und das {{HTMLElement("option")}} in einem {{HTMLElement("select")}}, das derzeit ausgewählt ist).
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":indeterminate")}}</td>
       <td>
-        {{HTMLElement("input/checkbox", "checkbox")}} Elemente,
-        deren unbestimmte Eigenschaft durch JavaScript auf wahr gesetzt ist,
-        {{HTMLElement("input/radio", "radio")}} Elemente, wenn alle
-        Radioknöpfe mit demselben Namen im Formular nicht aktiviert sind, und
-        {{HTMLElement("progress")}} Elemente in einem unbestimmten Zustand.
+        {{HTMLElement("input/checkbox", "checkbox")}}-Elemente, deren indeterminierte Eigenschaft von JavaScript auf wahr gesetzt wird, {{HTMLElement("input/radio", "radio")}}-Elemente, wenn alle Radiobuttons mit demselben Namenswert im Formular nicht ausgewählt sind und {{HTMLElement("progress")}}-Elemente in einem unbestimmten Zustand.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":valid")}}</td>
       <td>
-        Formulare, die einer Validierung unterliegen und momentan gültig sind.
+        Formularelemente, die eine Bedingungsvalidierung haben können und derzeit gültig sind.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":invalid")}}</td>
       <td>
-        Formularsteuerelemente, auf die eine Validierungsbeschränkung angewendet wurde und die derzeit
-        nicht gültig sind. Entspricht einem Formularsteuerelement, dessen Wert die
-        Einschränkungen, die durch seine Attribute festgelegt sind, wie z.B.
-        <a href="#required"><code>required</code></a>,
-        <a href="#pattern"><code>pattern</code></a>,
-        <a href="#step"><code>step</code></a> und <a href="#max"><code>max</code></a>, nicht erfüllt.
+        Formularelemente, die eine Bedingungsvalidierung haben und derzeit ungültig sind. Passt zu einem Formularelement, dessen Wert nicht zu den durch seine Attribute festgelegten Bedingungen passt, wie <a href="#required"><code>required</code></a>, <a href="#pattern"><code>pattern</code></a>, <a href="#step"><code>step</code></a> und <a href="#max"><code>max</code></a>.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":in-range")}}</td>
       <td>
-        Ein nicht-leeres Eingabefeld, dessen aktueller Wert innerhalb der durch die <a href="#min"><code>min</code></a> und <a href="#max"><code>max</code></a> Attribute festgelegten Bereichsgrenzen sowie dem <a href="#step"><code>step</code></a> liegt.
+        Eine nicht-leere Eingabe, deren aktueller Wert innerhalb der durch die <a href="#min"><code>min</code></a> und <a href="#max"><code>max</code></a>-Attribute und das <a href="#step"><code>step</code></a> festgelegten Bereichsgrenzen liegt.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":out-of-range")}}</td>
       <td>
-        Ein nicht-leeres Eingabefeld, dessen aktueller Wert NICHT innerhalb der durch die <a href="#min"><code>min</code></a>
-        und <a href="#max"><code>max</code></a> Attribute festgelegten Bereichsgrenzen liegt oder
-        nicht den <a href="#step"><code>step</code></a> Einschränkungen entspricht.
+        Eine nicht-leere Eingabe, deren aktueller Wert NICHT innerhalb der durch die <a href="#min"><code>min</code></a> und <a href="#max"><code>max</code></a>-Attribute festgelegten Bereichsgrenzen liegt oder nicht den <a href="#step"><code>step</code></a>-Beschränkungen entspricht.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":required")}}</td>
       <td>
-        <code>&#x3C;input></code>, {{HTMLElement("select")}}, oder {{HTMLElement("textarea")}} Element, das das Attribut <a href="#required"><code>required</code></a> gesetzt hat.
-        Entspricht nur Elementen, die erforderlich sein können.
-        Das Attribut wird bei einem nicht erforderbaren Element keine Übereinstimmung ergeben.
+        <code>&#x3C;input></code>, {{HTMLElement("select")}}, oder {{HTMLElement("textarea")}}-Element, das das <a href="#required"><code>required</code></a>-Attribut gesetzt hat.
+        Passt nur zu Elementen, die erforderlich sein können.
+        Das Attribut auf einem nicht erforderlichen Element sorgt nicht für eine Übereinstimmung.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":optional")}}</td>
       <td>
-        <code>&#x3C;input></code>, {{HTMLElement("select")}}, oder
-        {{HTMLElement("textarea")}} Element, das NICHT das Attribut <a href="#required"><code>required</code></a> gesetzt hat.
-        Entspricht nicht Elementen, die nicht erforderlich sein können.
+        <code>&#x3C;input></code>, {{HTMLElement("select")}}, oder {{HTMLElement("textarea")}}-Element, das NICHT das <a href="#required"><code>required</code></a>-Attribut gesetzt hat.
+        Passt nicht zu Elementen, die nicht erforderlich sein können.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":blank")}}</td>
       <td>
-        <code>&#x3C;input></code> und {{HTMLElement("textarea")}} Elemente, die momentan keinen Wert haben.
+        <code>&#x3C;input></code> und {{HTMLElement("textarea")}}-Elemente, die derzeit keinen Wert haben.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":user-invalid")}}</td>
       <td>
-        Ähnlich wie <code>:invalid</code>, jedoch erst bei Verlust des Fokus. Entspricht
-        ungültigen Eingaben, aber nur nach der Benutzerinteraktion, wie z.B. durch Fokussieren
-        auf das Steuerelement, Verlassen des Steuerelements oder Versuch, das Formular
-        mit dem ungültigen Steuerelement abzusenden.
+        Ähnlich wie <code>:invalid</code>, wird jedoch beim Verlassen des Eingabefelds aktiviert. Passt auf ungültige Eingaben, jedoch nur nach der Benutzerinteraktion, z. B. durch Fokussieren auf das Steuerelement, Verlassen des Steuerelements oder Versuch, das Formular mit dem ungültigen Steuerelement abzuschicken.
       </td>
     </tr>
     <tr>
       <td>{{Cssxref(":open")}}</td>
       <td>
-        <code>&lt;input&gt;</code> Elemente, die einen Auswahldialog anzeigen, aus dem der Benutzer einen Wert auswählen kann (zum Beispiel <a href="/de/docs/Web/HTML/Reference/Elements/input/color"><code>&lt;input type="color"&gt;</code></a>) – aber nur, wenn das Element im offenen Zustand ist, das heißt, wenn der Auswahldialog angezeigt wird.
+        <code>&lt;input&gt;</code>-Elemente, die einen Auswahldialog für den Nutzer anzeigen, um einen Wert auszuwählen (zum Beispiel <a href="/de/docs/Web/HTML/Reference/Elements/input/color"><code>&lt;input type="color"&gt;</code></a>), aber nur, wenn das Element im offenen Zustand ist, das heißt, wenn der Auswahldialog angezeigt wird.
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Pseudoklassenbeispiel
+#### Pseudoklassen Beispiel
 
-Wir können ein Kontrollkästchen-Etikett basierend darauf stylen, ob das Kontrollkästchen aktiviert ist oder nicht. In diesem Beispiel gestalten wir die {{cssxref('color')}} und {{cssxref('font-weight')}} des {{htmlelement('label')}}, das direkt nach einer aktivierten Eingabe erscheint. Wir haben keine Stile angewendet, wenn die `input` nicht aktiviert ist.
+Wir können einem Beschriftungselement eines Kontrollkästchens einen Stil geben, basierend darauf, ob das Kontrollkästchen aktiviert ist oder nicht. In diesem Beispiel gestalten wir die {{cssxref('color')}} und {{cssxref('font-weight')}} der {{htmlelement('label')}}, die direkt nach einem aktivierten Eingabefeld kommt. Wir haben keine Stile angewendet, wenn das `input` nicht aktiviert ist.
 
 ```html hidden
 <input id="checkboxInput" type="checkbox" />
@@ -919,7 +844,7 @@ input:checked + label {
 
 ### Attributselektoren
 
-Es ist möglich, verschiedene Arten von Formularelementen basierend auf ihrem [`type`](#type) mittels [Attributselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) anzusprechen. CSS-Attributselektoren passen zu Elementen basierend entweder nur auf das Vorhandensein eines Attributs oder auf den Wert eines gegebenen Attributs.
+Es ist möglich, verschiedene Arten von Formularsteuerungen basierend auf ihrem [`type`](#type) mit [Attributselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) zu adressieren. CSS-Attributselektoren passen zu Elementen basierend auf entweder nur der Anwesenheit eines Attributs oder dem Wert eines bestimmten Attributs.
 
 ```css
 /* matches a password input */
@@ -937,7 +862,7 @@ input[pattern] {
 
 ### ::placeholder
 
-Standardmäßig ist das Erscheinungsbild von Platzhaltertext transluzent oder hellgrau. Das {{cssxref('::placeholder')}} Pseudoelement ist der [`placeholder` Text](#placeholder) der Eingabe. Es kann mit einem begrenzten Satz an CSS-Eigenschaften gestaltet werden.
+Standardmäßig ist das Erscheinungsbild des Platzhaltertextes durchsichtig oder hellgrau. Das {{cssxref('::placeholder')}} Pseudoelement ist der [`placeholder`-Text](#placeholder) der Eingabe. Er kann mit einem begrenzten Satz von CSS-Eigenschaften gestaltet werden.
 
 ```css
 ::placeholder {
@@ -945,19 +870,19 @@ Standardmäßig ist das Erscheinungsbild von Platzhaltertext transluzent oder he
 }
 ```
 
-Nur der Teil der CSS-Eigenschaften, der auf das {{cssxref("::first-line")}} Pseudoelement angewendet werden kann, kann in einer Regel verwendet werden, die `::placeholder` in ihrem Selektor enthält.
+Nur der Satz von CSS-Eigenschaften, die auf das {{cssxref("::first-line")}} Pseudoelement angewendet werden können, kann auch in einer Regel mit `::placeholder` im Selektor verwendet werden.
 
 ### appearance
 
-Die {{cssxref("appearance")}} Eigenschaft ermöglicht die Darstellung von (fast) jedem Element im plattformnativen Stil basierend auf dem Thema des Betriebssystems sowie die Entfernung jeglicher plattformnativer Stilierung mit dem Wert `none`.
+Die {{cssxref("appearance")}} Eigenschaft ermöglicht das Anzeigen von (fast) jedem Element im plattform-native Stil basierend auf dem Betriebssystemthema sowie das Entfernen von irgendeinem plattform-nativen Styling mit dem Wert `none`.
 
-Man könnte ein `<div>` wie eine Optionsschaltfläche aussehen lassen mit `div {appearance: radio;}` oder eine Optionsschaltfläche wie ein Kontrollkästchen mit `[type="radio"] {appearance: checkbox;}`, aber es wird nicht empfohlen.
+Sie könnten ein `<div>` wie einen Radiobutton aussehen lassen mit `div {appearance: radio;}` oder einen Radiobutton wie ein Kontrollkästchen mit `[type="radio"] {appearance: checkbox;}`, aber tun Sie es nicht.
 
-Das Setzen von `appearance: none` entfernt plattformnative Rahmen, aber nicht die Funktionalität.
+Das Setzen von `appearance: none` entfernt plattformnativen Rahmen, aber nicht die Funktionalität.
 
 ### caret-color
 
-Eine Eigenschaft, die spezifisch für Elemente zum Texteingeben ist, ist die CSS {{cssxref("caret-color")}} Eigenschaft, mit der Sie die Farbe des Textcursor einstellen können:
+Eine spezifische Eigenschaft für Texteingabeelemente ist die CSS {{cssxref("caret-color")}} Eigenschaft, mit der Sie die Farbe festlegen können, die zum Zeichnen des Texteingabecursors verwendet wird:
 
 #### HTML
 
@@ -974,7 +899,7 @@ input.custom {
   font:
     16px "Helvetica",
     "Arial",
-    "sans-serif";
+    sans-serif;
 }
 ```
 
@@ -984,36 +909,36 @@ input.custom {
 
 ### field-sizing
 
-Die {{cssxref("field-sizing")}} Eigenschaft ermöglicht es Ihnen, das Größenverhalten von Formulareingaben zu kontrollieren (d.h. sie erhalten standardmäßig eine bevorzugte Größe). Diese Eigenschaft ermöglicht es Ihnen, das Standardverhalten zu überschreiben, wodurch Formularelemente sich anpassen können, um ihren Inhalt zu fassen.
+Die {{cssxref("field-sizing")}} Eigenschaft ermöglicht Ihnen die Kontrolle über das Größenverhalten von Formular-Eingaben (d.h. sie erhalten standardmäßig eine bevorzugte Größe). Diese Eigenschaft ermöglicht es Ihnen, das Standardverhalten zu überschreiben und den Formularsteuerungen zu erlauben, sich in der Größe an ihren Inhalt anzupassen.
 
-Diese Eigenschaft wird typischerweise verwendet, um Formularfelder zu erstellen, die den Inhalt umschließen und wachsen, wenn mehr Text eingegeben wird. Dies funktioniert mit Eingabetypen, die direkte Texteingabe akzeptieren (zum Beispiel [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) und [`url`](/de/docs/Web/HTML/Reference/Elements/input/url)), Eingabetypen [`file`](/de/docs/Web/HTML/Reference/Elements/input/file) und {{htmlelement("textarea")}} Elementen.
+Diese Eigenschaft wird normalerweise verwendet, um Formularfelder zu erstellen, die ihren Inhalt einpacken und wachsen, während mehr Text eingegeben wird. Dies funktioniert mit Eingabetypen, die direkte Texteingaben akzeptieren (zum Beispiel [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) und [`url`](/de/docs/Web/HTML/Reference/Elements/input/url)), Eingabetyp [`file`](/de/docs/Web/HTML/Reference/Elements/input/file) und {{htmlelement("textarea")}} Elemente.
 
 ### object-position und object-fit
 
-In bestimmten Fällen (typischerweise bei nicht-texualen Eingaben und spezialisierten Schnittstellen) ist das `<input>` Element ein {{Glossary("replaced_elements", "ersetztes Element")}}. Wenn es das ist, können die Größe und Position des Elements innerhalb seines Rahmens mit den CSS-Eigenschaften {{cssxref("object-position")}} und {{cssxref("object-fit")}} angepasst werden.
+In bestimmten Fällen (normalerweise bei nicht-textuellen Eingaben und spezialisierten Schnittstellen) ist das `<input>` Element ein {{Glossary("replaced_elements", "ersetztes Element")}}. Wenn es so ist, können die Position und die Größe des Elements sowie die Positionierung innerhalb seines Rahmens mit den CSS {{cssxref("object-position")}} und {{cssxref("object-fit")}} Eigenschaften angepasst werden.
 
-### Stilierung
+### Styling
 
-Für weitere Informationen über das Hinzufügen von Farbe zu Elementen in HTML, siehe:
+Für weitere Informationen zum Hinzufügen von Farbe zu HTML-Elementen siehe:
 
-- [Anwendung von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color).
+- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color).
 
 Siehe auch:
 
-- [Gestaltung von HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- [Erweiterte Gestaltung für HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
+- [Styling von HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- [Erweitertes Styling für HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) und
 
-## Zusätzliche Merkmale
+## Zusätzliche Funktionen
 
 ### Labels
 
-Labels sind erforderlich, um Hilfetext mit einem `<input>` zu verknüpfen. Das {{HTMLElement("label")}} Element bietet erklärende Informationen über ein Formularfeld, die _immer_ angemessen sind (abgesehen von Layout-Bedenken, die Sie haben könnten). Es ist nie eine schlechte Idee, ein `<label>` zu verwenden, um zu erklären, was in ein `<input>` oder {{HTMLElement("textarea")}} eingegeben werden sollte.
+Labels werden benötigt, um unterstützenden Text mit einem `<input>` zu verknüpfen. Das {{HTMLElement("label")}}-Element bietet erklärende Informationen zu einem Formularfeld, die _immer_ angebracht sind (abgesehen von allen Layout-Bedenken, die Sie haben). Es ist nie eine schlechte Idee, ein `<label>` zu verwenden, um zu erklären, was in ein `<input>` oder {{HTMLElement("textarea")}} eingegeben werden sollte.
 
 #### Zugehörige Labels
 
-Die semantische Kopplung von `<input>` und `<label>` Elementen ist nützlich für unterstützende Technologien wie Bildschirmleser. Durch das Verknüpfen über das [`for`](/de/docs/Web/HTML/Reference/Elements/label#for) Attribut des `<label>` wird der Label mit der Eingabe auf eine Weise verbunden, die es Bildschirmlesern ermöglicht, Eingaben präziser zu beschreiben.
+Die semantische Zusammenführung von `<input>` und `<label>`-Elementen ist nützlich für unterstützende Technologien wie Screenreader. Durch die Verknüpfung mit dem [`for`](/de/docs/Web/HTML/Reference/Elements/label#for) Attribut des `<label>`, binden Sie das Label an die Eingabe in einer Weise, die es Screenreadern ermöglicht, Eingaben den Nutzern präziser zu beschreiben.
 
-Es ist nicht ausreichend, einfachen Text neben dem `<input>` Element zu haben. Vielmehr erfordern Gebrauchstauglichkeit und Zugänglichkeit die Aufnahme von entweder implizitem oder explizitem {{HTMLElement("label")}}:
+Es genügt nicht, einfachen Text neben dem `<input>`-Element zu haben. Vielmehr erfordern Benutzerfreundlichkeit und Zugänglichkeit die Einbeziehung eines ausdrücklichen oder impliziten {{HTMLElement("label")}}:
 
 ```html
 <!-- inaccessible -->
@@ -1031,42 +956,42 @@ Es ist nicht ausreichend, einfachen Text neben dem `<input>` Element zu haben. V
 </p>
 ```
 
-Das erste Beispiel ist unzugänglich: Es besteht keine Beziehung zwischen der Eingabeaufforderung und dem `<input>` Element.
+Das erste Beispiel ist unzugänglich: Es gibt keine Beziehung zwischen der Eingabeaufforderung und dem `<input>`-Element.
 
-Zusätzlich zu einem zugänglichen Namen bietet das Label einen größeren "Treffer"-Bereich für Maus- und Touchscreen-Benutzer zum Klicken oder Berühren. Durch die Kopplung von `<label>` mit `<input>`, wird beim Klicken auf eines dieser Elemente der Fokus auf die `<input>` gelegt. Wenn Sie einfachen Text verwenden, um Ihre Eingabe zu "labeln", passiert dies nicht. Das Einbeziehen der Eingabeaufforderung als Teil des Aktivierungsbereichs für die Eingabe ist hilfreich für Menschen mit motorischen Beeinträchtigungen.
+Zusätzlich zu einem zugänglichen Namen bietet das Label eine größere "Treffer"-Fläche für Maus- und Touchscreen-Nutzer. Durch die Verknüpfung eines `<label>` mit einem `<input>` wird durch Klicken auf eines von beiden das `<input>` fokussiert. Wird einfacher Text verwendet, um die Eingabe zu "beschriften", passiert das nicht. Das Teilen der Aktivierungsfläche für die Eingabeaufforderung ist für Menschen mit motorischen Problemen hilfreich.
 
-Als Webentwickler ist es wichtig, dass wir niemals annehmen, dass Menschen alle Dinge wissen, die wir wissen. Die Vielfalt der Menschen, die das Internet nutzen – und damit Ihre Website – garantiert praktisch, dass einige Besucher Ihrer Website einige Variationen in Denkprozessen und/oder Umständen haben werden, die sie dazu bringen, Ihre Formulare ohne klare und richtig präsentierte Labels sehr unterschiedlich zu interpretieren.
+Als Webentwickler sollten wir niemals davon ausgehen, dass Menschen all das wissen, was wir wissen. Die Vielfalt der Menschen, die das Web nutzen – und dadurch Ihre Website – garantiert praktisch, dass einige Ihrer Besucher einige Variationen in Denkprozessen und/oder Umständen haben, die sie dazu bringen, Ihre Formulare sehr unterschiedlich von Ihnen zu interpretieren, ohne klare und richtig präsentierte Labels.
 
 #### Platzhalter sind nicht zugänglich
 
-Das [`placeholder`](#placeholder) Attribut ermöglicht es Ihnen, Text anzugeben, der innerhalb des Inhaltsbereichs des `<input>` Elements erscheint, wenn es leer ist. Der Platzhalter sollte nie erforderlich sein, um Ihre Formulare zu verstehen. Er ist kein Label und sollte nicht als Ersatz verwendet werden, da er das nicht ist. Der Platzhalter dient dazu, einen Hinweis darauf zu geben, wie ein eingegebener Wert aussehen sollte, nicht als Erklärung oder Aufforderung.
+Das [`placeholder`](#placeholder)-Attribut ermöglicht Ihnen die Angabe von Text, der im Inhaltsbereich des `<input>`-Elements angezeigt wird, wenn es leer ist. Der Platzhalter sollte niemals erforderlich sein, um Ihre Formulare zu verstehen. Es ist kein Label und sollte nicht als Ersatz verwendet werden, da es kein Ersatz ist. Der Platzhalter dient dazu, einen Hinweis darauf zu geben, wie ein eingegebener Wert aussehen sollte, nicht als Erklärung oder Aufforderung.
 
-Nicht nur, dass der Platzhalter für Bildschirmleser nicht zugänglich ist, er verschwindet auch, sobald der Benutzer Text in das Formularelement eingibt oder wenn das Formularelement bereits einen Wert hat. Browser mit automatischen Seitenübersetzungsfunktionen können bei der Übersetzung Attribute überspringen, was bedeutet, dass der `placeholder` möglicherweise nicht übersetzt wird.
+Nicht nur ist der Platzhalter für Screenreader nicht zugänglich, sondern sobald der Nutzer irgendeinen Text in das Formularelement eingibt oder wenn das Formularelement bereits einen Wert hat, verschwindet der Platzhalter. Browser mit automatischen Seitenübersetzungsfunktionen überspringen möglicherweise Attribute beim Übersetzen, was bedeutet, dass der `placeholder` möglicherweise nicht übersetzt wird.
 
 > [!NOTE]
-> Verwenden Sie das [`placeholder`](#placeholder) Attribut nicht, wenn Sie es vermeiden können. Wenn Sie ein `<input>` Element beschriften müssen, verwenden Sie das {{HTMLElement("label")}} Element.
+> Verwenden Sie nicht das [`placeholder`](#placeholder)-Attribut, wenn Sie es vermeiden können. Wenn Sie ein `<input>`-Element kennzeichnen müssen, verwenden Sie das {{HTMLElement("label")}} Element.
 
 ### Client-seitige Validierung
 
 > [!WARNING]
-> Client-seitige Validierung ist nützlich, garantiert jedoch nicht, dass der Server gültige Daten erhält. Wenn die Daten in einem bestimmten Format sein müssen, überprüfen Sie sie _immer_ auch serverseitig und geben Sie eine [`400` HTTP-Antwort](/de/docs/Web/HTTP/Reference/Status/400) zurück, wenn das Format ungültig ist.
+> Client-seitige Validierung ist nützlich, garantiert jedoch _nicht_, dass der Server gültige Daten erhält. Wenn die Daten in einem bestimmten Format vorliegen müssen, _überprüfen_ Sie sie immer auch serverseitig und geben Sie eine [`400` HTTP-Antwort](/de/docs/Web/HTTP/Reference/Status/400) zurück, wenn das Format ungültig ist.
 
-Zusätzlich zur Verwendung von CSS, um Eingaben basierend auf den {{cssxref(":valid")}} oder {{cssxref(":invalid")}} UI-Zuständen basierend auf dem aktuellen Zustand jeder Eingabe zu stylen, wie im Abschnitt [UI-Pseudoklassen](#ui-pseudoklassen) oben erwähnt, bietet der Browser eine Client-seitige Validierung bei (versuchter) Formularübermittlung. Bei der Formularübermittlung zeigt der unterstützende Browser, sofern ein Formularelement, das die Einschränkungsvalidierung nicht bestanden hat, eine Fehlermeldung am ersten ungültigen Formularelement an und zeigt eine Standardmeldung basierend auf dem Fehlertyp oder einer von Ihnen festgelegten Nachricht an.
+Zusätzlich zur Verwendung von CSS, um Eingaben basierend auf den {{cssxref(":valid")}} oder {{cssxref(":invalid")}} UI-Zuständen zu stilisieren, basierend auf dem aktuellen Zustand jeder Eingabe, wie im Abschnitt [UI-Pseudoklassen](#ui-pseudoklassen) oben erwähnt, bietet der Browser die clientseitige Validierung bei einem (versuchten) Formular-Submit. Beim Absenden des Formulars, wenn es ein Formularelement gibt, das die Bedingungsvalidierung nicht besteht, werden unterstützende Browser eine Fehlermeldung auf dem ersten ungültigen Formularelement anzeigen; entweder eine Standardmeldung basierend auf dem Fehlertyp oder eine von Ihnen festgelegte Meldung.
 
-Einige Eingabetypen und andere Attribute setzen Grenzen dafür, welche Werte für eine gegebene Eingabe gültig sind. Beispielsweise bedeutet `<input type="number" min="2" max="10" step="2">`, dass nur die Zahlen 2, 4, 6, 8 oder 10 gültig sind. Mehrere Fehler können auftreten, darunter ein `rangeUnderflow` Fehler, wenn der Wert kleiner als 2 ist, `rangeOverflow`, wenn er größer als 10 ist, `stepMismatch`, wenn der Wert eine Zahl zwischen 2 und 10 ist, aber keine gerade Ganzzahl (nicht den Anforderungen des `step` Attributs entspricht), oder `typeMismatch`, wenn der Wert keine Zahl ist.
+Einige Eingabetypen und andere Attribute legen Limits fest, welche Werte für eine bestimmte Eingabe gültig sind. Zum Beispiel `<input type="number" min="2" max="10" step="2">` bedeutet, dass nur die Nummer 2, 4, 6, 8 oder 10 gültig sind. Verschiedene Fehler können auftreten, einschließlich eines `rangeUnderflow`-Fehlers, wenn der Wert weniger als 2 beträgt, `rangeOverflow`, wenn er größer als 10 ist, `stepMismatch`, wenn der Wert zwischen 2 und 10 liegt, jedoch keine gerade Ganzzahl ist (entspricht nicht den Anforderungen des `step`-Attributs), oder `typeMismatch`, wenn der Wert keine Zahl ist.
 
-Für die Eingabetypen, deren Bereich möglicher Werte periodisch ist (d.h. am höchsten möglichen Wert kehren die Werte an den Anfang zurück, anstatt zu enden), ist es möglich, dass die Werte der [`max`](#max) und [`min`](#min) Eigenschaften umgekehrt sind, was darauf hinweist, dass der Bereich zulässiger Werte bei `min` beginnt, zum niedrigsten möglichen Wert zurückkehrt und dann fortfährt, bis `max` erreicht ist. Dies ist besonders nützlich für Datum und Uhrzeiten, wie etwa, wenn Sie den Bereich von 20:00 bis 08:00 Uhr zulassen möchten:
+Für die Eingabetypen, deren Wertebereich periodisch ist (d.h. beim höchsten möglichen Wert die Werte wieder von vorne beginnen, anstatt zu enden), ist es möglich, dass die Werte der [`max`](#max) und [`min`](#min) Eigenschaften vertauscht sind, was darauf hinweist, dass die Spanne der erlaubten Werte bei `min` beginnt, zum niedrigsten möglichen Wert zurückkehrt und dann fortfährt, bis `max` erreicht ist. Dies ist besonders nützlich für Daten und Zeiten, wie zur Erlaubnis eines Bereichs von 20 Uhr bis 8 Uhr:
 
 ```html
 <input type="time" min="20:00" max="08:00" name="overnight" />
 ```
 
-Bestimmte Attribute und ihre Werte können zu einem bestimmten Fehler [`ValidityState`](/de/docs/Web/API/ValidityState) führen:
+Spezifische Attribute und deren Werte können zu einem bestimmten Fehler im [`ValidityState`](/de/docs/Web/API/ValidityState) führen:
 
 <table class="no-markdown">
   <caption>
-    Gültigkeitsfehlerobjekte hängen von den <code>&lt;input&gt;</code>
-    Attributen und ihren Werten ab:
+    Gültigkeitsobjektfehler hängen von den Attributen des
+    <code>&lt;input&gt;</code>-Elements und deren Werten ab:
   </caption>
   <thead>
     <tr>
@@ -1080,66 +1005,66 @@ Bestimmte Attribute und ihre Werte können zu einem bestimmten Fehler [`Validity
       <td><a href="#max"><code>max</code></a></td>
       <td>[`validityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow)</td>
       <td>
-        Tritt auf, wenn der Wert größer als der durch das <code>max</code> Attribut definierte Höchstwert ist
+        Tritt auf, wenn der Wert größer ist als der maximale Wert, der durch das <code>max</code>-Attribut definiert ist.
       </td>
     </tr>
     <tr>
       <td><a href="#maxlength"><code>maxlength</code></a></td>
       <td>[`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong)</td>
       <td>
-        Tritt auf, wenn die Anzahl der Zeichen größer ist als die durch die <code>maxlength</code> Eigenschaft erlaubte Anzahl
+        Tritt auf, wenn die Anzahl der Zeichen größer ist als die durch die <code>maxlength</code>-Eigenschaft zulässige Anzahl.
       </td>
     </tr>
     <tr>
       <td><a href="#min"><code>min</code></a></td>
       <td>[`validityState.rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow)</td>
       <td>
-        Tritt auf, wenn der Wert kleiner als der durch das <code>min</code> Attribut definierte Mindestwert ist
+        Tritt auf, wenn der Wert kleiner ist als der minimale Wert, der durch das <code>min</code>-Attribut definiert ist.
       </td>
     </tr>
     <tr>
       <td><a href="#minlength"><code>minlength</code></a></td>
       <td>[`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort)</td>
       <td>
-        Tritt auf, wenn die Anzahl der Zeichen kleiner ist als die durch die <code>minlength</code> Eigenschaft erforderliche Anzahl
+        Tritt auf, wenn die Anzahl der Zeichen kleiner ist als die durch die <code>minlength</code>-Eigenschaft erforderliche Anzahl.
       </td>
     </tr>
     <tr>
       <td><a href="#pattern"><code>pattern</code></a></td>
       <td>[`validityState.patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch)</td>
       <td>
-        Tritt auf, wenn ein Pattern-Attribut mit einem gültigen regulären Ausdruck enthalten ist und der <code>value</code> dazu nicht passt.
+        Tritt auf, wenn ein pattern-Attribut mit einem gültigen regulären Ausdruck enthalten ist und der <code>value</code> nicht übereinstimmt.
       </td>
     </tr>
     <tr>
       <td><a href="#required"><code>required</code></a></td>
       <td>[`validityState.valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)</td>
       <td>
-        Tritt auf, wenn das <code>required</code> Attribut vorhanden ist, der Wert jedoch <code>null</code> ist, oder Radio/Checkbox nicht aktiviert ist.
+        Tritt auf, wenn das <code>required</code>-Attribut vorhanden ist, der Wert jedoch <code>null</code> ist, oder ein Radio- oder Kontrollkästchen nicht ausgewählt ist.
       </td>
     </tr>
     <tr>
       <td><a href="#step"><code>step</code></a></td>
       <td>[`validityState.stepMismatch`](/de/docs/Web/API/ValidityState/stepMismatch)</td>
       <td>
-        Der Wert passt nicht zum Schritt-Inkrement. Standardinkrement ist <code>1</code>, sodass nur Ganzzahlen bei <code>type="number"</code> gültig sind, wenn der Schritt nicht enthalten ist. <code>step="any"</code> wird diesen Fehler nie auslösen.
+        Der Wert stimmt nicht mit dem Stufenschritt überein. Der Standardschritt ist <code>1</code>, also sind nur Ganzzahlen gültig, wenn <code>type="number"</code> ist und der Schritt nicht enthalten ist. <code>step="any"</code> wird diesen Fehler niemals auslösen.
       </td>
     </tr>
     <tr>
       <td><a href="#type"><code>type</code></a></td>
       <td>[`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)</td>
       <td>
-        Tritt auf, wenn der Wert nicht vom richtigen Typ ist, zum Beispiel eine E-Mail kein <code>@</code> enthält oder eine URL kein Protokoll enthält.
+        Tritt auf, wenn der Wert nicht vom richtigen Typ ist, z.B. eine E-Mail kein <code>@</code> enthält oder eine URL kein Protokoll enthält.
       </td>
     </tr>
   </tbody>
 </table>
 
-Wenn ein Formularelement nicht das `required` Attribut hat, ist kein Wert oder ein leerer String nicht ungültig. Selbst wenn die oben genannten Attribute vorhanden sind, mit Ausnahme von `required`, wird ein leerer String nicht zu einem Fehler führen.
+Wenn ein Formularelement nicht das `required`-Attribut hat, wird kein Wert, oder eine leere Zeichenfolge nicht als ungültig betrachtet. Selbst wenn die oben genannten Attribute vorhanden sind, mit Ausnahme von `required`, führt eine leere Zeichenfolge nicht zu einem Fehler.
 
-Wir können Grenzen für die akzeptierten Werte setzen, und unterstützende Browser werden diese Formularwerte nativ validieren und den Benutzer bei einem Fehler bei der Übermittlung des Formulars benachrichtigen.
+Wir können festlegen, welche Werte wir akzeptieren, und unterstützende Browser werden diese Formularwerte nativ validieren und den Nutzer bei einem Fehler beim Absenden warnen.
 
-Zusätzlich zu den in der Tabelle oben beschriebenen Fehlern enthält die `validityState` Schnittstelle die readonly booleschen Eigenschaften `badInput`, `valid` und `customError`. Das Gültigkeitsobjekt beinhaltet:
+Zusätzlich zu den im obigen Abschnitt beschriebenen Fehlern enthält die `validityState`-Schnittstelle die booleschen schreibgeschützten Eigenschaften `badInput`, `valid` und `customError`. Das Gültigkeitsobjekt enthält:
 
 - [`validityState.valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)
 - [`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)
@@ -1153,9 +1078,9 @@ Zusätzlich zu den in der Tabelle oben beschriebenen Fehlern enthält die `valid
 - [`validityState.valid`](/de/docs/Web/API/ValidityState)
 - [`validityState.customError`](/de/docs/Web/API/ValidityState)
 
-Für jede dieser booleschen Eigenschaften zeigt ein Wert von `true` an, dass der angegebene Grund für einen Validierungsfehler zutrifft, mit Ausnahme der `valid`-Eigenschaft, die `true` ist, wenn der Wert des Elements allen Beschränkungen entspricht.
+Für jede dieser Booleschen Eigenschaften zeigt ein Wert von `true` an, dass der angegebene Grund, warum die Validierung möglicherweise fehlgeschlagen ist, zutrifft, mit Ausnahme der Eigenschaft `valid`, die `true` ist, wenn der Wert des Elements alle Einschränkungen einhält.
 
-Wenn es einen Fehler gibt, werden unterstützende Browser den Benutzer sowohl benachrichtigen als auch verhindern, dass das Formular übermittelt wird. Ein Wort der Vorsicht: Wenn ein benutzerdefinierter Fehler auf einen wahrheitsgemäßen Wert (alles außer leerem String oder `null`) gesetzt ist, wird das Formular daran gehindert, übermittelt zu werden. Wenn es keine benutzerdefinierte Fehlermeldung gibt und keine der anderen Eigenschaften als wahr zurückgegeben wird, wird `valid` wahr sein, und das Formular kann übermittelt werden.
+Tritt ein Fehler auf, werden unterstützende Browser den Nutzer sowohl warnen als auch das Absenden des Formulars verhindern. Ein Wort der Vorsicht: Wenn ein benutzerdefinierter Fehler auf einen "wahr" Wert gesetzt ist (etwas anderes als die leere Zeichenfolge oder `null`), wird das Formular nicht abgesendet. Gibt es keine benutzerdefinierte Fehlermeldung und keines der anderen Eigenschaften true ist, wird `valid` true sein und das Formular kann abgesendet werden.
 
 ```js
 function validate(input) {
@@ -1172,11 +1097,11 @@ function validate(input) {
 }
 ```
 
-Die letzte Zeile, die die benutzerdefinierte Fehlermeldung auf einen leeren String setzt, ist entscheidend. Wenn der Benutzer einen Fehler macht und die Gültigkeit festgelegt ist, wird es nicht übermittelt, selbst wenn alle Werte gültig sind, bis die Nachricht `null` ist.
+Die letzte Zeile, die die benutzerdefinierte Gültigkeitsmeldung auf eine leere Zeichenfolge setzt, ist entscheidend. Macht der Nutzer einen Fehler und ist die Gültigkeit gesetzt, wird das Absenden ausgeschlossen, selbst wenn alle Werte gültig sind, bis die Nachricht `null` ist.
 
 #### Beispiel für benutzerdefinierte Validierungsfehler
 
-Wenn Sie eine benutzerdefinierte Fehlermeldung anzeigen möchten, wenn ein Feld die Validierung nicht besteht, müssen Sie die verfügbare [Constraint Validation API](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#validating_forms_using_javascript) für `<input>` (und verwandte) Elemente verwenden. Nehmen Sie das folgende Formular:
+Möchten Sie eine benutzerdefinierte Fehlermeldung anzeigen, wenn ein Feld die Validierung nicht besteht, müssen Sie die[Constraint Validation API](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#validating_forms_using_javascript) verwenden, die auf `<input>` (und verwandten) Elementen verfügbar ist. Nehmen wir folgendes Formular:
 
 ```html
 <form>
@@ -1186,9 +1111,9 @@ Wenn Sie eine benutzerdefinierte Fehlermeldung anzeigen möchten, wenn ein Feld 
 </form>
 ```
 
-Die grundlegenden HTML-Formularvalidierungsfunktionen führen dazu, dass dies eine Standardfehlermeldung erzeugt, wenn Sie versuchen, das Formular mit entweder keiner gültigen Eingabe oder einem Wert, der nicht dem `pattern` entspricht, abzusenden.
+Die grundlegenden HTML-Formularprüfungsfunktionen werden dazu führen, dass dies eine Standardfehlermeldung erzeugen wird, wenn Sie versuchen, das Formular mit entweder keinem gültigen eingefüllten Wert oder einem Wert, der nicht dem `pattern` entspricht, abzusenden.
 
-Wenn Sie stattdessen benutzerdefinierte Fehlermeldungen anzeigen möchten, könnten Sie JavaScript wie das folgende verwenden:
+Wenn Sie stattdessen benutzerdefinierte Fehlermeldungen anzeigen möchten, könnten Sie JavaScript wie folgend verwenden:
 
 ```js
 const nameInput = document.querySelector("input");
@@ -1209,40 +1134,40 @@ nameInput.addEventListener("invalid", () => {
 });
 ```
 
-Das Beispiel wird wie folgt gerendert:
+Das Beispiel wird folgendermaßen wiedergegeben:
 
 {{EmbedLiveSample('Custom_validation_error_example')}}
 
 Kurz gesagt:
 
-- Wir prüfen den gültigen Zustand des Eingabeelements jedes Mal, wenn sich sein Wert ändert, indem wir die `checkValidity()` Methode über den `input` Event-Handler ausführen.
-- Wenn der Wert ungültig ist, wird ein `invalid` Event ausgelöst und die `invalid` Event-Handler-Funktion wird ausgeführt. Innerhalb dieser Funktion stellen wir fest, ob der Wert ungültig ist, weil er leer ist oder weil er nicht zum Muster passt, indem wir einen `if ()` Block verwenden, und setzen eine benutzerdefinierte Gültigkeitsfehlermeldung.
-- Infolgedessen wird, wenn der Eingabewert ungültig ist, wenn die Senden-Taste gedrückt wird, eine der benutzerdefinierten Fehlermeldungen angezeigt.
-- Wenn es gültig ist, wird es wie erwartet übermittelt. Damit dies geschieht, muss die benutzerdefinierte Gültigkeit abgebrochen werden, indem `setCustomValidity()` mit einem leeren String-Wert aufgerufen wird. Daher tun wir dies jedes Mal, wenn das `input` Event ausgelöst wird. Wenn Sie dies nicht tun und vorher eine benutzerdefinierte Gültigkeit festgelegt wurde, wird die Eingabe als ungültig registriert, selbst wenn sie derzeit bei der Übermittlung einen gültigen Wert enthält.
+- Wir überprüfen den gültigen Zustand des Eingabeelements jedes Mal, wenn sich sein Wert ändert, indem wir über die `input` Ereignis-Handler die Methode `checkValidity()` ausführen.
+- Ist der Wert ungültig, wird ein `invalid` Ereignis ausgelöst und die `invalid`-Ereignis-Handler-Funktion ausgeführt. Innerhalb dieser Funktion bestimmen wir, ob der Wert ungültig ist, weil er leer ist oder weil er nicht dem Muster entspricht, mit einem `if ()`-Block und setzen eine benutzerdefinierte Fehlermeldung.
+- Als Ergebnis wird eine der benutzerdefinierten Fehlermeldungen angezeigt, wenn der Eingabewert ungültig ist, wenn die Schaltfläche "Absenden" gedrückt wird.
+- Ist es gültig, wird es wie erwartet abgesendet. Dafür muss die benutzerdefinierte Validität aufgehoben werden, indem `setCustomValidity()` mit einem leeren Zeichenfolgenwert aufgerufen wird. Deshalb tun wir dies jedes Mal, wenn das Ereignis `input` aufgerufen wird. Tun Sie das nicht und eine benutzerdefinierte Gültigkeit wurde zuvor gesetzt, wird die Eingabe als ungültig registriert, selbst wenn sie derzeit einen validen Wert bei der Einreichung enthält.
 
 > [!NOTE]
-> Überprüfen Sie immer die Eingangsbeschränkungen sowohl clientseitig als auch serverseitig. Eine Einschränkungsvalidierung beseitigt nicht die Notwendigkeit der Validierung auf der _Serverseite_. Ungültige Werte können weiterhin von älteren Browsern oder von böswilligen Akteuren gesendet werden.
+> Validieren Sie stets alle Eingabezwänge sowohl auf Client- als auch auf Serverseite. Die Zwangsvalidierung entfernt nicht die Notwendigkeit der Validierung auf der _Serverseite_. Ungültige Werte können weiterhin von älteren Browsern oder durch bösartige Akteure gesendet werden.
 
 > [!NOTE]
-> Firefox unterstützte für viele Versionen ein proprietäres Fehlerattribut — `x-moz-errormessage` —, das es ermöglichte, benutzerdefinierte Fehlermeldungen auf ähnliche Weise festzulegen. Dies wurde ab Version 66 entfernt (siehe [Firefox Bug 1513890](https://bugzil.la/1513890)).
+> Firefox unterstützte über viele Versionen ein proprietäres Fehlerattribut – `x-moz-errormessage` –, das es erlaubte, benutzerdefinierte Fehlermeldungen auf ähnliche Weise zu setzen. Dies wurde mit Version 66 entfernt (siehe [Firefox Bug 1513890](https://bugzil.la/1513890)).
 
 ### Lokalisierung
 
-Die erlaubten Eingaben für bestimmte `<input>` Typen hängen von der Lokalisierung ab. In einigen Sprachen sind 1.000,00 eine gültige Zahl, während in anderen Sprachen 1.000,00 die korrekte Möglichkeit ist, diese Zahl einzugeben.
+Die erlaubten Eingaben für bestimmte `<input>` Typen hängen von der lokalen Region ab. In einigen Regionen ist 1.000,00 eine gültige Zahl, während in anderen Regionen die gültige Eingabemöglichkeit für diese Zahl 1.000,00 ist.
 
-Firefox verwendet die folgenden Heuristiken, um die Lokalisierung zu bestimmen, um die Benutzereingabe zu validieren (zumindest für `type="number"`):
+Firefox verwendet folgende Heuristiken, um die Region zu bestimmen, um die Eingabe des Nutzers (zumindest für `type="number"`) zu validieren:
 
-- Versuchen Sie die Sprache, die durch ein `lang`/`xml:lang` Attribut auf dem Element oder einem seiner Elternteile angegeben ist.
-- Versuchen Sie die Sprache, die durch einen `Content-Language` HTTP-Header angegeben ist. Oder
-- Verwenden Sie, wenn nichts angegeben ist, die Lokalisierung des Browsers.
+- Versuchen Sie die Sprache, die durch ein `lang`/`xml:lang`-Attribut am Element oder an einem seiner Elternteile angegeben ist.
+- Versuchen Sie die Sprache, die durch jeglichen `Content-Language` HTTP-Header angegeben ist. Oder,
+- Verwenden Sie, falls keine angegeben ist, die Browser-Region.
 
 ## Barrierefreiheit
 
 ### Labels
 
-Beim Einfügen von Eingaben ist es eine Anforderung in Bezug auf die Barrierefreiheit, Labels hinzuzufügen. Dies ist erforderlich, damit diejenigen, die unterstützende Technologien verwenden, erkennen können, wofür die Eingabe ist. Auch durch Klicken oder Berühren eines Labels wird der Fokus auf das mit dem Label verbundene Formularelement gelegt. Dies verbessert sowohl die Zugänglichkeit als auch die Benutzerfreundlichkeit für sehende Benutzer, erhöht den Bereich, auf den ein Benutzer klicken oder tippen kann, um das Formularelement zu aktivieren. Dies ist besonders nützlich (und sogar notwendig) für Radio-Buttons und Kontrollkästchen, die sehr klein sind. Weitere Informationen zu Labels im Allgemeinen finden Sie unter [Labels](#labels).
+Wenn Eingaben enthalten sind, ist es eine Anforderung zur Barrierefreiheit, Labels hinzuzufügen. Dies ist notwendig, damit Menschen, die unterstützende Technologien verwenden, erkennen können, wofür die Eingabe ist. Auch durch Klicken oder Berühren eines Labels erhält das damit verbundene Formularelement den Fokus. Dies verbessert die Barrierefreiheit und Benutzerfreundlichkeit für Sehbehinderte, erhöht die Fläche, die ein Benutzer klicken oder berühren kann, um das Formularelement zu aktivieren. Dies ist besonders nützlich (und sogar notwendig) für Radiobuttons und Kontrollkästchen, die klein sind. Für weitere Informationen über Labels im Allgemeinen siehe [Labels](#labels).
 
-Das folgende ist ein Beispiel dafür, wie ein `<label>` mit einem `<input>` Element im obigen Stil verknüpft wird. Sie müssen dem `<input>` ein `id` Attribut geben. Das `<label>` benötigt dann ein `for` Attribut, dessen Wert dieselbe wie die `id` der Eingabe ist.
+Das folgende ist ein Beispiel dafür, wie das `<label>` mit einem `<input>`-Element in obigem Stil verknüpft wird. Sie müssen dem `<input>` ein `id`-Attribut geben. Das `<label>` benötigt dann ein `for`-Attribut, dessen Wert derselbe wie die `id` der Eingabe ist.
 
 ```html
 <label for="peas">Do you like peas?</label>
@@ -1251,11 +1176,11 @@ Das folgende ist ein Beispiel dafür, wie ein `<label>` mit einem `<input>` Elem
 
 ### Größe
 
-Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bereich bereitstellen, damit es einfach ist, sie zu aktivieren. Dies ist für eine Vielzahl von Menschen hilfreich, einschließlich Menschen mit motorischen Problemen und Menschen, die ungenaue Eingabemethoden wie einen Stift oder Finger verwenden. Eine Mindestgröße von 44×44 [CSS-Pixeln](https://w3c.github.io/wcag/guidelines/22/#dfn-css-pixels) wird empfohlen.
+Interaktive Elemente wie Formulareingaben sollten eine Fläche bereitstellen, die groß genug ist, um sie einfach zu aktivieren. Dies hilft einer Vielzahl von Menschen, einschließlich Menschen mit motorischen Problemen und Menschen, die ungenaue Eingabeformen verwenden, wie einen Stift oder Finger. Eine minimale interaktive Größe von 44×44 [CSS-Pixeln](https://w3c.github.io/wcag/guidelines/22/#dfn-css-pixels) wird empfohlen.
 
-- [Understanding Success Criterion 2.5.5: Target Size | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
-- [Target Size and 2.5.5 | Adrian Roselli](https://adrianroselli.com/2019/06/target-size-and-2-5-5.html)
-- [Quick test: Large touch targets - The A11Y Project](https://www.a11yproject.com/posts/large-touch-targets/)
+- [Verstehen des Erfolgskriteriums 2.5.5: Zielgröße | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
+- [Zielgröße und 2.5.5 | Adrian Roselli](https://adrianroselli.com/2019/06/target-size-and-2-5-5.html)
+- [Schnelltest: Große Berührungsziele - The A11Y Project](https://www.a11yproject.com/posts/large-touch-targets/)
 
 ## Technische Zusammenfassung
 
@@ -1266,28 +1191,26 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#fließender_inhalt">Fließender Inhalt</a>, aufgelistet, übermittelbar, zurücksetzbar, formularzugehöriges Element,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#textinhalt">Phraseninhalt</a>. Wenn der <a href="#type"><code>type</code></a> nicht
-        <code>hidden</code> ist, dann benennbares Element, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>, gelistet, einreichbar, zurücksetzbares, formularassoziiertes Element,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseinhalt</a>. Wenn der <a href="#type"><code>type</code></a> nicht <code>hidden</code> ist, dann etikettierbares, palpierbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "Leerelement")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag und darf keinen End-Tag haben.</td>
+      <td>Ein Start-Tag muss vorhanden sein und ein End-Tag darf nicht vorhanden sein.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#text-inhalt">Phraseninhalt</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseinhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA Rollenzuordnung</th>
       <td>
         <ul>
           <li>
@@ -1303,13 +1226,13 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <code>type=email</code>
             <ul>
               <li>
-                ohne <code>list</code> Attribut:
+                ohne <code>list</code>-Attribut:
                 <code
                   ><a
                     href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role">textbox</a></code>
               </li>
               <li>
-                mit <code>list</code> Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
+                mit <code>list</code>-Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
               </li>
             </ul>
           </li>
@@ -1331,10 +1254,10 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <code>type=search</code>
             <ul>
               <li>
-                ohne <code>list</code> Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role"><code>searchbox</code></a>
+                ohne <code>list</code>-Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role"><code>searchbox</code></a>
               </li>
               <li>
-                mit <code>list</code> Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
+                mit <code>list</code>-Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
               </li>
             </ul>
           </li>
@@ -1347,11 +1270,11 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <code>type=tel</code>
             <ul>
               <li>
-                ohne <code>list</code> Attribut:
+                ohne <code>list</code>-Attribut:
                 <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role">textbox</a></code>
               </li>
               <li>
-                mit <code>list</code> Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
+                mit <code>list</code>-Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
               </li>
             </ul>
           </li>
@@ -1359,11 +1282,11 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <code>type=text</code>
             <ul>
               <li>
-                ohne <code>list</code> Attribut:
+                ohne <code>list</code>-Attribut:
                 <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role">textbox</a></code>
               </li>
               <li>
-                mit <code>list</code> Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
+                mit <code>list</code>-Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
               </li>
             </ul>
           </li>
@@ -1371,12 +1294,12 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <code>type=url</code>
             <ul>
               <li>
-                ohne <code>list</code> Attribut:
+                ohne <code>list</code>-Attribut:
                 <code
                   ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role">textbox</a ></code>
               </li>
               <li>
-                mit <code>list</code> Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
+                mit <code>list</code>-Attribut: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
               </li>
             </ul>
           </li>
@@ -1402,8 +1325,8 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/switch_role"><code>switch</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role"><code>tab</code></a>
           </li>
           <li>
-            <code>type=checkbox</code>: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role"><code>button</code></a> when used
-            mit <code>aria-pressed</code>,
+            <code>type=checkbox</code>: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role"><code>button</code></a> wenn
+            mit <code>aria-pressed</code> verwendet,
             <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role"><code>menuitemcheckbox</code></a>,
             <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role"><code>option</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/switch_role"><code>switch</code></a>
           </li>
@@ -1418,15 +1341,14 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
             <code>type=radio</code>: <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role"><code>menuitemradio</code></a>
           </li>
           <li>
-            <code>type=text</code> ohne <code>list</code> Attribut:
+            <code>type=text</code> ohne <code>list</code>-Attribut:
             <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role"><code>searchbox</code></a>,
             <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role"><code>spinbutton</code></a>
           </li>
           <li>
             <code>type=color|date|datetime-local|email|file|hidden|</code>
               <code>month|number|password|range|reset|search|submit|tel|url|week</code>
-            oder <code>text</code> mit <code>list</code> Attribut: keine
-            <code>role</code> erlaubt
+            oder <code>text</code> mit <code>list</code>-Attribut: keine <code>role</code> erlaubt
           </li>
         </ul>
       </td>
@@ -1448,14 +1370,14 @@ Interaktive Elemente wie Formulareingaben sollten einen ausreichend großen Bere
 
 ## Siehe auch
 
-- [Formularbeschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- [Bedingungsvalidierung von Formularen](/de/docs/Web/HTML/Guides/Constraint_validation)
 - [Ihr erstes HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form)
-- [Wie man ein HTML-Formular strukturiert](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form)
-- [Die nativen Formular-Steuerelemente](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls)
+- [Anleitung zur Struktur eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form)
+- [Die nativen Formular-Widgets](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls)
 - [Formulardaten senden](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data)
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Wie man benutzerdefinierte Formular-Steuerelemente erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls)
-- [HTML-Formulare in älteren Browsern](/de/docs/Learn_web_development/Extensions/Forms/HTML_forms_in_legacy_browsers)
-- [Gestaltung von HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- [Erweiterte Gestaltung für HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
-- [Erstellung vertikaler Formular-Steuerelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Anleitung zum Erstellen von benutzerdefinierten Formular-Widgets](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls)
+- [HTML-Formulare in veralteten Browsern](/de/docs/Learn_web_development/Extensions/Forms/HTML_forms_in_legacy_browsers)
+- [Styling von HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- [Erweitertes Styling für HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
+- [Erstellen von vertikalen Formularsteuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)

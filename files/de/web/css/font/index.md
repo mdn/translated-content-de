@@ -2,12 +2,12 @@
 title: font
 slug: Web/CSS/font
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
 ---
 
 {{CSSRef}}
 
-Die **`font`** CSS-[Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle unterschiedlichen Eigenschaften der Schriftart eines Elements. Alternativ setzt sie die Schriftart eines Elements auf eine Systemschriftart.
+Die **`font`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften der Schriftart eines Elements. Alternativ stellt es die Schriftart eines Elements auf eine Systemschriftart ein.
 
 {{InteractiveExample("CSS Demo: font")}}
 
@@ -72,11 +72,11 @@ section {
 }
 ```
 
-Wie bei jeder Kurzform-Eigenschaft wird jeder nicht spezifizierte Einzelwert auf seinen entsprechenden Anfangswert gesetzt (möglicherweise Werte überschreibend, die zuvor mit nicht abgekürzten Eigenschaften gesetzt wurden). Obwohl nicht direkt durch `font` einstellbar, werden auch {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} auf ihre Anfangswerte zurückgesetzt.
+Wie bei jeder Kurzschreibweise wird jeder einzelne Wert, der nicht angegeben wird, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise überschreibt er Werte, die zuvor mit nicht-Kurzschreibweisen gesetzt wurden). Obwohl `font` nicht direkt gesetzt werden kann, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
 
 ## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -105,62 +105,62 @@ font: ultra-condensed small-caps 1.2em "Fira Sans", sans-serif;
 font: caption;
 ```
 
-Die `font`-Eigenschaft kann entweder als ein einzelnes Schlüsselwort angegeben werden, das eine Systemschriftart auswählt, oder als eine Kurzform für verschiedene schriftenbezogene Eigenschaften.
+Die `font`-Eigenschaft kann entweder als einzelnes Schlüsselwort angegeben werden, das eine Systemschriftart auswählt, oder als Kurzschrift für verschiedene schriftbezogene Eigenschaften.
 
 Wenn `font` als Systemschlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
 
-Wenn `font` als Kurzform für mehrere schriftenbezogene Eigenschaften angegeben wird, dann:
+Wenn `font` als Kurzschrift für mehrere schriftbezogene Eigenschaften angegeben wird, dann:
 
 - muss es Werte enthalten für:
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
-- es kann optional Werte enthalten für:
+- kann es optional Werte enthalten für:
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
   - {{cssxref("&lt;font-weight&gt;")}}
   - {{cssxref("&lt;font-stretch&gt;")}}
   - {{cssxref("&lt;line-height&gt;")}}
 
-- `font-style`, `font-variant` und `font-weight` müssen `font-size` vorangehen.
-- `font-variant` darf nur die in CSS 2.1 definierten Werte angeben, also `normal` und `small-caps`.
-- `font-stretch` darf nur ein einzelnes Schlüsselwort sein.
-- `line-height` muss unmittelbar nach `font-size` folgen, eingeleitet durch "/", so: `16px/3`.
-- `font-family` muss als letzter Wert angegeben werden.
+- `font-style`, `font-variant` und `font-weight` müssen `font-size` vorausgehen.
+- `font-variant` darf nur die in CSS 2.1 definierten Werte spezifizieren, nämlich `normal` und `small-caps`.
+- `font-stretch` darf nur ein Einzelwert-Schlüsselwort sein.
+- `line-height` muss unmittelbar nach `font-size` folgen, eingeleitet durch "/", wie zum Beispiel: `16px/3`.
+- `font-family` muss der zuletzt angegebene Wert sein.
 
 ### Werte
 
 - `<'font-style'>`
-  - : Siehe die {{cssxref("font-style")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("font-style")}}.
 - `<'font-variant'>`
-  - : Siehe die {{cssxref("font-variant")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("font-variant")}}.
 - `<'font-weight'>`
-  - : Siehe die {{cssxref("font-weight")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("font-weight")}}.
 - `<'font-stretch'>`
-  - : Siehe die {{cssxref("font-stretch")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("font-stretch")}}.
 - `<'font-size'>`
-  - : Siehe die {{cssxref("font-size")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("font-size")}}.
 - `<'line-height'>`
-  - : Siehe die {{cssxref("line-height")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("line-height")}}.
 - `<'font-family'>`
-  - : Siehe die {{cssxref("font-family")}} CSS-Eigenschaft.
+  - : Siehe die CSS-Eigenschaft {{cssxref("font-family")}}.
 
-#### Systemschriftwerte
+#### Systemschriftartenwerte
 
 - `caption`
-  - : Die Systemschriftart, die für beschriftete Steuerelemente verwendet wird (z. B. Schaltflächen, Dropdowns usw.).
+  - : Die Systemschriftart, die für beschriftete Steuerelemente verwendet wird (z.B. Schaltflächen, Drop-down-Menüs usw.).
 - `icon`
-  - : Die Systemschriftart, die zur Beschriftung von Symbolen verwendet wird.
+  - : Die Systemschriftart, die zum Beschriften von Symbolen verwendet wird.
 - `menu`
-  - : Die Systemschriftart, die in Menüs verwendet wird (z. B. Dropdown-Menüs und Menüliste).
+  - : Die Systemschriftart, die in Menüs verwendet wird (z.B. Dropdown-Menüs und Auswahllisten).
 - `message-box`
   - : Die Systemschriftart, die in Dialogfeldern verwendet wird.
 - `small-caption`
   - : Die Systemschriftart, die zur Beschriftung kleiner Steuerelemente verwendet wird.
 - `status-bar`
-  - : Die Systemschriftart, die in Fenster-Statusleisten verwendet wird.
-- Vorgestellte Systemschrift-Schlüsselwörter
-  - : Browser implementieren oft mehrere, vorgestellte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
+  - : Die Systemschriftart, die in Fensterstatusleisten verwendet wird.
+- Mit Präfix versehene Systemschriftart-Schlüsselwörter
+  - : Browser implementieren häufig mehrere weitere, mit Präfix versehene, Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list`, und `-moz-field`.
 
 ## Formale Definition
 
@@ -172,7 +172,7 @@ Wenn `font` als Kurzform für mehrere schriftenbezogene Eigenschaften angegeben 
 
 ## Beispiele
 
-### Schrift-Eigenschaften festlegen
+### Schriftarteigenschaften festlegen
 
 ```css
 /* Set the font size to 12px and the line height to 14px.
@@ -413,7 +413,7 @@ p {
 ```css hidden
 body,
 input {
-  font: 14px arial;
+  font: 14px Arial;
   overflow: hidden;
 }
 
@@ -527,4 +527,4 @@ document.querySelectorAll("input[type='radio']").forEach((el) => {
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Lernen: Grundlegendes zu Text- und Schriftstilierung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Erfahren: Grundlagen der Text- und Schriftartgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

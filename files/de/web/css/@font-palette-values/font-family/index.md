@@ -2,12 +2,12 @@
 title: font-family
 slug: Web/CSS/@font-palette-values/font-family
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
 ---
 
 {{CSSRef}}
 
-Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Descriptor")}} **`font-family`** wird verwendet, um festzulegen, auf welche `font-family`-Palettenwerte angewendet werden sollen. Diese müssen genau den Werten entsprechen, die beim Festlegen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
+Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Deskriptor")}} **`font-family`** wird verwendet, um festzulegen, auf welche Schriftarten-Palettenwerte angewendet werden sollen. Diese müssen genau den Werten entsprechen, die bei der Einstellung der CSS [font-family](/de/docs/Web/CSS/font-family) verwendet werden.
 
 ## Syntax
 
@@ -18,14 +18,14 @@ Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CS
 }
 ```
 
-Andere Palettenwerte, die folgen, gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie denselben [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Dies bedeutet, dass Sie, wenn Sie mehrere Farbtypen verwenden, denselben Bezeichner für jeden verwenden können.
+Andere Palettenwerte, die folgen, gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie das gleiche [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) verwenden. Dies bedeutet, dass Sie bei mehreren Farbfonts denselben Bezeichner für jeweils verwenden können.
 
 ### Werte
 
 - `<family-name>`
   - : Gibt den Namen der [font-family](/de/docs/Web/CSS/font-family) an.
 
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
@@ -35,9 +35,9 @@ Andere Palettenwerte, die folgen, gelten nur für die angegebene Schriftfamilie.
 
 ## Beispiele
 
-### Verwenden übereinstimmender Schriftnamen
+### Verwendung von übereinstimmenden Schriftfamiliennamen
 
-In diesem Beispiel wird beim Verwenden des `font-family` Descriptors innerhalb der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel derselbe Wert für die `font-family` verwendet, wie er deklariert ist.
+In diesem Beispiel wird der `font-family` Deskriptor in der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel verwendet, wobei derselbe Wert wie bei der Deklaration des `font-family` verwendet wird.
 
 #### HTML
 
@@ -58,7 +58,7 @@ In diesem Beispiel wird beim Verwenden des `font-family` Descriptors innerhalb d
 }
 
 h2 {
-  font-family: "Bungee Spice";
+  font-family: "Bungee Spice", fantasy;
 }
 
 h2.extra-spicy {
@@ -72,7 +72,7 @@ h2.extra-spicy {
 
 ### Verwenden desselben Palettenbezeichners für mehrere Schriftfamilien
 
-In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regeln für zwei Schriftfamilien festgelegt, aber beide At-Regeln verwenden denselben `dashed-ident`-Bezeichner `--Dark Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente, `h1` und `h2` in diesem Fall, gleichzeitig einzustellen. Dies kann nützlich sein, wenn Sie die Schriftfarben an die Markenfarben Ihrer Website anpassen möchten.
+In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regeln für zwei Schriftfamilien festgelegt, aber beide At-Regeln verwenden denselben dashed-ident Bezeichner, `--Dark Mode`. Dies hilft dabei, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente gleichzeitig festzulegen, in diesem Fall `h1` und `h2`. Dies kann nützlich sein, wenn Sie die Schriftfarben an das Branding Ihrer Website anpassen möchten.
 
 ```css
 @font-palette-values --Dark-Mode {
@@ -91,11 +91,11 @@ h2 {
 }
 
 h1 {
-  font-family: "Bungee Spice";
+  font-family: "Bungee Spice", fantasy;
 }
 
 h2 {
-  font-family: Bixa;
+  font-family: Bixa, fantasy;
 }
 ```
 
@@ -111,6 +111,6 @@ h2 {
 
 - {{cssxref("@font-face/font-family", "font-family")}}
 - {{cssxref("@font-palette-values/", "@font-palette-values")}}
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Descriptor
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
 - {{cssxref("font-palette/", "font-palette")}} Eigenschaft
 - [`CSSFontPaletteValuesRule.fontFamily`](/de/docs/Web/API/CSSFontPaletteValuesRule/fontFamily)

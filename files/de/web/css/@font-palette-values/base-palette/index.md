@@ -2,12 +2,12 @@
 title: base-palette
 slug: Web/CSS/@font-palette-values/base-palette
 l10n:
-  sourceCommit: 7eff4df25ad857f65577930903797127ebabf991
+  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
 ---
 
 {{CSSRef}}
 
-Der **`base-palette`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die für die Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die bei Index 0 definierte Palette verwendet.
+Der **`base-palette`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die zur Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die Palette verwendet, die am Index 0 definiert ist.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ Der **`base-palette`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird ver
 }
 ```
 
-Der `base-palette`-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem Null-basierten Index der vom Schriftgestalter erstellten Paletten angegeben.
+Der `base-palette`-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem nullbasierten Index der vom Schrifthersteller erstellten Paletten angegeben.
 
 ### Werte
 
@@ -36,7 +36,7 @@ Der `base-palette`-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem N
 
 ### Ändern der Standardpalette in einer Schriftart
 
-Dieses Beispiel verwendet die [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/), um zwei Instanzen zu zeigen, wie die Standardpalette in der Schriftart durch eine vom Schriftgestalter erstellte alternative Palette ersetzt wird.
+Dieses Beispiel zeigt zwei Instanzen des Wechsels der Standardpalette in der Schriftart zu einer alternativen vom Schrifthersteller erstellten Palette mit der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/).
 
 #### HTML
 
@@ -55,7 +55,7 @@ Dieses Beispiel verwendet die [Rocher Color Font](https://www.harbortype.com/fon
 }
 
 h2 {
-  font-family: "Rocher";
+  font-family: "Rocher", fantasy;
 }
 
 @font-palette-values --two {
@@ -79,7 +79,7 @@ h2 {
 
 #### Ergebnis
 
-![Beispiel zeigt 3 verschiedene Basis-Paletten der Rocher-Farbfont](./rocher-color-font-alt-base-palettes.jpg)
+![Beispiel, das 3 verschiedene Basis-Paletten der Rocher-Farbschrift zeigt](./rocher-color-font-alt-base-palettes.jpg)
 
 ## Spezifikationen
 
@@ -92,7 +92,7 @@ h2 {
 ## Siehe auch
 
 - {{cssxref("@font-palette-values/", "@font-palette-values")}}
-- {{cssxref("@font-palette-values/font-family", "font-family")}} Deskriptor
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
-- {{cssxref("font-palette/", "font-palette")}} Eigenschaft
+- {{cssxref("@font-palette-values/font-family", "font-family")}}-Deskriptor
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor
+- {{cssxref("font-palette/", "font-palette")}}-Eigenschaft
 - [`CSSFontPaletteValuesRule.basePalette`](/de/docs/Web/API/CSSFontPaletteValuesRule/basePalette)

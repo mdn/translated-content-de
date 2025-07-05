@@ -2,16 +2,16 @@
 title: font-stretch
 slug: Web/CSS/font-stretch
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
 ---
 
 {{CSSRef}}{{deprecated_header}}
 
 > [!NOTE]
-> Die Eigenschaft `font-stretch` [wurde in den Spezifikationen in `font-width` umbenannt](https://drafts.csswg.org/css-fonts/#font-stretch-desc). Der Name `font-stretch` wurde als Alias für die Eigenschaft `font-width` beibehalten.
-> Der neue Name `font-width` wird derzeit von keinem Browser unterstützt.
+> Die `font-stretch`-Eigenschaft [wurde in den Spezifikationen in `font-width` umbenannt](https://drafts.csswg.org/css-fonts/#font-stretch-desc). Der Name `font-stretch` wurde als Alias für die `font-width`-Eigenschaft beibehalten.
+> Der neue Name `font-width` wird noch von keinem Browser unterstützt.
 
-Die **`font-stretch`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt ein normales, komprimiertes oder erweitertes Schriftschnitt aus einer Schriftart aus.
+Die **`font-stretch`** [CSS](/de/docs/Web/CSS)-Eigenschaft wählt ein normales, komprimiertes oder erweitertes Gesicht aus einer Schriftart aus.
 
 {{InteractiveExample("CSS Demo: font-stretch")}}
 
@@ -93,46 +93,46 @@ font-stretch: revert-layer;
 font-stretch: unset;
 ```
 
-Diese Eigenschaft kann als einzelner `<font-stretch-css3>` Schlüsselwortwert oder als einzelner {{cssxref("&lt;percentage&gt;")}} Wert angegeben werden.
+Diese Eigenschaft kann als einzelner `<font-stretch-css3>` Schlüsselwortwert oder als einzelner {{cssxref("&lt;percentage&gt;")}}-Wert angegeben werden.
 
 ### Werte
 
 - `normal`
-  - : Spezifiziert einen normalen Schriftschnitt.
+  - : Gibt ein normales Schriftbild an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Spezifiziert einen schmaleren Schriftschnitt als normal, wobei `ultra-condensed` der schmalste ist.
+  - : Gibt ein stärker komprimiertes Schriftbild als normal an, wobei `ultra-condensed` das komprimierteste ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Spezifiziert einen breiteren Schriftschnitt als normal, wobei `ultra-expanded` der breiteste ist.
+  - : Gibt ein stärker erweitertes Schriftbild als normal an, wobei `ultra-expanded` das erweiterste ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
 
-### Schlüsselwort-zu-Zahlenwert-Zuordnung
+### Zuordnung von Schlüsselwort zu numerischem Wert
 
-Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schlüsselwortwerten und numerischen Prozentangaben:
+Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schlüsselwortwerten und numerischen Prozentsätzen:
 
-| Schlüsselwort     | Prozentangabe |
-| ----------------- | ------------- |
-| `ultra-condensed` | 50%           |
-| `extra-condensed` | 62.5%         |
-| `condensed`       | 75%           |
-| `semi-condensed`  | 87.5%         |
-| `normal`          | 100%          |
-| `semi-expanded`   | 112.5%        |
-| `expanded`        | 125%          |
-| `extra-expanded`  | 150%          |
-| `ultra-expanded`  | 200%          |
+| Schlüsselwort     | Prozentsatz |
+| ----------------- | ----------- |
+| `ultra-condensed` | 50%         |
+| `extra-condensed` | 62.5%       |
+| `condensed`       | 75%         |
+| `semi-condensed`  | 87.5%       |
+| `normal`          | 100%        |
+| `semi-expanded`   | 112.5%      |
+| `expanded`        | 125%        |
+| `extra-expanded`  | 150%        |
+| `ultra-expanded`  | 200%        |
 
 ## Beschreibung
 
-Einige Schriftfamilien bieten zusätzliche Schriftschnitte, bei denen die Zeichen schmaler als der normale Schriftschnitt sind (_komprimierte_ Schriftschnitte) oder breiter als der normale Schriftschnitt (_erweiterte_ Schriftschnitte).
+Einige Schriftfamilien bieten zusätzliche Schriftbilder an, bei denen die Zeichen enger als das normale Bild (_komprimierte_ Bilder) oder breiter als das normale Bild (_erweiterte_ Bilder) sind.
 
-Sie können `font-stretch` verwenden, um einen komprimierten oder erweiterten Schriftschnitt aus solchen Schriftarten auszuwählen. Wenn die von Ihnen verwendete Schrift keine komprimierten oder erweiterten Schriftschnitte anbietet, hat diese Eigenschaft keine Wirkung.
+Sie können `font-stretch` verwenden, um aus solchen Schriften ein komprimiertes oder erweitertes Bild auszuwählen. Wenn die von Ihnen verwendete Schriftart keine komprimierten oder erweiterten Bilder anbietet, hat diese Eigenschaft keine Wirkung.
 
-### Auswahl des Schriftschnittes
+### Auswahl des Schriftbildes
 
-Der für einen gegebenen Wert von `font-stretch` ausgewählte Schriftschnitt hängt von den vom jeweiligen Schriftart angebotenen Schnitten ab. Wenn die Schriftart keinen Schriftschnitt anbietet, der genau dem angegebenen Wert entspricht, werden Werte unter 100% einem schmaleren Schriftschnitt zugeordnet, und Werte ab 100% einem breiteren Schriftschnitt.
+Das für einen gegebenen Wert von `font-stretch` ausgewählte Bild hängt von den von der jeweiligen Schriftart unterstützten Schriftbildern ab. Wenn die Schriftart kein Bild bietet, das genau dem angegebenen Wert entspricht, werden Werte unter 100% einem engeren Bild zugeordnet, und Werte größer oder gleich 100% einem breiteren Bild.
 
-Die folgende Tabelle zeigt die Auswirkung verschiedener prozentualer Werte von `font-stretch` auf zwei verschiedene Schriftarten:
+Die folgende Tabelle zeigt die Wirkung verschiedener Prozentwerte von `font-stretch` auf zwei unterschiedliche Schriftarten:
 
 ```css hidden
 @font-face {
@@ -160,7 +160,9 @@ td {
     sans-serif;
 }
 #anek-malayalam td {
-  font: 90px "Anek Malayalam";
+  font:
+    90px "Anek Malayalam",
+    sans-serif;
 }
 #inconsolata td:nth-child(2),
 #anek-malayalam td:nth-child(2) {
@@ -247,8 +249,8 @@ td {
 
 {{EmbedLiveSample('Font_face_selection', "100%", "300px")}}
 
-- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schrift, die Breiten von 75% bis 125% unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die am nächsten passende Schriftart aus.
-- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schrift, die ein durchgehendes Spektrum von Breiten von 50% bis 200% bietet. <!-- Note, dynamically obtained woff2 from Google fonts using query: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
+- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schriftart, die Breiten von 75% bis 125% unterstützt. Werte darunter und darüber wählen die am besten passende Schrift aus.
+- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von Breiten von 50% bis 200% bietet. <!-- Hinweis: dynamisch erhaltene woff2 von Google Fonts mit der Abfrage: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
 
 ## Formale Definition
 
@@ -260,7 +262,7 @@ td {
 
 ## Beispiele
 
-### Einstellen von Schriftdehnungs-Prozentsätzen
+### Setzen von Schriftdehnungs-Prozenten
 
 ```html
 <p class="condensed">an elephantine lizard</p>
@@ -310,5 +312,5 @@ p {
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
 - SVG {{SVGAttr("font-stretch")}} Attribut
-- [Lernen: Grundlegende Text- und Schriftstile](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
-- [CSS Schriftarten](/de/docs/Web/CSS/CSS_fonts) Modul
+- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [CSS Fonts](/de/docs/Web/CSS/CSS_fonts) Modul

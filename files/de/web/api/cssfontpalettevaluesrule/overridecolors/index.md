@@ -1,24 +1,24 @@
 ---
-title: "CSSFontPaletteValuesRule: overrideColors Eigenschaft"
+title: "CSSFontPaletteValuesRule: overrideColors-Eigenschaft"
 short-title: overrideColors
 slug: Web/API/CSSFontPaletteValuesRule/overrideColors
 l10n:
-  sourceCommit: 005cc1fd55aadcdcbd9aabbed7d648a275f8f23a
+  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`overrideColors`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaar enthält, die stattdessen verwendet werden sollen. Sie wird im gleichen Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor.
+Die schreibgeschützte **`overrideColors`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle ist ein String, der eine Liste von Farbindizes und Farbpaaren enthält, die stattdessen verwendet werden sollen. Sie wird im selben Format wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor angegeben.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbpaar enthält.
+Ein String, der eine durch Kommas getrennte Liste von Farbindizes und Farbpaaren enthält.
 
 ## Beispiele
 
-### Die überschriebenen Farben lesen
+### Lesen der überschriebenen Farbe
 
-Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im zuletzt dem Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
+In diesem Beispiel werden zunächst einige @-Regeln definiert, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite von der letzten Stylesheet im Dokument zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) sein (`document.styleSheets[document.styleSheets.length-1].cssRules`).
 
 #### HTML
 
@@ -42,7 +42,7 @@ Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@
 }
 
 .emoji {
-  font-family: "Noto Color Emoji";
+  font-family: "Noto Color Emoji", emoji;
   font-size: 3rem;
 }
 
@@ -101,5 +101,5 @@ button.addEventListener("click", (event) => {
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}} At-Regel
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
+- {{cssxref("@font-palette-values")}}-Regel
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor
