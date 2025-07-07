@@ -1,37 +1,37 @@
 ---
-title: Einführung in CSS-Masking
+title: Einführung in CSS-Maskierung
 slug: Web/CSS/CSS_masking/Masking
 l10n:
-  sourceCommit: 288f873b40bdf6cdcd366dd09e1824da2bc83ebf
+  sourceCommit: 2d19a88d0cc560f031a07585bf57f005fec02670
 ---
 
 {{CSSRef}}
 
-CSS-Masking ermöglicht es Ihnen, Teile eines Elements selektiv sichtbar oder unsichtbar zu machen, indem Sie ein oder mehrere Maskenbilder darauf anwenden. Diese Maskenbilder können Verläufe, Bilder oder SVG-Quellen sein. Im Gegensatz zum [CSS Clipping](/de/docs/Web/CSS/CSS_masking/Clipping), welches entweder Bereiche eines Elements vollständig anzeigt oder verbirgt, basierend auf der Form eines einzelnen Pfads, erlaubt Masking nuancierte Transparenz- und Misch-Effekte basierend auf der Alphatransparenz und optional der Luminanz der Maskenbilder.
+CSS-Maskierung ermöglicht es Ihnen, Teile eines Elements selektiv anzuzeigen oder zu verbergen, indem Sie ein oder mehrere Maskenbilder darauf anwenden. Diese Maskenbilder können Verläufe, Bilder oder SVG-Quellen sein. Im Gegensatz zum [CSS Clipping](/de/docs/Web/CSS/CSS_masking/Clipping), das Bereiche eines Elements vollständig anzeigt oder verbirgt, basierend auf der Form eines einzelnen Pfades, ermöglicht die Maskierung nuancierte Transparenz- und Überblendeffekte basierend auf der Alpha-Transparenz und optional der Luminanz der Maskenbilder.
 
-Dieser Leitfaden führt in das Konzept des Maskings ein, erklärt die verschiedenen Typen von Maskenbildern und wie die Luminanz und Alphatransparenz der Maske die Teile des Elements beeinflusst, die maskiert (sichtbar gemacht) werden, im Vergleich zu den Teilen, die ausgeschnitten (oder verborgen) werden.
+Dieser Leitfaden führt in das Konzept der Maskierung ein, die verschiedenen Maskenbildtypen und wie die Luminanz und Alpha-Transparenz der Maske die Bereiche des Elements beeinflusst, die maskiert (sichtbar gemacht) werden, im Vergleich zu den Bereichen, die abgeschnitten (oder verborgen) sind.
 
-## Was ist Masking in CSS?
+## Was ist Maskierung in CSS?
 
-In CSS können Masken verwendet werden, um die sichtbaren und verborgenen Bereiche eines Elements zu definieren. Maskenebenen, die durch eine oder mehrere {{cssxref("mask-image")}}-Quellen definiert sind, bestimmen die sichtbaren Bereiche eines Elements und deren Deckkraft.
-
-> [!NOTE]
-> Mehrere CSS-Masking-Eigenschaften können über die Abkürzungseigenschaft {{cssxref("mask")}} festgelegt werden.
-
-Mit `alpha`-Masken entspricht die Deckkraft des maskierten Elements der aufgetragenen Masken-Deckkraft. In CSS ist Masking das Gegenteil einer Maskerade-Maske, bei der das Gesicht versteckt wird, wo immer die Maske undurchsichtig ist. In CSS sind die Bereiche des Elements, in denen die Maske vollständig undurchsichtig ist, vollständig undurchsichtig und sichtbar. Wo immer die Maske vollständig transparent ist, wird das Element vollständig verborgen. Bereiche des Elements, die von teilweise undurchsichtigen Maskenbereichen maskiert werden, sind teilweise undurchsichtig, entsprechend der Deckkraft der Maske.
-
-Bei Alpha-Masken ist die Farbe der Maske irrelevant. Nur die Deckkraft der Maske zählt. Bei [Luminanz-Masken](#alphatransparenz_versus_luminanz) wird die Helligkeit der Maskenfarben berücksichtigt, um die Deckkraft des maskierten Elements zu bestimmen. Je heller und undurchsichtiger die Farbe, desto undurchsichtiger ist das Element. Je dunkler und transparenter die Farbe, desto weniger undurchsichtig ist die Maske.
-
-Masken können mit CSS-Verläufen, Rasterbildern (wie PNGs) und SVG {{svgelement("mask")}}-Elementen definiert werden. In diesem Leitfaden stellen wir die verschiedenen Maskenbildtypen vor, während wir [Deckkraft und Transparenz](#deckkraft_versus_transparenz), [Luminanz](#alphatransparenz_versus_luminanz) und [Masking im Vergleich zu CSS Clipping](#svg_mask_as_mask_source) diskutieren.
-
-Jede Maskenebene besteht aus einem {{cssxref("mask-image")}}, das relativ zu einem Ursprungsfeld [positioniert](/de/docs/Web/CSS/mask-position) ist. Die Maskenbilder können [skaliert](/de/docs/Web/CSS/mask-size), [wiederholt](/de/docs/Web/CSS/mask-repeat) und [geschnitten](/de/docs/Web/CSS/mask-clip) werden. In Fällen, in denen mehrere Maskenbilder deklariert sind, kann die Art und Weise, wie die [Maskenebenen zusammengesetzt](/de/docs/Web/CSS/mask-composite) oder kombiniert werden, festgelegt werden. Diese werden im [Leitfaden zu Masking-Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties) besprochen.
+In CSS können Masken verwendet werden, um Bereiche eines Elements zu definieren, die sichtbar und andere, die verborgen sind. Maskenschichten, definiert durch eine oder mehrere {{cssxref("mask-image")}}-Quellen, bestimmen die Bereiche eines Elements, die sichtbar sein sollten und mit welcher Deckkraft.
 
 > [!NOTE]
-> Alle Beispiele verwenden das folgende Bild als zugrunde liegendes Element, auf das Masken angewendet werden:
+> Mehrere Werte der CSS-Maskierungseigenschaft können mit der {{cssxref("mask")}}-Kurzschreibweise festgelegt werden.
+
+Bei `alpha`-Masken entspricht die Deckkraft des maskierten Elements der aufgebrachten Deckkraft der Maske. In CSS ist die Maskierung das Gegenteil einer Maskerade-Maske, bei der das Gesicht verborgen ist, wo immer die Maske undurchsichtig ist. In CSS sind die Bereiche des Elements, bei denen seine Maske vollständig undurchsichtig ist, vollständig undurchsichtig und sichtbar. Wo immer die Maske vollständig transparent ist, wird das Element vollständig verborgen sein. Bereiche des Elements, die durch teilweise undurchsichtige Maskenbereiche maskiert sind, werden teilweise undurchsichtig sein, entsprechend der Deckkraft der Maske.
+
+Bei Alpha-Masken ist die Farbe der Maske irrelevant. Nur die Deckkraft der Maske zählt. Bei [Luminanzmasken](#alpha-transparenz_versus_luminanz) wird die Helligkeit der Maskenfarben berücksichtigt, um die Deckkraft des maskierten Elements zu bestimmen. Je heller und undurchsichtiger die Farbe, desto undurchsichtiger das Element. Je dunkler und transparenter die Farbe, desto weniger undurchsichtig wird die Maske.
+
+Masken können mit CSS-Verläufen, Rasterbildern (wie PNGs) und SVG {{svgelement("mask")}}-Elementen definiert werden. In diesem Leitfaden stellen wir die verschiedenen Maskenbildtypen vor, während wir [Undurchsichtigkeit und Transparenz](#undurchsichtigkeit_versus_transparenz), [Luminanz](#alpha-transparenz_versus_luminanz) und [Maskierung versus CSS-Clipping](#svg_mask_as_mask_source) diskutieren.
+
+Jede Maskenschicht besteht aus einem {{cssxref("mask-image")}}, das relativ zu einer Ursprungsbox [positioniert](/de/docs/Web/CSS/mask-position) ist. Die Maskenbilder können [skaliert](/de/docs/Web/CSS/mask-size), [wiederholt](/de/docs/Web/CSS/mask-repeat) und [abgeschnitten](/de/docs/Web/CSS/mask-clip) werden. In Fällen, in denen mehrere Maskenbilder deklariert sind, kann festgelegt werden, wie die [Maskenschichten zusammengefügt](/de/docs/Web/CSS/mask-composite) oder kombiniert werden. Diese werden im [Leitfaden zu den Maskierungseigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties) besprochen.
+
+> [!NOTE]
+> Alle Beispiele verwenden das folgende Bild als Basisbild, auf das die Masken angewendet werden:
 >
-> <img src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg" alt="Pride-Flagge" />
+> <img src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg" alt="Regenbogenflagge" />
 
-## Deckkraft versus Transparenz
+## Undurchsichtigkeit versus Transparenz
 
 ```html hidden live-sample___gradient1 live-sample___gradient2 live-sample___image1   live-sample___luminance1 live-sample___luminance2 live-sample___luminance3
 <img
@@ -59,13 +59,13 @@ img {
 }
 ```
 
-Bei Alpha-Masken werden die sichtbaren Bereiche eines Elements durch die Alphatransparenz der darauf angewendeten Maske definiert. Wo immer die Maske vollständig undurchsichtig ist, ist das Element sichtbar. An jedem Pixel, an dem die Maske vollständig transparent ist, wird das Element ebenfalls vollständig verborgen. Bereiche des Elements, die von einem teilweise undurchsichtigen Abschnitt einer Maske maskiert werden, sind teilweise undurchsichtig, entsprechend der aufgetragenen Masken-Deckkraft.
+Mit Alpha-Masken werden die sichtbaren Bereiche eines Elements durch die Alpha-Transparenz der darauf angewendeten Maske definiert. Wo immer die Maske vollständig undurchsichtig ist, wird das Element sichtbar sein. An jedem Pixel, an dem die Maske vollständig transparent ist, wird das Element ebenfalls vollständig verborgen sein. Bereiche des Elements, die durch einen teilweise undurchsichtigen Abschnitt einer Maske maskiert sind, werden teilweise undurchsichtig sein und die aufgebrachte Deckkraft der Maske übernehmen.
 
 ### Mit Verläufen
 
-Um dies zu demonstrieren, betrachten wir ein Beispiel mit einem {{cssxref("conic-gradient")}} als `mask-image`. CSS-Verläufe, einschließlich Kegelverläufe, können verwendet werden, um sanfte Übergänge zwischen sichtbaren und verborgenen Bereichen zu erstellen.
+Um dies zu demonstrieren, betrachten wir ein Beispiel mit einem {{cssxref("conic-gradient")}} als `mask-image`. CSS-Verläufe, einschließlich konischer Verläufe, können verwendet werden, um sanfte Übergänge zwischen sichtbaren und verborgenen Bereichen zu erzeugen.
 
-In diesem Fall ist die obere rechte Ecke der Maske vollständig undurchsichtig, das obere linke Viertel ist vollständig transparent, und die untere Hälfte hat einen sanften Übergang zwischen undurchsichtig und transparent.
+In diesem Fall ist die obere rechte Ecke der Maske vollständig undurchsichtig, das obere linke Viertel ist vollständig transparent, und die untere Hälfte zeigt einen sanften Übergang zwischen undurchsichtig und transparent.
 
 ```css live-sample___gradient1
 .applied-mask {
@@ -76,11 +76,11 @@ In diesem Fall ist die obere rechte Ecke der Maske vollständig undurchsichtig, 
 }
 ```
 
-Beachten Sie, wie das Element, auf das die Maske angewendet wird, eine vollständig sichtbare obere rechte Ecke hat, das obere linke Viertel ist verborgen, und die untere Hälfte geht sanft von sichtbar zu transparent über, was die Sichtbarkeit des angewendeten Maskenbildes widerspiegelt.
+Beachten Sie, wie das Element, auf dem die Maske angewendet wird, eine vollständig sichtbare obere rechte Ecke hat, das obere linke Viertel verborgen ist und die untere Hälfte sanft von sichtbar zu transparent übergeht, was die Sichtbarkeit der angewendeten Maskenbild widerspiegelt.
 
 {{EmbedLiveSample("gradient1", "", "250px")}}
 
-Bei Alpha-Masken spielt die Farbe der Maske keine Rolle, sondern nur die Transparenz. In diesem Beispiel haben wir einen gestreiften Verlauf mit vollständig undurchsichtigem Rot, halb undurchsichtigem Rot und vollständig transparenten Streifen.
+Mit Alpha-Masken spielt die Farbe der Maske keine Rolle, nur die Transparenz. In diesem Beispiel haben wir einen gestreiften Verlauf mit vollständig undurchsichtigen roten, halbtransparenten roten und vollständig transparenten Streifen.
 
 ```css live-sample___gradient2
 .applied-mask {
@@ -101,13 +101,13 @@ Bei Alpha-Masken spielt die Farbe der Maske keine Rolle, sondern nur die Transpa
 }
 ```
 
-Beachten Sie, wie die vollständig undurchsichtigen Maskenbereiche vollständig undurchsichtige Elementpixel anzeigen, teilweise transparente Maskenbereiche teilweise transparente Bereiche erzeugen und vollständig transparente Maskenbereiche die zugehörigen Bereiche vollständig ausblenden.
+Beachten Sie, wie die vollständig undurchsichtigen Maskenbereiche vollständig undurchsichtige Elementpixel enthüllen, halbtransparente Maskenbereiche halbtransparente Bereiche erzeugen und vollständig transparente Maskenbereiche die zugehörigen Bereiche vollständig verbergen.
 
 {{EmbedLiveSample("gradient2", "", "250px")}}
 
 ### Mit importierten Bildern
 
-In den vorherigen beiden Beispielen wurden Verläufe als Masken und Hintergrundbilder verwendet. Das Maskenbild muss kein CSS-Bild sein. Es kann sich um ein externes Bild oder ein SVG handeln.
+Die vorherigen zwei Beispiele verwendeten Verläufe als Masken- und Hintergrundbilder. Das Maskenbild muss kein CSS-Bild sein. Es kann ein externes Bild oder ein SVG sein.
 
 In diesem Fall verwenden wir ein externes PNG. Das Bild enthält ein farbenfrohes Herz mit einem transparenten Hintergrund.
 
@@ -122,15 +122,15 @@ In diesem Fall verwenden wir ein externes PNG. Das Bild enthält ein farbenfrohe
 }
 ```
 
-Beachten Sie, wie die transparenten Maskenbereiche das Element zuschneiden; die einzigen sichtbaren Teile des Elements sind die Bereiche, in denen die Maske undurchsichtig ist. Die Farbe der Maske selbst spielt keine Rolle.
+Beachten Sie, wie die transparenten Maskenbereiche das Element zuschneiden; die einzigen Teile des Elements, die sichtbar sind, sind die Bereiche, in denen die Maske undurchsichtig ist. Die Farbe der Maske selbst spielt keine Rolle.
 
 {{EmbedLiveSample("image1", "", "250px")}}
 
-## Alphatransparenz versus Luminanz
+## Alpha-Transparenz versus Luminanz
 
-Der Standardwert der `mask-mode`-Eigenschaft – `match-source` – setzt den Modus entweder auf `alpha` oder `luminance`, abhängig vom Wert. Der `match-source`-Wert löst `alpha` für alle Maskenquellen außer SVG {{svgelement("mask")}}-Elementen auf. Wenn die Maskenquelle ein `<mask>`-Element ist, wird `match-source` auf den Wert der {{cssxref("mask-type")}}-Eigenschaft des `<mask>`-Elements aufgelöst, falls gesetzt. Andernfalls löst es sich auf den Wert des SVG-{{svgattr("mask-type")}}-Attributs des `<mask>`-Elements auf. Wenn auch dies nicht explizit gesetzt ist, wird `match-source` auf `luminance` aufgelöst.
+Der Standardwert der `mask-mode`-Eigenschaft — `match-source` — setzt den Modus entweder auf `alpha` oder `luminance`, abhängig vom Wert. Der Wert `match-source` wird für alle Maskenquellen außer SVG-{{svgelement("mask")}}-Elementen auf `alpha` gesetzt. Wenn die Maskenquelle ein `<mask>`-Element ist, wird `match-source` auf den Wert der {{cssxref("mask-type")}}-Eigenschaft des `<mask>`-Elements gesetzt, falls vorhanden. Andernfalls löst er sich zum Wert des SVG-{{svgattr("mask-type")}}-Attributs, das auf dem `<mask>`-Element gesetzt ist. Wenn auch dies nicht explizit gesetzt ist, wird `match-source` auf `luminance` gelöst.
 
-Wenn `mask-mode` auf `luminance` aufgelöst wird oder wir es explizit auf `luminance` setzen, beeinflussen die Farben der Maske die Masken-Deckkraft. Im vorherigen Beispiel war `mask-mode` nicht gesetzt, daher wurde der Wert standardmäßig auf `match-source` gesetzt. Da das farbenfrohe Herzbild ein transparentes PNG ist, löst `match-source` auf `alpha` auf. Durch das explizite Setzen dieser Eigenschaft können wir den Modus steuern. In diesem Beispiel ändern wir den `mask-mode` zu `luminance`.
+Wenn `mask-mode` auf `luminance` aufgelöst wird oder wir es ausdrücklich auf `luminance` setzen, beeinflussen die Farben der Maske die Masken-Opazität. Im vorherigen Demo war der `mask-mode` nicht gesetzt, sodass der Wert standardmäßig auf `match-source` gesetzt wurde. Da das farbliche Herzbild ein transparentes PNG ist, löst sich `match-source` auf `alpha`. Durch explizites Setzen dieser Eigenschaft können wir den Modus kontrollieren. In diesem Beispiel ändern wir den `mask-mode` zu `luminance`.
 
 ```css live-sample___luminance1
 .applied-mask {
@@ -138,15 +138,15 @@ Wenn `mask-mode` auf `luminance` aufgelöst wird oder wir es explizit auf `lumin
 }
 ```
 
-Wenn `mask-mode: luminance` auf dieselbe Maske wie im vorherigen Beispiel angewendet wird, sind die Bereiche des Elements, in denen die Maske am **hellsten** ist, undurchsichtiger, während **dunklere** Bereiche weniger undurchsichtig sind.
+Wenn `mask-mode: luminance` auf dieselbe Maske angewendet wird wie im vorherigen Beispiel, sind die Bereiche des Elements, wo die Maske **am hellsten** ist, mehr undurchsichtig, während **dunklere** Bereiche weniger undurchsichtig sind.
 
 {{EmbedLiveSample("luminance1", "", "250px")}}
 
-Die Deckkraft einer Luminanzmaske wird durch die `R`, `G`, `B` und `A` Werte einer {{Glossary("RGB", "RGB")}}-Farbe unter Verwendung der Formel bestimmt:
+Die Opazität einer Luminanzmaske wird durch die `R`, `G`, `B` und `A`-Werte einer {{Glossary("RGB", "RGB")}}-Farbe unter Verwendung der Formel bestimmt:
 
 `((0.2125 * R) + (0.7154 * G) + (0.0721 * B)) * A`
 
-Zum Beispiel ist die neueste {{cssxref("named-color")}} `rebeccapurple`, die `#663399` entspricht. Während man annehmen könnte, die Helligkeit könnte dem L der `hsl()`-Farbfunktion entsprechen, ist es nicht so einfach. Der Wert `#663399` entspricht `rgb(40% 20% 60% / 1)` und `hsl(270 50% 40% / 1)`, aber der Helligkeitswert ist `27.134%`, nicht `40%`.
+Zum Beispiel ist die neueste {{cssxref("named-color")}} `rebeccapurple`, was `#663399` entspricht. Während man annehmen könnte, die Helligkeit sei gleich dem L der `hsl()`-Funktion, ist es nicht so einfach. Der Wert `#663399` entspricht `rgb(40% 20% 60% / 1)` und `hsl(270 50% 40% / 1)`, aber der Helligkeitswert beträgt `27.134%`, nicht `40%`.
 
 `((0.2125 * 0.4) + (0.7154 * 0.2) + (0.0721 * 0.6)) * 1 = 0.27134`
 
@@ -158,7 +158,7 @@ Schwarz hat eine Helligkeit von `0%`.
 
 `((0.2125 * 0) + (0.7154 * 0) + (0.0721 * 0)) * 1 = 0`
 
-Wir demonstrieren dies, indem wir Weiß (`rgb(100% 100% 100%)`) mit einer Helligkeit von `100%` bei `27.234%` Deckkraft zu einem "rebeccapurple-, Weiß- und Schwarz-Verlauf", den wir dann verwenden werden, um unser Bild zu maskieren. Dieses Weiß löst sich auf denselben Deckkraftwert auf:
+Wir werden dies demonstrieren, indem wir Weiß (`rgb(100% 100% 100%)`) mit einer Helligkeit von `100%` bei `27.234%` Deckkraft zu einem `rebeccapurple`, `weißen` und `schwarzen` linearem Verlauf hinzufügen, den wir dann zum Maskieren unseres Bildes verwenden. Dieses Weiß löst sich auf denselben Deckkraftwert:
 
 `((0.2125 * 1) + (0.7154 * 1) + (0.0721 * 1)) * 0.27134 = 0.27134`
 
@@ -194,13 +194,13 @@ Wir demonstrieren dies, indem wir Weiß (`rgb(100% 100% 100%)`) mit einer Hellig
 <label><input type="checkbox" /><code>mask-mode: alpha;</code></label>
 ```
 
-Die Bereiche mit einer `weißen` Maske sind vollständig undurchsichtig. Die Bereiche mit einer `schwarzen` Maske sind vollständig transparent. Die Bereiche mit einer `rebeccapurple`-Maske und die Bereiche mit einer `27.1234%`-deckenden weißen Maske sind beide `27.1234%` undurchsichtig.
+Die Bereiche mit einer `weißen` Maske sind vollständig undurchsichtig. Die Bereiche mit einer `schwarzen` Maske sind vollständig transparent. Die Bereiche mit einer `rebeccapurple`-Maske und die Bereiche mit einer `27.1234%`-durchsichtigen weißen Maske sind beide `27.1234%` undurchsichtig.
 
 {{EmbedLiveSample("luminance2", "", "250px")}}
 
-Wenn Sie den `mask-mode` auf `alpha` umschalten, spielt die Farbe des Verlaufs keine Rolle mehr. Das gesamte Element wird undurchsichtig sein außer den durch das halb-opaque Weiß bedeckten Bereichen.
+Wenn Sie den `mask-mode` auf `alpha` umschalten, spielt die Farbe des Verlaufs keine Rolle mehr. Das gesamte Element wird sichtbar sein, außer den Bereichen, die durch das halbtransparente Weiß bedeckt sind.
 
-Die `mask-mode`-Eigenschaft ermöglicht die Verwendung von Rasterbildern ohne Alpha-Transparenz, wie JPEGs, als Maskenbilder. Ein JPEG besteht aus undurchsichtigen Pixeln. Ein JPEG als Maske mit seinem Standard-`alpha`-Maskenmodus würde das gesamte Element verbergen. Der `luminance`-Wert des `mask-mode`-Modus hingegen schneidet das Element dort aus, wo die Maske schwarz ist (keine Helligkeit hat), ist vollständig undurchsichtig, wo die Maske undurchsichtiges Weiß (100% Helligkeit) aufweist, während andere Bereiche halbtransparent sind, basierend auf der Helligkeit des Bereichs der Maske, der sie maskiert.
+Die `mask-mode`-Eigenschaft ermöglicht die Verwendung von Rasterbildern ohne Alphatransparenz, wie z.B. JPEGs, als Maskenbilder. Ein JPEG besteht aus undurchsichtigen Pixeln. Die Verwendung eines JPEGs als Maske mit seinem Standard-`alpha`-Maskenmodus würde das gesamte Element verbergen. Der `luminance`-Wert von `mask-mode` hingegen schneidet das Element, wo die Maske schwarz ist (keine Helligkeit hat), ist vollständig undurchsichtig, wo die Maske undurchsichtig weiß ist (100% Helligkeit), mit anderen Bereichen, die halbtransparent sind, basierend auf der Helligkeit des Maskenbereichs, der es maskiert.
 
 In diesem Beispiel haben wir einen weißen Mond gegen einen schwarzen Nachthimmel.
 
@@ -216,17 +216,17 @@ In diesem Beispiel haben wir einen weißen Mond gegen einen schwarzen Nachthimme
 }
 ```
 
-Das Element wird abgeschnitten und ist nicht sichtbar, wo der Himmel schwarz ist. Das Bild ist am deutlichsten sichtbar, wo der Mond am hellsten ist.
+Das Element ist abgeschnitten und nicht sichtbar, wo der Himmel schwarz ist. Das Bild ist am sichtbarsten, wo der Mond am hellsten ist.
 
 {{EmbedLiveSample("luminance3", "", "250px")}}
 
-In diesem Fall, wenn Sie den `mask-mode` auf `alpha` umschalten, wird das gesamte Element sichtbar, da die gesamte Maske undurchsichtig ist.
+In diesem Fall, wenn Sie den `mask-mode` auf `alpha` umschalten, wird das gesamte Element sichtbar sein, da die gesamte Maske undurchsichtig ist.
 
 ## SVG `<mask>` als Maskenquelle
 
-Eine Maske kann jede Art von CSS {{cssxref("image")}} oder eine `<mask-source>` sein. Ein `<mask-source>` ist ein {{cssxref("url_value", "&lt;url&gt;")}}-Verweis auf ein SVG-{{SVGElement("mask")}}-Element. Dies ist ähnlich wie das Clipping mit der CSS {{cssxref("clip-path")}}-Eigenschaft, bei der die "Maske" stattdessen ein SVG-{{SVGElement("clipPath")}}-Element ist (bei `clip-path` ist die Luminanz des Pfads nicht von Bedeutung).
+Eine Maske kann jede Art von CSS {{cssxref("image")}} oder ein `<mask-source>` sein. Ein `<mask-source>` ist ein {{cssxref("url_value", "&lt;url&gt;")}}-Verweis auf ein SVG-{{SVGElement("mask")}}-Element. Dies ähnelt dem Clipping mit der CSS-{{cssxref("clip-path")}}-Eigenschaft, in welchem Fall die "Maske" ein SVG-{{SVGElement("clipPath")}}-Element ist (bei `clip-path` ist die Luminanz des Pfades nicht relevant).
 
-In diesem Beispiel definieren wir ein SVG mit einem `<mask>`-Element, einem identischen {{SVGElement("clipPath")}}-Element und einem identischen {{SVGElement("path")}}-Element, damit Sie die Masken- und Clip-Path-Quelle sehen können.
+In diesem Beispiel definieren wir ein SVG mit einem `<mask>`-Element, einem identischen {{SVGElement("clipPath")}}-Element und einem identischen {{SVGElement("path")}}-Element, sodass Sie die Masken- und Clip-Pfad-Quelle sehen können.
 
 ```html live-sample___svg1
 <img
@@ -282,20 +282,19 @@ body {
 <label><input type="checkbox" /><code>mask-mode: alpha;</code></label>
 ```
 
-Da die Bildquelle eine `<mask>` ist, und die Maske weder die `mask-type`-CSS-Eigenschaft noch das `mask-type`-SVG-Attribut gesetzt hat, setzt `mask-type` standardmäßig auf `alpha`, sodass der Standard von `mask-mode: match-source` auf `luminance` aufgelöst wird. Dies liegt daran, dass für Maskenquellen, die SVG {{svgelement("mask")}}-Elemente sind, `mask-type` standardmäßig auf `luminance` gesetzt ist, es sei denn, das {{svgattr("mask-type")}}-Attribut ist explizit auf `alpha` gesetzt.
+Da die Bildquelle ein `<mask>` ist und die Maske weder die `mask-type`-CSS-Eigenschaft noch das `mask-type`-SVG-Attribut gesetzt hat, wird der `mask-type`-Wert auf `alpha` gesetzt, sodass der Standard von `mask-mode: match-source` auf `luminance` aufgelöst wird. Dies liegt daran, dass für Maskenquellen, die SVG {{svgelement("mask")}}-Elemente sind, der `mask-type`-Standard auf `luminance` gesetzt wird, es sei denn, das {{svgattr("mask-type")}}-Attribut wird explizit auf `alpha` gesetzt.
 
 {{EmbedLiveSample("svg1", "", "300px")}}
 
-Da wir weder das `mask-type`-Attribut noch die CSS-Eigenschaft auf unserer Maske gesetzt haben, löst der Standardwert der `mask-mode`-Eigenschaft `match-source` auf `luminance` auf. Aktivieren Sie das Kontrollkästchen, um den `mask-mode`-Wert auf `alpha` zu setzen oder es auf `match-source` zu belassen.
+Da wir weder das `mask-type`-Attribut noch die CSS-Eigenschaft auf unserer Maske gesetzt haben, löst sich der Standardwert der `mask-mode`-Eigenschaft `match-source` auf `luminance` auf. Aktivieren Sie das Kontrollkästchen, um den `mask-mode`-Wert auf `alpha` zu setzen oder ihn auf `match-source` standardmäßig zu belassen.
 
-Dieses Beispiel zeigte auch den Unterschied zwischen Masking und Clipping in CSS. Sie werden bemerken, dass Luminanz und Alphatransparenz für Masking relevant, aber nicht für Clipping sind. Masking kann verwendet werden, um die Deckkraft eines Elements zu steuern, während Clipping alles innerhalb des Clip-Pfads anzeigt und die Teile des Elements außerhalb des Clip-Pfads vollständig verbirgt. Abgeschnittene Bereiche sind völlig unsichtbar, während maskierte Bereiche teilweise oder vollständig sichtbar sein können.
+Dieses Beispiel zeigt auch den Unterschied zwischen Maskierung und Clipping in CSS. Sie werden feststellen, dass Luminanz und Alpha-Transparenz für die Maskierung relevant sind, nicht aber für das Clipping. Maskierung kann verwendet werden, um die Deckkraft eines Elements zu steuern, während Clipping alles innerhalb des Clipping-Pfads anzeigt und die Teile des Elements außerhalb des Clip-Pfads vollständig verbirgt. Abgeschnittene Bereiche sind vollständig unsichtbar, während maskierte Bereiche teilweise oder vollständig sichtbar sein können.
 
-Wenn Sie nur Formen benötigen, kann Clipping ausreichen. Aber wenn Sie Überblendungen, variable Deckkraft oder sogar Kontrolle über Position und Größe benötigen (was wir in einem separaten Leitfaden besprechen werden), ist Masking besser geeignet.
+Wenn Sie nur Formen benötigen, kann Clipping ausreichen. Wenn Sie jedoch Verblassen, variable Deckkraft oder sogar Kontrolle über Position und Größe benötigen (die wir in einem separaten Leitfaden diskutieren werden), ist Maskierung geeigneter.
 
 ## Siehe auch
 
 - [Einführung in CSS-Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
-- [Einführung in CSS-Masking](/de/docs/Web/CSS/CSS_masking/Masking)
-- [CSS `mask` Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
+- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
 - [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
-- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
+- [CSS-Maskierung](/de/docs/Web/CSS/CSS_masking) Modul
