@@ -3,27 +3,27 @@ title: "ImageData: pixelFormat-Eigenschaft"
 short-title: pixelFormat
 slug: Web/API/ImageData/pixelFormat
 l10n:
-  sourceCommit: 7ed95bd9e3e72ec095fd2dc9bc0deab0801b2e6e
+  sourceCommit: 707183bfb6cffe53650c03e7e7c369ad089f55ae
 ---
 
-{{APIRef("Canvas API")}}{{AvailableInWorkers}}
+{{APIRef("Canvas API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
 Die schreibgeschützte **`ImageData.pixelFormat`**-Eigenschaft ist ein String, der das Pixelformat der Bilddaten angibt.
 
-Das Pixelformat kann während der Initialisierung von `ImageData` entweder mit dem [`ImageData()`](/de/docs/Web/API/ImageData/ImageData) Konstruktor oder der [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) Methode festgelegt werden.
+Das Pixelformat kann während der `ImageData`-Initialisierung entweder mit dem [`ImageData()`](/de/docs/Web/API/ImageData/ImageData)-Konstruktor oder der [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData)-Methode festgelegt werden.
 
 ## Wert
 
 Diese Eigenschaft kann die folgenden Werte haben:
 
-- `"rgba-unorm8"` steht für RGBA mit 8 Bit pro Komponente im unsigned normalized Format, unter Verwendung eines {{jsxref("Uint8ClampedArray")}}.
-- `"rgba-float16"` steht für RGBA mit 16 Bit pro Komponente, unter Verwendung eines {{jsxref("Float16Array")}}. Gleitkomma-Pixelwerte ermöglichen die Darstellung von Farben in beliebig breiten Farbräumen und hohen Dynamikumfang (HDR).
+- `"rgba-unorm8"` repräsentiert RGBA mit 8 Bit pro Komponente im unsignierten, normalisierten Format, unter Verwendung eines {{jsxref("Uint8ClampedArray")}}.
+- `"rgba-float16"` repräsentiert RGBA mit 16 Bits pro Komponente, unter Verwendung eines {{jsxref("Float16Array")}}. Gleitkommapixel-Werte ermöglichen die Darstellung von Farben in beliebig breiten Farbumfängen und im Hochdynamikbereich (HDR).
 
 ## Beispiele
 
-### Gleitkomma-Pixeldaten für breite Farbräume und hohen Dynamikumfang (HDR)
+### Gleitkomma-Pixeldaten für breite Farbumfänge und hohen Dynamikbereich (HDR)
 
-Gleitkomma-Pixelwerte ermöglichen die Darstellung von Farben in beliebig breiten Farbräumen und hohem Dynamikumfang (HDR). Sie können die `pixelFormat`-Einstellung auf `"rgba-float16"` setzen, um RGBA-Werte mit 16 Bit pro Komponente zu verwenden. Dies erfordert, dass das `dataArray` ein {{jsxref("Float16Array")}} ist.
+Gleitkommapixel-Werte ermöglichen die Darstellung von Farben in beliebig breiten Farbumfängen und im hohen Dynamikbereich (HDR). Sie können die `pixelFormat`-Einstellung auf `"rgba-float16"` setzen, um RGBA-Werte mit 16 Bits pro Komponente zu verwenden. Dies erfordert, dass das `dataArray` ein {{jsxref("Float16Array")}} ist.
 
 ```js
 let floatArray = new Float16Array(4 * 200 * 200);

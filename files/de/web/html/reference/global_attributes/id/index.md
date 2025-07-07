@@ -1,14 +1,14 @@
 ---
-title: HTML id global attribute
+title: HTML id globales Attribut
 short-title: id
 slug: Web/HTML/Reference/Global_attributes/id
 l10n:
-  sourceCommit: b756b8ef42bfd3b9e2f3d46fb44d41e2d3f15e25
+  sourceCommit: 8552ea571cb0a51504a5985dbe44f2e0370159b8
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`id`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) definiert eine Kennung (ID), die innerhalb des gesamten Dokuments einzigartig sein muss.
+Das **`id`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) definiert eine Kennung (ID), die innerhalb des gesamten Dokuments eindeutig sein muss.
 
 {{InteractiveExample("HTML Demo: id", "tabbed-shorter")}}
 
@@ -35,19 +35,19 @@ Das **`id`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) d
 
 ## Syntax
 
-Der Wert eines ID-Attributs darf keine {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}} enthalten. Browser behandeln nicht konforme IDs, die Leerzeichen enthalten, so, als ob das Leerzeichen Teil der ID ist. Im Gegensatz zum [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) Attribut, das durch Leerzeichen getrennte Werte erlaubt, können Elemente nur einen einzigen ID-Wert haben.
+Der Wert eines ID-Attributs darf keine {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}-Zeichen enthalten. Browser behandeln nicht konforme IDs, die Leerzeichen enthalten, so, als wären die Leerzeichen Teil der ID. Im Gegensatz zum [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attribut, das durch Leerzeichen getrennte Werte zulässt, können Elemente nur einen einzigen ID-Wert haben.
 
-Technisch gesehen kann der Wert für ein ID-Attribut jedes andere Unicode-Zeichen enthalten. Wenn dieser jedoch in CSS-Selektoren verwendet wird, entweder aus JavaScript mit APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, müssen die Werte der ID-Attribute gültige [CSS-Identifikatoren](/de/docs/Web/CSS/ident) sein. Das bedeutet, dass ein ID-Attributwert, der kein gültiger CSS-Identifikator ist (zum Beispiel `my?id` oder `1234`), vor der Verwendung in einem Selektor entweder mit der Methode [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden muss.
+Technisch kann der Wert eines ID-Attributs jedes andere Unicode-Zeichen enthalten. Wenn es jedoch in CSS-Selektoren verwendet wird, sei es von JavaScript über APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, müssen ID-Attributwerte gültige [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. Das bedeutet, dass wenn ein ID-Attributwert kein gültiger CSS-Bezeichner ist (zum Beispiel `my?id` oder `1234`), er vor der Verwendung in einem Selektor entweder mit der [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static)-Methode oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden muss.
 
-Aus diesem Grund wird Entwicklern empfohlen, Werte für ID-Attribute zu wählen, die gültige CSS-Identifikatoren sind und keine Maskierung erfordern.
+Aus diesem Grund wird Entwicklern empfohlen, für ID-Attribute Werte zu wählen, die gültige CSS-Bezeichner sind und kein Maskieren erfordern.
 
-Auch sind nicht alle gültigen ID-Attributwerte gültige JavaScript-Identifikatoren. Zum Beispiel ist `1234` ein gültiger Attributwert, aber kein gültiger JavaScript-Identifikator. Das bedeutet, dass der Wert kein gültiger Variablenname ist, sodass Sie nicht auf das Element mit Code wie `window.1234` zugreifen können. Sie können jedoch mit `window["1234"]` darauf zugreifen.
+Auch sind nicht alle gültigen ID-Attributwerte gültige JavaScript-Bezeichner. Zum Beispiel ist `1234` ein gültiger Attributwert, aber kein gültiger JavaScript-Bezeichner. Das bedeutet, dass der Wert kein gültiger Variablenname ist, sodass Sie nicht auf das Element mit Code wie `window.1234` zugreifen können. Allerdings können Sie darauf mit `window["1234"]` zugreifen.
 
 ## Beschreibung
 
-Der Zweck des ID-Attributs besteht darin, ein einzelnes Element zu identifizieren, wenn es verlinkt (unter Verwendung eines [Fragmentbezeichners](/de/docs/Web/URI/Reference/Fragment)), gescriptet oder gestylt (mit {{Glossary("CSS", "CSS")}}) wird.
+Der Zweck des ID-Attributs besteht darin, ein einzelnes Element beim Verlinken (mithilfe eines [Fragmentidentifikators](/de/docs/Web/URI/Reference/Fragment)), beim Skripten oder beim Styling (mit {{Glossary("CSS", "CSS")}}) zu identifizieren.
 
-Sie können auf Elemente mit ID-Attributen als globale Eigenschaften des `window`-Objekts zugreifen, wobei der Name der Eigenschaft der ID-Wert und der Eigenschaftswert das entsprechende Element ist. Zum Beispiel, bei folgendem Markup:
+Sie können auf Elemente mit ID-Attributen als globale Eigenschaften des `window`-Objekts zugreifen, wobei der Eigenschaftsname der ID-Wert und der Eigenschaftswert das entsprechende Element ist. Zum Beispiel, gegeben diesem Markup:
 
 ```html
 <p id="preamble"></p>
@@ -60,9 +60,9 @@ const content = window.preamble.textContent;
 ```
 
 > [!WARNING]
-> Sich auf das Muster `window["id-value"]` oder `window.idValue` zu verlassen, ist riskant und nicht empfohlen, da es zu unerwarteten Konflikten mit bestehenden oder zukünftigen APIs im Browser führen kann.
-> Wenn zum Beispiel ein Browser in Zukunft eine eingebaute globale Eigenschaft namens `preamble` einführt, könnte Ihr Code möglicherweise nicht mehr auf das HTML-Element zugreifen.
-> Um solche Konflikte zu vermeiden, verwenden Sie immer die Methode [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById) oder {{domxref("Document.querySelector()")}}, um auf Elemente über ihre ID zuzugreifen.
+> Es ist gefährlich und wird nicht empfohlen, sich auf das Muster `window["id-value"]` oder `window.idValue` zu verlassen, da es zu unerwarteten Konflikten mit bestehenden oder zukünftigen APIs im Browser führen kann.
+> Zum Beispiel, wenn ein Browser in Zukunft eine eingebaute globale Eigenschaft namens `preamble` einführt, könnte Ihr Code möglicherweise nicht mehr auf das HTML-Element zugreifen.
+> Um solche Konflikte zu vermeiden, verwenden Sie immer die Methoden [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById) oder [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), um auf Elemente über die ID zuzugreifen.
 
 ## Spezifikationen
 
@@ -75,6 +75,6 @@ const content = window.preamble.textContent;
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
-- [`Element.id`](/de/docs/Web/API/Element/id), welches dieses Attribut widerspiegelt.
+- [`Element.id`](/de/docs/Web/API/Element/id), das dieses Attribut widerspiegelt.
 - Die Methode [`Document.getElementById`](/de/docs/Web/API/Document/getElementById).
 - CSS [ID-Selektoren](/de/docs/Web/CSS/ID_selectors).

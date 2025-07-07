@@ -3,70 +3,69 @@ title: Firefox 141 für Entwickler
 short-title: Firefox 141 (Beta)
 slug: Mozilla/Firefox/Releases/141
 l10n:
-  sourceCommit: 049e72b26fe20067dd70799ef4b4fc49d7636c04
+  sourceCommit: 6e75659d8e795271163c9efba58c2b3f644cb63e
 ---
 
-Dieser Artikel enthält Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
-Firefox 141 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
+Dieser Artikel bietet Informationen zu den Änderungen in Firefox 141, die Entwickler betreffen. Firefox 141 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit. Sie können [das Projektprotokoll für diese Version hier einsehen](https://github.com/mdn/mdn/issues/698).
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit. Sie können [das Projekt-Tracker für diese Version hier einsehen](https://github.com/mdn/mdn/issues/698).
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Anmerkungen schreiben -->
+<!-- Authors: Please uncomment any headings you are writing notes for -->
 
-## Änderungen für Webentwickler
+## Änderungen für Web-Entwickler
 
-<!-- ### Entwicklertools -->
+<!-- ### Developer Tools -->
 
 ### HTML
 
-- Das HTML-Attribut [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) und die entsprechende Eigenschaft [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) werden nun teilweise auf Firefox Android unterstützt ([Firefox-Bug 1887878](https://bugzil.la/1887878)).
-Das Attribut kann gesetzt werden, um anzuzeigen, dass ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element die Auswahl von Verzeichnissen anstelle von Dateien anbieten soll.
-Beachten Sie, dass die zurückgegebenen Dateieinträge für den ausgewählten Ordner stets einen leeren String in ([`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath)) enthalten. Das bedeutet, dass `webkitdirectory` nicht für Anwendungsfälle geeignet ist, bei denen Informationen über die Verzeichnisstruktur benötigt werden ([Firefox-Bug 1973726](https://bugzil.la/1973726)).
-<!-- #### Entfernungen -->
+- Das HTML-Attribut [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) und die entsprechende Eigenschaft [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) werden jetzt teilweise auf Firefox Android unterstützt ([Firefox-Bug 1887878](https://bugzil.la/1887878)).
+Das Attribut kann gesetzt werden, um anzugeben, dass ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element die Auswahl von Verzeichnissen anstatt von Dateien anbieten soll.
+Beachten Sie, dass die zurückgegebenen Dateieinträge für den ausgewählten Ordner immer einen leeren String in ([`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath)) enthalten, was bedeutet, dass die Verwendung von `webkitdirectory` nicht für Anwendungsfälle geeignet ist, bei denen Informationen über die Verzeichnisstruktur benötigt werden ([Firefox-Bug 1973726](https://bugzil.la/1973726)).
+<!-- #### Removals -->
 
 <!-- ### CSS -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### JavaScript -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 ### HTTP
 
-- Die [`"cache"`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache)-Direktive des {{httpheader("Clear-Site-Data")}}-Antwort-Headers löscht nun den {{Glossary("bfcache", "bfcache")}} (Vorwärts-Rückwärts-Cache).
-  Dies ermöglicht es einer Website, sicherzustellen, dass private Details, die während der ursprünglichen Sitzung sichtbar waren, nicht angezeigt werden, wenn jemand nach der Benutzerabmeldung rückwärts navigiert. ([Firefox-Bug 1930501](https://bugzil.la/1930501)).
+- Die Direktive [`"cache"`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache) des {{httpheader("Clear-Site-Data")}} Antwort-Headers löscht jetzt den {{Glossary("bfcache", "bfcache")}} (Vorwärts-Rückwärts-Cache).
+  Dies ermöglicht es einer Website sicherzustellen, dass, wenn jemand nach dem Abmelden eines Benutzers rückwärts navigiert, keine während der ursprünglichen Sitzung sichtbaren privaten Details preisgegeben werden. ([Firefox-Bug 1930501](https://bugzil.la/1930501)).
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### Sicherheit -->
+<!-- ### Security -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### APIs -->
 
 <!-- #### DOM -->
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, and Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemein -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -74,17 +73,15 @@ Beachten Sie, dass die zurückgegebenen Dateieinträge für den ausgewählten Or
 
 ## Änderungen für Add-on-Entwickler
 
-- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Dies ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, die Details der im Browser eingestellten Gebietsschemas zurückgibt. ([Firefox-Bug 1888486](https://bugzil.la/1888486))
+- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Dies ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, die Details zu den im Browser festgelegten Gebietsschemas zurückgeben. ([Firefox-Bug 1888486](https://bugzil.la/1888486))
 
-<!-- ### Entfernungen -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
-Diese Funktionen sind in Firefox 141 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite für [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen werden in Firefox 141 ausgeliefert, sind jedoch standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config` Seite und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der [Seite für experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

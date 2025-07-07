@@ -3,26 +3,26 @@ title: "IntersectionObserver: trackVisibility-Eigenschaft"
 short-title: trackVisibility
 slug: Web/API/IntersectionObserver/trackVisibility
 l10n:
-  sourceCommit: 809a1f18b067a6f768ccde5b9672733014179ede
+  sourceCommit: 707183bfb6cffe53650c03e7e7c369ad089f55ae
 ---
 
-{{APIRef("Intersection Observer API")}}
+{{APIRef("Intersection Observer API")}}{{SeeCompatTable}}
 
-Die **`trackVisibility`**-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces ist eine nur-lesbare Eigenschaft, die angibt, ob der Observer zusätzlich zu den Elementüberschneidungen die Sichtbarkeit des Ziels verfolgt.
+Die **`trackVisibility`**-Eigenschaft der [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Schnittstelle gibt an, ob der Beobachter neben der Element-Intersektion auch die Sichtbarkeit des Ziels verfolgt.
 
 ## Wert
 
-`true`, wenn die Sichtbarkeit für Schnittmengenberechnungen verfolgt wird, und `false` andernfalls.
+`true`, wenn die Sichtbarkeit für Intersektionen berechnet wird, und `false` andernfalls.
 
-Der Wert wird über das Argument [`option.trackVisibility`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver#trackvisibility) an den `IntersectionObserver()`-Konstruktor festgelegt.
+Der Wert wird über das [`option.trackVisibility`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver#trackvisibility)-Argument an den `IntersectionObserver()`-Konstruktor übergeben.
 
 ## Beschreibung
 
-Wenn die Sichtbarkeit nicht verfolgt wird, liefert der Observer Benachrichtigungen, wenn das Zielelement in das Viewport des Root-Elements hineingescolt wird. Dies sagt Ihnen jedoch nicht, ob das Zielelement in seiner Sichtbarkeit beeinträchtigt ist — es könnte teilweise von einem anderen Element überdeckt sein, eine reduzierte Deckkraft aufweisen oder durch einen Filter, eine Transformierung oder andere Modifikationen verzerrt sein.
+Wenn die Sichtbarkeit nicht verfolgt wird, gibt der Beobachter Benachrichtigungen, wenn das Ziel-Element in den Viewport des Root-Elements gescrollt wird. Dies sagt Ihnen jedoch nicht, ob die Sichtbarkeit des Ziel-Elements beeinträchtigt ist — es könnte teilweise von einem anderen Element verdeckt sein, reduzierte Deckkraft haben oder durch einen Filter, eine Transformation oder eine andere Modifikation verzerrt sein.
 
-Beim Verfolgen der Sichtbarkeit werden nur Elemente, die vom Browser als sichtbar betrachtet werden, als sich überschneidend angezeigt. Der Algorithmus ist konservativ und könnte Elemente auslassen, die technisch sichtbar sind, wie solche mit nur geringer Deckkraftreduzierung.
+Bei der Verfolgung der Sichtbarkeit werden nur Elemente, die vom Browser als sichtbar angesehen werden, als durchschneidend angezeigt. Der Algorithmus ist konservativ und kann Elemente auslassen, die technisch sichtbar sind, wie solche mit nur leicht verringerter Deckkraft.
 
-Beachten Sie, dass die Berechnung der Sichtbarkeit rechenintensiv ist. Um zu verhindern, dass der Vorgang zu oft ausgeführt wird, wird ein [`delay`](/de/docs/Web/API/IntersectionObserver/delay) verwendet, um die minimale Berichtsperiode zu begrenzen.
+Beachten Sie, dass die Berechnung der Sichtbarkeit rechnerisch aufwändig ist. Um zu vermeiden, dass die Operation zu häufig läuft, wird eine [`delay`](/de/docs/Web/API/IntersectionObserver/delay) verwendet, um die Mindestberichtsperiode zu begrenzen.
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ Beachten Sie, dass die Berechnung der Sichtbarkeit rechenintensiv ist. Um zu ver
 
 ## Siehe auch
 
-- [Timing der Elementsichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)
+- [Timing der Element-Sichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)

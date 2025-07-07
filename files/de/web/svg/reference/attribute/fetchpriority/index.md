@@ -2,18 +2,20 @@
 title: fetchpriority
 slug: Web/SVG/Reference/Attribute/fetchpriority
 l10n:
-  sourceCommit: ab279632b84d201ae9ddd3db3981bf0b01573371
+  sourceCommit: 707183bfb6cffe53650c03e7e7c369ad089f55ae
 ---
 
-Das `fetchpriority` Attribut gibt dem Browser einen Hinweis auf die relative Priorität, die beim Abrufen einer externen Ressource verwendet werden soll. Dies funktioniert genauso wie das `fetchpriority` Attribut für die HTML {{HTMLElement("img", "", "#fetchpriority")}} und {{HTMLElement("script", "", "#fetchpriority")}} Elemente.
+{{SeeCompatTable}}{{non-standard_header}}
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Das `fetchpriority`-Attribut gibt dem Browser einen Hinweis auf die relative Priorität beim Abrufen einer externen Ressource. Dies funktioniert in derselben Weise wie das `fetchpriority`-Attribut für die HTML-{{HTMLElement("img", "", "#fetchpriority")}}- und {{HTMLElement("script", "", "#fetchpriority")}}-Elemente.
+
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGelement("feimage")}}
 - {{SVGelement("image")}}
 - {{SVGelement("script")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -33,13 +35,13 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - `low`
   - : Ruft die externe Ressource mit niedriger Priorität im Vergleich zu anderen externen Ressourcen ab.
 - `auto`
-  - : Setzt keine Vorliebe für die Abrufpriorität.
-    Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
+  - : Setzt keine Präferenz für die Abrufpriorität.
+    Wird verwendet, wenn kein Wert oder ein ungültiger Wert festgelegt ist.
     Dies ist der Standardwert.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die Priorität eines SVG {{SVGelement("script")}} Elements auf `high` gesetzt wird.
+Dieses Beispiel zeigt, wie man die Priorität eines SVG-{{SVGelement("script")}}-Elements auf `high` setzt.
 
 ```html
 <svg
@@ -58,5 +60,5 @@ Dieses Beispiel zeigt, wie die Priorität eines SVG {{SVGelement("script")}} Ele
 
 ## Siehe auch
 
-- SVG {{SVGelement("script")}} Element
-- HTML `<script>` Element's [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority) Attribut
+- SVG {{SVGelement("script")}}-Element
+- `fetchpriority`-Attribut des HTML-<code>&lt;script&gt;</code>-Elements [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority)
