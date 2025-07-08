@@ -3,33 +3,35 @@ title: "PointerEvent: persistentDeviceId-Eigenschaft"
 short-title: persistentDeviceId
 slug: Web/API/PointerEvent/persistentDeviceId
 l10n:
-  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
+  sourceCommit: 6bcde9f05718c4d2c29ed083a6e2ef945c10efa7
 ---
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte **`persistentDeviceId`**-Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces ist ein eindeutiger Bezeichner für das Zeigegerät, das das `PointerEvent` erzeugt. Dies bietet eine sichere und zuverlässige Möglichkeit, mehrere Zeigegeräte (wie Stifte), die gleichzeitig mit dem Bildschirm interagieren, zu identifizieren.
+Die schreibgeschützte Eigenschaft **`persistentDeviceId`** der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle ist ein eindeutiger Bezeichner für das Zeigegerät, das das `PointerEvent` erzeugt. Dies bietet eine sichere und zuverlässige Möglichkeit, mehrere Zeigegeräte (wie Stifte), die gleichzeitig mit dem Bildschirm interagieren, zu identifizieren.
 
-Ein `persistentDeviceId` bleibt für die Dauer einer Browsersitzung bestehen. Um das Risiko von Fingerprinting/Tracking zu vermeiden, werden Zeigegeräten zu Beginn jeder Sitzung neue `persistentDeviceId`-Werte zugewiesen.
+Ein `persistentDeviceId` bleibt für die Dauer einer Browsersitzung bestehen. Um das Risiko von Fingerprinting/Tracking zu vermeiden, werden Zeigegeräten zu Beginn jeder Sitzung neue `persistentDeviceId` zugewiesen.
 
-Zeigereignisse, deren erzeugendes Gerät nicht identifiziert werden konnte, erhalten einen `persistentDeviceId`-Wert von `0`.
+Zeigerereignisse, bei denen das erzeugende Gerät nicht identifiziert werden konnte, erhalten den `persistentDeviceId`-Wert `0`.
 
 ## Wert
 
-Ein ganzzahliger Wert oder `0`, wenn das Gerät, das das `PointerEvent` erzeugt hat, nicht identifiziert werden konnte.
+Ein Integer oder `0`, falls das Gerät, das das `PointerEvent` erzeugt hat, nicht identifiziert werden konnte.
 
 > [!NOTE]
-> Aufgrund von Einschränkungen der Hardware von Digitalisierern und Zeigegeräten ist möglicherweise keine `persistentDeviceId` für alle Pointer-Events verfügbar, insbesondere bei älterer Hardware. Zum Beispiel könnte das Zeigegerät seine Hardware-ID nicht rechtzeitig an den Digitalisierer übermitteln, damit `pointerdown` eine `persistentDeviceId` erhält: Sie könnte zunächst `0` sein und sich für spätere Ereignisse im Verlauf eines Strichs in einen gültigen Wert ändern.
+> Aufgrund von Einschränkungen der Digitalisierungs- und Zeigegerätehardware ist möglicherweise nicht für alle Zeigerereignisse ein `persistentDeviceId` verfügbar, insbesondere bei älterer Hardware. Zum Beispiel könnte das Zeigegerät seine Hardware-ID dem Digitalisierer nicht rechtzeitig melden, damit `pointerdown` einen `persistentDeviceId` erhält: Er könnte zunächst `0` sein und sich für spätere Ereignisse im gleichen Strich in einen gültigen Wert ändern.
 
 ## Beispiele
 
-Angenommen, folgendes HTML ist gegeben:
+### Farbe für jeden persistentDeviceId zuweisen
+
+Angenommen, der folgende HTML-Code ist gegeben:
 
 ```html
 <canvas id="inking-surface" width="1280" height="720"></canvas>
 ```
 
-Das folgende JavaScript weist verschiedenen einzigartigen Zeigegeräten, die mit einem Canvas interagieren, unterschiedliche Tintenfarben zu:
+Der folgende JavaScript-Code weist bis zu drei einzigartigen Zeigern, die mit einem Canvas interagieren, unterschiedliche Eingabefarben zu:
 
 ```js
 const colorBlue = 0;
