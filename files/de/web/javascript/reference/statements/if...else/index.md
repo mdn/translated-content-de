@@ -2,12 +2,10 @@
 title: if...else
 slug: Web/JavaScript/Reference/Statements/if...else
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Statements")}}
-
-Die **`if...else`** Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung {{Glossary("truthy", "truthy")}} ist. Wenn die Bedingung {{Glossary("falsy", "falsy")}} ist, wird eine andere Anweisung im optionalen `else` Zweig ausgeführt.
+Die **`if...else`** Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung {{Glossary("truthy", "truthy")}} ist. Wenn die Bedingung {{Glossary("falsy", "falsy")}} ist, wird eine andere Anweisung im optionalen `else`-Zweig ausgeführt.
 
 {{InteractiveExample("JavaScript Demo: if...else statement")}}
 
@@ -40,15 +38,15 @@ else
 ```
 
 - `condition`
-  - : Ein Ausdruck, der entweder als {{Glossary("truthy", "truthy")}} oder {{Glossary("falsy", "falsy")}} betrachtet wird.
+  - : Ein Ausdruck, der als entweder {{Glossary("truthy", "truthy")}} oder {{Glossary("falsy", "falsy")}} angesehen wird.
 - `statement1`
-  - : Anweisung, die ausgeführt wird, wenn _condition_ {{Glossary("truthy", "truthy")}} ist. Kann eine beliebige Anweisung sein, einschließlich weiter verschachtelter `if` Anweisungen. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block) Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren. Um keine Anweisungen auszuführen, verwenden Sie eine [leere](/de/docs/Web/JavaScript/Reference/Statements/Empty) Anweisung.
+  - : Anweisung, die ausgeführt wird, wenn _condition_ {{Glossary("truthy", "truthy")}} ist. Kann jede Anweisung sein, inklusive weiterer verschachtelter `if`-Anweisungen. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren. Um keine Anweisungen auszuführen, verwenden Sie eine [leere](/de/docs/Web/JavaScript/Reference/Statements/Empty)-Anweisung.
 - `statement2`
-  - : Anweisung, die ausgeführt wird, wenn `condition` {{Glossary("falsy", "falsy")}} ist und der `else` Zweig vorhanden ist. Kann eine beliebige Anweisung sein, einschließlich Blockanweisungen und weiter verschachtelter `if` Anweisungen.
+  - : Anweisung, die ausgeführt wird, wenn `condition` {{Glossary("falsy", "falsy")}} ist und der `else`-Zweig existiert. Kann jede Anweisung sein, inklusive Block-Anweisungen und weiterer verschachtelter `if`-Anweisungen.
 
 ## Beschreibung
 
-Mehrere `if...else` Anweisungen können verschachtelt werden, um einen `else if` Zweig zu erstellen. Beachten Sie, dass es kein `elseif` (in einem Wort) Schlüsselwort in JavaScript gibt.
+Mehrere `if...else`-Anweisungen können verschachtelt werden, um einen `else if`-Zweig zu erstellen. Beachten Sie, dass es in JavaScript kein `elseif` (in einem Wort) Schlüsselwort gibt.
 
 ```js-nolint
 if (condition1)
@@ -62,7 +60,7 @@ else
   statementN
 ```
 
-Um zu sehen, wie das funktioniert, sehen Sie hier, wie die Verschachtelung bei richtiger Einrückung aussehen würde:
+Um zu sehen, wie dies funktioniert, würde es bei korrekter Einrückung der Verschachtelung so aussehen:
 
 ```js-nolint
 if (condition1)
@@ -76,7 +74,7 @@ else
 // …
 ```
 
-Um mehrere Anweisungen innerhalb eines Zweigs auszuführen, verwenden Sie eine Blockanweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren.
+Um mehrere Anweisungen innerhalb eines Zweigs auszuführen, verwenden Sie eine Block-Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren.
 
 ```js-nolint
 if (condition) {
@@ -98,7 +96,7 @@ function checkValue(a, b) {
 }
 ```
 
-Dieser Code sieht unschuldig aus — dennoch wird das Ausführen von `checkValue(1, 3)` "a is not 1" protokollieren. Dies liegt daran, dass im Fall eines [dangling else](https://en.wikipedia.org/wiki/Dangling_else) der `else` Zweig mit dem nächsten `if` Zweig verbunden wird. Daher würde der obige Code, bei korrekter Einrückung, folgendermaßen aussehen:
+Dieser Code sieht harmlos aus – allerdings wird das Ausführen von `checkValue(1, 3)` "a is not 1" protokollieren. Dies liegt daran, dass im Fall von [dangling else](https://en.wikipedia.org/wiki/Dangling_else) der `else`-Zweig mit dem nächstgelegenen `if`-Zweig verbunden wird. Der obige Code würde bei korrekter Einrückung folgendermaßen aussehen:
 
 ```js-nolint
 function checkValue(a, b) {
@@ -110,7 +108,7 @@ function checkValue(a, b) {
 }
 ```
 
-Im Allgemeinen ist es eine gute Praxis, immer Blockanweisungen zu verwenden, insbesondere in Code, der verschachtelte `if` Anweisungen enthält.
+Im Allgemeinen ist es eine gute Praxis, immer Block-Anweisungen zu verwenden, insbesondere bei Code, der verschachtelte `if`-Anweisungen enthält.
 
 ```js example-good
 function checkValue(a, b) {
@@ -124,7 +122,7 @@ function checkValue(a, b) {
 }
 ```
 
-Verwechseln Sie nicht die primitiven booleschen Werte `true` und `false` mit dem Wahrheitswert oder Falschwert des {{jsxref("Boolean")}} Objekts. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `-0`, `NaN` oder die leere Zeichenkette (`""`) ist, und jedes Objekt, einschließlich eines booleschen Objekts, dessen Wert `false` ist, wird als {{Glossary("truthy", "truthy")}} betrachtet, wenn es als Bedingung verwendet wird. Zum Beispiel:
+Verwechseln Sie nicht die primitiven Boolean-Werte `true` und `false` mit der Truthyness oder Falsyness des {{jsxref("Boolean")}}-Objekts. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `-0`, `NaN` oder der leere String (`""`) ist, und jedes Objekt, einschließlich eines Boolean-Objekts, dessen Wert `false` ist, wird als {{Glossary("truthy", "truthy")}} angesehen, wenn er als Bedingung verwendet wird. Zum Beispiel:
 
 ```js
 const b = new Boolean(false);
@@ -148,7 +146,7 @@ if (cipherChar === fromChar) {
 
 ### Verwendung von else if
 
-Beachten Sie, dass es keine `elseif` Syntax in JavaScript gibt. Sie können es jedoch mit einem Leerzeichen zwischen `else` und `if` schreiben:
+Beachten Sie, dass es keine `elseif`-Syntax in JavaScript gibt. Sie können es jedoch mit einem Leerzeichen zwischen `else` und `if` schreiben:
 
 ```js
 if (x > 50) {
@@ -170,7 +168,7 @@ if ((x = y)) {
 }
 ```
 
-Da im Gegensatz zu {{jsxref("Statements/while", "while")}} Schleifen die Bedingung nur einmal ausgewertet wird, wird die Zuweisung nur einmal durchgeführt. Der obige Code ist äquivalent zu:
+Denn im Gegensatz zu {{jsxref("Statements/while", "while")}} Schleifen wird die Bedingung nur einmal ausgewertet, sodass die Zuweisung nur einmal durchgeführt wird. Der obige Code ist äquivalent zu:
 
 ```js example-good
 x = y;
@@ -179,7 +177,7 @@ if (x) {
 }
 ```
 
-Was viel klarer ist. Wenn Sie sich jedoch in dem seltenen Fall befinden, in dem Sie so etwas tun möchten, hat die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while) Dokumentation einen Abschnitt [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
+Was viel klarer ist. In dem seltenen Fall, dass Sie so etwas tun möchten, enthält die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Dokumentation einen Abschnitt [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
 
 ## Spezifikationen
 
@@ -191,6 +189,6 @@ Was viel klarer ist. Wenn Sie sich jedoch in dem seltenen Fall befinden, in dem 
 
 ## Siehe auch
 
-- {{jsxref("Statements/block", "Block")}}
+- {{jsxref("Statements/block", "block")}}
 - {{jsxref("Statements/switch", "switch")}}
-- [Bedingter (ternärer) Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator)
+- [Conditional (ternary) operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator)

@@ -2,14 +2,12 @@
 title: try...catch
 slug: Web/JavaScript/Reference/Statements/try...catch
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Statements")}}
+Die **`try...catch`**-Anweisung besteht aus einem `try`-Block und entweder einem `catch`-Block, einem `finally`-Block oder beiden. Der Code im `try`-Block wird zuerst ausgeführt, und wenn er eine Ausnahme wirft, wird der Code im `catch`-Block ausgeführt. Der Code im `finally`-Block wird immer ausgeführt, bevor der Kontrollfluss die gesamte Konstruktion verlässt.
 
-Die **`try...catch`**-Anweisung besteht aus einem `try`-Block und entweder einem `catch`-Block, einem `finally`-Block oder beiden. Der Code im `try`-Block wird zuerst ausgeführt, und wenn er eine Ausnahme auslöst, wird der Code im `catch`-Block ausgeführt. Der Code im `finally`-Block wird immer ausgeführt, bevor der Kontrollfluss die gesamte Konstruktion verlässt.
-
-{{InteractiveExample("JavaScript Demo: try...catch-Anweisung")}}
+{{InteractiveExample("JavaScript Demo: try...catch statement")}}
 
 ```js interactive-example
 try {
@@ -34,13 +32,13 @@ try {
 ```
 
 - `tryStatements`
-  - : Die auszuführenden Anweisungen.
+  - : Die Anweisungen, die ausgeführt werden sollen.
 - `catchStatements`
   - : Anweisung, die ausgeführt wird, wenn im `try`-Block eine Ausnahme ausgelöst wird.
 - `exceptionVar` {{optional_inline}}
-  - : Ein optionaler [Bezeichner oder ein Muster](#catch-bindung), um die gefangene Ausnahme für den zugehörigen `catch`-Block zu halten. Wenn der `catch`-Block den Wert der Ausnahme nicht verwendet, können Sie `exceptionVar` und die umgebenden Klammern weglassen.
+  - : Ein optionaler [Identifier oder ein Muster](#catch-bindung), um die gefangene Ausnahme für den zugehörigen `catch`-Block zu halten. Wenn der `catch`-Block den Wert der Ausnahme nicht verwendet, können Sie `exceptionVar` und seine umgebenden Klammern weglassen.
 - `finallyStatements`
-  - : Anweisungen, die ausgeführt werden, bevor der Kontrollfluss die `try...catch...finally`-Konstruktion verlässt. Diese Anweisungen werden unabhängig davon ausgeführt, ob eine Ausnahme ausgelöst oder gefangen wurde.
+  - : Anweisungen, die ausgeführt werden, bevor der Kontrollfluss die `try...catch...finally`-Konstruktion verlässt. Diese Anweisungen werden ausgeführt, unabhängig davon, ob eine Ausnahme ausgelöst oder gefangen wurde.
 
 ## Beschreibung
 
@@ -50,24 +48,24 @@ Die `try`-Anweisung beginnt immer mit einem `try`-Block. Dann muss ein `catch`-B
 - `try...finally`
 - `try...catch...finally`
 
-Im Gegensatz zu anderen Konstrukten wie [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else) oder [`for`](/de/docs/Web/JavaScript/Reference/Statements/for) müssen die `try`-, `catch`- und `finally`-Blöcke _Blöcke_ sein, anstatt einzelner Anweisungen.
+Im Gegensatz zu anderen Konstruktionen wie [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else) oder [`for`](/de/docs/Web/JavaScript/Reference/Statements/for) müssen die `try`, `catch` und `finally`-Blöcke _Blöcke_ und keine einzelnen Anweisungen sein.
 
 ```js-nolint example-bad
 try doSomething(); // SyntaxError
 catch (e) console.log(e);
 ```
 
-Ein `catch`-Block enthält Anweisungen, die festlegen, was zu tun ist, wenn im `try`-Block eine Ausnahme ausgelöst wird. Wenn eine Anweisung innerhalb des `try`-Blocks (oder in einer Funktion, die aus dem `try`-Block aufgerufen wird) eine Ausnahme auslöst, wird die Kontrolle sofort an den `catch`-Block übertragen. Wenn im `try`-Block keine Ausnahme ausgelöst wird, wird der `catch`-Block übersprungen.
+Ein `catch`-Block enthält Anweisungen, die angeben, was zu tun ist, wenn im `try`-Block eine Ausnahme ausgelöst wird. Wenn eine Anweisung im `try`-Block (oder in einer Funktion, die aus dem `try`-Block aufgerufen wird) eine Ausnahme auslöst, wird der Kontrollfluss sofort auf den `catch`-Block verlagert. Wenn im `try`-Block keine Ausnahme ausgelöst wird, wird der `catch`-Block übersprungen.
 
 Der `finally`-Block wird immer ausgeführt, bevor der Kontrollfluss die `try...catch...finally`-Konstruktion verlässt. Er wird immer ausgeführt, unabhängig davon, ob eine Ausnahme ausgelöst oder gefangen wurde.
 
-Sie können eine oder mehrere `try`-Anweisungen verschachteln. Wenn eine innere `try`-Anweisung keinen `catch`-Block hat, wird der `catch`-Block der umgebenden `try`-Anweisung stattdessen verwendet.
+Sie können ein oder mehrere `try`-Anweisungen verschachteln. Wenn eine innere `try`-Anweisung keinen `catch`-Block hat, wird der `catch`-Block der umschließenden `try`-Anweisung stattdessen verwendet.
 
-Sie können die `try`-Anweisung auch verwenden, um JavaScript-Ausnahmen zu behandeln. Siehe den [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements) für weitere Informationen zu JavaScript-Ausnahmen.
+Sie können die `try`-Anweisung auch verwenden, um JavaScript-Ausnahmen zu behandeln. Weitere Informationen zu JavaScript-Ausnahmen finden Sie im [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements).
 
 ### Catch-Bindung
 
-Wenn im `try`-Block eine Ausnahme ausgelöst wird, hält `exceptionVar` (d.h. das `e` in `catch (e)`) den Ausnahme-Wert. Sie können diese {{Glossary("binding", "Bindung")}} verwenden, um Informationen über die ausgelöste Ausnahme zu erhalten. Diese {{Glossary("binding", "Bindung")}} ist nur im {{Glossary("Scope", "scope")}} des `catch`-Blocks verfügbar.
+Wenn im `try`-Block eine Ausnahme ausgelöst wird, hält `exceptionVar` (d.h. das `e` in `catch (e)`) den Ausnahme-Wert. Sie können diese {{Glossary("binding", "Bindung")}} verwenden, um Informationen über die ausgelöste Ausnahme zu erhalten. Diese {{Glossary("binding", "Bindung")}} ist nur im {{Glossary("Scope", "Gültigkeitsbereich")}} des `catch`-Blocks verfügbar.
 
 Es muss kein einzelner Bezeichner sein. Sie können ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) verwenden, um mehrere Bezeichner gleichzeitig zuzuweisen.
 
@@ -80,7 +78,7 @@ try {
 }
 ```
 
-Die durch die `catch`-Klausel erstellten Bindungen existieren im selben Geltungsbereich wie der `catch`-Block, sodass Variablen, die im `catch`-Block deklariert werden, nicht denselben Namen wie die durch die `catch`-Klausel erstellten Bindungen haben können. (Es gibt [eine Ausnahme zu dieser Regel](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements), aber es handelt sich um eine veraltete Syntax.)
+Die durch die `catch`-Klausel erstellten Bindungen existieren im selben Gültigkeitsbereich wie der `catch`-Block, daher können im `catch`-Block deklarierte Variablen nicht denselben Namen wie die durch die `catch`-Klausel erstellten Bindungen haben. (Es gibt [eine Ausnahme von dieser Regel](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements), aber es handelt sich um eine veraltete Syntax.)
 
 ```js-nolint example-bad
 try {
@@ -91,7 +89,7 @@ try {
 }
 ```
 
-Die Ausnahme-Bindung ist beschreibbar. Zum Beispiel möchten Sie möglicherweise den Ausnahme-Wert normalisieren, um sicherzustellen, dass es sich um ein {{jsxref("Error")}}-Objekt handelt.
+Die Ausnahmebindung ist beschreibbar. Beispielsweise könnten Sie den Ausnahme-Wert normalisieren, um sicherzustellen, dass es sich um ein {{jsxref("Error")}}-Objekt handelt.
 
 ```js
 try {
@@ -117,15 +115,15 @@ function isValidJSON(text) {
 }
 ```
 
-### Der finally Block
+### Der finally-Block
 
-Der `finally`-Block enthält Anweisungen, die nach dem `try`-Block und den `catch`-Block(s) ausgeführt werden, aber vor den Anweisungen, die dem `try...catch...finally`-Block folgen. Der Kontrollfluss betritt immer den `finally`-Block, der in einer der folgenden Weisen weitergehen kann:
+Der `finally`-Block enthält Anweisungen, die nach der Ausführung des `try`-Blocks und `catch`-Blocks ausgeführt werden, jedoch vor den Anweisungen, die dem `try...catch...finally`-Block folgen. Der Kontrollfluss wird den `finally`-Block immer betreten, was auf eine der folgenden Weisen geschehen kann:
 
-- Unmittelbar nachdem der `try`-Block ordentlich ausgeführt wurde (und keine Ausnahmen ausgelöst wurden);
-- Unmittelbar nachdem der `catch`-Block ordentlich ausgeführt wurde;
-- Unmittelbar bevor die Ausführung einer Kontrollflussanweisung (`return`, `throw`, `break`, `continue`) im `try`-Block oder `catch`-Block ausgeführt würde, die den Block verlassen würde.
+- Unmittelbar nachdem der `try`-Block die Ausführung normal beendet hat (und keine Ausnahmen wurden ausgelöst);
+- Unmittelbar nachdem der `catch`-Block die Ausführung normal beendet hat;
+- Unmittelbar bevor die Ausführung einer Kontrollflussanweisung (`return`, `throw`, `break`, `continue`) im `try`-Block oder `catch`-Block erfolgt, die den Block verlassen würde.
 
-Wenn im `try`-Block eine Ausnahme ausgelöst wird, selbst wenn kein `catch`-Block vorhanden ist, um die Ausnahme zu behandeln, wird der `finally`-Block dennoch ausgeführt, in welchem Fall die Ausnahme sofort nach Abschluss des `finally`-Blocks erneut ausgelöst wird.
+Wenn eine Ausnahme aus dem `try`-Block ausgelöst wird, selbst wenn kein `catch`-Block vorhanden ist, um die Ausnahme zu behandeln, wird der `finally`-Block trotzdem ausgeführt, wobei die Ausnahme sofort nach dem Abschluss des `finally`-Blocks erneut ausgelöst wird.
 
 Das folgende Beispiel zeigt einen Anwendungsfall für den `finally`-Block. Der Code öffnet eine Datei und führt dann Anweisungen aus, die die Datei verwenden; der `finally`-Block stellt sicher, dass die Datei immer geschlossen wird, nachdem sie verwendet wurde, selbst wenn eine Ausnahme ausgelöst wurde.
 
@@ -139,7 +137,7 @@ try {
 }
 ```
 
-Kontrollflussanweisungen (`return`, `throw`, `break`, `continue`) im `finally`-Block "verdecken" jeden Abschlusswert des `try`-Blocks oder `catch`-Blocks. In diesem Beispiel versucht der `try`-Block, 1 zurückzugeben, aber bevor die Rückkehr erfolgt, wird der Kontrollfluss zuerst dem `finally`-Block übergeben, sodass der Rückgabewert des `finally`-Blocks stattdessen zurückgegeben wird.
+Kontrollflussanweisungen (`return`, `throw`, `break`, `continue`) im `finally`-Block werden jeden Abschlusswert des `try`-Blocks oder `catch`-Blocks "maskieren". In diesem Beispiel versucht der `try`-Block, 1 zurückzugeben, aber bevor die Rückgabe erfolgt, wird der Kontrollfluss zuerst dem `finally`-Block zugeführt, sodass der Rückgabewert des `finally`-Blocks stattdessen zurückgegeben wird.
 
 ```js
 function doIt() {
@@ -153,13 +151,13 @@ function doIt() {
 doIt(); // returns 2
 ```
 
-Es ist in der Regel keine gute Idee, Kontrollflussanweisungen im `finally`-Block zu haben. Verwenden Sie ihn nur für Bereinigungscode.
+Es ist generell eine schlechte Idee, Kontrollflussanweisungen im `finally`-Block zu verwenden. Verwenden Sie ihn nur für Bereinigungscode.
 
 ## Beispiele
 
 ### Unbedingter Catch-Block
 
-Wenn ein `catch`-Block verwendet wird, wird der `catch`-Block ausgeführt, wenn eine Ausnahme von innerhalb des `try`-Blocks ausgelöst wird. Zum Beispiel, wenn die Ausnahme in folgendem Code auftritt, wird die Kontrolle an den `catch`-Block übertragen.
+Wenn ein `catch`-Block verwendet wird, wird der `catch`-Block ausgeführt, wenn eine Ausnahme von innerhalb des `try`-Blocks ausgelöst wird. Beispielsweise, wenn die Ausnahme im folgenden Code auftritt, wird der Kontrollfluss auf den `catch`-Block übertragen.
 
 ```js
 try {
@@ -170,7 +168,7 @@ try {
 }
 ```
 
-Der `catch`-Block spezifiziert einen Bezeichner (`e` im obigen Beispiel), der den Wert der Ausnahme hält; dieser Wert ist nur im {{Glossary("Scope", "scope")}} des `catch`-Blocks verfügbar.
+Der `catch`-Block gibt einen Bezeichner an (`e` im obigen Beispiel), der den Wert der Ausnahme hält; dieser Wert ist nur im {{Glossary("Scope", "Gültigkeitsbereich")}} des `catch`-Blocks verfügbar.
 
 ### Bedingte Catch-Blöcke
 
@@ -193,7 +191,7 @@ try {
 }
 ```
 
-Ein häufiger Anwendungsfall hierfür besteht darin, nur eine kleine Teilmenge erwarteter Fehler abzufangen (und zu unterdrücken) und dann den Fehler in anderen Fällen erneut auszulösen:
+Ein häufiger Anwendungsfall besteht darin, nur eine kleine Teilmenge der erwarteten Fehler zu erfassen (und zu unterdrücken) und den Fehler in anderen Fällen erneut auszulösen:
 
 ```js
 try {
@@ -207,7 +205,7 @@ try {
 }
 ```
 
-Dies kann die Syntax anderer Sprachen wie Java nachahmen:
+Dies kann die Syntax aus anderen Sprachen wie Java nachahmen:
 
 ```java
 try {
@@ -220,7 +218,7 @@ try {
 
 ### Verschachtelte Try-Blöcke
 
-Lassen Sie uns zunächst sehen, was hier passiert:
+Zuerst, sehen wir, was in diesem Fall passiert:
 
 ```js
 try {
@@ -238,7 +236,7 @@ try {
 // "outer" "oops"
 ```
 
-Nun, wenn wir die Ausnahme bereits im inneren `try`-Block abgefangen haben, indem wir einen `catch`-Block hinzugefügt haben:
+Nun, wenn wir die Ausnahme bereits im inneren `try`-Block gefangen haben, indem wir einen `catch`-Block hinzufügen:
 
 ```js
 try {
@@ -258,7 +256,7 @@ try {
 // "finally"
 ```
 
-Und nun, lassen Sie uns den Fehler erneut auslösen.
+Und jetzt werfen wir den Fehler erneut.
 
 ```js
 try {
@@ -280,11 +278,11 @@ try {
 // "outer" "oops"
 ```
 
-Jede gegebene Ausnahme wird nur einmal vom nächstgelegenen umgebenden `catch`-Block abgefangen, es sei denn, sie wird erneut ausgelöst. Natürlich werden alle neuen Ausnahmen, die im "inneren" Block erzeugt werden (da der Code im `catch`-Block etwas tun kann, was eine Ausnahme auslöst), vom "äußeren" Block gefangen.
+Eine gegebene Ausnahme wird nur einmal von dem nächstgelegenen umschließenden `catch`-Block gefangen, es sei denn, sie wird erneut ausgelöst. Natürlich werden alle neuen Ausnahmen, die im "inneren" Block ausgelöst werden (weil der Code im `catch`-Block etwas tun kann, das ein Auslösen verursacht), vom "äußeren" Block gefangen.
 
 ### Rückgabe aus einem Finally-Block
 
-Wenn der `finally`-Block einen Wert zurückgibt, wird dieser Wert der Rückgabewert der gesamten `try-catch-finally`-Anweisung, unabhängig von allen `return`-Anweisungen in den `try`- und `catch`-Blöcken. Dies schließt Ausnahmen ein, die innerhalb des `catch`-Blocks ausgelöst werden:
+Wenn der `finally`-Block einen Wert zurückgibt, wird dieser Wert zum Rückgabewert der gesamten `try-catch-finally`-Anweisung, unabhängig von allen `return`-Anweisungen in den `try` und `catch`-Blöcken. Dies schließt Ausnahmen ein, die innerhalb des `catch`-Blocks ausgelöst werden:
 
 ```js
 (() => {
@@ -308,7 +306,7 @@ Wenn der `finally`-Block einen Wert zurückgibt, wird dieser Wert der Rückgabew
 // "finally"
 ```
 
-Das äußere "Oops" wird nicht ausgelöst aufgrund der Rückgabe im `finally`-Block. Dasselbe würde für jeden Wert gelten, der vom `catch`-Block zurückgegeben wird.
+Der äußere "oops" wird nicht ausgelöst, weil die Rückgabe im `finally`-Block erfolgt. Dasselbe gilt für jeden Wert, der vom `catch`-Block zurückgegeben wird.
 
 ## Spezifikationen
 

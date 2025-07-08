@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: invalid regexp group"
+title: "SyntaxError: ungültige Regexp-Gruppe"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_group
 l10n:
-  sourceCommit: 611b4528a321b0ab346166ec9afdaaaebeb018ab
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "invalid regexp group" tritt auf, wenn die Sequenz `(?` keine gültige Gruppensyntax beginnt. Anerkannte Gruppensyntaxen, die mit `(?` beginnen, sind:
+Der JavaScript-Ausnahmefehler "ungültige Regexp-Gruppe" tritt auf, wenn die Sequenz `(?` keine gültige Gruppensyntax einleitet. Anerkannte Gruppensyntaxen, die mit `(?` beginnen, sind:
 
 - `(?:` für [nicht-erfassende Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
 - `(?=` für [positives Lookahead](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
@@ -17,7 +15,7 @@ Die JavaScript-Ausnahme "invalid regexp group" tritt auf, wenn die Sequenz `(?` 
 - `(?<` für [benannte Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
 - `(?-i:`, `(?i:`, `(?m:`, `(?ims-:`, etc. für [Modifikatoren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier)
 
-`(?` gefolgt von einem anderen Zeichen würde diesen Fehler verursachen.
+`(?` gefolgt von einem anderen Zeichen würde diesen Fehler hervorrufen.
 
 ## Nachricht
 
@@ -33,7 +31,7 @@ SyntaxError: Invalid regular expression: unrecognized character after (? (Safari
 
 ## Was ist schiefgelaufen?
 
-`?` ist kein [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms), daher ergibt es keinen Sinn, dass es am Anfang einer [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) steht (`?` ist ein [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) und sollte nach einem Atom platziert werden). Vielleicht möchten Sie das `?`-Zeichen wörtlich erfassen, in welchem Fall Sie es mit einem Backslash (`\?`) escapen sollten. Vielleicht erinnern Sie sich an die Regex-Syntax falsch und möchten eine der oben aufgeführten anerkannten Gruppensyntaxen verwenden. Vielleicht nutzen Sie ein Feature, das von der aktuellen JavaScript-Engine nicht unterstützt wird.
+`?` ist kein [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms), daher ist es unlogisch, es am Anfang einer [Erfassungseinheit](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) erscheinen zu lassen (`?` ist ein [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) und sollte nach einem Atom platziert werden). Vielleicht möchten Sie das `?`-Zeichen wörtlich erfassen, in diesem Fall sollten Sie es mit einem Rückwärtsschrägstrich (`\?`) maskieren. Vielleicht haben Sie die Regex-Syntax falsch in Erinnerung und beabsichtigen, eine der oben aufgeführten anerkannten Gruppensyntaxen zu verwenden. Vielleicht verwenden Sie ein Feature, das von der aktuellen JavaScript-Engine nicht unterstützt wird.
 
 ## Beispiele
 

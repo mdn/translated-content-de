@@ -1,15 +1,13 @@
 ---
-title: "SyntaxError: Oktale Escape-Sequenzen nicht in nicht-getaggten Vorlagenliteralen oder im Strict Mode-Code verwendbar"
+title: "SyntaxError: Oktale Escape-Sequenzen können nicht in ungetaggten Template-Literalen oder in Strict-Modus-Code verwendet werden"
 slug: Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence
 l10n:
-  sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "oktale Escape-Sequenzen können nicht in ungetaggten Template-Literalen oder in Strict-Modus-Code verwendet werden" tritt auf, wenn oktale Escape-Sequenzen in [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) String-Literalen oder ungetaggten Template-Literalen verwendet werden.
 
-Die JavaScript-Ausnahme "Oktale Escape-Sequenzen können nicht in nicht-getaggten Vorlagenliteralen oder im Strict Mode-Code verwendet werden" tritt auf, wenn oktale Escape-Sequenzen in [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) Zeichenfolgenliteralen oder nicht-getaggten Vorlagenliteralen verwendet werden.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Octal escape sequences are not allowed in strict mode. (V8-based)
@@ -27,9 +25,9 @@ SyntaxError: The only valid numeric escape in strict mode is '\0' (Safari)
 
 ## Was ist schiefgelaufen?
 
-Die [Zeichenfolgen-Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) der Form `\`, gefolgt von einer beliebigen Anzahl von Ziffern, außer einer einzelnen `0`, ist veraltet. Wenn Sie ein Zeichen durch seinen Codepunkt-Wert darstellen möchten, sollten Sie stattdessen die `\x` oder `\u` Escape-Sequenz verwenden, wie z.B. `\x01` oder `\u0001` statt `\1`.
+Die [String-Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in der Form `\` gefolgt von einer beliebigen Anzahl von Ziffern, mit Ausnahme einer einzelnen `0`, ist veraltet. Wenn Sie ein Zeichen durch seinen Codepunkt-Wert darstellen möchten, sollten Sie stattdessen die `\x` oder `\u` Escape-Sequenz verwenden, z.B. `\x01` oder `\u0001` anstelle von `\1`.
 
-[Nicht-getaggte Vorlagenliterale](/de/docs/Web/JavaScript/Reference/Template_literals) dürfen niemals oktale Escape-Sequenzen enthalten, weder im Strict Mode noch sonst. _Getaggte_ Vorlagenliterale können jedoch jede Form von Escape-Sequenzen enthalten, und dies führt dazu, dass das Vorlagen-Array, das von der Tag-Funktion empfangen wird, `undefined` enthält.
+[Ungetaggte Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) dürfen niemals oktale Escape-Sequenzen enthalten, unabhängig davon, ob im Strict-Modus oder nicht. _Getaggte_ Template-Literale können jedoch jede Form von Escape-Sequenz enthalten und bewirken, dass das von der Tag-Funktion empfangene Template-Array `undefined` enthält.
 
 ## Beispiele
 
@@ -51,7 +49,7 @@ Für oktale Escape-Sequenzen können Sie stattdessen hexadezimale Escape-Sequenz
 "\xA9";
 ```
 
-Wenn Sie einen Quelltext buchstäblich darstellen möchten, ohne irgendeine Escape-Sequenz zu interpretieren, verwenden Sie {{jsxref("String.raw")}}:
+Wenn Sie Quelltext wörtlich darstellen möchten, ohne eine Escape-Sequenz zu interpretieren, verwenden Sie {{jsxref("String.raw")}}:
 
 ```js example-good
 String.raw`\251`; // A string containing four characters

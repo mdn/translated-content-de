@@ -2,12 +2,10 @@
 title: "SyntaxError: label not found"
 slug: Web/JavaScript/Reference/Errors/Label_not_found
 l10n:
-  sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "label not found" tritt auf, wenn eine {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisung auf ein Label verweist, das bei keiner Anweisung existiert, welche die `break`- oder `continue`-Anweisung enthält.
+Der JavaScript-Ausnahmefehler "label not found" tritt auf, wenn eine {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisung auf ein Label verweist, das in keiner Anweisung existiert, die die `break`- oder `continue`-Anweisung enthält.
 
 ## Nachricht
 
@@ -21,15 +19,15 @@ SyntaxError: Cannot use the undeclared label 'label'. (Safari)
 
 {{jsxref("SyntaxError")}}.
 
-## Was schiefgelaufen ist
+## Was ist schiefgelaufen?
 
-In JavaScript sind [Labels](/de/docs/Web/JavaScript/Reference/Statements/label) sehr eingeschränkt: Sie können sie nur mit {{jsxref("Statements/break", "break")}}- und {{jsxref("Statements/continue", "continue")}}-Anweisungen verwenden, und Sie können nur von einer Anweisung, die innerhalb der gelabelten Anweisung enthalten ist, zu ihnen springen. Sie können aus keinem anderen Teil des Programms zu diesem Label springen.
+In JavaScript sind [Labels](/de/docs/Web/JavaScript/Reference/Statements/label) sehr eingeschränkt: Sie können sie nur mit {{jsxref("Statements/break", "break")}}- und {{jsxref("Statements/continue", "continue")}}-Anweisungen verwenden, und Sie können nur von einer innerhalb der gelabelten Anweisung enthaltenen Anweisung zu ihnen springen. Sie können nicht von irgendwo im Programm zu diesem Label springen.
 
 ## Beispiele
 
 ### Unsynktaktischer Sprung
 
-Sie können Labels nicht wie ein `goto` verwenden.
+Sie können Labels nicht so verwenden, als wären sie `goto`.
 
 ```js-nolint example-bad
 start: console.log("Hello, world!");

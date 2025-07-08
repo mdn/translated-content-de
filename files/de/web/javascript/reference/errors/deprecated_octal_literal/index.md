@@ -1,13 +1,11 @@
 ---
-title: 'SyntaxError: "0"-präfixierte Oktalliterale sind veraltet'
+title: 'SyntaxError: "0"-vorangestellte Oktalzahlen sind veraltet'
 slug: Web/JavaScript/Reference/Errors/Deprecated_octal_literal
 l10n:
-  sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-[Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-spezifische Ausnahme "0-präfixierte Oktalliterale sind veraltet; verwenden Sie stattdessen das Präfix "0o"" tritt auf, wenn veraltete Oktalliterale (`0` gefolgt von Ziffern) verwendet werden.
+Die Ausnahme im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) von JavaScript "0-vorangestellte Oktalzahlen sind veraltet; verwenden Sie stattdessen das Präfix "0o"" tritt auf, wenn veraltete Oktal-Literale (`0` gefolgt von Ziffern) verwendet werden.
 
 ## Meldung
 
@@ -21,17 +19,17 @@ SyntaxError: Decimal integer literals with a leading zero are forbidden in stric
 
 ## Fehlertyp
 
-{{jsxref("SyntaxError")}} nur im [Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
+{{jsxref("SyntaxError")}} nur im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
 ## Was ist schiefgelaufen?
 
-Oktalliterale sind veraltet. Wenn Sie eine Dezimalzahl mit `0` präfixieren, ändern Sie sie tatsächlich in ein Oktalliteral, was überraschend sein kann. Die standardisierte Syntax verwendet eine führende Null gefolgt von einem lateinischen Buchstaben "o" in Klein- oder Großbuchstaben (`0o` oder `0O`).
+Oktal-Literale sind veraltet. Wenn Sie einem Dezimalzahlwort eine `0` voranstellen, ändern Sie es tatsächlich in ein Oktal-Literal, was überraschend sein kann. Die standardisierte Syntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "O" (`0o` oder `0O`).
 
-Führende Nullen sind immer verboten, selbst wenn die Schreibweise kein gültiges Oktalliteral ist (z. B. wenn die Schreibweise die Ziffern `8` oder `9` enthält oder einen Dezimalpunkt hat). Eine Zahl darf nur dann mit `0` beginnen, wenn diese `0` ihre Einerstelle ist.
+Führende Nullen sind immer verboten, selbst wenn das Literal keine gültige Oktal-Syntax darstellt (wie zum Beispiel, wenn das Literal die Ziffern `8` oder `9` enthält oder einen Dezimalpunkt hat). Eine Zahl darf nur mit `0` beginnen, wenn diese 0 die Einerstelle ist.
 
 ## Beispiele
 
-### "0"-präfixierte Oktalliterale
+### "0"-vorangestellte Oktalzahlen
 
 ```js-nolint example-bad
 "use strict";

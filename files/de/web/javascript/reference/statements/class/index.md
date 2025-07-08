@@ -2,14 +2,12 @@
 title: class
 slug: Web/JavaScript/Reference/Statements/class
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Statements")}}
+Die **`class`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen [Klasse](/de/docs/Web/JavaScript/Reference/Classes) an einen gegebenen Namen.
 
-Die **`class`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen [Klasse](/de/docs/Web/JavaScript/Reference/Classes) mit einem gegebenen Namen.
-
-Sie können Klassen auch mithilfe des [`class` Ausdrucks](/de/docs/Web/JavaScript/Reference/Operators/class) definieren.
+Sie können Klassen auch mit dem [`class`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class) definieren.
 
 {{InteractiveExample("JavaScript Demo: class declaration")}}
 
@@ -37,14 +35,14 @@ class name extends otherName {
 
 ## Beschreibung
 
-Der Klassenkörper einer Klassendeklaration wird im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt. Die `class`-Deklaration ist sehr ähnlich zu {{jsxref("Statements/let", "let")}},
+Der Klassenrumpf einer Klassendeklaration wird im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt. Die `class`-Deklaration ist der {{jsxref("Statements/let", "let")}}-Deklaration sehr ähnlich:
 
-- `class`-Deklarationen sind auf Blöcke sowie Funktionen beschränkt.
-- `class`-Deklarationen können nur nach ihrem Deklarationsort erreicht werden (siehe [temporal dead zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund werden `class`-Deklarationen allgemein als {{Glossary("Hoisting", "nicht gehoben")}} angesehen (im Gegensatz zu [Funktiondeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
-- `class`-Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Skripts deklariert werden (im Gegensatz zu [Funktiondeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
-- `class`-Deklarationen können nicht durch eine andere Deklaration im selben Gültigkeitsbereich [erneut deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
+- `class`-Deklarationen sind sowohl auf Blöcke als auch auf Funktionen beschränkt.
+- `class`-Deklarationen können erst nach Erreichen des Deklarationsorts zugegriffen werden (siehe [temporäre tote Zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund werden `class`-Deklarationen allgemein als {{Glossary("Hoisting", "nicht-gehoisted")}} angesehen (im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
+- `class`-Deklarationen erzeugen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf oberster Ebene eines Skripts deklariert werden (im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
+- `class`-Deklarationen können nicht durch irgendeine andere Deklaration im selben Bereich [neu deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
 
-Außerhalb des Klassenkörpers können `class`-Deklarationen wie `let` neu zugewiesen werden, aber Sie sollten dies vermeiden. Innerhalb des Klassenkörpers ist die Bindung wie `const` konstant.
+Außerhalb des Klassenkörpers können `class`-Deklarationen wie `let` neu zugewiesen werden, aber Sie sollten dies vermeiden. Innerhalb des Klassenkörpers ist die Bindung konstant wie `const`.
 
 ```js
 class Foo {
@@ -68,7 +66,7 @@ console.log(Foo3); // 1
 
 Im folgenden Beispiel definieren wir zuerst eine Klasse namens `Rectangle` und erweitern sie dann, um eine Klasse namens `FilledRectangle` zu erstellen.
 
-Beachten Sie, dass `super()`, wie im `constructor` verwendet, nur in Konstruktoren verwendet werden kann und _muss_ aufgerufen werden, _bevor_ das Schlüsselwort `this` verwendet werden kann.
+Beachten Sie, dass `super()`, das im `Konstruktor` verwendet wird, nur in Konstruktoren verwendet werden kann und _muss_ aufgerufen werden, _bevor_ das Schlüsselwort `this` verwendet werden kann.
 
 ```js
 class Rectangle {
@@ -99,5 +97,5 @@ class FilledRectangle extends Rectangle {
 ## Siehe auch
 
 - [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)
-- [`class` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class)
+- [`class`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class)
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)

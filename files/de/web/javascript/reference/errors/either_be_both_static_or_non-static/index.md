@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: Getter und Setter für privaten Namen #x sollten entweder beide statisch oder nicht statisch sein"
+title: "SyntaxError: getter und setter für privaten Namen #x sollten entweder beide statisch oder nicht statisch sein"
 slug: Web/JavaScript/Reference/Errors/Either_be_both_static_or_non-static
 l10n:
-  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Fehler "mismatched placement" tritt auf, wenn ein privater [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) nicht übereinstimmen, ob sie {{jsxref("Classes/static", "static")}} sind oder nicht.
+Der JavaScript-Ausnahmefehler "mismatched placement" tritt auf, wenn ein privater [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) nicht übereinstimmen, ob sie {{jsxref("Classes/static", "static")}} sind oder nicht.
 
 ## Meldung
 
@@ -21,13 +19,13 @@ SyntaxError: Cannot declare a private non-static getter if there is a static pri
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schiefgegangen?
 
-Private [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) für denselben Namen müssen entweder beide {{jsxref("Classes/static", "static")}} oder beide nicht statisch sein. Diese Einschränkung besteht nicht für öffentliche Methoden.
+Private [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) für denselben Namen müssen entweder beide {{jsxref("Classes/static", "static")}} oder beide nicht statisch sein. Diese Einschränkung besteht nicht für öffentliche Methoden.
 
 ## Beispiele
 
-### Mismatched placement
+### Nicht übereinstimmende Platzierung
 
 ```js-nolint example-bad
 class Test {

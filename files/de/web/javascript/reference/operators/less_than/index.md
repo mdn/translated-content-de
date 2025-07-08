@@ -2,12 +2,10 @@
 title: Kleiner als (<)
 slug: Web/JavaScript/Reference/Operators/Less_than
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
-
-Der **Kleiner als (`<`)** Operator gibt `true` zurück, wenn der linke Operand kleiner ist als der rechte Operand, und `false` andernfalls.
+Der **Kleiner-als (`<`)**-Operator gibt `true` zurück, wenn der linke Operand kleiner als der rechte Operand ist, und `false` andernfalls.
 
 {{InteractiveExample("JavaScript Demo: Less than (<) operator")}}
 
@@ -34,24 +32,24 @@ x < y
 
 ## Beschreibung
 
-Die Operanden werden mit mehreren Runden der Typumwandlung verglichen, was wie folgt zusammengefasst werden kann:
+Die Operanden werden mit mehreren Runden der Typumwandlung verglichen, die wie folgt zusammengefasst werden können:
 
-- Zuerst werden Objekte [in Primitive konvertiert](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) durch Aufrufen ihrer Methoden [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit dem Hinweis `"number"`), [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) und [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString), in der genannten Reihenfolge. Der linke Operand wird immer vor dem rechten umgewandelt. Beachten Sie, dass obwohl `[Symbol.toPrimitive]()` mit dem Hinweis `"number"` aufgerufen wird (was bedeutet, dass eine leichte Präferenz besteht, dass das Objekt zu einer Zahl wird), der Rückgabewert nicht [in eine Zahl konvertiert wird](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), da Strings weiterhin speziell behandelt werden.
-- Wenn beide Werte Strings sind, werden sie als Strings verglichen, basierend auf den Werten der UTF-16-Code-Einheiten (nicht Unicode-Codepunkte), die sie enthalten.
-- Andernfalls versucht JavaScript, nicht-numerische Typen in numerische Werte zu konvertieren:
-  - Boolean-Werte `true` und `false` werden zu 1 bzw. 0 konvertiert.
-  - `null` wird zu 0 konvertiert.
-  - `undefined` wird zu `NaN` konvertiert.
-  - Strings werden basierend auf den Werten, die sie enthalten, konvertiert und als `NaN` konvertiert, wenn sie keine numerischen Werte enthalten.
+- Zuerst werden Objekte [in Primitives umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion), indem ihre Methoden [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit dem Hinweis `"number"`), [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) und [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) in dieser Reihenfolge aufgerufen werden. Der linke Operand wird immer vor dem rechten umgewandelt. Beachten Sie, dass obwohl `[Symbol.toPrimitive]()` mit dem Hinweis `"number"` aufgerufen wird (was bedeutet, dass eine leichte Präferenz besteht, dass das Objekt zu einer Zahl wird), der Rückgabewert nicht in eine Zahl [umgewandelt wird](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), da Zeichenketten weiterhin speziell behandelt werden.
+- Wenn beide Werte Zeichenketten sind, werden sie als Zeichenketten verglichen, basierend auf den Werten der von ihnen enthaltenen UTF-16-Codeeinheiten (nicht Unicode-Codepunkten).
+- Andernfalls versucht JavaScript, nicht-numerische Typen in numerische Werte umzuwandeln:
+  - Die booleschen Werte `true` und `false` werden in 1 bzw. 0 umgewandelt.
+  - `null` wird in 0 umgewandelt.
+  - `undefined` wird in `NaN` umgewandelt.
+  - Zeichenketten werden basierend auf den von ihnen enthaltenen Werten umgewandelt und in `NaN` umgewandelt, wenn sie keine numerischen Werte enthalten.
 - Wenn einer der Werte [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) ist, gibt der Operator `false` zurück.
-- Andernfalls werden die Werte als numerische Werte verglichen. BigInt- und Zahl-Werte können zusammen verglichen werden.
+- Andernfalls werden die Werte als numerische Werte verglichen. BigInt- und Zahlenwerte können miteinander verglichen werden.
 
-Andere Operatoren, einschließlich [`>`](/de/docs/Web/JavaScript/Reference/Operators/Greater_than), [`>=`](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal), und [`<=`](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal), verwenden denselben Algorithmus wie `<`. Es gibt zwei Fälle, in denen alle vier Operatoren `false` zurückgeben:
+Andere Operatoren, darunter [`>`](/de/docs/Web/JavaScript/Reference/Operators/Greater_than), [`>=`](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal) und [`<=`](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal), verwenden denselben Algorithmus wie `<`. Es gibt zwei Fälle, in denen alle vier Operatoren `false` zurückgeben:
 
-- Wenn einer der Operanden in einen BigInt konvertiert wird, während der andere in einen String konvertiert wird, der nicht in einen BigInt-Wert konvertiert werden kann (es wird ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgelöst, wenn er an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
-- Wenn einer der Operanden in `NaN` konvertiert wird. (Zum Beispiel Strings, die nicht in Zahlen konvertiert werden können, oder `undefined`.)
+- Wenn einer der Operanden in einen BigInt umgewandelt wird, während der andere in eine Zeichenkette umgewandelt wird, die nicht in einen BigInt-Wert konvertiert werden kann (es wird ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgelöst, wenn er an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
+- Wenn einer der Operanden in `NaN` umgewandelt wird. (Zum Beispiel Zeichenketten, die nicht in Zahlen umgewandelt werden können, oder `undefined`.)
 
-In allen anderen Fällen haben die vier Operatoren die folgenden Beziehungen:
+Für alle anderen Fälle haben die vier Operatoren die folgenden Beziehungen:
 
 ```js
 x < y === !(x >= y);
@@ -61,11 +59,11 @@ x >= y === y <= x;
 ```
 
 > [!NOTE]
-> Ein beobachtbarer Unterschied zwischen `<` und `>` ist die Reihenfolge der Typumwandlung, insbesondere wenn die Umwandlung in ein Primärwert Nebeneffekte hat. Alle Vergleichsoperatoren wandeln den linken Operanden vor dem rechten um.
+> Ein beobachtbarer Unterschied zwischen `<` und `>` ist die Reihenfolge der Umwandlung, insbesondere wenn die Umwandlung in ein Primitive Nebeneffekte hat. Alle Vergleichsoperatoren wandeln den linken Operand vor dem rechten um.
 
 ## Beispiele
 
-### String-zu-String-Vergleich
+### Vergleich von Zeichenkette zu Zeichenkette
 
 ```js
 "a" < "b"; // true
@@ -75,7 +73,7 @@ x >= y === y <= x;
 "\uD855\uDE51" < "\uFF3A"; // true
 ```
 
-### String-zu-Zahl-Vergleich
+### Vergleich von Zeichenkette zu Zahl
 
 ```js
 "5" < 3; // false
@@ -89,7 +87,7 @@ x >= y === y <= x;
 "3" < 5n; // true
 ```
 
-### Zahl-zu-Zahl-Vergleich
+### Vergleich von Zahl zu Zahl
 
 ```js
 5 < 3; // false
@@ -97,7 +95,7 @@ x >= y === y <= x;
 3 < 5; // true
 ```
 
-### Zahl-zu-BigInt-Vergleich
+### Vergleich von Zahl zu BigInt
 
 ```js
 5n < 3; // false
@@ -125,7 +123,7 @@ NaN < 3; // false
 
 ### Vergleich mit Nebeneffekten
 
-Vergleiche wandeln ihre Operanden immer in Primitive um. Dies bedeutet, dass dasselbe Objekt innerhalb eines Vergleichsausdrucks unterschiedliche Werte haben kann. Zum Beispiel können Sie zwei Werte haben, die beide größer und kleiner als der andere sind.
+Vergleiche zwingen always ihre Operanden in Primitives um. Dies bedeutet, dass dasselbe Objekt innerhalb eines Vergleichsausdrucks unterschiedliche Werte haben kann. Zum Beispiel können Sie zwei Werte haben, die beide größer und kleiner als der andere sind.
 
 ```js
 class Mystery {
@@ -145,7 +143,7 @@ console.log(l < r && r < l);
 ```
 
 > [!WARNING]
-> Dies kann eine Quelle der Verwirrung sein. Wenn Ihre Objekte benutzerdefinierte Logik für die Umwandlung in Primärwerte bereitstellen, stellen Sie sicher, dass diese _idempotent_ ist: Mehrfache Umwandlungen sollten denselben Wert zurückgeben.
+> Dies kann eine Quelle der Verwirrung sein. Wenn Ihre Objekte eine benutzerdefinierte Logik für die Umwandlung in Primitives bereitstellen, stellen Sie sicher, dass sie _idempotent_ ist: Mehrere Umwandlungen sollten denselben Wert zurückgeben.
 
 ## Spezifikationen
 
@@ -158,5 +156,5 @@ console.log(l < r && r < l);
 ## Siehe auch
 
 - [Größer als (`>`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than)
-- [Größer als oder gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
-- [Kleiner als oder gleich (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+- [Größer oder gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+- [Kleiner oder gleich (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)

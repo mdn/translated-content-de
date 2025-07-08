@@ -2,14 +2,13 @@
 title: Leere Anweisung
 slug: Web/JavaScript/Reference/Statements/Empty
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Statements")}}
+Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl
+die JavaScript-Syntax eine erwarten würde.
 
-Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl die JavaScript-Syntax eine erwarten würde.
-
-{{InteractiveExample("JavaScript Demo: Empty statement")}}
+{{InteractiveExample("JavaScript Demo: Leere Anweisung")}}
 
 ```js interactive-example
 const array1 = [1, 2, 3];
@@ -29,15 +28,19 @@ console.log(array1);
 
 ## Beschreibung
 
-Die leere Anweisung ist ein Semikolon (`;`), das anzeigt, dass keine Anweisung ausgeführt wird, selbst wenn die JavaScript-Syntax eine erfordert.
+Die leere Anweisung ist ein Semikolon (`;`), das anzeigt, dass keine Anweisung
+ausgeführt wird, selbst wenn die JavaScript-Syntax eine erfordert.
 
-Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen möchten, JavaScript jedoch nur eine erlaubt, ist mit einer [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich, die mehrere Anweisungen zu einer einzigen kombiniert.
+Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen möchten, JavaScript jedoch nur eine
+zulässt, ist mit einer [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich,
+die mehrere Anweisungen zu einer einzigen kombiniert.
 
 ## Beispiele
 
 ### Leerer Schleifenkörper
 
-Die leere Anweisung wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende Beispiel mit einem leeren Schleifenkörper an:
+Die leere Anweisung wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende Beispiel
+mit einem leeren Schleifenkörper an:
 
 ```js-nolint
 const arr = [1, 2, 3];
@@ -49,11 +52,12 @@ console.log(arr);
 // [0, 0, 0]
 ```
 
-### Unbeabsichtigte Nutzung
+### Unbeabsichtigte Verwendung
 
-Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da sie sich nicht wirklich offensichtlich von einem normalen Semikolon unterscheidet.
+Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da sie
+nicht wirklich offensichtlich von einem normalen Semikolon zu unterscheiden ist.
 
-Im folgenden Beispiel ist die Nutzung wahrscheinlich nicht beabsichtigt:
+Im folgenden Beispiel ist die Verwendung wahrscheinlich nicht beabsichtigt:
 
 ```js-nolint example-bad
 if (condition);      // Caution, this "if" does nothing!

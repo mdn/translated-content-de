@@ -2,14 +2,12 @@
 title: "TypeError: already executing generator"
 slug: Web/JavaScript/Reference/Errors/Already_executing_generator
 l10n:
-  sourceCommit: af8c003be438157fb59397347ca766bf997c7934
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "TypeError: already executing generator" tritt auf, wenn ein [generator](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) mithilfe einer seiner Methoden (wie {{jsxref("Generator/next", "next()")}}) fortgesetzt wird, während der Rumpf der Generatorfunktion selbst ausgeführt wird.
 
-Die JavaScript-Ausnahme "TypeError: already executing generator" tritt auf, wenn ein [Generator](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) mit einer seiner Methoden (wie {{jsxref("Generator/next", "next()")}}) fortgesetzt wird, während der Funktionskörper des Generators selbst ausgeführt wird.
-
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Generator is already running (V8-based)
@@ -23,7 +21,7 @@ TypeError: Generator is executing (Safari)
 
 ## Was ist schiefgelaufen?
 
-Die Methoden eines Generators, {{jsxref("Generator/next", "next()")}}, {{jsxref("Generator/return", "return()")}}, und {{jsxref("Generator/throw", "throw()")}}, sind dazu gedacht, die Ausführung einer Generatorfunktion fortzusetzen, wenn sie nach einem `yield`-Ausdruck pausiert oder vor der ersten Anweisung steht. Wenn ein Aufruf einer dieser Methoden erfolgt, während die Generatorfunktion ausgeführt wird, wird der Fehler ausgelöst. Wenn Sie innerhalb der Generatorfunktion zurückkehren oder einen Fehler werfen möchten, verwenden Sie bitte die {{jsxref("Statements/return", "return")}}-Anweisung oder die {{jsxref("Statements/throw", "throw")}}-Anweisung.
+Die Methoden des Generators, {{jsxref("Generator/next", "next()")}}, {{jsxref("Generator/return", "return()")}}, und {{jsxref("Generator/throw", "throw()")}}, sollen die Ausführung einer Generatorfunktion fortsetzen, wenn sie nach einem `yield`-Ausdruck oder vor der ersten Anweisung pausiert ist. Wenn ein Aufruf einer dieser Methoden erfolgt, während die Generatorfunktion ausgeführt wird, wird der Fehler ausgelöst. Wenn Sie innerhalb der Generatorfunktion zurückkehren oder eine Ausnahme werfen möchten, verwenden Sie die {{jsxref("Statements/return", "return")}}-Anweisung bzw. die {{jsxref("Statements/throw", "throw")}}-Anweisung.
 
 ## Beispiele
 
@@ -57,7 +55,7 @@ it.next(); // { value: 0, done: false }
 
 ## Siehe auch
 
-- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterators and generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)
+- [Iteration protocols](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
 - {{jsxref("Statements/function*", "function*")}}
 - {{jsxref("Generator")}}

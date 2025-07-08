@@ -1,13 +1,11 @@
 ---
-title: Zeichensatzklassen
+title: Zeichenklassen
 slug: Web/JavaScript/Guide/Regular_expressions/Character_classes
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("JavaScript Leitfaden")}}
-
-Zeichensatzklassen unterscheiden zwischen Arten von Zeichen, wie zum Beispiel zwischen Buchstaben und Ziffern.
+Zeichenklassen unterscheiden unterschiedliche Arten von Zeichen, wie zum Beispiel die Unterscheidung zwischen Buchstaben und Ziffern.
 
 {{InteractiveExample("JavaScript Demo: RegExp Character classes")}}
 
@@ -23,7 +21,7 @@ console.log(moods.match(regexpEmoticons));
 // Expected output: Array ['🙂', '😕', '😢']
 ```
 
-## Arten
+## Typen
 
 <table class="standard-table">
   <thead>
@@ -39,25 +37,25 @@ console.log(moods.match(regexpEmoticons));
       </td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Zeichensatzklasse:</strong></a>
-          Passt zu jedem der eingeschlossenen Zeichen. Sie können einen Bereich von Zeichen durch die Verwendung eines Bindestrichs angeben, aber wenn der Bindestrich als erstes oder letztes Zeichen innerhalb der eckigen Klammern erscheint, wird er als normaler Bindestrich interpretiert und als normales Zeichen in die Zeichensatzklasse aufgenommen.
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Zeichenklasse:</strong></a>
+          Passt zu einem der eingeschlossenen Zeichen. Sie können einen Bereich von Zeichen durch die Verwendung eines Bindestrichs angeben, aber wenn der Bindestrich als erstes oder letztes Zeichen in den eckigen Klammern erscheint, wird er als literaler Bindestrich betrachtet, der in die Zeichenklasse als normales Zeichen aufgenommen wird.
         </p>
         <p>
           Zum Beispiel ist <code>[abcd]</code> dasselbe wie <code>[a-d]</code>.
-          Sie passen zum "b" in "brisket" und zum "c" in "chop".
+          Sie stimmen mit dem "b" in "brisket" und dem "c" in "chop" überein.
         </p>
         <p>
-          Zum Beispiel passen <code>[abcd-]</code> und <code>[-abcd]</code> zum
-          "b" in "brisket", zum "c" in "chop" und zum "-" (Bindestrich) in
-          "non-profit".
+          Zum Beispiel stimmen <code>[abcd-]</code> und <code>[-abcd]</code> mit
+          dem "b" in "brisket", dem "c" in "chop" und dem "-" (Bindestrich) in
+          "non-profit" überein.
         </p>
         <p>
           Zum Beispiel ist <code>[\w-]</code> dasselbe wie
-          <code>[A-Za-z0-9_-]</code>. Beide passen zum "b" in "brisket", zum
-          "c" in "chop" und zum "n" in "non-profit".
+          <code>[A-Za-z0-9_-]</code>. Beide stimmen mit dem "b" in "brisket", dem
+          "c" in "chop" und dem "n" in "non-profit" überein.
         </p>
         <p>
-          Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets"><code>unicodeSets</code></a> (<code>v</code>)-Flag aktiviert ist, bietet die Zeichensatzklasse einige zusätzliche Funktionen. Weitere Informationen finden Sie in der <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class">Zeichensatzklasse</a> Referenz.
+          Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets"><code>unicodeSets</code></a> (<code>v</code>)-Flag aktiviert ist, bietet die Zeichenklasse einige zusätzliche Funktionen. Weitere Informationen finden Sie in der <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class">Zeichenklasse</a>-Referenz.
         </p>
       </td>
     </tr>
@@ -69,15 +67,16 @@ console.log(moods.match(regexpEmoticons));
       </td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Negierte Zeichensatzklasse:</strong></a>
-          Passt auf alles, was nicht in den eckigen Klammern enthalten ist. Sie können einen Bereich von Zeichen durch die Verwendung eines Bindestrichs angeben, aber wenn der Bindestrich als erstens Zeichen nach dem <code>^</code> oder das letzte Zeichen innerhalb der eckigen Klammern erscheint, wird er als normaler Bindestrich interpretiert und als normales Zeichen in die Zeichensatzklasse aufgenommen. Zum Beispiel ist <code>[^abc]</code> dasselbe wie <code>[^a-c]</code>. Sie passen zunächst zum "o" in "bacon" und zum "h" in "chop".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Negierte Zeichenklasse:</strong></a>
+          Passt zu allem, was nicht in den eckigen Klammern eingeschlossen ist. Sie können einen Bereich von Zeichen durch die Verwendung eines Bindestrichs angeben, aber wenn der Bindestrich als erstes Zeichen nach dem <code>^</code> oder als letztes Zeichen in den eckigen Klammern erscheint, wird er als literaler Bindestrich betrachtet, der in die Zeichenklasse als normales Zeichen aufgenommen wird. Zum Beispiel ist <code>[^abc]</code> dasselbe wie
+          <code>[^a-c]</code>. Sie stimmen mit "o" in "bacon" und "h" in "chop" überein.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Das ^-Zeichen kann auch den
+            <strong>Hinweis:</strong> Das ^ Zeichen kann auch den
             <a
               href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions"
-              >Anfang der Eingabe</a
+              >Beginn der Eingabe</a
             > anzeigen.
           </p>
         </div>
@@ -87,11 +86,13 @@ console.log(moods.match(regexpEmoticons));
       <td><code>.</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard"><strong>Platzhalter:</strong></a>
-          Passt zu jedem einzelnen Zeichen <em>außer</em> Zeilenbeendungszeichen:
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard"><strong>Wildcard:</strong></a>
+          Passt zu jedem einzelnen Zeichen <em>außer</em> Zeilenumbrüchen:
           <code>\n</code>, <code>\r</code>, <code>\u2028</code> oder
-          <code>\u2029</code>. Zum Beispiel passt <code>/.y/</code> zu "my" und
-          "ay", aber nicht zu "yes", in "yes make my day", da es kein Zeichen vor dem "y" in "yes" gibt. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll"><code>dotAll</code></a> (s)-Flag aktiviert ist, passen auch Zeilenbeendungszeichen. Innerhalb einer Zeichensatzklasse verliert der Punkt seine spezielle Bedeutung und passt zu einem normalen Punkt.
+          <code>\u2029</code>. Zum Beispiel stimmt <code>/.y/</code> mit "my" und
+          "ay", aber nicht mit "yes" in "yes make my day" überein, da es kein Zeichen vor "y" in "yes" gibt. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll"><code>dotAll</code></a> (s) Flag aktiviert ist, wird auch mit Zeilenumbrüchen übereingestimmt.
+          In einer Zeichenklasse verliert der Punkt seine spezielle Bedeutung und
+          passt zu einem literalen Punkt.
         </p>
       </td>
     </tr>
@@ -99,8 +100,10 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\d</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Ziffern-Zeichensatzklasse:</strong></a>
-          Passt zu jeder Ziffer (arabische Zahl). Entspricht <code>[0-9]</code>. Zum Beispiel passt <code>/\d/</code> oder <code>/[0-9]/</code> zu "2" in "B2 ist die Raumnummer".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Ziffernzeichenklassen-Escape:</strong></a>
+          Passt zu jeder Ziffer (arabische Ziffer). Entspricht <code>[0-9]</code>.
+          Zum Beispiel stimmt <code>/\d/</code> oder <code>/[0-9]/</code> mit "2" in
+          "B2 ist die Suite-Nummer" überein.
         </p>
       </td>
     </tr>
@@ -108,8 +111,10 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\D</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Ziffern-Zeichensatzklasse:</strong></a>
-          Passt zu jedem Zeichen, das keine Ziffer (arabische Zahl) ist. Entspricht <code>[^0-9]</code>. Zum Beispiel passt <code>/\D/</code> oder <code>/[^0-9]/</code> zu "B" in "B2 ist die Raumnummer".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Ziffernzeichenklassen-Escape:</strong></a>
+          Passt zu jedem Zeichen, das keine Ziffer (arabische Ziffer) ist. Entspricht
+          <code>[^0-9]</code>. Zum Beispiel stimmt <code>/\D/</code> oder
+          <code>/[^0-9]/</code> mit "B" in "B2 ist die Suite-Nummer" überein.
         </p>
       </td>
     </tr>
@@ -117,8 +122,11 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\w</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Wort-Zeichensatzklasse:</strong></a>
-          Passt zu jedem alphanumerischen Zeichen des einfachen lateinischen Alphabets, einschließlich des Unterstrichs. Entspricht <code>[A-Za-z0-9_]</code>. Zum Beispiel passt <code>/\w/</code> zu "a" in "Apfel", "5" in "$5.28", "3" in "3D" und "m" in "Émanuel".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Wortzeichenklassen-Escape:</strong></a>
+          Passt zu jedem alphanumerischen Zeichen aus dem lateinischen Alphabet,
+          einschließlich des Unterstrichs. Entspricht <code>[A-Za-z0-9_]</code>. Zum
+          Beispiel stimmt <code>/\w/</code> mit "a" in "apple", "5" in "$5.28", "3"
+          in "3D" und "m" in "Émanuel" überein.
         </p>
       </td>
     </tr>
@@ -126,8 +134,11 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\W</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Wort-Zeichensatzklasse:</strong></a>
-          Passt zu jedem Zeichen, das kein Wortzeichen des einfachen lateinischen Alphabets ist. Entspricht <code>[^A-Za-z0-9_]</code>. Zum Beispiel passt <code>/\W/</code> oder <code>/[^A-Za-z0-9_]/</code> zu "%" in "50%" und "É" in "Émanuel".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Wortzeichenklassen-Escape:</strong></a>
+          Passt zu jedem Zeichen, das kein Wortzeichen aus dem lateinischen
+          Alphabet ist. Entspricht <code>[^A-Za-z0-9_]</code>. Zum Beispiel stimmt
+          <code>/\W/</code> oder <code>/[^A-Za-z0-9_]/</code> mit "%" in "50%"
+          und "É" in "Émanuel" überein.
         </p>
       </td>
     </tr>
@@ -135,8 +146,9 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\s</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Leerzeichen-Zeichensatzklasse:</strong></a>
-          Passt zu einem einzelnen Leerzeichenzeichen, einschließlich Leerzeichen, Tabulator, Formatumbruch, Zeilenumbruch und andere Unicode-Leerzeichen. Entspricht <code>[\f\n\r\t\v\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]</code>. Zum Beispiel passt <code>/\s\w*/</code> zu " bar" in "foo bar".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Leerzeichen-Zeichenklassen-Escape:</strong></a>
+          Passt zu einem einzigen Leerzeichen, einschließlich Leerzeichen, Tabulator, Formularvorschub, Zeilenumbruch und anderen Unicode-Leerzeichen. Entspricht
+          <code>[\f\n\r\t\v\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]</code>. Zum Beispiel stimmt <code>/\s\w*/</code> mit " bar" in "foo bar" überein.
         </p>
       </td>
     </tr>
@@ -144,8 +156,9 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\S</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Leerzeichen-Zeichensatzklasse:</strong></a>
-          Passt zu einem einzelnen Zeichen, das kein Leerzeichen ist. Entspricht <code>[^\f\n\r\t\v\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]</code>. Zum Beispiel passt <code>/\S\w*/</code> zu "foo" in "foo bar".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Leerzeichen-Zeichenklassen-Escape:</strong></a>
+          Passt zu einem einzelnen Zeichen, das kein Leerzeichen ist. Entspricht
+          <code>[^\f\n\r\t\v\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]</code>. Zum Beispiel stimmt <code>/\S\w*/</code> mit "foo" in "foo bar" überein.
         </p>
       </td>
     </tr>
@@ -167,21 +180,22 @@ console.log(moods.match(regexpEmoticons));
     </tr>
     <tr>
       <td><code>\f</code></td>
-      <td>Passt zu einem Seitenvorschub.</td>
+      <td>Passt zu einem Formularvorschub.</td>
     </tr>
     <tr>
       <td><code>[\b]</code></td>
       <td>
-        Passt zu einem Rückschritt. Wenn Sie nach der Wortgrenze-Versicherung (<code>\b</code>) suchen, siehe
+        Passt zu einem Rückschritt. Wenn Sie nach der Wortgrenzen-Assertion
+        (<code>\b</code>) suchen, siehe
         <a
           href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions"
-          >Assertions</a
+          >Assertionen</a
         >.
       </td>
     </tr>
     <tr>
       <td><code>\0</code></td>
-      <td>Passt zu einem NUL-Zeichen. Folgen Sie diesem nicht mit einer weiteren Ziffer.</td>
+      <td>Passt zu einem NUL-Zeichen. Folgen Sie diesem nicht mit einer anderen Ziffer.</td>
     </tr>
     <tr>
       <td>
@@ -189,12 +203,12 @@ console.log(moods.match(regexpEmoticons));
       </td>
       <td>
         <p>
-          Passt zu einem Steuerzeichen unter Verwendung der
+          Passt zu einem Steuerzeichen, das mit
           <a href="https://en.wikipedia.org/wiki/Caret_notation"
             >Caret-Notation</a
-          >, wobei "X" ein Buchstabe von A–Z ist (entsprechend den Codepunkten
-          <code>U+0001</code><em>–</em><code>U+001A</code>). Zum Beispiel passt
-          <code>/\cM\cJ/</code> zu "\r\n".
+          > dargestellt wird, wobei "X" ein Buchstabe von A–Z ist (entsprechend den Codepunkten
+          <code>U+0001</code><em>–</em><code>U+001A</code>). Zum Beispiel stimmt
+          <code>/\cM\cJ/</code> mit "\r\n" überein.
         </p>
       </td>
     </tr>
@@ -212,7 +226,7 @@ console.log(moods.match(regexpEmoticons));
         <code>\u<em>hhhh</em></code>
       </td>
       <td>
-        Passt zu einem UTF-16-Code-Einheit mit dem Wert
+        Passt zu einer UTF-16 Code-Einheit mit dem Wert
         <code><em>hhhh</em></code> (vier hexadezimale Ziffern).
       </td>
     </tr>
@@ -235,8 +249,10 @@ console.log(moods.match(regexpEmoticons));
       </td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape"><strong>Unicode-Zeichensatzklasse:</strong></a>
-          Passt zu einem Zeichen basierend auf seinen Unicode-Zeichen-Eigenschaften: zum Beispiel Emoji-Zeichen, oder japanische <em>Katakana</em>-Zeichen, oder chinesische/japanische Han/Kanji-Zeichen usw.).
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape"><strong>Unicode-Zeichenklassen-Escape:</strong></a>
+          Passt zu einem Zeichen basierend auf seinen Unicode-Zeicheneigenschaften: zum Beispiel Emoji-Zeichen oder japanische
+          <em>Katakana</em>-Zeichen oder chinesische/japanische Han/Kanji-Zeichen,
+          usw.).
         </p>
       </td>
     </tr>
@@ -244,19 +260,32 @@ console.log(moods.match(regexpEmoticons));
       <td><code>\</code></td>
       <td>
         <p>
-          Gibt an, dass das folgende Zeichen speziell behandelt oder "escaped" werden soll. Es verhält sich auf zwei Arten.
+          Zeigt an, dass das folgende Zeichen speziell behandelt oder
+          "escaped" werden soll. Es verhält sich auf zwei Arten.
         </p>
         <ul>
           <li>
-            Für Zeichen, die normalerweise wörtlich behandelt werden, gibt an, dass das nächste Zeichen speziell und nicht wörtlich zu interpretieren ist. Zum Beispiel passt <code>/b/</code> zum Zeichen "b". Durch das Platzieren eines Backslashes vor "b", also durch die Verwendung von <code>/\b/</code>, wird das Zeichen speziell und bedeutet, eine Wortgrenze zu finden.
+            Für Zeichen, die normalerweise wörtlich behandelt werden, zeigt an, dass
+            das nächste Zeichen speziell und nicht wörtlich interpretiert werden sollte.
+            Zum Beispiel stimmt <code>/b/</code> mit dem Zeichen "b". Indem
+            ein Backslash vor "b" gesetzt wird, also durch die Verwendung von <code>/\b/</code>, wird
+            das Zeichen speziell zur Bedeutung der Übereinstimmung mit einer Wortgrenze.
           </li>
           <li>
-            Für Zeichen, die normalerweise speziell behandelt werden, gibt an, dass das nächste Zeichen nicht speziell sein soll und wörtlich interpretiert werden sollte. Zum Beispiel ist "*" ein Sonderzeichen, das 0 oder mehr Vorkommen des vorhergehenden Zeichens bedeutet; zum Beispiel bedeutet <code>/a*/</code>, dass 0 oder mehr "a"s gefunden werden sollen. Um <code>*</code> wörtlich zu finden, stellen Sie ihm einen Backslash voran; zum Beispiel passt <code>/a\*/</code> zu "a*".
+            Für Zeichen, die normalerweise speziell behandelt werden, zeigt an, dass
+            das nächste Zeichen nicht speziell und wörtlich interpretiert werden sollte.
+            Zum Beispiel ist "*" ein spezielles Zeichen, das bedeutet, dass 0 oder
+            mehr Vorkommen des vorhergehenden Zeichens übereinstimmen; zum
+            Beispiel bedeutet <code>/a*/</code> 0 oder mehr "a"s zu finden. Um
+            <code>*</code> wörtlich zu finden, lassen Sie ihm einen Backslash vorausgehen; zum Beispiel,
+            <code>/a\*/</code> stimmt mit "a*" überein.
           </li>
         </ul>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Um dieses Zeichen wörtlich zu finden, escapen Sie es mit sich selbst. Mit anderen Worten, um nach <code>\</code> zu suchen, verwenden Sie <code>/\\/</code>.
+            <strong>Hinweis:</strong> Um dieses Zeichen wörtlich zu finden, escapen Sie es
+            mit sich selbst. Mit anderen Worten, um nach <code>\</code> zu suchen, verwenden Sie
+            <code>/\\/</code>.
           </p>
         </div>
       </td>
@@ -268,11 +297,13 @@ console.log(moods.match(regexpEmoticons));
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction"><strong>Disjunktion:</strong></a>
-          Passt entweder zu "x" oder "y". Jede Komponente, getrennt durch einen Pipe (<code>|</code>), wird als <em>Alternative</em> bezeichnet. Zum Beispiel passt <code>/green|red/</code> zu "green" in "green apple" und zu "red" in "red apple".
+          Passt entweder zu "x" oder "y". Jede Komponente, getrennt durch ein Pipe-Zeichen (<code>|</code>), wird als <em>Alternative</em> bezeichnet. Zum Beispiel,
+          stimmt <code>/green|red/</code> mit "green" in "green apple" und "red" in
+          "red apple" überein.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Eine Disjunktion ist eine andere Möglichkeit, "eine Menge von Optionen" anzugeben, aber sie ist keine Zeichensatzklasse. Disjunktionen sind keine Atome — Sie müssen eine <a href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences">Gruppe</a> verwenden, um sie Teil eines größeren Musters zu machen. <code>[abc]</code> ist funktional gleichwertig mit <code>(?:a|b|c)</code>.
+            <strong>Hinweis:</strong> Eine Disjunktion ist eine andere Methode, um "eine Auswahl von Optionen" anzugeben, aber sie ist keine Zeichenklasse. Disjunktionen sind keine Atome — Sie müssen eine <a href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences">Gruppe</a> verwenden, um Teil eines größeren Musters zu sein. <code>[abc]</code> ist funktional äquivalent zu <code>(?:a|b|c)</code>.
           </p>
         </div>
       </td>
@@ -282,9 +313,9 @@ console.log(moods.match(regexpEmoticons));
 
 ## Beispiele
 
-### Suche nach einer Serie von Ziffern
+### Nach einer Serie von Ziffern suchen
 
-In diesem Beispiel suchen wir mit `\d{4}` nach einer Folge von 4 Ziffern. `\b` gibt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d.h. beginnen oder beenden Sie das Match nicht in der Mitte einer Zahlenfolge).
+In diesem Beispiel stimmen wir eine Folge von 4 Ziffern mit `\d{4}` ab. `\b` zeigt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d.h. die Übereinstimmung wird nicht in der Mitte einer Ziffernfolge begonnen oder beendet).
 
 ```js
 const randomData = "015 354 8787 687351 3512 8735";
@@ -294,11 +325,11 @@ console.table(randomData.match(regexpFourDigits));
 // ['8787', '3512', '8735']
 ```
 
-Weitere Beispiele finden Sie in der [Zeichensatzklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) Referenz.
+Weitere Beispiele finden Sie in der [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) Referenz.
 
-### Suche nach einem Wort (aus dem lateinischen Alphabet), das mit A beginnt
+### Nach einem Wort (aus dem lateinischen Alphabet), das mit A beginnt, suchen
 
-In diesem Beispiel suchen wir nach einem Wort, das mit dem Buchstaben A beginnt. `\b` gibt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d.h. beginnen Sie das Match nicht in der Mitte eines Wortes). `[aA]` gibt den Buchstaben "a" oder "A" an. `\w+` gibt jedes Zeichen _aus dem lateinischen Alphabet_ an, mehrfach (`+` ist ein [Quantor](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)). Beachten Sie, dass es nicht notwendig ist, eine abschließende `\b`-Grenze zu haben, da wir bereits so lange matchen, bis keine Wortzeichen mehr vorhanden sind.
+In diesem Beispiel stimmen wir ein Wort ab, das mit dem Buchstaben A beginnt. `\b` zeigt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d.h. die Übereinstimmung wird nicht in der Mitte eines Wortes begonnen). `[aA]` zeigt den Buchstaben "a" oder "A" an. `\w+` zeigt beliebige Zeichen _aus dem lateinischen Alphabet_, mehrfach ( `+` ist ein [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)). Beachten Sie, dass ein abschließendes `\b` nicht erforderlich ist, da wir bereits bis keine Wortzeichen mehr vorhanden sind, übereinstimmen.
 
 ```js
 const aliceExcerpt =
@@ -309,11 +340,11 @@ console.table(aliceExcerpt.match(regexpWordStartingWithA));
 // ['Ada', 'and', 'at', 'all']
 ```
 
-Weitere Beispiele finden Sie in der [Zeichensatzklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) Referenz.
+Weitere Beispiele finden Sie in der [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) Referenz.
 
-### Suche nach einem Wort (aus Unicode-Zeichen)
+### Nach einem Wort (aus Unicode-Zeichen) suchen
 
-Statt des lateinischen Alphabets können wir eine Reihe von Unicode-Zeichen verwenden, um ein Wort zu identifizieren (wodurch wir in der Lage sind, mit Texten in anderen Sprachen wie Russisch oder Arabisch umzugehen). Die "Basis-Multilingual-Ebene" von Unicode enthält die meisten weltweit verwendeten Zeichen und wir können Zeichensatzklassen und Bereiche verwenden, um Wörter zu finden, die mit diesen Zeichen geschrieben sind.
+Anstelle des lateinischen Alphabets können wir einen Bereich von Unicode-Zeichen verwenden, um ein Wort zu identifizieren (und damit mit Texten in anderen Sprachen wie Russisch oder Arabisch umgehen). Die "Basic Multilingual Plane" von Unicode enthält die meisten der weltweit verwendeten Zeichen, und wir können Zeichenklassen und Bereiche verwenden, um Wörter zu finden, die mit diesen Zeichen geschrieben sind.
 
 ```js
 const nonEnglishText = "Приключения Алисы в Стране чудес";
@@ -324,11 +355,11 @@ console.table(nonEnglishText.match(regexpBMPWord));
 ["Приключения", "Алисы", "в", "Стране", "чудес"];
 ```
 
-Weitere Beispiele finden Sie in der [Unicode-Zeichensatzklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) Referenz.
+Weitere Beispiele finden Sie in der [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) Referenz.
 
-### Zählen von Vokalen
+### Vokale zählen
 
-In diesem Beispiel zählen wir die Anzahl der Vokale (A, E, I, O, U, Y) in einem Text. Das `g`-Flag wird verwendet, um alle Vorkommen des Musters im Text zu finden. Das `i`-Flag wird verwendet, um das Muster ohne Groß-/Kleinschreibung übereinstimmen zu lassen, sodass sowohl Groß- als auch Kleinbuchstaben-Vokale gefunden werden.
+In diesem Beispiel zählen wir die Anzahl der Vokale (A, E, I, O, U, Y) in einem Text. Das `g`-Flag wird verwendet, um alle Vorkommen des Musters im Text zu finden. Das `i`-Flag wird verwendet, um das Muster case-insensitive zu machen, so dass es sowohl Groß- als auch Kleinbuchstaben-Vokale übereinstimmt.
 
 ```js
 const aliceExcerpt =
@@ -343,13 +374,13 @@ console.log("Number of vowels:", aliceExcerpt.match(regexpVowels).length);
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
 - [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
-- [Quantifiers](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) Leitfaden
+- [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) Leitfaden
 - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
 - [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [Regular Expressions](/de/docs/Web/JavaScript/Guide/Regular_expressions) Referenz
-- [Zeichensatzklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Zeichensatzklasse-Escape: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Referenz
+- [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
+- [Zeichenklassen-Escape: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
 - [Zeichen-Escape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Disjunktion: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
-- [Unicode-Zeichensatzklasse-Escape: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
-- [Platzhalter: `.`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)
+- [Unicode-Zeichenklassen-Escape: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
+- [Wildcard: `.`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)

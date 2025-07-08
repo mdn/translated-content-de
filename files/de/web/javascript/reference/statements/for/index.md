@@ -2,12 +2,10 @@
 title: for
 slug: Web/JavaScript/Reference/Statements/for
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Statements")}}
-
-Die **`for`**-Anweisung erstellt eine Schleife, die aus drei optionalen Ausdrücken besteht, die in Klammern eingeschlossen und durch Semikolons getrennt sind, gefolgt von einer Anweisung (üblicherweise eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block)), die in der Schleife ausgeführt wird.
+Die **`for`**-Anweisung erstellt eine Schleife, die aus drei optionalen Ausdrücken besteht, die in Klammern eingeschlossen sind und durch Semikolons getrennt werden, gefolgt von einer Anweisung (in der Regel eine [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block)), die in der Schleife ausgeführt werden soll.
 
 {{InteractiveExample("JavaScript Demo: for statement")}}
 
@@ -30,34 +28,32 @@ for (initialization; condition; afterthought)
 ```
 
 - `initialization` {{optional_inline}}
-
-  - : Ein Ausdruck (einschließlich [Zuweisungsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/Assignment)) oder Variablendeklaration, die einmal vor Beginn der Schleife ausgewertet wird. Wird typischerweise verwendet, um eine Zählvariable zu initialisieren. Dieser Ausdruck kann optional neue Variablen mit den Schlüsselwörtern `var` oder `let` deklarieren. Variablen, die mit `var` deklariert werden, sind nicht lokal zur Schleife, d.h. sie befinden sich im selben Gültigkeitsbereich wie die `for`-Schleife. Variablen, die mit `let` deklariert werden, sind lokal zur Anweisung.
+  - : Ein Ausdruck (einschließlich [Zuweisungsausdrücke](/de/docs/Web/JavaScript/Reference/Operators/Assignment)) oder eine Variablendeklaration, die einmal ausgewertet wird, bevor die Schleife beginnt. Typischerweise verwendet, um eine Zählervariable zu initialisieren. Dieser Ausdruck kann optional neue Variablen mit den Schlüsseln `var` oder `let` deklarieren. Mit `var` deklarierte Variablen sind nicht lokal zur Schleife, d.h. sie befinden sich im selben Gültigkeitsbereich, in dem die `for`-Schleife ist. Mit `let` deklarierte Variablen sind lokal zur Anweisung.
 
     Das Ergebnis dieses Ausdrucks wird verworfen.
 
 - `condition` {{optional_inline}}
+  - : Ein Ausdruck, der vor jedem Schleifendurchlauf ausgewertet wird. Wenn dieser Ausdruck {{Glossary("Truthy", "wahr ergibt")}}, wird `statement` ausgeführt. Wenn der Ausdruck {{Glossary("Falsy", "falsch ergibt")}}, wird die Ausführung der Schleife beendet und es wird zur ersten Anweisung nach der `for`-Konstruktion übergegangen.
 
-  - : Ein Ausdruck, der vor jeder Schleifeniteration ausgewertet wird. Wenn dieser Ausdruck {{Glossary("Truthy", "zu true ausgewertet wird")}}, wird `statement` ausgeführt. Wenn der Ausdruck {{Glossary("Falsy", "zu false ausgewertet wird")}}, wird die Ausführung der Schleife beendet und zur ersten Anweisung nach dem `for`-Konstrukt gewechselt.
-
-    Dieser Bedingungstest ist optional. Wenn er weggelassen wird, wird die Bedingung immer zu true ausgewertet.
+    Dieser Bedingungstest ist optional. Wenn weggelassen, ergibt die Bedingung immer wahr.
 
 - `afterthought` {{optional_inline}}
-  - : Ein Ausdruck, der am Ende jeder Schleifeniteration ausgewertet wird. Dies geschieht vor der nächsten Auswertung der `condition`. Wird im Allgemeinen verwendet, um die Zählvariable zu aktualisieren oder zu inkrementieren.
+  - : Ein Ausdruck, der am Ende jedes Schleifendurchlaufs ausgewertet wird. Dies geschieht, bevor die nächste Auswertung der `condition` erfolgt. Wird im Allgemeinen verwendet, um die Zählervariable zu aktualisieren oder zu inkrementieren.
 - `statement`
-  - : Eine Anweisung, die so lange ausgeführt wird, wie die Bedingung zu true ausgewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen. Um keine Anweisung innerhalb der Schleife auszuführen, verwenden Sie eine [leere Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) (`;`).
+  - : Ein Anweisung, die solange ausgeführt wird, wie die Bedingung wahr ergibt. Sie können eine [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen. Um keine Anweisung innerhalb der Schleife auszuführen, verwenden Sie eine [leere Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) (`;`).
 
 ## Beschreibung
 
-Wie bei anderen Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
+Wie andere Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
 
-- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und geht zur ersten Anweisung nach der Schleife.
-- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und bewertet dann `afterthought` erneut und anschließend `condition`.
+- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und springt zur ersten Anweisung nach der Schleife.
+- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und wertet `afterthought` und dann `condition` neu aus.
 
 ## Beispiele
 
 ### Verwendung von for
 
-Die folgende `for`-Anweisung beginnt mit der Deklaration der Variablen `i` und ihrer Initialisierung auf `0`. Sie überprüft, ob `i` kleiner als neun ist, führt die beiden folgenden Anweisungen aus und inkrementiert `i` nach jedem Durchlauf durch die Schleife um 1.
+Die folgende `for`-Anweisung beginnt mit der Deklaration der Variablen `i` und ihrer Initialisierung auf `0`. Sie überprüft, ob `i` kleiner als neun ist, führt die zwei folgenden Anweisungen aus und inkrementiert `i` um 1 nach jedem Durchlauf der Schleife.
 
 ```js
 for (let i = 0; i < 9; i++) {
@@ -66,9 +62,9 @@ for (let i = 0; i < 9; i++) {
 }
 ```
 
-### Syntax des Initialisierungsblocks
+### Initialisierungsblock-Syntax
 
-Der Initialisierungsblock akzeptiert sowohl Ausdrücke als auch Variablendeklarationen. Ausdrücke können den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator jedoch nicht ohne Klammern verwenden, da das mit einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife mehrdeutig ist.
+Der Initialisierungsblock akzeptiert sowohl Ausdrücke als auch Variablendeklarationen. Ausdrücke können jedoch nicht den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator ohne Klammern verwenden, da dies mit einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife uneindeutig ist.
 
 ```js-nolint example-bad
 for (let i = "start" in window ? window.start : 0; i < 9; i++) {
@@ -101,7 +97,7 @@ for (; i < 9; i++) {
 }
 ```
 
-Wie der `initialization`-Block ist auch der `condition`-Teil optional. Wenn Sie diesen Ausdruck weglassen, müssen Sie sicherstellen, dass Sie die Schleife im Body beenden, um keine Endlosschleife zu erzeugen.
+Wie der `initialization`-Block ist auch der `condition`-Teil optional. Wenn Sie diesen Ausdruck weglassen, müssen Sie sicherstellen, dass Sie die Schleife im Körper durchbrechen, um keine Endlosschleife zu erzeugen.
 
 ```js
 for (let i = 0; ; i++) {
@@ -111,7 +107,7 @@ for (let i = 0; ; i++) {
 }
 ```
 
-Sie können auch alle drei Ausdrücke weglassen. Stellen Sie wiederum sicher, dass Sie eine {{jsxref("Statements/break", "break")}}-Anweisung verwenden, um die Schleife zu beenden, und auch eine Variable ändern (erhöhen), sodass die Bedingung für die break-Anweisung irgendwann wahr ist.
+Sie können auch alle drei Ausdrücke weglassen. Stellen Sie sicher, dass Sie eine {{jsxref("Statements/break", "break")}}-Anweisung verwenden, um die Schleife zu beenden und auch eine Variable zu ändern (zu erhöhen), so dass die Bedingung für die break-Anweisung irgendwann wahr ist.
 
 ```js
 let i = 0;
@@ -123,7 +119,7 @@ for (;;) {
 }
 ```
 
-In Fällen, in denen Sie nicht alle drei Ausdruckspositionen vollständig nutzen — insbesondere wenn Sie keine Variablen mit dem ersten Ausdruck deklarieren, sondern etwas im oberen Gültigkeitsbereich ändern — sollten Sie stattdessen eine [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife verwenden, die die Absicht klarer macht.
+Wenn Sie jedoch nicht alle drei Ausdruckspositionen voll nutzen — insbesondere wenn Sie keine Variablen mit dem ersten Ausdruck deklarieren, sondern etwas im oberen Bereich ändern — sollten Sie stattdessen eine [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife verwenden, die die Absicht klarer macht.
 
 ```js
 let i = 0;
@@ -136,7 +132,7 @@ while (i <= 3) {
 
 ### Lexikalische Deklarationen im Initialisierungsblock
 
-Das Deklarieren einer Variablen innerhalb des Initialisierungsblocks unterscheidet sich erheblich von der Deklaration im oberen {{Glossary("Scope", "Gültigkeitsbereich")}}, insbesondere wenn innerhalb des Schleifenbody ein [Closure](/de/docs/Web/JavaScript/Guide/Closures) erstellt wird. Zum Beispiel, bei dem folgenden Code:
+Das Deklarieren einer Variablen im Initialisierungsblock hat wichtige Unterschiede zur Deklaration im oberen {{Glossary("Scope", "Gültigkeitsbereich")}}, insbesondere beim Erstellen eines [Closure](/de/docs/Web/JavaScript/Guide/Closures) innerhalb des Schleifenkörpers. Zum Beispiel für den folgenden Code:
 
 ```js
 for (let i = 0; i < 3; i++) {
@@ -146,7 +142,7 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-Protokolliert es `0`, `1` und `2`, wie erwartet. Wenn jedoch die Variable im oberen Gültigkeitsbereich definiert ist:
+Es zeigt `0`, `1` und `2` an, wie erwartet. Wenn die Variable jedoch im oberen Bereich definiert ist:
 
 ```js
 let i = 0;
@@ -157,9 +153,9 @@ for (; i < 3; i++) {
 }
 ```
 
-Protokolliert es `3`, `3` und `3`. Der Grund dafür ist, dass jede `setTimeout` ein neues Closure erstellt, das die `i`-Variable einschließt. Aber wenn `i` nicht im Schleifenbody gescoped ist, werden alle Closures auf dieselbe Variable verweisen, wenn sie schließlich aufgerufen werden — und aufgrund der asynchronen Natur von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) passiert dies, nachdem die Schleife bereits beendet wurde, was dazu führt, dass der Wert von `i` in allen in der Warteschlange stehenden Rückrufkörpern den Wert `3` hat.
+Es zeigt `3`, `3` und `3` an. Der Grund ist, dass jeder `setTimeout` ein neues Closure erstellt, das die `i`-Variable umschließt, aber wenn die `i`-Variable nicht auf den Schleifenkörper beschränkt ist, werden alle Closures auf dieselbe Variable verweisen, wenn sie schließlich aufgerufen werden — und aufgrund der asynchronen Natur von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) geschieht dies, nachdem die Schleife bereits beendet ist, wodurch der Wert von `i` in allen eingeplanten Rückrufe den Wert `3` hat.
 
-Dies passiert auch, wenn Sie eine `var`-Anweisung als Initialisierung verwenden, da Variablen, die mit `var` deklariert werden, nur funktionsgescoped sind, aber nicht lexikalisch gescoped (d.h. sie können nicht zum Schleifenbody gescopet werden).
+Dies passiert auch, wenn Sie eine `var`-Anweisung als Initialisierung verwenden, da mit `var` deklarierte Variablen nur funktionsweit, aber nicht lexikalisch definiert sind (d.h. sie können nicht auf den Schleifenkörper beschränkt werden).
 
 ```js
 for (var i = 0; i < 3; i++) {
@@ -170,13 +166,15 @@ for (var i = 0; i < 3; i++) {
 // Logs 3, 3, 3
 ```
 
-Die Scoping-Wirkung des Initialisierungsblocks kann verstanden werden, als ob die Deklaration innerhalb des Schleifenbodys erfolgt, jedoch zufällig innerhalb der `condition`- und `afterthought`-Teile zugänglich ist. Genauer gesagt, `let`-Deklarationen werden von `for`-Schleifen speziell behandelt — wenn `initialization` eine `let`-Deklaration ist, dann geschieht nach jeder Auswertung des Schleifenbodys Folgendes:
+Der Scoping-Effekt des Initialisierungsblocks kann verstanden werden, als ob die Deklaration innerhalb des Schleifenkörpers erfolgt, jedoch zufällig im `condition`- und `afterthought`-Teil zugänglich ist. Genauer gesagt sind `let`-Deklarationen speziell für `for`-Schleifen behandelt — wenn `initialization` eine `let`-Deklaration ist, dann passiert jedes Mal nach der Auswertung des Schleifenkörpers Folgendes:
 
-1. Ein neuer lexikalischer Gültigkeitsbereich wird mit neu `let`-deklarierten Variablen erstellt.
-2. Die Bindungswerte der letzten Iteration werden verwendet, um die neuen Variablen neu zu initialisieren.
-3. `afterthought` wird im neuen Gültigkeitsbereich ausgewertet.
+1. Ein neuer lexikalischer Bereich wird mit neuen `let`-deklarierten Variablen erstellt.
+2. Die Bindungswerte aus der letzten Iteration werden verwendet, um die neuen Variablen neu zu initialisieren.
+3. `afterthought` wird im neuen Bereich ausgewertet.
 
-Ein neuer lexikalischer Gültigkeitsbereich wird auch nach `initialization` erstellt, direkt bevor `condition` zum ersten Mal ausgewertet wird. Diese Details können durch das Erstellen von Closures beobachtet werden, die es ermöglichen, eine Bindung zu einem bestimmten Zeitpunkt zu erfassen. Zum Beispiel erfasst ein Closure, das innerhalb des `initialization`-Abschnitts erstellt wurde, keine Aktualisierungen von `i` im `afterthought`:
+Das erneute Zuweisen der neuen Variablen innerhalb von `afterthought` beeinflusst nicht die Bindungen aus der vorherigen Iteration.
+
+Ein neuer lexikalischer Bereich wird auch nach `initialization` erstellt, gerade bevor `condition` zum ersten Mal ausgewertet wird. Diese Details können beobachtet werden, indem man Closures erstellt, die es ermöglichen, eine Bindung zu einem bestimmten Zeitpunkt zu halten. In diesem Code wird z. B. ein Closure, das im `initialization`-Abschnitt erstellt wurde, nicht durch Neubindungen von `i` im `afterthought`-Abschnitt aktualisiert:
 
 ```js
 for (let i = 0, getI = () => i; i < 3; i++) {
@@ -185,7 +183,7 @@ for (let i = 0, getI = () => i; i < 3; i++) {
 // Logs 0, 0, 0
 ```
 
-Dies protokolliert nicht "0, 1, 2", wie es der Fall wäre, wenn `getI` im Schleifenbody deklariert ist. Dies liegt daran, dass `getI` nicht bei jeder Iteration neu ausgewertet wird — stattdessen wird die Funktion einmal erstellt und schließt die `i`-Variable ein, die sich auf die Variable bezieht, die bei der ersten Initialisierung der Schleife deklariert wurde. Nachfolgende Aktualisierungen des `i`-Wertes erzeugen tatsächlich neue Variablen namens `i`, die `getI` nicht sieht. Eine Möglichkeit, dies zu beheben, ist das Neuberechnen von `getI` jedes Mal, wenn `i` aktualisiert wird:
+Dies gibt nicht "0, 1, 2" aus, wie es passieren würde, wenn `getI` im Schleifenkörper deklariert wäre. Das liegt daran, dass `getI` nicht bei jeder Iteration neu ausgewertet wird — vielmehr wird die Funktion einmal erstellt und umschließt die `i`-Variable, die auf die Variable verweist, die bei der ersten Initialisierung der Schleife deklariert wurde. Nachfolgende Aktualisierungen des Wertes von `i` erstellen tatsächlich neue Variablen namens `i`, die `getI` nicht sieht. Eine Möglichkeit, das zu beheben, besteht darin, `getI` jedes Mal neu zu berechnen, wenn `i` aktualisiert wird:
 
 ```js
 for (let i = 0, getI = () => i; i < 3; i++, getI = () => i) {
@@ -194,7 +192,7 @@ for (let i = 0, getI = () => i; i < 3; i++, getI = () => i) {
 // Logs 0, 1, 2
 ```
 
-Die `i`-Variable innerhalb der `initialization` ist von der `i`-Variable innerhalb jeder Iteration unterschiedlich, einschließlich der ersten. In diesem Beispiel gibt `getI` 0 zurück, auch wenn der Wert von `i` innerhalb der Iteration zuvor erhöht wurde:
+Die `i`-Variable innerhalb der `initialization` ist von der `i`-Variable innerhalb jeder Iteration, einschließlich der ersten, getrennt. In diesem Beispiel gibt `getI` 0 zurück, obwohl der Wert von `i` innerhalb der Iteration vorher erhöht wird:
 
 ```js
 for (let i = 0, getI = () => i; i < 3; ) {
@@ -204,7 +202,7 @@ for (let i = 0, getI = () => i; i < 3; ) {
 // Logs 0, 0, 0
 ```
 
-Tatsächlich können Sie diese anfängliche Bindung der `i`-Variable erfassen und später neu zuweisen, und dieser aktualisierte Wert wird nicht im Schleifenbody sichtbar, der die nächste neue Bindung von `i` sieht.
+Tatsächlich können Sie diese anfängliche Bindung der `i`-Variable erfassen und später neu zuweisen, und dieser aktualisierte Wert wird nicht im Schleifenkörper sichtbar sein, der die nächste neue Bindung von `i` sieht.
 
 ```js
 for (
@@ -217,11 +215,11 @@ for (
 // Logs 0, 0, 0
 ```
 
-Dies protokolliert "0, 0, 0", weil die `i`-Variable in jeder Schleifenbewertung tatsächlich eine separate Variable ist, aber `getI` und `incrementI` lesen und schreiben beide die _anfängliche_ Bindung von `i`, nicht das, was anschließend deklariert wurde.
+Dies gibt "0, 0, 0" aus, weil die `i`-Variable in jeder Schleifenbewertung tatsächlich eine separate Variable ist, aber `getI` und `incrementI` lesen und schreiben die _anfängliche_ Bindung von `i`, nicht das, was anschließend deklariert wurde.
 
-### Verwendung von for ohne Body
+### Verwendung von for ohne Körper
 
-Der folgende `for`-Zyklus berechnet die Offset-Position eines Knotens im `afterthought`-Abschnitt und erfordert daher nicht die Verwendung eines `statement`-Abschnitts, stattdessen wird ein Semikolon verwendet.
+Der folgende `for`-Zyklus berechnet die Offset-Position eines Knotens im `afterthought`-Bereich und erfordert daher keinen `statement`-Bereich, stattdessen wird ein Semikolon verwendet.
 
 ```js
 function showOffsetPos(id) {
@@ -250,11 +248,11 @@ showOffsetPos("content");
 // top: 153px;
 ```
 
-Beachten Sie, dass das Semikolon nach der `for`-Anweisung obligatorisch ist, da es als [leere Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) steht. Andernfalls übernimmt die `for`-Anweisung die folgende `console.log`-Zeile als ihren `statement`-Abschnitt, was dazu führt, dass das `log` mehrmals ausgeführt wird.
+Beachten Sie, dass das Semikolon nach der `for`-Anweisung obligatorisch ist, da es als [leere Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) steht. Andernfalls übernimmt die `for`-Anweisung die folgende `console.log`-Zeile als ihren `statement`-Bereich, wodurch das `log` mehrmals ausgeführt wird.
 
 ### Verwendung von for mit zwei iterierenden Variablen
 
-Sie können zwei Zähler erstellen, die in einer for-Schleife mit dem [Komma-Operator](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) gleichzeitig aktualisiert werden. Mehrere `let`- und `var`-Deklarationen können auch mit Kommas verbunden werden.
+Sie können zwei Zähler erstellen, die in einer for-Schleife mit dem [Komma-Operator](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) gleichzeitig aktualisiert werden. Mehrere `let`- und `var`-Deklarationen können ebenfalls mit Kommata verbunden werden.
 
 ```js
 const arr = [1, 2, 3, 4, 5, 6];

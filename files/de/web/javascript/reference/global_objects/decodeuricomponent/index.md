@@ -2,12 +2,10 @@
 title: decodeURIComponent()
 slug: Web/JavaScript/Reference/Global_Objects/decodeURIComponent
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Objects")}}
-
-Die Funktion **`decodeURIComponent()`** dekodiert eine zuvor durch {{jsxref("encodeURIComponent()")}} oder eine ähnliche Routine erstellte Komponente eines Uniform Resource Identifier (URI).
+Die **`decodeURIComponent()`**-Funktion dekodiert eine zuvor durch {{jsxref("encodeURIComponent()")}} oder eine ähnliche Routine erstellte Komponente eines Uniform Resource Identifier (URI).
 
 {{InteractiveExample("JavaScript Demo: decodeURIComponent()")}}
 
@@ -37,7 +35,7 @@ decodeURIComponent(encodedURI)
 
 ### Rückgabewert
 
-Ein neuer String, der die dekodierte Version der gegebenen kodierten Komponente des Uniform Resource Identifier (URI) darstellt.
+Ein neuer String, der die dekodierte Version der gegebenen kodierten Komponente eines Uniform Resource Identifier (URI) darstellt.
 
 ### Ausnahmen
 
@@ -46,9 +44,9 @@ Ein neuer String, der die dekodierte Version der gegebenen kodierten Komponente 
 
 ## Beschreibung
 
-`decodeURIComponent()` ist eine Funktionseigenschaft des globalen Objekts.
+`decodeURIComponent()` ist eine Funktions-Eigenschaft des globalen Objekts.
 
-`decodeURIComponent()` verwendet den gleichen Dekodierungsalgorithmus wie in {{jsxref("decodeURI()")}} beschrieben. Es dekodiert _alle_ Escape-Sequenzen, einschließlich derjenigen, die nicht durch {{jsxref("encodeURIComponent")}} erstellt wurden, wie `-.!~*'()`.
+`decodeURIComponent()` verwendet denselben Dekodierungsalgorithmus, wie in {{jsxref("decodeURI()")}} beschrieben. Es dekodiert _alle_ Escape-Sequenzen, einschließlich solcher, die nicht durch {{jsxref("encodeURIComponent")}} erstellt wurden, wie `-.!~*'()`.
 
 ## Beispiele
 
@@ -73,7 +71,7 @@ try {
 
 ### Dekodierung von Abfrageparametern aus einer URL
 
-`decodeURIComponent()` kann nicht direkt verwendet werden, um Abfrageparameter aus einer URL zu parsen. Es bedarf einiger Vorbereitung.
+`decodeURIComponent()` kann nicht direkt verwendet werden, um Abfrageparameter aus einer URL zu analysieren. Es erfordert eine gewisse Vorbereitung.
 
 ```js
 function decodeQueryParam(p) {

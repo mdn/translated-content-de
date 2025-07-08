@@ -2,14 +2,12 @@
 title: function expression
 slug: Web/JavaScript/Reference/Operators/function
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Das **`function`** Schlüsselwort kann verwendet werden, um eine Funktion innerhalb eines Ausdrucks zu definieren.
 
-Das Schlüsselwort **`function`** kann verwendet werden, um eine Funktion innerhalb eines Ausdrucks zu definieren.
-
-Sie können auch Funktionen unter Verwendung der [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) oder der [Pfeilsyntax](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definieren.
+Sie können Funktionen auch mit der [`function` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) oder der [Arrow-Syntax](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definieren.
 
 {{InteractiveExample("JavaScript Demo: function expression", "shorter")}}
 
@@ -47,24 +45,24 @@ function name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, um Mehrdeutigkeiten mit einer [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) zu vermeiden. Das `function`-Schlüsselwort beginnt nur dann einen Ausdruck, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
+> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, um Verwechslungen mit einer [`function` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) zu vermeiden. Das `function` Schlüsselwort beginnt nur einen Ausdruck, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
 
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Der Funktionsname. Kann weggelassen werden, in diesem Fall ist die Funktion _anonym_. Der Name ist nur lokal im Funktionskörper.
+  - : Der Funktionsname. Kann weggelassen werden, in diesem Fall ist die Funktion _anonym_. Der Name ist nur lokal für den Funktionskörper.
 - `paramN` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Siehe die [Funktionen-Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters) für die Syntax der Parameter.
+  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter siehe die [Functions Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Körper der Funktion ausmachen.
+  - : Die Anweisungen, die den Körper der Funktion bilden.
 
 ## Beschreibung
 
-Ein `function`-Ausdruck ist dem [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) sehr ähnlich und hat fast die gleiche Syntax. Der Hauptunterschied zwischen einem `function`-Ausdruck und einer `function`-Deklaration ist der _Funktionsname_, der in `function`-Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erstellen. Ein `function`-Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression) verwendet werden, das sofort nach seiner Definition ausgeführt wird. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
+Ein `function` Ausdruck ist sehr ähnlich zu und hat fast die gleiche Syntax wie eine [`function` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function). Der Hauptunterschied zwischen einem `function` Ausdruck und einer `function` Deklaration ist der _Funktionsname_, der in `function` Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erstellen. Ein `function` Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression) verwendet werden, das ausgeführt wird, sobald es definiert ist. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
 
 ### Hoisting von Function Expressions
 
-Function Expressions in JavaScript werden nicht gehoben (hoisted), im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function#hoisting). Sie können Function Expressions nicht verwenden, bevor Sie diese erstellen:
+Function Expressions in JavaScript werden nicht gehoben, im Gegensatz zu [Function Declarations](/de/docs/Web/JavaScript/Reference/Statements/function#hoisting). Sie können Function Expressions nicht verwenden, bevor Sie diese erstellen:
 
 ```js
 console.log(notHoisted); // undefined
@@ -79,7 +77,7 @@ var notHoisted = function () {
 
 ### Benannte Function Expression
 
-Wenn Sie innerhalb des Funktionskörpers auf die aktuelle Funktion verweisen möchten, müssen Sie eine benannte Function Expression erstellen. Dieser Name ist dann nur lokal im Funktionskörper (Scope). Dies vermeidet die Nutzung der veralteten {{jsxref("Functions/arguments/callee", "arguments.callee")}}-Eigenschaft, um die Funktion rekursiv aufzurufen.
+Wenn Sie sich innerhalb des Funktionskörpers auf die aktuelle Funktion beziehen möchten, müssen Sie eine benannte Function Expression erstellen. Dieser Name ist dann nur lokal für den Funktionskörper (Scope). Dies vermeidet die Verwendung der veralteten {{jsxref("Functions/arguments/callee", "arguments.callee")}} Eigenschaft, um die Funktion rekursiv aufzurufen.
 
 ```js
 const math = {
@@ -95,7 +93,7 @@ const math = {
 math.factorial(3); // 3;2;1;
 ```
 
-Wenn eine Function Expression benannt ist, wird die [`name`-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name) der Funktion auf diesen Namen gesetzt, anstatt auf den impliziten Namen, der durch die Syntax (wie die Variable, der die Funktion zugewiesen ist) abgeleitet wird.
+Wenn eine Function Expression benannt ist, wird die [`name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name) Eigenschaft der Funktion auf diesen Namen gesetzt, anstatt auf den impliziten Namen, der aus der Syntax abgeleitet wird (wie die Variable, der die Funktion zugewiesen ist).
 
 Im Gegensatz zu Deklarationen ist der Name von Function Expressions schreibgeschützt.
 
@@ -114,7 +112,7 @@ console.log(foo); // 1
 
 ## Beispiele
 
-### Verwenden von Function Expression
+### Verwendung von Function Expression
 
 Das folgende Beispiel definiert eine unbenannte Funktion und weist sie `x` zu. Die Funktion gibt das Quadrat ihres Arguments zurück:
 
@@ -126,7 +124,7 @@ const x = function (y) {
 
 ### Verwendung einer Funktion als Callback
 
-Häufiger wird sie als {{Glossary("Callback_function", "Callback")}} verwendet:
+Häufiger wird es als {{Glossary("Callback_function", "Callback")}} verwendet:
 
 ```js
 button.addEventListener("click", function (event) {
@@ -136,7 +134,7 @@ button.addEventListener("click", function (event) {
 
 ### Verwendung einer Immediately Invoked Function Expression (IIFE)
 
-{{Glossary("IIFE", "IIFEs")}} sind ein gängiges Muster, um beliebig viele Anweisungen in ihrem eigenen Scope auszuführen (und möglicherweise einen Wert zurückzugeben), an einem Ort, der einen einzelnen Ausdruck erfordert. Viele traditionelle Anwendungsfälle von IIFEs wurden durch neue Syntaxfunktionen wie [Module](/de/docs/Web/JavaScript/Guide/Modules) und [block-skopierte Deklarationen](/de/docs/Web/JavaScript/Reference/Statements/let) obsolet gemacht. IIFEs selbst werden heute häufiger mit [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) geschrieben, aber die Idee bleibt dieselbe. Im Allgemeinen sehen IIFEs so aus:
+{{Glossary("IIFE", "IIFEs")}} sind ein häufiges Muster, das verwendet wird, um beliebig viele Anweisungen in ihrem eigenen Scope auszuführen (und möglicherweise einen Wert zurückzugeben), an einem Ort, der einen einzelnen Ausdruck erfordert. Viele traditionelle Anwendungsfälle von IIFEs wurden durch neue Syntaxfeatures wie [Module](/de/docs/Web/JavaScript/Guide/Modules) und [block-skopierte Deklarationen](/de/docs/Web/JavaScript/Reference/Statements/let) überflüssig gemacht. IIFEs selbst werden jetzt häufiger mit [Arrow Functions](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) geschrieben, aber die Idee bleibt dieselbe. Im Allgemeinen sehen IIFEs so aus:
 
 ```js
 // standard IIFE
@@ -161,9 +159,9 @@ const value = (() => {
 
 Hier führen wir mehrere Anwendungsfälle mit Beispielen ein.
 
-### Vermeiden der Verschmutzung des globalen Namensraums im Skriptcode
+### Vermeidung der Verschmutzung des globalen Namensraums im Skriptcode
 
-Der oberste Scope aller Skripte wird geteilt, was viele Funktionen und globale Variablen aus verschiedenen Dateien umfassen könnte. Um Namenskonflikte zu vermeiden, ist es wichtig, die Anzahl der global deklarierten Namen zu begrenzen (dies wird in [Modulen](/de/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_classic_scripts) stark gemildert, aber manchmal ist es immer noch nützlich, den Scope temporärer Variablen zu begrenzen, insbesondere wenn die Datei sehr lang ist). Wenn wir etwas Initialisierungscode haben, den wir nicht wiederverwenden müssen, könnten wir das IIFE-Muster verwenden, was besser ist als eine Funktionsdeklaration oder einen Function Expression zu verwenden, da es sicherstellt, dass der Code nur hier und einmalig ausgeführt wird.
+Der oberste Scope aller Skripte wird geteilt, was viele Funktionen und globale Variablen aus verschiedenen Dateien beinhalten könnte. Um Namenskonflikte zu vermeiden, ist es wichtig, die Anzahl der global deklarierten Namen zu beschränken (dies wird stark durch [Module](/de/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_classic_scripts) gemildert, aber manchmal ist es immer noch nützlich, den Scope von temporären Variablen zu begrenzen, besonders wenn die Datei sehr lang ist). Wenn wir Initialisierungscode haben, den wir nicht erneut verwenden müssen, könnten wir das IIFE-Muster verwenden, welches besser ist als eine Function Declaration oder eine Function Expression, da es sicherstellt, dass der Code nur hier und einmal ausgeführt wird.
 
 ```js
 // top-level of a script (not a module)
@@ -178,9 +176,9 @@ var globalVariable = (() => {
 // firstVariable and secondVariable cannot be accessed outside of the function body.
 ```
 
-### Das Modulmuster
+### Das Modul-Muster
 
-Wir würden auch IIFE verwenden, um private und öffentliche Variablen und Methoden zu erstellen. Für eine detailliertere Verwendung des Modulmusters und andere Verwendungen von IIFE können Sie das Buch "Learning JavaScript Design Patterns" von Addy Osmani konsultieren.
+Wir würden auch IIFE verwenden, um private und öffentliche Variablen und Methoden zu erstellen. Für eine ausgefeiltere Verwendung des Modul-Musters und andere Verwendungen von IIFE könnten Sie das Buch "Learning JavaScript Design Patterns" von Addy Osmani sehen.
 
 ```js
 const makeWithdraw = (balance) =>
@@ -213,7 +211,7 @@ console.log(secondAccount.withdraw(20)); // 0
 
 ### For-Schleife mit var vor ES6
 
-Man konnte die folgende Verwendung von IIFE in altem Code sehen, bevor die block-skopierten Deklarationen `let` und `const` eingeführt wurden. Mit der Anweisung `var` haben wir lediglich Funktions-Scope und den globalen Scope. Angenommen, wir möchten zwei Buttons mit den Texten Button 0 und Button 1 erstellen und wenn wir auf sie klicken, möchten wir, dass sie 0 und 1 alarmieren. Der folgende Code funktioniert nicht:
+Wir könnten die folgende Verwendung von IIFE in altem Code sehen, vor der Einführung der block-skopierten `let` und `const` Deklarationen. Mit der Anweisung `var` haben wir nur Funktions-Skopes und den globalen Scope. Angenommen, wir möchten 2 Buttons mit den Texten Button 0 und Button 1 erstellen und wenn wir sie anklicken, sollen sie 0 und 1 anzeigen. Der folgende Code funktioniert nicht:
 
 ```js
 for (var i = 0; i < 2; i++) {
@@ -227,7 +225,7 @@ for (var i = 0; i < 2; i++) {
 console.log(i); // 2
 ```
 
-Bei einem Klick alarmieren sowohl Button 0 als auch Button 1 die Zahl 2, weil `i` global ist, mit dem letzten Wert 2. Um dieses Problem vor ES6 zu beheben, könnten wir das IIFE-Muster verwenden:
+Bei einem Klick zeigen beide Buttons 0 und Button 1 2 an, weil `i` global ist, mit dem letzten Wert 2. Um dieses Problem vor ES6 zu beheben, könnten wir das IIFE-Muster verwenden:
 
 ```js
 for (var i = 0; i < 2; i++) {
@@ -243,7 +241,7 @@ for (var i = 0; i < 2; i++) {
 console.log(i); // 2
 ```
 
-Bei einem Klick alarmieren Buttons 0 und 1 die Werte 0 und 1. Die Variable `i` ist global definiert. Mithilfe der Anweisung `let` könnten wir einfach folgendes tun:
+Bei einem Klick zeigen die Buttons 0 und 1 0 und 1 an. Die Variable `i` ist global definiert. Mit der Anweisung `let` könnten wir einfach tun:
 
 ```js
 for (let i = 0; i < 2; i++) {
@@ -257,7 +255,7 @@ for (let i = 0; i < 2; i++) {
 console.log(i); // Uncaught ReferenceError: i is not defined.
 ```
 
-Bei einem Klick alarmieren diese Buttons die Werte 0 und 1.
+Bei einem Klick zeigen diese Buttons 0 und 1 an.
 
 ### Kontrollflussanweisungen in Ausdruckspositionen
 
@@ -276,7 +274,7 @@ someObject.property = (() => {
 })();
 ```
 
-Diese Vorgehensweise kann insbesondere in Szenarien nützlich sein, in denen Sie eine Variable als `const` deklarieren möchten, aber gezwungen sind, `let` oder `var` während der Initialisierung zu verwenden:
+Dieser Ansatz kann besonders nützlich in Szenarien sein, in denen Sie eine Variable `const` machen möchten, aber gezwungen sind, `let` oder `var` während der Initialisierung zu verwenden:
 
 ```js
 let onlyAssignedOnce;
@@ -287,7 +285,7 @@ try {
 }
 ```
 
-Mit IIFEs können wir die Variable als `const` deklarieren:
+Mit IIFEs können wir die Variable `const` machen:
 
 ```js
 const onlyAssignedOnce = (() => {
@@ -309,7 +307,7 @@ const onlyAssignedOnce = (() => {
 
 ## Siehe auch
 
-- [Leitfaden für Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Statements/function", "function")}}
 - {{jsxref("Function")}}

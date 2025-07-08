@@ -1,13 +1,11 @@
 ---
-title: "Unicode-Zeichenklassenausdrücke: \\p{...}, \\P{...}"
+title: "Unicode-Zeichenklassenflucht: \\p{...}, \\P{...}"
 slug: Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar}}
-
-Ein **Unicode-Zeichenklassenausdruck** ist eine Art von [Zeichenklassenausdruck](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape), der eine Menge von Zeichen basierend auf einer Unicode-Eigenschaft abgleicht. Er wird nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) unterstützt. Wenn das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Flag gesetzt ist, kann es auch verwendet werden, um endliche Zeichenfolgen abzugleichen.
+Ein **Unicode-Zeichenklassenflucht** ist eine Art von [Zeichenklassenflucht](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape), die eine Menge von Zeichen, die durch eine Unicode-Eigenschaft spezifiziert sind, abgleicht. Sie wird nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) unterstützt. Wenn das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Flag aktiviert ist, kann sie auch zum Abgleichen endlicher Zeichenfolgen verwendet werden.
 
 {{InteractiveExample("JavaScript Demo: Regex Unicode character class escape", "taller")}}
 
@@ -40,39 +38,38 @@ console.log(sentence.match(regexpCurrencyOrPunctuation));
 ### Parameter
 
 - `loneProperty`
-
-  - : Ein alleinstehender Unicode-Eigenschaftenname oder Wert, der der gleichen Syntax wie `value` folgt. Er gibt den Wert für die `General_Category`-Eigenschaft oder einen [binären Eigenschaftennamen](https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties) an. Im [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Modus kann es auch eine [binäre Unicode-Eigenschaft von Zeichenfolgen](https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties-of-strings) sein.
+  - : Ein alleinstehender Unicode-Eigenschaftsname oder -wert, der derselben Syntax wie `value` folgt. Er spezifiziert den Wert für die `General_Category`-Eigenschaft oder einen [binären Eigenschaftsnamen](https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties). Im [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Modus kann er auch eine [binäre Unicode-Eigenschaft von Zeichenfolgen](https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties-of-strings) sein.
 
     > [!NOTE]
-    > Die [ICU](https://unicode-org.github.io/icu/userguide/strings/unicodeset.html#property-values) Syntax erlaubt es, den `Script` Eigenschaftsnamen ebenfalls wegzulassen, aber JavaScript unterstützt dies nicht, da `Script_Extensions` meistens nützlicher ist als `Script`.
+    > Die [ICU](https://unicode-org.github.io/icu/userguide/strings/unicodeset.html#property-values) Syntax erlaubt es auch, den `Script` Eigenschaftsnamen wegzulassen, jedoch unterstützt JavaScript dies nicht, da meistens `Script_Extensions` nützlicher ist als `Script`.
 
 - `property`
-  - : Ein Unicode-Eigenschaftenname. Muss aus {{Glossary("ASCII", "ASCII")}} Buchstaben (`A–Z`, `a–z`) und Unterstrichen (`_`) bestehen und muss einer der [nicht-binären Eigenschaftsnamen](https://tc39.es/ecma262/multipage/text-processing.html#table-nonbinary-unicode-properties) sein.
+  - : Ein Unicode-Eigenschaftsname. Er muss aus {{Glossary("ASCII", "ASCII")}}-Buchstaben (`A–Z`, `a–z`) und Unterstrichen (`_`) bestehen und einer der [nicht-binären Eigenschaftsnamen](https://tc39.es/ecma262/multipage/text-processing.html#table-nonbinary-unicode-properties) sein.
 - `value`
-  - : Ein Unicode-Eigenschaftenwert. Muss aus ASCII-Buchstaben (`A–Z`, `a–z`), Unterstrichen (`_`) und Ziffern (`0–9`) bestehen und muss einer der unterstützten Werte sein, die in [`PropertyValueAliases.txt`](https://unicode.org/Public/UCD/latest/ucd/PropertyValueAliases.txt) aufgelistet sind.
+  - : Ein Unicode-Eigenschaftswert. Er muss aus ASCII-Buchstaben (`A–Z`, `a–z`), Unterstrichen (`_`) und Ziffern (`0–9`) bestehen und muss einer der unterstützten Werte sein, die in [`PropertyValueAliases.txt`](https://unicode.org/Public/UCD/latest/ucd/PropertyValueAliases.txt) aufgeführt sind.
 
 ## Beschreibung
 
-`\p` und `\P` werden nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) unterstützt. Im Unicode-unbewussten Modus sind sie [Identitätseigenschaften](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für den `p` oder `P` Buchstaben.
+`\p` und `\P` werden nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) unterstützt. Im Unicode-unbewussten Modus sind sie [Identitätsfluchten](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für das `p` oder `P` Zeichen.
 
-Jedes Unicode-Zeichen hat eine Reihe von Eigenschaften, die es beschreiben. Zum Beispiel hat das Zeichen [`a`](https://util.unicode.org/UnicodeJsps/character.jsp?a=0061) die Eigenschaft `General_Category` mit dem Wert `Lowercase_Letter` und die Eigenschaft `Script` mit dem Wert `Latn`. Die `\p` und `\P` Ausdruckssequenzen erlauben es Ihnen, ein Zeichen basierend auf seinen Eigenschaften abzugleichen. Zum Beispiel kann `a` durch `\p{Lowercase_Letter}` (der `General_Category` Eigenschaftsname ist optional) sowie `\p{Script=Latn}` abgeglichen werden. `\P` erstellt eine _Komplementärklasse_, die aus Codepunkten ohne die angegebene Eigenschaft besteht.
+Jedes Unicode-Zeichen hat eine Reihe von Eigenschaften, die es beschreiben. Zum Beispiel hat das Zeichen [`a`](https://util.unicode.org/UnicodeJsps/character.jsp?a=0061) die `General_Category`-Eigenschaft mit dem Wert `Lowercase_Letter` und die `Script`-Eigenschaft mit dem Wert `Latn`. Die Escape-Sequenzen `\p` und `\P` erlauben es Ihnen, ein Zeichen basierend auf seinen Eigenschaften abzugleichen. Zum Beispiel kann `a` durch `\p{Lowercase_Letter}` abgeglichen werden (der `General_Category`-Eigenschaftsname ist optional) sowie durch `\p{Script=Latn}`. `\P` erstellt eine _Komplementklasse_, die aus Codepunkten ohne die angegebene Eigenschaft besteht.
 
-Wenn das [`i`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Flag gesetzt ist, werden `\P` Zeichenklassen in `u` und `v` Modi leicht unterschiedlich behandelt. Im `u` Modus erfolgt das Case-Folding nach der Subtraktion; im `v` Modus erfolgt das Case-Folding vor der Subtraktion. Im Konkreten bedeutet das, dass `\P{property}` im `u` Modus `caseFold(allCharacters - charactersWithProperty)` entspricht. Das bedeutet `/\P{Lowercase_Letter}/iu` passt weiterhin zu `"a"`, weil `A` kein `Lowercase_Letter` ist. Im `v` Modus entspricht `\P{property}` `caseFold(allCharacters) - caseFold(charactersWithProperty)`. Das bedeutet `/\P{Lowercase_Letter}/iv` passt nicht zu `"a"`, weil `A` nicht einmal in der Menge aller case-gefoldeten Unicode-Zeichen ist. Siehe auch [Komplementärklassen und case-insensitives Matching](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#complement_classes_and_case-insensitive_matching).
+Wenn das [`i`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Flag gesetzt ist, werden `\P` Zeichenklassen in den `u` und `v` Modi leicht unterschiedlich behandelt. Im `u` Modus erfolgt das Case-Folding nach der Subtraktion; im `v` Modus erfolgt das Case-Folding vor der Subtraktion. Konkret bedeutet das, dass im `u` Modus `\P{property}` `caseFold(allCharacters - charactersWithProperty)` abgleicht. Das bedeutet, `/\P{Lowercase_Letter}/iu` trifft immer noch auf `"a"`, da `A` kein `Lowercase_Letter` ist. Im `v` Modus stimmt `\P{property}` mit `caseFold(allCharacters) - caseFold(charactersWithProperty)` überein. Das bedeutet, `/\P{Lowercase_Letter}/iv` trifft nicht auf `"a"`, da `A` nicht einmal in der Menge aller case-gefalteten Unicode-Zeichen enthalten ist. Siehe auch [Komplementklassen und nicht unterscheidende Übereinstimmung](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#complement_classes_and_case-insensitive_matching).
 
-Um mehrere Eigenschaften zu kombinieren, verwenden Sie die [Zeichensatzschnittmenge](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) Syntax, die mit dem `v` Flag aktiviert wird, oder sehen Sie sich [Muster-Subtraktion und Schnittmenge](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion#pattern_subtraction_and_intersection) an.
+Um mehrere Eigenschaften zu kombinieren, verwenden Sie die durch das `v` Flag aktivierte [Zeichenmengen-Schnittmennensyntax](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) oder sehen Sie sich [Musterabzug und Schnittmengen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion#pattern_subtraction_and_intersection) an.
 
-Im `v` Modus kann `\p` eine Sequenz von Codepunkten abgleichen, die in Unicode als "Eigenschaften von Zeichenfolgen" definiert ist. Dies ist besonders nützlich für Emojis, die oft aus mehreren Codepunkten bestehen. Allerdings kann `\P` nur Zeicheneigenschaften ergänzen.
+Im `v` Modus kann `\p` eine Sequenz von Codepunkten abgleichen, die in Unicode als "Eigenschaften von Zeichenfolgen" definiert sind. Dies ist am nützlichsten für Emojis, die oft aus mehreren Codepunkten bestehen. `\P` kann jedoch nur Zeicheneigenschaften komplementieren.
 
 > [!NOTE]
-> Es gibt Pläne, die Eigenschaften von Zeichenfolgen auf den `u` Modus zu portieren.
+> Es gibt Pläne, das Feature der Eigenschaften von Zeichenfolgen auch auf den `u` Modus zu portieren.
 
 ## Beispiele
 
 ### Allgemeine Kategorien
 
-Allgemeine Kategorien werden benutzt, um Unicode-Zeichen zu klassifizieren, und Unterkategorien sind verfügbar, um eine präzisere Kategorisierung zu definieren. Es ist möglich, sowohl kurze als auch lange Formen in Unicode-Eigenschaftsausdrücken zu verwenden.
+Allgemeine Kategorien werden verwendet, um Unicode-Zeichen zu klassifizieren, und es gibt Unterkategorien, die eine genauere Kategorisierung ermöglichen. Es ist möglich, sowohl Kurz- als auch Langformen in Unicode-Eigenschaftsfluchten zu verwenden.
 
-Sie können verwendet werden, um Buchstaben, Zahlen, Symbole, Satzzeichen, Leerzeichen usw. abzugleichen. Für eine umfassendere Liste allgemeiner Kategorien, konsultieren Sie bitte [die Unicode-Spezifikation](https://unicode.org/reports/tr18/#General_Category_Property).
+Sie können verwendet werden, um Buchstaben, Zahlen, Symbole, Satzzeichen, Leerzeichen usw. abzugleichen. Für eine ausführlichere Liste der allgemeinen Kategorien konsultieren Sie bitte die [Unicode-Spezifikation](https://unicode.org/reports/tr18/#General_Category_Property).
 
 ```js
 // finding all the letters of a text
@@ -91,11 +88,11 @@ story.match(/\p{L}/gu);
 story.match(/\p{Lu}|\p{Ll}|\p{Lt}|\p{Lm}|\p{Lo}/gu);
 ```
 
-### Skripte und Skripterweiterungen
+### Schriftsysteme und Erweiterungen von Schriftsystemen
 
-Einige Sprachen verwenden unterschiedliche Schriftensysteme für ihr Schriftsystem. Beispielsweise werden Englisch und Spanisch mit dem lateinischen Schriftsystem geschrieben, während Arabisch und Russisch mit anderen Schriftsystemen (jeweils Arabisch und Kyrillisch) geschrieben werden. Die Unicode-Eigenschaften `Script` und `Script_Extensions` ermöglichen regulären Ausdrücken, Zeichen entsprechend des Schriftsystems abzugleichen, mit dem sie hauptsächlich verwendet werden (`Script`), oder entsprechend der Gruppe der Schriftsysteme, zu denen sie gehören (`Script_Extensions`).
+Einige Sprachen verwenden unterschiedliche Schriftsysteme für ihre Schrift. Zum Beispiel werden Englisch und Spanisch mit dem lateinischen Schriftsystem geschrieben, während Arabisch und Russisch mit anderen Schriftsystemen (jeweils Arabisch und Kyrillisch) geschrieben werden. Die Unicode-Eigenschaften `Script` und `Script_Extensions` ermöglichen es regulären Ausdrücken, Zeichen je nach dem Schriftsystem, mit dem sie hauptsächlich verwendet werden (`Script`), oder dem Satz von Schriftsystemen, zu dem sie gehören (`Script_Extensions`), abzugleichen.
 
-Zum Beispiel gehört `A` zum `Latin` Schriftsystem und `ε` zum `Greek` Schriftsystem.
+Zum Beispiel gehört `A` zum `Lateinischen` Schriftsystem und `ε` zum `Griechischen` Schriftsystem.
 
 ```js
 const mixedCharacters = "aεЛ";
@@ -110,9 +107,9 @@ mixedCharacters.match(/\p{Script=Grek}/u); // ε
 mixedCharacters.match(/\p{sc=Cyrillic}/u); // Л
 ```
 
-Für weitere Details siehe [die Unicode-Spezifikation](https://unicode.org/reports/tr24/#Script), die [Skripttabelle in der ECMAScript-Spezifikation](https://tc39.es/ecma262/multipage/text-processing.html#table-unicode-script-values), und die [ISO 15924 Liste der Schriftsystem-Codes](https://unicode.org/iso15924/iso15924-codes.html).
+Für weitere Details konsultieren Sie bitte die [Unicode-Spezifikation](https://unicode.org/reports/tr24/#Script), die [Tabelle der Schriftsysteme in der ECMAScript-Spezifikation](https://tc39.es/ecma262/multipage/text-processing.html#table-unicode-script-values) und die [ISO 15924 Liste der Schriftsystem-Codes](https://unicode.org/iso15924/iso15924-codes.html).
 
-Wenn ein Zeichen in einem begrenzten Satz von Schriftsystemen verwendet wird, wird die `Script` Eigenschaft nur für das "überwiegende" Schriftsystem abgleichen. Möchten wir Zeichen basierend auf einem "nicht überwiegenden" Schriftsystem abgleichen, könnten wir die `Script_Extensions` Eigenschaft (`Scx` als Abkürzung) verwenden.
+Wenn ein Zeichen in einem begrenzten Satz von Schriftsystemen verwendet wird, stimmt die `Script`-Eigenschaft nur für das "vorherrschend" verwendete Schriftsystem überein. Wenn wir Zeichen basierend auf einem "nicht vorherrschenden" Schriftsystem abgleichen möchten, könnten wir die `Script_Extensions`-Eigenschaft (`Scx` als Kurzform) verwenden.
 
 ```js
 // ٢ is the digit 2 in Arabic-Indic notation
@@ -126,11 +123,11 @@ Wenn ein Zeichen in einem begrenzten Satz von Schriftsystemen verwendet wird, wi
 // ["٢", index: 0, input: "٢", groups: undefined]
 ```
 
-### Unicode-Eigenschaftsausdrücke vs. Zeichenklassen
+### Unicode-Eigenschaftsfluchten vs. Zeichenklassen
 
-Mit JavaScript-Regulärausdrücken ist es auch möglich [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) und besonders `\w` oder `\d` zu verwenden, um Buchstaben oder Ziffern abzugleichen. Solche Formen passen jedoch nur zu Zeichen aus dem _Latin_ Skript (mit anderen Worten, `a` bis `z` und `A` bis `Z` für `\w` und `0` bis `9` für `\d`). Wie in [diesem Beispiel](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes#looking_for_a_word_from_unicode_characters) gezeigt wird, könnte es etwas umständlich sein, mit nicht-lateinischen Texten zu arbeiten.
+Mit regulären JavaScript-Ausdrücken ist es auch möglich, [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) zu verwenden, insbesondere `\w` oder `\d`, um Buchstaben oder Ziffern abzugleichen. Solche Formen stimmen jedoch nur mit Zeichen aus dem _Lateinischen_ Schriftsystem überein (mit anderen Worten, `a` bis `z` und `A` bis `Z` für `\w` und `0` bis `9` für `\d`). Wie in [diesem Beispiel](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes#looking_for_a_word_from_unicode_characters) gezeigt, kann es etwas umständlich sein, mit nicht-lateinischen Texten zu arbeiten.
 
-Unicode-Eigenschaftsescapes umfassen viel mehr Zeichen und `\p{Letter}` oder `\p{Number}` funktionieren für jedes Schriftsystem.
+Unicode-Eigenschaftsfluchten decken viel mehr Zeichen ab, und `\p{Letter}` oder `\p{Number}` funktionieren für jedes Schriftsystem.
 
 ```js
 // Trying to use ranges to avoid \w limitations:
@@ -169,7 +166,7 @@ console.log(getPrices(str2)); // ["$19.99", "€18.99", "¥2000"]
 
 ### Zeichenfolgen abgleichen
 
-Mit dem `v` Flag kann `\p{…}` Zeichenfolgen abgleichen, die potenziell länger als ein Zeichen sind, indem eine Eigenschaft von Zeichenfolgen verwendet wird:
+Mit dem `v` Flag kann `\p{…}` Zeichenfolgen abgleichen, die potenziell länger sind als ein Zeichen, indem eine Eigenschaft von Zeichenfolgen verwendet wird:
 
 ```js
 const flag = "🇺🇳";
@@ -177,7 +174,7 @@ console.log(flag.length); // 2
 console.log(/\p{RGI_Emoji_Flag_Sequence}/v.exec(flag)); // [ '🇺🇳' ]
 ```
 
-Sie können jedoch nicht `\P` verwenden, um "eine Zeichenfolge, die keine Eigenschaft hat" abzugleichen, da unklar ist, wie viele Zeichen konsumiert werden sollten.
+Es ist jedoch nicht möglich, mit `\P` buchstäblich "eine Zeichenfolge, die keine Eigenschaft hat" abzugleichen, da unklar ist, wie viele Zeichen konsumiert werden sollen.
 
 ```js-nolint example-bad
 /\P{RGI_Emoji_Flag_Sequence}/v; // SyntaxError: Invalid regular expression: Invalid property name
@@ -196,11 +193,11 @@ Sie können jedoch nicht `\P` verwenden, um "eine Zeichenfolge, die keine Eigens
 - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Zeichenklassenausdruck: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
-- [Zeichenescape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Zeichenklassenflucht: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Zeichenflucht: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Disjunktion: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
 - [Unicode-Zeicheneigenschaft](https://en.wikipedia.org/wiki/Unicode_character_property) auf Wikipedia
-- [ES2018: RegExp Unicode property escapes](https://2ality.com/2017/07/regexp-unicode-property-escapes.html) von Dr. Axel Rauschmayer (2017)
+- [ES2018: RegExp Unicode-Eigenschaftsfluchten](https://2ality.com/2017/07/regexp-unicode-property-escapes.html) von Dr. Axel Rauschmayer (2017)
 - [Unicode reguläre Ausdrücke § Eigenschaften](https://unicode.org/reports/tr18/#Categories)
 - [Unicode Utilities: UnicodeSet](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp)
-- [RegExp v Flag mit Set-Notation und Eigenschaften von Zeichenfolgen](https://v8.dev/features/regexp-v-flag) auf v8.dev (2022)
+- [RegExp v Flag mit Mengenotation und Eigenschaften von Zeichenfolgen](https://v8.dev/features/regexp-v-flag) auf v8.dev (2022)

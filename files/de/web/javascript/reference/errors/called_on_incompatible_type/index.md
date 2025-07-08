@@ -1,13 +1,11 @@
 ---
-title: "TypeError: X.prototype.y wurde auf inkompatiblen Typ aufgerufen"
+title: "TypeError: X.prototype.y wurde auf einem inkompatiblen Typ aufgerufen"
 slug: Web/JavaScript/Reference/Errors/Called_on_incompatible_type
 l10n:
-  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "called on incompatible target (or object)" tritt auf, wenn eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen wird, das nicht dem Typ entspricht, der von der Funktion erwartet wird.
+Der JavaScript-Fehler "called on incompatible target (or object)" tritt auf, wenn eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen wird, das nicht dem von der Funktion erwarteten Typ entspricht.
 
 ## Nachricht
 
@@ -25,17 +23,17 @@ TypeError: Type error (Safari)
 TypeError: undefined is not an object (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("TypeError")}}
 
 ## Was ist schiefgelaufen?
 
-Wenn dieser Fehler auftritt, wird eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen, das nicht dem erwarteten Typ der Funktion entspricht.
+Wenn dieser Fehler ausgelöst wird, wird eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen, das nicht dem von der Funktion erwarteten Typ entspricht.
 
-Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und ein `this`-Argument bereitgestellt wird, das nicht den erwarteten Typ hat.
+Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und ein `this`-Argument angegeben wird, das nicht den erwarteten Typ hat.
 
-Das Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall ist das Objekt, das die Funktion speichert, nicht das `this`-Ziel dieser Funktion, wenn sie von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder die Callback-Funktion in eine andere Funktion einbetten oder die Methode {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt zu erzwingen.
+Dieses Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall wird das Objekt, das die Funktion speichert, nicht das `this`-Ziel dieser Funktion sein, wenn sie von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder die Rückruffunktion in eine andere Funktion einbetten oder die Methode {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt zu erzwingen.
 
 ## Beispiele
 

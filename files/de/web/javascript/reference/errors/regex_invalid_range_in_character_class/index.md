@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: ungültiger Bereich in Zeichenklasse"
+title: "SyntaxError: ungültiger Bereich in Zeichensatz"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_range_in_character_class
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Fehler "ungültiger Bereich in Zeichenklasse" tritt auf, wenn eine [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) in einem regulären Ausdruck einen Bereich verwendet, bei dem der Start des Bereichs größer als das Ende ist.
+Der JavaScript-Ausnahmefehler "ungültiger Bereich in Zeichensatz" tritt auf, wenn eine [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) in einem regulären Ausdruck einen Bereich verwendet, bei dem der Anfang des Bereichs größer ist als das Ende.
 
 ## Meldung
 
@@ -17,13 +15,13 @@ SyntaxError: invalid range in character class (Firefox)
 SyntaxError: Invalid regular expression: range out of order in character class (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-In Zeichenklassen können Sie zwei Zeichen mit einem Bindestrich `-` verbinden, um ein inklusives Intervall von Zeichen basierend auf ihren Unicode-Codepunkten darzustellen. Zum Beispiel, `[a-z]` entspricht jedem Kleinbuchstaben. Wenn jedoch das Ende des Bereichs kleiner als der Start ist, kann der Bereich nichts entsprechen und ist wahrscheinlich ein Fehler.
+In Zeichenklassen können Sie zwei Zeichen mit einem Bindestrich `-` verbinden, um ein inklusives Intervall von Zeichen basierend auf ihren Unicode-Codepunkten darzustellen. Zum Beispiel, `[a-z]` entspricht jedem Kleinbuchstaben. Wenn jedoch das Ende des Bereichs kleiner als der Anfang ist, kann der Bereich nichts übereinstimmen und ist wahrscheinlich ein Fehler.
 
 ## Beispiele
 

@@ -2,12 +2,10 @@
 title: undefined
 slug: Web/JavaScript/Reference/Global_Objects/undefined
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Objects")}}
-
-Die **`undefined`** globale Eigenschaft repräsentiert den primitiven Wert [`undefined`](/de/docs/Web/JavaScript/Guide/Data_structures#undefined_type). Es ist einer der {{Glossary("Primitive", "primitiven Datentypen")}} von JavaScript.
+Die **`undefined`** globale Eigenschaft repräsentiert den primitiven Wert [`undefined`](/de/docs/Web/JavaScript/Guide/Data_structures#undefined_type). Es ist einer von JavaScripts {{Glossary("Primitive", "primitiven Typen")}}.
 
 {{InteractiveExample("JavaScript Demo: undefined")}}
 
@@ -33,17 +31,17 @@ Der primitive Wert [`undefined`](/de/docs/Web/JavaScript/Guide/Data_structures#u
 
 ## Beschreibung
 
-`undefined` ist eine Eigenschaft des _globalen Objekts_. Das bedeutet, dass es eine Variable im globalen Gültigkeitsbereich ist.
+`undefined` ist eine Eigenschaft des _globalen Objekts_. Das bedeutet, es ist eine Variable im globalen Bereich.
 
-In allen nicht-veralteten Browsern ist `undefined` eine nicht-konfigurierbare, nicht-beschreibbare Eigenschaft. Selbst wenn dies nicht der Fall ist, sollte eine Überschreibung vermieden werden.
+In allen nicht veralteten Browsern ist `undefined` eine nicht konfigurierbare, nicht beschreibbare Eigenschaft. Auch wenn dies nicht der Fall ist, vermeiden Sie, es zu überschreiben.
 
-Eine Variable, der kein Wert zugewiesen wurde, hat den Typ `undefined`. Eine Methode oder Anweisung gibt ebenfalls `undefined` zurück, wenn die Variable, die ausgewertet wird, keinen zugewiesenen Wert hat. Eine Funktion gibt `undefined` zurück, wenn kein Wert {{jsxref("Statements/return", "zurückgegeben")}} wurde.
+Eine Variable, der kein Wert zugewiesen wurde, hat den Typ `undefined`. Eine Methode oder Anweisung gibt ebenfalls `undefined` zurück, wenn der ausgewerteten Variable kein Wert zugewiesen wurde. Eine Funktion gibt `undefined` zurück, wenn kein Wert {{jsxref("Statements/return", "zurückgegeben")}} wurde.
 
 > [!NOTE]
-> Obwohl Sie `undefined` als {{Glossary("identifier", "Bezeichner")}} (Variablenname) in jedem Bereich außer dem globalen Bereich (weil `undefined` kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist) verwenden können, ist dies eine sehr schlechte Idee, die Ihren Code schwer wartbar und zu debuggen macht.
+> Auch wenn Sie `undefined` als {{Glossary("identifier", "Bezeichner")}} (Variablenname) in jedem Bereich außer dem globalen Bereich verwenden können (weil `undefined` kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist), ist dies eine sehr schlechte Idee, die Ihren Code schwer wartbar und fehleranfällig macht.
 >
 > ```js example-bad
-> // MACHEN SIE DAS NICHT
+> // TUN SIE DAS NICHT
 >
 > (() => {
 >   const undefined = "foo";
@@ -59,7 +57,7 @@ Eine Variable, der kein Wert zugewiesen wurde, hat den Typ `undefined`. Eine Met
 
 ### Strikte Gleichheit und undefined
 
-Sie können `undefined` und die strikten Gleichheits- und Ungleichheitsoperatoren verwenden, um festzustellen, ob eine Variable einen Wert hat. Im folgenden Code ist die Variable `x` nicht initialisiert, und die `if`-Anweisung wertet zu wahr aus.
+Sie können `undefined` und die strikten Gleichheits- und Ungleichheitsoperatoren verwenden, um festzustellen, ob eine Variable einen Wert hat. Im folgenden Code ist die Variable `x` nicht initialisiert, und die `if`-Anweisung wird als wahr ausgewertet.
 
 ```js
 let x;
@@ -71,15 +69,11 @@ if (x === undefined) {
 ```
 
 > [!NOTE]
-> Der _strikte Gleichheitsoperator_ (im Gegensatz zum
-> _standardmäßigen Gleichheitsoperator_) muss hier verwendet werden, da
-> `x == undefined` auch prüft, ob `x` `null` ist,
-> während strikte Gleichheit das nicht tut. Dies liegt daran, dass `null` nicht gleich
-> `undefined` ist.
+> Hier muss der _strikte Gleichheits_ Operator (im Gegensatz zum _standardmäßigen Gleichheits_ Operator) verwendet werden, da `x == undefined` auch überprüft, ob `x` `null` ist, während die strikte Gleichheit dies nicht tut. Dies liegt daran, dass `null` nicht gleich `undefined` ist.
 >
-> Siehe [Gleichheitsvergleiche und Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness) für Details.
+> Siehe [Vergleich und Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness) für Details.
 
-### typeof-Operator und undefined
+### typeof Operator und undefined
 
 Alternativ kann {{jsxref("Operators/typeof", "typeof")}} verwendet werden:
 
@@ -90,8 +84,7 @@ if (typeof x === "undefined") {
 }
 ```
 
-Ein Grund, {{jsxref("Operators/typeof", "typeof")}} zu verwenden, ist, dass es keinen
-Fehler auslöst, wenn die Variable nicht deklariert wurde.
+Ein Grund, {{jsxref("Operators/typeof", "typeof")}} zu verwenden, ist, dass es keinen Fehler auslöst, wenn die Variable nicht deklariert wurde.
 
 ```js
 // x has not been declared before
@@ -105,9 +98,9 @@ if (x === undefined) {
 }
 ```
 
-Es gibt jedoch eine weitere Alternative. JavaScript ist eine statisch gescoptete Sprache, daher kann festgestellt werden, ob eine Variable deklariert ist, indem geprüft wird, ob sie in einem umgebenden Kontext deklariert ist.
+Es gibt jedoch eine andere Alternative. JavaScript ist eine statisch gescoped Sprache, daher kann festgestellt werden, ob eine Variable deklariert ist, indem geprüft wird, ob sie in einem umgebenden Kontext deklariert ist.
 
-Der globale Gültigkeitsbereich ist an das {{jsxref("globalThis", "globale Objekt", "", 1)}} gebunden, daher kann die Existenz einer Variablen im globalen Kontext überprüft werden, indem das Vorhandensein einer Eigenschaft am _globalen Objekt_ mit dem {{jsxref("Operators/in", "in")}}-Operator überprüft wird, zum Beispiel:
+Der globale Bereich ist an das {{jsxref("globalThis", "globale Objekt", "", 1)}} gebunden, daher kann die Existenz einer Variablen im globalen Kontext durch Überprüfen der Existenz einer Eigenschaft auf dem _globalen Objekt_ mit dem {{jsxref("Operators/in", "in")}} Operator festgestellt werden, zum Beispiel:
 
 ```js
 if ("x" in window) {
@@ -115,9 +108,9 @@ if ("x" in window) {
 }
 ```
 
-### void-Operator und undefined
+### void Operator und undefined
 
-Der {{jsxref("Operators/void", "void")}}-Operator ist eine dritte Alternative.
+Der {{jsxref("Operators/void", "void")}} Operator ist eine dritte Alternative.
 
 ```js
 let x;
@@ -141,5 +134,5 @@ if (y === void 0) {
 
 ## Siehe auch
 
-- [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures)
+- [JavaScript Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures)
 - [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)

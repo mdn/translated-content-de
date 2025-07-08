@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: parameter nach Rest-Parameter"
+title: "SyntaxError: Parameter nach Rest-Parameter"
 slug: Web/JavaScript/Reference/Errors/Parameter_after_rest_parameter
 l10n:
-  sourceCommit: 38bd4d88564b9a1539fb4d1b4ba6fa04b0a10063
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Ausnahmefehler "parameter after rest parameter" tritt auf, wenn ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) in einer Parameterliste von etwas anderem gefolgt wird, einschließlich eines weiteren Rest-Parameters, eines formalen Parameters oder eines [nachgestellten Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas).
+Der JavaScript-Ausnahmefehler "Parameter after rest parameter" tritt auf, wenn ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) in einer Parameterliste von etwas anderem gefolgt wird, einschließlich eines weiteren Rest-Parameters, eines formalen Parameters oder eines [nachgestellten Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas).
 
 ## Meldung
 
@@ -21,9 +19,9 @@ SyntaxError: Unexpected token ','. Rest parameter should be the last parameter i
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Ein Rest-Parameter muss der letzte Parameter in einer Funktionsdefinition sein. Dies liegt daran, dass der Rest-Parameter alle verbleibenden Argumente sammelt, die an die Funktion übergeben werden. Daher macht es keinen Sinn, weitere Parameter nach ihm zu haben. Das nächste Nicht-Leerzeichen-Zeichen muss die schließende Klammer der Parameterliste sein.
+Ein Rest-Parameter muss der letzte Parameter in einer Funktionsdefinition sein. Dies liegt daran, dass der Rest-Parameter alle verbleibenden Argumente, die an die Funktion übergeben werden, sammelt, sodass es keinen Sinn ergibt, danach noch weitere Parameter zu haben. Das nächste Nicht-Leerzeichen-Zeichen muss die schließende Klammer der Parameterliste sein.
 
 ## Beispiele
 

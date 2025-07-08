@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: Der Property-Name __proto__ erscheint mehr als einmal im Objektliteral"
+title: "SyntaxError: Property-Name __proto__ erscheint mehr als einmal im Objektliteral"
 slug: Web/JavaScript/Reference/Errors/Duplicate_proto
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Fehler "property name \_\_proto\_\_ appears more than once in object literal" tritt auf, wenn ein [Objektliteral](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) mehrfach das `__proto__`-Feld enthält, das verwendet wird, um [das Prototyp des neuen Objekts festzulegen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter).
+Der JavaScript-Ausnahmefehler "property name \_\_proto\_\_ appears more than once in object literal" tritt auf, wenn ein [Objektliteral](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) mehrfach das Feld `__proto__` enthält, das verwendet wird, um [das Prototyp-Objekt dieses neuen Objekts festzulegen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter).
 
 ## Meldung
 
@@ -23,9 +21,9 @@ SyntaxError: Attempted to redefine __proto__ property. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Der Schlüssel `__proto__`, im Gegensatz zu anderen Eigenschafts-Schlüsseln, ist eine spezielle Syntax in einem Objektliteral. Er wird verwendet, um den Prototyp des erstellten Objekts festzulegen und darf nicht mehr als einmal in einem Objektliteral erscheinen. Beachten Sie, dass diese Einschränkung nur auf die `__proto__` Prototyp-Setter-Syntax zutrifft: wenn es tatsächlich die Wirkung hat, eine Eigenschaft namens `__proto__` zu erstellen, dann kann es mehrmals erscheinen. Siehe [Prototyp-Setter](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) für die genauen Syntaxbeschränkungen.
+Der Schlüssel `__proto__` ist im Gegensatz zu anderen Eigenschaftsschlüsseln eine spezielle Syntax in einem Objektliteral. Er wird verwendet, um das Prototyp-Objekt des erstellten Objekts festzulegen und darf in einem Objektliteral nicht mehr als einmal erscheinen. Beachten Sie, dass diese Einschränkung nur für die `__proto__`-Prototyp-Setter-Syntax gilt: Wenn sie tatsächlich die Wirkung hat, eine Eigenschaft mit dem Namen `__proto__` zu erstellen, kann sie mehrfach auftreten. Siehe [Prototyp-Setter](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) für die genauen Syntax-Einschränkungen.
 
-Es ist erwähnenswert, dass der `__proto__` Schlüssel in Objektliteralen eine spezielle Syntax ist und nicht veraltet ist, im Gegensatz zur [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Accessor-Eigenschaft.
+Beachtenswert ist, dass der Schlüssel `__proto__` in Objektliteralen eine spezielle Syntax ist und im Gegensatz zur [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)-Zugriffseigenschaft nicht veraltet ist.
 
 ## Beispiele
 
@@ -57,4 +55,4 @@ const obj2 = {
 ## Siehe auch
 
 - [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
-- [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+- [Vererbung und die Prototyp-Kette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)

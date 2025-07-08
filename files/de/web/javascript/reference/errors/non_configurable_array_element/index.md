@@ -1,15 +1,13 @@
 ---
-title: "TypeError: can't delete non-configurable array element"
+title: "TypeError: can’t delete non-configurable array element"
 slug: Web/JavaScript/Reference/Errors/Non_configurable_array_element
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "can't delete non-configurable array element" tritt auf, wenn versucht wurde, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Array-Elemente ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties).
 
-Die JavaScript-Ausnahme "can't delete non-configurable array element" tritt auf, wenn versucht wurde, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Elemente des Arrays ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties).
-
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: Cannot delete property '1' of [object Array] (V8-based)
@@ -21,19 +19,19 @@ TypeError: Unable to delete property. (Safari)
 
 {{jsxref("TypeError")}}
 
-## Was ist schiefgelaufen?
+## Was ging schief?
 
-Es wurde versucht, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Elemente des Arrays ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties). Beim Verkürzen eines Arrays werden die Elemente, die über die neue Array-Länge hinausgehen, gelöscht, was in diesem Fall fehlschlug.
+Es wurde versucht, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Array-Elemente ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties). Beim Kürzen eines Arrays werden die Elemente jenseits der neuen Array-Länge gelöscht, was in dieser Situation fehlgeschlagen ist.
 
-Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können.
+Das Attribut `configurable` kontrolliert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können.
 
-Normalerweise sind Eigenschaften in einem durch einen [Array-Initializer](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) erstellten Objekt konfigurierbar. Wenn jedoch zum Beispiel {{jsxref("Object.defineProperty()")}} verwendet wird, ist die Eigenschaft standardmäßig nicht konfigurierbar.
+Normalerweise sind Eigenschaften in einem durch einen [Array-Initializer](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) erstellten Objekt konfigurierbar. Wenn jedoch beispielsweise {{jsxref("Object.defineProperty()")}} verwendet wird, ist die Eigenschaft standardmäßig nicht konfigurierbar.
 
 ## Beispiele
 
 ### Nicht konfigurierbare Eigenschaften, die durch Object.defineProperty erstellt wurden
 
-Die {{jsxref("Object.defineProperty()")}} erstellt standardmäßig nicht konfigurierbare Eigenschaften, wenn Sie sie nicht als konfigurierbar angegeben haben.
+Die {{jsxref("Object.defineProperty()")}}-Methode erstellt standardmäßig nicht konfigurierbare Eigenschaften, wenn Sie sie nicht als konfigurierbar spezifiziert haben.
 
 ```js example-bad
 "use strict";
@@ -58,7 +56,7 @@ arr.length = 1;
 
 ### Versiegelte Arrays
 
-Die Funktion {{jsxref("Object.seal()")}} markiert alle vorhandenen Elemente als nicht konfigurierbar.
+Die Funktion {{jsxref("Object.seal()")}} kennzeichnet alle vorhandenen Elemente als nicht konfigurierbar.
 
 ```js example-bad
 "use strict";
@@ -69,7 +67,7 @@ arr.length = 1;
 // TypeError: can't delete non-configurable array element
 ```
 
-Sie müssen entweder den Aufruf von {{jsxref("Object.seal()")}} entfernen oder eine Kopie davon machen. Im Fall einer Kopie verändert das Verkürzen der Kopie des Arrays nicht die ursprüngliche Array-Länge.
+Sie müssen entweder den {{jsxref("Object.seal()")}}-Aufruf entfernen oder eine Kopie davon erstellen. Im Fall einer Kopie beeinträchtigt das Verkürzen der Kopie des Arrays nicht die originale Array-Länge.
 
 ```js example-good
 "use strict";

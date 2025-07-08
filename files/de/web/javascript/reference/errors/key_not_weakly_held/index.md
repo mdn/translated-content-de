@@ -1,13 +1,11 @@
 ---
-title: "TypeError: WeakSet key/WeakMap value 'x' muss ein Objekt oder ein nicht registriertes Symbol sein"
+title: "TypeError: WeakSet-Schlüssel/WeakMap-Wert 'x' muss ein Objekt oder ein nicht registriertes Symbol sein"
 slug: Web/JavaScript/Reference/Errors/Key_not_weakly_held
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Ausnahmefehler "WeakSet key (oder WeakMap-Wert) 'x' muss ein Objekt oder ein nicht registriertes Symbol sein" tritt auf, wenn ein Wert vom ungültigen Typ als Schlüssel in einem {{jsxref("WeakSet")}} oder als Wert in einem {{jsxref("WeakMap")}} verwendet wird.
+Der JavaScript-Fehler "WeakSet key (oder WeakMap value) 'x' must be an object or an unregistered symbol" tritt auf, wenn ein Wert eines ungültigen Typs als Schlüssel in einem {{jsxref("WeakSet")}} oder als Wert in einer {{jsxref("WeakMap")}} verwendet wird.
 
 ## Nachricht
 
@@ -25,9 +23,9 @@ TypeError: WeakSet values must be objects or non-registered symbols (Safari)
 
 {{jsxref("TypeError")}}
 
-## Was schiefgelaufen ist
+## Was ist schiefgelaufen?
 
-{{jsxref("WeakSet")}} und {{jsxref("WeakMap")}} erfordern, dass die Schlüssel _garbage collectable_ sind. Nur Objekte und nicht registrierte Symbole (das heißt, [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), die nicht von {{jsxref("Symbol.for()")}} zurückgegeben werden) sind gültig. Für weiterführende Informationen siehe [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management#weakmaps_and_weaksets). Wenn Sie Schlüssel hinzufügen möchten, die Zeichenfolgen, Zahlen oder andere primitive Werte sind, sollten Sie diese stattdessen in einem regulären `Set` oder `Map` speichern.
+{{jsxref("WeakSet")}} und {{jsxref("WeakMap")}} erfordern, dass die Schlüssel _garbage collectable_ sind. Nur Objekte und nicht registrierte Symbole (das heißt, [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), die nicht von {{jsxref("Symbol.for()")}} zurückgegeben werden) sind gültig. Für weitere Informationen siehe [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management#weakmaps_and_weaksets). Wenn Sie Schlüssel hinzufügen möchten, die Zeichenketten, Zahlen oder andere primitive Werte sind, sollten Sie diese stattdessen in einem regulären `Set` oder `Map` speichern.
 
 ## Beispiele
 

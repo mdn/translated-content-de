@@ -1,19 +1,17 @@
 ---
-title: Meta-Programmierung
+title: Metaprogrammierung
 slug: Web/JavaScript/Guide/Meta_programming
 l10n:
-  sourceCommit: d5be633656b10c913eb9a1db4fb5c59acfdcb86c
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Advanced")}}
-
-Die Objekte {{jsxref("Proxy")}} und {{jsxref("Reflect")}} ermöglichen es Ihnen, grundlegende Sprachoperationen (z. B. Eigenschaftsabfrage, Zuweisung, Aufzählung, Funktionsaufruf usw.) abzufangen und benutzerdefiniertes Verhalten zu definieren. Mit der Hilfe dieser beiden Objekte können Sie auf der Metaebene von JavaScript programmieren.
+Die Objekte {{jsxref("Proxy")}} und {{jsxref("Reflect")}} ermöglichen es Ihnen, grundlegende Sprachoperationen (z.B. Eigenschaftsabruf, Zuweisung, Enumeration, Funktionsaufruf, etc.) abzufangen und benutzerdefiniertes Verhalten dafür zu definieren. Mit Hilfe dieser beiden Objekte können Sie auf der Metaebene von JavaScript programmieren.
 
 ## Proxies
 
 {{jsxref("Proxy")}}-Objekte ermöglichen es Ihnen, bestimmte Operationen abzufangen und benutzerdefinierte Verhaltensweisen zu implementieren.
 
-Zum Beispiel das Abrufen einer Eigenschaft eines Objekts:
+Beispielsweise beim Abrufen einer Eigenschaft eines Objekts:
 
 ```js
 const handler = {
@@ -27,9 +25,9 @@ p.a = 1;
 console.log(p.a, p.b); // 1, 42
 ```
 
-Das `Proxy`-Objekt definiert ein `target` (hier ein leeres Objekt) und ein `handler`-Objekt, in dem eine `get`-Falle implementiert ist. Hier wird ein objekt, das durch einen Proxy gekapselt ist, nicht `undefined` zurückgeben, wenn undefinierte Eigenschaften abgefragt werden, sondern stattdessen die Zahl `42`.
+Das `Proxy`-Objekt definiert ein `target` (hier ein leeres Objekt) und ein `handler`-Objekt, in dem eine `get`-Falle (_trap_) implementiert ist. Hierdurch wird ein Objekt, das durch einen Proxy gekapselt ist, nicht `undefined` zurückgeben, wenn undefinierte Eigenschaften abgerufen werden, sondern stattdessen die Zahl `42`.
 
-Weitere Beispiele finden Sie auf der {{jsxref("Proxy")}}-Referenzseite.
+Zusätzliche Beispiele sind auf der {{jsxref("Proxy")}} Referenzseite verfügbar.
 
 ### Terminologie
 
@@ -37,22 +35,22 @@ Die folgenden Begriffe werden verwendet, wenn über die Funktionalität von Prox
 
 - {{jsxref("Proxy/Proxy", "handler", "", 1)}}
   - : Platzhalterobjekt, das Fallen enthält.
-- traps
-  - : Die Methoden, die Zugriff auf Eigenschaften bereitstellen. (Dies ist analog zum Konzept der _Fallen_ in Betriebssystemen.)
-- target
-  - : Objekt, das durch den Proxy virtualisiert wird. Es wird häufig als Speicherrückendeckung für den Proxy verwendet. Invarianten (Semantiken, die unverändert bleiben) bezüglich der Nichterweiterbarkeit oder nicht konfigurierbaren Eigenschaften von Objekten werden gegen das Zielobjekt überprüft.
+- Fallen
+  - : Die Methoden, die den Zugriff auf Eigenschaften bereitstellen. (Dies ist analog zum Konzept der _Fallen_ in Betriebssystemen.)
+- Zielobjekt
+  - : Objekt, das der Proxy virtualisiert. Es wird häufig als Speicherrückendeckung für den Proxy eingesetzt. Invarianten (nicht veränderbare Semantiken) bezüglich der Nicht-Erweiterbarkeit oder nicht-konfigurierbarer Eigenschaften werden gegen das Zielobjekt überprüft.
 - {{Glossary("invariant", "Invarianten")}}
-  - : Semantiken, die unverändert bleiben, wenn benutzerdefinierte Operationen implementiert werden, werden _Invarianten_ genannt. Wenn Sie gegen die Invarianten eines Handlers verstoßen, wird ein {{jsxref("TypeError")}} ausgelöst.
+  - : Semantiken, die unverändert bleiben, wenn benutzerdefinierte Operationen implementiert werden, werden _Invarianten_ genannt. Wenn Sie die Invarianten eines Handlers verletzen, wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ## Handler und Fallen
 
-Die folgende Tabelle fasst die verfügbaren Fallen für `Proxy`-Objekte zusammen. Siehe die [Referenzseiten](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) für detaillierte Erklärungen und Beispiele.
+Die folgende Tabelle fasst die verfügbaren Fallen zusammen, die für `Proxy`-Objekte verfügbar sind. Siehe die [Referenzseiten](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) für detaillierte Erklärungen und Beispiele.
 
 <table class="standard-table">
   <thead>
     <tr>
       <th>Handler / Falle</th>
-      <th>Abgefangene Operationen</th>
+      <th>Abfangaktionen</th>
     </tr>
   </thead>
   <tbody>
@@ -110,9 +108,9 @@ Die folgende Tabelle fasst die verfügbaren Fallen für `Proxy`-Objekte zusammen
       </td>
       <td>
         <dl>
-          <dt>Eigenschaftsabfrage</dt>
+          <dt>Eigenschaftsanfrage</dt>
           <dd><code>foo in proxy</code></dd>
-          <dt>Geerbte Eigenschaftsabfrage</dt>
+          <dt>Vererbte Eigenschaftsanfrage</dt>
           <dd>
             <code>foo in Object.create(<var>proxy</var>)</code
             ><br />{{jsxref("Reflect.has()")}}
@@ -132,7 +130,7 @@ Die folgende Tabelle fasst die verfügbaren Fallen für `Proxy`-Objekte zusammen
               ><var>proxy</var>.bar</code
             >
           </dd>
-          <dt>Geerbter Eigenschaftszugriff</dt>
+          <dt>Vererbter Eigenschaftszugriff</dt>
           <dd>
             <!-- markdownlint-disable MD011 -->
             <code>Object.create(<var>proxy</var>)[foo]</code
@@ -153,7 +151,7 @@ Die folgende Tabelle fasst die verfügbaren Fallen für `Proxy`-Objekte zusammen
               ><var>proxy</var>.foo = bar</code
             >
           </dd>
-          <dt>Geerbte Eigenschaftszuweisung</dt>
+          <dt>Vererbte Eigenschaftszuweisung</dt>
           <dd>
             <code>Object.create(<var>proxy</var>)[foo] = bar</code
             ><br />{{jsxref("Reflect.set()")}}
@@ -191,7 +189,7 @@ Die folgende Tabelle fasst die verfügbaren Fallen für `Proxy`-Objekte zusammen
       </td>
       <td>
         <code>proxy(..args)</code
-        ><br />{{jsxref("Function.prototype.apply()")}} und
+        ><br />{{jsxref("Function.prototype.apply()")}} and
         {{jsxref("Function.prototype.call()")}}<br />{{jsxref("Reflect.apply()")}}
       </td>
     </tr>
@@ -209,9 +207,9 @@ Die folgende Tabelle fasst die verfügbaren Fallen für `Proxy`-Objekte zusammen
 
 ## Widerrufbarer `Proxy`
 
-Die Methode {{jsxref("Proxy.revocable()")}} wird verwendet, um ein widerrufbares `Proxy`-Objekt zu erstellen. Dies bedeutet, dass der Proxy über die Funktion `revoke` widerrufen und abgeschaltet werden kann.
+Die Methode {{jsxref("Proxy.revocable()")}} wird verwendet, um ein widerrufbares `Proxy`-Objekt zu erstellen. Dies bedeutet, dass der Proxy über die Funktion `revoke` widerrufen und ausgeschaltet werden kann.
 
-Danach führt jede Operation am Proxy zu einem {{jsxref("TypeError")}}.
+Danach führt jede Operation auf dem Proxy zu einem {{jsxref("TypeError")}}.
 
 ```js
 const revocable = Proxy.revocable(
@@ -235,27 +233,27 @@ console.log(typeof proxy); // "object", typeof doesn't trigger any trap
 
 ## Reflexion
 
-{{jsxref("Reflect")}} ist ein eingebautes Objekt, das Methoden für abfangbare JavaScript-Operationen bereitstellt. Die Methoden sind die gleichen wie die des [Proxy-Handlers](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
+{{jsxref("Reflect")}} ist ein eingebautes Objekt, das Methoden für abfangbare JavaScript-Operationen bereitstellt. Die Methoden sind die gleichen wie die der [Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
 
 `Reflect` ist kein Funktionsobjekt.
 
-`Reflect` hilft dabei, Standardoperationen vom Handler an das `target` weiterzuleiten.
+`Reflect` hilft, Standardoperationen vom Handler an das `target` weiterzuleiten.
 
-Mit {{jsxref("Reflect.has()")}} zum Beispiel erhalten Sie den [`in`-Operator](/de/docs/Web/JavaScript/Reference/Operators/in) als Funktion:
+Mit {{jsxref("Reflect.has()")}} erhalten Sie beispielsweise den [`in` Operator](/de/docs/Web/JavaScript/Reference/Operators/in) als Funktion:
 
 ```js
 Reflect.has(Object, "assign"); // true
 ```
 
-### Eine bessere apply()-Funktion
+### Eine bessere apply() Funktion
 
-Vor `Reflect` wurde typischerweise die Methode {{jsxref("Function.prototype.apply()")}} verwendet, um eine Funktion mit einem gegebenen `this`-Wert und `arguments`, bereitgestellt als Array (oder als [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects)), aufzurufen.
+Vor `Reflect` verwenden Sie in der Regel die Methode {{jsxref("Function.prototype.apply()")}}, um eine Funktion mit einem gegebenen `this`-Wert und `arguments`, bereitgestellt als Array (oder ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects)), aufzurufen.
 
 ```js
 Function.prototype.apply.call(Math.floor, undefined, [1.75]);
 ```
 
-Mit {{jsxref("Reflect.apply")}} wird dies weniger umständlich und leichter zu verstehen:
+Mit {{jsxref("Reflect.apply")}} wird dies weniger umständlich und leichter verständlich:
 
 ```js
 Reflect.apply(Math.floor, undefined, [1.75]);
@@ -271,9 +269,9 @@ Reflect.apply("".charAt, "ponies", [3]);
 // "i"
 ```
 
-### Überprüfung, ob die Eigenschaftsdefinition erfolgreich war
+### Überprüfen, ob die Eigenschaftsdefinition erfolgreich war
 
-Mit {{jsxref("Object.defineProperty")}}, das ein Objekt zurückgibt, wenn es erfolgreich ist, oder ansonsten einen {{jsxref("TypeError")}} auslöst, würde man einen {{jsxref("Statements/try...catch", "try...catch")}}-Block verwenden, um Fehler abzufangen, die bei der Definition einer Eigenschaft auftreten. Da {{jsxref("Reflect.defineProperty()")}} einen Booleschen Erfolgsstatus zurückgibt, können Sie hier einfach einen {{jsxref("Statements/if...else", "if...else")}}-Block verwenden:
+Mit {{jsxref("Object.defineProperty")}}, das ein Objekt zurückgibt, wenn erfolgreich, oder andernfalls einen {{jsxref("TypeError")}} auslöst, würden Sie einen {{jsxref("Statements/try...catch", "try...catch")}} Block verwenden, um jeden Fehler abzufangen, der während der Definition einer Eigenschaft aufgetreten ist. Da {{jsxref("Reflect.defineProperty()")}} einen booleschen Erfolgsstatus zurückgibt, können Sie hier einfach einen {{jsxref("Statements/if...else", "if...else")}} Block verwenden:
 
 ```js
 if (Reflect.defineProperty(target, property, attributes)) {

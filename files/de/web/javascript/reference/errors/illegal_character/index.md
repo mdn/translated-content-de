@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: illegales Zeichen"
+title: "SyntaxError: unerlaubtes Zeichen"
 slug: Web/JavaScript/Reference/Errors/Illegal_character
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Fehler "illegales Zeichen" tritt auf, wenn der [Lexer](/de/docs/Web/JavaScript/Reference/Lexical_grammar) ein Zeichen liest, das nicht Teil eines Zeichenfolgenliterals ist, und das Zeichen kein gültiges Token in der Sprache bilden kann.
+Der JavaScript-Ausnahmefehler "unerlaubtes Zeichen" tritt auf, wenn der [Lexer](/de/docs/Web/JavaScript/Reference/Lexical_grammar) ein Zeichen liest, das nicht Teil eines Zeichenkettenliterals ist und kein gültiges Token in der Sprache darstellen kann.
 
 ## Meldung
 
@@ -23,13 +21,13 @@ SyntaxError: Invalid character '\u201c' (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es gibt ein ungültiges Zeichen, das der Interpreter nicht versteht. Sie sollten es entweder in ein Zeichenfolgenliteral setzen oder es durch ein anderes Zeichen ersetzen. Verwenden Sie einen Editor mit Syntaxhervorhebung und überprüfen Sie Ihren Code sorgfältig auf Unterschiede wie ein Minuszeichen (`-`) gegenüber einem Gedankenstrich (`–`) oder einfache Anführungszeichen (`"`) gegenüber nicht standardmäßigen Anführungszeichen (`“`).
+Es gibt ein ungültiges Zeichen, das der Interpreter nicht versteht. Sie sollten es entweder in ein Zeichenkettenliteral einfügen oder durch ein anderes Zeichen ersetzen. Verwenden Sie einen Editor, der Syntax-Highlighting unterstützt, und überprüfen Sie Ihren Code sorgfältig auf Diskrepanzen wie ein Minuszeichen (`-`) gegenüber einem Gedankenstrich (`–`) oder einfache Anführungszeichen (`"`) gegenüber nicht standardisierten Anführungszeichen (`“`).
 
 ## Beispiele
 
-### Nicht passende Zeichen
+### Nicht übereinstimmende Zeichen
 
-Einige Zeichen sehen ähnlich aus, führen jedoch dazu, dass der Parser Ihr Code nicht interpretieren kann. Bekannte Beispiele dafür sind Anführungszeichen, der Bindestrich oder das Semikolon (das [griechische Fragezeichen (U+37e)](https://en.wikipedia.org/wiki/Question_mark#Greek_question_mark) sieht gleich aus).
+Einige Zeichen sehen ähnlich aus, werden jedoch dazu führen, dass der Parser Ihren Code nicht interpretieren kann. Bekannte Beispiele hierfür sind Anführungszeichen, das Minus oder Semikolon (das [griechische Fragezeichen (U+37e)](https://en.wikipedia.org/wiki/Question_mark#Greek_question_mark) sieht genauso aus).
 
 ```js-nolint example-bad
 “This looks like a string”; // SyntaxError: illegal character
@@ -42,7 +40,7 @@ const foo = "bar"; // SyntaxError: illegal character
 // <37e> is not ; but looks like it
 ```
 
-Dies sollte funktionieren:
+Das sollte funktionieren:
 
 ```js example-good
 "This is actually a string";
@@ -50,7 +48,7 @@ Dies sollte funktionieren:
 const foo = "bar";
 ```
 
-Einige Editoren und IDEs benachrichtigen Sie oder verwenden zumindest eine leicht unterschiedliche Hervorhebung dafür, aber nicht alle. Wenn so etwas in Ihrem Code passiert und Sie die Quelle des Problems nicht finden können, ist es oft am besten, einfach die problematische Zeile zu löschen und neu zu schreiben.
+Einige Editoren und IDEs benachrichtigen Sie oder verwenden zumindest eine etwas andere Hervorhebung dafür, aber nicht alle. Wenn so etwas mit Ihrem Code passiert und Sie die Quelle des Problems nicht finden können, ist es oft das Beste, einfach die problematische Zeile zu löschen und neu zu tippen.
 
 ### Vergessene Zeichen
 
@@ -69,14 +67,14 @@ const operators = ["+", "-", "×", "÷"];
 
 ### Versteckte Zeichen
 
-Wenn Sie Code aus externen Quellen kopieren und einfügen, können ungültige Zeichen vorhanden sein. Seien Sie wachsam!
+Beim Kopieren und Einfügen von Code aus externen Quellen können ungültige Zeichen vorhanden sein. Passen Sie auf!
 
 ```js-nolint example-bad
 const foo = "bar";​
 // SyntaxError: illegal character
 ```
 
-Beim Inspizieren dieses Codes in einem Editor wie VIM können Sie sehen, dass tatsächlich ein [Nullbreitenraum (ZWSP) (U+200B)](https://en.wikipedia.org/wiki/Zero-width_space)-Zeichen vorhanden ist.
+Wenn Sie diesen Code in einem Editor wie VIM inspizieren, können Sie feststellen, dass sich tatsächlich ein [Zero-Width Space (ZWSP) (U+200B)](https://en.wikipedia.org/wiki/Zero-width_space) Zeichen darin befindet.
 
 ```js-nolint
 const foo = "bar";<200b>

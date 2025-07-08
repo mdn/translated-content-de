@@ -2,15 +2,13 @@
 title: "InternalError: zu viel Rekursion"
 slug: Web/JavaScript/Reference/Errors/Too_much_recursion
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "zu viel Rekursion" oder "Maximale Stapelgröße überschritten"
+Die JavaScript-Ausnahme „zu viel Rekursion“ oder „Maximale Aufrufstapelgröße überschritten“
 tritt auf, wenn es zu viele Funktionsaufrufe gibt oder eine Funktion einen Basisfall vermisst.
 
-## Meldung
+## Nachricht
 
 ```plain
 RangeError: Maximum call stack size exceeded (Chrome)
@@ -26,11 +24,11 @@ RangeError: Maximum call stack size exceeded. (Safari)
 
 Eine Funktion, die sich selbst aufruft, wird als _rekursive Funktion_ bezeichnet. Sobald eine Bedingung erfüllt ist, hört die Funktion auf, sich selbst aufzurufen. Dies wird als _Basisfall_ bezeichnet.
 
-In gewisser Weise ist Rekursion analog zu einer Schleife. Beide führen denselben Code mehrfach aus und erfordern eine Bedingung (um eine Endlosschleife oder vielmehr eine endlose Rekursion in diesem Fall zu vermeiden). Wenn es zu viele Funktionsaufrufe gibt oder eine Funktion einen Basisfall vermisst, wird JavaScript diesen Fehler auslösen.
+In gewisser Weise ist Rekursion analog zu einer Schleife. Beide führen denselben Code mehrfach aus und beide benötigen eine Bedingung (um eine Endlosschleife bzw. in diesem Fall eine endlose Rekursion zu vermeiden). Wenn es zu viele Funktionsaufrufe gibt oder eine Funktion einen Basisfall vermisst, wirft JavaScript diesen Fehler.
 
 ## Beispiele
 
-Diese rekursive Funktion läuft 10 Mal, entsprechend der Abbruchbedingung.
+Diese rekursive Funktion läuft 10 Mal, gemäß der Abbruchbedingung.
 
 ```js
 function loop(x) {
@@ -43,7 +41,7 @@ function loop(x) {
 loop(0);
 ```
 
-Das Festlegen einer extrem hohen Bedingung funktioniert nicht:
+Das Setzen dieser Bedingung auf einen extrem hohen Wert funktioniert nicht:
 
 ```js example-bad
 function loop(x) {
@@ -56,7 +54,7 @@ loop(0);
 // InternalError: too much recursion
 ```
 
-Diese rekursive Funktion vermisst einen Basisfall. Da es keine Abbruchbedingung gibt, wird die Funktion sich selbst unendlich aufrufen.
+Diese rekursive Funktion fehlt ein Basisfall. Da es keine Abbruchbedingung gibt, wird die Funktion sich unendlich oft selbst aufrufen.
 
 ```js example-bad
 function loop(x) {
@@ -69,7 +67,7 @@ loop(0);
 // InternalError: too much recursion
 ```
 
-### Klassenfehler: zu viel Rekursion
+### Klassischer Fehler: zu viel Rekursion
 
 ```js example-bad
 class Person {
@@ -83,11 +81,11 @@ const tony = new Person();
 tony.name = "Tonisha"; // InternalError: too much recursion
 ```
 
-Wenn ein Wert der Eigenschaftsname zugewiesen wird (this.name = name;), muss JavaScript diese Eigenschaft festlegen. Wenn dies passiert, wird die setter-Funktion ausgelöst.
+Wenn ein Wert der Eigenschaft `name` zugewiesen wird (`this.name = name;`), muss JavaScript diese Eigenschaft setzen. Wenn dies geschieht, wird die Setter-Funktion ausgelöst.
 
-In diesem Beispiel, wenn der setter ausgelöst wird, wird ihm mitgeteilt, genau dasselbe noch einmal zu tun: _die gleiche Eigenschaft zu setzen, die er handhaben soll._ Dies führt dazu, dass die Funktion sich selbst immer wieder aufruft, was sie unendlich rekursiv macht.
+In diesem Beispiel wird bei Auslösen des Setters derselbe Vorgang erneut angewiesen: _die gleiche Eigenschaft zu setzen, die es zu bearbeiten gilt._ Dies führt dazu, dass die Funktion sich selbst immer und immer wieder aufruft und dadurch unendlich rekursiv wird.
 
-Dieses Problem tritt auch auf, wenn dieselbe Variable im getter verwendet wird.
+Dieses Problem tritt auch auf, wenn dieselbe Variable im Getter verwendet wird.
 
 ```js example-bad
 class Person {
@@ -97,7 +95,7 @@ class Person {
 }
 ```
 
-Um dieses Problem zu vermeiden, stellen Sie sicher, dass die Eigenschaft, die innerhalb der setter-Funktion zugewiesen wird, sich von der unterscheidet, die ursprünglich den setter ausgelöst hat. Dasselbe gilt für den getter.
+Um dieses Problem zu vermeiden, stellen Sie sicher, dass die Eigenschaft, die innerhalb der Setter-Funktion zugewiesen wird, sich von der unterscheidet, die den Setter ursprünglich ausgelöst hat. Gleiches gilt für den Getter.
 
 ```js
 class Person {

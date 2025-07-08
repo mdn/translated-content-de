@@ -2,13 +2,10 @@
 title: "null"
 slug: Web/JavaScript/Reference/Operators/null
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
-
-Der **`null`** Wert repräsentiert das absichtliche Fehlen eines Objektwertes. Es
-ist einer der {{Glossary("Primitive", "primitiven Werte")}} von JavaScript und wird in booleschen Operationen als {{Glossary("Falsy", "falsy")}} behandelt.
+Der **`null`**-Wert repräsentiert das bewusste Fehlen eines Objektwertes. Es ist einer der {{Glossary("Primitive", "primitiven Werte")}} von JavaScript und wird in booleschen Operationen als {{Glossary("Falsy", "Falsy")}} behandelt.
 
 {{InteractiveExample("JavaScript Demo: null")}}
 
@@ -34,9 +31,7 @@ null
 ## Beschreibung
 
 Der Wert `null` wird mit einem Literal geschrieben: `null`.
-`null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es
-{{jsxref("undefined")}} sein kann. Stattdessen
-drückt `null` einen Mangel an Identifizierung aus und zeigt an, dass eine Variable auf kein Objekt verweist. In APIs wird `null` häufig an Stellen zurückgegeben, an denen ein Objekt erwartet wird, aber kein Objekt relevant ist.
+`null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es {{jsxref("undefined")}} sein kann. Stattdessen drückt `null` einen Mangel an Identifikation aus, indem es anzeigt, dass eine Variable auf kein Objekt zeigt. In APIs wird `null` oft an Stellen abgerufen, an denen ein Objekt erwartet werden kann, aber kein relevanter Gegenstand vorhanden ist.
 
 ```js
 // foo does not exist. It is not defined and has never been initialized:
@@ -53,7 +48,7 @@ foo; // null
 
 ### Unterschied zwischen `null` und `undefined`
 
-Beim Überprüfen auf `null` oder `undefined` achten Sie auf die [Unterschiede zwischen Gleichheit (==) und Identitätsoperatoren (===)](/de/docs/Web/JavaScript/Reference/Operators), da erstere eine Typumwandlung durchführen.
+Beim Überprüfen auf `null` oder `undefined` achten Sie auf die [Unterschiede zwischen Gleichheits- (==) und Identitäts- (===) Operatoren](/de/docs/Web/JavaScript/Reference/Operators), da erstere eine Typkonvertierung durchführen.
 
 ```js
 typeof null; // "object" (not "null" for legacy reasons)

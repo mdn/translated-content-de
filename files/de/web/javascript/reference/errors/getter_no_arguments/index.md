@@ -2,14 +2,12 @@
 title: "SyntaxError: Getter-Funktionen dürfen keine Argumente haben"
 slug: Web/JavaScript/Reference/Errors/Getter_no_arguments
 l10n:
-  sourceCommit: 38bd4d88564b9a1539fb4d1b4ba6fa04b0a10063
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "getter functions must have no arguments" tritt auf, wenn ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) deklariert wird und die Parameterliste nicht leer ist.
 
-Die JavaScript-Ausnahme "getter functions must have no arguments" tritt auf, wenn ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) deklariert wird und die Parameterliste nicht leer ist.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Getter must not have any formal parameters. (V8-based)
@@ -23,9 +21,9 @@ SyntaxError: Unexpected identifier 'x'. getter functions must have no parameters
 
 ## Was ist schiefgelaufen?
 
-Die [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)-Eigenschaftssyntax sieht aus wie eine Funktion, ist aber strikter und nicht alle Funktionssyntax ist erlaubt. Ein Getter wird immer ohne Argumente aufgerufen, daher ist es wahrscheinlich ein Fehler, ihn mit Parametern zu definieren.
+Die [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)-Eigenschaftssyntax sieht aus wie eine Funktion, ist jedoch strenger, und es ist nicht die gesamte Funktionssyntax erlaubt. Ein Getter wird immer ohne Argumente aufgerufen, daher ist es wahrscheinlich ein Fehler, ihn mit einem beliebigen Parameter zu definieren.
 
-Beachten Sie, dass dieser Fehler nur für Eigenschafts-Getter gilt, die die `get`-Syntax verwenden. Wenn Sie den Getter mit {{jsxref("Object.defineProperty()")}} usw. definieren, wird der Getter als normale Funktion definiert, obwohl es wahrscheinlich immer noch ein Fehler ist, wenn der Getter Argumente erwartet, da er ohne solche aufgerufen wird.
+Beachten Sie, dass dieser Fehler nur für Eigenschafts-Getter gilt, die die `get`-Syntax verwenden. Wenn Sie den Getter mit {{jsxref("Object.defineProperty()")}} usw. definieren, wird der Getter als normale Funktion definiert. Es ist jedoch wahrscheinlich immer noch ein Fehler, wenn der Getter Argumente erwartet, da er ohne Argumente aufgerufen wird.
 
 ## Beispiele
 

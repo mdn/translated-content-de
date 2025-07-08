@@ -2,14 +2,12 @@
 title: Subtraktion (-)
 slug: Web/JavaScript/Reference/Operators/Subtraction
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden und ergibt ihre Differenz.
 
-Der **Subtraktionsoperator (`-`)** zieht den zweiten Operanden vom ersten ab und gibt die Differenz zurück.
-
-{{InteractiveExample("JavaScript Demo: Subtraktionsoperator (-)")}}
+{{InteractiveExample("JavaScript Demo: Subtraction (-) operator")}}
 
 ```js interactive-example
 console.log(5 - 3);
@@ -33,7 +31,7 @@ x - y
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Arten von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt zuerst beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft die Typen dieser. Er führt BigInt-Subtraktion durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine number Subtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere aber zu einer Zahl.
+Der `-` Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zuerst beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und testet deren Typen. Er führt eine BigInt-Subtraktion durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine Zahlen-Subtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
 
 ## Beispiele
 
@@ -57,7 +55,7 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n - 1n; // 1n
 ```
 
-Sie können BigInt- und number-Operanden in der Subtraktion nicht mischen.
+Sie können BigInt- und Zahl-Operanden bei der Subtraktion nicht mischen.
 
 ```js example-bad
 2n - 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions

@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: Der Zugriff auf Super-Eigenschaften/-Mitglieder ist nur innerhalb von Methoden oder eval-Code innerhalb von Methoden gültig"
+title: "SyntaxError: Verwendung von Super-Eigenschafts-/Mitgliedszugriffen nur in Methoden oder eval-Code innerhalb von Methoden zulässig"
 slug: Web/JavaScript/Reference/Errors/Bad_super_prop
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Ausnahmefehler "Der Zugriff auf Super-Eigenschaften/-Mitglieder ist nur innerhalb von Methoden oder eval-Code innerhalb von Methoden gültig" tritt auf, wenn die Syntax {{jsxref("Operators/super", "super.x")}} oder `super[x]` außerhalb einer [Methode](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) verwendet wird.
+Der JavaScript-Fehler "Verwendung von Super-Eigenschafts-/Mitgliedszugriffen nur in Methoden oder eval-Code innerhalb von Methoden zulässig" tritt auf, wenn die Syntax {{jsxref("Operators/super", "super.x")}} oder `super[x]` außerhalb einer [Methode](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) verwendet wird.
 
 ## Meldung
 
@@ -17,13 +15,13 @@ SyntaxError: use of super property accesses only valid within methods or eval co
 SyntaxError: super is not valid in this context. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Die `super.x`-Syntax wird verwendet, um auf Eigenschaften des Prototyps des aktuellen Objekts zuzugreifen. Sie kann in Methoden sowohl von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) als auch von [Klassen](/de/docs/Web/JavaScript/Reference/Classes), [Feldinitialisierern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) und [statischen Initialisierungsblöcken](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, jedoch nicht in anderen Kontexten.
+Die Syntax `super.x` wird verwendet, um auf Eigenschaften im Prototyp des aktuellen Objekts zuzugreifen. Sie kann in Methoden sowohl von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) als auch von [Klassen](/de/docs/Web/JavaScript/Reference/Classes), [Feldinitialisierern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) und [statischen Initialisierungsblöcken](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, aber nicht in anderen Kontexten.
 
 ## Beispiele
 
@@ -38,7 +36,7 @@ const obj = {
 };
 ```
 
-Sie können `super.x` nicht in einer Funktion verwenden, selbst wenn diese Funktion die Wirkung einer Methode hat:
+Sie können `super.x` nicht in einer Funktion verwenden, selbst wenn diese Funktion die Wirkung hat, eine Methode zu sein:
 
 ```js example-bad
 function getX() {

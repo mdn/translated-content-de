@@ -2,14 +2,12 @@
 title: Block-Anweisung
 slug: Web/JavaScript/Reference/Statements/block
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
-
-{{jsSidebar("Statements")}}
 
 Eine **Block-Anweisung** wird verwendet, um null oder mehr Anweisungen zu gruppieren. Der Block wird durch ein Paar geschweifter Klammern begrenzt und enthält eine Liste von null oder mehr Anweisungen und Deklarationen.
 
-{{InteractiveExample("JavaScript Demo: Block-Anweisung", "taller")}}
+{{InteractiveExample("JavaScript Demo: Block statement", "taller")}}
 
 ```js interactive-example
 var x = 1;
@@ -40,13 +38,13 @@ console.log(y);
 
 ## Beschreibung
 
-Die Block-Anweisung wird in anderen Sprachen oft als _Zusammengesetzte Anweisung_ bezeichnet. Sie ermöglicht es Ihnen, mehrere Anweisungen zu verwenden, wo JavaScript nur eine Anweisung erwartet. Das Kombinieren von Anweisungen in Blöcken ist in JavaScript eine häufige Praxis, insbesondere wenn es in Verbindung mit Kontrollfluss-Anweisungen wie {{jsxref("Statements/if...else", "if...else")}} und {{jsxref("Statements/for", "for")}} verwendet wird. Das gegenteilige Verhalten ist mit einer [leeren Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) möglich, bei der keine Anweisung angegeben wird, obwohl eine erforderlich ist.
+Die Block-Anweisung wird in anderen Sprachen oft als _zusammengesetzte Anweisung_ bezeichnet. Sie ermöglicht die Verwendung mehrerer Anweisungen, wo JavaScript nur eine Anweisung erwartet. Das Kombinieren von Anweisungen in Blöcke ist eine gängige Praxis in JavaScript, insbesondere im Zusammenhang mit Kontrollflussanweisungen wie {{jsxref("Statements/if...else", "if...else")}} und {{jsxref("Statements/for", "for")}}. Das entgegengesetzte Verhalten ist mit einer [leeren Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) möglich, bei der Sie keine Anweisung angeben, obwohl eine erforderlich ist.
 
-In Kombination mit block-skopierten Deklarationen wie [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) können Blöcke verhindern, dass temporäre Variablen den globalen Namensraum verschmutzen, genau wie {{Glossary("IIFE", "IIFEs")}} es tun.
+In Kombination mit blockbezogenen Deklarationen wie [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) können Blöcke verhindern, dass temporäre Variablen den globalen Namensraum verschmutzen, ähnlich wie {{Glossary("IIFE", "IIFEs")}}.
 
-### Block-Skopierungsregeln mit var oder Funktionsdeklaration im Non-Strict-Modus
+### Block-Scope-Regeln mit var oder Funktionsdeklaration im Nicht-Strikt-Modus
 
-Variablen, die mit `var` deklariert oder durch [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) im Non-Strict-Modus erstellt werden, haben **keinen** Block-Scope. Variablen, die innerhalb eines Blocks eingeführt werden, sind auf die umgebende Funktion oder das Skript begrenzt, und die Auswirkungen ihrer Einstellung bestehen über den Block hinaus. Zum Beispiel:
+Variablen, die mit `var` deklariert oder durch [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) im Nicht-Strikt-Modus erstellt wurden, haben **keinen** Block-Scope. Variablen, die innerhalb eines Blocks eingeführt werden, sind in der Funktion oder im Skript, das den Block enthält, lokal, und die Auswirkungen ihrer Einstellung bestehen über den Block hinaus. Zum Beispiel:
 
 ```js
 var x = 1;
@@ -56,13 +54,13 @@ var x = 1;
 console.log(x); // 2
 ```
 
-Dies gibt 2 aus, weil die `var x`-Anweisung innerhalb des Blocks im gleichen Scope wie die `var x`-Anweisung vor dem Block ist.
+Dies gibt 2 aus, da die `var x`-Anweisung innerhalb des Blocks im selben Scope wie die `var x`-Anweisung vor dem Block ist.
 
 In nicht-striktem Code verhalten sich Funktionsdeklarationen innerhalb von Blöcken merkwürdig. Verwenden Sie sie nicht.
 
-### Block-Skopierungsregeln mit let, const, class, oder Funktionsdeklaration im Strict-Modus
+### Block-Scope-Regeln mit let, const, class oder Funktionsdeklaration im Strikt-Modus
 
-Im Gegensatz dazu haben Bezeichner, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) deklariert wurden, Block-Scope:
+Im Gegensatz dazu haben Bezeichner, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) deklariert wurden, einen Block-Scope:
 
 ```js
 let x = 1;
@@ -74,7 +72,7 @@ console.log(x); // 1
 
 Das `x = 2` ist im Scope auf den Block beschränkt, in dem es definiert wurde.
 
-Dasselbe gilt für `const`:
+Gleiches gilt für `const`:
 
 ```js
 const c = 1;
@@ -84,9 +82,9 @@ const c = 1;
 console.log(c); // 1; does not throw SyntaxError
 ```
 
-Beachten Sie, dass das block-skopierte `const c = 2` _keinen_ `SyntaxError: Identifier 'c' has already been declared` auslöst, weil es eindeutig innerhalb des Blocks deklariert werden kann.
+Beachten Sie, dass das block-gebundene `const c = 2` **keinen** `SyntaxError: Identifier 'c' has already been declared` auslöst, da es innerhalb des Blocks eindeutig deklariert werden kann.
 
-Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionsdeklarationen innerhalb von Blöcken auf diesen Block beschränkt und werden an den Anfang des Blocks gehoben.
+Im [Striktmodus](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionsdeklarationen innerhalb von Blöcken auf diesen Block beschränkt und werden an den Anfang des Blocks hochgezogen.
 
 ```js
 "use strict";
@@ -103,15 +101,15 @@ foo(); // ReferenceError: foo is not defined
 
 ## Beispiele
 
-### Verwenden einer Block-Anweisung als Körper einer for-Schleife
+### Verwendung einer Block-Anweisung als Körper einer for-Schleife
 
-Ein [`for`](/de/docs/Web/JavaScript/Reference/Statements/for) Loop akzeptiert eine einzelne Anweisung als seinen Körper.
+Eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife akzeptiert eine einzelne Anweisung als ihren Körper.
 
 ```js
 for (let i = 0; i < 10; i++) console.log(i);
 ```
 
-Wenn Sie mehr als eine Anweisung im Schleifenkörper verwenden möchten, können Sie sie in eine Block-Anweisung gruppieren:
+Wenn Sie mehr als eine Anweisung im Schleifenkörper verwenden möchten, können Sie sie in einer Block-Anweisung gruppieren:
 
 ```js
 for (let i = 0; i < 10; i++) {
@@ -120,9 +118,9 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-### Verwenden einer Block-Anweisung zur Datenkapselung
+### Verwendung einer Block-Anweisung zur Datenkapselung
 
-`let`- und `const`-Deklarationen sind auf den umgebenden Block beschränkt. Dies ermöglicht es Ihnen, Daten aus dem globalen Scope zu verbergen, ohne sie in eine Funktion einzuschließen.
+`let`- und `const`-Deklarationen sind auf den umschließenden Block beschränkt. Dies ermöglicht es, Daten vor dem globalen Scope zu verbergen, ohne sie in eine Funktion zu verpacken.
 
 ```js
 let sector;

@@ -2,10 +2,8 @@
 title: return
 slug: Web/JavaScript/Reference/Statements/return
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
-
-{{jsSidebar("Statements")}}
 
 Die **`return`** Anweisung beendet die Ausführung einer Funktion und gibt einen Wert an den Funktionsaufrufer zurück.
 
@@ -34,22 +32,22 @@ return expression;
 ```
 
 - `expression` {{optional_inline}}
-  - : Der Ausdruck, dessen Wert zurückgegeben werden soll. Wird dieser weggelassen, wird `undefined` zurückgegeben.
+  - : Der Ausdruck, dessen Wert zurückgegeben werden soll. Wenn weggelassen, wird `undefined` zurückgegeben.
 
 ## Beschreibung
 
-Die `return` Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return` Anweisung in einem Funktionskörper verwendet wird, wird die Ausführung der Funktion gestoppt. Die `return` Anweisung hat unterschiedliche Effekte, wenn sie in verschiedenen Funktionen platziert wird:
+Die `return` Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return` Anweisung innerhalb eines Funktionskörpers verwendet wird, wird die Ausführung der Funktion gestoppt. Die `return` Anweisung hat unterschiedliche Auswirkungen, je nachdem, in welcher Funktion sie verwendet wird:
 
-- In einer einfachen Funktion wird der Funktionsaufruf auf den Rückgabewert ausgewertet.
-- In einer `async` Funktion wird das erzeugte Versprechen mit dem zurückgegebenen Wert aufgelöst.
+- In einer normalen Funktion entspricht der Funktionsaufruf dem Rückgabewert.
+- In einer async Funktion wird das erzeugte Promise mit dem zurückgegebenen Wert aufgelöst.
 - In einer Generatorfunktion gibt die `next()`-Methode des erzeugten Generatorobjekts `{ done: true, value: returnedValue }` zurück.
-- In einer `async` Generatorfunktion gibt die `next()`-Methode des erzeugten `async` Generatorobjekts ein Versprechen zurück, das mit `{ done: true, value: returnedValue }` erfüllt ist.
+- In einer async Generatorfunktion gibt die `next()`-Methode des erzeugten async Generatorobjekts ein Promise zurück, das mit `{ done: true, value: returnedValue }` erfüllt ist.
 
-Wenn eine `return` Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}} Blocks ausgeführt wird, wird dessen `finally` Block, falls vorhanden, zuerst ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
+Wenn eine `return` Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}} Blocks ausgeführt wird, wird der `finally` Block, sofern vorhanden, zuerst ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
 
 ### Automatische Semikolon-Einfügung
 
-Die Syntax verbietet Zeilenumbrüche zwischen dem `return` Schlüsselwort und dem Ausdruck, der zurückgegeben werden soll.
+Die Syntax verbietet Zeilentrenner zwischen dem `return` Schlüsselwort und dem Ausdruck, der zurückgegeben werden soll.
 
 ```js-nolint example-bad
 return
@@ -63,7 +61,7 @@ return;
 a + b;
 ```
 
-umgewandelt. Dies führt dazu, dass die Funktion `undefined` zurückgibt und der `a + b` Ausdruck nie ausgewertet wird. Dies kann [eine Warnung in der Konsole erzeugen](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return).
+Dies führt dazu, dass die Funktion `undefined` zurückgibt und der `a + b` Ausdruck niemals ausgewertet wird. Dies kann [eine Warnung in der Konsole](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return) hervorrufen.
 
 Um dieses Problem zu vermeiden (um ASI zu verhindern), könnten Sie Klammern verwenden:
 
@@ -77,7 +75,7 @@ return (
 
 ### Eine Funktion unterbrechen
 
-Eine Funktion stoppt sofort an der Stelle, an der `return` aufgerufen wird.
+Eine Funktion stoppt sofort an dem Punkt, an dem `return` aufgerufen wird.
 
 ```js
 function counter() {

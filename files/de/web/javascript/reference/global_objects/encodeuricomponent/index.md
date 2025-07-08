@@ -2,12 +2,10 @@
 title: encodeURIComponent()
 slug: Web/JavaScript/Reference/Global_Objects/encodeURIComponent
 l10n:
-  sourceCommit: 041cf35a6932dfc59c00df24eebe381ea252cd29
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Objects")}}
-
-Die Funktion **`encodeURIComponent()`** kodiert eine {{Glossary("URI", "URI")}}, indem sie jede Instanz bestimmter Zeichen durch ein, zwei, drei oder vier Escape-Sequenzen ersetzt, die die {{Glossary("UTF-8", "UTF-8")}}-Kodierung des Zeichens darstellen (es wird nur vier Escape-Sequenzen für Zeichen geben, die aus zwei Surrogat-Zeichen bestehen). Im Vergleich zu {{jsxref("encodeURI()")}} kodiert diese Funktion mehr Zeichen, einschließlich solcher, die Teil der URI-Syntax sind.
+Die Funktion **`encodeURIComponent()`** kodiert einen {{Glossary("URI", "URI")}}, indem sie jede Instanz bestimmter Zeichen durch eine, zwei, drei oder vier Escape-Sequenzen ersetzt, die die {{Glossary("UTF-8", "UTF-8")}}-Kodierung des Zeichens darstellen (es werden nur vier Escape-Sequenzen für Zeichen sein, die aus zwei Ersatzzeichen bestehen). Im Vergleich zu {{jsxref("encodeURI()")}} kodiert diese Funktion mehr Zeichen, einschließlich jener, die Teil der URI-Syntax sind.
 
 {{InteractiveExample("JavaScript Demo: encodeURIComponent()", "shorter")}}
 
@@ -29,7 +27,7 @@ encodeURIComponent(uriComponent)
 ### Parameter
 
 - `uriComponent`
-  - : Ein String, der als URI-Komponente (ein Pfad, Abfragezeichenfolge, Fragment usw.) kodiert werden soll. Andere Werte werden in [Strings konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+  - : Ein String, der als URI-Komponente kodiert werden soll (ein Pfad, eine Abfragezeichenkette, ein Fragment usw.). Andere Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
 
 ### Rückgabewert
 
@@ -38,27 +36,27 @@ Ein neuer String, der die bereitgestellte `uriComponent` als URI-Komponente kodi
 ### Ausnahmen
 
 - {{jsxref("URIError")}}
-  - : Wird ausgelöst, wenn `uriComponent` ein [alleinstehendes Surrogat](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
+  - : Wird ausgelöst, wenn `uriComponent` eine [alleinstehende Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
 
 ## Beschreibung
 
-`encodeURIComponent()` ist eine Funktions-Eigenschaft des globalen Objekts.
+`encodeURIComponent()` ist eine Funktionseigenschaft des globalen Objekts.
 
-`encodeURIComponent()` verwendet denselben Kodierungsalgorithmus wie in {{jsxref("encodeURI()")}} beschrieben. Es ersetzt alle Zeichen **außer**:
+`encodeURIComponent()` verwendet denselben Kodierungsalgorithmus wie in {{jsxref("encodeURI()")}} beschrieben. Es entkommt allen Zeichen **außer**:
 
 ```plain
 A–Z a–z 0–9 - _ . ! ~ * ' ( )
 ```
 
-Im Vergleich zu {{jsxref("encodeURI()")}} ersetzt `encodeURIComponent()` eine größere Menge von Zeichen. Verwenden Sie `encodeURIComponent()` für benutzereingetragene Felder in Formularen, die an den Server gesendet werden — dies kodiert `&`-Symbole, die während der Dateneingabe versehentlich für {{Glossary("character_reference", "Zeichenreferenzen")}} oder andere Zeichen generiert werden können, die eine Kodierung/Dekodierung erfordern. Zum Beispiel könnte, wenn ein Benutzer `Jack & Jill` eingibt, ohne `encodeURIComponent()` das Ampersand auf dem Server als Beginn eines neuen Feldes interpretiert werden und die Integrität der Daten gefährden.
+Im Vergleich zu {{jsxref("encodeURI()")}} entkommt `encodeURIComponent()` einer größeren Anzahl von Zeichen. Verwenden Sie `encodeURIComponent()` für benutzereingetragene Felder aus Formularen, die an den Server gesendet werden – dies wird `&`-Symbole kodieren, die möglicherweise während der Dateneingabe für {{Glossary("character_reference", "Zeichenreferenzen")}} oder andere Zeichen, die Kodierung/Dekodierung erfordern, versehentlich generiert werden. Wenn ein Benutzer beispielsweise `Jack & Jill` schreibt, könnte ohne `encodeURIComponent()` das kaufmännische Und-Zeichen auf dem Server als Beginn eines neuen Feldes interpretiert werden und die Integrität der Daten gefährden.
 
-Für [`application/x-www-form-urlencoded`](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#application/x-www-form-urlencoded-encoding-algorithm) sollen Leerzeichen durch `+` ersetzt werden, daher könnte es sinnvoll sein, nach einem `encodeURIComponent()` ein zusätzliches Ersetzen von `%20` durch `+` durchzuführen.
+Für [`application/x-www-form-urlencoded`](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#application/x-www-form-urlencoded-encoding-algorithm) sollen Leerzeichen durch `+` ersetzt werden, daher möchten Sie möglicherweise eine `encodeURIComponent()`-Ersetzung mit einer zusätzlichen Ersetzung von `%20` durch `+` ergänzen.
 
 ## Beispiele
 
-### Kodierung für Content-Disposition- und Link-Header
+### Kodierung für Content-Disposition und Link-Header
 
-Das folgende Beispiel bietet die spezielle Kodierung, die in den UTF-8-{{HTTPHeader("Content-Disposition")}}- und {{HTTPHeader("Link")}}-Server-Antwort-Header-Parametern erforderlich ist (z. B. UTF-8-Dateinamen):
+Das folgende Beispiel bietet die spezielle Kodierung, die innerhalb von UTF-8 {{HTTPHeader("Content-Disposition")}} und {{HTTPHeader("Link")}} Serverantwort-Header-Parameter erforderlich ist (z. B. UTF-8-Dateinamen):
 
 ```js
 const fileName = "my file(2).txt";
@@ -91,7 +89,7 @@ function encodeRFC5987ValueChars(str) {
 
 ### Kodierung für RFC3986
 
-Das neuere [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986) reserviert `!`, `'`, `(`, `)`, und `*`, obwohl diese Zeichen keine formalisierten URI-Abgrenzungszwecke haben. Die folgende Funktion kodiert einen String für das RFC3986-konforme URL-Komponentenformat. Sie kodiert auch `[` und `]`, die Teil der {{Glossary("IPv6", "IPv6")}}-URI-Syntax sind. Eine RFC3986-konforme `encodeURI`-Implementierung sollte sie nicht kodieren, was im [`encodeURI()` Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI#encoding_for_rfc3986) demonstriert wird.
+Das neuere [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986) reserviert `!`, `'`, `(`, `)`, und `*`, obwohl diese Zeichen keine formalen URI-Abgrenzungsverwendungen haben. Die folgende Funktion kodiert einen String für ein RFC3986-kompatibles URL-Komponentenformat. Es kodiert auch `[` und `]`, die Teil der {{Glossary("IPv6", "IPv6")}} URI-Syntax sind. Eine RFC3986-kompatible `encodeURI`-Implementierung sollte sie nicht escapen, was im [`encodeURI()` Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI#encoding_for_rfc3986) demonstriert wird.
 
 ```js
 function encodeRFC3986URIComponent(str) {
@@ -104,7 +102,7 @@ function encodeRFC3986URIComponent(str) {
 
 ### Kodierung eines alleinstehenden Surrogats wirft einen Fehler
 
-Ein {{jsxref("URIError")}} wird ausgelöst, wenn versucht wird, ein Surrogat zu kodieren, das nicht Teil eines Hoch-Tief-Paares ist. Zum Beispiel:
+Ein {{jsxref("URIError")}} wird ausgelöst, wenn versucht wird, ein Surrogat zu kodieren, das nicht Teil eines High-Low-Paares ist. Zum Beispiel:
 
 ```js
 // High-low pair OK
@@ -117,7 +115,7 @@ encodeURIComponent("\uD800");
 encodeURIComponent("\uDFFF");
 ```
 
-Sie können {{jsxref("String.prototype.toWellFormed()")}} verwenden, das alleinstehende Surrogate durch das Unicode-Ersatzzeichen (U+FFFD) ersetzt, um diesen Fehler zu vermeiden. Sie können auch {{jsxref("String.prototype.isWellFormed()")}} verwenden, um zu überprüfen, ob ein String alleinstehende Surrogate enthält, bevor Sie ihn an `encodeURIComponent()` übergeben.
+Sie können {{jsxref("String.prototype.toWellFormed()")}} verwenden, welches alleinstehende Surrogate durch das Unicode-Ersatzzeichen (U+FFFD) ersetzt, um diesen Fehler zu vermeiden. Sie können auch {{jsxref("String.prototype.isWellFormed()")}} verwenden, um zu überprüfen, ob ein String alleinstehende Surrogate enthält, bevor Sie ihn an `encodeURIComponent()` übergeben.
 
 ## Spezifikationen
 

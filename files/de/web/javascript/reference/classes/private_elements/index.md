@@ -2,17 +2,15 @@
 title: Private Elemente
 slug: Web/JavaScript/Reference/Classes/Private_elements
 l10n:
-  sourceCommit: 48184c65d7e6d59e867806d9e349661c737bdc4b
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Classes")}}
+**Private Elemente** sind Gegenstücke zu regulären Klassen-Elementen, die öffentlich sind, einschließlich [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields), Klassenmethoden usw. Private Elemente werden durch einen Hash-Präfix `#` erstellt und können außerhalb der Klasse nicht legal referenziert werden. Die Datenschutzeinkapselung dieser Klassenelemente wird von JavaScript selbst durchgesetzt. Der einzige Weg, um auf ein privates Element zuzugreifen, ist über die [Punkt-Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation), und dies ist nur innerhalb der Klasse möglich, die das private Element definiert.
 
-**Private Elemente** sind Gegenstücke der regulären Klassen-Elemente, die öffentlich sind, einschließlich [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields), Klassenmethoden usw. Private Elemente werden erstellt, indem ein Hash-`#`-Präfix verwendet wird und sie können außerhalb der Klasse nicht legal referenziert werden. Die Kapselung der Privatsphäre dieser Klassenelemente wird von JavaScript selbst erzwungen. Der einzige Weg, auf ein privates Element zuzugreifen, ist über die [Punkt-Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation), und dies ist nur innerhalb der Klasse, die das private Element definiert, möglich.
-
-Private Elemente waren vor der Existenz dieser Syntax nicht in der Sprache eingebaut. Im prototypischen Vererbungsmuster kann ihr Verhalten mit [`WeakMap`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakMap#emulating_private_members)-Objekten oder [Closures](/de/docs/Web/JavaScript/Guide/Closures#emulating_private_methods_with_closures) emuliert werden, aber sie können in Bezug auf Ergonomie nicht mit der `#`-Syntax verglichen werden.
+Private Elemente waren vor dem Vorhandensein dieser Syntax nicht nativ in der Sprache. In der prototypischen Vererbung kann ihr Verhalten mit [`WeakMap`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakMap#emulating_private_members)-Objekten oder [Closures](/de/docs/Web/JavaScript/Guide/Closures#emulating_private_methods_with_closures) nachgeahmt werden, aber sie können im Hinblick auf Ergonomie nicht mit der `#`-Syntax verglichen werden.
 
 > [!NOTE]
-> Auf MDN vermeiden wir den Begriff "private Eigenschaft". Eine {{Glossary("Property/JavaScript", "property")}} (Eigenschaft) in JavaScript hat einen Zeichenfolgen- oder Symbolschlüssel und Attribute wie `writable`, `enumerable` und `configurable`, aber private Elemente haben keine davon. Während private Elemente mit der vertrauten Punkt-Notation zugegriffen werden, können sie nicht [proxies](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy), aufgezählt, gelöscht oder mit einer beliebigen {{jsxref("Object")}}-Methode interagiert werden.
+> Auf MDN vermeiden wir den Begriff "private Eigenschaft". Eine {{Glossary("Property/JavaScript", "Eigenschaft")}} in JavaScript hat einen Zeichenfolgen- oder Symbol-Schlüssel und Attribute wie `writable`, `enumerable` und `configurable`, aber private Elemente haben keine dieser Attribute. Obwohl private Elemente mit der vertrauten Punkt-Notation zugegriffen werden, können sie nicht [proxy-fähig](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy) gemacht, aufgezählt, gelöscht oder mit einer {{jsxref("Object")}} Methode interagiert werden.
 
 ## Syntax
 
@@ -34,9 +32,9 @@ class ClassWithPrivate {
 }
 ```
 
-Es gibt einige zusätzliche Syntax-Einschränkungen:
+Es gibt einige zusätzliche Syntaxbeschränkungen:
 
-- Alle privaten Bezeichner, die innerhalb einer Klasse deklariert werden, müssen eindeutig sein. Der Namensraum wird zwischen statischen und Instanz-Elementen geteilt. Die einzige Ausnahme ist, wenn die beiden Deklarationen ein Getter-Setter-Paar definieren.
+- Alle innerhalb einer Klasse deklarierten privaten Bezeichner müssen einzigartig sein. Der Namensraum wird zwischen statischen und Instanz-Elementen geteilt. Die einzige Ausnahme ist, wenn die beiden Deklarationen ein Getter-Setter-Paar definieren.
 - Der private Bezeichner kann nicht `#constructor` sein.
 
 ## Beschreibung
@@ -52,11 +50,11 @@ Die meisten Klassenelemente haben ihre privaten Gegenstücke:
 - Private statische Getter
 - Private statische Setter
 
-Diese Funktionen werden kollektiv als _private Elemente_ bezeichnet. Allerdings können [Konstruktoren](/de/docs/Web/JavaScript/Reference/Classes/constructor) in JavaScript nicht privat sein. Um zu verhindern, dass Klassen außerhalb der Klasse konstruiert werden, müssen Sie [ein privates Flag verwenden](#simulieren_von_privaten_konstruktoren).
+Diese Funktionen werden zusammenfassend als _private Elemente_ bezeichnet. Allerdings können [Konstruktoren](/de/docs/Web/JavaScript/Reference/Classes/constructor) in JavaScript nicht privat sein. Um zu verhindern, dass Klassen außerhalb der Klasse instanziiert werden, müssen Sie [eine private Flagge verwenden](#simulieren_privater_konstruktoren).
 
-Private Elemente werden mit **# Namen** (ausgesprochen "Hash-Namen") deklariert, bei denen es sich um Bezeichner handelt, die mit `#` versehen sind. Das Hash-Präfix ist ein wesentlicher Bestandteil des Eigenschaftsnamen — Sie können es mit der alten Unterstrich-Präfix-Konvention `_privateField` in Beziehung setzen — aber es ist keine gewöhnliche Zeichenfolgen-Eigenschaft, so dass Sie nicht dynamisch mit der [Klammer-Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) darauf zugreifen können.
+Private Elemente werden mit **# Namen** (ausgesprochen „Hash-Namen“) deklariert, d.h. Bezeichner, die mit `#` beginnen. Das Hash-Präfix ist ein wesentlicher Bestandteil des Eigenschaftennamens — man kann es mit der alten Unterstrich-Präfix-Konvention `_privateField` in Verbindung bringen — aber es ist keine gewöhnliche Zeichenfolgen-Eigenschaft, daher kann man nicht dynamisch mit der [Klammer-Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) darauf zugreifen.
 
-Es ist ein Syntaxfehler, von außerhalb der Klasse auf `#`-Namen zu verweisen. Es ist auch ein Syntaxfehler, auf private Elemente zu verweisen, die nicht im Klassenkörper deklariert wurden, oder zu versuchen, deklarierte Elemente mit [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) zu entfernen.
+Es ist ein Syntaxfehler, auf `#`-Namen außerhalb der Klasse zu verweisen. Es ist auch ein Syntaxfehler, auf private Elemente zu verweisen, die nicht im Klassenrumpf deklariert wurden, oder zu versuchen, deklarierte Elemente mit [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) zu entfernen.
 
 ```js-nolint example-bad
 class ClassWithPrivateField {
@@ -72,12 +70,12 @@ const instance = new ClassWithPrivateField();
 instance.#privateField; // Syntax error
 ```
 
-JavaScript als dynamische Sprache kann diese Prüfung zur Kompilierungszeit aufgrund der speziellen Hash-Bezeichner-Syntax durchführen, wodurch sie sich auf der Syntaxebene von normalen Eigenschaften unterscheidet.
+JavaScript, als dynamische Sprache, ist in der Lage, diese Überprüfung zur Kompilierzeit durchzuführen, dank der speziellen Hash-Bezeichner-Syntax, die sie auf der Syntaxebene von normalen Eigenschaften unterscheidet.
 
 > [!NOTE]
-> Code, der in der Chrome-Konsole ausgeführt wird, kann private Elemente außerhalb der Klasse zugreifen. Dies ist eine nur für DevTools geltende Lockerung der JavaScript-Syntaxeinschränkung.
+> Code, der in der Chrome-Konsole ausgeführt wird, kann auf private Elemente außerhalb der Klasse zugreifen. Dies ist eine nur in DevTools geltende Entspannung der JavaScript-Syntaxbeschränkung.
 
-Wenn Sie auf ein privates Element von einem Objekt zugreifen, das das Element nicht enthält, wird ein {{jsxref("TypeError")}} ausgelöst, anstatt `undefined` wie bei normalen Eigenschaften zurückzugeben.
+Wenn Sie auf ein privates Element von einem Objekt zugreifen, das das Element nicht hat, wird ein {{jsxref("TypeError")}} ausgelöst, anstatt wie bei normalen Eigenschaften `undefined` zurückzugeben.
 
 ```js example-bad
 class C {
@@ -92,9 +90,9 @@ console.log(C.getX(new C())); // undefined
 console.log(C.getX({})); // TypeError: Cannot read private member #x from an object whose class did not declare it
 ```
 
-Dieses Beispiel zeigt auch, dass Sie auf private Elemente innerhalb statischer Funktionen zugreifen können und auf extern definierte Instanzen der Klasse.
+Dieses Beispiel zeigt auch, dass Sie auf private Elemente innerhalb von statischen Funktionen und auch auf extern definierte Instanzen der Klasse zugreifen können.
 
-Sie können den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator verwenden, um zu überprüfen, ob ein extern definiertes Objekt ein privates Element besitzt. Dies gibt `true` zurück, wenn das private Feld oder die Methode existiert, und `false` andernfalls.
+Sie können den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator verwenden, um zu überprüfen, ob ein extern definiertes Objekt ein privates Element besitzt. Dies gibt `true` zurück, wenn das private Feld oder die private Methode existiert, und `false` andernfalls.
 
 ```js example-good
 class C {
@@ -114,23 +112,23 @@ console.log(C.getX(new C(new Date()))); // the current date and time
 console.log(C.getX({})); // "obj must be an instance of C"
 ```
 
-Beachten Sie eine Konsequenz davon, dass private Namen immer vordeklariert und nicht löschbar sind: Wenn Sie feststellen, dass ein Objekt ein privates Element der aktuellen Klasse besitzt (entweder aus einem `try...catch` oder einem `in`-Check), muss es alle anderen privaten Elemente besitzen. Dass ein Objekt die privaten Elemente einer Klasse besitzt, bedeutet im Allgemeinen, dass es von dieser Klasse konstruiert wurde (obwohl [nicht immer](#zurückgeben_eines_überschreibenden_objekts)).
+Beachten Sie einen Korollar aus privaten Namen, die immer vor-deklariert und nicht löschbar sind: Wenn Sie festgestellt haben, dass ein Objekt ein privates Element der aktuellen Klasse besitzt (entweder aus einem `try...catch` oder einer `in`-Prüfung), muss es alle anderen privaten Elemente besitzen. Dass ein Objekt die privaten Elemente einer Klasse besitzt, bedeutet in der Regel, dass es von dieser Klasse konstruiert wurde (obwohl [nicht immer](#zurückgeben_eines_überschreibenden_objekts)).
 
-Private Elemente sind nicht Teil des [prototypischen Vererbung](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)-Modells, da sie nur innerhalb des Körpers der aktuellen Klasse zugänglich sind und nicht von Unterklassen geerbt werden. Private Elemente mit demselben Namen in verschiedenen Klassen sind völlig unterschiedlich und agieren nicht miteinander. Sehen Sie sie als externe Metadaten, die an jede Instanz angehängt sind und von der Klasse verwaltet werden. Aus diesem Grund klont [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) private Elemente nicht, und {{jsxref("Object.freeze()")}} und {{jsxref("Object.seal()")}} haben keine Auswirkung auf private Elemente.
+Private Elemente sind kein Teil des [prototypischen Vererbung](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)-Modells, da sie nur innerhalb des Körper der aktuellen Klasse zugänglich sind und nicht von Unterklassen geerbt werden. Private Elemente mit demselben Namen in verschiedenen Klassen sind völlig unterschiedlich und arbeiten nicht miteinander. Betrachten Sie sie als externe Metadaten, die an jede Instanz angehängt und von der Klasse verwaltet werden. Aus diesem Grund klont [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) keine privaten Elemente und {{jsxref("Object.freeze()")}} sowie {{jsxref("Object.seal()")}} haben keine Auswirkungen auf private Elemente.
 
-Weitere Informationen darüber, wie und wann private Felder initialisiert werden, finden Sie unter [öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields).
+Für weitere Informationen darüber, wie und wann private Felder initialisiert werden, siehe [öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields).
 
 ## Beispiele
 
 ### Private Felder
 
-Private Felder umfassen private Instanzfelder und private statische Felder. Private Felder sind nur von innerhalb der Klassendeklaration aus zugänglich.
+Private Felder umfassen private Instanzfelder und private statische Felder. Private Felder sind nur innerhalb der Klassendeklaration zugänglich.
 
 #### Private Instanzfelder
 
-Wie ihre öffentlichen Gegenstücke:
+Wie ihre öffentlichen Gegenstücke, private Instanzfelder:
 
-- werden private Instanzfelder hinzugefügt, bevor der Konstruktor in einer Basisklasse ausgeführt wird, oder unmittelbar nachdem [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) in einer Unterklasse aufgerufen wurde, und
+- werden hinzugefügt, bevor der Konstruktor in einer Basisklasse ausgeführt wird oder unmittelbar nachdem [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) in einer Unterklasse aufgerufen wurde, und
 - sind nur auf Instanzen der Klasse verfügbar.
 
 ```js
@@ -155,11 +153,11 @@ new Subclass(); // In some dev tools, it shows Subclass {#privateField: 42, #sub
 ```
 
 > [!NOTE]
-> `#privateField` aus der `ClassWithPrivateField` Basisklasse ist privat für `ClassWithPrivateField` und nicht von der abgeleiteten `Subclass` aus zugänglich.
+> `#privateField` aus der `ClassWithPrivateField` Basisklasse ist privat für `ClassWithPrivateField` und von der abgeleiteten `Subclass` nicht zugänglich.
 
 #### Zurückgeben eines überschreibenden Objekts
 
-Ein Konstruktor einer Klasse kann ein anderes Objekt zurückgeben, das als neues `this` für den Konstruktor der abgeleiteten Klasse verwendet wird. Die abgeleitete Klasse kann dann private Felder auf diesem zurückgegebenen Objekt definieren — was bedeutet, dass es möglich ist, private Felder auf nicht verwandten Objekten zu "stempeln".
+Ein Konstruktor einer Klasse kann ein anderes Objekt zurückgeben, das als neues `this` für den Konstruktor der abgeleiteten Klasse verwendet wird. Die abgeleitete Klasse kann dann private Felder auf diesem zurückgegebenen Objekt definieren — was bedeutet, dass es möglich ist, private Felder auf nicht verwandte Objekte zu "stempeln".
 
 ```js
 class Stamper extends class {
@@ -190,13 +188,13 @@ new Stamper(obj); // Error: Initializing an object twice is an error with privat
 ```
 
 > [!WARNING]
-> Dies ist potenziell sehr verwirrend. Es wird allgemein geraten, nichts vom Konstruktor zurückzugeben — insbesondere nicht etwas, das nicht mit `this` in Zusammenhang steht.
+> Dies ist potenziell sehr verwirrend. Es wird im Allgemeinen empfohlen, nichts vom Konstruktor zurückzugeben — insbesondere nichts, das nicht mit `this` zu tun hat.
 
 #### Private statische Felder
 
-Wie ihre öffentlichen Gegenstücke:
+Wie ihre öffentlichen Gegenstücke, private statische Felder:
 
-- werden private statische Felder beim Bewerten der Klasse dem Klassenkonstruktor hinzugefügt, und
+- werden zur Klassenkonstruktorzeit zur Klasse hinzugefügt, und
 - sind nur auf der Klasse selbst verfügbar.
 
 ```js
@@ -211,7 +209,7 @@ class ClassWithPrivateStaticField {
 console.log(ClassWithPrivateStaticField.publicStaticMethod()); // 42
 ```
 
-Es gibt eine Einschränkung für private statische Felder: Nur die Klasse, die das private statische Feld definiert, kann darauf zugreifen. Dies kann zu unerwartetem Verhalten führen, wenn Sie [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwenden. Im folgenden Beispiel bezieht sich `this` auf die `Subclass`-Klasse (nicht die `ClassWithPrivateStaticField`-Klasse), wenn wir versuchen, `Subclass.publicStaticMethod()` aufzurufen, und verursacht daher einen `TypeError`.
+Es gibt eine Einschränkung für private statische Felder: Nur die Klasse, die das private statische Feld definiert, kann auf das Feld zugreifen. Dies kann zu unerwartetem Verhalten führen, wenn [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwendet wird. Im folgenden Beispiel bezieht sich `this` auf die `Subclass` Klasse (nicht auf die `ClassWithPrivateStaticField` Klasse), wenn wir versuchen, `Subclass.publicStaticMethod()` aufzurufen, und verursacht daher einen `TypeError`.
 
 ```js
 class ClassWithPrivateStaticField {
@@ -227,7 +225,7 @@ class Subclass extends ClassWithPrivateStaticField {}
 Subclass.publicStaticMethod(); // TypeError: Cannot read private member #privateStaticField from an object whose class did not declare it
 ```
 
-Das Gleiche passiert, wenn Sie die Methode mit `super` aufrufen, weil [`super`-Methoden nicht mit der Superklasse als `this` aufgerufen werden](/de/docs/Web/JavaScript/Reference/Operators/super#calling_methods_from_super).
+Dies ist das gleiche, wenn Sie die Methode mit `super` aufrufen, da [`super`-Methoden nicht mit der Superklasse als `this` aufgerufen werden](/de/docs/Web/JavaScript/Reference/Operators/super#calling_methods_from_super).
 
 ```js
 class ClassWithPrivateStaticField {
@@ -248,18 +246,18 @@ class Subclass extends ClassWithPrivateStaticField {
 Subclass.callSuperMethod(); // TypeError: Cannot read private member #privateStaticField from an object whose class did not declare it
 ```
 
-Es wird geraten, immer über den Klassennamen auf private statische Felder zuzugreifen und nicht über `this`, sodass die Vererbung die Methode nicht unterbricht.
+Es wird empfohlen, auf private statische Felder immer über den Klassennamen zuzugreifen und nicht über `this`, damit die Vererbung die Methode nicht unterbricht.
 
 ### Private Methoden
 
-Private Methoden umfassen private Instanzmethoden und private statische Methoden. Private Methoden sind nur von innerhalb der Klassendeklaration aus zugänglich.
+Private Methoden umfassen private Instanzmethoden und private statische Methoden. Private Methoden sind nur innerhalb der Klassendeklaration zugänglich.
 
 #### Private Instanzmethoden
 
-Im Gegensatz zu ihren öffentlichen Gegenstücken:
+Im Gegensatz zu ihren öffentlichen Gegenstücken, private Instanzmethoden:
 
-- werden private Instanzmethoden unmittelbar vor den Instanzfeldern installiert, und
-- sind nur auf Instanzen der Klasse verfügbar, nicht auf ihrer `.prototype`-Eigenschaft.
+- werden unmittelbar bevor die Instanzfelder installiert, installiert, und
+- sind nur auf Instanzen der Klasse und nicht auf ihrer `.prototype`-Eigenschaft verfügbar.
 
 ```js
 class ClassWithPrivateMethod {
@@ -276,7 +274,7 @@ const instance = new ClassWithPrivateMethod();
 console.log(instance.publicMethod()); // 42
 ```
 
-Private Instanzmethoden können Generator-, Async- oder Async-Generator-Funktionen sein. Private Getter und Setter sind ebenfalls möglich und folgen denselben syntaktischen Anforderungen wie ihre öffentlichen [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) Gegenstücke.
+Private Instanzmethoden können Generator-, asynchrone oder asynchrone Generatorfunktionen sein. Private Getter und Setter sind ebenfalls möglich und folgen den gleichen Syntaxanforderungen wie ihre öffentlichen [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) Gegenstücke.
 
 ```js
 class ClassWithPrivateAccessor {
@@ -315,9 +313,9 @@ console.log(C.getMethod(C.prototype)); // TypeError: Receiver must be an instanc
 
 #### Private statische Methoden
 
-Wie ihre öffentlichen Gegenstücke:
+Wie ihre öffentlichen Gegenstücke, private statische Methoden:
 
-- werden private statische Methoden beim Bewerten der Klasse dem Klassenkonstruktor hinzugefügt, und
+- werden zur Klassenkonstruktorzeit zur Klasse hinzugefügt, und
 - sind nur auf der Klasse selbst verfügbar.
 
 ```js
@@ -334,9 +332,9 @@ class ClassWithPrivateStaticMethod {
 console.log(ClassWithPrivateStaticMethod.publicStaticMethod()); // 42
 ```
 
-Private statische Methoden können Generator-, Async- und Async-Generator-Funktionen sein.
+Private statische Methoden können Generator-, asynchrone oder asynchrone Generatorfunktionen sein.
 
-Die gleiche Einschränkung, die zuvor für private statische Felder erwähnt wurde, gilt auch für private statische Methoden und kann ähnlich zu unerwartetem Verhalten führen, wenn `this` verwendet wird. Im folgenden Beispiel, wenn wir versuchen, `Subclass.publicStaticMethod()` aufzurufen, bezieht sich `this` auf die `Subclass`-Klasse (nicht die `ClassWithPrivateStaticMethod`-Klasse) und verursacht daher einen `TypeError`.
+Die zuvor erwähnte Einschränkung für private statische Felder gilt auch für private statische Methoden und kann ebenfalls zu unerwartetem Verhalten führen, wenn `this` verwendet wird. Im folgenden Beispiel bezieht sich `this` auf die `Subclass` Klasse (nicht auf die `ClassWithPrivateStaticMethod` Klasse), wenn wir versuchen, `Subclass.publicStaticMethod()` aufzurufen, und verursacht daher einen `TypeError`.
 
 ```js
 class ClassWithPrivateStaticMethod {
@@ -354,9 +352,9 @@ class Subclass extends ClassWithPrivateStaticMethod {}
 console.log(Subclass.publicStaticMethod()); // TypeError: Cannot read private member #privateStaticMethod from an object whose class did not declare it
 ```
 
-### Simulieren von privaten Konstruktoren
+### Simulieren privater Konstruktoren
 
-Viele andere Sprachen beinhalten die Möglichkeit, einen Konstruktor als privat zu markieren, was verhindert, dass die Klasse außerhalb der Klasse selbst instanziiert wird — Sie können nur statische Fabrikmethoden verwenden, die Instanzen erstellen, oder es können überhaupt keine Instanzen erstellt werden. JavaScript bietet keine native Möglichkeit, dies zu tun, aber es kann durch die Verwendung eines privaten statischen Flags erreicht werden.
+Viele andere Sprachen bieten die Möglichkeit, einen Konstruktor als privat zu kennzeichnen, was verhindert, dass die Klasse außerhalb der Klasse selbst instanziiert wird — Sie können nur statische Fabrikmethoden verwenden, die Instanzen erstellen, oder gar keine Instanzen erstellen. JavaScript hat keine native Möglichkeit, dies zu tun, aber es kann durch die Verwendung einer privaten statischen Flag implementiert werden.
 
 ```js
 class PrivateConstructor {
@@ -391,10 +389,10 @@ PrivateConstructor.create(); // PrivateConstructor {}
 
 ## Siehe auch
 
-- [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)-Leitfaden
+- [Verwenden von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes) Leitfaden
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)
 - [Öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
 - {{jsxref("Statements/class", "class")}}
-- [Private Syntax FAQ](https://github.com/tc39/proposal-class-fields/blob/main/PRIVATE_SYNTAX_FAQ.md) im TC39-Klassenfelder-Proposal
+- [Private Syntax FAQ](https://github.com/tc39/proposal-class-fields/blob/main/PRIVATE_SYNTAX_FAQ.md) im TC39-Klassenfelder-Vorschlag
 - [Die Semantik aller JS-Klassenelemente](https://rfrn.org/~shu/2018/05/02/the-semantics-of-all-js-class-elements.html) von Shu-yu Guo (2018)
 - [Öffentliche und private Klassenfelder](https://v8.dev/features/class-fields) auf v8.dev (2018)

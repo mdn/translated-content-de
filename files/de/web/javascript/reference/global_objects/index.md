@@ -1,27 +1,25 @@
 ---
-title: Standardmäßige eingebaute Objekte
+title: Standard eingebaute Objekte
 slug: Web/JavaScript/Reference/Global_Objects
 l10n:
-  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Objects")}}
+Dieses Kapitel dokumentiert alle von JavaScript standardmäßig eingebauten Objekte, einschließlich ihrer Methoden und Eigenschaften.
 
-Dieses Kapitel dokumentiert alle standardmäßigen, eingebauten Objekte von JavaScript, einschließlich ihrer Methoden und Eigenschaften.
+Der Begriff "globale Objekte" (oder standard eingebaute Objekte) sollte nicht mit **dem globalen Objekt** verwechselt werden. Hier beziehen sich "globale Objekte" auf **Objekte im globalen Scope**.
 
-Der Begriff "globale Objekte" (oder standardmäßige eingebaute Objekte) hier darf nicht mit **dem globalen Objekt** verwechselt werden. Hier beziehen sich "globale Objekte" auf **Objekte im globalen Gültigkeitsbereich**.
+Das **globale Objekt** selbst kann im globalen Scope mit dem {{jsxref("Operators/this", "this")}}-Operator zugegriffen werden. Tatsächlich besteht der globale Scope **aus** den Eigenschaften des globalen Objekts, einschließlich geerbter Eigenschaften, falls vorhanden.
 
-Auf das **globale Objekt** selbst kann im globalen Gültigkeitsbereich mit dem Operator {{jsxref("Operators/this", "this")}} zugegriffen werden. Tatsächlich **besteht** der globale Gültigkeitsbereich aus den Eigenschaften des globalen Objekts, einschließlich eventuell geerbter Eigenschaften.
+Andere Objekte im globalen Scope werden entweder [durch das Benutzer-Skript erstellt](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects) oder werden von der Hostanwendung bereitgestellt. Die in Browserkontexten verfügbaren Hostobjekte sind in der [API-Referenz](/de/docs/Web/API) dokumentiert.
 
-Andere Objekte im globalen Gültigkeitsbereich werden entweder [durch das Benutzerskript erstellt](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects) oder von der Host-Anwendung bereitgestellt. Die in Browserkontexten verfügbaren Host-Objekte sind in der [API-Referenz](/de/docs/Web/API) dokumentiert.
-
-Weitere Informationen zum Unterschied zwischen dem [DOM](/de/docs/Web/API/Document_Object_Model) und dem Kern von [JavaScript](/de/docs/Web/JavaScript) finden Sie im [Überblick über JavaScript-Technologien](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
+Weitere Informationen zur Unterscheidung zwischen dem [DOM](/de/docs/Web/API/Document_Object_Model) und [JavaScript](/de/docs/Web/JavaScript) finden Sie im [JavaScript-Technologienüberblick](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
 
 ## Standardobjekte nach Kategorie
 
 ### Werteigenschaften
 
-Diese globalen Eigenschaften liefern einen einfachen Wert zurück. Sie haben keine Eigenschaften oder Methoden.
+Diese globalen Eigenschaften geben einen einfachen Wert zurück. Sie haben keine Eigenschaften oder Methoden.
 
 - {{jsxref("globalThis")}}
 - {{jsxref("Infinity")}}
@@ -55,7 +53,7 @@ Diese Objekte repräsentieren grundlegende Sprachkonstrukte.
 
 ### Fehlerobjekte
 
-Fehlerobjekte sind eine spezielle Art von grundlegenden Objekten. Sie umfassen den grundlegenden Typ {{jsxref("Error")}} sowie mehrere spezialisierte Fehlertypen.
+Fehlerobjekte sind eine spezielle Art von grundlegenden Objekten. Sie enthalten den grundlegenden Typ {{jsxref("Error")}}, sowie einige spezialisierte Fehlertypen.
 
 - {{jsxref("Error")}}
 - {{jsxref("AggregateError")}}
@@ -77,16 +75,16 @@ Dies sind die Basisobjekte, die Zahlen, Daten und mathematische Berechnungen rep
 - {{jsxref("Date")}}
 - {{jsxref("Temporal")}}
 
-### Textverarbeitung
+### Textbearbeitung
 
 Diese Objekte repräsentieren Zeichenfolgen und unterstützen deren Manipulation.
 
 - {{jsxref("String")}}
 - {{jsxref("RegExp")}}
 
-### Indexierte Sammlungen
+### Indizierte Sammlungen
 
-Diese Objekte repräsentieren Sammlungen von Daten, die nach einem Indexwert geordnet sind. Dies schließt (typisierte) Arrays und array-ähnliche Konstrukte ein.
+Diese Objekte repräsentieren Sammlungen von Daten, die durch einen Indexwert angeordnet sind. Dazu gehören (typisierte) Arrays und array-ähnliche Konstrukte.
 
 - {{jsxref("Array")}}
 - {{jsxref("TypedArray")}}
@@ -105,7 +103,7 @@ Diese Objekte repräsentieren Sammlungen von Daten, die nach einem Indexwert geo
 
 ### Schlüsselbasierte Sammlungen
 
-Diese Objekte repräsentieren Sammlungen, die Schlüssel verwenden. Die iterierbaren Sammlungen ({{jsxref("Map")}} und {{jsxref("Set")}}) enthalten Elemente, die leicht in der Reihenfolge der Einfügung durchiteriert werden können.
+Diese Objekte repräsentieren Sammlungen, die Schlüssel verwenden. Die iterierbaren Sammlungen ({{jsxref("Map")}} und {{jsxref("Set")}}) enthalten Elemente, die leicht in der Reihenfolge der Einfügung iteriert werden können.
 
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}
@@ -114,7 +112,7 @@ Diese Objekte repräsentieren Sammlungen, die Schlüssel verwenden. Die iterierb
 
 ### Strukturierte Daten
 
-Diese Objekte repräsentieren und interagieren mit gepufferten strukturierten Daten und mit JavaScript Object Notation (JSON) codierten Daten.
+Diese Objekte repräsentieren und interagieren mit strukturierten Datenpuffern und Daten, die mit JavaScript Object Notation (JSON) kodiert sind.
 
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("SharedArrayBuffer")}}
@@ -124,14 +122,14 @@ Diese Objekte repräsentieren und interagieren mit gepufferten strukturierten Da
 
 ### Speicherverwaltung
 
-Diese Objekte interagieren mit der Speicherbereinigungsmechanismus.
+Diese Objekte interagieren mit dem Garbage-Collection-Mechanismus.
 
 - {{jsxref("WeakRef")}}
 - {{jsxref("FinalizationRegistry")}}
 
 ### Kontrollabstraktionsobjekte
 
-Kontrollabstraktionen können helfen, Code zu strukturieren, insbesondere asynchronen Code (ohne z.B. tief geschachtelte Rückrufe zu verwenden).
+Kontrollabstraktionen können helfen, Code zu strukturieren, insbesondere asynchronen Code (ohne tief verschachtelte Rückrufe zu verwenden, zum Beispiel).
 
 - {{jsxref("Iterator")}}
 - {{jsxref("AsyncIterator")}}
@@ -149,7 +147,7 @@ Kontrollabstraktionen können helfen, Code zu strukturieren, insbesondere asynch
 
 ### Internationalisierung
 
-Ergänzungen zum ECMAScript-Kern für sprachsensitive Funktionen.
+Erweiterungen des ECMAScript-Kerns für sprachsensitive Funktionalitäten.
 
 - {{jsxref("Intl")}}
 - {{jsxref("Intl.Collator")}}

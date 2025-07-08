@@ -2,14 +2,12 @@
 title: "TypeError: null/undefined hat keine Eigenschaften"
 slug: Web/JavaScript/Reference/Errors/No_properties
 l10n:
-  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "null (oder undefined) hat keine Eigenschaften" tritt auf, wenn Sie versuchen, auf Eigenschaften von [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} zuzugreifen. Diese haben keine.
 
-Die JavaScript-Ausnahme "null (oder undefined) hat keine Eigenschaften" tritt auf, wenn Sie versuchen, auf Eigenschaften von [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} zuzugreifen. Diese haben keine.
-
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Cannot read properties of undefined (reading 'x') (V8-based)
@@ -27,7 +25,7 @@ TypeError: Right side of assignment cannot be destructured (Safari)
 
 ## Was ist schiefgelaufen?
 
-Sowohl [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als auch {{jsxref("undefined")}} haben keine Eigenschaften, auf die Sie zugreifen könnten. Daher können Sie keine [Eigenschafts-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) auf ihnen verwenden oder sie [destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
+Sowohl [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als auch {{jsxref("undefined")}} haben keine Eigenschaften, auf die Sie zugreifen könnten. Daher können Sie keine [Eigenschaftenzugreifer](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) auf sie anwenden oder sie [destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
 
 ## Beispiele
 

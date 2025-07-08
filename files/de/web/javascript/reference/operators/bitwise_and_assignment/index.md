@@ -1,15 +1,13 @@
 ---
-title: Bitweises UND-Zuweisung (&=)
+title: Bitweises UND-Zuweisung (`&=`)
 slug: Web/JavaScript/Reference/Operators/Bitwise_AND_assignment
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **bitweise UND-Zuweisungsoperator (`&=`)** führt ein [bitweises UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
-Der **Operator für bitweise UND-Zuweisung (`&=`)** führt ein [bitweises UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
-
-{{InteractiveExample("JavaScript Demo: Bitweises UND-Zuweisung (&=) Operator", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Bitwise AND assignment (&=) operator", "shorter")}}
 
 ```js interactive-example
 let a = 5; // 00000000000000000000000000000101
@@ -27,11 +25,11 @@ x &= y
 
 ## Beschreibung
 
-`x &= y` ist gleichbedeutend mit `x = x & y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x &= y` entspricht `x = x & y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Verwendung der bitweisen UND-Zuweisung
+### Verwendung des bitweisen UND-Zuweisungsoperators
 
 ```js
 let a = 5;

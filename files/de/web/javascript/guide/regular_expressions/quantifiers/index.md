@@ -2,12 +2,10 @@
 title: Quantifiers
 slug: Web/JavaScript/Guide/Regular_expressions/Quantifiers
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("JavaScript Leitfaden")}}
-
-Quantifizierer geben die Anzahl der Zeichen oder Ausdrücke an, die übereinstimmen sollen.
+Quantifizierer geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen sollen.
 
 {{InteractiveExample("JavaScript Demo: RegExp quantifiers", "taller")}}
 
@@ -46,9 +44,9 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Entspricht dem vorhergehenden Element "x" 0 oder mehrmals. Zum Beispiel
-          passt <code>/bo*/</code> auf "boooo" in "A ghost booooed" und "b" in "A
-          bird warbled", jedoch nicht in "A goat grunted".
+          Passt zum vorhergehenden Element "x" 0 oder mehrmals. Zum Beispiel,
+          <code>/bo*/</code> passt zu "boooo" in "Ein Geist klingt booooed" und "b" in "Ein
+          Vogel zwitscherte", aber nichts in "Ein Ziege murrte".
         </p>
       </td>
     </tr>
@@ -58,9 +56,9 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Entspricht dem vorhergehenden Element "x" 1 oder mehrmals. Entspricht
-          <code>{1,}</code>. Zum Beispiel passt <code>/a+/</code> auf das "a" in
-          "candy" und auf alle "a"'s in "caaaaaaandy".
+          Passt zum vorhergehenden Element "x" 1 oder mehrmals. Entspricht
+          <code>{1,}</code>. Zum Beispiel, <code>/a+/</code> passt zum "a" in
+          "Bonbon" und allen "a"'s in "caaaaaaandy".
         </p>
       </td>
     </tr>
@@ -70,16 +68,16 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Entspricht dem vorhergehenden Element "x" 0 oder 1 Mal. Zum Beispiel
-          passt <code>/e?le?/</code> auf das "el" in "angel" und das "le" in
-          "angle."
+          Passt zum vorhergehenden Element "x" 0 oder 1 Mal. Zum Beispiel,
+          <code>/e?le?/</code> passt zu "el" in "Engel" und "le" in
+          "Winkel."
         </p>
         <p>
           Wenn es direkt nach einem der Quantifizierer <code>*</code>,
-          <code>+</code>, <code>?</code>, oder <code>{}</code> verwendet wird,
-          macht es den Quantifizierer "non-greedy" (übereinstimmend mit der
-          minimalen Anzahl), im Gegensatz zur Voreinstellung, die "greedy" ist
-          (übereinstimmend mit der maximalen Anzahl).
+          <code>+</code>, <code>?</code> oder <code>{}</code> verwendet wird, macht es den
+          Quantifizierer nicht-gierig (es passt die minimale Anzahl von Malen),
+          im Gegensatz zur Standardeinstellung, die gierig ist (es passt die maximale Anzahl
+          von Malen).
         </p>
       </td>
     </tr>
@@ -89,10 +87,10 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Wo "n" eine nicht-negative ganze Zahl ist, entspricht genau "n"
-          Vorkommen des vorhergehenden Elements "x". Zum Beispiel passt
-          <code>/a{2}/</code> nicht auf das "a" in "candy", aber es passt auf
-          alle "a"'s in "caandy" und die ersten beiden "a"'s in "caaandy".
+          Wo "n" eine nicht-negative ganze Zahl ist, passt es genau "n"-mal zur
+          vorhergehenden Element "x". Zum Beispiel, <code>/a{2}/</code> passt nicht
+          zum "a" in "Bonbon", aber es passt zu allen "a"'s in "caandy", und
+          den ersten zwei "a"'s in "caaandy".
         </p>
       </td>
     </tr>
@@ -102,10 +100,10 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Wo "n" eine nicht-negative ganze Zahl ist, entspricht mindestens "n"
-          Vorkommen des vorhergehenden Elements "x". Zum Beispiel passt
-          <code>/a{2,}/</code> nicht auf das "a" in "candy", aber es passt auf
-          alle "a"'s in "caandy" und in "caaaaaaandy".
+          Wo "n" eine nicht-negative ganze Zahl ist, passt es mindestens "n"-mal zur
+          vorhergehenden Element "x". Zum Beispiel, <code>/a{2,}/</code> passt nicht
+          zum "a" in "Bonbon", aber passt zu allen a's in "caandy" und
+          in "caaaaaaandy".
         </p>
       </td>
     </tr>
@@ -117,12 +115,11 @@ console.log(modifiedQuote.match(regexpTooGreedy));
         <!-- cSpell:ignore cndy -->
         <p>
           Wo "n" und "m" nicht-negative ganze Zahlen sind und <code>m >= n</code>,
-          entspricht mindestens "n" und höchstens "m" Vorkommen des vorhergehenden
-          Elements "x". Zum Beispiel passt <code>/a{1,3}/</code> auf nichts in
-          "cndy", das "a" in "candy", die zwei "a"'s in "caandy", und die ersten
-          drei "a"'s in "caaaaaaandy". Beachten Sie, dass beim Abgleich von
-          "caaaaaaandy" das Ergebnis "aaa" ist, obwohl der ursprüngliche String
-          mehr "a"s hatte.
+          passt es mindestens "n" und höchstens "m"-mal zur vorhergehenden
+          Element "x". Zum Beispiel, <code>/a{1,3}/</code> passt zu nichts in
+          "cndy", zum "a" in "Bonbon", den zwei "a"'s in "caandy", und den ersten
+          drei "a"'s in "caaaaaaandy". Beachten Sie, dass bei Übereinstimmung mit "caaaaaaandy",
+          die Übereinstimmung "aaa" ist, auch wenn der ursprüngliche String mehr "a"s enthielt.
         </p>
       </td>
     </tr>
@@ -137,19 +134,14 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Standardmäßig sind Quantifizierer wie <code>*</code> und <code>+</code>
-          "greedy", was bedeutet, dass sie versuchen, so viel wie möglich aus dem
-          String zu matchen. Das <code>?</code>-Zeichen nach dem Quantifizierer
-          macht den Quantifizierer "non-greedy": Das bedeutet, es stoppt, sobald
-          es eine Übereinstimmung findet. Zum Beispiel, bei einem String wie
-          "some &#x3C;foo> &#x3C;bar> new &#x3C;/bar> &#x3C;/foo> thing":
+          Standardmäßig sind Quantifizierer wie <code>*</code> und <code>+</code> "gierig", was bedeutet, dass sie versuchen, so viel von der Zeichenkette wie möglich zu erfassen. Das <code>?</code>-Zeichen nach dem Quantifizierer macht den Quantifizierer "nicht-gierig": das bedeutet, dass er aufhört, sobald er eine Übereinstimmung gefunden hat. Zum Beispiel, gegeben eine Zeichenkette wie "some &#x3C;foo> &#x3C;bar> new &#x3C;/bar> &#x3C;/foo> thing":
         </p>
         <ul>
           <li>
-            <code>/&#x3C;.*>/</code> wird "&#x3C;foo> &#x3C;bar> new
-            &#x3C;/bar> &#x3C;/foo>" matchen
+            <code>/&#x3C;.*>/</code> passt zu "&#x3C;foo> &#x3C;bar> new
+            &#x3C;/bar> &#x3C;/foo>"
           </li>
-          <li><code>/&#x3C;.*?>/</code> wird "&#x3C;foo>" matchen</li>
+          <li><code>/&#x3C;.*?>/</code> passt zu "&#x3C;foo>"</li>
         </ul>
       </td>
     </tr>
@@ -160,7 +152,7 @@ console.log(modifiedQuote.match(regexpTooGreedy));
 
 ### Wiederholtes Muster
 
-In diesem Beispiel matchen wir ein oder mehr Wortzeichen mit `\w+`, dann ein oder mehr Zeichen "a" mit `a+` und enden schließlich an einer Wortgrenze mit `\b`.
+In diesem Beispiel, stimmen wir mit einem oder mehreren Wortzeichen mit `\w+` überein, dann mit einem oder mehreren Zeichen "a" mit `a+`, und enden schließlich an einer Wortgrenze mit `\b`.
 
 ```js
 const wordEndingWithAs = /\w+a+\b/;
@@ -171,7 +163,7 @@ console.table(delicateMessage.match(wordEndingWithAs)); // [ "Spartaaaaaaa" ]
 
 ### Zählen von Zeichen
 
-In diesem Beispiel matchen wir Wörter, die einen einzelnen Buchstaben haben, Wörter, die zwischen 2 und 6 Buchstaben haben, und Wörter, die 13 oder mehr Buchstaben haben.
+In diesem Beispiel passen wir zu Wörtern, die einen einzelnen Buchstaben haben, zu Wörtern, die zwischen 2 und 6 Buchstaben haben, und zu Wörtern, die 13 oder mehr Buchstaben haben.
 
 ```js
 const singleLetterWord = /\b\w\b/g;
@@ -187,7 +179,7 @@ console.table(sentence.match(longWord)); // ["multiplication"]
 
 ### Optionales Zeichen
 
-In diesem Beispiel matchen wir Wörter, die entweder mit "our" oder "or" enden.
+In diesem Beispiel passen wir zu Wörtern, die entweder mit "our" oder "or" enden.
 
 <!-- cSpell:ignore neighbour -->
 
@@ -208,9 +200,9 @@ console.table(americanText.match(regexpEnding));
 // ["neighbor", "favor"]
 ```
 
-### Greedy versus Non-greedy
+### Gierig versus nicht-gierig
 
-In diesem Beispiel matchen wir ein oder mehr Wortzeichen oder Leerzeichen mit `[\w ]+` und `[\w ]+?`. Der erste ist greedy und der zweite ist non-greedy. Beachten Sie, wie der zweite sofort stoppt, sobald er die minimale Anforderung erfüllt.
+In diesem Beispiel passen wir zu einem oder mehreren Wortzeichen oder Leerzeichen mit `[\w ]+` und `[\w ]+?`. Das erste ist gierig und das zweite ist nicht-gierig. Beachten Sie, wie das zweite aufhört, sobald es die minimalen Erfordernisse erfüllt.
 
 ```js
 const text = "I must be getting somewhere near the center of the earth.";

@@ -2,12 +2,10 @@
 title: Exponentiation (**)
 slug: Web/JavaScript/Reference/Operators/Exponentiation
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
-
-Der **Exponentiationsoperator (`**`)\*\* gibt das Ergebnis zurück, wenn der erste Operand auf die Potenz des zweiten Operanden erhoben wird. Er ist äquivalent zu {{jsxref("Math.pow()")}}, akzeptiert jedoch auch [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) als Operanden.
+Der **Exponentiationsoperator (`**`)\*\* gibt das Ergebnis des Erhebens des ersten Operanden zur Potenz des zweiten Operanden zurück. Er entspricht {{jsxref("Math.pow()")}}, außer dass er auch [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) als Operanden akzeptiert.
 
 {{InteractiveExample("JavaScript Demo: Exponentiation (**) operator")}}
 
@@ -33,23 +31,23 @@ x ** y
 
 ## Beschreibung
 
-Der `**`-Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft deren Typen. Er führt BigInt-Exponentiation durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine Zahl-Exponentiation durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl bleibt.
+Der `**` Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt beide Operanden zuerst dazu, numerische Werte zu sein](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft ihre Typen. Er führt BigInt-Exponentiation aus, wenn beide Operanden zu BigInts werden; andernfalls führt er number-Exponentiation aus. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einem number.
 
-Für sowohl Zahlen als auch BigInts gilt: `0` hoch eine positive Potenz ergibt `0`, und `0` hoch eine Potenz von `0` ergibt `1`. Für Zahlen gilt: `0` hoch eine negative Zahl ergibt `Infinity`, während `-0` hoch eine negative Zahl `-Infinity` ergibt.
+Für sowohl numbers als auch BigInts gilt, dass `0` zu einer positiven Potenz erhoben `0` zurückgibt, und `0` zur Potenz `0` erhebt `1` zurückgibt. Für numbers gilt, dass `0` zu einer negativen Zahl erhoben `Infinity` zurückgibt, während `-0` zu einer negativen Zahl erhoben `-Infinity` zurückgibt.
 
-`NaN ** 0` (und das entsprechende `Math.pow(NaN, 0)`) ist der einzige Fall, in dem {{jsxref("NaN")}} sich nicht durch mathematische Operationen fortpflanzt — es ergibt `1`, obwohl der Operand `NaN` ist. Darüber hinaus unterscheidet sich das Verhalten, wenn `base` 1 und `exponent` nicht endlich (±Infinity oder `NaN`) ist, von IEEE 754. Dieses spezifiziert, dass das Ergebnis 1 sein sollte, während JavaScript `NaN` zurückgibt, um die Rückwärtskompatibilität mit seinem ursprünglichen Verhalten zu bewahren.
+`NaN ** 0` (und das entsprechende `Math.pow(NaN, 0)`) ist der einzige Fall, in dem {{jsxref("NaN")}} sich nicht durch mathematische Operationen hindurch propagiert — es gibt `1` zurück, obwohl der Operand `NaN` ist. Zusätzlich unterscheidet sich das Verhalten, wenn `base` 1 ist und `exponent` nicht endlich (±Infinity oder `NaN`) ist, von IEEE 754, das vorschreibt, dass das Ergebnis 1 sein sollte, während JavaScript `NaN` zurückgibt, um die Rückwärtskompatibilität mit seinem ursprünglichen Verhalten zu erhalten.
 
-Bei der Exponentiation von BigInt wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Exponent `y` negativ ist. Dies liegt daran, dass jeder negative Exponent wahrscheinlich ein Ergebnis zwischen 0 und 1 ergeben würde (es sei denn, die Basis ist `1`, `-1` oder `0`), das auf null gerundet wird, und vermutlich ein Entwicklerfehler ist.
+Bei der BigInt-Exponentiation wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Exponent `y` negativ ist. Dies liegt daran, dass ein negativer Exponent wahrscheinlich zu einem Wert zwischen 0 und 1 führen würde (außer der Basis ist `1`, `-1` oder `0`), der auf null gerundet wird, und wahrscheinlich einen Entwicklerfehler darstellt.
 
 Der Exponentiationsoperator ist [rechtsassoziativ](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence): `a ** b ** c` ist gleich `a ** (b ** c)`.
 
-In den meisten Sprachen, wie PHP, Python und anderen, die einen Exponentiationsoperator (`**`) haben, ist der Exponentiationsoperator so definiert, dass er eine höhere Priorität als unäre Operatoren, wie unäres `+` und unäres `-`, hat, aber es gibt einige Ausnahmen. Zum Beispiel hat der `**`-Operator in Bash eine niedrigere Priorität als unäre Operatoren.
+In den meisten Sprachen, wie PHP, Python und anderen, die einen Exponentiationsoperator (`**`) haben, hat der Exponentiationsoperator eine höhere Priorität als unäre Operatoren, wie z.B. unäres `+` und unäres `-`, es gibt jedoch einige Ausnahmen. Zum Beispiel ist im Bash-Skript der `**` Operator definiert, eine niedrigere Priorität als unäre Operatoren zu haben.
 
-In JavaScript ist es unmöglich, einen mehrdeutigen Exponentiationsausdruck zu schreiben. Das bedeutet, dass Sie keinen unären Operator (mit [Priorität 14](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table), einschließlich `+`/`-`/`~`/`!`/`++`/`--`/`delete`/`void`/`typeof`/`await`) direkt vor der Basiszahl setzen können; [dies würde zu einem SyntaxError führen](/de/docs/Web/JavaScript/Reference/Errors/Unparenthesized_unary_expr_lhs_exponentiation).
+In JavaScript ist es unmöglich, einen mehrdeutigen Exponentiationsausdruck zu schreiben. Das bedeutet, Sie können keinen unären Operator (mit [Priorität 14](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table), einschließlich `+`/`-`/`~`/`!`/`++`/`--`/`delete`/`void`/`typeof`/`await`) direkt vor der Basisziffer setzen; [das wird einen SyntaxError verursachen](/de/docs/Web/JavaScript/Reference/Errors/Unparenthesized_unary_expr_lhs_exponentiation).
 
-Zum Beispiel ergibt `-2 ** 2` 4 in Bash, ist aber -4 in anderen Sprachen (wie Python). Dies ist in JavaScript ungültig, da die Operation mehrdeutig ist. Sie müssen eine Seite klammern – zum Beispiel als `-(2 ** 2)` – um die Absicht unmissverständlich zu machen.
+Zum Beispiel ist `-2 ** 2` im Bash-Skript 4, aber in anderen Sprachen (wie Python) -4. Dies ist in JavaScript ungültig, da die Operation mehrdeutig ist. Sie müssen entweder die eine oder die andere Seite einklammern — zum Beispiel als `-(2 ** 2)` — um die Absicht eindeutig zu machen.
 
-Beachten Sie, dass einige Programmiersprachen das Caret-Symbol `^` für die Exponentiation verwenden, aber JavaScript verwendet dieses Symbol für den [bitweisen XOR-Operator](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR).
+Beachten Sie, dass einige Programmiersprachen das Zirkumflexsymbol `^` für Exponentiation verwenden, aber JavaScript verwendet dieses Symbol für den [bitweisen XOR Operator](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR).
 
 ## Beispiele
 
@@ -66,7 +64,7 @@ NaN ** 0; // 1
 1 ** Infinity; // NaN
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere nicht-BigInt-Werte werden zu Zahlen umgewandelt:
 
 ```js
 2 ** "3"; // 8
@@ -80,14 +78,14 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n ** 1024n; // A very large number, but not Infinity
 ```
 
-Sie können keine BigInt- und Zahlen-Operanden in der Exponentiation mischen.
+Sie können BigInt- und Zahlenoperanden bei der Exponentiation nicht mischen.
 
 ```js example-bad
 2n ** 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 ** 2n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um eine Exponentiation zwischen einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
+Um eine Exponentiation mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
 
 ```js
 2n ** BigInt(2); // 4n
@@ -102,9 +100,9 @@ Number(2n) ** 2; // 4
 (2 ** 3) ** 2; // 64
 ```
 
-### Verwendung mit unären Operatoren
+### Nutzung mit unären Operatoren
 
-Um das Vorzeichen des Ergebnisses eines Exponentiationsausdrucks umzukehren:
+Um das Vorzeichen des Ergebnisses eines Exponentiationsausdrucks zu invertieren:
 
 ```js
 -(2 ** 2); // -4

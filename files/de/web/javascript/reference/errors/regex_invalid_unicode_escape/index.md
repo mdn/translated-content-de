@@ -1,15 +1,13 @@
 ---
-title: "SyntaxError: ungültiger Unicode-Escape in regulärem Ausdruck"
+title: "SyntaxError: ungültige Unicode-Escape-Sequenz im regulären Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_unicode_escape
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "ungültige Unicode-Escape-Sequenz im regulären Ausdruck" tritt auf, wenn die `\c`- und `\u`-[Zeichen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) nicht von gültigen Zeichen gefolgt werden.
 
-Die JavaScript-Ausnahme "ungültiger Unicode-Escape in regulärem Ausdruck" tritt auf, wenn die `\c` und `\u` [Zeichen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) nicht von gültigen Zeichen gefolgt werden.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Invalid regular expression: /\u{123456}/u: Invalid Unicode escape (V8-based)
@@ -23,7 +21,7 @@ SyntaxError: Invalid regular expression: invalid Unicode code point \u{} escape 
 
 ## Was ist schiefgelaufen?
 
-Im [Unicode-affinen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) Modus muss die `\c` [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) von einem Buchstaben von `A` bis `Z` oder `a` bis `z` gefolgt werden, und die `\u` Escape-Sequenz muss entweder von 4 hexadezimalen Ziffern oder von 1 bis 6 hexadezimalen Ziffern, die in geschweifte Klammern (`{}`) eingeschlossen sind, gefolgt werden. Außerdem müssen bei der Verwendung der `\u{xxx}` Escape-Sequenz die Ziffern einen gültigen Unicode-Codepunkt darstellen, was bedeutet, dass sein Wert `10FFFF` nicht überschreiten darf.
+Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) muss die `\c`-[Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) von einem Buchstaben aus dem Bereich `A` bis `Z` oder `a` bis `z` gefolgt werden, und die `\u`-Escape-Sequenz muss entweder von 4 hexadezimalen Ziffern oder 1 bis 6 hexadezimalen Ziffern, eingeschlossen in geschweifte Klammern (`{}`), gefolgt werden. Darüber hinaus müssen bei der Verwendung der `\u{xxx}`-Escape-Sequenz die Ziffern einen gültigen Unicode-Codepunkt darstellen, was bedeutet, dass der Wert `10FFFF` nicht überschreiten darf.
 
 ## Beispiele
 

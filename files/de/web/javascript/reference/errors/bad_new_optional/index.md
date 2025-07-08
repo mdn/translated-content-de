@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: new-Schlüsselwort kann nicht mit einer Optionalen Kette verwendet werden"
+title: "SyntaxError: Das Schlüsselwort new kann nicht mit einer optionalen Verkettung verwendet werden"
 slug: Web/JavaScript/Reference/Errors/Bad_new_optional
 l10n:
-  sourceCommit: 7ca1d16101f5f4a1adf7293f2ad295ca337c59b2
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "new-Schlüsselwort kann nicht mit einer Optionalen Kette verwendet werden" tritt auf, wenn der Konstruktor eines {{jsxref("Operators/new", "new")}}-Ausdrucks eine [Optionale Kette](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) ist oder wenn sich eine Optionale Kette zwischen dem Konstruktor und der geklammerten Argumentliste befindet.
+Der JavaScript-Ausnahmefehler "das Schlüsselwort new kann nicht mit einer optionalen Verkettung verwendet werden" tritt auf, wenn der Konstruktor eines {{jsxref("Operators/new", "new")}}-Ausdrucks eine [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) ist oder wenn eine optionale Verkettung zwischen dem Konstruktor und der geklammerten Argumentliste vorhanden ist.
 
 ## Nachricht
 
@@ -23,7 +21,7 @@ SyntaxError: Cannot call constructor in an optional chain. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es gibt zwei Möglichkeiten, diesen Fehler zu erhalten. Die erste ist, wenn der Konstruktor-Ausdruck eine Optionale-Kette-Ausdruck ist, wie hier:
+Es gibt zwei Möglichkeiten, diesen Fehler zu erzeugen. Die erste Möglichkeit ist, wenn der Konstruktor-Ausdruck eine optionale Verkettungsausdruck ist, wie hier:
 
 ```js-nolint example-bad
 new Intl?.DateTimeFormat();
@@ -36,7 +34,7 @@ Die zweite Möglichkeit ist, wenn `?.` zwischen dem Konstruktor und der Argument
 new Intl.DateTimeFormat?.();
 ```
 
-Optionales `new` ist speziell verboten, da seine Syntax kompliziert ist (`new` mit und ohne Argumente), und das Ergebnis unklar ist (es wäre der einzige Fall, in dem `new` nicht zu einem Objektwert ausgewertet wird). Sie müssen die Optionale-Kette in ihre zugrunde liegende Bedingung übersetzen (siehe [Optionale Kette](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) für weitere Informationen).
+Ein optionales `new` ist speziell verboten, weil seine Syntax kompliziert ist (`new` mit und ohne Argumente) und das Ergebnis unklar ist (es wäre der einzige Fall, in dem `new` nicht zu einem Objektwert ausgewertet wird). Sie müssen die optionale Verkettung in ihre grundlegende Bedingung übersetzen (sehen Sie sich die [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) für weitere Informationen an).
 
 ```js
 const result =
@@ -45,25 +43,25 @@ const result =
     : new Intl.DateTimeFormat();
 ```
 
-Denken Sie daran, dass die Optionale Kette nur innerhalb einer geklammerten Einheit abgekürzt wird. Wenn Sie Ihren Konstruktor-Ausdruck klammern, wird die Optionale Kette keinen Fehler verursachen, da der Konstruktor nicht abkürzt und das Ergebnis klar ist (der Konstruktor liefert `undefined` und verursacht dann, dass der `new`-Ausdruck einen Fehler wirft).
+Denken Sie daran, dass die optionale Verkettung nur innerhalb einer geklammerten Einheit kurzschließt. Wenn Sie Ihren Konstruktor-Ausdruck klammern, wird die optionale Verkettung keinen Fehler verursachen, da jetzt der Konstruktor nicht mehr kurzschließt und das Ergebnis klar ist (der Konstruktor wird `undefined` produzieren und dann die `new`-Ausdruck verursachen, um einen Fehler zu werfen).
 
 ```js-nolint
 new (Intl?.DateTimeFormat)(); // Throws if Intl?.DateTimeFormat is undefined
 ```
 
-Dies ist jedoch ohnehin etwas unsinnig, da die Optionale Kette Fehler innerhalb der Eigenschaftszugriffskette verhindert, aber garantiert einen Fehler erzeugt, wenn `new` aufgerufen wird. Sie möchten wahrscheinlich trotzdem eine Bedingungsüberprüfung verwenden.
+Dies ist jedoch sowieso etwas unsinnig, da die optionale Verkettung Fehler innerhalb der Eigenschafts-Zugriffs-Kette verhindert, dann aber garantiert einen Fehler bei der Verwendung von `new` erzeugt. Sie möchten wahrscheinlich immer noch eine Bedingungsprüfung verwenden.
 
-Beachten Sie, dass die Optionale Kette nur als Konstruktor-Ausdruck verboten ist. Sie können die Optionale Kette innerhalb der Argumentliste verwenden oder die Optionale Kette auf den gesamten `new`-Ausdruck anwenden.
+Beachten Sie, dass die optionale Verkettung nur als Konstruktor-Ausdruck verboten ist. Sie können die optionale Verkettung in der Argumentliste verwenden oder die optionale Verkettung auf den gesamten `new`-Ausdruck anwenden.
 
 ```js example-good
 new Intl.DateTimeFormat(navigator?.languages);
 new Intl.DateTimeFormat().resolvedOptions?.();
 ```
 
-Beachten Sie, dass es nicht erforderlich ist, `?.` auf den `new`-Ausdruck selbst anzuwenden: `new a()?.b`, da `new` garantiert einen nicht-nullish Objektwert produziert.
+Beachten Sie, dass es nicht nötig ist, `?.` auf dem `new`-Ausdruck selbst zu verwenden: `new a()?.b`, weil `new` garantiert einen nicht-nullish Objektwert erzeugt.
 
 ## Siehe auch
 
 - {{jsxref("Operators/new", "new")}}
-- [Optionale Kette (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [Originaldiskussion darüber, ob "optionales new" erlaubt sein sollte](https://github.com/tc39/proposal-optional-chaining/issues/22)
+- [Optionale Verkettung (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Ursprüngliche Diskussion darüber, ob "optional new" erlaubt sein sollte](https://github.com/tc39/proposal-optional-chaining/issues/22)

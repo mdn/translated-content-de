@@ -1,15 +1,13 @@
 ---
-title: "AggregateError: Kein Promise in Promise.any wurde aufgelöst"
+title: "AggregateError: Kein Promise in Promise.any wurde erfüllt"
 slug: Web/JavaScript/Reference/Errors/Promise_any_all_rejected
 l10n:
-  sourceCommit: a487c2f8fa1e605489df2efd6da4e9e8d93fd75a
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "Kein Promise in Promise.any wurde erfüllt" tritt auf, wenn alle Promises, die an {{jsxref("Promise.any()")}} übergeben werden, abgelehnt werden. Dies ist die einzige eingebaute Anwendung von {{jsxref("AggregateError")}}.
 
-Die JavaScript-Ausnahme "Kein Promise in Promise.any wurde aufgelöst" tritt auf, wenn alle Promises, die an {{jsxref("Promise.any()")}} übergeben wurden, abgelehnt werden. Es ist die einzige eingebaute Verwendung von {{jsxref("AggregateError")}}.
-
-## Meldung
+## Nachricht
 
 ```plain
 AggregateError: All promises were rejected (V8-based)
@@ -23,11 +21,11 @@ AggregateError (Safari)
 
 ## Was ist schiefgelaufen?
 
-`Promise.any()` schlägt nur fehl, wenn alle übergebenen Promises abgelehnt werden. Sie sollten auf {{jsxref("AggregateError/errors", "errors")}} zugreifen, um das Array der Ablehnungsgründe zu erhalten. Siehe [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling) für weitere Informationen darüber, wie asynchron abgelehnte Promises behandelt werden. Dieser Fehler wird auch ausgelöst, wenn `Promise.any()` ein leeres Iterable erhält.
+`Promise.any()` lehnt nur ab, wenn alle Promises, die übergeben wurden, abgelehnt werden. Sie sollten auf {{jsxref("AggregateError/errors", "errors")}} zugreifen, um das Array mit den Ablehnungsgründen zu erhalten. Lesen Sie den [Umgang mit Promises](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling) für weitere Informationen darüber, wie asynchron abgelehnte Promises behandelt werden. Dieser Fehler tritt auch auf, wenn `Promise.any()` ein leeres iterierbares Objekt erhält.
 
 ## Beispiele
 
-### Leeres Iterable
+### Leeres iterierbares Objekt
 
 ```js
 Promise.any([]).catch((error) => {

@@ -2,10 +2,8 @@
 title: Division (/)
 slug: Web/JavaScript/Reference/Operators/Division
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
-
-{{jsSidebar("Operators")}}
 
 Der **Divisionsoperator (`/`)** erzeugt den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
 
@@ -33,9 +31,9 @@ x / y
 
 ## Beschreibung
 
-Der `/` Operator ist für zwei Typen von Operanden überladen: Nummer und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zunächst beide Operanden in numerische Werte](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft die Typen von ihnen. Er führt eine BigInt-Division durch, wenn beide Operanden BigInts werden; andernfalls erfolgt eine Nummern-Division. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt und der andere zu einer Nummer wird.
+Der `/`-Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zuerst [beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Er führt eine BigInt-Division durch, wenn beide Operanden BigInts werden; andernfalls führt er eine number-Division durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, aber der andere eine Zahl wird.
 
-Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der gegen null abgerundet wird, wobei der Rest verworfen wird. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division durch null bei Nummern `Infinity` oder `-Infinity` ergibt, aber BigInt kein Konzept von Unendlichkeit hat.
+Für BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der Richtung Null gekürzt wird, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division von Zahlen durch null `Infinity` oder `-Infinity` zurückgibt, BigInt jedoch kein Konzept von Unendlichkeit hat.
 
 ## Beispiele
 
@@ -51,7 +49,7 @@ Math.floor(3 / 2); // 1
 2.0 / -0.0; // -Infinity
 ```
 
-Andere Nicht-BigInt-Werte werden zu Zahlen gezwungen:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 5 / "2"; // 2.5
@@ -69,14 +67,14 @@ Andere Nicht-BigInt-Werte werden zu Zahlen gezwungen:
 2n / 0n; // RangeError: BigInt division by zero
 ```
 
-Sie können BigInt- und nummerische Operanden nicht in der Division mischen.
+Sie können BigInt- und Zahlenoperanden bei der Division nicht mischen.
 
 ```js example-bad
 2n / 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 / 2n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie entweder den einen oder den anderen Operanden:
+Um die Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
 
 ```js
 2n / BigInt(2); // 1n
@@ -98,7 +96,7 @@ Number(2n) / 2; // 1
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
-- [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unary negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
-- [Unary plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+- [Increment (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
+- [Decrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

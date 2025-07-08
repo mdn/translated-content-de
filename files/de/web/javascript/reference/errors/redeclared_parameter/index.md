@@ -1,16 +1,13 @@
 ---
-title: 'SyntaxError: redeclaration of formal parameter "x"'
+title: 'SyntaxError: Neudeklaration des formalen Parameters "x"'
 slug: Web/JavaScript/Reference/Errors/Redeclared_parameter
 l10n:
-  sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "Neudeklaration des formalen Parameters" tritt auf, wenn ein Funktionsparameter denselben Variablennamen aufweist und dann im Funktionskörper erneut mit einer {{jsxref("Statements/let", "let")}}-Zuweisung deklariert wird.
 
-Die JavaScript-Ausnahme "redeclaration of formal parameter" tritt auf, wenn derselbe
-Variablenname sowohl als Funktionsparameter verwendet wird als auch erneut innerhalb des Funktionskörpers mit einer {{jsxref("Statements/let", "let")}}-Zuweisung deklariert wird.
-
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Identifier "x" has already been declared (V8-based)
@@ -24,13 +21,13 @@ SyntaxError: Cannot declare a let variable twice: 'x'. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Derselbe Variablenname wird als Funktionsparameter verwendet und dann innerhalb des Funktionskörpers erneut mit einer {{jsxref("Statements/let", "let")}}-Zuweisung deklariert. Die erneute Deklaration derselben Variablen innerhalb derselben Funktion oder des gleichen Blockscopes mit `let` ist in JavaScript nicht erlaubt.
+Derselbe Variablenname tritt als Funktionsparameter auf und wird dann im Funktionskörper erneut mit einer {{jsxref("Statements/let", "let")}}-Zuweisung deklariert. Die Neudeklaration derselben Variablen innerhalb desselben Funktions- oder Blockbereichs mit `let` ist in JavaScript nicht erlaubt.
 
 ## Beispiele
 
-### Erneut deklariertes Argument
+### Neu deklariertes Argument
 
-In diesem Fall erklärt die Variable "arg" das Argument erneut.
+In diesem Fall deklariert die Variable "arg" das Argument neu.
 
 ```js-nolint example-bad
 function f(arg) {
@@ -40,7 +37,7 @@ function f(arg) {
 // SyntaxError: redeclaration of formal parameter "arg"
 ```
 
-Wenn Sie den Wert von "arg" im Funktionskörper ändern möchten, können Sie dies tun, aber Sie müssen nicht dieselbe Variable erneut deklarieren. Mit anderen Worten: Sie können das `let`-Schlüsselwort weglassen. Wenn Sie eine neue Variable erstellen möchten, müssen Sie sie umbenennen, da sie bereits mit dem Funktionsparameter kollidiert.
+Wenn Sie den Wert von "arg" im Funktionskörper ändern möchten, können Sie das tun, aber Sie müssen dieselbe Variable nicht erneut deklarieren. Mit anderen Worten: Sie können das `let`-Schlüsselwort weglassen. Wenn Sie eine neue Variable erstellen möchten, müssen Sie sie umbenennen, da ein Konflikt mit dem Funktionsparameter bereits besteht.
 
 ```js example-good
 function f(arg) {

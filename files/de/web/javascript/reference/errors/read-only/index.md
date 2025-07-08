@@ -2,15 +2,14 @@
 title: 'TypeError: "x" ist schreibgeschützt'
 slug: Web/JavaScript/Reference/Errors/Read-only
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-[strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-only Ausnahme
+"ist schreibgeschützt" tritt auf, wenn einer globalen Variable oder einem Objekteigenschaft
+ein schreibgeschützter Wert zugewiesen wurde.
 
-Die JavaScript-[Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-only-Ausnahme
-„ist schreibgeschützt“ tritt auf, wenn eine globale Variable oder eine Objekteigenschaft, die zugewiesen wurde, eine schreibgeschützte Eigenschaft ist.
-
-## Mitteilung
+## Meldung
 
 ```plain
 TypeError: Cannot assign to read only property 'x' of #<Object> (V8-based)
@@ -18,23 +17,23 @@ TypeError: "x" is read-only (Firefox)
 TypeError: Attempted to assign to readonly property. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
-{{jsxref("TypeError")}} in [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) only.
+{{jsxref("TypeError")}} nur im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
-## Was schiefgelaufen ist
+## Was ist schiefgelaufen?
 
-Die globale Variable oder Objekteigenschaft, die zugewiesen wurde, ist eine schreibgeschützte Eigenschaft.
-(Technisch gesehen handelt es sich um eine [nicht-schreibbare Dateneigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#writable_attribute).)
+Der globalen Variable oder der Objekteigenschaft, der zugewiesen wurde, ist eine schreibgeschützte Eigenschaft.
+(Technisch gesehen ist es eine [nicht-schreibbare Dateneigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#writable_attribute).)
 
-Dieser Fehler tritt nur im [Strict Mode Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In
-Nicht-Strict-Code wird die Zuweisung still ignoriert.
+Dieser Fehler tritt nur im [strict mode code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In
+nicht-strict code wird die Zuweisung stillschweigend ignoriert.
 
 ## Beispiele
 
 ### Ungültige Fälle
 
-Schreibgeschützte Eigenschaften sind nicht allzu häufig, können jedoch mit
+Schreibgeschützte Eigenschaften sind nicht sehr häufig, können aber mit
 {{jsxref("Object.defineProperty()")}} oder {{jsxref("Object.freeze()")}} erstellt werden.
 
 ```js example-bad
@@ -61,7 +60,8 @@ Math.PI = 4; // TypeError
 
 Entschuldigung, das können Sie nicht tun.
 
-Die globale Variable `undefined` ist auch schreibgeschützt, sodass Sie den berüchtigten Fehler „undefined is not a function“ nicht durch Folgendes beheben können:
+Die globale Variable `undefined` ist ebenfalls schreibgeschützt, sodass Sie den
+berüchtigten Fehler "undefined is not a function" nicht durch Folgendes unterdrücken können:
 
 ```js example-bad
 "use strict";

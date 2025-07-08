@@ -2,10 +2,8 @@
 title: typeof
 slug: Web/JavaScript/Reference/Operators/typeof
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
-
-{{jsSidebar("Operators")}}
 
 Der **`typeof`** Operator gibt einen String zurück, der den Typ des Werts des Operanden angibt.
 
@@ -34,25 +32,25 @@ typeof operand
 ### Parameter
 
 - `operand`
-  - : Ein Ausdruck, der das Objekt oder das {{Glossary("Primitive", "Primiv")}} darstellt, dessen Typ zurückgegeben werden soll.
+  - : Ein Ausdruck, der das Objekt oder {{Glossary("Primitive", "Primitiv")}} darstellt, dessen Typ zurückgegeben werden soll.
 
 ## Beschreibung
 
-Die folgende Tabelle fasst die möglichen Rückgabewerte von `typeof` zusammen. Für weitere Informationen zu Typen und Primitiven siehe auch die Seite [JavaScript-Datenstruktur](/de/docs/Web/JavaScript/Guide/Data_structures).
+Die folgende Tabelle fasst die möglichen Rückgabewerte von `typeof` zusammen. Weitere Informationen zu Typen und primitiven Datentypen finden Sie auf der Seite [JavaScript-Datenstruktur](/de/docs/Web/JavaScript/Guide/Data_structures).
 
-| Typ                                                                                                                                                                                                           | Ergebnis                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| [Undefined](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)                                                                                                                                       | `"undefined"`                      |
-| [Null](/de/docs/Web/JavaScript/Reference/Operators/null)                                                                                                                                                      | `"object"` ([Grund](#typeof_null)) |
-| [Boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                           | `"boolean"`                        |
-| [Number](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                                             | `"number"`                         |
-| [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)                                                                                                                                             | `"bigint"`                         |
-| [String](/de/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                             | `"string"`                         |
-| [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)                                                                                                                                             | `"symbol"`                         |
-| [Function](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) (implementiert [[Call]] in ECMA-262 Begriffen; [Klassen](/de/docs/Web/JavaScript/Reference/Statements/class) sind ebenfalls Funktionen) | `"function"`                       |
-| Jedes andere Objekt                                                                                                                                                                                           | `"object"`                         |
+| Typ                                                                                                                                                                                                       | Ergebnis                           |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| [Undefined](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)                                                                                                                                   | `"undefined"`                      |
+| [Null](/de/docs/Web/JavaScript/Reference/Operators/null)                                                                                                                                                  | `"object"` ([Grund](#typeof_null)) |
+| [Boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                       | `"boolean"`                        |
+| [Number](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                                         | `"number"`                         |
+| [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)                                                                                                                                         | `"bigint"`                         |
+| [String](/de/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                         | `"string"`                         |
+| [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)                                                                                                                                         | `"symbol"`                         |
+| [Function](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) (implementiert [[Call]] in ECMA-262-Terms; [Klassen](/de/docs/Web/JavaScript/Reference/Statements/class) sind ebenfalls Funktionen) | `"function"`                       |
+| Jedes andere Objekt                                                                                                                                                                                       | `"object"`                         |
 
-Diese Liste von Werten ist erschöpfend. Kein spezifikationskonformer Interpreter ist bekannt, der (oder hat historisch) andere als die aufgeführten Werte erzeugt.
+Diese Liste der Werte ist vollständig. Es sind keine spezifikationskonformen Engines bekannt, die Werte produzieren (oder historisch produziert haben), die anders als die hier aufgeführten sind.
 
 ## Beispiele
 
@@ -123,13 +121,13 @@ typeof Math.sin === "function";
 typeof null === "object";
 ```
 
-In der ersten Implementierung von JavaScript wurden JavaScript-Werte als Typ-Tag und Wert dargestellt. Das Typ-Tag für Objekte war `0`. `null` wurde als NULL-Zeiger (`0x00` in den meisten Plattformen) repräsentiert. Folglich hatte `null` `0` als Typ-Tag, daher der `typeof` Rückgabewert `"object"`. ([Referenz](https://2ality.com/2013/10/typeof-null.html))
+In der ersten Implementierung von JavaScript wurden JavaScript-Werte als ein Typ-Tag und ein Wert dargestellt. Das Typ-Tag für Objekte war `0`. `null` wurde als der NULL-Zeiger (`0x00` auf den meisten Plattformen) dargestellt. Folglich hatte `null` das Typ-Tag `0`, daher der `typeof`-Rückgabewert `"object"`. ([Referenz](https://2ality.com/2013/10/typeof-null.html))
 
-Ein Fix wurde für ECMAScript vorgeschlagen (via Opt-in), aber [wurde abgelehnt](https://web.archive.org/web/20160331031419/http://wiki.ecmascript.org:80/doku.php?id=harmony:typeof_null). Es hätte dazu geführt, dass `typeof null === "null"`.
+Ein Fix wurde für ECMAScript vorgeschlagen (via Opt-In), aber [wurde abgelehnt](https://web.archive.org/web/20160331031419/http://wiki.ecmascript.org:80/doku.php?id=harmony:typeof_null). Er hätte zu `typeof null === "null"` geführt.
 
 ### Verwendung des new-Operators
 
-Alle Konstruktorfunktionen, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, geben Nicht-Primitiven (`"object"` oder `"function"`) zurück. Die meisten geben Objekte zurück, mit der bemerkenswerten Ausnahme der [`Function`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function), die eine Funktion zurückgibt.
+Alle Konstrukturfunktionen, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, geben Nicht-Primitiva zurück (`"object"` oder `"function"`). Die meisten geben Objekte zurück, mit der bemerkenswerten Ausnahme [`Function`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function), die eine Funktion zurückgibt.
 
 ```js
 const str = new String("String");
@@ -145,7 +143,7 @@ typeof func; // "function"
 
 ### Notwendigkeit von Klammern in der Syntax
 
-Der `typeof` Operator hat eine höhere [Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) als binäre Operatoren wie Addition (`+`). Daher sind Klammern erforderlich, um den Typ eines Additions-ergebnisses auszuwerten.
+Der `typeof`-Operator hat eine höhere [Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) als binäre Operatoren wie Addition (`+`). Daher sind Klammern erforderlich, um den Typ eines Additionsergebnisses zu bewerten.
 
 ```js
 // Parentheses can be used for determining the data type of expressions.
@@ -157,13 +155,13 @@ typeof (someData + " foo"); // "string"
 
 ### Interaktion mit nicht deklarierten und nicht initialisierten Variablen
 
-`typeof` wird generell immer garantiert, einen String für jeden gegebenen Operanden zurückzugeben. Selbst bei nicht deklarierten Bezeichnern wird `typeof` `"undefined"` zurückgeben, anstatt einen Fehler zu werfen.
+`typeof` ist im Allgemeinen immer garantiert, einen String für jeden übergebenen Operand zurückzugeben. Selbst bei nicht deklarierten Bezeichnern wird `typeof` `"undefined"` zurückgeben, anstatt einen Fehler auszulösen.
 
 ```js
 typeof undeclaredVariable; // "undefined"
 ```
 
-Die Verwendung von `typeof` bei lexikalischen Deklarationen ({{jsxref("Statements/let", "let")}} {{jsxref("Statements/const", "const")}}, und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class)) im selben Block vor der Stelle der Deklaration wird jedoch einen {{jsxref("ReferenceError")}} werfen. Block-skopierte Variablen befinden sich in einer _[temporalen toten Zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)_ vom Anfang des Blocks bis zur Initialisierung, währenddessen es einen Fehler wirft, wenn darauf zugegriffen wird.
+Jedoch führt die Verwendung von `typeof` bei lexikalischen Deklarationen ({{jsxref("Statements/let", "let")}} {{jsxref("Statements/const", "const")}} und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class)) im selben Block vor dem Deklarationsort zu einem {{jsxref("ReferenceError")}}. Block-skopierte Variablen befinden sich in einer [_temporalen Dead Zone_](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz) vom Start des Blocks bis zur Initialisierung, während derer ein Fehler ausgelöst wird, wenn darauf zugegriffen wird.
 
 ```js example-bad
 typeof newLetVariable; // ReferenceError
@@ -175,21 +173,21 @@ const newConstVariable = "hello";
 class newClass {}
 ```
 
-### Ausnahmsverhalten von document.all
+### Außergewöhnliches Verhalten von document.all
 
-Alle aktuellen Browser exponieren ein nicht-standardisiertes Host-Objekt [`document.all`](/de/docs/Web/API/Document/all) mit dem Typ `undefined`.
+Alle aktuellen Browser setzen ein nicht-standardmäßiges Host-Objekt [`document.all`](/de/docs/Web/API/Document/all) mit dem Typ `undefined` ein.
 
 ```js
 typeof document.all === "undefined";
 ```
 
-Obwohl `document.all` auch {{Glossary("Falsy", "falsy")}} ist und [lose gleich](/de/docs/Web/JavaScript/Reference/Operators/Equality) zu `undefined`, ist es nicht [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined). Der Fall, dass `document.all` den Typ `"undefined"` hat, wird in den Webstandards als eine „willentliche Verletzung“ des ursprünglichen ECMAScript Standards für Webkompatibilität klassifiziert.
+Obwohl `document.all` auch {{Glossary("Falsy", "falsy")}} ist und [lose gleich](/de/docs/Web/JavaScript/Reference/Operators/Equality) zu `undefined`, ist es nicht [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined). Der Fall, dass `document.all` den Typ `"undefined"` hat, wird in den Webstandards als "willkürliche Verletzung" des ursprünglichen ECMAScript-Standards für die Webkompatibilität klassifiziert.
 
-### Eigene Methode, die einen spezifischeren Typ erhält
+### Benutzerdefinierte Methode, die einen spezifischeren Typ erhält
 
-`typeof` ist sehr nützlich, aber nicht so vielseitig wie erforderlich. Zum Beispiel, `typeof []` ist `"object"`, ebenso wie `typeof new Date()`, `typeof /abc/`, etc.
+`typeof` ist sehr nützlich, aber es ist nicht so vielseitig, wie es sein könnte. Zum Beispiel ist `typeof []` `"object"`, ebenso wie `typeof new Date()`, `typeof /abc/`, usw.
 
-Um eine größere Spezifität beim Überprüfen von Typen zu erreichen, präsentieren wir hier eine benutzerdefinierte `type(value)` Funktion, die größtenteils das Verhalten von `typeof` nachahmt, aber für Nicht-Primitiven (d.h. Objekte und Funktionen) gibt sie wo möglich einen detaillierteren Typnamen zurück.
+Für mehr Spezifität bei der Typprüfung stellen wir hier eine benutzerdefinierte `type(value)` Funktion vor, die größtenteils das Verhalten von `typeof` nachahmt, aber bei Nicht-Primitiven (d.h. Objekten und Funktionen) einen detaillierteren Typnamen zurückgibt, wo möglich.
 
 ```js
 function type(value) {
@@ -230,7 +228,7 @@ function type(value) {
 }
 ```
 
-Zum Überprüfen von möglicherweise nicht vorhandenen Variablen, die andernfalls einen {{jsxref("ReferenceError")}} werfen würden, verwenden Sie `typeof nonExistentVar === "undefined"`, da dieses Verhalten nicht mit benutzerdefiniertem Code nachgeahmt werden kann.
+Um potenziell nicht existierende Variablen zu prüfen, die ansonsten einen {{jsxref("ReferenceError")}} auslösen würden, verwenden Sie `typeof nonExistentVar === "undefined"`, da dieses Verhalten nicht mit benutzerdefiniertem Code nachgeahmt werden kann.
 
 ## Spezifikationen
 
@@ -243,4 +241,4 @@ Zum Überprüfen von möglicherweise nicht vorhandenen Variablen, die andernfall
 ## Siehe auch
 
 - {{jsxref("Operators/instanceof", "instanceof")}}
-- [`document.all` willentliche Verletzung des Standards](https://github.com/tc39/ecma262/issues/668)
+- [`document.all` willkürliche Verletzung des Standards](https://github.com/tc39/ecma262/issues/668)

@@ -1,15 +1,13 @@
 ---
-title: "TypeError: ungültiger 'instanceof' Operand 'x'"
+title: "TypeError: ungültiges 'instanceof'-Operand 'x'"
 slug: Web/JavaScript/Reference/Errors/invalid_right_hand_side_instanceof_operand
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "ungültiges 'instanceof'-Operand" tritt auf, wenn die rechten Operanden des [`instanceof`-Operators](/de/docs/Web/JavaScript/Reference/Operators/instanceof) nicht mit einem Konstruktorobjekt verwendet werden, d.h. einem Objekt, das über eine `prototype`-Eigenschaft verfügt und aufrufbar ist.
 
-Der JavaScript-Ausnahmefehler "ungültiger 'instanceof' Operand" tritt auf, wenn das rechte Operand des [`instanceof`-Operators](/de/docs/Web/JavaScript/Reference/Operators/instanceof) nicht mit einem Konstruktorobjekt verwendet wird, d.h. einem Objekt, das eine `prototype`-Eigenschaft enthält und aufrufbar ist.
-
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: Right-hand side of 'instanceof' is not an object (V8-based)
@@ -31,7 +29,7 @@ TypeError: instanceof called on an object with an invalid prototype property. (S
 
 ## Was ist schiefgelaufen?
 
-Der [`instanceof`-Operator](/de/docs/Web/JavaScript/Reference/Operators/instanceof) erwartet, dass die rechten Operanden ein Konstruktorobjekt sind, d.h. ein Objekt, das eine `prototype`-Eigenschaft hat und aufrufbar ist. Es kann auch ein Objekt mit einer [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance)-Methode sein. Dieser Fehler kann auftreten, wenn:
+Der [`instanceof`-Operator](/de/docs/Web/JavaScript/Reference/Operators/instanceof) erwartet, dass die rechten Operanden ein Konstruktorobjekt sind, d.h. ein Objekt, das über eine `prototype`-Eigenschaft verfügt und aufrufbar ist. Es kann auch ein Objekt mit einer [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance)-Methode sein. Dieser Fehler kann auftreten, wenn:
 
 - Der rechte Operand kein Objekt ist.
 - Der rechte Operand nicht aufrufbar ist und keine `Symbol.hasInstance`-Methode hat.
@@ -53,7 +51,7 @@ x instanceof f; // TypeError: invalid 'instanceof' operand f
 x instanceof x; // TypeError: x is not a function
 ```
 
-Um diese Fehler zu beheben, müssen Sie entweder den [`instanceof`-Operator](/de/docs/Web/JavaScript/Reference/Operators/instanceof) durch den [`typeof`-Operator](/de/docs/Web/JavaScript/Reference/Operators/typeof) ersetzen oder sicherstellen, dass Sie den Funktionsnamen anstelle des Ergebnisses seiner Auswertung verwenden.
+Um diese Fehler zu beheben, müssen Sie entweder den [`instanceof`-Operator](/de/docs/Web/JavaScript/Reference/Operators/instanceof) durch den [`typeof`-Operator](/de/docs/Web/JavaScript/Reference/Operators/typeof) ersetzen oder sicherstellen, dass Sie den Funktionsnamen verwenden, anstatt das Ergebnis seiner Auswertung.
 
 ```js example-good
 typeof "test" === "string"; // true

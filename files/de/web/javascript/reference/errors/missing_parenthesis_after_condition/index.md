@@ -2,14 +2,12 @@
 title: "SyntaxError: missing ) after condition"
 slug: Web/JavaScript/Reference/Errors/Missing_parenthesis_after_condition
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "missing ) after condition" tritt auf, wenn ein Fehler bei der Schreibweise einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Bedingung vorliegt. Die Bedingung muss in Klammern nach dem `if`-Schlüsselwort erscheinen.
 
-Der JavaScript-Ausnahmefehler "missing ) after condition" tritt auf, wenn ein Fehler in der Schreibweise einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Bedingung vorliegt. Diese muss nach dem `if`-Schlüsselwort in Klammern erscheinen.
-
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: missing ) after condition (Firefox)
@@ -22,7 +20,7 @@ SyntaxError: Unexpected token '{'. Expected ')' to end an 'if' condition. (Safar
 
 ## Was ist schiefgelaufen?
 
-Es gibt einen Fehler in der Schreibweise einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Bedingung. In jeder Programmiersprache muss der Code Entscheidungen treffen und je nach verschiedenen Eingaben entsprechende Aktionen ausführen. Die If-Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung wahr ist. In JavaScript muss diese Bedingung nach dem `if`-Schlüsselwort in Klammern erscheinen, wie folgt:
+Es liegt ein Fehler bei der Schreibweise einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Bedingung vor. In jeder Programmiersprache muss der Code Entscheidungen treffen und dementsprechend Aktionen ausführen, abhängig von verschiedenen Eingaben. Die if-Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung wahrheitsgemäß ist. In JavaScript muss diese Bedingung in Klammern nach dem `if`-Schlüsselwort erscheinen, so:
 
 ```js
 if (condition) {
@@ -34,7 +32,7 @@ if (condition) {
 
 ### Fehlende Klammer
 
-Es könnte nur ein Versehen sein, überprüfen Sie sorgfältig alle Klammern in Ihrem Code.
+Es könnte einfach ein Versehen sein, überprüfen Sie sorgfältig alle Ihre Klammern im Code.
 
 ```js-nolint example-bad
 if (Math.PI < 3 {
@@ -54,7 +52,7 @@ if (Math.PI < 3) {
 
 ### Falsch verwendetes Schlüsselwort
 
-Wenn Sie aus einer anderen Programmiersprache kommen, ist es leicht, Schlüsselwörter hinzuzufügen, die in JavaScript nicht dasselbe bedeuten oder überhaupt keine Bedeutung haben.
+Wenn Sie aus einer anderen Programmiersprache kommen, ist es auch leicht, Schlüsselwörter hinzuzufügen, die in JavaScript nicht dasselbe bedeuten oder überhaupt keine Bedeutung haben.
 
 ```js-nolint example-bad
 if (done is true) {
@@ -84,4 +82,4 @@ if (done) {
 
 - [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)
 - [Relationale Operatoren](/de/docs/Web/JavaScript/Reference/Operators#relational_operators)
-- [Lernen: Entscheidungen in Ihrem Code treffen — Konditionale](/de/docs/Learn_web_development/Core/Scripting/Conditionals)
+- [Lernen: Entscheidungen in Ihrem Code treffen — Bedingungsausdrücke](/de/docs/Learn_web_development/Core/Scripting/Conditionals)

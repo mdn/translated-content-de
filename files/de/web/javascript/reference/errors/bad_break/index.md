@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: unlabeled break muss innerhalb einer Schleife oder eines Switch sein"
+title: "SyntaxError: Ein nicht gekennzeichneter break muss innerhalb einer Schleife oder eines switch sein"
 slug: Web/JavaScript/Reference/Errors/Bad_break
 l10n:
-  sourceCommit: d71b141d2d18b96639547856714df19cefacfebf
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "unlabeled break muss innerhalb einer Schleife oder eines Switch sein" tritt auf, wenn eine {{jsxref("Statements/break", "break")}}-Anweisung nicht innerhalb einer Schleife oder einer {{jsxref("Statements/switch", "switch")}}-Anweisung steht.
+Der JavaScript-Ausnahmefehler "unlabeled break must be inside loop or switch" tritt auf, wenn eine {{jsxref("Statements/break", "break")}}-Anweisung nicht innerhalb einer Schleife oder einer {{jsxref("Statements/switch", "switch")}}-Anweisung verwendet wird.
 
 ## Meldung
 
@@ -17,19 +15,19 @@ SyntaxError: unlabeled break must be inside loop or switch (Firefox)
 SyntaxError: 'break' is only valid inside a switch or loop statement. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}.
 
-## Was ist schiefgelaufen?
+## Was ist schiefgegangen?
 
-{{jsxref("Statements/break", "break")}}-Anweisungen können verwendet werden, um eine Schleife oder eine `switch`-Anweisung zu verlassen. Ihre Verwendung an anderer Stelle führt zu einem Syntaxfehler. Alternativ können Sie der `break`-Anweisung ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) zuweisen, um aus einer beliebigen Anweisung mit diesem Label auszubrechen. Wenn das Label jedoch keine umschließende Anweisung referenziert, wird ein weiterer Fehler [SyntaxError: label not found](/de/docs/Web/JavaScript/Reference/Errors/Label_not_found) ausgelöst.
+{{jsxref("Statements/break", "break")}}-Anweisungen können verwendet werden, um eine Schleife oder eine `switch`-Anweisung zu verlassen, und die Verwendung an anderer Stelle ist ein Syntaxfehler. Alternativ können Sie der `break`-Anweisung ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) zuweisen, um aus einer beliebigen Anweisung mit diesem Label auszubrechen — wenn das Label jedoch keine umgebende Anweisung referenziert, wird ein anderer Fehler [SyntaxError: label not found](/de/docs/Web/JavaScript/Reference/Errors/Label_not_found) ausgelöst.
 
 ## Beispiele
 
-### Unsynaktisches break
+### Unsachgemäßes break
 
-`break` darf nicht außerhalb von `switch` oder Schleifen verwendet werden.
+`break` kann außerhalb von `switch` oder Schleifen nicht verwendet werden.
 
 ```js-nolint example-bad
 let score = 0;
@@ -42,7 +40,7 @@ function increment() {
 }
 ```
 
-Vielleicht beabsichtigen Sie stattdessen, {{jsxref("Statements/return", "return")}} zu verwenden, um eine Funktion vorzeitig zu beenden.
+Vielleicht möchten Sie stattdessen {{jsxref("Statements/return", "return")}} verwenden, um eine Funktion frühzeitig zu beenden.
 
 ```js example-good
 let score = 0;
@@ -57,7 +55,7 @@ function increment() {
 
 ### Verwendung von break in Callbacks
 
-`break` kann nicht in Callbacks verwendet werden, selbst wenn das Callback von einer Schleife aufgerufen wird.
+`break` kann in Callbacks nicht verwendet werden, selbst wenn der Callback aus einer Schleife aufgerufen wird.
 
 ```js-nolint example-bad
 let containingIndex = 0;
@@ -77,7 +75,7 @@ while (containingIndex < matrix.length) {
 }
 ```
 
-Stattdessen sollten Sie den Code umstrukturieren, sodass `break` außerhalb des Callbacks verwendet wird.
+Stattdessen sollten Sie den Code so umstrukturieren, dass das `break` außerhalb des Callbacks verwendet wird.
 
 ```js example-good
 let containingIndex = 0;
@@ -113,7 +111,7 @@ while (containingIndex < matrix.length) {
 }
 ```
 
-Es gibt keine Möglichkeit, eine {{jsxref("Array/forEach", "forEach()")}}-Schleife vorzeitig zu beenden. Sie können stattdessen {{jsxref("Array/some", "some()")}} verwenden oder sie in eine {{jsxref("Statements/for...of", "for...of")}}-Schleife umwandeln.
+Es gibt keine Möglichkeit, eine {{jsxref("Array/forEach", "forEach()")}}-Schleife vorzeitig zu beenden. Sie können stattdessen {{jsxref("Array/some", "some()")}} verwenden oder sie in eine {{jsxref("Statements/for...of", "for...of")}} Schleife umwandeln.
 
 ```js-nolint example-bad
 array.forEach((value) => {

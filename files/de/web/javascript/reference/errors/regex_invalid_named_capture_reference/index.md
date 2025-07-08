@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: ungültige benannte Referenz in regulärem Ausdruck"
+title: "SyntaxError: ungültiger benannter Rückverweis in regulärem Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_named_capture_reference
 l10n:
-  sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "ungültige benannte Referenz in regulärem Ausdruck" tritt auf, wenn ein reguläres Ausdrucksmuster eine [benannte Rückreferenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) enthält, die sich nicht auf eine [benannte Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) davor bezieht. Die ähnliche Fehlermeldung "ungültige benannte Referenz in regulärem Ausdruck" wird ausgegeben, wenn die Sequenz `\k` erkannt wird, jedoch nicht von `<` gefolgt wird.
+Der JavaScript-Ausnahmefehler "ungültiger benannter Rückverweis in regulärem Ausdruck" tritt auf, wenn ein regulärer Ausdruck ein [benannter Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) enthält, der sich nicht auf eine zuvor definierte [benannte Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) bezieht. Eine ähnliche Fehlermeldung "ungültiger benannter Verweis in regulärem Ausdruck" wird angezeigt, wenn die Sequenz `\k` erkannt wird, aber nicht von `<` gefolgt wird.
 
 ## Meldung
 
@@ -27,9 +25,9 @@ SyntaxError: Invalid regular expression: invalid escaped character for Unicode p
 
 ## Was ist schiefgelaufen?
 
-Sie verwenden die Escape-Sequenz `\k`, die als [benannte Rückreferenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) interpretiert wird. Die `\k` ist jedoch entweder syntaktisch ungültig oder bezieht sich nicht auf eine benannte Erfassungsgruppe im Muster.
+Sie verwenden die Escape-Sequenz `\k`, die als [benannter Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) interpretiert wird, aber das `\k` ist entweder syntaktisch ungültig oder bezieht sich nicht auf eine benannte Gruppe im Muster.
 
-`\k` startet nur eine benannte Rückreferenz, wenn das Muster eine [benannte Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) enthält oder wenn das Muster [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist; andernfalls ist es eine [Identitäts-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) für das Zeichen `k`.
+`\k` beginnt nur dann einen benannten Rückverweis, wenn das Muster eine [benannte Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) enthält oder wenn das Muster [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist; andernfalls ist es ein [Identitäts-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) für das Zeichen `k`.
 
 ## Beispiele
 
@@ -50,5 +48,5 @@ Sie verwenden die Escape-Sequenz `\k`, die als [benannte Rückreferenz](/de/docs
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Benannte Rückreferenz: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
-- [Benannte Erfassungsgruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
+- [Benannte Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)

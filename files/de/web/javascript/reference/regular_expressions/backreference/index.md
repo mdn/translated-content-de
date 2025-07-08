@@ -2,12 +2,10 @@
 title: "Rückverweis: \\1, \\2"
 slug: Web/JavaScript/Reference/Regular_expressions/Backreference
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar}}
-
-Ein **Rückverweis** bezieht sich auf die Teilübereinstimmung einer vorherigen [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) und stimmt mit demselben Text wie diese Gruppe überein. Für [benannte Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) ziehen Sie möglicherweise die Syntax des [benannten Rückverweises](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) vor.
+Ein **Rückverweis** bezieht sich auf den Teilstring einer vorherigen [erfassenden Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) und stimmt mit demselben Text wie diese Gruppe überein. Für [benannte erfassende Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) bevorzugen Sie möglicherweise die Syntax für [benannte Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference).
 
 ## Syntax
 
@@ -15,36 +13,37 @@ Ein **Rückverweis** bezieht sich auf die Teilübereinstimmung einer vorherigen 
 \N
 ```
 
-> [!NOTE] > `N` ist kein wörtliches Zeichen.
+> [!NOTE]
+> `N` ist kein literales Zeichen.
 
 ### Parameter
 
 - `N`
-  - : Eine positive Ganzzahl, die sich auf die Nummer einer Erfassungsgruppe bezieht.
+  - : Eine positive ganze Zahl, die sich auf die Nummer einer erfassenden Gruppe bezieht.
 
 ## Beschreibung
 
-Ein Rückverweis ist eine Möglichkeit, denselben Text abzugleichen, der zuvor von einer Erfassungsgruppe abgeglichen wurde. Erfassungsgruppen werden ab 1 gezählt, sodass auf das Ergebnis der ersten Erfassungsgruppe mit `\1` verwiesen werden kann, auf das der zweiten mit `\2` und so weiter. `\0` ist ein [Zeichenescape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für das NUL-Zeichen.
+Ein Rückverweis ist eine Möglichkeit, denselben Text zu matchen, der zuvor von einer erfassenden Gruppe gematcht wurde. Die Zählung der erfassenden Gruppen beginnt bei 1, sodass das Ergebnis der ersten erfassenden Gruppe mit `\1` referenziert werden kann, das der zweiten mit `\2` usw. `\0` ist ein [Zeichenescape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für das NUL-Zeichen.
 
-Bei [Groß-/Kleinschreibung ignorierendem](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Abgleich kann es sein, dass der Rückverweis Text mit anderer Groß-/Kleinschreibung als der Originaltext übereinstimmt.
+Bei case-unsensitiven Vergleichen kann der Rückverweis Text mit unterschiedlicher Groß- und Kleinschreibung im Vergleich zum Originaltext matchen.
 
 ```js
 /(b)\1/i.test("bB"); // true
 ```
 
-Der Rückverweis muss sich auf eine existierende Erfassungsgruppe beziehen. Wenn die angegebene Nummer größer ist als die Gesamtzahl der Erfassungsgruppen, wird ein Syntaxfehler ausgelöst.
+Der Rückverweis muss sich auf eine existierende erfassende Gruppe beziehen. Wenn die angegebene Zahl größer ist als die Gesamtzahl der erfassenden Gruppen, wird ein Syntaxfehler ausgelöst.
 
 ```js-nolint example-bad
 /(a)\2/u; // SyntaxError: Invalid regular expression: Invalid escape
 ```
 
-Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden ungültige Rückverweise zu einer [veralteten Oktal-Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences). Dies ist eine [veraltete Syntax für Webkompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
+Im [unicode-unaware mode](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden ungültige Rückverweise zu einer [veralteten oktalen Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences). Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
 
 ```js
 /(a)\2/.test("a\x02"); // true
 ```
 
-Wenn die referenzierte Erfassungsgruppe nicht übereinstimmt (zum Beispiel, weil sie zu einer nicht übereinstimmenden Alternative in einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) gehört), oder die Gruppe noch nicht übereingestimmt hat (zum Beispiel, weil sie rechts vom Rückverweis liegt), gelingt der Rückverweis immer (als ob er mit dem leeren String übereinstimmt).
+Wenn die referenzierte erfassende Gruppe nicht gematcht wird (zum Beispiel, weil sie zu einer nicht gematchten Alternative in einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) gehört) oder die Gruppe noch nicht gematcht wurde (zum Beispiel, weil sie rechts vom Rückverweis liegt), gelingt der Rückverweis immer (als ob er die leere Zeichenkette matcht).
 
 ```js
 /(?:a|(b))\1c/.test("ac"); // true
@@ -53,9 +52,9 @@ Wenn die referenzierte Erfassungsgruppe nicht übereinstimmt (zum Beispiel, weil
 
 ## Beispiele
 
-### Paarweise Anführungszeichen
+### Zitatpaarung
 
-Die folgende Funktion stimmt die Muster `title='xxx'` und `title="xxx"` in einem String ab. Um sicherzustellen, dass die Anführungszeichen übereinstimmen, verwenden wir einen Rückverweis, um sich auf das erste Anführungszeichen zu beziehen. Der Zugriff auf die zweite Erfassungsgruppe (`[2]`) gibt den String zwischen den übereinstimmenden Anführungszeichen zurück:
+Die folgende Funktion matched die Muster `title='xxx'` und `title="xxx"` in einem String. Um sicherzustellen, dass die Anführungszeichen übereinstimmen, verwenden wir einen Rückverweis, um auf das erste Anführungszeichen zu verweisen. Der Zugriff auf die zweite erfassende Gruppe (`[2]`) gibt die Zeichenkette zwischen den übereinstimmenden Anführungszeichen zurück:
 
 ```js
 function parseTitle(metastring) {
@@ -67,9 +66,9 @@ parseTitle("title='foo' lang='en'"); // 'foo'
 parseTitle('title="Named capturing groups\' advantages"'); // "Named capturing groups' advantages"
 ```
 
-### Übereinstimmende doppelte Wörter
+### Doppelte Wörter matchen
 
-Die folgende Funktion findet doppelte Wörter in einem String (die normalerweise Tippfehler sind). Beachten Sie, dass sie die `\w` [Zeichenklassenescape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) verwendet, die nur englische Buchstaben, aber keine Akzentbuchstaben oder andere Alphabete abgleicht. Wenn Sie allgemeinere Übereinstimmungen wünschen, sollten Sie den String möglicherweise nach Leerzeichen [aufteilen](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) und über das resultierende Array iterieren.
+Die folgende Funktion findet doppelte Wörter in einem String (die normalerweise Tippfehler sind). Beachten Sie, dass es die `\w` [Zeichenklassenescape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) verwendet, die nur englische Buchstaben, aber keine akzentuierten Buchstaben oder andere Alphabete matched. Wenn Sie ein generischeres Matching wünschen, sollten Sie den String möglicherweise mit Leerzeichen [aufteilen](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) und über das resultierende Array iterieren.
 
 ```js
 function findDuplicates(text) {
@@ -94,6 +93,6 @@ findDuplicates("Hello hellos"); // undefined
 
 - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
-- [Benannte Erfassungsgruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Erfassende Gruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
+- [Benannte erfassende Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
 - [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)

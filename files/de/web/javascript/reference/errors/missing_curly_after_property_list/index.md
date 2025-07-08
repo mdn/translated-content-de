@@ -1,13 +1,12 @@
 ---
-title: "SyntaxError: missing } after property list"
+title: "SyntaxError: fehlende } nach Eigenschaftsliste"
 slug: Web/JavaScript/Reference/Errors/Missing_curly_after_property_list
 l10n:
-  sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "missing } after property list" tritt auf, wenn ein Fehler in der Syntax des [Objektinitialisierers](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) vorliegt. Es könnte sich tatsächlich um eine fehlende geschweifte Klammer handeln, aber auch ein fehlendes Komma ist möglich.
+Der JavaScript-Ausnahmefehler "fehlende } nach Eigenschaftsliste" tritt auf, wenn ein Fehler in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax vorliegt.
+Es könnte sich tatsächlich um eine fehlende geschweifte Klammer handeln, dies könnte aber auch ein fehlendes Komma sein.
 
 ## Nachricht
 
@@ -22,13 +21,13 @@ SyntaxError: Unexpected identifier 'c'. Expected '}' to end an object literal. (
 
 ## Was ist schiefgelaufen?
 
-Es liegt ein Fehler in der Syntax des [Objektinitialisierers](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) vor. Es könnte sich tatsächlich um eine fehlende geschweifte Klammer handeln, aber auch ein fehlendes Komma, beispielsweise. Prüfen Sie auch, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge sind. Eine bessere Einrückung oder Formatierung des Codes kann ebenfalls helfen, den Fehler zu erkennen.
+Es gibt einen Fehler in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax. Es könnte tatsächlich eine fehlende geschweifte Klammer sein, aber es könnte auch ein fehlendes Komma sein, zum Beispiel. Überprüfen Sie auch, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge sind. Das Einrücken oder schöner Formatieren des Codes kann Ihnen ebenfalls helfen, den Überblick zu behalten.
 
 ## Beispiele
 
 ### Vergessenes Komma
 
-Häufig fehlt ein Komma in Ihrem Objektinitialisierungscode:
+Oft fehlt ein Komma in Ihrem Objektinitialisierer-Code:
 
 ```js-nolint example-bad
 const obj = {

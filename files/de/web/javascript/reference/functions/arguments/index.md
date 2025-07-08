@@ -1,11 +1,9 @@
 ---
-title: Das `arguments` Objekt
+title: Das `arguments`-Objekt
 slug: Web/JavaScript/Reference/Functions/arguments
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
-
-{{jsSidebar("Functions")}}
 
 **`arguments`** ist ein array-ähnliches Objekt, das innerhalb von [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) zugänglich ist und die Werte der an diese Funktion übergebenen Argumente enthält.
 
@@ -31,9 +29,9 @@ func1(1, 2, 3);
 > [!NOTE]
 > In modernem Code sollten [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) bevorzugt werden.
 
-Das `arguments` Objekt ist eine lokale Variable, die in allen nicht-[arrow](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) Funktionen verfügbar ist. Sie können auf die Argumente einer Funktion innerhalb dieser Funktion zugreifen, indem Sie das `arguments` Objekt verwenden. Es enthält Einträge für jedes Argument, mit dem die Funktion aufgerufen wurde, wobei der Index des ersten Eintrags bei `0` liegt.
+Das `arguments`-Objekt ist eine lokale Variable, die innerhalb aller nicht-[Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) verfügbar ist. Sie können auf die Argumente einer Funktion innerhalb dieser Funktion durch Verwendung des `arguments`-Objekts zugreifen. Es hat Einträge für jedes Argument, mit dem die Funktion aufgerufen wurde, wobei der Index des ersten Eintrags bei `0` beginnt.
 
-Zum Beispiel, wenn eine Funktion mit 3 Argumenten aufgerufen wird, können Sie wie folgt auf sie zugreifen:
+Zum Beispiel, wenn eine Funktion mit 3 Argumenten aufgerufen wird, können Sie auf diese wie folgt zugreifen:
 
 ```js
 arguments[0]; // first argument
@@ -41,7 +39,7 @@ arguments[1]; // second argument
 arguments[2]; // third argument
 ```
 
-Das `arguments` Objekt ist nützlich für Funktionen, die mit mehr Argumenten aufgerufen werden, als sie formal deklariert sind, sogenannte [_variadische Funktionen_](https://en.wikipedia.org/wiki/Variadic_function), wie z.B. {{jsxref("Math.min()")}}. Diese Beispiel-Funktion akzeptiert eine beliebige Anzahl von String-Argumenten und gibt das längste zurück:
+Das `arguments`-Objekt ist nützlich für Funktionen, die mit mehr Argumenten aufgerufen werden, als sie formell zu akzeptieren deklariert sind, genannt [_variadische Funktionen_](https://en.wikipedia.org/wiki/Variadic_function), wie z.B. {{jsxref("Math.min()")}}. Diese Beispiel-Funktion akzeptiert eine beliebige Anzahl von Zeichenfolgen-Argumenten und gibt die längste zurück:
 
 ```js
 function longestString() {
@@ -58,17 +56,17 @@ function longestString() {
 }
 ```
 
-Sie können {{jsxref("Functions/arguments/length", "arguments.length")}} verwenden, um zu zählen, mit wie vielen Argumenten die Funktion aufgerufen wurde. Wenn Sie stattdessen zählen möchten, wie viele Parameter eine Funktion deklariert akzeptiert, überprüfen Sie die {{jsxref("Function/length", "length")}} Eigenschaft dieser Funktion.
+Sie können {{jsxref("Functions/arguments/length", "arguments.length")}} verwenden, um zu zählen, wie viele Argumente die Funktion übergeben wurden. Wenn Sie stattdessen zählen möchten, wie viele Parameter eine Funktion zu akzeptieren deklariert ist, inspizieren Sie die {{jsxref("Function/length", "length")}}-Eigenschaft dieser Funktion.
 
-### Zu Indizes zuweisen
+### Zuweisung zu Indizes
 
-Jeder Argument-Index kann auch gesetzt oder neu zugewiesen werden:
+Jeder Argumentindex kann auch gesetzt oder neu zugewiesen werden:
 
 ```js
 arguments[1] = "new value";
 ```
 
-Nicht-strikte Funktionen, die nur einfache Parameter haben (das heißt, keine Rest-, Standard- oder destrukturierten Parameter), synchronisieren den neuen Wert der Parameter mit dem `arguments` Objekt und umgekehrt:
+Nicht-strikte Funktionen, die nur einfache Parameter haben (d.h. keine Rest-, Standard- oder destrukturierten Parameter), synchronisieren den neuen Wert von Parametern mit dem `arguments`-Objekt und umgekehrt:
 
 ```js
 function func(a) {
@@ -84,7 +82,7 @@ function func2(a) {
 func2(10); // 99
 ```
 
-Nicht-strikte Funktionen, die [Rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Standard](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destrukturierte](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter übergeben bekommen, synchronisieren keine neuen Werte, die im Funktionskörper den Parametern zugewiesen werden, mit dem `arguments` Objekt. Stattdessen spiegelt das `arguments` Objekt in nicht-strikten Funktionen mit komplexen Parametern immer die Werte wider, die bei Aufruf der Funktion übergeben wurden.
+Nicht-strikte Funktionen, die _Rest-_, [Standard](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destruierte](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter übergeben bekommen, synchronisieren keine neuen, im Funktionskörper zugewiesenen Parameterwerte mit dem `arguments`-Objekt. Stattdessen spiegelt das `arguments`-Objekt in nicht-strikten Funktionen mit komplexen Parametern immer die Werte wider, die der Funktion übergeben wurden, als die Funktion aufgerufen wurde.
 
 ```js
 function funcWithDefault(a = 55) {
@@ -107,14 +105,14 @@ function funcWithDefault3(a = 55) {
 funcWithDefault3(); // undefined; 0
 ```
 
-Dies ist das gleiche Verhalten, das von allen [Strict-Mode-Funktionen](/de/docs/Web/JavaScript/Reference/Strict_mode#making_eval_and_arguments_simpler) gezeigt wird, unabhängig von der Art der übergebenen Parameter. Das heißt, das Zuweisen neuer Werte zu Parametern im Körper der Funktion beeinflusst niemals das `arguments` Objekt, noch beeinflusst das Zuweisen neuer Werte zu den Indizes von `arguments` den Wert von Parametern, selbst wenn die Funktion nur einfache Parameter hat.
+Dies ist das gleiche Verhalten, das alle [strict-mode Funktionen](/de/docs/Web/JavaScript/Reference/Strict_mode#making_eval_and_arguments_simpler) zeigen, unabhängig vom Typ der übergebenen Parameter. Das heißt, die Zuweisung neuer Werte zu Parametern im Körper der Funktion beeinflusst nie das `arguments`-Objekt, genauso wenig wie die Zuweisung neuer Werte zu den Indizes von `arguments` den Wert von Parametern beeinflusst, selbst wenn die Funktion nur einfache Parameter hat.
 
 > [!NOTE]
-> Sie können keine `"use strict";` Direktive im Körper einer Funktionsdefinition schreiben, die Rest-, Standard- oder destrukturierte Parameter akzeptiert. Dies würde [einen Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params) auslösen.
+> Sie können keine `"use strict";`-Direktive im Körper einer Funktionsdefinition schreiben, die Rest-, Standard- oder destrukturierte Parameter akzeptiert. Dies führt zu [einem Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params).
 
-### `arguments` ist ein array-ähnliches Objekt
+### arguments ist ein array-ähnliches Objekt
 
-`arguments` ist ein array-ähnliches Objekt, was bedeutet, dass `arguments` eine {{jsxref("Functions/arguments/length", "length")}} Eigenschaft und Eigenschaften indiziert ab null hat, aber nicht über die eingebauten Methoden von {{jsxref("Array")}} wie {{jsxref("Array/forEach", "forEach()")}} oder {{jsxref("Array/map", "map()")}} verfügt. Es kann jedoch in ein echtes `Array` konvertiert werden, indem einer der [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), {{jsxref("Array.from()")}}, oder [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) verwendet wird.
+`arguments` ist ein array-ähnliches Objekt, was bedeutet, dass `arguments` eine {{jsxref("Functions/arguments/length", "length")}}-Eigenschaft und von Null indizierte Eigenschaften hat, aber nicht über die eingebauten Methoden von {{jsxref("Array")}}, wie z.B. {{jsxref("Array/forEach", "forEach()")}} oder {{jsxref("Array/map", "map()")}}, verfügt. Es kann jedoch in ein echtes `Array` umgewandelt werden, indem man eine von [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), {{jsxref("Array.from()")}}, oder [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) verwendet.
 
 ```js
 const args = Array.prototype.slice.call(arguments);
@@ -124,7 +122,7 @@ const args = Array.from(arguments);
 const args = [...arguments];
 ```
 
-Für häufige Anwendungsfälle ist es ausreichend, es als array-ähnliches Objekt zu verwenden, da es sowohl [iterierbar ist](/de/docs/Web/JavaScript/Reference/Functions/arguments/Symbol.iterator) als auch `length` und numerische Indizes hat. Zum Beispiel akzeptiert [`Function.prototype.apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) array-ähnliche Objekte.
+Für allgemeine Anwendungsfälle reicht es aus, es als array-ähnliches Objekt zu verwenden, da es sowohl [iterierbar ist](/de/docs/Web/JavaScript/Reference/Functions/arguments/Symbol.iterator) als auch `length` und numerische Indizes hat. Zum Beispiel akzeptiert [`Function.prototype.apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) array-ähnliche Objekte.
 
 ```js
 function midpoint() {
@@ -139,17 +137,17 @@ console.log(midpoint(3, 1, 4, 1, 5)); // 3
 ## Eigenschaften
 
 - {{jsxref("Functions/arguments/callee", "arguments.callee")}} {{deprecated_inline}}
-  - : Referenz auf die aktuell ausgeführte Funktion, zu der die Argumente gehören. Im Strict-Mode verboten.
+  - : Referenz auf die aktuell ausgeführte Funktion, zu der die Argumente gehören. In strict mode verboten.
 - {{jsxref("Functions/arguments/length", "arguments.length")}}
-  - : Die Anzahl der Argumente, die an die Funktion übergeben wurden.
+  - : Die Anzahl der Argumente, die der Funktion übergeben wurden.
 - [`arguments[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Functions/arguments/Symbol.iterator)
-  - : Gibt ein neues [Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator) Objekt zurück, das die Werte für jeden Index in `arguments` enthält.
+  - : Gibt ein neues [Array Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)-Objekt zurück, das die Werte für jeden Index in `arguments` enthält.
 
 ## Beispiele
 
-### Definieren einer Funktion, die mehrere Strings zusammenfügt
+### Definition einer Funktion, die mehrere Zeichenfolgen konkateniert
 
-Dieses Beispiel definiert eine Funktion, die mehrere Strings zusammenfügt. Das einzige formale Argument der Funktion ist ein String, der die Zeichen enthält, die die Elemente zum Zusammenfügen trennen.
+Dieses Beispiel definiert eine Funktion, die mehrere Zeichenfolgen konkateniert. Das einzige formale Argument der Funktion ist eine Zeichenfolge, die die Zeichen enthält, die die zu konkatenierten Elemente trennen.
 
 ```js
 function myConcat(separator) {
@@ -158,7 +156,7 @@ function myConcat(separator) {
 }
 ```
 
-Sie können beliebig viele Argumente an diese Funktion übergeben. Sie gibt eine String-Liste zurück, die jedes Argument in der Liste verwendet:
+Sie können dieser Funktion beliebig viele Argumente übergeben. Sie gibt eine Zeichenfolgenliste zurück, indem sie jedes Argument in der Liste verwendet:
 
 ```js
 myConcat(", ", "red", "orange", "blue");
@@ -171,9 +169,9 @@ myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley");
 // "sage. basil. oregano. pepper. parsley"
 ```
 
-### Definieren einer Funktion, die HTML-Listen erstellt
+### Definition einer Funktion, die HTML-Listen erstellt
 
-Dieses Beispiel definiert eine Funktion, die einen String erstellt, der HTML für eine Liste enthält. Das einzige formale Argument der Funktion ist ein String, der `"u"` ist, wenn die Liste [ungeordnet (bulleted)](/de/docs/Web/HTML/Reference/Elements/ul) sein soll, oder `"o"`, wenn die Liste [geordnet (nummeriert)](/de/docs/Web/HTML/Reference/Elements/ol) sein soll. Die Funktion ist wie folgt definiert:
+Dieses Beispiel definiert eine Funktion, die einen String enthält, der HTML für eine Liste erstellt. Das einzige formale Argument für die Funktion ist eine Zeichenfolge, die `"u"` ist, wenn die Liste [ungeordnet (mit Punkten)](/de/docs/Web/HTML/Reference/Elements/ul) sein soll oder `"o"`, wenn die Liste [geordnet (nummeriert)](/de/docs/Web/HTML/Reference/Elements/ol) sein soll. Die Funktion ist wie folgt definiert:
 
 ```js
 function list(type) {
@@ -185,22 +183,22 @@ function list(type) {
 }
 ```
 
-Sie können beliebig viele Argumente an diese Funktion übergeben, und sie fügt jedes Argument als Listenelement zu einer Liste des angegebenen Typs hinzu. Zum Beispiel:
+Sie können dieser Funktion eine beliebige Anzahl von Argumenten übergeben, und sie fügt jedes Argument als Listenelement zu einer Liste des angegebenen Typs hinzu. Zum Beispiel:
 
 ```js
 list("u", "One", "Two", "Three");
 // "<ul><li>One</li><li>Two</li><li>Three</li></ul>"
 ```
 
-### Verwendung von `typeof` mit `arguments`
+### Verwendung von typeof mit arguments
 
-Der {{jsxref("Operators/typeof", "typeof")}} Operator gibt `'object'` zurück, wenn er mit `arguments` verwendet wird.
+Der {{jsxref("Operators/typeof", "typeof")}}-Operator gibt `'object'` zurück, wenn er mit `arguments` verwendet wird.
 
 ```js
 console.log(typeof arguments); // 'object'
 ```
 
-Der Typ einzelner Argumente kann ermittelt werden, indem `arguments` indiziert wird:
+Der Typ der einzelnen Argumente kann durch Indizierung von `arguments` bestimmt werden:
 
 ```js
 console.log(typeof arguments[0]); // returns the type of the first argument

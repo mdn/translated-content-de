@@ -1,15 +1,13 @@
 ---
-title: "SyntaxError: ungültiges Zeichen in Klasse in regulärem Ausdruck"
+title: "SyntaxError: ungültiges Zeichen in einer Klasse in regulärem Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_char_in_class
 l10n:
-  sourceCommit: 50d5e7cdb972c64a8f02a34a229bbc5ed7305c24
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "ungültiges Zeichen in einer Klasse in regulärem Ausdruck" tritt auf, wenn ein Zeichen in einer [`v`-Modus-Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) erscheint, das nicht wörtlich auftreten darf.
 
-Die JavaScript-Ausnahme "ungültiges Zeichen in Klasse in regulärem Ausdruck" tritt auf, wenn ein Zeichen in einer [`v`-Modus-Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) erscheint, das nicht wörtlich auftreten darf.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Invalid regular expression: /[|]/v: Invalid character in character class (V8-based)
@@ -17,13 +15,13 @@ SyntaxError: invalid character in class in regular expression (Firefox)
 SyntaxError: Invalid regular expression: invalid class set character (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schief gelaufen?
 
-Normalerweise können Zeichenklassen fast alle Zeichen wörtlich enthalten. Der `v`-Modus hat jedoch die Syntax der Zeichenklasse verfeinert, und um Raum für zukünftige Syntaxerweiterungen zu lassen, sind einige Syntaxzeichen verboten, wörtlich in einer Zeichenklasse aufzutreten. Dazu gehören: `(`, `)`, `[`, `]`, `{`, `}`, `/`, `-`, `|`. Wenn Sie diese Zeichen wörtlich abgleichen möchten, müssen Sie sie escapen, zum Beispiel: `/[\|]/v`.
+Normalerweise können Zeichenklassen fast alle Zeichen wörtlich enthalten. Der `v`-Modus hat jedoch die Syntax der Zeichenklassen erweitert, und um Platz für zukünftige Syntaxerweiterungen zu lassen, ist es verboten, bestimmte Syntaxzeichen wörtlich in einer Zeichenklasse erscheinen zu lassen. Dazu gehören: `(`, `)`, `[`, `]`, `{`, `}`, `/`, `-`, `|`. Wenn Sie diese Zeichen wörtlich abgleichen möchten, müssen Sie sie escapen; zum Beispiel: `/[\|]/v`.
 
 ## Beispiele
 

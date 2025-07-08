@@ -1,15 +1,13 @@
 ---
-title: Template Literale (Template Strings)
+title: Template Literale (Template-Strings)
 slug: Web/JavaScript/Reference/Template_literals
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("More")}}
+**Template Literale** sind Literale, die von Backtick-Zeichen (`` ` ``) begrenzt werden und [mehrzeilige Strings](#mehrzeilige_strings), [String-Interpolation](#string-interpolation) mit eingebetteten Ausdrücken und spezielle Konstrukte namens [markierte Templates](#markierte_templates) ermöglichen.
 
-**Template Literale** sind Literale, die mit Backtick-Zeichen (`` ` ``) begrenzt sind und [mehrzeilige Strings](#mehrzeilige_strings), [String-Interpolation](#string-interpolation) mit eingebetteten Ausdrücken und spezielle Konstrukte namens [getaggte Templates](#getaggte_templates) ermöglichen.
-
-Template Literale werden manchmal informell als _Template Strings_ bezeichnet, da sie am häufigsten für die [String-Interpolation](#string-interpolation) verwendet werden (zur Erstellung von Strings durch Ersetzen von Platzhaltern). Ein getaggtes Template Literal muss jedoch nicht in einem String resultieren; es kann mit einer benutzerdefinierten [Tag-Funktion](#getaggte_templates) verwendet werden, um beliebige Operationen auf den verschiedenen Teilen des Template Literals auszuführen.
+Template Literale werden manchmal informell _Template-Strings_ genannt, weil sie am häufigsten für [String-Interpolation](#string-interpolation) verwendet werden (um Strings durch Ersetzung von Platzhaltern zu erstellen). Ein markiertes Template Literal muss jedoch kein String sein; es kann mit einer benutzerdefinierten [Markierungsfunktion](#markierte_templates) verwendet werden, um beliebige Operationen auf den verschiedenen Teilen des Template-Literals durchzuführen.
 
 ## Syntax
 
@@ -27,27 +25,27 @@ tagFunction`string text ${expression} string text`
 ### Parameter
 
 - `string text`
-  - : Der Text, der Bestandteil des Template Literals wird. Fast alle Zeichen sind wörtlich erlaubt, einschließlich [Zeilenumbrüche](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) und anderer [Leerzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space). Ungültige Escape-Sequenzen verursachen allerdings einen Syntaxfehler, es sei denn, es wird eine [Tag-Funktion](#getaggte_templates_und_escape-sequenzen) verwendet.
+  - : Der String-Text, der Teil des Template-Literals wird. Fast alle Zeichen sind buchstäblich erlaubt, einschließlich [Zeilenumbrüche](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) und andere [Leerzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space). Ungültige Escape-Sequenzen führen jedoch zu einem Syntaxfehler, es sei denn, es wird eine [Markierungsfunktion](#markierte_templates_und_escape_sequenzen) verwendet.
 - `expression`
   - : Ein Ausdruck, der an der aktuellen Position eingefügt wird, dessen Wert in einen String konvertiert oder an `tagFunction` übergeben wird.
 - `tagFunction`
-  - : Wenn angegeben, wird es mit dem Array der Template-Strings und der Ersatzausdrücke aufgerufen, und der Rückgabewert wird zum Wert des Template Literals. Siehe [getaggte Templates](#getaggte_templates).
+  - : Wenn angegeben, wird sie mit dem Template-String-Array und den Ersetzungsausdrücken aufgerufen und der Rückgabewert wird der Wert des Template-Literals. Siehe [markierte Templates](#markierte_templates).
 
 ## Beschreibung
 
-Template Literale sind von Backtick-Zeichen (`` ` ``) umschlossen anstelle von doppelten oder einfachen Anführungszeichen.
+Template Literale werden von Backtick-Zeichen (`` ` ``) anstelle von doppelten oder einfachen Anführungszeichen eingeschlossen.
 
-Neben normalen Strings können Template Literale auch andere Teile enthalten, die als _Platzhalter_ bezeichnet werden und eingebettete Ausdrücke sind, die durch ein Dollarzeichen und geschweifte Klammern begrenzt sind: `${expression}`. Die Strings und Platzhalter werden an eine Funktion übergeben — entweder eine Standardfunktion oder eine von Ihnen bereitgestellte Funktion. Die Standardfunktion (wenn Sie keine eigene bereitstellen) führt lediglich die [String-Interpolation](#string-interpolation) durch, um die Platzhalter zu ersetzen und die Teile dann in einen einzelnen String zu verbinden.
+Neben normalen Strings können Template Literale auch andere Teile enthalten, die _Platzhalter_ genannt werden und eingebettete Ausdrücke sind, die durch ein Dollarzeichen und geschweifte Klammern begrenzt sind: `${expression}`. Die Strings und Platzhalter werden an eine Funktion übergeben – entweder eine Standardfunktion oder eine von Ihnen bereitgestellte Funktion. Die Standardfunktion (wenn Sie keine eigene bereitstellen) führt einfach eine [String-Interpolation](#string-interpolation) durch, um die Platzhalter zu ersetzen und die Teile zu einem einzigen String zu verketten.
 
-Um eine eigene Funktion bereitzustellen, platzieren Sie den Funktionsnamen vor dem Template Literal; das Ergebnis wird als [**getaggtes Template**](#getaggte_templates) bezeichnet. In diesem Fall wird das Template Literal an Ihre Tag-Funktion übergeben, in der Sie beliebige Operationen auf die verschiedenen Teile des Template Literals durchführen können.
+Um eine eigene Funktion bereitzustellen, stellen Sie dem Template-Literal einen Funktionsnamen voran; das Ergebnis wird als [**markiertes Template**](#markierte_templates) bezeichnet. In diesem Fall wird das Template-Literal an Ihre Markierungsfunktion übergeben, wo Sie dann beliebige Operationen auf den verschiedenen Teilen des Template-Literals durchführen können.
 
-Um einen Backtick in einem Template Literal zu escapen, setzen Sie einen Backslash (`\`) vor den Backtick.
+Um einen Backtick in einem Template Literal zu maskieren, setzen Sie einen Backslash (`\`) vor den Backtick.
 
 ```js
 `\`` === "`"; // true
 ```
 
-Dollarzeichen können ebenfalls escaped werden, um die Interpolation zu verhindern.
+Dollarzeichen können ebenfalls maskiert werden, um die Interpolation zu verhindern.
 
 ```js
 `\${1}` === "${1}"; // true
@@ -55,7 +53,7 @@ Dollarzeichen können ebenfalls escaped werden, um die Interpolation zu verhinde
 
 ### Mehrzeilige Strings
 
-Alle im Quellcode eingefügten Zeilenumbrüche sind Teil des Template Literals.
+Alle in die Quelle eingefügten Zeilenumbrüche sind Teil des Template-Literals.
 
 Bei normalen Strings müssten Sie die folgende Syntax verwenden, um mehrzeilige Strings zu erhalten:
 
@@ -65,7 +63,7 @@ console.log("string text line 1\nstring text line 2");
 // string text line 2"
 ```
 
-Mit Template Literalen können Sie dasselbe hiermit tun:
+Mit Template-Literalen können Sie dasselbe wie folgt tun:
 
 ```js
 console.log(`string text line 1
@@ -74,7 +72,7 @@ string text line 2`);
 // string text line 2"
 ```
 
-Wie bei [normalen String-Literalen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) können Sie einen einzeiligen String über mehrere Zeilen für die Lesbarkeit des Quellcodes fortsetzen, indem Sie den Zeilenumbruch mit einem Backslash (`\`) escapen:
+Wie bei [normalen String-Literalen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) können Sie einen einzeiligen String über mehrere Zeilen hinweg für die Lesbarkeit des Quellcodes schreiben, indem Sie den Zeilenumbruch mit einem Backslash (`\`) maskieren:
 
 ```js
 console.log(`string text line 1 \
@@ -84,7 +82,7 @@ string text line 2`);
 
 ### String-Interpolation
 
-Ohne Template Literale, wenn Sie Ausgaben aus Ausdrücken mit Strings kombinieren möchten, würden Sie sie mithilfe des [Additionsoperators](/de/docs/Web/JavaScript/Reference/Operators/Addition) `+` [konkatenieren](/de/docs/Learn_web_development/Core/Scripting/Strings#concatenation_using):
+Ohne Template-Literale, wenn Sie Ausgaben von Ausdrücken mit Strings kombinieren möchten, würden Sie sie durch [Konkatenation](/de/docs/Learn_web_development/Core/Scripting/Strings#concatenation_using) unter Verwendung des [Additionsoperators](/de/docs/Web/JavaScript/Reference/Operators/Addition) `+` verbinden:
 
 ```js
 const a = 5;
@@ -94,9 +92,9 @@ console.log("Fifteen is " + (a + b) + " and\nnot " + (2 * a + b) + ".");
 // not 20."
 ```
 
-Das kann schwer zu lesen sein – insbesondere, wenn Sie mehrere Ausdrücke haben.
+Das kann schwer lesbar sein, insbesondere wenn Sie mehrere Ausdrücke haben.
 
-Mit Template Literalen können Sie den Konkatenationsoperator vermeiden — und die Lesbarkeit Ihres Codes verbessern — indem Sie Platzhalter in der Form `${expression}` verwenden, um Ersetzungen für eingebettete Ausdrücke durchzuführen:
+Mit Template-Literalen können Sie den Konkatenationsoperator vermeiden — und die Lesbarkeit Ihres Codes verbessern — indem Sie Platzhalter in der Form `${expression}` verwenden, um Ersetzungen für eingebettete Ausdrücke durchzuführen:
 
 ```js
 const a = 5;
@@ -107,13 +105,13 @@ not ${2 * a + b}.`);
 // not 20."
 ```
 
-Beachten Sie, dass es einen kleinen Unterschied zwischen den beiden Syntaxen gibt. Template Literale [zwingen ihre Ausdrücke direkt in Strings](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während Addition ihre Operanden zuerst in Primitive zwingt. Für weitere Informationen siehe die Referenzseite des [`+` Operators](/de/docs/Web/JavaScript/Reference/Operators/Addition).
+Beachten Sie, dass es einen kleinen Unterschied zwischen den beiden Syntaxen gibt. Template-Literale [zwingen ihre Ausdrücke direkt zu Strings](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während Addition ihre Operanden zuerst zu Primitiven zwingt. Für weitere Informationen siehe die Referenzseite für den [`+` Operator](/de/docs/Web/JavaScript/Reference/Operators/Addition).
 
-### Geschachtelte Templates
+### Verschachtelung von Templates
 
-In bestimmten Fällen ist das Schachteln eines Templates der einfachste (und möglicherweise lesbarste) Weg, um konfigurierbare Strings zu haben. Innerhalb eines durch Backticks begrenzten Templates ist es einfach, innere Backticks zu erlauben, indem man sie innerhalb eines `${expression}`-Platzhalters im Template verwendet.
+In bestimmten Fällen ist die Verschachtelung eines Templates der einfachste (und möglicherweise lesbarere) Weg, um konfigurierbare Strings zu haben. Innerhalb eines von Backticks begrenzten Templates ist es einfach, innere Backticks zuzulassen, indem man sie innerhalb eines `${expression}` Platzhalters verwendet.
 
-Zum Beispiel, ohne Template Literale, wenn Sie einen bestimmten Wert basierend auf einer bestimmten Bedingung zurückgeben möchten, könnten Sie etwas Ähnliches tun:
+Beispielsweise könnten Sie ohne Template-Literale, wenn Sie einen bestimmten Wert basierend auf einer bestimmten Bedingung zurückgeben wollen, so vorgehen:
 
 ```js example-bad
 let classes = "header";
@@ -124,7 +122,7 @@ classes += isLargeScreen()
     : " icon-collapser";
 ```
 
-Mit einem Template Literal, aber ohne Schachtelung, könnten Sie dies tun:
+Mit einem Template-Literal, aber ohne Verschachtelung, könnten Sie dies tun:
 
 ```js example-bad
 const classes = `header ${
@@ -132,7 +130,7 @@ const classes = `header ${
 }`;
 ```
 
-Mit Schachtelung von Template Literalen können Sie dies tun:
+Mit der Verschachtelung von Template-Literalen können Sie dies tun:
 
 ```js example-good
 const classes = `header ${
@@ -140,15 +138,15 @@ const classes = `header ${
 }`;
 ```
 
-### Getaggte Templates
+### Markierte Templates
 
-Eine fortgeschrittenere Form von Template Literalen sind _getaggte_ Templates.
+Eine fortschrittlichere Form von Template-Literalen sind _markierte_ Templates.
 
-Tags ermöglichen es Ihnen, Template Literale mit einer Funktion zu parsen. Das erste Argument einer Tag-Funktion enthält ein Array von String-Werten. Die restlichen Argumente beziehen sich auf die Ausdrücke.
+Markierungen ermöglichen es Ihnen, Template-Literale mit einer Funktion zu parsen. Das erste Argument einer Markierungsfunktion enthält ein Array von String-Werten. Die verbleibenden Argumente beziehen sich auf die Ausdrücke.
 
-Die Tag-Funktion kann dann beliebige Operationen auf diesen Argumenten ausführen und den manipulierten String zurückgeben. (Alternativ kann sie etwas völlig anderes zurückgeben, wie in einem der folgenden Beispiele beschrieben.)
+Die Markierungsfunktion kann dann beliebige Operationen auf diesen Argumenten durchführen und den manipulierten String zurückgeben. (Alternativ kann sie auch etwas völlig anderes zurückgeben, wie in einem der folgenden Beispiele beschrieben.)
 
-Der Name der für das Tag verwendeten Funktion kann beliebig sein.
+Der Name der Funktion, die für die Markierung verwendet wird, kann beliebig sein.
 
 ```js
 const person = "Mike";
@@ -171,7 +169,7 @@ console.log(output);
 // That Mike is a youngster.
 ```
 
-Das Tag muss kein einfaches Identifikator sein. Sie können jeden Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) größer als 16 verwenden, einschließlich [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors), Funktionsaufruf, [new-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/new) oder sogar ein weiteres getaggtes Template Literal.
+Die Markierung muss kein einfacher Bezeichner sein. Sie können jeden Ausdruck mit [Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) größer als 16 verwenden, was [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors), Funktionsaufrufe, [new-Ausdrücke](/de/docs/Web/JavaScript/Reference/Operators/new) oder sogar ein anderes markiertes Template Literal einschließt.
 
 ```js
 console.log`Hello`; // [ 'Hello' ]
@@ -187,20 +185,20 @@ recursive`Hello``World`;
 // [ 'World' ] []
 ```
 
-Obwohl syntaktisch erlaubt, lösen _ungetaggte_ Template Literale {{jsxref("TypeError")}} aus, wenn sie verkettet werden.
+Obwohl technisch durch die Syntax erlaubt, erzeugen _unmarkierte_ Template Literale Strings und werfen einen {{jsxref("TypeError")}}, wenn sie verkettet werden.
 
 ```js
 console.log(`Hello``World`); // TypeError: "Hello" is not a function
 ```
 
-Die einzige Ausnahme ist das optionale Chaining, das einen Syntaxfehler auslöst.
+Die einzige Ausnahme ist Optional Chaining, das einen Syntaxfehler auslöst.
 
 ```js-nolint example-bad
 console.log?.`Hello`; // SyntaxError: Invalid tagged template on optional chain
 console?.log`Hello`; // SyntaxError: Invalid tagged template on optional chain
 ```
 
-Beachten Sie, dass diese beiden Ausdrücke dennoch analysierbar sind. Das bedeutet, dass sie nicht der [automatischen Semikolon-Einfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) unterliegen, die nur Semikola einfügt, um nicht analysierbaren Code zu korrigieren.
+Beachten Sie, dass diese beiden Ausdrücke immer noch parsierbar sind. Das bedeutet, dass sie nicht der [automatischen Semikolon-Einfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) unterliegen, die nur Semikolons einfügt, um Code zu korrigieren, der sonst nicht parsierbar wäre.
 
 ```js-nolint example-bad
 // Still a syntax error
@@ -208,7 +206,7 @@ const a = console?.log
 `Hello`
 ```
 
-Tag-Funktionen müssen nicht einmal einen String zurückgeben!
+Markierungsfunktionen müssen nicht einmal einen String zurückgeben!
 
 ```js
 function template(strings, ...keys) {
@@ -237,9 +235,9 @@ t3Closure("foo", { name: "MDN", age: 30 }); // "I'm MDN. I'm almost 30 years old
 t3Closure({ name: "MDN", age: 30 }); // "I'm MDN. I'm almost 30 years old."
 ```
 
-Das erste Argument, das von der Tag-Funktion empfangen wird, ist ein Array von Strings. Für jedes Template Literal entspricht seine Länge der Anzahl der Ersetzungen (Vorkommen von `${…}`) plus eins und ist daher immer nicht leer.
+Das erste Argument, das die Markierungsfunktion erhält, ist ein Array von Strings. Für jedes Template Literal ist seine Länge gleich der Anzahl der Ersetzungen (Vorkommen von `${…}`) plus eins und daher immer ungleich null.
 
-Für jeden bestimmten getaggten Template Literal-Ausdruck wird die Tag-Funktion immer mit demselben Literal-Array aufgerufen, unabhängig davon, wie oft das Literal ausgewertet wird.
+Für jeden bestimmten Ausdruck eines markierten Template-Literals wird die Markierungsfunktion immer mit demselben Literalen-Array aufgerufen, egal wie oft das Literal ausgewertet wird.
 
 ```js
 const callHistory = [];
@@ -258,11 +256,11 @@ console.log(evaluateLiteral() === evaluateLiteral()); // false; each time `tag` 
 console.log(callHistory[0] === callHistory[1]); // true; all evaluations of the same tagged literal would pass in the same strings array
 ```
 
-Dies ermöglicht es dem Tag, das Ergebnis basierend auf der Identität seines ersten Arguments zu cachen. Um die Stabilität des Array-Werts weiter zu gewährleisten, sind sowohl das erste Argument als auch seine [`raw`-Eigenschaft](#rohe_strings) [gefroren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen), sodass sie auf keine Weise verändert werden können.
+Dies ermöglicht es der Markierung, das Ergebnis basierend auf der Identität ihres ersten Arguments zwischenzuspeichern. Um die Stabilität des Array-Wertes weiter zu gewährleisten, sind das erste Argument und seine [`raw` Eigenschaft](#roh-strings) beide [eingefroren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen), sodass Sie sie in keiner Weise ändern können.
 
-### Rohe Strings
+### Roh-Strings
 
-Die spezielle `raw`-Eigenschaft, die beim ersten Argument an die Tag-Funktion verfügbar ist, ermöglicht den Zugriff auf die rohen Strings, wie sie eingegeben wurden, ohne Verarbeitung von [Escape-Sequenzen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#using_special_characters_in_strings).
+Die spezielle `raw` Eigenschaft, verfügbar im ersten Argument der Markierungsfunktion, ermöglicht den Zugriff auf die rohen Strings, wie sie eingegeben wurden, ohne [Escape-Sequenzen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#using_special_characters_in_strings) zu verarbeiten.
 
 ```js
 function tag(strings) {
@@ -274,7 +272,7 @@ tag`string text line 1 \n string text line 2`;
 // including the two characters '\' and 'n'
 ```
 
-Darüber hinaus existiert die {{jsxref("String.raw()")}}-Methode, um rohe Strings zu erstellen, wie es die Standard-Template-Funktion und String-Konkatenation tun würden.
+Außerdem existiert die Methode {{jsxref("String.raw()")}}, um rohe Strings zu erstellen, genau wie die Standard-Template-Funktion und die String-Konkatenation es tun würden.
 
 ```js
 const str = String.raw`Hi\n${2 + 3}!`;
@@ -287,7 +285,7 @@ Array.from(str).join(",");
 // "H,i,\\,n,5,!"
 ```
 
-`String.raw` funktioniert wie ein "Identitäts"-Tag, wenn das Literal keine Escape-Sequenzen enthält. Falls Sie ein tatsächliches Identitäts-Tag möchten, das immer so funktioniert, als ob das Literal ungetaggt ist, können Sie eine benutzerdefinierte Funktion erstellen, die das "gegarte" (d.h. die Escape-Sequenzen sind verarbeitet) Literal-Array an `String.raw` übergibt und vorgibt, sie seien rohe Strings.
+`String.raw` funktioniert wie eine "Identitäts"-Markierung, wenn das Literal keine Escape-Sequenzen enthält. Falls Sie eine tatsächliche Identitätsmarkierung möchten, die immer wie ein unmarkiertes Literal funktioniert, können Sie eine benutzerdefinierte Funktion erstellen, die das "gekochte" (d.h. Escape-Sequenzen sind verarbeitet) literale Array an `String.raw` übergibt, als wären sie rohe Strings.
 
 ```js
 const identity = (strings, ...values) =>
@@ -297,7 +295,7 @@ console.log(identity`Hi\n${2 + 3}!`);
 // 5!
 ```
 
-Dies ist nützlich für viele Tools, die Literalen mit einem bestimmten Namen besondere Behandlung zukommen lassen.
+Dies ist nützlich für viele Tools, die Literale, die mit einem bestimmten Namen markiert sind, speziell behandeln.
 
 ```js
 const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
@@ -313,20 +311,21 @@ const doc = html`<!doctype html>
   </html>`;
 ```
 
-### Getaggte Templates und Escape-Sequenzen
+### Markierte Templates und Escape-Sequenzen
 
-In normalen Template Literalen sind [die Escape-Sequenzen in String Literalen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) alle erlaubt. Jede andere nicht korrekte Escape-Sequenz ist ein Syntaxfehler. Dies beinhaltet:
+In normalen Template-Literalen sind [die Escape-Sequenzen in String-Literalen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) alle erlaubt. Jede andere nicht wohlgeformte Escape-Sequenz ist ein Syntaxfehler. Dazu gehören:
 
 - `\` gefolgt von einer beliebigen Dezimalziffer außer `0`, oder `\0` gefolgt von einer Dezimalziffer; zum Beispiel `\9` und `\07` (was eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences) ist)
-- `\x` gefolgt von weniger als zwei Hex-Ziffern (einschließlich keiner); zum Beispiel `\xz`
-- `\u` nicht gefolgt von `{` und gefolgt von weniger als vier Hex-Ziffern (einschließlich keiner); zum Beispiel `\uz`
-- `\u{}` mit einem ungültigen Unicode-Codepunkt — es enthält eine nicht-hexadezimale Ziffer, oder ihr Wert ist größer als `10FFFF`; zum Beispiel `\u{110000}` und `\u{z}`
+- `\x` gefolgt von weniger als zwei Hexadezimalziffern (einschließlich keiner); zum Beispiel `\xz`
+- `\u`, das nicht von `{` gefolgt wird und von weniger als vier Hexadezimalziffern gefolgt wird (einschließlich keiner); zum Beispiel `\uz`
+- `\u{}` einschließend einen ungültigen Unicode-Codepunkt — es enthält eine nicht-hexadezimale Ziffer, oder sein Wert ist größer als `10FFFF`; zum Beispiel `\u{110000}` und `\u{z}`
 
-> [!NOTE] > `\` gefolgt von anderen Zeichen, auch wenn sie nutzlos sind, da nichts escaped wird, sind keine Syntaxfehler.
+> [!NOTE]
+> `\` gefolgt von anderen Zeichen, obwohl sie möglicherweise nutzlos sind, da nichts maskiert wird, sind keine Syntaxfehler.
 
-Dies ist jedoch problematisch für getaggte Templates, die zusätzlich zu dem "gegarten" Literal auch Zugriff auf die rohen Literale haben (Escape-Sequenzen bleiben unverändert).
+Dies ist jedoch problematisch für markierte Templates, die zusätzlich zum "gekochten" Literal auch Zugang zu den rohen Literalen (Escape-Sequenzen bleiben unverändert) haben.
 
-Getaggte Templates ermöglichen das Einbetten beliebigen String-Inhalts, bei dem Escape-Sequenzen möglicherweise einer anderen Syntax folgen. Betrachten Sie ein Beispiel, bei dem wir [LaTeX](https://en.wikipedia.org/wiki/LaTeX)-Quelltext in JavaScript über `String.raw` einbetten. Wir möchten immer noch in der Lage sein, LaTeX-Makros zu verwenden, die mit `u` oder `x` beginnen, ohne den Einschränkungen der JavaScript-Syntax zu folgen. Daher wird die Syntaxbeschränkung für gut geformte Escape-Sequenzen aus getaggten Templates entfernt. Das folgende Beispiel verwendet [MathJax](https://www.mathjax.org/), um LaTeX in einem Element zu rendern:
+Markierte Templates ermöglichen das Einbetten von beliebigen Zeichenketteninhalten, bei denen Escape-Sequenzen einer anderen Syntax folgen können. Betrachten Sie ein Beispiel, bei dem wir [LaTeX](https://en.wikipedia.org/wiki/LaTeX)-Quelltext in JavaScript über `String.raw` einbetten. Wir möchten weiterhin in der Lage sein, LaTeX-Makros zu verwenden, die mit `u` oder `x` beginnen, ohne den Syntaxbeschränkungen von JavaScript zu folgen. Daher wird die Syntaxbeschränkung für wohlgeformte Escape-Sequenzen von markierten Templates entfernt. Das folgende Beispiel verwendet [MathJax](https://www.mathjax.org/), um LaTeX in einem Element zu rendern:
 
 ```js
 const node = document.getElementById("formula");
@@ -337,7 +336,7 @@ node.textContent = String.raw`$\underline{u}$`;
 MathJax.typesetPromise([node]);
 ```
 
-Illegale Escape-Sequenzen müssen jedoch immer noch in der "gegarten" Darstellung dargestellt werden. Sie erscheinen als {{jsxref("undefined")}}-Element im "gegarten" Array:
+Illegale Escape-Sequenzen müssen jedoch weiterhin in der "gekochten" Darstellung dargestellt werden. Sie erscheinen als {{jsxref("undefined")}} Element im "gekochten" Array:
 
 ```js
 function log(str) {
@@ -350,7 +349,7 @@ log`\unicode`;
 // Raw: \unicode
 ```
 
-Beachten Sie, dass die Escape-Sequenz-Beschränkung nur von _getaggten_ Templates, aber nicht von _ungetaggten_ Template Literalen entfernt wird:
+Beachten Sie, dass die Escape-Sequenz-Beschränkung nur bei _markierten_ Templates aufgehoben wird, nicht bei _unmarkierten_ Template-Literalen:
 
 ```js-nolint example-bad
 const bad = `bad escape sequence: \unicode`;
@@ -366,8 +365,8 @@ const bad = `bad escape sequence: \unicode`;
 
 ## Siehe auch
 
-- [Numbers and strings](/de/docs/Web/JavaScript/Guide/Numbers_and_strings) Leitfaden
+- [Zahlen und Strings](/de/docs/Web/JavaScript/Guide/Numbers_and_strings) Leitfaden
 - {{jsxref("String")}}
 - {{jsxref("String.raw()")}}
 - [Lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar)
-- [ES6 in Depth: Template strings](https://hacks.mozilla.org/2015/05/es6-in-depth-template-strings-2/) auf hacks.mozilla.org (2015)
+- [ES6 in Depth: Template-Strings](https://hacks.mozilla.org/2015/05/es6-in-depth-template-strings-2/) auf hacks.mozilla.org (2015)

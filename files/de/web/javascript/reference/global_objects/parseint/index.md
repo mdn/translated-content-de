@@ -2,12 +2,10 @@
 title: parseInt()
 slug: Web/JavaScript/Reference/Global_Objects/parseInt
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Objects")}}
-
-Die **`parseInt()`**-Funktion analysiert ein Zeichenfolgenargument und gibt eine ganze Zahl im angegebenen [Radix](https://en.wikipedia.org/wiki/Radix) (der Basis in mathematischen Zahlensystemen) zurück.
+Die Funktion **`parseInt()`** analysiert ein Zeichenfolgen-Argument und gibt eine Ganzzahl der angegebenen [Basis](https://en.wikipedia.org/wiki/Radix) zurück (die Basis in mathematischen Zahlensystemen).
 
 {{InteractiveExample("JavaScript Demo: parseInt()")}}
 
@@ -40,53 +38,53 @@ parseInt(string, radix)
 ### Parameter
 
 - `string`
-  - : Eine Zeichenfolge, die mit einer ganzen Zahl beginnt. Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
+  - : Eine Zeichenfolge, die mit einer Ganzzahl beginnt. Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
 - `radix` {{optional_inline}}
-  - : Eine ganze Zahl zwischen `2` und `36`, die den _Radix_ (die Basis in mathematischen Zahlensystemen) der `string` darstellt. Sie wird in eine [32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt; wenn sie ungleich null und außerhalb des Bereichs von \[2, 36] nach der Umwandlung ist, gibt die Funktion immer `NaN` zurück. Wenn `0` oder nicht angegeben, wird der Radix basierend auf dem Wert von `string` abgeleitet. Seien Sie vorsichtig — dies wird _nicht_ immer auf `10` gesetzt! Die [Beschreibung unten](#beschreibung) erklärt detaillierter, was passiert, wenn `radix` nicht angegeben wird.
+  - : Eine Ganzzahl zwischen `2` und `36`, die die _Basis_ (die Basis in mathematischen Zahlensystemen) der `string` darstellt. Sie wird zu einer [32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt; wenn sie ein nicht-nuller Wert außerhalb des Bereichs \[2, 36] nach der Umwandlung ist, gibt die Funktion immer `NaN` zurück. Wenn `0` oder nicht angegeben, wird die Basis basierend auf dem Wert von `string` abgeleitet. Seien Sie vorsichtig — dies ist _nicht_ immer standardmäßig `10`! Die [untenstehende Beschreibung](#beschreibung) erklärt detaillierter, was passiert, wenn die Basis nicht angegeben ist.
 
 ### Rückgabewert
 
-Eine ganze Zahl, die aus der angegebenen `string` analysiert wurde, oder {{jsxref("NaN")}}, wenn
+Eine aus der angegebenen `string` geparste Ganzzahl oder {{jsxref("NaN")}} wenn
 
-- der `radix` als 32-Bit-Ganzzahl kleiner als `2` oder größer als `36` ist, oder
+- die Basis als 32-Bit-Ganzzahl kleiner als `2` oder größer als `36` ist, oder
 - das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
 
 > [!NOTE]
-> JavaScript unterscheidet auf Sprachebene nicht zwischen "Gleitkommazahlen" und "Ganzzahlen". `parseInt()` und [`parseFloat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) unterscheiden sich nur in ihrem Analyseverhalten, jedoch nicht notwendigerweise in ihren Rückgabewerten. Zum Beispiel würden `parseInt("42")` und `parseFloat("42")` denselben Wert zurückgeben: eine {{jsxref("Number")}} 42.
+> Im JavaScript gibt es auf Sprachebene keinen Unterschied zwischen "Gleitkommazahlen" und "Ganzzahlen". `parseInt()` und [`parseFloat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) unterscheiden sich nur in ihrem Parserverhalten, aber nicht notwendigerweise in ihren Rückgabewerten. Zum Beispiel würden `parseInt("42")` und `parseFloat("42")` denselben Wert zurückgeben: eine {{jsxref("Number")}} 42.
 
 ## Beschreibung
 
-Die `parseInt`-Funktion [wandelt ihr erstes Argument in eine Zeichenfolge um](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), analysiert diese Zeichenfolge und gibt dann eine ganze Zahl oder `NaN` zurück.
+Die `parseInt`-Funktion [wandelt ihr erstes Argument in eine Zeichenfolge um](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), parst diese Zeichenfolge und gibt dann eine Ganzzahl oder `NaN` zurück.
 
-Wenn nicht `NaN`, ist der Rückgabewert die ganze Zahl, die das erste Argument als Zahl im angegebenen `radix` ist. (Zum Beispiel wandelt ein `radix` von `10` aus einer Dezimalzahl um, `8` aus einer Oktalzahl, `16` aus einer Hexadezimalzahl usw.)
+Wenn nicht `NaN`, wird der Rückgabewert die Ganzzahl sein, die das erste Argument als Zahl in der angegebenen `Basis` ist. (Beispielsweise konvertiert eine `Basis` von `10` aus einer Dezimalzahl, `8` aus einer Oktalzahl, `16` aus einer Hexadezimalzahl usw.)
 
-Das `radix`-Argument wird [in eine Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Wenn es nicht angegeben ist, oder wenn der Wert `0`, `NaN` oder `Infinity` wird (`undefined` wird in `NaN` umgewandelt), geht JavaScript von folgenden Annahmen aus:
+Das `radix`-Argument wird zu einer Zahl [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Wenn es nicht bereitgestellt wird oder wenn der Wert 0, `NaN` oder `Infinity` wird (`undefined` wird zu `NaN` konvertiert), geht JavaScript wie folgt vor:
 
-1. Wenn die Eingabe-`string`, mit entfernten führenden Leerzeichen und möglichen `+`/`-`-Zeichen, mit `0x` oder `0X` beginnt (eine Null, gefolgt von einem kleinen oder großen X), wird `radix` als `16` angenommen und der Rest der Zeichenfolge wird als Hexadezimalzahl analysiert.
-2. Wenn die Eingabe-`string` mit einem anderen Wert beginnt, ist der Radix `10` (Dezimal).
+1. Wenn die Eingabe-`string`, mit führenden Leerzeichen und möglichen `+`/`-` Zeichen entfernt, mit `0x` oder `0X` (eine Null, gefolgt von einem Klein- oder Großbuchstaben X) beginnt, wird die Basis als `16` angenommen und der Rest der Zeichenfolge als Hexadezimalzahl geparst.
+2. Wenn die Eingabe-`string` mit einem anderen Wert beginnt, ist die Basis `10` (Dezimal).
 
 > [!NOTE]
-> Andere Präfixe wie `0b`, die in [Zahlliteralen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#binary) gültig sind, werden von `parseInt()` als normale Ziffern behandelt. `parseInt()` behandelt Zeichenfolgen, die mit einem `0`-Zeichen beginnen, auch nicht als Oktalwerte. Das einzige Präfix, das `parseInt()` erkennt, ist `0x` oder `0X` für Hexadezimalwerte — alles andere wird als Dezimalwert analysiert, wenn `radix` fehlt. [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number) oder [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) können stattdessen verwendet werden, um diese Präfixe zu analysieren.
+> Andere Präfixe wie `0b`, die in [Zahlliteralen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#binary) gültig sind, werden von `parseInt()` als normale Ziffern behandelt. `parseInt()` behandelt Zeichenfolgen, die mit einem `0`-Zeichen beginnen, _nicht_ als Oktalwerte. Das einzige Präfix, das `parseInt()` erkennt, ist `0x` oder `0X` für Hexadezimalwerte — alles andere wird als Dezimalwert geparst, wenn die Basis fehlt. [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number) oder [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) kann stattdessen verwendet werden, um diese Präfixe zu parsen.
 
-Wenn der Radix `16` ist, erlaubt `parseInt()`, dass die Zeichenfolge optional mit `0x` oder `0X` nach dem optionalen Vorzeichenzeichen (`+`/`-`) versehen wird.
+Wenn die Basis `16` ist, erlaubt `parseInt()`, dass die Zeichenfolge optional nach dem optionalen Vorzeichenzeichen (`+`/`-`) mit `0x` oder `0X` versehen wird.
 
-Wenn der Radix-Wert (falls erforderlich, umgewandelt) nicht im Bereich \[2, 36] (inklusive) liegt, gibt `parseInt` `NaN` zurück.
+Wenn der Basiswert (bei Bedarf erzwungen) nicht im Bereich \[2, 36] (einschließlich) liegt, gibt `parseInt` `NaN` zurück.
 
-Für Radixe über `10` zeigen Buchstaben des englischen Alphabets Ziffern größer als `9` an. Beispielsweise werden für Hexadezimalzahlen (Basis `16`) `A` bis `F` verwendet. Die Buchstaben sind nicht case-sensitiv.
+Für Basen größer als `10` zeigen Buchstaben des englischen Alphabets Ziffern größer als `9` an. Zum Beispiel werden für Hexadezimalzahlen (Basis `16`) die Buchstaben `A` bis `F` verwendet. Die Buchstaben sind nicht case-sensitiv.
 
-`parseInt` versteht exakt zwei Vorzeichen: `+` für positiv und `-` für negativ. Dies geschieht als erster Schritt bei der Analyse, nachdem Leerzeichen entfernt wurden. Wenn keine Vorzeichen gefunden werden, fährt der Algorithmus mit dem nächsten Schritt fort; sonst wird das Vorzeichen entfernt und die Zahl-Parsing auf den Rest der Zeichenfolge angewandt.
+`parseInt` versteht genau zwei Vorzeichen: `+` für positiv und `-` für negativ. Dies wird als erster Schritt im Parsing durchgeführt, nachdem Leerzeichen entfernt wurden. Wenn keine Vorzeichen gefunden werden, geht der Algorithmus zum nächsten Schritt über; andernfalls wird das Vorzeichen entfernt und die Zahlenanalyse auf den Rest der Zeichenfolge angewendet.
 
-Wenn `parseInt` ein Zeichen in der Eingabezeichenfolge antrifft, das keine gültige Ziffer im angegebenen `radix` ist, ignoriert es es und alle folgenden Zeichen und gibt den bis zu diesem Punkt analysierten ganzzahligen Wert zurück. Zum Beispiel gibt `parseInt("2", 2)` `NaN` zurück, weil `2` im binären Zahlensystem keine gültige Ziffer ist. Ebenso kodiert `1e3` technisch gesehen eine ganze Zahl (und wird korrekt in die ganze Zahl `1000` durch [`parseFloat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) analysiert), aber `parseInt("1e3", 10)` gibt `1` zurück, da `e` keine gültige Ziffer in der Basis 10 ist. Weil auch `.` keine Ziffer ist, ist der Rückgabewert immer eine ganze Zahl.
+Wenn `parseInt` auf ein Zeichen in der Eingabezeichenfolge trifft, das in der angegebenen Basis keine gültige Ziffer ist, ignoriert es dieses und alle folgenden Zeichen und gibt den bis zu diesem Punkt geparsten Ganzzahlwert zurück. Zum Beispiel gibt `parseInt("2", 2)` `NaN` zurück, da `2` im Binärsystem keine gültige Ziffer ist. Auch wenn `1e3` technisch eine Ganzzahl kodiert (und korrekt von [`parseFloat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) in die Ganzzahl `1000` geparst wird), gibt `parseInt("1e3", 10)` `1` zurück, da `e` in der Basis 10 keine gültige Ziffer ist. Da `.` ebenfalls keine Ziffer ist, wird der Rückgabewert immer eine Ganzzahl sein.
 
-Wenn das erste Zeichen nicht in eine Zahl mit dem verwendeten Radix umgewandelt werden kann, gibt `parseInt` `NaN` zurück. Führende Leerzeichen sind erlaubt.
+Wenn das erste Zeichen nicht mit der verwendeten Basis in eine Zahl umgewandelt werden kann, gibt `parseInt` `NaN` zurück. Führende Leerzeichen sind erlaubt.
 
-Für arithmetische Zwecke ist der `NaN`-Wert in keinem Radix eine Zahl. Sie können die Funktion [`Number.isNaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) aufrufen, um festzustellen, ob das Ergebnis von `parseInt` `NaN` ist. Wenn `NaN` an arithmetische Operationen übergeben wird, ist das Ergebnis der Operation ebenfalls `NaN`.
+Für mathematische Zwecke ist der `NaN`-Wert in keiner Basis eine Zahl. Sie können die Funktion [`Number.isNaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) aufrufen, um festzustellen, ob das Ergebnis von `parseInt` `NaN` ist. Wenn `NaN` an arithmetische Operationen weitergegeben wird, ist das Ergebnis der Operation ebenfalls `NaN`.
 
-Da große Zahlen das `e`-Zeichen in ihrer Zeichenfolgenrepräsentation verwenden (z.B. `6.022e23` für 6.022 × 10<sup>23</sup>), führt die Verwendung von `parseInt`, um Zahlen zu kürzen, zu unerwarteten Ergebnissen, wenn sie auf sehr große oder sehr kleine Zahlen angewendet wird. `parseInt` sollte _nicht_ als Ersatz für {{jsxref("Math.trunc()")}} verwendet werden.
+Da große Zahlen das `e`-Zeichen in ihrer String-Darstellung verwenden (z.B. `6.022e23` für 6.022 × 10<sup>23</sup>), wird `parseInt` unerwartete Ergebnisse liefern, wenn es auf sehr große oder sehr kleine Zahlen angewendet wird. `parseInt` sollte _nicht_ als Ersatz für {{jsxref("Math.trunc()")}} verwendet werden.
 
-Um eine Zahl in ihren Zeichenfolgenliteral in einem bestimmten Radix umzuwandeln, verwenden Sie [`thatNumber.toString(radix)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString).
+Um eine Zahl in ihre Zeichenfolgenliteralform in einer bestimmten Basis zu konvertieren, verwenden Sie [`thatNumber.toString(radix)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString).
 
-Da `parseInt()` eine Zahl zurückgibt, kann es zu einem Verlust der Genauigkeit kommen, wenn die von der Zeichenfolge dargestellte ganze Zahl außerhalb des [sicheren Bereichs](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger) liegt. Die Funktion [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) unterstützt das genaue Analysieren von Ganzzahlen beliebiger Länge, indem sie ein {{jsxref("BigInt")}} zurückgibt.
+Da `parseInt()` eine Zahl zurückgibt, kann es zu einem Verlust der Genauigkeit kommen, wenn die von der Zeichenfolge dargestellte Ganzzahl [außerhalb des sicheren Bereichs](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger) liegt. Die Funktion [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) unterstützt das präzise Parsen von Ganzzahlen beliebiger Länge, indem sie ein {{jsxref("BigInt")}} zurückgibt.
 
 ## Beispiele
 
@@ -134,21 +132,21 @@ Das folgende Beispiel gibt `224` zurück:
 parseInt("0e0", 16);
 ```
 
-`parseInt()` behandelt keine {{jsxref("BigInt")}}-Werte. Es stoppt am `n`-Zeichen und behandelt die vorhergehende Zeichenfolge als normale ganze Zahl, mit eventuell möglichem Präzisionsverlust.
+`parseInt()` verarbeitet keine {{jsxref("BigInt")}}-Werte. Es stoppt am `n`-Zeichen und behandelt die vorhergehende Zeichenfolge als normale Ganzzahl, mit möglichem Präzisionsverlust.
 
 ```js example-bad
 parseInt("900719925474099267n");
 // 900719925474099300
 ```
 
-Sie sollten die Zeichenfolge stattdessen an die [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Funktion übergeben, ohne das abschließende `n`-Zeichen.
+Sie sollten die Zeichenfolge stattdessen an die Funktion [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) ohne das abschließende `n`-Zeichen übergeben.
 
 ```js example-good
 BigInt("900719925474099267");
 // 900719925474099267n
 ```
 
-`parseInt` funktioniert nicht mit [Zifferntrennzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_separators):
+`parseInt` funktioniert nicht mit [numerischen Trennern](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_separators):
 
 ```js example-bad
 parseInt("123_456"); // 123
@@ -156,21 +154,21 @@ parseInt("123_456"); // 123
 
 ### Verwendung von parseInt() auf Nicht-Zeichenfolgen
 
-`parseInt()` kann interessante Ergebnisse liefern, wenn es auf Nicht-Zeichenfolgen angewendet wird, kombiniert mit einem hohen Radix; zum Beispiel `36` (was alle alphanumerischen Zeichen zu gültigen Ziffern macht).
+`parseInt()` kann interessante Ergebnisse liefern, wenn es auf Nicht-Zeichenfolgen in Kombination mit einer hohen Basis angewendet wird; zum Beispiel `36` (was alle alphanumerischen Zeichen zu gültigen Ziffern macht).
 
 ```js
 parseInt(null, 36); // 1112745: The string "null" is 1112745 in base 36
 parseInt(undefined, 36); // 86464843759093: The string "undefined" is 86464843759093 in base 36
 ```
 
-Im Allgemeinen ist es eine schlechte Idee, `parseInt()` auf Nicht-Zeichenfolgen zu verwenden, insbesondere als Ersatz für {{jsxref("Math.trunc()")}}. Es kann bei kleinen Zahlen funktionieren:
+Im Allgemeinen ist es eine schlechte Idee, `parseInt()` auf Nicht-Zeichenfolgen anzuwenden, insbesondere es als Ersatz für {{jsxref("Math.trunc()")}} zu verwenden. Es könnte bei kleinen Zahlen funktionieren:
 
 ```js
 parseInt(15.99, 10); // 15
 parseInt(-15.1, 10); // -15
 ```
 
-Dies passiert jedoch nur, weil die Zeichenfolgenrepräsentation dieser Zahlen die grundlegende Bruchnotation verwendet (`"15.99"`, `"-15.1"`), wobei `parseInt()` am Dezimalpunkt stoppt. Zahlen größer als oder gleich 1e+21 oder kleiner als oder gleich 1e-7 verwenden in ihrer Zeichenfolgenrepräsentation die Exponentialnotation (`"1.5e+22"`, `"1.51e-8"`), und `parseInt()` stoppt am `e`-Zeichen oder Dezimalpunkt, der immer nach der ersten Ziffer kommt. Dies bedeutet, dass `parseInt()` für große und kleine Zahlen eine einstellige ganze Zahl zurückgibt:
+Es passiert jedoch nur, weil die String-Darstellung dieser Zahlen grundlegende Bruchnotation (`"15.99"`, `"-15.1"`) verwendet, wobei `parseInt()` am Dezimalpunkt stoppt. Zahlen größer als oder gleich `1e+21` oder kleiner als oder gleich `1e-7` verwenden in ihrer Zeichenfolgen-Darstellung die Exponentialnotation (`"1.5e+22"`, `"1.51e-8"`), und `parseInt()` wird am `e`-Zeichen oder Dezimalpunkt stoppen, der immer nach der ersten Ziffer kommt. Das bedeutet, dass `parseInt()` bei großen und kleinen Zahlen eine einstellige Ganzzahl zurückgeben wird:
 
 ```js example-bad
 parseInt(4.7 * 1e22, 10); // Very large number becomes 4
@@ -195,10 +193,10 @@ parseInt(1e21, 10); // 1
 ## Siehe auch
 
 - {{jsxref("parseFloat()")}}
-- [`Number()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)
+- [`Number()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)
 - {{jsxref("Number.parseFloat()")}}
 - {{jsxref("Number.parseInt()")}}
 - {{jsxref("isNaN()")}}
 - {{jsxref("Number.prototype.toString()")}}
 - {{jsxref("Object.prototype.valueOf()")}}
-- [`BigInt()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)
+- [`BigInt()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)

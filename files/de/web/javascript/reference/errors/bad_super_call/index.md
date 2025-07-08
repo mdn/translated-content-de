@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: super() ist nur in Konstruktoren der abgeleiteten Klasse gültig"
+title: "SyntaxError: super() ist nur in abgeleiteten Klassenkonstruktoren gültig"
 slug: Web/JavaScript/Reference/Errors/Bad_super_call
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Fehler "super() ist nur in Konstruktoren der abgeleiteten Klasse gültig" tritt auf, wenn der Aufruf von {{jsxref("Operators/super", "super()")}} an einer Stelle verwendet wird, die nicht der Körper eines [Konstruktors](/de/docs/Web/JavaScript/Reference/Classes/constructor) in einer Klasse mit dem Stichwort [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) ist.
+Der JavaScript-Ausnahmefehler "super() is only valid in derived class constructors" tritt auf, wenn der Aufruf {{jsxref("Operators/super", "super()")}} an einer Stelle verwendet wird, die nicht im Körper eines [Konstruktors](/de/docs/Web/JavaScript/Reference/Classes/constructor) in einer Klasse mit dem Schlüsselwort [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) ist.
 
 ## Nachricht
 
@@ -21,11 +19,11 @@ SyntaxError: super is not valid in this context. (Safari)
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was schiefgelaufen ist
 
-Der Aufruf von `super()` wird verwendet, um den Basiskonstruktor einer abgeleiteten Klasse aufzurufen, damit die Basisklasse das {{jsxref("Operators/this", "this")}}-Objekt initialisieren kann. Die Verwendung an einer anderen Stelle ist nicht sinnvoll.
+Der Aufruf `super()` wird verwendet, um den Basiskonstruktor einer abgeleiteten Klasse aufzurufen, damit die Basisklasse das {{jsxref("Operators/this", "this")}}-Objekt initialisieren kann. Die Verwendung an anderer Stelle ergibt keinen Sinn.
 
-`super()` kann auch in einer Pfeilfunktion definiert werden, die innerhalb des Konstruktors geschachtelt ist. Es kann jedoch in keinem anderen Funktionsart definiert werden.
+`super()` kann auch in einer Pfeilfunktion definiert werden, die im Konstruktor verschachtelt ist. Es kann jedoch in keiner anderen Art von Funktion definiert werden.
 
 ## Beispiele
 
@@ -41,7 +39,7 @@ class Base {
 }
 ```
 
-Sie können `super()` nicht in einer Klassenmethode aufrufen, auch wenn diese Methode vom Konstruktor aufgerufen wird:
+Sie können `super()` nicht in einer Klassenmethode aufrufen, selbst wenn diese Methode vom Konstruktor aus aufgerufen wird:
 
 ```js example-ba
 class Base {}
@@ -57,7 +55,7 @@ class Derived extends Base {
 }
 ```
 
-Sie können `super()` nicht in einer Funktion aufrufen, auch wenn die Funktion als Konstruktor verwendet wird:
+Sie können `super()` nicht in einer Funktion aufrufen, selbst wenn die Funktion als Konstruktor verwendet wird:
 
 ```js example-bad
 function Base(x) {
@@ -74,7 +72,7 @@ Object.setPrototypeOf(Derived, Base);
 
 ### Gültige Fälle
 
-Sie können `super()` aufrufen, bevor Sie eine andere Methode im Konstruktor aufrufen:
+Sie können `super()` im Konstruktor aufrufen, bevor Sie eine andere Methode aufrufen:
 
 ```js example-good
 class Base {}
@@ -91,7 +89,7 @@ class Derived extends Base {
 }
 ```
 
-Sie können `super()` in einer Pfeilfunktion aufrufen, die innerhalb des Konstruktors geschachtelt ist:
+Sie können `super()` in einer Pfeilfunktion aufrufen, die im Konstruktor verschachtelt ist:
 
 ```js example-good
 class Base {}

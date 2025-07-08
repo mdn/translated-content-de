@@ -2,14 +2,12 @@
 title: Ungleichheit (!=)
 slug: Web/JavaScript/Reference/Operators/Inequality
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Ungleichheitsoperator (`!=`)** prüft, ob seine beiden Operanden nicht gleich sind und gibt ein boolesches Ergebnis zurück. Im Gegensatz zum [strikten Ungleichheits](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality)-Operator versucht er, Operanden verschiedener Typen zu konvertieren und zu vergleichen.
 
-Der **Ungleichheitsoperator (`!=`)** prüft, ob seine beiden Operanden nicht gleich sind und gibt ein Boolean-Ergebnis zurück. Im Gegensatz zum [strikten Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality) versucht er, Operanden unterschiedlicher Typen zu konvertieren und zu vergleichen.
-
-{{InteractiveExample("JavaScript Demo: Ungleichheit (!=) operator")}}
+{{InteractiveExample("JavaScript Demo: Inequality (!=) operator")}}
 
 ```js interactive-example
 console.log(1 != 1);
@@ -33,7 +31,7 @@ x != y
 
 ## Beschreibung
 
-Der Ungleichheitsoperator prüft, ob seine Operanden ungleich sind. Er ist die Negation des [Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Equality), sodass die folgenden zwei Zeilen immer das gleiche Ergebnis liefern werden:
+Der Ungleichheitsoperator prüft, ob seine Operanden nicht gleich sind. Er ist die Negation des [Gleichheits](/de/docs/Web/JavaScript/Reference/Operators/Equality)-Operators, daher werden die folgenden beiden Zeilen immer dasselbe Ergebnis liefern:
 
 ```js
 x != y;
@@ -41,15 +39,15 @@ x != y;
 !(x == y);
 ```
 
-Für Details des Vergleichsalgorithmus siehe die Seite für den [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality).
+Details zum Vergleichsalgorithmus finden Sie auf der Seite des [Gleichheits](/de/docs/Web/JavaScript/Reference/Operators/Equality)-Operators.
 
-Wie der Gleichheitsoperator versucht auch der Ungleichheitsoperator, Operanden unterschiedlicher Typen zu konvertieren und zu vergleichen:
+Wie der Gleichheitsoperator wird der Ungleichheitsoperator versuchen, Operanden verschiedener Typen zu konvertieren und zu vergleichen:
 
 ```js
 3 != "3"; // false
 ```
 
-Um dies zu verhindern und sicherzustellen, dass unterschiedliche Typen als unterschiedlich angesehen werden, verwenden Sie stattdessen den [strikten Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality):
+Um dies zu verhindern und zu verlangen, dass verschiedene Typen als unterschiedlich betrachtet werden, verwenden Sie stattdessen den [strikten Ungleichheits](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality)-Operator:
 
 ```js
 3 !== "3"; // true

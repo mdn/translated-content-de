@@ -1,20 +1,20 @@
 ---
-title: Darstellung von Daten & Zeiten
+title: Darstellung von Daten und Zeiten
 slug: Web/JavaScript/Guide/Representing_dates_times
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Numbers_and_strings", "Web/JavaScript/Guide/Regular_expressions")}}
+{{PreviousNext("Web/JavaScript/Guide/Numbers_and_strings", "Web/JavaScript/Guide/Regular_expressions")}}
 
 > [!NOTE]
-> Das `Date`-Objekt gilt inzwischen als veraltet und sollte in neuem Code vermieden werden. Wir werden diese Seite bald mit modernen Alternativen aktualisieren.
+> Das `Date`-Objekt wird jetzt als veraltet angesehen und sollte in neuem Code vermieden werden. Wir werden diese Seite bald mit modernen Alternativen aktualisieren.
 
 ## Date-Objekt
 
-JavaScript besitzt keinen Datentyp für Datum. Sie können jedoch das {{jsxref("Date")}}-Objekt und seine Methoden verwenden, um in Ihren Anwendungen mit Daten und Zeiten zu arbeiten. Das `Date`-Objekt verfügt über zahlreiche Methoden zum Setzen, Abrufen und Bearbeiten von Daten, hat jedoch keine Eigenschaften.
+JavaScript verfügt nicht über einen Datentyp für Datum. Sie können jedoch das {{jsxref("Date")}}-Objekt und dessen Methoden verwenden, um in Ihren Anwendungen mit Daten und Zeiten zu arbeiten. Das `Date`-Objekt verfügt über eine Vielzahl von Methoden zum Setzen, Abfragen und Manipulieren von Daten, jedoch über keine Eigenschaften.
 
-JavaScript behandelt Daten ähnlich wie Java. Beide Sprachen verfügen über viele der gleichen Datumsmethoden und speichern Daten als die Anzahl von Millisekunden seit Mitternacht des 1. Januar 1970, UTC, wobei ein Unix-Timestamp die Anzahl der Sekunden seit demselben Zeitpunkt ist. Der Zeitpunkt am Mitternacht des 1. Januar 1970, UTC wird als [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) bezeichnet.
+JavaScript behandelt Daten ähnlich wie Java. Beide Sprachen haben viele der gleichen Datums-Methoden, und beide speichern Daten als die Anzahl der Millisekunden seit Mitternacht am Beginn des 1. Januar 1970 UTC, wobei ein Unix-Timestamp die Anzahl der Sekunden seit demselben Zeitpunkt darstellt. Der Moment um Mitternacht am Beginn des 1. Januar 1970 UTC wird als [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) bezeichnet.
 
 Der Bereich des `Date`-Objekts reicht von -100.000.000 Tagen bis 100.000.000 Tagen relativ zur Epoche.
 
@@ -24,46 +24,46 @@ Um ein `Date`-Objekt zu erstellen:
 const dateObjectName = new Date([parameters]);
 ```
 
-wobei `dateObjectName` der Name des erstellten `Date`-Objekts ist; es kann ein neues Objekt oder eine Eigenschaft eines vorhandenen Objekts sein.
+wobei `dateObjectName` der Name des erstellten `Date`-Objekts ist; es kann sich um ein neues Objekt oder eine Eigenschaft eines vorhandenen Objekts handeln.
 
-Das Aufrufen von `Date` ohne das Schlüsselwort `new` gibt eine Zeichenkette zurück, die das aktuelle Datum und die Uhrzeit darstellt.
+Der Aufruf von `Date` ohne das `new`-Schlüsselwort gibt einen String zurück, der das aktuelle Datum und die aktuelle Zeit darstellt.
 
-Die `Parameter` in der obigen Syntax können eines der folgenden sein:
+Die `parameters` in der vorhergehenden Syntax können eines der folgenden sein:
 
-- Nichts: erstellt das heutige Datum und die Uhrzeit. Zum Beispiel, `today = new Date();`.
-- Eine Zeichenkette, die ein Datum in vielen verschiedenen Formen darstellt. Die exakt unterstützten Formen unterscheiden sich zwischen den Engines, aber die folgende Form wird immer unterstützt: `YYYY-MM-DDTHH:mm:ss.sssZ`. Zum Beispiel, `xmas95 = new Date("1995-12-25")`. Wenn Sie Stunden, Minuten oder Sekunden weglassen, wird der Wert auf null gesetzt.
-- Eine Gruppe von Integer-Werten für Jahr, Monat und Tag. Zum Beispiel, `xmas95 = new Date(1995, 11, 25)`.
-- Eine Gruppe von Integer-Werten für Jahr, Monat, Tag, Stunde, Minute und Sekunden. Zum Beispiel, `xmas95 = new Date(1995, 11, 25, 9, 30, 0);`.
+- Nichts: erstellt das heutige Datum und die aktuelle Uhrzeit. Zum Beispiel `today = new Date();`.
+- Ein String, der ein Datum darstellt, in vielen verschiedenen Formen. Die genauen Formen unterscheiden sich je nach Engine, aber die folgende Form wird immer unterstützt: `YYYY-MM-DDTHH:mm:ss.sssZ`. Beispielsweise `xmas95 = new Date("1995-12-25")`. Wenn Sie Stunden, Minuten oder Sekunden weglassen, wird der Wert auf null gesetzt.
+- Eine Reihe von Ganzzahlen für Jahr, Monat und Tag. Zum Beispiel `xmas95 = new Date(1995, 11, 25)`.
+- Eine Reihe von Ganzzahlen für Jahr, Monat, Tag, Stunde, Minute und Sekunden. Zum Beispiel `xmas95 = new Date(1995, 11, 25, 9, 30, 0);`.
 
 ### Methoden des Date-Objekts
 
-Die Methoden des `Date`-Objekts zur Behandlung von Daten und Zeiten fallen in diese breiten Kategorien:
+Die Methoden des `Date`-Objekts zur Handhabung von Daten und Zeiten fallen in die folgenden Hauptkategorien:
 
 - "set"-Methoden, um Datums- und Zeitwerte in `Date`-Objekten zu setzen.
-- "get"-Methoden, um Datums- und Zeitwerte von `Date`-Objekten abzurufen.
-- "to"-Methoden, um Zeichenwerte von `Date`-Objekten zurückzugeben.
-- Parse- und UTC-Methoden, um `Date`-Zeichenketten zu parsen.
+- "get"-Methoden, um Datums- und Zeitwerte aus `Date`-Objekten zu erhalten.
+- "to"-Methoden, um String-Werte aus `Date`-Objekten zurückzugeben.
+- parse- und UTC-Methoden, um `Date`-Strings zu parsen.
 
-Mit den "get"- und "set"-Methoden können Sie Sekunden, Minuten, Stunden, Tag des Monats, Wochentag, Monate und Jahre separat abrufen und setzen. Es gibt eine `getDay`-Methode, die den Wochentag zurückgibt, aber keine entsprechende `setDay`-Methode, da der Wochentag automatisch gesetzt wird. Diese Methoden verwenden ganze Zahlen, um diese Werte wie folgt darzustellen:
+Mit den "get"- und "set"-Methoden können Sie Sekunden, Minuten, Stunden, den Tag des Monats, den Wochentag, Monate und Jahre separat abfragen und setzen. Es gibt eine `getDay`-Methode, die den Wochentag zurückgibt, jedoch keine entsprechende `setDay`-Methode, da der Wochentag automatisch gesetzt wird. Diese Methoden verwenden Ganzzahlen zur Darstellung dieser Werte wie folgt:
 
 - Sekunden und Minuten: 0 bis 59
 - Stunden: 0 bis 23
-- Tag: 0 (Sonntag) bis 6 (Samstag)
+- Wochentag: 0 (Sonntag) bis 6 (Samstag)
 - Datum: 1 bis 31 (Tag des Monats)
 - Monate: 0 (Januar) bis 11 (Dezember)
 - Jahr: Jahre seit 1900
 
-Angenommen, Sie definieren das folgende Datum:
+Zum Beispiel, wenn Sie das folgende Datum definieren:
 
 ```js
 const xmas95 = new Date("1995-12-25");
 ```
 
-Dann gibt `xmas95.getMonth()` 11 zurück, und `xmas95.getFullYear()` gibt 1995 zurück.
+Dann gibt `xmas95.getMonth()` 11 zurück und `xmas95.getFullYear()` gibt 1995 zurück.
 
 Die `getTime`- und `setTime`-Methoden sind nützlich zum Vergleichen von Daten. Die `getTime`-Methode gibt die Anzahl der Millisekunden seit der Epoche für ein `Date`-Objekt zurück.
 
-Zum Beispiel zeigt der folgende Code die Anzahl der Tage, die im aktuellen Jahr verbleiben:
+Beispielsweise zeigt der folgende Code die Anzahl der Tage an, die im aktuellen Jahr verbleiben:
 
 ```js
 const today = new Date();
@@ -74,9 +74,9 @@ let daysLeft = (endYear.getTime() - today.getTime()) / msPerDay;
 daysLeft = Math.round(daysLeft); // Returns days left in the year
 ```
 
-Dieses Beispiel erstellt ein `Date`-Objekt namens `today`, das das heutige Datum enthält. Es erstellt dann ein `Date`-Objekt namens `endYear` und setzt das Jahr auf das aktuelle Jahr. Anschließend berechnet es mithilfe der Anzahl der Millisekunden pro Tag die Anzahl der Tage zwischen `today` und `endYear`, wobei `getTime` verwendet und auf eine ganze Zahl von Tagen gerundet wird.
+Dieses Beispiel erstellt ein `Date`-Objekt mit dem Namen `today`, das das heutige Datum enthält. Dann wird ein `Date`-Objekt namens `endYear` erstellt und das Jahr auf das aktuelle Jahr gesetzt. Dann berechnet es mithilfe der Anzahl der Millisekunden pro Tag die Anzahl der Tage zwischen `today` und `endYear`, indem `getTime` verwendet wird und auf eine ganze Anzahl von Tagen gerundet wird.
 
-Die `parse`-Methode ist nützlich, um Werte aus Datumszeichenketten bestehenden `Date`-Objekten zuzuweisen. Zum Beispiel verwendet der folgende Code `parse` und `setTime`, um einem `ipoDate`-Objekt einen Datumwert zuzuweisen:
+Die `parse`-Methode ist nützlich, um Werte aus Datumstrings bestehenden `Date`-Objekten zuzuweisen. Zum Beispiel verwendet der folgende Code `parse` und `setTime`, um einem `ipoDate`-Objekt einen Datumwert zuzuweisen:
 
 ```js
 const ipoDate = new Date();
@@ -104,12 +104,12 @@ function JSClock() {
 }
 ```
 
-Die `JSClock`-Funktion erstellt zuerst ein neues `Date`-Objekt namens `time`; da keine Argumente übergeben werden, wird `time` mit dem aktuellen Datum und der aktuellen Uhrzeit erstellt. Dann weisen die Aufrufe der `getHours`, `getMinutes` und `getSeconds`-Methoden den aktuellen Stunden-, Minuten- und Sekundenwert `hour`, `minute` und `second` zu.
+Die `JSClock`-Funktion erstellt zuerst ein neues `Date`-Objekt namens `time`; da keine Argumente angegeben sind, wird `time` mit dem aktuellen Datum und der aktuellen Uhrzeit erstellt. Dann weisen Aufrufe der `getHours`, `getMinutes` und `getSeconds`-Methoden den Wert der aktuellen Stunde, Minute und Sekunde `hour`, `minute` und `second` zu.
 
-Die folgenden Anweisungen bauen einen Zeichenwert basierend auf der Uhrzeit auf. Die erste Anweisung erstellt eine Variable `temp`. Ihr Wert ist `hour % 12`, was `hour` im 12-Stunden-System ist. Dann wird `hour` auf `12` gesetzt, wenn der Wert `0` ist, sodass Mitternacht und Mittagszeiten als `12:00` statt `0:00` angezeigt werden.
+Die folgenden Anweisungen erstellen einen String-Wert basierend auf der Zeit. Die erste Anweisung erstellt eine Variable `temp`. Ihr Wert ist `hour % 12`, was die `hour` im 12-Stunden-System ist. Dann wird `hour` bei einem Wert von `0` auf `12` neu zugewiesen, sodass Mitternacht und Mittag als `12:00` anstelle von `0:00` angezeigt werden.
 
-Die nächste Anweisung hängt einen `minute`-Wert an `temp` an. Wenn der Wert von `minute` kleiner als 10 ist, fügt der bedingte Ausdruck eine Zeichenkette mit einer führenden Null hinzu; andernfalls fügt er eine Zeichenkette mit einem trennenden Doppelpunkt hinzu. Dann fügt eine Anweisung einen Sekundenwert in derselben Weise an `temp` an.
+Die nächste Anweisung fügt dem `temp`-Wert der `minute` hinzu. Wenn der Wert von `minute` kleiner als 10 ist, fügt der bedingte Ausdruck einen String mit einer vorangestellten Null hinzu; andernfalls fügt er einen String mit einem abgrenzenden Doppelpunkt hinzu. Dann fügt eine Anweisung auf die gleiche Weise einen Sekundenwert zu `temp` hinzu.
 
-Schließlich fügt ein bedingter Ausdruck "P.M." zu `temp` hinzu, wenn `hour` 12 oder größer ist; ansonsten fügt er "A.M." zu `temp` hinzu.
+Schließlich fügt ein bedingter Ausdruck "P.M." zu `temp` hinzu, wenn `hour` 12 oder größer ist; andernfalls wird "A.M." zu `temp` hinzugefügt.
 
 {{PreviousNext("Web/JavaScript/Guide/Numbers_and_strings", "Web/JavaScript/Guide/Regular_expressions")}}

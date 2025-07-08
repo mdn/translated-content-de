@@ -2,12 +2,10 @@
 title: "SyntaxError: doppeltes formales Argument x"
 slug: Web/JavaScript/Reference/Errors/Duplicate_parameter
 l10n:
-  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Fehler "duplicate formal argument x" oder "duplicate argument names not allowed in this context" tritt auf, wenn eine Funktion zwei oder mehr Parameterbindungen mit demselben Namen erstellt und die Funktion keine [nicht-strikte](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit einfachen Parametern ist.
+Der JavaScript-Ausnahmefehler "doppeltes formales Argument x" oder "doppelte Argumentnamen sind in diesem Kontext nicht erlaubt" tritt auf, wenn eine Funktion zwei oder mehr Parameter-{{Glossary("binding", "Bindings")}} mit demselben Namen erstellt und die Funktion keine [nicht-strikte](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit nur einfachen Parametern ist.
 
 ## Meldung
 
@@ -25,9 +23,9 @@ SyntaxError: Duplicate parameter 'x' not allowed in function with destructuring 
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schiefgegangen?
 
-Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler – das zweite Vorkommen würde dazu führen, dass das erste Vorkommen über den Parameternamen nicht zugänglich ist. In älteren JavaScript-Versionen war dies erlaubt. Um vorhandenen Code nicht zu beeinträchtigen, ist dies daher nur ein Fehler, wenn der Code garantiert nicht älter ist – entweder weil er im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist oder moderne Parametersyntax (wie [rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter) verwendet.
+Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler – das zweite Auftreten würde dazu führen, dass das erste Auftreten über den Parameternamen nicht zugänglich ist. In älterem JavaScript war dies erlaubt. Um bestehenden Code nicht zu brechen, ist dies nur dann ein Fehler, wenn der Code garantiert nicht veraltet ist – entweder weil er im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist oder weil er moderne Parametersyntax verwendet ([Rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Standard](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)- oder [destrukturierte](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter).
 
 ## Beispiele
 
@@ -63,5 +61,5 @@ function doSomething(name, user) {
 
 ## Siehe auch
 
-- [Functions](/de/docs/Web/JavaScript/Reference/Functions)
-- [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
+- [Strikter Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)

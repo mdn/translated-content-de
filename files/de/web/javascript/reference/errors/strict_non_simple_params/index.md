@@ -1,17 +1,15 @@
 ---
-title: 'SyntaxError: "use strict" nicht erlaubt in einer Funktion mit nicht einfachen Parametern'
+title: 'SyntaxError: "use strict" nicht erlaubt in Funktion mit nicht einfachen Parametern'
 slug: Web/JavaScript/Reference/Errors/Strict_non_simple_params
 l10n:
-  sourceCommit: 4a0413ef319179b7d0d833c42a156629544c8248
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Der JavaScript-Ausnahmefehler "`"use strict"` nicht erlaubt in der Funktion" tritt auf,
-wenn eine `"use strict"`-Direktive am Anfang einer Funktion verwendet wird, die
+Der JavaScript-Fehler "`"use strict"` nicht erlaubt in Funktion" tritt auf,
+wenn eine `"use strict"`-Anweisung am Anfang einer Funktion verwendet wird, die
 {{jsxref("Functions/Default_parameters", "Standardparameter", "", 1)}},
-{{jsxref("Functions/rest_parameters", "Restparameter", "", 1)}} oder
-{{jsxref("Operators/Destructuring", "Destructuring-Parameter", "", 1)}} enthält.
+{{jsxref("Functions/rest_parameters", "Rest-Parameter", "", 1)}} oder
+{{jsxref("Operators/Destructuring", "Destrukturierungs-Parameter", "", 1)}} hat.
 
 ## Meldung
 
@@ -29,19 +27,22 @@ SyntaxError: 'use strict' directive not allowed inside a function with a non-sim
 
 ## Was ist schiefgelaufen?
 
-Eine `"use strict"`-Direktive wird am Anfang einer Funktion verwendet, die einen der folgenden Parameter hat:
+Eine `"use strict"`-Anweisung ist am Anfang einer Funktion geschrieben, die einen
+der folgenden Parameter hat:
 
 - {{jsxref("Functions/Default_parameters", "Standardparameter", "", 1)}}
-- {{jsxref("Functions/rest_parameters", "Restparameter", "", 1)}}
-- {{jsxref("Operators/Destructuring", "Destructuring-Parameter", "", 1)}}
+- {{jsxref("Functions/rest_parameters", "Rest-Parameter", "", 1)}}
+- {{jsxref("Operators/Destructuring", "Destrukturierungs-Parameter", "", 1)}}
 
-Eine `"use strict"`-Direktive ist am Anfang solcher Funktionen gemäß der ECMAScript-Spezifikation nicht erlaubt.
+Eine `"use strict"`-Anweisung ist am Anfang solcher Funktionen laut
+der ECMAScript-Spezifikation nicht erlaubt.
 
 ## Beispiele
 
 ### Funktionsdeklaration
 
-In diesem Fall hat die Funktion `sum` die Standardparameter `a=1` und `b=2`:
+In diesem Fall hat die Funktion `sum` Standardparameter `a=1` und
+`b=2`:
 
 ```js-nolint example-bad
 function sum(a = 1, b = 2) {
@@ -51,7 +52,9 @@ function sum(a = 1, b = 2) {
 }
 ```
 
-Sollte die Funktion im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) sein und es ist auch in Ordnung, dass das gesamte Skript oder die umgebende Funktion im strict mode ist, können Sie die `"use strict"`-Direktive außerhalb der Funktion verschieben:
+Wenn die Funktion im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) sein soll und
+das gesamte Skript oder die umgebende Funktion ebenfalls im Strict Mode sein kann, können Sie die
+`"use strict"`-Anweisung außerhalb der Funktion verschieben:
 
 ```js example-good
 "use strict";
@@ -62,7 +65,7 @@ function sum(a = 1, b = 2) {
 
 ### Funktionsausdruck
 
-Ein Funktionsausdruck kann eine weitere Lösung verwenden:
+Ein Funktionsausdruck kann eine andere Lösung verwenden:
 
 ```js-nolint example-bad
 const sum = function sum([a, b]) {
@@ -85,7 +88,8 @@ const sum = (function () {
 
 ### Pfeilfunktion
 
-Wenn eine Pfeilfunktion auf die Variable `this` zugreifen muss, können Sie die Pfeilfunktion als umgebende Funktion verwenden:
+Wenn eine Pfeilfunktion auf die Variable `this` zugreifen muss, können Sie die
+Pfeilfunktion als umgebende Funktion verwenden:
 
 ```js-nolint example-bad
 const callback = (...args) => {
@@ -106,9 +110,9 @@ const callback = (() => {
 
 ## Siehe auch
 
-- {{jsxref("Strict_mode", "Strict mode", "", 1)}}
+- {{jsxref("Strict_mode", "Strict Mode", "", 1)}}
 - {{jsxref("Statements/function", "Funktionsdeklaration", "", 1)}}
 - {{jsxref("Operators/function", "Funktionsausdruck", "", 1)}}
 - {{jsxref("Functions/Default_parameters", "Standardparameter", "", 1)}}
-- {{jsxref("Functions/rest_parameters", "Restparameter", "", 1)}}
-- {{jsxref("Operators/Destructuring", "Destructuring-Parameter", "", 1)}}
+- {{jsxref("Functions/rest_parameters", "Rest-Parameter", "", 1)}}
+- {{jsxref("Operators/Destructuring", "Destrukturierungs-Parameter", "", 1)}}

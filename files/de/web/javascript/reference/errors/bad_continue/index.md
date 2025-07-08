@@ -2,14 +2,12 @@
 title: "SyntaxError: continue muss innerhalb einer Schleife sein"
 slug: Web/JavaScript/Reference/Errors/Bad_continue
 l10n:
-  sourceCommit: d71b141d2d18b96639547856714df19cefacfebf
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "continue must be inside loop" tritt auf, wenn eine {{jsxref("Statements/continue", "continue")}}-Anweisung außerhalb einer Schleifenanweisung verwendet wird.
 
-Die JavaScript-Ausnahme "continue muss innerhalb einer Schleife sein" tritt auf, wenn eine {{jsxref("Statements/continue", "continue")}}-Anweisung nicht innerhalb einer Schleifenanweisung steht.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Illegal continue statement: no surrounding iteration statement (V8-based)
@@ -25,13 +23,13 @@ SyntaxError: Cannot continue to the label 'label' as it is not targeting a loop.
 
 ## Was ist schiefgelaufen?
 
-{{jsxref("Statements/continue", "continue")}}-Anweisungen können verwendet werden, um eine Schleife fortzusetzen. Die Verwendung an anderer Stelle führt zu einem Syntaxfehler. Alternativ können Sie einem `continue`-Statement ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) geben, um eine mit diesem Label versehenen Schleife fortzusetzen – allerdings wird, wenn das Label keine enthaltene Anweisung referenziert, ein anderer Fehler [SyntaxError: label not found](/de/docs/Web/JavaScript/Reference/Errors/Label_not_found) ausgelöst. Wenn das Label eine Anweisung referenziert, die keine Schleife ist, wird weiterhin ein Syntaxfehler geworfen.
+{{jsxref("Statements/continue", "continue")}}-Anweisungen können verwendet werden, um eine Schleife fortzusetzen, und ihre Verwendung außerhalb davon führt zu einem Syntaxfehler. Alternativ können Sie ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) für die `continue`-Anweisung angeben, um eine beliebige Schleife mit diesem Label fortzusetzen — jedoch, wenn das Label sich nicht auf eine enthaltende Anweisung bezieht, wird ein anderer Fehler [SyntaxError: label not found](/de/docs/Web/JavaScript/Reference/Errors/Label_not_found) ausgelöst, und wenn das Label sich auf eine Anweisung bezieht, die keine Schleife ist, wird dennoch ein Syntaxfehler ausgelöst.
 
 ## Beispiele
 
-### Verwendung von continue in Callbacks
+### Verwendung von continue in Rückruffunktionen
 
-Wenn Sie in einer {{jsxref("Array/forEach", "forEach()")}}-Schleife mit der nächsten Iteration fortfahren möchten, verwenden Sie stattdessen {{jsxref("Statements/return", "return")}} oder konvertieren Sie zu einer {{jsxref("Statements/for...of", "for...of")}}-Schleife.
+Wenn Sie in einer {{jsxref("Array/forEach", "forEach()")}}-Schleife zur nächsten Iteration übergehen möchten, verwenden Sie stattdessen {{jsxref("Statements/return", "return")}} oder konvertieren Sie sie in eine {{jsxref("Statements/for...of", "for...of")}}-Schleife.
 
 ```js-nolint example-bad
 array.forEach((value) => {

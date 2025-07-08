@@ -1,13 +1,11 @@
 ---
-title: Logische Oder-Zuweisung (||=)
+title: Logical OR Zuweisung (||=)
 slug: Web/JavaScript/Reference/Operators/Logical_OR_assignment
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
-
-Der **logische Oder-Zuweisungsoperator (`||=`)** wertet nur den rechten Operanden aus und weist den linken zu, wenn der linke Operand {{Glossary("falsy", "falsy")}} ist.
+Der **Logical OR Zuweisungsoperator (`||=`)** wertet nur den rechten Operanden aus und weist ihn dem linken zu, wenn der linke Operand {{Glossary("falsy", "falsy")}} ist.
 
 {{InteractiveExample("JavaScript Demo: Logical OR assignment (||=) operator")}}
 
@@ -31,16 +29,16 @@ x ||= y
 
 ## Beschreibung
 
-Die logische Oder-Zuweisung [_short-circuits_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x ||= y` äquivalent zu `x || (x = y)` ist, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+Die Logical OR Zuweisung [_short-circuiting_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x ||= y` gleichbedeutend mit `x || (x = y)` ist, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Es wird keine Zuweisung vorgenommen, wenn der linke Ausdruck nicht falsy ist, aufgrund des Short-Circuiting des [logischen Oder](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)-Operators. Zum Beispiel wird das Folgende keinen Fehler auslösen, obwohl `x` eine `const` ist:
+Es erfolgt keine Zuweisung, wenn die linke Seite nicht falsy ist, aufgrund des Short-Circuitings des [Logical OR](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) Operators. Zum Beispiel wirft das folgende keinen Fehler, obwohl `x` eine `const` ist:
 
 ```js
 const x = 1;
 x ||= 2;
 ```
 
-Auch das Folgende würde den Setter nicht auslösen:
+Ebenso würde das folgende nicht den Setter auslösen:
 
 ```js
 const x = {
@@ -55,7 +53,7 @@ const x = {
 x.value ||= 2;
 ```
 
-Tatsächlich wird `y` überhaupt nicht ausgewertet, wenn `x` nicht falsy ist.
+Tatsächlich wird, wenn `x` nicht falsy ist, `y` überhaupt nicht ausgewertet.
 
 ```js
 const x = 1;
@@ -67,16 +65,17 @@ x ||= console.log("y evaluated");
 
 ### Standardinhalt festlegen
 
-Wenn das Element "lyrics" leer ist, wird ein Standardwert angezeigt:
+Wenn das "lyrics"-Element leer ist, wird ein Standardwert angezeigt:
 
 ```js
 document.getElementById("lyrics").textContent ||= "No lyrics.";
 ```
 
-Hier ist das Short-Circuiting besonders vorteilhaft, da das Element nicht unnötig aktualisiert wird und keine unerwünschten Nebenwirkungen wie zusätzliches Parsing oder Rendering oder Verlust des Fokus verursacht.
+Hier ist das Short-Circuiting besonders vorteilhaft, da das Element nicht unnötig aktualisiert wird und keine unerwünschten Nebeneffekte wie zusätzlicher Parsing- oder Rendering-Aufwand oder Verlust des Fokus verursacht werden.
 
 > [!NOTE]
-> Achten Sie auf den Wert, der von der API zurückgegeben wird, die Sie überprüfen. Wenn ein leerer String zurückgegeben wird (ein {{Glossary("falsy", "falsy")}} Wert), muss `||=` verwendet werden, damit "Keine Lyrics." anstelle eines Leerzeichens angezeigt wird. Wenn die API jedoch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} bei leerem Inhalt zurückgibt, sollte stattdessen [`??=`](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) verwendet werden.
+> Achten Sie auf den Wert, den die API zurückliefert, gegen die Sie prüfen. Wenn eine leere Zeichenfolge zurückgegeben wird (ein {{Glossary("falsy", "falsy")}} Wert), muss `||=` verwendet werden, damit "Keine Lyrics." angezeigt wird, anstatt eines leeren Raums. Wenn die API jedoch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder
+> {{jsxref("undefined")}} im Fall von leerem Inhalt zurückgibt, sollte stattdessen [`??=`](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) verwendet werden.
 
 ## Spezifikationen
 
@@ -88,8 +87,8 @@ Hier ist das Short-Circuiting besonders vorteilhaft, da das Element nicht unnöt
 
 ## Siehe auch
 
-- [Logisches Oder (`||`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)
+- [Logical OR (`||`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)
 - [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Bitweises Oder-Zuweisung (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
+- [Bitwise OR assignment (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
 - {{Glossary("Truthy", "Truthy")}}
 - {{Glossary("Falsy", "Falsy")}}
