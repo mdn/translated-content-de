@@ -1,13 +1,11 @@
 ---
-title: "<bdo>: Das Bidirektionale Text-Oversicherungselement"
+title: "<bdo>: Das Bidirektionale Textüberschreibungselement"
 slug: Web/HTML/Reference/Elements/bdo
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textrichtung, sodass der Text darin in einer anderen Richtung dargestellt wird.
+Das **`<bdo>`**-[HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb in eine andere Richtung gerendert wird.
 
 {{InteractiveExample("HTML Demo: &lt;bdo&gt;", "tabbed-standard")}}
 
@@ -37,16 +35,16 @@ bdo {
 }
 ```
 
-Die Zeichen des Textes werden ab dem Startpunkt in der angegebenen Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (so werden Zeichen beispielsweise nicht rückwärts gezeichnet).
+Die Zeichen des Textes werden vom Ausgangspunkt in der angegebenen Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (die Zeichen werden also zum Beispiel nicht rückwärts gezeichnet).
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `dir`
-  - : Die Richtung, in der der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
-    - `ltr`: Gibt an, dass der Text in eine links-nach-rechts Richtung gehen soll.
-    - `rtl`: Gibt an, dass der Text in eine rechts-nach-links Richtung gehen soll.
+  - : Die Richtung, in der der Text im Inhalt dieses Elements gerendert werden soll. Mögliche Werte sind:
+    - `ltr`: Gibt an, dass der Text in einer links-nach-rechts-Richtung verlaufen soll.
+    - `rtl`: Gibt an, dass der Text in einer rechts-nach-links-Richtung verlaufen soll.
 
 ## Beispiele
 
@@ -60,9 +58,9 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 {{EmbedLiveSample('Examples')}}
 
-## Anmerkungen
+## Hinweise
 
-Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; diese wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; diese wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versäumnis.
 
 ## Technische Zusammenfassung
 
@@ -70,25 +68,18 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; die
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >phrasierende Inhalte</a
-        >, wahrnehmbare Inhalte.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließtext-Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrase-Inhalt</a>,
+        fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierende Inhalte</a
-        >.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrase-Inhalt</a>.
       </td>
     </tr>
     <tr>
@@ -96,26 +87,21 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; die
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >phrasierende Inhalte</a
-        > akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrase-Inhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generic</a
-          ></code
-        >
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role">generic</a></code>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -124,10 +110,7 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; die
         [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
         implementiert Firefox die
         <code
-          ><a href="/de/docs/Web/API/HTMLSpanElement"
-            >HTMLSpanElement</a
-          ></code
-        >
+          ><a href="/de/docs/Web/API/HTMLSpanElement">HTMLSpanElement</a></code>
         Schnittstelle für dieses Element.
       </td>
     </tr>

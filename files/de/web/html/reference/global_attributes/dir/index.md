@@ -1,14 +1,12 @@
 ---
-title: HTML dir global attribute
+title: HTML-Attribut dir global
 short-title: dir
 slug: Web/HTML/Reference/Global_attributes/dir
 l10n:
-  sourceCommit: 4af8e714125b2c0892fbda8c1b7c34e807572e28
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar("Global_attributes")}}
-
-Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das die Richtung des Textes des Elements angibt.
+Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das die Leserichtung des Textes des Elements angibt.
 
 {{InteractiveExample("HTML Demo: dir", "tabbed-standard")}}
 
@@ -28,34 +26,37 @@ Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) 
 
 Es kann die folgenden Werte haben:
 
-- `ltr`, was _von links nach rechts_ bedeutet und für Sprachen verwendet werden soll, die von links nach rechts geschrieben werden (wie Englisch);
-- `rtl`, was _von rechts nach links_ bedeutet und für Sprachen verwendet werden soll, die von rechts nach links geschrieben werden (wie Arabisch);
-- `auto`, das dem Benutzeragenten überlassen wird. Es verwendet einen grundlegenden Algorithmus, indem es die Zeichen im Inneren des Elements analysiert, bis es ein Zeichen mit starker Richtung findet, und wendet dann diese Richtung auf das gesamte Element an.
+- `ltr`, was _von links nach rechts_ bedeutet und für Sprachen verwendet wird, die von links nach rechts geschrieben werden (wie Englisch);
+- `rtl`, was _von rechts nach links_ bedeutet und für Sprachen verwendet wird, die von rechts nach links geschrieben werden (wie Arabisch);
+- `auto`, was dem User-Agent die Entscheidung überlässt. Es verwendet einen grundlegenden Algorithmus, der die Zeichen im Element analysiert, bis ein Zeichen mit starker Richtung gefunden wird, und wendet dann diese Leserichtung auf das gesamte Element an.
 
 > [!NOTE]
-> Der Wert `auto` sollte für Daten mit unbekannter Richtung verwendet werden, wie Daten, die aus Benutzereingaben oder externen Daten stammen.
+> Der Wert `auto` sollte für Daten mit unbekannter Leserichtung verwendet werden, wie Daten aus Benutzereingaben oder externe Daten.
 
-Wenn nicht angegeben, wird der Wert vom Elternelement [geerbt](#vererbung).
+Wenn nicht angegeben, wird der Wert vom übergeordneten Element [geerbt](#vererbung).
 
 Dieses Attribut kann von den CSS-Eigenschaften {{ cssxref("direction") }} und {{ cssxref("unicode-bidi") }} überschrieben werden, wenn eine CSS-Seite aktiv ist und das Element diese Eigenschaften unterstützt.
 
-Da die Richtung des Textes semantisch mit seinem Inhalt und nicht mit seiner Darstellung zusammenhängt, wird empfohlen, dass Webentwickler dieses Attribut anstelle der verwandten CSS-Eigenschaften nutzen, wenn möglich. Auf diese Weise wird der Text auch in einem Browser, der CSS nicht unterstützt oder CSS deaktiviert hat, korrekt angezeigt.
+Da die Leserichtung des Textes semantisch mit seinem Inhalt und nicht mit seiner Präsentation verknüpft ist, wird empfohlen, dass Webentwickler dieses Attribut anstelle der verwandten CSS-Eigenschaften verwenden, wenn möglich. Auf diese Weise wird der Text auch in einem Browser korrekt angezeigt, der CSS nicht unterstützt oder wenn CSS deaktiviert ist.
 
 ## Vererbung
 
-Wenn ein Element kein `dir`-Attribut hat, erbt es den `dir`-Wert, der auf seinem {{Glossary("Node/DOM", "Elternknoten")}} gesetzt ist, der wiederum diesen von seinem Elternteil erben kann, und so weiter.
+Wenn ein Element kein `dir`-Attribut hat, erbt es den `dir`-Wert, der auf seinem {{Glossary("Node/DOM", "Elternknoten")}} festgelegt ist, welches wiederum den Wert von seinem übergeordneten Element erben kann, und so weiter.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Ein Bild kann sein `dir`-Attribut auf `"rtl"` gesetzt haben, wobei die HTML-Attribute `title` und `alt` als `"rtl"` formatiert und definiert werden.
+Ein Bild kann sein `dir`-Eigenschaft auf `"rtl"` setzen, in welchem Fall die HTML-Attribute `title` und `alt` als `"rtl"` formatiert und definiert werden.
 
 Wenn eine Tabelle ihr `dir` auf `"rtl"` gesetzt hat, wird die Spaltenreihenfolge von rechts nach links angeordnet.
 
 Dieses Attribut ist für das {{ HTMLElement("bdo") }}-Element obligatorisch, wo es eine andere semantische Bedeutung hat.
 
-Dieses Attribut wird vom {{ HTMLElement("bdi") }}-Element _nicht_ geerbt. Wenn es nicht gesetzt ist, beträgt sein Wert `auto`.
+Dieses Attribut wird vom {{ HTMLElement("bdi") }}-Element _nicht_ geerbt. Wenn es nicht gesetzt ist, ist sein Wert `auto`.
 
-Browser können Benutzern erlauben, die Richtung von {{ HTMLElement("input") }}- und {{ HTMLElement("textarea") }}-Elementen zu ändern, um die Inhaltsbearbeitung zu unterstützen. Chrome und Safari bieten eine Richtungsoption im Kontextmenü der Eingabefelder. Firefox verwendet <kbd>Strg</kbd> (Windows)/<kbd>Befehl</kbd> (macOS) + <kbd>Umschalt</kbd> + <kbd>X</kbd> innerhalb eines `<textarea>`, um die Textrichtung umzuschalten. Diese Funktionen wechseln den `dir`-Attributwert zwischen `ltr` und `rtl`.
+Browser könnten es Benutzern ermöglichen, die Leserichtung von {{ HTMLElement("input") }}- und {{ HTMLElement("textarea") }}-Elementen zu ändern, um beim Erstellen von Inhalten zu helfen.
+Chrome und Safari bieten eine Lesedirektionsoption im Kontextmenü von Eingabefeldern.
+Firefox verwendet <kbd>Strg</kbd> (Windows)/<kbd>Cmd</kbd> (macOS) + <kbd>Umschalt</kbd> + <kbd>X</kbd> innerhalb eines `<textarea>`, um die Leserichtung zu wechseln.
+Diese Funktionen schalten den `dir`-Attributwert zwischen `ltr` und `rtl` um.
 
 ## Spezifikationen
 
@@ -69,4 +70,4 @@ Browser können Benutzern erlauben, die Richtung von {{ HTMLElement("input") }}-
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 - [`HTMLElement.dir`](/de/docs/Web/API/HTMLElement/dir), das dieses Attribut widerspiegelt.
-- [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)
+- [Umgang mit verschiedenen Leserichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)

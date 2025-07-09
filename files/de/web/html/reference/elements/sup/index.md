@@ -2,12 +2,10 @@
 title: "<sup>: Das Superscript-Element"
 slug: Web/HTML/Reference/Elements/sup
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<sup>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert Inline-Text, der aus rein typografischen Gründen als superscript angezeigt werden soll. Superscripts werden üblicherweise mit einer angehobenen Basislinie und kleinerem Text dargestellt.
+Das **`<sup>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert Inline-Text, der aus rein typografischen Gründen als hochgestellt angezeigt werden soll. Hochgestellt wird normalerweise mit einer angehobenen Grundlinie und kleinerem Text gerendert.
 
 {{InteractiveExample("HTML Demo: &lt;sup&gt;", "tabbed-shorter")}}
 
@@ -33,23 +31,23 @@ p {
 
 Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungszweck
+## Nutzungshinweise
 
-Das `<sup>`-Element sollte nur aus typografischen Gründen verwendet werden, also um die Position des Textes gemäss typografischen Konventionen oder Standards zu ändern, nicht ausschliesslich für Präsentations- oder Erscheinungszwecke.
+Das `<sup>`-Element sollte nur aus typografischen Gründen verwendet werden – also um die Position des Textes zu ändern, um den typografischen Konventionen oder Standards zu entsprechen, und nicht ausschließlich zu Präsentations- oder Darstellungszwecken.
 
-Um beispielsweise das [Markenzeichen](https://en.wikipedia.org/wiki/Wordmark) eines Unternehmens oder Produkts, das eine angehobene Basislinie verwendet, zu stylen, sollte CSS und nicht `<sup>` benutzt werden (höchstwahrscheinlich {{cssxref("vertical-align")}}). Dies würde zum Beispiel mit `vertical-align: super` oder, um die Basislinie um 50% anzuheben, `vertical-align: 50%` umgesetzt werden.
+Zum Beispiel sollte das [Wortmarke](https://en.wikipedia.org/wiki/Wordmark) eines Unternehmens oder Produkts, das eine angehobene Grundlinie verwendet, mittels CSS gestylt werden (höchstwahrscheinlich {{cssxref("vertical-align")}}) und nicht mit `<sup>`. Dies würde z. B. durch `vertical-align: super` oder durch Anheben der Grundlinie um 50% mit `vertical-align: 50%` erreicht werden.
 
-Geeignete Anwendungsfälle für `<sup>` beinhalten (sind jedoch nicht notwendigerweise darauf beschränkt):
+Geeignete Anwendungsfälle für `<sup>` umfassen (sind aber nicht unbedingt darauf beschränkt):
 
-- Darstellung von Exponenten, wie "x<sup>3</sup>". Es könnte der Einsatz von [MathML](/de/docs/Web/MathML) in Erwägung gezogen werden, insbesondere bei komplexeren Fällen. Siehe [Exponenten](#exponenten) unter [Beispiele](#beispiele) unten.
-- Darstellung von [höhergestellten Buchstaben](https://en.wikipedia.org/wiki/Superior_letter), die in einigen Sprachen bei der Wiedergabe bestimmter Abkürzungen verwendet werden. Zum Beispiel kann im Französischen das Wort "mademoiselle" als "M<sup>lle</sup>" abgekürzt werden; dies ist ein akzeptabler Anwendungsfall. Siehe [Höhergestellte Buchstaben](#höhergestellte_buchstaben) für Beispiele.
-- Darstellung von Ordnungszahlen, wie "4<sup>th</sup>" anstelle von "fourth". Siehe [Ordungszahlen](#ordnungszahlen) für Beispiele.
+- Darstellung von Exponenten, wie "x<sup>3</sup>". Es könnte sich lohnen, die Verwendung von [MathML](/de/docs/Web/MathML) in Betracht zu ziehen, insbesondere in komplexeren Fällen. Siehe [Exponenten](#exponenten) unter [Beispiele](#beispiele) unten.
+- Darstellung von [Superior-Schriftzeichen](https://en.wikipedia.org/wiki/Superior_letter), die in einigen Sprachen bei bestimmten Abkürzungen verwendet werden. Zum Beispiel kann im Französischen das Wort "mademoiselle" mit "M<sup>lle</sup>" abgekürzt werden; dies ist ein akzeptabler Anwendungsfall. Siehe [Superior-Schriftzeichen](#superior-schriftzeichen) für Beispiele.
+- Darstellung von Ordinalzahlen, wie "4<sup>th</sup>" statt "vierter". Siehe [Ordinalzahlen](#ordinalzahlen) für Beispiele.
 
 ## Beispiele
 
 ### Exponenten
 
-Exponenten oder Potenzen einer Zahl sind eines der häufigsten Einsatzgebiete für hochgestellten Text. Zum Beispiel:
+Exponenten oder Potenzen einer Zahl sind eine der häufigsten Anwendungen für hochgestellten Text. Zum Beispiel:
 
 ```html
 <p>
@@ -62,9 +60,9 @@ Exponenten oder Potenzen einer Zahl sind eines der häufigsten Einsatzgebiete f�
 
 {{EmbedLiveSample("Exponents", 650, 80)}}
 
-### Höhergestellte Buchstaben
+### Superior-Schriftzeichen
 
-Höhergestellte Buchstaben sind technisch gesehen nicht dasselbe wie Superscript. Es ist jedoch gängig, `<sup>` zu verwenden, um höhergestellte Buchstaben in HTML darzustellen. Zu den häufigsten Anwendungen höhergestellter Buchstaben gehört die Präsentation bestimmter Abkürzungen im Französischen:
+Superior-Schriftzeichen sind nicht technisch dasselbe wie Superscript. Es ist jedoch üblich, `<sup>` zu verwenden, um Superior-Schriftzeichen in HTML darzustellen. Zu den häufigsten Anwendungen von Superior-Schriftzeichen gehört die Darstellung bestimmter Abkürzungen im Französischen:
 
 ```html
 <p>Robert a présenté son rapport à M<sup>lle</sup> Bernard.</p>
@@ -74,9 +72,9 @@ Höhergestellte Buchstaben sind technisch gesehen nicht dasselbe wie Superscript
 
 {{EmbedLiveSample("Superior_lettering", 650, 80)}}
 
-### Ordnungszahlen
+### Ordinalzahlen
 
-Ordnungszahlen, wie "fourth" im Englischen oder "quinto" im Spanischen, können abgekürzt unter Verwendung von Ziffern und sprachspezifischem, als hochgestellt dargestelltem Text:
+Ordinalzahlen, wie "vierter" auf Englisch oder "quinto" auf Spanisch, können durch Ziffern und sprachspezifischen, hochgestellten Text abgekürzt werden:
 
 ```html
 <p>
@@ -107,7 +105,7 @@ Ordnungszahlen, wie "fourth" im Englischen oder "quinto" im Spanischen, können 
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -115,25 +113,25 @@ Ordnungszahlen, wie "fourth" im Englischen oder "quinto" im Spanischen, können 
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">superscript</a
@@ -162,6 +160,6 @@ Ordnungszahlen, wie "fourth" im Englischen oder "quinto" im Spanischen, können 
 
 ## Siehe auch
 
-- Das {{HTMLElement("sub")}} HTML-Element, das Subscripts erzeugt. Beachten Sie, dass `sub` und `sup` nicht gleichzeitig verwendet werden können: Sie müssen [MathML](/de/docs/Web/MathML) verwenden, um sowohl ein Superscript als auch ein Subscript neben dem chemischen Symbol eines Elements anzuzeigen, welches seine Ordnungs- und Massenzahl repräsentiert.
-- Die MathML-Elemente [`<msub>`](/de/docs/Web/MathML/Reference/Element/msub), [`<msup>`](/de/docs/Web/MathML/Reference/Element/msup) und [`<msubsup>`](/de/docs/Web/MathML/Reference/Element/msubsup).
+- Das {{HTMLElement("sub")}} HTML-Element, das Tiefschriften erzeugt. Beachten Sie, dass `sub` und `sup` nicht gleichzeitig verwendet werden können: Sie müssen [MathML](/de/docs/Web/MathML) verwenden, um gleichzeitig sowohl ein Superscript als auch ein Subscript neben dem chemischen Symbol eines Elements zu erzeugen, das seine Ordnungszahl und seine Kernladungszahl darstellt.
+- Die [`<msub>`](/de/docs/Web/MathML/Reference/Element/msub), [`<msup>`](/de/docs/Web/MathML/Reference/Element/msup) und [`<msubsup>`](/de/docs/Web/MathML/Reference/Element/msubsup) MathML-Elemente.
 - Die CSS-Eigenschaft {{cssxref("vertical-align")}}.

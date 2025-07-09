@@ -1,13 +1,11 @@
 ---
-title: "<small>: Das Seitenelement für Kommentare"
+title: "<small>: Das Side-Kommentar-Element"
 slug: Web/HTML/Reference/Elements/small
 l10n:
-  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<small>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenkommentare und Kleingedrucktes, wie Copyright- und Rechtstext, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der Text innerhalb eines `<small>`-Elements eine Schriftgröße kleiner dargestellt, zum Beispiel von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenbemerkungen und Kleindruck, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der Text darin eine Schriftgröße kleiner angezeigt, zum Beispiel von `small` zu `x-small`.
 
 {{InteractiveExample("HTML Demo: &lt;small&gt;", "tabbed-shorter")}}
 
@@ -35,7 +33,7 @@ small {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -73,7 +71,7 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
 
 ## Hinweise
 
-Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, möglicherweise als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation angesehen werden könnte, sind alle drei in HTML gültig. Autoren sind aufgefordert, ihr bestes Urteilsvermögen einzusetzen, um zu entscheiden, ob `<small>` oder CSS verwendet werden soll.
+Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung von Struktur und Präsentation wahrgenommen werden könnte, sind alle drei in HTML gültig. Autoren sollten ihre beste Einschätzung verwenden, um zu entscheiden, ob sie `<small>` oder CSS verwenden.
 
 ## Technische Zusammenfassung
 
@@ -87,10 +85,10 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Fließ-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Ausdrucks-Inhalt</a
         >.
       </td>
     </tr>
@@ -98,28 +96,28 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Ausdrucks-Inhalt</a
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine; es muss sowohl ein Start- als auch ein End-Tag haben.</td>
+      <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Ausdrucks-Inhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >fließenden Inhalt</a
+          >Fließ-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
@@ -130,7 +128,7 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

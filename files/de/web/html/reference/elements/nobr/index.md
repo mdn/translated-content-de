@@ -2,15 +2,15 @@
 title: "<nobr>: Das Zeilenumbruch-verhindernde Element"
 slug: Web/HTML/Reference/Elements/nobr
 l10n:
-  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}{{deprecated_header}}
+{{deprecated_header}}
 
-Das **`<nobr>`** [HTML](/de/docs/Web/HTML) Element verhindert, dass der darin enthaltene Text automatisch über mehrere Zeilen umbricht, was dazu führen kann, dass der Benutzer horizontal scrollen muss, um die gesamte Breite des Textes zu sehen.
+Das **`<nobr>`** [HTML](/de/docs/Web/HTML)-Element verhindert, dass der enthaltene Text automatisch über mehrere Zeilen umbrochen wird, was dazu führen kann, dass der Benutzer horizontal scrollen muss, um die gesamte Breite des Textes zu sehen.
 
 > [!WARNING]
-> Obwohl dieses Element weitgehend unterstützt wird, war es _nie_ ein standardisiertes HTML und sollte daher nicht verwendet werden. Stattdessen sollten Sie die CSS-Eigenschaft {{CSSxRef("white-space")}} wie folgt verwenden:
+> Obwohl dieses Element weitgehend unterstützt wird, war es _nie_ standardmäßiges HTML, daher sollten Sie es nicht verwenden. Stattdessen verwenden Sie die CSS-Eigenschaft {{CSSxRef("white-space")}} wie folgt:
 
 ```html
 <span class="nobr">Long line with no breaks</span>

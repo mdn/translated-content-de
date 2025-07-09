@@ -2,12 +2,10 @@
 title: "<title>: Das Dokumenttitel-Element"
 slug: Web/HTML/Reference/Elements/title
 l10n:
-  sourceCommit: 0c73bebdb12fb60f6305b3206ebc6aa9bda81739
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<title>`**-[HTML](/de/docs/Web/HTML)-Element definiert den Dokumenttitel, der in der Titelleiste eines {{Glossary("Browser", "Browsers")}} oder im Tab einer Seite angezeigt wird. Es enthält nur Text; HTML-Tags innerhalb des Elements werden, falls vorhanden, ebenfalls als einfacher Text behandelt.
+Das **`<title>`**-Element [HTML](/de/docs/Web/HTML) definiert den Titel des Dokuments, der in der Titelleiste eines {{Glossary("Browser", "Browsers")}} oder in einem Tab einer Seite angezeigt wird. Es enthält nur Text; HTML-Tags innerhalb des Elements, falls vorhanden, werden ebenfalls als einfacher Text behandelt.
 
 ```html
 <title>Grandma's Heavy Metal Festival Journal</title>
@@ -15,28 +13,28 @@ Das **`<title>`**-[HTML](/de/docs/Web/HTML)-Element definiert den Dokumenttitel,
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Nutzungshinweise
 
-Das `<title>`-Element wird immer innerhalb eines {{HTMLElement("head")}}-Blocks einer Seite verwendet.
+Das `<title>`-Element wird immer innerhalb des {{HTMLElement("head")}}-Blocks einer Seite verwendet.
 
 ### Seitentitel und SEO
 
-Der Inhalt eines Seitentitels kann erhebliche Auswirkungen auf die Suchmaschinenoptimierung ({{Glossary("SEO", "SEO")}}) haben. Im Allgemeinen haben längere, beschreibende Titel eine bessere Leistung als kurze oder generische Titel. Der Inhalt des Titels ist einer der Faktoren, die von Suchmaschinenalgorithmen verwendet werden, um zu entscheiden, in welcher Reihenfolge Seiten in den Suchergebnissen gelistet werden. Außerdem ist der Titel der erste „Haken“, der die Aufmerksamkeit der Leser auf der Suchergebnisseite erregen soll.
+Der Inhalt eines Seitentitels kann erhebliche Auswirkungen auf die Suchmaschinenoptimierung ({{Glossary("SEO", "SEO")}}) haben. Im Allgemeinen erzielt ein längerer, beschreibender Titel bessere Ergebnisse als kurze oder generische Titel. Der Inhalt des Titels ist eine der Komponenten, die von Suchmaschinenalgorithmen verwendet werden, um die Reihenfolge festzulegen, in der Seiten in den Suchergebnissen gelistet werden. Außerdem ist der Titel der anfängliche "Aufhänger", mit dem Sie die Aufmerksamkeit der Leser gewinnen, die die Ergebnisseite der Suche überfliegen.
 
-Einige Richtlinien und Tipps für das Verfassen guter Titel:
+Einige Richtlinien und Tipps zur Erstellung guter Titel:
 
-- Vermeiden Sie ein- oder zwei-Wort-Titel. Verwenden Sie eine beschreibende Phrase oder ein Begriffs-Definitions-Paar für Glossar- oder Referenzseiten.
-- Suchmaschinen zeigen typischerweise die ersten 55–60 Zeichen eines Seitentitels an. Text darüber hinaus kann verloren gehen, daher versuchen Sie, Titel nicht länger als das zu machen. Wenn Sie einen längeren Titel verwenden müssen, stellen Sie sicher, dass die wichtigen Teile früher erscheinen und dass nichts Kritisches im Teil des Titels enthalten ist, der wahrscheinlich entfernt wird.
-- Verwenden Sie keine „Keyword-Blobs“. Wenn Ihr Titel nur aus einer Liste von Wörtern besteht, verringern Algorithmen oft die Position Ihrer Seite in den Suchergebnissen.
-- Versuchen Sie, Ihre Titel auf Ihrer eigenen Website so einzigartig wie möglich zu machen. Doppelte oder nahezu doppelte Titel können zu ungenauen Suchergebnissen führen.
+- Vermeiden Sie Ein-Wort- oder Zwei-Wort-Titel. Verwenden Sie einen beschreibenden Satz oder eine Begriff-Definition-Kopplung für Glossar- oder Referenzseiten.
+- Suchmaschinen zeigen typischerweise die ersten 55-60 Zeichen eines Seitentitels an. Text darüber hinaus kann verloren gehen, daher sollten Titel nicht länger als das sein. Wenn Sie einen längeren Titel verwenden müssen, stellen Sie sicher, dass die wichtigen Teile früher erscheinen und dass nichts Kritisches im Teil des Titels ist, der wahrscheinlich weggelassen wird.
+- Verwenden Sie keine "Keyword-Blobs". Wenn Ihr Titel nur eine Liste von Wörtern ist, reduzieren die Algorithmen oft die Position Ihrer Seite in den Suchergebnissen.
+- Versuchen Sie, sicherzustellen, dass Ihre Titel innerhalb Ihrer eigenen Website so einzigartig wie möglich sind. Doppelte oder fast doppelte Titel können zu ungenauen Suchergebnissen beitragen.
 
 ## Barrierefreiheit
 
-Es ist wichtig, einen genauen und prägnanten Titel bereitzustellen, um den Zweck der Seite zu beschreiben.
+Es ist wichtig, einen genauen und prägnanten Titel bereitzustellen, der den Zweck der Seite beschreibt.
 
-Eine gängige Navigationstechnik für Benutzer von unterstützenden Technologien besteht darin, den Seitentitel zu lesen und daraus den Inhalt der Seite zu schließen. Dies liegt daran, dass es ein zeitaufwändiger und potenziell verwirrender Prozess sein kann, in eine Seite zu navigieren, um deren Inhalt zu bestimmen. Titel sollten auf jeder Seite einer Website einzigartig sein und idealerweise den Hauptzweck der Seite zuerst zeigen, gefolgt vom Namen der Website. Das Befolgen dieses Musters hilft sicherzustellen, dass der Hauptzweck der Seite zuerst von einem Screenreader bekannt gegeben wird. Dies bietet eine weitaus bessere Erfahrung, als für jede Seite, zu der ein Benutzer auf derselben Website navigiert, den Namen einer Website hören zu müssen, bevor der einzigartige Seitentitel kommt.
+Eine gängige Navigationstechnik für Benutzer von unterstützenden Technologien besteht darin, den Seitentitel zu lesen und Rückschlüsse auf den Inhalt der Seite zu ziehen. Der Grund dafür ist, dass das Navigieren in eine Seite, um deren Inhalt zu bestimmen, ein zeitaufwändiger und potenziell verwirrender Prozess sein kann. Titel sollten für jede Seite einer Website einzigartig sein, idealerweise den primären Zweck der Seite zuerst anzeigen, gefolgt vom Namen der Website. Wenn dieses Muster befolgt wird, wird sichergestellt, dass der primäre Zweck der Seite von einem Bildschirmlesegerät zuerst angekündigt wird. Dies bietet ein viel besseres Erlebnis, als den Namen einer Website anhören zu müssen, bevor der einzigartige Seitentitel für jede Seite angesagt wird, zu der ein Benutzer innerhalb derselben Website navigiert.
 
 ### Beispiele
 
@@ -44,7 +42,7 @@ Eine gängige Navigationstechnik für Benutzer von unterstützenden Technologien
 <title>Menu - Blue House Chinese Food - FoodYum: Online takeout today!</title>
 ```
 
-Wenn eine Formulareinsendung Fehler enthält und die Einsendung die aktuelle Seite neu rendert, kann der Titel verwendet werden, um Benutzer auf etwaige Fehler in ihrer Einsendung aufmerksam zu machen. Beispielsweise aktualisieren Sie den Seiten-`title`-Wert, um signifikante Zustandsänderungen der Seite (z. B. Probleme bei der Formularvalidierung) widerzuspiegeln.
+Wenn das Absenden eines Formulars Fehler enthält und das Absenden die aktuelle Seite neu rendert, kann der Titel verwendet werden, um Benutzer auf etwaige Fehler bei ihrer Eingabe aufmerksam zu machen. Aktualisieren Sie beispielsweise den `title`-Wert der Seite, um wesentliche Zustandsänderungen der Seite widerzuspiegeln (z. B. Probleme bei der Formularvalidierung).
 
 ```html
 <title>
@@ -53,10 +51,10 @@ Wenn eine Formulareinsendung Fehler enthält und die Einsendung die aktuelle Sei
 ```
 
 > [!NOTE]
-> Derzeit wird das dynamische Aktualisieren eines Seitentitels nicht automatisch von Screenreadern angekündigt. Wenn Sie den Seitentitel aktualisieren, um signifikante Änderungen des Seitenzustands widerzuspiegeln, kann die Verwendung von [ARIA Live Regions](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) erforderlich sein.
+> Derzeit wird das dynamische Aktualisieren eines Seitentitels nicht automatisch von Bildschirmlesegeräten angekündigt. Wenn Sie den Seitentitel aktualisieren wollen, um wesentliche Zustandsänderungen wiederzugeben, kann die Verwendung von [ARIA Live Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) erforderlich sein.
 
-- [MDN Verständnis von WCAG, Leitfaden 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_—_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
-- [Verständnis des Erfolgskriteriums 2.4.2 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/page-titled.html)
+- [MDN Verständnis WCAG, Erklärung der Leitlinie 2.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_—_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
+- [Verständnis des Erfolgskriteriums 2.4.2 | W3C Verständnis WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/page-titled.html)
 
 ## Beispiele
 
@@ -64,7 +62,7 @@ Wenn eine Formulareinsendung Fehler enthält und die Einsendung die aktuelle Sei
 <title>Awesome interesting stuff</title>
 ```
 
-Dieses Beispiel erstellt eine Seite, deren Titel (wie oben im Fenster oder im Tab des Fensters angezeigt) "Awesome interesting stuff" lautet.
+Dieses Beispiel legt eine Seite fest, deren Titel (wie oben im Fenster oder im Tab des Fensters angezeigt) "Awesome interesting stuff" ist.
 
 ## Technische Zusammenfassung
 
@@ -85,26 +83,25 @@ Dieses Beispiel erstellt eine Seite, deren Titel (wie oben im Fenster oder im Ta
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Text, der nicht aus Zwischen-Element-{{Glossary("whitespace", "Leerzeichen")}} besteht.
+        Text, der kein inter-Element {{Glossary("whitespace", "Leerzeichen")}} ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Sowohl öffnende als auch schließende Tags sind erforderlich. Beachten Sie, dass das Weglassen von
-        <code>&#x3C;/title></code> dazu führen sollte, dass der Browser den Rest der
-        Seite ignoriert.
+        Sowohl Eröffnungs- als auch Abschluss-Tags sind erforderlich. Beachten Sie, dass das Weglassen von
+        <code>&#x3C;/title></code> dazu führen sollte, dass der Browser den Rest der Seite ignoriert.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{ HTMLElement("head") }}-Element, das kein anderes
+        Ein {{ HTMLElement("head") }}-Element, das kein weiteres
         <code>&lt;title&gt;</code>-Element enthält.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -132,4 +129,4 @@ Dieses Beispiel erstellt eine Seite, deren Titel (wie oben im Fenster oder im Ta
 
 ## Siehe auch
 
-- SVG [`<title>`](/de/docs/Web/SVG/Reference/Element/title)-Element
+- SVG [`<title>`](/de/docs/Web/SVG/Reference/Element/title) Element

@@ -1,13 +1,11 @@
 ---
-title: "<map>: Das Bild-Karten-Element"
+title: "<map>: Das Image-Map-Element"
 slug: Web/HTML/Reference/Elements/map
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<map>`**-[HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Bildkarte (einen klickbaren Linkbereich) zu definieren.
+Das **`<map>`** [HTML](/de/docs/Web/HTML) Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Image-Map (eine anklickbare Link-Fläche) zu definieren.
 
 {{InteractiveExample("HTML Demo: &lt;map&gt;", "tabbed-standard")}}
 
@@ -46,16 +44,16 @@ img {
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `name`
   - : Das `name`-Attribut gibt der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen enthalten. Der Wert des `name`-Attributs darf nicht gleich dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument sein. Wenn das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut ebenfalls angegeben ist, müssen beide Attribute denselben Wert haben.
 
 ## Beispiele
 
-### Bildkarte mit zwei Bereichen
+### Image-Map mit zwei Bereichen
 
-Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei für CSS.
+Klicken Sie auf den linken Papagei für JavaScript oder den rechten Papagei für CSS.
 
 #### HTML
 
@@ -91,37 +89,50 @@ Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei 
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Satzinhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Fließender Inhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Formulierender Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         Jedes
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model">transparentes</a>
+        <a
+          href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
+          >transparentes</a
+        >
         Element.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Satzinhalt</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >formulierenden Inhalt</a
+        >
         akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>

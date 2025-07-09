@@ -3,20 +3,18 @@ title: "HTML-Attribut: maxlength"
 short-title: maxlength
 slug: Web/HTML/Reference/Attributes/maxlength
 l10n:
-  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`maxlength`**-Attribut definiert die maximale [String-Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length), die der Benutzer in ein {{htmlelement('input')}}- oder {{htmlelement('textarea')}}-Element eingeben kann. Das Attribut muss einen ganzzahligen Wert von 0 oder höher haben.
 
-Das Attribut **`maxlength`** definiert die maximale [Zeichenstringlänge](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length), die der Benutzer in ein {{htmlelement('input')}} oder {{htmlelement('textarea')}} eingeben kann. Das Attribut muss einen ganzzahligen Wert von 0 oder höher haben.
+Die Länge wird in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} gemessen, was oft, aber nicht immer der Anzahl der Zeichen entspricht. Wenn kein `maxlength` angegeben oder ein ungültiger Wert spezifiziert wird, hat die Eingabe keine maximale Länge.
 
-Die Länge wird in {{Glossary("UTF-16", "UTF-16-Code-Einheiten")}} gemessen, was oft, aber nicht immer der Anzahl der Zeichen entspricht. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert angegeben wird, gibt es keine maximale Länge für die Eingabe.
-
-Jeder `maxlength`-Wert muss größer als oder gleich dem Wert von [`minlength`](/de/docs/Web/HTML/Reference/Attributes/minlength) sein, wenn vorhanden und gültig. Die Eingabe schlägt bei der Einschränkungsvalidierung fehl, wenn die Länge des Textwertes des Feldes größer als die `maxlength` UTF-16-Code-Einheiten ist. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Ein `maxlength`-Wert muss größer oder gleich dem Wert von [`minlength`](/de/docs/Web/HTML/Reference/Attributes/minlength) sein, sofern vorhanden und gültig. Die Eingabe wird die Validierungseinschränkungen nicht bestehen, wenn die Länge des Textwerts des Feldes größer als maxlength UTF-16-Codeeinheiten ist. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### Einschränkungsvalidierung
 
-Während der Browser im Allgemeinen verhindern wird, dass Benutzer mehr Text eingeben, als das `maxlength`-Attribut erlaubt, wird die schreibgeschützte [`tooLong`](/de/docs/Web/API/ValidityState/tooLong)-Eigenschaft eines [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr sein, sollte die Länge länger als die durch `maxlength` erlaubte sein.
+Obwohl der Browser den Benutzer im Allgemeinen daran hindert, mehr Text einzugeben, als das `maxlength`-Attribut erlaubt, wird, falls die Länge länger ist, als `maxlength` erlaubt, die schreibgeschützte [`tooLong`](/de/docs/Web/API/ValidityState/tooLong)-Eigenschaft eines [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr sein.
 
 {{InteractiveExample("HTML Demo: maxlength", "tabbed-shorter")}}
 

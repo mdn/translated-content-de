@@ -1,15 +1,13 @@
 ---
-title: "<ruby>: Das Ruby-Annotation-Element"
+title: "<ruby>: Das Ruby Annotation Element"
 slug: Web/HTML/Reference/Elements/ruby
 l10n:
-  sourceCommit: a4052a87560b31c773aeaced653c33fcf2812f77
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`<ruby>`** [HTML](/de/docs/Web/HTML) Element stellt kleine Anmerkungen dar, die über, unter oder neben dem Basistext angezeigt werden. Es wird üblicherweise zur Darstellung der Aussprache von ostasiatischen Zeichen verwendet. Es kann auch zur Kommentierung anderer Arten von Text verwendet werden, jedoch ist diese Verwendung weniger gebräuchlich.
 
-Das **`<ruby>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Anmerkungen, die über, unter oder neben dem Basistext dargestellt werden, normalerweise verwendet, um die Aussprache ostasiatischer Schriftzeichen anzuzeigen. Es kann auch zur Annotation anderer Arten von Text verwendet werden, aber diese Nutzung ist weniger üblich.
-
-Der Begriff _ruby_ stammt ursprünglich von [einer Maßeinheit, die von Setzern verwendet wurde](<https://en.wikipedia.org/wiki/Agate_(typography)>), und repräsentiert die kleinste Größe, in der Text auf Zeitungspapier gedruckt werden kann, während er lesbar bleibt.
+Der Begriff _ruby_ stammt ursprünglich von [einer Maßeinheit, die von Setzern verwendet wird](<https://en.wikipedia.org/wiki/Agate_(typography)>), und bezeichnet die kleinste Größe, in der Text auf Zeitungspapier gedruckt werden kann, während er lesbar bleibt.
 
 {{InteractiveExample("HTML Demo: &lt;ruby&gt;", "tabbed-shorter")}}
 
@@ -25,7 +23,7 @@ ruby {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -63,36 +61,36 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Zeichenfolgen-Inhalt</a
-        >, wahrnehmbarer Inhalt.
+          >Phraseninhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Zeichenfolgen-Inhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Auslassung der Tags</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <th scope="row">Weglassen des Tags</th>
+      <td>Keine, sowohl das Anfangs- als auch das Endtag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Zeichenfolgen-Inhalt</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -100,8 +98,8 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

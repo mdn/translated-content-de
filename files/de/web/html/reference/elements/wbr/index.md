@@ -1,13 +1,11 @@
 ---
-title: "<wbr>: Das Zeilenumbruch-Möglichkeitselement"
+title: "<wbr>: Das Zeilenumbruch-Möglichkeiten-Element"
 slug: Web/HTML/Reference/Elements/wbr
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<wbr>`** [HTML](/de/docs/Web/HTML) Element stellt eine Wortumbruchmöglichkeit dar—eine Position innerhalb des Textes, an der der Browser optional einen Zeilenumbruch einfügen kann, obwohl seine Zeilenumbruchregeln an dieser Stelle normalerweise keinen Umbruch erzeugen würden.
+Das **`<wbr>`**-[HTML](/de/docs/Web/HTML) Element repräsentiert eine Worttrennungsmöglichkeit – eine Position innerhalb eines Textes, an der der Browser optional eine Zeile umbrechen kann, obwohl seine Zeilenumbruchregeln an dieser Stelle normalerweise keinen Umbruch vornehmen würden.
 
 {{InteractiveExample("HTML Demo: &lt;wbr&gt;", "tabbed-shorter")}}
 
@@ -31,17 +29,17 @@ Das **`<wbr>`** [HTML](/de/docs/Web/HTML) Element stellt eine Wortumbruchmöglic
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Hinweise
 
-Auf UTF-8 kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keine Auswirkungen auf die {{Glossary("bidi", "bidi")}}-Reihenfolge hat: `<div dir=rtl>123,<wbr>456</div>` wird, wenn nicht auf zwei Zeilen gebrochen, als `123,456` angezeigt und nicht als `456,123`.
+Auf UTF-8-kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE`-Codepunkt. Insbesondere verhält es sich wie ein Unicode-Bidi-BN-Codepunkt, was bedeutet, dass es keinen Einfluss auf die {{Glossary("bidi", "bidi")}}-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn nicht in zwei Zeilen gebrochen, `123,456` und nicht `456,123`.
 
-Aus demselben Grund führt das `<wbr>` Element keinen Bindestrich am Zeilenumbruchpunkt ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen die weiche Bindestrich-Zeichenentität (`&shy;`).
+Aus dem gleichen Grund fügt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchsposition ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen das Weichbindestrich-Zeichen-Entity (`&shy;`).
 
 ## Beispiele
 
-_Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [einen URL _vor_ einem Satzzeichen zu brechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass am Ende der Zeile ein Satzzeichen bleibt, das der Leser möglicherweise für das Ende der URL hält.
+_[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [eine URL _vor_ einem Satzzeichen zu trennen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass am Ende der Zeile ein Satzzeichen stehen bleibt, welches der Leser möglicherweise für das Ende der URL hält.
 
 ```html
 <p>
@@ -68,7 +66,7 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >eingerichteter Inhalt</a
         >.
       </td>
     </tr>
@@ -77,7 +75,7 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
       <td>Leer</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Tag-Weglassen</th>
       <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
@@ -85,7 +83,7 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >eingerichteten Inhalt</a
         >
         akzeptiert.
       </td>
@@ -122,4 +120,4 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
 - {{cssxref("overflow-wrap")}}
 - {{cssxref("word-break")}}
 - {{cssxref("hyphens")}}
-- Das {{HTMLElement("br")}} Element
+- Das {{HTMLElement("br")}}-Element

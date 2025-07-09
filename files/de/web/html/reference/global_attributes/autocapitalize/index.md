@@ -1,19 +1,17 @@
 ---
-title: HTML `autocapitalize` Globalattribut
+title: HTML `autocapitalize` globales Attribut
 short-title: autocapitalize
 slug: Web/HTML/Reference/Global_attributes/autocapitalize
 l10n:
-  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar("Global_attributes")}}
+Das **`autocapitalize`**-Attribut [globales Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "enumerated")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und wenn ja, in welcher Weise. Dies ist relevant für:
 
-Das **`autocapitalize`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und in welcher Weise dies erfolgt. Dies ist relevant für:
+- {{htmlelement("input")}} und {{htmlelement("textarea")}} Elemente.
+- Jedes Element mit aktivierter [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Eigenschaft.
 
-- {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elemente.
-- Jedes Element, bei dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) aktiviert ist.
-
-`autocapitalize` beeinflusst das Verhalten beim Tippen auf einer physischen Tastatur nicht. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingabe. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem z. B. der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
+`autocapitalize` beeinflusst nicht das Verhalten beim Tippen auf einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtueller Tastaturen auf mobilen Geräten und Spracheingaben. Dies kann Benutzern dabei helfen, die Dateneingabe schneller und einfacher zu gestalten, zum Beispiel indem der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
 
 ## Wert
 
@@ -26,13 +24,13 @@ Mögliche Werte sind:
 - `words`
   - : Der erste Buchstabe jedes Wortes wird automatisch großgeschrieben.
 - `characters`
-  - : Jedes Zeichen wird automatisch großgeschrieben.
+  - : Jeder Buchstabe wird automatisch großgeschrieben.
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elementen _sowie_ auf den enthaltenen {{htmlelement("form")}}-Elementen gesetzt werden. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, bestimmt es das Autokapitalisierungsverhalten für alle enthaltenen `<input>`- und `<textarea>`-Elemente und überschreibt alle auf enthaltenen Elementen gesetzten `autocapitalize`-Werte.
-- `autocapitalize` hat keine Wirkung auf die `<input>`-Typen `url`, `email` oder `password`, bei denen eine Großschreibung niemals aktiviert ist.
-- Wo `autocapitalize` nicht spezifiziert ist, variiert das angenommene Standardverhalten zwischen den Browsern. Zum Beispiel:
+- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elemente gesetzt werden _und_ auf die enthaltenen {{htmlelement("form")}}-Elemente. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, legt es das Verhalten des Autocapitalize für alle enthaltenen `<input>`s und `<textarea>`s fest und überschreibt alle `autocapitalize`-Werte, die auf den enthaltenen Elementen gesetzt sind.
+- `autocapitalize` hat keine Wirkung auf die `url`-, `email`- oder `password`-`<input>`-Typen, bei denen die automatische Großschreibung niemals aktiviert ist.
+- Wo `autocapitalize` nicht angegeben ist, variiert das angenommene Standardverhalten zwischen den Browsern. Zum Beispiel:
   - Chrome und Safari standardmäßig `on`/`sentences`
   - Firefox standardmäßig `off`/`none`.
 
@@ -106,7 +104,7 @@ div {
 
 ## Ergebnis
 
-Testen Sie die Wirkung auf jede Eingabe mit einer virtuellen Tastatur oder Spracheingabe (Tastatureingabe wird nicht funktionieren).
+Testen Sie die Wirkung auf jede Eingabe mit einer virtuellen Tastatur oder Spracheingabe (Tastatureingabe auf einer physischen Tastatur wird nicht funktionieren).
 
 {{ EmbedLiveSample("Examples", "100%", "500") }}
 

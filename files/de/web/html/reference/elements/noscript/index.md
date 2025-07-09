@@ -2,12 +2,10 @@
 title: "<noscript>: Das Noscript-Element"
 slug: Web/HTML/Reference/Elements/noscript
 l10n:
-  sourceCommit: 36ac13b6a05a353f0c9cfe6ee117b1531f968205
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<noscript>`** [HTML](/de/docs/Web/HTML)-Element definiert einen Abschnitt von HTML, der eingefügt wird, wenn ein Skripttyp auf der Seite nicht unterstützt wird oder wenn Skripting im Browser derzeit deaktiviert ist.
+Das **`<noscript>`** [HTML](/de/docs/Web/HTML)-Element definiert einen HTML-Bereich, der eingefügt wird, wenn ein Skripttyp auf der Seite nicht unterstützt wird oder wenn das Skripting im Browser derzeit deaktiviert ist.
 
 ## Attribute
 
@@ -35,10 +33,10 @@ Rocks!
 
 ## Nutzungshinweise
 
-Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob Skripting aktiviert ist:
+Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob das Skripting aktiviert ist:
 
-- Wenn Skripting deaktiviert ist, stellt das `<noscript>`-Element seine Kinder als [HTML-Inhalt](/de/docs/Web/API/HTMLElement) dar.
-- Wenn Skripting aktiviert ist, stellt das `<noscript>`-Element seine Kinder als [Text](/de/docs/Web/API/Text) dar.
+- Wenn das Skripting deaktiviert ist, stellt das `<noscript>`-Element seine Kinder als [HTML-Inhalt](/de/docs/Web/API/HTMLElement) dar.
+- Wenn das Skripting aktiviert ist, stellt das `<noscript>`-Element seine Kinder als [Text](/de/docs/Web/API/Text) dar.
 
 ## Technische Zusammenfassung
 
@@ -58,42 +56,45 @@ Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob
           >Fluss-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Ausdrucks-Inhalt</a
+          >Phrasen-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Wenn Skripting deaktiviert ist und es ein Nachkomme des
-        {{HTMLElement("head")}}-Elements ist: in beliebiger Reihenfolge null oder mehr
+        Wenn das Skripting deaktiviert ist und wenn es ein Nachfahre des
+        {{HTMLElement("head")}}-Elements ist: in beliebiger Reihenfolge, null oder mehr
         {{HTMLElement("link")}}-Elemente, null oder mehr
         {{HTMLElement("style")}}-Elemente und null oder mehr
-        {{HTMLElement("meta")}}-Elemente.<br />Wenn Skripting deaktiviert ist und es kein Nachkomme des
-        {{HTMLElement("head")}}-Elements ist: beliebiger
+        {{HTMLElement("meta")}}-Elemente.<br />Wenn das Skripting
+        deaktiviert ist und wenn es kein Nachfahre des
+        {{HTMLElement("head")}}-Elements ist: jeder
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
-          >transparenter Inhalt</a
+          >transparente Inhalt</a
         >, aber kein <code>&#x3C;noscript></code>-Element darf unter seinen
-        Nachkommen sein.<br />Andernfalls: Fluss-Inhalt oder Ausdrucks-Inhalt.
+        Nachfahren sein.<br />Andernfalls: Fluss-Inhalt oder Phrasen-Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das startende als auch das endende Tag sind erforderlich.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Ausdrucks-Inhalt</a
-        > akzeptiert, wenn es keine Vorfahren mit <code>&#x3C;noscript></code>-Element gibt, oder in einem {{HTMLElement("head")}}-Element (aber nur für ein HTML-Dokument), auch hier, wenn es keine Vorfahren mit
-        <code>&#x3C;noscript></code>-Element gibt.
+          >Phrasen-Inhalt</a
+        > akzeptiert, wenn es keine Vorfahren <code>&#x3C;noscript></code>-Elemente gibt, oder in
+        einem {{HTMLElement("head")}}-Element (aber nur für ein HTML
+        -Dokument), auch hier, wenn es keine Vorfahren
+        <code>&#x3C;noscript></code>-Elemente gibt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -102,7 +103,7 @@ Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Kein <code>role</code> erlaubt</td>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

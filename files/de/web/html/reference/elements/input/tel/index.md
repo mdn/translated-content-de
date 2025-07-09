@@ -2,12 +2,10 @@
 title: <input type="tel">
 slug: Web/HTML/Reference/Elements/input/tel
 l10n:
-  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-{{HTMLElement("input")}}-Elemente vom Typ **`tel`** werden verwendet, um dem Benutzer zu ermöglichen, eine Telefonnummer einzugeben und zu bearbeiten. Im Gegensatz zu [`<input type="email">`](/de/docs/Web/HTML/Reference/Elements/input/email) und [`<input type="url">`](/de/docs/Web/HTML/Reference/Elements/input/url) wird der Eingabewert nicht automatisch auf ein bestimmtes Format überprüft, bevor das Formular abgesendet werden kann, da sich die Formate von Telefonnummern weltweit so stark unterscheiden.
+{{HTMLElement("input")}}-Elemente vom Typ **`tel`** werden verwendet, um dem Benutzer das Eingeben und Bearbeiten einer Telefonnummer zu ermöglichen. Im Gegensatz zu [`<input type="email">`](/de/docs/Web/HTML/Reference/Elements/input/email) und [`<input type="url">`](/de/docs/Web/HTML/Reference/Elements/input/url) wird der Eingabewert nicht automatisch auf ein bestimmtes Format geprüft, bevor das Formular gesendet werden kann, da sich die Formate für Telefonnummern weltweit stark unterscheiden.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;tel&quot;&gt;", "tabbed-standard")}}
 
@@ -39,14 +37,14 @@ label {
 }
 ```
 
-Obwohl Eingaben vom Typ `tel` funktional identisch zu Standard-`text`-Eingaben sind, haben sie nützliche Verwendungszwecke; der am schnellsten ersichtliche Vorteil ist, dass mobile Browser—besonders auf Mobiltelefonen—möglicherweise eine benutzerdefinierte Tastatur präsentieren, die für die Eingabe von Telefonnummern optimiert ist. Die Verwendung eines spezifischen Eingabetyps für Telefonnummern erleichtert auch die Hinzufügung benutzerdefinierter Validierungen und Handhabungen von Telefonnummern.
+Obwohl Eingaben vom Typ `tel` funktional identisch mit Standard-`text` Eingaben sind, erfüllen sie dennoch nützliche Zwecke. Am offensichtlichsten ist, dass mobile Browser — insbesondere auf Mobiltelefonen — möglicherweise eine spezielle Tastatur für die Eingabe von Telefonnummern anzeigen. Die Verwendung eines speziellen Eingabetyps für Telefonnummern erleichtert auch die Implementierung benutzerdefinierter Validierungen und die Verarbeitung von Telefonnummern.
 
 > [!NOTE]
-> Browser, die den Typ `tel` nicht unterstützen, verwenden standardmäßig eine {{HTMLElement("input/text", "text")}}-Eingabe.
+> Browser, die den Typ `tel` nicht unterstützen, verwenden stattdessen ein Standard-{{HTMLElement("input/text", "text")}}-Eingabefeld.
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält einen String, der entweder eine Telefonnummer darstellt oder ein leerer String (`""`) ist.
+Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält einen String, der entweder eine Telefonnummer darstellt oder ein Leerstring ist (`""`).
 
 ## Zusätzliche Attribute
 
@@ -54,70 +52,70 @@ Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attr
 
 ### list
 
-Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines im selben Dokument befindlichen {{HTMLElement("datalist")}}-Elements. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht in den vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines im selben Dokument befindlichen {{HTMLElement("datalist")}}-Elements. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden. Werte in der Liste, die mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) nicht kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
 
 ### maxlength
 
-Die maximale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}), die der Benutzer in das Telefonnummernfeld eingeben kann. Dieser Wert muss eine ganze Zahl von 0 oder höher sein. Wenn keine `maxlength` angegeben oder ein ungültiger Wert angegeben ist, hat das Telefonnummernfeld keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
+Die maximale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}), die der Benutzer in das Telefonnummernfeld eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben oder ein ungültiger Wert angegeben wird, hat das Telefonnummernfeld keine maximale Länge. Dieser Wert muss außerdem größer oder gleich dem Wert von `minlength` sein.
 
-Die Eingabe wird [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes größer als `maxlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} ist. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe wird die [Einschränkungsüberprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes größer ist als `maxlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}. Die Einschränkungsüberprüfung wird nur angewendet, wenn der Wert durch den Benutzer geändert wird.
 
 ### minlength
 
-Die minimale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}), die der Benutzer in das Telefonnummernfeld eingeben kann. Dieser Wert muss eine nicht negative ganze Zahl sein, die kleiner oder gleich dem durch `maxlength` angegebenen Wert ist. Wenn keine `minlength` angegeben oder ein ungültiger Wert angegeben ist, hat die Telefonnummerneingabe keine Mindestlänge.
+Die minimale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}), die der Benutzer in das Telefonnummernfeld eingeben kann. Dies muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem von `maxlength` angegebenen Wert ist. Wenn kein `minlength` angegeben oder ein ungültiger Wert angegeben wird, hat das Telefonnummernfeld keine Mindestlänge.
 
-Das Telefonnummernfeld wird [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes weniger als `minlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} beträgt. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Das Telefonnummernfeld wird die [Einschränkungsüberprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes kleiner ist als `minlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}. Die Einschränkungsüberprüfung wird nur angewendet, wenn der Wert durch den Benutzer geändert wird.
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) der Eingabe erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Compilieren des regulären Ausdrucks angegeben, so dass das Muster als eine Sequenz von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Um das Mustertext sollten keine Schrägstriche angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) der Eingabe für die [Einschränkungsüberprüfung](/de/docs/Web/HTML/Guides/Constraint_validation) erfüllen muss. Es muss ein gültiger JavaScript-Regulärer-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie es in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als eine Folge von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
-Wenn das angegebene Muster nicht angegeben ist oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollkommen ignoriert.
+Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
 > [!NOTE]
-> Verwenden Sie das [`title`](/de/docs/Web/HTML/Reference/Elements/input#title)-Attribut, um Text zu spezifizieren, den die meisten Browser als Tooltip anzeigen werden, um zu erklären, welche Anforderungen erfüllt werden müssen, um das Muster zu erfüllen. Sie sollten auch anderen erklärenden Text in der Nähe einfügen.
+> Verwenden Sie das [`title`](/de/docs/Web/HTML/Reference/Elements/input#title)-Attribut, um Text anzugeben, den die meisten Browser als Tooltip anzeigen, um zu erklären, welche Anforderungen erfüllt werden müssen, um das Muster zu erfüllen. Sie sollten auch anderen erklärenden Text in der Nähe einfügen.
 
-Details und ein Beispiel finden Sie unter [Muster-Validierung](#muster-validierung) weiter unten.
+Weitere Informationen und ein Beispiel finden Sie unten unter [Pattern validation](#muster-validierung).
 
 ### placeholder
 
-Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information in das Feld erwartet wird. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
+Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp verdeutlicht, anstatt einer erklärenden Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine bestimmte Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Platzhalter jedoch in entgegengesetzter Richtung präsentiert werden muss, können Sie Unicode bidirektionale Algorithmus-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; siehe [Wie man Unicode-Steuerungen für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, aber der Platzhalter in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Zeichen für die bidirektionale Algorithmenformatierung verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Wie man Unicode-Steuerzeichen für bidi Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
-> Vermeiden Sie, das `placeholder`-Attribut zu verwenden, wenn Sie können. Es ist nicht so semantisch sinnvoll wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Reference/Elements/input#labels) für weitere Informationen.
+> Vermeiden Sie nach Möglichkeit die Verwendung des `placeholder`-Attributs. Es ist semantisch nicht so nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Weitere Informationen finden Sie unter [`<input>`-Labels](/de/docs/Web/HTML/Reference/Elements/input#labels).
 
 ### readonly
 
-Ein Boolean-Attribut, das, wenn vorhanden, bedeutet, dass dieses Feld nicht vom Benutzer bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch direktes Setzen der `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) durch JavaScript-Code geändert werden.
+Ein boolesches Attribut, welches bei Vorhandensein bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin direkt durch JavaScript-Code, der die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-`value`-Eigenschaft setzt, geändert werden.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Auswirkungen auf Eingaben mit angegebenem `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keinen Einfluss auf Eingaben mit ebenfalls spezifiziertem `readonly`-Attribut.
 
 ### size
 
-Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als Null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies genauer oder ungenauer sein und sollte nicht darauf verlassen werden, genau zu sein; die resultierende Eingabe kann je nach Zeichen und verwendeter Schriftart ({{cssxref("font")}} Einstellungen in Verwendung) schmaler oder breiter als die angegebene Anzahl von Zeichen sein.
+Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen weit das Eingabefeld sein sollte. Der Wert muss eine Zahl größer als Null sein, und der Standardwert ist 20. Da sich die Zeichenbreiten unterscheiden, muss dies nicht exakt sein und sollte nicht darauf verlassen werden, dass es so ist; das resultierende Eingabefeld kann schmaler oder breiter als die angegebene Anzahl von Zeichen sein, abhängig von den Zeichen und der Schriftart ({{cssxref("font")}}-Einstellungen, die verwendet werden).
 
-Dies legt kein Limit fest, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt nur an, wie viele etwa auf einmal gesehen werden können. Um ein oberes Limit für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
+Dies setzt _kein_ Limit, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt lediglich an, wie viele ungefähr gleichzeitig sichtbar sein können. Um ein oberes Limit für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
 
-## Verwendung von 'tel'-Eingaben
+## Verwendung von tel-Eingaben
 
-Telefonnummern sind ein sehr häufig gesammelter Datentyp im Web. Beim Erstellen einer beliebigen Art von Registrierungs- oder E-Commerce-Website beispielsweise müssen Sie wahrscheinlich den Benutzer nach einer Telefonnummer fragen, sei es für geschäftliche Zwecke oder für Notfallkontaktzwecke. Angesichts der häufig eingegebenen Telefonnummern ist es bedauerlich, dass eine "One-size-fits-all"-Lösung zur Validierung von Telefonnummern nicht praktikabel ist.
+Telefonnummern sind eine sehr häufig erfasste Datenform im Web. Wenn Sie eine Art von Registrierungs- oder E-Commerce-Website erstellen, müssen Sie wahrscheinlich den Benutzer nach einer Telefonnummer fragen, sei es zu geschäftlichen Zwecken oder für Notfallkontaktzwecke. Angesichts der häufig eingegebenen Telefonnummern ist es bedauerlich, dass eine "One size fits all"-Lösung zur Validierung von Telefonnummern nicht praktikabel ist.
 
-Glücklicherweise können Sie die Anforderungen Ihrer eigenen Website berücksichtigen und selbst ein angemessenes Validierungsniveau implementieren. Details siehe [Validierung](#validierung) unten.
+Zum Glück können Sie die Anforderungen Ihrer eigenen Website berücksichtigen und ein angemessenes Maß an Validierung selbst implementieren. Siehe [Validierung](#validierung) unten für Details.
 
 ### Benutzerdefinierte Tastaturen
 
-Einer der Hauptvorteile von `<input type="tel">` ist, dass es mobile Browser veranlasst, eine spezielle Tastatur zum Eingeben von Telefonnummern anzuzeigen. Zum Beispiel sehen die Tastaturen auf einigen Geräten wie folgt aus.
+Einer der Hauptvorteile von `<input type="tel">` ist, dass es mobile Browser dazu veranlasst, eine spezielle Tastatur für die Eingabe von Telefonnummern anzuzeigen. Zum Beispiel sehen hier die Tastenfelder auf ein paar Geräten so aus.
 
 | Firefox für Android                                       | WebKit iOS (Safari/Chrome/Firefox)                               |
 | --------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![Firefox für Android Bildschirmfoto](fx-android-tel.png) | ![Firefox für iOS Bildschirmfoto](iphone-tel-keyboard-50pct.png) |
+| ![Screenshot von Firefox für Android](fx-android-tel.png) | ![Screenshot von Firefox für iOS](iphone-tel-keyboard-50pct.png) |
 
-### Eine grundlegende tel-Eingabe
+### Ein einfaches tel-Eingabefeld
 
-In ihrer einfachsten Form kann eine tel-Eingabe wie folgt implementiert werden:
+In seiner einfachsten Form kann ein tel-Eingabefeld so implementiert werden:
 
 ```html
 <label for="telNo">Phone number:</label>
@@ -126,13 +124,13 @@ In ihrer einfachsten Form kann eine tel-Eingabe wie folgt implementiert werden:
 
 {{ EmbedLiveSample('A_basic_tel_input', 600, 40) }}
 
-Hier passiert nichts Magisches. Wenn das obige Eingabefeld an den Server gesendet wird, würde die Daten als `telNo=+12125553151` dargestellt.
+Hier passiert nichts Magisches. Beim Senden an den Server würde die Eingabedaten des obigen Eingabefelds beispielsweise als `telNo=+12125553151` dargestellt.
 
 ### Platzhalter
 
-Manchmal ist es hilfreich, einen kontextbezogenen Hinweis darauf zu geben, welche Form die Eingabedaten haben sollten. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Labels für jedes {{HTMLElement("input")}} bietet. Das ist der Punkt, an dem **Platzhalter** ins Spiel kommen. Ein Platzhalter ist ein Wert, der die Form des `value` demonstriert, indem er ein Beispiel für einen gültigen Wert anzeigt, der im Bearbeitungsfeld angezeigt wird, wenn der `value` des Elements `""` ist. Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; wenn das Feld geleert wird, erscheint der Platzhalter wieder.
+Manchmal ist es hilfreich, einen Hinweis im Kontext zu bieten, in welcher Form die Eingabedaten vorliegen sollten. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Labels für jedes {{HTMLElement("input")}} bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der die Form des `value` zeigt, indem ein Beispiel für einen gültigen Wert dargestellt wird, der im Bearbeitungsfeld angezeigt wird, wenn der `value` des Elements `""` ist. Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; wenn das Feld geleert wird, erscheint der Platzhalter erneut.
 
-Hier haben wir ein `tel`-Eingabefeld mit dem Platzhalter `123-4567-8901`. Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, während Sie den Inhalt des Bearbeitungsfeldes manipulieren.
+Hier sehen Sie eine `tel`-Eingabe mit dem Platzhalter `123-4567-8901`. Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, wenn Sie den Inhalt des Bearbeitungsfeldes manipulieren.
 
 ```html
 <input id="telNo" name="telNo" type="tel" placeholder="123-4567-8901" />
@@ -140,13 +138,13 @@ Hier haben wir ein `tel`-Eingabefeld mit dem Platzhalter `123-4567-8901`. Beacht
 
 {{ EmbedLiveSample('Placeholders', 600, 40) }}
 
-### Kontrolle der Eingabegröße
+### Steuerung der Eingabegröße
 
-Sie können nicht nur die physische Länge des Eingabefeldes steuern, sondern auch die minimalen und maximalen Längen, die für den eingegebenen Text erlaubt sind.
+Sie können nicht nur die physische Länge der Eingabebox steuern, sondern auch die minimalen und maximalen Längen, die für den eingegebenen Text selbst erlaubt sind.
 
-#### Physische Größe des Eingabeelements
+#### Physische Eingabeelementgröße
 
-Die physische Größe des Eingabefelds kann mit dem [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)-Attribut gesteuert werden. Mit ihm können Sie die Anzahl der Zeichen angeben, die das Eingabefeld auf einmal anzeigen kann. In diesem Beispiel ist das `tel`-Eingabefeld 20 Zeichen breit:
+Die physische Größe der Eingabebox kann mit dem [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)-Attribut gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die die Eingabebox auf einmal anzeigen kann. In diesem Beispiel ist zum Beispiel die `tel`-Eingabebox 20 Zeichen breit:
 
 ```html
 <input id="telNo" name="telNo" type="tel" size="20" />
@@ -154,11 +152,11 @@ Die physische Größe des Eingabefelds kann mit dem [`size`](/de/docs/Web/HTML/R
 
 {{ EmbedLiveSample('Physical_input_element_size', 600, 40) }}
 
-#### Element-Wertlänge
+#### Elementwertlänge
 
-Die `size` ist von der Längenbeschränkung der eingegebenen Telefonnummer getrennt. Sie können eine minimale Länge, in Zeichen, für die eingegebene Telefonnummer mit dem [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut festlegen; verwenden Sie ähnlicheweise [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength), um die maximale Länge der eingegebenen Telefonnummer festzulegen.
+Die `size` ist separat von der Längenbegrenzung der eingegebenen Telefonnummer. Sie können eine Mindestlänge in Zeichen für die eingegebene Telefonnummer mit dem [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut angeben; verwenden Sie ähnlich [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength), um die maximale Länge der eingegebenen Telefonnummer festzulegen.
 
-Das folgende Beispiel erstellt ein 20 Zeichen breites Telefonnummerneingabefeld, das erfordert, dass der Inhalt nicht kürzer als 9 Zeichen und nicht länger als 14 Zeichen ist.
+Das folgende Beispiel erstellt eine 20 Zeichen breite Telefonnummerneingabebox, die verlangt, dass der Inhalt nicht kürzer als 9 Zeichen und nicht länger als 14 Zeichen ist.
 
 ```html
 <input
@@ -173,13 +171,13 @@ Das folgende Beispiel erstellt ein 20 Zeichen breites Telefonnummerneingabefeld,
 {{EmbedLiveSample("Element_value_length", 600, 40) }}
 
 > [!NOTE]
-> Die oben genannten Attribute wirken sich auf die [Validierung](#validierung) aus — die Eingaben des obigen Beispiels werden als ungültig gezählt, wenn die Länge des Wertes weniger als 9 Zeichen oder mehr als 14 Zeichen beträgt. Die meisten Browser lassen Sie nicht einmal einen Wert über der maximalen Länge eingeben.
+> Die obigen Attribute beeinflussen die [Validierung](#validierung) — die Eingaben im obigen Beispiel werden als ungültig gewertet, wenn die Länge des Werts weniger als 9 oder mehr als 14 Zeichen beträgt. Die meisten Browser lassen Sie nicht einmal über die maximal erlaubte Länge hinaus Eingaben machen.
 
-### Standardoptionen bereitstellen
+### Bereitstellung von Standardoptionen
 
-#### Einen einzigen Standard mit dem Wertattribut bereitstellen
+#### Bereitstellung eines einzelnen Standardwerts mit dem value-Attribut
 
-Wie immer können Sie einen Standardwert für eine `tel`-Eingabe bereitstellen, indem Sie ihr [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut festlegen:
+Wie üblich können Sie einen Standardwert für ein `tel`-Eingabefeld angeben, indem Sie sein [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut setzen:
 
 ```html
 <input id="telNo" name="telNo" type="tel" value="333-4444-4444" />
@@ -187,9 +185,9 @@ Wie immer können Sie einen Standardwert für eine `tel`-Eingabe bereitstellen, 
 
 {{EmbedLiveSample("Providing_a_single_default_using_the_value_attribute", 600, 40)}}
 
-#### Vorgeschlagene Werte anbieten
+#### Angebot von vorgeschlagenen Werten
 
-Einen Schritt weiter gegangen, können Sie eine Liste von Standardtelefonnummernwerten bereitstellen, aus denen der Benutzer auswählen kann. Verwenden Sie dazu das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut. Dies schränkt die Benutzer nicht auf diese Optionen ein, ermöglicht es ihnen jedoch, häufig verwendete Telefonnummern schneller auszuwählen. Dies bietet auch Hinweise für [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete). Das `list`-Attribut spezifiziert die ID eines {{HTMLElement("datalist")}}-Elements, das wiederum ein {{HTMLElement("option")}}-Element pro vorgeschlagenem Wert enthält; der `value` jedes `option` ist der entsprechende vorgeschlagene Wert für das Telefonnummerneingabefeld.
+Einen Schritt weiter können Sie eine Liste von Standardtelefonnummern anbieten, aus denen der Benutzer auswählen kann. Verwenden Sie dazu das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut. Dies beschränkt den Benutzer nicht auf diese Optionen, ermöglicht es ihm jedoch, schneller häufig verwendete Telefonnummern auszuwählen. Dies bietet auch Hinweise auf [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete). Das Attribut `list` gibt die ID eines {{HTMLElement("datalist")}}-Elements an, das wiederum ein {{HTMLElement("option")}}-Element pro vorgeschlagenem Wert enthält; jedes `option`'s `value` ist der entsprechende vorgeschlagene Wert für das Telefonnummerneingabefeld.
 
 ```html
 <label for="telNo">Phone number: </label>
@@ -205,22 +203,22 @@ Einen Schritt weiter gegangen, können Sie eine Liste von Standardtelefonnummern
 
 {{EmbedLiveSample("Offering_suggested_values", 600, 40)}}
 
-Mit dem {{HTMLElement("datalist")}}-Element und seinen {{HTMLElement("option")}}s stellt der Browser die angegebenen Werte als potenzielle Werte für die Telefonnummer bereit; dies wird typischerweise als Popup oder Dropdown-Menü mit den Vorschlägen präsentiert. Während das spezifische Benutzererlebnis von einem Browser zum anderen variieren kann, wird typischerweise beim Klicken in das Bearbeitungsfeld ein Dropdown mit den vorgeschlagenen Telefonnummern angezeigt. Dann, wenn der Benutzer tippt, wird die Liste angepasst, um nur gefilterte passende Werte anzuzeigen. Jeder eingegebene Buchstabe schränkt die Liste weiter ein, bis der Benutzer eine Auswahl trifft oder einen benutzerdefinierten Wert eingibt.
+Mit dem {{HTMLElement("datalist")}}-Element und seinen {{HTMLElement("option")}}s an Ort und Stelle wird der Browser die angegebenen Werte als mögliche Werte für die Telefonnummer vorschlagen; dies wird in der Regel als Popup- oder Dropdown-Menü mit den Vorschlägen dargestellt. Während sich die spezifische Benutzererfahrung von einem Browser zum anderen unterscheiden kann, wird typischerweise durch das Klicken in das Bearbeitungsfeld ein Dropdown mit den vorgeschlagenen Telefonnummern angezeigt. Dann, während der Benutzer tippt, wird die Liste so angepasst, dass nur passende Werte angezeigt werden. Jeder getippte Buchstabe schränkt die Liste solange ein, bis der Benutzer eine Auswahl trifft oder einen benutzerdefinierten Wert eingibt.
 
-Hier ist ein Screenshot, wie das aussehen könnte:
+Hier ein Screenshot, wie das aussehen könnte:
 
-![Ein Eingabefeld hat den Fokus mit einem blauen Fokusring. Das Eingabefeld hat ein Dropdown-Menü mit vier Telefonnummern, die der Benutzer auswählen kann.](phone-number-with-options.png)
+![Ein Eingabefeld ist fokussiert mit einem blauen Fokusring. Die Eingabe hat ein Dropdown-Menü, das vier Telefonnummern zeigt, die der Benutzer auswählen kann.](phone-number-with-options.png)
 
 ## Validierung
 
-Wie bereits erwähnt, ist es ziemlich schwierig, eine einheitliche clientseitige Validierungslösung für Telefonnummern bereitzustellen. Was können wir also tun? Betrachten wir einige Optionen.
+Wie bereits angedeutet, ist es ziemlich schwierig, eine All-in-One-Client-seitige Validierungslösung für Telefonnummern bereitzustellen. Was können wir also tun? Lassen Sie uns einige Optionen in Betracht ziehen.
 
 > [!WARNING]
-> HTML-Formularvalidierung ist _kein_ Ersatz für serverseitige Skripte, die sicherstellen, dass die eingegebenen Daten das richtige Format haben, bevor sie in die Datenbank aufgenommen werden dürfen. Es ist viel zu einfach für jemanden, die HTML anzupassen, um die Validierung zu umgehen, oder um sie ganz zu entfernen. Es ist auch möglich für jemanden, Ihr HTML vollständig zu umgehen und die Daten direkt an Ihren Server zu senden. Wenn Ihr serverseitiger Code es versäumt, die empfangenen Daten zu validieren, könnte es zu einer Katastrophe führen, wenn falsch formatierte Daten (oder Daten, die zu groß sind, den falschen Typ haben usw.) in Ihre Datenbank eingegeben werden.
+> Die HTML-Formularvalidierung ist _kein_ Ersatz für serverseitige Skripte, die sicherstellen, dass die eingegebenen Daten im korrekten Format sind, bevor sie in die Datenbank aufgenommen werden dürfen. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm ermöglichen, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte es zu einer Katastrophe kommen, wenn falsch formatierte Daten (oder Daten, die zu groß, vom falschen Typ usw. sind) in Ihre Datenbank eingegeben werden.
 
 ### Telefonnummern erforderlich machen
 
-Sie können es so einstellen, dass eine leere Eingabe ungültig ist und nicht an den Server übermittelt wird, indem Sie das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden. Zum Beispiel verwenden wir diesen HTML-Code:
+Sie können es so einrichten, dass eine leere Eingabe ungültig ist und nicht an den Server gesendet wird, indem Sie das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden. Beispielsweise lassen Sie uns dieses HTML verwenden:
 
 ```html
 <form>
@@ -235,7 +233,7 @@ Sie können es so einstellen, dass eine leere Eingabe ungültig ist und nicht an
 </form>
 ```
 
-Und fügen wir das folgende CSS hinzu, um gültige Eingaben mit einem Häkchen und ungültige Eingaben mit einem Kreuz hervorzuheben:
+Und lassen Sie uns das folgende CSS hinzufügen, um gültige Einträge mit einem Häkchen und ungültige Einträge mit einem Kreuz hervorzuheben:
 
 ```css
 div {
@@ -266,13 +264,13 @@ input:valid + span::after {
 }
 ```
 
-Der Ausgabe sieht so aus:
+Die Ausgabe sieht so aus:
 
 {{EmbedLiveSample("Making_telephone_numbers_required", 700, 70)}}
 
 ### Muster-Validierung
 
-Wenn Sie weiter einschränken möchten, dass eingegebene Nummern auch einem bestimmten Muster entsprechen müssen, können Sie das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut verwenden, das als Wert einen {{Glossary("regular_expression", "regulären Ausdruck")}} erhält, dem die eingegebenen Werte entsprechen müssen.
+Wenn Sie weitere Einschränkungen auf die eingegebenen Zahlen anwenden möchten, sodass sie auch einem bestimmten Muster entsprechen müssen, können Sie das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut verwenden, das als Wert einen {{Glossary("regular_expression", "regulären Ausdruck")}} übernimmt, dem die eingegebenen Werte entsprechen müssen.
 
 In diesem Beispiel verwenden wir das gleiche CSS wie zuvor, aber unser HTML sieht so aus:
 
@@ -327,13 +325,13 @@ input:valid + span::after {
 
 {{EmbedLiveSample("Pattern_validation", 700, 70)}}
 
-Beachten Sie, wie der eingegebene Wert als ungültig gemeldet wird, es sei denn, das Muster xxx-xxx-xxxx wird eingehalten; beispielsweise wird 41-323-421 nicht akzeptiert. Auch nicht 800-MDN-ROCKS. Allerdings wird 865-555-6502 akzeptiert. Dieses spezielle Muster ist offensichtlich nur für bestimmte Regionen nützlich – in einer realen Anwendung müssten Sie wahrscheinlich das verwendete Muster je nach Region des Benutzers variieren.
+Beachten Sie, wie der eingegebene Wert als ungültig gemeldet wird, es sei denn, das Muster xxx-xxx-xxxx wird erfüllt; zum Beispiel wird 41-323-421 nicht akzeptiert. Auch nicht 800-MDN-ROCKS. Allerdings wird 865-555-6502 akzeptiert. Dieses bestimmte Muster ist offensichtlich nur für bestimmte Regionen nützlich — in einer echten Anwendung müssten Sie wahrscheinlich das verwendete Muster je nach Region des Benutzers variieren.
 
 ## Beispiele
 
-In diesem Beispiel präsentieren wir ein {{htmlelement("select")}}-Element, das dem Benutzer erlaubt, das Land auszuwählen, in dem er sich befindet, und eine Reihe von `<input type="tel">`-Elementen, um ihn jeden Teil seiner Telefonnummer eingeben zu lassen; es gibt keinen Grund, warum Sie nicht mehrere `tel`-Eingaben haben können.
+In diesem Beispiel präsentieren wir ein {{htmlelement("select")}}-Element, das es dem Benutzer ermöglicht, das Land auszuwählen, in dem er sich befindet, und eine Reihe von `<input type="tel">`-Elementen, um ihm zu ermöglichen, jeden Teil seiner Telefonnummer einzugeben; es gibt keinen Grund, warum Sie nicht mehrere `tel`-Eingaben haben können.
 
-Jede Eingabe hat ein [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder)-Attribut, das einen Hinweis für sehende Benutzer anzeigt, was eingegeben werden soll, ein [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) zum Erzwingen einer bestimmten Anzahl von Zeichen für den gewünschten Abschnitt, und ein [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut, das einen Hinweis enthält, der für Screenreader-Benutzer darüber vorgelesen wird, was eingegeben werden soll.
+Jede Eingabe hat ein [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder)-Attribut, um sehenden Benutzern einen Hinweis darauf zu geben, was sie eingeben sollen, ein [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern), um eine bestimmte Anzahl von Zeichen für den gewünschten Abschnitt zu erzwingen, und ein [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut, das einen Hinweis enthält, der über einen Bildschirmleser-Benutzer über das Eingabefeld vorgelesen werden soll.
 
 ```html
 <form>
@@ -387,7 +385,7 @@ Jede Eingabe hat ein [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#
 </form>
 ```
 
-Das JavaScript enthält einen [`onchange`](/de/docs/Web/API/HTMLElement/change_event)-Ereignishandler, der beim Ändern des `<select>`-Wertes das `pattern`, `placeholder` und `aria-label` des `<input>`-Elements aktualisiert, um den Telefonnummernformaten in diesem Land/Gebiet zu entsprechen.
+Das JavaScript enthält einen [`onchange`](/de/docs/Web/API/HTMLElement/change_event)-Ereignishandler, der beim Ändern des `<select>`-Werts das `pattern`, `placeholder` und `aria-label` des `<input>`-Elements aktualisiert, um dem Telefonnummernformat in diesem Land/dieser Region zu entsprechen.
 
 ```js
 const selectElem = document.querySelector("select");
@@ -441,9 +439,9 @@ Das Beispiel sieht so aus:
 
 {{EmbedLiveSample('Examples', 600, 140)}}
 
-Dies ist eine interessante Idee, die ein potenzielles Lösung für das Problem der Handhabung internationaler Telefonnummern zeigt. Natürlich müssten Sie das Beispiel erweitern, um das richtige Muster für potenziell jedes Land bereitzustellen, was viel Arbeit wäre, und es gäbe immer noch keine zuverlässige Garantie, dass Benutzer ihre Nummern korrekt eingeben würden.
+Dies ist eine interessante Idee, die eine mögliche Lösung zur Handhabung internationaler Telefonnummern aufzeigt. Sie müssten das Beispiel natürlich erweitern, um das richtige Muster potenziell für jedes Land bereitzustellen, was eine Menge Arbeit wäre, und es gäbe immer noch keine wasserdichte Garantie, dass die Benutzer ihre Nummern korrekt eingeben würden.
 
-Es lässt einen überlegen, ob es sich lohnt, all diese Mühen auf der Clientseite zu betreiben, wenn man den Benutzer die Nummer einfach so eingeben lassen könnte, wie er möchte, und sie dann auf dem Server validieren und bereinigen könnte. Aber diese Entscheidung liegt bei Ihnen.
+Es lässt Sie fragen, ob es sich lohnt, all diese Mühe auf der Clientseite zu machen, wenn Sie dem Benutzer einfach erlauben könnten, seine Nummer im gewünschten Format auf der Clientseite einzugeben und sie dann auf dem Server zu validieren und zu bereinigen. Aber diese Wahl liegt bei Ihnen.
 
 ```css hidden
 div {
@@ -501,7 +499,7 @@ input:valid + span::after {
         <a href="/de/docs/Web/HTML/Reference/Elements/input#minlength"><code>minlength</code></a>,
         <a href="/de/docs/Web/HTML/Reference/Elements/input#pattern"><code>pattern</code></a>,
         <a href="/de/docs/Web/HTML/Reference/Elements/input#placeholder"><code>placeholder</code></a>,
-        <a href="/de/docs/Web/HTML/Reference/Elements/input#readonly"><code>readonly</code></a> und
+        <a href="/de/docs/Web/HTML/Reference/Elements/input#readonly"><code>readonly</code></a>, und
         <a href="/de/docs/Web/HTML/Reference/Elements/input#size"><code>size</code></a>
       </td>
     </tr>
@@ -509,7 +507,7 @@ input:valid + span::after {
       <td><strong>IDL-Attribute</strong></td>
       <td>
         <code>list</code>, <code>selectionStart</code>,
-        <code>selectionEnd</code>, <code>selectionDirection</code> und
+        <code>selectionEnd</code>, <code>selectionDirection</code>, und
         <code>value</code>
       </td>
     </tr>
@@ -544,7 +542,7 @@ input:valid + span::after {
 
 ## Siehe auch
 
-- [HTML-Formular-Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
+- [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
 - {{HTMLElement("input")}}
   - [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text)
   - [`<input type="email">`](/de/docs/Web/HTML/Reference/Elements/input/email)

@@ -2,12 +2,10 @@
 title: "<q>: Das Inline-Quotation-Element"
 slug: Web/HTML/Reference/Elements/q
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<q>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein kurzes Inline-Zitat ist. Die meisten modernen Browser implementieren dies, indem sie den Text in Anführungszeichen setzen. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für längere Zitate verwenden Sie das {{HTMLElement("blockquote")}}-Element.
+Das **`<q>`** [HTML](/de/docs/Web/HTML) Element zeigt an, dass der eingeschlossene Text ein kurzes inline Zitat ist. Die meisten modernen Browser implementieren dies durch das Umgeben des Textes mit Anführungszeichen. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für längere Zitate verwenden Sie das {{HTMLElement("blockquote")}} Element.
 
 {{InteractiveExample("HTML Demo: &lt;q&gt;", "tabbed-shorter")}}
 
@@ -29,10 +27,10 @@ q {
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Der Wert dieses Attributs ist eine URL, die auf ein Quelldokument oder eine Nachricht verweist, aus dem die Informationen stammen. Dieses Attribut soll auf Informationen zeigen, die den Kontext oder die Referenz für das Zitat erklären.
+  - : Der Wert dieses Attributs ist eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information angibt. Dieses Attribut soll auf Informationen hinweisen, die den Kontext oder die Referenz für das Zitat erklären.
 
 ## Beispiele
 
@@ -61,47 +59,48 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließtext-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >, spürbarer Inhalt.
+          >Phrasing-Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        > akzeptiert.
+          >Phrasing-Inhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Any</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -120,5 +119,5 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 
 ## Siehe auch
 
-- Das {{HTMLElement("blockquote")}}-Element für lange Zitate.
-- Das {{HTMLElement("cite")}}-Element für Quellenangaben.
+- Das {{HTMLElement("blockquote")}} Element für lange Zitate.
+- Das {{HTMLElement("cite")}} Element für Quellenangaben.

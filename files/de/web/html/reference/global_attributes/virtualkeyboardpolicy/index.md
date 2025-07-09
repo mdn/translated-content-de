@@ -1,19 +1,19 @@
 ---
-title: HTML `virtualkeyboardpolicy` globales Attribut
+title: HTML-Attribut globales `virtualkeyboardpolicy`
 short-title: virtualkeyboardpolicy
 slug: Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy
 l10n:
-  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar("Global_attributes")}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Das **`virtualkeyboardpolicy`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut. Wenn es an einem Element angegeben ist, dessen Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)), steuert es das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen eine Hardwaretastatur möglicherweise nicht verfügbar ist.
+Das **`virtualkeyboardpolicy`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein enumeriertes Attribut. Wenn es auf ein Element angewendet wird, dessen Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)), steuert es das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen möglicherweise keine Hardware-Tastatur verfügbar ist.
 
 Das Attribut muss einen der folgenden Werte annehmen:
 
-- `auto` oder ein _leerer String_, was die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angeklickt wird.
-- `manual`, was den Fokus und das Anklicken des Elements vom Zustand der virtuellen Tastatur entkoppelt.
+- `auto` oder einen _leeren String_, was die virtuelle Tastatur automatisch zeigt, wenn das Element fokussiert oder angetippt wird.
+- `manual`, was den Fokus und das Antippen des Elements vom Zustand der virtuellen Tastatur entkoppelt.
 
 ## Spezifikationen
 

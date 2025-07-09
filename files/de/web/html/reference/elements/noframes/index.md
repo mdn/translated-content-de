@@ -1,28 +1,28 @@
 ---
-title: "<noframes>: Das Frame-Backup-Element"
+title: "<noframes>: Das Frame-Fallback-Element"
 slug: Web/HTML/Reference/Elements/noframes
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}{{deprecated_header}}
+{{deprecated_header}}
 
-Das **`<noframes>`** [HTML](/de/docs/Web/HTML)-Element stellt Inhalt bereit, der in Browsern angezeigt wird, die das {{HTMLElement("frame")}}-Element nicht unterstützen (oder dessen Unterstützung deaktiviert haben). Obwohl die meisten gängigen Browser Frames unterstützen, gibt es Ausnahmen, darunter spezielle Browser einschließlich einiger mobiler Browser sowie Textbrowser.
+Das **`<noframes>`** [HTML](/de/docs/Web/HTML)-Element bietet Inhalte, die in Browsern präsentiert werden sollen, die das {{HTMLElement("frame")}}-Element nicht unterstützen oder die Unterstützung dafür deaktiviert haben. Obwohl die meisten gängigen Browser Frames unterstützen, gibt es Ausnahmen, einschließlich bestimmter Spezial-Browser, wie einige mobile Browser, sowie Textmodus-Browser.
 
-Ein `<noframes>`-Element kann alle HTML-Elemente enthalten, die innerhalb des Body eines HTML-Dokuments erlaubt sind, ausgenommen die {{HTMLElement("frameset")}}- und {{HTMLElement("frame")}}-Elemente, da die Verwendung von Frames keinen Sinn macht, wenn sie nicht unterstützt werden.
+Ein `<noframes>`-Element kann alle HTML-Elemente enthalten, die im `<body>` eines HTML-Dokuments erlaubt sind, außer den {{HTMLElement("frameset")}}- und {{HTMLElement("frame")}}-Elementen, da die Verwendung von Frames, wenn sie nicht unterstützt werden, keinen Sinn ergibt.
 
-`<noframes>` kann verwendet werden, um eine Nachricht anzuzeigen, die erklärt, dass der Browser des Benutzers keine Frames unterstützt. Idealerweise sollte es jedoch verwendet werden, um eine alternative Form der Website anzubieten, die keine Frames verwendet, aber dennoch die gleiche oder ähnliche Funktionalität bietet.
+`<noframes>` kann verwendet werden, um eine Nachricht zu präsentieren, die erklärt, dass der Browser des Nutzers keine Frames unterstützt. Idealerweise sollte es jedoch verwendet werden, um eine alternative Form der Website zu bieten, die keine Frames verwendet, aber dennoch die gleiche oder ähnliche Funktionalität bietet.
 
 > [!NOTE]
-> Dieses Element ist veraltet und sollte nicht verwendet werden, da auch die {{HTMLElement("frame")}}- und {{HTMLElement("frameset")}}-Elemente veraltet sind. Wenn überhaupt Frames benötigt werden, sollten sie mithilfe des {{HTMLElement("iframe")}}-Elements dargestellt werden.
+> Dieses Element ist veraltet und sollte nicht verwendet werden, da die {{HTMLElement("frame")}}- und {{HTMLElement("frameset")}}-Elemente ebenfalls veraltet sind. Falls Frames benötigt werden, sollten sie mit dem {{HTMLElement("iframe")}}-Element präsentiert werden.
 
 ## Attribute
 
-Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes). Es hat keine weiteren verfügbaren Attribute.
+Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes). Es stehen keine weiteren Attribute zur Verfügung.
 
 ## Beispiel
 
-In diesem Beispiel sehen wir ein Frameset mit zwei Frames. Zudem wird `<noframes>` verwendet, um eine erklärende Nachricht anzuzeigen, falls der {{Glossary("user_agent", "User-Agent")}} keine Frames unterstützt.
+In diesem Beispiel sehen wir ein Frameset mit zwei Frames. Zusätzlich wird `<noframes>` verwendet, um eine erläuternde Nachricht zu präsentieren, wenn der {{Glossary("user_agent", "User-Agent")}} keine Frames unterstützt.
 
 ```html
 <!doctype html>

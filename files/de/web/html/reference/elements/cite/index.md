@@ -2,12 +2,10 @@
 title: "<cite>: Das Zitationselement"
 slug: Web/HTML/Reference/Elements/cite
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<cite>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um den Titel eines kreativen Werks zu kennzeichnen. Der Bezug kann in abgekürzter Form gemäß kontextgerechter Konventionen in Bezug auf Zitationsmetadaten angegeben werden.
+Das **`<cite>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um den Titel eines kreativen Werkes zu markieren. Die Referenz kann in einer gemäß den kontextbezogenen Konventionen zur Zitationsmetadaten abgekürzten Form vorliegen.
 
 {{InteractiveExample("HTML Demo: &lt;cite&gt;", "tabbed-standard")}}
 
@@ -38,43 +36,42 @@ cite {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 Im Kontext des `<cite>`-Elements könnte ein kreatives Werk beispielsweise eines der folgenden sein:
 
 - Ein Buch
 - Ein Forschungspapier
-- Ein Aufsatz
+- Ein Essay
 - Ein Gedicht
 - Eine Partitur
 - Ein Lied
-- Ein Theater- oder Filmskript
+- Ein Theaterstück oder Filmskript
 - Ein Film
 - Eine Fernsehsendung
 - Ein Spiel
 - Eine Skulptur
 - Ein Gemälde
 - Eine Theaterproduktion
-- Ein Schauspiel
 - Eine Oper
 - Ein Musical
 - Eine Ausstellung
-- Ein Rechtsfallbericht
+- Ein juristischer Fallbericht
 - Ein Computerprogramm
 - Eine Website
 - Eine Webseite
-- Ein Blogbeitrag oder Kommentar
-- Ein Forenbeitrag oder Kommentar
+- Ein Blogeintrag oder Kommentar
+- Ein Foreneintrag oder Kommentar
 - Ein Tweet
-- Ein Facebook-Post
+- Ein Facebook-Beitrag
 - Eine schriftliche oder mündliche Aussage
 - Und so weiter.
 
-Um eine Referenz auf die Quelle des zitierten Materials anzugeben, das innerhalb eines {{HTMLElement("blockquote")}}- oder {{HTMLElement("q")}}-Elements enthalten ist, verwenden Sie das [`cite`](/de/docs/Web/HTML/Reference/Elements/blockquote#cite)-Attribut am Element.
+Um eine Referenz zur Quelle des zitierten Materials aufzunehmen, das innerhalb eines {{HTMLElement("blockquote")}}- oder {{HTMLElement("q")}}-Elements enthalten ist, verwenden Sie das [`cite`](/de/docs/Web/HTML/Reference/Elements/blockquote#cite)-Attribut auf dem Element.
 
-Typischerweise stylen Browser den Inhalt eines `<cite>`-Elements standardmäßig kursiv. Um dies zu vermeiden, wenden Sie die CSS-Eigenschaft {{cssxref("font-style")}} auf das `<cite>`-Element an.
+Typischerweise formatieren Browser die Inhalte eines `<cite>`-Elements standardmäßig kursiv. Um dies zu vermeiden, wenden Sie die CSS-Eigenschaft {{cssxref("font-style")}} auf das `<cite>`-Element an.
 
 ## Beispiele
 
@@ -98,10 +95,10 @@ Typischerweise stylen Browser den Inhalt eines `<cite>`-Elements standardmäßig
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierung</a
+          >Phraseninhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -109,20 +106,20 @@ Typischerweise stylen Browser den Inhalt eines `<cite>`-Elements standardmäßig
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierung</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <th scope="row">Tag-Weglassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierung</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -141,8 +138,7 @@ Typischerweise stylen Browser den Inhalt eines `<cite>`-Elements standardmäßig
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
-        implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschl. Gecko 1.9.2 (Firefox 4), verwendet Firefox die
         [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>

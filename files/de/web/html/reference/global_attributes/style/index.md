@@ -1,14 +1,12 @@
 ---
-title: HTML `style`-Attribut
+title: HTML-Attribut `style` (global)
 short-title: style
 slug: Web/HTML/Reference/Global_attributes/style
 l10n:
-  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar("Global_attributes")}}
-
-Das **`style`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) enthält [CSS](/de/docs/Web/CSS)-Stildeklarationen, die auf das Element angewendet werden sollen. Beachten Sie, dass es empfohlen wird, Styles in einer separaten Datei oder Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element dienen hauptsächlich dazu, ein schnelles Styling zu ermöglichen, zum Beispiel zu Testzwecken.
+Das **`style`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) enthält [CSS](/de/docs/Web/CSS)-Stildeklarationen, die auf das Element angewendet werden sollen. Es wird empfohlen, Stile in einer separaten Datei oder in separaten Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element dienen hauptsächlich dem Zweck, schnelles Styling zu ermöglichen, beispielsweise zu Testzwecken.
 
 {{InteractiveExample("HTML Demo: style", "tabbed-shorter")}}
 
@@ -22,7 +20,7 @@ Das **`style`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes
 ```
 
 > [!NOTE]
-> Dieses Attribut darf nicht verwendet werden, um semantische Informationen zu vermitteln. Selbst wenn alle Stile entfernt werden, sollte eine Seite semantisch korrekt bleiben. Typischerweise sollte es nicht verwendet werden, um irrelevante Informationen zu verstecken; dies sollte mithilfe des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attributs erfolgen.
+> Dieses Attribut sollte nicht verwendet werden, um semantische Informationen zu vermitteln. Auch wenn alle Stile entfernt werden, sollte eine Seite semantisch korrekt bleiben. Typischerweise sollte es nicht verwendet werden, um irrelevante Informationen zu verbergen; dies sollte mithilfe des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attributs erfolgen.
 
 ## Spezifikationen
 

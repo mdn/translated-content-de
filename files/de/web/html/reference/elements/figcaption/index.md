@@ -2,12 +2,10 @@
 title: "<figcaption>: Das Figure Caption-Element"
 slug: Web/HTML/Reference/Elements/figcaption
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den Rest des Inhalts des übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} liefert.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung oder Legende, die den Rest des Inhalts des übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet.
 
 {{InteractiveExample("HTML Demo: &lt;figcaption&gt;", "tabbed-shorter")}}
 
@@ -50,7 +48,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Beispiele
 
-Bitte sehen Sie sich die Seite von {{HTMLElement("figure")}} für Beispiele zu `<figcaption>` an.
+Bitte sehen Sie sich die Seite des {{HTMLElement("figure")}}-Elements für Beispiele zu `<figcaption>` an.
 
 ## Technische Zusammenfassung
 
@@ -58,37 +56,31 @@ Bitte sehen Sie sich die Seite von {{HTMLElement("figure")}} für Beispiele zu `
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>Keine.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("figure")}}-Element; das
-        <code>&#x3C;figcaption></code>-Element muss sein erstes oder letztes Kind sein.
+        <code>&#x3C;figcaption></code>-Element muss dessen erstes oder letztes Kind sein.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a
-        >
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>

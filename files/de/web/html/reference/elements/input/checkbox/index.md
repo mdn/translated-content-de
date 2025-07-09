@@ -2,12 +2,10 @@
 title: <input type="checkbox">
 slug: Web/HTML/Reference/Elements/input/checkbox
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-{{htmlelement("input")}}-Elemente des Typs **`checkbox`** werden standardmäßig als Kästchen dargestellt, die bei Aktivierung angekreuzt (markiert) werden, ähnlich wie man es in einem offiziellen Regierungsformular sehen könnte. Das genaue Erscheinungsbild hängt von der Betriebssystemkonfiguration ab, unter der der Browser läuft. Im Allgemeinen ist es ein Quadrat, es kann jedoch abgerundete Ecken haben. Ein Kontrollkästchen ermöglicht es, einzelne Werte zur Übermittlung in einem Formular auszuwählen (oder nicht).
+{{htmlelement("input")}}-Elemente des Typs **`checkbox`** werden standardmäßig als Kästchen dargestellt, die markiert (angehakt) werden, wenn sie aktiviert sind, ähnlich wie Sie es in einem offiziellen Formular einer Regierungsbehörde sehen könnten. Das genaue Erscheinungsbild hängt von der Betriebssystemkonfiguration ab, unter der der Browser ausgeführt wird. In der Regel ist dies ein Quadrat, aber es kann abgerundete Ecken haben. Eine Checkbox ermöglicht es Ihnen, einzelne Werte zur Übermittlung in einem Formular auszuwählen (oder nicht).
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;checkbox&quot;&gt;", "tabbed-standard")}}
 
@@ -40,11 +38,12 @@ input {
 }
 ```
 
-> [!NOTE] > [Optionsfelder](/de/docs/Web/HTML/Reference/Elements/input/radio) ähneln Kontrollkästchen, haben jedoch einen wichtigen Unterschied — [gleichnamige Optionsfelder](/de/docs/Web/HTML/Reference/Elements/input/radio#defining_a_radio_group) sind in einer Gruppe zusammengefasst, in der jeweils nur ein Optionsfeld ausgewählt werden kann, während Kontrollkästchen das Ein- und Ausschalten einzelner Werte ermöglichen. Wenn mehrere gleichnamige Steuerungen vorhanden sind, kann bei Optionsfeldern eines aus allen ausgewählt werden, während bei Kontrollkästchen mehrere Werte ausgewählt werden können.
+> [!NOTE]
+> [Optionsfelder](/de/docs/Web/HTML/Reference/Elements/input/radio) ähneln Checkboxen, haben jedoch einen wichtigen Unterschied — [gleichnamige Optionsfelder](/de/docs/Web/HTML/Reference/Elements/input/radio#defining_a_radio_group) sind in einer Gruppe zusammengefasst, in der jeweils nur ein Optionsfeld ausgewählt werden kann, während Checkboxen es erlauben, einzelne Werte ein- und auszuschalten. Wo mehrere gleichnamige Steuerungen existieren, erlauben Optionsfelder eine Auswahl, während Checkboxen mehrere Werte ausgewählt werden können.
 
 ## Wert
 
-Ein String, der den Wert des Kontrollkästchens darstellt. Dieser wird auf der Client-Seite nicht angezeigt, aber auf dem Server ist dies der `value`, der den mit dem `name` des Kontrollkästchens übermittelten Daten zugewiesen wird. Schauen Sie sich folgendes Beispiel an:
+Ein String, der den Wert der Checkbox darstellt. Dieser wird nicht auf der Clientseite angezeigt, sondern auf dem Server ist dies der `value`, der für die mit dem `name` der Checkbox übermittelten Daten angegeben wird. Nehmen Sie folgendes Beispiel:
 
 ```html
 <form>
@@ -62,36 +61,35 @@ Ein String, der den Wert des Kontrollkästchens darstellt. Dieser wird auf der C
 </form>
 ```
 
-In diesem Beispiel haben wir einen Namen `subscribe` und einen Wert `newsletter`. Wenn das Formular übermittelt wird, ist das Daten-Namens/Wert-Paar `subscribe=newsletter`.
+In diesem Beispiel haben wir einen Namen `subscribe` und einen Wert `newsletter`. Wenn das Formular übermittelt wird, wird das Datenpaar Name/Wert `subscribe=newsletter` sein.
 
-Wenn das `value`-Attribut weggelassen wurde, ist der Standardwert für das Kontrollkästchen `on`, sodass die übermittelten Daten in diesem Fall `subscribe=on` wären.
+Wenn das `value`-Attribut ausgelassen wird, beträgt der Standardwert für die Checkbox `on`, sodass die übermittelten Daten in diesem Fall `subscribe=on` wären.
 
 > [!NOTE]
-> Wenn ein Kontrollkästchen beim Absenden seines Formulars nicht markiert ist, werden weder der Name noch der Wert an den Server übermittelt. Es gibt keine HTML-eigene Methode, den nicht markierten Zustand eines Kontrollkästchens darzustellen (z.B. `value=unchecked`). Wenn Sie einen Standardwert für das Kontrollkästchen übermitteln möchten, wenn es nicht markiert ist, könnten Sie JavaScript verwenden, um ein {{HTMLElement("input/hidden", '&lt;input type="hidden"&gt;')}} innerhalb des Formulars zu erstellen, mit einem Wert, der einen nicht markierten Zustand anzeigt.
+> Wenn eine Checkbox beim Senden ihres Formulars nicht markiert ist, weder der Name noch der Wert an den Server übermittelt. Es gibt keine reine HTML-Methode zur Darstellung des nicht markierten Zustands einer Checkbox (z.B. `value=unchecked`). Wenn Sie einen Standardwert für die Checkbox übermitteln möchten, wenn diese nicht markiert ist, könnten Sie JavaScript verwenden, um innerhalb des Formulars ein {{HTMLElement("input/hidden", '&lt;input type="hidden"&gt;')}} mit einem Wert zu erstellen, der einen nicht markierten Zustand anzeigt.
 
 ## Zusätzliche Attribute
 
 Zusätzlich zu den [allgemeinen Attributen](/de/docs/Web/HTML/Reference/Elements/input#attributes), die alle {{HTMLElement("input")}}-Elemente teilen, unterstützen `checkbox`-Eingaben die folgenden Attribute.
 
 - `checked`
-
-  - : Ein {{Glossary("Boolean/HTML", "boolesches")}} Attribut, das angibt, ob dieses Kontrollkästchen standardmäßig markiert ist (wenn die Seite geladen wird). Es gibt _nicht_ an, ob dieses Kontrollkästchen derzeit markiert ist: Wenn sich der Zustand des Kontrollkästchens ändert, spiegelt dieses Inhaltsattribut die Änderung nicht wider. (Nur das `checked` IDL-Attribut des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) wird aktualisiert.)
+  - : Ein {{Glossary("Boolean/HTML", "boolesches")}} Attribut, das angibt, ob diese Checkbox standardmäßig (beim Laden der Seite) markiert ist. Es zeigt _nicht_ an, ob diese Checkbox derzeit markiert ist: Wenn sich der Zustand der Checkbox ändert, spiegelt dieses Inhaltsattribut die Änderung nicht wider. (Nur das `checked`-IDL-Attribut des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) wird aktualisiert.)
     > [!NOTE]
-    > Im Gegensatz zu anderen Eingabesteuerungen wird der Wert eines Kontrollkästchens nur in den übermittelten Daten aufgenommen, wenn das Kontrollkästchen derzeit `checked` ist. Ist dies der Fall, wird der Wert des `value`-Attributs des Kontrollkästchens als Eingabewert gemeldet oder `on`, wenn kein `value` festgelegt ist.
-    > Im Gegensatz zu anderen Browsern behält Firefox standardmäßig den [dynamischen überprüften Zustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über Seitenladevorgänge hinweg bei. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete)-Attribut, um diese Funktion zu steuern.
+    > Im Gegensatz zu anderen Eingabesteuerungen wird nur der Wert einer Checkbox in die übermittelten Daten einbezogen, wenn die Checkbox derzeit `checked` ist. Ist dies der Fall, wird der Wert des `value`-Attributs der Checkbox als der Wert der Eingabe berichtet, oder `on`, wenn kein `value` festgelegt ist.
+    > Im Gegensatz zu anderen Browsern speichert Firefox standardmäßig [den dynamischen markierten Zustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über Seitenladungen hinweg. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete)-Attribut, um diese Funktion zu steuern.
 
 - `value`
-  - : Das `value`-Attribut ist eines, das alle {{HTMLElement("input")}}s teilen; es hat jedoch eine spezielle Bedeutung für Eingaben vom Typ `checkbox`: Wenn ein Formular übermittelt wird, werden nur die Kontrollkästchen, die derzeit markiert sind, an den Server übermittelt, und der gemeldete Wert ist der Wert des `value`-Attributs. Falls das `value` nicht anders spezifiziert ist, ist es standardmäßig der String `on`. Dies wird im Abschnitt [Wert](#wert) oben demonstriert.
+  - : Das `value`-Attribut ist eines, das alle {{HTMLElement("input")}} gemeinsam haben; jedoch dient es einem speziellen Zweck bei Eingaben des Typs `checkbox`: Wenn ein Formular übermittelt wird, werden nur die Checkboxen, die derzeit markiert sind, an den Server übermittelt, und der gemeldete Wert ist der Wert des `value`-Attributs. Wenn das `value` nicht anderweitig angegeben ist, ist es standardmäßig der String `on`. Dies wird im Abschnitt [Value](#wert) oben demonstriert.
 
-## Verwendung von Kontrollkästchen-Eingaben
+## Verwendung von Checkbox-Eingaben
 
-Wir haben bereits die grundlegendste Verwendung von Kontrollkästchen oben behandelt. Schauen wir uns nun die anderen gängigen, mit Kontrollkästchen verbundenen Funktionen und Techniken an, die Sie benötigen werden.
+Wir haben bereits die grundlegendste Nutzung von Checkboxen oben behandelt. Schauen wir uns nun die anderen häufig checkbox-bezogenen Funktionen und Techniken an, die Sie benötigen.
 
-### Behandlung mehrerer Kontrollkästchen
+### Umgang mit mehreren Checkboxen
 
-Das Beispiel, das wir oben gesehen haben, enthielt nur ein Kontrollkästchen; in realen Situationen werden Sie wahrscheinlich auf mehrere Kontrollkästchen stoßen. Wenn sie völlig unabhängig sind, können Sie sie separat behandeln, wie oben gezeigt. Wenn sie jedoch alle zusammenhängen, ist es nicht ganz so einfach.
+Das oben gezeigte Beispiel enthielt nur eine Checkbox; in realen Situationen werden Sie wahrscheinlich auf mehrere Checkboxen stoßen. Wenn sie völlig unabhängig sind, können Sie einfach mit ihnen allen separat umgehen, wie oben gezeigt. Wenn sie jedoch alle zusammenhängen, sind die Dinge nicht ganz so einfach.
 
-In der folgenden Demo fügen wir beispielsweise mehrere Kontrollkästchen ein, die es dem Benutzer ermöglichen, seine Interessen zu wählen (siehe die vollständige Version im Abschnitt [Beispiele](#beispiele)).
+Zum Beispiel enthalten wir im folgenden Demo mehrere Checkboxen, um dem Benutzer zu ermöglichen, seine Interessen auszuwählen (siehe die vollständige Version im Abschnitt [Beispiele](#beispiele)).
 
 ```html
 <fieldset>
@@ -109,11 +107,11 @@ In der folgenden Demo fügen wir beispielsweise mehrere Kontrollkästchen ein, d
 
 {{EmbedLiveSample('Handling_multiple_checkboxes', 600, 100)}}
 
-In diesem Beispiel werden Sie sehen, dass wir jedem Kontrollkästchen denselben `name` gegeben haben. Wenn beide Kontrollkästchen markiert sind und dann das Formular übermittelt wird, erhalten Sie einen String von Namens/Wert-Paaren, der so aussieht: `interest=coding&interest=music`. Wenn dieser String den Server erreicht, müssen Sie ihn anders als ein assoziatives Array analysieren, damit alle Werte, nicht nur der letzte Wert von `interest`, erfasst werden. Eine Technik, die mit Python verwendet wird, finden Sie unter [Handle Multiple Checkboxes with a Single Serverside Variable](https://stackoverflow.com/questions/18745456/handle-multiple-checkboxes-with-a-single-serverside-variable).
+In diesem Beispiel werden Sie sehen, dass wir jeder Checkbox denselben `name` gegeben haben. Wenn beide Checkboxen markiert sind und dann das Formular übermittelt wird, erhalten Sie einen String von Name/Wert-Paaren, die so übermittelt werden: `interest=coding&interest=music`. Wenn dieser String den Server erreicht, müssen Sie ihn anders als ein assoziatives Array parsen, sodass alle Werte, nicht nur der letzte Wert, von `interest` erfasst werden. Zu einer Technik, die mit Python verwendet wird, siehe [Handle Multiple Checkboxes with a Single Serverside Variable](https://stackoverflow.com/questions/18745456/handle-multiple-checkboxes-with-a-single-serverside-variable), zum Beispiel.
 
-### Kontrollkästchen standardmäßig ankreuzen
+### Markieren von Kästchen standardmäßig
 
-Um ein Kontrollkästchen standardmäßig anzukreuzen, geben Sie ihm das `checked`-Attribut. Sehen Sie sich das folgende Beispiel an:
+Um eine Checkbox standardmäßig markiert zu machen, geben Sie ihr das `checked`-Attribut. Siehe das folgende Beispiel:
 
 ```html
 <fieldset>
@@ -131,34 +129,34 @@ Um ein Kontrollkästchen standardmäßig anzukreuzen, geben Sie ihm das `checked
 
 {{EmbedLiveSample('Checking_boxes_by_default', 600, 100)}}
 
-### Einen größeren Trefferbereich für Ihre Kontrollkästchen bereitstellen
+### Bereitstellung einer größeren Trefferfläche für Ihre Checkboxen
 
-In den obigen Beispielen haben Sie vielleicht bemerkt, dass Sie ein Kontrollkästchen umschalten können, indem Sie auf sein zugehöriges {{htmlelement("label")}}-Element sowie auf das Kontrollkästchen selbst klicken. Dies ist eine wirklich nützliche Funktion von HTML-Formularbeschriftungen, die es einfacher macht, die gewünschte Option zu klicken, insbesondere auf Geräten mit kleinem Bildschirm wie Smartphones.
+In den obigen Beispielen haben Sie möglicherweise bemerkt, dass Sie eine Checkbox durch Klicken auf das zugehörige {{htmlelement("label")}}-Element sowie auf die Checkbox selbst umschalten können. Dies ist eine wirklich nützliche Funktion von HTML-Formular-Labels, die es einfacher macht, die gewünschte Option zu klicken, insbesondere auf Geräten mit kleinem Bildschirm wie Smartphones.
 
-Neben der Zugänglichkeit ist dies ein weiterer guter Grund, `label`-Elemente in Ihren Formularen ordnungsgemäß einzurichten.
+Über die Barrierefreiheit hinaus ist dies ein weiterer guter Grund, `<label>`-Elemente in Ihren Formularen korrekt einzurichten.
 
-### Kontrollkästchen im unbestimmten Zustand
+### Indeterminierten Zustand von Checkboxen
 
-Ein Kontrollkästchen kann in einem **unbestimmten** Zustand sein. Dies wird durch das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt mit der [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Eigenschaft über JavaScript gesetzt (es kann nicht mit einem HTML-Attribut gesetzt werden):
+Eine Checkbox kann sich in einem **indeterminierten** Zustand befinden. Dies wird über die `indeterminate`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekts mit JavaScript gesetzt (es kann nicht mit einem HTML-Attribut eingestellt werden):
 
 ```js
 inputInstance.indeterminate = true;
 ```
 
-Wenn `indeterminate` `true` ist, hat das Kontrollkästchen in den meisten Browsern eine horizontale Linie in der Box (es sieht ein wenig wie ein Bindestrich oder Minuszeichen aus), anstelle eines Häkchens/Hakens.
+Wenn `indeterminate` `true` ist, hat die Checkbox in den meisten Browsern eine horizontale Linie im Kasten (sie sieht etwas wie ein Bindestrich oder Minuszeichen aus) anstelle eines Häkchens.
 
 > [!NOTE]
-> Dies ist rein eine visuelle Änderung. Es hat keinen Einfluss darauf, ob der `value` des Kontrollkästchens bei einer Formularübermittlung verwendet wird. Dies wird durch den Zustand `checked` entschieden, unabhängig vom Zustand `indeterminate`.
+> Dies ist rein eine visuelle Änderung. Es hat keinen Einfluss darauf, ob der `value` der Checkbox in einer Formularübermittlung verwendet wird. Dies wird durch den `checked`-Zustand entschieden, unabhängig vom `indeterminate`-Zustand.
 
-Es gibt nicht viele Anwendungsfälle für diese Eigenschaft. Der häufigste ist, wenn ein Kontrollkästchen vorhanden ist, das „Unteroptionen“ (die ebenfalls Kontrollkästchen sind) „besitzt“. Wenn alle Unteroptionen markiert sind, ist auch das besitzende Kontrollkästchen markiert, und wenn sie alle nicht markiert sind, ist das besitzende Kontrollkästchen nicht markiert. Wenn eines oder mehrere der Unteroptionen einen anderen Zustand als die anderen haben, befindet sich das besitzende Kontrollkästchen im unbestimmten Zustand.
+Es gibt nicht viele Anwendungsfälle für diese Eigenschaft. Der häufigste ist, wenn eine Checkbox vorhanden ist, die eine Anzahl von Unteroptionen (die auch Checkboxen sind) „besitzt“. Wenn alle Unteroptionen markiert sind, ist die übergeordnete Checkbox ebenfalls markiert, und wenn sie alle nicht markiert sind, ist die übergeordnete Checkbox nicht markiert. Wenn eine der Unteroptionen einen anderen Zustand als die anderen hat, befindet sich die übergeordnete Checkbox im indeterminierten Zustand.
 
-Dies kann im folgenden Beispiel gesehen werden (danke an [CSS-Tricks](https://css-tricks.com/indeterminate-checkboxes/) für die Inspiration). In diesem Beispiel verfolgen wir die Zutaten, die wir für ein Rezept sammeln. Wenn Sie das Kontrollkästchen einer Zutat aktivieren oder deaktivieren, überprüft eine JavaScript-Funktion die Gesamtzahl der markierten Zutaten:
+Dies kann im folgenden Beispiel gesehen werden (Dank an [CSS Tricks](https://css-tricks.com/indeterminate-checkboxes/) für die Inspiration). In diesem Beispiel verfolgen wir die Zutaten, die wir für ein Rezept sammeln. Wenn Sie das Kontrollkästchen einer Zutat an- oder abwählen, überprüft eine JavaScript-Funktion die Gesamtzahl der markierten Zutaten:
 
 - Wenn keine markiert sind, wird das Kontrollkästchen des Rezeptnamens auf nicht markiert gesetzt.
-- Wenn ein oder zwei markiert sind, wird das Kontrollkästchen des Rezeptnamens auf `indeterminate` gesetzt.
+- Wenn eine oder zwei markiert sind, wird das Kontrollkästchen des Rezeptnamens auf `indeterminate` gesetzt.
 - Wenn alle drei markiert sind, wird das Kontrollkästchen des Rezeptnamens auf `checked` gesetzt.
 
-In diesem Fall wird der Zustand `indeterminate` verwendet, um zu sagen, dass das Sammeln der Zutaten begonnen hat, das Rezept jedoch noch nicht komplett ist.
+In diesem Fall wird der `indeterminate`-Zustand verwendet, um anzugeben, dass das Sammeln der Zutaten begonnen hat, aber das Rezept noch nicht vollständig ist.
 
 ```js
 const overall = document.querySelector("#enchantment");
@@ -197,11 +195,11 @@ function updateDisplay() {
 
 ## Validierung
 
-Kontrollkästchen unterstützen die [Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) (angeboten für alle {{HTMLElement("input")}}s). Die meisten [`ValidityState`](/de/docs/Web/API/ValidityState)s werden jedoch immer `false` sein. Wenn das Kontrollkästchen das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut hat, aber nicht markiert ist, dann wird [`ValidityState.valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) `true` sein.
+Checkboxen unterstützen [Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) (die allen {{HTMLElement("input")}}s angeboten wird). Jedoch werden die meisten [`ValidityState`](/de/docs/Web/API/ValidityState) immer `false` sein. Wenn die Checkbox das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut hat, aber nicht markiert ist, dann wird [`ValidityState.valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) `true` sein.
 
 ## Beispiele
 
-Das folgende Beispiel ist eine erweiterte Version des oben gesehenen Beispiels mit "mehrere Kontrollkästchen" — es hat mehr Standardoptionen sowie ein "anderes" Kontrollkästchen, das, wenn es markiert ist, ein Textfeld erscheinen lässt, um einen Wert für die "andere" Option einzugeben. Dies wird mit einem kurzen JavaScript-Block erreicht. Das Beispiel enthält implizite Labels, mit dem `<input>` direkt im `<label>`. Das Texteingabefeld, ohne sichtbares Label, enthält das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut, das seinen zugänglichen Namen bereitstellt. Dieses Beispiel enthält auch ein wenig CSS, um die Gestaltung zu verbessern.
+Das folgende Beispiel ist eine erweiterte Version des oben gesehenen "mehrere Checkboxen"-Beispiels — es enthält mehr Standardoptionen plus eine "andere"-Checkbox, die beim Markieren ein Textfeld erscheinen lässt, um einen Wert für die "andere" Option einzugeben. Dies wird mit einem kurzen JavaScript-Block erreicht. Das Beispiel enthält implizite Labels, mit dem `<input>` direkt innerhalb des `<label>`. Das Texteingabefeld, ohne sichtbares Label, enthält das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut, das den zugänglichen Namen bereitstellt. Dieses Beispiel enthält auch etwas CSS zur Verbesserung der Gestaltung.
 
 ### HTML
 
@@ -311,16 +309,16 @@ otherCheckbox.addEventListener("change", () => {
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der den Wert des
-        Kontrollkästchens darstellt.
+        Ein String, der den Wert der
+        Checkbox darstellt.
       </td>
     </tr>
     <tr>
-      <td><strong>Events</strong></td>
+      <td><strong>Ereignisse</strong></td>
       <td>[`change`](/de/docs/Web/API/HTMLElement/change_event) und [`input`](/de/docs/Web/API/Element/input_event)</td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td><code><a href="#checked">checked</a></code></td>
     </tr>
     <tr>
@@ -358,5 +356,5 @@ otherCheckbox.addEventListener("change", () => {
 
 ## Siehe auch
 
-- {{cssxref(":checked")}}, {{cssxref(":indeterminate")}}: CSS-Selektoren, die es ermöglichen, Kontrollkästchen basierend auf ihrem aktuellen Zustand zu gestalten
-- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement): HTML DOM-API, die das `<input>`-Element implementiert
+- {{cssxref(":checked")}}, {{cssxref(":indeterminate")}}: CSS-Selektoren, mit denen Sie Checkboxen basierend auf ihrem aktuellen Zustand stylen können
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement): HTML-DOM API, das das `<input>`-Element implementiert

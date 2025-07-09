@@ -2,12 +2,10 @@
 title: "<data>: Das Data-Element"
 slug: Web/HTML/Reference/Elements/data
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verbindet ein gegebenes Inhaltselement mit einer maschinenlesbaren Übersetzung. Wenn der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
+Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Stück Inhalt mit einer maschinenlesbaren Übersetzung. Wenn der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
 
 {{InteractiveExample("HTML Demo: &lt;data&gt;", "tabbed-shorter")}}
 
@@ -36,7 +34,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 ## Beispiele
 
-Das folgende Beispiel zeigt Produktnamen an, verknüpft jedoch jeden Namen mit einer Produktnummer.
+Das folgende Beispiel zeigt Produktnamen, verknüpft jedoch auch jeden Namen mit einer Produktnummer.
 
 ```html
 <p>New Products</p>
@@ -51,7 +49,7 @@ Das folgende Beispiel zeigt Produktnamen an, verknüpft jedoch jeden Namen mit e
 
 {{EmbedLiveSample('Examples')}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -63,10 +61,10 @@ Das folgende Beispiel zeigt Produktnamen an, verknüpft jedoch jeden Namen mit e
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >formulierungsmäßiger Inhalt</a
         >, fühlbarer Inhalt.
       </td>
     </tr>
@@ -74,36 +72,36 @@ Das folgende Beispiel zeigt Produktnamen an, verknüpft jedoch jeden Namen mit e
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Formulierungsmäßiger Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Anfangs- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >formulierungsmäßigen Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generic</a
+            >generisch</a
           ></code
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -122,4 +120,4 @@ Das folgende Beispiel zeigt Produktnamen an, verknüpft jedoch jeden Namen mit e
 
 ## Siehe auch
 
-- Das HTML-Element {{HTMLElement("time")}}.
+- Das HTML-{{HTMLElement("time")}}-Element.

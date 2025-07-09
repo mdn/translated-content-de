@@ -2,39 +2,39 @@
 title: <frame>
 slug: Web/HTML/Reference/Elements/frame
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}{{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Das **`<frame>`** [HTML](/de/docs/Web/HTML)-Element definiert einen speziellen Bereich, in dem ein anderes HTML-Dokument angezeigt werden kann. Ein Frame sollte innerhalb eines {{HTMLElement("frameset")}} verwendet werden.
+Das **`<frame>`** [HTML](/de/docs/Web/HTML)-Element definiert einen bestimmten Bereich, in dem ein anderes HTML-Dokument angezeigt werden kann. Ein Frame sollte innerhalb eines {{HTMLElement("frameset")}} verwendet werden.
 
-Die Verwendung des `<frame>`-Elements wird aufgrund bestimmter Nachteile wie Leistungsprobleme und mangelnde Zugänglichkeit für Benutzer mit Screenreadern nicht empfohlen. Anstelle des `<frame>`-Elements kann das {{HTMLElement("iframe")}} bevorzugt werden.
+Die Verwendung des `<frame>`-Elements wird nicht empfohlen, da es bestimmte Nachteile wie Leistungsprobleme und mangelnde Zugänglichkeit für Benutzer mit Screenreadern mit sich bringt. Anstelle des `<frame>`-Elements kann das {{HTMLElement("iframe")}} bevorzugt werden.
 
 ## Attribute
 
 Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `src` {{Deprecated_Inline}}
-  - : Dieses Attribut gibt das Dokument an, das im Frame angezeigt wird.
+  - : Dieses Attribut gibt das Dokument an, das vom Rahmen angezeigt wird.
 - `name` {{Deprecated_Inline}}
-  - : Dieses Attribut wird zur Beschriftung von Frames verwendet. Ohne Beschriftung wird jeder Link im eigenen Frame geöffnet – im nächstgelegenen übergeordneten Frame. Siehe das [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attribut für weitere Informationen.
+  - : Dieses Attribut wird zur Benennung von Frames verwendet. Ohne Benennung öffnet jeder Link in dem Frame, in dem er sich befindet – dem nächsten übergeordneten Frame. Weitere Informationen finden Sie im [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attribut.
 - `noresize` {{Deprecated_Inline}}
-  - : Dieses Attribut verhindert die Größenänderung von Frames durch Benutzer.
+  - : Dieses Attribut verhindert, dass Benutzer Frames anpassen können.
 - `scrolling` {{Deprecated_Inline}}
-  - : Dieses Attribut definiert die Existenz einer Scrollbar. Wenn dieses Attribut nicht verwendet wird, fügt der Browser bei Bedarf eine Scrollbar hinzu. Es gibt zwei Auswahlmöglichkeiten: "yes" um eine Scrollbar zu erzwingen, selbst wenn sie nicht notwendig ist, und "no" um keine Scrollbar zu erzwingen, selbst wenn sie _notwendig_ ist.
+  - : Dieses Attribut definiert das Vorhandensein einer Scrollleiste. Wenn dieses Attribut nicht verwendet wird, fügt der Browser bei Bedarf eine Scrollleiste hinzu. Es gibt zwei Optionen: "yes" für eine erzwungene Scrollleiste, auch wenn sie nicht erforderlich ist, und "no" für keine Scrollleiste, selbst wenn sie erforderlich ist.
 - `marginheight` {{Deprecated_Inline}}
-  - : Dieses Attribut definiert die Höhe des Abstands zwischen Frames.
+  - : Dieses Attribut definiert die Höhe des Randes zwischen den Frames.
 - `marginwidth` {{Deprecated_Inline}}
-  - : Dieses Attribut definiert die Breite des Abstands zwischen Frames.
+  - : Dieses Attribut definiert die Breite des Randes zwischen den Frames.
 - `frameborder` {{Deprecated_Inline}}
-  - : Dieses Attribut erlaubt Ihnen, den Rahmen eines Frames zu spezifizieren.
+  - : Dieses Attribut erlaubt es Ihnen, den Rahmen des Frames festzulegen.
 
 ## Beispiel
 
 ### Ein Frameset-Dokument
 
-Ein Frameset-Dokument hat ein {{HTMLElement("frameset")}}-Element anstelle eines {{HTMLElement("body")}}-Elements. Die `<frame>`-Elemente werden innerhalb des `<frameset>` platziert.
+Ein Frameset-Dokument enthält ein {{HTMLElement("frameset")}}-Element anstelle eines {{HTMLElement("body")}}-Elements. Die `<frame>`-Elemente werden innerhalb des `<frameset>` platziert.
 
 ```html
 <!doctype html>
@@ -49,7 +49,7 @@ Ein Frameset-Dokument hat ein {{HTMLElement("frameset")}}-Element anstelle eines
 </html>
 ```
 
-Wenn Sie eine andere HTML-Seite in den {{HTMLElement("body")}} eines Dokuments einbetten möchten, verwenden Sie ein {{HTMLElement("iframe")}}-Element.
+Wenn Sie eine andere HTML-Seite in das {{HTMLElement("body")}} eines Dokuments einbetten möchten, verwenden Sie ein {{HTMLElement("iframe")}}-Element.
 
 ## Spezifikationen
 

@@ -1,43 +1,42 @@
 ---
-title: \<meta name="color-scheme">
+title: <meta name="color-scheme">
 short-title: color-scheme
 slug: Web/HTML/Reference/Elements/meta/name/color-scheme
 l10n:
-  sourceCommit: 0b8f00bb9ece33c6964eea886b2f7db8711d7b62
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Der **`color-scheme`**-Wert für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)-Attribut des {{htmlelement("meta")}}-Elements gibt ein vorgeschlagenes Farbschema an, das von Benutzeragenten für eine Seite verwendet werden sollte. Wenn angegeben, definieren Sie das Farbschema mithilfe eines [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attributs im `<meta>`-Element mit einem gültigen CSS-{{cssxref("color-scheme")}}-Wert.
 
-Der **`color-scheme`**-Wert für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)-Attribut des {{htmlelement("meta")}} Elements gibt ein vorgeschlagenes Farbschema an, das Benutzeragenten für eine Seite verwenden sollten. Wenn angegeben, definieren Sie das Farbschema mit einem [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attribut im `<meta>` Element mit einem gültigen CSS {{cssxref("color-scheme")}}-Wert.
-
-Die Farbauswahl funktioniert auf Dokument-Ebene auf die gleiche Weise wie die CSS-Eigenschaft {{cssxref("color-scheme")}}, die die bevorzugten und akzeptierten Farbschemata einzelner Elemente angibt. Der Hauptzweck von `<meta name="color-scheme">` besteht darin, die Kompatibilität und die Präferenzreihenfolge für helle und dunkle Farbmodi anzugeben. Zum Beispiel, um anzugeben, dass ein Dokument den Dunkelmodus bevorzugt, aber auch den Hellmodus unterstützt:
+Die Themenfarbe funktioniert auf Dokumentenebene auf die gleiche Weise, wie die CSS-{{cssxref("color-scheme")}}-Eigenschaft die bevorzugten und akzeptierten Farbschemata einzelner Elemente spezifiziert. Die Hauptverwendung für `<meta name="color-scheme">` besteht darin, die Kompatibilität und Reihenfolge der Präferenz für helle und dunkle Farbmodi anzugeben. Zum Beispiel, um anzuzeigen, dass ein Dokument den dunklen Modus bevorzugt, aber auch den hellen Modus unterstützt:
 
 ```html
 <meta name="color-scheme" content="dark light" />
 ```
 
-Ihre Stile können sich an das aktuelle Farbschema anpassen, indem Sie das CSS-Media-Feature {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} verwenden.
+Ihre Stile können sich mithilfe des CSS-Media-Features {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} an das aktuelle Farbschema anpassen.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Ein `<meta name="color-scheme">` Element hat die folgenden zusätzlichen Attribute:
+Ein `<meta name="color-scheme">`-Element hat die folgenden zusätzlichen Attribute:
 
 - [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)
-  - : Ein `<meta>`-Element mit `name=color-scheme` muss ein `content`-Attribut haben, das das Farbschema als CSS {{cssxref("color-scheme")}}-Wert definiert. Das `content`-Attribut kann eines der folgenden sein:
+  - : Ein `<meta>`-Element mit `name=color-scheme` muss ein `content`-Attribut haben, das das Farbschema als CSS-{{cssxref("color-scheme")}}-Wert definiert.
+    Das `content`-Attribut kann einer der folgenden Werte sein:
     - `normal`
-      - : Das Dokument ist nicht auf Farbschemata ausgerichtet und sollte mit der Standard-Farbpalette gerendert werden.
+      - : Das Dokument ist sich Farbschemata nicht bewusst und sollte mit der Standardfarbpalette gerendert werden.
     - `light`, `dark`, `light dark`, `dark light`
-      - : Eines oder mehrere Farbschemata, die vom Dokument unterstützt werden. Mehrere Farbschemata bedeuten, dass das erste Schema vom Dokument bevorzugt wird, das zweite aber akzeptabel ist, wenn der Benutzer es bevorzugt. Dasselbe Farbschema mehrfach anzugeben hat denselben Effekt, als es einmal anzugeben.
+      - : Eines oder mehrere vom Dokument unterstützte Farbschemata. Mehrere Farbschemata zeigen an, dass das erste Schema vom Dokument bevorzugt wird, aber das zweite Schema akzeptabel ist, wenn der Benutzer es bevorzugt. Die mehrfache Angabe desselben Farbschemas hat den gleichen Effekt wie die einmalige Angabe.
     - `only light`
-      - : Gibt an, dass das Dokument _nur_ den Hellmodus unterstützt, mit einem hellen Hintergrund und dunklen Vordergrundfarben. `only dark` _ist ungültig_, da das Erzwingen eines Dokuments im Dunkelmodus, wenn es nicht kompatibel ist, zu unlesbarem Inhalt führen kann, und alle großen Browser standardmäßig auf den Hellmodus zurückgreifen, wenn nicht anders konfiguriert.
+      - : Gibt an, dass das Dokument _nur_ den hellen Modus unterstützt, mit einem hellen Hintergrund und dunklen Vordergrundfarben. `only dark` _ist ungültig_, da das Erzwingen, ein Dokument im dunklen Modus zu rendern, wenn es nicht kompatibel ist, zu unlesbarem Inhalt führen kann, und alle großen Browser standardmäßig den hellen Modus verwenden, wenn nicht anders konfiguriert.
 - `media` {{optional_inline}}
-  - : Jeder gültige Medientyp oder jede Medientypabfrage. Falls angegeben, werden die im `content`-Attribut definierten Optionen für das Farbschema des Dokuments dem Browser vorgeschlagen, wenn die Medienabfrage zutrifft. Dies ist hauptsächlich nützlich für das CSS-Media-Feature {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}.
+  - : Jeder gültige Medientyp oder jede gültige Abfrage. Wenn angegeben, werden die im `content`-Attribut definierten Optionen für das Farbschema des Dokuments dem Browser vorgeschlagen, wenn die Medienabfrage übereinstimmt. Dies ist hauptsächlich für das CSS-Media-Feature {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} nützlich.
 
 ## Beispiele
 
 ### Verwendung eines color-scheme-Schlüsselworts
 
-Das folgende Beispiel gibt dem Browser an, dass die Seite sowohl helle als auch dunkle Themen unterstützt. Ob das helle oder das dunkle Farbschema verwendet wird, hängt von den Benutzereinstellungen wie Betriebssystemeinstellungen oder den Browsereinstellungen ab:
+Das folgende Beispiel zeigt dem Browser an, dass die Seite sowohl helle als auch dunkle Themen unterstützt. Ob das helle oder dunkle Farbschema verwendet wird, hängt von den Benutzereinstellungen wie OS-Einstellungen oder den Browsereinstellungen ab:
 
 ```html
 <meta name="color-scheme" content="light dark" />
@@ -53,5 +52,5 @@ Das folgende Beispiel gibt dem Browser an, dass die Seite sowohl helle als auch 
 
 ## Siehe auch
 
-- {{cssxref("color-scheme")}} CSS-Eigenschaft
-- [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Medienabfrage
+- CSS-Eigenschaft {{cssxref("color-scheme")}}
+- Medienabfrage [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme)

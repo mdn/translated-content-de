@@ -1,13 +1,11 @@
 ---
-title: "<hgroup>: Das Kopfelement-Gruppe-Element"
+title: "<hgroup>: Das Heading Group-Element"
 slug: Web/HTML/Reference/Elements/hgroup
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<hgroup>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Überschrift und verwandten Inhalt. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Reference/Elements/p).
+Das **`<hgroup>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert eine Überschrift und verwandten Inhalt. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)-Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Reference/Elements/p).
 
 {{InteractiveExample("HTML Demo: &lt;hgroup&gt;", "tabbed-standard")}}
 
@@ -43,13 +41,13 @@ hgroup p {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Das `<hgroup>` Element ermöglicht die Gruppierung einer Überschrift mit beliebigem sekunden Inhalt, wie etwa Unterüberschriften, einem alternativen Titel oder einem Slogan. Jede dieser Inhaltsarten wird als ein `<p>`-Element innerhalb des `<hgroup>` dargestellt.
+Das `<hgroup>`-Element ermöglicht die Gruppierung einer Überschrift mit jeglichem sekundären Inhalt, wie z.B. Unterüberschriften, einem alternativen Titel oder einem Slogan. Jede dieser Inhaltsarten wird als `<p>`-Element innerhalb des `<hgroup>` dargestellt.
 
-Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentenstruktur einer Webseite. Vielmehr steuert die einzelne erlaubte Überschrift innerhalb des `<hgroup>` zur Dokumentenstruktur bei.
+Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentgliederung einer Webseite. Vielmehr trägt die im `<hgroup>` erlaubte einzelne Überschrift zur Dokumentgliederung bei.
 
 ## Beispiele
 
@@ -88,25 +86,25 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentenstruktur einer Webse
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >, Überschrifteninhalt, fühlbarer Inhalt.
+        >, Überschrifteninhalt, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
-        Null oder mehr {{HTMLElement("p")}} Elemente, gefolgt von einem
+        Null oder mehr {{HTMLElement("p")}}-Elemente, gefolgt von einem
         {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}},
         {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}},
-        {{HTMLElement("Heading_Elements", "h5")}}, oder {{HTMLElement("Heading_Elements", "h6")}} Element,
-        gefolgt von null oder mehr {{HTMLElement("p")}} Elementen.
+        {{HTMLElement("Heading_Elements", "h5")}}, oder {{HTMLElement("Heading_Elements", "h6")}}-Element,
+        gefolgt von null oder mehr {{HTMLElement("p")}}-Elementen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
@@ -125,7 +123,7 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentenstruktur einer Webse
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -145,5 +143,5 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentenstruktur einer Webse
 
 ## Siehe auch
 
-- Weitere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
-- [Abschnitte und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Reference/Elements/Heading_Elements).
+- Andere sektionbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- [Sektionen und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Reference/Elements/Heading_Elements).

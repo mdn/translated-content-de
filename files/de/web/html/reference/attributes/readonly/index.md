@@ -3,12 +3,10 @@ title: "HTML-Attribut: readonly"
 short-title: readonly
 slug: Web/HTML/Reference/Attributes/readonly
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das Boolean-Attribut **`readonly`**, wenn es vorhanden ist, macht das Element nicht veränderbar, was bedeutet, dass der Benutzer das Steuerelement nicht bearbeiten kann.
+Das booleanische **`readonly`** Attribut, wenn es vorhanden ist, macht das Element nicht veränderbar, was bedeutet, dass der Benutzer das Steuerelement nicht bearbeiten kann.
 
 {{InteractiveExample("HTML Demo: readonly", "tabbed-shorter")}}
 
@@ -35,13 +33,13 @@ textarea:read-only {
 }
 ```
 
-## Überblick
+## Übersicht
 
-Wenn das `readonly`-Attribut auf einem Eingabe-Element (`input`) angegeben ist, nimmt das Element aufgrund der Tatsache, dass der Benutzer die Eingabe nicht bearbeiten kann, nicht an der Einschränkungsvalidierung teil.
+Wenn das `readonly` Attribut auf ein Eingabeelement gesetzt ist, da der Benutzer die Eingabe nicht bearbeiten kann, nimmt das Element nicht an der Einschränkungsvalidierung teil.
 
-Das `readonly`-Attribut wird von textuellen Formularelementen unterstützt, einschließlich:
+Das `readonly` Attribut wird von textbasierten Formularelementen unterstützt, einschließlich:
 
-- {{HTMLElement("input")}}-Elemente des Typs:
+- {{HTMLElement("input")}} Elementen vom Typ:
   - `{{HTMLElement("input/text","text")}}`
   - `{{HTMLElement("input/search","search")}}`
   - `{{HTMLElement("input/tel","tel")}}`
@@ -69,22 +67,22 @@ Das Attribut ist für alle anderen Elemente, einschließlich {{HTMLElement("sele
 - `{{HTMLElement("input/reset","reset")}}`
 - `{{HTMLElement("input/button","button")}}`
 
-Eingaben, die das `readonly`-Attribut unterstützen, aber nicht gesetzt haben, entsprechen der {{cssxref(":read-write")}} Pseudo-Klasse. Alle anderen Elemente entsprechen der {{cssxref(":read-only")}} Pseudo-Klasse.
+Eingaben, die das `readonly` Attribut unterstützen, aber nicht gesetzt haben, entsprechen der {{cssxref(":read-write")}} Pseudo-Klasse. Alle anderen Elemente entsprechen der {{cssxref(":read-only")}} Pseudo-Klasse.
 
-### Attribut-Interaktionen
+### Attribut Interaktionen
 
-Der Unterschied zwischen [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) und `readonly` ist, dass schreibgeschützte Steuerelemente weiterhin funktionieren und fokussierbar sind, während deaktivierte Steuerelemente keinen Fokus erhalten können und nicht mit dem Formular gesendet werden und im Allgemeinen nicht als Steuerelemente funktionieren, bis sie aktiviert werden.
+Der Unterschied zwischen [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) und `readonly` ist, dass schreibgeschützte Steuerelemente weiterhin funktionieren und fokussierbar sind, während deaktivierte Steuerelemente keinen Fokus erhalten können und nicht mit dem Formular übermittelt werden und im Allgemeinen nicht als Steuerelemente funktionieren, bis sie aktiviert werden.
 
-Da ein schreibgeschütztes Feld seinen Wert nicht durch Benutzerinteraktion ändern kann, hat [`required`](/de/docs/Web/HTML/Reference/Attributes/required) keine Auswirkung auf Eingaben, bei denen das `readonly`-Attribut ebenfalls angegeben ist.
+Da ein schreibgeschütztes Feld nicht von einer Benutzerinteraktion geändert werden kann, hat [`required`](/de/docs/Web/HTML/Reference/Attributes/required) keine Auswirkungen auf Eingaben, bei denen das `readonly` Attribut ebenfalls spezifiziert ist.
 
-Die einzige Möglichkeit, den Wert des `readonly`-Attributs dynamisch zu ändern, ist durch ein Skript.
+Der einzige Weg zur dynamischen Anpassung des `readonly` Attributs ist über ein Skript.
 
 > [!NOTE]
-> Das `required`-Attribut ist bei Eingaben mit dem `readonly`-Attribut nicht erlaubt.
+> Das `required` Attribut ist bei Eingaben mit dem `readonly` Attribut nicht zulässig.
 
-### Benutzerfreundlichkeit
+### Benutzbarkeit
 
-Browser zeigen das `readonly`-Attribut an.
+Browser zeigen das `readonly` Attribut an.
 
 ### Einschränkungsvalidierung
 

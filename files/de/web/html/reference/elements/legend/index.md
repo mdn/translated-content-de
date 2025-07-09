@@ -2,14 +2,12 @@
 title: "<legend>: Das Field Set Legend-Element"
 slug: Web/HTML/Reference/Elements/legend
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
-
-{{HTMLSidebar}}
 
 Das **`<legend>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung für den Inhalt seines übergeordneten {{HTMLElement("fieldset")}}.
 
-In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das `<legend>`-Element als Kind von `<optgroup>` erlaubt, um ein leicht zu zielendes und zu stilierendes Label bereitzustellen. Dies ersetzt jeden Text, der im `label`-Attribut des `<optgroup>`-Elements gesetzt ist, und hat dieselbe Semantik.
+In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das `<legend>`-Element als Kind von `<optgroup>` erlaubt, um eine leicht ansprechbare und stilisierbare Beschriftung bereitzustellen. Dies ersetzt jeglichen Text, der im `label`-Attribut des `<optgroup>`-Elements gesetzt wird, und hat dieselbe Semantik.
 
 {{InteractiveExample("HTML Demo: &lt;legend&gt;", "tabbed-standard")}}
 
@@ -42,7 +40,7 @@ input {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -64,7 +62,7 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         >
         und
         <a href="/de/docs/Web/HTML/Reference/Elements/Heading_Elements">Überschriften</a>
@@ -73,17 +71,17 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("fieldset")}}, dessen erstes Kind dieses
-        <code>&#x3C;legend></code>-Element ist. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Select-Elementen</a> ist ein <code>&#x3C;legend></code>-Element als Kind von {{htmlelement("optgroup")}} erlaubt.
+        <code>&#x3C;legend></code>-Element ist. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren select-Elementen</a> ist ein <code>&#x3C;legend></code>-Element als Kind von {{htmlelement("optgroup")}} erlaubt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -95,7 +93,7 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>[`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement)</td>
     </tr>
   </tbody>

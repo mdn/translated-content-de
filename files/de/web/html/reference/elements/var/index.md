@@ -2,12 +2,10 @@
 title: "<var>: Das Variable-Element"
 slug: Web/HTML/Reference/Elements/var
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<var>`** [HTML](/de/docs/Web/HTML) Element repräsentiert den Namen einer Variablen in einem mathematischen Ausdruck oder in einem Programmierkontext. Es wird typischerweise in einer kursiven Version der aktuellen Schriftart präsentiert, obwohl dieses Verhalten vom Browser abhängig ist.
+Das **`<var>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert den Namen einer Variablen in einem mathematischen Ausdruck oder einem Programmierszenario. Es wird typischerweise in einer kursiven Version der aktuellen Schriftart dargestellt, obwohl dieses Verhalten vom Browser abhängig ist.
 
 {{InteractiveExample("HTML Demo: &lt;var&gt;", "tabbed-shorter")}}
 
@@ -29,17 +27,17 @@ var {
 
 Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 ### Verwandte Elemente
 
-Andere Elemente, die in Kontexten verwendet werden, in denen `<var>` üblicherweise benutzt wird, sind:
+Andere Elemente, die in Kontexten verwendet werden, in denen `<var>` häufig verwendet wird, umfassen:
 
 - {{HTMLElement("code")}}: Das HTML Code-Element
 - {{HTMLElement("kbd")}}: Das HTML Tastatureingabe-Element
 - {{HTMLElement("samp")}}: Das HTML Beispielausgabe-Element
 
-Falls Sie auf Code stoßen, der `<var>` fälschlicherweise aus Stilgründen anstelle von semantischen Zwecken verwendet, sollten Sie entweder ein {{HTMLElement("span")}} mit entsprechender CSS oder ein geeignetes semantisches Element unter den folgenden verwenden:
+Wenn Sie auf Code stoßen, der `<var>` fälschlicherweise für stilistische Zwecke anstelle semantischer Zwecke verwendet, sollten Sie entweder ein {{HTMLElement("span")}} mit geeigneter CSS oder ein geeignetes semantisches Element aus den folgenden verwenden:
 
 - {{HTMLElement("em")}}
 - {{HTMLElement("i")}}
@@ -47,7 +45,7 @@ Falls Sie auf Code stoßen, der `<var>` fälschlicherweise aus Stilgründen anst
 
 ### Standardstil
 
-Die meisten Browser wenden {{cssxref("font-style")}} `"italic"` an, wenn `<var>` gerendert wird. Dies kann in CSS wie folgt überschrieben werden:
+Die meisten Browser wenden {{cssxref("font-style")}} `"italic"` an, wenn `<var>` gerendert wird. Dies kann in CSS überschrieben werden, wie folgt:
 
 ```css
 var {
@@ -57,9 +55,9 @@ var {
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-Hier ist ein einfaches Beispiel, das `<var>` verwendet, um Variablennamen in einer mathematischen Gleichung zu kennzeichnen.
+Hier ist ein grundlegendes Beispiel, bei dem `<var>` verwendet wird, um Variablennamen in einer mathematischen Gleichung zu bezeichnen.
 
 ```html
 <p>An algebraic equation: <var>x</var> = <var>y</var> + 2</p>
@@ -71,7 +69,7 @@ Hier ist ein einfaches Beispiel, das `<var>` verwendet, um Variablennamen in ein
 
 ### Überschreiben des Standardstils
 
-Mit CSS können Sie den Standardstil für das `<var>`-Element überschreiben. In diesem Beispiel werden Variablennamen fett dargestellt, wobei Courier verwendet wird, wenn verfügbar. Ansonsten wird die standardmäßige Monospace-Schriftart genutzt.
+Mit CSS können Sie den Standardstil des `<var>`-Elements überschreiben. In diesem Beispiel werden Variablennamen fett dargestellt, unter Verwendung von Courier, falls verfügbar, andernfalls wird auf die standardmäßige Monospace-Schrift zurückgegriffen.
 
 #### CSS
 
@@ -93,7 +91,7 @@ var {
 </p>
 ```
 
-Dieses HTML nutzt `<var>`, um die Namen von zwei Variablen einzuschließen.
+Dieser HTML-Code verwendet `<var>`, um die Namen zweier Variablen einzuschließen.
 
 #### Ergebnis
 
@@ -105,17 +103,25 @@ Dieses HTML nutzt `<var>`, um die Namen von zwei Variablen einzuschließen.
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Fluss-Inhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasing-Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasing-Inhalt</a
+        >.
       </td>
     </tr>
     <tr>
@@ -126,19 +132,22 @@ Dieses HTML nutzt `<var>`, um die Namen von zwei Variablen einzuschließen.
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>
-        akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasing-Inhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

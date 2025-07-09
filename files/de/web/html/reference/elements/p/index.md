@@ -1,15 +1,13 @@
 ---
-title: "<p>: Das Paragraph-Element"
+title: "<p>: Das Absatz-Element"
 slug: Web/HTML/Reference/Elements/p
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`<p>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen Absatz. Absätze werden in visuellen Medien gewöhnlich als Textblöcke dargestellt, die durch Leerzeilen und/oder Einrückung der ersten Zeile von angrenzenden Blöcken getrennt sind. HTML-Absätze können jedoch jede strukturelle Gruppierung von verwandtem Inhalt sein, wie z. B. Bilder oder Formularfelder.
 
-Das **`<p>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Absatz. Absätze werden in visuellen Medien normalerweise als Textblöcke dargestellt, die durch Leerzeilen und/oder Einrückung der ersten Zeile von benachbarten Blöcken getrennt sind, aber HTML-Absätze können jede strukturelle Gruppierung von zusammengehörigen Inhalten sein, wie z.B. Bilder oder Formularelemente.
-
-Absätze sind {{Glossary("Block-level_content", "Block-Level-Elemente")}} und werden insbesondere automatisch geschlossen, wenn ein anderes Block-Level-Element vor dem abschließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
+Absätze sind {{Glossary("Block-level_content", "Block-Level-Elemente")}} und werden insbesondere automatisch geschlossen, wenn ein anderes Block-Level-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
 
 {{InteractiveExample("HTML Demo: &lt;p&gt;", "tabbed-standard")}}
 
@@ -35,18 +33,18 @@ p {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 > [!NOTE]
-> Das `align`-Attribut bei `<p>`-Tags ist veraltet und sollte nicht verwendet werden.
+> Das `align`-Attribut in `<p>`-Tags ist veraltet und sollte nicht verwendet werden.
 
 ## Barrierefreiheit
 
-Das Aufbrechen von Inhalten in Absätze hilft, eine Seite zugänglicher zu machen. Screenreader und andere Hilfstechnologien bieten Abkürzungen, die es ihren Nutzern ermöglichen, zum nächsten oder vorherigen Absatz zu springen, sodass sie Inhalte überfliegen können, ähnlich wie Leerraum es visuellen Nutzern ermöglicht, sich zu orientieren.
+Das Aufteilen von Inhalten in Absätze trägt dazu bei, eine Seite zugänglicher zu machen. Screenreader und andere unterstützende Technologien bieten Abkürzungen, um den Nutzern zu ermöglichen, zum nächsten oder vorherigen Absatz zu springen, sodass sie Inhalte überfliegen können, ähnlich wie visuelle Nutzer durch Leerraum navigieren.
 
-Die Verwendung leerer `<p>`-Elemente, um Platz zwischen Absätzen zu schaffen, ist problematisch für Personen, die mit Screenreader-Technologie navigieren. Screenreader könnten die Anwesenheit des Absatzes ankündigen, jedoch keinen enthaltenen Inhalt — da keiner vorhanden ist. Dies kann bei Personen, die den Screenreader verwenden, Verwirrung und Frustration hervorrufen.
+Die Verwendung leerer `<p>`-Elemente, um Platz zwischen Absätzen zu schaffen, ist problematisch für Personen, die mit Screenreader-Technologie navigieren. Screenreader können das Vorhandensein des Absatzes ankündigen, aber keinen enthaltenen Inhalt – da keiner vorhanden ist. Dies kann die Person, die den Screenreader verwendet, verwirren und frustrieren.
 
-Falls zusätzlicher Platz gewünscht wird, sollten {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}} verwendet werden, um den Effekt zu erzielen:
+Wenn zusätzlicher Raum gewünscht ist, verwenden Sie {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
 
 ```css
 p {
@@ -73,9 +71,9 @@ p {
 
 {{EmbedLiveSample('Examples')}}
 
-## Absätze stilisieren
+## Formatierung von Absätzen
 
-Standardmäßig trennen Browser Absätze mit einer einzelnen Leerzeile. Alternative Trennmethoden, wie die Einrückung der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
+Standardmäßig trennen Browser Absätze mit einer einzigen Leerzeile. Alternative Trennmethoden, wie das Einrücken der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
 
 ### HTML
 
@@ -155,14 +153,14 @@ document.querySelector("button").addEventListener("click", (event) => {
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >, palpierbarer Inhalt.
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung von Inhalten</a
         >.
       </td>
     </tr>
@@ -170,7 +168,7 @@ document.querySelector("button").addEventListener("click", (event) => {
       <th scope="row">Tag-Auslassung</th>
       <td>
         Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn das
-        <code>&lt;p&gt;</code>-Element unmittelbar von einem
+        <code>&lt;p&gt;</code>-Element unmittelbar gefolgt wird von einem
         {{HTMLElement("address")}},
         {{HTMLElement("article")}}, {{HTMLElement("aside")}},
         {{HTMLElement("blockquote")}}, {{HTMLElement("details")}}, {{HTMLElement("div")}},
@@ -184,12 +182,12 @@ document.querySelector("button").addEventListener("click", (event) => {
         {{HTMLElement("main")}}, {{HTMLElement("menu")}}, {{HTMLElement("nav")}},
         {{HTMLElement("ol")}}, {{HTMLElement("pre")}}, {{HTMLElement("search")}},
         {{HTMLElement("section")}}, {{HTMLElement("table")}},
-        {{HTMLElement("ul")}} oder einem anderen <code>&lt;p&gt;</code>
-        Element gefolgt wird, oder wenn kein Inhalt mehr im Elternelement vorhanden ist und das
-        Elternelement kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
+        {{HTMLElement("ul")}} oder einem weiteren <code>&lt;p&gt;</code>
+        -Element, oder wenn kein weiterer Inhalt im übergeordneten Element vorhanden ist und das
+        übergeordnete Element kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
         {{HTMLElement("del")}}, {{HTMLElement("ins")}}, {{HTMLElement("map")}},
-        {{HTMLElement("noscript")}} oder {{HTMLElement("video")}}-Element ist,
-        oder ein autonomes benutzerdefiniertes Element.
+        {{HTMLElement("noscript")}} oder {{HTMLElement("video")}}-Element,
+        oder ein autonomes benutzerdefiniertes Element ist.
       </td>
     </tr>
     <tr>
@@ -202,15 +200,15 @@ document.querySelector("button").addEventListener("click", (event) => {
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles"
-          >Absatz</a
+          >paragraph</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>

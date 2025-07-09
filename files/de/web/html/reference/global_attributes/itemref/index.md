@@ -1,27 +1,25 @@
 ---
-title: HTML-Attribut `itemref` (global)
+title: Globales HTML-Attribut `itemref`
 short-title: itemref
 slug: Web/HTML/Reference/Global_attributes/itemref
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar("Global_attributes")}}
+Eigenschaften, die keine Nachkommen eines Elements mit dem Attribut [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) sind, können einem Element mithilfe des [globalen Attributs](/de/docs/Web/HTML/Reference/Global_attributes) **`itemref`** zugeordnet werden.
 
-Eigenschaften, die keine Nachkommen eines Elements mit dem [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope)-Attribut sind, können mit einem [globalen Attribut](/de/docs/Web/HTML/Reference/Global_attributes) **`itemref`** einem Element zugeordnet werden.
+`itemref` bietet eine Liste von Element-IDs (nicht `itemid`s) an anderer Stelle im Dokument, mit zusätzlichen Eigenschaften.
 
-`itemref` bietet eine Liste von Element-IDs (nicht `itemid`s), die sich an anderer Stelle im Dokument befinden, mit zusätzlichen Eigenschaften.
-
-Das `itemref`-Attribut kann nur bei Elementen angegeben werden, die ein `itemscope`-Attribut haben.
+Das `itemref`-Attribut kann nur auf Elementen angegeben werden, die ein `itemscope`-Attribut haben.
 
 > [!NOTE]
-> Das `itemref`-Attribut ist kein Bestandteil des Microdata-Datenmodells. Es ist lediglich ein syntaktisches Konstrukt, um Autoren dabei zu helfen, Anmerkungen zu Seiten hinzuzufügen, bei denen die zu annotierenden Daten keiner bequemen Baumstruktur folgen. Zum Beispiel erlaubt es Autoren, Daten in einer Tabelle zu kennzeichnen, sodass jede Spalte ein separates Element definiert, während die Eigenschaften in den Zellen bleiben.
+> Das `itemref`-Attribut ist kein Bestandteil des Mikrodatenschemas. Es ist nur ein syntaktisches Konstrukt, das Autoren dabei hilft, Annotationen auf Seiten hinzuzufügen, bei denen die zu annotierenden Daten keiner praktischen Baumstruktur folgen. Zum Beispiel ermöglicht es Autoren, Daten in einer Tabelle zu markieren, sodass jede Spalte ein separates Element definiert, während die Eigenschaften in den Zellen beibehalten werden.
 
 ## Beispiele
 
-### Darstellung von strukturierten Daten für eine Band
+### Strukturierte Daten für eine Band darstellen
 
-Dieses Beispiel verwendet Microdata-Attribute, um die folgenden strukturierten Daten (im [JSON-LD](https://json-ld.org/)-Format) darzustellen:
+Dieses Beispiel verwendet Mikrodateneigenschaften, um die folgenden strukturierten Daten (im [JSON-LD](https://json-ld.org/) Format) darzustellen:
 
 ```json
 {
@@ -57,8 +55,8 @@ Dieses Beispiel verwendet Microdata-Attribute, um die folgenden strukturierten D
 
 ## Siehe auch
 
-- [Andere verschiedene globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
-- Andere microdata-bezogene globale Attribute:
+- [Andere globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
+- Andere mit Mikrodata verbundene globale Attribute:
   - [`itemid`](/de/docs/Web/HTML/Reference/Global_attributes/itemid)
   - [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)
   - [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope)

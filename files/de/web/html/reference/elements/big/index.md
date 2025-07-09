@@ -1,13 +1,13 @@
 ---
-title: "<big>: Das Element für größeren Text"
+title: "<big>: Das größere Textelement"
 slug: Web/HTML/Reference/Elements/big
 l10n:
-  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}{{deprecated_header}}
+{{deprecated_header}}
 
-Das **`<big>`** [HTML](/de/docs/Web/HTML) veraltete Element stellt den eingeschlossenen Text in einer Schriftgröße dar, die um eine Stufe größer ist als der umgebende Text (zum Beispiel wird `medium` zu `large`). Die Größe ist auf die vom Browser maximal erlaubte Schriftgröße begrenzt.
+Das **`<big>`** [HTML](/de/docs/Web/HTML)-veraltete Element rendert den eingeschlossenen Text in einer Schriftgröße, die eine Stufe größer ist als der umgebende Text (zum Beispiel wird `medium` zu `large`). Die Größe ist auf die maximal zulässige Schriftgröße des Browsers begrenzt.
 
 > [!WARNING]
 > Dieses Element wurde aus der Spezifikation entfernt und sollte nicht mehr verwendet werden. Verwenden Sie die CSS-Eigenschaft {{cssxref("font-size")}}, um die Schriftgröße anzupassen.
@@ -18,11 +18,11 @@ Dieses Element hat keine anderen Attribute als die [globalen Attribute](/de/docs
 
 ## Beispiele
 
-Hier sehen wir Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, das zeigt, wie mit moderner CSS-Syntax dieselben Ergebnisse erzielt werden können.
+Hier sehen Sie Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, wie dieselben Ergebnisse mit moderner CSS-Syntax erreicht werden können.
 
 ### Verwendung von big
 
-Dieses Beispiel verwendet das veraltete `<big>`-Element, um die Größe eines Textes zu erhöhen.
+Dieses Beispiel verwendet das veraltete `<big>`-Element, um die Größe von etwas Text zu erhöhen.
 
 #### HTML
 
@@ -62,11 +62,11 @@ Dieses Beispiel verwendet die CSS-Eigenschaft {{cssxref("font-size")}}, um die S
 
 {{EmbedLiveSample("Using_CSS_font-size", 640, 60)}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+Dieses Element implementiert das [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface.
 
-<!-- ## Technical summary -->
+<!-- ## Technische Zusammenfassung -->
 
 ## Spezifikationen
 

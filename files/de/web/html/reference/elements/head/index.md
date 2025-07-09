@@ -1,22 +1,21 @@
 ---
-title: "<head>: Das Dokument-Metadaten (Kopfbereich) Element"
+title: "<head>: Das Dokument-Metadaten-Element (Header)"
 slug: Web/HTML/Reference/Elements/head
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`<head>`** [HTML](/de/docs/Web/HTML)-Element enthält maschinenlesbare Informationen ({{Glossary("metadata", "Metadaten")}}) über das Dokument, wie dessen [Titel](/de/docs/Web/HTML/Reference/Elements/title), [Skripte](/de/docs/Web/HTML/Reference/Elements/script) und [Stylesheets](/de/docs/Web/HTML/Reference/Elements/style). Es kann nur ein `<head>`-Element in einem HTML-Dokument geben.
 
-Das **`<head>`** [HTML](/de/docs/Web/HTML) Element enthält maschinenlesbare Informationen ({{Glossary("metadata", "Metadaten")}}) über das Dokument, wie seinen [Titel](/de/docs/Web/HTML/Reference/Elements/title), [Skripte](/de/docs/Web/HTML/Reference/Elements/script) und [Stylesheets](/de/docs/Web/HTML/Reference/Elements/style). In einem HTML-Dokument darf es nur ein `<head>` Element geben.
-
-> [!NOTE] > `<head>` enthält hauptsächlich Informationen für die maschinelle Verarbeitung, nicht für die menschliche Lesbarkeit. Für sichtbare Informationen wie oberste Überschriften und aufgelistete Autoren, siehe das {{HTMLElement("header")}} Element.
+> [!NOTE]
+> `<head>` enthält hauptsächlich Informationen für die maschinelle Verarbeitung, nicht für die Lesbarkeit durch Menschen. Für Informationen, die für Menschen sichtbar sind, wie Überschriften auf oberster Ebene und aufgelistete Autoren, siehe das {{HTMLElement("header")}}-Element.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `profile` {{deprecated_inline}}
-  - : Die {{Glossary("URI", "URIs")}} von einem oder mehreren Metadaten-Profilen, getrennt durch {{Glossary("whitespace", "Leerzeichen")}}.
+  - : Die {{Glossary("URI", "URIs")}} von einem oder mehreren Metadatenprofilen, getrennt durch {{Glossary("whitespace", "Leerzeichen")}}.
 
 ## Beispiele
 
@@ -44,29 +43,29 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <p>
-          Wenn das Dokument ein {{HTMLElement("iframe")}}
-          <a href="/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc"><code>srcdoc</code></a> Dokument ist oder wenn Titelinformationen von einem höheren Protokolllevel verfügbar sind (wie die Betreffzeile in HTML-E-Mails), null oder mehr Elemente des Metadateninhalts.
+          Falls das Dokument ein {{HTMLElement("iframe")}}
+          <a href="/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc"><code>srcdoc</code></a>-Dokument ist, oder falls Titelinformationen aus einem höherstufigen Protokoll verfügbar sind (wie die Betreffzeile in HTML-E-Mails), null oder mehr Elemente von Metadaten-Inhalt.
         </p>
         <p>
-          Andernfalls ein oder mehrere Elemente von Metadateninhalten, wobei genau eines ein {{HTMLElement("title")}} Element sein muss.
+          Andernfalls ein oder mehrere Elemente von Metadaten-Inhalt, wobei genau eines ein {{HTMLElement("title")}}-Element ist.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag kann weggelassen werden, wenn das erste Element innerhalb des
-        <code>&#x3C;head></code> Elements ein weiteres Element ist.<br />Das End-Tag kann
+        Der Start-Tag kann weggelassen werden, wenn das erste Element im
+        <code>&#x3C;head></code>-Element ein Element ist.<br />Der End-Tag kann
         weggelassen werden, wenn das erste Element nach dem
-        <code>&#x3C;head></code> Element kein Leerzeichen oder Kommentar ist.
+        <code>&#x3C;head></code>-Element kein Leerzeichen oder Kommentar ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
-      <td>Ein {{HTMLElement("html")}} Element, als sein erstes Kind.</td>
+      <th scope="row">Erlaubte Eltern</th>
+      <td>Ein {{HTMLElement("html")}}-Element, als dessen erstes Kind.</td>
     </tr>
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
@@ -77,8 +76,8 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Kein <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -97,7 +96,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ## Siehe auch
 
-- Elemente, die innerhalb des `<head>` verwendet werden können:
+- Elemente, die innerhalb von `<head>` verwendet werden können:
   - {{HTMLElement("title")}}
   - {{HTMLElement("base")}}
   - {{HTMLElement("link")}}

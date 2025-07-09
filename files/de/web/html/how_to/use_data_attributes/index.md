@@ -1,17 +1,15 @@
 ---
-title: Verwenden von Datenattributen
+title: Verwenden Sie Datenattribute
 slug: Web/HTML/How_to/Use_data_attributes
 l10n:
-  sourceCommit: cd701f10306c8b0b9690532ff808df826818a04f
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-HTML ist für die Erweiterbarkeit ausgelegt, um Daten zu verknüpfen, die einem bestimmten Element zugeordnet sein sollen, aber keine definierte Bedeutung haben müssen. [`data-*` Attribute](/de/docs/Web/HTML/Reference/Global_attributes/data-*) ermöglichen es uns, zusätzliche Informationen auf standardisierten, semantischen HTML-Elementen zu speichern, ohne auf andere Workarounds wie nicht standardisierte Attribute oder zusätzliche Eigenschaften im DOM zurückgreifen zu müssen.
+HTML ist so konzipiert, dass es erweiterbar ist, um Daten, die mit einem bestimmten Element verknüpft sein sollten, aber keine definierte Bedeutung haben müssen, zu unterstützen. [`data-*` Attribute](/de/docs/Web/HTML/Reference/Global_attributes/data-*) ermöglichen es uns, zusätzliche Informationen in standardisierten, semantischen HTML-Elementen zu speichern, ohne auf andere Tricks wie nicht standardisierte Attribute oder zusätzliche Eigenschaften im DOM zurückzugreifen.
 
 ## HTML-Syntax
 
-Die Syntax ist einfach. Jedes Attribut in einem beliebigen Element, dessen Attributname mit `data-` beginnt, ist ein Datenattribut. Angenommen, Sie haben einige Artikel und möchten zusätzliche Informationen speichern, die keine visuelle Darstellung haben. Verwenden Sie einfach `data`-Attribute dafür:
+Die Syntax ist einfach. Jedes Attribut an jedem Element, dessen Attributname mit `data-` beginnt, ist ein Datenattribut. Angenommen, Sie haben einige Artikel und möchten zusätzliche Informationen speichern, die keine visuelle Darstellung haben. Verwenden Sie einfach `data`-Attribute dafür:
 
 ```html
 <main>
@@ -45,7 +43,7 @@ Die Syntax ist einfach. Jedes Attribut in einem beliebigen Element, dessen Attri
 
 Das Auslesen der Werte dieser Attribute in [JavaScript](/de/docs/Web/JavaScript) ist ebenfalls sehr einfach. Sie könnten [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) mit ihrem vollständigen HTML-Namen verwenden, um sie auszulesen, aber der Standard definiert einen einfacheren Weg: ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap), das Sie über eine [`dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft auslesen können.
 
-Um ein `data`-Attribut über das `dataset`-Objekt zu erhalten, greifen Sie auf die Eigenschaft zu, die dem Teil des Attributnamens nach `data-` entspricht (beachten Sie, dass Bindestriche in {{Glossary("camel_case", "camel case")}} umgewandelt werden).
+Um ein `data`-Attribut über das `dataset`-Objekt zu erhalten, greifen Sie auf die Eigenschaft mit dem Teil des Attributnamens nach `data-` zu (beachten Sie, dass Bindestriche in {{Glossary("camel_case", "Camel Case")}} umgewandelt werden).
 
 ```js
 const article = document.querySelector("#electric-cars");
@@ -75,7 +73,7 @@ threeColumnArticles.forEach((article) => {
 
 ## Zugriff in CSS
 
-Beachten Sie, dass Sie, da Datenattribute einfache HTML-Attribute sind, auch von [CSS](/de/docs/Web/CSS) aus darauf zugreifen können. Um beispielsweise die übergeordneten Daten im Artikel anzuzeigen, können Sie [generierten Inhalt](/de/docs/Web/CSS/content) in CSS mit der [`attr()`](/de/docs/Web/CSS/attr)-Funktion verwenden:
+Da Datenattribute einfache HTML-Attribute sind, können Sie sogar von [CSS](/de/docs/Web/CSS) aus auf sie zugreifen. Um zum Beispiel die übergeordneten Daten im Artikel anzuzeigen, können Sie [generierten Inhalt](/de/docs/Web/CSS/content) in CSS mit der [`attr()`](/de/docs/Web/CSS/attr)-Funktion verwenden:
 
 ```css
 article::before {
@@ -94,18 +92,18 @@ article[data-columns="4"] {
 }
 ```
 
-Sie können sehen, wie all dies zusammenarbeitet, [in diesem JS Bin-Beispiel](https://jsbin.com/ujiday/2/edit).
+Sie können all dies [in diesem JS Bin Beispiel](https://jsbin.com/ujiday/2/edit) zusammenarbeiten sehen.
 
-Datenattribute können auch verwendet werden, um Informationen zu speichern, die sich ständig ändern, wie z.B. Punktestände in einem Spiel. Durch die Verwendung von CSS-Selektoren und JavaScript-Zugriff können Sie damit einige schicke Effekte erstellen, ohne eigene Anzeige-Routinen schreiben zu müssen. Sehen Sie sich [diesen Screencast](https://www.youtube.com/watch?v=On_WyUB1gOk) für ein Beispiel mit generiertem Inhalt und CSS-Übergängen an ([JS Bin-Beispiel](https://jsbin.com/atawaz/3/edit)).
+Datenattribute können auch gespeichert werden, um Informationen, die sich ständig ändern, wie Spielstände, zu enthalten. Mit den hier gezeigten CSS-Selektoren und JavaScript-Zugriffen können Sie einige schicke Effekte erstellen, ohne eigene Anzeigeprogramme schreiben zu müssen. Sehen Sie sich [diesen Screencast](https://www.youtube.com/watch?v=On_WyUB1gOk) für ein Beispiel mit generiertem Inhalt und CSS-Übergängen an ([JS Bin Beispiel](https://jsbin.com/atawaz/3/edit)).
 
-Datenwerte sind Strings. Zahlenwerte müssen im Selektor zitiert werden, damit das Styling wirksam wird.
+Datenwerte sind Strings. Zahlenwerte müssen im Selektor in Anführungszeichen gesetzt werden, damit das Styling wirksam wird.
 
 ## Probleme
 
-Speichern Sie keinen Inhalt, der sichtbar und zugänglich sein sollte, in Datenattributen, da unterstützende Technologien möglicherweise nicht darauf zugreifen. Außerdem könnten Suchcrawler die Werte von Datenattributen nicht indexieren.
+Speichern Sie keine Inhalte, die sichtbar und zugänglich sein sollten, in Datenattributen, da unterstützende Technologien möglicherweise nicht darauf zugreifen können. Darüber hinaus könnten Suchmaschinen die Werte der Datenattribute nicht indizieren.
 
 ## Siehe auch
 
 - Dieser Artikel ist adaptiert von [Using data attributes in JavaScript and CSS on hacks.mozilla.org](https://hacks.mozilla.org/2012/10/using-data-attributes-in-javascript-and-css/).
-- Benutzerdefinierte Attribute werden auch in SVG 2 unterstützt; siehe [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) und {{SVGAttr("data-*")}} für weitere Informationen.
-- [Anleitung zur Verwendung von HTML-Datenattributen](https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/) (Sitepoint)
+- Benutzerdefinierte Attribute werden auch in SVG 2 unterstützt; siehe [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) und {{SVGAttr("data-*")}} für mehr Informationen.
+- [Wie man HTML-Datenattribute verwendet](https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/) (Sitepoint)

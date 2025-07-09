@@ -1,14 +1,12 @@
 ---
-title: HTML `class` Globales Attribut
+title: HTML-Klassen-Globales Attribut
 short-title: class
 slug: Web/HTML/Reference/Global_attributes/class
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar("Global_attributes")}}
-
-Das **`class`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist eine Liste der Klassen des Elements, getrennt durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}.
+Das **`class`**-Attribut [globales Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist eine Liste der Klassen des Elements, getrennt durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}.
 
 {{InteractiveExample("HTML Demo: class", "tabbed-standard")}}
 
@@ -42,15 +40,15 @@ Das **`class`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes
 
 Das `class`-Attribut ist eine Liste von Klassenwerten, die durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}} getrennt sind.
 
-Jeder Klassenwert kann beliebige Unicode-Zeichen enthalten (außer natürlich ASCII-Leerzeichen). Wenn sie jedoch in CSS-Selektoren verwendet werden, entweder von JavaScript über APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, müssen Klassenattributwerte gültige [CSS-Identifier](/de/docs/Web/CSS/ident) sein. Das bedeutet, dass wenn ein Klassenattributwert kein gültiger CSS-Identifier ist (zum Beispiel `my?class` oder `1234`), er vor der Verwendung in einem Selektor entweder mit der [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static)-Methode oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden muss.
+Jeder Klassenwert kann beliebige Unicode-Zeichen enthalten (außer natürlich ASCII-Leerzeichen). Wenn jedoch in CSS-Selektoren, entweder von JavaScript unter Verwendung von APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, Klassenattributwerte verwendet werden, müssen diese gültige [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. Das bedeutet, dass ein Klassenattributwert, der kein gültiger CSS-Bezeichner ist (z.B. `my?class` oder `1234`), vor der Verwendung in einem Selektor entweder mit der Methode [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden muss.
 
-Aus diesem Grund wird empfohlen, dass Entwickler Werte für Klassenattribute wählen, die gültige CSS-Identifier sind, die kein Maskieren erfordern.
+Aus diesem Grund wird empfohlen, dass Entwickler Werte für Klassenattribute wählen, die gültige CSS-Bezeichner sind und kein Maskieren erfordern.
 
 ## Beschreibung
 
-Klassen ermöglichen es CSS und JavaScript, spezifische Elemente über die [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) oder Funktionen wie [`document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und darauf zuzugreifen.
+Klassen ermöglichen es CSS und JavaScript, spezifische Elemente über die [Klassen-Selektoren](/de/docs/Web/CSS/Class_selectors) oder Funktionen wie [`document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und darauf zuzugreifen.
 
-Obwohl die Spezifikation keine Anforderungen an die Benennung von Klassen stellt, werden Webentwickler ermutigt, Namen zu verwenden, die den semantischen Zweck des Elements beschreiben, anstatt die Darstellung des Elements. Beispielsweise _attribut_, um ein Attribut zu beschreiben, anstatt _kursiv_, obwohl ein Element dieser Klasse kursiv dargestellt werden kann. Semantische Namen bleiben logisch, selbst wenn sich die Darstellung der Seite ändert.
+Obwohl die Spezifikation keine Anforderungen an die Namen von Klassen stellt, wird Webentwicklern empfohlen, Namen zu verwenden, die den semantischen Zweck des Elements beschreiben, anstatt die Präsentation des Elements. Zum Beispiel, _attribute_ um ein Attribut zu beschreiben, anstatt _italics_, obwohl ein Element dieser Klasse möglicherweise in _Kursiv_ dargestellt wird. Semantische Namen bleiben auch dann logisch, wenn sich die Präsentation der Seite ändert.
 
 ## Spezifikationen
 

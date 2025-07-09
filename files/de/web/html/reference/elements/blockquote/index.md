@@ -2,12 +2,10 @@
 title: "<blockquote>: Das Blockzitat-Element"
 slug: Web/HTML/Reference/Elements/blockquote
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<blockquote>`** [HTML](/de/docs/Web/HTML) Element gibt an, dass der eingeschlossene Text ein erweitertes Zitat ist. Üblicherweise wird dies visuell durch Einrückungen dargestellt (siehe [Hinweise](#nutzungshinweise) zum Ändern). Eine URL für die Quelle des Zitats kann mit dem `cite`-Attribut angegeben werden, während eine Textdarstellung der Quelle mit dem {{HTMLElement("cite")}}-Element angegeben werden kann.
+Das **`<blockquote>`**-[HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein längeres Zitat ist. Normalerweise wird dies visuell durch Einrückung dargestellt (siehe [Hinweise](#hinweise_zur_verwendung), um dies zu ändern). Eine URL für die Quelle des Zitats kann mit dem `cite`-Attribut angegeben werden, während eine textuelle Darstellung der Quelle mit dem {{HTMLElement("cite")}}-Element gegeben werden kann.
 
 {{InteractiveExample("HTML Demo: &lt;blockquote&gt;", "tabbed-standard")}}
 
@@ -49,15 +47,15 @@ blockquote + p {
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information bezeichnet. Dieses Attribut soll auf Informationen verweisen, die den Kontext oder die Referenz für das Zitat erklären.
+  - : Eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information angibt. Dieses Attribut ist dazu gedacht, auf Informationen zu verweisen, die den Kontext oder die Referenz für das Zitat erklären.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Laut der Spezifikation muss die Quellenangabe für das Zitat, sofern vorhanden, außerhalb des `<blockquote>`-Elements platziert werden.
+Gemäß der Spezifikation muss die Zuschreibung für das Zitat, falls vorhanden, außerhalb des `<blockquote>`-Elements platziert werden.
 
-Um die auf den zitierten Text angewendete Einrückung zu ändern, verwenden Sie die {{Glossary("CSS", "CSS")}} {{cssxref("margin-left")}} und/oder {{cssxref("margin-right")}}-Eigenschaften oder die {{cssxref("margin")}}-Kurzschreibweise.
+Um die Einrückung des zitierten Textes zu ändern, verwenden Sie die {{Glossary("CSS", "CSS")}} {{cssxref("margin-left")}}- und/oder {{cssxref("margin-right")}}-Eigenschaften oder die {{cssxref("margin")}}-Kurzschreibweise.
 
-Um kürzere Zitate inline statt in einem separaten Block einzufügen, verwenden Sie das {{HTMLElement("q")}} (Zitat)-Element.
+Um kürzere Zitate inline und nicht in einem separaten Block zu inkludieren, verwenden Sie das {{HTMLElement("q")}}-Element.
 
 ## Beispiele
 
@@ -107,7 +105,7 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch schließende Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -115,12 +113,11 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >
-        akzeptiert.
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code>
           <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents"
@@ -131,7 +128,7 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -151,5 +148,5 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
 ## Siehe auch
 
 - Das {{HTMLElement("q")}}-Element für Inline-Zitate.
-- Das {{HTMLElement("cite")}}-Element für Quellangaben.
-- [Das blockquote-Element](https://heydonworks.com/article/the-blockquote-element/) via heydonworks.com (2024)
+- Das {{HTMLElement("cite")}}-Element für Quellenangaben.
+- [Das blockquote-Element](https://heydonworks.com/article/the-blockquote-element/) über heydonworks.com (2024)

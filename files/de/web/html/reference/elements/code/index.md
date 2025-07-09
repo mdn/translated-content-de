@@ -2,12 +2,10 @@
 title: "<code>: Das Inline-Code-Element"
 slug: Web/HTML/Reference/Elements/code
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das **`<code>`**-[HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der darauf hinweist, dass der Text ein kurzes Fragment eines Computer-Codes ist. Standardmäßig wird der Inhalt in der Standardschriftart mit fester Zeichenbreite des {{Glossary("user_agent", "Benutzeragenten")}} angezeigt.
+Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der darauf hinweist, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Inhaltstext in der Standard-Schriftart mit fester Breite des {{Glossary("user_agent", "User-Agents")}} angezeigt.
 
 {{InteractiveExample("HTML Demo: &lt;code&gt;", "tabbed-shorter")}}
 
@@ -29,7 +27,7 @@ code {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -46,11 +44,11 @@ Ein Absatz von Text, der `<code>` enthält:
 
 {{EmbedLiveSample("Example", 640, 70)}}
 
-## Hinweise
+## Anmerkungen
 
-Um mehrere Codezeilen darzustellen, wickeln Sie das `<code>`-Element in ein {{HTMLElement("pre")}}-Element ein. Das `<code>`-Element selbst repräsentiert nur eine einzelne Codephrase oder -zeile.
+Um mehrere Codezeilen darzustellen, umschließen Sie das `<code>`-Element mit einem {{HTMLElement("pre")}}-Element. Das `<code>`-Element allein stellt nur eine einzelne Codephrase oder eine einzelne Codezeile dar.
 
-Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Vom Benutzer festgelegte Präferenzen können die angegebenen CSS-Vorgaben überschreiben.
+Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Benutzereinstellungen können die festgelegten CSS-Einstellungen überwiegen.
 
 ## Technische Zusammenfassung
 
@@ -67,7 +65,7 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardsc
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -75,25 +73,25 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardsc
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind Pflicht.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">code</a
@@ -102,7 +100,7 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardsc
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>

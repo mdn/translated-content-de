@@ -3,18 +3,16 @@ title: "HTML-Attribut: size"
 short-title: size
 slug: Web/HTML/Reference/Attributes/size
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`size`**-Attribut definiert die Breite des {{htmlelement('input')}} und die Höhe des {{htmlelement('select')}}-Elements. Für ein `input`-Element definiert es die Anzahl an Zeichen, die der Benutzeragent dem Benutzer anzeigt, während der Wert bearbeitet wird. Für ein `select`-Element definiert es die Anzahl der Optionen, die dem Benutzer angezeigt werden sollen. Dies muss eine gültige, nicht-negative Ganzzahl größer als Null sein.
 
-Das **`size`**-Attribut definiert die Breite des {{htmlelement('input')}}- und die Höhe des {{htmlelement('select')}}-Elements. Für ein `input`-Element definiert es die Anzahl der Zeichen, die der Benutzeragent dem Nutzer beim Bearbeiten des Werts anzeigt. Bei einem `select`-Element legt es die Anzahl der Optionen fest, die dem Nutzer angezeigt werden sollen. Dies muss eine gültige, nicht-negative ganze Zahl größer als null sein.
+Wenn keine `size` angegeben ist oder ein ungültiger Wert angegeben wird, hat das Input-Element keine deklarierte Größe, und das Formularelement wird die Standardbreite basierend auf dem Benutzeragenten haben. Wenn CSS auf das Element angewendet wird, das die Breite beeinflusst, hat CSS Vorrang.
 
-Falls keine `size` angegeben ist oder ein ungültiger Wert angegeben wird, hat das input-Element keine deklarierte Größe, und das Formularelement wird die Standardbreite basierend auf dem Benutzeragenten haben. Wenn CSS-Eigenschaften auf das Element angewendet werden, die die Breite beeinflussen, hat CSS Vorrang.
+Das `size`-Attribut hat keinen Einfluss auf die Gültigkeitsüberprüfung von Einschränkungen.
 
-Das `size`-Attribut hat keinen Einfluss auf die Prüfung von Einschränkungen.
-
-{{InteractiveExample("HTML-Demo: size", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: size", "tabbed-standard")}}
 
 ```html interactive-example
 <label for="firstName">First Name:</label>
@@ -40,7 +38,7 @@ label {
 
 ## Beispiele
 
-Durch Hinzufügen von `size` zu einigen Input-Typen kann die Breite des Input-Felds gesteuert werden. Wenn `size` zu einem Select hinzugefügt wird, ändert sich die Höhe und definiert, wie viele Optionen im geschlossenen Zustand sichtbar sind.
+Durch Hinzufügen von `size` zu einigen Input-Typen kann die Breite des Inputs gesteuert werden. Das Hinzufügen von size bei einem Select ändert die Höhe, indem definiert wird, wie viele Optionen im geschlossenen Zustand sichtbar sind.
 
 ```html
 <label for="fruit">Enter a fruit</label>

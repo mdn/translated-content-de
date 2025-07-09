@@ -2,20 +2,18 @@
 title: "<pre>: Das Element für vorformatierten Text"
 slug: Web/HTML/Reference/Elements/pre
 l10n:
-  sourceCommit: 3f411c383420140dfbd5c81ab39a6e12efd1857d
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`<pre>`**-[HTML](/de/docs/Web/HTML)-Element steht für vorformatierten Text, der genau so dargestellt werden soll, wie er im HTML-Dokument geschrieben ist. Der Text wird normalerweise in einer nicht-proportionalen oder [monospaced](https://en.wikipedia.org/wiki/Monospaced_font) Schriftart dargestellt.
 
-Das **`<pre>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert vorformatierten Text, der genau so dargestellt wird, wie er in der HTML-Datei geschrieben ist. Der Text wird typischerweise mit einer nicht-proportionalen oder [monospace](https://en.wikipedia.org/wiki/Monospaced_font)-Schriftart dargestellt.
+Leerzeichen innerhalb dieses Elements werden wie geschrieben angezeigt, mit einer Ausnahme. Wenn sofort nach dem öffnenden `<pre>`-Tag ein oder mehrere führende Zeilenumbruchzeichen enthalten sind, wird das _erste_ Zeilenumbruchzeichen entfernt.
 
-Leerzeichen innerhalb dieses Elements werden so angezeigt, wie sie geschrieben sind, mit einer Ausnahme. Wenn ein oder mehrere führende Zeilenumbrüche direkt nach dem öffnenden `<pre>`-Tag enthalten sind, wird der _erste_ Zeilenumbruch entfernt.
+Der Textinhalt von `<pre>`-Elementen wird als HTML geparst. Wenn Sie möchten, dass Ihr Textinhalt als Klartext bleibt, müssen einige Syntaxzeichen, wie `<`, unter Verwendung ihrer entsprechenden {{Glossary("character_reference", "Zeichenreferenzen")}} maskiert werden. Weitere Informationen finden Sie unter [Zweideutige Zeichen maskieren](#zweideutige_zeichen_maskieren).
 
-Der Textinhalt von `<pre>`-Elementen wird als HTML analysiert. Wenn Sie sicherstellen möchten, dass Ihr Textinhalt als reiner Text bleibt, müssen einige Syntaxzeichen, wie `<`, möglicherweise mit ihren entsprechenden {{Glossary("character_reference", "Zeichenreferenzen")}} escaped werden. Weitere Informationen finden Sie unter [escaping ambiguous characters](#escaping_von_mehrdeutigen_zeichen).
+`<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}} Elemente, um Computer-Code, Computerausgabe und Benutzereingaben darzustellen.
 
-`<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}} Elemente, um jeweils Computercode, Computerausgaben und Benutzereingaben darzustellen.
-
-Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Blockelement")}}, das heißt, sein Standardwert für {{cssxref("display")}} ist `block`.
+Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Block-Element")}}, d.h. sein Standardwert für {{cssxref("display")}} ist `block`.
 
 {{InteractiveExample("HTML Demo: &lt;pre&gt;", "tabbed-standard")}}
 
@@ -51,20 +49,20 @@ pre {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Enthält die _bevorzugte_ Anzahl von Zeichen, die eine Zeile haben sollte. Obwohl technisch noch implementiert, hat dieses Attribut keinen visuellen Effekt; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("width")}}.
+  - : Enthält die _bevorzugte_ Anzahl von Zeichen, die eine Zeile haben sollte. Obwohl technisch noch implementiert, hat dieses Attribut keine visuelle Auswirkung; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("width")}}.
 - `wrap` {{non-standard_inline}} {{Deprecated_Inline}}
-  - : Ist ein _Hinweis_, der angibt, wie der Overflow erfolgen muss. In modernen Browsern wird dieser Hinweis ignoriert und hat keinen visuellen Effekt; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("white-space")}}.
+  - : Ist ein _Hinweis_, wie der Überlauf geschehen muss. In modernen Browsern wird dieser Hinweis ignoriert und hat keine visuelle Wirkung; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("white-space")}}.
 
 ## Barrierefreiheit
 
-Es ist wichtig, eine alternative Beschreibung für alle Bilder oder Diagramme bereitzustellen, die mit vorformatiertem Text erstellt wurden. Die alternative Beschreibung sollte den Inhalt des Bildes oder des Diagramms klar und prägnant beschreiben.
+Es ist wichtig, eine alternative Beschreibung für alle Bilder oder Diagramme bereitzustellen, die mit vorformatiertem Text erstellt wurden. Die alternative Beschreibung sollte den Inhalt des Bildes oder Diagramms klar und prägnant beschreiben.
 
-Menschen mit Sehbehinderungen, die mit Hilfe von unterstützenden Technologien wie einem Screenreader im Internet surfen, verstehen möglicherweise nicht, was die Zeichen des vorformatierten Textes darstellen sollen, wenn sie nacheinander vorgelesen werden.
+Personen mit Sehbehinderungen, die mithilfe von unterstützender Technologie wie einem Screenreader surfen, können möglicherweise nicht verstehen, was die vorformatierten Textzeichen darstellen, wenn sie in der Reihenfolge vorgelesen werden.
 
-Eine Kombination aus den {{HTMLElement("figure")}}- und {{HTMLElement("figcaption")}}-Elementen, ergänzt durch die [ARIA](/de/docs/Web/Accessibility/ARIA) `role`- und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribute auf dem `pre`-Element ermöglicht es, dass die vorformatierte {{Glossary("ASCII", "ASCII")}}-Kunst als Bild mit alternativem Text angekündigt wird, wobei das `figcaption` als Bildunterschrift dient.
+Eine Kombination aus den {{HTMLElement("figure")}} und {{HTMLElement("figcaption")}} Elementen, ergänzt durch die [ARIA](/de/docs/Web/Accessibility/ARIA) `role` und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attribute auf dem `pre`-Element, ermöglicht es, dass die vorformatierte {{Glossary("ASCII", "ASCII")}}-Kunst als Bild mit alternativem Text angekündigt wird, wobei die `figcaption` als Bildunterschrift dient.
 
 ### Beispiel
 
@@ -87,8 +85,8 @@ Eine Kombination aus den {{HTMLElement("figure")}}- und {{HTMLElement("figcaptio
 </figure>
 ```
 
-- [MDN Verstehen der WCAG, Richtlinien 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [H86: Bereitstellung von Textalternativen für ASCII-Art, Emoticons und Leetspeak | W3C-Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H86.html)
+- [MDN Understanding WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [H86: Bereitstellung von Textalternativen für ASCII-Kunst, Emoticons und Leetspeak | W3C-Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H86.html)
 
 ## Beispiele
 
@@ -109,17 +107,17 @@ body {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Escaping von mehrdeutigen Zeichen
+### Zweideutige Zeichen maskieren
 
-Angenommen, Sie möchten HTML-Code in einem `<pre>`-Element darstellen. Die Zeichenfolgen, die gültige HTML-Tags definieren (beginnend mit `<` und endend mit `>`), werden nicht angezeigt. Um die Tag-Zeichen als Text darzustellen, müssen Sie mindestens das `<`-Zeichen mit seiner Zeichenreferenz escapen, sodass die Sequenzen keine gültigen Tags mehr definieren.
+Angenommen, Sie möchten HTML-Code in einem `<pre>`-Element demonstrieren. Die Zeichenfolgen, die gültige HTML-Tags definieren (beginnend mit `<` und endend mit `>`), werden nicht angezeigt. Um die Zeichen der Tags als Text anzuzeigen, müssen Sie das `<`-Zeichen mithilfe seiner Zeichenreferenz maskieren, sodass die Zeichenfolgen keine gültigen Tags mehr definieren.
 
-Tatsächlich behandelt der HTML-Parser die meisten Zeichen als einfachen Text, es sei denn, es handelt sich um spezifische Kontexte. Zum Beispiel ist `< code` in Ordnung, aber `<code` würde falsch interpretiert; `&am;` ist in Ordnung, aber `&amp;` ist es nicht. Dennoch ist es eine gute Praxis, alle mehrdeutigen Zeichen zu escapen, um jede Verwirrung zu vermeiden, insbesondere wenn Sie HTML programmgesteuert generieren und den `<pre>`-Inhalt injizieren. Hier ist eine gute Faustregel, wie man Zeichen escapt:
+Tatsächlich behandelt der HTML-Parser die meisten Zeichen als Klartext, es sei denn, sie befinden sich in bestimmten Kontexten. Zum Beispiel ist `< code` in Ordnung, aber `<code` würde falsch geparst werden; `&am;` ist in Ordnung, aber `&amp;` ist es nicht. Es ist jedoch eine gute Praxis, alle mehrdeutigen Zeichen zu maskieren, um Verwirrung zu vermeiden, insbesondere wenn Sie HTML programmgesteuert generieren und den `<pre>`-Inhalt einfügen. In diesem Fall ist hier eine gute Faustregel zur Maskierung von Zeichen:
 
-1. Schreiben Sie zuerst den Inhalt so, wie Sie ihn im HTML-Dokument erscheinen lassen möchten.
-2. Ersetzen Sie alle Ampersands (`&`) durch `&amp;`. Machen Sie diesen Schritt zuerst, damit neu erzeugte `&`-Zeichen im nächsten Schritt nicht eskapiert werden.
+1. Schreiben Sie zuerst den Inhalt aus, wie er im HTML-Dokument erscheinen soll.
+2. Ersetzen Sie alle kaufmännischen Und-Zeichen (`&`) durch `&amp;`. Machen Sie diesen Schritt zuerst, damit neu erzeugte `&`-Zeichen im nächsten Schritt nicht maskiert werden.
 3. Ersetzen Sie alle `<`-Zeichen durch `&lt;`.
 
-Das sollte dazu führen, dass der Inhalt wie gewünscht angezeigt wird. Das Ersetzen anderer HTML-Syntaxzeichen ist optional (wie `>` zu `&gt;`, `"` zu `&quot;`, und `'` zu `&apos;`), schadet jedoch nicht.
+Dies sollte dazu führen, dass der Inhalt wie beabsichtigt angezeigt wird. Das Ersetzen anderer HTML-Syntaxzeichen ist optional (wie `>` in `&gt;`, `"` in `&quot;` und `'` in `&apos;`), schadet aber nicht.
 
 #### HTML
 
@@ -148,12 +146,12 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
-        >, fühlbarer Inhalt.
+          >Flussinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phraseninhalt</a
@@ -161,16 +159,17 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen des Tags</th>
-      <td>Keines, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
-        > akzeptiert.
+          >Flussinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -185,7 +184,7 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
     </tr>
     <tr>
       <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

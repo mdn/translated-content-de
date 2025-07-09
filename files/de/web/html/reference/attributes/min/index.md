@@ -3,16 +3,14 @@ title: "HTML-Attribut: min"
 short-title: min
 slug: Web/HTML/Reference/Attributes/min
 l10n:
-  sourceCommit: f4372ac9926fc2a1cbe408dae02b381b7f1909da
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`min`**-Attribut definiert den minimalen Wert, der für die Eingabe mit diesem Attribut akzeptabel und gültig ist. Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements kleiner ist als dieser Wert, schlägt die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) des Elements fehl. Dieser Wert muss kleiner oder gleich dem Wert des `max`-Attributs sein.
 
-Das **`min`** Attribut definiert den minimal akzeptablen und gültigen Wert für die Eingabe, die das Attribut enthält. Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements kleiner als dieser Wert ist, schlägt die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) des Elements fehl. Dieser Wert muss kleiner oder gleich dem Wert des `max` Attributs sein.
+Einige Eingabetypen haben einen Standard-Mindestwert. Wenn die Eingabe keinen Standard-Mindestwert hat und für `min` ein Wert festgelegt wird, der nicht in eine gültige Zahl umgewandelt werden kann (oder kein Mindestwert festgelegt wird), hat die Eingabe keinen Mindestwert.
 
-Einige Eingabetypen haben einen standardmäßigen Minimalwert. Wenn die Eingabe keinen standardmäßigen Minimalwert aufweist und ein Wert für `min` angegeben wird, der nicht in eine gültige Zahl umgewandelt werden kann (oder kein Minimalwert festgelegt ist), hat die Eingabe keinen Minimalwert.
-
-Es ist gültig für die Eingabetypen: {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}}, sowie das {{htmlelement('meter')}} Element.
+Es ist gültig für die Eingabetypen einschließlich: {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen, und das {{htmlelement('meter')}} Element.
 
 ## Syntax
 
@@ -78,11 +76,11 @@ Es ist gültig für die Eingabetypen: {{HTMLElement("input/date", "date")}}, {{H
 </table>
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht den festgelegten Mindestwert einhalten, wird der Wert in der Restriktionsvalidierung als ungültig angesehen und entspricht den {{cssxref(':invalid')}} und {{cssxref(':out-of-range')}} Pseudoklassen.
+> Wenn die von dem Benutzer eingegebenen Daten nicht dem festgelegten Mindestwert entsprechen, wird der Wert in der Einschränkungsvalidierung als ungültig betrachtet und entspricht den {{cssxref(':invalid')}} und {{cssxref(':out-of-range')}} Pseudoklassen.
 
-Weitere Informationen finden Sie unter [Client-seitige Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) und [`rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow).
+Siehe [Client-seitige Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) und [`rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow) für mehr Informationen.
 
-Für das {{htmlelement('meter')}} Element definiert das `min` Attribut die untere numerische Grenze des gemessenen Bereichs. Diese muss kleiner als der maximal zulässige Wert ([`max`](/de/docs/Web/HTML/Reference/Attributes/max) Attribut) sein, falls angegeben. In beiden Fällen, wenn sie weggelassen wird, beträgt der Standardwert 1.
+Für das {{htmlelement('meter')}} Element definiert das `min`-Attribut die untere numerische Grenze des gemessenen Bereichs. Diese muss kleiner sein als der maximale Wert ([`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attribut), falls festgelegt. In beiden Fällen, wenn weggelassen, ist der Standardwert 1.
 
 <table class="no-markdown">
   <caption>
@@ -104,7 +102,7 @@ Für das {{htmlelement('meter')}} Element definiert das `min` Attribut die unter
       <td>
         <code
           >&#x3C;meter id="fuel" min="0" max="100" low="33" high="66"
-          optimum="80" value="40"> at 40/100&#x3C;/meter></code
+          optimum="80" value="40"> bei 40/100&#x3C;/meter></code
         >
       </td>
     </tr>
@@ -113,7 +111,7 @@ Für das {{htmlelement('meter')}} Element definiert das `min` Attribut die unter
 
 ### Auswirkungen auf Schritt
 
-Der Wert von `min` und `step` definiert, welche Werte gültig sind, selbst wenn das `step` Attribut nicht eingeschlossen ist, da `step` standardmäßig auf `0` gesetzt ist.
+Der Wert von `min` und `step` definiert, welche Werte gültig sind, auch wenn das `step`-Attribut nicht enthalten ist, da `step` standardmäßig `0` ist.
 
 Wir fügen einen großen roten Rahmen um ungültige Eingaben hinzu:
 
@@ -123,21 +121,21 @@ input:invalid {
 }
 ```
 
-Definieren Sie dann eine Eingabe mit einem Mindestwert von 7.2, indem Sie das Schrittattribut weglassen, wobei es auf 1 standardmäßig gesetzt ist.
+Dann definieren wir eine Eingabe mit einem Mindestwert von 7.2 und lassen das Step-Attribut weg, wobei es standardmäßig auf 1 gesetzt wird.
 
 ```html
 <input id="myNumber" name="myNumber" type="number" min="7.2" value="8" />
 ```
 
-Da `step` standardmäßig 1 ist, sind die gültigen Werte `7.2`, `8.2`, `9.2` und so weiter. Der Wert 8 ist nicht gültig. Da wir einen ungültigen Wert eingeschlossen haben, zeigen unterstützende Browser den Wert als ungültig an.
+Da `step` standardmäßig 1 ist, sind gültige Werte `7.2`, `8.2`, `9.2` und so weiter. Der Wert 8 ist nicht gültig. Da wir einen ungültigen Wert angegeben haben, werden unterstützende Browser den Wert als ungültig anzeigen.
 
 {{EmbedLiveSample("Impact_on_step",200,55)}}
 
-Wenn nicht ausdrücklich eingeschlossen, ist `step` standardmäßig 1 für `number` und `range` und 1 Einheitstyp (Sekunde, Woche, Monat, Tag) für die Datums-/Zeiteingabetypen.
+Wenn nicht explizit angegeben, ist `step` standardmäßig 1 für `number` und `range`, und 1 Einheitstyp (Sekunde, Woche, Monat, Tag) für die Datum/Zeit-Eingabetypen.
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-Geben Sie Anweisungen an, die Benutzern dabei helfen, das Formular zu vervollständigen und einzelne Formularelemente zu benutzen. Geben Sie an, welche Eingaben erforderlich und optional sind, welche Datenformate und andere relevante Informationen. Stellen Sie sicher, dass das minimale Erfordernis des `min` Attributs vom Benutzer verstanden wird. Die Bereitstellung von Anweisungen innerhalb des {{htmlelement('label')}} kann ausreichend sein. Wenn Anweisungen außerhalb von Labels bereitgestellt werden, was eine flexiblere Positionierung und Gestaltung ermöglicht, erwägen Sie die Verwendung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby).
+Geben Sie Anweisungen, um Benutzern zu helfen, das Formular auszufüllen und die einzelnen Formularelemente zu verwenden. Geben Sie an, welche Eingaben erforderlich und optional sind, welche Datenformate benötigt werden und andere relevante Informationen. Wenn Sie das `min`-Attribut verwenden, stellen Sie sicher, dass diese Mindestanforderung vom Benutzer verstanden wird. Das Bereitstellen von Anweisungen innerhalb des {{htmlelement('label')}} kann ausreichend sein. Wenn Sie Anweisungen außerhalb von Labels bereitstellen, was eine flexiblere Positionierung und Gestaltung ermöglicht, erwägen Sie die Verwendung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby).
 
 ## Spezifikationen
 

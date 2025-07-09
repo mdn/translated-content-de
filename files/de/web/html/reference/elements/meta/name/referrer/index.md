@@ -3,13 +3,11 @@ title: <meta name="referrer">
 short-title: referrer
 slug: Web/HTML/Reference/Elements/meta/name/referrer
 l10n:
-  sourceCommit: 0b8f00bb9ece33c6964eea886b2f7db8711d7b62
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
 Der **`referrer`**-Wert für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)-Attribut des {{htmlelement("meta")}}-Elements steuert den HTTP-{{httpheader("Referer")}}-Header von Anfragen, die vom Dokument gesendet werden.
-Falls angegeben, definieren Sie den Referrer mit einem [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attribut im `<meta>`-Element als Schlüsselwortwert.
+Wenn angegeben, definieren Sie den Referrer mit einem [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attribut im `<meta>`-Element als Schlüsselwortwert.
 
 Zum Beispiel sendet das folgende `<meta>`-Element den {{Glossary("origin", "origin")}} des Dokuments als Referrer:
 
@@ -21,33 +19,33 @@ Zum Beispiel sendet das folgende `<meta>`-Element den {{Glossary("origin", "orig
 > Das dynamische Einfügen von `<meta name="referrer">` (mit [`document.write()`](/de/docs/Web/API/Document/write) oder [`appendChild()`](/de/docs/Web/API/Node/appendChild)) macht das Referrer-Verhalten unvorhersehbar.
 > Wenn mehrere widersprüchliche Richtlinien definiert sind, wird die `no-referrer`-Richtlinie angewendet.
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 Ein `<meta name="referrer">`-Element hat die folgenden zusätzlichen Attribute:
 
 - [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)
-  - : Legt den Referrer des Dokuments fest. Sie müssen dieses Attribut definieren.
+  - : Setzt den Dokument-Referrer. Sie müssen dieses Attribut definieren.
     Akzeptiert einen der folgenden Werte:
     - `no-referrer`
       - : Sendet keinen HTTP-`Referer`-Header.
     - `origin`
       - : Sendet den Ursprung des Dokuments.
     - `no-referrer-when-downgrade`
-      - : Sendet die vollständige URL, wenn das Ziel mindestens so sicher ist wie die aktuelle Seite (HTTP(S)→HTTPS), aber sendet keinen Referrer, wenn es weniger sicher ist (HTTPS→HTTP). Dies ist das Standardverhalten.
+      - : Sendet die volle URL, wenn das Ziel mindestens so sicher ist wie die aktuelle Seite (HTTP(S)→HTTPS), sendet aber keinen Referrer, wenn es weniger sicher ist (HTTPS→HTTP). Dies ist das Standardverhalten.
     - `origin-when-cross-origin`
-      - : Sendet die vollständige URL (ohne Parameter) für gleich-originierte Anfragen, sendet aber nur den Ursprung in anderen Fällen.
+      - : Sendet die volle URL (ohne Parameter) für Anfragen gleichen Ursprungs, aber nur den Ursprung für andere Fälle.
     - `same-origin`
-      - : Sendet die vollständige URL (ohne Parameter) für gleich-originierte Anfragen. Bei Cross-Origin-Anfragen wird kein Referrer-Header enthalten sein.
+      - : Sendet die volle URL (ohne Parameter) für Anfragen gleichen Ursprungs. Anfragen von einem anderen Ursprung enthalten keinen Referrer-Header.
     - `strict-origin`
-      - : Sendet den Ursprung, wenn das Ziel mindestens so sicher ist wie die aktuelle Seite (HTTP(S)→HTTPS), aber sendet keinen Referrer, wenn es weniger sicher ist (HTTPS→HTTP).
+      - : Sendet den Ursprung, wenn das Ziel mindestens so sicher ist wie die aktuelle Seite (HTTP(S)→HTTPS), sendet aber keinen Referrer, wenn es weniger sicher ist (HTTPS→HTTP).
     - `strict-origin-when-cross-origin`
-      - : Sendet die vollständige URL (ohne Parameter) für gleich-originierte Anfragen. Sendet den Ursprung, wenn das Ziel mindestens so sicher ist wie die aktuelle Seite (HTTP(S)→HTTPS). Andernfalls wird kein Referrer gesendet.
+      - : Sendet die volle URL (ohne Parameter) für Anfragen gleichen Ursprungs. Sendet den Ursprung, wenn das Ziel mindestens so sicher ist wie die aktuelle Seite (HTTP(S)→HTTPS). Andernfalls sendet es keinen Referrer.
     - `unsafe-URL`
-      - : Sendet die vollständige URL (ohne Parameter) für gleich-originierte oder Cross-Origin-Anfragen.
+      - : Sendet die volle URL (ohne Parameter) für Anfragen gleichen oder anderen Ursprungs.
 
 ## Beispiele
 
-### Einen Referrer von Anfragen entfernen
+### Entfernen eines Referrers aus Anfragen
 
 Das folgende `<meta>`-Element gibt an, dass das Dokument keinen `Referer`-Header mit HTTP-Anfragen vom Dokument senden soll:
 

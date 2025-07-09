@@ -2,14 +2,12 @@
 title: rel="dns-prefetch"
 slug: Web/HTML/Reference/Attributes/rel/dns-prefetch
 l10n:
-  sourceCommit: 0389dd29e0827791ad9d2f6b8cda217c121f9c19
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Das **`dns-prefetch`**-Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Elements/link#rel)-Attribut des {{HTMLElement("link")}}-Elements ist ein Hinweis für Browser, dass der Benutzer wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt. Daher kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er proaktiv die DNS-Auflösung für diesen Ursprung durchführt.
 
-Das **`dns-prefetch`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Elements/link#rel) Attribut des {{HTMLElement("link")}} Elements ist ein Hinweis für Browser, dass der Benutzer wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt. Daher kann der Browser die Benutzererfahrung verbessern, indem er präventiv die DNS-Auflösung für diesen Ursprung durchführt.
-
-Weitere Einzelheiten finden Sie unter [Verwendung von dns-prefetch](/de/docs/Web/Performance/Guides/dns-prefetch).
+Siehe [Verwendung von dns-prefetch](/de/docs/Web/Performance/Guides/dns-prefetch) für weitere Details.
 
 ## Spezifikationen
 
@@ -21,4 +19,4 @@ Weitere Einzelheiten finden Sie unter [Verwendung von dns-prefetch](/de/docs/Web
 
 ## Siehe auch
 
-- [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading) für einen Vergleich zwischen `<link rel="dns-prefetch">` und anderen ähnlichen Leistungsverbesserungsfunktionen.
+- [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading) für einen Vergleich von `<link rel="dns-prefetch">` und anderen ähnlichen Funktionen zur Leistungsverbesserung.

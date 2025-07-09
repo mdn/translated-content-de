@@ -2,25 +2,23 @@
 title: Inhaltskategorien
 slug: Web/HTML/Guides/Content_categories
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Die meisten [HTML](/de/docs/Web/HTML)-Elemente gehören zu einer oder mehreren **Inhaltskategorien** – diese Kategorien gruppieren Elemente, die gemeinsame Merkmale aufweisen. Dabei handelt es sich um eine lose Gruppierung (sie schafft tatsächlich keine Beziehung zwischen den Elementen dieser Kategorien), aber sie helfen, das gemeinsame Verhalten der Kategorien und deren zugehörige Regeln zu definieren und zu beschreiben. Es ist möglich, dass Elemente (wie {{HTMLElement("track")}}) nicht Mitglied _irgendeiner_ dieser Kategorien sind.
 
-Die meisten [HTML](/de/docs/Web/HTML)-Elemente gehören zu einer oder mehreren **Inhaltskategorien** – diese Kategorien gruppieren Elemente, die gemeinsame Merkmale teilen. Dies ist eine lose Gruppierung (es wird tatsächlich keine Beziehung zwischen Elementen dieser Kategorien geschaffen), aber sie helfen dabei, das gemeinsame Verhalten der Kategorien und ihre zugehörigen Regeln zu definieren und zu beschreiben. Es ist möglich, dass Elemente (wie {{HTMLElement("track")}}) nicht Mitglied _irgendeiner_ dieser Kategorien sind.
+Die Inhaltskategorien werden verwendet, um das _Inhaltsmodell_ von Elementen zu definieren, mit anderen Worten, was jedes Element als Nachkommen enthalten kann. Beispielsweise kann ein `<p>`-Element nur _Phrasierungsinhalte_ enthalten, während ein `<div>`-Element _Flussinhalte_ enthalten kann.
 
-Die Inhaltskategorien werden verwendet, um das _Inhaltsmodell_ von Elementen zu definieren, also was jedes Element als Nachkommen haben kann. Beispielsweise kann ein `<p>`-Element nur _Phrasierungsinhalt_ enthalten, während ein `<div>`-Element _Flussinhalt_ enthalten kann.
+Es gibt sieben Haupt-Inhaltskategorien, die durch das folgende Venn-Diagramm zusammengefasst werden können:
 
-Es gibt sieben Hauptinhaltskategorien, die im folgenden Venn-Diagramm zusammengefasst sind:
-
-![Ein Venn-Diagramm, das zeigt, wie die verschiedenen Inhaltskategorien miteinander in Beziehung stehen. Die folgenden Abschnitte erklären diese Beziehungen im Text.](content_categories_venn.png)
+![Ein Venn-Diagramm, das zeigt, wie die verschiedenen Inhaltskategorien interagieren. Die folgenden Abschnitte erklären diese Beziehungen im Text.](content_categories_venn.png)
 
 > [!NOTE]
-> Eine ausführlichere Diskussion dieser Inhaltskategorien und ihrer vergleichenden Funktionalitäten geht über den Umfang dieses Artikels hinaus; falls Sie daran interessiert sind, lesen Sie bitte die [relevanten Teile der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content).
+> Eine ausführlichere Diskussion dieser Inhaltskategorien und ihrer vergleichenden Funktionen geht über den Rahmen dieses Artikels hinaus; möglicherweise möchten Sie die [relevanten Teile der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content) lesen.
 
-## Metadateninhalt
+## Metadaten-Inhalt
 
-Elemente, die zur Kategorie _Metadateninhalt_ gehören, ändern die Darstellung oder das Verhalten des restlichen Dokuments, richten Links zu anderen Dokumenten ein oder vermitteln andere _außerhalb des Dokuments befindliche_ Informationen. Alles im {{htmlelement("head")}}, einschließlich `<title>`, `<link>`, `<script>`, `<style>` und dem weniger verwendeten `<base>`, ist Metadateninhalt. Es gibt ein `<meta>`-Element für Metadaten, die durch diese anderen Elemente nicht dargestellt werden können.
+Elemente, die zur Kategorie _Metadaten-Inhalt_ gehören, ändern die Darstellung oder das Verhalten des restlichen Dokuments, richten Links zu anderen Dokumenten ein oder vermitteln andere _Out-of-Band_-Informationen. Alles im {{htmlelement("head")}}, einschließlich `<title>`, `<link>`, `<script>`, `<style>` und der weniger gebräuchlichen `<base>`, ist Metadaten-Inhalt. Es gibt ein `<meta>`-Element für Metadaten, die nicht durch diese anderen Elemente dargestellt werden können.
 
 Die Metadaten-Elemente sind:
 
@@ -33,11 +31,11 @@ Die Metadaten-Elemente sind:
 - {{HTMLElement("template")}}
 - {{HTMLElement("title")}}
 
-Einige dieser Elemente gehören mehr als einer Inhaltskategorie an. Zum Beispiel ist `<script>` Mitglied der Kategorien Metadaten, Fluss- und Phrasierungsinhalt und ist ein skriptunterstützendes Element; `<script>` kann verwendet werden, wo Metadateninhalt, Phrasierungsinhalt oder skriptunterstützende Elemente erwartet werden.
+Einige dieser Elemente gehören zu mehr als einer Inhaltskategorie. Zum Beispiel ist `<script>` Mitglied der Metadaten-, Fluss- und Phrasierungskategorien und ist ein skriptunterstützendes Element; `<script>` kann dort verwendet werden, wo Metadaten-Inhalte, Phrasierungsinhalte oder skriptunterstützende Elemente erwartet werden.
 
 ## Flussinhalt
 
-Flussinhalt ist eine breite Kategorie, die die meisten Elemente umfasst, die innerhalb des {{HTMLElement("body")}}-Elements platziert werden können, einschließlich überschriftenbasierter Elemente, Abschnittselemente, Phrasierungselemente, Einbettungselemente, interaktiver Elemente und formularbezogener Elemente. Es enthält auch Textknoten (aber nicht jene, die nur aus Leerzeichen bestehen).
+Flussinhalt ist eine breite Kategorie, die die meisten Elemente umfasst, die innerhalb des {{HTMLElement("body")}}-Elements gehen können, einschließlich Überschriftselemente, Abschnittselemente, Phrasierungselemente, Einbettungselemente, interaktive Elemente und formularbezogene Elemente. Es umfasst auch Textknoten (aber nicht solche, die nur aus Leerzeichen bestehen).
 
 Die Flusselemente sind:
 
@@ -125,13 +123,13 @@ Die Flusselemente sind:
 
 Einige andere Elemente gehören zu dieser Kategorie, aber nur, wenn eine bestimmte Bedingung erfüllt ist:
 
-- {{HTMLElement("area")}}, wenn es ein Nachfahre eines {{HTMLElement("map")}}-Elements ist
+- {{HTMLElement("area")}}, wenn es ein Nachkomme eines {{HTMLElement("map")}}-Elements ist
 - {{HTMLElement("link")}}, wenn das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)-Attribut vorhanden ist
 - {{HTMLElement("meta")}}, wenn das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)-Attribut vorhanden ist
 
 ## Abschnittsinhalt
 
-Abschnittsinhalt, eine Unterkategorie des Flussinhalts, erstellt einen [Abschnitt in der aktuellen Gliederung](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), der den Geltungsbereich von {{HTMLElement("header")}}- und {{HTMLElement("footer")}}-Elementen definiert.
+Abschnittsinhalt, eine Untergruppe von Flussinhalt, erstellt einen [Abschnitt in der aktuellen Gliederung](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), der den Umfang der {{HTMLElement("header")}}- und {{HTMLElement("footer")}}-Elemente definiert.
 
 Die Abschnittselemente sind:
 
@@ -140,21 +138,21 @@ Die Abschnittselemente sind:
 - {{HTMLElement("nav")}}
 - {{HTMLElement("section")}}
 
-## Überschriftselemente
+## Überschrifteninhalt
 
-Überschriftselemente, eine Unterkategorie des Flussinhalts, definieren den Titel eines Abschnitts. Diese Definition gilt sowohl für Abschnitte, die durch explizite [Abschnittsinhalt](#abschnittsinhalt)-Elemente markiert sind, als auch für solche, die implizit durch den Überschrifteninhalt selbst definiert sind.
+Überschrifteninhalt, eine Untergruppe von Flussinhalt, definiert den Titel eines Abschnitts. Diese Definition gilt sowohl für Abschnitte, die durch explizite [Abschnittsinhalt](#abschnittsinhalt)-Elemente markiert sind, als auch für die, die implizit durch den Überschrifteninhalt selbst definiert sind.
 
-Die Überschriftselemente sind:
+Die Überschriftenelemente sind:
 
 - {{HTMLElement("Heading_Elements", "<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>")}}
 - {{HTMLElement("hgroup")}}
 
 > [!NOTE]
-> Obwohl wahrscheinlich Überschrifteninhalt enthalten, ist das {{HTMLElement("header")}}-Element selbst kein Überschrifteninhalt.
+> Obwohl sie wahrscheinlich Überschrifteninhalt enthalten, sind {{HTMLElement("header")}} selbst kein Überschrifteninhalt.
 
 ## Phrasierungsinhalt
 
-Phrasierungsinhalt, eine Unterkategorie des Flussinhalts, bezieht sich auf den Text und das Markup innerhalb eines Dokuments. Folgen von Phrasierungsinhalt ergeben Absätze.
+Phrasierungsinhalt, eine Untergruppe von Flussinhalt, bezieht sich auf den Text und die Auszeichnung innerhalb eines Dokuments. Sequenzen von Phrasierungsinhalten bilden Absätze.
 
 Die Phrasierungselemente sind:
 
@@ -212,19 +210,19 @@ Die Phrasierungselemente sind:
 
 Einige andere Elemente gehören zu dieser Kategorie, aber nur, wenn eine bestimmte Bedingung erfüllt ist:
 
-- {{HTMLElement("a")}}, wenn es nur Phrasierungsinhalt enthält
-- {{HTMLElement("area")}}, wenn es ein Nachfahre eines {{HTMLElement("map")}}-Elements ist
-- {{HTMLElement("del")}}, wenn es nur Phrasierungsinhalt enthält
-- {{HTMLElement("ins")}}, wenn es nur Phrasierungsinhalt enthält
+- {{HTMLElement("a")}}, wenn es nur Phrasierungsinhalte enthält
+- {{HTMLElement("area")}}, wenn es ein Nachkomme eines {{HTMLElement("map")}}-Elements ist
+- {{HTMLElement("del")}}, wenn es nur Phrasierungsinhalte enthält
+- {{HTMLElement("ins")}}, wenn es nur Phrasierungsinhalte enthält
 - {{HTMLElement("link")}}, wenn das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)-Attribut vorhanden ist
-- {{HTMLElement("map")}}, wenn es nur Phrasierungsinhalt enthält
+- {{HTMLElement("map")}}, wenn es nur Phrasierungsinhalte enthält
 - {{HTMLElement("meta")}}, wenn das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)-Attribut vorhanden ist
 
 ## Eingebetteter Inhalt
 
-Eingebetteter Inhalt, eine Unterkategorie des Flussinhalts, importiert eine andere Ressource oder fügt Inhalte aus einer anderen Markup-Sprache oder einem anderen Namensraum in das Dokument ein.
+Eingebetteter Inhalt, eine Untergruppe von Flussinhalt, importiert eine andere Ressource oder fügt Inhalte aus einer anderen Auszeichnungssprache oder einem anderen Namensraum in das Dokument ein.
 
-Die eingebetteten Inhaltselemente sind:
+Die eingebetteten Inhalts-Elemente sind:
 
 - {{HTMLElement("audio")}}
 - {{HTMLElement("canvas")}}
@@ -239,7 +237,7 @@ Die eingebetteten Inhaltselemente sind:
 
 ## Interaktiver Inhalt
 
-Interaktiver Inhalt, eine Unterkategorie des Flussinhalts, umfasst Elemente, die speziell für die Interaktion mit Benutzern konzipiert sind.
+Interaktiver Inhalt, eine Untergruppe von Flussinhalt, umfasst Elemente, die speziell für die Benutzerinteraktion entwickelt wurden.
 
 Die interaktiven Inhaltselemente sind:
 
@@ -251,20 +249,20 @@ Die interaktiven Inhaltselemente sind:
 - {{HTMLElement("select")}}
 - {{HTMLElement("textarea")}}
 
-Einige Elemente gehören zu dieser Kategorie nur unter spezifischen Bedingungen:
+Einige Elemente gehören zu dieser Kategorie nur unter bestimmten Bedingungen:
 
 - {{HTMLElement("a")}}, wenn das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut vorhanden ist
 - {{HTMLElement("audio")}}, wenn das [`controls`](/de/docs/Web/HTML/Reference/Elements/audio#controls)-Attribut vorhanden ist
 - {{HTMLElement("img")}}, wenn das [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap)-Attribut vorhanden ist
-- {{HTMLElement("input")}}, wenn das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut nicht im verborgenen Zustand ist
+- {{HTMLElement("input")}}, wenn das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut nicht im versteckten Zustand ist
 - {{HTMLElement("object")}}, wenn das [`usemap`](/de/docs/Web/HTML/Reference/Elements/object#usemap)-Attribut vorhanden ist
 - {{HTMLElement("video")}}, wenn das [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls)-Attribut vorhanden ist
 
-## Greifbarer Inhalt
+## Spürbarer Inhalt
 
-**Greifbarer Inhalt** ist Inhalt, der weder leer noch verborgen ist; es ist Inhalt, der gerendert und substanziell ist. Greifbarer Inhalt wird nicht zur Definition von Inhaltsmodellen verwendet, sondern zur Festlegung einer allgemeinen Regel: Elemente, deren Inhaltsmodell beliebigen Flussinhalt oder Phrasierungsinhalt zulässt, sollten mindestens einen Knoten in ihren Inhalten haben, der greifbarer Inhalt ist und der das `hidden`-Attribut nicht spezifiziert hat.
+**Spürbarer Inhalt** ist Inhalt, der weder leer noch verborgen ist; es ist Inhalt, der angezeigt und substanziell ist. Spürbarer Inhalt wird nicht zur Definition von Inhaltsmodellen verwendet, sondern um eine allgemeine Regel zu definieren: Elemente, deren Inhaltsmodell jeden Flussinhalt oder Phrasierungsinhalt ermöglicht, sollten mindestens einen Knoten in ihrem Inhalt haben, der spürbarer Inhalt ist und nicht das `hidden`-Attribut spezifiziert hat.
 
-Die greifbaren Elemente sind:
+Die spürbaren Elemente sind:
 
 - {{HTMLElement("a")}}
 - {{HTMLElement("abbr")}}
@@ -326,28 +324,28 @@ Die greifbaren Elemente sind:
 - {{HtmlElement("var")}}
 - {{HtmlElement("video")}}
 - [Autonome benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements)
-- Reiner Text, der keine inter-element {{Glossary("Whitespace", "Leerzeichen")}} ist
+- Reiner Text, der nicht zwischen Elemente {{Glossary("Whitespace", "Leerzeichen")}} ist
 
-Einige Elemente gehören zu dieser Kategorie nur unter spezifischen Bedingungen:
+Einige Elemente gehören zu dieser Kategorie nur unter bestimmten Bedingungen:
 
 - {{HTMLElement("audio")}}, wenn das [`controls`](/de/docs/Web/HTML/Reference/Elements/audio#controls)-Attribut vorhanden ist
-- {{HTMLElement("dl")}}, wenn die Kinder des Elements mindestens eine Name-Wert-Gruppe enthalten
-- {{HTMLElement("input")}}, wenn das [type](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut nicht im verborgenen Zustand ist
-- {{HTMLElement("ol")}}, wenn es Kinder enthält, die mindestens ein {{HTMLElement("li")}}-Element einschließen
-- {{HTMLElement("ul")}}, wenn es Kinder enthält, die mindestens ein {{HTMLElement("li")}}-Element einschließen
+- {{HTMLElement("dl")}}, wenn die Kinder des Elements mindestens eine Namens-Wert-Gruppe enthalten
+- {{HTMLElement("input")}}, wenn das [type](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut nicht im versteckten Zustand ist
+- {{HTMLElement("ol")}}, wenn es Kinder enthält, die mindestens ein {{HTMLElement("li")}}-Element umfassen
+- {{HTMLElement("ul")}}, wenn es Kinder enthält, die mindestens ein {{HTMLElement("li")}}-Element umfassen
 
 ## Skriptunterstützende Elemente
 
-**Skriptunterstützende Elemente** sind Elemente, die nicht direkt zum gerenderten Output eines Dokuments beitragen. Stattdessen dienen sie zur Unterstützung von Skripten, indem sie entweder Skriptcode direkt enthalten oder spezifizieren oder Daten bereitstellen, die von Skripten verwendet werden. Fast alle Elemente, einschließlich solcher, die nur bestimmte Elemente aufnehmen (wie {{HTMLElement("ul")}}, das {{HTMLElement("li")}}-Elemente aufnimmt), können skriptunterstützende Elemente enthalten.
+**Skriptunterstützende Elemente** sind Elemente, die nicht direkt zu einer gerenderten Ausgabe des Dokuments beitragen. Stattdessen unterstützen sie Skripte, indem sie entweder Skriptcode direkt oder durch Skripte verwendete Daten enthalten oder spezifizieren. Fast alle Elemente, einschließlich derjenigen, die nur bestimmte Elemente aufnehmen (wie {{HTMLElement("ul")}}, das {{HTMLElement("li")}}-Elemente aufnimmt), können skriptunterstützende Elemente enthalten.
 
 Die skriptunterstützenden Elemente sind:
 
 - {{HTMLElement("script")}}
 - {{HTMLElement("template")}}
 
-## Formularassoziierter Inhalt
+## Formularassoziierte Inhalte
 
-Formularassoziierter Inhalt ist eine Unterkategorie des Flussinhalts, die aus Elementen besteht, die einen Formulareigentümer haben und überall dort verwendet werden können, wo Flussinhalt erwartet wird. Ein Formulareigentümer ist entweder das enthaltende {{HTMLElement("form")}}-Element oder das `<form>`, dessen `id` im `form`-Attribut des Elements angegeben ist.
+Formularassoziierte Inhalte sind eine Untergruppe von Flussinhalten, die aus Elementen besteht, die einen Formularbesitzer haben und überall dort verwendet werden können, wo Flussinhalte erwartet werden. Ein Formularbesitzer ist entweder das enthaltende {{HTMLElement("form")}}-Element oder das `<form>`, dessen `id` im `form`-Attribut des Elements angegeben ist.
 
 Die formularassoziierten Elemente sind:
 
@@ -362,22 +360,22 @@ Die formularassoziierten Elemente sind:
 
 Diese Kategorie enthält mehrere Unterkategorien:
 
-- aufgelistet
-  - : Elemente, die in den Sammlungen [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) und [`HTMLFieldSetElement.elements`](/de/docs/Web/API/HTMLFieldSetElement/elements) aufgelistet sind. Beinhaltet {{HTMLElement("button")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}, {{HTMLElement("object")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}}, und {{HTMLElement("textarea")}}.
-- submit-fähig
-  - : Elemente, die zur Konstruktion des Formulardatensatzes verwendet werden können, wenn das Formular abgesendet wird. Beinhaltet {{HTMLElement("button")}}, {{HTMLElement("input")}}, {{HTMLElement("select")}}, und {{HTMLElement("textarea")}}.
-- zurücksetzbar
-  - : Elemente, die betroffen sein können, wenn ein Formular zurückgesetzt wird. Beinhaltet {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}}, und {{HTMLElement("textarea")}}.
+- gelistet
+  - : Elemente, die in den Sammlungen [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) und [`HTMLFieldSetElement.elements`](/de/docs/Web/API/HTMLFieldSetElement/elements) aufgeführt sind. Enthält {{HTMLElement("button")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}, {{HTMLElement("object")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}}.
+- submitfähig
+  - : Elemente, die zur Erstellung des Formulardatensatzes verwendet werden können, wenn das Formular gesendet wird. Enthält {{HTMLElement("button")}}, {{HTMLElement("input")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}}.
+- rücksetzbar
+  - : Elemente, die betroffen sein können, wenn ein Formular zurückgesetzt wird. Enthält {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}}.
 - autocapitalize-und-autocorrect-vererbend
-  - : Elemente, die die Attribute [`autocapitalize`](/de/docs/Web/HTML/Reference/Global_attributes/autocapitalize) und [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect) von ihrem Formulareigentümer erben. Beinhaltet {{HTMLElement("button")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}}, und {{HTMLElement("textarea")}}.
-- beschriftbar
-  - : Elemente, die mit {{HTMLElement("label")}}-Elementen assoziiert werden können. Beinhaltet {{HTMLElement("button")}}, {{HTMLElement("input")}} (alle Typen außer `hidden`), {{HTMLElement("meter")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}}, {{HTMLElement("select")}}, und {{HTMLElement("textarea")}}.
+  - : Elemente, die die Attribute [`autocapitalize`](/de/docs/Web/HTML/Reference/Global_attributes/autocapitalize) und [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect) von ihrem Formularbesitzer erben. Enthält {{HTMLElement("button")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}}.
+- Label-zuweisbar
+  - : Elemente, die mit {{HTMLElement("label")}}-Elementen verknüpft werden können. Enthält {{HTMLElement("button")}}, {{HTMLElement("input")}} (alle Typen außer `hidden`), {{HTMLElement("meter")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}}.
 
-## Transparente Inhaltsmodell
+## Transparentes Inhaltsmodell
 
-Wenn ein Element ein transparentes Inhaltsmodell hat, müssen seine Inhalte so strukturiert sein, dass sie gültiges HTML wären, auch wenn das transparente Element entfernt und durch die Kindelemente ersetzt wird.
+Wenn ein Element ein transparentes Inhaltsmodell hat, müssen seine Inhalte so strukturiert sein, dass sie gültiges HTML wären, selbst wenn das transparente Element entfernt und durch die Kindelemente ersetzt würde.
 
-Zum Beispiel sind die {{HTMLElement("del")}}- und {{HTMLElement("ins")}}-Elemente transparent:
+Zum Beispiel sind die {{HTMLElement("del")}} und {{HTMLElement("ins")}} Elemente transparent:
 
 ```html
 <p><del>Shopping</del> <ins>Returns</ins> list</p>
@@ -390,7 +388,7 @@ Zum Beispiel sind die {{HTMLElement("del")}}- und {{HTMLElement("ins")}}-Element
 </ul>
 ```
 
-Wenn diese Elemente entfernt würden, wäre dieses Fragment immer noch gültiges HTML (wenn auch nicht korrektes Englisch).
+Wenn diese Elemente entfernt würden, wäre dieses Fragment immer noch gültiges HTML (wenn auch kein korrektes Englisch).
 
 ```html
 <p>Shopping Returns list</p>

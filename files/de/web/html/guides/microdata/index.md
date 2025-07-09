@@ -1,35 +1,33 @@
 ---
-title: Verwendung von Microdata in HTML
+title: Verwendung von Mikrodata in HTML
 short-title: Microdata
 slug: Web/HTML/Guides/Microdata
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
+Mikrodata ist Teil des {{Glossary("WHATWG", "WHATWG")}} HTML-Standards und wird verwendet, um Metadaten in bestehende Inhalte auf Webseiten einzubetten. Suchmaschinen und Webcrawler können Mikrodata von einer Webseite extrahieren und verarbeiten, um den Nutzern ein reichhaltigeres Surferlebnis zu bieten. Suchmaschinen profitieren erheblich von direktem Zugriff auf diese strukturierten Daten, da sie es den Suchmaschinen ermöglichen, die Informationen auf Webseiten zu verstehen und relevantere Ergebnisse für die Benutzer bereitzustellen. Mikrodata verwendet einen unterstützenden Wortschatz, um ein Item zu beschreiben, und Name-Wert-Paare, um den Eigenschaften Werte zuzuweisen. Mikrodata ist ein Versuch, eine deklarative Methode zur Kennzeichnung von HTML-Elementen mit maschinenlesbaren Tags bereitzustellen, im Gegensatz zu ähnlichen Ansätzen wie der Verwendung von RDFa und klassischen Mikroformaten.
 
-Microdata ist Teil des {{Glossary("WHATWG", "WHATWG")}} HTML-Standards und wird verwendet, um Metadaten in vorhandenen Inhalten auf Webseiten einzubetten. Suchmaschinen und Webcrawler können Microdata aus einer Webseite extrahieren und verarbeiten, um den Nutzern eine reichhaltigere Browser-Erfahrung zu bieten. Suchmaschinen profitieren sehr von dem direkten Zugriff auf diese strukturierten Daten, da sie es den Suchmaschinen ermöglichen, die Informationen auf Webseiten zu verstehen und relevantere Ergebnisse für die Benutzer bereitzustellen. Microdata verwendet ein unterstützendes Vokabular, um ein Element zu beschreiben, und Wert-Paare, um seinen Eigenschaften Werte zuzuordnen. Microdata ist ein Versuch, eine deklarative Methode zur Annotation von HTML-Elementen mit maschinenlesbaren Tags bereitzustellen, die über die ähnlichen Ansätze von RDFa und klassischen Mikroformaten hinausgeht.
+Auf hohem Niveau besteht Mikrodata aus einer Gruppe von Name-Wert-Paaren. Die Gruppen werden Items genannt, und jedes Name-Wert-Paar ist eine Eigenschaft. Items und Eigenschaften werden durch reguläre Elemente dargestellt.
 
-Auf einer hohen Ebene besteht Microdata aus einer Gruppe von Namen-Wert-Paaren. Die Gruppen werden `Items` genannt, und jedes Namen-Wert-Paar ist eine Eigenschaft. `Items` und Eigenschaften werden durch reguläre Elemente repräsentiert.
-
-- Um ein `Item` zu erstellen, wird das Attribut `itemscope` verwendet.
-- Um einem `Item` eine Eigenschaft hinzuzufügen, wird das Attribut `itemprop` auf einem der Nachfahren des `Items` verwendet.
+- Um ein Item zu erstellen, wird das `itemscope`-Attribut verwendet.
+- Um einem Item eine Eigenschaft hinzuzufügen, wird das `itemprop`-Attribut bei einem der Nachkommen des Items verwendet.
 
 ## Vokabulare
 
-Google und andere große Suchmaschinen unterstützen das [Schema.org](https://schema.org/) Vokabular für strukturierte Daten. Dieses Vokabular definiert eine Standardmenge von Typnamen und Eigenschaftsnamen, beispielsweise kennzeichnet [Schema.org Music Event](https://schema.org/MusicEvent) eine Konzertaufführung, mit [`startDate`](https://schema.org/startDate) und [`location`](https://schema.org/location) Eigenschaften, um die wichtigsten Details des Konzerts anzugeben. In diesem Fall wäre [Schema.org Music Event](https://schema.org/MusicEvent) die URL, die von `itemtype` verwendet wird, und `startDate` und `location` wären `itemprop`s, die [Schema.org Music Event](https://schema.org/MusicEvent) definiert.
+Google und andere führende Suchmaschinen unterstützen das [Schema.org](https://schema.org/)-Vokabular für strukturierte Daten. Dieses Vokabular definiert einen Standard-Satz von Typnamen und Eigenschaftsnamen, z. B. zeigt [Schema.org Music Event](https://schema.org/MusicEvent) eine Konzertaufführung mit den Eigenschaften [`startDate`](https://schema.org/startDate) und [`location`](https://schema.org/location) an, um die wichtigsten Details des Konzerts anzugeben. In diesem Fall wäre [Schema.org Music Event](https://schema.org/MusicEvent) die URL, die von `itemtype` verwendet wird, und `startDate` und location wären `itemprop`s, die [Schema.org Music Event](https://schema.org/MusicEvent) definiert.
 
 > [!NOTE]
-> Mehr über `itemtype`-Attribute finden Sie unter <https://schema.org/Thing>.
+> Mehr über die itemtype-Attribute finden Sie unter <https://schema.org/Thing>.
 
-Microdata-Vokabulare liefern die Semantik oder Bedeutung eines _`Item`_. Webentwickler können ein benutzerdefiniertes Vokabular entwerfen oder Vokabulare verwenden, die im Web verfügbar sind, wie das weit verbreitete [Schema.org](https://schema.org/) Vokabular. Eine Sammlung von häufig verwendeten Markup-Vokabularen wird von Schema.org bereitgestellt.
+Mikrodata-Vokabulare liefern die Semantik oder Bedeutung eines _`Item`_. Webentwickler können ein benutzerdefiniertes Vokabular entwerfen oder auf bereits im Web vorhandene Vokabulare wie das weit verbreitete [schema.org](https://schema.org/)-Vokabular zurückgreifen. Eine Sammlung häufig verwendeter Markup-Vokabulare wird von Schema.org bereitgestellt.
 
 Häufig verwendete Vokabulare:
 
 - Kreative Werke: [CreativeWork](https://schema.org/CreativeWork), [Book](https://schema.org/Book), [Movie](https://schema.org/Movie), [MusicRecording](https://schema.org/MusicRecording), [Recipe](https://schema.org/Recipe), [TVSeries](https://schema.org/TVSeries)
-- Eingebettete Nicht-Text-Objekte: [AudioObject](https://schema.org/AudioObject), [ImageObject](https://schema.org/ImageObject), [VideoObject](https://schema.org/VideoObject)
+- Eingebettete nicht-textliche Objekte: [AudioObject](https://schema.org/AudioObject), [ImageObject](https://schema.org/ImageObject), [VideoObject](https://schema.org/VideoObject)
 - [`Event`](https://schema.org/Event)
-- [Gesundheits- und Medizintypen](https://schema.org/docs/meddocs.html): Hinweise auf die Gesundheits- und Medizintypen unter [MedicalEntity](https://schema.org/MedicalEntity)
+- [Gesundheit und medizinische Typen](https://schema.org/docs/meddocs.html): Hinweise zu den Gesundheits- und Medizintypen unter [MedicalEntity](https://schema.org/MedicalEntity)
 - [`Organization`](https://schema.org/Organization)
 - [`Person`](https://schema.org/Person)
 - [`Place`](https://schema.org/Place), [LocalBusiness](https://schema.org/LocalBusiness), [Restaurant](https://schema.org/Restaurant)
@@ -39,23 +37,23 @@ Häufig verwendete Vokabulare:
 - [`Thing`](https://schema.org/Thing)
 - [`Intangible`](https://schema.org/Intangible)
 
-Große Suchmaschinenbetreiber wie Google, Microsoft und Yahoo! verlassen sich auf das [Schema.org](https://schema.org/) Vokabular, um Suchergebnisse zu verbessern. Für einige Zwecke ist ein ad hoc Vokabular ausreichend. Für andere muss ein Vokabular entworfen werden. Wo möglich, werden Autoren ermutigt, bestehende Vokabulare wiederzuverwenden, da dies die Wiederverwendung von Inhalten erleichtert.
+Große Suchmaschinenbetreiber wie Google, Microsoft und Yahoo! verlassen sich auf das [schema.org](https://schema.org/)-Vokabular, um Suchergebnisse zu verbessern. Für manche Zwecke ist ein ad-hoc-Vokabular ausreichend. Für andere Zwecke muss ein Vokabular entworfen werden. Wo möglich, wird Autoren empfohlen, bestehende Vokabulare wiederzuverwenden, da dies die Wiederverwendung von Inhalten erleichtert.
 
 ## Lokalisierung
 
-In einigen Fällen können Suchmaschinen, die bestimmte Regionen abdecken, lokal spezifische Erweiterungen von Microdata bereitstellen. Zum Beispiel unterstützt [Yandex](https://yandex.com/), eine große Suchmaschine in Russland, Mikroformate wie `hCard` (Firmenkontaktinformationen), `hRecipe` (Lebensmittelrezept), `hReview` (Marktbewertungen) und `hProduct` (Produktdaten) und bietet ein eigenes Format zur Definition von Begriffen und enzyklopädischen Artikeln. Diese Erweiterung wurde vorgenommen, um Transliterationsprobleme zwischen den kyrillischen und lateinischen Alphabeten zu lösen. Durch die Implementierung zusätzlicher Markierungsparameter des Schema-Vokabulars wurde die Indexierung von Informationen auf russischsprachigen Webseiten wesentlich erfolgreicher.
+In einigen Fällen können Suchmaschinen, die spezifische Regionen abdecken, lokal spezifische Erweiterungen von Mikrodata bereitstellen. Beispielsweise unterstützt [Yandex](https://yandex.com/), eine große Suchmaschine in Russland, Mikroformate wie `hCard` (Unternehmens-Kontaktinformationen), `hRecipe` (Lebensmittelrezept), `hReview` (Marktbewertungen) und `hProduct` (Produktdaten) und bietet sein eigenes Format zur Definition der Begriffe und enzyklopädischen Artikel an. Diese Erweiterung wurde vorgenommen, um Transliterationsprobleme zwischen dem kyrillischen und dem lateinischen Alphabet zu lösen. Aufgrund der Implementierung zusätzlicher Markierungsparameter des Schema-Vokabulars wurde die Indexierung von Informationen auf russischsprachigen Webseiten erheblich erfolgreicher.
 
 ## Globale Attribute
 
-[`itemid`](/de/docs/Web/HTML/Reference/Global_attributes/itemid) – Der eindeutige, globale Bezeichner eines `Items`.
+[`itemid`](/de/docs/Web/HTML/Reference/Global_attributes/itemid) – Der eindeutige, globale Bezeichner eines Items.
 
-[`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop) – Wird verwendet, um Eigenschaften zu einem `Item` hinzuzufügen. Jedes HTML-Element kann ein `itemprop`-Attribut haben, das aus einem Namen-Wert-Paar besteht.
+[`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop) – Wird verwendet, um einem Item Eigenschaften hinzuzufügen. Jedes HTML-Element kann ein `itemprop`-Attribut haben, das aus einem Name-Wert-Paar besteht.
 
-[`itemref`](/de/docs/Web/HTML/Reference/Global_attributes/itemref) – Eigenschaften, die keine Nachkommen eines Elements mit dem Attribut `itemscope` sind, können mit dem `Item` verknüpft werden, indem ein **itemref** verwendet wird. `itemref` bietet eine Liste von Element-IDs (nicht `itemid`s) mit zusätzlichen Eigenschaften, die sich an anderer Stelle im Dokument befinden.
+[`itemref`](/de/docs/Web/HTML/Reference/Global_attributes/itemref) – Eigenschaften, die keine Nachkommen eines Elements mit dem `itemscope`-Attribut sind, können mit dem Item mithilfe von **itemref** verknüpft werden. `itemref` bietet eine Liste von Element-Ids (nicht `itemid`s) mit zusätzlichen Eigenschaften an anderer Stelle im Dokument.
 
-[`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) – Das Attribut `itemscope` arbeitet (meistens) zusammen mit [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype), um anzugeben, dass das in einem Block enthaltene HTML sich auf ein bestimmtes `Item` bezieht. Das Attribut `itemscope` erstellt das _`Item`_ und definiert den Gültigkeitsbereich des damit verbundenen `itemtype`. Das Attribut `itemtype` ist eine gültige URL eines Vokabulars (wie [schema.org](https://schema.org/)), das das `Item` und seinen Kontext beschreibt.
+[`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) – Das `itemscope`-Attribut arbeitet (normalerweise) zusammen mit [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype), um anzugeben, dass das innerhalb eines Blocks enthaltene HTML sich auf ein bestimmtes Item bezieht. Das `itemscope`-Attribut erstellt das _`Item`_ und definiert den Anwendungsbereich des `itemtype`, das damit verknüpft ist. Das `itemtype`-Attribut ist eine gültige URL eines Vokabulars (wie [schema.org](https://schema.org/)), das das Item und seinen Eigenschaften-Kontext beschreibt.
 
-[`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype) – Gibt die URL des Vokabulars an, das verwendet wird, um `itemprop`s (Element-Eigenschaften) in der Datenstruktur zu definieren. Das Attribut [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) wird verwendet, um den Gültigkeitsbereich festzulegen, in dem das von `itemtype` festgelegte Vokabular in der Datenstruktur aktiv sein wird.
+[`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype) – Gibt die URL des Vokabulars an, das verwendet wird, um `itemprop`'s (Item-Eigenschaften) in der Datenstruktur zu definieren. Das [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope)-Attribut wird verwendet, um den Anwendungsbereich festzulegen, in dem das durch `itemtype` gesetzte Vokabular in der Datenstruktur aktiv sein wird.
 
 ## Beispiel
 
@@ -149,7 +147,7 @@ In einigen Fällen können Suchmaschinen, die bestimmte Regionen abdecken, lokal
 {{ EmbedLiveSample('HTML', '', '100') }}
 
 > [!NOTE]
-> Ein praktisches Tool zur Extraktion von Microdata-Strukturen aus HTML ist Googles [Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data). Probieren Sie es mit dem oben gezeigten HTML aus.
+> Ein nützliches Werkzeug zum Extrahieren von Mikrodata-Strukturen aus HTML ist Googles [Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data). Probieren Sie es mit dem oben gezeigten HTML aus.
 
 ## Siehe auch
 

@@ -2,12 +2,12 @@
 title: "<rtc>: Das Ruby Text Container-Element"
 slug: Web/HTML/Reference/Elements/rtc
 l10n:
-  sourceCommit: 7c0cd9f9b667fe9be0887e8902d09f0013290930
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}{{deprecated_header}}
+{{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen verwendet werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements eingesetzt sind. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Annotationen von Zeichen, die in einer Ruby-Darstellung der {{HTMLElement("rb")}}-Elemente verwendet werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements genutzt werden. {{HTMLElement("rb")}}-Elemente können sowohl eine Aussprache- ({{HTMLElement("rt")}}) als auch eine semantische (`<rtc>`) Annotation haben.
 
 {{InteractiveExample("HTML Demo: &lt;rtc&gt;", "tabbed-standard")}}
 
@@ -38,7 +38,7 @@ rtc {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -80,7 +80,7 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phrasierter Inhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
@@ -90,8 +90,8 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
       <td>
         Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem
         {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder
-        {{HTMLElement("rt")}}-Element öffnenden Tag oder vom schließenden
-        Tag seines Elternteils gefolgt wird.
+        {{HTMLElement("rt")}}-Element öffnenden Tag oder vom Elternschließtag
+        gefolgt wird.
       </td>
     </tr>
     <tr>

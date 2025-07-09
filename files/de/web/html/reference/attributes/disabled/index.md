@@ -3,12 +3,10 @@ title: "HTML-Attribut: disabled"
 short-title: disabled
 slug: Web/HTML/Reference/Attributes/disabled
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
 ---
 
-{{HTMLSidebar}}
-
-Das boolesche Attribut **`disabled`**, wenn vorhanden, macht das Element nicht veränderbar, fokussierbar oder mit dem Formular abschickbar. Der Benutzer kann das Steuerelement und seine zugehörigen Formularsteuerelemente weder bearbeiten noch fokussieren.
+Das Boolean-Attribut **`disabled`**, wenn vorhanden, macht das Element nicht veränderbar, fokussierbar oder sogar zur Übermittlung mit dem Formular geeignet. Der Benutzer kann weder das Steuerelement bearbeiten noch darauf fokussieren, noch seine Formularelement-Nachkommen bearbeiten.
 
 {{InteractiveExample("HTML Demo: disabled", "tabbed-standard")}}
 
@@ -46,43 +44,43 @@ label {
 
 ## Übersicht
 
-Wenn das `disabled`-Attribut bei einem Formularsteuerelement angegeben ist, nehmen das Element und seine zugehörigen Formularsteuerelemente nicht an der Validierung von Einschränkungen teil. Oftmals werden solche Steuerelemente von Browsern ausgegraut und erhalten keine Browsing-Ereignisse, wie Mausklicks oder fokusbezogene Ereignisse.
+Wenn das `disabled`-Attribut auf einem Formularelement angegeben ist, nehmen das Element und seine Formularelement-Nachkommen nicht an der Einschränkungsvalidierung teil. Oft blenden Browser solche Steuerelemente aus und sie erhalten keine Browsing-Ereignisse, wie Mausklicks oder Fokus-bezogene Ereignisse.
 
-Das `disabled`-Attribut wird von {{ HTMLElement("button") }}, {{ HTMLElement("fieldset") }}, {{ HTMLElement("optgroup") }}, {{ HTMLElement("option") }}, {{ HTMLElement("select") }}, {{ HTMLElement("textarea") }} und {{ HTMLElement("input")}} unterstützt.
+Das `disabled`-Attribut wird unterstützt von {{ HTMLElement("button") }}, {{ HTMLElement("fieldset") }}, {{ HTMLElement("optgroup") }}, {{ HTMLElement("option") }}, {{ HTMLElement("select") }}, {{ HTMLElement("textarea") }} und {{ HTMLElement("input")}}.
 
-Dieses boolesche disabled-Attribut zeigt an, dass der Benutzer nicht mit dem Steuerelement oder seinen untergeordneten Steuerelementen interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt das Steuerelement seine Einstellung von einem übergeordneten Element, zum Beispiel `fieldset`; wenn es kein übergeordnetes Element mit dem `disabled`-Attribut gibt und das Steuerelement selbst das Attribut nicht hat, ist das Steuerelement aktiviert. Wenn es auf einem {{ HTMLElement("optgroup") }} deklariert ist, bleibt das `select` trotzdem interaktiv (es sei denn, es ist anderweitig deaktiviert), aber keines der Elemente in der Optionsgruppe ist auswählbar.
+Dieses Boolean-Attribut `disabled` zeigt an, dass der Benutzer nicht mit dem Steuerelement oder seinen Nachkommenelementen interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt das Steuerelement seine Einstellung vom umgebenden Element, beispielsweise `fieldset`; wenn es kein umgebendes Element mit dem `disabled`-Attribut gibt und das Steuerelement selbst das Attribut nicht hat, ist das Steuerelement aktiviert. Wenn es bei einem {{ HTMLElement("optgroup") }} deklariert ist, bleibt das Auswahlfeld interaktiv (es sei denn, es ist andersartig deaktiviert), aber kein Element der Optionsgruppe ist auswählbar.
 
 > [!NOTE]
-> Wenn ein {{ HTMLElement("fieldset") }} deaktiviert ist, sind alle nachfolgenden Formularsteuerelemente deaktiviert, mit der Ausnahme von Formularsteuerelementen innerhalb des {{ HTMLElement("legend") }}.
+> Wenn ein {{ HTMLElement("fieldset") }} deaktiviert ist, sind alle nachfolgenden Formularelemente deaktiviert, mit Ausnahme der Formularelemente innerhalb des {{ HTMLElement("legend") }}.
 
-Wenn ein unterstützendes Element das `disabled`-Attribut anwendet, gilt auch die {{cssxref(":disabled")}} Pseudoklasse dafür. Umgekehrt matchen Elemente, die das `disabled`-Attribut unterstützen, aber nicht gesetzt haben, die {{cssxref(":enabled")}} Pseudoklasse.
+Wenn bei einem unterstützenden Element das `disabled`-Attribut angewendet wird, gilt auch die {{cssxref(":disabled")}}-Pseudoklasse für dieses Element. Umgekehrt entsprechen Elemente, die das `disabled`-Attribut unterstützen, aber bei denen es nicht gesetzt ist, der {{cssxref(":enabled")}}-Pseudoklasse.
 
-Dieses boolesche Attribut hindert den Benutzer daran, mit der Schaltfläche zu interagieren. Wenn dieses Attribut nicht gesetzt ist, kann die Schaltfläche weiterhin von einem übergeordneten Element, z.B. {{htmlelement('fieldset')}}, deaktiviert werden; wenn es kein übergeordnetes Element mit dem `disabled`-Attribut gibt, ist die Schaltfläche aktiviert.
+Dieses Boolean-Attribut verhindert, dass der Benutzer mit der Schaltfläche interagiert. Wenn dieses Attribut nicht gesetzt ist, kann die Schaltfläche immer noch durch ein umgebendes Element, zum Beispiel {{htmlelement('fieldset')}}, deaktiviert werden; wenn es kein umgebendes Element mit dem `disabled`-Attribut gibt, dann ist die Schaltfläche aktiviert.
 
-Anders als andere Browser wird Firefox den dynamischen deaktivierten Status eines {{htmlelement('button')}} über Seitenladezyklen hinweg beibehalten. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut, um diese Funktion zu steuern.
+Anders als andere Browser wird Firefox den dynamischen deaktivierten Zustand einer {{ htmlelement('button')}} zwischen Seitenladungen beibehalten. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut, um diese Funktion zu steuern.
 
 ### Attribut-Interaktionen
 
-Der Unterschied zwischen `disabled` und [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) ist, dass schreibgeschützte Steuerelemente weiterhin funktionieren und fokussierbar sind, während deaktivierte Steuerelemente keinen Fokus erhalten und nicht mit dem Formular abgeschickt werden und im Allgemeinen nicht als Steuerelemente fungieren, bis sie aktiviert werden.
+Der Unterschied zwischen `disabled` und [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) besteht darin, dass schreibgeschützte Steuerelemente weiterhin funktionieren und fokussierbar sind, während deaktivierte Steuerelemente keinen Fokus erhalten und nicht mit dem Formular abgeschickt werden und im Allgemeinen nicht als Steuerelemente funktionieren, bis sie aktiviert sind.
 
-Da ein deaktiviertes Feld seinen Wert nicht ändern kann, hat [`required`](/de/docs/Web/HTML/Reference/Attributes/required) keinen Einfluss auf Eingaben mit dem ebenfalls angegebenen `disabled`-Attribut. Da die Elemente unveränderlich werden, haben die meisten anderen Attribute, wie [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern), keine Wirkung, bis das Steuerelement aktiviert wird.
+Da ein deaktiviertes Feld seinen Wert nicht ändern kann, hat [`required`](/de/docs/Web/HTML/Reference/Attributes/required) keine Auswirkungen auf Eingaben mit ebenfalls angegebenem `disabled`-Attribut. Außerdem, da die Elemente unveränderbar werden, haben die meisten anderen Attribute, wie [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern), keine Wirkung, bis das Steuerelement aktiviert ist.
 
 > [!NOTE]
-> Das `required`-Attribut ist bei Eingaben, die mit dem `disabled`-Attribut versehen sind, nicht zulässig.
+> Das `required`-Attribut ist bei Eingaben mit angegebenem `disabled`-Attribut nicht erlaubt.
 
-### Benutzerfreundlichkeit
+### Nutzbarkeit
 
-Browser zeigen deaktivierte Formularsteuerelemente ausgegraut an, da deaktivierte Formularsteuerelemente unveränderlich sind, keinen Fokus oder Browsing-Ereignisse erhalten, wie Mausklicks oder fokusbezogene Ereignisse, und nicht mit dem Formular abgeschickt werden.
+Browser zeigen deaktivierte Formularelemente in ausgegrauter Form an, da deaktivierte Formularelemente unveränderbar sind, keinen Fokus oder Browsing-Ereignisse wie Mausklicks oder fokusbezogene Ereignisse erhalten und nicht mit dem Formular abgeschickt werden.
 
-Wenn auf unterstützenden Elementen vorhanden, wird die {{cssxref(':disabled')}} Pseudoklasse passen. Wenn das Attribut nicht enthalten ist, wird die {{cssxref(':enabled')}} Pseudoklasse passen. Wenn das Element das disabled-Attribut nicht unterstützt, hat das Attribut keine Wirkung und führt auch nicht dazu, dass es von den `:disabled`- und `:enabled`-Pseudoklassen gematcht wird.
+Wenn es bei unterstützenden Elementen vorhanden ist, wird die {{cssxref(':disabled')}}-Pseudo-Klasse übereinstimmen. Wenn das Attribut nicht enthalten ist, wird die {{cssxref(':enabled')}}-Pseudo-Klasse übereinstimmen. Wenn das Element das `disabled`-Attribut nicht unterstützt, hat das Attribut keine Wirkung, einschließlich dass es nicht durch die `:disabled`- und `:enabled`-Pseudo-Klassen übereinstimmt.
 
-### Validierungsbedingungen
+### Einschränkungsvalidierung
 
-Wenn das Element `disabled` ist, kann der Wert des Elements nicht fokussiert werden und nicht vom Benutzer aktualisiert werden und nimmt nicht an der Validierung von Bedingungen teil.
+Wenn das Element `disabled` ist, kann der Wert des Elements keinen Fokus erhalten und nicht vom Benutzer aktualisiert werden und nimmt nicht an der Einschränkungsvalidierung teil.
 
 ## Beispiele
 
-Wenn Formularsteuerelemente deaktiviert sind, zeigen viele Browser sie standardmäßig in einer helleren, ausgegrauten Farbe an. Hier sind Beispiele für ein deaktiviertes Kontrollkästchen, ein Optionsfeld, ein {{ HTMLElement("option") }} und ein {{ HTMLElement("optgroup") }}, sowie einige Formularsteuerelemente, die über das disabled-Attribut des übergeordneten `{{ HTMLElement("fieldset")}}`-Elements deaktiviert sind. Die {{ HTMLElement("option") }}s sind deaktiviert, aber das {{ HTMLElement("select") }} selbst nicht. Wir könnten das gesamte {{ HTMLElement("select") }} deaktivieren, indem wir das Attribut anstatt seiner Nachfolger auf dieses Element anwenden.
+Wenn Formularelemente deaktiviert sind, zeigen viele Browser sie standardmäßig in einer helleren, ausgegrauten Farbe an. Hier sind Beispiele für ein deaktiviertes Kontrollkästchen, einen Radio-Button, {{ HTMLElement("option") }} und {{ HTMLElement("optgroup") }}, sowie einige Formularelemente, die durch das `disabled`-Attribut, das auf dem übergeordneten Element `{{ HTMLElement("fieldset")}}` gesetzt ist, deaktiviert sind. Die {{ HTMLElement("option") }}s sind deaktiviert, aber das {{ HTMLElement("select") }} selbst ist es nicht. Wir könnten die gesamte {{ HTMLElement("select") }} deaktivieren, indem wir das Attribut an diesem Element anstelle seiner Nachkommen hinzufügen.
 
 ```html
 <fieldset>
