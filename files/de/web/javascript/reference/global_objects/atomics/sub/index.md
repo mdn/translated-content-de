@@ -3,12 +3,10 @@ title: Atomics.sub()
 short-title: sub()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/sub
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.sub()`** zieht einen gegebenen Wert von einer bestimmten Position im Array ab und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der geänderte Wert zurückgeschrieben wurde.
+Die statische Methode **`Atomics.sub()`** subtrahiert einen gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine andere Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.sub()")}}
 
@@ -35,22 +33,26 @@ Atomics.sub(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Ganzzahlen-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-Typ-Array. Eine der folgenden: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
+    {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, von der ein `value` abgezogen wird.
+  - : Die Position in `typedArray`, von der ein `value` subtrahiert wird.
 - `value`
   - : Die Zahl, die subtrahiert werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position (`typedArray[index]`).
+Der alte Wert an der gegebenen Position
+(`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Ganzzahltypen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen von `typedArray` liegt.
 
 ## Beispiele
 

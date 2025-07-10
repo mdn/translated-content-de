@@ -3,15 +3,15 @@ title: Temporal.ZonedDateTime.prototype.toPlainDateTime()
 short-title: toPlainDateTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toPlainDateTime
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toPlainDateTime()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.PlainDateTime")}}-Objekt zurück, das das Datum und die Uhrzeit dieses Datums-Zeitpunkts repräsentiert. Nur die Zeitzoneninformationen werden entfernt.
+Die **`toPlainDateTime()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainDateTime")}} Objekt zurück, das das Datum und die Zeitanteile dieses Datum-Zeitpunkts darstellt. Nur die Zeitzoneninformationen werden entfernt.
 
 > [!WARNING]
-> Nachdem ein `Temporal.ZonedDateTime` in `Temporal.PlainDateTime` umgewandelt wurde, ist es nicht mehr zeitzonenbewusst. Nachfolgende Operationen wie Arithmetik oder `with()`-Operationen werden nicht für die Sommerzeit angepasst und können nicht die gleichen Ergebnisse liefern wie die entsprechenden Operationen mit dem ursprünglichen `Temporal.ZonedDateTime`. Allerdings ist es unmöglich, den Unterschied zu bemerken, es sei denn, Sie führen diese Operationen über eine Zeitzonen-Offset-Änderung aus. Seien Sie daher sehr vorsichtig bei dieser Umwandlung, da die nachfolgenden Ergebnisse meistens korrekt sein können, aber nur dann falsch werden, wenn Offset-Übergänge wie der Beginn oder das Ende der Sommerzeit überschritten werden.
+> Nachdem ein `Temporal.ZonedDateTime` in `Temporal.PlainDateTime` umgewandelt wurde, ist es nicht mehr zeitzonenbewusst. Nachfolgende Operationen wie Arithmetik oder `with()`-Operationen werden nicht für Sommerzeitkorrekturen angepasst und könnten nicht die gleichen Ergebnisse liefern wie äquivalente Operationen mit dem ursprünglichen `Temporal.ZonedDateTime`. Es sei denn, Sie führen diese Operationen über eine Zeitzonenversatzänderung hinweg aus, ist es unmöglich, den Unterschied zu bemerken. Daher sollten Sie bei dieser Umwandlung sehr vorsichtig sein, da nachfolgende Ergebnisse meist korrekt sein können, jedoch nur dann falsch sind, wenn sie über Versatzänderungen hinweg ausgeführt werden, wie wenn die Sommerzeit beginnt oder endet.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.PlainDateTime")}}-Objekt, das das Datum und die Uhrzeit dieses Datums-Zeitpunkts repräsentiert.
+Ein neues {{jsxref("Temporal.PlainDateTime")}} Objekt, das die Datum- und Zeitanteile dieses Datum-Zeitpunkts darstellt.
 
 ## Beispiele
 

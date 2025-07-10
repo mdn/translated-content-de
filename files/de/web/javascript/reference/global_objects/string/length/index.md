@@ -3,12 +3,10 @@ title: "String: length"
 short-title: length
 slug: Web/JavaScript/Reference/Global_Objects/String/length
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`length`** Dateneigenschaft eines {{jsxref("String")}}-Wertes enthält die Länge des Strings in UTF-16 Code-Einheiten.
+Die **`length`** Eigenschaft eines {{jsxref("String")}} Wertes enthält die Länge des Strings in UTF-16 Codeeinheiten.
 
 {{InteractiveExample("JavaScript Demo: String: length", "shorter")}}
 
@@ -27,15 +25,15 @@ Eine nicht-negative ganze Zahl.
 
 ## Beschreibung
 
-Diese Eigenschaft gibt die Anzahl der Code-Einheiten im String zurück. JavaScript verwendet die [UTF-16](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) Kodierung, bei der jedes Unicode-Zeichen als eine oder zwei Code-Einheiten kodiert werden kann. Daher kann es vorkommen, dass der von `length` zurückgegebene Wert nicht mit der tatsächlichen Anzahl der Unicode-Zeichen im String übereinstimmt. Für gängige Schriftsysteme wie Latein, Kyrillisch, bekannte CJK-Zeichen etc. sollte dies kein Problem darstellen, aber wenn Sie mit bestimmten Schriftsystemen arbeiten, etwa Emojis, [mathematischen Symbolen](https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols) oder obskuren chinesischen Zeichen, müssen Sie möglicherweise den Unterschied zwischen Code-Einheiten und Zeichen berücksichtigen.
+Diese Eigenschaft gibt die Anzahl der Codeeinheiten im String zurück. JavaScript verwendet die [UTF-16](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) Kodierung, wobei jedes Unicode-Zeichen als eine oder zwei Codeeinheiten kodiert werden kann. Daher kann es vorkommen, dass der von `length` zurückgegebene Wert nicht mit der tatsächlichen Anzahl der Unicode-Zeichen im String übereinstimmt. Bei gängigen Schriftarten wie Latein, Kyrillisch, bekannten CJK-Zeichen usw. sollte dies kein Problem darstellen, aber wenn Sie mit bestimmten Schriftarten arbeiten, wie Emojis, [mathematischen Symbolen](https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols) oder seltenen chinesischen Zeichen, müssen Sie möglicherweise den Unterschied zwischen Codeeinheiten und Zeichen berücksichtigen.
 
-Die Sprachspezifikation erfordert, dass Strings eine maximale Länge von 2<sup>53</sup> - 1 Elementen haben, was das obere Limit für [präzise Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) darstellt. Ein String mit dieser Länge benötigt jedoch 16384TiB Speicher, was in kein vernünftiges Gerätespeicher passt, daher neigen Implementierungen dazu, den Schwellenwert zu senken, sodass die Länge des Strings bequem in einer 32-Bit-Ganzzahl gespeichert werden kann.
+Die Sprachspezifikation verlangt, dass Strings eine maximale Länge von 2<sup>53</sup> - 1 Elementen haben, was die Obergrenze für [präzise Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) darstellt. Ein String mit dieser Länge würde jedoch 16384TiB Speicher benötigen, was in kein vernünftiges Gerätespeicher passt, daher tendieren Implementierungen dazu, die Grenze zu senken, was erlaubt, dass die Länge des Strings in einer 32-Bit-Ganzzahl bequem gespeichert werden kann.
 
 - In V8 (verwendet von Chrome und Node) beträgt die maximale Länge 2<sup>29</sup> - 24 (\~1GiB). Auf 32-Bit-Systemen beträgt die maximale Länge 2<sup>28</sup> - 16 (\~512MiB).
 - In Firefox beträgt die maximale Länge 2<sup>30</sup> - 2 (\~2GiB). Vor Firefox 65 betrug die maximale Länge 2<sup>28</sup> - 1 (\~512MiB).
 - In Safari beträgt die maximale Länge 2<sup>31</sup> - 1 (\~4GiB).
 
-Wenn Sie mit großen Strings in anderen Kodierungen arbeiten (wie UTF-8-Dateien oder Blobs), beachten Sie, dass beim Laden der Daten in einen JS-String die Kodierung immer UTF-16 wird. Die Größe des Strings kann sich von der Größe der Quelldatei unterscheiden.
+Wenn Sie mit großen Strings in anderen Kodierungen (wie UTF-8-Dateien oder Blobs) arbeiten, beachten Sie, dass beim Laden der Daten in einen JS-String die Kodierung immer UTF-16 wird. Die Größe des Strings kann sich von der Größe der Quelldatei unterscheiden.
 
 ```js
 const str1 = "a".repeat(2 ** 29 - 24); // Success
@@ -47,9 +45,9 @@ const str = new TextDecoder().decode(buffer); // This string is 1GiB in size
 
 Für einen leeren String ist `length` 0.
 
-Die statische Eigenschaft `String.length` steht in keinem Zusammenhang zur Länge von Strings. Es ist die [Stelligkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) der `String`-Funktion (vereinfacht gesagt, die Anzahl der formalen Parameter), die 1 beträgt.
+Die statische Eigenschaft `String.length` ist nicht mit der Länge von Strings verwandt. Sie ist die [Arity](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) der `String` Funktion (grob gesagt, die Anzahl ihrer formalen Parameter) und beträgt 1.
 
-Da `length` Code-Einheiten anstelle von Zeichen zählt, können Sie, wenn Sie die Anzahl der Zeichen ermitteln möchten, zunächst den String mit seinem [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) aufteilen, der zeichenweise iteriert:
+Da `length` Codeeinheiten anstelle von Zeichen zählt, können Sie, wenn Sie die Anzahl der Zeichen erhalten möchten, zuerst den String mit seinem [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) aufteilen, der zeichenweise iteriert:
 
 ```js
 function getCharacterLength(str) {
@@ -61,7 +59,7 @@ function getCharacterLength(str) {
 console.log(getCharacterLength("A\uD87E\uDC04Z")); // 3
 ```
 
-Wenn Sie Zeichen nach _Graphem-Clustern_ zählen möchten, verwenden Sie [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter). Sie können zuerst den String, den Sie aufteilen möchten, an die Methode [`segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment) übergeben und dann über das zurückgegebene `Segments`-Objekt iterieren, um die Länge zu erhalten:
+Wenn Sie Zeichen nach _Grapheme-Clustern_ zählen möchten, verwenden Sie [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter). Sie können zuerst den String, den Sie aufteilen möchten, an die [`segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment) Methode übergeben und dann über das zurückgegebene `Segments` Objekt iterieren, um die Länge zu ermitteln:
 
 ```js
 function getGraphemeCount(str) {
@@ -103,9 +101,9 @@ console.log(formula.length); // 11
 console.log([...formula].length); // 9
 ```
 
-### Zuweisen an length
+### Zuordnung zur Länge
 
-Da String ein primitiver Datentyp ist, hat der Versuch, der `length`-Eigenschaft eines Strings einen Wert zuzuweisen, keine beobachtbare Wirkung und führt im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) zu einem Fehler.
+Da String ein primitiver Datentyp ist, hat der Versuch, einen Wert der `length`-Eigenschaft eines Strings zuzuweisen, keine beobachtbare Wirkung und wird im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen Fehler werfen.
 
 ```js
 const myString = "bluebells";

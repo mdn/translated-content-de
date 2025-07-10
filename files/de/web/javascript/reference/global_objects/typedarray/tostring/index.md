@@ -3,12 +3,10 @@ title: TypedArray.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toString()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt einen String zurück, der das spezifizierte TypedArray und seine Elemente repräsentiert. Diese Methode folgt dem gleichen Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
+Die **`toString()`** Methode von {{jsxref("TypedArray")}}-Instanzen gibt einen String zurück, der das angegebene `typed array` und seine Elemente repräsentiert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.toString()", "shorter")}}
 
@@ -33,15 +31,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die Elemente des TypedArrays repräsentiert.
+Ein String, der die Elemente des `typed array` repräsentiert.
 
 ## Beschreibung
 
-Sehen Sie sich {{jsxref("Array.prototype.toString()")}} für weitere Details an. Diese Methode ist nicht generisch und kann nur auf TypedArray-Instanzen aufgerufen werden.
+Weitere Details finden Sie bei {{jsxref("Array.prototype.toString()")}}. Diese Methode ist nicht generisch und kann nur auf `typed array`-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Ein TypedArray in einen String umwandeln
+### Konvertierung eines `typed array` in einen String
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);
@@ -61,7 +59,7 @@ console.log(`${uint8}`); // 1,2,3
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript `typed arrays`](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.join()")}}
 - {{jsxref("TypedArray.prototype.toLocaleString()")}}

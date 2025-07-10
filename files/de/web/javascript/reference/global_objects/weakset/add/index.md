@@ -3,10 +3,8 @@ title: WeakSet.prototype.add()
 short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/add
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`add()`** Methode von {{jsxref("WeakSet")}} Instanzen fügt ein neues Objekt am Ende dieses `WeakSet` hinzu.
 
@@ -39,11 +37,11 @@ add(value)
 ### Parameter
 
 - `value`
-  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der der `WeakSet`-Sammlung hinzugefügt werden soll.
+  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der der `WeakSet` Sammlung hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das `WeakSet`-Objekt.
+Das `WeakSet` Objekt.
 
 ### Ausnahmen
 

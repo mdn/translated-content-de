@@ -3,10 +3,8 @@ title: DataView()-Konstruktor
 short-title: DataView()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/DataView
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`DataView()`**-Konstruktor erstellt {{jsxref("DataView")}}-Objekte.
 
@@ -33,17 +31,17 @@ new DataView(buffer, byteOffset)
 new DataView(buffer, byteOffset, byteLength)
 ```
 
-> [!NOTE] > `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `buffer`
-  - : Ein bestehender {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als
-    Speicher für das neue `DataView`-Objekt verwendet wird.
+  - : Ein vorhandener {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als Speicher für das neue `DataView`-Objekt dient.
 - `byteOffset` {{optional_inline}}
-  - : Der Versatz in Bytes zum ersten Byte im obigen Puffer, auf den die neue Ansicht verweist. Wenn nicht angegeben, beginnt die Pufferansicht mit dem ersten Byte.
+  - : Der Offset in Bytes zum ersten Byte im obigen Buffer, auf das die neue Ansicht verweisen soll. Wenn nicht angegeben, beginnt die Ansicht des Buffers beim ersten Byte.
 - `byteLength` {{optional_inline}}
-  - : Die Anzahl der Elemente im Byte-Array. Wenn nicht angegeben, entspricht die Länge der Ansicht der Länge des Puffers.
+  - : Die Anzahl der Elemente im Byte-Array. Wenn nicht angegeben, entspricht die Länge der Ansicht der Länge des Buffers.
 
 ### Rückgabewert
 
@@ -52,7 +50,7 @@ Ein neues {{jsxref("DataView")}}-Objekt, das den angegebenen Datenpuffer darstel
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn die Werte der Parameter `byteOffset` oder `byteLength` dazu führen, dass die Ansicht über das Ende des Puffers hinausgeht. Mit anderen Worten, `byteOffset + byteLength > buffer.byteLength`.
+  - : Wird ausgelöst, wenn die Werte der Parameter `byteOffset` oder `byteLength` dazu führen, dass die Ansicht über das Ende des Buffers hinausgeht. Mit anderen Worten, `byteOffset + byteLength > buffer.byteLength`.
 
 ## Beispiele
 

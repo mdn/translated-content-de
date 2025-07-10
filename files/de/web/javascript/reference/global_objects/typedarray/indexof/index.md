@@ -3,12 +3,10 @@ title: TypedArray.prototype.indexOf()
 short-title: indexOf()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/indexOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`indexOf()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
+Die **`indexOf()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt den ersten Index zurück, an dem ein angegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.indexOf()")}}
 
@@ -38,15 +36,15 @@ indexOf(searchElement, fromIndex)
 - `searchElement`
   - : Element, das im typisierten Array gesucht werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Index, an dem die Suche beginnen soll, [umgewandelt in eine ganze Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, ab dem die Suche beginnt, [umgewandelt in eine ganze Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Der erste Index von `searchElement` im typisierten Array; `-1`, wenn nicht gefunden.
+Der erste Index von `searchElement` im typisierten Array; `-1` wenn nicht gefunden.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.indexOf()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.indexOf()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 

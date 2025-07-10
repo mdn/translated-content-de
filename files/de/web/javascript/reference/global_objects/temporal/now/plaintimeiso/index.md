@@ -3,14 +3,14 @@ title: Temporal.Now.plainTimeISO()
 short-title: plainTimeISO()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Now/plainTimeISO
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Now.plainTimeISO()`** gibt die aktuelle Zeit als ein {{jsxref("Temporal.PlainTime")}}-Objekt in der angegebenen Zeitzone zurück.
+Die **`Temporal.Now.plainTimeISO()`** statische Methode gibt die aktuelle Zeit als ein {{jsxref("Temporal.PlainTime")}} Objekt in der angegebenen Zeitzone zurück.
 
-Obwohl die Methode "ISO" im Namen enthält, haben {{jsxref("Temporal.PlainTime")}}-Objekte keine zugeordneten Kalender, da das Zeitformat nicht kalenderabhängig ist.
+Obwohl die Methode "ISO" im Namen enthält, haben {{jsxref("Temporal.PlainTime")}} Objekte keine zugeordneten Kalender, da das Zeitformat nicht kalenderabhängig ist.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Temporal.Now.plainTimeISO(timeZone)
 ### Parameter
 
 - `timeZone` {{optional_inline}}
-  - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die auf die Zeitzone verweist, in der die Systemzeit interpretiert wird. Wenn es sich um eine `Temporal.ZonedDateTime`-Instanz handelt, wird deren Zeitzone verwendet. Ist es ein String, kann es sich um einen benannten Zeitzonenbezeichner, einen Offset-Zeitzonenbezeichner oder einen Datum-Uhrzeit-String handeln, der einen Zeitzonenbezeichner oder einen Offset enthält (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen).
+  - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die die Zeitzone repräsentiert, in der die Systemzeit interpretiert werden soll. Wenn es sich um eine `Temporal.ZonedDateTime` Instanz handelt, wird ihre Zeitzone verwendet. Handelt es sich um einen String, kann dieser eine benannte Zeitzonenkennung, eine Offset-Zeitzonenkennung oder einen Datum-Uhrzeit-String mit einer Zeitzonenkennung oder einem Offset sein (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für mehr Informationen).
 
 ### Rückgabewert
 
-Die aktuelle Zeit in der angegebenen Zeitzone als {{jsxref("Temporal.PlainTime")}}-Objekt. Hat die gleiche Genauigkeit wie {{jsxref("Temporal/Now/instant", "Temporal.Now.instant()")}}.
+Die aktuelle Zeit in der angegebenen Zeitzone, als ein {{jsxref("Temporal.PlainTime")}} Objekt. Hat die gleiche Präzision wie {{jsxref("Temporal/Now/instant", "Temporal.Now.instant()")}}.
 
 ### Ausnahmen
 

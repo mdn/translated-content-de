@@ -1,30 +1,28 @@
 ---
-title: Error
+title: Fehler
 slug: Web/JavaScript/Reference/Global_Objects/Error
 l10n:
-  sourceCommit: 57b01b603385ca121240d52d542adfa60da0f92e
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-**`Error`**-Objekte werden ausgeworfen, wenn Laufzeitfehler auftreten. Das `Error`-Objekt kann auch als Basisobjekt für benutzerdefinierte Ausnahmen verwendet werden. Siehe unten für Standardfehlerarten.
+**`Error`**-Objekte werden ausgelöst, wenn Laufzeitfehler auftreten. Das `Error`-Objekt kann auch als Basisobjekt für benutzerdefinierte Ausnahmen verwendet werden. Siehe unten für standardmäßig eingebaute Fehlertypen.
 
 ## Beschreibung
 
-Laufzeitfehler führen zur Erstellung und Auslösung neuer `Error`-Objekte.
+Laufzeitfehler führen zur Erstellung und zum Auslösen neuer `Error`-Objekte.
 
-`Error` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`Error` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}} und kann daher mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) zwischen [Workers](/de/docs/Web/API/Worker) kopiert werden.
 
 ### Fehlertypen
 
-Neben dem generischen `Error`-Konstruktor gibt es weitere Kernfehlerkonstruktoren in JavaScript. Für clientseitige Ausnahmen siehe [Ausnahmebehandlungsanweisungen](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements).
+Neben dem allgemeinen `Error`-Konstruktor gibt es andere Kernfehlerkonstruktoren in JavaScript. Für clientseitige Ausnahmen siehe [Ausnahmekontrollanweisungen](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements).
 
 - {{jsxref("EvalError")}}
-  - : Erstellt eine Instanz, die einen Fehler darstellt, der bei der Verwendung der globalen Funktion {{jsxref("Global_Objects/eval", "eval()")}} auftritt.
+  - : Erstellt eine Instanz, die einen Fehler darstellt, der im Zusammenhang mit der globalen Funktion {{jsxref("Global_Objects/eval", "eval()")}} auftritt.
 - {{jsxref("RangeError")}}
-  - : Erstellt eine Instanz, die einen Fehler darstellt, der auftritt, wenn eine numerische Variable oder ein Parameter außerhalb seines gültigen Bereichs ist.
+  - : Erstellt eine Instanz, die einen Fehler darstellt, der auftritt, wenn eine numerische Variable oder ein Parameter außerhalb des gültigen Bereichs liegt.
 - {{jsxref("ReferenceError")}}
-  - : Erstellt eine Instanz, die einen Fehler darstellt, der beim Dereferenzieren eines ungültigen Verweises auftritt.
+  - : Erstellt eine Instanz, die einen Fehler darstellt, der auftritt, wenn auf eine ungültige Referenz zugegriffen wird.
 - {{jsxref("SyntaxError")}}
   - : Erstellt eine Instanz, die einen Syntaxfehler darstellt.
 - {{jsxref("TypeError")}}
@@ -32,7 +30,7 @@ Neben dem generischen `Error`-Konstruktor gibt es weitere Kernfehlerkonstruktore
 - {{jsxref("URIError")}}
   - : Erstellt eine Instanz, die einen Fehler darstellt, der auftritt, wenn {{jsxref("encodeURI()")}} oder {{jsxref("decodeURI()")}} ungültige Parameter übergeben werden.
 - {{jsxref("AggregateError")}}
-  - : Erstellt eine Instanz, die mehrere Fehler umschließt, wenn mehrere Fehler in einer Operation gemeldet werden müssen, zum Beispiel bei {{jsxref("Promise.any()")}}.
+  - : Erstellt eine Instanz, die mehrere Fehler in einem einzigen Fehler zusammenfasst, wenn eine Operation mehrere Fehler berichten muss, zum Beispiel durch {{jsxref("Promise.any()")}}.
 - {{jsxref("InternalError")}} {{non-standard_inline}}
   - : Erstellt eine Instanz, die einen Fehler darstellt, der auftritt, wenn ein interner Fehler in der JavaScript-Engine ausgelöst wird, z.B. "zu viel Rekursion".
 
@@ -44,52 +42,52 @@ Neben dem generischen `Error`-Konstruktor gibt es weitere Kernfehlerkonstruktore
 ## Statische Eigenschaften
 
 - {{jsxref("Error.stackTraceLimit")}} {{non-standard_inline}}
-  - : Eine nicht-standardmäßige numerische Eigenschaft, die begrenzt, wie viele Stack-Frames in einem Fehler-Stack-Tracing enthalten sind.
+  - : Eine nicht-standard numerische Eigenschaft, die begrenzt, wie viele Stack-Frames in einem Fehler-Stack-Trace enthalten sein sollen.
 
 ## Statische Methoden
 
 - {{jsxref("Error.captureStackTrace()")}}
-  - : Eine nicht-standardmäßige Funktion, die die {{jsxref("Error/stack", "stack")}}-Eigenschaft auf dem bereitgestellten Objekt erstellt.
+  - : Eine nicht-standard Funktion, die die {{jsxref("Error/stack", "stack")}}-Eigenschaft auf dem bereitgestellten Objekt erstellt.
 - {{jsxref("Error.isError()")}}
-  - : Gibt `true` zurück, wenn das Argument ein Fehler ist, oder `false` andernfalls.
+  - : Gibt `true` zurück, wenn das Argument ein Fehler ist, oder `false` anderenfalls.
 - `Error.prepareStackTrace()` {{non-standard_inline}} {{optional_inline}}
-  - : Eine nicht-standardmäßige Funktion, die, falls sie durch Benutzer-Code bereitgestellt wird, von der JavaScript-Engine für ausgelöste Ausnahmen aufgerufen wird, um benutzerdefiniertes Formatieren von Stack-Traces zu ermöglichen. Siehe die [V8 Stack Trace API](https://v8.dev/docs/stack-trace-api#customizing-stack-traces)-Dokumentation.
+  - : Eine nicht-standard Funktion, die, wenn sie von Benutzer-Code bereitgestellt wird, von der JavaScript-Engine für ausgelöste Ausnahmen aufgerufen wird, um dem Benutzer zu ermöglichen, benutzerdefinierte Formatierungen für Stack-Traces bereitzustellen. Siehe die [V8 Stack Trace API](https://v8.dev/docs/stack-trace-api#customizing-stack-traces) Dokumentation.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `Error.prototype` definiert und werden von allen `Error`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Error.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Error`-Instanzen ist der Anfangswert der {{jsxref("Error/Error", "Error")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Error`-Instanzen ist der Anfangswert der {{jsxref("Error/Error", "Error")}}-Konstruktor.
 - {{jsxref("Error.prototype.name")}}
-  - : Repräsentiert den Namen des Fehler-Typs. Für `Error.prototype.name` ist der Anfangswert `"Error"`. Unterklassen wie {{jsxref("TypeError")}} und {{jsxref("SyntaxError")}} stellen ihre eigenen `name`-Eigenschaften bereit.
+  - : Repräsentiert den Namen für die Art des Fehlers. Für `Error.prototype.name` ist der Anfangswert `"Error"`. Unterklassen wie {{jsxref("TypeError")}} und {{jsxref("SyntaxError")}} bieten ihre eigenen `name`-Eigenschaften.
 - {{jsxref("Error.prototype.stack")}} {{non-standard_inline}}
-  - : Eine nicht-standardmäßige Eigenschaft für eine Stack-Tracing.
+  - : Eine nicht-standard Eigenschaft für einen Stack-Trace.
 
 Diese Eigenschaften sind eigene Eigenschaften jeder `Error`-Instanz.
 
 - {{jsxref("Error/cause", "cause")}}
-  - : Fehlerursache, die den Grund angibt, warum der aktuelle Fehler ausgelöst wird — üblicherweise ein anderer abgefangener Fehler. Für benutzererstellte `Error`-Objekte ist dies der Wert, der als `cause`-Eigenschaft des zweiten Arguments des Konstruktors bereitgestellt wird.
+  - : Fehlerursache, die den Grund angibt, warum der aktuelle Fehler ausgelöst wird — normalerweise ein anderer gefangener Fehler. Bei benutzererstellten `Error`-Objekten ist dies der Wert, der als die `cause`-Eigenschaft des zweiten Arguments des Konstruktors bereitgestellt wird.
 - {{jsxref("Error/columnNumber", "columnNumber")}} {{non-standard_inline}}
-  - : Eine nicht-standardmäßige Mozilla-Eigenschaft für die Spaltennummer in der Zeile, die diesen Fehler verursacht hat.
+  - : Eine nicht-standard Mozilla-Eigenschaft für die Spaltennummer in der Zeile, die diesen Fehler ausgelöst hat.
 - {{jsxref("Error/fileName", "fileName")}} {{non-standard_inline}}
-  - : Eine nicht-standardmäßige Mozilla-Eigenschaft für den Pfad zur Datei, die diesen Fehler verursacht hat.
+  - : Eine nicht-standard Mozilla-Eigenschaft für den Pfad zur Datei, die diesen Fehler ausgelöst hat.
 - {{jsxref("Error/lineNumber", "lineNumber")}} {{non-standard_inline}}
-  - : Eine nicht-standardmäßige Mozilla-Eigenschaft für die Zeilennummer in der Datei, die diesen Fehler verursacht hat.
+  - : Eine nicht-standard Mozilla-Eigenschaft für die Zeilennummer in der Datei, die diesen Fehler ausgelöst hat.
 - {{jsxref("Error/message", "message")}}
-  - : Fehlermeldung. Für benutzererstellte `Error`-Objekte ist dies der als erstes Argument des Konstruktors bereitgestellte String.
+  - : Fehlermeldung. Bei benutzererstellten `Error`-Objekten ist dies der String, der als erstes Argument des Konstruktors bereitgestellt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Error.prototype.toString()")}}
-  - : Gibt einen String zurück, der das angegebene Objekt darstellt. Überschreibt die {{jsxref("Object.prototype.toString()")}}-Methode.
+  - : Gibt einen String zurück, der das spezifizierte Objekt darstellt. Überschreibt die {{jsxref("Object.prototype.toString()")}}-Methode.
 
 ## Beispiele
 
-### Einen generischen Fehler auswerfen
+### Werfen eines allgemeinen Fehlers
 
-Normalerweise erstellt man ein `Error`-Objekt mit der Absicht, es mittels des Schlüsselwortes {{jsxref("Statements/throw", "throw")}} auszulösen.
-Sie können den Fehler mit der Konstruktion {{jsxref("Statements/try...catch", "try...catch")}} behandeln:
+Normalerweise erstellt man ein `Error`-Objekt mit der Absicht, es mit dem {{jsxref("Statements/throw", "throw")}}-Schlüsselwort auszulösen.
+Sie können den Fehler mit der {{jsxref("Statements/try...catch", "try...catch")}}-Konstruktion behandeln:
 
 ```js
 try {
@@ -99,9 +97,9 @@ try {
 }
 ```
 
-### Einen spezifischen Fehlertyp behandeln
+### Behandlung eines spezifischen Fehlertyps
 
-Sie können sich entscheiden, nur bestimmte Fehlertypen zu behandeln, indem Sie den Fehlertyp mit dem Schlüsselwort {{jsxref("Operators/instanceof", "instanceof")}} testen:
+Sie können sich dafür entscheiden, nur spezifische Fehlertypen zu behandeln, indem Sie den Fehlertyp mit dem {{jsxref("Operators/instanceof", "instanceof")}}-Schlüsselwort testen:
 
 ```js
 try {
@@ -120,14 +118,14 @@ try {
 }
 ```
 
-### Zwischen ähnlichen Fehlern unterscheiden
+### Unterscheidung zwischen ähnlichen Fehlern
 
-Manchmal kann ein Codeblock aus Gründen fehlschlagen, die eine unterschiedliche Behandlung erfordern, aber sehr ähnliche Fehler auslösen (d.h. mit demselben Typ und derselben Nachricht).
+Manchmal kann ein Codeblock aus Gründen scheitern, die eine unterschiedliche Behandlung erfordern, aber sehr ähnliche Fehler werfen (d.h. mit demselben Typ und derselben Meldung).
 
-Wenn Sie keine Kontrolle über die ursprünglich ausgelösten Fehler haben, ist eine Option, diese abzufangen und neue `Error`-Objekte mit spezifischeren Nachrichten auszulösen.
-Der ursprüngliche Fehler sollte an das neue `Error`-Objekt im `options`-Parameter des Konstruktors als seine `cause`-Eigenschaft übergeben werden. Dies stellt sicher, dass der ursprüngliche Fehler und Stack-Trace für höherstufige try/catch-Blöcke verfügbar sind.
+Wenn Sie keine Kontrolle über die ursprünglich geworfenen Fehler haben, ist eine Möglichkeit, sie abzufangen und neue `Error`-Objekte mit spezifischeren Nachrichten zu werfen.
+Der ursprüngliche Fehler sollte im `options`-Parameter des Konstruktors als seine `cause`-Eigenschaft an das neue `Error` übergeben werden. Dies stellt sicher, dass der ursprüngliche Fehler und der Stack-Trace für höherstufige try/catch-Blöcke verfügbar sind.
 
-Das folgende Beispiel zeigt dies für zwei Methoden, die ansonsten mit ähnlichen Fehlern fehlschlagen würden (`doFailSomeWay()` und `doFailAnotherWay()`):
+Das folgende Beispiel zeigt dies für zwei Methoden, die andernfalls mit ähnlichen Fehlern scheitern würden (`doFailSomeWay()` und `doFailAnotherWay()`):
 
 ```js
 function doWork() {
@@ -158,9 +156,9 @@ try {
 ```
 
 > [!NOTE]
-> Wenn Sie eine Bibliothek erstellen, sollten Sie es vorziehen, die Fehlerursache zu nutzen, um zwischen verschiedenen ausgegebenen Fehlern zu unterscheiden, anstatt Ihre Verbraucher dazu aufzufordern, die Fehlermeldung zu parsen. Siehe die [Seite zur Fehlerursache](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/cause#providing_structured_data_as_the_error_cause) für ein Beispiel.
+> Wenn Sie eine Bibliothek erstellen, sollten Sie es bevorzugen, die Fehlerursache zu verwenden, um zwischen verschiedenen ausgegebenen Fehlern zu unterscheiden — anstatt von Ihren Nutzern zu verlangen, die Fehlermeldung zu analysieren. Siehe die [Error Cause-Seite](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/cause#providing_structured_data_as_the_error_cause) für ein Beispiel.
 
-[Benutzerdefinierte Fehlertypen](#benutzerdefinierte_fehlertypen) können ebenfalls die `cause`-Eigenschaft verwenden, sofern der Konstruktor der Unterklassen den Parameter `options` beim Aufruf von `super()` weitergibt. Der `Error()`-Basisklassenkonstruktor wird `options.cause` lesen und die `cause`-Eigenschaft auf der neuen Fehlerinstanz definieren.
+[Benutzerdefinierte Fehlertypen](#benutzerdefinierte_fehlertypen) können ebenfalls die `cause`-Eigenschaft verwenden, vorausgesetzt, dass der Konstruktor der Unterklassen den `options`-Parameter beim Aufruf von `super()` übergibt. Der `Error()`-Basis-Konstruktor wird `options.cause` lesen und die `cause`-Eigenschaft an der neuen Fehlerinstanz definieren.
 
 ```js
 class MyError extends Error {
@@ -176,15 +174,15 @@ console.log(new MyError("test", { cause: new Error("cause") }).cause);
 
 ### Benutzerdefinierte Fehlertypen
 
-Möglicherweise möchten Sie Ihre eigenen Fehlertypen definieren, die von `Error` abgeleitet sind, um `throw new MyError()` verwenden zu können und mit `instanceof MyError` die Art des Fehlers im Ausnahmehandler zu überprüfen. Dies führt zu saubererem und einheitlicherem Fehlerbehandlungscode.
+Sie könnten Ihre eigenen Fehlertypen definieren, die sich von `Error` ableiten, um `throw new MyError()` nutzen zu können und mit `instanceof MyError` die Art des Fehlers im Ausnahmebehandler zu überprüfen. Dies führt zu saubererem und konsistenterem Fehlerbehandlungscode.
 
-Siehe ["What's a good way to extend Error in JavaScript?"](https://stackoverflow.com/questions/1382107/whats-a-good-way-to-extend-error-in-javascript) auf Stack Overflow für eine ausführliche Diskussion.
+Siehe ["What's a good way to extend Error in JavaScript?"](https://stackoverflow.com/questions/1382107/whats-a-good-way-to-extend-error-in-javascript) auf Stack Overflow für eine eingehende Diskussion.
 
 > [!WARNING]
-> Eingebaute Unterklassen können nicht zuverlässig in vor-ES6-Code transpiliert werden, da es keine Möglichkeit gibt, die Basisklasse mit einem bestimmten `new.target` ohne {{jsxref("Reflect.construct()")}} zu konstruieren. Sie benötigen [zusätzliche Konfiguration](https://github.com/loganfsmyth/babel-plugin-transform-builtin-extend) oder müssen manuell {{jsxref("Object/setPrototypeOf", "Object.setPrototypeOf(this, CustomError.prototype)")}} am Ende des Konstruktors aufrufen; andernfalls wird die konstruierte Instanz keine `CustomError`-Instanz sein. Siehe [die TypeScript-FAQ](https://github.com/microsoft/TypeScript/wiki/FAQ#why-doesnt-extending-built-ins-like-error-array-and-map-work) für weitere Informationen.
+> Eingebaute Vererbungen können nicht zuverlässig in Code vor-ES6 transpiliert werden, da es keine Möglichkeit gibt, die Basisklasse mit einem bestimmten `new.target` ohne {{jsxref("Reflect.construct()")}} zu konstruieren. Sie benötigen [zusätzliche Konfiguration](https://github.com/loganfsmyth/babel-plugin-transform-builtin-extend) oder rufen manuell {{jsxref("Object/setPrototypeOf", "Object.setPrototypeOf(this, CustomError.prototype)")}} am Ende des Konstruktors auf; andernfalls wird die konstruierte Instanz nicht eine `CustomError`-Instanz sein. Siehe [die TypeScript FAQ](https://github.com/microsoft/TypeScript/wiki/FAQ#why-doesnt-extending-built-ins-like-error-array-and-map-work) für mehr Informationen.
 
 > [!NOTE]
-> Einige Browser schließen den `CustomError`-Konstruktor in der Stack-Tracing ein, wenn ES2015-Klassen verwendet werden.
+> Einige Browser beinhalten den `CustomError`-Konstruktor im Stack-Trace, wenn ES2015-Klassen verwendet werden.
 
 ```js
 class CustomError extends Error {

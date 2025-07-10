@@ -3,12 +3,10 @@ title: DataView.prototype.getInt32()
 short-title: getInt32()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getInt32
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getInt32()`** Methode von {{jsxref("DataView")}} Instanzen liest 4 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbytewerte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.getInt32()")}}
 
@@ -33,9 +31,9 @@ getInt32(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, von dem aus die Daten im View gelesen werden sollen.
+  - : Der Offset in Bytes ab dem Beginn der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
@@ -44,7 +42,7 @@ Eine Ganzzahl von -2147483648 bis 2147483647, einschließlich.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass über das Ende des Views hinaus gelesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 

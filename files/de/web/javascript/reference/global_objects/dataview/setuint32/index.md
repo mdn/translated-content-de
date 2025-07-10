@@ -3,12 +3,10 @@ title: DataView.prototype.setUint32()
 short-title: setUint32()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setUint32
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`setUint32()`**-Methode von Instanzen des {{jsxref("DataView")}} nimmt eine Zahl und speichert sie als 32-Bit-Unsigned-Integer in den 4 Bytes, die am angegebenen Byte-Offset dieser `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
+Die **`setUint32()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit-Unsigned-Integer in den 4 Byte, beginnend am angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem innerhalb der Grenzen liegenden Offset gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setUint32()")}}
 
@@ -33,11 +31,11 @@ setUint32(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, von dem Anfang der Ansicht, um die Daten zu speichern.
+  - : Der Offset, in Bytes, ab dem Anfang der Ansicht, um die Daten zu speichern.
 - `value`
-  - : Der zu setzende Wert. Für die Kodierung des Wertes in Bytes siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der festzulegende Wert. Wie der Wert in Bytes codiert wird, siehe [Wertcodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 
@@ -46,7 +44,7 @@ setUint32(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichern würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus speichert.
 
 ## Beispiele
 

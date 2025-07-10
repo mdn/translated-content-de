@@ -3,12 +3,10 @@ title: Boolean.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Boolean/toString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toString()`**-Methode von {{jsxref("Boolean")}}-Werten gibt eine Zeichenfolge zurück, die den angegebenen booleschen Wert darstellt.
+Die **`toString()`**-Methode von {{jsxref("Boolean")}}-Werten gibt einen String zurück, der den angegebenen booleschen Wert darstellt.
 
 {{InteractiveExample("JavaScript Demo: Boolean.prototype.toString()")}}
 
@@ -36,16 +34,16 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die den angegebenen booleschen Wert darstellt.
+Ein String, der den angegebenen booleschen Wert darstellt.
 
 ## Beschreibung
 
-Das {{jsxref("Boolean")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht von
-{{jsxref("Object.prototype.toString()")}}. Für `Boolean`-Werte gibt die `toString`-Methode eine Zeichenfolgenrepräsentation des booleschen Werts zurück, die entweder `"true"` oder `"false"` ist.
+Das {{jsxref("Boolean")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht
+{{jsxref("Object.prototype.toString()")}}. Für `Boolean`-Werte gibt die `toString`-Methode eine String-Darstellung des booleschen Wertes zurück, die entweder `"true"` oder `"false"` ist.
 
-Die `toString()`-Methode erfordert, dass ihr `this`-Wert ein `Boolean`-Primärwert oder Wrapper-Objekt ist. Sie löst einen {{jsxref("TypeError")}} für andere `this`-Werte aus, ohne zu versuchen, diese in boolesche Werte zu zwingen.
+Die `toString()`-Methode erfordert, dass ihr `this`-Wert ein `Boolean`-Primitiv oder Wrapper-Objekt ist. Sie löst einen {{jsxref("TypeError")}} für andere `this`-Werte aus, ohne zu versuchen, sie in boolesche Werte zu erzwingen.
 
-Da `Boolean` keine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)-Methode besitzt, ruft JavaScript die `toString()`-Methode automatisch auf, wenn ein `Boolean`-Objekt in einem Kontext verwendet wird, der eine Zeichenfolge erwartet, wie z. B. in einem [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals). Boolean-Primitive Werte hingegen konsultieren die `toString()`-Methode nicht, um in Zeichenfolgen [umgewandelt zu werden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) — vielmehr werden sie direkt mithilfe desselben Algorithmus wie die anfängliche `toString()`-Implementierung konvertiert.
+Da `Boolean` keine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)-Methode hat, ruft JavaScript die `toString()`-Methode automatisch auf, wenn ein `Boolean`-Objekt in einem Kontext verwendet wird, der einen String erwartet, wie z.B. in einem [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals). Allerdings konsultieren boolesche _Primitive_ die `toString()`-Methode nicht, um in Strings [umgewandelt zu werden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) — vielmehr werden sie direkt mit demselben Algorithmus wie die ursprüngliche `toString()`-Implementierung konvertiert.
 
 ```js
 Boolean.prototype.toString = () => "Overridden";

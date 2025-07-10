@@ -3,15 +3,15 @@ title: String.prototype.fixed()
 short-title: fixed()
 slug: Web/JavaScript/Reference/Global_Objects/String/fixed
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Die **`fixed()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("tt")}}-Element (`<tt>str</tt>`) einbettet, wodurch dieser String in einer festbreiten Schriftart angezeigt wird.
+Die **`fixed()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("tt")}}-Element einbettet (`<tt>str</tt>`), was dazu führt, dass dieser String in einer Schriftart mit fester Breite angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `fixed()` wurde das `<tt>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften nutzen.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Für den Fall von `fixed()` wurde das `<tt>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften nutzen.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<tt>`-Start-Tag beginnt, gefolgt von dem Text `str`, und dann einem `</tt>`-End-Tag.
+Ein String, der mit einem `<tt>`-Start-Tag beginnt, gefolgt von dem Text `str` und dann einem `</tt>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von fixed()
 
-Der unten stehende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments:
 
 ```js
 const contentString = "Hello, world";
@@ -48,7 +48,7 @@ Dies wird das folgende HTML erzeugen:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `tt` kein gültiges Element mehr ist.
 
-Anstatt `fixed()` zu verwenden und direkt HTML-Text zu erzeugen, sollten Sie CSS nutzen, um Schriftarten zu manipulieren. Zum Beispiel können Sie {{cssxref("font-family")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
+Anstatt `fixed()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie {{cssxref("font-family")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
 
 ```js
 document.getElementById("yourElemId").style.fontFamily = "monospace";

@@ -3,12 +3,10 @@ title: Set.prototype.size
 short-title: size
 slug: Web/JavaScript/Reference/Global_Objects/Set/size
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`size`** Zugriffseigenschaft von {{jsxref("Set")}} Instanzen gibt die Anzahl der (einzigartigen) Elemente in diesem Set zurück.
+Die **`size`** Zugriffs-Eigenschaft von {{jsxref("Set")}} Instanzen gibt die Anzahl der (einzigartigen) Elemente in diesem Set zurück.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.size")}}
 
@@ -27,7 +25,7 @@ console.log(set1.size);
 
 ## Beschreibung
 
-Der Wert von `size` ist eine Ganzzahl, die angibt, wie viele Einträge das `Set` Objekt hat. Eine set-accessor-Funktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
+Der Wert von `size` ist eine Ganzzahl, die angibt, wie viele Einträge das `Set` Objekt enthält. Eine Setter-Funktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
 
 ## Beispiele
 

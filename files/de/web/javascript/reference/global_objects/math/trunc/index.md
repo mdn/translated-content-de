@@ -3,12 +3,10 @@ title: Math.trunc()
 short-title: trunc()
 slug: Web/JavaScript/Reference/Global_Objects/Math/trunc
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.trunc()`** gibt den ganzzahligen Teil einer Zahl zurück, indem sie alle Nachkommastellen entfernt.
+Die statische Methode **`Math.trunc()`** gibt den Ganzzahlanteil einer Zahl zurück, indem alle Nachkommastellen entfernt werden.
 
 {{InteractiveExample("JavaScript Demo: Math.trunc()")}}
 
@@ -39,13 +37,13 @@ Math.trunc(x)
 
 ### Rückgabewert
 
-Der ganzzahlige Teil von `x`.
+Der Ganzzahlanteil von `x`.
 
 ## Beschreibung
 
-Die Funktionsweise von `Math.trunc()` ist unkomplizierter als die der anderen drei `Math`-Methoden: {{jsxref("Math.floor()")}}, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}}; sie _schneidet_ alle Nachkommastellen ab, unabhängig davon, ob das Argument eine positive oder negative Zahl ist.
+Die Funktionsweise von `Math.trunc()` ist einfacher als die der anderen drei `Math`-Methoden: {{jsxref("Math.floor()")}}, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}}; sie _kürzt ab_ (schneidet den Punkt und die Ziffern rechts davon ab), unabhängig davon, ob das Argument eine positive oder negative Zahl ist.
 
-Da `trunc()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.trunc()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `trunc()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.trunc()`, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -63,12 +61,12 @@ Math.trunc(42.84); // 42
 Math.trunc(Infinity); // Infinity
 ```
 
-### Verwendung von bitweisen No-Ops zum Trunkieren von Zahlen
+### Verwendung von bitweise No-Ops zum Kürzen von Zahlen
 
 > [!WARNING]
-> Dies ist kein Polyfill für `Math.trunc()` aufgrund von nicht vernachlässigbaren Randfällen.
+> Dies ist aufgrund nicht vernachlässigbarer Randfälle kein Polyfill für `Math.trunc()`.
 
-Bitweise Operationen wandeln ihre Operanden in 32-Bit-Ganzzahlen um, was historisch genutzt wurde, um Fließkommazahlen zu trunkieren. Zu den gängigen Techniken gehören:
+Bitweise Operationen konvertieren ihre Operanden in 32-Bit-Ganzzahlen, was historisch genutzt wurde, um Gleitkommazahlen zu kürzen. Zu den gängigen Techniken gehören:
 
 ```js
 const original = 3.14;
@@ -79,7 +77,7 @@ const truncated4 = original ^ 0; // Bitwise XOR with 0
 const truncated5 = original >> 0; // Bitwise shifting by 0
 ```
 
-Beachten Sie, dass dies im Wesentlichen `toInt32` ist, was nicht dasselbe wie `Math.trunc` ist. Wenn der Wert nicht -2<sup>31</sup> - 1 < `value` < 2<sup>31</sup> (-2147483649 < `value` < 2147483648) erfüllt, würde die Umwandlung überlaufen.
+Seien Sie sich bewusst, dass dies im Wesentlichen `toInt32` ist, was nicht dasselbe wie `Math.trunc` ist. Wenn der Wert die Bedingung -2<sup>31</sup> - 1 < `value` < 2<sup>31</sup> (-2147483649 < `value` < 2147483648) nicht erfüllt, würde die Umwandlung überlaufen.
 
 ```js
 const a = ~~2147483648; // -2147483648
@@ -87,7 +85,7 @@ const b = ~~-2147483649; // 2147483647
 const c = ~~4294967296; // 0
 ```
 
-Verwenden Sie `~~` nur als Ersatz für `Math.trunc()`, wenn Sie sicher sind, dass der Bereich der Eingaben innerhalb des Bereichs von 32-Bit-Ganzzahlen liegt.
+Verwenden Sie `~~` nur als Ersatz für `Math.trunc()`, wenn Sie sicher sind, dass der Eingabebereich innerhalb des Bereichs der 32-Bit-Ganzzahlen liegt.
 
 ## Spezifikationen
 

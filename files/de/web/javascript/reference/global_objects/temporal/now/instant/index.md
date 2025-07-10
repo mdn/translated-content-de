@@ -3,12 +3,12 @@ title: Temporal.Now.instant()
 short-title: instant()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Now/instant
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`Temporal.Now.instant()`** statische Methode gibt die aktuelle Zeit als ein {{jsxref("Temporal.Instant")}} Objekt zurück.
+Die statische Methode **`Temporal.Now.instant()`** gibt die aktuelle Uhrzeit als ein {{jsxref("Temporal.Instant")}}-Objekt zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Temporal.Instant")}} Objekt, das die aktuelle Zeit darstellt, mit möglicherweise [reduzierter Präzision](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Now#reduced_time_precision).
+Ein {{jsxref("Temporal.Instant")}}-Objekt, das die aktuelle Uhrzeit darstellt, möglicherweise mit [verringerter Genauigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Now#reduced_time_precision).
 
 ## Beispiele
 

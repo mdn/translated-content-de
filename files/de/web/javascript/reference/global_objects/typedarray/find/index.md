@@ -3,12 +3,10 @@ title: TypedArray.prototype.find()
 short-title: find()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/find
 l10n:
-  sourceCommit: b63d69fb2038d6c63718a74a9768d157423efce9
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`find()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt das erste Element im bereitgestellten typisierten Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
+Die **`find()`** Methode von {{jsxref("TypedArray")}}-Instanzen gibt das erste Element im angegebenen typisierten Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.find()")}}
 
@@ -33,7 +31,7 @@ find(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um anzuzeigen, dass ein passendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}}-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
@@ -41,19 +39,20 @@ find(callbackFn, thisArg)
     - `array`
       - : Das typisierte Array, auf das `find()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet werden soll. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Weitere Informationen finden Sie unter [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Das erste Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt. Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
+Das erste Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt.
+Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.find()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.find()")}}. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Das erste Primzahl-Element in einem typisierten Array finden
+### Das erste Primzahl im typisierten Array finden
 
 Das folgende Beispiel gibt das erste Element im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahl gibt.
 
@@ -78,7 +77,7 @@ console.log(uint8.find(isPrime)); // 5
 ```
 
 > [!NOTE]
-> Die Implementierung von `isPrime()` ist nur zur Demonstration gedacht. Für eine reale Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um Wiederholungen von Berechnungen zu vermeiden.
+> Die `isPrime()`-Implementierung dient nur zur Demonstration. Für eine reale Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
 
 ## Spezifikationen
 

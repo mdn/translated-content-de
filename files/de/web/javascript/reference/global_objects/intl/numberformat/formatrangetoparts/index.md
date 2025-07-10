@@ -3,12 +3,10 @@ title: Intl.NumberFormat.prototype.formatRangeToParts()
 short-title: formatRangeToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRangeToParts
 l10n:
-  sourceCommit: 5206afe08e91add1b39cdeaa47d95a5da347a065
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`formatRangeToParts()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, die die lokalisierten Token enthalten, aus denen benutzerdefinierte Strings erstellt werden können, während die lokalspezifischen Teile erhalten bleiben. Dadurch ist es möglich, lokalbewusste benutzerdefinierte Formatierungsbereiche von Zahlen-Strings bereitzustellen.
+Die Methode **`formatRangeToParts()`** von Instanzen von {{jsxref("Intl.NumberFormat")}} gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokalespezifischen Tokens enthält, aus denen es möglich ist, benutzerdefinierte Zeichenketten zu erstellen, während die lokalespezifischen Teile erhalten bleiben. Dies ermöglicht es, bereichsspezifische, lokalisierte Formate für Zahlenketten bereitzustellen.
 
 ## Syntax
 
@@ -19,27 +17,27 @@ formatRangeToParts(startRange, endRange)
 ### Parameter
 
 - `startRange`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}}, oder ein String, der formatiert werden soll. Strings werden auf die gleiche Weise geparst wie bei der [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), außer dass `formatRangeToParts()` den exakten Wert verwendet, den der String darstellt, um Präzisionsverluste während der impliziten Konvertierung in eine Zahl zu vermeiden.
+  - : Eine Zahl ({{jsxref("Number")}}), ein {{jsxref("BigInt")}} oder ein String, der formatiert werden soll. Strings werden auf die gleiche Weise wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) geparst, außer dass `formatRangeToParts()` den genauen Wert verwendet, den der String darstellt, um einen Verlust der Genauigkeit bei der impliziten Umwandlung in eine Zahl zu vermeiden.
 - `endRange`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}}, oder ein String, der formatiert werden soll.
+  - : Eine Zahl ({{jsxref("Number")}}), ein {{jsxref("BigInt")}} oder ein String, der formatiert werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die den formatierten Bereich in Teilen enthalten. Jedes Objekt hat drei Eigenschaften: `type`, `value` und `source`, die jeweils einen String enthalten. Die String-Konkatenation von `value`, in der angegebenen Reihenfolge, ergibt denselben String wie {{jsxref("Intl/NumberFormat/formatRange", "formatRange()")}}. Der `type` kann dieselben Werte haben wie {{jsxref("Intl/NumberFormat/formatToParts", "formatToParts()")}}, oder den zusätzlichen Wert `"approximatelySign"` (siehe unten). Die `source` kann einer der folgenden sein:
+Ein {{jsxref("Array")}} von Objekten, das den formatierten Bereich in Teilen enthält. Jedes Objekt hat drei Eigenschaften: `type`, `value` und `source`, die jeweils eine Zeichenkette enthalten. Die Verkettung der `value`-Zeichenketten in der angegebenen Reihenfolge ergibt dieselbe Zeichenkette wie {{jsxref("Intl/NumberFormat/formatRange", "formatRange()")}}. Der `type` kann dieselben Werte haben wie {{jsxref("Intl/NumberFormat/formatToParts", "formatToParts()")}} oder den zusätzlichen Wert `"approximatelySign"` (siehe unten). Der `source` kann einer der folgenden sein:
 
 - `startRange`
-  - : Das Token ist ein Teil der Startnummer.
+  - : Das Token ist Teil der Startzahl.
 - `endRange`
-  - : Das Token ist ein Teil der Endnummer.
+  - : Das Token ist Teil der Endzahl.
 - `shared`
-  - : Das Token wird zwischen Start- und Endnummer geteilt; zum Beispiel das Währungssymbol. Alle Literale, die Teil des Bereichsmusters selbst sind, wie der `"–"` Separator, werden ebenfalls als `shared` markiert.
+  - : Das Token wird zwischen Start und Ende geteilt, wie zum Beispiel das Währungssymbol. Alle Literale, die Teil des Bereichsmusters selbst sind, wie der `"–"`-Separator, werden ebenfalls als `shared` markiert.
 
-Wenn die Start- und Endnummern zum selben String formatiert werden, hat die Ausgabe dieselbe Liste von Token wie beim Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "formatToParts()")}} auf der Startnummer, wobei alle Token als `source: "shared"` markiert sind. Zusätzlich kann das erste Token ein "ungefähres Gleichheitszeichen"-Symbol (z.B. "~") mit `type: "approximatelySign"` sein. Die Einfügung dieses Symbols hängt nur von den Lokaleinstellungen ab und wird eingefügt, selbst wenn `startRange === endRange` ist.
+Wenn die Start- und Endzahlen zur gleichen Zeichenkette formatiert werden, hat die Ausgabe die gleiche Liste von Tokens wie der Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "formatToParts()")}} auf die Startzahl, wobei alle Tokens als `source: "shared"` markiert sind. Zusätzlich kann das erste Token ein "ungefähres Gleichheits"-Symbol (z.B. "~") mit `type: "approximatelySign"` sein. Die Einfügung dieses Symbols hängt nur von den Lokaleinstellungen ab und wird auch eingefügt, wenn `startRange === endRange`.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` `NaN` oder ein unverarbeitbarer String ist.
+  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` `NaN` oder eine nicht konvertierbare Zeichenkette ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` undefiniert ist.
 
@@ -47,7 +45,7 @@ Wenn die Start- und Endnummern zum selben String formatiert werden, hat die Ausg
 
 ### Verwendung von formatRangeToParts()
 
-Die `formatRange()` Methode gibt lokalisierte, undurchsichtige Strings aus, die nicht direkt manipuliert werden können:
+Die Methode `formatRange()` gibt lokalisierte, undurchsichtige Zeichenketten aus, die nicht direkt manipuliert werden können:
 
 ```js
 const startRange = 3500;
@@ -62,7 +60,7 @@ console.log(formatter.formatRange(startRange, endRange));
 // "3.500,00–9.500,00 €"
 ```
 
-In vielen Benutzeroberflächen möchten Sie jedoch möglicherweise die Formatierung dieses Strings anpassen oder ihn mit anderen Texten verarbeiten. Die `formatRangeToParts()` Methode liefert die gleiche Information in Teilen:
+In vielen Benutzeroberflächen möchten Sie jedoch möglicherweise das Format dieser Zeichenkette anpassen oder es mit anderen Texten mischen. Die Methode `formatRangeToParts()` liefert die gleichen Informationen in Teilen:
 
 ```js
 console.log(formatter.formatRangeToParts(startRange, endRange));

@@ -3,12 +3,10 @@ title: DataView.prototype.getBigUint64()
 short-title: getBigUint64()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getBigUint64
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getBigUint64()`** Methode von {{jsxref("DataView")}} Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset des `DataView` und interpretiert sie als 64-Bit-ungezeichnete Ganzzahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
+Die **`getBigUint64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Byte, die am angegebenen Byte-Offset dieses `DataView` beginnen, und interpretiert sie als 64-Bit-Ganzzahl ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem gültigen Offset aus gelesen werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.getBigUint64()")}}
 
@@ -36,18 +34,18 @@ getBigUint64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, vom Anfang der Ansicht, von dem die Daten gelesen werden sollen.
+  - : Der Offset in Bytes, ab dem der Anfang des Views die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "little- oder big-endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein big-endian Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein {{jsxref("BigInt")}} von 0 bis 2<sup>64</sup>-1, inklusive.
+Ein {{jsxref("BigInt")}} von 0 bis 2<sup>64</sup>-1, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass es über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass darüber hinaus nicht mehr innerhalb des Views gelesen werden kann.
 
 ## Beispiele
 

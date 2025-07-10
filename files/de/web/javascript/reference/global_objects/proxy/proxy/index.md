@@ -3,10 +3,8 @@ title: Proxy() Konstruktor
 short-title: Proxy()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`Proxy()`** Konstruktor erstellt {{jsxref("Proxy")}} Objekte.
 
@@ -16,27 +14,29 @@ Der **`Proxy()`** Konstruktor erstellt {{jsxref("Proxy")}} Objekte.
 new Proxy(target, handler)
 ```
 
-> [!NOTE] > `Proxy()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Proxy()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `target`
   - : Ein Zielobjekt, das mit `Proxy` umwickelt werden soll. Es kann sich um jede Art von Objekt handeln, einschließlich eines nativen Arrays, einer Funktion oder sogar eines anderen Proxys.
 - `handler`
-  - : Ein Objekt, dessen Eigenschaften Funktionen sind, die das Verhalten des Proxys definieren, wenn eine Operation darauf durchgeführt wird.
+  - : Ein Objekt, dessen Eigenschaften Funktionen sind, die das Verhalten des Proxys definieren, wenn eine Operation darauf ausgeführt wird.
 
 ## Beschreibung
 
-Verwenden Sie den `Proxy()` Konstruktor, um ein neues `Proxy`-Objekt zu erstellen. Dieser Konstruktor benötigt zwei obligatorische Argumente:
+Verwenden Sie den `Proxy()` Konstruktor, um ein neues `Proxy` Objekt zu erstellen.
+Dieser Konstruktor benötigt zwei zwingende Argumente:
 
-- `target` ist das Objekt, für das Sie den Proxy erstellen möchten.
+- `target` ist das Objekt, für das Sie den Proxy erstellen möchten
 - `handler` ist das Objekt, das das benutzerdefinierte Verhalten des Proxys definiert.
 
-Ein leerer Handler erzeugt einen Proxy, der sich in fast allen Aspekten genauso verhält wie das Zielobjekt. Durch das Definieren einer Gruppe von Funktionen auf dem `handler`-Objekt können Sie spezifische Aspekte des Verhaltens des Proxys anpassen. Zum Beispiel können Sie durch das Definieren von `get()` eine angepasste Version des [property accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) des Ziels bereitstellen.
+Ein leerer Handler erstellt einen Proxy, der sich in fast allen Aspekten genau wie das Ziel verhält. Durch die Definition einer bestimmten Gruppe von Funktionen auf dem `handler`-Objekt können Sie spezifische Aspekte des Verhaltens des Proxys anpassen. Zum Beispiel können Sie durch die Definition von `get()` eine benutzerdefinierte Version des Zielobjekts [property accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) bereitstellen.
 
-### Handlerfunktionen
+### Handler-Funktionen
 
-In diesem Abschnitt sind alle Handlerfunktionen aufgelistet, die Sie definieren können. Handlerfunktionen werden manchmal _Traps_ genannt, da sie Aufrufe an das zugrunde liegende Zielobjekt abfangen.
+In diesem Abschnitt sind alle Handler-Funktionen aufgelistet, die Sie definieren können. Handler-Funktionen werden manchmal als _traps_ bezeichnet, weil sie Aufrufe zum zugrunde liegenden Zielobjekt abfangen.
 
 - {{jsxref("Proxy/Proxy/apply", "handler.apply()")}}
   - : Eine Trap für einen Funktionsaufruf.
@@ -68,9 +68,9 @@ In diesem Abschnitt sind alle Handlerfunktionen aufgelistet, die Sie definieren 
 
 ## Beispiele
 
-### Selektives Proxying von Property Accessors
+### Selektives Proxieren von Property Accessors
 
-In diesem Beispiel hat das Ziel zwei Eigenschaften, `notProxied` und `proxied`. Wir definieren einen Handler, der einen anderen Wert für `proxied` zurückgibt und alle anderen Zugriffe an das Zielobjekt weiterleitet.
+In diesem Beispiel hat das Ziel zwei Eigenschaften, `notProxied` und `proxied`. Wir definieren einen Handler, der einen anderen Wert für `proxied` zurückgibt und alle anderen Zugriffe zum Ziel durchlässt.
 
 ```js
 const target = {
@@ -103,5 +103,5 @@ console.log(proxy.proxied); // "replaced value"
 
 ## Siehe auch
 
-- [Meta Programming](/de/docs/Web/JavaScript/Guide/Meta_programming) Leitfaden
+- [Metaprogrammierung](/de/docs/Web/JavaScript/Guide/Meta_programming) Leitfaden
 - {{jsxref("Reflect")}}

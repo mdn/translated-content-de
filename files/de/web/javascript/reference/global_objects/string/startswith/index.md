@@ -3,10 +3,8 @@ title: String.prototype.startsWith()
 short-title: startsWith()
 slug: Web/JavaScript/Reference/Global_Objects/String/startsWith
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`startsWith()`** Methode von {{jsxref("String")}} Werten bestimmt, ob dieser String mit den Zeichen eines angegebenen Strings beginnt und gibt entsprechend `true` oder `false` zurück.
 
@@ -32,7 +30,7 @@ startsWith(searchString, position)
 ### Parameter
 
 - `searchString`
-  - : Die Zeichen, die am Anfang dieses Strings gesucht werden. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexes sind, werden [zu Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `startsWith()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Die Zeichen, nach denen am Beginn dieses Strings gesucht wird. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regex sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Das Weglassen oder Übergeben von `undefined` führt dazu, dass `startsWith()` nach dem String `"undefined"` sucht, was selten gewünscht wird.
 - `position` {{optional_inline}}
   - : Die Startposition, an der `searchString` gefunden werden soll (der Index des ersten Zeichens von `searchString`). Standardmäßig `0`.
 
@@ -47,7 +45,7 @@ startsWith(searchString, position)
 
 ## Beschreibung
 
-Diese Methode ermöglicht Ihnen zu bestimmen, ob ein String mit einem anderen String beginnt oder nicht. Diese Methode ist groß-/kleinschreibungssensitiv.
+Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String mit einem anderen String beginnt. Diese Methode ist groß- und kleinschreibungssensitiv.
 
 ## Beispiele
 

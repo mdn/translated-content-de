@@ -3,12 +3,10 @@ title: Object.getOwnPropertyDescriptors()
 short-title: getOwnPropertyDescriptors()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Property-Deskriptoren eines gegebenen Objekts zurück.
+Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Property Deskriptoren eines gegebenen Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.getOwnPropertyDescriptors()")}}
 
@@ -35,36 +33,36 @@ Object.getOwnPropertyDescriptors(obj)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, für das alle eigenen Property-Deskriptoren ermittelt werden sollen.
+  - : Das Objekt, für das alle eigenen Property Deskriptoren abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein Objekt, das alle eigenen Property-Deskriptoren eines Objekts enthält. Kann ein leeres Objekt sein, wenn keine Eigenschaften vorhanden sind.
+Ein Objekt, das alle eigenen Property Deskriptoren eines Objekts enthält. Kann ein leeres Objekt sein, wenn keine Eigenschaften vorhanden sind.
 
 ## Beschreibung
 
-Diese Methode ermöglicht die Untersuchung der genauen Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem string-wertigen Namen oder einem {{jsxref("Symbol")}} und einem Property-Deskriptor. Weitere Informationen über Property-Deskriptor-Typen und deren Attribute finden Sie in {{jsxref("Object.defineProperty()")}}.
+Diese Methode erlaubt die genaue Untersuchung der Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Property_ in JavaScript besteht entweder aus einem stringwertigen Namen oder einem {{jsxref("Symbol")}} und einem Property Deskriptor. Weitere Informationen über Property Deskriptor-Typen und deren Attribute finden Sie in {{jsxref("Object.defineProperty()")}}.
 
-Ein _Property-Deskriptor_ ist ein Eintrag mit einigen der folgenden Attribute:
+Ein _Property Deskriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
 
 - `value`
-  - : Der Wert, der mit der Eigenschaft verknüpft ist (nur für Daten-Deskriptoren).
+  - : Der mit der Eigenschaft verknüpfte Wert (nur Data Deskriptoren).
 - `writable`
-  - : `true`, wenn und nur wenn der mit der Eigenschaft verknüpfte Wert geändert werden darf (nur für Daten-Deskriptoren).
+  - : `true`, wenn und nur wenn der mit der Eigenschaft verknüpfte Wert geändert werden kann (nur Data Deskriptoren).
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt (nur für Accessor-Deskriptoren).
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}} wenn kein Getter vorhanden ist (nur Accessor Deskriptoren).
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt (nur für Accessor-Deskriptoren).
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}} wenn kein Setter vorhanden ist (nur Accessor Deskriptoren).
 - `configurable`
-  - : `true`, wenn und nur wenn der Typ dieses Property-Deskriptors geändert werden darf und die Eigenschaft vom entsprechenden Objekt gelöscht werden darf.
+  - : `true`, wenn und nur wenn der Typ dieses Property Deskriptors geändert werden kann und wenn die Eigenschaft aus dem entsprechenden Objekt gelöscht werden darf.
 - `enumerable`
-  - : `true`, wenn und nur wenn diese Eigenschaft während der Aufzählung der Eigenschaften auf dem entsprechenden Objekt angezeigt wird.
+  - : `true`, wenn und nur wenn diese Eigenschaft während der Auflistung der Eigenschaften des entsprechenden Objekts angezeigt wird.
 
 ## Beispiele
 
 ### Erstellen einer flachen Kopie
 
-Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt auf ein Zielobjekt kopiert, können Sie diese Methode und {{jsxref("Object.create()")}} für eine {{Glossary("Shallow_copy", "flache Kopie")}} zwischen zwei unbekannten Objekten verwenden:
+Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt auf ein Zielobjekt kopiert, können Sie mit dieser Methode und {{jsxref("Object.create()")}} eine {{Glossary("Shallow_copy", "flache Kopie")}} zwischen zwei unbekannten Objekten erstellen:
 
 ```js
 Object.create(
@@ -75,7 +73,7 @@ Object.create(
 
 ### Erstellen einer Unterklasse
 
-Eine typische Methode, eine Unterklasse zu erstellen, besteht darin, die Unterklasse zu definieren, ihr Prototyp auf eine Instanz der Oberklasse zu setzen und dann Eigenschaften auf dieser Instanz zu definieren. Dies kann besonders für Getter und Setter umständlich werden. Stattdessen können Sie diesen Code verwenden, um den Prototyp zu setzen:
+Eine typische Methode zur Erstellung einer Unterklasse ist es, die Unterklasse zu definieren, ihr Prototyp auf eine Instanz der Oberklasse zu setzen und dann Eigenschaften auf dieser Instanz zu definieren. Dies kann besonders für Getter und Setter umständlich werden. Stattdessen können Sie diesen Code verwenden, um das Prototyp-Objekt zu setzen:
 
 ```js
 function superclass() {}
@@ -99,6 +97,6 @@ subclass.prototype = Object.create(superclass.prototype, {
 ## Siehe auch
 
 - [Polyfill von `Object.getOwnPropertyDescriptors` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
-- [es-shims Polyfill von `Object.getOwnPropertyDescriptors`](https://www.npmjs.com/package/object.getownpropertydescriptors)
+- [es-shims polyfill von `Object.getOwnPropertyDescriptors`](https://www.npmjs.com/package/object.getownpropertydescriptors)
 - {{jsxref("Object.getOwnPropertyDescriptor()")}}
 - {{jsxref("Object.defineProperty()")}}

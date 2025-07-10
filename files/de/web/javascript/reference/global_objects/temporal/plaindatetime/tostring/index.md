@@ -3,12 +3,12 @@ title: Temporal.PlainDateTime.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/toString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toString()`** Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt einen String zurück, der dieses Datum und diese Uhrzeit im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format) darstellt.
+Die **`toString()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt einen String zurück, der dieses Datum-Uhrzeit im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -24,23 +24,23 @@ toString(options)
     - `calendarName` {{optional_inline}}
       - : Ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Die Kalenderanmerkung wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Fügen Sie die Kalenderanmerkung hinzu, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalenderanmerkung wird immer einbezogen.
+          - : Immer die Kalenderanmerkung hinzufügen.
         - `"never"`
-          - : Die Kalenderanmerkung wird niemals einbezogen. Dies macht den zurückgegebenen String nicht wiederherstellbar zur selben {{jsxref("Temporal.PlainDateTime")}}-Instanz, obwohl das Datumswert immer noch gleich bleibt.
+          - : Niemals die Kalenderanmerkung hinzufügen. Dies führt dazu, dass der zurückgegebene String nicht auf die gleiche {{jsxref("Temporal.PlainDateTime")}} Instanz zurückgesetzt werden kann, obwohl der Datumswert derselbe bleibt.
         - `"critical"`
-          - : Die Kalenderanmerkung wird immer einbezogen und ein kritisches Flag wird hinzugefügt: `[!u-ca=calendar_id]`. Nützlich, wenn der String an bestimmte Systeme gesendet wird, jedoch nicht für Temporal selbst.
+          - : Immer die Kalenderanmerkung hinzufügen und ein kritisches Flag hinzufügen: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, jedoch nicht für Temporal selbst.
     - `fractionalSecondDigits` {{optional_inline}}
-      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Der Standardwert ist `"auto"`. Ist der Wert `"auto"`, werden die nachfolgenden Nullen von den Bruchteilen der Sekunden entfernt. Andernfalls enthält der Bruchteil der Sekundenkomponente so viele Ziffern, vervollständigt mit Nullen oder gerundet, wie nötig.
+      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Der Standardwert ist `"auto"`. Wenn `"auto"`, werden nachfolgende Nullen von den Bruchteilen von Sekunden entfernt. Andernfalls enthält der Bruchteil der Sekundenkomponente so viele Stellen, die bei Bedarf mit Nullen aufgefüllt oder gerundet werden.
     - `roundingMode` {{optional_inline}}
-      - : Ein String, der angibt, wie Bruchteile von Sekunden, die über `fractionalSecondDigits` hinausgehen, gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"trunc"`.
+      - : Ein String, der angibt, wie Bruchteile von Sekundenstellen über `fractionalSecondDigits` hinaus gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardwert ist `"trunc"`.
     - `smallestUnit` {{optional_inline}}
-      - : Ein String, der die kleinste Einheit angibt, die in die Ausgabe einbezogen werden soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"`, oder deren Pluralformen, die (außer `"minute"`) äquivalent zu `fractionalSecondDigits`-Werten von `0`, `3`, `6`, `9` sind. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
+      - : Ein String, der die kleinste Einheit angibt, die in die Ausgabe aufgenommen werden soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"` oder deren Pluralformen, die (außer `"minute"`) äquivalent zu `fractionalSecondDigits` Werten von `0`, `3`, `6`, `9` sind. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format), der dieses Datum und diese Uhrzeit darstellt. Die Kalenderanmerkung wird wie angegeben einbezogen.
+Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format), der dieses Datum-Uhrzeit darstellt. Die Kalenderanmerkung wird wie angegeben eingebunden.
 
 ### Ausnahmen
 
@@ -51,14 +51,14 @@ Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects
 
 ## Beispiele
 
-### Nutzung von toString()
+### Verwendung von toString()
 
 ```js
 const dt = Temporal.PlainDateTime.from("2021-08-01T12:34:56");
 console.log(dt.toString()); // '2021-08-01T12:34:56'
 ```
 
-Für Beispiele mit gerundeten Zeiten siehe {{jsxref("Temporal/PlainTime/toString", "Temporal.PlainTime.prototype.toString()")}}. Für Beispiele zur Anzeige von Kalendern siehe {{jsxref("Temporal/PlainDate/toString", "Temporal.PlainDate.prototype.toString()")}}.
+Für Beispiele mit Rundungszeiten siehe {{jsxref("Temporal/PlainTime/toString", "Temporal.PlainTime.prototype.toString()")}}. Für Beispiele zur Anzeige von Kalendern siehe {{jsxref("Temporal/PlainDate/toString", "Temporal.PlainDate.prototype.toString()")}}.
 
 ## Spezifikationen
 

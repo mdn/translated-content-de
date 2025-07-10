@@ -3,12 +3,10 @@ title: TypedArray.prototype.join()
 short-title: join()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/join
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`join()`**-Methode von {{jsxref("TypedArray")}}-Instanzen erstellt und gibt einen neuen String zurück, indem alle Elemente in diesem typisierten Array durch Kommata oder einen angegebenen Trennzeichen-String verbunden werden. Wenn das typisierte Array nur ein Element hat, wird dieses Element ohne Verwendung des Trennzeichens zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.join()")}}.
+Die **`join()`** Methode von {{jsxref("TypedArray")}} Instanzen erstellt und gibt einen neuen String zurück, indem alle Elemente in diesem typisierten Array verkettet werden, getrennt durch Kommata oder eine angegebene Trennzeichen-Zeichenfolge. Wenn das typisierte Array nur ein Element hat, wird dieses Element ohne Verwendung des Trennzeichens zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.join()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.join()")}}
 
@@ -35,15 +33,15 @@ join(separator)
 ### Parameter
 
 - `separator` {{optional_inline}}
-  - : Ein String, um jedes Paar benachbarter Elemente des typisierten Arrays zu trennen. Falls nicht angegeben, werden die Elemente des typisierten Arrays mit einem Komma (",") getrennt.
+  - : Ein String, der jedes Paar benachbarter Elemente des typisierten Arrays trennt. Wenn es weggelassen wird, werden die Elemente des typisierten Arrays mit einem Komma (",") getrennt.
 
 ### Rückgabewert
 
-Ein String, der alle Elemente des typisierten Arrays verbindet. Wenn `array.length` `0` ist, wird der leere String zurückgegeben.
+Ein String, in dem alle Elemente des typisierten Arrays verbunden sind. Wenn `array.length` `0` ist, wird der leere String zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.join()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.join()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 

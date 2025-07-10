@@ -2,12 +2,10 @@
 title: BigInt64Array
 slug: Web/JavaScript/Reference/Global_Objects/BigInt64Array
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`BigInt64Array`** typisierte Array repräsentiert ein Array von 64-Bit-Ganzzahlen im Vorzeichen mit der Byte-Reihenfolge der Plattform. Wenn eine Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0n` initialisiert, sofern keine Initialisierungsdaten explizit bereitgestellt werden. Sobald das Objekt erstellt ist, können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d.h. mit Klammernotation) zugreifen.
+Das **`BigInt64Array`** typisierte Array repräsentiert ein Array von 64-Bit vorzeichenbehafteten Ganzzahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird mit `0n` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Einmal erstellt, können Sie auf Elemente im Array mit den Methoden des Objekts oder der standardmäßigen Array-Index-Syntax (das heißt, mit Klammernotation) zugreifen.
 
 `BigInt64Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
 
@@ -44,33 +42,33 @@ console.log(bigint64);
 ## Konstruktor
 
 - {{jsxref("BigInt64Array/BigInt64Array", "BigInt64Array()")}}
-  - : Erzeugt ein neues `BigInt64Array`-Objekt.
+  - : Erstellt ein neues `BigInt64Array` Objekt.
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von ihrem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "BigInt64Array.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `8` im Fall von `BigInt64Array`.
+  - : Gibt den Zahlenwert der Elementgröße zurück. `8` im Fall von `BigInt64Array`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von ihrem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften von ihrem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
-Diese Eigenschaften sind auf `BigInt64Array.prototype` definiert und werden von allen `BigInt64Array`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `BigInt64Array.prototype` definiert und werden von allen `BigInt64Array` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "BigInt64Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `8` im Fall eines `BigInt64Array`.
+  - : Gibt den Zahlenwert der Elementgröße zurück. `8` im Fall eines `BigInt64Array`.
 - {{jsxref("Object/constructor", "BigInt64Array.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `BigInt64Array` Instanzen ist der Anfangswert der {{jsxref("BigInt64Array/BigInt64Array", "BigInt64Array")}} Konstruktor.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden von ihrem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 

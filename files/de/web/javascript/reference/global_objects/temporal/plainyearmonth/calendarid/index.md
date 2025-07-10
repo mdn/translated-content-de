@@ -3,16 +3,16 @@ title: Temporal.PlainYearMonth.prototype.calendarId
 short-title: calendarId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/calendarId
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`calendarId`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, der zur Interpretation des internen ISO 8601 Datums verwendet wird.
+Die **`calendarId`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen String zurück, der den verwendeten [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) zur Interpretation des internen ISO 8601-Datums darstellt.
 
-Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste von häufig unterstützten Kalendertypen.
+Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen.
 
-Der Set-Accessor von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainYearMonth` Objekt mit einem anderen Kalender zu erstellen, das denselben Jahr-Monat darstellt. Daher müssen Sie es zuerst in ein {{jsxref("Temporal.PlainDate")}} Objekt umwandeln, den Kalender ändern und dann zurückkonvertieren.
+Der set-Accessor von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainYearMonth`-Objekt mit einem anderen Kalender zu erstellen, das denselben Jahr-Monat darstellt. Daher müssen Sie es zuerst in ein {{jsxref("Temporal.PlainDate")}}-Objekt mit {{jsxref("Temporal/PlainYearMonth/toPlainDate", "toPlainDate()")}} umwandeln, den Kalender ändern und es dann zurückkonvertieren.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ const ym2 = Temporal.PlainYearMonth.from("2021-07-01[u-ca=chinese]");
 console.log(ym2.calendarId); // "chinese"
 ```
 
-### Änderung von calendarId
+### Ändern von calendarId
 
 ```js
 const ym = Temporal.PlainYearMonth.from("2021-07");

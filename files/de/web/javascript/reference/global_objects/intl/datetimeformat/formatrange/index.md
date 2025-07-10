@@ -3,12 +3,10 @@ title: Intl.DateTimeFormat.prototype.formatRange()
 short-title: formatRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRange
 l10n:
-  sourceCommit: 5206afe08e91add1b39cdeaa47d95a5da347a065
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`formatRange()`** Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen formatiert einen Datumsbereich auf die prägnanteste Weise basierend auf den beim Instanziieren dieses `Intl.DateTimeFormat`-Objekts angegebenen Sprachen und Optionen.
+Die Methode **`formatRange()`** von {{jsxref("Intl.DateTimeFormat")}} Instanzen formatiert einen Datumsbereich auf die prägnanteste Weise basierend auf den lokalen Einstellungen und Optionen, die beim Instanziieren dieses `Intl.DateTimeFormat` Objekts bereitgestellt wurden.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.formatRange()", "taller")}}
 
@@ -42,7 +40,7 @@ formatRange(startDate, endDate)
 ### Parameter
 
 - `startDate`
-  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}} oder {{jsxref("Temporal.PlainDateTime")}} Objekt sein. Zusätzlich kann es sich um ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}} Objekt handeln, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums ausgibt.
+  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}} oder {{jsxref("Temporal.PlainDateTime")}} Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}}, oder {{jsxref("Temporal.PlainMonthDay")}} Objekt sein, wenn das `DateTimeFormat` Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums enthält.
     > [!NOTE]
     > Ein {{jsxref("Temporal.ZonedDateTime")}} Objekt wird immer einen `TypeError` auslösen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}} Objekt.
 - `endDate`
@@ -50,13 +48,13 @@ formatRange(startDate, endDate)
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Datumsbereich formatiert entsprechend der Sprache und den Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts darstellt. Wenn die Start- und Enddaten auf die Präzision der Ausgabe äquivalent sind, wird die Ausgabe nur ein einzelnes Datum enthalten.
+Ein String, der den angegebenen Datumsbereich entsprechend den lokalen Einstellungen und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts formatiert darstellt. Wenn die Start- und Enddaten bei der Präzision der Ausgabe äquivalent sind, enthält die Ausgabe nur ein einziges Datum.
 
 ## Beispiele
 
 ### Grundlegende Verwendung von formatRange
 
-Diese Methode erhält zwei {{jsxref("Date")}}s und formatiert den Datumsbereich auf die prägnanteste Weise basierend auf der beim Instanziieren von {{jsxref("Intl.DateTimeFormat")}} bereitgestellten `locale` und `options`.
+Diese Methode erhält zwei {{jsxref("Date")}} Objekte und formatiert den Datumsbereich auf die prägnanteste Weise basierend auf den `locale` und `options`, die bei der Instanziierung von {{jsxref("Intl.DateTimeFormat")}} bereitgestellt wurden.
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT

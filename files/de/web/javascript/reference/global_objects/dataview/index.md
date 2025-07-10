@@ -2,10 +2,8 @@
 title: DataView
 slug: Web/JavaScript/Reference/Global_Objects/DataView
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`DataView`**-Sicht bietet eine Low-Level-Schnittstelle zum Lesen und Schreiben mehrerer Zahlentypen in einem binären {{jsxref("ArrayBuffer")}}, ohne sich um die {{Glossary("Endianness", "Endianness")}} der Plattform kümmern zu müssen.
 
@@ -13,7 +11,7 @@ Die **`DataView`**-Sicht bietet eine Low-Level-Schnittstelle zum Lesen und Schre
 
 ### Endianness
 
-Mehrbyte-Zahlenformate werden im Speicher je nach Maschinenarchitektur unterschiedlich dargestellt – siehe {{Glossary("Endianness", "Endianness")}} für eine Erklärung. `DataView`-Zugriffe bieten explizite Kontrolle darüber, wie auf Daten zugegriffen wird, unabhängig von der Endianness des ausführenden Computers. Zum Beispiel ist [WebAssembly](/de/docs/WebAssembly)-Speicher immer klein-endian, daher sollten Sie `DataView` anstelle von typisierten Arrays verwenden, um Mehrbyte-Werte zu lesen und schreiben. Siehe [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) für ein Beispiel.
+Mehrbyte-Zahlenformate werden je nach Maschinenarchitektur unterschiedlich im Speicher dargestellt — siehe {{Glossary("Endianness", "Endianness")}} für eine Erklärung. `DataView`-Zugriffs-Methoden bieten explizite Kontrolle darüber, wie auf Daten zugegriffen wird, unabhängig von der Endianness des ausführenden Computers. Zum Beispiel ist der Speicher von [WebAssembly](/de/docs/WebAssembly) immer im Little-Endian-Format, daher sollten Sie `DataView` anstelle von typisierten Arrays verwenden, um Mehrbyte-Werte zu lesen und zu schreiben. Siehe [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) für ein Beispiel.
 
 ```js
 const littleEndian = (() => {
@@ -25,7 +23,8 @@ const littleEndian = (() => {
 console.log(littleEndian); // true or false
 ```
 
-> [!NOTE] > `DataView` liest und schreibt standardmäßig im Big-Endian-Format, aber die meisten Plattformen verwenden Little-Endian.
+> [!NOTE]
+> `DataView` verwendet standardmäßig das Big-Endian-Format für das Lesen und Schreiben, aber die meisten Plattformen verwenden Little-Endian.
 
 ## Konstruktor
 
@@ -34,14 +33,14 @@ console.log(littleEndian); // true or false
 
 ## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `DataView.prototype` definiert und werden von allen `DataView`-Instanzen geteilt.
+Diese Eigenschaften sind auf `DataView.prototype` definiert und werden von allen `DataView`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("DataView.prototype.buffer")}}
-  - : Das vom dieser Sicht referenzierte {{jsxref("ArrayBuffer")}}. Wird zur Konstruktion festgelegt und ist daher **nur lesbar**.
+  - : Der durch diese Sicht referenzierte {{jsxref("ArrayBuffer")}}. Festgelegt zur Konstruktionszeit und daher **schreibgeschützt**.
 - {{jsxref("DataView.prototype.byteLength")}}
-  - : Die Länge (in Bytes) dieser Sicht. Wird zur Konstruktion festgelegt und ist daher **nur lesbar**.
+  - : Die Länge (in Bytes) dieser Sicht. Festgelegt zur Konstruktionszeit und daher **schreibgeschützt**.
 - {{jsxref("DataView.prototype.byteOffset")}}
-  - : Der Versatz (in Bytes) dieser Sicht vom Beginn ihres {{jsxref("ArrayBuffer")}}. Wird zur Konstruktion festgelegt und ist daher **nur lesbar**.
+  - : Der Offset (in Bytes) dieser Sicht vom Anfang ihres {{jsxref("ArrayBuffer")}}. Festgelegt zur Konstruktionszeit und daher **schreibgeschützt**.
 - {{jsxref("Object/constructor", "DataView.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `DataView`-Instanzen ist der Anfangswert der {{jsxref("DataView/DataView", "DataView")}}-Konstruktor.
 - `DataView.prototype[Symbol.toStringTag]`
@@ -50,49 +49,49 @@ Diese Eigenschaften sind auf `DataView.prototype` definiert und werden von allen
 ## Instanz-Methoden
 
 - {{jsxref("DataView.prototype.getBigInt64()")}}
-  - : Liest 8 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 64-Bit-Ganzzahl mit Vorzeichen.
+  - : Liest 8 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-Vorzeichen ganze Zahl.
 - {{jsxref("DataView.prototype.getBigUint64()")}}
-  - : Liest 8 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 64-Bit-Ganzzahl ohne Vorzeichen.
+  - : Liest 8 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-Unsignierte ganze Zahl.
 - {{jsxref("DataView.prototype.getFloat16()")}}
-  - : Liest 2 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 16-Bit-Gleitkommazahl.
+  - : Liest 2 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Gleitkommazahl.
 - {{jsxref("DataView.prototype.getFloat32()")}}
-  - : Liest 4 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 32-Bit-Gleitkommazahl.
+  - : Liest 4 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Gleitkommazahl.
 - {{jsxref("DataView.prototype.getFloat64()")}}
-  - : Liest 8 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 64-Bit-Gleitkommazahl.
+  - : Liest 8 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-Gleitkommazahl.
 - {{jsxref("DataView.prototype.getInt16()")}}
-  - : Liest 2 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 16-Bit-Ganzzahl mit Vorzeichen.
+  - : Liest 2 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Vorzeichen ganze Zahl.
 - {{jsxref("DataView.prototype.getInt32()")}}
-  - : Liest 4 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 32-Bit-Ganzzahl mit Vorzeichen.
+  - : Liest 4 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Vorzeichen ganze Zahl.
 - {{jsxref("DataView.prototype.getInt8()")}}
-  - : Liest 1 Byte an der angegebenen Byteversatz dieser `DataView` und interpretiert es als 8-Bit-Ganzzahl mit Vorzeichen.
+  - : Liest 1 Byte am angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-Vorzeichen ganze Zahl.
 - {{jsxref("DataView.prototype.getUint16()")}}
-  - : Liest 2 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 16-Bit-Ganzzahl ohne Vorzeichen.
+  - : Liest 2 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Unsignierte ganze Zahl.
 - {{jsxref("DataView.prototype.getUint32()")}}
-  - : Liest 4 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView` und interpretiert sie als 32-Bit-Ganzzahl ohne Vorzeichen.
+  - : Liest 4 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Unsignierte ganze Zahl.
 - {{jsxref("DataView.prototype.getUint8()")}}
-  - : Liest 1 Byte an der angegebenen Byteversatz dieser `DataView` und interpretiert es als 8-Bit-Ganzzahl ohne Vorzeichen.
+  - : Liest 1 Byte am angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-Unsignierte ganze Zahl.
 - {{jsxref("DataView.prototype.setBigInt64()")}}
-  - : Nimmt eine BigInt und speichert sie als 64-Bit-Ganzzahl mit Vorzeichen in den 8 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt ein BigInt und speichert es als 64-Bit-Vorzeichen ganze Zahl in den 8 Bytes beginnend am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setBigUint64()")}}
-  - : Nimmt eine BigInt und speichert sie als 64-Bit-Ganzzahl ohne Vorzeichen in den 8 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt ein BigInt und speichert es als 64-Bit-Unsignierte ganze Zahl in den 8 Bytes beginnend am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setFloat16()")}}
-  - : Nimmt eine Zahl und speichert sie als 16-Bit-Fließkommazahl in den 2 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 16-Bit-Gleitkommazahl in den 2 Bytes beginnend am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setFloat32()")}}
-  - : Nimmt eine Zahl und speichert sie als 32-Bit-Fließkommazahl in den 4 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 32-Bit-Gleitkommazahl in den 4 Bytes beginnend am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setFloat64()")}}
-  - : Nimmt eine Zahl und speichert sie als 64-Bit-Fließkommazahl in den 8 Bytes beginnend bei dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 64-Bit-Gleitkommazahl in den 8 Bytes beginnend am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setInt16()")}}
-  - : Nimmt eine Zahl und speichert sie als 16-Bit-Ganzzahl mit Vorzeichen in den 2 Bytes an dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 16-Bit-Vorzeichen ganze Zahl in den 2 Bytes am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setInt32()")}}
-  - : Nimmt eine Zahl und speichert sie als 32-Bit-Ganzzahl mit Vorzeichen in den 4 Bytes an dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 32-Bit-Vorzeichen ganze Zahl in den 4 Bytes am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setInt8()")}}
-  - : Nimmt eine Zahl und speichert sie als 8-Bit-Ganzzahl mit Vorzeichen in dem Byte an dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 8-Bit-Vorzeichen ganze Zahl im Byte am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setUint16()")}}
-  - : Nimmt eine Zahl und speichert sie als 16-Bit-Ganzzahl ohne Vorzeichen in den 2 Bytes an dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 16-Bit-Unsignierte ganze Zahl in den 2 Bytes am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setUint32()")}}
-  - : Nimmt eine Zahl und speichert sie als 32-Bit-Ganzzahl ohne Vorzeichen in den 4 Bytes an dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 32-Bit-Unsignierte ganze Zahl in den 4 Bytes am angegebenen Byte-Offset dieses `DataView`.
 - {{jsxref("DataView.prototype.setUint8()")}}
-  - : Nimmt eine Zahl und speichert sie als 8-Bit-Ganzzahl ohne Vorzeichen in dem Byte an dem angegebenen Byteversatz dieser `DataView`.
+  - : Nimmt eine Zahl und speichert sie als 8-Bit-Unsignierte ganze Zahl im Byte am angegebenen Byte-Offset dieses `DataView`.
 
 ## Beispiele
 

@@ -3,12 +3,10 @@ title: DataView.prototype.getFloat64()
 short-title: getFloat64()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getFloat64
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getFloat64()`** Methode von {{jsxref("DataView")}} Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` aus und interpretiert sie als 64-Bit Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; mehrbyte Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getFloat64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Byte ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkungen; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgefragt werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.getFloat64()")}}
 
@@ -33,13 +31,13 @@ getFloat64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, ab dem die Daten gelesen werden.
+  - : Der Offset in Bytes, ab dem die Ansicht die Daten lesen soll.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein beliebiger Zahlenwert.
+Jeder numerische Wert.
 
 ### Ausnahmen
 

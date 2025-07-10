@@ -3,14 +3,12 @@ title: String.prototype.trim()
 short-title: trim()
 slug: Web/JavaScript/Reference/Global_Objects/String/trim
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`trim()`** Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück, ohne die ursprüngliche Zeichenfolge zu ändern.
 
-Die **`trim()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieser Zeichenkette und gibt eine neue Zeichenkette zurück, ohne die ursprüngliche Zeichenkette zu ändern.
-
-Um eine neue Zeichenkette zurückzugeben, bei der Leerzeichen nur von einem Ende entfernt werden, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
+Um eine neue Zeichenfolge mit Leerzeichen nur von einem Ende zurückzugeben, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.trim()")}}
 
@@ -36,9 +34,9 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Zeichenkette, die `str` darstellt, bei der Leerzeichen sowohl am Anfang als auch am Ende entfernt wurden. Leerzeichen sind definiert als [Leerzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+Eine neue Zeichenfolge, die `str` darstellt, bei der sowohl am Anfang als auch am Ende alle Leerzeichen entfernt wurden. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn weder der Anfang noch das Ende von `str` Leerzeichen haben, wird trotzdem eine neue Zeichenkette zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn weder am Anfang noch am Ende von `str` irgendwelche Leerzeichen vorhanden sind, wird dennoch eine neue Zeichenfolge zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beispiele
 

@@ -3,12 +3,10 @@ title: Math.fround()
 short-title: fround()
 slug: Web/JavaScript/Reference/Global_Objects/Math/fround
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.fround()`** gibt die nächstliegende [32-Bit-Einzelpräzision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) Fließkommadarstellung einer Zahl zurück.
+Die **`Math.fround()`** statische Methode gibt die nächstgelegene [32-Bit-Einzelpräzisions-](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) Fließkommadarstellung einer Zahl zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.fround()")}}
 
@@ -39,28 +37,28 @@ Math.fround(doubleFloat)
 
 ### Rückgabewert
 
-Die nächstliegende [32-Bit-Einzelpräzision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) Fließkommadarstellung von `doubleFloat`.
+Die nächstgelegene [32-Bit-Einzelpräzisions-](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) Fließkommadarstellung von `doubleFloat`.
 
 ## Beschreibung
 
-JavaScript verwendet intern 64-Bit-Doppelfließkommazahlen, die eine sehr hohe Präzision bieten. Manchmal arbeiten Sie jedoch mit 32-Bit-Fließkommazahlen, beispielsweise wenn Sie Werte aus einem {{jsxref("Float32Array")}} lesen. Dies kann Verwirrung stiften: Der Vergleich zwischen einer 64-Bit- und einer 32-Bit-Fließkommazahl auf Gleichheit kann fehlschlagen, selbst wenn die Zahlen scheinbar identisch sind.
+JavaScript verwendet intern 64-Bit-Doppelpräzisions-Fließkommazahlen, die eine sehr hohe Präzision bieten. Allerdings kann es manchmal vorkommen, dass Sie mit 32-Bit-Fließkommazahlen arbeiten, zum Beispiel wenn Sie Werte aus einem {{jsxref("Float32Array")}} lesen. Dies kann zu Verwirrung führen: das Überprüfen auf Gleichheit zwischen einer 64-Bit- und einer 32-Bit-Fließkommazahl kann fehlschlagen, obwohl die Zahlen scheinbar identisch sind.
 
-Um dies zu lösen, kann `Math.fround()` verwendet werden, um die 64-Bit-Fließkommazahl in eine 32-Bit-Fließkommazahl zu konvertieren. Intern behandelt JavaScript die Zahl weiterhin als 64-Bit-Fließkommazahl, es führt lediglich ein "round to even" auf dem 23. Bit der Mantisse durch und setzt alle folgenden Mantissabits auf `0`. Wenn die Zahl außerhalb des Bereichs einer 32-Bit-Fließkommazahl liegt, wird {{jsxref("Infinity")}} oder `-Infinity` zurückgegeben.
+Um das zu lösen, kann `Math.fround()` genutzt werden, um die 64-Bit-Fließkommazahl in eine 32-Bit-Fließkommazahl umzuwandeln. Intern behandelt JavaScript die Zahl weiterhin als 64-Bit-Fließkommazahl, es wird lediglich eine "Rundung auf gerade" an der 23. Stelle der Mantisse durchgeführt und alle folgenden Mantissen-Bits werden auf `0` gesetzt. Liegt die Zahl außerhalb des Bereichs einer 32-Bit-Fließkommazahl, wird {{jsxref("Infinity")}} oder `-Infinity` zurückgegeben.
 
-Da `fround()` eine statische Methode von `Math` ist, wird sie immer als `Math.fround()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `fround()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.fround()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.fround()
 
-Die Zahl 1.5 kann im binären Zahlensystem präzise dargestellt werden und ist in 32-Bit und 64-Bit identisch:
+Die Zahl 1.5 kann im binären Zahlensystem exakt dargestellt werden und ist in 32-Bit und 64-Bit identisch:
 
 ```js
 Math.fround(1.5); // 1.5
 Math.fround(1.5) === 1.5; // true
 ```
 
-Die Zahl 1.337 hingegen kann im binären Zahlensystem nicht präzise dargestellt werden, daher unterscheidet sie sich in 32-Bit und 64-Bit:
+Allerdings kann die Zahl 1.337 im binären Zahlensystem nicht exakt dargestellt werden, daher unterscheidet sie sich in 32-Bit und 64-Bit:
 
 ```js
 Math.fround(1.337); // 1.3370000123977661
@@ -85,5 +83,5 @@ Math.fround(2 ** 150); // Infinity
 ## Siehe auch
 
 - [Polyfill von `Math.fround` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
-- [es-shims polyfill von `Math.fround`](https://www.npmjs.com/package/math.fround)
+- [es-shims Polyfill von `Math.fround`](https://www.npmjs.com/package/math.fround)
 - {{jsxref("Math.round()")}}

@@ -3,12 +3,10 @@ title: Number.prototype.toPrecision()
 short-title: toPrecision()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toPrecision
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toPrecision()`**-Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
+Die Methode **`toPrecision()`** von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
 
 {{InteractiveExample("JavaScript Demo: Number.prototype.toPrecision()")}}
 
@@ -37,11 +35,11 @@ toPrecision(precision)
 ### Parameter
 
 - `precision` {{optional_inline}}
-  - : Eine ganze Zahl, die die Anzahl signifikanter Stellen angibt.
+  - : Ein ganzzahliger Wert, der die Anzahl signifikanter Stellen angibt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die gegebene Zahl darstellt, unter Verwendung der angegebenen Anzahl signifikanter Stellen. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat dasselbe Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision`-Argument weggelassen wird.
+Eine Zeichenkette, die die gegebene Zahl unter Verwendung der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat das gleiche Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision`-Argument weggelassen wird.
 
 ### Ausnahmen
 

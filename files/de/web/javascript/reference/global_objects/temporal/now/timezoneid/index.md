@@ -3,12 +3,12 @@ title: Temporal.Now.timeZoneId()
 short-title: timeZoneId()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Now/timeZoneId
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Now.timeZoneId()`** gibt eine [Zeitzonenkennung](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) zurück, die die aktuelle Zeitzone des Systems repräsentiert. Die meisten Systeme werden eine primäre Zeitzonenkennung wie `"America/New_York"` zurückgeben, obwohl auch eine Offset-Zeitzonenkennung wie `"-04:00"` möglich ist. Die zurückgegebene Zeitzonenkennung ist die Standardzeitzone, die von den anderen Methoden von `Temporal.Now` verwendet wird.
+Die **`Temporal.Now.timeZoneId()`** statische Methode gibt einen [Zeitzonen-Identifier](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) zurück, der die aktuelle Zeitzone des Systems repräsentiert. Die meisten Systeme geben einen primären Zeitzonen-Identifier wie `"America/New_York"` zurück, obwohl auch ein Offset-Zeitzonen-Identifier wie `"-04:00"` möglich ist. Der zurückgegebene Zeitzonen-Identifier ist die Standardzeitzone, die von den anderen `Temporal.Now`-Methoden verwendet wird.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine gültige [Zeitzonenkennung](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets), die die aktuelle Zeitzone des Systems repräsentiert. Die zurückgegebene Zeitzonenkennung ist niemals eine nicht-primäre Zeitzonenkennung (Alias). Zum Beispiel würde sie immer `"Asia/Kolkata"` (neuer Name) statt `"Asia/Calcutta"` (alter Name) zurückgeben. Für weitere Informationen siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets).
+Ein gültiger [Zeitzonen-Identifier](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets), der die aktuelle Zeitzone des Systems repräsentiert. Der zurückgegebene Zeitzonen-Identifier ist niemals ein nicht-primärer Zeitzonen-Identifier (Alias). Zum Beispiel würde er immer `"Asia/Kolkata"` (neuer Name) statt `"Asia/Calcutta"` (alter Name) zurückgeben. Weitere Informationen finden Sie unter [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets).
 
-Wenn die Implementierung keine Zeitzonen unterstützt, gibt die Methode immer `"UTC"` zurück.
+Falls die Implementierung keine Zeitzonen unterstützt, gibt die Methode immer `"UTC"` zurück.
 
 ## Beispiele
 
-### Die aktuelle Zeitzone des Systems ermitteln
+### Abrufen der aktuellen Zeitzone des Systems
 
 ```js
 console.log(Temporal.Now.timeZoneId()); // e.g.: "America/New_York"

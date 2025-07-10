@@ -3,12 +3,12 @@ title: ArrayBuffer.isView()
 short-title: isView()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`ArrayBuffer.isView()`** statische Methode ermittelt, ob der übergebene Wert eine der `ArrayBuffer`-Ansichten ist, wie zum Beispiel [typisierte Array-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) oder ein {{jsxref("DataView")}}.
+Die **`ArrayBuffer.isView()`** statische Methode bestimmt, ob der übergebene Wert einer der `ArrayBuffer`-Ansichten ist,
+wie z.B. [typisierte Array-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
+oder ein {{jsxref("DataView")}}.
 
 {{InteractiveExample("JavaScript Demo: ArrayBuffer.isView()", "shorter")}}
 
@@ -38,7 +38,7 @@ ansonsten `false`.
 
 ## Beispiele
 
-### Verwendung von isView
+### Nutzung von isView
 
 ```js
 ArrayBuffer.isView(); // false
@@ -67,4 +67,4 @@ ArrayBuffer.isView(dv); // true
 
 ## Siehe auch
 
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden

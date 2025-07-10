@@ -3,12 +3,10 @@ title: Map.prototype.get()
 short-title: get()
 slug: Web/JavaScript/Reference/Global_Objects/Map/get
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`get()`** Methode von {{jsxref("Map")}} Instanzen gibt ein bestimmtes Element aus dieser Map zurück. Wenn der Wert, der dem bereitgestellten Schlüssel zugeordnet ist, ein Objekt ist, erhalten Sie eine Referenz zu diesem Objekt, und jede Änderung an diesem Objekt verändert es effektiv innerhalb des `Map` Objekts.
+Die **`get()`** Methode von {{jsxref("Map")}} Instanzen gibt ein angegebenes Element aus dieser Map zurück. Wenn der Wert, der dem bereitgestellten Schlüssel zugeordnet ist, ein Objekt ist, erhalten Sie eine Referenz auf dieses Objekt, und jede Änderung, die an diesem Objekt vorgenommen wird, wird effektiv innerhalb des `Map` Objekts modifiziert.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.get()")}}
 
@@ -36,7 +34,7 @@ get(key)
 
 ### Rückgabewert
 
-Das Element, das mit dem angegebenen Schlüssel verknüpft ist, oder
+Das Element, das dem angegebenen Schlüssel zugeordnet ist, oder
 {{jsxref("undefined")}}, wenn der Schlüssel im `Map` Objekt nicht gefunden werden kann.
 
 ## Beispiele
@@ -51,7 +49,7 @@ console.log(myMap.get("bar")); // Returns "foo"
 console.log(myMap.get("baz")); // Returns undefined
 ```
 
-### Verwendung von get(), um eine Referenz zu einem Objekt abzurufen
+### Verwendung von get() um eine Referenz auf ein Objekt abzurufen
 
 ```js
 const arr = [];
@@ -64,7 +62,7 @@ console.log(arr); // ["foo"]
 console.log(myMap.get("bar")); // ["foo"]
 ```
 
-Beachten Sie, dass die Map, die eine Referenz zum Originalobjekt hält, effektiv bedeutet, dass das Objekt nicht vom Speicherbereinigungsmechanismus (Garbage Collector) entfernt werden kann, was zu unerwarteten Speicherproblemen führen kann. Wenn Sie möchten, dass das im Map gespeicherte Objekt die gleiche Lebensdauer wie das Originalobjekt hat, sollten Sie die Verwendung von {{jsxref("WeakMap")}} in Betracht ziehen.
+Beachten Sie, dass die Map, die eine Referenz auf das ursprüngliche Objekt hält, effektiv bedeutet, dass das Objekt nicht vom Garbage Collector entfernt werden kann, was zu unerwarteten Speicherproblemen führen kann. Wenn Sie möchten, dass das in der Map gespeicherte Objekt die gleiche Lebensdauer wie das ursprüngliche hat, sollten Sie in Betracht ziehen, einen {{jsxref("WeakMap")}} zu verwenden.
 
 ## Spezifikationen
 

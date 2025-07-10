@@ -1,14 +1,12 @@
 ---
-title: Int8Array()-Konstruktor
+title: Int8Array() Konstruktor
 short-title: Int8Array()
 slug: Web/JavaScript/Reference/Global_Objects/Int8Array/Int8Array
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Der **`Int8Array()`**-Konstruktor erstellt {{jsxref("Int8Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Int8Array()`** Konstruktor erstellt {{jsxref("Int8Array")}} Objekte. Die Inhalte werden mit `0` initialisiert, sofern keine Initialisierungsdaten explizit bereitgestellt werden.
 
 ## Syntax
 
@@ -23,7 +21,8 @@ new Int8Array(buffer, byteOffset)
 new Int8Array(buffer, byteOffset, length)
 ```
 
-> [!NOTE] > `Int8Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Int8Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -35,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Int8Array zu erstellen
+### Verschiedene Wege, um einen Int8Array zu erstellen
 
 ```js
 // From a length
@@ -78,7 +77,7 @@ console.log(int8FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Int8Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

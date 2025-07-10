@@ -3,14 +3,12 @@ title: Object.getOwnPropertySymbols()
 short-title: getOwnPropertySymbols()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Methode **`Object.getOwnPropertySymbols()`** gibt ein Array aller Symbol-Eigenschaften zurück, die direkt auf einem gegebenen Objekt gefunden werden.
 
-{{InteractiveExample("JavaScript-Demo: Object.getOwnPropertySymbols()")}}
+{{InteractiveExample("JavaScript Demo: Object.getOwnPropertySymbols()")}}
 
 ```js interactive-example
 const object1 = {};
@@ -43,9 +41,9 @@ Ein Array aller Symbol-Eigenschaften, die direkt auf dem gegebenen Objekt gefund
 
 ## Beschreibung
 
-Ähnlich wie bei {{jsxref("Object.getOwnPropertyNames()")}} können Sie alle Symbol-Eigenschaften eines gegebenen Objekts als ein Array von Symbolen erhalten. Beachten Sie, dass {{jsxref("Object.getOwnPropertyNames()")}} selbst nicht die Symbol-Eigenschaften eines Objekts enthält, sondern nur die String-Eigenschaften.
+Ähnlich wie {{jsxref("Object.getOwnPropertyNames()")}} können Sie alle Symbol-Eigenschaften eines gegebenen Objekts als ein Array von Symbolen erhalten. Beachten Sie, dass {{jsxref("Object.getOwnPropertyNames()")}} selbst die Symbol-Eigenschaften eines Objekts nicht enthält, sondern nur die String-Eigenschaften.
 
-Da alle Objekte anfangs keine eigenen Symbol-Eigenschaften haben, gibt `Object.getOwnPropertySymbols()` ein leeres Array zurück, es sei denn, Sie haben Symbol-Eigenschaften auf Ihrem Objekt gesetzt.
+Da alle Objekte initital keine eigenen Symbol-Eigenschaften haben, gibt `Object.getOwnPropertySymbols()` ein leeres Array zurück, es sei denn, Sie haben Symbol-Eigenschaften auf Ihrem Objekt gesetzt.
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: Temporal.Duration.prototype.subtract()
 short-title: subtract()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/subtract
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`subtract()`**-Methode von {{jsxref("Temporal.Duration")}}-Instanzen gibt ein neues `Temporal.Duration`-Objekt mit der Differenz zwischen dieser Dauer und einer gegebenen Dauer zurück. Sie ist äquivalent zum [Hinzufügen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/add) des [negierten](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated) Wertes der anderen Dauer.
+Die **`subtract()`** Methode der {{jsxref("Temporal.Duration")}} Instanzen gibt ein neues `Temporal.Duration` Objekt zurück, das die Differenz zwischen dieser Dauer und einer gegebenen Dauer darstellt. Sie ist äquivalent dazu, den [negierten](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated) Wert der anderen Dauer [hinzuzufügen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/add).
 
 ## Syntax
 
@@ -19,18 +19,18 @@ subtract(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine hinzuzufügende Dauer zu dieser Dauer darstellt. Es wird in ein `Temporal.Duration`-Objekt umgewandelt, indem derselbe Algorithmus wie bei {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} verwendet wird.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine Dauer darstellt, die zu dieser Dauer hinzugefügt werden soll. Es wird unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration` Objekt konvertiert.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration`-Objekt, das die Differenz zwischen dieser Dauer und `other` darstellt.
+Ein neues `Temporal.Duration` Objekt, das die Differenz zwischen dieser Dauer und `other` darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Entweder `this` oder `other` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat einen von null verschiedenen Wert für `years`, `months` oder `weeks`), da Kalenderdauern ohne einen Kalender und Zeitbezug mehrdeutig sind.
-    - Die Differenz von `this` und `other` überschreitet die maximal darstellbare Dauer oder unterschreitet die minimal darstellbare Dauer, die ±2<sup>53</sup> Sekunden beträgt.
+    - Entweder `this` oder `other` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat ein nicht-null Jahre, Monate oder Wochen), da Kalenderdauern ohne Kalender- und Zeitreferenz mehrdeutig sind.
+    - Die Differenz von `this` und `other` überschreitet die maximale oder unterschreitet die minimale darstellbare Dauer, die ±2<sup>53</sup> Sekunden beträgt.
 
 ## Beispiele
 
@@ -44,7 +44,7 @@ const d3 = d1.subtract(d2);
 console.log(d3.toString()); // "PT2H50M"
 ```
 
-Für weitere Beispiele und Besonderheiten siehe die [`add()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/add)-Methode.
+Für weitere Beispiele und Hinweise siehe die [`add()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/add) Methode.
 
 ## Spezifikationen
 

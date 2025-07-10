@@ -3,12 +3,10 @@ title: Reflect.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/has
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`Reflect.has()`** statische Methode ist wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator, jedoch als Funktion.
+Die **`Reflect.has()`**-statische Methode ist wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, aber als Funktion.
 
 {{InteractiveExample("JavaScript Demo: Reflect.has()")}}
 
@@ -36,13 +34,13 @@ Reflect.has(target, propertyKey)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, in dem nach der Eigenschaft gesucht wird.
+  - : Das Zielobjekt, in dem nach der Eigenschaft gesucht werden soll.
 - `propertyKey`
-  - : Der Name der zu prüfenden Eigenschaft.
+  - : Der Name der Eigenschaft, die überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder nicht.
+Ein {{jsxref("Boolean")}}, das angibt, ob das `target` die Eigenschaft hat oder nicht.
 
 ### Ausnahmen
 
@@ -51,13 +49,13 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder 
 
 ## Beschreibung
 
-`Reflect.has()` bietet die reflektive Semantik zur Prüfung, ob eine Eigenschaft in einem Objekt vorhanden ist. Das bedeutet, `Reflect.has(target, propertyKey)` ist semantisch gleichwertig mit:
+`Reflect.has()` bietet die reflexive Semantik, um zu überprüfen, ob eine Eigenschaft in einem Objekt vorhanden ist. Das bedeutet, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
 
 ```js
 propertyKey in target;
 ```
 
-`Reflect.has()` ruft die `[[HasProperty]]` [interne Objekte-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` auf.
+`Reflect.has()` ruft die `[[HasProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` auf.
 
 ## Beispiele
 
@@ -83,7 +81,7 @@ Reflect.has(obj, "doorbell"); // true
 Reflect.has(obj, "dormitory"); // false
 ```
 
-`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator:
+`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, ähnlich wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator:
 
 ```js
 const a = { foo: 123 };

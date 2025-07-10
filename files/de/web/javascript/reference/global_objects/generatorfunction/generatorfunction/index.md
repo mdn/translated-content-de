@@ -3,20 +3,18 @@ title: GeneratorFunction() Konstruktor
 short-title: GeneratorFunction()
 slug: Web/JavaScript/Reference/Global_Objects/GeneratorFunction/GeneratorFunction
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Der **`GeneratorFunction()`**-Konstruktor erstellt {{jsxref("GeneratorFunction")}} Objekte.
 
-Der **`GeneratorFunction()`** Konstruktor erstellt {{jsxref("GeneratorFunction")}} Objekte.
-
-Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit folgendem Code erhalten werden:
+Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erlangt werden:
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
 ```
 
-Der `GeneratorFunction()` Konstruktor ist nicht dafür vorgesehen, direkt verwendet zu werden, und alle in der {{jsxref("Function/Function", "Function()")}} Beschreibung erwähnten Vorbehalte gelten auch für `GeneratorFunction()`.
+Der `GeneratorFunction()`-Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle in der {{jsxref("Function/Function", "Function()")}}-Beschreibung erwähnten Warnungen gelten auch für `GeneratorFunction()`.
 
 ## Syntax
 
@@ -32,7 +30,8 @@ GeneratorFunction(arg1, arg2, functionBody)
 GeneratorFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> [!NOTE] > `GeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue `GeneratorFunction` Instanz.
+> [!NOTE]
+> `GeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `GeneratorFunction`.
 
 ### Parameter
 
@@ -40,7 +39,7 @@ Siehe {{jsxref("Function/Function", "Function()")}}.
 
 ## Beispiele
 
-### Erstellen und Verwenden eines GeneratorFunction() Konstruktors
+### Erstellen und Verwenden eines GeneratorFunction()-Konstruktors
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
@@ -62,5 +61,5 @@ console.log(iterator.next().value); // 20
 - [`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*)
 - [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
 - [`Function()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
-- [Iterators und Generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
 - {{jsxref("Functions", "Funktionen", "", 1)}}

@@ -3,12 +3,10 @@ title: String.prototype.valueOf()
 short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/String/valueOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`valueOf()`** Methode von {{jsxref("String")}}-Werten gibt diesen String-Wert zurück.
+Die Methode **`valueOf()`** von {{jsxref("String")}}-Werten gibt diesen Zeichenkettenwert zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.valueOf()")}}
 
@@ -34,13 +32,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein string, der den primitiven Wert eines gegebenen {{jsxref("String")}}-Objekts darstellt.
+Eine Zeichenkette, die den primitiven Wert eines gegebenen {{jsxref("String")}}-Objekts darstellt.
 
 ## Beschreibung
 
 Die `valueOf()`-Methode von {{jsxref("String")}} gibt den primitiven Wert
-eines {{jsxref("String")}}-Objekts als String-Datentyp zurück. Dieser Wert ist gleichwertig
-mit {{jsxref("String.prototype.toString()")}}.
+eines {{jsxref("String")}}-Objekts als Zeichenkettendatentyp zurück. Dieser Wert ist gleichwertig zu
+{{jsxref("String.prototype.toString()")}}.
 
 Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Code.
 

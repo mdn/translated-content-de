@@ -3,12 +3,10 @@ title: Error.captureStackTrace()
 short-title: captureStackTrace()
 slug: Web/JavaScript/Reference/Global_Objects/Error/captureStackTrace
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Error.captureStackTrace()`** installiert Stack-Trace-Informationen auf einem bereitgestellten Objekt als die `stack`-Eigenschaft.
+Die **`Error.captureStackTrace()`** statische Methode installiert Informationen zum Stack-Trace auf einem bereitgestellten Objekt als die [`stack`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/stack)-Eigenschaft.
 
 ## Syntax
 
@@ -22,19 +20,19 @@ Error.captureStackTrace(object, constructor)
 - `object`
   - : Das Objekt, auf dem die `stack`-Eigenschaft hinzugefügt wird.
 - `constructor` {{optional_inline}}
-  - : Eine Funktion, typischerweise der Konstruktor, wo das `object` erstellt wurde. Beim Sammeln des Stack-Traces werden alle Frames oberhalb des obersten Aufrufs dieser Funktion, einschließlich dieses Aufrufs, aus dem Stack-Trace ausgeschlossen.
+  - : Eine Funktion, typischerweise der Konstruktor, in dem das `object` erstellt wurde. Beim Sammeln des Stack-Traces werden alle Frames über dem obersten Aufruf dieser Funktion, einschließlich dieses Aufrufs, aus dem Stack-Trace herausgelassen.
 
 ### Rückgabewert
 
 Keiner ({{jsxref("undefined")}}).
 
-Das `object` wird vor Ort mit einer zusätzlichen eigenen Eigenschaft namens `stack` modifiziert, deren Zeichenkettenwert dasselbe Format wie {{jsxref("Error.prototype.stack")}} hat. Diese Eigenschaft ist nicht aufzählbar und konfigurierbar. In V8 ist es ein Getter-Setter-Paar. In SpiderMonkey und JavaScriptCore ist es eine Daten-Eigenschaft, die beschreibbar ist.
+Das `object` wird in-place mit einer zusätzlichen eigenen Eigenschaft namens `stack` modifiziert, deren String-Wert dasselbe Format wie {{jsxref("Error.prototype.stack")}} hat. Diese Eigenschaft ist nicht aufzählbar und konfigurierbar. In V8 ist es ein Getter-Setter-Paar. In SpiderMonkey und JavaScriptCore ist es eine beschreibbare Dateneigenschaft.
 
 ## Beispiele
 
 ### Verwendung von Error.captureStackTrace()
 
-Die `getStack()`-Hilfsfunktion gibt den aktuellen Stack-Trace an dem Punkt zurück, an dem sie aufgerufen wird, und entfernt sich selbst aus dem Stack. Dies erfüllt denselben Debugging-Zweck wie [`console.trace()`](/de/docs/Web/API/console/trace_static), ermöglicht es Ihnen jedoch, die Zeichenkette an anderer Stelle auszugeben. Beachten Sie, dass hierfür keine `Error`-Instanz erstellt wird, sondern `stack` auf einem einfachen Objekt installiert wird, was effizienter für unsere Zwecke wäre. Normalerweise würden Sie `Error.captureStackTrace` bei Objekten aufrufen, die als Fehler geworfen werden sollen, wie im nächsten Beispiel gezeigt.
+Die `getStack()`-Hilfsfunktion gibt den aktuellen Stack-Trace an dem Punkt zurück, an dem sie aufgerufen wird, und entfernt sich selbst aus dem Stack. Dies dient demselben Debugging-Zweck wie [`console.trace()`](/de/docs/Web/API/console/trace_static), ermöglicht Ihnen jedoch, den String anderswo auszugeben. Beachten Sie, dass sie hierfür keine `Error`-Instanz konstruiert, sondern `stack` auf einem einfachen Objekt installiert, was für unsere Zwecke effizienter wäre. Normalerweise würden Sie `Error.captureStackTrace` auf Objekten anwenden, die als Fehler geworfen werden sollen, wie im nächsten Beispiel gezeigt.
 
 ```js
 function getStack() {
@@ -56,9 +54,9 @@ foo();
 //     at <anonymous>:11:1
 ```
 
-### Installation des Stack-Traces auf einem benutzerdefinierten Fehlerobjekt
+### Stack-Trace auf einem benutzerdefinierten Fehlerobjekt installieren
 
-Der Hauptanwendungsfall für `Error.captureStackTrace()` besteht darin, einen Stack-Trace auf einem benutzerdefinierten Fehlerobjekt zu installieren. Typischerweise definieren Sie [benutzerdefinierte Fehler](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#custom_error_types) durch Erweitern der `Error`-Klasse, die automatisch die `stack`-Eigenschaft über Vererbung verfügbar macht. Das Problem mit dem Standard-Stack-Trace ist jedoch, dass er den Konstruktoraufruf selbst enthält, der Implementierungsdetails preisgibt. Dies können Sie vermeiden, indem Sie `Error.captureStackTrace()` verwenden, das es ermöglicht, den Stack-Trace auch für benutzerdefinierte Fehler zu installieren, die nicht von `Error` erben.
+Der Hauptanwendungsfall für `Error.captureStackTrace()` ist, einen Stack-Trace auf einem benutzerdefinierten Fehlerobjekt zu installieren. Typischerweise definieren Sie [benutzerdefinierte Fehler](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#custom_error_types) durch das Erweitern der `Error`-Klasse, was die `stack`-Eigenschaft automatisch durch Vererbung verfügbar macht. Allerdings enthält der Standard-Stack-Trace den Konstruktoraufruf selbst, was Implementierungsdetails preisgibt. Dies können Sie vermeiden, indem Sie `Error.captureStackTrace()` verwenden, was die Installation des Stack-Traces auch für benutzerdefinierte Fehler ermöglicht, die nicht von `Error` erben.
 
 ```js
 class MyError extends Error {
@@ -77,7 +75,7 @@ console.log(myError.stack);
 //     at <anonymous>:8:17
 ```
 
-Beachten Sie, dass selbst wenn Sie `Error.captureStackTrace()` hier nicht aufrufen, einige Engines dennoch klug genug sind, um `MyError` im Stack-Trace zu vermeiden, wenn der Konstruktor von `Error` erbt. Das Aufrufen von `Error.captureStackTrace()` ist wichtiger für benutzerdefinierte Fehler, die aus irgendeinem Grund nicht von `Error` erben.
+Beachten Sie, dass einige Engines selbst dann schlau genug sind, um `MyError` im Stack-Trace zu vermeiden, wenn der Konstruktor von `Error` erbt, auch wenn Sie `Error.captureStackTrace()` hier nicht aufrufen. Der Aufruf von `Error.captureStackTrace()` ist wichtiger für benutzerdefinierte Fehler, die aus irgendeinem Grund nicht von `Error` erben.
 
 ```js
 class MyError {
@@ -108,4 +106,4 @@ console.log(myError.stack);
 
 - {{jsxref("Error.prototype.stack")}}
 - {{jsxref("Error.stackTraceLimit")}}
-- [Stack trace API](https://v8.dev/docs/stack-trace-api) in der V8-Dokumentation
+- [Stack trace API](https://v8.dev/docs/stack-trace-api) in den V8-Dokumenten

@@ -3,14 +3,14 @@ title: Temporal.PlainYearMonth.prototype.daysInYear
 short-title: daysInYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/daysInYear
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die Zugriffs-Eigenschaft **`daysInYear`** von Instanzen von {{jsxref("Temporal.PlainYearMonth")}} gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Jahr dieses Datums darstellt. Es ist [calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+Die Zugriffs-Eigenschaft **`daysInYear`** von Instanzen des Objekts {{jsxref("Temporal.PlainYearMonth")}} gibt eine positive Ganzzahl zurück, die die Anzahl der Tage im Jahr dieses Datums darstellt. Sie ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
 
-Der Set-Accessor von `daysInYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Zugriff von `daysInYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/daysInYear", "Temporal.PlainDate.prototype.daysInYear")}}.
 

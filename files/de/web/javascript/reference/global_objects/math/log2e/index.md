@@ -3,12 +3,10 @@ title: Math.LOG2E
 short-title: LOG2E
 slug: Web/JavaScript/Reference/Global_Objects/Math/LOG2E
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Dateneigenschaft **`Math.LOG2E`** repräsentiert den Basis-2-Logarithmus von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E), ungefähr 1,443.
+Die statische Dateneigenschaft **`Math.LOG2E`** repräsentiert den Logarithmus von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) zur Basis 2, ungefähr 1,443.
 
 {{InteractiveExample("JavaScript Demo: Math.LOG2E", "shorter")}}
 
@@ -33,13 +31,13 @@ console.log(getLog2e());
 
 ## Beschreibung
 
-Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG2E`, anstatt als Eigenschaft eines erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG2E` und nicht als eine Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.LOG2E
 
-Die folgende Funktion gibt den Basis-2-Logarithmus von e zurück:
+Die folgende Funktion gibt den Logarithmus von e zur Basis 2 zurück:
 
 ```js
 function getLog2e() {

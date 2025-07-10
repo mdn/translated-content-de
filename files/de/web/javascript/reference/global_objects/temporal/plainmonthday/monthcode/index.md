@@ -3,18 +3,18 @@ title: Temporal.PlainMonthDay.prototype.monthCode
 short-title: monthCode
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/monthCode
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`monthCode`** Zugriffseigenschaft von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen gibt einen kalenderabhängigen String zurück, der den Monat dieses Datums darstellt. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Die Zugriffseigenschaft **`monthCode`** von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen gibt eine kalenderbezogene Zeichenkette zurück, die den Monat dieses Datums darstellt. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
-In der Regel ist es `M` plus einer zweistelligen Monatszahl. Für Schaltmonate ist es der Code des Vormonats gefolgt von `L` (selbst wenn es konzeptionell ein Derivat des folgenden Monats ist; zum Beispiel im hebräischen Kalender hat Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, lautet der Code `M00L`.
+In der Regel ist es `M` plus eine zweistellige Monatszahl. Bei Schaltmonaten ist es der Code des vorhergehenden Monats, gefolgt von `L` (selbst wenn es konzeptionell ein Derivat des Folgemonats ist; zum Beispiel hat im Hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, lautet der Code `M00L`.
 
-Da {{jsxref("Temporal/PlainDate/month", "month")}} ein Index innerhalb eines Jahres ist, `PlainMonthDay` jedoch kein Jahr hat, gibt es keine `month`-Eigenschaft für `PlainMonthDay`. Daher wird `monthCode` verwendet, um den Monat unabhängig vom Jahr darzustellen.
+Da {{jsxref("Temporal/PlainDate/month", "month")}} ein Index innerhalb eines Jahres ist, `PlainMonthDay` jedoch kein Jahr hat, gibt es keine `month`-Eigenschaft für `PlainMonthDay`. Daher wird `monthCode` verwendet, um den Monat auf eine vom Jahr unabhängige Weise darzustellen.
 
-Der Set-Accessor von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainMonthDay/with", "with()")}} Methode, um ein neues `Temporal.PlainMonthDay`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriff von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainMonthDay/with", "with()")}}-Methode, um ein neues `Temporal.PlainMonthDay`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/monthCode", "Temporal.PlainDate.prototype.monthCode")}}.
 
@@ -41,7 +41,7 @@ const newMD = md.with({ monthCode: "M03" });
 console.log(newMD.toString()); // 03-01
 ```
 
-Für andere Kalender gilt, dass solange es ein Jahr gibt, in dem der Monat-Tag gültig ist, der Monat-Tag als gültig angesehen wird und sich das zugrunde liegende Referenzjahr daher ändern kann. Zum Beispiel:
+Für andere Kalender, solange es ein Jahr gibt, in dem der Tag des Monats gültig ist, wird der Tag des Monats als gültig angesehen, und das zugrunde liegende Bezugsjahr kann sich daher ändern. Zum Beispiel:
 
 ```js
 const md = Temporal.PlainMonthDay.from({

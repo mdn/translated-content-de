@@ -3,12 +3,10 @@ title: Math.asin()
 short-title: asin()
 slug: Web/JavaScript/Reference/Global_Objects/Math/asin
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.asin()`** gibt den Arkussinus (im Bogenmaß) einer Zahl zurück. Das bedeutet,
+Die statische Methode **`Math.asin()`** gibt den Arkussinus (in Bogenmaß) einer Zahl zurück. Das bedeutet,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -40,15 +38,15 @@ Math.asin(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl zwischen -1 und 1 einschließlich, die den Sinuswinkelwert darstellt.
+  - : Eine Zahl zwischen -1 und 1, einschließlich, die den Sinuswert des Winkels darstellt.
 
 ### Rückgabewert
 
-Der Arkussinus (Winkel im Bogenmaß zwischen <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> und <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>, einschließlich) von `x`. Wenn `x` kleiner als -1 oder größer als 1 ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Arkussinus (Winkel in Bogenmaß zwischen <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> und <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>, einschließlich) von `x`. Wenn `x` kleiner als -1 oder größer als 1 ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `asin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.asin()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `asin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.asin()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

@@ -3,10 +3,8 @@ title: Array() Konstruktor
 short-title: Array()
 slug: Web/JavaScript/Reference/Global_Objects/Array/Array
 l10n:
-  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`Array()`** Konstruktor erstellt {{jsxref("Array")}} Objekte.
 
@@ -26,36 +24,29 @@ Array(element1, element2, /* …, */ elementN)
 Array(arrayLength)
 ```
 
-> [!NOTE] > `Array()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `Array` Instanz.
+> [!NOTE]
+> `Array()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beides erstellt eine neue `Array` Instanz.
 
 ### Parameter
 
 - `element1`, …, `elementN`
-  - : Ein JavaScript-Array wird mit den angegebenen Elementen initialisiert, außer in dem Fall, dass
-    ein einzelnes Argument an den `Array` Konstruktor übergeben wird und dieses Argument
-    eine Zahl ist (siehe den Parameter `arrayLength` unten). Beachten Sie, dass dieser Sonderfall nur
-    für JavaScript-Arrays gilt, die mit dem `Array` Konstruktor erstellt wurden, nicht für
-    Array-Literale, die mit der Klammernotation erstellt wurden.
+  - : Ein JavaScript-Array wird mit den angegebenen Elementen initialisiert, außer im Fall, dass ein einzelnes Argument an den `Array` Konstruktor übergeben wird und dieses Argument eine Zahl ist (siehe den `arrayLength` Parameter unten). Beachten Sie, dass sich dieser Sonderfall nur auf mit dem `Array` Konstruktor erstellte JavaScript-Arrays bezieht, nicht auf mit der eckigen Klammer-Syntax erstellte Array-Literale.
 - `arrayLength`
-
-  - : Wenn das einzige Argument, das an den `Array` Konstruktor übergeben wird, eine Ganzzahl
-    zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) ist, gibt dies ein neues JavaScript-Array zurück, dessen
-    `length` Eigenschaft auf diese Zahl gesetzt ist.
+  - : Wenn das einzige Argument, das an den `Array` Konstruktor übergeben wird, eine ganze Zahl zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) ist, wird ein neues JavaScript-Array zurückgegeben, bei dem die `length` Eigenschaft auf diese Zahl gesetzt ist.
 
     > [!NOTE]
-    > Dies bedeutet ein Array mit `arrayLength` leeren Slots, nicht Slots mit tatsächlichen `undefined` Werten — siehe [Sparse Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
+    > Dies impliziert ein Array mit `arrayLength` leeren Plätzen, nicht Plätze mit tatsächlichen `undefined` Werten — siehe [dünn besetzte Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn es nur ein Argument (`arrayLength`) gibt, das eine Zahl ist, aber dessen Wert keine Ganzzahl oder nicht zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) ist.
+  - : Wird geworfen, wenn es nur ein Argument (`arrayLength`) gibt, das eine Zahl ist, aber dessen Wert keine ganze Zahl ist oder nicht zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) liegt.
 
 ## Beispiele
 
 ### Array-Literal-Notation
 
-Arrays können mit der [Literal-Notation](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals)
-erstellt werden:
+Arrays können mit der [Literal-Notation](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) erstellt werden:
 
 ```js
 const fruits = ["Apple", "Banana"];
@@ -66,8 +57,7 @@ console.log(fruits[0]); // "Apple"
 
 ### Array-Konstruktor mit einem einzelnen Parameter
 
-Arrays können mit einem Konstruktor und einem einzigen Zahlenparameter erstellt werden. Ein Array wird erstellt, dessen `length` Eigenschaft auf diese Zahl gesetzt ist, und die Array-Elemente sind leere
-Slots.
+Arrays können mit einem Konstruktor erstellt werden, der einen einzelnen numerischen Parameter hat. Ein Array wird erstellt, dessen `length` Eigenschaft auf diese Zahl gesetzt ist, und die Array-Elemente sind leere Plätze.
 
 ```js
 const arrayEmpty = new Array(2);
@@ -87,8 +77,7 @@ console.log(arrayOfOne[0]); // "2"
 
 ### Array-Konstruktor mit mehreren Parametern
 
-Wenn dem Konstruktor mehr als ein Argument übergeben wird, wird ein neues {{jsxref("Array")}} mit
-den angegebenen Elementen erstellt.
+Wenn mehr als ein Argument an den Konstruktor übergeben wird, wird ein neuer {{jsxref("Array")}} mit den angegebenen Elementen erstellt.
 
 ```js
 const fruits = new Array("Apple", "Banana");
@@ -107,5 +96,5 @@ console.log(fruits[0]); // "Apple"
 
 ## Siehe auch
 
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Leitfaden für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}

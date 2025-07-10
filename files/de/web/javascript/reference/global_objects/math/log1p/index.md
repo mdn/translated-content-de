@@ -3,10 +3,8 @@ title: Math.log1p()
 short-title: log1p()
 slug: Web/JavaScript/Reference/Global_Objects/Math/log1p
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Methode **`Math.log1p()`** gibt den natürlichen Logarithmus (Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) von `1 + x` zurück, wobei `x` das Argument ist. Das bedeutet:
 
@@ -41,18 +39,18 @@ Math.log1p(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl größer oder gleich -1.
+  - : Eine Zahl, die größer oder gleich -1 ist.
 
 ### Rückgabewert
 
-Der natürliche Logarithmus (Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) von `x + 1`. Wenn `x` -1 ist, wird [`-Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY) zurückgegeben. Wenn `x < -1`, wird {{jsxref("NaN")}} zurückgegeben.
+Der natürliche Logarithmus (Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) von `x + 1`. Wenn `x` -1 ist, wird [`-Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY) zurückgegeben. Wenn `x < -1` ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Genauigkeit verringern oder eliminieren. Die doppelten Gleitkommazahlen, die in JS verwendet werden, bieten etwa 15 Stellen Genauigkeit. 1 + 1e-15 \= 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und daher genau 1,0 in dieser Arithmetik, da Stellen über 15 hinaus gerundet werden.
+Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Genauigkeit reduzieren oder beseitigen. Die in JS verwendeten Gleitkommazahlen mit doppelter Genauigkeit bieten etwa 15 Stellen Genauigkeit. 1 + 1e-15 = 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und deshalb genau 1.0 in dieser Arithmetik, da Zahlen ab der 15. Stelle abgerundet werden.
 
 <!-- prettier-ignore-start -->
-Wenn Sie den Logarithmus von (1 + _x_) berechnen, wobei _x_ eine kleine positive Zahl ist, sollten Sie eine Antwort erhalten, die sehr nahe bei _x_ liegt, da: <math><semantics><mrow><munder><mo movablelimits="true" form="prefix">lim</mo><mrow ><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\log(1+x)}}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.log(1 + 1.1111111111e-15)` berechnen, sollten Sie eine Antwort nahe bei `1.1111111111e-15` erhalten. Stattdessen werden Sie den Logarithmus von `1.00000000000000111022` nehmen (die Rundung erfolgt binär, sodass es manchmal hässlich wird) und die Antwort 1.11022...e-15 erhalten, mit nur 3 korrekten Stellen. Wenn Sie stattdessen `Math.log1p(1.1111111111e-15)` berechnen, erhalten Sie eine viel genauere Antwort, `1.1111111110999995e-15`, mit 15 korrekten Dezimalstellen (tatsächlich 16 in diesem Fall).
+Wenn Sie log(1 + _x_) berechnen, wobei _x_ eine kleine positive Zahl ist, sollten Sie eine Antwort erhalten, die sehr nahe bei _x_ liegt, denn: <math><semantics><mrow><munder><mo movablelimits="true" form="prefix">lim</mo><mrow ><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\log(1+x)}}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.log(1 + 1.1111111111e-15)` berechnen, sollten Sie eine Antwort erhalten, die nahe bei `1.1111111111e-15` liegt. Stattdessen werden Sie den Logarithmus von `1.00000000000000111022` nehmen (die Rundung erfolgt binär, daher kann sie manchmal unschön sein) und die Antwort 1.11022…e-15 mit nur 3 korrekten Stellen erhalten. Wenn Sie stattdessen `Math.log1p(1.1111111111e-15)` berechnen, erhalten Sie eine viel genauere Antwort, `1.1111111110999995e-15`, mit 15 korrekten Stellen (in diesem Fall sogar 16).
 <!-- prettier-ignore-end -->
 
 Wenn der Wert von `x` kleiner als -1 ist, ist der Rückgabewert immer {{jsxref("NaN")}}.

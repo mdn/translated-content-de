@@ -3,12 +3,10 @@ title: Atomics.compareExchange()
 short-title: compareExchange()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/compareExchange
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`Atomics.compareExchange()`** statische Methode tauscht einen gegebenen Ersatzwert an einer bestimmten Position im Array aus, wenn ein erwarteter Wert dem alten Wert entspricht. Es gibt den alten Wert an dieser Position zurück, unabhängig davon, ob er dem erwarteten Wert entsprach oder nicht. Dieser atomare Vorgang garantiert, dass keine andere Schreibaktion erfolgt, bis der geänderte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.compareExchange()`** tauscht einen gegebenen Ersatzwert an einer angegebenen Position im Array aus, wenn ein gegebener erwarteter Wert dem alten Wert entspricht. Sie gibt den alten Wert an dieser Position zurück, unabhängig davon, ob er dem erwarteten Wert entsprach oder nicht. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang stattfindet, bis der geänderte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.compareExchange()")}}
 
@@ -36,24 +34,24 @@ Atomics.compareExchange(typedArray, index, expectedValue, replacementValue)
 ### Parameter
 
 - `typedArray`
-  - : Ein integer-typisiertes Array. Eine der folgenden: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-basiertes typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der ein `replacementValue` ausgetauscht wird.
+  - : Die Position im `typedArray`, an der ein `replacementValue` ausgetauscht werden soll.
 - `expectedValue`
   - : Der Wert, der auf Gleichheit überprüft werden soll.
 - `replacementValue`
-  - : Die Zahl, die ausgetauscht wird.
+  - : Die Zahl, die ausgetauscht werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position (`typedArray[index]`). Wenn der Rückgabewert `expectedValue` entspricht, war der Austausch erfolgreich; andernfalls ist der Austausch fehlgeschlagen.
+Der alte Wert an der angegebenen Position (`typedArray[index]`). Wenn der Rückgabewert dem `expectedValue` entspricht, war der Austausch erfolgreich; andernfalls ist der Austausch fehlgeschlagen.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
 ## Beispiele
 
@@ -68,9 +66,9 @@ Atomics.compareExchange(ta, 0, 7, 12); // returns 7, the old value
 Atomics.load(ta, 0); // 12
 ```
 
-### Überprüfung des Rückgabewertes
+### Überprüfen des Rückgabewertes
 
-[Vergleich und Tausch](https://en.wikipedia.org/wiki/Compare-and-swap) garantiert, dass der neue Wert auf der Grundlage aktueller Informationen berechnet wird; wenn der Wert in der Zwischenzeit von einem anderen Thread aktualisiert wurde, schlägt der Schreibvorgang fehl. Daher sollten Sie den Rückgabewert von `compareExchange()` überprüfen, um festzustellen, ob er fehlgeschlagen ist, und falls nötig erneut versuchen.
+[Compare-and-swap](https://en.wikipedia.org/wiki/Compare-and-swap) garantiert, dass der neue Wert auf Grundlage von aktuellen Informationen berechnet wird; wenn der Wert zwischenzeitlich von einem anderen Thread aktualisiert wurde, würde der Schreibvorgang fehlschlagen. Daher sollten Sie den Rückgabewert von `compareExchange()` überprüfen, um festzustellen, ob er fehlgeschlagen ist, und bei Bedarf erneut versuchen.
 
 Hier ist ein Beispiel für einen atomaren Addierer (gleiche Funktionalität wie {{jsxref("Atomics.add()")}}), angepasst aus dem verlinkten Wikipedia-Artikel:
 
@@ -85,7 +83,7 @@ function add(mem, index, a) {
 }
 ```
 
-Zuerst wird der Wert an dem angegebenen Index gelesen, dann wird versucht, ihn mit dem neuen Wert zu aktualisieren. Es wird so lange versucht, bis der Wert erfolgreich aktualisiert wurde.
+Es liest zunächst den Wert an dem angegebenen Index aus und versucht dann, ihn mit dem neuen Wert zu aktualisieren. Es versucht es immer wieder, bis es den Wert erfolgreich aktualisiert hat.
 
 ## Spezifikationen
 

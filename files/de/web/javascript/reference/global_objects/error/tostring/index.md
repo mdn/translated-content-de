@@ -3,12 +3,10 @@ title: Error.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Error/toString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toString()`**-Methode von {{jsxref("Error")}}-Instanzen gibt eine Zeichenkette zurück, die diesen Fehler darstellt.
+Die **`toString()`** Methode von {{jsxref("Error")}}-Instanzen gibt einen String zurück, der diesen Fehler darstellt.
 
 ## Syntax
 
@@ -22,12 +20,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die das spezifizierte {{jsxref("Error")}}-Objekt darstellt.
+Ein String, der das angegebene {{jsxref("Error")}}-Objekt darstellt.
 
 ## Beschreibung
 
-Das {{jsxref("Error")}}-Objekt überschreibt die {{jsxref("Object.prototype.toString()")}}
-Methode, die von allen Objekten geerbt wird. Seine Semantik ist wie folgt:
+Das {{jsxref("Error")}}-Objekt überschreibt die {{jsxref("Object.prototype.toString()")}}-Methode, die von allen Objekten geerbt wird. Seine Semantik ist wie folgt:
 
 ```js
 Error.prototype.toString = function () {
@@ -88,4 +85,4 @@ console.log(e5.toString()); // "hello"
 
 ## Siehe auch
 
-- [Polyfill von `Error.prototype.toString` mit vielen Bugfixes in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)
+- [Polyfill von `Error.prototype.toString` mit vielen Fehlerkorrekturen in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)

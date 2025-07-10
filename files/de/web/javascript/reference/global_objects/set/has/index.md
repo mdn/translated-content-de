@@ -3,12 +3,10 @@ title: Set.prototype.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Set/has
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`has()`**-Methode von {{jsxref("Set")}}-Instanzen gibt ein boolean zurück, das angibt, ob ein Element mit dem angegebenen Wert in diesem Set existiert oder nicht.
+Die **`has()`**-Methode von {{jsxref("Set")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Wert in diesem Set existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.has()")}}
 
@@ -34,7 +32,7 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, dessen Vorhandensein im `Set`-Objekt getestet werden soll.
+  - : Der zu überprüfende Wert, ob er im `Set`-Objekt vorhanden ist.
 
 ### Rückgabewert
 

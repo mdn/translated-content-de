@@ -3,12 +3,10 @@ title: String.prototype.toUpperCase()
 short-title: toUpperCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toUpperCase
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toUpperCase()`**-Methode von {{jsxref("String")}}-Werten gibt diesen String in Großbuchstaben konvertiert zurück.
+Die **`toUpperCase()`** Methode von {{jsxref("String")}}-Werten gibt diesen String in Großbuchstaben konvertiert zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.toUpperCase()", "shorter")}}
 
@@ -39,15 +37,16 @@ Die `toUpperCase()`-Methode gibt den Wert des Strings in Großbuchstaben konvert
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 console.log("alphabet".toUpperCase()); // 'ALPHABET'
 ```
 
-### Umwandlung von nicht-String-`this`-Werten in Strings
+### Umwandlung von Nicht-String-`this`-Werten zu Strings
 
-Diese Methode wird jeden nicht-String-Wert in einen String konvertieren, wenn Sie sein `this` auf einen Wert setzen, der kein String ist:
+Diese Methode konvertiert jeden Nicht-String-Wert in einen String, wenn Sie dessen
+`this` auf einen Wert setzen, der kein String ist:
 
 ```js
 const a = String.prototype.toUpperCase.call({

@@ -3,12 +3,10 @@ title: Math.acos()
 short-title: acos()
 slug: Web/JavaScript/Reference/Global_Objects/Math/acos
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`Math.acos()`** statische Methode gibt den Arkuskosinus (in Bogenmaß) einer Zahl zurück. Das bedeutet,
+Die statische Methode **`Math.acos()`** gibt den Arkuskosinus (in Bogenmaß) einer Zahl zurück. Das heißt,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -48,7 +46,7 @@ Der Arkuskosinus (Winkel in Bogenmaß zwischen 0 und π, einschließlich) von `x
 
 ## Beschreibung
 
-Da `acos()` eine statische Methode von `Math` ist, wird sie immer als `Math.acos()` verwendet und nicht als Methode eines `Math`-Objekts, das Sie erstellt haben (`Math` ist kein Konstruktor).
+Da `acos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.acos()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

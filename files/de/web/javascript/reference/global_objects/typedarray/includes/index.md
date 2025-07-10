@@ -3,12 +3,10 @@ title: TypedArray.prototype.includes()
 short-title: includes()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/includes
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`includes()`** Methode von {{jsxref("TypedArray")}} Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
+Die **`includes()`**-Methode von {{jsxref("TypedArray")}}-Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.includes()")}}
 
@@ -35,15 +33,15 @@ includes(searchElement, fromIndex)
 - `searchElement`
   - : Der zu suchende Wert.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem die Suche beginnen soll, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der nullbasierte Index, ab dem die Suche beginnen soll, [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Ein boolean-Wert, der `true` ist, wenn der Wert `searchElement` im typisierten Array gefunden wird (oder im Teil des typisierten Arrays, der durch den Index `fromIndex` angegeben ist, falls angegeben).
+Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des typisierten Arrays gefunden wird (oder in dem Teil des typisierten Arrays, der durch den Index `fromIndex` angegeben ist, falls spezifiziert).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.includes()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.includes()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen angewendet werden.
 
 ## Beispiele
 

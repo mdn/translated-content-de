@@ -3,12 +3,10 @@ title: Date.prototype.getUTCMonth()
 short-title: getUTCMonth()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getUTCMonth()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Monat für dieses Datum nach Universal Time zurück, als einen nullbasierten Wert (wobei null den ersten Monat des Jahres angibt).
+Die **`getUTCMonth()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Monat für dieses Datum gemäß der Weltzeit als nullbasierten Wert zurück (wobei null den ersten Monat des Jahres angibt).
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getUTCMonth()")}}
 
@@ -37,13 +35,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 0 und 11, die den Monat für das angegebene Datum nach Universal Time darstellt: 0 für Januar, 1 für Februar usw. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl, zwischen 0 und 11, die den Monat für das angegebene Datum gemäß der Weltzeit darstellt: 0 für Januar, 1 für Februar und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCMonth()
 
-Im folgenden Beispiel wird der Monatsteil des aktuellen Datums der Variablen `month` zugewiesen.
+Das folgende Beispiel weist den Monatsteil des aktuellen Datums der Variablen `month` zu.
 
 ```js
 const today = new Date();

@@ -3,12 +3,10 @@ title: String.prototype.padEnd()
 short-title: padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String (wiederholt und/oder gekürzt, falls nötig) auf, sodass der resultierende String eine bestimmte Länge hat. Das Auffüllen erfolgt vom Ende dieses Strings.
+Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer angegebenen Zeichenkette auf (falls nötig wiederholt und/oder gekürzt), sodass die resultierende Zeichenkette eine bestimmte Länge hat. Das Auffüllen erfolgt vom Ende dieser Zeichenkette aus.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padEnd()")}}
 
@@ -34,13 +32,13 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge der resultierenden Zeichenkette, nachdem die aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Leerzeichen (U+0020).
+  - : Die Zeichenkette, mit der die aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird sie am Ende abgeschnitten. Der Standardwert ist das Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength`, mit `padString` am Ende angewendet.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString` am Ende angewendet.
 
 ## Beispiele
 

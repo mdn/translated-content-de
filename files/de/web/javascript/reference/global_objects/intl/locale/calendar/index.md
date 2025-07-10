@@ -3,28 +3,26 @@ title: Intl.Locale.prototype.calendar
 short-title: calendar
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`calendar`** Zugriffs-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt den Kalendertyp für diesen Sprachraum zurück.
+Die **`calendar`**-Eigenschaft von {{jsxref("Intl.Locale")}}-Instanzen gibt den Kalendertyp für diese Lokalisierung zurück.
 
 ## Beschreibung
 
-Obwohl der größte Teil der Welt den gregorianischen Kalender verwendet, gibt es mehrere regionale Kalenderarten, die weltweit genutzt werden. Der Wert der `calendar`-Eigenschaft wird bei der Erstellung gesetzt, entweder durch den `ca`-Schlüssel des Sprachraum-Identifikators oder durch die `calendar`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letztere hat Vorrang, wenn beide vorhanden sind; und wenn keiner vorhanden ist, hat die Eigenschaft den Wert `undefined`.
+Obwohl der Großteil der Welt den gregorianischen Kalender verwendet, gibt es mehrere regionale Kalender, die weltweit genutzt werden. Der Wert der `calendar`-Eigenschaft wird während der Konstruktion festgelegt, entweder über den `ca`-Schlüssel des Locale-Identifiers oder über die `calendar`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letzterer hat Vorrang, wenn beide vorhanden sind; ist keiner vorhanden, hat die Eigenschaft den Wert `undefined`.
 
-Für eine Liste der unterstützten Kalendertypen sehen Sie unter [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types).
+Für eine Liste der unterstützten Kalendertypen siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types).
 
 Der Set-Accessor von `calendar` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-Wie andere Sprachraum-Subtags kann der Kalendertyp dem {{jsxref("Intl.Locale")}} Objekt über den Sprachraum-String oder ein Konfigurationsobjekt-Argument des Konstruktors hinzugefügt werden.
+Wie andere Locale-Tags kann der Kalendertyp dem {{jsxref("Intl.Locale")}}-Objekt über den Locale-String oder ein Konfigurationsobjekt-Argument für den Konstruktor hinzugefügt werden.
 
-### Hinzufügen eines Kalendertyps über den Sprachraum-String
+### Hinzufügen eines Kalendertyps über den Locale-String
 
-In der [Unicode Sprachraum-String-Spezifikation](https://www.unicode.org/reports/tr35/) sind Kalenderarten Sprachraumschlüssel-"Erweiterungs-Subtags". Diese Subtags fügen zusätzliche Daten über den Sprachraum hinzu und werden zu Sprachraum-Identifikatoren durch die Verwendung der `-u` Erweiterung hinzugefügt. So kann der Kalendertyp dem initialen Sprachraum-Identifikator-String hinzugefügt werden, der an den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Um den Kalendertyp hinzuzufügen, fügen Sie zuerst die `-u` Erweiterung zum String hinzu. Fügen Sie dann die `-ca` Erweiterung hinzu, um anzugeben, dass Sie einen Kalendertyp hinzufügen. Schließlich fügen Sie den Kalenderartentyp dem String hinzu.
+In der [Unicode-Locale-String-Spezifikation](https://www.unicode.org/reports/tr35/) sind Kalendertypen "Erweiterungssubtags" des Locale-Schlüssels. Diese Subtags fügen zusätzliche Daten über die Lokalisierung hinzu und werden zu Locale-Identifikatoren hinzugefügt, indem die `-u`-Erweiterung verwendet wird. So kann der Kalendertyp zum initialen Locale-Identifier-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Um den Kalendertyp hinzuzufügen, fügen Sie zuerst die `-u` Erweiterung zum String hinzu. Fügen Sie dann die `-ca` Erweiterung hinzu, um anzuzeigen, dass Sie einen Kalendertyp hinzufügen. Schließlich fügen Sie den Typ des Kalenders zum String hinzu.
 
 ```js
 const locale = new Intl.Locale("fr-FR-u-ca-buddhist");
@@ -33,7 +31,7 @@ console.log(locale.calendar); // Prints "buddhist"
 
 ### Hinzufügen eines Kalendertyps über das Konfigurationsobjekt-Argument
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das mehrere Erweiterungstypen enthalten kann, einschließlich Kalendern. Setzen Sie die `calendar` Eigenschaft des Konfigurationsobjekts auf den gewünschten Kalenderarten-Typ und übergeben Sie es dann an den Konstruktor.
+Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das jede von mehreren Erweiterungstypen enthalten kann, einschließlich Kalendern. Setzen Sie die `calendar`-Eigenschaft des Konfigurationsobjekts auf Ihren gewünschten Kalender, und übergeben Sie es dann an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("fr-FR", { calendar: "buddhist" });
@@ -52,4 +50,4 @@ console.log(locale.calendar); // "buddhist"
 
 - {{jsxref("Intl.Locale")}}
 - [`Intl.Locale.prototype.getCalendars()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getCalendars)
-- [Unicode Calendar Identifier](https://www.unicode.org/reports/tr35/#UnicodeCalendarIdentifier) in der Unicode Sprachraum-Daten-Markup-Sprache-Spezifikation
+- [Unicode Calendar Identifier](https://www.unicode.org/reports/tr35/#UnicodeCalendarIdentifier) in der Unicode-Locale-Daten-Markup-Sprache-Spezifikation

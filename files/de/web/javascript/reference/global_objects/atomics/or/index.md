@@ -3,12 +3,13 @@ title: Atomics.or()
 short-title: or()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/or
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.or()`** führt ein bitweises OR mit einem angegebenen Wert an einer bestimmten Position im Array durch und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang stattfindet, bis der modifizierte Wert zurückgeschrieben wird.
+Die **`Atomics.or()`** statische
+Methode berechnet ein bitweises OR mit einem gegebenen Wert an einer bestimmten Position im Array und
+gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer
+Schreibvorgang erfolgt, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.or()")}}
 
@@ -35,14 +36,14 @@ Atomics.or(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliges typisiertes Array. Einer von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typ-Array. Eine der folgenden: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
     {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
     {{jsxref("BigUint64Array")}}.
 - `index`
   - : Die Position im `typedArray`, an der das bitweise OR berechnet werden soll.
 - `value`
-  - : Die Zahl, mit der das bitweise OR berechnet werden soll.
+  - : Die Zahl, mit der das bitweise OR berechnet wird.
 
 ### Rückgabewert
 
@@ -52,13 +53,14 @@ Der alte Wert an der angegebenen Position
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integertypen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beschreibung
 
-Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 sind. Die Wahrheitstabelle für die OR-Operation ist:
+Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 sind.
+Die Wahrheitstabelle für die OR-Operation ist:
 
 | `a` | `b` | `a \| b` |
 | --- | --- | -------- |
@@ -67,7 +69,8 @@ Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 sind. Die Wahrh
 | 1   | 0   | 1        |
 | 1   | 1   | 1        |
 
-Zum Beispiel ergibt ein bitweises OR von `5 | 1` `0101`, was dezimal 5 ist.
+Ein Beispiel: Ein bitweises OR von `5 | 1` ergibt `0101`, was 5
+im Dezimalsystem ist.
 
 ```plain
 5  0101

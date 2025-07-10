@@ -3,10 +3,8 @@ title: Object.isSealed()
 short-title: isSealed()
 slug: Web/JavaScript/Reference/Global_Objects/Object/isSealed
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Methode **`Object.isSealed()`** bestimmt, ob ein Objekt [versiegelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) ist.
 
@@ -39,11 +37,14 @@ Object.isSealed(obj)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, das angibt, ob das gegebene Objekt versiegelt ist oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das gegebene Objekt versiegelt ist oder nicht.
 
 ## Beschreibung
 
-Gibt `true` zurück, wenn das Objekt versiegelt ist, andernfalls `false`. Ein Objekt ist versiegelt, wenn es nicht {{jsxref("Object/isExtensible", "erweiterbar", "", 1)}} ist und wenn alle seine Eigenschaften nicht konfigurierbar sind und daher nicht entfernt werden können (aber nicht unbedingt nicht beschreibbar sind).
+Gibt `true` zurück, wenn das Objekt versiegelt ist, andernfalls `false`. Ein
+Objekt ist versiegelt, wenn es nicht {{jsxref("Object/isExtensible", "erweiterbar", "", 1)}} ist und
+wenn alle seine Eigenschaften nicht konfigurierbar und daher nicht entfernbar sind (aber nicht
+notwendigerweise nicht beschreibbar).
 
 ## Beispiele
 
@@ -99,9 +100,9 @@ Object.isFrozen(s3); // true
 // (only configurability matters for accessor properties)
 ```
 
-### Argument, das kein Objekt ist
+### Argument ist kein Objekt
 
-In ES5 löst diese Methode einen {{jsxref("TypeError")}} aus, wenn das Argument kein Objekt ist (eine primitive). In ES2015 wird `true` ohne Fehler zurückgegeben, wenn ein Nicht-Objekt-Argument übergeben wird, da Primitive per Definition unveränderlich sind.
+In ES5 führt das Übergeben eines nicht-Objekts (einer primitiven Datenstruktur) zu einem {{jsxref("TypeError")}}. In ES2015 wird es `true` zurückgeben, ohne Fehler zu verursachen, wenn ein nicht-Objekt-Argument übergeben wird, da primitive Datenstrukturen per Definition unveränderlich sind.
 
 ```js
 Object.isSealed(1);

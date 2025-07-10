@@ -3,12 +3,12 @@ title: Temporal.PlainYearMonth.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/toString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toString()`** Methode von Instanzen von {{jsxref("Temporal.PlainYearMonth")}} gibt eine Zeichenkette zurück, die diesen Jahr-Monat im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) darstellt.
+Die **`toString()`** Methode von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt einen String zurück, der diesen Jahr-Monat im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -22,26 +22,26 @@ toString(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `calendarName` {{optional_inline}}
-      - : Legt fest, ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt wird. Mögliche Werte sind:
+      - : Ob die Kalenderannotation (`[u-ca=calendar_id]`) im Rückgabewert gezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Schließt die Kalenderanmerkung ein, wenn der Kalender nicht `"iso8601"` ist. Der Referenztag wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderannotation wird hinzugefügt, wenn der Kalender nicht `"iso8601"` ist. Der Referenztag ist enthalten, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalenderanmerkung wird immer einbezogen. Der Referenztag wird ebenfalls immer einbezogen.
+          - : Die Kalenderannotation wird immer hinzugefügt. Der Referenztag ist ebenfalls immer enthalten.
         - `"never"`
-          - : Die Kalenderanmerkung wird nie einbezogen. Dadurch wird die zurückgegebene Zeichenkette nicht auf dieselbe {{jsxref("Temporal.PlainYearMonth")}} Instanz zurückführbar, obwohl der Jahr-Monat-Wert weiterhin derselbe bleibt. Der Referenztag wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderannotation wird nie hinzugefügt. Dies macht den zurückgegebenen String nicht wiederherstellbar zur gleichen {{jsxref("Temporal.PlainYearMonth")}} Instanz, obwohl der Jahr-Monat-Wert gleich bleibt. Der Referenztag ist enthalten, wenn der Kalender nicht `"iso8601"` ist.
         - `"critical"`
-          - : Die Kalenderanmerkung wird immer einbezogen und ein kritisches Flag hinzugefügt: `[!u-ca=calendar_id]`. Nützlich beim Senden der Zeichenkette an bestimmte Systeme, aber nicht nützlich für Temporal selbst. Der Referenztag wird ebenfalls immer einbezogen.
+          - : Die Kalenderannotation wird immer hinzugefügt und ein kritisches Flag hinzugefügt: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, aber nicht nützlich für Temporal selbst. Der Referenztag ist ebenfalls immer enthalten.
 
 ### Rückgabewert
 
-Eine Zeichenkette im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format), die diesen Jahr-Monat darstellt. Die Kalenderanmerkung ist wie angegeben enthalten. Der Referenztag ist enthalten, wenn eine Kalenderanmerkung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
+Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format), der diesen Jahr-Monat darstellt. Die Kalenderannotation ist wie angegeben enthalten. Der Referenztag ist enthalten, wenn eine Kalenderannotation enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn einer der Optionen ungültig ist.
+  - : Wird geworfen, wenn eine der Optionen ungültig ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `options` kein Objekt oder `undefined` ist.
+  - : Wird geworfen, wenn `options` kein Objekt oder `undefined` ist.
 
 ## Beispiele
 

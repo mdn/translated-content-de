@@ -3,12 +3,10 @@ title: Array.prototype.includes()
 short-title: includes()
 slug: Web/JavaScript/Reference/Global_Objects/Array/includes
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`includes()`**-Methode von {{jsxref("Array")}}-Instanzen bestimmt, ob ein Array einen bestimmten Wert unter seinen Einträgen enthält, und gibt entsprechend `true` oder `false` zurück.
+Die **`includes()`**-Methode von {{jsxref("Array")}}-Instanzen bestimmt, ob ein Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.includes()")}}
 
@@ -39,22 +37,22 @@ includes(searchElement, fromIndex)
 - `searchElement`
   - : Der zu suchende Wert.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem die Suche startet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet. Das Array wird jedoch weiterhin von vorne nach hinten durchsucht.
-    - Wenn `fromIndex < -array.length` oder `fromIndex` weggelassen wird, wird `0` verwendet, wodurch das gesamte Array durchsucht wird.
-    - Wenn `fromIndex >= array.length`, wird das Array nicht durchsucht und `false` zurückgegeben.
+  - : Nullbasierter Index, ab dem mit der Suche begonnen wird, [in einen Integer umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays rückwärts — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet. Das Array wird jedoch immer noch von vorne nach hinten durchsucht.
+    - Ist `fromIndex < -array.length` oder wird `fromIndex` weggelassen, wird `0` verwendet, sodass das gesamte Array durchsucht wird.
+    - Ist `fromIndex >= array.length`, wird das Array nicht durchsucht und es wird `false` zurückgegeben.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des Arrays gefunden wird (oder dem durch den Index `fromIndex` angegebenen Teil des Arrays, falls angegeben).
+Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` im Array gefunden wird (oder in dem durch den Index `fromIndex` angegebenen Teil des Arrays, falls angegeben).
 
 ## Beschreibung
 
-Die `includes()`-Methode vergleicht `searchElement` mit Elementen des Arrays anhand des [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus. Werte von null werden unabhängig vom Vorzeichen als gleich betrachtet. (Das heißt, `-0` ist gleich `0`), aber `false` wird _nicht_ als gleich `0` angesehen. [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) kann korrekt gesucht werden.
+Die `includes()`-Methode vergleicht `searchElement` mit den Elementen des Arrays unter Verwendung des [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus. Werte von Null werden unabhängig von ihrem Vorzeichen als gleich betrachtet (d.h. `-0` ist gleich `0`), aber `false` wird _nicht_ als gleich `0` angesehen. [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) kann korrekt gesucht werden.
 
-Bei der Verwendung auf [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) iteriert die `includes()`-Methode leere Stellen, als hätten sie den Wert `undefined`.
+Wenn sie auf [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `includes()`-Methode leere Slots, als ob sie den Wert `undefined` hätten.
 
-Die `includes()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indexierte Eigenschaften besitzt.
+Die `includes()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und Integer-indizierte Eigenschaften hat.
 
 ## Beispiele
 
@@ -71,8 +69,7 @@ Die `includes()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Globa
 
 ### fromIndex ist größer oder gleich der Array-Länge
 
-Wenn `fromIndex` größer oder gleich der Länge des
-Arrays ist, wird `false` zurückgegeben. Das Array wird nicht durchsucht.
+Wenn `fromIndex` größer oder gleich der Länge des Arrays ist, wird `false` zurückgegeben. Das Array wird nicht durchsucht.
 
 ```js
 const arr = ["a", "b", "c"];
@@ -83,10 +80,7 @@ arr.includes("c", 100); // false
 
 ### Berechneter Index ist kleiner als 0
 
-Wenn `fromIndex` negativ ist, wird der berechnete Index berechnet, um
-als Position im Array verwendet zu werden, ab der die Suche nach
-`searchElement` beginnt. Wenn der berechnete Index kleiner oder gleich
-`0` ist, wird das gesamte Array durchsucht.
+Wenn `fromIndex` negativ ist, wird der berechnete Index verwendet, um die Position im Array zu ermitteln, an der die Suche nach `searchElement` beginnt. Ist der berechnete Index kleiner oder gleich `0`, wird das gesamte Array durchsucht.
 
 ```js
 // array length is 3
@@ -101,9 +95,9 @@ arr.includes("c", -100); // true
 arr.includes("a", -2); // false
 ```
 
-### Verwendung von includes() auf spärlichen Arrays
+### Nutzung von includes() auf dünn besetzten Arrays
 
-Sie können `undefined` in einem spärlichen Array suchen und erhalten `true`.
+Sie können `undefined` in einem dünn besetzten Array suchen und `true` zurückbekommen.
 
 ```js
 console.log([1, , 3].includes(undefined)); // true
@@ -111,7 +105,7 @@ console.log([1, , 3].includes(undefined)); // true
 
 ### Aufruf von includes() auf Nicht-Array-Objekten
 
-Die `includes()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative Ganzzahl kleiner als `length` ist.
+Die `includes()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl ist, die kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -139,7 +133,7 @@ console.log(Array.prototype.includes.call(arrayLike, 1));
 
 - [Polyfill von `Array.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims Polyfill von `Array.prototype.includes`](https://www.npmjs.com/package/array-includes)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.indexOf()")}}
 - {{jsxref("Array.prototype.find()")}}

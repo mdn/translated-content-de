@@ -3,14 +3,10 @@ title: Intl.Locale.prototype.maximize()
 short-title: maximize()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/maximize
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`maximize()`** Methode von {{jsxref("Intl.Locale")}} Instanzen ermittelt die
-wahrscheinlichsten Werte für die Sprache, die Schrift und die Region dieser Locale basierend
-auf bestehenden Werten.
+Die **`maximize()`**-Methode von {{jsxref("Intl.Locale")}} Instanzen erhält die wahrscheinlichsten Werte für die Sprache, die Schrift und die Region dieser Locale basierend auf den vorhandenen Werten.
 
 {{InteractiveExample("JavaScript Demo: Intl.Locale.prototype.maximize()")}}
 
@@ -41,11 +37,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Intl.Locale")}} Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt, ausgeführt gegen _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_.
+Eine {{jsxref("Intl.Locale")}} Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) Algorithmus zurückgibt, der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wird.
 
 ## Beschreibung
 
-Manchmal ist es praktisch, die wahrscheinlichsten Locale-Sprachidentifier Subtags basierend auf einer unvollständigen Sprach-ID identifizieren zu können. Der Add Likely Subtags Algorithmus bietet diese Funktionalität. Zum Beispiel würde der Algorithmus bei der Sprach-ID "en" "en-Latn-US" zurückgeben, da Englisch nur in lateinischer Schrift geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da dies das größte englischsprachige Land der Welt ist. Diese Funktionalität steht JavaScript-Programmierern über die `maximize()`-Methode zur Verfügung. `maximize()` beeinflusst nur die Haupt-Subtags, die den [Sprachidentifier](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) bilden: Sprach-, Schrift- und Regions-Subtags. Andere Subtags nach dem "-u" im Locale-Identifikator werden als Erweiterungs-Subtags bezeichnet und werden durch die `maximize()`-Methode nicht beeinflusst. Beispiele für solche Subtags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}}, und {{jsxref("Intl/Locale/numeric", "numeric")}}.
+Manchmal ist es praktisch, die wahrscheinlichsten Subtags des Sprachidentifikators einer Locale basierend auf einer unvollständigen Sprach-ID zu identifizieren. Der Add Likely Subtags-Algorithmus bietet uns diese Funktionalität. Zum Beispiel würde der Algorithmus bei der Sprach-ID "en" "en-Latn-US" zurückgeben, da Englisch nur in lateinischer Schrift geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da es das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Programmierern über die `maximize()`-Methode bereitgestellt. `maximize()` beeinflusst nur die Haupt-Subtags, die den [Sprachidentifikator](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) ausmachen: Sprach-, Schrift- und Regionssubtags. Andere Subtags nach dem "-u" im Locale-Identifikator werden als Erweiterungs-Subtags bezeichnet und werden von der `maximize()`-Methode nicht beeinflusst. Beispiele für diese Subtags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele
 

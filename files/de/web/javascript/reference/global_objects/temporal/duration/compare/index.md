@@ -3,12 +3,12 @@ title: Temporal.Duration.compare()
 short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/compare
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Duration.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob die erste Dauer kürzer, gleich oder länger als die zweite Dauer ist.
+Die statische Methode **`Temporal.Duration.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die anzeigt, ob die erste Dauer kürzer, gleich oder länger als die zweite Dauer ist.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ Temporal.Duration.compare(duration1, duration2, options)
 ### Parameter
 
 - `duration1`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die die erste zu vergleichende Dauer darstellt. Sie wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die die erste zu vergleichende Dauer darstellt. Sie wird in ein `Temporal.Duration`-Objekt konvertiert, unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}.
 - `duration2`
-  - : Die zweite zu vergleichende Dauer, die mit demselben Algorithmus wie `duration1` in ein `Temporal.Duration`-Objekt umgewandelt wird.
+  - : Die zweite zu vergleichende Dauer, konvertiert zu einem `Temporal.Duration`-Objekt nach dem gleichen Algorithmus wie `duration1`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `relativeTo` {{optional_inline}}
-      - : Ein zoniertes oder einfaches Datum (bzw. Zeit), das die Zeit- und Kalenderinformationen liefert, um [Kalenderdauern](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) zu lösen (siehe den Link für die allgemeine Interpretation dieser Option). Erforderlich, wenn entweder `duration1` oder `duration2` eine Kalenderdauer ist (es sei denn, sie sind komponentenweise gleich, in diesem Fall wird `0` ohne Berechnungen zurückgegeben).
+      - : Ein zoniertes oder einfaches Datum(Zeit), das die Zeit- und Kalenderinformationen bereitstellt, um [Kalenderdauern](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) aufzulösen (siehe den Link für die allgemeine Interpretation dieser Option). Erforderlich, wenn entweder `duration1` oder `duration2` eine Kalenderdauer ist (es sei denn, sie sind komponentenweise gleich, in diesem Fall wird `0` ohne Berechnungen zurückgegeben).
 
 ### Rückgabewert
 
@@ -35,11 +35,11 @@ Gibt `-1` zurück, wenn `duration1` kürzer als `duration2` ist, `0`, wenn sie g
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn entweder `duration1` oder `duration2` eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) ist (sie hat eine nicht-null `years`, `months` oder `weeks` Angabe) und `relativeTo` nicht bereitgestellt wird.
+  - : Wird ausgelöst, wenn entweder `duration1` oder `duration2` eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) ist (sie hat ein nicht-gleich-null `years`, `months` oder `weeks`), und `relativeTo` nicht bereitgestellt wird.
 
 ## Beschreibung
 
-Wenn `relativeTo` ein zoniertes Datum-Zeit ist und entweder `duration1` oder `duration2` eine Kalenderdauer ist, wird das Ergebnis berechnet, indem die Dauern zu dem Ausgangspunkt hinzugefügt und dann die resultierenden Zeitpunkte verglichen werden. Andernfalls wird der Vergleich durchgeführt, indem beide in Nanosekunden umgewandelt werden (dabei werden 24-Stunden-Tage angenommen und nötigenfalls der Kalender von `relativeTo` verwendet) und die Ergebnisse verglichen.
+Wenn `relativeTo` ein zoniertes Datum-Zeit ist und entweder `duration1` oder `duration2` eine Kalenderdauer ist, wird das Ergebnis berechnet, indem die Dauern zum Ausgangspunkt hinzugefügt und anschließend die resultierenden Instanzen verglichen werden. Andernfalls erfolgt der Vergleich durch Umwandlung beider in Nanosekunden (angenommen wird 24-Stunden-Tage, unter Nutzung des Kalenders von `relativeTo` falls notwendig) und Vergleichen der Ergebnisse.
 
 ## Beispiele
 
@@ -80,7 +80,7 @@ console.log(
 
 ### Verwendung von zoned relativeTo
 
-Unter Verwendung eines zonierten `relativeTo` kann man sogar die Umstellung auf Sommerzeit berücksichtigen. Am `2024-11-03` wechselt die US von Sommerzeit auf Normalzeit, sodass dieser Tag 25 Stunden hat, da die Uhr um 1 Stunde zurückgestellt wird.
+Durch die Verwendung eines zonierten `relativeTo` können sogar Änderungen der Sommerzeit berücksichtigt werden. Am `2024-11-03` wechselt die USA von der Sommerzeit zur Normalzeit, sodass dieser Tag 25 Stunden hat, weil die Uhr um 1 Stunde zurückgestellt wird.
 
 ```js
 const d1 = Temporal.Duration.from({ days: 1 });
@@ -95,9 +95,9 @@ console.log(
 ); // 1
 ```
 
-### Sortieren eines Arrays von Dauern
+### Sortierung eines Arrays von Dauern
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Komparator zu fungieren, der an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
+Der Zweck dieser Funktion `compare()` ist, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
 
 ```js
 const durations = [
@@ -112,7 +112,7 @@ console.log(durations.map((d) => d.toString()));
 // [ 'PT1H', 'PT1H30M', 'PT1H45M', 'PT2H' ]
 ```
 
-Übergeben Sie Optionen so:
+So übergeben Sie Optionen:
 
 ```js
 durations.sort((a, b) =>

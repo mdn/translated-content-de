@@ -1,14 +1,12 @@
 ---
-title: "Error: message"
+title: "Fehler: message"
 short-title: message
 slug: Web/JavaScript/Reference/Global_Objects/Error/message
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`message`** Daten-Eigenschaft einer {{jsxref("Error")}} Instanz ist eine menschenlesbare Beschreibung des Fehlers.
+Die **`message`** Dateneigenschaft einer {{jsxref("Error")}}-Instanz ist eine menschenlesbare Beschreibung des Fehlers.
 
 ## Wert
 
@@ -18,9 +16,9 @@ Ein String, der dem Wert entspricht, der dem [`Error()`](/de/docs/Web/JavaScript
 
 ## Beschreibung
 
-Diese Eigenschaft enthält eine kurze Beschreibung des Fehlers, falls eine verfügbar ist oder gesetzt wurde. Die `message`-Eigenschaft wird zusammen mit der {{jsxref("Error/name", "name")}}-Eigenschaft von der Methode {{jsxref("Error.prototype.toString()")}} verwendet, um eine String-Darstellung des Fehlers zu erstellen.
+Diese Eigenschaft enthält eine kurze Beschreibung des Fehlers, falls eine verfügbar ist oder festgelegt wurde. Die `message`-Eigenschaft wird in Kombination mit der {{jsxref("Error/name", "name")}}-Eigenschaft von der {{jsxref("Error.prototype.toString()")}}-Methode verwendet, um eine Zeichenkettenrepräsentation des Errors zu erstellen.
 
-Standardmäßig ist die `message`-Eigenschaft ein leerer String, aber dieses Verhalten kann für eine Instanz überschrieben werden, indem eine Nachricht als erstes Argument des {{jsxref("Error/Error", "Error")}}-Konstruktors angegeben wird.
+Standardmäßig ist die `message`-Eigenschaft ein leerer String, aber dieses Verhalten kann für eine Instanz überschrieben werden, indem beim Konstruktor {{jsxref("Error/Error", "Error")}} eine Nachricht als erstes Argument angegeben wird.
 
 ## Beispiele
 

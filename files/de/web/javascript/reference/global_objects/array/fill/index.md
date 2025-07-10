@@ -3,12 +3,10 @@ title: Array.prototype.fill()
 short-title: fill()
 slug: Web/JavaScript/Reference/Global_Objects/Array/fill
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`fill()`**-Methode von {{jsxref("Array")}}-Instanzen ändert alle Elemente innerhalb eines Indexbereichs in einem Array zu einem statischen Wert. Sie gibt das modifizierte Array zurück.
+Die **`fill()`**-Methode von {{jsxref("Array")}} Instanzen ändert alle Elemente innerhalb eines Indexbereichs in einem Array in einen statischen Wert. Sie gibt das modifizierte Array zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.fill()")}}
 
@@ -38,18 +36,18 @@ fill(value, start, end)
 ### Parameter
 
 - `value`
-  - : Wert, mit dem das Array gefüllt wird. Beachten Sie, dass alle Elemente im Array exakt diesen Wert haben werden: Wenn `value` ein Objekt ist, wird in jedem Slot des Arrays auf dieses Objekt verwiesen.
+  - : Wert, mit dem das Array gefüllt werden soll. Beachten Sie, dass alle Elemente im Array genau diesen Wert haben werden: Wenn `value` ein Objekt ist, wird jeder Platz im Array auf dieses Objekt verweisen.
 - `start` {{optional_inline}}
-  - : Nullbasierter Index, an dem das Füllen beginnt, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der nullbasierte Index, ab dem das Füllen beginnt, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
     - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
     - Wenn `start < -array.length` oder `start` weggelassen wird, wird `0` verwendet.
     - Wenn `start >= array.length`, wird kein Index gefüllt.
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, an dem das Füllen endet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `fill()` füllt bis, aber nicht einschließlich `end`.
+  - : Der nullbasierte Index, an dem das Füllen endet, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `fill()` füllt bis, aber nicht einschließlich `end`.
     - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
     - Wenn `end < -array.length`, wird `0` verwendet.
-    - Wenn `end >= array.length` oder `end` weggelassen oder `undefined` ist, wird `array.length` verwendet, wodurch alle Indizes bis zum Ende gefüllt werden.
-    - Wenn `end` eine Position vor oder an der von `start` implizierten Position ergibt, wird nichts gefüllt.
+    - Wenn `end >= array.length` oder `end` weggelassen oder `undefined` ist, wird `array.length` verwendet, was dazu führt, dass alle Indizes bis zum Ende gefüllt werden.
+    - Wenn `end` eine Position impliziert, die vor oder an der Position liegt, die `start` impliziert, wird nichts gefüllt.
 
 ### Rückgabewert
 
@@ -57,16 +55,16 @@ Das modifizierte Array, gefüllt mit `value`.
 
 ## Beschreibung
 
-Die `fill()`-Methode ist eine [ändernde Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert nicht die Länge von `this`, aber sie wird den Inhalt von `this` ändern.
+Die `fill()`-Methode ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert nicht die Länge von `this`, aber sie wird den Inhalt von `this` ändern.
 
-Die `fill()`-Methode füllt auch leere Plätze in [spärlichen](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) Arrays mit `value`.
+Die `fill()`-Methode füllt auch leere Plätze in [lückenhaften](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) Arrays mit `value`.
 
-Die `fill()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft hat. Obwohl Zeichenketten ebenfalls array-ähnlich sind, ist diese Methode nicht geeignet, auf ihnen angewendet zu werden, da Zeichenketten unveränderlich sind.
+Die `fill()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft hat. Obwohl Zeichenketten auch array-ähnlich sind, ist diese Methode nicht geeignet, um auf ihnen angewandt zu werden, da Zeichenketten unveränderlich sind.
 
 > [!NOTE]
-> Die Verwendung von `Array.prototype.fill()` auf einem leeren Array (`length = 0`) würde es nicht verändern, da das Array nichts zu verändern hat.
-> Um `Array.prototype.fill()` beim Deklarieren eines Arrays zu verwenden, stellen Sie sicher, dass das Array eine Länge ungleich Null hat.
-> [Beispiel ansehen](#using_fill_to_populate_an_empty_array).
+> Die Verwendung von `Array.prototype.fill()` auf einem leeren Array (`length = 0`) würde es nicht ändern, da das Array nichts zu modifizieren hat.
+> Um `Array.prototype.fill()` beim Deklarieren eines Arrays zu verwenden, stellen Sie sicher, dass das Array eine ungleich null `length` hat.
+> [siehe Beispiel](#using_fill_to_populate_an_empty_array).
 
 ## Beispiele
 
@@ -88,9 +86,9 @@ const arr = Array(3).fill({}); // [{}, {}, {}]
 arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 ```
 
-### Verwendung von fill() zur Erstellung einer Matrix mit nur Einsen
+### Verwendung von fill(), um eine Matrix aus lauter Einsen zu erstellen
 
-Dieses Beispiel zeigt, wie man eine Matrix mit nur Einsen erstellt, ähnlich der `ones()`-Funktion von Octave oder MATLAB.
+Dieses Beispiel zeigt, wie eine Matrix aus lauter Einsen erstellt wird, ähnlich der `ones()`-Funktion von Octave oder MATLAB.
 
 ```js
 const arr = new Array(3);
@@ -103,20 +101,20 @@ console.log(arr[1][0]); // 1
 console.log(arr[2][0]); // 1
 ```
 
-### Verwendung von fill() zum Füllen eines leeren Arrays
+### Verwendung von fill(), um ein leeres Array zu füllen
 
-Dieses Beispiel zeigt, wie man ein Array füllt und alle Elemente auf einen bestimmten Wert setzt.
+Dieses Beispiel zeigt, wie ein Array gefüllt wird, wobei alle Elemente auf einen bestimmten Wert gesetzt werden.
 Der `end`-Parameter muss nicht angegeben werden.
 
 ```js
 const tempGirls = Array(5).fill("girl", 0);
 ```
 
-Beachten Sie, dass das Array anfänglich ein [spärliches Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ohne zugewiesene Indizes war. `fill()` kann dieses Array dennoch füllen.
+Beachten Sie, dass das Array ursprünglich ein [lückenhaftes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ohne zugewiesene Indizes war. `fill()` kann dieses Array dennoch füllen.
 
-### Aufrufen von fill() auf Objekten ohne Array-Verhalten
+### Aufruf von fill() auf Nicht-Array-Objekten
 
-Die `fill()`-Methode liest die `length`-Eigenschaft von `this` und setzt den Wert jeder integer-basierten Eigenschaft von `start` bis `end`.
+Die `fill()`-Methode liest die `length`-Eigenschaft von `this` und setzt den Wert jeder integer-basierten Eigenschaft vom `start` bis `end`.
 
 ```js
 const arrayLike = { length: 2 };

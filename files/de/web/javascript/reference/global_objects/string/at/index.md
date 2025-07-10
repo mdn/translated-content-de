@@ -3,12 +3,10 @@ title: String.prototype.at()
 short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/String/at
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`at()`** Methode von {{jsxref("String")}}-Werten nimmt einen ganzzahligen Wert und gibt eine neue {{jsxref("String")}} zurück, die aus dem einzelnen UTF-16-Code-Einheit besteht, die an der angegebenen Stelle zu finden ist. Diese Methode ermöglicht sowohl positive als auch negative Ganzzahlen. Negative Ganzzahlen zählen vom letzten Zeichen der Zeichenkette zurück.
+Die **`at()`** Methode von {{jsxref("String")}}-Werten nimmt einen ganzzahligen Wert und gibt einen neuen {{jsxref("String")}} zurück, der aus der einzelnen UTF-16-Codeeinheit besteht, die sich an dem angegebenen Offset befindet. Diese Methode erlaubt sowohl positive als auch negative Ganzzahlen. Negative Zahlen zählen von dem letzten Zeichen der Zeichenkette aus zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.at()")}}
 
@@ -35,17 +33,17 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Der Index (Position) des Zeichenkettensymbols, das zurückgegeben werden soll. Unterstützt relatives Indizieren vom Ende der Zeichenkette aus, wenn ein negativer Index übergeben wird; d.h. wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen durch Zurückzählen vom Ende der Zeichenkette gefunden.
+  - : Der Index (die Position) des Zeichenkettenzeichens, das zurückgegeben werden soll. Unterstützt relatives Indexieren vom Ende der Zeichenkette aus, wenn ein negativer Index übergeben wird; das heißt, wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen ermittelt, indem vom Ende der Zeichenkette aus rückwärts gezählt wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}}, der aus der einzelnen UTF-16-Code-Einheit besteht, die an der angegebenen Position zu finden ist. Gibt {{jsxref("undefined")}} zurück, wenn der angegebene Index nicht gefunden werden kann.
+Ein {{jsxref("String")}}, der aus der einzelnen UTF-16-Codeeinheit besteht, die sich an der angegebenen Position befindet. Gibt {{jsxref("undefined")}} zurück, wenn der angegebene Index nicht gefunden werden kann.
 
 ## Beispiele
 
 ### Das letzte Zeichen einer Zeichenkette zurückgeben
 
-Das folgende Beispiel stellt eine Funktion bereit, die das letzte Zeichen in einer spezifizierten Zeichenkette zurückgibt.
+Das folgende Beispiel bietet eine Funktion, die das letzte gefundene Zeichen in einer angegebenen Zeichenkette zurückgibt.
 
 ```js
 // A function which returns the last character of a given string
@@ -64,7 +62,7 @@ console.log(returnLast(invoiceRef)); // '2'
 
 ### Vergleich von Methoden
 
-Hier vergleichen wir verschiedene Möglichkeiten, um das vorletzte (vor dem letzten) Zeichen eines {{jsxref("String")}} auszuwählen. Obwohl alle unten stehenden Methoden gültig sind, wird die Prägnanz und Lesbarkeit der `at()` Methode hervorgehoben.
+Hier vergleichen wir verschiedene Möglichkeiten, das vorletzte Zeichen (letztes plus eins) eines {{jsxref("String")}} auszuwählen. Während alle untenstehenden Methoden gültig sind, hebt es die Prägnanz und Lesbarkeit der `at()`-Methode hervor.
 
 ```js
 const myString = "Every green bus drives fast.";

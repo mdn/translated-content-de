@@ -3,14 +3,14 @@ title: Temporal.PlainDateTime.prototype.withCalendar()
 short-title: withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das dieses Datum-Uhrzeit in dem neuen Kalendersystem interpretiert. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft der Datum-Zeit.
+Die Methode **`withCalendar()`** der Instanzen von {{jsxref("Temporal.PlainDateTime")}} gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diesen Datum-Uhrzeit-Wert im neuen Kalendersystem interpretiert. Da alle `Temporal`-Objekte unveränderlich gestaltet sind, funktioniert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft der Datum-Uhrzeit.
 
-Um die Datum-Zeit-Komponenteneigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}}-Methode.
+Um die Datums- und Uhrzeitkomponenten-Eigenschaften zu ersetzen, nutzen Sie stattdessen die Methode {{jsxref("Temporal/PlainDateTime/with", "with()")}}.
 
 ## Syntax
 
@@ -25,14 +25,14 @@ withCalendar(calendar)
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das die durch das ursprüngliche `PlainDateTime` angegebene Datum-Zeit darstellt, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.PlainDateTime`-Objekt, das die durch das ursprüngliche `PlainDateTime` angegebene Datum-Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderbezeichner ist.
+  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalender-Identifikator ist.
 
 ## Beispiele
 

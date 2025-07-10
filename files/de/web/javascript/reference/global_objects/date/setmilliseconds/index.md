@@ -3,12 +3,10 @@ title: Date.prototype.setMilliseconds()
 short-title: setMilliseconds()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setMilliseconds
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`setMilliseconds()`** Methode von {{jsxref("Date")}} Instanzen ändert die Millisekunden dieses Datums nach lokaler Zeit.
+Die **`setMilliseconds()`**-Methode von {{jsxref("Date")}}-Instanzen ändert die Millisekunden für dieses Datum entsprechend der Ortszeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setMilliseconds()")}}
 
@@ -33,15 +31,15 @@ setMilliseconds(millisecondsValue)
 ### Parameter
 
 - `millisecondsValue`
-  - : Ein ganzzahliger Wert zwischen 0 und 999, der die Millisekunden darstellt.
+  - : Eine Ganzzahl zwischen 0 und 999, die die Millisekunden darstellt.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}} Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `millisecondsValue` `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt vor Ort und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `millisecondsValue` `NaN` ist (oder andere Werte, die zu `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie eine Zahl außerhalb des erwarteten Bereichs angeben, werden die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend aktualisiert. Wenn Sie beispielsweise 1005 angeben, wird die Anzahl der Sekunden um 1 erhöht und 5 wird für die Millisekunden verwendet.
+Wenn Sie eine Zahl außerhalb des erwarteten Bereichs angeben, werden die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Wenn Sie beispielsweise 1005 angeben, wird die Anzahl der Sekunden um 1 erhöht und 5 wird für die Millisekunden verwendet.
 
 ## Beispiele
 

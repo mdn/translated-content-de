@@ -3,14 +3,12 @@ title: Uint8Array.prototype.toHex()
 short-title: toHex()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8Array/toHex
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`toHex()`**-Methode von {{jsxref("Uint8Array")}}-Instanzen gibt einen hex-kodierten String basierend auf den Daten in diesem `Uint8Array`-Objekt zurück.
 
-Die **`toHex()`**-Methode von {{jsxref("Uint8Array")}}-Instanzen gibt einen hex-codierten String zurück, der auf den Daten in diesem `Uint8Array`-Objekt basiert.
-
-Diese Methode erstellt Strings aus einem Byte-Array. Um einzelne Zahlen in Hex zu konvertieren, verwenden Sie die {{jsxref("Number.prototype.toString()")}}-Methode mit `radix` auf `16` gesetzt.
+Diese Methode erstellt Strings aus einem Byte-Array. Um einzelne Zahlen in Hexadezimal umzuwandeln, verwenden Sie stattdessen die {{jsxref("Number.prototype.toString()")}}-Methode mit `radix` auf `16` gesetzt.
 
 ## Syntax
 
@@ -24,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein hex-codierter String, der die Daten im `Uint8Array` darstellt.
+Ein hex-kodierter String, der die Daten im `Uint8Array` darstellt.
 
 ## Beispiele
 
-### Binäre Daten kodieren
+### Kodierung von Binärdaten
 
-Dieses Beispiel kodiert Daten von einem `Uint8Array` in einen Hex-String.
+Dieses Beispiel kodiert Daten aus einem `Uint8Array` in einen Hex-String.
 
 ```js
 const uint8Array = new Uint8Array([202, 254, 208, 13]);
@@ -56,7 +54,7 @@ for (let i = 0; i < data.length; i += 3) {
 ## Siehe auch
 
 - [Polyfill von `Uint8Array.prototype.toHex` in `core-js`](https://github.com/zloirock/core-js#uint8array-to--from-base64-and-hex)
-- [es-shims polyfill von `Uint8Array.prototype.toHex`](https://www.npmjs.com/package/es-arraybuffer-base64)
+- [es-shims Polyfill von `Uint8Array.prototype.toHex`](https://www.npmjs.com/package/es-arraybuffer-base64)
 - {{jsxref("Uint8Array")}}
 - {{jsxref("Uint8Array.fromHex()")}}
 - {{jsxref("Uint8Array.prototype.setFromHex()")}}

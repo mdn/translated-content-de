@@ -2,12 +2,10 @@
 title: Intl.ListFormat
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`Intl.ListFormat`**-Objekt ermöglicht sprachsensitive Listenformatierung.
+Das **`Intl.ListFormat`**-Objekt ermöglicht eine sprachsensitive Listenformatierung.
 
 {{InteractiveExample("JavaScript Demo: Intl.ListFormat", "taller")}}
 
@@ -41,23 +39,23 @@ console.log(formatter3.format(vehicles));
 ## Statische Methoden
 
 - {{jsxref("Intl/ListFormat/supportedLocalesOf", "Intl.ListFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das die angegebenen Locales enthält, die unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das diejenigen der bereitgestellten Locales enthält, die unterstützt werden, ohne dass auf die Standard-Locale des Laufzeitsystems zurückgegriffen werden muss.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `Intl.ListFormat.prototype` definiert und werden von allen `Intl.ListFormat`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Intl.ListFormat.prototype` definiert und werden von allen `Intl.ListFormat` Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "Intl.ListFormat.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.ListFormat`-Instanzen ist der anfängliche Wert der {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.ListFormat`-Instanzen ist der Anfangswert der {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat")}}-Konstruktor.
 - `Intl.ListFormat.prototype[Symbol.toStringTag]`
-  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.ListFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.ListFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Intl/ListFormat/format", "Intl.ListFormat.prototype.format()")}}
   - : Gibt einen sprachspezifisch formatierten String zurück, der die Elemente der Liste darstellt.
 - {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}}
-  - : Gibt ein Array von Objekten zurück, welches die verschiedenen Komponenten repräsentiert, die verwendet werden können, um eine Liste von Werten lokalisiert zu formatieren.
+  - : Gibt ein Array von Objekten zurück, die die verschiedenen Komponenten repräsentieren, die verwendet werden können, um eine Liste von Werten in einer localesensiblen Art zu formatieren.
 - {{jsxref("Intl/ListFormat/resolvedOptions", "Intl.ListFormat.prototype.resolvedOptions()")}}
   - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale- und Stilformatierungsoptionen widerspiegeln, die während der Konstruktion des aktuellen `Intl.ListFormat`-Objekts berechnet wurden.
 
@@ -65,7 +63,7 @@ Diese Eigenschaften sind auf `Intl.ListFormat.prototype` definiert und werden vo
 
 ### Verwendung von format
 
-Das folgende Beispiel zeigt, wie ein List-Formatter mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie man einen List-Formatter mit der englischen Sprache erstellt.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];
@@ -92,7 +90,7 @@ console.log(
 
 ### Verwendung von formatToParts
 
-Das folgende Beispiel zeigt, wie ein List-Formatter erstellt wird, der formatierte Teile zurückgibt.
+Das folgende Beispiel zeigt, wie man einen List-Formatter erstellt, der formatierte Teile zurückgibt.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

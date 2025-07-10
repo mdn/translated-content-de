@@ -3,15 +3,15 @@ title: String.prototype.link()
 short-title: link()
 slug: Web/JavaScript/Reference/Global_Objects/String/link
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Die Methode **`link()`** von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("a")}}-Element einbettet (`<a href="...">str</a>`), um ihn als Hyperlink zu einer anderen URL zu verwenden.
+Die **`link()`** Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("a")}}-Element (`<a href="...">str</a>`) einbettet, um ihn als Hypertext-Link zu einer anderen URL zu verwenden.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur zur Kompatibilität standardisiert. Verwenden Sie stattdessen [DOM APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -22,11 +22,11 @@ link(url)
 ### Parameter
 
 - `url`
-  - : Jeder String, der das `href`-Attribut des `<a>`-Elements angibt; es sollte eine gültige URL sein (relativ oder absolut), wobei alle `&`-Zeichen als `&amp;` maskiert werden.
+  - : Jeder String, der das `href`-Attribut des `<a>`-Elements angibt; es sollte eine gültige URL sein (relativ oder absolut), wobei alle `&`-Zeichen als `&amp;` maskiert sein sollten.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<a href="url">`-Start-Tag beginnt (doppelte Anführungszeichen in `url` werden durch `&quot;` ersetzt), dann der Text `str` und dann ein `</a>`-End-Tag.
+Ein String, der mit einem `<a href="url">` Start-Tag beginnt (doppelte Anführungszeichen in `url` werden durch `&quot;` ersetzt), gefolgt vom Text `str`, und dann einem `</a>` End-Tag.
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ const contentString = "MDN Web Docs";
 document.body.innerHTML = contentString.link("https://developer.mozilla.org/");
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies wird das folgende HTML erstellen:
 
 ```html
 <a href="https://developer.mozilla.org/">MDN Web Docs</a>

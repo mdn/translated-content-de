@@ -3,12 +3,10 @@ title: String.prototype.toLowerCase()
 short-title: toLowerCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toLowerCase()`**-Methode von {{jsxref("String")}}-Werten gibt diesen String in Kleinbuchstaben konvertiert zurück.
+Die **`toLowerCase()`** Methode von {{jsxref("String")}} Werten gibt diesen String in Kleinbuchstaben umgewandelt zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.toLowerCase()", "shorter")}}
 
@@ -31,11 +29,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der den aufrufenden String in Kleinbuchstaben konvertiert repräsentiert.
+Ein neuer String, der den aufrufenden String in Kleinbuchstaben umgewandelt darstellt.
 
 ## Beschreibung
 
-Die `toLowerCase()`-Methode gibt den in Kleinbuchstaben konvertierten Wert des Strings zurück. `toLowerCase()` beeinflusst nicht den Wert des Strings `str` selbst.
+Die `toLowerCase()` Methode gibt den Wert des Strings in Kleinbuchstaben umgewandelt zurück. `toLowerCase()` beeinflusst nicht den Wert des Strings `str` selbst.
 
 ## Beispiele
 

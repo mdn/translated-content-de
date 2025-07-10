@@ -3,12 +3,10 @@ title: TypedArray.prototype.sort()
 short-title: sort()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/sort
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`sort()`** Methode von {{jsxref("TypedArray")}} Instanzen sortiert die Elemente eines typisierten Arrays _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ und gibt die Referenz auf dasselbe jetzt sortierte typisierte Array zurück. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.sort()")}}, mit dem Unterschied, dass die Werte standardmäßig numerisch anstatt als Strings sortiert werden.
+Die **`sort()`**-Methode von {{jsxref("TypedArray")}}-Instanzen sortiert die Elemente eines typisierten Arrays _[vor Ort](https://en.wikipedia.org/wiki/In-place_algorithm)_ und gibt die Referenz auf dasselbe, nun sortierte, typisierte Array zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.sort()")}}, außer dass sie die Werte standardmäßig numerisch anstatt als Strings sortiert.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.sort()", "shorter")}}
 
@@ -30,37 +28,34 @@ sort(compareFn)
 ### Parameter
 
 - `compareFn` {{optional_inline}}
-
   - : Eine Funktion, die die Reihenfolge der Elemente bestimmt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
-
     - `a`
-      - : Das erste Element für den Vergleich.
+      - : Das erste zu vergleichende Element.
     - `b`
-      - : Das zweite Element für den Vergleich.
+      - : Das zweite zu vergleichende Element.
 
     Sie sollte eine Zahl zurückgeben, wobei:
-
-    - Ein negativer Wert darauf hinweist, dass `a` vor `b` kommen sollte.
-    - Ein positiver Wert darauf hinweist, dass `a` nach `b` kommen sollte.
-    - Null oder `NaN` darauf hinweist, dass `a` und `b` als gleich betrachtet werden.
+    - Ein negativer Wert anzeigt, dass `a` vor `b` kommen sollte.
+    - Ein positiver Wert anzeigt, dass `a` nach `b` kommen sollte.
+    - Null oder `NaN` anzeigt, dass `a` und `b` als gleich betrachtet werden.
 
     Um sich dies zu merken, denken Sie daran, dass `(a, b) => a - b` Zahlen in aufsteigender Reihenfolge sortiert.
 
-    Wenn ausgelassen, werden die Elemente des typisierten Arrays nach ihrem numerischen Wert sortiert.
+    Wenn ausgelassen, werden die Elemente des typisierten Arrays gemäß ihrem numerischen Wert sortiert.
 
 ### Rückgabewert
 
-Die Referenz auf das originale sortierte typisierte Array. Beachten Sie, dass das typisierte Array _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ sortiert wird und keine Kopie erstellt wird.
+Die Referenz auf das originale, nun sortierte, typisierte Array. Beachten Sie, dass das typisierte Array _[vor Ort](https://en.wikipedia.org/wiki/In-place_algorithm)_ sortiert wird und keine Kopie erstellt wird.
 
 ## Beschreibung
 
-Sehen Sie {{jsxref("Array.prototype.sort()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.sort()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen angewendet werden.
 
 ## Beispiele
 
-### Verwendung von sort()
+### Verwenden von sort()
 
-Für weitere Beispiele sehen Sie auch die {{jsxref("Array.prototype.sort()")}} Methode.
+Für weitere Beispiele siehe auch die Methode {{jsxref("Array.prototype.sort()")}}.
 
 ```js
 let numbers = new Uint8Array([40, 1, 5, 200]);
@@ -89,7 +84,7 @@ numbers.sort((a, b) => a - b); // compare numbers
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.sort` mit modernem Verhalten wie stabile Sortierung in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.reverse()")}}
 - {{jsxref("TypedArray.prototype.toSorted()")}}

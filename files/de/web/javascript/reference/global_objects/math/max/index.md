@@ -3,12 +3,10 @@ title: Math.max()
 short-title: max()
 slug: Web/JavaScript/Reference/Global_Objects/Math/max
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.max()`** gibt die größte der übergebenen Zahlen als Eingabeparameter zurück oder -{{jsxref("Infinity")}}, wenn keine Parameter angegeben werden.
+Die statische Methode **`Math.max()`** gibt die größte der als Eingabeparameter gegebenen Zahlen zurück oder -{{jsxref("Infinity")}}, wenn keine Parameter angegeben sind.
 
 {{InteractiveExample("JavaScript Demo: Math.max()")}}
 
@@ -37,17 +35,17 @@ Math.max(value1, value2, /* …, */ valueN)
 ### Parameter
 
 - `value1`, …, `valueN`
-  - : Null oder mehr Zahlen, aus denen der größte Wert ausgewählt und zurückgegeben wird.
+  - : Null oder mehr Zahlen, unter denen der größte Wert ausgewählt und zurückgegeben wird.
 
 ### Rückgabewert
 
-Die größte der angegebenen Zahlen. Gibt {{jsxref("NaN")}} zurück, wenn einer der Parameter `NaN` ist oder in `NaN` umgewandelt wird. Gibt -{{jsxref("Infinity")}} zurück, wenn keine Parameter angegeben werden.
+Die größte der gegebenen Zahlen. Gibt {{jsxref("NaN")}} zurück, wenn einer der Parameter `NaN` ist oder in `NaN` konvertiert wird. Gibt -{{jsxref("Infinity")}} zurück, wenn keine Parameter angegeben sind.
 
 ## Beschreibung
 
-Da `max()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.max()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `max()` eine statische Methode von `Math` ist, wird sie immer als `Math.max()` verwendet und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-[`Math.max.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach andeutet, dass es darauf ausgelegt ist, mindestens zwei Parameter zu verarbeiten.
+[`Math.max.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach signalisiert, dass sie dafür ausgelegt ist, mindestens zwei Parameter zu verarbeiten.
 
 ## Beispiele
 
@@ -59,7 +57,7 @@ Math.max(-10, -20); // -10
 Math.max(-10, 20); // 20
 ```
 
-### Das Maximum eines Arrays ermitteln
+### Das maximale Element eines Arrays ermitteln
 
 {{jsxref("Array.prototype.reduce()")}} kann verwendet werden, um das maximale Element in einem numerischen Array zu finden, indem jeder Wert verglichen wird:
 
@@ -68,7 +66,7 @@ const arr = [1, 2, 3];
 const max = arr.reduce((a, b) => Math.max(a, b), -Infinity);
 ```
 
-Die folgende Funktion verwendet {{jsxref("Function.prototype.apply()")}}, um das Maximum eines Arrays zu erhalten. `getMaxOfArray([1, 2, 3])` ist gleichwertig mit `Math.max(1, 2, 3)`, aber Sie können `getMaxOfArray()` auf programmgesteuert konstruierte Arrays anwenden. Dies sollte nur bei Arrays mit relativ wenigen Elementen verwendet werden.
+Die folgende Funktion verwendet {{jsxref("Function.prototype.apply()")}}, um das Maximum eines Arrays zu ermitteln. `getMaxOfArray([1, 2, 3])` ist äquivalent zu `Math.max(1, 2, 3)`, aber Sie können `getMaxOfArray()` bei programmgesteuert erstellten Arrays verwenden. Dies sollte nur für Arrays mit relativ wenigen Elementen verwendet werden.
 
 ```js
 function getMaxOfArray(numArray) {
@@ -76,14 +74,14 @@ function getMaxOfArray(numArray) {
 }
 ```
 
-Die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) ist eine kürzere Art, die `apply`-Lösung zu schreiben, um das Maximum eines Arrays zu erhalten:
+Der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) ist eine kürzere Art, die `apply`-Lösung zu schreiben, um das Maximum eines Arrays zu ermitteln:
 
 ```js
 const arr = [1, 2, 3];
 const max = Math.max(...arr);
 ```
 
-Allerdings werden sowohl Spread (`...`) als auch `apply` entweder fehlschlagen oder das falsche Ergebnis liefern, wenn das Array zu viele Elemente hat, da sie versuchen, die Array-Elemente als Funktionsparameter zu übergeben. Weitere Details finden Sie unter [Using apply and built-in functions](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply#using_apply_and_built-in_functions). Die `reduce`-Lösung hat dieses Problem nicht.
+Allerdings werden sowohl `Spread` (`...`) als auch `apply` entweder fehlschlagen oder das falsche Ergebnis liefern, wenn das Array zu viele Elemente hat, da sie versuchen, die Array-Elemente als Funktionsparameter zu übergeben. Siehe [Using apply and built-in functions](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply#using_apply_and_built-in_functions) für mehr Details. Die `reduce`-Lösung hat dieses Problem nicht.
 
 ## Spezifikationen
 

@@ -3,12 +3,10 @@ title: Intl.DisplayNames.prototype.resolvedOptions()
 short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/resolvedOptions
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.DisplayNames")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `DisplayNames`-Objekts berechneten Optionen widerspiegeln.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.DisplayNames")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `DisplayNames`-Objekts berechneten Optionen widerspiegeln.
 
 ## Syntax
 
@@ -22,12 +20,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DisplayNames`-Objekts berechneten Optionen widerspiegeln. Das Objekt besitzt die folgenden Eigenschaften in der angegebenen Reihenfolge:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DisplayNames`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgeführt sind:
 
 - `locale`
-  - : Der BCP 47-Sprachcode für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
+  - : Das BCP 47-Sprach-Tag für das tatsächlich verwendete Gebietsschema, bestimmt durch den [Gebietsschema-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
 - `style`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft, wobei bei Bedarf eine Standardvorgabe ergänzt wird. Es ist entweder `"narrow"`, `"short"` oder `"long"`. Der Standardwert ist `"long"`.
+  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft, mit Standardeinstellungen, die bei Bedarf ausgefüllt werden. Es ist entweder `"narrow"`, `"short"` oder `"long"`. Der Standardwert ist `"long"`.
 - `type`
   - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft. Es ist entweder `"language"`, `"region"`, `"script"`, `"currency"`, `"calendar"` oder `"dateTimeField"`. Es ist erforderlich, daher gibt es keinen Standardwert.
 - `fallback`

@@ -3,12 +3,12 @@ title: Temporal.Duration.prototype.add()
 short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/add
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`add()`**-Methode von {{jsxref("Temporal.Duration")}}-Instanzen gibt ein neues `Temporal.Duration`-Objekt zurück, das die Summe dieser Dauer und einer gegebenen Dauer darstellt. Das Ergebnis ist [ausbalanciert](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing).
+Die **`add()`**-Methode von {{jsxref("Temporal.Duration")}} Instanzen gibt ein neues `Temporal.Duration`-Objekt zurück, das die Summe dieser Dauer und einer gegebenen Dauer darstellt. Das Ergebnis ist [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ add(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Dauer darstellt, die zu dieser Dauer hinzugefügt werden soll. Es wird zu einem `Temporal.Duration`-Objekt umgewandelt, indem derselbe Algorithmus wie bei {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} verwendet wird.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine zu dieser Dauer hinzuzufügende Dauer darstellt. Sie wird mit demselben Algorithmus in ein `Temporal.Duration`-Objekt konvertiert wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}.
 
 ### Rückgabewert
 
@@ -29,16 +29,16 @@ Ein neues `Temporal.Duration`-Objekt, das die Summe dieser Dauer und `other` dar
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Entweder `this` oder `other` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat ein nicht-null `years`, `months` oder `weeks`), da Kalenderdauern ohne einen Kalender und Zeitreferenz mehrdeutig sind.
-    - Die Summe von `this` und `other` überschreitet die maximal oder unterschreitet die minimal darstellbare Dauer, die ±2<sup>53</sup> Sekunden beträgt.
+    - Entweder `this` oder `other` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie besitzt einen von Null verschiedenen Wert für `years`, `months` oder `weeks`), da Kalenderdauern ohne Kalender und Zeitreferenz mehrdeutig sind.
+    - Die Summe von `this` und `other` überschreitet das maximale oder unterschreitet das minimale darstellbare Dauervolumen, welches ±2<sup>53</sup> Sekunden ist.
 
 ## Beschreibung
 
-Nicht-Kalender-Dauern stellen unmissverständlich eine feste Zeitspanne dar. Intern werden `this` und `other` beide in Nanosekunden umgewandelt (bei Annahme von 24-Stunden-Tagen) und zusammengezählt. Das Ergebnis wird dann zurück in ein `Temporal.Duration`-Objekt umgewandelt, sodass das Ergebnis immer [ausbalanciert oder kopflastig](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, wobei die größte mögliche Einheit `days` ist.
+Nicht-Kalender-Dauern repräsentieren eindeutig eine feste Zeitspanne. Intern werden `this` und `other` beide in Nanosekunden (unter Annahme von 24-Stunden-Tagen) umgerechnet und zusammenaddiert. Das Ergebnis wird dann in ein `Temporal.Duration`-Objekt zurückkonvertiert, sodass das Ergebnis immer [ausgeglichen oder top-heavy](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, wobei die größtmögliche Einheit `days` ist.
 
-Wenn Sie eine Addition oder Subtraktion mit einer Kalenderdauer durchführen möchten, können Sie beide Dauern zu einem Startpunkt hinzufügen und dann die Differenz zwischen den beiden resultierenden Zeitpunkten ermitteln; das heißt, `dur1 + dur2` ist äquivalent zu `(start + dur1 + dur2) - start`.
+Wenn Sie eine Addition oder Subtraktion mit einer Kalenderdauer durchführen möchten, können Sie beide Dauern zu einem Startpunkt hinzufügen und dann den Unterschied zwischen den beiden resultierenden Zeitpunkten ermitteln; das heißt, `dur1 + dur2` ist äquivalent zu `(start + dur1 + dur2) - start`.
 
-Um eine Dauer zu einem Datum oder einer Uhrzeit hinzuzufügen, verwenden Sie stattdessen die `add()`-Methode des Datums- oder Zeitobjekts.
+Um eine Dauer zu einem Datum oder einer Zeit hinzuzufügen, verwenden Sie stattdessen die `add()`-Methode des Datums- oder Zeitobjekts.
 
 ## Beispiele
 

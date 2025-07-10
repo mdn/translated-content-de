@@ -3,12 +3,10 @@ title: Intl.RelativeTimeFormat.prototype.formatToParts()
 short-title: formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/RelativeTimeFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich für den Aufbau benutzerdefinierter Strings aus den lokalspezifischen Tokens.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings repräsentieren, der von {{jsxref("Intl/RelativeTimeFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich, um benutzerdefinierte Strings aus lokalspezifischen Tokens zu erstellen.
 
 {{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.formatToParts()")}}
 
@@ -37,13 +35,13 @@ formatToParts(value, unit)
 - `value`
   - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet wird.
 - `unit`
-  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Pluralformen sind ebenfalls erlaubt.
+  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Auch Pluralformen sind erlaubt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, das die formatierte relative Zeit in Teilen enthält. Jedes Objekt hat zwei oder drei Eigenschaften: `type`, `value` und optional `unit`, wobei jede Eigenschaft einen String enthält. Die String-Verkettung von `value`, in der angegebenen Reihenfolge, führt zum gleichen String wie {{jsxref("Intl/RelativeTimeFormat/format", "format()")}}. Die Teile können als direkt aus dem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert abgeleitet betrachtet werden, wobei nur die `numberingSystem`-Option übergeben wird, und anschließend zusätzliche `type: "literal"` Tokens hinzugefügt werden, wie zum Beispiel `"in "`, `" days ago"`, usw. Alle Tokens, die von `NumberFormat` produziert werden, haben eine zusätzliche `unit` Eigenschaft, die die Singularform der Eingabeeinheit ist; dies ist für die programmgesteuerte Verwendung gedacht und wird nicht lokalisiert. Die lokalisierte Einheit wird als Teil eines literalen Tokens ausgegeben.
+Ein {{jsxref("Array")}} von Objekten, die die formatierte relative Zeit in Teilen enthalten. Jedes Objekt hat zwei oder drei Eigenschaften: `type`, `value` und optional `unit`, wobei jede einen String enthält. Die Verkettung der Strings von `value`, in der angegebenen Reihenfolge, ergibt denselben String wie {{jsxref("Intl/RelativeTimeFormat/format", "format()")}}. Die Teile können so betrachtet werden, als würden sie direkt durch den Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert und der Angabe nur der Option `numberingSystem` erhalten, wobei zusätzliche `type: "literal"` Tokens hinzugefügt werden, wie z.B. `"in "`, `" days ago"`, usw. Alle Tokens, die durch die `NumberFormat` produziert werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe-`unit` ist; dies dient der programmatischen Nutzung und ist nicht lokalisiert. Die lokalisierte Einheit wird als Teil eines Literal-Tokens ausgegeben.
 
-Wenn `options.numeric` den Wert `"auto"` hat und es einen speziellen String für den Wert gibt, ist das zurückgegebene Array ein einzelnes literales Token.
+Wenn `options.numeric` den Wert `"auto"` hat und es einen speziellen String für den Wert gibt, ist das zurückgegebene Array ein einzelnes Literal-Token.
 
 ## Beispiele
 

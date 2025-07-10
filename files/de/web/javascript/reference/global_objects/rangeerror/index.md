@@ -2,24 +2,22 @@
 title: RangeError
 slug: Web/JavaScript/Reference/Global_Objects/RangeError
 l10n:
-  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`RangeError`**-Objekt zeigt einen Fehler an, wenn ein Wert nicht in der Menge oder dem Bereich der zulässigen Werte liegt.
+Das **`RangeError`**-Objekt zeigt einen Fehler an, wenn ein Wert nicht in der Menge oder im Bereich der zulässigen Werte liegt.
 
 ## Beschreibung
 
-Ein `RangeError` wird ausgelöst, wenn versucht wird, einen Wert als Argument an eine Funktion zu übergeben, die keinen Bereich zulässt, der diesen Wert einschließt.
+Ein `RangeError` wird ausgelöst, wenn versucht wird, einen Wert als Argument an eine Funktion zu übergeben, die keinen Bereich zulässt, der den Wert einschließt.
 
-Dies kann vorkommen, wenn:
+Dies kann auftreten, wenn:
 
 - ein Wert übergeben wird, der nicht einer der erlaubten Zeichenfolgenwerte für {{jsxref("String.prototype.normalize()")}} ist, oder
-- wenn versucht wird, ein Array einer unerlaubten Länge mit dem {{jsxref("Array")}}-Konstruktor zu erstellen, oder
+- wenn versucht wird, ein Array mit einer illegalen Länge mit dem {{jsxref("Array")}}-Konstruktor zu erstellen, oder
 - wenn ungültige Werte an die numerischen Methoden {{jsxref("Number.prototype.toExponential()")}}, {{jsxref("Number.prototype.toFixed()")}} oder {{jsxref("Number.prototype.toPrecision()")}} übergeben werden.
 
-`RangeError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`RangeError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}} und kann daher mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `RangeError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -28,20 +26,20 @@ Dies kann vorkommen, wenn:
 - {{jsxref("RangeError/RangeError", "RangeError()")}}
   - : Erstellt ein neues `RangeError`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("Error")}}._
+_Übernimmt auch Instanzeigenschaften von seinem Elternteil {{jsxref("Error")}}_.
 
 Diese Eigenschaften sind auf `RangeError.prototype` definiert und werden von allen `RangeError`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "RangeError.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `RangeError`-Instanzen ist der Anfangswert der {{jsxref("RangeError/RangeError", "RangeError")}}-Konstruktor.
 - {{jsxref("Error/name", "RangeError.prototype.name")}}
-  - : Repräsentiert den Namen für die Art des Fehlers. Für `RangeError.prototype.name` ist der Anfangswert `"RangeError"`.
+  - : Gibt den Namen für den Fehlertyp an. Für `RangeError.prototype.name` ist der Anfangswert `"RangeError"`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("Error")}}._
+_Übernimmt Instanzmethoden von seinem Elternteil {{jsxref("Error")}}_.
 
 ## Beispiele
 

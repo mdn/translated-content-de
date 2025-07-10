@@ -3,13 +3,10 @@ title: BigInt.prototype.valueOf()
 short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/valueOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`valueOf()`**-Methode von {{jsxref("BigInt")}}-Werten gibt den umschlossenen primitiven Wert
-eines {{jsxref("BigInt")}}-Objekts zurück.
+Die **`valueOf()`**-Methode von {{jsxref("BigInt")}}-Werten gibt den eingeschlossenen primitiven Wert eines {{jsxref("BigInt")}}-Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: BigInt.prototype.valueOf()", "shorter")}}
 

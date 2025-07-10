@@ -3,12 +3,10 @@ title: String.prototype.endsWith()
 short-title: endsWith()
 slug: Web/JavaScript/Reference/Global_Objects/String/endsWith
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`endsWith()`**-Methode von {{jsxref("String")}}-Werten bestimmt, ob ein String mit den Zeichen dieses Strings endet, und gibt entsprechend `true` oder `false` zurück.
+Die **`endsWith()`**-Methode von {{jsxref("String")}}-Werten bestimmt, ob ein String mit bestimmten Zeichen endet und gibt entsprechend `true` oder `false` zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.endsWith()")}}
 
@@ -37,13 +35,13 @@ endsWith(searchString, endPosition)
 ### Parameter
 
 - `searchString`
-  - : Die Zeichen, die am Ende von `str` gesucht werden sollen. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexes sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `endsWith()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Die Zeichen, die am Ende von `str` gesucht werden sollen. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexes sind, werden [zu Strings konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `endsWith()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 - `endPosition` {{optional_inline}}
-  - : Die Endposition, an der `searchString` erwartet wird (der Index des letzten Zeichens von `searchString` plus 1). Standardmäßig auf `str.length` gesetzt.
+  - : Die Endposition, an der `searchString` erwartet wird (der Index des letzten Zeichens von `searchString` plus 1). Standardmäßig ist dies `str.length`.
 
 ### Rückgabewert
 
-**`true`**, wenn die angegebenen Zeichen am Ende des Strings gefunden werden, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
+**`true`**, wenn die angegebenen Zeichen am Ende des Strings gefunden werden, einschließlich des Falls, dass `searchString` ein leerer String ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
@@ -52,7 +50,7 @@ endsWith(searchString, endPosition)
 
 ## Beschreibung
 
-Diese Methode ermöglicht es, festzustellen, ob ein String mit einem anderen String endet. Diese Methode ist case-sensitiv.
+Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String mit einem anderen String endet. Diese Methode ist groß-/kleinschreibungssensitiv.
 
 ## Beispiele
 

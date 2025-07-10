@@ -3,12 +3,10 @@ title: TypedArray.prototype.keys()
 short-title: keys()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/keys
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`keys()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt ein neues [_Array-Iterator_ Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Schlüssel für jeden Index im typisierten Array enthält. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.keys()")}}.
+Die **`keys()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt ein neues _[Array Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Schlüssel für jeden Index im typisierten Array enthält. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.keys()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.keys()")}}
 
@@ -39,7 +37,7 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.keys()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
+Siehe {{jsxref("Array.prototype.keys()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -76,7 +74,7 @@ console.log(arrKeys.next().value); // 4
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.keys` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.entries()")}}
 - {{jsxref("TypedArray.prototype.values()")}}

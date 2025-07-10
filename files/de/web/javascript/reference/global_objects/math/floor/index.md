@@ -3,10 +3,8 @@ title: Math.floor()
 short-title: floor()
 slug: Web/JavaScript/Reference/Global_Objects/Math/floor
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Methode **`Math.floor()`** rundet immer ab und gibt die größte ganze Zahl zurück, die kleiner oder gleich einer gegebenen Zahl ist.
 
@@ -39,11 +37,11 @@ Math.floor(x)
 
 ### Rückgabewert
 
-Die größte ganze Zahl, die kleiner oder gleich `x` ist. Sie entspricht dem Wert von [`-Math.ceil(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
+Die größte ganze Zahl, die kleiner oder gleich `x` ist. Es ist derselbe Wert wie [`-Math.ceil(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
 
 ## Beschreibung
 
-Da `floor()` eine statische Methode von `Math` ist, wird sie immer als `Math.floor()` verwendet, und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()`, anstatt sie als Methode eines selbst erstellten `Math`-Objekts zu nutzen (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -63,9 +61,9 @@ Math.floor(Infinity); // Infinity
 
 ### Dezimalanpassung
 
-In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Erweiterungsmethode von `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} ist. Während die drei `Math`-Funktionen den Eingabewert immer auf die Einerstelle anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen links vom Dezimalkomma angibt, auf die die Zahl angepasst werden soll. Zum Beispiel bedeutet `-1`, dass es eine Stelle nach dem Dezimalkomma belässt (wie in "× 10<sup>-1</sup>"). Darüber hinaus erlaubt es Ihnen, das Mittel der Anpassung auszuwählen — `round`, `floor` oder `ceil` — durch den `type`-Parameter.
+In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Erweiterungsmethode von `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} ist. Während die drei `Math`-Funktionen die Eingabe immer auf die Einerstelle anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen links vom Dezimalpunkt angibt, auf die die Zahl angepasst werden soll. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt verbleibt (wie in "× 10<sup>-1</sup>"). Darüber hinaus können Sie durch den `type`-Parameter die Art der Anpassung auswählen — `round`, `floor` oder `ceil`.
 
-Dies geschieht, indem die Zahl mit einer Zehnerpotenz multipliziert wird, dann das Ergebnis auf die nächste Ganzzahl gerundet und anschließend durch die Zehnerpotenz dividiert wird. Um die Genauigkeit besser zu erhalten, wird die Methode `toString()` von Number genutzt, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
+Dies wird erreicht, indem die Zahl mit einer Zehnerpotenz multipliziert, das Ergebnis auf die nächste ganze Zahl gerundet und dann durch die Zehnerpotenz dividiert wird. Um die Genauigkeit besser zu erhalten, wird die Methode [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) von Number verwendet, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
 
 ```js
 /**

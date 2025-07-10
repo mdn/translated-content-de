@@ -3,10 +3,8 @@ title: Math.exp()
 short-title: exp()
 slug: Web/JavaScript/Reference/Global_Objects/Math/exp
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Methode **`Math.exp()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl zurück. Das bedeutet
 
@@ -45,13 +43,13 @@ Math.exp(x)
 
 ### Rückgabewert
 
-Eine nicht-negative Zahl, die e<sup>x</sup> repräsentiert, wobei e [die Basis des natürlichen Logarithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) ist.
+Eine nicht-negative Zahl, die e<sup>x</sup> darstellt, wobei e [die Basis des natürlichen Logarithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) ist.
 
 ## Beschreibung
 
-Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Seien Sie vorsichtig, dass `e` potenziert mit einer Zahl, die sehr nahe bei 0 liegt, sehr nahe bei 1 liegen wird und es zu Genauigkeitsverlusten kommen kann. In diesem Fall sollten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um einen viel präziseren Bruchteil der Antwort zu erhalten.
+Beachten Sie, dass `e` potenziert mit einer Zahl, die sehr nah bei 0 liegt, sehr nah bei 1 liegt und an Genauigkeit verliert. In diesem Fall sollten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um eine viel genauere Bruchteilsantwort zu erhalten.
 
 ## Beispiele
 

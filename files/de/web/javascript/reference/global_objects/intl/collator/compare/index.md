@@ -3,13 +3,11 @@ title: Intl.Collator.prototype.compare()
 short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`compare()`** von {{jsxref("Intl.Collator")}} Instanzen vergleicht zwei
-Zeichenfolgen entsprechend der Sortierreihenfolge dieses Collator-Objekts.
+Die **`compare()`**-Methode von {{jsxref("Intl.Collator")}} Instanzen vergleicht zwei
+Strings entsprechend der Sortierreihenfolge dieses Collator-Objekts.
 
 {{InteractiveExample("JavaScript Demo: Intl.Collator.prototype.compare()")}}
 
@@ -37,11 +35,11 @@ compare(string1, string2)
 ### Parameter
 
 - `string1`, `string2`
-  - : Die Zeichenfolgen, die miteinander verglichen werden sollen.
+  - : Die Strings, die miteinander verglichen werden sollen.
 
 ### Rückgabewert
 
-Eine Zahl, die angibt, wie `string1` und `string2` im Vergleich zueinander in der Sortierreihenfolge dieses {{jsxref("Intl.Collator")}} Objekts stehen:
+Eine Zahl, die angibt, wie `string1` und `string2` gemäß der Sortierreihenfolge dieses {{jsxref("Intl.Collator")}}-Objekts verglichen werden:
 
 - Ein negativer Wert, wenn `string1` vor `string2` kommt;
 - Ein positiver Wert, wenn `string1` nach `string2` kommt;
@@ -49,10 +47,10 @@ Eine Zahl, die angibt, wie `string1` und `string2` im Vergleich zueinander in de
 
 ## Beispiele
 
-### Verwenden von compare für Array-Sortierung
+### Verwendung von compare für Array-Sortierung
 
-Verwenden Sie die `compare`-Funktion zum Sortieren von Arrays. Beachten Sie, dass die Funktion
-an den Collator gebunden ist, von dem sie abgeleitet wurde, sodass sie direkt an
+Verwenden Sie die `compare`-Funktion zur Sortierung von Arrays. Beachten Sie, dass die Funktion
+an den Collator gebunden ist, von dem sie abgeleitet wurde, so dass sie direkt an
 {{jsxref("Array.prototype.sort()")}} übergeben werden kann.
 
 ```js
@@ -62,9 +60,9 @@ a.sort(collator.compare);
 console.log(a.join(", ")); // "Odenwald, Österreich, Offenbach"
 ```
 
-### Verwenden von compare für Arraysuche
+### Verwendung von compare für Array-Suche
 
-Verwenden Sie die `compare`-Funktion, um passende Zeichenfolgen in Arrays zu finden:
+Verwenden Sie die `compare`-Funktion zur Suche nach passenden Strings in Arrays:
 
 ```js
 const a = ["Congrès", "congres", "Assemblée", "poisson"];

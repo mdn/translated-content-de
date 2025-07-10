@@ -3,10 +3,8 @@ title: Math.clz32()
 short-title: clz32()
 slug: Web/JavaScript/Reference/Global_Objects/Math/clz32
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`Math.clz32()`** statische Methode gibt die Anzahl der führenden Nullbits in der 32-Bit-Binärdarstellung einer Zahl zurück.
 
@@ -43,13 +41,13 @@ Die Anzahl der führenden Nullbits in der 32-Bit-Binärdarstellung von `x`.
 
 ## Beschreibung
 
-`clz32` ist die Abkürzung für **C**ount**L**eading**Z**eros**32**.
+`clz32` steht für **C**ount**L**eading**Z**eros**32**.
 
-Wenn `x` keine Zahl ist, wird es zuerst in eine Zahl umgewandelt und dann in eine 32-Bit-unsigned Integer.
+Wenn `x` keine Zahl ist, wird es zuerst in eine Zahl und dann in eine 32-Bit-Unsigned-Integer umgewandelt.
 
-Wenn die umgewandelte 32-Bit-unsigned Ganzzahl `0` ist, wird `32` zurückgegeben, da alle Bits `0` sind. Wenn das höchstwertige Bit `1` ist (d.h. die Zahl ist größer oder gleich 2<sup>31</sup>), wird `0` zurückgegeben.
+Wenn der umgewandelte 32-Bit-Unsigned-Integer `0` ist, wird `32` zurückgegeben, da alle Bits `0` sind. Wenn das höchstwertige Bit `1` ist (d.h. die Zahl ist größer oder gleich 2<sup>31</sup>), wird `0` zurückgegeben.
 
-Diese Funktion ist besonders nützlich für Systeme, die nach JS kompiliert werden, wie [Emscripten](https://emscripten.org/).
+Diese Funktion ist besonders nützlich für Systeme, die in JS kompilieren, wie [Emscripten](https://emscripten.org/).
 
 ## Beispiele
 
@@ -79,9 +77,9 @@ Math.clz32(true); // 31
 Math.clz32(3.5); // 30
 ```
 
-### Implementierung von Count Leading Ones und darüber hinaus
+### Implementieren von Count Leading Ones und mehr
 
-Zurzeit gibt es kein `Math.clon` für "Count Leading Ones" (benannt als "clon", nicht "clo", da "clo" und "clz" besonders für nicht-englischsprachige Personen zu ähnlich sind). Eine `clon`-Funktion kann jedoch leicht erstellt werden, indem die Bits einer Zahl invertiert und das Ergebnis an `Math.clz32` übergeben wird. Dies funktioniert, weil das Inverse von 1 gleich 0 ist und umgekehrt. Somit wird durch das Invertieren der Bits die gemessene Anzahl von 0en (von `Math.clz32`) umgekehrt, wodurch `Math.clz32` die Anzahl der Einsen zählt, anstatt die Anzahl der Nullen.
+Derzeit gibt es kein `Math.clon` für "Count Leading Ones" (genannt "clon", nicht "clo", da "clo" und "clz" besonders für nicht-englischsprachige Personen zu ähnlich sind). Eine `clon`-Funktion kann jedoch leicht erstellt werden, indem die Bits einer Zahl invertiert und das Ergebnis an `Math.clz32` übergeben wird. Dies funktioniert, weil das Inverse von 1 gleich 0 ist und umgekehrt. Das Invertieren der Bits kehrt die gemessene Menge der 0en (von `Math.clz32`) um und lässt dadurch `Math.clz32` die Zahl der Einsen zählen, anstatt die der Nullen.
 
 Betrachten Sie das folgende 32-Bit-Wort:
 
@@ -103,7 +101,7 @@ function clon(integer) {
 }
 ```
 
-Des Weiteren könnte diese Technik erweitert werden, um eine sprunglose "Count Trailing Zeros"-Funktion zu erstellen, wie unten zu sehen. Die `ctrz`-Funktion nimmt ein bitweises UND der Ganzzahl mit ihrem Zweierkomplement. Gemäß der Funktionsweise des Zweierkomplements werden alle nachlaufenden Nullen zu Einsen konvertiert, und wenn dann eine 1 hinzugefügt wird, wird sie bis zur ersten `0` (die ursprünglich eine `1` war) übertragen. Alle darüber liegenden Bits bleiben gleich und sind Inverse der Bits der ursprünglichen Ganzzahl. Daher, wenn ein bitweises UND mit der ursprünglichen Ganzzahl gemacht wird, werden alle höheren Bits `0`, was mit `clz` gezählt werden kann. Die Anzahl der nachlaufenden Nullen, plus das erste `1`-Bit, plus die führenden Bits, die von `clz` gezählt wurden, summieren sich insgesamt auf 32.
+Darüber hinaus könnte diese Technik erweitert werden, um eine sprunglose "Count Trailing Zeros"-Funktion zu erstellen, wie unten gezeigt. Die `ctrz`-Funktion nimmt ein bitweises UND des Integers mit seinem Zweierkomplement. Durch die Funktionsweise von Zweierkomplement werden alle endständigen Nullen in Einsen umgewandelt, und wenn dann 1 hinzugefügt wird, würde es bis zur ersten `0` (die ursprünglich eine `1` war) übertragen werden. Alle Bits höher als dieses bleiben gleich und sind Inverse der Bits des ursprünglichen Integers. Daher werden bei einem bitweisen UND mit dem ursprünglichen Integer alle höheren Bits zu `0`, die mit `clz` gezählt werden können. Die Anzahl der endständigen Nullen, plus das erste `1`-Bit, plus die führenden Bits, die durch `clz` gezählt werden, summieren sich auf 32.
 
 ```js
 function ctrz(integer) {
@@ -117,7 +115,7 @@ function ctrz(integer) {
 }
 ```
 
-Dann können wir eine "Count Trailing Ones"-Funktion folgendermaßen definieren:
+Dann können wir eine "Count Trailing Ones"-Funktion wie folgt definieren:
 
 ```js
 function ctron(integer) {
@@ -125,7 +123,7 @@ function ctron(integer) {
 }
 ```
 
-Diese Hilfsfunktionen können in ein [asm.js](/de/docs/Games/Tools/asm.js)-Modul eingebunden werden für eine mögliche Leistungsverbesserung.
+Diese Hilfsfunktionen können in ein [asm.js](/de/docs/Games/Tools/asm.js) Modul umgewandelt werden für eine mögliche Leistungsverbesserung.
 
 ```js
 const countTrailsMethods = (function (stdlib, foreign, heap) {

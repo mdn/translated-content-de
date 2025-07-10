@@ -3,12 +3,10 @@ title: RegExp.prototype.source
 short-title: source
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/source
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`source`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt eine Zeichenkette zurück, die den Quelltext dieses regulären Ausdrucks enthält, ohne die beiden Schrägstriche auf beiden Seiten oder irgendwelche Flags.
+Die **`source`** Accessor-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt einen String zurück, der den Quelltext dieses regulären Ausdrucks enthält, ohne die beiden Schrägstriche auf beiden Seiten oder irgendwelche Flags.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.source")}}
 
@@ -28,7 +26,7 @@ console.log(new RegExp("\n").source === "\\n");
 
 ## Beschreibung
 
-Konzeptionell ist die `source`-Eigenschaft der Text zwischen den beiden Schrägstrichen im regulären Ausdrucks-Literal. Die Sprache erfordert, dass die zurückgegebene Zeichenkette richtig escaped ist, so dass, wenn die `source` mit einem Schrägstrich an beiden Enden verkettet wird, ein parsbares Regex-Literal gebildet wird. Zum Beispiel ist für `new RegExp("/")` die `source` `\\/`, weil, wenn es `/` erzeugt, das resultierende Literal `///` wird, was ein Zeilenkommentar ist. Ebenso werden alle [Zeilenabschlusszeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) escaped, weil Zeilenabschluss-Zeichen das Regex-Literal aufbrechen würden. Für andere Zeichen gibt es keine Anforderung, solange das Ergebnis parsbar ist. Für leere reguläre Ausdrücke wird die Zeichenkette `(?:)` zurückgegeben.
+Konzeptionell ist die `source`-Eigenschaft der Text zwischen den beiden Schrägstrichen im regulären Ausdruck Literal. Die Sprache erfordert, dass der zurückgegebene String ordnungsgemäß maskiert ist, sodass, wenn `source` mit einem Schrägstrich auf beiden Enden zusammengefügt wird, ein parsbarer Regex-Literal entsteht. Zum Beispiel für `new RegExp("/")` ist die `source` `\\/`, weil, wenn sie `/` erzeugt, der resultierende Literal `///` wird, was ein Zeilenkommentar ist. Ebenso werden alle [Zeilenabschlusssymbole](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) maskiert, weil Zeilenabschlusszeichen den Regex-Literal zerstören würden. Es gibt keine Anforderungen für andere Zeichen, solange das Ergebnis parsierbar ist. Für leere reguläre Ausdrücke wird der String `(?:)` zurückgegeben.
 
 ## Beispiele
 
@@ -40,7 +38,7 @@ const regex = /fooBar/gi;
 console.log(regex.source); // "fooBar", doesn't contain /.../ and "gi".
 ```
 
-### Leere reguläre Ausdrücke und Escaping
+### Leere reguläre Ausdrücke und Maskierung
 
 ```js
 new RegExp().source; // "(?:)"

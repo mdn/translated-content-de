@@ -1,14 +1,12 @@
 ---
-title: Int32Array()-Konstruktor
+title: Int32Array() Konstruktor
 short-title: Int32Array()
 slug: Web/JavaScript/Reference/Global_Objects/Int32Array/Int32Array
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Der **`Int32Array()`**-Konstruktor erstellt {{jsxref("Int32Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Int32Array()`** Konstruktor erstellt {{jsxref("Int32Array")}}-Objekte. Der Inhalt wird mit `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -23,7 +21,8 @@ new Int32Array(buffer, byteOffset)
 new Int32Array(buffer, byteOffset, length)
 ```
 
-> [!NOTE] > `Int32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Int32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 

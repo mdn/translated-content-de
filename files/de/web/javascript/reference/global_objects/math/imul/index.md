@@ -3,12 +3,10 @@ title: Math.imul()
 short-title: imul()
 slug: Web/JavaScript/Reference/Global_Objects/Math/imul
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`Math.imul()`** statische Methode gibt das Ergebnis der C-ähnlichen 32-Bit-Multiplikation der beiden Parameter zurück.
+Die statische Methode **`Math.imul()`** gibt das Ergebnis der C-ähnlichen 32-Bit-Multiplikation der beiden Parameter zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.imul()")}}
 
@@ -45,11 +43,11 @@ Das Ergebnis der C-ähnlichen 32-Bit-Multiplikation der gegebenen Argumente.
 
 ## Beschreibung
 
-`Math.imul()` ermöglicht 32-Bit-Ganzzahl-Multiplikation mit C-ähnlicher Semantik. Diese Funktion ist nützlich für Projekte wie [Emscripten](https://en.wikipedia.org/wiki/Emscripten).
+`Math.imul()` ermöglicht eine 32-Bit-Ganzzahlmultiplikation mit C-ähnlicher Semantik. Diese Funktion ist nützlich für Projekte wie [Emscripten](https://en.wikipedia.org/wiki/Emscripten).
 
-Da `imul()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.imul()` und nicht als Methode eines erstellten `Math`-Objektes (`Math` ist kein Konstruktor).
+Da `imul()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.imul()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Wenn Sie normale JavaScript-Gleitkommazahlen in `imul()` verwenden, werden Sie eine Leistungseinbuße feststellen. Dies liegt an der aufwendigen Umwandlung von einer Gleitkommazahl in eine Ganzzahl zur Multiplikation und dem anschließenden Zurückwandeln der multiplizierten Ganzzahl in eine Gleitkommazahl. Mit [asm.js](/de/docs/Games/Tools/asm.js), das es JIT-Optimierern ermöglicht, sicherer Ganzzahlen in JavaScript zu verwenden, könnte das Multiplizieren von zwei intern als Ganzzahlen gespeicherten Zahlen (was nur mit asm.js möglich ist) mit `imul()` potenziell performanter sein.
+Wenn Sie normale JavaScript-Gleitkommazahlen in `imul()` verwenden, werden Sie einen Leistungsverlust feststellen. Dies liegt an der kostenintensiven Umwandlung von einer Gleitkommazahl in eine Ganzzahl zur Multiplikation und der anschließenden Rückumwandlung der multiplizierten Ganzzahl in eine Gleitkommazahl. Mit [asm.js](/de/docs/Games/Tools/asm.js), das JIT-Optimierern erlaubt, sicherer Ganzzahlen in JavaScript zu verwenden, kann die Multiplikation von zwei im Inneren als Ganzzahlen gespeicherten Zahlen (was nur mit asm.js möglich ist) mit `imul()` potenziell leistungsfähiger sein.
 
 ## Beispiele
 

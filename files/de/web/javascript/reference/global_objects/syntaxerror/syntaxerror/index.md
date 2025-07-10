@@ -3,10 +3,8 @@ title: SyntaxError() Konstruktor
 short-title: SyntaxError()
 slug: Web/JavaScript/Reference/Global_Objects/SyntaxError/SyntaxError
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`SyntaxError()`** Konstruktor erstellt {{jsxref("SyntaxError")}} Objekte.
 
@@ -26,7 +24,8 @@ SyntaxError(message, fileName)
 SyntaxError(message, fileName, lineNumber)
 ```
 
-> [!NOTE] > `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `SyntaxError` Instanz.
+> [!NOTE]
+> `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `SyntaxError`.
 
 ### Parameter
 
@@ -36,7 +35,7 @@ SyntaxError(message, fileName, lineNumber)
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übermitteln.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -44,7 +43,7 @@ SyntaxError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Abfangen eines SyntaxError
+### Fangen eines SyntaxError
 
 ```js
 try {

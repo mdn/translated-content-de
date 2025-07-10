@@ -3,12 +3,10 @@ title: Math.PI
 short-title: PI
 slug: Web/JavaScript/Reference/Global_Objects/Math/PI
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Dateneigenschaft **`Math.PI`** repräsentiert das Verhältnis des Umfangs eines Kreises zu seinem Durchmesser, ungefähr 3.14159.
+Die statische Dateneigenschaft **`Math.PI`** repräsentiert das Verhältnis des Umfangs eines Kreises zu seinem Durchmesser, ungefähr 3,14159.
 
 {{InteractiveExample("JavaScript Demo: Math.PI")}}
 
@@ -36,7 +34,7 @@ console.log(calculateCircumference(10));
 
 ## Beschreibung
 
-Da `PI` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.PI`, anstatt als eine Eigenschaft eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `PI` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.PI` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

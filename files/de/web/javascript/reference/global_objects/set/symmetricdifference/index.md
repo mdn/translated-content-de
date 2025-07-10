@@ -3,12 +3,10 @@ title: Set.prototype.symmetricDifference()
 short-title: symmetricDifference()
 slug: Web/JavaScript/Reference/Global_Objects/Set/symmetricDifference
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`symmetricDifference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die entweder in dieser Menge oder in der gegebenen Menge sind, aber nicht in beiden.
+Die **`symmetricDifference()`**-Methode von {{jsxref("Set")}} Instanzen nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem Set oder im angegebenen Set, aber nicht in beiden enthalten sind.
 
 ## Syntax
 
@@ -23,11 +21,11 @@ symmetricDifference(other)
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die entweder in dieser Menge oder in der `other`-Menge sind, aber nicht in beiden.
+Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die entweder in diesem Set oder im `other`-Set, aber nicht in beiden enthalten sind.
 
 ## Beschreibung
 
-In der mathematischen Notation ist die _symmetrische Differenz_ definiert als:
+In mathematischer Notation wird der Begriff _symmetrische Differenz_ wie folgt definiert:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -35,19 +33,19 @@ In der mathematischen Notation ist die _symmetrische Differenz_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und mithilfe von Venn-Diagrammen:
+Und mittels Venn-Diagramm:
 
-![Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Die symmetrische Differenz von A und B ist der Bereich, der entweder von einem der beiden Kreise, aber nicht von beiden, eingenommen wird.](diagram.svg)
+![Ein Venn-Diagramm, in dem sich zwei Kreise überlappen. Die symmetrische Differenz von A und B ist der Bereich, der entweder im einen oder anderen Kreis, aber nicht in beiden enthalten ist.](diagram.svg)
 
-`symmetricDifference()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es die zugrunde liegenden Daten direkt aus `this` abruft, ohne benutzerdefinierten Code aufzurufen. Anschließend wird über `other` iteriert, indem die `keys()`-Methode aufgerufen wird, und es wird eine neue Menge mit allen Elementen in `this` erstellt, die in `other` nicht vorhanden sind, und allen Elementen in `other`, die in `this` nicht vorhanden sind.
+`symmetricDifference()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als das `other`-Argument. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt die darunter liegenden Daten extrahiert, die in `this` gespeichert sind, ohne benutzerdefinierten Code aufzurufen. Es iteriert dann über `other`, indem es dessen `keys()`-Methode aufruft und ein neues Set mit allen Elementen in `this` erstellt, die nicht in `other` vorkommen, und allen Elementen in `other`, die nicht in `this` vorkommen.
 
-Die Reihenfolge der Elemente in der zurückgegebenen Menge ist zuerst die in `this`, gefolgt von denen in `other`.
+Die Reihenfolge der Elemente im zurückgegebenen Set ist zuerst die in `this`, gefolgt von denen in `other`.
 
 ## Beispiele
 
 ### Verwendung von symmetricDifference()
 
-Das folgende Beispiel berechnet die symmetrische Differenz zwischen der Menge der geraden Zahlen (<10) und der Menge der perfekten Quadrate (<10). Das Ergebnis ist die Menge der Zahlen, die entweder gerade oder ein perfektes Quadrat sind, aber nicht beides.
+Im folgenden Beispiel wird die symmetrische Differenz zwischen der Menge der geraden Zahlen (<10) und der Menge der perfekten Quadrate (<10) berechnet. Das Ergebnis ist die Menge der Zahlen, die entweder gerade oder ein perfektes Quadrat, aber nicht beides sind.
 
 ```js
 const evens = new Set([2, 4, 6, 8]);

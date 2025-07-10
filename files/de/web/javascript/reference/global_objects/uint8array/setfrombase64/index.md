@@ -3,14 +3,12 @@ title: Uint8Array.prototype.setFromBase64()
 short-title: setFromBase64()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8Array/setFromBase64
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`setFromBase64()`**-Methode von {{jsxref("Uint8Array")}}-Instanzen füllt dieses `Uint8Array`-Objekt mit Bytes aus einem {{Glossary("Base64", "base64")}}-kodierten String und gibt ein Objekt zurück, das angibt, wie viele Bytes gelesen und geschrieben wurden.
 
-Die **`setFromBase64()`** Methode von {{jsxref("Uint8Array")}} Instanzen befüllt dieses `Uint8Array` Objekt mit Bytes aus einem {{Glossary("Base64", "base64")}}-kodierten String und gibt ein Objekt zurück, das angibt, wie viele Bytes gelesen und geschrieben wurden.
-
-Diese Methode eignet sich am besten zum Befüllen eines vorher zugewiesenen Array-Puffers. Wenn Sie einfach ein neues `Uint8Array` Objekt aus einem base64-kodierten String erstellen möchten, verwenden Sie stattdessen die statische Methode {{jsxref("Uint8Array.fromBase64()")}}.
+Diese Methode ist am besten geeignet für das Befüllen eines vorab zugewiesenen Array-Buffers. Wenn Sie einfach ein neues `Uint8Array`-Objekt aus einem Base64-kodierten String erstellen möchten, verwenden Sie stattdessen die statische Methode {{jsxref("Uint8Array.fromBase64()")}}.
 
 ## Syntax
 
@@ -22,34 +20,34 @@ setFromBase64(string, options)
 ### Parameter
 
 - `string`
-  - : Ein base64 String, der Bytes kodiert, die in ein `Uint8Array` geschrieben werden sollen. Er hat die gleichen Anforderungen wie der [`string`-Parameter von `Uint8Array.fromBase64()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64#string). Beachten Sie, dass der String nur bis zu dem Punkt gelesen wird, an dem das Array gefüllt ist, sodass jede ungültige base64-Syntax danach ignoriert wird.
+  - : Ein base64-kodierter String, der die Bytes enthält, die in ein `Uint8Array` geschrieben werden sollen. Er hat die gleichen Anforderungen wie der [`string`-Parameter von `Uint8Array.fromBase64()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64#string). Beachten Sie, dass der String nur bis zu dem Punkt gelesen wird, an dem das Array gefüllt ist, sodass ungültige Base64-Syntax danach ignoriert wird.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das den Interpretationsprozess des base64-Strings anpasst. Es hat die gleichen Anforderungen wie der [`options`-Parameter von `Uint8Array.fromBase64()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64#options).
+  - : Ein Objekt, das den Interpretationsprozess des base64-kodierten Strings anpasst. Es hat die gleichen Anforderungen wie der [`options`-Parameter von `Uint8Array.fromBase64()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64#options).
 
 ### Rückgabewert
 
-Ein Objekt, das die folgenden Eigenschaften enthält:
+Ein Objekt mit den folgenden Eigenschaften:
 
 - `read`
-  - : Die Anzahl der base64-Zeichen, die aus dem Eingabestring gelesen wurden. Wenn die dekodierten Daten in das Array passen, entspricht dies der Länge des Eingabestrings (einschließlich Padding); andernfalls ist es die Länge bis zum letzten vollständigen 4-Zeichen-Chunk, der in das Array passt. Chunks werden niemals geteilt (weil die verbleibenden Bits nicht teilweise in das base64 "zurückgelegt" werden können, ohne es vollständig neu zu kodieren); wenn der nächste Chunk nicht in den verbleibenden Speicherplatz des Arrays passt, wird er vollständig ungelesen, was dazu führt, dass das letzte oder die letzten beiden Bytes des Arrays nicht geschrieben werden.
+  - : Die Anzahl der Base64-Zeichen, die aus dem Eingabestring gelesen wurden. Wenn die dekodierten Daten in das Array passen, ist dies die Länge des Eingabestrings (einschließlich Padding); andernfalls ist es die Länge bis zum letzten vollständigen 4-Zeichen-Block, der in das Array passt. Blöcke werden nie geteilt (da die verbleibenden Bits nicht teilweise "zurückgelegt" werden können, ohne das Base64 vollständig neu zu kodieren); wenn der nächste Block nicht in den Rest des Arrays passt, wird er überhaupt nicht gelesen, was dazu führt, dass die letzten ein oder zwei Bytes des Arrays nicht geschrieben werden.
 - `written`
-  - : Die Anzahl der Bytes, die in das `Uint8Array` geschrieben wurden. Wird niemals größer als die {{jsxref("TypedArray/byteLength", "byteLength")}} dieses `Uint8Array` sein.
+  - : Die Anzahl der Bytes, die in das `Uint8Array` geschrieben wurden. Diese wird nie größer sein als die {{jsxref("TypedArray/byteLength", "byteLength")}} dieses `Uint8Array`.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Wird ausgelöst, wenn der Eingabestring Zeichen außerhalb des angegebenen Alphabets enthält oder wenn der letzte Chunk die `lastChunkHandling`-Option nicht erfüllt.
+  - : Wird ausgelöst, wenn der Eingabestring Zeichen außerhalb des angegebenen Alphabets enthält oder wenn der letzte Block die `lastChunkHandling`-Option nicht erfüllt.
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
     - Der Eingabestring ist kein String.
     - Das `options`-Objekt ist kein Objekt oder `undefined`.
-    - Die Optionen entsprechen nicht den erwarteten Werten oder sind `undefined`.
+    - Die Optionen sind nicht von den erwarteten Werten oder `undefined`.
 
 ## Beispiele
 
-### Dekodieren eines base64-Strings
+### Dekodierung eines base64-Strings
 
-Dieses Beispiel verwendet die Standardoptionen `alphabet` und `lastChunkHandling`, um einen base64-String in ein bestehendes `Uint8Array` zu dekodieren.
+Dieses Beispiel verwendet die Standardoptionen `alphabet` und `lastChunkHandling`, um einen base64-kodierten String in ein bestehendes `Uint8Array` zu dekodieren.
 
 ```js
 const uint8Array = new Uint8Array(16);
@@ -59,9 +57,9 @@ console.log(uint8Array);
 // Uint8Array(16) [60, 98, 62, 77, 68, 78, 60, 47, 98, 62, 0, 0, 0, 0, 0, 0]
 ```
 
-### Dekodieren eines großen Strings in ein kleines Array
+### Dekodierung eines großen Strings in ein kleines Array
 
-Wenn der String mehr Daten enthält, als das Array aufnehmen kann, wird die Methode nur so viele Bytes schreiben, wie das Array aufnehmen kann, ohne Bits zu verwerfen.
+Wenn der String mehr Daten enthält, als das Array halten kann, wird die Methode nur so viele Bytes schreiben, wie das Array halten kann, ohne Bits zu verwerfen.
 
 ```js
 const uint8Array = new Uint8Array(8);
@@ -71,11 +69,11 @@ console.log(uint8Array);
 // Uint8Array(8) [60, 98, 62, 77, 68, 78, 0, 0]
 ```
 
-Beachten Sie, wie die letzten beiden Bytes des Arrays nicht geschrieben werden. Um diese beiden Bytes zu dekodieren, müssen wir mindestens drei weitere base64-Zeichen lesen, die 18 Bits darstellen. Diese können nicht in die verbleibenden zwei Bytes des Arrays passen, daher können wir nur 2 Chunks oder 6 Bytes schreiben.
+Beachten Sie, wie die letzten zwei Bytes des Arrays nicht geschrieben werden. Um diese beiden Bytes zu dekodieren, müssen wir mindestens drei weitere Base64-Zeichen lesen, die 18 Bits darstellen. Diese passen nicht in die verbleibenden zwei Bytes des Arrays, daher können wir nur 2 Blöcke oder 6 Bytes schreiben.
 
-### Festlegen von Daten an einem bestimmten Offset
+### Daten an einem bestimmten Offset setzen
 
-Die `setFromBase64()` Methode beginnt immer am Anfang des `Uint8Array` zu schreiben. Wenn Sie in die Mitte des Arrays schreiben möchten, können Sie stattdessen in ein {{jsxref("TypedArray.prototype.subarray()")}} schreiben.
+Die `setFromBase64()`-Methode beginnt immer mit dem Schreiben am Anfang des `Uint8Array`. Wenn Sie in die Mitte des Arrays schreiben möchten, können Sie in ein {{jsxref("TypedArray.prototype.subarray()")}} schreiben.
 
 ```js
 const uint8Array = new Uint8Array(16);
@@ -88,7 +86,7 @@ console.log(uint8Array);
 
 ### Stream-Dekodierung
 
-Dieses Beispiel ist an den [ursprünglichen Vorschlag](https://github.com/tc39/proposal-arraybuffer-base64/blob/main/stream.mjs) angepasst. Es imitiert die [`TextDecoder`](/de/docs/Web/API/TextDecoder) API mit der `stream`-Option. Beachten Sie die Verwendung von `lastChunkHandling: "stop-before-partial"`, um unvollständige Chunks zu behandeln.
+Dieses Beispiel stammt aus dem [ursprünglichen Vorschlag](https://github.com/tc39/proposal-arraybuffer-base64/blob/main/stream.mjs). Es ahmt die [`TextDecoder`](/de/docs/Web/API/TextDecoder)-API mit der `stream`-Option nach. Beachten Sie die Verwendung von `lastChunkHandling: "stop-before-partial"`, um unvollständige Blöcke zu behandeln.
 
 ```js
 class Base64Decoder {

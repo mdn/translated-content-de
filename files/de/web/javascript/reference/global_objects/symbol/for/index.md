@@ -3,12 +3,10 @@ title: Symbol.for()
 short-title: for()
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/for
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Symbol.for()`** durchsucht ein zur Laufzeit gültiges Symbolregister nach vorhandenen Symbolen mit dem angegebenen Schlüssel und gibt es zurück, falls es gefunden wird. Andernfalls wird ein neues Symbol im globalen Symbolregister mit diesem Schlüssel erstellt.
+Die **`Symbol.for()`** Methode durchsucht das runtime-weite Symbol-Register nach bestehenden Symbolen mit dem angegebenen Schlüssel und gibt dieses zurück, wenn es gefunden wird. Andernfalls wird ein neues Symbol im globalen Symbol-Register mit diesem Schlüssel erstellt.
 
 {{InteractiveExample("JavaScript Demo: Symbol.for()")}}
 
@@ -34,7 +32,7 @@ Symbol.for(key)
 ### Parameter
 
 - `key`
-  - : String, erforderlich. Der Schlüssel für das Symbol (und auch für die Beschreibung des Symbols verwendet).
+  - : String, erforderlich. Der Schlüssel für das Symbol (wird auch für die Beschreibung des Symbols verwendet).
 
 ### Rückgabewert
 
@@ -42,7 +40,7 @@ Ein vorhandenes Symbol mit dem angegebenen Schlüssel, falls gefunden; andernfal
 
 ## Beschreibung
 
-Im Gegensatz zu `Symbol()` erstellt die Funktion `Symbol.for()` ein in einer [globalen Symbolregisterliste](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) verfügbares Symbol. `Symbol.for()` erstellt nicht unbedingt bei jedem Aufruf ein neues Symbol, sondern prüft zuerst, ob ein Symbol mit dem angegebenen `key` bereits im Register vorhanden ist. In diesem Fall wird dieses Symbol zurückgegeben. Wenn kein Symbol mit dem angegebenen Schlüssel gefunden wird, erstellt `Symbol.for()` ein neues globales Symbol.
+Im Gegensatz zu `Symbol()` erstellt die Funktion `Symbol.for()` ein Symbol, das in einer [globalen Symbol-Registrierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) verfügbar ist. `Symbol.for()` erstellt nicht notwendigerweise bei jedem Aufruf ein neues Symbol, sondern überprüft zuerst, ob ein Symbol mit dem angegebenen `key` bereits im Register vorhanden ist. In diesem Fall wird dieses Symbol zurückgegeben. Wenn kein Symbol mit dem angegebenen Schlüssel gefunden wird, erstellt `Symbol.for()` ein neues globales Symbol.
 
 ## Beispiele
 
@@ -61,7 +59,7 @@ const sym = Symbol.for("mario");
 sym.toString(); // "Symbol(mario)"
 ```
 
-Um Namenskonflikte Ihrer globalen Symbolschlüssel mit anderen (Bibliothekscode) globalen Symbolen zu vermeiden, könnte es eine gute Idee sein, Ihre Symbole zu präfixen:
+Um Namenskonflikte zwischen Ihren globalen Symbolschlüsseln und anderen (Bibliothekscode) globalen Symbolen zu vermeiden, könnte es eine gute Idee sein, Ihre Symbole zu präfixen:
 
 ```js
 Symbol.for("mdn.foo");

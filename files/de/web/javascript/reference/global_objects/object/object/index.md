@@ -3,10 +3,8 @@ title: Object() Konstruktor
 short-title: Object()
 slug: Web/JavaScript/Reference/Global_Objects/Object/Object
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`Object()`**-Konstruktor wandelt die Eingabe in ein Objekt um. Sein Verhalten hängt vom Typ der Eingabe ab.
 
@@ -20,7 +18,8 @@ Object()
 Object(value)
 ```
 
-> [!NOTE] > `Object()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch manchmal mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
+> [!NOTE]
+> `Object()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, hat aber manchmal unterschiedliche Effekte. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
@@ -33,13 +32,13 @@ Wenn der `Object()`-Konstruktor selbst aufgerufen oder konstruiert wird, ist sei
 
 - Wenn der Wert [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} ist, wird ein leeres Objekt erstellt und zurückgegeben.
 - Wenn der Wert bereits ein Objekt ist, wird der Wert zurückgegeben.
-- Andernfalls wird ein Objekt eines Typs zurückgegeben, das dem gegebenen Wert entspricht. Zum Beispiel führt die Übergabe eines primitiven {{jsxref("BigInt")}} zu einem `BigInt`-Wrapper-Objekt.
+- Andernfalls wird ein Objekt eines Typs zurückgegeben, der dem angegebenen Wert entspricht. Wenn z.B. ein {{jsxref("BigInt")}}-Primitive übergeben wird, wird ein `BigInt`-Wrapper-Objekt zurückgegeben.
 
-Wenn `Object()` konstruiert wird, aber [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) nicht der `Object`-Konstruktor selbst ist, ist das Verhalten etwas anders — es initialisiert ein neues Objekt mit `new.target.prototype` als Prototyp. Jeder Argumentwert wird ignoriert. Dies kann zum Beispiel passieren, wenn `Object()` implizit über [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) im Konstruktor einer Klasse aufgerufen wird, die [von `Object` erbt](/de/docs/Web/JavaScript/Reference/Classes/extends#extending_object). In diesem Fall, selbst wenn Sie eine Zahl an `super()` übergeben, wird der `this` Wert im Inneren des Konstruktors keine {{jsxref("Number")}}-Instanz.
+Wenn `Object()` konstruiert wird, aber [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) nicht der `Object`-Konstruktor selbst ist, unterscheidet sich das Verhalten leicht — es initialisiert ein neues Objekt mit `new.target.prototype` als dessen Prototyp. Jeder Argumentwert wird ignoriert. Dies kann beispielsweise passieren, wenn `Object()` implizit über [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) im Konstruktor einer Klasse aufgerufen wird, die [von `Object` erbt](/de/docs/Web/JavaScript/Reference/Classes/extends#extending_object). In diesem Fall wird selbst, wenn Sie eine Zahl an `super()` übergeben, der `this`-Wert innerhalb des Konstruktors keine {{jsxref("Number")}}-Instanz.
 
 ## Beispiele
 
-### Ein neues Objekt erstellen
+### Erstellen eines neuen Objekts
 
 ```js
 const o = new Object();
@@ -49,7 +48,7 @@ console.log(o);
 // { foo: 42 }
 ```
 
-### Verwendung von Object mit undefined und null Typen
+### Verwenden von Object mit undefined und null Typen
 
 Die folgenden Beispiele speichern ein leeres `Object`-Objekt in `o`:
 
@@ -65,9 +64,9 @@ const o = new Object(undefined);
 const o = new Object(null);
 ```
 
-### Wrapper-Objekte für BigInt und Symbol erhalten
+### Erhalten von Wrapper-Objekten für BigInt und Symbol
 
-Die Konstruktoren {{jsxref("BigInt/BigInt", "BigInt()")}} und {{jsxref("Symbol/Symbol", "Symbol()")}} werfen einen Fehler, wenn sie mit `new` aufgerufen werden, um den häufigen Fehler zu verhindern, ein Wrapper-Objekt anstelle des primitiven Wertes zu erstellen. Der einzige Weg, um ein Wrapper-Objekt für diese Typen zu erstellen, ist, `Object()` mit ihnen aufzurufen:
+Die {{jsxref("BigInt/BigInt", "BigInt()")}}- und {{jsxref("Symbol/Symbol", "Symbol()")}}-Konstruktoren werfen einen Fehler, wenn sie mit `new` aufgerufen werden, um den häufigen Fehler zu verhindern, ein Wrapper-Objekt anstelle des primitiven Werts zu erstellen. Der einzige Weg, ein Wrapper-Objekt für diese Typen zu erstellen, ist es, `Object()` mit ihnen aufzurufen:
 
 ```js
 const numberObj = new Number(1);
@@ -90,4 +89,4 @@ console.log(typeof symbolObj); // "object"
 
 ## Siehe auch
 
-- [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objekt-Initializer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)

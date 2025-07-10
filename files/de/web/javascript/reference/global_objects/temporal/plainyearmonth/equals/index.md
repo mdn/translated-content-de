@@ -3,14 +3,15 @@ title: Temporal.PlainYearMonth.prototype.equals()
 short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/equals
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`equals()`** Methode von Instanzen des {{jsxref("Temporal.PlainYearMonth")}} gibt `true` zurück, wenn diese Jahr-Monat-Wert mit einem anderen Jahr-Monat, der durch {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} konvertierbar ist, identisch ist, und `false` ansonsten. Sie werden sowohl anhand ihrer zugrunde liegenden ISO-Datenwerte als auch ihrer Kalender verglichen. Daher können zwei Jahr-Monate aus unterschiedlichen Kalendern von {{jsxref("Temporal/PlainYearMonth/compare", "Temporal.PlainYearMonth.compare()")}} als gleich angesehen werden, aber nicht von `equals()`.
+Die Methode **`equals()`** von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt `true` zurück, wenn dieses Jahr-Monat im Wert einem anderen Jahr-Monat (in einer Form, die durch {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} konvertierbar ist) entspricht, und ansonsten `false`. Sie werden sowohl anhand ihrer zugrunde liegenden ISO-Datenwerte als auch ihrer Kalender verglichen, sodass zwei Jahr-Monate aus unterschiedlichen Kalendern möglicherweise von {{jsxref("Temporal/PlainYearMonth/compare", "Temporal.PlainYearMonth.compare()")}} als gleich angesehen werden, aber nicht von `equals()`.
 
-> [!NOTE] > `PlainYearMonth` Objekte verfolgen einen Referenz-ISO-Tag, der ebenfalls im Vergleich verwendet wird. Dieser Tag wird automatisch festgelegt, wenn die Methode {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} verwendet wird, kann aber manuell mit dem {{jsxref("Temporal/PlainYearMonth/PlainYearMonth", "Temporal.PlainYearMonth()")}} Konstruktor festgelegt werden. Dadurch können zwei äquivalente Jahr-Monate als unterschiedlich angesehen werden, wenn sie unterschiedliche Referenztage haben. Aus diesem Grund sollten Sie es vermeiden, den Konstruktor direkt zu verwenden und stattdessen die `from()` Methode bevorzugen.
+> [!NOTE]
+> `PlainYearMonth`-Objekte verfolgen einen Referenz-ISO-Tag, der ebenfalls im Vergleich verwendet wird. Dieser Tag wird automatisch gesetzt, wenn Sie die Methode {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} verwenden, kann aber manuell über den Konstruktor {{jsxref("Temporal/PlainYearMonth/PlainYearMonth", "Temporal.PlainYearMonth()")}} gesetzt werden, wodurch zwei gleichwertige Jahr-Monate als unterschiedlich angesehen werden, wenn sie unterschiedliche Referenztage haben. Aus diesem Grund sollten Sie es vermeiden, den Konstruktor direkt zu verwenden, und die `from()` Methode bevorzugen.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainYearMonth")}} Instanz, die das andere Jahr-Monat zum Vergleichen darstellt. Es wird mit demselben Algorithmus in ein `Temporal.PlainYearMonth` Objekt umgewandelt wie {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}}.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainYearMonth")}} Instanz, die das andere Jahr-Monat zum Vergleichen darstellt. Es wird mithilfe des gleichen Algorithmus wie {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} in ein `Temporal.PlainYearMonth` Objekt umgewandelt.
 
 ### Rückgabewert
 
-`true`, wenn dieses Jahr-Monat sowohl in ihrem Datumswert als auch in ihrem Kalender gleich `other` ist, `false` andernfalls.
+`true`, wenn dieses Jahr-Monat `other` sowohl in ihrem Datum als auch ihrem Kalender entspricht, `false` ansonsten.
 
 ## Beispiele
 

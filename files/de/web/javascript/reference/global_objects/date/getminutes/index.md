@@ -3,12 +3,10 @@ title: Date.prototype.getMinutes()
 short-title: getMinutes()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getMinutes
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getMinutes()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Minuten dieses Datums gemäß der lokalen Zeit zurück.
+Die **`getMinutes()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Minuten für dieses Datum gemäß der Ortszeit zurück.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getMinutes()", "shorter")}}
 
@@ -31,7 +29,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert zwischen 0 und 59, der die Minuten für das angegebene Datum gemäß der lokalen Zeit repräsentiert. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein ganzzahliger Wert zwischen 0 und 59, der die Minuten für das angegebene Datum gemäß der Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

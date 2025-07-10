@@ -3,16 +3,14 @@ title: Atomics.notify()
 short-title: notify()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/notify
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.notify()`** benachrichtigt einige Agenten, die in der Wartewarteschlange schlafen.
+Die **`Atomics.notify()`** statische Methode benachrichtigt einige Agenten, die in der Warteschlange schlafen.
 
 > [!NOTE]
-> Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das eine {{jsxref("SharedArrayBuffer")}} betrachtet.
-> Es wird `0` bei nicht-gemeinsamen `ArrayBuffer`-Objekten zurückgeben.
+> Diese Operation funktioniert nur mit einer {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, die einen {{jsxref("SharedArrayBuffer")}} anzeigt.
+> Es wird `0` bei nicht-geteilten `ArrayBuffer`-Objekten zurückgeben.
 
 ## Syntax
 
@@ -23,20 +21,20 @@ Atomics.notify(typedArray, index, count)
 ### Parameter
 
 - `typedArray`
-  - : Ein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das eine {{jsxref("SharedArrayBuffer")}} betrachtet.
+  - : Eine {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, die einen {{jsxref("SharedArrayBuffer")}} anzeigt.
 - `index`
-  - : Die Position im `typedArray`, die geweckt werden soll.
+  - : Die Position im `typedArray`, an der aufgeweckt werden soll.
 - `count` {{optional_inline}}
-  - : Die Anzahl der zu benachrichtigenden schlafenden Agenten. Standardmäßig ist dies {{jsxref("Infinity")}}.
+  - : Die Anzahl der schlafenden Agenten, die benachrichtigt werden sollen. Standardwert ist {{jsxref("Infinity")}}.
 
 ### Rückgabewert
 
-Gibt die Anzahl der aufgeweckten Agenten zurück oder `0`, wenn `typedArray` eine Sicht auf einen nicht-gemeinsamen {{jsxref("ArrayBuffer")}} ist.
+Gibt die Anzahl der aufgeweckten Agenten zurück oder `0`, wenn `typedArray` eine Ansicht auf einen nicht-geteilten {{jsxref("ArrayBuffer")}} ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` weder ein {{jsxref("Int32Array")}} noch ein {{jsxref("BigInt64Array")}} ist.
+  - : Wird ausgelöst, wenn `typedArray` keine {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
@@ -44,14 +42,14 @@ Gibt die Anzahl der aufgeweckten Agenten zurück oder `0`, wenn `typedArray` ein
 
 ### Verwendung von `notify`
 
-Gegeben ein geteiltes `Int32Array`:
+Gegeben eine geteilte `Int32Array`:
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-Ein lesender Thread schläft und wartet an Position 0, weil der bereitgestellte `value` mit dem am bereitgestellten `index` gespeicherten Wert übereinstimmt. Der lesende Thread wird erst weitermachen, wenn der schreibende Thread `Atomics.notify()` auf Position 0 des bereitgestellten `typedArray` aufgerufen hat. Beachten Sie, dass der lesende Thread, wenn nach dem Aufwachen der Wert an Position 0 nicht vom schreibenden Thread geändert wurde, **nicht** wieder schlafen geht, sondern weitermacht.
+Ein lesender Thread schläft und wartet auf Position 0, weil der angegebene `value` mit dem übereinstimmt, was an dem angegebenen `index` gespeichert ist. Der lesende Thread wird nicht fortfahren, bis der schreibende Thread `Atomics.notify()` auf Position 0 des angegebenen `typedArray` aufgerufen hat. Beachten Sie, dass der lesende Thread, nachdem er aufgeweckt wurde, **nicht** wieder schlafen geht, außer der Wert an Position 0 wurde nicht vom schreibenden Thread geändert, sondern setzt seine Arbeit fort.
 
 ```js
 Atomics.wait(int32, 0, 0);

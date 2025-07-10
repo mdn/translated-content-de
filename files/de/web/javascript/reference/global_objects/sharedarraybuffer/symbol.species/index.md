@@ -3,15 +3,13 @@ title: SharedArrayBuffer[Symbol.species]
 short-title: "[Symbol.species]"
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/Symbol.species
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`SharedArrayBuffer[Symbol.species]`** statische Zugriffs-Eigenschaft gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte aus `SharedArrayBuffer`-Methoden zu konstruieren.
+Die statische Zugriffs-Eigenschaft **`SharedArrayBuffer[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte von `SharedArrayBuffer`-Methoden zu konstruieren.
 
 > [!WARNING]
-> Die Existenz von `[Symbol.species]` erlaubt die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Sie erschwert auch bestimmte Optimierungen erheblich. Die Entwickler von Engines erwägen, [diese Funktion zu entfernen](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich darauf zu verlassen, wenn möglich.
+> Die Existenz von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Sie erschwert auch bestimmte Optimierungen erheblich. Entwickler von Engines [untersuchen, ob diese Funktion entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich darauf zu verlassen, wenn möglich.
 
 ## Syntax
 
@@ -21,11 +19,11 @@ SharedArrayBuffer[Symbol.species]
 
 ### Rückgabewert
 
-Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um Rückgabewerte von Array-Buffer-Methoden zu konstruieren, die einen neuen Array-Buffer erstellen.
+Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um Rückgabewerte von Array-Buffer-Methoden zu konstruieren, die einen neuen Array-Buffer erzeugen.
 
 ## Beschreibung
 
-Die `[Symbol.species]` Zugriffs-Eigenschaft gibt den Standardkonstruktor für `SharedArrayBuffer`-Objekte zurück. Unterklassige Konstruktoren können ihn überschreiben, um die Konstruktorzuweisung zu ändern. Die Standardimplementierung sieht im Wesentlichen so aus:
+Die Zugriffs-Eigenschaft `[Symbol.species]` gibt den Standardkonstruktor für `SharedArrayBuffer`-Objekte zurück. Unterklasse-Konstruktoren können sie überschreiben, um die Konstruktorzuweisung zu ändern. Die Standardimplementierung ist im Wesentlichen:
 
 ```js
 // Hypothetical underlying implementation for illustration
@@ -36,20 +34,20 @@ class SharedArrayBuffer {
 }
 ```
 
-Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` in abgeleiteten Unterklassen standardmäßig auch den Konstruktor selbst zurückgeben.
+Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Unterklassen standardmäßig auch den Konstruktor selbst zurückgeben.
 
 ```js
 class SubArrayBuffer extends SharedArrayBuffer {}
 SubArrayBuffer[Symbol.species] === SubArrayBuffer; // true
 ```
 
-Beim Aufrufen von Array-Buffer-Methoden, die das bestehende Array nicht verändern, sondern eine neue Array-Buffer-Instanz zurückgeben (zum Beispiel [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/slice)), wird der `constructor[Symbol.species]` des Arrays aufgerufen. Der zurückgegebene Konstruktor wird verwendet, um den Rückgabewert der Array-Buffer-Methode zu erzeugen.
+Beim Aufrufen von Array-Buffer-Methoden, die das bestehende Array nicht verändern, sondern eine neue Array-Buffer-Instanz zurückgeben (zum Beispiel [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/slice)), wird auf den `constructor[Symbol.species]` des Arrays zugegriffen. Der zurückgegebene Konstruktor wird verwendet, um den Rückgabewert der Array-Buffer-Methode zu konstruieren.
 
 ## Beispiele
 
 ### Species in gewöhnlichen Objekten
 
-Die `[Symbol.species]` Eigenschaft gibt die Standard-Konstruktorfunktion zurück, die der `SharedArrayBuffer`-Konstruktor für `SharedArrayBuffer` ist.
+Die `[Symbol.species]`-Eigenschaft gibt die Standard-Konstruktorfunktion zurück, die der `SharedArrayBuffer`-Konstruktor für `SharedArrayBuffer` ist.
 
 ```js
 SharedArrayBuffer[Symbol.species]; // function SharedArrayBuffer()
@@ -57,7 +55,7 @@ SharedArrayBuffer[Symbol.species]; // function SharedArrayBuffer()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `SharedArrayBuffer`-Unterklasse, wie `MySharedArrayBuffer`, ist die `MySharedArrayBuffer`-Species der `MySharedArrayBuffer`-Konstruktor. Sie könnten jedoch dies überschreiben wollen, um in Ihren abgeleiteten Klassenmethoden übergeordnete `SharedArrayBuffer`-Objekte zurückzugeben:
+In einer Instanz einer benutzerdefinierten `SharedArrayBuffer`-Unterklasse, wie `MySharedArrayBuffer`, ist die `MySharedArrayBuffer`-Species der `MySharedArrayBuffer`-Konstruktor. Sie könnten jedoch dies überschreiben wollen, um in Ihren Methoden abgeleiteter Klassen Eltern-`SharedArrayBuffer`-Objekte zurückzugeben:
 
 ```js
 class MySharedArrayBuffer extends SharedArrayBuffer {

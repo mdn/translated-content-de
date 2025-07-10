@@ -3,25 +3,25 @@ title: RegExp.lastMatch ($&)
 short-title: lastMatch ($&)
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/lastMatch
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Deprecated_Header}}
+{{Deprecated_Header}}
 
 > [!NOTE]
-> Alle `RegExp`-statischen Eigenschaften, die den letzten Übereinstimmungszustand global offenlegen, sind veraltet. Siehe [veraltete RegExp-Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) für weitere Informationen.
+> Alle statischen Eigenschaften von `RegExp`, die den letzten Übereinstimmungszustand global exponieren, sind veraltet. Weitere Informationen finden Sie unter [veraltete RegExp-Features](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp).
 
-Die statische Zugriffs-Eigenschaft **`RegExp.lastMatch`** gibt die zuletzt übereinstimmende Teilzeichenkette zurück. `RegExp["$&"]` ist ein Alias für diese Eigenschaft.
+Die statische Zugriffseigenschaft **`RegExp.lastMatch`** gibt die zuletzt übereinstimmende Teilzeichenkette zurück. `RegExp["$&"]` ist ein Alias für diese Eigenschaft.
 
 ## Beschreibung
 
-Da `lastMatch` eine statische Eigenschaft von {{jsxref("RegExp")}} ist, verwenden Sie sie immer als `RegExp.lastMatch` oder `RegExp["$&"]`, und nicht als eine Eigenschaft eines von Ihnen erstellten `RegExp`-Objekts.
+Da `lastMatch` eine statische Eigenschaft von {{jsxref("RegExp")}} ist, verwenden Sie sie immer als `RegExp.lastMatch` oder `RegExp["$&"]`, anstatt als eine Eigenschaft eines von Ihnen erstellten `RegExp`-Objekts.
 
-Der Wert von `lastMatch` wird jedes Mal aktualisiert, wenn eine `RegExp`-Instanz (aber nicht eine `RegExp`-Unterklasse) einen erfolgreichen Treffer erzielt. Wenn keine Übereinstimmungen erzielt wurden, ist `lastMatch` ein leerer String. Der Setter von `lastMatch` ist `undefined`, sodass Sie diese Eigenschaft nicht direkt ändern können.
+Der Wert von `lastMatch` wird jedes Mal aktualisiert, wenn eine `RegExp`-Instanz (aber nicht eine `RegExp`-Unterklasse) eine erfolgreiche Übereinstimmung erzielt. Wenn keine Übereinstimmungen erzielt wurden, ist `lastMatch` ein leerer String. Der Set-Accessor von `lastMatch` ist `undefined`, daher können Sie diese Eigenschaft nicht direkt ändern.
 
-Sie können den Kurzschreibungs-Alias nicht mit dem Punkt-Zugriffsoperator verwenden (`RegExp.$&`), da `&` kein gültiges Identifier-Teil ist, sodass dies einen {{jsxref("SyntaxError")}} verursacht. Verwenden Sie stattdessen die [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
+Sie können den Kurzform-Alias nicht mit dem Punkt-Eigenschaft-Zugriffsoperator (`RegExp.$&`) verwenden, da `&` kein gültiger Identifikator-Teil ist, was zu einem {{jsxref("SyntaxError")}} führt. Verwenden Sie stattdessen die [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
 
-`$&` kann auch im Ersetzungsstring von {{jsxref("String.prototype.replace()")}} verwendet werden, steht aber in keinem Zusammenhang mit der veralteten Eigenschaft `RegExp["$&"]`.
+`$&` kann auch im Ersetzungsstring von {{jsxref("String.prototype.replace()")}} verwendet werden, aber das steht in keinem Zusammenhang mit der veralteten `RegExp["$&"]`-Eigenschaft.
 
 ## Beispiele
 

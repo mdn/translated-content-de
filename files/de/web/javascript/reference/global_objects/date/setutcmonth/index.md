@@ -3,12 +3,10 @@ title: Date.prototype.setUTCMonth()
 short-title: setUTCMonth()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCMonth
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`setUTCMonth()`** von {{jsxref("Date")}}-Instanzen ändert den Monat und/oder den Tag des Monats für dieses Datum gemäß der Weltzeit.
+Die **`setUTCMonth()`**-Methode von {{jsxref("Date")}}-Instanzen ändert den Monat und/oder den Tag des Monats für dieses Datum gemäß der Weltzeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setUTCMonth()")}}
 
@@ -37,19 +35,20 @@ setUTCMonth(monthValue, dateValue)
 ### Parameter
 
 - `monthValue`
-  - : Eine ganze Zahl, die den Monat darstellt: 0 für Januar, 1 für Februar und so weiter.
+  - : Ein ganzzahliger Wert, der den Monat repräsentiert: 0 für Januar, 1 für Februar usw.
 - `dateValue` {{optional_inline}}
-  - : Eine ganze Zahl von 1 bis 31, die den Tag des Monats darstellt.
+  - : Ein ganzzahliger Wert von 1 bis 31, der den Tag des Monats repräsentiert.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [koerziert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt vor Ort und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [erzwungen werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie den `dateValue`-Parameter nicht angeben, wird der Wert verwendet, der von der {{jsxref("Date/getUTCDate", "getUTCDate()")}}-Methode zurückgegeben wird.
+Falls Sie den `dateValue`-Parameter nicht angeben, wird der Wert, der von der
+{{jsxref("Date/getUTCDate", "getUTCDate()")}}-Methode zurückgegeben wird, verwendet.
 
-Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCMonth()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Wenn Sie zum Beispiel 15 für `monthValue` verwenden, wird das Jahr um 1 erhöht und 3 für den Monat verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCMonth()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Zum Beispiel, wenn Sie 15 für `monthValue` verwenden, wird das Jahr um 1 erhöht und 3 für den Monat verwendet.
 
 ## Beispiele
 

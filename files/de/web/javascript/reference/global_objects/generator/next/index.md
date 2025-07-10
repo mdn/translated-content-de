@@ -3,13 +3,12 @@ title: Generator.prototype.next()
 short-title: next()
 slug: Web/JavaScript/Reference/Global_Objects/Generator/next
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`next()`** Methode von {{jsxref("Generator")}} Instanzen gibt ein
-Objekt mit zwei Eigenschaften `done` und `value` zurück. Sie können der `next` Methode auch einen Parameter übergeben, um einen Wert an den Generator zu senden.
+Die **`next()`** Methode von {{jsxref("Generator")}}-Instanzen gibt ein
+Objekt mit zwei Eigenschaften `done` und `value` zurück. Sie können auch
+einen Parameter an die `next`-Methode übergeben, um dem Generator einen Wert zu senden.
 
 ## Syntax
 
@@ -21,23 +20,23 @@ next(value)
 ### Parameter
 
 - `value` {{optional_inline}}
+  - : Der Wert, der an den Generator gesendet wird.
 
-  - : Der Wert, der an den Generator gesendet werden soll.
-
-    Der Wert wird als Ergebnis eines `yield` Ausdrucks zugewiesen. Zum
-    Beispiel wird im `variable = yield expression` der Wert, der
-    an die `.next()` Funktion übergeben wird, der `variable` zugewiesen.
+    Der Wert wird als Resultat eines `yield`-Ausdrucks zugewiesen. Zum
+    Beispiel, in `variable = yield expression`, wird der Wert,
+    der an die `.next()` Funktion übergeben wird, der
+    `variable` zugewiesen.
 
 ### Rückgabewert
 
 Ein {{jsxref("Object")}} mit zwei Eigenschaften:
 
 - `done`
-  - : Ein boolescher Wert:
-    - `true`, wenn der Generator das Ende seines Kontrollflusses erreicht hat. In diesem Fall spezifiziert `value` den _Rückgabewert_ des Generators (dieser kann undefiniert sein).
-    - `false`, wenn der Generator in der Lage ist, weitere Werte zu erzeugen.
+  - : Ein boolean Wert:
+    - `true`, wenn der Generator das Ende seines Kontrollflusses überschritten hat. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der möglicherweise undefined ist).
+    - `false`, wenn der Generator noch weitere Werte erzeugen kann.
 - `value`
-  - : Jeder vom Generator erzeugte oder zurückgegebene JavaScript-Wert.
+  - : Jeder JavaScript-Wert, der vom Generator erzeugt oder zurückgegeben wird.
 
 ### Ausnahmen
 
@@ -46,10 +45,10 @@ Ein {{jsxref("Object")}} mit zwei Eigenschaften:
 
 ## Beispiele
 
-### Verwendung von next()
+### Nutzung von next()
 
 Das folgende Beispiel zeigt einen Generator und das Objekt, das die
-`next` Methode zurückgibt:
+`next`-Methode zurückgibt:
 
 ```js
 function* gen() {
@@ -65,9 +64,9 @@ g.next(); // { value: 3, done: false }
 g.next(); // { value: undefined, done: true }
 ```
 
-### Verwendung von next() mit einer Liste
+### Nutzung von next() mit einer Liste
 
-In diesem Beispiel nimmt `getPage` eine Liste und "paginates" sie in Abschnitte der Größe `pageSize`. Jeder Aufruf von `next` wird einen solchen Abschnitt erzeugen.
+In diesem Beispiel nimmt `getPage` eine Liste und "paginates" sie in Teile der Größe `pageSize`. Jeder Aufruf von `next` liefert ein solches Teilstück.
 
 ```js
 function* getPage(list, pageSize = 1) {
@@ -85,12 +84,12 @@ page.next(); // { value: [7, 8], done: false }
 page.next(); // { value: undefined, done: true }
 ```
 
-### Werte an den Generator senden
+### Senden von Werten an den Generator
 
 In diesem Beispiel wird `next` mit einem Wert aufgerufen.
 
 > [!NOTE]
-> Der erste Aufruf protokolliert nichts, da der Generator anfangs nichts erzeugte.
+> Der erste Aufruf protokolliert nichts, da der Generator anfangs nichts hervorbrachte.
 
 ```js
 function* gen() {
@@ -118,4 +117,4 @@ g.next(2); // Returns { value: undefined, done: false }
 ## Siehe auch
 
 - {{jsxref("Statements/function*", "function*")}}
-- [Iterators und Generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Iterators und generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden

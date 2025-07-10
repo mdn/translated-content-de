@@ -3,12 +3,10 @@ title: Promise.any()
 short-title: any()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/any
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Promise.any()`** nimmt ein iterierbares Objekt von Promises als Eingabe und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn eines der Promises in der Eingabe erfüllt wird, mit dem Erfüllungswert dieses ersten erfüllten Promises. Es wird abgelehnt, wenn alle Promises in der Eingabe abgelehnt werden (einschließlich wenn ein leeres iterierbares Objekt übergeben wird), mit einem {{jsxref("AggregateError")}}, der ein Array von Ablehnungsgründen enthält.
+Die **`Promise.any()`** statische Methode nimmt ein iterierbares Objekt von Promises als Eingabe und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn irgendeines der Eingabe-Promises erfüllt wird, wobei dies den ersten Erfüllungswert darstellt. Es wird abgelehnt, wenn alle Eingabe-Promises abgelehnt werden (einschließlich wenn ein leeres iterierbares Objekt übergeben wird), mit einem {{jsxref("AggregateError")}}, der ein Array von Ablehnungsgründen enthält.
 
 {{InteractiveExample("JavaScript Demo: Promise.any()")}}
 
@@ -40,22 +38,22 @@ Promise.any(iterable)
 Ein {{jsxref("Promise")}}, das:
 
 - **Bereits abgelehnt** ist, wenn das übergebene `iterable` leer ist.
-- **Asynchron erfüllt** wird, wenn eines der Promises im angegebenen `iterable` erfüllt wird. Der Erfüllungswert ist der Erfüllungswert des ersten erfüllten Promises.
-- **Asynchron abgelehnt** wird, wenn alle Promises im angegebenen `iterable` abgelehnt werden. Der Ablehnungsgrund ist ein {{jsxref("AggregateError")}}, der ein Array von Ablehnungsgründen in seiner `errors`-Eigenschaft enthält. Die Fehler sind in der Reihenfolge der übergebenen Promises, unabhängig von der Abschlussreihenfolge. Wenn das übergebene `iterable` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise dennoch asynchron (statt synchron) abgelehnt.
+- **Asynchron erfüllt** wird, sobald eines der Promises im übergebenen `iterable` erfüllt wird. Der Erfüllungswert ist der Erfüllungswert des ersten Promises, das erfüllt wurde.
+- **Asynchron abgelehnt** wird, wenn alle Promises im übergebenen `iterable` abgelehnt werden. Der Ablehnungsgrund ist ein {{jsxref("AggregateError")}}, das ein Array von Ablehnungsgründen in seiner `errors`-Eigenschaft enthält. Die Fehler sind in der Reihenfolge der übergebenen Promises aufgeführt, unabhängig von der Reihenfolge des Abschlusses. Wenn das übergebene `iterable` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise dennoch asynchron (anstatt synchron) abgelehnt.
 
 ## Beschreibung
 
-Die Methode `Promise.any()` ist eine der [Promise-Konkurrenzmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Diese Methode ist nützlich, um das erste erfüllte Promise zurückzugeben. Sie reduziert die Wartezeit, nachdem ein Promise erfüllt wird, sodass sie nicht auf den Abschluss der anderen Promises wartet, sobald eines gefunden wird.
+Die `Promise.any()` Methode ist eine der [promise concurrency](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency) Methoden. Diese Methode ist nützlich, um das erste Promise zurückzugeben, das erfüllt wird. Sie bricht ab, nachdem ein Promise erfüllt wird, sodass sie nicht auf die anderen Promises wartet, sobald eines gefunden wurde.
 
-Im Gegensatz zu {{jsxref("Promise.all()")}}, das ein _Array_ von Erfüllungswerten zurückgibt, erhalten wir nur einen Erfüllungswert (vorausgesetzt, zumindest ein Promise wird erfüllt). Dies kann vorteilhaft sein, wenn wir nur ein erfülltes Promise benötigen, aber nicht darauf achten, welches es ist. Beachten Sie einen weiteren Unterschied: Diese Methode wird bei einem _leeren iterierbaren Objekt_ abgelehnt, da das iterable Objekt tatsächlich keine Elemente enthält, die erfüllt werden. Sie können `Promise.any()` und `Promise.all()` mit {{jsxref("Array.prototype.some()")}} und {{jsxref("Array.prototype.every()")}} vergleichen.
+Im Gegensatz zu {{jsxref("Promise.all()")}}, das ein _Array_ von Erfüllungswerten zurückgibt, erhalten wir nur einen Erfüllungswert (vorausgesetzt, mindestens ein Promise wird erfüllt). Dies kann vorteilhaft sein, wenn wir nur möchten, dass ein Promise erfüllt wird, es uns aber egal ist, welches das ist. Beachten Sie einen weiteren Unterschied: Diese Methode lehnt bei Erhalt eines _leeren iterierbaren Objekts_ ab, da das iterierbare Objekt tatsächlich keine Elemente enthält, die erfüllt werden. Sie können `Promise.any()` und `Promise.all()` mit {{jsxref("Array.prototype.some()")}} und {{jsxref("Array.prototype.every()")}} vergleichen.
 
-Auch im Gegensatz zu {{jsxref("Promise.race()")}}, das den ersten _beendeten_ Wert (entweder Erfüllung oder Ablehnung) zurückgibt, liefert diese Methode den ersten _erfüllten_ Wert. Diese Methode ignoriert alle abgelehnten Promises bis zu dem ersten Promise, das erfüllt wird.
+Auch im Gegensatz zu {{jsxref("Promise.race()")}}, das den ersten _abgewickelten_ Wert (entweder Erfüllung oder Ablehnung) zurückgibt, gibt diese Methode den ersten _erfüllten_ Wert zurück. Diese Methode ignoriert alle abgelehnten Promises bis zu dem ersten Promise, das erfüllt wird.
 
 ## Beispiele
 
 ### Verwendung von Promise.any()
 
-`Promise.any()` wird mit dem ersten zu erfüllenden Promise erfüllt, auch wenn ein Promise zuerst abgelehnt wird. Dies steht im Gegensatz zu {{jsxref("Promise.race()")}}, das mit dem ersten beendeten Promise erfüllt oder abgelehnt wird.
+`Promise.any()` wird mit dem ersten erfüllten Promise erfüllt, selbst wenn ein Promise zuerst abgelehnt wird. Dies steht im Gegensatz zu {{jsxref("Promise.race()")}}, das mit dem ersten abgeschlossenen Promise erfüllt oder abgelehnt wird.
 
 ```js
 const pErr = new Promise((resolve, reject) => {
@@ -80,7 +78,7 @@ Promise.any([pErr, pSlow, pFast]).then((value) => {
 
 ### Ablehnungen mit AggregateError
 
-`Promise.any()` wird mit einem {{jsxref("AggregateError")}} abgelehnt, wenn kein Promise erfüllt wird.
+`Promise.any()` lehnt mit einem {{jsxref("AggregateError")}} ab, wenn kein Promise erfüllt wird.
 
 ```js
 const failure = new Promise((resolve, reject) => {
@@ -95,7 +93,7 @@ Promise.any([failure]).catch((err) => {
 
 ### Anzeige des ersten geladenen Bildes
 
-In diesem Beispiel haben wir eine Funktion, die ein Bild abruft und als Blob zurückgibt. Wir verwenden `Promise.any()`, um ein paar Bilder abzurufen und das erste verfügbare anzuzeigen (d.h. dessen Promise aufgelöst wurde).
+In diesem Beispiel haben wir eine Funktion, die ein Bild abrufen und ein Blob zurückgeben soll. Wir verwenden `Promise.any()`, um ein paar Bilder abzurufen und das erste verfügbare anzuzeigen (d.h. dessen Promise aufgelöst wurde).
 
 ```js
 async function fetchAndDecode(url, description) {
@@ -134,7 +132,7 @@ Promise.any([coffee, tea])
 ## Siehe auch
 
 - [Polyfill von `Promise.any` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
-- [es-shims Polyfill von `Promise.any`](https://www.npmjs.com/package/promise.any)
+- [es-shims polyfill von `Promise.any`](https://www.npmjs.com/package/promise.any)
 - {{jsxref("Promise")}}
 - {{jsxref("Promise.all()")}}
 - {{jsxref("Promise.allSettled()")}}

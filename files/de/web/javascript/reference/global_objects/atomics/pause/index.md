@@ -3,14 +3,12 @@ title: Atomics.pause()
 short-title: pause()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/pause
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`Atomics.pause()`** statische Methode bietet eine Mikro-Warteschleifenprimitive, die der CPU signalisiert, dass der Aufrufer in einer Schleife wartet, während er auf den Zugriff auf eine gemeinsame Ressource wartet. Dies ermöglicht es dem System, die einem Kern (wie z.B. Strom) oder Thread zugewiesenen Ressourcen zu reduzieren, ohne den aktuellen Thread freizugeben.
 
-Die **`Atomics.pause()`** statische Methode bietet eine Mikrowarteschnittstelle, die der CPU andeutet, dass der Aufrufer auf den Zugriff auf eine geteilte Ressource wartet. Dadurch kann das System die für den Kern (wie Strom) oder den Thread zugewiesenen Ressourcen reduzieren, ohne den aktuellen Thread aufzugeben.
-
-`pause()` hat kein beobachtbares Verhalten außer dem Timing. Das genaue Verhalten hängt von der CPU-Architektur und dem Betriebssystem ab. Zum Beispiel könnte es auf Intel x86 eine `pause`-Anweisung gemäß [Intels Optimierungsmanual](https://www.intel.com/content/www/us/en/content-details/671488/intel-64-and-ia-32-architectures-optimization-reference-manual-volume-1.html) sein. Auf bestimmten Plattformen könnte es ein No-op sein.
+`pause()` hat kein beobachtbares Verhalten außer der Zeitdauer. Das genaue Verhalten hängt von der CPU-Architektur und dem Betriebssystem ab. Beispielsweise könnte es in Intel x86 eine `pause`-Instruktion gemäß [Intels Optimierungshandbuch](https://www.intel.com/content/www/us/en/content-details/671488/intel-64-and-ia-32-architectures-optimization-reference-manual-volume-1.html) sein. Auf bestimmten Plattformen könnte es ein No-op sein.
 
 ## Syntax
 
@@ -22,11 +20,11 @@ Atomics.pause(durationHint)
 ### Parameter
 
 - `durationHint` {{optional_inline}}
-  - : Ein Integer, den eine Implementierung verwenden kann, um zu bestimmen, wie lange gewartet wird. Für einen Wert `n + 1` wartet eine Implementierung mindestens so lange, wie es für einen gegebenen Wert `n` der Fall ist. Die genaue Zahl hat keine physikalische Bedeutung. Es kann eine interne Obergrenze für die maximale Wartezeit in der Größenordnung von Zehn- bis Hunderten von Nanosekunden geben. Dies kann verwendet werden, um eine [Backoff-Strategie](#backoff-strategien) zu implementieren, indem der übergebene `durationHint` erhöht wird. Es gibt keine Garantie, dass eine Implementierung diesen Hinweis verwendet.
+  - : Ein Integer, den eine Implementierung verwenden kann, um zu bestimmen, wie lange gewartet werden soll. Für einen Wert von `n + 1` wartet eine Implementierung mindestens so lange, wie für einen gegebenen Wert `n`. Die genaue Zahl hat keine physikalische Bedeutung. Es könnte eine interne Obergrenze für die maximale Wartezeit im Bereich von Dutzenden bis Hunderten von Nanosekunden geben. Dies kann verwendet werden, um eine [Backoff-Strategie](#backoff-strategien) zu implementieren, indem man den übergebenen `durationHint` erhöht. Es gibt keine Garantie, dass eine Implementierung diesen Hinweis verwendet.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -37,14 +35,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von Atomics.pause()
 
-Ein Aufruf von {{jsxref("Atomics.wait()")}} oder {{jsxref("Atomics.waitAsync()")}}, um auf den Zugriff auf gemeinsamen Speicher zu warten, führt dazu, dass der Thread vom Kern heraus- und dann wieder hereingeplant wird, nachdem das Warten beendet ist. Dies ist effizient in Zeiten hoher Auslastung, wenn der Zugriff auf den gemeinsamen Speicher einige Zeit in Anspruch nehmen könnte. Wenn die Auslastung gering ist, ist es oft effizienter, die Sperre abzufragen, ohne den Thread aufzugeben: Dies wird als [Busy Waiting](https://en.wikipedia.org/wiki/Busy_waiting) oder [Spinlocking](https://en.wikipedia.org/wiki/Spinlock) bezeichnet. Die `pause()`-Methode ermöglicht es Ihnen, während des Wartens effizienter spinlocken, indem sie der CPU einen Hinweis darauf gibt, was der Thread tut, und damit seinen geringen Ressourcenbedarf.
+Der Aufruf von {{jsxref("Atomics.wait()")}} oder {{jsxref("Atomics.waitAsync()")}}, um auf den Zugriff auf gemeinsamen Speicher zu warten, führt dazu, dass der Thread aus dem Kern ausgelagert und nach der Wartezeit wieder eingelagert wird. Dies ist effizient bei hoher Konkurrenz, wenn der Zugriff auf den gemeinsamen Speicher einige Zeit in Anspruch nehmen könnte. Bei niedriger Konkurrenz ist es oft effizienter, die Sperre abzufragen, ohne den Thread freizugeben: Dieser Ansatz ist bekannt als [Busy Waiting](https://en.wikipedia.org/wiki/Busy_waiting) oder [Spinlocking](https://en.wikipedia.org/wiki/Spinlock). Die Methode `pause()` ermöglicht es Ihnen, effizienter zu spinlocken, indem sie der CPU einen Hinweis darauf gibt, was der Thread tut und daher seinen geringen Ressourcenbedarf signalisiert.
 
-Um beide Bedingungen zu berücksichtigen, ist ein gebräuchlicher Ansatz, zuerst zu spinlocken in der Hoffnung, dass die Auslastung gering ist, und dann zu warten, wenn die Sperre nach kurzer Zeit nicht erlangt wird. Wenn wir die Sperre bereits durch Spinlocking erworben haben, wird der `wait()`-Aufruf ein No-op sein.
+Um beide Bedingungen abzudecken, ist ein gebräuchlicher Ansatz zuerst zu spinlocken in der Hoffnung, dass die Konkurrenz gering ist, und dann zu warten, wenn die Sperre nach kurzer Zeit nicht erlangt wird. Wenn die Sperre bereits durch Spinlocking erlangt wurde, wird der `wait()`-Aufruf eine No-op sein.
 
 Das untenstehende Beispiel zeigt, wie dieser Ansatz mit `Atomics.pause()` und `Atomics.wait()` verwendet werden kann.
 
 > [!WARNING]
-> Spinlocking auf dem Hauptthread wird nicht empfohlen, da es die gesamte Seite einfrieren lässt. Im Allgemeinen, es sei denn, sie wird sehr sorgfältig gestaltet, sind Spinlocks möglicherweise nicht tatsächlich leistungsfähiger als ein reguläres Warten.
+> Spinlocking im Hauptthread wird nicht empfohlen, da es die gesamte Seite einfriert. Allgemein, es sei denn, es ist sehr sorgfältig gestaltet, könnten Spinlocks nicht tatsächlich leistungsfähiger sein als eine reguläre Wartezeit.
 
 ```js
 // Imagine another thread also has access to this shared memory
@@ -69,10 +67,10 @@ Atomics.wait(i32, 0, 1);
 
 ### Backoff-Strategien
 
-Der `durationHint`-Parameter kann verwendet werden, um Backoff-Strategien zu implementieren. Beispielsweise kann ein Thread mit einem kleinen Hinweis beginnen und diesen bei jedem Durchlauf exponentiell erhöhen. Dies ist vorzuziehen, anstatt `pause()` viele Male aufzurufen, da in un-JITed Code die Funktionsaufrufe selbst einen hohen Overhead haben.
+Der `durationHint` Parameter kann verwendet werden, um Backoff-Strategien zu implementieren. Beispielsweise kann ein Thread mit einem kleinen Hinweis beginnen und diesen bei jeder Iteration exponentiell erhöhen. Dies ist vorzuziehen, anstelle viele Male `pause()` aufzurufen, da in nicht-jitierten Code Funktionsaufrufe selbst einen hohen Overhead haben.
 
 > [!NOTE]
-> Implementierungen verwenden möglicherweise `durationHint` überhaupt nicht und warten immer für eine konstante Zeit.
+> Implementierungen könnten `durationHint` tatsächlich überhaupt nicht verwenden und immer für eine konstante Zeit warten.
 
 ```js
 // Exponential backoff

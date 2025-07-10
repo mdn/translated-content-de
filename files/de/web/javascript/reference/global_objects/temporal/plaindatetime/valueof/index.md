@@ -3,12 +3,12 @@ title: Temporal.PlainDateTime.prototype.valueOf()
 short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/valueOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen wirft einen {{jsxref("TypeError")}}, um zu verhindern, dass `Temporal.PlainDateTime`-Instanzen [implizit zu primitiven Werten konvertiert](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
+Die **`valueOf()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen wirft einen {{jsxref("TypeError")}}, der verhindert, dass `Temporal.PlainDateTime`-Instanzen [implizit in primitive Werte umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
 
 ## Syntax
 
@@ -31,13 +31,13 @@ Keine.
 
 ## Beschreibung
 
-Da sowohl die [primitive Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, falls `valueOf()` fehlt, ein Ausdruck wie `dateTime1 > dateTime2` diese implizit als Zeichenfolgen vergleichen, was unerwartete Ergebnisse haben kann. Indem ein `TypeError` ausgelöst wird, verhindern `Temporal.PlainDateTime`-Instanzen solche impliziten Konvertierungen. Sie müssen sie explizit mit {{jsxref("Temporal/PlainDateTime/toString", "Temporal.PlainDateTime.prototype.toString()")}} in Zeichenfolgen konvertieren oder die statische Methode {{jsxref("Temporal/PlainDateTime/compare", "Temporal.PlainDateTime.compare()")}} verwenden, um sie zu vergleichen.
+Da sowohl die [primitive Umwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, falls `valueOf()` nicht vorhanden ist, ein Ausdruck wie `dateTime1 > dateTime2` sie implizit als Zeichenketten vergleichen, was zu unerwarteten Ergebnissen führen könnte. Durch das Auslösen eines `TypeError` verhindern `Temporal.PlainDateTime`-Instanzen solche impliziten Umwandlungen. Es ist erforderlich, sie explizit als Zeichenketten zu konvertieren, indem {{jsxref("Temporal/PlainDateTime/toString", "Temporal.PlainDateTime.prototype.toString()")}} verwendet wird, oder die {{jsxref("Temporal/PlainDateTime/compare", "Temporal.PlainDateTime.compare()")}}-statische Methode zu benutzen, um sie zu vergleichen.
 
 ## Beispiele
 
 ### Arithmetische und Vergleichsoperationen auf Temporal.PlainDateTime
 
-Alle arithmetischen und Vergleichsoperationen auf `Temporal.PlainDateTime`-Instanzen sollten die dedizierten Methoden verwenden oder sie explizit in primitive Werte konvertieren.
+Alle arithmetischen und Vergleichsoperationen auf `Temporal.PlainDateTime`-Instanzen sollten die spezifischen Methoden verwenden oder sie explizit in primitive Werte umwandeln.
 
 ```js
 const dt1 = Temporal.PlainDateTime.from("2022-01-01T00:00:00");

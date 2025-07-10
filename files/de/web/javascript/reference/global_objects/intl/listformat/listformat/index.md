@@ -3,14 +3,12 @@ title: Intl.ListFormat() Konstruktor
 short-title: Intl.ListFormat()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Der **`Intl.ListFormat()`** Konstruktor erstellt {{jsxref("Intl.ListFormat")}} Objekte.
 
-Der **`Intl.ListFormat()`**-Konstruktor erstellt {{jsxref("Intl.ListFormat")}} Objekte.
-
-{{InteractiveExample("JavaScript Demo: Intl.ListFormat() constructor", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.ListFormat() Konstruktor", "taller")}}
 
 ```js interactive-example
 const vehicles = ["Motorcycle", "Bus", "Car"];
@@ -42,30 +40,31 @@ new Intl.ListFormat(locales)
 new Intl.ListFormat(locales, options)
 ```
 
-> [!NOTE] > `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, ihn ohne `new` zu verwenden, löst einen {{jsxref("TypeError")}} aus.
+> [!NOTE]
+> `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Identifikatoren. Die standardmäßige Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [den Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das folgende Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
+  - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Locale Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standard ist `"best fit"`. Für Informationen über diese Option siehe [Locale-Identifikation und -Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Locale-Abgleichs-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen über diese Option siehe [Locale-Erkennung und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `type`
-      - : Gibt den Typ der Gruppierung an. Mögliche Werte sind:
+      - : Gibt die Art der Gruppierung an. Mögliche Werte sind:
         - `"conjunction"` (Standard)
-          - : Für eine "und"-basierte Gruppierung der Listenelemente: "A, B, und C"
+          - : Für "und"-basierte Gruppierung der Listenelemente: "A, B, and C"
         - `"disjunction"`
-          - : Für eine "oder"-basierte Gruppierung der Listenelemente: "A, B, oder C"
+          - : Für "oder"-basierte Gruppierung der Listenelemente: "A, B, or C"
         - `"unit"`
-          - : Für die Gruppierung der Listenelemente als zusammengesetzte Einheit (weder "und"- noch "oder"-basiert): "A, B, C"
+          - : Für die Gruppierung der Listenelemente als zusammengesetzte Einheit (weder "und"-basiert noch "oder"-basiert): "A, B, C"
     - `style`
-      - : Der Gruppierungsstil (zum Beispiel, ob Listentrenner und Konjunktionen enthalten sind). Mögliche Werte sind:
+      - : Der Gruppierungsstil (zum Beispiel, ob Listentrennzeichen und Konjunktionen enthalten sind). Mögliche Werte sind:
         - `"long"` (Standard)
-          - : Das typische Listenformat. Zum Beispiel "A, B, und C"
+          - : Das typische Listenformat. Zum Beispiel "A, B, and C"
         - `"short"`
-          - : Der Abstand, die Länge oder das Vorhandensein einer Konjunktion und die Trennzeichen können sich ändern. Normalerweise möchte man, dass die Eingabeelemente ebenfalls abgekürzt werden. Zum Beispiel "A, B, & C"
+          - : Der Abstand, die Länge oder das Vorhandensein einer Konjunktion und die Trennzeichen können sich ändern. Normalerweise möchten Sie, dass die Eingabeelemente auch abgekürzt werden. Zum Beispiel "A, B, & C"
         - `"narrow"`
           - : Wo möglich, wird das Listenformat weiter abgekürzt, sodass die Ausgabe so kurz wie möglich ist. Zum Beispiel "A, B, C"
 
@@ -76,9 +75,9 @@ new Intl.ListFormat(locales, options)
 
 ## Beispiele
 
-### Verwendung von format
+### Verwendung von Format
 
-Das folgende Beispiel zeigt, wie man einen Listformatter für die englische Sprache erstellt.
+Das folgende Beispiel zeigt, wie man einen Listenformatter mit der englischen Sprache erstellt.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];
@@ -90,9 +89,9 @@ console.log(new Intl.ListFormat("en-GB", { type: "disjunction" }).format(list));
 // Motorcycle, Bus or Car
 ```
 
-### Oxford-Komma
+### Oxford Komma
 
-[Oxford-Komma](https://en.wikipedia.org/wiki/Serial_comma) ist ein Komma, das unmittelbar vor der koordinierenden Konjunktion (normalerweise "und" oder "oder") in einer Liste von drei oder mehr Begriffen gesetzt wird. Etwas kontrovers verwendet das `en-US`-Locale das Oxford-Komma, während das `en-GB`-Locale es nicht tut.
+Das [Oxford-Komma](https://de.wikipedia.org/wiki/Serial_comma) ist ein Komma, das unmittelbar vor der koordinierenden Konjunktion (normalerweise "und" oder "oder") in einer Liste von drei oder mehr Begriffen gesetzt wird. Etwas umstritten verwendet das `en-US` Locale das Oxford-Komma, während das `en-GB` Locale es nicht verwendet.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];
@@ -106,7 +105,7 @@ console.log(new Intl.ListFormat("en-US", { type: "conjunction" }).format(list));
 
 ### Einheitsformatierung
 
-Verwenden Sie `style: "unit"`, um die Listenelemente als zusammengesetzte Einheit zu formatieren. Tatsächlich verwendet {{jsxref("Intl.DurationFormat")}} unter der Haube eine einheitsbasierte Listenformatierung, um Zeitdauern zu formatieren.
+Verwenden Sie `style: "unit"`, um die Listenelemente als eine zusammengesetzte Einheit zu formatieren. Tatsächlich verwendet {{jsxref("Intl.DurationFormat")}} intern die Einheits-Listenformatierung, um Zeitdauern zu formatieren.
 
 ```js
 const marathon = [
@@ -128,7 +127,7 @@ console.log(
 // 42 kilometers, 195 meters
 ```
 
-### Kurzer und enger Stil
+### Kurzer und schmaler Stil
 
 Die `"short"` und `"narrow"` Stile sind nützlich für kompakte Darstellungen von Listen.
 
@@ -147,7 +146,7 @@ console.log(new Intl.ListFormat("en-GB", { style: "narrow" }).format(list));
 // Motorcycle, Bus, Car
 ```
 
-Die Eingabeelemente werden nicht transformiert, aber häufig möchte man sie auch abkürzen.
+Die Eingabeelemente werden nicht transformiert, aber Sie möchten sie oft auch abkürzen.
 
 ```js
 const marathon = [
@@ -177,7 +176,7 @@ console.log(formatDistance("en-US", marathon, "narrow"));
 
 ### Auswahl der Konjunktion
 
-Das verwendete Konjunktionswort kann von den Zeichenfolgenwerten der Listenelemente abhängen. Zum Beispiel ist im Spanischen die Konjunktion `"y"` für die meisten Wörter, aber `"e"` für Wörter, die mit dem Vokal `"i"` beginnen.
+Das verwendete Konjunktionswort kann von den String-Werten der Listenelemente abhängen. Zum Beispiel ist in Spanisch die Konjunktion `"y"` für die meisten Wörter, aber `"e"` für Wörter, die mit dem Vokal `"i"` beginnen.
 
 ```js
 const words = ["fuerte", "indomable"];
@@ -189,7 +188,7 @@ console.log(formatter.format(words.toReversed()));
 // indomable y fuerte
 ```
 
-Der Algorithmus zur Bestimmung der Konjunktion ist nicht perfekt (zum Beispiel kann er nicht immer die Aussprache eines Wortes aus seiner Schreibweise ableiten), sollte jedoch im Allgemeinen funktionieren.
+Der Algorithmus, der zur Bestimmung der Konjunktion verwendet wird, ist nicht perfekt (zum Beispiel kann er nicht immer die Aussprache eines Wortes anhand seiner Schreibweise bestimmen), aber er sollte im Allgemeinen funktionieren.
 
 ## Spezifikationen
 

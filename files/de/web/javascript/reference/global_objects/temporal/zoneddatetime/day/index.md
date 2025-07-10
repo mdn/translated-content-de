@@ -3,18 +3,18 @@ title: Temporal.ZonedDateTime.prototype.day
 short-title: day
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/day
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`day`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Tag im Monat dieses Datums darstellt, und entspricht damit der Tageszahl, die Sie auf einem Kalender sehen würden. Sie ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Die **`day`** Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Tag im Monat dieses Datums darstellt, was derselbe Tag ist, den Sie auf einem Kalender sehen würden. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
 Der Set-Zugriff von `day` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/day", "Temporal.PlainDate.prototype.day")}}.
 
-Bei `PlainDate` kann `day` nur dann nicht kontinuierlich sein, wenn der Kalender Tage überspringt. Bei `ZonedDateTime` kann `day` auch dann nicht kontinuierlich sein, wenn die Zeitzone ihre Verschiebung um 24 Stunden ändert; dies ist tatsächlich vorgekommen. Siehe das folgende Beispiel.
+Für `PlainDate` kann `day` nur dann nicht kontinuierlich sein, wenn der Kalender Tage überspringt. Für `ZonedDateTime` kann `day` auch dann nicht kontinuierlich sein, wenn die Zeitzone ihren Offset um 24 Stunden ändert; dies ist tatsächlich schon vorgekommen. Siehe das Beispiel unten.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ console.log(dt.day); // 1
 
 ### Nicht kontinuierlicher Tag
 
-Um die Zeiten besser mit seinen Handelspartnern in Asien abzugleichen, [änderte](https://en.wikipedia.org/wiki/Time_in_Samoa) das Land Samoa seine Zeitzone auf die andere Seite der Internationalen Datumsgrenze und verschob seine Verschiebung von -10:00 auf +14:00 (Sommerzeit). Dies führte zu einer 24-stündigen plötzlichen Änderung der lokalen Zeit, wodurch der Tag des 30. Dezember 2011 vollständig übersprungen wurde. `2011-12-29T23:59:59-10:00[Pacific/Apia]` folgt unmittelbar `2011-12-31T00:00:00+14:00[Pacific/Apia]`.
+Um die Zeiten besser mit seinen Handelspartnern in Asien abzustimmen, hat das Land Samoa [seine Zeitzone geändert](https://en.wikipedia.org/wiki/Time_in_Samoa), um auf die andere Seite der Internationalen Datumsgrenze zu wechseln und seinen Offset von -10:00 auf +14:00 (Sommerzeit) zu verschieben. Dies führte zu einer abrupten 24-stündigen Änderung der lokalen Zeit, wodurch der Tag des 30. Dezember 2011 vollständig übersprungen wurde. Auf `2011-12-29T23:59:59-10:00[Pacific/Apia]` folgt unmittelbar `2011-12-31T00:00:00+14:00[Pacific/Apia]`.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -38,7 +38,7 @@ const nextDay = dt.add({ seconds: 1 });
 console.log(nextDay.day); // 31
 ```
 
-Aus diesem Grund sollten Sie immer {{jsxref("Temporal/ZonedDateTime/add", "add()")}} und {{jsxref("Temporal/ZonedDateTime/subtract", "subtract()")}} bevorzugen, um Daten und Uhrzeiten zu manipulieren, anstatt die `day`-Eigenschaft direkt zu ändern.
+Aus diesem Grund sollten Sie immer {{jsxref("Temporal/ZonedDateTime/add", "add()")}} und {{jsxref("Temporal/ZonedDateTime/subtract", "subtract()")}} bevorzugen, um Daten und Zeiten zu manipulieren, anstatt die `day`-Eigenschaft direkt zu ändern.
 
 ## Spezifikationen
 

@@ -3,10 +3,8 @@ title: WeakSet()-Konstruktor
 short-title: WeakSet()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/WeakSet
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`WeakSet()`**-Konstruktor erstellt {{jsxref("WeakSet")}}-Objekte.
 
@@ -17,7 +15,8 @@ new WeakSet()
 new WeakSet(iterable)
 ```
 
-> [!NOTE] > `WeakSet()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> [!NOTE]
+> `WeakSet()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -44,7 +43,7 @@ ws.has(foo); // false, foo has been removed
 ws.has(bar); // true, bar is retained
 ```
 
-Beachten Sie, dass `foo !== bar`. Obwohl sie ähnliche Objekte sind, _sind sie nicht **dasselbe Objekt**_. Und so werden sie beide dem Set hinzugefügt.
+Beachten Sie, dass `foo !== bar`. Während sie ähnliche Objekte sind, _sind sie nicht **das gleiche Objekt**_. Daher werden sie beide der Menge hinzugefügt.
 
 ## Spezifikationen
 

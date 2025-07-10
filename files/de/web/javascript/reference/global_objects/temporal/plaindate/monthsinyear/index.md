@@ -3,14 +3,14 @@ title: Temporal.PlainDate.prototype.monthsInYear
 short-title: monthsInYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/monthsInYear
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`monthsInYear`** Zugriffseigenschaft von Instanzen von {{jsxref("Temporal.PlainDate")}} gibt eine positive ganze Zahl zurück, die die Anzahl der Monate im Jahr dieses Datums darstellt. Sie ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Die **`monthsInYear`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Monate im Jahr dieses Datums darstellt. Sie ist [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
-Für den ISO 8601-Kalender ist dies immer 12, aber in anderen Kalendersystemen kann es abweichen. In Kalendern, die Schaltmonate verwenden, haben Schaltjahre beispielsweise einen Monat mehr als normale Jahre.
+Für den ISO 8601-Kalender sind dies immer 12 Monate, aber in anderen Kalendersystemen kann dies unterschiedlich sein. Zum Beispiel haben in Kalendern, die Schaltmonate verwenden, Schaltjahre einen Monat mehr als gewöhnliche Jahre.
 
 Der Set-Accessor von `monthsInYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 

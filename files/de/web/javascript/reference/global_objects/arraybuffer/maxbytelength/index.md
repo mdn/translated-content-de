@@ -3,12 +3,10 @@ title: ArrayBuffer.prototype.maxByteLength
 short-title: maxByteLength
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/maxByteLength
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Eigenschaft **`maxByteLength`** der Zugriffs-Property von {{jsxref("ArrayBuffer")}}-Instanzen gibt die maximale Länge (in Bytes) zurück, auf die dieser Array-Puffer vergrößert werden kann.
+Die Zugriffsproperty **`maxByteLength`** von {{jsxref("ArrayBuffer")}}-Instanzen gibt die maximale Länge (in Bytes) zurück, auf die dieser Array-Buffer vergrößert werden kann.
 
 {{InteractiveExample("JavaScript Demo: ArrayBuffer.prototype.maxByteLength")}}
 
@@ -24,15 +22,15 @@ console.log(buffer.maxByteLength);
 
 ## Beschreibung
 
-Die `maxByteLength`-Eigenschaft ist eine Zugriffs-Property, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Arrays festgelegt, über die `maxByteLength`-Option des {{jsxref("ArrayBuffer/ArrayBuffer", "ArrayBuffer()")}}-Konstruktors gesetzt und kann nicht geändert werden.
+Die `maxByteLength`-Property ist eine Zugriffsproperty, deren Set-Zugriffs-Funktion `undefined` ist, was bedeutet, dass Sie diese Property nur lesen können. Der Wert wird bei der Konstruktion des Arrays festgelegt, wobei die `maxByteLength`-Option des {{jsxref("ArrayBuffer/ArrayBuffer", "ArrayBuffer()")}}-Konstruktors verwendet wird und nicht geändert werden kann.
 
-Diese Eigenschaft gibt 0 zurück, wenn dieser `ArrayBuffer` getrennt wurde. Wenn dieser `ArrayBuffer` ohne Angabe eines `maxByteLength`-Wertes erstellt wurde, gibt diese Eigenschaft einen Wert zurück, der dem Wert des {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des `ArrayBuffer` entspricht.
+Diese Property gibt 0 zurück, wenn dieses `ArrayBuffer` getrennt wurde. Wenn dieses `ArrayBuffer` ohne Angabe eines `maxByteLength`-Werts konstruiert wurde, gibt diese Property einen Wert zurück, der dem Wert der {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des `ArrayBuffer` entspricht.
 
 ## Beispiele
 
 ### Verwendung von maxByteLength
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und geben dann dessen `maxByteLength` zurück:
+In diesem Beispiel erstellen wir einen 8-Byte-Buffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und geben dann dessen `maxByteLength` zurück:
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });

@@ -3,12 +3,10 @@ title: Number.parseFloat()
 short-title: parseFloat()
 slug: Web/JavaScript/Reference/Global_Objects/Number/parseFloat
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Fließkommazahl zurück. Wenn eine Zahl nicht aus dem Argument extrahiert werden kann, wird {{jsxref("NaN")}} zurückgegeben.
+Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Fließkommazahl zurück. Wenn eine Zahl nicht aus dem Argument analysiert werden kann, wird {{jsxref("NaN")}} zurückgegeben.
 
 {{InteractiveExample("JavaScript Demo: Number.parseFloat()")}}
 
@@ -36,11 +34,11 @@ Number.parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, [zu einem String konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, [auf einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
 
 ### Rückgabewert
 
-Eine aus dem gegebenen `string` extrahierte Fließkommazahl.
+Eine Fließkommazahl, die aus dem angegebenen `string` analysiert wurde.
 
 Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
 
@@ -48,7 +46,7 @@ Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Z
 
 ### Number.parseFloat vs. parseFloat
 
-Diese Methode hat dieselbe Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
+Diese Methode hat die gleiche Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
 
 ```js
 Number.parseFloat === parseFloat; // true
@@ -56,7 +54,7 @@ Number.parseFloat === parseFloat; // true
 
 Ihr Zweck ist die Modularisierung von globalen Funktionen.
 
-Siehe {{jsxref("parseFloat()")}} für mehr Details und Beispiele.
+Weitere Details und Beispiele finden Sie unter {{jsxref("parseFloat()")}}.
 
 ## Spezifikationen
 

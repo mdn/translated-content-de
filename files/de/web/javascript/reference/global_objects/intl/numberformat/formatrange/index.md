@@ -3,12 +3,10 @@ title: Intl.NumberFormat.prototype.formatRange()
 short-title: formatRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRange
 l10n:
-  sourceCommit: 5206afe08e91add1b39cdeaa47d95a5da347a065
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`formatRange()`** von Instanzen des Objekts {{jsxref("Intl.NumberFormat")}} formatiert einen Bereich von Zahlen entsprechend den Lokalisierungs- und Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts.
+Die **`formatRange()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen formatiert einen Zahlenbereich gemäß den lokalen und den Formatierungsoptionen dieses `Intl.NumberFormat` Objekts.
 
 ## Syntax
 
@@ -19,30 +17,30 @@ formatRange(startRange, endRange)
 ### Parameter
 
 - `startRange`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}}, oder eine Zeichenkette, die formatiert werden soll. Zeichenketten werden auf die gleiche Weise wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) geparst, außer dass `formatRange()` den genauen Wert verwendet, den die Zeichenkette darstellt, um einen Präzisionsverlust während der impliziten Umwandlung in eine Zahl zu vermeiden.
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, um formatiert zu werden. Strings werden auf die gleiche Weise wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) analysiert, mit der Ausnahme, dass `formatRange()` den exakten Wert verwendet, den der String darstellt, um Präzisionsverluste bei der impliziten Umwandlung in eine Zahl zu vermeiden.
 - `endRange`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}}, oder eine Zeichenkette, die formatiert werden soll.
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, um formatiert zu werden.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die den angegebenen Bereich von Zahlen darstellt, formatiert gemäß den Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts. Wenn die Start- und Endwerte zu derselben Zeichenkette formatiert werden, enthält die Ausgabe nur einen einzigen Wert, möglicherweise mit einem "ungefähr gleich"-Symbol (z.B. "~$3") vorangestellt. Die Hinzufügung dieses Symbols hängt nur von den Lokalisierungseinstellungen ab und wird auch eingefügt, wenn `startRange === endRange`.
+Ein String, der den angegebenen Bereich von Zahlen darstellt, formatiert gemäß den lokalen und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts. Wenn die Start- und Endwerte zum gleichen String formatiert werden, enthält die Ausgabe nur einen einzigen Wert, möglicherweise mit einem "ungefähr gleich"-Symbol (z. B. "~$3") vorangestellt. Die Einfügung dieses Symbols hängt ausschließlich von den lokalen Einstellungen ab und wird auch eingefügt, wenn `startRange === endRange`.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` `NaN` oder eine unverwertbare Zeichenkette ist.
+  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` `NaN` oder ein nicht konvertierbarer String ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` undefiniert ist.
 
 ## Beschreibung
 
-Die `formatRange`-Getter-Funktion formatiert einen Bereich von Zahlen in eine Zeichenkette gemäß den Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts, von dem sie aufgerufen wird.
+Die `formatRange` Getter-Funktion formatiert einen Bereich von Zahlen zu einem String gemäß den lokalen und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts, von dem sie aufgerufen wird.
 
 ## Beispiele
 
 ### Verwendung von formatRange
 
-Verwenden Sie die `formatRange`-Getter-Funktion zum Formatieren eines Bereichs von Währungswerten:
+Verwenden Sie die `formatRange` Getter-Funktion, um einen Bereich von Währungswerten zu formatieren:
 
 ```js
 const nf = new Intl.NumberFormat("en-US", {

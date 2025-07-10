@@ -2,14 +2,12 @@
 title: URIError
 slug: Web/JavaScript/Reference/Global_Objects/URIError
 l10n:
-  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Das **`URIError`**-Objekt repräsentiert einen Fehler, wenn eine globale URI-Verarbeitungsfunktion auf falsche Weise verwendet wurde.
 
-Das **`URIError`**-Objekt stellt einen Fehler dar, der auftritt, wenn eine globale URI-Verwaltungsfunktion falsch verwendet wurde.
-
-`URIError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`URIError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `URIError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -20,22 +18,22 @@ Das **`URIError`**-Objekt stellt einen Fehler dar, der auftritt, wenn eine globa
 
 ## Instanzeigenschaften
 
-_Erbt auch Instanzeigenschaften von seinem Elternobjekt {{jsxref("Error")}}_.
+_Erbt auch Instanzeigenschaften von seinem übergeordneten Objekt {{jsxref("Error")}}_.
 
-Diese Eigenschaften sind auf `URIError.prototype` definiert und werden von allen `URIError`-Instanzen geteilt.
+Diese Eigenschaften sind auf `URIError.prototype` definiert und werden von allen `URIError` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "URIError.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `URIError`-Instanzen ist der Anfangswert der {{jsxref("URIError/URIError", "URIError")}}-Konstruktor.
 - {{jsxref("Error/name", "URIError.prototype.name")}}
-  - : Repräsentiert den Namen für den Fehlertyp. Für `URIError.prototype.name` ist der Anfangswert `"URIError"`.
+  - : Repräsentiert den Namen des Fehler-Typs. Für `URIError.prototype.name` ist der Anfangswert `"URIError"`.
 
 ## Instanzmethoden
 
-_Erbt Instanzmethoden von seinem Elternobjekt {{jsxref("Error")}}_.
+_Erbt Instanzmethoden von seinem übergeordneten Objekt {{jsxref("Error")}}_.
 
 ## Beispiele
 
-### Abfangen eines URIError
+### Einen URIError abfangen
 
 ```js
 try {
@@ -48,7 +46,7 @@ try {
 }
 ```
 
-### Erstellen eines URIError
+### Einen URIError erstellen
 
 ```js
 try {

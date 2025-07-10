@@ -3,12 +3,12 @@ title: Temporal.Instant.prototype.valueOf()
 short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/valueOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Temporal.Instant")}}-Instanzen löst einen {{jsxref("TypeError")}} aus, welcher verhindert, dass `Temporal.Instant`-Instanzen [implizit in primitive Werte umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
+Die **`valueOf()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen löst einen {{jsxref("TypeError")}} aus, was verhindert, dass `Temporal.Instant` Instanzen [implizit in Primitive umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
 
 ## Syntax
 
@@ -31,13 +31,13 @@ Keine.
 
 ## Beschreibung
 
-Da sowohl die [primitive Umwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde eine Aussage wie `instant1 > instant2` sie implizit als Zeichenketten vergleichen, was zu unerwarteten Ergebnissen führen kann, falls `valueOf()` nicht vorhanden ist. Durch das Auslösen eines `TypeError` verhindern `Temporal.Instant`-Instanzen solche impliziten Umwandlungen. Sie müssen diese ausdrücklich in Zahlen umwandeln, indem Sie {{jsxref("Temporal/Instant/epochNanoseconds", "Temporal.Instant.prototype.epochNanoseconds")}} verwenden, oder die statische Methode {{jsxref("Temporal/Instant/compare", "Temporal.Instant.compare()")}} nutzen, um sie zu vergleichen.
+Da sowohl die [primitive Umwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, wenn `valueOf()` fehlt, ein Ausdruck wie `instant1 > instant2` sie implizit als Strings vergleichen, was unerwartete Ergebnisse haben könnte. Indem ein `TypeError` ausgelöst wird, verhindern `Temporal.Instant` Instanzen solche impliziten Umwandlungen. Sie müssen sie explizit in Zahlen umwandeln, indem Sie {{jsxref("Temporal/Instant/epochNanoseconds", "Temporal.Instant.prototype.epochNanoseconds")}} verwenden, oder die statische Methode {{jsxref("Temporal/Instant/compare", "Temporal.Instant.compare()")}} verwenden, um sie zu vergleichen.
 
 ## Beispiele
 
-### Arithmetische und Vergleichsoperationen mit Temporal.Instant
+### Arithmetische und Vergleichsoperationen auf Temporal.Instant
 
-Alle arithmetischen und Vergleichsoperationen auf `Temporal.Instant`-Instanzen sollten die vorgesehenen Methoden verwenden oder diese ausdrücklich in primitive Werte umwandeln.
+Alle arithmetischen und Vergleichsoperationen auf `Temporal.Instant` Instanzen sollten die dafür vorgesehenen Methoden verwenden oder sie explizit in Primitive umwandeln.
 
 ```js
 const instant1 = Temporal.Instant.fromEpochMilliseconds(0);

@@ -3,10 +3,8 @@ title: FinalizationRegistry() Konstruktor
 short-title: FinalizationRegistry()
 slug: Web/JavaScript/Reference/Global_Objects/FinalizationRegistry/FinalizationRegistry
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`FinalizationRegistry()`** Konstruktor erstellt {{jsxref("FinalizationRegistry")}} Objekte.
 
@@ -16,20 +14,21 @@ Der **`FinalizationRegistry()`** Konstruktor erstellt {{jsxref("FinalizationRegi
 new FinalizationRegistry(callbackFn)
 ```
 
-> [!NOTE] > `FinalizationRegistry()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `FinalizationRegistry()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `callback`
-  - : Eine Funktion, die jedes Mal aufgerufen wird, wenn ein registrierter Zielwert vom Garbage Collector bereinigt wird. Der Rückgabewert der Funktion wird ignoriert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die jedes Mal aufgerufen wird, wenn ein registrierter Zielwert vom Garbage Collector bereinigt wird. Ihr Rückgabewert wird ignoriert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `heldValue`
-      - : Der Wert, der beim Registrieren des `target` Objekts an den zweiten Parameter der {{jsxref("FinalizationRegistry/register", "register()")}} Methode übergeben wurde.
+      - : Der Wert, der als zweiter Parameter der {{jsxref("FinalizationRegistry/register", "register()")}} Methode übergeben wurde, als das `target` Objekt registriert wurde.
 
 ## Beispiele
 
-### Erstellen eines neuen Register
+### Erstellen eines neuen Registrierungsobjekts
 
-Sie erstellen das Register, indem Sie den Callback übergeben:
+Sie erstellen ein Registrierungsobjekt, indem Sie den Callback übergeben:
 
 ```js
 const registry = new FinalizationRegistry((heldValue) => {

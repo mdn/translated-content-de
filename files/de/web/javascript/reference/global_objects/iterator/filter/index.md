@@ -3,12 +3,10 @@ title: Iterator.prototype.filter()
 short-title: filter()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/filter
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`filter()`**-Methode von {{jsxref("Iterator")}}-Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das nur jene Elemente des Iterators liefert, für die die bereitgestellte Callback-Funktion `true` zurückgibt.
+Die Methode **`filter()`** von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das nur die Elemente des Iterators liefert, für die die bereitgestellte Callback-Funktion `true` zurückgibt.
 
 ## Syntax
 
@@ -19,7 +17,7 @@ filter(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, damit das Element vom Iterator-Hilfsobjekt geliefert wird, und einen {{Glossary("Falsy", "falsy")}}-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, damit das Element vom Iterator-Helfer angegeben wird, und einen {{Glossary("Falsy", "falsy")}} Wert sonst. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das verarbeitet wird.
     - `index`
@@ -27,17 +25,17 @@ filter(callbackFn)
 
 ### Rückgabewert
 
-Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Jedes Mal, wenn die `next()`-Methode des Iterator-Hilfsobjekts aufgerufen wird, gibt es das nächste Element im Iterator zurück, für das die Callback-Funktion `true` zurückgibt. Wenn der zugrunde liegende Iterator abgeschlossen ist, wird auch das Iterator-Hilfsobjekt abgeschlossen (die `next()`-Methode erzeugt `{ value: undefined, done: true }`).
+Ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Jedes Mal, wenn die `next()`-Methode des Iterator-Helfers aufgerufen wird, gibt sie das nächste Element im Iterator zurück, für das die Callback-Funktion `true` zurückgibt. Wenn der zugrunde liegende Iterator abgeschlossen ist, wird auch das Iterator-Helferobjekt abgeschlossen (die `next()`-Methode erzeugt `{ value: undefined, done: true }`).
 
 ## Beschreibung
 
-Der Hauptvorteil von Iterator-Hilfsobjekten gegenüber Array-Methoden ist, dass sie 'lazy' sind, was bedeutet, dass sie den nächsten Wert nur dann erzeugen, wenn er angefordert wird. Dies vermeidet unnötige Berechnungen und ermöglicht es ihnen auch, mit unendlichen Iteratoren verwendet zu werden.
+Der Hauptvorteil von Iterator-Helfern gegenüber Array-Methoden ist, dass sie "lazy" sind, was bedeutet, dass sie den nächsten Wert nur bei Bedarf erzeugen. Dies vermeidet unnötige Berechnungen und ermöglicht auch die Verwendung mit unendlichen Iteratoren.
 
 ## Beispiele
 
 ### Verwendung von filter()
 
-Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Folge liefert, und liest dann die ersten wenigen Terme, die gerade sind:
+Im folgenden Beispiel wird ein Iterator erstellt, der Terme der Fibonacci-Folge liefert, und liest dann die ersten wenigen Terme, die gerade sind:
 
 ```js
 function* fibonacci() {
@@ -55,9 +53,9 @@ console.log(seq.next().value); // 8
 console.log(seq.next().value); // 34
 ```
 
-### Verwendung von filter() mit einer for...of-Schleife
+### Verwendung von filter() mit einer for...of Schleife
 
-`filter()` ist am bequemsten, wenn der Iterator nicht manuell erstellt wird. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Hilfsiterator mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
+`filter()` ist am bequemsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}} Schleife durchlaufen:
 
 ```js
 for (const n of fibonacci().filter((x) => x % 2 === 0)) {
@@ -73,7 +71,7 @@ for (const n of fibonacci().filter((x) => x % 2 === 0)) {
 // 34
 ```
 
-Dies ist gleichwertig mit:
+Dies ist gleichbedeutend mit:
 
 ```js
 for (const n of fibonacci()) {

@@ -3,12 +3,10 @@ title: TypedArray.prototype.buffer
 short-title: buffer
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/buffer
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`buffer`**-Zugriffs-Eigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt den durch diesen Typ-Array beim Erstellen referenzierten {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`buffer`** Accessor-Eigenschaft von {{jsxref("TypedArray")}} Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, auf den dieses typisierte Array zur Zeit der Konstruktion verweist.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.buffer", "shorter")}}
 
@@ -23,13 +21,13 @@ console.log(uint16.buffer.byteLength);
 
 ## Beschreibung
 
-Die `buffer`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das _TypedArray_ erstellt wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `buffer` Eigenschaft ist eine Accessor-Eigenschaft, deren `set` Accessorfunktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des _TypedArray_ festgelegt und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
-Da ein Typ-Array eine _Ansicht_ eines Buffers ist, kann der zugrunde liegende Buffer länger sein als das Typ-Array selbst.
+Da ein typisiertes Array eine _Ansicht_ eines Buffers ist, kann der zugrunde liegende Buffer länger sein als das typisierte Array selbst.
 
 ## Beispiele
 
-### Verwendung der buffer-Eigenschaft
+### Verwendung der Buffer-Eigenschaft
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -37,7 +35,7 @@ const uint16 = new Uint16Array(buffer);
 uint16.buffer; // ArrayBuffer { byteLength: 8 }
 ```
 
-### Zugriff auf den zugrunde liegenden Buffer von einer geschnittenen Array-Ansicht
+### Zugriff auf den zugrundeliegenden Buffer von einer geschnittenen Array-Ansicht aus
 
 ```js
 const buffer = new ArrayBuffer(1024);
@@ -57,5 +55,5 @@ console.log(arr.buffer === buffer); // true
 
 ## Siehe auch
 
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}

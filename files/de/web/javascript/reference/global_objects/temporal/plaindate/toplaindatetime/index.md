@@ -3,12 +3,12 @@ title: Temporal.PlainDate.prototype.toPlainDateTime()
 short-title: toPlainDateTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toPlainDateTime
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die Methode **`toPlainDateTime()`** von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt ein neues {{jsxref("Temporal.PlainDateTime")}} Objekt zurück, das dieses Datum und eine angegebene Uhrzeit im selben Kalendersystem darstellt.
+Die Methode **`toPlainDateTime()`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainDateTime")}} Objekt zurück, das dieses Datum und eine angegebene Uhrzeit im selben Kalendersystem darstellt.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ toPlainDateTime(plainTime)
 ### Parameter
 
 - `plainTime` {{optional_inline}}
-  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.PlainTime")}}, die die Zeitkomponente des resultierenden `PlainDateTime` darstellt. Es wird in ein `Temporal.PlainTime` Objekt konvertiert, wobei derselbe Algorithmus wie in {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} verwendet wird. Standardmäßig ist dies `"00:00:00"`.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, welche die Zeitkomponente des resultierenden `PlainDateTime` darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} in ein `Temporal.PlainTime` Objekt umgewandelt. Standardwert ist `"00:00:00"`.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime` Objekt, das das durch dieses Datum und `plainTime` angegebene Datum und die Uhrzeit darstellt, interpretiert im Kalendersystem dieses Datums.
+Ein neues `Temporal.PlainDateTime` Objekt, das das durch dieses Datum und `plainTime` spezifizierte Datum und Zeit darstellt, interpretiert im Kalendersystem dieses Datums.
 
 ## Beispiele
 

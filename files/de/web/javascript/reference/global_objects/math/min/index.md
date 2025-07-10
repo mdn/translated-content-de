@@ -3,12 +3,10 @@ title: Math.min()
 short-title: min()
 slug: Web/JavaScript/Reference/Global_Objects/Math/min
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.min()`** gibt die kleinste der als Eingabeparameter angegebenen Zahlen zurück oder {{jsxref("Infinity")}}, wenn keine Parameter angegeben sind.
+Die **`Math.min()`** statische Methode gibt die kleinste der als Eingabeparameter gegebenen Zahlen zurück, oder {{jsxref("Infinity")}}, wenn keine Parameter vorhanden sind.
 
 {{InteractiveExample("JavaScript Demo: Math.min()")}}
 
@@ -41,13 +39,13 @@ Math.min(value1, value2, /* …, */ valueN)
 
 ### Rückgabewert
 
-Die kleinste der angegebenen Zahlen. Gibt {{jsxref("NaN")}} zurück, wenn einer der Parameter `NaN` ist oder in `NaN` umgewandelt wird. Gibt {{jsxref("Infinity")}} zurück, wenn keine Parameter bereitgestellt werden.
+Die kleinste der gegebenen Zahlen. Gibt {{jsxref("NaN")}} zurück, wenn einer der Parameter `NaN` ist oder in `NaN` umgewandelt wird. Gibt {{jsxref("Infinity")}} zurück, wenn keine Parameter angegeben sind.
 
 ## Beschreibung
 
-Da `min()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.min()`, anstatt sie als Methode eines von Ihnen erstellten `Math`-Objekts zu verwenden (`Math` ist kein Konstruktor).
+Da `min()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.min()`, anstatt als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
-[`Math.min.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach signalisiert, dass es so konzipiert ist, dass es mindestens zwei Parameter verarbeiten kann.
+[`Math.min.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach signalisiert, dass sie dafür ausgelegt ist, mindestens zwei Parameter zu verarbeiten.
 
 ## Beispiele
 
@@ -61,9 +59,9 @@ const y = -20;
 const z = Math.min(x, y); // -20
 ```
 
-### Abschneiden eines Wertes mit Math.min()
+### Begrenzen eines Werts mit Math.min()
 
-`Math.min()` wird häufig verwendet, um einen Wert so abzuschneiden, dass er immer kleiner oder gleich einer Grenze ist. Zum Beispiel kann dies
+`Math.min()` wird oft verwendet, um einen Wert zu begrenzen, damit er immer kleiner oder gleich einer Grenze ist. Beispielsweise kann dies
 
 ```js
 let x = f(foo);
@@ -79,7 +77,7 @@ so geschrieben werden
 const x = Math.min(f(foo), boundary);
 ```
 
-{{jsxref("Math.max()")}} kann in ähnlicher Weise verwendet werden, um einen Wert am anderen Ende abzuschneiden.
+{{jsxref("Math.max()")}} kann auf ähnliche Weise verwendet werden, um einen Wert am anderen Ende zu begrenzen.
 
 ## Spezifikationen
 

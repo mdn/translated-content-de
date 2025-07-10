@@ -3,14 +3,12 @@ title: Symbol.search
 short-title: search
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/search
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`Symbol.search`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die {{jsxref("String.prototype.search()")}} Methode sucht dieses Symbol im ersten Argument, um die Methode zu finden, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
 
-Die statische Dateneigenschaft **`Symbol.search`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die Methode {{jsxref("String.prototype.search()")}} sucht dieses Symbol in ihrem ersten Argument für die Methode auf, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
-
-Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
+Für weitere Informationen siehe [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.search")}}
 
@@ -30,7 +28,7 @@ console.log("foobar".search(new Search1("bar")));
 
 ## Wert
 
-Das bekannte Symbol `Symbol.search`.
+Das wohlbekannte Symbol `Symbol.search`.
 
 {{js_property_attributes(0, 0, 0)}}
 

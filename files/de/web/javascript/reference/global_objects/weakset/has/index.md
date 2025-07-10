@@ -3,12 +3,10 @@ title: WeakSet.prototype.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/has
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`has()`**-Methode von Instanzen des {{jsxref("WeakSet")}} gibt ein boolean zurück, das anzeigt, ob ein Objekt in diesem `WeakSet` existiert oder nicht.
+Die **`has()`**-Methode von {{jsxref("WeakSet")}}-Instanzen gibt ein boolesches Wert zurück, das anzeigt, ob ein Objekt in diesem `WeakSet` existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: WeakSet.Prototype.has()")}}
 

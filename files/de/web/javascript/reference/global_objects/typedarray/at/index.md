@@ -3,12 +3,10 @@ title: TypedArray.prototype.at()
 short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/at
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`at()`**-Methode von {{jsxref("TypedArray")}}-Instanzen nimmt einen Ganzzahlwert und gibt das Element an diesem Index zurück und erlaubt dabei sowohl positive als auch negative Ganzzahlen. Negative Ganzzahlen zählen ab dem letzten Element des typisierten Arrays zurück. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.at()")}}.
+Die **`at()`**-Methode von {{jsxref("TypedArray")}} Instanzen nimmt einen ganzzahligen Wert entgegen und gibt das Element an diesem Index zurück, wobei sowohl positive als auch negative Ganzzahlen erlaubt sind. Negative Ganzzahlen zählen rückwärts vom letzten Element des typisierten Arrays. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.at()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.at()")}}
 
@@ -35,19 +33,19 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Nullbasierter Index des typsierten Array-Elements, das zurückgegeben werden soll, [in einen Ganzzahlwert umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Ein negativer Index zählt vom Ende des typisierten Arrays zurück — wenn `index < 0`, wird `index + array.length` aufgerufen.
+  - : Nullbasierter Index des typisierten Array-Elements, das zurückgegeben werden soll, [umgewandelt in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Ein negativer Index zählt rückwärts vom Ende des typisierten Arrays — wenn `index < 0` ist, wird `index + array.length` aufgerufen.
 
 ### Rückgabewert
 
-Das Element im typisierten Array, das dem angegebenen Index entspricht. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length` ist, ohne zu versuchen, auf die entsprechende Eigenschaft zuzugreifen.
+Das Element im typisierten Array, das dem angegebenen Index entspricht. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length`, ohne zu versuchen, auf die entsprechende Eigenschaft zuzugreifen.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.at()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
+Siehe {{jsxref("Array.prototype.at()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen eines typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Den letzten Wert eines typisierten Arrays zurückgeben
+### Das letzte Element eines typisierten Arrays zurückgeben
 
 Das folgende Beispiel bietet eine Funktion, die das letzte Element in einem angegebenen Array zurückgibt.
 
@@ -65,7 +63,7 @@ console.log(lastItem); // 18
 
 ### Vergleich von Methoden
 
-Hier vergleichen wir verschiedene Wege, um das vorletzte Element eines {{jsxref("TypedArray")}} auszuwählen. Während alle unten stehenden Methoden gültig sind, unterstreicht dies die Kürze und Lesbarkeit der `at()`-Methode.
+Hier vergleichen wir verschiedene Möglichkeiten, um das vorletzte Element (das letzte, aber eins) eines {{jsxref("TypedArray")}} auszuwählen. Während alle untenstehenden Methoden gültig sind, hebt dies die Prägnanz und Lesbarkeit der `at()`-Methode hervor.
 
 ```js
 // Our typed array with values

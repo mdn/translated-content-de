@@ -3,16 +3,16 @@ title: Temporal.PlainDate.prototype.yearOfWeek
 short-title: yearOfWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/yearOfWeek
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`yearOfWeek`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine ganze Zahl zurück, die das Jahr repräsentiert, das mit der {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} dieses Datums kombiniert werden soll, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Sie ist abhängig vom [calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Die **`yearOfWeek`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine ganze Zahl zurück, die das Jahr darstellt, das mit der {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} dieses Datums gepaart werden soll, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
 
-Normalerweise entspricht dies dem Jahr des Datums, aber nach ISO 8601 können die ersten und letzten Tage des Jahres der letzten Woche des vorherigen Jahres oder der ersten Woche des nächsten Jahres zugeordnet werden, was dazu führt, dass sich `yearOfWeek` um 1 unterscheidet. Weitere Details finden Sie unter {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}}.
+Normalerweise ist dies das Jahr des Datums, aber bei ISO 8601 können die ersten und letzten Tage des Jahres der letzten Woche des Vorjahres oder der ersten Woche des nächsten Jahres zugeordnet werden, wodurch sich das `yearOfWeek` um 1 unterscheidet. Weitere Details finden Sie unter {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}}.
 
-Der Set-Accessor von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der set-Zugriff von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

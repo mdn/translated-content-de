@@ -3,12 +3,10 @@ title: Math.expm1()
 short-title: expm1()
 slug: Web/JavaScript/Reference/Global_Objects/Math/expm1
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.expm1()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl, abzüglich 1, zurück. Das heißt:
+Die statische Methode **`Math.expm1()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl und davon subtrahiert 1 zurück. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -49,13 +47,13 @@ Eine Zahl, die e<sup>x</sup> - 1 darstellt, wobei e [die Basis des natürlichen 
 
 ## Beschreibung
 
-Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Genauigkeit verringern oder beseitigen. Die in JS verwendeten Double-Floats bieten Ihnen etwa 15 Ziffern Genauigkeit. 1 + 1e-15 \= 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und daher genau 1.0 in dieser Arithmetik, da Ziffern über 15 hinaus gerundet werden.
+Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Genauigkeit verringern oder eliminieren. Die in JavaScript verwendeten Gleitkommazahlen mit doppelter Genauigkeit bieten etwa 15 Stellen Genauigkeit. 1 + 1e-15 \= 1.000000000000001, jedoch 1 + 1e-16 = 1.000000000000000 und somit genau 1.0 in dieser Arithmetik, da Stellen nach der 15. Stelle abgerundet werden.
 
 <!-- prettier-ignore-start -->
-Wenn Sie <math><semantics><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><annotation encoding="TeX">\mathrm{e}^x</annotation></semantics></math> berechnen, wobei x eine Zahl ist, die sehr nahe bei 0 liegt, sollten Sie eine Antwort erhalten, die sehr nahe bei 1 + x liegt, weil: <math><semantics><mrow><munder><mo lspace="0em" rspace="0em">lim</mo><mrow><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\mathrm{e}^x - 1}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.exp(1.1111111111e-15) - 1` berechnen, sollten Sie eine Antwort nahe `1.1111111111e-15` erhalten. Stattdessen wird aufgrund der signifikanten Ziffer in der Ergebniszahl von `Math.exp`, der Ziffer `1`, der Endwert `1.1102230246251565e-15`, mit nur 3 korrekten Ziffern. Wenn Sie stattdessen `Math.expm1(1.1111111111e-15)` berechnen, erhalten Sie eine viel genauere Antwort, `1.1111111111000007e-15`, mit 11 korrekten Ziffern der Genauigkeit.
+Wenn Sie <math><semantics><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><annotation encoding="TeX">\mathrm{e}^x</annotation></semantics></math> berechnen, wobei x eine Zahl ist, die sehr nahe bei 0 liegt, sollten Sie eine Antwort erhalten, die sehr nahe bei 1 + x ist, weil: <math><semantics><mrow><munder><mo lspace="0em" rspace="0em">lim</mo><mrow><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\mathrm{e}^x - 1}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.exp(1.1111111111e-15) - 1` berechnen, sollten Sie eine Antwort in der Nähe von `1.1111111111e-15` erhalten. Stattdessen, aufgrund der höchsten signifikanten Stelle im Ergebnis von `Math.exp`, die die Einheitsziffer `1` ist, endet der endgültige Wert bei `1.1102230246251565e-15` mit nur 3 korrekten Stellen. Wenn Sie stattdessen `Math.expm1(1.1111111111e-15)` berechnen, erhalten Sie eine weitaus genauere Antwort, `1.1111111111000007e-15`, mit 11 korrekten Nachkommastellen.
 <!-- prettier-ignore-end -->
 
-Da `expm1()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.expm1()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `expm1()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.expm1()`, anstatt sie als Methode eines selbst erstellten `Math`-Objekts zu verwenden (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

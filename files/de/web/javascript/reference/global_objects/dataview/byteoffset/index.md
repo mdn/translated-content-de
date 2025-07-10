@@ -3,12 +3,10 @@ title: DataView.prototype.byteOffset
 short-title: byteOffset
 slug: Web/JavaScript/Reference/Global_Objects/DataView/byteOffset
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`byteOffset`** Zugriffs-Eigenschaft von {{jsxref("DataView")}}-Instanzen gibt den Offset (in Bytes) dieser Ansicht vom Anfang ihres {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`byteOffset`** Accessor-Eigenschaft von {{jsxref("DataView")}}-Instanzen gibt den Offset (in Bytes) dieser Ansicht vom Anfang ihres {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.byteOffset")}}
 
@@ -24,7 +22,7 @@ console.log(view.byteOffset);
 
 ## Beschreibung
 
-Die `byteOffset`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Zugriffs-Funktion `undefined` ist. Dies bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird bei der Konstruktion eines `DataView` festgelegt und kann nicht geändert werden.
+Die `byteOffset`-Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein `DataView` konstruiert wird und kann nicht geändert werden.
 
 ## Beispiele
 

@@ -3,12 +3,10 @@ title: WeakMap.prototype.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/has
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`has()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
+Die **`has()`**-Methode von {{jsxref("WeakMap")}}-Instanzen gibt einen booleschen Wert zurück, der anzeigt, ob ein Element mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: WeakMap.prototype.has()")}}
 
@@ -35,7 +33,7 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, dessen Vorhandensein im `WeakMap`-Objekt getestet werden soll.
+  - : Der Schlüssel des Elements, dessen Vorhandensein im `WeakMap`-Objekt geprüft werden soll.
 
 ### Rückgabewert
 
@@ -43,7 +41,7 @@ Gibt `true` zurück, wenn ein Element mit dem angegebenen Schlüssel im `WeakMap
 
 ## Beispiele
 
-### Verwendung der has Methode
+### Verwendung der has-Methode
 
 ```js
 const wm = new WeakMap();

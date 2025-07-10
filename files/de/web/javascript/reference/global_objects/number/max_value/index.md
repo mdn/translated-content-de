@@ -3,10 +3,8 @@ title: Number.MAX_VALUE
 short-title: MAX_VALUE
 slug: Web/JavaScript/Reference/Global_Objects/Number/MAX_VALUE
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Dateneigenschaft **`Number.MAX_VALUE`** repräsentiert den maximal darstellbaren Zahlenwert in JavaScript.
 
@@ -35,9 +33,9 @@ console.log(multiply(1.7976931348623157e308, 2));
 
 ## Beschreibung
 
-Werte, die größer sind als `MAX_VALUE`, werden als {{jsxref("Infinity")}} dargestellt und verlieren ihren tatsächlichen Wert.
+Werte, die größer als `MAX_VALUE` sind, werden als {{jsxref("Infinity")}} dargestellt und verlieren ihren tatsächlichen Wert.
 
-Da `MAX_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es stets als `Number.MAX_VALUE`, anstatt es als Eigenschaft eines Zahlenwerts zu verwenden.
+Da `MAX_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MAX_VALUE` und nicht als eine Eigenschaft eines Zahlenwertes.
 
 ## Beispiele
 

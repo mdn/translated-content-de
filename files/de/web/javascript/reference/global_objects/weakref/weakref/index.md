@@ -3,10 +3,8 @@ title: WeakRef()-Konstruktor
 short-title: WeakRef()
 slug: Web/JavaScript/Reference/Global_Objects/WeakRef/WeakRef
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`WeakRef()`**-Konstruktor erstellt {{jsxref("WeakRef")}}-Objekte.
 
@@ -16,16 +14,17 @@ Der **`WeakRef()`**-Konstruktor erstellt {{jsxref("WeakRef")}}-Objekte.
 new WeakRef(target)
 ```
 
-> [!NOTE] > `WeakRef()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> [!NOTE]
+> `WeakRef()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `target`
-  - : Der Zielwert, auf den sich der WeakRef beziehen soll (auch _Referent_ genannt). Muss ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein.
+  - : Der Zielwert, auf den sich der WeakRef beziehen soll (auch als _Referent_ bezeichnet). Muss ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein.
 
 ### Rückgabewert
 
-Ein neues `WeakRef`-Objekt, das sich auf den angegebenen Zielwert bezieht.
+Ein neues `WeakRef`-Objekt, das auf den angegebenen Zielwert verweist.
 
 ### Ausnahmen
 
@@ -36,7 +35,7 @@ Ein neues `WeakRef`-Objekt, das sich auf den angegebenen Zielwert bezieht.
 
 ### Erstellen eines neuen WeakRef-Objekts
 
-Siehe die Hauptseite [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#examples) für ein vollständiges Beispiel.
+Sehen Sie die Hauptseite von [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#examples) für ein vollständiges Beispiel.
 
 ```js
 class Counter {

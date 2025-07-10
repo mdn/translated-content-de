@@ -3,12 +3,10 @@ title: Map.prototype.values()
 short-title: values()
 slug: Web/JavaScript/Reference/Global_Objects/Map/values
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`values()`** Methode von {{jsxref("Map")}} Instanzen gibt ein neues _[map iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Werte für jedes Element in dieser Map in der Einfügereihenfolge enthält.
+Die **`values()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein neues _[Karten-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Werte für jedes Element in dieser Karte in der Reihenfolge der Einfügung enthält.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.values()")}}
 

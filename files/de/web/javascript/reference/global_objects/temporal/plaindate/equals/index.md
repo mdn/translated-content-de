@@ -3,12 +3,12 @@ title: Temporal.PlainDate.prototype.equals()
 short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/equals
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`equals()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt `true` zurück, wenn dieses Datum in seinem Wert einem anderen Datum (in einer Form, die durch {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} konvertierbar ist) entspricht, und `false` andernfalls. Sie werden sowohl anhand ihrer Datumswerte als auch ihrer Kalender verglichen, sodass zwei Daten aus verschiedenen Kalendern möglicherweise von {{jsxref("Temporal/PlainDate/compare", "Temporal.PlainDate.compare()")}} als gleich betrachtet werden, jedoch nicht von `equals()`.
+Die Methode **`equals()`** von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt `true` zurück, wenn dieses Datum in seinem Wert einem anderen Datum entspricht (in einer Form, die durch {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} konvertiert werden kann), und `false` andernfalls. Sie werden sowohl nach ihren Datumswerten als auch nach ihren Kalendern verglichen, sodass zwei Daten aus verschiedenen Kalendern durch {{jsxref("Temporal/PlainDate/compare", "Temporal.PlainDate.compare()")}} als gleich betrachtet werden können, jedoch nicht durch `equals()`.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDate")}} Instanz, die das andere zu vergleichende Datum darstellt. Es wird mithilfe desselben Algorithmus wie {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate` Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDate")}}-Instanz, die das andere zu vergleichende Datum darstellt. Es wird mithilfe des gleichen Algorithmus wie {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate`-Objekt umgewandelt.
 
 ### Rückgabewert
 
-`true`, wenn dieses Datum sowohl im Datumswert als auch im Kalender `other` entspricht, `false` andernfalls.
+`true`, wenn dieses Datum dem `other` sowohl in ihrem Datumswert als auch in ihrem Kalender entspricht, `false` andernfalls.
 
 ## Beispiele
 

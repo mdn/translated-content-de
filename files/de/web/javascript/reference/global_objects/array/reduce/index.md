@@ -3,14 +3,12 @@ title: Array.prototype.reduce()
 short-title: reduce()
 slug: Web/JavaScript/Reference/Global_Objects/Array/reduce
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`reduce()`**-Methode von {{jsxref("Array")}}-Instanzen führt eine benutzerdefinierte "Reducer"-Callback-Funktion für jedes Element des Arrays in Reihenfolge aus und übergibt dabei den Rückgabewert aus der Berechnung des vorhergehenden Elements. Das Endergebnis der Ausführung des Reducers über alle Elemente des Arrays ist ein einzelner Wert.
 
-Die **`reduce()`**-Methode von {{jsxref("Array")}}-Instanzen führt eine vom Benutzer bereitgestellte "Reducer"-Rückruffunktion für jedes Element des Arrays in der vorgegebenen Reihenfolge aus, wobei der Rückgabewert der Berechnung des vorhergehenden Elements übergeben wird. Das Endergebnis des Ausführens des Reducers über alle Elemente des Arrays ist ein einzelner Wert.
-
-Beim ersten Ausführen des Rückrufs gibt es keinen "Rückgabewert der vorherigen Berechnung". Wenn bereitgestellt, kann stattdessen ein Initialwert verwendet werden. Andernfalls wird das Array-Element am Index 0 als Initialwert verwendet und die Iteration beginnt mit dem nächsten Element (Index 1 statt Index 0).
+Beim ersten Aufruf des Callbacks gibt es keinen "Rückgabewert der vorherigen Berechnung". Wenn angegeben, kann stattdessen ein Anfangswert verwendet werden. Andernfalls wird das Array-Element an Index 0 als Anfangswert verwendet und die Iteration beginnt mit dem nächsten Element (Index 1 statt Index 0).
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.reduce()")}}
 
@@ -38,23 +36,23 @@ reduce(callbackFn, initialValue)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt werden soll. Ihr Rückgabewert wird zum Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert der Rückgabewert von `reduce()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Ihr Rückgabewert wird zum Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Für den letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduce()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `accumulator`
-      - : Der Wert, der das Ergebnis des vorherigen Aufrufs von `callbackFn` ist. Beim ersten Aufruf ist sein Wert `initialValue`, falls letzterer angegeben ist; andernfalls ist sein Wert `array[0]`.
+      - : Der Wert, der aus dem vorherigen Aufruf von `callbackFn` resultiert. Beim ersten Aufruf ist sein Wert `initialValue`, wenn dieser angegeben ist; andernfalls ist sein Wert `array[0]`.
     - `currentValue`
       - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert `array[0]`, wenn `initialValue` angegeben ist; andernfalls ist sein Wert `array[1]`.
     - `currentIndex`
       - : Die Indexposition von `currentValue` im Array. Beim ersten Aufruf ist sein Wert `0`, wenn `initialValue` angegeben ist, andernfalls `1`.
     - `array`
-      - : Das Array, auf dem `reduce()` aufgerufen wurde.
+      - : Das Array, auf das `reduce()` aufgerufen wurde.
 - `initialValue` {{optional_inline}}
-  - : Ein Wert, auf den der `accumulator` beim ersten Aufruf des Rückrufs initialisiert wird.
-    Wenn `initialValue` angegeben ist, beginnt die Ausführung von `callbackFn` mit dem ersten Wert im Array als `currentValue`.
-    Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` auf den ersten Wert im Array initialisiert, und die Ausführung von `callbackFn` beginnt mit dem zweiten Wert im Array als `currentValue`. In diesem Fall wird ein Fehler ausgelöst, wenn das Array leer ist (so dass kein erster Wert zurückgegeben werden kann als `accumulator`).
+  - : Ein Wert, mit dem `accumulator` beim ersten Aufruf des Callbacks initialisiert wird.
+    Wenn `initialValue` angegeben ist, beginnt `callbackFn` mit dem ersten Wert im Array als `currentValue`.
+    Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` mit dem ersten Wert im Array initialisiert und `callbackFn` beginnt mit dem zweiten Wert im Array als `currentValue`. In diesem Fall, wenn das Array leer ist (sodass es keinen ersten Wert gibt, der als `accumulator` zurückgegeben werden kann), wird ein Fehler ausgelöst.
 
 ### Rückgabewert
 
-Der Wert, der aus der vollständigen Ausführung der "Reducer"-Rückruffunktion über das gesamte Array entsteht.
+Der Wert, der aus der vollständigen Ausführung der "Reducer"-Callback-Funktion über das gesamte Array resultiert.
 
 ### Ausnahmen
 
@@ -63,23 +61,23 @@ Der Wert, der aus der vollständigen Ausführung der "Reducer"-Rückruffunktion 
 
 ## Beschreibung
 
-Die `reduce()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie führt eine "Reducer"-Rückruffunktion über alle Elemente im Array in aufsteigender Indexreihenfolge aus und kumuliert sie in einen einzigen Wert. Jedes Mal wird der Rückgabewert von `callbackFn` beim nächsten Aufruf erneut in `callbackFn` als `accumulator` übergeben. Der Endwert von `accumulator` (der Wert, der bei der letzten Iteration des Arrays von `callbackFn` zurückgegeben wird) wird zum Rückgabewert von `reduce()`. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die `reduce()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie führt eine "Reducer"-Callback-Funktion für alle Elemente im Array in aufsteigender Index-Reihenfolge aus und akkumuliert sie zu einem einzigen Wert. Jedes Mal wird der Rückgabewert von `callbackFn` beim nächsten Aufruf erneut an `callbackFn` als `accumulator` übergeben. Der endgültige Wert von `accumulator` (der der Wert ist, der von `callbackFn` bei der letzten Iteration des Arrays zurückgegeben wird) wird zum Rückgabewert von `reduce()`. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, die zugewiesene Werte haben. Es wird nicht für leere Slots in [dünn besiedelten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Es wird nicht für leere Stellen in [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
 
-Im Gegensatz zu anderen [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) akzeptiert `reduce()` kein `thisArg`-Argument. `callbackFn` wird immer mit `undefined` als `this` aufgerufen, was durch `globalThis` ersetzt wird, wenn `callbackFn` nicht im strikten Modus ist.
+Im Gegensatz zu anderen [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) akzeptiert `reduce()` kein `thisArg`-Argument. `callbackFn` wird immer mit `undefined` als `this` aufgerufen, das durch `globalThis` ersetzt wird, wenn `callbackFn` nicht strikt ist.
 
-`reduce()` ist ein zentrales Konzept in der [funktionalen Programmierung](https://en.wikipedia.org/wiki/Functional_programming), wo es nicht möglich ist, irgendeinen Wert zu verändern, daher muss man, um alle Werte in einem Array zu kumulieren, bei jeder Iteration einen neuen Akkumulatorwert zurückgeben. Diese Konvention überträgt sich auf das JavaScript-`reduce()`: Sie sollten [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder andere Kopiermethoden verwenden, wo möglich, um neue Arrays und Objekte als den Akkumulator zu erstellen, anstatt das vorhandene zu ändern. Wenn Sie sich entscheiden, den Akkumulator zu verändern, anstatt ihn zu kopieren, denken Sie daran, das modifizierte Objekt im Rückruf dennoch zurückzugeben, oder die nächste Iteration erhält undefined. Beachten Sie jedoch, dass das Kopieren des Akkumulators zu einem höheren Speicherverbrauch und einer verringerten Leistung führen kann — siehe [Wann Sie reduce() nicht verwenden sollten](#when_to_not_use_reduce) für weitere Details. In solchen Fällen, um schlechte Leistung und unlesbaren Code zu vermeiden, ist es besser, eine `for`-Schleife zu verwenden.
+`reduce()` ist ein zentrales Konzept in der [funktionalen Programmierung](https://en.wikipedia.org/wiki/Functional_programming), wo es nicht möglich ist, Werte zu verändern, sodass um alle Werte in einem Array zu akkumulieren, ein neuer Akkumulatorwert bei jeder Iteration zurückgegeben werden muss. Diese Konvention überträgt sich auf JavaScripts `reduce()`: Sie sollten [Spreading](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder andere Kopiermethoden verwenden, wo möglich, um neue Arrays und Objekte als Akkumulator zu erstellen, anstatt das bestehende zu verändern. Wenn Sie sich entscheiden, den Akkumulator anstelle dessen zu verändern, denken Sie daran, das modifizierte Objekt dennoch im Callback zurückzugeben, andernfalls erhält die nächste Iteration undefined. Beachten Sie jedoch, dass das Kopieren des Akkumulators wiederum zu erhöhtem Speicherverbrauch und verschlechterter Leistung führen kann – siehe [Wann reduce() nicht verwendet werden sollte](#when_to_not_use_reduce) für weitere Details. In solchen Fällen ist es besser, eine `for`-Schleife zu verwenden, um schlechte Leistung und unleserlichen Code zu vermeiden.
 
-Die `reduce()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlig indizierte Eigenschaften hat.
+Die `reduce()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsselwerten hat.
 
-### Randfälle
+### Grenzfälle
 
-Wenn das Array nur ein Element hat (unabhängig von der Position) und kein `initialValue` bereitgestellt wird, oder wenn `initialValue` bereitgestellt wird, aber das Array leer ist, wird der Einzelwert _ohne_ Aufruf von `callbackFn` zurückgegeben.
+Wenn das Array nur ein Element hat (unabhängig von der Position) und kein `initialValue` bereitgestellt wird, oder wenn `initialValue` bereitgestellt wird, aber das Array leer ist, wird der Einzelwert _ohne_ einen Aufruf von `callbackFn` zurückgegeben.
 
-Wenn `initialValue` bereitgestellt wird und das Array nicht leer ist, wird die Reduce-Methode die Rückruffunktion immer beginnend bei Index 0 aufrufen.
+Wenn `initialValue` bereitgestellt wird und das Array nicht leer ist, wird die Reduce-Methode immer die Callback-Funktion beginnend an Index 0 aufrufen.
 
-Wenn `initialValue` nicht bereitgestellt wird, verhält sich die Reduce-Methode für Arrays mit einer Länge größer als 1, gleich 1 und 0 wie im folgenden Beispiel gezeigt:
+Wenn `initialValue` nicht bereitgestellt wird, wird die Reduce-Methode für Arrays mit einer Länge größer als 1, gleich 1 und 0 unterschiedlich agieren, wie im folgenden Beispiel gezeigt:
 
 ```js
 const getMax = (a, b) => Math.max(a, b);
@@ -100,9 +98,9 @@ const getMax = (a, b) => Math.max(a, b);
 
 ## Beispiele
 
-### Wie reduce() ohne einen Initialwert funktioniert
+### Wie reduce() ohne Anfangswert funktioniert
 
-Der untenstehende Code zeigt, was passiert, wenn wir `reduce()` mit einem Array und ohne Initialwert aufrufen.
+Der folgende Code zeigt, was passiert, wenn wir `reduce()` mit einem Array und ohne Anfangswert aufrufen.
 
 ```js
 const array = [15, 16, 17, 18, 19];
@@ -118,7 +116,7 @@ function reducer(accumulator, currentValue, index) {
 array.reduce(reducer);
 ```
 
-Der Rückruf würde viermal aufgerufen werden, wobei die Argumente und Rückgabewerte bei jedem Aufruf wie folgt wären:
+Das Callback würde viermal aufgerufen werden, mit den Argumenten und Rückgabewerten in jedem Aufruf wie folgt:
 
 |                | `accumulator` | `currentValue` | `index` | Rückgabewert |
 | -------------- | ------------- | -------------- | ------- | ------------ |
@@ -127,11 +125,11 @@ Der Rückruf würde viermal aufgerufen werden, wobei die Argumente und Rückgabe
 | Dritter Aufruf | `48`          | `18`           | `3`     | `66`         |
 | Vierter Aufruf | `66`          | `19`           | `4`     | `85`         |
 
-Der `array`-Parameter ändert sich während des Prozesses nie — er bleibt immer `[15, 16, 17, 18, 19]`. Der Wert, der von `reduce()` zurückgegeben wird, wäre der des letzten Rückrufs (`85`).
+Der `array`-Parameter ändert sich während des Prozesses nie – er bleibt immer `[15, 16, 17, 18, 19]`. Der von `reduce()` zurückgegebene Wert wäre der Wert aus dem letzten Callback-Aufruf (`85`).
 
-### Wie reduce() mit einem Initialwert funktioniert
+### Wie reduce() mit einem Anfangswert funktioniert
 
-Hier reduzieren wir dasselbe Array mit demselben Algorithmus, aber mit einem `initialValue` von `10`, der als zweites Argument an `reduce()` übergeben wird:
+Hier reduzieren wir das gleiche Array mit demselben Algorithmus, jedoch mit einem `initialValue` von `10`, der als zweites Argument zu `reduce()` übergeben wird:
 
 ```js
 [15, 16, 17, 18, 19].reduce(
@@ -140,7 +138,7 @@ Hier reduzieren wir dasselbe Array mit demselben Algorithmus, aber mit einem `in
 );
 ```
 
-Der Rückruf würde fünfmal aufgerufen werden, wobei die Argumente und Rückgabewerte bei jedem Aufruf wie folgt wären:
+Das Callback würde fünfmal aufgerufen werden, mit den Argumenten und Rückgabewerten in jedem Aufruf wie folgt:
 
 |                | `accumulator` | `currentValue` | `index` | Rückgabewert |
 | -------------- | ------------- | -------------- | ------- | ------------ |
@@ -150,11 +148,11 @@ Der Rückruf würde fünfmal aufgerufen werden, wobei die Argumente und Rückgab
 | Vierter Aufruf | `58`          | `18`           | `3`     | `76`         |
 | Fünfter Aufruf | `76`          | `19`           | `4`     | `95`         |
 
-Der Wert, der in diesem Fall von `reduce()` zurückgegeben wird, wäre `95`.
+Der Wert, der in diesem Fall von `reduce()` zurückgegeben würde, wäre `95`.
 
-### Summe der Werte in einem Objektarray
+### Summe der Werte in einem Objekt-Array
 
-Um die Werte in einem Array von Objekten zusammenzufassen, müssen Sie einen `initialValue` angeben, damit jedes Element durch Ihre Funktion geleitet wird.
+Um die Werte in einem Array von Objekten zu summieren, **müssen** Sie einen `initialValue` angeben, sodass jedes Element Ihre Funktion durchläuft.
 
 ```js
 const objects = [{ x: 1 }, { x: 2 }, { x: 3 }];
@@ -166,9 +164,9 @@ const sum = objects.reduce(
 console.log(sum); // 6
 ```
 
-### Funktionale Verkettung
+### Funktionale sequentielle Verknüpfung
 
-Die `pipe`-Funktion nimmt eine Reihenfolge von Funktionen und gibt eine neue Funktion zurück. Wenn die neue Funktion mit einem Argument aufgerufen wird, werden die Funktionen in der Reihenfolge aufgerufen, wobei jede Funktion den Rückgabewert der vorherigen Funktion erhält.
+Die `pipe`-Funktion nimmt eine Sequenz von Funktionen und gibt eine neue Funktion zurück. Wenn die neue Funktion mit einem Argument aufgerufen wird, werden die Funktionen in der Reihenfolge aufgerufen, wobei jede den Rückgabewert der vorherigen Funktion erhält.
 
 ```js
 const pipe =
@@ -194,9 +192,9 @@ multiply16(16); // 256
 multiply24(10); // 240
 ```
 
-### Ausführung von Promises in Reihe
+### Promises in Reihenfolge ausführen
 
-[Promise-Sequenzierung](/de/docs/Web/JavaScript/Guide/Using_promises#composition) ist im Wesentlichen wie funktionale Verkettung, die im vorherigen Abschnitt gezeigt wurde, jedoch asynchron.
+[Promise-Sequenzierung](/de/docs/Web/JavaScript/Guide/Using_promises#composition) ist im Wesentlichen die funktionale Verknüpfung, die im vorherigen Abschnitt erläutert wurde, jedoch asynchron.
 
 ```js
 // Compare this with pipe: fn(acc) is changed to acc.then(fn),
@@ -217,7 +215,7 @@ const p4 = async (a) => a * 4;
 asyncPipe(p1, p2, f3, p4)(10).then(console.log); // 1200
 ```
 
-`asyncPipe` kann auch unter Verwendung von `async`/`await` implementiert werden, was ihre Ähnlichkeit zur `pipe` besser demonstriert:
+`asyncPipe` kann auch unter Verwendung von `async`/`await` implementiert werden, was seine Ähnlichkeit mit `pipe` besser demonstriert:
 
 ```js
 const asyncPipe =
@@ -226,18 +224,18 @@ const asyncPipe =
     functions.reduce(async (acc, fn) => fn(await acc), initialValue);
 ```
 
-### Verwendung von reduce() mit dünn besiedelten Arrays
+### Verwendung von reduce() mit dünn besetzten Arrays
 
-`reduce()` überspringt fehlende Elemente in dünn besiedelten Arrays, aber es überspringt keine `undefined`-Werte.
+`reduce()` überspringt fehlende Elemente in dünn besetzten Arrays, es überspringt jedoch keine `undefined`-Werte.
 
 ```js
 console.log([1, 2, , 4].reduce((a, b) => a + b)); // 7
 console.log([1, 2, undefined, 4].reduce((a, b) => a + b)); // NaN
 ```
 
-### Aufruf von reduce() auf Nicht-Array-Objekten
+### Aufrufen von reduce() bei Nicht-Array-Objekten
 
-Die `reduce()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl kleiner als `length` ist.
+Die `reduce()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel ein nichtnegativer Ganzzahlwert kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -251,11 +249,11 @@ console.log(Array.prototype.reduce.call(arrayLike, (x, y) => x + y));
 // 9
 ```
 
-### Wann man reduce() nicht verwenden sollte
+### Wann reduce() nicht verwendet werden sollte
 
-Höher geordnete Funktionen wie `reduce()` können mächtig, aber manchmal schwer verständlich sein, besonders für weniger erfahrene JavaScript-Entwickler. Wenn der Code klarer wird, wenn andere Array-Methoden verwendet werden, müssen Entwickler den Lesbarkeitskompromiss im Vergleich zu anderen Vorteilen der Verwendung von `reduce()` abwägen.
+Mehrzweck-Higher-Order-Funktionen wie `reduce()` können mächtig, aber manchmal schwierig zu verstehen sein, besonders für weniger erfahrene JavaScript-Entwickler. Wenn der Code durch die Verwendung anderer Array-Methoden klarer wird, müssen Entwickler den Kompromiss bei der Lesbarkeit gegen die anderen Vorteile von `reduce()` abwägen.
 
-Beachten Sie, dass `reduce()` immer äquivalent zu einer `for...of`-Schleife ist, außer dass anstatt eine Variable im äußeren Bereich zu mutieren, wir nun den neuen Wert für jede Iteration zurückgeben:
+Beachten Sie, dass `reduce()` immer äquivalent zu einer `for...of`-Schleife ist, außer dass anstelle der Änderung einer Variablen im übergeordneten Bereich, wir jetzt den neuen Wert bei jeder Iteration zurückgeben:
 
 ```js
 const val = array.reduce((acc, cur) => update(acc, cur), initialValue);
@@ -267,7 +265,7 @@ for (const cur of array) {
 }
 ```
 
-Wie zuvor erwähnt, verwenden Menschen `reduce()`, um funktionale Programmierungspraxen von nicht veränderbaren Daten zu imitieren. Daher kopieren Entwickler, die die Unveränderlichkeit des Akkumulators wahren, oft den gesamten Akkumulator für jede Iteration, wie hier:
+Wie zuvor erwähnt, möchten Menschen `reduce()` verwenden, um funktionale Programmierpraktiken immutablen Daten zu imitieren. Daher kopieren Entwickler, die die Unveränderlichkeit des Akkumulators aufrechterhalten, oft den gesamten Akkumulator bei jeder Iteration, so wie hier:
 
 ```js example-bad
 const names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
@@ -280,9 +278,9 @@ const countedNames = names.reduce((allNames, name) => {
 }, {});
 ```
 
-Dieser Code ist schlecht in der Leistung, weil bei jeder Iteration das gesamte `allNames`-Objekt kopiert werden muss, was je nach Anzahl der eindeutigen Namen groß sein könnte. Dieser Code hat im schlimmsten Fall eine `O(N^2)`-Leistung, wobei `N` die Länge von `names` ist.
+Dieser Code ist leistungsschwach, weil bei jeder Iteration das gesamte `allNames`-Objekt kopiert werden muss, welches groß sein könnte, je nachdem, wie viele eindeutige Namen es gibt. Dieser Code hat ein schlechtestes Fall `O(N^2)` Leistungsprofil, wobei `N` die Länge der `names` ist.
 
-Eine bessere Alternative ist, das `allNames`-Objekt bei jeder Iteration zu _mutieren_. Wenn `allNames` allerdings sowieso mutiert wird, sollten Sie vielleicht `reduce()` in eine `for`-Schleife umwandeln, was viel klarer ist:
+Eine bessere Alternative besteht darin, das `allNames`-Objekt bei jeder Iteration zu _verändern_. Wenn jedoch `allNames` ohnehin verändert wird, möchten Sie vielleicht das `reduce()` in eine `for`-Schleife umwandeln, was viel klarer ist:
 
 ```js example-bad
 const names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
@@ -303,11 +301,11 @@ for (const name of names) {
 }
 ```
 
-Daher, wenn Ihr Akkumulator ein Array oder ein Objekt ist und Sie das Array oder das Objekt bei jeder Iteration kopieren, könnten Sie möglicherweise versehentlich quadratische Komplexität in Ihren Code einführen, was die Leistung bei großen Daten schnell verschlechtern kann. Dies ist bereits in echtem Code passiert — siehe zum Beispiel [Making Tanstack Table 1000x faster with a 1 line change](https://jpcamara.com/2023/03/07/making-tanstack-table.html).
+Daher, wenn Ihr Akkumulator ein Array oder ein Objekt ist und Sie das Array oder Objekt bei jeder Iteration kopieren, können Sie versehentlich eine quadratische Komplexität in Ihren Code einführen, die dazu führt, dass die Leistung bei großen Daten schnell abnimmt. Dies ist in realem Code passiert – siehe zum Beispiel [Making Tanstack Table 1000x faster with a 1 line change](https://jpcamara.com/2023/03/07/making-tanstack-table.html).
 
-Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insbesondere das Summieren eines Arrays, die Sequenzierung von Promises und die funktionale Verkettung). Es gibt andere Fälle, in denen bessere Alternativen als `reduce()` existieren.
+Einige der akzeptablen Anwendungsfälle von `reduce()` wurden oben genannt (insbesondere das Summieren eines Arrays, Promise-Sequenzierung und Funktionsverknüpfung). Es gibt andere Fälle, in denen bessere Alternativen als `reduce()` existieren.
 
-- Zusammenführen eines Arrays von Arrays. Verwenden Sie stattdessen {{jsxref("Array/flat", "flat()")}}.
+- Einflachen eines Arrays von Arrays. Verwenden Sie {{jsxref("Array/flat", "flat()")}} stattdessen.
 
   ```js example-bad
   const flattened = array.reduce((acc, cur) => acc.concat(cur), []);
@@ -317,7 +315,7 @@ Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insb
   const flattened = array.flat();
   ```
 
-- Gruppierung von Objekten nach einer Eigenschaft. Verwenden Sie stattdessen {{jsxref("Object.groupBy()")}}.
+- Gruppierung von Objekten nach einer Eigenschaft. Verwenden Sie {{jsxref("Object.groupBy()")}} stattdessen.
 
   ```js example-bad
   const groups = array.reduce((acc, obj) => {
@@ -331,7 +329,7 @@ Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insb
   const groups = Object.groupBy(array, (obj) => obj.name);
   ```
 
-- Zusammenfügen von Arrays, die in einem Array von Objekten enthalten sind. Verwenden Sie stattdessen {{jsxref("Array/flatMap", "flatMap()")}}.
+- Verkettung von Arrays, die in einem Array von Objekten enthalten sind. Verwenden Sie {{jsxref("Array/flatMap", "flatMap()")}} stattdessen.
 
   ```js example-bad
   const friends = [
@@ -346,7 +344,7 @@ Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insb
   const allBooks = friends.flatMap((person) => person.books);
   ```
 
-- Entfernen von Duplikaten in einem Array. Verwenden Sie stattdessen {{jsxref("Set")}} und {{jsxref("Array.from()")}}.
+- Entfernen von doppelten Einträgen in einem Array. Verwenden Sie {{jsxref("Set")}} und {{jsxref("Array.from()")}} stattdessen.
 
   ```js example-bad
   const uniqArray = array.reduce(
@@ -359,7 +357,7 @@ Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insb
   const uniqArray = Array.from(new Set(array));
   ```
 
-- Eliminieren oder Hinzufügen von Elementen in einem Array. Verwenden Sie stattdessen {{jsxref("Array/flatMap", "flatMap()")}}.
+- Eliminierung oder Hinzufügen von Elementen in einem Array. Verwenden Sie {{jsxref("Array/flatMap", "flatMap()")}} stattdessen.
 
   ```js example-bad
   // Takes an array of numbers and splits perfect squares into its square roots
@@ -380,9 +378,9 @@ Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insb
   });
   ```
 
-  Wenn Sie nur Elemente aus einem Array eliminieren, können Sie auch {{jsxref("Array/filter", "filter()")}} verwenden.
+  Wenn Sie nur Elemente aus einem Array entfernen, können Sie auch {{jsxref("Array/filter", "filter()")}} verwenden.
 
-- Suchen nach Elementen oder Überprüfen, ob Elemente eine Bedingung erfüllen. Verwenden Sie {{jsxref("Array/find", "find()")}} und {{jsxref("Array/find", "findIndex()")}}, oder {{jsxref("Array/some", "some()")}} und {{jsxref("Array/every", "every()")}}, die zusätzlich den Vorteil haben, dass sie zurückkehren, sobald das Ergebnis sicher ist, ohne das gesamte Array zu durchlaufen.
+- Suche nach Elementen oder Testen, ob Elemente eine Bedingung erfüllen. Verwenden Sie {{jsxref("Array/find", "find()")}} und {{jsxref("Array/find", "findIndex()")}}, oder {{jsxref("Array/some", "some()")}} und {{jsxref("Array/every", "every()")}} stattdessen. Diese Methoden haben den zusätzlichen Vorteil, dass sie zurückkehren, sobald das Ergebnis sicher ist, ohne das gesamte Array zu durchlaufen.
 
   ```js example-bad
   const allEven = array.reduce((acc, cur) => acc && cur % 2 === 0, true);
@@ -392,7 +390,7 @@ Einige der akzeptablen Anwendungsfälle von `reduce()` sind oben angegeben (insb
   const allEven = array.every((val) => val % 2 === 0);
   ```
 
-In Fällen, in denen `reduce()` die beste Wahl ist, können Dokumentation und semantische Variablennamen helfen, die Lesbarkeitsnachteile zu mindern.
+In Fällen, in denen `reduce()` die beste Wahl ist, können Dokumentation und semantische Variablennamen helfen, Lesbarkeitsnachteile zu mildern.
 
 ## Spezifikationen
 
@@ -405,7 +403,7 @@ In Fällen, in denen `reduce()` die beste Wahl ist, können Dokumentation und se
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.reduce` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.reduce`](https://www.npmjs.com/package/array.prototype.reduce)
+- [es-shims polyfill von `Array.prototype.reduce`](https://www.npmjs.com/package/array.prototype.reduce)
 - [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.map()")}}

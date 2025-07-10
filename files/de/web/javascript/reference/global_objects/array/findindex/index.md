@@ -3,15 +3,12 @@ title: Array.prototype.findIndex()
 short-title: findIndex()
 slug: Web/JavaScript/Reference/Global_Objects/Array/findIndex
 l10n:
-  sourceCommit: b63d69fb2038d6c63718a74a9768d157423efce9
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`findIndex()`** Methode von {{jsxref("Array")}} Instanzen gibt den Index des ersten Elements in einem Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben.
 
-Die **`findIndex()`** Methode von {{jsxref("Array")}} Instanzen gibt den Index des ersten Elements in einem Array zurück, das die bereitgestellte Testfunktion erfüllt.
-Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben.
-
-Siehe auch die {{jsxref("Array/find", "find()")}} Methode, die das erste Element zurückgibt, das die Testfunktion erfüllt (anstatt dessen Index).
+Siehe auch die Methode {{jsxref("Array/find", "find()")}}, die das erste Element zurückgibt, das die Testfunktion erfüllt (anstatt dessen Index).
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.findIndex()", "shorter")}}
 
@@ -34,15 +31,15 @@ findIndex(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein passendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und sonst einen {{Glossary("Falsy", "falsy")}} Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
       - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
     - `array`
-      - : Das Array auf dem `findIndex()` aufgerufen wurde.
+      - : Das Array, auf das `findIndex()` angewendet wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de-DE/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
@@ -50,15 +47,15 @@ Der Index des ersten Elements im Array, das den Test besteht. Andernfalls `-1`.
 
 ## Beschreibung
 
-Die `findIndex()` Methode ist eine [iterative Methode](/de-DE/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array in aufsteigender Indexreihenfolge auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. `findIndex()` gibt dann den Index dieses Elements zurück und stoppt das Durchlaufen des Arrays. Wenn `callbackFn` niemals einen truthy Wert zurückgibt, gibt `findIndex()` `-1` zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de-DE/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
+Die `findIndex()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array in aufsteigender Index-Reihenfolge auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. `findIndex()` gibt dann den Index dieses Elements zurück und stoppt die Iteration durch das Array. Wenn `callbackFn` niemals einen truthy Wert zurückgibt, gibt `findIndex()` `-1` zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden allgemein funktionieren.
 
-`callbackFn` wird für _jeden_ Index des Arrays aufgerufen, nicht nur für die mit zugewiesenen Werten. Leere Plätze in [sparse arrays](/de-DE/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verhalten sich wie `undefined`.
+`callbackFn` wird für _jeden_ Index des Arrays aufgerufen, nicht nur für die mit zugewiesenen Werten. Leere Stellen in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verhalten sich wie `undefined`.
 
-Die `findIndex()` Methode ist [generisch](/de-DE/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integerindizierte Eigenschaften hat.
+Die `findIndex()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und ganzzahlige Schlüssel-Eigenschaften hat.
 
 ## Beispiele
 
-### Den Index der ersten Primzahl in einem Array finden
+### Finden des Index des ersten Primzahls in einem Array
 
 Das folgende Beispiel gibt den Index des ersten Elements im Array zurück, das eine Primzahl ist, oder `-1`, wenn es keine Primzahl gibt.
 
@@ -83,11 +80,11 @@ console.log([4, 6, 7, 9, 12].findIndex(isPrime)); // 2 (array[2] is 7)
 ```
 
 > [!NOTE]
-> Die `isPrime()` Implementierung dient nur zu Demonstrationszwecken. Für eine praktische Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
+> Die `isPrime()` Implementierung dient nur zu Demonstrationszwecken. Für eine praktische Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Siebe des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
 
-### Das dritte Argument von callbackFn verwenden
+### Verwendung des dritten Arguments von callbackFn
 
-Das `array` Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Im folgenden Beispiel wird zuerst `filter()` verwendet, um die positiven Werte zu extrahieren, und dann `findIndex()`, um das erste Element zu finden, das kleiner ist als seine Nachbarn.
+Das `array` Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, besonders wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Das folgende Beispiel verwendet zuerst `filter()`, um die positiven Werte zu extrahieren, und dann `findIndex()`, um das erste Element zu finden, das kleiner als seine Nachbarn ist.
 
 ```js
 const numbers = [3, -1, 1, 4, 1, 5, 9, 2, 6];
@@ -103,17 +100,17 @@ const firstTrough = numbers
 console.log(firstTrough); // 1
 ```
 
-### Verwendung von findIndex() bei sparse arrays
+### Verwendung von findIndex() auf spärlichen Arrays
 
-Sie können in einem sparse array nach `undefined` suchen und den Index eines leeren Slots erhalten.
+Sie können `undefined` in einem spärlichen Array suchen und den Index eines leeren Feldes erhalten.
 
 ```js
 console.log([1, , 3].findIndex((x) => x === undefined)); // 1
 ```
 
-### Aufrufen von findIndex() auf Nicht-Array-Objekten
+### Aufruf von findIndex() auf Nicht-Array-Objekten
 
-Die `findIndex()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel ein nicht-negativer ganzzahliger Wert ist, der kleiner ist als `length`.
+Die `findIndex()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -139,8 +136,8 @@ console.log(
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.findIndex` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.findIndex`](https://www.npmjs.com/package/array.prototype.findindex)
-- [Indexierte Sammlungen](/de-DE/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [es-shims polyfill von `Array.prototype.findIndex`](https://www.npmjs.com/package/array.prototype.findindex)
+- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.find()")}}
 - {{jsxref("Array.prototype.findLast()")}}

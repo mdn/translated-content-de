@@ -3,10 +3,8 @@ title: WeakMap.prototype.set()
 short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/set
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`set()`** Methode von {{jsxref("WeakMap")}} Instanzen fügt ein neues Element mit einem angegebenen Schlüssel und Wert zu diesem `WeakMap` hinzu.
 
@@ -38,7 +36,7 @@ set(key, value)
 - `key`
   - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Schlüssel des Eintrags, der zum `WeakMap` Objekt hinzugefügt werden soll.
 - `value`
-  - : Beliebiger Wert, der den Wert des Eintrags darstellt, der zum `WeakMap` Objekt hinzugefügt werden soll.
+  - : Jeder Wert, der den Wert des Eintrags darstellt, der zum `WeakMap` Objekt hinzugefügt werden soll.
 
 ### Rückgabewert
 

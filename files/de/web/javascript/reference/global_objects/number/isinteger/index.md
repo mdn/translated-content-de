@@ -3,10 +3,8 @@ title: Number.isInteger()
 short-title: isInteger()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isInteger
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die statische Methode **`Number.isInteger()`** bestimmt, ob der übergebene Wert eine ganze Zahl ist.
 
@@ -36,19 +34,19 @@ Number.isInteger(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der getestet werden soll, ob er eine ganze Zahl ist.
+  - : Der Wert, der darauf getestet werden soll, ob er eine ganze Zahl ist.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der gegebene Wert eine ganze Zahl ist. Ansonsten `false`.
+Der boolesche Wert `true`, wenn der gegebene Wert eine ganze Zahl ist. Andernfalls `false`.
 
 ## Beschreibung
 
-Wenn der Zielwert eine ganze Zahl ist, wird `true` zurückgegeben, ansonsten wird `false` zurückgegeben. Wenn der Wert {{jsxref("NaN")}} oder {{jsxref("Infinity")}} ist, wird `false` zurückgegeben. Die Methode gibt auch `true` zurück für Fließkommazahlen, die als ganze Zahl dargestellt werden können. Sie gibt immer `false` zurück, wenn der Wert keine Zahl ist.
+Wenn der Zielwert eine ganze Zahl ist, wird `true` zurückgegeben, andernfalls `false`. Ist der Wert {{jsxref("NaN")}} oder {{jsxref("Infinity")}}, wird `false` zurückgegeben. Die Methode gibt auch `true` für Gleitkommazahlen zurück, die als ganze Zahl dargestellt werden können. Sie wird immer `false` zurückgeben, wenn der Wert keine Zahl ist.
 
-Beachten Sie, dass einige Zahlenliterale, die wie keine ganzen Zahlen aussehen, tatsächlich ganze Zahlen darstellen — aufgrund der Präzisionsgrenze der ECMAScript Fließkomma-Zahlencodierung (IEEE-754). Zum Beispiel unterscheidet sich `5.0000000000000001` nur um `1e-16` von `5`, was zu klein ist, um dargestellt zu werden. (Zur Referenz: [`Number.EPSILON`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) speichert den Abstand zwischen 1 und der nächstgrößeren darstellbaren Fließkommazahl, und das ist etwa `2.22e-16`.) Daher wird `5.0000000000000001` mit der gleichen Codierung wie `5` dargestellt, wodurch `Number.isInteger(5.0000000000000001)` `true` zurückgibt.
+Beachten Sie, dass einige Zahlenliterale, die wie Nicht-Ganzzahlen aussehen, tatsächlich ganze Zahlen darstellen – aufgrund der Präzisionsgrenze der ECMAScript-Gleitkommazahlenkodierung (IEEE-754). Zum Beispiel unterscheidet sich `5.0000000000000001` nur um `1e-16` von `5`, was zu klein ist, um dargestellt zu werden. (Zum Vergleich, [`Number.EPSILON`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) speichert die Entfernung zwischen 1 und der nächstgrößeren darstellbaren Gleitkommazahl größer als 1, und diese ist etwa `2.22e-16`.) Daher wird `5.0000000000000001` mit der gleichen Kodierung wie `5` dargestellt, sodass `Number.isInteger(5.0000000000000001)` `true` zurückgibt.
 
-In ähnlicher Weise leiden Zahlen im Bereich der Größenordnung von [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) unter Präzisionsverlust und führen dazu, dass `Number.isInteger` `true` zurückgibt, auch wenn es sich nicht um eine ganze Zahl handelt. (Die tatsächliche Schwelle variiert je nachdem, wie viele Bits benötigt werden, um die Dezimalzahl darzustellen — zum Beispiel ist `Number.isInteger(4500000000000000.1)` `true`, aber `Number.isInteger(4500000000000000.5)` ist `false`.)
+In ähnlicher Weise erleiden Zahlen im Bereich der Größenordnung von [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) einen Präzisionsverlust und führen dazu, dass `Number.isInteger` `true` zurückgibt, auch wenn es sich nicht um eine ganze Zahl handelt. (Die tatsächliche Schwelle variiert je nach Anzahl der benötigten Bits zur Darstellung der Dezimalstelle – zum Beispiel ist `Number.isInteger(4500000000000000.1)` `true`, aber `Number.isInteger(4500000000000000.5)` ist `false`.)
 
 ## Beispiele
 

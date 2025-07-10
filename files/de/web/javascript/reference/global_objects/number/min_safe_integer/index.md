@@ -3,14 +3,12 @@ title: Number.MIN_SAFE_INTEGER
 short-title: MIN_SAFE_INTEGER
 slug: Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die statische Dateneigenschaft **`Number.MIN_SAFE_INTEGER`** repräsentiert den minimalen sicheren Integer in JavaScript oder -(2<sup>53</sup> - 1).
 
-Die statische Dateneigenschaft **`Number.MIN_SAFE_INTEGER`** repräsentiert die minimale sichere Ganzzahl in JavaScript, oder -(2<sup>53</sup> - 1).
-
-Um Ganzzahlen darzustellen, die kleiner sind als diese, sollten Sie in Betracht ziehen, {{jsxref("BigInt")}} zu verwenden.
+Um kleinere Zahlen als diese darzustellen, ziehen Sie in Betracht, {{jsxref("BigInt")}} zu verwenden.
 
 {{InteractiveExample("JavaScript Demo: Number.MIN_SAFE_INTEGER")}}
 
@@ -36,9 +34,9 @@ console.log(x === y);
 
 ## Beschreibung
 
-[Double-Precision-Gleitkommaformat](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) hat nur 52 Bits, um die [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) darzustellen, sodass es nur sicher Ganzzahlen zwischen -(2<sup>53</sup> – 1) und 2<sup>53</sup> – 1 darstellen kann. "Sicher" bedeutet in diesem Kontext die Fähigkeit, Ganzzahlen genau darzustellen und sie korrekt zu vergleichen. Zum Beispiel wird `Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2` zu true ausgewertet, was mathematisch inkorrekt ist. Weitere Informationen finden Sie unter {{jsxref("Number.isSafeInteger()")}}.
+Das [Doppelte Genauigkeits-Floating-Point-Format](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) hat nur 52 Bit, um die [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) darzustellen, sodass es nur sicher Integer zwischen -(2<sup>53</sup> – 1) und 2<sup>53</sup> – 1 darstellen kann. Sicher in diesem Kontext bedeutet, dass Integer genau dargestellt und korrekt verglichen werden können. Zum Beispiel ergibt `Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2` true, was mathematisch inkorrekt ist. Siehe {{jsxref("Number.isSafeInteger()")}} für weitere Informationen.
 
-Da `MIN_SAFE_INTEGER` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es immer als `Number.MIN_SAFE_INTEGER` und nicht als Eigenschaft eines Zahlenwertes.
+Da `MIN_SAFE_INTEGER` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es immer als `Number.MIN_SAFE_INTEGER` und nicht als eine Eigenschaft eines Zahlenwertes.
 
 ## Beispiele
 

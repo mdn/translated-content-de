@@ -2,14 +2,12 @@
 title: GeneratorFunction
 slug: Web/JavaScript/Reference/Global_Objects/GeneratorFunction
 l10n:
-  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Das **`GeneratorFunction`** Objekt bietet Methoden für [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*). In JavaScript ist jede Generatorfunktion tatsächlich ein `GeneratorFunction` Objekt.
 
-Das **`GeneratorFunction`**-Objekt bietet Methoden für [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*). In JavaScript ist jede Generatorfunktion tatsächlich ein `GeneratorFunction`-Objekt.
-
-Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit folgendem Code erhalten werden:
+Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
@@ -40,25 +38,25 @@ console.log(str);
 ## Konstruktor
 
 - {{jsxref("GeneratorFunction/GeneratorFunction", "GeneratorFunction()")}}
-  - : Erstellt ein neues `GeneratorFunction`-Objekt.
+  - : Erstellt ein neues `GeneratorFunction` Objekt.
 
 ## Instanz-Eigenschaften
 
 _Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Function")}}_.
 
-Diese Eigenschaften sind auf `GeneratorFunction.prototype` definiert und werden von allen `GeneratorFunction`-Instanzen geteilt.
+Diese Eigenschaften sind auf `GeneratorFunction.prototype` definiert und werden von allen `GeneratorFunction` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "GeneratorFunction.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `GeneratorFunction`-Instanzen ist der Anfangswert der {{jsxref("GeneratorFunction/GeneratorFunction", "GeneratorFunction")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `GeneratorFunction` Instanzen ist der Anfangswert der {{jsxref("GeneratorFunction/GeneratorFunction", "GeneratorFunction")}} Konstruktor.
 - {{jsxref("GeneratorFunction.prototype.prototype")}}
-  - : Alle Generatorfunktionen teilen die gleiche [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft, die [`Generator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) ist. Jede mit der `function*`-Syntax oder dem `GeneratorFunction()`-Konstruktor erstellte Generatorfunktion hat ebenfalls ihre eigene `prototype`-Eigenschaft, deren Prototype `GeneratorFunction.prototype.prototype` ist. Wenn die Generatorfunktion aufgerufen wird, wird ihre `prototype`-Eigenschaft zum Prototype des zurückgegebenen Generatorobjekts.
+  - : Alle Generatorfunktionen teilen die gleiche [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) Eigenschaft, die [`Generator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) ist. Jede mit der `function*` Syntax oder dem `GeneratorFunction()` Konstruktor erstellte Generatorfunktion hat ebenfalls eine eigene `prototype` Eigenschaft, deren Prototyp `GeneratorFunction.prototype.prototype` ist. Wenn die Generatorfunktion aufgerufen wird, wird ihre `prototype` Eigenschaft zum Prototyp des zurückgegebenen Generatorobjekts.
 - `GeneratorFunction.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"GeneratorFunction"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"GeneratorFunction"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-Diese Eigenschaften sind eigene Eigenschaften jeder `GeneratorFunction`-Instanz.
+Diese Eigenschaften sind Eigeneigenschaften jeder `GeneratorFunction` Instanz.
 
 - {{jsxref("GeneratorFunction/prototype", "prototype")}}
-  - : Wird verwendet, wenn die Funktion als Konstruktor mit dem [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator verwendet wird. Sie wird zum Prototype des neuen Objekts.
+  - : Wird verwendet, wenn die Funktion als Konstruktor mit dem [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator verwendet wird. Es wird zum Prototyp des neuen Objekts.
 
 ## Instanz-Methoden
 

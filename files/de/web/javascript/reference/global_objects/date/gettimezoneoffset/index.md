@@ -3,10 +3,8 @@ title: Date.prototype.getTimezoneOffset()
 short-title: getTimezoneOffset()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`getTimezoneOffset()`** Methode von {{jsxref("Date")}} Instanzen gibt die Differenz in Minuten zwischen diesem Datum, wie es in der UTC-Zeitzone bewertet wird, und dem gleichen Datum, wie es in der lokalen Zeitzone bewertet wird, zurück.
 
@@ -36,15 +34,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die die Differenz in Minuten zwischen dem Datum, wie es in der UTC-Zeitzone bewertet wird, und wie es in der lokalen Zeitzone bewertet wird, darstellt. Der tatsächliche lokale Zeitalgorithmus ist implementationsspezifisch, und der Rückgabewert darf in Laufzeiten ohne entsprechende Daten null sein. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Zahl, die die Differenz in Minuten zwischen dem Datum, wie es in der UTC-Zeitzone bewertet wird, und wie es in der lokalen Zeitzone bewertet wird, darstellt. Der tatsächliche lokale Zeit-Algorithmus ist implementationsspezifisch, und der Rückgabewert darf in Laufzeiten ohne geeignete Daten Null sein. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-`date.getTimezoneOffset()` gibt die Differenz in Minuten zwischen `date`, bewertet in der UTC-Zeitzone, und bewertet in der lokalen Zeitzone zurück — das heißt, die Zeitzone des Hostsystems, in dem der Browser verwendet wird (wenn der Code im Web in einem Browser ausgeführt wird) oder anderweitig das Hostsystem, welches auch immer die JavaScript-Laufzeit (zum Beispiel eine Node.js-Umgebung) ist, in der der Code ausgeführt wird.
+`date.getTimezoneOffset()` gibt die Differenz in Minuten zwischen `date`, wie es in der UTC-Zeitzone bewertet wird, und wie es in der lokalen Zeitzone bewertet wird, zurück – das heißt, die Zeitzone des Hostsystems, in dem der Browser genutzt wird (wenn der Code aus dem Web in einem Browser ausgeführt wird), oder anderweitig das Hostsystem von welchem beliebigen JavaScript-Laufzeitumgebung (zum Beispiel einer Node.js-Umgebung), in der der Code ausgeführt wird.
 
 ### Negative und positive Werte
 
-Die von `getTimezoneOffset()` zurückgegebenen Minuten sind positiv, wenn die lokale Zeitzone hinter UTC liegt, und negativ, wenn die lokale Zeitzone vor UTC liegt. Zum Beispiel wird für UTC+10 `-600` zurückgegeben.
+Die Zahl der von `getTimezoneOffset()` zurückgegebenen Minuten ist positiv, wenn die lokale Zeitzone hinter UTC liegt, und negativ, wenn die lokale Zeitzone vor UTC liegt. Zum Beispiel wird für UTC+10 `-600` zurückgegeben.
 
 | Aktuelle Zeitzone | Rückgabewert |
 | ----------------- | ------------ |
@@ -52,16 +50,17 @@ Die von `getTimezoneOffset()` zurückgegebenen Minuten sind positiv, wenn die lo
 | UTC               | 0            |
 | UTC+3             | -180         |
 
-### Unterschiedliche Ergebnisse in Regionen mit Sommerzeit
+### Variierende Ergebnisse in Sommerzeitregionen
 
-In einer Region, die jährlich zwischen Sommerzeit (DST) und Normalzeit wechselt, kann die Anzahl der von `getTimezoneOffset()` zurückgegebenen Minuten uneinheitlich sein, je nach `date`.
+In einer Region, die jährlich in die und aus der Sommerzeit (DST) wechselt, kann sich die Anzahl der Minuten, die durch Aufruf von `getTimezoneOffset()` zurückgegeben werden, uneinheitlich ändern, wenn sich das `date` ändert.
 
 > [!NOTE]
-> Das Verhalten von `getTimezoneOffset()` wird niemals aufgrund der Zeit, wann der Code ausgeführt wird, unterschiedlich sein — sein Verhalten ist immer konsistent, wenn es in derselben Region ausgeführt wird. Nur der Wert von `date` beeinflusst das Ergebnis.
+> Das Verhalten von `getTimezoneOffset()` wird niemals basierend auf der Zeit, wann der Code ausgeführt wird, abweichen – sein Verhalten ist immer konsistent, wenn es in derselben Region ausgeführt wird. Nur der Wert von `date` beeinflusst das Ergebnis.
 
-> [!NOTE] > [Viele Länder haben experimentiert, die Zeit nicht zweimal im Jahr zu ändern](https://en.wikipedia.org/wiki/Daylight_saving_time_by_country#Past_observance), was bedeutete, dass die Sommerzeit auch im Winter fortgesetzt wurde. Beispielsweise dauerte in Großbritannien die Sommerzeit vom 18. Februar 1968 um 2:00 Uhr bis zum 31. Oktober 1971 um 3:00 Uhr, sodass im Winter die Uhren nicht zurückgestellt wurden.
+> [!NOTE]
+> [Viele Länder haben experimentiert, die Uhrzeit nicht zweimal im Jahr zu ändern](https://en.wikipedia.org/wiki/Daylight_saving_time_by_country#Past_observance), was bedeutet, dass die Sommerzeit auch über den Winter andauern kann. Zum Beispiel dauerte im Vereinigten Königreich die Sommerzeit vom 18. Februar 1968 um 2:00 Uhr bis zum 31. Oktober 1971 um 3:00 Uhr, sodass während des Winters die Uhren nicht zurückgestellt wurden.
 
-In den meisten Implementierungen wird die [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/Daylight_saving_time#IANA_time_zone_database) (tzdata) verwendet, um den Offset der lokalen Zeitzone zum Zeitpunkt des `date` genau zu bestimmen. Ist eine solche Information nicht verfügbar, kann eine Implementierung null zurückgeben.
+In den meisten Implementierungen wird die [IANA-Zeitzonen-Datenbank](https://en.wikipedia.org/wiki/Daylight_saving_time#IANA_time_zone_database) (tzdata) verwendet, um den Offset der lokalen Zeitzone zum Zeitpunkt des `date` genau zu bestimmen. Wenn solche Informationen jedoch nicht verfügbar sind, kann eine Implementierung Null zurückgeben.
 
 ## Beispiele
 
@@ -80,7 +79,7 @@ currentLocalDate.getTimezoneOffset() ===
 
 ### getTimezoneOffset() und Sommerzeit
 
-In Regionen, die die Sommerzeit nutzen, kann sich der Rückgabewert basierend auf der Jahreszeit, in der sich `date` befindet, ändern. Unten ist die Ausgabe in einer Laufzeit in New York, wo die Zeitzone UTC-05:00 ist.
+In Regionen, die die Sommerzeit verwenden, kann sich der Rückgabewert basierend auf der Jahreszeit, in der sich das `date` befindet, ändern. Unten ist die Ausgabe in einer Laufzeit in New York, wo die Zeitzone UTC-05:00 ist.
 
 ```js
 const nyOffsetSummer = new Date("2022-02-01").getTimezoneOffset(); // 300
@@ -89,14 +88,14 @@ const nyOffsetWinter = new Date("2022-08-01").getTimezoneOffset(); // 240
 
 ### getTimezoneOffset() und historische Daten
 
-Aus historischen Gründen kann sich die Zeitzone einer Region ständig ändern, auch abgesehen von der Sommerzeit. Unten ist die Ausgabe in einer Laufzeit in Shanghai, wo die Zeitzone UTC+08:00 ist.
+Aus historischen Gründen kann sich die Zeitzone einer Region ständig ändern, selbst ohne Berücksichtigung der Sommerzeit. Zum Beispiel ist unten die Ausgabe in einer Laufzeit in Shanghai, wo die Zeitzone UTC+08:00 ist.
 
 ```js
 const shModernOffset = new Date("2022-01-27").getTimezoneOffset(); // -480
 const shHistoricalOffset = new Date("1943-01-27").getTimezoneOffset(); // -540
 ```
 
-Dies liegt daran, dass während des [Sino-Japanischen Krieges](https://en.wikipedia.org/wiki/Second_Sino-Japanese_War), als Shanghai unter japanischer Kontrolle stand, die Zeitzone auf UTC+09:00 geändert wurde, um sie mit der japanischen abzugleichen (tatsächlich war es eine "ganzjährige Sommerzeit"), und dies in der IANA-Datenbank festgehalten wurde.
+Das liegt daran, dass während des [Sino-Japanischen Kriegs](https://en.wikipedia.org/wiki/Second_Sino-Japanese_War), als Shanghai unter japanischer Kontrolle stand, die Zeitzone auf UTC+09:00 geändert wurde, um mit der japanischen Zeitzone übereinzustimmen (tatsächlich war es eine "Ganzjahres-Sommerzeit"), und dies wurde in der IANA-Datenbank aufgezeichnet.
 
 ## Spezifikationen
 

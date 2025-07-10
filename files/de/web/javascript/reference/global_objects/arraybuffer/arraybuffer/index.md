@@ -1,16 +1,14 @@
 ---
-title: ArrayBuffer() Konstruktor
+title: ArrayBuffer()-Konstruktor
 short-title: ArrayBuffer()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/ArrayBuffer
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Der **`ArrayBuffer()`**-Konstruktor erstellt {{jsxref("ArrayBuffer")}}-Objekte.
 
-Der **`ArrayBuffer()`**-Konstruktor erstellt {{jsxref("ArrayBuffer")}} Objekte.
-
-{{InteractiveExample("JavaScript Demo: ArrayBuffer() Konstruktor", "shorter")}}
+{{InteractiveExample("JavaScript Demo: ArrayBuffer() constructor", "shorter")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -27,20 +25,21 @@ new ArrayBuffer(length)
 new ArrayBuffer(length, options)
 ```
 
-> [!NOTE] > `ArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `ArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `length`
-  - : Die Größe in Bytes des zu erstellenden Arraypuffers.
+  - : Die Größe des zu erstellenden Arraypuffers in Bytes.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das folgende Eigenschaften enthalten kann:
+  - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `maxByteLength` {{optional_inline}}
-      - : Die maximale Größe in Bytes, auf die der Arraypuffer erweitert werden kann.
+      - : Die maximale Größe in Bytes, auf die der Arraypuffer vergrößert werden kann.
 
 ### Rückgabewert
 
-Ein neues `ArrayBuffer`-Objekt der angegebenen Größe, dessen {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft auf den angegebenen `maxByteLength` gesetzt ist, falls angegeben. Sein Inhalt ist auf 0 initialisiert.
+Ein neues `ArrayBuffer`-Objekt mit der angegebenen Größe, dessen {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft auf den angegebenen `maxByteLength` gesetzt wird, falls einer angegeben wurde. Der Inhalt wird auf 0 initialisiert.
 
 ### Ausnahmen
 
@@ -51,7 +50,7 @@ Ein neues `ArrayBuffer`-Objekt der angegebenen Größe, dessen {{jsxref("ArrayBu
 
 ## Beispiele
 
-### Erstellen eines ArrayBuffers
+### Erstellen eines ArrayBuffer
 
 In diesem Beispiel erstellen wir einen 8-Byte-Puffer mit einer {{jsxref("Int32Array")}}-Ansicht, die auf den Puffer verweist:
 
@@ -60,9 +59,9 @@ const buffer = new ArrayBuffer(8);
 const view = new Int32Array(buffer);
 ```
 
-### Erstellen eines veränderbaren ArrayBuffers
+### Erstellen eines resizbaren ArrayBuffer
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes veränderbar ist, und dann wird er mit {{jsxref("ArrayBuffer/resize", "resize()")}} auf 12 Bytes geändert:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und dann {{jsxref("ArrayBuffer/resize", "resize()")}} wir ihn auf 12 Bytes:
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });
@@ -71,7 +70,7 @@ buffer.resize(12);
 ```
 
 > [!NOTE]
-> Es wird empfohlen, `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall festzulegen. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speicherplatzfehlern zu verringern.
+> Es wird empfohlen, `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall festzulegen. Er sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speichermangel-Fehlern zu reduzieren.
 
 ## Spezifikationen
 
@@ -84,5 +83,5 @@ buffer.resize(12);
 ## Siehe auch
 
 - [Polyfill von `ArrayBuffer` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- JavaScript typisierte Arrays [Leitfaden](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Leitfaden zu JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("SharedArrayBuffer")}}

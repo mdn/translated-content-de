@@ -3,14 +3,14 @@ title: Temporal.PlainDateTime.prototype.until()
 short-title: until()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/until
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`until()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von diesem Datum-Zeitpunkt zu einem anderen Datum-Zeitpunkt darstellt (in einer Form, die durch {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn der andere Datum-Zeitpunkt nach diesem liegt, und negativ, wenn er davor liegt.
+Die **`until()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von diesem Datum-Uhrzeit bis zu einem anderen Datum-Uhrzeit darstellt (in einer Form, die durch {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn das andere Datum-Uhrzeit nach diesem Datum-Uhrzeit liegt, und negativ, wenn es davor liegt.
 
-Diese Methode führt `other - this` aus. Um `this - other` zu tun, verwenden Sie die {{jsxref("Temporal/PlainDateTime/since", "since()")}} Methode.
+Diese Methode führt `other - this` aus. Um `this - other` durchzuführen, verwenden Sie die {{jsxref("Temporal/PlainDateTime/since", "since()")}} Methode.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ until(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}} Instanz, die einen Datum-Zeitpunkt darstellt, von dem dieser Datum-Zeitpunkt subtrahiert wird. Es wird mit demselben Algorithmus in ein `Temporal.PlainDateTime` Objekt umgewandelt wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}}. Es muss denselben Kalender wie `this` haben.
+  - : Ein Zeichenkette, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}} Instanz, die ein Datum-Uhrzeit darstellt, von dem dieses Datum-Uhrzeit subtrahiert werden soll. Es wird in ein `Temporal.PlainDateTime` Objekt umgewandelt, indem derselbe Algorithmus wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} verwendet wird. Es muss denselben Kalender wie `this` haben.
 - `options` {{optional_inline}}
   - : Dieselben Optionen wie [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/since#options).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Datum-Zeitpunkt _bis zu_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum-Zeitpunkt liegt, und negativ, wenn davor.
+Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Datum-Uhrzeit _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum-Uhrzeit ist, und negativ, wenn es davor liegt.
 
 ### Ausnahmen
 

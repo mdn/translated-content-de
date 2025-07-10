@@ -3,12 +3,12 @@ title: "Error: fileName"
 short-title: fileName
 slug: Web/JavaScript/Reference/Global_Objects/Error/fileName
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Non-standard_Header}}
+{{Non-standard_Header}}
 
-Die **`fileName`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält den Pfad zu der Datei, die diesen Fehler ausgelöst hat.
+Die **`fileName`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält den Pfad zu der Datei, die diesen Fehler verursacht hat.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String.
 
 ## Beschreibung
 
-Diese nicht standardisierte Eigenschaft enthält den Pfad zu der Datei, die diesen Fehler ausgelöst hat. Wenn sie aus einem Debugger-Kontext aufgerufen wird, beispielsweise den Firefox Developer Tools, wird "debugger eval code" zurückgegeben.
+Diese nicht standardisierte Eigenschaft enthält den Pfad zu der Datei, die diesen Fehler verursacht hat. Wenn sie aus einem Debugger-Kontext aufgerufen wird, z. B. den Firefox Developer Tools, wird "debugger eval code" zurückgegeben.
 
 ## Beispiele
 

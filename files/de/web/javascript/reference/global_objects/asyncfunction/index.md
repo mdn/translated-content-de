@@ -2,14 +2,12 @@
 title: AsyncFunction
 slug: Web/JavaScript/Reference/Global_Objects/AsyncFunction
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Das **`AsyncFunction`**-Objekt bietet Methoden für [asynchrone Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function). In JavaScript ist jede asynchrone Funktion tatsächlich ein `AsyncFunction`-Objekt.
 
-Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
+Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code abgerufen werden:
 
 ```js
 const AsyncFunction = async function () {}.constructor;
@@ -22,22 +20,23 @@ const AsyncFunction = async function () {}.constructor;
 - {{jsxref("AsyncFunction/AsyncFunction", "AsyncFunction()")}}
   - : Erstellt ein neues `AsyncFunction`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Instanzeigenschaften von seinem Elternteil {{jsxref("Function")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Function")}}_.
 
-Diese Eigenschaften sind auf `AsyncFunction.prototype` definiert und werden von allen `AsyncFunction`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `AsyncFunction.prototype` definiert und werden von allen `AsyncFunction`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "AsyncFunction.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `AsyncFunction`-Instanzen ist der Anfangswert der {{jsxref("AsyncFunction/AsyncFunction", "AsyncFunction")}}-Konstruktor.
+  - : Die Konstrukturfunktion, die das Instanzobjekt erstellt hat. Für `AsyncFunction`-Instanzen ist der Anfangswert der {{jsxref("AsyncFunction/AsyncFunction", "AsyncFunction")}}-Konstruktor.
 - `AsyncFunction.prototype[Symbol.toStringTag]`
   - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"AsyncFunction"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-> [!NOTE] > `AsyncFunction`-Instanzen haben nicht die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft.
+> [!NOTE]
+> `AsyncFunction`-Instanzen haben nicht die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Instanzmethoden von seinem Elternteil {{jsxref("Function")}}_.
+_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Function")}}_.
 
 ## Spezifikationen
 

@@ -3,18 +3,18 @@ title: Temporal.ZonedDateTime.prototype.minute
 short-title: minute
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/minute
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`minute`**-Zugriffseigenschaft von Instanzen des {{jsxref("Temporal.ZonedDateTime")}} gibt eine ganze Zahl von 0 bis 59 zurück, die die Minutenkomponente dieser Zeit repräsentiert.
+Die **`minute`** Accessor-Eigenschaft von Instanzen von {{jsxref("Temporal.ZonedDateTime")}} gibt eine ganze Zahl von 0 bis 59 zurück, die die Minutenkomponente dieser Zeit darstellt.
 
-Der Set-Accessor von `minute` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `minute` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/ZonedDateTime/with", "with()")}}, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainTime/minute", "Temporal.PlainTime.prototype.minute")}}.
 
-Für `ZonedDateTime` kann `minute` aufgrund von Offset-Änderungen nicht kontinuierlich sein. Obwohl seltener als `hour`-Änderungen (da Zeitumstellungen in der Regel ganze Stunden verschieben), kann es dennoch vorkommen.
+Für `ZonedDateTime` kann `minute` aufgrund von Offset-Änderungen nicht kontinuierlich sein. Obwohl es seltener vorkommt als Änderungen der `hour` (weil die Umstellung auf Sommerzeit normalerweise in ganzen Stunden erfolgt), kann es trotzdem passieren.
 
 ## Beispiele
 
@@ -27,9 +27,9 @@ const dt = Temporal.ZonedDateTime.from(
 console.log(dt.minute); // 34
 ```
 
-### Nicht-kontinuierliche Minute
+### Nicht-kontinuierliche minute
 
-Typischerweise verläuft `minute` immer von 0 bis 59 und dann zurück zu 0, selbst beim Übergang durch eine Zeitumstellung. Es gibt einen besonderen Fall, in dem DST eine 30-minütige Verschiebung aufweist: Lord Howe Island in Australien, das zwischen +10:30 und +11:00 wechselt. In diesem Fall kann die Minute nicht kontinuierlich sein.
+Typischerweise geht `minute` immer von 0 bis 59 und dann zurück zu 0, selbst wenn man eine Zeitumstellung passiert. Es gibt einen speziellen Fall, in dem die Sommerzeit eine 30-minütige Verschiebung hat: Lord Howe Island in Australien, das zwischen +10:30 und +11:00 wechselt. In diesem Fall kann die Minute nicht kontinuierlich sein.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -41,7 +41,7 @@ console.log(dt2.minute); // 30
 console.log(dt2.toString()); // 2021-10-03T02:30:00+11:00[Australia/Lord_Howe]
 ```
 
-Es gibt einen zweiten ungewöhnlichen Fall, in dem die Minute nicht kontinuierlich sein kann: die Standardisierung der stündlichen Zeitzonen. Im frühen 20. Jahrhundert verwendeten die meisten Länder ihre eigenen Zeitzonen, die oft nicht eine ganze Stunde von UTC abwichen. Zum Beispiel hatte Paris früher einen Offset von UTC+0:09:21, der am 11. März 1911 auf UTC+0 geändert wurde.
+Es gibt einen zweiten besonderen Fall, in dem die Minute nicht kontinuierlich sein kann: die Standardisierung der stündlichen Zeitzonen. Im frühen 20. Jahrhundert nutzten die meisten Länder ihre eigenen Zeitzonen, die oft keine ganze Stunde von UTC abwichen. Zum Beispiel hatte Paris früher eine Verschiebung von UTC+0:09:21, die am 11. März 1911 auf UTC+0 geändert wurde.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(

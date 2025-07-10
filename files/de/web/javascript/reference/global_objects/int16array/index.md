@@ -2,26 +2,24 @@
 title: Int16Array
 slug: Web/JavaScript/Reference/Global_Objects/Int16Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`Int16Array`** typisierte Array repräsentiert ein Array von 16-Bit vorzeichenbehafteten Ganzzahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt wurde, können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder mit der standardmäßigen Array-Index-Syntax (durch Verwendung von Klammern) zugreifen.
+Das **`Int16Array`**-typisierte Array repräsentiert ein Array von 16-Bit-Ganzzahlen mit Vorzeichen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Nach der Erstellung können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Index-Syntax (also mit Klammer-Notation) zugreifen.
 
 `Int16Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
 - {{jsxref("Int16Array/Int16Array", "Int16Array()")}}
-  - : Erstellt ein neues `Int16Array`-Objekt.
+  - : Erstellt ein neues `Int16Array` Objekt.
 
 ## Statische Eigenschaften
 
 _Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Int16Array.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Fall von `Int16Array`.
+  - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Falle von `Int16Array`.
 
 ## Statische Methoden
 
@@ -34,7 +32,7 @@ _Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_
 Diese Eigenschaften sind auf `Int16Array.prototype` definiert und werden von allen `Int16Array` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Int16Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Fall von `Int16Array`.
+  - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Falle eines `Int16Array`.
 - {{jsxref("Object/constructor", "Int16Array.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Int16Array` Instanzen ist der Anfangswert der {{jsxref("Int16Array/Int16Array", "Int16Array")}} Konstruktor.
 
@@ -44,7 +42,7 @@ _Erbt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Int16Array zu erstellen
+### Verschiedene Wege, ein Int16Array zu erstellen
 
 ```js
 // From a length

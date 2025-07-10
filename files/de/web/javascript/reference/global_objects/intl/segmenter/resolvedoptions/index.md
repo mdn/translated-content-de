@@ -3,12 +3,10 @@ title: Intl.Segmenter.prototype.resolvedOptions()
 short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/resolvedOptions
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`resolvedOptions()`**-Methode von Instanzen des {{jsxref("Intl.Segmenter")}} gibt ein neues Objekt zurück, das Eigenschaften enthält, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.Segmenter")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln.
 
 {{InteractiveExample("JavaScript Demo: Intl.Segmenter.prototype.resolvedOptions()")}}
 
@@ -35,16 +33,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat folgende Eigenschaften, in der Reihenfolge, wie sie aufgelistet sind:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat folgende Eigenschaften, in der Reihenfolge, in der sie aufgeführt sind:
 
 - `locale`
-  - : Das BCP 47-Sprach-Tag für die tatsächlich verwendete Sprache, bestimmt durch den [Sprach-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
+  - : Das BCP 47-Sprach-Tag für die tatsächlich verwendete Lokalisierung, bestimmt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
 - `granularity`
-  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wurde, wobei nach Bedarf Standardwerte eingefügt werden. Es ist entweder `"grapheme"`, `"word"` oder `"sentence"`. Der Standardwert ist `"grapheme"`.
+  - : Der in den `options`-Argumenten angegebene Wert für diese Eigenschaft, wobei der Standardwert bei Bedarf ergänzt wird. Er ist entweder `"grapheme"`, `"word"` oder `"sentence"`. Der Standardwert ist `"grapheme"`.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 const spanishSegmenter = new Intl.Segmenter("es", { granularity: "sentence" });
@@ -53,7 +51,7 @@ console.log(options.locale); // "es"
 console.log(options.granularity); // "sentence"
 ```
 
-### Standardmäßige Granularität
+### Standardgranularität
 
 ```js
 const spanishSegmenter = new Intl.Segmenter("es");
@@ -62,7 +60,7 @@ console.log(options.locale); // "es"
 console.log(options.granularity); // "grapheme"
 ```
 
-### Fallback-Sprache
+### Fallback-Lokalisierung
 
 ```js
 const banSegmenter = new Intl.Segmenter("ban");

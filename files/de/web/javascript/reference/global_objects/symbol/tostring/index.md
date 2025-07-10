@@ -3,12 +3,10 @@ title: Symbol.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/toString
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toString()`**-Methode von {{jsxref("Symbol")}}-Werten gibt eine Zeichenkette zurück, die diesen Symbolwert repräsentiert.
+Die **`toString()`**-Methode von {{jsxref("Symbol")}}-Werten gibt einen String zurück, der diesen Symbolwert repräsentiert.
 
 {{InteractiveExample("JavaScript Demo: Symbol.prototype.toString()")}}
 
@@ -38,16 +36,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die den angegebenen Symbolwert repräsentiert.
+Ein String, der den angegebenen Symbolwert repräsentiert.
 
 ## Beschreibung
 
-Das {{jsxref("Symbol")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht von
-{{jsxref("Object.prototype.toString()")}}. Für `Symbol`-Werte gibt die `toString`-Methode eine beschreibende Zeichenkette in der Form `"Symbol(description)"` zurück, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist.
+Das {{jsxref("Symbol")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht von {{jsxref("Object.prototype.toString()")}}. Für `Symbol`-Werte gibt die `toString`-Methode einen beschreibenden String in der Form `"Symbol(description)"` zurück, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist.
 
-Die Methode `toString()` erfordert, dass ihr `this`-Wert ein `Symbol`-Primärwert oder Wrapper-Objekt ist. Sie wirft einen {{jsxref("TypeError")}}, wenn andere `this`-Werte verwendet werden, ohne zu versuchen, diese in Symbolwerte zu konvertieren.
+Die `toString()`-Methode erfordert, dass ihr `this`-Wert ein `Symbol`-Primitiv oder Wrapper-Objekt ist. Sie löst einen {{jsxref("TypeError")}} für andere `this`-Werte aus, ohne zu versuchen, sie in Symbolwerte umzuwandeln.
 
-Da `Symbol` eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive)-Methode hat, hat diese Methode immer Vorrang vor `toString()`, wenn ein `Symbol`-Objekt [in eine Zeichenkette umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) wird. Da jedoch `Symbol.prototype[Symbol.toPrimitive]()` einen Symbol-Primärwert zurückgibt und Symbol-Primärwerte einen {{jsxref("TypeError")}} werfen, wenn sie implizit in eine Zeichenkette konvertiert werden, wird die `toString()`-Methode nie implizit durch die Sprache aufgerufen. Um ein Symbol in eine Zeichenkette umzuwandeln, müssen Sie explizit seine `toString()`-Methode aufrufen oder die [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String#using_string_to_stringify_a_symbol)-Funktion verwenden.
+Da `Symbol` eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive)-Methode hat, hat diese Methode immer Vorrang vor `toString()`, wenn ein `Symbol`-Objekt [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) wird. Da jedoch `Symbol.prototype[Symbol.toPrimitive]()` ein Symbol-Primitiv zurückgibt und Symbol-Primitiven einen {{jsxref("TypeError")}} auslösen, wenn sie implizit in einen String konvertiert werden, wird die `toString()`-Methode vom Sprachmodus nie implizit aufgerufen. Um ein Symbol in einen String umzuwandeln, müssen Sie entweder explizit seine `toString()`-Methode aufrufen oder die [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String#using_string_to_stringify_a_symbol)-Funktion verwenden.
 
 ## Beispiele
 
@@ -63,9 +60,9 @@ Symbol.iterator.toString(); // "Symbol(Symbol.iterator)"
 Symbol.for("foo").toString(); // "Symbol(foo)"
 ```
 
-### Implizites Aufrufen von toString()
+### Impliziter Aufruf von toString()
 
-Der einzige Weg, JavaScript dazu zu bringen, `toString()` anstelle von [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive) auf einem Symbol-Wrapper-Objekt implizit aufzurufen, besteht darin, zuerst die Methode `[Symbol.toPrimitive]()` [zu löschen](/de/docs/Web/JavaScript/Reference/Operators/delete).
+Die einzige Möglichkeit, um JavaScript dazu zu bringen, `toString()` statt [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive) auf einem Symbol-Wrapper-Objekt implizit aufzurufen, besteht darin, die `[Symbol.toPrimitive]()`-Methode zuerst zu [löschen](/de/docs/Web/JavaScript/Reference/Operators/delete).
 
 > [!WARNING]
 > Sie sollten dies in der Praxis nicht tun. Verändern Sie niemals eingebaute Objekte, es sei denn, Sie wissen genau, was Sie tun.

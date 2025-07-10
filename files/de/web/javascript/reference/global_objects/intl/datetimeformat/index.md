@@ -2,12 +2,10 @@
 title: Intl.DateTimeFormat
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`Intl.DateTimeFormat`** Objekt ermöglicht eine sprachsensitive Datums- und Zeitformatierung.
+Das **`Intl.DateTimeFormat`** Objekt ermöglicht sprachsensitive Datums- und Zeitformatierung.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat", "taller")}}
 
@@ -42,35 +40,35 @@ console.log(
 ## Statische Methoden
 
 - {{jsxref("Intl/DateTimeFormat/supportedLocalesOf", "Intl.DateTimeFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das diejenigen der bereitgestellten "locales" enthält, die ohne Rückgriff auf die Standard-Locale der Laufzeitumgebung unterstützt werden.
+  - : Gibt ein Array zurück, das die der bereitgestellten lokalen Einstellungen enthält, die unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückzufallen.
 
 ## Instanz-Eigenschaften
 
 Diese Eigenschaften sind auf `Intl.DateTimeFormat.prototype` definiert und werden von allen `Intl.DateTimeFormat` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Intl.DateTimeFormat.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DateTimeFormat` Instanzen ist der anfängliche Wert der {{jsxref("Intl/DateTimeFormat/DateTimeFormat", "Intl.DateTimeFormat")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DateTimeFormat` Instanzen ist der Anfangswert der {{jsxref("Intl/DateTimeFormat/DateTimeFormat", "Intl.DateTimeFormat")}} Konstruktor.
 - `Intl.DateTimeFormat.prototype[Symbol.toStringTag]`
-  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.DateTimeFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.DateTimeFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("Intl/DateTimeFormat/format", "Intl.DateTimeFormat.prototype.format()")}}
-  - : Getter-Funktion, die ein Datum gemäß der Locale und den Formatierungsoptionen dieses `DateTimeFormat` Objekts formatiert.
+  - : Getter-Funktion, die ein Datum gemäß den Locale- und Formatierungsoptionen dieses `DateTimeFormat` Objekts formatiert.
 - {{jsxref("Intl/DateTimeFormat/formatRange", "Intl.DateTimeFormat.prototype.formatRange()")}}
-  - : Diese Methode erhält zwei [Dates](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) und formatiert den Datumsbereich auf die kürzeste Weise basierend auf der Locale und den beim Erstellen von `DateTimeFormat` angegebenen Optionen.
+  - : Diese Methode erhält zwei [Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekte und formatiert die Datumsspanne auf die prägnanteste Weise basierend auf den Locale- und Optionsvorgaben, die bei der Instanziierung von `DateTimeFormat` bereitgestellt wurden.
 - {{jsxref("Intl/DateTimeFormat/formatRangeToParts", "Intl.DateTimeFormat.prototype.formatRangeToParts()")}}
-  - : Diese Methode erhält zwei [Dates](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) und gibt ein Array von Objekten zurück, das die Locale-spezifischen Token für jeden Teil des formatierten Datumsbereichs enthält.
+  - : Diese Methode erhält zwei [Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekte und gibt ein Array von Objekten zurück, die die landesspezifischen Tokens enthalten, die jeden Teil der formatierten Datumsspanne darstellen.
 - {{jsxref("Intl/DateTimeFormat/formatToParts", "Intl.DateTimeFormat.prototype.formatToParts()")}}
-  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, das den Datumsstring in Teilen repräsentiert, die für eine benutzerdefinierte, Locale-bewusste Formatierung verwendet werden können.
+  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die den Datumstring in Teile zerlegen, die für eine benutzerdefinierte, locale-bewusste Formatierung verwendet werden können.
 - {{jsxref("Intl/DateTimeFormat/resolvedOptions", "Intl.DateTimeFormat.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung des Objekts berechneten Locale- und Formatierungsoptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale- und Formatierungsoptionen widerspiegeln, die während der Initialisierung des Objekts berechnet wurden.
 
 ## Beispiele
 
 ### Verwendung von DateTimeFormat
 
-Bei der grundlegenden Verwendung ohne Angabe einer Locale verwendet `DateTimeFormat` die Standard-Locale und Standardoptionen.
+Bei grundlegender Nutzung ohne Angabe einer Locale verwendet `DateTimeFormat` die Standard-Locale und Standardoptionen.
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
@@ -83,7 +81,7 @@ console.log(new Intl.DateTimeFormat().format(date));
 
 ### Verwendung von Locales
 
-Dieses Beispiel zeigt einige der Variationen in lokalisierten Datums- und Zeitformaten. Um das Format der in der Benutzeroberfläche Ihrer Anwendung verwendeten Sprache zu erhalten, sollten Sie diese Sprache (und möglicherweise einige Ersatzsprachen) über das Argument `locales` angeben:
+Dieses Beispiel zeigt einige der Unterschiede in lokalisierten Datums- und Zeitformaten. Um das Format der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, stellen Sie sicher, dass Sie diese Sprache (und möglicherweise einige Ersatzsprachen) mit dem Argument `locales` angeben:
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
@@ -180,7 +178,7 @@ console.log(new Intl.DateTimeFormat("en-US", options).format(date));
 // 10 at night
 ```
 
-Die verwendeten Kalender- und Zahlenformate können auch unabhängig über `options` Argumente eingestellt werden:
+Die verwendeten Kalender- und Zahlenformate können ebenfalls unabhängig über `options`-Argumente festgelegt werden:
 
 ```js
 const options = { calendar: "chinese", numberingSystem: "arab" };

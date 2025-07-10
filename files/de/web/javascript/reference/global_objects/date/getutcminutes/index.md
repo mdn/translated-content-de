@@ -3,12 +3,10 @@ title: Date.prototype.getUTCMinutes()
 short-title: getUTCMinutes()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCMinutes
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getUTCMinutes()`** Methode von {{jsxref("Date")}} Instanzen gibt die Minuten für dieses Datum gemäß Weltzeit zurück.
+Die **`getUTCMinutes()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Minuten für dieses Datum gemäß der Weltzeit zurück.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getUTCMinutes()")}}
 
@@ -35,13 +33,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, zwischen 0 und 59, der die Minuten des angegebenen Datums gemäß Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 59, die die Minuten für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCMinutes()
 
-Im folgenden Beispiel wird der Minutenanteil der aktuellen Zeit der Variablen `minutes` zugewiesen.
+Das folgende Beispiel weist die Minutenkomponente der aktuellen Zeit der Variablen `minutes` zu.
 
 ```js
 const today = new Date();

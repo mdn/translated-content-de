@@ -3,12 +3,10 @@ title: TypedArray.prototype.some()
 short-title: some()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/some
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`some()`** Methode der {{jsxref("TypedArray")}} Instanzen testet, ob mindestens ein Element im typisierten Array den Test besteht, der durch die bereitgestellte Funktion implementiert wird. Sie gibt `true` zurück, wenn sie in dem typisierten Array ein Element findet, für das die bereitgestellte Funktion `true` zurückgibt; andernfalls gibt sie `false` zurück. Sie modifiziert das typisierte Array nicht. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.some()")}}.
+Die **`some()`**-Methode von {{jsxref("TypedArray")}}-Instanzen prüft, ob mindestens ein Element im typisierten Array den Test besteht, der durch die bereitgestellte Funktion implementiert wird. Sie gibt `true` zurück, wenn sie im typisierten Array ein Element findet, für das die bereitgestellte Funktion `true` zurückgibt; andernfalls gibt sie `false` zurück. Sie modifiziert das typisierte Array nicht. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.some()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.some()")}}
 
@@ -37,29 +35,29 @@ some(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt werden soll. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf das `some()` aufgerufen wurde.
+      - : Das typisierte Array, auf dem `some()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
   - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-`false`, es sei denn, `callbackFn` gibt für ein Element des typisierten Arrays einen {{Glossary("truthy", "truthy")}} Wert zurück, in diesem Fall wird `true` sofort zurückgegeben.
+`false`, es sei denn, `callbackFn` gibt einen {{Glossary("truthy", "truthy")}} Wert für ein Element des typisierten Arrays zurück, in welchem Fall `true` sofort zurückgegeben wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.some()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
+Siehe {{jsxref("Array.prototype.some()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Testen der Größe aller typisierten Array-Elemente
+### Testen der Größe aller Elemente des typisierten Arrays
 
-Das folgende Beispiel testet, ob irgendein Element im typisierten Array größer als 10 ist.
+Im folgenden Beispiel wird getestet, ob irgendein Element im typisierten Array größer als 10 ist.
 
 ```js
 function isBiggerThan10(element, index, array) {
@@ -80,7 +78,7 @@ new Uint8Array([12, 5, 8, 1, 4]).some(isBiggerThan10); // true
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.some` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.every()")}}
 - {{jsxref("TypedArray.prototype.forEach()")}}

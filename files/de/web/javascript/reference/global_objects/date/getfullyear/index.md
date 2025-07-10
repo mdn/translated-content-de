@@ -3,14 +3,12 @@ title: Date.prototype.getFullYear()
 short-title: getFullYear()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getFullYear
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getFullYear()`**-Methode von {{jsxref("Date")}}-Instanzen gibt das Jahr für dieses Datum entsprechend der lokalen Zeit zurück.
 
-Die **`getFullYear()`** Methode von {{jsxref("Date")}}-Instanzen gibt das Jahr für dieses Datum entsprechend der lokalen Zeit zurück.
-
-Verwenden Sie diese Methode anstelle der Methode {{jsxref("Date/getYear", "getYear()")}}.
+Verwenden Sie diese Methode anstelle der {{jsxref("Date/getYear", "getYear()")}}-Methode.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getFullYear()", "shorter")}}
 
@@ -33,11 +31,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl, die das Jahr für das gegebene Datum entsprechend der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl, die das Jahr für das gegebene Datum entsprechend der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Im Gegensatz zu {{jsxref("Date/getYear", "getYear()")}} ist der von `getFullYear()` zurückgegebene Wert eine absolute Zahl. Für Daten zwischen den Jahren 1000 und 9999 gibt `getFullYear()` eine vierstellige Zahl zurück, zum Beispiel 1995. Verwenden Sie diese Funktion, um sicherzustellen, dass ein Jahr konform mit den Jahren nach 2000 ist.
+Im Gegensatz zu {{jsxref("Date/getYear", "getYear()")}} ist der von `getFullYear()` zurückgegebene Wert eine absolute Zahl. Für Daten zwischen den Jahren 1000 und 9999 gibt `getFullYear()` eine vierstellige Zahl zurück, zum Beispiel 1995. Verwenden Sie diese Funktion, um sicherzustellen, dass ein Jahr mit den nach 2000 liegenden Jahren übereinstimmt.
 
 ## Beispiele
 

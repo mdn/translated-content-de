@@ -3,12 +3,10 @@ title: handler.get()
 short-title: get()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`handler.get()`** ist eine Trap für die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) verwendet wird.
+Die Methode **`handler.get()`** ist eine Falle für die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie [Eigenschaftszuweisungen](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.get()", "taller")}}
 
@@ -47,42 +45,42 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `get()`-Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die Methode `get()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder ein {{jsxref("Symbol")}}, das den Property-Namen darstellt.
+  - : Ein String oder {{jsxref("Symbol")}}, der den Eigenschaftsnamen darstellt.
 - `receiver`
   - : Der `this`-Wert für Getter; siehe {{jsxref("Reflect.get()")}}. Dies ist normalerweise entweder der Proxy selbst oder ein Objekt, das vom Proxy erbt.
 
 ### Rückgabewert
 
-Die `get()`-Methode kann einen beliebigen Wert zurückgeben, der den Eigenschaftswert darstellt.
+Die Methode `get()` kann jeden Wert zurückgeben, der den Eigenschaftswert darstellt.
 
 ## Beschreibung
 
-### Abfangaktionen
+### Interzeptionen
 
-Diese Trap kann die folgenden Operationen abfangen:
+Diese Falle kann folgende Operationen abfangen:
 
-- Property-Zugriff: `proxy[foo]` und `proxy.bar`
+- Eigenschaftszugriff: `proxy[foo]` und `proxy.bar`
 - {{jsxref("Reflect.get()")}}
 
 Oder jede andere Operation, die die `[[Get]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[Get]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Get]]`-interne Methode des Proxies löst einen {{jsxref("TypeError")}} aus, wenn die Handlerdefinition eine der folgenden Invarianten verletzt:
 
-- Der für eine Eigenschaft gemeldete Wert muss identisch mit dem Wert der entsprechenden Zielobjekteigenschaft sein, wenn die Zielobjekteigenschaft eine nicht veränderbare, nicht konfigurierbare eigene Daten-Eigenschaft ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: false` für die Eigenschaft auf `target` zurückgibt, muss die Trap denselben Wert wie das `value`-Attribut im Eigenschafts-Deskriptor des `target` zurückgeben.
-- Der für eine Eigenschaft gemeldete Wert muss `undefined` sein, wenn die entsprechende Zielobjekteigenschaft eine nicht konfigurierbare eigene Accessor-Eigenschaft ist, die einen undefinierten Getter hat. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, get: undefined` für die Eigenschaft auf `target` zurückgibt, muss die Trap `undefined` zurückgeben.
+- Der für eine Eigenschaft gemeldete Wert muss mit dem Wert der entsprechenden Zielobjekteigenschaft übereinstimmen, wenn die Zielobjekteigenschaft eine nicht schreibbare, nicht konfigurierbare eigene Datenschutzeigenschaft ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: false` für die Eigenschaft auf `target` zurückgibt, muss die Falle denselben Wert wie das `value`-Attribut im Eigenschaftsdescriptor des `target` zurückgeben.
+- Der für eine Eigenschaft gemeldete Wert muss `undefined` sein, wenn die entsprechende Zielobjekteigenschaft eine nicht konfigurierbare eigene Zugriffseigenschaft ist, die einen undefinierten Getter hat. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, get: undefined` für die Eigenschaft auf `target` zurückgibt, muss die Falle `undefined` zurückgeben.
 
 ## Beispiele
 
-### Trap zum Abrufen eines Eigenschaftswertes
+### Falle für das Abrufen eines Eigenschaftswerts
 
-Der folgende Code fängt den Abruf eines Eigenschaftswertes ab.
+Der folgende Code fängt das Abrufen eines Eigenschaftswerts ab.
 
 ```js
 const p = new Proxy(
@@ -131,5 +129,5 @@ p.a; // TypeError is thrown
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Reflect.get()")}}

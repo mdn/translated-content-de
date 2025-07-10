@@ -3,12 +3,10 @@ title: Atomics.exchange()
 short-title: exchange()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/exchange
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.exchange()`** tauscht einen gegebenen Wert an einer bestimmten Position im Array aus und gibt den alten Wert an dieser Position zurück. Dieser atomare Vorgang stellt sicher, dass keine andere Schreiboperation zwischen dem Lesen des alten Werts und dem Schreiben des neuen Werts erfolgt.
+Die statische Methode **`Atomics.exchange()`** tauscht einen gegebenen Wert an einer gegebenen Position im Array aus und gibt den alten Wert an dieser Position zurück. Diese atomare Operation gewährleistet, dass zwischen dem Lesen des alten Wertes und dem Schreiben des neuen Wertes kein anderer Schreibvorgang stattfindet.
 
 {{InteractiveExample("JavaScript Demo: Atomics.exchange()")}}
 
@@ -35,7 +33,7 @@ Atomics.exchange(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliger typisierter Array. Einer von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
   - : Die Position im `typedArray`, an der ein `value` ausgetauscht werden soll.
 - `value`
@@ -48,13 +46,13 @@ Der alte Wert an der angegebenen Position (`typedArray[index]`).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb des gültigen Bereichs im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beispiele
 
-### Verwendung von exchange()
+### Nutzung von exchange()
 
 ```js
 const sab = new SharedArrayBuffer(1024);

@@ -3,10 +3,8 @@ title: Number.prototype.valueOf()
 short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Number/valueOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`valueOf()`**-Methode von {{jsxref("Number")}}-Werten gibt den Wert dieser Zahl zurück.
 

@@ -3,12 +3,10 @@ title: TypedArray.prototype.map()
 short-title: map()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/map
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`map()`** Methode von {{jsxref("TypedArray")}} Instanzen erstellt ein neues typisiertes Array, das mit den Ergebnissen gefüllt ist, die durch das Anwenden einer bereitgestellten Funktion auf jedes Element des aufrufenden typisierten Arrays gewonnen wurden. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.map()")}}.
+Die **`map()`**-Methode von {{jsxref("TypedArray")}}-Instanzen erstellt ein neues typisiertes Array, das mit den Ergebnissen einer bereitgestellten Funktion gefüllt ist, die auf jedes Element im aufrufenden typisierten Array angewendet wird. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.map()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.map()", "shorter")}}
 
@@ -36,21 +34,21 @@ map(callbackFn, thisArg)
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf das `map()` aufgerufen wurde.
+      - : Das typisierte Array, auf dem `map()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
   - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Ein neues typisiertes Array, wobei jedes Element das Ergebnis der Callback-Funktion ist.
+Ein neues typisiertes Array, bei dem jedes Element das Ergebnis der Callback-Funktion ist.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.map()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.map()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Abbilden eines typisierten Arrays auf ein typisiertes Array von Quadratwurzeln
+### Mapping eines typisierten Arrays zu einem typisierten Array von Quadratwurzeln
 
 Der folgende Code nimmt ein typisiertes Array und erstellt ein neues typisiertes Array, das die Quadratwurzeln der Zahlen im ersten typisierten Array enthält.
 
@@ -61,9 +59,9 @@ const roots = numbers.map(Math.sqrt);
 // numbers is still Uint8Array [1, 4, 9]
 ```
 
-### Abbilden eines typisierten Arrays von Zahlen mit einer Funktion, die ein Argument enthält
+### Mapping eines typisierten Arrays von Zahlen mit einer Funktion, die ein Argument enthält
 
-Der folgende Code zeigt, wie `map()` funktioniert, wenn eine Funktion, die ein Argument erfordert, damit verwendet wird. Das Argument wird automatisch jedem Element des typisierten Arrays zugewiesen, während `map()` das ursprüngliche typisierte Array durchläuft.
+Der folgende Code zeigt, wie `map()` funktioniert, wenn eine Funktion, die ein Argument erfordert, damit verwendet wird. Das Argument wird automatisch jedem Element des typisierten Arrays zugewiesen, während `map()` durch das ursprüngliche typisierte Array iteriert.
 
 ```js
 const numbers = new Uint8Array([1, 4, 9]);

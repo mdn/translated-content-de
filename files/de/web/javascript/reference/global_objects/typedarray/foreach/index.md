@@ -3,12 +3,10 @@ title: TypedArray.prototype.forEach()
 short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/forEach
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`forEach()`**-Methode von {{jsxref("TypedArray")}} Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
+Die **`forEach()`**-Methode von {{jsxref("TypedArray")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.forEach()")}}
 
@@ -40,7 +38,7 @@ forEach(callbackFn, thisArg)
     - `array`
       - : Das typisierte Array, auf dem `forEach()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
@@ -48,11 +46,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.forEach()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.forEach()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Protokollieren der Inhalte eines typisierten Arrays
+### Protokollieren des Inhalts eines typisierten Arrays
 
 Der folgende Code protokolliert eine Zeile für jedes Element in einem typisierten Array:
 
@@ -80,7 +78,7 @@ new Uint8Array([0, 1, 2, 3]).forEach(logArrayElements);
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden für JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.map()")}}

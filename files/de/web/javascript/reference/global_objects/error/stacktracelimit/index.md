@@ -3,33 +3,33 @@ title: Error.stackTraceLimit
 short-title: stackTraceLimit
 slug: Web/JavaScript/Reference/Global_Objects/Error/stackTraceLimit
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{Non-standard_Header}}
+{{Non-standard_Header}}
 
 > [!NOTE]
-> Dieses Feature ist Teil der derzeit nicht standardisierten [V8 Stack Trace API](https://v8.dev/docs/stack-trace-api). Aus Kompatibilitätsgründen wird es jedoch auch von JavaScriptCore implementiert.
+> Diese Funktion ist Teil der derzeit nicht standardisierten [V8 Stack Trace API](https://v8.dev/docs/stack-trace-api). Aus Kompatibilitätsgründen wird sie jedoch auch von JavaScriptCore implementiert.
 
-Die statische Dateneigenschaft **`Error.stackTraceLimit`** gibt die maximale Anzahl von Stapelrahmen an, die durch den Stack-Trace eines Fehlers erfasst werden. Sie kann von Benutzer-Code gesetzt werden, um das Verhalten der Engine zu ändern.
+Die **`Error.stackTraceLimit`** statische Dateneigenschaft gibt die maximale Anzahl von Stack-Frames an, die durch den Stack-Trace eines Fehlers erfasst werden. Sie kann durch Benutzer-Code gesetzt werden, um das Verhalten der Engine zu ändern.
 
-Im Allgemeinen ist das _Lesen_ dieser Eigenschaft nicht sehr nützlich, aber Sie können sie auf einen neuen Wert _setzen_. Das Setzen auf einen größeren Wert kann beim Debuggen nützlich sein, da es Ihnen ermöglicht, mehr vom Aufrufstapel zu sehen. Das Setzen auf einen kleineren Wert kann die Leistung verbessern, da die erfasste Stapelgröße reduziert wird.
+Im Allgemeinen ist das _Lesen_ dieser Eigenschaft nicht sehr nützlich, aber sie kann auf einen neuen Wert _gesetzt_ werden. Das Setzen auf einen größeren Wert kann beim Debuggen hilfreich sein, da es ermöglicht, mehr vom Call-Stack zu sehen. Das Setzen auf einen kleineren Wert kann die Leistung verbessern, da es die Menge des erfassten Stacks reduziert.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die maximale Anzahl der vom Stack-Trace eines Fehlers erfassten Stapelrahmen darstellt.
+Ein Integer, der die maximale Anzahl von Stack-Frames darstellt, die durch den Stack-Trace eines Fehlers erfasst werden.
 
 {{js_property_attributes(1, 1, 1)}}
 
 ## Beschreibung
 
-Da `stackTraceLimit` eine statische Eigenschaft von `Error` ist, verwenden Sie es immer als `Error.stackTraceLimit` und nicht als Eigenschaft eines von Ihnen erstellten `Error`-Objekts. Wenn Sie den Stack-Trace nur für einen einzelnen Fehler anpassen möchten, müssen Sie möglicherweise die Eigenschaft setzen, den Fehler erstellen und dann die Eigenschaft auf ihren ursprünglichen Wert zurücksetzen.
+Da `stackTraceLimit` eine statische Eigenschaft von `Error` ist, wird sie immer als `Error.stackTraceLimit` verwendet und nicht als Eigenschaft eines von Ihnen erstellten `Error`-Objekts. Wenn Sie den Stack-Trace nur für einen einzigen Fehler anpassen möchten, müssen Sie die Eigenschaft möglicherweise setzen, den Fehler erstellen und dann die Eigenschaft auf ihren ursprünglichen Wert zurücksetzen.
 
 ## Beispiele
 
 ### Setzen von Error.stackTraceLimit
 
-Dieser Code kann sicher ausgeführt werden, auch in Umgebungen, die `Error.stackTraceLimit` nicht unterstützen, da die Eigenschaft nicht gelesen, sondern nur gesetzt wird und Engines, die sie nicht unterstützen, die Einstellung ignorieren werden.
+Dieser Code ist sicher auszuführen, selbst in Umgebungen, die `Error.stackTraceLimit` nicht unterstützen, da er die Eigenschaft nicht liest, sondern nur setzt, und Engines, die sie nicht unterstützen, die Einstellung ignorieren werden.
 
 ```js
 Error.stackTraceLimit = 2;

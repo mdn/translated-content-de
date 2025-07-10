@@ -3,14 +3,14 @@ title: Temporal.PlainTime.prototype.hour
 short-title: hour
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/hour
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`hour`** Zugriffseigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit darstellt.
+Die **`hour`** Zugriffs-Eigenschaft von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt eine ganze Zahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit darstellt.
 
-Der Set-Accessor von `hour` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriff von `hour` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -21,7 +21,7 @@ const time = Temporal.PlainTime.from("12:34:56");
 console.log(time.hour); // 12
 ```
 
-### Ändern von hour
+### Änderung von hour
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");
@@ -29,7 +29,7 @@ const newTime = time.with({ hour: 15 });
 console.log(newTime.toString()); // 15:34:56
 ```
 
-Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Stunden von der aktuellen Zeit abzuweichen.
+Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Stunden von der aktuellen Zeit zu bewegen.
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

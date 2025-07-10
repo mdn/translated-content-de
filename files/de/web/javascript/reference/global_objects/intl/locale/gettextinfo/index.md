@@ -3,15 +3,13 @@ title: Intl.Locale.prototype.getTextInfo()
 short-title: getTextInfo()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/getTextInfo
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getTextInfo()`**-Methode von Instanzen von {{jsxref("Intl.Locale")}} gibt die Anordnung der Zeichen zurück, die durch entweder `ltr` (left-to-right) oder `rtl` (right-to-left) für diese Locale angegeben ist.
+Die **`getTextInfo()`** Methode von {{jsxref("Intl.Locale")}} Instanzen gibt die Anordnung der Zeichen entweder durch `ltr` (von links nach rechts) oder durch `rtl` (von rechts nach links) für diese Lokalisierung zurück.
 
 > [!NOTE]
-> In einigen Versionen von einigen Browsern wurde diese Methode als Zugriffsmerkmal namens `textInfo` implementiert. Da sie jedoch bei jedem Zugriff ein neues Objekt zurückgibt, wird sie jetzt als Methode implementiert, um die Situation zu vermeiden, dass `locale.textInfo === locale.textInfo` `false` zurückgibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
+> In einigen Versionen einiger Browser wurde diese Methode als Accessor-Eigenschaft namens `textInfo` implementiert. Da sie jedoch bei jedem Zugriff ein neues Objekt zurückgibt, ist sie jetzt als Methode implementiert, um die Situation zu vermeiden, dass `locale.textInfo === locale.textInfo` `false` zurückgibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -25,16 +23,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das Informationen zur Textgestaltung enthält und mit den Locale-Daten entsprechend [UTS 35's Layouts Elements](https://www.unicode.org/reports/tr35/tr35-general.html#Layout_Elements) verbunden ist. Es hat die folgenden Eigenschaften:
+Ein Objekt, das informationen zur Textsatzgestaltung enthält, die mit den Lokalisierungsdaten verbunden sind, wie in [UTS 35's Layouts Elements](https://www.unicode.org/reports/tr35/tr35-general.html#Layout_Elements) angegeben. Es hat die folgenden Eigenschaften:
 
 - `direction`
-  - : Ein String, der die Textrichtung für die Locale angibt. Kann entweder `"ltr"` (left-to-right) oder `"rtl"` (right-to-left) sein.
+  - : Ein String, der die Textrichtung für die Lokalisierung angibt. Kann entweder `"ltr"` (von links nach rechts) oder `"rtl"` (von rechts nach links) sein.
 
 ## Beispiele
 
-### Abrufen von Textinformationen
+### Textinformation abrufen
 
-Gibt die unterstützten Textausrichtungen für eine gegebene `Locale` zurück.
+Holen Sie die unterstützten Textausrichtungen für eine gegebene `Locale`.
 
 ```js
 const ar = new Intl.Locale("ar");

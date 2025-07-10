@@ -3,14 +3,14 @@ title: Temporal.PlainTime.prototype.millisecond
 short-title: millisecond
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/millisecond
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`millisecond`** Zugriffs-Eigenschaft von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekundenkomponente (10<sup>-3</sup> Sekunden) dieser Zeit darstellt.
+Die **`millisecond`** Zugriffseigenschaft von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekundenkomponente (10<sup>-3</sup> Sekunde) dieser Zeit darstellt.
 
-Der set Accessor von `millisecond` ist `undefined`. Diese Eigenschaft kann nicht direkt geändert werden. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `millisecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ const time2 = Temporal.PlainTime.from("12:34:56.123456789");
 console.log(time2.millisecond); // 123
 ```
 
-### Ändern von millisecond
+### Änderung von millisecond
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

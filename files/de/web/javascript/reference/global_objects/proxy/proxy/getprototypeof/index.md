@@ -3,12 +3,10 @@ title: handler.getPrototypeOf()
 short-title: getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/getPrototypeOf
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`handler.getPrototypeOf()`**-Methode ist eine Trap für die `[[GetPrototypeOf]]`-Methode [des internen Objektverfahrens](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.getPrototypeOf()")}} verwendet wird.
+Die **`handler.getPrototypeOf()`**-Methode ist eine Trap für die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.getPrototypeOf()")}} verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.getPrototypeOf()", "taller")}}
 
@@ -47,20 +45,20 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird der `getPrototypeOf()`-Methode übergeben. `this` ist an den Handler gebunden.
+Der folgende Parameter wird an die `getPrototypeOf()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die `getPrototypeOf()`-Methode muss ein Objekt oder `null` zurückgeben, das das Prototyp-Objekt des Zielobjekts darstellt.
+Die `getPrototypeOf()`-Methode muss ein Objekt oder `null` zurückgeben, das das Prototyp des Zielobjekts darstellt.
 
 ## Beschreibung
 
-### Abfangmöglichkeiten
+### Abfangoperationen
 
-Diese Trap kann die folgenden Operationen abfangen:
+Diese Trap kann folgende Operationen abfangen:
 
 - {{jsxref("Object.getPrototypeOf()")}}
 - {{jsxref("Reflect.getPrototypeOf()")}}
@@ -68,14 +66,14 @@ Diese Trap kann die folgenden Operationen abfangen:
 - {{jsxref("Object.prototype.isPrototypeOf()")}}
 - {{jsxref("Operators/instanceof", "instanceof")}}
 
-Oder jede andere Operation, die das `[[GetPrototypeOf]]` [interne Verfahren](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
+Oder jede andere Operation, die die `[[GetPrototypeOf]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[GetPrototypeOf]]`-Methode des Proxies löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[GetPrototypeOf]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition gegen eine der folgenden Invarianten verstößt:
 
 - Das Ergebnis muss entweder ein {{jsxref("Object")}} oder `null` sein.
-- Wenn das Zielobjekt nicht erweiterbar ist (d.h. {{jsxref("Reflect.isExtensible()")}} gibt `false` für `target` zurück), muss das Ergebnis dasselbe sein wie das Ergebnis von `Reflect.getPrototypeOf(target)`.
+- Wenn das Zielobjekt nicht erweiterbar ist (das heißt, {{jsxref("Reflect.isExtensible()")}} gibt `false` für `target` zurück), muss das Ergebnis dasselbe wie das Ergebnis von `Reflect.getPrototypeOf(target)` sein.
 
 ## Beispiele
 
@@ -145,6 +143,6 @@ Object.getPrototypeOf(p2); // TypeError: expected same prototype value
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Object.getPrototypeOf()")}}
 - {{jsxref("Reflect.getPrototypeOf()")}}

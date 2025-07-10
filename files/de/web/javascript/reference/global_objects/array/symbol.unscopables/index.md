@@ -3,22 +3,20 @@ title: Array.prototype[Symbol.unscopables]
 short-title: "[Symbol.unscopables]"
 slug: Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`[Symbol.unscopables]`** Daten-Eigenschaft von `Array.prototype` wird von allen {{jsxref("Array")}}-Instanzen geteilt. Sie enthält Eigenschaftsnamen, die vor der ES2015-Version nicht im ECMAScript-Standard enthalten waren und für Bindungszwecke der [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Anweisung ignoriert werden.
+Die **`[Symbol.unscopables]`** Daten-Eigenschaft von `Array.prototype` wird von allen {{jsxref("Array")}} Instanzen geteilt. Sie enthält Eigenschaftsnamen, die vor der ES2015-Version nicht im ECMAScript-Standard enthalten waren und die für die Bindung von [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Anweisungen ignoriert werden.
 
 ## Wert
 
-Ein [`null`-Prototyp-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) mit den unten angegebenen Eigenschaftsnamen und deren Werten auf `true` gesetzt.
+Ein [Objekt mit Null-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) mit den unten angegebenen Eigenschaftsnamen und deren Werten, die auf `true` gesetzt sind.
 
 {{js_property_attributes(0, 0, 1)}}
 
 ## Beschreibung
 
-Die Standard-`Array`-Eigenschaften, die für Bindungszwecke der `with`-Anweisung ignoriert werden, sind:
+Die standardmäßigen `Array`-Eigenschaften, die für `with`-Anweisungsbindungen ignoriert werden, sind:
 
 - [`at()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
 - [`copyWithin()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
@@ -37,13 +35,13 @@ Die Standard-`Array`-Eigenschaften, die für Bindungszwecke der `with`-Anweisung
 - [`toSpliced()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced)
 - [`values()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/values)
 
-`Array.prototype[Symbol.unscopables]` ist ein leeres Objekt, das nur alle oben genannten Eigenschaftsnamen mit dem Wert `true` enthält. Sein [Prototyp ist `null`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects), sodass `Object.prototype`-Eigenschaften wie [`toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) nicht versehentlich unfähig gemacht werden und ein `toString()` innerhalb der `with`-Anweisung weiterhin auf dem Array aufgerufen wird.
+`Array.prototype[Symbol.unscopables]` ist ein leeres Objekt, das nur alle oben genannten Eigenschaftsnamen mit dem Wert `true` enthält. Sein [Prototyp ist `null`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects), so dass `Object.prototype`-Eigenschaften wie [`toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) nicht versehentlich unsichtbar gemacht werden und ein `toString()` innerhalb der `with`-Anweisung weiterhin auf das Array angewendet wird.
 
-Siehe {{jsxref("Symbol.unscopables")}}, um zu erfahren, wie Sie unsichtbare Eigenschaften für Ihre eigenen Objekte festlegen können.
+Siehe {{jsxref("Symbol.unscopables")}} für Informationen darüber, wie Sie unsichtbare Eigenschaften für Ihre eigenen Objekte festlegen können.
 
 ## Beispiele
 
-Stellen Sie sich vor, dass der `values.push('etwas')`-Aufruf im folgenden Code geschrieben wurde, bevor ECMAScript 2015 eingeführt wurde.
+Angenommen, der Aufruf `values.push('something')` unten befindet sich in Code, der vor ECMAScript 2015 geschrieben wurde.
 
 ```js
 var values = [];
@@ -53,9 +51,9 @@ with (values) {
 }
 ```
 
-Als ECMAScript 2015 die Methode {{jsxref("Array.prototype.values()")}} einführte, begann die `with`-Anweisung im obigen Code, `values` als die `values.values`-Array-Methode statt als die externe `values`-Variable zu interpretieren. Der Aufruf von `values.push('etwas')` würde fehlschlagen, da er jetzt auf `push` auf die `values.values`-Methode zugreift. Dies führte zu einem gemeldeten Fehler in Firefox ([Firefox Bug 883914](https://bugzil.la/883914)).
+Als ECMAScript 2015 die Methode {{jsxref("Array.prototype.values()")}} einführte, begann die `with`-Anweisung im obigen Code, `values` als `values.values` Array-Methode statt als externe `values`-Variable zu interpretieren. Der Aufruf `values.push('something')` würde fehlschlagen, weil nun auf `push` auf der `values.values`-Methode zugegriffen wird. Dies führte zu einem gemeldeten Fehler in Firefox ([Firefox Bug 883914](https://bugzil.la/883914)).
 
-Daher bewirkt die `[Symbol.unscopables]` Daten-Eigenschaft für `Array.prototype`, dass die mit ECMAScript 2015 eingeführten `Array`-Eigenschaften für Bindungszwecke der `with`-Anweisung ignoriert werden, sodass Code, der vor ECMAScript 2015 geschrieben wurde, wie erwartet funktioniert und nicht bricht.
+Die `[Symbol.unscopables]` Daten-Eigenschaft für `Array.prototype` bewirkt, dass die in ECMAScript 2015 eingeführten `Array`-Eigenschaften für `with`-Anweisungsbindungen ignoriert werden — wodurch Code, der vor ECMAScript 2015 geschrieben wurde, weiterhin wie erwartet funktionieren kann, anstatt fehlerhaft zu werden.
 
 ## Spezifikationen
 

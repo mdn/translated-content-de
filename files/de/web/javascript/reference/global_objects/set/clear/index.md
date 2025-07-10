@@ -3,12 +3,10 @@ title: Set.prototype.clear()
 short-title: clear()
 slug: Web/JavaScript/Reference/Global_Objects/Set/clear
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`clear()`**-Methode von {{jsxref("Set")}} Instanzen entfernt alle Elemente aus diesem Set.
+Die **`clear()`**-Methode von {{jsxref("Set")}}-Instanzen entfernt alle Elemente aus diesem Set.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.clear()")}}
 

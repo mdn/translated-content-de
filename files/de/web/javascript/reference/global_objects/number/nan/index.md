@@ -3,12 +3,10 @@ title: Number.NaN
 short-title: NaN
 slug: Web/JavaScript/Reference/Global_Objects/Number/NaN
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Dateneigenschaft **`Number.NaN`** repräsentiert Not-A-Number, was äquivalent zu {{jsxref("NaN")}} ist. Für weitere Informationen über das Verhalten von `NaN` sehen Sie die [Beschreibung für die globale Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
+Die statische Dateneigenschaft **`Number.NaN`** repräsentiert Not-A-Number, was dem {{jsxref("NaN")}} entspricht. Für weitere Informationen über das Verhalten von `NaN`, siehe [die Beschreibung der globalen Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
 
 {{InteractiveExample("JavaScript Demo: Number.NaN", "taller")}}
 
@@ -35,11 +33,11 @@ Der numerische Wert {{jsxref("NaN")}}.
 
 ## Beschreibung
 
-Da `NaN` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es immer als `Number.NaN` und nicht als Eigenschaft eines Zahlenwertes.
+Da `NaN` eine statische Eigenschaft von {{jsxref("Number")}} ist, wird sie immer als `Number.NaN` verwendet und nicht als Eigenschaft eines Zahlenwertes.
 
 ## Beispiele
 
-### Überprüfen, ob Werte numerisch sind
+### Überprüfung, ob Werte numerisch sind
 
 ```js
 function sanitize(x) {

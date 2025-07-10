@@ -3,12 +3,10 @@ title: Intl.DurationFormat.prototype.resolvedOptions()
 short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/resolvedOptions
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.DurationFormat")}} Instanzen gibt ein neues Objekt zurück, das Eigenschaften enthält, die die während der Initialisierung dieses `DurationFormat`-Objekts berechneten Optionen widerspiegeln.
+Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.DurationFormat")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `DurationFormat`-Objekts berechneten Optionen widerspiegeln.
 
 ## Syntax
 
@@ -22,22 +20,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DurationFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der angegebenen Reihenfolge:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DurationFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
 
 - `locale`
-  - : Der BCP 47-Sprach-Tag für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel, falls angefordert, kann in der Ausgabe enthalten sein.
+  - : Das BCP 47-Sprachtag für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Verhandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel, falls angefordert, kann in der Ausgabe enthalten sein.
 - `numberingSystem`
-  - : Der in dem `options`-Argument angegebene Wert oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"`, mit Standardeinstellungen, die bei Bedarf ausgefüllt werden. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Locale. Die Standardeinstellung ist lokalisierungsabhängig.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wird, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"`, mit Standardeinstellungen nach Bedarf. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Locale. Der Standard ist von der Locale abhängig.
 - `style`
-  - : Der in dem `options`-Argument angegebene Wert, mit Standardeinstellungen, die bei Bedarf ausgefüllt werden. Es ist entweder `"long"`, `"short"`, `"narrow"` oder `"digital"`. Die Standardeinstellung ist `"short"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wird, mit Standardeinstellungen nach Bedarf. Er ist entweder `"long"`, `"short"`, `"narrow"` oder `"digital"`. Der Standard ist `"short"`.
 - `years`, `yearsDisplay`, `months`, `monthsDisplay`, `weeks`, `weeksDisplay`, `days`, `daysDisplay`, `hours`, `hoursDisplay`, `minutes`, `minutesDisplay`, `seconds`, `secondsDisplay`, `milliseconds`, `millisecondsDisplay`, `nanoseconds`, `nanosecondsDisplay`
-  - : Die in dem `options`-Argument angegebenen Werte mit Standardeinstellungen, die bei Bedarf ausgefüllt werden. Für die gültigen Werte und Standardeinstellungen für jeden einzelnen Wert, siehe das [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options)-Argument des Konstruktors.
+  - : Die für diese Eigenschaften im `options`-Argument angegebenen Werte, mit Standardeinstellungen nach Bedarf. Für die gültigen Werte und Standardeinstellungen für jede Eigenschaft siehe das [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options)-Argument des Konstruktors.
 - `fractionalDigits` {{optional_inline}}
-  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wurde. Er ist nur vorhanden, wenn er in `options` angegeben ist. Es handelt sich um eine ganze Zahl zwischen 0 und 9, einschließlich.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument angegeben wird. Er ist nur vorhanden, wenn er in `options` angegeben wurde. Es ist eine Ganzzahl von 0 bis 9, einschließlich.
 
 ## Beispiele
 
-### Verwenden der resolvedOptions-Methode
+### Verwendung der Methode resolvedOptions
 
 ```js
 const duration = new Intl.DurationFormat("en");

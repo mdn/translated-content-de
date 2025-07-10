@@ -3,12 +3,10 @@ title: Atomics.add()
 short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/add
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`Atomics.add()`** statische Methode fügt einen gegebenen Wert an einer bestimmten Position im Array hinzu und gibt den alten Wert an dieser Position zurück. Diese atomare Operation stellt sicher, dass kein anderer Schreibvorgang stattfindet, bis der modifizierte Wert zurückgeschrieben wird.
+Die **`Atomics.add()`** statische Methode fügt an einer gegebenen Position im Array einen Wert hinzu und gibt den alten Wert an dieser Position zurück. Diese atomare Operation stellt sicher, dass kein anderer Schreibvorgang stattfindet, bis der geänderte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.add()")}}
 
@@ -35,27 +33,25 @@ Atomics.add(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliges typisiertes Array. Eine der folgenden Optionen: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
     {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der ein
-    `value` hinzugefügt werden soll.
+  - : Die Position im `typedArray`, an der ein `value` hinzugefügt wird.
 - `value`
   - : Die Zahl, die hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der angegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Ganzzahltypen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb des zulässigen Bereichs im `typedArray` liegt.
 
 ## Beispiele
 

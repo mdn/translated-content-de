@@ -3,26 +3,24 @@ title: Intl.Locale.prototype.region
 short-title: region
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/region
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`region`** Zugriffsproperty von {{jsxref("Intl.Locale")}} Instanzen gibt die mit dieser Locale verbundene Region der Welt (gewöhnlich ein Land) zurück.
+Die **`region`** Accessor-Eigenschaft von Instanzen von {{jsxref("Intl.Locale")}} gibt die Region der Welt (normalerweise ein Land) zurück, die mit diesem Gebietsschema assoziiert ist.
 
 ## Beschreibung
 
-Die Region ist eines der Kernelemente einer Locale. Sie ermöglicht die Auswahl für Unterschiede zwischen der gleichen Sprache in verschiedenen Ländern. Zum Beispiel wird Englisch sowohl im Vereinigten Königreich als auch in den Vereinigten Staaten von Amerika gesprochen, aber es gibt Unterschiede in der Rechtschreibung und anderen Sprachkonventionen zwischen diesen beiden Ländern. Das Wissen über die Region einer Locale hilft JavaScript-Programmierern sicherzustellen, dass der Inhalt ihrer Websites und Anwendungen korrekt dargestellt wird, wenn er aus verschiedenen Teilen der Welt betrachtet wird. Der Wert der `region` Property wird zur Konstruktionszeit festgelegt, entweder durch den `region` Untertag (dritter Teil, wenn `script` vorhanden ist, ansonsten zweiter Teil) der Locale-Kennung oder durch die `region` Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letzteres hat Vorrang, wenn beide vorhanden sind; und wenn keiner von beiden vorhanden ist, hat die Property den Wert `undefined`.
+Die Region ist eines der Kerneigenschaften eines Gebietsschemas. Sie ermöglicht die Auswahl von Unterschieden zwischen derselben Sprache in beispielsweise verschiedenen Ländern. Zum Beispiel wird Englisch im Vereinigten Königreich und in den Vereinigten Staaten von Amerika gesprochen, aber es gibt Unterschiede in der Rechtschreibung und anderen Sprachkonventionen zwischen diesen beiden Ländern. Die Kenntnis der Region des Gebietsschemas hilft JavaScript-Programmierern sicherzustellen, dass der Inhalt ihrer Websites und Anwendungen korrekt angezeigt wird, wenn sie aus verschiedenen Teilen der Welt betrachtet werden. Der Wert der `region`-Eigenschaft wird zur Erstellungszeit festgelegt, entweder durch den `region`-Subtag (dritter Teil, wenn `script` vorhanden ist, sonst zweiter Teil) des Gebietsschema-Identifiers oder durch die `region`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letztere hat Priorität, wenn beide vorhanden sind; und wenn keiner vorhanden ist, hat die Eigenschaft den Wert `undefined`.
 
-Der set-Zugriff von `region` ist `undefined`. Sie können diese Property nicht direkt ändern.
+Der Set-Accessor von `region` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-Wie andere Locale-Untertags kann die Region über den Locale-String oder ein Konfigurationsobjekt-Argument zum Konstruktor dem {{jsxref("Intl.Locale")}} Objekt hinzugefügt werden.
+Wie andere Gebietsschema-Subtags kann die Region dem {{jsxref("Intl.Locale")}} Objekt über den Gebietsschema-String oder ein Konfigurationsobjekt-Argument des Konstruktors hinzugefügt werden.
 
-### Hinzufügen einer Region über den Locale-String
+### Hinzufügen einer Region über den Gebietsschema-String
 
-Die Region, falls vorhanden, ist der dritte Teil (wenn `script` vorhanden ist, ansonsten der zweite Teil) eines gültigen Unicode-Sprachbezeichner-Strings und kann dem initialen Locale-Bezeichner-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Beachten Sie, dass die Region kein erforderlicher Teil eines Locale-Bezeichners ist.
+Die Region, falls vorhanden, ist der dritte Teil (wenn `script` vorhanden ist, sonst zweiter Teil) eines gültigen Unicode-Sprachidentifikator-Strings und kann dem ursprünglichen Gebietsschema-Identifikator-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Beachten Sie, dass die Region kein erforderlicher Teil eines Gebietsschema-Identifiers ist.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US");
@@ -31,7 +29,7 @@ console.log(locale.region); // Prints "US"
 
 ### Hinzufügen einer Region über das Konfigurationsobjekt-Argument
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument. Setzen Sie die `region` Property des Konfigurationsobjekts auf Ihre gewünschte Region und übergeben Sie diese dann an den Konstruktor.
+Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument. Setzen Sie die `region`-Eigenschaft des Konfigurationsobjekts auf Ihre gewünschte Region und übergeben Sie es dann in den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("fr-Latn", { region: "FR" });
@@ -49,4 +47,4 @@ console.log(locale.region); // Prints "FR"
 ## Siehe auch
 
 - {{jsxref("Intl.Locale")}}
-- [Unicode-Regionstabelle](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_containment_un_m_49.html)
+- [Unicode Regionstabelle](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_containment_un_m_49.html)

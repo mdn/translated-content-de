@@ -3,12 +3,10 @@ title: Map.prototype.keys()
 short-title: keys()
 slug: Web/JavaScript/Reference/Global_Objects/Map/keys
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`keys()`** Methode von {{jsxref("Map")}} Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel für jedes Element in dieser Map in Einfügereihenfolge enthält.
+Die **`keys()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel für jedes Element in dieser Map in Einfüge-Reihenfolge enthält.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.keys()")}}
 

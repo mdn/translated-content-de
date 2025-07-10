@@ -3,12 +3,10 @@ title: String.prototype.padStart()
 short-title: padStart()
 slug: Web/JavaScript/Reference/Global_Objects/String/padStart
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`padStart()`** Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String (falls notwendig wiederholt und/oder abgeschnitten), sodass der resultierende String eine bestimmte Länge erreicht. Das Füllen erfolgt vom Anfang dieses Strings.
+Die **`padStart()`** Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String auf (wiederholt und/oder abgeschnitten, falls nötig), so dass der resultierende String eine bestimmte Länge erreicht. Die Auffüllung wird am Anfang dieses Strings angewendet.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padStart()")}}
 
@@ -38,11 +36,11 @@ padStart(targetLength, padString)
 - `targetLength`
   - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb von `targetLength` zu bleiben, wird es vom Ende abgeschnitten. Der Standardwert ist das Leerzeichen (U+0020).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb von `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Leerzeichen-Zeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString` am Anfang angewendet.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, das am Anfang angewendet wird.
 
 ## Beispiele
 
@@ -56,7 +54,7 @@ Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString` am Anfan
 "abc".padStart(1); // "abc"
 ```
 
-### Konvertierung in eine feste Breite eines String-Nummers
+### Festbreite-Zahlenkonvertierung
 
 ```js
 // JavaScript version of: (unsigned)

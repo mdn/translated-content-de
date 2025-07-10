@@ -3,12 +3,10 @@ title: WeakMap.prototype.get()
 short-title: get()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/get
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`get()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt ein bestimmtes Element aus diesem `WeakMap` zurück.
+Die **`get()`**-Methode von {{jsxref("WeakMap")}}-Instanzen gibt ein bestimmtes Element aus diesem `WeakMap` zurück.
 
 {{InteractiveExample("JavaScript Demo: WeakMap.prototype.get()")}}
 
@@ -35,15 +33,15 @@ get(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `WeakMap` Objekt zurückgegeben werden soll.
+  - : Der Schlüssel des Elements, das aus dem `WeakMap`-Objekt zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Das mit dem angegebenen Schlüssel im `WeakMap` Objekt assoziierte Element. Wenn der Schlüssel nicht gefunden werden kann, wird {{jsxref("undefined")}} zurückgegeben. Gibt immer `undefined` zurück, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+Das mit dem angegebenen Schlüssel im `WeakMap`-Objekt verknüpfte Element. Wenn der Schlüssel nicht gefunden werden kann, wird {{jsxref("undefined")}} zurückgegeben. Es wird immer `undefined` zurückgegeben, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwenden der get() Methode
+### Verwendung der get()-Methode
 
 ```js
 const wm = new WeakMap();

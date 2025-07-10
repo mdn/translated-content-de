@@ -3,14 +3,12 @@ title: Symbol.matchAll
 short-title: matchAll
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/matchAll
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol im ersten Argument, um die Methode zu erhalten, die einen Iterator bereitstellt, der Übereinstimmungen des aktuellen Objekts mit einer Zeichenkette liefert.
 
-Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol in ihrem ersten Argument, um die Methode zu finden, die einen Iterator zurückgibt, der Übereinstimmungen des aktuellen Objekts mit einem String liefert.
-
-Für weitere Informationen, siehe [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.matchAll")}}
 
@@ -25,7 +23,7 @@ console.log(Array.from(result, (x) => x[0]));
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.matchAll`.
+Das bekannte Symbol `Symbol.matchAll`.
 
 {{js_property_attributes(0, 0, 0)}}
 

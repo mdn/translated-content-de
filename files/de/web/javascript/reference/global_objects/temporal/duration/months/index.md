@@ -3,14 +3,14 @@ title: Temporal.Duration.prototype.months
 short-title: months
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/months
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die Zugriffseigenschaft **`months`** von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Monate in der Dauer darstellt.
+Die **`months`** Accessor-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Monate in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Werts nicht annehmen, aber Sie können dessen Vorzeichen feststellen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit oberhalb von Monaten ausgeglichen ist, hängt der Bereich des absoluten Werts von `months` vom Kalender ab (wie viele Monate in einem Jahr sind).
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie nicht vom Wertebereich ausgehen, aber Sie können das Vorzeichen ermitteln, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit über den Monaten ausgeglichen ist, hängt der Wertebereich des absoluten `months`-Wertes vom Kalender ab (wie viele Monate sich in einem Jahr befinden).
 
 Der Set-Accessor von `months` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 

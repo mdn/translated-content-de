@@ -3,12 +3,10 @@ title: ArrayBuffer.prototype.transfer()
 short-title: transfer()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/transfer
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`transfer()`** Methode von {{jsxref("ArrayBuffer")}}-Instanzen erstellt einen neuen `ArrayBuffer` mit demselben Byte-Inhalt wie dieser Puffer und trennt dann diesen Puffer.
+Die **`transfer()`** Methode von {{jsxref("ArrayBuffer")}} Instanzen erstellt einen neuen `ArrayBuffer` mit demselben Byte-Inhalt wie dieser Puffer und trennt dann diesen Puffer.
 
 ## Syntax
 
@@ -20,29 +18,29 @@ transfer(newByteLength)
 ### Parameter
 
 - `newByteLength` {{optional_inline}}
-  - : Die {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des neuen `ArrayBuffer`. Standardmäßig entspricht dies der `byteLength` dieses `ArrayBuffer`.
-    - Wenn `newByteLength` kleiner ist als die `byteLength` dieses `ArrayBuffer`, werden die "überflüssigen" Bytes entfernt.
+  - : Die {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des neuen `ArrayBuffer`. Standardmäßig die `byteLength` dieses `ArrayBuffer`.
+    - Wenn `newByteLength` kleiner ist als die `byteLength` dieses `ArrayBuffer`, werden die "überschüssigen" Bytes verworfen.
     - Wenn `newByteLength` größer ist als die `byteLength` dieses `ArrayBuffer`, werden die zusätzlichen Bytes mit Nullen gefüllt.
-    - Wenn dieser `ArrayBuffer` anpassbar ist, darf `newByteLength` nicht größer sein als seine {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}}.
+    - Wenn dieser `ArrayBuffer` anpassbar ist, darf `newByteLength` nicht größer als sein {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} sein.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("ArrayBuffer")}}-Objekt. Sein Inhalt wird mit dem Inhalt dieses `ArrayBuffer` initialisiert, und zusätzliche Bytes, falls vorhanden, werden mit Nullen gefüllt. Der neue `ArrayBuffer` ist anpassbar, wenn und nur wenn dieser `ArrayBuffer` anpassbar ist, in diesem Fall ist seine {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} dieselbe wie die dieses `ArrayBuffer`. Der ursprüngliche `ArrayBuffer` wird getrennt.
+Ein neues {{jsxref("ArrayBuffer")}} Objekt. Sein Inhalt ist initialisiert auf den Inhalt dieses `ArrayBuffer`, und zusätzliche Bytes, falls vorhanden, sind mit Nullen gefüllt. Der neue `ArrayBuffer` ist anpassbar genau dann, wenn dieser `ArrayBuffer` anpassbar ist, in welchem Fall sein {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} derselbe ist wie der dieses `ArrayBuffer`. Der ursprüngliche `ArrayBuffer` ist getrennt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn dieser `ArrayBuffer` anpassbar ist und `newByteLength` größer ist als die {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} dieses `ArrayBuffer`.
+  - : Ausgelöst, wenn dieser `ArrayBuffer` anpassbar ist und `newByteLength` größer als der {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} dieses `ArrayBuffer` ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn dieser `ArrayBuffer` bereits getrennt ist.
+  - : Ausgelöst, wenn dieser `ArrayBuffer` bereits getrennt ist.
 
 ## Beschreibung
 
-Die `transfer()`-Methode führt denselben Vorgang wie der [strukturierte Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) durch. Sie kopiert die Bytes dieses `ArrayBuffer` in ein neues `ArrayBuffer`-Objekt und trennt dann dieses `ArrayBuffer`-Objekt. Weitere Informationen finden Sie unter [Übertragung von ArrayBuffers](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers).
+Die `transfer()` Methode führt dieselbe Operation durch wie der [strukturierte Klonalgorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Sie kopiert die Bytes dieses `ArrayBuffer` in ein neues `ArrayBuffer` Objekt und trennt dann dieses `ArrayBuffer` Objekt. Weitere Informationen finden Sie unter [Übertragen von ArrayBuffers](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers).
 
-`transfer()` bewahrt die Anpassbarkeit dieses `ArrayBuffer`. Wenn Sie möchten, dass der neue `ArrayBuffer` nicht anpassbar ist, verwenden Sie {{jsxref("ArrayBuffer/transferToFixedLength", "transferToFixedLength()")}} stattdessen. Es gibt keine Möglichkeit, einen Puffer zu übertragen, der einen Puffer fester Länge anpassbar macht.
+`transfer()` bewahrt die Anpassbarkeit dieses `ArrayBuffer`. Wenn Sie möchten, dass der neue `ArrayBuffer` nicht anpassbar ist, verwenden Sie stattdessen {{jsxref("ArrayBuffer/transferToFixedLength", "transferToFixedLength()")}}. Es gibt keine Möglichkeit, einen Puffer zu übertragen, der einen Puffer fester Länge anpassbar macht.
 
-`transfer()` ist sehr effizient, da Implementierungen diese Methode als Null-Kopie-Bewegung oder als `realloc` implementieren können — es muss keine tatsächliche Kopie der Daten erfolgen.
+`transfer()` ist sehr effizient, da Implementierungen diese Methode als eine Zero-Copy-Bewegung oder als `realloc` implementieren können — es muss kein tatsächliches Kopieren der Daten erfolgen.
 
 ## Beispiele
 

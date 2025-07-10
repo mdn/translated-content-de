@@ -3,10 +3,8 @@ title: AsyncGenerator.prototype.next()
 short-title: next()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncGenerator/next
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`next()`**-Methode von {{jsxref("AsyncGenerator")}}-Instanzen gibt den nächsten Wert in der Sequenz zurück.
 
@@ -20,22 +18,22 @@ next(value)
 ### Parameter
 
 - `value` {{optional_inline}}
-  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein an die `next()`-Methode übergebener Wert wird durch `yield` empfangen
+  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein an die `next()`-Methode übergebener Wert wird von `yield` empfangen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der, wenn er aufgelöst wird, ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
+Ein {{jsxref("Promise")}}, das beim Auflösen ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
 
 - `done`
   - : Ein boolescher Wert:
-    - `true`, wenn der Generator über das Ende seines Kontrollflusses hinaus ist. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (was undefiniert sein kann).
+    - `true`, wenn der Generator das Ende seines Kontrollflusses erreicht hat. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der möglicherweise undefiniert ist).
     - `false`, wenn der Generator in der Lage ist, weitere Werte zu erzeugen.
 - `value`
-  - : Jeder JavaScript-Wert, der vom Generator durch `yield` oder `return` bereitgestellt wird.
+  - : Jeder JavaScript-Wert, der vom Generator "yielded" oder zurückgegeben wurde.
 
 ## Beispiele
 
-### Verwendung von next()
+### Verwenden von next()
 
 Das folgende Beispiel zeigt einen Generator und das Objekt, das die `next`-Methode zurückgibt:
 
@@ -66,7 +64,7 @@ asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: tr
 In diesem Beispiel wird `next` mit einem Wert aufgerufen.
 
 > [!NOTE]
-> Der erste Aufruf gibt nichts aus, weil der Generator zunächst nichts yieldete.
+> Der erste Aufruf protokolliert nichts, da der Generator zunächst nichts "yielded".
 
 ```js
 // An async task. Pretend it's doing something more useful
@@ -107,4 +105,4 @@ main();
 ## Siehe auch
 
 - {{jsxref("Statements/async_function*", "async function*")}}
-- [Iterators und Generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden

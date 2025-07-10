@@ -2,14 +2,14 @@
 title: Temporal.Duration()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/Duration
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der **`Temporal.Duration()`** Konstruktor erstellt {{jsxref("Temporal.Duration")}}-Objekte.
+Der **`Temporal.Duration()`** Konstruktor erstellt {{jsxref("Temporal.Duration")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen direkt durch Angabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal`-Klassen sollten Sie in der Regel `Temporal.Duration`-Objekte mit der statischen Methode {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konstruieren, die mit einer Vielzahl von Eingabetypen umgehen kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie die zugrunde liegenden Daten direkt bereitstellen. Wie bei allen anderen `Temporal`-Klassen sollten `Temporal.Duration`-Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konstruiert werden, die mit einer Vielzahl von Eingabetypen umgehen kann.
 
 ## Syntax
 
@@ -27,7 +27,8 @@ new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milli
 new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds)
 ```
 
-> [!NOTE] > `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, dies ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -54,15 +55,15 @@ new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milli
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration`-Objekt, möglicherweise [unausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
+Ein neues `Temporal.Duration` Objekt, möglicherweise [unbalanced](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Einer der Parameter ist keine ganze Zahl (einschließlich nicht-endlicher Werte).
+    - Einer der Parameter ist keine ganze Zahl (einschließlich nicht-finite Werte).
     - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen absoluten Wert ≥ 2<sup>32</sup>.
-    - Der nicht-kalenderische Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
+    - Der nicht-Kalender-Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
 
 ## Beispiele
 

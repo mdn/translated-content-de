@@ -3,14 +3,14 @@ title: Temporal.PlainTime.prototype.minute
 short-title: minute
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/minute
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`minute`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainTime")}}-Instanzen liefert eine ganze Zahl von 0 bis 59, die die Minutenkomponente dieser Zeit darstellt.
+Die **`minute`** zugreifende Eigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine Ganzzahl von 0 bis 59 zurück, die die Minutenkomponente dieser Zeit darstellt.
 
-Der set-Accessor von `minute` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}}-Methode, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der setzende Zugriff von `minute` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}} Methode, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -21,7 +21,7 @@ const time = Temporal.PlainTime.from("12:34:56");
 console.log(time.minute); // 34
 ```
 
-### Ändern von minute
+### Ändern der Minute
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");
@@ -29,7 +29,7 @@ const newTime = time.with({ minute: 58 });
 console.log(newTime.toString()); // 12:58:56
 ```
 
-Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um die aktuelle Zeit um eine bestimmte Anzahl von Minuten zu verschieben.
+Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Minuten von der aktuellen Zeit zu verschieben.
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

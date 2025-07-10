@@ -3,12 +3,12 @@ title: Temporal.Instant.prototype.equals()
 short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/equals
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`equals()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt `true` zurück, wenn dieses Instant zeitlich gleichwertig mit einem anderen Instant ist (in einer Form, die durch {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden durch ihre {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} verglichen. Dies entspricht `Temporal.Instant.compare(this, other) === 0`.
+Die Methode **`equals()`** von {{jsxref("Temporal.Instant")}}-Instanzen gibt `true` zurück, wenn dieser Zeitpunkt einem anderen Zeitpunkt im Wert entspricht (in einer Form, die von {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden durch ihre {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} verglichen. Es entspricht `Temporal.Instant.compare(this, other) === 0`.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String oder eine {{jsxref("Temporal.Instant")}} Instanz, die das andere zu vergleichende Instant darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} in ein `Temporal.Instant` Objekt konvertiert.
+  - : Ein String oder eine {{jsxref("Temporal.Instant")}}-Instanz, die den anderen zu vergleichenden Zeitpunkt darstellt. Er wird mit demselben Algorithmus, den {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} verwendet, in ein `Temporal.Instant`-Objekt konvertiert.
 
 ### Rückgabewert
 
-`true`, wenn dieses Instant nanosekunden-genau zu `other` gleichwertig ist, andernfalls `false`.
+`true`, wenn dieser Zeitpunkt gleich `other` in Nanosekunden ist, `false` sonst.
 
 ## Beispiele
 

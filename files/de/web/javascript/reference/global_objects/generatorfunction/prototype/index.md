@@ -3,26 +3,24 @@ title: GeneratorFunction.prototype.prototype
 short-title: prototype
 slug: Web/JavaScript/Reference/Global_Objects/GeneratorFunction/prototype
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`prototype`**-Eigenschaft von `GeneratorFunction.prototype` wird von allen Generatorfunktionen geteilt. Ihr Wert ist [`Generator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator). Jede Generatorfunktion, die mit der `function*`-Syntax oder dem `GeneratorFunction()`-Konstruktor erstellt wird, hat auch ihre eigene `prototype`-Eigenschaft, deren Prototyp `GeneratorFunction.prototype.prototype` ist. Wenn die Generatorfunktion aufgerufen wird, wird ihre `prototype`-Eigenschaft zum Prototyp des zurückgegebenen Generatorobjekts.
 
 ## Wert
 
-Dasselbe Objekt wie [`Generator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator). `GeneratorFunction.prototype.prototype` ist der technisch genauere Name, aber `Generator.prototype` spricht die Intuition an, dass es sich um den Prototyp von Generatorobjekten handelt.
+Dasselbe Objekt wie [`Generator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator). `GeneratorFunction.prototype.prototype` ist der technisch genauere Name, aber `Generator.prototype` entspricht mehr der Intuition, dass es sich um den Prototyp von Generatorobjekten handelt.
 
 {{js_property_attributes(1, 0, 0)}}
 
-Die `prototype`-Eigenschaft jeder `GeneratorFunction`-Instanz ist ein leeres Objekt ohne Eigenschaften, dessen Prototyp `GeneratorFunction.prototype.prototype` ist. Es hat die folgenden Eigenschaftsattribute:
+Die `prototype`-Eigenschaft jeder `GeneratorFunction`-Instanz ist ein leeres Objekt ohne Eigenschaften, dessen Prototyp `GeneratorFunction.prototype.prototype` ist. Sie hat die folgenden Eigenschaftsattribute:
 
 {{js_property_attributes(0, 0, 1)}}
 
 ## Beschreibung
 
-Eine Instanz einer Generatorfunktion hat zwei `prototype`-Eigenschaften. Die erste ist ihre eigene `prototype`-Eigenschaft. Die zweite ist die `prototype`-Eigenschaft auf ihrem Prototyp, der `GeneratorFunction.prototype` ist. (Denken Sie daran, dass jede Generatorfunktion eine Instanz von `GeneratorFunction` ist, sodass sie `GeneratorFunction.prototype` als ihren Prototyp hat.)
+Eine Generatorfunktion-Instanz hat zwei `prototype`-Eigenschaften. Die erste ist ihre eigene `prototype`-Eigenschaft. Die zweite ist die `prototype`-Eigenschaft auf ihrem Prototyp, welcher `GeneratorFunction.prototype` ist. (Denken Sie daran, dass jede Generatorfunktion eine Instanz von `GeneratorFunction` ist und daher `GeneratorFunction.prototype` als Prototyp hat.)
 
 ```js
 function* genFunc() {}
@@ -40,7 +38,7 @@ console.log(proto(gen) === genFunc.prototype); // true
 console.log(proto(proto(gen)) === GeneratorFunctionPrototype.prototype); // true
 ```
 
-Das folgende Diagramm zeigt die Prototypenkette einer Generatorfunktion und ihrer Instanzen. Jeder hohle Pfeil zeigt eine Vererbungsbeziehung (d.h. eine Prototypverknüpfung) an, und jeder volle Pfeil zeigt eine Eigenschaftsbeziehung an. Beachten Sie, dass es keine Möglichkeit gibt, von `genFunc` auf `gen` zuzugreifen — sie haben nur eine `instanceof`-Beziehung.
+Das folgende Diagramm veranschaulicht die Prototyp-Kette einer Generatorfunktion und ihrer Instanzen. Jeder hohle Pfeil zeigt eine Vererbungsbeziehung (d.h. eine Prototyp-Verbindung) an, und jeder volle Pfeil zeigt eine Eigenschaftsbeziehung an. Beachten Sie, dass es keine Möglichkeit gibt, von `gen` auf `genFunc` zuzugreifen — sie haben nur eine `instanceof`-Beziehung.
 
 ![Das Vererbungsdiagramm von Generatoren und Generatorfunktionen](https://mdn.github.io/shared-assets/images/diagrams/javascript/generatorfunction/prototype-chain.svg)
 

@@ -3,12 +3,10 @@ title: Reflect.apply()
 short-title: apply()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/apply
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Reflect.apply()`** ruft eine Ziel-Funktion mit den angegebenen Argumenten auf.
+Die statische Methode **`Reflect.apply()`** ruft eine Zielfunktion mit den angegebenen Argumenten auf.
 
 {{InteractiveExample("JavaScript Demo: Reflect.apply()", "taller")}}
 
@@ -39,15 +37,15 @@ Reflect.apply(target, thisArgument, argumentsList)
 ### Parameter
 
 - `target`
-  - : Die Ziel-Funktion, die aufgerufen werden soll.
+  - : Die Zielfunktion, die aufgerufen werden soll.
 - `thisArgument`
-  - : Der Wert von `this`, der für den Aufruf von `target` bereitgestellt wird.
+  - : Der Wert für `this`, der für den Aufruf an `target` übergeben wird.
 - `argumentsList`
-  - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente spezifiziert, mit denen `target` aufgerufen werden soll.
+  - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente angibt, mit denen `target` aufgerufen werden soll.
 
 ### Rückgabewert
 
-Das Ergebnis des Aufrufs der gegebenen `target`-Funktion mit dem angegebenen `this`-Wert und den Argumenten.
+Das Ergebnis des Aufrufs der angegebenen `target`-Funktion mit dem angegebenen `this`-Wert und den Argumenten.
 
 ### Ausnahmen
 
@@ -56,7 +54,7 @@ Das Ergebnis des Aufrufs der gegebenen `target`-Funktion mit dem angegebenen `th
 
 ## Beschreibung
 
-`Reflect.apply()` bietet die reflektive Semantik eines Funktionsaufrufs. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch äquivalent zu:
+`Reflect.apply()` bietet die reflexive Semantik eines Funktionsaufrufs. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch äquivalent zu:
 
 ```js
 Math.floor.apply(null, [1.75]);
@@ -72,7 +70,7 @@ Die einzigen Unterschiede sind:
 
 ## Beispiele
 
-### Verwendung von Reflect.apply()
+### Verwenden von Reflect.apply()
 
 ```js
 Reflect.apply(Math.floor, undefined, [1.75]);

@@ -3,12 +3,10 @@ title: Math.sin()
 short-title: sin()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sin
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.sin()`** gibt den Sinus einer Zahl in Bogenmaß zurück.
+Die **`Math.sin()`** statische Methode gibt den Sinus einer Zahl in Bogenmaß zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.sin()")}}
 
@@ -36,7 +34,7 @@ Math.sin(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel in Bogenmaß darstellt.
+  - : Eine Zahl, die einen Winkel im Bogenmaß darstellt.
 
 ### Rückgabewert
 
@@ -44,7 +42,7 @@ Der Sinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infini
 
 ## Beschreibung
 
-Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

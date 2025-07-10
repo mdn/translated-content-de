@@ -3,12 +3,10 @@ title: DataView.prototype.getUint8()
 short-title: getUint8()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getUint8
 l10n:
-  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`getUint8()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 1 Byte an dem angegebenen Byte-Offset dieser `DataView` und interpretiert es als 8-Bit-unsigned Integer.
+Die **`getUint8()`** Methode von {{jsxref("DataView")}} Instanzen liest 1 Byte an dem angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-Unsigned-Integer.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.getUint8()")}}
 
@@ -32,7 +30,7 @@ getUint8(byteOffset)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset, in Bytes, vom Anfang der Ansicht, von dem die Daten gelesen werden.
 
 ### Rückgabewert
 
@@ -41,7 +39,7 @@ Ein ganzzahliger Wert von 0 bis 255, inklusive.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so festgelegt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinauslesen würde.
 
 ## Beispiele
 
@@ -63,7 +61,7 @@ console.log(dataview.getUint8(1)); // 1
 
 ## Siehe auch
 
-- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint8Array")}}
