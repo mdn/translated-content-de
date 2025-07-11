@@ -1,38 +1,32 @@
 ---
-title: Erstellen Sie eine einfache Demo mit der PlayCanvas-Engine
+title: Aufbau einer einfachen Demo mit der PlayCanvas-Engine
 slug: Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas/engine
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
 ---
 
-{{GamesSidebar}}
+Entwickelt für moderne Browser ist **PlayCanvas** eine funktionsreiche 3D-Spiel-Engine mit Funktionen wie Ressourcenladen, einem Entitäts- und Komponenten-System, fortgeschrittener Grafikmanipulation, Kollisions- und Physik-Engine (erstellt mit [ammo.js](https://github.com/kripken/ammo.js/)), Audio sowie Möglichkeiten zur Verarbeitung von Eingabesteuerungen verschiedener Geräte (einschließlich Gamepads). Das ist eine beachtliche Liste von Funktionen – sehen wir uns einige davon in Aktion an.
 
-Speziell für moderne Browser entwickelt, ist **PlayCanvas** eine vollständig ausgestattete 3D-Spiel-Engine mit Funktionen wie Ressourcen-Management, einem Entitäten- und Komponentensystem, fortschrittlicher Grafikbearbeitung, Kollisions- und Physik-Engine (erstellt mit [ammo.js](https://github.com/kripken/ammo.js/)), Audio-Unterstützung und Erkennung von Steuereingaben von verschiedenen Geräten (einschließlich Gamepads).
-Das ist eine beeindruckende Liste von Funktionen — schauen wir uns einige davon in Aktion an.
-
-Zuerst bauen wir eine einfache Demo – ein Würfel, der auf dem Bildschirm gerendert wird. Wenn Sie bereits unseren [Leitfaden „Erstellen einer einfachen Demo mit Three.js“](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) durchgearbeitet haben (oder mit anderen 3D-Bibliotheken vertraut sind), werden Sie bemerken, dass PlayCanvas ähnliche Konzepte verwendet: Kamera, Licht und Objekte.
+Wir erstellen zunächst eine einfache Demo – ein Würfel, der auf dem Bildschirm gerendert wird. Wenn Sie bereits unseren Artikel [Aufbau einer einfachen Demo mit Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) durchgearbeitet haben (oder mit anderen 3D-Bibliotheken vertraut sind), werden Sie feststellen, dass PlayCanvas ähnliche Konzepte beinhaltet: Kamera, Licht und Objekte.
 
 > [!NOTE]
-> Dieser Leitfaden wurde zuletzt im November 2024 aktualisiert und ist kompatibel mit PlayCanvas Version `2.2.2`.
+> Dieser Leitfaden wurde zuletzt im November 2024 aktualisiert und ist mit PlayCanvas Version `2.2.2` kompatibel.
 
 ## Entwicklungsumgebung
 
-Um mit der Entwicklung in PlayCanvas zu beginnen, stellen Sie sicher, dass Sie einen modernen Browser mit guter [WebGL](/de/docs/Web/API/WebGL_API)-Unterstützung verwenden.
-Es ist hilfreich, die [PlayCanvas-Dokumentation](https://developer.playcanvas.com/en/user-manual/) in einem separaten Tab geöffnet zu halten, während Sie arbeiten.
+Um mit PlayCanvas zu entwickeln, vergewissern Sie sich, dass Sie einen modernen Browser mit guter [WebGL](/de/docs/Web/API/WebGL_API)-Unterstützung verwenden. Es ist nützlich, die [PlayCanvas-Dokumentation](https://developer.playcanvas.com/en/user-manual/) in einem separaten Tab geöffnet zu halten, während Sie arbeiten.
 
-Wenn Sie lokal in einer IDE entwickeln, erstellen Sie ein Verzeichnis, um Ihre Experimente zu speichern, und sichern Sie eine Kopie der [aktuellen PlayCanvas-Engine](https://code.playcanvas.com/playcanvas-latest.js) in diesem Verzeichnis.
-Alternativ können Sie PlayCanvas von einem CDN laden:
+Wenn Sie lokal in einer IDE entwickeln, erstellen Sie ein Verzeichnis, um Ihre Experimente zu speichern, und speichern Sie eine Kopie der [neuesten PlayCanvas-Engine](https://code.playcanvas.com/playcanvas-latest.js) in diesem Verzeichnis. Alternativ können Sie PlayCanvas von einem CDN laden:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/playcanvas@2.2.2/build/playcanvas.min.js"></script>
 ```
 
-Wenn Sie nicht lokal entwickeln möchten, können Sie einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) verwenden.
-Mit diesen Editoren können Sie `https://cdn.babylonjs.com/babylon.js` als JavaScript-Quelle hinzufügen, sodass es in Ihrem Code verfügbar ist.
+Wenn Sie nicht lokal entwickeln möchten, können Sie einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) verwenden. Mit diesen Editoren können Sie `https://cdn.babylonjs.com/babylon.js` als JavaScript-Quelle hinzufügen, sodass es in Ihrem Code verfügbar ist.
 
 ### HTML-Starter für PlayCanvas
 
-Wenn Sie Ihr Projekt lokal in einer IDE erstellen, finden Sie hier die HTML-Struktur für den Einstieg:
+Wenn Sie Ihr Projekt lokal in einer IDE erstellen, hier die HTML-Struktur zum Einstieg:
 
 ```html
 <!doctype html>
@@ -67,22 +61,22 @@ Wenn Sie Ihr Projekt lokal in einer IDE erstellen, finden Sie hier die HTML-Stru
 </html>
 ```
 
-Es enthält Informationen wie das Dokumenten-{{htmlelement("title")}} und etwas CSS, um die Breite und Höhe des {{htmlelement("canvas")}}-Elements (das PlayCanvas verwenden wird) auf 100 % festzulegen, sodass es den gesamten verfügbaren Anzeigebereich ausfüllt. Das erste {{htmlelement("script")}}-Element bindet die PlayCanvas-Bibliothek auf der Seite ein; wir werden unseren Beispielcode in das zweite schreiben. Eine Variable ist bereits enthalten, die eine Referenz auf das {{htmlelement("canvas")}}-Element speichern wird.
+Es enthält Informationen wie das Dokument {{htmlelement("title")}} und einige CSS, um die Breite und Höhe des {{htmlelement("canvas")}} Elements (das PlayCanvas verwenden wird) auf 100% zu setzen, damit es den gesamten verfügbaren Viewport füllt. Das erste {{htmlelement("script")}} Element fügt die PlayCanvas-Bibliothek zur Seite hinzu; unseren Beispielcode werden wir im zweiten schreiben. Es ist bereits eine Variable enthalten, die eine Referenz auf das {{htmlelement("canvas")}} Element speichert.
 
-Wenn Sie in einer IDE entwickeln, kopieren Sie diesen Code in eine neue Textdatei und speichern Sie sie in Ihrem Arbeitsverzeichnis als `index.html`.
+Wenn Sie in einer IDE entwickeln, kopieren Sie diesen Code in eine neue Textdatei und speichern Sie ihn in Ihrem Arbeitsverzeichnis als `index.html`.
 
 ## PlayCanvas-Anwendung
 
-Um mit der Entwicklung unseres Spiels zu beginnen, müssen wir zuerst die PlayCanvas-Anwendung erstellen (verwenden Sie das gegebene {{htmlelement("canvas")}}-Element) und dann die Aktualisierungsschleife starten. Fügen Sie den folgenden Code am Ende Ihres zweiten {{htmlelement("script")}}-Elements hinzu:
+Um mit der Entwicklung unseres Spiels zu beginnen, müssen wir zuerst die PlayCanvas-Anwendung erstellen (unter Verwendung des gegebenen {{htmlelement("canvas")}} Elements) und dann die Aktualisierungsschleife starten. Fügen Sie den folgenden Code am Ende Ihres zweiten {{htmlelement("script")}} Elements hinzu:
 
 ```js
 const app = new pc.Application(canvas);
 app.start();
 ```
 
-Das globale `pc`-Objekt enthält alle in der Engine verfügbaren PlayCanvas-Funktionen.
+Das `pc` globale Objekt enthält alle in der Engine verfügbaren PlayCanvas-Funktionen.
 
-Als nächstes stellen wir das Canvas so ein, dass es das Fenster ausfüllt und automatisch seine Auflösung an die Größe des Canvas anpasst. Fügen Sie erneut die folgenden Zeilen unten in Ihrem Skript hinzu.
+Als nächstes setzen wir das Canvas so, dass es das Fenster ausfüllt und seine Auflösung automatisch auf die Größe des Canvas ändert. Fügen Sie erneut die folgenden Zeilen am Ende Ihres Skripts hinzu.
 
 ```js
 app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
@@ -91,7 +85,7 @@ app.setCanvasResolution(pc.RESOLUTION_AUTO);
 
 ## Kamera
 
-Jetzt, da der Setup-Code vorhanden ist, müssen wir über die Implementierung der Standard-Szenekomponenten nachdenken: Kamera, Lichter und Objekte. Beginnen wir mit der Kamera — fügen Sie diese Zeilen zu Ihrem Code hinzu, unterhalb der vorherigen.
+Nachdem der Setup-Code eingerichtet ist, müssen wir über die Implementierung der Standardszenenkomponenten nachdenken: Kamera, Lichter und Objekte. Beginnen wir mit der Kamera – fügen Sie diese Zeilen unterhalb der vorherigen zu Ihrem Code hinzu.
 
 ```js
 const camera = new pc.Entity();
@@ -103,18 +97,17 @@ app.root.addChild(camera);
 camera.setPosition(0, 0, 7);
 ```
 
-Der obige Code erstellt eine neue `Entity`.
-Eine Entität ist jedes Objekt, das in der Szene verwendet wird — es kann ein Objekt wie eine Box, ein Zylinder oder ein Kegel sein, aber es kann auch eine Kamera, eine Licht- oder eine Tonquelle sein.
+Der obige Code erstellt eine neue `Entity`. Eine Entität ist jedes in der Szene verwendete Objekt – es kann ein Objekt wie eine Box, ein Zylinder oder ein Kegel sein, aber es könnte auch eine Kamera, eine Licht- oder Tonquelle sein.
 
-Dann fügt es eine `camera`-Komponente mit der hellgrauen `clearColor` hinzu — die Farbe wird als Hintergrund sichtbar sein. Anschließend wird das `camera`-Objekt zur Wurzel unserer Anwendung hinzugefügt und so positioniert, dass es sich 7 Einheiten vom Zentrum der Szene auf der `z`-Achse befindet. Dies ermöglicht uns, etwas Platz zu schaffen, um die Objekte zu visualisieren, die wir später erstellen werden.
+Dann fügt es eine `camera` Komponente mit dem hellgrauen `clearColor` hinzu – die Farbe wird als Hintergrund sichtbar sein. Als nächstes wird das `camera` Objekt zur Wurzel unserer Anwendung hinzugefügt und auf der `z` Achse 7 Einheiten vom Zentrum der Szene entfernt positioniert. Dies erlaubt uns, etwas Platz zu schaffen, um die Objekte zu visualisieren, die wir später erstellen werden.
 
-Die Entfernungswerte (z.B. für die Kamera-z-Position) sind einheitslos und können im Grunde alles sein, was Sie für Ihre Szene für angemessen halten — Millimeter, Meter, Fuß oder Meilen — das liegt bei Ihnen.
+Die Entfernungswerte (z.B. für die Kamera-z-Position) sind einheitslos und können im Grunde alles sein, was Sie für Ihre Szene geeignet halten – Millimeter, Meter, Fuß oder Meilen – es liegt an Ihnen.
 
-Versuchen Sie, die Datei zu speichern und in Ihrem Browser zu laden. Sie sollten jetzt ein graues Fenster sehen.
+Versuchen Sie, die Datei zu speichern und sie in Ihrem Browser zu laden. Sie sollten jetzt ein graues Fenster sehen.
 
 ## Geometrie
 
-Da die Szene jetzt richtig gerendert wird, können wir beginnen, 3D-Formen hinzuzufügen. Um die Entwicklung zu beschleunigen, bietet PlayCanvas eine Menge vordefinierter Primitives, die Sie verwenden können, um Formen sofort mit einer einzigen Codezeile zu erstellen. Es gibt Würfel, Kugeln, Zylinder und kompliziertere Formen. Das Zeichnen aller für die gegebene Form erforderlichen Details wird von der Engine übernommen, sodass wir uns auf die High-Level-Codierung konzentrieren können. Beginnen wir mit der Definition der Geometrie für eine Würfelform – fügen Sie den folgenden neuen Code unterhalb Ihrer bisherigen Ergänzungen hinzu:
+Jetzt, da die Szene ordnungsgemäß gerendert wird, können wir 3D-Formen hinzufügen. Um die Entwicklung zu beschleunigen, stellt PlayCanvas eine Reihe vordefinierter Primitives zur Verfügung, die Sie verwenden können, um Formen sofort mit nur einer Codezeile zu erstellen. Es gibt Würfel, Kugeln, Zylinder und komplexere Formen. Das Zeichnen aller Teile einer bestimmten Form wird von der Engine übernommen, sodass wir uns auf das High-Level-Coding konzentrieren können. Starten wir damit, die Geometrie für eine Würfelform zu definieren – fügen Sie den folgenden neuen Code unter Ihren vorherigen Ergänzungen hinzu:
 
 ```js
 const box = new pc.Entity();
@@ -123,14 +116,13 @@ app.root.addChild(box);
 box.rotate(10, 15, 0);
 ```
 
-Es erstellt eine `Entity` mit der `box`-Modellkomponente und fügt sie der Wurzel der Anwendung, unserer Szene, hinzu. Wir drehen die Box auch ein wenig, um zu zeigen, dass es sich tatsächlich um einen 3D-Würfel handelt und nicht um ein Quadrat.
+Es wird eine `Entity` mit der `box` Modellkomponente erstellt und zur Wurzel der Anwendung, unserer Szene, hinzugefügt. Wir drehen die Box auch ein wenig, um zu zeigen, dass es sich tatsächlich um einen 3D-Würfel und nicht um ein Quadrat handelt.
 
-Der Würfel ist sichtbar, aber er ist vollständig dunkel.
-Um ihn besser aussehen zu lassen, müssen wir etwas Licht darauf scheinen lassen.
+Der Würfel ist sichtbar, aber er ist komplett dunkel. Um ihn besser aussehen zu lassen, müssen wir Licht darauf scheinen lassen.
 
 ## Lichter
 
-Die grundlegenden Lichttypen in PlayCanvas sind richtungsweisend und Umgebung. Der erste Typ ist ein Richtungslicht, das irgendwo in der Szene platziert wird, während der zweite das Licht des ersten Typs reflektiert, sodass es natürlicher aussieht; dies kann global eingestellt werden. Fügen Sie erneut den neuen Code unter Ihren bisherigen Ergänzungen hinzu.
+Die grundlegenden Lichttypen in PlayCanvas sind Richtungslicht und Umgebungslicht. Der erste Typ ist ein Richtungslicht, das irgendwo in der Szene platziert wird, während der zweite das Licht vom ersten Typ reflektiert, sodass es natürlicher aussieht; dies kann global eingestellt werden. Fügen Sie erneut den neuen Code unter Ihre vorherigen Ergänzungen hinzu.
 
 ```js
 const light = new pc.Entity();
@@ -139,18 +131,17 @@ app.root.addChild(light);
 light.rotate(45, 0, 0);
 ```
 
-Es erstellt eine Licht-`Entity`-Komponente und fügt sie der Szene hinzu. Wir können das Licht auf der `x`-Achse drehen, um es auf mehr als eine Seite des Würfels scheinen zu lassen. Es ist Zeit, das Umgebungslicht hinzuzufügen:
+Es wird eine Licht `Entity` Komponente erstellt und zur Szene hinzugefügt. Wir können das Licht auf der `x` Achse drehen, damit es auf mehr als eine Seite des Würfels scheint. Es ist an der Zeit, das Umgebungslicht hinzuzufügen:
 
 ```js
 app.scene.ambientLight = new pc.Color(0.2, 0.2, 0.2);
 ```
 
-Der obige Code weist der gesamten Szene ein dunkelgraues Umgebungslicht zu. Der Würfel sieht jetzt besser aus, aber er könnte etwas Farbe vertragen, um noch besser auszusehen — dafür müssen wir ein Material dafür erstellen.
+Der obige Code weist dem gesamten Szenario ein dunkles graues Umgebungslicht zu. Der Würfel sieht jetzt besser aus, könnte aber noch ein bisschen farbenfroher aussehen – dafür müssen wir ein Material dafür erstellen.
 
 ## Material
 
-In diesem Beispiel wird ein Material namens [Standard Material](https://api.playcanvas.com/engine/classes/StandardMaterial.html) verwendet, welches das Haupt- und am häufigsten verwendete Material für das Rendering ist.
-Fügen Sie die folgenden Zeilen zu Ihrem Code hinzu:
+Dieses Beispiel verwendet ein Material namens [Standardmaterial](https://api.playcanvas.com/engine/classes/StandardMaterial.html), das Hauptmaterial für allgemeine Zwecke, das am häufigsten für das Rendering verwendet wird. Fügen Sie die folgenden Zeilen zu Ihrem Code hinzu:
 
 ```js
 const boxMaterial = new pc.StandardMaterial();
@@ -159,16 +150,13 @@ boxMaterial.update();
 box.model.model.meshInstances[0].material = boxMaterial;
 ```
 
-Durch die Diffusion des Lichts auf dem Objekt können wir ihm seine eigene Farbe geben — wir wählen ein schönes, vertrautes Blau.
-In PlayCanvas werden die Farbkanalwerte als Fließkommazahlen im Bereich `0-1` angegeben, anstatt wie Sie es vielleicht im Web gewohnt sind, als Ganzzahlen von `0-255`.
+Durch die Diffusion des Lichts auf dem Objekt können wir ihm seine eigene Farbe geben – wir wählen ein schönes vertrautes Blau. In PlayCanvas werden die Farbkanalwerte als Gleitkommazahlen im Bereich von `0-1` angegeben, anstelle von Ganzzahlen von `0-255`, wie Sie es vielleicht im Web gewohnt sind.
 
-Nachdem das Material erstellt und seine Farbe festgelegt wurde, muss es aktualisiert werden, damit unsere Änderungen angewendet werden. Dann müssen wir nur noch dem `box`-Material das neu erstellte `boxMaterial` zuweisen.
+Nachdem das Material erstellt und seine Farbe festgelegt wurde, muss es aktualisiert werden, damit unsere Änderungen angewendet werden. Dann müssen wir nur das Material der `box` auf das neu erstellte `boxMaterial` setzen.
 
-## PlayCanvas Form Beispiel
+## PlayCanvas-Formenbeispiel
 
-Wenn Sie bisher alles ohne Probleme befolgt haben, haben Sie Ihr erstes Objekt in einer 3D-Umgebung mit PlayCanvas erstellt! Es war einfacher, als Sie dachten, oder?
-Ihr Code sollte wie das folgende Live-Beispiel aussehen.
-Sie können auf „Play“ klicken, um den Code im MDN Playground anzuzeigen und zu bearbeiten:
+Wenn Sie alles bisher ohne Probleme gefolgt sind, haben Sie Ihr erstes Objekt in einer 3D-Umgebung mit PlayCanvas erstellt! Es war einfacher als Sie gedacht haben, oder? Ihr Code sollte wie das folgende Live-Beispiel aussehen. Sie können auf "Play" klicken, um den Code im MDN Playground zu betrachten und zu bearbeiten:
 
 ```html hidden live-sample___play-canvas-intro
 <canvas id="application-canvas"></canvas>
@@ -229,13 +217,13 @@ canvas {
 
 ## Weitere Formen
 
-Jetzt fügen wir der Szene mehr Formen hinzu. Wir verschieben den Würfel 2 Einheiten nach links, um Platz für einige Freunde zu schaffen — fügen Sie die folgende Zeile direkt unter dem vorherigen Code hinzu:
+Jetzt werden wir weitere Formen zu der Szene hinzufügen. Lassen Sie uns den Würfel 2 Einheiten nach links bewegen, um Platz für einige Freunde zu schaffen – fügen Sie die folgende Zeile direkt unter dem vorherigen Code hinzu:
 
 ```js
 box.translate(-2, 0, 0);
 ```
 
-Jetzt fügen wir eine neue Form hinzu — wie wäre es mit einem Zylinder?
+Jetzt lassen Sie uns eine neue Form hinzufügen – wie wäre es mit einem Zylinder?
 
 ### Zylinder
 
@@ -248,7 +236,7 @@ app.root.addChild(cylinder);
 cylinder.rotate(15, 0, 0);
 ```
 
-Das sieht dem Code, den wir zum Erstellen eines Würfels verwendet haben, sehr ähnlich, aber anstatt der `box`-Komponente fügen wir einen `cylinder` hinzu. Er wird auch um die `x`-Achse gedreht, um zu zeigen, dass es sich tatsächlich um eine 3D-Form handelt. Um dem Zylinder eine Farbe zu geben, sagen wir gelb, müssen wir das Material dafür erstellen, wie zuvor. Fügen Sie die folgenden Zeilen hinzu:
+Dies sieht dem Code, den wir zum Erstellen eines Würfels verwendet haben, sehr ähnlich, aber anstelle der `box` Komponente fügen wir ein `cylinder` hinzu. Es wird auch um die `x` Achse gedreht, um zu zeigen, dass es sich tatsächlich um eine 3D-Form handelt. Um den Zylinder gelb zu färben, müssen wir, wie zuvor, das Material dafür erstellen. Fügen Sie die folgenden Zeilen hinzu:
 
 ```js
 const cylinderMaterial = new pc.StandardMaterial();
@@ -259,7 +247,7 @@ cylinder.model.model.meshInstances[0].material = cylinderMaterial;
 
 ### Kegel
 
-Das Erstellen eines Kegels und seines Materials erfolgt auf fast die gleiche Weise, wie wir es für den Zylinder getan haben. Fügen Sie den folgenden Code wieder am Ende Ihres Skripts hinzu:
+Das Erstellen eines Kegels und seines Materials erfolgt fast genau so, wie wir es für den Zylinder gemacht haben. Fügen Sie den folgenden Code erneut am Ende Ihres Skripts hinzu:
 
 ```js
 const cone = new pc.Entity();
@@ -273,13 +261,13 @@ coneMaterial.update();
 cone.model.model.meshInstances[0].material = coneMaterial;
 ```
 
-Der obige Code erstellt einen neuen `cone`, fügt ihn zur `app` hinzu und bewegt ihn um 2 Einheiten nach rechts, sodass er nicht den Zylinder überlappt. Anschließend wird das Material erstellt, mit einer grauen Farbe versehen und dem Kegel-`Entity` zugeordnet.
+Der obige Code erstellt einen neuen `cone`, fügt ihn in die `app` ein und bewegt ihn um 2 Einheiten nach rechts, damit er sich nicht mit dem Zylinder überschneidet. Dann wird das Material erstellt, mit einer grauen Farbe versehen und dem Kegel `Entity` zugewiesen.
 
-Das ist ein guter Fortschritt, aber wir können es spannender machen! In einem Spiel passiert normalerweise etwas – wir sehen Animationen und so weiter – also versuchen wir, den Formen etwas Leben einzuhauchen, indem wir sie animieren.
+Dies ist guter Fortschritt, aber wir können es spannender gestalten! In einem Spiel passiert normalerweise etwas – wir sehen Animationen und dergleichen – lassen Sie uns versuchen, diesen Formen mit Animationen etwas Leben einzuhauchen.
 
 ## Animation
 
-Wir haben bereits `translate` oder `rotate` verwendet, um die Position der Formen anzupassen; wir könnten auch ihre Positionen direkt mit `setPosition` ändern oder sie skalieren. Um eine echte Animation zu zeigen, müssen wir diese Werte innerhalb der Rendering-Schleife ändern, damit sie bei jedem Frame aktualisiert werden. Es gibt ein spezielles `update`-Ereignis, das wir dafür verwenden können — fügen Sie den folgenden Code direkt unter den vorherigen Ergänzungen hinzu:
+Wir verwenden bereits `translate` oder `rotate`, um die Position der Formen anzupassen; wir könnten ihre Positionen auch direkt mit `setPosition` ändern oder sie skalieren. Um eine tatsächliche Animation zu zeigen, müssen wir diese Werte innerhalb der Rendering-Schleife ändern, damit sie in jedem Frame aktualisiert werden. Es gibt ein spezielles `update` Ereignis, das wir dafür verwenden können – fügen Sie den folgenden Code direkt unter den vorherigen Ergänzungen hinzu:
 
 ```js
 let timer = 0;
@@ -289,27 +277,27 @@ app.on("update", (deltaTime) => {
 });
 ```
 
-Der Rückruf nimmt `deltaTime` als Parameter, sodass wir die relative Zeit haben, die seit dem letzten Aufruf dieses Updates vergangen ist. Für zeitbasierte Animationen verwenden wir eine `timer`-Variable, die die seit dem Start der App vergangene Zeit speichert, indem sie `deltaTime` bei jedem Update hinzufügt.
+Der Callback nimmt `deltaTime` als Parameter, sodass wir die relative Zeit haben, die seit dem vorherigen Aufruf dieses Updates vergangen ist. Für zeitbasierte Animationen verwenden wir eine `timer` Variable, die die seit dem Start der App verstrichene Zeit speichert, indem sie in jedem Update `deltaTime` hinzufügt.
 
 ### Rotation
 
-Das Drehen ist ziemlich einfach — alles, was Sie tun müssen, ist, bei jedem Frame einen definierten Wert zur gegebenen Drehrichtung hinzuzufügen. Fügen Sie diese Codezeile innerhalb der `app.on("update")`-Rückruffunktion hinzu, direkt nachdem Sie `deltaTime` zur `timer`-Variable hinzugefügt haben:
+Rotieren ist ziemlich einfach – Sie müssen nur einen definierten Wert zur gegebenen Rotationsrichtung in jedem Frame hinzufügen. Fügen Sie diese Codezeile innerhalb der `app.on("update")` Callback-Funktion hinzu, direkt nach der Hinzufügung der `deltaTime` zur `timer` Variable:
 
 ```js
 box.rotate(deltaTime * 10, deltaTime * 20, deltaTime * 30);
 ```
 
-Es rotiert das `box`-Element um `deltaTime*10` auf der `x`-Achse, `deltaTime*20` auf der `y`-Achse und `deltaTime*30` auf der `z`-Achse, bei jedem Frame — was uns eine geschmeidige Animation gibt.
+Es wird die `box` um `deltaTime*10` auf der `x` Achse, `deltaTime*20` auf der `y` Achse und `deltaTime*30` auf der `z` Achse bei jedem Frame drehen – was uns eine flüssige Animation gibt.
 
 ### Skalierung
 
-Wir können auch ein gegebenes Objekt skalieren — es gibt eine Funktion dafür namens `setLocalScale`. Fügen Sie das Folgende erneut in den Rückruf ein:
+Wir können auch ein gegebenes Objekt skalieren – es gibt eine Funktion dafür namens `setLocalScale`. Fügen Sie das folgende erneut in den Callback ein:
 
 ```js
 cylinder.setLocalScale(1, Math.abs(Math.sin(timer)), 1);
 ```
 
-Hier verwenden wir `Math.sin`, um den Zylinder in einem Zyklus zu skalieren, größer und kleiner. Wir umschließen den `y`-Skalierungswert mit `Math.abs`, um die absoluten Werte (größer oder gleich 0) zu übergeben; `sin` variiert zwischen -1 und 0, und bei negativen Werten kann die Zylinderskalierung unerwartet rendern (in diesem Fall sieht er die halbe Zeit schwarz aus).
+Hier verwenden wir `Math.sin`, um den Zylinder in einem Zyklus größer und kleiner zu skalieren. Wir fassen den `y` Skalenwert in `Math.abs`, um die absoluten Werte (größer oder gleich 0) zu übergeben; `sin` variiert zwischen -1 und 0, und für negative Werte kann das Skalieren des Zylinders unerwartet rendern (in diesem Fall sieht es halb so oft schwarz aus).
 
 Jetzt zum Bewegungsteil.
 
@@ -321,12 +309,11 @@ Neben der Rotation und Skalierung können wir auch Objekte in der Szene bewegen.
 cone.setPosition(2, Math.sin(timer * 2), 0);
 ```
 
-Dies wird den `cone` auf- und abwärts bewegen, indem der `sin`-Wert auf die `y`-Achse bei jedem Frame angewendet wird, mit ein wenig Anpassung, um es cooler aussehen zu lassen. Versuchen Sie, den Wert zu ändern, um zu sehen, wie dies die Animation beeinflusst.
+Dies wird den `cone` nach oben und unten bewegen, indem in jedem Frame der `sin` Wert auf die `y` Achse angewendet wird, mit ein wenig Anpassung, um es cooler aussehen zu lassen. Versuchen Sie, den Wert zu ändern, um zu sehen, wie er die Animation beeinflusst.
 
 ## PlayCanvas-Beispiel mit Animation
 
-Hier ist der finale Code mit animierten Formen.
-Sie können auf „Play“ klicken, um das Beispiel im MDN Playground zu bearbeiten:
+Hier ist der endgültige Code mit animierten Formen. Sie können auf "Play" klicken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___play-canvas-animation
 <canvas id="application-canvas"></canvas>
@@ -417,5 +404,4 @@ canvas {
 
 ## Zusammenfassung
 
-Jetzt kennen Sie die Grundlagen der PlayCanvas-Engine; viel Spaß beim Experimentieren!
-Sie können den Artikel [PlayCanvas-Editor](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas/editor) weiterlesen, zur Seite [Erstellen einer einfachen Demo mit PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) zurückkehren oder eine Ebene höher zur Hauptseite [3D-Spiele im Web](/de/docs/Games/Techniques/3D_on_the_web) navigieren.
+Jetzt kennen Sie die Grundlagen der PlayCanvas-Engine; viel Spaß beim Experimentieren! Sie können den Artikel über den [PlayCanvas-Editor](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas/editor) weiterlesen, zur Seite [Aufbau einer einfachen Demo mit PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) zurückkehren oder ein Level höher zur Hauptseite [3D-Spiele im Web](/de/docs/Games/Techniques/3D_on_the_web) zurückkehren.

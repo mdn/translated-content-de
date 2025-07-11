@@ -1,17 +1,15 @@
 ---
-title: Alignment-Container
+title: Ausrichtungscontainer
 slug: Glossary/Alignment_Container
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Der **Alignment-Container** ist das Rechteck, in dem das {{Glossary("alignment_subject", "Alignment-Subjekt")}} ausgerichtet ist. Dies wird durch den Layout-Modus definiert; normalerweise ist es der umgebende Block des Alignment-Subjekts und übernimmt den Schreibmodus des Blocks, der den umgebenden Block bildet.
+Der **Ausrichtungscontainer** ist das Rechteck, innerhalb dessen das {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} ausgerichtet wird. Dies wird durch den Layout-Modus definiert; in der Regel handelt es sich um den umgebenden Block des Ausrichtungsobjekts und übernimmt den Schreibmodus der Box, die den umgebenden Block festlegt.
 
 ## Siehe auch
 
-- [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul
+- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
 - Eigenschaftenreferenz
   - CSS {{CSSXref("align-content")}} Eigenschaft
   - CSS {{CSSXref("align-items")}} Eigenschaft
@@ -19,8 +17,8 @@ Der **Alignment-Container** ist das Rechteck, in dem das {{Glossary("alignment_s
   - CSS {{CSSXref("justify-content")}} Eigenschaft
   - CSS {{CSSXref("justify-items")}} Eigenschaft
   - CSS {{CSSXref("justify-self")}} Eigenschaft
-  - CSS {{CSSXref("place-content")}} Kurzformeigenschaft
-  - CSS {{CSSXref("place-self")}} Kurzformeigenschaft
+  - CSS {{CSSXref("place-content")}} Kurzschreibweise Eigenschaft
+  - CSS {{CSSXref("place-self")}} Kurzschreibweise Eigenschaft
   - CSS {{CSSXref("scroll-snap-align")}} Eigenschaft
-- Verwandte Glossareinträge:
-  - {{Glossary("alignment_subject", "Alignment-Subjekt")}}
+- Verwandte Glossarbegriffe:
+  - {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}

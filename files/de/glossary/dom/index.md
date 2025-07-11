@@ -2,14 +2,12 @@
 title: DOM (Document Object Model)
 slug: Glossary/DOM
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Das **DOM** (Document Object Model) ist eine {{Glossary("API", "API")}}, die jede auf {{Glossary("HTML", "HTML")}} oder {{Glossary("XML", "XML")}} basierende Auszeichnungssprache repräsentiert und mit ihr interagiert. Das DOM ist ein Dokumentenmodell, das im {{Glossary("browser", "Browser")}} geladen wird und das Dokument als Baumstruktur von {{Glossary("Node/DOM", "Knoten")}}, oder **DOM-Baum**, darstellt, wobei jeder Knoten einen Teil des Dokuments darstellt (z. B. ein {{Glossary("element", "Element")}}, eine Textzeichenfolge oder ein Kommentar).
 
-Das **DOM** (Document Object Model) ist eine {{Glossary("API", "API")}}, die eine Interaktion mit jedem auf {{Glossary("HTML", "HTML")}} oder {{Glossary("XML", "XML")}}-basierenden Markup-Sprachdokument ermöglicht. Das DOM ist ein Dokumentmodell, das im {{Glossary("browser", "Browser")}} geladen wird und das Dokument als ein {{Glossary("Node/DOM", "Knoten")}}-Baum oder **DOM-Baum** darstellt, wobei jeder Knoten einen Teil des Dokuments repräsentiert (z. B. ein {{Glossary("element", "Element")}}, eine Textzeichenfolge oder ein Kommentar).
-
-Das DOM ist eine der am häufigsten verwendeten {{Glossary("API", "API")}}s im {{Glossary("World_Wide_Web", "Web")}}, da es ermöglicht, dass im Browser ausgeführter Code auf jeden Knoten im Dokument zugreifen und mit diesem interagieren kann. Knoten können erstellt, verschoben und geändert werden. Ereignislistener können zu Knoten hinzugefügt und bei Eintreten eines bestimmten Ereignisses ausgelöst werden.
+Das DOM ist eine der meistgenutzten {{Glossary("API", "API")}}s im {{Glossary("World_Wide_Web", "Web")}}, da es Code, der in einem Browser ausgeführt wird, ermöglicht, auf jeden Knoten im Dokument zuzugreifen und mit ihm zu interagieren. Knoten können erstellt, verschoben und verändert werden. Ereignislistener können zu Knoten hinzugefügt und bei Auftreten eines bestimmten Ereignisses ausgelöst werden.
 
 ## Siehe auch
 

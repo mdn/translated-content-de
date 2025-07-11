@@ -1,20 +1,18 @@
 ---
-title: Inline-Ebene Inhalt
+title: Inline-Elemente
 slug: Glossary/Inline-level_content
 l10n:
-  sourceCommit: 113279ab09692d869866519106e25cba8a20abb8
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+In CSS wird Inhalt, der am Inline-Layout teilnimmt, als **Inline-Inhalt** bezeichnet. Die meisten Textsequenzen, ersetzte Elemente und generierte Inhalte sind standardmäßig Inline-Inhalt.
 
-Im CSS wird Inhalt, der am Inline-Layout teilnimmt, als **Inline-Ebene Inhalt** bezeichnet. Die meisten Textsequenzen, ersetzte Elemente und generierte Inhalte sind standardmäßig auf der Inline-Ebene.
-
-Im Inline-Layout wird ein gemischter Strom von Text, {{Glossary("replaced_elements", "ersetzten Elementen")}} und anderen Inline-Boxen durch das Fragmentieren in einen Stapel von Zeilenboxen angelegt. Innerhalb jeder Zeilenbox sind die Inline-Ebene Boxen vertikal oder horizontal aneinander ausgerichtet, abhängig vom Schreibmodus. Typischerweise werden sie an den Grundlinien ihres Textes ausgerichtet. Dies kann mit CSS verändert werden.
+Im Inline-Layout wird ein gemischter Datenstrom aus Text, {{Glossary("replaced_elements", "ersetzten Elementen")}} und anderen Inline-Boxen so layoutet, dass sie in Fragmente zerlegt zu einer Stapelung von Zeilenboxen werden. Innerhalb jeder Zeilenbox sind die Inline-Boxen vertikal oder horizontal aneinander ausgerichtet, abhängig vom Schreibmodus. Typischerweise sind sie an den Grundlinien ihres Textes ausgerichtet. Dies kann mit CSS geändert werden.
 
 ![inline layout](inline_layout.png)
 
 > [!NOTE]
-> HTML (_HyperText Markup Language_) Elemente wurden historisch entweder als „Block-level“ Elemente oder „inline“ Elemente kategorisiert. Als präsentationelles Merkmal wird dies nun durch CSS spezifiziert.
+> HTML (_HyperText Markup Language_) Elemente wurden historisch als "Block-Level"-Elemente oder "Inline"-Elemente kategorisiert. Als präsentatives Merkmal wird dies nun durch CSS spezifiziert.
 
 ## Beispiele
 
@@ -27,7 +25,7 @@ Im Inline-Layout wird ein gemischter Strom von Text, {{Glossary("replaced_elemen
 </p>
 ```
 
-In diesem Beispiel enthält das {{HTMLElement("p")}}-Element etwas Text. Innerhalb dieses Textes befindet sich ein {{HTMLElement("span")}}-Element und zwei {{HTMLElement("input")}}-Elemente, welche Inline-Ebene Elemente sind. Wenn sich das `<span>` über zwei Zeilen erstreckt, werden zwei Zeilenboxen generiert. Da diese Elemente Inline sind, wird der Absatz korrekt als ein einzelner Absatz mit ununterbrochenem Textfluss dargestellt:
+In diesem Beispiel enthält das {{HTMLElement("p")}}-Element etwas Text. Innerhalb dieses Textes befindet sich ein {{HTMLElement("span")}}-Element sowie zwei {{HTMLElement("input")}}-Elemente, die Inline-Elemente sind. Wenn das `<span>` über zwei Zeilen verteilt ist, werden zwei Zeilenboxen generiert. Da diese Elemente inline sind, wird der Absatz korrekt als einzelner Absatz mit ungebrochener Textfluss dargestellt:
 
 ```css hidden
 body {
@@ -46,6 +44,6 @@ body {
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Block-level_content", "Block-Level Inhalt")}}
-- [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
+  - {{Glossary("Block-level_content", "Block-LeveInhalt")}}
+- [Inline formatting context](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
 - {{cssxref("display")}}

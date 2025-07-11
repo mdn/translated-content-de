@@ -2,14 +2,12 @@
 title: Locale
 slug: Glossary/Locale
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Locale** ist eine Reihe von sprach- oder länderbasierten Einstellungen für eine Benutzeroberfläche.
 
-**Locale** ist eine Reihe von sprach- oder länderbasierten Präferenzen für eine Benutzeroberfläche.
-
-Ein Programm bezieht seine Gebietsschemaeinstellungen aus der Sprache des Hostsystems. Unter anderem repräsentieren Gebietsschemata Papierformate, Währung, Datumsformate und Zahlen gemäß den Protokollen der gegebenen Region.
+Ein Programm bezieht seine Locale-Einstellungen aus der Sprache des Host-Systems. Unter anderem repräsentieren Locales das Papierformat, die Währung, das Datumsformat und Zahlen gemäß den Protokollen in der jeweiligen Region.
 
 ## Siehe auch
 

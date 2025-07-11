@@ -1,11 +1,9 @@
 ---
-title: Prototype
+title: Prototyp
 slug: Glossary/Prototype
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 Ein Prototyp ist ein Modell, das das Erscheinungsbild und das Verhalten einer Anwendung oder eines Produkts früh im Entwicklungszyklus darstellt.
 

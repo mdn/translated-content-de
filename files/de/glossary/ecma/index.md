@@ -2,10 +2,8 @@
 title: ECMA
 slug: Glossary/ECMA
 l10n:
-  sourceCommit: 530c1f54e63834411aa38789b1ac82e3831c4dfa
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 **Ecma International** (formell _European Computer Manufacturers Association_) ist eine gemeinnützige Organisation, die Standards in Computerhardware, Kommunikation und Programmiersprachen entwickelt.
 

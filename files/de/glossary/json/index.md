@@ -2,14 +2,12 @@
 title: JSON
 slug: Glossary/JSON
 l10n:
-  sourceCommit: cc710aaf8a8a1e22cc036ad96e2a55a9bbaa3dea
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+_JavaScript Object Notation_ (**JSON**) ist ein Datenaustauschformat. Obwohl JSON keine strikte Teilmenge darstellt, ähnelt es stark einer Teilmenge der {{Glossary("JavaScript", "JavaScript")}}-Syntax. Obwohl viele Programmiersprachen JSON unterstützen, ist es besonders nützlich für JavaScript-basierte Anwendungen, einschließlich Websites und Browsererweiterungen.
 
-_JavaScript Object Notation_ (**JSON**) ist ein Datenaustauschformat. Obwohl es kein striktes Subset ist, ähnelt JSON stark einem Subset der {{Glossary("JavaScript", "JavaScript")}}-Syntax. Obwohl viele Programmiersprachen JSON unterstützen, ist es besonders nützlich für JavaScript-basierte Anwendungen, einschließlich Websites und Browsererweiterungen.
-
-JSON kann Zahlen, Booleans, Strings, `null`, Arrays (geordnete Sequenzen von Werten) und Objekte (Zeichenfolgen-Wert-Zuordnungen) darstellen, die aus diesen Werten (oder anderen Arrays und Objekten) bestehen. JSON stellt von Natur aus keine komplexeren Datentypen wie Funktionen, reguläre Ausdrücke, Datumsangaben usw. dar. (Datumsobjekte werden standardmäßig als eine Zeichenfolge im ISO-Format serialisiert, sodass die Information nicht vollständig verloren geht.) Wenn Sie JSON benötigen, um zusätzliche Datentypen darzustellen, transformieren Sie die Werte, während sie serialisiert oder bevor sie deserialisiert werden.
+JSON kann Zahlen, Booleans, Zeichenfolgen, `null`, Arrays (geordnete Sequenzen von Werten) und Objekte (Zeichenfolgen-Wert-Zuordnungen) darstellen, die aus diesen Werten (oder aus anderen Arrays und Objekten) bestehen. JSON stellt von Haus aus keine komplexeren Datentypen wie Funktionen, reguläre Ausdrücke, Daten usw. dar. (Datum-Objekte werden standardmäßig in eine Zeichenfolge serialisiert, die das Datum im ISO-Format enthält, sodass die Information nicht vollständig verloren geht.) Wenn JSON zusätzliche Datentypen darstellen soll, transformieren Sie die Werte beim Serialisieren oder bevor sie deserialisiert werden.
 
 ## Siehe auch
 

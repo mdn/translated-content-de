@@ -2,21 +2,19 @@
 title: Spiele veröffentlichen
 slug: Games/Publishing_games
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
 ---
 
-{{GamesSidebar}}
+HTML-Spiele haben einen großen Vorteil gegenüber nativen Spielen in Bezug auf Veröffentlichung und Vertrieb — Sie haben die Freiheit, Ihr Spiel im Web zu vertreiben, zu bewerben und zu monetarisieren, anstatt jede Version in einem einzigen, durch ein Unternehmen kontrollierten Store einzusperren. Sie können davon profitieren, dass das Web wirklich plattformübergreifend ist. Diese Artikelserie betrachtet die Optionen, die Sie haben, wenn Sie Ihr Spiel veröffentlichen und verbreiten möchten und damit etwas verdienen wollen, während Sie darauf warten, dass es berühmt wird.
 
-HTML-Spiele haben im Vergleich zu nativen Spielen einen großen Vorteil bei der Veröffentlichung und Verbreitung — Sie haben die Freiheit, Ihr Spiel im Web zu vertreiben, zu bewerben und zu monetarisieren, anstatt jede Version in einem einzigen von einem Unternehmen kontrollierten Store festzustecken. Sie können davon profitieren, dass das Web wirklich plattformübergreifend ist. Diese Artikelserie befasst sich mit den Optionen, die Ihnen zur Verfügung stehen, wenn Sie Ihr Spiel veröffentlichen und verbreiten wollen und dabei etwas verdienen möchten, während Sie darauf warten, dass es berühmt wird.
+## Spielvertrieb
 
-## Spielverteilung
-
-Sie haben einem [Tutorial](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) oder [zwei](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) gefolgt und ein HTML-Spiel erstellt — das ist großartig! [Spielverteilung](/de/docs/Games/Publishing_games/Game_distribution) bietet Ihnen alles, was Sie über die Möglichkeiten wissen müssen, wie Sie Ihr neu erstelltes Spiel verbreiten können — einschließlich der Selbstveröffentlichung online, der Einreichung bei offenen Marktplätzen und der Einreichung bei geschlossenen, wie Google Play oder dem iOS App Store.
+Sie haben ein [Tutorial](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) oder [zwei](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) durchlaufen und ein HTML-Spiel erstellt — das ist großartig! [Spielvertrieb](/de/docs/Games/Publishing_games/Game_distribution) bietet alles, was Sie wissen müssen über die Möglichkeiten, Ihr neu erstelltes Spiel in die Welt hinauszutragen — einschließlich des Eigenhostings online, der Einreichung in offenen Marktplätzen und der Einreichung in geschlossenen Marktplätzen wie Google Play oder dem iOS App Store.
 
 ## Spielwerbung
 
-Das Entwickeln und Fertigstellen des Spiels reicht nicht aus. Sie müssen die Welt darüber in Kenntnis setzen, dass Sie etwas Interessantes zur Verfügung gestellt haben, das den Menschen Spaß machen wird. Es gibt viele [Techniken zur Spielwerbung](/de/docs/Games/Publishing_games/Game_promotion) — viele davon sind kostenlos — sodass Sie, selbst wenn Sie als Indie-Entwickler mit Null-Budget ums Überleben kämpfen, viel tun können, um die Leute über Ihr großartiges neues Spiel zu informieren. Die Werbung für das Spiel hilft auch sehr bei der späteren Monetarisierung, daher ist es wichtig, dies effektiv zu tun.
+Entwicklung und Fertigstellung des Spiels reicht nicht aus. Sie müssen der Welt mitteilen, dass Sie etwas Interessantes verfügbar gemacht haben, das die Leute gerne spielen werden. Es gibt viele Techniken zur [Spielwerbung](/de/docs/Games/Publishing_games/Game_promotion) — viele davon kostenlos — sodass selbst wenn Sie als Indie-Entwickler mit null Budget ums Überleben kämpfen, Sie dennoch viel tun können, um die Leute auf Ihr großartiges neues Spiel aufmerksam zu machen. Die Werbung für das Spiel hilft auch erheblich bei der späteren Monetarisierung, daher ist es wichtig, dies effektiv zu tun.
 
 ## Spielmonetarisierung
 
-Wenn Sie Ihre Zeit mit dem Erstellen, Veröffentlichen und Bewerben Ihres Spiels verbringen, werden Sie irgendwann in Erwägung ziehen, damit Geld zu verdienen. [Spielmonetarisierung](/de/docs/Games/Publishing_games/Game_monetization) ist für jeden wichtig, der seine Arbeit in der Spielentwicklung als ernsthaftes Unterfangen auf dem Weg zum unabhängigen Spieleentwickler betrachtet, der davon leben kann. Lesen Sie weiter und sehen Sie, welche Optionen Sie haben. Die Technologie ist ausgereift genug; es ist nur eine Frage der Wahl des richtigen Ansatzes.
+Wenn Sie Ihre Zeit damit verbringen, Ihr Spiel zu bauen, zu veröffentlichen und zu bewerben, werden Sie irgendwann in Betracht ziehen, damit Geld zu verdienen. [Spielmonetarisierung](/de/docs/Games/Publishing_games/Game_monetization) ist für jeden unerlässlich, der seine Arbeit in der Spieleentwicklung als ernsthaftes Bestreben auf dem Weg zu einem unabhängigen Spieleentwickler betrachtet, der in der Lage ist, seinen Lebensunterhalt zu bestreiten. Lesen Sie weiter und sehen Sie, welche Optionen Ihnen zur Verfügung stehen. Die Technologie ist ausgereift genug; es ist nur eine Frage der Wahl des richtigen Ansatzes.

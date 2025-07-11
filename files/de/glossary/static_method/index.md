@@ -1,21 +1,19 @@
 ---
-title: Static method
+title: Statische Methode
 slug: Glossary/Static_method
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Eine statische Methode (oder _statische Funktion_) ist eine {{Glossary("method", "Methode")}}, die als Mitglied eines {{Glossary("object", "Objekts")}} definiert ist, aber direkt vom Konstruktor eines API-Objekts aus zugänglich ist, anstatt von einer über den Konstruktor erstellten Objektinstanz.
 
-Eine statische Methode (oder _statische Funktion_) ist eine {{Glossary("method", "Methode")}}, die als Mitglied eines {{Glossary("object", "Objekts")}} definiert ist, aber direkt vom Konstruktor eines API-Objekts aus zugänglich ist, statt von einer über den Konstruktor erstellten Objektinstanz.
-
-In einer [Web-API](/de/docs/Web/API) ist eine statische Methode eine Methode, die von einer Schnittstelle definiert wird, aber aufgerufen werden kann, ohne zuerst ein Objekt dieses Typs zu instanziieren.
+In einer [Web-API](/de/docs/Web/API) ist eine statische Methode eine, die durch eine Schnittstelle definiert ist, aber ohne vorheriges Instanziieren eines Objekts dieses Typs aufgerufen werden kann.
 
 Methoden, die auf Objektinstanzen aufgerufen werden, werden _Instanzmethoden_ genannt.
 
 ## Beispiele
 
-In der [Notifications API](/de/docs/Web/API/Notifications_API) wird die Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static) direkt auf dem eigentlichen [`Notification`](/de/docs/Web/API/Notification)-Konstruktor aufgerufen — sie ist eine statische Methode:
+In der [Benachrichtigungs-API](/de/docs/Web/API/Notifications_API) wird die Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static) auf dem eigentlichen [`Notification`](/de/docs/Web/API/Notification)-Konstruktor selbst aufgerufen — sie ist eine statische Methode:
 
 ```js
 let promise = Notification.requestPermission();
@@ -33,6 +31,6 @@ myNotification.close();
 
 - [Static Method](https://www.techopedia.com/definition/24034/static-method-java) auf Techopedia
 - [static](/de/docs/Web/JavaScript/Reference/Classes/static)
-- Verwandte Glossareinträge:
-  - {{Glossary("Object", "Object")}}
-  - {{Glossary("Method", "Method")}}
+- Verwandte Glossarbegriffe:
+  - {{Glossary("Object", "Objekt")}}
+  - {{Glossary("Method", "Methode")}}

@@ -1,18 +1,16 @@
 ---
-title: Relying party
+title: Relying Party
 slug: Glossary/Relying_party
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **relying party** ist eine Entität, die den Zugang zu einer Ressource kontrollieren muss und dazu andere Entitäten {{Glossary("authentication", "authentifizieren")}} muss, die versuchen, auf diese Ressource zuzugreifen. Im Internet ist eine relying party in der Regel eine Website, die es Benutzern ermöglicht, sich anzumelden, und die Benutzer authentifizieren muss (zum Beispiel durch Überprüfung eines Passworts), bevor entschieden wird, ob ihnen der Zugang gewährt wird.
 
-Eine **relying party** ist eine Entität, die den Zugang zu einer Ressource kontrollieren muss und dafür andere Entitäten, die auf diese Ressource zugreifen möchten, {{Glossary("authentication", "authentifizieren")}} muss. Im Web ist eine relying party in der Regel eine Website, die es Nutzern ermöglicht, sich anzumelden und die Nutzer authentifizieren muss (zum Beispiel durch Überprüfung eines Passworts), bevor entschieden wird, ob ihnen Zugriff gewährt wird.
-
-Die Website _vertraut auf_ die Gültigkeit der Anmeldeinformationen, die der Browser vorlegt, wenn er Zugang zu ihren Ressourcen gewährt.
+Die Website _vertraut auf_ die Gültigkeit der Anmeldedaten, die der Browser bei der Gewährung des Zugangs zu ihren Ressourcen vorlegt.
 
 ## Siehe auch
 
-- Verwandte Glossarbegriffe:
-  - {{Glossary("Federated_identity", "Federated identity")}}
-  - {{Glossary("Identity_provider", "Identity provider")}}
+- Verwandte Begriffsdefinitionen:
+  - {{Glossary("Federated_identity", "Federated Identity")}}
+  - {{Glossary("Identity_provider", "Identity Provider")}}

@@ -2,12 +2,10 @@
 title: Property (CSS)
 slug: Glossary/Property/CSS
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Eine **CSS-Eigenschaft** ist eine Eigenschaft (wie Farbe), deren zugeordneter Wert einen Aspekt definiert, wie der Browser das Element anzeigen soll.
+Eine **CSS-Eigenschaft** ist eine Charakteristik (wie Farbe), deren zugehöriger Wert einen Aspekt davon definiert, wie der Browser das Element darstellen soll.
 
 Hier ist ein Beispiel für eine CSS-Regel:
 
@@ -27,6 +25,6 @@ div {
 
 ## Siehe auch
 
-- [Lernen Sie CSS](/de/docs/Learn_web_development/Core/Styling_basics)
-- [Das CSS-Referenz auf MDN](/de/docs/Web/CSS/Reference)
-- [Die aktuelle Arbeit der CSS-Arbeitsgruppe](https://www.w3.org/Style/CSS/current-work)
+- [CSS lernen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [Die CSS-Referenz auf MDN](/de/docs/Web/CSS/Reference)
+- [Die aktuellen Arbeiten der CSS-Arbeitsgruppe](https://www.w3.org/Style/CSS/current-work)

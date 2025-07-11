@@ -3,28 +3,69 @@ title: "DataTransfer: files-Eigenschaft"
 short-title: files
 slug: Web/API/DataTransfer/files
 l10n:
-  sourceCommit: 09cc618e47efb40e15a3b6ff60557a455cf76ef8
+  sourceCommit: 9d5666d2ea7b54460f81857d59f80992fd8237c9
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`files`** schreibgeschützte Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Drag-Operation. Wenn die Operation keine Dateien umfasst, ist die Liste leer.
+Die schreibgeschützte **`files`**-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Drag-Operation. Wenn die Operation keine Dateien enthält, ist die Liste leer.
 
 Diese Funktion kann verwendet werden, um Dateien vom Desktop eines Benutzers in den Browser zu ziehen.
 
 > [!NOTE]
-> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb der [`drop`](/de/docs/Web/API/HTMLElement/drop_event)- und [`paste`](/de/docs/Web/API/Element/paste_event)-Ereignisse zugegriffen werden. Bei allen anderen Ereignissen wird die `files`-Eigenschaft leer sein, da ihr zugrunde liegender Datenspeicher sich in einem [geschützten Modus](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) befindet.
+> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb der [`drop`](/de/docs/Web/API/HTMLElement/drop_event) und [`paste`](/de/docs/Web/API/Element/paste_event)-Ereignisse zugegriffen werden. Für alle anderen Ereignisse wird die `files`-Eigenschaft leer sein, da ihr zugrunde liegender Datenspeicher sich in einem [geschützten Modus](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) befindet.
 
 ## Wert
 
-Eine [`Liste`](/de/docs/Web/API/FileList) der Dateien in einer Drag-Operation, wobei jeder Listeneintrag einer Datei in der Operation entspricht. Wenn die Drag-Operation keine Dateien enthielt, ist die Liste leer.
+Eine [`FileList`](/de/docs/Web/API/FileList) der Dateien in einer Drag-Operation, ein Listeneintrag für jede Datei in der Operation. Wenn die Drag-Operation keine Dateien enthielt, ist die Liste leer.
 
 ## Beispiele
 
-Es gibt zwei Live-Beispiele für diese Schnittstelle:
+### Die Dateiliste lesen
 
-- Nur Firefox: <https://jsfiddle.net/9C2EF/>
-- Alle Browser: [https://jsbin.com/hiqasek/](https://jsbin.com/hiqasek/edit?html,js,output)
+Dieses Beispiel erstellt einen einfachen Bereich, in den Sie Dateien ziehen können, und zeigt einige Metadaten an.
+
+```html
+<pre id="output">Drop files here from your file system.</pre>
+```
+
+```css
+#output {
+  min-height: 200px;
+  border: 1px solid black;
+  padding: 1em;
+}
+```
+
+```js
+const output = document.getElementById("output");
+
+function log(text) {
+  output.innerText += text;
+}
+
+output.addEventListener("dragenter", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  output.textContent = "";
+});
+output.addEventListener("dragover", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+});
+output.addEventListener("drop", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  const files = event.dataTransfer.files;
+  log(`File Count: ${files.length}\n`);
+
+  for (const file of files) {
+    log(`  File: ${file}, ${file.name}, ${file.size} bytes\n`);
+  }
+});
+```
+
+{{EmbedLiveSample("reading_the_files_list", "", "300")}}
 
 ## Spezifikationen
 

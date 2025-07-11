@@ -1,27 +1,26 @@
 ---
-title: Globales Objekt
+title: Globale Objekte
 slug: Glossary/Global_object
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Das **globale Objekt** in JavaScript ist ein {{Glossary("object", "Objekt")}}, das den {{Glossary("global_scope", "globalen Gültigkeitsbereich")}} repräsentiert.
 
-Das **globale Objekt** in JavaScript ist ein {{Glossary("object", "Objekt")}}, das den {{Glossary("global_scope", "globalen Bereich")}} repräsentiert.
-
-> [!NOTE] > _Global verfügbare Objekte_, also Objekte im {{Glossary("global_scope", "globalen Bereich")}}, werden manchmal auch als globale Objekte bezeichnet. Streng genommen gibt es jedoch pro Umgebung nur ein globales Objekt.
+> [!NOTE]
+> _Global verfügbare Objekte_, die Objekte im {{Glossary("global_scope", "globalen Gültigkeitsbereich")}} sind, werden manchmal auch als globale Objekte bezeichnet. Streng genommen gibt es jedoch nur ein globales Objekt pro Umgebung.
 
 In jeder JavaScript-Umgebung ist immer ein globales Objekt definiert. Die Schnittstelle des globalen Objekts hängt vom Ausführungskontext ab, in dem das Skript läuft. Zum Beispiel:
 
-- In einem Webbrowser hat jeder Code, den das Skript nicht ausdrücklich als Hintergrundaufgabe startet, ein [`Window`](/de/docs/Web/API/Window) als globales Objekt. Dies betrifft den Großteil des JavaScript-Codes im Web.
-- Code, der in einem [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird, hat ein [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekt als globales Objekt.
-- Skripte, die unter {{Glossary("Node.js", "Node.js")}} ausgeführt werden, haben ein Objekt namens [`global`](https://nodejs.org/api/globals.html#globals_global) als ihr globales Objekt.
+- In einem Webbrowser hat jeglicher Code, den das Skript nicht explizit als Hintergrundaufgabe startet, ein [`Window`](/de/docs/Web/API/Window) als globales Objekt. Dies betrifft den Großteil des JavaScript-Codes im Web.
+- Code, der in einem [`Worker`](/de/docs/Web/API/Worker) läuft, hat ein [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekt als globales Objekt.
+- Skripte, die unter {{Glossary("Node.js", "Node.js")}} laufen, haben ein Objekt namens [`global`](https://nodejs.org/api/globals.html#globals_global) als globales Objekt.
 
-Die globale Eigenschaft [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ermöglicht den Zugriff auf das globale Objekt, unabhängig von der aktuellen Umgebung.
+Die [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) globale Eigenschaft ermöglicht es, auf das globale Objekt zuzugreifen, unabhängig von der aktuellen Umgebung.
 
-[`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Anweisungen und [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) auf oberster Ebene eines Skripts erzeugen Eigenschaften des globalen Objekts. Andererseits erzeugen {{jsxref("Statements/let", "let")}}- und {{jsxref("Statements/const", "const")}}-Deklarationen niemals Eigenschaften des globalen Objekts.
+[`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Statements und [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) auf der obersten Ebene eines Skripts erstellen Eigenschaften des globalen Objekts. Andererseits erstellen {{jsxref("Statements/let", "let")}}- und {{jsxref("Statements/const", "const")}}-Deklarationen niemals Eigenschaften des globalen Objekts.
 
-Die Eigenschaften des globalen Objekts werden automatisch zum {{Glossary("global_scope", "globalen Bereich")}} hinzugefügt.
+Die Eigenschaften des globalen Objekts werden automatisch zum {{Glossary("global_scope", "globalen Gültigkeitsbereich")}} hinzugefügt.
 
 In JavaScript hält das globale Objekt immer eine Referenz auf sich selbst:
 
@@ -36,7 +35,7 @@ console.log(global === global.global); // true (in Node.js)
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("global_scope", "globaler Bereich")}}
+  - {{Glossary("global_scope", "globaler Gültigkeitsbereich")}}
   - {{Glossary("object", "Objekt")}}
 - {{jsxref("globalThis")}}
 - [`Window`](/de/docs/Web/API/Window)

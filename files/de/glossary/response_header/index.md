@@ -2,14 +2,12 @@
 title: Antwort-Header
 slug: Glossary/Response_header
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Antwort-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der in einer HTTP-Antwort verwendet werden kann und sich nicht auf den Inhalt der Nachricht bezieht. Antwort-Header wie {{HTTPHeader("Age")}}, {{HTTPHeader("Location")}} oder {{HTTPHeader("Server")}} werden verwendet, um einen detaillierteren Kontext der Antwort zu geben.
 
-Ein **Antwort-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der in einer HTTP-Antwort verwendet werden kann und der nicht den Inhalt der Nachricht betrifft. Antwort-Header wie {{HTTPHeader("Age")}}, {{HTTPHeader("Location")}} oder {{HTTPHeader("Server")}} werden verwendet, um einen detaillierteren Kontext der Antwort zu geben.
-
-Nicht alle Header, die in einer Antwort erscheinen, werden von der Spezifikation als _Antwort-Header_ kategorisiert. Zum Beispiel ist der {{HTTPHeader("Content-Type")}} Header ein {{Glossary("representation_header", "Repräsentations-Header")}}, der den ursprünglichen Datentyp im Körper der Antwortnachricht angibt (vor der Kodierung im {{HTTPHeader("Content-Encoding")}} Repräsentations-Header angewendet wird). "Umgangssprachlich" werden jedoch in einer Antwortnachricht normalerweise alle Header als Antwort-Header bezeichnet.
+Nicht alle Header, die in einer Antwort erscheinen, werden von der Spezifikation als _Antwort-Header_ kategorisiert. Zum Beispiel ist der {{HTTPHeader("Content-Type")}}-Header ein {{Glossary("representation_header", "Repräsentations-Header")}}, der den ursprünglichen Datentyp im Body der Antwortnachricht angibt (vor der Anwendung der Kodierung im {{HTTPHeader("Content-Encoding")}}-Repräsentations-Header). Jedoch werden "umgangssprachlich" alle Header in einer Antwortnachricht normalerweise als Antwort-Header bezeichnet.
 
 Das Folgende zeigt einige Antwort- und Repräsentations-Header nach einer {{HTTPMethod("GET")}}-Anfrage.
 

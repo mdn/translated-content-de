@@ -2,14 +2,12 @@
 title: Challenge-Response-Authentifizierung
 slug: Glossary/Challenge
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+In Sicherheitsprotokollen ist eine **Challenge** (Herausforderung) eine Anforderung, die vom Server an den Client gesendet wird, um bei jeder Anfrage eine andere Antwort zu generieren. Challenge-Response-Protokolle sind ein Weg, um gegen {{Glossary("replay_attack", "Replay-Angriffe")}} vorzugehen, bei denen ein Angreifer vorherige Nachrichten belauscht und sie zu einem späteren Zeitpunkt erneut sendet, um dieselben Zugangsdaten wie die ursprüngliche Nachricht zu erhalten.
 
-In Sicherheitsprotokollen ist eine **Challenge** (Herausforderung) eine vom Server an den Client gesendete Datenmenge, um bei jeder Anfrage eine andere Antwort zu erzeugen. Challenge-Response-Protokolle sind eine Möglichkeit, gegen {{Glossary("replay_attack", "Replay-Angriffe")}} vorzugehen, bei denen ein Angreifer vorherige Nachrichten abhört und zu einem späteren Zeitpunkt wieder sendet, um die gleichen Anmeldeinformationen wie die ursprüngliche Nachricht zu erhalten.
-
-Das [HTTP-Authentifizierungsprotokoll](/de/docs/Web/HTTP/Guides/Authentication) basiert auf Challenge-Response, obwohl das "Basic"-Protokoll keine echte Challenge verwendet (das Realm bleibt immer gleich).
+Das [HTTP-Authentifizierungsprotokoll](/de/docs/Web/HTTP/Guides/Authentication) basiert auf Challenge-Response, wobei das "Basic"-Protokoll jedoch keine echte Challenge verwendet (der Bereich ist immer derselbe).
 
 ## Siehe auch
 

@@ -1,32 +1,30 @@
 ---
-title: Obere Ebene
+title: Oberste Ebene
 slug: Glossary/Top_layer
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Die **oberste Ebene** ist eine spezielle Ebene, die die gesamte Breite und Höhe des Viewports abdeckt und über allen anderen Ebenen eines Webdokuments liegt. Sie wird vom Browser erstellt, um Elemente zu enthalten, die über dem gesamten anderen Inhalt auf der Seite erscheinen sollen.
 
-Die **obere Ebene** ist eine spezielle Ebene, die sich über die gesamte Breite und Höhe des Ansichtsfensters erstreckt und über allen anderen Ebenen eines Webdokuments liegt. Sie wird vom Browser erstellt, um Elemente zu enthalten, die über allen anderen Inhalten der Seite erscheinen sollen.
+Elemente, die in der obersten Ebene platziert sind, erzeugen einen neuen [stapelnden Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context), ebenso wie ihre entsprechenden {{cssxref("::backdrop")}} Pseudoelemente.
 
-Elemente, die in der oberen Ebene platziert werden, erzeugen einen neuen [Stapelsatz](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context), ebenso wie ihre entsprechenden {{cssxref("::backdrop")}} Pseudo-Elemente.
-
-Zu den Elementen, die in der oberen Ebene erscheinen, gehören:
+Elemente, die in der obersten Ebene erscheinen werden, umfassen:
 
 - Vollbild-Elemente, d.h. Elemente, die durch einen erfolgreichen Aufruf von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) im Vollbildmodus angezeigt werden.
-- {{htmlelement("dialog")}}-Elemente, die über einen erfolgreichen Aufruf von [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) als Modal angezeigt werden.
+- {{htmlelement("dialog")}}-Elemente, die als Modal über einen erfolgreichen Aufruf von [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) angezeigt werden.
 - Popover-Elemente, die über einen erfolgreichen Aufruf von [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) angezeigt werden.
 
-Einige Browser, wie Chrome, zeigen Elemente, die in der oberen Ebene platziert wurden, in einem speziellen Eintrag des DOM-Baums an. Zum Beispiel:
+Einige Browser, wie Chrome, zeigen Elemente, die in die oberste Ebene platziert werden, in einem speziellen DOM-Baumeintrag an. Zum Beispiel:
 
-![Ein Element in der oberen Ebene, wie in den Chrome DevTools gezeigt](top_layer_devtools.png)
+![Ein Element in der obersten Ebene, wie es in den Chrome Developer Tools angezeigt wird](top_layer_devtools.png)
 
-Beachten Sie, dass die obere Ebene ein internes Browser-Konzept ist und nicht direkt aus dem Code manipuliert werden kann. Sie können Elemente, die in der oberen Ebene platziert sind, mit CSS und JavaScript ansprechen, aber die obere Ebene selbst können Sie nicht ansprechen.
+Beachten Sie, dass die oberste Ebene ein internes Browserkonzept ist und nicht direkt aus dem Code heraus manipuliert werden kann. Sie können jedoch Elemente, die in der obersten Ebene platziert sind, mit CSS und JavaScript ansprechen, jedoch nicht die oberste Ebene selbst.
 
 ## Siehe auch
 
-- [Der Stapelsatz](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Fullscreen-API](/de/docs/Web/API/Fullscreen_API)
+- [Der stapelnde Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+- [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - {{htmlelement("dialog")}}-Element, [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle
-- [Popover-API](/de/docs/Web/API/Popover_API)
+- [Popover API](/de/docs/Web/API/Popover_API)
 - {{CSSXref(":fullscreen")}} Pseudo-Klasse

@@ -2,14 +2,12 @@
 title: XHTML
 slug: Glossary/XHTML
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**XHTML** ist ein Begriff, der historisch verwendet wurde, um [HTML](/de/docs/Web/HTML)-Dokumente zu beschreiben, die den {{Glossary("XML", "XML")}}-Syntaxregeln entsprechen.
 
-**XHTML** ist ein Begriff, der historisch verwendet wurde, um [HTML](/de/docs/Web/HTML)-Dokumente zu beschreiben, die gemäß den Syntaxregeln von {{Glossary("XML", "XML")}} geschrieben wurden.
-
-Das folgende Beispiel zeigt ein HTML-Dokument und ein entsprechendes "XHTML"-Dokument sowie die zugehörigen {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Content-Type")}}-Header, mit denen sie ausgeliefert werden sollten.
+Das folgende Beispiel zeigt ein HTML-Dokument und das entsprechende "XHTML"-Dokument sowie die dazugehörigen {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Content-Type")}}-Header, mit denen sie ausgeliefert werden sollten.
 
 ### HTML-Dokument
 
@@ -44,7 +42,7 @@ Das folgende Beispiel zeigt ein HTML-Dokument und ein entsprechendes "XHTML"-Dok
 </html>
 ```
 
-In der Praxis werden sehr wenige "XHTML"-Dokumente über das Web mit einem `Content-Type: application/xhtml+xml`-Header ausgeliefert. Stattdessen werden sie, obwohl die Dokumente so geschrieben sind, dass sie den XML-Syntaxregeln entsprechen, mit einem `Content-Type: text/html`-Header ausgeliefert – sodass Browser diese Dokumente mit HTML-Parsern anstelle von XML-Parsern verarbeiten.
+In der Praxis werden nur sehr wenige "XHTML"-Dokumente über das Web mit einem `Content-Type: application/xhtml+xml`-Header geliefert. Stattdessen werden sie, obwohl die Dokumente so geschrieben sind, dass sie den XML-Syntaxregeln entsprechen, mit einem `Content-Type: text/html`-Header ausgeliefert — sodass Browser diese Dokumente mit HTML-Parsern statt mit XML-Parsern analysieren.
 
 ## Siehe auch
 

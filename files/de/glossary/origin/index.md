@@ -1,40 +1,38 @@
 ---
-title: Origin
+title: Ursprung
 slug: Glossary/Origin
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Der **Ursprung** von Webinhalten wird durch das _Schema_ (Protokoll), den _Hostnamen_ (Domain) und den _Port_ der {{Glossary("URL", "URL")}} definiert, die zum Zugriff darauf verwendet wird. Zwei Objekte haben denselben Ursprung nur dann, wenn Schema, Hostname und Port übereinstimmen.
 
-Der **Origin** von Webinhalten wird durch das _Schema_ (Protokoll), den _Hostname_ (Domain) und den _Port_ der {{Glossary("URL", "URL")}} definiert, die zum Zugriff verwendet wird. Zwei Objekte haben nur dann denselben Origin, wenn Schema, Hostname und Port übereinstimmen.
-
-Einige Operationen sind auf Inhalte mit demselben Origin beschränkt, und diese Beschränkung kann mit {{Glossary("CORS", "CORS")}} aufgehoben werden.
+Einige Operationen sind auf Inhalte mit demselben Ursprung beschränkt, und diese Einschränkung kann mithilfe von {{Glossary("CORS", "CORS")}} aufgehoben werden.
 
 ## Beispiele
 
-Diese haben denselben Origin, da sie dasselbe Schema (`http`) und denselben Hostname (`example.com`) haben und der unterschiedliche Dateipfad keine Rolle spielt:
+Diese haben denselben Ursprung, weil sie dasselbe Schema (`http`) und denselben Hostnamen (`example.com`) haben; der unterschiedliche Dateipfad spielt keine Rolle:
 
 - `http://example.com/app1/index.html`
 - `http://example.com/app2/index.html`
 
-Diese haben denselben Origin, da ein Server HTTP-Inhalte standardmäßig über Port 80 liefert:
+Diese haben denselben Ursprung, weil ein Server standardmäßig Inhalte über Port 80 mit HTTP liefert:
 
 - `http://example.com:80`
 - `http://example.com`
 
-Diese haben nicht denselben Origin, da sie unterschiedliche Schemas verwenden:
+Diese haben nicht denselben Ursprung, weil sie unterschiedliche Schemas verwenden:
 
 - `http://example.com/app1`
 - `https://example.com/app2`
 
-Diese haben nicht denselben Origin, da sie unterschiedliche Hostnames verwenden:
+Diese haben nicht denselben Ursprung, weil sie unterschiedliche Hostnamen verwenden:
 
 - `http://example.com`
 - `http://www.example.com`
 - `http://myapp.example.com`
 
-Diese haben nicht denselben Origin, da sie unterschiedliche Ports verwenden:
+Diese haben nicht denselben Ursprung, weil sie unterschiedliche Ports verwenden:
 
 - `http://example.com`
 - `http://example.com:8080`

@@ -1,28 +1,26 @@
 ---
-title: Vendor Prefix
+title: Vendor-Präfix
 slug: Glossary/Vendor_Prefix
 l10n:
-  sourceCommit: e099e74fe5c09c46f0dfe044894692721a713d29
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Browser-Anbieter fügten experimentellen oder nicht standardmäßigen CSS-Eigenschaften und JavaScript-APIs früher Präfixe hinzu, damit Entwickler mit neuen Ideen experimentieren konnten. Dies sollte theoretisch dazu beitragen, dass ihre Experimente nicht versehentlich in Standardanwendungen einfließen und während des Standardisierungsprozesses Webentwickler-Code beschädigen.
 
-Browserhersteller fügten früher Präfixe zu experimentellen oder nicht standardisierten CSS-Eigenschaften und JavaScript-APIs hinzu, damit Entwickler neue Ideen ausprobieren konnten. Dies half theoretisch zu verhindern, dass sich Entwickler auf ihre Experimente verlassen und dadurch der Code von Webentwicklern während des Standardisierungsprozesses beeinträchtigt wurde.
+Webentwickler verwendeten trotz ihres experimentellen Charakters Präfix-Funktionen auf Produktionswebsites. Dies erschwerte es den Browser-Anbietern, die Kompatibilität zu gewährleisten, während sie an neuen Funktionen arbeiteten. Das Einschließen von Präfix-Funktionen schadete auch kleineren Browser-Anbietern, die gezwungen waren, die Präfixe anderer Browser zu übernehmen, um beliebte Websites korrekt darzustellen.
 
-Webentwickler fügten präfixierte Funktionen auf Produktionswebsites ein, trotz ihrer experimentellen Natur. Dies erschwerte es den Browserherstellern, die Kompatibilität zu gewährleisten, während sie an neuen Funktionen arbeiteten. Die Einbeziehung präfixierter Funktionen schadete auch kleineren Browserherstellern, die gezwungen waren, die Präfixe anderer Browser hinzuzufügen, um beliebte Websites korrekt darzustellen.
-
-Heutzutage werden experimentelle Funktionen in Browsern "hinter einer Flagge" versteckt. Dies ermöglicht es Entwicklern, Browserkonfigurationen zu ändern, um kommende Funktionen zu testen. Browser fügen nun experimentelle Funktionen hinter benutzerkontrollierten Flags oder Einstellungen hinzu. Flags können für kleinere Spezifikationen hinzugefügt werden, was es ermöglicht, einen stabilen Zustand viel schneller zu erreichen.
+Heutzutage werden experimentelle Funktionen in Browsern „hinter einem Flag platziert“. Dies ermöglicht es Entwicklern, Browser-Konfigurationen zu ändern, um kommende Funktionen zu testen. Browser fügen nun experimentelle Funktionen hinter von Benutzern gesteuerten Flags oder Einstellungen hinzu. Flags können zu kleineren Spezifikationen hinzugefügt werden, was es ermöglicht, viel schneller einen stabilen Zustand zu erreichen.
 
 ## CSS-Präfixe
 
-Die am häufigsten vorkommenden CSS-Präfixe, die Sie in älteren Codebasen sehen, sind:
+Die am häufigsten verwendeten CSS-Präfixe, die Sie in älteren Codebasen sehen werden, sind:
 
-- `-webkit-` (Chrome, Safari, neuere Versionen von Opera und Edge, fast alle iOS-Browser einschließlich Firefox für iOS; grundsätzlich jeder auf WebKit oder Chromium basierende Browser)
+- `-webkit-` (Chrome, Safari, neuere Versionen von Opera und Edge, fast alle iOS-Browser, einschließlich Firefox für iOS; grundsätzlich jeder WebKit- oder Chromium-basierte Browser)
 - `-moz-` (Firefox)
-- `-o-` (alte, vor-WebKit-Versionen von Opera)
+- `-o-` (alte, pre-WebKit-Versionen von Opera)
 - `-ms-` (Internet Explorer und Microsoft Edge, vor Chromium)
 
-Beispiel für die Nutzung:
+Beispielnutzung:
 
 ```css
 -webkit-transition: all 4s ease;
@@ -32,7 +30,7 @@ Beispiel für die Nutzung:
 transition: all 4s ease;
 ```
 
-Wenn Sie den obigen Code in einer Codebasis finden, können Sie sicher alle Zeilen bis auf die letzte entfernen. Alle Browser unterstützen [Transitions](/de/docs/Web/CSS/transition#browser_compatibility) ohne Vendor-Präfixe:
+Wenn Sie den obigen Code in einer Codebasis finden, können Sie sicher alle bis auf die letzte Zeile entfernen. Alle Browser unterstützen [Transitions](/de/docs/Web/CSS/transition#browser_compatibility) ohne Vendor-Präfixe:
 
 ```css
 transition: all 4s ease;
@@ -40,27 +38,27 @@ transition: all 4s ease;
 
 ## API-Präfixe
 
-Historisch gesehen haben Browserhersteller auch Präfixe für experimentelle APIs verwendet. Wenn ein ganzes Interface experimentell war, wurde der Name des Interfaces mit einem Präfix versehen (aber nicht die Eigenschaften oder Methoden darin). Wenn eine experimentelle Eigenschaft oder Methode zu einem standardisierten Interface hinzugefügt wurde, wurde die einzelne Methode oder Eigenschaft mit einem Präfix versehen.
+Historisch gesehen haben Browser-Anbieter auch Präfixe für experimentelle APIs verwendet. Wenn ein ganzes Interface experimentell war, dann wurde der Name des Interfaces (aber nicht die Eigenschaften oder Methoden innerhalb) mit einem Präfix versehen. Wenn eine experimentelle Eigenschaft oder Methode zu einem standardisierten Interface hinzugefügt wurde, dann wurde die einzelne Methode oder Eigenschaft mit einem Präfix versehen.
 
 ### Interface-Präfixe
 
-Präfixe für Interfacenamen sind großgeschrieben:
+Präfixe für Interface-Namen werden in Großbuchstaben geschrieben:
 
 - `WebKit` (Chrome, Safari, neuere Versionen von Opera und Edge, fast alle iOS-Browser (einschließlich Firefox für iOS); grundsätzlich jeder WebKit- und Chromium-basierte Browser)
 - `Moz` (Firefox)
-- `O` (Ältere, vor-WebKit-Versionen von Opera)
+- `O` (ältere, pre-WebKit-Versionen von Opera)
 - `MS` (Internet Explorer und Microsoft Edge, vor Chromium)
 
-### Präfixe für Eigenschaften und Methoden
+### Eigenschafts- und Methodenpräfixe
 
-Die Präfixe für Eigenschaften und Methoden sind kleingeschrieben:
+Die Präfixe für Eigenschaften und Methoden sind in Kleinbuchstaben:
 
 - `webkit` (Chrome, Safari, neuere Versionen von Opera und Edge, fast alle iOS-Browser (einschließlich Firefox für iOS); grundsätzlich jeder WebKit- und Chromium-basierte Browser)
 - `moz` (Firefox)
-- `o` (Alte, vor-WebKit-Versionen von Opera)
+- `o` (alte, pre-WebKit-Versionen von Opera)
 - `ms` (Internet Explorer und Microsoft Edge, vor Chromium)
 
-Beispiel für die Nutzung:
+Beispielnutzung:
 
 ```js
 window.requestAnimationFrame =
@@ -71,7 +69,7 @@ window.requestAnimationFrame =
   window.msRequestAnimationFrame;
 ```
 
-Wenn Sie den obigen Code in einer Codebasis finden, können Sie sicher alle Zeilen bis auf die erste entfernen. Alle Browser unterstützen [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame#browser_compatibility) ohne Vendor-Präfixe und ohne `window`:
+Wenn Sie den obigen Code in einer Codebasis finden, können Sie sicher alle bis auf die erste Zeile entfernen. Alle Browser unterstützen [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame#browser_compatibility) ohne Vendor-Präfixe und ohne `window`:
 
 ```js
 requestAnimationFrame(callback);
@@ -79,6 +77,6 @@ requestAnimationFrame(callback);
 
 ## Siehe auch
 
-- [`-moz-` vendor-prefixed CSS extensions](/de/docs/Web/CSS/Mozilla_Extensions)
-- [`-webkit-` vendor-prefixed CSS extensions](/de/docs/Web/CSS/WebKit_Extensions)
-- [Browserpräfixe](https://en.wikipedia.org/wiki/CSS_hack#Browser_prefixes) auf Wikipedia
+- [`-moz-` vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
+- [`-webkit-` vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
+- [Browser-Präfixe](https://en.wikipedia.org/wiki/CSS_hack#Browser_prefixes) auf Wikipedia

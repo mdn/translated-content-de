@@ -1,17 +1,15 @@
 ---
-title: Zeichenkette
+title: String
 slug: Glossary/String
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+In jeder Programmiersprache ist ein String eine Sequenz von {{Glossary("character", "Zeichen")}}, die verwendet wird, um Text darzustellen.
 
-In jeder Programmiersprache ist eine Zeichenkette eine Folge von {{Glossary("character", "Zeichen")}}, die zur Darstellung von Text verwendet wird.
-
-In {{Glossary("JavaScript", "JavaScript")}} ist eine Zeichenkette einer der {{Glossary("Primitive", "primitiven Werte")}} und das {{jsxref("String")}}-Objekt ist ein {{Glossary("wrapper", "Wrapper")}} um eine String-Primitve.
+In {{Glossary("JavaScript", "JavaScript")}} ist ein String einer der {{Glossary("Primitive", "primitiven Werte")}} und das {{jsxref("String")}} Objekt ist ein {{Glossary("wrapper", "Wrapper")}} um einen String-Primitiv.
 
 ## Siehe auch
 
-- [Zeichenkette (Informatik)](<https://en.wikipedia.org/wiki/String_(computer_science)>) auf Wikipedia
+- [String (computer science)](<https://en.wikipedia.org/wiki/String_(computer_science)>) auf Wikipedia
 - [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures#string_type)

@@ -1,26 +1,24 @@
 ---
-title: Transient activation
+title: Transiente Aktivierung
 slug: Glossary/Transient_activation
 l10n:
-  sourceCommit: 9409e72722add6d1c4baeaf7b262c9b0985c0bcf
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Transiente Aktivierung** (oder "transiente Benutzeraktivierung") ist ein Fensterstatus, der anzeigt, dass ein Benutzer kürzlich eine Taste gedrückt, eine Maus bewegt, ein Menü benutzt oder eine andere Benutzerinteraktion durchgeführt hat.
 
-**Transient activation** (oder "flüchtige Benutzeraktivierung") ist ein Fensterzustand, der anzeigt, dass ein Benutzer kürzlich eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat.
+Dieser Status wird manchmal als Mechanismus verwendet, um sicherzustellen, dass eine Web-API nur dann funktionieren kann, wenn sie durch Benutzerinteraktion ausgelöst wird. Zum Beispiel können Skripte nicht willkürlich ein Popup-Fenster starten, das _transiente Aktivierung_ erfordert – es muss von einem Ereignishandler eines UI-Elements ausgelöst werden.
 
-Dieser Zustand wird manchmal als Mechanismus verwendet, um sicherzustellen, dass eine Web-API nur funktioniert, wenn sie durch eine Benutzerinteraktion ausgelöst wird. Zum Beispiel können Skripte nicht willkürlich ein Popup starten, das eine _transient activation_ erfordert - es muss aus einem Ereignishandler eines UI-Elements ausgelöst werden.
+Siehe [Funktionen, die durch Benutzeraktivierung gesichert sind](/de/docs/Web/Security/User_activation) für Beispiele von APIs, die _transiente Aktivierung_ benötigen.
 
-Siehe [Features gated by user activation](/de/docs/Web/Security/User_activation) für Beispiele von APIs, die eine _transient activation_ erfordern.
-
-Sehen Sie sich die [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) Eigenschaft an, um programmgesteuert auf den flüchtigen Aktivierungszustand des aktuellen Fensters zuzugreifen.
+Siehe die [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) Eigenschaft, um programmatisch auf den aktuellen transienten Aktivierungszustand des Fensters zuzugreifen.
 
 > [!NOTE]
-> Die flüchtige Aktivierung läuft nach einem Timeout ab (wenn sie nicht durch weitere Interaktion erneuert wird) und kann auch durch einige APIs "verbraucht" werden. Siehe {{Glossary("Sticky_activation", "Sticky activation")}} für eine Benutzeraktivierung, die nach der anfänglichen Einstellung nicht zurückgesetzt wird.
+> Transiente Aktivierung läuft nach einem Timeout ab (sofern sie nicht durch weitere Interaktion erneuert wird) und kann auch von einigen APIs "verbraucht" werden. Siehe {{Glossary("Sticky_activation", "Sticky-Aktivierung")}} für eine Benutzeraktivierung, die sich nicht zurücksetzt, nachdem sie einmal gesetzt wurde.
 
 ## Siehe auch
 
-- [HTML Living Standard > Transient activation](https://html.spec.whatwg.org/multipage/interaction.html#transient-activation)
+- [HTML Living Standard > Transiente Aktivierung](https://html.spec.whatwg.org/multipage/interaction.html#transient-activation)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Sticky_activation", "Sticky activation")}}
+  - {{Glossary("Sticky_activation", "Sticky-Aktivierung")}}
 - [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)

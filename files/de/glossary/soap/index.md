@@ -2,12 +2,10 @@
 title: SOAP
 slug: Glossary/SOAP
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**SOAP** (Simple Object Access Protocol) ist ein {{Glossary("protocol", "Protokoll")}} zur Übertragung von Daten im {{Glossary("XML", "XML")}}-Format.
+**SOAP** (Simple Object Access Protocol) ist ein {{Glossary("protocol", "Protokoll")}} für die Übertragung von Daten im {{Glossary("XML", "XML")}}-Format.
 
 ## Siehe auch
 

@@ -2,14 +2,12 @@
 title: ARIA
 slug: Glossary/ARIA
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**ARIA** (_{{Glossary("Accessibility", "Accessible")}} Rich {{Glossary("Internet", "Internet")}} Applications_) ist eine {{Glossary("W3C", "W3C")}}-Spezifikation, die von {{Glossary("WAI", "WAI")}} entwickelt wurde, um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen. Sie unterstützt insbesondere dynamische Inhalte und fortgeschrittene Benutzeroberflächen, die mit HTML, JavaScript und verwandten Technologien entwickelt wurden.
 
-**ARIA** (_{{Glossary("Accessibility", "Accessible")}} Rich {{Glossary("Internet", "Internet")}} Applications_) ist eine {{Glossary("W3C", "W3C")}} Spezifikation, die von der {{Glossary("WAI", "WAI")}} entwickelt wurde, um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen. Sie hilft insbesondere bei dynamischen Inhalten und erweiterten Benutzeroberflächensteuerungen, die mit HTML, JavaScript und verwandten Technologien entwickelt wurden.
-
-Die Spezifikation ermöglicht es Ihnen beispielsweise, das Attribut `role="alert"` zu einem {{HTMLElement("p")}} {{Glossary("tag", "Tag")}} hinzuzufügen, um einem sehbehinderten Benutzer mitzuteilen, dass die Information wichtig und zeitkritisch ist (was Sie sonst möglicherweise durch Textfarbe vermitteln würden).
+Die Spezifikation erlaubt es Ihnen beispielsweise, das Attribut `role="alert"` zu einem {{HTMLElement("p")}}-{{Glossary("tag", "Tag")}} hinzuzufügen, um einen sehbehinderten Benutzer darauf aufmerksam zu machen, dass die Information wichtig und zeitkritisch ist (was Sie sonst möglicherweise durch die Textfarbe vermitteln würden).
 
 ## Siehe auch
 

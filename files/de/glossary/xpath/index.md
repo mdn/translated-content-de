@@ -2,12 +2,10 @@
 title: XPath
 slug: Glossary/XPath
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**XPath** ist eine Abfragesprache, die auf Abschnitte und Inhalte in einem {{Glossary("XML", "XML")}}-Dokument zugreifen kann.
+**XPath** ist eine Abfragesprache, die Abschnitte und Inhalte in einem {{Glossary("XML", "XML")}}-Dokument abrufen kann.
 
 ## Siehe auch
 

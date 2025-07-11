@@ -2,14 +2,12 @@
 title: XInclude
 slug: Glossary/XInclude
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+XInclude ist eine W3C-Empfehlung, die Inklusionstags definiert, mit denen Dokumente andere Dokumente oder Teile anderer Dokumente einbeziehen können. Inhalte können aus anderen XML-Dateien oder aus Textdateien einbezogen werden.
 
-XInclude ist eine W3C-Empfehlung, die Einschluss-Tags definiert, mit denen Dokumente andere Dokumente oder Teile anderer Dokumente einbinden können. Inhalte können aus anderen XML-Dateien oder aus Textdateien eingebunden werden.
-
-Der XInclude-Mechanismus wird von keinem der gängigen Browser nativ unterstützt.
+Der XInclude-Mechanismus wird von keinem der großen Browser nativ unterstützt.
 
 ## Siehe auch
 

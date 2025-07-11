@@ -2,20 +2,18 @@
 title: Erstellen Sie das Canvas und zeichnen Sie darauf
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it
 l10n:
-  sourceCommit: 729754108952e0bac9fb6268fcdf24a63b3cbbf3
+  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
 ---
-
-{{GamesSidebar}}
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Move_the_ball")}}
 
-Dies ist der **1. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson1.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson01.html) finden.
+Dies ist der **1. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson1.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson01.html).
 
-Bevor wir mit der Implementierung der Spielfunktionalität beginnen können, müssen wir eine grundlegende Struktur schaffen, um das Spiel darzustellen. Dies kann mit HTML und dem {{htmlelement("canvas")}}-Element geschehen.
+Bevor wir mit der Funktionalität des Spiels beginnen können, müssen wir eine Grundstruktur erstellen, um das Spiel darin zu rendern. Dies kann mithilfe von HTML und dem {{htmlelement("canvas")}}-Element geschehen.
 
 ## Das HTML des Spiels
 
-Die Struktur des HTML-Dokuments ist recht minimal, da das Spiel vollständig auf dem {{htmlelement("canvas")}}-Element dargestellt wird. Erstellen Sie mit Ihrem bevorzugten Texteditor ein neues HTML-Dokument, speichern Sie es als `index.html` an einem sinnvollen Ort und fügen Sie den folgenden Code hinzu:
+Die Struktur des HTML-Dokuments ist recht minimal, da das Spiel vollständig im {{htmlelement("canvas")}}-Element gerendert wird. Erstellen Sie mit Ihrem bevorzugten Texteditor ein neues HTML-Dokument, speichern Sie es als `index.html` an einem sinnvollen Ort und fügen Sie den folgenden Code hinzu:
 
 ```html
 <!doctype html>
@@ -45,20 +43,20 @@ Die Struktur des HTML-Dokuments ist recht minimal, da das Spiel vollständig auf
 </html>
 ```
 
-Wir haben ein `charset` definiert, {{htmlelement("title")}} und etwas grundlegendes CSS im Header. Der Body enthält {{htmlelement("canvas")}}- und {{htmlelement("script")}}-Elemente — wir werden das Spiel im ersten darstellen und den JavaScript-Code, der es steuert, im zweiten schreiben. Das {{htmlelement("canvas")}}-Element hat eine `id` von `myCanvas`, um es leicht referenzieren zu können, und ist 480 Pixel breit und 320 Pixel hoch. Der gesamte JavaScript-Code, den wir in diesem Tutorial schreiben werden, wird zwischen den öffnenden `<script>` und den schließenden `</script>`-Tags eingefügt.
+Wir haben einen `charset` definiert, einen {{htmlelement("title")}} und etwas grundlegendes CSS im Kopfbereich. Der Body enthält die {{htmlelement("canvas")}} und {{htmlelement("script")}}-Elemente – wir werden das Spiel im ersten rendern und den JavaScript-Code, der es steuert, im zweiten schreiben. Das {{htmlelement("canvas")}}-Element hat eine `id` von `myCanvas`, damit wir es leicht referenzieren können, und es ist 480 Pixel breit und 320 Pixel hoch. Der gesamte JavaScript-Code, den wir in diesem Tutorial schreiben, wird zwischen den öffnenden `<script>` und schließenden `</script>`-Tags gesetzt.
 
 ## Grundlagen des Canvas
 
-Um tatsächlich Grafiken auf dem {{htmlelement("canvas")}}-Element rendern zu können, müssen wir zuerst in JavaScript einen Verweis darauf erhalten. Fügen Sie das folgende unterhalb Ihres öffnenden `<script>`-Tags hinzu.
+Um tatsächlich Grafiken auf dem {{htmlelement("canvas")}}-Element rendern zu können, müssen wir zuerst eine Referenz darauf in JavaScript erhalten. Fügen Sie das Folgende unter Ihrem öffnenden `<script>`-Tag hinzu.
 
 ```js
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 ```
 
-Hier speichern wir einen Verweis auf das {{htmlelement("canvas")}}-Element in der Variable `canvas`. Dann erstellen wir die Variable `ctx`, um den 2D-Rendering-Kontext zu speichern — das eigentliche Werkzeug, das wir zum Malen auf dem Canvas verwenden können.
+Hier speichern wir eine Referenz auf das {{htmlelement("canvas")}}-Element in der `canvas`-Variable. Dann erstellen wir die `ctx`-Variable, um den 2D-Rendering-Kontext zu speichern – das tatsächliche Werkzeug, das wir verwenden können, um auf dem Canvas zu malen.
 
-Schauen wir uns ein Beispiel an, das ein rotes Quadrat auf dem Canvas zeichnet. Fügen Sie dies unterhalb Ihrer vorherigen JavaScript-Zeilen hinzu und laden Sie Ihre `index.html` in einem Browser, um es auszuprobieren.
+Sehen wir uns ein Beispielcode an, das ein rotes Quadrat auf dem Canvas druckt. Fügen Sie dies unter Ihren vorherigen JavaScript-Zeilen hinzu und laden Sie Ihre `index.html` in einem Browser, um es auszuprobieren.
 
 ```js
 ctx.beginPath();
@@ -68,9 +66,9 @@ ctx.fill();
 ctx.closePath();
 ```
 
-Alle Anweisungen befinden sich zwischen den Methoden [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) und [`closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath). Wir definieren ein Rechteck mit [`rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect): Die ersten beiden Werte geben die Koordinaten der oberen linken Ecke des Rechtecks auf dem Canvas an, während die beiden zweiten die Breite und Höhe des Rechtecks festlegen. In unserem Fall wird das Rechteck 20 Pixel von der linken Bildschirmseite und 40 Pixel von der oberen Seite entfernt gemalt und ist 50 Pixel breit und 50 Pixel hoch, was es zu einem perfekten Quadrat macht. Die Eigenschaft [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) speichert eine Farbe, die von der Methode [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) verwendet wird, um das Quadrat zu malen, in unserem Fall rot.
+Alle Anweisungen befinden sich zwischen den Methoden [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) und [`closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath). Wir definieren ein Rechteck mit [`rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect): die ersten beiden Werte geben die Koordinaten der oberen linken Ecke des Rechtecks auf dem Canvas an, während die zweiten beiden die Breite und Höhe des Rechtecks angeben. In unserem Fall wird das Rechteck 20 Pixel von der linken Seite des Bildschirms und 40 Pixel von der Oberseite gemalt und ist 50 Pixel breit und 50 Pixel hoch, was es zu einem perfekten Quadrat macht. Die Eigenschaft [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) speichert eine Farbe, die von der Methode [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) verwendet wird, um das Quadrat zu malen, in unserem Fall rot.
 
-Wir sind nicht auf Rechtecke beschränkt — hier ist ein Codebeispiel zum Zeichnen eines grünen Kreises. Versuchen Sie, dies am Ende Ihres JavaScript hinzuzufügen, und speichern und aktualisieren Sie:
+Wir sind nicht auf Rechtecke beschränkt – hier ist ein Code, um einen grünen Kreis zu drucken. Versuchen Sie, dies am Ende Ihres JavaScript hinzuzufügen, zu speichern und zu aktualisieren:
 
 ```js
 ctx.beginPath();
@@ -80,16 +78,16 @@ ctx.fill();
 ctx.closePath();
 ```
 
-Wie Sie sehen, verwenden wir wieder die Methoden [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) und [`closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath). Dazwischen ist der wichtigste Teil des obigen Codes die Methode [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc). Sie nimmt sechs Parameter entgegen:
+Wie Sie sehen können, verwenden wir erneut die Methoden [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) und [`closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath). Dazwischen ist der wichtigste Teil des obigen Codes die Methode [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc). Sie nimmt sechs Parameter an:
 
-- `x`- und `y`-Koordinaten des Kreismittelpunktes
-- Radius des Bogens
-- Startwinkel und Endwinkel (welcher Winkel zum Zeichnen des Kreises in Bogenmaß gestartet und beendet werden soll)
-- Zeichenrichtung (`false` für den Uhrzeigersinn, die Standardeinstellung, oder `true` für gegen den Uhrzeigersinn) Dieser letzte Parameter ist optional.
+- `x`- und `y`-Koordinaten des Mittelpunkts des Bogens
+- Bogenradius
+- Startwinkel und Endwinkel (welcher Winkel zum Starten und Beenden des Zeichnens des Kreises, in Radiant)
+- Zeichnungsrichtung (`false` für im Uhrzeigersinn, die Standardeinstellung, oder `true` für gegen den Uhrzeigersinn.) Dieser letzte Parameter ist optional.
 
-Die Eigenschaft [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) sieht anders aus als vorher. Das liegt daran, dass Farbwerte, wie bei CSS, als Hexadezimalwert, Farbschlüsselwort, `rgb()`-Funktion oder einer der anderen verfügbaren Farbmethoden angegeben werden können.
+Die Eigenschaft [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) sieht anders aus als zuvor. Dies liegt daran, dass Farben, genau wie im CSS, als Hexadezimalwert, Farbenschlüsselwort, mit der `rgb()`-Funktion oder einer der anderen verfügbaren Farbmethoden angegeben werden können.
 
-Anstatt [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) zu verwenden und die Formen mit Farben zu füllen, können wir [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden, um nur den äußeren Rand zu färben. Versuchen Sie, diesen Code ebenfalls Ihrem JavaScript hinzuzufügen:
+Anstatt [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) zu verwenden und die Formen mit Farben zu füllen, können wir [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden, um nur den äußeren Rand zu färben. Versuchen Sie auch diesen Code Ihrem JavaScript hinzuzufügen:
 
 ```js
 ctx.beginPath();
@@ -99,11 +97,11 @@ ctx.stroke();
 ctx.closePath();
 ```
 
-Der obige Code erstellt ein blau umrandetes leeres Rechteck. Dank des Alpha-Kanals in der `rgb()`-Funktion ist die blaue Farbe halbtransparent.
+Der obige Code druckt ein blaugefärbtes leeres Rechteck. Dank des Alphakanals in der `rgb()`-Funktion ist die blaue Farbe halbtransparent.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist der vollständige Quellcode der ersten Lektion, in Aktion:
+Hier ist der vollständige Quellcode der ersten Lektion, die live läuft:
 
 ```html
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -145,6 +143,6 @@ ctx.closePath();
 
 ## Nächste Schritte
 
-Jetzt, da wir das grundlegende HTML eingerichtet und ein wenig über Canvas gelernt haben, fahren wir mit dem zweiten Kapitel fort und arbeiten heraus, wie wir [den Ball in unserem Spiel bewegen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball) können.
+Jetzt, da wir das grundlegende HTML eingerichtet haben und etwas über das Canvas gelernt haben, lassen Sie uns mit dem zweiten Kapitel fortfahren und herausfinden, wie wir den [Ball in unserem Spiel bewegen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball).
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Move_the_ball")}}

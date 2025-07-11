@@ -2,14 +2,12 @@
 title: CORS-safelisted response header
 slug: Glossary/CORS-safelisted_response_header
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **CORS-safelisted response header** (auch bekannt als "einfacher Antwortheader") ist ein [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) in einer [CORS](/de/docs/Web/HTTP/Guides/CORS) Antwort, der als _sicher_ gilt, um für Client-Skripte zugänglich zu sein. Nur safelisted Antwortheader werden für Webseiten verfügbar gemacht.
 
-Ein **CORS-safelisted response header** (auch bekannt als "einfacher Antwort-Header") ist ein [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) in einer [CORS](/de/docs/Web/HTTP/Guides/CORS)-Antwort, der als _sicher_ angesehen wird, um ihn an Client-Skripte weiterzugeben. Nur safelisted Antwort-Header sind für Webseiten zugänglich.
-
-Standardmäßig umfasst die Safelist die folgenden Antwort-Header:
+Standardmäßig enthält die Safeliste die folgenden Antwortheader:
 
 - {{HTTPHeader("Cache-Control")}}
 - {{HTTPHeader("Content-Language")}}
@@ -19,13 +17,13 @@ Standardmäßig umfasst die Safelist die folgenden Antwort-Header:
 - {{HTTPHeader("Last-Modified")}}
 - {{HTTPHeader("Pragma")}}
 
-Zusätzliche Header können zur Safelist hinzugefügt werden, indem {{HTTPHeader("Access-Control-Expose-Headers")}} verwendet wird.
+Zusätzliche Header können mit {{HTTPHeader("Access-Control-Expose-Headers")}} zur Safeliste hinzugefügt werden.
 
 ## Beispiele
 
-### Erweiterung der Safelist
+### Erweiterung der Safeliste
 
-Sie können die Liste der CORS-safelisted response header erweitern, indem Sie den {{HTTPHeader("Access-Control-Expose-Headers")}} Header verwenden:
+Sie können die Liste der CORS-safelisted Antwortheader durch den Einsatz des Headers {{HTTPHeader("Access-Control-Expose-Headers")}} erweitern:
 
 ```http
 Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
@@ -39,5 +37,5 @@ Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
 - Verwandte Glossarbegriffe:
   - {{Glossary("CORS", "CORS")}}
   - {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
-  - {{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}
-  - {{Glossary("Request_header", "Request-Header")}}
+  - {{Glossary("Forbidden_request_header", "Forbidden request header")}}
+  - {{Glossary("Request_header", "Request header")}}

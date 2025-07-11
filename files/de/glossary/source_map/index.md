@@ -1,25 +1,24 @@
 ---
-title: Source-Map
+title: Source map
 slug: Glossary/Source_map
 l10n:
-  sourceCommit: adacd503824e4e3875d7e0489f06decadfea21a1
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Source Map** ist ein {{Glossary("JSON", "JSON")}}-Dateiformat, das zwischen dem vom Browser empfangenen minifizierten oder transformierten Code und seiner ursprünglichen, unveränderten Form abbildet. Dies ermöglicht die Rekonstruktion und Nutzung des Originalcodes beim Debuggen.
 
-Eine **Source-Map** ist ein {{Glossary("JSON", "JSON")}}-Dateiformat, das eine Zuordnung zwischen minifizierten oder transformierten Code, den der Browser empfängt, und seiner ursprünglichen, unveränderten Form erstellt. Dies ermöglicht, den Originalcode zu rekonstruieren und beim Debuggen zu verwenden.
+Der von einem Browser ausgeführte Code wird häufig in irgendeiner Weise vom ursprünglichen Quellcode, der von einem Entwickler erstellt wurde, transformiert. Dafür gibt es verschiedene Gründe:
 
-Der vom Browser ausgeführte Code wird häufig in irgendeiner Form vom ursprünglichen Quellcode, der von einem Entwickler erstellt wurde, transformiert. Es gibt mehrere Gründe dafür:
+- Um die Auslieferung des Codes vom Server effizienter zu gestalten, indem Quellcode-Dateien kombiniert und minifiziert werden.
+- Um ältere Browser zu unterstützen, indem moderne Funktionen in ältere Entsprechungen umgewandelt werden.
+- Um Sprachen zu verwenden, die von Browsern nicht unterstützt werden, wie {{Glossary("TypeScript", "TypeScript")}} oder [Sass](https://sass-lang.com/).
 
-- Um die Auslieferung des Codes vom Server durch Kombinieren und Minifizieren der Quelldateien effizienter zu gestalten.
-- Um ältere Browser zu unterstützen, indem moderne Funktionen in ältere Äquivalente umgewandelt werden.
-- Um Sprachen zu nutzen, die von Browsern nicht unterstützt werden, wie {{Glossary("TypeScript", "TypeScript")}} oder [Sass](https://sass-lang.com/).
-
-In diesen Situationen ist das Debuggen des ursprünglichen Quellcodes viel einfacher als der Quellcode im transformierten Zustand, den der Browser heruntergeladen hat. Browser erkennen eine Source-Map über den {{HTTPHeader("SourceMap")}} HTTP-Header für eine Ressource oder eine `sourceMappingURL`-Annotation im generierten Code.
+In diesen Situationen ist das Debuggen des ursprünglichen Quellcodes viel einfacher als der Code im transformierten Zustand, den der Browser heruntergeladen hat.
+Browser erkennen eine Source Map über den {{HTTPHeader("SourceMap")}} HTTP-Header für eine Ressource oder eine `sourceMappingURL`-Annotation im generierten Code.
 
 ## Beispiel
 
-Betrachten Sie zum Beispiel diese SCSS-Syntax von Sass:
+Betrachten Sie beispielsweise diese SCSS-Syntax von Sass:
 
 ```scss
 ul {
@@ -30,7 +29,8 @@ ul {
 }
 ```
 
-Während des Build-Prozesses wird das SCSS in CSS umgewandelt. Eine Source-Map-Datei `index.css.map` wird generiert und wird in einem Kommentar am Ende des CSS verlinkt:
+Während des Build-Prozesses wird das SCSS in CSS umgewandelt.
+Es wird eine Source Map-Datei `index.css.map` erzeugt und in einem Kommentar am Ende des CSS verlinkt:
 
 ```css
 ul {
@@ -43,7 +43,7 @@ ul li {
 /*# sourceMappingURL=index.css.map */
 ```
 
-Diese Map-Datei enthält nicht nur Zuordnungen zwischen dem ursprünglichen SCSS und dem generierten CSS, sondern auch den ursprünglichen SCSS-Quellcode in codierter Form. Sie wird vom CSS-Parser des Browsers ignoriert, aber von den DevTools des Browsers verwendet:
+Diese Map-Datei enthält nicht nur Zuordnungen zwischen dem ursprünglichen SCSS und dem generierten CSS, sondern auch den originalen SCSS-Quellcode in kodierter Form. Sie wird vom CSS-Parser des Browsers ignoriert, aber von den DevTools des Browsers verwendet:
 
 ```json
 {
@@ -56,14 +56,14 @@ Diese Map-Datei enthält nicht nur Zuordnungen zwischen dem ursprünglichen SCSS
 }
 ```
 
-Die Source-Map ermöglicht es den DevTools des Browsers, zu bestimmten Zeilen in der ursprünglichen SCSS-Datei zu verlinken und den Quellcode anzuzeigen:
+Die Source Map ermöglicht es den DevTools des Browsers, auf bestimmte Zeilen in der ursprünglichen SCSS-Datei zu verlinken und den Quellcode anzuzeigen:
 
-![Firefox DevTools im Fokus auf das li-Element im DOM-Inspektor. Das Style-Panel zeigt transformiertes CSS ohne Verschachtelung und einen Link zur dritten Zeile der index.scss-Datei.](inspector.png)
+![Firefox DevTools, fokussiert auf das `li`-Element im DOM-Inspektor. Das Stil-Panel zeigt transformiertes CSS ohne Verschachtelung und einen Link zur dritten Zeile der Datei `index.scss`.](inspector.png)
 
-![Firefox DevTools mit der index.scss-Datei, die im Style-Editor geöffnet ist. Der Editor fokussiert sich auf die dritte Zeile des Quellcodes im SCSS-Format mit Verschachtelung.](style-editor.png)
+![Firefox DevTools mit geöffneter `index.scss`-Datei im Stil-Editor. Der Editor ist auf die dritte Zeile des Quellcodes im SCSS-Format mit Verschachtelung fokussiert.](style-editor.png)
 
 ## Siehe auch
 
-- [Source-Map-Format-Spezifikation](https://tc39.es/ecma426/2024/)
+- [Source Map-Format-Spezifikation](https://tc39.es/ecma426/2024/)
 - HTTP {{HTTPHeader("SourceMap")}} Antwort-Header
-- [Firefox Developer Tools: Nutzung einer Source-Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)
+- [Firefox Developer Tools: Verwendung einer Source Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)

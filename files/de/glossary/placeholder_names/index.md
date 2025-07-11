@@ -2,15 +2,13 @@
 title: Platzhalternamen
 slug: Glossary/Placeholder_names
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Platzhalternamen werden häufig in der Kryptographie verwendet, um die Teilnehmer einer Konversation zu benennen, ohne auf Begriffe wie „Partei A“, „Lauscher“ und „böswilliger Angreifer“ zurückzugreifen.
+Platzhalternamen werden häufig in der Kryptographie verwendet, um die Teilnehmer einer Kommunikation zu kennzeichnen, ohne auf Begriffe wie "Partei A", "Lauscher" und "böswilliger Angreifer" zurückzugreifen.
 
 Die am häufigsten verwendeten Namen sind:
 
-- _Alice_ und _Bob_, zwei Parteien, die Nachrichten miteinander austauschen möchten, gelegentlich begleitet von _Carol_, einer dritten Teilnehmerin
-- _Eve_, eine passive Angreiferin, die das Gespräch zwischen Alice und Bob belauscht
-- _Mallory_, eine aktive Angreiferin („Man-in-the-Middle“), die in der Lage ist, das Gespräch zu verändern und alte Nachrichten erneut zu senden
+- _Alice_ und _Bob_, zwei Parteien, die Nachrichten miteinander austauschen möchten, gelegentlich ergänzt durch _Carol_, eine dritte Teilnehmerin
+- _Eve_, eine passive Angreiferin, die Alice und Bobs Unterhaltung belauscht
+- _Mallory_, ein aktiver Angreifer ("Man-in-the-Middle"), der in der Lage ist, ihre Unterhaltung zu verändern und alte Nachrichten neu abzuspielen

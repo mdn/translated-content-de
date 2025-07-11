@@ -1,12 +1,10 @@
 ---
-title: Site map
+title: Sitemap
 slug: Glossary/Site_map
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Sitemap** oder **Site Map** ist eine Liste von Seiten einer Website.
 
-Eine **Site Map** oder **Sitemap** ist eine Liste von Seiten einer Website.
-
-Strukturierte Auflistungen einer Website-Seite helfen bei der {{Glossary("seo", "Suchmaschinenoptimierung")}} (SEO), indem sie einen Link für Webcrawler wie Suchmaschinen bereitstellen, dem sie folgen können. Site Maps unterstützen auch Benutzer bei der Navigation auf der Website, indem sie einen Überblick über den Inhalt der Website auf einen Blick bieten.
+Strukturierte Listen der Seiten einer Website unterstützen die {{Glossary("seo", "Suchmaschinenoptimierung")}} (SEO), indem sie einen Link bieten, dem Webcrawler wie Suchmaschinen folgen können. Sitemaps helfen auch Benutzern bei der Navigation auf der Website, indem sie einen Überblick über den Inhalt einer Website auf einen Blick bieten.

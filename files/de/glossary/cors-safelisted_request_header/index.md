@@ -1,13 +1,11 @@
 ---
-title: CORS-safelisted request header
+title: CORS-safelisted-Anforderungsheader
 slug: Glossary/CORS-safelisted_request_header
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein [**CORS-safelisted request header**](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) (auch als "einfacher Header" bekannt) ist einer der folgenden [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers):
+Ein [**CORS-safelisted-Anforderungsheader**](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) (auch bekannt als "einfacher Header") ist einer der folgenden [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers):
 
 - {{HTTPHeader("Accept")}}
 - {{HTTPHeader("Accept-Language")}}
@@ -15,24 +13,24 @@ Ein [**CORS-safelisted request header**](https://fetch.spec.whatwg.org/#cors-saf
 - {{HTTPHeader("Content-Type")}}
 - {{HTTPHeader("Range")}}
 
-Enthält eine Anfrage nur diese Header (und Werte, die die unten angeführten zusätzlichen Anforderungen erfüllen), muss im Kontext von {{Glossary("CORS", "CORS")}} keine {{Glossary("preflight_request", "Preflight-Anfrage")}} gesendet werden.
+Wenn nur diese Header (und Werte, die die unten aufgeführten zusätzlichen Anforderungen erfüllen) enthalten sind, muss im Kontext von {{Glossary("CORS", "CORS")}} keine {{Glossary("preflight_request", "Preflight-Anfrage")}} gesendet werden.
 
-Sie können mehr Header auf die Safelist setzen, indem Sie den Header {{HTTPHeader("Access-Control-Allow-Headers")}} verwenden und auch die oben genannten Header dort auflisten, um die folgenden zusätzlichen Einschränkungen zu umgehen.
+Sie können weitere Header mithilfe des Headers {{HTTPHeader("Access-Control-Allow-Headers")}} auf die Safelist setzen und auch die oben genannten Header dort auflisten, um die folgenden zusätzlichen Einschränkungen zu umgehen.
 
 ## Zusätzliche Einschränkungen
 
-CORS-safelisted Header müssen auch die folgenden Anforderungen erfüllen, um ein CORS-safelisted Request Header zu sein:
+CORS-safelisted-Header müssen auch die folgenden Anforderungen erfüllen, um ein CORS-safelisted-Anforderungsheader zu sein:
 
-- {{HTTPHeader("Accept-Language")}} und {{HTTPHeader("Content-Language")}} dürfen nur Werte aus `0-9`, `A-Z`, `a-z`, Leerzeichen oder `*,-.;=` enthalten.
-- {{HTTPHeader("Accept")}} und {{HTTPHeader("Content-Type")}} dürfen keine _CORS-unsicheren Request-Header-Bytes_ enthalten: `0x00-0x1F` (ausgenommen `0x09 (HT)`, das erlaubt ist), `"():<>?@[\]{}`, und `0x7F (DEL)`.
-- {{HTTPHeader("Content-Type")}} muss einen MIME-Typ aus seinem analysierten Wert (ohne Parameter zu berücksichtigen) entweder `application/x-www-form-urlencoded`, `multipart/form-data` oder `text/plain` haben.
+- {{HTTPHeader("Accept-Language")}} und {{HTTPHeader("Content-Language")}} dürfen nur Werte enthalten, die aus `0-9`, `A-Z`, `a-z`, Leerzeichen oder `*,-.;=` bestehen.
+- {{HTTPHeader("Accept")}} und {{HTTPHeader("Content-Type")}} dürfen kein _CORS-unsicheres Anforderungsheader-Byte_ enthalten: `0x00-0x1F` (außer `0x09 (HT)`, das erlaubt ist), `"():<>?@[\]{}`, und `0x7F (DEL)`.
+- {{HTTPHeader("Content-Type")}} muss als MIME-Typ des geparsten Wertes (ohne Berücksichtigung von Parametern) entweder `application/x-www-form-urlencoded`, `multipart/form-data` oder `text/plain` haben.
 - {{HTTPHeader("Range")}} muss einen Wert eines einzelnen Bytebereichs in der Form `bytes=[0-9]+-[0-9]*` haben.
-  Siehe die Dokumentation zum {{HTTPHeader("Range")}}-Header für weitere Details.
-- Für jeden Header: die Länge des Wertes darf nicht größer als 128 sein.
+  Weitere Details finden Sie in der Dokumentation zum Header {{HTTPHeader("Range")}}.
+- Für jeden Header: Die Länge des Wertes darf nicht größer als 128 sein.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}
-  - {{Glossary("Forbidden_request_header", "Forbidden request header")}}
-  - {{Glossary("Request_header", "Request header")}}
+  - {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
+  - {{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}
+  - {{Glossary("Request_header", "Anforderungsheader")}}

@@ -2,17 +2,15 @@
 title: Nutzlastkörper
 slug: Glossary/Payload_body
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-In HTTP-Nachrichten war der **Nutzlastkörper** oder **Nutzlast** die Ressourcen-Darstellung, die in einem Nachrichtenkörper übertragen wurde, ohne jegliche [Transfer-Encoding](/de/docs/Web/HTTP/Reference/Headers/Transfer-Encoding). Ohne Transfer-Encoding sind der _Nutzlastkörper_ und der _Nachrichtenkörper_ identisch. Darstellungsdaten könnten auch in HTTP-Headern übertragen werden, aber solche Daten würden nicht als "Nutzlast" betrachtet werden.
+In HTTP-Nachrichten war der **Nutzlastkörper** oder die **Nutzlast** die in einem Nachrichtenkörper übertragene Ressourcenrepräsentation, die von jeglicher [Transfer-Codierung](/de/docs/Web/HTTP/Reference/Headers/Transfer-Encoding) befreit wurde. Ohne Transfer-Codierung sind der _Nutzlastkörper_ und der _Nachrichtenkörper_ identisch. Repräsentationsdaten könnten auch in HTTP-Headern übertragen werden, aber solche Daten würden nicht als "Nutzlast" betrachtet.
 
 Seit {{RFC("9110")}} ersetzt das Wort **Inhalt** das Wort **Nutzlast**. Siehe {{Glossary("HTTP_Content", "**HTTP-Inhalt**")}}.
 
 ## Siehe auch
 
 - {{Glossary("Content_header", "Inhalts-Header")}}
-- [RFC 9110, Abschnitt 6.4: Inhalt](https://httpwg.org/specs/rfc9110.html#rfc.section.6.4) (setzt [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3) Payload-Semantik außer Kraft)
+- [RFC 9110, Abschnitt 6.4: Inhalt](https://httpwg.org/specs/rfc9110.html#rfc.section.6.4) (setzt [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3) Payload Semantics außer Kraft)
   - [Änderungen von RFC 7231](https://httpwg.org/specs/rfc9110.html#changes.from.rfc.7231)

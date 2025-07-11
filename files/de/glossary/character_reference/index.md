@@ -2,29 +2,25 @@
 title: Zeichenreferenz
 slug: Glossary/Character_reference
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 Eine {{Glossary("HTML", "HTML")}} **Zeichenreferenz** ist eine {{Glossary("escape_character", "Escape-Sequenz")}} von {{Glossary("character", "Zeichen")}}, die verwendet wird, um ein anderes Zeichen auf der gerenderten Webseite darzustellen.
 
-Zeichenreferenzen werden als Ersatz für Zeichen verwendet, die in HTML reserviert sind, wie zum Beispiel das Kleiner-als (`<`) und Größer-als (`>`) Symbol, die vom HTML-Parser zur Identifikation von Element-{{Glossary("tag", "Tags")}} benutzt werden, oder `"` oder `'` innerhalb von Attributen, die durch diese Zeichen eingeschlossen sein können. Sie können auch für unsichtbare Zeichen verwendet werden, die ansonsten unmöglich einzugeben wären, einschließlich geschützter Leerzeichen, Steuerzeichen wie Links-nach-rechts- und Rechts-nach-links-Markierungen sowie für Zeichen, die auf einer Standardtastatur schwer einzugeben sind.
+Zeichenreferenzen werden als Ersetzungen für Zeichen verwendet, die in HTML reserviert sind, wie die Kleiner-als (`<`) und Größer-als (`>`) Symbole, die vom HTML-Parser verwendet werden, um Element-{{Glossary("tag", "Tags")}} zu identifizieren, oder `"` oder `'` innerhalb von Attributen, die durch diese Zeichen eingeschlossen sein können. Sie können auch für unsichtbare Zeichen verwendet werden, die sonst unmöglich zu tippen wären, einschließlich geschützter Leerzeichen, Steuerzeichen wie Links-nach-rechts- und Rechts-nach-links-Markierungen und für Zeichen, die auf einer Standardtastatur schwer zu tippen sind.
 
 Es gibt drei Arten von Zeichenreferenzen:
 
 - **Benannte Zeichenreferenzen**
+  - : Diese verwenden eine Namenszeichenfolge zwischen einem Kaufmanns- und einem Semikolon (`;`), um auf das entsprechende Zeichen zu verweisen. Zum Beispiel wird `&lt;` für das Kleiner-als (`<`) Symbol verwendet und `&copy;` für das Copyright-Zeichen (`©`). Die Zeichenfolge, die für die Referenz verwendet wird, ist oft eine {{Glossary("Camel_case", "camel-cased")}} Initialisierung oder Verkürzung des Zeichennamens.
 
-  - : Diese verwenden eine Zeichenkette zwischen einem kaufmännischen Und-Zeichen (`&`) und einem Semikolon (`;`), um auf das entsprechende Zeichen zu verweisen. Zum Beispiel wird `&lt;` für das Kleiner-als (`<`) Symbol und `&copy;` für das Copyright-Symbol (`©`) verwendet. Die für die Referenz verwendete Zeichenkette ist oft eine {{Glossary("Camel_case", "CamelCase")}} Initialisierung oder Verkürzung des Zeichen-Namens.
+- **Dezimalzahlige numerische Zeichenreferenzen**
+  - : Diese Referenzen beginnen mit `&#`, gefolgt von einer oder mehreren ASCII-Ziffern, die den Basis-Zehn-Integer darstellen, der dem {{Glossary("Unicode", "Unicode")}}-{{Glossary("code_point", "Codepunkt")}} des Zeichens entspricht, und enden mit `;`. Zum Beispiel ist die dezimale Zeichenreferenz für `<` `&#60;`, da der Unicode-Codepunkt für das Symbol `U+0003C` ist und `3C` hexadezimal 60 in dezimaler Schreibweise darstellt.
 
-- **Dezimalzeichenreferenzen**
+- **Hexadezimalzahlige numerische Zeichenreferenzen**
+  - : Diese Referenzen beginnen mit `&#x` oder `&#X`, gefolgt von einer oder mehreren ASCII-Hexadezimalziffern, die den hexadezimalen Integer darstellen, der dem Unicode-Codepunkt des Zeichens entspricht, und enden mit `;`. Zum Beispiel ist die hexadezimale Zeichenreferenz für `<` `&#x3C;` oder `&#X3C;`, da der Unicode-Codepunkt für das Symbol `U+0003C` ist.
 
-  - : Diese Referenzen beginnen mit `&#`, gefolgt von einer oder mehreren ASCII-Ziffern, die die dezimale Ganzzahl darstellen, die dem {{Glossary("Unicode", "Unicode")}}-{{Glossary("code_point", "Codepunkt")}} des Zeichens entspricht, und enden mit `;`. Zum Beispiel ist die dezimale Zeichenreferenz für `<` `&#60;`, da der Unicode-Codepunkt für das Symbol `U+0003C` ist und `3C` hexadezimal in dezimal 60 ist.
-
-- **Hexadezimalzeichenreferenzen**
-  - : Diese Referenzen beginnen mit `&#x` oder `&#X`, gefolgt von einer oder mehreren ASCII-Hexziffern, die die hexadezimale Ganzzahl darstellen, die dem Unicode-Codepunkt des Zeichens entspricht, und enden mit `;`. Zum Beispiel ist die hexadezimale Zeichenreferenz für `<` `&#x3C;` oder `&#X3C;`, da der Unicode-Codepunkt für das Symbol `U+0003C` ist.
-
-Eine sehr kleine Teilmenge nützlicher benannter Zeichenreferenzen zusammen mit ihren Unicode-Codepunkten ist unten aufgeführt.
+Ein sehr kleines Unterset an nützlichen benannten Zeichenreferenzen zusammen mit ihren Unicode-Codepunkten ist unten aufgeführt.
 
 | Zeichen | Benannte Referenz | Unicode-Codepunkt |
 | ------- | ----------------- | ----------------- |
@@ -45,7 +41,7 @@ Eine sehr kleine Teilmenge nützlicher benannter Zeichenreferenzen zusammen mit 
 | €       | `&euro;`          | U+020AC           |
 | °       | `&deg;`           | U+000B0           |
 
-Die vollständige Liste der benannten HTML-Zeichenreferenzen [finden Sie in der HTML-Spezifikation hier](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references).
+Die vollständige Liste der benannten HTML-Zeichenreferenzen [finden Sie hier in der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references).
 
 ## Siehe auch
 

@@ -2,12 +2,10 @@
 title: Kryptoanalyse
 slug: Glossary/Cryptanalysis
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Kryptoanalyse** ist der Zweig der {{Glossary("cryptography", "Kryptographie")}}, der sich mit dem Knacken von Codes und Kryptosystemen befasst. Die Kryptoanalyse entwickelt Techniken, um {{Glossary("cipher", "Chiffren")}} zu brechen, insbesondere durch Methoden, die effizienter sind als eine [Brute-Force-Suche](https://en.wikipedia.org/wiki/Brute-force_search). Neben traditionellen Methoden wie der [Häufigkeitsanalyse](https://en.wikipedia.org/wiki/Frequency_analysis) und dem [Index der Übereinstimmung](https://en.wikipedia.org/wiki/Index_of_coincidence) umfasst die Kryptoanalyse auch neuere Methoden wie die [lineare Kryptoanalyse](https://en.wikipedia.org/wiki/Linear_cryptanalysis) oder die [differentielle Kryptoanalyse](https://en.wikipedia.org/wiki/Differential_cryptanalysis), die in der Lage sind, fortschrittlichere Chiffren zu knacken.
+**Kryptoanalyse** ist der Bereich der {{Glossary("cryptography", "Kryptographie")}}, der sich mit dem Entschlüsseln von Codes und Kryptosystemen befasst. Die Kryptoanalyse entwickelt Techniken zum Brechen von {{Glossary("cipher", "Chiffren")}}, insbesondere durch Methoden, die effizienter sind als eine [Brute-Force-Suche](https://en.wikipedia.org/wiki/Brute-force_search). Neben traditionellen Methoden wie der [Häufigkeitsanalyse](https://de.wikipedia.org/wiki/H%C3%A4ufigkeitsanalyse) und dem [Koinzidenzindex](https://de.wikipedia.org/wiki/Koinzidenzindex) umfasst die Kryptoanalyse auch neuere Methoden, wie die [lineare Kryptoanalyse](https://en.wikipedia.org/wiki/Linear_cryptanalysis) oder die [differentielle Kryptoanalyse](https://en.wikipedia.org/wiki/Differential_cryptanalysis), die in der Lage sind, fortschrittlichere Chiffren zu brechen.
 
 ## Siehe auch
 

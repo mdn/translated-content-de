@@ -2,14 +2,12 @@
 title: RTF
 slug: Glossary/RTF
 l10n:
-  sourceCommit: 97a5c711248e4d49c1dc6d935691ffd64dbdfd17
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+RTF (Rich Text Format) ist ein auf Klartext basierendes Dateiformat mit Unterstützung für Formatierungsanweisungen (wie fett oder kursiv).
 
-RTF (Rich Text Format) ist ein Datei-Format, das auf einfachem Text basiert und Unterstützung für Formatierungsanweisungen (wie fett oder kursiv) bietet.
-
-Drei Programmierer im Microsoft-Word-Team haben RTF in den 1980er Jahren entwickelt, und Microsoft hat das Format bis 2008 weiterentwickelt. Viele Textverarbeitungsprogramme können jedoch immer noch RTF lesen und schreiben.
+Drei Programmierer des Microsoft Word-Teams entwickelten RTF in den 1980er Jahren, und Microsoft entwickelte das Format bis 2008 weiter. Viele Textverarbeitungsprogramme können jedoch weiterhin RTF lesen und schreiben.
 
 ## Siehe auch
 

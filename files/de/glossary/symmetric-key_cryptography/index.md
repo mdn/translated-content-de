@@ -1,25 +1,23 @@
 ---
-title: Symmetrische Kryptographie
+title: Symmetrische Verschlüsselung
 slug: Glossary/Symmetric-key_cryptography
 l10n:
-  sourceCommit: 7159a4c0a2f1e886c09268c41c103c4ac7100d63
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Symmetrische Verschlüsselung ist ein Begriff für kryptografische Algorithmen, die denselben Schlüssel sowohl für die Verschlüsselung als auch für die Entschlüsselung verwenden. Der Schlüssel wird üblicherweise als "symmetrischer Schlüssel" oder "geheimer Schlüssel" bezeichnet.
 
-Die symmetrische Kryptographie ist ein Begriff für kryptographische Algorithmen, die denselben Schlüssel zur Verschlüsselung und Entschlüsselung verwenden. Dieser Schlüssel wird in der Regel als "symmetrischer Schlüssel" oder "geheimer Schlüssel" bezeichnet.
+Dies wird normalerweise der {{Glossary("public-key_cryptography", "asymmetrischen Verschlüsselung")}} gegenübergestellt, bei der Schlüssel paarweise generiert werden und die Transformation, die durch einen Schlüssel vorgenommen wird, nur durch den anderen Schlüssel rückgängig gemacht werden kann.
 
-Dies steht normalerweise im Gegensatz zur {{Glossary("public-key_cryptography", "Public-Key-Kryptographie")}}, bei der Schlüssel paarweise generiert werden und die durch einen Schlüssel vorgenommene Transformation nur durch den anderen Schlüssel rückgängig gemacht werden kann.
+Symmetrische Verschlüsselungsalgorithmen sollten bei korrekter Anwendung sicher sein und sind äußerst effizient, sodass sie verwendet werden können, um große Datenmengen zu verschlüsseln, ohne die Leistung negativ zu beeinflussen.
 
-Symmetrische Algorithmen sollten sicher sein, wenn sie ordnungsgemäß verwendet werden, und sie sind sehr effizient, sodass sie genutzt werden können, um große Datenmengen zu verschlüsseln, ohne die Leistung negativ zu beeinflussen.
-
-Die meisten derzeit verwendeten symmetrischen Algorithmen sind Block-{{Glossary("Cipher", "Chiffren")}}: Das bedeutet, dass sie Daten jeweils einen Block verschlüsseln. Die Größe jedes Blocks ist fest und wird durch den Algorithmus bestimmt; zum Beispiel verwendet AES 16-Byte-Blöcke. Blockchiffren werden immer mit einem _{{Glossary("Block_cipher_mode_of_operation", "Modus")}}_ verwendet, der angibt, wie Nachrichten, die länger sind als die Blockgröße, sicher verschlüsselt werden können. Beispielsweise ist AES eine Chiffre, während CTR, CBC und GCM alle Modi sind. Die Verwendung eines unangemessenen Modus oder die falsche Verwendung eines Modus kann die Sicherheit der zugrunde liegenden Chiffre vollständig untergraben.
+Die meisten aktuell verwendeten symmetrischen Verschlüsselungsalgorithmen sind Block-{{Glossary("Cipher", "Chiffren")}}: Das bedeutet, dass sie Daten jeweils blockweise verschlüsseln. Die Größe jedes Blocks ist festgelegt und wird durch den Algorithmus bestimmt: Zum Beispiel verwendet AES 16-Byte-Blöcke. Blockchiffren werden immer mit einem _{{Glossary("Block_cipher_mode_of_operation", "Modus")}}_ verwendet, der angibt, wie Nachrichten, die länger als die Blockgröße sind, sicher verschlüsselt werden können. Zum Beispiel ist AES eine Chiffre, während CTR, CBC und GCM Modi sind. Die Verwendung eines unangemessenen Modus oder die falsche Anwendung eines Modus kann die Sicherheit, die durch die zugrunde liegende Chiffre geboten wird, vollständig untergraben.
 
 ## Siehe auch
 
 - [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
-- [Unterstützte Algorithmen von SubtleCrypto](/de/docs/Web/API/SubtleCrypto#supported_algorithms)
+- [SubtleCrypto unterstützte Algorithmen](/de/docs/Web/API/SubtleCrypto#supported_algorithms)
 - Verwandte Glossarbegriffe:
   - {{Glossary("Block_cipher_mode_of_operation", "Blockchiffre-Betriebsmodus")}}
-  - {{Glossary("Kryptographie", "Kryptographie")}}
+  - {{Glossary("Cryptography", "Kryptografie")}}
   - {{Glossary("Hash_function", "Hash-Funktion")}}

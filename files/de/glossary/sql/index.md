@@ -2,10 +2,8 @@
 title: SQL
 slug: Glossary/SQL
 l10n:
-  sourceCommit: 530c1f54e63834411aa38789b1ac82e3831c4dfa
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 **SQL** (Structured Query Language) ist eine deskriptive Computersprache, die für das Aktualisieren, Abrufen und Berechnen von Daten in tabellenbasierten Datenbanken entwickelt wurde.
 

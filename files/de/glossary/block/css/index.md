@@ -2,14 +2,12 @@
 title: Block (CSS)
 slug: Glossary/Block/CSS
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Block** auf einer Webseite ist ein {{Glossary("HTML", "HTML")}}-{{Glossary("element", "Element")}}, das in einer neuen Zeile erscheint, also unterhalb des vorhergehenden Elements in einem horizontalen Schreibmodus und oberhalb des folgenden Elements (allgemein bekannt als _Block-Level-Element_). Zum Beispiel ist {{htmlelement("p")}} standardmäßig ein Block-Level-Element, während {{htmlelement("a")}} ein _Inline-Element_ ist — Sie können mehrere Links nebeneinander in Ihrem HTML-Quelltext platzieren und sie werden im gerenderten Output in derselben Zeile nebeneinander angezeigt.
 
-Ein **Block** auf einer Webseite ist ein {{Glossary("HTML", "HTML")}}-{{Glossary("element", "Element")}}, das in einem horizontalen Schreibmodus in einer neuen Zeile erscheint, d.h. unter dem vorhergehenden Element und über dem folgenden Element (allgemein bekannt als _Block-Element_). Beispielsweise ist {{htmlelement("p")}} standardmäßig ein Block-Element, während {{htmlelement("a")}} ein _Inline-Element_ ist — Sie können mehrere Links nebeneinander in Ihrem HTML-Quellcode platzieren, und sie erscheinen in der Ausgabe nebeneinander auf derselben Zeile.
-
-Mit der {{cssxref("display")}}-Eigenschaft können Sie ändern, ob ein Element inline oder als Block angezeigt wird (neben vielen anderen Optionen); **Blöcke** unterliegen auch den Auswirkungen von Positionierungsschemata und der Verwendung der {{cssxref("position")}}-Eigenschaft.
+Mit der {{cssxref("display")}}-Eigenschaft können Sie ändern, ob ein Element inline oder als Block angezeigt wird (unter vielen anderen Optionen); **Blöcke** unterliegen auch den Effekten von Positionierungsschemas und der Verwendung der {{cssxref("position")}}-Eigenschaft.
 
 ## Siehe auch
 

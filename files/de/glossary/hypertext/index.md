@@ -2,14 +2,12 @@
 title: Hypertext
 slug: Glossary/Hypertext
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 Hypertext ist Text, der Links zu anderen Texten enthält, im Gegensatz zu einem einzigen linearen Fluss wie in einem Roman.
 
-Der Begriff wurde von Ted Nelson um 1965 geprägt.
+Der Begriff wurde etwa 1965 von Ted Nelson geprägt.
 
 ## Siehe auch
 

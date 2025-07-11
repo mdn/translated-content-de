@@ -1,17 +1,15 @@
 ---
-title: Grid Lines
+title: Rasterlinien
 slug: Glossary/Grid_Lines
 l10n:
-  sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Gitterlinien** werden erstellt, sobald Sie ein [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) verwenden.
+**Rasterlinien** werden erzeugt, sobald Sie ein [CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout) verwenden.
 
 ## Beispiel
 
-Im folgenden Beispiel gibt es ein Raster mit drei Spalten-Tracks und zwei Zeilen-Tracks. Dies ergibt 4 Spaltenlinien und 3 Zeilenlinien.
+Im folgenden Beispiel gibt es ein Raster mit drei Spalten-Spuren und zwei Zeilen-Spuren. Dies ergibt 4 Spaltenlinien und 3 Zeilenlinien.
 
 ```css hidden
 * {
@@ -56,15 +54,15 @@ Im folgenden Beispiel gibt es ein Raster mit drei Spalten-Tracks und zwei Zeilen
 
 {{ EmbedLiveSample('Example', '500', '250') }}
 
-Linien können mit ihrer Liniennummer adressiert werden. In einer von links nach rechts verlaufenden Sprache wie Englisch befindet sich die Spaltenlinie 1 auf der linken Seite des Rasters, die Zeilenlinie 1 oben. Die Linienneummern respektieren den [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) des Dokuments, und so befindet sich in einer von rechts nach links verlaufenden Sprache z. B. die Spaltenlinie 1 auf der rechten Seite des Rasters. Das Bild unten zeigt die Linienneummern des Rasters, vorausgesetzt, die Sprache verläuft von links nach rechts.
+Linien können über ihre Liniennummer angesprochen werden. In einer von links nach rechts verlaufenden Sprache wie Englisch befindet sich die Spaltenlinie 1 links vom Raster, die Zeilenlinie 1 oben. Die Liniennummern respektieren den [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) des Dokuments, und so befindet sich in einer von rechts nach links verlaufenden Sprache beispielsweise die Spaltenlinie 1 rechts vom Raster. Das unten stehende Bild zeigt die Liniennummern des Rasters, wobei die Annahme besteht, dass die Sprache von links nach rechts verläuft.
 
 ![Diagramm, das das Raster mit nummerierten Linien zeigt.](1_diagram_numbered_grid_lines.png)
 
-Linien werden auch im _impliziten Raster_ erstellt, wenn implizite Tracks erstellt werden, um Inhalte außerhalb des _expliziten Rasters_ unterzubringen, jedoch können diese Linien nicht durch eine Nummer adressiert werden.
+Linien werden auch im _impliziten Raster_ erstellt, wenn implizite Spuren erstellt werden, um Inhalte zu halten, die außerhalb des _expliziten Rasters_ positioniert sind. Diese Linien können jedoch nicht über eine Nummer angesprochen werden.
 
 ## Platzieren von Elementen auf dem Raster nach Liniennummer
 
-Nachdem Sie ein Raster erstellt haben, können Sie Elemente anhand von Liniennummern auf diesem platzieren. Im folgenden Beispiel wird das Element von Spaltenlinie 1 bis Spaltenlinie 3 und von Zeilenlinie 1 bis Zeilenlinie 3 positioniert.
+Nachdem Sie ein Raster erstellt haben, können Sie Elemente auf dem Raster anhand der Liniennummer platzieren. Im folgenden Beispiel wird das Element von Spaltenlinie 1 bis Spaltenlinie 3 und von Zeilenlinie 1 bis Zeilenlinie 3 positioniert.
 
 ```css hidden
 * {
@@ -113,7 +111,7 @@ Nachdem Sie ein Raster erstellt haben, können Sie Elemente anhand von Liniennum
 
 ## Benennen von Linien
 
-Die Linien, die im _expliziten Raster_ erstellt werden, können benannt werden, indem der Name in eckigen Klammern vor oder nach der Angabe der Track-Größe gesetzt wird. Beim Platzieren eines Elements können Sie dann diese Namen anstelle der Liniennummer verwenden, wie unten demonstriert.
+Die im _expliziten Raster_ erstellten Linien können benannt werden, indem der Name in eckigen Klammern vor oder nach den Informationen zur Spurgröße hinzugefügt wird. Wenn Sie ein Element platzieren, können Sie diese Namen anstelle der Liniennummer verwenden, wie unten gezeigt.
 
 ```css hidden
 * {
@@ -162,7 +160,7 @@ Die Linien, die im _expliziten Raster_ erstellt werden, können benannt werden, 
 
 ## Siehe auch
 
-### Referenz der Eigenschaften
+### Eigenschaftenreferenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -175,9 +173,9 @@ Die Linien, die im _expliziten Raster_ erstellt werden, können benannt werden, 
 
 ### Weiterführende Literatur
 
-- CSS-Grid-Layout-Leitfäden:
-  - [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Linienbasiertes Platzieren mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-  - [Layout unter Verwendung benannter Gitterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
+- CSS-Rasterlayout-Leitfäden:
+  - [Grundkonzepte des Rasterlayouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+  - [Linienbasierte Platzierung mit CSS-Raster](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+  - [Layout mit benannten Rasterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
   - [CSS-Raster, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
-- [Definition von Gitterlinien in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-line-concept)
+- [Definition von Rasterlinien in der CSS-Rasterlayout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-line-concept)

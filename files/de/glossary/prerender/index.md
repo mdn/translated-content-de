@@ -1,17 +1,15 @@
 ---
-title: Prerender
+title: Prerendering
 slug: Glossary/Prerender
 l10n:
-  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Prerendering bezieht sich auf die Praxis, Seiten spekulativ zu {{Glossary("prefetch", "prefetchen")}} und zu _rendern_, zu denen der Benutzer wahrscheinlich in naher Zukunft navigieren wird (der Browser rendert die Seite im Hintergrund in einem faktisch unsichtbaren separaten Tab). Prerendering umfasst das Herunterladen der Subressourcen eines Dokuments und das Ausführen des zugehörigen JavaScripts.
 
-Prerendering bezieht sich auf die Praxis des spekulativen {{Glossary("prefetch", "Preloadings")}} und _Renderns_ von Seiten, zu denen der Benutzer wahrscheinlich in naher Zukunft navigieren wird (der Browser rendert die Seite im Hintergrund in einem im Wesentlichen unsichtbaren separaten Tab). Prerendering umfasst das Herunterladen von Subressourcen eines Dokuments und das Ausführen des zugehörigen JavaScripts.
+Wenn der Benutzer sich dann entscheidet, zu der Seite zu navigieren, kann die Anzeige ihres Inhalts nahezu sofort erfolgen.
 
-Falls der Benutzer sich dann entscheidet, zu der Seite zu navigieren, kann die Anzeige ihres Inhalts nahezu sofort erfolgen.
-
-Prerendering könnte zum Beispiel verwendet werden, um die Seitenressourcen, die durch einen "Weiter"-Button verlinkt sind, ein Popup-Link, über den ein Benutzer schwebt, oder das wahrscheinliche Seitendziel der URL, die in die Adressleiste eingegeben wird, abzurufen. Die folgenden [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) könnten im Head eines Dokuments enthalten sein, um dem Browser einen Hinweis zu geben, dass er `next.html` und `next2.html` rendern sollte, da beide vernünftigerweise Ziele der nächsten Navigation sein könnten:
+Prerendering könnte zum Beispiel verwendet werden, um die Seitenressourcen abzurufen, die mit einem "Weiter"-Button verlinkt sind, oder ein Popup-Link, über das ein Benutzer fährt, oder das wahrscheinlich angezeigte Ziel der URL, die in die Adressleiste eingegeben wird. Die folgenden [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) könnten in den Kopf eines Dokuments aufgenommen werden, um dem Browser einen Hinweis zu geben, dass er `next.html` und `next2.html` prerendern sollte, da beide vernünftigerweise Ziele der nächsten Navigation sein könnten:
 
 ```html
 <script type="speculationrules">
@@ -26,7 +24,7 @@ Prerendering könnte zum Beispiel verwendet werden, um die Seitenressourcen, die
 </script>
 ```
 
-Prerendering führt zu schnelleren Anzeigezeiten als Preloading und somit zu einer besseren Benutzererfahrung, allerdings auf Kosten eines höheren Ressourcenverbrauchs.
+Prerendering führt zu einer schnelleren Anzeigegeschwindigkeit als Prefetching und somit zu einer besseren Benutzererfahrung, jedoch auf Kosten eines höheren Ressourcenverbrauchs.
 
 ## Siehe auch
 
@@ -34,4 +32,4 @@ Prerendering führt zu schnelleren Anzeigezeiten als Preloading und somit zu ein
 - Verwandte Glossarbegriffe:
   - {{Glossary("Prefetch", "Prefetch")}}
 - [Prerender-Seiten in Chrome für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages#prerendering-from-the-address-bar) auf developer.chrome.com
-- [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)
+- [Spekulationsregel-API](/de/docs/Web/API/Speculation_Rules_API)

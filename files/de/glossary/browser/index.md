@@ -2,12 +2,10 @@
 title: Browser
 slug: Glossary/Browser
 l10n:
-  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es den Nutzern ermöglicht, weitere Seiten über {{Glossary("hyperlink", "Hyperlinks")}} aufzurufen. Ein Browser ist die bekannteste Art eines {{Glossary("user_agent", "User Agents")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
+Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es Benutzern ermöglicht, über {{Glossary("hyperlink", "Hyperlinks")}} auf weitere Seiten zuzugreifen. Ein Browser ist der vertrauteste Typ von {{Glossary("user_agent", "User-Agent")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
 
 Gängige Browser sind:
 
@@ -28,4 +26,4 @@ Gängige Browser sind:
   - [Opera Browser](https://www.opera.com/)
 - Verwandte Glossarbegriffe:
   - {{Glossary("Engine/Rendering", "Rendering-Engine")}}
-  - {{Glossary("User_agent", "User Agent")}}
+  - {{Glossary("User_agent", "User-Agent")}}

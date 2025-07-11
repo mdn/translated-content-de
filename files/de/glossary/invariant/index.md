@@ -2,12 +2,10 @@
 title: Invariant
 slug: Glossary/Invariant
 l10n:
-  sourceCommit: d5be633656b10c913eb9a1db4fb5c59acfdcb86c
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-In der Programmiersprachen-Semantik ist ein **Invariant** eines Codes ein Zustand, der während der gesamten Ausführung dieses Codes nachweislich wahr ist. Die Definition von Invarianten hilft dabei, über die Korrektheit und das Verhalten des Codes nachzudenken.
+In der Programmbedeutung ist ein **Invariant** eines Codes ein Zustand, der während der gesamten Ausführung dieses Codes nachweislich wahr ist. Das Definieren von Invarianten hilft, über die Richtigkeit und das Verhalten des Codes nachzudenken.
 
 Zum Beispiel im folgenden Code:
 
@@ -19,9 +17,9 @@ while (hasMessages()) {
 }
 ```
 
-können wir beweisen, dass `count` von Anfang bis Ende eine nicht-negative Ganzzahl ist. Das bedeutet, dass wir `count` überall im Code an eine Funktion übergeben können, die eine nicht-negative Ganzzahl erwartet und die Funktion korrekt arbeiten wird.
+Können wir beweisen, dass `count` von Anfang bis Ende eine nicht-negative ganze Zahl ist. Das bedeutet, dass wir `count` im gesamten Code an eine Funktion übergeben können, die eine nicht-negative ganze Zahl erwartet, und die Funktion wird korrekt funktionieren.
 
-Invarianten können auf zwei Arten etabliert werden: durch die Beschaffenheit des Programms oder durch explizite Zusicherungen (Laufzeitüberprüfungen). Zum Beispiel führt der obige Code keine Überprüfungen durch, aber aufgrund der Tatsache, dass `count` eine von `0` beginnende und aufsteigende Ganzzahl ist, können wir seinen Bereich garantieren. Wenn wir Eingaben aus einer externen Quelle erhalten, können wir Überprüfungen verwenden, um Invarianten an der Grenze festzulegen:
+Invarianten können auf zwei Arten etabliert werden: durch die Natur des Programms oder durch explizite Assertions (Laufzeitprüfungen). Beispielweise führt der obige Code keine Überprüfungen durch, aber durch die Tatsache, dass `count` eine inkrementierende, mit `0` beginnende ganze Zahl ist, können wir dessen Wertebereich garantieren. Erhalten wir Eingaben von einer externen Quelle, können wir Überprüfungen verwenden, um Invarianten an der Grenze festzustellen:
 
 ```js
 function processInput(input) {
@@ -32,6 +30,6 @@ function processInput(input) {
 }
 ```
 
-Invarianten sind besonders nützlich in komplexen Systemen, die sich keine umfassenden Überprüfungen bei jedem Schritt leisten können. Wir legen Invarianten an der Systemgrenze fest, und anschließend kann der nachfolgende Code diese Eigenschaften annehmen, ohne sie erneut überprüfen zu müssen.
+Invarianten sind besonders nützlich in komplexen Systemen, die sich umfassende Prüfungen in jedem Schritt nicht leisten können. Wir stellen Invarianten an der Systemgrenze fest und der nachfolgende Code kann dann diese Eigenschaften ohne erneute Prüfung annehmen.
 
-Im Allgemeinen ist alles, was als wahr angenommen werden kann, eine Invariante. Zum Beispiel kann eine Spezifikation ein Merkmal als implementationsabhängig belassen, jedoch mit bestimmten Invarianten, was bedeutet, dass diese Eigenschaften immer wahr bleiben, unabhängig vom genauen Verhalten.
+Im Allgemeinen ist alles, was als wahr angenommen werden kann, eine Invariante. Ein Beispiel: Eine Spezifikation kann ein Merkmal als implementierungsdefiniert lassen, jedoch mit bestimmten Invarianten, was bedeutet, dass diese Eigenschaften unabhängig vom genauen Verhalten immer zutreffen.

@@ -2,18 +2,16 @@
 title: Grid
 slug: Glossary/Grid
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein _CSS-Grid_ wird mit dem `grid`-Wert der {{cssxref("display")}}-Eigenschaft definiert; Sie können Spalten und Zeilen in Ihrem Grid mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren.
+Ein _CSS-Grid_ wird mit dem `grid`-Wert der {{cssxref("display")}}-Eigenschaft definiert. Sie können Spalten und Zeilen in Ihrem Grid mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren.
 
 Das Grid, das Sie mit diesen Eigenschaften definieren, wird als _explizites Grid_ bezeichnet.
 
-Wenn Sie Inhalte außerhalb dieses expliziten Grids platzieren oder wenn Sie sich auf die automatische Platzierung verlassen und der Grid-Algorithmus zusätzliche {{Glossary("grid_tracks", "Tracks")}} für Zeilen oder Spalten erstellen muss, um {{Glossary("grid_cell", "Grid-Zellen")}} zu enthalten, werden zusätzliche Tracks im impliziten Grid erstellt. Das _implizite Grid_ ist das Grid, das automatisch erstellt wird, wenn Inhalte außerhalb der definierten Tracks hinzugefügt werden.
+Wenn Sie Inhalte außerhalb dieses expliziten Grids platzieren oder auf die automatische Platzierung angewiesen sind und der Grid-Algorithmus zusätzliche Zeilen- oder Spuren {{Glossary("grid_tracks", "tracks")}} erstellen muss, um {{Glossary("grid_cell", "Grid-Zellen")}} aufzunehmen, werden zusätzliche Spuren im impliziten Grid erstellt. Das _implizite Grid_ ist das Grid, das automatisch erstellt wird, wenn Inhalte außerhalb der definierten Spuren hinzugefügt werden.
 
-Im folgenden Beispiel habe ich ein _explizites Grid_ mit drei Spalten und zwei Zeilen erstellt. Die _dritte_ Zeile im Grid ist ein Track des _impliziten Grids_, da es mehr als sechs Elemente gibt, die die expliziten Tracks füllen.
+Im untenstehenden Beispiel habe ich ein _explizites Grid_ mit drei Spalten und zwei Zeilen erstellt. Die _dritte_ Zeile im Grid ist eine _implizite Grid_-Zeilenspur, die entsteht, weil es mehr als die sechs Elemente gibt, die die expliziten Spuren füllen.
 
 ## Beispiel
 
@@ -62,7 +60,7 @@ Im folgenden Beispiel habe ich ein _explizites Grid_ mit drei Spalten und zwei Z
 
 ## Siehe auch
 
-- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
 - Eigenschaftsreferenz:
   - {{cssxref("grid-template-columns")}}
   - {{cssxref("grid-template-rows")}}

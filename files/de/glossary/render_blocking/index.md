@@ -1,17 +1,15 @@
 ---
-title: Render-blocking
+title: Render-Blocking
 slug: Glossary/Render_blocking
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Render-Blocking** bezieht sich auf jeden Teil des Prozesses des Ladens einer Website, der die Darstellung der Benutzeroberfläche blockiert. Render-Blocking wirkt sich negativ auf die Web-Performance aus, da es die Zeit verlängert, bis Benutzer mit der Website interagieren können — zum Beispiel, um Inhalte anzusehen oder mit Steuerelementen zu interagieren.
 
-**Render-blocking** bezieht sich auf jeden Teil des Ladeprozesses einer Website, der das Rendering der Benutzeroberfläche blockiert. Render-blocking ist schlecht für die Web-Performance, da es die Zeit verlängert, bis Benutzer mit der Website interagieren können – zum Beispiel durch das Betrachten von Inhalten oder das Interagieren mit Steuerelementen.
-
-Die häufigsten Ursachen für Render-blocking sind initial geladene CSS- oder JavaScript-Dateien.
+Die häufigsten Ursachen für Render-Blocking sind zu Beginn geladene CSS- oder JavaScript-Dateien.
 
 ## Siehe auch
 
-- [CSS-Performance-Optimierung](/de/docs/Learn_web_development/Extensions/Performance/CSS)
-- [JavaScript-Performance-Optimierung](/de/docs/Learn_web_development/Extensions/Performance/JavaScript)
+- [CSS-Leistungsoptimierung](/de/docs/Learn_web_development/Extensions/Performance/CSS)
+- [JavaScript-Leistungsoptimierung](/de/docs/Learn_web_development/Extensions/Performance/JavaScript)

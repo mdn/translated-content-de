@@ -2,20 +2,18 @@
 title: TTL
 slug: Glossary/TTL
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Time To Live (TTL) kann sich entweder auf die Lebensdauer eines Pakets in einem Netzwerk oder auf das Ablaufdatum von zwischengespeicherten Daten beziehen.
 
-Time To Live (TTL) kann sich entweder auf die Lebensdauer eines Pakets in einem Netzwerk oder die Ablaufzeit von zwischengespeicherten Daten beziehen.
+## Netzwerken
 
-## Vernetzung
+Im Bereich des Netzwerkens wird die TTL, die im Paket eingebettet ist, normalerweise als Anzahl von Hops oder als Ablaufzeitstempel definiert, nach dem das Paket verworfen wird. Sie bietet eine Möglichkeit, Netzwerküberlastung zu vermeiden, indem Pakete freigegeben werden, nachdem sie zu lange im Netzwerk unterwegs waren.
 
-In der Vernetzung ist die TTL, die im Paket eingebettet ist, normalerweise als eine Anzahl von Hops oder als ein Ablaufzeitstempel definiert, nach dem das Paket verworfen wird. Sie bietet eine Möglichkeit, Netzwerküberlastung zu vermeiden, indem Pakete freigegeben werden, nachdem sie zu lange im Netzwerk unterwegs waren.
+## Caching
 
-## Zwischenspeicherung
-
-Im Kontext der Zwischenspeicherung weist TTL (als vorzeichenlose 32-Bit-Ganzzahl), die Teil des {{Glossary("Response_header", "HTTP-Antwort-Headers")}} oder der {{Glossary("DNS", "DNS")}}-Abfrage ist, auf die Anzahl von Sekunden hin, während derer die Ressource vom Anforderer zwischengespeichert werden kann.
+Im Kontext des Cachings gibt TTL (als 32-Bit-Ganzzahl ohne Vorzeichen), das Teil des {{Glossary("Response_header", "HTTP-Antwort-Headers")}} oder der {{Glossary("DNS", "DNS")}}-Abfrage ist, die Zeit in Sekunden an, während der eine Ressource vom Anforderer zwischengespeichert werden kann.
 
 ## Siehe auch
 

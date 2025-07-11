@@ -1,23 +1,21 @@
 ---
-title: Representation-Header
+title: Representation Header
 slug: Glossary/Representation_header
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Representation Header** (oder "Representation Metadata") ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der beschreibt, wie die im Nachrichtentext enthaltenen Daten interpretiert werden sollen.
 
-Ein **Representation-Header** (oder 'Repräsentations-Metadaten') ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der beschreibt, wie die im Nachrichtentext enthaltenen Daten interpretiert werden sollen.
+Zum Beispiel könnte der Inhalt einer bestimmten Nachricht für den Transport kodiert sein, die gesamte Ressource könnte als ein bestimmter Medientyp wie XML, JSON, HTML oder Markdown formatiert, in eine bestimmte geschriebene Sprache oder geografische Region lokalisiert und/oder mit einem bestimmten Algorithmus komprimiert sein. Die Representation Header ermöglichen es, die zugrunde liegenden Daten zu extrahieren und zu verstehen. Die zugrunde liegende Ressource ist in jedem Fall semantisch gleich, aber ihre Darstellung ist unterschiedlich.
 
-Beispielsweise könnten die Inhalte in einer bestimmten Nachricht für den Transport codiert sein, die gesamte Ressource könnte als ein bestimmter Medientyp wie XML, JSON, HTML oder Markdown formatiert, in eine bestimmte Schriftsprache oder geografische Region lokalisiert und/oder mit einem bestimmten Algorithmus komprimiert sein. Die Representation-Header ermöglichen es, die zugrunde liegenden Daten zu extrahieren und zu verstehen. Die zugrunde liegende Ressource ist in jedem Fall semantisch gleich, aber ihre Darstellung ist unterschiedlich.
+Während Darstellungen verschiedene Formen von Ressourcen sind, können Darstellungen selbst auch in verschiedenen Formen übertragen werden: ein HTTP-Nachrichtenrahmen (vgl. z.B. HTTP/1.1's {{HTTPHeader("Transfer-Encoding")}}), ein bestimmter Oktettstrom (vgl. z.B. {{HTTPHeader("Content-Range")}}), abgeleitet von der _gewählten Darstellung_.
 
-Während Darstellungen verschiedene Formen von Ressourcen sind, können Darstellungen selbst auch in verschiedenen Formen übertragen werden: ein HTTP-Nachrichtenrahmen (siehe z.B. HTTP/1.1's {{HTTPHeader("Transfer-Encoding")}}), ein bestimmter Strom von Oktetten (siehe z.B. {{HTTPHeader("Content-Range")}}), abgeleitet aus der _ausgewählten Darstellung_.
+Clients geben während der [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) (über `Accept-*` Header) die Formate an, die sie bevorzugen. Die Representation Header teilen dem Client das Format der _gewählten Darstellung_ mit, die sie erhalten haben.
 
-Clients spezifizieren die Formate, die sie während der [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) (mithilfe von `Accept-*`-Headern) erhalten möchten, und die Representation-Header informieren den Client über das Format der _ausgewählten Darstellung_, die sie erhalten haben.
+Representation Header können sowohl in HTTP-Anfrage- als auch Antwortnachrichten mit verschiedenen Methoden vorhanden sein. Wenn sie als Antwort auf eine `HEAD`-Anfrage gesendet werden, beschreiben sie die Darstellung des Inhalts, die _gewählt würde_, wenn die Ressource mit einer `GET`-Anfrage angefordert worden wäre.
 
-Representation-Header können in sowohl HTTP-Anfrage- als auch -Antwortnachrichten mit verschiedenen Methoden vorhanden sein. Wenn sie als Antwort auf eine `HEAD`-Anfrage gesendet werden, beschreiben sie die Inhaltsdarstellung des Körpers, die _gewählt werden würde_, wenn die Ressource mit einer `GET`-Anfrage angefordert würde.
-
-Representation-Header beinhalten:
+Zu den Representation Headern gehören:
 
 - {{HTTPHeader("Content-Length")}}
 - {{HTTPHeader("Content-Range")}}
@@ -26,17 +24,17 @@ Representation-Header beinhalten:
 - {{HTTPHeader("Content-Location")}}
 - {{HTTPHeader("Content-Language")}}
 
-- Validatoren, die in [bedingten Anfragen](/de/docs/Web/HTTP/Guides/Conditional_requests) verwendet werden, wie z.B.:
+- Validatoren, die in [bedingten Anfragen](/de/docs/Web/HTTP/Guides/Conditional_requests) verwendet werden, wie:
   - {{HTTPHeader("Last-Modified")}}
   - {{HTTPHeader("ETag")}}
 
-Representation-Header sind nicht gegenseitig exklusiv mit {{Glossary("Content_header", "Inhaltsheadern")}}.
+Representation Header sind nicht gegenseitig ausschließend mit {{Glossary("Content_header", "Inhalts-Headern")}}.
 
 ## Siehe auch
 
-- Verwandte Glossarbegriffe:
-  - {{Glossary("Content_header", "Inhaltsheader")}}
-- [RFC 9110, Abschnitt 3.2: Darstellungen](https://httpwg.org/specs/rfc9110.html#representations)
+- Verwandte Glossartermine:
+  - {{Glossary("Content_header", "Inhalts-Header")}}
+- [RFC 9110, Abschnitt 3.2: Repräsentationen](https://httpwg.org/specs/rfc9110.html#representations)
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
 - {{HTTPHeader("Repr-Digest")}}, {{HTTPHeader("Want-Repr-Digest")}}
 - {{HTTPHeader("Content-Digest")}}, {{HTTPHeader("Want-Content-Digest")}}

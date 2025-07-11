@@ -2,22 +2,20 @@
 title: Snake case
 slug: Glossary/Snake_case
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Snake case** ist eine Schreibweise, bei der Phrasen ohne Leerzeichen geschrieben werden, indem Leerzeichen durch Unterstriche `_` ersetzt werden und die Wörter typischerweise alle in Kleinbuchstaben sind. Es wird oft als "snake_case" stilisiert, um den Leser an sein Erscheinungsbild zu erinnern.
 
-**Snake case** ist eine Schreibweise von Phrasen ohne Leerzeichen, bei der Leerzeichen durch Unterstriche `_` ersetzt werden und die Wörter in der Regel alle in Kleinbuchstaben sind. Oft wird es als "snake_case" stilisiert, um den Leser an sein Erscheinungsbild zu erinnern.
+Snake Case wird häufig als Konvention zur Benennung von Variablen verwendet. Die folgenden Namen sind im Snake Case: `left_shift`, `bitwise_invert`, `matrix_transpose`.
 
-Snake case wird häufig als Benennungsstandard für Variablen verwendet. Die folgenden Namen sind im Snake Case: `left_shift`, `bitwise_invert`, `matrix_transpose`.
+Beachten Sie, dass Snake Case niemals Großbuchstaben enthält. Manchmal werden Konstanten in komplettem Großbuchstaben geschrieben, wie z. B. JavaScripts {{jsxref("Number.MAX_SAFE_INTEGER")}}. Dies wird normalerweise nicht als Snake Case betrachtet, sondern manchmal als _Screaming Snake Case_ bezeichnet.
 
-Beachten Sie, dass Snake Case niemals Großbuchstaben enthält. Manchmal werden Konstanten ausschließlich in Großbuchstaben geschrieben, wie zum Beispiel JavaScript's {{jsxref("Number.MAX_SAFE_INTEGER")}}. Dies wird in der Regel nicht als Snake Case betrachtet. Stattdessen wird es manchmal als _Screaming Snake Case_ bezeichnet.
-
-Snake Case ist die populärste Konvention in Python, Rust und verschiedenen anderen Sprachen.
+Snake Case ist die beliebteste Konvention in Python, Rust und verschiedenen anderen Sprachen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
   - {{Glossary("Camel_case", "Camel case")}}
   - {{Glossary("Kebab_case", "Kebab case")}}
-- [typescript-eslint Regel: `naming-convention`](https://typescript-eslint.io/rules/naming-convention/)
+- [typescript-eslint-Regel: `naming-convention`](https://typescript-eslint.io/rules/naming-convention/)

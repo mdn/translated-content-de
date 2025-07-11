@@ -2,31 +2,29 @@
 title: Asynchron
 slug: Glossary/Asynchronous
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Der Begriff **asynchron** bezieht sich auf zwei oder mehr Objekte oder Ereignisse, die nicht zur gleichen Zeit existieren oder stattfinden, das heißt, sie sind **nicht** {{Glossary("synchronous", "synchron")}}. Wenn mehrere zusammenhängende Dinge passieren, ohne dass deren Abschluss voneinander abhängt, sind sie asynchron.
 
-Der Begriff **asynchron** bezieht sich auf zwei oder mehr Objekte oder Ereignisse, die nicht zur gleichen Zeit existieren oder stattfinden, das heißt, sie sind **nicht** {{Glossary("synchronous", "synchron")}}. Wenn mehrere zusammenhängende Dinge geschehen, ohne dass eines von der Vollendung vorheriger Ereignisse abhängt, sind sie asynchron.
-
-Im Bereich der Informatik wird das Wort "asynchron" in zwei wesentlichen Kontexten verwendet, die im Folgenden erläutert werden.
+Im Bereich der Informatik wird das Wort "asynchron" in zwei Hauptkontexten verwendet, wie im Folgenden erklärt.
 
 ## In der Netzwerktechnik und Kommunikation
 
-Asynchrone Kommunikation ist eine Methode zum Austausch von Nachrichten, bei der das Senden, Empfangen und Verarbeiten jeder Nachricht nicht vom Senden, Empfang oder Verarbeiten anderer Nachrichten abhängt. Bei der asynchronen Kommunikation empfängt und verarbeitet jede Partei Nachrichten, wann es ihr passt oder möglich ist, anstatt dies sofort nach Erhalt zu tun. Darüber hinaus können Nachrichten gesendet werden, ohne auf eine Bestätigung zu warten, mit dem Verständnis, dass der Empfänger bei Problemen Korrekturen anfordert oder die Situation anderweitig handhabt.
+Asynchrone Kommunikation ist eine Methode des Nachrichtenaustauschs, bei der das Senden, Empfangen und Verarbeiten jeder Nachricht nicht von dem Senden, Empfang oder der Verarbeitung anderer Nachrichten abhängt. Bei der asynchronen Kommunikation empfängt und verarbeitet jede Partei Nachrichten, wenn es für sie bequem oder möglich ist, anstatt dies sofort nach Erhalt zu tun. Zudem können Nachrichten versendet werden, ohne auf eine Bestätigung zu warten, mit dem Verständnis, dass der Empfänger bei Problemen Korrekturen anfordert oder die Situation anderweitig regelt.
 
-E-Mail ist eine Form der asynchronen menschlichen Kommunikation. Ein Absender sendet eine E-Mail. Der Empfänger liest die E-Mail und antwortet darauf (oder auch nicht) nach seinem Belieben und nicht unbedingt sofort. Alle Parteien können jederzeit weiterhin Nachrichten senden und empfangen. E-Mails müssen nicht in einer bestimmten Reihenfolge geplant werden.
+E-Mail ist eine Art der asynchronen menschlichen Kommunikation. Ein Absender sendet eine E-Mail. Der Empfänger liest die E-Mail und antwortet darauf (oder auch nicht), wann es für ihn passt, nicht unbedingt sofort. Alle Parteien können jederzeit Nachrichten senden und empfangen. E-Mails müssen nicht in einer bestimmten Reihenfolge geplant werden.
 
-In asynchroner Software blockiert eine Anforderung, wie z.B. an einen Server, nicht andere Prozesse, während auf die Antwort gewartet wird. Die Software kann andere Aufgaben weiterhin ausführen. Zum Beispiel werden in [versprechensbasierten APIs](/de/docs/Learn_web_development/Extensions/Async_JS/Implementing_a_promise-based_API) {{JSxRef("Promise")}} Objekte für lange Operationen erstellt. Nachdem die Operation abgeschlossen ist, wird das Versprechen bearbeitet. Mit Versprechen muss die Software nicht darauf warten, dass die Operation abgeschlossen ist.
+Bei asynchroner Software blockiert das Stellen einer Anfrage, wie beispielsweise an einen Server, nicht andere Prozesse, während auf die Antwort gewartet wird. Die Software kann weiterhin andere Aufgaben ausführen. Zum Beispiel werden in [versprechenbasierten APIs](/de/docs/Learn_web_development/Extensions/Async_JS/Implementing_a_promise-based_API) {{JSxRef("Promise")}} Objekte für langwierige Operationen erstellt. Nachdem die Operation abgeschlossen ist, wird das Promise verarbeitet. Mit Promises muss die Software nicht warten, bis die Operation beendet ist.
 
 ## In der Softwareentwicklung
 
-Asynchrones Softwaredesign erweitert das Konzept, indem Code erstellt wird, der es einem Programm ermöglicht, eine Aufgabe parallel zur ursprünglichen Aufgabe (oder Aufgaben) ausführen zu lassen, ohne auf den Abschluss der Aufgabe zu warten. Wenn die sekundäre Aufgabe abgeschlossen ist, wird die ursprüngliche Aufgabe über einen vereinbarten Mechanismus benachrichtigt, sodass sie weiß, dass die Arbeit erledigt ist und das Ergebnis, falls vorhanden, verfügbar ist.
+Asynchrone Softwareentwicklung erweitert das Konzept, indem Code erstellt wird, der es einem Programm ermöglicht, eine Aufgabe neben der ursprünglichen Aufgabe (oder Aufgaben) durchführen zu lassen, ohne anzuhalten zu müssen, um das Ende der Aufgabe abzuwarten. Wenn die sekundäre Aufgabe abgeschlossen ist, wird die ursprüngliche Aufgabe über einen vereinbarten Mechanismus benachrichtigt, sodass sie weiß, dass die Arbeit erledigt ist und dass das Ergebnis, falls vorhanden, verfügbar ist.
 
-Es gibt eine Reihe von Programmiertechniken zur Implementierung asynchroner Software. Siehe den Artikel [Asynchrones JavaScript](/de/docs/Learn_web_development/Extensions/Async_JS) für eine Einführung in diese Techniken.
+Es gibt eine Reihe von Programmiertechniken zur Implementierung asynchroner Software. Siehe den Artikel [Asynchrones JavaScript](/de/docs/Learn_web_development/Extensions/Async_JS) für eine Einführung in diese.
 
 ## Siehe auch
 
-- [Lernen: Netzwerk-Anfragen mit JavaScript](/de/docs/Learn_web_development/Core/Scripting/Network_requests) (Lernbereich)
+- [Lernen: Netzwerk-Anfragen mit JavaScript stellen](/de/docs/Learn_web_development/Core/Scripting/Network_requests) (Lernbereich)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Synchronous", "Synchron")}}
+  - {{Glossary("Synchronous", "Synchronous")}}

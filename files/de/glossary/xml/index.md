@@ -2,14 +2,12 @@
 title: XML
 slug: Glossary/XML
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+eXtensible Markup Language (XML) ist eine allgemeine Auszeichnungssprache, die vom W3C spezifiziert wurde. Die Informationstechnologie-Branche (IT) verwendet viele Sprachen, die auf XML basieren, als Datendeschreibungssprachen.
 
-Die _eXtensible Markup Language_ (XML) ist eine generische Auszeichnungssprache, die vom W3C spezifiziert wurde. Die Informationstechnologie-(IT)-Industrie verwendet viele auf XML basierende Sprachen als Datenbeschreibungssprachen.
-
-XML-Tags ähneln HTML-Tags, doch XML ist viel flexibler, da es den Benutzern ermöglicht, ihre eigenen Tags zu definieren. Auf diese Weise fungiert XML als Meta-Sprache – das heißt, es kann verwendet werden, um andere Sprachen zu definieren, wie zum Beispiel {{Glossary("RSS", "RSS")}}. Zudem ist HTML eine Präsentationssprache, während XML eine Datenbeschreibungssprache ist. Das bedeutet, dass XML weitaus breiter einsetzbar ist als lediglich im Web. Zum Beispiel können Webdienste XML verwenden, um Anfragen und Antworten auszutauschen.
+XML-Tags ähneln HTML-Tags, aber XML ist viel flexibler, da es den Benutzern ermöglicht, ihre eigenen Tags zu definieren. In diesem Sinne fungiert XML als Meta-Sprache, das heißt, es kann verwendet werden, um andere Sprachen zu definieren, wie zum Beispiel {{Glossary("RSS", "RSS")}}. Außerdem ist HTML eine Präsentationssprache, während XML eine Datendeschreibungssprache ist. Das bedeutet, dass XML wesentlich breitere Anwendungen hat als nur das Web. Zum Beispiel können Webdienste XML verwenden, um Anfragen und Antworten auszutauschen.
 
 ## Siehe auch
 

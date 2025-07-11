@@ -1,16 +1,14 @@
 ---
-title: Verzögerung
+title: Latenz
 slug: Glossary/Latency
 l10n:
-  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Latenz** ist die Netzwerklaufzeit, die ein angefordertes Objekt benötigt, um sein Ziel zu erreichen. Eine niedrige Latenz ist gut, da dies bedeutet, dass es wenig oder keine Verzögerung gibt. Eine hohe Latenz ist schlecht, da es lange dauert, bis das angeforderte Objekt sein Ziel erreicht.
 
-**Verzögerung** ist die Zeit, die ein angefordertes Netzwerkressource benötigt, um ihr Ziel zu erreichen. Niedrige Verzögerung ist gut, da sie bedeutet, dass es kaum oder keine Verzögerung gibt. Hohe Verzögerung ist schlecht, da es lange dauert, bis die angeforderte Ressource ihr Ziel erreicht.
-
-Verzögerung kann ein Faktor bei jedem Datenfluss sein, aber wird am häufigsten in Bezug auf Netzwerkverzögerung (die Zeit, die ein Datenpaket benötigt, um von der Quelle zum Ziel zu gelangen) und Medien-Codec-Verzögerung (die Zeit, die benötigt wird, um die Quelldaten zu codieren oder zu decodieren und den Empfänger der resultierenden Daten zu erreichen) diskutiert.
+Latenz kann ein Faktor in jedem Datentransfer sein, wird jedoch am häufigsten im Zusammenhang mit Netzwerk-Latenz (der Zeit, die ein Datenpaket benötigt, um von der Quelle zum Ziel zu gelangen) und Medien-Codec-Latenz (der Zeit, die benötigt wird, um die Quelldaten zu kodieren oder zu dekodieren und den Konsumenten der resultierenden Daten zu erreichen) diskutiert.
 
 ## Siehe auch
 
-- [Verzögerung verstehen](/de/docs/Web/Performance/Guides/Understanding_latency)
+- [Verständnis der Latenz](/de/docs/Web/Performance/Guides/Understanding_latency)

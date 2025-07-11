@@ -2,12 +2,10 @@
 title: OOP
 slug: Glossary/OOP
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**OOP** (Objektorientierte Programmierung) ist ein Ansatz in der Programmierung, bei dem Daten in **{{Glossary("object", "Objekten")}}** eingeschlossen sind und auf das Objekt selbst operiert wird, anstatt auf seine Komponenten.
+**OOP** (Objektorientierte Programmierung) ist ein Ansatz in der Programmierung, bei dem Daten innerhalb von **{{Glossary("object", "Objekten")}}** gekapselt werden und das Objekt selbst bearbeitet wird, anstatt seiner Komponenten.
 
 {{Glossary("JavaScript", "JavaScript")}} ist stark objektorientiert. Es folgt einem [**prototyp**-basierten Modell](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain), bietet aber auch eine [Klassensyntax](/de/docs/Web/JavaScript/Guide/Using_classes), um typische OOP-Paradigmen zu ermöglichen.
 

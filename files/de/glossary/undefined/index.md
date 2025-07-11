@@ -2,12 +2,10 @@
 title: Undefined
 slug: Glossary/Undefined
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**`undefined`** ist ein {{Glossary("primitive", "primitiver Wert")}}, der automatisch {{Glossary("variable", "Variablen")}} zugewiesen wird, die gerade deklariert wurden, oder formalen {{Glossary("Argument", "Argumenten")}}, für die es keine tatsächlichen Argumente gibt.
+**`undefined`** ist ein {{Glossary("primitive", "primitiver")}} Wert, der automatisch Variablen zugewiesen wird, die gerade deklariert wurden, oder formalen {{Glossary("Argument", "Argumenten")}}, für die keine tatsächlichen Argumente existieren.
 
 ## Beispiel
 
@@ -19,5 +17,5 @@ console.log(`x's value is ${x}`); // logs "x's value is undefined"
 
 ## Siehe auch
 
-- [Undefinierter Wert](https://en.wikipedia.org/wiki/Undefined_value) auf Wikipedia
+- [Undefined value](https://en.wikipedia.org/wiki/Undefined_value) auf Wikipedia
 - [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures)

@@ -1,23 +1,21 @@
 ---
-title: Sticky activation
+title: Sticky-Aktivierung
 slug: Glossary/Sticky_activation
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Sticky-Aktivierung** (oder "dauerhafte Benutzeraktivierung") ist ein Fensterzustand, der anzeigt, dass ein Benutzer auf eine Schaltfläche gedrückt, die Maus bewegt, ein Menü benutzt oder eine andere Benutzerinteraktion durchgeführt hat.
 
-**Sticky activation** (oder "sticky user activation") ist ein Fensterzustand, der anzeigt, dass ein Benutzer eine Taste gedrückt, die Maus bewegt, ein Menü benutzt oder eine andere Benutzerinteraktion durchgeführt hat.
+Eine Seite wird als "benutzeraktiviert" angesehen, wenn ein Benutzer derzeit mit der Seite interagiert oder seit dem Laden der Seite eine Berührung, Zeiger- oder Tastaturinteraktion abgeschlossen hat. Bei der dauerhaften Benutzeraktivierung wird die Aktivierung, wenn sie einmal gesetzt ist, für die gesamte Sitzung nicht zurückgesetzt (im Gegensatz zur {{Glossary("Transient_activation", "transienten Aktivierung")}}).
 
-Eine Seite wird als "user activated" betrachtet, wenn ein Benutzer derzeit mit der Seite interagiert oder eine Touch-, Zeiger- oder Tastaturinteraktion seit dem Laden der Seite abgeschlossen hat. Bei der sticky user activation wird die Aktivierung, sobald sie gesetzt ist, während der gesamten Sitzung nicht zurückgesetzt (im Gegensatz zur {{Glossary("Transient_activation", "Transient activation")}}).
+Siehe [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/User_activation) für Beispiele von APIs, die _dauerhafte Aktivierung_ erfordern.
 
-Weitere Informationen zu APIs, die _sticky activation_ erfordern, finden Sie unter [Features gated by user activation](/de/docs/Web/Security/User_activation).
-
-Siehe die [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive) Eigenschaft, um programmatisch auf den aktuellen sticky activation-Zustand des Fensters zuzugreifen.
+Siehe die Eigenschaft [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive), um programmatisch auf den dauerhaften Aktivierungszustand des aktuellen Fensters zuzugreifen.
 
 ## Siehe auch
 
-- [HTML Living Standard > Sticky activation](https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation)
+- [HTML Living Standard > Sticky-Aktivierung](https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Transient_activation", "Transient activation")}}
+  - {{Glossary("Transient_activation", "Transiente Aktivierung")}}
 - [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive)

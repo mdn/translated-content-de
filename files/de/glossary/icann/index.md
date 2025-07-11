@@ -2,12 +2,10 @@
 title: ICANN
 slug: Glossary/ICANN
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**ICANN** (Internet Corporation for Assigned Names and Numbers) ist eine internationale Non-Profit-Organisation, die das {{Glossary("DNS", "Domain Name System")}} und das Verzeichnis der {{Glossary("IP_address", "IP-Adressen")}} pflegt.
+**ICANN** (Internet Corporation for Assigned Names and Numbers) ist eine internationale gemeinnützige Organisation, die das {{Glossary("DNS", "Domain Name System")}} und das Verzeichnis der {{Glossary("IP_address", "IP-Adressen")}} verwaltet.
 
 ## Siehe auch
 

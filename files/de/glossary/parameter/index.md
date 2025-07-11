@@ -2,12 +2,10 @@
 title: Parameter
 slug: Glossary/Parameter
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Parameter** sind benannte Variablen, die als Teil einer {{Glossary("function", "Funktion")}} deklariert sind. Sie werden verwendet, um auf die {{Glossary("argument", "Argumente")}} zu verweisen, die an die Funktion übergeben werden.
+**Parameter** sind benannte Variablen, die als Teil einer {{Glossary("function", "Funktion")}} deklariert werden. Sie werden verwendet, um auf die {{Glossary("argument", "Argumente")}} zu verweisen, die in die Funktion übergeben werden.
 
 Zum Beispiel:
 
@@ -25,18 +23,18 @@ function example(parameter1, parameter2) {
 
 Es gibt zwei Arten von Parametern:
 
-- Eingabewerte
-  - : die häufigste Art; sie übergeben Werte an Funktionen. Abhängig von der Programmiersprache können Eingabewerte auf verschiedene Weisen übergeben werden (z. B. Call-by-Value, Call-by-Address, Call-by-Reference).
-- Ausgabe-/Rückgabewerte
-  - : geben hauptsächlich mehrere Werte aus einer Funktion zurück, werden jedoch nicht empfohlen, da sie Verwirrung stiften
+- Eingabeparameter
+  - : die gebräuchlichste Art; sie übergeben Werte an Funktionen. Abhängig von der Programmiersprache können Eingabeparameter auf verschiedene Arten übergeben werden (z.B. Call-by-Value, Call-by-Address, Call-by-Reference).
+- Ausgabe-/Rückgabeparameter
+  - : geben in erster Linie mehrere Werte von einer Funktion zurück, werden jedoch nicht empfohlen, da sie Verwirrung stiften
 
 ### Parameter versus Argumente
 
 Beachten Sie den Unterschied zwischen _Parametern_ und _Argumenten_:
 
-- Funktionsparameter sind die Namen, die in der Definition der Funktion aufgelistet sind.
-- Funktions{{Glossary("argument", "argumente")}} sind die tatsächlichen Werte, die an die Funktion übergeben werden.
-- Parameter werden mit den Werten der bereitgestellten Argumente initialisiert.
+- Funktionsparameter sind die in der Definition der Funktion aufgelisteten Namen.
+- Funktions-{{Glossary("argument", "Argumente")}} sind die tatsächlichen Werte, die an die Funktion übergeben werden.
+- Parameter werden mit den Werten der übergebenen Argumente initialisiert.
 
 ## Siehe auch
 

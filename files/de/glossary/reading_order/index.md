@@ -1,28 +1,26 @@
 ---
-title: Lesereihenfolge
+title: Leseabfolge
 slug: Glossary/Reading_order
 l10n:
-  sourceCommit: 7dda25db814fed5ae7498baaee80009b3569a8dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Leseabfolge** bezieht sich auf die Reihenfolge, in der Inhalte zugreifbar sind, beispielsweise wenn sie von einem {{Glossary("screen_reader", "Screenreader")}} vorgelesen werden oder mittels sequentieller Navigationsmethoden wie Tabben durch Links oder Schaltflächen angesteuert werden. Standardmäßig wird die Leseabfolge einer Webseite durch die Dokumentquellenreihenfolge definiert.
 
-**Lesereihenfolge** bezieht sich auf die Reihenfolge, in der Inhalte zugänglich gemacht werden, zum Beispiel, wenn sie von einem {{Glossary("screen_reader", "Screenreader")}} vorgelesen werden oder beim Verwenden von sequenziellen Navigationsmethoden wie dem Tabben durch Links oder Schaltflächen angesteuert werden. Standardmäßig wird die Lesereihenfolge einer Webseite durch die Dokumentenquellenreihenfolge definiert.
+Im Allgemeinen sollte die Quellenreihenfolge eine sinnvolle Leseabfolge für den Inhalt ausdrücken, und dies sollte sich auch in der visuellen Reihenfolge des Inhaltslayouts widerspiegeln. Manchmal jedoch gerät die visuelle Reihenfolge aus dem Gleichgewicht mit der Quellenreihenfolge. Zum Beispiel könnten Sie unterschiedliche Layouts auf ein Dokument anwenden, basierend auf [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), um verschiedene Geräte- oder Benutzeranforderungen zu erfüllen, oder die Tab-Reihenfolge mit Hilfe von [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) anpassen.
 
-Im Allgemeinen sollte die Quellenreihenfolge eine sinnvolle Lesereihenfolge für den Inhalt ausdrücken, und dies sollte sich auch im visuellen Layout des Inhalts widerspiegeln. Manchmal weicht jedoch die visuelle Reihenfolge von der Quellenreihenfolge ab. Beispielsweise könnten Sie unterschiedliche Layouts auf ein Dokument anwenden, basierend auf [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), um den Anforderungen verschiedener Geräte oder Benutzer gerecht zu werden, oder die Tab-Reihenfolge über [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) anpassen.
+Diese Anpassungen können Barrierefreiheitsprobleme verursachen. Zum Beispiel, wenn ein sehender Screenreader-Nutzer durch Inhalte tabbt und die Screenreader-Reihenfolge von der visuellen Reihenfolge abweicht, ist dies eine schlechte Benutzererfahrung und kann unzugänglich sein. Die Leseabfolge sollte für alle Benutzer sinnvoll sein, unabhängig davon, wie sie auf den Inhalt zugreifen.
 
-Diese Aktualisierungen können zu Barrierefreiheitsproblemen führen. Zum Beispiel, wenn ein sehender Screenreader-Nutzer durch Inhalte tabbt und die Reihenfolge im Screenreader von der visuellen Reihenfolge abweicht, ist dies eine schlechte Benutzererfahrung und kann unzugänglich sein. Die Lesereihenfolge sollte für alle Benutzer verständlich sein, unabhängig davon, wie sie auf den Inhalt zugreifen.
+## Ändern der Leseabfolge in CSS
 
-## Ändern der Lesereihenfolge in CSS
+Die Leseabfolge eines Elements kann über die {{cssxref("reading-flow")}}-Eigenschaft modifiziert und weiter verfeinert werden, indem man die {{cssxref("reading-order")}}-Werte auf Kindelementen des Elements setzt.
 
-Die Lesereihenfolge eines Elements kann über die {{cssxref("reading-flow")}}-Eigenschaft verändert und weiter angepasst werden, indem {{cssxref("reading-order")}}-Werte für Kindelemente des Elements gesetzt werden.
+Die folgenden Definitionen sind wichtig, um eine geänderte Leseabfolge zu verstehen:
 
-Die folgenden Definitionen sind wichtig, um eine veränderte Lesereihenfolge zu verstehen:
-
-- Lesefluss-Container
-  - : Ein Element mit einer veränderten Lesereihenfolge als Ergebnis der für seine {{cssxref("reading-flow")}}- und {{cssxref("reading-order")}}-Eigenschaften festgelegten Werte.
-- Lesefluss
-  - : Die veränderte Lesereihenfolge der Kindelemente eines Lesefluss-Containers.
+- Leseabfolgen-Container
+  - : Ein Element mit einer modifizierten Leseabfolge, die sich aus den für seine {{cssxref("reading-flow")}}- und {{cssxref("reading-order")}}-Eigenschaften festgelegten Werten ergibt.
+- Leseabfolge
+  - : Die modifizierte Leseabfolge der Kindelemente eines Leseabfolgen-Containers.
 
 ## Siehe auch
 

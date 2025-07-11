@@ -2,12 +2,10 @@
 title: Hyperlink
 slug: Glossary/Hyperlink
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Hyperlinks verbinden Webseiten oder Datenelemente miteinander. In HTML definieren {{HTMLElement("a")}}-Elemente Hyperlinks von einem Punkt auf einer Webseite (wie ein Textstring oder Bild) zu einem anderen Punkt auf einer anderen Webseite (oder sogar auf derselben Seite).
+Hyperlinks verbinden Webseiten oder Datenelemente miteinander. In HTML definieren {{HTMLElement("a")}}-Elemente Hyperlinks von einem Punkt auf einer Webseite (wie eine Textzeichenkette oder ein Bild) zu einem anderen Punkt auf einer anderen Webseite (oder sogar auf derselben Seite).
 
 ## Siehe auch
 

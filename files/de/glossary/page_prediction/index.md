@@ -1,17 +1,15 @@
 ---
-title: Page prediction
+title: Seitenvorhersage
 slug: Glossary/Page_prediction
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Seitenvorhersage** ist eine Browser-Funktion oder ein Skript, das dem Browser, wenn es aktiviert ist, vorgibt, Ressourcen herunterzuladen, die der Benutzer voraussichtlich besuchen wird, noch bevor der Benutzer den Inhalt anfordert. Die Seitenvorhersage verbessert die Leistung, indem das vorhergesagte Inhalt fast sofort geladen wird. Allerdings kann die Seitenvorhersage auch Inhalte herunterladen, die der Benutzer nicht anfordert.
 
-**Page Prediction** ist eine Browserfunktion oder ein Skript, das, wenn es aktiviert ist, dem Browser anweist, Ressourcen herunterzuladen, die der Benutzer wahrscheinlich besuchen wird, bevor er den Inhalt anfordert. Page Prediction verbessert die Leistung, indem es ein nahezu sofortiges Laden des vorhergesagten Inhalts ermöglicht. Allerdings kann Page Prediction auch Inhalte herunterladen, die ein Benutzer nicht sucht.
+Einige Webanwendungen beinhalten eine Vorhersagefunktion, die Suchtext und Adressleisten-URLs anhand des Browserverlaufs und verwandter Suchanfragen vervollständigt. Zum Beispiel kann der Browser, während der Benutzer in die Adressleiste tippt, den aktuellen Text in der Adressleiste an die Suchmaschine senden, bevor der Benutzer die Anfrage absendet.
 
-Einige Webanwendungen beinhalten eine Vorhersagefunktion, die Suchtexte und URLs der Adressleiste basierend auf dem Browserverlauf und verwandten Suchanfragen vervollständigt. Zum Beispiel könnte der Browser, während der Benutzer in die Adressleiste tippt, den aktuellen Text in der Adressleiste an die Suchmaschine senden, bevor der Benutzer die Anfrage abschickt.
-
-Obwohl die Browservorhersage und Vorhersagedienste schnellere Seitenladungen ermöglichen, verbrauchen sie zusätzliches Datenvolumen. Vorab geladene Webseiten und eingebettete Inhalte können auch ihre Cookies setzen und lesen, als wären sie besucht worden, selbst wenn sie es nicht wurden.
+Obwohl Browser-Seitenvorhersagen und Vorhersagedienste ein schnelleres Laden von Seiten ermöglichen, verbrauchen sie zusätzliche Bandbreite. Außerdem können vorab geladene Websites und eingebettete Inhalte ihre Cookies setzen und lesen, als ob sie besucht worden wären, selbst wenn sie es nicht wurden.
 
 ## Siehe auch
 

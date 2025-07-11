@@ -2,12 +2,10 @@
 title: OWASP
 slug: Glossary/OWASP
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**OWASP** (Open Web Application Security Project) ist eine gemeinnützige Organisation und ein weltweites Netzwerk, das sich der Sicherheit in freier Software widmet, insbesondere im Web.
+**OWASP** (Open Web Application Security Project) ist eine gemeinnützige Organisation und ein weltweites Netzwerk, das sich für die Sicherheit in freier Software, insbesondere im Web, einsetzt.
 
 ## Siehe auch
 

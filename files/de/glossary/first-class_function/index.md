@@ -1,17 +1,15 @@
 ---
-title: First-class Function
+title: First-Class Function
 slug: Glossary/First-class_Function
 l10n:
-  sourceCommit: 9409e72722add6d1c4baeaf7b262c9b0985c0bcf
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Eine Programmiersprache wird als Sprache mit **First-class functions** bezeichnet, wenn Funktionen in dieser Sprache wie jede andere Variable behandelt werden. Zum Beispiel kann in einer solchen Sprache eine Funktion als Argument an andere Funktionen übergeben werden, von einer anderen Funktion zurückgegeben und als Wert einer Variable zugewiesen werden.
+Man sagt, eine Programmiersprache hat **First-Class-Funktionen**, wenn Funktionen in dieser Sprache wie jede andere Variable behandelt werden. In einer solchen Sprache kann eine Funktion beispielsweise als Argument an andere Funktionen übergeben, von einer anderen Funktion zurückgegeben und als Wert einer Variable zugewiesen werden.
 
 ## Beispiele
 
-### Zuweisen einer Funktion zu einer Variablen
+### Zuweisen einer Funktion zu einer Variable
 
 ```js
 const foo = () => {
@@ -21,12 +19,12 @@ foo(); // Invoke it using the variable
 // foobar
 ```
 
-Wir haben eine _Anonyme Funktion_ in einer {{Glossary("Variable", "Variablen")}} zugewiesen und dann diese Variable verwendet, um die Funktion durch Hinzufügen von Klammern `()` am Ende aufzurufen.
+Wir haben eine _anonyme Funktion_ in eine {{Glossary("Variable", "Variable")}} zugewiesen und dann diese Variable verwendet, um die Funktion durch Hinzufügen von Klammern `()` am Ende aufzurufen.
 
 > [!NOTE]
-> Auch wenn Ihre Funktion benannt wurde, können Sie den Variablennamen verwenden, um sie aufzurufen. Das Benennen ist hilfreich, wenn Sie Ihren Code debuggen. _Aber es beeinflusst nicht, wie wir sie aufrufen._
+> Auch wenn Ihre Funktion benannt war, können Sie den Variablennamen verwenden, um sie aufzurufen. Das Benennen wird beim Debuggen Ihres Codes hilfreich sein. _Aber es wird die Art und Weise des Aufrufs nicht beeinflussen._
 
-### Eine Funktion als Argument übergeben
+### Übergeben einer Funktion als Argument
 
 ```js
 function sayHello() {
@@ -40,12 +38,12 @@ greeting(sayHello, "JavaScript!");
 // Hello, JavaScript!
 ```
 
-Wir übergeben unsere `sayHello()` Funktion als Argument an die `greeting()` Funktion, was erklärt, wie wir die Funktion als Wert behandeln.
+Wir übergeben unsere `sayHello()`-Funktion als Argument an die `greeting()`-Funktion, dies verdeutlicht, wie wir die Funktion als Wert behandeln.
 
 > [!NOTE]
-> Die Funktion, die wir als Argument an eine andere Funktion übergeben, wird _{{Glossary("callback_function", "Callback-Funktion")}}_ genannt. _`sayHello()` ist eine Callback-Funktion._
+> Die Funktion, die wir als Argument an eine andere Funktion übergeben, nennt man eine _{{Glossary("callback_function", "Callback-Funktion")}}_. _`sayHello()` ist eine Callback-Funktion._
 
-### Eine Funktion zurückgeben
+### Zurückgeben einer Funktion
 
 ```js
 function sayHello() {
@@ -58,11 +56,11 @@ function sayHello() {
 In diesem Beispiel geben wir eine Funktion von einer anderen Funktion zurück - _Wir können eine Funktion zurückgeben, weil Funktionen in JavaScript als Werte behandelt werden._
 
 > [!NOTE]
-> Eine Funktion, die eine andere Funktion zurückgibt oder andere Funktionen als Argumente verwendet, wird _höhere Ordnung Funktion_ genannt.
+> Eine Funktion, die eine Funktion zurückgibt oder andere Funktionen als Argumente nimmt, nennt man eine _höherwertige Funktion_.
 
 ## Siehe auch
 
-- [First-class functions](https://en.wikipedia.org/wiki/First-class_function) auf Wikipedia
+- [First-Class-Funktionen](https://en.wikipedia.org/wiki/First-class_function) auf Wikipedia
 - Verwandte Glossarbegriffe:
   - {{Glossary("Callback_function", "Callback-Funktion")}}
   - {{Glossary("Function", "Funktion")}}

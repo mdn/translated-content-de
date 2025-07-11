@@ -2,12 +2,10 @@
 title: Internet
 slug: Glossary/Internet
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Das Internet ist ein weltweites Netzwerk von Netzwerken, das die Internet-Protokollsuite verwendet (auch bekannt als {{Glossary("TCP", "TCP")}}/{{Glossary("IPv6", "IP")}} nach seinen zwei wichtigsten {{Glossary("protocol", "Protokollen")}}).
+Das Internet ist ein weltweites Netzwerk von Netzwerken, das die Internet-Protokollsuite verwendet (auch benannt nach {{Glossary("TCP", "TCP")}}/{{Glossary("IPv6", "IP")}} von seinen zwei wichtigsten {{Glossary("protocol", "Protokollen")}}).
 
 ## Siehe auch
 

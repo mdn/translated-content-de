@@ -2,29 +2,27 @@
 title: Server-seitiges Rendering (SSR)
 slug: Glossary/SSR
 l10n:
-  sourceCommit: d864c4fa589174ddd906bb679576d2265a20fad1
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Server-seitiges Rendering** (SSR) bezieht sich auf die Praxis, HTML-Inhalte auf dem Server zu generieren und an den Client zu senden. SSR steht im Gegensatz zum {{Glossary("CSR", "Client-seitigen Rendering")}}, bei dem der Client die HTML-Inhalte mit JavaScript generiert. Beide Techniken schließen sich nicht gegenseitig aus und können in derselben Anwendung zusammen verwendet werden.
 
-**Server-seitiges Rendering** (SSR) bezieht sich auf die Praxis, HTML-Inhalte auf dem Server zu generieren und sie an den Client zu senden. SSR steht im Gegensatz zum {{Glossary("CSR", "client-seitigen Rendering")}}, bei dem der Client die HTML-Inhalte mithilfe von JavaScript erzeugt. Beide Techniken schließen sich nicht gegenseitig aus und können in der gleichen Anwendung zusammen verwendet werden.
+Eine {{Glossary("SSG", "statische Website")}} kann als SSR betrachtet werden (und kann mit SSR-Infrastruktur generiert werden), jedoch gibt es feine Unterschiede. Der Inhalt einer statischen Website wird zur Build-Zeit generiert, nicht zur Anforderungszeit. Statische Websites müssen oft überhaupt nicht auf einem Server bereitgestellt werden und können von einem {{Glossary("CDN", "CDN")}} ausgeliefert werden.
 
-Eine {{Glossary("SSG", "statische Website")}} kann als SSR betrachtet werden (und kann mithilfe von SSR-Infrastruktur generiert werden), aber es gibt subtile Unterschiede. Die Inhalte einer statischen Website werden zur Build-Zeit und nicht zur Anfragezeit generiert. Statische Websites müssen oft überhaupt nicht auf einem Server bereitgestellt werden und können von einem {{Glossary("CDN", "CDN")}} ausgeliefert werden.
+Die Unterscheidung zwischen SSR/CSR ist bedeutungsvoller für Websites mit dynamischen Inhalten, beispielsweise sich live aktualisierenden oder benutzerspezifischen Inhalten. In diesen Fällen generiert der Server für jede Anfrage die HTML-Inhalte dynamisch, da es unrealistisch ist, jede mögliche Seite im Voraus zu generieren. Die HTML-Datei enthält nahezu vollständige Seiteninhalte, und alle JavaScript-Dateien sind nur dazu da, um Interaktivität zu ermöglichen.
 
-Der Unterschied zwischen SSR und CSR ist bedeutungsvoller für Websites mit dynamischem Inhalt, zum Beispiel für sich live-aktualisierende oder benutzerspezifische Inhalte. In diesen Fällen generiert der Server bei jeder Anfrage die HTML-Inhalte spontan, da es unrealistisch ist, jede mögliche Seite vorab zu generieren. Die HTML-Datei enthält nahezu vollständige Seiteninhalte, und JavaScript-Dateien sind nur dazu da, um Interaktivität zu ermöglichen.
+Vorteile des SSR umfassen:
 
-Die Vorteile von SSR umfassen:
+- Barrierefreiheit: Die Seite ist (etwas) ohne JavaScript nutzbar, zum Beispiel wenn das Internet langsam ist, der Benutzer JavaScript deaktiviert hat oder der Browser alt ist und JavaScript nicht ausführen kann. Allerdings funktionieren dann keine interaktiven Elemente oder clientseitige Logik.
+- Crawler-Freundlichkeit: Suchmaschinen, soziale Mediencrawler und andere Bots können die Inhalte leicht lesen, ohne JavaScript ausführen zu müssen. Beachten Sie, dass große Suchmaschinen in der Lage sind, JavaScript auszuführen, sodass rein CSR-basierte Websites dennoch indexiert werden können, aber soziale Mediencrawler können das gewöhnlich nicht.
+- Leistung: Der Server kann im Voraus wissen, welche Inhalte benötigt werden, und kann alle erforderlichen Daten auf einmal abrufen, im Gegensatz zu CSR, wo der Client oft nur bei der Initialseite weitere Abhängigkeiten erkennt, was einen Wasserfall von Anfragen verursacht.
 
-- Zugänglichkeit: Die Seite ist (irgendwie) ohne JavaScript nutzbar, zum Beispiel wenn das Internet langsam ist, der Benutzer JavaScript deaktiviert hat oder der Browser alt ist und JavaScript nicht ausführen kann. Jedoch wird jegliche Interaktivität oder client-seitige Logik nicht funktionieren.
-- Crawler-Freundlichkeit: Suchmaschinen, Social-Media-Crawler und andere Bots können den Inhalt leicht lesen, ohne JavaScript ausführen zu müssen. Beachten Sie, dass große Suchmaschinen in der Lage sind, JavaScript auszuführen, sodass reine CSR-Seiten dennoch indexierbar sind, aber Social-Media-Crawler in der Regel nicht.
-- Leistung: Der Server kann im Voraus wissen, welche Inhalte benötigt werden, und alle notwendigen Daten gleichzeitig abrufen, im Vergleich zu CSR, bei dem der Client oft erst beim Rendern der Anfangsseite über weitere Abhängigkeiten informiert wird, was zu einer Kaskade von Anfragen führt.
-
-Sowohl SSR als auch CSR haben ihre Leistungsvor- und Nachteile, und eine Mischung aus SSR und CSR kann verwendet werden, um die Vorteile beider Techniken zu kombinieren. Beispielsweise kann der Server ein Seiten-Skelett mit leeren Platzhaltern generieren, und der Client kann zusätzliche Daten abrufen und die Seite bei Bedarf aktualisieren.
+Sowohl SSR als auch CSR haben ihre Leistungsabstriche, und eine Mischung aus SSR und CSR kann verwendet werden, um die Vorteile beider Techniken zu kombinieren. Zum Beispiel kann der Server ein Seiten-Skelett mit leeren Platzhaltern generieren, und der Client kann zusätzliche Daten abrufen und die Seite bei Bedarf aktualisieren.
 
 ## Siehe auch
 
-- [Einführung in client-seitige Frameworks > server-seitiges Rendering](/de/docs/Learn_web_development/Core/Frameworks_libraries/Introduction#server-side_rendering)
-- [Server-seitiges Skripting](https://en.wikipedia.org/wiki/Server-side_scripting) auf Wikipedia
+- [Einführung in clientseitige Frameworks > server-seitiges Rendering](/de/docs/Learn_web_development/Core/Frameworks_libraries/Introduction#server-side_rendering)
+- [Server-seitiges Scripting](https://en.wikipedia.org/wiki/Server-side_scripting) auf Wikipedia
 - {{Glossary("CSR", "Client-seitiges Rendering")}}
-- {{Glossary("SSG", "Statischer Site-Generator")}}
+- {{Glossary("SSG", "Statische Site-Generator")}}
 - {{Glossary("SPA", "Single-Page-Anwendung")}}

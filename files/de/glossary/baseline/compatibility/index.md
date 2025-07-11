@@ -2,12 +2,10 @@
 title: Baseline (Kompatibilität)
 slug: Glossary/Baseline/Compatibility
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Baseline** identifiziert die Verfügbarkeit von Webplattform-Funktionen über beliebte Browser hinweg, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Webfunktionen entweder als weit verbreitet oder neu verfügbar. Funktionen, die die Baseline-Kriterien nicht erfüllen, haben eine begrenzte Verfügbarkeit.
+**Baseline** identifiziert die Verfügbarkeit von Webplattform-Features über beliebte Browser hinweg, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Web-Features als entweder weit verbreitet oder neu verfügbar. Features, die die Baseline-Kriterien nicht erfüllen, haben eine eingeschränkte Verfügbarkeit.
 
 Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 
@@ -19,29 +17,29 @@ Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 - Mozilla Firefox (Android)
 - Mozilla Firefox (Desktop)
 
-Baseline ist eine Zusammenfassung der Browser-Unterstützung. Es ist kein Ersatz für Tests in Bezug auf Barrierefreiheit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Aspekte. Baseline sagt Ihnen möglicherweise nicht, ob eine Funktion funktioniert mit:
+Baseline ist eine Zusammenfassung der Browser-Unterstützung. Es ist kein Ersatz für Zugänglichkeit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Tests. Baseline gibt möglicherweise nicht an, ob ein Feature funktioniert mit:
 
-- Älteren Geräten und Browserversionen
-- Browsern, die nicht durch die Baseline-Definition abgedeckt sind, wie z.B. Betriebssystem-Webansichten
-- Assistive Technologien, wie Bildschirmlesegeräte.
+- Älteren Geräten und Browser-Versionen
+- Browsern, die nicht von der Baseline-Definition abgedeckt sind, wie z.B. Betriebssystem-Web-Views
+- Unterstützender Technologie wie Bildschirmlesegeräten.
 
-## Baseline-Badges
+## Baseline-Abzeichen
 
-![Grünes Widget mit Häkchen: Baseline, weit verbreitet. Vier Browser-Logos, alle mit Häkchen.](high.png)
+![Grünes Widget mit dem Häkchen: Baseline, weit verbreitet. Vier Browser-Logos, alle mit Häkchen.](high.png)
 
-Funktionen, die als **weit verbreitet** aufgeführt sind, haben eine konsistente Unterstützungshistorie in jedem der Baseline-Browser für mindestens 2,5 Jahre.
+Als **weit verbreitet** gelistete Features haben eine konstante Unterstützungsgeschichte in jedem der Baseline-Browser für mindestens 2,5 Jahre.
 
-![Blaues Widget mit Häkchen: Baseline 2022, neu verfügbar. Vier Browser-Logos, alle mit Häkchen.](limited.png)
+![Blaues Widget mit dem Häkchen: Baseline 2022, neu verfügbar. Vier Browser-Logos, alle mit Häkchen.](limited.png)
 
-Funktionen, die als **neu verfügbar** gelistet sind, funktionieren in mindestens der neuesten stabilen Version jedes der Baseline-Browser, funktionieren jedoch möglicherweise nicht mit älteren Browsern und Geräten.
+Als **neu verfügbar** gelistete Features funktionieren in mindestens der neuesten stabilen Version jedes der Baseline-Browser, aber möglicherweise nicht mit älteren Browsern und Geräten.
 
-![Graues Widget mit Kreuz: eingeschränkte Verfügbarkeit. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](low.png)
+![Graues Widget mit dem Kreuz: eingeschränkte Verfügbarkeit. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](low.png)
 
-Funktionen mit **eingeschränkter Verfügbarkeit** sind _noch nicht_ in allen Browsern verfügbar.
+Als **eingeschränkt verfügbar** gelistete Features sind _noch nicht_ in allen Browsern verfügbar.
 
 ## Siehe auch
 
-- [Testen](/de/docs/Learn_web_development/Extensions/Testing)
+- [Testing](/de/docs/Learn_web_development/Extensions/Testing)
 - [web-platform-dx/web-features repository](https://github.com/web-platform-dx/web-features)
 - [W3C WebDX Community Group](https://www.w3.org/community/webdx/)
 - [mdn/browser-compat-data repository](https://github.com/mdn/browser-compat-data)

@@ -1,15 +1,13 @@
 ---
-title: Advance Measure
+title: Advance measure
 slug: Glossary/Advance_measure
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Das **advance measure** ist der gesamte Platz, den das Glyphenzeichen einnimmt, entweder horizontal oder vertikal, je nach aktueller Schreibrichtung. Es entspricht der Entfernung, die der Cursor zurücklegt, wenn er direkt vor und dann hinter das Zeichen verschoben wird.
 
-Die **Advance Measure** ist der gesamte Platz, den das Glyphenzeichen einnimmt, entweder horizontal oder vertikal, abhängig von der aktuellen Schreibrichtung. Sie entspricht der Distanz, die der Cursor zurücklegt, der direkt vor dem Zeichen platziert und dann hinter das Zeichen verschoben wird.
-
-Dieser Begriff wird in der Definition mehrerer CSS-{{cssxref("&lt;length&gt;")}}-Einheiten verwendet. Die _Advance Measure_ der Einheit `ch` ist entweder die Breite oder Höhe des Zeichens "0" in der gegebenen Schriftart, abhängig davon, ob die horizontale oder vertikale Achse gerade verwendet wird. Eine ähnliche _Advance Measure_ der Einheit `ic` ist die Breite oder Höhe des Zeichens "水".
+Dieser Begriff wird in der Definition mehrerer CSS {{cssxref("&lt;length&gt;")}}-Einheiten verwendet. Das _advance measure_ der Einheit `ch` ist entweder die Breite oder Höhe des Zeichens "0" im gegebenen Schriftsatz, abhängig davon, ob die horizontale oder vertikale Achse aktuell verwendet wird. Ein ähnliches _advance measure_ der Einheit `ic` ist die Breite oder Höhe des Zeichens "水".
 
 ## Siehe auch
 

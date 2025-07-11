@@ -2,14 +2,12 @@
 title: SISD
 slug: Glossary/SISD
 l10n:
-  sourceCommit: 60798c7f7cdb86f1c1808a4416386bbfcc794649
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+SISD steht für **Single Instruction/Single Data**, was eine [Klassifizierung von Computerarchitekturen](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy) ist. In der SISD-Architektur führt ein einzelner Prozessor eine einzelne Anweisung aus und operiert auf einem einzelnen Datenpunkt im Speicher.
 
-SISD ist die Abkürzung für **Single Instruction/Single Data**, was eine [Klassifikation von Computerarchitekturen](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy) darstellt. In der SISD-Architektur führt ein einzelner Prozessor eine Anweisung aus und arbeitet an einem einzelnen Datenpunkt im Speicher.
-
-Siehe auch {{Glossary("SIMD", "SIMD")}} für eine parallele Architektur, die es ermöglicht, dass dieselbe Operation an mehreren Datenpunkten ausgeführt wird.
+Siehe auch {{Glossary("SIMD", "SIMD")}} für eine parallele Architektur, die es ermöglicht, eine gleiche Operation an mehreren Datenpunkten auszuführen.
 
 ## Siehe auch
 

@@ -1,17 +1,15 @@
 ---
-title: Input method editor
+title: Eingabemethoden-Editor
 slug: Glossary/Input_method_editor
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein Input Method Editor (IME) ist ein Programm, das eine spezialisierte Benutzeroberfläche für die Texteingabe bereitstellt. Input Method Editors werden in vielen Situationen verwendet:
+Ein Eingabemethoden-Editor (IME) ist ein Programm, das eine spezialisierte Benutzeroberfläche für die Texteingabe bereitstellt. Eingabemethoden-Editoren werden in vielen Situationen verwendet:
 
 - Um chinesischen, japanischen oder koreanischen Text mit einer lateinischen Tastatur einzugeben.
-- Um lateinischen Text mit einem numerischen Tastenfeld einzugeben.
-- Um Text auf einem Touchscreen mittels Handschriftenerkennung einzugeben.
+- Um lateinischen Text mit einem Ziffernblock einzugeben.
+- Um Text auf einem Touchscreen mittels Handschrifterkennung einzugeben.
 
 ## Siehe auch
 

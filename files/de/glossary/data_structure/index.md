@@ -1,13 +1,11 @@
 ---
-title: Data structure
+title: Datenstruktur
 slug: Glossary/Data_structure
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein **Datenstruktur** ist eine besondere Art der Organisation von _Daten_, sodass sie effizient genutzt werden können.
+**Datenstruktur** ist eine bestimmte Methode, um _Daten_ so zu organisieren, dass sie effizient genutzt werden können.
 
 ## Siehe auch
 

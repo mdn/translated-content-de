@@ -1,23 +1,21 @@
 ---
-title: Asynchrone Skripte für asm.js
+title: Async-Skripte für asm.js
 slug: Games/Techniques/Async_scripts
 l10n:
-  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
+  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
 ---
 
-{{GamesSidebar}}
+Jedes mittelgroße oder große Spiel sollte [asm.js](/de/docs/Games/Tools/asm.js)-Code als Teil eines asynchronen Skripts kompilieren, um dem Browser die maximale Flexibilität zur Optimierung des Kompilierungsprozesses zu geben. In Gecko ermöglicht die asynchrone Kompilierung der JavaScript-Engine, das asm.js vom Hauptthread getrennt zu kompilieren, während das Spiel geladen wird, und den generierten Maschinencode zu cachen, sodass das Spiel bei nachfolgenden Ladevorgängen nicht erneut kompiliert werden muss (beginnend mit Firefox 28). Um den Unterschied zu sehen, ändern Sie `javascript.options.parallel_parsing` in `about:config`.
 
-Jedes mittelgroße oder große Spiel sollte [asm.js](/de/docs/Games/Tools/asm.js)-Code als Teil eines asynchronen Skripts kompilieren, um dem Browser die maximale Flexibilität zu geben, den Kompilierungsprozess zu optimieren. In Gecko ermöglicht die asynchrone Kompilierung der JavaScript-Engine, das asm.js abseits des Hauptthreads zu kompilieren, während das Spiel geladen wird und den generierten Maschinen-Code zu cachen, sodass das Spiel bei folgenden Laden nicht erneut kompiliert werden muss (ab Firefox 28). Um den Unterschied zu sehen, schalten Sie `javascript.options.parallel_parsing` in `about:config` um.
+## Async in die Praxis umsetzen
 
-## Asynchron in Aktion setzen
-
-Die asynchrone Kompilierung zu erhalten, ist einfach: Wenn Sie Ihr JavaScript schreiben, verwenden Sie einfach das `async`-Attribut, so wie hier:
+Die Nutzung der asynchronen Kompilierung ist einfach: Verwenden Sie beim Schreiben Ihres JavaScripts einfach das `async`-Attribut, so:
 
 ```html
 <script async src="file.js"></script>
 ```
 
-oder, um dasselbe über Skript zu tun:
+oder, um dasselbe über ein Skript zu erreichen:
 
 ```js
 const script = document.createElement("script");
@@ -25,11 +23,11 @@ script.src = "file.js";
 document.body.appendChild(script);
 ```
 
-(Skripte, die aus Skripten erzeugt werden, sind standardmäßig `async`.) Die standardmäßige HTML-Hülle, die Emscripten generiert, produziert Letzteres.
+(Skripte, die aus einem Skript erstellt werden, verwenden standardmäßig `async`.) Das standardmäßige HTML-Shell, das Emscripten erzeugt, produziert Letzteres.
 
 ## Wann ist async nicht async?
 
-Zwei häufige Situationen, in denen ein Skript _nicht_ async ist (wie [vom HTML-Spezifikationsentwurf definiert](https://html.spec.whatwg.org/multipage/scripting.html)), sind:
+Zwei häufige Situationen, in denen ein Skript _nicht_ asynchron ist (wie [im HTML-Standard definiert](https://html.spec.whatwg.org/multipage/scripting.html)), sind:
 
 ```html
 <script async>
@@ -45,9 +43,9 @@ script.textContent = "// Inline JavaScript code";
 document.body.appendChild(script);
 ```
 
-Beide werden als 'Inline'-Skripte gezählt und werden sofort kompiliert und ausgeführt.
+Beide werden als 'Inline'-Skripte betrachtet und sofort kompiliert und ausgeführt.
 
-Was, wenn Ihr Code in einem JS-String ist? Anstatt `eval` oder `innerHTML` zu verwenden, die beide eine synchrone Kompilierung auslösen, sollten Sie ein Blob mit einer Objekt-URL verwenden:
+Was ist, wenn Ihr Code in einem JS-String ist? Anstatt `eval` oder `innerHTML` zu verwenden, die beide eine synchrone Kompilierung auslösen, sollten Sie einen Blob mit einer Objekt-URL verwenden:
 
 ```js
 const blob = new Blob([codeString]);
@@ -58,4 +56,4 @@ script.src = url;
 document.body.appendChild(script);
 ```
 
-Das Setzen von `src` anstatt von `innerHTML` ist das, was dieses Skript asynchron macht.
+Das Setzen von `src` anstelle von `innerHTML` macht dieses Skript asynchron.

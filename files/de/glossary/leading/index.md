@@ -1,24 +1,22 @@
 ---
-title: Zeilenabstand
+title: Führungsgröße
 slug: Glossary/Leading
 l10n:
-  sourceCommit: b6dacb9087010826a5a7d5b2d7c428e89d8135cf
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+In der Typografie bezeichnet die **Führungsgröße** den Abstand, der über und unter dem Text eingefügt wird, um den Abstand zwischen den Zeilen zu gewährleisten. Historisch gesehen wurden in der physischen Schriftsetzerei tatsächlich Stücke aus [Blei](https://de.wikipedia.org/wiki/Blei) verwendet, um diesen Abstand zu erzeugen, woraus sich der Name ableitet.
 
-In der Typografie bezeichnet **Zeilenabstand** den Raum, der über und unter einem Text eingeschlossen ist, um Abstände zwischen den Zeilen zu schaffen. Historisch gesehen wurden beim physischen Schriftsatz tatsächlich Stücke von [Blei](https://de.wikipedia.org/wiki/Blei) verwendet, um diesen Abstand zu realisieren, woher der Name stammt.
+In CSS ist die typografische Führungsgröße der Unterschied zwischen der Höhe des Inhalts und der `line-height`, die im Allgemeinen durch die {{cssxref("line-height")}}-Eigenschaft festgelegt wird. Die Führungsgröße, die über `line-height` eingestellt wird, schafft einen Abstand zwischen den Zeilen, der auch negativ sein kann. Der Abstand wird gleichmäßig über und unter dem Text verteilt, was als **Halbfürhung** bezeichnet wird.
 
-Im CSS ist der typografische Zeilenabstand die Differenz zwischen der Inhaltsgröße und der Zeilenhöhe, die im Allgemeinen durch die {{cssxref("line-height")}}-Eigenschaft festgelegt wird. Der über `line-height` gesetzte Zeilenabstand sorgt für Abstände zwischen den Zeilen, die auch negativ sein können. Der Raum wird gleichmäßig über und unter dem Text verteilt, was als **Halbführung** bezeichnet wird.
+Der Bereich einer Schrift über der Kapitälchen-Basislinie wird als _Überkante_ bezeichnet. Der Bereich unter der {{Glossary("/Baseline/Typography", "alphabetischen Basislinie")}} wird als _Unterkante_ bezeichnet. Ebenso wird die Halbfürhung über und unter einer Zeile entsprechend als _Überführung_ und _Unterführung_ bezeichnet.
 
-Der Bereich einer Schrift über der Oberlänge wird als _over edge_ bezeichnet. Der Bereich unterhalb der {{Glossary("/Baseline/Typography", "alphabetischen Grundlinie")}} wird als _under edge_ bezeichnet. Ebenso wird die Halbführung über und unter einer Zeile als _over leading_ und _under leading_ bezeichnet.
-
-Die Halbführung kann von der Block-Anfangs- und Block-Endkante eines Text-Elementblockcontainers mithilfe der {{cssxref("text-box")}} Eigenschaften abgeschnitten werden.
+Die Halbfürhung kann mit den {{cssxref("text-box")}}-Eigenschaften vom Block-Anfangsrand und Block-Endrand des Blockcontainers eines Textelements abgeschnitten werden.
 
 ## Siehe auch
 
 - {{cssxref("line-height")}}
 - {{cssxref("text-box")}}
-- [CSS Inline-Layout](/de/docs/Web/CSS/CSS_inline_layout) Modul
-- [Zeilenabstand](https://de.wikipedia.org/wiki/Zeilenabstand) auf Wikipedia
-- [The Thing With Leading in CSS](https://matthiasott.com/notes/the-thing-with-leading-in-css) auf matthiasott.com (2022)
+- [CSS In-Text-Layout](/de/docs/Web/CSS/CSS_inline_layout) Modul
+- [Führungsgröße](https://de.wikipedia.org/wiki/Führungsgröße) auf Wikipedia
+- [The Thing With Lead­ing in CSS](https://matthiasott.com/notes/the-thing-with-leading-in-css) auf matthiasott.com (2022)

@@ -2,12 +2,10 @@
 title: ECMAScript
 slug: Glossary/ECMAScript
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**ECMAScript** ist eine Skriptsprache-Spezifikation, auf der {{Glossary("JavaScript", "JavaScript")}} basiert. [Ecma International](https://ecma-international.org/) ist verantwortlich für die Standardisierung von ECMAScript.
+**ECMAScript** ist eine Skriptsprache-Spezifikation, auf der {{Glossary("JavaScript", "JavaScript")}} basiert. [Ecma International](https://ecma-international.org/) ist für die Standardisierung von ECMAScript verantwortlich.
 
 ## Siehe auch
 

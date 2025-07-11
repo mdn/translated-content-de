@@ -2,12 +2,10 @@
 title: PDF
 slug: Glossary/PDF
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**PDF** (Portable Document Format) ist ein Dateiformat, das zum Teilen von Dokumentationen verwendet wird, ohne von einer bestimmten Softwareimplementierung, Hardwareplattform oder einem Betriebssystem abhängig zu sein. PDF bietet ein digitales Abbild eines gedruckten Dokuments und behält beim Drucken das gleiche Erscheinungsbild.
+**PDF** (Portable Document Format) ist ein Dateiformat, das verwendet wird, um Dokumentationen zu teilen, ohne von einer bestimmten Software-Implementierung, Hardwareplattform oder einem Betriebssystem abhängig zu sein. PDF bietet ein digitales Abbild eines gedruckten Dokuments und behält das gleiche Erscheinungsbild bei, wenn es gedruckt wird.
 
 ## Siehe auch
 

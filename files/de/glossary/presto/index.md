@@ -2,12 +2,10 @@
 title: Presto
 slug: Glossary/Presto
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Presto war die proprietäre Browser-Layout-Engine, die bis Version 15 den {{Glossary("Opera_browser", "Opera-Browser")}} antrieb. Seitdem basiert der Opera-Browser auf Chromium, welches die {{Glossary("Blink", "Blink")}} Layout-Engine verwendet.
+Presto war die proprietäre Browser-Layout-Engine, die den {{Glossary("Opera_browser", "Opera-Browser")}} bis zur Version 15 betrieben hat. Seitdem basiert der Opera-Browser auf Chromium, das die {{Glossary("Blink", "Blink")}} Layout-Engine verwendet.
 
 ## Siehe auch
 

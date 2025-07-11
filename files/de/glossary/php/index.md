@@ -2,16 +2,14 @@
 title: PHP
 slug: Glossary/PHP
 l10n:
-  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-PHP (ein rekursives Initialwort für PHP: Hypertext Preprocessor) ist eine quelloffene serverseitige Skript-Sprache, die in HTML eingebettet werden kann, um Webanwendungen und dynamische Websites zu erstellen.
+PHP (ein rekursives Akronym für PHP: Hypertext Preprocessor) ist eine Open-Source-Serverscripting-Sprache, die in HTML eingebettet werden kann, um Webanwendungen und dynamische Websites zu erstellen.
 
 ## Beispiele
 
-### Grundsyntax
+### Grundlegende Syntax
 
 ```php
 // start of PHP code
@@ -49,7 +47,7 @@ PHP (ein rekursives Initialwort für PHP: Hypertext Preprocessor) ist eine quell
 
 ## Siehe auch
 
-- [Offizielle Website](https://www.php.net/)
+- [Offizielle Webseite](https://www.php.net/)
 - [PHP](https://en.wikipedia.org/wiki/PHP) auf Wikipedia
 - [PHP Programmierung](https://en.wikibooks.org/wiki/PHP_Programming) auf Wikibooks
 - Verwandte Glossarbegriffe:

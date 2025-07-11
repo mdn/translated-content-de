@@ -2,10 +2,8 @@
 title: Techniken für die Spieleentwicklung
 slug: Games/Techniques
 l10n:
-  sourceCommit: d9e11f88996e97a259d2ec47f47a660062c12c4f
+  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
 ---
-
-{{GamesSidebar}}
 
 Diese Seite listet wesentliche Kerntechniken für alle auf, die Spiele mit offenen Webtechnologien entwickeln möchten.
 

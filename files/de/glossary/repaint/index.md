@@ -2,12 +2,10 @@
 title: Repaint
 slug: Glossary/Repaint
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Repaint** tritt auf, wenn ein {{Glossary("browser", "Browser")}} eine Webseite neu zeichnet, um die visuellen Aktualisierungen infolge einer UI-Änderung anzuzeigen, wie zum Beispiel nach einer Aktualisierung auf einer interaktiven Website. Dies erfolgt normalerweise nach dem Reflow, bei dem der Browser die Position und Geometrie bestimmter Teile einer Webseite neu berechnet.
+**Repaint** tritt auf, wenn ein {{Glossary("browser", "Browser")}} eine Webseite neu zeichnet, um die visuellen Updates infolge einer UI-Änderung anzuzeigen, etwa nach einem Update auf einer interaktiven Seite. Dies folgt normalerweise dem Reflow, bei dem der Browser die Position und Geometrie bestimmter Teile einer Webseite neu berechnet.
 
 ## Siehe auch
 

@@ -1,25 +1,23 @@
 ---
-title: Grid-Strecken
+title: Grid-Spuren
 slug: Glossary/Grid_Tracks
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Eine **Grid-Spur** ist der Raum zwischen zwei benachbarten {{Glossary("grid_lines", "Gitterlinien")}}. Sie werden im _expliziten Raster_ durch die Verwendung der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} oder der Kurzform-Eigenschaften {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Spuren im _impliziten Raster_ entstehen, indem ein Gitterelement außerhalb der im expliziten Raster erstellten Spuren positioniert wird.
 
-Eine **Grid-Strecke** ist der Raum zwischen zwei benachbarten {{Glossary("grid_lines", "Grid-Linien")}}. Sie werden im _expliziten Grid_ durch die Verwendung der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} oder die Kurzschreibweisen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Strecken werden auch im _impliziten Grid_ erstellt, indem ein Grid-Element außerhalb der im expliziten Grid erstellten Strecken positioniert wird.
+Das Bild unten zeigt die erste Spurreihen eines Rasters.
 
-Das folgende Bild zeigt die erste Reihenstrecke in einem Grid.
+![Diagramm, das eine Grid-Spur zeigt.](1_grid_track.png)
 
-![Diagramm, das eine Grid-Strecke zeigt.](1_grid_track.png)
+## Spurgrößen im expliziten Raster
 
-## Strecken-Größenbestimmung im expliziten Grid
-
-Beim Definieren von Grid-Strecken mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} können Sie jede Längeneinheit verwenden und auch die Flex-Einheit `fr`, die einen Teil des verfügbaren Raums im Grid-Container angibt.
+Beim Definieren von Grid-Spuren mit den Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} können Sie jede Längeneinheit verwenden, einschließlich der Flex-Einheit `fr`, die einen Anteil des verfügbaren Raums im Gittercontainer angibt.
 
 ## Beispiel
 
-Das folgende Beispiel demonstriert ein Grid mit drei Spaltenstrecken: eine von 200 Pixel, die zweite von 1fr, die dritte von 3fr. Nachdem die 200 Pixel vom im Grid-Container verfügbaren Raum abgezogen wurden, wird der verbleibende Raum durch 4 geteilt. Ein Teil wird der Spalte 2 zugewiesen, 3 Teile der Spalte 3.
+Das nachfolgende Beispiel zeigt ein Raster mit drei Spalten, von denen die erste 200 Pixel, die zweite 1fr und die dritte 3fr groß ist. Sobald die 200 Pixel vom verfügbaren Raum im Gittercontainer abgezogen wurden, wird der verbleibende Raum durch 4 geteilt. Eine Einheit wird der zweiten Spalte zugewiesen, drei Einheiten der dritten Spalte.
 
 ```css hidden
 * {
@@ -60,15 +58,15 @@ Das folgende Beispiel demonstriert ein Grid mit drei Spaltenstrecken: eine von 2
 
 {{ EmbedLiveSample('Example', '500', '230') }}
 
-## Strecken-Größenbestimmung im impliziten Grid
+## Spurgrößen im impliziten Raster
 
-Strecken, die im impliziten Grid erstellt werden, sind standardmäßig automatisch dimensioniert, jedoch können Sie eine Größe für diese Strecken mithilfe der Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} definieren.
+Spuren, die im impliziten Raster erstellt werden, sind standardmäßig automatisch dimensioniert, jedoch können Sie mithilfe der Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} eine Größe für diese Spuren definieren.
 
 ## Siehe auch
 
-- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Definition von Grid-Strecken in der CSS Grid Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
-- Eigenschaftsreferenz
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Definition von Grid-Spuren in der CSS Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
+- Eigenschaftenreferenz
   - {{cssxref("grid-template-columns")}}
   - {{cssxref("grid-template-rows")}}
   - {{cssxref("grid")}}

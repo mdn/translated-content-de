@@ -2,12 +2,10 @@
 title: SVN
 slug: Glossary/SVN
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Apache Subversion (**SVN**) ist ein kostenloses Versionskontrollsystem ({{Glossary("SCM", "SCM")}}). Es ermöglicht Entwicklern, eine Historie von Text- und Codeänderungen zu führen. Obwohl SVN auch Binärdateien verarbeiten kann, empfehlen wir, es nicht für solche Dateien zu verwenden.
+Apache Subversion (**SVN**) ist ein kostenloses Verwaltungs-System für Quellcode ({{Glossary("SCM", "SCM")}}). Es ermöglicht Entwicklern, eine Historie von Text- und Code-Änderungen zu führen. Obwohl SVN auch Binärdateien verarbeiten kann, empfehlen wir nicht, es für solche Dateien zu verwenden.
 
 ## Siehe auch
 

@@ -2,22 +2,20 @@
 title: Debounce
 slug: Glossary/Debounce
 l10n:
-  sourceCommit: 986f2096b273c6cc6827380426ea106410f67d54
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Debouncing**, im Kontext der Programmierung, bedeutet, Vorgänge zu verwerfen, die innerhalb eines bestimmten Intervalls zu nah beieinander liegen, und diese in einem einzigen Aufruf zu konsolidieren.
 
-**Debouncing** bedeutet im Kontext der Programmierung, dass Operationen, die in einem bestimmten Intervall zu nah beieinander auftreten, verworfen und zu einem einzelnen Aufruf konsolidiert werden.
+Debouncing ist dem {{Glossary("throttle", "Throttling")}} sehr ähnlich. Der Hauptunterschied besteht darin, dass Throttling Grenzen für kontinuierliche Vorgänge setzt, während Debouncing darauf wartet, dass Aufrufe für eine bestimmte Zeit aufhören, um viele störende Aufrufe in einen einzigen Aufruf zu konsolidieren.
 
-Debouncing ist dem {{Glossary("throttle", "Throttling")}} sehr ähnlich. Der Hauptunterschied besteht darin, dass Throttling Begrenzungen für kontinuierliche Operationen erzwingt, während Debouncing darauf wartet, dass Aufrufe für eine bestimmte Zeitspanne aufhören, um viele unruhige Aufrufe zu einem einzigen Aufruf zusammenzuführen.
+Ein typischer Anwendungsfall von Debouncing ist die Reaktion auf Benutzereingaben. Wenn der Benutzer tippt, sollten keine anderen Aktionen vorgenommen werden, um zu vermeiden, dass die Benutzeroberfläche träge wird. Wenn der Benutzer eine Schreibpause einlegt, können wir mit der Verarbeitung der Eingaben beginnen, wie z.B. dem Filtern von Ergebnissen, dem Erstellen von Vorschlägen usw. Wenn die Funktion `search` um 10 Millisekunden entprellt wird, bedeutet dies:
 
-Ein typisches Einsatzgebiet von Debouncing ist die Reaktion auf Benutzereingaben. Während der Benutzer tippt, sollten keine weiteren Aktionen ausgeführt werden, um zu vermeiden, dass die Benutzeroberfläche träge wird. Wenn der Benutzer das Tippen unterbricht, kann die Verarbeitung der Eingabe beginnen, wie z. B. das Filtern von Ergebnissen oder das Geben von Vorschlägen. Wenn die Funktion `search` um 10 Millisekunden debounced wird, bedeutet dies:
+1. Der erste Aufruf von `search` ist als _leading edge_ bekannt.
+2. Bei jedem weiteren Aufruf von `search` innerhalb von 10 Millisekunden nach dem vorherigen Aufruf gehört dieser zum gleichen "Batch" wie der vorherige Aufruf.
+3. Wenn 10 Millisekunden seit dem letzten Aufruf von `search` vergangen sind und keine weiteren Aufrufe erfolgt sind, haben wir die _trailing edge_ erreicht.
 
-1. Der erste Aufruf von `search` wird als _leading edge_ bezeichnet.
-2. Jeder weitere Aufruf von `search`, der innerhalb von 10 Millisekunden nach dem vorherigen Aufruf erfolgt, gehört zur gleichen "Gruppe" wie der vorherige Aufruf.
-3. Nachdem 10 Millisekunden seit dem letzten Aufruf von `search` vergangen sind, und kein weiterer Aufruf erfolgt ist, haben wir die _trailing edge_ erreicht.
-
-Normalerweise wird `search` nur einmal bei der trailing edge ausgeführt, obwohl es gelegentlich auch auf der leading edge oder sogar auf beiden Kanten ausgeführt werden kann, je nach spezifischem Anwendungsfall. Wenn es auf beiden Kanten ausgeführt wird, stellt die Debouncing-Implementierung in der Regel sicher, dass der nächste Aufruf an der leading edge mindestens 10 Millisekunden nach der vorherigen trailing edge erfolgt.
+In der Regel wird `search` nur einmal am trailing edge ausgeführt, obwohl es je nach Anwendungsfall manchmal am leading edge oder sogar an beiden Edges ausgeführt werden kann. Wenn es an beiden Kanten ausgeführt wird, stellt die Debounce-Implementierung normalerweise auch sicher, dass der nächste Leading-Edge-Aufruf nicht mindestens 10 Millisekunden nach dem vorherigen Trailing-Edge-Aufruf ausgelöst wird.
 
 ## Siehe auch
 

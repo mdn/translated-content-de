@@ -1,13 +1,11 @@
 ---
-title: Elternobjekt
+title: Parent-Objekt
 slug: Glossary/Parent_object
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Das {{Glossary("object", "objekt")}}, zu dem eine gegebene {{Glossary("property", "property")}} oder {{Glossary("method", "method")}} gehört.
+Das {{Glossary("object", "Objekt")}}, zu dem eine bestimmte {{Glossary("property", "Eigenschaft")}} oder {{Glossary("method", "Methode")}} gehört.
 
 ## Siehe auch
 

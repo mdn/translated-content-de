@@ -2,12 +2,10 @@
 title: Typumwandlung
 slug: Glossary/Type_coercion
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Typumwandlung ist die automatische oder implizite Umwandlung von Werten von einem Datentyp in einen anderen (wie z.B. von Zeichenfolgen in Zahlen). _{{Glossary("Type_conversion", "Typkonvertierung")}}_ ist ähnlich wie die _Typumwandlung_, da beide Werte von einem Datentyp in einen anderen umwandeln, mit einem entscheidenden Unterschied — die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ entweder implizit _oder_ explizit sein kann.
+Typumwandlung ist die automatische oder implizite Umwandlung von Werten von einem Datentyp in einen anderen (zum Beispiel von Strings zu Zahlen). _{{Glossary("Type_conversion", "Typumwandlung")}}_ ähnelt der _Typumwandlung_, da beide Werte von einem Datentyp in einen anderen umwandeln, jedoch mit einem wesentlichen Unterschied — _Typumwandlung_ ist implizit, während _Typumwandlung_ sowohl implizit _als auch_ explizit sein kann.
 
 ## Beispiele
 
@@ -19,9 +17,9 @@ let sum = value1 + value2;
 console.log(sum);
 ```
 
-Im obigen Beispiel hat JavaScript die `9` von einer Zahl in eine Zeichenkette umgewandelt und dann die beiden Werte zusammengefügt, was zu einer Zeichenkette `59` führt. JavaScript hatte die Wahl zwischen einer Zeichenkette oder einer Zahl und entschied sich für eine Zeichenkette.
+Im obigen Beispiel hat JavaScript die `9` von einer Zahl in einen String umgewandelt und dann die beiden Werte miteinander verkettet, was zu einem String von `59` führt. JavaScript hatte die Wahl zwischen einem String oder einer Zahl und entschied sich, einen String zu verwenden.
 
-Der Compiler hätte das `5` in eine Zahl umwandeln und eine Summe von `14` zurückgeben können, hat dies aber nicht getan. Um dieses Ergebnis zu erzielen, müssten Sie das `5` explizit mithilfe der {{jsxref("Global_Objects/Number", "Number()")}} Methode in eine Zahl umwandeln:
+Der Compiler hätte die `5` in eine Zahl umwandeln können und eine Summe von `14` zurückgeben, tat es aber nicht. Um dieses Ergebnis zu erzielen, müssten Sie die `5` explizit mit der Methode {{jsxref("Global_Objects/Number", "Number()")}} in eine Zahl umwandeln:
 
 ```js
 sum = Number(value1) + value2;
@@ -29,7 +27,7 @@ sum = Number(value1) + value2;
 
 ## Siehe auch
 
-- [Typkonvertierung](https://en.wikipedia.org/wiki/Type_conversion) (Wikipedia)
+- [Typumwandlung](https://en.wikipedia.org/wiki/Type_conversion) (Wikipedia)
 - Verwandte Glossarbegriffe:
   - {{Glossary("Type", "Typ")}}
-  - {{Glossary("Type_conversion", "Typkonvertierung")}}
+  - {{Glossary("Type_conversion", "Typumwandlung")}}

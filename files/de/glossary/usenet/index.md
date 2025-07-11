@@ -2,12 +2,10 @@
 title: Usenet
 slug: Glossary/Usenet
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Usenet ist ein Internet-Diskussionssystem, bei dem jeder Beitrag auf vielen Servern dupliziert wird. Das Äquivalent zu Internetforen in seiner Zeit, funktionierte Usenet wie ein Bulletin-Board-System.
+Usenet ist ein Internet-Diskussionssystem, bei dem jeder Beitrag auf vielen Servern dupliziert wird. Usenet war in seiner Zeit das Äquivalent zu Internetforen und funktionierte wie ein Bulletin-Board-System.
 
 ## Siehe auch
 

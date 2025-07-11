@@ -2,21 +2,19 @@
 title: LTR (Links nach Rechts)
 slug: Glossary/LTR
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**LTR** (**Links nach Rechts**) ist eine {{Glossary("locale", "Locale")}}-Eigenschaft, die angibt, dass Text von links nach rechts geschrieben wird. Zum Beispiel gibt die Locale `en-US` (für US-Englisch) die Leserichtung von links nach rechts an.
 
-**LTR** (**Links nach Rechts**) ist eine {{Glossary("locale", "Lokalität")}}-Eigenschaft, die angibt, dass Text von links nach rechts geschrieben wird. Zum Beispiel gibt die `en-US` Lokalität (für US-Englisch) LTR an.
+Die meisten westlichen Sprachen und viele andere weltweit werden LTR geschrieben.
 
-Die meisten westlichen Sprachen sowie viele andere weltweit werden LTR geschrieben.
-
-Das Gegenteil von LTR, {{Glossary("RTL", "RTL")}} (Rechts nach Links), wird in anderen gängigen Sprachen verwendet, einschließlich Arabisch (`ar`) und Hebräisch (`he`).
+Das Gegenteil von LTR, {{Glossary("RTL", "RTL")}} (Rechts nach Links), wird in anderen häufigen Sprachen wie Arabisch (`ar`) und Hebräisch (`he`) verwendet.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Locale", "Lokalität")}}
+  - {{Glossary("Locale", "Locale")}}
   - {{Glossary("Localization", "Lokalisierung")}}
   - {{Glossary("RTL", "RTL")}}
   - {{Glossary("BiDi", "BiDi")}}

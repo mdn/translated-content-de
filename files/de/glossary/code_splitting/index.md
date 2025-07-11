@@ -2,14 +2,12 @@
 title: Code-Splitting
 slug: Glossary/Code_splitting
 l10n:
-  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Code-Splitting** ist die Praxis, den Code, von dem eine Webanwendung abhängt – einschließlich ihres eigenen Codes und aller Abhängigkeiten von Drittanbietern – in separate Bundles aufzuteilen, die unabhängig voneinander geladen werden können. Dadurch kann eine Anwendung nur den Code laden, den sie zu einem bestimmten Zeitpunkt tatsächlich benötigt, und andere Bundles bei Bedarf nachladen. Dieser Ansatz wird eingesetzt, um die Leistung der Anwendung zu verbessern, insbesondere beim ersten Laden.
 
-**Code-Splitting** ist die Praxis, den Code, von dem eine Webanwendung abhängt — einschließlich ihres eigenen Codes und jeglicher Drittanbieterabhängigkeiten — in separate Bündel aufzuteilen, die unabhängig voneinander geladen werden können. Dies ermöglicht es einer Anwendung, nur den Code zu laden, den sie zu einem bestimmten Zeitpunkt tatsächlich benötigt, und andere Bündel bei Bedarf zu laden. Dieser Ansatz wird verwendet, um die Anwendungsleistung zu verbessern, insbesondere beim erstmaligen Laden.
-
-Code-Splitting ist ein Feature, das von Bundlern wie [webpack](https://webpack.js.org/) und [Browserify](https://browserify.org/) unterstützt wird. Diese können mehrere Bündel erstellen, die zur Laufzeit dynamisch geladen werden können.
+Code-Splitting ist eine Funktion, die von Bundlern wie [webpack](https://webpack.js.org/) und [Browserify](https://browserify.org/) unterstützt wird, die mehrere Bundles erstellen können, die zur Laufzeit dynamisch geladen werden können.
 
 ## Siehe auch
 

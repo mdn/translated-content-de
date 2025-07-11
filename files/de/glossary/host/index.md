@@ -2,14 +2,12 @@
 title: Host
 slug: Glossary/Host
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein Host ist ein Gerät, das mit dem {{Glossary("Internet", "Internet")}} (oder einem lokalen Netzwerk) verbunden ist. Einige Hosts, sogenannte {{Glossary("server", "Server")}}, bieten zusätzliche Dienste an, wie das Bereitstellen von Webseiten oder das Speichern von Dateien und E-Mails.
 
-Ein Host ist ein Gerät, das mit dem {{Glossary("Internet", "Internet")}} (oder einem lokalen Netzwerk) verbunden ist. Einige Hosts, sogenannte {{Glossary("server", "Server")}}, bieten zusätzliche Dienste wie das Bereitstellen von Webseiten oder das Speichern von Dateien und E-Mails an.
-
-Der Host muss keine Hardware-Instanz sein. Er kann durch virtuelle Maschinen erzeugt werden. Der durch virtuelle Maschinen erzeugte Host wird als "virtuelles Hosting" bezeichnet.
+Der Host muss keine Hardwareinstanz sein. Er kann von virtuellen Maschinen erzeugt werden. Ein von virtuellen Maschinen erzeugter Host wird als "Virtuelles Hosting" bezeichnet.
 
 ## Siehe auch
 

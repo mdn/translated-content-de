@@ -1,17 +1,15 @@
 ---
-title: Computer Programming
+title: Computerprogrammierung
 slug: Glossary/Computer_Programming
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Computerprogrammierung** ist der Prozess des Verfassens und Organisierens einer Sammlung von Anweisungen. Diese Anweisungen sagen einem Computer/Softwareprogramm, was in einer Sprache, die der Computer versteht, zu tun ist. Diese Anweisungen kommen in Form vieler verschiedener Sprachen wie C++, Java, JavaScript, HTML, Python, Ruby und Rust.
 
-**Computer Programming** ist der Prozess des Verfassens und Organisierens einer Sammlung von Anweisungen. Diese Anweisungen geben einem Computer/Softwareprogramm vor, was es in einer Sprache, die der Computer versteht, zu tun hat. Diese Anweisungen liegen in Form vieler verschiedener Sprachen vor, wie C++, Java, JavaScript, HTML, Python, Ruby und Rust.
-
-Mit einer geeigneten Sprache können Sie alle Arten von Software programmieren/erstellen. Beispielsweise ein Programm, das Wissenschaftlern bei komplexen Berechnungen hilft, eine Datenbank, die große Mengen an Daten speichert, eine Website, die es Menschen ermöglicht, Musik herunterzuladen, oder Animationssoftware, die es Menschen ermöglicht, animierte Filme zu erstellen.
+Mit einer geeigneten Sprache können Sie alle Arten von Software programmieren/erstellen. Zum Beispiel ein Programm, das Wissenschaftlern bei komplexen Berechnungen hilft, eine Datenbank, die riesige Datenmengen speichert, eine Website, die es Menschen ermöglicht, Musik herunterzuladen, oder Animationssoftware, die es Menschen erlaubt, animierte Filme zu erstellen.
 
 ## Siehe auch
 
-- [Computer programming](https://en.wikipedia.org/wiki/Computer_programming) auf Wikipedia
-- [List of Programming Languages](https://en.wikipedia.org/wiki/List_of_programming_languages) auf Wikipedia
+- [Computerprogrammierung](https://en.wikipedia.org/wiki/Computer_programming) auf Wikipedia
+- [Liste von Programmiersprachen](https://en.wikipedia.org/wiki/List_of_programming_languages) auf Wikipedia

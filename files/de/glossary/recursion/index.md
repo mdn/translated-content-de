@@ -2,18 +2,16 @@
 title: Rekursion
 slug: Glossary/Recursion
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Der Akt, bei dem eine Funktion sich selbst aufruft, wird als Rekursion bezeichnet und wird verwendet, um Probleme zu lösen, die kleinere Teilprobleme enthalten. Eine rekursive Funktion kann zwei Eingaben erhalten: einen Basisfall (beendet die Rekursion) oder einen rekursiven Fall (setzt die Rekursion fort).
+Der Vorgang, bei dem eine Funktion sich selbst aufruft, wird als Rekursion bezeichnet und wird verwendet, um Probleme zu lösen, die kleinere Teilprobleme enthalten. Eine rekursive Funktion kann zwei Eingaben erhalten: einen Basisfall (endet die Rekursion) oder einen rekursiven Fall (setzt die Rekursion fort).
 
 ## Beispiele
 
 ### Rekursive Funktion ruft sich selbst auf, bis Bedingung erfüllt ist
 
-Der folgende Python-Code definiert eine Funktion, die eine Zahl erhält, sie ausdruckt und sich dann erneut mit dem Wert der Zahl -1 aufruft. Sie wiederholt diesen Vorgang, bis die Zahl 0 entspricht; dann stoppt sie.
+Der folgende Python-Code definiert eine Funktion, die eine Zahl nimmt, sie ausgibt und sich dann erneut mit dem Wert der Zahl -1 aufruft. Sie läuft weiter, bis die Zahl gleich 0 ist, in diesem Fall stoppt sie.
 
 ```python
 def recurse(x):
@@ -24,7 +22,7 @@ def recurse(x):
 recurse(10)
 ```
 
-Die Ausgabe wird wie folgt aussehen:
+Die Ausgabe sieht folgendermaßen aus:
 
 ```plain
 10
@@ -39,9 +37,9 @@ Die Ausgabe wird wie folgt aussehen:
 1
 ```
 
-### Rekursion ist durch die Stapelgröße begrenzt
+### Rekursion ist durch Stapelgröße begrenzt
 
-Der folgende Code definiert eine Funktion, die die maximale Größe des Aufrufstapels im JavaScript-Laufzeitumgebung zurückgibt, in der der Code ausgeführt wird.
+Der folgende Code definiert eine Funktion, die die maximale Größe des Aufrufstapels zurückgibt, der in der JavaScript-Laufzeit verfügbar ist, in der der Code ausgeführt wird.
 
 ```js
 const getMaxCallStackSize = (i) => {
@@ -83,5 +81,5 @@ console.log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 ## Siehe auch
 
-- [Rekursion (Informatik)](<https://en.wikipedia.org/wiki/Recursion_(computer_science)>) auf Wikipedia
+- [Recursion (computer science)](<https://en.wikipedia.org/wiki/Recursion_(computer_science)>) auf Wikipedia
 - [Weitere Details zur Rekursion in JavaScript](/de/docs/Web/JavaScript/Guide/Functions#recursion)

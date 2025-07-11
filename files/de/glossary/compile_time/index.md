@@ -1,13 +1,11 @@
 ---
-title: Compile time
+title: Kompilierungszeit
 slug: Glossary/Compile_time
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Compile time** ist die Zeit von der erstmaligen Ladephase des Programms bis das Programm {{Glossary("parse", "interpretiert")}} wird.
+**Kompilierungszeit** ist die Zeit von dem Moment, in dem das Programm zum ersten Mal geladen wird, bis das Programm {{Glossary("parse", "geparst")}} wird.
 
 ## Siehe auch
 

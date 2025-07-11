@@ -2,12 +2,10 @@
 title: Primitive
 slug: Glossary/Primitive
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-In {{Glossary("JavaScript", "JavaScript")}} ist ein **Primitiv** (Primitivwert, primitiver Datentyp) ein Datum, das kein {{Glossary("object", "Objekt")}} ist und keine {{Glossary("method", "Methoden")}} oder {{Glossary("property/javascript", "Eigenschaften")}} hat. Es gibt 7 primitive Datentypen:
+In {{Glossary("JavaScript", "JavaScript")}} ist ein **Primitive** (primitiver Wert, primitiver Datentyp) Daten, das kein {{Glossary("object", "Objekt")}} ist und keine {{Glossary("method", "Methoden")}} oder {{Glossary("property/javascript", "Eigenschaften")}} hat. Es gibt 7 primitive Datentypen:
 
 - {{Glossary("string", "string")}}
 - {{Glossary("number", "number")}}
@@ -19,9 +17,9 @@ In {{Glossary("JavaScript", "JavaScript")}} ist ein **Primitiv** (Primitivwert, 
 
 Meistens wird ein primitiver Wert direkt auf der niedrigsten Ebene der Sprachimplementierung dargestellt.
 
-Alle Primitiven sind _unveränderlich_; das heißt, sie können nicht verändert werden. Es ist wichtig, ein Primitiv nicht mit einer Variablen zu verwechseln, der ein Primitivwert zugewiesen ist. Die Variable kann neu zugewiesen werden, jedoch kann der bestehende Wert nicht auf die Weise verändert werden, wie Objekte, Arrays und Funktionen verändert werden können. Die Sprache bietet keine Werkzeuge, um primitive Werte zu verändern.
+Alle Primitives sind _unveränderlich_; das heißt, sie können nicht verändert werden. Es ist wichtig, ein Primitive nicht mit einer Variable zu verwechseln, die einen primitiven Wert zugewiesen hat. Die Variable kann einem neuen Wert zugewiesen werden, aber der vorhandene Wert kann nicht auf die Weise geändert werden, wie Objekte, Arrays und Funktionen geändert werden können. Die Sprache bietet keine Werkzeuge, um primitive Werte zu verändern.
 
-Primitiven fehlen Methoden, sie verhalten sich jedoch so, als ob sie welche hätten. Wenn auf Eigenschaften von Primitiven zugegriffen wird, _autoboxt_ JavaScript den Wert in ein Wrapper-Objekt und greift stattdessen auf die Eigenschaft dieses Objekts zu. Zum Beispiel erstellt `"foo".includes("f")` implizit ein [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Wrapper-Objekt und ruft `String.prototype.includes()` auf diesem Objekt auf. Dieses Auto-Boxing-Verhalten ist im JavaScript-Code nicht beobachtbar, stellt jedoch ein gutes mentales Modell für verschiedene Verhaltensweisen dar – zum Beispiel, warum das "Verändern" von Primitiven nicht funktioniert (weil `str.foo = 1` nicht die Eigenschaft `foo` von `str` selbst zuweist, sondern einem flüchtigen Wrapper-Objekt).
+Primitives haben keine Methoden, verhalten sich jedoch so, als ob sie welche hätten. Wenn auf Eigenschaften von Primitiven zugegriffen wird, _automatisch verpackt_ JavaScript den Wert in ein Wrapper-Objekt und greift auf die Eigenschaft dieses Objekts zu. Zum Beispiel wird bei `"foo".includes("f")` implizit ein [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Wrapper-Objekt erstellt und `String.prototype.includes()` auf diesem Objekt aufgerufen. Dieses Auto-Boxing-Verhalten ist im JavaScript-Code nicht sichtbar, bietet jedoch ein gutes mentales Modell für verschiedene Verhaltensweisen — z.B. warum das „Verändern“ von Primitives nicht funktioniert (weil `str.foo = 1` nicht die Eigenschaft `foo` von `str` selbst zuweist, sondern einem kurzlebigen Wrapper-Objekt).
 
 ## Siehe auch
 

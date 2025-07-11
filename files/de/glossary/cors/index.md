@@ -2,37 +2,35 @@
 title: CORS
 slug: Glossary/CORS
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**CORS** (Cross-Origin Resource Sharing) ist ein System, das aus der Übertragung von {{Glossary("HTTP_header", "HTTP-Headern")}} besteht. Es bestimmt, ob Browser das Ausführen von JavaScript-Code im Frontend blockieren, der versucht, auf Antworten von Cross-Origin-Anfragen zuzugreifen.
 
-**CORS** (Cross-Origin Resource Sharing) ist ein System, das aus der Übertragung von {{Glossary("HTTP_header", "HTTP-Headern")}} besteht und bestimmt, ob Browser JavaScript-Code auf der Client-Seite daran hindern, auf Antworten für Cross-Origin-Anfragen zuzugreifen.
-
-Die [Same-Origin-Sicherheitsrichtlinie](/de/docs/Web/Security/Same-origin_policy) verbietet den Cross-Origin-Zugriff auf Ressourcen. Aber CORS gibt Webservern die Möglichkeit, anzugeben, dass sie den Cross-Origin-Zugriff auf ihre Ressourcen zulassen möchten.
+Die [Same-Origin-Sicherheitsrichtlinie](/de/docs/Web/Security/Same-origin_policy) verbietet den Cross-Origin-Zugriff auf Ressourcen. Aber CORS gibt Webservern die Möglichkeit, anzugeben, dass sie Cross-Origin-Zugriff auf ihre Ressourcen zulassen möchten.
 
 ## CORS-Header
 
 - {{HTTPHeader("Access-Control-Allow-Origin")}}
-  - : Gibt an, ob die Antwort geteilt werden kann.
+  - : Gibt an, ob die Antwort gemeinsam genutzt werden kann.
 - {{HTTPHeader("Access-Control-Allow-Credentials")}}
-  - : Gibt an, ob die Antwort auf die Anfrage offengelegt werden kann, wenn das Berechtigungskennzeichen wahr ist.
+  - : Gibt an, ob die Antwort auf die Anfrage offengelegt werden kann, wenn das Credential-Flag auf true gesetzt ist.
 - {{HTTPHeader("Access-Control-Allow-Headers")}}
-  - : Wird als Antwort auf eine Preflight-Anfrage verwendet, um anzugeben, welche HTTP-Header bei der tatsächlichen Anfrage verwendet werden können.
+  - : Wird als Antwort auf eine Preflight-Anfrage verwendet, um anzugeben, welche HTTP-Header verwendet werden können, wenn die eigentliche Anfrage gestellt wird.
 - {{HTTPHeader("Access-Control-Allow-Methods")}}
-  - : Gibt die Methode oder Methoden an, die beim Zugriff auf die Ressource als Antwort auf eine Preflight-Anfrage erlaubt sind.
+  - : Spezifiziert die Methode oder Methoden, die beim Zugriff auf die Ressource als Antwort auf eine Preflight-Anfrage erlaubt sind.
 - {{HTTPHeader("Access-Control-Expose-Headers")}}
-  - : Gibt an, welche Header als Teil der Antwort offengelegt werden können, indem ihre Namen aufgelistet werden.
+  - : Gibt an, welche Header als Teil der Antwort offengelegt werden können, indem deren Namen aufgelistet werden.
 - {{HTTPHeader("Access-Control-Max-Age")}}
   - : Gibt an, wie lange die Ergebnisse einer Preflight-Anfrage zwischengespeichert werden können.
 - {{HTTPHeader("Access-Control-Request-Headers")}}
-  - : Wird verwendet, wenn eine Preflight-Anfrage gesendet wird, um dem Server mitzuteilen, welche HTTP-Header bei der tatsächlichen Anfrage verwendet werden.
+  - : Wird bei einer Preflight-Anfrage verwendet, um dem Server mitzuteilen, welche HTTP-Header verwendet werden, wenn die eigentliche Anfrage gestellt wird.
 - {{HTTPHeader("Access-Control-Request-Method")}}
-  - : Wird verwendet, wenn eine Preflight-Anfrage gesendet wird, um dem Server mitzuteilen, welche [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) bei der tatsächlichen Anfrage verwendet wird.
+  - : Wird bei einer Preflight-Anfrage verwendet, um dem Server mitzuteilen, welche [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) verwendet wird, wenn die eigentliche Anfrage gestellt wird.
 - {{HTTPHeader("Origin")}}
   - : Gibt an, woher ein Abruf stammt.
 - {{HTTPHeader("Timing-Allow-Origin")}}
-  - : Gibt die Ursprünge an, die berechtigt sind, Werte von Attributen einzusehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden können und die sonst aufgrund von Cross-Origin-Beschränkungen als Null gemeldet würden.
+  - : Gibt Ursprünge an, die berechtigt sind, Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden, die andernfalls aufgrund von Cross-Origin-Beschränkungen als Null gemeldet würden.
 
 ## Siehe auch
 

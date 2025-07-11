@@ -2,12 +2,10 @@
 title: Descriptor (CSS)
 slug: Glossary/CSS_Descriptor
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein **CSS-Deskriptor** definiert die Eigenschaften einer [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule). At-Regeln können einen oder mehrere Deskriptoren haben. Jeder Deskriptor hat:
+Ein **CSS-Descriptor** definiert die Merkmale einer [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule). At-Rules können einen oder mehrere Deskriptoren haben. Jeder Deskriptor hat:
 
 - Einen Namen
 - Einen Wert, der die Komponentenwerte enthält

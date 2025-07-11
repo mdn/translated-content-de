@@ -2,12 +2,10 @@
 title: Dynamische Typisierung
 slug: Glossary/Dynamic_typing
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Dynamisch typisierte Sprachen** sind solche (wie {{Glossary("JavaScript", "JavaScript")}}), bei denen der Interpreter den {{Glossary("variable", "Variablen")}} zur Laufzeit basierend auf dem {{Glossary("value", "Wert")}} der Variablen zu diesem Zeitpunkt einen {{Glossary("type", "Typ")}} zuweist.
+**Dynamisch typisierte Sprachen** sind solche (wie {{Glossary("JavaScript", "JavaScript")}}), bei denen der Interpreter den {{Glossary("variable", "Variablen")}} zur Laufzeit basierend auf dem {{Glossary("value", "Wert")}} der Variablen einen {{Glossary("type", "Typ")}} zuweist.
 
 ## Siehe auch
 

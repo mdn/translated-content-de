@@ -1,19 +1,17 @@
 ---
-title: The score
+title: Der Punktestand
 slug: Games/Tutorials/2D_breakout_game_Phaser/The_score
 l10n:
-  sourceCommit: 56db19e6b8d19932c1b6150bc42e752e12a2b21f
+  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
 ---
-
-{{GamesSidebar}}
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Collision_detection", "Games/Workflows/2D_Breakout_game_Phaser/Win_the_game")}}
 
-Dies ist der **11. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Der Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, ist unter [Gamedev-Phaser-Content-Kit/demos/lesson11.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson11.html) zu finden.
+Dies ist der **11. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Phaser-Content-Kit/demos/lesson11.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson11.html).
 
-Ein Punktestand kann das Spiel interessanter machen — Sie können versuchen, Ihren eigenen Highscore oder den Ihres Freundes zu schlagen. In diesem Artikel fügen wir unserem Spiel ein Punktesystem hinzu.
+Einen Punktestand zu haben, kann das Spiel interessanter machen — Sie können versuchen, Ihren eigenen Highscore oder den eines Freundes zu überbieten. In diesem Artikel fügen wir unserem Spiel ein Punktesystem hinzu.
 
-Wir werden eine separate Variable zum Speichern der Punktzahl und die `text()`-Methode von Phaser verwenden, um diese auf dem Bildschirm auszugeben.
+Wir werden eine separate Variable zum Speichern des Punktestands verwenden und Phasers `text()` Methode, um ihn auf dem Bildschirm anzuzeigen.
 
 ## Neue Variablen
 
@@ -25,9 +23,9 @@ let scoreText;
 let score = 0;
 ```
 
-## Hinzufügen des Punktestands zum Spielbildschirm
+## Hinzufügen von Punktestext zur Spielanzeige
 
-Fügen Sie nun diese Zeile am Ende der `create()`-Funktion hinzu:
+Fügen Sie nun diese Zeile am Ende der `create()` Funktion hinzu:
 
 ```js
 scoreText = game.add.text(5, 5, "Points: 0", {
@@ -36,17 +34,17 @@ scoreText = game.add.text(5, 5, "Points: 0", {
 });
 ```
 
-Die `text()`-Methode kann vier Parameter annehmen:
+Die `text()` Methode kann vier Parameter annehmen:
 
-- Die x- und y-Koordinaten, um den Text zu zeichnen.
+- Die x- und y-Koordinaten, an denen der Text gezeichnet werden soll.
 - Der tatsächliche Text, der gerendert wird.
-- Der Schriftstil, der verwendet wird, um den Text zu rendern.
+- Der Schriftstil, mit dem der Text gerendert wird.
 
-Der letzte Parameter ähnelt sehr dem CSS-Styling. In unserem Fall wird der Punktestand blau sein, in der Größe von 18 Pixel und die Arial-Schriftart verwenden.
+Der letzte Parameter sieht dem CSS-Styling sehr ähnlich. In unserem Fall wird der Punktetext blau, in 18 Pixeln Größe und mit der Schriftart Arial dargestellt.
 
-## Aktualisierung des Punktestands, wenn Steine zerstört werden
+## Aktualisieren des Punktestands, wenn Steine zerstört werden
 
-Wir erhöhen die Anzahl der Punkte jedes Mal, wenn der Ball einen Stein trifft, und aktualisieren den `scoreText`, um den aktuellen Punktestand anzuzeigen. Dies kann mit der Methode `setText()` erfolgen — fügen Sie die zwei neuen Zeilen, die unten zu sehen sind, zur Funktion `ballHitBrick()` hinzu:
+Wir werden die Anzahl der Punkte jedes Mal erhöhen, wenn der Ball einen Stein trifft, und `scoreText` aktualisieren, um den aktuellen Punktestand anzuzeigen. Dies kann mit der `setText()` Methode erfolgen — fügen Sie die beiden neuen Zeilen, die unten zu sehen sind, der `ballHitBrick()` Funktion hinzu:
 
 ```js
 function ballHitBrick(ball, brick) {
@@ -56,16 +54,16 @@ function ballHitBrick(ball, brick) {
 }
 ```
 
-Das war's fürs Erste — laden Sie Ihr `index.html` neu und prüfen Sie, ob der Punktestand bei jedem Treffer eines Steins aktualisiert wird.
+Das war's vorerst — laden Sie Ihre `index.html` neu und überprüfen Sie, ob der Punktestand bei jedem Treffer eines Steins aktualisiert wird.
 
-## Vergleich Ihres Codes
+## Vergleichen Sie Ihren Code
 
-Sie können den fertigen Code für diese Lektion im folgenden Live-Demo überprüfen und mit ihm spielen, um besser zu verstehen, wie es funktioniert:
+Sie können den fertigen Code für diese Lektion im unten stehenden Live-Demo überprüfen und damit spielen, um besser zu verstehen, wie er funktioniert:
 
 {{JSFiddleEmbed("https://jsfiddle.net/end3r/n8o6rhrf/","","400")}}
 
 ## Nächste Schritte
 
-Jetzt haben wir ein Punktesystem, aber was bringt es, zu spielen und Punkte zu sammeln, wenn man nicht gewinnen kann? Sehen wir, wie wir einen Siegzustand hinzufügen können, der es uns erlaubt, [das Spiel zu gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Win_the_game).
+Wir haben jetzt ein Punktesystem, aber was nützt es, zu spielen und Punkte zu sammeln, wenn man nicht gewinnen kann? Lassen Sie uns sehen, wie wir einen Siegzustand hinzufügen können, der es uns ermöglicht, [das Spiel zu gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Win_the_game).
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Collision_detection", "Games/Workflows/2D_Breakout_game_Phaser/Win_the_game")}}
