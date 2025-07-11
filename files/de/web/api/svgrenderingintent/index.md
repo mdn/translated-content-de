@@ -2,30 +2,30 @@
 title: SVGRenderingIntent
 slug: Web/API/SVGRenderingIntent
 l10n:
-  sourceCommit: 594ae0d4ffb6326a9529fe366d30ca633309ee30
+  sourceCommit: 4f8c4b31478742a2a39fdb03993d08fc1c90bbea
 ---
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGRenderingIntent`**-Schnittstelle definiert die aufgezählte Liste möglicher Werte für `rendering-intent`-Attribute oder -Deskriptoren.
+Das **`SVGRenderingIntent`**-Interface definiert die aufgezählte Liste möglicher Werte für `rendering-intent`-Attribute oder Deskriptoren.
 
 {{InheritanceDiagram}}
 
 > [!WARNING]
-> Diese Schnittstelle wurde in der SVG 2-Spezifikation entfernt.
+> Dieses Interface wurde in der SVG 2-Spezifikation entfernt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften._
+_Dieses Interface implementiert keine spezifischen Eigenschaften._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden._
+_Dieses Interface implementiert keine spezifischen Methoden._
 
 ## Statische Eigenschaften
 
 - `RENDERING_INTENT_UNKNOWN` (0)
-  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
+  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs festzulegen oder einen bestehenden Wert in diesen Typ zu wechseln.
 - `RENDERING_INTENT_AUTO` (1)
   - : Entspricht dem Wert `auto`.
 - `RENDERING_INTENT_PERCEPTUAL` (2)
@@ -44,7 +44,3 @@ _Diese Schnittstelle implementiert keine spezifischen Methoden._
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- {{SVGAttr("rendering-intent")}}

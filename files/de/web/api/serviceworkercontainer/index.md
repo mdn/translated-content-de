@@ -2,49 +2,50 @@
 title: ServiceWorkerContainer
 slug: Web/API/ServiceWorkerContainer
 l10n:
-  sourceCommit: 81d713ef85ba3bd918922f40a25789ce7e264b30
+  sourceCommit: 981e2d17e897c6280fd27364746a34d8560d30d1
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`ServiceWorkerContainer`**-Interface der [Service Worker API](/de/docs/Web/API/Service_Worker_API) stellt ein Objekt dar, das den Service Worker als Gesamteinheit im Netzwerk-Ökosystem repräsentiert, inklusive Funktionen zum Registrieren, Deregistrieren und Aktualisieren von Service Workern sowie zum Zugriff auf den Status der Service Worker und ihrer Registrierungen.
+Das **`ServiceWorkerContainer`**-Interface der [Service Worker API](/de/docs/Web/API/Service_Worker_API) bietet ein Objekt, das den Service Worker als gesamte Einheit im Netzwerk-Ökosystem repräsentiert. Es umfasst Funktionen zum Registrieren, Deregistrieren und Aktualisieren von Service Workern sowie den Zugriff auf den Status von Service Workern und deren Registrierungen.
 
-Am wichtigsten ist, dass es die Methode [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) zum Registrieren von Service Workern bereitstellt und die Eigenschaft [`ServiceWorkerContainer.controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) verwendet wird, um festzustellen, ob die aktuelle Seite aktiv gesteuert wird.
+Am wichtigsten ist, dass es die Methode [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) bereitstellt, die zum Registrieren von Service Workern verwendet wird, und die Eigenschaft [`ServiceWorkerContainer.controller`](/de/docs/Web/API/ServiceWorkerContainer/controller), mit der bestimmt wird, ob die aktuelle Seite aktiv gesteuert wird.
 
-`ServiceWorkerContainer`-Objekte werden im Fensterbereich über [`Navigator.serviceWorker`](/de/docs/Web/API/Navigator/serviceWorker) und in Workern mithilfe von [`WorkerNavigator.serviceWorker`](/de/docs/Web/API/WorkerNavigator/serviceWorker) bereitgestellt (falls unterstützt — siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+`ServiceWorkerContainer`-Objekte sind im Fensterbereich über [`Navigator.serviceWorker`](/de/docs/Web/API/Navigator/serviceWorker) und in Arbeitern über [`WorkerNavigator.serviceWorker`](/de/docs/Web/API/WorkerNavigator/serviceWorker) verfügbar (falls unterstützt — siehe [Browser-Kompatibilität](#browser-kompatibilität)).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`ServiceWorkerContainer.controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) {{ReadOnlyInline}}
-  - : Gibt ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt zurück, wenn sein Status `activating` oder `activated` ist (dasselbe Objekt, das von [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) zurückgegeben wird). Diese Eigenschaft gibt `null` zurück während einer erzwungenen Aktualisierungsanfrage (_Shift_ + Aktualisierung) oder wenn kein aktiver Worker vorhanden ist.
+  - : Ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt, das den aktiven Service Worker repräsentiert, der die aktuelle Seite steuert, oder `null`, wenn die Seite keinen aktiven oder aktivierenden Service Worker hat.
 - [`ServiceWorkerContainer.ready`](/de/docs/Web/API/ServiceWorkerContainer/ready) {{ReadOnlyInline}}
-  - : Bietet eine Möglichkeit, die Codeausführung zu verzögern, bis ein Service Worker aktiv ist. Es gibt ein {{jsxref("Promise")}} zurück, das niemals abgelehnt wird und das unbegrenzt wartet, bis die [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration), die mit der aktuellen Seite verknüpft ist, einen [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker hat. Sobald diese Bedingung erfüllt ist, wird sie mit der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst.
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst wird, die mit der aktuellen Seite verknüpft ist, jedoch nur, wenn ein aktiver Service Worker existiert.
+    Dies bietet einen Mechanismus, um die Codeausführung zu verzögern, bis ein Service Worker aktiv ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`ServiceWorkerContainer.getRegistration()`](/de/docs/Web/API/ServiceWorkerContainer/getRegistration)
-  - : Ruft ein [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt ab, dessen Umfang mit der angegebenen Dokument-URL übereinstimmt. Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einer [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) oder `undefined` aufgelöst wird.
+  - : Erhält ein [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt, dessen Geltungsbereich zur angegebenen Dokument-URL passt. Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einer [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) oder `undefined` aufgelöst wird.
 - [`ServiceWorkerContainer.getRegistrations()`](/de/docs/Web/API/ServiceWorkerContainer/getRegistrations)
   - : Gibt alle [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekte zurück, die mit einem `ServiceWorkerContainer` in einem Array verknüpft sind. Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem Array von [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst wird.
 - [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register)
   - : Erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für die angegebene `scriptURL`.
 - [`ServiceWorkerContainer.startMessages()`](/de/docs/Web/API/ServiceWorkerContainer/startMessages)
-  - : Startet explizit den Nachrichtenfluss, der von einem Service Worker an die von ihm kontrollierten Seiten gesendet wird (z. B. gesendet über [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)). Dies kann verwendet werden, um auf gesendete Nachrichten früher zu reagieren, noch bevor der Inhalt dieser Seite vollständig geladen wurde.
+  - : Startet ausdrücklich den Fluss von Nachrichten, die von einem Service Worker zu Seiten gesendet werden, die unter seiner Kontrolle stehen (z.B. gesendet über [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)). Dies kann verwendet werden, um früher auf gesendete Nachrichten zu reagieren, noch bevor der Inhalt der Seite vollständig geladen ist.
 
 ## Ereignisse
 
 - [`controllerchange`](/de/docs/Web/API/ServiceWorkerContainer/controllerchange_event)
-  - : Wird ausgelöst, wenn die mit dem Dokument verknüpfte [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker erhält.
+  - : Wird ausgelöst, wenn die dem Dokument zugeordnete [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker erhält.
 - [`message`](/de/docs/Web/API/ServiceWorkerContainer/message_event)
-  - : Wird ausgelöst, wenn eingehende Nachrichten vom `ServiceWorkerContainer`-Objekt empfangen werden (z. B. über einen [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage)-Aufruf).
+  - : Wird ausgelöst, wenn eingehende Nachrichten vom `ServiceWorkerContainer`-Objekt empfangen werden (z.B. über einen Aufruf von [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage)).
 - [`messageerror`](/de/docs/Web/API/ServiceWorkerContainer/messageerror_event)
-  - : Wird ausgelöst, wenn eingehende Nachrichten nicht vom `ServiceWorkerContainer`-Objekt deserialisiert werden können (z. B. über einen [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage)-Aufruf).
+  - : Wird ausgelöst, wenn eingehende Nachrichten vom `ServiceWorkerContainer`-Objekt nicht deserialisiert werden können (z.B. über einen Aufruf von [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage)).
 
 ## Beispiele
 
-Im folgenden Beispiel wird zunächst überprüft, ob der Browser Service Worker unterstützt. Wenn dies der Fall ist, registriert der Code den Service Worker und stellt fest, ob die Seite aktiv vom Service Worker gesteuert wird. Falls nicht, wird der Benutzer aufgefordert, die Seite neu zu laden, damit der Service Worker die Kontrolle übernehmen kann. Der Code meldet auch Registrierungsfehler.
+Das folgende Beispiel prüft zunächst, ob der Browser Service Worker unterstützt. Wenn Unterstützung vorhanden ist, registriert der Code den Service Worker und bestimmt, ob die Seite aktiv vom Service Worker gesteuert wird. Falls nicht, wird der Benutzer aufgefordert, die Seite neu zu laden, damit der Service Worker die Kontrolle übernehmen kann. Der Code meldet auch Registrierungsfehler.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -99,6 +100,6 @@ if ("serviceWorker" in navigator) {
 
 ## Siehe auch
 
-- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Web Workers verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Beispiel für Service-Worker-Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
