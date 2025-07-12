@@ -9,7 +9,7 @@ l10n:
 
 Das **`AudioParamDescriptor`** Wörterbuch der [Web Audio API](/de/docs/Web/API/Web_Audio_API) spezifiziert Eigenschaften für [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekte.
 
-Es wird verwendet, um benutzerdefinierte `AudioParam`s auf einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) zu erstellen. Wenn der zugrunde liegende [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) einen statischen Getter [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) hat, dann wird das zurückgegebene Array von Objekten basierend auf diesem Wörterbuch intern vom `AudioWorkletNode`-Konstruktor verwendet, um die [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft entsprechend zu befüllen.
+Es wird verwendet, um benutzerdefinierte `AudioParam`s auf einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) zu erstellen. Wenn der zugrunde liegende [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) einen statischen Getter [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static) hat, dann wird das zurückgegebene Array von Objekten basierend auf diesem Wörterbuch intern vom `AudioWorkletNode`-Konstruktor verwendet, um die [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft entsprechend zu befüllen.
 
 ## Instanz-Eigenschaften
 
@@ -26,7 +26,7 @@ Es wird verwendet, um benutzerdefinierte `AudioParam`s auf einem [`AudioWorkletN
 
 ## Beispiele
 
-Das untenstehende Codefragment zeigt einen Deskriptor dieses Typs, der von einer statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)-Methode zurückgegeben wird, die in einem benutzerdefinierten `AudioWorkletProcessor` definiert ist (dies ist Teil des ausführlicheren Beispiels in [AudioWorkletNode.parameters](/de/docs/Web/API/AudioWorkletNode/parameters#examples)).
+Das untenstehende Codefragment zeigt einen Deskriptor dieses Typs, der von einer statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static)-Methode zurückgegeben wird, die in einem benutzerdefinierten `AudioWorkletProcessor` definiert ist (dies ist Teil des ausführlicheren Beispiels in [AudioWorkletNode.parameters](/de/docs/Web/API/AudioWorkletNode/parameters#examples)).
 
 ```js
 // white-noise-processor.js

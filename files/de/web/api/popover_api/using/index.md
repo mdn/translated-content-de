@@ -2,34 +2,34 @@
 title: Verwendung der Popover-API
 slug: Web/API/Popover_API/Using
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: db01d0c8b4cbf8a4467b1db65e17f6724d0ce710
 ---
 
 {{DefaultAPISidebar("Popover API")}}
 
-Die **Popover-API** bietet Entwicklern einen standardisierten, konsistenten, flexiblen Mechanismus zur Anzeige von Popover-Inhalten über anderen Seiteninhalten. Popover-Inhalte können entweder deklarativ mit HTML-Attributen oder über JavaScript gesteuert werden. Dieser Artikel bietet einen detaillierten Leitfaden zur Verwendung aller ihrer Funktionen.
+Die **Popover-API** bietet Entwicklern einen standardisierten, konsistenten und flexiblen Mechanismus zur Anzeige von Popover-Inhalten über anderen Seiteninhalten. Popover-Inhalte können entweder deklarativ mit HTML-Attributen oder über JavaScript gesteuert werden. Dieser Artikel bietet einen detaillierten Leitfaden zur Nutzung aller Funktionen.
 
-## Deklarative Popover erstellen
+## Deklarative Popovers erstellen
 
-In seiner einfachsten Form wird ein Popover erstellt, indem das Attribut [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) zu dem Element hinzugefügt wird, das Ihre Popover-Inhalte enthalten soll. Eine `id` ist ebenfalls erforderlich, um das Popover mit seinen Steuerungen zu verknüpfen.
+In seiner einfachsten Form wird ein Popover erstellt, indem das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut zu dem Element hinzugefügt wird, das den Popover-Inhalt enthalten soll. Eine `id` wird ebenfalls benötigt, um das Popover mit seinen Steuerungselementen zu verknüpfen.
 
 ```html
 <div id="mypopover" popover>Popover content</div>
 ```
 
 > [!NOTE]
-> Das Setzen des `popover`-Attributs ohne Wert entspricht dem Setzen von `popover="auto"`.
+> Das Festlegen des `popover`-Attributs ohne Wert entspricht `popover="auto"`.
 
-Das Hinzufügen dieses Attributs bewirkt, dass das Element beim Laden der Seite durch die Einstellung von {{cssxref("display", "display: none")}} ausgeblendet wird. Um das Popover anzuzeigen/auszublenden, müssen Sie mindestens einen Steuerschalter (auch bekannt als Popover-**Auslöser**) hinzufügen. Sie können eine {{htmlelement("button")}} (oder ein {{htmlelement("input")}} vom `type="button"`) als Popover-Steuerschalter festlegen, indem Sie ihm ein [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut mit dem Wert der ID des zu kontrollierenden Popovers zuweisen:
+Das Hinzufügen dieses Attributs führt dazu, dass das Element beim Laden der Seite ausgeblendet wird, indem {{cssxref("display", "display: none")}} darauf gesetzt wird. Um das Popover zu zeigen/auszublenden, müssen Sie mindestens einen Steuerungsknopf hinzufügen (auch bekannt als Popover-**Invoker**). Sie können einen {{htmlelement("button")}} (oder {{htmlelement("input")}} vom `type="button"`) als Popover-Steuerungsknopf festlegen, indem Sie ihm ein [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut geben, dessen Wert die ID des zu steuernden Popovers sein sollte:
 
 ```html
 <button popovertarget="mypopover">Toggle the popover</button>
 <div id="mypopover" popover>Popover content</div>
 ```
 
-Das Standardverhalten ist, dass der Button ein Umschaltknopf ist – bei wiederholtem Drücken wird das Popover zwischen Anzeige und Ausblendung umgeschaltet.
+Das Standardverhalten ist, dass der Button ein Umschaltknopf ist – wenn er wiederholt gedrückt wird, wird das Popover zwischen sichtbar und ausgeblendet umgeschaltet.
 
-Wenn Sie dieses Verhalten ändern möchten, können Sie das Attribut [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction) verwenden – dieses nimmt den Wert `"hide"`, `"show"` oder `"toggle"` an. Zum Beispiel, um separate Anzeigen- und Ausblendschalter zu erstellen, könnten Sie Folgendes tun:
+Wenn Sie dieses Verhalten ändern möchten, können Sie das [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction)-Attribut verwenden – dies nimmt einen Wert von `"hide"`, `"show"` oder `"toggle"` an. Zum Beispiel, um separate Show- und Hide-Buttons zu erstellen, könnten Sie dies tun:
 
 ```html
 <button popovertarget="mypopover" popovertargetaction="show">
@@ -41,46 +41,47 @@ Wenn Sie dieses Verhalten ändern möchten, können Sie das Attribut [`popoverta
 <div id="mypopover" popover>Popover content</div>
 ```
 
-Sie können sehen, wie das vorherige Code-Snippet in unserem [Einfaches deklaratives Popover-Beispiel](https://mdn.github.io/dom-examples/popover-api/basic-declarative/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/basic-declarative)) rendert.
+Sie können sehen, wie das vorherige Code-Snippet in unserem [Grundlegenden deklarativen Popover-Beispiel](https://mdn.github.io/dom-examples/popover-api/basic-declarative/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/basic-declarative)) gerendert wird.
 
 > [!NOTE]
 > Wenn das `popovertargetaction`-Attribut weggelassen wird, ist `"toggle"` die Standardaktion, die von einem Steuerknopf ausgeführt wird.
 
-Wenn ein Popover angezeigt wird, wird es aus dem `display: none` entfernt und in die {{Glossary("top_layer", "oberste Ebene")}} gebracht, sodass es über allen anderen Seiteninhalten liegt.
+Wenn ein Popover angezeigt wird, wird `display: none` davon entfernt und es wird in die {{Glossary("top_layer", "oberste Schicht")}} platziert, sodass es über allen anderen Seiteninhalten steht.
 
 ## Auto-Zustand und "Light Dismiss"
 
-Wenn ein Popover-Element mit `popover` oder `popover="auto"` gesetzt ist, hat es den **Auto-Zustand**. Die beiden wichtigen Verhaltensweisen im Auto-Zustand sind:
+Wenn ein Popover-Element mit `popover` oder `popover="auto"` wie oben gezeigt gesetzt ist, spricht man von einem **Auto-Zustand**. Die zwei wichtigen Verhaltensweisen, die beim Auto-Zustand zu beachten sind:
 
-- Das Popover kann "leicht verworfen" werden – das bedeutet, dass Sie das Popover durch Klicken außerhalb von ihm ausblenden können.
-- Das Popover kann auch mit browserspezifischen Mechanismen wie dem Drücken der <kbd>Esc</kbd>-Taste geschlossen werden.
-- Normalerweise kann nur ein `auto`-Popover gleichzeitig angezeigt werden – das Anzeigen eines zweiten Popovers, wenn bereits eines angezeigt wird, versteckt das erste. Die Ausnahme zu dieser Regel besteht darin, wenn Sie verschachtelte Auto-Popovers haben. Weitere Details finden Sie im Abschnitt [Verschachtelte Popovers](#verschachtelte_popovers).
+- Das Popover kann "light dismissed" werden — das bedeutet, dass Sie es verbergen können, indem Sie außerhalb davon klicken.
+- Das Popover kann auch mittels browser-spezifischer Mechanismen geschlossen werden, beispielsweise durch Drücken der <kbd>Esc</kbd>-Taste.
+- Normalerweise kann nur ein `auto` Popover gleichzeitig angezeigt werden – das Anzeigen eines zweiten Popovers, wenn bereits eines angezeigt wird, blendet das erste aus. Die Ausnahme von dieser Regel ist, wenn Sie verschachtelte Auto-Popover haben. Siehe den Abschnitt [Verschachtelte Popovers](#verschachtelte_popovers) für weitere Details.
 
-> [!NOTE] > `popover="auto"`-Popovers werden auch bei erfolgreichen Aufrufen von [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) und [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) auf anderen Elementen im Dokument verworfen. Beachten Sie jedoch, dass das Aufrufen dieser Methoden auf einem angezeigten Popover zu einem Fehler führt, da diese Verhaltensweisen auf einem bereits angezeigten Popover keinen Sinn ergeben. Sie können sie jedoch auf einem Element mit dem `popover`-Attribut aufrufen, das derzeit nicht angezeigt wird.
+> [!NOTE]
+> `popover="auto"` Popovers werden auch durch erfolgreiche Aufrufe von [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) und [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) auf anderen Elementen im Dokument beendet. Beachten Sie jedoch, dass das Aufrufen dieser Methoden auf einem bereits gezeigten Popover zu einem Fehler führt, da diese Verhaltensweisen auf einem bereits gezeigten Popover keinen Sinn ergeben. Sie können sie jedoch auf einem Element mit dem `popover`-Attribut aufrufen, das derzeit nicht angezeigt wird.
 
-Der Auto-Zustand ist nützlich, wenn Sie nur ein einzelnes Popover gleichzeitig anzeigen möchten. Vielleicht haben Sie mehrere UI-Nachrichten, die Sie anzeigen möchten, möchten aber nicht, dass die Anzeige unübersichtlich und verwirrend wird, oder Sie zeigen Statusnachrichten an, bei denen der neue Status vorherige Status überschreibt.
+Der Auto-Zustand ist nützlich, wenn Sie immer nur ein Popover gleichzeitig anzeigen möchten. Vielleicht haben Sie mehrere lehrreiche UI-Nachrichten, die Sie anzeigen möchten, aber ohne dass das Display unübersichtlich wird, oder vielleicht zeigen Sie Statusnachrichten an, bei denen der neue Status alle vorherigen überschreibt.
 
-Sie können das oben beschriebene Verhalten in Aktion in unserem [Mehrere Auto-Popovers Beispiel](https://mdn.github.io/dom-examples/popover-api/multiple-auto/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/multiple-auto)) sehen. Versuchen Sie, die Popovers leicht zu verwerfen, nachdem sie angezeigt wurden, und sehen Sie, was passiert, wenn Sie versuchen, beide gleichzeitig anzuzeigen.
+Sie können das oben beschriebene Verhalten in Aktion in unserem [Beispiel für mehrere Auto-Popovers](https://mdn.github.io/dom-examples/popover-api/multiple-auto/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/multiple-auto)) sehen. Versuchen Sie, die Popovers nach dem Anzeigen "light dismissed" zu machen und sehen, was passiert, wenn Sie versuchen, beide gleichzeitig anzuzeigen.
 
-## Popover-Zugänglichkeitsfunktionen
+## Zugänglichkeitsmerkmale von Popovers
 
-Wenn eine Beziehung zwischen einem Popover und seiner Steuerung (Auslöser) über das `popovertarget`-Attribut hergestellt wird, nimmt die API automatisch zwei weitere Änderungen an der Umgebung vor, um Benutzern von Tastaturen und unterstützender Technologie (AT) die Interaktion mit dem Popover zu erleichtern:
+Wenn eine Beziehung zwischen einem Popover und seiner Steuerung (Invoker) über das `popovertarget`-Attribut hergestellt wird, nimmt die API automatisch zwei weitere Änderungen an der Umgebung vor, um Tastatur- und Hilfstechnologie (AT)-Benutzern eine einfachere Interaktion mit dem Popover zu ermöglichen:
 
-- Wenn das Popover angezeigt wird, wird die Tastaturfokus-Navigationsreihenfolge aktualisiert, sodass das Popover als nächstes in der Sequenz liegt: zum Beispiel, wenn ein Button gedrückt wird, um ein Popover anzuzeigen, werden beliebige Schaltflächen innerhalb des Popovers als nächstes in der Tabulator-Reihenfolge (wird durch Drücken der <kbd>Tab</kbd>-Taste fokussiert) sein. Umgekehrt wird beim Schließen des Popovers über die Tastatur (normalerweise über die <kbd>Esc</kbd>-Taste) der Fokus wieder auf den Auslöser verschoben.
-- Um AT wie Bildschirmleseprogrammen das Verständnis der Beziehung zwischen dem Auslöser und dem Popover zu ermöglichen, wird eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)- und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Beziehung zwischen ihnen eingerichtet.
+- Wenn das Popover angezeigt wird, wird die Tastaturfokus-Navigationsreihenfolge aktualisiert, sodass das Popover das nächste in der Reihenfolge ist: Zum Beispiel, wenn ein Knopf gedrückt wird, um ein Popover zu zeigen, werden alle Knöpfe innerhalb des Popovers als nächstes in der Tabulator-Reihenfolge fokussiert (durch Drücken der <kbd>Tab</kbd>-Taste). Umgekehrt wird beim Schließen des Popovers über die Tastatur (in der Regel über die <kbd>Esc</kbd>-Taste) der Fokus zurück auf den Invoker gesetzt.
+- Um AT wie Bildschirmleser sinnvoll die Beziehung zwischen Invoker und Popover zu verdeutlichen, wird eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Beziehung zwischen ihnen erstellt.
 
-Das Einrichten einer Beziehung zwischen einem Popover und seiner Steuerung auf diese Weise erstellt auch eine implizite Ankerreferenz zwischen den beiden — siehe [Popover-Anker-Positionierung](#popover-anker-positionierung) für weitere Details.
+Das Einrichten einer Beziehung zwischen einem Popover und seiner Steuerung auf diese Weise erstellt auch eine implizite Ankerreferenz zwischen den beiden — siehe [Popover-Ankerpositionierung](#popover-ankerpositionierung) für weitere Details.
 
-## Andere Möglichkeiten, eine Popover-Auslöser-Beziehung einzurichten
+## Andere Möglichkeiten, eine Popover-Invoker-Beziehung einzurichten
 
-Sie können eine Popover-Auslöser-Beziehung auf andere Weise einrichten, zusätzlich zur Verwendung des `popovertarget`-Attributs:
+Sie können eine Popover-Invoker-Beziehung auf andere Weise einrichten, zusätzlich zur Verwendung des `popovertarget`-Attributs:
 
-- Verwendung der Option `source` der Methoden [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) oder [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover). Beachten Sie, dass in diesem Fall nur die Änderungen der Fokussier-Navigationsreihenfolge vorgenommen werden, nicht die implizite ARIA-Beziehung. Dies liegt daran, dass die `source`-Option auf jede Art von Element gesetzt werden kann, nicht nur auf `<button>`-Elemente, und es nicht garantiert werden kann, dass die Beziehung sinnvoll wäre.
-- Zwischen einem {{htmlelement("select")}}-Element und seinem Dropdown-Auswahlelement, wenn es in die [anpassbare Select-Element](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)-Funktionalität über das {{cssxref("appearance")}}-Eigenschaft `base-select`-Wert eingebunden wird. In diesem Fall wird eine implizite Popover-Auslöser-Beziehung zwischen den beiden erstellt.
+- Verwendung der `source`-Option der [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover)- oder [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover)-Methoden. Beachten Sie, dass in diesem Fall nur die Fokus-Navigationsänderungen vorgenommen werden, nicht jedoch die implizite ARIA-Beziehung. Dies liegt daran, dass die `source`-Option auf jede Art von Element gesetzt werden kann, nicht nur auf `<button>`-Elemente, und es nicht garantiert werden kann, dass die Beziehung Sinn macht.
+- Zwischen einem {{htmlelement("select")}}-Element und seinem Dropdown-Picker, wenn es über die {{cssxref("appearance")}}-Eigenschaft `base-select`-Wert in die [anpassbare select-Element]-Funktionalität integriert wird. In diesem Fall wird eine implizite Popover-Invoker-Beziehung zwischen den beiden erstellt.
 
 ## Verwendung des manuellen Popover-Zustands
 
-Eine Alternative zum Auto-Zustand ist der **manuelle Zustand**, der durch Setzen von `popover="manual"` auf Ihr Popover-Element erreicht wird:
+Eine Alternative zum Auto-Zustand ist der **manuelle Zustand**, der durch das Setzen von `popover="manual"` auf Ihr Popover-Element erreicht wird:
 
 ```html
 <div id="mypopover" popover="manual">Popover content</div>
@@ -88,16 +89,16 @@ Eine Alternative zum Auto-Zustand ist der **manuelle Zustand**, der durch Setzen
 
 In diesem Zustand:
 
-- Das Popover kann nicht "leicht verworfen" werden, obwohl Show/Hide/Umschalt-Schaltflächen (wie zuvor gesehen) weiterhin funktionieren.
+- Das Popover kann nicht "light dismissed" werden, obwohl deklarative Show/Hide/Toggle-Buttons (wie zuvor gesehen) weiterhin funktionieren.
 - Mehrere unabhängige Popovers können gleichzeitig angezeigt werden.
 
-Sie können dieses Verhalten in Aktion in unserem [Mehrere manuelle Popovers Beispiel](https://mdn.github.io/dom-examples/popover-api/multiple-manual/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/multiple-manual)) sehen.
+Sie können dieses Verhalten in Aktion in unserem [Beispiel für mehrere manuelle Popovers](https://mdn.github.io/dom-examples/popover-api/multiple-manual/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/multiple-manual)) sehen.
 
-## Anzeigen von Popovers über JavaScript
+## Anzeige von Popovers über JavaScript
 
-Sie können Popovers auch über eine JavaScript-API steuern.
+Sie können Popovers auch mit einer JavaScript-API steuern.
 
-Die Eigenschaft [`HTMLElement.popover`](/de/docs/Web/API/HTMLElement/popover) kann verwendet werden, um das Attribut [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) zu erhalten oder zu setzen. Dies kann verwendet werden, um ein Popover über JavaScript zu erstellen und ist auch nützlich zur Featureerkennung. Beispiel:
+Die [`HTMLElement.popover`](/de/docs/Web/API/HTMLElement/popover)-Eigenschaft kann verwendet werden, um das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut zu erhalten oder zu setzen. Dies kann verwendet werden, um ein Popover über JavaScript zu erstellen und ist auch für die Feature-Erkennung nützlich. Zum Beispiel:
 
 ```js
 function supportsPopover() {
@@ -105,12 +106,12 @@ function supportsPopover() {
 }
 ```
 
-Ebenso:
+Ähnlich:
 
-- [`HTMLButtonElement.popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement) und [`HTMLInputElement.popoverTargetElement`](/de/docs/Web/API/HTMLInputElement/popoverTargetElement) bieten ein Äquivalent zum [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut, wodurch Sie die Steuerknöpfe für ein Popover einrichten können, obwohl der Eigenschaftswert eine Referenz auf das zu steuernde Popover-DOM-Element ist.
-- [`HTMLButtonElement.popoverTargetAction`](/de/docs/Web/API/HTMLButtonElement/popoverTargetAction) und [`HTMLInputElement.popoverTargetAction`](/de/docs/Web/API/HTMLInputElement/popoverTargetAction) bieten ein Äquivalent zum globalen HTML-Attribut [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction), mit dem Sie die von einem Steuerknopf ausgeführte Aktion angeben können.
+- [`HTMLButtonElement.popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement) und [`HTMLInputElement.popoverTargetElement`](/de/docs/Web/API/HTMLInputElement/popoverTargetElement) bieten ein Äquivalent zum [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut, sodass Sie die Steuerungsknöpfe für ein Popover einrichten können, obwohl der Property-Wert eine Referenz auf das zu steuernde Popover-DOM-Element ist.
+- [`HTMLButtonElement.popoverTargetAction`](/de/docs/Web/API/HTMLButtonElement/popoverTargetAction) und [`HTMLInputElement.popoverTargetAction`](/de/docs/Web/API/HTMLInputElement/popoverTargetAction) bieten ein Äquivalent zum [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction)-Global-HTML-Attribut, sodass Sie die Aktion angeben können, die von einem Steuerungsknopf ausgeführt wird.
 
-Durch das Zusammenführen dieser drei können Sie ein Popover und seinen Steuerknopf programmatisch einrichten, wie folgt:
+Indem Sie diese drei zusammenfügen, können Sie ein Popover und seinen Steuerungsknopf programmatisch einrichten:
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -129,15 +130,15 @@ if (popoverSupported) {
 }
 ```
 
-Sie haben auch mehrere Methoden zur Steuerung von Anzeigen und Ausblenden:
+Sie haben auch mehrere Methoden zum Steuern der Anzeige und Ausblendung:
 
-- [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover), um ein Popover anzuzeigen.
-- [`HTMLElement.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover), um ein Popover auszublenden.
-- [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover), um ein Popover umzuschalten.
+- [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) zum Anzeigen eines Popovers.
+- [`HTMLElement.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover) zum Ausblenden eines Popovers.
+- [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) zum Umschalten eines Popovers.
 
-Beispielsweise möchten Sie möglicherweise die Möglichkeit bieten, ein Hilfepopover durch Klicken eines Buttons oder Drücken einer bestimmten Taste auf der Tastatur ein- und auszuschalten. Das erste könnte deklarativ erreicht werden oder Sie könnten es mit JavaScript wie oben gezeigt tun.
+Zum Beispiel möchten Sie möglicherweise die Möglichkeit bieten, ein Hilfe-Popover durch Klicken auf einen Knopf oder Drücken einer bestimmten Taste auf der Tastatur ein- und auszuschalten. Das Erste könnte deklarativ erreicht werden, oder Sie könnten es mit JavaScript wie oben gezeigt machen.
 
-Für das zweite könnten Sie einen Ereignishandler erstellen, der zwei separate Tasten programmiert – eine, um das Popover zu öffnen, und eine, um es wieder zu schließen:
+Für das Zweite könnten Sie einen Ereignishandler erstellen, der zwei separate Tasten programmiert – eine zum Öffnen des Popovers und eine zum Schließen.
 
 ```js
 document.addEventListener("keydown", (event) => {
@@ -155,9 +156,9 @@ document.addEventListener("keydown", (event) => {
 });
 ```
 
-Dieses Beispiel verwendet [`Element.matches()`](/de/docs/Web/API/Element/matches), um programmgesteuert zu überprüfen, ob ein Popover derzeit angezeigt wird. Die {{cssxref(":popover-open")}}-Pseudoklasse stimmt nur mit Popovers überein, die derzeit angezeigt werden. Dies ist wichtig, um die Fehler zu vermeiden, die auftreten, wenn Sie versuchen, ein bereits angezeigtes Popover anzuzeigen oder ein bereits ausgeblendetes Popover auszublenden.
+Dieses Beispiel verwendet [`Element.matches()`](/de/docs/Web/API/Element/matches), um programmatisch zu überprüfen, ob ein Popover derzeit angezeigt wird. Die {{cssxref(":popover-open")}}-Pseudoklasse passt nur auf Popovers, die derzeit angezeigt werden. Dies ist wichtig, um die Fehler zu vermeiden, die auftreten, wenn Sie versuchen, ein bereits angezeigtes Popover zu zeigen oder ein bereits ausgeblendetes Popover zu verbergen.
 
-Alternativ könnten Sie eine einzelne Taste programmieren, um das Popover anzuzeigen _und_ auszublenden, wie folgt:
+Alternativ könnten Sie eine einzelne Taste programmieren, um das Popover sowohl zu zeigen _als auch_ zu verbergen:
 
 ```js
 document.addEventListener("keydown", (event) => {
@@ -167,11 +168,11 @@ document.addEventListener("keydown", (event) => {
 });
 ```
 
-Sehen Sie sich unser [Umschalt-Hilfe-UI-Beispiel](https://mdn.github.io/dom-examples/popover-api/toggle-help-ui/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/toggle-help-ui)) an, um die Popover-JavaScript-Eigenschaften, die Feature-Erkennung und die `togglePopover()`-Methode in Aktion zu sehen.
+Sehen Sie sich unser [Beispiel für eine umschaltbare Hilfe-UI](https://mdn.github.io/dom-examples/popover-api/toggle-help-ui/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/toggle-help-ui)) an, um die Popover-JavaScript-Eigenschaften, die Feature-Erkennung und die `togglePopover()`-Methode in Aktion zu sehen.
 
 ## Verschachtelte Popovers
 
-Es gibt eine Ausnahme von der Regel, nicht mehrere Auto-Popovers gleichzeitig anzuzeigen – wenn sie ineinander verschachtelt sind. In solchen Fällen ist es erlaubt, dass mehrere Popovers gleichzeitig geöffnet sind, da sie in Beziehung zueinander stehen. Dieses Muster wird unterstützt, um Anwendungsfälle wie verschachtelte Popover-Menüs zu ermöglichen.
+Es gibt eine Ausnahme von der Regel, nicht mehrere Auto-Popovers gleichzeitig anzuzeigen – wenn sie ineinander verschachtelt sind. In solchen Fällen dürfen mehrere Popovers gleichzeitig geöffnet sein, aufgrund ihrer Beziehung zueinander. Dieses Muster wird unterstützt, um Anwendungsfälle wie verschachtelte Popover-Menüs zu ermöglichen.
 
 Es gibt drei verschiedene Möglichkeiten, verschachtelte Popovers zu erstellen:
 
@@ -184,7 +185,7 @@ Es gibt drei verschiedene Möglichkeiten, verschachtelte Popovers zu erstellen:
    </div>
    ```
 
-2. Über Auslöse-/Steuerelemente:
+2. Über aufrufende/steuernde Elemente:
 
    ```html
    <div popover>
@@ -203,30 +204,30 @@ Es gibt drei verschiedene Möglichkeiten, verschachtelte Popovers zu erstellen:
    <div popover anchor="foo">Child</div>
    ```
 
-Sehen Sie sich unser [Verschachteltes Popover-Menü Beispiel](https://mdn.github.io/dom-examples/popover-api/nested-popovers/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/nested-popovers)) für ein Beispiel an. Sie werden bemerken, dass recht viele Ereignishandler verwendet wurden, um das Unterpopover bei Maus- und Tastaturzugriff ordnungsgemäß anzuzeigen und auszublenden, und auch um beide Menüs auszublenden, wenn eine Option aus einem der beiden ausgewählt wird. Abhängig davon, wie Sie das Laden neuer Inhalte behandeln, sei es in einer SPA oder einer mehrseitigen Website, müssen einige oder alle dieser Schritte nicht unbedingt notwendig sein, aber sie wurden in diesem Demo aus illustrativen Gründen aufgenommen.
+Sehen Sie sich unser [Beispiel für ein verschachteltes Popover-Menü](https://mdn.github.io/dom-examples/popover-api/nested-popovers/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/nested-popovers)) für ein Beispiel an. Sie werden feststellen, dass einige Ereignishandler verwendet wurden, um die Unter-Popovers angemessen während der Maus- und Tastaturzugriffe anzuzeigen und zu verbergen und auch beide Menüs zu verbergen, wenn eine Option aus einem der Menüs ausgewählt wird. Je nachdem, wie Sie das Laden neuer Inhalte handhaben, entweder in einer SPA oder einer Mehrseiten-Website, könnten einige oder alle diese nicht notwendig sein, aber sie wurden in diesem Demo aus veranschaulichenden Gründen enthalten.
 
-## Verwendung des "Hint"-Popover-Zustands
+## Verwendung des "Hint" Popover-Zustands
 
-Es gibt einen dritten Popover-Typ, den Sie erstellen können — **Hint-Popovers**, indem Sie `popover="hint"` auf Ihr Popover-Element setzen. `hint`-Popovers schließen keine `auto`-Popovers, wenn sie angezeigt werden, sondern schließen andere `hint`-Popovers. Sie können leicht verworfen werden und reagieren auf Schließanforderungen.
+Es gibt eine dritte Art von Popover, die Sie erstellen können — **Hinweis-Popovers**, die durch Setzen von `popover="hint"` auf Ihrem Popover-Element gekennzeichnet sind. `hint` Popovers schließen keine `auto` Popovers, wenn sie angezeigt werden, schließen jedoch andere `hint` Popovers. Sie können light dismissed werden und reagieren auf Schließanforderungen.
 
-Dies ist nützlich für Situationen, in denen Sie beispielsweise Werkzeugleistenschaltflächen haben, die gedrückt werden können, um UI-Popovers anzuzeigen, aber auch Tooltips angezeigt werden sollen, wenn die Schaltflächen bewegt werden, ohne die UI-Popovers zu schließen.
+Dies ist nützlich für Situationen, in denen Sie beispielsweise Symbolleisten-Schaltflächen haben, die gedrückt werden können, um UI-Popovers zu zeigen, aber Sie möchten auch Tooltips anzeigen, wenn die Schaltflächen berührt werden, ohne die UI-Popovers zu schließen.
 
-`hint`-Popovers werden normalerweise in Reaktion auf nicht-klickende JavaScript-Ereignisse wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event)/[`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`focus`](/de/docs/Web/API/Element/focus_event)/[`blur`](/de/docs/Web/API/Element/blur_event) ein- und ausgeblendet. Das Klicken einer Schaltfläche, um ein `hint`-Popover zu öffnen, würde ein offenes `auto`-Popover leicht verwerfen.
+`hint` Popovers werden in der Regel als Reaktion auf nicht-klickende JavaScript-Ereignisse wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event)/[`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`focus`](/de/docs/Web/API/Element/focus_event)/[`blur`](/de/docs/Web/API/Element/blur_event) gezeigt und verborgen. Das Klicken einer Schaltfläche zum Öffnen eines `hint` Popovers würde ein geöffnetes `auto` Popover light-dismiss machen.
 
-Sehen Sie sich unser [Popover-Hint-Demo](https://mdn.github.io/dom-examples/popover-api/popover-hint/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-hint)) für ein Beispiel an, das genau wie oben beschrieben funktioniert. Das Demo zeigt eine Schaltflächenleiste; beim Drücken zeigen die Schaltflächen `auto`-Popup-Untermenüs an, in denen weitere Optionen ausgewählt werden können. Wenn sie jedoch überfährt oder fokussiert werden, zeigen die Schaltflächen auch Tooltips (`hint`-Popovers) an, um dem Benutzer eine Vorstellung davon zu geben, was jede Schaltfläche bewirkt, ohne ein derzeit angezeigtes Untermenü auszublenden.
+Sehen Sie sich unser [Popover-Hinweis-Demo](https://mdn.github.io/dom-examples/popover-api/popover-hint/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-hint)) an, um ein Beispiel zu sehen, das genau wie oben beschrieben funktioniert. Das Demo enthält eine Schaltflächenleiste; wenn die Schaltflächen gedrückt werden, zeigen sie `auto` Popup-Untermenüs, innerhalb derer weitere Optionen ausgewählt werden können. Wenn jedoch überfahren oder fokussiert, zeigen die Schaltflächen auch Tooltips (`hint` Popovers), die dem Benutzer eine Vorstellung davon geben, was jede Schaltfläche macht, die ein aktuell angezeigtes Untermenü nicht verbergen.
 
-In den folgenden Abschnitten werden wir alle wichtigen Teile des Codes durchgehen.
+In den folgenden Abschnitten gehen wir durch alle wichtigen Teile des Codes.
 
 > [!NOTE]
-> Sie _können_ `hint`-Popovers zusammen mit `manual`-Popovers verwenden, auch wenn es dafür nicht wirklich viel Grund gibt. Sie sind so konzipiert, dass sie einige der Einschränkungen von `auto`-Popovers umgehen und Anwendungsfälle wie den in diesem Abschnitt beschriebenen ermöglichen.
+> Sie _können_ `hint` Popovers zusammen mit `manual` Popovers verwenden, obwohl es dafür eigentlich keinen wirklichen Grund gibt. Sie sind dazu gedacht, einige der Einschränkungen von `auto` Popovers zu umgehen, um Anwendungsfälle wie den in diesem Abschnitt detailliert beschriebenen zu ermöglichen.
 >
 > Beachten Sie auch, dass `popover="hint"` in nicht unterstützten Browsern auf `popover="manual"` zurückfällt.
 
 ### Erstellen der Untermenüs mit `popover="auto"`
 
-Die Popup-Untermenüs werden deklarativ erstellt, indem `auto`-Popovers verwendet werden.
+Die Popup-Untermenüs werden deklarativ erstellt, indem `auto` Popovers verwendet werden.
 
-Zuerst die Steuerknöpfe:
+Zuerst die Steuerungsknöpfe:
 
 ```html
 <section id="button-bar">
@@ -260,7 +261,7 @@ Nun die Popovers selbst:
 
 ### Erstellen der Tooltips mit `popover="hint"`
 
-Die Untermenü-Popovers funktionieren gut, wenn sie sich öffnen, wenn die Werkzeugleistenschaltflächen gedrückt werden, aber wie zeigen wir auch Tooltips beim Überfahren/Fokussieren der Schaltflächen an? Zuerst erstellen wir die Tooltips in HTML, indem wir `hint`-Popovers verwenden:
+Die Untermenü-Popovers funktionieren gut, wie sie sind und öffnen sich, wenn die Symbolleisten-Schaltflächen gedrückt werden, aber wie zeigen wir auch Tooltips bei Schaltflächenüberfahrt/–fokus? Zuerst erstellen wir die Tooltips in HTML, unter Verwendung von `hint` Popovers:
 
 ```html
 <div id="tooltip-1" class="tooltip" popover="hint">Tooltip A</div>
@@ -268,16 +269,16 @@ Die Untermenü-Popovers funktionieren gut, wenn sie sich öffnen, wenn die Werkz
 <div id="tooltip-3" class="tooltip" popover="hint">Tooltip C</div>
 ```
 
-Um das Ein-/Ausblenden zu steuern, müssen wir JavaScript verwenden. Zuerst einmal holen wir Referenzen zu den `hint`-Popovers und den Steuerknöpfen in zwei separaten [`NodeList`](/de/docs/Web/API/NodeList)s mithilfe von [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll):
+Um die Anzeige/Ausblendung zu steuern, müssen wir JavaScript verwenden. Zuerst greifen wir auf die `hint` Popovers und die Steuerungsknöpfe in zwei separaten [`NodeList`](/de/docs/Web/API/NodeList)s mit [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) zu:
 
 ```js
 const tooltips = document.querySelectorAll(".tooltip");
 const btns = document.querySelectorAll("#button-bar button");
 ```
 
-Als nächstes erstellen wir eine Funktion, `addEventListeners()`, die vier Ereignislistener (über [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)) auf einen gegebenen {{htmlelement("button")}} setzt, der ausgewählt wird, indem der `<button>` an einem bestimmten Indexwert der `btns`-`NodeList` ausgewählt wird. Die Funktionen wirken auf das `hint`-Popover am selben Indexwert der `tooltips`-`NodeList`, sodass wir die Schaltflächen und die Tooltips synchron halten können — das richtige Tooltip wird angezeigt/ausgeblendet, wenn eine Schaltfläche interagiert wird.
+Als Nächstes erstellen wir eine Funktion, `addEventListeners()`, die vier Event-Listener (über [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)) auf einen gegebenen {{htmlelement("button")}} setzt, der gewählt wird, indem der `<button>` an einem bestimmten Indexwert der `btns` `NodeList` ergriffen wird. Die Funktionen wirken sich auf das `hint` Popover am gleichen Indexwert der `tooltips` `NodeList` aus, wodurch wir die Schaltflächen und Tooltips synchronisieren können – das richtige Tooltip wird gezeigt/versteckt, wenn ein Button interagiert wird.
 
-Die Ereignislistener [zeigen](/de/docs/Web/API/HTMLElement/showPopover) das Popover beim [`mouseover`](/de/docs/Web/API/Element/mouseover_event) und [`focus`](/de/docs/Web/API/Element/focus_event) und [verbergen](/de/docs/Web/API/HTMLElement/hidePopover) das Popover beim [`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`blur`](/de/docs/Web/API/Element/blur_event), was bedeutet, dass die Tooltips sowohl über Maus als auch Tastatur zugänglich sind.
+Die Event-Listener [zeigen](/de/docs/Web/API/HTMLElement/showPopover) das Popover bei [`mouseover`](/de/docs/Web/API/Element/mouseover_event) und [`focus`](/de/docs/Web/API/Element/focus_event) und [verbergen](/de/docs/Web/API/HTMLElement/hidePopover) das Popover bei [`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`blur`](/de/docs/Web/API/Element/blur_event), was bedeutet, dass die Tooltips über Maus und Tastatur zugänglich sind.
 
 ```js
 function addEventListeners(i) {
@@ -299,7 +300,7 @@ function addEventListeners(i) {
 }
 ```
 
-Schließlich verwenden wir eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife, um durch die `<buttons>` in der `btns`-`NodeList` zu iterieren und die `addEventListeners()`-Funktion für jeden aufzurufen, sodass alle die gewünschten Ereignislistener gesetzt bekommen.
+Schließlich verwenden wir eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife, um durch die `<button>`s in der `btns` `NodeList` zu iterieren und die `addEventListeners()`-Funktion für jede von ihnen aufzurufen, sodass alle die gewünschten Event-Listener gesetzt haben.
 
 ```js
 for (let i = 0; i < btns.length; i++) {
@@ -307,13 +308,13 @@ for (let i = 0; i < btns.length; i++) {
 }
 ```
 
-## Styling von Popovers
+## Stilisierung von Popovers
 
-Dieser Abschnitt behandelt einige relevante CSS-Auswahl- und Positionierungstechniken für Popovers.
+Dieser Abschnitt behandelt einige relevante Auswahl- und Positionstechniken für CSS für Popovers.
 
-### Popovers auswählen
+### Auswahl von Popovers
 
-Sie können alle Popovers mit einem einfachen Attributselektor auswählen:
+Sier können alle Popovers mit einem einfachen Attributselektor auswählen:
 
 ```css
 [popover] {
@@ -321,7 +322,7 @@ Sie können alle Popovers mit einem einfachen Attributselektor auswählen:
 }
 ```
 
-Alternativ können Sie einen bestimmten Popover-Typ auswählen, indem Sie einen Wert im Attributselektor einschließen:
+Alternativ können Sie einen bestimmten Popover-Typ auswählen, indem Sie einen Wert im Attributselektor hinzufügen:
 
 ```css
 [popover="auto"] {
@@ -337,9 +338,9 @@ Sie können nur Popovers auswählen, die angezeigt werden, indem Sie die {{cssxr
 }
 ```
 
-### Styling des Popover-Hintergrunds
+### Stil des Popover-Hintergrunds
 
-Das {{cssxref("::backdrop")}}-Pseudo-Element ist ein vollbildfüllendes Element, das direkt hinter den angezeigten Popover-Elementen in der {{Glossary("top_layer", "obersten Ebene")}} platziert wird, sodass Effekte zu den Seiteninhalten hinter dem Popover(s) hinzugefügt werden können, wenn gewünscht. Sie könnten beispielsweise die Inhalte hinter dem Popover verwischen, um den Fokus des Benutzers darauf zu lenken:
+Das {{cssxref("::backdrop")}} Pseudo-Element ist ein Vollbild-Element, das direkt hinter angezeigten Popover-Elementen in der {{Glossary("top_layer", "obersten Schicht")}} platziert wird, um Effekte auf den Seiteninhalt hinter dem/den Popover(s) hinzufügen zu können, wenn gewünscht. Sie möchten zum Beispiel den Inhalt hinter dem Popover verwischen, um die Aufmerksamkeit des Benutzers darauf zu lenken:
 
 ```css
 ::backdrop {
@@ -347,11 +348,11 @@ Das {{cssxref("::backdrop")}}-Pseudo-Element ist ein vollbildfüllendes Element,
 }
 ```
 
-Sehen Sie sich unser [Popover-Hintergrundunschärfe Beispiel](https://mdn.github.io/dom-examples/popover-api/blur-background/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/blur-background)) an, um eine Vorstellung davon zu bekommen, wie dies rendert.
+Sehen Sie unser [Popover-Blurring-Beispiel](https://mdn.github.io/dom-examples/popover-api/blur-background/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/blur-background)), um eine Vorstellung davon zu bekommen, wie dies gerendert wird.
 
 ### Positionierung von Popovers
 
-Wenn Sie sich die ersten beiden Beispiele angesehen haben, die zu Beginn des Artikels verlinkt sind, haben Sie möglicherweise bemerkt, dass die Popovers in der Mitte des Ansichtsfensters erscheinen, ihren Inhalt umhüllen und einen schwarzen Rand haben. Dies ist das Standard-Design, das durch die folgende Regel im UA-Stilblatt erreicht wird:
+Wenn Sie sich die ersten paar am Anfang des Artikels verlinkten Beispiele ansehen, werden Sie vielleicht bemerkt haben, dass die Popovers in der Mitte des Viewports erscheinen, ihren Inhalt umwickeln, und einen schwarzen Rahmen aufweisen. Dies ist das Standardstyling, erreicht durch die folgende Regel im UA-Stylesheet:
 
 ```css
 [popover] {
@@ -368,7 +369,7 @@ Wenn Sie sich die ersten beiden Beispiele angesehen haben, die zu Beginn des Art
 }
 ```
 
-Um benutzerdefinierte Größenanpassungen anzuwenden und das Popover an einer anderen Stelle zu positionieren, könnten Sie die oben genannten Stile mit etwas wie diesem überschreiben:
+Um eine benutzerdefinierte Größenänderung vorzunehmen und das Popover woanders zu positionieren, könnten Sie die obigen Styles mit etwas wie diesem überschreiben:
 
 ```css
 :popover-open {
@@ -382,17 +383,17 @@ Um benutzerdefinierte Größenanpassungen anzuwenden und das Popover an einer an
 }
 ```
 
-Sie können ein isoliertes Beispiel dafür in unserem [Popover-Positionierungsbeispiel](https://mdn.github.io/dom-examples/popover-api/popover-positioning/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-positioning)) sehen.
+Sie können ein isoliertes Beispiel davon in unserem [Popover-Positionierungsbeispiel](https://mdn.github.io/dom-examples/popover-api/popover-positioning/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-positioning)) sehen.
 
-### Popover-Anker-Positionierung
+### Popover-Ankerpositionierung
 
-Es gibt eine weitere nützliche Positionierungsoption, die die Popover-API bietet. Wenn Sie ein Popover relativ zu seinem Auslöser anstatt dem Ansichtsfenster oder einem positionierten Vorfahren positionieren möchten, können Sie den Vorteil nutzen, dass Popovers und ihre Auslöser eine **implizite Ankerreferenz** haben.
+Es gibt eine andere nützliche Positionierungsoption, die die Popover-API bietet. Wenn Sie ein Popover relativ zu seinem Invoker statt dem Viewport oder einem positionierten Vorfahren positionieren möchten, können Sie den Vorteil nutzen, dass Popovers und ihre Invoker eine **_implizite Ankerreferenz_** haben.
 
-[Das Verknüpfen eines beliebigen Popovers mit seinem Auslöser](#andere_möglichkeiten,_eine_popover-auslöser-beziehung_einzurichten) erstellt eine implizite Ankerreferenz zwischen den beiden. Dies führt dazu, dass der Auslöser zum **Ankerelement** des Popovers wird, was bedeutet, dass Sie das Popover relativ dazu mit [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) positionieren können.
+[Das Zuordnen eines Popovers mit seinem Invoker](#andere_möglichkeiten,_eine_popover-invoker-beziehung_einzurichten) erstellt eine implizite Ankerreferenz zwischen den beiden. Dies führt dazu, dass der Invoker das **_Ankerelement_** des Popovers wird, was bedeutet, dass Sie das Popover relativ dazu mit [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) positionieren können.
 
-Da die Assoziation zwischen dem Popover und dem Auslöser implizit ist, muss keine explizite Assoziation mit den {{cssxref("anchor-name")}}- und {{cssxref("position-anchor")}}-Eigenschaften hergestellt werden. Sie müssen jedoch weiterhin das Positionierungs-CSS angeben.
+Weil die Zuordnung zwischen dem Popover und dem Invoker implizit ist, braucht keine explizite Zuordnung mit den {{cssxref("anchor-name")}} und {{cssxref("position-anchor")}} Eigenschaften gemacht zu werden. Sie müssen jedoch immer noch die Positionierungs-CSS spezifizieren.
 
-Beispielsweise könnten Sie eine Kombination aus {{cssxref("anchor()")}}-Funktionswerten setzen, die auf {{Glossary("inset_properties", "Einfüge-Eigenschaften")}} angewendet werden, und `anchor-center`-Werte, die auf Ausrichtungseigenschaften gesetzt werden:
+Zum Beispiel könnten Sie eine Kombination aus {{cssxref("anchor()")}}-Funktionwerten, die auf {{Glossary("inset_properties", "abgesetzte Eigenschaften")}} gesetzt sind, und `anchor-center` Werte, die auf Ausrichtungseigenschaften gesetzt sind, verwenden:
 
 ```css
 .my-popover {
@@ -409,39 +410,39 @@ Oder Sie könnten eine {{cssxref("position-area")}}-Eigenschaft verwenden:
 }
 ```
 
-Siehe [Verwendung der CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) für weitere Details zur Assoziation von Anker- und positionierten Elementen und zur Positionierung von Elementen relativ zu ihrem Anker.
+Sehen Sie [Using CSS anchor positioning](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) für weitere Details über die Zuordnung von Anker- und positionierten Elementen und das Positionieren von Elementen relativ zu ihrem Anker.
 
 > [!NOTE]
-> Für ein Beispiel, das diese implizite Assoziation verwendet, sehen Sie unser [Popover-Hint-Demo](https://mdn.github.io/dom-examples/popover-api/popover-hint/) ([Source](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-hint)). Wenn Sie sich den CSS-Code ansehen, werden Sie feststellen, dass keine expliziten Ankerassoziationen mit den {{cssxref("anchor-name")}}- und {{cssxref("position-anchor")}}-Eigenschaften gemacht wurden.
+> Für ein Beispiel, das diese implizite Zuordnung verwendet, sehen Sie unser [Popover-Hinweis-Demo](https://mdn.github.io/dom-examples/popover-api/popover-hint/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-hint)). Wenn Sie den CSS-Code überprüfen, werden Sie sehen, dass keine expliziten Ankerzuordnungen mit den Eigenschaften {{cssxref("anchor-name")}} und {{cssxref("position-anchor")}} gemacht werden.
 
 ## Animieren von Popovers
 
-Popovers sind auf `display: none;` gesetzt, wenn sie versteckt sind, und `display: block;`, wenn sie angezeigt werden, sowie aus der {{Glossary("top_layer", "obersten Ebene")}} und dem [Zugänglichkeit-Baum](/de/docs/Web/Performance/Guides/How_browsers_work#building_the_accessibility_tree) entfernt oder hinzugefügt werden. Daher muss die {{cssxref("display")}}-Eigenschaft animierbar sein, damit Popovers animiert werden können. [Unterstützende Browser](/de/docs/Web/CSS/display#browser_compatibility) animieren `display` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Genauer gesagt wird der Browser zwischen `none` und einem anderen Wert von `display` umschalten, damit der animierte Inhalt während der gesamten Animationsdauer angezeigt wird. Beispielsweise:
+Popovers werden auf `display: none;` gesetzt, wenn sie verborgen sind und `display: block;` wenn sie angezeigt werden, sowie aus der {{Glossary("top_layer", "obersten Schicht")}} und dem [Zugänglichkeitsbaum](/de/docs/Web/Performance/Guides/How_browsers_work#building_the_accessibility_tree) entfernt/hinzugefügt. Damit Popovers animiert werden können, muss die {{cssxref("display")}}-Eigenschaft animierbar sein. [Unterstützende Browser](/de/docs/Web/CSS/display#browser_compatibility) animieren `display` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Speziell: Der Browser wechselt zwischen `none` und einem anderen Wert von `display`, sodass der animierte Inhalt für die gesamte Animationsdauer sichtbar ist. Beispielsweise:
 
-- Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) wird der Wert bei `0%` der Animationsdauer auf `block` umgeschaltet, sodass er während der gesamten Dauer sichtbar ist.
-- Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` wird der Wert bei `100%` der Animationsdauer auf `none` umgeschaltet, sodass er während der gesamten Dauer sichtbar ist.
+- Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) wechselt der Wert bei `0%` der Animationsdauer zu `block`, sodass er die ganze Zeit sichtbar ist.
+- Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` wechselt der Wert bei `100%` der Animationsdauer zu `none`, sodass er die ganze Zeit sichtbar ist.
 
 > [!NOTE]
-> Beim Animieren mit [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) gesetzt sein, um obiges Verhalten zu ermöglichen. Beim Animieren mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) ist das obige Verhalten standardmäßig verfügbar; ein äquivalenter Schritt ist nicht erforderlich.
+> Beim Animieren mit [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) gesetzt werden, um das oben beschriebene Verhalten zu ermöglichen. Beim Animieren mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) ist das oben beschriebene Verhalten standardmäßig verfügbar; ein entsprechender Schritt ist nicht erforderlich.
 
 ### Übergang eines Popovers
 
-Beim Animieren von Popovers mit CSS-Übergängen sind folgende Merkmale erforderlich:
+Beim Animieren von Popovers mit CSS-Übergängen sind die folgenden Funktionen erforderlich:
 
 - {{CSSxRef("@starting-style")}} At-Regel
-  - : Bietet einen Satz von Startwerten für Eigenschaften, die auf dem Popover gesetzt sind und von denen Sie beim ersten Anzeigen aus übergehen möchten. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig treten CSS-Übergänge nur auf, wenn sich eine Eigenschaft von einem Wert zu einem anderen auf einem sichtbaren Element ändert; sie werden nicht bei einer ersten Stilaktualisierung eines Elements ausgelöst oder wenn sich der `display`-Typ von `none` zu einem anderen Typ ändert.
-- {{CSSxRef("display")}} Eigenschaft
-  - : Fügen Sie `display` zur Übergangsliste hinzu, damit das Popover während der Dauer des Übergangs als `display: block` (oder ein anderer sichtbarer `display`-Wert) bleibt, um sicherzustellen, dass die anderen Übergänge sichtbar sind.
-- {{CSSxRef("overlay")}} Eigenschaft
-  - : Einschluss von `overlay` in die Übergangsliste, um sicherzustellen, dass die Entfernung des Popovers von der obersten Ebene erst nach Abschluss des Übergangs erfolgt, um sicherzustellen, dass der Übergang sichtbar ist.
-- {{cssxref("transition-behavior")}} Eigenschaft
-  - : Setzen Sie `transition-behavior: allow-discrete` auf die `display`- und `overlay`-Übergänge (oder auf den {{cssxref("transition")}}-Kurzschreibweise), um diskrete Übergänge auf diesen beiden Eigenschaften zu ermöglichen, die standardmäßig nicht animierbar sind.
+  - : Bietet eine Reihe von Anfangswerten für die Eigenschaften, die auf dem Popover gesetzt sind und die Sie beim ersten Anzeigen übergehen möchten. Dies ist erforderlich, um unerwartetes Verhalten zu vermeiden. Standardmäßig treten CSS-Übergänge nur dann auf, wenn sich eine Eigenschaft von einem Wert zu einem anderen auf einem sichtbaren Element ändert; sie werden nicht bei der ersten Stiländerung eines Elements oder beim Wechsel des `display`-Typs von `none` zu einem anderen Typ ausgelöst.
+- {{CSSxRef("display")}}-Eigenschaft
+  - : Fügen Sie `display` zur Liste der Übergangseigenschaften hinzu, sodass das Popover während der gesamten Dauer des Übergangs als `display: block` (oder ein anderer sichtbarer `display`-Wert) bleibt und somit die anderen Übergänge sichtbar sind.
+- {{CSSxRef("overlay")}}-Eigenschaft
+  - : Schließen Sie `overlay` in die Übergangseigenschaften ein, um sicherzustellen, dass die Entfernung des Popovers aus der obersten Schicht erst nach Abschluss des Übergangs erfolgt, sodass der Übergang wieder sichtbar wird.
+- {{cssxref("transition-behavior")}}-Eigenschaft
+  - : Setzen Sie `transition-behavior: allow-discrete` auf die `display`- und `overlay`-Übergänge (oder auf die {{cssxref("transition")}}-Kurzform), um diskrete Übergänge auf diese beiden nicht standardmäßig animierbaren Eigenschaften zu ermöglichen.
 
-Lassen Sie uns ein Beispiel ansehen, damit Sie sehen können, wie dies aussieht:
+Lassen Sie uns ein Beispiel betrachten, damit Sie sehen können, wie das aussieht:
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("div")}}, das durch das globale [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) HTML-Attribut als Popover deklariert und ein {{htmlelement("button")}}, das als Popover-Anzeigesteuerung festgelegt ist:
+Das HTML enthält ein {{htmlelement("div")}}-Element, das über das globale [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-HTML-Attribut als Popover deklariert ist, und ein {{htmlelement("button")}}-Element, das als Anzeige-Steuerung des Popovers festgelegt ist:
 
 ```html
 <button popovertarget="mypopover">Show the popover</button>
@@ -450,7 +451,7 @@ Das HTML enthält ein {{htmlelement("div")}}, das durch das globale [`popover`](
 
 #### CSS
 
-Die beiden Popover-Eigenschaften, die wir übergehen möchten, sind [`opacity`](/de/docs/Web/CSS/opacity) und [`transform`](/de/docs/Web/CSS/transform). Wir möchten, dass das Popover ein- oder ausgeblendet wird, während es horizontal wächst oder schrumpft. Um dies zu erreichen, setzen wir einen Startzustand für diese Eigenschaften im versteckten Zustand des Popover-Elements (ausgewählt mit dem `[popover]` [Attributselektor](/de/docs/Web/CSS/Attribute_selectors)) und einen Endzustand für den angezeigten Zustand des Popovers (ausgewählt über die [`:popover-open`](/de/docs/Web/CSS/:popover-open) Pseudoklasse). Wir verwenden auch die [`transition`](/de/docs/Web/CSS/transition)-Eigenschaft, um die zu animierenden Eigenschaften und die Animationsdauer zu definieren, während das Popover gezeigt oder versteckt wird.
+Die beiden Popover-Eigenschaften, die wir übergehen möchten, sind [`opacity`](/de/docs/Web/CSS/opacity) und [`transform`](/de/docs/Web/CSS/transform). Wir möchten, dass das Popover während des Ein- und Ausblendens horizontal wächst oder schrumpft. Um dies zu erreichen, setzen wir einen Anfangszustand für diese Eigenschaften auf dem ausgeblendeten Zustand des Popovers (ausgewählt mit dem `[popover]` [Attributselektor](/de/docs/Web/CSS/Attribute_selectors)) und einen Endzustand für den angezeigten Zustand des Popovers (ausgewählt über die [`:popover-open`](/de/docs/Web/CSS/:popover-open)-Pseudoklasse). Wir verwenden auch die [`transition`](/de/docs/Web/CSS/transition)-Eigenschaft, um die zu animierenden Eigenschaften und die Dauer der Animation festzulegen, während das Popover angezeigt oder ausgeblendet wird.
 
 ```css
 html {
@@ -516,14 +517,14 @@ so this starting-style rule cannot be nested */
 }
 ```
 
-Wie bereits erwähnt, haben wir auch:
+Wie zuvor besprochen, haben wir auch:
 
-- Einen Startzustand für den `transition` innerhalb des `@starting-style`-Blocks gesetzt.
-- `display` zur Liste der übergangenen Eigenschaften hinzugefügt, damit das animierte Element während der Ein- und Ausblendanimationen des Popovers sichtbar (auf `display: block` gesetzt) bleibt. Ohne dies wäre die Ausblendanimation nicht sichtbar; faktisch würde das Popover einfach verschwinden.
-- `overlay` zur Liste der übergangenen Eigenschaften hinzugefügt, um sicherzustellen, dass die Entfernung des Elements von der obersten Ebene erst nach Abschluss der Animation erfolgt. Der Effekt hiervon mag bei einfachen Animationen wie dieser nicht bemerkbar sein, aber in komplexeren Fällen kann die Auslassung dieser Eigenschaft dazu führen, dass das Element aus dem Overlay entfernt wird, bevor der Übergang abgeschlossen ist.
+- Einen Anfangszustand für das `transition`-Element im `@starting-style`-Block gesetzt.
+- `display` zur Liste der übergangenen Eigenschaften hinzugefügt, damit das animierte Element (auf `display: block` gesetzt) während der Ein- und Ausstiegsanimationen des Popovers sichtbar bleibt. Ohne dies wäre die Ausstiegsanimation nicht sichtbar; in der Praxis würde das Popover einfach verschwinden.
+- `overlay` zur Liste der übergangenen Eigenschaften hinzugefügt, um sicherzustellen, dass die Entfernung des Elements aus der obersten Schicht erst nach Abschluss der Animation erfolgt. Die Wirkung dessen ist in einfacheren Animationen wie dieser möglicherweise nicht sichtbar, aber in komplexeren Fällen kann das Weglassen dieser Eigenschaft dazu führen, dass das Element vor Abschluss des Übergangs aus dem Overlay entfernt wird.
 - `allow-discrete` auf beide Eigenschaften in den obigen Übergängen gesetzt, um [diskrete Übergänge](/de/docs/Web/CSS/CSS_animated_properties#discrete) zu ermöglichen.
 
-Außerdem haben wir einen Übergang auf dem [`::backdrop`](/de/docs/Web/CSS/::backdrop) hinter dem Popover definiert, der beim Öffnen des Popovers erscheint und eine schöne Verdunklungsanimation bereitstellt.
+Sie werden feststellen, dass wir auch einen Übergang auf das [`::backdrop`](/de/docs/Web/CSS/::backdrop), der hinter dem Popover erscheint, wenn es geöffnet wird, mit einer netten Verdunkelungsanimation gemacht haben.
 
 #### Ergebnis
 
@@ -532,23 +533,23 @@ Der Code rendert wie folgt:
 {{ EmbedLiveSample("Transitioning a popover", "100%", "200") }}
 
 > [!NOTE]
-> Da Popovers bei jedem Anzeigen von `display: none` zu `display: block` wechseln, wechselt das Popover bei jedem Eintrittsübergang von seinen `@starting-style`-Stilen zu seinen `[popover]:popover-open`-Stilen. Wenn das Popover geschlossen wird, wechselt es von seinem `[popover]:popover-open`-Zustand in den Standard-`[popover]`-Zustand.
+> Da Popovers jedes Mal von `display: none` nach `display: block` wechseln, wenn sie angezeigt werden, wechselt das Popover jedes Mal vom `@starting-style`-Stil in den `[popover]:popover-open`-Stil, wenn der Einstransition auftritt. Wenn das Popover schließt, wechselt es von seinem `[popover]:popover-open`-Zustand in den Standard-`[popover]`-Zustand.
 >
-> In solchen Fällen ist es möglich, dass der Stilübergang beim Eintritt und Austritt unterschiedlich ist. Siehe unser [Demonstration of when starting styles are used](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used) Beispiel für einen Beweis dafür.
+> Es ist möglich, dass die Stilübergänge beim Ein- und Ausstieg in solchen Fällen unterschiedlich sind. Sehen Sie sich unser [Demonstration of when starting styles are used](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used)-Beispiel an, um einen Beweis dafür zu sehen.
 
-### Eine Popover-Schlüsselbildanimation
+### Eine Popover-Keyframe-Animation
 
-Beim Animieren eines Popovers mit CSS-Schlüsselbildanimationen sind einige Unterschiede zu beachten:
+Beim Animieren eines Popovers mit CSS-Keyframe-Animationen gibt es einige Unterschiede zu beachten:
 
-- Sie geben keine `@starting-style` an; Sie schließen Ihre "to"- und "from"-`display`-Werte in Schlüsselbildern ein.
-- Sie aktivieren keine diskreten Animationen explizit; es gibt kein Äquivalent zu `allow-discrete` innerhalb von Schlüsselbildern.
-- Sie müssen `overlay` auch nicht in Schlüsselbildern setzen; die `display`-Animation behandelt die Animation des Popovers von sichtbar zu verborgen.
+- Sie stellen kein `@starting-style` bereit; Sie nehmen Ihre "zu" und "von" `display`-Werte in Keyframes auf.
+- Sie aktivieren diskrete Animationen nicht explizit; es gibt kein Äquivalent zu `allow-discrete` in Keyframes.
+- Sie müssen `overlay` auch nicht in Keyframes setzen; die `display`-Animation übernimmt die Animation des Popovers von sichtbar zu verborgen.
 
-Schauen wir uns ein Beispiel an.
+Lassen Sie uns ein Beispiel ansehen.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("div")}}, das als Popover deklariert ist, und ein {{htmlelement("button")}}, das als Popover-Anzeigesteuerung festgelegt ist:
+Das HTML enthält ein {{htmlelement("div")}}-Element, das als Popover deklariert ist, und ein {{htmlelement("button")}}-Element, das als Anzeige-Steuerung des Popovers festgelegt ist:
 
 ```html
 <button popovertarget="mypopover">Show the popover</button>
@@ -557,7 +558,7 @@ Das HTML enthält ein {{htmlelement("div")}}, das als Popover deklariert ist, un
 
 #### CSS
 
-Wir haben Schlüsselbilder definiert, die die gewünschten Ein- und Ausblendanimationen sowie eine Eingangsanimation nur für den Hintergrund spezifizieren. Beachten Sie, dass es nicht möglich war, den Hintergrundeinblendung-Effekt aus-zu-faden, da der Hintergrund unmittelbar aus dem DOM entfernt wird, wenn das Popover geschlossen wird, sodass es nichts zu animierten gibt.
+Wir haben Keyframes definiert, die die gewünschten Ein- und Ausstiegsanimationen und eine Einstransition nur für das Overlay spezifizieren. Beachten Sie, dass es nicht möglich war, das Overlay-Fade-Out zu animieren — das Overlay wird sofort aus dem DOM entfernt, wenn das Popover geschlossen wird, sodass nichts zum Animieren vorhanden ist.
 
 ```css
 html {

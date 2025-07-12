@@ -2,14 +2,12 @@
 title: kernelUnitLength
 slug: Web/SVG/Reference/Attribute/kernelUnitLength
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: d22284cbba8b64afd6ad8c965d4ac2c927c59550
 ---
 
-{{Deprecated_Header}}
+Das **`kernelUnitLength`** Attribut hat zwei Bedeutungen basierend auf dem Kontext, in dem es verwendet wird. Bei Beleuchtungsfilter-Primitiven gibt es die beabsichtigte Entfernung für die x- und y-Koordinaten an. Bei {{SVGElement("feConvolveMatrix")}} gibt es die beabsichtigte Entfernung zwischen aufeinanderfolgenden Spalten und Zeilen in der Kernel-Matrix an.
 
-Das Attribut **`kernelUnitLength`** hat zwei Bedeutungen, je nachdem, in welchem Kontext es verwendet wird. Bei Beleuchtungsfilter-Primitiven gibt es die beabsichtigte Entfernung für die x- und y-Koordinaten an, bei {{SVGElement("feConvolveMatrix")}} die beabsichtigte Entfernung zwischen aufeinanderfolgenden Spalten und Reihen der Kernmatrix.
-
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feConvolveMatrix")}}
 - {{SVGElement("feDiffuseLighting")}}
@@ -17,9 +15,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## feConvolveMatrix
 
-Für die {{SVGElement("feConvolveMatrix")}} gibt `kernelUnitLength` die beabsichtigte Entfernung in aktuellen Filtereinheiten an (d.h. Einheiten, wie sie durch den Wert des Attributs {{SVGAttr("primitiveUnits")}} bestimmt werden) zwischen aufeinanderfolgenden Spalten und Reihen in der {{SVGAttr("kernelMatrix")}}. Durch das Festlegen von Wert(en) für `kernelUnitLength` wird der Kernel in einem skalierbaren, abstrakten Koordinatensystem definiert. Wenn das Attribut nicht angegeben ist, beträgt der Standardwert ein Pixel im Offscreen-Bitmap, was ein pixelbasiertes Koordinatensystem ist und daher möglicherweise nicht skalierbar ist.
+Für die {{SVGElement("feConvolveMatrix")}} gibt `kernelUnitLength` die beabsichtigte Entfernung in aktuellen Filtereinheiten an (d.h. Einheiten, wie sie durch den Wert des Attributs {{SVGAttr("primitiveUnits")}} bestimmt werden) zwischen aufeinanderfolgenden Spalten bzw. Zeilen in der {{SVGAttr("kernelMatrix")}}. Durch die Angabe von Werten für `kernelUnitLength` wird der Kernel in einem skalierbaren, abstrakten Koordinatensystem definiert. Wenn das Attribut nicht angegeben wird, ist der Standardwert ein Pixel im Offscreen-Bitmap, welches ein pixelbasiertes Koordinatensystem ist und daher möglicherweise nicht skalierbar.
 
-Wenn ein negativer oder Nullwert angegeben wird, wird stattdessen der Standardwert verwendet.
+Wird ein negativer oder Nullwert angegeben, wird stattdessen der Standardwert verwendet.
 
 <table class="properties">
   <tbody>
@@ -45,15 +43,15 @@ Wenn ein negativer oder Nullwert angegeben wird, wird stattdessen der Standardwe
 </table>
 
 - `<number-optional-number>`
-  - : Die erste Zahl ist der x-Wert. Die zweite Zahl ist der y-Wert. Wenn der x-Wert nicht angegeben ist, wird standardmäßig der gleiche Wert wie x verwendet.
+  - : Die erste Zahl ist der x-Wert. Die zweite Zahl ist der y-Wert. Wenn der x-Wert nicht angegeben wird, wird der gleiche Wert wie x angenommen.
 
 ## feDiffuseLighting
 
-Für die {{SVGElement("feDiffuseLighting")}} gibt `kernelUnitLength` die beabsichtigte Entfernung in aktuellen Filtereinheiten an (d.h. Einheiten, wie sie durch den Wert des Attributs {{SVGAttr("primitiveUnits")}} bestimmt werden) für die x- und y-Koordinate in den Formeln zur Berechnung der Oberflächennormalen.
+Für die {{SVGElement("feDiffuseLighting")}} gibt `kernelUnitLength` die beabsichtigte Entfernung in aktuellen Filtereinheiten an (d.h. Einheiten, wie sie durch den Wert des Attributs {{SVGAttr("primitiveUnits")}} bestimmt werden) für die x- und y-Koordinate in den Berechnungsformeln der Oberflächennormale.
 
-Die erste Zahl ist der x-Wert. Die zweite Zahl ist der y-Wert. Wenn der y-Wert nicht angegeben ist, wird standardmäßig der gleiche Wert wie x verwendet. Durch das Festlegen von Wert(en) für `kernelUnitLength` wird der Kernel in einem skalierbaren, abstrakten Koordinatensystem definiert. Wenn das Attribut nicht angegeben ist, stellen die x- und y-Werte sehr kleine Deltas relativ zu einer gegebenen Position dar, die in einigen Fällen als ein Pixel im Zwischenbild Offscreen-Bitmap implementiert werden können, was ein pixelbasiertes Koordinatensystem ist und daher möglicherweise nicht skalierbar ist.
+Die erste Zahl ist der x-Wert. Die zweite Zahl ist der y-Wert. Wenn der y-Wert nicht angegeben wird, wird der gleiche Wert wie x angenommen. Durch die Angabe von Werten für `kernelUnitLength` wird der Kernel in einem skalierbaren, abstrakten Koordinatensystem definiert. Wenn das Attribut nicht angegeben wird, stellen x- und y-Werte sehr kleine Deltas relativ zu einer gegebenen Position dar, was in einigen Fällen als ein Pixel im Offscreen-Bitmap des Zwischenbildes implementiert werden kann, welches ein pixelbasiertes Koordinatensystem ist und daher möglicherweise nicht skalierbar.
 
-Wenn ein negativer oder Nullwert angegeben wird, wird stattdessen der Standardwert verwendet.
+Wird ein negativer oder Nullwert angegeben, wird stattdessen der Standardwert verwendet.
 
 <table class="properties">
   <tbody>
@@ -80,11 +78,11 @@ Wenn ein negativer oder Nullwert angegeben wird, wird stattdessen der Standardwe
 
 ## feSpecularLighting
 
-Für die {{SVGElement("feSpecularLighting")}} gibt `kernelUnitLength` die beabsichtigte Entfernung in aktuellen Filtereinheiten an (d.h. Einheiten, wie sie durch den Wert des Attributs {{SVGAttr("primitiveUnits")}} bestimmt werden) für die x- und y-Koordinate in den Formeln zur Berechnung der Oberflächennormalen.
+Für die {{SVGElement("feSpecularLighting")}} gibt `kernelUnitLength` die beabsichtigte Entfernung in aktuellen Filtereinheiten an (d.h. Einheiten, wie sie durch den Wert des Attributs {{SVGAttr("primitiveUnits")}} bestimmt werden) für die x- und y-Koordinate in den Berechnungsformeln der Oberflächennormale.
 
-Die erste Zahl ist der x-Wert. Die zweite Zahl ist der y-Wert. Wenn der y-Wert nicht angegeben ist, wird standardmäßig der gleiche Wert wie x verwendet. Durch das Festlegen von Wert(en) für `kernelUnitLength` wird der Kernel in einem skalierbaren, abstrakten Koordinatensystem definiert. Wenn das Attribut nicht angegeben ist, stellen die x- und y-Werte sehr kleine Deltas relativ zu einer gegebenen Position dar, die in einigen Fällen als ein Pixel im Zwischenbild Offscreen-Bitmap implementiert werden können, was ein pixelbasiertes Koordinatensystem ist und daher möglicherweise nicht skalierbar ist.
+Die erste Zahl ist der x-Wert. Die zweite Zahl ist der y-Wert. Wenn der y-Wert nicht angegeben wird, wird der gleiche Wert wie x angenommen. Durch die Angabe von Werten für `kernelUnitLength` wird der Kernel in einem skalierbaren, abstrakten Koordinatensystem definiert. Wenn das Attribut nicht angegeben wird, stellen x- und y-Werte sehr kleine Deltas relativ zu einer gegebenen Position dar, was in einigen Fällen als ein Pixel im Offscreen-Bitmap des Zwischenbildes implementiert werden kann, welches ein pixelbasiertes Koordinatensystem ist und daher möglicherweise nicht skalierbar.
 
-Wenn ein negativer oder Nullwert angegeben wird, wird stattdessen der Standardwert verwendet.
+Wird ein negativer oder Nullwert angegeben, wird stattdessen der Standardwert verwendet.
 
 <table class="properties">
   <tbody>

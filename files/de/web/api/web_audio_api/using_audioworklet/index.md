@@ -226,7 +226,7 @@ Wie jeder andere Web Audio-Node unterstützt [`AudioWorkletNode`](/de/docs/Web/A
 
 ### Hinzufügen von Parameterunterstützung zum Prozessor
 
-Um Parameter zu einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) hinzuzufügen, müssen Sie sie innerhalb Ihrer auf [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-basierenden Prozessorklasse in Ihrem Modul definieren. Dies geschieht durch das Hinzufügen des statischen Getters [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) zu Ihrer Klasse. Diese Funktion sollte ein Array von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten zurückgeben, eines für jeden Parameter, der vom Prozessor unterstützt wird.
+Um Parameter zu einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) hinzuzufügen, müssen Sie sie innerhalb Ihrer auf [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-basierenden Prozessorklasse in Ihrem Modul definieren. Dies geschieht durch das Hinzufügen des statischen Getters [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static) zu Ihrer Klasse. Diese Funktion sollte ein Array von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten zurückgeben, eines für jeden Parameter, der vom Prozessor unterstützt wird.
 
 In der folgenden Implementierung von `parameterDescriptors()` enthält das zurückgegebene Array zwei `AudioParam`-Objekte. Das erste definiert `gain` als einen Wert zwischen 0 und 1, mit einem Standardwert von 0.5. Der zweite Parameter ist `frequency` und hat einen Standardwert von 440.0, mit einem Bereich von 27.5 bis 4186.009, einschließlich.
 

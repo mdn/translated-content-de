@@ -2,16 +2,16 @@
 title: rotate
 slug: Web/SVG/Reference/Attribute/rotate
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: db01d0c8b4cbf8a4467b1db65e17f6724d0ce710
 ---
 
-Das `rotate`-Attribut legt fest, wie das animierte Element rotiert, während es entlang eines im {{SVGElement("animateMotion")}}-Element angegebenen Pfades reist.
+Das `rotate`-Attribut legt fest, wie das animierte Element rotiert, während es einem Pfad folgt, der in einem {{SVGElement("animateMotion")}}-Element angegeben ist.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animateMotion")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -33,9 +33,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Die Werte `auto` und `auto-reverse` ermöglichen es, dass sich die Rotation des animierten Elements dynamisch ändert, während es entlang des Pfades reist. Wenn der Wert von `rotate` `auto` ist, dreht sich das Element so, dass seine rechte Seite in die aktuelle Bewegungsrichtung zeigt. Wenn der Wert `auto-reverse` ist, dreht sich die linke Seite in die aktuelle Bewegungsrichtung.
+Die Werte `auto` und `auto-reverse` ermöglichen, dass sich die Rotation des animierten Elements dynamisch ändert, während es dem Pfad folgt. Wenn der Wert von `rotate` `auto` ist, dreht sich das Element so, dass seine rechte Seite in die aktuelle Bewegungsrichtung zeigt. Wenn der Wert `auto-reverse` ist, dreht sich seine linke Seite in die aktuelle Bewegungsrichtung.
 
-Die Einstellung des `rotate`-Wertes auf eine Zahl gibt eine konstante Rotation in Grad an, die sich mit der Animation nicht ändert. Der Standardwert von `0` behält das animierte Element in seiner ursprünglichen Ausrichtung.
+Wenn der Wert von `rotate` auf eine Zahl gesetzt wird, wird eine konstante Rotation in Grad festgelegt, die sich während der Animation nicht ändert. Der Standardwert von `0` behält die ursprüngliche Ausrichtung des animierten Elements bei.
 
 ## Beispiele
 
@@ -105,3 +105,7 @@ Die Einstellung des `rotate`-Wertes auf eine Zahl gibt eine konstante Rotation i
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

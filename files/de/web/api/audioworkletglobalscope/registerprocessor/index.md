@@ -43,7 +43,7 @@ Keiner ({{jsxref("undefined")}}).
 - {{jsxref("TypeError")}}
   - : Wird unter den folgenden Bedingungen ausgelöst:
     - Der _processorCtor_ ist kein aufrufbarer Konstruktor.
-    - Die [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors)-Eigenschaft des Konstruktors existiert und gibt kein Array von auf [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor) basierenden Objekten zurück.
+    - Die [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static)-Eigenschaft des Konstruktors existiert und gibt kein Array von auf [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor) basierenden Objekten zurück.
 
 ## Beispiele
 

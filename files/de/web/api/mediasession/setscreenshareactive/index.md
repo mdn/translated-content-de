@@ -1,18 +1,18 @@
 ---
-title: "MediaSession: setScreenshareActive() Methode"
+title: "MediaSession: Methode setScreenshareActive()"
 short-title: setScreenshareActive()
 slug: Web/API/MediaSession/setScreenshareActive
 l10n:
-  sourceCommit: e1f2821ac79708a5f7fcc895e2a4ff66ab75c41a
+  sourceCommit: d22284cbba8b64afd6ad8c965d4ac2c927c59550
 ---
 
-{{APIRef("Media Session API")}}
+{{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die **`setScreenshareActive()`**-Methode der [`MediaSession`](/de/docs/Web/API/MediaSession) Schnittstelle wird verwendet, um dem Benutzeragenten anzuzeigen, ob die Bildschirmfreigabe des Benutzers als aktiv angesehen wird.
+Die **`setScreenshareActive()`**-Methode des [`MediaSession`](/de/docs/Web/API/MediaSession)-Interfaces wird verwendet, um dem Benutzeragenten mitzuteilen, ob die Bildschirmübertragung des Benutzers als aktiv angesehen wird.
 
-Rufen Sie diese Methode am [`mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Objekt des `navigator`-Objekts auf.
+Rufen Sie diese Methode am `navigator`-Objekt im [`mediaSession`](/de/docs/Web/API/Navigator/mediaSession)-Objekt auf.
 
-Beachten Sie, dass der Status der Bildschirmfreigabe nicht in der [`MediaSession`](/de/docs/Web/API/MediaSession) selbst verfolgt wird, sondern separat nachverfolgt werden muss.
+Beachten Sie, dass der Status der Bildschirmübertragung nicht in der [`MediaSession`](/de/docs/Web/API/MediaSession) selbst verfolgt wird, sondern separat nachverfolgt werden muss.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ setScreenshareActive(active)
 ### Parameter
 
 - `active`
-  - : Ein boolescher Wert, der angibt, ob die Bildschirmfreigabe als aktiv angesehen wird oder nicht.
+  - : Ein boolescher Wert, der angibt, ob die Bildschirmübertragung als aktiv angesehen wird oder nicht.
 
 ### Rückgabewert
 
@@ -31,8 +31,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Unten ist ein Beispiel für die Aktualisierung des aktiven Zustands der Bildschirmfreigabe der aktuellen
-[`MediaSession`](/de/docs/Web/API/MediaSession) sowie für das Abhören von Anfragen zur Änderung des Bildschirmfreigabe-Status mit [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler) dargestellt.
+Unten finden Sie ein Beispiel dafür, wie der aktuelle Status der aktiven Bildschirmübertragung der
+[`MediaSession`](/de/docs/Web/API/MediaSession) aktualisiert wird. Außerdem wird gezeigt, wie Anfragen zum Ändern des Bildschirmübertragungsstatus mit [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler) behandelt werden.
 
 ```js
 let screenshareActive = false;

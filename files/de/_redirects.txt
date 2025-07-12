@@ -8027,6 +8027,7 @@
 /de/docs/Web/API/AudioWorkletNode/AudioWorkletNode.parameters	/de/docs/Web/API/AudioWorkletNode/parameters
 /de/docs/Web/API/AudioWorkletNode/onprocessorerror	/de/docs/Web/API/AudioWorkletNode/processorerror_event
 /de/docs/Web/API/AudioWorkletNodeOptions	/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode
+/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors	/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static
 /de/docs/Web/API/BackgroundFetchRegistration/onprogress	/de/docs/Web/API/BackgroundFetchRegistration/progress_event
 /de/docs/Web/API/BarcodeDetector/getSupportedFormats	/de/docs/Web/API/BarcodeDetector/getSupportedFormats_static
 /de/docs/Web/API/Barcode_Detector_API	/de/docs/Web/API/Barcode_Detection_API

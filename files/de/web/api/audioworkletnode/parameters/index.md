@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`parameters`**-Eigenschaft der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle gibt die zugehörige [`AudioParamMap`](/de/docs/Web/API/AudioParamMap) zurück — also eine `Map`-ähnliche Sammlung von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten. Diese werden während der Erstellung des zugrunde liegenden [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) gemäß seinem [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) statischen Getter instanziiert.
+Die schreibgeschützte **`parameters`**-Eigenschaft der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle gibt die zugehörige [`AudioParamMap`](/de/docs/Web/API/AudioParamMap) zurück — also eine `Map`-ähnliche Sammlung von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten. Diese werden während der Erstellung des zugrunde liegenden [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) gemäß seinem [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static) statischen Getter instanziiert.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Um die Erstellung und Verwendung benutzerdefinierter `AudioParam`s zu demonstrie
 
 Zuerst müssen wir einen benutzerdefinierten `AudioWorkletProcessor` definieren und registrieren. Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
 
-Wir erweitern den Prozessor, indem wir einen statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) Getter hinzufügen. Dieser wird intern vom `AudioWorkletNode`-Konstruktor verwendet, um seine `parameters` mit instanziierten `AudioParam`-Objekten zu füllen.
+Wir erweitern den Prozessor, indem wir einen statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static) Getter hinzufügen. Dieser wird intern vom `AudioWorkletNode`-Konstruktor verwendet, um seine `parameters` mit instanziierten `AudioParam`-Objekten zu füllen.
 
 ```js
 // white-noise-processor.js
