@@ -1,15 +1,15 @@
 ---
-title: Aufzeichnen eines Media-Elements
+title: Aufnehmen eines Media-Elements
 slug: Web/API/MediaStream_Recording_API/Recording_a_media_element
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: e0f97a8a4e8a2fc45f1a7bdc8d1e3f524ccb627d
 ---
 
 {{DefaultAPISidebar("MediaStream Recording")}}
 
-Während der Artikel zur Verwendung der MediaStream Recording API die Verwendung der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle zur Erfassung eines durch ein Hardwaregerät erzeugten [`MediaStream`](/de/docs/Web/API/MediaStream) demonstriert, wie er von [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zurückgegeben wird, können Sie auch ein HTML-Media-Element (nämlich {{HTMLElement("audio")}} oder {{HTMLElement("video")}}) als Quelle des aufzuzeichnenden `MediaStream` verwenden. In diesem Artikel betrachten wir ein Beispiel, das genau das tut.
+Während der Artikel zur Verwendung der MediaStream Recording API die Nutzung des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces zur Aufnahme eines [`MediaStream`](/de/docs/Web/API/MediaStream), der von einem Hardwaregerät generiert und von [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zurückgegeben wird, demonstriert, können Sie auch ein HTML-Media-Element (nämlich {{HTMLElement("audio")}} oder {{HTMLElement("video")}}) als Quelle für den aufzuzeichnenden `MediaStream` verwenden. In diesem Artikel betrachten wir ein Beispiel, das genau das tut.
 
-## Beispiel für die Aufzeichnung eines Media-Elements
+## Beispiel für die Aufnahme eines Media-Elements
 
 ### HTML
 
@@ -23,7 +23,7 @@ Während der Artikel zur Verwendung der MediaStream Recording API die Verwendung
 <br />
 ```
 
-Lassen Sie uns mit den wichtigsten Teilen des HTML beginnen. Es gibt noch ein wenig mehr als das, aber das ist nur informativ und nicht Teil des Hauptbetriebs der App.
+Beginnen wir mit den wichtigsten Teilen des HTML-Codes. Es gibt noch ein wenig mehr, aber das ist eher informativ als Teil des Kernbetriebs der App.
 
 ```html
 <div class="left">
@@ -33,7 +33,7 @@ Lassen Sie uns mit den wichtigsten Teilen des HTML beginnen. Es gibt noch ein we
 </div>
 ```
 
-Wir präsentieren unsere Hauptschnittstelle in zwei Spalten. Links befindet sich ein Startknopf und ein {{HTMLElement("video")}}-Element, das die Videovorschau anzeigt; dies ist das Video, das die Kamera des Benutzers sieht. Beachten Sie, dass das [`autoplay`](/de/docs/Web/HTML/Reference/Elements/video#autoplay)-Attribut verwendet wird, sodass das Video sofort angezeigt wird, sobald der Stream von der Kamera eintrifft, und das [`muted`](/de/docs/Web/HTML/Reference/Elements/video#muted)-Attribut angegeben ist, um sicherzustellen, dass der Ton des Mikrofons des Benutzers nicht über die Lautsprecher ausgegeben wird, was zu einer unschönen Rückkopplungsschleife führen würde.
+Wir präsentieren unsere Hauptschnittstelle in zwei Spalten. Links befindet sich eine Start-Taste und ein {{HTMLElement("video")}}-Element, das die Video-Vorschau zeigt; dies ist das Video, das die Kamera des Benutzers sieht. Beachten Sie, dass das [`autoplay`](/de/docs/Web/HTML/Reference/Elements/video#autoplay)-Attribut verwendet wird, damit das Video sofort angezeigt wird, wenn der Stream von der Kamera zu laufen beginnt, und das [`muted`](/de/docs/Web/HTML/Reference/Elements/video#muted)-Attribut spezifiziert ist, um sicherzustellen, dass der Ton vom Mikrofon des Benutzers nicht auf seine Lautsprecher ausgegeben wird, was eine unangenehme Rückkopplungsschleife verursachen könnte.
 
 ```html
 <div class="right">
@@ -44,9 +44,9 @@ Wir präsentieren unsere Hauptschnittstelle in zwei Spalten. Links befindet sich
 </div>
 ```
 
-Rechts sehen wir einen Stop-Knopf und das `<video>`-Element, das zur Wiedergabe des aufgezeichneten Videos verwendet wird. Beachten Sie, dass das Wiedergabefeld kein Autoplay eingestellt hat (damit die Wiedergabe nicht sofort beginnt, sobald das Medium eintrifft) und es hat [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls) eingestellt, was bedeutet, dass dem Benutzer Steuerelemente zur Verfügung gestellt werden, um Play, Pause und so weiter zu bedienen.
+Rechts sehen wir eine Stop-Taste und das `<video>`-Element, das zur Wiedergabe des aufgezeichneten Videos verwendet wird. Beachten Sie, dass das Wiedergabefeld nicht auf Autoplay gesetzt ist (sodass die Wiedergabe nicht startet, sobald Medien ankommen) und dass es mit [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls) ausgestattet ist, was dem Benutzer ermöglicht, Steuerungen zum Abspielen, Pausieren usw. anzuzeigen.
 
-Unter dem Wiedergabeelement befindet sich ein Knopf zum Herunterladen des aufgezeichneten Videos.
+Unter dem Wiedergabeelement befindet sich eine Schaltfläche zum Herunterladen des aufgezeichneten Videos.
 
 ```html hidden
 <div class="bottom">
@@ -105,11 +105,11 @@ h2 {
 }
 ```
 
-Nun schauen wir uns den JavaScript-Code an; hier passiert schließlich das meiste!
+Schauen wir uns nun den JavaScript-Code an; hier passiert schließlich der Großteil der Aktionen!
 
-### Festlegen globaler Variablen
+### Einrichten globaler Variablen
 
-Wir beginnen damit, einige globale Variablen zu erstellen, die wir benötigen.
+Wir beginnen mit der Festlegung einiger globaler Variablen, die wir benötigen werden.
 
 ```js
 let preview = document.getElementById("preview");
@@ -122,11 +122,11 @@ let logElement = document.getElementById("log");
 let recordingTimeMS = 5000;
 ```
 
-Die meisten davon sind Referenzen zu Elementen, mit denen wir arbeiten müssen. Die letzte, `recordingTimeMS`, ist auf 5000 Millisekunden (5 Sekunden) gesetzt; dies gibt die Länge der Videos an, die wir aufzeichnen werden.
+Die meisten davon sind Referenzen auf Elemente, mit denen wir arbeiten müssen. Die letzte, `recordingTimeMS`, ist auf 5000 Millisekunden (5 Sekunden) eingestellt; sie gibt die Länge der Videos an, die wir aufnehmen werden.
 
-### Hilfsfunktionen
+### Dienstfunktionen
 
-Als Nächstes erstellen wir einige Hilfsfunktionen, die später verwendet werden.
+Als nächstes erstellen wir einige Dienstfunktionen, die später verwendet werden.
 
 ```js
 function log(msg) {
@@ -134,7 +134,7 @@ function log(msg) {
 }
 ```
 
-Die `log()`-Funktion wird verwendet, um Textzeichenfolgen an ein {{HTMLElement("div")}} auszugeben, damit wir Informationen mit dem Benutzer teilen können. Nicht sehr hübsch, aber es erledigt den Job für unsere Zwecke.
+Die `log()`-Funktion wird verwendet, um Textzeichenfolgen an ein {{HTMLElement("div")}} auszugeben, damit wir Informationen mit dem Benutzer teilen können. Nicht sehr hübsch, aber es erfüllt für unsere Zwecke seinen Zweck.
 
 ```js
 function wait(delayInMS) {
@@ -142,9 +142,9 @@ function wait(delayInMS) {
 }
 ```
 
-Die `wait()`-Funktion gibt ein neues {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die angegebene Anzahl von Millisekunden verstrichen ist. Es funktioniert, indem eine [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) verwendet wird, die [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) aufruft und den Auflösungs-Handler des Promise als Timeout-Handler-Funktion angibt. Dadurch können wir die Promise-Syntax beim Verwenden von Zeitüberschreitungen nutzen, was sehr nützlich sein kann, wenn wir Promises verketten, wie wir später sehen werden.
+Die `wait()`-Funktion gibt ein neues {{jsxref("Promise")}} zurück, das sich auflöst, wenn die angegebene Anzahl von Millisekunden verstrichen ist. Sie funktioniert, indem sie eine [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) verwendet, die [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) aufruft, wobei der Auflösungs-Handler des Promise als Timeout-Handler-Funktion angegeben wird. Dadurch können wir die Promise-Syntax verwenden, wenn wir mit Timeouts arbeiten, was sehr nützlich beim Verketten von Promises sein kann, wie wir später sehen werden.
 
-### Start der Medienaufnahme
+### Starten der Medienaufnahme
 
 Die `startRecording()`-Funktion behandelt den Start des Aufnahmevorgangs:
 
@@ -172,19 +172,19 @@ function startRecording(stream, lengthInMS) {
 }
 ```
 
-`startRecording()` nimmt zwei Eingabeparameter an: ein [`MediaStream`](/de/docs/Web/API/MediaStream), von dem aufgenommen werden soll, und die Länge in Millisekunden der zu erstellenden Aufnahme. Wir nehmen nie mehr als die angegebene Anzahl von Millisekunden auf, obwohl, wenn die Medien vorher stoppen, auch der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) die Aufnahme automatisch stoppt.
+`startRecording()` nimmt zwei Eingabeparameter entgegen: einen [`MediaStream`](/de/docs/Web/API/MediaStream), von dem aufgenommen werden soll, und die Länge in Millisekunden der Aufnahme. Wir zeichnen immer nicht mehr als die angegebene Anzahl von Millisekunden auf, auch wenn die Medien vorher stoppen, beendet [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) die Aufnahme automatisch ebenfalls.
 
-- Zuerst erstellen wir den `MediaRecorder`, der die Aufnahme des Eingabe-`stream` behandelt.
-- `data` ist ein Array, das zunächst leer ist und die [`Blob`](/de/docs/Web/API/Blob)s der Mediendaten enthält, die unserem [`ondataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignishandler zur Verfügung gestellt werden.
-- Die `ondataavailable`-Zuweisung richtet den Handler für das [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignis ein. Die `data`-Eigenschaft des empfangenen Ereignisses ist ein [`Blob`](/de/docs/Web/API/Blob), das die Mediendaten enthält. Der Ereignishandler schiebt den `Blob` auf das `data`-Array.
-- Wir starten den Aufnahmevorgang durch Aufruf von [`recorder.start()`](/de/docs/Web/API/MediaRecorder/start) und geben eine Nachricht im Log aus, die den aktualisierten Zustand des Recorders und die Anzahl der Sekunden, die er aufnehmen wird, enthält.
-- Wir erstellen ein neues {{jsxref("Promise")}}, genannt `stopped`, das aufgelöst wird, wenn der [`onstop`](/de/docs/Web/API/MediaRecorder/stop_event)-Ereignishandler des `MediaRecorder` aufgerufen wird und das abgelehnt wird, wenn sein [`onerror`](/de/docs/Web/API/MediaRecorder/error_event)-Ereignishandler aufgerufen wird. Der Ablehnungshandler erhält als Eingabe den Namen des aufgetretenen Fehlers.
-- Wir erstellen ein weiteres neues `Promise`, genannt `recorded`, das aufgelöst wird, wenn die angegebene Anzahl von Millisekunden verstrichen ist. Nach der Auflösung stoppt es den `MediaRecorder`, wenn er aufnimmt.
-- Schließlich verwenden wir {{jsxref("Promise.all")}}, um ein neues `Promise` zu erstellen, das erfüllt wird, wenn beide `Promise`s (`stopped` und `recorded`) aufgelöst wurden. Sobald dies aufgelöst ist, wird das Array `data` von `startRecording()` an seinen Aufrufer zurückgegeben.
+- Zuerst erstellen wir den `MediaRecorder`, der die Aufnahme des Eingabe-`streams` verarbeitet.
+- `data` ist ein Array, das anfänglich leer ist und die [`Blob`](/de/docs/Web/API/Blob)s der Mediendaten enthält, die unserem [`ondataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignishandler übergeben werden.
+- Die `ondataavailable`-Zuweisung richtet den Handler für das [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignis ein. Die empfangene Veranstaltung enthält in ihrer `data`-Eigenschaft ein [`Blob`](/de/docs/Web/API/Blob), das die Mediendaten enthält. Der Ereignishandler fügt das `Blob` dem `data`-Array hinzu.
+- Wir starten den Aufnahmeprozess, indem wir [`recorder.start()`](/de/docs/Web/API/MediaRecorder/start) aufrufen und eine Nachricht an das Log ausgeben, die den aktualisierten Zustand des Recorders und die Anzahl der Sekunden angibt, für die aufgenommen wird.
+- Wir erstellen ein neues {{jsxref("Promise")}}, benannt `stopped`, das aufgelöst wird, wenn der [`onstop`](/de/docs/Web/API/MediaRecorder/stop_event)-Ereignishandler von `MediaRecorder` aufgerufen wird und abgewiesen wird, wenn sein [`onerror`](/de/docs/Web/API/MediaRecorder/error_event)-Ereignishandler aufgerufen wird. Der Ablehnungshandler erhält als Eingabe den Namen des aufgetretenen Fehlers.
+- Wir erstellen ein weiteres neues `Promise`, benannt `recorded`, das aufgelöst wird, wenn die angegebene Anzahl von Millisekunden verstrichen ist. Bei Auflösung wird `MediaRecorder` gestoppt, falls es noch aufnimmt.
+- Schließlich verwenden wir {{jsxref("Promise.all")}}, um ein neues `Promise` zu erstellen, das erfüllt wird, wenn beide `Promises` (`stopped` und `recorded`) aufgelöst wurden. Sobald dies aufgelöst ist, wird das Array `data` von `startRecording()` an seinen Aufrufer zurückgegeben.
 
-### Stoppen des Eingabestreams
+### Beenden des Eingabestreams
 
-Die `stop()`-Funktion stoppt die Eingabemedien:
+Die `stop()`-Funktion beendet den Eingabemedienstream:
 
 ```js
 function stop(stream) {
@@ -192,11 +192,11 @@ function stop(stream) {
 }
 ```
 
-Dies funktioniert, indem [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks) aufgerufen wird, um mit {{jsxref("Array.forEach", "forEach()")}} auf jede Spur im Stream [`MediaStreamTrack.stop()`](/de/docs/Web/API/MediaStreamTrack/stop) aufzurufen.
+Dies wird erreicht, indem [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks) aufgerufen und {{jsxref("Array.forEach", "forEach()")}} verwendet wird, um [`MediaStreamTrack.stop()`](/de/docs/Web/API/MediaStreamTrack/stop) für jeden Track im Stream aufzurufen.
 
 ### Abrufen eines Eingabestreams und Einrichten des Recorders
 
-Nun sehen wir uns den kompliziertesten Codeabschnitt in diesem Beispiel an: unseren Ereignishandler für Klicks auf den Startknopf:
+Nun schauen wir auf das komplizierteste Stück Code in diesem Beispiel: unseren Ereignishandler für Klicks auf die Starttaste:
 
 ```js
 startButton.addEventListener(
@@ -239,21 +239,21 @@ startButton.addEventListener(
 );
 ```
 
-Wenn ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis eintritt, passiert Folgendes:
+Wenn ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auftritt, geschieht Folgendes:
 
-- [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia) wird aufgerufen, um einen neuen [`MediaStream`](/de/docs/Web/API/MediaStream) anzufordern, der sowohl Video- als auch Audiotracks enthält. Dies ist der Stream, den wir aufzeichnen werden.
-- Wenn das von `getUserMedia()` zurückgegebene Promise aufgelöst wird, wird die [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft des Vorschau-{{HTMLElement("video")}}-Elements auf den Eingabestream gesetzt, wodurch das von der Kamera des Benutzers aufgenommene Video im Vorschaukasten angezeigt wird. Da das `<video>`-Element stummgeschaltet ist, wird der Ton nicht abgespielt. Der Link des "Download"-Knopfes wird dann ebenfalls auf den Stream gesetzt. Dann arrangieren wir, dass `preview.captureStream()` `preview.mozCaptureStream()` aufruft, damit unser Code in Firefox funktioniert, bei dem die Methode [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) mit einem Präfix versehen ist. Dann wird ein neues {{jsxref("Promise")}} erstellt, das aufgelöst wird, wenn das Vorschauvideo zu spielen beginnt, und dieses wird zurückgegeben.
-- Wenn das Vorschauvideo zu spielen beginnt, wissen wir, dass es Medien zum Aufzeichnen gibt, also reagieren wir, indem wir die zuvor erstellte [`startRecording()`](#start_der_medienaufnahme)-Funktion aufrufen und den Vorschau-Video-Stream (als aufzuzeichnende Medienquelle) und `recordingTimeMS` als Anzahl der Millisekunden, die aufgezeichnet werden sollen, übergeben. Wie zuvor erwähnt, gibt `startRecording()` ein {{jsxref("Promise")}} zurück, dessen Auflösungs-Handler (der ein Array von [`Blob`](/de/docs/Web/API/Blob)-Objekten erhält, das die Teile der aufgezeichneten Mediendaten enthält) aufgerufen wird, sobald die Aufnahme abgeschlossen ist.
-- Der Auflösungs-Handler des Aufnahmeprozesses erhält als Eingabe ein Array von Mediendaten-`Blob`s, lokal bekannt als `recordedChunks`. Das erste, was wir tun, ist, die Teile zu einem einzigen [`Blob`](/de/docs/Web/API/Blob) zusammenzuführen, dessen MIME-Typ `"video/webm"` ist, indem wir den Vorteil der Tatsache nutzen, dass der [`Blob()`](/de/docs/Web/API/Blob/Blob)-Konstruktor Arrays von Objekten zu einem Objekt zusammenfügt. Dann wird [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) verwendet, um eine URL zu erstellen, die auf den Blob verweist; dies wird dann der Wert des `src`-Attributs des Wiedergabe-Elements des aufgezeichneten Videos, damit Sie das Video aus dem Blob abspielen können, sowie das Ziel des Download-Buttons.
+- [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia) wird aufgerufen, um einen neuen [`MediaStream`](/de/docs/Web/API/MediaStream) anzufordern, der sowohl Video- als auch Audiotracks enthält. Dies ist der Stream, den wir aufnehmen werden.
+- Wenn das von `getUserMedia()` zurückgegebene Promise aufgelöst wird, wird die Eigenschaft [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) des Vorschau-{{HTMLElement("video")}}-Elements auf den Eingabestream gesetzt, was dazu führt, dass das von der Kamera des Benutzers aufgenommene Video im Vorschaufenster angezeigt wird. Da das `<video>`-Element stummgeschaltet ist, wird der Ton nicht abgespielt. Der Link der "Download"-Schaltfläche wird dann ebenfalls auf den Stream gesetzt. Danach arrangieren wir, dass `preview.captureStream()` `preview.mozCaptureStream()` aufruft, sodass unser Code in Firefox funktioniert, in dem die [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream)-Methode ein Präfix hat. Dann wird ein neues {{jsxref("Promise")}} erstellt und zurückgegeben, das aufgelöst wird, wenn die Vorschau des Videos zu spielen beginnt.
+- Wenn die Vorschau des Videos zu spielen beginnt, wissen wir, dass es Medien gibt, die aufgezeichnet werden können. Daher reagieren wir, indem wir die zuvor erstellte [`startRecording()`](#starten_der_medienaufnahme)-Funktion aufrufen und den Vorschau-Video-Stream (als Quelle der aufzunehmenden Medien) und `recordingTimeMS` als die Anzahl von Millisekunden der aufzuzeichnenden Medien übergeben. Wie zuvor erwähnt, gibt `startRecording()` ein {{jsxref("Promise")}} zurück, dessen Auflösungshandler (empfängt ein Array von [`Blob`](/de/docs/Web/API/Blob)-Objekten, die die aufgezeichneten Medien-Daten enthalten) beim Abschluss der Aufnahme aufgerufen wird.
+- Der Auflösungshandler des Aufnahmeprozesses erhält ein Array von Medien-`Blob`s, lokal bekannt als `recordedChunks`. Das Erste, was wir tun, ist die Chunks in ein einziges [`Blob`](/de/docs/Web/API/Blob) mit dem MIME-Typ `"video/webm"` zu verschmelzen, indem wir die Tatsache nutzen, dass der [`Blob()`](/de/docs/Web/API/Blob/Blob)-Konstruktor Arrays von Objekten zu einem Objekt zusammenfügt. Dann wird [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) verwendet, um eine URL zu erstellen, die auf das Blob verweist; dies wird dann zum Wert des `src`-Attributs des aufgezeichneten Videowiedergabeelements (damit Sie das Video aus dem Blob abspielen können) sowie zum Ziel des Download-Link der Schaltfläche gemacht.
 
-  Dann wird das [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)-Attribut des Download-Knopfes gesetzt. Während das `download`-Attribut ein Boolean sein kann, können Sie es auch auf eine Zeichenkette setzen, um es als Namen für die heruntergeladene Datei zu verwenden. Indem wir das `download`-Attribut des Download-Links auf "RecordedVideo.webm" setzen, sagen wir dem Browser, dass ein Klick auf die Schaltfläche eine Datei namens `"RecordedVideo.webm"` herunterlädt, deren Inhalt das aufgezeichnete Video ist.
+  Dann wird das [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)-Attribut des Download-Buttons gesetzt. Während das `download`-Attribut ein Boolean sein kann, können Sie es auch auf eine Zeichenkette setzen, um einen Namen für die heruntergeladene Datei zu verwenden. Indem wir das `download`-Attribut des Download-Links auf "RecordedVideo.webm" setzen, teilen wir dem Browser mit, dass beim Klicken auf die Schaltfläche eine Datei namens `"RecordedVideo.webm"` heruntergeladen werden soll, deren Inhalt das aufgezeichnete Video ist.
 
-- Die Größe und der Typ der aufgezeichneten Medien werden im Logbereich unterhalb der beiden Videos und des Download-Knopfes ausgegeben.
-- Das `catch()` für alle `Promise`s gibt den Fehler im Protokollbereich aus, indem es unsere `log()`-Funktion aufruft.
+- Die Größe und der Typ der aufgezeichneten Medien werden im Logbereich unter den beiden Videos und der Download-Schaltfläche ausgegeben.
+- Der `catch()`-Block für alle Promises gibt den Fehler durch Aufrufen unserer `log()`-Funktion im Logbereich aus.
 
-### Umgang mit dem Stop-Knopf
+### Behandeln der Stop-Taste
 
-Der letzte Codeabschnitt fügt einen Handler für das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auf dem Stop-Knopf mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu:
+Das letzte Code-Fragment fügt einen Handler für das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auf der Stop-Taste mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu:
 
 ```js
 stopButton.addEventListener(
@@ -265,17 +265,17 @@ stopButton.addEventListener(
 );
 ```
 
-Dies ruft die zuvor behandelte [`stop()`](#stoppen_des_eingabestreams)-Funktion auf.
+Dies ruft die zuvor behandelte [`stop()`](#beenden_des_eingabestreams)-Funktion auf.
 
 ### Ergebnis
 
-Wenn alles mit dem Rest des nicht gezeigten HTML und CSS zusammengefügt wird, sieht es so aus und funktioniert so:
+Wenn alles zusammen mit dem Rest des HTML und dem oben nicht gezeigten CSS kombiniert wird, sieht es so aus und funktioniert so:
 
 {{EmbedLiveSample('Example_of_recording_a_media_element', '600', '440', , , , 'camera;microphone')}}
 
-Sie können {{LiveSampleLink("Example_of_recording_a_media_element", "das vollständige Demo hier ansehen")}} und die Entwicklertools Ihres Browsers verwenden, um die Seite zu inspizieren und sich den gesamten Code anzusehen, einschließlich der Teile, die oben verborgen sind, da sie nicht entscheidend für die Erklärung sind, wie die APIs verwendet werden.
+Sie können dieses Beispiel auch im Playground mit der "Play"-Schaltfläche öffnen, die es Ihnen ermöglicht, den kombinierten Code zu betrachten, einschließlich der oben verborgenen Teile, da diese nicht entscheidend für die Erklärung sind, wie die APIs verwendet werden.
 
 ## Siehe auch
 
-- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) Übersichtsseite
+- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) Hauptseite
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)

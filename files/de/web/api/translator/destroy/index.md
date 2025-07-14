@@ -3,12 +3,12 @@ title: "Translator: destroy() Methode"
 short-title: destroy()
 slug: Web/API/Translator/destroy
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}} {{securecontext_header}}
 
-Die **`destroy()`**-Methode des [`Translator`](/de/docs/Web/API/Translator)-Interfaces zerstört die `Translator`-Instanz, auf der sie aufgerufen wird. Es ist sinnvoll, diese Objekte zu zerstören, wenn sie nicht mehr verwendet werden sollen, da sie bei ihrer Verarbeitung bedeutende Ressourcen binden.
+Die **`destroy()`** Methode der [`Translator`](/de/docs/Web/API/Translator) Schnittstelle zerstört die `Translator` Instanz, auf der sie aufgerufen wird. Es ist sinnvoll, diese Objekte zu zerstören, wenn sie nicht mehr verwendet werden, da sie erhebliche Ressourcen in ihrer Handhabung binden.
 
 ## Syntax
 

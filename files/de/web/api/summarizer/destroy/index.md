@@ -3,12 +3,12 @@ title: "Summarizer: destroy()-Methode"
 short-title: destroy()
 slug: Web/API/Summarizer/destroy
 l10n:
-  sourceCommit: 3e4f9ff802c6393edf7c17ff0d9c30d0de79663e
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Summarizer API")}}{{SeeCompatTable}}
+{{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`destroy()`**-Methode der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle zerstört die `Summarizer`-Instanz, auf der sie aufgerufen wird. Es ergibt Sinn, `Summarizer`-Objekte zu zerstören, wenn sie nicht mehr verwendet werden sollen, da sie erhebliche Ressourcen in ihrer Handhabung binden.
+Die **`destroy()`**-Methode der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle zerstört die `Summarizer`-Instanz, auf die sie angewendet wird. Es ist sinnvoll, `Summarizer`-Objekte zu zerstören, wenn sie nicht mehr verwendet werden sollen, da sie bedeutende Ressourcen in ihrer Handhabung beanspruchen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Grundlegende Verwendung von `destroy()`
+### Grundlegende Nutzung von `destroy()`
 
 ```js
 const summarizer = await Summarizer.create({

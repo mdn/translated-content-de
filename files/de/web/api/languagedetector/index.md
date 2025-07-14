@@ -2,41 +2,41 @@
 title: LanguageDetector
 slug: Web/API/LanguageDetector
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`LanguageDetector`**-Schnittstelle der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs) enthält alle Funktionen zur Spracherkennung, einschließlich der Verfügbarkeit von KI-Modellen, der Erstellung einer neuen `LanguageDetector`-Instanz, deren Verwendung zur Erkennung einer Sprache und mehr.
+Das **`LanguageDetector`** Interface der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs) enthält alle Funktionen zur Spracherkennung, einschließlich der Überprüfung der Verfügbarkeit von KI-Modellen, der Erstellung einer neuen `LanguageDetector`-Instanz, deren Nutzung zur Erkennung einer Sprache und mehr.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
 - [`inputQuota`](/de/docs/Web/API/LanguageDetector/inputQuota) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Das Eingabe-Kontingent, das dem Browser zur Erkennung von Sprachen zur Verfügung steht.
+  - : Das Eingabekontingent, das dem Browser zur Spracherkennung zur Verfügung steht.
 - [`expectedInputLanguages`](/de/docs/Web/API/LanguageDetector/expectedInputLanguages) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die erwarteten Sprachen, die im eingegebenen Text erkannt werden sollen.
+  - : Die erwarteten Sprachen, die im Eingabetext erkannt werden sollen.
 
 ## Statische Methoden
 
 - [`availability()`](/de/docs/Web/API/LanguageDetector/availability_static) {{Experimental_Inline}}
-  - : Gibt einen enumerierten Wert zurück, der angibt, ob das KI-Modell des Browsers eine gegebene `LanguageDetector`-Konfiguration unterstützt.
+  - : Gibt einen enumerierten Wert zurück, der anzeigt, ob das Browser-KI-Modell eine gegebene `LanguageDetector`-Konfiguration unterstützt.
 - [`create()`](/de/docs/Web/API/LanguageDetector/create_static) {{Experimental_Inline}}
   - : Erstellt eine neue `LanguageDetector`-Instanz zur Spracherkennung.
 
 ## Instanzmethoden
 
 - [`destroy()`](/de/docs/Web/API/LanguageDetector/destroy) {{Experimental_Inline}}
-  - : Zerstört die `LanguageDetector`-Instanz, auf der sie aufgerufen wird.
+  - : Zerstört die `LanguageDetector`-Instanz, auf die sie angewendet wird.
 - [`detect()`](/de/docs/Web/API/LanguageDetector/detect) {{Experimental_Inline}}
-  - : Erkennt die am ehesten übereinstimmende Sprache oder Sprachen, in der ein gegebener Text geschrieben sein könnte.
+  - : Erkennt die am nächsten liegende Sprache oder Sprachen, in der ein gegebener Textstring höchstwahrscheinlich verfasst ist.
 - [`measureInputUsage()`](/de/docs/Web/API/LanguageDetector/measureInputUsage) {{Experimental_Inline}}
-  - : Gibt an, wie viel Eingabe-Kontingent durch eine Spracherkennungsoperation für einen gegebenen Texteingang verwendet wird.
+  - : Meldet, wie viel Eingabekontingent durch eine Spracherkennungsoperation für einen gegebenen Texteingang verwendet würde.
 
 ## Beispiele
 
-Sehen Sie [Using the Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using) für ein vollständiges Beispiel.
+Siehe [Using the Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using) für ein vollständiges Beispiel.
 
 ### Erstellen einer `LanguageDetector`-Instanz
 
@@ -47,7 +47,7 @@ const detector = await LanguageDetector.create({
 ```
 
 > [!NOTE]
-> Unterschiedliche Implementierungen unterstützen wahrscheinlich unterschiedliche Sprachen.
+> Unterschiedliche Implementierungen werden wahrscheinlich unterschiedliche Sprachen unterstützen.
 
 ### Erkennung von Sprachen
 

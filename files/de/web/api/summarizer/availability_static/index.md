@@ -3,12 +3,12 @@ title: "Summarizer: `availability()` statische Methode"
 short-title: availability()
 slug: Web/API/Summarizer/availability_static
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Summarizer API")}}{{securecontext_header}}{{SeeCompatTable}}
+{{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`availability()`** statische Methode der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle gibt einen enumerierten Wert zurück, der angibt, ob das Browser-KI-Modell eine gegebene `Summarizer`-Konfiguration unterstützt (oder unterstützen wird).
+Die **`availability()`** statische Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle gibt einen enumerierten Wert zurück, der angibt, ob das Browser-AI-Modell eine gegebene `Summarizer`-Konfiguration unterstützt (oder unterstützen wird).
 
 ## Syntax
 
@@ -20,47 +20,47 @@ Summarizer.availability(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt, das eine mögliche Konfiguration für einen `Summarizer` angibt. Mögliche Werte umfassen:
+  - : Ein Optionsobjekt, das eine mögliche Konfiguration für einen `Summarizer` angibt. Mögliche Werte sind:
     - `expectedInputLanguages`
-      - : Ein Array von Strings, das den [BCP 47 Sprach-Tags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) entspricht (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert) und die erwarteten Sprachen des Eingabetextes angibt. Standard ist `["en"]`.
+      - : Ein Array von Zeichenketten, die den [BCP 47 Sprach-Tags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) entsprechen (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert), die die erwarteten Sprachen des Eingabetexts angeben. Standard ist `["en"]`.
     - `expectedContextLanguages`
-      - : Ein Array von Strings, das den BCP 47 Sprach-Tags entspricht und die erwarteten Sprachen von bereitgestellten Kontext-Strings angibt (entweder der [`sharedContext`](/de/docs/Web/API/Summarizer/create_static#sharedcontext), der dem `Summarizer` übergeben wird, oder ein `context`, der während eines [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming)-Aufrufs angegeben wird). Standard ist `["en"]`.
+      - : Ein Array von Zeichenketten, die den BCP 47 Sprach-Tags entsprechen, und die erwarteten Sprachen für bereitgestellte Kontextstrings angeben (entweder der [`sharedContext`](/de/docs/Web/API/Summarizer/create_static#sharedcontext), der dem `Summarizer` übergeben wurde, oder ein `context`, das während eines Aufrufs von [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) angegeben wurde). Standard ist `["en"]`.
     - `format`
-      - : Ein enumerierter Wert, der das Text-[`format`](/de/docs/Web/API/Summarizer/format) angibt, in dem Zusammenfassungen zurückgegeben werden sollen. Standard ist `markdown`.
+      - : Ein enumerierter Wert, der das Text[`format`](/de/docs/Web/API/Summarizer/format) angibt, in dem Sie die Zusammenfassungen zurückerhalten möchten. Standard ist `markdown`.
     - `length`
-      - : Ein enumerierter Wert, der die relative [`length`](/de/docs/Web/API/Summarizer/length) für die generierten Zusammenfassungen angibt. Standard ist `short`.
+      - : Ein enumerierter Wert, der die relative [`length`](/de/docs/Web/API/Summarizer/length) der generierten Zusammenfassungen angibt. Standard ist `short`.
     - `outputLanguage`
-      - : Ein String, der einem BCP 47 Sprach-Tag entspricht und die erwartete Sprache der vom `Summarizer` generierten Zusammenfassungen angibt. Standard ist `en`.
+      - : Eine Zeichenkette, die einem BCP 47 Sprach-Tag entspricht und die erwartete Sprache der vom `Summarizer` generierten Zusammenfassungen angibt. Standard ist `en`.
     - `type`
-      - : Ein enumerierter Wert, der den [`type`](/de/docs/Web/API/Summarizer/type) der Zusammenfassung angibt, die dieser `Summarizer` erstellen soll. Standard ist `key-points`.
+      - : Ein enumerierter Wert, der den [`type`](/de/docs/Web/API/Summarizer/type) der Zusammenfassung angibt, die dieser `Summarizer` generieren soll. Standard ist `key-points`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem enumerierten Wert erfüllt wird, der angibt, ob Unterstützung für eine gegebene `Summarizer`-Konfiguration verfügbar ist (oder verfügbar sein wird), oder `null`, wenn die Unterstützung nicht festgestellt werden konnte.
+Ein {{jsxref("Promise")}}, das mit einem enumerierten Wert erfüllt wird, der angibt, ob Unterstützung für eine gegebene `Summarizer`-Konfiguration verfügbar ist (oder verfügbar sein wird), oder `null`, wenn die Unterstützung nicht bestimmt werden konnte.
 
-Mögliche Werte umfassen:
+Mögliche Werte sind:
 
 - `available`
   - : Der Browser unterstützt die gegebene Konfiguration und kann sofort verwendet werden.
 - `downloadable`
-  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch zuerst ein KI-Modell oder einige Daten zur Feinabstimmung des Modells herunterladen.
+  - : Der Browser unterstützt die gegebene Konfiguration, jedoch muss zuerst ein AI-Modell oder einige Feinabstimmungsdaten für das Modell heruntergeladen werden.
 - `downloading`
-  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch einen laufenden Download abschließen, bevor er fortfahren kann.
+  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch einen laufenden Download abschließen, bevor es fortfahren kann.
 - `unavailable`
   - : Der Browser unterstützt die gegebene Konfiguration nicht.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Verwendung der Summarizer-API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert ist.
+  - : Ausgelöst, wenn die Nutzung der Summarizer-API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert ist.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte `context` nicht in einer Sprache ist, die der `Summarizer` unterstützt.
+  - : Ausgelöst, wenn der bereitgestellte `context` nicht in einer Sprache ist, die der `Summarizer` unterstützt.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, falls der `measureInputUsage()`-Aufruf aus irgendeinem anderen Grund fehlgeschlagen ist oder einem Grund, den der Benutzeragent nicht bekannt geben wollte.
+  - : Ausgelöst, wenn der `measureInputUsage()` Aufruf aus einem anderen Grund fehlschlug oder aus einem Grund, den der Benutzer-Agent nicht offenlegen wollte.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `availability()`
+### Grundlegende Nutzung von `availability()`
 
 ```js
 async function getSummarizer() {
@@ -88,7 +88,7 @@ async function getSummarizer() {
 }
 ```
 
-### Erkennung von Sprachunterstützung
+### Erkennung der Sprachunterstützung
 
 ```js
 async function langSupport(lang) {
@@ -113,5 +113,5 @@ langSupport("zh-CN");
 
 ## Siehe auch
 
-- [Verwendung der Summarizer-API](/de/docs/Web/API/Summarizer_API/Using)
+- [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
 - [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

@@ -3,20 +3,19 @@ title: "DataTransfer: clearData() Methode"
 short-title: clearData()
 slug: Web/API/DataTransfer/clearData
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.clearData()`** Methode entfernt die [Drag-Daten](/de/docs/Web/API/DataTransfer) einer Ziehoperation für den angegebenen Typ. Wenn für den angegebenen Typ keine Daten existieren, unternimmt diese Methode nichts.
+Die **`DataTransfer.clearData()`** Methode entfernt die [Drag-Daten](/de/docs/Web/API/DataTransfer) des gegebenen Typs aus dem Drag-Vorgang. Wenn keine Daten für den gegebenen Typ existieren, tut diese Methode nichts.
 
-Wird diese Methode ohne Argumente oder mit einem leeren Zeichenfolgenformat aufgerufen, werden die Daten aller Typen entfernt.
+Wenn diese Methode ohne Argumente oder mit einem leeren String als Format aufgerufen wird, werden die Daten aller Typen entfernt.
 
-Diese Methode entfernt _nicht_ die Dateien aus der Ziehoperation, sodass es möglich ist, dass weiterhin ein Eintrag mit dem Typ `"Files"` in der [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) Liste des Objekts vorhanden ist, wenn Dateien im Ziehen enthalten sind.
+Diese Methode entfernt _nicht_ die Dateien aus dem Drag-Vorgang, daher kann es sein, dass weiterhin ein Eintrag mit dem Typ `"Files"` in der [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) Liste des Objekts verbleibt, wenn Dateien in den Drag-Vorgang eingeschlossen sind.
 
 > [!NOTE]
-> Diese Methode kann nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis verwendet werden,
-> da dies der einzige Zeitpunkt ist, zu dem der Daten-Store der Ziehoperation beschreibbar ist.
+> Diese Methode kann nur im Handler des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignisses verwendet werden, da dies der einzige Zeitpunkt ist, zu dem der Datenspeicher des Drag-Vorgangs beschreibbar ist.
 
 ## Syntax
 
@@ -28,8 +27,7 @@ clearData(format)
 ### Parameter
 
 - `format` {{optional_inline}}
-  - : Ein string, der den zu entfernenden Datentyp angibt. Wenn
-    dieser Parameter eine leere Zeichenfolge ist oder nicht bereitgestellt wird, werden die Daten aller Typen entfernt.
+  - : Ein String, der den Typ der zu entfernenden Daten angibt. Wenn dieser Parameter ein leerer String ist oder nicht angegeben wird, werden die Daten für alle Typen entfernt.
 
 ### Rückgabewert
 
@@ -37,10 +35,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objektmethoden
-[`getData()`](/de/docs/Web/API/DataTransfer/getData),
+Dieses Beispiel zeigt die Verwendung der Methoden [`getData()`](/de/docs/Web/API/DataTransfer/getData),
 [`setData()`](/de/docs/Web/API/DataTransfer/setData) und
-`clearData()`.
+`clearData()` des [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekts.
 
 ### HTML
 
@@ -174,7 +171,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 ## Siehe auch
 
-- [Ziehen und Ablegen](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehen-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Zieh-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)

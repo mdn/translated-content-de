@@ -3,21 +3,21 @@ title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) existieren.
+Die schreibgeschützte **`DataTransfer.types`**-Eigenschaft gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist eine Zeichenkette, die im Allgemeinen ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten enthielt, wird diese Liste leer sein. Wenn beim Ziehvorgang Dateien enthalten sind, dann wird einer der Typen die Zeichenkette `Files` sein.
+Ein Array der Datenformate. Jedes Format ist ein String, der in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Drag-Vorgang keine Daten enthält, ist diese Liste leer. Wenn Dateien im Drag-Vorgang enthalten sind, wird einer der Typen der String `Files` sein.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und
-[`items`](/de/docs/Web/API/DataTransfer/items).
+Dieses Beispiel zeigt die Verwendung der `types` und
+[`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaften.
 
 ```html
 <ul>
@@ -98,7 +98,6 @@ target.addEventListener("dragover", (ev) => {
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Selectieren von Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Zieh-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)

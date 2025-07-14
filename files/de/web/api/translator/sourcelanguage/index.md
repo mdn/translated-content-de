@@ -1,20 +1,20 @@
 ---
-title: "Translator: sourceLanguage property"
+title: "Translator: sourceLanguage-Eigenschaft"
 short-title: sourceLanguage
 slug: Web/API/Translator/sourceLanguage
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte **`sourceLanguage`**-Eigenschaft des [`Translator`](/de/docs/Web/API/Translator)-Interfaces gibt die erwartete Sprache des Eingabetextes zurück, der übersetzt werden soll.
+Die schreibgeschützte **`sourceLanguage`**-Eigenschaft der [`Translator`](/de/docs/Web/API/Translator)-Schnittstelle gibt die erwartete Sprache des übersetzenden Eingabetexts zurück.
 
-Die `sourceLanguage`-Eigenschaft einer `Translator`-Instanz wird beim Erstellen über einen [`create()`](/de/docs/Web/API/Translator/create_static)-Aufruf festgelegt.
+Die `sourceLanguage` einer `Translator`-Instanz wird beim Erstellen über einen [`create()`](/de/docs/Web/API/Translator/create_static)-Aufruf festgelegt.
 
 ## Wert
 
-Ein String, der die Ausgangssprache angibt. Dies wird ein gültiger [BCP 47 Sprach-Tag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert).
+Ein String, der die Quellsprache angibt. Dies wird ein gültiger [BCP 47-Sprachcode](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert).
 
 ## Beispiele
 
@@ -38,4 +38,4 @@ console.log(translator.sourceLanguage);
 
 ## Siehe auch
 
-- [Verwenden der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)

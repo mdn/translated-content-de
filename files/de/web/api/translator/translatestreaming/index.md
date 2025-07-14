@@ -1,14 +1,14 @@
 ---
-title: "Translator: translateStreaming() Methode"
+title: "Translator: `translateStreaming()` Methode"
 short-title: translateStreaming()
 slug: Web/API/Translator/translateStreaming
 l10n:
-  sourceCommit: 3d53de838dbcb25b210ccd708c681771cdeb14e4
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`translateStreaming()`** Methode der [`Translator`](/de/docs/Web/API/Translator)-Schnittstelle erzeugt eine Übersetzung als [`ReadableStream`](/de/docs/Web/API/ReadableStream).
+Die **`translateStreaming()`** Methode des [`Translator`](/de/docs/Web/API/Translator) Schnittstelle erzeugt eine Übersetzung als [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Syntax
 
@@ -20,11 +20,11 @@ translateStreaming(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der den zu übersetzenden Text darstellt.
+  - : Ein String, der den zu übersetzenden Text repräsentiert.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für die `translateStreaming()`-Operation angibt. Mögliche Werte sind:
+  - : Ein Objekt, welches Konfigurationsoptionen für die `translateStreaming()` Operation spezifiziert. Mögliche Werte sind:
     - `signal`
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz, die es ermöglicht, die `translateStreaming()`-Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, welches ermöglicht, die `translateStreaming()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 

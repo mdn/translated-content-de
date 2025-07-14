@@ -1,14 +1,14 @@
 ---
-title: "Translator: translate() Methode"
+title: "`translate()` Methode des Übersetzers"
 short-title: translate()
 slug: Web/API/Translator/translate
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`translate()`** Methode der [`Translator`](/de/docs/Web/API/Translator) Schnittstelle gibt eine Übersetzung eines Eingabestrings zurück.
+Die **`translate()`** Methode des [`Translator`](/de/docs/Web/API/Translator) Interfaces gibt eine Übersetzung eines Eingabestrings zurück.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ translate(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der den zu übersetzenden Text repräsentiert.
+  - : Ein String, der den zu übersetzenden Text darstellt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für die `translate()` Operation spezifiziert. Mögliche Werte sind:
+  - : Ein Objekt, das die Konfigurationsoptionen für die `translate()` Operation spezifiziert. Mögliche Werte sind:
     - `signal`
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es ermöglicht, die `translate()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objekts, die es ermöglicht, die `translate()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Ein {{jsxref("Promise")}}, das mit einem String erfüllt wird, der die generiert
 
 ## Beispiele
 
-### Grundlegende Verwendung von `translate()`
+### Grundlegende Nutzung von `translate()`
 
 ```js
 const translator = await Translator.create({
@@ -61,4 +61,4 @@ console.log(translation);
 
 ## Siehe auch
 
-- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Übersetzer- und Spracherkennungs-APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)

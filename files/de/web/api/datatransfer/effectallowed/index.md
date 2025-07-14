@@ -3,52 +3,47 @@ title: "DataTransfer: effectAllowed-Eigenschaft"
 short-title: effectAllowed
 slug: Web/API/DataTransfer/effectAllowed
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.effectAllowed`**-Eigenschaft gibt den
-Effekt an, der für einen Drag-Vorgang erlaubt ist. Die _copy_-Operation zeigt an,
-dass die Daten, die gezogen werden, von ihrem aktuellen Standort an den Zielort
-kopiert werden. Die _move_-Operation zeigt an, dass die Daten, die gezogen
-werden, verschoben werden, und die _link_-Operation zeigt an, dass eine Art von
-Beziehung oder Verbindung zwischen dem Quell- und dem Zielort hergestellt wird.
+Die **`DataTransfer.effectAllowed`**-Eigenschaft legt den Effekt fest, der für eine Drag-Operation erlaubt ist. Die _copy_-Operation wird verwendet, um anzugeben, dass die Daten, die gezogen werden, von ihrem derzeitigen Ort an den Zielort kopiert werden. Die _move_-Operation wird verwendet, um anzudeuten, dass die gezogenen Daten verschoben werden. Die _link_-Operation zeigt an, dass eine Art Beziehung oder Verbindung zwischen der Quelle und dem Zielort hergestellt wird.
 
-Diese Eigenschaft sollte im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis gesetzt werden, um den gewünschten Drag-Effekt für die Drag-Quelle festzulegen. Innerhalb der Ereignis-Handler von [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) wird diese Eigenschaft auf den Wert gesetzt, der während des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignisses zugewiesen wurde. Daher kann `effectAllowed` verwendet werden, um zu bestimmen, welcher Effekt zulässig ist.
+Diese Eigenschaft sollte im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis gesetzt werden, um den gewünschten Drag-Effekt für die Drag-Quelle festzulegen. Innerhalb der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis-Handler wird diese Eigenschaft auf den Wert gesetzt, der während des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignisses zugewiesen wurde. Daher kann `effectAllowed` verwendet werden, um festzustellen, welcher Effekt erlaubt ist.
 
-Einem anderen Ereignis als [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) einen Wert für `effectAllowed` zuzuweisen, hat keinen Effekt.
+Eine Zuweisung eines Wertes zu `effectAllowed` in anderen als [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignissen hat keine Wirkung.
 
 ## Wert
 
 Ein String, der die erlaubte Drag-Operation darstellt. Die möglichen Werte sind:
 
 - `none`
-  - : Das Element darf nicht fallen gelassen werden.
+  - : Das Element darf nicht abgelegt werden.
 - `copy`
-  - : Eine Kopie des Quellobjekts kann am neuen Ort erstellt werden.
+  - : Eine Kopie des Quellobjekts darf am neuen Ort erstellt werden.
 - `copyLink`
-  - : Eine Kopier- oder Verbindungsoperation ist erlaubt.
+  - : Eine Kopie oder eine Link-Operation ist erlaubt.
 - `copyMove`
-  - : Eine Kopier- oder Verschiebeoperation ist erlaubt.
+  - : Eine Kopie oder Verschiebungsoperation ist erlaubt.
 - `link`
-  - : Eine Verbindung zum Quellobjekt kann am neuen Ort hergestellt werden.
+  - : Ein Link kann am neuen Ort zur Quelle hergestellt werden.
 - `linkMove`
-  - : Eine Verbindungs- oder Verschiebeoperation ist erlaubt.
+  - : Eine Link- oder Verschiebungsoperation ist erlaubt.
 - `move`
   - : Ein Element kann an einen neuen Ort verschoben werden.
 - `all`
   - : Alle Operationen sind erlaubt.
 - `uninitialized`
-  - : Der Standardwert, wenn der Effekt nicht gesetzt wurde, was allen entspricht.
+  - : Der Standardwert, wenn der Effekt nicht festgelegt wurde, entspricht all.
 
-Das Zuweisen eines anderen Wertes zu `effectAllowed` hat keinen Effekt, und der alte Wert bleibt erhalten.
+Die Zuweisung eines anderen Wertes zu `effectAllowed` hat keine Wirkung und der alte Wert bleibt bestehen.
 
 ## Beispiele
 
 ### effectAllowed setzen
 
-In diesem Beispiel setzen wir `effectAllowed` im `dragstart`-Handler auf `"move"`.
+In diesem Beispiel setzen wir `effectAllowed` auf `"move"` im `dragstart`-Handler.
 
 #### HTML
 
@@ -144,7 +139,6 @@ reset.addEventListener("click", () => document.location.reload());
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

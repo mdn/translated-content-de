@@ -3,12 +3,12 @@ title: "LanguageDetector: detect() Methode"
 short-title: detect()
 slug: Web/API/LanguageDetector/detect
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`detect()`**-Methode des [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Interfaces erkennt die am besten passende Sprache oder Sprachen, in denen ein gegebener Textstring höchstwahrscheinlich geschrieben ist.
+Die **`detect()`** Methode der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector) Schnittstelle erkennt die am wahrscheinlichsten zutreffende Sprache oder Sprachen, in der ein gegebener Text geschrieben ist.
 
 ## Syntax
 
@@ -22,33 +22,33 @@ detect(input, options)
 - `input`
   - : Ein String, der den Text darstellt, dessen Sprache erkannt werden soll.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für den `detect()`-Vorgang angibt. Mögliche Werte sind:
+  - : Ein Objekt, das Konfigurationsoptionen für die `detect()`-Operation angibt. Mögliche Werte sind unter anderem:
     - `signal`
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz, die es ermöglicht, den `detect()`-Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt, das es ermöglicht, die `detect()`-Operation über den dazugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ein Array von Objekten zurückgibt, die die erkannten Sprachen repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, das mit einem Array von Objekten erfüllt wird, die die erkannten Sprachen darstellen. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `detectedLanguage`
-  - : Ein [BCP 47 Sprach-Tag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags), das die erkannte Sprache repräsentiert.
+  - : Ein [BCP 47-Sprachentag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags), der die erkannte Sprache darstellt.
 - `confidence`
-  - : Eine Zahl zwischen `0` und `1`, die das Vertrauen des KI-Modells anzeigt, dass die erkannte Sprache korrekt ist.
+  - : Eine Zahl zwischen `0` und `1`, die die Zuversicht des KI-Modells angibt, dass die erkannte Sprache korrekt ist.
 
-Die Summe aller zurückgegebenen `confidence`-Werte sollte theoretisch `1` betragen, kann jedoch geringer sein, da sehr niedrige Vertrauenswerte von den Ergebnissen ausgeschlossen werden.
+Die Summe aller zurückgegebenen `confidence`-Werte sollte theoretisch 1 betragen, kann jedoch niedriger sein, da sehr niedrige Zuversichtswerte von den Ergebnissen ausgeschlossen werden.
 
-Das letzte zurückgegebene Array-Element wird immer einen `detectedLanguage`-Wert von `und` haben – dies ist eine Abkürzung für "unbestimmt" und repräsentiert die Wahrscheinlichkeit, dass der Text nicht in einer Sprache geschrieben ist, die das Modell kennt.
+Das letzte zurückgegebene Array-Element wird immer einen `detectedLanguage` Wert von `und` haben — dies steht für "undetermined" (unbestimmt) und repräsentiert die Wahrscheinlichkeit, dass der Text nicht in einer Sprache geschrieben ist, die das Modell kennt.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) nicht aktiv ist.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Sprachenerkennungsvorgang das verfügbare [`inputQuota`](/de/docs/Web/API/LanguageDetector/inputQuota) überschreitet.
+  - : Wird ausgelöst, wenn die Sprachenerkennungsoperation die verfügbare [`inputQuota`](/de/docs/Web/API/LanguageDetector/inputQuota) überschreitet.
 
 ## Beispiele
 
-### Grundlegende `detect()`-Verwendung
+### Grundlegende Verwendung von `detect()`
 
 ```js
 const detector = await LanguageDetector.create({
@@ -79,4 +79,4 @@ results.forEach((result) => {
 
 ## Siehe auch
 
-- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Die Translator und Language Detector APIs verwenden](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)

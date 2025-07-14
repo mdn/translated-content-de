@@ -1,18 +1,18 @@
 ---
-title: "CreateMonitor: downloadprogress-Ereignis"
+title: "CreateMonitor: downloadprogress Ereignis"
 short-title: downloadprogress
 slug: Web/API/CreateMonitor/downloadprogress_event
 l10n:
-  sourceCommit: ca5cf1046e4619808440e4505d9fa579a1309ead
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Summarizer API")}}{{SeeCompatTable}}
+{{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Das **`downloadprogress`**-Ereignis der [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Schnittstelle wird ausgelöst, wenn ein Fortschritt beim Herunterladen des KI-Modells gemacht wird.
+Das **`downloadprogress`** Ereignis der [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) Schnittstelle wird ausgelöst, wenn Fortschritte beim Herunterladen des KI-Modells erzielt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("downloadprogress", (event) => { })
@@ -22,13 +22,13 @@ ondownloadprogress = (event) => { }
 
 ## Ereignistyp
 
-Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent), der von [`Event`](/de/docs/Web/API/Event) erbt.
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für ein Beispiel an.
+Siehe die Hauptseite von [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für ein Beispiel.
 
 ## Spezifikationen
 

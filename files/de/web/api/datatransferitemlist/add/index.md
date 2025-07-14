@@ -1,14 +1,14 @@
 ---
-title: "DataTransferItemList: add()-Methode"
+title: "DataTransferItemList: add() Methode"
 short-title: add()
 slug: Web/API/DataTransferItemList/add
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: e0f97a8a4e8a2fc45f1a7bdc8d1e3f524ccb627d
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.add()`**-Methode erstellt ein neues [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Der Artikel kann eine [`File`](/de/docs/Web/API/File) oder ein String eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt zurückgegeben.
+Die **`DataTransferItemList.add()`**-Methode erstellt ein neues [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann entweder eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt zurückgegeben.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der String `data`-Parameter bereitgestellt wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ mit dem angegebenen Typ-Parameter übereinstimmt.
+  - : Wird ausgelöst, wenn der String `data`-Parameter angegeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ gleich dem angegebenen Typ-Parameter ist.
 
 ## Beispiele
 
@@ -129,8 +129,6 @@ target.addEventListener("dragover", (ev) => {
 ### Ergebnis
 
 {{EmbedLiveSample('Examples', 400, 300)}}
-
-{{LiveSampleLink('Examples', 'Ergebnislink')}}
 
 ## Spezifikationen
 

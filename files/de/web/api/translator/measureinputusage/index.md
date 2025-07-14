@@ -1,14 +1,14 @@
 ---
-title: "Übersetzer: measureInputUsage() Methode"
+title: "Translator: measureInputUsage() Methode"
 short-title: measureInputUsage()
 slug: Web/API/Translator/measureInputUsage
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`measureInputUsage()`**-Methode der [`Translator`](/de/docs/Web/API/Translator)-Schnittstelle gibt an, wie viel Eingabequote bei einem Übersetzungsvorgang für einen gegebenen Texteingabewert verwendet würde.
+Die **`measureInputUsage()`** Methode der [`Translator`](/de/docs/Web/API/Translator) Schnittstelle gibt an, wie viel Eingabequote durch einen Übersetzungsvorgang für einen gegebenen Texteingang verbraucht werden würde.
 
 ## Syntax
 
@@ -20,34 +20,34 @@ measureInputUsage(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der den Eingabetext darstellt, für den Sie eine Messung der Eingabenutzung durchführen möchten.
+  - : Ein String, der den Eingangstext darstellt, für den Sie eine Eingabenutzungsmessung wünschen.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für den `measureInputUsage()`-Vorgang spezifiziert. Mögliche Werte umfassen:
+  - : Ein Objekt, das Konfigurationsoptionen für den `measureInputUsage()` Vorgang angibt. Mögliche Werte umfassen:
     - `signal`
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz, die es ermöglicht, den `measureInputUsage()`-Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es ermöglicht, den `measureInputUsage()` Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Zahl erfüllt wird, die die Nutzung der [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) des gegebenen Eingabetextes angibt.
+Ein {{jsxref("Promise")}}, das mit einer Zahl erfüllt wird, die die Nutzung der [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) des gegebenen Eingangstexts angibt.
 
-Diese Zahl ist implementierungsabhängig; wenn sie kleiner als die [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) ist, kann der String übersetzt werden.
+Diese Zahl ist implementationsabhängig; wenn sie kleiner als die [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) ist, kann der String übersetzt werden.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Nutzung der `Translator`-API durch eine {{httpheader('Permissions-Policy/translator','translator')}} {{httpheader("Permissions-Policy")}} blockiert wird.
+  - : Wird ausgelöst, wenn die Nutzung der `Translator` API durch ein {{httpheader('Permissions-Policy/translator','translator')}} {{httpheader("Permissions-Policy")}} blockiert ist.
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ausgabetranslation vom Benutzeragenten gefiltert wurde, beispielsweise weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
+  - : Wird ausgelöst, wenn die Ausgabeübersetzung vom User-Agent gefiltert wurde, zum Beispiel, weil sie als schadhaft, ungenau oder unsinnig erkannt wurde.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf von `measureInputUsage()` aus irgendeinem anderen Grund fehlschlug oder ein Grund, den der Benutzeragent nicht offenlegen wollte.
+  - : Wird ausgelöst, wenn der `measureInputUsage()` Aufruf aus irgendeinem anderen Grund fehlschlug oder ein Grund, den der User-Agent nicht offenlegen wollte.
 
 ## Beispiele
 
-### Überprüfen, ob genügend Quote vorhanden ist
+### Überprüfen, ob genug Quote vorhanden ist
 
-Im untenstehenden Schnipsel erstellen wir eine neue `Translator`-Instanz mit [`create()`](/de/docs/Web/API/Translator/create_static), dann geben wir die gesamte Eingabenutzungsquote über [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) und die Eingabenutzungsquote für die Übersetzung eines bestimmten Text-Strings über `measureInputUsage()` zurück.
+Im folgenden Code-Snippet erstellen wir eine neue `Translator`-Instanz mit [`create()`](/de/docs/Web/API/Translator/create_static), dann geben wir die gesamte Eingabequote über [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) und die Eingabequotennutzung für die Übersetzung eines bestimmten Textstrings über `measureInputUsage()` zurück.
 
-Wir testen dann, ob die individuelle Eingabenutzung für diesen String größer ist als die insgesamt verfügbare Quote. Wenn ja, werfen wir einen entsprechenden Fehler; wenn nicht, beginnen wir mit der Übersetzung des Strings mittels [`translate()`](/de/docs/Web/API/Translator/translate).
+Dann testen wir, ob die individuelle Eingabenutzung für diesen String größer als die insgesamt verfügbare Quote ist. Wenn ja, werfen wir einen entsprechenden Fehler; wenn nicht, beginnen wir mit der Übersetzung des Strings mit [`translate()`](/de/docs/Web/API/Translator/translate).
 
 ```js
 const translator = await Translator.create({
@@ -77,4 +77,4 @@ if (inputUsage > totalInputQuota) {
 
 ## Siehe auch
 
-- [Verwendung der APIs für Übersetzer und Spracherkennung](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)

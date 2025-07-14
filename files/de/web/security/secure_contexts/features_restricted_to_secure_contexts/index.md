@@ -3,14 +3,14 @@ title: Funktionen, die auf sichere Kontexte beschränkt sind
 short-title: Beschränkte Funktionen
 slug: Web/Security/Secure_Contexts/features_restricted_to_secure_contexts
 l10n:
-  sourceCommit: ade8d870ed7e18a71dc51fe25aa13d812fb82558
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
 Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
 
 ## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
-Dieser Abschnitt listet APIs auf, die laut Spezifikationen nur in sicheren Kontexten verfügbar sind.
+Dieser Abschnitt listet APIs auf, die gemäß den Spezifikationen nur in sicheren Kontexten verfügbar sind.
 
 - [Async Clipboard API](/de/docs/Web/API/Clipboard)
 - [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API)
@@ -47,6 +47,7 @@ Dieser Abschnitt listet APIs auf, die laut Spezifikationen nur in sicheren Konte
 - [Service Workers](/de/docs/Web/API/Service_Worker_API)
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
 - [Storage API](/de/docs/Web/API/Storage_API)
+- [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs)
 - [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API)
 - [Web Authentication API](/de/docs/Web/API/Web_Authentication_API)
 - [Web Bluetooth](/de/docs/Web/API/Web_Bluetooth_API)
@@ -72,4 +73,4 @@ Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (auch we
 ## Siehe auch
 
 - [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
-- ["secure context" Abfrage auf der Chrome Platform Status](https://chromestatus.com/features#secure%20context)
+- ["secure context" Suchanfrage auf Chrome Platform Status](https://chromestatus.com/features#secure%20context)

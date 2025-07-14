@@ -1,20 +1,20 @@
 ---
-title: "Translator: targetLanguage-Eigenschaft"
+title: "Translator: targetLanguage property"
 short-title: targetLanguage
 slug: Web/API/Translator/targetLanguage
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}
+{{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`targetLanguage`** des [`Translator`](/de/docs/Web/API/Translator)-Interfaces gibt die Sprache zurück, in die der Eingabetext übersetzt wird.
+Die schreibgeschützte Eigenschaft **`targetLanguage`** des [`Translator`](/de/docs/Web/API/Translator) Schnittstelle gibt die Sprache zurück, in die der Eingabetext übersetzt wird.
 
-Die `targetLanguage` eines `Translator`-Objekts wird beim Erstellen über einen [`create()`](/de/docs/Web/API/Translator/create_static)-Aufruf festgelegt.
+Die `targetLanguage` eines `Translator`-Instanz wird beim Erstellen dieser Instanz über einen [`create()`](/de/docs/Web/API/Translator/create_static) Aufruf festgelegt.
 
 ## Wert
 
-Ein String, der die Ausgangssprache angibt. Dies wird ein gültiges [BCP 47-Sprach-Tag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) festgelegt).
+Ein String, der die Quellsprache angibt. Dies ist ein gültiges [BCP 47 Sprach-Tag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert).
 
 ## Beispiele
 

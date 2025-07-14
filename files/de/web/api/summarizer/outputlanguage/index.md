@@ -3,12 +3,12 @@ title: "Summarizer: outputLanguage-Eigenschaft"
 short-title: outputLanguage
 slug: Web/API/Summarizer/outputLanguage
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Summarizer API")}}{{SeeCompatTable}}
+{{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte **`outputLanguage`**-Eigenschaft des [`Summarizer`](/de/docs/Web/API/Summarizer)-Interfaces gibt die Sprache zurück, in der die Zusammenfassung generiert werden soll.
+Die schreibgeschützte Eigenschaft **`outputLanguage`** der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle gibt die Sprache zurück, in der die Zusammenfassung generiert werden soll.
 
 ## Wert
 
@@ -39,4 +39,4 @@ console.log(summarizer.outputLanguage);
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev
+- [Web AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

@@ -1,20 +1,20 @@
 ---
-title: "Summarizer: expectedContextLanguages-Eigenschaft"
+title: "Summarizer: expectedContextLanguages Eigenschaft"
 short-title: expectedContextLanguages
 slug: Web/API/Summarizer/expectedContextLanguages
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
 ---
 
-{{APIRef("Summarizer API")}}{{SeeCompatTable}}
+{{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die nur-lesbare **`expectedContextLanguages`**-Eigenschaft des [`Summarizer`](/de/docs/Web/API/Summarizer)-Interfaces gibt die Sprachen zurück, in denen die Kontext-Strings geschrieben sein sollten.
+Die **`expectedContextLanguages`** schreibgeschützte Eigenschaft der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle gibt die Sprachen zurück, in denen die Kontextstrings geschrieben sein sollten.
 
 ## Wert
 
-Ein Array von Strings, das die erwarteten Sprachen der bereitgestellten Kontext-Strings angibt (entweder der [`Summarizer.sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) oder ein `context`, der während eines Aufrufs von [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) angegeben wird).
+Ein Array von Zeichenfolgen, die die erwarteten Sprachen der bereitgestellten Kontextstrings spezifizieren (entweder der [`Summarizer.sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) oder ein `context`, der während eines [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) Aufrufs angegeben wird).
 
-Die Strings sollten gültige [BCP 47 Sprachtags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert) sein.
+Die Zeichenfolgen sollten gültige [BCP 47 Sprach-Tags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) festgelegt).
 
 ## Beispiele
 
