@@ -1,95 +1,95 @@
 ---
-title: IMSC Grundlagen
+title: IMSC-Grundlagen
 slug: Related/IMSC/Basics
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 95e0fbb78a16450188753d0b53ca02a9fbd2a641
 ---
 
-IMSC ermöglicht es, Untertitel oder Bildunterschriften zu Ihrem Online-Video hinzuzufügen. In diesem Artikel führen wir Sie durch die Grundlagen, die Sie benötigen, um loszulegen, einschließlich der Grundstruktur eines Dokuments sowie der grundlegenden Schritte zum Stylen, Timing und Positionieren von Untertiteln.
+IMSC ermöglicht es Ihnen, Untertitel oder Bildunterschriften zu Ihrem Online-Video hinzuzufügen. In diesem Artikel werden wir Sie durch die notwendigen Schritte führen, um loszulegen, einschließlich grundlegender Dokumentstruktur sowie der Grundlagen, wie Sie Untertitel stylen, timen und positionieren können.
 
 > [!NOTE]
-> IMSC kann für jede Art von zeitgesteuertem Text verwendet werden, den Sie in ein Webdokument einfügen möchten, nicht nur für Untertitel und Bildunterschriften. Da Untertitel und Bildunterschriften jedoch die häufigsten Anwendungsfälle für IMSC darstellen, konzentrieren wir uns auf diese. Für die Lesbarkeit verwenden wir nur den Begriff "Untertitel". Im beschriebenen technischen Kontext ist der Begriff "Untertitel" austauschbar mit "Bildunterschriften".
+> IMSC kann für jede Art von zeitgesteuertem Text verwendet werden, den Sie in ein Webdokument einfügen möchten, nicht nur für Untertitel und Bildunterschriften. Da jedoch Untertitel und Bildunterschriften die häufigsten Anwendungsfälle für IMSC darstellen, konzentrieren wir uns auf diese. Zur Lesbarkeit nutzen wir nur den Begriff Untertitel. Im technischen Kontext, den wir beschreiben, ist der Begriff "Untertitel" austauschbar mit "Bildunterschriften".
 
-## Was ist IMSC?
+## Was ist also IMSC?
 
-IMSC ist eine Markup-Sprache, mit der Sie zeitgesteuerten Text definieren können, um Untertitel zu digitalen Medien hinzuzufügen. Sie definiert die Struktur Ihres Untertitel-Inhalts in einem XML-Dokument. Es besteht aus einer Reihe von Elementen, mit denen Sie verschiedene Teile Ihres Untertitel-Inhalts einfügen oder umschließen können, um sie auf eine bestimmte Weise oder zu einer bestimmten Zeit erscheinen zu lassen. Viele dieser Elemente sind HTML-Funktionen ähnlich oder identisch.
+IMSC ist eine Auszeichnungssprache, die Sie verwenden können, um zeitgesteuerten Text zu definieren, um digitale Medien mit Untertiteln zu versehen. Es definiert die Struktur Ihres Untertitelinhalts in einem XML-Dokument. Es besteht aus einer Reihe von Elementen, die Sie verwenden können, um verschiedene Teile Ihres Untertitelinhalts einzuschließen oder einzurahmen, damit sie auf eine bestimmte Weise oder zu einer bestimmten Zeit erscheinen. Viele dieser sind ähnlich oder identisch mit HTML-Funktionen.
 
-Falls Ihnen XML oder HTML nicht vertraut sind, sollten Sie zuerst darüber lesen und dann hierher zurückkehren:
+Falls Sie mit XML oder HTML noch nicht vertraut sind, lesen Sie zuerst darüber und kommen dann hierher zurück:
 
 - [Einführung in XML](/de/docs/Web/XML/Guides/XML_introduction)
 - [HTML-Grundlagen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content)
 
 > [!NOTE]
-> Wenn Sie wissen möchten, was Sie in realen Szenarien mit IMSC tun können, schauen Sie sich das erweiterte Beispiel am Ende dieses Tutorials an.
+> Wenn Sie wissen möchten, was Sie mit IMSC in realen Szenarien tun können, schauen Sie sich das erweiterte Beispiel am Ende dieses Tutorials an.
 
-## Minimaler IMSC-Dokument
+## Minimales IMSC-Dokument
 
-IMSC wird immer als vollständiges XML-Dokument angegeben. Als Datei sollte es die Erweiterung "_ttml_" haben.
+IMSC wird immer als komplettes XML-Dokument angegeben. Als Datei sollte es die Erweiterung "_ttml_" haben.
 
 > [!NOTE]
-> IMSC hat derzeit keine native Unterstützung in Browsern, aber die [imscJS](https://github.com/sandflow/imscJS) Polyfill kann verwendet werden, um diese Lücke zu schließen. Alle unten stehenden Beispiele werden unter Verwendung von imscJS dargestellt. Es erzeugt dynamisch HTML und CSS aus einem IMSC XML-Dokument.
+> IMSC hat derzeit keine native Unterstützung in Browsern, aber der [imscJS](https://github.com/sandflow/imscJS) Polyfill kann verwendet werden, um diese Lücke zu schließen. Alle untenstehenden Beispiele werden mit imscJS gerendert. Es erzeugt dynamisch HTML und CSS aus einem IMSC-XML-Dokument.
 
-Schauen wir uns ein minimales IMSC-Dokument und dessen Darstellung an:
+Schauen wir uns ein minimales IMSC-Dokument an und wie es gerendert wird:
 
 {{EmbedGHLiveSample("imsc-examples/minimal_ttml/minimal.html", '100%', 560)}}
 
-Die wichtigsten Funktionen sind:
+Die wichtigsten Merkmale sind wie folgt:
 
-- `<tt></tt>` — Ein IMSC-Dokument beginnt immer mit dem Wurzelelement `<tt>`. Sie sollten auch den Standard-Namespace des Dokuments mit dem Attribut `xmlns` angeben. Machen Sie sich vorerst keine Sorgen um Namespaces. Wir kommen darauf in einem separaten Leitfaden zurück.
-- `xml:lang` — Sie müssen die Sprache Ihres Inhalts mit dem Attribut `xml:lang` angeben. Beachten Sie, dass das Attribut `lang` das Präfix `xml:` haben muss, im Gegensatz zu HTML. In IMSC ist `<tt lang="en">` nicht korrekt — Sie müssen stets `<tt xml:lang="en">` schreiben.
-- `<body></body>` — Wie in HTML enthält das `<body>`-Element alle Inhalte, die Sie anzeigen möchten. Für IMSC sind dies typischerweise Untertitel-Inhalte, die Sie während bestimmter Zeitintervalle während der Videowiedergabe anzeigen möchten.
-- `<div></div>` — Das `<div>`-Element wird als Container für Untertitel-Inhalte verwendet; Sie benötigen immer mindestens eins davon. Die `<p>`-Elemente, die den eigentlichen Untertitel-Inhalt enthalten, haben immer ein `<div>`-Element als übergeordnetes Element.
-- `<p></p>` — Textinhalte für Untertitel müssen immer in einem `<p>`-Element eingeschlossen sein. Das Element beschreibt einen Textabsatz, ähnlich wie in HTML. Der Hauptunterschied besteht darin, dass es zeitgesteuert sein kann.
+- `<tt></tt>` — Ein IMSC-Dokument beginnt immer mit dem Wurzelelement `<tt>`. Sie sollten auch den Standard-Namensraum des Dokuments mit dem `xmlns`-Attribut angeben. Machen Sie sich vorerst keine Sorgen um Namensräume. Wir werden das in einem separaten Leitfaden behandeln.
+- `xml:lang` — Sie müssen die Sprache Ihres Inhalts mit dem `xml:lang`-Attribut angeben. Beachten Sie, dass das `lang`-Attribut das Präfix `xml:` haben muss, im Gegensatz zu HTML. In IMSC ist `<tt lang="en">` nicht korrekt — Sie müssen immer `<tt xml:lang="en">` schreiben.
+- `<body></body>` — Wie in HTML enthält das `<body>`-Element alle Inhalte, die Sie anzeigen möchten. Für IMSC sind dies typischerweise Untertitel, die Sie zu bestimmten Zeitintervallen während der Wiedergabe eines Videos anzeigen möchten.
+- `<div></div>` — Das `<div>`-Element wird als Container für Untertitelinhalte verwendet; Sie benötigen immer mindestens einen davon. Die `<p>`-Elemente, die den tatsächlichen Untertitelinhalt enthalten, haben immer ein `<div>`-Element als übergeordnetes Element.
+- `<p></p>` — Textinhalt für Untertitel muss immer in ein `<p>`-Element eingeschlossen werden. Das Element beschreibt einen Absatz von Text, ähnlich wie in HTML. Der Hauptunterschied besteht darin, dass es zeitgesteuert sein kann.
 
 ## Timing
 
-Das minimale IMSC-Dokument aus dem vorherigen Beispiel hatte kein Timing. Das bedeutet, dass der Untertitel-Inhalt während der gesamten Dauer des Videos angezeigt wird. Normalerweise ist das nicht das, was Sie wollen. Stattdessen möchten Sie, dass Untertitel zu einem bestimmten Zeitpunkt angezeigt und dann wieder ausgeblendet werden. Sie können eine Kombination der Timing-Attribute `begin`, `end` und `dur` verwenden, um dies zu erreichen.
+Das minimale IMSC-Dokument aus dem vorherigen Beispiel hatte kein Timing. Das bedeutet, dass der Untertitelinhalt während der gesamten Dauer des Videos angezeigt wird. Normalerweise ist dies nicht das, was Sie wollen. Stattdessen möchten Sie, dass Untertitel zu einer bestimmten Zeit angezeigt werden und dann verschwinden. Sie können eine Kombination der Zeitattribute `begin`, `end` und `dur` verwenden, um dies zu erreichen.
 
-Sehen Sie sich das folgende bearbeitbare Beispiel an:
+Betrachten Sie das folgende bearbeitbare Beispiel:
 
 {{EmbedGHLiveSample("imsc-examples/minimal-timing/minimal-timing-player.html", '100%', 590)}}
 
-Dies umfasst die folgenden neuen Attribute:
+Dies beinhaltet die folgenden neuen Attribute:
 
-- `begin` — Spezifiziert, wann der Untertitel angezeigt werden soll (in diesem Fall 1 Sekunde nach Beginn des Videos).
-- `end` — Spezifiziert, wann der Untertitel ausgeblendet werden soll (in diesem Fall 2 Sekunden nach Beginn des Videos).
+- `begin` — gibt an, wann der Untertitel beginnen soll angezeigt zu werden (in diesem Fall 1s nachdem das Video gestartet ist).
+- `end` — gibt an, wann der Untertitel verschwinden soll (in diesem Fall 2s nachdem das Video gestartet ist).
 
-Experimentieren Sie mit den Zeitwerten im Codebeispiel und drücken Sie den Reload-Button, wenn Sie fertig sind.
+Spielen Sie mit den Sekundenwerten im Code-Beispiel herum und drücken Sie die Neuladen-Schaltfläche, wenn Sie bereit sind.
 
 > [!NOTE]
-> Die Endzeiten in IMSC sind nicht "inklusiv". Der Untertitel "Hello, I am Mork from Ork." wird nicht mehr angezeigt, wenn er den zweiten Zeitwert erreicht.
+> Die Endzeiten in IMSC sind nicht „inklusiv“. Der Untertitel "Hello, I am Mork from Ork." wird nicht mehr angezeigt, wenn er die zweite Zeitwert erreicht.
 
-Sie können für das Timing auch das Attribut `dur` verwenden:
+Sie können auch das `dur`-Attribut für das Timing verwenden:
 
 {{EmbedGHLiveSample("imsc-examples/minimal-timing/minimal-timing-player-dur.html", '100%', 590)}}
 
-Dieses Attribut kann als Alternative zum Attribut `end` verwendet werden. Es definiert, "wie lange" der Untertitel nach der `begin`-Zeit angezeigt wird. Im Beispiel soll der zweite Absatz 2 Sekunden lang angezeigt werden. Da er bei Sekunde 2 beginnt, wird er bei Sekunde 4 ausgeblendet.
+Dieses Attribut kann als Alternative zum `end`-Attribut verwendet werden. Es definiert, "wie lange" der Untertitel nach Ablauf der `begin`-Zeit angezeigt wird. Im Beispiel soll der zweite Absatz 2s lang angezeigt werden. Da er bei Sekunde 2 beginnt, soll er bei Sekunde 4 verschwinden.
 
 Beachten Sie, was sich bei Sekunde 2 im Vergleich zum vorherigen Beispiel geändert hat.
 
 ## Farben
 
-Oft werden Untertitel auf einem opaken oder halbopaken Hintergrund dargestellt, um die Lesbarkeit zu verbessern. Sie können die Attribute `backgroundColor` und `color` verwenden, um die Farben zu ändern, wie in diesem bearbeitbaren Beispiel gezeigt:
+Oft werden Untertitel auf einem opaken oder halbopaken Hintergrund angezeigt, um die Lesbarkeit zu verbessern. Sie können die Attribute `backgroundColor` und `color` verwenden, um die Farben zu ändern, wie in diesem bearbeitbaren Beispiel gezeigt:
 
 {{EmbedGHLiveSample("imsc-examples/minimal-colors/minimal-colors.html", '100%', 620)}}
 
-Hier haben wir Folgendes eingeführt:
+Hier haben wir die folgenden eingeführt:
 
-- `tts:backgroundColor` — Dieses Attribut setzt die Hintergrundfarbe des Elements, auf das es angewendet wird. In diesem Fall wird es auf das `<p>`-Element angewendet, genauer gesagt auf den vom `<p>`-Element erzeugten Bereich. Die Standard-Hintergrundfarbe ist `transparent`.
+- `tts:backgroundColor` — Dieses Attribut legt die Hintergrundfarbe für das Element fest, auf das es angewendet wird. In diesem Fall wird es auf das `<p>`-Element angewendet oder genauer gesagt auf den Bereich, der durch das `<p>`-Element erzeugt wird. Die standardmäßige Hintergrundfarbe ist `transparent`.
 
-- `tts:color` — Dieses Attribut setzt die Textfarbe des Elements, auf das es angewendet wird. Die Standard-Textfarbe ist `white`.
+- `tts:color` — Dieses Attribut legt die Textfarbe für das Element fest, auf das es angewendet wird. Die standardmäßige Textfarbe ist `white`.
 
-Versuchen Sie, andere Farben für Text und Hintergrund zu setzen:
+Versuchen Sie, einige andere Farben für den Text und die Hintergrundfarben festzulegen:
 
-- Probieren Sie andere benannte Farben wie `lime` oder `aqua`.
+- Probieren Sie andere benannte Farben wie `lime` oder `aqua` aus.
 - Verwenden Sie Hexadezimalwerte wie `#00ff00` oder `#00ffff`.
 - Sie können andere Farbschemata wie `rgb(0 255 255)` verwenden.
-- Versuchen Sie schließlich halbtransparente Varianten wie `rgb(0 0 0 / .8)`.
+- Verwenden Sie schließlich halbtransparente Variationen, wie `rgb(0 0 0 / .8)`.
 
 > [!NOTE]
-> Machen Sie sich vorerst keine Sorgen um Namespaces. Wir erklären die Bedeutung von `xmlns:tts` und `tts:backgroundColor` in einem separaten Leitfaden.
+> Machen Sie sich vorerst keine Sorgen um Namensräume. Wir werden die Bedeutung von `xmlns:tts` und `tts:backgroundColor` in einem separaten Leitfaden erklären.
 
-Wie im [IMSC-Styling-Leitfaden](/de/docs/Related/IMSC/Styling) erklärt, ist es möglich, eine Sammlung von Styling-Eigenschaften zu definieren, die mehrfach verwendet werden können. Der Stil `s1` unten wird dreimal angewendet:
+Wie im [IMSC-Styling](/de/docs/Related/IMSC/Styling) Leitfaden erklärt, ist es möglich, eine Sammlung von Styling-Eigenschaften zu definieren, die beliebig oft verwendet werden können. Der Stil `s1` wird unten dreimal angewendet:
 
 ```xml
 <tt xmlns="http://www.w3.org/ns/ttml"
@@ -113,9 +113,9 @@ Wie im [IMSC-Styling-Leitfaden](/de/docs/Related/IMSC/Styling) erklärt, ist es 
 
 ## Position, Breite und Länge
 
-Wenn Sie keine Position ausdrücklich angeben, wird der Untertitel standardmäßig in der oberen linken Ecke des Videos angezeigt. In der Regel möchten Sie jedoch, dass Ihr Untertitel an einer anderen Stelle angezeigt wird, beispielsweise in der unteren Mitte des Videos. Sie müssen eine Region definieren, um einen Untertitel zu positionieren.
+Wenn Sie keine Position explizit angeben, wird der Untertitel standardmäßig in der oberen linken Ecke des Videos angezeigt. Üblicherweise möchten Sie jedoch Ihren Untertitel an einem anderen Ort positionieren, wie zum Beispiel im unteren Zentrum des Videos. Sie müssen eine Region angeben, um einen Untertitel zu positionieren.
 
-Sehen Sie unten ein minimales Dokument, das Regionen zur Positionierung verwendet.
+Sehen Sie sich unten ein minimales Dokument an, das Regionen zur Positionierung verwendet.
 
 ```xml
 <tt xmlns="http://www.w3.org/ns/ttml"
@@ -142,23 +142,23 @@ Sehen Sie unten ein minimales Dokument, das Regionen zur Positionierung verwende
 </tt>
 ```
 
-Dies umfasst folgende neue Funktionen:
+Dies beinhaltet die folgenden neuen Funktionen:
 
-- `<head></head>` — Wie in HTML fungiert das `<head>`-Element als Container für alle Elemente, die Sie in ein IMSC-Dokument aufnehmen möchten, die jedoch keine Untertitel-Inhalte sind. Meistens wird es verwendet, um Metadaten über den Inhalt oder das Dokument zu speichern, sowie Informationen zur Positionierung und Formatierung.
-- `<layout></layout>` — Dieses Element fungiert als Wrapper für Positionierungsinformationen. Es enthält `<region>`-Elemente als Kinder.
-- `<region></region>` — Dieses Element kann verwendet werden, um Regionen zu definieren, rechteckige Bereiche, die Sie über Ihrem Video platzieren können. Diese haben eine definierte Position, Breite und Höhe sowie eine eindeutige ID (über das Attribut `id`). Sie können es sich wie ein `<div>`-Element in HTML vorstellen, das über CSS eine absolute Position, Breite und Höhe erhält. Wenn Untertitel-Inhalte einer Region zugeordnet sind (indem die ID der Region im Attribut `region` angegeben wird), werden sie innerhalb des von dieser Region definierten Bereichs angezeigt.
-- `xml:id` - Das Attribut `xml:id`. Der Wert des Attributs `xml:id` ist eine Zeichenkette, mit der Untertitel-Inhalte einer Region zugeordnet werden können.
-- `tts:origin` — Dieses Attribut definiert die Position der oberen linken Ecke der Region. Es verwendet die Maßeinheit % (Prozentsatz). Der erste Wert definiert, wie weit die obere linke Ecke der Region nach rechts verschoben wird — in diesem Fall platziert der Wert `10%` die Region 10% der Video-Breite nach rechts. Der zweite Wert definiert, wie weit die obere linke Ecke der Region nach unten verschoben wird — in diesem Fall wird die obere linke Ecke der Region `80%` der Video-Höhe nach unten verschoben.
-- `tts:extent` — Dieses Attribut definiert die Breite und Höhe der Region. In diesem Fall setzt `80%` die Breite auf 80% der Video-Breite, und `20%` setzt die Höhe der Region auf 20% der Video-Höhe.
-- `region` — Das Setzen dieses Attributs auf Untertitel-Inhalte und die Angabe der ID der Region als Wert bewirkt, dass diese Inhalte der entsprechenden Region "zugewiesen" werden. Somit erscheinen sie zur angegebenen Zeit im Bereich dieser Region. Im Beispiel platziert der Wert `bottom` die Untertitel-Inhalte des entsprechenden `<p>`-Elements in der Region mit der ID `bottom`.
+- `<head></head>` — Wie in HTML fungiert das `<head>`-Element als Container für all das, was Sie in ein IMSC-Dokument einschließen möchten, das kein Untertitelinhalt ist, am häufigsten Metadaten über den Inhalt oder das Dokument. Sie werden es meistens verwenden, um Positionierungs- und Stylineinformationen zu speichern.
+- `<layout></layout>` — Dieses Element fungiert als Wrapper für Positionierungsinformationen. Es hat `<region>`-Elemente als seine Kinder.
+- `<region></region>` — Dieses Element kann verwendet werden, um `region`s zu definieren, rechteckige Bereiche, die Sie auf Ihrem Video platzieren können. Sie haben eine definierte Position, Breite und Höhe sowie eine `id`, um sie eindeutig zu identifizieren. Sie können es sich wie ein `<div>`-Element in HTML vorstellen, das eine absolute Position, Breite und Höhe über CSS erhält. Wenn Untertitelinhalt mit einer Region „verbunden“ ist (indem die `id` der Region im `region`-Attribut angegeben wird), wird es im Bereich angezeigt, der durch diese Region erzeugt wird.
+- `xml:id` - das `xml:id`-Attribut. Der Wert des `xml:id`-Attributs ist eine Zeichenfolge, die verwendet werden kann, um Untertitelinhalt mit einer `region` zu verknüpfen.
+- `tts:origin` — Dieses Attribut definiert die Position der oberen linken Ecke der Region. Es verwendet die % (Prozent) Metrik. Der erste Wert definiert, wie weit die obere linke Ecke der Region nach rechts verschoben wird — in diesem Fall platziert der Wert `10%` die Region 10% der Videobreite nach rechts. Der zweite Wert definiert, wie weit die obere linke Ecke der Region nach unten verschoben wird — in diesem Fall schiebt der Wert `80%` die obere linke Ecke der Region 80% der Videohöhe nach unten.
+- `tts:extent` — Dieses Attribut definiert die Breite und Höhe der Region. In diesem Fall setzt `80%` die Breite auf 80% der Videobreite und `20%` die Höhe auf 20% der Videohöhe.
+- `region` — das Einstellen davon auf einigen Untertitelinhalten und dann der Region eine `xml:id` als Wert zu geben, führt dazu, dass es diese Region _referenziert_, was bedeutet, dass es zur angegebenen Zeit im durch diese Region definierten Bereich angezeigt wird. Hier platziert der Wert `bottom` den Untertitelinhalt, dargestellt durch dieses `<p>`-Element, in der Region mit einer `xml:id` von `bottom`.
 
-Dieses Beispiel wird wie unten gezeigt dargestellt. Probieren Sie es aus und spielen Sie mit dem Code in den beiden Feldern. Sie könnten beispielsweise das Attribut `tts:origin` auf "_0% 0%_" setzen. Oder sehen Sie, was passiert, wenn Sie den Wert des Attributs `region` des `<p>`-Elements auf "_top_" ändern.
+Dieses Beispiel wird wie unten gezeigt gerendert. Probieren Sie es aus und spielen Sie mit dem Code in den beiden Boxen herum. Sie könnten zum Beispiel das `tts:origin`-Attribut auf "_0% 0%_" setzen. Oder sehen Sie, was passiert, wenn Sie den Wert des `region`-Attributs des `<p>`-Elements auf "_top_" ändern.
 
 {{EmbedGHLiveSample("imsc-examples/minimal-region/minimal-region.html", '100%', 650)}}
 
 ## Erweitertes Beispiel
 
-Das erweiterte Beispiel unten gibt Ihnen eine Vorstellung davon, was Sie mit IMSC tun können, nachdem Sie unsere Tutorials durchgearbeitet haben.
+Das erweiterte Beispiel unten gibt Ihnen eine Vorstellung davon, was Sie mit IMSC machen können, nachdem Sie unsere Tutorials durchgearbeitet haben.
 
 {{EmbedGHLiveSample("imsc-examples/basic-expanded/basics-expanded.html", '100%', 300)}}
 
@@ -234,26 +234,4 @@ Das erweiterte Beispiel unten gibt Ihnen eine Vorstellung davon, was Sie mit IMS
 
 ## Zusammenfassung
 
-Das war Ihr Schnellkurs in den IMSC-Codiergrundlagen! Wir haben hier nur an der Oberfläche gekratzt, und Sie können diese Themen in den nachfolgenden Artikeln viel tiefer bearbeiten.
-
-<section id="Quick_links">
-  <ol>
-    <li><a href="/de/docs/Related/IMSC/"><strong>IMSC</strong></a></li>
-    <li class="toggle">
-      <details open>
-        <summary>IMSC-Leitfäden</summary>
-        <ol>
-          <li><a href="/de/docs/Related/IMSC/Basics">IMSC Grundlagen</a></li>
-          <li><a href="/de/docs/Related/IMSC/Using_the_imscJS_polyfill">Verwendung des imscJS Polyfills</a></li>
-          <li><a href="/de/docs/Related/IMSC/Styling">Styling von IMSC-Dokumenten</a></li>
-          <li><a href="/de/docs/Related/IMSC/Subtitle_placement">Untertiteldarstellung in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Namespaces">Namespaces in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Timing_in_IMSC">Timing in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Mapping_video_time_codes_to_IMSC">Mapping von Video-Timings zu IMSC</a>
-          </li>
-          <li><a href="/de/docs/Related/IMSC/IMSC_and_other_standards">IMSC und andere Standards</a></li>
-        </ol>
-      </details>
-    </li>
-  </ol>
-</section>
+Das war Ihr Schnellkurs in den IMSC-Code-Grundlagen! Wir haben hier wirklich nur an der Oberfläche gekratzt, und Sie werden in den folgenden Artikeln viel tiefer in die oben genannten Themen eintauchen.

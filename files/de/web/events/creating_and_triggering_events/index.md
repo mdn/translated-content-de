@@ -2,10 +2,10 @@
 title: Erstellen und Auslösen von Ereignissen
 slug: Web/Events/Creating_and_triggering_events
 l10n:
-  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
+  sourceCommit: 95e0fbb78a16450188753d0b53ca02a9fbd2a641
 ---
 
-Dieser Artikel demonstriert, wie DOM-Ereignisse erstellt und ausgelöst werden. Solche Ereignisse werden üblicherweise als **synthetische Ereignisse** bezeichnet, im Gegensatz zu den Ereignissen, die vom Browser selbst ausgelöst werden.
+Dieser Artikel demonstriert, wie DOM-Ereignisse erstellt und ausgelöst werden. Solche Ereignisse werden im Allgemeinen als **synthetische Ereignisse** bezeichnet, im Gegensatz zu den Ereignissen, die vom Browser selbst ausgelöst werden.
 
 ## Erstellen benutzerdefinierter Ereignisse
 
@@ -31,14 +31,13 @@ Das obige Codebeispiel verwendet die Methode [EventTarget.dispatchEvent()](/de/d
 
 ### Hinzufügen benutzerdefinierter Daten – CustomEvent()
 
-Um dem Ereignisobjekt mehr Daten hinzuzufügen, existiert die [CustomEvent](/de/docs/Web/API/CustomEvent)-Schnittstelle und die **detail**-Eigenschaft kann genutzt werden, um benutzerdefinierte Daten zu übergeben.
-Das Ereignis könnte beispielsweise wie folgt erstellt werden:
+Um dem Ereignisobjekt mehr Daten hinzuzufügen, existiert das [CustomEvent](/de/docs/Web/API/CustomEvent)-Interface und die **detail**-Eigenschaft kann verwendet werden, um benutzerdefinierte Daten zu übergeben. Zum Beispiel könnte das Ereignis wie folgt erstellt werden:
 
 ```js
 const event = new CustomEvent("build", { detail: elem.dataset.time });
 ```
 
-Dies ermöglicht dann den Zugriff auf die zusätzlichen Daten im Ereignislistener:
+Dies ermöglicht Ihnen dann, die zusätzlichen Daten im Ereignis-Listener zuzugreifen:
 
 ```js
 function eventHandler(e) {
@@ -46,9 +45,9 @@ function eventHandler(e) {
 }
 ```
 
-### Hinzufügen benutzerdefinierter Daten – Unterklassen von Event
+### Hinzufügen benutzerdefinierter Daten – Event subclassen
 
-Die [`Event`](/de/docs/Web/API/Event)-Schnittstelle kann auch unterklassifiziert werden. Dies ist besonders nützlich für die Wiederverwendung, für kompliziertere benutzerdefinierte Daten oder sogar, um Methoden zum Ereignis hinzuzufügen.
+Das [`Event`](/de/docs/Web/API/Event)-Interface kann auch subclassed werden. Dies ist besonders nützlich für die Wiederverwendung oder für komplexere benutzerdefinierte Daten, oder sogar das Hinzufügen von Methoden zum Ereignis.
 
 ```js
 class BuildEvent extends Event {
@@ -73,7 +72,7 @@ Das Ereignis könnte dann wie folgt erstellt werden:
 const event = new BuildEvent(elem.dataset.time);
 ```
 
-Die zusätzlichen Daten können dann in den Ereignislistenern mithilfe der benutzerdefinierten Eigenschaften abgerufen werden:
+Die zusätzlichen Daten können dann in den Ereignis-Listenern durch die benutzerdefinierten Eigenschaften zugegriffen werden:
 
 ```js
 function eventHandler(e) {
@@ -83,7 +82,7 @@ function eventHandler(e) {
 
 ### Ereignis-Bubbling
 
-Es ist oft wünschenswert, ein Ereignis von einem Kindelement auszulösen und einen Vorfahren es auffangen zu lassen; optional mit Daten:
+Es ist oft wünschenswert, ein Ereignis von einem Kindelement auszulösen und es von einem Vorfahren abfangen zu lassen; optional mit Daten:
 
 ```html
 <form>
@@ -108,7 +107,7 @@ form.addEventListener("awesome", (e) => console.log(e.detail.text()));
 textarea.addEventListener("input", (e) => e.target.dispatchEvent(eventAwesome));
 ```
 
-### Dynamisches Erstellen und Auslösen von Ereignissen
+### Erstellen und Auslösen von Ereignissen dynamisch
 
 Elemente können auf Ereignisse hören, die noch nicht erstellt wurden:
 
@@ -138,7 +137,7 @@ textarea.addEventListener("input", function () {
 
 ## Auslösen von eingebauten Ereignissen
 
-Dieses Beispiel zeigt, wie ein Klick simuliert wird (also programmatisch ein Klickereignis erzeugt) auf einer Checkbox mithilfe von DOM-Methoden. [Sehen Sie sich das Beispiel in Aktion an.](https://mdn.dev/archives/media/samples/domref/dispatchEvent.html)
+Dieses Beispiel zeigt die Simulation eines Klicks (d.h. programmatisches Generieren eines Klickereignisses) auf einer Checkbox mithilfe von DOM-Methoden. [Beispiel in Aktion ansehen.](https://mdn.dev/archives/media/samples/domref/dispatchEvent.html)
 
 ```js
 function simulateClick() {
@@ -167,12 +166,3 @@ function simulateClick() {
 - [`Event.initEvent()`](/de/docs/Web/API/Event/initEvent)
 - [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)
 - [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)
-
-<section id="Quick_links">
-  <ol>
-    <li><a href="/de/docs/Learn_web_development/Core/Scripting/Events">Einführung in Ereignisse</a></li>
-    <li><a href="/de/docs/Web/Events">Ereignisreferenz</a></li>
-    <li><a href="/de/docs/Web/Events/Creating_and_triggering_events">Erstellen und Auslösen von Ereignissen</a></li>
-    <li><a href="/de/docs/Web/Events/Event_handlers">Ereignis-Handler (Übersicht)</a></li>
-  </ol>
-</section>

@@ -1,25 +1,21 @@
 ---
-title: Attributereflektion
+title: Attribut-Reflexion
 slug: Web/API/Document_Object_Model/Reflected_attributes
 l10n:
-  sourceCommit: 15caf9db9fdc7f511db22d1e537ba77ac53651f1
+  sourceCommit: d8a5165fd3c3b35ea9d07a914459e8d468f62276
 ---
 
 {{DefaultAPISidebar("DOM")}}
 
-Ein {{Glossary("attribute", "Attribut")}} erweitert ein {{Glossary("HTML", "HTML")}}-, {{Glossary("XML", "XML")}}-, {{Glossary("SVG", "SVG")}}- oder ein anderes {{Glossary("element", "Element")}}, indem es dessen Verhalten ändert oder Metadaten bereitstellt.
+Ein {{Glossary("attribute", "Attribut")}} erweitert ein {{Glossary("HTML", "HTML")}}, {{Glossary("XML", "XML")}}, {{Glossary("SVG", "SVG")}} oder anderes {{Glossary("element", "Element")}}, verändert dessen Verhalten oder liefert Metadaten.
 
-Viele Attribute werden in der entsprechenden [DOM](/de/docs/Web/API/Document_Object_Model)-Schnittstelle _reflektiert_.
-Das bedeutet, dass der Wert des Attributs direkt in JavaScript über eine Eigenschaft in der entsprechenden Schnittstelle gelesen oder geschrieben werden kann, und umgekehrt.
-Die reflektierten Eigenschaften bieten einen natürlicheren Programmieransatz als das Abrufen und Setzen von Attributwerten über die Methoden [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) und [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) der [`Element`](/de/docs/Web/API/Element)-Schnittstelle.
+Viele Attribute werden im entsprechenden [DOM](/de/docs/Web/API/Document_Object_Model)-Interface _reflektiert_. Das bedeutet, dass der Wert des Attributs direkt in JavaScript über eine Eigenschaft des entsprechenden Interface gelesen oder geschrieben werden kann und umgekehrt. Die reflektierten Eigenschaften bieten einen natürlicheren Programmieransatz als das Abrufen und Setzen von Attributwerten mit den Methoden [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) und [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) des [`Element`](/de/docs/Web/API/Element)-Interfaces.
 
-Dieser Leitfaden bietet einen Überblick über reflektierte Attribute und deren Verwendung.
+Dieser Leitfaden bietet einen Überblick über reflektierte Attribute und ihre Verwendung.
 
-## Attribut-Getter/Setter
+## Attribut Getter/Setter
 
-Zuerst betrachten wir den Standardmechanismus zum Abrufen und Setzen eines Attributs, der unabhängig davon verwendet werden kann, ob das Attribut reflektiert wird.
-Um das Attribut abzurufen, rufen Sie die Methode [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) der [`Element`](/de/docs/Web/API/Element)-Schnittstelle auf und geben Sie den Attributnamen an.
-Um das Attribut zu setzen, rufen Sie die Methoden [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf, indem Sie den Attributnamen und den neuen Wert angeben.
+Zunächst sehen wir uns den Standardmechanismus zum Abrufen und Setzen eines Attributs an, der unabhängig davon verwendet werden kann, ob das Attribut reflektiert wird oder nicht. Zum Abrufen des Attributs rufen Sie die Methode [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) des [`Element`](/de/docs/Web/API/Element)-Interfaces auf und geben den Attributnamen an. Zum Setzen des Attributs rufen Sie die Methode [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf und geben den Attributnamen und den neuen Wert an.
 
 Betrachten Sie das folgende HTML:
 
@@ -27,7 +23,7 @@ Betrachten Sie das folgende HTML:
 <input placeholder="Original placeholder" />
 ```
 
-Um das [`placeholder`](/de/docs/Web/HTML/Reference/Attributes/placeholder)-Attribut zu holen und zu setzen:
+Um das [`placeholder`](/de/docs/Web/HTML/Reference/Attributes/placeholder)-Attribut zu lesen und zu setzen:
 
 ```js
 const input = document.querySelector("input");
@@ -41,14 +37,13 @@ input.setAttribute("placeholder", "Modified placeholder");
 
 ## Reflektierte Attribute
 
-Für ein {{htmlelement("input")}}-Element wird das `placeholder`-Attribut von der [`HTMLInputElement.placeholder`](/de/docs/Web/API/HTMLInputElement/placeholder)-Eigenschaft reflektiert.
-Angenommen, dasselbe HTML wie vorher:
+Für ein {{htmlelement("input")}} wird das `placeholder`-Attribut durch die Eigenschaft [`HTMLInputElement.placeholder`](/de/docs/Web/API/HTMLInputElement/placeholder) reflektiert. Bei demselben HTML wie zuvor:
 
 ```html
 <input placeholder="Original placeholder" />
 ```
 
-Die gleiche Operation kann natürlicher mit der `placeholder`-Eigenschaft durchgeführt werden:
+Kann dieselbe Operation natürlicher mit der `placeholder`-Eigenschaft durchgeführt werden:
 
 ```js
 const input = document.querySelector("input");
@@ -60,36 +55,26 @@ let attr = input.placeholder;
 input.placeholder = "Modified placeholder";
 ```
 
-Beachten Sie, dass der Name des reflektierten Attributs und der Eigenschaft derselbe ist: `placeholder`.
-Das ist nicht immer der Fall: Eigenschaften werden üblicherweise nach der {{Glossary("Camel_case", "camelCase")}}-Konvention benannt.
-Dies gilt insbesondere für mehrwortige Attributnamen, die Zeichen enthalten, die in einem Eigenschaftsnamen nicht erlaubt sind, wie z.B. das Bindestrichzeichen.
-Zum Beispiel wird das Attribut [aria-checked](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) durch die Eigenschaft [`ariaChecked`](/de/docs/Web/API/Element/ariaChecked) reflektiert.
+Beachten Sie, dass der Name des reflektierten Attributs und der Eigenschaft derselbe ist: `placeholder`. Das ist nicht immer der Fall: Eigenschaften werden normalerweise nach der {{Glossary("Camel_case", "camelCase")}}-Konvention benannt. Dies ist insbesondere bei mehrgliedrigen Attributnamen der Fall, die Zeichen enthalten, die in einem Eigenschaftsnamen nicht erlaubt sind, wie beispielsweise der Bindestrich. Zum Beispiel wird das Attribut [aria-checked](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) durch die Eigenschaft [`ariaChecked`](/de/docs/Web/API/Element/ariaChecked) reflektiert.
 
 ### Boolesche reflektierte Attribute
 
-{{Glossary("Boolean/HTML", "Boolesche Attribute")}} unterscheiden sich ein wenig von anderen, da sie nicht mit einem Namen und Wert deklariert werden müssen.
-Zum Beispiel hat das Kontrollkästchen-{{htmlelement("input")}}-Element unten das `checked`-Attribut und wird beim Anzeigen angekreuzt:
+{{Glossary("Boolean/HTML", "Boolesche Attribute")}} sind etwas anders als die anderen, da sie nicht mit einem Namen und einem Wert deklariert werden müssen. Zum Beispiel hat das {{htmlelement("input")}}-Element für Checkboxen unten das `checked`-Attribut und wird bei der Anzeige aktiviert sein:
 
 ```html
 <input type="checkbox" checked />
 ```
 
-Die [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) gibt `""` zurück, wenn das Eingabefeld angekreuzt ist, oder `null`, wenn es nicht angekreuzt ist.
-Die entsprechende [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked)-Eigenschaft gibt `true` oder `false` für den angekreuzten Zustand zurück.
-Andernfalls sind boolesche reflektierte Attribute mit jedem anderen reflektierten Attribut gleichzusetzen.
+Die Methode [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) gibt `""` zurück, wenn das Eingabefeld aktiviert ist, oder `null`, wenn es nicht aktiviert ist. Die entsprechende Eigenschaft [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked) gibt `true` oder `false` für den aktivierten Status zurück. Ansonsten entsprechen boolesche reflektierte Attribute anderen reflektierten Attributen.
 
 ## Reflektierte Elementreferenzen
 
 > [!NOTE]
-> Dieser Abschnitt betrifft [reflektierte ARIA-Attribute, die Elementreferenzen enthalten](/de/docs/Web/API/Element#instance_properties_reflected_from_aria_element_references).
-> Die gleichen Überlegungen gelten wahrscheinlich auch für andere/zukünftige Attribute, die Elementreferenzen reflektieren.
+> Dieser Abschnitt gilt für [reflektierte ARIA-Attribute, die Elementreferenzen enthalten](/de/docs/Web/API/Element#instance_properties_reflected_from_aria_element_references). Dieselben Überlegungen gelten wahrscheinlich für andere/ zukünftige Attribute, die Elementreferenzen reflektieren.
 
-Einige Attribute nehmen Element-_Referenzen_ als Werte: entweder einen Element-`id`-Wert oder eine durch Leerzeichen getrennte Zeichenfolge von Element-`id`-Werten.
-Diese `id`-Werte beziehen sich auf andere Elemente, die mit dem Attribut in Verbindung stehen oder die Informationen enthalten, die das Attribut benötigt.
-Diese Attribute werden durch eine entsprechende Eigenschaft als Array von [`HTMLElement`](/de/docs/Web/API/HTMLElement)-abgeleiteten Objektinstanzen reflektiert, die die `id`-Werte übereinstimmen, mit einigen Vorbehalten.
+Einige Attribute nehmen Element- _Referenzen_ als Werte: entweder einen Element-`id`-Wert oder eine durch Leerzeichen getrennte Zeichenkette von Element-`id`-Werten. Diese `id`-Werte beziehen sich auf andere Elemente, die mit dem Attribut in Zusammenhang stehen oder Informationen enthalten, die das Attribut benötigt. Diese Attribute werden durch eine entsprechende Eigenschaft als Array von [`HTMLElement`](/de/docs/Web/API/HTMLElement)-abgeleiteten Objektinstanzen reflektiert, die den `id`-Werten entsprechen, mit einigen Einschränkungen.
 
-Zum Beispiel listet das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) die `id`-Werte von Elementen auf, die den zugänglichen Namen für ein Element in ihrem inneren Text enthalten.
-Das HTML unten zeigt dies für ein {{htmlelement("input")}}, das ein Label in {{htmlelement("span")}}-Elementen mit den `id`-Werten `label_1`, `label_2` und `label_3` hat:
+Zum Beispiel listet das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) die `id`-Werte von Elementen auf, die den zugänglichen Namen für ein Element in ihrem inneren Text enthalten. Das HTML unten zeigt dies für ein {{htmlelement("input")}}, das ein Label in {{htmlelement("span")}}-Elementen mit `id`-Werten von `label_1`, `label_2` und `label_3` enthält:
 
 ```html
 <span id="label_1">(Label 1 Text)</span>
@@ -97,8 +82,7 @@ Das HTML unten zeigt dies für ein {{htmlelement("input")}}, das ein Label in {{
 <input aria-labelledby="label_1 label_2 label_3" />
 ```
 
-Dieses Attribut wird durch die Eigenschaft [`Element.ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements) reflektiert, die das Array der Elemente zurückgibt, die die entsprechenden `id`-Werte haben.
-Das Attribut und die entsprechende Eigenschaft können wie folgt zurückgegeben werden:
+Dieses Attribut wird durch die Eigenschaft [`Element.ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements) reflektiert, die das Array von Elementen zurückgibt, die die entsprechenden `id`-Werte haben. Das Attribut und die entsprechende Eigenschaft können wie folgt zurückgegeben werden:
 
 ```js
 const inputElement = document.querySelector("input");
@@ -110,11 +94,9 @@ console.log(inputElement.ariaLabelledByElements);
 // [HTMLSpanElement, HTMLSpanElement]
 ```
 
-Das erste, was im oben gezeigten Code zu beachten ist, ist, dass das Attribut und die Eigenschaft unterschiedliche Anzahlen von Elementen enthalten – die Eigenschaft reflektiert das Attribut nicht _direkt_, weil die Referenz `label_3` kein entsprechendes Element hat.
-Es ist auch möglich, dass eine Referenz nicht übereinstimmt, weil die `id` [außerhalb des Geltungsbereichs des Elements](#element-id-referenzbereich) liegt.
-Dies kann passieren, wenn das referenzierte Element nicht im selben DOM oder Schatten-DOM wie das Element ist, da `id`s nur im Gültigkeitsbereich gültig sind, in dem sie deklariert sind.
+Das erste, was man aus dem obigen Code bemerken sollte, ist, dass das Attribut und die Eigenschaft unterschiedliche Anzahlen von Elementen enthalten — die Eigenschaft spiegelt das Attribut nicht _direkt_ wider, da die Referenz `label_3` kein entsprechendes Element hat. Es ist auch möglich, dass eine Referenz nicht übereinstimmt, weil die `id` [außerhalb des Gültigkeitsbereichs für das Element](#element-id-referenzbereich) ist. Dies kann passieren, wenn das referenzierte Element nicht im selben DOM oder Shadow DOM wie das Element vorhanden ist, da ids nur im Bereich gültig sind, in dem sie deklariert wurden.
 
-Wir können die Elemente im Eigenschaftsarray durchlaufen, um in diesem Fall den zugänglichen Namen aus ihrem inneren Text zu erhalten (dies ist natürlicher als die Verwendung des Attributs, da wir nicht zuerst die Elementreferenzen holen und dann verwenden müssen, um die Elemente zu finden, und wir müssen nur mit Elementen arbeiten, die im aktuellen Gültigkeitsbereich verfügbar sind):
+Wir können die Elemente im Eigenschaftsarray durchlaufen, in diesem Fall, um den zugänglichen Namen aus ihrem inneren Text zu erhalten (dies ist natürlicher als die Verwendung des Attributs, weil wir nicht zuerst die Elementreferenzen abrufen und dann verwenden müssen, um die Elemente zu finden, und wir müssen nur mit Elementen arbeiten, von denen wir wissen, dass sie im aktuellen Bereich verfügbar sind):
 
 ```js
 const inputElement = document.querySelector("input");
@@ -125,12 +107,9 @@ console.log(accessibleName);
 // (Label 1 Text) (Label 2 Text)
 ```
 
-### Festlegen der Eigenschaft und des Attributs
+### Einstellen der Eigenschaft und des Attributs
 
-Für normale reflektierte Eigenschaften werden Aktualisierungen der Eigenschaft im entsprechenden Attribut und umgekehrt reflektiert.
-Bei reflektierten Elementreferenzen ist dies nicht der Fall.
-Stattdessen führt das Setzen der Eigenschaft dazu, dass das Attribut gelöscht (zurückgesetzt) wird, sodass die Eigenschaft und das Attribut einander nicht mehr reflektieren.
-Zum Beispiel bei folgendem HTML:
+Für normale reflektierte Eigenschaften werden Updates der Eigenschaft im entsprechenden Attribut und umgekehrt reflektiert. Für reflektierte Elementreferenzen ist dies nicht der Fall. Stattdessen wird das Attribut beim Setzen der Eigenschaft gelöscht (abgesetzt), sodass die Eigenschaft und das Attribut einander nicht mehr widerspiegeln. Zum Beispiel bei folgendem HTML:
 
 ```html
 <span id="label_1">(Label 1 Text)</span>
@@ -138,7 +117,7 @@ Zum Beispiel bei folgendem HTML:
 <input aria-labelledby="label_1 label_2" />
 ```
 
-Der Anfangswert des `aria-labelledby` ist `"label_1 label_2"`, aber wenn wir es über die DOM-API setzen, wird das Attribut auf `""` zurückgesetzt:
+Der Ausgangswert des `aria-labelledby` ist `"label_1 label_2"`, aber wenn wir es über die DOM-API setzen, wird das Attribut auf `""` zurückgesetzt:
 
 ```js
 const inputElement = document.querySelector("input");
@@ -155,10 +134,9 @@ console.log(attributeValue);
 // ""
 ```
 
-Dies ist sinnvoll, da Sie sonst Elemente der Eigenschaft zuweisen könnten, die keinen `id`-Verweis haben und daher nicht im Attribut dargestellt werden können.
+Dies ist sinnvoll, da Sie sonst Elemente der Eigenschaft zuweisen könnten, die keine `id`-Referenz haben und daher nicht im Attribut dargestellt werden können.
 
-Das Setzen des Attributwerts stellt die Beziehung zwischen dem Attribut und der Eigenschaft wieder her.
-Fortsetzung des obigen Beispiels:
+Das Setzen des Attributwerts stellt die Beziehung zwischen dem Attribut und der Eigenschaft wieder her. Fortsetzung des obigen Beispiels:
 
 ```js
 inputElement.setAttribute("aria-labelledby", "input1");
@@ -172,17 +150,13 @@ console.log(inputElement.ariaLabelledByElements);
 // [HTMLSpanElement] - for `label_1`
 ```
 
-Das von der Eigenschaft zurückgegebene Array ist statisch, sodass Sie das zurückgegebene Array nicht ändern können, um Änderungen am entsprechenden Attribut zu bewirken.
-Wenn ein Array der Eigenschaft zugewiesen wird, wird es kopiert, sodass Änderungen am Attribut nicht in einem zuvor zurückgegebenen Eigenschaftsarray reflektiert werden.
+Das durch die Eigenschaft zurückgegebene Array ist statisch, sodass Sie das zurückgegebene Array nicht ändern können, um Änderungen am entsprechenden Attribut vorzunehmen. Wenn ein Array der Eigenschaft zugewiesen wird, wird es kopiert, sodass Änderungen am Attribut nicht in einem zuvor zurückgegebenen Eigenschaftsarray widergespiegelt werden.
 
-### Element-Id-Referenzbereich
+### Element-id-Referenzbereich
 
-Attributelement-Referenzen können sich nur auf andere Elemente beziehen, die sich im selben DOM oder [Shadow-DOM](/de/docs/Web/API/Web_components#shadow_dom_2) befinden, weil Element-Ids nur im Gültigkeitsbereich gültig sind, in dem sie deklariert sind.
+Attribut-Elementreferenzen können sich nur auf andere Elemente beziehen, die im selben DOM oder [Shadow DOM](/de/docs/Web/API/Web_components#shadow_dom_2) vorhanden sind, da Element-ids nur im Bereich gültig sind, in dem sie deklariert wurden.
 
-Wir können dies im folgenden Code sehen.
-Das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) des {{htmlelement("input")}}-Elements verweist auf die Elemente mit den Ids `label_1`, `label_2` und `label_3`.
-Allerdings ist `label_3` in diesem Fall keine gültige Id, da sie nicht im selben Gültigkeitsbereich wie das {{htmlelement("input")}}-Element definiert ist.
-Infolgedessen stammt das Label nur von den Elementen mit den Ids `label_1` und `label_2`.
+Wir können dies im folgenden Code sehen. Das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) des {{htmlelement("input")}}-Elements bezieht sich auf die Elemente mit den ids `label_1`, `label_2` und `label_3`. Allerdings ist `label_3` in diesem Fall keine gültige id, da sie nicht im selben Bereich wie das {{htmlelement("input")}}-Element definiert ist. Infolgedessen wird das Label nur aus den Elementen mit den ids `label_1` und `label_2` kommen.
 
 ```html
 <div id="in_dom">
@@ -199,12 +173,9 @@ Infolgedessen stammt das Label nur von den Elementen mit den Ids `label_1` und `
 
 ### Reflektierter Elementreferenzbereich
 
-Bei der Verwendung von [Instanzeigenschaften, die von ARIA-Elementreferenzen reflektiert werden](/de/docs/Web/API/Element#instance_properties_reflected_from_aria_element_references), wie zum Beispiel [`Element.ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements) für `aria-labelledby`, sind die Gültigkeitsbereichsregeln etwas anders.
-Um im Gültigkeitsbereich zu sein, muss sich ein Zielelement im selben DOM wie das referenzierende Element oder in einem übergeordneten DOM befinden.
-Elemente in anderen DOMs, einschließlich Schatten-DOMs, die Kinder oder Peers des referenzierenden DOMs sind, liegen außerhalb des Gültigkeitsbereichs.
+Bei Verwendung der [Instanzeigenschaften, die von ARIA-Elementreferenzen reflektiert werden](/de/docs/Web/API/Element#instance_properties_reflected_from_aria_element_references), wie z.B. [`Element.ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements) für `aria-labelledby`, sind die Geltungsregeln etwas anders. Um im Gültigkeitsbereich zu sein, muss sich ein Ziel-Element im selben DOM wie das referenzierende Element oder in einem übergeordneten DOM befinden. Elemente in anderen DOMs, einschließlich Shadow DOMs, die Kinder oder Peers des referenzierenden DOMs sind, sind außerhalb des Gültigkeitsbereichs.
 
-Das folgende Beispiel zeigt den Fall, in dem ein Element in einem übergeordneten DOM (`label_3`) als Ziel zusammen mit den Elementen mit Ids `label_1` und `label_2` festgelegt wird, die im selben Shadow-Root deklariert sind.
-Dies funktioniert, weil alle Zielelemente im Gültigkeitsbereich für das referenzierende Element sind.
+Das folgende Beispiel zeigt den Fall, in dem ein Element in einem übergeordneten DOM (`label_3`) als Ziel festgelegt wurde, zusammen mit den Elementen mit ids `label_1` und `label_2`, die im selben Shadow Root deklariert sind. Dies funktioniert, weil alle Zielelemente im Gültigkeitsbereich für das referenzierende Element liegen.
 
 ```html
 <div id="in_dom">
@@ -217,18 +188,19 @@ Dies funktioniert, weil alle Zielelemente im Gültigkeitsbereich für das refere
     <span id="label_2">(Label 2 Text)</span>
   </template>
 </div>
-<script>
-  document
-    .getElementById("host")
-    .shadowRoot.getElementById("input").ariaLabelledByElements = [
-    host.shadowRoot.getElementById("label_1"),
-    host.shadowRoot.getElementById("label_2"),
-    document.getElementById("label_3"),
-  ];
-</script>
 ```
 
-Der äquivalente Code, bei dem ein Element im DOM ein anderes im Schatten-DOM referenziert, würde nicht funktionieren, weil Zielelemente, die sich in verschachtelten Schatten-DOMs befinden, nicht im Gültigkeitsbereich sind:
+```js
+const host = document.getElementById("host");
+const input = host.shadowRoot.getElementById("input");
+input.ariaLabelledByElements = [
+  host.shadowRoot.getElementById("label_1"),
+  host.shadowRoot.getElementById("label_2"),
+  document.getElementById("label_3"),
+];
+```
+
+Der entsprechende Code, bei dem ein Element im DOM ein weiteres im Shadow DOM referenziert, würde nicht funktionieren, da Ziel-Elemente, die sich in verschachtelten Shadow DOMs befinden, nicht im Gültigkeitsbereich sind:
 
 ```html
 <div id="in_dom">
@@ -241,29 +213,26 @@ Der äquivalente Code, bei dem ein Element im DOM ein anderes im Schatten-DOM re
     <span id="label_3">(Label 3 Text)</span>
   </template>
 </div>
-<script>
-  const input = document.getElementById("input");
-  const host = document.getElementById("host");
-  input.ariaLabelledByElements = [
-    host.shadowRoot.getElementById("label_3"),
-    document.getElementById("label_1"),
-    document.getElementById("label_2"),
-  ];
-</script>
 ```
 
-Beachten Sie, dass ein Element zunächst "im Gültigkeitsbereich" sein kann und dann aus dem Gültigkeitsbereich in ein verschachteltes Schatten-Root verschoben wird.
-In diesem Fall wird das referenzierte Element weiterhin im Attribut aufgeführt, aber nicht in der Eigenschaft zurückgegeben.
-Beachten Sie jedoch, dass, wenn das Element wieder in den Gültigkeitsbereich verschoben wird, es wieder in der reflektierten Eigenschaft vorhanden sein wird.
+```js
+const host = document.getElementById("host");
+const input = document.getElementById("input");
+input.ariaLabelledByElements = [
+  host.shadowRoot.getElementById("label_3"),
+  document.getElementById("label_1"),
+  document.getElementById("label_2"),
+];
+```
+
+Beachten Sie, dass ein Element anfänglich "im Gültigkeitsbereich" sein kann und dann außerhalb des Gültigkeitsbereichs in einen verschachtelten Shadow Root verschoben wird. In diesem Fall wird das referenzierte Element weiterhin im Attribut aufgeführt, jedoch nicht in der Eigenschaft zurückgegeben. Beachten Sie jedoch, dass, wenn das Element in den Gültigkeitsbereich verschoben wird, es wieder in der reflektierten Eigenschaft vorhanden ist.
 
 ### Zusammenfassung der Attribut-/Eigenschaftsbeziehung
 
 Die Beziehung zwischen Attributen, die Elementreferenzen enthalten, und ihrer entsprechenden Eigenschaft ist wie folgt:
 
-- Attributelement-`id`-Referenzen sind nur für Zielelemente gültig, die im selben DOM oder Schatten-DOM wie das Element deklariert sind.
-- Eigenschaften, die ARIA-Elementreferenzen widerspiegeln, können Ziel-Elemente im selben Gültigkeitsbereich oder im übergeordneten Gültigkeitsbereich anvisieren. Elemente in verschachtelten Gültigkeitsbereichen sind nicht zugänglich.
-- Das Setzen der Eigenschaft löscht das Attribut, und die Eigenschaft und das Attribut reflektieren einander nicht mehr.
-  Wenn die Attribute mit [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) gelesen werden, ist der Wert `""`.
-- Das Setzen des Attributs mit [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) setzt auch die Eigenschaft und stellt die "Reflektionsbeziehung" wieder her.
-- Wenn das Attribut mit einem Wertreferenz gesetzt wird, die anschließend aus dem Gültigkeitsbereich verschoben wird, wird das entsprechende Element aus dem Eigenschaftsarray entfernt.
-  Beachten Sie jedoch, dass das Attribut die Referenz weiterhin enthält, und wenn das Element wieder in den Gültigkeitsbereich verschoben wird, wird die Eigenschaft das Element wieder enthalten (d.h. die Beziehung wird wiederhergestellt).
+- Attribut-Element-`id`-Referenzen sind nur [im Gültigkeitsbereich](#element-id-referenzbereich) für Ziel-Elemente, die im selben DOM oder Shadow DOM wie das Element deklariert sind.
+- Eigenschaften, die ARIA-Elementreferenzen widerspiegeln, können auf Elemente im selben oder einem übergeordneten Bereich abzielen. Elemente in verschachtelten Bereichen sind nicht zugänglich.
+- Das Setzen der Eigenschaft löscht das Attribut und die Eigenschaft und das Attribut spiegeln einander nicht mehr wider. Wenn das Attribut mit [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) gelesen wird, ist der Wert `""`.
+- Das Setzen des Attributs mit [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) setzt auch die Eigenschaft und stellt die "Reflexionsbeziehung" wieder her.
+- Das Setzen des Attributs mit einem Wertebezug, der anschließend aus dem Bereich verschoben wird, führt zur Entfernung des entsprechenden Elements aus dem Eigenschaftsarray. Beachten Sie jedoch, dass das Attribut die Referenz weiterhin enthält, und wenn das Element wieder in den Gültigkeitsbereich verschoben wird, wird die Eigenschaft das Element wieder einschließen (d.h. die Beziehung wird wiederhergestellt).
