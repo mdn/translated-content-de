@@ -2,12 +2,10 @@
 title: font-variant-caps
 slug: Web/CSS/font-variant-caps
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`font-variant-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen, die für kleine oder zierliche Großbuchstaben oder für Titel verwendet werden.
+Die **`font-variant-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung alternativer Glyphen für kleine oder zierliche Kapitälchen oder für Überschriften.
 
 {{InteractiveExample("CSS Demo: font-variant-caps")}}
 
@@ -48,17 +46,17 @@ section {
 }
 ```
 
-Wenn eine Schriftart Großbuchstabenglyphen in mehreren verschiedenen Größen enthält, wählt diese Eigenschaft die am besten geeigneten aus. Wenn zierliche Kapitälchen nicht verfügbar sind, werden sie mit kleinen Kapitälchenglyphen dargestellt. Wenn diese nicht vorhanden sind, werden sie vom Browser aus den Großbuchstabenglyphen synthetisiert.
+Wenn eine bestimmte Schriftart Großbuchstabenglyphen in mehreren verschiedenen Größen enthält, wählt diese Eigenschaft die am besten geeigneten aus. Wenn keine zierlichen Kapitälchenglyphen verfügbar sind, werden stattdessen kleine Kapitälchenglyphen verwendet. Sind diese ebenfalls nicht vorhanden, synthetisiert der Browser sie aus den Großbuchstabenglyphen.
 
-Schriftarten enthalten manchmal spezielle Glyphen für verschiedene schriftzeichenlose Zeichen (wie Interpunktionszeichen), um besser zu den umgebenden Großbuchstaben zu passen. Allerdings werden kleine Kapitälchenglyphen niemals für schriftzeichenlose Zeichen synthetisiert.
+Schriftarten enthalten manchmal spezielle Glyphen für verschiedene zeichenlose Zeichen (wie Interpunktionszeichen), um besser zu den umliegenden Großbuchstaben zu passen. Kleine Kapitälchenglyphen werden jedoch niemals für zeichenlose Zeichen synthetisiert.
 
 ### Sprachspezifische Regeln
 
-Diese Eigenschaft berücksichtigt sprachspezifische Groß- und Kleinschreibungsregeln. Zum Beispiel:
+Diese Eigenschaft berücksichtigt sprachspezifische Regeln für die Groß- und Kleinschreibung. Zum Beispiel:
 
-- In türkischen Sprachen, wie Türkisch (tr), Aserbaidschanisch (az), Krimtatarisch (crh), Wolgatatarisch (tt) und Baschkirisch (ba), gibt es zwei Arten von `i` (eins mit Punkt, eins ohne) und zwei Groß-/Kleinschreibungspaare: `i`/`İ` und `ı`/`I`.
+- In türkischen Sprachen wie Türkisch (tr), Aserbaidschanisch (az), Krimtatarisch (crh), Wolga-Tatarisch (tt) und Baschkirisch (ba) gibt es zwei Arten von `i` (eines mit Punkt, eines ohne) und zwei Paarungen: `i`/`İ` und `ı`/`I`.
 - Im Deutschen (de) kann das `ß` in Großbuchstaben zu `ẞ` (U+1E9E) werden.
-- Im Griechischen (el) verlieren Vokale ihre Akzentuierung, wenn das ganze Wort in Großbuchstaben steht (`ά`/`Α`), mit Ausnahme des disjunktiven Eta (`ή`/`Ή`). Auch Diphthonge mit Akzent auf dem ersten Vokal verlieren den Akzent und erhalten einen diakritischen Akzent auf dem zweiten Vokal (`άι`/`ΑΪ`).
+- Im Griechischen (el) verlieren Vokale ihren Akzent, wenn das ganze Wort in Großbuchstaben steht (`ά`/`Α`), außer für das disjunktive Eta (`ή`/`Ή`). Auch verlieren Diphthonge mit Akzent auf dem ersten Vokal den Akzent und erhalten einen Diakritiker auf dem zweiten Vokal (`άι`/`ΑΪ`).
 
 ## Syntax
 
@@ -80,31 +78,31 @@ font-variant-caps: revert-layer;
 font-variant-caps: unset;
 ```
 
-Die `font-variant-caps` Eigenschaft wird durch einen einzigen Schlüsselwortwert aus der unten stehenden Liste angegeben. In jedem Fall, wenn die Schriftart den OpenType-Wert nicht unterstützt, werden die Glyphen synthetisiert.
+Die `font-variant-caps`-Eigenschaft wird mit einem einzelnen Schlüsselwortwert aus der unten stehenden Liste spezifiziert. In jedem Fall, wenn die Schriftart den OpenType-Wert nicht unterstützt, dann synthetisiert sie die Glyphen.
 
 ### Werte
 
 - `normal`
-  - : Deaktiviert die Verwendung alternativer Glyphen.
+  - : Deaktiviert die Verwendung von alternativen Glyphen.
 - `small-caps`
-  - : Aktiviert die Darstellung von kleinen Kapitälchen (OpenType-Funktion: `smcp`). Kleine Kapitälchenglyphen verwenden typischerweise die Form von Großbuchstaben, werden jedoch in der gleichen Größe wie Kleinbuchstaben angezeigt.
+  - : Aktiviert die Anzeige von kleinen Kapitälchen (OpenType-Funktion: `smcp`). Kleine Kapitälchenglyphen verwenden typischerweise die Form von Großbuchstaben, werden jedoch in der gleichen Größe wie Kleinbuchstaben angezeigt.
 - `all-small-caps`
-  - : Aktiviert die Darstellung von kleinen Kapitälchen sowohl für Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2sc`, `smcp`).
+  - : Aktiviert die Anzeige von kleinen Kapitälchen für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2sc`, `smcp`).
 - `petite-caps`
-  - : Aktiviert die Darstellung von zierlichen Kapitälchen (OpenType-Funktion: `pcap`).
+  - : Aktiviert die Anzeige von zierlichen Kapitälchen (OpenType-Funktion: `pcap`).
 - `all-petite-caps`
-  - : Aktiviert die Darstellung von zierlichen Kapitälchen sowohl für Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2pc`, `pcap`).
+  - : Aktiviert die Anzeige von zierlichen Kapitälchen für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2pc`, `pcap`).
 - `unicase`
-  - : Aktiviert die Darstellung von kleinen Kapitälchen für Großbuchstaben und normalen Kleinbuchstaben (OpenType-Funktion: `unic`).
+  - : Aktiviert die Anzeige einer Mischung aus kleinen Kapitälchen für Großbuchstaben mit normalen Kleinbuchstaben (OpenType-Funktion: `unic`).
 - `titling-caps`
-  - : Aktiviert die Darstellung von Großbuchstaben für Titel (OpenType-Funktion: `titl`). Großbuchstabenglyphen sind oft für die Verwendung mit Kleinbuchstaben gestaltet. Wenn sie in vollständig großgeschriebenen Titelreihenfolgen verwendet werden, können sie zu stark wirken. Titelkapitälchen sind speziell für diese Situation gestaltet.
+  - : Aktiviert die Anzeige von Überschriften-Kapitälchen (OpenType-Funktion: `titl`). Großbuchstabenglyphen sind oft für den Gebrauch mit Kleinbuchstaben gestaltet. Bei Verwendung in rein groß geschriebenen Überschriften-Sequenzen können sie zu stark wirken. Überschriften-Kapitälchen sind speziell für diese Situation gestaltet.
 
 ## Barrierefreiheit
 
-Große Textabschnitte, die mit einem `font-variant` Wert von `all-small-caps` oder `all-petite-caps` gesetzt sind, können es Menschen mit kognitiven Beeinträchtigungen wie Dyslexie erschweren, den Text zu lesen.
+Große Textabschnitte, die mit einem `font-variant` Wert von `all-small-caps` oder `all-petite-caps` gesetzt wurden, können für Menschen mit kognitiven Beeinträchtigungen wie Dyslexie schwer lesbar sein.
 
-- [MDN Understanding WCAG, Guideline 1.4-Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [W3C Understanding WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/#visual-presentation)
+- [MDN Verständnis von WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [W3C Verständnis von WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/#visual-presentation)
 
 ## Formale Definition
 
@@ -116,7 +114,7 @@ Große Textabschnitte, die mit einem `font-variant` Wert von `all-small-caps` od
 
 ## Beispiele
 
-### Festlegen der Schriftvariante small-caps
+### Einstellen der kleinen Kapitälchen-Schriftvariante
 
 #### HTML
 

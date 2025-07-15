@@ -2,12 +2,10 @@
 title: Typselektoren
 slug: Web/CSS/Type_selectors
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der CSS **Typselektor** wählt Elemente nach ihrem Knotennamen aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS **Typselektor** wählt Elemente basierend auf dem Knotennamen aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
 ```css
 /* All <a> elements. */
@@ -16,11 +14,11 @@ a {
 }
 ```
 
-Typselektoren können bei der Verwendung von {{CSSXref("@namespace")}} mit Namespaces versehen werden. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Typselektoren können mit einem Namensraum versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich bei der Verarbeitung von Dokumenten, die mehrere Namensräume enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|h1` - wählt `<h1>` Elemente im Namespace _ns_
-- `*|h1` - wählt alle `<h1>` Elemente
-- `|h1` - wählt alle `<h1>` Elemente ohne einen deklarierte Namespace
+- `ns|h1` - wählt `<h1>`-Elemente im Namensraum _ns_
+- `*|h1` - wählt alle `<h1>`-Elemente
+- `|h1` - wählt alle `<h1>`-Elemente ohne einen deklarierten Namensraum
 
 ## Syntax
 
@@ -50,9 +48,9 @@ span {
 
 {{EmbedLiveSample('Examples', '100%', 150)}}
 
-### Namespaces
+### Namensräume
 
-In diesem Beispiel wird der Selektor nur `<h1>` Elemente im Beispiel-Namespace ansprechen.
+In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispielnamensraum auswählen.
 
 ```css
 @namespace example url(http://www.example.com/);

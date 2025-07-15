@@ -2,17 +2,17 @@
 title: box-ordinal-group
 slug: Web/CSS/box-ordinal-group
 l10n:
-  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
+{{Non-standard_Header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS-Flexible-Box-Layouts. Sie wurde in der Spezifikation ersetzt. Weitere Informationen über den aktuellen Standard finden Sie unter [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+> Dies ist eine Eigenschaft des ursprünglichen CSS Flexbox-Layout-Modul-Entwurfs. Sie wurde in der Spezifikation ersetzt. Siehe [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
 
-Die **`box-ordinal-group`** [CSS](/de/docs/Web/CSS) Eigenschaft ordnet die Kindelemente eines Flexboxes einer ordinalen Gruppe zu.
+Die **`box-ordinal-group`** [CSS](/de/docs/Web/CSS) Eigenschaft ordnet die Kind-Elemente des Flexbox-Containers einer Ordinalgruppe zu.
 
-Ordinale Gruppen können in Verbindung mit der {{CSSxRef("box-direction")}} Eigenschaft verwendet werden, um die Reihenfolge zu steuern, in der die direkten Kinder eines Kastens erscheinen. Wenn die berechnete `box-direction` normal ist, zeigt ein Kasten seine Elemente beginnend mit der niedrigsten nummerierten ordinalen Gruppe an und stellt sicher, dass diese Elemente links (für horizontale Boxen) oder oben (für vertikale Boxen) des Containers erscheinen. Elemente mit derselben ordinalen Gruppe fließen in der Reihenfolge, in der sie im Quell-Dokumentbaum erscheinen. In die entgegengesetzte Richtung werden die ordinalen Gruppen in derselben Reihenfolge geprüft, mit der Ausnahme, dass die Elemente umgekehrt erscheinen.
+Ordinalgruppen können in Verbindung mit der {{CSSxRef("box-direction")}}-Eigenschaft verwendet werden, um die Reihenfolge zu steuern, in der die direkten Kinder eines Containers angezeigt werden. Wenn die berechnete `box-direction` normal ist, zeigt ein Container seine Elemente beginnend mit der niedrigsten nummerierten Ordinalgruppe an und stellt sicher, dass diese Elemente links (für horizontale Boxen) oder oben (für vertikale Boxen) des Containers erscheinen. Elemente mit derselben Ordinalgruppe werden in der Reihenfolge angezeigt, in der sie im Quelldokument-Baum erscheinen. In umgekehrter Richtung werden die Ordinalgruppen in derselben Reihenfolge überprüft, nur dass die Elemente in umgekehrter Ordnung erscheinen.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ box-ordinal-group: initial;
 box-ordinal-group: unset;
 ```
 
-Die `box-ordinal-group` Eigenschaft wird als beliebige positive {{CSSxRef("&lt;integer&gt;")}} angegeben.
+Die `box-ordinal-group` Eigenschaft wird als jede positive {{CSSxRef("&lt;integer&gt;")}} angegeben.
 
 ## Formale Definition
 
@@ -39,9 +39,9 @@ Die `box-ordinal-group` Eigenschaft wird als beliebige positive {{CSSxRef("&lt;i
 
 ## Beispiele
 
-### Grundlegendes Anwendungsbeispiel
+### Grundlegendes Nutzungsbeispiel
 
-In einer älteren Version der Spezifikation war `box-ordinal-group` enthalten, um die Anzeigereihenfolge von Flexkindern innerhalb eines Flexcontainers zu ändern:
+In einer älteren Version der Spezifikation war `box-ordinal-group` enthalten, um Ihnen zu ermöglichen, die Anzeigereihenfolge von Flex-Kindern innerhalb eines Flex-Containers zu ändern:
 
 ```css
 article:nth-child(1) {
@@ -61,7 +61,7 @@ Das moderne Flexbox-Äquivalent ist {{cssxref("order")}}.
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

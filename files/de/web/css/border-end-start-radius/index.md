@@ -2,12 +2,10 @@
 title: border-end-start-radius
 slug: Web/CSS/border-end-start-radius
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-end-start-radius`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen logischen Rahmenradius an einem Element, der je nach {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements auf einen physischen Rahmenradius abbildet. Dies ist nützlich beim Erstellen von Stilen, die unabhängig von der [Textausrichtung](/de/docs/Web/CSS/text-orientation) und dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) funktionieren sollen.
+Die **`border-end-start-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen logischen Randradius auf einem Element, der je nach {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements auf einen physischen Randradius abgebildet wird. Dies ist nützlich, um Stile zu erstellen, die unabhängig von der [Textausrichtung](/de/docs/Web/CSS/text-orientation) und dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) funktionieren.
 
 {{InteractiveExample("CSS Demo: border-end-start-radius")}}
 
@@ -51,7 +49,7 @@ writing-mode: vertical-rl;
 }
 ```
 
-Diese Eigenschaft beeinflusst die Ecke zwischen dem Block-Ende und den Inline-Start-Seiten des Elements. Beispielsweise entspricht sie im `horizontal-tb`-Schreibmodus mit `ltr`-Richtung der {{CSSxRef("border-bottom-left-radius")}}-Eigenschaft.
+Diese Eigenschaft betrifft die Ecke zwischen der Block-Ende-Seite und der Inline-Anfangsseite des Elements. Zum Beispiel entspricht sie in einem `horizontal-tb` Schreibmodus mit `ltr` Richtung der Eigenschaft {{CSSxRef("border-bottom-left-radius")}}.
 
 ## Syntax
 
@@ -75,7 +73,7 @@ border-end-start-radius: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Gibt die Größe des Kreisradius oder die Halbierungsachsen der Ellipse an. Als absolute Länge kann sie in jeder von der CSS {{cssxref("&lt;length&gt;")}} erlaubten Einheit ausgedrückt werden. Prozentsätze für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentsätze für die vertikale Achse auf die Höhe des Kastens. Negative Werte sind ungültig.
+  - : Gibt die Größe des Kreisradius oder der großen und kleinen Halbachse der Ellipse an. Als absolute Länge kann diese in jeder durch den CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubten Einheit ausgedrückt werden. Prozentwerte für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentwerte für die vertikale Achse auf die Höhe des Kastens. Negative Werte sind ungültig.
 
 ## Formale Definition
 
@@ -87,7 +85,7 @@ border-end-start-radius: unset;
 
 ## Beispiele
 
-### Rahmenradius mit vertikalem Text
+### Randradius mit vertikalem Text
 
 #### HTML
 
@@ -129,6 +127,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - Die zugeordnete physische Eigenschaft: {{CSSxRef("border-top-right-radius")}}
 - {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}}, {{CSSxRef("text-orientation")}}

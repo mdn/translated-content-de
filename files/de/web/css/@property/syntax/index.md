@@ -2,12 +2,10 @@
 title: Syntax
 slug: Web/CSS/@property/syntax
 l10n:
-  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`syntax`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert die zulässigen Wertetypen für die registrierte [CSS benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*). Er steuert, wie der angegebene Wert der Eigenschaft verarbeitet wird, um den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) abzuleiten. Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
+Der **`syntax`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert die erlaubten Wertetypen für die registrierte [CSS Custom Property](/de/docs/Web/CSS/--*). Er kontrolliert, wie der angegebene Wert der Eigenschaft verarbeitet wird, um den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) abzuleiten. Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
 
 ## Syntax
 
@@ -36,20 +34,20 @@ syntax: "*";
 
 ### Werte
 
-Ein String (bekannt als Syntax-String), der die zulässigen Werte definiert. Es kann einer der folgenden sein:
+Ein String (bekannt als Syntax-String), der die erlaubten Werte definiert. Er kann eine der folgenden Optionen enthalten:
 
-- Ein oder mehrere Syntaxkomponenten-Namen, die sein können:
-  - Datentyp-Namen (geschrieben in spitzen Klammern, wie `<color>` oder `<length>`)
+- Ein oder mehrere Syntax-Komponenten-Namen, die sein können:
+  - Datentypnamen (geschrieben mit spitzen Klammern, wie `<color>` oder `<length>`)
   - Schlüsselwörter (geschrieben ohne spitze Klammern, wie `auto` oder `none`)
-- Die universelle Syntax `*`, die jeden gültigen CSS-Wert akzeptiert. Sie kann nicht multipliziert oder mit anderen Syntaxkomponenten kombiniert werden.
+- Die universelle Syntax `*`, die jeden gültigen CSS-Wert akzeptiert. Sie kann nicht multipliziert oder mit anderen Syntax-Komponenten kombiniert werden.
 
-Die Syntaxkomponenten-Namen können allein genutzt oder auf verschiedene Weise multipliziert und kombiniert werden:
+Die Syntax-Komponenten-Namen können allein verwendet oder auf verschiedene Weise multipliziert und kombiniert werden:
 
-- Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Kommas getrennt) zeigen an, dass eine Liste von Werten erwartet wird. Beispielsweise bedeutet `<color>#`, dass eine durch Kommas getrennte Liste von `<color>`-Werten die erwartete Syntax ist.
+- Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Komma getrennt) geben an, dass eine Liste von Werten erwartet wird. Zum Beispiel bedeutet `<color>#`, dass eine durch Komma getrennte Liste von `<color>`-Werten die erwartete Syntax ist.
 
-- Der vertikale Linien-Kombinator (`|`) kann "oder"-Bedingungen für die erwartete Syntax erstellen. Beispielsweise akzeptiert `<length> | auto` entweder `<length>` oder `auto`, und `<color># | <integer>#` erwartet entweder eine durch Kommas getrennte Liste von `<color>`-Werten oder eine durch Kommas getrennte Liste von `<integer>`-Werten.
+- Der vertikale Strich (`|`) Kombinator kann "oder"-Bedingungen für die erwartete Syntax erstellen. Zum Beispiel akzeptiert `<length> | auto` entweder `<length>` oder `auto`, und `<color># | <integer>#` erwartet eine durch Komma getrennte Liste von `<color>`-Werten oder eine durch Komma getrennte Liste von `<integer>`-Werten.
 
-Die folgenden Syntaxkomponenten-Namen werden unterstützt:
+Die folgenden Syntax-Komponenten-Namen werden unterstützt:
 
 - `"<angle>"`
   - : Akzeptiert jeden gültigen {{cssxref("&lt;angle&gt;")}} Wert.
@@ -64,7 +62,7 @@ Die folgenden Syntaxkomponenten-Namen werden unterstützt:
 - `"<length>"`
   - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}} Wert.
 - `"<length-percentage>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert sowie jede gültige {{cssxref("calc", "calc()")}} Ausdruck, der `<length>` und `<percentage>` Werte kombiniert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert und jeden gültigen {{cssxref("calc", "calc()")}} Ausdruck, der `<length>` und `<percentage>` Werte kombiniert.
 - `"<number>"`
   - : Akzeptiert jeden gültigen {{cssxref("&lt;number&gt;")}} Wert.
 - `"<percentage>"`
@@ -76,9 +74,9 @@ Die folgenden Syntaxkomponenten-Namen werden unterstützt:
 - `"<time>"`
   - : Akzeptiert jeden gültigen {{cssxref("&lt;time&gt;")}} Wert.
 - `"<transform-function>"`
-  - : Akzeptiert jede gültige {{cssxref("&lt;transform-function&gt;")}} Wert.
+  - : Akzeptiert jede gültige {{cssxref("&lt;transform-function&gt;")}} Funktion.
 - `"<transform-list>"`
-  - : Akzeptiert eine Liste von gültigen {{cssxref("&lt;transform-function&gt;")}} Werten. Es ist gleichwertig zu `"<transform-function>+"`.
+  - : Akzeptiert eine Liste gültiger {{cssxref("&lt;transform-function&gt;")}} Funktionen. Es ist äquivalent zu `"<transform-function>+"`.
 - `"<url>"`
   - : Akzeptiert jeden gültigen {{cssxref("url_value", "&lt;url&gt;")}} Wert.
 
@@ -92,9 +90,9 @@ Die folgenden Syntaxkomponenten-Namen werden unterstützt:
 
 ## Beispiele
 
-### Registrieren einer benutzerdefinierten Eigenschaft mit Typüberprüfung
+### Registrierung einer benutzerdefinierten Eigenschaft mit Typprüfung
 
-Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die nur `<color>` Werte erlaubt:
+Dieses Beispiel zeigt, wie Sie eine benutzerdefinierte Eigenschaft `--my-color` definieren, die nur `<color>`-Werte erlaubt:
 
 ```css
 @property --my-color {

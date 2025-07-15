@@ -2,24 +2,24 @@
 title: Verwenden der Geräteausrichtung mit 3D-Transformationen
 slug: Web/API/Device_orientation_events/Using_device_orientation_with_3D_transforms
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: 0d0ccc861fa024fa10836fbf0cc2c3813cd74745
 ---
 
-{{DefaultAPISidebar("Device Orientation Events")}}{{securecontext_header}}
+{{DefaultAPISidebar("Device Orientation Events")}}
 
-Dieser Artikel bietet Tipps, wie Informationen zur Geräteausrichtung in Verbindung mit CSS 3D-Transformationen genutzt werden können.
+Dieser Artikel bietet Tipps zur Verwendung von Geräteausrichtungsinformationen in Kombination mit CSS 3D-Transformationen.
 
 ## Verwendung der Ausrichtung zur Drehung eines Elements
 
-Der einfachste Weg, [Ausrichtungsdaten](/de/docs/Web/API/Window/deviceorientation_event) in eine [3D-Transformation](/de/docs/Web/CSS/transform) umzuwandeln, besteht darin, die `alpha`, `gamma` und `beta` Werte als `rotateZ`, `rotateX` und `rotateY` Werte zu benutzen.
+Der einfachste Weg, um [Ausrichtungsdaten](/de/docs/Web/API/Window/deviceorientation_event) in eine [3D-Transformation](/de/docs/Web/CSS/transform) umzuwandeln, besteht im Grunde darin, die Werte `alpha`, `gamma` und `beta` als `rotateZ`, `rotateX` und `rotateY` zu verwenden.
 
-Es ist jedoch wichtig zu bedenken, dass das [Koordinatensystem der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) sich vom [CSS-Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) unterscheidet. Ersteres ist [rechtshändig](https://en.wikipedia.org/wiki/Right-hand_rule) mit einer positiven Y-Achse nach oben, während Letzteres ein linkshändiges Koordinatensystem ist, dessen Y-Achse nach unten positiv ist. Zudem sollten die Drehwinkel der Geräteausrichtung immer in der Reihenfolge Z - X' - Y'' durchgeführt werden, was nicht der Reihenfolge einiger [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) entspricht. Dies sind einige der praktischen Folgen dieser Unterschiede:
+Es ist jedoch wichtig zu beachten, dass das [Koordinatensystem der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) sich vom [CSS-Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) unterscheidet. Ersteres ist nämlich ein [rechtshändiges System](https://en.wikipedia.org/wiki/Right-hand_rule) und seine Y-Achse ist positiv aufwärts, während letzteres ein linkshändiges Koordinatensystem ist, dessen Y-Achse positiv nach unten verläuft. Zudem sollten die Drehwinkel der Geräteausrichtung immer in der Reihenfolge Z - X' - Y'' erfolgen, was nicht mit der Reihenfolge einiger [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) übereinstimmt. Dies sind einige der praktischen Konsequenzen dieser Unterschiede:
 
-- Die Reihenfolge der Winkeldrehungen ist wichtig, daher stellen Sie sicher, dass die Alpha-, Beta- und Gamma-Drehungen in dieser Reihenfolge angewendet werden.
-- Die CSS-Transformation [`rotate3d()`](/de/docs/Web/CSS/transform-function/rotate3d) und die Funktionen [`DOMMatrixReadOnly.rotate()`](/de/docs/Web/API/DOMMatrixReadOnly/rotate) und [`DOMMatrix.rotateSelf()`](/de/docs/Web/API/DOMMatrix/rotateSelf) wenden Winkeldrehungen in der Reihenfolge Z - Y' - X'' an, sodass es nicht möglich ist, die Alpha-, Beta- und Gamma-Drehungen in der richtigen Reihenfolge mit einem einzigen Aufruf anzuwenden. Stattdessen sollten Sie jede Achse einzeln in der richtigen Reihenfolge drehen.
-- Aufgrund der oben beschriebenen Unterschiede in den Koordinatensystemen werden Drehungen beim Blick auf den Ursprung im CSS im Uhrzeigersinn und in der Spezifikation der Geräteausrichtung gegen den Uhrzeigersinn angewendet. Das bedeutet, dass Alpha und Beta invertiert werden müssen (die Drehungen um Z und X), da sie in den beiden Koordinatensystemen in verschiedene Richtungen zeigen. Gamma (die Drehung um Y) sollte jedoch unverändert bleiben.
+- Die Reihenfolge der Winkeldrehungen ist wichtig, daher stellen Sie sicher, dass die alpha-, beta- und gamma-Drehungen in dieser Reihenfolge angewendet werden.
+- Die CSS-Transformation [`rotate3d()`](/de/docs/Web/CSS/transform-function/rotate3d) und die Funktionen [`DOMMatrixReadOnly.rotate()`](/de/docs/Web/API/DOMMatrixReadOnly/rotate) und [`DOMMatrix.rotateSelf()`](/de/docs/Web/API/DOMMatrix/rotateSelf) wenden Winkeldrehungen in der Reihenfolge Z - Y' - X'' an, daher ist es nicht möglich, die alpha-, beta- und gamma-Drehungen in der richtigen Reihenfolge mit einem einzigen Aufruf einer dieser Funktionen anzuwenden. Stattdessen sollten Sie jede Achse einzeln in der korrekten Reihenfolge drehen.
+- Aufgrund der oben beschriebenen Unterschiede in den Koordinatensystemen werden Drehungen um den Ursprung im CSS im Uhrzeigersinn und in der Gerätenausschreibung gegen den Uhrzeigersinn vorgenommen. Dies bedeutet, dass alpha und beta invertiert werden müssen (die Drehungen um Z und X), da sie in den beiden Koordinatensystemen in unterschiedliche Richtungen weisen. Gamma (die Drehung um Y) sollte jedoch unverändert bleiben.
 
-  Hier ist ein Code-Snippet, das dies zusammenfasst:
+  Hier ist ein Codeausschnitt, um es zusammenzufassen:
 
   ```js
   const elem = document.getElementById("view3d");
@@ -31,9 +31,9 @@ Es ist jedoch wichtig zu bedenken, dass das [Koordinatensystem der Geräteausric
   });
   ```
 
-## Umwandlung von `rotate3d()`-Winkeln in `deviceorientation`-Winkel
+## Konvertieren von `rotate3d()`-Winkeln in `deviceorientation`-Winkel
 
-Sollten Sie jemals einen `rotate3d`-Achsenwinkel in Orientierungs-[Euler-Winkel](https://en.wikipedia.org/wiki/Euler_angles) umwandeln müssen, die von `deviceorientation` verwendet werden, können Sie den folgenden Algorithmus verwenden:
+Falls Sie jemals einen `rotate3d` Achs-Winkel in [Eulerschwinkel](https://en.wikipedia.org/wiki/Euler_angles) umwandeln müssen, die von `deviceorientation` verwendet werden, können Sie den folgenden Algorithmus verwenden:
 
 ```js
 // convert a rotate3d axis-angle to deviceorientation angles
@@ -81,4 +81,4 @@ function orient(aa) {
 ## Siehe auch
 
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-- [Erkennen der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erkennung der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)

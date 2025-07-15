@@ -2,12 +2,10 @@
 title: circle()
 slug: Web/CSS/basic-shape/circle
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`circle()`** CSS-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen Kreis mithilfe eines Radius und einer Position. Sie ist einer der {{cssxref("&lt;basic-shape&gt;")}} Datentypen.
+Die **`circle()`** CSS [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen Kreis unter Verwendung eines Radius und einer Position. Es handelt sich um einen der {{cssxref("&lt;basic-shape&gt;")}} Datentypen.
 
 {{InteractiveExample("CSS Demo: circle()")}}
 
@@ -59,15 +57,14 @@ clip-path: circle(6rem at 12rem 8rem);
 ### Werte
 
 - `<shape-radius>`
-
-  - : Dies kann eine {{cssxref("length")}}, oder ein {{cssxref("percentage")}}, oder die Werte `closest-side` und `farthest-side` sein.
+  - : Dies kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder Werte wie `closest-side` und `farthest-side` sein.
     - `closest-side`
-      - : Verwendet die Länge vom Mittelpunkt der Form zur nächsten Seite der Referenzbox. Bei Kreisen ist dies die nächste Seite in jeder Dimension.
+      - : Verwendet die Länge vom Zentrum der Form zur nächstgelegenen Seite des Referenzkastens. Für Kreise ist dies die nächstgelegene Seite in einer beliebigen Dimension.
     - `farthest-side`
-      - : Verwendet die Länge vom Mittelpunkt der Form zur entferntesten Seite der Referenzbox. Bei Kreisen ist dies die entfernteste Seite in jeder Dimension.
+      - : Verwendet die Länge vom Zentrum der Form zur am weitesten entfernten Seite des Referenzkastens. Für Kreise ist dies die am weitesten entfernte Seite in einer beliebigen Dimension.
 
 - `<position>`
-  - : Verschiebt das Zentrum des Kreises. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder ein Wert wie `left` sein. Der `<position>`-Wert ist standardmäßig zentriert, wenn er weggelassen wird.
+  - : Bewegt das Zentrum des Kreises. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder ein Wert wie `left` sein. Der `<position>`-Wert ist standardmäßig zentriert, wenn er weggelassen wird.
 
 ## Formale Syntax
 
@@ -77,7 +74,7 @@ clip-path: circle(6rem at 12rem 8rem);
 
 ### Einfacher Kreis
 
-Im folgenden Beispiel hat die {{cssxref("shape-outside")}}-Eigenschaft den Wert `circle(50%)`, der einen Kreis auf einem gefloateten Element definiert, um den Text herumfließen zu lassen.
+Im unten stehenden Beispiel hat die {{cssxref("shape-outside")}} Eigenschaft den Wert `circle(50%)`, der einen Kreis auf einem schwebenden Element definiert, um den der Text fließt.
 
 ```html live-sample___circle
 <div class="box">
@@ -121,4 +118,4 @@ img {
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [Leitfaden zu Grundformen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
+- [Leitfaden zu den grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)

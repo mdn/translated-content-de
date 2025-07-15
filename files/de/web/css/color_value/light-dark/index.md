@@ -2,14 +2,13 @@
 title: light-dark()
 slug: Web/CSS/color_value/light-dark
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`light-dark()`** [CSS](/de/docs/Web/CSS) [`<color>` Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions#color_functions) ermöglicht es, zwei Farben für eine Eigenschaft festzulegen – sie gibt eine der beiden Farboptionen zurück, indem sie erkennt, ob der Entwickler ein helles oder dunkles Farbschema festgelegt hat oder der Benutzer ein helles oder dunkles Farbthema angefordert hat – ohne dass die Themenfarben in eine [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) [Medienfunktion](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_features) Abfrage eingeschlossen werden müssen.
+Benutzer können ihre Präferenz für das Farbschema über ihre Betriebssystemeinstellungen (z. B. heller oder dunkler Modus) oder ihre Benutzereinstellungen angeben. Die `light-dark()` Funktion ermöglicht es, zwei Farbwerte bereitzustellen, wobei jeder `<color>` Wert akzeptiert wird. Die `light-dark()` CSS Farb-Funktion gibt den ersten Wert zurück, wenn die Benutzerpräferenz auf `light` gesetzt ist oder keine Präferenz festgelegt ist, und den zweiten Wert, wenn die Benutzerpräferenz auf `dark` gesetzt ist.
 
-Die **`light-dark()`** [CSS](/de/docs/Web/CSS) [`<color>` Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions#color_functions) ermöglicht das Festlegen von zwei Farben für eine Eigenschaft - es wird eine der beiden Farboptionen zurückgegeben, indem erkannt wird, ob der Entwickler ein helles oder dunkles Farbschema festgelegt hat oder der Benutzer ein helles oder dunkles Farbthema angefordert hat - ohne dass die Themenfarben innerhalb einer [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) [Medienfunktion](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_features) abgefragt werden müssen. Benutzer können ihre Farbschema-Vorlieben über ihre Betriebssystemeinstellungen (z.B. helles oder dunkles Modus) oder ihre Benutzeragent-Einstellungen angeben. Die `light-dark()`-Funktion ermöglicht es, zwei Farbwerte zu liefern, wobei jeder `<color>` Wert akzeptiert wird. Die `light-dark()` CSS-Funktion gibt den ersten Wert zurück, wenn die Benutzerpräferenz auf `light` gesetzt ist oder keine Präferenz festgelegt ist, und den zweiten Wert, wenn die Benutzerpräferenz auf `dark` gesetzt ist.
-
-Um die Unterstützung für die `light-dark()` Farbfunktion zu ermöglichen, muss das {{CSSXref("color-scheme")}} den Wert `light dark` haben, der normalerweise auf der {{CSSXref(":root")}} [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) gesetzt ist.
+Um die Unterstützung für die `light-dark()` Farb-Funktion zu aktivieren, muss der Wert von {{CSSXref("color-scheme")}} auf `light dark` gesetzt sein, was üblicherweise auf der {{CSSXref(":root")}} [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) erfolgt.
 
 ```css
 :root {
@@ -36,14 +35,13 @@ color: light-dark(var(--light), var(--dark));
 
 ### Werte
 
-Funktionelle Notation: `light-dark(light-color, dark-color)`
+Funktionale Notation: `light-dark(light-color, dark-color)`
 
 - `light-color`
-
-  - : {{CSSXref("&lt;color&gt;")}} Wert, der für helles {{CSSXref("color-scheme")}} festgelegt werden soll.
+  - : {{CSSXref("&lt;color&gt;")}} Wert, der für das helle {{CSSXref("color-scheme")}} festgelegt wird.
 
 - `dark-color`
-  - : {{CSSXref("&lt;color&gt;")}} Wert, der für dunkles {{CSSXref("color-scheme")}} festgelegt werden soll.
+  - : {{CSSXref("&lt;color&gt;")}} Wert, der für das dunkle {{CSSXref("color-scheme")}} festgelegt wird.
 
 ## Formale Syntax
 
@@ -53,11 +51,11 @@ Funktionelle Notation: `light-dark(light-color, dark-color)`
 
 ### Farben basierend auf dem Farbschema festlegen
 
-Standardmäßig hängt die von der `light-dark()` Farbfunktions zurückgegebene Farbe in unterstützenden Browsern von der vom Benutzer über die Betriebssystemeinstellungen festgelegten Präferenz ab (z.B. hell oder dunkel Modus) oder von einer Benutzeragent-Einstellung. Sie können diese Einstellung auch in den {{Glossary("developer_tools", "Entwicklertools")}} des Browsers ändern.
+Standardmäßig hängt in unterstützenden Browsern die von der `light-dark()` Farb-Funktion zurückgegebene Farbe von der Benutzerpräferenz ab, die über die Systemeinstellungen eines Betriebssystems (z. B. heller oder dunkler Modus) oder über eine Benutzereinstellung festgelegt wird. Diese Einstellung kann auch in den {{Glossary("developer_tools", "Entwicklertools des Browsers")}} geändert werden.
 
 #### HTML
 
-Wir fügen drei Abschnitte ein, um helle Farben, dunkle Farben und die basierend auf dem bevorzugten Farbschema des Benutzers ausgewählten Farben gezielt zu steuern.
+Wir fügen drei Abschnitte ein, um helle Farben, dunkle Farben und die basierend auf dem bevorzugten Farbschema des Benutzers ausgewählten Farben anzusprechen.
 
 ```html
 <h1><code>light-dark()</code> CSS function</h1>
@@ -79,7 +77,7 @@ Wir fügen drei Abschnitte ein, um helle Farben, dunkle Farben und die basierend
 
 #### CSS
 
-Wir definieren Farben für sowohl helle als auch dunkle Themen. Außerdem definieren wir `color-scheme` für das Dokument auf `:root`, um die `light-dark()` Farbfunktion für das gesamte Dokument zu aktivieren.
+Wir fügen Farben für beide, helle und dunkle Themen ein. Wir definieren auch `color-scheme` für das Dokument auf `:root`, um die `light-dark()` Farb-Funktion für das gesamte Dokument zu aktivieren.
 
 ```css-nolint
 :root {
@@ -103,10 +101,10 @@ code {
 }
 ```
 
-Zusätzlich zur Aktivierung der `light-dark()`-Funktion ermöglicht die `color-scheme` Eigenschaft das Überschreiben eines Benutzerfarbschemas für Dokumentabschnitte. Das Erzwingen eines Seitenbereichs zur Verwendung eines ausschließlich hellen oder dunklen Farbschemas kann erfolgen, indem die `color-scheme` Eigenschaft auf `light` oder `dark` gesetzt wird.
+Zusätzlich zur Aktivierung der `light-dark()` Funktion ermöglicht die `color-scheme` Eigenschaft das Überschreiben des Farbschemas eines Benutzers für Dokumentabschnitte. Ein Abschnitt einer Seite kann gezwungen werden, nur ein helles oder dunkles Farbschema zu verwenden, indem die `color-scheme` Eigenschaft auf `light` oder `dark` gesetzt wird.
 
 > [!NOTE]
-> Im Allgemeinen sollte dies nicht getan werden, wir verwenden es hier zu Demonstrationszwecken. Wenn der Benutzer eine Präferenz festgelegt hat, sollten Sie im Allgemeinen ihre Präferenzen nicht überschreiben.
+> Im Allgemeinen sollte dies nicht gemacht werden, wir verwenden es hier zu Demonstrationszwecken. Wenn der Benutzer eine Präferenz geäußert hat, sollten Sie deren Präferenzen im allgemeinen nicht überschreiben.
 
 ```css
 .light {
@@ -141,8 +139,8 @@ section {
 
 - {{CSSXref("color-scheme")}}
 - {{CSSXref("&lt;color&gt;")}}
-- [CSS colors](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
 - [`prefers-contrast`](/de/docs/Web/CSS/@media/prefers-contrast) {{cssxref("@media")}} Funktion
 - [`contrast()`](/de/docs/Web/CSS/filter-function/contrast)
-- [WCAG: Farbenkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
-- [CSS-Custom Properties](/de/docs/Web/CSS/--*) und {{cssxref("var")}}
+- [WCAG: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
+- [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) und {{cssxref("var")}}

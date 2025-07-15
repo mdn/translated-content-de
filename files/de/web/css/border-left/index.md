@@ -2,12 +2,10 @@
 title: border-left
 slug: Web/CSS/border-left
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-left`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-left`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-left")}}
 
@@ -49,25 +47,25 @@ border-left: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Kurzform-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt die nicht spezifizierten auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzschreibweise-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-left-style: dotted;
 border-left: thick green;
 ```
 
-Es ist tatsächlich dasselbe wie dieser:
+Es ist tatsächlich das gleiche wie dieser:
 
 ```css
 border-left-style: dotted;
 border-left: none thick green;
 ```
 
-Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben ist, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nichtangeben des `border-style`-Teils zu keinem Rahmen.
 
-## Bestandteileigenschaften
+## Bestandteilseigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-left-color")}}
 - {{cssxref("border-left-style")}}
@@ -88,7 +86,7 @@ border-left: revert-layer;
 border-left: unset;
 ```
 
-Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei davon können weggelassen werden.
+Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -99,17 +97,17 @@ Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angege
 - {{cssxref("&lt;color&gt;")}}
   - : Siehe {{cssxref("border-left-color")}}.
 
-## Offizielle Definition
+## Formale Definition
 
 {{CSSInfo}}
 
-## Offizielle Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Anwenden eines linken Rahmens
+### Anwendung eines linken Rahmens
 
 #### HTML
 
@@ -148,4 +146,4 @@ div {
 - {{cssxref("border-block")}}
 - {{cssxref("outline")}}
 - [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
-- [Lernen Sie CSS: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)

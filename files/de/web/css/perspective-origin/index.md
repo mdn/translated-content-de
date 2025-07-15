@@ -2,12 +2,10 @@
 title: perspective-origin
 slug: Web/CSS/perspective-origin
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`perspective-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt die Position, aus der der Betrachter schaut. Sie wird als _Fluchtpunkt_ von der {{cssxref("perspective")}}-Eigenschaft verwendet.
+Die **`perspective-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Position, von der aus der Betrachter schaut. Sie wird als _Fluchtpunkt_ von der {{cssxref("perspective")}} Eigenschaft verwendet.
 
 {{InteractiveExample("CSS Demo: perspective-origin")}}
 
@@ -100,7 +98,7 @@ perspective-origin: 500% 200%;
 }
 ```
 
-Die **`perspective-origin`**- und {{cssxref('perspective')}}-Eigenschaften sind an das übergeordnete Element eines in einem dreidimensionalen Raum transformierten Kindes gebunden, anders als die [`perspective()`](/de/docs/Web/CSS/transform-function/perspective)-Transformationsfunktion, die auf das transformierte Element angewendet wird.
+Die **`perspective-origin`** und {{cssxref('perspective')}} Eigenschaften sind dem Elternteil eines in einem dreidimensionalen Raum transformierten Kindelements zugeordnet, im Gegensatz zur [`perspective()`](/de/docs/Web/CSS/transform-function/perspective) Transformationsfunktion, die auf das Element angewendet wird, das transformiert wird.
 
 ## Syntax
 
@@ -125,31 +123,31 @@ perspective-origin: unset;
 
 ### Werte
 
-- _x-Position_
-  - : Gibt die Abszissenposition des _Fluchtpunkts_ an. Es kann einen der folgenden Werte haben:
-    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluten Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
-    - `left`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `50%` ist.
-    - `right`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `100%` ist.
+- _x-position_
+  - : Gibt die Position der Abszisse des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluter Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
+    - `left`, ein Schlüsselwort als Abkürzung für den `0`-Längenwert.
+    - `center`, ein Schlüsselwort als Abkürzung für den `50%`-Prozentwert.
+    - `right`, ein Schlüsselwort als Abkürzung für den `100%`-Prozentwert.
 
-- _y-Position_
-  - : Gibt die Ordinatenposition des _Fluchtpunkts_ an. Es kann einen der folgenden Werte haben:
-    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluten Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
-    - `top`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `50%` ist.
-    - `bottom`, ein Schlüsselwort, das eine Abkürzung für den Prozentwert `100%` ist.
+- _y-position_
+  - : Gibt die Position der Ordinate des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluter Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
+    - `top`, ein Schlüsselwort als Abkürzung für den `0`-Längenwert.
+    - `center`, ein Schlüsselwort als Abkürzung für den `50%`-Prozentwert.
+    - `bottom`, ein Schlüsselwort als Abkürzung für den `100%`-Prozentwert.
 
-## Formelle Definition
+## Formale Definition
 
 {{cssinfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Änderung des Perspektivursprungs
+### Ändern des Fluchtpunkts
 
 Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie unter [Using CSS transforms > Changing the perspective origin](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#changing_the_perspective_origin).
 
@@ -167,4 +165,4 @@ Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie unt
 - {{cssxref('transform-style')}}
 - {{cssxref('transform-function')}}
 - {{cssxref('perspective')}}
-- [`transform: perspective()`](/de/docs/Web/CSS/transform-function/perspective)-Funktion
+- [`transform: perspective()`](/de/docs/Web/CSS/transform-function/perspective) Funktion

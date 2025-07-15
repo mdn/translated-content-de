@@ -2,12 +2,10 @@
 title: padding-right
 slug: Web/CSS/padding-right
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`padding-right`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des [Abstandsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf der rechten Seite eines Elements fest.
+Die **`padding-right`** [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Breite des [Abstandsbereichs (Padding)](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf der rechten Seite eines Elements.
 
 {{InteractiveExample("CSS Demo: padding-right")}}
 
@@ -54,10 +52,10 @@ padding-right: 0;
 }
 ```
 
-Der Abstandbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+Der Abstandsbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rand.
 
 > [!NOTE]
-> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um die Abstände auf allen vier Seiten eines Elements mit einer einzelnen Deklaration festzulegen.
+> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration Abstände an allen vier Seiten eines Elements festzulegen.
 
 ## Syntax
 
@@ -78,14 +76,14 @@ padding-right: revert-layer;
 padding-right: unset;
 ```
 
-Die `padding-right` Eigenschaft wird als einzelner Wert aus der untenstehenden Liste angegeben. Im Gegensatz zu Abständen sind negative Werte für den Innenabstand nicht zulässig.
+Die `padding-right`-Eigenschaft wird als ein Einzelwert aus der unten stehenden Liste angegeben. Im Gegensatz zu Margins sind negative Werte für Padding nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Innenabstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Innenabstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -97,7 +95,7 @@ Die `padding-right` Eigenschaft wird als einzelner Wert aus der untenstehenden L
 
 ## Beispiele
 
-### Setzen des rechten Innenabstands mit Pixeln und Prozentsätzen
+### Rechter Abstand mit Pixeln und Prozentsätzen festlegen
 
 ```css
 .content {
@@ -122,5 +120,5 @@ Die `padding-right` Eigenschaft wird als einzelner Wert aus der untenstehenden L
 - {{cssxref("padding")}} Kurzschreibweise
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
 - {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschreibweisen
-- [Einführung in das CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
-- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
+- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

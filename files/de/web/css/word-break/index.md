@@ -2,12 +2,10 @@
 title: word-break
 slug: Web/CSS/word-break
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`word-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Zeilenumbrüche auftreten, wo der Text sonst über seinen Content-Bereich hinauslaufen würde.
+Die **`word-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Zeilenumbrüche eingefügt werden, wo der Text sonst das Inhaltsfeld überlaufen würde.
 
 {{InteractiveExample("CSS Demo: word-break")}}
 
@@ -64,25 +62,25 @@ word-break: revert-layer;
 word-break: unset;
 ```
 
-Die `word-break` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus der untenstehenden Liste von Werten ausgewählt wird.
+Die `word-break`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der nachstehenden Werteliste festgelegt.
 
 ### Werte
 
 - `normal`
-  - : Verwenden Sie die Standardregel für Zeilenumbrüche.
+  - : Verwenden Sie die standardmäßigen Zeilenumbruchregeln.
 - `break-all`
-  - : Um Überlauf zu verhindern, sollten Wortumbrüche zwischen beliebigen zwei Zeichen eingefügt werden (mit Ausnahme von Chinesisch/Japanisch/Koreanischem Text).
+  - : Um Überlauf zu verhindern, sollten Wörter an beliebiger Stelle zwischen zwei Zeichen (außer bei chinesischen/japanischen/koreanischen Texten) unterbrochen werden.
 - `keep-all`
-  - : Wortumbrüche sollten nicht für Chinesisch/Japanisch/Koreanischen (CJK) Text verwendet werden. Das Verhalten bei nicht-CJK-Texten ist dasselbe wie bei `normal`.
+  - : Wortumbrüche sollten bei chinesischen/japanischen/koreanischen (CJK) Texten nicht verwendet werden. Bei nicht-CJK-Texten ist das Verhalten identisch mit `normal`.
 - `auto-phrase`
-  - : Hat den gleichen Effekt wie `word-break: normal`, außer dass eine sprachspezifische Analyse durchgeführt wird, um Wortumbrüche zu verbessern, indem sie nicht in der Mitte natürlicher Phrasen platziert werden.
+  - : Hat die gleiche Wirkung wie `word-break: normal`, außer dass eine sprachspezifische Analyse durchgeführt wird, um Wortumbrüche zu verbessern, indem sie nicht in der Mitte natürlicher Phrasen platziert werden.
 - `break-word`
-  - : Hat den gleichen Effekt wie `overflow-wrap: anywhere` in Kombination mit `word-break: normal`, unabhängig vom tatsächlichen Wert der {{cssxref("overflow-wrap")}} Eigenschaft.
+  - : Hat die gleiche Wirkung wie `overflow-wrap: anywhere` in Kombination mit `word-break: normal`, ungeachtet des tatsächlichen Wertes der {{cssxref("overflow-wrap")}} Eigenschaft.
 
 > [!NOTE]
-> Im Gegensatz zu `word-break: break-word` und `overflow-wrap: break-word` (siehe {{cssxref("overflow-wrap")}}), erzeugt `word-break: break-all` einen Umbruch exakt an der Stelle, an der der Text sonst über seinen Container hinauslaufen würde (auch wenn das Setzen eines gesamten Wortes auf eine eigene Zeile den Bedarf für einen Umbruch negieren würde).
+> Im Gegensatz zu `word-break: break-word` und `overflow-wrap: break-word` (siehe {{cssxref("overflow-wrap")}}) erzeugt `word-break: break-all` einen Umbruch an genau der Stelle, an der Text sonst sein Container überlaufen würde (selbst wenn das Setzen eines ganzen Wortes in eine eigene Zeile den Bedarf für einen Umbruch negieren würde).
 
-Die Spezifikation listet auch einen zusätzlichen Wert, `manual`, der derzeit in keinem Browser unterstützt wird. Wenn implementiert, wird `manual` den gleichen Effekt wie `word-break: normal` haben, außer dass Umbrüche in südostasiatischen Sprachen nicht automatisch eingefügt werden. Dies ist notwendig, da Benutzeragenten in solchen Sprachen häufig Umbrüche an suboptimalen Positionen platzieren. `manual` wird Ihnen ermöglichen, Zeilenumbrüche manuell an optimalen Positionen einzufügen.
+Die Spezifikation listet auch einen zusätzlichen Wert, `manual`, der derzeit in keinem Browser unterstützt wird. Wenn implementiert, wird `manual` die gleiche Wirkung wie `word-break: normal` haben, außer dass bei südostasiatischen Sprachen keine automatischen Umbrüche eingefügt werden. Dies ist notwendig, da Benutzeragenten in solchen Sprachen häufig Umbrüche an suboptimalen Stellen platzieren. `manual` ermöglicht es Ihnen, Zeilenumbrüche an optimalen Stellen manuell einzufügen.
 
 ## Formale Definition
 
@@ -194,4 +192,4 @@ Die Spezifikation listet auch einen zusätzlichen Wert, `manual`, der derzeit in
 - {{cssxref("white-space")}}
 - {{cssxref("hyphens")}}
 - {{cssxref("line-break")}}
-- [Leitfaden zum Umbruch und Brechen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Leitfaden zum Umbruch und Zerlegen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)

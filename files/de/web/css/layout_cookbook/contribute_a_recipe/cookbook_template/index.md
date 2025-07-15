@@ -1,25 +1,23 @@
 ---
-title: Cookbook-Vorlage
+title: Kochbuch-Vorlage
 slug: Web/CSS/Layout_cookbook/Contribute_a_recipe/Cookbook_template
 l10n:
-  sourceCommit: eaec5c4226ac64696a95314a7bce995165a4d124
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
 > [!NOTE]
-> Dies ist eine Vorlagenseite für eine CSS-Cookbook-Seite. Bitte verwenden Sie dies als Rohvorlage, wenn Sie eine neue Cookbook-Seite erstellen.
-> _Kommentare in Kursivschrift sind Informationen darüber, wie Teile der Vorlage verwendet werden._
+> Dies ist eine Vorlagenseite für eine CSS-Kochbuchseite. Bitte verwenden Sie dies als Rohvorlage, wenn Sie eine neue Kochbuchseite erstellen.
+> _Kommentare in Kursivschrift sind Informationen darüber, wie ein Teil der Vorlage verwendet wird._
 
 _Beschreibung des Problems, das dieses Rezept löst, oder des Musters, das Sie demonstrieren._
 
 ## Anforderungen
 
-_Was muss dieses Muster beinhalten oder welche Probleme muss es lösen? Listen Sie das hier auf._
+_Was muss dieses Muster enthalten oder welche Probleme muss es lösen? Listen Sie das hier auf._
 
 ## Rezept
 
-_Ändern Sie den Beispielcode. Der letzte Parameter ist die Höhe des Live-Beispiels, die Sie nach Bedarf ändern können. Erwähnen Sie, dass Sie im MDN Playground auf „Abspielen“ in den Codeblöcken klicken können, um das Beispiel zu bearbeiten._
+_Ändern Sie den Beispielcode. Der letzte Parameter ist die Höhe des Live-Beispiels, die Sie nach Bedarf ändern können. Erwähnen Sie, dass Sie auf "Play" in den Codeblöcken klicken können, um das Beispiel im MDN Playground zu bearbeiten._
 
 ```html live-sample___center-example
 <div class="container">
@@ -51,18 +49,18 @@ _Ändern Sie den Beispielcode. Der letzte Parameter ist die Höhe des Live-Beisp
 
 ## Getroffene Entscheidungen
 
-_Erklären Sie Ihre Entscheidungen beim Erstellen des Musters. Warum haben Sie eine bestimmte Methode gewählt? Wenn Sie hier ein zusätzliches Beispiel hinzufügen möchten — zum Beispiel eine Version mit Fallbacks, tun Sie dies bitte. Dieser Abschnitt ist absichtlich locker gehalten, da Muster von sehr einfach bis komplexer reichen._
+_Erklären Sie Ihre Entscheidungen bei der Erstellung des Musters. Warum haben Sie eine bestimmte Methode gewählt? Wenn Sie hier ein zusätzliches Beispiel hinzufügen möchten – zum Beispiel eine Version mit Fallbacks – tun Sie dies bitte. Dieser Abschnitt ist bewusst flexibel gehalten, da Muster von sehr einfach bis hin zu komplexer reichen._
 
 ## Nützliche Fallbacks oder alternative Methoden
 
-_Wenn es nützliche alternative Methoden zum Erstellen des Rezepts oder Fallback-Rezepte gibt, die Sie verwenden können, wenn Sie Browser unterstützen müssen, die es nicht unterstützen, fügen Sie sie in separaten Abschnitten hier unten hinzu._
+_Wenn es nützliche alternative Methoden zum Erstellen des Rezepts gibt oder Fallback-Rezepte, die Sie verwenden können, falls Sie nicht unterstützende Browser unterstützen müssen, fügen Sie diese in separaten Abschnitten hier unten ein._
 
-## Zugänglichkeitsbedenken
+## Barrierefreiheit
 
-_Fügen Sie dies hinzu, wenn es spezielle Dinge zu beachten gibt, was die Barrierefreiheit betrifft. Wenn es für Ihr Muster nicht relevant ist, kann dieser Punkt weggelassen werden._
+_Fügen Sie dies ein, wenn es spezifische Dinge zu beachten gibt, die die Barrierefreiheit betreffen. Wenn dies für Ihr Muster nicht relevant ist, kann dieser Abschnitt weggelassen werden._
 
 ## Siehe auch
 
-- _Links zu verwandten Eigenschaften: `example-property`_
+- _Links zu verknüpften Eigenschaften: `example-property`_
 - _Links zu Artikeln, die zeigen, wie die Eigenschaft im Kontext verwendet wird: "Using … article"_
-- _Sehr gute externe Links. Haben Sie keine Angst vor externen Links, aber sie sollten herausragend sein und nicht nur unbedeutende Details erwähnen._
+- _Sehr gute externe Links. Haben Sie keine Angst vor externen Links, aber sie sollten herausragend sein und nicht nur kleinere Details erwähnen._

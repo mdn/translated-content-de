@@ -2,12 +2,10 @@
 title: :autofill
 slug: Web/CSS/:autofill
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:autofill`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wird verwendet, wenn ein {{HTMLElement("input")}}-Element vom Browser automatisch ausgefüllt wurde. Die Klasse wird nicht mehr angewendet, wenn der Benutzer das Feld bearbeitet.
+Die **`:autofill`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) matcht, wenn ein {{HTMLElement("input")}}-Element seinen Wert vom Browser automatisch ausgefüllt bekommen hat. Die Klasse matcht nicht mehr, wenn der Benutzer das Feld bearbeitet.
 
 {{InteractiveExample("CSS Demo: :autofill", "tabbed-shorter")}}
 
@@ -38,7 +36,7 @@ input:is(:-webkit-autofill, :autofill) {
 ```
 
 > [!NOTE]
-> Die Benutzerschnittstellen-Stylesheets vieler Browser verwenden `!important` in ihren `:-webkit-autofill`-Stildeklarationen, wodurch diese nicht von Webseiten ohne JavaScript-Tricks überschrieben werden können. Zum Beispiel hat Chrome Folgendes in seinem internen Stylesheet:
+> Die Benutzeragenten-Stylesheets vieler Browser verwenden `!important` in ihren `:-webkit-autofill`-Style-Deklarationen, was sie ohne JavaScript-Hacks für Webseiten nicht überschreibbar macht. Zum Beispiel hat Chrome folgendes in seinem internen Stylesheet:
 >
 > ```css
 > background-color: rgb(232 240 254) !important;
@@ -46,7 +44,7 @@ input:is(:-webkit-autofill, :autofill) {
 > color: -internal-light-dark(black, white) !important;
 > ```
 >
-> Das bedeutet, dass Sie {{cssxref('background-color')}}, {{cssxref('background-image')}} oder {{cssxref('color')}} in Ihren eigenen Regeln nicht festlegen können.
+> Das bedeutet, dass Sie {{cssxref('background-color')}}, {{cssxref('background-image')}}, oder {{cssxref('color')}} in Ihren eigenen Regeln nicht setzen können.
 
 ## Syntax
 
@@ -58,8 +56,8 @@ input:is(:-webkit-autofill, :autofill) {
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der `:autofill`-Pseudoklasse, um den Rahmen eines Textfelds zu ändern, das vom Browser automatisch ausgefüllt wurde.
-Um sicherzustellen, dass wir keine [ungültige Selektorliste](/de/docs/Web/CSS/Selector_list#invalid_selector_list) erstellen, werden sowohl `:-webkit-autofill` als auch `:autofill` unter Verwendung einer toleranten Selektorliste mit {{cssxref(":is()")}} zusammengeführt.
+Das folgende Beispiel demonstriert die Verwendung der `:autofill`-Pseudoklasse, um den Rahmen eines Textfeldes zu ändern, das vom Browser automatisch ausgefüllt wurde.
+Um sicherzustellen, dass wir keine [ungültige Selektorliste](/de/docs/Web/CSS/Selector_list#invalid_selector_list) erstellen, werden sowohl `:-webkit-autofill` als auch `:autofill` mit einer großzügigen Selektorliste mit {{cssxref(":is()")}} gematcht.
 
 ```css
 input {
@@ -91,6 +89,6 @@ input:is(:-webkit-autofill, :autofill) {
 ## Siehe auch
 
 - [Chromium Issue 46543: Auto-filled input text box yellow background highlight cannot be turned off](https://crbug.com/46543)
-- [WebKit-Bug 66032: Allow site authors to override autofilled fields' colors.](https://webkit.org/b/66032)
-- [Mozilla-Bug 740979: implement `:-moz-autofill` pseudo-class on input elements with an autofilled value](https://bugzil.la/740979)
+- [WebKit Bug 66032: Allow site authors to override autofilled fields' colors.](https://webkit.org/b/66032)
+- [Mozilla Bug 740979: implement `:-moz-autofill` pseudo-class on input elements with an autofilled value](https://bugzil.la/740979)
 - [User Interface Module Level 4: more selectors](https://wiki.csswg.org/spec/css4-ui#more-selectors)

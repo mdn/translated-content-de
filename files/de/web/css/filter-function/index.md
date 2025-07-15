@@ -2,37 +2,35 @@
 title: <filter-function>
 slug: Web/CSS/filter-function
 l10n:
-  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen grafischen Effekt, der das Erscheinungsbild eines Eingabebildes verändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
+Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen grafischen Effekt, der das Aussehen eines Eingabebildes verändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
 
 ## Syntax
 
-Der `<filter-function>` Datentyp wird durch eine der unten aufgelisteten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, falls ungültig, dazu führt, dass kein Filter angewendet wird.
+Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, wenn es ungültig ist, dazu führt, dass kein Filter angewendet wird.
 
 - {{cssxref("filter-function/blur", "blur()")}}
-  - : Verwäscht das Bild.
+  - : Verwischt das Bild.
 - {{cssxref("filter-function/brightness", "brightness()")}}
   - : Macht das Bild heller oder dunkler.
 - {{cssxref("filter-function/contrast", "contrast()")}}
   - : Erhöht oder verringert den Kontrast des Bildes.
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-  - : Wendet einen Schatten hinter dem Bild an.
+  - : Wendet einen Schlagschatten hinter dem Bild an.
 - {{cssxref("filter-function/grayscale", "grayscale()")}}
-  - : Wandelt das Bild in Graustufen um.
+  - : Konvertiert das Bild in Graustufen.
 - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-  - : Ändert den gesamten Farbton des Bildes.
+  - : Ändert die gesamte Farbton des Bildes.
 - {{cssxref("filter-function/invert", "invert()")}}
-  - : Kehrt die Farben des Bildes um.
+  - : Invertiert die Farben des Bildes.
 - {{cssxref("filter-function/opacity", "opacity()")}}
   - : Macht das Bild transparent.
 - {{cssxref("filter-function/saturate", "saturate()")}}
-  - : Übersättigt oder entsättigt das Eingabebild.
+  - : Super-saturiert oder entsättigt das Eingabebild.
 - {{cssxref("filter-function/sepia", "sepia()")}}
-  - : Wandelt das Bild in Sepia um.
+  - : Konvertiert das Bild in Sepia.
 
 ## Formale Syntax
 
@@ -40,11 +38,11 @@ Der `<filter-function>` Datentyp wird durch eine der unten aufgelisteten Filterf
 
 ## Beispiele
 
-### Vergleich der Filterfunktionen
+### Vergleich von Filterfunktionen
 
-Dieses Beispiel bietet eine Grafik, ein Auswahlmenü, um zwischen den verschiedenen Arten von Filterfunktionen zu wählen, und einen Schieberegler, um die in der Filterfunktion verwendeten Werte zu variieren. Die Aktualisierung der Steuerelemente aktualisiert den Filtereffekt in Echtzeit, so dass Sie die Auswirkungen der verschiedenen Filter untersuchen können.
+Dieses Beispiel bietet eine Grafik, ein Auswahlmenü, um zwischen den verschiedenen Arten von Filterfunktionen zu wählen, und einen Schieberegler, um die in der Filterfunktion verwendeten Werte zu variieren. Durch das Aktualisieren der Steuerelemente wird der Filtereffekt in Echtzeit aktualisiert, so dass Sie die Effekte verschiedener Filter untersuchen können.
 
-Das Dropdown-Menü wählt den Funktionsnamen, und der Schieberegler setzt den Parameterwert für diese Funktion. Für `drop-shadow` wird der Wert sowohl für die horizontalen als auch die vertikalen Versätze verwendet, und der Radius wird auf die Hälfte des Wertes gesetzt.
+Das Dropdown-Menü wählt den Funktionsnamen aus und der Schieberegler setzt den Parameterwert für diese Funktion. Bei `drop-shadow` wird der Wert sowohl für die horizontalen als auch vertikalen Versätze verwendet, und der Radius wird auf die Hälfte des Wertes gesetzt.
 
 ```html hidden live-sample___filter-functions
 <div></div>

@@ -2,21 +2,19 @@
 title: <display-listitem>
 slug: Web/CSS/display-listitem
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudo-Element mit dem Inhalt erzeugt, der durch seine {{CSSxRef("list-style")}} Eigenschaften angegeben wird (zum Beispiel ein Aufzählungspunkt), zusammen mit einem Hauptblock des angegebenen Typs für seine eigenen Inhalte.
+Das Schlüsselwort `list-item` veranlasst das Element, ein `::marker` Pseudo-Element mit dem Inhalt zu erzeugen, der durch die {{CSSxRef("list-style")}} Eigenschaften angegeben wird (zum Beispiel ein Aufzählungspunkt), zusammen mit einem Hauptblock des spezifizierten Typs für seinen eigenen Inhalt.
 
 ## Syntax
 
-Ein einzelner Wert von `list-item` führt dazu, dass das Element sich wie ein Listenpunkt verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
+Ein einzelner Wert von `list-item` lässt das Element wie ein Listenelement verhalten. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
 
 `list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} Schlüsselwörtern kombiniert werden.
 
 > [!NOTE]
-> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, wenn kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, hat der Hauptblock einen äußeren Anzeigetyp von `block`.
+> In Browsern, die die Zwei-Werte-Syntax unterstützen, wird, falls kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Falls kein äußerer Wert angegeben ist, wird der Hauptblock einen äußeren Anzeigetyp von `block` haben.
 
 ## Formale Syntax
 

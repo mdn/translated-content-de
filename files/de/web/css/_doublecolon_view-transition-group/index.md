@@ -2,16 +2,14 @@
 title: ::view-transition-group()
 slug: Web/CSS/::view-transition-group
 l10n:
-  sourceCommit: d64189632da72d059dcc110f4d0b0684ef45ba16
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **`::view-transition-group()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine einzelne View-Transition-Schnappschussgruppe.
 
-Das **`::view-transition-group()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine einzelne View-Übergangs-Snapshot-Gruppe.
+Während einer Ansichtstransition wird `::view-transition-group()` in den zugehörigen Baum der Pseudo-Elemente eingefügt, wie im Abschnitt [Der Baum der View-Transition-Pseudo-Elemente](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer ein Kind von {{cssxref("::view-transition")}} und hat ein {{cssxref("::view-transition-image-pair()")}} als Kind.
 
-Während eines View-Übergangs wird `::view-transition-group()` in den zugehörigen Pseudo-Element-Baum aufgenommen, wie im Abschnitt [Der View-Übergangs-Pseudo-Element-Baum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer ein Kind von {{cssxref("::view-transition")}} und hat ein {{cssxref("::view-transition-image-pair()")}} als Kind.
-
-`::view-transition-group()` erhält die folgende Standardformatierung im UA-Stylesheet:
+Dem `::view-transition-group()` wird im UA-Stylesheet folgendes Standardstyling zugewiesen:
 
 ```css
 :root::view-transition-group(*) {
@@ -26,12 +24,12 @@ Während eines View-Übergangs wird `::view-transition-group()` in den zugehöri
 
 Standardmäßig spiegeln ausgewählte Elemente zunächst die Größe und Position des {{cssxref("::view-transition-old()")}} Pseudo-Elements wider, das den "alten" Ansichtsstatus repräsentiert, oder des {{cssxref("::view-transition-new()")}} Pseudo-Elements, das den "neuen" Ansichtsstatus repräsentiert, falls kein "alter" Ansichtsstatus vorhanden ist.
 
-Wenn sowohl ein "alter" als auch ein "neuer" Ansichtsstatus vorhanden sind, animieren Stile im View-Übergangs-Stylesheet die {{cssxref("width")}} und {{cssxref("height")}} dieses Pseudo-Elements von der Größe des Rahmenfeldes des "alten" Ansichtsstatus auf die des Rahmenfeldes des "neuen" Ansichtsstatus.
+Wenn sowohl ein "alter" als auch ein "neuer" Ansichtsstatus vorhanden ist, animiert das Stylesheet der Ansichtstransition die {{cssxref("width")}} und {{cssxref("height")}} dieses Pseudo-Elements von der Größe des Border-Box des "alten" Ansichtsstatus zur Größe des Border-Box des "neuen" Ansichtsstatus.
 
 > [!NOTE]
-> View-Übergangsstile werden während des View-Übergangs dynamisch generiert; siehe die Spezifikationsabschnitte [Übergangs-Pseudo-Elemente einrichten](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Pseudo-Element-Stile aktualisieren](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für mehr Details.
+> Die Stile für Ansichtstransitionen werden dynamisch während der Ansichtstransition generiert; siehe die Spezifikationsabschnitte [setup transition pseudo-elements](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [update pseudo-element styles](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
 
-Zusätzlich wird die Transformation des Elements vom Bildschirmraum-Transformationszustand des "alten" Ansichtsstatus zum neuen Bildschirmraum-Transformationszustand animiert. Dieser Stil wird dynamisch generiert, da die Werte der animierten Eigenschaften zu Beginn des Übergangs festgelegt werden.
+Zusätzlich wird die Transformation des Elements vom Bildschirmlage-Transform des "alten" Ansichtsstatus zum Bildschirmlage-Transform des neuen Ansichtsstatus animiert. Dieser Stil wird dynamisch generiert, da die Werte der animierten Eigenschaften zu dem Zeitpunkt bestimmt werden, an dem die Transition beginnt.
 
 ## Syntax
 
@@ -44,15 +42,15 @@ Zusätzlich wird die Transformation des Elements vom Bildschirmraum-Transformati
 ### Parameter
 
 - `*`
-  - : Der [universelle Selektor (`*`)](/de/docs/Web/CSS/Universal_selectors); wählt alle View-Übergangsgruppen auf einer Seite aus.
+  - : Der [universelle Selektor (`*`)](/de/docs/Web/CSS/Universal_selectors); wählt alle Ansichtstransitionsgruppen auf einer Seite aus.
 - `root`
-  - : Der {{cssxref("view-transition-name")}} angewandt auf {{cssxref(":root")}} bewirkt, dass das Pseudo-Element der Standard-`root`-View-Übergangsgruppe entspricht. Dies ist die vom User-Agent erstellte Snapshot-Gruppe, um den View-Übergang für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die `view-transition-name`-Eigenschaft einer eigenen spezifischen View-Übergangs-Snapshot-Gruppe zugewiesen ist.
+  - : Der {{cssxref("view-transition-name")}}, der auf {{cssxref(":root")}} angewendet wird, führt dazu, dass das Pseudo-Element der Standard-`root`-Ansichtstransitionsgruppe entspricht. Dies ist die vom Benutzeragenten erstellte Schnappschussgruppe, die die Ansichtstransition für die gesamte Seite enthält. Diese Gruppe schließt jedes Element ein, das nicht über die `view-transition-name` Eigenschaft seiner eigenen spezifischen Ansichtstransitionsschnappschussgruppe zugeordnet ist.
 - `<pt-name-selector>`
-  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-name")}}-Eigenschaft festgelegt wurde.
+  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-name")}} Eigenschaft gesetzt ist.
 - `<pt-class-selector>`
-  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-class")}}-Eigenschaft festgelegt wurde, vorangestellt durch einen Punkt (`.`).
+  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-class")}} Eigenschaft gesetzt ist, vorangestellt durch einen Punkt (`.`).
 
-Die {{cssxref("specificity")}} des benannten View-Übergangs-Pseudo-Elements entspricht der [Specificity des Typselektors](/de/docs/Web/CSS/CSS_cascade/Specificity#type_column), es sei denn, der verwendete Parameter ist der universelle Selektor, in diesem Fall beträgt die Specificity null.
+Die {{cssxref("specificity")}} des benannten Ansichtstransitions-Pseudo-Elements ist gleich der [Specificity des Typ-Selektors](/de/docs/Web/CSS/CSS_cascade/Specificity#type_column), es sei denn, der verwendete Parameter ist der universelle Selektor, dann ist die Specificity null.
 
 ## Beispiele
 
@@ -79,4 +77,4 @@ Die {{cssxref("specificity")}} des benannten View-Übergangs-Pseudo-Elements ent
 ## Siehe auch
 
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Transitionen mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

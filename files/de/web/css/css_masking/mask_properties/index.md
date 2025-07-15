@@ -2,25 +2,22 @@
 title: CSS-Maskeneigenschaften
 slug: Web/CSS/CSS_masking/Mask_properties
 l10n:
-  sourceCommit: 2d19a88d0cc560f031a07585bf57f005fec02670
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+CSS-Masking ist eine Technik, die es Ihnen ermöglicht, sichtbare Teile eines Elements zu definieren, indem Sie eine Maske anwenden, die selektiv Teile des Elements basierend auf den Alphakanälen und optional den Farben der angewendeten Maskenbilder freigibt oder ausblendet.
 
-Das CSS-Masking ist eine Technik, die es ermöglicht, sichtbare Teile eines Elements durch die Anwendung einer Maske zu definieren, die partsweise Teile des Elements basierend auf den Alpha-Kanälen und optional Farben der angewendeten Maskenbilder enthüllt oder verbirgt.
+Der [Einführungsleitfaden zum Maskieren](/de/docs/Web/CSS/CSS_masking) stellt die verschiedenen Arten von Maskenbildern und ihre Modi vor. Der Leitfaden zum [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks) behandelt die [Maskenschichten](/de/docs/Web/CSS/CSS_masking/Multiple_masks#understanding_mask_layers) und die {{cssxref("mask")}}-Kurzschreibweise und bietet eine kurze Einführung in die Komponenten-Eigenschaften der Kurzschreibweise. In diesem Leitfaden gehen wir auf diese Komponenten-Eigenschaften im Detail ein und untersuchen, wie sie interagieren. Wir erklären auch, wie die [Maskenschichten kombiniert](#the_mask-composite_property) werden, wenn mehrere Maskenbilder deklariert sind.
 
-Der [einführende Leitfaden zu Maskierungen](/de/docs/Web/CSS/CSS_masking) stellt die verschiedenen Typen von Maskenbildern und deren Modi vor. Der Leitfaden zum [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks) behandelt die [Maskenschichten](/de/docs/Web/CSS/CSS_masking/Multiple_masks#understanding_mask_layers) und die {{cssxref("mask")}} Kurzform-Eigenschaft und bietet eine kurze Einführung in die Komponenten-Eigenschaften der Kurzform. In diesem Leitfaden erkunden wir diese Komponenten-Eigenschaften ausführlicher und betrachten, wie sie interagieren. Wir erläutern auch, wie, in Fällen, in denen mehrere Maskenbilder deklariert werden, die [Maskenschichten zusammengefügt](#the_mask-composite_property) oder kombiniert werden.
-
-CSS-Masken bestehen aus einer oder mehreren Maskenschichten, wobei eine Maskenschicht für jeden Wert in der durch Kommas getrennten Liste von `mask` oder `mask-image` Werten erstellt wird, unabhängig davon, ob die Werte Bilder, Maskenquellen oder das Schlüsselwort `none` sind. Jedes {{cssxref("mask-image")}} wird relativ zu einem [Ursprung](#the_mask-origin_property) positioniert. Die Maskenbilder können [skaliert](#the_mask-size_property), [wiederholt](#the_mask-repeat_property) und [beschnitten](#the_mask-clip_property) werden und dann mit den vorherigen Schichten zusammengefügt werden, um die endgültige visuelle Maske auf dem Element zu erstellen.
+CSS-Masken bestehen aus einer oder mehreren Maskenschichten, wobei für jeden Wert in der durch Kommas getrennten Liste der `mask`- oder `mask-image`-Werte eine Maskenschicht erstellt wird, unabhängig davon, ob die Werte Bilder, Maskenquellen oder das Schlüsselwort `none` sind. Jedes {{cssxref("mask-image")}} wird relativ zu einer [Ursprungs](#the_mask-origin_property)-Box [positioniert](#the_mask-position_property). Die Maskenbilder können [skaliert](#the_mask-size_property), [wiederholt](#the_mask-repeat_property) und [geschnitten](#the_mask-clip_property) und dann mit vorherigen Schichten zusammengesetzt werden, um die endgültige visuelle Maske auf dem Element zu erstellen.
 
 ## Die `mask-image`-Eigenschaft
 
-Die Mindestanforderung, um eine Maske zu erstellen, ist eine {{cssxref("mask-image")}} Eigenschaft, die auf einen anderen Wert als `none` gesetzt ist.
-Das Schlüsselwort `none` innerhalb einer Liste von Maskenquellen erstellt eine Maskenschicht. Wenn jedoch `none` der einzige Wert der `mask-image`-Eigenschaft ist, tritt keine Maskierung auf.
+Die Mindestanforderung, um eine Maske zu erstellen, ist eine {{cssxref("mask-image")}}-Eigenschaft, die auf einen anderen Wert als `none` gesetzt ist. Das Schlüsselwort `none` innerhalb einer Liste von Maskenquellen erstellt eine Maskenschicht. Wenn `none` jedoch der einzige Wert der `mask-image`-Eigenschaft ist, findet keine Maskierung statt.
 
-Das Maskenbild kann ein [CSS-Gradient](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients), ein [importiertes Bild](/de/docs/Web/CSS/CSS_masking/Masking#with_imported_images) (wie PNG, SVG usw.) oder ein SVG {{svgelement("mask")}} Element sein.
+Das Maskenbild kann ein [CSS-Gradient](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients), ein [importiertes Bild](/de/docs/Web/CSS/CSS_masking/Masking#with_imported_images) (wie zum Beispiel eine PNG, SVG usw.) oder ein SVG-Element {{svgelement("mask")}} sein.
 
-In diesem Beispiel erstellen wir fünf Maskenschichten, einschließlich eines importierten Bildes, zweier Gradienten, einer Schicht ohne Bild und einer SVG `<mask>` Quelle als Maskenbild.
+In diesem Beispiel erstellen wir fünf Maskenschichten, einschließlich eines importierten Bildes, zwei Gradienten, einer Schicht ohne Bild und einer SVG-`<mask>`-Quelle als Maskenbild.
 
 ```css
 .masked-element {
@@ -30,15 +27,15 @@ In diesem Beispiel erstellen wir fünf Maskenschichten, einschließlich eines im
 }
 ```
 
-Da eines der Maskenbilder als `none` angegeben ist, werden nur vier Maskenbilder auf das `.masked-element` Element angewendet, während fünf Maskenschichten erzeugt werden.
+Da eines der Maskenbilder als `none` angegeben ist, werden nur vier Maskenbilder auf das `.masked-element`-Element angewendet, während fünf Maskenschichten erstellt werden.
 
 ### Die Bedeutung von `none`
 
-Die `none` Schicht hat im Allgemeinen keinen visuellen Effekt (siehe die [`mask-composite` Eigenschaft](#the_mask-composite_property) für deren Auswirkungen auf die angewendete Maske), aber da jeder Wert in einer durch Kommas getrennten Liste von `mask-*` Werten auf eine separate Maskenschicht angewendet wird, erfüllt der `none` Wert einen wichtigen Zweck, selbst wenn er die zusammengesetzte Maske nicht ändert.
+Die `none`-Schicht hat im Allgemeinen keinen visuellen Effekt (siehe die [`mask-composite`-Eigenschaft](#the_mask-composite_property), um zu erfahren, wie sie die angewendete Maske beeinflusst), aber da jeder Wert in einer durch Komma getrennten Liste von `mask-*`-Werten auf eine separate Maskenschicht angewendet wird, erfüllt der `none`-Wert einen wichtigen Zweck, auch wenn er die zusammengesetzte Maske nicht ändert.
 
-Diese vierte Schicht in unserer fünf-Schicht-Struktur wird dem vierten Wert eines anderen durch Kommas getrennten `mask-*` Eigenschaftswerts entsprechen. Wie bereits erwähnt, wird die Anzahl der Schichten durch die Anzahl der durch Kommas getrennten Werte im {{cssxref("mask-image")}} Eigenschaftswert bestimmt, selbst wenn ein Wert `none` ist. Jeder `mask-*` Wert wird in der Reihenfolge den `mask-image` Werten zugeordnet. Wenn die Anzahl der Werte in einer `mask-*` Eigenschaft von der Anzahl der Maskenschichten abweicht, werden übermäßige Werte ignoriert oder, wenn die Eigenschaft weniger Werte als die Anzahl der Maskenschichten hat, werden die Werte wiederholt.
+Diese vierte Schicht in unserer fünfstufigen Struktur wird dem vierten Wert aller anderen durch Komma getrennten `mask-*`-Eigenschaftswerte entsprechen. Wie bereits erwähnt, wird die Anzahl der Schichten durch die Anzahl der durch Komma getrennten Werte im `mask-image`-Eigenschaftswert bestimmt, selbst wenn ein Wert `none` ist. Jeder `mask-*`-Wert wird in der Reihenfolge mit den `mask-image`-Werten abgeglichen. Wenn die Anzahl der Werte in einer `mask-*`-Eigenschaft von der Anzahl der Maskenschichten abweicht, werden alle überzähligen Werte ignoriert oder, wenn die Eigenschaft weniger Werte als die Anzahl der Maskenschichten hat, werden die Werte wiederholt.
 
-Wenn eine `mask-*` Eigenschaft nur einen Wert hat, gilt dieser Wert für alle Schichten. Wenn wir fünf Werte haben, gilt der vierte Wert für die `none` Schicht, wobei der letzte Wert auf die `<mask>` Quellen-Schicht angewendet wird. Wenn es zwei durch Kommas getrennte Werte gibt, gilt der erste Wert nur für die ungeraden Schichten, einschließlich dieser `<mask>` Quellen-Schicht. Zum Beispiel kann jede `mask-*` Eigenschaft eine unterschiedliche Anzahl an Werten haben:
+Wenn eine `mask-*`-Eigenschaft nur einen Wert hat, wird dieser Wert auf alle Schichten angewendet. Wenn wir fünf Werte haben, wird der vierte Wert auf die `none`-Schicht angewendet, wobei der letzte Wert auf die `<mask>`-Quellschicht angewendet wird. Wenn es zwei durch Komma getrennte Werte gibt, wird der erste Wert nur auf alle ungeraden Schichten angewendet, einschließlich dieser `<mask>`-Quellschicht. Zum Beispiel kann jede `mask-*`-Eigenschaft eine unterschiedliche Anzahl von Werten haben:
 
 ```css
 .masked-element {
@@ -53,30 +50,30 @@ Wenn eine `mask-*` Eigenschaft nur einen Wert hat, gilt dieser Wert für alle Sc
 }
 ```
 
-In diesem Fall wird jede ungerade Schicht entlang der x-Achse wiederholt, während jede gerade Schicht entlang der y-Achse wiederholt wird. Die erste und vierte Schichtbilder werden zentriert, während die zweite und fünfte in der oberen linken Ecke positioniert werden. Das `none` bedeutet, dass das fünfte Schicht `#svg-mask` Bild entlang der x-Achse ab der oberen linken Ecke wiederholt wird.
+In diesem Fall wird jede ungerade Schicht entlang der x-Achse wiederholt, während jede gerade Schicht entlang der y-Achse wiederholt wird. Die erste und vierte Schichtbilder werden zentriert, während die zweite und fünfte in der oberen linken Ecke positioniert werden. `none` bedeutet, dass das Bild der fünften Schicht `#svg-mask` entlang der x-Achse ab der oberen linken Ecke wiederholt wird.
 
-Erfahren Sie mehr über [Maskenschichten und das `none` Schlüsselwort](/de/docs/Web/CSS/CSS_masking/Multiple_masks#mask_layers_and_the_none_keyword).
+Erfahren Sie mehr über [Maskenschichten und das `none`-Schlüsselwort](/de/docs/Web/CSS/CSS_masking/Multiple_masks#mask_layers_and_the_none_keyword).
 
 ## Die `mask-mode`-Eigenschaft
 
-Die {{cssxref("mask-mode")}} Eigenschaft kann verwendet werden, um den Modus jeder Maskenschicht auf entweder `alpha` oder `luminance` einszustellen oder es auf den Modus der Quelle durch Einstellen des Werts auf `match-source`, was der Standard ist, einzustellen. Während die meisten `mask-*` Eigenschaften eine analoge `background-*` Eigenschaft haben (`mask-image` ist analog zu der {{cssxref("background-image")}} Eigenschaft, zum Beispiel), haben `mask-mode` und [`mask-composite`](#the_mask-composite_property) keine analoge {{cssxref("background")}}-Eigenschaft.
+Die {{cssxref("mask-mode")}}-Eigenschaft kann verwendet werden, um den Modus jeder Maskenschicht auf entweder `alpha` oder `luminance` zu setzen oder ihn durch Setzen des Werts auf `match-source` auf den Modus der Quelle zu setzen, was der Standardwert ist. Während die meisten `mask-*`-Eigenschaften eine analoge `background-*`-Eigenschaft haben (zum Beispiel ist `mask-image` analog zur {{cssxref("background-image")}}-Eigenschaft), haben `mask-mode` und [`mask-composite`](#the_mask-composite_property) keine analoge {{cssxref("background")}}-Eigenschaft.
 
-### Maskenarten: `alpha` und `luminance`
+### Maskentypen: `alpha` und `luminance`
 
-Jede Maske ist entweder eine `alpha` oder eine `luminance` Maske.
+Jede Maske ist entweder eine `alpha`- oder eine `luminance`-Maske.
 
-Bei `alpha` Masken ist die Alpha-Transparenz jedes Maskenpixels wichtig. Wo immer die Maske undurchsichtig ist, werden die entsprechenden Teile des Elements sichtbar. Wo immer die Maske transparent ist, werden die entsprechenden Teile des Elements verborgen. Wo immer die Maske halbtransparent ist, wird das Element gleichermaßen halbtransparent sein. Die Farbe der Maske spielt keine Rolle, nur die Alpha-Transparenz der Farben.
+Bei `alpha`-Masken ist die Alpha-Transparenz jedes Maskenpixels von Bedeutung. Wo immer die Maske undurchsichtig ist, sind die entsprechenden Teile des Elements sichtbar. Wenn die Maske transparent ist, sind die entsprechenden Teile des Elements verborgen. Wo immer die Maske halbtransparent ist, ist das Element gleichermaßen halbtransparent. Die Farbe der Maske spielt keine Rolle, nur die Alpha-Transparenz der Farben.
 
-Bei `luminance` Masken bestimmen sowohl die [Helligkeit der Maskenfarben](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance) als auch der Alphakanal die Undurchsichtigkeit der maskierten Bereiche.
+Bei `luminance`-Masken bestimmen sowohl die [Helligkeit der Maskenfarben](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance) als auch der Alphakanal die Undurchsichtigkeit der maskierten Bereiche.
 
 > [!NOTE]
-> Alle nachfolgenden Beispiele verwenden das folgende Bild als `background-image` auf ein Element, auf das Masken angewendet werden:
+> Alle nachfolgenden Beispiele verwenden das folgende Bild als `background-image` auf einem Element, auf das Masken angewendet werden:
 >
-> <img src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg" alt="Pride Flagge" />
+> <img src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg" alt="Pride-Flagge" />
 
-Dieses Beispiel zeigt den Unterschied zwischen `alpha` und `luminance` Masken. Die Masken sind gleich, aber in der `alpha` Maske zählt nur die Alpha-Transparenz der Farbverläufe der Masken. Im `luminance` Beispiel sind R, G, B und A alle relevant.
+Dieses Beispiel zeigt den Unterschied zwischen `alpha`- und `luminance`-Masken. Die Masken sind gleich, aber in der `alpha`-Maske zählt nur die Alpha-Transparenz der Farbverläufe. Im `luminance`-Beispiel sind R, G, B und A alle von Bedeutung.
 
-Zwei Container enthalten Bilder, während der letzte leer ist, aber enthalten ist, um den Farbverlauf anzuzeigen, den wir als unsere `mask-image`-Quelle verwenden werden.
+Zwei Container enthalten Bilder, während der letzte leer ist, aber aufgenommen wird, um den Farbverlauf anzuzeigen, den wir als `mask-image` verwenden werden.
 
 ```html live-sample___mode
 <div class="alpha">
@@ -116,7 +113,7 @@ div {
 }
 ```
 
-Wir deklarieren einen [`repeating-linear-gradient`](/de/docs/Web/CSS/gradient/repeating-linear-gradient) mit roten, transparenten und halbtransparenten roten diagonalen Streifen. Dieser Verlauf wird als unsere Maske und, für den letzten Container, als Hintergrundbild verwendet:
+Wir deklarieren einen [`repeating-linear-gradient`](/de/docs/Web/CSS/gradient/repeating-linear-gradient) mit roten, transparenten und halbtransparenten roten diagonalen Streifen. Dieser Verlauf wird als unsere Maske und für den letzten Container als Hintergrundbild verwendet:
 
 ```css live-sample___mode
 img {
@@ -151,15 +148,15 @@ Wir setzen unterschiedliche Werte für die `mask-mode`-Eigenschaft für jedes Bi
 
 {{EmbedLiveSample("mode", "", "270px")}}
 
-Im `alpha` Fall zählt nur die Transparenz der Farbverläufe. Wo der Verlauf undurchsichtig rot ist, ist das Bild undurchsichtig. Wo der Verlauf transparent ist, ist das Bild verborgen. Wo der Verlauf zu 50% undurchsichtig ist, ist das Bild zu 50% undurchsichtig. Im `luminance` Fall zählt die Helligkeit der Farbe! Sehen Sie sich [Alpha-Transparenz gegenüber Luminanz](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance) an, um die Gleichung zu lernen, die die Farbkanäle R, G, B und A verwendet, um die Undurchsichtigkeit der Maske zu bestimmen.
+Im `alpha`-Fall zählt nur die Transparenz der Farben des Farbverlaufs. Wo der Farbverlauf deckend rot ist, ist das Bild deckend. Wo der Farbverlauf transparent ist, wird das Bild ausgeblendet. Wo der Farbverlauf zu 50 % deckend ist, ist das Bild zu 50 % deckend. Im `luminance`-Fall zählt die Helligkeit der Farbe! Lesen Sie [Alpha-Transparenz versus Luminanz](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance), um mehr über die Gleichung zu erfahren, die die R-, G-, B- und A-Kanäle der Farbe verwendet, um die Opazität der Maske zu bestimmen.
 
-### Der Standardwert von `mask-mode`: `match-source`
+### Der Standardwert der `mask-mode`: `match-source`
 
-Der Standardwert der `mask-mode`-Eigenschaft ist `match-source`. Dieser Wert setzt den `mask-mode`, um mit dem Maskentyp übereinzustimmen. Der `match-source` Wert löst sich zu `alpha` für jede Maske auf, außer Masken, bei denen die Maskenquelle ein SVG {{svgelement("mask")}} Element ist.
+Der Standardwert der `mask-mode`-Eigenschaft ist `match-source`. Dieser Wert setzt den `mask-mode` so, dass er dem Modustyp der Maske entspricht. Der `match-source`-Wert löst sich zu `alpha` für jede Maske auf, außer für Masken, bei denen die Maskenquelle ein SVG-{{svgelement("mask")}}-Element ist.
 
-Wenn ein SVG `<mask>` Element als Maskenquelle verwendet wird, löst sich der `match-source` Wert in den Wert der `<mask>` Element's {{cssxref("mask-type")}} Eigenschaft auf. Wenn das `<mask>` Element (nicht das "maskierte Element") keine CSS `mask-type` Eigenschaft definiert hat, wird diese Eigenschaft auf den Wert des SVG {{svgAttr("mask-type")}} Attributs eingestellt, falls vorhanden. Wenn dies ebenfalls weggelassen wird, wird der `match-source` Wert auf `luminance` aufgelöst.
+Wenn ein SVG-`<mask>`-Element als Maskenquelle verwendet wird, löst der `match-source`-Wert sich zum Wert der `<mask>`-Element-{{cssxref("mask-type")}}-Eigenschaft auf. Wenn das `<mask>`-Element (nicht das "maskierte Element") die CSS-`mask-type`-Eigenschaft nicht definiert hat, wird dieser Wert auf den Wert des SVG-{{svgAttr("mask-type")}}-Attributs gesetzt, falls vorhanden. Wenn dies auch weggelassen wird, löst sich der `match-source`-Wert zu `luminance` auf.
 
-Weiter mit dem `masked-element` Beispiel, wenn wir die `mask-mode`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `match-source` verwenden, als ob wir folgendes festgelegt hätten:
+Im `masked-element`-Beispiel, wenn wir die `mask-mode`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `match-source` gesetzt, als hätten wir Folgendes eingestellt:
 
 ```css
 .masked-element {
@@ -170,7 +167,7 @@ Weiter mit dem `masked-element` Beispiel, wenn wir die `mask-mode`-Eigenschaft n
 }
 ```
 
-oder, unter Verwendung der `mask` Kurzform:
+oder unter Verwendung der `mask`-Kurzschreibweise:
 
 ```css
 .masked-element {
@@ -183,15 +180,15 @@ oder, unter Verwendung der `mask` Kurzform:
 }
 ```
 
-Die erste Maskenschicht, `url(alphaImage.png)`, verweist auf ein Bild. Da dies kein `<mask>` Element innerhalb eines `<svg>` ist, löst sich der `mask-mode` auf `alpha` auf, wobei die undurchsichtigen Teile dieses Bildes die entsprechenden Teile des Elements sichtbar machen, während die transparenten oder halbtransparenten Teile unsichtbar oder teilweise sichtbar sind.
+Die erste Maskenschicht, `url(alphaImage.png)`, bezieht sich auf ein Bild. Da dies kein `<mask>`-Element innerhalb eines `<svg>` ist, löst sich der `mask-mode` zu `alpha` auf, wobei die undurchsichtigen Teile dieses Bildes die entsprechenden Teile des Elements sichtbar machen, während die transparenten oder halbtransparenten Teile unsichtbar oder teilweise sichtbar sind.
 
-Der `linear-gradient(to right, black, transparent)` ist die zweite Maskenschicht und `radial-gradient(circle, white 50%, transparent 75%)` ist die dritte. Da dies ebenfalls keine `<mask>` Elemente sind, löst sich der `match-source` Wert auf `alpha` auf. Der maskierende Effekt dieser Schichten wird standardmäßig durch die [Undurchsichtigkeit des Verlaufsmaskenbildes](/de/docs/Web/CSS/CSS_masking/Masking#opaqueness_versus_transparency) bestimmt.
+Der `linear-gradient(to right, black, transparent)` ist die zweite Maskenschicht und `radial-gradient(circle, white 50%, transparent 75%)` die dritte. Auch hier sind dies keine `<mask>`-Elemente, sodass sich der `match-source`-Wert zu `alpha` auflöst. Der Maskierungseffekt dieser Schichten wird standardmäßig durch die [Undurchsichtigkeit des Farbverlaufs der Maske](/de/docs/Web/CSS/CSS_masking/Masking#opaqueness_versus_transparency) bestimmt.
 
-Die vierte Maskenschicht hat `none` deklariert, was bedeutet, dass die Maske für diese Schicht transparentes Schwarz ist. Die `.masked-element` Klasse setzt `mask-mode: match-source;`. Wenn `mask-mode` stattdessen eine durch Kommas getrennte Liste von fünf verschiedenen Werten gewesen wäre, hätte der vierte Wert auf diese `none` Schicht angewendet, sodass der fünfte Wert auf die fünfte Schicht angewendet wird.
+Die vierte Maskenschicht hat `none` deklariert, was bedeutet, dass die Maske für diese Schicht transparentes Schwarz ist. Die `.masked-element`-Klasse setzt `mask-mode: match-source;`. Hätte `mask-mode` stattdessen eine durch Komma getrennte Liste von fünf verschiedenen Werten gewesen, hätte der vierte Wert auf diese `none`-Schicht angewendet werden können, sodass der fünfte Wert auf die fünfte Schicht angewendet wird.
 
-Die fünfte Maskenschicht besteht aus einem SVG {{svgelement("mask")}} Element, das `svg-mask` als seine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) hat. Während der Standardmaskenmodus der anderen Schichten `alpha` ist, ist der Standard [Maskentyp von SVG `<mask>` Elementen](/de/docs/Web/CSS/CSS_masking/Masking#svg_mask_as_mask_source) der `mask-type` Wert oder, wenn nicht gesetzt, das `mask-type` Attribut. Wenn das auch nicht definiert ist, wird der Wert auf `luminance` eingestellt. Mit anderen Worten, der maskierende Effekt des `<mask>` wird durch sowohl die Helligkeit als auch die Transparenz der Farben des `<mask>` Elements bestimmt.
+Die fünfte Maskenschicht besteht aus einem SVG-{{svgelement("mask")}}-Element, das `svg-mask` als [id](/de/docs/Web/HTML/Reference/Global_attributes/id) hat. Während der Standardmaskenmodus der anderen Schichten `alpha` ist, ist der Standardmaskentyp von SVG-`<mask>`-Elementen der `mask-type`-Wert oder, falls nicht gesetzt, das `mask-type`-Attribut. Wenn das auch nicht definiert ist, ist der Wert standardmäßig `luminance`. Mit anderen Worten, der Maskierungseffekt des `<mask>` wird sowohl durch die Helligkeit als auch durch die Transparenz der Farben des `<mask>`-Elements bestimmt.
 
-Wenn wir die `mask-mode`-Eigenschaft überhaupt nicht deklarieren und sie für jede Maskenschicht auf `match-source` zurückfallen lassen, würde das Ergebnis in diesem `.masked-element` Fall auf folgendes gelöst werden:
+Wenn wir die `mask-mode`-Eigenschaft überhaupt nicht deklarieren und es für jede Maskenschicht auf den Standardwert `match-source` belassen, würde das Ergebnis in diesem `.masked-element`-Fall folgendermaßen gelöst werden:
 
 ```css
 .masked-element {
@@ -202,7 +199,7 @@ Wenn wir die `mask-mode`-Eigenschaft überhaupt nicht deklarieren und sie für j
 }
 ```
 
-oder, unter Verwendung der `mask` Kurzform:
+oder unter Verwendung der `mask`-Kurzschreibweise:
 
 ```css
 .masked-element {
@@ -217,41 +214,41 @@ oder, unter Verwendung der `mask` Kurzform:
 
 ## Die `mask-position`-Eigenschaft
 
-Analog zur {{cssxref("background-position")}} Eigenschaft, setzt die {{cssxref("mask-position")}} Eigenschaft die anfängliche Position des Maskenbildes relativ zur Ursprungsbox der Maskenschicht, die durch [die `mask-origin` Eigenschaft](#the_mask-origin_property) definiert ist. Die Syntax folgt der [`background-position`'s `<position>` Syntax](/de/docs/Web/CSS/background-position#position), wobei der Wert ein, zwei oder vier {{cssxref("&lt;position&gt;")}} Werte sein kann, die ein oder zwei relative oder absolute Positionsversätze definieren.
+Analog zur {{cssxref("background-position")}}-Eigenschaft legt die {{cssxref("mask-position")}}-Eigenschaft die Anfangsposition des Maskenbildes relativ zur Ursprungsbox der Maskenschicht fest, die durch [die `mask-origin`-Eigenschaft](#the_mask-origin_property) definiert ist. Die Syntax folgt der [`background-position`-`<position>`-Syntax](/de/docs/Web/CSS/background-position#position), wobei der Wert ein, zwei oder vier {{cssxref("&lt;position&gt;")}}-Werte ist, die ein bis zwei relative oder absolute Positionsverschiebungen definieren.
 
-### Einwertige Syntax
+### Ein-Wert-Syntax
 
-Wenn nur ein Schlüsselwortwert angegeben wird, gibt dieser Wert die Ursprungsrandkante der Maske an, gegen die die Maske platziert wird, wobei die andere Dimension `center` ist.
+Wenn nur ein Schlüsselwortwert angegeben ist, gibt dieser Wert die Maskenurpsrungskante an, an der die Maske platziert wird, wobei die andere Dimension `center` ist.
 
-Wenn nur ein {{cssxref("&lt;length-percentage&gt;")}} Wert angegeben wird, spezifiziert dies die X-Koordinate relativ zur linken Kante des Maskenursprungs, wobei die Y-Koordinate auf `50%` eingestellt wird.
+Wenn nur ein {{cssxref("&lt;length-percentage&gt;")}}-Wert angegeben ist, gibt dies die X-Koordinate relativ zur linken Maskenurpsprung an, wobei die Y-Koordinate auf `50%` festgelegt wird.
 
-Wenn zwei Schlüsselwortwerte angegeben werden, spielt die Reihenfolge der Werte keine Rolle, aber der Wert darf nicht zwei vertikale oder zwei horizontale Achsenwerte enthalten; `left right` und `top bottom` sind beide ungültig.
+Wenn zwei Schlüsselwortwerte angegeben sind, spielt die Reihenfolge der Werte keine Rolle, aber der Wert darf nicht zwei vertikale oder zwei horizontale Achsenwerte enthalten; `left right` und `top bottom` sind beide ungültig.
 
-### Zweiwertige Syntax
+### Zwei-Wert-Syntax
 
-Wenn zwei Werte vorhanden sind, darunter ein Schlüsselwort und ein `<length-percentage>` Wert, spielt die Reihenfolge nur eine Rolle, wenn das Schlüsselwort `center` ist:
+Wenn zwei Werte vorhanden sind und davon einer ein Schlüsselwort und einer ein `<length-percentage>`-Wert ist, spielt die Reihenfolge nur dann eine Rolle, wenn das Schlüsselwort `center` ist:
 
 - Wenn das Schlüsselwort `left` oder `right` ist, definiert es die X-Koordinate relativ zur linken Kante, und der Wert definiert die Y-Koordinate relativ zur oberen Kante.
-- Ebenso definiert ein `top` oder `bottom` Schlüsselwort die Y-Koordinate, um das Element gegen die obere oder untere Kante zu positionieren, wobei der andere Wert die X-Wert relativ zur linken Kante der Maskenursprungsbox definiert.
+- Ebenso definiert ein `top`- oder `bottom`-Schlüsselwort die Y-Koordinate und positioniert das Element an der oberen oder unteren Kante, während der andere Wert die X-Koordinate relativ zur linken Kante der Maskenurpsrungbox definiert.
 - Wenn ein Wert das Schlüsselwort `center` ist und der andere ein `<length-percentage>`, definiert der erste Wert die horizontale Position und der zweite Wert die vertikale Position.
 
-Wenn zwei Werte vorhanden sind und beide `<length-percentage>` Werte sind, spielt die Reihenfolge wieder eine Rolle; der erste Wert definiert die horizontale Positionierung als einen Versatz von der linken Kante des Maskenpositionierungsbereichs, während der zweite Wert die vertikale Position als Versatz von der oberen Kante des Maskenpositionierungsbereichs definiert.
+Wenn zwei Werte vorhanden sind und beide `<length-percentage>`-Werte sind, spielt die Reihenfolge wieder eine Rolle; der erste Wert definiert die horizontale Positionierung als Versatz von der linken Kante des Masken-Positionierungsbereichs, während der zweite Wert die vertikale Position als Versatz von der oberen Kante des Masken-Positionierungsbereichs definiert.
 
-### Vierwertige Syntax
+### Vier-Wert-Syntax
 
-Maskenpositionen können auch relativ zu Ecken andere als der oberen linken sein. Die vier-Wert-Syntax ermöglicht das Verschieben der Maske von einer beliebigen Ecke. Der Wert beinhaltet zwei {{cssxref("length-percentage")}} Versätze, jeweils vorangestellt von der Ursprungs-Seite für diesen Versatz. Ob Sie das horizontale oder vertikale Paar zuerst deklarieren, spielt keine Rolle, aber Sie müssen das Ursprungs-Seiten-Schlüsselwort (`left`, `right`, `top`, `bottom`, `x-start`, `x-end`, `y-start`, `y-end`, `block-start`, `block-end`, `inline-start`, oder `inline-end`) vor dem Versatz `<length-percentage>` in jedem Paar deklarieren, und die zwei Ursprungs-Seiten dürfen nicht von der gleichen Achse stammen.
+Maskenpositionen können auch relativ zu anderen Ecken als der oberen linken sein. Die Vier-Wert-Syntax ermöglicht den Versatz der Maske von jeder Ecke. Der Wert umfasst zwei {{cssxref("length-percentage")}}-Offsets, die jeweils von der Ursprungsseite für diesen Offset angeführt werden. Es spielt keine Rolle, ob Sie das horizontale oder vertikale Paar zuerst deklarieren, aber Sie müssen das Ursprungsseiten-Schlüsselwort (`left`, `right`, `top`, `bottom`, `x-start`, `x-end`, `y-start`, `y-end`, `block-start`, `block-end`, `inline-start` oder `inline-end`) vor dem <length-percentage>-Offset in jedem Paar erklärend platzieren, und die beiden Ursprungsseiten dürfen nicht von derselben Achse sein.
 
-In der zwei `<length-percentage>` Syntax sind die Ursprung-Seiten `top` und `left`, in dieser Reihenfolge. Zum Beispiel ist `mask-position: 10px 20px` dasselbe wie `mask-position: left 10px top 20px`. Wenn Sie vom oberen und linken Rand verschieben, sind die Versatz-Seiten nicht erforderlich, aber die Reihenfolge ist wichtig. Mit der vier-Wert-Syntax können Sie `mask-position` verwenden, um das Maskenbild von jedem Rand-Kombination, wie `left 10px bottom 20px`, zu verschieben, und die Reihenfolge der Seiten spielt keine Rolle, da die Versatz-Kante durch das voranstehende Schlüsselwort, anstatt durch die Deklarationsreihenfolge definiert ist.
+In der zwei `<length-percentage>`-Syntax sind die Ursprungsseiten `top` und `left`, in dieser Reihenfolge. Zum Beispiel ist `mask-position: 10px 20px` das Äquivalent zu `mask-position: left 10px top 20px`. Wenn der Versatz von `top` und `left` erfolgt, sind die Versatzseiten nicht erforderlich, aber die Reihenfolge ist wichtig. Mit der Vier-Wert-Syntax können Sie `mask-position` verwenden, um das Maskenbild von jeder Kantenkombination zu versetzen, wie `left 10px bottom 20px`, und die Reihenfolge der Seiten spielt keine Rolle, da die Versatzkante durch das vorhergehende Schlüsselwort und nicht durch die Deklarationsreihenfolge definiert wird.
 
-### Prozentualwerte
+### Prozentwerte
 
-Beim Verschieben mit Prozentualwerten wird die Dimension der Maske von der Dimension des Elements subtrahiert, genauso wie es bei [prozentualen Versätzen mit `background-position`](/de/docs/Web/CSS/background-position#regarding_percentages) gemacht wird.
+Wenn Sie Prozentwerte verwenden, um Offsets zu setzen, wird die Dimension der Maske von der Dimension des Elements subtrahiert, wie bei [Prozentsätzen mit `background-position`](/de/docs/Web/CSS/background-position#regarding_percentages).
 
 ### Positionierung wiederholter Maskenbilder
 
-Die `mask-position` Eigenschaft definiert die anfängliche Position des Maskenbildes. Durch "anfängliche Position" wird, wenn die [Maske wiederholt wird](#the_mask-repeat_property), das erste Maskenbild an der durch die `mask-position`-Eigenschaft definierten Position platziert, wodurch die Platzierung der Maskenwiederholungen definiert wird.
+Die `mask-position`-Eigenschaft definiert die Anfangsposition des Maskenbildes. Mit "Anfangsposition" ist, falls die [Maske wiederholt wird](#the_mask-repeat_property), die Position des ersten Maskenbildes im durch die `mask-position`-Eigenschaft definierten Platz gemeint, was somit die Platzierung der Maskenwiederholungen definiert.
 
-In diesem Beispiel setzen wir die Position des ersten Bildes auf `bottom right`, was bedeutet, dass die erste Maske an der unteren rechten Kante der Ursprungsbox der Maske platziert wird. Da Maskenbilder standardmäßig wiederholt werden, werden die wiederholten Masken gegen die Oberseite und linke Seite der ersten platzierten Maske positioniert.
+In diesem Beispiel setzen wir die Position des ersten Bildes auf `bottom right`, was bedeutet, dass die erste Maske an der unteren rechten Kante der Maskenvorposingsbox platziert wird. Da Maskenbilder standardmäßig wiederholt werden, werden die wiederholten Masken gegen die Ober- und linken Seiten des ersten platzierten Maskenbildes positioniert.
 
 ```html hidden live-sample___position live-sample___position_no-repeat
 <div class="keywords">
@@ -305,7 +302,7 @@ body {
 }
 ```
 
-Die `mask-position` definiert die Position des ersten Maskenbildes. Diese Demo zeigt, wo das erste Bild platziert wird:
+Die `mask-position`-Eigenschaft definiert die Position des ersten Maskenbildplatzes. Diese Demo zeigt, wo das erste Bild platziert wird:
 
 ```css hidden live-sample___position_no-repeat
 img {
@@ -315,15 +312,15 @@ img {
 
 {{EmbedLiveSample("position_no-repeat", "", "260px")}}
 
-Da der Standardwert für die [`mask-repeat` Eigenschaft](#the_mask-repeat_property) `repeat` ist, werden die Bilder entlang der X- und Y-Achse basierend auf der Position des ersten Masken wiederholt:
+Da der Standardwert für die [`mask-repeat`-Eigenschaft](#the_mask-repeat_property) `repeat` ist, werden die Bilder entlang der X- und Y-Achsen wiederholt, basierend auf der Position dieser ersten Maske:
 
 {{EmbedLiveSample("position", "", "260px")}}
 
-Das Zwei-Wert-Beispiel definiert die oberen und linken Versätze des ursprünglichen Masks. Das Vier-Wert-Beispiel kombiniert die vorherigen zwei Beispiele, wobei die erste Maske mit den gleichen Versätzen wie das zweite Bild positioniert wird, jedoch von den gleichen Rändern wie im ersten Bild gezeigt.
+Das Beispiel mit den zwei Werten definiert die oberen und linken Offsets der ursprünglichen Maske. Das Beispiel mit den vier Werten kombiniert die vorherigen beiden Beispiele, positioniert die erste Maske mit denselben Offsets wie das zweite Bild, jedoch von denselben Kanten wie im ersten Bild demonstriert.
 
-Im ersten Bild ist der erste Stern, der platziert wird, der am unteren rechten, mit den wiederholten Sternen darüber und links. Aufgrund dieser Positionierung wird der anfängliche Stern nicht beschnitten, aber die am weitesten oben und links stehenden Sterne werden beschnitten.
+Im ersten Bild ist der erste Stern, der platziert wird, der unten rechts, mit den wiederholten Sternen oben und links. Aufgrund dieser Positionierung wird der ursprüngliche Stern nicht abgeschnitten, aber der oberste und der linke Stern werden abgeschnitten.
 
-Wenn wir die `mask-position`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `0% 0%` verwenden, wobei die obere linke Ecke der Maske gegen die obere linke Ecke der Ursprungsbox der Maske stößt. Fortführend mit dem `masked-element` Beispiel, wäre es so, als hätten wir folgendes festgelegt:
+Wenn wir die `mask-position`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `0% 0%` gesetzt, wobei die obere linke Ecke der Maske an der oberen linken Ecke der Maskenvorposingsbox liegt. Fortfahrend mit dem `masked-element`-Beispiel, wäre es, als hätten wir Folgendes gesetzt:
 
 ```css
 .masked-element {
@@ -335,7 +332,7 @@ Wenn wir die `mask-position`-Eigenschaft nicht explizit festlegen, wird sie stan
 }
 ```
 
-oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
+oder, erweitert über das Beispiel mit der `mask`-Kurzschreibweise:
 
 ```css
 .masked-element {
@@ -350,11 +347,11 @@ oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
 
 ## Die `mask-origin`-Eigenschaft
 
-Wenn ein Element Padding, einen Rahmen oder beides hat, definiert die {{cssxref("mask-origin")}} Eigenschaft, welche dieser Box-Kantenwerte als Ursprungsbox der Maske fungiert, oder den _Masken-Positionierungsbereich_, innerhalb dessen ein Maskenbild für diese Schicht positioniert wird. Die `mask-origin` Eigenschaft ist analog zur {{cssxref("background-origin")}} Eigenschaft, jedoch mit einem anderen Ausgangswert und SVG-spezifischen Werten.
+Wenn ein Element einen Rand oder ein Padding oder beides hat, definiert die {{cssxref("mask-origin")}}-Eigenschaft, welcher dieser Boxenwert als Maskenurpsrungsbox oder der Maskenpositionierungsbereich fungiert, innerhalb dessen ein Maskenbild positioniert wird, für diese Schicht. Die `mask-origin`-Eigenschaft ist analog zur {{cssxref("background-origin")}}-Eigenschaft, jedoch mit einem anderen Initialwert und SVG-spezifischen Werten.
 
-HTML-Elemente können Masken enthalten, die innerhalb ihrer Inhaltsrahmenbox, Pufferbox oder Inhaltsbox enthalten sind. Zum Beispiel, wenn die `mask-position` auf `top left` steht, ist dies relativ zur äußeren Kante des Rahmens, zur äußeren Kante des Paddings oder zur äußeren Kante des Inhalts?
+HTML-Elemente können Masken im Inneren ihrer Inhaltsumrandungsbox, Padding-Box oder Inhaltsbox enthalten. Zum Beispiel, wenn die `mask-position` `top left` ist, bezieht sich dies auf den Rand der äußeren Randkante, den äußeren Kantenpolster oder die äußere Inhaltkanten?
 
-Im [`mask-position`](#the_mask-position_property) Maskierungsbeispiel war die definierte Position relativ zur border-box (dem Standardverhalten), obwohl es sich anmerken lässt, dass das `<img>` weder einen Rahmen noch ein Padding gesetzt hatte, weshalb die content-box, padding-box und border-box Ursprünge in diesem Fall identisch wären.
+In dem Beispiel zur [`mask-position`](#the_mask-position_property) war die definierte Position relativ zur Randbox (das Standardverhalten), obwohl es erwähnenswert ist, dass das `<img>` keinen Rand oder Padding hatte, daher wären die Content-Box, die Padding-Box und die Randbox-Ursprünge in diesem Fall alle gleich.
 
 ```html hidden live-sample___origin
 <div class="border-box">
@@ -391,7 +388,7 @@ label {
 }
 ```
 
-In diesem Beispiel platziert die `mask-position` die Startmaske in der oberen linken Ecke des `<img>` Elements, das einen großen Rahmen und Puffer hat, mit einer grünen Hintergrundfarbe, um das Star-Masking im Pufferbereich zu ermöglichen.
+In diesem Beispiel platziert die `mask-position` die initiale Maske in der oberen linken Ecke des `<img>`-Elements, das einen großen Rand und Padding hat, mit einer grünen Hintergrundfarbe, um das Sternmaskieren auf dem Polsterungsbereich sichtbar zu machen.
 
 ```css live-sample___origin live-sample___clip
 img {
@@ -412,13 +409,13 @@ img {
 }
 ```
 
-Ändern Sie den Wert der `mask-origin` Eigenschaft durch Ändern der ausgewählten Radio-Schaltfläche und beobachten Sie die Position der oberen linken Sternenmaske währenddessen.
+Ändern Sie den Wert der `mask-origin`-Eigenschaft, indem Sie das ausgewählte Optionsfeld ändern und dabei die Position des oberen linken Sterns beobachten, während Sie dies tun.
 
 {{EmbedLiveSample("origin", "", "350px")}}
 
-Der Standardwert ist `border-box`. Mit diesem Wert wird die Startmaske an der oberen linken Kante des Rahmens platziert und nicht beschnitten. Wenn die Startmaske an der äußeren oder inneren Kante des Paddings platziert wird, gibt es Platz darüber und links; diese wiederholten Masken werden beschnitten.
+Der Standardwert ist `border-box`. Mit diesem Wert wird die Initialmaske am oberen Rand der Grenze platziert und nicht abgeschnitten. Wenn die Initialmaske an der äußeren oder inneren Kante der Polsterung platziert wird, gibt es Platz über und links davon; diese sich wiederholenden Masken werden abgeschnitten.
 
-Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-origin`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `border-box` verwenden, als ob wir folgendes festgelegt hätten:
+Fortfahrend mit dem `masked-element`-Beispiel, wenn wir die `mask-origin`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `border-box` gesetzt, als hätten wir Folgendes gesetzt:
 
 ```css
 .masked-element {
@@ -431,7 +428,7 @@ Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-origin`-Eigens
 }
 ```
 
-oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
+oder, erweitert über das Beispiel mit der `mask`-Kurzschreibweise:
 
 ```css
 .masked-element {
@@ -445,19 +442,19 @@ oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
 }
 ```
 
-Für SVG-Elemente, die nicht die zugehörigen CSS-Layout-Boxen haben, kann eine Maske innerhalb des SVG-Elements Füllung, Umrandung oder Ansichtsbox enthalten sein.
+Für SVG-Elemente, die nicht die zugehörigen CSS-Layoutboxen haben, kann eine Maske im Inneren der SVG-Elementfüllung, des Strichs oder des Ansichtsfensters enthalten sein.
 
 ## Die `mask-clip`-Eigenschaft
 
-Die {{cssxref("mask-clip")}} Eigenschaft bestimmt den Bereich des Elements, welcher durch eine Maske beeinflusst wird, indem das Element effektiv an der definierten Boxkante beschnitten wird. Sie ist analog zur {{cssxref("background-clip")}} Eigenschaft, jedoch mit einigen unterschiedlichen Werten.
+Die {{cssxref("mask-clip")}}-Eigenschaft bestimmt den Bereich des Elements, der von einer Maske betroffen sein wird, indem das Element effektiv an der definierten Boxkante abgeschnitten wird. Sie ist analog zur {{cssxref("background-clip")}}-Eigenschaft, jedoch mit einigen unterschiedlichen Werten.
 
-Da die `mask-clip` Eigenschaft alle `mask-origin` Werte akzeptiert und beide denselben `border-box` Standardwert haben, können die beiden Eigenschaften ähnlich erscheinen, dienen aber sehr unterschiedlichen Zwecken. Während `mask-origin` bestimmt, wo ein Maskenbild positioniert wird, sorgt die `mask-clip` Eigenschaft dafür, dass das ursprüngliche Element in den angegebenen Box-Bereich beschnitten wird. Es ist wichtig, beide zu verstehen: Wenn die `mask-origin` dazu führt, dass die `mask-position` das Maskenbild außerhalb des Clip-Bereichs platziert, wird die Maske beschnitten.
+Da die `mask-clip`-Eigenschaft alle `mask-origin`-Werte akzeptiert und beide den gleichen Standardwert `border-box` haben, scheinen die beiden Eigenschaften ähnlich zu sein, aber sie dienen sehr unterschiedlichen Zwecken. Während `mask-origin` bestimmt, wo ein Maskenbild platziert wird, bewirkt die `mask-clip`-Eigenschaft, dass das ursprüngliche Element seinen Inhalt auf die angegebene Box beschränkt. Es ist wichtig, beide zu verstehen: Wenn `mask-origin` bewirkt, dass die `mask-position` das Maskenbild außerhalb des Ausschnittsbereichs platziert, wird die Maske abgeschnitten.
 
-Die `mask-clip` Eigenschaft akzeptiert alle `mask-origin` Werte, sowie ihren eigenen `no-clip` Wert. Der `no-clip` Wert sorgt dafür, dass der bemalte Inhalt nicht beschnitten wird. Sie können das Maskenbild immer noch durch Positionierung außerhalb des Border-Inhalt-Bereichs mit `mask-position` Werten, die kleiner als null sind oder auf mehr als 100% aufgelöst werden, beschneiden lassen.
+Die `mask-clip`-Eigenschaft akzeptiert alle `mask-origin`-Werte sowie den eigenen Wert `no-clip`. Der `no-clip`-Wert legt fest, dass der gemalte Inhalt nicht abgeschnitten wird. Sie können das Maskenbild dennoch durch Positionierung außerhalb des Randinhaltsbereichs mit `mask-position`-Werten, die kleiner als Null sind oder zu größer als 100% auflösen, abschneiden.
 
-Das Setzen von `mask-clip` und `mask-origin` auf unterschiedliche Werte kann dazu führen, dass das Maskenschicht-Bild beschnitten wird. Zum Beispiel, wenn ein Element mit einem Rahmen und Padding `mask-clip` auf `content-box` gesetzt hat und `mask-origin` auf `border-box`, und die `mask-position` auf die `top left` Kante gesetzt ist, wird das Maskenschicht-Bild an der oberen linken Kante beschnitten.
+Das Setzen der `mask-clip` und `mask-origin` auf verschiedene Werte kann dazu führen, dass das Maskenebenenbild abgeschnitten wird. Zum Beispiel, wenn ein Element mit einer Umrandung und Polsterung `mask-clip` auf `content-box` und `mask-origin` auf `border-box` gesetzt hat, und die `mask-position` auf die Kante `top left` gesetzt ist, wird das Maskenebenenbild an der oberen linken Kante abgeschnitten.
 
-Das folgende Beispiel fügt den vorherigen Beispielen Clip-Optionen hinzu, um die verschiedenen nicht-SVG `mask-clip` Werte zu demonstrieren und zu zeigen, wie sie die verschiedenen `mask-origin` Werte beeinflussen.
+Das nächste Beispiel fügt die Clipping-Optionen zum vorherigen Beispiel hinzu, um die verschiedenen nicht-SVG-`mask-clip`-Werte zu demonstrieren und zu zeigen, wie sie die verschiedenen `mask-origin`-Werte beeinflussen.
 
 ```html hidden live-sample___clip
 <div class="border-box">
@@ -511,9 +508,9 @@ Das folgende Beispiel fügt den vorherigen Beispielen Clip-Optionen hinzu, um di
 
 {{EmbedLiveSample("clip", "", "350px")}}
 
-Die erste Maske wird an der oberen linken Kante des Maskenursprungs-Containers platziert und dann wiederholt. Wenn die Ursprungsbox die `border-box` ist und die Clip-Region die `content-box` ist, werden die oberen und linken Bereiche des Maskenursprungs-Containers beschnitten. Im Allgemeinen wird man wollen, dass der `mask-clip` der gleiche ist wie der `mask-origin`.
+Die erste Maske wird am oberen linken Rand des Maskenurpsrungscontainer positioniert und dann wiederholt. Wenn die Ursprungsbox die `border-box` ist und die Clip-Region die `content-box`, werden die oberen und linken Bereiche des Maskenurpsrungscontainers abgeschnitten. Im Allgemeinen möchten Sie, dass `mask-clip` dasselbe wie das `mask-origin` ist.
 
-Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-clip`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `border-box` verwenden, als ob wir folgendes festgelegt hätten:
+Fortfahrend mit dem `masked-element`-Beispiel, wenn wir die `mask-clip`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `border-box` gesetzt, als hätten wir Folgendes gesetzt:
 
 ```css
 .masked-element {
@@ -527,7 +524,7 @@ Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-clip`-Eigensch
 }
 ```
 
-oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
+oder, erweitert über das Beispiel mit der `mask`-Kurzschreibweise:
 
 ```css
 .masked-element {
@@ -542,31 +539,31 @@ oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
 }
 ```
 
-In der `mask` Kurzform, wenn nur ein [`<geometry-box>`](/de/docs/Web/CSS/clip-path#geometry-box) Wert gegeben ist, stellt er sowohl die `mask-origin` als auch die `mask-clip` Eigenschaftswerte ein. Wenn zwei `<geometry-box>` Werte vorhanden sind, definiert der erste `mask-origin` und der zweite `mask-clip`.
+In der `mask`-Kurzschreibweise wird bei Angabe von nur einem [`<geometry-box>`](/de/docs/Web/CSS/clip-path#geometry-box)-Wert sowohl der `mask-origin`- als auch der `mask-clip`-Eigenschaftswert eingestellt. Wenn zwei `<geometry-box>`-Werte vorhanden sind, definiert der erste das `mask-origin` und der zweite das `mask-clip`.
 
-Für Maskenschichtenbilder, die sich nicht auf ein SVG {{svgelement("mask")}} Element beziehen, definiert die `mask-clip` Eigenschaft, ob das Maskenmalbereich, oder der durch die Maske beeinflusste Bereich, die Rahmen, Puffer oder Inhalt-Box ist. Der bemalte Inhalt des Elements wird auf diesen Bereich beschränkt.
+Für Maskenebenenbilder, die kein SVG-{{svgelement("mask")}}-Element referenzieren, definiert die `mask-clip`-Eigenschaft, ob der Maskenmalbereich oder der vom Masken betroffene Bereich der Rand-, Polster- oder Inhaltsbox ist. Der gemalte Inhalt des Elements wird auf diesen Bereich beschränkt.
 
-Wenn die Maskenschicht's {{cssxref("mask-image")}} Quelle ein `<mask>` ist, hat die `mask-clip` Eigenschaft keine Wirkung. Stattdessen bestimmen die {{svgAttr("x")}}, {{svgAttr("y")}}, {{svgAttr("width")}}, {{svgAttr("height")}}, und {{svgAttr("maskUnits")}} Attribute des `<mask>` Elements den Maskenmalbereich.
+Wenn die {{cssxref("mask-image")}}-Quelle der Maskenebene eine `<mask>` ist, hat die `mask-clip`-Eigenschaft keine Wirkung. Stattdessen bestimmen die {{svgAttr("x")}}, {{svgAttr("y")}}, {{svgAttr("width")}}, {{svgAttr("height")}} und {{svgAttr("maskUnits")}} Attribute des `<mask>`-Elements den Maskenbereich.
 
 ## Die `mask-size`-Eigenschaft
 
-Die {{cssxref("mask-size")}} Eigenschaft wird verwendet, um Maskenschichten zu skalieren. Diese Eigenschaft ist analog zur {{cssxref("background-size")}} Eigenschaft und akzeptiert die gleichen Werte. Wenn Sie Ihre Masken skalieren, denken Sie daran, dass Bereiche des Elements, die nicht von den Maskenbildern abgedeckt sind, verborgen werden.
+Die {{cssxref("mask-size")}}-Eigenschaft wird verwendet, um Maskenschichten zu skalieren. Diese Eigenschaft ist analog zur {{cssxref("background-size")}}-Eigenschaft und nimmt die gleichen Werte an. Beim Skalieren Ihrer Masken sollten Sie beachten, dass Bereiche des Elements, die nicht von den Maskenbildern abgedeckt sind, verborgen sind.
 
 Es gibt drei Möglichkeiten, eine `mask-size` zu deklarieren:
 
-- das `cover` oder `contain` Schlüsselwort,
-- eine Länge, Prozentsatz oder das Schlüsselwort `auto`, oder
-- zwei Werte, die eine Kombination aus Längen, Prozentsätzen und das Schlüsselwort `auto` sind.
+- das Schlüsselwort `cover` oder `contain`,
+- eine Länge, ein Prozentsatz oder das Schlüsselwort `auto`, oder
+- zwei Werte, die eine Kombination aus Längen, Prozentsätzen und dem Schlüsselwort `auto` sind.
 
-Das Maskenbild kann in seiner natürlichen Größe belassen, gestreckt oder so eingeschränkt werden, dass es in den verfügbaren Platz passt. Das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Maskenbildes wird standardmäßig beibehalten, aber das Deklarieren zweier `<length-percentage>` Werte kann das Maskenbild verzerren, wenn das Verhältnis der beiden Werte nicht dasselbe wie das ursprüngliche Bild ist (`mask-repeat: round` ist das andere Eigenschaft/Wert-Paar, das das Maskenbild verzerren kann).
+Das Maskenbild kann seiner natürlichen Größe überlassen, gestreckt oder eingeschränkt werden, um in den verfügbaren Raum zu passen. Das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Maskenbildes wird standardmäßig beibehalten, aber das Deklarieren von zwei `<length-percentage>`-Werten kann das Maskenbild verformen, wenn das Verhältnis der beiden Werte nicht mit dem Originalbild übereinstimmt (`mask-repeat: round` ist das andere Eigenschaften-/Wertepaar, das das Maskenbild verzerren kann).
 
-Wenn die `mask-size` auf `contain` gesetzt ist, wird das Maskenbild die größte Größe haben, die es haben kann, während es vollständig im Maskenpositionierungsbereich enthalten ist. In diesem Fall wird das Maskenbild nicht abgeschnitten, sondern vollständig enthalten.
+Ist die `mask-size` auf `contain` gesetzt, wird das Maskenbild die größte Größe haben, die es haben kann, während es vollständig innerhalb des Masken-Positionierungsbereichs enthalten ist. In diesem Fall wird das Maskenbild nicht abgeschnitten, sondern vollständig enthalten.
 
-Wenn auf `cover` gesetzt, wird das Maskenbild die kleinste Größe haben, die es sein kann, um den gesamten Maskenpositionierungsbereich vollständig abzudecken, wobei die Maske abgeschnitten wird, wenn das Seitenverhältnis der Maske von dem des Masken-Positionierungsbereichs abweicht.
+Wenn auf `cover` gesetzt, wird das Maskenbild die kleinste Größe haben, die es haben kann, um den gesamten Masken-Positionierungsbereich vollständig abzudecken, wobei die Maske abgeschnitten wird, wenn das Maskenverhältnis von dem Verhältnis des Masken-Positionierungsbereichs abweicht.
 
-Mit anderen Worten, mit `cover` und `contain`, wird mindestens eine Dimension der Maske die gleiche Größe haben wie die Dimension des Maskenpositionierungsbereichs; das Maskenbild wächst oder schrumpft so, dass entweder die Breite die gleiche Breite wie der Maskenpositionierungsbereich ist oder die Maske-Bildhöhe gleich der Höhe des Maskenpositionierungsbereichs ist.
+Mit anderen Worten, mit `cover` und `contain` wird mindestens eine Dimension der Maske so groß wie die gleiche Dimension des Masken-Positionierungsbereichs sein; das Maskenbild wächst oder schrumpft, sodass entweder die Breite die gleiche Breite wie der Masken-Positionierungsbereich oder die Höhe des Maskenbildes der Höhe des Masken-Positionierungsbereichs entspricht.
 
-Mit `cover`, `contain` und `<percentage>` Werten, ist die Größe relativ zur Ursprungsbox. In unserem Stern-Masken- und Flaggenbeispiel haben sowohl das Maskenbild als auch das `<img>` dasselbe Seitenverhältnis von `1:1`, was in diesem Fall `cover`, `contain` und `100%` dieselbe Größe für die Maske erzielen lassen wird. Dieses Beispiel zeigt, wie, wenn `mask-size` auf `cover`, `contain` oder einen `<percentage>` Wert eingestellt ist, die tatsächliche Größe der Maske abhängig von dem Wert der [`mask-origin` Eigenschaft](#the_mask-origin_property) unterschiedlich sein kann:
+Bei `cover`, `contain` und `<percentage>`-Werten ist die Größe relativ zur Ursprungsbox. In unserem Beispiel mit Stern-Maske und Flaggenbild ist das Seitenverhältnis sowohl des Maskenbildes als auch des `<img>`-Dokuments `1:1`, was bedeutet, dass in diesem Fall `cover`, `contain` und `100%` alle die gleiche Größe für die Maske liefern. Dieses Beispiel zeigt, wie bei `mask-size` auf `cover`, `contain` oder einem `<percentage>`-Wert eingestellt, die tatsächliche Größe der Maske je nach Wert der [`mask-origin`-Eigenschaft](#the_mask-origin_property) unterschiedlich sein kann:
 
 ```html hidden live-sample___size
 <div class="border-box">
@@ -614,19 +611,19 @@ img {
 }
 ```
 
-Ändern Sie den Wert der `mask-origin` Eigenschaft, um zu sehen, wie die verschiedenen Werte die Maskengröße beeinflussen:
+Ändern Sie den Wert der `mask-origin`-Eigenschaft, um zu sehen, wie die verschiedenen Werte die Maskengröße beeinflussen:
 
 {{EmbedLiveSample("size", "", "350px")}}
 
-Dieses Beispiel beinhaltete einen `<percentage>` Wert. Wenn ein `<length-percentage>` Wert angegeben wird, definiert er nur die Breite der Maske, wobei die Höhe auf `auto` voreingestellt ist, was das Seitenverhältnis beibehält. Wenn zwei Werte angegeben werden, definiert der erste die Breite der Maske und der zweite seine Höhe.
+Dieses Beispiel enthielt einen `<percentage>`-Wert. Wenn ein `<length-percentage>`-Wert angegeben ist, definiert er nur die Breite der Maske, wobei die Höhe standardmäßig auf `auto` gesetzt wird, was das Seitenverhältnis beibehält. Wenn zwei Werte spezifiziert sind, definiert der erste die Breite der Maske und der zweite ihre Höhe.
 
-Der Standardwert der `mask-size` ist `auto`, was die Maske in ihrer {{Glossary("intrinsic_size", "intrinsischen Größe")}}, der Größe, in der die Maske angezeigt würde, wenn keine CSS angewendet wurde, rendert. Das zugrunde liegende {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Maskenbildes wird beibehalten, wenn Sie einen einzelnen `<length-percentage>` Wert oder zwei Werte im gleichen Verhältnis wie das Seitenverhältnis einstellen. Wenn Sie zwei Werte deklarieren, die nicht im gleichen Verhältnis wie das Seitenverhältnis sind, wird das Maskenbild verzerrt.
+Der Standardwert von `mask-size` ist `auto`, was die Maske in ihrer {{Glossary("intrinsic_size", "intrinsischen Größe")}} rendert, der Größe, in der die Maske ohne CSS angezeigt würde. Das zugrunde liegende {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Maskenbildes wird beibehalten, wenn Sie einen einzigen `<length-percentage>`-Wert oder zwei Werte im gleichen Verhältnis wie das Seitenverhältnis einstellen. Wenn Sie zwei Werte deklarieren, die nicht im gleichen Verhältnis zum Seitenverhältnis stehen, wird das Maskenbild verzerrt.
 
-Wie bei allen Langformkomponenten der Kurzform-Eigenschaft, wenn die {{cssxref("mask")}} Kurzform-Eigenschaft festgelegt ist und der Wert der `mask-size` Eigenschaft nicht innerhalb einer Maskenschicht definiert ist, wird der `mask-size` Wert für diese Maskenschichten auf seinen Standardwert `auto` zurückgesetzt.
+Wie bei allen Langhandkomponenten der Kurzschreibweise, wenn die {{cssxref("mask")}}-Kurzschreibweise gesetzt ist und der Wert der `mask-size`-Eigenschaft in keiner Maskenschicht definiert ist, wird der `mask-size`-Wert für diese Maskenschichten auf seinen Standardwert `auto` zurückgesetzt.
 
-Wenn das Bild keine intrinsische Proportion hat, wie im Fall eines [CSS Farbverlaufs](/de/docs/Web/CSS/gradient), ist das Standard-`auto` die Gesamtheit des Maskenpositionierungsbereichs, wie durch [die `mask-origin` Eigenschaft](#the_mask-origin_property) festgelegt.
+Wenn das Bild keine intrinsische Proportion hat, zum Beispiel im Fall eines [CSS-Farbverlaufs](/de/docs/Web/CSS/gradient), ist das Standard-`auto` die Gesamtheit des Masken-Positionierungsbereichs, wie er durch [die `mask-origin`-Eigenschaft](#the_mask-origin_property) festgelegt ist.
 
-Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-size`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `auto` verwenden, als ob wir folgendes festgelegt hätten:
+Fortfahrend mit dem `masked-element`-Beispiel, wenn wir die `mask-size`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `auto` gesetzt, als hätten wir Folgendes gesetzt:
 
 ```css
 .masked-element {
@@ -641,7 +638,7 @@ Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-size`-Eigensch
 }
 ```
 
-oder, erweiternd auf das Beispiel mit der `mask` Kurzform, wobei die `mask-size` Komponente nach dem `mask-position` Wert kommt, getrennt durch einen Schrägstrich (/):
+oder, erweitert über das Beispiel mit der `mask`-Kurzschreibweise, wobei die `mask-size`-Komponente nach dem `mask-position`-Wert gesetzt wird, getrennt durch einen Schrägstrich (/):
 
 ```css
 .masked-element {
@@ -658,11 +655,11 @@ oder, erweiternd auf das Beispiel mit der `mask` Kurzform, wobei die `mask-size`
 
 ## Die `mask-repeat`-Eigenschaft
 
-Die {{cssxref("mask-repeat")}} Eigenschaft definiert, wie Maskenbilder wiederholt oder gekachelt werden, nachdem das anfängliche Maskenbild skaliert und positioniert wurde. Die `mask-repeat` Eigenschaft definiert, ob und wie dieses Maskenbild entlang der horizontalen und vertikalen Achsen wiederholt wird. In den meisten der vorherigen Beispiele haben Sie vielleicht bemerkt, dass die Sternmaske entlang der X- und Y-Achsen wiederholt wird. Dies liegt daran, dass `repeat` der Standardwert ist.
+Die {{cssxref("mask-repeat")}}-Eigenschaft definiert, wie Maskenbilder wiederholt oder gekachelt werden, nachdem das ursprüngliche Maskenbild skaliert und positioniert wurde. Die `mask-repeat`-Eigenschaft definiert, ob und wie dieses Maskenbild entlang der horizontalen und vertikalen Achsen wiederholt wird. In den meisten der vorherigen Beispiele haben Sie möglicherweise bemerkt, dass die Sternmaske entlang der X- und Y-Achsen wiederholt wurde. Dies liegt daran, dass `repeat` der Standardwert ist.
 
-Die `mask-repeat` Eigenschaft ist analog zur {{cssxref("background-repeat")}} Eigenschaft und akzeptiert die gleichen [`<repeat-style>`](/de/docs/Web/CSS/mask-repeat#values) Werte. Wie es bei `background-repeat` der Fall ist, wird das erste (und möglicherweise einzige) Maskenbild-Wiederholung durch [die `*-position`-Eigenschaft](#the_mask-position_property) positioniert und durch [die `*-size`-Eigenschaft](#the_mask-size_property) skaliert. Die Positionen der wiederholten Hintergrund- oder Maskenbilder basieren auf diesem ursprünglichen Bildinstanz.
+Die `mask-repeat`-Eigenschaft ist analog zur {{cssxref("background-repeat")}}-Eigenschaft und akzeptiert die gleichen [`<repeat-style>`](/de/docs/Web/CSS/mask-repeat#values)-Werte. Wie bei `background-repeat` wird die erste (und möglicherweise einzige) Maskenbild-Wiederholung durch [die `*-Position`-Eigenschaft](#the_mask-position_property) positioniert und durch [die `*-size`-Eigenschaft](#the_mask-size_property) skaliert. Die Positionen der wiederholten Hintergrund- oder Maskenbilder basieren auf dieser ursprünglichen Bildinstanz.
 
-Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-repeat`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `repeat` verwenden, als ob wir folgendes festgelegt hätten:
+Fortfahrend mit dem `masked-element`-Beispiel, wenn wir die `mask-repeat`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `repeat` gesetzt, als hätten wir Folgendes gesetzt:
 
 ```css
 .masked-element {
@@ -678,7 +675,7 @@ Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-repeat`-Eigens
 }
 ```
 
-oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
+oder, erweitert über das Beispiel mit der `mask`-Kurzschreibweise:
 
 ```css
 .masked-element {
@@ -695,7 +692,7 @@ oder, erweiternd auf das Beispiel mit der `mask` Kurzform:
 
 ## Die `mask-composite`-Eigenschaft
 
-Die {{cssxref("mask")}}-Kurzform enthält die {{cssxref("mask-composite")}} Eigenschaft, die definiert, wie mehrere Masken kombiniert werden, um den endgültigen Maskeneffekt zu erzeugen. Jeder Wert in der durch Kommas getrennten Liste von Werten bestimmt, ob der Browser die zugehörige Maskenschicht von oder zu den unteren Maskenschichten `add`, `subtract`, `intersect` oder `exclude` sollte. Ähnlich wie `mask-mode` und die anderen `mask-*` Eigenschaften gibt es in der {{cssxref("background")}} Kurzform keine analoge Eigenschaft.
+Die {{cssxref("mask")}}-Kurzschreibweise umfasst die {{cssxref("mask-composite")}}-Eigenschaft, die definiert, wie mehrere Masken kombiniert werden, um den endgültigen Maskeneffekt zu erzeugen. Jeder Wert in der durch Komma getrennten Liste von Werten legt fest, ob der Browser die zugehörige Maskenschicht von oder zu den darunter liegenden Maskenschichten `add`, `subtract`, `intersect` oder `exclude` soll. Ähnlich wie bei `mask-mode` und den anderen `mask-*`-Eigenschaften gibt es keine Eigenschaft in der {{cssxref("background")}}-Kurzschreibweise, die analog ist.
 
 ```html hidden live-sample___composite live-sample___composite3
 <div class="add">
@@ -720,7 +717,7 @@ Die {{cssxref("mask")}}-Kurzform enthält die {{cssxref("mask-composite")}} Eige
 </div>
 ```
 
-In diesem Beispiel fügen wir zwei `mask-image` Werte ein, darunter den Stern und den Farbverlauf aus den vorherigen Beispielen als Maskenbilder:
+In diesem Beispiel enthalten wir zwei `mask-image`-Werte, einschließlich des Sterns und des Farbverlaufs aus den vorherigen Beispielen als Maskenbilder:
 
 ```css live-sample___composite
 img {
@@ -735,7 +732,7 @@ img {
 }
 ```
 
-Wir setzen einen anderen `mask-composite` Wert für jedes Bild:
+Wir setzen einen anderen `mask-composite`-Wert für jedes Bild:
 
 ```css live-sample___composite live-sample___composite2 live-sample___composite3
 .add img {
@@ -766,9 +763,9 @@ body {
 
 {{EmbedLiveSample("composite", "", "600px")}}
 
-Die halbtransparente Sternmaske wird abhängig vom `mask-composite` Wert zum gestreiften Maskenbild hinzugefügt, davon subtrahiert, damit geschnitten oder ausgeschlossen.
+Die halbtransparente Sternmaske wird je nach `mask-composite`-Wert zu der Streifenmaske hinzugefügt, von dieser abgezogen, mit dieser geschnitten oder von dieser ausgeschlossen.
 
-Die `mask-composite` Eigenschaft ist nur in Fällen mit zwei oder mehr Maskenschichten relevant. Dies liest sich als "Maskenschichten", nicht "Maskenbilder", da, wenn `none` enthalten ist, die transparente schwarze Maske kombiniert wird. Ein `none` Wert kann bei Maskierungen im Falle von `subtract` und `intersect` tiefgreifende Auswirkungen haben. Zum Beispiel, wenn der `mask-mode` sich auf `luminance` auflöst, wird der gesamte Maskierungsbereich entfernt (das Element wird verborgen). Ebenso, wenn `none` die letzte Schicht mit `mask-composite: intersect` für diese Schicht gesetzt ist, wird das gesamte Element verborgen. Hier fügen wir die vorherigen Beispielen eine dritte Schicht, mit `none`, hinzu:
+Die `mask-composite`-Eigenschaft ist nur relevant in Fällen mit zwei oder mehr Maskenschichten. Es heißt "Maskenschichten", nicht "Maskenbilder", da, wenn `none` inkludiert ist, die transparente schwarze Maske zusammengesetzt wird. Ein `none`-Wert kann einen tiefgreifenden Einfluss auf das Maskieren im Fall von `subtract` und `intersect` haben. Zum Beispiel, wenn der `mask-mode` sich zu `luminance` auflöst, wird durch das Abziehen einer schwarzen Maske die gesamte Maske entfernt (das Element wird verborgen). Ebenso, wenn `none` die letzte Schicht ist, mit `mask-composite: intersect` für diese Schicht, wird das gesamte Element verborgen. Hier fügen wir der vorherigen Beispiel eine dritte Schicht, mit `none`, hinzu:
 
 ```css live-sample___composite3
 img {
@@ -786,7 +783,7 @@ img {
 
 {{EmbedLiveSample("composite3", "", "600px")}}
 
-Beachten Sie, dass das `intersect` Beispiel alles ausschließt, weil die transparente schwarze Maske nichts schneidet.
+Beachten Sie, wie das `intersect`-Beispiel alles ausschließt, da die transparente schwarze Maske nichts überschneidet.
 
 Wenn wir die Reihenfolge der Maskenschichten umkehren, können wir auch sehr unterschiedliche Ergebnisse erzielen:
 
@@ -830,13 +827,13 @@ Wenn wir die Reihenfolge der Maskenschichten umkehren, können wir auch sehr unt
 
 {{EmbedLiveSample("composite2", "", "350px")}}
 
-Im ersten Beispiel werden die Sterne von den Streifen subtrahiert. Im zweiten Beispiel werden die Streifen von den Sternen subtrahiert.
+Im ersten Beispiel werden die Sterne von den Streifen abgezogen. Im zweiten werden die Streifen von den Sternen abgezogen.
 
-Wie alle anderen `mask` Komponenteneigenschaften, nimmt `mask-composite` eine durch Kommas getrennte Liste von Werten an. Da die Eigenschaft bestimmt, wie Masken kombiniert werden, ist diese Eigenschaft nur für mehrere Maskenschichten relevant, und die Anzahl der verwendeten Werte ist eins weniger als die Anzahl der Maskenschichten.
+Wie bei allen anderen `mask`-Komponenteneigenschaften nimmt `mask-composite` eine durch Kommas getrennte Liste von Werten an. Da die Eigenschaft den Effekt hat, wie Masken kombiniert werden, ist diese Eigenschaft nur relevant für mehrere Maskenschichten und die Anzahl der verwendeten Werte ist um eins geringer als die Anzahl der Maskenschichten.
 
-Das letzte Paar der Masken wird zuerst zusammengemischt. Dann wird das vorherige Maskenbild mit der vorherigen Komposition zusammengemischt.
+Die letzten Paar Masken werden zuerst zusammengesetzt. Das vorherige Maskenbild wird dann mit der vorherigen Zusammensetzung zusammengesetzt.
 
-Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-composite`-Eigenschaft nicht explizit festlegen, wird sie standardmäßig für jede Schicht `add` verwenden, als ob wir folgendes festgelegt hätten:
+Fortfahrend mit dem `masked-element`-Beispiel, wenn wir die `mask-composite`-Eigenschaft nicht explizit setzen, wird sie standardmäßig für jede Schicht auf `add` gesetzt, als hätten wir Folgendes gesetzt:
 
 ```css
 .masked-element {
@@ -853,9 +850,9 @@ Fortfahrend mit dem `masked-element` Beispiel, wenn wir die `mask-composite`-Eig
 }
 ```
 
-In diesem Fall wird das `<mask>` Element mit der `none` Schicht vermischt. Dann wird der radiale Gradient mit dem Ergebnis der vorherigen Mischung vermischt, und so weiter.
+In diesem Fall wird das `<mask>`-Element mit der `none`-Schicht kombiniert. Dann wird der radiale Verlauf mit dem Ergebnis der vorherigen Zusammensetzung kombiniert und so weiter.
 
-Wie wir es mit allen anderen Komponenteneigenschaften gesehen haben, könnten wir die `mask`-Kurzform verwendet haben:
+Wie wir bei allen anderen Komponenteneigenschaften gesehen haben, hätten wir auch die `mask`-Kurzschreibweise verwenden können:
 
 ```css
 .masked-element {
@@ -875,4 +872,4 @@ Wie wir es mit allen anderen Komponenteneigenschaften gesehen haben, könnten wi
 
 - [Einführung in CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
 - [Einführung in CSS-Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
-- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
+- [CSS-Maskierung](/de/docs/Web/CSS/CSS_masking) Modul

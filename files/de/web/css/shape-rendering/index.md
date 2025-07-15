@@ -2,12 +2,10 @@
 title: shape-rendering
 slug: Web/CSS/shape-rendering
 l10n:
-  sourceCommit: 10c719061d0f21f1b6ff4457a624e9dd49083d3f
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`shape-rendering`**-Eigenschaft von [CSS](/de/docs/Web/CSS) gibt dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Formen wie Pfaden, Kreisen oder Rechtecken eingegangen werden sollen. Sie hat nur Auswirkungen auf die Elemente {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}} und {{SVGElement("rect")}}. Wenn diese Eigenschaft explizit deklariert wird, überschreibt der Wert der CSS-Eigenschaft alle Werte des `{{SVGAttr("shape-rendering")}}`-Attributs des Elements.
+Die **`shape-rendering`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Formen wie Pfaden, Kreisen oder Rechtecken gemacht werden sollen. Sie hat nur Einfluss auf die {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, und {{SVGElement("rect")}} Elemente. Wenn explizit deklariert, überschreibt der Wert der CSS-Eigenschaft alle Werte des {{SVGAttr("shape-rendering")}} Attributs des Elements.
 
 ## Syntax
 
@@ -27,16 +25,16 @@ shape-rendering: unset;
 
 ### Werte
 
-Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} geben den horizontalen Mittelpunkt des Kreises oder der Ellipse an.
+Die {{cssxref("length")}} und {{cssxref("percentage")}} Werte bezeichnen das horizontale Zentrum des Kreises oder der Ellipse.
 
 - `auto`
-  - : Dieser Wert weist die Benutzeragenten an, Kompromisse einzugehen, um Geschwindigkeit, Kantenschärfe und geometrische Präzision auszubalancieren, wobei der geometrischen Präzision mehr Bedeutung beigemessen wird als Geschwindigkeit und Kantenschärfe.
+  - : Dieser Wert weist die Benutzeragenten an, Kompromisse einzugehen, um Geschwindigkeit, Kantenschärfe und geometrische Präzision auszugleichen, wobei der geometrischen Präzision mehr Bedeutung beigemessen wird als Geschwindigkeit und Kantenschärfe.
 - `crispEdges`
-  - : Dieser Wert weist den Benutzeragenten an, den Kontrast der Kanten gegenüber geometrischer Präzision oder Rendergeschwindigkeit zu betonen. Das endgültige Rendering wird wahrscheinlich Techniken wie Anti-Aliasing auslassen. Es kann auch die Position und Breite der Linien anpassen, um die Kanten an die Gerätepixel anzupassen.
+  - : Dieser Wert weist den Benutzeragenten an, den Kontrast der Kanten gegenüber der geometrischen Präzision oder der Rendering-Geschwindigkeit zu betonen. Das endgültige Rendering wird wahrscheinlich Techniken wie Anti-Aliasing überspringen. Es kann auch die Positionen und Breiten von Linien anpassen, um Kanten mit Gerätepixels auszurichten.
 - `geometricPrecision`
-  - : Dieser Wert weist den Benutzeragenten an, die geometrische Präzision über Geschwindigkeit oder scharfe Kanten zu betonen. Das endgültige Rendering kann Techniken wie Anti-Aliasing beinhalten.
+  - : Dieser Wert weist den Benutzeragenten an, die geometrische Präzision gegenüber Geschwindigkeit oder scharfen Kanten zu betonen. Das endgültige Rendering kann Techniken wie Anti-Aliasing einbeziehen.
 - `optimizeSpeed`
-  - : Dieser Wert weist den Benutzeragenten an, die Rendergeschwindigkeit über geometrische Präzision oder Kantenschärfe zu betonen. Das endgültige Rendering wird wahrscheinlich Techniken wie Anti-Aliasing auslassen.
+  - : Dieser Wert weist den Benutzeragenten an, die Rendering-Geschwindigkeit gegenüber geometrischer Präzision oder Kantenschärfe zu betonen. Das endgültige Rendering wird wahrscheinlich Techniken wie Anti-Aliasing überspringen.
 
 ## Formale Definition
 
@@ -48,7 +46,7 @@ Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} geben den horizont
 
 ## Beispiel
 
-Um die verschiedenen Renderings zu zeigen, erstellen wir eine Reihe von vier Ellipsen gleicher Größe und Form.
+Um die unterschiedlichen Renderings zu zeigen, erstellen wir ein Set von vier Ellipsen gleicher Größe und Form.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
@@ -76,7 +74,7 @@ ellipse:nth-of-type(4) {
 }
 ```
 
-Das resultierende SVG wird hier gezeigt. Die erste und dritte Ellipse (von links nach rechts gezählt) haben eher gezackte Kanten, während die zweite eine glattere Erscheinung haben sollte. Das Erscheinungsbild der vierten und letzten Ellipse wird durch die spezifischen Kompromisse bestimmt, die der Benutzeragent eingeht, den Sie verwenden, um das Beispiel anzusehen.
+Das resultierende SVG wird hier gezeigt. Die erste und dritte Ellipsen (von links nach rechts gezählt) zeigen wahrscheinlich eher gezackte Kanten, während die zweite ein glatteres Erscheinungsbild haben sollte. Das Erscheinungsbild der vierten und letzten Ellipse wird durch die spezifischen Kompromisse bestimmt, die der von Ihnen verwendete Benutzeragent beim Betrachten des Beispiels eingeht.
 
 {{EmbedLiveSample("Example", "400", "240")}}
 
@@ -90,4 +88,4 @@ Das resultierende SVG wird hier gezeigt. Die erste und dritte Ellipse (von links
 
 ## Siehe auch
 
-- SVG-Attribut {{SVGAttr("shape-rendering")}}
+- SVG {{SVGAttr("shape-rendering")}} Attribut

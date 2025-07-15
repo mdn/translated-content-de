@@ -2,14 +2,12 @@
 title: inset-block-start
 slug: Web/CSS/inset-block-start
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`inset-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, der je nach Schreibmodus, Ausrichtung und Text­orientierung des Elements zu einem physischen Einzug wird. Sie entspricht der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} in Abhängigkeit von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
 
-Die **`inset-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, der je nach Schreibmodus des Elements, dessen Richtung und Textausrichtung auf einen physischen Rand abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
-
-Diese {{Glossary("inset_properties", "Rand-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Einzugseigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-block-start")}}
 
@@ -91,7 +89,7 @@ inset-block-start: unset;
 
 ### Werte
 
-Die `inset-block-start` Eigenschaft nimmt dieselben Werte an wie die {{cssxref("left")}} Eigenschaft.
+Die `inset-block-start` Eigenschaft nimmt dieselben Werte wie die {{cssxref("left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -103,7 +101,7 @@ Die `inset-block-start` Eigenschaft nimmt dieselben Werte an wie die {{cssxref("
 
 ## Beispiele
 
-### Einstellung des Blockanfangs-Versatzes
+### Blockanfang-Versatz festlegen
 
 #### HTML
 
@@ -144,6 +142,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Ränder definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
-- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die Eigenschaften, die andere Einzüge definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

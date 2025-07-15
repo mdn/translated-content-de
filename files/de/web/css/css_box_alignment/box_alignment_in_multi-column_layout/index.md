@@ -1,29 +1,27 @@
 ---
-title: Box-Ausrichtung in Mehrspalten-Layout
+title: Box-Ausrichtung im Mehrspaltenlayout
 slug: Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout
 l10n:
-  sourceCommit: 243e5eabfe95971f2850fcfdf2a7b2f210c85532
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment)-Modul beschreibt, wie Ausrichtung in verschiedenen Layoutmethoden funktioniert; in diesem Leitfaden untersuchen wir, wie Box-Ausrichtung im Kontext des [Mehrspaltenlayouts](/de/docs/Web/CSS/CSS_multicol_layout) funktioniert. Da dieser Leitfaden darauf abzielt, Dinge zu detaillieren, die spezifisch für beide Module sind, sollte er in Verbindung mit dem [Box Alignment Überblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment) Leitfaden gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über verschiedene Layoutmethoden hinweg beschreibt.
 
-Das [CSS Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment) beschreibt, wie die Ausrichtung in verschiedenen Layout-Methoden funktioniert; in diesem Leitfaden erkunden wir, wie die Box-Ausrichtung im Kontext von [Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) funktioniert. Da dieser Leitfaden darauf abzielt, Dinge zu erläutern, die für beide Module spezifisch sind, sollte er in Verbindung mit dem [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment) gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layout-Methoden hinweg beschreibt.
-
-Im [Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts) ist der {{Glossary("alignment_container", "Ausrichtungs-Container")}} die Inhaltsbox des Mehrspalten-Containers. Das {{Glossary("alignment_subject", "Ausrichtungs-Subjekt")}} ist die Spaltenbox. Die Eigenschaften, die auf Mehrspalten-Layouts zutreffen, werden unten ausführlich beschrieben.
+Im [Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts) ist der {{Glossary("alignment_container", "Ausrichtungscontainer")}} die Inhaltsbox des Mehrspalten-Containers. Das {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} ist die Spaltenbox. Die auf Mehrspaltenlayouts anzuwendenden Eigenschaften sind unten beschrieben.
 
 ## align-content und justify-content
 
-Die Eigenschaft {{cssxref("align-content")}} gilt für die Blockachse und {{cssxref("justify-content")}} für die Inlineachse. Jeder durch die Verteilung des Raums hinzugefügte Abstand wird zu dem Spaltenabstand hinzugefügt, wodurch der Abstand größer wird als möglicherweise durch die Eigenschaft {{cssxref("column-gap")}} (oder den Kurzschreibweise {{cssxref("gap")}}) angegeben.
+Die {{cssxref("align-content")}}-Eigenschaft gilt für die Blockachse und {{cssxref("justify-content")}} für die Inline-Achse. Jeder Freiraum, der durch die Verwendung der Raumverteilung zu den Spalten hinzugefügt wird, wird zum Abstand zwischen den Spalten hinzugefügt, wodurch der Abstand größer wird als möglicherweise durch die {{cssxref("column-gap")}} (oder {{cssxref("gap")}} Kurzform) Eigenschaft festgelegt.
 
-Die Verwendung eines anderen Wertes als `justify-content` außer `normal` oder `stretch` führt dazu, dass Spaltenboxen in der auf dem Mehrspalten-Container angegebenen {{cssxref("column-width")}} angezeigt werden, und der verbleibende Raum wird entsprechend dem Wert von `justify-content` verteilt.
+Die Verwendung eines Wertes von `justify-content`, der nicht `normal` oder `stretch` ist, führt dazu, dass die Spaltenboxen mit der im Mehrspalten-Container angegebenen {{cssxref("column-width")}} angezeigt werden und der verbleibende Raum entsprechend dem `justify-content`-Wert verteilt wird.
 
 ## column-gap
 
-Die Eigenschaft {{cssxref("column-gap")}} wurde ursprünglich in der Mehrspalten-Layout-Spezifikation spezifiziert und später mit den Lücken-Eigenschaften anderer Layout-Methoden in der Box-Ausrichtung vereinheitlicht. Während andere Layout-Methoden den Anfangswert von `column-gap` als `0` behandeln, behandelt das Mehrspalten-Layout ihn als `1em` — man möchte in der Regel einen Abstand zwischen den Spalten.
+Die {{cssxref("column-gap")}}-Eigenschaft wurde ursprünglich in der Mehrspaltenlayout-Spezifikation festgelegt und später mit den Lückeneigenschaften für andere Layoutmethoden in der Box-Ausrichtung vereinheitlicht. Während andere Layoutmethoden den Anfangswert von `column-gap` als `0` behandeln, behandelt das Mehrspaltenlayout ihn als `1em` — Sie möchten im Allgemeinen einen Abstand zwischen den Spalten haben.
 
 ## Siehe auch
 
-- [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
+- [Box Alignment Überblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
 - [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-- [Box-Ausrichtung im CSS-Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [Box-Ausrichtung im CSS Grid Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
 - [Box-Ausrichtung für Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables)

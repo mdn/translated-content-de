@@ -2,12 +2,10 @@
 title: overflow-x
 slug: Web/CSS/overflow-x
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`overflow-x`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn der Inhalt die linken und rechten Ränder eines Block-Elements überläuft. Dies kann nichts sein, eine Scrollleiste oder der überlaufende Inhalt. Diese Eigenschaft kann auch mit der [`overflow`](/de/docs/Web/CSS/overflow) Kurzschrift-Eigenschaft festgelegt werden.
+Die **`overflow-x`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, was angezeigt wird, wenn der Inhalt die linken und rechten Ränder eines Blockelementes überläuft. Dies kann nichts sein, eine Bildlaufleiste oder der überlaufende Inhalt. Diese Eigenschaft kann auch mithilfe der [`overflow`](/de/docs/Web/CSS/overflow)-Kurzschreibweise gesetzt werden.
 
 {{InteractiveExample("CSS Demo: overflow-x")}}
 
@@ -68,25 +66,25 @@ overflow-x: revert-layer;
 overflow-x: unset;
 ```
 
-Die `overflow-x` Eigenschaft wird als ein einzelner {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben.
+Die `overflow-x`-Eigenschaft wird als einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwort angegeben.
 
-Wenn {{cssxref("overflow-y")}} `hidden`, `scroll` oder `auto` ist und die `overflow-x` Eigenschaft `visible` (Standard) ist, wird der Wert implizit als `auto` berechnet.
+Wenn {{cssxref("overflow-y")}} auf `hidden`, `scroll` oder `auto` gesetzt ist und die `overflow-x`-Eigenschaft `visible` (Standard) ist, wird der Wert implizit als `auto` berechnet.
 
 ### Werte
 
 - `visible`
-  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb der Ränder des Elements sichtbar sein. Das Elementfeld ist kein {{Glossary("scroll_container", "Scroll-Container")}}.
+  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Padding-Bereichs des Elements an den linken und rechten Rändern sichtbar sein. Die Element-Box ist kein {{Glossary("scroll_container", "Scroll Container")}}.
 - `hidden`
-  - : Überlaufender Inhalt wird bei Bedarf abgeschnitten, um horizontal in den Padding-Bereich des Elements zu passen. Es werden keine Scrollleisten bereitgestellt.
+  - : Überlaufender Inhalt wird bei Bedarf abgeschnitten, um horizontal in den Padding-Bereich der Elemente zu passen. Es werden keine Bildlaufleisten bereitgestellt.
 - `clip`
-  - : Überlaufender Inhalt wird am _overflow-clip-Rand_ des Elements abgeschnitten, der mit der [`overflow-clip-margin`](/de/docs/Web/CSS/overflow-clip-margin) Eigenschaft definiert wird. Infolgedessen überläuft der Inhalt den Padding-Bereich des Elements um den {{cssxref("&lt;length&gt;")}} Wert von `overflow-clip-margin` oder um `0px`, wenn nicht festgelegt. Der Unterschied zwischen `clip` und `hidden` besteht darin, dass das `clip` Schlüsselwort auch jegliches Scrollen, einschließlich programmierten Scrollens, verbietet. Es wird kein neuer Formatierungskontext erstellt. Um einen Formatierungskontext zu etablieren, verwenden Sie `overflow: clip` zusammen mit {{cssxref("display", "display: flow-root", "#flow-root")}}. Das Elementfeld ist kein Scroll-Container.
+  - : Überlaufender Inhalt wird am _overflow clip edge_ des Elements abgeschnitten, der mit der [`overflow-clip-margin`](/de/docs/Web/CSS/overflow-clip-margin)-Eigenschaft definiert ist. Infolgedessen überläuft der Inhalt den Padding-Bereich des Elements um den {{cssxref("&lt;length&gt;")}}-Wert von `overflow-clip-margin` oder um `0px`, wenn nicht gesetzt. Der Unterschied zwischen `clip` und `hidden` besteht darin, dass das `clip`-Schlüsselwort jegliches Scrollen, einschließlich programmgesteuertem Scrollen, verbietet. Es wird kein neuer Formatierungskontext erstellt. Um einen Formatierungskontext zu schaffen, verwenden Sie `overflow: clip` zusammen mit {{cssxref("display", "display: flow-root", "#flow-root")}}. Die Element-Box ist kein Scroll Container.
 - `scroll`
-  - : Überlaufender Inhalt wird bei Bedarf abgeschnitten, um horizontal in den Padding-Bereich des Elements zu passen. Browser zeigen horizontale Scrollleisten an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird oder nicht. (Dies verhindert, dass Scrollleisten angezeigt oder ausgeblendet werden, wenn sich der Inhalt ändert.) Drucker können überlaufenden Inhalt trotzdem drucken.
+  - : Überlaufender Inhalt wird bei Bedarf horizontal innerhalb des Padding-Bereichs des Elements abgeschnitten. Browser zeigen Bildlaufleisten in horizontaler Richtung an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird. (Dies verhindert, dass Bildlaufleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können dennoch überlaufenden Inhalt drucken.
 - `auto`
-  - : Überlaufender Inhalt wird am Padding-Bereich des Elements abgeschnitten und der überlaufende Inhalt kann in den Sichtbereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur an_, wenn der Inhalt überläuft, und verbergen Scrollleisten standardmäßig. Wenn der Inhalt in den Padding-Bereich des Elements passt, sieht es genauso aus wie bei `visible`, erstellt jedoch trotzdem einen neuen Block-Formatierungskontext. Desktop-Browser bieten Scrollleisten an, wenn der Inhalt überläuft.
+  - : Überlaufender Inhalt wird am Padding-Bereich des Elements abgeschnitten, und überlaufender Inhalt kann in den Ansichtsbereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Bildlaufleisten _nur an_, wenn der Inhalt überläuft, und verstecken Bildlaufleisten standardmäßig. Wenn der Inhalt in den Padding-Bereich des Elements passt, sieht es genauso aus wie bei `visible`, erstellt aber dennoch einen neuen Blockformatierungskontext. Desktop-Browser bieten Bildlaufleisten, wenn der Inhalt überläuft.
 
 > [!NOTE]
-> Der Schlüsselwortwert `overlay` ist ein veralteter Wertalias für `auto`. Bei `overlay` werden die Scrollleisten über dem Inhalt gezeichnet, anstatt Platz einzunehmen.
+> Der Schlüsselwortwert `overlay` ist ein veralteter Wertalias für `auto`. Bei `overlay` werden die Bildlaufleisten über dem Inhalt gezeichnet, anstatt Platz einzunehmen.
 
 ## Formale Definition
 
@@ -167,5 +165,5 @@ Wenn {{cssxref("overflow-y")}} `hidden`, `scroll` oder `auto` ist und die `overf
 ## Siehe auch
 
 - {{Cssxref("clip")}}, {{Cssxref("display")}}, {{cssxref("text-overflow")}}, {{cssxref("white-space")}}
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
 - [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)

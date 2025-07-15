@@ -2,12 +2,10 @@
 title: border-image-source
 slug: Web/CSS/border-image-source
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Randbild](/de/docs/Web/CSS/border-image) eines Elements zu erstellen.
+Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Rahmenbild](/de/docs/Web/CSS/border-image) eines Elements zu erstellen.
 
 {{InteractiveExample("CSS Demo: border-image-source")}}
 
@@ -54,7 +52,7 @@ border-image-source: none;
 }
 ```
 
-Die Eigenschaft {{cssxref("border-image-slice")}} wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf das endgültige Randbild angewendet werden.
+Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf das endgültige Rahmenbild angewendet werden.
 
 ## Syntax
 
@@ -77,9 +75,9 @@ border-image-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Randbild verwendet. Stattdessen wird das Erscheinungsbild angezeigt, das durch {{cssxref("border-style")}} definiert ist.
+  - : Es wird kein Rahmenbild verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Aussehen angezeigt.
 - {{cssxref("&lt;image&gt;")}}
-  - : Bildreferenz zur Verwendung für den Rand.
+  - : Bildreferenz, die für den Rahmen verwendet werden soll.
 
 ## Formale Definition
 
@@ -114,4 +112,4 @@ border-image-source: unset;
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
 - {{cssxref("url_value", "&lt;url&gt;")}} Typ
-- [Randbilder in CSS: Ein zentraler Fokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Rahmenbilder in CSS: Ein Schlüsselfokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

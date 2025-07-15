@@ -2,14 +2,12 @@
 title: ::highlight()
 slug: Web/CSS/::highlight
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **`::highlight()`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
 
-Das **`::highlight()`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
-
-Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
+Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite über das [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
 ## Erlaubte Eigenschaften
 
@@ -31,7 +29,7 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Beispiele
 
-### Hervorheben von Zeichen
+### Charaktere hervorheben
 
 #### HTML
 
@@ -125,5 +123,5 @@ for (let i = 0; i < textNode.textContent.length; i++) {
 
 ## Siehe auch
 
-- [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Pseudo-Elements](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS custom highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
+- Modul [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements)

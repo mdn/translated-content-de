@@ -1,13 +1,11 @@
 ---
-title: CSS-Inline-Layout
+title: CSS Inline-Layout
 slug: Web/CSS/CSS_inline_layout
 l10n:
-  sourceCommit: 113279ab09692d869866519106e25cba8a20abb8
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSS-Inline-Layout**-Modul definiert die Block-Achsen-Ausrichtung und Größenanpassung von Inline-Inhalten und fügt einen speziellen Layout-Modus für Initialbuchstaben hinzu. Es beschreibt das CSS-Formatierungsmodell für einen Fluss von Elementen und Text innerhalb eines Containers, der über mehrere Zeilen umbrochen wird.
+Das **CSS Inline-Layout** Modul definiert die Block-Achsen-Ausrichtung und Größenbestimmung von Inline-Inhalten und fügt einen speziellen Layoutmodus für Initialen hinzu. Es beschreibt das CSS-Formatierungsmodell für einen Fluss von Elementen und Text innerhalb eines Containers, der über mehrere Zeilen umbrochen wird.
 
 ## Referenz
 
@@ -22,7 +20,7 @@ Das **CSS-Inline-Layout**-Modul definiert die Block-Achsen-Ausrichtung und Grö�
 - {{cssxref("text-box")}} Kurzform
 - {{cssxref("vertical-align")}}
 
-Die Spezifikation definiert außerdem die Eigenschaften `baseline-shift`, `baseline-source`, `initial-letter-align`, `initial-letter-wrap`, `inline-sizing` und `line-fit-edge`, die noch von keinem Browser unterstützt werden.
+Die Spezifikation definiert auch die Eigenschaften `baseline-shift`, `baseline-source`, `initial-letter-align`, `initial-letter-wrap`, `inline-sizing` und `line-fit-edge`, die noch von keinem Browser unterstützt werden.
 
 ### Datentypen
 
@@ -36,7 +34,7 @@ Die Spezifikation definiert außerdem die Eigenschaften `baseline-shift`, `basel
 ## Leitfäden
 
 - [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
-  - : Erläutert den Inline-Formatierungskontext.
+  - : Erklärt den Inline-Formatierungskontext.
 
 ## Verwandte Konzepte
 
@@ -44,7 +42,7 @@ Die Spezifikation definiert außerdem die Eigenschaften `baseline-shift`, `basel
 - {{cssxref("font-feature-settings")}} Eigenschaft
 - {{cssxref("letter-spacing")}} Eigenschaft
 - {{cssxref("text-anchor")}} Eigenschaft
-- {{cssxref("::first-letter")}} Pseudoelement
+- {{cssxref("::first-letter")}} Pseudo-Element
 - {{cssxref(":first-child")}} Pseudo-Klasse
 
 ## Spezifikationen
@@ -54,5 +52,5 @@ Die Spezifikation definiert außerdem die Eigenschaften `baseline-shift`, `basel
 ## Siehe auch
 
 - [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
-- [CSS Fonts](/de/docs/Web/CSS/CSS_fonts) Modul
-- [CSS-Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS Schriften](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul

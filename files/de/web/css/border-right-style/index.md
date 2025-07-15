@@ -2,12 +2,10 @@
 title: border-right-style
 slug: Web/CSS/border-right-style
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-right-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
+Die **`border-right-style`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-right-style")}}
 
@@ -59,7 +57,7 @@ body {
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie Grenzen unterschiedlicher Stile in den Ecken verbunden werden.
 
 ## Syntax
 
@@ -84,7 +82,7 @@ border-right-style: revert-layer;
 border-right-style: unset;
 ```
 
-Die `border-right-style` Eigenschaft wird als einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die Eigenschaft `border-right-style` wird als einzelnes {{cssxref("line-style")}} Schlüsselwort angegeben.
 
 ## Formale Definition
 
@@ -96,7 +94,7 @@ Die `border-right-style` Eigenschaft wird als einzelner {{cssxref("line-style")}
 
 ## Beispiele
 
-### Rahmenstile
+### Randstile
 
 #### HTML
 
@@ -181,5 +179,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen rechten randbezogenen Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.
+- Die anderen stilbezogenen Rand-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}} und {{Cssxref("border-style")}}.
+- Die anderen rechte Rand-bezogenen Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}} und {{Cssxref("border-right-width")}}.

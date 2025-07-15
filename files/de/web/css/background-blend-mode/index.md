@@ -2,12 +2,10 @@
 title: background-blend-mode
 slug: Web/CSS/background-blend-mode
 l10n:
-  sourceCommit: c05ef6211441aedb359d4020518ac152aa92db9e
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`background-blend-mode`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
+Die **`background-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
 
 {{InteractiveExample("CSS Demo: background-blend-mode")}}
 
@@ -44,7 +42,7 @@ background-blend-mode: difference;
 }
 ```
 
-Mischmodi sollten in derselben Reihenfolge definiert werden wie die {{cssxref("background-image")}}-Eigenschaft. Wenn die Längen der Listen der Mischmodi und der Hintergrundbilder nicht gleich sind, werden sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
+Mischmodi sollten in der gleichen Reihenfolge definiert werden wie die Eigenschaft {{cssxref("background-image")}}. Wenn die Listenlängen der Mischmodi und Hintergrundbilder nicht gleich sind, werden sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
 
 ## Syntax
 
@@ -66,7 +64,7 @@ background-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus. Es können mehrere Werte mit Kommas getrennt sein.
+  - : Der anzuwendende Mischmodus. Es kann mehrere Werte geben, die durch Kommas getrennt sind.
 
 ## Formale Definition
 
@@ -78,7 +76,7 @@ background-blend-mode: unset;
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Ein einfaches Beispiel
 
 ```css
 .item {
@@ -89,7 +87,7 @@ background-blend-mode: unset;
 }
 ```
 
-### Verschiedene Mischmodi ausprobieren
+### Probieren Sie verschiedene Mischmodi aus
 
 ```html hidden
 <div id="div"></div>

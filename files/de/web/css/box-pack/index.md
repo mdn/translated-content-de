@@ -2,17 +2,17 @@
 title: box-pack
 slug: Web/CSS/box-pack
 l10n:
-  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
+{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout Moduls und wurde durch einen neueren Standard ersetzt. Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout-Moduls und wurde durch einen neueren Standard ersetzt. Siehe [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
 
-Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften geben an, wie eine `-moz-box` oder `-webkit-box` ihre Inhalte in der Richtung ihres Layouts packt. Der Effekt ist nur sichtbar, wenn zusätzlicher Platz in der Box vorhanden ist.
+Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften spezifizieren, wie eine `-moz-box` oder `-webkit-box` ihre Inhalte in der Richtung ihres Layouts platziert. Dieser Effekt ist nur sichtbar, wenn im Boxmodell Platz übrig bleibt.
 
-Die Richtung des Layouts hängt von der Ausrichtung des Elements ab: horizontal oder vertikal.
+Die Layout-Richtung hängt von der Orientierung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -29,25 +29,25 @@ box-pack: initial;
 box-pack: unset;
 ```
 
-Die `box-pack`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-pack` Eigenschaft wird als eines der unten aufgeführten Schlüsselwort-Werte angegeben.
 
 ### Werte
 
 - `start`
-  - : Die Box packt Inhalte am Anfang und lässt zusätzlichen Platz am Ende.
+  - : Die Box platziert Inhalte am Anfang, wobei etwaiger zusätzlicher Platz am Ende verbleibt.
 - `center`
-  - : Die Box packt Inhalte in der Mitte und teilt den zusätzlichen Platz gleichmäßig zwischen Anfang und Ende auf.
+  - : Die Box platziert Inhalte in der Mitte und teilt den zusätzlichen Platz gleichmäßig zwischen Anfang und Ende auf.
 - `end`
-  - : Die Box packt Inhalte am Ende und lässt zusätzlichen Platz am Anfang.
+  - : Die Box platziert Inhalte am Ende, wobei etwaiger zusätzlicher Platz am Anfang verbleibt.
 - `justify`
-  - : Der Raum wird gleichmäßig zwischen den einzelnen Kindern verteilt, wobei kein zusätzlicher Raum vor dem ersten Kind oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert behandelt, als wäre es `start`.
+  - : Der Platz wird gleichmäßig zwischen jedem Kind aufgeteilt. Kein zusätzlicher Platz wird vor dem ersten oder nach dem letzten Kind eingefügt. Gibt es nur ein Kind, wird der Wert wie `start` behandelt.
 
-## Anmerkungen
+## Hinweise
 
-Der Rand der Box, der für Packzwecke als _start_ bezeichnet wird, hängt von der Ausrichtung und Richtung der Box ab:
+Das Kanten der Box, bezeichnet als _Anfang_ für die Pack-Zwecke, hängt von der Orientierung und Richtung der Box ab:
 
-- Für horizontale Elemente ist der _start_ der obere Rand.
-- Für vertikale Elemente ist der _start_ der linke Rand.
+- Bei horizontalen Elementen ist der _Anfang_ die obere Kante.
+- Bei vertikalen Elementen ist der _Anfang_ die linke Kante.
 
 <table class="standard-table">
   <tbody>
@@ -69,21 +69,21 @@ Der Rand der Box, der für Packzwecke als _start_ bezeichnet wird, hängt von de
   </tbody>
 </table>
 
-Der dem Start gegenüberliegende Rand wird als _end_ bezeichnet.
+Die Kante gegenüber dem Anfang wird als _Ende_ bezeichnet.
 
-Wenn das Packen über das `pack`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn das Packen mit dem `pack` Attribut des Elements eingestellt ist, wird der Stil ignoriert.
 
-## Offizielle Definition
+## Formale Definition
 
 {{CSSInfo}}
 
-## Offizielle Syntax
+## Formale Syntax
 
 {{CSSSyntaxRaw(`box-pack = start | center | end | justify`)}}
 
 ## Beispiele
 
-### Beispiele für box-pack
+### Beispiele von box-pack
 
 ```css
 div.example {
@@ -130,7 +130,7 @@ div.example p {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

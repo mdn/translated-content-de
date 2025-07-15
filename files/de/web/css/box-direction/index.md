@@ -2,15 +2,15 @@
 title: box-direction
 slug: Web/CSS/box-direction
 l10n:
-  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
+{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS Flexiblen Box-Layouts Modulentwurfs und wurde durch einen neueren Standard ersetzt. Das `-moz-box-direction` wird nur für XUL verwendet, während der vorherige Standard `box-direction` durch `flex-direction` ersetzt wurde. Siehe [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft des ursprünglichen CSS-Flexible-Box-Layout-Modulentwurfs und wurde durch einen neueren Standard ersetzt. Der `-moz-box-direction` wird nur für XUL verwendet, während der vorherige Standard `box-direction` durch `flex-direction` ersetzt wurde. Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
-Die **`box-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Box-Element seine Inhalte normal (vom oberen oder linken Rand) oder umgekehrt (vom unteren oder rechten Rand) anordnet.
+Die **`box-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Rahmen seine Inhalte normal (vom oberen oder linken Rand aus) oder umgekehrt (vom unteren oder rechten Rand aus) anordnet.
 
 ## Syntax
 
@@ -27,25 +27,25 @@ box-direction: revert-layer;
 box-direction: unset;
 ```
 
-Die `box-direction` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-direction` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `normal`
-  - : Die Box ordnet ihre Inhalte vom Anfang (vom linken oder oberen Rand) an.
+  - : Der Rahmen ordnet seine Inhalte vom Start (dem linken oder oberen Rand) aus an.
 - `reverse`
-  - : Die Box ordnet ihre Inhalte vom Ende (vom rechten oder unteren Rand) an.
+  - : Der Rahmen ordnet seine Inhalte vom Ende (dem rechten oder unteren Rand) aus an.
 
-## Hinweise
+## Anmerkungen
 
-Der für Layoutzwecke als Anfang festgelegte Rand der Box hängt von der Ausrichtung der Box ab:
+Die Kante des Rahmens, die für Layoutzwecke als _Anfang_ festgelegt ist, hängt von der Orientierung des Rahmens ab:
 
-- Für horizontale Elemente ist der Anfang der obere Rand.
-- Für vertikale Elemente ist der Anfang der linke Rand.
+- Für horizontale Elemente ist der _Anfang_ der obere Rand.
+- Für vertikale Elemente ist der _Anfang_ der linke Rand.
 
-Der gegenüber dem Anfang liegende Rand wird als Ende bezeichnet.
+Die dem Anfang gegenüberliegende Kante wird als _Ende_ bezeichnet.
 
-Wenn die Richtung über das `dir` Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn die Richtung mithilfe des `dir`-Attributs des Elements festgelegt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 

@@ -2,12 +2,10 @@
 title: scroll-padding-left
 slug: Web/CSS/scroll-padding-left
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-left` definiert Versätze für den linken Bereich der _optimalen Anzeigezone_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Elemente im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie fixierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports einzuräumen.
+Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion für die Positionierung von Elementen verwendet wird, damit diese vom Benutzer eingesehen werden können. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte verdeckt sind (z. B. fest positionierte Symbolleisten oder Seitenleisten), oder es kann mehr Freiraum zwischen einem Ziel-Element und den Rändern des Scrollports geschaffen werden.
 
 {{InteractiveExample("CSS Demo: scroll-padding-left")}}
 
@@ -96,9 +94,9 @@ scroll-padding-left: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz vom linken Rand des Scrollports, als gültige Länge oder Prozentangabe.
+  - : Ein nach innen gerichteter Versatz von der linken Kante des Scrollports, als gültige Länge oder als Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dieser beträgt im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies wird im Allgemeinen 0px sein, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein anderer Wert geeigneter ist.
 
 ## Formale Definition
 
@@ -119,4 +117,4 @@ scroll-padding-left: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

@@ -2,12 +2,10 @@
 title: speak-as
 slug: Web/CSS/@counter-style/speak-as
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`speak-as`** Deskriptor legt fest, wie ein Zählersymbol, das mit einem bestimmten {{cssxref('@counter-style')}} erstellt wurde, in gesprochener Form dargestellt wird. Zum Beispiel kann ein Autor angeben, dass ein Zählersymbol entweder als sein numerischer Wert gesprochen oder nur mit einem akustischen Signal dargestellt werden soll.
+Der **`speak-as`** Deskriptor gibt an, wie ein Zählersymbol, das mit einem bestimmten {{cssxref('@counter-style')}} erstellt wurde, in gesprochener Form dargestellt wird. Zum Beispiel kann ein Autor angeben, dass ein Zählersymbol entweder als sein numerischer Wert gesprochen oder nur mit einem akustischen Hinweis dargestellt wird.
 
 ## Syntax
 
@@ -26,27 +24,26 @@ speak-as: <counter-style-name>;
 ### Werte
 
 - `auto`
-
-  - : Wenn der Wert von `speak-as` auf `auto` festgelegt ist, wird der effektive Wert von `speak-as` basierend auf dem Wert des {{cssxref("@counter-style/system", "system")}} Deskriptors bestimmt:
-    - Ist der Wert von `system` `alphabetic`, wird der effektive Wert von `speak-as` `spell-out` sein.
-    - Ist `system` `cyclic`, wird der effektive Wert von `speak-as` `bullets` sein.
-    - Ist `system` `extends`, ist der Wert von `speak-as` derselbe, als ob `speak-as: auto` im erweiterten Stil angegeben wäre.
-    - In allen anderen Fällen hat die Angabe von `auto` denselben Effekt wie die Angabe von `speak-as: numbers`.
+  - : Wenn der Wert von `speak-as` als `auto` angegeben ist, wird der effektive Wert von `speak-as` basierend auf dem Wert des {{cssxref("@counter-style/system", "system")}} Deskriptors bestimmt:
+    - Wenn der Wert von `system` `alphabetic` ist, wird der effektive Wert von `speak-as` `spell-out` sein.
+    - Wenn `system` `cyclic` ist, wird der effektive Wert von `speak-as` `bullets` sein.
+    - Wenn `system` `extends` ist, wird der Wert von `speak-as` derselbe sein, als ob `speak-as: auto` auf dem erweiterten Stil angegeben wird.
+    - In allen anderen Fällen hat das Angeben von `auto` denselben Effekt, als ob `speak-as: numbers` angegeben wird.
 
 - `bullets`
-  - : Eine vom {{Glossary("user_agent", "User-Agent")}} definierte Phrase oder ein akustisches Signal zur Darstellung eines Elements einer ungeordneten Liste wird vorgelesen.
+  - : Eine vom {{Glossary("user_agent", "User-Agent")}} definierte Phrase oder ein akustisches Signal zur Darstellung eines Listenelements ohne Ordnung wird vorgelesen.
 - `numbers`
-  - : Der numerische Wert des Zählers wird in der Dokumentsprache vorgelesen.
+  - : Der numerische Wert des Zählers wird in der Sprache des Dokuments vorgelesen.
 - `words`
-  - : Der User-Agent generiert einen Zählerwert wie gewohnt und liest ihn als Wort in der Dokumentsprache vor.
+  - : Der User-Agent generiert einen Zählerwert wie gewohnt und liest ihn als Wort in der Sprache des Dokuments vor.
 - `spell-out`
-  - : Der User-Agent erstellt eine Zählerdarstellung wie gewohnt und würde sie Buchstabe für Buchstabe vorlesen. Wenn der User-Agent nicht weiß, wie ein bestimmtes Zählersymbol vorgelesen werden soll, könnte er es so vorlesen, als ob der Wert von `speak-as` `numbers` wäre.
+  - : Der User-Agent generiert eine Zählerdarstellung wie gewohnt und liest sie Buchstabe für Buchstabe vor. Wenn der User-Agent nicht weiß, wie ein bestimmtes Zählersymbol vorgelesen werden soll, kann er es so vorlesen, als wäre der Wert von `speak-as` `numbers`.
 - `<counter-style-name>`
-  - : Der Name eines anderen Zählerstils, angegeben als ein {{cssxref("&lt;custom-ident&gt;")}}. Wenn enthalten, wird der Zähler in der in diesem Zählerstil angegebenen Form vorgelesen, ähnlich wie die Angabe des {{cssxref("@counter-style/fallback", "fallback")}} Deskriptors. Wenn der angegebene Stil nicht existiert, fällt `speak-as` standardmäßig auf `auto` zurück.
+  - : Der Name eines anderen Zählerstils, angegeben als {{cssxref("&lt;custom-ident&gt;")}}. Wenn eingeschlossen, wird der Zähler in der Form vorgelesen, die in diesem Zählerstil angegeben ist, ähnlich wie beim Angeben des {{cssxref("@counter-style/fallback", "fallback")}} Deskriptors. Wenn der angegebene Stil nicht existiert, standardmäßig `speak-as` zu `auto`.
 
-## Barrierefreiheit
+## Zugänglichkeit
 
-Die Unterstützung für die `speak-as` Eigenschaft durch unterstützende Technologien ist sehr begrenzt. Verlassen Sie sich nicht darauf, um Informationen zu vermitteln, die für das Verständnis des Zwecks der Seite entscheidend sind.
+Die Unterstützung assistiver Technologien für die Eigenschaft `speak-as` ist sehr begrenzt. Verlassen Sie sich nicht darauf, um informationen bereitzustellen, die entscheidend für das Verständnis des Zwecks der Seite sind.
 
 [Let's Talk About Speech CSS | CSS Tricks](https://css-tricks.com/lets-talk-speech-css/) (2017)
 
@@ -62,9 +59,9 @@ Die Unterstützung für die `speak-as` Eigenschaft durch unterstützende Technol
 
 ### Festlegen der gesprochenen Form für einen Zähler
 
-In diesem Beispiel wird das Zählsystem mit unverständlichen Symbolen für die visuellen Markierungen fixiert. Der `speak-as` Deskriptor wird jedoch verwendet, um die Markierungen der Listeneinträge als Zahlen im Barrierefreiheitsbaum festzulegen. Wenn unterstützt, werden Zahlen anstelle von visuellen Markierungen von Screenreadern vorgelesen.
+In diesem Beispiel ist das Zählsystem mit unverständlichen Symbolen für die visuellen Markierungen festgelegt. Der `speak-as` Deskriptor wird jedoch verwendet, um die Listenpunkt-Markierungen in der Zugänglichkeitsbaum als Zahlen festzulegen. Wenn unterstützt, werden Zahlen anstelle der visuellen Markierungen von Screenreadern vorgelesen.
 
-Um das Ergebnis des `speak-as` Deskriptors zu erleben, verwenden Sie unterstützende Technologien wie VoiceOver oder einen anderen Screenreader oder sehen Sie sich das [Barrierefreiheitspanel](https://firefox-source-docs.mozilla.org/devtools-user/index.html#accessibility-inspector) in den Entwicklerwerkzeugen eines Browsers an, der `speak-as` unterstützt.
+Um das Ergebnis des `speak-as` Deskriptors zu erleben, verwenden Sie assistive Technologien wie VoiceOver oder einen anderen Screenreader oder betrachten Sie das [Zugänglichkeitspanel](https://firefox-source-docs.mozilla.org/devtools-user/index.html#accessibility-inspector) in den Entwicklerwerkzeugen eines Browsers, der `speak-as` unterstützt.
 
 #### HTML
 
@@ -109,6 +106,6 @@ Um das Ergebnis des `speak-as` Deskriptors zu erleben, verwenden Sie unterstütz
 
 - Andere {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, und {{cssxref("@counter-style/fallback", "fallback")}}
 - {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}}: Die Funktionsnotation zum Erstellen anonymer Zählerstile.
-- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- {{cssxref("symbols", "symbols()")}}: die funktionale Notation zum Erstellen anonymer Zählerstile.
+- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS lists and counters](/de/docs/Web/CSS/CSS_lists) Modul

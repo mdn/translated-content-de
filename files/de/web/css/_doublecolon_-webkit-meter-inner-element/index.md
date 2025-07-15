@@ -2,12 +2,12 @@
 title: ::-webkit-meter-inner-element
 slug: Web/CSS/::-webkit-meter-inner-element
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}
+{{Non-standard_header}}
 
-**`::-webkit-meter-inner-element`** ist ein proprietäres WebKit CSS-Pseudoelement, das verwendet wird, um Stile auf das äußere enthaltende Element eines {{htmlelement("meter")}}-Elements anzuwenden. Zusätzliches Markup, um das Meter-Element schreibgeschützt darzustellen.
+**`::-webkit-meter-inner-element`** ist ein proprietäres WebKit CSS-Pseudoelement zum Auswählen und Anwenden von Stilen auf das äußere umschließende Element eines {{htmlelement("meter")}}-Elements. Zusätzliche Markup zur Darstellung des Meter-Elements als nur-lesbar.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ l10n:
 
 ## Beispiele
 
-Dies funktioniert nur in WebKit- und Blink-basierten Browsern wie Safari, Chrome und Chromium-basierten Versionen von Edge.
+Dies funktioniert nur in WebKit- und Blink-basierten Browsern, wie Safari, Chrome und Chromium-basierten Versionen von Edge.
 
 ### HTML
 
@@ -71,7 +71,7 @@ if (is_safari) {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

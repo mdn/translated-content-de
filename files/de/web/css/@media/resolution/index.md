@@ -2,16 +2,14 @@
 title: resolution
 slug: Web/CSS/@media/resolution
 l10n:
-  sourceCommit: a18eaa8478fb9da1de8052cb2a18b00be00cdca0
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`resolution`**- [CSS](/de/docs/Web/CSS) [Medienabfrage](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
+Das **`resolution`** [CSS](/de/docs/Web/CSS)-[Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `resolution`-Merkmal wird als ein {{cssxref("&lt;resolution&gt;")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts darstellt. Es handelt sich um ein Bereichs-Merkmal, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um jeweils Mindest- und Höchstwerte abzufragen.
+Das `resolution`-Merkmal wird als {{cssxref("&lt;resolution&gt;")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts darstellt. Es ist ein Bereichsmerkmal, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um minimale bzw. maximale Werte abzufragen.
 
 ## Beispiele
 

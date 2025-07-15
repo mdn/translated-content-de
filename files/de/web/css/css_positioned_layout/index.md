@@ -1,13 +1,11 @@
 ---
-title: CSS Positioniertes Layout
+title: CSS positioned layout
 slug: Web/CSS/CSS_positioned_layout
 l10n:
-  sourceCommit: ec0ac22d16171cb72b7391f4727d43c4ffcbee5b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSS positionierte Layout**-Modul definiert, wie Elemente auf einer Webseite positioniert werden.
+Das Modul **CSS positioned layout** definiert, wie Elemente auf einer Webseite positioniert werden.
 
 ## Referenz
 
@@ -34,16 +32,16 @@ Das **CSS positionierte Layout**-Modul definiert, wie Elemente auf einer Webseit
 
 ## Leitfäden
 
-- [Verständnis von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-  - : Präsentiert das Konzept des Stapelkontexts und erklärt, wie Z-Reihenfolgen funktionieren, mit mehreren Beispielen.
-- [Stapelung ohne die Eigenschaft `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
+- [z-index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+  - : Stellt das Konzept des Stacking-Kontexts vor und erklärt, wie die Z-Ordnung funktioniert, mit mehreren Beispielen.
+- [Stapeln ohne die `z-index` Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
   - : Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Stapelung schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-  - : Wie schwebende Elemente mit der Stapelung gehandhabt werden.
+- [Stapeln von Floating-Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+  - : Wie Floating-Elemente im Stapel behandelt werden.
 - [Verwendung von `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-  - : Wie man `z-index` verwendet, um die Standardstapelreihenfolge zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-  - : CSS-Stapelkontext, die CSS-Funktionen, die neue Stapelkontexte erstellen, und verschachtelte Stapelkontexte.
+  - : Wie man `z-index` verwendet, um die Standardstapelung zu ändern.
+- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+  - : CSS Stacking-Kontext, die CSS-Features, die neue Stacking-Kontexte erstellen, und verschachtelte Stacking-Kontexte.
 
 ## Verwandte Konzepte
 

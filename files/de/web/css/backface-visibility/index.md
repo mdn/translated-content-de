@@ -2,10 +2,8 @@
 title: backface-visibility
 slug: Web/CSS/backface-visibility
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`backface-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
 
@@ -77,7 +75,7 @@ backface-visibility: hidden;
 }
 ```
 
-Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl sie in 2D unsichtbar ist, kann die Rückseite sichtbar werden, wenn eine Transformation dazu führt, dass das Element im 3D-Raum gedreht wird. (Diese Eigenschaft hat keinen Effekt auf 2D-Transformationen, die keine Perspektive haben.)
+Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl in 2D unsichtbar, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keine Auswirkung auf 2D-Transformationen, die keine Perspektive haben.)
 
 ## Syntax
 

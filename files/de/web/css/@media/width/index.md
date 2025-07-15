@@ -2,16 +2,14 @@
 title: width
 slug: Web/CSS/@media/width
 l10n:
-  sourceCommit: 421deed53984505909884b3b290002b228d29e7b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`width`**-[CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Breite des {{Glossary("viewport", "Viewports")}} (oder der Seitenbox, für [seitengestützte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu prüfen.
+Das **`width`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Breite des {{Glossary("viewport", "Viewports")}} (oder des Seitenrahmens, für [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
 
 ## Syntax
 
-Die `width`-Funktion wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Breite des Viewports darstellt. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Präfix-Varianten **`min-width`** und **`max-width`** verwenden können, um jeweils nach Mindest- und Höchstwerten zu fragen.
+Das `width`-Feature wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Breite des Viewports repräsentiert. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-width`** und **`max-width`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 

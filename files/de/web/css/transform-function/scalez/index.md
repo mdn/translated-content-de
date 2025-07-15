@@ -2,12 +2,10 @@
 title: scaleZ()
 slug: Web/CSS/transform-function/scaleZ
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`scaleZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der z-Achse skaliert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der z-Achse skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scaleZ()")}}
 
@@ -97,12 +95,12 @@ transform: scaleZ(-1.4);
 }
 ```
 
-Diese Skalierungstransformation verändert den z-Wert jedes Punkts eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist. In diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop, und die Winkel des Elements bleiben nicht erhalten. `scaleZ(-1)` definiert eine [Axialsymmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), wobei die z-Achse durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
+Diese Skalentransformation verändert die z-Koordinate jedes Punktes eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop, und die Winkel des Elements bleiben nicht erhalten. `scaleZ(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), wobei die z-Achse durch den Ursprung verläuft (wie durch die Eigenschaft {{cssxref("transform-origin")}} spezifiziert).
 
-In den oben erwähnten interaktiven Beispielen wurden [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style) (damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) auf den Würfel gesetzt.
+In den obigen interaktiven Beispielen wurden [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style) (damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) auf den Würfel angewendet.
 
 > [!NOTE]
-> `scaleZ(sz)` ist gleichbedeutend mit
+> `scaleZ(sz)` entspricht
 > `scale3d(1, 1, sz)`.
 
 ## Syntax
@@ -114,7 +112,7 @@ scaleZ(s)
 ### Werte
 
 - `s`
-  - : Ist eine {{cssxref("&lt;number&gt;")}} und repräsentiert den Skalierungsfaktor, der auf die z-Koordinate jedes Punkts des Elements angewendet wird.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor darstellt, der auf die z-Koordinate jedes Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>
@@ -128,7 +126,7 @@ scaleZ(s)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -199,8 +197,8 @@ div {
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-origin")}}
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew` Eigenschaft
+  - Hinweis: Es gibt keine `skew`-Eigenschaft

@@ -2,12 +2,10 @@
 title: :picture-in-picture
 slug: Web/CSS/:picture-in-picture
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:picture-in-picture`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Element, das sich derzeit im Bild-in-Bild-Modus befindet.
+Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt das Element aus, das sich derzeit im Picture-in-Picture-Modus befindet.
 
 ## Syntax
 
@@ -19,15 +17,15 @@ Die **`:picture-in-picture`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/We
 
 ## Verwendungsnotizen
 
-Die Pseudoklasse `:picture-in-picture` ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass die Größe, der Stil oder das Layout von Inhalten automatisch angepasst werden, wenn ein Video zwischen Bild-in-Bild- und traditionellem Präsentationsmodus wechselt.
+Die `:picture-in-picture` Pseudoklasse ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass sie automatisch die Größe, den Stil oder das Layout von Inhalten anpassen, wenn ein Video zwischen Picture-in-Picture und traditionellem Präsentationsmodus wechselt.
 
 ## Beispiele
 
-In diesem Beispiel hat ein Video einen Schatten, wenn es im schwebenden Fenster angezeigt wird.
+In diesem Beispiel erhält ein Video einen Box-Schatten, wenn es im schwebenden Fenster angezeigt wird.
 
 ### HTML
 
-Das HTML der Seite sieht wie folgt aus:
+Das HTML der Seite sieht so aus:
 
 ```html
 <h1>MDN Web Docs Demo: :picture-in-picture pseudo-class</h1>
@@ -40,7 +38,7 @@ Das HTML der Seite sieht wie folgt aus:
 <video id="pip-video"></video>
 ```
 
-Das {{HTMLElement("video")}} mit der ID `"pip-video"` wechselt zwischen einem roten Schatten oder keinem Schatten, abhängig davon, ob es im Bild-in-Bild schwebenden Fenster angezeigt wird oder nicht.
+Das {{HTMLElement("video")}} mit der ID `"pip-video"` erhält abwechselnd einen roten Box-Schatten oder nicht, je nachdem, ob es im Picture-in-Picture-Schwebefenster angezeigt wird.
 
 ### CSS
 
@@ -62,7 +60,7 @@ Die Magie passiert im CSS.
 
 ## Siehe auch
 
-- [Picture-in-Picture-API](/de/docs/Web/API/Picture-in-Picture_API)
+- [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API)
 - [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
 - [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
 - [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled)

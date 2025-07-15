@@ -1,13 +1,11 @@
 ---
-title: CSSOM View
+title: CSSOM-Ansicht
 slug: Web/CSS/CSSOM_view
 l10n:
-  sourceCommit: 69fbf1cdb3cb8e2b3cb5ac21977ebf1b60cc0770
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSSOM View**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, einschließlich der Ermittlung der Position von Layoutboxen von Elementen, der Abfrage der Breite oder Höhe des Viewports durch Skripte sowie des Scrollens eines Elements.
+Das **CSSOM-Ansicht**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren. Dazu gehört, die Position der Layoutboxen eines Elements zu erhalten, die Breite oder Höhe des Ansichtsfensters durch Skript zu ermitteln und auch ein Element zu scrollen.
 
 ## Referenz
 
@@ -44,7 +42,7 @@ Das **CSSOM View**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokume
 
 ### Schnittstellenerweiterungen
 
-Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in anderen Spezifikationen definiert sind.
+Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind, Eigenschaften und Methoden hinzu.
 
 - [`Window`](/de/docs/Web/API/Window)
   - [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio)
@@ -114,12 +112,12 @@ Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in an
   - [`x`](/de/docs/Web/API/MouseEvent/x)
   - [`y`](/de/docs/Web/API/MouseEvent/y)
 
-Dieses Modul definiert geometrische Dienstprogramm-Methoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
+Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
 
-## Leitfäden
+## Leitfaden
 
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeige-Kontext zu spezifizieren, wie ein Fenster auf einem Monitor, ein Viewport auf einem mobilen Gerät, oder eine Position auf einem Blatt Papier beim Drucken.
+  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeige-Kontext wie einem Fenster auf einem Monitor, einem Viewport auf einem mobilen Gerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
 - [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
   - : Das Konzept des Viewports — was es ist, seine Auswirkungen im Hinblick auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
 
@@ -137,7 +135,7 @@ Dieses Modul definiert geometrische Dienstprogramm-Methoden, die auf die Schnitt
 
 ## Siehe auch
 
-- [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS-Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)-Modul
+- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior)-Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul

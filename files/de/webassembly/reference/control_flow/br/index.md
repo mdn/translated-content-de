@@ -2,41 +2,29 @@
 title: br
 slug: WebAssembly/Reference/Control_flow/br
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: b67c2be9feee1463ea5a27e5c7b3e0062162354f
 ---
 
-Die **`br`**-Anweisung verzweigt zu einer Schleife, einem Block oder einem If.
+Die **`br`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, einer [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung.
 
-Andere Varianten von `br` sind `br_if` zum Verzweigen bei einer Bedingung und `br_table` zum Verzweigen zu verschiedenen Blöcken basierend auf einem Argument.
+Andere Varianten von `br` umfassen [`br_if`](/en-US/docs/WebAssembly/Reference/Control_flow/br_if) und [`br_table`](/en-US/docs/WebAssembly/Reference/Control_flow/br_table).
 
 {{InteractiveExample("Wat Demo: br", "tabbed-taller")}}
 
 ```wat interactive-example
 (module
-  ;; import the browser console object, you'll need to pass this in from JavaScript
+  ;; Import the browser console object, which you'll need to pass in from JavaScript
   (import "console" "log" (func $log (param i32)))
 
-  ;; create a global variable and initialize it to 0
-  (global $i (mut i32) (i32.const 0))
-
   (func
-    (loop $my_loop
+    (block $my_block
 
-      ;; add one to $i
-      global.get $i
-      i32.const 1
-      i32.add
-      global.set $i
+      ;; Break out of the block
+      ;; If this is removed, the code will throw an error when it reaches `unreachable`
+      br $my_block
 
-      ;; log the current value of $i
-      global.get $i
-      call $log
-
-      ;; if $i is less than 10 branch to loop
-      global.get $i
-      i32.const 10
-      i32.lt_s
-      br_if $my_loop
+      ;; The code will never reach this point since we broke out of the block
+      unreachable
 
     )
   )
@@ -64,8 +52,6 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Anweisung  | Binärer Opcode |
-| ---------- | -------------- |
-| `br`       | `0x0c`         |
-| `br_if`    | `0x0d`         |
-| `br_table` | `0x0e`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `br`      | `0x0c`         |

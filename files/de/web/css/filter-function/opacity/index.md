@@ -2,12 +2,10 @@
 title: opacity()
 slug: Web/CSS/filter-function/opacity
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`opacity()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet Transparenz auf die Samples im Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`opacity()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet Transparenz auf die Muster im Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: opacity()")}}
 
@@ -42,7 +40,7 @@ filter: opacity(0);
 ```
 
 > [!NOTE]
-> Diese Funktion ist ähnlich der bekannteren {{Cssxref("opacity")}}-Eigenschaft. Der Unterschied ist, dass einige Browser bei der Verwendung von Filtern Hardware-Beschleunigung für eine bessere Leistung bieten.
+> Diese Funktion ist ähnlich der etablierteren {{Cssxref("opacity")}}-Eigenschaft. Der Unterschied besteht darin, dass einige Browser bei Verwendung von Filtern Hardware-Beschleunigung für eine bessere Leistung bieten können.
 
 ## Syntax
 
@@ -53,7 +51,7 @@ opacity(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `0%` ist vollständig transparent, während ein Wert von `100%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
+  - : Der Betrag der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `0%` ist vollständig transparent, während ein Wert von `100%` den Eingabewert unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -91,4 +89,4 @@ opacity(1)
   - {{cssxref("filter-function/invert", "invert()")}}
   - {{cssxref("filter-function/saturate", "saturate()")}}
   - {{cssxref("filter-function/sepia", "sepia()")}}
-- Die CSS-Eigenschaft {{cssxref("opacity")}}
+- Die CSS {{cssxref("opacity")}}-Eigenschaft

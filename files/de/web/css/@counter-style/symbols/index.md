@@ -2,12 +2,10 @@
 title: symbols
 slug: Web/CSS/@counter-style/symbols
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`symbols`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@counter-style")}}-Regel wird verwendet, um die Symbole für die Erstellung von Zählerdarstellungen im angegebenen Zählersystem festzulegen. Das Festlegen dieses Deskriptors ist erforderlich, wenn der Wert des Deskriptors {{cssxref('@counter-style/system', 'system')}} `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist.
+Der **`symbols`** [CSS](/de/docs/Web/CSS) Deskriptor der {{cssxref("@counter-style")}}-Regel wird verwendet, um die Symbole zur Erstellung von Zählerdarstellungen im angegebenen Zählersystem zu spezifizieren. Die Angabe dieses Deskriptors ist verpflichtend, wenn der Wert des {{cssxref('@counter-style/system', 'system')}} Deskriptors `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist.
 
 ## Syntax
 
@@ -21,23 +19,23 @@ symbols: indic-numbers;
 
 ### Werte
 
-Der Deskriptor `symbols` wird als eine Liste aus einem oder mehreren durch Leerzeichen getrennten `<symbol>`-Werten angegeben.
+Der `symbols` Deskriptor wird als Liste von einem oder mehreren durch Leerzeichen getrennten `<symbol>` Werten angegeben.
 
 - `<symbol>`
-  - : Gibt das Symbol an, das im Zählersystem verwendet werden soll. Jedes Symbol in der Liste kann entweder ein {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}} oder ein {{cssxref("&lt;custom-ident&gt;")}} sein. Der `<image>`-Wert kann wiederum als {{cssxref("url_value", "&lt;url&gt;")}} oder {{cssxref("&lt;gradient&gt;")}} angegeben werden.
+  - : Gibt das Symbol an, das im Zählersystem verwendet werden soll. Jedes Symbol in der Liste kann entweder ein {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}}, oder ein {{cssxref("&lt;custom-ident&gt;")}} sein. Der `<image>` Wert kann wiederum als ein {{cssxref("url_value", "&lt;url&gt;")}} oder {{cssxref("&lt;gradient&gt;")}} angegeben werden.
 
 > [!NOTE]
-> Bei der Verwendung eines {{Glossary("identifier", "Identifiers")}} für ein Symbol beachten Sie, dass {{Glossary("ASCII", "ASCII")}}-Nicht-Buchstaben wie `*`, `"`, und `\` nicht als Identifier gelten. Sie müssen entweder als Zeichenkette in Anführungszeichen gesetzt oder maskiert werden.
+> Beim Verwenden eines {{Glossary("identifier", "Bezeichners")}} für ein Symbol beachten Sie, dass {{Glossary("ASCII", "ASCII")}} nicht-Buchstaben wie `*`, `"`, und `\` nicht als Bezeichner gelten. Diese müssen entweder als String angegeben oder escaped werden.
 
 ## Beschreibung
 
-Ein Symbol kann eine Zeichenkette, ein Bild oder ein Identifier sein. Es wird innerhalb der {{cssxref("@counter-style")}}-Regel [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule) verwendet.
+Ein Symbol kann ein String, ein Bild oder ein Bezeichner sein. Es wird innerhalb der {{cssxref("@counter-style")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) verwendet.
 
-Wenn der Wert des Deskriptors {{cssxref('@counter-style/system', 'system')}} `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, muss der Deskriptor `symbols` angegeben werden. Für das `additive`-System verwenden Sie stattdessen den Deskriptor {{cssxref('@counter-style/additive-symbols', 'additive-symbols')}}, um die Symbole anzugeben.
+Wenn der Wert des {{cssxref('@counter-style/system', 'system')}} Deskriptors `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, muss der `symbols`-Deskriptor angegeben werden. Für das `additive`-System verwenden Sie stattdessen den {{cssxref('@counter-style/additive-symbols', 'additive-symbols')}} Deskriptor, um die Symbole anzugeben.
 
-Während ein Leerzeichen zwischen zitierten Symbolen nicht erforderlich ist, verbessert es die Lesbarkeit von CSS. Um ein Anführungszeichen als Symbol zu verwenden, maskieren Sie entweder das Anführungszeichen oder schließen Sie das Zeichen in andere Anführungszeichen ein, z. B. `"'"`.
+Obwohl ein Leerzeichen zwischen den angegebenen Symbolen nicht erforderlich ist, macht es CSS besser lesbar. Um ein Anführungszeichen als Symbol zu verwenden, sollten Sie entweder das Anführungszeichen-Zeichen escapen oder das Zeichen in verschiedene Anführungszeichen setzen, wie zum Beispiel `"'"`.
 
-Wenn Sie Symbole mit Identifiers anstelle von Zeichenketten definieren, beachten Sie die Syntaxregeln für Identifiers. Zum Beispiel, wie oben erwähnt, sind ASCII-Nicht-Buchstaben wie `*` keine Identifiers und müssen entweder zitiert oder maskiert werden. Hexadecimal maskierte Zeichen werden von einem Leerzeichen gefolgt. Dieses Leerzeichen könnte wie der Abstand wirken, der zwei Identifiers trennt, ermöglicht aber, dass Ziffern den hexadecimaleskapierten Zeichen folgen können. Das bedeutet, dass zwei Leerzeichen nach einem hexadecimaleskapierten Identifier eingeschlossen werden müssen, um ihn vom nächsten Identifier zu trennen. Es ist zum Beispiel besser, die Zeichenkette `"\2A 1"` anstelle von `\2A  1` mit zwei Leerzeichen zu verwenden, da Ihre Codewerkzeuge doppelte Leerzeichen entfernen könnten. Es ist generell sicherer, Identifier, die maskiert werden müssen, zu zitieren oder Zeichenketten zu verwenden.
+Wenn Symbole mit Bezeichnern statt mit Strings definiert werden, stellen Sie sicher, dass Sie die Syntaxregeln für Bezeichner verwenden. Zum Beispiel müssen ASCII nicht-Buchstaben wie `*`, wie oben erwähnt, entweder zitiert oder escaped werden. Hex-Escape-Zeichen werden von einem Leerzeichen gefolgt. Dieses Leerzeichen mag wie der Abstand zwischen zwei Bezeichnern erscheinen, ermöglicht jedoch das Folgen von Ziffern nach hexadezimal escapten Zeichen. Das bedeutet, dass zwei Leerzeichen nach einem hexadezimal escapten Bezeichner eingefügt werden müssen, um ihn vom nächsten zu trennen. Zum Beispiel ist es besser, den String `"\2A 1"` statt `\2A  1` mit zwei Leerzeichen zu verwenden, da Ihre Codewerkzeuge möglicherweise doppelte Leerzeichen entfernen. Es ist generell sicherer, Bezeichner, die escapet werden müssen, zu zitieren oder Strings zu verwenden.
 
 ## Formale Definition
 
@@ -49,9 +47,9 @@ Wenn Sie Symbole mit Identifiers anstelle von Zeichenketten definieren, beachten
 
 ## Beispiele
 
-### Festlegen von Zählersymbolen
+### Einstellen von Zählersymbolen
 
-In diesem Beispiel umfasst die Liste der Werte für den Deskriptor `symbols` Buchstaben (`A`, `D`, `E`), eine Zahl in Anführungszeichen (`"1"`) und einen hexadecimaleskapierten Identifier in Anführungszeichen (`"\24B7"`) für das Zeichen `Ⓑ`.
+In diesem Beispiel enthält die Liste der Werte für den `symbols`-Deskriptor Buchstaben (`A`, `D`, `E`), eine Zahl in Anführungszeichen (`"1"`) und einen in Anführungszeichen gesetzten hexadecimalescape Bezeichner (`"\24B7"`) für das Zeichen `Ⓑ`.
 
 #### HTML
 
@@ -92,8 +90,8 @@ In diesem Beispiel umfasst die Liste der Werte für den Deskriptor `symbols` Buc
 
 ## Siehe auch
 
-- {{cssxref("@counter-style")}}-Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
-- Listeneigenschaften: {{cssxref("list-style")}}, {{cssxref("list-style-image")}}, {{cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}}-Funktion
-- {{cssxref("url_value", "&lt;url&gt;")}}-Typ
-- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles)-Modul
+- {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
+- Listenstil-Eigenschaften: {{cssxref("list-style")}}, {{cssxref("list-style-image")}}, {{cssxref("list-style-position")}}
+- {{cssxref("symbols", "symbols()")}} Funktion
+- {{cssxref("url_value", "&lt;url&gt;")}} Typ
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

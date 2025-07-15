@@ -2,16 +2,14 @@
 title: height
 slug: Web/CSS/@media/height
 l10n:
-  sourceCommit: 421deed53984505909884b3b290002b228d29e7b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **`height`**- [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Styles basierend auf der Höhe des {{Glossary("viewport", "Viewports")}} (oder der Seitenbox bei [Paged Media](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
+Die **`height`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Stile basierend auf der Höhe des {{Glossary("viewport", "Viewports")}} (oder des Seitenbereichs, für [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
 
 ## Syntax
 
-Das `height`-Feature wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der der Höhe des Viewports entspricht. Es handelt sich um ein Bereichsfeature, was bedeutet, dass Sie auch die Präfixvarianten **`min-height`** und **`max-height`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Das `height`-Feature wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Höhe des Viewports darstellt. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die Präfixe **`min-height`** und **`max-height`** Varianten verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 

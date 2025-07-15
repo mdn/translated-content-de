@@ -2,20 +2,18 @@
 title: Grid-Wrapper
 slug: Web/CSS/Layout_cookbook/Grid_wrapper
 l10n:
-  sourceCommit: 507825f6292eb73f0a96419d69870d9330b6776f
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das Grid-Wrapper-Muster ist nützlich, um Grid-Inhalte innerhalb eines zentralen Wrappers auszurichten, während es auch ermöglicht wird, dass Elemente ausbrechen und sich an den Rand des enthaltenen Elements oder der Seite ausrichten.
+Das Grid-Wrapper-Muster ist nützlich, um Grid-Inhalte innerhalb eines zentralen Wrappers auszurichten, während es auch erlaubt, dass Elemente ausbrechen und sich am Rand des enthaltenden Elements oder der Seite ausrichten.
 
 ## Anforderungen
 
-Elemente, die auf das Grid gesetzt werden, sollten in der Lage sein, sich an einem horizontal zentrierten Wrapper mit maximaler Breite oder an den äußeren Rändern des Grids oder beiden auszurichten.
+Elemente, die auf dem Grid platziert sind, sollten in der Lage sein, sich entweder an einem horizontal zentrierten Wrapper mit maximaler Breite, an den äußeren Rändern des Grids oder an beiden auszurichten.
 
 ## Rezept
 
-Klicken Sie auf "Abspielen" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___grid-wrapper-example
 <div class="grid">
@@ -79,15 +77,15 @@ body {
 
 {{EmbedLiveSample("grid-wrapper-example", "", "550px")}}
 
-## Getroffene Entscheidungen
+## Gemachte Entscheidungen
 
-Dieses Rezept verwendet die CSS-Grid-Funktion {{cssxref("minmax", "minmax()")}}, um die Grid-Track-Größen in der Eigenschaft {{cssxref("grid-template-columns")}} zu definieren. Für die zentralen Spalten mit einer maximalen Breite können wir einen Mindestwert von `0` oder höher setzen und einen Höchstwert, der die maximale Größe spezifiziert, auf die sich die Spalten-Track ausdehnen werden. Die Verwendung von [relativen](/de/docs/Web/CSS/length#relative_length_units_based_on_font) oder [absoluten](/de/docs/Web/CSS/length#absolute_length_units) {{cssxref("length")}} Einheiten (Pixel, ems, rems) wird eine feste maximale Größe für den zentralen Wrapper schaffen, während die Verwendung von {{cssxref("percentage")}}-Werten oder [Viewport-Einheiten](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport) den Wrapper ermöglichen wird zu wachsen oder zu schrumpfen, abhängig von seinem Kontext.
+Dieses Rezept verwendet die CSS-Grid-Funktion {{cssxref("minmax", "minmax()")}}, um die Rasterspurgrößen in der Eigenschaft {{cssxref("grid-template-columns")}} zu definieren. Für die zentralen Spalten mit einer maximalen Breite können wir einen Mindestwert von `0` oder mehr und einen Maximalwert festlegen, der die maximale Größe angibt, auf die die Spuren der Spalten wachsen werden. Die Verwendung von [relativen](/de/docs/Web/CSS/length#relative_length_units_based_on_font) oder [absoluten](/de/docs/Web/CSS/length#absolute_length_units) {{cssxref("length")}}-Einheiten (Pixel, Ems, Rems) erzeugt eine feste Maximalgröße für den zentralen Wrapper, während die Verwendung von {{cssxref("percentage")}}-Werten oder [Viewport-Einheiten](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport) dazu führt, dass der Wrapper im Hinblick auf seinen Kontext wächst oder schrumpft.
 
-Die äußeren zwei Spalten haben eine maximale Größe von `1fr`, was bedeutet, dass sie sich jeweils ausdehnen werden, um den verbleibenden verfügbaren Platz im Grid-Container zu füllen.
+Die äußeren beiden Spalten haben eine Maximalgröße von `1fr`, was bedeutet, dass sie sich jeweils ausdehnen werden, um den verbleibenden verfügbaren Platz im Grid-Container auszufüllen.
 
 ## Nützliche Fallbacks oder alternative Methoden
 
-Um das Grid horizontal auf der Seite zu zentrieren, können Sie eine `max-width` zusammen mit linken und rechten `auto` {{cssxref("margin")}}s setzen:
+Um das Grid horizontal auf der Seite zu zentrieren, können Sie eine `max-width` zusammen mit linken und rechten `auto`-{{cssxref("margin")}}s festlegen:
 
 ```css
 .grid {
@@ -98,11 +96,11 @@ Um das Grid horizontal auf der Seite zu zentrieren, können Sie eine `max-width`
 
 ## Barrierefreiheitsbedenken
 
-Obwohl CSS-Grid ermöglicht, Elemente irgendwo (im vernünftigen Rahmen) zu positionieren, ist es wichtig, sicherzustellen, dass Ihr zugrunde liegendes Markup einer logischen Reihenfolge folgt (siehe [CSS-Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility) für mehr Details).
+Obwohl CSS Grid ermöglicht, Elemente überall (im Rahmen des Möglichen) zu positionieren, ist es wichtig, dass Ihr zugrunde liegendes Markup einer logischen Reihenfolge folgt (siehe [CSS Grid Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility) für mehr Details).
 
 ## Siehe auch
 
 - {{Cssxref("grid-template-columns")}}-Eigenschaft
-- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)-Modul
-- [Mehr Flexibilität mit `minmax()`](https://css-irl.info/more-flexibility-with-minmax/) (2018)
-- [Ausbrechen mit CSS-Grid](https://rachelandrew.co.uk/archives/2017/06/01/breaking-out-with-css-grid-explained/) (2017)
+- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)-Modul
+- [CSS Grid: Mehr Flexibilität mit `minmax()`](https://css-irl.info/more-flexibility-with-minmax/) (2018)
+- [Ausbrechen mit CSS Grid erklärt](https://rachelandrew.co.uk/archives/2017/06/01/breaking-out-with-css-grid-explained/) (2017)

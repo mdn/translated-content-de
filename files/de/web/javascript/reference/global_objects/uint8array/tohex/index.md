@@ -3,12 +3,12 @@ title: Uint8Array.prototype.toHex()
 short-title: toHex()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8Array/toHex
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: ac71221e1987611d58450dbee82642c83285c5a0
 ---
 
 Die **`toHex()`**-Methode von {{jsxref("Uint8Array")}}-Instanzen gibt einen hex-kodierten String basierend auf den Daten in diesem `Uint8Array`-Objekt zurück.
 
-Diese Methode erstellt Strings aus einem Byte-Array. Um einzelne Zahlen in Hexadezimal umzuwandeln, verwenden Sie stattdessen die {{jsxref("Number.prototype.toString()")}}-Methode mit `radix` auf `16` gesetzt.
+Diese Methode erstellt Strings aus einem Bytearray. Um einzelne Zahlen in Hexadezimalzahlen zu konvertieren, verwenden Sie stattdessen die Methode {{jsxref("Number.prototype.toString()")}} mit `radix` auf `16` gesetzt.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ein hex-kodierter String, der die Daten im `Uint8Array` darstellt.
 
 ## Beispiele
 
-### Kodierung von Binärdaten
+### Binärdaten kodieren
 
-Dieses Beispiel kodiert Daten aus einem `Uint8Array` in einen Hex-String.
+Dieses Beispiel kodiert Daten aus einem `Uint8Array` in einen hex-String.
 
 ```js
 const uint8Array = new Uint8Array([202, 254, 208, 13]);
@@ -40,7 +40,7 @@ for (let i = 0; i < data.length; i += 3) {
 }
 // "ff0000"
 // "00ff00"
-// "00ff00"
+// "0000ff"
 ```
 
 ## Spezifikationen

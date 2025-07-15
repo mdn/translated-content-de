@@ -2,12 +2,10 @@
 title: columns
 slug: Web/CSS/columns
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`columns`** [CSS](/de/docs/Web/CSS) Kurzschreibweise legt die Anzahl der Spalten fest, die verwendet werden sollen, um die Inhalte eines Elements darzustellen, sowie die Breiten dieser Spalten.
+Die **`columns`** [CSS](/de/docs/Web/CSS) Kurzschreibweise legt die Anzahl der Spalten fest, die zur Darstellung des Inhalts eines Elements verwendet werden sollen, sowie die Breite dieser Spalten.
 
 {{InteractiveExample("CSS Demo: columns")}}
 
@@ -46,7 +44,7 @@ columns: 3;
 }
 ```
 
-## Bestandskomponenten
+## Bestandeigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -76,14 +74,14 @@ columns: revert-layer;
 columns: unset;
 ```
 
-Die `columns`-Eigenschaft kann in beliebiger Reihenfolge als einer oder zwei der unten aufgeführten Werte angegeben werden.
+Die `columns` Eigenschaft kann als einer oder zwei der unten aufgeführten Werte spezifiziert werden, in beliebiger Reihenfolge.
 
 ### Werte
 
 - `<'column-width'>`
-  - : Die ideale Spaltenbreite, definiert als ein {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Die tatsächliche Breite kann breiter oder schmaler sein, um den verfügbaren Platz anzupassen. Siehe {{cssxref("column-width")}}.
+  - : Die ideale Spaltenbreite, definiert als ein {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Die tatsächliche Breite kann breiter oder schmaler sein, um in den verfügbaren Platz zu passen. Siehe {{cssxref("column-width")}}.
 - `<'column-count'>`
-  - : Die ideale Anzahl von Spalten, in die der Inhalt eines Elements geflossen werden soll, definiert als ein {{cssxref("&lt;integer&gt;")}} oder das Schlüsselwort `auto`. Wenn weder dieser Wert noch die Breite der Spalte `auto` sind, gibt er lediglich die maximal zulässige Anzahl von Spalten an. Siehe {{cssxref("column-count")}}.
+  - : Die ideale Anzahl von Spalten, in die der Inhalt des Elements fließen soll, definiert als ein {{cssxref("&lt;integer&gt;")}} oder das Schlüsselwort `auto`. Wenn weder dieser Wert noch die Breite der Spalte `auto` sind, gibt dies lediglich die maximal zulässige Anzahl von Spalten an. Siehe {{cssxref("column-count")}}.
 
 ## Formale Definition
 
@@ -95,7 +93,7 @@ Die `columns`-Eigenschaft kann in beliebiger Reihenfolge als einer oder zwei der
 
 ## Beispiele
 
-### Drei gleichmäßige Spalten festlegen
+### Festlegen von drei gleich breiten Spalten
 
 #### HTML
 
@@ -130,5 +128,5 @@ Die `columns`-Eigenschaft kann in beliebiger Reihenfolge als einer oder zwei der
 
 - {{cssxref("widows")}}
 - {{cssxref("orphans")}}
-- [Seitenaufrufe-Medien](/de/docs/Web/CSS/CSS_paged_media)
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Seitenbasierte Medien](/de/docs/Web/CSS/CSS_paged_media)
+- [Lernen: Mehrspaltenlayout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)

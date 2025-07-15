@@ -2,12 +2,10 @@
 title: <angle>
 slug: Web/CSS/angle
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<angle>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Winkelwert, der in Grad, Gon, Radiant oder Drehungen ausgedrückt wird. Er wird zum Beispiel in {{cssxref("&lt;gradient&gt;")}}s und einigen {{cssxref("transform")}} Funktionen verwendet.
+Der **`<angle>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Winkelwert, der in Grad, Gon, Radiant oder Umdrehungen ausgedrückt wird. Er wird zum Beispiel in {{cssxref("&lt;gradient&gt;")}}s und in einigen {{cssxref("transform")}}-Funktionen verwendet.
 
 {{InteractiveExample("CSS Demo: &amp;lt;angle&amp;gt;")}}
 
@@ -47,57 +45,57 @@ transform: rotate(1.75turn);
 
 ## Syntax
 
-Der `<angle>` Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}}, gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen Dimensionen gibt es keinen Leerraum zwischen der Einheit und der Zahl. Die Winkeleinheit ist optional nach der Zahl `0`.
+Der `<angle>`-Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen Dimensionen gibt es keinen Leerraum zwischen dem Einheitenliteral und der Zahl. Die Winkeleinheit ist nach der Zahl `0` optional.
 
-Optional kann sie durch ein einzelnes `+` oder `-` Zeichen vorangestellt werden. Positive Zahlen repräsentieren Winkel im Uhrzeigersinn, während negative Zahlen Winkel gegen den Uhrzeigersinn repräsentieren. Für statische Eigenschaften einer gegebenen Einheit kann jeder Winkel durch verschiedene äquivalente Werte dargestellt werden. Zum Beispiel entspricht `90deg` `-270deg`, und `1turn` entspricht `4turn`. Bei dynamischen Eigenschaften, wie bei der Anwendung einer {{cssxref("animation")}} oder {{cssxref("transition")}}, wird der Effekt jedoch unterschiedlich sein.
+Optional kann ein einzelnes `+` oder `-` Zeichen vorangestellt werden. Positive Zahlen repräsentieren im Uhrzeigersinn laufende Winkel, während negative Zahlen gegen den Uhrzeigersinn laufende Winkel darstellen. Für statische Eigenschaften einer gegebenen Einheit kann jeder Winkel durch verschiedene äquivalente Werte dargestellt werden. Zum Beispiel entspricht `90deg` `-270deg`, und `1turn` entspricht `4turn`. Für dynamische Eigenschaften, wie bei der Anwendung einer {{cssxref("animation")}} oder {{cssxref("transition")}}, wird die Wirkung dennoch unterschiedlich sein.
 
 ### Einheiten
 
 - `deg`
-  - : Repräsentiert einen Winkel in [Grad](https://en.wikipedia.org/wiki/Degree_%28angle%29). Ein voller Kreis beträgt `360deg`. Beispiele: `0deg`, `90deg`, `14.23deg`.
+  - : Repräsentiert einen Winkel in [Grad](https://en.wikipedia.org/wiki/Degree_%28angle%29). Ein voller Kreis entspricht `360deg`. Beispiele: `0deg`, `90deg`, `14.23deg`.
 - `grad`
-  - : Repräsentiert einen Winkel in [Gon](https://en.wikipedia.org/wiki/Gradian). Ein voller Kreis beträgt `400grad`. Beispiele: `0grad`, `100grad`, `38.8grad`.
+  - : Repräsentiert einen Winkel in [Gon](https://en.wikipedia.org/wiki/Gradian). Ein voller Kreis entspricht `400grad`. Beispiele: `0grad`, `100grad`, `38.8grad`.
 - `rad`
-  - : Repräsentiert einen Winkel in [Radiant](https://en.wikipedia.org/wiki/Radian). Ein voller Kreis beträgt 2π Radianten, was ungefähr `6.2832rad` entspricht. `1rad` sind 180/π Grad. Beispiele: `0rad`, `1.0708rad`, `6.2832rad`.
+  - : Repräsentiert einen Winkel in [Radiant](https://en.wikipedia.org/wiki/Radian). Ein voller Kreis entspricht 2π Radiant, was `6.2832rad` annähernd entspricht. `1rad` entspricht 180/π Grad. Beispiele: `0rad`, `1.0708rad`, `6.2832rad`.
 - `turn`
-  - : Repräsentiert einen Winkel in einer Anzahl von Drehungen. Ein voller Kreis beträgt `1turn`. Beispiele: `0turn`, `0.25turn`, `1.2turn`.
+  - : Repräsentiert einen Winkel in Anzahl von Umdrehungen. Ein voller Kreis entspricht `1turn`. Beispiele: `0turn`, `0.25turn`, `1.2turn`.
 
 ## Beispiele
 
-### Einstellen eines rechtslaufenden rechten Winkels
+### Einstellung eines im Uhrzeigersinn verlaufenden rechten Winkels
 
 <table class="standard-table">
   <tbody>
     <tr>
-      <td><img class="default internal" src="angle90.png" alt="Ein Diagramm, das eine rechtsdrehende 90-Grad-Drehung entlang eines Kreises zeigt, indem vom obersten Punkt zum rechten Punkt bewegt wird." /></td>
+      <td><img class="default internal" src="angle90.png" alt="Ein Diagramm, das eine im Uhrzeigersinn verlaufende 90-Grad-Drehung entlang eines Kreises zeigt, indem vom obersten Punkt zum rechten Punkt bewegt wird." /></td>
       <td><code>90deg = 100grad = 0.25turn ≈ 1.5708rad</code></td>
     </tr>
   </tbody>
 </table>
 
-### Einstellen eines flachen Winkels
+### Einstellung eines flachen Winkels
 
 <table class="standard-table">
   <tbody>
     <tr>
-      <td><img class="default internal" src="angle180.png" alt="Ein Diagramm, das eine rechtsdrehende 180-Grad-Drehung entlang eines Kreises zeigt, indem vom obersten Punkt zum untersten Punkt bewegt wird." /></td>
+      <td><img class="default internal" src="angle180.png" alt="Ein Diagramm, das eine im Uhrzeigersinn verlaufende 180-Grad-Drehung entlang eines Kreises zeigt, indem vom obersten Punkt zum untersten Punkt bewegt wird." /></td>
       <td><code>180deg = 200grad = 0.5turn ≈ 3.1416rad</code></td>
     </tr>
   </tbody>
 </table>
 
-### Einstellen eines linksdrehenden rechten Winkels
+### Einstellung eines gegen den Uhrzeigersinn verlaufenden rechten Winkels
 
 <table class="standard-table">
   <tbody>
     <tr>
-      <td><img class="default internal" src="angleminus90.png" alt="Ein Diagramm, das eine linksdrehende 90-Grad-Drehung entlang eines Kreises zeigt, indem vom obersten Punkt zum linken Punkt bewegt wird." /></td>
+      <td><img class="default internal" src="angleminus90.png" alt="Ein Diagramm, das eine gegen den Uhrzeigersinn verlaufende 90-Grad-Drehung entlang eines Kreises zeigt, indem vom obersten Punkt zum linken Punkt bewegt wird." /></td>
       <td><code>-90deg = -100grad = -0.25turn ≈ -1.5708rad</code></td>
     </tr>
   </tbody>
 </table>
 
-### Einstellen eines Nullwinkels
+### Einstellung eines null Winkels
 
 <table class="standard-table">
   <tbody>
@@ -118,9 +116,9 @@ Optional kann sie durch ein einzelnes `+` oder `-` Zeichen vorangestellt werden.
 
 ## Siehe auch
 
-- [CSS Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
+- [CSS-Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
 - Der [`<gradient>`](/de/docs/Web/CSS/gradient) Typ
-- CSS Rotations-Transformationen: [`rotate()`](/de/docs/Web/CSS/transform-function/rotate), [`rotate3d()`](/de/docs/Web/CSS/transform-function/rotate3d), [`rotateX()`](/de/docs/Web/CSS/transform-function/rotateX), [`rotateY()`](/de/docs/Web/CSS/transform-function/rotateY), und [`rotateZ()`](/de/docs/Web/CSS/transform-function/rotateZ)
+- CSS-Rotations-Transformationen: [`rotate()`](/de/docs/Web/CSS/transform-function/rotate), [`rotate3d()`](/de/docs/Web/CSS/transform-function/rotate3d), [`rotateX()`](/de/docs/Web/CSS/transform-function/rotateX), [`rotateY()`](/de/docs/Web/CSS/transform-function/rotateY) und [`rotateZ()`](/de/docs/Web/CSS/transform-function/rotateZ)
 - [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
 - [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)

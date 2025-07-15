@@ -1,13 +1,11 @@
 ---
-title: CSS-Bilder
+title: CSS images
 slug: Web/CSS/CSS_images
 l10n:
-  sourceCommit: 2d19a88d0cc560f031a07585bf57f005fec02670
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Verläufe und andere Bildtypen enthält), wie sie skaliert werden und wie sie und anderer ersetzter Inhalt mit den verschiedenen Layoutmodellen interagieren.
+Das **CSS images** Modul definiert die Arten von Bildern, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}} Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie diese Bilder skaliert werden können und wie sie sowie anderer ersetzter Inhalt mit den verschiedenen Layoutmodellen interagieren.
 
 ## Referenz
 
@@ -31,7 +29,7 @@ Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden k
 - {{CSSxRef("element", "element()")}}
 - {{CSSxRef("image/image-set", "image-set()")}}
 
-Die Spezifikation definiert auch die {{CSSxRef("image/image", "image()")}}-Funktion, die derzeit von keinem Browser unterstützt wird.
+Die Spezifikation definiert auch die {{CSSxRef("image/image", "image()")}} Funktion, die noch von keinem Browser unterstützt wird.
 
 ### Datentypen
 
@@ -41,16 +39,16 @@ Die Spezifikation definiert auch die {{CSSxRef("image/image", "image()")}}-Funkt
 ## Leitfäden
 
 - [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-  - : Präsentiert eine spezifische Art von CSS-Bildern, _Verläufe_, und wie diese erstellt und verwendet werden.
+  - : Stellt eine spezifische Art von CSS-Bildern vor, _Verläufe_, und erklärt, wie man diese erstellt und verwendet.
 
-- [Implementieren von Bildsprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
-  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anforderungen zu reduzieren und die Verfügbarkeit einer Seite zu beschleunigen.
+- [Implementierung von Bild-Sprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
-- [Styling von ersetzten Elementen](/de/docs/Web/CSS/CSS_images/Replaced_element_properties)
-  - : Führt die Eigenschaften ein, die nur auf _ersetzte Elemente_ angewendet werden.
+- [Gestaltung ersetzter Elemente](/de/docs/Web/CSS/CSS_images/Replaced_element_properties)
+  - : Führt die Eigenschaften ein, die nur für _ersetzte Elemente_ gelten.
 
-- [Verstehen von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-  - : Lernen Sie die `aspect-ratio`-Eigenschaft kennen, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gängige Anwendungsfälle für Seitenverhältnisse.
+- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+  - : Lernen Sie die `aspect-ratio` Eigenschaft kennen, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und betrachten Sie einige häufige Anwendungsfälle von Seitenverhältnissen.
 
 ## Verwandte Konzepte
 
@@ -63,7 +61,7 @@ Die Spezifikation definiert auch die {{CSSxRef("image/image", "image()")}}-Funkt
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS-Komposition und -Überblendung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
-- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
+- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul

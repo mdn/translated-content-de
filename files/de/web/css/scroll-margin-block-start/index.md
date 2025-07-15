@@ -2,12 +2,10 @@
 title: scroll-margin-block-start
 slug: Web/CSS/scroll-margin-block-start
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-margin-block-start` definiert den Abstand des Scroll-Snap-Bereichs am Anfang der Block-Dimension, der verwendet wird, um dieses Box-Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Randbox genommen, deren rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum der Scroll-Container) gefunden und dann die angegebenen Ausdehnungen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-block-start` definiert den Rand des Scroll-Snap-Bereichs am Anfang der Blockdimension, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzupassen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen wird, deren rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden wird, und dann die angegebenen Ränder hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-block-start")}}
 
@@ -89,7 +87,7 @@ scroll-margin-block-start: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abweichungswert von der Block-Startkante des Scroll-Containers.
+  - : Eine Erweiterung von der Blockanfangskante des Scroll-Containers.
 
 ## Formale Definition
 

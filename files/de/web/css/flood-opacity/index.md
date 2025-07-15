@@ -2,17 +2,15 @@
 title: flood-opacity
 slug: Web/CSS/flood-opacity
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`flood-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft der aktuellen Filter-Primitive-Subregion in {{SVGElement("feFlood")}} und {{SVGElement("feDropShadow")}} Elementen innerhalb eines {{SVGElement("filter")}}. Falls vorhanden, überschreibt sie das {{SVGAttr("flood-opacity")}}-Attribut des Elements.
 
-Die **`flood-opacity`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Deckkraft der aktuellen Filter-Primärregion in {{SVGElement("feFlood")}} und {{SVGElement("feDropShadow")}}-Elementen innerhalb eines {{SVGElement("filter")}}. Wenn vorhanden, überschreibt sie das {{SVGAttr("flood-opacity")}}-Attribut des Elements.
-
-Der Eigenschaftswert beeinflusst den Alpha-Kanal des {{cssxref("flood-color")}}; es kann die Transparenz einer `flood-color` erhöhen, aber nicht die durch die `flood-color`-Eigenschaft definierte Farbe undurchsichtiger machen.
+Der Wert der Eigenschaft beeinflusst den Alpha-Kanal des {{cssxref("flood-color")}}; er kann die Transparenz einer `flood-color` erhöhen, aber nicht die durch die `flood-color` Eigenschaft definierte Farbe undurchlässiger machen.
 
 > [!NOTE]
-> Die `flood-opacity`-Eigenschaft gilt nur für {{SVGElement("feFlood")}} und {{SVGElement("feDropShadow")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `flood-opacity` Eigenschaft gilt nur für {{SVGElement("feFlood")}} und {{SVGElement("feDropShadow")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -31,16 +29,15 @@ flood-opacity: unset;
 
 ### Werte
 
-Das `<opacity-value>` ist eine {{cssxref("number")}} oder {{cssxref("percentage")}}, die die Deckkraft des SVG-Verlaufs-`<flood>`-Elements angibt.
+Der `<opacity-value>` ist eine {{cssxref("number")}} oder {{cssxref("percentage")}}, die die Deckkraft des SVG-Gradienten `<flood>`-Elements angibt.
 
 - {{cssxref("number")}}
-
   - : Ein numerischer Wert zwischen `0` und `1`, einschließlich.
 
 - {{cssxref("percentage")}}
   - : Ein Prozentwert zwischen `0%` und `100%`, einschließlich.
 
-Mit `0` oder `0%` eingestellt, ist die Flut vollständig transparent. Mit `1` oder `100%` eingestellt, hat das Element die volle Deckkraft des `flood-color`-Werts, der möglicherweise teilweise undurchsichtig ist oder nicht.
+Mit `0` oder `0%` ist die Flut vollständig transparent. Mit `1` oder `100%` hat das Element die volle Deckkraft des `flood-color`-Wertes, der möglicherweise teilweise undurchsichtig ist.
 
 ## Formale Definition
 
@@ -54,11 +51,11 @@ Mit `0` oder `0%` eingestellt, ist die Flut vollständig transparent. Mit `1` od
 
 ### Definieren der Flutdeckkraft eines Filters
 
-Dieses Beispiel demonstriert die grundlegende Verwendung von `flood-opacity` und wie die CSS-`flood-opacity`-Eigenschaft Vorrang vor dem `flood-opacity`-Attribut hat.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `flood-opacity` und wie die CSS-Eigenschaft `flood-opacity` Vorrang vor dem Attribut `flood-opacity` hat.
 
 #### HTML
 
-Wir haben ein SVG mit einigen {{SVGElement("filter")}}-Elementen, jedes mit einem {{SVGElement("feFlood")}}-Kind. Die `<feFlood>` definieren die Filter als `seagreen`, wobei das erste durch sein `flood-opacity`-Attribut als vollständig undurchsichtig deklariert ist und das zweite vollständig transparent ist. Wir haben zwei {{SVGElement("rect")}}-Elemente eingefügt, jedes mit einem Filter-Attribut.
+Wir haben ein SVG mit einigen {{SVGElement("filter")}} Elementen, von denen jedes ein {{SVGElement("feFlood")}} Kind enthalten. Das `<feFlood>` definiert die Filter als `seagreen`, wobei das erste durch sein `flood-opacity` Attribut als vollständig undurchsichtig deklariert wird und das zweite vollständig transparent ist. Wir haben zwei {{SVGElement("rect")}}-Elemente eingefügt, von denen jedes ein Filterattribut hat.
 
 ```html
 <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +73,7 @@ Wir haben ein SVG mit einigen {{SVGElement("filter")}}-Elementen, jedes mit eine
 
 #### CSS
 
-Wir definieren die {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("x")}}, und {{cssxref("y")}}, Positionierung unserer Rechtecke mit CSS und fügen einen sich wiederholenden linearen Verlauf als {{cssxref("background-image")}} auf das SVG, damit die Deckkraft der flood-color deutlicher wird:
+Wir definieren die {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("x")}}, und {{cssxref("y")}} Positionierung unserer Rechtecke mit CSS, und fügen dem SVG ein sich wiederholendes lineares Gradient als {{cssxref("background-image")}} hinzu, damit die Deckkraft der Flutfarbe deutlicher wird:
 
 ```css
 svg {
@@ -97,7 +94,7 @@ rect {
 }
 ```
 
-Dann wenden wir unterschiedliche Flutdeckkraftwerte auf die `<feFlood>`-Elemente mit der CSS-`flood-opacity`: Eigenschaft an:
+Wir wenden dann unterschiedliche Flutdeckkraft-Werte auf die `<feFlood>` Elemente mit der CSS-Eigenschaft `flood-opacity`: an:
 
 ```css
 #flood1 feFlood {
@@ -112,7 +109,7 @@ Dann wenden wir unterschiedliche Flutdeckkraftwerte auf die `<feFlood>`-Elemente
 
 {{EmbedLiveSample(" Defining the flood opacity of a filter", "300", "220")}}
 
-Die Attribute definierten das erste Quadrat als vollständig undurchsichtig und das zweite als vollständig transparent, aber diese Werte wurden durch die CSS-`flood-opacity`-Werte überschrieben. Die seagreen-Filter sind jeweils 50% und 90% undurchsichtig.
+Die Attribute definierten das erste Quadrat als vollständig undurchsichtig und das zweite als vollständig transparent, aber diese Werte wurden durch die CSS `flood-opacity` Werte überschrieben. Die seagrünen Filter sind jeweils 50% und 90% undurchsichtig.
 
 ## Spezifikationen
 
@@ -132,4 +129,4 @@ Die Attribute definierten das erste Quadrat als vollständig undurchsichtig und 
 - {{cssxref("box-shadow")}}
 - {{cssxref("text-shadow")}}
 - {{cssxref("filter-function")}}, einschließlich {{cssxref("filter-function/opacity", "opacity()")}}
-- SVG {{SVGAttr("flood-opacity")}}-Attribut
+- SVG {{SVGAttr("flood-opacity")}} Attribut

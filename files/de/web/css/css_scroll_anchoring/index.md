@@ -1,17 +1,15 @@
 ---
-title: CSS Scroll-Anker
+title: CSS-Scroll-Anker
 slug: Web/CSS/CSS_scroll_anchoring
 l10n:
-  sourceCommit: 67ffd36390aed779e0c69ca8e79ddeeb2d82330e
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **CSS-Scroll-Anker**-Modul definiert einen Mechanismus, um eine Seitenbewegung zu verhindern, die aufgrund von DOM-Änderungen oberhalb des sichtbaren Bereichs eines Scrollkastens auftritt, während der Benutzer den sichtbaren Inhalt konsumiert.
 
-Das **CSS Scroll-Anker**-Modul definiert einen Mechanismus, um Bewegungen der Seite durch DOM-Änderungen oberhalb des sichtbaren Bereichs eines Scroll-Kastens zu verhindern, während der Benutzer den sichtbaren Inhalt konsumiert.
+Scroll-Anker versuchen, die Ansicht des Benutzers auf das Dokument während Layoutänderungen stabil zu halten. Dies erfolgt, indem ein DOM-Knoten ausgewählt wird (der Ankerknoten), dessen Bewegung zur Anpassung der Scroll-Position verwendet wird. Der Ankerknoten ist immer ein Nachfahre des Scrollkastens.
 
-Scroll-Anker versuchen, die Ansicht des Benutzers auf das Dokument während Layoutänderungen stabil zu halten. Dies geschieht, indem ein DOM-Knoten (der Ankerknoten) ausgewählt wird, dessen Bewegung verwendet wird, um Anpassungen an der Scroll-Position zu bestimmen. Der Ankerknoten ist immer ein Nachfahre des Scroll-Kastens.
-
-Für Scroll-Container, die an ein Element {{Glossary("Scroll_snap", "geknüpft")}} sind, ist der Scroll-Anker auf Anpassungen beschränkt, die durch erneutes Knüpfen erlaubt wären.
+Bei Scroll-Containern, die auf ein Element {{Glossary("Scroll_snap", "eingeschnappt")}} sind, beschränkt sich das Scroll-Anker auf Anpassungen, die durch erneutes Einrasten erlaubt wären.
 
 ## Referenz
 
@@ -22,12 +20,12 @@ Für Scroll-Container, die an ein Element {{Glossary("Scroll_snap", "geknüpft")
 ## Glossar und Definitionen
 
 - {{Glossary("Scroll_container", "Scroll-Container")}}
-- {{Glossary("Scroll_snap", "Scroll-Knüpfen")}}
+- {{Glossary("Scroll_snap", "Scroll-Snap")}}
 
 ## Leitfäden
 
-- [Übersicht über Scroll-Anker](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
-  - : Was ist Scroll-Anker, Unterdrückungsauslöser und wann sowie wie diese Browserfunktion aktiviert und deaktiviert wird.
+- [Übersicht über das Scroll-Anker](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
+  - : Was ist Scroll-Anker, Unterdrückungsauslöser und wann und wie man diese Browserfunktion aktiviert und deaktiviert.
 
 ## Verwandte Konzepte
 
@@ -39,6 +37,6 @@ Für Scroll-Container, die an ein Element {{Glossary("Scroll_snap", "geknüpft")
 
 ## Siehe auch
 
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scroll-Knüpfen](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSS Überscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS-Überscrollverhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul

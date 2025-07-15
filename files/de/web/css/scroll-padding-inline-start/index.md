@@ -2,12 +2,10 @@
 title: scroll-padding-inline-start
 slug: Web/CSS/scroll-padding-inline-start
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-inline-start` definiert Offsets für die Startkante in der Inline-Dimension der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion für das Platzieren von Elementen im Sichtbereich des Benutzers verwendet wird. Dadurch kann der Autor Regionen des Scrollports ausschließen, die durch andere Inhalte (wie fix positionierte Symbolleisten oder Seitenleisten) verdeckt sind, oder um mehr Abstand zwischen einem gezielten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-start` definiert Versätze für die Startkante in der Inline-Dimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge in den Blick des Nutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie z. B. fixierte Toolbars oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Kanten des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-start")}}
 
@@ -96,9 +94,9 @@ scroll-padding-inline-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichtetes Offset von der Inline-Startkante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der Inline-Startkante des Scrollports, als gültige Länge oder als Prozentsatz.
 - `auto`
-  - : Das Offset wird durch den User-Agent bestimmt. Dies ist in der Regel 0px, aber ein User-Agent kann etwas anderes erkennen und anwenden, wenn ein anderer Wert geeigneter ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies wird in der Regel 0px sein, aber ein User-Agent kann etwas anderes feststellen und tun, wenn ein Wert ungleich Null angemessener ist.
 
 ## Formale Definition
 

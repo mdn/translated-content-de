@@ -2,12 +2,10 @@
 title: writing-mode
 slug: Web/CSS/writing-mode
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`writing-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob Textzeilen horizontal oder vertikal angeordnet werden und in welche Richtung sich Blöcke fortbewegen. Wenn sie für ein ganzes Dokument festgelegt wird, sollte sie auf dem Wurzelelement (dem `html`-Element für HTML-Dokumente) gesetzt werden.
+Die **`writing-mode`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt fest, ob Textzeilen horizontal oder vertikal angeordnet werden und in welche Richtung sich Blöcke fortbewegen. Wenn sie für ein gesamtes Dokument festgelegt wird, sollte sie auf dem Root-Element (dem `html`-Element für HTML-Dokumente) gesetzt werden.
 
 {{InteractiveExample("CSS Demo: writing-mode")}}
 
@@ -59,7 +57,7 @@ writing-mode: sideways-lr;
 }
 ```
 
-Diese Eigenschaft gibt die _Blockflussrichtung_ an, also die Richtung, in der Blockcontainer gestapelt werden und die Richtung, in der Inline-Inhalte innerhalb eines Blockcontainers fließen. Somit bestimmt sie auch die Reihenfolge der Blockinhalte.
+Diese Eigenschaft spezifiziert die _Blockflussrichtung_, also die Richtung, in der Block-Containerelemente gestapelt werden, und die Richtung, in der Inline-Inhalte innerhalb eines Blockcontainers fließen. Sie bestimmt daher auch die Anordnung des Blockinhalts.
 
 ## Syntax
 
@@ -79,50 +77,50 @@ writing-mode: revert-layer;
 writing-mode: unset;
 ```
 
-Die `writing-mode`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben. Die Flussrichtung in horizontalen Skripten wird auch von der [Richtung dieses Skripts](https://www.w3.org/International/questions/qa-scripts.en) beeinflusst, entweder von links nach rechts (`ltr`, wie Englisch und die meisten anderen Sprachen) oder von rechts nach links (`rtl`, wie Hebräisch oder Arabisch).
+Die `writing-mode`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben. Die Flussrichtung in horizontalen Schriften wird auch von der [Richtung dieser Schrift](https://www.w3.org/International/questions/qa-scripts.en) beeinflusst, entweder von links nach rechts (`ltr`, wie Englisch und die meisten anderen Sprachen) oder von rechts nach links (`rtl`, wie Hebräisch oder Arabisch).
 
 ### Werte
 
 - `horizontal-tb`
-  - : Für `ltr`-Skripte fließt der Inhalt horizontal von links nach rechts. Für `rtl`-Skripte fließt der Inhalt horizontal von rechts nach links. Die nächste horizontale Linie wird unter der vorherigen Linie positioniert.
+  - : Bei `ltr`-Schriften fließen Inhalte horizontal von links nach rechts. Bei `rtl`-Schriften fließen Inhalte horizontal von rechts nach links. Die nächste horizontale Linie wird unter der vorherigen Linie positioniert.
 - `vertical-rl`
-  - : Für `ltr`-Skripte fließt der Inhalt vertikal von oben nach unten, und die nächste vertikale Linie wird links der vorherigen Linie positioniert. Für `rtl`-Skripte fließt der Inhalt vertikal von unten nach oben, und die nächste vertikale Linie wird rechts der vorherigen Linie positioniert.
+  - : Bei `ltr`-Schriften fließen Inhalte vertikal von oben nach unten, und die nächste vertikale Linie wird links von der vorherigen Linie positioniert. Bei `rtl`-Schriften fließen Inhalte vertikal von unten nach oben, und die nächste vertikale Linie wird rechts von der vorherigen Linie positioniert.
 - `vertical-lr`
-  - : Für `ltr`-Skripte fließt der Inhalt vertikal von oben nach unten, und die nächste vertikale Linie wird rechts der vorherigen Linie positioniert. Für `rtl`-Skripte fließt der Inhalt vertikal von unten nach oben, und die nächste vertikale Linie wird links der vorherigen Linie positioniert.
+  - : Bei `ltr`-Schriften fließen Inhalte vertikal von oben nach unten, und die nächste vertikale Linie wird rechts von der vorherigen Linie positioniert. Bei `rtl`-Schriften fließen Inhalte vertikal von unten nach oben, und die nächste vertikale Linie wird links von der vorherigen Linie positioniert.
 - `sideways-rl`
-  - : Für `ltr`-Skripte fließt der Inhalt vertikal von oben nach unten. Für `rtl`-Skripte fließt der Inhalt vertikal von unten nach oben. Alle Glyphen, selbst die in vertikalen Skripten, sind seitlich nach rechts ausgerichtet.
+  - : Bei `ltr`-Schriften fließen Inhalte vertikal von oben nach unten. Bei `rtl`-Schriften fließen Inhalte vertikal von unten nach oben. Alle Glyphen, auch solche in vertikalen Schriften, sind seitlich nach rechts ausgerichtet.
 - `sideways-lr`
-  - : Für `ltr`-Skripte fließt der Inhalt vertikal von unten nach oben. Für `rtl`-Skripte fließt der Inhalt vertikal von oben nach unten. Alle Glyphen, selbst die in vertikalen Skripten, sind seitlich nach links ausgerichtet.
+  - : Bei `ltr`-Schriften fließen Inhalte vertikal von unten nach oben. Bei `rtl`-Schriften fließen Inhalte vertikal von oben nach unten. Alle Glyphen, auch solche in vertikalen Schriften, sind seitlich nach links ausgerichtet.
 - `lr`
-  - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `horizontal-tb`.
+  - : Veraltet, außer für SVG1-Dokumente. Für CSS stattdessen `horizontal-tb` verwenden.
 - `lr-tb`
-  - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `horizontal-tb`.
+  - : Veraltet, außer für SVG1-Dokumente. Für CSS stattdessen `horizontal-tb` verwenden.
 - `rl`
-  - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `horizontal-tb`.
+  - : Veraltet, außer für SVG1-Dokumente. Für CSS stattdessen `horizontal-tb` verwenden.
 - `tb`
-  - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `vertical-lr`.
+  - : Veraltet, außer für SVG1-Dokumente. Für CSS stattdessen `vertical-lr` verwenden.
 - `tb-lr` {{Deprecated_Inline}}
-  - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `vertical-lr`.
+  - : Veraltet, außer für SVG1-Dokumente. Für CSS stattdessen `vertical-lr` verwenden.
 - `tb-rl`
-  - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `vertical-rl`.
+  - : Veraltet, außer für SVG1-Dokumente. Für CSS stattdessen `vertical-rl` verwenden.
 
-## Formale Definition
+## Offizielle Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Offizielle Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Verwendung mehrerer Schreibmodi
+### Verwendung mehrerer Schreibrichtungen
 
-Dieses Beispiel demonstriert alle Schreibmodi und zeigt jeden mit Text in verschiedenen Sprachen.
+Dieses Beispiel zeigt alle Schreibrichtungen, wobei jede mit Text in verschiedenen Sprachen dargestellt wird.
 
 #### HTML
 
-Das HTML ist eine {{HTMLElement("table")}} mit jedem Schreibmodus in einer Zeile und einer Spalte, die Text in verschiedenen Skripten mit diesem Schreibmodus zeigt.
+Das HTML ist eine {{HTMLElement("table")}} mit jeder Schreibrichtung in einer Zeile mit einer Spalte, die Text in verschiedenen Schriften zeigt, die diese Schreibrichtung verwenden.
 
 ```html
 <table>
@@ -213,7 +211,7 @@ th {
 }
 ```
 
-Das CSS, das die Richtung des Inhalts anpasst, sieht folgendermaßen aus:
+Das CSS, das die Richtung des Inhalts anpasst, sieht so aus:
 
 ```css
 .text1 td {
@@ -243,9 +241,9 @@ Das CSS, das die Richtung des Inhalts anpasst, sieht folgendermaßen aus:
 
 ### Verwendung von writing-mode mit Transformationen
 
-Wenn Ihr Browser `sideways-lr` nicht unterstützt, kann eine Möglichkeit sein, {{cssxref("transform")}} zu verwenden, um je nach Schriftsprache einen ähnlichen Effekt zu erzielen.
-Der Effekt von `vertical-rl` ist derselbe wie bei `sideways-lr`, daher ist für von links nach rechts verlaufende Skripte keine Transformation erforderlich.
-In einigen Fällen reicht es aus, den Text um 180 Grad zu drehen, um den Effekt von `sideways-lr` zu erreichen, aber Schriftartglyphen sind möglicherweise nicht für die Drehung vorgesehen, sodass dies unerwartete Positionierungen oder Darstellungen verursachen kann.
+Wenn Ihr Browser `sideways-lr` nicht unterstützt, ist eine Möglichkeit, {{cssxref("transform")}} zu verwenden, um einen ähnlichen Effekt je nach Schreibrichtung zu erzielen.
+Der Effekt von `vertical-rl` ist derselbe wie bei `sideways-lr`, daher ist keine Transformation für von links nach rechts gerichtete Schriften erforderlich.
+In einigen Fällen reicht es aus, den Text um 180 Grad zu drehen, um den Effekt von `sideways-lr` zu erzielen. Jedoch sind Schriftglyphen möglicherweise nicht dafür gestaltet, gedreht zu werden, was zu unerwarteten Positionierungen oder Darstellungen führen kann.
 
 #### HTML
 
@@ -344,8 +342,8 @@ span {
 - {{Cssxref("text-orientation")}}
 - {{Cssxref("text-combine-upright")}}
 - [CSS logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS-Schreibrichtungs-Modul](/de/docs/Web/CSS/CSS_writing_modes)
 - SVG {{SVGAttr("writing-mode")}} Attribut
-- [Erstellen von vertikalen Formularelementen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
-- [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)
-- [Styling vertical text (Chinese, Japanese, Korean and Mongolian)](https://www.w3.org/International/articles/vertical-text/) auf W3.org (2022)
+- [Erstellung vertikaler Formularsteuerelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- [Umgang mit unterschiedlichen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)
+- [Styling vertikalen Text (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/) auf W3.org (2022)

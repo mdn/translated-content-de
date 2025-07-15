@@ -2,12 +2,10 @@
 title: grid-auto-flow
 slug: Web/CSS/grid-auto-flow
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`grid-auto-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der automatische Platzierungsalgorithmus funktioniert und legt fest, wie automatisch platzierte Elemente im Raster angeordnet werden.
+Die **`grid-auto-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Auto-Platzierungsalgorithmus funktioniert und gibt genau an, wie automatisch platzierte Elemente in das Raster eingefügt werden.
 
 {{InteractiveExample("CSS Demo: grid-auto-flow")}}
 
@@ -63,7 +61,7 @@ grid-auto-flow: row dense;
 
 > [!NOTE]
 > Die Eigenschaft `masonry-auto-flow` wurde aus dem CSS [Masonry-Layout](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout) zugunsten von `grid-auto-flow` entfernt.
-> Einzelheiten finden Sie unter [csswg-drafts #10231](https://github.com/w3c/csswg-drafts/issues/10231).
+> Siehe [csswg-drafts #10231](https://github.com/w3c/csswg-drafts/issues/10231) für Details.
 
 ## Syntax
 
@@ -83,33 +81,33 @@ grid-auto-flow: revert-layer;
 grid-auto-flow: unset;
 ```
 
-Diese Eigenschaft kann eine der beiden Formen annehmen:
+Diese Eigenschaft kann eine von zwei Formen annehmen:
 
-- ein einzelnes Schlüsselwort: entweder `row`, `column` oder `dense`.
+- ein einzelnes Schlüsselwort: eines von `row`, `column`, oder `dense`.
 - zwei Schlüsselwörter: `row dense` oder `column dense`.
 
 ### Werte
 
 - `row`
-  - : Elemente werden platziert, indem jede Zeile der Reihe nach gefüllt wird, und bei Bedarf neue Zeilen hinzugefügt werden. Wenn weder `row` noch `column` angegeben ist, wird `row` angenommen.
+  - : Elemente werden platziert, indem jede Zeile der Reihe nach gefüllt wird, wobei bei Bedarf neue Zeilen hinzugefügt werden. Wird weder `row` noch `column` angegeben, wird `row` angenommen.
 - `column`
-  - : Elemente werden platziert, indem jede Spalte der Reihe nach gefüllt wird, und bei Bedarf neue Spalten hinzugefügt werden.
+  - : Elemente werden platziert, indem jede Spalte der Reihe nach gefüllt wird, wobei bei Bedarf neue Spalten hinzugefügt werden.
 - `dense`
-  - : Der "dichte" Platzierungsalgorithmus versucht, früher im Raster entstandene Lücken zu füllen, wenn später kleinere Elemente auftauchen. Dies kann dazu führen, dass Elemente außerhalb der Reihenfolge erscheinen, wenn dies Lücken füllen würde, die von größeren Elementen hinterlassen wurden.
+  - : Der "dichte" Packalgorithmus versucht, Lücken früher im Raster zu füllen, falls später kleinere Elemente auftauchen. Dies kann dazu führen, dass Elemente außer der Reihenfolge erscheinen, wenn dies Lücken füllt, die von größeren Elementen hinterlassen wurden.
 
-    Wenn es weggelassen wird, wird ein "spärlicher" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen nur "vorwärts" im Raster geht und niemals zurückverfolgt, um Lücken zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in der Reihenfolge" erscheinen, auch wenn dadurch Lücken entstehen, die von späteren Elementen hätten gefüllt werden können.
+    Wenn es weggelassen wird, wird ein "spärlicher" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen immer nur "vorwärts" im Raster vorgeht und niemals zurückgeht, um Lücken zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in der Reihenfolge" erscheinen, selbst wenn dies Lücken hinterlässt, die von späteren Elementen hätten gefüllt werden können.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Einstellen der automatischen Rasterplatzierung
+### Automatische Rasterplatzierung festlegen
 
 #### HTML
 
@@ -202,4 +200,4 @@ inputElem.addEventListener("change", changeGridAutoFlow);
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid")}}
 - [Automatische Platzierung im Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
-- Video: [Einführung in die automatische Rasterplatzierung und Reihenfolge](https://gridbyexample.com/video/series-auto-placement-order/)
+- Video: [Einführung in die automatische Rasterplatzierung und Ordnung](https://gridbyexample.com/video/series-auto-placement-order/)

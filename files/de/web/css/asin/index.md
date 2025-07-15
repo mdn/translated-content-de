@@ -2,12 +2,10 @@
 title: asin()
 slug: Web/CSS/asin
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzige Berechnung, die die Anzahl der Radianten zurückgibt, die ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` darstellt.
+Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaß repräsentiert, die einem {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` entspricht.
 
 ## Syntax
 
@@ -23,14 +21,14 @@ transform: rotate(asin(e / 3));
 
 ### Parameter
 
-Die `asin(number)` Funktion akzeptiert nur einen Wert als ihren Parameter.
+Die `asin(number)` Funktion akzeptiert nur einen Wert als Parameter.
 
 - `number`
-  - : Eine Berechnung, die sich auf eine {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` auflöst.
+  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` aufgelöst wird.
 
 ### Rückgabewert
 
-Der Arkussinus einer `number` wird immer ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurückgeben.
+Der Arkussinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurück.
 
 - Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
 - Wenn `number` `0⁻` ist, ist das Ergebnis `0⁻`.

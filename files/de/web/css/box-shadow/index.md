@@ -2,12 +2,10 @@
 title: box-shadow
 slug: Web/CSS/box-shadow
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`box-shadow`** [CSS](/de/docs/Web/CSS) Eigenschaft fügt Schattierungseffekte um den Rahmen eines Elements hinzu. Sie können mehrere Effekte durch Kommata getrennt festlegen. Ein Kastenschatten wird durch X- und Y-Abstände relativ zum Element, Unschärfe- und Ausbreitungsradius sowie Farbe beschrieben.
+Die **`box-shadow`**-Eigenschaft von [CSS](/de/docs/Web/CSS) fügt Schatteneffekte um den Rahmen eines Elements hinzu. Sie können mehrere Effekte angeben, die durch Kommata getrennt sind. Ein Box-Schatten wird durch X- und Y-Versatz relativ zum Element, Weichzeichnungs- und Ausbreitungsradius und Farbe beschrieben.
 
 {{InteractiveExample("CSS Demo: box-shadow")}}
 
@@ -51,9 +49,9 @@ box-shadow:
 }
 ```
 
-Die `box-shadow`-Eigenschaft ermöglicht es, einen Schlagschatten vom Rahmen fast jedes Elements zu werfen. Wenn ein {{cssxref("border-radius")}}-Attribut auf ein Element mit einem Kastenschatten angewendet wird, übernimmt der Kastenschatten die gleichen abgerundeten Ecken. Die z-Ordnung mehrerer Kastenschattierungen ist dieselbe wie bei mehreren [Textschatten](/de/docs/Web/CSS/text-shadow) (der zuerst angegebene Schatten liegt oben).
+Die `box-shadow`-Eigenschaft ermöglicht es Ihnen, einen Schlagschatten vom Rahmen fast jedes Elements zu werfen. Wenn auf einem Element mit einem Box-Schatten eine {{cssxref("border-radius")}} angegeben ist, übernimmt der Box-Schatten die gleichen abgerundeten Ecken. Die Z-Ordnung mehrerer Box-Schatten entspricht der von mehreren [Textschatten](/de/docs/Web/CSS/text-shadow) (der zuerst angegebene Schatten liegt oben).
 
-[Box-shadow Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator) ist ein interaktives Tool, das Ihnen ermöglicht, einen `box-shadow` zu erstellen.
+Der [Box-Schatten-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator) ist ein interaktives Tool, das es Ihnen ermöglicht, einen `box-shadow` zu generieren.
 
 ## Syntax
 
@@ -90,42 +88,42 @@ box-shadow: revert-layer;
 box-shadow: unset;
 ```
 
-Geben Sie einen einzelnen Kastenschatten an durch:
+Geben Sie einen einzelnen Box-Schatten mit folgenden Optionen an:
 
-- Zwei, drei oder vier {{cssxref("length")}} Werte.
+- Zwei, drei oder vier {{cssxref("length")}}-Werte.
   - Wenn nur zwei Werte angegeben sind, werden sie als `<offset-x>` und `<offset-y>` Werte interpretiert.
-  - Wird ein dritter Wert angegeben, wird dieser als `<blur-radius>` interpretiert.
-  - Wird ein vierter Wert angegeben, wird dieser als `<spread-radius>` interpretiert.
+  - Wenn ein dritter Wert angegeben wird, wird er als `<blur-radius>` interpretiert.
+  - Wenn ein vierter Wert angegeben wird, wird er als `<spread-radius>` interpretiert.
 
-- Optional das `inset` Schlüsselwort.
+- Optional das `inset`-Schlüsselwort.
 - Optional ein [`<color>`](#color)-Wert.
 
-Um mehrere Schatten anzugeben, geben Sie eine durch Kommata getrennte Liste von Schatten an.
+Um mehrere Schatten zu spezifizieren, geben Sie eine durch Kommas getrennte Liste von Schatten an.
 
 ### Werte
 
 - `<color>` {{optional_inline}}
-  - : Gibt die Farbe für den Schatten an. Siehe {{cssxref("&lt;color&gt;")}} Werte für mögliche Schlüsselwörter und Notationen.
-    Falls nicht angegeben, wird der Wert der {{cssxref("color")}} Eigenschaft des Elternelements verwendet.
+  - : Gibt die Farbe für den Schatten an. Siehe {{cssxref("&lt;color&gt;")}}-Werte für mögliche Schlüsselwörter und Notationen.
+    Wenn nicht angegeben, wird der Wert der {{cssxref("color")}}-Eigenschaft verwendet, die im übergeordneten Element definiert ist.
 
 - `<length>`
   - : Gibt die Versatzlänge des Schattens an. Dieser Parameter akzeptiert zwei, drei oder vier Werte. Der dritte und vierte Wert sind optional. Sie werden wie folgt interpretiert:
-    - Wenn zwei Werte angegeben sind, werden sie als `<offset-x>` (horizontaler Versatz) und `<offset-y>` (vertikaler Versatz) interpretiert. Ein negativer `<offset-x>` Wert platziert den Schatten links vom Element. Ein negativer `<offset-y>` Wert platziert den Schatten oberhalb des Elements.\
-      Falls nicht angegeben, wird der Wert `0` für die fehlende Länge verwendet. Wenn sowohl `<offset-x>` als auch `<offset-y>` auf `0` gesetzt sind, wird der Schatten hinter dem Element platziert (und kann einen Unschärfeeffekt erzeugen, wenn `<blur-radius>` und/oder `<spread-radius>` gesetzt ist).
-    - Falls drei Werte angegeben sind, wird der dritte Wert als `<blur-radius>` interpretiert. Je größer dieser Wert ist, desto größer wird die Unschärfe, sodass der Schatten größer und heller wird. Negative Werte sind nicht erlaubt. Falls nicht angegeben, wird er auf `0` gesetzt (bedeutet, dass die Kante des Schattens scharf ist). Die Spezifikation enthält keinen genauen Algorithmus, wie der Unschärferadius berechnet werden soll; sie erläutert jedoch Folgendes:
+    - Wenn zwei Werte angegeben sind, werden sie als `<offset-x>` (horizontaler Versatz) und `<offset-y>` (vertikaler Versatz) Werte interpretiert. Ein negativer `<offset-x>`-Wert platziert den Schatten links vom Element. Ein negativer `<offset-y>`-Wert platziert den Schatten oberhalb des Elements.\
+      Wenn nicht angegeben, wird für die fehlende Länge der Wert `0` verwendet. Wenn sowohl `<offset-x>` als auch `<offset-y>` auf `0` gesetzt sind, wird der Schatten hinter dem Element platziert (und kann einen Unschärfeeffekt erzeugen, wenn `<blur-radius>` und/oder `<spread-radius>` gesetzt ist).
+    - Wenn drei Werte angegeben sind, wird der dritte Wert als `<blur-radius>` interpretiert. Je größer dieser Wert ist, desto größer ist die Unschärfe, sodass der Schatten größer und heller wird. Negative Werte sind nicht erlaubt. Wenn nicht angegeben, wird es auf `0` gesetzt (was bedeutet, dass die Kante des Schattens scharf ist). Die Spezifikation enthält keinen genauen Algorithmus, wie der Unschärfe-Radius berechnet werden sollte; es wird jedoch folgendermaßen ausgeführt:
 
-      > …für eine lange, gerade Schattenkante sollte dies einen Farbverlauf in der Länge der Unschärfestrecke erzeugen, der senkrecht dazu verläuft und zentriert auf die Schattenkante ist, und der von der vollen Schattenfarbe am Radiusendpunkt innerhalb des Schattens bis zur vollständigen Transparenz am Endpunkt außerhalb davon reicht.
+      > …für eine lange, gerade Schattenkante sollte dies einen Farbverlauf über die Unschärfe-Strecke erzeugen, der senkrecht zur und zentriert auf der Schattenkante verläuft und der von der vollen Schattenfarbe am Radienende innerhalb des Schattens bis zur vollständigen Transparenz am äußeren Endpunkt reicht.
 
-    - Wenn vier Werte angegeben sind, wird der vierte Wert als `<spread-radius>` interpretiert. Positive Werte lassen den Schatten größer werden, negative Werte lassen den Schatten schrumpfen. Falls nicht angegeben, wird er auf `0` gesetzt (d.h. der Schatten hat die gleiche Größe wie das Element).
+    - Wenn vier Werte angegeben sind, wird der vierte Wert als `<spread-radius>` interpretiert. Positive Werte lassen den Schatten expandieren und größer werden, negative Werte lassen den Schatten schrumpfen. Wenn nicht angegeben, wird es auf `0` gesetzt (das heißt, der Schatten hat die gleiche Größe wie das Element).
 
 - `inset` {{optional_inline}}
-  - : Ändert den Schatten von einem äußeren Kastenschatten zu einem inneren Kastenschatten (als ob der Inhalt in die Box gedrückt wird). Eingesetzte Schatten werden innerhalb der Box-Grenzen gezeichnet (selbst wenn der Rand transparent ist) und erscheinen über dem Hintergrund, aber unter dem Inhalt. Standardmäßig verhält sich der Schatten wie ein Schlagschatten, wodurch der Anschein entsteht, dass die Box über ihrem Inhalt schwebt. Dies ist das Standardverhalten, wenn `inset` nicht angegeben ist.
+  - : Ändert den Schatten von einem äußeren Box-Schatten zu einem inneren Box-Schatten (als ob der Inhalt in die Box gedrückt wird). Innere Schatten werden innerhalb des Rands der Box gezeichnet (auch wenn der Rand transparent ist) und erscheinen über dem Hintergrund, aber unter dem Inhalt. Standardmäßig verhält sich der Schatten wie ein Schlagschatten, wodurch der Eindruck entsteht, dass die Box über ihrem Inhalt erhoben ist. Dies ist das Standardverhalten, wenn `inset` nicht angegeben ist.
 
 ### Interpolation
 
-Beim Animieren von Schatten, wie wenn mehrere Schattenwerte auf einer Box zu neuen Werten bei Hover übergehen, werden die Werte interpoliert. {{Glossary("Interpolation", "Interpolation")}} bestimmt Zwischenwerte von Eigenschaften, wie z. B. den Unschärferadius, den Streuradius und die Farbe, während sich Schatten ändern. Für jeden Schatten in einer Liste von Schatten übergehen Farbe, x, y, Unschärfe und Ausbreitung; die Farbe als [`<color>`](/de/docs/Web/CSS/color_value) und die anderen Werte als {{cssxref("length")}}.
+Beim Animieren von Schatten, z. B. wenn mehrere Schattenwerte auf einer Box zu neuen Werten beim Hover übergehen, werden die Werte interpoliert. {{Glossary("Interpolation", "Interpolation")}} bestimmt Zwischenwerte von Eigenschaften, wie den Weichzeichnungsradius, Ausbreitungsradius und die Farbe, während Schatten übergehen. Für jeden Schatten in einer Liste von Schatten ändern sich die Farbe, x, y, Unschärfe und Ausbreitung; die Farbe als [`<color>`](/de/docs/Web/CSS/color_value), und die anderen Werte als {{cssxref("length")}}s.
 
-Beim Interpolieren mehrerer Schatten zwischen zwei durch Komma getrennten Listen von mehreren Kastenschattierungen werden die Schatten paarweise zugeordnet und die Interpolation erfolgt zwischen gepaarten Schatten. Wenn die Listen unterschiedliche Längen haben, wird die kürzere Liste am Ende mit Schatten aufgefüllt, deren Farbe `transparent` ist, und X, Y und Unschärfe sind `0`, wobei das Vorhandensein oder Fehlen von `inset` übereinstimmt. Wenn in einem Schattenpaar ein Schatten `inset` gesetzt hat und der andere nicht, wird die gesamte Schattenliste nicht interpoliert; die Schatten ändern sich zu den neuen Werten ohne animierenden Effekt.
+Bei der Interpolation mehrerer Schatten zwischen zwei durch Kommas getrennten Listen von mehreren Box-Schatten werden die Schatten paarweise zugeordnet, wobei die Interpolation zwischen den gepaarten Schatten erfolgt. Wenn die Listen von Schatten unterschiedliche Längen haben, wird die kürzere Liste am Ende mit Schatten ergänzt, deren Farbe `transparent` ist und deren X, Y und Unschärfe `0` sind, wobei das Vorhandensein oder Fehlen von `inset` übereinstimmt. Wenn in einem Schattenpaar einer der Schatten `inset` gesetzt hat und der andere nicht, wird die gesamte Schattenliste nicht interpoliert; die Schatten ändern sich zu den neuen Werten ohne einen Animationseffekt.
 
 ## Formale Definition
 
@@ -139,7 +137,7 @@ Beim Interpolieren mehrerer Schatten zwischen zwei durch Komma getrennten Listen
 
 ### Drei Schatten setzen
 
-In diesem Beispiel fügen wir drei Schatten hinzu: einen eingesetzten Schatten, einen regulären Schlagschatten und einen 2px Schatten, der einen Rahmen-Effekt erzeugt (wir hätten dafür auch ein {{cssxref('outline')}} verwenden können).
+In diesem Beispiel fügen wir drei Schatten hinzu: einen inneren Schatten, einen normalen Schlagschatten und einen 2px-Schatten, der einen Rahmen-Effekt erzeugt (wir hätten stattdessen für den dritten Schatten ein {{cssxref('outline')}} verwenden können).
 
 #### HTML
 
@@ -173,9 +171,9 @@ blockquote {
 
 ### Null für Versatz und Unschärfe setzen
 
-Wenn der `x-Versatz`, `y-Versatz` und die `Unschärfe` alle auf Null gesetzt sind, ist der Kastenschatten eine einfarbige Umrandung in gleicher Größe auf allen Seiten. Die Schatten werden von vorne nach hinten gezeichnet, sodass der erste Schatten oberhalb der nachfolgenden Schatten liegt. Wenn der `border-radius` auf 0 gesetzt ist, was der Standard ist, werden die Ecken des Schattens Ecken sein. Hätten wir einen `border-radius` von einem anderen Wert eingefügt, wären die Ecken abgerundet.
+Wenn der `x-offset`, `y-offset` und die `blur` alle auf null gesetzt sind, wird der Box-Schatten eine einfarbige Umrandung gleicher Größe auf allen Seiten sein. Die Schatten werden von vorne nach hinten gezeichnet, daher liegt der erste Schatten über den nachfolgenden Schatten. Wenn der `border-radius` auf 0 gesetzt ist, was der Standard ist, werden die Ecken des Schattens ebenfalls Ecken sein. Hätten wir einen `border-radius` mit einem anderen Wert angegeben, wären die Ecken abgerundet gewesen.
 
-Wir haben einen Rand in der Größe des breitesten Kastenschattens hinzugefügt, um sicherzustellen, dass der Schatten keine angrenzenden Elemente überlappt oder über den Rand der umgebenden Box hinausgeht. Ein Kastenschatten beeinflusst nicht die [Box-Modell](/de/docs/Web/CSS/CSS_box_model)-Dimensionen.
+Wir haben einen Rand in der Größe des breitesten Box-Schatten hinzugefügt, um sicherzustellen, dass der Schatten keine angrenzenden Elemente überlappt oder über den Rand der enthaltenen Box hinausgeht. Ein Box-Schatten wirkt sich nicht auf die Dimensionen des [Box-Modells](/de/docs/Web/CSS/CSS_box_model) aus.
 
 #### HTML
 
@@ -195,7 +193,7 @@ p {
 }
 ```
 
-<!-- these colors are intentionally pink and blue. WCAG requires color contrast between text and background, not between border colors. -->
+<!-- diese Farben sind absichtlich pink und blau. WCAG erfordert Farbkontrast zwischen Text und Hintergrund, nicht zwischen Randfarben. -->
 
 #### Ergebnis
 
@@ -211,7 +209,7 @@ p {
 
 ## Siehe auch
 
-- Der {{cssxref("&lt;color&gt;")}} Datentyp (zum Festlegen der Schattenfarbe)
+- Der {{cssxref("&lt;color&gt;")}} Datentyp (zum Angeben der Schattenfarbe)
 - {{cssxref("text-shadow")}}
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-- [Farbe auf HTML-Elemente anwenden mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)

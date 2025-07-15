@@ -2,12 +2,10 @@
 title: :out-of-range
 slug: Web/CSS/:out-of-range
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute festgelegten Wertebereiche liegt.
+Die **`:out-of-range`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
 
 {{InteractiveExample("CSS Demo: :out-of-range", "tabbed-shorter")}}
 
@@ -41,10 +39,10 @@ input:out-of-range {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der zulässigen Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der erlaubten Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die über (und begrenzt durch) eine Bereichseinschränkung verfügen. In Abwesenheit einer solchen Einschränkung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und diese aufnehmen können). Ohne eine solche Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -122,4 +120,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":in-range")}}
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Formular-Datenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

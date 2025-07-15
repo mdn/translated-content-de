@@ -2,76 +2,74 @@
 title: <blend-mode>
 slug: Web/CSS/blend-mode
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<blend-mode>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) beschreibt, wie Farben erscheinen sollen, wenn sich Elemente überlappen. Er wird in den Eigenschaften {{cssxref("background-blend-mode")}} und {{cssxref("mix-blend-mode")}} verwendet.
+Der **`<blend-mode>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) beschreibt, wie Farben erscheinen sollen, wenn Elemente überlappen. Er wird in den Eigenschaften {{cssxref("background-blend-mode")}} und {{cssxref("mix-blend-mode")}} verwendet.
 
 ## Syntax
 
-Der `<blend-mode>` Datentyp wird durch einen Schlüsselwortwert definiert, der aus der unten stehenden Liste ausgewählt wird.
+Der `<blend-mode>` Datentyp wird durch einen Schlüsselwortwert definiert, der aus der untenstehenden Liste gewählt wird.
 
 ### Werte
 
 - `normal`
-  - : Die endgültige Farbe ist die Farbe der oberen Ebene, unabhängig davon, welche Farbe die untere Ebene hat.
-    Der Effekt ähnelt dem Überlappen von zwei undurchsichtigen Papierstücken.
+  - : Die endgültige Farbe ist die obere Farbe, unabhängig davon, welche Farbe darunter liegt.
+    Der Effekt ist wie bei zwei undurchsichtigen sich überlappenden Papierschichten.
 - `multiply`
-  - : Die endgültige Farbe ergibt sich aus der Multiplikation der oberen und unteren Farben.
-    Eine schwarze Ebene führt zu einer schwarzen Endfarbe, und eine weiße Ebene führt zu keiner Veränderung.
-    Der Effekt ähnelt dem Überlappen von zwei auf transparentem Film gedruckten Bildern.
+  - : Die endgültige Farbe ist das Ergebnis der Multiplikation der oberen und unteren Farben.
+    Eine schwarze Schicht führt zu einer schwarzen endgültigen Schicht, und eine weiße Schicht führt zu keiner Veränderung.
+    Der Effekt ist wie bei zwei auf transparenter Folie gedruckten Bildern, die sich überlappen.
 - `screen`
-  - : Die endgültige Farbe ergibt sich aus dem Invertieren der Farben, ihrer Multiplikation und einer erneuten Invertierung.
-    Eine schwarze Ebene führt zu keiner Veränderung, und eine weiße Ebene ergibt eine vollständig weiße Endfarbe.
-    Der Effekt ähnelt zwei Bildern, die auf eine Projektionsfläche gestrahlt werden.
+  - : Die endgültige Farbe ist das Ergebnis der Invertierung der Farben, deren Multiplikation und der erneuten Invertierung dieses Wertes.
+    Eine schwarze Schicht führt zu keiner Veränderung, und eine weiße Schicht führt zu einer weißen endgültigen Schicht.
+    Der Effekt ist wie bei zwei Bildern, die auf eine Projektionsleinwand geworfen werden.
 - `overlay`
-  - : Die endgültige Farbe verwendet `multiply`, wenn die untere Farbe dunkler ist, oder `screen`, wenn die untere Farbe heller ist.
-    Dieser Mischmodus ist äquivalent zu `hard-light`, jedoch mit vertauschten Ebenen.
+  - : Die endgültige Farbe ist das Ergebnis von `multiply`, wenn die untere Farbe dunkler ist, oder `screen`, wenn die untere Farbe heller ist.
+    Dieser Mischmodus entspricht `hard-light`, jedoch mit vertauschten Schichten.
 - `darken`
-  - : Die endgültige Farbe setzt sich aus den dunkelsten Werten jedes Farbkanals zusammen.
+  - : Die endgültige Farbe besteht aus den dunkelsten Werten jedes Farbkanals.
 - `lighten`
-  - : Die endgültige Farbe setzt sich aus den hellsten Werten jedes Farbkanals zusammen.
+  - : Die endgültige Farbe besteht aus den hellsten Werten jedes Farbkanals.
 - `color-dodge`
-  - : Die endgültige Farbe ergibt sich aus der Division der unteren Farbe durch die Inverse der oberen Farbe.
-    Eine schwarze Vordergrundfarbe führt zu keiner Änderung. Eine Vordergrundfarbe, die der Inversen der Hintergrundfarbe entspricht, führt zu einer vollständig aufgehellten Farbe.
-    Dieser Mischmodus ähnelt `screen`, aber der Vordergrund muss nur so hell wie die Inverse des Hintergrunds sein, um eine vollständig aufgehellte Farbe zu erzeugen.
+  - : Die endgültige Farbe ist das Ergebnis der Division der unteren Farbe durch das Inverse der oberen Farbe.
+    Eine schwarze Vordergrundfarbe führt zu keiner Veränderung. Ein Vordergrund mit der Inverse-Farbe des Hintergrunds führt zu einer vollständig beleuchteten Farbe.
+    Dieser Mischmodus ist ähnlich wie `screen`, aber der Vordergrund muss nur so hell wie das Inverse des Hintergrunds sein, um eine vollständig beleuchtete Farbe zu erzeugen.
 - `color-burn`
-  - : Die endgültige Farbe ergibt sich aus der Invertierung der unteren Farbe, deren Division durch die obere Farbe und der erneuten Invertierung.
-    Eine weiße Vordergrundfarbe führt zu keiner Änderung. Eine Vordergrundfarbe, die der Inversen der Hintergrundfarbe entspricht, ergibt eine vollständig schwarze Endfarbe.
-    Dieser Mischmodus ähnelt `multiply`, jedoch muss der Vordergrund nur so dunkel wie die Inverse des Hintergrunds sein, um das Endbild schwarz zu machen.
+  - : Die endgültige Farbe ist das Ergebnis der Invertierung der unteren Farbe, Division des Wertes durch die obere Farbe und erneute Invertierung dieses Wertes.
+    Eine weiße Vordergrundfarbe führt zu keiner Veränderung. Ein Vordergrund mit der Inverse-Farbe des Hintergrunds führt zu einem schwarzen Endbild.
+    Dieser Mischmodus ist ähnlich wie `multiply`, aber der Vordergrund muss nur so dunkel wie das Inverse des Hintergrunds sein, um das Endbild schwarz zu machen.
 - `hard-light`
-  - : Die endgültige Farbe verwendet `multiply`, wenn die obere Farbe dunkler ist, oder `screen`, wenn die obere Farbe heller ist.
-    Dieser Mischmodus ist äquivalent zu `overlay`, jedoch mit vertauschten Ebenen.
-    Der Effekt ähnelt einem _harten_ Spotlight auf den Hintergrund.
+  - : Die endgültige Farbe ist das Ergebnis von `multiply`, wenn die obere Farbe dunkler ist, oder `screen`, wenn die obere Farbe heller ist.
+    Dieser Mischmodus entspricht `overlay`, jedoch mit vertauschten Schichten.
+    Der Effekt ist ähnlich dem, als würde ein _starkes_ Spotlight auf den Hintergrund gerichtet.
 - `soft-light`
-  - : Die endgültige Farbe ist ähnlich wie `hard-light`, aber sanfter.
+  - : Die endgültige Farbe ist ähnlich wie `hard-light`, jedoch weicher.
     Dieser Mischmodus verhält sich ähnlich wie `hard-light`.
-    Der Effekt ähnelt einem _diffusen_ Spotlight auf den Hintergrund.
+    Der Effekt ist ähnlich dem, als würde ein _diffuses_ Spotlight auf den Hintergrund gerichtet.
 - `difference`
-  - : Die endgültige Farbe ergibt sich aus der Subtraktion der dunkleren von den helleren der beiden Farben.
-    Eine schwarze Ebene hat keinen Effekt, während eine weiße Ebene die Farbe der anderen Ebene invertiert.
+  - : Die endgültige Farbe ist das Ergebnis der Subtraktion der dunkleren der beiden Farben von der helleren.
+    Eine schwarze Schicht hat keinen Effekt, während eine weiße Schicht die Farbe der anderen Schicht invertiert.
 - `exclusion`
   - : Die endgültige Farbe ist ähnlich wie `difference`, jedoch mit weniger Kontrast.
-    Wie bei `difference` hat eine schwarze Ebene keinen Effekt, während eine weiße Ebene die Farbe der anderen Ebene invertiert.
+    Wie bei `difference` hat eine schwarze Schicht keinen Effekt, während eine weiße Schicht die Farbe der anderen Schicht invertiert.
 - `hue`
-  - : Die endgültige Farbe verwendet den _Farbton_ der oberen Farbe und die _Sättigung_ und _Helligkeit_ der unteren Farbe.
+  - : Die endgültige Farbe hat den _Farbton_ der oberen Farbe, verwendet jedoch die _Sättigung_ und _Helligkeit_ der unteren Farbe.
 - `saturation`
-  - : Die endgültige Farbe verwendet die _Sättigung_ der oberen Farbe und den _Farbton_ und die _Helligkeit_ der unteren Farbe.
-    Ein rein grauer Hintergrund, der keine Sättigung aufweist, hat keinen Effekt.
+  - : Die endgültige Farbe hat die _Sättigung_ der oberen Farbe, verwendet jedoch den _Farbton_ und die _Helligkeit_ der unteren Farbe.
+    Ein reiner grauer Hintergrund, der keine Sättigung aufweist, hat keinen Effekt.
 - `color`
-  - : Die endgültige Farbe verwendet den _Farbton_ und die _Sättigung_ der oberen Farbe und die _Helligkeit_ der unteren Farbe.
-    Der Effekt bewahrt Graustufen und kann verwendet werden, um den Vordergrund einzufärben.
+  - : Die endgültige Farbe hat den _Farbton_ und die _Sättigung_ der oberen Farbe, verwendet jedoch die _Helligkeit_ der unteren Farbe.
+    Der Effekt bewahrt Graustufen und kann verwendet werden, um den Vordergrund zu kolorieren.
 - `luminosity`
-  - : Die endgültige Farbe verwendet die _Helligkeit_ der oberen Farbe und den _Farbton_ und die _Sättigung_ der unteren Farbe.
-    Dieser Mischmodus ist äquivalent zu `color`, jedoch mit vertauschten Ebenen.
+  - : Die endgültige Farbe hat die _Helligkeit_ der oberen Farbe, verwendet jedoch den _Farbton_ und die _Sättigung_ der unteren Farbe.
+    Dieser Mischmodus entspricht `color`, jedoch mit vertauschten Schichten.
 
 ## Beschreibung
 
-Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmodus die Farben des Vorder- und Hintergrunds, berechnet sie und gibt einen neuen Farbwert zurück.
+Für jedes Pixel, auf das ein Mischmodus angewendet wird, nimmt er die Farben des Vordergrunds und des Hintergrunds, führt eine Berechnung durch und liefert einen neuen Farbwert zurück.
 
-Änderungen zwischen Mischmodi werden nicht interpoliert. Jede Änderung tritt sofort ein.
+Änderungen zwischen Mischmodi werden nicht interpoliert. Jede Änderung erfolgt sofort.
 
 ## Formale Syntax
 
@@ -94,7 +92,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "normal"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "normal"', "300", "350") }}
 
 ### Beispiel mit "multiply"
 
@@ -111,7 +109,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "multiply"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "multiply"', "300", "350") }}
 
 ### Beispiel mit "screen"
 
@@ -128,7 +126,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "screen"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "screen"', "300", "350") }}
 
 ### Beispiel mit "overlay"
 
@@ -145,7 +143,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "overlay"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "overlay"', "300", "350") }}
 
 ### Beispiel mit "darken"
 
@@ -162,7 +160,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "darken"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "darken"', "300", "350") }}
 
 ### Beispiel mit "lighten"
 
@@ -179,7 +177,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "lighten"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "lighten"', "300", "350") }}
 
 ### Beispiel mit "color-dodge"
 
@@ -196,7 +194,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "color-dodge"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "color-dodge"', "300", "350") }}
 
 ### Beispiel mit "color-burn"
 
@@ -213,7 +211,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "color-burn"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "color-burn"', "300", "350") }}
 
 ### Beispiel mit "hard-light"
 
@@ -230,7 +228,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "hard-light"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "hard-light"', "300", "350") }}
 
 ### Beispiel mit "soft-light"
 
@@ -247,7 +245,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "soft-light"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "soft-light"', "300", "350") }}
 
 ### Beispiel mit "difference"
 
@@ -264,7 +262,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "difference"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "difference"', "300", "350") }}
 
 ### Beispiel mit "exclusion"
 
@@ -281,7 +279,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "exclusion"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "exclusion"', "300", "350") }}
 
 ### Beispiel mit "hue"
 
@@ -298,7 +296,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "hue"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "hue"', "300", "350") }}
 
 ### Beispiel mit "saturation"
 
@@ -315,7 +313,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "saturation"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "saturation"', "300", "350") }}
 
 ### Beispiel mit "color"
 
@@ -332,7 +330,7 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "color"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "color"', "300", "350") }}
 
 ### Beispiel mit "luminosity"
 
@@ -349,11 +347,11 @@ Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmo
 }
 ```
 
-{{ EmbedLiveSample('Example using "luminosity"', "300", "350") }}
+{{EmbedLiveSample('Beispiel mit "luminosity"', "300", "350") }}
 
 ### Vergleich der Mischmodi
 
-Im folgenden Beispiel haben wir ein `<div>` mit zwei Hintergrundbildern — ein Firefox-Logo auf einem Farbverlauf. Darunter gibt es ein `<select>` Dropdown-Menü, mit dem Sie den `background-blend-mode` des `<div>` ändern und die unterschiedlichen Mischmodus-Effekte vergleichen können.
+Im folgenden Beispiel haben wir ein `<div>` mit zwei darauf gesetzten Hintergrundbildern – ein Firefox-Logo über einem linearen Verlauf. Darunter haben wir ein bereitgestelltes `<select>`-Menü, das es Ihnen ermöglicht, den `background-blend-mode` auf das `<div>` anzuwenden, damit Sie die verschiedenen Effekte der Mischmodi vergleichen können.
 
 #### HTML
 
@@ -418,10 +416,10 @@ selectElem.addEventListener("change", () => {
 
 ## Siehe auch
 
-- Das [CSS compositing and blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, das die `<blend-mode>` Werte definiert.
+- Das [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, das die `<blend-mode>` Werte definiert.
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
 
-Beschreibung der verschiedenen Mischmodi auf anderen Websites:
+Beschreibungen zu verschiedenen Mischmodi auf anderen Webseiten:
 
 - [Blend modes](https://en.wikipedia.org/wiki/Blend_modes) auf Wikipedia
 - [Blending modes in Adobe Photoshop](https://helpx.adobe.com/photoshop/using/blending-modes.html) von Adobe

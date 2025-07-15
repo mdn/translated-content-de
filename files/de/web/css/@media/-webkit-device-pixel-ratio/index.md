@@ -2,26 +2,24 @@
 title: -webkit-device-pixel-ratio
 slug: Web/CSS/@media/-webkit-device-pixel-ratio
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`-webkit-device-pixel-ratio`** ist eine nicht standardisierte Boolean-[CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/@media#media_features), die eine Alternative zur standardisierten [`resolution`](/de/docs/Web/CSS/@media/resolution)-Medienfunktion darstellt.
+Der **`-webkit-device-pixel-ratio`** ist ein nicht standardmäßiges Boolean-[CSS](/de/docs/Web/CSS)-[Medienmerkmal](/de/docs/Web/CSS/@media#media_features), das eine Alternative zum standardmäßigen [`resolution`](/de/docs/Web/CSS/@media/resolution)-Medienmerkmal darstellt.
 
 > [!NOTE]
-> Wenn möglich, verwenden Sie die [`resolution`](/de/docs/Web/CSS/@media/resolution)-Medienanfrage, da dies eine standardisierte Medienfunktion ist. Obwohl diese mit Präfix versehene Medienfunktion eine WebKit-Funktion ist, könnten auch andere Browser-Engines sie unterstützen. Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten.
+> Wenn möglich, verwenden Sie stattdessen die [`resolution`](/de/docs/Web/CSS/@media/resolution)-Medienabfrage, die ein standardmäßiges Medienmerkmal ist. Während dieses vorangestellte Medienmerkmal eine WebKit-Funktion ist, kann es von anderen Browser-Engines unterstützt werden. Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten.
 
 ## Syntax
 
-Die `-webkit-device-pixel-ratio`-Funktion wird als {{cssxref("&lt;number&gt;")}}-Wert angegeben. Es handelt sich um eine Bereichs-Funktion, was bedeutet, dass Sie auch die mit Präfix versehenen **`-webkit-min-device-pixel-ratio`**- und **`-webkit-max-device-pixel-ratio`**-Varianten verwenden können, um minimale und maximale Werte abzufragen.
+Das Merkmal `-webkit-device-pixel-ratio` wird als {{cssxref("&lt;number&gt;")}}-Wert angegeben. Es handelt sich um ein Bereichsmerkmal, was bedeutet, dass Sie auch die vorangestellten Varianten **`-webkit-min-device-pixel-ratio`** und **`-webkit-max-device-pixel-ratio`** verwenden können, um Minimum- bzw. Maximumwerte abzufragen.
 
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Gerätepixel, die verwendet werden, um jedes CSS-[`px`](/de/docs/Web/CSS/length#absolute_length_units) darzustellen. Obwohl der Wert eine `<number>` ist und daher syntaktisch keine Einheiten erlaubt, ist die implizite Einheit [`dppx`](/de/docs/Web/CSS/resolution#units).
+  - : Die Anzahl der Geräte-Pixel, die verwendet werden, um jedes CSS-[`px`](/de/docs/Web/CSS/length#absolute_length_units) darzustellen. Obwohl der Wert ein `<number>` ist und daher syntaktisch keine Einheiten zulässt, ist seine implizite Einheit [`dppx`](/de/docs/Web/CSS/resolution#units).
 
-## Implementierung
+## Umsetzung
 
 ```css
 /* A unit of "dppx" is implied: */
@@ -90,10 +88,10 @@ Die `-webkit-device-pixel-ratio`-Funktion wird als {{cssxref("&lt;number&gt;")}}
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Medienabfragen verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - {{cssxref("resolution")}}
 - [`-webkit-transform-2d`](/de/docs/Web/CSS/@media/-webkit-transform-2d)
 - [`-webkit-transform-3d`](/de/docs/Web/CSS/@media/-webkit-transform-3d)
 - [`-webkit-transition`](/de/docs/Web/CSS/@media/-webkit-transition)
 - [`-webkit-animation`](/de/docs/Web/CSS/@media/-webkit-animation)
-- [Von W3C empfohlene Methode zur Entfernung von Präfixen](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/)
+- [W3C Vorgeschlagene Methode zum Entfernen des Präfixes](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/)

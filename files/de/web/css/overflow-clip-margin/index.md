@@ -2,12 +2,10 @@
 title: overflow-clip-margin
 slug: Web/CSS/overflow-clip-margin
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`overflow-clip-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, wie weit außerhalb seiner Grenzen ein Element mit [`overflow: clip`](/de/docs/Web/CSS/overflow) gezeichnet werden darf, bevor es abgeschnitten wird. Die durch diese Eigenschaft definierte Grenze wird als _Overflow-Clip-Kante_ der Box bezeichnet.
+Die **`overflow-clip-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, wie weit außerhalb ihrer Begrenzungen ein Element mit [`overflow: clip`](/de/docs/Web/CSS/overflow) gezeichnet werden darf, bevor es abgeschnitten wird. Die durch diese Eigenschaft definierte Grenze wird als _overflow clip edge_ des Feldes bezeichnet.
 
 ## Syntax
 
@@ -27,10 +25,10 @@ overflow-clip-margin: revert-layer;
 overflow-clip-margin: unset;
 ```
 
-Der `<visual-box>` Wert, der standardmäßig `padding-box` ist, gibt die Boxkante an, die als Ursprung der Overflow-Clip-Kante verwendet wird. Der in `overflow-clip-margin` angegebene {{cssxref("&lt;length&gt;")}}-Wert muss nicht negativ sein.
+Der `<visual-box>`-Wert, der standardmäßig `padding-box` ist, gibt die Kanten des Feldes an, die als Ursprung der Overflow-Clip-Kante verwendet werden. Der in `overflow-clip-margin` angegebene {{cssxref("&lt;length&gt;")}}-Wert muss nicht negativ sein.
 
 > [!NOTE]
-> Wenn das Element nicht `overflow: clip` aufweist, wird diese Eigenschaft ignoriert.
+> Wenn das Element nicht `overflow: clip` hat, wird diese Eigenschaft ignoriert.
 
 ## Formale Definition
 

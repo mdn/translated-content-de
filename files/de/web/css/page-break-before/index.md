@@ -2,17 +2,17 @@
 title: page-break-before
 slug: Web/CSS/page-break-before
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{deprecated_header}}
+{{deprecated_header}}
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch die Eigenschaft {{cssxref("break-before")}} ersetzt.
+> Diese Eigenschaft wurde durch die {{cssxref("break-before")}} Eigenschaft ersetzt.
 
-Die **`page-break-before`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Umbrüche _vor_ dem aktuellen Element an.
+Die **`page-break-before`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _vor_ dem aktuellen Element an.
 
-Diese Eigenschaft gilt für Block-Elemente, die eine Box generieren. Sie wird nicht auf ein leeres {{ HTMLElement("div") }} angewendet, das keine Box generiert.
+Diese Eigenschaft gilt für Block-Elemente, die eine Box erzeugen. Sie gilt nicht für ein leeres {{ HTMLElement("div") }}, das keine Box erzeugt.
 
 {{InteractiveExample("CSS Demo: page-break-before")}}
 
@@ -112,25 +112,25 @@ page-break-before: unset;
 ### Werte
 
 - `auto`
-  - : Initialer Wert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `always`
-  - : Immer Seitenumbrüche vor dem Element erzwingen.
+  - : Erzwingen Sie immer Seitenumbrüche vor dem Element.
 - `avoid`
-  - : Vermeiden von Seitenumbrüchen vor dem Element.
+  - : Vermeiden Sie Seitenumbrüche vor dem Element.
 - `left`
-  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als linke Seite formatiert wird. Es ist die Seite, die sich auf der linken Seite des Buchrückens oder der Rückseite der Seite im Duplexdruck befindet.
+  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als linke Seite formatiert wird. Es ist die Seite, die auf der linken Seite des Buchrückens oder der Rückseite der Seite im Duplexdruck platziert wird.
 - `right`
-  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Es ist die Seite, die sich auf der rechten Seite des Buchrückens oder der Vorderseite der Seite im Duplexdruck befindet.
+  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Es ist die Seite, die auf der rechten Seite des Buchrückens oder der Vorderseite der Seite im Duplexdruck platziert wird.
 - `recto`
-  - : Wenn Seiten von links nach rechts verlaufen, wirkt dies wie `right`. Wenn Seiten von rechts nach links verlaufen, wirkt dies wie `left`.
+  - : Wenn die Seiten von links nach rechts fortschreiten, wirkt dies wie `right`. Wenn die Seiten von rechts nach links fortschreiten, wirkt dies wie `left`.
 - `verso`
-  - : Wenn Seiten von links nach rechts verlaufen, wirkt dies wie `left`. Wenn Seiten von rechts nach links verlaufen, wirkt dies wie `right`.
+  - : Wenn die Seiten von links nach rechts fortschreiten, wirkt dies wie `left`. Wenn die Seiten von rechts nach links fortschreiten, wirkt dies wie `right`.
 
-## Alias für Seitenumbrüche
+## Seitenumbruch-Alias
 
 Die Eigenschaft `page-break-before` ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-before")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-before` von Browsern als Alias von `break-before` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-before` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
+Aus Kompatibilitätsgründen sollte `page-break-before` von Browsern als Alias von `break-before` behandelt werden. Dies stellt sicher, dass Seiten, die `page-break-before` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias behandelt werden:
 
 | page-break-before | break-before |
 | ----------------- | ------------ |
@@ -150,7 +150,7 @@ Aus Kompatibilitätsgründen sollte `page-break-before` von Browsern als Alias v
 
 ## Beispiele
 
-### Einen Seitenumbruch vor einem Element vermeiden
+### Vermeiden eines Seitenumbruchs vor einem Element
 
 ```css
 /* Avoid page break before div elements of class note */

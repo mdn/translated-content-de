@@ -2,16 +2,14 @@
 title: :seeking
 slug: Web/CSS/:seeking
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Der **`:seeking`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Wiedergabeposition in der Medienressource sucht.
+Eine Ressource wird als suchend betrachtet, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, aber das Medienelement diese Position noch nicht erreicht hat.
 
-Der **`:seeking`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein abspielbares Element, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Wiedergabeposition in der Medienressource sucht.
-Eine Ressource wird als "seeking" betrachtet, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, das Medienelement diese Position jedoch noch nicht erreicht hat.
-
-"Seeking" unterscheidet sich von {{cssxref(":buffering")}} insofern, als das Medienelement derzeit keine Daten lädt, sondern stattdessen zu einer neuen Position in der Medienressource springt.
-Weitere Informationen finden Sie im [Leitfaden zu Media-Buffering, Seeking, und Zeitbereichen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
+Das Suchen unterscheidet sich von {{cssxref(":buffering")}}, da das Medienelement aktuell keine Daten lädt, sondern stattdessen zu einer neuen Position in der Medienressource springt.
+Weitere Informationen finden Sie im [Leitfaden zu Media-Pufferung, Suchen und Zeitbereichen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
 
 ## Syntax
 

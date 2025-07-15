@@ -2,12 +2,10 @@
 title: mask-border-outset
 slug: Web/CSS/mask-border-outset
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Abstand an, um den der [Maskenrand](/de/docs/Web/CSS/mask-border) eines Elements von seinem Randkasten gesetzt wird.
+Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, um welchen Abstand der [Maskenrand](/de/docs/Web/CSS/mask-border) eines Elements von seiner Rahmenbox gesetzt wird.
 
 ## Syntax
 
@@ -35,12 +33,12 @@ mask-border-outset: revert-layer;
 mask-border-outset: unset;
 ```
 
-Die Eigenschaft `mask-border-outset` kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder eine {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
+Die `mask-border-outset` Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist entweder ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
 
-- Wenn **ein** Wert angegeben wird, gilt derselbe Abstand für **alle vier Seiten**.
+- Wenn **ein** Wert angegeben wird, gilt der gleiche Abstand für **alle vier Seiten**.
 - Wenn **zwei** Werte angegeben werden, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
 - Wenn **drei** Werte angegeben werden, gilt der erste Abstand für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Abstände in folgender Reihenfolge für **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
+- Wenn **vier** Werte angegeben werden, gelten die Abstände der Reihe nach (im Uhrzeigersinn) für **oben**, **rechts**, **unten** und **links**.
 
 ### Werte
 
@@ -61,7 +59,7 @@ Die Eigenschaft `mask-border-outset` kann mit einem, zwei, drei oder vier Werten
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit noch nirgends unterstützt zu werden. Sobald sie unterstützt wird, wird sie dazu dienen, die Maske vom inneren Rand des Randkastens des Elements weg zu bewegen — Sie können sie verwenden, um die Maske so zu positionieren, dass sie teilweise über den Rand hinaus beginnt, anstatt innerhalb davon.
+Diese Eigenschaft scheint derzeit noch nirgends unterstützt zu werden. Sobald sie unterstützt wird, dient sie dazu, die Maske vom inneren Rand der Rahmenbox des Elements wegzubewegen — Sie können sie verwenden, um die Maske ab einem Teil des Randes beginnen zu lassen, anstatt im Inneren davon.
 
 ```css
 mask-border-outset: 1rem;
@@ -74,7 +72,7 @@ Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaf
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Randmaskeneigenschaften in Chromium), sodass Sie eine Vorstellung vom Effekt erhalten können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) zeigt ein funktionierendes Beispiel (unter Verwendung der veralteten, in Chromium unterstützten Maskenrand-Präfix-Eigenschaften), sodass Sie eine Vorstellung vom Effekt bekommen können.
 
 ## Spezifikationen
 

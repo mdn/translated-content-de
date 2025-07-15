@@ -2,10 +2,8 @@
 title: contrast()
 slug: Web/CSS/filter-function/contrast
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 72a2f0fa7f25ba32ab8e07447a8d4bbc2f936b85
 ---
-
-{{CSSRef}}
 
 Die **`contrast()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) passt den Kontrast des Eingabebildes an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
@@ -46,9 +44,9 @@ contrast(amount)
 ### Werte
 
 - `amount` {{Optional_Inline}}
-  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, ein Wert über `100%` erhöht ihn. Ein Wert von `0` oder `0%` erstellt ein komplett graues Bild, während ein Wert von `1` oder `100%` die Eingabe unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
+  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein vollständig graues Bild, während ein Wert von `1` oder `100%` das Eingabewerte unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
 
-Die folgenden sind Paare von äquivalenten Werten:
+Die folgenden sind Paare von gleichwertigen Werten:
 
 ```css
 contrast(0)    /* Completely gray */
@@ -71,9 +69,9 @@ contrast(200%)
 
 ## Beispiele
 
-### Mit der backdrop-filter Eigenschaft
+### Mit der Eigenschaft backdrop-filter
 
-Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("backdrop-filter")}} auf den Absatz und den monospaced Text an, indem die Farbe in den Bereich hinter dem `<p>` und `<code>` verschoben wird.
+Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("backdrop-filter")}} auf den Absatz sowie den monospaced Text an und verschiebt die Farben im Bereich hinter `<p>` und `<code>`.
 
 ```css
 .container {
@@ -113,9 +111,9 @@ p {
 
 {{EmbedLiveSample('With_the_backdrop-filter_property','100%','260')}}
 
-### Mit der filter Eigenschaft
+### Mit der Eigenschaft filter
 
-Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("filter")}} an, der den Kontrast durch Farbanpassung des gesamten Elements, einschließlich Inhalt, Rahmen, Hintergrund und Schatten, verändert.
+Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("filter")}} an, indem der Kontrast durch Verschieben der Farben des gesamten Elements, einschließlich Inhalt, Rahmen, Hintergrund und Schatten geändert wird.
 
 ```css
 p:first-of-type {
@@ -150,9 +148,9 @@ p {
 
 {{EmbedLiveSample('With_the_filter_property','100%','320')}}
 
-### Mit url() und dem SVG Kontrastfilter
+### Mit url() und dem SVG-Kontrastfilter
 
-Das SVG-Element {{SVGElement("filter")}} wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Das `<filter>`'s {{SVGElement("feComponentTransfer")}} Primitive ermöglicht die Farbumwandlung auf Pixelebene. Angesichts des Folgenden:
+Das SVG-Element {{SVGElement("filter")}} wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann über [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Das Primitive {{SVGElement("feComponentTransfer")}} des `<filter>` ermöglicht eine Pixel-genaue Farbzuordnung. Angenommen die folgenden:
 
 ```html live-sample___svg_filter
 <svg
@@ -173,15 +171,15 @@ Das SVG-Element {{SVGElement("filter")}} wird verwendet, um benutzerdefinierte F
 </svg>
 ```
 
-Diese Werte erzielen die gleichen Ergebnisse:
+Diese Werte erzeugen die gleichen Ergebnisse:
 
 ```css
 filter: contrast(200%);
-filter: url(#contrast); /* with embedded SVG */
-filter: url(folder/fileName.svg#contrast); /* external svg filter definition */
+filter: url("#contrast"); /* with embedded SVG */
+filter: url("folder/fileName.svg#contrast"); /* external svg filter definition */
 ```
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `contrast()` Filterfunktion, das Bild mit einem äquivalenten `url()` Filter und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()` Filterfunktion, das Bild mit einem äquivalenten `url()` Filter und die Originalbilder zum Vergleich:
 
 ```html hidden live-sample___svg_filter
 <table cellpadding="5">
@@ -196,13 +194,13 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `contrast()` F
     <tr>
       <td>
         <img
-          style="filter: contrast(200%)"
+          class="css-filter"
           src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
           alt="Pride flag" />
       </td>
       <td>
         <img
-          style="filter: url(#contrast)"
+          class="svg-filter"
           src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
           alt="Pride flag" />
       </td>
@@ -214,6 +212,18 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `contrast()` F
     </tr>
   </tbody>
 </table>
+```
+
+```css hidden live-sample___svg_filter
+.css-filter {
+  filter: contrast(200%);
+}
+.svg-filter {
+  filter: url("#contrast");
+}
+svg:not(:root) {
+  display: none;
+}
 ```
 
 {{EmbedLiveSample('svg_filter','100%','280')}}
@@ -228,8 +238,8 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `contrast()` F
 
 ## Siehe auch
 
-- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, beinhalten:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

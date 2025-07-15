@@ -2,15 +2,13 @@
 title: hue-rotate()
 slug: Web/CSS/filter-function/hue-rotate
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: b67c2be9feee1463ea5a27e5c7b3e0062162354f
 ---
 
-{{CSSRef}}
-
-Die **`hue-rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) rotiert den [Farbton (hue)](https://en.wikipedia.org/wiki/Hue) eines Elements und seines Inhalts. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`hue-rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) rotiert den [Farbton](https://en.wikipedia.org/wiki/Hue) eines Elements und seines Inhalts. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 > [!NOTE]
-> `hue-rotate()` wird als Matrixoperation auf der RGB-Farbe spezifiziert. Es konvertiert die Farbe nicht wirklich in das HSL-Modell, was eine nicht-lineare Operation ist. Daher kann es die Sättigung oder Helligkeit der ursprünglichen Farbe nicht bewahren, insbesondere bei gesättigten Farben.
+> `hue-rotate()` wird als Matrixoperation auf der RGB-Farbe spezifiziert. Es konvertiert die Farbe nicht tatsächlich in das HSL-Modell, das eine nichtlineare Operation ist. Daher kann es sein, dass die Sättigung oder Helligkeit der ursprünglichen Farbe nicht erhalten bleibt, insbesondere bei gesättigten Farben.
 
 {{InteractiveExample("CSS Demo: hue-rotate()")}}
 
@@ -49,9 +47,9 @@ hue-rotate(angle)
 ### Werte
 
 - `angle` {{Optional_Inline}}
-  - : Die relative Änderung des Farbtons der Eingabeprobe, angegeben als ein {{cssxref("&lt;angle&gt;")}}. Ein Wert von `0deg` lässt die Eingabe unverändert. Eine positive Farbtonrotation erhöht den Farbtonwert, während eine negative Rotation den Farbtonwert verringert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Es gibt keinen minimalen oder maximalen Wert. Der Effekt von Werten über `360deg` wird bei `hue-rotate(Ndeg)` als `N` modulo 360 ausgewertet. Der Standardwert ist `0deg`.
+  - : Die relative Änderung des Farbtons des Eingabesamples, angegeben als ein {{cssxref("&lt;angle&gt;")}}. Ein Wert von `0deg` lässt die Eingabe unverändert. Eine positive Farbtonrotation erhöht den Farbtonwert, während eine negative Rotation den Farbtonwert verringert. Der Initialwert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Es gibt keinen minimalen oder maximalen Wert. Die Wirkung von Werten über `360deg`, bei `hue-rotate(Ndeg)`, ergibt `N` modulo 360. Der Standardwert ist `0deg`.
 
-Der CSS-Datentyp `<angle>` repräsentiert einen Winkelwert, der in Grad, Gradian, Radiant oder Umdrehungen ausgedrückt wird. Die folgenden sind gleichwertig:
+Der `<angle>` CSS-Datentyp repräsentiert einen Winkelwert, der in Grad, Neugrad, Radianten oder Umdrehungen ausgedrückt wird. Die folgenden sind gleichwertig:
 
 ```css
 hue-rotate(-180deg)
@@ -67,9 +65,9 @@ hue-rotate(0.5turn)
 
 ## Beispiele
 
-### Mit der Eigenschaft backdrop-filter
+### Mit der backdrop-filter Eigenschaft
 
-Dieses Beispiel wendet einen `hue-rotate()` Filter über die CSS-Eigenschaft `backdrop-filter` auf den Absatz an, wodurch der Bereich hinter dem `<p>` farblich verschoben wird.
+Dieses Beispiel wendet einen `hue-rotate()` Filter über die `backdrop-filter` CSS-Eigenschaft auf den Absatz an und verschiebt die Farbe im Bereich hinter dem `<p>`.
 
 ```css
 .container {
@@ -105,9 +103,9 @@ p {
 
 {{EmbedLiveSample('With_the_backdrop-filter_property','100%','280')}}
 
-### Mit der Eigenschaft filter
+### Mit der filter Eigenschaft
 
-Dieses Beispiel wendet einen `hue-rotate()` Filter über die CSS-Eigenschaft `filter` an und fügt die Farbverschiebung dem gesamten Element hinzu, einschließlich Inhalt, Rahmen und Hintergrundbild.
+Dieses Beispiel wendet einen `hue-rotate()` Filter über die `filter` CSS-Eigenschaft an und fügt die Farbverschiebung auf das gesamte Element hinzu, einschließlich Inhalt, Rand und Hintergrundbild.
 
 ```css
 p {
@@ -137,9 +135,9 @@ p {
 
 {{EmbedLiveSample('With_the_filter_property','100%','220')}}
 
-### Mit url() und dem SVG-Farbton-rotationsfilter
+### Mit url() und dem SVG hue-rotate Filter
 
-Das SVG-{{SVGElement("filter")}}-Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Der `<filter>`-Primitive {{SVGElement("feColorMatrix")}}-Typ `hueRotate` bietet denselben Effekt. Gegeben folgendes:
+Das SVG {{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann per [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Der `hueRotate` Typ der `<filter>` {{SVGElement("feColorMatrix")}} Primitive bietet den gleichen Effekt. Gegeben:
 
 ```html live-sample___svg_filter
 <svg
@@ -154,15 +152,15 @@ Das SVG-{{SVGElement("filter")}}-Element wird verwendet, um benutzerdefinierte F
 </svg>
 ```
 
-Diese Werte führen zu denselben Ergebnissen:
+Diese Werte erzeugen die gleichen Ergebnisse:
 
 ```css
 filter: hue-rotate(90deg); /* 90deg rotation */
-filter: url(#hue-rotate); /* with embedded SVG */
-filter: url(folder/fileName.svg#hue-rotate); /* external svg filter definition */
+filter: url("#hue-rotate"); /* with embedded SVG */
+filter: url("folder/fileName.svg#hue-rotate"); /* external svg filter definition */
 ```
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `hue-rotate()` Funktion, das Bild mit einem gleichwertigen `url()` Filter und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewendeten `hue-rotate()` Funktion, das Bild mit einem äquivalenten `url()` Filter und die Originalbilder zum Vergleich:
 
 ```html hidden live-sample___svg_filter
 <table cellpadding="5">
@@ -177,13 +175,13 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `hue-rotate()`
     <tr>
       <td>
         <img
-          style="filter: hue-rotate(90deg)"
+          class="css-filter"
           src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
           alt="Pride flag with rotated colors" />
       </td>
       <td>
         <img
-          style="filter: url(#hue-rotate)"
+          class="svg-filter"
           src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
           alt="Pride flag with rotated colors" />
       </td>
@@ -197,11 +195,23 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewandten `hue-rotate()`
 </table>
 ```
 
+```css hidden live-sample___svg_filter
+.css-filter {
+  filter: hue-rotate(90deg);
+}
+.svg-filter {
+  filter: url("#hue-rotate");
+}
+svg:not(:root) {
+  display: none;
+}
+```
+
 {{EmbedLiveSample('svg_filter','100%','280')}}
 
 ### hue-rotate() bewahrt nicht Sättigung oder Helligkeit
 
-Das unten stehende Diagramm vergleicht zwei Farbverläufe, die mit Rot beginnen: Der erste wird mit `hue-rotate()` erzeugt, der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `hue-rotate()` Verlauf offensichtlich Unterschiede in Sättigung und Helligkeit in der Mitte zeigt.
+Das folgende Diagramm vergleicht zwei Farbverläufe, die mit Rot beginnen: Der erste wird mit `hue-rotate()` erzeugt, der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `hue-rotate()` Verlauf offensichtliche Unterschiede in der Sättigung und Helligkeit in der Mitte zeigt.
 
 ```html
 <div>
@@ -256,8 +266,8 @@ for (let i = 0; i < 360; i++) {
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}

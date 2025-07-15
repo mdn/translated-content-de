@@ -3,16 +3,15 @@ title: Firefox 142 für Entwickler
 short-title: Firefox 142 (Nightly)
 slug: Mozilla/Firefox/Releases/142
 l10n:
-  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
+  sourceCommit: 64df508685abcbc047f6c1a973505921fad1484e
 ---
 
-Dieser Artikel bietet Informationen über Änderungen in Firefox 142, die Entwickler betreffen.
-Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/de/firefox/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 142, die Entwickler betreffen. Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften ein, für die Sie Notizen schreiben. -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
@@ -72,14 +71,8 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 <!-- ### Entfernungen -->
 
-<!-- ### Sonstiges -->
+<!-- ### Andere -->
 
 ## Experimentelle Web-Features
 
-Diese Funktionen sind in Firefox 142 enthalten, aber standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
-
-## Ältere Versionen
-
-{{Firefox_for_developers}}
+Diese Funktionen werden in Firefox 142 bereitgestellt, sind jedoch standardmäßig deaktiviert. Um diese auszuprobieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

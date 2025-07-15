@@ -2,14 +2,12 @@
 title: container
 slug: Web/CSS/container
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **container** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Element als Abfragecontainer fest und gibt den Namen und den Typ des verwendeten [Containment-Kontexts](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) in einer [Container-Abfrage](/de/docs/Web/CSS/CSS_containment/Container_queries) an.
 
-Die **container** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Element als Abfrage-Container fest und spezifiziert den Namen und den Typ des verwendeten [Containment-Kontexts](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) in einer [Container-Abfrage](/de/docs/Web/CSS/CSS_containment/Container_queries).
-
-## Bestandteile der Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -46,15 +44,15 @@ container: unset;
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Etablierung der Inline-Größenenthaltung
+### Festlegen der Inline-Größen-Eindämmung
 
-Angenommen, das folgende HTML-Beispiel ist eine Kartenkomponente mit einem Bild, einem Titel und etwas Text:
+Gegeben sei das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild, einem Titel und etwas Text ist:
 
 ```html
 <div class="post">
@@ -65,7 +63,7 @@ Angenommen, das folgende HTML-Beispiel ist eine Kartenkomponente mit einem Bild,
 </div>
 ```
 
-Die explizite Methode, um einen Container-Kontext zu erstellen, besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
+Die explizite Methode zur Erstellung eines Container-Kontexts besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
 
 ```css
 .post {
@@ -74,7 +72,7 @@ Die explizite Methode, um einen Container-Kontext zu erstellen, besteht darin, e
 }
 ```
 
-Die `container`-Kurzform soll es einfacher machen, dies in einer einzigen Deklaration zu definieren:
+Die `container`-Kurzform soll diese Definition in einer einzigen Deklaration vereinfachen:
 
 ```css
 .post {
@@ -82,7 +80,7 @@ Die `container`-Kurzform soll es einfacher machen, dies in einer einzigen Deklar
 }
 ```
 
-Sie können dann diesen Container gezielt per Name mit der {{cssxref("@container")}}-Anweisung ansprechen:
+Sie können dann diesen Container mit dem Namen über die {{cssxref("@container")}} Regel ansprechen:
 
 ```css
 @container sidebar (width >= 400px) {
@@ -100,10 +98,10 @@ Sie können dann diesen Container gezielt per Name mit der {{cssxref("@container
 
 ## Siehe auch
 
-- [CSS Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- {{Cssxref("@container")}}-Anweisung
-- CSS {{Cssxref("contain")}}-Eigenschaft
-- CSS {{Cssxref("container-type")}}-Eigenschaft
-- CSS {{Cssxref("container-name")}}-Eigenschaft
-- CSS {{cssxref("content-visibility")}}-Eigenschaft
+- [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [Verwendung von Container-Größen und Stil-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- {{Cssxref("@container")}} Regel
+- CSS {{Cssxref("contain")}} Eigenschaft
+- CSS {{Cssxref("container-type")}} Eigenschaft
+- CSS {{Cssxref("container-name")}} Eigenschaft
+- CSS {{cssxref("content-visibility")}} Eigenschaft

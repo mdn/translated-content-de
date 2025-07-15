@@ -2,12 +2,10 @@
 title: :nth-last-of-type()
 slug: Web/CSS/:nth-last-of-type
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:nth-last-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern des gleichen Typs (Tag-Name) aus, wobei vom Ende gezählt wird.
+Die **`:nth-last-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern desselben Typs (Tag-Name), von hinten gezählt, aus.
 
 {{InteractiveExample("CSS Demo: :nth-last-of-type", "tabbed-shorter")}}
 
@@ -49,7 +47,7 @@ dd:nth-last-of-type(3n) {
 
 ### Parameter
 
-Die `:nth-last-of-type()` Pseudoklasse wird mit einem einzelnen Argument angegeben, das das Muster für die Übereinstimmung von Elementen darstellt, wobei vom Ende gezählt wird.
+Die `:nth-last-of-type()` Pseudoklasse wird mit einem einzigen Argument angegeben, das das Muster für die Auswahl von Elementen repräsentiert, von hinten gezählt.
 
 Siehe {{Cssxref(":nth-last-child")}} für eine detailliertere Erklärung der Syntax.
 

@@ -2,14 +2,12 @@
 title: stroke-linejoin
 slug: Web/CSS/stroke-linejoin
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`stroke-linejoin`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Form, die an den Ecken von mit Linien versehenen Pfaden eines [SVG](/de/docs/Web/SVG)-Elements verwendet werden soll. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-linejoin")}}-Attribut des Elements.
 
-Die **`stroke-linejoin`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Form, die bei den Ecken der Pfade eines [SVG](/de/docs/Web/SVG) Elements verwendet wird. Falls vorhanden, überschreibt sie das {{SVGAttr("stroke-linejoin")}} Attribut des Elements.
-
-Diese Eigenschaft gilt für jede SVG-Ecken-erzeugende Form oder Textinhalts-Element (siehe {{SVGAttr("stroke-linejoin")}} für eine vollständige Liste), aber als geerbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf nachfolgende Elemente haben.
+Diese Eigenschaft gilt für jede SVG-Eckenerzeugungsform oder für textinhaltliche Elemente (siehe {{SVGAttr("stroke-linejoin")}} für eine vollständige Liste), aber als geerbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und immer noch die beabsichtigte Wirkung auf Nachfolgeelemente haben.
 
 ## Syntax
 
@@ -30,28 +28,24 @@ stroke-linejoin: unset;
 ### Werte
 
 - `bevel`
-
-  - : Gibt an, dass eine abgeschrägte Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Abschrägung entsteht durch das Abschneiden der Ecke mit einer Linie, die senkrecht zu einer Linie ist, die den Unterschied der Teilpfadwinkel in dem Punkt halbiert, an dem sie aufeinandertreffen.
+  - : Gibt an, dass eine abgeschrägte Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Abschrägung wird gebildet, indem die Ecke mit einer Linie abgeschnitten wird, die senkrecht zu einer Linie steht, die den Unterschied in den Unterpfadwinkeln an der Verbindungsstelle halbiert.
 
 - `miter`
-
-  - : Gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden. Dies ist der Standardwert.
+  - : Gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke wird durch das Verlängern der äußeren Kanten des Strichs an den Tangenten der Pfadsegmente gebildet, bis sie sich schneiden. Dies ist der Standardwert.
 
 - `round`
-  - : Gibt an, dass eine abgerundete Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Dies wird erreicht, indem die Verbindung gemäß `bevel` beschnitten und dann ein gefüllter Bogen hinzugefügt wird, um die Ecke abzurunden.
+  - : Gibt an, dass eine abgerundete Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Dies wird erreicht, indem die Verbindung gemäß `bevel` abgeschnitten wird und dann ein gefüllter Kreisbogen hinzugefügt wird, um die Ecke abzurunden.
 
-Die folgenden Werte sind definiert, aber in keinem Browser unterstützt:
+Die folgenden Werte sind definiert, werden jedoch in keinem Browser unterstützt:
 
 - `arcs`
-
-  - : _(Nicht unterstützt.)_ Gibt an, dass eine _Bogen-Ecke_ verwendet werden soll, um Pfadsegmente zu verbinden. Die Form des Bogens entsteht durch das Verlängern der äußeren Kanten des Strichs am Verknüpfungspunkt mit Bögen, die die gleiche Krümmung wie die äußeren Kanten an diesem Punkt haben.
+  - : _(Nicht unterstützt.)_ Gibt an, dass eine _arc-Ecke_ verwendet werden soll, um Pfadsegmente zu verbinden. Die Form des Bogens wird durch das Verlängern der äußeren Kanten des Strichs an der Verbindungsstelle mit Bögen, die die gleiche Krümmung wie die äußeren Kanten an der Verbindungsstelle haben, gebildet.
 
 - `crop`
-
-  - : _(Nicht unterstützt.)_ Gibt an, dass die Ecke über den Verknüpfungspunkt hinaus verlängert werden soll, um die minimale Menge, die notwendig ist, um eine konvexe Ecke zu bilden. Dies entspricht funktional `miter` (siehe oben) mit einem {{CSSxref('stroke-miterlimit')}} Wert von `1`.
+  - : _(Nicht unterstützt.)_ Gibt an, dass die Ecke über die Verbindungsstelle hinaus um den minimalen Betrag verlängert werden sollte, der erforderlich ist, um eine konvexe Ecke zu bilden. Dies ist funktional äquivalent zu `miter` (siehe oben) mit einem {{CSSxref('stroke-miterlimit')}}-Wert von `1`.
 
 - `fallback`
-  - : _(Nicht unterstützt; gefährdet.)_ Verhält sich identisch zu `crop bevel`, wenn der {{CSSxref('stroke-miterlimit')}} Wert überschritten wird.
+  - : _(Nicht unterstützt; gefährdet.)_ verhält sich identisch zu `crop bevel`, wenn der {{CSSxref('stroke-miterlimit')}}-Wert überschritten wird.
 
 ## Formale Definition
 
@@ -65,11 +59,11 @@ Die folgenden Werte sind definiert, aber in keinem Browser unterstützt:
 
 ### Linienverbindungsstile
 
-Dieses Beispiel zeigt die drei derzeit unterstützten Schlüsselwortwerte für `stroke-linejoin`.
+Dieses Beispiel demonstriert die drei derzeit unterstützten Schlüsselwortwerte für `stroke-linejoin`.
 
 #### HTML
 
-Wir richten vier identische Pfade ein, die alle eine schwarze Linie mit einer Breite von eins haben und keine Füllung.
+Wir richten vier identische Pfade ein, die alle einen schwarzen Strich mit einer Breite von eins und keine Füllung haben.
 
 ```html
 <svg viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +78,7 @@ Wir richten vier identische Pfade ein, die alle eine schwarze Linie mit einer Br
 
 #### CSS
 
-Auf jeden der vier Pfade wird ein unterstützter Linienverbindungswert angewendet. Der erste ist abgeschrägt, der zweite abgerundet, der dritte abgeschrägt und der vierte ebenfalls abgeschrägt, jedoch mit einem {{CSSxref('stroke-miterlimit')}} von `2`, der die Ecke stattdessen abgeschrägt macht.
+Für jeden der vier Pfade wird ein unterstützter Linienverbindungswert angewendet. Der erste ist abgeschrägt, der zweite abgerundet, der dritte geschnitten und der vierte ebenfalls geschnitten, jedoch mit einem {{CSSxref('stroke-miterlimit')}} von `2`, der die Ecke zwingt, abgeschrägt statt geschnitten zu sein.
 
 ```css
 path:nth-child(1) {
@@ -104,7 +98,7 @@ path:nth-child(4) {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Linienverbindungsstile", "500", "600")}}
+{{EmbedLiveSample("Line-joining styles", "500", "600")}}
 
 ## Spezifikationen
 
@@ -123,4 +117,4 @@ path:nth-child(4) {
 - {{cssxref("stroke-opacity")}}
 - {{cssxref("stroke-width")}}
 - {{cssxref("stroke")}}
-- SVG {{SVGAttr("stroke-linejoin")}} Attribut
+- SVG {{SVGAttr("stroke-linejoin")}}-Attribut

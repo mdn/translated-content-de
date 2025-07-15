@@ -2,12 +2,10 @@
 title: :right
 slug: Web/CSS/:right
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:right`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), die mit der {{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) verwendet wird, repräsentiert alle rechten Seiten eines gedruckten Dokuments.
+Die **`:right`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit dem {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), repräsentiert alle rechten Seiten eines ausgedruckten Dokuments.
 
 ```css
 /* Selects any right-hand pages when printing */
@@ -16,10 +14,10 @@ Die **`:right`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 }
 ```
 
-Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Hauptrichtung des Schreibens im Dokument bestimmt. Zum Beispiel: Wenn die erste Seite eine Hauptrichtung von links nach rechts hat, ist es eine `:right`-Seite; wenn die Hauptrichtung von rechts nach links ist, wird sie eine {{Cssxref(":left")}}-Seite sein.
+Ob eine gegebene Seite eine "linke" oder "rechte" ist, wird durch die Hauptschreibrichtung des Dokuments bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptschreibrichtung von links nach rechts hat, dann wird sie eine `:right` Seite sein; hat sie eine Hauptschreibrichtung von rechts nach links, dann wird sie eine {{Cssxref(":left")}} Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Inhalt des Dokuments auf der Seite, wird beeinflusst.
+> Diese Pseudoklasse kann verwendet werden, um nur die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
 
 ## Syntax
 

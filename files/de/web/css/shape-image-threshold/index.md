@@ -2,12 +2,10 @@
 title: shape-image-threshold
 slug: Web/CSS/shape-image-threshold
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den Alphakanal-Schwellenwert, der verwendet wird, um die Form zu extrahieren, indem ein Bild als Wert für {{cssxref("shape-outside")}} verwendet wird.
+Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Alpha-Kanal-Schwelle fest, die verwendet wird, um die Form unter Verwendung eines Bildes als Wert für {{cssxref("shape-outside")}} zu extrahieren.
 
 {{InteractiveExample("CSS Demo: shape-image-threshold")}}
 
@@ -77,7 +75,7 @@ shape-image-threshold: 0.6;
 }
 ```
 
-Alle Pixel, deren Wert der Alpha-Komponente größer als der Schwellenwert ist, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% undurchsichtig sind.
+Alle Pixel, deren Alphakomponentenwert größer als die Schwelle ist, werden als Teil der Form angesehen, um deren Grenzen zu bestimmen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% opak sind.
 
 ## Syntax
 
@@ -96,7 +94,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Setzt den Schwellenwert, der für die Extraktion einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alpha-Wert größer ist als der Schwellenwert. Werte außerhalb des Bereichs 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden in diesen Bereich eingespannt.
+  - : Setzt die Schwelle, die zum Extrahieren einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alphawert größer als die Schwelle ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -108,9 +106,9 @@ shape-image-threshold: unset;
 
 ## Beispiele
 
-### Text an einem Verlauf ausrichten
+### Ausrichten von Text an einem Verlauf
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Verlaufshintergrundbild. Der Verlauf wird als CSS-Form mit `shape-outside` festgelegt, sodass Pixel innerhalb des Verlaufs, die mindestens 20% undurchsichtig sind (d.h. die Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
+Dieses Beispiel erstellt ein {{HTMLElement("div")}}-Block mit einem Hintergrundbild eines Verlaufs. Der Verlauf wird als CSS-Form unter Verwendung von `shape-outside` festgelegt, sodass Pixel innerhalb des Verlaufs, die mindestens 20% opak sind (das heißt, die Pixel mit einer Alphakomponente größer als 0.2), als Teil der Form angesehen werden.
 
 #### HTML
 
@@ -144,9 +142,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Verlaufshi
 }
 ```
 
-Die Form wird hier unter Verwendung von {{cssxref("background-image")}} mit einem linearen Verlauf und nicht mit einer Bilddatei festgelegt. Derselbe Verlauf wird auch als das Bild verwendet, von dem die Form zur Bestimmung des Schwebebereichs abgeleitet wird, indem die {{cssxref("shape-outside")}} Eigenschaft verwendet wird.
+Die Form wird hier durch {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei geschaffen. Der gleiche Verlauf wird auch als Bild verwendet, aus dem die Form für die Festlegung des Flussbereichs abgeleitet wird, indem die {{cssxref("shape-outside")}} Eigenschaft verwendet wird.
 
-Der 20%-Deckschwellenwert, um Verlaufspixel als Teil der Form zu behandeln, wird dann mit `shape-image-threshold` und einem Wert von `0.2` festgelegt.
+Die 20% Opazitätsschwelle, um Verlaufspixel als Teil der Form zu behandeln, wird dann durch `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 

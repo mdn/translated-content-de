@@ -1,18 +1,18 @@
 ---
-title: Firefox (-moz-) anbieterpräfixierte CSS-Erweiterungen
+title: Firefox (-moz-) vendor-präfixierte CSS-Erweiterungen
 slug: Web/CSS/Mozilla_Extensions
 l10n:
-  sourceCommit: 5878ceaae26e3873d5122fa3c294896fe8092be6
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Ein {{Glossary("vendor_prefix", "Vendor-Präfix")}} wird verwendet, um anzuzeigen, dass eine Funktion spezifisch für einen bestimmten Browser ist.
+Firefox unterstützt mehrere Erweiterungen für [CSS](/de/docs/Web/CSS), die mit `-moz-` präfixiert sind.
 
-Ein {{Glossary("vendor_prefix", "Anbieterpräfix")}} wird verwendet, um anzuzeigen, dass ein Feature spezifisch für einen bestimmten Browser ist. Firefox unterstützt mehrere Erweiterungen zu [CSS](/de/docs/Web/CSS), die mit `-moz-` vorangestellt sind.
-
-## -moz-präfixierte Eigenschaften ohne standardmäßige Entsprechungen
+## -moz-präfixierte Eigenschaften ohne standardmäßige Äquivalente
 
 > [!NOTE]
-> Diese Erweiterungen sind größtenteils experimentell oder veraltet, werden jedoch aus Gründen der Abwärtskompatibilität beibehalten. Sie sollten vermeiden, sie auf Produktionswebseiten zu verwenden.
+> Diese Erweiterungen sind meist experimentell oder veraltet, aber aus Kompatibilitätsgründen beibehalten.
+> Sie sollten diese nicht auf Produktionswebseiten verwenden.
 
 - {{CSSxRef("-moz-float-edge")}} {{deprecated_inline}}
 - {{CSSxRef("-moz-force-broken-image-icon")}} {{deprecated_inline}}: Verwenden Sie stattdessen `alt`-Text.
@@ -20,11 +20,11 @@ Ein {{Glossary("vendor_prefix", "Anbieterpräfix")}} wird verwendet, um anzuzeig
 - `-moz-osx-font-smoothing`: Eine ähnliche {{CSSxRef("font-smooth")}} Entsprechung existiert.
 - {{CSSxRef("-moz-user-focus")}} {{deprecated_inline}}
 - {{CSSxRef("-moz-user-input")}} {{deprecated_inline}}
-- `-moz-user-modify`: Eine nicht-präfixierte {{CSSxRef("user-modify")}} Entsprechung existiert, aber das HTML [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut wird stattdessen empfohlen.
+- `-moz-user-modify`: Ein nicht-präfixiertes {{CSSxRef("user-modify")}} Äquivalent existiert, aber das HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) wird stattdessen empfohlen.
 
-## -moz-präfixierte Eigenschaften mit standardmäßigen Entsprechungen
+## -moz-präfixierte Eigenschaften mit standardmäßigen Äquivalenten
 
-Die folgenden Eigenschaften wurden zuerst mit dem `-moz-` Anbieterpräfix implementiert, werden jetzt jedoch in Firefox mit der standardmäßigen (nicht-präfixierten) Syntax unterstützt. Die Unterstützung für die präfixierte Version wird in der Regel schließlich aufgegeben, daher sollten Sie stattdessen die standardmäßige Eigenschaft verwenden.
+Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Präfixes implementiert, werden jedoch jetzt in Firefox mit der standardmäßigen (nicht-präfixierten) Syntax unterstützt. Die Unterstützung für die präfixierte Version wird typischerweise irgendwann eingestellt, daher sollte stattdessen die standardmäßige Eigenschaft verwendet werden.
 
 ### A
 
@@ -44,13 +44,13 @@ Die folgenden Eigenschaften wurden zuerst mit dem `-moz-` Anbieterpräfix implem
 - {{CSSxRef("backface-visibility", "-moz-backface-visibility")}} {{deprecated_inline}}: Präfixierte Version wird noch unterstützt.
 - `-moz-background-clip` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("background-clip")}}.
 - `-moz-background-origin` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("background-origin")}}.
-- `-moz-box-align` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("align-items")}}.
+- `-moz-box-align` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("align-items")}}.
 - `-moz-background-inline-policy` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("box-decoration-break")}}.
-- `-moz-box-direction` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
-- `-moz-box-flex` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-grow")}}.
-- `-moz-box-ordinal-group` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("order")}}.
-- `-moz-box-orient` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
-- `-moz-box-pack` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("justify-content")}}.
+- `-moz-box-direction` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
+- `-moz-box-flex` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-grow")}}.
+- `-moz-box-ordinal-group` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("order")}}.
+- `-moz-box-orient` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
+- `-moz-box-pack` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("justify-content")}}.
 - `-moz-background-size` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("background-size")}}.
 - `-moz-border-end` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-end")}}.
 - `-moz-border-end-color` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-end-color")}}.
@@ -136,7 +136,7 @@ Die folgenden Eigenschaften wurden zuerst mit dem `-moz-` Anbieterpräfix implem
 - `-moz-bg-outset` {{deprecated_inline}}
 - `-moz-bg-solid` {{deprecated_inline}}
 
-### \<color\> Schlüsselwörter
+### &lt;color&gt; Schlüsselwörter
 
 **Typ:** {{CSSxRef("&lt;color&gt;")}}
 
@@ -174,7 +174,7 @@ Die folgenden Eigenschaften wurden zuerst mit dem `-moz-` Anbieterpräfix implem
 
 - `-moz-crisp-edges` {{deprecated_inline}}: Verwenden Sie [`crisp-edges`](/de/docs/Web/CSS/image-rendering#crisp-edges).
 
-### \<length\>
+### &lt;length&gt;
 
 **Typ:** {{CSSxRef("&lt;length&gt;")}}
 
@@ -184,7 +184,7 @@ Die folgenden Eigenschaften wurden zuerst mit dem `-moz-` Anbieterpräfix implem
 
 **Eigenschaft:** {{CSSxRef("list-style-type")}}
 
-Mehrere anbieterpräfixierte Werte für `list-style-type` werden jetzt als Standardwerte ohne `-moz-` Präfix unterstützt, mit Ausnahme der folgenden Liste. Siehe [Browser-Kompatibilität](/de/docs/Web/CSS/list-style-type#browser_compatibility) für Details.
+Mehrere vendor-präfixierte Werte für `list-style-type` werden jetzt als Standardwerte ohne `-moz-` Präfix unterstützt, mit Ausnahme der in der folgenden Liste aufgeführten. Siehe [Browser-Kompatibilität](/de/docs/Web/CSS/list-style-type#browser_compatibility) für Details.
 
 - `-moz-ethiopic-halehame`
 - `-moz-ethiopic-halehame-am`
@@ -202,7 +202,7 @@ Mehrere anbieterpräfixierte Werte für `list-style-type` werden jetzt als Stand
 - `-moz-left` {{deprecated_inline}}: Verwenden Sie {{CSSxRef("text-align", "text-align: left")}}.
 - `-moz-right` {{deprecated_inline}}: Verwenden Sie {{CSSxRef("text-align", "text-align: right")}}.
 
-### width, min-width und max-width
+### width, min-width, und max-width
 
 **Eigenschaften:** {{CSSxRef("width")}}, {{CSSxRef("min-width")}}, und {{CSSxRef("max-width")}}
 
@@ -211,7 +211,7 @@ Mehrere anbieterpräfixierte Werte für `list-style-type` werden jetzt als Stand
 - `-moz-max-content`: Siehe {{CSSxRef("max-content")}}.
 - `-moz-available`: Siehe [`stretch`](/de/docs/Web/CSS/width#stretch).
 
-## Pseudoklassen
+## Pseudo-Klassen
 
 - `:-moz-any` {{deprecated_inline}}: Verwenden Sie {{CSSxRef(":is")}}.
 - `:-moz-any-link` {{deprecated_inline}}: Verwenden Sie {{CSSxRef(":any-link")}}.
@@ -239,7 +239,7 @@ Mehrere anbieterpräfixierte Werte für `list-style-type` werden jetzt als Stand
 - {{CSSxRef(":-moz-user-disabled")}}
 - {{CSSxRef(":-moz-window-inactive")}}
 
-## Pseudoelemente
+## Pseudo-Elemente
 
 - `::-moz-canvas`
 - `::-moz-cell-content`
@@ -275,17 +275,17 @@ Mehrere anbieterpräfixierte Werte für `list-style-type` werden jetzt als Stand
 
 - {{CSSxRef("@document", "@-moz-document")}}
 
-## Medieneigenschaften
+## Medienfunktionen
 
 - {{CSSxRef("@media/-moz-device-pixel-ratio", "-moz-device-pixel-ratio")}} {{deprecated_inline}}
 - `-moz-platform`
 - `-moz-windows-glass`
 
-## Sonstiges
+## Andere
 
 - `-moz-alt-content`: Siehe [Firefox Bug 11011](https://bugzil.la/11011)
 
 ## Siehe auch
 
-- [WebKit (-webkit-) anbieterpräfixierte CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
-- {{Glossary("Vendor_Prefix", "Anbieterpräfix")}} Eintrag im Glossar
+- [WebKit (-webkit-) vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
+- {{Glossary("Vendor_Prefix", "Vendor-Präfix")}} Glossar-Eintrag

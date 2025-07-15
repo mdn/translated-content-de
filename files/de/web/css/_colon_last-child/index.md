@@ -2,10 +2,8 @@
 title: :last-child
 slug: Web/CSS/:last-child
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element innerhalb einer Gruppe von Geschwisterelementen.
 
@@ -85,7 +83,7 @@ p:last-child {
 
 {{EmbedLiveSample('Basic_example', 500, 200)}}
 
-### Gestaltung einer Liste
+### Stilierung einer Liste
 
 #### HTML
 

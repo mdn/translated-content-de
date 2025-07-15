@@ -2,12 +2,10 @@
 title: column-count
 slug: Web/CSS/column-count
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`column-count`** [CSS](/de/docs/Web/CSS)-Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
+Die **`column-count`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
 
 {{InteractiveExample("CSS Demo: column-count")}}
 
@@ -69,7 +67,7 @@ column-count: unset;
 - `auto`
   - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ist ein strikt positives {{cssxref("&lt;integer&gt;")}}, das die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements aufgeteilt wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen Wert ungleich `auto` gesetzt ist, gibt sie lediglich die maximal erlaubte Anzahl von Spalten an.
+  - : Ist eine streng positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements aufgeteilt wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen nicht-`auto` Wert gesetzt ist, gibt es lediglich die maximal zulässige Anzahl von Spalten an.
 
 ## Formale Definition
 
@@ -81,7 +79,7 @@ column-count: unset;
 
 ## Beispiele
 
-### Aufteilen eines Absatzes in drei Spalten
+### Einen Absatz über drei Spalten aufteilen
 
 #### HTML
 
@@ -117,5 +115,5 @@ column-count: unset;
 
 - {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurzschreibweise
 - {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Lernen Layout)
-- [Grundkonzepte von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Lernlayout)
+- [Grundlagen von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)

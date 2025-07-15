@@ -2,16 +2,14 @@
 title: column-gap
 slug: Web/CSS/column-gap
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`column-gap`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Größe des Abstands ({{Glossary("Gutters", "Gutter")}}) zwischen den Spalten eines Elements fest.
 
-Ursprünglich Teil des [Multi-column Layout](/de/docs/Web/CSS/CSS_multicol_layout), wurde die Definition von `column-gap` erweitert, um mehrere Layout-Methoden einzuschließen. Jetzt in der [CSS box alignment](/de/docs/Web/CSS/CSS_box_alignment) angegeben, kann es in mehrspaltigen, flexiblen Box- und Raster-Layouts verwendet werden.
+Ursprünglich Teil des [Multi-column Layout](/de/docs/Web/CSS/CSS_multicol_layout), wurde die Definition von `column-gap` erweitert, um mehrere Layout-Methoden einzuschließen. Jetzt im [CSS box alignment](/de/docs/Web/CSS/CSS_box_alignment) spezifiziert, kann sie in Multi-Column-, Flexbox- und Grid-Layouts verwendet werden.
 
-Frühere Versionen der Spezifikation nannten diese Eigenschaft `grid-column-gap`, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser immer noch `grid-column-gap` als Alias für `column-gap`.
+Frühere Versionen der Spezifikation nannten diese Eigenschaft `grid-column-gap`, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser weiterhin `grid-column-gap` als Alias für `column-gap`.
 
 {{InteractiveExample("CSS Demo: column-gap")}}
 
@@ -80,16 +78,16 @@ column-gap: revert-layer;
 column-gap: unset;
 ```
 
-Die `column-gap`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
+Die `column-gap`-Eigenschaft wird als einer der unten aufgeführten Werte spezifiziert.
 
 ### Werte
 
 - `normal`
-  - : Der Standardabstand des Browsers wird zwischen den Spalten verwendet. Bei mehrspaltigem Layout wird dies als `1em` angegeben. Für alle anderen Layouttypen beträgt er 0.
+  - : Der Standardabstand des Browsers wird zwischen den Spalten verwendet. Für das Multi-Column-Layout ist dies als `1em` festgelegt. Für alle anderen Layout-Arten ist es 0.
 - {{CSSxRef("&lt;length&gt;")}}
-  - : Die Größe des Abstands zwischen den Spalten, definiert als {{CSSxRef("&lt;length&gt;")}}. Der Wert der {{CSSxRef("&lt;length&gt;")}}-Eigenschaft muss nicht negativ sein.
+  - : Die Größe des Abstands zwischen den Spalten, definiert als ein {{CSSxRef("&lt;length&gt;")}}. Der Wert der {{CSSxRef("&lt;length&gt;")}}-Eigenschaft muss nicht negativ sein.
 - {{CSSxRef("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands zwischen den Spalten, definiert als {{CSSxRef("&lt;percentage&gt;")}}. Der Wert der {{CSSxRef("&lt;percentage&gt;")}}-Eigenschaft muss nicht negativ sein.
+  - : Die Größe des Abstands zwischen den Spalten, definiert als ein {{CSSxRef("&lt;percentage&gt;")}}. Der Wert der {{CSSxRef("&lt;percentage&gt;")}}-Eigenschaft muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -103,7 +101,7 @@ Die `column-gap`-Eigenschaft wird als einer der unten aufgeführten Werte angege
 
 ### Flex-Layout
 
-In diesem Beispiel enthält ein Flex-Container sechs Flex-Elemente mit zwei unterschiedlichen Breiten (`200px` und `300px`), wodurch Flex-Elemente entstehen, die nicht als Raster angeordnet sind. Die `column-gap`-Eigenschaft wird verwendet, um horizontalen Abstand zwischen den angrenzenden Flex-Elementen hinzuzufügen.
+In diesem Beispiel enthält ein Flex-Container sechs Flex-Elemente mit zwei unterschiedlichen Breiten (`200px` und `300px`), wodurch Flex-Elemente erstellt werden, die nicht als Raster angelegt sind. Die `column-gap`-Eigenschaft wird verwendet, um horizontalen Raum zwischen den angrenzenden Flex-Elementen hinzuzufügen.
 
 #### HTML
 
@@ -120,11 +118,11 @@ In diesem Beispiel enthält ein Flex-Container sechs Flex-Elemente mit zwei unte
 
 #### CSS
 
-Um einen Flex-Container zu erstellen, setzen wir seinen Wert der {{cssxref("display")}}-Eigenschaft auf `flex`. Wir verwenden dann die {{cssxref("flex-flow")}}-Kurzform-Eigenschaft, um die {{cssxref("flex-direction")}} auf Reihe (Standard) und {{cssxref("flex-wrap")}} auf `wrap` zu setzen, wodurch die Flex-Elemente bei Bedarf auf neue Zeilen fließen können. Standardmäßig dehnen sich Flex-Elemente so aus, dass sie so hoch sind wie ihr Container. Durch das Setzen einer {{cssxref("height")}}, sind auch leere Flex-Elemente `100px` hoch.
+Um einen Flex-Container zu erstellen, setzen wir den Wert der {{cssxref("display")}}-Eigenschaft auf `flex`. Wir verwenden dann die Kurzschreibweise der {{cssxref("flex-flow")}}-Eigenschaft, um die {{cssxref("flex-direction")}} auf `row` (die Standardeinstellung) und `{{cssxref("flex-wrap")}}` auf `wrap` zu setzen, wodurch die Flex-Elemente bei Bedarf in neue Zeilen fließen können. Standardmäßig dehnen sich Flex-Elemente so hoch wie ihr Container. Durch das Setzen einer {{cssxref("height")}} werden auch die leeren Flex-Elemente `100px` hoch.
 
-Um die `column-gap`-Eigenschaft besser zu demonstrieren, haben die Flex-Elemente in diesem Beispiel zwei verschiedene Breiten. Die Breite der Flex-Elemente wird innerhalb der `<div>`-Flex-Elemente festgelegt. Wir verwenden die {{cssxref("flex-basis")}} Komponente der {{cssxref("flex")}}-Kurzform-Eigenschaft, um alle Flex-Elemente `200px` breit zu machen. Wir zielen dann jedes dritte Flex-Element mit dem {{cssxref(":nth-of-type", ":nth-of-type(3n)")}}-Selektor an und erweitern es auf `300px`.
+Um die `column-gap`-Eigenschaft besser zu demonstrieren, haben die Flex-Elemente in diesem Beispiel zwei unterschiedliche Breitenwerte. Die Breite der Flex-Elemente wird in den `<div>`-Flex-Elementen festgelegt. Wir verwenden die {{cssxref("flex-basis")}}-Komponente der {{cssxref("flex")}}-Kurzschreibweise, um alle Flex-Elemente `200px` breit zu machen. Wir zielen dann auf jedes dritte Flex-Element ab, indem wir den {{cssxref(":nth-of-type", ":nth-of-type(3n)")}}-Selektor verwenden und diese auf `300px` verbreitern.
 
-Der Wert von `column-gap` wird auf `20px` im Flex-Container gesetzt, um einen `20px` Abstand zwischen den angrenzenden Flex-Elementen in jeder Reihe zu erzeugen.
+Der `column-gap`-Wert wird auf dem Flex-Container auf `20px` gesetzt, um einen `20px`-Abstand zwischen den angrenzenden Flex-Elementen in jeder Zeile zu schaffen.
 
 ```css
 .flexbox {
@@ -149,9 +147,9 @@ div:nth-of-type(3n) {
 {{EmbedLiveSample("Flex_layout", "auto", "220px")}}
 
 > [!NOTE]
-> Während es horizontalen Raum zwischen angrenzenden Flex-Elementen in jeder Flex-Reihe gibt, gibt es keinen Raum zwischen den Reihen. Um vertikalen Raum zwischen Flex-Reihen zu setzen, können Sie einen Wert ungleich Null für die {{cssxref("row-gap")}}-Eigenschaft angeben. Die {{cssxref("gap")}}-Kurzform-Eigenschaft steht auch zur Verfügung, um sowohl `row-gap` als auch `column-gap` in einer Deklaration zu setzen, in dieser Reihenfolge.
+> Während es einen horizontalen Raum zwischen angrenzenden Flex-Elementen in jeder Flex-Zeile gibt, gibt es keinen Raum zwischen den Zeilen. Um vertikalen Raum zwischen Flex-Zeilen zu setzen, können Sie einen nicht-nullwertigen Wert für die {{cssxref("row-gap")}}-Eigenschaft angeben. Die Kurzschreibweise {{cssxref("gap")}} ist auch verfügbar, um sowohl `row-gap` als auch `column-gap` in einer Deklaration festzulegen, in dieser Reihenfolge.
 
-### Raster-Layout
+### Grid-Layout
 
 #### HTML
 
@@ -187,7 +185,7 @@ div:nth-of-type(3n) {
 
 {{EmbedLiveSample("Grid_layout", "auto", "220px")}}
 
-### Mehrspalten-Layout
+### Multi-Column-Layout
 
 #### HTML
 
@@ -223,5 +221,5 @@ div:nth-of-type(3n) {
 
 - {{CSSxRef("row-gap")}}
 - {{CSSxRef("gap")}}
-- [Grundkonzepte des Raster-Layouts: Rinnen (Gutters)](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)
-- [Styling von Spalten](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns)
+- [Grundlegende Konzepte des Grid-Layouts: Rinnen](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)
+- [Styling Columns](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns)

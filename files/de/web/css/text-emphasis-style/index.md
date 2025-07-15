@@ -2,12 +2,10 @@
 title: text-emphasis-style
 slug: Web/CSS/text-emphasis-style
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-emphasis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild von Hervorhebungszeichen fest. Sie kann ebenfalls mit der Abkürzung {{cssxref("text-emphasis")}} gesetzt und zurückgesetzt werden.
+Die **`text-emphasis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild von Betonungszeichen fest. Sie kann auch mit dem {{cssxref("text-emphasis")}}-Schreibweise gesetzt und zurückgesetzt werden.
 
 {{InteractiveExample("CSS Demo: text-emphasis-style")}}
 
@@ -75,23 +73,23 @@ text-emphasis-style: unset;
 ### Werte
 
 - `none`
-  - : Keine Hervorhebungszeichen.
+  - : Keine Betonungszeichen.
 - `filled`
-  - : Die Form ist mit einer einheitlichen Farbe gefüllt. Falls weder `filled` noch `open` angegeben ist, ist dies der Standard.
+  - : Die Form ist mit einer Volltonfarbe gefüllt. Wenn weder `filled` noch `open` vorhanden ist, ist dies der Standard.
 - `open`
   - : Die Form ist hohl.
 - `dot`
-  - : Zeigt kleine Kreise als Zeichen an. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
+  - : Zeigt kleine Kreise als Zeichen. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
 - `circle`
-  - : Zeigt große Kreise als Zeichen an. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`).
+  - : Zeigt große Kreise als Zeichen. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`).
 - `double-circle`
-  - : Zeigt doppelte Kreise als Zeichen an. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
+  - : Zeigt doppelte Kreise als Zeichen. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
 - `triangle`
-  - : Zeigt Dreiecke als Zeichen an. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
+  - : Zeigt Dreiecke als Zeichen. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
 - `sesame`
-  - : Zeigt Sesamzeichen als Zeichen an. Das gefüllte Sesamzeichen ist `'﹅'` (`U+FE45`), und das offene Sesamzeichen ist `'﹆'` (`U+FE46`).
+  - : Zeigt Sesamzeichen. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`).
 - `<string>`
-  - : Zeigt den angegebenen String als Zeichen an. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Das User-Agent könnte Zeichenfolgen, die aus mehr als einem Graphem-Cluster bestehen, abschneiden oder ignorieren.
+  - : Zeigt den angegebenen String als Zeichen. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Der UA kann Strings, die aus mehr als einem Graphemcluster bestehen, abschneiden oder ignorieren.
 
 ## Formale Definition
 
@@ -103,7 +101,7 @@ text-emphasis-style: unset;
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```css
 h2 {
@@ -122,5 +120,5 @@ h2 {
 
 ## Siehe auch
 
-- Die verwandten Eigenschaften {{cssxref('text-emphasis-color')}}, {{cssxref('text-emphasis')}}.
-- Die {{cssxref('text-emphasis-position')}} Eigenschaft, die es ermöglicht, die Position der Hervorhebungszeichen zu definieren.
+- Die zugehörigen Eigenschaften {{cssxref('text-emphasis-color')}}, {{cssxref('text-emphasis')}}.
+- Die {{cssxref('text-emphasis-position')}}-Eigenschaft, die es ermöglicht, die Position der Betonungszeichen festzulegen.

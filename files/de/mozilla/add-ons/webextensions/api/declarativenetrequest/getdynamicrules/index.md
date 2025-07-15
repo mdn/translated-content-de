@@ -2,7 +2,7 @@
 title: declarativeNetRequest.getDynamicRules
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getDynamicRules
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: e64d736b93d6323f51f347274d1e016cde14d009
 ---
 
 {{AddonSidebar}}
@@ -12,7 +12,7 @@ Gibt die Menge der dynamischen Regeln für die Erweiterung zurück.
 ## Syntax
 
 ```js-nolint
-let gettingDynamicRules = browser.declarativeNetRequest.getDynamicRules();
+let gettingDynamicRules = await browser.declarativeNetRequest.getDynamicRules();
 ```
 
 ### Parameter
@@ -20,11 +20,11 @@ let gettingDynamicRules = browser.declarativeNetRequest.getDynamicRules();
 - `filter` {{optional_inline}}
   - : Ein Objekt, um die Liste der zurückgegebenen Regeln zu filtern.
     - `ruleIds` {{optional_inline}}
-      - : Ein Array von `integer`. Die IDs der Regeln, die zurückgegeben werden sollen.
+      - : Ein Array von `integer`. Die IDs der zurückzugebenden Regeln.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}} Objekten erfüllt. Jedes dieser Objekte repräsentiert eine Regel, die zur Erweiterung gehört. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}-Objekten erfüllt wird. Jedes dieser Objekte repräsentiert eine Regel, die zur Erweiterung gehört. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

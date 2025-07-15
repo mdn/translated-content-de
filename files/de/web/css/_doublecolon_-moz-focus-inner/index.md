@@ -2,15 +2,15 @@
 title: ::-moz-focus-inner
 slug: Web/CSS/::-moz-focus-inner
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{non-standard_header}}{{deprecated_header}}
+{{non-standard_header}}{{deprecated_header}}
 
-Der **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die einen inneren Fokusring des {{HTMLElement("button")}}-Elements sowie der {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}}, und {{HTMLElement("input/color","color")}}-Typen des {{HTMLElement("input")}}-Elements darstellt.
+Das **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die einen inneren Fokusring des {{HTMLElement("button")}}-Elements sowie die Typen {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} des {{HTMLElement("input")}}-Elements darstellt.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-focus-inner` mit anderen als den unterstützten Schaltflächen führt zu keinem Treffer und hat keine Wirkung.
+> Die Verwendung von `::-moz-focus-inner` mit anderen Elementen als den unterstützten Tasten ergibt keinen Treffer und hat keine Wirkung.
 
 ## Syntax
 
@@ -60,7 +60,6 @@ Nicht Teil eines Standards.
 
 - [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
 - Verwandte CSS-Eigenschaften:
-
   - [`-moz-user-focus`](/de/docs/Web/CSS/-moz-user-focus)
 
 - Verwandte CSS-Selektoren:

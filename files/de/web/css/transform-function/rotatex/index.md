@@ -2,12 +2,10 @@
 title: rotateX()
 slug: Web/CSS/transform-function/rotateX
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`rotateX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die x-Achse (horizontal) dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotateX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die x-Achse (horizontal) dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: rotateX()")}}
 
@@ -37,14 +35,14 @@ transform: rotateX(3.142rad);
 </section>
 ```
 
-Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die {{ cssxref("transform-origin") }} CSS-Eigenschaft definiert wird.
 
 > [!NOTE]
 > `rotateX(a)` ist äquivalent zu
 > `rotate3d(1, 0, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Das bedeutet, dass die Reihenfolge, in der die Rotationen angewendet werden, das Ergebnis beeinflusst.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
@@ -55,7 +53,7 @@ rotateX(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, der den Drehwinkel darstellt. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, der den Winkel der Rotation darstellt. Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -69,7 +67,7 @@ rotateX(a)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt für den 3D-Raum und kann nicht auf die Ebene abgebildet werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

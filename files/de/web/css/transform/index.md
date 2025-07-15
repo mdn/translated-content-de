@@ -2,13 +2,11 @@
 title: transform
 slug: Web/CSS/transform
 l10n:
-  sourceCommit: 03e992bd263d9bd3d0c8db197dd1c4829e8dd206
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`transform`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, ein Element zu rotieren, zu skalieren, zu verzerren oder zu verschieben.
-Sie modifiziert den Koordinatenraum des CSS [visuellen Formatierungsmodells](/de/docs/Web/CSS/CSS_display/Visual_formatting_model).
+Die **`transform`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, ein Element zu rotieren, zu skalieren, zu verzerren oder zu verschieben.
+Sie modifiziert den Koordinatenraum des CSS-[visuellen Formatierungsmodells](/de/docs/Web/CSS/CSS_display/Visual_formatting_model).
 
 {{InteractiveExample("CSS Demo: transform")}}
 
@@ -46,12 +44,12 @@ transform: scale(0.5) translate(-100%, -100%);
 </section>
 ```
 
-Wenn die Eigenschaft einen anderen Wert als `none` hat, wird ein [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erzeugt.
-In diesem Fall fungiert das Element als [enthältender Block](/de/docs/Web/CSS/CSS_display/Containing_block) für alle `position: fixed;` oder `position: absolute;` Elemente, die es enthält.
+Wenn die Eigenschaft einen anderen Wert als `none` hat, wird ein [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erstellt.
+In diesem Fall wird das Element als [Enthält-Block](/de/docs/Web/CSS/CSS_display/Containing_block) für alle `position: fixed;` oder `position: absolute;` Elemente fungieren, die es enthält.
 
 > [!WARNING]
-> Nur transformierbare Elemente können `transform`iert werden.
-> Das heißt, alle Elemente, deren Layout durch das CSS-Box-Modell gesteuert wird, außer: {{Glossary("Inline-level_content", "nicht ersetzte Inline-Boxen")}}, [Tabellenspalten-Boxen](/de/docs/Web/HTML/Reference/Elements/col) und [Tabellenspalten-Gruppen-Boxen](/de/docs/Web/HTML/Reference/Elements/colgroup).
+> Nur transformierbare Elemente können `transform`-iert werden.
+> Das heißt, alle Elemente, deren Layout vom CSS-Boxmodell bestimmt wird, mit Ausnahme von: {{Glossary("Inline-level_content", "nicht ersetzten Inline-Boxen")}}, [Tabellenspalten-Boxen](/de/docs/Web/HTML/Reference/Elements/col) und [Tabellenspalten-Gruppenboxen](/de/docs/Web/HTML/Reference/Elements/colgroup).
 
 ## Syntax
 
@@ -94,27 +92,27 @@ transform: revert-layer;
 transform: unset;
 ```
 
-Die Eigenschaft `transform` kann entweder als Schlüsselwortwert `none` oder als eine oder mehrere `<transform-function>` Werte angegeben werden.
+Die `transform`-Eigenschaft kann entweder als Schlüsselwort `none` oder als eine oder mehrere `<transform-function>`-Werte angegeben werden.
 
 ### Werte
 
 - {{cssxref("&lt;transform-function&gt;")}}
-  - : Eine oder mehrere der [CSS-Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die angewendet werden sollen.
-    Die Transformationsfunktionen werden von links nach rechts multipliziert, was bedeutet, dass zusammengesetzte Transformationen effektiv [von rechts nach links angewendet werden](#reihenfolge_der_transformationen).
+  - : Eine oder mehrere der [CSS Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die angewendet werden sollen.
+    Die Transformationsfunktionen werden in der Reihenfolge von links nach rechts multipliziert, was bedeutet, dass zusammengesetzte Transformationen effektiv [in der Reihenfolge von rechts nach links angewendet werden](#reihenfolge_der_transformation).
 - `none`
   - : Gibt an, dass keine Transformation angewendet werden soll.
 
 ## Barrierefreiheit
 
 Skalierungs-/Zoom-Animationen sind problematisch für die Barrierefreiheit, da sie ein häufiger Auslöser für bestimmte Arten von Migräne sind.
-Wenn Sie solche Animationen auf Ihrer Webseite integrieren müssen, sollten Sie eine Möglichkeit bieten, mit der Benutzer die Animationen ausschalten können, vorzugsweise für die gesamte Seite.
+Wenn Sie solche Animationen auf Ihrer Website einschließen müssen, sollten Sie eine Steuerung bereitstellen, mit der Benutzer die Animationen ausschalten können, vorzugsweise seitenweit.
 
-Ziehen Sie auch in Betracht, die Medienfunktion {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} zu verwenden — verwenden Sie sie, um eine [Medienabfrage](/de/docs/Web/CSS/CSS_media_queries) zu schreiben, die Animationen ausschaltet, wenn der Benutzer eine reduzierte Animation in seinen Systemeinstellungen angegeben hat.
+Ziehen Sie es auch in Betracht, die {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} Medieneigenschaft zu verwenden — nutzen Sie sie, um eine [Media-Abfrage](/de/docs/Web/CSS/CSS_media_queries) zu schreiben, die Animationen ausschaltet, wenn der Benutzer eine reduzierte Animation in seinen Systemeinstellungen angegeben hat.
 
-Erfahren Sie mehr:
+Mehr erfahren:
 
-- [MDN Understanding WCAG, Richtlinie 2.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.3_—_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
-- [Understanding Success Criterion 2.3.3 | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
+- [MDN Verständnis WCAG, Erklärung zur Richtlinie 2.3](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.3_—_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
+- [Verständnis des Erfolgskriteriums 2.3.3 | W3C Verständnis WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
 
 ## Formale Definition
 
@@ -126,7 +124,7 @@ Erfahren Sie mehr:
 
 ## Beispiele
 
-### Übersetzen und Rotieren eines Elements
+### Übersetzen und Drehen eines Elements
 
 #### HTML
 
@@ -149,9 +147,9 @@ div {
 
 {{EmbedLiveSample("Translating_and_rotating_an_element", "400", "160")}}
 
-### Reihenfolge der Transformationen
+### Reihenfolge der Transformation
 
-Die Reihenfolge der Transformationsfunktionen ist wichtig. In diesem Beispiel werden zwei Boxen um die gleichen Werte gedreht und verschoben; nur die Reihenfolge der Transformationsfunktionen ist unterschiedlich.
+Die Reihenfolge der Transformationsfunktionen ist wichtig. In diesem Beispiel werden zwei Boxen gedreht und mit denselben Werten verschoben; nur die Reihenfolge der Transformationsfunktionen ist unterschiedlich.
 
 #### HTML
 
@@ -211,11 +209,11 @@ div {
 
 {{EmbedLiveSample("Transform_order", "400", "460")}}
 
-Wenn ein Element gedreht wird, bevor es verschoben wird, liegt die Verschieberichtung auf der gedrehten Achse. Die Achse wird durch die gepunkteten Linien angedeutet.
+Wenn ein Element gedreht wird, bevor es verschoben wird, befindet sich die Verschieberichtung auf der gedrehten Achse. Die Achse wird durch die gestrichelten Linien angezeigt.
 
 ### Weitere Beispiele
 
-Siehe [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) und {{cssxref("&lt;transform-function&gt;")}} für weitere Beispiele.
+Bitte sehen Sie [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) und {{cssxref("&lt;transform-function&gt;")}} für weitere Beispiele.
 
 ## Spezifikationen
 
@@ -229,6 +227,6 @@ Siehe [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Usin
 
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
 - {{cssxref("&lt;transform-function&gt;")}} Datentyp mit allen erklärten Transformationsfunktionen.
-- Einzelne CSS-Eigenschaften: {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} (es gibt keine `skew` Eigenschaft).
+- Einzelne CSS-Eigenschaften: {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} (es gibt keine `skew`-Eigenschaft).
 - SVG {{SVGAttr("transform")}} Attribut
-- Online-Tool zum Visualisieren von CSS-Transformationsfunktionen: [CSS Transform Playground](https://css-transform.moro.es/)
+- Online-Tool zur Visualisierung von CSS-Transformationsfunktionen: [CSS Transform Playground](https://css-transform.moro.es/)

@@ -2,27 +2,25 @@
 title: scan
 slug: Web/CSS/@media/scan
 l10n:
-  sourceCommit: 6da4cf5ad98eff4a623db03164549c4f2e3b001a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **`scan`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) wird verwendet, um CSS-Stile basierend auf dem Scanprozess des Ausgabegeräts anzuwenden.
+Das **`scan`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um CSS-Stile basierend auf dem Scan-Prozess des Ausgabegeräts anzuwenden.
 
 ## Syntax
 
-Das `scan` Merkmal wird als einer der folgenden Schlüsselwortwerte angegeben:
+Das `scan`-Feature wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 - `interlace`
-  - : Das Ausgabegerät verwendet "interlaced" Rendering, bei dem Videoframes abwechselnd nur die "geraden" Zeilen auf dem Bildschirm und nur die "ungeraden" Zeilen spezifizieren.
+  - : Das Ausgabegerät verwendet ein "Interlace"-Rendering, bei dem Videoframes abwechselnd nur die "geraden" Linien auf dem Bildschirm und nur die "ungeraden" Linien spezifizieren.
 - `progressive`
-  - : Das Ausgabegerät rendert Inhalte auf dem Bildschirm ohne spezielle Behandlung.
+  - : Das Ausgabegerät rendert den Inhalt ohne besondere Behandlung auf den Bildschirm.
 
 ## Beschreibung
 
-Die meisten modernen Bildschirme (und alle Computerbildschirme) verwenden das progressive Rendering und zeigen jeden Bildschirm vollständig ohne spezielle Behandlung an.
+Die meisten modernen Bildschirme (und alle Computerbildschirme) verwenden das progressive Rendering, bei dem jeder Bildschirm vollständig ohne besondere Behandlung angezeigt wird.
 
-Interlacing wurde von CRT-Monitoren und einigen Plasma-Fernsehern verwendet, um den Anschein von schnelleren Frames pro Sekunde (FPS) zu ermöglichen, während die Bandbreite reduziert wird. Beim Interlacing wechseln sich Videoframes ab, um die geraden und ungeraden Zeilen auf dem Bildschirm zu rendern. Dabei wird nur die Hälfte des Bildschirms für jeden Frame heruntergeladen und gerendert, wobei die menschliche Fähigkeit zur Bildglättung ausgenutzt wird, sodass das Gehirn eine Übertragung mit höherer FPS zu halben Bandbreitenkosten simuliert.
+Interlacing wurde von CRT-Monitoren und einigen Plasma-TVs verwendet, um die Darstellung von schnelleren Bildern pro Sekunde (FPS) zu ermöglichen und gleichzeitig die Bandbreite zu reduzieren. Beim Interlacing wechseln die Video-Frames zwischen dem Rendering der geraden und der ungeraden Linien auf dem Bildschirm, indem nur die Hälfte des Bildschirms für jeden Frame heruntergeladen und gerendert wird. Dadurch wird die menschliche Fähigkeit zur Bildglättung genutzt, sodass das Gehirn eine höhere FPS-Übertragung bei halben Bandbreitenkosten simuliert.
 
 Wenn Sie interlaced Bildschirme anvisieren, vermeiden Sie sehr schnelle Bewegungen über den Bildschirm und stellen Sie sicher, dass animierte Details breiter als 1px sind, um Flackern zu reduzieren.
 
@@ -78,5 +76,5 @@ p {
 
 ## Siehe auch
 
-- Die [@media](/de/docs/Web/CSS/@media) At-Regel, die verwendet wird, um den Ausdruck für das Scannen anzugeben.
+- Die [@media](/de/docs/Web/CSS/@media) At-Regel, die verwendet wird, um den Scan-Ausdruck zu spezifizieren.
 - [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), um zu verstehen, wann und wie eine Media Query verwendet wird.

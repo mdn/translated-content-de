@@ -2,30 +2,28 @@
 title: pointer
 slug: Web/CSS/@media/pointer
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`pointer`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) überprüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat, und falls ja, wie genau das _primäre_ Zeigegerät ist.
+Die **`pointer`** [CSS](/de/docs/Web/CSS) [Media-Funktion](/de/docs/Web/CSS/@media#media_features) überprüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat und falls ja, wie genau das _primäre_ Zeigegerät ist.
 
 > [!NOTE]
-> Wenn Sie die Genauigkeit eines _beliebigen_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/@media/any-pointer).
+> Wenn Sie die Genauigkeit _jedes_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/@media/any-pointer).
 
 ## Syntax
 
-Das `pointer`-Feature wird als Schlüsselwortwert angegeben, das aus der folgenden Liste ausgewählt wird.
+Die `pointer`-Funktion wird als ein Schlüsselwortwert festgelegt, der aus der unten stehenden Liste ausgewählt wird.
 
 - `none`
-  - : Der primäre Eingabemechanismus umfasst kein Zeigegerät.
+  - : Der primäre Eingabemechanismus enthält kein Zeigegerät.
 - `coarse`
-  - : Der primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie einen Finger auf einem Touchscreen.
+  - : Der primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie ein Finger auf einem Touchscreen.
 - `fine`
-  - : Der primäre Eingabemechanismus umfasst ein genaues Zeigegerät, wie eine Maus.
+  - : Der primäre Eingabemechanismus umfasst ein präzises Zeigegerät, wie eine Maus.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit präzisen primären Zeigegeräten und ein großes Kontrollkästchen für Benutzer mit groben primären Zeigegeräten.
+Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit feinen primären Zeigegeräten und ein großes Kontrollkästchen für Benutzer mit groben primären Zeigegeräten.
 
 ### HTML
 
@@ -79,4 +77,4 @@ input[type="checkbox"]:checked {
 
 ## Siehe auch
 
-- [Das `any-pointer` Media-Feature](/de/docs/Web/CSS/@media/any-pointer)
+- [Die `any-pointer` Media-Funktion](/de/docs/Web/CSS/@media/any-pointer)

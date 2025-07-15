@@ -2,12 +2,10 @@
 title: mix-blend-mode
 slug: Web/CSS/mix-blend-mode
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
 
 {{InteractiveExample("CSS Demo: mix-blend-mode")}}
 
@@ -78,11 +76,11 @@ mix-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus.
+  - : Der Mischmodus, der angewendet werden soll.
 - `plus-darker`
-  - : Vermischung unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+  - : Mischen mit dem [_plus-darker_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Vermischung unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Übergangseffekte (verhindert unerwünschtes Blinken, wenn zwei überlagerte Elemente ihre Opazität in entgegengesetzte Richtungen animieren).
+  - : Mischen mit dem [_plus-lighter_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -94,7 +92,7 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Effekt verschiedener mix-blend-mode-Werte
+### Effekt verschiedener mix-blend-mode Werte
 
 ```html hidden
 <div class="grid">
@@ -813,7 +811,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu vermischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
 
 #### HTML
 

@@ -2,12 +2,10 @@
 title: text-emphasis-position
 slug: Web/CSS/text-emphasis-position
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-emphasis-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wo Hervorhebungszeichen gezeichnet werden. Ähnlich wie der vom [`<ruby>`](/de/docs/Web/HTML/Reference/Elements/ruby)-HTML-Element gerenderte Text wird die Zeilenhöhe erhöht, wenn nicht genügend Platz für Hervorhebungszeichen vorhanden ist.
+Die **`text-emphasis-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wo Hervorhebungszeichen gezeichnet werden. Ähnlich wie der Text, der vom HTML-Element [`<ruby>`](/de/docs/Web/HTML/Reference/Elements/ruby) gerendert wird, wird, falls nicht genügend Platz für Hervorhebungszeichen vorhanden ist, die Linienhöhe erhöht.
 
 {{InteractiveExample("CSS Demo: text-emphasis-position")}}
 
@@ -90,8 +88,8 @@ text-emphasis-position: unset;
 
 Die Eigenschaft akzeptiert einen oder zwei Werte:
 
-- Wenn nur ein Wert angegeben wird, kann es sich um `auto`, `over` oder `under` handeln. Wenn nur `over` oder `under` verwendet wird, wird `right` als Standardposition angenommen.
-- Wenn zwei Werte angegeben werden, müssen sie entweder `over` oder `under` und entweder `right` oder `left` enthalten. Die Reihenfolge spielt keine Rolle.
+- Wenn nur ein Wert angegeben wird, kann dieser `auto`, `over` oder `under` sein. Wenn nur `over` oder `under` verwendet wird, wird `right` als Standardposition angenommen.
+- Wenn zwei Werte angegeben werden, müssen diese entweder `over` oder `under` und entweder `right` oder `left` enthalten. Ihre Reihenfolge spielt keine Rolle.
 
 Die Werte umfassen:
 
@@ -100,7 +98,7 @@ Die Werte umfassen:
 - `over`
   - : Zeichnet Zeichen über den Text im horizontalen Schreibmodus.
 - `under`
-  - : Zeichnet Zeichen unter dem Text im horizontalen Schreibmodus.
+  - : Zeichnet Zeichen unter den Text im horizontalen Schreibmodus.
 - `right`
   - : Zeichnet Zeichen rechts vom Text im vertikalen Schreibmodus.
 - `left`
@@ -108,11 +106,11 @@ Die Werte umfassen:
 
 ## Beschreibung
 
-Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im Japanischen zum Beispiel ist die bevorzugte Position `over right`. Im Chinesischen hingegen ist die bevorzugte Position `under right`. Die informative Tabelle unten fasst die bevorzugten Positionen für Hervorhebungszeichen für Chinesisch, Mongolisch und Japanisch zusammen:
+Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im Japanischen ist beispielsweise die bevorzugte Position `over right`. Im Chinesischen hingegen ist die bevorzugte Position `under right`. Die folgende Tabelle fasst die bevorzugten Positionen von Hervorhebungszeichen für Chinesisch, Mongolisch und Japanisch zusammen:
 
 <table>
   <caption>
-    Bevorzugte Position für Hervorhebungszeichen und Ruby
+    Bevorzugte Position von Hervorhebungs- und Ruby-Zeichen
   </caption>
   <thead>
     <tr>
@@ -132,16 +130,16 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
       <td rowspan="3">right</td>
       <td rowspan="3">
         <img
-          alt="Hervorhebungszeichen erscheinen über jedem hervorgehobenen Zeichen in horizontalem japanischen Text."
+          alt="Hervorhebungszeichen erscheinen über jedem hervorgehobenen Zeichen im horizontalen japanischen Text."
           src="text-emphasis-ja.png"
-          title="Hervorhebung (zur Verdeutlichung in Blau dargestellt) oberhalb eines Japanischen Textfragments"
+          title="Hervorhebung (zur Verdeutlichung in Blau dargestellt) über einem Abschnitt des japanischen Textes angewendet"
         />
       </td>
       <td rowspan="4">
         <img
-          alt="Hervorhebungszeichen erscheinen rechts von jedem hervorgehobenen Zeichen in vertikalem japanischen Text."
+          alt="Hervorhebungszeichen erscheinen rechts von jedem hervorgehobenen Zeichen im vertikalen japanischen Text."
           src="text-emphasis-v.gif"
-          title="Hervorhebung rechts von einem Japanischen Textfragment"
+          title="Hervorhebung rechts von einem Abschnitt des japanischen Textes angewendet"
         />
       </td>
     </tr>
@@ -157,9 +155,9 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
       <td>right</td>
       <td>
         <img
-          alt="Hervorhebungszeichen erscheinen unter jedem hervorgehobenen Zeichen in horizontalem vereinfachtem Chinesisch."
+          alt="Hervorhebungszeichen erscheinen unter jedem hervorgehobenen Zeichen im horizontalen vereinfachten chinesischen Text."
           src="text-emphasis-zh.gif"
-          title="Hervorhebung (zur Verdeutlichung in Blau dargestellt) unterhalb eines Chinesischen Textfragments"
+          title="Hervorhebung (zur Verdeutlichung in Blau dargestellt) unter einem Abschnitt des chinesischen Textes angewendet"
         />
       </td>
     </tr>
@@ -167,7 +165,7 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
 </table>
 
 > [!NOTE]
-> Die `text-emphasis-position` kann nicht gesetzt werden und wird daher auch nicht mit der {{cssxref("text-emphasis")}} Kurzschreibweise zurückgesetzt.
+> Die `text-emphasis-position` kann nicht festgelegt werden und wird daher auch nicht zurückgesetzt, wenn die {{cssxref("text-emphasis")}} Abkürzungseigenschaft verwendet wird.
 
 ## Formale Definition
 
@@ -179,9 +177,9 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
 
 ## Beispiele
 
-### Positionen von Hervorhebungszeichen hinzufügen
+### Hervorhebungspositionsmarken hinzufügen
 
-Verwenden Sie das Dropdown-Menü, um die Position der Hervorhebungszeichen zu ändern. Dies wird die Klasse auf dem `<section>`-Element ändern, was wiederum die Position der Hervorhebungszeichen im Text aktualisieren wird.
+Verwenden Sie das Dropdown-Menü, um die Position der Hervorhebungszeichen zu ändern. Dadurch wird die Klasse des `<section>` Elements geändert, was wiederum die Position der Hervorhebungszeichen im Text aktualisiert.
 
 #### HTML
 
@@ -267,13 +265,13 @@ position.addEventListener("change", updateClass);
 
 #### Ergebnis
 
-Verwenden Sie das Dropdown-Menü "Emphasis position", um den Ort der Hervorhebungszeichen auszuwählen. Die Option `preferred` im Dropdown verwendet die bevorzugten Positionen, wie im Abschnitt [Beschreibung](#beschreibung) erklärt.
+Verwenden Sie das "Hervorhebungsposition"-Dropdown, um den Standort der Hervorhebungszeichen auszuwählen. Die `bevorzugt`-Option im Dropdown verwendet die bevorzugten Positionen, wie im Abschnitt [Beschreibung](#beschreibung) erklärt.
 
 {{EmbedLiveSample("Emphasis_mark_positions", 450, 250)}}
 
-### Ruby gegenüber Hervorhebungszeichen bevorzugen
+### Ruby vor Hervorhebungszeichen bevorzugen
 
-Einige Editoren ziehen es vor, Hervorhebungszeichen zu verstecken, wenn sie mit Ruby kollidieren. In HTML kann dies mit der folgenden Stilregel erfolgen:
+Einige Editoren ziehen es vor, Hervorhebungszeichen auszublenden, wenn sie mit Ruby kollidieren. Im HTML kann dies mit der folgenden Stilregel geschehen:
 
 ```css
 ruby {
@@ -281,9 +279,9 @@ ruby {
 }
 ```
 
-### Hervorhebungszeichen gegenüber Ruby bevorzugen
+### Hervorhebungszeichen vor Ruby bevorzugen
 
-Andere Editoren ziehen es vor, Ruby zu verstecken, wenn es mit Hervorhebungszeichen kollidiert. In HTML kann dies mit dem folgenden Muster erfolgen:
+Andere Editoren ziehen es vor, Ruby auszublenden, wenn es mit Hervorhebungszeichen kollidiert. Im HTML kann dies mit dem folgenden Muster geschehen:
 
 ```css
 em {
@@ -308,5 +306,5 @@ em rt {
 - {{cssxref("text-underline-position")}}
 - {{cssxref("text-emphasis-style")}}
 - {{cssxref("text-emphasis-color")}}
-- {{cssxref("text-emphasis")}} Kurzschreibweise
+- {{cssxref("text-emphasis")}} Abkürzungseigenschaft
 - {{cssxref("writing-mode")}}

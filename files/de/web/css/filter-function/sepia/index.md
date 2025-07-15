@@ -2,12 +2,10 @@
 title: sepia()
 slug: Web/CSS/filter-function/sepia
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) konvertiert das Eingabebild in Sepia und verleiht ihm ein wärmeres, gelblich-braunes Erscheinungsbild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wandelt das Eingabebild in Sepia um und verleiht ihm ein wärmeres, gelblich/braunes Erscheinungsbild. Ihr Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: sepia()")}}
 
@@ -46,7 +44,7 @@ sepia(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Die Stärke der Konvertierung, angegeben als ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig sepia, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` wirken als lineare Multiplikatoren auf den Effekt. Der anfängliche Wert für {{Glossary("interpolation", "Interpolierung")}} ist `0`. Der Standardwert ist `1`.
+  - : Die Menge der Umwandlung, spezifiziert als ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig sepia, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` wirken als lineare Multiplikatoren auf den Effekt. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 

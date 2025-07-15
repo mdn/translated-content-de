@@ -2,12 +2,10 @@
 title: border-right
 slug: Web/CSS/border-right
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-right`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-right`** [Verkürzungseigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS) legt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-right")}}
 
@@ -49,25 +47,25 @@ border-right: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Shorthand-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Verkürzungseigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt die nicht spezifizierten auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-right-style: dotted;
 border-right: thick green;
 ```
 
-Dieser ist tatsächlich gleichbedeutend mit diesem:
+Er ist tatsächlich gleichbedeutend mit diesem:
 
 ```css
 border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rahmen.
 
-## Einzelne Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Verkürzung für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
@@ -88,7 +86,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Verkürzungseigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -109,7 +107,7 @@ Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angeg
 
 ## Beispiele
 
-### Einen rechten Rahmen anwenden
+### Anwendung eines rechten Rahmens
 
 #### HTML
 

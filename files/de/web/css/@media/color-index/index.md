@@ -2,16 +2,14 @@
 title: color-index
 slug: Web/CSS/@media/color-index
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **`color-index`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbsuch-Tabelle des Ausgabegeräts zu testen.
+Die **`color-index`** [CSS](/de/docs/Web/CSS) [Media-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbumschlagtabelle des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `color-index`-Merkmal wird als ein {{cssxref("&lt;integer&gt;")}}-Wert angegeben, der die Anzahl der Einträge in der Farbsuch-Tabelle des Ausgabegeräts darstellt. (Dieser Wert ist null, wenn das Gerät keine solche Tabelle verwendet.) Es ist ein Bereichsmerkmal, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Die `color-index`-Funktion wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Einträge in der Farbumschlagtabelle des Ausgabegeräts darstellt. (Dieser Wert ist null, wenn das Gerät eine solche Tabelle nicht verwendet.) Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die mit einem Präfix versehenen Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 
@@ -49,7 +47,7 @@ p {
 
 ### Benutzerdefiniertes Stylesheet
 
-Dieses HTML wird ein spezielles Stylesheet für Geräte anwenden, die mindestens 256 Farben haben.
+Dieses HTML wird für Geräte mit mindestens 256 Farben ein spezielles Stylesheet anwenden.
 
 ```html
 <link rel="stylesheet" href="http://foo.bar.com/base.css" />
@@ -69,5 +67,5 @@ Dieses HTML wird ein spezielles Stylesheet für Geräte anwenden, die mindestens
 
 ## Siehe auch
 
-- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

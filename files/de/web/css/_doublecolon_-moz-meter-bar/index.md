@@ -2,12 +2,12 @@
 title: ::-moz-meter-bar
 slug: Web/CSS/::-moz-meter-bar
 l10n:
-  sourceCommit: 6bef243050a1f49bf5b7f37e9c4552f7aa30e24d
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}
+{{Non-standard_header}}
 
-Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS)-{{Glossary("Pseudo-element", "Pseudo-Element")}} repräsentiert die Anzeigeleiste (Meter-Gauge) in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Anzeigeleiste innerhalb eines `meter`-Elements anzuwenden.
+Der **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudoelement")}} repräsentiert die Messanzeige in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Anzeige innerhalb eines Meter-Elements anzuwenden.
 
 ## Syntax
 
@@ -51,7 +51,7 @@ meter {
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

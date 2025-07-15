@@ -2,14 +2,12 @@
 title: CSS generierter Inhalt
 slug: Web/CSS/CSS_generated_content
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das Modul des **CSS generierten Inhalts** definiert, wie der Inhalt eines Elements ersetzt und Inhalte mit CSS zu einem Dokument hinzugefügt werden können.
 
-Das **CSS generierte Inhalt**-Modul definiert, wie der Inhalt eines Elements ersetzt und Inhalt mithilfe von CSS zu einem Dokument hinzugefügt werden kann.
-
-Generierter Inhalt kann zur Inhaltsersetzung verwendet werden, wobei der Inhalt eines DOM-Knotens durch ein CSS `<image>` ersetzt wird. Der CSS generierte Inhalt ermöglicht auch das Erzeugen von sprachspezifischen Anführungszeichen, das Erstellen benutzerdefinierter Listenelementnummern und -aufzählungszeichen sowie das visuelle Hinzufügen von Inhalten durch Erzeugen von Inhalten auf ausgewählten Pseudo-Elementen als anonyme ersetzte Elemente.
+Generierter Inhalt kann für Inhaltsersetzungen verwendet werden, in welchem Fall der Inhalt eines DOM-Knotens mit einem CSS-`<image>` ersetzt wird. Der CSS generierte Inhalt ermöglicht auch das Erzeugen von sprachspezifischen Anführungszeichen, das Erstellen benutzerdefinierter Listenelementnummern und -aufzählungszeichen sowie das visuelle Hinzufügen von Inhalten durch Generieren von Inhalten auf ausgewählten Pseudoelementen als anonym ersetzte Elemente.
 
 ### Generierter Inhalt in Aktion
 
@@ -100,7 +98,7 @@ div::before {
 
 {{EmbedLiveSample("generated_content", "", "400px")}}
 
-Das HTML für dieses Beispiel besteht aus einem einzigen, leeren {{HTMLElement("div")}} innerhalb eines ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS Bildern](/de/docs/Web/CSS/CSS_images) und [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Karottennase wurde mit generiertem Inhalt hinzugefügt: eine leere Box mit einem breiten orangefarbenen [linken Rahmen](/de/docs/Web/CSS/border-left), der dem {{cssxref("::before")}} Pseudo-Element hinzugefügt wurde. Der Text ist ebenfalls generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}} Eigenschaft auf das {{cssxref("::after")}} Pseudo-Element angewendet.
+Das HTML für dieses Beispiel ist ein einzelnes, leeres {{HTMLElement("div")}} innerhalb eines ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS images](/de/docs/Web/CSS/CSS_images) und [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Karottennase wurde mithilfe von generiertem Inhalt hinzugefügt: eine leere Box mit einem breiten orangefarbenen [linken Rand](/de/docs/Web/CSS/border-left), der dem {{cssxref("::before")}}-Pseudoelement hinzugefügt wurde. Der Text ist ebenfalls generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}}-Eigenschaft auf dem {{cssxref("::after")}}-Pseudoelement generiert.
 
 Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground zu sehen oder zu bearbeiten.
 
@@ -116,7 +114,7 @@ Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground zu sehe
 
 ### Funktionen
 
-Das CSS generierte Inhalt Modul führt sechs noch nicht implementierte CSS-Funktionen ein, darunter `content()`, `string()`, und `leader()`, sowie die drei [`<target>`](/de/docs/Web/CSS/content#target) Funktionen `target-counter()`, `target-counters()`, und `target-text()`.
+Das CSS generierte Inhaltsmodul stellt sechs noch nicht implementierte CSS-Funktionen vor, darunter `content()`, `string()` und `leader()`, sowie die drei [`<target>`](/de/docs/Web/CSS/content#target)-Funktionen `target-counter()`, `target-counters()` und `target-text()`.
 
 ### Datentypen
 
@@ -130,32 +128,28 @@ Das CSS generierte Inhalt Modul führt sechs noch nicht implementierte CSS-Funkt
 ## Leitfäden
 
 - ["Anleitung" für generierten Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content)
+  - : Lernen Sie, wie Sie Text- oder Bildinhalte mit der {{cssxref("content")}}-Eigenschaft zu einem Dokument hinzufügen können.
 
-  - : Erfahren Sie, wie Sie Text oder Bildinhalte mit der {{cssxref("content")}} Eigenschaft zu einem Dokument hinzufügen können.
-
-- [Erstellen Sie dekorative Boxen mit generiertem Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes)
+- [Erstellen Sie elegante Boxen mit generiertem Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes)
   - : Beispiel für das Styling von generiertem Inhalt für visuelle Effekte.
 
 ## Verwandte Konzepte
 
-- [CSS Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-
-  - {{cssxref("::before")}} Pseudo-Element
-  - {{cssxref("::after")}} Pseudo-Element
-  - {{cssxref("::marker")}} Pseudo-Element
+- [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+  - {{cssxref("::before")}} Pseudoelement
+  - {{cssxref("::after")}} Pseudoelement
+  - {{cssxref("::marker")}} Pseudoelement
 
 - [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
-
   - {{cssxref("counter", "counter()")}} Funktion
   - {{cssxref("counters", "counters()")}} Funktion
   - {{cssxref("counter-increment")}} Eigenschaft
   - {{cssxref("counter-reset")}} Eigenschaft
 
 - [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-
-  - {{cssxref("::scroll-button()")}} Pseudo-Element
-  - {{cssxref("::scroll-marker")}} Pseudo-Element
-  - {{cssxref(":target-current")}} Pseudo-Klasse
+  - {{cssxref("::scroll-button()")}} Pseudoelement
+  - {{cssxref("::scroll-marker")}} Pseudoelement
+  - {{cssxref(":target-current")}} Pseudoklasse
 
 - [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
   - {{cssxref("attr", "attr()")}} Funktion
@@ -168,6 +162,6 @@ Das CSS generierte Inhalt Modul führt sechs noch nicht implementierte CSS-Funkt
 
 ## Siehe auch
 
-- [CSS Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
 - [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

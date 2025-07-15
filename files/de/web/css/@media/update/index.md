@@ -2,21 +2,19 @@
 title: update
 slug: Web/CSS/@media/update
 l10n:
-  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **`update`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie oft (wenn überhaupt) das Ausgabegerät in der Lage ist, das Erscheinungsbild von Inhalten nach dem Rendering zu ändern.
+Das **`update`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie häufig (wenn überhaupt) das Ausgabegerät in der Lage ist, das Aussehen von Inhalten nach dem Rendern zu ändern.
 
 ## Syntax
 
 - `none`
-  - : Sobald es gerendert wurde, kann das Layout nicht mehr aktualisiert werden. Beispiel: auf Papier gedruckte Dokumente.
+  - : Sobald es gerendert wurde, kann das Layout nicht mehr aktualisiert werden. Beispiel: Dokumente, die auf Papier gedruckt werden.
 - `slow`
-  - : Das Layout kann sich dynamisch gemäß den üblichen CSS-Regeln ändern, aber das Ausgabegerät ist nicht in der Lage, Änderungen schnell genug zu rendern oder anzuzeigen, um als flüssige Animation wahrgenommen zu werden. Beispiele: E-Book-Lesegeräte oder extrem leistungsschwache Geräte.
+  - : Das Layout kann sich dynamisch gemäß den üblichen Regeln von CSS ändern, aber das Ausgabegerät ist nicht in der Lage, Änderungen schnell genug zu rendern oder anzuzeigen, um als flüssige Animation wahrgenommen zu werden. Beispiele: E-Book-Reader oder stark leistungseingeschränkte Geräte.
 - `fast`
-  - : Das Layout kann sich dynamisch gemäß den üblichen CSS-Regeln ändern, und das Ausgabegerät ist in der Geschwindigkeit nicht außergewöhnlich eingeschränkt, sodass regelmäßig aktualisierte Dinge wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computermonitore.
+  - : Das Layout kann sich dynamisch gemäß den üblichen Regeln von CSS ändern, und das Ausgabegerät ist nicht ungewöhnlich in der Geschwindigkeit eingeschränkt, sodass regelmäßig aktualisierte Dinge wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computerbildschirme.
 
 ## Beispiele
 

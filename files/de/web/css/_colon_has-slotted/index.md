@@ -2,15 +2,13 @@
 title: :has-slotted
 slug: Web/CSS/:has-slotted
 l10n:
-  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:has-slotted`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wird angewendet, wenn der Inhalt eines {{HTMLElement("slot")}}-Elements nicht leer ist oder nicht den Standardwert verwendet (siehe [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
+Die **`:has-slotted`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft zu, wenn der Inhalt eines {{HTMLElement("slot")}}-Elements nicht leer ist oder nicht den Standardwert verwendet (siehe [Verwendung von Vorlagen und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
 
 > [!NOTE]
-> Selbst ein einzelner Whitespace-Textknoten reicht aus, damit `:has-slotted` angewendet wird.
+> Sogar ein einzelnes Leerzeichen als Textknoten reicht aus, damit `:has-slotted` angewendet wird.
 
 Dies funktioniert nur, wenn es innerhalb von CSS verwendet wird, das im [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) platziert ist.
 
@@ -57,7 +55,7 @@ Dieses Beispiel enthält zwei `<slot>`-Elemente, von denen einem Inhalt zugewies
 
 ### Ergebnis
 
-Das `<slot>`-Element, dem Inhalt zugewiesen wurde, entsprach der `:has-slotted` Pseudoklasse und hat den `color`-Wert `rebeccapurple` angewendet bekommen.
+Dem `<slot>`-Element, dem Inhalt zugewiesen wurde, trifft die `:has-slotted` Pseudoklasse zu und hat den `color`-Wert von `rebeccapurple` angewendet.
 
 {{EmbedLiveSample("simple_example",100,70)}}
 

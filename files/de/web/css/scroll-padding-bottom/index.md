@@ -2,12 +2,10 @@
 title: scroll-padding-bottom
 slug: Web/CSS/scroll-padding-bottom
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-bottom` definiert Offsets für den unteren Rand des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Dinge im Sichtfeld des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie z.B. fix positionierte Werkzeugleisten oder Seitenleisten) oder mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-bottom` definiert Versätze für den unteren Rand des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion für das Platzieren von Inhalten im Sichtbereich des Benutzers genutzt wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie fest positionierte Symbolleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-bottom")}}
 
@@ -93,9 +91,9 @@ scroll-padding-bottom: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Offset vom unteren Rand des Scrollports, in einer gültigen Länge oder einem Prozentwert.
+  - : Ein nach innen gerichteter Versatz vom unteren Rand des Scrollports, als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Offset wird vom User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann etwas anderes erkennen und tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies ist in der Regel 0px, ein Benutzeragent kann jedoch erkennen und etwas anderes tun, wenn ein anderer Wert angemessener ist.
 
 ## Formale Definition
 

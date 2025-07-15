@@ -2,12 +2,10 @@
 title: border-top
 slug: Web/CSS/border-top
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-top`**-[Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)-[CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des oberen [Randes](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-top`** [Shorthand-](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS-](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-top")}}
 
@@ -49,25 +47,25 @@ border-top: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Shorthand-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt die nicht angegebenen auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-top-style: dotted;
 border-top: thick green;
 ```
 
-Dieser ist tatsächlich derselbe wie dieser:
+Dieser ist tatsächlich gleich zu folgendem Code:
 
 ```css
 border-top-style: dotted;
 border-top: none thick green;
 ```
 
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rand.
+Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Weglassen des `border-style` Teils zu keinem Rahmen.
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - [`border-top-color`](/de/docs/Web/CSS/border-top-color)
 - [`border-top-style`](/de/docs/Web/CSS/border-top-style)
@@ -88,7 +86,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei davon können weggelassen werden.
 
 ### Werte
 
@@ -109,7 +107,7 @@ Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angeg
 
 ## Beispiele
 
-### Anwenden eines oberen Randes
+### Einen oberen Rahmen anwenden
 
 #### HTML
 

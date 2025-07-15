@@ -2,12 +2,10 @@
 title: text-decoration-thickness
 slug: Web/CSS/text-decoration-thickness
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-decoration-thickness`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strichdicke der Dekorationslinie fest, die auf Text in einem Element angewendet wird, wie zum Beispiel Durchstreichung, Unterstreichung oder Überstreichung.
+Die **`text-decoration-thickness`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strichstärke der Dekorationslinie fest, die auf Text in einem Element angewendet wird, wie z.B. ein Durchstrich, Unterstrich oder Überstrich.
 
 {{InteractiveExample("CSS Demo: text-decoration-thickness")}}
 
@@ -67,13 +65,13 @@ text-decoration-thickness: unset;
 ### Werte
 
 - `auto`
-  - : Der Browser wählt eine passende Breite für die Textdekoration aus.
+  - : Der Browser wählt eine passende Breite für die Textdekoration-Linie.
 - `from-font`
-  - : Wenn die Schriftdatei Informationen über eine bevorzugte Dicke enthält, wird dieser Wert verwendet. Wenn die Schriftdatei diese Informationen nicht enthält, wird diese als `auto` behandelt und der Browser wählt eine passende Dicke.
+  - : Wenn die Schriftdatei Informationen über eine bevorzugte Stärke enthält, wird dieser Wert verwendet. Wenn die Schriftdatei diese Informationen nicht enthält, wird verfahren, als ob `auto` gesetzt wäre, wobei der Browser eine geeignete Stärke wählt.
 - `<length>`
-  - : Spezifiziert die Dicke der Textdekoration als {{cssxref('length')}}, wodurch der Vorschlag der Schriftdatei oder der Standardwert des Browsers überschrieben wird.
+  - : Gibt die Stärke der Textdekoration-Linie als {{cssxref('length')}} an und überschreibt die Vorschläge der Schriftdatei oder den Standardwert des Browsers.
 - `<percentage>`
-  - : Spezifiziert die Dicke der Textdekoration als {{cssxref('percentage')}} von **1em** in der aktuellen Schriftart. Ein Prozentsatz wird als relativer Wert geerbt und passt sich daher an Änderungen in der Schriftart an. Der Browser muss ein Minimum von 1 Gerätpixel verwenden. Für eine gegebene Anwendung dieser Eigenschaft bleibt die Dicke über das gesamte angewendete Element konstant, auch wenn es untergeordnete Elemente mit einer anderen Schriftgröße gibt.
+  - : Gibt die Stärke der Textdekoration-Linie als {{cssxref('percentage')}} von **1em** in der aktuellen Schriftart an. Ein Prozentsatz wird als relativer Wert vererbt und passt sich daher bei Änderungen der Schriftgröße an. Der Browser muss mindestens 1 Gerätepixel verwenden. Bei einer Anwendung dieser Eigenschaft ist die Stärke über das gesamte Element konstant, auch wenn es Kindelemente mit einer anderen Schriftgröße gibt.
 
 ## Formale Definition
 
@@ -85,7 +83,7 @@ text-decoration-thickness: unset;
 
 ## Beispiele
 
-### Unterschiedliche Dicken
+### Variierende Stärke
 
 #### HTML
 
@@ -126,7 +124,7 @@ text-decoration-thickness: unset;
 {{Specifications}}
 
 > [!NOTE]
-> Die Eigenschaft hieß früher `text-decoration-width`, wurde jedoch 2019 zu `text-decoration-thickness` aktualisiert.
+> Die Eigenschaft wurde früher `text-decoration-width` genannt, aber 2019 in `text-decoration-thickness` geändert.
 
 ## Browser-Kompatibilität
 

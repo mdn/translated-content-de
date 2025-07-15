@@ -2,12 +2,10 @@
 title: text-underline-offset
 slug: Web/CSS/text-underline-offset
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-underline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Versatzabstand einer Unterstreichungslinie (angewendet durch {{cssxref("text-decoration")}}) von ihrer ursprünglichen Position fest.
+Die **`text-underline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Versatzdistanz einer Unterstreichungslinie (angewendet mit {{cssxref("text-decoration")}}) von ihrer ursprünglichen Position fest.
 
 {{InteractiveExample("CSS Demo: text-underline-offset")}}
 
@@ -37,7 +35,7 @@ p {
 }
 ```
 
-`text-underline-offset` ist kein Teil der {{cssxref('text-decoration')}} Kurzform. Während ein Element mehrere `text-decoration` Linien haben kann, beeinflusst `text-underline-offset` nur die Unterstreichung und **nicht** andere mögliche Linierungsoptionen wie `overline` oder `line-through`.
+`text-underline-offset` ist kein Bestandteil der Abkürzung {{cssxref('text-decoration')}}. Während ein Element mehrere `text-decoration` Linien haben kann, beeinflusst `text-underline-offset` nur Unterstreichungen und **nicht** andere mögliche Linienverzierungsoptionen wie `overline` oder `line-through`.
 
 ## Syntax
 
@@ -60,16 +58,16 @@ text-underline-offset: revert-layer;
 text-underline-offset: unset;
 ```
 
-Die Eigenschaft `text-underline-offset` wird als einzelner Wert aus der untenstehenden Liste angegeben.
+Die `text-underline-offset` Eigenschaft wird als ein einzelner Wert aus der unten stehenden Liste angegeben.
 
 ### Werte
 
 - `auto`
-  - : Der Browser wählt den angemessenen Versatz für Unterstreichungen.
+  - : Der Browser wählt den geeigneten Versatz für Unterstreichungen.
 - `<length>`
-  - : Gibt den Versatz der Unterstreichungen als ein {{cssxref('length')}} an und überschreibt den Vorschlag der Schriftdatei und die Standardeinstellung des Browsers. Es wird empfohlen, `em`-Einheiten zu verwenden, damit der Versatz mit der Schriftgröße skaliert.
+  - : Gibt den Versatz von Unterstreichungen als {{cssxref('length')}} an und überschreibt den Vorschlag der Schriftdatei sowie die Standardeinstellung des Browsers. Es wird empfohlen, `em`-Einheiten zu verwenden, damit sich der Versatz mit der Schriftgröße skaliert.
 - `<percentage>`
-  - : Gibt den Versatz der Unterstreichungen als ein {{cssxref('percentage')}} von **1 em** in der Schrift des Elements an. Ein Prozentwert wird als relativer Wert geerbt und skaliert daher mit Änderungen in der Schrift. Für eine gegebene Anwendung dieser Eigenschaft ist der Versatz über das gesamte Kästchen konstant, auf das die Unterstreichung angewendet wird, selbst wenn es darunterliegende Elemente mit unterschiedlichen Schriftgrößen oder vertikaler Ausrichtung gibt.
+  - : Gibt den Versatz von Unterstreichungen als {{cssxref('percentage')}} von **1 em** in der Schrift des Elements an. Ein Prozentsatz wird als relativer Wert geerbt und skaliert daher mit Änderungen in der Schrift. Für eine bestimmte Anwendung dieser Eigenschaft bleibt der Versatz über die gesamte Box konstant, auf die die Unterstreichung angewendet wird, selbst wenn es Kindelemente mit unterschiedlichen Schriftgrößen oder vertikaler Ausrichtung gibt.
 
 ## Formale Definition
 

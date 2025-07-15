@@ -2,12 +2,10 @@
 title: margin-inline-end
 slug: Web/CSS/margin-inline-end
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Endrand eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements auf einen physischen Rand abgebildet wird. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Ende-Abstand eines Elements, welches in einen physischen Rand umgewandelt wird, abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}}-Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{InteractiveExample("CSS Demo: margin-inline-end")}}
 
@@ -82,11 +80,11 @@ margin-inline-end: revert-layer;
 margin-inline-end: unset;
 ```
 
-Diese Eigenschaft steht in Beziehung zu {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, und {{cssxref("margin-inline-start")}}, die die anderen Ränder des Elements definieren.
+Sie bezieht sich auf {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}} und {{cssxref("margin-inline-start")}}, welche die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-inline-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("margin-left")}} Eigenschaft an.
+Die `margin-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("margin-left")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -98,7 +96,7 @@ Die `margin-inline-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("
 
 ## Beispiele
 
-### Einstellung des Inline-Endrands
+### Festlegung des Inline-Ende-Abstands
 
 #### HTML
 

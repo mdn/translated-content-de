@@ -2,13 +2,10 @@
 title: inherits
 slug: Web/CSS/@property/inherits
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) steuert, ob die registrierte [CSS- benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) standardmäßig vererbt wird oder nicht.
-Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
+Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) bestimmt, ob die registrierte [CSS-Custom Property](/de/docs/Web/CSS/--*) standardmäßig vererbt wird oder nicht. Es ist ein erforderlicher Deskriptor; falls er fehlt oder ungültig ist, ist die gesamte `@property` Regel ungültig und wird ignoriert.
 
 ## Syntax
 
@@ -25,21 +22,21 @@ inherits: true;
 - `true`
   - : Die Eigenschaft wird standardmäßig vererbt.
 - `false`
-  - : Die Eigenschaft wird standardmäßig nicht vererbt.
+  - : Die Eigenschaft wird nicht standardmäßig vererbt.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Festlegen des Verhaltens der Vererbung einer benutzerdefinierten Eigenschaft
+### Einstellung des Vererbungverhaltens einer benutzerdefinierten Eigenschaft
 
-Dieses Beispiel zeigt, wie Sie eine benutzerdefinierte Eigenschaft `--my-color` definieren, die ihren Wert nicht von ihren Elternelementen erbt:
+Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die ihren Wert nicht von den übergeordneten Elementen erbt:
 
 ```css
 @property --my-color {
@@ -70,7 +67,7 @@ window.CSS.registerProperty({
 
 ## Siehe auch
 
-- Andere {{cssxref("@property")}}-Deskriptoren: {{cssxref("@property/initial-value", "initial-value")}} und {{cssxref("@property/syntax","syntax")}}
+- Andere {{cssxref("@property")}} Deskriptoren: {{cssxref("@property/initial-value", "initial-value")}} und {{cssxref("@property/syntax","syntax")}}
 - [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)

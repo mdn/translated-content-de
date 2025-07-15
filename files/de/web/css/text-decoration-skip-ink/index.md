@@ -2,12 +2,10 @@
 title: text-decoration-skip-ink
 slug: Web/CSS/text-decoration-skip-ink
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-decoration-skip-ink`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert, wie Überstriche und Unterstreichungen gezeichnet werden, wenn sie über Glyphen-Ascender und -Descender verlaufen.
+Die **`text-decoration-skip-ink`**-Eigenschaft von [CSS](/de/docs/Web/CSS) gibt an, wie Über- und Unterstriche gezeichnet werden, wenn sie Glyphenauf- und -abstiege überqueren.
 
 {{InteractiveExample("CSS Demo: text-decoration-skip-ink")}}
 
@@ -36,7 +34,7 @@ p {
 }
 ```
 
-`text-decoration-skip-ink` ist nicht Teil der {{cssxref("text-decoration")}} Kurzschreibweise.
+`text-decoration-skip-ink` ist nicht Teil des {{cssxref("text-decoration")}}-Kurzbefehls.
 
 ## Syntax
 
@@ -57,12 +55,11 @@ text-decoration-skip-ink: unset;
 ### Werte
 
 - `none`
-  - : Unterstreichungen und Überstriche werden über die gesamte Länge des Textinhalts gezeichnet, einschließlich der Teile, die über Glyphen-Descender und -Ascender verlaufen.
+  - : Unterstriche und Überstriche werden über die gesamte Länge des Textinhalts gezogen, einschließlich der Teile, die über Glyphenabstiege und -aufstiege verlaufen.
 - `auto`
-  - : Der Standard - der Browser _kann_ Unterstreichungen und Überstriche unterbrechen, sodass sie keine Glyphe berühren oder sich ihr stark nähern. Das heißt, sie werden unterbrochen, dort wo sie andernfalls über eine Glyphe verlaufen würden.
+  - : Standardmäßig _kann_ der Browser Unterstriche und Überstriche unterbrechen, damit sie eine Glyphe nicht berühren oder sich ihr zu sehr nähern. Das bedeutet, sie werden unterbrochen, wo sie sonst über eine Glyphe verlaufen würden.
 - `all`
-
-  - : Der Browser _muss_ Unterstreichungen und Überstriche unterbrechen, sodass sie keine Glyphe berühren oder sich ihr stark nähern. Dies kann bei bestimmten chinesischen, japanischen oder koreanischen (CJK) Schriftarten hilfreich sein, bei denen das `auto` Verhalten möglicherweise keine Unterbrechungen erzeugt.
+  - : Der Browser _muss_ Unterstriche und Überstriche unterbrechen, damit sie eine Glyphe nicht berühren oder sich ihr zu sehr nähern. Dies kann bei bestimmten chinesischen, japanischen oder koreanischen (CJK) Schriftarten hilfreich sein, bei denen das `auto`-Verhalten möglicherweise keine Unterbrechungen erzeugt.
 
     ![Ein Beispiel für "text-decoration-skip-ink".](decoration-skip-ink.png)
 

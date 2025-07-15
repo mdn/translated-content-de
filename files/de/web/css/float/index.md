@@ -2,12 +2,10 @@
 title: float
 slug: Web/CSS/float
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`float`** [CSS](/de/docs/Web/CSS) Eigenschaft platziert ein Element auf der linken oder rechten Seite seines Containers, sodass Text und Inline-Elemente darum herumfließen können. Das Element wird aus dem normalen Fluss der Seite entfernt, bleibt jedoch weiterhin Teil des Flusses (im Gegensatz zur [absoluten Positionierung](/de/docs/Web/CSS/position#absolute_positioning)).
+Die **`float`** [CSS](/de/docs/Web/CSS)-Eigenschaft platziert ein Element auf der linken oder rechten Seite seines Containers, sodass Text und Inline-Elemente darum fließen können. Das Element wird aus dem normalen Fluss der Seite entfernt, bleibt jedoch Teil des Flusses (im Gegensatz zur [absoluten Positionierung](/de/docs/Web/CSS/position#absolute_positioning)).
 
 {{InteractiveExample("CSS Demo: float")}}
 
@@ -62,7 +60,7 @@ float: inline-end;
 
 Ein _schwebendes Element_ ist eines, bei dem der berechnete Wert von `float` nicht `none` ist.
 
-Da `float` die Verwendung des Blocklayouts impliziert, ändert es den berechneten Wert der {{cssxref("display")}}-Werte in einigen Fällen:
+Da `float` die Verwendung des Block-Layouts impliziert, ändert es den berechneten Wert der {{cssxref("display")}} Werte in einigen Fällen:
 
 | Angegebener Wert     | Berechneter Wert |
 | -------------------- | ---------------- |
@@ -82,7 +80,7 @@ Da `float` die Verwendung des Blocklayouts impliziert, ändert es den berechnete
 | _andere_             | _unverändert_    |
 
 > [!NOTE]
-> Beim Zugriff auf eine CSS-Eigenschaft in JavaScript über das [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Objekt werden einwortige Eigenschaftsnamen unverändert verwendet. Obwohl `float` ein reserviertes Schlüsselwort in JavaScript ist, wird die CSS-`float`-Eigenschaft in modernen Browsern als `float` angesprochen. In älteren Browsern müssen Sie `cssFloat` verwenden, um auf die `float`-Eigenschaft zuzugreifen. (Dies ist ähnlich wie beim Zugriff auf das "class"-Attribut als "className" und auf das "for"-Attribut eines `<label>`-Elements als "htmlFor".)
+> Beim Zugriff auf eine CSS-Eigenschaft in JavaScript über das [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Objekt werden einwortige Eigenschaftsnamen unverändert verwendet. Obwohl `float` ein reserviertes Schlüsselwort in JavaScript ist, wird die CSS-Eigenschaft `float` in modernen Browsern als `float` aufgerufen. In älteren Browsern muss `cssFloat` verwendet werden, um auf die `float`-Eigenschaft zuzugreifen. (Dies ähnelt der Art und Weise, wie auf das Attribut "class" als "className" und auf das "for"-Attribut eines `<label>`-Elements als "htmlFor" zugegriffen wird.)
 
 ## Syntax
 
@@ -102,7 +100,7 @@ float: revert-layer;
 float: unset;
 ```
 
-Die `float`-Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus der folgenden Liste von Werten ausgewählt wird.
+Die `float`-Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus der unten stehenden Liste von Werten ausgewählt wird.
 
 ### Werte
 
@@ -121,7 +119,7 @@ Die `float`-Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
@@ -129,11 +127,11 @@ Die `float`-Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus
 
 ### Wie schwebende Elemente positioniert werden
 
-Wie oben erwähnt, wird ein Element, wenn es schwebt, aus dem normalen Fluss des Dokuments entfernt (bleibt jedoch Teil davon). Es wird nach links oder rechts verschoben, bis es den Rand seines umschließenden Kastens _oder ein anderes schwebendes Element_ berührt.
+Wie oben erwähnt, wird ein Element, wenn es schwebt, aus dem normalen Dokumentfluss herausgenommen (bleibt allerdings Teil davon). Es wird nach links oder rechts verschoben, bis es den Rand seines enthaltenden Kastens _oder ein anderes schwebendes Element_ berührt.
 
-In diesem Beispiel gibt es drei farbige Quadrate. Zwei schweben nach links und eines schwebt nach rechts. Beachten Sie, dass das zweite "linke" Quadrat rechts vom ersten platziert wird. Zusätzliche Quadrate würden weiterhin nach rechts gestapelt, bis sie den umschließenden Block füllen, woraufhin sie zur nächsten Zeile wechseln würden.
+In diesem Beispiel gibt es drei farbige Quadrate. Zwei schweben links und eines schwebt rechts. Beachten Sie, dass das zweite "linke" Quadrat rechts vom ersten platziert wird. Zusätzliche Quadrate würden weiterhin nach rechts stapeln, bis sie den enthaltenden Kasten füllen, wonach sie in die nächste Zeile umbrechen würden.
 
-Ein schwebendes Element ist mindestens so hoch wie seine höchsten verschachtelten schwebenden Kinder. Wir haben dem Elternteil `width: 100%` gegeben und es schweben lassen, um sicherzustellen, dass es hoch genug ist, um seine schwebenden Kinder zu umfassen, und um sicherzustellen, dass es die Breite des Elternteils einnimmt, damit wir seinen benachbarten Nachbarn nicht bereinigen müssen.
+Ein schwebendes Element ist mindestens so hoch wie seine höchsten verschachtelten schwebenden Kinder. Wir haben dem Elternteil `width: 100%` gegeben und es schweben lassen, um sicherzustellen, dass es hoch genug ist, um seine schwebenden Kinder zu umschließen, und um sicherzustellen, dass es die Breite des Elternteils ausnutzt, damit wir dessen benachbartes Geschwister nicht räumen müssen.
 
 #### HTML
 
@@ -183,9 +181,9 @@ div {
 
 {{EmbedLiveSample('How_floated_elements_are_positioned','400','190')}}
 
-### Schwebende Elemente freistellen
+### Freiräumen von Schwebungen
 
-Manchmal möchten Sie, dass ein Element gezwungen wird, unterhalb schwebender Elemente platziert zu werden. Beispielsweise möchten Sie, dass Absätze neben Schwebeteilen bleiben, aber Überschriften in einer eigenen Zeile stehen. Siehe {{cssxref("clear")}} für Beispiele.
+Manchmal möchten Sie ein Element dazu zwingen, sich unterhalb schwebender Elemente zu bewegen. Zum Beispiel möchten Sie, dass Absätze neben Schwebungen bleiben, aber Überschriften auf ihrer eigenen Zeile stehen. Siehe {{cssxref("clear")}} für Beispiele.
 
 ## Spezifikationen
 
@@ -197,5 +195,5 @@ Manchmal möchten Sie, dass ein Element gezwungen wird, unterhalb schwebender El
 
 ## Siehe auch
 
-- [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
-- Verwenden Sie {{cssxref("clear")}}, um ein Element zu zwingen, unter ein schwebendes Element zu verschieben.
+- [Block-Formatierungs-Kontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
+- Verwenden Sie {{cssxref("clear")}}, um ein Element dazu zu zwingen, sich unterhalb eines schwebenden Elements zu bewegen.

@@ -2,12 +2,10 @@
 title: column-rule-style
 slug: Web/CSS/column-rule-style
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`column-rule-style`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Stil der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezogen wird.
 
 {{InteractiveExample("CSS Demo: column-rule-style")}}
 
@@ -75,12 +73,12 @@ column-rule-style: revert-layer;
 column-rule-style: unset;
 ```
 
-Die `column-rule-style`-Eigenschaft wird als einzelner `<'border-style'>`-Wert angegeben.
+Die `column-rule-style` Eigenschaft wird als ein einzelner `<'border-style'>` Wert angegeben.
 
 ### Werte
 
 - `<'border-style'>`
-  - : Ist ein Schlüsselwort definiert durch {{ cssxref("border-style") }}, das den Stil der Linie beschreibt. Die Darstellung muss wie im Modell der zusammenfallenden Rahmen interpretiert werden.
+  - : Ist ein durch {{ cssxref("border-style") }} definierter Schlüsselwortwert, der den Stil der Linie beschreibt. Der Stil muss wie im Modell der kollabierenden Ränder interpretiert werden.
 
 ## Formale Definition
 
@@ -92,7 +90,7 @@ Die `column-rule-style`-Eigenschaft wird als einzelner `<'border-style'>`-Wert a
 
 ## Beispiele
 
-### Eine gestrichelte Spaltenlinie setzen
+### Eine gestrichelte Spaltentrennlinie setzen
 
 #### HTML
 

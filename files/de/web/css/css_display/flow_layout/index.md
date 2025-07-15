@@ -1,22 +1,20 @@
 ---
-title: CSS-Flusslayout
+title: CSS Fluss-Layout
 short-title: Flow layout
 slug: Web/CSS/CSS_display/Flow_layout
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+_Normal Flow_, oder Fluss-Layout, ist die Art und Weise, wie Block- und Inline-Elemente auf einer Seite angezeigt werden, bevor Änderungen an ihrem Layout vorgenommen werden. Der Fluss ist im Wesentlichen eine Gruppe von Dingen, die alle zusammenarbeiten und im Layout voneinander wissen. Sobald etwas _aus dem Fluss_ genommen wird, funktioniert es unabhängig.
 
-_Normaler Fluss_ oder Flusslayout ist die Art und Weise, wie Block- und Inline-Elemente auf einer Seite angezeigt werden, bevor Änderungen an ihrem Layout vorgenommen werden. Der Fluss ist im Wesentlichen eine Reihe von Dingen, die alle zusammenarbeiten und sich gegenseitig in Ihrem Layout kennen. Sobald etwas _aus dem Fluss_ genommen wird, funktioniert es unabhängig.
+Im normalen Fluss werden **{{Glossary("Inline-level_content", "Inline")}}**-Elemente in der Inline-Richtung angezeigt, das heißt, in der Richtung, in der Wörter in einem Satz gemäß dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) des Dokuments angezeigt werden. **{{Glossary("Block/CSS", "Block")}}**-Elemente werden nacheinander angezeigt, so wie Absätze im Schreibmodus dieses Dokuments. Im Englischen werden Inline-Elemente daher nacheinander angezeigt, beginnend von links, und Block-Elemente beginnen oben und bewegen sich die Seite hinunter.
 
-Im normalen Fluss werden **{{Glossary("Inline-level_content", "Inline-")}}**-Elemente in der Inline-Richtung angezeigt, also in der Richtung, in der Wörter in einem Satz entsprechend dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) des Dokuments angezeigt werden. **{{Glossary("Block/CSS", "Block-")}}**-Elemente werden hintereinander angezeigt, wie es Absätze im Schreibmodus des Dokuments tun. Im Englischen werden Inline-Elemente also hintereinander angezeigt, beginnend von links, und Block-Elemente beginnen oben und bewegen sich die Seite hinunter.
+## Einfaches Beispiel
 
-## Grundlegendes Beispiel
+Das folgende Beispiel zeigt Block- und Inline-Level-Boxen. Die beiden Absatz-Elemente mit einem grünen Rahmen sind Block-Level und werden übereinander angezeigt.
 
-Das folgende Beispiel demonstriert Block- und Inline-Ebenen-Boxen. Die beiden Absatz-Elemente mit einem grünen Rahmen sind Block-Ebene und werden untereinander angezeigt.
-
-Der erste Satz enthält auch ein span-Element mit einem blauen Hintergrund. Dies ist auf Inline-Ebene und wird daher im Satz angezeigt.
+Der erste Satz enthält auch ein Span-Element mit einem blauen Hintergrund. Dies ist Inline-Level und wird daher innerhalb des Satzes angezeigt.
 
 ```html hidden live-sample___normal-flow
 <div class="box">
@@ -56,5 +54,5 @@ span {
 - [Block- und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
 - [Im Fluss und aus dem Fluss](/de/docs/Web/CSS/CSS_display/In_flow_and_out_of_flow)
 - [Formatierungskontexte erklärt](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts)
-- [Flusslayout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
-- [Flusslayout und Überlauf](/de/docs/Web/CSS/CSS_display/Flow_layout_and_overflow)
+- [Fluss-Layout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
+- [Fluss-Layout und Überlauf](/de/docs/Web/CSS/CSS_display/Flow_layout_and_overflow)

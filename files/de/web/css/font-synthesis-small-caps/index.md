@@ -2,14 +2,12 @@
 title: font-synthesis-small-caps
 slug: Web/CSS/font-synthesis-small-caps
 l10n:
-  sourceCommit: 28368ab728eed206d9069f5ba5b889e990ff810c
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`font-synthesis-small-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Ihnen, anzugeben, ob der Browser eine Kleinbuchstaben-Schriftart bei Fehlen in einer Schriftfamilie synthetisieren darf oder nicht. Kleinbuchstaben-Glyphen verwenden normalerweise die Form von Großbuchstaben, sind jedoch auf die Größe von Kleinbuchstaben reduziert.
 
-Die **`font-synthesis-small-caps`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, festzulegen, ob der Browser Kleinbuchstaben in Versalien generieren darf, wenn sie in einer Schriftfamilie fehlen. Kleinbuchstaben verwenden typischerweise die Form von Großbuchstaben, sind aber auf die Größe von Kleinbuchstaben reduziert.
-
-Oft ist es praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte für die Schriftartensynthese zu steuern.
+Es ist oft bequem, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftartensynthese zu steuern.
 
 ## Syntax
 
@@ -29,9 +27,9 @@ font-synthesis-small-caps: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass die fehlenden Kleinbuchstaben vom Browser bei Bedarf synthetisiert werden können.
+  - : Gibt an, dass der fehlende Kleinbuchstaben-Schriftstil bei Bedarf vom Browser synthetisiert werden kann.
 - `none`
-  - : Gibt an, dass die Synthese der fehlenden Kleinbuchstaben durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese des fehlenden Kleinbuchstaben-Schriftstils durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -43,9 +41,9 @@ font-synthesis-small-caps: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese von Kleinbuchstaben
+### Deaktivierung der Synthese des Kleinbuchstaben-Schriftstils
 
-Dieses Beispiel zeigt, wie die Synthese von Kleinbuchstaben durch den Browser in der Schrift `Montserrat` deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des Kleinbuchstaben-Schriftstils durch den Browser in der `Montserrat`-Schrift deaktiviert wird.
 
 #### HTML
 
@@ -91,6 +89,6 @@ Dieses Beispiel zeigt, wie die Synthese von Kleinbuchstaben durch den Browser in
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
+- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzform, [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-weight")}}
-- [CanvasRenderingContext2D: fontVariantCaps Eigenschaft](/de/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps)
+- [CanvasRenderingContext2D: fontVariantCaps property](/de/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps)

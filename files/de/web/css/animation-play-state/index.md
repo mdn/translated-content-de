@@ -2,10 +2,8 @@
 title: animation-play-state
 slug: Web/CSS/animation-play-state
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`animation-play-state`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation läuft oder pausiert ist.
 
@@ -59,7 +57,7 @@ animation-play-state: running;
 }
 ```
 
-Wenn eine pausierte Animation fortgesetzt wird, startet sie dort, wo sie beim Anhalten gestoppt wurde, und nicht von Anfang der Animationssequenz.
+Wird eine pausierte Animation fortgesetzt, so startet sie an der Stelle, an der sie pausiert wurde, und nicht von Anfang der Animationssequenz.
 
 ## Syntax
 
@@ -82,12 +80,12 @@ animation-play-state: unset;
 ### Werte
 
 - `running`
-  - : Die **Animation** wird aktuell **abgespielt**.
+  - : Die **Animation** läuft **derzeit**.
 - `paused`
-  - : Die **Animation** ist aktuell **pausiert**.
+  - : Die **Animation** ist **derzeit pausiert**.
 
 > [!NOTE]
-> Wenn Sie mehrere kommagetrennte Werte für eine `animation-*`-Eigenschaft angeben, werden sie in der Reihenfolge der {{cssxref("animation-name")}}s auf die Animationen angewendet. Für Situationen, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations­eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte in einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge der {{cssxref("animation-name")}}s auf die Animationen angewendet. Für Situationen, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerten](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ## Formale Definition
 
@@ -101,7 +99,7 @@ animation-play-state: unset;
 
 ### Eine Animation pausieren
 
-Diese Animation ist pausiert, läuft aber, wenn Sie mit der Maus darüberfahren.
+Diese Animation ist pausiert, läuft aber, wenn Sie mit der Maus darüber fahren.
 
 #### HTML
 
@@ -143,7 +141,7 @@ Fahren Sie mit der Maus über das Rechteck, um die Animation abzuspielen.
 
 {{EmbedLiveSample("Pausing an animation","100%","250")}}
 
-Weitere Beispiele finden Sie unter [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations).
+Siehe [CSS Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für Beispiele.
 
 ## Spezifikationen
 

@@ -2,13 +2,11 @@
 title: :playing
 slug: Web/CSS/:playing
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`:playing`** [CSS](/de/docs/Web/CSS)-[Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert den Wiedergabezustand eines Elements, das abspielbar ist, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element „spielt“.
-Ein Element wird als spielend betrachtet, wenn es die Medienressource derzeit abspielt oder wenn es vorübergehend aus anderen Gründen als der Benutzerabsicht (wie {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}) angehalten wurde.
+Der **`:playing`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert den Wiedergabestatus eines Elemente, das abspielbar ist, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "wiedergibt".
+Ein Element wird als spielend betrachtet, wenn es die Mediendatei derzeit abspielt, oder wenn es aus anderen Gründen als der Absicht des Benutzers vorübergehend gestoppt wurde (zum Beispiel {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}).
 
 ## Syntax
 
@@ -44,4 +42,4 @@ Ein Element wird als spielend betrachtet, wenn es die Medienressource derzeit ab
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)

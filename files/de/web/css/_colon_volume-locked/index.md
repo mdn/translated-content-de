@@ -2,15 +2,12 @@
 title: :volume-locked
 slug: Web/CSS/:volume-locked
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)-Selektor repräsentiert ein Element, das in der Lage ist, Geräusche zu erzeugen, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, dessen Audio-Lautstärke jedoch derzeit vom Benutzer "gesperrt" ist.
 
-Der **`:volume-locked`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton wiederzugeben, wie z. B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, bei dem die Lautstärke des Media-Elements derzeit vom Benutzer "gesperrt" ist.
-
-Benutzeragenten können Medienwerte [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) in Übereinstimmung mit den Benutzerpräferenzen setzen (z. B. durch das Speichern des zuletzt festgelegten Werts über Sitzungen hinweg, pro Website oder auf andere Weise).
-Ein Element, das `:volume-locked` ist, kann weder stummgeschaltet noch nicht stummgeschaltet werden, noch kann seine Lautstärke über JavaScript geändert werden. Der gesperrte Status ist eine Betriebssystem- oder Benutzeragenteneinstellung.
+Benutzeragenten können Medienwerte [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) gemäß den Vorlieben der Benutzer einstellen (z.B. durch das Speichern des zuletzt festgelegten Wertes über Sitzungen hinweg, auf einer Pro-Site-Basis oder anderweitig). Ein Element, das `:volume-locked` ist, kann nicht stummgeschaltet, die Stummschaltung aufgehoben oder die Lautstärke über JavaScript geändert werden. Der gesperrte Status ist eine Betriebssystem- oder Benutzeragentenpräferenz.
 
 ## Syntax
 

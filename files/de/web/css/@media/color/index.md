@@ -2,21 +2,19 @@
 title: color
 slug: Web/CSS/@media/color
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`color`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Bits pro Farbkomponente (rot, grün, blau) des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `color`-Eigenschaft wird als ein {{cssxref("&lt;integer&gt;")}}-Wert angegeben, der die Anzahl der Bits pro Farbkomponente (rot, grün, blau) des Ausgabegeräts repräsentiert. Wenn das Gerät kein Farbgerät ist, ist der Wert null. Es handelt sich um eine Bereichseigenschaft, was bedeutet, dass Sie auch die vorangestellten **`min-color`** und **`max-color`** Varianten verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Die `color`-Funktion wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Bits pro Farbkomponente (rot, grün, blau) des Ausgabegeräts darstellt. Wenn das Gerät kein Farbgerät ist, ist der Wert null. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Präfix-Varianten **`min-color`** und **`max-color`** verwenden können, um jeweils nach Mindest- und Höchstwerten zu fragen.
 
 > [!NOTE]
-> Wenn die verschiedenen Farbkomponenten durch unterschiedliche Bitanzahlen dargestellt werden, wird die kleinste Zahl verwendet. Zum Beispiel, wenn ein Display 5 Bits für Blau und Rot und 6 Bits für Grün verwendet, wird angenommen, dass das Gerät 5 Bits pro Farbkomponente verwendet. Wenn das Gerät indizierte Farben verwendet, wird die minimale Anzahl von Bits pro Farbkomponente in der Farbpalette verwendet.
+> Wenn die verschiedenen Farbkomponenten durch unterschiedliche Bitszahlen dargestellt werden, wird die kleinste Zahl verwendet. Zum Beispiel, wenn ein Display 5 Bits für blau und rot und 6 Bits für grün verwendet, dann wird angenommen, dass das Gerät 5 Bits pro Farbkomponente verwendet. Wenn das Gerät indizierte Farben verwendet, wird die Mindestanzahl von Bits pro Farbkomponente in der Farbtabelle verwendet.
 
-Siehe [Anwendung von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color), um mehr darüber zu erfahren, wie Sie CSS verwenden, um Farbe auf HTML anzuwenden.
+Siehe [Die Anwendung von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color), um mehr darüber zu erfahren, wie man mit CSS Farbe auf HTML anwendet.
 
 ## Beispiele
 

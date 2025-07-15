@@ -2,18 +2,16 @@
 title: Box-Ausrichtung im Grid-Layout
 slug: Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout
 l10n:
-  sourceCommit: baecb2c4e933300dd39baf7d13d4d7b7f7d5f814
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul beschreibt, wie Ausrichtung in verschiedenen Layout-Methoden funktioniert. Auf dieser Seite untersuchen wir, wie Box-Ausrichtung im Kontext von [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) funktioniert.
 
-Das [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment) beschreibt, wie die Ausrichtung in verschiedenen Layout-Methoden funktioniert. Auf dieser Seite untersuchen wir, wie die Box-Ausrichtung im Kontext des [CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout) funktioniert.
-
-Da dieser Leitfaden darauf abzielt, Dinge zu erläutern, die spezifisch für das CSS-Grid-Layout und die Box-Ausrichtung sind, sollte er zusammen mit dem [Übersicht zur Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment) Leitfaden gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über verschiedene Layout-Methoden hinweg beschreibt.
+Da dieser Leitfaden darauf abzielt, Dinge im Zusammenhang mit CSS Grid Layout und Box-Ausrichtung zu detaillieren, sollte er in Verbindung mit dem [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment) Leitfaden gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layout-Methoden hinweg beschreibt.
 
 ## Einfaches Beispiel
 
-In diesem Beispiel mit [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) gibt es nach dem Anordnen der Festbreiten-Spuren auf der Inline-{{Glossary("main_axis", "Hauptachse")}} zusätzlichen Platz im {{Glossary("grid_container", "Grid-Container")}}. Dieser Raum wird mit {{cssxref("justify-content")}} verteilt. Auf der Block-{{Glossary("cross_axis", "Querachse")}} wird die Ausrichtung der Elemente innerhalb ihrer Grid-Bereiche mit {{cssxref("align-items")}} gesteuert. Das erste Element überschreibt den `align-items`-Wert, der für die Gruppe gesetzt ist, indem es {{cssxref("align-self")}} auf `center` setzt.
+In diesem Beispiel unter Verwendung des [Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) gibt es zusätzlichen Raum im {{Glossary("grid_container", "Grid-Container")}}, nachdem die Festbreitentracks auf der inline {{Glossary("main_axis", "Hauptachse")}} angelegt wurden. Dieser Raum wird mit {{cssxref("justify-content")}} verteilt. Auf der block {{Glossary("cross_axis", "Querachse")}} wird die Ausrichtung der Elemente innerhalb ihrer Grid-Bereiche mit {{cssxref("align-items")}} gesteuert. Das erste Element überschreibt den `align-items`-Wert, der auf die Gruppe gesetzt wurde, indem es {{cssxref("align-self")}} auf `center` setzt.
 
 ```html live-sample___grid-align-items
 <div class="box">
@@ -56,23 +54,23 @@ body {
 
 ## Grid-Achsen
 
-Als zweidimensionale Layout-Methode stehen uns beim Arbeiten mit Grid-Layout immer zwei Achsen zur Verfügung, auf denen wir unsere Elemente ausrichten können. Wir haben Zugriff auf alle Eigenschaften der Box-Ausrichtung, um dies zu erreichen.
+Als zweidimensionales Layout-Verfahren haben wir beim Arbeiten mit Grid-Layout immer zwei Achsen, auf denen wir unsere Elemente ausrichten können. Wir haben Zugriff auf alle Box-Ausrichtungseigenschaften, um dies zu erreichen.
 
-Die Inline-Achse entspricht der Richtung, in der Wörter in einem Satz im verwendeten Schreibmodus laufen würden. Daher verläuft in einer horizontalen Sprache wie Englisch oder Arabisch die Inline-Richtung horizontal. Sollten Sie sich in einem vertikalen Schreibmodus befinden, verläuft die Inline-Achse vertikal.
+Die Inline-Achse entspricht der Richtung, in der Wörter in einem Satz im verwendeten Schreibmodus laufen würden. In einer horizontalen Sprache wie Englisch oder Arabisch verläuft die Inline-Richtung horizontal. Sollten Sie sich in einem vertikalen Schreibmodus befinden, verläuft die Inline-Achse vertikal.
 
 ![Inline-Achsen sind horizontal.](inline_axis.png)
 
 Um Dinge auf der Inline-Achse auszurichten, verwenden Sie die Eigenschaften, die mit `justify-` beginnen: {{cssxref("justify-content")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}}.
 
-Die Block-Achse kreuzt die Inline-Achse in der Richtung, in der Blöcke auf der Seite angezeigt werden — beispielsweise werden Absätze im Englischen vertikal untereinander dargestellt. Dies ist die Block-Dimension.
+Die Block-Achse kreuzt die Inline-Achse in der Richtung, in der Blöcke auf der Seite angezeigt werden — zum Beispiel werden Absätze im Englischen nacheinander vertikal angezeigt. Dies ist die Block-Dimension.
 
-Um Dinge auf der Block-Achse auszurichten, verwenden Sie die Eigenschaften, die mit `align-` beginnen, {{cssxref("align-content")}}, {{cssxref("align-items")}} und {{cssxref("align-self")}}.
+Um Dinge auf der Block-Achse auszurichten, verwenden Sie die Eigenschaften, die mit `align-` beginnen: {{cssxref("align-content")}}, {{cssxref("align-items")}} und {{cssxref("align-self")}}.
 
 ![Die Block-Achsen sind vertikal.](block_axis.png)
 
-## Selbst-Ausrichtung
+## Eigen-Ausrichtung
 
-Diese Eigenschaften befassen sich mit der Ausrichtung des Elements innerhalb des Grid-Bereichs, in den es platziert wird:
+Diese Eigenschaften behandeln die Ausrichtung des Elements innerhalb des Grid-Bereichs, in den es platziert wird:
 
 - {{cssxref("justify-self")}}
 - {{cssxref("align-self")}}
@@ -81,35 +79,35 @@ Diese Eigenschaften befassen sich mit der Ausrichtung des Elements innerhalb des
 - {{cssxref("align-items")}}
 - {{cssxref("place-items")}}
 
-Die `*-items`-Eigenschaften, `align-items` und `justify-items`, werden auf den Grid-Container angewendet und setzen die Ausrichtung für alle Grid-Elemente als Gruppe. Die `*-self`-Eigenschaften, `align-self` und `justify-self`, werden stattdessen auf die Grid-Elemente gesetzt. Dies bedeutet, dass Sie die Ausrichtung auf alle Grid-Elemente festlegen und dann einzelne Elemente überschreiben können, die eine andere Ausrichtung benötigen, indem Sie die `align-self`- oder `justify-self`-Eigenschaft auf die Regeln für die einzelnen Grid-Elemente anwenden.
+Die `*-items`-Eigenschaften, `align-items` und `justify-items`, werden auf den Grid-Container angewendet und legen die Ausrichtung für alle Grid-Elemente als Gruppe fest. Die `*-self`-Eigenschaften, `align-self` und `justify-self`, werden stattdessen auf Grid-Elemente selbst gesetzt. Dies bedeutet, dass Sie die Ausrichtung auf alle Grid-Elemente einstellen können und dann einzelne Elemente, die eine andere Ausrichtung benötigen, überschreiben können, indem Sie die `align-self` oder `justify-self` Eigenschaft auf die Regeln für die einzelnen Grid-Elemente anwenden.
 
-Der Anfangswert für `align-items` und `justify-items` ist `stretch`, und der Anfangswert für `align-self` und `justify-self` ist `auto`, sodass das Element sich über den gesamten Grid-Bereich erstrecken wird. Die Ausnahme von dieser Regel ist, wenn das Element ein intrinsisches {{Glossary("aspect_ratio", "Seitenverhältnis")}} hat, z.B. ein Bild. In diesem Fall wird das Element in beiden Dimensionen auf `start` ausgerichtet, um zu verhindern, dass das Bild verzerrt wird.
+Der Anfangswert für `align-items` und `justify-items` ist `stretch`, und der Anfangswert für `align-self` und `justify-self` ist `auto`, sodass das Element sich über den gesamten Grid-Bereich erstreckt. Die Ausnahme von dieser Regel ist, wenn das Element ein intrinsisches {{Glossary("aspect_ratio", "Seitenverhältnis")}} hat, zum Beispiel ein Bild. In diesem Fall wird das Element in beiden Dimensionen auf `start` ausgerichtet, damit das Bild nicht verzerrt wird.
 
 ## Inhaltsausrichtung
 
-Diese Eigenschaften befassen sich mit der Ausrichtung der Grid-Spuren, wenn zusätzlicher Platz zu verteilen ist:
+Diese Eigenschaften befassen sich mit der Ausrichtung der Tracks des Grids, wenn es zusätzlichen Platz zu verteilen gibt:
 
 - {{cssxref("justify-content")}}
 - {{cssxref("align-content")}}
 - {{cssxref("place-content")}}
 
-Dieses Szenario tritt ein, wenn die von Ihnen definierten Spuren insgesamt weniger als die Gesamtbreite des Grid-Containers ausmachen.
+Dieses Szenario tritt auf, wenn die von Ihnen definierten Tracks weniger ausmachen als die Gesamtbreite des Grid-Containers.
 
-## Abstand und veraltete Grid-Abstandseigenschaften
+## Lücke und Legacy-Grid-Lücke Eigenschaften
 
-Diese Eigenschaften definieren den Abstand zwischen Grid-Elementen innerhalb eines Grid-Containers:
+Diese Eigenschaften definieren den Abstand zwischen den Gitterelementen innerhalb eines Grid-Containers:
 
 - {{cssxref("row-gap")}}
 - {{cssxref("column-gap")}}
 - {{cssxref("gap")}}
 
-Die Grid-Spezifikation enthielt ursprünglich die Definition der Eigenschaften {{cssxref("row-gap", "grid-row-gap")}}, {{cssxref("column-gap", "grid-column-gap")}} und {{cssxref("gap", "grid-gap")}}. Diese wurden inzwischen in die Box-Ausrichtungspezifikation verschoben und zu {{cssxref("row-gap")}}, {{cssxref("column-gap")}} und {{cssxref("gap")}} aliasiert. Dies ermöglicht es ihnen, in anderen Layout-Methoden verwendet zu werden, wo ein Abstand zwischen Elementen sinnvoll ist.
+Die Grid-Spezifikation enthielt ursprünglich die Definition für die Eigenschaften {{cssxref("row-gap", "grid-row-gap")}}, {{cssxref("column-gap", "grid-column-gap")}} und {{cssxref("gap", "grid-gap")}}. Diese wurden seitdem in die Box-Alignment-Spezifikation verschoben und zu {{cssxref("row-gap")}}, {{cssxref("column-gap")}}, und {{cssxref("gap")}} umbenannt. Dies ermöglicht ihre Verwendung für andere Layout-Methoden, bei denen ein Abstand zwischen Elementen sinnvoll ist.
 
 ## Siehe auch
 
-- [Übersicht zur Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
+- [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
 - [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
 - [Box-Ausrichtung im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout)
 - [Box-Ausrichtung für Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables)
 
-- [Ausrichtung von Elementen im CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
+- [Ausrichtung von Elementen im CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)

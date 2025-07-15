@@ -2,14 +2,12 @@
 title: font-style
 slug: Web/CSS/@font-face/font-style
 l10n:
-  sourceCommit: 418b3ebf6464716649125199385c39d86c944973
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Der **`font-style`** CSS-Deskriptor ermöglicht es Autoren, Schriftstile für die im {{cssxref("@font-face")}}-At-Regel angegebenen Schriften festzulegen.
 
-Der **`font-style`**-CSS-Deskriptor ermöglicht es Autoren, Schriftstile für die in der {{cssxref("@font-face")}}-At-Regel angegebenen Schriften zu definieren.
-
-Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftschnitte herunterladen, die den unterschiedlichen Stilen derselben Schriftfamilie entsprechen, und dann den `font-style`-Deskriptor verwenden, um den Stil des Schriftschnitts explizit festzulegen. Die Werte für diesen CSS-Deskriptor sind die gleichen wie die der entsprechenden {{cssxref("font-style")}}-Eigenschaft.
+Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftschnitte herunterladen, die den unterschiedlichen Stilen derselben Schriftfamilie entsprechen. Danach können sie den Deskriptor `font-style` verwenden, um den Stil des Schriftschnitts explizit festzulegen. Die Werte für diesen CSS-Deskriptor sind dieselben wie die der entsprechenden {{cssxref("font-style")}}-Eigenschaft.
 
 ## Syntax
 
@@ -24,15 +22,15 @@ font-style: oblique 30deg 50deg;
 ### Werte
 
 - `normal`
-  - : Wählt die normale Version der Schriftfamilie.
+  - : Wählt die normale Version der Schriftfamilie aus.
 - `italic`
   - : Gibt an, dass der Schriftschnitt eine kursivierte Version der normalen Schrift ist.
 - `oblique`
   - : Gibt an, dass der Schriftschnitt eine künstlich geneigte Version der normalen Schrift ist.
 - `oblique` mit Winkel
-  - : Wählt eine als `oblique` klassifizierte Schrift und gibt zusätzlich einen Winkel für die Neigung des Textes an.
+  - : Wählt eine Schrift aus, die als `oblique` klassifiziert ist, und gibt zusätzlich einen Winkel für die Neigung des Textes an.
 - `oblique` mit Winkelbereich
-  - : Wählt eine als `oblique` klassifizierte Schrift und gibt zusätzlich einen Bereich zulässiger Winkel für die Neigung des Textes an. Beachten Sie, dass ein Bereich nur unterstützt wird, wenn `font-style` `oblique` ist; für `font-style: normal` oder `italic` ist kein zweiter Wert zulässig.
+  - : Wählt eine Schrift aus, die als `oblique` klassifiziert ist, und gibt zusätzlich einen Bereich erlaubter Winkel für die Neigung des Textes an. Beachten Sie, dass ein Bereich nur unterstützt wird, wenn der `font-style` `oblique` ist; für `font-style: normal` oder `italic` ist kein zweiter Wert erlaubt.
 
 ## Formale Definition
 
@@ -44,9 +42,9 @@ font-style: oblique 30deg 50deg;
 
 ## Beispiele
 
-### Einen kursiven Schriftstil angeben
+### Eine kursive Schriftart festlegen
 
-Als Beispiel nehmen wir die Garamond-Schriftfamilie, in ihrer normalen Form erhalten wir das folgende Ergebnis:
+Nehmen wir als Beispiel die Garamond-Schriftfamilie in ihrer normalen Form, erhalten wir folgendes Ergebnis:
 
 ```css
 @font-face {
@@ -57,11 +55,11 @@ Als Beispiel nehmen wir die Garamond-Schriftfamilie, in ihrer normalen Form erha
 
 ![unstyled Garamond](garamondunstyled.jpg)
 
-Die kursivierte Version dieses Textes verwendet dieselben Glyphen, die in der ungestylten Version vorhanden sind, aber sie sind künstlich um ein paar Grad geneigt.
+Die kursivierte Version dieses Textes verwendet dieselben Glyphen, die in der unstilisierten Version vorhanden sind, aber sie sind künstlich um einige Grad geneigt.
 
 ![artificially sloped garamond](garamondartificialstyle.jpg)
 
-Wenn jedoch eine echte kursivierte Version der Schriftfamilie existiert, können wir sie im `src`-Deskriptor einfügen und den Schriftstil als kursiv angeben, um klarzustellen, dass die Schrift kursiviert ist. Echte Kursive verwenden unterschiedliche Glyphen und unterscheiden sich ein wenig von ihren aufrechten Gegenstücken, haben einige einzigartige Merkmale und weisen allgemein eine abgerundete und kalligrafische Qualität auf. Diese Schriften werden speziell von Schriftgestaltern erstellt und sind **nicht** künstlich geneigt.
+Wenn hingegen eine echte kursivierte Version der Schriftfamilie existiert, können wir sie im `src`-Deskriptor einfügen und den Schriftstil als kursiv festlegen, damit klar ist, dass die Schrift kursiviert ist. Echte Kursivschrift verwendet unterschiedliche Glyphen und unterscheidet sich etwas von ihren aufrechten Gegenstücken, da sie einige einzigartige Merkmale haben und im Allgemeinen eine abgerundete und kalligrafische Qualität aufweisen. Diese Schriftarten werden speziell von Schriftgestaltern erstellt und sind **nicht** künstlich geneigt.
 
 ```css
 @font-face {

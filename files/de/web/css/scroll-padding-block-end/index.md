@@ -2,12 +2,10 @@
 title: scroll-padding-block-end
 slug: Web/CSS/scroll-padding-block-end
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-block-end` definiert Abstände für die Endkante in der Blockdimension der _optimalen Ansichtsregion_ des Scrollports: die Region, die als Zielregion zum Platzieren von Dingen im Blickfeld des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Symbolleisten oder Seitenleisten) verdeckt sind, oder mehr Raum zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-end` definiert Versätze für die Kante am Blockende der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Elemente im Sichtbereich des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (z. B. fixierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block-end")}}
 
@@ -93,9 +91,9 @@ scroll-padding-block-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Abstand von der Blockendkante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der Block-Endkante des Scrollports, als gültige Länge oder Prozentzahl.
 - `auto`
-  - : Der Abstand wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null besser geeignet ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird in der Regel 0px sein, jedoch kann ein Benutzeragent Erkennung durchführen und etwas anderes festlegen, wenn ein nicht-null Wert angemessener ist.
 
 ## Formale Definition
 

@@ -2,12 +2,10 @@
 title: scroll-padding-inline-end
 slug: Web/CSS/scroll-padding-inline-end
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge in Sicht des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fixierte Toolbars oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem gezielten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension des _optimalen Ansichtsbereichs_ des Scrollportals: der Bereich, der als Zielbereich für die Platzierung von Inhalten im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollportals auszuschließen, die von anderem Inhalt verdeckt werden (wie z. B. fest positionierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem gezielten Element und den Rändern des Scrollportals zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-end")}}
 
@@ -96,9 +94,9 @@ scroll-padding-inline-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Inline-Endkante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein Inwards-Versatz von der Inline-Endkante des Scrollportals als gültige Länge oder als Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den User-Agent bestimmt. Dies wird in der Regel 0px sein, aber ein User-Agent kann etwas anderes erkennen und tun, wenn ein anderer Wert passender ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein anderer Wert angemessener ist.
 
 ## Formale Definition
 

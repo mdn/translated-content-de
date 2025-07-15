@@ -2,16 +2,14 @@
 title: font-language-override
 slug: Web/CSS/font-language-override
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`font-language-override`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von sprachspezifischen Glyphen in einer Schriftart.
 
-Die **`font-language-override`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von sprachspezifischen Glyphen in einem Schriftsatz.
+Standardmäßig gibt das `lang` Attribut von HTML den Browsern an, Glyphen anzuzeigen, die speziell für diese Sprache entworfen wurden. Zum Beispiel haben viele Schriftarten ein spezielles Zeichen für das Buchstabenkombination `fi`, das den Punkt auf dem „i“ mit dem „f“ verbindet. Wenn die Sprache jedoch auf Türkisch eingestellt ist, wird die Schriftart wahrscheinlich wissen, dass sie die verbundene Glyphe nicht verwenden soll; Türkisch hat zwei Versionen des „i“, eines mit einem Punkt (`i`) und eines ohne (`ı`), und die Verwendung der Ligatur würde das gepunktete „i“ fälschlicherweise in ein punktloses „i“ umwandeln.
 
-Standardmäßig gibt das `lang`-Attribut von HTML an, dass Browser Glyphen anzeigen, die speziell für diese Sprache entworfen wurden. Zum Beispiel haben viele Schriften ein spezielles Zeichen für das Digraph `fi`, das den Punkt auf dem "i" mit dem "f" verbindet. Wenn die Sprache jedoch auf Türkisch eingestellt ist, wird die Schriftart wahrscheinlich wissen, dass das verbundene Glyph nicht verwendet werden sollte; Türkisch hat zwei Versionen des "i", eine mit Punkt (`i`) und eine ohne (`ı`), und die Verwendung der Ligatur würde ein gepunktetes "i" fälschlicherweise in ein punktloses "i" umwandeln.
-
-Die Eigenschaft `font-language-override` erlaubt es Ihnen, das Verhalten des Schriftsatzes für eine bestimmte Sprache zu überschreiben. Dies ist nützlich, wenn der verwendete Schriftsatz keine ordnungsgemäße Unterstützung für die Sprache bietet. Zum Beispiel, wenn ein Schriftsatz keine ordnungsgemäßen Regeln für die aserbaidschanische Sprache hat, können Sie die Schrift zwingen, türkische Glyphen zu verwenden, die ähnliche Regeln befolgen.
+Die `font-language-override` Eigenschaft ermöglicht es Ihnen, das Verhalten der Schriftart für eine bestimmte Sprache zu überschreiben. Dies ist nützlich, wenn die verwendete Schriftart keine ordnungsgemäße Unterstützung für die Sprache bietet. Wenn eine Schriftart beispielsweise keine ordnungsgemäßen Regeln für die aserbaidschanische Sprache hat, können Sie die Schrift zwingen, türkische Glyphen zu verwenden, die ähnlichen Regeln folgen.
 
 ## Syntax
 
@@ -36,9 +34,9 @@ Die `font-language-override` Eigenschaft wird als das Schlüsselwort `normal` od
 ### Werte
 
 - `normal`
-  - : Weist den Browser an, Schriftglyphen zu verwenden, die für die durch das `lang`-Attribut angegebene Sprache geeignet sind. Dies ist der Standardwert.
+  - : Weist den Browser an, Schriftglyphen zu verwenden, die für die Sprache geeignet sind, die durch das `lang` Attribut angegeben wird. Dies ist der Standardwert.
 - {{cssxref("string")}}
-  - : Weist den Browser an, Schriftglyphen zu verwenden, die für die durch den String angegebene Sprache geeignet sind. Der String muss mit einem Sprach-Tag im [OpenType-Sprachsystem](https://learn.microsoft.com/en-us/typography/opentype/spec/languagetags) übereinstimmen. Zum Beispiel steht "ENG" für Englisch und "KOR" für Koreanisch.
+  - : Weist den Browser an, Schriftglyphen zu verwenden, die für die Sprache geeignet sind, die durch den String angegeben wird. Der String muss einem Sprachcode entsprechen, der im [OpenType-Sprachsystem](https://learn.microsoft.com/en-us/typography/opentype/spec/languagetags) gefunden wird. Beispielsweise steht "ENG" für Englisch und "KOR" für Koreanisch.
 
 ## Formale Definition
 

@@ -2,16 +2,14 @@
 title: <flex>
 slug: Web/CSS/flex_value
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Der **`<flex>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet eine flexible Länge innerhalb eines Grid-Containers. Er wird in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und anderen verwandten Eigenschaften verwendet.
 
 ## Syntax
 
-Der `<flex>`-Datentyp wird als {{cssxref("&lt;number&gt;")}} angegeben, gefolgt von der Einheit `fr`. Die `fr`-Einheit repräsentiert einen Bruchteil des verbleibenden Platzes im Grid-Container. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen der Einheit und der Zahl.
+Der `<flex>` Datentyp wird als eine {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` angegeben. Die `fr` Einheit repräsentiert einen Bruchteil des verbleibenden Platzes im Grid-Container. Wie bei allen CSS-Maßen gibt es keinen Abstand zwischen der Einheit und der Zahl.
 
 ## Beispiele
 

@@ -1,14 +1,12 @@
 ---
-title: CSS-At-Regel-Funktionen
+title: CSS at-rule-Funktionen
 short-title: At-rule functions
 slug: Web/CSS/CSS_syntax/At-rule_functions
 l10n:
-  sourceCommit: 26f9fbee05fb92b584d44fba4359e86796484aa6
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-**[CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule)-Funktionen** sind At-Regel-Aussagen, die komplexe Regeln darstellen oder spezielle Datenverarbeitung oder Berechnungen auslösen können.
+**[CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule)-Funktionen** sind At-rule-Anweisungen, die komplexe Regeln darstellen oder spezielle Datenverarbeitung oder Berechnungen ausführen können.
 
 ## Syntax
 
@@ -17,13 +15,13 @@ l10n:
 }
 ```
 
-Die Syntax beginnt mit dem At-Zeichen `@` und einem At-Regel-Identifikator, wie zum Beispiel `import`. Dies wird gefolgt vom **Namen der At-Regel-Funktion**, wie zum Beispiel `url`, gefolgt von einem Paar öffnender und schließender Klammern. Innerhalb der Klammern werden ein oder mehrere Argumente angegeben.
+Die Syntax beginnt mit dem At-Zeichen `@` und einem At-rule-Identifikator, wie z.B. `import`. Dies wird gefolgt vom **Namen der At-rule-Funktion**, wie z.B. `url`, und einem Paar von öffnenden und schließenden Klammern. Ein oder mehrere Argumente werden innerhalb der Klammern angegeben.
 
-Einige At-Regel-Funktionen können mehrere Argumente aufnehmen, die ähnlich wie CSS-Property-Werte formatiert sind. Leerzeichen sind erlaubt, aber innerhalb der Klammern optional. Mehrere Argumente können durch ein Komma oder ein Leerzeichen getrennt werden.
+Einige At-rule-Funktionen können mehrere Argumente annehmen, die ähnlich wie CSS-Property-Werte formatiert sind. Leerzeichen sind erlaubt, aber optional innerhalb der Klammern. Mehrere Argumente können durch ein Komma oder ein Leerzeichen getrennt werden.
 
 ## @import-Funktionen
 
-Die {{CSSxRef("@import")}}-At-Regel wird verwendet, um Stile aus anderen Stylesheets zu importieren.
+Die {{CSSxRef("@import")}} At-rule wird verwendet, um Stile aus anderen Stylesheets zu importieren.
 
 - {{CSSxRef("@import", "@import url()")}}
   - : Importiert eine Stylesheet-Datei von der angegebenen URL.
@@ -34,10 +32,10 @@ Die {{CSSxRef("@import")}}-At-Regel wird verwendet, um Stile aus anderen Stylesh
 
 ## @supports-Funktionen
 
-Die {{CSSxRef("@supports")}}-At-Regel überprüft die Unterstützung eines Browsers für die angegebene CSS-Eigenschaft und wendet dann die CSS-Stilregeln an.
+Die {{CSSxRef("@supports")}} At-rule überprüft die Unterstützung des Browsers für die spezifizierte CSS-Funktion und wendet dann das CSS-Styling an.
 
 - {{CSSxRef("@supports", "@supports selector()")}}
-  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Selektorsyntax überprüft wurde.
+  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Selektor-Syntax überprüft wurde.
 - {{CSSxRef("@supports", "@supports font-tech()")}}
   - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Schrifttechnologie überprüft wurde.
 - {{CSSxRef("@supports", "@supports font-format()")}}
@@ -45,18 +43,18 @@ Die {{CSSxRef("@supports")}}-At-Regel überprüft die Unterstützung eines Brows
 
 ## @namespace-Funktionen
 
-Die {{CSSxRef("@namespace")}}-At-Regel wird verwendet, um XML-Namespace zu definieren, die in einem CSS-Stylesheet verwendet werden sollen.
+Die {{CSSxRef("@namespace")}} At-rule wird verwendet, um XML-Namensräume zu spezifizieren, die in einem CSS-Stylesheet verwendet werden sollen.
 
 - {{CSSxRef("@namespace", "@namespace url()")}}
-  - : Definiert den XML-Namespace von der angegebenen URL.
+  - : Definiert einen XML-Namensraum von der angegebenen URL.
 
 ## @container-Funktionen
 
-Die {{CSSxRef("@container")}}-At-Regel wird verwendet, um Stile für einen Inhaltskontext anzugeben.
+Die {{CSSxRef("@container")}} At-rule wird verwendet, um Stile für einen Containment-Kontext zu spezifizieren.
 
 - {{CSSxRef("@container", "@container style()")}}
-  - : Definiert den Stil des Inhaltskontextes.
+  - : Definiert den Stil des Containment-Kontextes.
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
+- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul

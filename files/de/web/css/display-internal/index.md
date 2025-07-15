@@ -2,43 +2,41 @@
 title: <display-internal>
 slug: Web/CSS/display-internal
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Einige Layout-Modelle wie `table` und `ruby` haben eine komplexe interne Struktur, mit mehreren unterschiedlichen Rollen, die ihre Kinder und Nachkommen erfüllen können. Diese Seite definiert jene "internen" Display-Werte, die nur innerhalb dieses bestimmten Layout-Modus Bedeutung haben.
+Einige Layoutmodelle, wie `table` und `ruby`, haben eine komplexe interne Struktur mit verschiedenen Rollen, die ihre Kinder und Nachfahren erfüllen können. Diese Seite definiert diese "internen" Display-Werte, die nur innerhalb dieses speziellen Layout-Modus Bedeutung haben.
 
 ## Syntax
 
 Gültige `<display-internal>` Werte:
 
 - `table-row-group`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("tbody")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("tbody")}}.
 - `table-header-group`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("thead")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("thead")}}.
 - `table-footer-group`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("tfoot")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("tfoot")}}.
 - `table-row`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("tr")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("tr")}}.
 - `table-cell`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("td")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("td")}}.
 - `table-column-group`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("colgroup")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("colgroup")}}.
 - `table-column`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("col")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("col")}}.
 - `table-caption`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("caption")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("caption")}}.
 - `ruby-base`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("rb")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("rb")}}.
 - `ruby-text`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("rt")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("rt")}}.
 - `ruby-base-container`
   - : Diese Elemente werden als anonyme Boxen generiert.
 - `ruby-text-container`
-  - : Diese Elemente verhalten sich wie {{HTMLElement("rtc")}} HTML-Elemente.
+  - : Diese Elemente verhalten sich wie HTML-Elemente vom Typ {{HTMLElement("rtc")}}.
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
@@ -46,7 +44,7 @@ Gültige `<display-internal>` Werte:
 
 ### CSS-Tabellenbeispiel
 
-Das folgende Beispiel demonstriert das Layout eines Formulars unter Verwendung von CSS-Tabelle-Layout.
+Das folgende Beispiel demonstriert das Layout eines Formulars unter Verwendung des CSS-Tabellenlayouts.
 
 #### HTML
 

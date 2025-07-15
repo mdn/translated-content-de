@@ -2,12 +2,10 @@
 title: CSS-Text
 slug: Web/CSS/CSS_text
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSS-Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, wie Zeilenumbruch, Ausrichtung und Justierung, Handhabung von Leerzeichen und Texttransformation.
+Das **CSS-Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, wie z.B. Zeilenumbruch, Ausrichtung und Justierung, Handhabung von Leerzeichen und Texttransformation.
 
 ## Referenz
 
@@ -35,7 +33,7 @@ Das **CSS-Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, w
 - {{cssxref("word-break")}}
 - {{cssxref("word-spacing")}}
 
-Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-lines`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-autospace`, `text-group-align`, `text-spacing`, `white-space-trim`, `word-space-transform`, `wrap-after`, `wrap-before` und `wrap-inside`, die von keinem Browser unterstützt werden.
+Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-lines`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-autospace`, `text-group-align`, `text-spacing`, `white-space-trim`, `word-space-transform`, `wrap-after`, `wrap-before` und `wrap-inside`, die noch von keinem Browser unterstützt werden.
 
 ### Leitfäden
 

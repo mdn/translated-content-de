@@ -2,12 +2,10 @@
 title: z-index
 slug: Web/CSS/z-index
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`z-index`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Z-Ordnung eines [positionierten](/de/docs/Web/CSS/position) Elements und seiner Nachkommen oder Flex- und Rasterelemente. Überlappende Elemente mit einem größeren `z-index` überdecken diejenigen mit einem kleineren.
+Die **`z-index`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Z-Ordnung eines [positionierten](/de/docs/Web/CSS/position) Elements und seiner Nachkommen oder Flex- und Grid-Elemente fest. Überlappende Elemente mit einem größeren z-index überdecken solche mit einem kleineren.
 
 {{InteractiveExample("CSS Demo: z-index")}}
 
@@ -122,7 +120,7 @@ z-index: 7;
 }
 ```
 
-Für ein positioniertes Element (also eines mit einer `position` ungleich `static`) gibt die `z-index` Eigenschaft Folgendes an:
+Für ein positioniertes Element (d.h. eines mit einer `position` ungleich `static`) gibt die `z-index` Eigenschaft an:
 
 1. Die Stapelreihenfolge des Elements im aktuellen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context).
 2. Ob das Element einen lokalen Stacking-Kontext erstellt.
@@ -154,7 +152,7 @@ Die `z-index` Eigenschaft wird entweder als das Schlüsselwort `auto` oder als e
 - `auto`
   - : Das Element erstellt keinen neuen lokalen Stacking-Kontext. Die Stapelreihenfolge des generierten Elements im aktuellen Stacking-Kontext ist `0`.
 - `<integer>`
-  - : Dieses {{cssxref("&lt;integer&gt;")}} ist die Stapelreihenfolge des generierten Elements im aktuellen Stacking-Kontext. Das Element erstellt auch einen lokalen Stacking-Kontext. Dies bedeutet, dass die z-index-Werte von Nachkommen nicht mit den z-index-Werten von Elementen außerhalb dieses Elements verglichen werden.
+  - : Dieses {{cssxref("&lt;integer&gt;")}} ist die Stapelreihenfolge des generierten Elements im aktuellen Stacking-Kontext. Das Element erstellt auch einen lokalen Stacking-Kontext. Das bedeutet, dass die z-indexe der Nachkommen nicht mit den z-indexen von Elementen außerhalb dieses Elements verglichen werden.
 
 ## Formale Definition
 
@@ -228,4 +226,4 @@ Die `z-index` Eigenschaft wird entweder als das Schlüsselwort `auto` oder als e
 ## Siehe auch
 
 - CSS {{Cssxref("position")}} Eigenschaft
-- [Verstehen von CSS z-indexes](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [Verständnis von CSS z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)

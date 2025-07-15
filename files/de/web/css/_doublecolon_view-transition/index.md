@@ -2,16 +2,14 @@
 title: ::view-transition
 slug: Web/CSS/::view-transition
 l10n:
-  sourceCommit: 5de337827007e2a7fb89261215b6dbcf4caafafa
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **`::view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Wurzel der [View Transitions](/de/docs/Web/API/View_Transition_API)-Überlagerung, die alle View Transition-Snapshot-Gruppen enthält und über allen anderen Seiteninhalten liegt.
 
-Das **`::view-transition`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Wurzel der [View Transitions](/de/docs/Web/API/View_Transition_API) Überlagerung, die alle View Transition Snapshot-Gruppen enthält und über dem gesamten anderen Seiteninhalt liegt.
+Während einer View Transition ist `::view-transition` im zugehörigen Pseudoelement-Baum enthalten, wie in [Der View Transition Pseudoelement-Baum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt wird. Es ist der Knoten auf oberster Ebene dieses Baums und hat ein oder mehrere {{cssxref("::view-transition-group()")}}s als Kinder.
 
-Während einer View Transition ist `::view-transition` in dem zugehörigen Pseudo-Element-Baum enthalten, wie in [Der View Transition Pseudo-Element-Baum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist der oberste Knoten dieses Baums und hat ein oder mehrere {{cssxref("::view-transition-group()")}}s als Kinder.
-
-`::view-transition` hat im UA-Stylesheet das folgende Standard-Styling:
+`::view-transition` wird im UA-Stylesheet die folgende Standardgestaltung gegeben:
 
 ```css
 :root::view-transition {
@@ -20,7 +18,7 @@ Während einer View Transition ist `::view-transition` in dem zugehörigen Pseud
 }
 ```
 
-Alle {{cssxref("::view-transition-group()")}} Pseudo-Elemente sind relativ zur View Transition-Wurzel positioniert.
+Alle {{cssxref("::view-transition-group()")}} Pseudoelemente sind relativ zur View Transition-Wurzel positioniert.
 
 ## Syntax
 

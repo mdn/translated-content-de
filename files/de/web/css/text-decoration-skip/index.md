@@ -2,15 +2,15 @@
 title: text-decoration-skip
 slug: Web/CSS/text-decoration-skip
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`text-decoration-skip`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, welche Teile des Inhalts eines Elements bei einer Textdekoration, die das Element beeinflusst, übersprungen werden müssen. Sie steuert alle Textdekorationslinien, die vom Element sowie von seinen Vorfahren gezeichnet werden.
+Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, welche Teile des Inhalts eines Elements von jeglicher Textdekoration, die das Element betrifft, ausgelassen werden sollen. Sie steuert alle von dem Element gezeichneten Textdekorationen sowie alle Textdekorationen, die von seinen Vorfahren gezeichnet werden.
 
 > [!NOTE]
-> Die meisten anderen Browser bewegen sich in Richtung Unterstützung der einfacheren Eigenschaft {{cssxref("text-decoration-skip-ink")}}.
+> Die meisten anderen Browser nähern sich der Unterstützung der einfacheren {{cssxref("text-decoration-skip-ink")}} Eigenschaft an.
 
 ## Syntax
 
@@ -38,35 +38,34 @@ text-decoration-skip: unset;
 ### Werte
 
 - `none`
-  - : Nichts wird übersprungen. Somit wird die Textdekoration für den gesamten Textinhalt und über atomare Inline-Boxen hinweg gezeichnet.
+  - : Nichts wird ausgelassen. Somit wird die Textdekoration für alle Textinhalte und über atomare Inline-Level-Boxen hinweg gezeichnet.
 - `objects`
-  - : Die gesamte Randbox des Elements wird übersprungen, wenn es sich um ein atomares Inline-Element wie ein Bild oder einen Inline-Block handelt.
+  - : Die gesamte Margin-Box des Elements wird ausgelassen, wenn es sich um ein atomares Inline-Element wie ein Bild oder ein Inline-Block handelt.
 - `spaces`
-  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichenzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrennzeichen, plus alle angrenzenden {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
+  - : Alle Leerzeichen werden ausgelassen: alle [Unicode-Leerzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrenner, plus jeglicher benachbarter {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
 - `leading-spaces`
-  - : Entspricht `spaces`, jedoch werden nur führende Leerzeichen übersprungen.
+  - : Wie `spaces`, außer dass nur führende Leerzeichen ausgelassen werden.
 - `trailing-spaces`
-  - : Entspricht `spaces`, jedoch werden nur nachfolgende Leerzeichen übersprungen.
+  - : Wie `spaces`, außer dass nur nachfolgende Leerzeichen ausgelassen werden.
 - `edges`
-
-  - : Der Anfang und das Ende der Textdekoration werden leicht von der Inhaltsecke der dekorierenden Box nach innen versetzt (z. B. um die halbe Linienbreite). Dadurch erhalten angrenzende Elemente separate Unterstreichungen. (Dies ist wichtig im Chinesischen, wo das Unterstreichen eine Form der Interpunktion darstellt.)
+  - : Der Beginn und das Ende der Textdekoration sind leicht eingerückt (z.B. um die Hälfte der Linienstärke) vom Inhaltsrand der dekorierenden Box. Somit erhalten benachbarte Elemente separate Unterstreichungen. (Dies ist wichtig im Chinesischen, wo die Unterstreichung eine Form der Interpunktion darstellt.)
 
     ![Ein Beispiel für "text-decoration-skip: edges;".](decoration-skip-edges.png)
 
 - `box-decoration`
-  - : Die Textdekoration wird über den Randbereich, die Rahmen und die Abstände der Box übersprungen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren vorgegeben werden; eine _dekorierende Box_ wird niemals über ihre eigene Boxdekoration gezeichnet.
+  - : Die Textdekoration wird über den Rand-, Rahmen- und Pufferbereichen der Box ausgelassen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _dekorierende Box_ zeichnet niemals über ihre eigene Box-Dekoration.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Überspringen von Kanten
+### Ränder überspringen
 
 #### HTML
 

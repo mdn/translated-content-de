@@ -1,13 +1,11 @@
 ---
-title: CSS Paged Media
+title: CSS-Seitenmedien
 slug: Web/CSS/CSS_paged_media
 l10n:
-  sourceCommit: 76885324c55eda81ef536254ffe532ca68a2f502
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSS Paged Media**-Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien, die Inhalte in separate Seiten aufteilen, steuern. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, druckbare Bereiche zu steuern, linke und rechte Seiten unterschiedlich zu gestalten und Unterbrechungen innerhalb von Elementen zu kontrollieren.
+Das **CSS paged media** Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien, die Inhalte in getrennte Seiten unterteilen, steuern. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, druckbare Bereiche zu kontrollieren, linke und rechte Seiten unterschiedlich zu gestalten und Umbrüche innerhalb von Elementen zu steuern.
 
 ## Referenz
 
@@ -18,13 +16,13 @@ Das **CSS Paged Media**-Modul definiert die Eigenschaften, die die Darstellung v
 ### At-Rules
 
 - {{cssxref('@page')}}
-  - {{cssxref('@page/page-orientation', 'page-orientation')}} Descriptor
-  - {{cssxref('@page/size', 'size')}} Descriptor
-  - [Margin-Deskriptoren](/de/docs/Web/CSS/margin)
-- [Margin-At-Rules](/de/docs/Web/CSS/@page#margin_at-rules)
+  - {{cssxref('@page/page-orientation', 'page-orientation')}} Deskriptor
+  - {{cssxref('@page/size', 'size')}} Deskriptor
+  - [Rand-Deskriptoren](/de/docs/Web/CSS/margin)
+- [Rand-At-Rules](/de/docs/Web/CSS/@page#margin_at-rules)
 
 > [!NOTE]
-> Das CSS Paged Media-Modul führt zwei `@page`-Deskriptoren ein, die nicht implementiert wurden: `bleeds` und `marks`.
+> Das CSS paged media Modul führt zwei `@page` Deskriptoren ein, die nicht implementiert wurden: `bleeds` und `marks`.
 
 ### Pseudo-Klassen
 
@@ -35,19 +33,19 @@ Das **CSS Paged Media**-Modul definiert die Eigenschaften, die die Darstellung v
 
 ## Verwandte Konzepte
 
-- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)-Modul
-  - {{cssxref("break-after")}}-Eigenschaft
-  - {{cssxref("break-before")}}-Eigenschaft
-  - {{cssxref("break-inside")}}-Eigenschaft
-  - {{cssxref("orphans")}}-Eigenschaft
-  - {{cssxref("widows")}}-Eigenschaft
+- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+  - {{cssxref("break-after")}} Eigenschaft
+  - {{cssxref("break-before")}} Eigenschaft
+  - {{cssxref("break-inside")}} Eigenschaft
+  - {{cssxref("orphans")}} Eigenschaft
+  - {{cssxref("widows")}} Eigenschaft
 
 ## Spezifikationen
 
-{{Specifications}}
+{{Spezifikationen}}
 
 ## Siehe auch
 
-- [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)-Leitfaden
-- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)-Modul
-- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries)-Modul
+- [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing) Leitfaden
+- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul

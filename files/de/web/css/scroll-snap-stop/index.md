@@ -2,12 +2,10 @@
 title: scroll-snap-stop
 slug: Web/CSS/scroll-snap-stop
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`scroll-snap-stop`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert, ob der Scroll-Container über mögliche Snap-Positionen "hinweg gleiten" darf oder nicht.
+Die **`scroll-snap-stop`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, ob es dem Scroll-Container erlaubt ist, mögliche Snap-Positionen zu "überspringen".
 
 {{InteractiveExample("CSS Demo: scroll-snap-stop")}}
 
@@ -102,9 +100,9 @@ scroll-snap-stop: unset;
 ### Werte
 
 - `normal`
-  - : Wenn das visuelle {{Glossary("viewport", "Viewport")}} des Scroll-Containers dieses Elements gescrollt wird, kann es über mögliche Snap-Positionen "hinweg gleiten".
+  - : Wenn der visuelle {{Glossary("viewport", "Viewport")}} des Scroll-Containers dieses Elements gescrollt wird, kann er mögliche Snap-Positionen "überspringen".
 - `always`
-  - : Der Scroll-Container darf nicht über eine mögliche Snap-Position "hinweg gleiten" und muss zur ersten Snap-Position dieses Elements schnappen.
+  - : Der Scroll-Container darf keine mögliche Snap-Position "überspringen" und muss zur ersten Snap-Position dieses Elements springen.
 
 ## Formale Definition
 
@@ -116,9 +114,9 @@ scroll-snap-stop: unset;
 
 ## Beispiele
 
-### Unterschiedliche Snap-Stopps einstellen
+### Verschiedene Snap-Stops einstellen
 
-Das folgende Beispiel zeigt den Unterschied zwischen den Werten `always` und `normal` von `scroll-snap-stop`. Der Unterschied zwischen den beiden `scroll-snap-stop`-Werten ist deutlicher erkennbar, wenn die Eigenschaft `scroll-snap-type` auf `mandatory` gesetzt ist, was in diesem Beispiel verwendet wird.
+Das untenstehende Beispiel zeigt den Unterschied zwischen den Werten `always` und `normal` der `scroll-snap-stop` Eigenschaft. Der Unterschied zwischen den beiden `scroll-snap-stop` Werten ist auffälliger, wenn die `scroll-snap-type` Eigenschaft auf `mandatory` gesetzt ist, was in diesem Beispiel der Fall ist.
 
 #### HTML
 
@@ -273,9 +271,9 @@ div > div {
 
 #### Ergebnis
 
-Scrollen Sie von links nach rechts und von oben nach unten in den X- und Y-Boxen unten. In den X- und Y-Boxen, in denen die Eigenschaft `scroll-snap-stop` auf `always` gesetzt ist, wird das Scrollen bei der Snap-Position selbst dann gestoppt, wenn Sie schnell scrollen. In den Boxen, in denen `scroll-snap-stop` auf `normal` gesetzt ist, werden die Snap-Punkte jedoch übersprungen, wenn Sie schnell scrollen.
+Scrollen Sie von links nach rechts und von oben nach unten in den X- und Y-Boxen unten. In den X- und Y-Boxen, in denen die `scroll-snap-stop` Eigenschaft auf `always` gesetzt ist, wird das Scrollen gezwungen, an der Snap-Position zu stoppen, selbst wenn Sie schnell scrollen. In den Boxen, in denen die `scroll-snap-stop` Eigenschaft auf `normal` gesetzt ist, werden die Snap-Punkte beim schnellen Scrollen übersprungen.
 
-Falls erforderlich, können Sie selektiv auswählen, bei welchen Elementen im Scroll-Container immer gestoppt werden soll. Dies wird im folgenden Beispiel gezeigt, indem ungerade und gerade Elemente gezielt angesprochen werden; Sie können eine andere Strategie basierend auf Ihren Anforderungen wählen. Im untenstehenden Beispiel "gleitet" das Scrollen nicht über ungerade und gerade Elemente in der zweiten und dritten Box, jeweils.
+Falls erforderlich, können Sie selektiv sein, welche Elemente im Scroll-Container `always` gestoppt werden. Dies wird im untenstehenden Beispiel demonstriert, indem ungerade und gerade Elemente anvisiert werden; Sie können basierend auf Ihren Anforderungen eine andere Strategie wählen. Im untenstehenden Beispiel wird das Scrollen nicht über ungerade und gerade Elemente in der zweiten und dritten Box "übersprungen".
 
 {{EmbedLiveSample("Snapping_in_different_axes", "100%", "1080")}}
 

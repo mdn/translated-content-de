@@ -2,20 +2,18 @@
 title: <alpha-value>
 slug: Web/CSS/alpha-value
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<alpha-value>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Wert, der entweder ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein kann, und gibt den **{{Glossary("alpha", "Alpha-Kanal")}}** oder die **Transparenz** einer Farbe an.
+Der **`<alpha-value>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Wert, der entweder eine {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein kann, und die **{{Glossary("alpha", "Alphakanal")}}** oder **Transparenz** einer Farbe angibt.
 
 ## Syntax
 
 Der Wert eines `<alpha-value>` wird entweder als [`<number>`](/de/docs/Web/CSS/number) oder als {{cssxref("percentage")}} angegeben.
 
-Wenn der Wert als Zahl gegeben ist, liegt der nützliche Bereich zwischen 0 (vollständig transparent) und 1.0 (vollständig undurchsichtig), mit Dezimalwerten dazwischen. Zum Beispiel bedeutet 0.5, dass die Hälfte der Vordergrundfarbe und die Hälfte der Hintergrundfarbe verwendet wird. Werte außerhalb des Bereichs von 0 bis 1 sind zulässig, werden jedoch [geklammert](<https://en.wikipedia.org/wiki/Clamping_(graphics)>) und liegen dann im Bereich von 0 bis 1.
+Wenn der Wert als Zahl angegeben wird, liegt der sinnvolle Bereich zwischen 0 (vollständig transparent) und 1.0 (vollständig opak), mit dazwischenliegenden Dezimalwerten; das heißt, 0.5 zeigt an, dass die Hälfte der Vordergrundfarbe und die Hälfte der Hintergrundfarbe genutzt wird. Werte außerhalb des Bereichs von 0 bis 1 sind erlaubt, werden jedoch [geklammert](<https://en.wikipedia.org/wiki/Clamping_(graphics)>) und in den Bereich 0 bis 1 eingegrenzt.
 
-Wenn der Alpha-Wert als Prozentwert angegeben ist, entspricht 0% vollständig transparent, während 100% vollständig undurchsichtig bedeutet.
+Wenn der Alphawert als Prozentsatz angegeben wird, entspricht 0% vollständig transparent, während 100% vollständig opak bedeutet.
 
 ## Formale Syntax
 
@@ -23,22 +21,23 @@ Wenn der Alpha-Wert als Prozentwert angegeben ist, entspricht 0% vollständig tr
 
 ## Interpolation
 
-Wenn animiert, werden Werte des `<alpha-value>` CSS-Datentyps als reale Gleitkommazahlen {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verknüpfte [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Wenn animiert, werden Werte des `<alpha-value>` CSS-Datentyps als reelle, gleitkommazahlige Werte {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 
-### Deckkraft der Textfarbe einstellen
+### Einstellen der Textfarb-Deckkraft
 
-Die Funktion [`rgb()`](/de/docs/Web/CSS/color_value/rgb) akzeptiert einen vierten optionalen Wert, um einen Alpha-Wert anzugeben. Das folgende Beispiel zeigt, wie eine Farbe mit 60% Deckkraft unter Verwendung des Alpha-Werts angewendet wird:
+Die [`rgb()`](/de/docs/Web/CSS/color_value/rgb) Funktion akzeptiert einen vierten optionalen Wert, um einen Alphawert anzugeben.
+Das folgende Beispiel zeigt, wie man eine Farbe mit 60% Deckkraft unter Verwendung des Alphawerts anwendet:
 
 ```css
 /* <rgb()> */
 color: rgb(34 12 64 / 60%);
 ```
 
-### Schwellenwert für Formenbild einstellen
+### Festlegen der Formbildschwelle
 
-Hier wird ein Alpha-Wert verwendet, um zu bestimmen, welche Teile eines Bildes als Teil einer Form angesehen werden:
+Hier wird ein Alphawert verwendet, um zu bestimmen, welche Teile eines Bildes als Teil einer Form betrachtet werden:
 
 ```css
 /* shape-image-threshold */
@@ -52,7 +51,7 @@ shape-image-threshold: 0.7;
 
 ## Siehe auch
 
-- [Lernen: Grundlegendes Styling von Text und Schriftarten](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegende Text- und Schriftartgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
 - [CSS-Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
-- [CSS Farbe](/de/docs/Web/CSS/CSS_colors)
+- [CSS-Farbe](/de/docs/Web/CSS/CSS_colors)
 - [`<color>`](/de/docs/Web/CSS/color_value)

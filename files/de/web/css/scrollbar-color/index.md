@@ -2,18 +2,16 @@
 title: scrollbar-color
 slug: Web/CSS/scrollbar-color
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`scrollbar-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des Scrollbalken-Hintergrunds und des Scrollbalken-Schiebers fest.
 
-Die **`scrollbar-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Scroll-Leiste und des Daumens fest.
+Der **Hintergrund** bezieht sich auf den Hintergrund des Scrollbalkens, der im Allgemeinen unabhängig von der Scrollposition fest ist.
 
-Der **Track** bezieht sich auf den Hintergrund der Scroll-Leiste, der im Allgemeinen unabhängig von der Scroll-Position fest bleibt.
+Der **Schieber** bezieht sich auf den beweglichen Teil des Scrollbalkens, der normalerweise über dem Hintergrund schwebt.
 
-Der **Thumb** bezieht sich auf den beweglichen Teil der Scroll-Leiste, der in der Regel über dem Track "schwebt".
-
-Wenn der Wert von `scrollbar-color` auf dem Stamm-Element des Dokuments gesetzt ist, werden die Werte auf die Scroll-Leisten des Ansichtsfensters angewendet.
+Wenn der Wert von `scrollbar-color` am Wurzelelement des Dokuments festgelegt wird, werden die Werte auf die Ansicht-Scrollbalken angewendet.
 
 ## Syntax
 
@@ -36,31 +34,31 @@ scrollbar-color: unset;
 ### Werte
 
 - `<scrollbar-color>`
-
-  - : Definiert die Farbe der Scroll-Leiste.
+  - : Definiert die Farbe des Scrollbalkens.
 
     <table class="standard-table">
       <tbody>
         <tr>
           <td><code>auto</code></td>
           <td>
-            Standardmäßige Plattform-Darstellung für den Track-Teil der Scroll-Leiste, wenn keine anderen scrollbar-bezogenen Farbeigenschaften vorhanden sind.
+            Standard-Plattformdarstellung für den Hintergrundanteil des Scrollbalkens, falls keine anderen scrollbar-bezogenen Farbeigenschaften vorhanden sind.
           </td>
         </tr>
         <tr>
           <td><code>&#x3C;color> &#x3C;color></code></td>
           <td>
-            Wendet die erste Farbe auf den Scroll-Leisten-Thumb an, die zweite auf den Scroll-Leisten-Track.
+            Wendet die erste Farbe auf den Schieber des Scrollbalkens an, die zweite auf den Hintergrund des Scrollbalkens.
           </td>
         </tr>
       </tbody>
     </table>
 
-> [!NOTE] > [`@media (forced-colors: active)`](/de/docs/Web/CSS/@media/forced-colors) setzt `scrollbar-color` auf `auto`.
+> [!NOTE]
+> [`@media (forced-colors: active)`](/de/docs/Web/CSS/@media/forced-colors) setzt `scrollbar-color` auf `auto`.
 
 ## Barrierefreiheit
 
-Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben einen ausreichenden Kontrast zueinander haben. Bei Schlüsselwortwerten sollten die Benutzeragenten sicherstellen, dass die verwendeten Farben einen ausreichenden Kontrast aufweisen. Siehe [Techniken für WCAG 2.0: G183: Verwenden eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
+Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben ausreichend Kontrast zueinander haben. Bei Schlüsselwortwerten sollten Benutzeragenten sicherstellen, dass die von ihnen verwendeten Farben ausreichend Kontrast haben. Siehe [Techniken für WCAG 2.0: G183: Verwendung eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
 
 ## Formale Definition
 
@@ -72,7 +70,7 @@ Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten s
 
 ## Beispiele
 
-### Färben von Überlauf-Scroll-Leisten
+### Farbige Überlauf-Scrollbalken
 
 #### CSS
 
@@ -111,8 +109,8 @@ Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten s
 
 ## Siehe auch
 
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scroll-Leisten-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS scrollbars styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
 - {{CSSxRef("overflow")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("scrollbar-width")}}

@@ -2,12 +2,10 @@
 title: perspective()
 slug: Web/CSS/transform-function/perspective
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`perspective()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0-Ebene festlegt, die Perspektive, aus der der Betrachter schauen würde, wenn die 2-dimensionale Oberfläche dreidimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}}-Datentyp.
+Die **`perspective()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0-Ebene festlegt, also die Perspektive, aus der der Betrachter sein würde, wenn die 2-dimensionale Oberfläche 3-dimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: perspective()")}}
 
@@ -101,7 +99,7 @@ transform: perspective(6.5cm);
 }
 ```
 
-Die `perspective()`-Transformationsfunktion ist Teil des {{cssxref('transform')}}-Wertes, der auf das zu transformierende Element angewendet wird. Dies unterscheidet sich von den Eigenschaften {{cssxref('perspective')}} und {{cssxref('perspective-origin')}}, die dem Elternteil eines in 3-dimensionalem Raum transformierten Kindes zugeordnet werden.
+Die Funktion `perspective()` ist Teil des {{cssxref('transform')}}-Werts, der auf das transformierte Element angewendet wird. Dies unterscheidet sich von den {{cssxref('perspective')}}- und {{cssxref('perspective-origin')}}-Eigenschaften, die am Elternteil eines in 3-dimensionalem Raum transformierten Kindes angebracht sind.
 
 ## Syntax
 
@@ -112,9 +110,9 @@ perspective(d)
 ### Werte
 
 - _d_
-  - : Ist ein {{cssxref("&lt;length&gt;")}} und repräsentiert den Abstand vom Benutzer zur z=0-Ebene. Die z=0-Ebene ist die Ebene, in der alles in einer zweidimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt. Negative Werte sind Syntaxfehler.
+  - : Ist ein {{cssxref("&lt;length&gt;")}}, der den Abstand vom Benutzer zur z=0-Ebene darstellt. Die z=0-Ebene ist die Ebene, auf der alles in einer 2-dimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt. Negative Werte sind Syntaxfehler.
 
-    Werte außer `none` bewirken, dass Elemente mit positiven z-Positionen größer erscheinen, und Elemente mit negativen z-Positionen kleiner erscheinen. Elemente mit z-Positionen, die gleich oder größer als der Perspektivenwert sind, verschwinden, als ob sie hinter dem Benutzer wären. Große Perspektivenwerte repräsentieren eine kleine Transformation; kleine Werte von `perspective()` repräsentieren eine große Transformation; `perspective(none)` repräsentiert Perspektiven aus unendlicher Entfernung und keine Transformation.
+    Werte ungleich `none` bewirken, dass Elemente mit positiven z-Positionen größer erscheinen und Elemente mit negativen z-Positionen kleiner. Elemente mit z-Positionen, die gleich oder größer als der Perspektivenwert sind, verschwinden, als wären sie hinter dem Benutzer. Große Werte von Perspektive entsprechen einer kleinen Transformation; kleine Werte von `perspective()` entsprechen einer großen Transformation; `perspective(none)` entspricht einer Perspektive aus unendlicher Entfernung und keiner Transformation.
 
 <table class="standard-table">
   <thead>

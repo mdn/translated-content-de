@@ -2,12 +2,10 @@
 title: grayscale()
 slug: Web/CSS/filter-function/grayscale
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`grayscale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) konvertiert das Eingabebild in Graustufen. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`grayscale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) konvertiert das Eingabebild in Graustufen. Ihr Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: grayscale()")}}
 
@@ -46,7 +44,7 @@ grayscale(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Der Anteil des Eingabebildes, der in Graustufen konvertiert wird. Dieser wird als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` ändert das Eingabebild vollständig in Graustufen, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Der anfängliche Wert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
+  - : Anteil des Eingabebildes, der in Graustufen umgewandelt wird. Es wird als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` wandelt das Eingabebild vollständig in Graustufen um, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Der anfängliche Wert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -75,7 +73,7 @@ grayscale(100%)
 
 ## Siehe auch
 
-Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
+Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

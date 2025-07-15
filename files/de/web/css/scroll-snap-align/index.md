@@ -2,12 +2,10 @@
 title: scroll-snap-align
 slug: Web/CSS/scroll-snap-align
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-snap-align` legt die Snap-Position eines Feldes als Ausrichtung seines {{Glossary("Scroll_snap#snap_area", "Snap-Bereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}) innerhalb des Snap-Ports seines Snap-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
+Die Eigenschaft `scroll-snap-align` legt die Schnapp-Position der Box als Ausrichtung ihres {{Glossary("Scroll_snap#snap_area", "Schnappbereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}) innerhalb des Schnapp-Ports ihres Schnapp-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
 
 {{InteractiveExample("CSS Demo: scroll-snap-align")}}
 
@@ -97,16 +95,16 @@ scroll-snap-align: unset;
 
 ### Werte
 
-Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert festgelegt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte festgelegt sind, steuert der erste Wert die Block-Achse und der zweite Wert die Inline-Achse.
+Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert gesetzt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte gesetzt sind, steuert der erste Wert die Block-Achse und der zweite Wert die Inline-Achse.
 
 - `none`
-  - : Das Feld definiert keine Snap-Position in dieser Achse.
+  - : Die Box definiert keine Schnapp-Position in dieser Achse.
 - `start`
-  - : Die Startausrichtung des Snap-Bereichs dieses Feldes innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
+  - : Die Startausrichtung des Schnappbereichs dieser Box innerhalb des Scroll-Containers {{Glossary("Scroll_snap#snapport", "Snapport")}} ist eine Schnapp-Position in dieser Achse.
 - `end`
-  - : Die Endausrichtung des Snap-Bereichs dieses Feldes innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
+  - : Die Endausrichtung des Schnappbereichs dieser Box innerhalb des Scroll-Containers Snapport ist eine Schnapp-Position in dieser Achse.
 - `center`
-  - : Die Zentrumausrichtung des Snap-Bereichs dieses Feldes innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
+  - : Die Mittelausrichtung des Schnappbereichs dieser Box innerhalb des Scroll-Containers Snapport ist eine Schnapp-Position in dieser Achse.
 
 ## Formale Definition
 

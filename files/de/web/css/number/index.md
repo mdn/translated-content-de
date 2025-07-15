@@ -2,20 +2,18 @@
 title: <number>
 slug: Web/CSS/number
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Zahl, die entweder eine Ganzzahl oder eine Zahl mit einer Nachkommastelle sein kann.
+Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Zahl, die entweder ein ganzzahliger Wert oder eine Zahl mit einem Bruchteil sein kann.
 
 ## Syntax
 
-Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Nachkommawert wird durch einen `.` gefolgt von einer oder mehreren Dezimalziffern dargestellt und kann an eine Ganzzahl angehängt werden. Es ist keine Einheit mit Zahlen verbunden.
+Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchwert wird durch einen `.` gefolgt von einer oder mehreren Dezimalstellen dargestellt und kann an eine Ganzzahl angefügt werden. Es gibt keine Einheit, die mit Zahlen verknüpft ist.
 
 ## Interpolation
 
-Bei Animationen werden Werte des `<number>` CSS-Datentyps als reelle, Gleitkomma-Zahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation assoziierte [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Bei Animationen werden die Werte des `<number>` CSS-Datentyps als reelle, Gleitkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verknüpfte [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 

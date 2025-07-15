@@ -2,15 +2,19 @@
 title: WebAssembly Kontrollflussanweisungen
 slug: WebAssembly/Reference/Control_flow
 l10n:
-  sourceCommit: 70653a2f5e8969901bad84504a6b36ecdcdd4e51
+  sourceCommit: b67c2be9feee1463ea5a27e5c7b3e0062162354f
 ---
 
 WebAssembly Kontrollflussanweisungen.
 
 - [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)
-  - : Erstellt ein Label, aus dem später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) herausgesprungen werden kann.
+  - : Erstellt ein Label, das später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) angesprungen werden kann.
 - [`br`](/de/docs/WebAssembly/Reference/Control_flow/br)
-  - : Springt zu einer Schleife, einem Block oder einem If.
+  - : Springt zu einer `loop`, `block` oder `if`.
+- [`br_if`](/de/docs/WebAssembly/Reference/Control_flow/br_if)
+  - : Springt zu einer `loop`, `block` oder `if`, basierend auf einer booleschen Bedingung.
+- [`br_table`](/de/docs/WebAssembly/Reference/Control_flow/br_table)
+  - : Springt zu verschiedenen `loop`, `block` oder `if` Anweisungen, basierend auf einem Argument.
 - [`call`](/de/docs/WebAssembly/Reference/Control_flow/call)
   - : Ruft eine Funktion auf.
 - [`drop`](/de/docs/WebAssembly/Reference/Control_flow/Drop)
@@ -18,14 +22,14 @@ WebAssembly Kontrollflussanweisungen.
 - [`end`](/de/docs/WebAssembly/Reference/Control_flow/end)
   - : Kann verwendet werden, um einen `block`, `loop`, `if` oder `else` zu beenden.
 - [`if...else`](/de/docs/WebAssembly/Reference/Control_flow/if...else)
-  - : Führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (nicht null) ist.
+  - : Führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (ungleich null) ist.
 - [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)
-  - : Erstellt ein Label, zu dem später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) gesprungen werden kann.
+  - : Erstellt ein Label, das später mit einem [`br`](/de/docs/WebAssembly/Reference/Control_flow/br) angesprungen werden kann.
 - [`nop`](/de/docs/WebAssembly/Reference/Control_flow/nop)
   - : Macht nichts.
 - [`return`](/de/docs/WebAssembly/Reference/Control_flow/return)
-  - : Gibt von einer Funktion zurück.
+  - : Gibt aus einer Funktion zurück.
 - [`select`](/de/docs/WebAssembly/Reference/Control_flow/Select)
   - : Wählt einen seiner ersten beiden Operanden basierend auf einer booleschen Bedingung aus.
 - [`unreachable`](/de/docs/WebAssembly/Reference/Control_flow/unreachable)
-  - : Bezeichnet einen Punkt im Code, der nicht erreichbar sein sollte.
+  - : Kennzeichnet einen Punkt im Code, der nicht erreichbar sein sollte.

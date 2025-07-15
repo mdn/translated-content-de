@@ -2,12 +2,10 @@
 title: ::after
 slug: Web/CSS/::after
 l10n:
-  sourceCommit: 24480b04e03f28b38d296bd2c4a36fe1358d0a09
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-In CSS erzeugt **`::after`** ein [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements), das das letzte Kind des ausgewählten Elements ist. Es wird häufig verwendet, um ein kosmetisches Element zu einem Element mit der {{CSSxRef("content")}}-Eigenschaft hinzuzufügen. Es ist standardmäßig inline.
+In CSS erstellt **`::after`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das letzte Kind des ausgewählten Elements ist. Es wird häufig verwendet, um einem Element mit der {{CSSxRef("content")}}-Eigenschaft kosmetischen Inhalt hinzuzufügen. Standardmäßig ist es inline.
 
 {{InteractiveExample("CSS Demo: ::after", "tabbed-standard")}}
 
@@ -55,28 +53,28 @@ a::after {
 
 ## Beschreibung
 
-Das `::after`-Pseudo-Element ist eine Inline-Box, die als direktes Kind des Elements, mit dem es verknüpft ist, oder des "ursprünglichen Elements" generiert wird. Es wird häufig verwendet, um über die {{CSSxRef("content")}}-Eigenschaft kosmetische Elemente wie Symbole, Anführungszeichen oder andere Dekorationen hinzuzufügen.
+Das `::after`-Pseudoelement ist ein Inline-Block, der als unmittelbares Kind des Elements erstellt wird, mit dem es verknüpft ist, oder des "ursprünglichen Elements". Es wird häufig verwendet, um einem Element über die {{CSSxRef("content")}}-Eigenschaft kosmetischen Inhalt hinzuzufügen, wie z.B. Symbole, Anführungszeichen oder andere Dekorationen.
 
-`::after`-Pseudo-Elemente können nicht auf _{{Glossary("replaced_elements", "ersetzte Elemente")}}_ wie {{htmlelement("img")}} angewendet werden, deren Inhalte durch externe Ressourcen bestimmt werden und nicht durch die Stile des aktuellen Dokuments beeinflusst werden.
+`::after`-Pseudoelemente können nicht auf _{{Glossary("replaced_elements", "ersetzte Elemente")}}_ angewendet werden, wie etwa {{htmlelement("img")}}, deren Inhalt von externen Quellen bestimmt wird und nicht von den Stilen des aktuellen Dokuments beeinflusst wird.
 
-Ein `::after`-Pseudo-Element mit einem {{cssxref("display")}}-Wert von `list-item` verhält sich wie ein Listeneintrag und kann daher ein {{cssxref("::marker")}}-Pseudo-Element genauso erzeugen wie ein {{htmlelement("li")}}-Element.
+Ein `::after`-Pseudoelement mit einem {{cssxref("display")}}-Wert von `list-item` verhält sich wie ein Listenelement und kann daher ein {{cssxref("::marker")}}-Pseudoelement erzeugen, genau wie ein {{htmlelement("li")}}-Element.
 
-Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben ist, einen ungültigen Wert hat oder den Wert `normal` oder `none` hat, wird das `::after`-Pseudo-Element nicht gerendert. Es verhält sich, als ob `display: none` gesetzt ist.
+Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, dann wird das `::after`-Pseudoelement nicht gerendert. Es verhält sich, als wäre `display: none` gesetzt.
 
 > [!NOTE]
-> Die [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content)-Spezifikation führte die Doppelpunkt-Notation `::after` ein, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die Einzelpunkt-Notation `:after`, die in CSS2 eingeführt wurde.
+> Die [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content)-Spezifikation führte die Doppelpunkt-Notation `::after` ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die Einführung der Einzelpunktnotation `:after` aus CSS2.
 
-Standardmäßig teilen `::before` und `::after`-Pseudo-Elemente denselben Stacking-Kontext wie ihr Parent-Element. Wenn kein {{cssxref("z-index")}} explizit gesetzt ist, erscheint der vom `::after`-Pseudo-Element generierte Inhalt über dem des `::before`-Pseudo-Elements, da `::after` später im DOM-Fluss gerendert wird.
+Standardmäßig teilen `::before` und `::after` Pseudoelemente denselben Stapelkontext wie ihr übergeordnetes Element. Wenn kein {{cssxref("z-index")}} explizit gesetzt ist, erscheint der von `::after` generierte Inhalt über dem von `::before` generierten Inhalt, weil `::after` später im DOM-Fluss gerendert wird.
 
 ## Barrierefreiheit
 
-Die Verwendung eines `::after`-Pseudo-Elements zur Hinzufügung von Inhalten wird nicht empfohlen, da es für Screenreader nicht zuverlässig zugänglich ist.
+Die Verwendung eines `::after`-Pseudoelements zur Hinzufügung von Inhalt wird nicht empfohlen, da dieser für Screenreader nicht zuverlässig zugänglich ist.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine für aufregende. Wir können diese Klassen verwenden, um Pseudo-Elemente am Ende von Absätzen hinzuzufügen.
+Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine für spannende. Wir können diese Klassen verwenden, um Pseudoelemente am Ende von Absätzen hinzuzufügen.
 
 #### HTML
 
@@ -108,7 +106,7 @@ Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine f
 
 ### Dekoratives Beispiel
 
-Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft fast nach Belieben stylen.
+Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft so gestalten, wie wir möchten.
 
 #### HTML
 
@@ -137,9 +135,9 @@ Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft fast nach
 
 ### Tooltips
 
-Dieses Beispiel verwendet `::after` in Verbindung mit dem [`attr()`](/de/docs/Web/CSS/attr)-CSS-Ausdruck und einem `data-description`-[benutzerdefinierten Datensatz-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/data-*), um Tooltips zu erstellen. Kein JavaScript erforderlich!
+Dieses Beispiel verwendet `::after` in Verbindung mit dem [`attr()`](/de/docs/Web/CSS/attr)-CSS-Ausdruck und einem `data-description` [benutzerdefinierten Datensatzattribut](/de/docs/Web/HTML/Reference/Global_attributes/data-*), um Tooltips zu erstellen. Es wird kein JavaScript benötigt!
 
-Wir können diese Technik auch für Tastaturnutzer unterstützen, indem wir einen `tabindex` von `0` hinzufügen, um jedes `span` tastaturfokussierbar zu machen, und einen CSS-`:focus`-Selektor verwenden. Dies zeigt, wie flexibel `::before` und `::after` sein können, obwohl für das barrierefreiste Erlebnis ein semantisches Offenlegungs-Widget, das auf andere Weise erstellt wurde (z.B. mit [details und summary](/de/docs/Web/HTML/Reference/Elements/details)-Elementen), wahrscheinlich angemessener ist.
+Wir können auch Tastaturnutzer mit dieser Technik unterstützen, indem wir jedem `span` einen `tabindex` von `0` hinzufügen, um sie tastaturfokussierbar zu machen, und einen CSS-`:focus`-Selektor verwenden. Dies zeigt, wie flexibel `::before` und `::after` sein können, obwohl für die zugänglichste Erfahrung ein semantisches Erweiterungs-Widget, das auf andere Weise erstellt wurde (wie mit [details und summary](/de/docs/Web/HTML/Reference/Elements/details)-Elementen), wahrscheinlich besser geeignet ist.
 
 #### HTML
 
@@ -187,11 +185,11 @@ span[data-description]:focus::after {
 
 {{EmbedLiveSample('Tooltips', 450, 120)}}
 
-### `::after::marker` verschachtelte Pseudo-Elemente
+### `::after::marker` geschachtelte Pseudoelemente
 
-Das `::after::marker`-[verschachtelte Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements#nesting_pseudo-elements) wählt den Listen {{CSSxRef("::marker")}} eines `::after`-Pseudo-Elements, das selbst ein Listeneintrag ist, das heißt, es hat die {{CSSxRef("display")}}-Eigenschaft auf `list-item` gesetzt.
+Das `::after::marker` [geschachtelte Pseudoelement](/de/docs/Web/CSS/Pseudo-elements#nesting_pseudo-elements) wählt den Listen-{{CSSxRef("::marker")}} eines `::after`-Pseudoelements aus, das selbst ein Listenelement ist, d.h. dessen {{CSSxRef("display")}}-Eigenschaft auf `list-item` gesetzt ist.
 
-In dieser Demo generieren wir zusätzliche Listenelemente vor und nach einem Navigationsmenü in einer Liste mit `::before` und `::after` (indem sie auf `display: list-item` gesetzt werden, damit sie sich wie Listeneinträge verhalten). Wir verwenden dann `ul::before::marker` und `ul::after::marker`, um ihren Listenmarkierungen eine andere Farbe zu geben.
+In dieser Demo erzeugen wir zusätzliche Listenelemente vor und nach einem Navigationsmenü in der Liste, indem wir `::before` und `::after` verwenden (indem wir sie auf `display: list-item` setzen, damit sie sich wie Listenelemente verhalten). Dann verwenden wir `ul::before::marker` und `ul::after::marker`, um ihre Listenmarkierungen in einer anderen Farbe darzustellen.
 
 #### HTML
 
@@ -235,7 +233,7 @@ ul::after::marker {
 
 {{EmbedLiveSample('`::after::marker` nested pseudo-elements', 450, 200)}}
 
-Während die Listenpunkte der drei Navigationselemente erzeugt werden, weil sie `<li>`-Elemente sind, wurden "Start" und "Ende" über Pseudo-Elemente eingefügt, und `::marker` wird verwendet, um deren Punkte zu stylen.
+Während die Listenpunkte der drei Navigationselemente generiert werden, weil sie `<li>`-Elemente sind, wurden "Start" und "End" über Pseudoelemente eingefügt, und `::marker` wird verwendet, um deren Punkte zu gestalten.
 
 ## Spezifikationen
 

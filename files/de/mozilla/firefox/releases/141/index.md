@@ -3,83 +3,82 @@ title: Firefox 141 für Entwickler
 short-title: Firefox 141 (Beta)
 slug: Mozilla/Firefox/Releases/141
 l10n:
-  sourceCommit: 80344d893d920d2424cbf8c1c4aea8f45dd9e7b1
+  sourceCommit: 64df508685abcbc047f6c1a973505921fad1484e
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
-Firefox 141 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und erscheint am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141).
+Dieser Artikel bietet Informationen zu den Änderungen in Firefox 141, die Entwickler betreffen.
+Firefox 141 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit. Sie können [den Projekt-Tracker für diese Version hier ansehen](https://github.com/mdn/mdn/issues/698).
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit. Sie können [das Projekt-Tracker für diese Veröffentlichung hier einsehen](https://github.com/mdn/mdn/issues/698).
 
-<!-- Authors: Please uncomment any headings you are writing notes for -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Developer Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 ### HTML
 
-- Das HTML-Attribut [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) und die entsprechende Eigenschaft [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) werden jetzt teilweise auf Firefox Android unterstützt ([Firefox-Bug 1887878](https://bugzil.la/1887878)).
-  Das Attribut kann gesetzt werden, um anzugeben, dass ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element die Auswahl von Verzeichnissen anstelle von Dateien ermöglichen soll.
-  Beachten Sie, dass die zurückgegebenen Dateieinträge für den ausgewählten Ordner immer eine leere Zeichenfolge in ([`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath)) enthalten, was bedeutet, dass die Verwendung von `webkitdirectory` für Anwendungsfälle, bei denen Informationen über die Verzeichnisstruktur benötigt werden, nicht geeignet ist ([Firefox-Bug 1973726](https://bugzil.la/1973726)).
+- Das HTML-Attribut [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) und die entsprechende Eigenschaft [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) werden jetzt teilweise auf Firefox Android unterstützt ([Firefox Fehler 1887878](https://bugzil.la/1887878)).
+  Das Attribut kann gesetzt werden, um anzugeben, dass ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element die Auswahl von Verzeichnissen anstelle von Dateien ermöglichen soll.
+  Beachten Sie, dass die zurückgegebenen Dateieinträge für den ausgewählten Ordner immer einen leeren String in ([`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath)) enthalten, was bedeutet, dass die Verwendung von `webkitdirectory` nicht geeignet ist für Anwendungsfälle, bei denen Informationen über die Verzeichnisstruktur benötigt werden ([Firefox Fehler 1973726](https://bugzil.la/1973726)).
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### CSS -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### JavaScript -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### SVG -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 ### HTTP
 
-- Die Direktive [`"cache"`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache) des {{httpheader("Clear-Site-Data")}}-Response-Headers löscht jetzt den {{Glossary("bfcache", "bfcache")}} (Vor- und Zurück-Cache).
-  Dies ermöglicht es einer Website sicherzustellen, dass, wenn jemand nach dem Abmelden eines Benutzers zurück navigiert, keine privaten Details, die während der ersten Sitzung sichtbar waren, offenbart werden. ([Firefox-Bug 1930501](https://bugzil.la/1930501)).
+- Die [`"cache"`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache) Direktive des {{httpheader("Clear-Site-Data")}} Antwort-Headers löscht jetzt den {{Glossary("bfcache", "bfcache")}} (vorwärts-rückwärts Cache).
+  Dies ermöglicht es einer Seite sicherzustellen, dass, wenn jemand zurück navigiert, nachdem ein Benutzer sich abgemeldet hat, private Details, die während der Anfangssitzung sichtbar waren, nicht offengelegt werden. ([Firefox Fehler 1930501](https://bugzil.la/1930501)).
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
-<!-- ### Security -->
+<!-- ### Sicherheit -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 ### APIs
 
-- Die Eigenschaft [`persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle wird jetzt unterstützt. Dies gibt jedem Zeigegerät, das mit dem Bildschirm interagiert, eine eindeutige ID, die für die Sitzung bestehen bleibt. Es bietet eine zuverlässige Möglichkeit, mehrere Zeigegeräte (wie Stifte), die gleichzeitig mit dem Bildschirm interagieren, zu identifizieren. ([Firefox-Bug 1968400](https://bugzil.la/1968400)).
-- Die Eigenschaft [`scrollMargin`](/de/docs/Web/API/IntersectionObserver/scrollMargin) der [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Schnittstelle wird jetzt unterstützt. Sie fügt allen verschachtelten {{Glossary("scroll_container", "Scroll-Containern")}} innerhalb des Root-Elements des Observers einen Rand hinzu, wodurch Ziele innerhalb dieser Elemente beobachtet werden können, bevor (oder nachdem) sie in den Sichtbereich gescrollt werden—anstatt nur dann, wenn sie erstmals sichtbar werden. ([Firefox-Bug 1860030](https://bugzil.la/1860030)).
-- Das Attribut [`closedBy`](/de/docs/Web/API/HTMLDialogElement/closedBy) der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle und das entsprechende [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby)-Attribut des {{htmlelement("dialog")}}-Elements werden unterstützt.
-  Entwickler können diese verwenden, um festzulegen, welche Mechanismen einen Dialog schließen können, wie z.B. Benutzerinteraktionen außerhalb des Dialogs ("leichtes Schließen") oder das programmatische Schließen.
-  ([Firefox-Bug 1964078](https://bugzil.la/1964078)).
-- Die Methoden [`showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) und [`togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle akzeptieren jetzt ein [`options.source`](/de/docs/Web/API/HTMLElement/showPopover#source)-Argument, und `togglePopover()` akzeptiert außerdem das [`force`](/de/docs/Web/API/HTMLElement/togglePopover#force) oder [`options.force`](/de/docs/Web/API/HTMLElement/togglePopover#force_2)-Argument. ([Firefox-Bug 1936411](https://bugzil.la/1936411)).
-  ([Firefox-Bug 1936411](https://bugzil.la/1936411))
-  - [`options.source`](/de/docs/Web/API/HTMLElement/showPopover#source) stellt eine Beziehung zwischen einem Popover und seinem Aufrufer (Steuerelement) her.
-    In gleicher Weise wie das entsprechende deklarative Attribut [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget), macht dies das Popover zugänglicher für Tastaturbenutzer (siehe [Popover-Zugänglichkeitsfunktionen](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)). Es schafft auch eine implizite Ankerreferenz zwischen den beiden, wodurch eine natürlichere Positionierung von Popovers relativ zu ihren Steuerelementen ermöglicht wird (siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning)).
-  - Die [`force`](/de/docs/Web/API/HTMLElement/togglePopover#force) oder [`options.force`](/de/docs/Web/API/HTMLElement/togglePopover#force_2) Argumente bei `togglePopover()` können verwendet werden, um das Popover zwangsweise zu öffnen oder zu schließen, und wird ignoriert, wenn sich das Popover bereits im erzwungenen Zustand befindet.
-    Im Gegensatz zu `showPopover()` und `hidePopover()` wird hierbei keine Ausnahme ausgelöst, wenn sich das Popover bereits im Zielzustand befindet.
+- Die Eigenschaft [`persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) des [`PointerEvent`](/de/docs/Web/API/PointerEvent) Interfaces wird jetzt unterstützt. Dies gibt jedem Zeigegerät, das mit dem Bildschirm interagiert, eine eindeutige ID, die für die Sitzung besteht. Es bietet eine zuverlässige Möglichkeit, mehrere Zeigegeräte (wie Stifte), die gleichzeitig mit dem Bildschirm interagieren, zu identifizieren. ([Firefox Fehler 1968400](https://bugzil.la/1968400)).
+- Die Eigenschaft [`scrollMargin`](/de/docs/Web/API/IntersectionObserver/scrollMargin) des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) Interfaces wird jetzt unterstützt. Es fügt allen verschachtelten {{Glossary("scroll_container", "Scroll-Containern")}} innerhalb des Wurzelelements des Beobachters einen Rand hinzu, was es ermöglicht, Ziele innerhalb dieser Elemente zu beobachten, bevor (oder nachdem) sie in Sicht gescrollt werden, anstatt nur, wenn sie zuerst sichtbar werden. ([Firefox Fehler 1860030](https://bugzil.la/1860030)).
+- Das Attribut [`closedBy`](/de/docs/Web/API/HTMLDialogElement/closedBy) des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Interfaces und das entsprechende Attribut [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby) des {{htmlelement("dialog")}} Elements werden unterstützt.
+  Entwickler können diese verwenden, um zu spezifizieren, welche Mechanismen einen Dialog schließen können, wie z.B. Benutzerinteraktion außerhalb des Dialogs ("light dismiss") oder programmgesteuertes Schließen. ([Firefox Fehler 1964078](https://bugzil.la/1964078)).
+- Die Methoden [`showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) und [`togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) des [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interfaces nehmen jetzt ein Argument [`options.source`](/de/docs/Web/API/HTMLElement/showPopover#source) an, und [`togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) akzeptiert auch das Argument [`force`](/de/docs/Web/API/HTMLElement/togglePopover#force) oder [`options.force`](/de/docs/Web/API/HTMLElement/togglePopover#force_2). ([Firefox Fehler 1936411](https://bugzil.la/1936411)).
+  ([Firefox Fehler 1936411](https://bugzil.la/1936411))
+  - [`options.source`](/de/docs/Web/API/HTMLElement/showPopover#source) stellt eine Beziehung zwischen einem Popover und seinem Auslöser (Steuerelement) her.
+    In gleicher Weise wie das entsprechende deklarative Attribut [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget) macht es das Popover für Tastaturbenutzer zugänglicher (siehe [Popover-Zugänglichkeitsfunktionen](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)). Es erstellt auch eine implizite Ankerreferenz zwischen den beiden, was eine natürlichere Positionierung von Popovers relativ zu ihren Steuerelementen ermöglicht (siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning)).
+  - Die Argumente [`force`](/de/docs/Web/API/HTMLElement/togglePopover#force) oder [`options.force`](/de/docs/Web/API/HTMLElement/togglePopover#force_2) für `togglePopover()` können verwendet werden, um das Popover gezwungen zu öffnen oder zu schließen, und wird ignoriert, wenn das Popover bereits im erzwungenen Zustand ist.
+    Anders als `showPopover()` und `hidePopover()` wirft dies keine Ausnahme, wenn das Popover bereits im Zielzustand ist.
 
 <!-- #### DOM -->
 
-<!-- #### Media, WebRTC, and Web Audio -->
+<!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
-<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
-<!-- #### General -->
+<!-- #### Allgemein -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -87,18 +86,14 @@ Firefox 141 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/
 
 ## Änderungen für Add-on-Entwickler
 
-- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Dies ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, das Details zu den im Browser festgelegten Gebietsschemas zurückgibt. ([Firefox-Bug 1888486](https://bugzil.la/1888486))
+- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Dies ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, die Details zu den im Browser gesetzten Gebietsschemas zurückgibt. ([Firefox Fehler 1888486](https://bugzil.la/1888486))
 
-<!-- ### Removals -->
+<!-- ### Entfernen -->
 
-<!-- ### Other -->
+<!-- ### Sonstiges -->
 
-## Experimentelle Web-Funktionen
+## Experimentelle Webfunktionen
 
 Diese Funktionen sind in Firefox 141 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
-
-## Ältere Versionen
-
-{{Firefox_for_developers}}
+Um mit ihnen zu experimentieren, suchen Sie im `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).

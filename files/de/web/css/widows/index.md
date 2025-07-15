@@ -2,14 +2,12 @@
 title: widows
 slug: Web/CSS/widows
 l10n:
-  sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`widows`**- [CSS](/de/docs/Web/CSS) Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die am _oberen_ Rand einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einer Region oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
 
-Die **`widows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die oben auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einem Bereich oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
-
-In der Typografie ist eine _Widow_ die letzte Zeile eines Absatzes, die alleine oben auf einer Seite erscheint. (Der Absatz wird von einer vorherigen Seite fortgesetzt.)
+In der Typografie ist eine _Widow_ (De: „Hinterbliebene“) die letzte Zeile eines Absatzes, die alleine am Anfang einer Seite erscheint. (Der Absatz wird von einer vorherigen Seite fortgesetzt.)
 
 ## Syntax
 
@@ -29,7 +27,7 @@ widows: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die minimale Anzahl von Zeilen, die nach einem Fragmentierungsbruch alleine am Anfang eines neuen Fragments verbleiben können. Der Wert muss positiv sein.
+  - : Die minimale Anzahl von Zeilen, die nach einem Fragmentierungsumbruch für sich alleine am Anfang eines neuen Fragments stehen können. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -41,7 +39,7 @@ widows: unset;
 
 ## Beispiele
 
-### Steuerung von Spalten-Widows
+### Steuern von Spalten-Widows
 
 #### HTML
 

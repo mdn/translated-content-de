@@ -2,10 +2,10 @@
 title: -webkit-mask-position-y
 slug: Web/CSS/-webkit-mask-position-y
 l10n:
-  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}
+{{Non-standard_header}}
 
 Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Position eines Maskenbildes fest.
 
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Polsterkante des Rahmens angibt. Prozentsätze werden im Verhältnis zur vertikalen Dimension des gepolsterten Bereichs des Rahmens berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Polsterkante des Rahmens ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Polsterkante des Rahmens ausgerichtet ist.
+  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Polsterkante des Rahmens angibt. Prozentsätze werden bezogen auf die vertikale Dimension des Rahmen-Polsterbereichs berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Polsterkante des Rahmens ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Polsterkante des Rahmens ausgerichtet ist.
 - `top`
   - : Entspricht `0%`.
 - `bottom`
@@ -60,7 +60,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Beispiele
 
-### Vertikales Positionieren eines Maskenbildes
+### Vertikale Positionierung eines Maskenbildes
 
 ```css
 .exampleOne {
@@ -76,7 +76,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Kein Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

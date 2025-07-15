@@ -2,14 +2,12 @@
 title: overscroll-behavior-inline
 slug: Web/CSS/overscroll-behavior-inline
 l10n:
-  sourceCommit: 9a3940b0231838338f65ae1c37d5b874439a3d43
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`overscroll-behavior-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die inline Richtung eines Scrollbereichs erreicht wird.
 
-Die **`overscroll-behavior-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Begrenzung einer Scrollfläche in Inline-Richtung erreicht wird.
-
-Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
+Siehe {{cssxref("overscroll-behavior")}} für eine ausführliche Erklärung.
 
 ## Syntax
 
@@ -27,16 +25,16 @@ overscroll-behavior-inline: revert-layer;
 overscroll-behavior-inline: unset;
 ```
 
-Die Eigenschaft `overscroll-behavior-inline` wird als Schlüsselwort aus der folgenden Liste von Werten spezifiziert.
+Die Eigenschaft `overscroll-behavior-inline` wird als ein Schlüsselwort aus der untenstehenden Liste von Werten festgelegt.
 
 ### Werte
 
 - `auto`
-  - : Das Standardverhalten bei Überlauf während des Scrollens tritt wie gewohnt auf.
+  - : Das Standardverhalten für scrollenden Überlauf tritt normal auf.
 - `contain`
-  - : Das Standardverhalten bei Überlauf während des Scrollens (z.B. „Bounce“-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert gesetzt ist. Es occurs jedoch kein {{Glossary("Scroll_chaining", "scroll chaining")}} auf benachbarten Scrollbereichen; die darunterliegenden Elemente werden nicht scrollen. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der Horizontal-Swipe-Navigation.
+  - : Das Standardverhalten für scrollenden Überlauf (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert gesetzt ist. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll-Chaining")}} in benachbarten Scrollbereichen auf; die darunter liegenden Elemente werden nicht scrollen. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Swipe-Navigation.
 - `none`
-  - : Es tritt kein scroll chaining auf benachbarten Scrollbereichen auf, und das Standardverhalten bei Überlauf während des Scrollens wird verhindert.
+  - : Es tritt kein Scroll-Chaining mit benachbarten Scrollbereichen auf, und das Standardverhalten für scrollenden Überlauf wird verhindert.
 
 ## Formale Definition
 
@@ -48,11 +46,11 @@ Die Eigenschaft `overscroll-behavior-inline` wird als Schlüsselwort aus der fol
 
 ## Beispiele
 
-### Verhindern von Inline-Überscrollen
+### Verhindern von Überscrollen in Inline-Richtung
 
-In diesem Demo haben wir zwei Block-Level-Boxen, eine innerhalb der anderen. Die äußere Box hat eine große {{cssxref("width")}} gesetzt, sodass die Seite horizontal scrollt. Die innere Box hat eine kleine Breite (und {{cssxref("height")}}), sodass sie bequem innerhalb des Viewports sitzt, aber ihr Inhalt hat eine große Breite, sodass sie ebenfalls horizontal scrollt.
+In diesem Demo haben wir zwei Block-Elemente, eines innerhalb des anderen. Das äußere Element hat eine große {{cssxref("width")}} gesetzt, sodass die Seite horizontal scrollt. Das innere Element hat eine geringe Breite (und {{cssxref("height")}}) gesetzt, damit es bequem im Sichtfenster sitzt, aber sein Inhalt hat eine große Breite, sodass es ebenfalls horizontal scrollt.
 
-Standardmäßig beginnt die gesamte Seite zu scrollen, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht wird, was wahrscheinlich nicht gewünscht ist. Um dies in der Inline-Richtung zu vermeiden, haben wir `overscroll-behavior-inline: contain` auf der inneren Box gesetzt.
+Standardmäßig, wenn das innere Element gescrollt wird und eine Scroll-Grenze erreicht wird, beginnt die gesamte Seite zu scrollen, was wahrscheinlich nicht erwünscht ist. Um dies in der Inline-Richtung zu vermeiden, haben wir `overscroll-behavior-inline: contain` auf dem inneren Element gesetzt.
 
 #### HTML
 
@@ -136,4 +134,4 @@ p {
 - {{cssxref("overscroll-behavior-x")}}
 - {{cssxref("overscroll-behavior-y")}}
 - {{cssxref("overscroll-behavior-block")}}
-- [CSS overscroll behavior](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
+- [CSS-Überscrollverhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul

@@ -1,18 +1,13 @@
 ---
-title: CSS-Custom-Properties für kaskadierende Variablen
+title: CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen
 slug: Web/CSS/CSS_cascading_variables
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das Modul der **CSS-Benutzerdefinierten Eigenschaften für kaskadierende Variablen** fügt Unterstützung für kaskadierende Variablen in CSS-Eigenschaften hinzu und ermöglicht es Ihnen, benutzerdefinierte Eigenschaften zu erstellen, um diese Variablen zu definieren, zusammen mit den Mechanismen, um benutzerdefinierte Eigenschaften als Werte für andere CSS-Eigenschaften zu verwenden.
 
-Das Modul **CSS-Custom-Properties für kaskadierende Variablen** fügt Unterstützung für kaskadierende Variablen in CSS-Eigenschaften hinzu und ermöglicht es Ihnen, benutzerdefinierte Eigenschaften zu erstellen, um diese Variablen zu definieren, zusammen mit Mechanismen, um benutzerdefinierte Eigenschaften als Werte für andere CSS-Eigenschaften zu verwenden.
-
-Wenn Sie mit CSS arbeiten, verwenden Sie oft projekt-spezifische Werte erneut, wie zum Beispiel Breiten, die gut mit Ihrem Layout harmonieren, oder eine Farbpalette für Ihr Farbschema.
-Eine Möglichkeit, Wiederholungen in Stylesheets zu verwalten, ist es, einen Wert einmal zu definieren und ihn an vielen anderen Stellen zu verwenden.
-Benutzerdefinierte Eigenschaften ermöglichen es Ihnen, benutzerdefinierte Variablen zu erstellen und zu definieren, die wiederverwendet werden können, wodurch komplexe oder sich wiederholende Regeln vereinfacht und lesbarer sowie wartbarer gemacht werden.
-Zum Beispiel sind `--dark-grey-text` und `--dark-background` leichter zu verstehen als hexadezimale Farben wie `#323831`, und der Kontext, in dem Sie sie verwenden, ist ebenfalls offensichtlicher.
+Wenn Sie mit CSS arbeiten, verwenden Sie häufig wiederkehrende projektbezogene Werte wie Breiten, die gut mit Ihrem Layout funktionieren, oder eine Reihe von Farben für Ihr Farbschema. Eine Möglichkeit, Wiederholungen in Stylesheets zu verwalten, besteht darin, einen Wert einmal zu definieren und ihn mehrfach an anderen Stellen zu verwenden. Benutzerdefinierte Eigenschaften ermöglichen es Ihnen, benutzerdefinierte Variablen zu erstellen und zu definieren, die wiederverwendet werden können, was komplexe oder wiederholte Regeln vereinfacht und sie leichter lesbar und wartbar macht. Zum Beispiel sind `--dark-grey-text` und `--dark-background` verständlicher als hexadezimale Farben wie `#323831`, und der Kontext, wie Sie sie verwenden, ist ebenso offensichtlicher.
 
 ## Benutzerdefinierte Eigenschaften in Aktion
 
@@ -93,9 +88,7 @@ input {
 
 {{EmbedLiveSample("Benutzerdefinierte Eigenschaften in Aktion",600,160)}}
 
-In diesen Farbfeldern wird der {{cssxref("background-color")}} mit der {{cssxref("color_value/hsl", "hsl()")}}-{{cssxref("&lt;color&gt;")}}-Funktion als `hsl(var(--hue) 50% 50%)` gesetzt.
-Jedes Farbfeld erhöht den {{cssxref("hue")}}-Wert um 10 Grad, z. B. `calc(var(--hue) + 10)`, `calc(var(--hue) + 20)` usw.
-Wenn der Wert des Schiebereglers von 0 bis 360 geändert wird, wird der Wert der `--hue` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) mit {{cssxref("calc")}} aktualisiert, und die Hintergrundfarbe jeder Box innerhalb des Rasters wird ebenfalls aktualisiert.
+In diesen Farbfeldern wird die {{cssxref("background-color")}} mithilfe der {{cssxref("color_value/hsl", "hsl()")}}-{{cssxref("&lt;color&gt;")}}-Funktion als `hsl(var(--hue) 50% 50%)` festgelegt. Jedes Farbfeld erhöht den {{cssxref("hue")}}-Wert um 10 Grad wie `calc(var(--hue) + 10)`, `calc(var(--hue) + 20)` usw. Wenn sich der Wert des Reglers von 0 bis 360 ändert, wird der Wert der `--hue` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) mithilfe von {{cssxref("calc")}} aktualisiert, und die Hintergrundfarbe jeder Box im Raster wird ebenfalls aktualisiert.
 
 ## Referenz
 
@@ -109,12 +102,11 @@ Wenn der Wert des Schiebereglers von 0 bis 360 geändert wird, wird der Wert der
 
 ## Leitfäden
 
-- [Verwendung von CSS-Custom-Properties (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
-
-  - : Erklärt, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
+- [Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
+  - : Erläutert, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
 
 - [Ungültige benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_syntax/Error_handling#invalid_custom_properties)
-  - : Erklärt, wie Browser mit Eigenschaftswerten umgehen, wenn der Wert einer benutzerdefinierten Eigenschaft ein ungültiger Datentyp für diese Eigenschaft ist.
+  - : Erklärt, wie Browser Eigenschaftswerte behandeln, wenn der Wert einer benutzerdefinierten Eigenschaft ein ungültiger Datentyp für diese Eigenschaft ist.
 
 ## Verwandte Konzepte
 
@@ -128,7 +120,7 @@ Wenn der Wert des Schiebereglers von 0 bis 360 geändert wird, wird der Wert der
 
 ## Siehe auch
 
-- [CSS Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
 - [CSS `env()`](/de/docs/Web/CSS/env) Funktion
 - [CSS `calc()`](/de/docs/Web/CSS/calc) Funktion
 - [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode

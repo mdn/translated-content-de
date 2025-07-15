@@ -2,18 +2,16 @@
 title: container-type
 slug: Web/CSS/container-type
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 93ca748b6242a54899af617756a9c325a7071793
 ---
 
-{{CSSRef}}
+Ein Element kann mit der **`container-type`** [CSS](/de/docs/Web/CSS)-Eigenschaft als Anfrage-Container festgelegt werden. `container-type` wird verwendet, um den Typ des Container-Kontexts zu definieren, der in einer Container-Abfrage verwendet wird. Die verfügbaren Container-Kontexte sind:
 
-Ein Element kann als Abfrage-Container mithilfe der **`container-type`** [CSS](/de/docs/Web/CSS) Eigenschaft etabliert werden. `container-type` wird verwendet, um den Typ des Containerkontexts zu definieren, der in einer Containerabfrage verwendet wird. Die verfügbaren Containerkontexte sind:
-
-- [Größe](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries): Ermöglicht das selektive Anwenden von CSS-Regeln auf die Kinder eines Containers basierend auf einer allgemeinen Größen- oder Inline-Größenbedingung, wie einer maximalen oder minimalen Abmessung, einem Seitenverhältnis oder einer Orientierung.
-- [Scroll-Zustand](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries): Ermöglicht das selektive Anwenden von CSS-Regeln auf die Kinder eines Containers basierend auf einer Scroll-Zustandsbedingung wie zum Beispiel, ob der Container ein Scroll-Container ist, der teilweise gescrollt ist, oder ob der Container ein {{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} ist, das an seinen Scroll-Snap-Container angedockt ist.
+- [Größe](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries): Ermöglicht das selektive Anwenden von CSS-Regeln auf die Kinder eines Containers basierend auf einer allgemeinen Größen- oder Inline-Größenbedingung wie einer maximalen oder minimalen Dimension, einem Seitenverhältnis oder einer Ausrichtung.
+- [Scroll-Zustand](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries): Ermöglicht das selektive Anwenden von CSS-Regeln auf die Kinder eines Containers basierend auf einer Scroll-Zustandsbedingung wie z. B., ob der Container ein Scroll-Container ist, der teilweise gescrollt wird, oder ob der Container ein {{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} ist, das zu seinem Scroll-Snap-Container geschnappt wird.
 
 > [!NOTE]
-> Bei Verwendung der Eigenschaften `container-type` und {{cssxref("container-name")}} werden die Werte `style` und `layout` der Eigenschaft {{cssxref("contain")}} automatisch angewendet.
+> Beim Verwenden der Eigenschaften `container-type` und {{cssxref("container-name")}} werden die Werte `style` und `layout` der {{cssxref("contain")}}-Eigenschaft automatisch angewendet.
 
 ## Syntax
 
@@ -37,25 +35,25 @@ container-type: unset;
 
 ### Werte
 
-Die Eigenschaft `container-type` kann einen einzigen Wert aus der folgenden Liste annehmen, oder zwei Werte — einer muss `scroll-state` sein und der andere kann `inline-size` oder `size` sein. Mit anderen Worten, ein Element kann als Größenauswahl-Container, als Scroll-Zustands-Auswahl-Container, als beides oder als keines von beiden etabliert werden.
+Die `container-type`-Eigenschaft kann einen einzelnen Wert aus der Liste unten annehmen oder zwei Werte — einer muss `scroll-state` sein und der andere kann `inline-size` oder `size` sein. Mit anderen Worten, ein Element kann als Größenabfrage-Container, als Scroll-Zustandsabfrage-Container oder als beides festgelegt werden, oder als keines von beiden.
 
 - `inline-size`
-  - : Etabliert einen Abfrage-Container für dimensionsbezogene Abfragen auf der [Inline-Achse](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) des Containers.
-    Wendet Layout-, Stil- und Inline-Größenbeschränkungen auf das Element an.
+  - : Etabliert einen Abfrage-Container für Dimensionsabfragen auf der [Inline-Achse](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) des Containers.
+    Wendet Layout-, Style- und Inline-Größen-Containment auf das Element an.
 
-    Inline-Größenbeschränkungen werden auf das Element angewendet. Die Inline-Größe des Elements kann [isoliert berechnet](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) werden, ohne die Kindelemente zu berücksichtigen (siehe [Verwendung von CSS-Containment](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment)).
+    Das Inline-Größen-Containment wird auf das Element angewendet. Die Inline-Größe des Elements kann [isoliert berechnet](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) werden, unabhängig von den Kind-Elementen (siehe [Verwendung von CSS-Containment](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment)).
 
 - `normal`
-  - : Standardwert. Das Element ist kein Abfrage-Container für Containergrößen-Abfragen, bleibt jedoch ein Abfrage-Container für [Containerstil-Abfragen](/de/docs/Web/CSS/@container#container_style_queries).
+  - : Standardwert. Das Element ist kein Abfrage-Container für Größenabfragen, bleibt aber ein Abfrage-Container für [Container-Style-Abfragen](/de/docs/Web/CSS/@container#container_style_queries).
 
 - `scroll-state`
-  - : Etabliert einen Abfrage-Container für Scroll-Zustands-Abfragen auf dem Container. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird keine Begrenzung angewendet.
+  - : Etabliert einen Abfrage-Container für Scroll-Zustandsabfragen auf dem Container. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird kein Containment angewendet.
 
 - `size`
-  - : Etabliert einen Abfrage-Container für Containergrößen-Abfragen in den Dimensionen [inline und block](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions).
-    Wendet Layout-, Stil- und Größenbeschränkungen auf den Container an.
+  - : Etabliert einen Abfrage-Container für Container-Größenabfragen in sowohl [Inline- als auch Block-](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) Dimensionen.
+    Wendet Layout-Containment, Style-Containment und Größen-Containment auf den Container an.
 
-    Größenbeschränkungen werden sowohl in der Inline- als auch in der Blockrichtung auf das Element angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen.
+    Das Größen-Containment wird auf das Element in sowohl der Inline- als auch der Block-Richtung angewendet. Die Größe des Elements kann isoliert berechnet werden, unabhängig von den Kind-Elementen.
 
 ## Formale Definition
 
@@ -67,33 +65,33 @@ Die Eigenschaft `container-type` kann einen einzigen Wert aus der folgenden List
 
 ## Beschreibung
 
-Container-Abfragen ermöglichen es, selektiv Stile innerhalb eines Containers basierend auf konditionalen Abfragen anzuwenden, die am Container durchgeführt werden. Die Regel {{cssxref("@container")}} wird verwendet, um die Tests zu spezifizieren, die an einem Container durchgeführt werden, und die Regeln, die auf die Inhalte des Containers angewendet werden, wenn die Abfrage `true` zurückgibt.
+Container-Abfragen erlauben es Ihnen, Styles selektiv innerhalb eines Containers anzuwenden, basierend auf bedingten Abfragen, die am Container durchgeführt werden. Die {{cssxref("@container")}} at-rule wird verwendet, um die Tests zu bestimmen, die an einem Container durchgeführt werden, und die Regeln, die auf den Inhalt des Containers angewendet werden, wenn die Abfrage `true` zurückgibt.
 
-Die Container-Abfrage-Tests werden nur bei Elementen mit einer `container-type` Eigenschaft durchgeführt, die die Elemente als Größen- oder Scroll-Zustands-Container oder als beides definiert.
+Die Container-Abfragetests werden nur an Elementen mit einer `container-type`-Eigenschaft durchgeführt, die die Elemente als Größen- oder Scroll-Zustands-Container oder beides definiert.
 
-### Containergrößen-Abfragen
+### Container-Größenabfragen
 
-[Containergrößen-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_size_queries) ermöglichen es, CSS-Regeln selektiv auf die Nachfahren eines Containers anzuwenden, basierend auf einer Größenbedingung wie einer maximalen oder minimalen Abmessung, einem Seitenverhältnis oder einer Orientierung.
+[Container-Größenabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_size_queries) erlauben es Ihnen, CSS-Regeln selektiv auf die Nachkommen eines Containers basierend auf einer Größenbedingung wie einer maximalen oder minimalen Dimension, einem Seitenverhältnis oder einer Ausrichtung anzuwenden.
 
-Größen-Container haben zusätzlich Größenbeschränkungen, die auf sie angewendet werden — dies deaktiviert die Fähigkeit eines Elements, Größeninformationen von seinen Inhalten zu erhalten, was für Container-Abfragen wichtig ist, um Endlosschleifen zu vermeiden. Wäre dies nicht der Fall, könnte eine CSS-Regel innerhalb einer Container-Abfrage die Inhaltsgröße ändern, was wiederum die Abfrage dazu veranlassen könnte, `false` zu ergeben und die Größe des Elternelements zu ändern, was wiederum die Inhaltsgröße ändern könnte und die Abfrage auf `true` umschalten würde, und so weiter. Diese Sequenz würde sich dann endlos wiederholen.
+Größen-Container haben zusätzlich Größen-Containment auf sie angewendet – dies schaltet die Fähigkeit eines Elements aus, Größeninformationen von seinen Inhalten zu erhalten, was wichtig für Container-Abfragen ist, um Endlosschleifen zu vermeiden. Wenn dies nicht der Fall wäre, könnte eine CSS-Regel innerhalb einer Container-Abfrage die Inhaltsgröße ändern, was wiederum dazu führen könnte, dass die Abfrage zu False auswertet und die Größe des Elternelements ändert, was wiederum die Inhaltsgröße ändern und die Abfrage wieder zu True umschalten könnte, und so weiter. Diese Abfolge würde sich dann in einer Endlosschleife wiederholen.
 
-Die Containergröße muss kontextuell festgelegt werden, wie bei Block-Elementen, die sich auf die volle Breite des übergeordneten Elements erstrecken, oder explizit definiert werden. Wenn eine kontextuelle oder explizite Größe nicht verfügbar ist, werden Elemente mit Größenbeschränkung kollabieren.
+Die Container-Größe muss durch den Kontext festgelegt werden, wie Block-Level-Elemente, die sich über die gesamte Breite ihres Elternelements erstrecken, oder explizit definiert sein. Wenn eine kontextuelle oder explizite Größe nicht verfügbar ist, werden Elemente mit Größen-Containment kollabieren.
 
-### Container-Scroll-Zustands-Abfragen
+### Container-Scroll-Zustandsabfragen
 
-[Container-Scroll-Zustands-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries) ermöglichen es, CSS-Regeln selektiv auf die Kinder eines Containers basierend auf einer Scroll-Zustands-Bedingung wie:
+[Container-Scroll-Zustandsabfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries) erlauben es Ihnen, CSS-Regeln selektiv auf die Kinder eines Containers anzuwenden, basierend auf einer Scroll-Zustandsbedingung wie:
 
-- Ob die Inhalte des Containers teilweise gescrollt sind.
-- Ob der Container ein Snap-Ziel ist, das an einen Scroll-Snap-Container angedockt ist.
+- Ob der Inhalt des Containers teilweise gescrollt ist.
+- Ob der Container ein Snap-Ziel ist, das zu einem Scroll Snap Container geschnappt werden soll.
 - Ob der Container über [`position: sticky`](/de/docs/Web/CSS/display) positioniert ist und an einer Grenze eines {{Glossary("scroll_container", "Scroll-Containers")}} haftet.
 
-Im ersten Fall ist der abgefragte Container der Scroll-Container selbst. In den anderen beiden Fällen ist der abgefragte Container ein Element, das von der Scroll-Position eines übergeordneten Scroll-Containers betroffen ist.
+Im ersten Fall ist der abgefragte Container der Scroll-Container selbst. In den anderen beiden Fällen ist der abgefragte Container ein Element, das durch die Scroll-Position eines Vorfahren-Scroll-Containers beeinflusst wird.
 
 ## Beispiele
 
-### Etablierung von Inline-Größenbeschränkung
+### Einrichtung des Inline-Größen-Containments
 
-Angenommen, das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild, einem Titel und etwas Text ist:
+Angenommen, wir haben das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild, einem Titel und etwas Text ist:
 
 ```html
 <div class="container">
@@ -117,7 +115,8 @@ Angenommen, das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild
 </div>
 ```
 
-Um einen Containerkontext zu erstellen, fügen Sie die Eigenschaft `container-type` zu einem Element hinzu. Das Folgende verwendet den Wert `inline-size`, um einen Einschlusskontext für die [Inline-Achse](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) des Containers zu erstellen:
+Um einen Container-Kontext zu erstellen, fügen Sie die `container-type`-Eigenschaft zu einem Element hinzu.
+Das folgende Beispiel verwendet den Wert `inline-size`, um einen Containment-Kontext für die [Inline-Achse](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) des Containers zu erstellen:
 
 ```css
 .container {
@@ -153,7 +152,7 @@ h3 {
 }
 ```
 
-Das Schreiben einer Container-Abfrage über die Regel {{Cssxref("@container")}} wird Stile auf die Elemente des Containers anwenden, wenn er breiter als 400px ist:
+Das Schreiben einer Container-Abfrage über die {{Cssxref("@container")}} at-rule wird die Styles auf die Elemente des Containers anwenden, wenn dieser breiter als 400px ist:
 
 ```css
 @container (width > 400px) {
@@ -176,10 +175,10 @@ Das Schreiben einer Container-Abfrage über die Regel {{Cssxref("@container")}} 
 
 ## Siehe auch
 
-- [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- [Verwendung von Container-Scroll-Zustands-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
-- {{Cssxref("@container")}} Regel
-- CSS {{Cssxref("container")}} Kurzschreibungseigenschaft
+- [CSS Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [Verwendung von Container-Größen- und Style-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [Verwendung von Container-Scroll-Zustandsabfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
+- {{Cssxref("@container")}} at-rule
+- CSS {{Cssxref("container")}} Shorthand-Eigenschaft
 - CSS {{Cssxref("container-name")}} Eigenschaft
 - CSS {{cssxref("content-visibility")}} Eigenschaft

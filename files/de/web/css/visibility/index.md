@@ -2,12 +2,10 @@
 title: visibility
 slug: Web/CSS/visibility
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`visibility`** [CSS](/de/docs/Web/CSS)-Eigenschaft zeigt oder verbirgt ein Element, ohne das Layout eines Dokuments zu ändern. Die Eigenschaft kann auch Zeilen oder Spalten in einer {{HTMLElement("table")}} verbergen.
+Die **`visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft zeigt oder versteckt ein Element, ohne das Layout eines Dokuments zu verändern. Die Eigenschaft kann auch Zeilen oder Spalten in einem {{HTMLElement("table")}} ausblenden.
 
 {{InteractiveExample("CSS Demo: visibility")}}
 
@@ -55,7 +53,7 @@ visibility: collapse;
 }
 ```
 
-Um ein Element sowohl zu verbergen _als auch aus dem Dokumentenlayout zu entfernen_, setzen Sie die {{cssxref("display")}}-Eigenschaft auf `none`, anstatt `visibility` zu verwenden.
+Um ein Element sowohl zu verstecken _als auch aus dem Dokumentenlayout zu entfernen_, setzen Sie die {{cssxref("display")}} Eigenschaft auf `none` anstelle von `visibility`.
 
 ## Syntax
 
@@ -73,33 +71,33 @@ visibility: revert-layer;
 visibility: unset;
 ```
 
-Die `visibility`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `visibility` Eigenschaft wird als einer der unten aufgelisteten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `visible`
-  - : Die Elementbox ist sichtbar.
+  - : Der Elementkasten ist sichtbar.
 - `hidden`
-  - : Die Elementbox ist unsichtbar (nicht gezeichnet), beeinflusst aber das Layout wie gewohnt. Nachkommenelemente sind sichtbar, wenn sie `visibility` auf `visible` gesetzt haben. Das Element kann nicht fokussiert werden (zum Beispiel bei der Navigation durch [Tab-Indizes](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
+  - : Der Elementkasten ist unsichtbar (nicht gezeichnet), beeinflusst aber weiterhin das Layout wie gewohnt. Nachkommen des Elements sind sichtbar, wenn sie `visibility` auf `visible` gesetzt haben. Das Element kann nicht fokussiert werden (z.B. beim Durchlaufen von [Tab-Indizes](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
 - `collapse`
-  - : Das Schlüsselwort `collapse` hat unterschiedliche Auswirkungen für verschiedene Elemente:
-    - Für {{HTMLElement("table")}}-Zeilen, -Spalten, -Spaltengruppen und -Zeilengruppen werden die Zeile(n) oder Spalte(n) versteckt und der Platz, den sie eingenommen hätten, wird entfernt (als ob `{{cssxref("display")}}: none` auf die Spalte/Zeile der Tabelle angewendet worden wäre). Die Größe anderer Zeilen und Spalten wird jedoch weiterhin berechnet, als ob die Zellen in den zusammengeklappten Zeilen oder Spalten vorhanden wären. Dieser Wert ermöglicht die schnelle Entfernung einer Zeile oder Spalte aus einer Tabelle, ohne die Neuberechnung von Breiten und Höhen für die gesamte Tabelle zu erzwingen.
-    - Zusammengeklappte Flex-Elemente und Ruby-Anmerkungen werden versteckt, und der Platz, den sie eingenommen hätten, wird entfernt.
-    - Für andere Elemente wird `collapse` genauso behandelt wie `hidden`.
+  - : Das `collapse` Schlüsselwort hat unterschiedliche Auswirkungen für verschiedene Elemente:
+    - Für {{HTMLElement("table")}}-Zeilen, -Spalten, Spaltengruppen und Zeilengruppen werden die Zeilen oder Spalten verborgen und der Raum, den sie eingenommen hätten, wird entfernt (als ob `{{Cssxref("display")}}: none` auf die Spalte/Zeile der Tabelle angewendet wäre). Dennoch wird die Größe anderer Zeilen und Spalten weiterhin berechnet, als ob die Zellen in den kollabierten Zeilen oder Spalten vorhanden wären. Dieser Wert ermöglicht die schnelle Entfernung einer Zeile oder Spalte aus einer Tabelle, ohne die Neuberechnung von Breiten und Höhen der gesamten Tabelle zu erzwingen.
+    - Kollabierte Flex-Elemente und Ruby-Anmerkungen sind verborgen, und der Raum, den sie eingenommen hätten, wird entfernt.
+    - Für andere Elemente wird `collapse` wie `hidden` behandelt.
 
 ## Barrierefreiheit
 
-Die Verwendung eines `visibility`-Werts von `hidden` auf einem Element entfernt es aus dem [Barrierefreiheit-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis). Dies führt dazu, dass das Element und alle seine Nachkommen nicht mehr durch Bildschirmlesetechnologien angesagt werden.
+Die Verwendung eines `visibility` Wertes von `hidden` für ein Element entfernt es aus dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis). Dies führt dazu, dass das Element und alle seine Nachkommenelemente von Bildschirmlese-Technologien nicht mehr angekündigt werden.
 
 ## Interpolation
 
-Bei Animationen werden Sichtbarkeitswerte zwischen _sichtbar_ und _nicht sichtbar_ interpoliert. Daher muss einer der Start- oder Endwerte `visible` sein, da sonst keine {{Glossary("interpolation", "Interpolation")}} erfolgen kann. Der Wert wird als diskreter Schritt interpoliert, wobei Werte der Entspannungsfunktion zwischen `0` und `1` auf `visible` abgebildet werden, und andere Werte der Entspannungsfunktion (die nur zu Beginn/Ende der Transition oder als Ergebnis von `cubic-bezier()`-Funktionen mit y-Werten außerhalb von \[0, 1\] auftreten) auf den nächstgelegenen Endpunkt abgebildet werden.
+Wenn animiert, werden Sichtbarkeitswerte zwischen _sichtbar_ und _nicht-sichtbar_ interpoliert. Einer der Start- oder Endwerte muss daher `visible` sein, damit eine {{Glossary("interpolation", "Interpolation")}} stattfinden kann. Der Wert wird als diskreter Schritt interpoliert, wobei Werte der Übergangsfunktion zwischen `0` und `1` auf `visible` abbilden und andere Werte der Übergangsfunktion (die nur am Anfang/Ende des Übergangs oder infolge `cubic-bezier()` Funktionen mit y-Werten außerhalb von \[0, 1] auftreten) auf den näheren Endpunkt abbilden.
 
-## Hinweise
+## Notizen
 
-- Die Unterstützung für `visibility: collapse` ist in einigen modernen Browsern unvollständig oder teilweise fehlerhaft. Es wird möglicherweise nicht korrekt wie `visibility: hidden` auf andere Elemente als Tabellenzeilen und -spalten angewendet.
-- Wenn es auf Tabellenzeilen angewendet wird und die Tabelle Zellen ({{htmlelement("td")}} und {{htmlelement("th")}}-Elemente) enthält, die sowohl sichtbare als auch zusammengeklappte Zeilen überspannen, kann die Zelle auf unerwartete Weise dargestellt werden. Wenn die überspannende Zelle in einer zusammengeklappten Zeile definiert ist, rendern Browser die Tabellenzelle nicht, als ob die Zellen in nachfolgenden Zeilen mit `visibility: collapse` vorhanden wären. Wenn die Zelle in einer sichtbaren Zeile definiert ist und eine zusammengeklappte Zeile überspannt, werden die Zellinhalte nicht neu geflossen, aber die Darstellung der Zelle selbst variiert je nach Browser. Die meisten Browser reduzieren die Blockgröße der Zelle um die Blockgröße der verborgenen Zeile. Das bedeutet, dass die Inhalte in Richtung der Blockgrößenrichtung größer als die Zelle sein können. Je nach Browser werden die überfließenden Inhalte entweder abgeschnitten, als ob `overflow: hidden` gesetzt wäre, während in anderen Browsern die Inhalte in die nachfolgende Zeile überfließen, als ob `overflow: visible` gesetzt wäre. In anderen Browsern wird die Zelle gerendert, als ob die Zeile nicht zusammengeklappt wäre, wobei alle anderen Zellen in der Zeile verborgen sind, als ob `visibility: collapse` auf einzelne Zellen statt auf die gesamte Zeile gesetzt wäre.
-- `visibility: collapse` kann das Layout einer Tabelle ändern, wenn die Tabelle verschachtelte Tabellen innerhalb der Zellen enthält, die zusammengeklappt sind, es sei denn, `visibility: visible` wird ausdrücklich auf verschachtelte Tabellen angewendet.
+- Die Unterstützung für `visibility: collapse` fehlt oder ist in einigen modernen Browsern teilweise fehlerhaft. Es wird möglicherweise nicht korrekt wie `visibility: hidden` bei anderen Elementen als Tabellenzeilen und -spalten behandelt.
+- Wenn auf Tabellenzeilen angewendet wird, und die Tabelle Zellen ({{htmlelement("td")}} und {{htmlelement("th")}} Elemente) enthält, die sowohl in sichtbare als auch in kollabierte Zeilen hineinspannen, kann die Zelle auf unerwartete Weise dargestellt werden. Wenn die spanne Zelle in einer kollabierten Zeile definiert ist, rendern Browser die Tabellenzelle nicht, als ob die Zellen in nachfolgenden Zeilen mit `visibility: collapse` vorhanden wären. Wenn die Zelle in einer sichtbaren Zeile definiert ist und über eine kollabierte Zeile spannt, werden die Zellinhalte nicht neu verteilt, aber die Darstellung der Zelle selbst variiert je nach Browser. Die meisten Browser reduzieren die Blockgröße der Zelle um die Blockgröße der versteckten Zeile. Das bedeutet, dass die Inhalte größer sein können als die Zelle in der Blockgrößenrichtung. Je nach Browser werden die überlaufenden Inhalte entweder abgeschnitten, als ob `overflow: hidden` gesetzt wäre, während in anderen Browsern die Inhalte in die nachfolgende Zeile überlaufen, als ob `overflow: visible` gesetzt wäre. In anderen Browsern wird die Zelle gerendert, als wäre die Zeile nicht kollabiert, wobei alle anderen Zellen in der Zeile versteckt sind, als wäre `visibility: collapse` auf einzelne Zellen und nicht auf die Zeile selbst gesetzt.
+- `visibility: collapse` kann das Layout einer Tabelle ändern, wenn die Tabelle verschachtelte Tabellen innerhalb der Zellen hat, die kollabiert sind, es sei denn, `visibility: visible` wird explizit auf verschachtelte Tabellen angegeben.
 
 ## Formale Definition
 
@@ -191,4 +189,4 @@ td {
 ## Siehe auch
 
 - {{cssxref("display")}}
-- SVG-Attribut {{SVGAttr("visibility")}}
+- SVG {{SVGAttr("visibility")}} Attribut

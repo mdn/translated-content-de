@@ -2,21 +2,19 @@
 title: Inline-Formatierungskontext
 slug: Web/CSS/CSS_inline_layout/Inline_formatting_context
 l10n:
-  sourceCommit: 113279ab09692d869866519106e25cba8a20abb8
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Dieser Leitfaden erklärt den Inline-Formatierungskontext.
 
-## Kernkonzepte
+## Grundlegende Konzepte
 
-Der Inline-Formatierungskontext ist Teil der visuellen Darstellung einer Webseite. Inline-Boxen werden eine nach der anderen in der Richtung des Schreibmodus, der verwendet wird, angeordnet:
+Der Inline-Formatierungskontext ist Teil der visuellen Darstellung einer Webseite. Inline-Boxen werden nacheinander in der Richtung des Satzverlaufs im verwendeten Schreibmodus angeordnet:
 
-- In einem horizontalen Schreibmodus werden Boxen horizontal, beginnend von links, angeordnet.
-- In einem vertikalen Schreibmodus würden sie vertikal beginnend von oben angeordnet werden.
+- In einem horizontalen Schreibmodus werden Boxen horizontal, beginnend auf der linken Seite, angeordnet.
+- In einem vertikalen Schreibmodus würden sie vertikal, beginnend oben, angeordnet.
 
-Im folgenden Beispiel sind die beiden {{HTMLElement("div")}}-Elemente mit den schwarzen Rahmen Teil eines [Block-Formatierungskontextes](/de/docs/Web/CSS/CSS_display/Block_formatting_context), während innerhalb jeder Box die Wörter an einem Inline-Formatierungskontext teilnehmen. Die Wörter im horizontalen Schreibmodus verlaufen horizontal, während Wörter im vertikalen Schreibmodus vertikal verlaufen.
+Im folgenden Beispiel sind die zwei {{HTMLElement("div")}}-Elemente mit den schwarzen Rändern Teil eines [Block-Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context), während innerhalb jeder Box die Wörter an einem Inline-Formatierungskontext teilnehmen. Die Wörter im horizontalen Schreibmodus verlaufen horizontal, während die Wörter im vertikalen Schreibmodus vertikal verlaufen.
 
 ```html live-sample___inline
 <div class="example horizontal">One Two Three</div>
@@ -42,9 +40,9 @@ body {
 
 {{EmbedLiveSample("inline", "", "220px")}}
 
-Boxen, die eine Linie bilden, werden durch einen rechteckigen Bereich namens Linienbox enthalten. Diese Box ist groß genug, um alle Inline-Boxen in dieser Linie zu enthalten; wenn im Inline-Bereich kein Platz mehr ist, wird eine weitere Linie erstellt. Daher ist ein Absatz eine Reihe von Inline-Linienboxen, die in der Blockrichtung gestapelt sind.
+Boxen, die eine Linie bilden, sind von einem rechteckigen Bereich, dem sogenannten Linienkasten, umschlossen. Dieser Kasten wird groß genug sein, um alle Inline-Boxen in dieser Linie zu enthalten; wenn im Inline-Dimension kein weiterer Platz ist, wird eine weitere Linie erstellt. Daher ist ein Absatz eine Reihe von Inline-Linienkästen, die in der Block-Dimension gestapelt sind.
 
-Wenn eine Inline-Box geteilt wird, haben Ränder, Rahmen und Abstände keinen visuellen Effekt an der Stelle, wo die Teilung erfolgt. Im nächsten Beispiel gibt es ein {{HTMLElement("span")}}-Element, das eine Reihe von Wörtern umschließt, die auf zwei Zeilen umgebrochen werden. Der Rahmen auf dem `<span>` bricht an der Umbruchstelle.
+Wenn eine Inline-Box geteilt wird, haben Ränder, Rahmen und Abstände dort, wo die Teilung erfolgt, keine visuelle Wirkung. Im nächsten Beispiel gibt es ein {{HTMLElement("span")}}-Element, das eine Reihe von Wörtern umschließt, die sich auf zwei Linien verteilen. Der Rahmen auf dem `<span>` bricht an der Umbruchstelle.
 
 ```html live-sample___break
 <div class="example">
@@ -73,7 +71,7 @@ span {
 
 {{EmbedLiveSample("break")}}
 
-Ränder, Rahmen und Abstände in der Inline-Richtung werden respektiert. Im folgenden Beispiel können Sie sehen, wie der Rand, Rahmen und Abstand des Inline-`<span>`-Elements hinzugefügt werden.
+Ränder, Rahmen und Abstände in der Inline-Dimension werden respektiert. Im folgenden Beispiel können Sie sehen, wie der Rand, der Rahmen und der Abstand auf dem Inline-`<span>`-Element hinzugefügt werden.
 
 ```html live-sample___mbp
 <div class="example horizontal">One <span>Two</span> Three</div>
@@ -109,11 +107,11 @@ span {
 {{EmbedLiveSample("mbp", "", "340px")}}
 
 > [!NOTE]
-> Ich verwende die logischen, flussrelativen Eigenschaften — {{cssxref("padding-inline-start")}} anstelle von {{cssxref("padding-left")}} — damit sie in der Inline-Dimension funktionieren, egal ob der Text horizontal oder vertikal ist. Lesen Sie mehr über diese Eigenschaften in [Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values).
+> Ich verwende die logischen, flussrelativen Eigenschaften — {{cssxref("padding-inline-start")}} anstelle von {{cssxref("padding-left")}} — damit sie in der Inline-Dimension funktionieren, unabhängig davon, ob der Text horizontal oder vertikal ist. Lesen Sie mehr über diese Eigenschaften in [Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values).
 
-## Ausrichtung in der Blockrichtung
+## Ausrichtung in der Block-Dimension
 
-Inline-Boxen können in der Blockrichtung auf verschiedene Weise mithilfe der {{cssxref("vertical-align")}}-Eigenschaft ausgerichtet werden, die in vertikalen Schreibmodi auf der Blockachse (daher überhaupt nicht vertikal!) ausrichtet. Im folgenden Beispiel macht der große Text die Linienbox des ersten Satzes größer, daher kann die `vertical-align`-Eigenschaft verwendet werden, um die Inline-Boxen auf beiden Seiten davon auszurichten. Ich habe den Wert `top` verwendet, versuchen Sie, ihn auf `middle`, `bottom` oder `baseline` zu ändern.
+Inline-Boxen können in der Block-Dimension auf verschiedene Weise ausgerichtet werden, indem die {{cssxref("vertical-align")}}-Eigenschaft verwendet wird, die auf der Block-Achse in vertikalen Schreibmodi ausrichtet (daher überhaupt nicht vertikal!). Im folgenden Beispiel macht der große Text den Linienkasten des ersten Satzes größer, daher kann die `vertical-align`-Eigenschaft verwendet werden, um die Inline-Boxen auf beiden Seiten davon auszurichten. Ich habe den Wert `top` verwendet; versuchen Sie, ihn auf `middle`, `bottom` oder `baseline` zu ändern.
 
 ```html live-sample___align
 <div class="example horizontal">
@@ -156,9 +154,9 @@ span {
 
 {{EmbedLiveSample("align", "", "640px")}}
 
-## Ausrichtung in der Inline-Richtung
+## Ausrichtung in der Inline-Dimension
 
-Wenn es zusätzlichen Platz in der Inline-Richtung gibt, kann die {{cssxref("text-align")}}-Eigenschaft verwendet werden, um die Inline-Boxen innerhalb ihrer Linienbox auszurichten. Versuchen Sie, den Wert von `text-align` unten auf `end` zu ändern.
+Falls es zusätzlichen Platz in der Inline-Dimension gibt, kann die {{cssxref("text-align")}}-Eigenschaft verwendet werden, um die Inline-Boxen innerhalb ihres Linienkastens auszurichten. Versuchen Sie, den Wert von `text-align` unten auf `end` zu ändern.
 
 ```html live-sample___text-align
 <div class="example horizontal">One Two Three</div>
@@ -195,7 +193,7 @@ body {
 
 ## Effekt von Floats
 
-Linienboxen haben normalerweise die gleiche Größe in der Inline-Richtung, daher die gleiche Breite, wenn in einem horizontalen Schreibmodus gearbeitet wird, oder Höhe, wenn in einem vertikalen Schreibmodus gearbeitet wird. Wenn jedoch innerhalb desselben Block-Formatierungskontextes ein {{cssxref("float")}} vorhanden ist, führt das Float dazu, dass die Linienboxen, die das Float umschließen, kürzer werden.
+Linienkästen haben normalerweise die gleiche Größe in der Inline-Dimension, daher die gleiche Breite, wenn im horizontalen Schreibmodus gearbeitet wird, oder Höhe, wenn im vertikalen Schreibmodus gearbeitet wird. Wenn jedoch ein {{cssxref("float")}} innerhalb desselben Block-Formatierungskontexts vorhanden ist, führt der Float dazu, dass die Linienkästen, die den Float umschließen, kürzer werden.
 
 ```html live-sample___float
 <div class="box">

@@ -1,29 +1,27 @@
 ---
-title: Beispiel für einen Stacking-Kontext 2
+title: Beispiel für Stacking-Context 2
 slug: Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 ## Beschreibung
 
-Dies ist ein einfaches Beispiel, aber es ist der Schlüssel zum Verständnis des Konzepts des _Stacking-Kontexts_. Es gibt dieselben vier DIVs wie im vorherigen Beispiel, aber jetzt sind `z-index`-Eigenschaften auf beiden Ebenen der Hierarchie zugewiesen.
+Dies ist ein einfaches Beispiel, aber es ist der Schlüssel, um das Konzept des _Stacking-Contexts_ zu verstehen. Es gibt dieselben vier DIVs wie im vorherigen Beispiel, aber nun sind `z-index`-Eigenschaften auf beiden Ebenen der Hierarchie zugewiesen.
 
-Sie können sehen, dass DIV #2 (`z-index`: 2) über DIV #3 (`z-index`: 1) ist, da beide zum selben Stacking-Kontext (dem Wurzelkontext) gehören, sodass die `z-index`-Werte regeln, wie Elemente gestapelt werden.
+Sie können sehen, dass DIV #2 (`z-index`: 2) über DIV #3 (`z-index`: 1) liegt, weil sie beide zum selben Stacking-Context (dem Root-Stacking-Context) gehören, sodass die z-index-Werte bestimmen, wie die Elemente gestapelt werden.
 
-Was als seltsam angesehen werden kann, ist, dass DIV #2 (`z-index`: 2) über DIV #4 (`z-index`: 10) ist, trotz ihrer `z-index`-Werte. Der Grund ist, dass sie nicht zum selben Stacking-Kontext gehören. DIV #4 gehört zum Stacking-Kontext, der von DIV #3 erstellt wird, und wie zuvor erklärt, befindet sich DIV #3 (und sein gesamter Inhalt) unter DIV #2.
+Was als seltsam angesehen werden kann, ist, dass DIV #2 (`z-index`: 2) über DIV #4 (`z-index`: 10) liegt, trotz ihrer z-index-Werte. Der Grund ist, dass sie nicht zum selben Stacking-Context gehören. DIV #4 gehört zum Stacking-Context, der durch DIV #3 erstellt wird, und wie zuvor erklärt, liegt DIV #3 (und sein gesamter Inhalt) unter DIV #2.
 
-Um die Situation besser zu verstehen, hier ist die Stacking-Kontext-Hierarchie:
+Um die Situation besser zu verstehen, hier ist die Stacking-Context-Hierarchie:
 
-- Wurzel-Stacking-Kontext
+- Root-Stacking-Context
   - DIV #2 (`z-index`: 2)
   - DIV #3 (`z-index`: 1)
     - DIV #4 (`z-index`: 10)
 
 > [!NOTE]
-> Es sei daran erinnert, dass die HTML-Hierarchie von der Stacking-Kontext-Hierarchie abweicht. In der Stacking-Kontext-Hierarchie werden Elemente, die keinen Stacking-Kontext erstellen, auf ihrem Elternobjekt zusammengefasst.
+> Es ist wichtig zu beachten, dass die HTML-Hierarchie von der Stacking-Context-Hierarchie unterschiedlich ist. In der Stacking-Context-Hierarchie werden Elemente, die keinen Stacking-Context erstellen, auf ihrem Elternteil zusammengefasst.
 
 ## Beispiel
 
@@ -122,5 +120,5 @@ span.bold {
 
 - [Beispiel: 1-stufige HTML-Hierarchie, `z-index` auf der letzten Ebene](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1)
 - [Beispiel: 3-stufige HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3)
-- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [Stacking-Context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+- [Modul CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)

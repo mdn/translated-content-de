@@ -1,48 +1,48 @@
 ---
-title: Origin privates Dateisystem
+title: Origin-Privates-Dateisystem
 slug: Web/API/File_System_API/Origin_private_file_system
 l10n:
-  sourceCommit: d65517535ae067fa876d5fae83626dff838e9796
+  sourceCommit: 0d0ccc861fa024fa10836fbf0cc2c3813cd74745
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("File System API")}}{{AvailableInWorkers}}
 
-Das **origin privates Dateisystem** (OPFS) ist ein Speicherendpunkt, der als Teil der [File System API](/de/docs/Web/API/File_System_API) bereitgestellt wird. Es ist nur für den Ursprung der Seite sichtbar und nicht für den Benutzer wie das reguläre Dateisystem. Es bietet Zugriff auf eine spezielle Art von Datei, die hochgradig für Leistung optimiert ist und direkten Schreibzugriff auf ihren Inhalt ermöglicht.
+Das **origin-private Dateisystem** (OPFS) ist ein Speicherendpunkt, der als Teil der [File System API](/de/docs/Web/API/File_System_API) bereitgestellt wird, welcher der Herkunft der Seite privat ist und dem Benutzer nicht wie das reguläre Dateisystem sichtbar ist. Es bietet Zugriff auf eine spezielle Art von Datei, die für hohe Leistung optimiert ist und direkten Schreibzugriff auf ihre Inhalte ermöglicht.
 
-## Arbeiten mit Dateien über die File System Access API
+## Arbeiten mit Dateien mittels der File System Access API
 
-Die [File System Access API](https://wicg.github.io/file-system-access/), die die [File System API](/de/docs/Web/API/File_System_API) erweitert, bietet Zugriff auf Dateien über Auswahlmethoden. Zum Beispiel:
+Die [File System Access API](https://wicg.github.io/file-system-access/), die die [File System API](/de/docs/Web/API/File_System_API) erweitert, ermöglicht den Zugriff auf Dateien mithilfe von Auswahldialogmethoden. Zum Beispiel:
 
-1. [`Window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker) ermöglicht es dem Benutzer, eine Datei zur Nutzung auszuwählen, wobei ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) Objekt zurückgegeben wird.
-2. [`FileSystemFileHandle.getFile()`](/de/docs/Web/API/FileSystemFileHandle/getFile) wird aufgerufen, um auf den Inhalt der Datei zuzugreifen. Der Inhalt wird über [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) / [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write) geändert.
-3. [`FileSystemHandle.requestPermission({mode: 'readwrite'})`](/de/docs/Web/API/FileSystemHandle/requestPermission) wird verwendet, um die Erlaubnis des Benutzers zum Speichern der Änderungen anzufordern.
-4. Wenn der Benutzer die Berechtigungsanfrage akzeptiert, werden die Änderungen in der Originaldatei gespeichert.
+1. Mit [`Window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker) kann der Benutzer eine Datei zum Zugriff auswählen, was zu einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Objekt führt.
+2. [`FileSystemFileHandle.getFile()`](/de/docs/Web/API/FileSystemFileHandle/getFile) wird aufgerufen, um Zugriff auf den Inhalt der Datei zu erhalten, der Inhalt wird mit [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) / [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write) geändert.
+3. [`FileSystemHandle.requestPermission({mode: 'readwrite'})`](/de/docs/Web/API/FileSystemHandle/requestPermission) wird verwendet, um die Erlaubnis des Benutzers zur Speicherung der Änderungen anzufordern.
+4. Wenn der Benutzer die Erlaubnis erteilt, werden die Änderungen in der Originaldatei gespeichert.
 
-Das funktioniert, hat aber einige Einschränkungen. Diese Änderungen werden im für den Benutzer sichtbaren Dateisystem vorgenommen, daher gibt es viele Sicherheitsüberprüfungen (zum Beispiel [sicheres Browsen](https://developers.google.com/safe-browsing) in Chrome), um zu verhindern, dass bösartige Inhalte in dieses Dateisystem geschrieben werden. Diese Schreibvorgänge sind nicht direkt, sondern verwenden eine temporäre Datei. Das Original wird nur geändert, wenn es alle Sicherheitsprüfungen besteht.
+Dies funktioniert, hat jedoch einige Einschränkungen. Diese Änderungen werden im dem Benutzer sichtbaren Dateisystem vorgenommen, sodass viele Sicherheitsüberprüfungen vorhanden sind (zum Beispiel [sicheres Surfen](https://developers.google.com/safe-browsing) in Chrome), um zu verhindern, dass bösartiger Inhalt in dieses Dateisystem geschrieben wird. Diese Schreibvorgänge erfolgen nicht direkt, sondern verwenden eine temporäre Datei. Die Originaldatei wird nur geändert, wenn alle Sicherheitsüberprüfungen bestanden wurden.
 
-Infolgedessen sind diese Operationen ziemlich langsam. Es fällt nicht so auf, wenn Sie kleine Textaktualisierungen vornehmen, aber die Leistung leidet bei umfangreicheren Dateiaufgaben wie [SQLite](https://sqlite.org/wasm) Datenbankänderungen.
+Infolgedessen sind diese Vorgänge relativ langsam. Es fällt nicht so sehr auf, wenn Sie kleine Textänderungen vornehmen, aber die Leistung leidet, wenn Sie bedeutendere, großangelegte Dateiaktualisierungen wie [SQLite](https://sqlite.org/wasm)-Datenbankänderungen vornehmen.
 
 ## Wie löst das OPFS solche Probleme?
 
-Das OPFS bietet Zugriff auf Dateien auf niedriger Ebene, byteweise, was privat für den Ursprung der Seite ist und nicht für den Benutzer sichtbar. Daher sind nicht die gleichen Sicherheitsprüfungen und Zustimmungserteilungen erforderlich, und es ist schneller als Aufrufe der File System Access API. Es verfügt auch über eine Reihe von synchronen Aufrufen (andere File System API-Aufrufe sind asynchron), die nur in Web-Workern ausgeführt werden können, um den Hauptthread nicht zu blockieren.
+Das OPFS bietet Datei-Zugriff auf niedriger Ebene, byteweise, der der Herkunft der Seite privat ist und dem Benutzer nicht sichtbar ist. Dadurch sind nicht die gleichen Sicherheitsüberprüfungen und Genehmigungen erforderlich und es ist daher schneller als File System Access API-Aufrufe. Es verfügt auch über eine Reihe synchroner Aufrufe (andere File System API-Aufrufe sind asynchron), die nur innerhalb von Web-Workern ausgeführt werden können, um den Hauptthread nicht zu blockieren.
 
-Zusammenfassend die Unterschiede des OPFS zum für den Benutzer sichtbaren Dateisystem:
+Zusammengefasst die Unterschiede zwischen dem OPFS und dem benutzernahen Dateisystem:
 
-- Das OPFS unterliegt den [Speicherquoten-Beschränkungen des Browsers](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria), wie jedes andere ursprungsbasierte Speichersystem (zum Beispiel die [IndexedDB API](/de/docs/Web/API/IndexedDB_API)). Sie können den Speicherplatz, den das OPFS verwendet, über [`navigator.storage.estimate()`](/de/docs/Web/API/StorageManager/estimate) abrufen.
-- Das Löschen von Speicherdaten für die Website löscht das OPFS.
-- Zugriffsberechtigungen und Sicherheitsüberprüfungen sind nicht erforderlich, um auf Dateien im OPFS zuzugreifen.
-- Browser speichern den Inhalt des OPFS irgendwo auf der Festplatte, aber Sie können nicht erwarten, die erstellten Dateien direkt zu finden. Das OPFS soll nicht für den Benutzer sichtbar sein.
+- Das OPFS unterliegt den [Speicherquoten-Beschränkungen des Browsers](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria), genauso wie jeder andere herkunftspartitionierte Speichermechanismus (zum Beispiel [IndexedDB API](/de/docs/Web/API/IndexedDB_API)). Sie können den verwendeten Speicherplatz des OPFS über [`navigator.storage.estimate()`](/de/docs/Web/API/StorageManager/estimate) abrufen.
+- Das Löschen von Speicherdateien für die Website löscht das OPFS.
+- Genehmigungsaufforderungen und Sicherheitsüberprüfungen sind nicht erforderlich, um auf Dateien im OPFS zuzugreifen.
+- Browser speichern die Inhalte des OPFS irgendwo auf der Festplatte, Sie können jedoch nicht erwarten, die erstellten Dateien eins zu eins zu finden. Das OPFS ist nicht dafür vorgesehen, dem Benutzer sichtbar zu sein.
 
-## Wie greift man auf das OPFS zu?
+## Wie greifen Sie auf das OPFS zu?
 
-Um zunächst auf das OPFS zuzugreifen, rufen Sie die Methode [`navigator.storage.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory) auf. Diese gibt eine Referenz zu einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) Objekt zurück, das die Wurzel des OPFS repräsentiert.
+Um zunächst auf das OPFS zuzugreifen, rufen Sie die Methode [`navigator.storage.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory) auf. Dies gibt eine Referenz zu einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt zurück, das die Wurzel des OPFS darstellt.
 
-## Manipulation des OPFS vom Hauptthread aus
+## Manipulation des OPFS im Hauptthread
 
-Beim Zugriff auf das OPFS vom Hauptthread aus verwenden Sie asynchrone, {{jsxref("Promise")}}-basierte APIs. Sie können Datei- ([`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)) und Verzeichnis- ([`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)) Handles abrufen, indem Sie [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle) und [`FileSystemDirectoryHandle.getDirectoryHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getDirectoryHandle) auf dem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) Objekt aufrufen, das die Wurzel des OPFS (und bei der Erstellung auch untergeordnete Verzeichnisse) repräsentiert.
+Beim Zugriff auf das OPFS vom Hauptthread aus verwenden Sie asynchrone, {{jsxref("Promise")}}-basierte APIs. Sie können Datei- ([`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)) und Verzeichnis- ([`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)) Handles durch Aufruf von [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle) und [`FileSystemDirectoryHandle.getDirectoryHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getDirectoryHandle) auf dem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt, das die Wurzel des OPFS darstellt (und untergeordnete Verzeichnisse, sobald sie erstellt werden), erhalten.
 
 > [!NOTE]
-> Das Übergeben von `{ create: true }` in die oben genannten Methoden führt dazu, dass die Datei oder der Ordner erstellt wird, wenn er nicht vorhanden ist.
+> Die Übergabe von `{ create: true }` an die obigen Methoden bewirkt, dass die Datei oder der Ordner erstellt wird, falls sie nicht existieren.
 
 ```js
 // Create a hierarchy of files and folders
@@ -69,32 +69,32 @@ const existingDirectoryHandle =
 
 ### Eine Datei lesen
 
-1. Führen Sie einen [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle)-Aufruf aus, um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) Objekt zurückzugeben.
-2. Rufen Sie das [`FileSystemFileHandle.getFile()`](/de/docs/Web/API/FileSystemFileHandle/getFile) Objekt auf, um ein [`File`](/de/docs/Web/API/File) Objekt zurückzugeben. Dies ist ein spezialisierter Typ von [`Blob`](/de/docs/Web/API/Blob), und daher kann es wie jedes andere `Blob` manipuliert werden. Zum Beispiel könnten Sie direkt über [`Blob.text()`](/de/docs/Web/API/Blob/text) auf den Textinhalt zugreifen.
+1. Führen Sie einen [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle)-Aufruf durch, um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Objekt zurückzugeben.
+2. Rufen Sie das [`FileSystemFileHandle.getFile()`](/de/docs/Web/API/FileSystemFileHandle/getFile)-Objekt auf, um ein [`File`](/de/docs/Web/API/File)-Objekt zurückzugeben. Dies ist ein spezialisierter Typ von [`Blob`](/de/docs/Web/API/Blob) und kann dementsprechend genauso wie jedes andere `Blob` manipuliert werden. Zum Beispiel könnten Sie direkt über [`Blob.text()`](/de/docs/Web/API/Blob/text) auf den Textinhalt zugreifen.
 
 ### Eine Datei schreiben
 
-1. Führen Sie einen [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle)-Aufruf aus, um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) Objekt zurückzugeben.
-2. Rufen Sie [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) auf, um ein [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream) Objekt zurückzugeben, das ein spezialisierter Typ von [`WritableStream`](/de/docs/Web/API/WritableStream) ist.
-3. Schreiben Sie Inhalte in diesen Stream, indem Sie [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write) aufrufen.
+1. Führen Sie einen [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle)-Aufruf durch, um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Objekt zurückzugeben.
+2. Rufen Sie [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) auf, um ein [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Objekt zurückzugeben, das ein spezialisierter Typ eines [`WritableStream`](/de/docs/Web/API/WritableStream) ist.
+3. Schreiben Sie Inhalte mit einem Aufruf von [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write) hinein.
 4. Schließen Sie den Stream mit [`WritableStream.close()`](/de/docs/Web/API/WritableStream/close).
 
 ### Eine Datei oder einen Ordner löschen
 
-Sie können [`FileSystemDirectoryHandle.removeEntry()`](/de/docs/Web/API/FileSystemDirectoryHandle/removeEntry) für das übergeordnete Verzeichnis aufrufen, indem Sie den Namen des zu entfernenden Elements übergeben:
+Sie können [`FileSystemDirectoryHandle.removeEntry()`](/de/docs/Web/API/FileSystemDirectoryHandle/removeEntry) im übergeordneten Verzeichnis aufrufen und den Namen des zu entfernenden Elements übergeben:
 
 ```js
 directoryHandle.removeEntry("my first nested file");
 ```
 
-Sie können auch [`FileSystemHandle.remove()`](/de/docs/Web/API/FileSystemHandle/remove) auf dem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) aufrufen, das das zu entfernende Element repräsentiert. Um einen Ordner einschließlich aller Unterordner zu löschen, übergeben Sie die `{ recursive: true }` Option.
+Sie können auch [`FileSystemHandle.remove()`](/de/docs/Web/API/FileSystemHandle/remove) auf dem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), das das zu entfernende Element darstellt, aufrufen. Um einen Ordner einschließlich aller Unterordner zu löschen, übergeben Sie die Option `{ recursive: true }`.
 
 ```js
 await fileHandle.remove();
 await directoryHandle.remove({ recursive: true });
 ```
 
-Das Folgende bietet eine schnelle Möglichkeit, das gesamte OPFS zu leeren:
+Das Folgende bietet eine schnelle Methode, um das gesamte OPFS zu löschen:
 
 ```js
 await (await navigator.storage.getDirectory()).remove({ recursive: true });
@@ -102,7 +102,7 @@ await (await navigator.storage.getDirectory()).remove({ recursive: true });
 
 ### Den Inhalt eines Ordners auflisten
 
-[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist ein [asynchroner Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols). Daher können Sie mit einer [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) Schleife und Standardmethoden wie [`entries()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries), [`values()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries) und [`keys()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries) darüber iterieren.
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist ein [asynchroner Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols). Daher können Sie über ihn mit einer [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleife und Standardmethoden wie [`entries()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries), [`values()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries) und [`keys()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries) iterieren.
 
 Zum Beispiel:
 
@@ -117,14 +117,14 @@ for await (let name of directoryHandle.keys()) {
 }
 ```
 
-## Manipulation des OPFS von einem Web Worker
+## Manipulation des OPFS von einem Web-Worker
 
-Web Worker blockieren nicht den Hauptthread, was bedeutet, dass Sie die synchronen Datei-Zugriffs-APIs in diesem Kontext verwenden können. Synchrone APIs sind schneller, da sie nicht mit Promises umgehen müssen.
+Web-Worker blockieren den Hauptthread nicht, was bedeutet, dass Sie in diesem Kontext die synchronen Datei-Zugriffs-APIs verwenden können. Synchrone APIs sind schneller, da sie das Arbeiten mit Promises vermeiden.
 
-Sie können auf eine Datei synchron zugreifen, indem Sie [`FileSystemFileHandle.createSyncAccessHandle()`](/de/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle) auf einem regulären [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) aufrufen:
+Sie können synchron auf eine Datei zugreifen, indem Sie [`FileSystemFileHandle.createSyncAccessHandle()`](/de/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle) auf einem regulären [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) aufrufen:
 
 > [!NOTE]
-> Trotz des Namens `Sync` ist die Methode `createSyncAccessHandle()` selbst asynchron.
+> Trotz des Namens „Sync“ in `createSyncAccessHandle()` ist die Methode selbst asynchron.
 
 ```js
 const opfsRoot = await navigator.storage.getDirectory();
@@ -134,14 +134,14 @@ const fileHandle = await opfsRoot.getFileHandle("my-high-speed-file.txt", {
 const syncAccessHandle = await fileHandle.createSyncAccessHandle();
 ```
 
-Es sind einige _synchrone_ Methoden auf dem zurückgegebenen [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) verfügbar:
+Es gibt eine Reihe synchroner Methoden, die auf dem zurückgegebenen [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) verfügbar sind:
 
 - [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize): Gibt die Größe der Datei in Bytes zurück.
-- [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write): Schreibt den Inhalt eines Puffers in die Datei, optional an einem gegebenen Offset, und gibt die Anzahl der geschriebenen Bytes zurück. Das Überprüfen der zurückgegebenen Anzahl von Bytes ermöglicht es Aufrufern, Fehler und teilweise Schreibvorgänge zu erkennen und zu handhaben.
-- [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read): Liest den Inhalt der Datei in einen Puffer, optional an einem gegebenen Offset.
-- [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate): Ändert die Größe der Datei auf die gegebene Größe.
-- [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush): Stellt sicher, dass der Dateiinhalte alle Änderungen durch `write()` enthält.
-- [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close): Schließt den Zugriffshandle.
+- [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write): Schreibt den Inhalt eines Puffers in die Datei, optional an einem angegebenen Offset, und gibt die Anzahl der geschriebenen Bytes zurück. Die Überprüfung der zurückgegebenen Anzahl geschriebener Bytes ermöglicht es den Aufrufern, Fehler und Teil-Schreibvorgänge zu erkennen und zu handhaben.
+- [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read): Liest die Inhalte der Datei in einen Puffer, optional an einem angegebenen Offset.
+- [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate): Ändert die Größe der Datei auf die angegebene Größe.
+- [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush): Stellt sicher, dass die Datei-Inhalte alle durch `write()` vorgenommenen Änderungen enthalten.
+- [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close): Schließt den Zugriffshandler.
 
 Hier ist ein Beispiel, das alle oben genannten Methoden verwendet:
 
@@ -193,6 +193,10 @@ console.log(textDecoder.decode(dataView));
 accessHandle.truncate(4);
 ```
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 ## Siehe auch
 
-- [Das origin private Dateisystem](https://web.dev/articles/origin-private-file-system) auf web.dev
+- [Das origin-private Dateisystem](https://web.dev/articles/origin-private-file-system) auf web.dev

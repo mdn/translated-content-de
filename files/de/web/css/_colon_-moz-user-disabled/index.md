@@ -2,15 +2,15 @@
 title: :-moz-user-disabled
 slug: Web/CSS/:-moz-user-disabled
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}
+{{Non-standard_header}}
 
-Die **`:-moz-user-disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente auswählt, die Bilder darstellen, die nicht geladen wurden, weil Bilder basierend auf den Benutzereinstellungen vollständig deaktiviert wurden.
+Die **`:-moz-user-disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die Bilder darstellen, die nicht geladen wurden, weil Bilder durch die Präferenzen des Benutzers vollständig deaktiviert wurden.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für Theme-Entwickler gedacht.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Die **`:-moz-user-disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/We
 
 ## Beispiele
 
-### Gestaltung von benutzerdeaktivierten Elementen
+### Stil für benutzerdeaktivierte Elemente
 
 ```css
 :-moz-user-disabled {
@@ -33,7 +33,7 @@ Die **`:-moz-user-disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/We
 
 ## Spezifikationen
 
-Teil keiner Standardisierung.
+Kein Bestandteil eines Standards.
 
 ## Siehe auch
 

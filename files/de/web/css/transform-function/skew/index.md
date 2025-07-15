@@ -2,12 +2,10 @@
 title: skew()
 slug: Web/CSS/transform-function/skew
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element in der 2D-Ebene schiefstellt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene schiefstellt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: skew()")}}
 
@@ -37,9 +35,9 @@ transform: skew(0.312rad);
 </section>
 ```
 
-Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in den horizontalen und vertikalen Richtungen verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements an einem bestimmten Winkel herausziehen würden.
+Diese Transformation ist eine Schursabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in horizontaler und vertikaler Richtung verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements greifen und entlang eines bestimmten Winkels ziehen würden.
 
-Die Koordinaten jedes Punktes werden um einen Wert modifiziert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der Wert, der hinzugefügt wird.
+Die Koordinaten jedes Punktes werden durch einen Wert angepasst, der proportional zu dem angegebenen Winkel und der Entfernung zum Ursprung ist. Daher gilt: Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der zugefügte Wert.
 
 ## Syntax
 
@@ -52,9 +50,9 @@ skew(ax, ay)
 ### Werte
 
 - `ax`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, mit dem das Element entlang der x-Achse verzerrt wird.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der x-Achse zu verzerren.
 - `ay` {{optional_inline}}
-  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, mit dem das Element entlang der y-Achse verzerrt wird. Wenn nicht definiert, ist der Standardwert `0`, was in einer rein horizontalen Schrägstellung resultiert.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der y-Achse zu verzerren. Wenn nicht definiert, ist der Standardwert `0`, was zu einer rein horizontalen Schiefstellung führt.
 
 <table class="standard-table">
   <thead>
@@ -94,13 +92,13 @@ skew(ax, ay)
   </tbody>
 </table>
 
-## Formale Syntax
+## Formaler Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Schrägstellung nur auf der x-Achse
+### Schiefstellung nur auf der x-Achse
 
 #### HTML
 
@@ -132,7 +130,7 @@ div {
 
 {{EmbedLiveSample("Skewing_on_the_x-axis_only", 200, 200)}}
 
-### Schrägstellung auf beiden Achsen
+### Schiefstellung auf beiden Achsen
 
 #### HTML
 
@@ -182,4 +180,4 @@ div {
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew`-Eigenschaft
+  - Hinweis: Es gibt keine `skew` Eigenschaft

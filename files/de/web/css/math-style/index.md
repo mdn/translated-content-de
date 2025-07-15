@@ -2,10 +2,8 @@
 title: math-style
 slug: Web/CSS/math-style
 l10n:
-  sourceCommit: 18a07f5d474f44cdc6b343a5439e8792c6ce8d62
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die Eigenschaft `math-style` gibt an, ob MathML-Gleichungen mit normaler oder kompakter Höhe dargestellt werden sollen.
 
@@ -27,9 +25,9 @@ math-style: unset;
 ### Werte
 
 - `normal`
-  - : Der Anfangswert, zeigt normale Darstellung an.
+  - : Der Initialwert, gibt normale Darstellung an.
 - `compact`
-  - : Das mathematische Layout auf Nachkommen versucht, die logische Höhe zu minimieren.
+  - : Das mathematische Layout bei Nachkommen versucht, die logische Höhe zu minimieren.
 
 ## Formale Definition
 
@@ -41,7 +39,7 @@ math-style: unset;
 
 ## Beispiele
 
-### Ändern des Stils einer Formel zu kompakt
+### Änderung des Stils einer Formel zu kompakt
 
 #### CSS
 

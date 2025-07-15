@@ -2,12 +2,10 @@
 title: translate
 slug: Web/CSS/translate
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`translate`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, Übersetzungstransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies passt besser zur typischen Benutzeroberflächenverwendung und erspart Ihnen das Merken der genauen Reihenfolge der zu spezifizierenden Transformationsfunktionen im `transform`-Wert.
+Die **`translate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Übersetzungstransformationen einzeln und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies passt besser zu typischer Benutzeroberflächen-Nutzung und erspart Ihnen das Merken der genauen Reihenfolge der Transformationsfunktionen, die im `transform`-Wert anzugeben sind.
 
 {{InteractiveExample("CSS Demo: translate")}}
 
@@ -128,12 +126,12 @@ translate: unset;
 
 ### Werte
 
-- Ein einzelner {{cssxref("&lt;length-percentage&gt;")}}-Wert
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Übersetzung entlang der X-Achse angibt. Entspricht einer `translate()`-Funktion (2D-Übersetzung) mit einem angegebenen Wert.
+- Einzelner {{cssxref("&lt;length-percentage&gt;")}}-Wert
+  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Übersetzung entlang der X-Achse angibt. Entspricht einer `translate()`-Funktion (2D-Übersetzung) mit einem einzelnen angegebenen Wert.
 - Zwei {{cssxref("&lt;length-percentage&gt;")}}-Werte
-  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Übersetzungswerte der X- und Y-Achsen (jeweils) einer 2D-Übersetzung angeben. Entspricht einer `translate()`-Funktion (2D-Übersetzung) mit zwei angegebenen Werten.
+  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Übersetzungswerte (jeweils) einer 2D-Übersetzung angeben. Entspricht einer `translate()`-Funktion (2D-Übersetzung) mit zwei angegebenen Werten.
 - Drei Werte
-  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}}-Wert, der die Übersetzungswerte der X-, Y- und Z-Achsen (jeweils) einer 3D-Übersetzung angibt. Entspricht einer `translate3d()`-Funktion (3D-Übersetzung).
+  - : Zwei {{cssxref("&lt;length-percentage&gt;")}}- und ein {{cssxref("&lt;length&gt;")}}-Wert, die die X-, Y- und Z-Achsen-Übersetzungswerte (jeweils) einer 3D-Übersetzung angeben. Entspricht einer `translate3d()`-Funktion (3D-Übersetzung).
 - `none`
   - : Gibt an, dass keine Übersetzung angewendet werden soll.
 
@@ -147,11 +145,11 @@ translate: unset;
 
 ## Beispiele
 
-### Übersetzen eines Elements bei Hover
+### Übersetzen eines Elements beim Hover
 
-Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu bewegen.
-Das erste Feld wird entlang der X-Achse und das zweite Feld entlang der X- und Y-Achsen bewegt.
-Das dritte Feld wird entlang der X-, Y- und Z-Achsen bewegt und sieht aus, als ob es sich aufgrund der Hinzufügung von {{cssxref('perspective')}} zum übergeordneten Element auf den Betrachter zubewegt.
+Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben.
+Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben.
+Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und hat das Erscheinungsbild, sich dem Betrachter zu nähern, durch die Hinzufügung von {{cssxref('perspective')}} zum Elternelement.
 
 #### HTML
 
@@ -210,4 +208,4 @@ Das dritte Feld wird entlang der X-, Y- und Z-Achsen bewegt und sieht aus, als o
 - {{cssxref('transform')}}
 
 > [!NOTE]
-> `skew` ist kein unabhängiger Transformationswert.
+> Skew ist kein unabhängiger Transformationswert.

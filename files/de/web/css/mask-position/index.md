@@ -2,12 +2,10 @@
 title: mask-position
 slug: Web/CSS/mask-position
 l10n:
-  sourceCommit: be28a11d9b2f6ab4ad0e5947e72a13ce16d4a6f2
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`mask-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Anfangsposition relativ zur Maskenpositionsschicht fest, die durch {{cssxref("mask-origin")}} festgelegt wird, für jedes definierte Maskenbild.
+Die **`mask-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Anfangsposition relativ zur Maskenpositionsebene, die durch {{cssxref("mask-origin")}} festgelegt ist, für jedes definierte Maskenbild fest.
 
 ## Syntax
 
@@ -59,70 +57,70 @@ mask-position: unset;
 
 ### Werte
 
-Ein oder mehrere `<position>` Werte, getrennt durch Kommas.
+Einer oder mehrere `<position>` Werte, getrennt durch Kommata.
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein, zwei oder vier Werte, die eine 2D-Position darstellen, die die Ränder des Boxelements spezifiziert. Relative oder absolute Offsets können angegeben werden.
+  - : Ein, zwei oder vier Werte, die eine 2D-Position repräsentieren, welche die Kanten des Box-Elements spezifiziert. Relative oder absolute Offsets können angegeben werden.
 
 ## Beschreibung
 
-Die `mask-position` Eigenschaft definiert die Position jeder Maskenschicht. Ein Element kann mehrere Maskenschichten haben. Die Anzahl der Schichten wird durch die Anzahl der durch Kommas getrennten Werte im Wert der Eigenschaft {{cssxref("mask-image")}} bestimmt (selbst `none` Werte erzeugen eine Schicht).
+Die `mask-position` Eigenschaft definiert die Position jeder Maskenebene. Ein Element kann mehrere Maskenebenen haben. Die Anzahl der Ebenen wird durch die Anzahl der durch Kommata getrennten Werte im {{cssxref("mask-image")}} Eigenschaftswert bestimmt (sogar `none`-Werte erzeugen eine Ebene).
 
-Jeder `mask-position` Wert in der durch Kommas getrennten Werteliste wird mit einer zugehörigen Maskenschicht, wie durch die Liste der `mask-image` Werte definiert, in der Reihenfolge abgeglichen. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist:
+Jeder Wert von `mask-position` in der durch Kommata getrennten Liste der Werte wird mit einer zugeordneten Maskenebene, wie durch die Liste der `mask-image` Werte definiert, in der Reihenfolge abgeglichen. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist:
 
-- Wenn `mask-position` mehr Werte als mask-image hat, werden die überschüssigen Werte von `mask-position` nicht verwendet.
-- Wenn `mask-position` weniger Werte als mask-image hat, werden die `mask-position` Werte wiederholt.
+- Hat `mask-position` mehr Werte als mask-image, werden die überschüssigen Werte von `mask-position` nicht verwendet.
+- Hat `mask-position` weniger Werte als mask-image, werden die `mask-position` Werte wiederholt.
 
-Jeder `mask-position` definiert die Position der zugehörigen Maskenschicht relativ zum zugehörigen {{cssxref("mask-origin")}} Wert. Die `mask-origin` Eigenschaftswerte werden in derselben Reihenfolge mit den `mask-image` Werten abgeglichen, wobei überschüssige `mask-position` Werte ungenutzt bleiben oder `mask-position` Werte wiederholt werden, wenn sie weniger zahlreich sind als die `mask-origin` Werte. Jede Maskenschicht hat daher einen zugehörigen `mask-origin` und `mask-position` Wert.
+Jeder `mask-position` definiert die Position der zugeordneten Maskenebene relativ zum zugeordneten {{cssxref("mask-origin")}} Wert. Die `mask-origin` Eigenschaftswerte werden in der Reihenfolge mit den `mask-image` Werten abgeglichen, wobei überschüssige `mask-position` Werte nicht verwendet oder `mask-position` Werte wiederholt werden, falls sie weniger zahlreich sind als die `mask-origin` Werte. Jede Maskenebene hat daher einen zugeordneten `mask-origin` und `mask-position` Wert.
 
-Wenn kein `mask-origin` festgelegt ist, wird der Standardwert `padding-box` verwendet, was bedeutet, dass der Ursprung jeder `mask-position` die [padding-box](/de/docs/Web/CSS/box-edge#padding-box) des Elements ist.
+Wenn kein `mask-origin` festgelegt ist, lautet der Standardwert `padding-box`, was bedeutet, dass der Ursprung jeder `mask-position` die [padding-box](/de/docs/Web/CSS/box-edge#padding-box) des Elements ist.
 
 ### Ein-Wert-Syntax
 
-Wenn nur ein `mask-position` Wert angegeben ist, wird der zweite Wert als `center` angenommen. Wenn der Wert ein `<length>` oder `<percentage>` ist, definiert er die Position der Maske entlang der horizontalen Achse, wobei die Maske vertikal innerhalb der Ursprungsbox zentriert wird. Zum Beispiel ist `mask-position: 0%;` gleich `mask-position: 0% center`.
+Wenn nur ein `mask-position` Wert angegeben ist, wird der zweite Wert als `center` angenommen. Wenn der Wert ein `<length>` oder `<percentage>` ist, definiert er die Position der Maske entlang der horizontalen Achse, wobei die Maske vertikal innerhalb der Ursprungsbox zentriert ist. Zum Beispiel, `mask-position: 0%;` entspricht `mask-position: 0% center`.
 
-Wenn Sie ein einzelnes Schlüsselwort für die Positionierung verwenden, wird der andere Wert zu `center` aufgelöst. Der Standard von `mask-position` ist `0% 0%`, was gleich `mask-position: top left` ist. Allerdings:
+Wenn Sie ein einzelnes Schlüsselwort zur Positionierung verwenden, wird der andere Wert auf `center` aufgelöst. Der Standard von `mask-position` ist `0% 0%`, was `mask-position: top left` entspricht. Jedoch:
 
-- `mask-position: top;` entspricht `mask-position: top center;`.
-- `mask-position: left;` entspricht `mask-position: center left`.
+- `mask-position: top;` ist gleichbedeutend mit `mask-position: top center;`.
+- `mask-position: left;` ist gleichbedeutend mit `mask-position: center left`.
 - `mask-position: center;` entspricht `mask-position: center center`.
 
-Wenn der Wert ein {{cssxref("&lt;length&gt;")}}-Wert ist, stellt er die horizontale Position als Offset von der linken Kante der Maskenposition dar. Ein positiver Wert stellt einen nach innen gerichteten Offset von der linken Kante des Boxcontainers dar. Die Position kann außerhalb des Boxelements durch einen negativen Wert gesetzt werden – dies erzeugt einen nach außen gerichteten Offset, der das Objekt außerhalb der linken Kante des Containers platziert.
+Wenn der Wert ein {{cssxref("&lt;length&gt;")}} Wert ist, stellt er die horizontale Position als ein Offset von der linken Kante der Maskenpositionierung dar. Ein positiver Wert repräsentiert ein Inward-Offset von der linken Kante des Box-Containers. Die Position kann außerhalb der Box des Elements unter Verwendung eines negativen Wertes gesetzt werden – dies erzeugt ein Outward-Offset, das das Element außerhalb der linken Kante des Containers platziert.
 
 #### Prozentwerte
 
-Ein {{cssxref("&lt;percentage&gt;")}}-Wert stellt den horizontalen Positionswert der Maske relativ zur Breite des Containers dar, positioniert relativ zur linken Kante. Der Offset ist jedoch nicht vom Maskenrand zur Boxkante. Stattdessen wird die Maskenbilddimension [von der Containerdimension abgezogen](/de/docs/Web/CSS/background-position#regarding_percentages), und dann wird ein Prozentsatz des resultierenden Wertes als direkter Offset von der linken Kante der Box verwendet, was dem gleichen ist wie [Prozentwerte für `background-position`](/de/docs/Web/CSS/background-position#regarding_percentages).
+Ein {{cssxref("&lt;percentage&gt;")}} Wert stellt den horizontalen Positionswert der Maske relativ zur Breite des Containers dar, positioniert relativ zur linken Kante. Jedoch ist das Offset nicht von der Maskenkante zur Box-Kante. Stattdessen wird die Maskenbilddimension [von der Dimension des Containers subtrahiert](/de/docs/Web/CSS/background-position#regarding_percentages) und dann ein Prozentsatz des resultierenden Wertes als direktes Offset von der linken Kante der Box verwendet, was dem gleichen wie [Prozentwerte für `background-position`](/de/docs/Web/CSS/background-position#regarding_percentages) entspricht.
 
-Die Gleichung ist:
+Die Gleichung lautet:
 
-`(Containerdimension - Maskendimension) * Positionsprozentsatz = Dimensionsoffsetwert`
+`(Container-Dimension - Masken-Dimension) * Prozentwert der Position = Offset-Wert der Dimension`
 
-Bei einer `100px` breiten Maske und einer `1000px` breiten Ursprungsbox führt die Einstellung `mask-position: 10%;` (entspricht `10% 50%`) dazu, dass die Maske vertikal zentriert `90px` von der linken Kante positioniert ist. Die Gleichung ist `(1000 - 100) * 10% = 90`. Wenn der linke Offset `0%` gewesen wäre, wäre der linke Rand der Maske bündig mit dem linken Rand des Containers (`(1000 - 100) * 0% = 0`).
+Bei einer `100px` breiten Maske und einer `1000px` breiten Ursprungsbox führt das Setzen von `mask-position: 10%;` (entspricht `10% 50%`) dazu, dass die Maske vertikal zentriert ist und `90px` von der linken Kante entfernt ist. Die Gleichung lautet `(1000 - 100) * 10% = 90`. Wäre das linke Offset `0%` gewesen, würde die linke Kante der Maske bündig mit der linken Seite des Containers sein (`(1000 - 100) * 0% = 0`).
 
-Wenn der linke Offset `100%` gewesen wäre, würde der rechte Rand der Maske bündig mit dem rechten Rand des Containers sein, da der linke Rand der `100px` breiten Maske `900px` (`(1000 - 100) * 100% = 900`) von der linken Kante des Containers entfernt wäre (die `100px` Maskenbreite plus `900px` Entfernung von der linken Kante bedeutet, dass der rechte Rand `1000px` von der linken Kante, also der rechten Kante des Containers, entfernt wäre).
+Wäre das linke Offset `100%` gewesen, würde die rechte Kante der Maske bündig mit der rechten Seite des Containers sein, da die linke Kante der `100px` breiten Maske `900px` (`(1000 - 100) * 100% = 900`) von der linken Kante des Containers entfernt wäre (die `100px` Maskenbreite plus `900px` Abstand von der linken Kante bedeutet, dass die rechte Kante `1000px` von der linken Kante entfernt wäre, was die rechte Kante des Containers ist).
 
-### Zwei-Werte-Syntax
+### Zwei-Wert-Syntax
 
-Eine Zwei-Wert-`<position>`-Angabe spezifiziert die Position des Maskenbilds innerhalb seines Maskenpositionierungsbereichs, wobei Längen- und Prozentwerte Offsets von `links` und `oben` des Bereichs angeben.
+Eine Zwei-Wert-`<position>` gibt die Position des Maskenbildes innerhalb seines Maskenpositionierungsbereichs an, wobei Längen- und Prozentwerte Offsets von `left` und `top` des Bereichs spezifizieren.
 
-Wenn die beiden Werte {{cssxref("&lt;length&gt;")}} Werte, {{cssxref("&lt;percentage&gt;")}} Werte oder das Schlüsselwort `center` sind, repräsentiert der erste Wert die horizontale Position als Offset von der linken Kante des Maskenpositionierungsbereichs, und der zweite Wert stellt die vertikale Position als Offset von deren oberer Kante dar, wobei [Prozentwerte als Offset](#prozentwerte) durch die Größe der Maske in dieser Dimension berücksichtigt werden.
+Wenn die beiden Werte {{cssxref("&lt;length&gt;")}} Werte, {{cssxref("&lt;percentage&gt;")}} Werte oder das Schlüsselwort `center` sind, repräsentiert der erste Wert die horizontale Position als ein Offset von der linken Kante des Maskenpositionierungsbereichs, und der zweite Wert repräsentiert die vertikale Position als ein Offset von dessen oberer Kante, wobei [Prozentwerte durch die Größe der Maske in dieser Dimension offsetiert werden](#prozentwerte).
 
-Zusätzlich, wenn {{cssxref("&lt;percentage&gt;")}}-Werte spezifiziert sind, ist der erste Wert auch der horizontale Positionswert relativ zur linken Kante, und der zweite Wert ist auch der vertikale Positionswert relativ zur oberen Kante.
+Zudem, wenn {{cssxref("&lt;percentage&gt;")}} Werte angegeben sind, ist der erste Wert auch der horizontale Positionswert relativ zur linken Kante, und der zweite Wert ist auch der vertikale Positionswert relativ zur oberen Kante.
 
-Ein Paar Achsenspezifischer Schlüsselwörter kann umgeordnet werden, ebenso wie ein Achsenspezifisches Schlüsselwort und eine Länge oder ein Prozentsatz, aber zwei Längen- oder Prozentwerte sind nicht austauschbar.
-Wenn einer der beiden Werte `oben`, `rechts`, `unten` oder `links` ist, spielt die Reihenfolge der beiden Werte keine Rolle. Jeder `center` oder `<length-percentage>` Wert in dem Wertepaar wird auf die andere Dimension angewendet.
+Ein Paar von achsenspezifischen Keywords kann umgeordnet werden, ebenso wie ein achsenspezifisches Schlüsselwort und eine Länge oder Prozentsatz, aber zwei Längen- oder Prozentsatzwerte sind nicht austauschbar.
+Wenn einer der beiden Werte `top`, `right`, `bottom` oder `left` ist, spielt die Reihenfolge der beiden Werte keine Rolle. Jeder `center` oder `<length-percentage>` Wert im Paar wird auf die andere Dimension angewendet.
 
-### Vier-Werte-Syntax
+### Vier-Wert-Syntax
 
-Die Vier-Werte-Syntax besteht aus zwei Wertepaaren, wobei jedes Paar ein Schlüsselwort enthält, das die Kante angibt, von der aus das Offset berechnet wird, und einen `<length>` und `<percentage>` Wert, der die Offset-Distanz angibt. Zum Beispiel spezifiziert `mask-position: left 1em top 2em` einen `1em` horizontalen Offset von der linken Boxkante und einen `2em` vertikalen Offset von der oberen Kante. Das Zwei-Wert-Äquivalent wäre `mask-position: 1em 2em`.
+Die Vier-Wert-Syntax besteht aus zwei Paaren von Werten, wobei jedes Paar ein Schlüsselwort enthält, das die Kante angibt, von der offsetiert werden soll, und ein `<length>` und `<percentage>` Wert, der den Offset-Abstand angibt. Zum Beispiel, `mask-position: left 1em top 2em` spezifiziert ein `1em` horizontales Offset von der linken Box-Kante und ein `2em` vertikales Offset von der oberen Kante. Das Zwei-Wert-Äquivalent wäre `mask-position: 1em 2em`.
 
-Da wir die Offset-Kanten bei der Verwendung der Vier-Werte-Syntax definieren, ist die Reihenfolge nicht wichtig: `mask-position: top 2em left 1em` und `mask-position: left 1em top 2em` ergeben dasselbe Ergebnis.
+Da wir die Offset-Kanten bei der Verwendung der Vier-Wert-Syntax definieren, ist die Reihenfolge nicht wichtig: `mask-position: top 2em left 1em` und `mask-position: left 1em top 2em` ergeben beide das gleiche Ergebnis.
 
-Die eigentliche Stärke der Vier-Werte-Syntax besteht darin, dass wir Versatzkanten außer `links` und `oben` angeben können. Zum Beispiel erzeugt `mask-position: bottom 10px right 20px` einen `10px` vertikalen Offset nach oben von der unteren Kante und einen `20px` horizontalen Offset nach links von der rechten Kante. Normalerweise wird die Vier-Werte-Syntax verwendet, um von unten und/oder rechts zu offseten. Diese Syntax ist aber auch hilfreich, wenn Sie sich die Reihenfolge der Offsetkanten für die Zwei-Werte-Syntax nicht merken können.
+Die wirkliche Stärke der Vier-Wert-Syntax liegt darin, dass es uns erlaubt, Offset-Kanten anders als `left` und `top` anzugeben. Zum Beispiel, `mask-position: bottom 10px right 20px` erzeugt ein `10px` vertikales Offset von unten nach oben und ein `20px` horizontales Offset nach links von der rechten Kante. Normalerweise wird die Vier-Wert-Syntax verwendet, um von unten und/oder rechts zu offsetieren. Aber diese Syntax ist auch hilfreich, wenn Sie sich die Offset-Kantenreihenfolge für die Zwei-Wert-Syntax nicht merken können.
 
-Eins ist anzumerken: Im Gegensatz zu den `<bg-position>` Datentypwerten für {{cssxref("background-position")}}, erlauben die `<position>`-Werte für `mask-position` keine Drei-Werte-Syntax und kein Offset von `center`. Beim Offset der Maske von `unten` oder `rechts` erfordert `mask-position`, dass alle vier Werte deklariert werden.
+Eine Sache, die zu beachten ist, dass im Gegensatz zu den `<bg-position>` Datentypwerten für {{cssxref("background-position")}}, die `<position>` Werte für `mask-position` keine Drei-Wert-Syntax erlauben und kein Offset von `center` erlauben. Beim Offsetting der Maske von `bottom` oder `right`, erfordert `mask-position`, dass alle vier Werte deklariert werden.
 
-Um für die Vier-Werte-Syntax gültig zu sein, muss entweder `oben` oder `unten` als vertikale Versatzkante angegeben werden, zusammen mit dem vertikalen Längen- oder Prozentversatzwert, und entweder `links` oder `rechts` als horizontale Versatzkante, zusammen mit dem horizontalen Längen- oder Prozentversatzwert.
+Damit die Vier-Wert-Syntax gültig ist, muss sie entweder `top` oder `bottom` als vertikale Offset-Kante sowie den vertikalen Längen- oder Prozentwert angeben, und entweder `left` oder `right` als horizontalen Offset-Rand sowie den horizontalen Längen- oder Prozentwert.
 
 ## Formale Definition
 
@@ -178,12 +176,12 @@ div {
 - {{cssxref("mask-origin")}}
 - {{cssxref("mask-repeat")}}
 - {{cssxref("mask-size")}}
-- {{cssxref("mask")}} Kurzschrift
+- {{cssxref("mask")}} Kurzschreibweise
 - {{cssxref("mask-border")}}
 - {{cssxref("mask-border-outset")}}
-- [Einführung in CSS-Maskierungen](/de/docs/Web/CSS/CSS_masking/Masking)
+- [Einführung in CSS-Masking](/de/docs/Web/CSS/CSS_masking/Masking)
 - [CSS `mask` Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
 - [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
-- [CSS-Maskenmodul](/de/docs/Web/CSS/CSS_masking)
+- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
 - {{cssxref("background-position")}}
 - {{cssxref("&lt;position&gt;")}}

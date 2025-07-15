@@ -2,12 +2,10 @@
 title: box-decoration-break
 slug: Web/CSS/box-decoration-break
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`box-decoration-break`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie die [Fragmente](/de/docs/Web/CSS/CSS_fragmentation) eines Elements gerendert werden sollen, wenn sie über mehrere Zeilen, Spalten oder Seiten verteilt sind.
+Die **`box-decoration-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die [Fragmente](/de/docs/Web/CSS/CSS_fragmentation) eines Elements dargestellt werden sollen, wenn sie über mehrere Zeilen, Spalten oder Seiten hinweg gebrochen werden.
 
 {{InteractiveExample("CSS Demo: box-decoration-break")}}
 
@@ -75,14 +73,14 @@ box-decoration-break: revert-layer;
 box-decoration-break: unset;
 ```
 
-Die Eigenschaft `box-decoration-break` wird als eines der unten aufgeführten Stichwortwerte angegeben.
+Die `box-decoration-break` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `slice`
-  - : Das Element wird zunächst gerendert, als ob sein Rahmen nicht fragmentiert wäre, wonach das Rendering für diesen hypothetischen Rahmen in Teile für jede Zeile/Spalte/Seite zerteilt wird. Beachten Sie, dass der hypothetische Rahmen für jedes Fragment unterschiedlich sein kann, da er seine eigene Höhe verwendet, wenn der Umbruch in der Inline-Richtung erfolgt, und seine eigene Breite, wenn der Umbruch in der Blockrichtung erfolgt. Siehe die CSS-Spezifikation für Details.
+  - : Das Element wird zunächst so gerendert, als ob seine Box nicht fragmentiert wäre, danach wird die Darstellung dieser hypothetischen Box in Stücke für jede Zeile/Spalte/Seite geschnitten. Beachten Sie, dass die hypothetische Box für jedes Fragment unterschiedlich sein kann, da sie ihre eigene Höhe verwendet, wenn der Bruch in der Inline-Richtung erfolgt, und ihre eigene Breite, wenn der Bruch in der Blockrichtung erfolgt. Details finden Sie in der CSS-Spezifikation.
 - `clone`
-  - : Jedes Box-Fragment wird unabhängig mit dem angegebenen Rand, der Füllung und dem Abstand gerendert, wobei jedes Fragment umschlossen wird. Der {{ Cssxref("border-radius") }}, {{ Cssxref("border-image") }} und {{ Cssxref("box-shadow") }} werden unabhängig auf jedes Fragment angewendet. Der Hintergrund wird ebenfalls unabhängig für jedes Fragment gezeichnet, was bedeutet, dass ein Hintergrundbild mit {{ Cssxref("background-repeat", "background-repeat: no-repeat") }} dennoch mehrmals wiederholt werden kann.
+  - : Jedes Box-Fragment wird unabhängig mit dem angegebenen Rahmen, Polsterung und Rand gerendert, der jedes Fragment umschließt. Der {{ Cssxref("border-radius") }}, {{ Cssxref("border-image") }}, und {{ Cssxref("box-shadow") }} werden auf jedes Fragment unabhängig angewendet. Der Hintergrund wird auch für jedes Fragment unabhängig gezeichnet, was bedeutet, dass ein Hintergrundbild mit {{ Cssxref("background-repeat", "background-repeat: no-repeat") }} trotzdem mehrfach wiederholt werden kann.
 
 ## Formale Definition
 
@@ -96,7 +94,7 @@ Die Eigenschaft `box-decoration-break` wird als eines der unten aufgeführten St
 
 ### Inline-Box-Fragmente
 
-Ein Inline-Element mit einer Box-Dekoration kann ein unerwartetes Erscheinungsbild haben, wenn es aufgrund von Zeilenumbrüchen den anfänglichen Wert `slice` enthält. Das folgende Beispiel zeigt die Wirkung von `box-decoration-break: clone`, angewendet auf ein {{htmlelement("span")}}, das {{htmlelement("br")}} Tags enthält:
+Ein Inline-Element mit einer Box-Dekoration kann ein unerwartetes Erscheinungsbild haben, wenn es Zeilenumbrüche aufgrund des initialen Wertes `slice` enthält. Das folgende Beispiel zeigt die Wirkung des Hinzufügens von `box-decoration-break: clone` zu einem {{htmlelement("span")}}, das {{htmlelement("br")}} Tags enthält:
 
 ```css hidden
 body {
@@ -143,7 +141,7 @@ span {
 
 ### Block-Box-Fragmente
 
-Das folgende Beispiel zeigt, wie Blockelemente mit Box-Dekoration aussehen, wenn sie Zeilenumbrüche in einem [Multi-Column-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) enthalten. Beachten Sie, wie das Ergebnis von `box-decoration-break: slice` dem ersten {{htmlelement("div")}} entspricht, wenn sie vertikal gestapelt sind.
+Das folgende Beispiel zeigt, wie Block-Elemente mit Box-Dekoration aussehen, wenn sie Zeilenumbrüche in einem [mehrspaltigen Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) enthalten. Beachten Sie, dass das Ergebnis von `box-decoration-break: slice` dem ersten {{htmlelement("div")}} entsprechen würde, wenn es vertikal gestapelt wäre.
 
 ```css hidden
 body {

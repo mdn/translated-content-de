@@ -2,12 +2,10 @@
 title: "@font-palette-values"
 slug: Web/CSS/@font-palette-values
 l10n:
-  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`@font-palette-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ermöglicht es Ihnen, die Standardwerte von [font-palette](/de/docs/Web/CSS/font-palette) anzupassen, die vom Schriftgestalter erstellt wurden.
+Die **`@font-palette-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ermöglicht es Ihnen, die Standardwerte der vom Schriftartentwickler erstellten [font-palette](/de/docs/Web/CSS/font-palette) anzupassen.
 
 ## Syntax
 
@@ -20,14 +18,14 @@ Die **`@font-palette-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/C
 }
 ```
 
-Das [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) ist ein benutzerdefinierter Bezeichner, der zwar wie eine [CSS-Custom-Property](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) aussieht, sich jedoch anders verhält und nicht in eine [CSS var()-Funktion](/de/docs/Web/CSS/var) eingebunden wird.
+Das [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) ist ein benutzerdefinierter Bezeichner, der, obwohl er wie eine [CSS-Custom-Eigenschaft](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) aussieht, sich anders verhält und nicht in einer [CSS var()-Funktion](/de/docs/Web/CSS/var) eingeschlossen ist.
 
 ### Deskriptoren
 
 - {{cssxref("@font-palette-values/base-palette", "base-palette")}}
-  - : Gibt den Namen oder Index der Basis-Palette an, die vom Schriftgestalter erstellt wurde und verwendet werden soll.
+  - : Gibt den Namen oder Index der vom Schriftartentwickler erstellten Basis-Palette an, die verwendet werden soll.
 - {{cssxref("@font-palette-values/font-family", "font-family")}}
-  - : Gibt den Namen der Schriftfamilie an, auf die diese Palette angewendet werden kann. Ein `font-family`-Name ist erforderlich, damit die `@font-palette-values`-Regel gültig ist.
+  - : Gibt den Namen der Schriftfamilie an, auf die diese Palette angewendet werden kann. Ein `font-family`-Name ist erforderlich, damit die Regel `@font-palette-values` gültig ist.
 - {{cssxref("@font-palette-values/override-colors", "override-colors")}}
   - : Gibt die Farben in der Basis-Palette an, die überschrieben werden sollen.
 
@@ -37,9 +35,9 @@ Das [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) ist ein benutzerdefini
 
 ## Beispiele
 
-### Überschreiben von Farben in einer bestehenden Palette
+### Farben in einer bestehenden Palette überschreiben
 
-Dieses Beispiel zeigt, wie Sie einige oder alle Farben in einer Farbschrift ändern können.
+Dieses Beispiel zeigt, wie Sie einige oder alle Farben in einer Farb-Schriftart ändern können.
 
 #### HTML
 
@@ -69,7 +67,7 @@ p {
 
 #### Ergebnis
 
-Wenn Sie Farben der normalen oder Basis-Palette am Index 0 überschreiben, müssen Sie nicht angeben, welche Basis-Palette verwendet werden soll. Dies sollte nur geschehen, wenn Sie eine andere Basis-Palette überschreiben. Wenn Sie alle Farben überschreiben, muss die zu verwendende Basis-Palette ebenfalls nicht angegeben werden.
+Wenn Sie Farben der normalen oder Basis-Palette am Index 0 überschreiben, müssen Sie nicht angeben, welche Basis-Palette verwendet werden soll. Dies sollte nur geschehen, wenn eine andere Basis-Palette überschrieben wird. Wenn Sie alle Farben überschreiben, ist es ebenfalls nicht erforderlich, die zu verwendende Basis-Palette anzugeben.
 
 {{EmbedLiveSample("Overriding colors in an existing palette")}}
 
@@ -83,8 +81,8 @@ Wenn Sie Farben der normalen oder Basis-Palette am Index 0 überschreiben, müss
 
 ## Siehe auch
 
-- {{cssxref("font-palette", "font-palette")}} Eigenschaft
-- {{cssxref("@font-palette-values/font-family", "font-family")}} Deskriptor
-- {{cssxref("@font-palette-values/base-palette", "base-palette")}} Deskriptor
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
+- {{cssxref("font-palette", "font-palette")}}-Eigenschaft
+- {{cssxref("@font-palette-values/font-family", "font-family")}}-Deskriptor
+- {{cssxref("@font-palette-values/base-palette", "base-palette")}}-Deskriptor
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor
 - [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)

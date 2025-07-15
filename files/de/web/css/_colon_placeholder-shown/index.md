@@ -2,12 +2,10 @@
 title: :placeholder-shown
 slug: Web/CSS/:placeholder-shown
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das aktuell [Platzhaltertext](/de/docs/Web/HTML/Reference/Elements/input#placeholder) anzeigt.
+Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element, das momentan [Platzhaltertext](/de/docs/Web/HTML/Reference/Elements/input#placeholder) anzeigt.
 
 {{InteractiveExample("CSS Demo: :placeholder-shown", "tabbed-shorter")}}
 
@@ -83,7 +81,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die {{cssxref("text-overflow")}}-Eigenschaft verwenden, um die Anzeige des überlaufenden Textes zu ändern.
+Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die {{cssxref("text-overflow")}} Eigenschaft verwenden, um die Darstellung von überlaufendem Text zu ändern.
 
 #### HTML
 
@@ -104,9 +102,9 @@ Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte We
 
 {{EmbedLiveSample("Overflowing_text", 200, 80)}}
 
-### Anpassungsfähiges Eingabefeld
+### Benutzerdefiniertes Eingabefeld
 
-Das folgende Beispiel hebt das Feld "Student ID" mit einem benutzerdefinierten Stil hervor.
+Das folgende Beispiel hebt das Studentenausweisfeld mit einem benutzerdefinierten Stil hervor.
 
 #### HTML
 
@@ -163,6 +161,6 @@ input.student-id:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}} Pseudoelement stylt den Platzhalter _selbst_.
+- Das {{CSSxRef("::placeholder")}} Pseudo-Element stilisiert den Platzhalter selbst.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)

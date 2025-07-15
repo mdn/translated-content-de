@@ -2,19 +2,17 @@
 title: line-clamp
 slug: Web/CSS/line-clamp
 l10n:
-  sourceCommit: 58f017d3bc8f78a9469055f1a7f7f3f5befa4447
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines {{Glossary("block", "blocks")}} auf die angegebene Anzahl von Zeilen zu begrenzen.
+Die **`line-clamp`**-[CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, den Inhalt eines {{Glossary("block", "Block")}}-Elements auf eine angegebene Anzahl von Zeilen zu begrenzen.
 
 > [!NOTE]
-> Für die Unterstützung älterer Browser funktioniert die Anbieter-präfixierte Eigenschaft `-webkit-line-clamp` nur in Kombination mit der {{cssxref("display")}} Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` gesetzt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}} Eigenschaft, die auf `vertical` gesetzt ist. Obwohl diese präfixierten Eigenschaften veraltet sind, ist die Abhängigkeit dieser drei Eigenschaften ein vollständig spezifiziertes Verhalten und wird weiterhin unterstützt.
+> Für die Unterstützung älterer Browser funktioniert die Anbieterpräfix-Eigenschaft `-webkit-line-clamp` nur in Kombination mit der {{cssxref("display")}}-Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` gesetzt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}}-Eigenschaft, die auf `vertical` gesetzt ist. Obwohl diese gepraiften Eigenschaften veraltet sind, ist die Ko-Abhängigkeit dieser drei Eigenschaften ein vollständig spezifiziertes Verhalten und wird weiterhin unterstützt.
 
-In den meisten Fällen möchten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, andernfalls wird der Inhalt nicht abgeschnitten, aber es wird trotzdem ein Auslassungszeichen nach der angegebenen Anzahl von Zeilen angezeigt.
+In den meisten Fällen möchten Sie wahrscheinlich auch {{cssxref("overflow")}} auf `hidden` setzen, andernfalls wird der Inhalt nicht abgeschnitten, aber ein Auslassungszeichen wird dennoch nach der angegebenen Anzahl von Zeilen angezeigt.
 
-Wenn es auf Ankerelemente angewendet wird, kann die Verkürzung in der Mitte des Textes auftreten, nicht unbedingt am Ende.
+Wenn auf Ankerelemente angewendet, kann die Kürzung in der Mitte des Textes erfolgen, nicht unbedingt am Ende.
 
 ## Syntax
 
@@ -37,9 +35,9 @@ line-clamp: unset;
 ### Werte
 
 - `none`
-  - : Dieser Wert gibt an, dass der Inhalt nicht abgeschnitten wird.
+  - : Dieser Wert gibt an, dass der Inhalt nicht begrenzt wird.
 - {{cssxref("integer")}}
-  - : Dieser Wert gibt die Anzahl der Zeilen an, nach denen der Inhalt abgeschnitten wird. Dieser muss größer als 0 sein.
+  - : Dieser Wert gibt die Anzahl der Zeilen an, nach denen der Inhalt abgeschnitten wird. Er muss größer als 0 sein.
 
 ## Formale Definition
 
@@ -51,7 +49,7 @@ line-clamp: unset;
 
 ## Beispiele
 
-### Verkürzen eines Absatzes
+### Kürzen eines Absatzes
 
 #### HTML
 

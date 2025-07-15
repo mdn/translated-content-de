@@ -2,12 +2,10 @@
 title: scale
 slug: Web/CSS/scale
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`scale`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, Skalentransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft zu spezifizieren. Dies entspricht besser der typischen Nutzung in Benutzeroberflächen und erspart das Merken der genauen Reihenfolge von Transformationsfunktionen, die im `transform`-Wert angegeben werden müssen.
+Die **`scale`**-[CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Skalentransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft festzulegen. Dies passt besser zur typischen Benutzeroberflächennutzung und erspart es, sich die genaue Reihenfolge der Transformationsfunktionen merken zu müssen, die im `transform`-Wert angegeben werden sollen.
 
 {{InteractiveExample("CSS Demo: scale")}}
 
@@ -129,12 +127,12 @@ scale: unset;
 
 ### Werte
 
-- Einzelner Wert
-  - : Eine {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Angabe, die den Skalierungsfaktor spezifiziert, um das betroffene Element gleichmäßig entlang der X- und Y-Achsen zu skalieren. Entspricht einer `scale()` (2D-Skalierung) Funktion mit einem einzelnen Wert.
+- Ein einzelner Wert
+  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der einen Skalierungsfaktor angibt, um das betroffene Element gleichermaßen entlang der X- und Y-Achsen zu skalieren. Entspricht einer `scale()`-Funktion (2D-Skalierung) mit einem einzelnen angegebenen Wert.
 - Zwei Werte
-  - : Zwei {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die die X- und Y-Achsen-Skalierungswerte (jeweils) einer 2D-Skalierung angeben. Entspricht einer `scale()` (2D-Skalierung) Funktion mit zwei Werten.
+  - : Zwei {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Skalierungswerte (jeweils) einer 2D-Skalierung angeben. Entspricht einer `scale()`-Funktion (2D-Skalierung) mit zwei angegebenen Werten.
 - Drei Werte
-  - : Drei {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die die X-, Y- und Z-Achsen-Skalierungswerte (jeweils) einer 3D-Skalierung angeben. Entspricht einer `scale3d()` (3D-Skalierung) Funktion.
+  - : Drei {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X-, Y- und Z-Achsen-Skalierungswerte (jeweils) einer 3D-Skalierung angeben. Entspricht einer `scale3d()`-Funktion (3D-Skalierung).
 - `none`
   - : Gibt an, dass keine Skalierung angewendet werden soll.
 
@@ -150,7 +148,7 @@ scale: unset;
 
 ### Skalierung eines Elements bei Hover
 
-Das folgende Beispiel zeigt, wie man ein Element bei Hover skaliert.
+Das folgende Beispiel zeigt, wie man ein Element bei Hover skalieren kann.
 Es werden zwei Boxen angezeigt, eine mit einem einzelnen `scale`-Wert, der das Element entlang beider Achsen skaliert.
 Die zweite Box hat zwei `scale`-Werte, die das Element unabhängig entlang der X- und Y-Achsen skalieren.
 
@@ -201,4 +199,4 @@ Die zweite Box hat zwei `scale`-Werte, die das Element unabhängig entlang der X
 - {{cssxref('rotate')}}
 - {{cssxref('transform')}}
 
-Hinweis: skew ist kein unabhängiger Transformationswert
+Hinweis: Schrägstellung (skew) ist kein unabhängiger Transformationswert.

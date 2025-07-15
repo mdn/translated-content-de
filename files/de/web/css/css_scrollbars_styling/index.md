@@ -1,17 +1,15 @@
 ---
-title: CSS-Scrollleisten-Styling
+title: CSS-Scrollbalken-Styling
 slug: Web/CSS/CSS_scrollbars_styling
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **CSS-Scrollbalken-Styling**-Modul definiert Eigenschaften, die Sie zur visuellen Gestaltung von Scrollbalken verwenden können. Sie können die Breite des Scrollbalkens nach Bedarf anpassen. Außerdem können Sie die Farbe des Scrollbalken-_Tracks_, also des Hintergrunds des Scrollbalkens, und die Farbe des Scrollbalken-_Thumbs_, also des ziehbaren Griffs des Scrollbalkens, anpassen.
 
-Das **CSS-Scrollleisten-Styling**-Modul definiert Eigenschaften, die Sie für die visuelle Gestaltung von Scrollleisten verwenden können. Sie können die Breite der Scrollleiste nach Bedarf anpassen. Zusätzlich können Sie die Farbe des _Tracks_ der Scrollleiste, also den Hintergrund der Scrollleiste, sowie die Farbe des _Thumbs_ der Scrollleiste, also des verschiebbaren Griffs der Scrollleiste, anpassen.
+## Scrollbalken-Styling in Aktion
 
-## Scrollleisten-Styling in Aktion
-
-Dieses Beispiel definiert eine schmale Scrollleiste mit einem roten Thumb und einem orangefarbenen Track. Um den Thumb zu sehen, müssen Sie den Text scrollen. Nachdem die Scrollleiste sichtbar ist, bewegen Sie die Maus darüber, um den Track zu sehen.
+Dieses Beispiel definiert einen schmalen Scrollbalken mit einem roten Thumb und einem orangefarbenen Track. Um den Thumb zu sehen, müssen Sie den Text scrollen. Nachdem der Scrollbalken sichtbar ist, bewegen Sie den Mauszeiger über ihn, um den Track zu sehen.
 
 ```css hidden
 .poem {
@@ -59,7 +57,7 @@ for us to breathe.
 {{EmbedLiveSample("Scrollbar_styling_in_action")}}
 
 > [!NOTE]
-> Beim Anpassen von Scrollleisten stellen Sie sicher, dass Thumb und Track einen ausreichenden Kontrast zum umgebenden Hintergrund haben. Stellen Sie außerdem sicher, dass der Bereich für die Scrollleiste groß genug für Personen ist, die Touch-Eingaben verwenden.
+> Bei der Anpassung von Scrollbalken stellen Sie sicher, dass Thumb und Track ausreichend Kontrast zum umgebenden Hintergrund haben. Achten Sie auch darauf, dass der Trefferbereich des Scrollbalkens groß genug für Benutzer ist, die eine Touch-Eingabe verwenden.
 
 ## Referenz
 
@@ -74,12 +72,12 @@ for us to breathe.
 - {{CSSxRef("overflow-inline")}} CSS-Eigenschaft
 - {{CSSxRef("overflow-x")}} CSS-Eigenschaft
 - {{CSSxRef("overflow-y")}} CSS-Eigenschaft
-- {{CSSxRef("overflow")}} CSS-Kurzform Eigenschaft
+- {{CSSxRef("overflow")}} CSS-Shorthand-Eigenschaft
 - {{CSSxRef("overflow-clip-margin")}} CSS-Eigenschaft
 - {{CSSxRef("scrollbar-gutter")}} CSS-Eigenschaft
 - {{CSSxRef("scroll-behavior")}} CSS-Eigenschaft
-- {{cssxref("scroll-margin")}} CSS-Kurzform Eigenschaft
-- {{cssxref("scroll-padding")}} CSS-Kurzform Eigenschaft
+- {{cssxref("scroll-margin")}} CSS-Shorthand-Eigenschaft
+- {{cssxref("scroll-padding")}} CSS-Shorthand-Eigenschaft
 - {{cssxref("scroll-snap-align")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-stop")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-type")}} CSS-Eigenschaft

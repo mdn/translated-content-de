@@ -2,12 +2,10 @@
 title: <content-position>
 slug: Web/CSS/content-position
 l10n:
-  sourceCommit: 95b3a7c3d7c854feddb769922818f9d5a3abd500
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<content-position>`** {{Glossary("enumerated", "enumerierte")}} Wertetyp wird von den Eigenschaften {{cssxref("justify-content")}} und {{cssxref("align-content")}} sowie der Kurzform {{cssxref("place-content")}} verwendet, um den Inhalt der Box innerhalb von sich selbst auszurichten.
+Der **`<content-position>`** {{Glossary("enumerated", "aufzählbare")}} Wertetyp wird von den {{cssxref("justify-content")}} und {{cssxref("align-content")}} Eigenschaften sowie der {{cssxref("place-content")}} Kurzschreibweise verwendet, um den Inhalt einer Box innerhalb dieser auszurichten.
 
 ## Syntax
 
@@ -17,12 +15,12 @@ Der **`<content-position>`** {{Glossary("enumerated", "enumerierte")}} Wertetyp 
 
 ## Werte
 
-Der `<content-position>` enumerierte Wertetyp wird mit einem der folgenden Schlüsselbegriffe angegeben.
+Der `<content-position>` aufzählbare Wertetyp wird durch einen der folgenden Schlüsselbegriffe spezifiziert.
 
 - `center`
-  - : Zentriert das {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} innerhalb seines {{Glossary("alignment_container", "Ausrichtungscontainers")}}.
+  - : Zentriert das {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} in seinem {{Glossary("alignment_container", "Ausrichtungscontainer")}}.
 - `start`
-  - : Richtet das Ausrichtungsobjekt bündig mit der Anfangskante des Ausrichtungscontainers aus.
+  - : Richtet das Ausrichtungsobjekt bündig mit der Startkante des Ausrichtungscontainers aus.
 - `end`
   - : Richtet das Ausrichtungsobjekt bündig mit der Endkante des Ausrichtungscontainers aus.
 - `flex-start`
@@ -31,7 +29,7 @@ Der `<content-position>` enumerierte Wertetyp wird mit einem der folgenden Schl�
   - : Im Flex-Layout wird das Ausrichtungsobjekt bündig mit der Kante des Ausrichtungscontainers ausgerichtet, die der Hauptend- oder Kreuzendseite des Flex-Containers entspricht. Identisch mit `end` für andere Layout-Modi als das Flex-Layout.
 
 > [!NOTE]
-> Die Schlüsselwörter `left` und `right` sind aus `<content-position>` ausgeschlossen, obwohl sie gültige positionsbezogene Ausrichtungswerte für die `justify-*` Eigenschaften ({{cssxref("justify-content")}}, {{cssxref("justify-self")}}, und {{cssxref("justify-items")}}) sind, da sie in den `align-*` Eigenschaften ({{cssxref("align-content")}}, {{cssxref("align-self")}}, und {{cssxref("align-items")}}) nicht erlaubt sind. Stattdessen sind sie explizit in den Grammatiken der `justify-*` Eigenschaften enthalten.
+> Die Schlüsselwörter `left` und `right` sind von `<content-position>` ausgeschlossen, obwohl sie gültige positionsbezogene Ausrichtungswerte für die `justify-*` Eigenschaften ({{cssxref("justify-content")}}, {{cssxref("justify-self")}} und {{cssxref("justify-items")}}) sind, da sie in den `align-*` Eigenschaften ({{cssxref("align-content")}}, {{cssxref("align-self")}} und {{cssxref("align-items")}}) nicht erlaubt sind. Stattdessen sind sie explizit in den Grammatiken der `justify-*` Eigenschaften enthalten.
 
 ## Spezifikationen
 
@@ -40,7 +38,7 @@ Der `<content-position>` enumerierte Wertetyp wird mit einem der folgenden Schl�
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("align-content")}}, {{cssxref("justify-content")}}, {{cssxref("place-content")}}
-- Andere Box-Ausrichtungsdatentypen: {{cssxref("baseline-position")}}, {{cssxref("content-distribution")}}, `content-position`, {{cssxref("overflow-position")}}, und {{cssxref("self-position")}}
-- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
-- [CSS-Flexibler Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS-Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- Andere Box-Ausrichtungsdatentypen: {{cssxref("baseline-position")}}, {{cssxref("content-distribution")}}, `content-position`, {{cssxref("overflow-position")}} und {{cssxref("self-position")}}
+- [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
+- [CSS flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul

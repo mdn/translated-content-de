@@ -2,14 +2,13 @@
 title: math-depth
 slug: Web/CSS/math-depth
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`math-depth`**-Eigenschaft beschreibt ein Konzept der _Tiefe_ für jedes Element einer mathematischen Formel in Bezug auf das oberste Container-Level dieser Formel. Diese Eigenschaft wird verwendet, um den berechneten Wert der [font-size](/de/docs/Web/CSS/font-size) von Elementen zu skalieren, wenn `font-size: math` angewendet wird.
 
-Die **`math-depth`**-Eigenschaft beschreibt ein Konzept der _Tiefe_ für jedes Element einer mathematischen Formel in Bezug auf den obersten Container dieser Formel. Dies wird verwendet, um den berechneten Wert der [font-size](/de/docs/Web/CSS/font-size) von Elementen zu skalieren, wenn `font-size: math` angewendet wird.
-
-> [!NOTE] > `font-size: math` ist der Standard für `<math>`-Elemente im MathML Core [User Agent Stylesheet](https://w3c.github.io/mathml-core/#user-agent-stylesheet), daher ist es nicht notwendig, es explizit anzugeben.
+> [!NOTE]
+> `font-size: math` ist die Standardeinstellung für `<math>`-Elemente im MathML Core [User Agent stylesheet](https://w3c.github.io/mathml-core/#user-agent-stylesheet), sodass es nicht notwendig ist, diese explizit anzugeben.
 
 ## Syntax
 
@@ -35,11 +34,11 @@ math-depth: unset;
 ### Werte
 
 - `auto-add`
-  - : Wird auf die geerbte `math-depth` plus 1 gesetzt, wenn der geerbte [math-style](/de/docs/Web/CSS/math-style) `compact` ist.
+  - : Setzt auf die geerbte `math-depth` plus 1, wenn geerbter [math-style](/de/docs/Web/CSS/math-style) `compact` ist.
 - `add({{cssxref("&lt;integer&gt;")}})`
-  - : Wird auf die geerbte `math-depth` plus die angegebene Ganzzahl gesetzt.
+  - : Setzt auf die geerbte `math-depth` plus den angegebenen Integer-Wert.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Wird auf die angegebene Ganzzahl gesetzt.
+  - : Setzt auf den angegebenen Integer-Wert.
 
 ## Formale Definition
 
@@ -51,13 +50,15 @@ math-depth: unset;
 
 ## Beispiele
 
-### Festlegen einer mathematischen Tiefe
+### Festlegen einer math depth
 
-Das folgende Beispiel zeigt die Auswirkung der Änderung der `math-depth`-Eigenschaft auf die Schriftgröße von Unterformeln. Die Zahlen in jeder Unterformel geben die `math-depth` und den angewendeten Skalierungsfaktor an.
+Das folgende Beispiel zeigt die Wirkung der Änderung der Eigenschaft `math-depth` auf die Schriftgröße von Unterformeln.
+Die Zahlen in jeder Unterformel geben die `math-depth` und den angewendeten Skalierungsfaktor an.
 
-Das erste `<mtext>`-Element wird als Referenz für andere Unterformeln verwendet und hat keine speziellen Stile. Die zweite und dritte Unterformeln haben `math-depth` auf `auto-add` gesetzt und zeigen die Auswirkung der Skalierung abhängig vom `math-style`.
+Das erste `<mtext>`-Element dient als Referenz für andere Unterformeln und hat keine spezifischen Stile angewendet.
+Die zweite und dritte Unterformel haben `math-depth` auf `auto-add` gesetzt und zeigen die Auswirkungen der Skalierung in Abhängigkeit vom `math-style`.
 
-Die letzten beiden Unterformeln zeigen die Auswirkung der Einstellung von `math-depth` auf einen spezifischen Wert.
+Die letzten beiden Unterformeln zeigen die Wirkung, wenn `math-depth` auf einen bestimmten Wert gesetzt wird.
 
 #### HTML
 

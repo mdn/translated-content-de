@@ -2,12 +2,10 @@
 title: column-rule-color
 slug: Web/CSS/column-rule-color
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`column-rule-color`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule-color")}}
 
@@ -64,7 +62,7 @@ column-rule-color: revert-layer;
 column-rule-color: unset;
 ```
 
-Die Eigenschaft `column-rule-color` wird als einzelner `<color>`-Wert angegeben.
+Die `column-rule-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
 
 ### Werte
 
@@ -81,7 +79,7 @@ Die Eigenschaft `column-rule-color` wird als einzelner `<color>`-Wert angegeben.
 
 ## Beispiele
 
-### Festlegen einer blauen Spaltenlinie
+### Einstellen einer blauen Spaltenlinie
 
 #### HTML
 

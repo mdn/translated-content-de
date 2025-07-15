@@ -2,12 +2,10 @@
 title: min-inline-size
 slug: Web/CSS/min-inline-size
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`min-inline-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig von dessen Schreibmodus. Sie entspricht entweder der Eigenschaft {{cssxref("min-width")}} oder {{cssxref("min-height")}}, abhängig vom Wert des {{cssxref("writing-mode")}}.
+Die CSS-Eigenschaft **`min-inline-size`** definiert die horizontale oder vertikale Mindestgröße eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("min-width")}}-Eigenschaft oder der {{cssxref("min-height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
 {{InteractiveExample("CSS Demo: min-inline-size")}}
 
@@ -73,7 +71,7 @@ min-inline-size: revert-layer;
 min-inline-size: unset;
 ```
 
-Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `min-inline-size` auf die minimale Höhe des Elements; andernfalls bezieht er sich auf die minimale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-block-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `min-inline-size` auf die Mindesthöhe des Elements; andernfalls auf die Mindestbreite des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-block-size")}}, die die andere Dimension des Elements bestimmt.
 
 ### Werte
 
@@ -89,7 +87,7 @@ Die Eigenschaft `min-inline-size` nimmt die gleichen Werte wie die Eigenschaften
 
 ## Beispiele
 
-### Mindest-Inline-Größe für vertikalen Text festlegen
+### Mindestgröße für vertikalen Text festlegen
 
 #### HTML
 

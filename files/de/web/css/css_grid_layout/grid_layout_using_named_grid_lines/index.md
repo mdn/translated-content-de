@@ -1,20 +1,18 @@
 ---
-title: Layout mit benannten Rasterlinien
-short-title: Verwenden benannter Rasterlinien
+title: Layout mit benannten Gitternetzlinien
+short-title: Verwendung benannter Gitternetzlinien
 slug: Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+In den vorherigen Leitfäden haben wir uns angesehen, wie man Elemente auf den Linien platziert, die durch das [Definieren von Gitternetz-Spuren](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) erstellt werden, und auch, wie man Elemente [mit benannten Vorlagenbereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) platziert. In diesem Leitfaden schauen wir uns an, wie diese beiden Dinge zusammenarbeiten, wenn wir benannte Linien verwenden.
 
-In früheren Leitfäden haben wir uns angeschaut, wie Elemente auf den Linien platziert werden, die durch das [Definieren von Rasterstrecken](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) erstellt werden, und wie Elemente [mithilfe benannter Vorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) platziert werden können. In diesem Leitfaden schauen wir uns an, wie diese beiden Dinge zusammenarbeiten, wenn wir benannte Linien verwenden.
+Das Benennen von Linien ist unglaublich nützlich, aber einige der verwirrendsten Gitternetz-Syntaxen entstehen aus dieser Kombination von Namen und Spurgrößen. Sobald Sie einige Beispiele durchgearbeitet haben, sollte es klarer und einfacher werden, damit zu arbeiten.
 
-Das Benennen von Linien ist unglaublich nützlich, aber einige der verwirrendsten Raster-Syntaxen entstehen aus dieser Kombination von Namen und Spuren. Sobald Sie einige Beispiele durchgearbeitet haben, sollte es klarer und einfacher werden, damit zu arbeiten.
+## Linien benennen, wenn ein Gitter definiert wird
 
-## Linien benennen, wenn ein Raster definiert wird
-
-Sie können einigen oder allen Linien in Ihrem Raster einen Namen zuweisen, wenn Sie Ihr Raster mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren. Um dies zu demonstrieren, nutzen wir das grundlegende Layout, das im Leitfaden zu [linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) erstellt wurde. Dieses Mal erstellen wir das Raster mit benannten Linien.
+Sie können einigen oder allen Linien in Ihrem Gitter einen Namen zuweisen, wenn Sie Ihr Gitter mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren. Um dies zu demonstrieren, verwenden wir das grundlegende Layout, das im Leitfaden über [linienbasiertes Platzieren](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) erstellt wurde. Dieses Mal erstellen wir das Gitter mit benannten Linien.
 
 ```css hidden
 * {
@@ -36,7 +34,7 @@ Sie können einigen oder allen Linien in Ihrem Raster einen Namen zuweisen, wenn
 }
 ```
 
-Beim Definieren des Rasters benennen wir unsere Linien in eckigen Klammern (`[]`). Diese Namen können beliebig gewählt werden. Wir definieren einen Namen für den Anfang und das Ende des Containers, sowohl für Zeilen als auch für Spalten. In diesem Fall sind die Anfangszeilen und -spalten des zentralen Blocks im Raster beide als `content-start` benannt und dessen Endzeilen und -spalten sind beide als `content-end` benannt.
+Bei der Definition des Gitters benennen wir unsere Linien innerhalb von eckigen Klammern (`[]`). Diese Namen können beliebig gewählt werden. Wir definieren einen Namen für den Start und das Ende des Containers, sowohl für Reihen als auch für Spalten. In diesem Fall sind die Startreihen und -spalten des zentralen Gitterblocks beide mit `content-start` benannt, und die Endreihen und -spalten sind beide mit `content-end` benannt.
 
 ```css
 .wrapper {
@@ -46,9 +44,9 @@ Beim Definieren des Rasters benennen wir unsere Linien in eckigen Klammern (`[]`
 }
 ```
 
-Wir müssen nicht alle Linien in unseren Rastern benennen; Sie können nur die Schlüsselzeilen Ihres Layouts benennen.
+Wir müssen nicht alle Linien in unseren Gittern benennen; Sie können sich entscheiden, nur die Schlüssel-Linien Ihres Layouts zu benennen.
 
-Sobald die Linien Namen haben, können wir den definierten Namen anstelle der Liniennummer verwenden, um die Rasterelemente zu platzieren.
+Sobald die Linien Namen haben, können wir den von uns definierten Namen verwenden, anstatt der Liniennummer, um die Gitterelemente zu platzieren.
 
 ```css
 .box1 {
@@ -86,17 +84,17 @@ Sobald die Linien Namen haben, können wir den definierten Namen anstelle der Li
 
 {{ EmbedLiveSample('Naming_lines_when_defining_a_grid', '500', '330') }}
 
-Alles andere über die linienbasierte Platzierung funktioniert weiterhin auf die gleiche Weise. In unserem Rasterlayout haben wir jeder numerischen Linie einen Aliasnamen zugewiesen. In unseren Rastelementen beziehen wir uns auf einen Namen statt einer Zahl. Das Benennen von Linien auf diese Weise ist nützlich — beim Erstellen eines responsiven Designs können wir die Rastereigenschaften des Containers aktualisieren, anstatt die Rasterelemente innerhalb jeder [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) zu aktualisieren.
+Alles andere über die linienbasierte Platzierung funktioniert weiterhin auf die gleiche Weise. In unserem Gitterlayout haben wir jeder numerischen Linie einen Aliasnamen zugewiesen. In unseren Gitterelementen verweisen wir auf einen Namen statt auf eine Nummer. Das Benennen von Linien auf diese Weise ist nützlich — bei der Erstellung eines responsiven Designs können wir die Gittereigenschaften des Containers aktualisieren, anstatt die Gitterelemente innerhalb jeder [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) zu aktualisieren.
 
-### Mehreren Linien Namen geben
+### Linien mehrere Namen geben
 
-Möglicherweise möchten Sie einer Linie mehr als einen Namen geben, vielleicht kennzeichnet sie das Ende der Seitenleiste und den Anfang des Hauptbereichs. Fügen Sie dazu die Namen in den eckigen Klammern mit Leerzeichen zwischen ihnen hinzu `[sidebar-end main-start]`. Sie können dann auf diese Linie mit einem der Namen verweisen.
+Es ist möglich, einer Linie mehr als einen Namen zu geben, vielleicht bezeichnet es das Ende der Seitenleiste und den Start des Hauptbereichs. Dazu fügen Sie die Namen mit Leerzeichen dazwischen in die eckigen Klammern ein `[sidebar-end main-start]`. Sie können dann auf diese Linie mit einem der Namen verweisen.
 
-## Implizite Rasterbereiche von benannten Linien
+## Implizite Gitterbereiche aus benannten Linien
 
-Beim Benennen der Linien haben wir erwähnt, dass Sie diese beliebig benennen können. Der Name ist eine {{cssxref("custom-ident")}}, ein vom Autor definierter Name. Bei der Auswahl des Namens sollten Sie Wörter vermeiden, die möglicherweise in der Spezifikation erscheinen und verwirrend sind — wie `span`. Idents werden nicht in Anführungszeichen gesetzt.
+Beim Benennen der Linien haben wir erwähnt, dass Sie diese Namen beliebig wählen können. Der Name ist ein {{cssxref("custom-ident")}}, ein vom Autor festgelegter Name. Beim Wählen des Namens sollten Sie Wörter vermeiden, die in der Spezifikation vorkommen und verwirrend sein könnten — wie `span`. Idents werden nicht in Anführungszeichen gesetzt.
 
-Während Sie jeden Namen wählen können, erstellt das Raster einen benannten Bereich des verwendeten Hauptnamens, wenn Sie `-start` und `-end` an die Linien um einen Bereich anhängen, wie wir es im obigen Beispiel getan haben. Im obigen Beispiel haben wir `content-start` und `content-end` sowohl für Zeilen als auch für Spalten. Das bedeutet, wir erhalten einen Rasterbereich namens `content` und könnten etwas in diesem Bereich platzieren, wenn wir möchten.
+Obwohl Sie jeden Namen wählen können, erstellt das Gitter einen benannten Bereich des Hauptnamens, wenn Sie `-start` und `-end` an Linien um einen Bereich anhängen, wie wir es im obigen Beispiel getan haben. Anhand des oben genannten Beispiels haben wir sowohl für Reihen als auch für Spalten `content-start` und `content-end`. Das bedeutet, dass wir einen Gitterbereich mit dem Namen `content` erhalten und bei Bedarf etwas in diesem Bereich platzieren können.
 
 ```css hidden
 * {
@@ -118,7 +116,7 @@ Während Sie jeden Namen wählen können, erstellt das Raster einen benannten Be
 }
 ```
 
-Wir verwenden die gleichen Rasterdefinitionen wie oben und platzieren ein einzelnes Element in den benannten Bereich `content`.
+Wir verwenden die gleichen Gitterdefinitionen wie oben und platzieren ein einzelnes Element in den benannten Bereich `content`.
 
 ```css
 .wrapper {
@@ -139,20 +137,20 @@ Wir verwenden die gleichen Rasterdefinitionen wie oben und platzieren ein einzel
 
 {{ EmbedLiveSample('Implicit_grid_areas_from_named_lines', '500', '330') }}
 
-Es ist nicht erforderlich, unsere Bereiche mit {{cssxref("grid-template-areas")}} zu definieren, da unsere benannten Linien einen Bereich für uns erstellt haben.
+Wir müssen nicht definieren, wo sich unsere Bereiche befinden, mit {{cssxref("grid-template-areas")}}, denn unsere benannten Linien haben einen Bereich für uns erstellt.
 
-## Implizite Rasterlinien von benannten Bereichen
+## Implizite Gitterlinien aus benannten Bereichen
 
-Wir haben gesehen, wie benannte Linien einen benannten Bereich erstellen, und das funktioniert auch umgekehrt. Benannte Vorlagenbereiche erstellen benannte Linien, die Sie verwenden können, um Ihre Elemente zu platzieren. Wenn wir das Layout verwenden, das im Leitfaden zu [grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) erstellt wurde, können wir die von unseren Bereichen erstellten Linien verwenden, um zu sehen, wie das funktioniert.
+Wir haben gesehen, wie benannte Linien einen benannten Bereich erstellen, und dies funktioniert auch umgekehrt. Benannte Vorlagenbereiche erstellen benannte Linien, die Sie verwenden können, um Ihre Elemente zu platzieren. Wenn wir das Layout aus dem Leitfaden zu [Grid-Vorlagenbereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) betrachten, können wir die Linien sehen, die durch unsere Bereiche erstellt wurden, um zu verstehen, wie dies funktioniert.
 
-In diesem Beispiel haben wir ein zusätzliches `<div>` mit einer Klasse `overlay` hinzugefügt. Wir haben Bereiche erstellt, die mithilfe der Eigenschaft {{cssxref("grid-area")}} benannt wurden, dann ein Layout erstellt in `grid-template-areas`. Die Bereichsnamen sind:
+In diesem Beispiel haben wir ein zusätzliches `<div>` mit einer Klasse `overlay` hinzugefügt. Wir haben benannte Bereiche erstellt, indem wir die Eigenschaft {{cssxref("grid-area")}} verwendet haben, dann ein Layout in `grid-template-areas` erstellt. Die Bereichenamen sind:
 
 - `hd`
 - `ft`
 - `main`
 - `sd`
 
-Das ergibt Zeilen- und Spaltenlinien:
+Dies gibt uns Spalten- und Reihenlinien:
 
 - `hd-start`
 - `hd-end`
@@ -163,11 +161,11 @@ Das ergibt Zeilen- und Spaltenlinien:
 - `ft-start`
 - `ft-end`
 
-Sie können die benannten Linien im Bild sehen. Beachten Sie, dass einige Linien zwei Namen haben - zum Beispiel beziehen sich `sd-end` und `main-start` auf dieselbe Spaltenlinie.
+Sie können die benannten Linien im Bild sehen. Beachten Sie, dass einige Linien zwei Namen haben - zum Beispiel, `sd-end` und `main-start` beziehen sich auf die gleiche Spaltenlinie.
 
-![Ein Bild, das die von unseren Rasterbereichen erstellten impliziten Liniennamen zeigt.](5_multiple_lines_from_areas.png)
+![Ein Bild, das die impliziten Lininamen zeigt, die durch unsere Gitterbereiche erstellt wurden.](5_multiple_lines_from_areas.png)
 
-Das Positionieren von `overlay` mithilfe dieser impliziten benannten Linien ist dasselbe wie das Positionieren eines Elements mithilfe benannter Linien.
+Die Positionierung von `overlay` mit diesen impliziten benannten Linien ist gleich wie die Positionierung eines Elements mit benannten Linien.
 
 ```css hidden
 * {
@@ -239,15 +237,15 @@ Das Positionieren von `overlay` mithilfe dieser impliziten benannten Linien ist 
 
 {{ EmbedLiveSample('Implicit_Grid_lines_from_named_areas', '500', '330') }}
 
-Angesichts der Tatsache, dass wir diese Fähigkeit haben, erstellte Linien von benannten Bereichen und Bereiche von benannten Linien zu positionieren, lohnt es sich, ein wenig Zeit zu investieren, um Ihre Namensstrategie zu planen, wenn Sie mit der Erstellung Ihres Rasterlayouts beginnen. Die Auswahl von Namen, die für Sie und Ihr Team sinnvoll sind, macht Ihre Layouts intuitiver.
+Angesichts der Tatsache, dass wir diese Fähigkeit haben, Linien von benannten Bereichen und Bereiche von benannten Linien zu positionieren, lohnt es sich, ein wenig Zeit zu investieren, um Ihre Benennungsstrategie zu planen, wenn Sie beginnen, Ihr Gitterlayout zu erstellen. Die Auswahl von Namen, die für Sie und Ihr Team sinnvoll sind, macht Ihre Layouts intuitiver.
 
 ## Mehrere Linien mit demselben Namen mit repeat()
 
-Wenn Sie allen Ihren Rasterlinien einen eindeutigen Namen geben möchten, müssen Sie die Spurendeutungen mit Langformeigenschaften definieren, anstatt die Wiederholungssyntax zu verwenden, da die Namen in eckigen Klammern hinzugefügt werden müssen, wenn Spuren definiert werden. Wenn Sie die Wiederholungssyntax verwenden, erhalten Sie mehrere Linien mit demselben Namen, was je nach Layoutanforderungen nützlich oder verwirrend sein kann.
+Wenn Sie allen Gitternetzen einen eindeutigen Namen geben möchten, müssen Sie die Spurdefinition mit Langform-Eigenschaften definieren, anstatt die Repeat-Syntax zu verwenden, da die Namen in eckigen Klammern hinzugefügt werden müssen, wenn Spuren definiert werden. Wenn Sie die Repeat-Syntax verwenden, erhalten Sie mehrere Linien mit demselben Namen, was je nach Ihren Layoutanforderungen nützlich oder verwirrend sein kann.
 
-### Zwölf-Spalten-Raster mit repeat()
+### Zwölf-Spalten-Gitter mit repeat()
 
-In diesem Beispiel erstellen wir ein Raster mit 12 gleichbreiten Spalten. Bevor wir die `1fr`-Größe des Spurenblocks definieren, definieren wir eine Linie namens `[col-start]`. Das bedeutet, dass wir ein Raster mit 12 Spaltenlinien haben werden, die alle `col-start` genannt werden, bevor ein `1fr`-Breitenspalte folgt.
+In diesem Beispiel erstellen wir ein Gitter mit 12 gleich breiten Spalten. Bevor wir die `1fr` Größe der Spuren-Spalte definieren, definieren wir eine Linie namens `[col-start]`. Dies bedeutet, dass wir ein Gitter mit 12 Spaltenlinien haben, die alle `col-start` vor einer `1fr` breiten Spalte genannt werden.
 
 ```css hidden
 * {
@@ -276,9 +274,9 @@ In diesem Beispiel erstellen wir ein Raster mit 12 gleichbreiten Spalten. Bevor 
 }
 ```
 
-Sobald Sie das Raster erstellt haben, können Sie Elemente darauf platzieren. Da wir mehrere Linien mit dem Namen `col-start` haben, wird die erste Linie namens `col-start` verwendet, wenn Sie ein Element platzieren, das nach der Linie `col-start` beginnen soll. In unserem Fall ist dies die äußerste linke Linie. Um eine andere Linie anzusprechen, verwenden Sie den Namen mit der Nummer für diese Linie.
+Sobald Sie das Gitter erstellt haben, können Sie Elemente darauf platzieren. Da wir mehrere Linien namens `col-start` haben, wenn Sie ein Element so platzieren, dass es nach der Linie `col-start` beginnt, wird die erste Linie namens `col-start` verwendet. In unserem Fall ist dies die ganz linke Linie. Um auf eine andere Linie zuzugreifen, verwenden Sie den Namen mit der Nummer für diese Linie.
 
-Um ein Element zu platzieren, das von der ersten Linie namens `col-start` bis zur fünften Linie mit diesem Namen reicht, können wir Folgendes verwenden:
+Um ein Element zu platzieren, das von der ersten Linie namens `col-start` bis zur 5. Linie mit diesem Namen reicht, können wir Folgendes verwenden:
 
 ```css
 .item1to5 {
@@ -286,7 +284,7 @@ Um ein Element zu platzieren, das von der ersten Linie namens `col-start` bis zu
 }
 ```
 
-Sie können auch das `span`-Schlüsselwort verwenden. Dieses Element wird 3 Linien beginnend von der siebten Linie namens `col-start` überspannen:
+Sie können auch das Schlüsselwort `span` verwenden. Dieses Element erstreckt sich über 3 Linien, beginnend mit der 7. Linie namens `col-start`:
 
 ```css
 .item7to9 {
@@ -303,15 +301,15 @@ Sie können auch das `span`-Schlüsselwort verwenden. Dieses Element wird 3 Lini
 
 {{ EmbedLiveSample('Twelve-column_grid_using_repeat', '500', '120') }}
 
-Wenn Sie sich dieses Layout in den Entwicklerwerkzeugen Ihres Browsers ansehen, sehen Sie, wie die Spaltenlinien angezeigt werden und wie unsere Elemente gegen diese Linien platziert sind.
+Wenn Sie sich dieses Layout in den Entwicklerwerkzeugen Ihres Browsers ansehen, sehen Sie, wie die Spaltenlinien angezeigt werden und wie unsere Elemente an diese Linien platziert wurden.
 
-![Das 12-Spalten-Raster mit platzierten Elementen. Der Firefox-Raster-Highlighter zeigt die Position der Linien an.](5_named_lines1.png)
+![Das 12-Spalten-Gitter mit platzierten Elementen. Der Firefox-Gitterhervorheber zeigt die Position der Linien.](5_named_lines1.png)
 
-### Benannte Linien mit einer Spurliste definieren
+### Definition benannter Linien mit einer Spurliste
 
-Die `repeat()`-Syntax kann auch eine Spurliste aufnehmen; es sind nicht nur einzelne Spurgrößen, die wiederholt werden können.
+Die `repeat()`-Syntax kann auch eine Spurliste enthalten; es sind nicht nur einzelne Spurgrößen, die wiederholt werden können.
 
-Dieses CSS erstellt ein Raster mit acht Spuren, mit einer schmaleren `1fr`-Breitenspalte namens `col1-start`, gefolgt von einer breiteren `3fr`-Spalte namens `col2-start`.
+Diese CSS erstellt ein Raster mit acht Spuren, mit einer schmaleren `1fr`-Breitenspalte namens `col1-start`, gefolgt von einer breiteren `3fr`-Spalte namens `col2-start`.
 
 ```css
 .wrapper {
@@ -319,7 +317,7 @@ Dieses CSS erstellt ein Raster mit acht Spuren, mit einer schmaleren `1fr`-Breit
 }
 ```
 
-Wenn Ihre wiederholende Syntax zwei Linien nebeneinander stellt, werden sie zusammengeführt und erzeugen das gleiche Ergebnis wie das Vergeben mehrerer Namen an eine Linie in einer nicht wiederholenden Spurendeutung. Die folgende Definition erstellt vier `1fr`-Spuren, jeweils mit einer Start- und Endlinie.
+Wenn Ihre wiederholte Syntax zwei Linien nebeneinander setzt, werden sie zusammengeführt und ergeben dasselbe Ergebnis wie das Geben einer Linie mehrerer Namen in einer nicht wiederholten Spurdefinition. Die folgende Definition erstellt vier `1fr`-Spuren, jede mit einer Start- und Endlinie.
 
 ```css
 .wrapper {
@@ -327,7 +325,7 @@ Wenn Ihre wiederholende Syntax zwei Linien nebeneinander stellt, werden sie zusa
 }
 ```
 
-Wenn wir diese Deklaration ohne Verwendung der Wiederholungsschreibweise schreiben, sieht es so aus:
+Wenn wir diese Deklaration ohne Verwendung der Repeat-Notation schreiben, sieht sie so aus:
 
 ```css
 .wrapper {
@@ -335,7 +333,7 @@ Wenn wir diese Deklaration ohne Verwendung der Wiederholungsschreibweise schreib
 }
 ```
 
-Mit einer Spurliste können wir das `span`-Schlüsselwort verwenden, um eine Anzahl von Linien zu überspannen, einschließlich Linien eines bestimmten Namens:
+Mit einer Spurliste können wir das Schlüsselwort `span` verwenden, um eine Anzahl von Linien zu überbrücken, einschließlich Linien eines bestimmten Namens:
 
 ```css hidden
 * {
@@ -386,11 +384,11 @@ Mit einer Spurliste können wir das `span`-Schlüsselwort verwenden, um eine Anz
 
 {{ EmbedLiveSample('Defining_named_lines_with_a_track_list', '500', '230') }}
 
-### Zwölf-Spalten-Raster-Framework
+### Zwölf-Spalten-Gitter-Framework
 
-Nachdem wir über numerische und benannte linienbasierte Platzierung sowie [grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) gelernt haben, wissen wir jetzt, dass es mehrere Möglichkeiten gibt, Elemente mit CSS-Rasterlayout zu platzieren. Dies mag übermäßig komplex erscheinen, aber Sie müssen nicht alle davon verwenden. In der Praxis funktioniert die Verwendung benannter Vorlagenbereiche gut für einfache Layouts, da diese Methode eine gute visuelle Darstellung dessen bietet, wie Ihr Layout aussieht, und es intuitiver macht, Dinge auf dem Raster zu verschieben. Zum Beispiel funktioniert das benannte Linielayout im letzten Teil dieses Leitfadens gut, wenn man mit einem strengen Mehrspaltenlayout arbeitet.
+Nachdem wir über numerische und benannte linienbasierte Platzierung und [Gittervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) gelernt haben, wissen wir jetzt, dass es mehrere Möglichkeiten gibt, Elemente mit dem CSS-Gitterlayout zu platzieren. Dies mag übermäßig komplex erscheinen, aber Sie müssen nicht alle verwenden. In der Praxis funktioniert die Verwendung von benannten Vorlagenbereichen gut für einfache Layouts, da diese Methode eine gute visuelle Darstellung dessen bietet, wie Ihr Layout aussieht, und es intuitiver macht, Dinge im Raster zu bewegen. Zum Beispiel, wenn Sie mit einem strengen Mehrspaltenlayout arbeiten, funktioniert die Demonstration der benannten Linien im letzten Teil dieses Leitfadens gut.
 
-Alte Raster-Systeme wie Foundation oder Bootstrap basieren auf einem 12-Spalten-Raster. Diese Frameworks importieren Code, um Berechnungen durchzuführen, die sicherstellen, dass die Spalten 100 % ergeben. Frameworks sind nicht erforderlich! Der einzige CSS-Code, den wir für ein 12-Spalten-Raster-"Framework" benötigen, ist:
+Alte Gitter-Systeme wie Foundation oder Bootstrap basieren auf einem 12-Spalten-Gitter. Diese Frameworks importieren Code, um Berechnungen durchzuführen, die sicherstellen, dass die Spalten 100% ergeben. Frameworks sind nicht nötig! Das einzige CSS, das wir für ein 12-Spalten-Gitter-"Framework" benötigen, ist:
 
 ```css
 .wrapper {
@@ -400,9 +398,9 @@ Alte Raster-Systeme wie Foundation oder Bootstrap basieren auf einem 12-Spalten-
 }
 ```
 
-Wir können dann dieses "Framework" verwenden, um unsere Seite zu gestalten.
+Wir können dann dieses "Framework" verwenden, um unsere Seite zu layouten.
 
-Um beispielsweise ein Dreispalten-Layout mit Kopfzeile und Fußzeile zu erstellen, können wir das folgende Markup verwenden.
+Um zum Beispiel ein Drei-Spalten-Layout mit einem Header und Footer zu erstellen, können wir das folgende Markup verwenden.
 
 ```css hidden
 * {
@@ -434,7 +432,7 @@ Um beispielsweise ein Dreispalten-Layout mit Kopfzeile und Fußzeile zu erstelle
 </div>
 ```
 
-Wir können dies auf unser Rasterlayout-Framework anwenden:
+Wir können dies auf unserem Gitterlayout-Framework platzieren:
 
 ```css
 .main-header,
@@ -460,10 +458,10 @@ Wir können dies auf unser Rasterlayout-Framework anwenden:
 
 {{ EmbedLiveSample('Twelve-column_grid_framework', '500', '220') }}
 
-Ein weiteres Mal ist das Raster-Highlighting in den Entwicklerwerkzeugen nützlich, um uns zu zeigen, wie das Raster, auf dem wir unsere Elemente platziert haben, funktioniert.
+Ein weiteres Mal ist der Gitterhervorheber der Entwicklerwerkzeuge nützlich, um uns zu zeigen, wie das Gitter, auf dem wir unsere Elemente platziert haben, funktioniert.
 
-![Das Layout mit hervorgehobenem Raster.](5_named_lines2.png)
+![Das Layout mit dem hervorgehobenen Gitter.](5_named_lines2.png)
 
-Das ist alles, was wir brauchen. Wir müssen keine Berechnungen durchführen! Das CSS-Rasterlayout entfernt automatisch unser 10-Pixel-Gutter-Track, bevor es den Platz den `1fr`-Spaltentracks zuweist.
+Das ist alles, was wir brauchen. Wir müssen keine Berechnungen durchführen! Das CSS-Gitterlayout hat unsere 10-Pixel-Spur vor dem Zuweisen des Platzes zu den `1fr`-Spaltenspuren automatisch entfernt.
 
-Als nächstes werden wir uns anschauen, wie das CSS-Rasterlayout Elemente für uns positionieren kann, ohne Platzierungseigenschaften zu benötigen, in dem [Anleitung zur automatischen Platzierung in Rasterlayouts](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout).
+Als nächstes werden wir uns ansehen, wie das CSS-Gitterlayout Elemente automatisch positionieren kann, ohne dass Platzierungseigenschaften erforderlich sind, in der [Automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) Anleitung.

@@ -2,12 +2,10 @@
 title: :focus
 slug: Web/CSS/:focus
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:focus`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie etwa ein Formulareingabefeld), das den Fokus erhalten hat. Sie wird im Allgemeinen ausgelöst, wenn der Benutzer auf ein Element klickt oder tippt oder es mit der <kbd>Tab</kbd>-Taste der Tastatur auswählt.
+Die **`:focus`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie z.B. ein Formulareingabefeld), das den Fokus erhalten hat. Sie wird in der Regel ausgelöst, wenn der Benutzer auf ein Element klickt oder tippt oder es mit der <kbd>Tab</kbd>-Taste der Tastatur auswählt.
 
 {{InteractiveExample("CSS Demo: :focus", "tabbed-shorter")}}
 
@@ -55,15 +53,15 @@ select:focus {
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass der visuelle Fokusindikator auch von Menschen mit eingeschränktem Sehvermögen gesehen werden kann. Dies kommt auch allen zugute, die einen Bildschirm in einem hell erleuchteten Raum verwenden (wie draußen in der Sonne). [WCAG 2.1 SC 1.4.11 Nicht-Text-Kontrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) fordert, dass der visuelle Fokusindikator mindestens 3 zu 1 beträgt.
+Stellen Sie sicher, dass der visuelle Fokusindikator für Menschen mit eingeschränktem Sehvermögen sichtbar ist. Dies kommt auch Personen zugute, die einen Bildschirm in einem hell beleuchteten Raum verwenden (wie draußen in der Sonne). [WCAG 2.1 SC 1.4.11 Kontrast ohne Text](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) erfordert, dass der visuelle Fokusindikator mindestens 3 zu 1 beträgt.
 
-- Zugängliche visuelle Fokusindikatoren: [Bieten Sie Ihrer Website etwas Fokus! Tipps zum Entwerfen nützlicher und benutzbarer Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
+- Zugängliche visuelle Fokusindikatoren: [Geben Sie Ihrer Website etwas Fokus! Tipps zum Entwerfen nützlicher und benutzerfreundlicher Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
 
 ### `:focus { outline: none; }`
 
-Entfernen Sie niemals einfach den Fokusumriss (sichtbaren Fokusindikator), ohne ihn durch einen Fokusumriss zu ersetzen, der den [WCAG 2.1 SC 1.4.11 Nicht-Text-Kontrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) erfüllt.
+Entfernen Sie niemals nur den Fokusumriss (sichtbarer Fokusindikator), ohne ihn durch einen Fokusumriss zu ersetzen, der den [WCAG 2.1 SC 1.4.11 Kontrast ohne Text](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) erfüllt.
 
-- Schneller Tipp: [Entfernen Sie niemals CSS-Umrisse](https://www.a11yproject.com/posts/never-remove-css-outlines/)
+- Schnelltipps: [Niemals CSS-Umrisse entfernen](https://www.a11yproject.com/posts/never-remove-css-outlines/)
 
 ## Beispiele
 

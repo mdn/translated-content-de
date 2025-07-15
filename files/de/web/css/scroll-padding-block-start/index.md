@@ -2,12 +2,10 @@
 title: scroll-padding-block-start
 slug: Web/CSS/scroll-padding-block-start
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-block-start` definiert Abstände für die Startkante in der Blockdimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielbereich dient, um Inhalte in den Blick des Nutzers zu rücken. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fixierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-start` definiert Versätze für die Anfangskante in der Blockdimension der _optimalen Betrachtungsregion_ des Scrollports: der Region, die als Zielregion verwendet wird, um Elemente für den Nutzer sichtbar zu platzieren. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte (wie zum Beispiel fest positionierte Toolbars oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block-start")}}
 
@@ -93,9 +91,9 @@ scroll-padding-block-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Abstand von der Blockstartkante des Scrollports, angegeben als gültige Länge oder Prozentsatz.
+  - : Ein innerer Versatz von der Startkante des Scrollports in der Blockrichtung, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Abstand wird vom Benutzeragenten bestimmt. Dieser beträgt generell 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und anders handeln, wenn ein Wert ungleich null geeigneter ist.
 
 ## Formale Definition
 

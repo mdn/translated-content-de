@@ -2,12 +2,10 @@
 title: :checked
 slug: Web/CSS/:checked
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das markiert oder auf einen `on`-Zustand umgeschaltet ist.
+Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das aktiviert oder auf einen `on`-Zustand umgeschaltet ist.
 
 {{InteractiveExample("CSS Demo: :checked", "tabbed-shorter")}}
 
@@ -47,10 +45,10 @@ input:checked {
 </form>
 ```
 
-Der Benutzer kann diesen Zustand aktivieren, indem er ein Element markiert/auswählt, oder deaktivieren, indem er das Element abwählt/demarkiert.
+Der Benutzer kann diesen Zustand aktivieren, indem er ein Element aktiviert/auswählt, oder ihn deaktivieren, indem er das Element deaktiviert/abwählt.
 
 > [!NOTE]
-> Da Browser `<option>`-Elemente oft als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert die Möglichkeit, sie mit der `:checked` Pseudoklasse zu stylen, von Browser zu Browser. [Anpassbare Select-Element](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) Funktionalitäten können verwendet werden, um eine vollständige Anpassung von `<option>`-Elementen wie bei jedem regulären DOM-Element in unterstützten Browsern zu ermöglichen.
+> Da Browser `<option>`s oft als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert das Ausmaß, in dem sie mit der `:checked` Pseudoklasse gestylt werden können, von Browser zu Browser. Die [anpassbare Select-Element](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) Funktionalität kann verwendet werden, um eine vollständige Anpassung von `<option>`-Elementen wie bei einem regulären DOM-Element in unterstützenden Browsern zu ermöglichen.
 
 ## Syntax
 
@@ -62,7 +60,7 @@ Der Benutzer kann diesen Zustand aktivieren, indem er ein Element markiert/ausw�
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 #### HTML
 
@@ -123,7 +121,7 @@ option:checked {
 
 ### Umschalten von Elementen mit einer versteckten Checkbox
 
-Dieses Beispiel nutzt die `:checked` Pseudoklasse, um dem Benutzer zu erlauben, Inhalte basierend auf dem Zustand einer Checkbox umzuschalten, alles ohne [JavaScript](/de/docs/Web/JavaScript) zu verwenden.
+Dieses Beispiel verwendet die `:checked` Pseudoklasse, um dem Benutzer zu ermöglichen, Inhalte basierend auf dem Zustand einer Checkbox umzuschalten, ganz ohne [JavaScript](/de/docs/Web/JavaScript).
 
 #### HTML
 
@@ -220,6 +218,6 @@ Dieses Beispiel nutzt die `:checked` Pseudoklasse, um dem Benutzer zu erlauben, 
 ## Siehe auch
 
 - [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
-- [Stylen von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
 - Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), {{HTMLElement("select")}}, und {{HTMLElement("option")}}
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

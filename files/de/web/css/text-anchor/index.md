@@ -2,14 +2,12 @@
 title: text-anchor
 slug: Web/CSS/text-anchor
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`text-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft richtet eine Box aus, die eine Textzeichenfolge enthält, wobei der Umbruchbereich von der {{cssxref("inline-size")}} Eigenschaft bestimmt wird. Der Text wird dann relativ zum Ankerpunkt des Elements platziert, der mit den {{SVGAttr('x')}} und {{SVGAttr('y')}} (oder {{SVGAttr('dx')}} und {{SVGAttr('dy')}}) Attributen definiert ist. Falls vorhanden, überschreibt der Wert der CSS-Eigenschaft jeden Wert des {{SVGAttr("text-anchor")}} Attributs des Elements.
 
-Die **`text-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft richtet ein Feld aus, das eine Textzeichenkette enthält, wobei der Umbruchsbereich aus der Eigenschaft {{cssxref("inline-size")}} bestimmt wird. Der Text wird dann relativ zum Ankerpunkt des Elements platziert, der mit den {{SVGAttr('x')}} und {{SVGAttr('y')}} (oder {{SVGAttr('dx')}} und {{SVGAttr('dy')}}) Attributen definiert wird. Wenn vorhanden, überschreibt der Wert der CSS-Eigenschaft jeden Wert des {{SVGAttr("text-anchor")}} Attributs des Elements.
-
-Jedes einzelne Textfragment innerhalb eines Elements wird unabhängig ausgerichtet; somit wird bei einem mehrzeiligen {{SVGElement("text")}}-Element jede Textzeile gemäß dem Wert von `text-anchor` ausgerichtet. `text-anchor`-Werte haben nur Auswirkungen auf die SVG-Elemente {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}}. `text-anchor` gilt nicht für automatisch umbrochenen Text; hierfür siehe {{cssxref('text-align')}}.
+Jedes einzelne Textfragment innerhalb eines Elements wird unabhängig ausgerichtet; daher wird ein mehrzeiliges {{SVGElement("text")}} Element jede Textzeile gemäß dem Wert von `text-anchor` ausrichten. `text-anchor` Werte haben nur Einfluss auf die SVG-Elemente {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}}. `text-anchor` gilt nicht für automatisch umbrochenen Text; dafür siehe {{cssxref('text-align')}}.
 
 ## Syntax
 
@@ -29,15 +27,13 @@ text-anchor: unset;
 ### Werte
 
 - `start`
-
-  - : Richtet den Text so aus, dass der Inline-Anfang der Textzeichenkette mit dem Ankerpunkt ausgerichtet wird. Diese Ausrichtung ist relativ zur Schreibrichtung des Textes; zum Beispiel wird im Fall von rechts-nach-links, oben-nach-unten-Schreibweise der Text links vom Ankerpunkt platziert. Wenn die Inline-Richtung des Textes vertikal ist, wie bei vielen asiatischen Sprachen, wird die obere Kante des Textes mit dem Ankerpunkt ausgerichtet.
+  - : Richtet den Text so aus, dass der Inline-Start der Textzeichenfolge mit dem Ankerpunkt ausgerichtet ist. Diese Ausrichtung bezieht sich auf die Schreibrichtung des Textes; so wird zum Beispiel bei rechts-nach-links und oben-nach-unten eine Schreibrichtung der Text links vom Ankerpunkt platziert. Wenn die Inline-Richtung des Textes vertikal ist, wie bei vielen asiatischen Sprachen, ist die obere Kante des Textes mit dem Ankerpunkt ausgerichtet.
 
 - `middle`
-
-  - : Richtet den Text so aus, dass die Mitte des Inline-Feldes der Textzeichenkette mit dem Ankerpunkt ausgerichtet wird.
+  - : Richtet den Text so aus, dass die Mitte (Mittelpunkt) des Inline-Rahmens der Textzeichenfolge mit dem Ankerpunkt ausgerichtet ist.
 
 - `end`
-  - : Richtet den Text so aus, dass das Inline-Ende der Textzeichenkette mit dem Ankerpunkt ausgerichtet wird. Diese Ausrichtung ist relativ zur Schreibrichtung des Textes; zum Beispiel wird im Fall von rechts-nach-links, oben-nach-unten-Schreibweise der Text rechts vom Ankerpunkt platziert. Wenn die Inline-Richtung des Textes vertikal ist, wie bei vielen asiatischen Sprachen, wird die untere Kante des Textes mit dem Ankerpunkt ausgerichtet.
+  - : Richtet den Text so aus, dass das Inline-Ende der Textzeichenfolge mit dem Ankerpunkt ausgerichtet ist. Diese Ausrichtung bezieht sich auf die Schreibrichtung des Textes; so wird beispielsweise bei rechts-nach-links und oben-nach-unten Schreibrichtung der Text rechts vom Ankerpunkt platziert. Wenn die Inline-Richtung des Textes vertikal ist, wie bei vielen asiatischen Sprachen, ist die untere Kante des Textes mit dem Ankerpunkt ausgerichtet.
 
 ## Formale Definition
 
@@ -49,7 +45,7 @@ text-anchor: unset;
 
 ## Beispiel
 
-Drei `<text>`-Elemente erhalten die gleiche `x`-Position, jedoch unterschiedliche Werte für `text-anchor`. Eine gestrichelte rote Linie markiert die x-Achsenposition aller drei Ankerpunkte.
+Drei `<text>` Elemente erhalten die gleiche `x` Position, aber unterschiedliche Werte für `text-anchor`. Eine gestrichelte rote Linie ist enthalten, um die x-Achsen-Position aller drei Ankerpunkte zu markieren.
 
 ```html
 <svg

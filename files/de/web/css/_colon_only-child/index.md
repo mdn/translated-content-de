@@ -2,12 +2,10 @@
 title: :only-child
 slug: Web/CSS/:only-child
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:only-child`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element ohne Geschwister. Dies ist dasselbe wie `:first-child:last-child` oder `:nth-child(1):nth-last-child(1)`, jedoch mit einer geringeren Spezifität.
+Die CSS-**`:only-child`**-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element ohne Geschwister. Dies entspricht `:first-child:last-child` oder `:nth-child(1):nth-last-child(1)`, hat jedoch eine geringere Spezifität.
 
 {{InteractiveExample("CSS Demo: :only-child", "tabbed-shorter")}}
 
@@ -84,7 +82,7 @@ div {
 
 {{EmbedLiveSample('Basic_example','100%',180)}}
 
-### Ein Listen-Beispiel
+### Ein Listenbeispiel
 
 #### HTML
 

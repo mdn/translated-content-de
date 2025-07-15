@@ -2,12 +2,10 @@
 title: outline-style
 slug: Web/CSS/outline-style
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element gezogen wird, außerhalb des {{cssxref("border")}}.
+Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb der {{cssxref("border")}}.
 
 {{InteractiveExample("CSS Demo: outline-style")}}
 
@@ -48,7 +46,7 @@ outline-style: inset;
 }
 ```
 
-Es ist oft bequemer, die Kurzschreibweise {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Umrandung definiert wird.
+Es ist oft bequemer, die Kurzschreibweiseigenschaft {{cssxref("outline")}} zu verwenden, wenn das Aussehen einer Kontur definiert wird.
 
 ## Syntax
 
@@ -73,30 +71,30 @@ outline-style: revert-layer;
 outline-style: unset;
 ```
 
-Die `outline-style` Eigenschaft wird mit einem der unten aufgeführten Werte angegeben.
+Die `outline-style` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Erlaubt dem User-Agent, einen benutzerdefinierten Umrandungsstil darzustellen.
+  - : Erlaubt dem Benutzeragenten, einen benutzerdefinierten Konturstil darzustellen.
 - `none`
-  - : Es wird keine Umrandung verwendet. Die {{cssxref("outline-width")}} beträgt `0`.
+  - : Es wird keine Kontur verwendet. Die {{cssxref("outline-width")}} ist `0`.
 - `dotted`
-  - : Die Umrandung ist eine Reihe von Punkten.
+  - : Die Kontur besteht aus einer Reihe von Punkten.
 - `dashed`
-  - : Die Umrandung ist eine Reihe von kurzen Linien.
+  - : Die Kontur besteht aus einer Reihe kurzer Liniensegmente.
 - `solid`
-  - : Die Umrandung ist eine durchgehende Linie.
+  - : Die Kontur ist eine einzelne Linie.
 - `double`
-  - : Die Umrandung besteht aus zwei durchgehenden Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Raums dazwischen.
+  - : Die Kontur besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Raums dazwischen.
 - `groove`
-  - : Die Umrandung sieht aus, als wäre sie in die Seite gemeißelt.
+  - : Die Kontur sieht aus, als wäre sie in die Seite eingraviert.
 - `ridge`
-  - : Das Gegenteil von `groove`: Die Umrandung sieht aus, als wäre sie aus der Seite herausgepresst.
+  - : Das Gegenteil von `groove`: Die Kontur sieht aus, als wäre sie aus der Seite extrudiert.
 - `inset`
-  - : Die Umrandung lässt die Box aussehen, als wäre sie in die Seite eingebettet.
+  - : Die Kontur lässt das Element so aussehen, als wäre es in die Seite eingebettet.
 - `outset`
-  - : Das Gegenteil von `inset`: Die Umrandung lässt die Box aussehen, als käme sie aus der Seite heraus.
+  - : Das Gegenteil von `inset`: Die Kontur lässt das Element so aussehen, als käme es aus der Seite heraus.
 
 ## Formale Definition
 
@@ -108,9 +106,9 @@ Die `outline-style` Eigenschaft wird mit einem der unten aufgeführten Werte ang
 
 ## Beispiele
 
-### Umrandungsstil auf auto setzen
+### Konturstil auf auto setzen
 
-Der `auto`-Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) als "typischerweise ein Stil \[der] entweder ein Benutzeroberflächendefault für die Plattform ist, oder vielleicht ein Stil, der reicher ist, als er im Detail in CSS beschrieben werden kann, z.B. eine Umrandung mit abgerundeten Kanten und halbtransparenten äußeren Pixeln, die zu leuchten scheint" beschrieben wird.
+Der Wert `auto` gibt einen benutzerdefinierten Konturstil an, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) beschrieben wird als "typischerweise ein Stil \[der] entweder eine Benutzerschnittstelle-Standardeinstellung für die Plattform ist oder möglicherweise ein Stil, der reicher ist, als im Detail in CSS beschrieben werden kann, z. B. eine Kontur mit abgerundeten Kanten und halbtransluzenten äußeren Pixeln, die zu leuchten scheint".
 
 #### HTML
 
@@ -138,7 +136,7 @@ Der `auto`-Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_auto') }}
 
-### Umrandungsstil auf gestrichelt und gepunktet setzen
+### Konturstil auf gestrichelt und gepunktet setzen
 
 #### HTML
 
@@ -171,7 +169,7 @@ Der `auto`-Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_dashed_and_dotted') }}
 
-### Umrandungsstil auf durchgehend und doppelt setzen
+### Konturstil auf solid und double setzen
 
 #### HTML
 
@@ -204,7 +202,7 @@ Der `auto`-Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_solid_and_double') }}
 
-### Umrandungsstil auf Rille und Kamm setzen
+### Konturstil auf groove und ridge setzen
 
 #### HTML
 
@@ -237,7 +235,7 @@ Der `auto`-Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_groove_and_ridge') }}
 
-### Umrandungsstil auf Eingesetzt und Herausgesetzt setzen
+### Konturstil auf inset und outset setzen
 
 #### HTML
 

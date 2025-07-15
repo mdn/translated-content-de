@@ -2,14 +2,12 @@
 title: font-variation-settings
 slug: Web/CSS/@font-face/font-variation-settings
 l10n:
-  sourceCommit: 997a0ec66e1514b7269076195b2419db334e876e
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Der **`font-variation-settings`** CSS-Deskriptor ermöglicht es Autoren, Low-Level-Variationen von OpenType oder TrueType-Schriften in der {{cssxref("@font-face")}}-Regel zu spezifizieren. Die Werte für diesen Deskriptor sind dieselben wie für die Eigenschaft {{cssxref("font-variation-settings")}}, mit Ausnahme der globalen Schlüsselwortwerte.
 
-Der CSS-Deskriptor **`font-variation-settings`** ermöglicht es Autoren, Low-Level-OpenType- oder TrueType-Schriftvariationen in der {{cssxref("@font-face")}}-At-Regel zu spezifizieren. Die Werte für diesen Deskriptor sind die gleichen wie für die Eigenschaft {{cssxref("font-variation-settings")}}, mit Ausnahme der globalen Schlüsselwortwerte.
-
-Da dieser Deskriptor Variationswerte auf dem Schriftobjekt in der `@font-face`-At-Regel und nicht auf einem ganzen Element festlegt, können nur einige Glyphen in einem Element mit diesem Deskriptor gerendert werden.
+Da dieser Deskriptor Variationswerte am Schriftobjekt in der `@font-face`-Regel und nicht an einem gesamten Element festlegt, können nur einige Glyphen in einem Element unter Verwendung dieses Deskriptors dargestellt werden.
 
 ## Syntax
 
@@ -24,9 +22,9 @@ font-variation-settings: "xhgt" 0.7;
 ### Werte
 
 - `normal`
-  - : Text wird mit den Standardeinstellungen layoutet.
+  - : Text wird mit den Standardeinstellungen platziert.
 - `<string> <number>`
-  - : Beim Rendern von Text wird die Liste der OpenType-Achsennamen an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung ist immer ein {{cssxref("&lt;string&gt;")}} aus 4 {{Glossary("ASCII", "ASCII")}}-Zeichen, gefolgt von einer {{cssxref("number")}}, die den Achsenwert angibt. Hat der `<string>` mehr oder weniger Zeichen oder enthält Zeichen außerhalb des Codepunktbereichs U+20 - U+7E, ist die gesamte Eigenschaft ungültig. Die `<number>` kann fraktional oder negativ sein.
+  - : Beim Rendern von Text wird die Liste der OpenType-Achsnamen an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung ist immer ein {{cssxref("&lt;string&gt;")}} mit 4 {{Glossary("ASCII", "ASCII")}}-Zeichen, gefolgt von einer {{cssxref("number")}}, die den Achswert angibt. Wenn das `<string>` mehr oder weniger Zeichen hat oder Zeichen außerhalb des Bereichs U+20 - U+7E enthält, ist die gesamte Eigenschaft ungültig. Der `<number>` kann bruchteilhaft oder negativ sein.
 
 ## Formale Definition
 
@@ -38,7 +36,7 @@ font-variation-settings: "xhgt" 0.7;
 
 ## Beispiele
 
-### Festlegen von Schriftgewicht und -dehnung in einer @font-face-Regel
+### Einstellen von Schriftstärke und -breite in einer @font-face-Regel
 
 ```css
 @font-face {

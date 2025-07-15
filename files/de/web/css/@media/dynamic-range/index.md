@@ -2,26 +2,23 @@
 title: dynamic-range
 slug: Web/CSS/@media/dynamic-range
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`dynamic-range`** [CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die vom {{Glossary("user_agent", "User Agent")}} und dem Ausgabegerät unterstützt werden.
+Die **`dynamic-range`** [CSS](/de/docs/Web/CSS) [Media-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die vom {{Glossary("user_agent", "User-Agent")}} und dem Ausgabegerät unterstützt werden.
 
 > [!NOTE]
-> Einige Geräte haben hohe Dynamikbereichsfähigkeiten, die nicht immer "eingeschaltet" sind und aktiviert werden müssen (manchmal programmatisch, manchmal vom Benutzer, manchmal basierend auf dem Inhalt). Diese Medienfunktion testet nicht, ob die Dynamikbereichsfähigkeit aktiv ist; sie testet nur, ob das Gerät in der Lage ist, visuelle Inhalte mit hohem Dynamikbereich darzustellen.
+> Einige Geräte haben eine hohe Dynamikumfangsfähigkeit, die nicht immer aktiv ist und aktiviert werden muss (manchmal programmatisch, manchmal durch den Benutzer, manchmal basierend auf dem Inhalt). Diese Media-Funktion testet nicht, ob die Dynamikumfangsfähigkeit aktiv ist; sie testet nur, ob das Gerät in der Lage ist, visuelle Inhalte mit hohem Dynamikumfang darzustellen.
 
 ## Syntax
 
-Die `dynamic-range`-Funktion wird als ein Schlüsselwortwert angegeben, das aus der unten stehenden Liste ausgewählt wird.
+Die `dynamic-range`-Funktion wird als ein Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wurde.
 
 - `standard`
-
-  - : Dieser Wert entspricht jedem visuellen Gerät und schließt Geräte ohne visuelle Fähigkeiten aus. Ein User Agent oder ein Ausgabegerät, das den Wert `high` erfüllt, wird auch den Wert `standard` erfüllen.
+  - : Dieser Wert entspricht jedem visuellen Gerät und schließt Geräte ohne visuelle Fähigkeiten aus. Ein User-Agent oder ein Ausgabegerät, das mit `high` übereinstimmt, stimmt auch mit dem `standard`-Wert überein.
 
 - `high`
-  - : Dieser Wert entspricht User Agents und Ausgabegeräten, die hohe Spitzenhelligkeit, hohes Kontrastverhältnis und Farbtiefe größer als 24 Bit oder 8 Bit pro Farbkomponente von RGB unterstützen. **Spitzenhelligkeit** bezieht sich darauf, wie hell der hellste Punkt ist, den ein lichtemittierendes Gerät, wie etwa ein LCD-Bildschirm, produzieren kann. Bei einem lichtreflektierenden Gerät, wie Papier oder E-Ink, bezieht sich Spitzenhelligkeit auf den Punkt, der zumindest Licht absorbiert. **Kontrastverhältnis** bezieht sich auf das Verhältnis der Leuchtdichte der hellsten Farbe zur dunkelsten Farbe, die das System produzieren kann. Derzeit gibt es keine präzise Methode zur Messung von Spitzenhelligkeit und Kontrastverhältnis, und die Bestimmung dessen, was als hohe Spitzenhelligkeit und hohes Kontrastverhältnis zählt, hängt vom User Agent ab.
+  - : Dieser Wert entspricht User-Agents und Ausgabegeräten, die hohe Spitzenhelligkeit, hohes Kontrastverhältnis und Farbtiefe von mehr als 24 Bit oder 8 Bit pro Farbkomponente von RGB unterstützen. **Spitzenhelligkeit** bezieht sich darauf, wie hell der hellste Punkt, den ein Licht emittierendes Gerät, wie ein LCD-Bildschirm, erzeugen kann, ist. Im Fall eines lichtreflektierenden Geräts, wie Papier oder E-Ink, bezieht sich die Spitzenhelligkeit auf den Punkt, der wenigstens Licht absorbiert. **Kontrastverhältnis** bezieht sich auf das Verhältnis der Leuchtdichte der hellsten Farbe zu der der dunkelsten Farbe, die das System erzeugen kann. Derzeit gibt es keine präzise Methode, um die Spitzenhelligkeit und das Kontrastverhältnis zu messen, und die Bestimmung dessen, was als hohe Spitzenhelligkeit und hohes Kontrastverhältnis gilt, hängt vom User-Agent ab.
 
 ## Beispiele
 
@@ -49,5 +46,5 @@ Die `dynamic-range`-Funktion wird als ein Schlüsselwortwert angegeben, das aus 
 
 ## Siehe auch
 
-- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

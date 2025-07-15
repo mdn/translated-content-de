@@ -2,15 +2,15 @@
 title: page-break-inside
 slug: Web/CSS/page-break-inside
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{deprecated_header}}
+{{deprecated_header}}
 
 > [!WARNING]
 > Diese Eigenschaft wurde durch die {{cssxref("break-inside")}}-Eigenschaft ersetzt.
 
-Die **`page-break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft passt die Seitenumbrüche _innerhalb_ des aktuellen Elements an.
+Die **`page-break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _innerhalb_ des aktuellen Elements an.
 
 {{InteractiveExample("CSS Demo: page-break-inside")}}
 
@@ -111,15 +111,15 @@ page-break-inside: unset;
 ### Werte
 
 - `auto`
-  - : Standardwert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `avoid`
   - : Vermeidet Seitenumbrüche innerhalb des Elements.
 
-## Seitenwechsel-Aliase
+## Seitenumbruch-Aliasse
 
-Die `page-break-inside`-Eigenschaft ist nun eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
+Die `page-break-inside`-Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
+Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias für `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliasse verwendet werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |

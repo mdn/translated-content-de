@@ -2,12 +2,10 @@
 title: :active
 slug: Web/CSS/:active
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:active`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie einen Button), das vom Benutzer aktiviert wird. Bei der Verwendung einer Maus beginnt die "Aktivierung" in der Regel, wenn der Benutzer die primäre Maustaste drückt.
+Die **`:active`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie z. B. einen Button), das vom Benutzer aktiviert wird. Bei Verwendung einer Maus beginnt die "Aktivierung" normalerweise, wenn der Benutzer die primäre Maustaste drückt.
 
 {{InteractiveExample("CSS Demo: :active", "tabbed-shorter")}}
 
@@ -33,12 +31,12 @@ Die **`:active`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo
 <button class="joinBtn">Subscribe</button>
 ```
 
-Die `:active` Pseudoklasse wird häufig auf {{HTMLElement("a")}}- und {{HTMLElement("button")}}-Elementen verwendet. Weitere häufige Ziele dieser Pseudoklasse sind Elemente, die _in_ einem aktivierten Element enthalten sind, und Formularelemente, die über ihr zugehöriges {{HTMLElement("label")}} aktiviert werden.
+Die `:active`-Pseudoklasse wird häufig auf {{HTMLElement("a")}}- und {{HTMLElement("button")}}-Elementen verwendet. Andere häufige Ziele dieser Pseudoklasse sind Elemente, die _in einem_ aktivierten Element enthalten sind, und Formularelemente, die durch ihr zugehöriges {{HTMLElement("label")}} aktiviert werden.
 
-Stile, die durch die `:active` Pseudoklasse definiert sind, werden durch jede nachfolgende linkbezogene Pseudoklasse ({{cssxref(":link")}}, {{cssxref(":hover")}} oder {{cssxref(":visited")}}) überschrieben, die mindestens die gleiche Spezifität aufweist. Um Links korrekt zu gestalten, platzieren Sie die `:active` Regel nach allen anderen linkbezogenen Regeln, gemäß der _LVHA-Reihenfolge_: `:link` — `:visited` — `:hover` — `:active`.
+Stile, die durch die `:active`-Pseudoklasse definiert werden, werden durch alle nachfolgenden, link-bezogenen Pseudoklassen ({{cssxref(":link")}}, {{cssxref(":hover")}} oder {{cssxref(":visited")}}) mit mindestens gleicher Spezifität überschrieben. Um Links angemessen zu gestalten, platzieren Sie die `:active`-Regel nach allen anderen link-bezogenen Regeln, wie es durch die _LVHA-Reihenfolge_ definiert ist: `:link` — `:visited` — `:hover` — `:active`.
 
 > [!NOTE]
-> Bei Systemen mit Mehrtastenmäusen gibt CSS an, dass die `:active` Pseudoklasse nur auf die primäre Taste angewendet werden muss; bei rechtshändigen Mäusen ist dies typischerweise die linke Taste.
+> Auf Systemen mit Mäusen, die über mehrere Tasten verfügen, gibt CSS vor, dass die `:active`-Pseudoklasse nur auf die primäre Taste angewendet werden muss; bei rechtshändigen Mäusen ist dies typischerweise die linke Taste.
 
 ## Syntax
 

@@ -1,21 +1,19 @@
 ---
-title: Logische Eigenschaften für Margen, Rahmen und Abstände
+title: Logische Eigenschaften für Margins, Borders und Padding
 slug: Web/CSS/CSS_logical_properties_and_values/Margins_borders_padding
 l10n:
-  sourceCommit: 02cc9311b281b73322c5d13185119d2e8adf336a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert flussbezogene Zuordnungen für die verschiedenen Eigenschaften von Margins, Borders und Padding und deren Kurzformen. In diesem Leitfaden werfen wir einen Blick auf diese.
 
-Das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert flussbezogene Zuordnungen für die verschiedenen Margin-, Rahmen- und Abstandseigenschaften und deren Kurzfassungen. In diesem Leitfaden werfen wir einen Blick auf diese.
+Wenn Sie sich das Modul [logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) ansehen, werden Sie möglicherweise feststellen, dass die Liste der Moduleigenschaften sehr lang ist. Dies liegt vor allem daran, dass es jeweils vier Langformen für jede Seitenrand-, Rand- und Auffüllungseigenschaft gibt, plus alle Abkürzungswerte.
 
-Wenn Sie sich das Modul [logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) ansehen, können Sie feststellen, dass die Liste der Moduleigenschaften sehr lang ist. Dies liegt hauptsächlich daran, dass es für Seite-Margin-, Rahmen- und Abständeigenschaften jeweils vier Langform-Werte sowie alle Kurzform-Werte gibt.
+## Zuordnungen für Margins, Borders und Padding
 
-## Zuordnungen für Margen, Rahmen und Abstände
+Das Modul beschreibt Zuordnungen für jeden logischen Wert zu einem physischen Gegenstück. Die folgende Tabelle zeigt diese Zuordnungen, wenn der {{cssxref("writing-mode")}} `horizontal-tb` ist — mit einer links-nach-rechts-Richtung. Die Inline-Richtung verläuft daher horizontal — von links nach rechts — und {{cssxref("margin-inline-start")}} wäre gleichbedeutend mit {{cssxref("margin-left")}}.
 
-Das Modul beschreibt die Zuordnungen für jeden logischen Wert zu einem physischen Gegenstück. Die folgende Tabelle ordnet diese Werte für den Fall zu, dass der {{cssxref("writing-mode")}} `horizontal-tb` ist – mit einer Richtung von links nach rechts. Die Inline-Richtung verläuft daher horizontal – von links nach rechts – und {{cssxref("margin-inline-start")}} wäre das Äquivalent zu {{cssxref("margin-left")}}.
-
-Wenn Sie einen `horizontal-tb` Schreibmodus mit einer Textausrichtung von rechts nach links verwenden würden, wäre {{cssxref("margin-inline-start")}} dasselbe wie {{cssxref("margin-right")}}, und in einem vertikalen Schreibmodus wäre es dasselbe wie die Verwendung von {{cssxref("margin-top")}}.
+Wenn Sie einen Schreibmodus `horizontal-tb` mit einer Rechts-nach-Links-Textausrichtung verwenden würden, dann wäre {{cssxref("margin-inline-start")}} dasselbe wie {{cssxref("margin-right")}}, und in einem vertikalen Schreibmodus wäre es dasselbe wie die Verwendung von {{cssxref("margin-top")}}.
 
 | {{Glossary("Logical_properties", "Logische Eigenschaft")}} | {{Glossary("Physical_properties", "Physische Eigenschaft")}} |
 | ---------------------------------------------------------- | ------------------------------------------------------------ |
@@ -48,32 +46,32 @@ Wenn Sie einen `horizontal-tb` Schreibmodus mit einer Textausrichtung von rechts
 | {{cssxref("padding-inline-end")}}                          | {{cssxref("padding-right")}}                                 |
 | {{cssxref("padding-inline-start")}}                        | {{cssxref("padding-left")}}                                  |
 
-Es gibt auch einige zusätzliche Kurzfassungen, die es ermöglichen, gleichzeitig beide Block- oder beide Inline-Kanten der Box anzusprechen. Diese Kurzformen haben kein physisches Äquivalent.
+Es gibt auch einige zusätzliche Abkürzungen, die möglich sind, weil wir sowohl die Block- als auch die Inline-Kanten des Kastens gleichzeitig anvisieren können. Diese Abkürzungen haben kein physisches Pendant.
 
-| Eigenschaft                        | Zweck                                                                                                                  |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| {{cssxref("border-block")}}        | Setzt {{cssxref("border-color")}}, {{cssxref("border-style")}} und {{cssxref("border-width")}} für beide Block-Ränder. |
-| {{cssxref("border-block-color")}}  | Setzt `border-color` für beide Block-Ränder.                                                                           |
-| {{cssxref("border-block-style")}}  | Setzt `border-style` für beide Block-Ränder.                                                                           |
-| {{cssxref("border-block-width")}}  | Setzt `border-width` für beide Block-Ränder.                                                                           |
-| {{cssxref("border-inline")}}       | Setzt `border-color`, `-style` und `-width` für beide Inline-Ränder.                                                   |
-| {{cssxref("border-inline-color")}} | Setzt `border-color` für beide Inline-Ränder.                                                                          |
-| {{cssxref("border-inline-style")}} | Setzt `border-style` für beide Inline-Ränder.                                                                          |
-| {{cssxref("border-inline-width")}} | Setzt `border-width` für beide Inline-Ränder.                                                                          |
-| {{cssxref("margin-block")}}        | Setzt alle Block-{{cssxref("margin")}}s.                                                                               |
-| {{cssxref("margin-inline")}}       | Setzt alle Inline-`margin`s.                                                                                           |
-| {{cssxref("padding-block")}}       | Setzt das Block-{{cssxref("padding")}}.                                                                                |
-| {{cssxref("padding-inline")}}      | Setzt das Inline-`padding`.                                                                                            |
+| Eigenschaft                        | Zweck                                                                                                                   |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| {{cssxref("border-block")}}        | Setzt {{cssxref("border-color")}}, {{cssxref("border-style")}} und {{cssxref("border-width")}} für beide Block-Borders. |
+| {{cssxref("border-block-color")}}  | Setzt `border-color` für beide Block-Borders.                                                                           |
+| {{cssxref("border-block-style")}}  | Setzt `border-style` für beide Block-Borders.                                                                           |
+| {{cssxref("border-block-width")}}  | Setzt `border-width` für beide Block-Borders.                                                                           |
+| {{cssxref("border-inline")}}       | Setzt `border-color`, `-style` und `-width` für beide Inline-Borders.                                                   |
+| {{cssxref("border-inline-color")}} | Setzt `border-color` für beide Inline-Borders.                                                                          |
+| {{cssxref("border-inline-style")}} | Setzt `border-style` für beide Inline-Borders.                                                                          |
+| {{cssxref("border-inline-width")}} | Setzt `border-width` für beide Inline-Borders.                                                                          |
+| {{cssxref("margin-block")}}        | Setzt alle Block-{{cssxref("margin")}}s.                                                                                |
+| {{cssxref("margin-inline")}}       | Setzt alle Inline-`margin`s.                                                                                            |
+| {{cssxref("padding-block")}}       | Setzt den Block-{{cssxref("padding")}}.                                                                                 |
+| {{cssxref("padding-inline")}}      | Setzt den Inline-`padding`.                                                                                             |
 
 ## Margin-Beispiele
 
-Die zugeordneten Margin-Eigenschaften {{cssxref("margin-inline-start")}}, {{cssxref("margin-inline-end")}}, {{cssxref("margin-block-start")}} und {{cssxref("margin-inline-end")}} können anstelle ihrer physischen Gegenstücke verwendet werden.
+Die zugeordneten Margin-Eigenschaften von {{cssxref("margin-inline-start")}}, {{cssxref("margin-inline-end")}}, {{cssxref("margin-block-start")}} und {{cssxref("margin-inline-end")}} können anstelle ihrer physischen Gegenstücke verwendet werden.
 
-Dieses Beispiel enthält zwei Boxen mit unterschiedlich großen Margen an jedem Rand. Ein extra Container mit einem Rahmen wurde hinzugefügt, um den Margin deutlicher zu machen.
+Dieses Beispiel hat zwei Boxen mit unterschiedlich großen Rändern an jeder Kante. Ein zusätzlicher Container mit einem Rand wurde hinzugefügt, um den Rand deutlicher zu machen.
 
-Eine Box verwendet physische Eigenschaften und die andere logische Eigenschaften. Versuchen Sie, die Eigenschaft {{cssxref("direction")}} auf `rtl` zu ändern, um die Boxen in einer rechts-nach-links Richtung anzuzeigen; die Margen der ersten Box bleiben an derselben Stelle, während die Margen an der Inline-Dimension der zweiten Box wechseln.
+Eine Box verwendet physische Eigenschaften und die andere logische Eigenschaften. Versuchen Sie, die {{cssxref("direction")}}-Eigenschaft zu `rtl` zu ändern, um die Boxen in einer Rechts-nach-Links-Richtung anzuzeigen; Die Ränder der ersten Box bleiben an der gleichen Stelle, während sich die Ränder im Inline-Dimension der zweiten Box verschieben.
 
-Versuchen Sie auch, den `writing-mode` von `horizontal-tb` zu `vertical-rl` zu ändern. Beachten Sie, wie die Margen bei der ersten Box an derselben Stelle bleiben, sich aber um die Textrichtung in der zweiten Box drehen.
+Versuchen Sie auch, den `writing-mode` von `horizontal-tb` zu `vertical-rl` zu ändern. Beachten Sie, wie die Ränder für die erste Box an der gleichen Stelle bleiben, sich aber entsprechend der Textausrichtung in der zweiten verschieben.
 
 ```html live-sample___margin-longhands
 <div class="container">
@@ -139,11 +137,11 @@ body {
 
 {{EmbedLiveSample("margin-longhands", "", "300px")}}
 
-### Margin-Kurzformen
+### Margin-Abkürzungen
 
-Es gibt Kurzformen, um entweder beide Inline-Seiten oder beide Block-Seiten anzusprechen, {{cssxref("margin-inline")}} und {{cssxref("margin-block")}}. Jede akzeptiert zwei Werte. Der erste Wert wird auf den Anfang dieser Dimension angewendet, der zweite auf das Ende. Wenn nur ein Wert gesetzt wird, wird er auf beide angewendet.
+Es gibt Abkürzungen, die entweder beide Inline-Seiten oder beide Block-Seiten anvisieren, {{cssxref("margin-inline")}} und {{cssxref("margin-block")}} jeweils. Jede akzeptiert zwei Werte. Der erste Wert wird auf den Anfang dieser Dimension angewendet, der zweite auf das Ende. Wenn nur ein Wert festgelegt ist, wird er auf beide angewendet.
 
-In einem horizontalen Schreibmodus würde dieses CSS `5px` Margin auf die Oberseite der Box und `10px` Margin auf die Unterseite anwenden.
+In einem horizontalen Schreibmodus würde dieses CSS einen `5px` Margin oben an der Box und einen `10px` Margin unten anwenden.
 
 ```css
 .box {
@@ -153,13 +151,13 @@ In einem horizontalen Schreibmodus würde dieses CSS `5px` Margin auf die Oberse
 
 ## Padding-Beispiele
 
-Die zugeordneten Padding-Eigenschaften {{cssxref("padding-inline-start")}}, {{cssxref("padding-inline-end")}}, {{cssxref("padding-block-start")}} und {{cssxref("padding-inline-end")}} können anstelle ihrer physischen Gegenstücke verwendet werden.
+Die zugeordneten Padding-Eigenschaften von {{cssxref("padding-inline-start")}}, {{cssxref("padding-inline-end")}}, {{cssxref("padding-block-start")}} und {{cssxref("padding-inline-end")}} können anstelle ihrer physischen Gegenstücke verwendet werden.
 
-In diesem Beispiel gibt es zwei Boxen. Eine hat physische Padding-Eigenschaften gesetzt und die andere verwendet logische Padding-Eigenschaften. Mit einem `writing-mode` von `horizontal-tb` sollten beide Boxen gleich aussehen.
+In diesem Beispiel gibt es zwei Boxen. Eine hat physische Padding-Eigenschaften gesetzt, und die andere verwendet logische Padding-Eigenschaften. Mit einem `writing-mode` von `horizontal-tb` sollten beide Boxen gleich aussehen.
 
-Versuchen Sie, die `direction` Eigenschaft auf `rtl` zu ändern, um die Boxen in einer rechts-nach-links Richtung anzuzeigen. Das Padding der ersten Box bleibt an derselben Stelle, während das Padding an der Inline-Dimension der zweiten Box wechselt.
+Versuchen Sie, die `direction`-Eigenschaft zu `rtl` zu ändern, um die Boxen in einer Rechts-nach-Links-Richtung anzuzeigen. Das Padding der ersten Box bleibt an der gleichen Stelle, während sich das Padding im Inline-Dimension der zweiten Box verschiebt.
 
-Sie können auch versuchen, den `writing-mode` von `horizontal-tb` zu `vertical-rl` zu ändern. Beachten Sie erneut, wie das Padding bei der ersten Box an derselben Stelle bleibt, sich aber um die Textrichtung in der zweiten Box dreht.
+Sie können auch versuchen, den `writing-mode` von `horizontal-tb` zu `vertical-rl` zu ändern. Auch hier, beachten Sie, wie das Padding für die erste Box an der gleichen Stelle bleibt, sich aber entsprechend der Textausrichtung in der zweiten verschiebt.
 
 ```html live-sample___padding-longhands
 <div class="container">
@@ -220,11 +218,11 @@ body {
 
 {{EmbedLiveSample("padding-longhands", "", "300px")}}
 
-### Padding-Kurzformen
+### Padding-Abkürzungen
 
-Wie bei Margin gibt es zweifache Kurzformen für Padding — {{cssxref("padding-inline")}} und {{cssxref("padding-block")}} — die es ermöglichen, das Padding der beiden Inline- und der beiden Blockdimensionen zu setzen.
+Wie bei Margins gibt es auch für Padding zwei-Wert-Kurzformen — {{cssxref("padding-inline")}} und {{cssxref("padding-block")}} — mit denen Sie das Padding der beiden Inline- und der beiden Block-Dimensionen einstellen können.
 
-In einem horizontalen `writing-mode` würde dieses CSS `5px` Padding oben und `10px` Padding unten auf die Box anwenden:
+In einem horizontalen `writing-mode` würde dieses CSS der Box `5px` Padding oben und `10px` Padding unten zuweisen:
 
 ```css
 .box {
@@ -232,11 +230,11 @@ In einem horizontalen `writing-mode` würde dieses CSS `5px` Padding oben und `1
 }
 ```
 
-## Rahmen-Beispiele
+## Border-Beispiele
 
-Die Rahmen-Eigenschaften sind der Hauptgrund dafür, dass dieses Modul so viele Eigenschaften zu haben scheint, da es Langform-logische Eigenschaften für die Farbe, Breite und den Stil des Rahmens auf jeder Seite einer Box bereitstellt, zusammen mit der Kurzform, um alle drei auf einmal für jede Seite zu setzen. Wie bei Margin und Padding gibt es eine zugeordnete Version jeder physischen Eigenschaft.
+Die Border-Eigenschaften sind der Hauptgrund, warum dieses Modul so viele Eigenschaften scheint zu haben, da es Langform-logische Eigenschaften für die Farbe, Breite und den Stil des Randes auf jeder Seite einer Box bereitstellt, zusammen mit der Kurzform, um alle drei auf einmal für jede Seite festzulegen. Wie bei Margin und Padding gibt es für jede physische Eigenschaft eine zugeordnete Version.
 
-Das untenstehende Demo verwendet einige Langformen und drei Kurzformwerte. Wie bei den anderen Demos versuchen Sie, die `direction` Eigenschaft auf `rtl` zu ändern, um die Boxen in einer rechts-nach-links Richtung anzuzeigen, oder den `writing-mode` von `horizontal-tb` zu `vertical-rl` zu ändern.
+Die folgende Demo verwendet einige Langformen und drei Kurzformwerte. Wie bei den anderen Demos versuchen Sie, die `direction`-Eigenschaft zu `rtl` zu ändern, um die Boxen in einer Rechts-nach-Links-Richtung anzuzeigen, oder den `writing-mode` von `horizontal-tb` zu `vertical-rl` zu ändern.
 
 ```html live-sample___border-longhands
 <div class="container">
@@ -289,9 +287,9 @@ body {
 
 {{EmbedLiveSample("border-longhands", "", "260px")}}
 
-### Rahmen-Kurzformen
+### Border-Abkürzungen
 
-Es gibt zweifache Kurzformen, um die Breite, den Stil und die Farbe der Block- oder Inline-Dimension zu setzen, sowie Kurzformen, um alle drei Werte in der Block- oder Inline-Dimension zu setzen. Der untenstehende Code würde Ihnen im horizontalen Schreibmodus einen `2px grünen soliden` Rahmen an der Ober- und Unterseite der Box, und einen `4px gepunkteten lila` Rahmen auf der linken und rechten Seite geben.
+Es gibt zwei-Wert-Kurzformen, um die Breite, den Stil und die Farbe der Block- oder Inline-Dimension festzulegen, und Kurzformen, um alle drei Werte in der Block- oder Inline-Dimension festzulegen. Der unten stehende Code würde Ihnen in einem horizontalen Schreibmodus einen `2px green solid` Rand oben und unten sowie einen `4px dotted purple` Rand links und rechts geben.
 
 ```css
 .box {
@@ -302,9 +300,9 @@ Es gibt zweifache Kurzformen, um die Breite, den Stil und die Farbe der Block- o
 }
 ```
 
-### Flussbezogene border-radius Eigenschaften
+### Flussbezogene Border-Radius-Eigenschaften
 
-Das Modul hat flussbezogene Entsprechungen für die Langformen von {{cssxref("border-radius")}}. Das folgende Beispiel würde im horizontalen `writing-mode` den oberen rechten Randradius auf `1em` setzen, den unteren rechten auf `0`, den unteren linken auf `20px` und den oberen linken auf `40px`.
+Das Modul hat flussbezogene Äquivalente für die {{cssxref("border-radius")}}-Langformen. Das folgende Beispiel würde in einem horizontalen `writing-mode` den oberen rechten Border-Radius auf `1em`, den unteren rechten auf `0`, den unteren linken auf `20px` und den oberen linken auf `40px` setzen.
 
 ```css
 .box {
@@ -315,8 +313,8 @@ Das Modul hat flussbezogene Entsprechungen für die Langformen von {{cssxref("bo
 }
 ```
 
-## Kennzeichnung logischer Werte für die 4-Wert-Kurzform-Syntax
+## Angabe logischer Werte für die 4-Wert-Kurzformsyntax
 
-Die Spezifikation gibt eine Empfehlung für die vier-Wert-Kurzformen wie die `margin`-Eigenschaft, jedoch ist die endgültige Entscheidung, wie dies gekennzeichnet werden soll, noch ungelöst und wird in [dieser Diskussion](https://github.com/w3c/csswg-drafts/issues/1282) thematisiert.
+Die Spezifikation macht einen Vorschlag für die Vier-Wert-Kurzformen wie die `margin`-Eigenschaft, jedoch ist die endgültige Entscheidung, wie dies angezeigt werden soll, noch ungelöst und wird in [diesem Issue](https://github.com/w3c/csswg-drafts/issues/1282) diskutiert.
 
-Die Verwendung jeder vier-Wert-Kurzform wie `margin`, `padding` oder `border` wird derzeit die physischen Versionen verwenden, daher, wenn es wichtig ist, dem Fluss des Dokuments zu folgen, verwenden Sie vorerst die Langform-Eigenschaften.
+Die Verwendung einer Vier-Wert-Kurzform wie `margin`, `padding` oder `border` wird derzeit die physischen Versionen verwenden. Wenn es wichtig ist, dem Fluss des Dokuments zu folgen, verwenden Sie vorerst die Langform-Eigenschaften.

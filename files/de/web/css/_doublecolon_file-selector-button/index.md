@@ -2,12 +2,10 @@
 title: ::file-selector-button
 slug: Web/CSS/::file-selector-button
 l10n:
-  sourceCommit: 2e16fdb99d2c52cc05d1b0d5eaf2f3178e4314c1
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Button eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
+Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Button eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
 
 {{InteractiveExample("CSS Demo: ::file-selector-button", "tabbed-shorter")}}
 
@@ -81,9 +79,9 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und daher den Regeln aus dem UA-Stylesheet entspricht. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element vererbt.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und daher den Regeln aus dem UA-Stylesheet entspricht. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element geerbt.
 
-### Rückfallbeispiel
+### Fallback-Beispiel
 
 #### HTML
 

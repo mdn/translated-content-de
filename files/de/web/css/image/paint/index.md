@@ -2,12 +2,10 @@
 title: paint()
 slug: Web/CSS/image/paint
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen {{cssxref("&lt;image&gt;")}}-Wert, der mit einem PaintWorklet erzeugt wird.
+Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der mit einem PaintWorklet generiert wird.
 
 ## Syntax
 
@@ -30,7 +28,7 @@ wo:
 
 ### Grundlegende Verwendung von CSS paint()
 
-Gegebenes HTML:
+Angenommen, folgendes HTML:
 
 ```html live-sample___example-boxbg
 <ul>
@@ -48,7 +46,7 @@ Gegebenes HTML:
 </ul>
 ```
 
-In JavaScript registrieren wir das [paint worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
+In JavaScript registrieren wir den [paint worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
 
 ```js live-sample___example-boxbg
 CSS.paintWorklet.addModule(
@@ -56,7 +54,7 @@ CSS.paintWorklet.addModule(
 );
 ```
 
-Im CSS definieren wir das `background-image` als einen `paint()`-Typ mit dem Worklet-Namen `boxbg`, zusammen mit allen Variablen (z. B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
+Im CSS definieren wir das `background-image` als einen `paint()`-Typ mit dem Worklet-Namen `boxbg`, zusammen mit allen Variablen (z.B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
 
 ```css live-sample___example-boxbg
 body {
@@ -82,7 +80,7 @@ li:nth-of-type(3n + 1) {
 
 ### CSS paint() mit Parametern
 
-Sie können optionale Argumente in der CSS `paint()` Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben, die steuern, ob das `background-image` einer Gruppe von Listenelementen `filled` oder mit einem `stroke`-Umriss versehen ist, und die `width` dieses Umrisses:
+Sie können optionale Argumente in der CSS `paint()` Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben, die steuern, ob das `background-image` einer Gruppe von Listenelementen `filled` ist oder eine `stroke` Umrandung hat, und die `width` dieser Umrandung:
 
 ```html hidden live-sample___example-highlight
 <ul>
@@ -127,7 +125,7 @@ li:nth-of-type(3n + 1) {
 }
 ```
 
-Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock aufgenommen, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
+Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock eingebunden, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für den PaintWorklet zugänglich.
 
 {{EmbedLiveSample("example-highlight", "", "300px")}}
 

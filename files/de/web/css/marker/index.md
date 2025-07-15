@@ -2,19 +2,17 @@
 title: marker
 slug: Web/CSS/marker
 l10n:
-  sourceCommit: 594ae0d4ffb6326a9529fe366d30ca633309ee30
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft zeigt auf einen Marker, der an den ersten, mittleren und letzten Eckpunkten des Pfades des Elements gezeichnet wird; das heißt, an all seinen Eckpunkten. Der Marker muss unter Verwendung eines SVG {{SVGElement('marker')}} Elements definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der `marker-start`, `marker`, und `marker-end` Attribute im SVG.
 
-Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der an den ersten, mittleren und letzten Scheitelpunkten des Pfads eines Elements gezeichnet wird; also an all seinen Scheitelpunkten. Der Marker muss mit einem SVG {{SVGElement('marker')}}-Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der `marker-start`, `marker`, und `marker-end` Attribute im SVG.
+Bei vielen Marker-unterstützenden Formen sind der erste und letzte Eckpunkt an derselben Stelle: beispielsweise die obere linke Ecke eines {{SVGElement('rect')}}. Bei solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden zwei Marker an diesem Punkt gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
 
-Für viele Formen, die Marker unterstützen, befinden sich die ersten und letzten Scheitelpunkte an derselben Stelle: beispielsweise die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden an diesem Punkt zwei Marker gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
-
-Für die mittleren Scheitelpunkte ist die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die genau zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Beginns des folgenden Pfadsegments liegt. Dies kann als das Kreuzprodukt der Vektoren gedacht werden, die durch die beiden Pfadrichtungen definiert sind.
+Für die mittleren Eckpunkte ist die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die sich auf halbem Weg zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Anfangs des nachfolgenden Pfadsegments befindet. Dies kann als das Kreuzprodukt der durch die beiden Pfadrichtungen definierten Vektoren betrachtet werden.
 
 > [!NOTE]
-> Die `marker` Eigenschaft wird nur für Elemente eine Wirkung haben, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
+> Die `marker` Eigenschaft hat nur eine Wirkung bei Elementen, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
 
 ## Syntax
 
@@ -33,10 +31,10 @@ marker: unset;
 ### Werte
 
 - `none`
-  - : Dies bedeutet, dass an jedem Scheitelpunkt des Pfades des Elements kein Marker gezeichnet wird.
+  - : Dies bedeutet, dass kein Marker an jedem Eckpunkt des Pfades des Elements gezeichnet wird.
 
 - `<marker-ref>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}} der auf einen Marker verweist, der durch ein SVG {{SVGElement('marker')}}-Element definiert ist und an jedem Scheitelpunkt des Pfades des Elements gezeichnet wird. Wenn die URL-Referenz ungültig ist, wird kein Marker an den Scheitelpunkten des Pfades gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG {{SVGElement('marker')}} Element definiert wurde und an jedem Eckpunkt des Pfades des Elements gezeichnet wird. Wenn die URL-Referenz ungültig ist, wird kein Marker an den Eckpunkten des Pfades gezeichnet.
 
 ## Formale Definition
 
@@ -99,4 +97,4 @@ polyline#test {
 
 - {{cssxref("marker-start")}}
 - {{cssxref("marker-end")}}
-- SVG {{SVGElement("marker")}}-Element
+- SVG {{SVGElement("marker")}} Element

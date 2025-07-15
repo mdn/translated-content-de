@@ -2,12 +2,12 @@
 title: :-moz-drag-over
 slug: Web/CSS/:-moz-drag-over
 l10n:
-  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}
+{{Non-standard_header}}
 
-Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element trifft, wenn ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis darauf aufgerufen wird.
+Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die auf ein Element angewendet wird, wenn ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis auf ihm ausgelöst wird.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CS
 
 ### JavaScript
 
-Die meisten Elemente sind keine gültigen Orte zum Ablegen von Daten, daher müssen Sie, um ein Ablegen zu ermöglichen, das Standardverhalten durch Abbrechen der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) (oder beider) Ereignisse verhindern. In diesem Beispiel müssen wir nur das `dragenter`-Ereignis abbrechen, welches das erste Ereignis ist, das ausgelöst wird, wenn der Browser bewertet, ob ein Element als Ablageziel dienen kann. Für weitere Informationen siehe [Drag-Betrieb: Ablageziele angeben](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).
+Die meisten Elemente sind keine gültigen Orte zum Ablegen von Daten. Um ein Ablegen zu ermöglichen, müssen Sie das Standardverhalten durch Abbrechen der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse (oder beider) verhindern. In diesem Beispiel müssen wir nur das `dragenter`-Ereignis abbrechen, da es das erste Ereignis ist, das ausgelöst wird, wenn der Browser bewertet, ob ein Element ein Ziel für das Ablegen sein kann. Weitere Informationen finden Sie unter [Drag operations: Specifying drop targets](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).
 
 ```js
 const target = document.getElementById("drop-target");
@@ -67,7 +67,7 @@ p {
 }
 ```
 
-Das folgende CSS ändert die Farbe des Ablageziels zu Rot, wenn das ziehbare Element den Ablagebereich überlagert.
+Das folgende CSS ändert die Farbe des Drop-Ziels in Rot, wenn das ziehbare Element den Ablagebereich überlagert.
 
 ```css
 #drop-target {
@@ -84,7 +84,7 @@ Das folgende CSS ändert die Farbe des Ablageziels zu Rot, wenn das ziehbare Ele
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Ist nicht Teil eines Standards.
 
 ## Siehe auch
 

@@ -1,15 +1,13 @@
 ---
-title: CSS-Farbjustierung
+title: CSS-Farbanpassung
 slug: Web/CSS/CSS_color_adjustment
 l10n:
-  sourceCommit: b7bf81297ba18c344359dbfeb200accddd907591
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das Modul **CSS-Farbanpassung** bietet ein Modell und Steuerungen, mit denen der Benutzeragent die automatische Farbanpassung zur Verarbeitung von Benutzerpräferenzen handhabt, wie zum Beispiel „Dunkelmodus“, Kontrasteinstellung und andere Farbschema-Präferenzen.
 
-Das **CSS-Farbjustierungs**-Modul bietet ein Modell und steuert die automatische Farbjustierung durch den Benutzeragenten, um Benutzereinstellungen wie "Dunkelmodus", Kontrastanpassung und andere Farbschema-Präferenzen zu bearbeiten.
-
-Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}} und {{cssxref("@media/forced-colors", "forced-colors")}} definiert dieses Modul, wie und wann Farben automatisch durch den Browser angepasst werden.
+Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}} und {{cssxref("@media/forced-colors", "forced-colors")}} definiert dieses Modul, wie und wann Farben vom Browser automatisch angepasst werden.
 
 ## Referenz
 
@@ -26,7 +24,7 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
   - {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}
   - {{cssxref("@media/prefers-contrast", "prefers-contrast")}}
   - {{cssxref("@media/forced-colors", "forced-colors")}}
-- Eigenschaften, die durch den Modus erzwungener Farben beeinflusst werden:
+- Eigenschaften, die vom Modus für erzwungene Farben betroffen sind
   - {{cssxref("accent-color")}}
   - {{cssxref("background-color")}}
   - {{cssxref("background-image")}}
@@ -55,4 +53,4 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
 
 ## Siehe auch
 
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors)-Modul
+- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul

@@ -2,12 +2,10 @@
 title: scroll-margin-bottom
 slug: Web/CSS/scroll-margin-bottom
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-margin-bottom` definiert den unteren Rand des Scroll-Snap-Bereichs, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen, ihr rechteckiger Begrenzungsrahmen (achsend-ausgerichtet im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Außensätze hinzugefügt werden.
+Die Eigenschaft `scroll-margin-bottom` definiert den unteren Rand des Scroll-Schnappbereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Schnappbereich wird bestimmt, indem der transformierte Rand des Rahmens genommen, dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt und dann die angegebenen Abstände hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-bottom")}}
 
@@ -89,7 +87,7 @@ scroll-margin-bottom: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Vorsprung vom unteren Rand des Scroll-Containers.
+  - : Ein Abstand von der unteren Kante des Scroll-Containers.
 
 ## Formale Definition
 

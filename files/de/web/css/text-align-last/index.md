@@ -2,12 +2,10 @@
 title: text-align-last
 slug: Web/CSS/text-align-last
 l10n:
-  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-align-last`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die letzte Zeile eines Blocks oder einer Zeile, direkt vor einem erzwungenen Zeilenumbruch, ausgerichtet wird.
+Die **`text-align-last`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie die letzte Zeile eines Blocks oder einer Zeile, direkt vor einem erzwungenen Zeilenumbruch, ausgerichtet wird.
 
 {{InteractiveExample("CSS Demo: text-align-last")}}
 
@@ -71,19 +69,19 @@ text-align-last: unset;
 ### Werte
 
 - `auto`
-  - : Die betroffene Zeile wird entsprechend dem Wert von {{cssxref("text-align")}} ausgerichtet, es sei denn, {{cssxref("text-align")}} ist `justify`, in welchem Fall die Wirkung der Einstellung von `text-align-last` auf `start` entspricht.
+  - : Die betroffene Zeile wird entsprechend dem Wert von {{cssxref("text-align")}} ausgerichtet, es sei denn, {{cssxref("text-align")}} ist `justify`, in diesem Fall entspricht der Effekt der Einstellung von `text-align-last` auf `start`.
 - `start`
   - : Entspricht `left`, wenn die Richtung von links nach rechts ist, und `right`, wenn die Richtung von rechts nach links ist.
 - `end`
   - : Entspricht `right`, wenn die Richtung von links nach rechts ist, und `left`, wenn die Richtung von rechts nach links ist.
 - `left`
-  - : Der inline Inhalt wird am linken Rand des Linienkastens ausgerichtet.
+  - : Der Inhalt in derselben Zeile wird am linken Rand des Linienkastens ausgerichtet.
 - `right`
-  - : Der inline Inhalt wird am rechten Rand des Linienkastens ausgerichtet.
+  - : Der Inhalt in derselben Zeile wird am rechten Rand des Linienkastens ausgerichtet.
 - `center`
-  - : Der inline Inhalt wird innerhalb des Linienkastens zentriert.
+  - : Der Inhalt in derselben Zeile wird innerhalb des Linienkastens zentriert.
 - `justify`
-  - : Der Text wird gerechtfertigt. Der Text sollte so ausgerichtet werden, dass die linken und rechten Ränder mit den linken und rechten Inhaltsrändern des Absatzes übereinstimmen.
+  - : Der Text wird im Blocksatz dargestellt. Der Text sollte an den linken und rechten Rändern des Absatzes ausgerichtet sein.
 
 ## Formale Definition
 
@@ -95,7 +93,7 @@ text-align-last: unset;
 
 ## Beispiele
 
-### Die letzte Zeile rechtfertigen
+### Die letzte Zeile im Blocksatz
 
 ```html hidden
 <p>

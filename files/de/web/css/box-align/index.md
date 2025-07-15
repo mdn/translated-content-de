@@ -2,19 +2,19 @@
 title: box-align
 slug: Web/CSS/box-align
 l10n:
-  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
+{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft aus dem ursprünglichen Entwurf des CSS Flexible Box Layout-Moduls und wurde durch einen neueren Standard ersetzt.
+> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Modul-Entwurfs und wurde durch einen neueren Standard ersetzt.
 
-Die **`box-align`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie ein Element seine Inhalte senkrecht zu seinem Layout ausrichtet. Die Wirkung der Eigenschaft ist nur sichtbar, wenn im Kasten zusätzlicher Platz vorhanden ist.
+Die **`box-align`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie ein Element seine Inhalte in einer senkrechten Richtung innerhalb seines Layouts ausrichtet. Die Wirkung der Eigenschaft ist nur sichtbar, wenn zusätzlicher Platz im Kasten vorhanden ist.
 
-Siehe [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
+Weitere Informationen zum aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
-Die Ausrichtungsrichtung hängt von der Orientierung des Elements ab: horizontal oder vertikal.
+Die Ausrichtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -32,43 +32,43 @@ box-lines: initial;
 box-lines: unset;
 ```
 
-Die `box-align` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-align` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `start`
-  - : Der Kasten richtet die Inhalte am Anfang aus, wobei ein zusätzlicher Platz am Ende bleibt.
+  - : Der Kasten richtet die Inhalte am Anfang aus, wodurch jeglicher zusätzliche Platz am Ende verbleibt.
 - `center`
-  - : Der Kasten richtet die Inhalte in der Mitte aus, wobei der zusätzliche Platz gleichmäßig zwischen Anfang und Ende aufgeteilt wird.
+  - : Der Kasten richtet die Inhalte in der Mitte aus und teilt jeglichen zusätzlichen Platz gleichmäßig zwischen Anfang und Ende.
 - `end`
-  - : Der Kasten richtet die Inhalte am Ende aus, wobei ein zusätzlicher Platz am Anfang bleibt.
+  - : Der Kasten richtet die Inhalte am Ende aus, wodurch jeglicher zusätzliche Platz am Anfang verbleibt.
 - `baseline`
-  - : Der Kasten richtet die Baselinien der Inhalte aus (Textausrichtung). Dies gilt nur, wenn die Orientierung des Kastens horizontal ist.
+  - : Der Kasten richtet die Baselines der Inhalte aus (Textzeilen werden ausgerichtet). Dies gilt nur, wenn die Orientierung des Kastens horizontal ist.
 - `stretch`
-  - : Der Kasten streckt die Inhalte so, dass kein zusätzlicher Platz im Kasten bleibt.
+  - : Der Kasten streckt die Inhalte so, dass im Kasten kein zusätzlicher Platz vorhanden ist.
 
-## Anmerkungen
+## Hinweise
 
-Der Rand des Kastens, der für Ausrichtungszwecke als _Anfang_ bezeichnet wird, hängt von der Orientierung des Kastens ab:
+Die Kante des Kastens, die für Ausrichtungszwecke als _Anfang_ bezeichnet wird, hängt von der Orientierung des Kastens ab:
 
-- Für horizontale Elemente ist der _Anfang_ der obere Rand.
-- Für vertikale Elemente ist der _Anfang_ der linke Rand.
+- Für horizontale Elemente ist der _Anfang_ die obere Kante.
+- Für vertikale Elemente ist der _Anfang_ die linke Kante.
 
-Der dem Anfang gegenüberliegende Rand wird als _Ende_ bezeichnet.
+Die der Anfangskante gegenüberliegende Kante wird als _Ende_ bezeichnet.
 
-Wenn die Ausrichtung über das `align` Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn die Ausrichtung mit dem `align` Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{CSSSyntaxRaw(`box-align = start | center | end | baseline | stretch`)}}
 
 ## Beispiele
 
-### Festlegen der Kasten-Ausrichtung
+### Ausrichtung des Kastens festlegen
 
 ```html
 <div class="example">
@@ -116,7 +116,7 @@ div.example > p {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil von keinem Standard.
 
 ## Browser-Kompatibilität
 

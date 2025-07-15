@@ -2,12 +2,10 @@
 title: CSS-Ansichtstransitionen
 slug: Web/CSS/CSS_view_transitions
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transition API](/de/docs/Web/API/View_Transition_API), die es Entwicklern ermöglicht, animierte Übergänge zwischen verschiedenen Zuständen innerhalb eines Dokuments und über Dokumente hinweg zu erstellen. Dieses Modul definiert auch die CSS-Eigenschaften und Pseudo-Elemente zur Gestaltung dieser Übergänge.
+Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transition API](/de/docs/Web/API/View_Transition_API), die es Entwicklern ermöglicht, animierte Übergänge zwischen verschiedenen Zuständen innerhalb eines Dokuments und zwischen Dokumenten zu erstellen. Dieses Modul definiert auch die CSS-Eigenschaften und Pseudo-Elemente zur Gestaltung dieser Übergänge.
 
 ## Referenz
 
@@ -19,7 +17,7 @@ Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transit
 ### At-Regeln und Deskriptoren
 
 - {{cssxref("@view-transition")}}
-  - [`navigation`](/de/docs/Web/CSS/@view-transition#navigation)-Deskriptor
+  - [`navigation`](/de/docs/Web/CSS/@view-transition#navigation) Deskriptor
 
 ### Selektoren und Pseudo-Elemente
 
@@ -35,32 +33,31 @@ Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transit
 
 - [`CSSViewTransitionRule`](/de/docs/Web/API/CSSViewTransitionRule)
 - [`ViewTransition`](/de/docs/Web/API/ViewTransition)
-  - [`ViewTransition.skipTransition()`](/de/docs/Web/API/ViewTransition/skipTransition)-Methode
+  - [`ViewTransition.skipTransition()`](/de/docs/Web/API/ViewTransition/skipTransition) Methode
   - [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone)
   - [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready)
   - [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished)
-- [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)-Methode
+- [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) Methode
 
 ## Leitfäden
 
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-  - : Erläutert, wie Ansichtstransitionen erstellt und Übergangsanimationen angepasst werden, einschließlich der Manipulation aktiver Ansichtstransitionen.
+  - : Erklärt, wie Sie Ansichtstransitionen erstellen und Übergangsanimationen anpassen, einschließlich der Manipulation aktiver Ansichtstransitionen.
 
 ## Verwandte Konzepte
 
-- [`pagereveal`](/de/docs/Web/API/PageRevealEvent)-Ereignis
-- [`pageswap`](/de/docs/Web/API/PageSwapEvent)-Ereignis
+- [`pagereveal`](/de/docs/Web/API/PageRevealEvent) Ereignis
+- [`pageswap`](/de/docs/Web/API/PageSwapEvent) Ereignis
 - [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)-Modul
-
+- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
   - {{cssxref("animation")}}
   - {{cssxref("@keyframes")}}
   - [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)
   - [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)
-  - [Web-Animations-API](/de/docs/Web/API/Web_Animations_API)
+  - [Web-Animationen API](/de/docs/Web/API/Web_Animations_API)
 
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)-Modul
+- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
   - {{cssxref("transform")}}
   - {{cssxref("transform-function")}}
 

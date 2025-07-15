@@ -2,14 +2,12 @@
 title: inverted-colors
 slug: Web/CSS/@media/inverted-colors
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`inverted-colors`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu testen, ob der {{Glossary("user_agent", "User-Agent")}} oder das zugrunde liegende Betriebssystem alle Farben invertiert hat.
 
-Die Invertierung von Farben kann unangenehme Nebeneffekte haben, wie zum Beispiel das Umwandeln von Schatten in Hervorhebungen, was die Lesbarkeit der Inhalte reduzieren kann. Mit diesem Media-Feature können Sie erkennen, ob eine Invertierung stattfindet und die Inhalte entsprechend benutzerfreundlich gestalten.
+Die Inversion von Farben kann unangenehme Nebenwirkungen haben, wie z.B. dass Schatten zu Hervorhebungen werden, was die Lesbarkeit des Inhalts verringern kann. Mit diesem Media-Feature können Sie erkennen, ob eine Inversion stattfindet, und den Inhalt entsprechend gestalten, während Sie die Benutzerpräferenz respektieren.
 
 ## Syntax
 
@@ -20,18 +18,18 @@ Die Invertierung von Farben kann unangenehme Nebeneffekte haben, wie zum Beispie
 }
 ```
 
-Das `inverted-colors` Feature wird als einer der folgenden Schlüsselwortwerte angegeben:
+Das `inverted-colors`-Feature wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 - `none`
-  - : Gibt an, dass die Farben normal angezeigt werden und keine Invertierung der Farben stattgefunden hat. Dieser Schlüsselwortwert wird als false bewertet.
+  - : Gibt an, dass die Farben normal angezeigt werden und keine Inversion der Farben stattgefunden hat. Dieser Schlüsselwortwert wird als falsch ausgewertet.
 - `inverted`
-  - : Gibt an, dass alle Pixel im angezeigten Bereich invertiert wurden. Dieser Schlüsselwortwert wird als true bewertet.
+  - : Gibt an, dass alle Pixel im angezeigten Bereich invertiert wurden. Dieser Schlüsselwortwert wird als wahr ausgewertet.
 
 ## Beispiele
 
-### Anwenden von Styles, wenn eine Farbinvertierung erkannt wird
+### Anwendung von Stilen bei erkannter Farbinversion
 
-Dieses Beispiel demonstriert die Auswirkungen beider `inverted-colors` Media-Feature-Schlüsselwortwerte und wenn das `inverted-colors` Media-Feature nicht unterstützt wird.
+Dieses Beispiel zeigt die Effekte beider `inverted-colors` Media-Feature-Schlüsselwortwerte und wenn das `inverted-colors` Media-Feature nicht unterstützt wird.
 
 #### HTML
 

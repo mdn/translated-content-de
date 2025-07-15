@@ -2,16 +2,16 @@
 title: calc-size()
 slug: Web/CSS/calc-size
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{seecompattable}}
+{{seecompattable}}
 
-Die **`calc-size()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ermöglicht es Ihnen, Berechnungen an {{Glossary("Intrinsic_Size", "intrinsischen Größen")}} wie `auto`, [`fit-content`](/de/docs/Web/CSS/fit-content) und [`max-content`](/de/docs/Web/CSS/max-content) durchzuführen; dies wird von der regulären {{cssxref("calc()")}} Funktion nicht unterstützt.
+Die **`calc-size()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ermöglicht Berechnungen mit {{Glossary("Intrinsic_Size", "intrinsischen Größen")}} wie `auto`, [`fit-content`](/de/docs/Web/CSS/fit-content) und [`max-content`](/de/docs/Web/CSS/max-content); dies wird von der regulären {{cssxref("calc()")}} Funktion nicht unterstützt.
 
-`calc-size()` Rückgabewerte können auch {{Glossary("Interpolation", "interpoliert")}} werden, wodurch Größen-Schlüsselwortwerte in [Animationen](/de/docs/Web/CSS/CSS_animations) und [Transitionen](/de/docs/Web/CSS/CSS_transitions) verwendet werden können. Tatsächlich wird durch die Einbeziehung von `calc-size()` in einen Eigenschaftswert automatisch [`interpolate-size: allow-keywords`](/de/docs/Web/CSS/interpolate-size) auf die Auswahl angewendet.
+`calc-size()` Rückgabewerte können ebenfalls {{Glossary("Interpolation", "interpoliert")}} werden, wodurch Größen-Keyword-Werte in [Animationen](/de/docs/Web/CSS/CSS_animations) und [Übergängen](/de/docs/Web/CSS/CSS_transitions) verwendet werden können. Der Einschluss von `calc-size()` in einen Eigenschaftswert wendet automatisch [`interpolate-size: allow-keywords`](/de/docs/Web/CSS/interpolate-size) auf die Auswahl an.
 
-Beachten Sie jedoch, dass `interpolate-size` vererbt wird. Daher aktiviert das Anwenden auf ein Element die Interpolation von intrinsischen Größen-Schlüsselwörtern für jede Eigenschaft, die auf dieses Element und seine Kinder angewendet wird. Daher ist `interpolate-size` die bevorzugte Lösung, um Animationen mit intrinsischen Größen zu ermöglichen. Sie sollten `calc-size()` nur verwenden, um Animationen mit intrinsischen Größen zu ermöglichen, wenn diese auch Berechnungen erfordern.
+Beachten Sie jedoch, dass `interpolate-size` vererbt wird, daher ermöglicht die Anwendung auf ein Element die Interpolation von intrinsischen Größen-Keywords für jede Eigenschaft, die auf dieses Element und seine Kinder angewendet wird. Daher ist `interpolate-size` die bevorzugte Lösung zur Aktivierung von Animationen mit intrinsischen Größen. Sie sollten `calc-size()` nur verwenden, um Animationen mit intrinsischen Größen zu aktivieren, wenn diese auch Berechnungen erfordern.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ calc-size(auto, round(up, size, 50px))
 
 ### Parameter
 
-Die Syntax der `calc-size()` Funktion ist wie folgt:
+Die Syntax der `calc-size()` Funktion lautet wie folgt:
 
 ```plain
 calc-size(<calc-size-basis>, <calc-sum>)
@@ -39,23 +39,22 @@ calc-size(<calc-size-basis>, <calc-sum>)
 Die Parameter sind:
 
 - `<calc-size-basis>`
-
-  - : Der Wert (meistens eine intrinsische Größe), auf den Sie eine Berechnung durchführen möchten.
+  - : Der Wert (häufig eine intrinsische Größe), auf den Sie eine Berechnung anwenden möchten.
 
 - [`<calc-sum>`](/de/docs/Web/CSS/calc-sum)
-  - : Ein Ausdruck, der die Berechnung definiert, die auf dem `<calc-size-basis>` durchgeführt werden soll.
+  - : Ein Ausdruck, der die Berechnung definiert, die auf `<calc-size-basis>` ausgeführt werden soll.
 
 ### Rückgabewert
 
-Gibt einen Wert zurück, der dem durch den `<calc-sum>` Ausdruck modifizierten `<calc-size-basis>` entspricht. Da der `<calc-size-basis>` Wert eine intrinsische Größe ist, ist der Rückgabewert eine modifizierte intrinsische Größe, die sich wie der in die Funktion eingegebene intrinsische Größenwert verhält.
+Gibt einen Wert zurück, der dem durch den `<calc-sum>` Ausdruck modifizierten `<calc-size-basis>` entspricht. Da der `<calc-size-basis>` Wert eine intrinsische Größe ist, handelt es sich beim Rückgabewert um eine modifizierte intrinsische Größe, die sich wie der in die Funktion eingegebene intrinsische Größenwert verhält.
 
 ## Beschreibung
 
-Bestimmte Browser-Layout-Algorithmen haben spezielle Verhaltensweisen für intrinsische Größen-Schlüsselwörter. Die `calc-size()` Funktion ist explizit so definiert, dass sie eine intrinsische Größe darstellt und nicht einen [`<length-percentage>`](/de/docs/Web/CSS/length-percentage), was die Korrektheit erzwingt. `calc-size()` ermöglicht es, Berechnungen auf intrinsische Größenwerte in einer sicheren, wohldefinierten Weise durchzuführen.
+Bestimmte Browser-Layout-Algorithmen haben spezielle Verhaltensweisen für intrinsische Größen-Keywords. Die `calc-size()` Funktion ist explizit definiert, um eine intrinsische Größe statt einem [`<length-percentage>`](/de/docs/Web/CSS/length-percentage) darzustellen, wodurch Korrektheit erzwungen wird. `calc-size()` ermöglicht Berechnungen auf intrinsischen Größenwerten in einer sicheren, wohl definierten Weise.
 
 ### Gültige Werte für das erste Argument (`<calc-size-basis>`)
 
-Das erste Argument der `calc-size()` Funktion kann einer der folgenden intrinsischen Werte sein:
+Das erste `calc-size()` Argument kann einer der folgenden intrinsischen Werte sein:
 
 - `auto`
 - {{cssxref("min-content")}}
@@ -65,7 +64,7 @@ Das erste Argument der `calc-size()` Funktion kann einer der folgenden intrinsis
 
 Es gibt auch einige spezielle Werte, die dieses Argument annehmen kann:
 
-- Ein verschachtelter `calc-size()` Wert. Dies werden Sie wahrscheinlich nicht sehr oft tun, aber es ist verfügbar, um sicherzustellen, dass die Verwendung einer [CSS-Variable](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) als `<calc-size-basis>` immer funktioniert, vorausgesetzt, die Variable ist ein gültiger Wert für die Eigenschaft, auf die `calc-size()` angewendet wird. So funktioniert zum Beispiel dies:
+- Ein verschachtelter `calc-size()` Wert. Dies ist nichts, was Sie wahrscheinlich häufig tun würden, aber es ist verfügbar und stellt sicher, dass die Verwendung einer [CSS-Variable](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) als `<calc-size-basis>` immer funktioniert, vorausgesetzt, die Variable ist ein gültiger Wert für die Eigenschaft, auf der `calc-size()` gesetzt wird. Ein Beispiel, das funktioniert, wäre:
 
   ```css
   section {
@@ -73,7 +72,7 @@ Es gibt auch einige spezielle Werte, die dieses Argument annehmen kann:
   }
   ```
 
-  Genauso wie dies:
+  Ebenso wie dieses:
 
   ```css
   :root {
@@ -85,7 +84,7 @@ Es gibt auch einige spezielle Werte, die dieses Argument annehmen kann:
   }
   ```
 
-- Ein weiterer `<calc-sum>`, mit denselben Einschränkungen wie der für das zweite Argument angegebene `<calc-sum>`, außer dass das Schlüsselwort `size` nicht enthalten sein darf. Sie werden dies wahrscheinlich nicht tun, da Sie keine Berechnung mehr an einem intrinsischen Größenwert vornehmen, aber wenn ein benutzerdefinierter Eigenschaftswert ein `<calc-sum>` ist, funktioniert die Funktion trotzdem. Zum Beispiel funktioniert dies direkt oder wenn Sie eine benutzerdefinierte Eigenschaft mit einem Wert von `300px + 2rem` verwenden:
+- Ein weiteres `<calc-sum>`, mit denselben Einschränkungen wie das für das zweite Argument angegebene `<calc-sum>`, außer dass das `size` Keyword nicht enthalten sein darf. Dies werden Sie wahrscheinlich nicht tun, da keine Berechnung auf einem intrinsischen Größenwert mehr durchgeführt wird, aber wenn ein benutzerdefinierter Eigenschaftswert ein `<calc-sum>` ist, funktioniert die Funktion trotzdem. Zum Beispiel funktioniert dies direkt oder wenn Sie eine benutzerdefinierte Eigenschaft mit einem Wert von `300px + 2rem` verwenden:
 
   ```css
   section {
@@ -93,7 +92,7 @@ Es gibt auch einige spezielle Werte, die dieses Argument annehmen kann:
   }
   ```
 
-- Das Schlüsselwort `any`, das eine nicht spezifizierte bestimmte Größe darstellt. In diesem Fall kann das Schlüsselwort `size` nicht im zweiten Argument enthalten sein, und `calc-size()` gibt das Ergebnis der Berechnung des zweiten Arguments zurück. Zum Beispiel:
+- Das Schlüsselwort `any`, das eine unbestimmte bestimmte Größe darstellt. In diesem Fall darf das `size` Keyword im zweiten Argument nicht enthalten sein, und das `calc-size()` gibt das Ergebnis der Berechnung des zweiten Arguments zurück. Ein Beispiel:
 
   ```css
   section {
@@ -101,28 +100,28 @@ Es gibt auch einige spezielle Werte, die dieses Argument annehmen kann:
   }
   ```
 
-Das Mischen verschiedener intrinsischer Größen in derselben Berechnung funktioniert nicht. Zum Beispiel ergibt `max-content - min-content` keinen Sinn. `calc-size()` erlaubt nur einen einzelnen intrinsischen Größenwert in jeder Berechnung, um dieses Problem zu vermeiden.
+Das Mischen unterschiedlicher intrinsischer Größen in derselben Berechnung funktioniert nicht. Zum Beispiel ergibt `max-content - min-content` keinen Sinn. `calc-size()` erlaubt nur einen einzigen intrinsischen Größenwert in jeder Berechnung, um dieses Problem zu vermeiden.
 
 ### Gültige Werte für das zweite Argument (`<calc-sum>`)
 
-Das zweite Argument einer `calc-size()` Funktion ist ein [`<calc-sum>`](/de/docs/Web/CSS/calc-sum) Ausdruck.
+Das zweite `calc-size()` Argument ist ein [`<calc-sum>`](/de/docs/Web/CSS/calc-sum) Ausdruck.
 
 In diesem Ausdruck:
 
-- Das Schlüsselwort `size` stellt das `<calc-size-basis>` dar, das als erstes Argument angegeben wurde.
-- Operanden können `size` und alle Wertetypen einbeziehen, die im Kontext sinnvoll sind.
-- Die Operatoren `+`, `-`, `*` und `/` können einbezogen werden.
-- Andere mathematische Funktionen können einbezogen werden, wie z.B. {{cssxref("round()")}}, {{cssxref("max()")}}, oder sogar ein verschachteltes `calc-size()`.
-- Der Gesamtausdruck muss mit [`<length-percentage>`](/de/docs/Web/CSS/length-percentage) übereinstimmen und sich auf ein [`<length>`](/de/docs/Web/CSS/length) auflösen.
+- Das Schlüsselwort `size` repräsentiert das als erstes Argument angegebene `<calc-size-basis>`.
+- Operandien können `size` und alle Werttypen enthalten, die im Kontext sinnvoll sind.
+- Die Operatoren `+`, `-`, `*` und `/` können enthalten sein.
+- Andere mathematische Funktionen können enthalten sein, wie {{cssxref("round()")}}, {{cssxref("max()")}}, oder sogar ein verschachteltes `calc-size()`.
+- Der Gesamtausdruck muss mit [`<length-percentage>`](/de/docs/Web/CSS/length-percentage) übereinstimmen und zu einer [`<length>`](/de/docs/Web/CSS/length) aufgelöst werden.
 
-### Ermöglichen der Animation von intrinsischen Größenwerten
+### Aktivierung der Animation von intrinsischen Größenwerten
 
-`calc-size()` Rückgabewerte können interpoliert werden, was Animationen zwischen einem [`<length-percentage>`](/de/docs/Web/CSS/length-percentage) Wert und einem `calc-size()` intrinsischen Größen-Rückgabewert ermöglicht.
+`calc-size()` Rückgabewerte können interpoliert werden, wodurch Animationen zwischen einem [`<length-percentage>`](/de/docs/Web/CSS/length-percentage) Wert und einem `calc-size()` intrinsischen Größenrückgabewert möglich werden.
 
 > [!NOTE]
-> Sie sollten vermeiden, Box-Model-Eigenschaften zu animieren, wenn möglich, um Layout-Ereignisse zu reduzieren und die resultierende Auswirkung auf die Leistung zu mindern (siehe [Kritischer Rendering-Pfad > Layout](/de/docs/Web/Performance/Guides/Critical_rendering_path#layout)).
+> Sie sollten es vermeiden, Box-Model-Eigenschaften zu animieren, wenn möglich, um die Anzahl der Layout-Ereignisse zu reduzieren und die daraus resultierenden Auswirkungen auf die Leistung zu mindern (siehe [Kritischer Rendering-Pfad > Layout](/de/docs/Web/Performance/Guides/Critical_rendering_path#layout)).
 
-Zum Beispiel könnten Sie eine [Transition](/de/docs/Web/CSS/CSS_transitions) verwenden, um eine Containerbreite zwischen `0` und `auto` wie folgt zu animieren:
+Zum Beispiel könnten Sie einen [Übergang](/de/docs/Web/CSS/CSS_transitions) verwenden, um eine Containerbreite zwischen `0` und `auto` wie folgt zu animieren:
 
 ```css
 section {
@@ -136,9 +135,9 @@ section:focus {
 }
 ```
 
-Im obigen Fall berechnen wir nichts — wir setzen `auto` in `calc-size()` ein und geben es unverändert zurück. Die {{cssxref("interpolate-size")}} Eigenschaft macht Animationen wie die obige in den meisten Fällen einfacher zu implementieren, besonders wenn es mehrere Animationen zu beachten gibt. Sie ist vererbt und muss daher nur einmal auf einer übergeordneten Eigenschaft deklariert werden, was bedeutet, dass wir zwischen `0` und `auto` ohne Verwendung von `calc-size()` hätten wechseln können.
+Im obigen Fall berechnen wir nichts — wir setzen `auto` in `calc-size()` und geben es unverändert zurück. Die {{cssxref("interpolate-size")}} Eigenschaft vereinfacht Animationen wie die obige in den meisten Fällen, besonders wenn es mehrere Animationen zu berücksichtigen gibt. Sie wird vererbt und muss daher nur einmal auf einer Vorgängereigenschaft deklariert werden, was bedeutet, dass wir zwischen `0` und `auto` ohne `calc-size()` hätten übergehen können.
 
-Die `calc-size()` Funktion sollte nur verwendet werden, um Animationen mit intrinsischen Größen zu ermöglichen, wenn diese auch Berechnungen erfordern. Zum Beispiel animieren wir im folgenden Fall die Breite _und_ wenden eine Berechnung auf den intrinsischen Größen-Endzustand an:
+Die `calc-size()` Funktion sollte nur verwendet werden, um Animationen mit intrinsischen Größen zu ermöglichen, wenn diese auch Berechnungen erfordern. Zum Beispiel, in dem folgenden Fall animieren wir die `width` _und_ wenden eine Berechnung auf den Endzustand der intrinsischen Größe an:
 
 ```css
 section {
@@ -167,7 +166,7 @@ Ein Fall, in dem `calc-size()` nützlich ist, ist, wenn Sie zwischen einer intri
 ```
 
 > [!NOTE]
-> Beachten Sie, dass `calc-size()` das Animieren zwischen zwei verschiedenen intrinsischen Größenwerten nicht ermöglicht.
+> Beachten Sie, dass `calc-size()` keine Animationen zwischen zwei unterschiedlichen intrinsischen Größenwerten ermöglicht.
 
 ## Formale Syntax
 
@@ -175,9 +174,9 @@ Ein Fall, in dem `calc-size()` nützlich ist, ist, wenn Sie zwischen einer intri
 
 ## Beispiele
 
-### Grundlegende `calc-size` Nutzung
+### Grundlegende Verwendung von `calc-size`
 
-Dieses Beispiel zeigt die grundlegende Dimensionierung eines Containers mit `calc-size()`
+Dieses Beispiel zeigt eine grundlegende Dimensionierung eines Containers unter Verwendung von `calc-size()`
 
 #### HTML
 
@@ -218,7 +217,7 @@ p {
 }
 ```
 
-Im CSS verwenden wir [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), um die Kindelemente innerhalb des `<section>` Zentriert anzuordnen, und setzen die Breite und Höhe des `<section>` auf `calc-size()` Funktionen. Die Breite wird auf `fit-content` plus `6rem` gesetzt. Die Höhe wird auf `auto` multipliziert mit zwei gesetzt.
+Im CSS verwenden wir [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), um die Kindelemente innerhalb des `<section>` zu zentrieren, und setzen die `width` und `height` des `<section>` auf `calc-size()` Funktionen. Die `width` wird auf `fit-content` plus `6rem` gesetzt. Die `height` wird auf `auto` multipliziert mit zwei gesetzt.
 
 ```css
 section {
@@ -232,21 +231,21 @@ section {
 }
 ```
 
-Der Rest des CSS wurde der Kürze wegen ausgeblendet.
+Der Rest des CSS wurde der Kürze halber ausgeblendet.
 
 #### Ergebnis
 
-Wir haben etwas horizontalen und vertikalen Raum für den Text geschaffen, um zentriert zu sein, ohne die Verwendung von Padding.
+Wir haben etwas horizontalen und vertikalen Raum geschaffen, damit der Text zentriert angezeigt wird, ohne das Padding zu verwenden.
 
-{{ EmbedLiveSample('Grundlegende `calc-size` Nutzung', '100%', '150') }}
+{{ EmbedLiveSample('Basic `calc-size` usage', '100%', '150') }}
 
 ### Grundlegende `calc-size` Animationen
 
-Dieses Beispiel zeigt, wie `calc-size()` verwendet wird, um zwischen einer bestimmten Größe und einer intrinsischen Größe zu animieren. Die Demo zeigt ein Charakter-Badge/"Namensschild", das beim Fokusieren oder Schweben Informationen über den Charakter offenbart. Das Offenlegen wird durch eine {{cssxref("height")}} Transition zwischen einer festgelegten Länge und `max-content` behandelt.
+Dieses Beispiel demonstriert, wie man `calc-size()` verwendet, um zwischen einer spezifischen Größe und einer intrinsischen Größe zu animieren. Die Demo enthält ein Charakter-Abzeichen/"Namensschild", das bei Hover oder Fokus Informationen über den Charakter enthüllt. Die Enthüllung wird durch eine {{cssxref("height")}} Transition zwischen einer festgelegten Länge und `max-content` abgewickelt.
 
 #### HTML
 
-Das HTML enthält ein einzelnes {{htmlelement("section")}} Element mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) darauf gesetzt, damit es Tastaturfokus erhalten kann. Das `<section>` enthält {{htmlelement("header")}} und {{htmlelement("main")}} Elemente, die jeweils ihren eigenen Kindinhalt haben.
+Das HTML enthält ein einzelnes {{htmlelement("section")}} Element mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), damit es Tastaturfokus erhalten kann. Das `<section>` enthält {{htmlelement("header")}} und {{htmlelement("main")}} Elemente, jedes mit eigenem Kindinhalt.
 
 ```html
 <section tabindex="0">
@@ -310,7 +309,7 @@ p {
 }
 ```
 
-Im CSS setzen wir die {{cssxref("height")}} des `<section>` auf `2.5rem` und {{cssxref("overflow")}} auf `hidden`, sodass anfänglich nur das `<header>` angezeigt wird, dann spezifizieren wir eine `transition`, die die `<section>` Höhe über 1 Sekunde bei Zustandsänderungen animiert. Schließlich setzen wir auf {{cssxref(":hover")}} und {{cssxref(":focus")}} die `<section>` Höhe auf einen `calc-size()` Funktionsaufruf. Der Funktionsrückgabewert ist das Äquivalent von `max-content` + `2rem`.
+Im CSS setzen wir die {{cssxref("height")}} des `<section>` auf `2.5rem` und {{cssxref("overflow")}} auf `hidden`, sodass nur das `<header>` standardmäßig angezeigt wird. Dann spezifizieren wir eine `transition`, die die `height` des `<section>` über 1 Sekunde während Zustandsänderungen animiert. Schließlich setzen wir die `<section>` `height ` auf einen `calc-size()` Funktionsaufruf bei {{cssxref(":hover")}} und {{cssxref(":focus")}}. Der Funktionsrückgabewert ist die Entsprechung von `max-content` + `2rem`.
 
 ```css
 section {
@@ -325,21 +324,21 @@ section:focus {
 }
 ```
 
-Der Rest des CSS wurde der Kürze wegen ausgeblendet.
+Der Rest des CSS wurde der Kürze halber ausgeblendet.
 
 #### Ergebnis
 
-Versuchen Sie, über das `<section>` zu schweben oder es über die Tastatur in den Fokus zu nehmen — es wird auf seine volle Höhe + 2rem animiert, wodurch der gesamte Inhalt mit 2rems zusätzlichem Platz am unteren Rand sichtbar wird.
+Versuchen Sie über das `<section>` zu fahren oder es über die Tastatur zu fokussieren — es wird auf seine volle Höhe + 2rem animiert, sodass der gesamte Inhalt mit einem zusätzlichen Abstand von 2rem am unteren Rand enthüllt wird.
 
-{{ EmbedLiveSample('Grundlegende `calc-size` Animationen', '100%', '250') }}
+{{ EmbedLiveSample('Basic `calc-size` animations', '100%', '250') }}
 
 ### Anpassung der Lesebreite basierend auf `fit-content`
 
-Dieses Beispiel zeigt einen Container mit Text darin und einen Button, der geklickt werden kann, um die Breite des Containers je nach Lesepräferenz schmaler oder breiter zu machen.
+Dieses Beispiel zeigt einen Container mit Text darin und einen Button, der geklickt werden kann, um die Containerbreite je nach Lesepreferenz schmaler oder breiter zu machen.
 
 #### HTML
 
-Das HTML enthält ein einzelnes {{htmlelement("section")}} Element mit Kindtextinhalt, sowie einen {{htmlelement("button")}}, um die Breite des `<section>` zu ändern.
+Das HTML enthält ein einziges {{htmlelement("section")}} Element mit Kindelementen und einem {{htmlelement("button")}}, um die `<section>` Breite zu ändern.
 
 ```html
 <section class="easy-reader">
@@ -397,7 +396,7 @@ button {
 }
 ```
 
-Im CSS setzen wir die {{cssxref("width")}} des `<section>` auf einen Standardwert von {{cssxref("fit-content")}}. Dann definieren wir zwei Sätze von {{cssxref("@keyframes")}}, `narrower`, die von `fit-content` auf 70% von `fit-content` (berechnet mit `calc-size()`) animieren, und `wider`, die dieselben Werte, aber in die entgegengesetzte Richtung animiert. Zum Schluss binden wir diese Animationen an zwei Klassen - `.narrower` und `.wider`. Jede Animation ist so definiert, dass sie eine Sekunde dauert und der endgültige Zustand nach dem Abschluss angewendet bleibt.
+Im CSS setzen wir die {{cssxref("width")}} des `<section>` auf einen Standard von {{cssxref("fit-content")}}. Wir definieren dann zwei Sätze von {{cssxref("@keyframes")}}, `narrower`, die von `fit-content` zu 70% von `fit-content` animieren (berechnet mit `calc-size()`), und `wider`, die dieselben Werte, aber in umgekehrter Richtung animiert. Schließlich hängen wir diese Animationen an zwei Klassen — `.narrower` und `.wider`. Jede Animation ist auf eine Sekunde festgelegt und hält den Endzustand nach dem Abschluss angewendet.
 
 ```css
 section {
@@ -433,11 +432,11 @@ section {
 }
 ```
 
-Der Rest des CSS wurde der Kürze wegen ausgeblendet.
+Der Rest des CSS wurde der Kürze halber ausgeblendet.
 
 #### JavaScript
 
-Das JavaScript stellt einen schmaler/breiter Umschalter bereit, der die jeweilige Klasse auf das `<section>` anwendet, wenn der Button geklickt wird:
+Das JavaScript bietet einen Schmaler/Breiter-Umschalter, der die relevante Klasse auf das `<section>` anwendet, wenn der Button geklickt wird:
 
 ```js
 const widthAdjustBtn = document.querySelector(".width-adjust");
@@ -459,17 +458,17 @@ widthAdjustBtn.addEventListener("click", () => {
 
 #### Ergebnis
 
-Versuchen Sie, den `<button>` einige Male zu klicken, um die `<section>` zwischen der breiten und schmalen Lesebreite anzupassen, erreicht durch das Manipulieren der `width` basierend auf dem `fit-content` Wert.
+Versuchen Sie, den `<button>` ein paar Mal zu klicken, um die `<section>` zwischen der weiten und schmalen Lesebreite anzupassen, erreicht durch die Manipulation der `width` basierend auf dem `fit-content` Wert.
 
-{{ EmbedLiveSample('Anpassung der Lesebreite basierend auf `fit-content`', '100%', '300') }}
+{{ EmbedLiveSample('Adjusting reading width based on `fit-content`', '100%', '300') }}
 
 ### Verwendung einer Funktion innerhalb der `calc-size()` Funktion
 
-Wie zuvor erwähnt wurde, ist es möglich, eine andere Funktion innerhalb von `calc-size()` zu verwenden. Dieses Beispiel setzt [`field-sizing: content`](/de/docs/Web/CSS/field-sizing) auf {{htmlelement("input")}} Elemente, um sie so breit wie den eingegebenen Inhalt zu machen, und verwendet dann eine [`max()`](/de/docs/Web/CSS/max) Funktion innerhalb von `calc-size()`, um sicherzustellen, dass die `<input>` Felder mindestens eine Mindestgröße haben und erst anfangen zu wachsen, wenn der eingegebene Text breiter als diese Größe wird – indem sie auf `fit-content` plus `20px` gesetzt werden.
+Wie bereits erwähnt, ist es möglich, eine andere Funktion innerhalb von `calc-size()` zu verwenden. Dieses Beispiel setzt [`field-sizing: content`](/de/docs/Web/CSS/field-sizing) auf {{htmlelement("input")}} Elemente, um sie so breit wie den eingegebenen Inhalt zu machen, und verwendet dann eine [`max()`](/de/docs/Web/CSS/max) Funktion innerhalb von `calc-size()`, um sicherzustellen, dass die `<input>`s mindestens eine Mindestgröße haben und erst anfangen zu wachsen, wenn der eingetippte Text breiter als diese Größe wird — indem sie auf `fit-content` plus `20px` gesetzt werden.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("form")}} Element mit drei Text-`<input>` Typen. Jedes `<input>` hat ein zugeordnetes {{htmlelement("label")}}, um das Formular zugänglich zu machen, und ein [`maxlength`](/de/docs/Web/HTML/Reference/Attributes/maxlength), um zu verhindern, dass eingegebene Werte so lang werden, dass das Formular-Layout zerstört wird.
+Das HTML enthält ein {{htmlelement("form")}} Element, das drei textuelle `<input>` Typen enthält. Jedes `<input>` hat ein zugehöriges {{htmlelement("label")}}, um das Formular zugänglich zu machen, und ein [`maxlength`](/de/docs/Web/HTML/Reference/Attributes/maxlength), angewendet, um zu verhindern, dass eingegebene Werte lang genug werden, um das Formular-Layout zu zerstören.
 
 ```html
 <form>
@@ -518,7 +517,7 @@ div:not(div:last-child) {
 }
 ```
 
-Im CSS setzen wir die `width` der `<label>` Elemente auf `100px`. Wir setzen `field-sizing: content` auf die {{htmlelement("input")}} Elemente, um sie so breit wie den eingegebenen Inhalt zu machen - standardmäßig hätten sie keine Breite, weil nichts in sie eingegeben würde. Um dem entgegenzuwirken, setzen wir ihre `width` Werte auf `calc-size(fit-content, max(100px, size + 20px))`. Das bedeutet, dass sie mindestens `100px` breit sind, selbst ohne einen eingegebenen Wert. Wenn ein eingegebener Wert breiter als `100px` wird, ändert sich ihre `width` zu `fit-content` plus `20px`, was bedeutet, dass sie mit der Inhaltsgröße wachsen, aber einen `20px` Abstand auf der rechten Seite behalten.
+Im CSS setzen wir die `width` der `<label>` Elemente auf `100px`. Wir setzen `field-sizing: content` auf die {{htmlelement("input")}} Elemente, um sie so breit wie den eingegebenen Inhalt zu machen — standardmäßig hätten sie keine Breite, weil nichts in sie eingegeben worden wäre. Um dem entgegenzuwirken, setzen wir ihre `width` Werte auf `calc-size(fit-content, max(100px, size + 20px))`. Das bedeutet, dass sie mindestens `100px` breit sind, selbst ohne eingetragenen Wert. Wenn ein eingetragener Wert breiter als `100px` wird, ändert sich ihre `width` zu `fit-content` plus `20px`, was bedeutet, dass sie mit der Inhaltsgröße wachsen, aber auf der rechten Seite eine Lücke von `20px` bleibt.
 
 ```css
 label {
@@ -531,13 +530,13 @@ input {
 }
 ```
 
-Der Rest des CSS wurde der Kürze wegen ausgeblendet.
+Der Rest des CSS wurde der Kürze halber ausgeblendet.
 
 #### Ergebnis
 
-Versuchen Sie, in die Formularfelder Text einzugeben, und sehen Sie, wie sie wachsen, wenn die Werte anfangen, so breit wie die vom `max()` Funktion erzwungene Mindestbreite zu werden.
+Versuchen Sie, etwas Text in die Formulareingaben einzugeben, und sehen Sie, wie sie wachsen, wenn die Werte so breit wie die Mindestbreite werden, die durch die `max()` Funktion erzwungen wird.
 
-{{ EmbedLiveSample('Verwendung einer Funktion innerhalb der `calc-size()` Funktion', '100%', '200') }}
+{{ EmbedLiveSample('Using a function inside the `calc-size()` function', '100%', '200') }}
 
 ## Spezifikationen
 
@@ -552,4 +551,4 @@ Versuchen Sie, in die Formularfelder Text einzugeben, und sehen Sie, wie sie wac
 - {{cssxref("interpolate-size")}}
 - {{cssxref("calc()")}}
 - {{cssxref("round()")}}
-- [Animate to height: auto; (und andere intrinsische Größen-Schlüsselwörter) in CSS](https://developer.chrome.com/docs/css-ui/animate-to-height-auto) auf developer.chrome.com (2024)
+- [Animate to height: auto; (andere intrinsische Größen-Keywords) in CSS](https://developer.chrome.com/docs/css-ui/animate-to-height-auto) auf developer.chrome.com (2024)

@@ -2,12 +2,10 @@
 title: width
 slug: Web/CSS/width
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`width`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Breite eines Elements fest. Standardmäßig wird die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) festgelegt, aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, wird die Breite des [Rahmenbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) festgelegt.
+Die **`width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elements fest. Standardmäßig bestimmt sie die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area), aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, legt sie die Breite des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) fest.
 
 {{InteractiveExample("CSS Demo: width")}}
 
@@ -52,7 +50,7 @@ Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert 
 - Wenn der Wert für `width` größer ist als der Wert für `max-width`, überschreibt `max-width` die `width`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` und für andere Elemente zu `0` aufgelöst wird und Prozentwerte relativ zur SVG-Viewport-Breite für `<rect>` sind. Der CSS-`width`-Eigenschaftswert überschreibt jeden SVG-{{SVGAttr("width")}}-Attributwert, der auf das SVG-Element gesetzt ist.
+> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` aufgelöst wird und für andere Elemente zu `0`, und Prozentwerte relativ zur Breite des SVG-Ansichtsfensters für `<rect>` sind. Der CSS `width` Eigenschaftswert überschreibt jeden SVG {{SVGAttr("width")}} Attributwert, der auf dem SVG-Element gesetzt ist.
 
 ## Syntax
 
@@ -85,28 +83,28 @@ width: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Definiert die Breite als Entfernungswert.
+  - : Definiert die Breite als Distanzwert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die Breite als Prozentsatz der Breite des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Definiert die Breite als Prozentsatz der Breite des [ihn umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
   - : Der Browser berechnet und wählt eine Breite für das angegebene Element.
 - `max-content`
   - : Die intrinsische bevorzugte Breite.
 - `min-content`
-  - : Die intrinsische Mindestbreite.
+  - : Die intrinsische minimale Breite.
 - `fit-content`
   - : Nutzt den verfügbaren Raum, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die fit-content-Formel mit dem verfügbaren Raum, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, <length-percentage>))`.
+  - : Verwendet die Fit-Content-Formel mit dem verfügbaren Raum, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, <length-percentage>))`.
 - `stretch`
-  - : Setzt die Breite des [Randboxes](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) eines Elements auf die Breite seines [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox den verfügbaren Raum im umschließenden Block ausfüllen zu lassen, verhält sich also ähnlich wie `100%`, wendet die resultierende Größe aber auf die Randbox statt auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box an.
+  - : Setzt die Breite der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [ihn umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox in den verfügbaren Raum des umgebenden Blocks zu füllen, verhält sich also in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Randbox an und nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box.
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass die mit `width` festgelegten Elemente nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente, die mit `width` festgelegt sind, nicht abgeschnitten werden und/oder andere Inhalte verdecken, wenn die Seite zum Vergrößern der Textgröße gezoomt wird.
 
-- [MDN Understanding WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verstehen des Erfolgskriteriums 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis von WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgsrichtwerts 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -132,7 +130,7 @@ p.gold {
 
 {{EmbedLiveSample('Default_width', '500px', '64px')}}
 
-### Beispiel mit Pixeln und ems
+### Beispiel mit Pixeln und Ems
 
 ```css
 .px_length {
@@ -203,7 +201,7 @@ p.min-blue {
 
 {{EmbedLiveSample('Example using "min-content"', '500px', '155px')}}
 
-### Breite strecken, um den umschließenden Block zu füllen
+### Breite strecken, um den umgebenden Block zu füllen
 
 #### HTML
 
@@ -267,6 +265,6 @@ p.min-blue {
 - {{cssxref("min-width")}}, {{cssxref("max-width")}}
 - {{cssxref("block-size")}}, {{cssxref("inline-size")}}
 - {{cssxref("anchor-size()")}}
-- SVG-{{SVGAttr("width")}}-Attribut
+- SVG {{SVGAttr("width")}} Attribut
 - [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
 - [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

@@ -2,18 +2,14 @@
 title: :stalled
 slug: Web/CSS/:stalled
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`:stalled`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn die Wiedergabe ins Stocken gerät.
-Eine Ressource gilt als ins Stocken geraten, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, aber es über einen bestimmten Zeitraum hinweg keine Daten erhalten hat.
-Dies unterscheidet sich von {{cssxref(":buffering")}} darin, dass das Medienelement unerwartet keine Daten lädt, wenn es ins Stocken gerät (z.B. aufgrund eines Netzwerkfehlers) für ca. 3 Sekunden (die genaue Zeit ist [benutzeragentenabhängig](https://html.spec.whatwg.org/multipage/media.html#stall-timeout)).
+Der **`:stalled`** [CSS](/de/docs/Web/CSS) [Pseudoklassen]-Selektor repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn die Wiedergabe ins Stocken geraten ist. Eine Ressource gilt als ins Stocken geraten, wenn der Benutzer die Wiedergabe an einer bestimmten Position in der Medienressource angefordert hat, es jedoch nicht gelungen ist, Daten für eine gewisse Zeit zu empfangen. Dies unterscheidet sich von {{cssxref(":buffering")}} darin, dass das Medienelement unerwartet keine Daten lädt, wenn es ins Stocken geraten ist (z. B. aufgrund eines Netzwerkfehlers) für etwa 3 Sekunden (die genaue Zeit ist [benutzeragentenabhängig](https://html.spec.whatwg.org/multipage/media.html#stall-timeout)).
 
 > [!NOTE]
-> Wie bei der Pseudoklasse {{cssxref(":buffering")}} wird das Element immer noch als "spielend" betrachtet, wenn es "stalled" ist.
-> Wenn `:stalled` auf ein Element zutrifft, wird {{cssxref(":playing")}} ebenfalls auf dieses Element zutreffen.
+> Wie bei der {{cssxref(":buffering")}} Pseudoklasse wird das Element weiterhin als "spielend" angesehen, wenn es "ins Stocken geraten" ist.
+> Wenn `:stalled` auf ein Element zutrifft, wird auch {{cssxref(":playing")}} dieses Element abdecken.
 
 ## Syntax
 

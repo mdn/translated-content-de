@@ -2,10 +2,8 @@
 title: Geteilte Navigation
 slug: Web/CSS/Layout_cookbook/Split_Navigation
 l10n:
-  sourceCommit: 507825f6292eb73f0a96419d69870d9330b6776f
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **geteilte Navigation** ist ein Navigationsmuster, bei dem ein oder mehrere Elemente von den restlichen Navigationselementen getrennt sind.
 
@@ -13,11 +11,11 @@ Die **geteilte Navigation** ist ein Navigationsmuster, bei dem ein oder mehrere 
 
 ## Anforderungen
 
-Ein häufiges Navigationsmuster besteht darin, ein Element von den anderen wegzudrücken. Wir können Flexbox verwenden, um dies zu erreichen, ohne dass die beiden Sets von Elementen in zwei separate Flex-Container umgewandelt werden müssen.
+Ein häufiges Navigationsmuster besteht darin, ein Element von den anderen wegzuschieben. Wir können Flexbox verwenden, um dies zu erreichen, ohne die beiden Sätze von Elementen in zwei separate Flex-Container aufteilen zu müssen.
 
 ## Rezept
 
-Klicken Sie auf "Play" in den untenstehenden Code-Blöcken, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie in den folgenden Codeblöcken auf "Play", um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___split-navigation-example
 <nav>
@@ -52,16 +50,16 @@ Klicken Sie auf "Play" in den untenstehenden Code-Blöcken, um das Beispiel im M
 
 {{EmbedLiveSample("split-navigation-example")}}
 
-## Getroffene Entscheidungen
+## Gewählte Ansätze
 
-Dieses Muster kombiniert automatische Margen mit Flexbox, um die Elemente zu trennen.
+Dieses Muster kombiniert automatische Ränder mit Flexbox, um die Elemente zu trennen.
 
-Eine automatische Marge absorbiert den gesamten verfügbaren Raum in der Richtung, in der sie angewendet wird. So funktioniert das Zentrieren eines Blocks mit automatischen Margen – man hat auf jeder Seite des Blocks eine Marge, die versucht, den gesamten Raum einzunehmen, und drängt den Block so in die Mitte.
+Ein automatischer Rand absorbiert den gesamten verfügbaren Raum in die Richtung, in die er angewendet wird. Das ist auch, wie das Zentrieren eines Blocks mit automatischen Rändern funktioniert – Sie haben auf jeder Seite des Blocks einen Rand, der versucht, den gesamten Raum einzunehmen, wodurch der Block in die Mitte gedrückt wird.
 
-In diesem Fall nimmt die linke automatische Marge jeden verfügbaren Raum ein und drückt das Element nach rechts. Sie könnten die Klasse `push` auf jedes Element in der Liste anwenden.
+In diesem Fall nimmt der linke automatische Rand den verfügbaren Raum ein und schiebt das Element nach rechts. Sie könnten die Klasse `push` auf jedes Element in der Liste anwenden.
 
 ## Siehe auch
 
-- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS-Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
 - {{cssxref("display")}} Eigenschaft
 - {{cssxref("margin")}} Eigenschaft

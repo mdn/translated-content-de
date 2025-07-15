@@ -2,12 +2,10 @@
 title: rotate
 slug: Web/CSS/rotate
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`rotate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Rotations-Transformationen einzeln und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies passt besser zu typischen Benutzeroberflächen und erspart es Ihnen, sich die genaue Reihenfolge der in der `transform`-Eigenschaft anzugebenden Transformationsfunktionen zu merken.
+Die **`rotate`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, Rotations-Transformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies passt besser zur typischen Verwendung in Benutzeroberflächen und erspart das Merken der genauen Reihenfolge der Transformationsfunktionen, die in der `transform`-Eigenschaft angegeben werden müssen.
 
 {{InteractiveExample("CSS Demo: rotate")}}
 
@@ -133,11 +131,11 @@ rotate: unset;
 ### Werte
 
 - Winkelwert
-  - : Ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das betroffene Element um die Z-Achse gedreht werden soll. Entspricht einer `rotate()` (2D-Drehung) Funktion.
-- x, y oder z Achsennamen plus Winkelwert
-  - : Der Name der Achse, um die Sie das betroffene Element drehen möchten (`x`, `y` oder `z`), plus ein {{CSSxRef("&lt;angle&gt;")}}, der den Drehwinkel des Elements angibt. Entspricht einer `rotateX()`/`rotateY()`/`rotateZ()` (3D-Drehung) Funktion.
+  - : Ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das betroffene Element um die Z-Achse gedreht werden soll. Entspricht einer `rotate()`- (2D-Rotation) Funktion.
+- x-, y- oder z-Achsenname plus Winkelwert
+  - : Der Name der Achse, um die Sie das betroffene Element drehen möchten (`x`, `y` oder `z`), plus ein {{CSSxRef("&lt;angle&gt;")}}, der angibt, um welchen Winkel das Element gedreht werden soll. Entspricht einer `rotateX()`/`rotateY()`/`rotateZ()`- (3D-Rotation) Funktion.
 - Vektor plus Winkelwert
-  - : Drei {{CSSxRef("&lt;number&gt;")}}s, die einen ursprungzentrierten Vektor darstellen, der eine Linie definiert, um die Sie das Element drehen möchten, plus ein {{CSSxRef("&lt;angle&gt;")}}, der den Drehwinkel des Elements angibt. Entspricht einer `rotate3d()` (3D-Drehung) Funktion.
+  - : Drei {{CSSxRef("&lt;number&gt;")}}, die einen ursprungszentrierten Vektor darstellen, der eine Linie definiert, um die Sie das Element drehen möchten, plus ein {{CSSxRef("&lt;angle&gt;")}}, der angibt, um welchen Winkel das Element gedreht werden soll. Entspricht einer `rotate3d()`- (3D-Rotation) Funktion.
 - `none`
   - : Gibt an, dass keine Drehung angewendet werden soll.
 
@@ -151,9 +149,9 @@ rotate: unset;
 
 ## Beispiele
 
-### Drehen eines Elements bei Hover
+### Ein Element bei Hover drehen
 
-Das folgende Beispiel zeigt, wie die `rotate`-Eigenschaft verwendet wird, um ein Element entlang verschiedener Achsen bei Hover zu drehen. Die erste Box dreht sich bei Hover um 90 Grad auf der Z-Achse, die zweite dreht sich bei Hover um 180 Grad auf der Y-Achse, und die dritte dreht sich bei Hover um 360 Grad um einen durch Koordinaten definierten Vektor.
+Das folgende Beispiel zeigt, wie die `rotate`-Eigenschaft verwendet wird, um ein Element bei Hover entlang verschiedener Achsen zu drehen. Das erste Feld dreht sich bei Hover um 90 Grad um die Z-Achse, das zweite um 180 Grad um die Y-Achse und das dritte dreht sich bei Hover um 360 Grad um einen durch Koordinaten definierten Vektor.
 
 #### HTML
 
@@ -207,4 +205,4 @@ Das folgende Beispiel zeigt, wie die `rotate`-Eigenschaft verwendet wird, um ein
 - {{cssxref('scale')}}
 - {{cssxref('transform')}}
 
-Hinweis: `skew` ist kein unabhängiger `transform`-Wert.
+Hinweis: `skew` ist kein unabhängiger `transform`-Wert

@@ -2,12 +2,12 @@
 title: math-shift
 slug: Web/CSS/math-shift
 l10n:
-  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
+  sourceCommit: 72a2f0fa7f25ba32ab8e07447a8d4bbc2f936b85
 ---
 
-{{CSSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die Eigenschaft `math-shift` gibt an, ob hochgestellte Zeichen in MathML-Formeln durch eine normale oder kompakte Verschiebung angehoben werden sollen.
+Die Eigenschaft `math-shift` gibt an, ob Hochzahlen in MathML-Formeln durch einen normalen oder kompakten Verschiebung versetzt werden sollen.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ math-shift: unset;
 ### Werte
 
 - `normal`
-  - : Der Anfangswert, zeigt normales Rendering. Hochgestellte Zeichen in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup)-Parameter aus der OpenType MATH-Tabelle.
+  - : Der Anfangswert, der normales Rendering angibt. Hochzahlen in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup)-Parameter aus der OpenType MATH Tabelle.
 - `compact`
-  - : Zeigt kompaktes Rendering an. Hochgestellte Zeichen in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped)-Parameter aus der OpenType MATH-Tabelle, der in der Regel kleiner ist.
+  - : Gibt kompaktes Rendering an. Hochzahlen in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped)-Parameter aus der OpenType MATH Tabelle, der im Allgemeinen kleiner ist.
 
 ## Formale Definition
 
@@ -48,19 +48,26 @@ math {
   math-shift: compact;
   font-size: 64pt;
 }
+
+.normal-shift {
+  math-shift: normal;
+}
+.compact-shift {
+  math-shift: compact;
+}
 ```
 
 ### MathML
 
-Das folgende MathML zeigt zwei Versionen von "x quadratisch" unter Verwendung einer Schriftart mit einer OpenType MATH-Tabelle. Browser, die die Eigenschaft `math-shift` implementieren, sollten die hochgestellten Zeichen mit leicht unterschiedlichen Verschiebungen anheben.
+Das folgende MathML zeigt zwei Versionen von "x zum Quadrat", die eine Schriftart mit einer OpenType MATH-Tabelle verwenden. Ein Browser, der die Eigenschaft `math-shift` implementiert, sollte die Hochzahlen mit leicht unterschiedlichen Verschiebungen anheben.
 
 ```html
 <math>
-  <msup style="math-shift: normal">
+  <msup class="normal-shift">
     <mi>x</mi>
     <mn>2</mn>
   </msup>
-  <msup style="math-shift: compact">
+  <msup class="compact-shift">
     <mi>x</mi>
     <mn>2</mn>
   </msup>

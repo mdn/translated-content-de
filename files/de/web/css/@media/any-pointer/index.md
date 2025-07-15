@@ -2,19 +2,17 @@
 title: any-pointer
 slug: Web/CSS/@media/any-pointer
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`any-pointer`** [CSS](/de/docs/Web/CSS) [Medienabfrageeigenschaft](/de/docs/Web/CSS/@media#media_features) prüft, ob der Benutzer _irgendein_ Zeigegerät (wie eine Maus) hat und, falls ja, wie genau es ist.
+Das **`any-pointer`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) prüft, ob der Benutzer _irgendein_ Zeigegerät (wie eine Maus) besitzt und, falls ja, wie genau es ist.
 
 > [!NOTE]
 > Wenn Sie die Genauigkeit des _primären_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`pointer`](/de/docs/Web/CSS/@media/pointer).
 
 ## Syntax
 
-Die `any-pointer` Eigenschaft wird als Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
+Das `any-pointer` Merkmal wird als Schlüsselwortwert angegeben, der aus der untenstehenden Liste ausgewählt wird.
 
 - `none`
   - : Kein Zeigegerät ist verfügbar.
@@ -24,11 +22,11 @@ Die `any-pointer` Eigenschaft wird als Schlüsselwortwert angegeben, der aus der
   - : Mindestens ein Eingabemechanismus umfasst ein genaues Zeigegerät.
 
 > [!NOTE]
-> Mehr als ein Wert kann zutreffen, wenn die verfügbaren Geräte unterschiedliche Eigenschaften haben, obwohl `none` nur dann zutrifft, wenn keines von ihnen ein Zeigegerät ist.
+> Es können mehr als ein Wert übereinstimmen, wenn die verfügbaren Geräte unterschiedliche Eigenschaften haben, obwohl `none` nur übereinstimmt, wenn keines von ihnen ein Zeigegerät ist.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit mindestens einem genauen Zeiger und ein großes Kontrollkästchen für Benutzer mit mindestens einem groben Zeiger. Das große Kontrollkästchen hat Vorrang, da es nach dem kleinen deklariert wird.
+Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit mindestens einem feinen Zeiger und ein großes Kontrollkästchen für Benutzer mit mindestens einem groben Zeiger. Das große Kontrollkästchen hat Vorrang, da es nach dem kleinen deklariert wird.
 
 ### HTML
 
@@ -76,4 +74,4 @@ input[type="checkbox"]:checked {
 
 ## Siehe auch
 
-- [Die `pointer` Medienabfrageeigenschaft](/de/docs/Web/CSS/@media/pointer)
+- [Das `pointer` Medienmerkmal](/de/docs/Web/CSS/@media/pointer)

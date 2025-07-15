@@ -2,12 +2,10 @@
 title: text-decoration-style
 slug: Web/CSS/text-decoration-style
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-decoration-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linien fest, die durch {{ cssxref("text-decoration-line") }} angegeben werden. Der Stil wird auf alle Linien angewendet, die mit `text-decoration-line` festgelegt sind.
+Die **`text-decoration-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Stil der Linien fest, die durch {{ cssxref("text-decoration-line") }} spezifiziert werden. Der Stil gilt für alle Linien, die mit `text-decoration-line` festgelegt sind.
 
 {{InteractiveExample("CSS Demo: text-decoration-style")}}
 
@@ -51,9 +49,9 @@ p {
 }
 ```
 
-Wenn die angegebene Dekoration eine spezifische semantische Bedeutung hat, wie beispielsweise eine Durchstreichungslinie, die bedeutet, dass ein Text gelöscht wurde, werden Autoren ermutigt, diese Bedeutung mit einem HTML-Tag wie {{ HTMLElement("del") }} oder {{ HTMLElement("s") }} darzustellen. Da Browser das Styling in manchen Fällen deaktivieren können, geht die semantische Bedeutung in einer solchen Situation nicht verloren.
+Wenn die angegebene Dekoration eine spezifische semantische Bedeutung hat, wie z.B. eine durchgestrichene Linie, die bedeutet, dass ein Text gelöscht wurde, wird empfohlen, diese Bedeutung mit einem HTML-Tag wie {{ HTMLElement("del") }} oder {{ HTMLElement("s") }} zu kennzeichnen. Da Browser in manchen Fällen das Styling deaktivieren können, geht die semantische Bedeutung in einer solchen Situation nicht verloren.
 
-Beim gleichzeitigen Festlegen mehrerer Line-Dekorations-Eigenschaften kann es praktischer sein, die {{cssxref("text-decoration")}} Kurzschreibweise zu verwenden.
+Beim gleichzeitigen Setzen mehrerer Linienstil-Eigenschaften kann es praktischer sein, die Kurzschreibweise {{cssxref("text-decoration")}} zu verwenden.
 
 ## Syntax
 
@@ -84,7 +82,7 @@ text-decoration-style: unset;
 - dashed
   - : Zeichnet eine gestrichelte Linie.
 - wavy
-  - : Zeichnet eine gewellte Linie.
+  - : Zeichnet eine wellige Linie.
 - \-moz-none
   - : Zeichnet keine Linie. Verwenden Sie stattdessen {{cssxref("text-decoration-line", "text-decoration-line: none")}}.
 
@@ -98,9 +96,9 @@ text-decoration-style: unset;
 
 ## Beispiele
 
-### Setzen einer gewellten Unterstreichung
+### Setzen einer welligen Unterstreichung
 
-Das folgende Beispiel erstellt eine rote gewellte Unterstreichung:
+Das folgende Beispiel erstellt eine rote wellige Unterstreichung:
 
 #### CSS
 
@@ -132,7 +130,7 @@ Das folgende Beispiel erstellt eine rote gewellte Unterstreichung:
 
 ## Siehe auch
 
-- Beim gleichzeitigen Festlegen mehrerer Line-Dekorations-Eigenschaften kann es praktischer sein, die {{cssxref("text-decoration")}} Kurzschreibweise zu verwenden.
+- Beim gleichzeitigen Setzen mehrerer Linienstil-Eigenschaften kann es praktischer sein, die Kurzschreibweise {{cssxref("text-decoration")}} zu verwenden.
 - {{cssxref("text-decoration-line")}}
 - {{cssxref("text-decoration-color")}}
 - {{cssxref("text-decoration-thickness")}}

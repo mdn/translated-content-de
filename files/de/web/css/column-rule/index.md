@@ -2,12 +2,10 @@
 title: column-rule
 slug: Web/CSS/column-rule
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem mehrspaltigen Layout gezogen wird.
+Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie zwischen den Spalten in einem Mehrspaltenlayout fest.
 
 {{InteractiveExample("CSS Demo: column-rule")}}
 
@@ -47,7 +45,7 @@ column-rule: thick inset blue;
 }
 ```
 
-## Zusätzliche Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -73,14 +71,14 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule`-Eigenschaft wird als ein, zwei oder drei der unten aufgelisteten Werte angegeben, in beliebiger Reihenfolge.
+Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
 
 - `<'column-rule-width'>`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Weitere Details finden Sie unter {{cssxref("border-width")}}.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
 - `<'column-rule-style'>`
-  - : Weitere Details und mögliche Werte finden Sie unter {{cssxref("border-style")}}.
+  - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
-  - : Ist ein {{cssxref("&lt;color&gt;")}}-Wert.
+  - : Ist ein {{cssxref("&lt;color&gt;")}} Wert.
 
 ## Formale Definition
 
@@ -152,7 +150,7 @@ p.abc {
 
 ## Siehe auch
 
-- [Leitfaden: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspaltenlayout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

@@ -2,18 +2,16 @@
 title: text-wrap-mode
 slug: Web/CSS/text-wrap-mode
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-wrap-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, ob der Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements zu umbrechen. Diese Eigenschaft kann auch mit der {{CSSXRef("text-wrap")}} oder {{CSSXRef("white-space")}} Kurzform gesetzt und zurückgesetzt werden.
+Die **`text-wrap-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob der Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Sie kann auch durch die {{CSSXRef("text-wrap")}}-Kurzform oder die {{CSSXRef("white-space")}}-Kurzform gesetzt und zurückgesetzt werden.
 
 > [!NOTE]
-> Die Eigenschaften {{CSSxRef("white-space-collapse")}} und `text-wrap-mode` können gemeinsam mit der {{CSSxRef("white-space")}} Kurzform-Eigenschaft deklariert werden.
+> Die Eigenschaften {{CSSxRef("white-space-collapse")}} und `text-wrap-mode` können zusammen mit der {{CSSxRef("white-space")}}-Kurzform-Eigenschaft deklariert werden.
 
 > [!NOTE]
-> Der Name dieser Eigenschaft ist ein Platzhalter, da die CSSWG einen besseren Namen sucht.
+> Der Name dieser Eigenschaft ist ein Platzhalter, bis die CSSWG einen besseren Namen gefunden hat.
 
 {{InteractiveExample("CSS Demo: text-wrap-mode")}}
 
@@ -70,12 +68,12 @@ text-wrap-mode: unset;
 
 ## Werte
 
-Diese Eigenschaft gibt an, ob Zeilen an nicht erzwungenen weichen Umbruchmöglichkeiten umbrechen dürfen. Mögliche Werte:
+Diese Eigenschaft gibt an, ob Zeilen bei nicht erzwungenen weichen Umbruchmöglichkeiten umbrochen werden dürfen. Mögliche Werte:
 
 - `wrap`
-  - : Der Text wird an geeigneten Zeichen (z. B. Leerzeichen, in Sprachen wie Englisch, die Leerzeichentrenner verwenden) umbrochen, um Überlauf zu minimieren. Dies ist der Standardwert.
+  - : Text wird bei passenden Zeichen (beispielsweise Leerzeichen in Sprachen wie Englisch, die Leerzeichentrenner verwenden) umgebrochen, um Überlauf zu minimieren. Dies ist der Standardwert.
 - `nowrap`
-  - : Der Text wird nicht über Zeilen umbrochen. Er wird das enthaltende Element überlaufen, anstatt in eine neue Zeile zu wechseln.
+  - : Text wird nicht über Zeilen umgebrochen. Er wird das enthaltene Element überlaufen, anstatt in eine neue Zeile zu brechen.
 
 ## Formale Definition
 
@@ -89,7 +87,7 @@ Diese Eigenschaft gibt an, ob Zeilen an nicht erzwungenen weichen Umbruchmöglic
 
 ### Inhalt umbrechen
 
-Die Standardeinstellung ist, den Inhalt umzubrechen, sodass die `text-wrap-mode`-Eigenschaft nicht notwendig ist. In diesem Beispiel fließt der Inhalt so über in die nächste Zeile, dass er in das Feld passt; die letzte Zeile ist länger als das enthaltende Feld und läuft über.
+Die Standardeinstellung ist, den Inhalt umzubrechen, daher ist die `text-wrap-mode`-Eigenschaft nicht erforderlich. In diesem Beispiel wird der Inhalt auf die nächste Zeile umfließen, sodass er in das Kästchen passt, die letzte Zeile ist länger als das enthaltene Kästchen und läuft über.
 
 #### HTML
 
@@ -118,7 +116,7 @@ Die Standardeinstellung ist, den Inhalt umzubrechen, sodass die `text-wrap-mode`
 
 ### Inhalt nicht umbrechen
 
-In diesem Beispiel wird der Inhalt **nicht** in die nächste Zeile umbrochen, sodass er in das Feld passt, da dem Inhalt ausdrücklich mitgeteilt wurde, nicht mit `text-wrap-mode: nowrap;` umbrochen zu werden. Der Inhalt ist länger als das enthaltende Feld und läuft über.
+In diesem Beispiel wird der Inhalt **nicht** auf die nächste Zeile umfließen, sodass er in das Kästchen passt, da der Inhalt ausdrücklich angewiesen wurde, nicht mit `text-wrap-mode: nowrap;` umbrochen zu werden. Der Inhalt ist länger als das enthaltene Kästchen und läuft über.
 
 #### HTML
 

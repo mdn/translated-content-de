@@ -2,12 +2,10 @@
 title: <url>
 slug: Web/CSS/url_value
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) ist ein Verweis auf eine Ressource. Die Ressource kann ein Bild, ein Video, eine CSS-Datei, eine Schriftartdatei, ein SVG-Feature etc. sein.
+Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) ist ein Zeiger auf eine Ressource. Die Ressource könnte ein Bild, ein Video, eine CSS-Datei, eine Schriftartdatei, eine SVG-Funktion etc. sein.
 
 ## Syntax
 
@@ -17,13 +15,13 @@ Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_a
 
 ### Werte
 
-Der Wert ist eine der folgenden Möglichkeiten:
+Der Wert ist einer der folgenden:
 
 - [`<url()>`](/de/docs/Web/CSS/url_function)
-  - : Die Funktion `url()` akzeptiert nur eine URL-Literalzeichenfolge (mit oder ohne Anführungszeichen).
+  - : Die `url()`-Funktion akzeptiert nur einen URL-Zeichenfolgenliteral (mit oder ohne Anführungszeichen).
 
 > [!NOTE]
-> Die Spezifikation definiert eine alternative Funktion namens `src()`, die eine URL-Zeichenfolge oder eine [CSS-Variable](/de/docs/Web/CSS/var) akzeptiert. Allerdings hat kein Webbrowser die Funktion bisher implementiert.
+> Die Spezifikation definiert eine alternative Funktion namens `src()`, die eine URL-Zeichenfolge oder eine [CSS-Variable](/de/docs/Web/CSS/var) akzeptiert. Allerdings hat bisher kein Webbrowser die Funktion implementiert.
 
 ## Spezifikationen
 

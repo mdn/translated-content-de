@@ -2,19 +2,19 @@
 title: device-aspect-ratio
 slug: Web/CSS/@media/device-aspect-ratio
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}} {{deprecated_header}}
+{{deprecated_header}}
 
 > [!NOTE]
-> Um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Viewports abzufragen, sollten Entwickler stattdessen das [`aspect-ratio`](/de/docs/Web/CSS/@media/aspect-ratio) Medienmerkmal verwenden.
+> Um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Viewports abzufragen, sollten Entwickler stattdessen das [`aspect-ratio`](/de/docs/Web/CSS/@media/aspect-ratio) Media-Feature verwenden.
 
-Das **`device-aspect-ratio`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das Breite-zu-Höhe-{{Glossary("aspect_ratio", "Seitenverhältnis")}} eines Ausgabegeräts zu testen.
+Das **`device-aspect-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das Breiten-Höhen-{{Glossary("aspect_ratio", "Seitenverhältnis")}} eines Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `device-aspect-ratio`-Merkmal wird als {{cssxref("&lt;ratio&gt;")}} angegeben. Es ist ein Bereichsmerkmal, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-device-aspect-ratio`** und **`max-device-aspect-ratio`** verwenden können, um jeweils Mindest- und Höchstwerte abzufragen.
+Die `device-aspect-ratio`-Funktion wird als {{cssxref("&lt;ratio&gt;")}} angegeben. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-device-aspect-ratio`** und **`max-device-aspect-ratio`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 

@@ -2,12 +2,10 @@
 title: hanging-punctuation
 slug: Web/CSS/hanging-punctuation
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb der Linienbox platziert werden.
+Die **`hanging-punctuation`**-Eigenschaft von [CSS](/de/docs/Web/CSS) gibt an, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb des Linienkastens platziert werden.
 
 ## Syntax
 
@@ -34,26 +32,25 @@ hanging-punctuation: revert-layer;
 hanging-punctuation: unset;
 ```
 
-Die `hanging-punctuation` Eigenschaft kann mit einem, zwei oder drei durch Leerzeichen getrennten Werten angegeben werden.
+Die `hanging-punctuation`-Eigenschaft kann mit einem, zwei oder drei durch Leerzeichen getrennten Werten angegeben werden.
 
 ### Werte
 
 - `none`
   - : Kein Zeichen hängt.
 - `first`
-
-  - : Eine öffnende Klammer oder ein Anführungszeichen zu Beginn der ersten formatierten Zeile eines Elements hängt. Dies gilt für:
+  - : Eine öffnende Klammer oder ein Anführungszeichen am Anfang der ersten formatierten Zeile eines Elements hängt. Dies gilt für:
     - alle Zeichen in den Unicode-Kategorien [Ps](https://unicodeplus.com/category/Ps), [Pf](https://unicodeplus.com/category/Pf), [Pi](https://unicodeplus.com/category/Pi)
-    - die Anführungszeichen `U+0027` APOSTROPH (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
+    - die Anführungszeichen `U+0027` APOSTROPHE (`'`) und `U+0022` QUOTATION MARK (`"`).
 
 - `last`
   - : Eine schließende Klammer oder ein Anführungszeichen am Ende der letzten formatierten Zeile eines Elements hängt. Dies gilt für:
     - alle Zeichen in den Unicode-Kategorien [Pe](https://unicodeplus.com/category/Pe), [Pf](https://unicodeplus.com/category/Pf), [Pi](https://unicodeplus.com/category/Pi)
-    - die Anführungszeichen `U+0027` APOSTROPH (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
+    - die Anführungszeichen `U+0027` APOSTROPHE (`'`) und `U+0022` QUOTATION MARK (`"`).
 - `allow-end`
-  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es anderweitig vor der Rechtfertigung nicht passt.
+  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es nicht anderweitig vor der Rechtfertigung passt.
 
-Punkte und Kommas, die hängend erlaubt sind, umfassen:
+Punkte und Kommas, die hängen dürfen, umfassen:
 
 - `U+002C`, KOMMA
 - `U+002E`, PUNKT
@@ -61,13 +58,13 @@ Punkte und Kommas, die hängend erlaubt sind, umfassen:
 - `U+06D4`, ARABISCHER PUNKT
 - `U+3001`, IDEOGRAPHISCHES KOMMA
 - `U+3002`, IDEOGRAPHISCHER PUNKT
-- `U+FF0C`, VOLLWEITENKOMMA
-- `U+FF0E`, VOLLWEITENPUNKT
+- `U+FF0C`, VOLLWEITES KOMMA
+- `U+FF0E`, VOLLWEITER PUNKT
 - `U+FE50`, KLEINES KOMMA
 - `U+FE51`, KLEINES IDEOGRAPHISCHES KOMMA
 - `U+FE52`, KLEINER PUNKT
-- `U+FF61`, HALBWEITEN IDEOGRAPHISCHER PUNKT
-- `U+FF64`, HALBWEITEN IDEOGRAPHISCHES KOMMA
+- `U+FF61`, HALBWEITER IDEOGRAPHISCHER PUNKT
+- `U+FF64`, HALBWEITES IDEOGRAPHISCHES KOMMA
 
 Benutzeragenten können zusätzliche Zeichen einbeziehen.
 
@@ -81,7 +78,7 @@ Benutzeragenten können zusätzliche Zeichen einbeziehen.
 
 ## Beispiele
 
-### Anführungs- und Schlusszeichen hängen lassen
+### Setzen von hängenden Anfangs- und Schlusszeichen
 
 #### HTML
 

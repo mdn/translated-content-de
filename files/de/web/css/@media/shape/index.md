@@ -2,21 +2,21 @@
 title: shape
 slug: Web/CSS/@media/shape
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Das `shape`-[CSS](/de/docs/Web/CSS)-[Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen und zwischen rechteckigen und runden Displays zu unterscheiden.
+Die `shape` [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen, um zwischen rechteckigen und runden Anzeigen zu unterscheiden.
 
 ## Syntax
 
-Das diskrete Merkmal `shape` wird als einer von zwei akzeptablen Strings angegeben: entweder `rect`, was ein rechteckiger Bildschirm ist, oder `round`, was einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
+Das diskrete `shape`-Feature wird als einer von zwei akzeptablen Zeichenfolgen angegeben, entweder `rect`, das einen rechteckigen Bildschirm darstellt, oder `round`, das einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
 
 - `rect`
-  - : Die Form ist ein achsenorientiertes Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für das die traditionellen Designs geeignet sind.
+  - : Die Form ist ein achsenausgerichtetes Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für das traditionelle Designs geeignet sind.
 - `round`
-  - : Die Form ist abgerundet oder eine ähnliche Form wie der Kreis, beispielsweise ein Oval, eine Ellipse, für die unverwechselbar abgerundete Designs geeignet sind.
+  - : Die Form ist abgerundet oder eine dem Kreis ähnliche Form wie ein Oval, eine Ellipse, für die unverwechselbar abgerundete Designs geeignet sind.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ h1 {
 
 ### Benutzerdefiniertes Stylesheet
 
-Dieses HTML wird ein spezielles Stylesheet für Geräte anwenden, die runde Bildschirme haben.
+Dieses HTML wird ein spezielles Stylesheet für Geräte mit runden Bildschirmen anwenden.
 
 ```html
 <head>
@@ -69,7 +69,7 @@ Dieses HTML wird ein spezielles Stylesheet für Geräte anwenden, die runde Bild
 
 ## Browser-Kompatibilität
 
-Es gibt keinen Browser, der dieses Merkmal implementiert.
+Es gibt keinen Browser, der dieses Feature implementiert.
 
 ## Siehe auch
 

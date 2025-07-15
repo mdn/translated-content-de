@@ -2,24 +2,44 @@
 title: CaptureController
 slug: Web/API/CaptureController
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 83a92f1eaf27dabf71beec6c548afb03171aa194
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`CaptureController`**-Interface bietet Methoden, die genutzt werden können, um eine Aufnahmesitzung weiter zu manipulieren, getrennt von deren Initialisierung über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia).
+Das **`CaptureController`**-Interface bietet Methoden, die verwendet werden können, um eine erfasste Anzeigeoberfläche weiter zu manipulieren (erfasst mittels [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)).
 
-Ein `CaptureController`-Objekt wird einer Aufnahmesitzung zugeordnet, indem es in einem Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
+Ein `CaptureController`-Objekt ist mit einer erfassten Anzeigeoberfläche verbunden, indem es in einen `getDisplayMedia()`-Aufruf als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
 
 ## Konstruktor
 
 - [`CaptureController()`](/de/docs/Web/API/CaptureController/CaptureController) {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz des `CaptureController`-Objekts.
+  - : Erstellt eine neue `CaptureController`-Objektinstanz.
+
+## Instanzeigenschaften
+
+- [`zoomLevel`](/de/docs/Web/API/CaptureController/zoomLevel) {{Experimental_Inline}}
+  - : Der aktuelle Zoomfaktor der erfassten Anzeigeoberfläche.
 
 ## Instanzmethoden
 
+- [`decreaseZoomLevel()`](/de/docs/Web/API/CaptureController/decreaseZoomLevel) {{Experimental_Inline}}
+  - : Verringert den Zoomfaktor der erfassten Anzeigeoberfläche um eine Stufe.
+- [`forwardWheel()`](/de/docs/Web/API/CaptureController/forwardWheel) {{Experimental_Inline}}
+  - : Beginnt damit, [`wheel`](/de/docs/Web/API/Element/wheel_event)-Events, die auf dem referenzierten Element ausgelöst werden, an die Ansicht einer verbundenen erfassten Anzeigeoberfläche weiterzuleiten.
+- [`getSupportedZoomLevels()`](/de/docs/Web/API/CaptureController/getSupportedZoomLevels) {{Experimental_Inline}}
+  - : Gibt die verschiedenen Zoomstufen zurück, die von der erfassten Anzeigeoberfläche unterstützt werden.
+- [`increaseZoomLevel()`](/de/docs/Web/API/CaptureController/increaseZoomLevel) {{Experimental_Inline}}
+  - : Erhöht den Zoomfaktor der erfassten Anzeigeoberfläche um eine Stufe.
+- [`resetZoomLevel()`](/de/docs/Web/API/CaptureController/resetZoomLevel) {{Experimental_Inline}}
+  - : Setzt den Zoom der erfassten Anzeigeoberfläche auf seinen Anfangswert zurück, welcher `100` ist.
 - [`setFocusBehavior()`](/de/docs/Web/API/CaptureController/setFocusBehavior) {{Experimental_Inline}}
-  - : Steuert, ob der aufgenommene Tab oder das Fenster fokussiert wird oder ob der Fokus beim Tab mit der aufnehmenden Anwendung bleibt.
+  - : Steuert, ob der erfasste Tab oder das Fenster fokussiert wird oder ob der Fokus bei dem Tab bleibt, das die erfassende Anwendung enthält.
+
+## Ereignisse
+
+- [`zoomlevelchange`](/de/docs/Web/API/CaptureController/zoomlevelchange_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn sich der Zoomfaktor der erfassten Anzeigeoberfläche ändert.
 
 ## Beispiele
 
@@ -56,4 +76,6 @@ if (displaySurface === "browser") {
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-- [Besseres Bildschirmteilen mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)
+- [Verwendung der Elementfassungs- und Bereichserfassungs-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
+- [Verwendung der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control)
+- [Besseres Bildschirmfreigeben mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)

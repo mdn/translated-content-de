@@ -1,26 +1,30 @@
 ---
-title: Masonry-Layout
+title: Mauerwerk-Layout
 slug: Web/CSS/CSS_grid_layout/Masonry_layout
 l10n:
-  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
+  sourceCommit: 72a2f0fa7f25ba32ab8e07447a8d4bbc2f936b85
 ---
 
-{{CSSRef}} {{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Level 3 der [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)-Spezifikation umfasst einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erläutert, was ein Masonry-Layout ist und wie es verwendet wird.
+Stufe 3 der [CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)-Spezifikation enthält einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden beschreibt, was ein Mauerwerk-Layout ist und wie es verwendet wird.
 
-Ein Masonry-Layout ist eine Layout-Methode, bei der eine Achse ein typisches strenges Rasterlayout verwendet, meist die Spalten, und die andere eine Masonry-Anordnung. Auf der Masonry-Achse bleiben die Elemente in der nächsten Zeile nicht mehr in einem strengen Raster mit Lücken nach kürzeren Elementen, sondern steigen auf, um die Lücken vollständig zu füllen.
+Ein Mauerwerk-Layout ist eine Layout-Methode, bei der eine Achse ein typisches striktes Grid-Layout verwendet, meist Spalten, und die andere ein Mauerwerk-Layout. Auf der Mauerwerk-Achse, anstatt an einem strikten Raster festzuhalten, bei dem Lücken nach kürzeren Elementen bleiben, steigen die Elemente in der folgenden Reihe auf, um die Lücken vollständig zu füllen.
 
-## Erstellen eines Masonry-Layouts
+## Erstellung eines Mauerwerk-Layouts
 
-Um das gebräuchlichste Masonry-Layout zu erstellen, werden Ihre Spalten die Rasterachse und die Reihen die Masonry-Achse, definiert mit `grid-template-columns` und `grid-template-rows`.
-Die Kindelemente dieses Containers werden nun Element für Element entlang der Zeilen ausgelegt, so wie sie es auch bei der automatischen Platzierung des regulären Grid-Layouts tun würden.
+Um das häufigste Mauerwerk-Layout zu erstellen, werden Ihre Spalten die Gitterachse und die Reihen die Mauerwerk-Achse sein, definiert mit `grid-template-columns` und `grid-template-rows`.
+Die Kindelemente dieses Containers werden nun Element für Element entlang der Reihen ausgelegt, wie es bei der automatischen Platzierung im regulären Grid-Layout der Fall wäre.
 
-Während die Elemente in neue Zeilen übergehen, werden sie entsprechend dem Masonry-Algorithmus angezeigt. Elemente werden in die Spalte mit dem meisten Platz geladen, was zu einem dicht gepackten Layout ohne strenge Zeilenraster führt.
+Wenn die Elemente in neue Reihen wechseln, werden sie gemäß dem Mauerwerk-Algorithmus angezeigt. Die Elemente laden in die Spalte mit dem meisten Platz, was zu einem dicht gepackten Layout ohne strikte Zeilenspuren führt.
 
-```css hidden live-sample___block-axis
+```css hidden live-sample___block-axis live-sample___inline-axis live-sample___spanners live-sample___positioned
 * {
   box-sizing: border-box;
+}
+
+body {
+  font: 1.2em sans-serif;
 }
 
 .grid {
@@ -47,57 +51,46 @@ Während die Elemente in neue Zeilen übergehen, werden sie entsprechend dem Mas
 }
 ```
 
-```html live-sample___block-axis
+```html live-sample___block-axis live-sample___inline-axis
 <div class="grid">
-  <div class="item" style="block-size: 2em;"></div>
-  <div class="item" style="block-size: 3em;"></div>
-  <div class="item" style="block-size: 1.6em;"></div>
-  <div class="item" style="block-size: 4em;"></div>
-  <div class="item" style="block-size: 2.2em;"></div>
-  <div class="item" style="block-size: 3em;"></div>
-  <div class="item" style="block-size: 4.5em;"></div>
-  <div class="item" style="block-size: 1em;"></div>
-  <div class="item" style="block-size: 3.5em;"></div>
-  <div class="item" style="block-size: 2.8em;"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
 </div>
+```
+
+```js live-sample___block-axis live-sample___spanners live-sample___positioned
+// prettier-ignore
+const itemSizes = [
+  "2em", "3em", "1.6em", "4em", "3.2em",
+  "3em", "4.5em", "1em", "3.5em", "2.8em",
+];
+const items = document.querySelectorAll(".item");
+for (let i = 0; i < items.length; i++) {
+  items[i].style.blockSize = itemSizes[i];
+}
 ```
 
 {{EmbedLiveSample("block-axis", "", "250px")}}
 
-Es ist auch möglich, ein Masonry-Layout mit in Reihen geladenen Elementen zu erstellen.
+Es ist auch möglich, ein Mauerwerk-Layout mit Elementen zu erstellen, die in Reihen laden.
 
-```html hidden live-sample___inline-axis
-<div class="grid">
-  <div class="item" style="inline-size: 2em;"></div>
-  <div class="item" style="inline-size: 3em;"></div>
-  <div class="item" style="inline-size: 1.6em;"></div>
-  <div class="item" style="inline-size: 4em;"></div>
-  <div class="item" style="inline-size: 2.2em;"></div>
-  <div class="item" style="inline-size: 3em;"></div>
-  <div class="item" style="inline-size: 4.5em;"></div>
-  <div class="item" style="inline-size: 1em;"></div>
-  <div class="item" style="inline-size: 3.5em;"></div>
-  <div class="item" style="inline-size: 2.8em;"></div>
-</div>
-```
-
-```css hidden live-sample___inline-axis
-* {
-  box-sizing: border-box;
-}
-
-.grid {
-  padding: 10px;
-  border: 2px solid #f76707;
-  border-radius: 5px;
-  background-color: #fff4e6;
-}
-
-.item {
-  border: 2px solid #ffa94d;
-  border-radius: 5px;
-  background-color: #ffd8a8;
-  color: #d9480f;
+```js live-sample___inline-axis
+// prettier-ignore
+const itemSizes = [
+  "2em", "3em", "1.6em", "4em", "2.2em",
+  "3em", "4.5em", "1em", "3.5em", "2.8em",
+];
+const items = document.querySelectorAll(".item");
+for (let i = 0; i < items.length; i++) {
+  items[i].style.inlineSize = itemSizes[i];
 }
 ```
 
@@ -112,47 +105,27 @@ Es ist auch möglich, ein Masonry-Layout mit in Reihen geladenen Elementen zu er
 
 {{EmbedLiveSample("inline-axis", "", "450px")}}
 
-## Steuerung der Rasterachse
+## Steuerung der Gitterachse
 
-Auf der Rasterachse funktionieren die Dinge genau so, wie Sie es im Grid-Layout erwarten. Sie können Elemente dazu bringen, mehrere Tracks zu überspannen, während sie sich in der automatischen Platzierung befinden, indem Sie das Schlüsselwort `span` verwenden. Elemente können auch mithilfe der linienbasierten Positionierung positioniert werden.
+Auf der Gitterachse funktioniert alles genau so, wie Sie es im Grid-Layout erwarten. Sie können Elemente mehrere Spuren überspannen lassen, während Sie in der automatischen Platzierung bleiben, indem Sie das Schlüsselwort `span` verwenden. Elemente können auch mit linienbasierter Positionierung positioniert werden.
 
-### Masonry-Layout mit überspannenden Elementen
+### Mauerwerk-Layout mit übergreifenden Elementen
 
-In diesem Beispiel überspannen zwei der Elemente zwei Tracks, und die Masonry-Elemente arbeiten um sie herum.
+In diesem Beispiel überspannen zwei der Elemente zwei Spuren, und die Mauerwerk-Elemente arbeiten um sie herum.
 
 ```html live-sample___spanners
 <div class="grid">
-  <div class="item" style="block-size: 2em;"></div>
-  <div class="item" style="block-size: 3em; grid-column-end: span 2;"></div>
-  <div class="item" style="block-size: 1.6em;"></div>
-  <div class="item" style="block-size: 4em;"></div>
-  <div class="item" style="block-size: 2.2em; grid-column-end: span 2"></div>
-  <div class="item" style="block-size: 3em;"></div>
-  <div class="item" style="block-size: 4.5em;"></div>
-  <div class="item" style="block-size: 1em;"></div>
-  <div class="item" style="block-size: 3.5em;"></div>
-  <div class="item" style="block-size: 2.8em;"></div>
+  <div class="item"></div>
+  <div class="item span-2"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item span-2"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
 </div>
-```
-
-```css hidden live-sample___spanners
-* {
-  box-sizing: border-box;
-}
-
-.grid {
-  padding: 10px;
-  border: 2px solid #f76707;
-  border-radius: 5px;
-  background-color: #fff4e6;
-}
-
-.item {
-  border: 2px solid #ffa94d;
-  border-radius: 5px;
-  background-color: #ffd8a8;
-  color: #d9480f;
-}
 ```
 
 ```css live-sample___spanners
@@ -162,49 +135,29 @@ In diesem Beispiel überspannen zwei der Elemente zwei Tracks, und die Masonry-E
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-template-rows: masonry;
 }
+
+.span-2 {
+  grid-column-end: span 2;
+}
 ```
 
 {{EmbedLiveSample("spanners", "", "270px")}}
 
-Dieses Beispiel enthält ein Element, das für Spalten positioniert ist. Elemente mit einer festen Platzierung werden positioniert, bevor das Masonry-Layout erfolgt.
+Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. Elemente mit definitiver Platzierung werden platziert, bevor das Mauerwerk-Layout stattfindet.
 
 ```html live-sample___positioned
 <div class="grid">
-  <div class="item" style="block-size: 2em;"></div>
-  <div class="item" style="block-size: 3em;"></div>
-  <div class="item" style="block-size: 1.6em;"></div>
-  <div class="item" style="block-size: 4em;"></div>
-  <div class="item positioned" style="block-size: 3.2em;">positioned.</div>
-  <div class="item" style="block-size: 3em;"></div>
-  <div class="item" style="block-size: 4.5em;"></div>
-  <div class="item" style="block-size: 1em;"></div>
-  <div class="item" style="block-size: 3.5em;"></div>
-  <div class="item" style="block-size: 2.8em;"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item positioned">positioned.</div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
 </div>
-```
-
-```css hidden live-sample___positioned
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font: 1.2em sans-serif;
-}
-
-.grid {
-  padding: 10px;
-  border: 2px solid #f76707;
-  border-radius: 5px;
-  background-color: #fff4e6;
-}
-
-.item {
-  border: 2px solid #ffa94d;
-  border-radius: 5px;
-  background-color: #ffd8a8;
-  color: #d9480f;
-}
 ```
 
 ```css live-sample___positioned
@@ -223,9 +176,9 @@ body {
 
 {{EmbedLiveSample("positioned", "", "290px")}}
 
-## Fallbacks für das Masonry-Layout
+## Fallbacks für Mauerwerk-Layout
 
-In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird stattdessen die reguläre automatische Rasterplatzierung verwendet.
+In Browsern [die Mauerwerk nicht unterstützen](#browser-kompatibilität) wird stattdessen die reguläre Grid-Auto-Platzierung verwendet.
 
 ## Spezifikationen
 
@@ -237,5 +190,5 @@ In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird s
 
 ## Siehe auch
 
-- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Raster-Platzierung
-- [Native CSS Masonry Layout im CSS Grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/) über Smashing Magazine (2020)
+- {{cssxref("grid-auto-flow")}} zur Steuerung der Grid-Auto-Platzierung
+- [Native CSS masonry layout in CSS grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/) über Smashing Magazine (2020)

@@ -3,16 +3,14 @@ title: Raster, logische Werte und Schreibrichtungen
 short-title: Logische Werte und Schreibrichtungen
 slug: Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: 72a2f0fa7f25ba32ab8e07447a8d4bbc2f936b85
 ---
 
-{{CSSRef}}
-
-Eine der wichtigsten Funktionen von CSS-Grid-Layout ist die Unterstützung für verschiedene Schreibrichtungen, die in die Spezifikation integriert ist. In diesem Leitfaden betrachten wir diese Funktion des CSS-Grid-Layouts und anderer moderner Layout-Methoden und lernen dabei ein wenig über Schreibrichtungen sowie logische vs. physische Eigenschaften.
+Eines der wichtigsten Merkmale des CSS-Rasterlayouts ist die Unterstützung verschiedener Schreibrichtungen, die in die Spezifikation integriert sind. In diesem Leitfaden betrachten wir dieses Merkmal des CSS-Rasterlayouts und andere moderne Layoutmethoden und lernen dabei ein wenig über Schreibrichtungen sowie logische vs. physische Eigenschaften.
 
 ## Logische und physische Eigenschaften und Werte
 
-CSS ist voll von **physischen** Positionseigenschaften und Schlüsselwörtern – `left` und `right`, `top` und `bottom`. Im folgenden Code-Schnipsel positionieren wir ein Element mit absoluter Positionierung und verwenden die physischen {{Glossary("inset_properties", "inset-Eigenschaften")}} als Versatzwerte, um das Element herumzuschieben. Das Element wird 20 Pixel vom oberen und 30 Pixel vom linken Rand des Containers platziert:
+CSS ist voll von **physischen** Positionierungseigenschaften und Schlüsselwörtern – `left` und `right`, `top` und `bottom`. Im untenstehenden Codebeispiel positionieren wir ein Element mit absoluter Positionierung und verwenden die physischen {{Glossary("inset_properties", "Einfügeeigenschaften")}} als Versatzwerte, um das Element im Container zu verschieben. Das Element wird 20 Pixel vom oberen Rand und 30 Pixel vom linken Rand des Containers platziert:
 
 ```css
 .container {
@@ -31,15 +29,15 @@ CSS ist voll von **physischen** Positionseigenschaften und Schlüsselwörtern �
 </div>
 ```
 
-Dieses Beispiel verwendet die {{cssxref("left")}} und {{cssxref("right")}} Eigenschaften; dies sind nur zwei der vielen **{{Glossary("physical_properties", "physischen Eigenschaften")}}** in CSS. Wir können auch Ränder, Abstände und Rahmen mit physischen Eigenschaften hinzufügen, zum Beispiel {{cssxref("margin-left")}} und {{cssxref("padding-left")}}. Sie könnten auch physische Schlüsselwörter in Verwendung sehen, wie zum Beispiel bei `text-align: right`, um Text rechts auszurichten.
+Dieses Beispiel verwendet die Eigenschaften {{cssxref("left")}} und {{cssxref("right")}}; dies sind nur zwei der vielen **{{Glossary("physical_properties", "physischen Eigenschaften")}}** in CSS. Wir können auch Margen, Abstände und Rahmen unter Verwendung physischer Eigenschaften hinzufügen, zum Beispiel {{cssxref("margin-left")}} und {{cssxref("padding-left")}}. Es können auch physische Schlüsselwörter verwendet werden, wie zum Beispiel bei der Anwendung von `text-align: right`, um Text rechts auszurichten.
 
-Diese Schlüsselwörter und Eigenschaften nennen wir _physisch_, weil sie sich auf den Bildschirm beziehen, den Sie gerade betrachten. Links ist immer links, unabhängig davon, in welche Richtung Ihr Text läuft.
+Wir nennen diese Schlüsselwörter und Eigenschaften _physisch_, weil sie sich auf den Bildschirm beziehen, den Sie betrachten. Links ist immer links, egal in welche Richtung Ihr Text läuft.
 
 ### Probleme mit physischen Eigenschaften
 
-Physische Eigenschaften können Probleme verursachen, wenn eine Website in mehreren Sprachen funktionieren muss, einschließlich Sprachen, bei denen der Text von rechts nach links oder von oben nach unten fließt. Browser sind dafür ausgelegt, Inhalte unabhängig von der Sprache korrekt anzuzeigen. Einige CSS-Funktionen können Browsereinstellungen überschreiben und dazu führen, dass Inhalte weniger optimal angezeigt werden.
+Physische Eigenschaften können Probleme verursachen, wenn eine Website entwickelt werden muss, die in mehreren Sprachen funktioniert, einschließlich Sprachen, in denen der Text von rechts nach links oder von oben nach unten fließt. Browser sind so konzipiert, dass sie Inhalte unabhängig von der Sprache korrekt anzeigen. Einige CSS-Funktionen können jedoch die Standardvorgaben des Browsers außer Kraft setzen und dazu führen, dass Inhalte weniger optimal angezeigt werden.
 
-In diesem Beispiel wurde die {{cssxref("direction")}} Eigenschaft auf {{Glossary("rtl", "rtl")}} gesetzt, was den Schreibrichtungsmodus vom Standardmodus eines englischsprachigen Dokuments `ltr` wechselt. Wir haben zwei Absätze. Diese sollten beide von rechts nach links fließen, aufgrund des `direction`-Werts, der auf einem übergeordneten Element (`<body>`) gesetzt ist. Der erste Absatz hat {{cssxref("text-align")}} auf `left` gesetzt, sodass er sich am linken Rand seines Containers ausrichtet. Der zweite Absatz richtet sich rechts aus und fließt von rechts nach links.
+In diesem Beispiel wurde die Eigenschaft {{cssxref("direction")}} auf {{Glossary("rtl", "rtl")}} gesetzt, wodurch die Schreibrichtung vom Standardwert `ltr` für ein englischsprachiges Dokument umgestellt wird. Wir haben zwei Absätze. Diese sollten beide von rechts nach links fließen, da der `direction`-Wert auf einem übergeordneten Element (`<body>`) gesetzt ist. Der erste Absatz hat {{cssxref("text-align")}} auf `left` gesetzt, sodass er sich am linken Rand seines Containers ausrichtet. Der zweite Absatz richtet sich am rechten Rand aus und fließt von rechts nach links.
 
 ```html hidden
 <p class="left">
@@ -70,27 +68,27 @@ p {
 }
 ```
 
-{{EmbedLiveSample("Probleme mit physischen Eigenschaften", "", 170)}}
+{{EmbedLiveSample("Probleme mit physischen Eigenschaften","",170)}}
 
-Dies ist eine grundlegende Demonstration der Probleme, die entstehen können, wenn physische Werte und Eigenschaften in CSS verwendet werden. Wenn wir CSS mit physischen Eigenschaften und Schlüsselwörtern schreiben, teilen wir dem Browser unsere Annahme mit, wie der Text fließen soll, und verhindern, dass er alternative Schreibrichtungen handelt.
+Dies ist eine grundlegende Demonstration der Probleme, die auftreten können, wenn physische Werte und Eigenschaften in CSS verwendet werden. Wenn wir CSS mit physischen Eigenschaften und Schlüsselwörtern schreiben, teilen wir dem Browser unsere Annahme darüber mit, wie der Text fließen wird, und verhindern, dass er alternative Schreibrichtungen verarbeitet.
 
 ### Logische Eigenschaften und Werte
 
-**{{Glossary("Logical_properties", "Logische Eigenschaften")}} und Werte** nehmen keine Textrichtung an. Deshalb verwenden wir das Schlüsselwort `start` im CSS-Grid-Layout, um etwas am Anfang eines Containers auszurichten. Wenn man mit englischen Inhalten arbeitet, ist `start` links, jedoch muss es das nicht sein. Das Wort `start` impliziert keinen physischen Ort, was es Websites ermöglicht, den Inhalt rechts zu starten, wenn Sprachen wie Arabisch verwendet werden.
+**{{Glossary("Logical_properties", "Logische Eigenschaften")}} und Werte** nehmen keine Textrichtung an. Aus diesem Grund verwenden wir das Schlüsselwort `start` im CSS-Rasterlayout, um etwas am Anfang eines Containers auszurichten. Wenn wir mit englischen Inhalten arbeiten, wird `start` auf der linken Seite sein, muss es jedoch nicht. Das Wort `start` gibt keinen physischen Standort an, was es Websites ermöglicht, den Inhalt auf der rechten Seite zu beginnen, wenn Sprachen von rechts nach links, wie Arabisch, verwendet werden.
 
 ## Block und Inline
 
-Wenn wir logische anstelle von physischen Eigenschaften verwenden, sehen wir die Welt nicht als von links nach rechts und oben nach unten. Wir haben einen anderen Referenzpunkt. Hier wird das Verständnis der _block_ und _inline_ Achsen, eingeführt im [Leitfaden zur Rastersausrichtung](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout), sehr nützlich. Wenn Sie über Layout im Hinblick auf Block und Inline nachdenken, macht die Funktionsweise im CSS-Grid-Layout viel Sinn.
+Wenn wir logische statt physische Eigenschaften verwenden, sehen wir die Welt nicht von links nach rechts und von oben nach unten. Wir haben einen anderen Bezugspunkt. Dies ist der Punkt, an dem das Verständnis der _Block-_ und \_Inline-\_Achsen, eingeführt im [Leitfaden zur Rasterausrichtung](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout), sehr nützlich wird. Wenn Sie über Layout im Hinblick auf Block und Inline nachdenken, macht die Funktionsweise im CSS-Rasterlayout viel Sinn.
 
 ![Ein Bild, das die Standardrichtung der Block- und Inline-Achsen zeigt.](8-horizontal-tb.png)
 
 ## CSS-Schreibrichtungen
 
-Das Modul [CSS-Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes) spezifiziert, wie Schreibrichtungen in CSS funktionieren. Diese Funktionen sind nicht nur für die Unterstützung von Sprachen mit einer anderen Schreibrichtung als Englisch, sondern können auch für kreative Zwecke genutzt werden. Die Beispiele in diesem Abschnitt verwenden die Eigenschaft {{cssxref("writing-mode")}}, um Änderungen an der angewandten Schreibrichtung auf unser Raster vorzunehmen und dabei zu zeigen, wie logische Werte funktionieren.
+Das [CSS-Modul für Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes) spezifiziert, wie Schreibrichtungen in CSS funktionieren. Diese Funktionen sind nicht nur zur Unterstützung von Sprachen mit einer anderen Schreibrichtung als Englisch gedacht; sie können auch für kreative Zwecke genutzt werden. Die Beispiele in diesem Abschnitt nutzen die Eigenschaft {{cssxref("writing-mode")}}, um die Schreibrichtung zu ändern, die auf unser Raster angewendet wird, und demonstrieren, wie logische Werte dabei funktionieren.
 
 ### `writing-mode`
 
-Schreibrichtungen sind mehr als nur von links nach rechts und rechts nach links und die Eigenschaft `writing-mode` hilft uns, Text in andere Richtungen laufen zu lassen. Die Eigenschaft {{cssxref("writing-mode")}} kann die Werte haben:
+Schreibrichtungen sind mehr als nur von links nach rechts und von rechts nach links verlaufender Text, und die Eigenschaft `writing-mode` hilft uns, Text in anderen Richtungen anzuzeigen. Die Eigenschaft {{cssxref("writing-mode")}} kann die folgenden Werte haben:
 
 - `horizontal-tb`
 - `vertical-rl`
@@ -98,9 +96,9 @@ Schreibrichtungen sind mehr als nur von links nach rechts und rechts nach links 
 - `sideways-rl`
 - `sideways-lr`
 
-Der Wert `horizontal-tb`, der für „horizontal, von oben nach unten“ steht, ist der Standardwert für Text im Web. Es ist die Richtung, in der Sie diesen Leitfaden lesen. Die anderen Werte ändern die Art, wie Text in unserem Dokument fließt, und entsprechen den unterschiedlichen Schreibrichtungen, die weltweit zu finden sind.
+Der Wert `horizontal-tb`, der für "horizontal, von oben nach unten" steht, ist der Standard für Text im Web. Es ist die Richtung, in der Sie diesen Leitfaden lesen. Die anderen Werte verändern, wie Text in unserem Dokument fließt und entsprechen den unterschiedlichen Schreibrichtungen weltweit.
 
-Zum Beispiel haben wir unten zwei Absätze. Der erste verwendet den Standardwert `horizontal-tb`, und der zweite verwendet `vertical-rl`. In der zweiten Schreibrichtung läuft der Text immer noch von links nach rechts, jedoch ist die Richtung des Textes vertikal — Inline-Text läuft jetzt die Seite hinunter, von oben nach unten.
+Als Beispiel haben wir unten zwei Absätze. Der erste verwendet den Standardwert `horizontal-tb`, und der zweite verwendet `vertical-rl`. In der zweiten Schreibrichtung läuft der Text weiterhin von links nach rechts, jedoch ist die Textausrichtung vertikal — Inline-Text läuft nun von oben nach unten über die Seite.
 
 ```css hidden
 .wrapper > p {
@@ -116,24 +114,31 @@ Zum Beispiel haben wir unten zwei Absätze. Der erste verwendet den Standardwert
 
 ```html
 <div class="wrapper">
-  <p style="writing-mode: horizontal-tb">
+  <p class="horizontal-tb">
     I have writing mode set to the default <code>horizontal-tb</code>
   </p>
-  <p style="writing-mode: vertical-rl">
-    I have writing mode set to <code>vertical-rl</code>
-  </p>
+  <p class="vertical-rl">I have writing mode set to <code>vertical-rl</code></p>
 </div>
+```
+
+```css
+.horizontal-tb {
+  writing-mode: horizontal-tb;
+}
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
 ```
 
 {{ EmbedLiveSample('writing-mode', '500', '420') }}
 
 ## Schreibrichtungen in Rasterlayouts
 
-Wenn wir dies auf ein Rasterlayout-Beispiel anwenden, können wir sehen, wie das Ändern der Schreibrichtung bedeutet, dass sich unsere Vorstellung von der Position der Block- und Inline-Achsen ändert.
+Anwendung auf ein Rasterlayout-Beispiel: Wir können sehen, wie das Ändern der Schreibrichtung unsere Vorstellung davon verändert, wo sich die Block- und Inline-Achsen befinden.
 
 ### Standard-Schreibrichtung
 
-In diesem Beispiel hat das Raster drei Spalten und zwei Zeilen. Das bedeutet, dass es drei Regionen entlang der Block-Achse gibt. Im Standard-Schreibrichtungsmodus platziert das Raster Elemente automatisch, beginnend oben links, und bewegt sich nach rechts, um die drei Zellen auf der Inline-Achse zu füllen. Es bewegt sich dann zur nächsten Zeile, erzeugt eine neue Zeilenregion und füllt weitere Elemente ein:
+In diesem Beispiel hat das Raster drei Spalten und zwei Zeilenspuren. Dies bedeutet, dass es drei Spuren gibt, die entlang der Blockachse verlaufen. In der Standard-Schreibrichtung platziert das Raster automatisch Elemente beginnend oben links, bewegt sich nach rechts und füllt die drei Zellen auf der Inline-Achse aus. Es bewegt sich dann zur nächsten Zeile, erstellt eine neue Zeilenspur und fügt weitere Elemente hinzu:
 
 ```css hidden
 * {
@@ -176,9 +181,9 @@ In diesem Beispiel hat das Raster drei Spalten und zwei Zeilen. Das bedeutet, da
 
 {{ EmbedLiveSample('Standard-Schreibrichtung', '500', '230') }}
 
-### Schreibrichtung festlegen
+### Schreiben der Schreibrichtung
 
-Wenn wir dem Rastercontainer im vorherigen Beispiel `writing-mode: vertical-lr` hinzufügen, sehen wir, dass die Block- und Inline-Achsen nun in eine andere Richtung verlaufen. Die Block- oder _Spalten_-Achse verläuft jetzt von links nach rechts über die Seite, während die Inline-Achse die Seite hinunter verläuft und Zeilen von oben nach unten erzeugt.
+Wenn wir `writing-mode: vertical-lr` zum Rastercontainer im vorherigen Beispiel hinzufügen, können wir sehen, dass die Block- und Inline-Achsen nun in eine andere Richtung verlaufen. Die Block- oder \_Spalten-\_Achse verläuft nun über die Seite von links nach rechts, während die Inline-Achse die Seite hinunterläuft und dadurch Zeilen von oben nach unten erstellt.
 
 ```css hidden
 * {
@@ -222,13 +227,13 @@ Wenn wir dem Rastercontainer im vorherigen Beispiel `writing-mode: vertical-lr` 
 </div>
 ```
 
-{{ EmbedLiveSample('Schreibrichtung festlegen', '500', '330') }}
+{{ EmbedLiveSample('Schreibrichtung setzen', '500', '330') }}
 
-## Logische Werte für Ausrichtung
+## Logische Werte für die Ausrichtung
 
-Da sich die Block- und Inline-Achse ändern können, beginnen die logischen Werte für die Ausrichtungseigenschaften mehr Sinn zu machen.
+Wenn die Block- und Inline-Achsen die Richtung ändern können, ergeben die logischen Werte für die Ausrichtungseigenschaften mehr Sinn.
 
-In diesem Beispiel verwenden wir die Ausrichtung (die Eigenschaften {{cssxref("align-self")}} und {{cssxref("justify-self")}}), um Elemente innerhalb eines Rasters auszurichten, das auf `writing-mode: vertical-lr` eingestellt ist. Die Eigenschaften `start` und `end` funktionieren genau so, wie sie es im Standard-Schreibrichtungsmodus tun, und bleiben logisch, in einer Weise, die die Verwendung von links und rechts, oben und unten zur Ausrichtung von Elementen nicht tun würde, sobald wir das Raster auf die Seite kippten, so wie hier:
+In diesem Beispiel verwenden wir die Ausrichtung (die Eigenschaften {{cssxref("align-self")}} und {{cssxref("justify-self")}}), um Elemente innerhalb eines Rasters zu richten, das auf `writing-mode: vertical-lr` gesetzt ist. Die Eigenschaften `start` und `end` funktionieren genauso wie in der Standard-Schreibrichtung und bleiben logisch in einer Weise, die die Verwendung von links und rechts, oben und unten zur Ausrichtung von Elementen nicht tun würde. Dies tritt auf, nachdem wir das Raster auf die Seite gedreht haben, wie dies:
 
 ```css hidden
 * {
@@ -286,25 +291,25 @@ In diesem Beispiel verwenden wir die Ausrichtung (die Eigenschaften {{cssxref("a
 </div>
 ```
 
-{{ EmbedLiveSample('Logische Werte für Ausrichtung', '500', '280') }}
+{{ EmbedLiveSample('Logische Werte für die Ausrichtung', '500', '280') }}
 
-Wenn Sie sehen wollen, wie diese mit einer von rechts nach links sowie von oben nach unten Schreibrichtung funktionieren, ändern Sie `vertical-lr` in `vertical-rl`, was ein vertikaler Schreibrichtungsmodus ist, der von rechts nach links läuft.
+Wenn Sie sehen möchten, wie diese mit einer von rechts nach links sowie von oben nach unten verlaufenden Schreibrichtung funktionieren, ändern Sie `vertical-lr` auf `vertical-rl`, was eine vertikale Schreibrichtung ist, die von rechts nach links verläuft.
 
 ## Automatische Platzierung und Schreibrichtungen
 
-Wie wir in den vorherigen Beispielen gesehen haben, kann der Schreibrichtungsmodus die visuelle Richtung ändern, in die sich Elemente auf das Raster platzieren. Elemente platzieren sich standardmäßig entlang der Inline-Achse und fügen neue Zeilen in Blockrichtung hinzu. Wir haben jetzt gesehen, dass die Inline-Achse nicht immer von links nach rechts läuft und die Blockachse nicht immer von oben nach unten läuft.
+Wie wir in den vorherigen Beispielen gesehen haben, kann die Schreibrichtung die visuelle Richtung ändern, in der sich Elemente auf dem Raster platzieren. Elemente werden standardmäßig entlang der Inline-Achse platziert und fügen in Blockrichtung neue Zeilen hinzu. Wir haben nun gesehen, dass die Inline-Achse nicht immer von links nach rechts verläuft und die Blockachse nicht immer von oben nach unten.
 
 ## Linienbasierte Platzierung und Schreibrichtungen
 
-Das Wichtigste, an das Sie sich erinnern sollten, wenn Sie Elemente nach Liniennummer platzieren, ist, dass Linie 1 die Startlinie und Linie -1 die Endlinie ist, unabhängig davon, in welchem Schreibrichtungsmodus Sie sich befinden.
+Der entscheidende Punkt bei der Platzierung von Elementen nach Liniennummern ist, dass Linie 1 die Startlinie und Linie -1 die Endlinie ist, unabhängig in welcher Schreibrichtung Sie sich befinden.
 
-### Linienbasierte Platzierung mit links-nach-rechts-Text
+### Linienbasierte Platzierung mit von links nach rechts verlaufendem Text
 
-In diesem Beispiel haben wir ein Raster, das im Standard `ltr` Modus angeordnet ist, mit drei Elementen, die mit linienbasierter Platzierung positioniert sind.
+In diesem Beispiel haben wir ein Raster, das in der Standardrichtung `ltr` ausgelegt ist, mit drei Elementen, die mittels linienbasierter Platzierung positioniert sind.
 
-- Element 1 beginnt an der Spaltenlinie 1 und erstreckt sich über eine Region.
-- Element 2 beginnt an der Spaltenlinie -1 und erstreckt sich bis -3.
-- Element 3 beginnt an der Spaltenlinie 1 und erstreckt sich bis zur Spaltenlinie 3.
+- Element 1 beginnt bei Spaltenlinie 1 und erstreckt sich über eine Spur.
+- Element 2 beginnt bei Spaltenlinie -1 und erstreckt sich bis -3.
+- Element 3 beginnt bei Spaltenlinie 1 und erstreckt sich bis zur Spaltenlinie 3.
 
 ```css hidden
 * {
@@ -353,11 +358,11 @@ In diesem Beispiel haben wir ein Raster, das im Standard `ltr` Modus angeordnet 
 </div>
 ```
 
-{{ EmbedLiveSample('Linienbasierte Platzierung mit links-nach-rechts-Text', '500', '240') }}
+{{ EmbedLiveSample('Linienbasierte Platzierung mit von links nach rechts verlaufendem Text', '500', '240') }}
 
-### Linienbasierte Platzierung mit rechts-nach-links-Text
+### Linienbasierte Platzierung mit von rechts nach links verlaufendem Text
 
-Wenn wir die Eigenschaft {{cssxref("direction")}} mit einem Wert von `rtl` dem Rastercontainer im vorherigen Beispiel hinzufügen, wird Linie 1 auf der rechten Seite des Rasters platziert und Linie -1 auf der linken Seite.
+Wenn wir die Eigenschaft {{cssxref("direction")}} mit einem Wert von `rtl` zum Raster-Container im vorherigen Beispiel hinzufügen, liegt Linie 1 auf der rechten Seite des Rasters und Linie -1 auf der linken.
 
 ```css hidden
 * {
@@ -413,33 +418,33 @@ Wenn wir die Eigenschaft {{cssxref("direction")}} mit einem Wert von `rtl` dem R
 </div>
 ```
 
-{{ EmbedLiveSample('Linienbasierte Platzierung mit rechts-nach-links-Text', '500', '240') }}
+{{ EmbedLiveSample('Linienbasierte Platzierung mit von rechts nach links verlaufendem Text', '500', '240') }}
 
-Wenn Sie die Richtung Ihres Textes umschalten, sei es für ganze Seiten oder Teile von Seiten, und Linien verwenden, möchten Sie vielleicht [Ihre Linien benennen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines), um zu vermeiden, dass das Layout die Richtung komplett umschaltet. Für einige Dinge, zum Beispiel, wenn ein Raster Textinhalt enthält, könnte dieser Wechsel genau das sein, was Sie wünschen. Für andere Anwendungen möglicherweise nicht.
+Wenn Sie die Richtung Ihres Textes ändern, entweder für ganze Seiten oder Teile von Seiten, und Linien verwenden, möchten Sie möglicherweise [ihre Linien benennen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines), um zu vermeiden, dass das Layout vollständig die Richtung ändert. Für einige Dinge, zum Beispiel wo ein Raster Textinhalt enthält, ist diese Umstellung möglicherweise genau das, was Sie wollen. Für andere Anwendungen möglicherweise nicht.
 
-### Die seltsame Reihenfolge der Werte in der `grid-area` Eigenschaft
+### Die seltsame Reihenfolge von Werten in der `grid-area` Eigenschaft
 
-Sie können die {{cssxref("grid-area")}} Eigenschaft verwenden, um alle vier Linien eines Rasterbereichs als einen Wert anzugeben. Wenn Menschen dies zum ersten Mal sehen, sind sie oft überrascht, dass die Werte nicht der gleichen Reihenfolge wie die Kurzschreibweise für {{cssxref("margin")}} folgen – die im Uhrzeigersinn läuft: oben, rechts, unten, links.
+Sie können die Eigenschaft {{cssxref("grid-area")}} verwenden, um alle vier Linien eines Rasterbereichs als einen Wert anzugeben. Wenn Menschen dies zum ersten Mal sehen, sind sie oft überrascht, dass die Werte nicht in der gleichen Reihenfolge wie die Kurzform für {{cssxref("margin")}} stehen – die im Uhrzeigersinn ablaufen: oben, rechts, unten, links.
 
-Die Reihenfolge der `grid-area` Werte lautet:
+Die Reihenfolge der `grid-area` Werte ist:
 
 - `grid-row-start`
 - `grid-column-start`
 - `grid-row-end`
 - `grid-column-end`
 
-Das bedeutet für Englisch, in links-nach-rechts, die Reihenfolge ist:
+Was für Englisch, von links nach rechts, bedeutet die Reihenfolge ist:
 
 - `oben`
 - `links`
 - `unten`
 - `rechts`
 
-Das ist gegen den Uhrzeigersinn! Es ist das Gegenteil von dem, was wir für Ränder und Abstände tun. Wenn wir uns daran erinnern, dass `grid-area` die Welt als "Block und Inline" sieht, werden Sie bemerken, dass wir die beiden Anfänge festlegen, dann die beiden Enden, was viel logischer ist, sobald Sie Bescheid wissen!
+Das ist gegen den Uhrzeigersinn! Es ist das Gegenteil von dem, was wir für Margen und Abstände tun. Wenn wir uns daran erinnern, dass `grid-area` die Welt in "Block und Inline" sieht, werden Sie feststellen, dass wir die beiden Starts und dann die beiden Enden setzen, was viel logischer ist, wenn Sie es wissen!
 
 ## Gemischte Schreibrichtungen und Rasterlayout
 
-Zusätzlich zur Anzeige von Dokumenten in der korrekten Schreibrichtung für die Sprache können Schreibrichtungen kreativ in Dokumenten verwendet werden, die ansonsten `ltr` sind. In diesem Beispiel haben wir ein Rasterlayout mit einem Satz von Links auf einer Seite. Wir verwenden Schreibrichtungen (`writing-mode: vertical-lr`), um diese auf die Seite im Spaltenbereich zu drehen:
+Zusätzlich zur Darstellung von Dokumenten mit der richtigen Schreibrichtung für die Sprache können Schreibrichtungen kreativ in Dokumenten verwendet werden, die sonst `ltr` sind. In diesem Beispiel haben wir ein Rasterlayout mit einer Reihe von Links an einer Seite. Wir verwenden Schreibrichtungen (`writing-mode: vertical-lr`), um diese in der Spalten-Segment auf die Seite zu drehen:
 
 ```css
 .wrapper {
@@ -501,6 +506,6 @@ nav a {
 
 ## Physische Werte und logische Eigenschaften
 
-Wenn Sie logische Rastereigenschaften mit physischen Eigenschaften kombinieren, denken Sie daran, dass physische Eigenschaften sich nicht entsprechend der Schreibrichtung ändern. In unserem [Leitfaden zum Ausrichten von Elementen im CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) verwenden wir automatische Ränder, um ein Element von den anderen wegzuschieben; dies verwendet physische Eigenschaften. Es gibt logische Eigenschaftsäquivalente für die meisten physischen Eigenschaften, die Schreibrichtungen respektieren, genau wie die Platzierungs- und Ausrichtungseigenschaften und -werte im Raster.
+Wenn Sie logische Rastereigenschaften mit physischen Eigenschaften kombinieren, denken Sie daran, dass physische Eigenschaften sich nicht entsprechend der Schreibrichtung ändern. In unserem [Leitfaden zur Ausrichtung von Elementen im CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) verwenden wir automatische Margen, um ein Element von anderen wegzudrücken; dies verwendet physische Eigenschaften. Es gibt logische Eigenschaftsentsprechungen zu den meisten physischen Eigenschaften, die Schreibrichtungen in der gleichen Weise wie Rasterplatzierung und Ausrichtungseigenschaften und -werte respektieren.
 
-Ähnlich, wenn sie absolute Positionierung innerhalb eines Rasterbereichs verwenden, können Sie logische {{Glossary("inset_properties", "inset-Eigenschaften")}} nutzen, um Elemente innerhalb des Rasterbereichs zu platzieren. Wenn Sie logische und physische Eigenschaften oder Werte mischen, seien Sie sich der Spannung zwischen ihnen bewusst. Zum Beispiel könnten Sie Ihr CSS ändern müssen, um mit einem Wechsel von `ltr` zu `rtl` umzugehen. Ihr Verständnis von Block und Inline durch das Raster wird Ihnen helfen, die [CSS-logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) zu verstehen.
+Ähnlich können Sie bei der Verwendung absoluter Positionierung innerhalb eines Rasterbereichs logische {{Glossary("inset_properties", "Einfügeeigenschaften")}} verwenden, um Elemente innerhalb des Rasterbereichs zu platzieren. Wenn logische und physische Eigenschaften oder Werte gemischt werden, beachten Sie die Spannung zwischen ihnen. Beispielsweise müssen Sie möglicherweise Ihr CSS ändern, um mit einem Wechsel von `ltr` zu `rtl` umzugehen. Ihr Verständnis von Block und Inline durch Raster wird Ihnen helfen, [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) zu verstehen.

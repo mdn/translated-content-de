@@ -2,14 +2,12 @@
 title: orphans
 slug: Web/CSS/orphans
 l10n:
-  sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`orphans`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die unten auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), in einer Region oder [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
 
-Die **`orphans`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die minimale Anzahl von Zeilen in einem Block-Container fest, die unten auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einem Bereich oder in einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
-
-In der Typografie ist eine _Waise_ die erste Zeile eines Absatzes, die allein am unteren Rand einer Seite erscheint. (Der Absatz wird auf der folgenden Seite fortgesetzt.)
+In der Typografie ist ein _Waise_ die erste Zeile eines Absatzes, die allein am unteren Rand einer Seite erscheint. (Der Absatz wird auf einer folgenden Seite fortgesetzt.)
 
 ## Syntax
 
@@ -29,7 +27,7 @@ orphans: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die minimale Anzahl von Zeilen, die vor einem Fragmentierungsbruch alleine am unteren Rand eines Fragments bleiben können. Der Wert muss positiv sein.
+  - : Die minimale Anzahl von Zeilen, die sich am unteren Rand eines Fragments vor einem Fragmentierungsbruch befinden können. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -41,7 +39,7 @@ orphans: unset;
 
 ## Beispiele
 
-### Setzen einer minimalen Waisengröße von drei Zeilen
+### Festlegen einer minimalen Waisengröße von drei Zeilen
 
 #### HTML
 
@@ -93,4 +91,4 @@ p:first-child {
 ## Siehe auch
 
 - {{cssxref("widows")}}
-- [Paged Media](/de/docs/Web/CSS/CSS_paged_media)
+- [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media)

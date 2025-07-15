@@ -2,16 +2,14 @@
 title: ::view-transition-image-pair()
 slug: Web/CSS/::view-transition-image-pair
 l10n:
-  sourceCommit: 5de337827007e2a7fb89261215b6dbcf4caafafa
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **`::view-transition-image-pair()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Container für die "alten" und "neuen" Ansichts-Zustände eines [Ansichtsübergangs](/de/docs/Web/API/View_Transition_API) — vor und nach dem Übergang.
 
-Das **`::view-transition-image-pair()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Container für die "alten" und "neuen" Ansichtsstatus eines [View-Transitions](/de/docs/Web/API/View_Transition_API) — vor und nach der Transition.
+Während eines Ansichtsübergangs wird `::view-transition-image-pair()` in den zugehörigen Pseudoelement-Baum aufgenommen, wie in [Der Pseudoelement-Baum des Ansichtsübergangs](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist nur ein Kind von {{cssxref("::view-transition-group()")}}. Was Kinder betrifft, so kann es ein {{cssxref("::view-transition-new()")}} oder ein {{cssxref("::view-transition-old()")}}, oder beide haben.
 
-Während einer View-Transition wird `::view-transition-image-pair()` im zugehörigen Pseudo-Element-Baum eingeschlossen, wie in [Der View-Transition-Pseudo-Element-Baum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer nur ein Kind von {{cssxref("::view-transition-group()")}}. In Bezug auf Kinder kann es ein {{cssxref("::view-transition-new()")}} oder ein {{cssxref("::view-transition-old()")}} oder beides haben.
-
-`::view-transition-image-pair()` erhält das folgende Standard-Styling im UA-Stylesheet:
+`::view-transition-image-pair()` erhält das folgende Standardstyling im UA-Stylesheet:
 
 ```css
 :root::view-transition-image-pair(*) {
@@ -24,7 +22,7 @@ Während einer View-Transition wird `::view-transition-image-pair()` im zugehör
 }
 ```
 
-Während einer View-Transition hat `::view-transition-image-pair()` {{cssxref("isolation", "isolation: isolate")}} in der View-Transition-Stylesheet gesetzt, damit seine Kinder mit nicht-normalen Blendmodi gemischt werden können, ohne andere visuelle Ausgaben zu beeinflussen.
+Während eines Ansichtsübergangs hat `::view-transition-image-pair()` in der Ansichtsübergangs-Stylesheet {{cssxref("isolation", "isolation: isolate")}} gesetzt, sodass seine Kinder mit nicht normalen Mischmodi gemischt werden können, ohne andere visuelle Ausgaben zu beeinflussen.
 
 ## Syntax
 
@@ -37,13 +35,13 @@ Während einer View-Transition hat `::view-transition-image-pair()` {{cssxref("i
 ### Parameter
 
 - `*`
-  - : Der [Universalselektor (`*`)](/de/docs/Web/CSS/Universal_selectors); wählt alle View-Transition-Gruppen auf einer Seite aus.
+  - : Der [universelle Selektor (`*`)](/de/docs/Web/CSS/Universal_selectors); wählt alle Ansichtsübergangsgruppen auf einer Seite aus.
 - `root`
-  - : Veranlasst das Pseudo-Element, der Standard-`root`-View-Transition-Snapshot-Gruppe zu entsprechen, die vom User-Agent erstellt wurde, um die View-Transition für die gesamte Seite zu enthalten. Diese Gruppe schließt jedes Element ein, das nicht über die {{cssxref("view-transition-name")}}-Eigenschaft seiner eigenen spezifischen View-Transition-Snapshot-Gruppe zugewiesen wurde.
+  - : Verursacht, dass das Pseudoelement der Standard `root`-Ansichtsübertragungsschnappschussgruppe entspricht, die vom Benutzeragenten erstellt wurde, um den Ansichtsübergang für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die Eigenschaft {{cssxref("view-transition-name")}} einer eigenen spezifischen Ansichtsübertragungsschnappschussgruppe zugewiesen ist.
 - `<pt-name-selector>`
-  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-name")}}-Eigenschaft festgelegt ist.
+  - : Das {{cssxref("custom-ident")}}, das als Wert der Eigenschaft {{cssxref("view-transition-name")}} festgelegt ist.
 - `<pt-class-selector>`
-  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-class")}}-Eigenschaft festgelegt ist, gefolgt von einem Punkt (`.`).
+  - : Das {{cssxref("custom-ident")}}, das als Wert der Eigenschaft {{cssxref("view-transition-class")}} festgelegt ist, eingeleitet durch einen Punkt (`.`).
 
 ## Beispiele
 

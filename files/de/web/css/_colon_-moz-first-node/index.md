@@ -2,15 +2,15 @@
 title: :-moz-first-node
 slug: Web/CSS/:-moz-first-node
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{Non-standard_header}}{{CSSRef}}{{SeeCompatTable}}
+{{Non-standard_header}}{{SeeCompatTable}}
 
-Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element repräsentiert, das das erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie kein Erstkind-Element auswählt, das (nicht-weißen) Text vor sich hat.
+Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein beliebiges Element darstellt, das das erste Kindelement eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie kein erstes Kindelement erfasst, dem (nicht-weißer) Text vorausgeht.
 
 > [!NOTE]
-> Jegliche Leerzeichen am Anfang eines Elements werden für die Bestimmung von `:-moz-first-node` ignoriert.
+> Jeglicher Leerraum am Anfang eines Elements wird bei der Bestimmung von `:-moz-first-node` ignoriert.
 
 ## Syntax
 

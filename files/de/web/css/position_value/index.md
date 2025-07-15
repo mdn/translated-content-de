@@ -2,27 +2,25 @@
 title: <position>
 slug: Web/CSS/position_value
 l10n:
-  sourceCommit: 83dd1960e946e82f2cf830ac5df5703df501f73b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`<position>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet eine zweidimensionale Koordinate, die verwendet wird, um eine Position relativ zu einem Elementkasten festzulegen. Er wird in den Eigenschaften {{cssxref("background-position")}}, {{cssxref("object-position")}}, {{cssxref("mask-position")}}, {{cssxref("offset-position")}}, {{cssxref("offset-anchor")}} und {{cssxref("transform-origin")}} verwendet.
+Der **`<position>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet ein zweidimensionales Koordinatensystem, das verwendet wird, um eine Position relativ zu einem Elementrahmen festzulegen. Es wird in den Eigenschaften {{cssxref("background-position")}}, {{cssxref("object-position")}}, {{cssxref("mask-position")}}, {{cssxref("offset-position")}}, {{cssxref("offset-anchor")}} und {{cssxref("transform-origin")}} verwendet.
 
 > [!NOTE]
-> Die durch den `<position>`-Wert beschriebene endgültige Position muss sich nicht innerhalb des Elementkastens befinden.
+> Die durch den `<position>` Wert beschriebene Endposition muss sich nicht innerhalb des Elementrahmens befinden.
 
 ## Syntax
 
-![Raster zeigt die Platzierung verschiedener Werte. 0 0 ist die obere linke Ecke. Die vier Werte, right, right center, center left 100% und top 50% left 100%, sind alle äquivalent, da sie sich auf der rechten Kante vertikal in der Mitte befinden. Die zwei Werte, top 75px left 100px und left 100px top 75px, sind gleichwertig. Bottom left 25% entspricht top 100% left 25%.](position_type.png)
+![Raster zeigt die Platzierung verschiedener Werte. 0 0 ist die obere linke Ecke. Die vier Werte, right, right center, center left 100%, und top 50% left 100%, sind alle gleichwertig, da sie sich an der rechten Kante in der Mitte vertikal befinden. Die beiden Werte, top 75px left 100px und left 100px top 75px, sind identisch. Bottom left 25% ist gleich wie top 100% left 25%.](position_type.png)
 
-Der `<position>`-Datentyp wird mit ein oder zwei Schlüsselwörtern angegeben, mit optionalen Versätzen.
+Der `<position>` Datentyp wird mit einem oder zwei Schlüsselwörtern und optionalen Versätzen angegeben.
 
-Die Schlüsselwortwerte sind `center`, `top`, `right`, `bottom` und `left`. Jedes Schlüsselwort repräsentiert entweder eine Kante des Elementkastens oder die Mittellinie zwischen zwei Kanten. Abhängig vom Kontext repräsentiert `center` entweder die Mitte zwischen den linken und rechten Kanten oder die Mitte zwischen den oberen und unteren Kanten.
+Die Schlüsselwortwerte sind `center`, `top`, `right`, `bottom` und `left`. Jedes Schlüsselwort repräsentiert entweder eine Kante des Elementrahmens oder die Mittellinie zwischen zwei Kanten. Je nach Kontext repräsentiert `center` entweder die Mitte zwischen den linken und rechten Kanten oder die Mitte zwischen den oberen und unteren Kanten.
 
-Falls angegeben, kann ein Versatz entweder ein relativer {{cssxref("&lt;percentage&gt;")}}-Wert oder ein absoluter {{cssxref("&lt;length&gt;")}}-Wert sein. Positive Werte sind in Richtung der rechten oder unteren Seite versetzt, je nachdem, was zutrifft. Negative Werte sind in die entgegengesetzten Richtungen versetzt.
+Falls angegeben, kann ein Versatz entweder ein relativer {{cssxref("&lt;percentage&gt;")}} Wert oder ein absoluter {{cssxref("&lt;length&gt;")}} Wert sein. Positive Werte werden in Richtung rechts oder unten versetzt, je nachdem, was angemessen ist. Negative Werte werden in die entgegengesetzten Richtungen versetzt.
 
-Wenn nur ein einziger Versatzwert angegeben wird, definiert dieser die x-Koordinate, wobei der Wert für die andere Achse standardmäßig `center` ist.
+Wenn nur ein einziger Versatzwert angegeben ist, definiert er die x-Koordinate, wobei der Wert für die andere Achse standardmäßig auf `center` gesetzt wird.
 
 ```css
 /* 1-value syntax */
@@ -40,11 +38,11 @@ keyword value keyword value /* Each value is an offset from the keyword that pre
 ```
 
 > [!NOTE]
-> Die {{cssxref("background-position")}}-Eigenschaft akzeptiert auch eine Drei-Wert-Syntax. Dies ist bei anderen Eigenschaften, die `<position>` verwenden, nicht zulässig.
+> Die {{cssxref("background-position")}} Eigenschaft akzeptiert auch eine dreiwertige Syntax. Dies ist bei anderen Eigenschaften, die `<position>` verwenden, nicht erlaubt.
 
 ## Interpolation
 
-Wenn animiert, werden die Abszissen- und Ordinatenwerte eines Punktes unabhängig interpoliert. Da die Geschwindigkeit der Interpolation jedoch durch eine einzige [Easing-Funktion](/de/docs/Web/CSS/easing-function) für beide Koordinaten bestimmt wird, bewegt sich der Punkt in einer geraden Linie.
+Bei der Animation werden die Abszisse und Ordinate eines Punktes unabhängig voneinander interpoliert. Da jedoch die Geschwindigkeit der Interpolation durch eine einzelne [Easing-Funktion](/de/docs/Web/CSS/easing-function) für beide Koordinaten bestimmt wird, wird sich der Punkt in einer geraden Linie bewegen.
 
 ## Formale Syntax
 
@@ -84,7 +82,7 @@ bottom top
 
 ## Siehe auch
 
-- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)-Modul
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
 - [Lernen: CSS Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
 - {{cssxref("background-position")}}
 - {{cssxref("gradient/radial-gradient", "radial-gradient()")}}

@@ -2,23 +2,24 @@
 title: prefers-reduced-transparency
 slug: Web/CSS/@media/prefers-reduced-transparency
 l10n:
-  sourceCommit: 1b9f8e62afc890f2f00d6f9043f3ce0ff2ac4dfb
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`prefers-reduced-transparency`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob ein Benutzer auf seinem Gerät eine Einstellung aktiviert hat, um die Effekte von transparenten oder halbtransparenten Ebenen zu verringern. Das Aktivieren einer solchen Einstellung kann dazu beitragen, den Kontrast und die Lesbarkeit für einige Benutzer zu verbessern.
+Das **`prefers-reduced-transparency`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) wird verwendet, um festzustellen, ob ein Benutzer eine Einstellung auf seinem Gerät aktiviert hat, um die transparenten oder transluzenten Schichteffekte auf dem Gerät zu reduzieren. Das Aktivieren einer solchen Einstellung kann den Kontrast und die Lesbarkeit für einige Benutzer verbessern.
 
 ## Syntax
 
 - `no-preference`
-  - : Zeigt an, dass ein Benutzer keine Präferenz auf dem Gerät festgelegt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch ausgewertet.
+  - : Gibt an, dass ein Benutzer keine Präferenz auf dem Gerät bekannt gemacht hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch ausgewertet.
 - `reduce`
-  - : Zeigt an, dass ein Benutzer die Einstellung auf seinem Gerät aktiviert hat, um die Anzahl der transparenten oder halbtransparenten Ebeneneffekte zu minimieren.
+  - : Gibt an, dass ein Benutzer die Einstellung auf seinem Gerät aktiviert hat, um die Menge der transparenten oder transluzenten Schichteffekte zu minimieren.
 
 ## Benutzerpräferenzen
 
-Verschiedene Betriebssysteme bieten eine Präferenz zur Verringerung der Transparenz, und Benutzeragenten werden sich wahrscheinlich auf diese Systemeinstellungen stützen. Sie können sich auch auf weniger explizite Signale auf Plattformen verlassen, die keine spezielle Einstellung anbieten.
+Verschiedene Betriebssysteme bieten eine Präferenz zur Reduzierung der Transparenz, und Benutzeragenten werden voraussichtlich auf diese Systemeinstellungen zurückgreifen.
+Sie können sich auch auf weniger explizite Signale auf Plattformen stützen, die keine spezifische Einstellung bieten.
 
 - In Windows 10/11: Einstellungen > Personalisierung > Farben > Transparenzeffekte.
 - In macOS: Systemeinstellungen > Bedienungshilfen > Anzeige > Transparenz reduzieren.
@@ -26,7 +27,7 @@ Verschiedene Betriebssysteme bieten eine Präferenz zur Verringerung der Transpa
 
 ## Beispiele
 
-Dieses Beispiel enthält standardmäßig eine halbdurchsichtige Box. Wenn die Einstellung zur Reduzierung der Transparenz in den Bedienungshilfeneinstellungen auf Ihrem Gerät aktiviert ist, wird die halbdurchsichtige Box undurchsichtiger.
+Dieses Beispiel hat standardmäßig ein transluzentes Kästchen. Wenn die Einstellung zur Reduzierung der Transparenz in den Bedienungshilfeneinstellungen auf Ihrem Gerät aktiviert ist, wird das transluzente Kästchen opaker.
 
 ### HTML
 
@@ -58,5 +59,5 @@ Dieses Beispiel enthält standardmäßig eine halbdurchsichtige Box. Wenn die Ei
 
 ## Siehe auch
 
-- CSS [prefers-reduced-motion](/de/docs/Web/CSS/@media/prefers-reduced-motion) Media Query
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- CSS [prefers-reduced-motion](/de/docs/Web/CSS/@media/prefers-reduced-motion) Medienabfrage
+- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)

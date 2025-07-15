@@ -2,13 +2,10 @@
 title: scaleX()
 slug: Web/CSS/transform-function/scaleX
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`scaleX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der
-x-Achse (horizontal) skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der x-Achse (horizontal) skaliert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scaleX()")}}
 
@@ -38,9 +35,10 @@ transform: scaleX(-0.5);
 </section>
 ```
 
-Sie modifiziert die Abszisse (horizontal, x-Koordinate) jedes Punkts eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 beträgt. In diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop, und die Winkel des Elements werden im Allgemeinen nicht beibehalten, außer bei Vielfachen von 90 Grad. `scaleX(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry) mit einer vertikalen Achse, die durch den Ursprung geht (wie durch die {{cssxref("transform-origin")}}-Eigenschaft angegeben).
+Sie modifiziert die Abszisse (horizontal, x-Koordinate) eines jeden Punktes eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 beträgt, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop und die Winkel des Elements werden im Allgemeinen nicht beibehalten, außer bei Vielfachen von 90 Grad. `scaleX(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer vertikalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
 
-> [!NOTE] > `scaleX(sx)` ist gleichwertig mit
+> [!NOTE]
+> `scaleX(sx)` ist äquivalent zu
 > `scale(sx, 1)` oder
 > `scale3d(sx, 1, 1)`.
 
@@ -53,15 +51,15 @@ scaleX(s)
 ### Werte
 
 - `s`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der den Skalierungsfaktor darstellt, der auf die Abszisse (horizontal, x-Koordinate) jedes Punkts des Elements angewendet wird.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor darstellt, der auf die Abszisse (horizontal, x-Koordinate) eines jeden Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -141,7 +139,7 @@ div {
 - {{cssxref("scale")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-origin")}}
-- Andere individuelle Transformations-Eigenschaften:
+- Andere einzelne Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew`-Eigenschaft
+  - Hinweis: Es gibt keine `skew` Eigenschaft

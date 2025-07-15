@@ -2,10 +2,8 @@
 title: :first-of-type
 slug: Web/CSS/:first-of-type
 l10n:
-  sourceCommit: 82e1a3964631e478c0a8349cc6d7abd4a3eee8be
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
-
-{{CSSRef}}
 
 Die **`:first-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das erste Element seines Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
 
@@ -49,7 +47,7 @@ dd:first-of-type {
 
 ## Beispiele
 
-### Das erste Absatzstyling
+### Das erste Absatz-Element stylen
 
 #### HTML
 
@@ -74,7 +72,7 @@ p:first-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie verschachtelte Elemente ebenfalls angesprochen werden können. Beachten Sie, dass der [universale Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein Typselektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein Typselektor geschrieben ist.
 
 #### HTML
 

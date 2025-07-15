@@ -2,26 +2,24 @@
 title: <system-color>
 slug: Web/CSS/system-color
 l10n:
-  sourceCommit: 5391efed47d35f243668cb60280702c4ecd96318
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Der **`<system-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) spiegelt in der Regel die Standardfarbwahl wider, die für die verschiedenen Teile einer Webseite verwendet wird.
 
-Der **`<system-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) spiegelt in der Regel die Standardfarbauswahl wider, die für die verschiedenen Teile einer Webseite verwendet wird.
+Jedoch können User-Agents eine Barrierefreiheitsfunktion namens _Forced Colors Mode_ bereitstellen. In diesem Modus werden die Farben auf eine vom Benutzer und User-Agent definierte Palette beschränkt und überschreiben die Farbauswahl des Autors in bestimmten Eigenschaften. Im Forced Colors Mode gibt `<system-color>` die gewählten Farben an, damit der restliche Seiteninhalt damit integriert werden kann. Ein Beispiel für den Forced Colors Mode ist der [Kontrastmodus auf Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/).
 
-Jedoch können Benutzeragenten eine Barrierefreiheit-Funktion namens _Forced Colors Mode_ bereitstellen, bei der die Farben auf eine vom Benutzer und Benutzeragenten definierte Palette begrenzt werden, wodurch die Farbauswahl des Autors in bestimmten Eigenschaften überschrieben wird. Im Forced Colors Mode zeigt `<system-color>` die ausgewählten Farben an, sodass der Rest der Seite sich mit ihnen integrieren kann. Ein Beispiel für den Forced Colors Mode ist der [Hoher-Kontrast-Modus in Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/).
+Im Forced Colors Mode sollten Autoren Farben aus dem `<system-color>`-Typ für alle Eigenschaften verwenden, die nicht zu den Eigenschaften gehören, deren Farben überschrieben werden. Dies stellt sicher, dass die Seite konsistent dieselbe Farbpalette über alle Eigenschaften hinweg verwendet.
 
-Im Forced Colors Mode sollten Autoren Farben aus dem `<system-color>`-Typ für alle Eigenschaften verwenden, die _nicht_ in der Menge der Eigenschaften sind, deren Farben überschrieben werden. Dies stellt sicher, dass die Seite konsistent dieselbe Farbpalette für alle Eigenschaften verwendet.
-
-Autoren können den Forced Colors Mode mithilfe der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Medienfunktion erkennen.
+Autoren können den Forced Colors Mode mit der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media-Abfrage erkennen.
 
 Ein `<system-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 
 ## Syntax
 
-Beachten Sie, dass diese Schlüsselwörter _nicht_ zwischen Groß- und Kleinschreibung unterscheiden, aber hier zur besseren Lesbarkeit in gemischter Groß- und Kleinschreibung aufgeführt sind.
+Beachten Sie, dass diese Schlüsselwörter _nicht_ zwischen Groß- und Kleinschreibung unterscheiden, sie sind hier jedoch zur besseren Lesbarkeit mit gemischter Schreibweise aufgeführt.
 
-Je nach Ihren Einstellungen können sich die Beispiel-Farben in der Tabelle ändern. Sie können diese Seite auch mit verschiedenen Browsern, Betriebssystemen und Systemeinstellungen ansehen, um die Unterschiede zu überprüfen.
+Abhängig von Ihren Einstellungen können sich die Beispiel-Farben in der Tabelle ändern. Sie können diese Seite auch mit verschiedenen Browsern, Betriebssystemen und System-Einstellungen anzeigen, um die Unterschiede zu überprüfen.
 
 <table>
   <thead>
@@ -34,12 +32,12 @@ Je nach Ihren Einstellungen können sich die Beispiel-Farben in der Tabelle änd
   <tbody>
     <tr>
       <td><code>AccentColor</code></td>
-      <td>Hintergrund von hervorgehobenen Benutzeroberflächen-Steuerelementen.</td>
+      <td>Hintergrund von akzentuierten Benutzeroberflächen-Steuerelementen.</td>
       <td style="background-color: AccentColor;"></td>
     </tr>
     <tr>
       <td><code>AccentColorText</code></td>
-      <td>Text von hervorgehobenen Benutzeroberflächen-Steuerelementen.</td>
+      <td>Text von akzentuierten Benutzeroberflächen-Steuerelementen.</td>
       <td style="background-color: AccentColorText;"></td>
     </tr>
     <tr>
@@ -49,7 +47,7 @@ Je nach Ihren Einstellungen können sich die Beispiel-Farben in der Tabelle änd
     </tr>
     <tr>
       <td><code>ButtonBorder</code></td>
-      <td>Basisrahmenfarbe von Steuerelementen.</td>
+      <td>Basisrandfarbe von Steuerelementen.</td>
       <td style="background-color: ButtonBorder;"></td>
     </tr>
     <tr>
@@ -104,17 +102,17 @@ Je nach Ihren Einstellungen können sich die Beispiel-Farben in der Tabelle änd
     </tr>
     <tr>
       <td><code>Mark</code></td>
-      <td>Hintergrund von Text, der speziell markiert wurde (zum Beispiel durch das HTML-<code>mark</code>-Element).</td>
+      <td>Hintergrund von speziell markiertem Text (zum Beispiel durch das HTML-<code>mark</code>-Element).</td>
       <td style="background-color: Mark;"></td>
     </tr>
     <tr>
       <td><code>MarkText</code></td>
-      <td>Text, der speziell markiert wurde (zum Beispiel durch das HTML-<code>mark</code>-Element).</td>
+      <td>Speziell markierter Text (zum Beispiel durch das HTML-<code>mark</code>-Element).</td>
       <td style="background-color: MarkText;"></td>
     </tr>
     <tr>
       <td><code>SelectedItem</code></td>
-      <td>Hintergrund von ausgewählten Elementen, zum Beispiel einem ausgewählten Kontrollkästchen.</td>
+      <td>Hintergrund von ausgewählten Elementen, zum Beispiel ein ausgewähltes Kontrollkästchen.</td>
       <td style="background-color: SelectedItem;"></td>
     </tr>
     <tr>
@@ -130,35 +128,35 @@ Je nach Ihren Einstellungen können sich die Beispiel-Farben in der Tabelle änd
   </tbody>
 </table>
 
-### Veraltete Systemfarbschlüsselwörter
+### Veraltete Systemfarb-Schlüsselwörter
 
-Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS-Farbmoduls definiert. Sie sind jetzt für die Verwendung auf öffentlichen Webseiten veraltet.
+Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS-Color-Moduls definiert. Sie sind nun für die Verwendung auf öffentlichen Webseiten veraltet.
 
 <table>
   <thead>
     <tr>
       <th>Schlüsselwort</th>
       <th>Beschreibung</th>
-      <th>Ersetzung</th>
+      <th>Ersatz</th>
       <th>Beispiel</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>ActiveBorder</code></td>
-      <td>Aktiver Fensterrahmen</td>
+      <td>Rand des aktiven Fensters</td>
       <td><code>ButtonBorder</code></td>
       <td style="background-color: ActiveBorder;"></td>
     </tr>
     <tr>
       <td><code>ActiveCaption</code></td>
-      <td>Titel eines aktiven Fensters. Sollte mit <code>CaptionText</code> als Vordergrundfarbe verwendet werden.</td>
+      <td>Unterschrift des aktiven Fensters. Sollte mit <code>CaptionText</code> als Vordergrundfarbe verwendet werden.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: ActiveCaption;"></td>
     </tr>
     <tr>
       <td><code>AppWorkspace</code></td>
-      <td>Hintergrundfarbe einer Mehrfach-Dokument-Ansicht.</td>
+      <td>Hintergrundfarbe der Mehrfachdokumentschnittstelle.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: AppWorkspace;"></td>
     </tr>
@@ -170,103 +168,103 @@ Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS-Farbmoduls
     </tr>
     <tr>
       <td><code>ButtonHighlight</code></td>
-      <td>Die Farbe der dem Licht zugewandten Rahmen für 3D-Elemente, die 3D erscheinen, aufgrund dieser Umrandungsschicht.</td>
+      <td>Die Farbe des Randes, der zur Lichtquelle hin zeigt, für 3-D-Elemente, die aufgrund dieser Randumgebung 3-D erscheinen.</td>
       <td><code>ButtonFace</code></td>
       <td style="background-color: ButtonHighlight;"></td>
     </tr>
     <tr>
       <td><code>ButtonShadow</code></td>
-      <td>Die Farbe der vom Licht abgewandten Rahmen für 3D-Elemente, die 3D erscheinen, aufgrund dieser Umrandungsschicht.</td>
+      <td>Die Farbe des Randes, die von der Lichtquelle weg zeigt, für 3-D-Elemente, die aufgrund dieser Randumgebung 3-D erscheinen.</td>
       <td><code>ButtonFace</code></td>
       <td style="background-color: ButtonShadow;"></td>
     </tr>
     <tr>
       <td><code>CaptionText</code></td>
-      <td>Text in Titel, Größenfeld und Scrollbar-Pfeilfeld. Sollte mit der Hintergrundfarbe <code>ActiveCaption</code> verwendet werden.</td>
+      <td>Text in Unterschrift, Größenfeld und Scrollbar-Pfeilbox. Sollte mit der <code>ActiveCaption</code>-Hintergrundfarbe verwendet werden.</td>
       <td><code>CanvasText</code></td>
       <td style="background-color: CaptionText;"></td>
     </tr>
     <tr>
       <td><code>InactiveBorder</code></td>
-      <td>Rahmen eines inaktiven Fensters.</td>
+      <td>Rand des inaktiven Fensters.</td>
       <td><code>ButtonBorder</code></td>
       <td style="background-color: InactiveBorder;"></td>
     </tr>
     <tr>
       <td><code>InactiveCaption</code></td>
-      <td>Titel eines inaktiven Fensters. Sollte mit der Vordergrundfarbe <code>InactiveCaptionText</code> verwendet werden.</td>
+      <td>Unterschrift des inaktiven Fensters. Sollte mit der <code>InactiveCaptionText</code>-Vordergrundfarbe verwendet werden.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: InactiveCaption;"></td>
     </tr>
     <tr>
       <td><code>InactiveCaptionText</code></td>
-      <td>Farbe des Textes in einem inaktiven Titel. Sollte mit der Hintergrundfarbe <code>InactiveCaption</code> verwendet werden.</td>
+      <td>Farbe des Textes in einer inaktiven Unterschrift. Sollte mit der <code>InactiveCaption</code>-Hintergrundfarbe verwendet werden.</td>
       <td><code>GrayText</code></td>
       <td style="background-color: InactiveCaptionText;"></td>
     </tr>
     <tr>
       <td><code>InfoBackground</code></td>
-      <td>Hintergrundfarbe für Tooltip-Steuerelemente. Sollte mit der Vordergrundfarbe <code>InfoText</code> verwendet werden.</td>
+      <td>Hintergrundfarbe für Tooltip-Steuerelemente. Sollte mit der <code>InfoText</code>-Vordergrundfarbe verwendet werden.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: InfoBackground;"></td>
     </tr>
     <tr>
       <td><code>InfoText</code></td>
-      <td>Textfarbe für Tooltip-Steuerelemente. Sollte mit der Hintergrundfarbe <code>InfoBackground</code> verwendet werden.</td>
+      <td>Textfarbe für Tooltip-Steuerelemente. Sollte mit der <code>InfoBackground</code>-Hintergrundfarbe verwendet werden.</td>
       <td><code>CanvasText</code></td>
       <td style="background-color: InfoText;"></td>
     </tr>
     <tr>
       <td><code>Menu</code></td>
-      <td>Menü-Hintergrund. Sollte mit der Vordergrundfarbe <code>MenuText</code> oder <code>-moz-MenuBarText</code> verwendet werden.</td>
+      <td>Menühintergrund. Sollte mit der <code>MenuText</code>- oder <code>-moz-MenuBarText</code>-Vordergrundfarbe verwendet werden.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: Menu;"></td>
     </tr>
     <tr>
       <td><code>MenuText</code></td>
-      <td>Text in Menüs. Sollte mit der Hintergrundfarbe <code>Menu</code> verwendet werden.</td>
+      <td>Text in Menüs. Sollte mit der <code>Menu</code>-Hintergrundfarbe verwendet werden.</td>
       <td><code>CanvasText</code></td>
       <td style="background-color: MenuText;"></td>
     </tr>
     <tr>
       <td><code>Scrollbar</code></td>
-      <td>Hintergrundfarbe der Scrollbars.</td>
+      <td>Hintergrundfarbe der Scrollleisten.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: Scrollbar;"></td>
     </tr>
     <tr>
       <td><code>ThreeDDarkShadow</code></td>
-      <td>Die Farbe des dunkleren (im Allgemeinen äußeren) der beiden Rahmen, die von der Lichtquelle weg zeigen, für 3D-Elemente, die 3D erscheinen, aufgrund von zwei konzentrischen Schichten umgebenden Rahmens.</td>
+      <td>Die Farbe des dunkleren (meist äußeren) Randes, der von der Lichtquelle weg zeigt, für 3-D-Elemente, die aufgrund von zwei konzentrischen Schichten der umgebenden Grenze 3-D erscheinen.</td>
       <td><code>ButtonBorder</code></td>
       <td style="background-color: ThreeDDarkShadow;"></td>
     </tr>
     <tr>
       <td><code>ThreeDFace</code></td>
-      <td>Die Hintergrundfarbe der Oberfläche für 3D-Elemente, die 3D erscheinen, aufgrund von zwei konzentrischen Schichten umgebenden Rahmens. Sollte mit der Vordergrundfarbe <code>ButtonText</code> verwendet werden.</td>
+      <td>Die Vordergrundfarbe für 3-D-Elemente, die aufgrund von zwei konzentrischen Schichten der umgebenden Grenze 3-D erscheinen. Sollte mit der <code>ButtonText</code>-Vordergrundfarbe verwendet werden.</td>
       <td><code>ButtonFace</code></td>
       <td style="background-color: ThreeDFace;"></td>
     </tr>
     <tr>
       <td><code>ThreeDHighlight</code></td>
-      <td>Die Farbe des helleren (im Allgemeinen äußeren) der beiden Rahmen, die zur Lichtquelle zeigen, für 3D-Elemente, die 3D erscheinen, aufgrund von zwei konzentrischen Schichten umgebenden Rahmens.</td>
+      <td>Die Farbe des helleren (meist äußeren) Randes, der zur Lichtquelle hin zeigt, für 3-D-Elemente, die aufgrund von zwei konzentrischen Schichten der umgebenden Grenze 3-D erscheinen.</td>
       <td><code>ButtonBorder</code></td>
       <td style="background-color: ThreeDHighlight;"></td>
     </tr>
     <tr>
       <td><code>ThreeDLightShadow</code></td>
-      <td>Die Farbe des dunkleren (im Allgemeinen inneren) der beiden Rahmen, die zur Lichtquelle zeigen, für 3D-Elemente, die 3D erscheinen, aufgrund von zwei konzentrischen Schichten umgebenden Rahmens.</td>
+      <td>Die Farbe des dunkleren (meist inneren) Randes, der zur Lichtquelle hin zeigt, für 3-D-Elemente, die aufgrund von zwei konzentrischen Schichten der umgebenden Grenze 3-D erscheinen.</td>
       <td><code>ButtonBorder</code></td>
       <td style="background-color: ThreeDLightShadow;"></td>
     </tr>
     <tr>
       <td><code>ThreeDShadow</code></td>
-      <td>Die Farbe des helleren (im Allgemeinen inneren) der beiden Rahmen, die von der Lichtquelle weg zeigen, für 3D-Elemente, die 3D erscheinen, aufgrund von zwei konzentrischen Schichten umgebenden Rahmens.</td>
+      <td>Die Farbe des helleren (meist inneren) Randes, der von der Lichtquelle weg zeigt, für 3-D-Elemente, die aufgrund von zwei konzentrischen Schichten der umgebenden Grenze 3-D erscheinen.</td>
       <td><code>ButtonBorder</code></td>
       <td style="background-color: ThreeDShadow;"></td>
     </tr>
     <tr>
       <td><code>Window</code></td>
-      <td>Fensterhintergrund. Sollte mit der Vordergrundfarbe <code>WindowText</code> verwendet werden.</td>
+      <td>Fensterhintergrund. Sollte mit der <code>WindowText</code>-Vordergrundfarbe verwendet werden.</td>
       <td><code>Canvas</code></td>
       <td style="background-color: Window;"></td>
     </tr>
@@ -278,7 +276,7 @@ Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS-Farbmoduls
     </tr>
     <tr>
       <td><code>WindowText</code></td>
-      <td>Text in Fenstern. Sollte mit der Hintergrundfarbe <code>Window</code> verwendet werden.</td>
+      <td>Text in Fenstern. Sollte mit der <code>Window</code>-Hintergrundfarbe verwendet werden.</td>
       <td><code>CanvasText</code></td>
       <td style="background-color: WindowText;"></td>
     </tr>
@@ -289,7 +287,7 @@ Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS-Farbmoduls
 
 ### Verwendung von Systemfarben
 
-In diesem Beispiel haben wir eine Schaltfläche, die normalerweise ihren Kontrast mithilfe der {{cssxref("box-shadow")}}-Eigenschaft erhält. Im Forced Colors Mode wird `box-shadow` auf `none` gesetzt, daher verwendet das Beispiel die `forced-colors`-Medienfunktion, um sicherzustellen, dass ein Rahmen der entsprechenden Farbe verwendet wird (in diesem Fall `ButtonBorder`).
+In diesem Beispiel haben wir einen Button, der normalerweise seinen Kontrast mit der {{cssxref("box-shadow")}}-Eigenschaft erhält. Im Forced Colors Mode wird `box-shadow` auf `none` gesetzt, daher verwendet das Beispiel die `forced-colors` Media-Abfrage, um sicherzustellen, dass ein Rand der entsprechenden Farbe (`ButtonBorder` in diesem Fall) vorhanden ist.
 
 #### HTML
 

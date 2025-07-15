@@ -2,12 +2,10 @@
 title: :disabled
 slug: Web/CSS/:disabled
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, hinein getippt, etc.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
+Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, getippt, etc.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
 
 {{InteractiveExample("CSS Demo: :disabled", "tabbed-standard")}}
 
@@ -53,7 +51,7 @@ label {
 
 ## Beispiele
 
-Dieses Beispiel zeigt ein einfaches Versandformular. Es nutzt das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis, um dem Benutzer das Aktivieren/Deaktivieren der Abrechnungsfelder zu ermöglichen.
+Dieses Beispiel zeigt ein grundlegendes Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event) Event, um dem Benutzer zu ermöglichen, die Rechnungsfelder zu aktivieren/deaktivieren.
 
 ### HTML
 
@@ -88,7 +86,7 @@ input[type="text"]:disabled {
 
 ### JavaScript
 
-Deaktivieren Sie die Eingabefelder, wenn das Kontrollkästchen angeklickt wird
+Umschalten der deaktivierten Eingabefelder, wenn das Kontrollkästchen angeklickt wird
 
 ```js
 const checkbox = document.querySelector("#billing-checkbox");
@@ -103,7 +101,7 @@ checkbox.addEventListener("change", () => {
 
 ### Ergebnis
 
-Aktivieren/Deaktivieren Sie das Kontrollkästchen, um das Styling der Abrechnungsfelder zu ändern.
+Markieren/Entmarkieren Sie das Kontrollkästchen, um das Styling der Rechnungsfelder zu ändern.
 
 {{EmbedLiveSample('Examples', 300, 250)}}
 

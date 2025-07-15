@@ -1,8 +1,9 @@
 ---
 title: Firefox 85 für Entwickler
+short-title: Firefox 85
 slug: Mozilla/Firefox/Releases/85
 l10n:
-  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
+  sourceCommit: 64df508685abcbc047f6c1a973505921fad1484e
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 85, die Entwickler betreffen werden. Firefox 85 wurde am 26. Januar 2021 veröffentlicht.
@@ -14,7 +15,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 85, die Ent
 
 ### Entwicklerwerkzeuge
 
-- Entwickler können jetzt den [Seiteninspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html#viewing-common-pseudo-classes) verwenden, um die {{cssxref(":focus-visible")}} Pseudoklasse für das aktuell ausgewählte Element umzuschalten (zusätzlich zu den zuvor unterstützten Pseudoklassen: {{cssxref(":hover")}}, {{cssxref(":active")}} und {{cssxref(":focus")}}, {{cssxref(":focus-within")}}, und {{cssxref(":visited")}}). ([Firefox Bug 1617608](https://bugzil.la/1617608)).
+- Entwickler können nun den [Seiteninspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html#viewing-common-pseudo-classes) verwenden, um die {{cssxref(":focus-visible")}} Pseudoklasse für das aktuell ausgewählte Element umzuschalten (zusätzlich zu den zuvor unterstützten Pseudoklassen: {{cssxref(":hover")}}, {{cssxref(":active")}} und {{cssxref(":focus")}}, {{cssxref(":focus-within")}}, und {{cssxref(":visited")}}). ([Firefox Bug 1617608](https://bugzil.la/1617608)).
 
 ### HTML
 
@@ -22,7 +23,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 85, die Ent
 
 #### Entfernungen
 
-- Das `<menuitem>` HTML-Element ist nicht mehr verfügbar — es wurde hinter dem `dom.menuitem.enabled flag` versteckt. ([Firefox Bug 1680596](https://bugzil.la/1680596)).
+- Das `<menuitem>` HTML-Element ist nicht mehr verfügbar — es wurde hinter der `dom.menuitem.enabled` Flag verborgen. ([Firefox Bug 1680596](https://bugzil.la/1680596)).
 
 ### CSS
 
@@ -31,7 +32,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 85, die Ent
 
 ### JavaScript
 
-- Die `collation` Eigenschaft kann jetzt in den Optionen angegeben werden, die dem [`Intl.Collator()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator) übergeben werden ([Firefox Bug 1670062](https://bugzil.la/1670062)). Dies ermöglicht es Entwicklern, Code mit größerer Klarheit zu schreiben:
+- Die `collation` Eigenschaft kann jetzt in den Optionen angegeben werden, die dem [`Intl.Collator()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator) übergeben werden ([Firefox Bug 1670062](https://bugzil.la/1670062)). Dies ermöglicht es Entwicklern, Code mit höherer Klarheit zu schreiben:
 
   ```js
   // Old method
@@ -42,7 +43,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 85, die Ent
 
 ### Plugins
 
-- Flash-Unterstützung wurde vollständig aus Firefox entfernt ([Firefox Bug 1675349](https://bugzil.la/1675349)).
+- Die Unterstützung für Flash wurde vollständig aus Firefox entfernt ([Firefox Bug 1675349](https://bugzil.la/1675349)).
 
 ### APIs
 
@@ -50,18 +51,14 @@ _Keine Änderungen._
 
 ### WebDriver-Konformität (Marionette)
 
-- Ein potenzieller Timeout bei Seitenladungen wurde behoben, wenn `WebDriver:ElementClick` für einen Link mit einem `target` ungleich `_blank` aufgerufen wird ([Firefox Bug 1678455](https://bugzil.la/1678455)).
-- Die Verwendung von Web-Element-Referenzen auf anderen Browsing-Kontexten als dem Ursprünglichen gibt nun korrekt einen `no such element` Fehler anstelle eines `stale element reference` Fehlers zurück ([Firefox Bug 1684827](https://bugzil.la/1684827)).
+- Ein potenzielles Seitenladezeitüberschreitungsproblem wurde behoben, wenn `WebDriver:ElementClick` für einen Link mit einem `target` aufgerufen wird, das nicht `_blank` ist ([Firefox Bug 1678455](https://bugzil.la/1678455)).
+- Die Verwendung von Webelementreferenzen in anderen als den ursprünglichen Browsing-Kontexten gibt jetzt korrekterweise einen `no such element` Fehler anstelle eines `stale element reference` Fehlers zurück ([Firefox Bug 1684827](https://bugzil.la/1684827)).
 
 #### Bekannte Fehler
 
-- WebDriver-Befehle nach einem Aufruf von `WebDriver:SwitchToFrame` können mit einem "no such window" Fehler fehlschlagen, wenn der Inhalt des Frames noch nicht vollständig geladen ist ([Firefox Bug 1691348](https://bugzil.la/1691348)).
-- Nach einer [Cross-Group-Seitennavigation](https://firefox-source-docs.mozilla.org/dom/navigation/nav_replace.html#cross-group-navigations) kann der Zugriff auf ein zuvor abgerufenes Element manchmal keinen "stale element" Fehler auslösen und stattdessen zu einem "no such element" Fehler führen. Um dies zu verhindern, setzen Sie die `marionette.actors.enabled` Präferenz auf `false` ([Firefox Bug 1690308](https://bugzil.la/1690308)).
+- WebDriver-Befehle, die einem Aufruf von `WebDriver:SwitchToFrame` folgen, können mit einem "no such window" Fehler fehlschlagen, wenn der Inhalt des Rahmens noch nicht vollständig geladen ist ([Firefox Bug 1691348](https://bugzil.la/1691348)).
+- Nach einer [cross-group page navigation](https://firefox-source-docs.mozilla.org/dom/navigation/nav_replace.html#cross-group-navigations) kann der Zugriff auf ein zuvor abgerufenes Element möglicherweise nicht immer einen "stale element" Fehler auslösen, und kann auch zu einem "no such element" Fehler führen. Um dies zu verhindern, setzen Sie die `marionette.actors.enabled` Präferenz auf `false` ([Firefox Bug 1690308](https://bugzil.la/1690308)).
 
 ## Änderungen für Add-on-Entwickler
 
 _Keine Änderungen._
-
-## Ältere Versionen
-
-{{Firefox_for_developers}}

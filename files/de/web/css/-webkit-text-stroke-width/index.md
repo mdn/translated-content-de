@@ -2,12 +2,10 @@
 title: -webkit-text-stroke-width
 slug: Web/CSS/-webkit-text-stroke-width
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`-webkit-text-stroke-width`**- [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des Umrisses für Text fest.
+Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Breite der Kontur für Text an.
 
 ## Syntax
 
@@ -34,19 +32,19 @@ Die **`-webkit-text-stroke-width`**- [CSS](/de/docs/Web/CSS)-Eigenschaft legt di
 ### Werte
 
 - `<line-width>`
-  - : Die Breite des Umrisses.
+  - : Die Breite der Kontur.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Unterschiedliche Umrissbreiten
+### Unterschiedliche Konturbreiten
 
 #### CSS
 
@@ -93,7 +91,7 @@ p {
 ## Siehe auch
 
 - [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks-Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke")}}
 - {{cssxref("-webkit-text-fill-color")}}

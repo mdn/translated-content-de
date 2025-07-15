@@ -2,12 +2,10 @@
 title: font-variant-east-asian
 slug: Web/CSS/font-variant-east-asian
 l10n:
-  sourceCommit: 478517351c5aa97f8b878228da3b3a9b0fb90371
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`font-variant-east-asian`** [CSS](/de/docs/Web/CSS) Eigenschaft kontrolliert die Verwendung alternativer Glyphen für ostasiatische Schriften, wie Japanisch und Chinesisch.
+Die **`font-variant-east-asian`**-[CSS](/de/docs/Web/CSS)-Eigenschaft steuert die Verwendung von alternativen Glyphen für ostasiatische Schriftsysteme wie Japanisch und Chinesisch.
 
 {{InteractiveExample("CSS Demo: font-variant-east-asian")}}
 
@@ -72,25 +70,25 @@ font-variant-east-asian: unset;
 ### Werte
 
 - `normal`
-  - : Dieses Schlüsselwort deaktiviert die Verwendung solcher alternativen Glyphen.
+  - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativer Glyphen.
 - `ruby`
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Rubyschriftzeichen. Da diese normalerweise kleiner sind, gestalten Schriftartendesigner oft spezifische Formen, die normalerweise etwas fetter sind, um den Kontrast zu verbessern. Dieses Schlüsselwort entspricht den OpenType-Werten `ruby`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Ruby-Zeichen. Da diese normalerweise kleiner sind, erstellen Schriftgestalter oft spezifische Formen, die in der Regel etwas fetter sind, um den Kontrast zu verbessern. Dieses Schlüsselwort entspricht den OpenType-Werten `ruby`.
 - `<east-asian-variant-values>`
-  - : Diese Werte geben eine Menge von logografischen Glyphenvarianten an, die zur Anzeige verwendet werden sollen. Mögliche Werte sind:
+  - : Diese Werte geben eine Reihe von logografischen Glyphenvarianten an, die zur Anzeige verwendet werden sollen. Mögliche Werte sind:
 
-    | Schlüsselwort | Standard, der die Glyphen definiert                                         | OpenType Äquivalent |
-    | ------------- | --------------------------------------------------------------------------- | ------------------- |
-    | `jis78`       | [JIS X 0208:1978](https://en.wikipedia.org/wiki/JIS_X_0208#First_standard)  | `jp78`              |
-    | `jis83`       | [JIS X 0208:1983](https://en.wikipedia.org/wiki/JIS_X_0208#Second_standard) | `jp83`              |
-    | `jis90`       | [JIS X 0208:1990](https://en.wikipedia.org/wiki/JIS_X_0208#Third_standard)  | `jp90`              |
-    | `jis04`       | [JIS X 0213:2004](https://en.wikipedia.org/wiki/JIS_X_0213)                 | `jp04`              |
-    | `simplified`  | Keine, Verwendung der vereinfachten chinesischen Glyphen                    | `smpl`              |
-    | `traditional` | Keine, Verwendung der traditionellen chinesischen Glyphen                   | `trad`              |
+    | Schlüsselwort | Standard, der die Glyphen definiert                                          | OpenType-Äquivalent |
+    | ------------- | ---------------------------------------------------------------------------- | ------------------- |
+    | `jis78`       | [JIS X 0208:1978](https://de.wikipedia.org/wiki/JIS_X_0208#Erster_Standard)  | `jp78`              |
+    | `jis83`       | [JIS X 0208:1983](https://de.wikipedia.org/wiki/JIS_X_0208#Zweiter_Standard) | `jp83`              |
+    | `jis90`       | [JIS X 0208:1990](https://de.wikipedia.org/wiki/JIS_X_0208#Dritter_Standard) | `jp90`              |
+    | `jis04`       | [JIS X 0213:2004](https://de.wikipedia.org/wiki/JIS_X_0213)                  | `jp04`              |
+    | `simplified`  | Keine, verwenden Sie die vereinfachten chinesischen Glyphen                  | `smpl`              |
+    | `traditional` | Keine, verwenden Sie die traditionellen chinesischen Glyphen                 | `trad`              |
 
 - `<east-asian-width-values>`
-  - : Diese Werte kontrollieren die Größenzuordnung der für ostasiatische Zeichen verwendeten Figuren. Zwei Werte sind möglich:
-    - `proportional-width` aktiviert die Gruppe von ostasiatischen Zeichen, die in der Breite variieren. Dies entspricht den OpenType-Werten `pwid`.
-    - `full-width` aktiviert die Gruppe von ostasiatischen Zeichen, die alle die gleiche, ungefähr quadratische Breitenmetrik haben. Dies entspricht den OpenType-Werten `fwid`.
+  - : Diese Werte steuern die Größenanpassung der Zeichen für ostasiatische Schriftzeichen. Zwei Werte sind möglich:
+    - `proportional-width` aktiviert die Reihe von ostasiatischen Schriftzeichen, die in der Breite variieren. Es entspricht den OpenType-Werten `pwid`.
+    - `full-width` aktiviert die Reihe von ostasiatischen Schriftzeichen, die alle die gleiche, ungefähr quadratische Breitenmetrik haben. Es entspricht den OpenType-Werten `fwid`.
 
 ## Formale Definition
 
@@ -102,9 +100,9 @@ font-variant-east-asian: unset;
 
 ## Beispiele
 
-### Einstellen von ostasiatischen Glyphenvarianten
+### Einstellung ostasiatischer Glyphenvarianten
 
-Dieses Beispiel erfordert die auf Ihrem Betriebssystem installierte Schriftart "Yu Gothic", andere Schriftarten unterstützen möglicherweise keine OpenType-Funktionen.
+Dieses Beispiel erfordert die Installation der Schriftart "Yu Gothic" in Ihrem Betriebssystem, andere Schriftarten unterstützen möglicherweise keine OpenType-Funktionen.
 
 #### HTML
 

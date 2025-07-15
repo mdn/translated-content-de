@@ -2,12 +2,10 @@
 title: rotateY()
 slug: Web/CSS/transform-function/rotateY
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die y-Achse (vertikal) dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die y-Achse (vertikal) dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}}-Datentyp.
 
 {{InteractiveExample("CSS Demo: rotateY()")}}
 
@@ -40,12 +38,11 @@ transform: rotateY(3.142rad);
 Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
 
 > [!NOTE]
-> `rotateY(a)` ist gleichbedeutend mit
+> `rotateY(a)` ist äquivalent zu
 > `rotate3d(0, 1, 0, a)`.
 
 > [!NOTE]
-> Anders als Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht
-> kommutativ. Das bedeutet, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Komposition von 3D-Rotationen normalerweise nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
@@ -56,7 +53,7 @@ rotateY(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }}, der den Winkel der Rotation darstellt. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Rotation. Ein positiver Winkel gibt eine im Uhrzeigersinn verlaufende Drehung an, ein negativer Winkel eine gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>

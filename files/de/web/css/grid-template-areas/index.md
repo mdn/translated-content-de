@@ -2,12 +2,10 @@
 title: grid-template-areas
 slug: Web/CSS/grid-template-areas
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS)-Eigenschaft spezifiziert benannte {{Glossary("grid_areas", "Grid-Bereiche")}}, legt die Zellen im Grid fest und weist ihnen Namen zu.
+Die **`grid-template-areas`**-Eigenschaft von [CSS](/de/docs/Web/CSS) spezifiziert benannte {{Glossary("grid_areas", "Grid-Bereiche")}}, legt die Zellen im Grid fest und weist ihnen Namen zu.
 
 {{InteractiveExample("CSS Demo: grid-template-areas")}}
 
@@ -73,7 +71,7 @@ grid-template-areas:
 }
 ```
 
-Diese Bereiche sind nicht mit einem bestimmten Grid-Element assoziiert, können jedoch von den Grid-Platzierungs-Eigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} sowie deren Kürzeln {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
+Diese Bereiche sind keinem bestimmten Grid-Element zugeordnet, können jedoch von den Grid-Platzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 ## Syntax
 
@@ -100,9 +98,9 @@ grid-template-areas: unset;
 - `none`
   - : Der Grid-Container definiert keine benannten Grid-Bereiche.
 - {{cssxref("&lt;string&gt;")}}
-  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzigen benannten Grid-Bereich, der die entsprechenden Grid-Zellen überspannt. Sofern diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
+  - : Für jede aufgelistete Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Token mit demselben Namen innerhalb und zwischen Zeilen erzeugen einen einzigen benannten Grid-Bereich, der die entsprechenden Grid-Zellen überspannt. Sofern diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-    Alle verbleibenden unbenannten Bereiche in einem Grid können durch _null Zell-Tokens_ referenziert werden. Ein Null-Zell-Token ist eine Sequenz aus einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zell-Token kann verwendet werden, um leere Plätze im Grid zu schaffen.
+    Alle verbleibenden unbenannten Bereiche in einem Grid können mittels _null-Zelltokens_ referenziert werden. Ein null-Zelltoken ist eine Sequenz von einem oder mehreren `.` (U+002E FULL STOP)-Zeichen, z. B. `.`, `...` oder `.....` usw. Ein null-Zelltoken kann verwendet werden, um leere Bereiche im Grid zu erstellen.
 
 ## Formale Definition
 
@@ -114,7 +112,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Grid-Bereiche spezifizieren
+### Benannte Grid-Bereiche angeben
 
 #### HTML
 
@@ -163,7 +161,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir verwendet haben, um einen leeren Bereich in der unteren linken Ecke des Grids zu schaffen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir verwendet haben, um einen leeren Platz in der unteren linken Ecke des Grids zu schaffen.
 
 #### Ergebnis
 

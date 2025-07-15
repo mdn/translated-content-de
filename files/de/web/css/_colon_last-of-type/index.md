@@ -2,12 +2,10 @@
 title: :last-of-type
 slug: Web/CSS/:last-of-type
 l10n:
-  sourceCommit: 82e1a3964631e478c0a8349cc6d7abd4a3eee8be
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element eines bestimmten Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
+Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element seines Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
 
 {{InteractiveExample("CSS Demo: :last-of-type", "tabbed-shorter")}}
 
@@ -49,7 +47,7 @@ dd:last-of-type {
 
 ## Beispiele
 
-### Stil des letzten Absatzes
+### Das letzte Paragraf stylen
 
 #### HTML
 
@@ -74,7 +72,7 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor geschrieben wird.
 
 #### HTML
 
@@ -102,7 +100,7 @@ article :last-of-type {
 
 {{EmbedLiveSample('Nested_elements', 500)}}
 
-### Elemente mit mehreren Selektoren
+### Mehrere Selektorenelemente
 
 Dieses HTML-Beispiel enthält verschachtelte Elemente unterschiedlicher Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
 
@@ -146,7 +144,7 @@ p:last-of-type {
 
 {{EmbedLiveSample('Multiple_selectors_elements', 500)}}
 
-Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte Element jedes Typs auswählt, wenn dieses letzte Element auch die Klasse `item` hat.
+Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte jedes Typs auswählt, wenn dieses letzte Element auch die `item`-Klasse hat.
 
 ## Spezifikationen
 

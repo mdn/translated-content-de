@@ -2,12 +2,10 @@
 title: text-emphasis-color
 slug: Web/CSS/text-emphasis-color
 l10n:
-  sourceCommit: fbee1ad6d6add1319ce3e8e977033385a915c635
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Farbe der Hervorhebungszeichen. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzform gesetzt werden.
+Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Hervorhebungszeichen fest. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzschrift festgelegt werden.
 
 {{InteractiveExample("CSS Demo: text-emphasis-color")}}
 
@@ -68,7 +66,7 @@ text-emphasis-color: unset;
 - `<color>`
   - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird `currentcolor` als Standard verwendet.
 
-## Formale Definition
+## Offizielle Definition
 
 {{CSSInfo}}
 
@@ -112,5 +110,5 @@ em {
 ## Siehe auch
 
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Die anderen mit Hervorhebungszeichen verbundenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}}, und {{cssxref("text-emphasis-position")}}.
-- Weitere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}
+- Die anderen mit Hervorzeichnungszeichen verbundenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}}, und {{cssxref("text-emphasis-position")}}.
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}

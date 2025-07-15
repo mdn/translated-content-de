@@ -2,12 +2,10 @@
 title: outline-offset
 slug: Web/CSS/outline-offset
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Abstand zwischen einem [Umriss (outline)](/de/docs/Web/CSS/outline) und dem Rand oder der Begrenzung eines Elements.
+Die **`outline-offset`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Abstand zwischen einer [Kontur](/de/docs/Web/CSS/outline) und dem Rand oder der Grenze eines Elements fest.
 
 {{InteractiveExample("CSS Demo: outline-offset")}}
 
@@ -60,11 +58,11 @@ outline-offset: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Raums zwischen dem Element und seinem Umriss. Ein negativer Wert platziert den Umriss innerhalb des Elements. Ein Wert von `0` platziert den Umriss so, dass kein Raum zwischen ihm und dem Element ist.
+  - : Die Breite des Abstands zwischen dem Element und seiner Kontur. Ein negativer Wert platziert die Kontur innerhalb des Elements. Ein Wert von `0` platziert die Kontur so, dass kein Abstand zwischen ihr und dem Element besteht.
 
 ## Beschreibung
 
-Ein Umriss ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des Randbereichs. Der Raum zwischen einem Element und seinem Umriss ist transparent. Mit anderen Worten, er ist wie der Hintergrund des Elternelements.
+Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb der Begrenzungskante. Der Abstand zwischen einem Element und seiner Kontur ist transparent. Mit anderen Worten, er entspricht dem Hintergrund des übergeordneten Elements.
 
 ## Formale Definition
 
@@ -76,7 +74,7 @@ Ein Umriss ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb 
 
 ## Beispiele
 
-### Festlegen des outline-offset in Pixeln
+### Setzen des Konturenabstands in Pixel
 
 #### HTML
 

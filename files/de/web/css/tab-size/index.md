@@ -2,12 +2,10 @@
 title: tab-size
 slug: Web/CSS/tab-size
 l10n:
-  sourceCommit: 76f47b72ab5af8cf44ff9d33a8f44f223677901f
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`tab-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
+Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
 
 {{InteractiveExample("CSS Demo: tab-size")}}
 
@@ -61,7 +59,7 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Vorschubbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet wird. Muss nicht negativ sein. Die Vorschubbreite bezeichnet den Abstand, den ein Cursor oder Druckkopf zurücklegt, bevor der nächste Buchstabe gedruckt wird.
+  - : Ein Vielfaches der Vorwärtsschrittweite des Leerzeichens (U+0020), das als Breite der Tabs verwendet wird. Muss nicht negativ sein. Die Vorwärtsschrittweite bedeutet die Distanz, die ein Cursor oder ein Druckkopf bewegt werden muss, bevor das nächste Zeichen gedruckt wird.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Die Breite der Tabs. Muss nicht negativ sein.
 
@@ -75,7 +73,7 @@ tab-size: unset;
 
 ## Beispiele
 
-### Erweiterung nach Zeichenanzahl
+### Erweiterung durch Zeichenanzahl
 
 ```css
 pre {
@@ -83,7 +81,7 @@ pre {
 }
 ```
 
-### Tabs reduzieren
+### Tabs zusammenführen
 
 ```css
 pre {
@@ -91,9 +89,9 @@ pre {
 }
 ```
 
-### Standard-Tabgröße vs. benutzerdefinierte Größen
+### Standard-Tabulatorgröße vs. benutzerdefinierte Größen
 
-Dieses Beispiel vergleicht eine Standard-Tabgröße mit einer benutzerdefinierten Tabgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass die Tabs zusammenfallen.
+Dieses Beispiel vergleicht eine Standard-Tabulatorgröße mit einer benutzerdefinierten Tabulatorgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass Tabs zusammengeführt werden.
 
 #### HTML
 

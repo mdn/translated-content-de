@@ -2,12 +2,10 @@
 title: padding-block-end
 slug: Web/CSS/padding-block-end
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`padding-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logische Block-Ende-Auffüllung eines Elements, die je nach Schreibmodus des Elements, Richtung und Textausrichtung einer physischen Auffüllung zugeordnet wird.
+Die **`padding-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert das logische Block-Ende-Polster eines Elements, das je nach Schreibmodus, Richtung und Textorientierung des Elements auf ein physisches Polster abgebildet wird.
 
 {{InteractiveExample("CSS Demo: padding-block-end")}}
 
@@ -76,15 +74,15 @@ padding-block-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe der Auffüllung als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Polsters als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe der Auffüllung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Polsters als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die `padding-block-end`-Eigenschaft nimmt die gleichen Werte an wie physische Auffüllungseigenschaften wie {{cssxref("padding-top")}}. Allerdings kann sie je nach den gesetzten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} äquivalent zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
+Die `padding-block-end`-Eigenschaft nimmt die gleichen Werte an wie physische Polstereigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegt sind, äquivalent zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
 
-Sie steht in Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}, die die anderen Auffüllungswerte des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen Polsterwerte des Elements definieren.
 
 ## Formale Definition
 
@@ -96,7 +94,7 @@ Sie steht in Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("pad
 
 ## Beispiele
 
-### Block-Ende-Auffüllung für vertikalen Text einstellen
+### Festlegen des Block-End-Paddings für vertikalen Text
 
 #### HTML
 
@@ -136,6 +134,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

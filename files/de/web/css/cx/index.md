@@ -2,15 +2,13 @@
 title: cx
 slug: Web/CSS/cx
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`cx`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den x-Achsen-Mittelpunkt eines SVG-{{SVGElement("circle")}}- oder {{SVGElement("ellipse")}}-Elements. Falls vorhanden, überschreibt sie das {{SVGAttr("cx")}}-Attribut des Elements.
+Die **`cx`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Mittelpunkt der x-Achse eines SVG-{{SVGElement("circle")}}- oder {{SVGElement("ellipse")}}-Elements. Wenn sie vorhanden ist, überschreibt sie das {{SVGAttr("cx")}}-Attribut des Elements.
 
 > [!NOTE]
-> Während das SVG-{{SVGAttr("cx")}}-Attribut für das SVG-{{SVGElement("radialGradient")}}-Element relevant ist, gilt die `cx`-Eigenschaft nur für {{SVGElement("circle")}}- und {{SVGElement("ellipse")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für `<radialGradient>` oder andere SVG-Elemente noch für HTML-Elemente oder Pseudoelemente.
+> Während das {{SVGAttr("cx")}}-Attribut in SVG für das {{SVGElement("radialGradient")}}-Element relevant ist, gilt die `cx`-Eigenschaft nur für die {{SVGElement("circle")}}- und {{SVGElement("ellipse")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für `<radialGradient>` oder andere SVG-Elemente, noch für HTML-Elemente oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,14 +27,13 @@ cx: unset;
 
 ### Werte
 
-Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} geben das horizontale Zentrum des Kreises oder der Ellipse an.
+Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} bezeichnen das horizontale Zentrum des Kreises oder der Ellipse.
 
 - {{cssxref("length")}}
-
-  - : Als absolute oder relative Länge kann sie in jeder vom CSS-{{cssxref("&lt;length&gt;")}}-Datentyp erlaubten Einheit ausgedrückt werden. Negative Werte sind ungültig.
+  - : Als absolute oder relative Länge kann sie in jeder Einheit ausgedrückt werden, die vom CSS-Datentyp {{cssxref("&lt;length&gt;")}} erlaubt wird. Negative Werte sind ungültig.
 
 - {{cssxref("percentage")}}
-  - : Prozentsätze beziehen sich auf die Breite des aktuellen SVG-Viewports.
+  - : Prozentsätze beziehen sich auf die Breite des aktuellen SVG-Ansichtsfensters.
 
 ## Formale Definition
 
@@ -50,11 +47,11 @@ Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} geben das horizont
 
 ### Definition der x-Achsen-Koordinate eines Kreises und einer Ellipse
 
-Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `cx` und wie die CSS-`cx`-Eigenschaft gegenüber dem `cx`-Attribut Vorrang hat.
+Dieses Beispiel zeigt die grundlegende Verwendung von `cx` und wie die CSS-Eigenschaft `cx` Vorrang vor dem `cx`-Attribut hat.
 
 #### HTML
 
-Wir fügen zwei identische `<circle>` und zwei identische `<ellipse>` Elemente in ein SVG ein; ihre `cx`-Attributwerte sind jeweils `50` und `150`.
+Wir fügen zwei identische `<circle>`- und zwei identische `<ellipse>`-Elemente in ein SVG ein; ihre `cx`-Attributwerte sind `50` bzw. `150`.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +64,7 @@ Wir fügen zwei identische `<circle>` und zwei identische `<ellipse>` Elemente i
 
 #### CSS
 
-Mit CSS stylen wir nur den ersten Kreis und die erste Ellipse, sodass ihre Zwillingsformen die Standardstile verwenden können (wobei {{cssxref("fill")}} standardmäßig auf schwarz gesetzt wird). Wir verwenden die `cx`-Eigenschaft, um den Wert des SVG-{{SVGAttr("cx")}}-Attributs zu überschreiben und geben ihm auch ein `fill` und {{cssxref("stroke")}}, um die ersten Formen in jedem Paar von ihrem Zwilling zu unterscheiden. Der Browser rendert SVG-Bilder standardmäßig als `300px` breit und `150px` hoch.
+Mit CSS stylen wir nur den ersten Kreis und die erste Ellipse, sodass ihre Twin-Formen die Standardstile verwenden (mit {{cssxref("fill")}}, das standardmäßig auf Schwarz gesetzt ist). Wir verwenden die `cx`-Eigenschaft, um den Wert des SVG-{{SVGAttr("cx")}}-Attributs zu überschreiben, und geben ihnen auch ein `fill` und {{cssxref("stroke")}}, um die ersten Formen in jedem Paar von ihren Zwillingen zu unterscheiden. Der Browser rendert SVG-Bilder standardmäßig mit einer Breite von `300px` und einer Höhe von `150px`.
 
 ```css
 svg {
@@ -90,7 +87,7 @@ ellipse:first-of-type {
 
 {{EmbedLiveSample("Defining the x-axis coordinate of a circle and ellipse", "300", "180")}}
 
-Das Zentrum des gestylten Kreises befindet sich `30px` vom linken Rand des SVG-Viewports entfernt und die gestylte Ellipse ist `180px` von diesem Rand entfernt, wie in den CSS-`cx`-Eigenschaftswerten definiert. Die Zentren der ungestylten Formen sind `50px` und `150px` vom linken Rand des SVG-Viewports entfernt, wie in ihren SVG-`cx`-Attributwerten definiert.
+Der Mittelpunkt des stilisierten Kreises ist `30px` vom linken Rand des SVG-Ansichtsfensters entfernt, und die stilisierte Ellipse ist `180px` von diesem Rand entfernt, wie in den CSS-`cx`-Eigenschaftswerten definiert. Die nicht gestylten Formen haben ihre Mittelpunkte `50px` und `150px` vom linken Rand des SVG-Ansichtsfensters entfernt, wie in ihren SVG-`cx`-Attributwerten definiert.
 
 ### x-Achsen-Koordinaten als Prozentwerte
 
@@ -111,7 +108,7 @@ Wir verwenden das gleiche Markup wie im vorherigen Beispiel.
 
 #### CSS
 
-Wir verwenden CSS, das dem vorherigen Beispiel ähnelt. Der einzige Unterschied ist der CSS-`cx`-Eigenschaftswert; in diesem Fall verwenden wir Prozentwerte von `30%` für den `<circle>` und `80%` für die `<ellipse>`.
+Wir verwenden CSS, das dem des vorherigen Beispiels ähnlich ist. Der einzige Unterschied ist der Wert der CSS-`cx`-Eigenschaft; in diesem Fall verwenden wir Prozentwerte von `30%` für den `<circle>` und `80%` für die `<ellipse>`.
 
 ```css
 svg {
@@ -134,7 +131,7 @@ ellipse:first-of-type {
 
 {{EmbedLiveSample("x-axis coordinates as percentage values", "300", "180")}}
 
-Bei der Verwendung von Prozentwerten für `cx` sind die Werte relativ zur Breite des SVG-Viewports. Hier sind die x-Achsen-Koordinaten des Zentrums des gestylten Kreises und der Ellipse `30%` bzw. `80%` der Breite des aktuellen SVG-Viewports. Da die Breite standardmäßig `300px` beträgt, liegen die `cx`-Werte `90px` bzw. `240px` vom linken Rand des SVG-Viewports entfernt.
+Bei der Verwendung von Prozentwerten für `cx` beziehen sich die Werte auf die Breite des SVG-Ansichtsfensters. Hier sind die x-Achsen-Koordinaten des Mittelpunkts des Stilkeks und der Ellipse jeweils `30%` und `80%` der Breite des aktuellen SVG-Ansichtsfensters. Da die Breite auf `300px` voreingestellt war, sind die `cx`-Werte `90px` und `240px` vom linken Rand des SVG-Ansichtsfensters entfernt.
 
 ## Spezifikationen
 
@@ -147,10 +144,10 @@ Bei der Verwendung von Prozentwerten für `cx` sind die Werte relativ zur Breite
 ## Siehe auch
 
 - SVG-{{SVGAttr("cx")}}-Attribut
-- Geometrieeigenschaften: `cx`, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
+- Geometrie-Eigenschaften: `cx`, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzformeigenschaft
 - {{cssxref("gradient/radial-gradient", "radial-gradient")}}
 - {{cssxref("basic-shape")}} Datentyp

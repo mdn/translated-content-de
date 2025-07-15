@@ -2,14 +2,12 @@
 title: contain-intrinsic-size
 slug: Web/CSS/contain-intrinsic-size
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`contain-intrinsic-size`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt die Größe eines Elements fest, die ein Browser für das Layout verwendet, wenn das Element einer [Größenbeschränkung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) unterliegt.
 
-Die **`contain-intrinsic-size`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt die Größe eines Elements fest, die ein Browser für das Layout verwendet, wenn das Element einer [Größenbegrenzung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment) unterliegt.
-
-## Bestandteile
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -46,30 +44,36 @@ contain-intrinsic-size: unset;
 
 ### Werte
 
-Für die Eigenschaft `contain-intrinsic-size` können die folgenden Werte angegeben werden:
+Die folgenden Werte können für die `contain-intrinsic-size`-Eigenschaft angegeben werden:
 
 - `none`
-  - : Das Element hat keine intrinsische Größe in der/den angegebenen Dimension(en).
+  - : Das Element hat keine intrinsische Größe in der angegebenen Dimension(en).
 - `<length>`
-  - : Das Element hat die angegebene {{cssxref("&lt;length&gt;")}} in der/den angegebenen Dimension(en).
+  - : Das Element hat die angegebene {{cssxref("&lt;length&gt;")}} in der angegebenen Dimension(en).
 - `auto [<length> | none]`
-  - : Ein im Gedächtnis behaltenes Elementgröße im "normal" gerenderten Zustand, falls vorhanden, und das Element überspringt seine Inhalte (zum Beispiel, wenn es außerhalb des Bildschirms ist); andernfalls die angegebene `<length>`.
-    Das Schlüsselwort `none` kann anstelle von `<length>` verwendet werden, wobei `0px` feste Längen sich anders verhalten als `none` (wie in mehrspaltigen oder Rasterlayouts).
+  - : Ein gemerkter Wert der "normal gerenderten" Elementgröße, wenn einer existiert, und das Element seine Inhalte überspringt (zum Beispiel, wenn es sich außerhalb des sichtbaren Bereichs befindet); ansonsten die angegebene `<length>`.
+    Das Schlüsselwort `none` kann anstelle von `<length>` verwendet werden, wo feste Längen von `0px` anders als `none` wirken (wie bei mehrspaltigen oder Raster-Layouts).
 
-Wenn ein Wert als Schlüsselwort, eine Länge oder ein `auto [<length> | none]`-Paar angegeben wird, gilt er sowohl für die Breite als auch für die Höhe.
+Wird ein Wert als Schlüsselwort, Länge oder als `auto [<length> | none]` Paar bereitgestellt, gilt er für Breite und Höhe.
 
-Zwei Längenwerte können angegeben werden, die in dieser Reihenfolge für die Breite und Höhe gelten.
-Wenn zwei `auto [<length> | none]`-Paare angegeben werden, gilt das erste Paar für die Breite und das zweite für die Höhe.
+Zwei Längenwerte können angegeben werden, die in dieser Reihenfolge für Breite und Höhe gelten.
+Wenn zwei `auto [<length> | none]` Paare angegeben werden, gilt das erste Paar für die Breite und das zweite für die Höhe.
 
 ## Beschreibung
 
-Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die eine Größenbegrenzung auslösen können, wie z.B. [`contain: size`](/de/docs/Web/CSS/contain) und [`content-visibility`](/de/docs/Web/CSS/content-visibility).
+Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die eine Größenbeschränkung auslösen können, wie zum Beispiel [`contain: size`](/de/docs/Web/CSS/contain) und [`content-visibility`](/de/docs/Web/CSS/content-visibility).
 
-Größenbegrenzung ermöglicht es einem Benutzeragenten, ein Element so anzuordnen, als ob es eine feste Größe hätte, um unnötige Neulayouts zu verhindern, indem das erneute Rendern von Kinderelementen zur Bestimmung der tatsächlichen Größe vermieden wird (was die Benutzererfahrung verbessert). Standardmäßig behandelt die Größenbegrenzung Elemente so, als ob sie keinen Inhalt hätten, und kann das Layout auf die gleiche Weise zusammenklappen lassen, als ob die Inhalte keine Breite oder Höhe hätten. Die Eigenschaft `contain-intrinsic-size` ermöglicht es Autoren, einen geeigneten Wert festzulegen, der als Größe für das Layout verwendet werden soll.
+Größenbeschränkung ermöglicht es einem Benutzeragenten, ein Element so anzuordnen, als hätte es eine feste Größe, wodurch unnötige Neuanordnungen vermieden werden, indem das erneute Rendern von Kindelementen zur Bestimmung der tatsächlichen Größe vermieden wird (was die Benutzererfahrung verbessert).
+Standardmäßig behandelt Größenbeschränkung Elemente, als ob sie keine Inhalte hätten, und kann das Layout auf die gleiche Weise zusammenbrechen lassen, als hätten die Inhalte keine Breite oder Höhe.
+Die `contain-intrinsic-size`-Eigenschaft erlaubt es Autoren, einen geeigneten Wert als Größe für das Layout anzugeben.
 
-Der Wert `auto <length>` erlaubt es, die Größe des Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kinderelementen), und dann anstelle der angegebenen Länge zu verwenden, wenn das Element seine Inhalte überspringt. Dies ermöglicht es, außerhalb des Bildschirms befindlichen Elementen mit [`content-visibility: auto`](/de/docs/Web/CSS/content-visibility) von der Größenbegrenzung zu profitieren, ohne dass Entwickler bei ihren Schätzungen der Elementgröße genau sein müssen. Der gespeicherte Wert wird nicht verwendet, wenn die Kinderelemente gerendert werden (wenn die Größenbegrenzung aktiviert ist, wird die `<length>` verwendet).
+Der Wert `auto <length>` erlaubt es, die Größe des Elements zu speichern, wenn das Element "normal gerendert" wird (mit seinen Kindelementen), und dann anstelle der angegebenen Länge zu verwenden, wenn das Element seine Inhalte überspringt.
+Dies ermöglicht es Elementen außerhalb des sichtbaren Bereichs mit [`content-visibility: auto`](/de/docs/Web/CSS/content-visibility), von der Größenbeschränkung zu profitieren, ohne dass Entwickler bei ihren Schätzungen der Elementgröße so präzise sein müssen.
+Der gemerkte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden (wenn die Größenbeschränkung aktiviert ist, wird die `<length>` verwendet).
 
-In Raster- und mehrspaltigen Layouts wird eine explizite Größe anders behandelt als eine implizite, inhaltsbasierte Höhe. Elemente könnten wesentlich anders angeordnet werden, als wenn sie einfach mit Inhalt bis zu dieser Höhe gefüllt wären. Der Wert `auto none` erlaubt es, dass das Element auf `contain-intrinsic-size: none` zurückfällt, wenn kein gespeicherter Wert existiert, wodurch das Element so angeordnet wird, als ob es keinen Inhalt hätte. Dies ist fast immer bevorzugt, anstatt `0px` als intrinsische Größe in Raster- und mehrspaltigen Layouts festzulegen, wo enthaltene Elemente ihre Eltern überfluten könnten und zu unerwarteten Seitenlayouts führen können.
+In Raster- und mehrspaltigen Layouts wird eine explizite Größe anders behandelt als eine implizite inhaltsbasierte Höhe.
+Elemente könnten sich erheblich anders anordnen als sie es getan hätten, wenn sie einfach mit Inhalten bis zu dieser Höhe gefüllt worden wären.
+Der Wert `auto none` erlaubt es, dass das Element auf `contain-intrinsic-size: none` zurückfällt, wenn kein gemerkter Wert existiert, was es dem Element ermöglicht, so angeordnet zu werden, als hätte es keine Inhalte. Dies wird fast immer dem Setzen von 0px als intrinsische Größe in Raster- und mehrspaltigen Layouts vorgezogen, wo enthaltene Elemente ihre Eltern überschreiten und unerwartete Seitenlayouts verursachen können.
 
 ## Formale Definition
 
@@ -81,13 +85,17 @@ In Raster- und mehrspaltigen Layouts wird eine explizite Größe anders behandel
 
 ## Beispiele
 
-### Verwendung von auto-Wertepaaren für intrinsische Größe
+### Verwenden von Auto-Wertpaaren für die intrinsische Größe
 
-Dieses Beispiel zeigt `contain-intrinsic-size: auto <length>` und `contain-intrinsic-size: auto none`, indem ein Layout verwendet wird, in dem viele Elemente vertikal angezeigt werden, die sowohl genaue als auch ungenaue Schätzungen der intrinsischen Größe haben. Die Verwendung von `content-visibility: auto` überspringt das Rendern von Elementen, wenn sie außerhalb des Bildschirms sind, sodass diese Eigenschaft ein guter Kandidat ist, um mit `contain-intrinsic-size` kombiniert zu werden, um die Renderleistung zu verbessern und {{Glossary("Reflow", "Neulayouts")}} zu minimieren.
+Dieses Beispiel demonstriert `contain-intrinsic-size: auto <length>` und `contain-intrinsic-size: auto none` in einem Layout, in dem viele Elemente vertikal angezeigt werden, die sowohl genaue als auch ungenaue Schätzungen ihrer intrinsischen Größe haben.
+Dank `content-visibility: auto` wird das Rendern von Elementen übersprungen, wenn sie außerhalb des sichtbaren Bereichs liegen. Diese Eigenschaft ist daher ein guter Kandidat, um sie mit `contain-intrinsic-size` zu kombinieren, um die Renderleistung zu verbessern und {{Glossary("Reflow", "Neuanordnungen")}} zu minimieren.
 
-Das Wertpaar `contain-intrinsic-size: auto 500px` weist den Browser an, 500px als eine Art 'Platzhalter' Größe (Breite und Höhe) für das Element zu verwenden, wenn es außerhalb des Bildschirms ist und die Seite angeordnet wird. Wenn der Benutzer zu dem Element scrollt und es angezeigt werden muss, berechnet der Browser die tatsächliche Größe des Elements und seiner Inhalte. Wenn es eine Differenz zwischen der Platzhaltergröße und der berechneten Größe gibt, könnte dies ein neues Layout erzwingen, mit begleitenden Änderungen an der Seitenleistenposition.
+Der Wert `contain-intrinsic-size: auto 500px` gibt dem Browser an, 500px als eine Art 'Platzhalter'-Größe (Breite und Höhe) für das Element zu verwenden, wenn es außerhalb des sichtbaren Bereichs liegt und die Seite angeordnet wird.
+Wenn der Benutzer zu dem Element scrollt und es angezeigt werden muss, berechnet der Browser die tatsächliche Größe des Elements und dessen Inhalt.
+Gibt es eine Differenz zwischen der Platzhalter- und der berechneten Größe, könnte dies ein neues Layout erzwingen, mit entsprechenden Änderungen an der Position der Seitenleiste.
 
-Sobald der Browser echte Größeninformationen für das Element hat, wird er diese Größe merken, wenn das Element erneut vom Bildschirm scrollt, und die gespeicherte Größe für die Layoutberechnungen anstelle des Platzhalterwertes verwenden. Der Vorteil besteht darin, dass der Browser nicht wiederholt die Inhalte des Elements rendern muss, um dessen Größe zu berechnen, was besonders nützlich ist, wenn die Inhalte komplex sind oder von Netzwerkressourcen oder JavaScript abhängen.
+Sobald der Browser tatsächliche Größeninformationen für das Element hat, merkt er sich diese Größe, wenn das Element wieder aus dem sichtbaren Bereich scrollt, und verwendet die gemerkte Größe für Layoutberechnungen anstelle des Platzhalterwertes.
+Der Vorteil ist, dass der Browser nicht wiederholt die Inhalte des Elements rendern muss, um dessen Größe zu berechnen, was besonders nützlich ist, wenn die Inhalte komplex sind oder von Netzwerkressourcen oder JavaScript abhängen.
 
 #### HTML
 
@@ -224,23 +232,23 @@ p {
 
 #### Ergebnis
 
-- Die ersten beiden Kästchen haben eine intrinsische Größe, die ihrer tatsächlichen Größe entspricht. Wenn sie ins Sichtfeld kommen, wird das Layout neu berechnet, aber wir sehen keine Veränderung im Scrollbalken oder der Scrollposition.
+- Die ersten beiden Boxen haben eine intrinsische Größe, die ihrer tatsächlichen Größe entspricht, also wenn sie in den sichtbaren Bereich fließen, wird das Layout neu berechnet, aber wir sehen keine Änderung in der Scrollleiste oder der Scrollposition.
 
-- Die dritte und vierte Box haben eine enorme intrinsische Größe, sodass das anfängliche Layout, das der Browser berechnet hat, viel zu groß ist, und wir haben diese Boxen verkleinert, damit es offensichtlich ist, wenn ein Punkt erreicht wird, der eine drastische Layoutänderung erzwingt.
+- Die dritte und vierte Box haben eine viel zu große intrinsische Größe, daher ist das anfängliche Layout, das der Browser berechnet hat, viel zu groß, und wir haben diese Boxen kleiner gemacht, damit es offensichtlich ist, wenn Sie einen Punkt erreichen, der eine drastische Layoutänderung erzwingt.
 
-  Wenn die dritte und vierte Box ins Sichtfeld gescrollt wird, wird die Größe neu berechnet, wodurch die Box und ihr Elternteil weniger hoch werden.
-  Der Effekt ist, dass der Scroller die Seite herunter springt (wir sind effektiv weiter durch die Box gescrollt, als wir geschätzt hatten) und der Scroller länger ist, weil die gesamte Seite weniger hoch ist, als wir geschätzt hatten.
+  Wenn die dritte und vierte Box in den sichtbaren Bereich scrollen, wird die Größe neu berechnet, wodurch die Box und ihr übergeordnetes Element weniger hoch werden.
+  Der Effekt ist, dass der Scroller die Seite nach unten springt (wir haben den Schachtel weiter durchgescrollt als angenommen) und der Scroller wird länger, da die gesamte Seite weniger hoch ist, als angenommen.
 
-- Die letzten Boxen haben `auto none`, daher haben sie keine geschätzte Größe.
-  Wenn sie ins Sichtfeld gescrollt werden, wird die Größe des Elements und seines Elternteils neu berechnet, um viel größer zu sein, sodass der Scroller in der Größe abnimmt und die Leiste nach oben bewegt.
+- Die letzten Boxen haben `auto none`, daher haben sie eine geschätzte Größe von Null.
+  Wenn sie in den sichtbaren Bereich scrollen, werden die Größe des Elements und seiner Eltern neu berechnet, um viel größer zu sein, sodass der Scroller kleiner wird und die Leiste hochgeschoben wird.
 
-Nachdem Sie ganz nach unten gescrollt haben, können Sie anschließend reibungslos nach oben und unten scrollen, da die Verwendung von `content-visibility: auto` die tatsächlich gerenderte Größe des Elements für das nächste Mal, wenn es angezeigt wird, speichert.
+Nach dem Scrollen bis zum Ende können Sie anschließend reibungslos nach oben und unten scrollen, da `content-visibility: auto` die tatsächlich gerenderte Größe des Elements speichert, wenn es das nächste Mal angezeigt wird.
 
 {{EmbedLiveSample('Using_auto_value_pairs_for_intrinsic_size', 800, 400)}}
 
-### Einstellen der intrinsischen Größe
+### Festlegen der intrinsischen Größe
 
-Dieses Beispiel bietet Auswahllisten, die verwendet werden können, um `contain-intrinsic-size`, `content-visibility` und `contain` auf einem Element zu modifizieren, um die Wirkung der verschiedenen Einstellungen zu beobachten.
+Dieses Beispiel bietet Auswahllisten, die verwendet werden können, um `contain-intrinsic-size`, `content-visibility` und `contain` auf ein Element anzuwenden, um die Auswirkungen der verschiedenen Einstellungen zu beobachten.
 
 #### CSS
 
@@ -300,7 +308,7 @@ contentVisibilitySelector.addEventListener("change", () => {
 
 #### HTML
 
-Das HTML definiert zwei Buttons und ein Container-Element, das über die Eigenschaft `content-visibility` der Begrenzung unterliegt.
+Das HTML definiert zwei Schaltflächen, ein Containerelement, das über die `content-visibility`-Eigenschaft einer Beschränkung unterliegt.
 
 ```html
 <p>
@@ -333,7 +341,9 @@ Das HTML definiert zwei Buttons und ein Container-Element, das über die Eigensc
 
 #### Ergebnis
 
-Verwenden Sie die Selektoren, um die gegebenen Stile auf das enthaltende `div` Element anzuwenden. Beachten Sie, dass wenn `content-visibility` `visible` oder `auto` ist, das Ändern von `contain-intrinsic-size` keinen Unterschied macht. Wenn der Inhalt jedoch versteckt ist, führt ein `contain-intrinsic-size` von `none` dazu, dass das Elternelement zusammenbricht, als ob sein Kindelement keine Größe hätte.
+Verwenden Sie die Selektoren, um die gegebenen Stile auf das enthaltende `div`-Element anzuwenden.
+Beachten Sie, dass bei `content-visibility` entweder `visible` oder `auto`, das Ändern der `contain-intrinsic-size` keinen Unterschied macht.
+Wenn jedoch der Inhalt verborgen ist, lässt eine `contain-intrinsic-size` von `none` das übergeordnete Element zusammenbrechen, als ob sein Kindelement keine Größe hätte.
 
 {{EmbedLiveSample('Setting the intrinsic size', '100%', 170)}}
 
@@ -349,6 +359,6 @@ Verwenden Sie die Selektoren, um die gegebenen Stile auf das enthaltende `div` E
 
 - {{CSSxRef("contain-intrinsic-block-size")}}
 - {{CSSxRef("contain-intrinsic-inline-size")}}
-- [Verwendung von CSS-Begrenzung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment)
-- [CSS-Begrenzungsmodul](/de/docs/Web/CSS/CSS_containment)
-- [`content-visibility`: Die neue CSS-Eigenschaft, die Ihre Rendering-Performance steigert](https://web.dev/articles/content-visibility) via web.dev (2020)
+- [Verwendung von CSS Containment](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment)
+- [CSS Containment](/de/docs/Web/CSS/CSS_containment) Modul
+- [`content-visibility`: die neue CSS-Eigenschaft, die Ihre Renderleistung verbessert](https://web.dev/articles/content-visibility) über web.dev (2020)

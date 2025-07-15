@@ -2,24 +2,22 @@
 title: "Rezept: Medienobjekte"
 slug: Web/CSS/Layout_cookbook/Media_objects
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das _Medienobjekt_ ist ein Muster, das wir überall im Web sehen. Es bezieht sich auf eine zweispaltige Box mit einem Bild auf der einen Seite und beschreibendem Text auf der anderen, z.B. ein Social-Media-Beitrag.
 
-Das _Medienobjekt_ ist ein Muster, das wir überall im Web sehen. Es bezieht sich auf eine zweispaltige Box mit einem Bild auf einer Seite und einem beschreibenden Text auf der anderen, z. B. ein Beitrag in sozialen Medien.
-
-![Beispiel eines Medienobjekts mit Profilbild auf der linken Seite und Lorem Ipsum Text auf der rechten Seite, der 80% des Platzes einnimmt](media-object.png)
+![Beispiel eines Medienobjekts mit Profilbild auf der linken Seite und Lorem-Ipsum-Text rechts, der 80% des Platzes einnimmt](media-object.png)
 
 ## Anforderungen
 
 Das Medienobjekt-Muster benötigt einige oder alle der folgenden Eigenschaften:
 
-- Gestapelt auf Mobilgeräten, zwei Spalten auf Desktops.
+- Gestapelt auf Mobilgeräten, zwei Spalten auf dem Desktop.
 - Das Bild kann links oder rechts sein.
 - Das Bild kann klein oder groß sein.
-- Medienobjekte können geschachtelt werden.
-- Das Medienobjekt sollte den Inhalt bereinigen, egal welche Seite höher ist.
+- Medienobjekte können verschachtelt werden.
+- Das Medienobjekt sollte den Inhalt räumen, egal welche Seite höher ist.
 
 ## Das Rezept
 
@@ -173,18 +171,18 @@ p {
 
 ## Getroffene Entscheidungen
 
-Ich habe mich entschieden, das [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) für das Medienobjekt zu verwenden, da es mir erlaubt, das Layout in zwei Dimensionen zu steuern, wenn ich es brauche. Das bedeutet, dass wenn wir einen Footer mit kurzem Inhalt darüber haben, der Footer nach unten an das Ende des Medienobjekts gedrückt werden kann.
+Ich habe mich entschieden, das [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) für das Medienobjekt zu verwenden, da es mir ermöglicht, das Layout in zwei Dimensionen zu kontrollieren, wenn nötig. Das bedeutet, dass wenn wir einen Footer mit kurzem Inhalt oben haben, der Footer nach unten zum Boden des Medienobjekts gedrückt werden kann.
 
-Ein weiterer Grund, das Grid-Layout zu verwenden, ist, dass ich {{cssxref("fit-content")}} für die Spurgröße des Bildes verwenden kann. Durch die Verwendung von `fit-content` mit einer maximalen Größe von 200 Pixeln, wenn wir ein kleines Bild wie das Icon haben, wird die Spur nur so groß wie die Größe dieses Bildes — die `max-content` Größe. Wenn das Bild größer ist, hört die Spur beim Wachsen bei 200 Pixeln auf und da das Bild eine {{cssxref("max-width")}} von 100% hat, wird es verkleinert, sodass es weiterhin in die Spalte passt.
+Ein weiterer Grund, das Grid-Layout zu verwenden, ist die Möglichkeit, {{cssxref("fit-content")}} für die Spurgrößenanpassung des Bildes zu verwenden. Durch die Verwendung von `fit-content` mit einer maximalen Größe von 200 Pixeln wird die Spur nur so groß wie die Größe dieses Bildes — die `max-content`-Größe. Ist das Bild größer, hört die Spur bei 200 Pixeln auf zu wachsen und da das Bild ein {{cssxref("max-width")}} von 100% hat, skaliert es herunter, um weiterhin in die Spalte zu passen.
 
-Durch die Verwendung von {{cssxref("grid-template-areas")}}, um das Layout zu erreichen, kann ich das Muster im CSS sehen. Ich definiere mein Grid, sobald der Ansichtsbereich 500 Pixel breit ist, sodass auf kleineren Geräten das Medienobjekt gestapelt wird.
+Mittels {{cssxref("grid-template-areas")}}, um das Layout zu erreichen, kann ich das Muster im CSS sehen. Ich definiere mein Grid, sobald das Viewport 500 Pixel breit ist, sodass das Medienobjekt auf kleineren Geräten gestapelt wird.
 
-Eine Option für das Muster ist, es zu spiegeln, um das Bild auf die andere Seite zu wechseln — dies wird durch das Hinzufügen der `media-flip` Klasse erreicht, die eine gespiegelte Grid-Vorlage definiert, die dazu führt, dass das Layout gespiegelt wird.
+Eine Option für das Muster ist es, es zu spiegeln, um das Bild auf die andere Seite zu setzen — dies geschieht durch das Hinzufügen der Klasse `media-flip`, die eine gespiegelte Grid-Vorlage definiert und das Layout spiegelt.
 
-Wenn wir ein Medienobjekt in ein anderes verschachteln, müssen wir es in die zweite Spur im regulären Layout und die erste Spur im gespiegelten Layout platzieren.
+Wenn wir ein Medienobjekt in ein anderes einbetten, müssen wir es in die zweite Spur im regulären Layout und in die erste Spur im gespiegelten Layout setzen.
 
 ## Siehe auch
 
-- {{cssxref("fit-content")}} Eigenschaft
+- {{cssxref("fit-content")}}-Eigenschaft
 - [Verwendung von Grid-Template-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)-Modul

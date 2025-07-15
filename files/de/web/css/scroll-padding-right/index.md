@@ -2,12 +2,10 @@
 title: scroll-padding-right
 slug: Web/CSS/scroll-padding-right
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die Eigenschaft `scroll-padding-right` definiert Offsets für die rechte Seite des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion genutzt wird, um Dinge in den Blick des Nutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-right` definiert Versätze für die rechte Seite der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Inhalte für den Benutzer in den Sichtbereich zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-right")}}
 
@@ -96,9 +94,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Offset von der oberen Kante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein innenliegender Versatz von der oberen Kante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Offset wird durch den Benutzer-Agent bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzer-Agent kann etwas anderes erkennen und tun, wenn ein anderer Wert angemessener ist.
+  - : Der Versatz wird vom User-Agent bestimmt. Dies wird im Allgemeinen 0px sein, aber ein User-Agent kann etwas anderes tun, wenn ein nicht-nullwertiger Wert angemessener ist.
 
 ## Formale Definition
 

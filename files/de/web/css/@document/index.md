@@ -2,12 +2,12 @@
 title: "@document"
 slug: Web/CSS/@document
 l10n:
-  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}{{Deprecated_header}}{{Non-standard_header}}
+{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`@document`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) schränkt die darin enthaltenen Stilregeln basierend auf der URL des Dokuments ein. Sie ist in erster Linie für benutzerdefinierte Stylesheets gedacht (siehe [userchrome.org](https://www.userchrome.org/) für weitere Informationen), kann aber auch in autorendefinierten Stylesheets verwendet werden.
+Die **`@document`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) beschränkt die darin enthaltenen Stilregeln basierend auf der URL des Dokuments. Sie ist in erster Linie für benutzerdefinierte Stylesheets gedacht (siehe [userchrome.org](https://www.userchrome.org/) für weitere Informationen), kann jedoch auch für autorendefinierte Stylesheets verwendet werden.
 
 ## Syntax
 
@@ -20,27 +20,27 @@ Die **`@document`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_synt
 }
 ```
 
-Eine `@document`-Regel kann eine oder mehrere passende Funktionen angeben. Wenn eine der Funktionen auf eine bestimmte URL zutrifft, wird die Regel auf diese URL angewendet. Die verfügbaren Funktionen sind:
+Eine `@document`-Regel kann eine oder mehrere passende Funktionen spezifizieren. Wenn eine der Funktionen auf eine gegebene URL zutrifft, wird die Regel auf diese URL angewendet. Die verfügbaren Funktionen sind:
 
 - `url()`
-  - : Passt auf eine genaue URL.
+  - : Passt zu einer exakten URL.
 - `url-prefix()`
   - : Passt, wenn die Dokument-URL mit dem angegebenen Wert beginnt.
 - `domain()`
-  - : Passt, wenn die Dokument-URL auf der angegebenen Domain (oder einer Subdomain davon) liegt.
+  - : Passt, wenn die Dokument-URL auf der angegebenen Domain (oder einer Subdomain davon) ist.
 - `media-document()`
-  - : Passt die Medien entsprechend der Zeichenkette im Parameter an, eine von `video`, `image`, `plugin` oder `all`.
+  - : Passt das Medium entsprechend der Zeichenkette im Parameter, eines von `video`, `image`, `plugin` oder `all`.
 - `regexp()`
-  - : Passt, wenn die Dokument-URL mit dem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) übereinstimmt. Der Ausdruck muss mit der gesamten URL übereinstimmen.
+  - : Passt, wenn die Dokument-URL mit dem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) übereinstimmt. Der Ausdruck muss die gesamte URL matchen.
 
-Die Werte, die den Funktionen `url()`, `url-prefix()`, `domain()` und `media-document()` übergeben werden, können optional in einfache oder doppelte Anführungszeichen eingeschlossen werden. Die den `regexp()`-Funktionen übergebenen Werte _müssen_ in Anführungszeichen eingeschlossen werden.
+Die Werte, die den Funktionen `url()`, `url-prefix()`, `domain()` und `media-document()` übergeben werden, können optional in einfache oder doppelte Anführungszeichen eingeschlossen werden. Die Werte, die der Funktion `regexp()` übergeben werden, _müssen_ in Anführungszeichen eingeschlossen sein.
 
-Escape-Werte, die an die `regexp()`-Funktion übergeben werden, müssen zusätzlich aus dem CSS entkommen. Beispielsweise stimmt ein `.` (Punkt) in regulären Ausdrücken mit jedem Zeichen überein. Um einen tatsächlichen Punkt zu finden, müssten Sie ihn zunächst mit regulären Ausdruckregeln entkommen (zu `\.`), dann diesen Zeichenfolge mit CSS-Regeln entkommen (zu `\\.`).
+Escapierte Werte, die der Funktion `regexp()` übergeben werden, müssen zusätzlich aus dem CSS heraus escapiert werden. Zum Beispiel steht ein `.` (Punkt) in regulären Ausdrücken für jedes Zeichen. Um einen echten Punkt zu matchen, müssen Sie ihn zuerst mit regulären Ausdrucksregeln escapen (zu `\.`) und dann diese Zeichenfolge mit CSS-Regeln escapen (zu `\\.`).
 
-`@document` wird derzeit nur in Firefox unterstützt; wenn Sie ähnliche Funktionen in einem anderen Browser als Firefox nachbilden möchten, können Sie versuchen, [dieses Polyfill](https://github.com/An-Error94/Handy-Scripts/tree/master/%40document-polyfill) von @An-Error94 zu verwenden, das eine Kombination aus einem Benutzer-Skript, [data-\* Attributen](/de/docs/Web/HTML/Reference/Global_attributes/data-*), und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) verwendet.
+`@document` wird derzeit nur in Firefox unterstützt; wenn Sie dieselbe Funktionalität in einem anderen Browser als Firefox replizieren möchten, könnten Sie versuchen, [diesen Polyfill](https://github.com/An-Error94/Handy-Scripts/tree/master/%40document-polyfill) von @An-Error94 zu verwenden, der eine Kombination aus einem Benutzer-Skript, [data-\* Attributen](/de/docs/Web/HTML/Reference/Global_attributes/data-*) und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) nutzt.
 
 > [!NOTE]
-> Es gibt eine -moz-präfixierte Version dieses Eigenschafts — `@-moz-document`. Diese wurde auf die Verwendung nur in Benutzer- und UA-Sheets in Firefox 59 in Nightly und Beta beschränkt – ein Experiment, um potenzielle CSS-Injektionsangriffe zu mildern (siehe [Firefox bug 1035091](https://bugzil.la/1035091)).
+> Es gibt eine -moz-angepasste Version dieser Eigenschaft — `@-moz-document`. Diese wurde in Firefox 59 in Nightly und Beta auf die Verwendung nur in Benutzer- und UA-Sheets beschränkt — ein Experiment, das potenzielle CSS-Injection-Angriffe mindern soll. (Siehe [Firefox Bug 1035091](https://bugzil.la/1035091)).
 
 ## Formale Syntax
 
@@ -91,4 +91,4 @@ Escape-Werte, die an die `regexp()`-Funktion übergeben werden, müssen zusätzl
 
 ## Siehe auch
 
-- [Regeln für benutzerdefinierte Stylesheets pro Seite](https://lists.w3.org/Archives/Public/www-style/2004Aug/0135) in der www-style-Mailingliste.
+- [Per-site user style sheet rules](https://lists.w3.org/Archives/Public/www-style/2004Aug/0135) in der www-style-Mailingliste.

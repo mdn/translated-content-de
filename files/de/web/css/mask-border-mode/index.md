@@ -2,12 +2,10 @@
 title: mask-border-mode
 slug: Web/CSS/mask-border-mode
 l10n:
-  sourceCommit: be28a11d9b2f6ab4ad0e5947e72a13ce16d4a6f2
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`mask-border-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Mischmodus fest, der in einem [Maskenrand](/de/docs/Web/CSS/mask-border) verwendet wird.
+Die **`mask-border-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Mischmodus an, der in einem [Maskenrand](/de/docs/Web/CSS/mask-border) verwendet wird.
 
 ## Syntax
 
@@ -27,9 +25,9 @@ mask-border-mode: unset;
 ### Werte
 
 - `luminance`
-  - : Die Luminanzwerte des Maskenrandbildes werden als Maskenwerte verwendet.
+  - : Die Luminanzwerte des Maskenrand-Bildes werden als Maskenwerte verwendet.
 - `alpha`
-  - : Die Alphawerte des Maskenrandbildes werden als Maskenwerte verwendet.
+  - : Die Alphawerte des Maskenrand-Bildes werden als Maskenwerte verwendet.
 
 ## Formale Definition
 
@@ -45,14 +43,14 @@ mask-border-mode: unset;
 
 ## Browser-Kompatibilität
 
-Diese Eigenschaft wird derzeit von keinem Browser unterstützt.
+Diese Eigenschaft wird von noch keinem Browser unterstützt.
 
 ## Siehe auch
 
 - {{cssxref("mask-mode")}}
 - {{cssxref("mask-type")}}
 - [Alphatransparenz versus Luminanz](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance)
-- {{cssxref("mask-border")}} Kurzschreibweise
+- {{cssxref("mask-border")}} Kurzform
 - {{cssxref("mask-border-outset")}}
 - {{cssxref("mask-border-repeat")}}
 - {{cssxref("mask-border-source")}}

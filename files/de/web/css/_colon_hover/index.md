@@ -2,12 +2,10 @@
 title: :hover
 slug: Web/CSS/:hover
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`:hover`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft zu, wenn der Benutzer mit einem Zeigegerät mit einem Element interagiert, es jedoch nicht zwingend aktiviert. In der Regel wird sie ausgelöst, wenn der Benutzer mit dem Cursor (Mauszeiger) über ein Element fährt.
+Die **`:hover`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft zu, wenn der Benutzer mit einem Zeigegerät mit einem Element interagiert, aber es nicht unbedingt aktiviert. Sie wird im Allgemeinen ausgelöst, wenn der Benutzer mit dem Cursor (Mauszeiger) über ein Element fährt.
 
 {{InteractiveExample("CSS Demo: :hover", "tabbed-shorter")}}
 
@@ -33,10 +31,10 @@ Die **`:hover`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 <button class="joinBtn">Confirm</button>
 ```
 
-Von der `:hover` Pseudoklasse definierte Stile werden von jeder nachfolgenden, linkbezogenen Pseudoklasse ({{ cssxref(":link") }}, {{ cssxref(":visited") }} oder {{ cssxref(":active") }}), die mindestens die gleiche Spezifität hat, überschrieben. Um Links angemessen zu stylen, sollten Sie die `:hover` Regel nach den `:link` und `:visited` Regeln, aber vor der `:active` Regel, gemäß der _LVHA-Reihenfolge_: `:link` — `:visited` — `:hover` — `:active` platzieren.
+Stile, die durch die `:hover` Pseudoklasse definiert sind, werden von jeder nachfolgenden, Link-bezogenen Pseudoklasse ({{ cssxref(":link") }}, {{ cssxref(":visited") }}, oder {{ cssxref(":active") }}) überschrieben, die mindestens die gleiche Spezifität besitzt. Um Links richtig zu stylen, platzieren Sie die `:hover` Regel nach den `:link` und `:visited` Regeln, aber vor der `:active` Regel, wie durch die _LVHA-Reihenfolge_ definiert: `:link` — `:visited` — `:hover` — `:active`.
 
 > [!NOTE]
-> Die `:hover` Pseudoklasse ist auf Touchscreens problematisch. Abhängig vom Browser könnte die `:hover` Pseudoklasse niemals zutreffen, nur einen Moment nach Berühren eines Elements zutreffen oder weiterhin zutreffen, selbst nachdem der Benutzer aufgehört hat zu berühren, bis der Benutzer ein anderes Element berührt. Webentwickler sollten sicherstellen, dass Inhalte auf Geräten mit eingeschränkten oder nicht vorhandenen Hover-Fähigkeiten zugänglich sind.
+> Die `:hover` Pseudoklasse stellt auf Touchscreens ein Problem dar. Abhängig vom Browser kann es sein, dass die `:hover` Pseudoklasse niemals zutrifft, nur für einen Moment nach Berühren eines Elements zutrifft oder weiterhin zutrifft, selbst nachdem der Benutzer aufgehört hat, das Element zu berühren, und bis der Benutzer ein anderes Element berührt. Webentwickler sollten sicherstellen, dass Inhalte auf Geräten mit eingeschränkten oder nicht vorhandenen Hover-Möglichkeiten zugänglich sind.
 
 ## Syntax
 
@@ -83,5 +81,5 @@ a:hover {
 
 ## Siehe auch
 
-- [Chromium Fehler #370155: Mache `:hover` nicht sticky bei Tap auf Seiten, die ein mobiles Viewport setzen](https://crbug.com/370155)
-- [Chromium Fehler #306581: Zeige sofort Hover- und aktive Zustände auf Touch, wenn die Seite nicht scrollbar ist.](https://crbug.com/306581)
+- [Chromium-Fehler #370155: :hover auf Tap auf Seiten mit mobilem Viewport nicht klebrig machen](https://crbug.com/370155)
+- [Chromium-Fehler #306581: Sofortige Anzeige von Hover- und Aktivzuständen auf Touch, wenn die Seite nicht scrollbar ist.](https://crbug.com/306581)

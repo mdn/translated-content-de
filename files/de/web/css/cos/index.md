@@ -2,12 +2,10 @@
 title: cos()
 slug: Web/CSS/cos
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, welcher einen Wert zwischen `-1` und `1` hat. Die Funktion enthält eine einzelne Berechnung, die entweder in einen {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das heißt, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` stellen alle denselben Wert dar, ungefähr `0.707`.
+Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, ein Wert zwischen `-1` und `1`. Die Funktion enthält eine einzelne Berechnung, die entweder in ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, dass `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` alle den gleichen Wert repräsentieren, ungefähr `0.707`.
 
 ## Syntax
 
@@ -28,14 +26,14 @@ width: calc(100px * cos(e / 2));
 
 ### Parameter
 
-Die `cos(angle)`-Funktion akzeptiert nur einen Wert als ihren Parameter.
+Die `cos(angle)` Funktion akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die in einen {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Wenn zahlenlose Werte spezifiziert werden, werden diese als Anzahl von Radianten interpretiert und stellen ein {{cssxref("&lt;angle&gt;")}} dar.
+  - : Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Wenn einheitslose Zahlen angegeben werden, werden sie als Anzahl von Bogenmaß interpretiert, die ein {{cssxref("&lt;angle&gt;")}} darstellen.
 
 ### Rückgabewert
 
-Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` ergeben.
+Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückgeben.
 
 - Wenn `angle` `unendlich`, `-unendlich` oder `NaN` ist, ist das Ergebnis `NaN`.
 
@@ -45,13 +43,13 @@ Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` ergeben.
 
 ## Beispiele
 
-### Größe eines gedrehten Kastens beibehalten
+### Die Größe eines gedrehten Kastens beibehalten
 
-Die `cos()`-Funktion kann verwendet werden, um die Größe eines gedrehten Kastens beizubehalten.
+Die `cos()` Funktion kann verwendet werden, um die Größe eines gedrehten Kastens beizubehalten.
 
-Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, geht es über seine ursprüngliche Größe hinaus. Um dies zu beheben, verwenden wir `cos()`, um die Größe des Elements zu aktualisieren.
+Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, überschreitet es seine ursprüngliche Größe. Um dies zu beheben, verwenden wir `cos()`, um die Größe des Elements zu aktualisieren.
 
-Wenn Sie zum Beispiel ein `100px`/`100px` Quadrat um `45deg` drehen, wird der resultierende Diamant breiter und höher als das ursprüngliche Quadrat sein. Um den Diamanten in die Box zu schrumpfen, die für das ursprüngliche Quadrat vorgesehen ist, müssten Sie den Diamanten mit folgender Formel skalieren: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
+Zum Beispiel, wenn Sie ein `100px`/`100px` Quadrat um `45deg` drehen, wird die resultierende Raute breiter und höher als das ursprüngliche Quadrat sein. Um die Raute auf die Größe des für das ursprüngliche Quadrat vorgesehenen Kastens zu verkleinern, müssen Sie die Raute mit dieser Formel skalieren: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
 
 #### HTML
 

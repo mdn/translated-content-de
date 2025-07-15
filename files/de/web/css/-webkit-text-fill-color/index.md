@@ -2,12 +2,10 @@
 title: -webkit-text-fill-color
 slug: Web/CSS/-webkit-text-fill-color
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`-webkit-text-fill-color** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Füll-[Farbe](/de/docs/Web/CSS/color_value) der Zeichen eines Textes fest. Ist diese Eigenschaft nicht gesetzt, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
+Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Füll-[Farbe](/de/docs/Web/CSS/color_value) der Zeichen eines Textes. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
 
 ## Syntax
 
@@ -28,7 +26,7 @@ Die **`-webkit-text-fill-color** [CSS](/de/docs/Web/CSS) Eigenschaft legt die F�
 ### Werte
 
 - `<color>`
-  - : Die Vordergrundfüllfarbe des Textinhalts des Elements.
+  - : Die Vordergrundfarbe der Füllung des Textinhalts des Elements.
 
 ## Formale Definition
 

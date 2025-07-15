@@ -1,21 +1,19 @@
 ---
-title: CSS overscroll behavior
+title: CSS-Overscroll-Verhalten
 slug: Web/CSS/CSS_overscroll_behavior
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Das **CSS-Overscroll-Verhalten**-Modul bietet Eigenschaften zur Steuerung des Verhaltens eines {{Glossary("Scroll_container", "Scroll-Containers")}}, wenn seine Scroll-Position die {{Glossary("Scroll_boundary", "Scroll-Grenze")}} erreicht. Die Steuerung dieses Aspekts ist besonders nützlich in Szenarien, in denen eingebettete scrollbare Bereiche nicht das Scrollen des übergeordneten Containers auslösen sollen.
 
-Das **CSS overscroll behavior** Modul bietet Eigenschaften zur Steuerung des Verhaltens eines {{Glossary("Scroll_container", "Scroll-Containers")}}, wenn seine Scroll-Position den {{Glossary("Scroll_boundary", "Scroll-Grenzwert")}} erreicht. Das Steuern dieses Aspekts ist besonders nützlich in Szenarien, in denen eingebettete scrollbare Bereiche nicht das Scrollen des übergeordneten Containers auslösen sollen.
+Wenn Sie einen Kommentar zu einem Blog schreiben, bemerken Sie vielleicht, dass wenn Ihr Kommentar die Länge des bereitgestellten {{htmlelement("textarea")}} überschreitet, das Scrollen über das Ende des Textbereichs hinaus den gesamten Blog zum Scrollen bringt. Dies liegt daran, dass das Erreichen des Endes eines scrollbaren Bereichs, bekannt als die {{Glossary("Scroll_boundary", "Scroll-Grenze")}}, dazu führen kann, dass anderer Inhalt oder die gesamte Seite gescrollt wird. Diese kontinuierliche Scroll-Erfahrung wird {{Glossary("Scroll_chaining", "Scroll Chaining")}} genannt.
 
-Wenn Sie einen Blog kommentieren, könnte Ihnen auffallen, dass, wenn Ihr Kommentar die Länge des bereitgestellten {{htmlelement("textarea")}} überschreitet, das Weiterscrollen über das Ende des Textbereichs dazu führt, dass der gesamte Blog scrollt. Dies liegt daran, dass das Erreichen des Endes eines scrollbaren Bereichs, bekannt als {{Glossary("Scroll_boundary", "Scroll-Grenzwert")}}, dazu führen kann, dass andere Inhalte oder die gesamte Seite gescrollt werden. Dieses kontinuierliche Scroll-Erlebnis wird als {{Glossary("Scroll_chaining", "Scroll-Kettenbildung")}} bezeichnet.
+In Situationen, in denen der Inhalt eines Elements größer ist als sein Container und {{cssxref("overflow")}} das Scrollen erlaubt oder standardmäßig aktiviert (wie in `<textarea>`), führt das fortgesetzte Scrollen über den scrollbaren Bereich des Elements hinaus zum Scrollen des übergeordneten Elements oder der zugrunde liegenden Seite.
 
-In Situationen, in denen der Inhalt eines Elements größer ist als sein Container und {{cssxref("overflow")}} das Scrollen ermöglicht oder standardmäßig zulässt (wie in `<textarea>`), wird durch weiteres Scrollen über das scrollbare Gebiet des Elements das Scrollen im übergeordneten Element oder der zugrunde liegenden Seite eingeleitet.
+Umgekehrt, wenn Sie die Geschäftsbedingungen einer Website durchscrollen und das Ende des Inhalts erreichen, um ein Kontrollkästchen zu aktivieren, muss die Seite möglicherweise nicht scrollen oder hüpfen (wie auf einem Telefon). Dieses Beispiel zeigt, dass Sie das Overscroll-Verhalten kontrollieren und Scroll Chaining verhindern können.
 
-Umgekehrt kann das Scrollen durch die Nutzungsbedingungen einer Website und das Erreichen des Endes des Inhalts, um ein Kontrollkästchen zu aktivieren, nicht dazu führen, dass die Seite scrollt oder hüpft (wie auf einem Telefon). Dieses Beispiel zeigt, dass Sie das Overscroll-Verhalten steuern und die Scroll-Kettenbildung verhindern können.
-
-Dieses Modul definiert das Overscroll-Verhalten und ermöglicht Ihnen, die Aktionen zu spezifizieren, wenn ein Benutzer über die Grenzen eines scrollbaren Elements hinaus scrollt.
+Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es Ihnen, die Aktionen festzulegen, wenn ein Benutzer über die Grenzen eines scrollbaren Elements hinaus scrollt.
 
 ## Referenz
 
@@ -29,19 +27,19 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht Ihnen, die Aktio
 
 ### Glossarbegriffe
 
-- {{Glossary("Scroll_boundary", "Scroll-Grenzwert")}}
-- {{Glossary("Scroll_chaining", "Scroll-Kettenbildung")}}
+- {{Glossary("Scroll_boundary", "Scroll-Grenze")}}
+- {{Glossary("Scroll_chaining", "Scroll Chaining")}}
 
 ## Leitfäden
 
 - [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
-  - : Lernen Sie, was Überlauf ist und wie man ihn verwaltet.
+  - : Lernen Sie, was Überlauf ist und wie Sie ihn verwalten.
 
 ## Verwandte Konzepte
 
-- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role) ARIA Rolle
-- [Containing Block](/de/docs/Web/CSS/CSS_display/Containing_block) Konzept
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul:
+- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role) ARIA-Rolle
+- [Container-Block](/de/docs/Web/CSS/CSS_display/Containing_block) Konzept
+- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul:
   - {{cssxref("overflow")}} Kurzform-Eigenschaft
     - {{Cssxref("overflow-x")}}
     - {{Cssxref("overflow-y")}}
@@ -50,10 +48,9 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht Ihnen, die Aktio
   - {{CSSxRef("overflow-clip-margin")}} Eigenschaft
   - {{CSSxRef("scroll-behavior")}} Eigenschaft
   - {{CSSxRef("text-overflow")}} Eigenschaft
-- {{Glossary("Scroll_container", "Scroll-Container")}} und {{Glossary("Scroll_container#scrollport", "Scrollport")}} Glossarbegriffe
+- {{Glossary("Scroll_container", "Scroll-Container")}} und {{Glossary("Scroll_container#scrollport", "scrollport")}} Glossarbegriffe
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul:
-
+- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul:
   - {{cssxref("scroll-padding")}} Kurzform-Eigenschaft
   - {{cssxref("scroll-snap-type")}} Eigenschaft
   - {{cssxref("scroll-margin")}} Kurzform-Eigenschaft
@@ -66,7 +63,7 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht Ihnen, die Aktio
   - [`Element.scrollBy()`](/de/docs/Web/API/Element/scrollBy) Methode
   - [`Element.scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView) Methode
   - [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode
-  - [`scroll`](/de/docs/Web/API/Document/scroll_event) Dokument Ereignis
+  - [`scroll`](/de/docs/Web/API/Document/scroll_event) Dokumentereignis
 
 ## Spezifikationen
 
@@ -74,7 +71,7 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht Ihnen, die Aktio
 
 ## Siehe auch
 
-- [CSS scroll anchoring](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSS box model](/de/docs/Web/CSS/CSS_box_model) Modul
+- [CSS Scroll Anchoring](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
 - [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul

@@ -2,12 +2,10 @@
 title: Pseudo-Elemente
 slug: Web/CSS/Pseudo-elements
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Ein CSS **Pseudo-Element** ist ein Schlüsselwort, das zu einem Selektor hinzugefügt wird und es Ihnen ermöglicht, einen bestimmten Teil der ausgewählten Elemente zu stylen.
+Ein CSS-**Pseudo-Element** ist ein Schlüsselwort, das einem Selektor hinzugefügt wird, um einen bestimmten Teil des ausgewählten Elements oder der ausgewählten Elemente zu gestalten.
 
 ## Syntax
 
@@ -27,91 +25,91 @@ p::first-line {
 }
 ```
 
-Doppelte Doppelpunkte (`::`) werden für Pseudo-Elemente verwendet. Dies unterscheidet Pseudo-Elemente von [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes), die in ihrer Notation einen einfachen Doppelpunkt (`:`) verwenden. Beachten Sie, dass Browser die Syntax mit einfachem Doppelpunkt für die ursprünglichen vier Pseudo-Elemente unterstützen: `::before`, `::after`, `::first-line` und `::first-letter`.
+Doppelte Doppelpunkte (`::`) werden für Pseudo-Elemente verwendet. Dies unterscheidet Pseudo-Elemente von [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes), die in ihrer Notation einen einzelnen Doppelpunkt (`:`) verwenden. Beachten Sie, dass Browser die einzelne Doppelpunkt-Syntax für die ursprünglichen vier Pseudo-Elemente unterstützen: `::before`, `::after`, `::first-line`, und `::first-letter`.
 
-Pseudo-Elemente existieren nicht unabhängig. Das Element, von dem ein Pseudo-Element ein Teil ist, wird als sein _Ursprungselement_ bezeichnet. Ein Pseudo-Element muss nach allen anderen Komponenten im [komplexen](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Selektor erscheinen. Das letzte Element im Selektor ist das Ursprungselement des Pseudo-Elements. Zum Beispiel können Sie die erste Zeile eines Absatzes mit `p::first-line` auswählen, aber nicht die Kinder der ersten Zeile. So ist `p::first-line > *` ungültig.
+Pseudo-Elemente existieren nicht unabhängig. Das Element, dessen Teil ein Pseudo-Element ist, wird als sein _ursprüngliches Element_ bezeichnet. Ein Pseudo-Element muss nach allen anderen Komponenten im [komplexen](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Selektor erscheinen. Das letzte Element im Selektor ist das ursprüngliche Element des Pseudo-Elements. Zum Beispiel können Sie die erste Zeile eines Absatzes mit `p::first-line` auswählen, aber nicht die Kinder der ersten Zeile. Daher ist `p::first-line > *` ungültig.
 
-Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des Ursprungselements ausgewählt werden. Zum Beispiel wählt `p:hover::first-line` die erste Zeile (Pseudo-Element) eines Absatzes aus, wenn der Absatz selbst gehovt wird (Pseudo-Klasse).
+Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des ursprünglichen Elements ausgewählt werden. Zum Beispiel wählt `p:hover::first-line` die erste Zeile (Pseudo-Element) eines Absatzes, wenn der Absatz selbst gehobert wird (Pseudo-Klasse).
 
 > [!NOTE]
-> Wenn eine [Selektorenliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list) einen ungültigen Selektor enthält, wird der gesamte Stilblock ignoriert.
+> Wenn eine [Selektorliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list) einen ungültigen Selektor enthält, wird der gesamte Stilblock ignoriert.
 
 ## Typografische Pseudo-Elemente
 
 - {{CSSxRef("::first-line")}}
-  - : Die erste Zeilenbox des Ursprungselements.
+  - : Die erste Zeilenbox des ursprünglichen Elements.
 - {{CSSxRef("::first-letter")}}
-  - : Der erste Buchstabe, die erste Zahl oder das erste Symbolzeichen auf der ersten Zeile seines Ursprungselements.
+  - : Der erste Buchstabe, die erste Zahl oder das Symbolzeichen in der ersten Zeile seines ursprünglichen Elements.
 - {{CSSxRef("::cue")}}
-  - : Die [WebVTT](/de/docs/Web/API/WebVTT_API) Cues innerhalb eines ausgewählten Elements.
-    Dies kann verwendet werden, um [Untertitel und andere Cues](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks zu stylen.
-    Das [CSS Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul definiert auch die `::postfix` und `::prefix` Sub-Pseudo-Elemente. Diese werden noch von keinem Browser unterstützt.
+  - : Die [WebVTT](/de/docs/Web/API/WebVTT_API)-Cues innerhalb eines ausgewählten Elements.
+    Dies kann verwendet werden, um [Untertitel und andere Cues zu gestalten](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks.
+    Das Modul der [CSS-Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) definiert auch die `::postfix` und `::prefix` Sub-Pseudo-Elemente. Diese werden derzeit von keinem Browser unterstützt.
 
 ## Hervorhebungs-Pseudo-Elemente
 
-Wählt Dokumentabschnitte basierend auf Inhalt und Dokumentstatus aus und ermöglicht es, diese Bereiche unterschiedlich zu stylen, um diesen Status dem Benutzer anzuzeigen.
+Wählt Dokumentabschnitte basierend auf Inhalt und Dokumentstatus aus und ermöglicht es, diese Bereiche unterschiedlich zu gestalten, um den Status dem Nutzer anzuzeigen.
 
 - {{CSSxRef("::selection")}}
-  - : Der Teil eines Dokuments, der ausgewählt wurde.
+  - : Der Abschnitt eines Dokuments, der ausgewählt wurde.
 - {{CSSxRef("::target-text")}}
-  - : Das Ziel-Element des Dokuments. Das Ziel-Element wird durch den Fragment-Bezeichner der URL identifiziert.
+  - : Das Ziel-Element des Dokuments. Das Ziel-Element wird über den Fragmentbezeichner der URL identifiziert.
 - {{CSSxRef("::spelling-error")}}
-  - : Ein Textabschnitt, von dem der Browser glaubt, dass er falsch geschrieben ist.
+  - : Ein Textabschnitt, den der Browser für falsch geschrieben hält.
 - {{CSSxRef("::grammar-error")}}
-  - : Ein Textabschnitt, von dem der Browser glaubt, dass er grammatikalisch inkorrekt ist.
+  - : Ein Textabschnitt, den der Browser für grammatikalisch falsch hält.
 - {{CSSxRef("::highlight()")}}
-  - : Die Elemente im [Highlight-Register](/de/docs/Web/API/CSS/highlights_static). Es wird verwendet, um benutzerdefinierte Hervorhebungen zu erstellen.
+  - : Die Elemente im [Highlight-Register](/de/docs/Web/API/CSS/highlights_static). Es wird verwendet, um benutzerdefinierte Highlights zu erstellen.
 
-## Strukturkonforme Pseudo-Elemente
+## Baumkonforme Pseudo-Elemente
 
-Diese Pseudo-Elemente verhalten sich wie reguläre Elemente und fügen sich nahtlos in das Box-Modell ein. Sie agieren als Kind-Element, das direkt innerhalb der Hierarchie des Ursprungselements gestylt werden kann.
+Diese Pseudo-Elemente verhalten sich wie reguläre Elemente und passen nahtlos in das Boxmodell. Sie agieren als Kindelement, das direkt innerhalb der Hierarchie des ursprünglichen Elements gestaltet werden kann.
 
 - {{CSSxRef("::before")}}
-  - : Erstellt ein Pseudo-Element, das das erste Kind des ausgewählten Elements ist.
+  - : Erzeugt ein Pseudo-Element, das das erste Kindelement des ausgewählten Elements ist.
 - {{CSSxRef("::after")}}
-  - : Erstellt ein Pseudo-Element, das das letzte Kind des ausgewählten Elements ist.
+  - : Erzeugt ein Pseudo-Element, das das letzte Kindelement des ausgewählten Elements ist.
 - {{CSSxRef("::column")}}
-  - : Jedes Säulenfragment eines [Mehrspaltenlayouts](/de/docs/Web/CSS/CSS_multicol_layout).
+  - : Jedes Spaltenfragment eines [Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout).
 - {{CSSxRef("::marker")}}
-  - : Die automatisch generierte Markierung eines Listenelements.
+  - : Der automatisch generierte Marker-Box eines Listenelements.
 - {{CSSxRef("::backdrop")}}
-  - : Der Hintergrund des Ursprungselements, das in der {{Glossary("Top_layer", "obersten Schicht")}} gerendert wird.
+  - : Der Hintergrund des ursprünglichen Elements, das in der {{Glossary("Top_layer", "Top-Schicht")}} gerendert wird.
 - {{CSSxRef("::scroll-button()")}}
-  - : Erstellt eine Schaltfläche, die das Scrollen des {{Glossary("scroll_container", "Scroll-Containers")}}, auf den sie angewendet wird, steuern kann.
+  - : Erstellt einen Knopf, der das Scrollen des {{Glossary("scroll_container", "Scroll-Containers")}} steuern kann, auf den er angewendet wird.
 - {{CSSxRef("::scroll-marker")}}
-  - : Erstellt ein Pseudo-Element, das eine Scroll-Markierung ist — ein Scroll-Zielknopf für sein Ursprungselement, das in einer Scroll-Markierungsgruppe verschachtelt ist.
+  - : Erstellt ein Pseudo-Element, das ein Scroll-Marker ist — ein Scroll-Zielknopf für sein ursprüngliches Element, das in einer Scroll-Marker-Gruppe verschachtelt ist.
 - {{CSSxRef("::scroll-marker-group")}}
-  - : Generiert einen Container vor oder nach einem Scroll-Container, um die {{cssxref("::scroll-marker")}} Pseudo-Elemente zu enthalten, die auf dem Element oder seinen Nachkommen generiert werden.
+  - : Erzeugt einen Container vor oder nach einem Scroll-Container, um die {{CSSxRef("::scroll-marker")}} Pseudo-Elemente zu enthalten, die auf dem Element oder seinen Nachkommen erzeugt werden.
 
-## Elemente-unterstützte Pseudo-Elemente
+## Elementgestützte Pseudo-Elemente
 
-Diese Pseudo-Elemente sind reale Elemente, die anderweitig nicht auswählbar sind.
+Diese Pseudo-Elemente sind reale Elemente, die nicht anderweitig auswählbar sind.
 
 - {{CSSxRef("::details-content")}}
-  - : Der erweiterbare/zusammenklappbare Inhalt eines {{HTMLElement("details")}} Elements.
+  - : Der erweiterbare/zusammenklappbare Inhalt eines {{HTMLElement("details")}}-Elements.
 - {{CSSxRef("::part", "::part()")}}
-  - : Jedes Element innerhalb eines [Schattenbaums](/de/docs/Web/API/Web_components/Using_shadow_DOM), das ein übereinstimmendes [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) Attribut hat.
+  - : Jedes Element innerhalb eines [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM), das ein passendes [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut hat.
 - {{CSSxRef("::slotted", "::slotted()")}}
-  - : Jedes Element, das in einen Slot in einer HTML-Vorlage platziert wird.
+  - : Jedes Element, das in einen Slot innerhalb einer HTML-Vorlage platziert wurde.
 
 ## Formularbezogene Pseudo-Elemente
 
 Die Pseudo-Elemente beziehen sich auf Formularelemente.
 
 - {{CSSxRef("::checkmark")}}
-  - : Zielt auf das Häkchen ab, das in das aktuell ausgewählte `<option>` Element eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) eingefügt wird, um eine visuelle Anzeige zu bieten, welches ausgewählt ist.
+  - : Zielt auf das Häkchen ab, das im aktuell ausgewählten `<option>`-Element eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) platziert ist, um visuell anzuzeigen, welches ausgewählt ist.
 - {{CSSxRef("::file-selector-button")}}
-  - : Die Schaltfläche eines {{HTMLElement("input") }} vom [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
+  - : Der Knopf eines {{HTMLElement("input")}} vom [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
 - {{CSSxRef("::picker()")}}
-  - : Der Auswahlteil eines Elements, zum Beispiel der Dropdown-Auswahlknopf eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
+  - : Der Picker-Teil eines Elements, zum Beispiel der Dropdown-Picker eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
 - {{CSSxRef("::picker-icon")}}
-  - : Das Auswahl-Icon innerhalb von Formularelementen, die ein mit ihnen verbundenes Icon haben. Im Fall eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) wählt es den Pfeil aus, der nach unten zeigt, wenn die Auswahl geschlossen ist.
+  - : Das Picker-Symbol innerhalb von Formularelementen, die ein Symbol damit verbunden haben. Im Falle eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) wählt es den Pfeil aus, der nach unten zeigt, wenn die Auswahl geschlossen ist.
 - {{CSSxRef("::placeholder")}}
   - : Der Platzhaltertext in einem Eingabefeld.
 
-## Alphabetischer Index
+## Alphabetisches Verzeichnis
 
-Durch eine Reihe von CSS-Spezifikationen definierte Pseudo-Elemente umfassen folgende:
+Die durch eine Reihe von CSS-Spezifikationen definierten Pseudo-Elemente umfassen Folgendes:
 
 A
 
@@ -178,16 +176,16 @@ V
 - {{cssxref("::view-transition-new()")}}
 - {{cssxref("::view-transition-old()")}}
 
-## Verschachteln von Pseudo-Elementen
+## Verschachtelung von Pseudo-Elementen
 
-Sie können einige Pseudo-Element-Selektoren zusammenketten, um verschachtelte Pseudo-Elemente innerhalb anderer Pseudo-Elemente zu stylen. Die folgenden verschachtelten Pseudo-Element-Kombinationen werden unterstützt:
+Sie können einige Pseudo-Element-Selektoren miteinander verketten, um verschachtelte Pseudo-Elemente innerhalb anderer Pseudo-Elemente zu gestalten. Die folgenden verschachtelten Pseudo-Element-Kombinationen werden unterstützt:
 
 - {{CSSxRef("::after")}}
-  - `::after::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::after` Pseudo-Elements aus, wenn `::after` als Listenelement mit {{CSSxRef("display", "display: list-item")}} gestylt ist.
+  - `::after::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::after` Pseudo-Elements aus, wenn `::after` als Listenelement gestaltet ist, mit {{CSSxRef("display", "display: list-item")}}.
 - {{CSSxRef("::before")}}
-  - `::before::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::before` Pseudo-Elements aus, wenn `::before` als Listenelement mit {{CSSxRef("display", "display: list-item")}} gestylt ist.
+  - `::before::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::before` Pseudo-Elements aus, wenn `::before` als Listenelement gestaltet ist, mit {{CSSxRef("display", "display: list-item")}}.
 
-Schauen Sie sich die einzelnen Pseudo-Element-Referenzseiten für Beispiele und Informationen zur Browser-Kompatibilität an.
+Sehen Sie sich die einzelnen Referenzseiten zu den Pseudo-Elementen für Beispiele und Informationen zur Browser-Kompatibilität an.
 
 ## Spezifikationen
 
@@ -195,7 +193,7 @@ Schauen Sie sich die einzelnen Pseudo-Element-Referenzseiten für Beispiele und 
 
 ## Siehe auch
 
-- [CSS Pseudo-Element](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS-Pseudo-Element](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
 - [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes)
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
 - [Lernen: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements)

@@ -2,12 +2,10 @@
 title: caption-side
 slug: Web/CSS/caption-side
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines {{HTMLElement("caption")}} Elements einer Tabelle an der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines Tabellen-{{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
 {{InteractiveExample("CSS Demo: caption-side")}}
 
@@ -95,12 +93,12 @@ Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüssel
 ### Werte
 
 - `top`
-  - : Das Caption-Element sollte am Blockstart der Tabelle positioniert werden.
+  - : Das Beschriftungsfeld sollte an der Block-Startseite der Tabelle positioniert werden.
 - `bottom`
-  - : Das Caption-Element sollte am Blockende der Tabelle positioniert werden.
+  - : Das Beschriftungsfeld sollte an der Block-Endseite der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um das Caption-Element am Inline-Anfang und Inline-Ende der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um die Beschriftungskiste an der Inline-Startkante bzw. Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -112,7 +110,7 @@ Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Captions oben und unten setzen
+### Beschriftungen oben und unten einstellen
 
 #### HTML
 
@@ -176,4 +174,4 @@ td {
 
 - {{HTMLelement("caption")}}
 - [CSS table](/de/docs/Web/CSS/CSS_table) Modul
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul

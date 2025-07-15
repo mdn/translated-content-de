@@ -2,14 +2,12 @@
 title: max-inline-size
 slug: Web/CSS/max-inline-size
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`max-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die horizontale oder vertikale maximale Größe eines Blockelements, abhängig von dessen Schreibmodus. Sie entspricht entweder der Eigenschaft {{cssxref("max-width")}} oder der Eigenschaft {{cssxref("max-height")}}, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
-Die **`max-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die horizontale oder vertikale maximale Größe eines Blockelements, abhängig von dessen Schreibrichtung (writing mode). Sie entspricht entweder der Eigenschaft {{cssxref("max-width")}} oder der Eigenschaft {{cssxref("max-height")}}, abhängig vom Wert des {{cssxref("writing-mode")}}.
-
-Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `max-inline-size` auf die maximale Höhe des Elements; andernfalls bezieht er sich auf die maximale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("max-block-size")}}, welche die andere Dimension des Elements definiert.
+Ist der Schreibmodus vertikal ausgerichtet, bezieht sich der Wert von `max-inline-size` auf die maximale Höhe des Elements; andernfalls bezieht er sich auf die maximale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("max-block-size")}}, die die andere Dimension des Elements definiert.
 
 {{InteractiveExample("CSS Demo: max-inline-size")}}
 
@@ -81,7 +79,7 @@ max-inline-size: unset;
 
 ### Werte
 
-Die Eigenschaft `max-inline-size` übernimmt die gleichen Werte wie die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}}.
+Die Eigenschaft `max-inline-size` nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}}.
 
 ## Formale Definition
 
@@ -93,7 +91,7 @@ Die Eigenschaft `max-inline-size` übernimmt die gleichen Werte wie die Eigensch
 
 ## Beispiele
 
-### Maximale Inline-Größe in Pixeln festlegen
+### Einstellen der maximalen Inline-Größe in Pixeln
 
 #### HTML
 
@@ -126,5 +124,5 @@ Die Eigenschaft `max-inline-size` übernimmt die gleichen Werte wie die Eigensch
 
 ## Siehe auch
 
-- Die zugeordneten physischen Eigenschaften: {{cssxref("max-width")}} und {{cssxref("max-height")}}
+- Die gemappten physischen Eigenschaften: {{cssxref("max-width")}} und {{cssxref("max-height")}}
 - {{cssxref("writing-mode")}}

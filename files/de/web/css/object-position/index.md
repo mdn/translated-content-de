@@ -2,14 +2,12 @@
 title: object-position
 slug: Web/CSS/object-position
 l10n:
-  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`object-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Ausrichtung der Inhalte des ausgewählten {{Glossary("replaced_elements", "ersetzten Elements")}} innerhalb des Rahmens des Elements an. Bereiche des Rahmens, die nicht durch das Objekt des ersetzten Elements abgedeckt sind, zeigen den Hintergrund des Elements.
 
-Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten {{Glossary("replaced_elements", "ersetzten Elements")}} innerhalb des Rahmens des Elements fest. Bereiche des Rahmens, die nicht vom Objekt des ersetzten Elements abgedeckt sind, zeigen den Hintergrund des Elements.
-
-Sie können anpassen, wie die intrinsische Größe des Objekts des ersetzten Elements (d.h. seine natürliche Größe) innerhalb des Rahmens des Elements angepasst wird, indem Sie die {{cssxref("object-fit")}}-Eigenschaft verwenden.
+Sie können mit der {{cssxref("object-fit")}}-Eigenschaft anpassen, wie die intrinsische Größe des Objekts des ersetzten Elements (d.h. seine natürliche Größe) innerhalb des Rahmens des Elements angepasst wird.
 
 {{InteractiveExample("CSS Demo: object-position")}}
 
@@ -81,10 +79,10 @@ object-position: unset;
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Versätze können verwendet werden.
+  - : Von einem bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
 
 > [!NOTE]
-> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seines Rahmens gezeichnet wird.
+> Die Position kann so festgelegt werden, dass das ersetzte Element außerhalb seines Rahmens gezeichnet wird.
 
 ## Formale Definition
 
@@ -109,7 +107,7 @@ Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die jewe
 
 #### CSS
 
-Das CSS enthält Standardstildefinitionen für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
+Das CSS enthält Standardstilregeln für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
 
 ```css
 img {
@@ -130,7 +128,7 @@ img {
 }
 ```
 
-Das erste Bild ist mit seiner linken Kante 10 Pixel vom linken Rand des Rahmens des Elements eingestellt. Das zweite Bild ist mit seiner rechten Kante bündig gegen den rechten Rand des Rahmens des Elements eingestellt und befindet sich 10% von oben entlang der Höhe des Rahmens des Elements.
+Das erste Bild ist so positioniert, dass seine linke Kante 10 Pixel vom linken Rand des Rahmens des Elements inset ist. Das zweite Bild ist so positioniert, dass seine rechte Kante bündig mit dem rechten Rand des Rahmens des Elements ist und befindet sich 10 % der Höhe des Rahmens des Elements nach unten.
 
 #### Ergebnis
 

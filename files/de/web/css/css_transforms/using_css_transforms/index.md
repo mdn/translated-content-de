@@ -3,26 +3,24 @@ title: Verwendung von CSS-Transformationen
 short-title: Verwendung von Transformationen
 slug: Web/CSS/CSS_transforms/Using_CSS_transforms
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Durch die Modifikation des Koordinatenraums ändern **CSS-Transformationen** die Form und Position des betroffenen Inhalts, ohne den normalen Dokumentenfluss zu stören. Dieser Leitfaden bietet eine Einführung in die Verwendung von Transformationen.
 
-Durch die Modifizierung des Koordinatenraums ändern **CSS-Transformationen** die Form und Position des betroffenen Inhalts, ohne den normalen Dokumentenfluss zu stören. Dieser Leitfaden bietet eine Einführung in die Verwendung von Transformationen.
-
-CSS-Transformationen werden mit einer Reihe von CSS-Eigenschaften implementiert, die es ermöglichen, affine lineare Transformationen auf HTML-Elemente anzuwenden. Diese Transformationen umfassen Rotation, Schrägstellung, Skalierung und Translation sowohl in der Ebene als auch im 3D-Raum.
+CSS-Transformationen werden mit einem Satz von CSS-Eigenschaften implementiert, die es Ihnen ermöglichen, affine lineare Transformationen auf HTML-Elemente anzuwenden. Diese Transformationen umfassen Drehungen, Scherungen, Skalierungen und Verschiebungen sowohl in der Ebene als auch im dreidimensionalen Raum.
 
 > [!WARNING]
-> Nur transformierbare Elemente können `transform`iert werden; das heißt, alle Elemente, deren Layout durch das CSS-[Boxmodell](/de/docs/Web/CSS/CSS_box_model) geregelt wird, mit Ausnahme von: [nicht ersetzten Inline-Boxen](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#inline-level_and_block-level_boxes), [Tabellenspalten-Boxen](/de/docs/Web/HTML/Reference/Elements/col) und [Tabellenspalten-Gruppenboxen](/de/docs/Web/HTML/Reference/Elements/colgroup).
+> Nur transformierbare Elemente können `transform`iert werden; das sind alle Elemente, deren Layout vom CSS-[Box-Modell](/de/docs/Web/CSS/CSS_box_model) bestimmt wird, mit Ausnahme von: [nicht ersetzte Inline-Boxen](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#inline-level_and_block-level_boxes), [Tabellenspalten-Boxen](/de/docs/Web/HTML/Reference/Elements/col) und [Tabellenspalten-Gruppen-Boxen](/de/docs/Web/HTML/Reference/Elements/colgroup).
 
 ## CSS-Transformations-Eigenschaften
 
-Zwei wesentliche Eigenschaften werden zur Definition von CSS-Transformationen verwendet: {{cssxref("transform")}} (oder die einzelnen {{cssxref('translate')}}, {{cssxref('rotate')}} und {{cssxref('scale')}} Eigenschaften) und {{cssxref("transform-origin")}}.
+Zwei wichtige Eigenschaften werden zur Definition von CSS-Transformationen verwendet: {{cssxref("transform")}} (oder die einzelnen Eigenschaften {{cssxref('translate')}}, {{cssxref('rotate')}} und {{cssxref('scale')}}) und {{cssxref("transform-origin")}}.
 
 - {{cssxref("transform-origin")}}
-  - : Gibt die Position des Ursprungs an. Standardmäßig befindet er sich in der Mitte des Elements und kann verschoben werden. Er wird von mehreren Transformationen wie Rotationen, Skalierungen oder Schrägstellungen verwendet, die einen spezifischen Punkt als Parameter benötigen.
+  - : Bestimmt die Position des Ursprungs. Standardmäßig befindet er sich in der Mitte des Elements und kann verschoben werden. Er wird von mehreren Transformationen wie Drehungen, Skalierungen oder Scherungen verwendet, die einen bestimmten Punkt als Parameter benötigen.
 - {{cssxref("transform")}}
-  - : Gibt die Transformationen an, die auf das Element angewendet werden sollen. Es ist eine durch Leerzeichen getrennte Liste von Transformationen, die nacheinander angewendet werden, wie durch den Kompositionsvorgang erforderlich. Zusammengesetzte Transformationen werden effektiv in der Reihenfolge von rechts nach links angewendet.
+  - : Legt die Transformationen fest, die auf das Element angewendet werden sollen. Es handelt sich um eine durch Leerzeichen getrennte Liste von Transformationen, die nacheinander in der Reihenfolge angewendet werden, wie es die Kompositionsoperation erfordert. Zusammengesetzte Transformationen werden effektiv von rechts nach links angewendet.
 
 ## Beispiele
 
@@ -30,9 +28,9 @@ Hier ist ein unverändertes Bild des MDN-Logos:
 
 ![MDN Logo](logo.png)
 
-### Rotieren
+### Rotation
 
-Hier ist das MDN-Logo, um 90 Grad von seiner unteren linken Ecke aus gedreht.
+Hier ist das MDN-Logo um 90 Grad von seiner unteren linken Ecke aus gedreht.
 
 ```html
 <img src="logo.png" alt="MDN Logo" />
@@ -47,9 +45,9 @@ img {
 
 {{EmbedLiveSample('Rotating', 'auto', 240) }}
 
-### Schrägstellen und Übersetzen
+### Scherung und Verschiebung
 
-Hier ist das MDN-Logo um 10 Grad schräggestellt und um 150 Pixel auf der X-Achse verschoben.
+Hier ist das MDN-Logo, um 10 Grad geschert und um 150 Pixel auf der X-Achse verschoben.
 
 ```html
 <img src="logo.png" alt="MDN logo" />
@@ -66,19 +64,19 @@ img {
 
 ## 3D-spezifische CSS-Eigenschaften
 
-3D-Transformationen durchzuführen ist etwas komplexer. Sie müssen zunächst den 3D-Raum konfigurieren, indem Sie ihm eine Perspektive geben, dann müssen Sie konfigurieren, wie sich Ihre 2D-Elemente in diesem Raum verhalten.
+Die Durchführung von CSS-Transformationen im dreidimensionalen Raum ist etwas komplexer. Sie müssen zunächst den 3D-Raum durch die Angabe einer Perspektive konfigurieren und dann festlegen, wie sich Ihre 2D-Elemente in diesem Raum verhalten.
 
 ### Perspektive
 
-Das erste zu setzende Element ist die {{cssxref("perspective")}}. Die Perspektive ist das, was uns den 3D-Eindruck gibt. Je weiter die Elemente vom Betrachter entfernt sind, desto kleiner sind sie.
+Das erste Element, das festgelegt werden muss, ist die {{cssxref("perspective")}}. Die Perspektive vermittelt uns den 3D-Eindruck. Je weiter die Elemente vom Betrachter entfernt sind, desto kleiner erscheinen sie.
 
-#### Perspektive setzen
+#### Perspektive festlegen
 
-Dieses Beispiel zeigt einen Würfel mit der Perspektive auf unterschiedlichen Positionen. Wie schnell der Würfel schrumpft, wird durch die {{ cssxref("perspective") }}-Eigenschaft definiert. Je kleiner der Wert ist, desto tiefer ist die Perspektive.
+Dieses Beispiel zeigt einen Würfel mit der Perspektive an verschiedenen Positionen. Wie schnell der Würfel schrumpft, wird durch die {{ cssxref("perspective") }}-Eigenschaft definiert. Je kleiner der Wert, desto tiefer die Perspektive.
 
 ##### HTML
 
-Der folgende HTML-Code erstellt vier Kopien derselben Box, wobei die Perspektive auf verschiedene Werte gesetzt ist.
+Der folgende HTML-Code erstellt vier Kopien derselben Box mit der Perspektive auf unterschiedlichen Werten.
 
 ```html
 <table>
@@ -149,7 +147,7 @@ Der folgende HTML-Code erstellt vier Kopien derselben Box, wobei die Perspektive
 
 ##### CSS
 
-Das CSS definiert Klassen, die verwendet werden können, um die Perspektive auf unterschiedliche Distanzen zu setzen. Es umfasst auch Klassen für die Container-Box und den Würfel selbst sowie jede seiner Flächen.
+Das CSS erstellt Klassen, die verwendet werden können, um die Perspektive auf verschiedene Entfernungen einzustellen. Es enthält auch Klassen für die Containerbox und den Würfel selbst sowie für jede seiner Flächen.
 
 ```css
 /* Shorthand classes for different perspective values */
@@ -245,9 +243,9 @@ td {
 
 {{EmbedLiveSample('Setting_perspective', 660, 700)}}
 
-Das zweite zu konfigurierende Element ist die Position des Betrachters mit der {{ cssxref("perspective-origin") }}-Eigenschaft. Standardmäßig ist die Perspektive auf den Betrachter zentriert, was nicht immer angemessen ist.
+Das zweite Element, das konfiguriert werden muss, ist die Position des Betrachters mit der {{ cssxref("perspective-origin") }}-Eigenschaft. Standardmäßig ist die Perspektive auf den Betrachter zentriert, was nicht immer angemessen ist.
 
-#### Den Ursprung der Perspektive ändern
+#### Ändern des Perspektivenursprungs
 
 Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
 
@@ -537,12 +535,12 @@ section {
 
 {{EmbedLiveSample('Changing_the_perspective_origin', '100%', 700)}}
 
-Nachdem Sie dies getan haben, können Sie an dem Element im 3D-Raum arbeiten.
+Nachdem Sie dies getan haben, können Sie am Element im 3D-Raum arbeiten.
 
 ## Siehe auch
 
-- Die [CSS `transform`-Eigenschaft](/de/docs/Web/CSS/transform) und die [CSS `<transform-function>`-Datentypen](/de/docs/Web/CSS/transform-function)
+- Die [CSS `transform` Eigenschaft](/de/docs/Web/CSS/transform) und die [CSS `<transform-function>` Datentypen](/de/docs/Web/CSS/transform-function)
 - Die einzelnen Transformationseigenschaften: {{cssxref('translate')}}, {{cssxref('rotate')}} und {{cssxref('scale')}} (Es gibt keine `skew`-Eigenschaft)
-- [Verwendung der Geräteorientierung mit 3D-Transformationen](/de/docs/Web/API/Device_orientation_events/Using_device_orientation_with_3D_transforms)
-- [Einführung in CSS 3D-Transformationen](https://3dtransforms.desandro.com/) (Blogbeitrag von David DeSandro)
-- [CSS Transform-Spielplatz](https://css-transform.moro.es/) (Online-Tool zur Visualisierung von CSS-Transformationsfunktionen)
+- [Verwendung der Geräteausrichtung mit 3D-Transformationen](/de/docs/Web/API/Device_orientation_events/Using_device_orientation_with_3D_transforms)
+- [Einführung in CSS 3D-Transformationen](https://3dtransforms.desandro.com/) (Blog-Post von David DeSandro)
+- [CSS Transformations-Playground](https://css-transform.moro.es/) (Online-Tool zur Visualisierung von CSS-Transformationsfunktionen)

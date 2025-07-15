@@ -2,12 +2,10 @@
 title: Klassenselektoren
 slug: Web/CSS/Class_selectors
 l10n:
-  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** stimmt mit Elementen basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs überein.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs aus.
 
 ```css
 /* All elements with class="spacious" */
@@ -43,7 +41,7 @@ Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attrib
 }
 ```
 
-Der `class_name`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Identifikator](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifikatoren sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
@@ -103,7 +101,7 @@ that contain characters which must be escaped in CSS -->
 
 ### Ungültige Klassenselektoren
 
-Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
+Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifikatoren und werden ignoriert.
 
 ```css example-bad
 .item?one {
@@ -126,4 +124,4 @@ Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichne
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS Lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

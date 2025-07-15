@@ -2,12 +2,10 @@
 title: border-inline-style
 slug: Web/CSS/border-inline-style
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die **`border-inline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Inline-Grenzen eines Elements, der je nach Schreibmodus, Ausrichtung und Textorientierung des Elements einem physischen Rahmenstil zugeordnet wird. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}} abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
+Die **`border-inline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Inline-Ränder eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements zu einem physischen Randstil abgebildet wird. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}} abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{InteractiveExample("CSS Demo: border-inline-style")}}
 
@@ -47,7 +45,7 @@ direction: rtl;
 }
 ```
 
-Der Rahmenstil in der anderen Dimension kann mit {{cssxref("border-block-style")}} gesetzt werden, welches {{cssxref("border-block-start-style")}} und {{cssxref("border-block-end-style")}} festlegt.
+Der Randstil in der anderen Dimension kann mit {{cssxref("border-block-style")}} festgelegt werden, das {{cssxref("border-block-start-style")}} und {{cssxref("border-block-end-style")}} setzt.
 
 ## Syntax
 
@@ -68,7 +66,7 @@ border-inline-style: unset;
 ### Werte
 
 - `<'border-style'>`
-  - : Der Linienstil des Rahmens. Siehe {{ cssxref("border-style") }}.
+  - : Der Linienstil des Randes. Siehe {{ cssxref("border-style") }}.
 
 ## Formale Definition
 
@@ -80,7 +78,7 @@ border-inline-style: unset;
 
 ## Beispiele
 
-### border-inline-style festlegen
+### Festlegen von border-inline-style
 
 #### HTML
 
@@ -118,6 +116,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

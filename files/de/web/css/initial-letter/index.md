@@ -2,12 +2,10 @@
 title: initial-letter
 slug: Web/CSS/initial-letter
 l10n:
-  sourceCommit: 33cd63a518c57caded1b43ff9fff071230a2397a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Die CSS-Eigenschaft `initial-letter` legt die Größe und das Einsenken für fallende, gehobene und eingesunkene Anfangsbuchstaben fest. Diese Eigenschaft gilt für {{cssxref("::first-letter")}} Pseudo-Elemente und inline-level erste Kinder von Block-Containern.
+Die CSS-Eigenschaft `initial-letter` legt die Größe und das Einsinken für herabhängende, erhöhte und eingesenkte Anfangsbuchstaben fest. Diese Eigenschaft gilt für {{cssxref("::first-letter")}} Pseudo-Elemente und Inline-erste Kinder von Block-Containern.
 
 ## Syntax
 
@@ -38,9 +36,9 @@ Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem
 - `normal`
   - : Kein spezieller Effekt für den Anfangsbuchstaben. Der Text verhält sich normal.
 - `<number>`
-  - : Definiert die Größe des Anfangsbuchstabens in Bezug auf die Anzahl der Zeilen, die er einnimmt. Negative Werte sind nicht erlaubt.
+  - : Definiert die Größe des Anfangsbuchstabens in Bezug darauf, wie viele Zeilen er einnimmt. Negative Werte sind nicht erlaubt.
 - `<integer>`
-  - : Definiert die Anzahl der Zeilen, um die der Anfangsbuchstabe einsinken soll, wenn seine Größe angegeben wird. Die Werte müssen größer als null sein. Wird er weggelassen, wird der Wert der Größe verwendet, abgerundet auf die nächste positive ganze Zahl.
+  - : Definiert die Anzahl der Zeilen, die der Anfangsbuchstabe einsinken soll, wenn seine Größe gegeben ist. Werte müssen größer als Null sein. Wird der Wert weggelassen, wird er verdoppelt auf den nächstgelegenen positiven Ganzzahlwert abgerundet.
 
 ## Formale Definition
 
@@ -52,7 +50,7 @@ Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem
 
 ## Beispiele
 
-### Einstellen der Größe des Anfangsbuchstabens
+### Größe des Anfangsbuchstabens festlegen
 
 #### HTML
 
@@ -89,9 +87,9 @@ p {
 
 {{EmbedLiveSample('Setting_initial_letter_size', 250, 180)}}
 
-### Einstellen des Einsenkwerts
+### Einsinkwert festlegen
 
-In diesem Beispiel sind alle Anfangsbuchstaben gleich groß, aber mit unterschiedlichen Einsenkwerten.
+In diesem Beispiel haben alle Anfangsbuchstaben die gleiche Größe, aber unterschiedliche Einsinkwerte.
 
 #### HTML
 
@@ -146,4 +144,4 @@ p {
 
 - {{cssxref("::first-letter")}}
 - {{cssxref(":first-child")}}
-- [Drop caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/) via Oddbird (2017)
+- [Drop Caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/) über Oddbird (2017)

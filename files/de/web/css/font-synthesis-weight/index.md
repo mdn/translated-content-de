@@ -2,14 +2,12 @@
 title: font-synthesis-weight
 slug: Web/CSS/font-synthesis-weight
 l10n:
-  sourceCommit: 28368ab728eed206d9069f5ba5b889e990ff810c
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Ihnen festzulegen, ob der Browser den fetten Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
 
-Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser einen fetten Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
-
-Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schrifttypensynthese zu steuern.
+Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftschnitt-Synthese zu steuern.
 
 ## Syntax
 
@@ -29,7 +27,7 @@ font-synthesis-weight: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass der fehlende fette Schriftschnitt vom Browser bei Bedarf synthetisiert werden darf.
+  - : Gibt an, dass der fehlende fette Schriftschnitt bei Bedarf vom Browser synthetisiert werden darf.
 - `none`
   - : Gibt an, dass die Synthese des fehlenden fetten Schriftschnitts durch den Browser nicht erlaubt ist.
 
@@ -45,7 +43,7 @@ font-synthesis-weight: unset;
 
 ### Deaktivierung der Synthese des fetten Schriftschnitts
 
-Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Browser in der `Montserrat`-Schrift deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Browser in der `Montserrat` Schrift deaktiviert wird.
 
 #### HTML
 
@@ -76,7 +74,7 @@ Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Bro
 
 #### Ergebnis
 
-{{EmbedLiveSample('Deaktivierung der Synthese des fetten Schriftschnitts', '', '100')}}
+{{EmbedLiveSample('Disabling synthesis of bold typeface', '', '100')}}
 
 ## Spezifikationen
 

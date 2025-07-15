@@ -2,19 +2,17 @@
 title: view-timeline-name
 slug: Web/CSS/view-timeline-name
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die **`view-timeline-name`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um den Namen einer _benannten Ansichtsfortschritt-Timeline_ festzulegen, die basierend auf der Änderung der Sichtbarkeit eines Elements (bekannt als das _Subjekt_) innerhalb eines scrollbaren Elements (_Scroller_) fortschreitet. `view-timeline` wird am Subjekt gesetzt.
 
-Die **`view-timeline-name`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um den Namen einer _benannten Ansichtsfortschritts-Zeitachse_ zu definieren, welche durch die Veränderung der Sichtbarkeit eines Elements (bekannt als das _Subject_) innerhalb eines scrollbaren Elements (_Scroller_) fortschreitet. `view-timeline` wird auf das Subject gesetzt.
-
-Die Sichtbarkeit des Subjects innerhalb des Scrollers wird verfolgt — standardmäßig ist die Zeitachse bei 0%, wenn das Subject erstmals an einem Rand des Scrollers sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht. Der Name wird dann in einer [`animation-timeline`](/de/docs/Web/CSS/animation-timeline)-Deklaration referenziert, um anzugeben, welches Element animiert wird, wenn die Zeitachse voranschreitet. Dies kann das Subject-Element sein, muss es aber nicht — Sie können ein anderes Element animieren, während sich das Subject durch den Scrollbereich bewegt.
+Die Sichtbarkeit des Subjekts innerhalb des Scrollers wird überwacht — standardmäßig ist die Timeline bei 0%, wenn das Subjekt zum ersten Mal an einem Rand des Scrollers sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht. Der Name wird dann in einer [`animation-timeline`](/de/docs/Web/CSS/animation-timeline) Deklaration referenziert, um das Element anzugeben, das mit dem Fortschreiten der Timeline animiert wird. Dies kann das Subjektelement sein, muss es aber nicht — Sie können ein anderes Element animieren, während sich das Subjekt durch den Scrollbereich bewegt.
 
 > [!NOTE]
-> Wenn das Scroller-Element seinen Container in der Achsendimension nicht überläuft oder wenn der Überlauf versteckt oder geklippt ist, wird keine Fortschritts-Zeitachse erzeugt.
+> Wenn das Scroller-Element in der Achsendimension nicht über seinen Container hinausragt oder wenn der Überlauf ausgeblendet oder abgeschnitten ist, wird keine Scrollfortschritt-Timeline erstellt.
 
-Die `view-timeline-name`, {{cssxref("view-timeline-axis")}} und {{cssxref("view-timeline-inset")}} Eigenschaften können auch mit der {{cssxref("view-timeline")}} Kurzschreibweise gesetzt werden.
+Die Eigenschaften `view-timeline-name`, {{cssxref("view-timeline-axis")}} und {{cssxref("view-timeline-inset")}} können auch mit der Kurzschreibweise {{cssxref("view-timeline")}} festgelegt werden.
 
 ## Syntax
 
@@ -28,12 +26,12 @@ view-timeline-name: --custom_name_for_timeline;
 Erlaubte Werte für `view-timeline-name` sind:
 
 - `none`
-  - : Die Zeitachse hat keinen Namen.
+  - : Die Timeline hat keinen Namen.
 - `<dashed-ident>`
+  - : Ein beliebiger benutzerdefinierter Bezeichner, der einen Namen für eine Ansichtsfortschritt-Timeline definiert, der dann in einer [`animation-timeline`](/de/docs/Web/CSS/animation-timeline) Eigenschaft referenziert werden kann.
 
-  - : Ein beliebiger benutzerdefinierter Bezeichner, der einen Namen für eine Ansichtsfortschritts-Zeitachse definiert, die dann in einer [`animation-timeline`](/de/docs/Web/CSS/animation-timeline)-Eigenschaft referenziert werden kann.
-
-    > [!NOTE] > [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident)-Werte müssen mit `--` beginnen, um Namenskollisionen mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
+    > [!NOTE]
+    > [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident) Werte müssen mit `--` beginnen, um Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
 
 ## Formale Definition
 
@@ -45,13 +43,13 @@ Erlaubte Werte für `view-timeline-name` sind:
 
 ## Beispiele
 
-### Erstellen einer benannten Ansichtsfortschritts-Zeitachse
+### Erstellen einer benannten Ansichtsfortschritt-Timeline
 
-Eine Ansichtsfortschritts-Zeitachse namens `--subjectReveal` wird mithilfe der `view-timeline-name` Eigenschaft auf einem Subject-Element mit einer `class` von `animation` definiert. Diese wird dann als Zeitachse für dasselbe Element mit `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das Subject-Element animiert wird, während es beim Scrollen durch das Dokument nach oben bewegt wird.
+Eine Ansichtsfortschritt-Timeline namens `--subjectReveal` wird mit der `view-timeline-name` Eigenschaft an einem Subjektelement mit einer `class` von `animation` definiert. Diese wird dann als Timeline für dasselbe Element mit `animation-timeline: --subjectReveal;` eingestellt. Das Ergebnis ist, dass das Subjektelement animiert, während es beim Scrollen nach oben durch das Dokument bewegt wird.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten angezeigt.
+Der HTML-Code für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -90,7 +88,7 @@ Der HTML-Code für das Beispiel wird unten angezeigt.
 
 #### CSS
 
-Das `subject`-Element und sein enthaltendes `content`-Element werden minimal gestylt und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
+Das `subject`-Element und sein enthaltendes `content`-Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
 
 ```css
 .subject {
@@ -121,9 +119,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` erhält ebenfalls die Klasse `animation` — hier wird `view-timeline-name` gesetzt, um eine benannte Ansichtsfortschritts-Zeitachse zu definieren. Es wird auch ein `animation-timeline` Name mit demselben Wert angegeben, um zu deklarieren, dass dies das Element ist, das animiert wird, während die Ansichtsfortschritts-Zeitachse fortschreitet.
+Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline-name` festgelegt, um eine benannte Ansichtsfortschritt-Timeline zu definieren. Es wird auch ein `animation-timeline` Name mit demselben Wert angegeben, um zu erklären, dass dies das Element sein wird, das animiert wird, während die Ansichtsfortschritt-Timeline voranschreitet.
 
-Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Größe animiert, wodurch es beim Bewegen nach oben im Scroller verblasst und größer wird.
+Zuletzt wird eine Animation auf dem Element spezifiziert, die dessen Deckkraft und Skalierung animiert, was dazu führt, dass es beim Scrollen einblendet und größer wird.
 
 ```css
 .animation {
@@ -150,7 +148,7 @@ Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft un
 
 #### Ergebnis
 
-Scrollen Sie, um das animierte Subject-Element zu sehen.
+Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 
 {{EmbedLiveSample("Creating a named view progress timeline", "100%", "480px")}}
 
@@ -167,4 +165,4 @@ Scrollen Sie, um das animierte Subject-Element zu sehen.
 - {{cssxref("animation-timeline")}}
 - {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline")}}, {{cssxref("view-timeline-axis")}}, {{cssxref("view-timeline-inset")}}
-- [CSS Scroll-getriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations)

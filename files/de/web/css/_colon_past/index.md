@@ -2,12 +2,10 @@
 title: :past
 slug: Web/CSS/:past
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Der **`:past`** [CSS](/de/docs/Web/CSS)-[Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) ist eine zeitliche Pseudo-Klasse, die für jedes Element übereinstimmt, das vollständig vor einem Element erscheint, das {{cssxref(":current")}} entspricht. Zum Beispiel in einem Video mit Untertiteln, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
+Der **`:past`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die auf jedes Element zutrifft, das vollständig vor einem Element erscheint, das mit {{cssxref(":current")}} übereinstimmt. Zum Beispiel in einem Video mit Untertiteln, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
 
 ```css
 :past(p, span) {
