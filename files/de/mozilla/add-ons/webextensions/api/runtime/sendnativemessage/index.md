@@ -2,18 +2,18 @@
 title: runtime.sendNativeMessage()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/sendNativeMessage
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 Sendet eine einzelne Nachricht von einer Erweiterung an eine native Anwendung.
 
-Dies erfordert zwei obligatorische Parameter: den Namen der nativen Anwendung und ein JSON-Objekt, welches die Nachricht ist, die gesendet werden soll. Der Browser wird die native Anwendung starten und die Nachricht übermitteln.
+Diese Funktion erfordert zwei Pflichtparameter: den Namen der nativen Anwendung und ein JSON-Objekt, das die zu sendende Nachricht darstellt. Der Browser wird die native Anwendung starten und die Nachricht übermitteln.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Die erste Nachricht, die von der nativen Anwendung gesendet wird, wird als Antwort auf den Aufruf von `sendNativeMessage()` behandelt, und das Promise wird mit dieser Nachricht als Parameter erfüllt. Beachten Sie, dass Sie {{WebExtAPIRef("runtime.onMessage")}} nicht verwenden können, um Antworten von der Anwendung zu erhalten: Sie müssen stattdessen die Callback-Funktion verwenden.
 
-Eine neue Instanz der Anwendung wird für einen Aufruf von `runtime.sendNativeMessage()` gestartet. Der Browser wird die native Anwendung nach Erhalt einer Antwort beenden. Um eine native Anwendung zu beenden, schließt der Browser die Verbindung, gibt dem Prozess ein paar Sekunden, um ordnungsgemäß zu beenden, und beendet ihn dann, wenn er nicht beendet wurde.
+Für jeden Aufruf von `runtime.sendNativeMessage()` wird eine neue Instanz der Anwendung gestartet. Der Browser wird die native Anwendung beenden, nachdem eine Antwort empfangen wurde. Zum Beenden einer nativen Anwendung wird der Browser die Pipe schließen, dem Prozess ein paar Sekunden geben, um sich ordnungsgemäß zu beenden, und ihn dann zerstören, falls er noch nicht beendet wurde.
 
 Für weitere Informationen siehe [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
 
@@ -29,21 +29,17 @@ let sending = browser.runtime.sendNativeMessage(
 ### Parameter
 
 - `application`
-  - : `string`. Der Name der nativen Anwendung. Dies muss mit der "name"-Eigenschaft in der [manifest-Datei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
+  - : `string`. Der Name der nativen Anwendung. Dieser muss mit der Eigenschaft "name" in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
 - `message`
   - : `object`. Ein JSON-Objekt, das an die native Anwendung gesendet wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Absender eine Antwort gesendet hat, wird dies mit der Antwort als JSON-Objekt erfüllt. Andernfalls wird es ohne Argumente erfüllt. Wenn beim Verbinden mit der nativen Anwendung ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Absender eine Antwort gesendet hat, wird dieses mit der Antwort als JSON-Objekt erfüllt. Andernfalls wird es ohne Argumente erfüllt. Wenn ein Fehler beim Verbinden mit der nativen Anwendung auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Hier ist ein Hintergrund-Skript, das eine "ping"-Nachricht an die "ping_pong" App sendet und die Antwort protokolliert, wann immer der Benutzer auf die Browser-Aktion klickt:
+Hier ist ein Hintergrundskript, das eine "ping"-Nachricht an die "ping_pong"-App sendet und die Antwort protokolliert, wann immer der Benutzer auf die Browseraktion klickt:
 
 ```js
 function onResponse(response) {
@@ -66,8 +62,12 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendNativeMessage) API von Chromium. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendNativeMessage) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

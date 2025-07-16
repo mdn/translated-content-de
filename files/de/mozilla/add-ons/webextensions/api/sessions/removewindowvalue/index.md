@@ -2,7 +2,7 @@
 title: sessions.removeWindowValue()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/removeWindowValue
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -23,21 +23,17 @@ let removing = browser.sessions.removeWindowValue(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des Fensters, dessen Daten Sie entfernen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. ID des Fensters, dessen Daten Sie zu entfernen versuchen. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den speziellen Wert identifiziert, der entfernt werden soll. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setWindowValue")}} angegebenen Schlüssel übereinstimmen.
+  - : `string`. Schlüssel, der den bestimmten zu entfernenden Wert identifiziert. Dieser muss mit dem Schlüssel übereinstimmen, der zuvor in {{WebExtAPIRef("sessions.setWindowValue")}} angegeben wurde.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlägt (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
-Dieser Code fügt zwei Kontextmenüeinträge hinzu: einer speichert einen Wert, der mit dem aktuellen Fenster verknüpft ist, der andere entfernt ihn:
+Dieser Code fügt zwei Kontextmenüeinträge hinzu: Einer speichert einen Wert, der mit dem aktuellen Fenster verknüpft ist, der andere entfernt ihn:
 
 ```js
 async function setOnActiveWindow() {
@@ -72,3 +68,7 @@ browser.menus.onClicked.addListener((info) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

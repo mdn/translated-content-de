@@ -2,19 +2,19 @@
 title: extension.getViews()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/getViews
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Dies umfasst beispielsweise:
+Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung laufen. Dies umfasst zum Beispiel:
 
 - die Hintergrundseite, falls eine definiert ist
-- alle Pop-up-Seiten, falls definiert und geladen
+- alle Popup-Seiten, falls definiert und geladen
 - alle Optionsseiten, falls definiert und geladen
-- alle Browser-Tabs, die mit der Erweiterung verpackten Inhalt hosten
+- alle Browser-Tabs, die Inhalte enthalten, die mit der Erweiterung ausgeliefert werden
 
-In Firefox, wenn diese Methode von einer Seite aufgerufen wird, die Teil eines privaten Browsing-Fensters ist, wie ein Sidebar in einem privaten Fenster oder ein Pop-up, das von einem privaten Fenster aus geöffnet wurde, dann wird der Rückgabewert nicht die Hintergrundseite der Erweiterung enthalten.
+In Firefox, wenn diese Methode von einer Seite aufgerufen wird, die Teil eines privaten Browser-Fensters ist, wie beispielsweise eine Seitenleiste in einem privaten Fenster oder ein Popup, das von einem privaten Fenster aus geöffnet wurde, dann wird der Rückgabewert nicht die Hintergrundseite der Erweiterung enthalten.
 
 ## Syntax
 
@@ -29,17 +29,13 @@ let windows = browser.extension.getViews(
 - `fetchProperties` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `type` {{optional_inline}}
-      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}}, der den Typ der Ansicht angibt, die abgerufen werden soll. Falls weggelassen, gibt diese Funktion alle Ansichten zurück.
+      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}}, das den Typ der Ansicht angibt, der abgerufen werden soll. Wenn weggelassen, gibt diese Funktion alle Ansichten zurück.
     - `windowId` {{optional_inline}}
-      - : `integer`. Das Fenster, in dem die Suche eingeschränkt werden soll. Bei Weglassen gibt diese Funktion alle Ansichten zurück. In Firefox-Version 92 und früher werden Sidebar-Ansichten nicht abgeglichen und daher nicht zurückgegeben.
+      - : `integer`. Das Fenster, auf das die Suche beschränkt werden soll. Wenn weggelassen, gibt diese Funktion alle Ansichten zurück. In Firefox-Version 92 und früher werden Seitenleistenansichten nicht gefunden und daher nicht zurückgegeben.
 
 ### Rückgabewert
 
 `array` von `object`. Array von [Window](/de/docs/Web/API/Window)-Objekten.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -53,13 +49,13 @@ for (const extensionWindow of windows) {
 }
 ```
 
-Holen Sie sich nur Fenster in Browser-Tabs, die Inhalte hosten, die mit der Erweiterung verpackt sind:
+Holen Sie sich nur Fenster in Browser-Tabs, die Inhalte der Erweiterung enthalten:
 
 ```js
 const windows = browser.extension.getViews({ type: "tab" });
 ```
 
-Holen Sie sich nur Fenster in Pop-ups:
+Holen Sie sich nur Fenster in Popups:
 
 ```js
 const windows = browser.extension.getViews({ type: "popup" });
@@ -67,8 +63,12 @@ const windows = browser.extension.getViews({ type: "popup" });
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getViews)-API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getViews)-API von Chromium. Diese Dokumentation wird von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

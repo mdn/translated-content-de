@@ -2,12 +2,12 @@
 title: tabs.highlight()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/highlight
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Hebt (markiert) einen oder mehrere Tabs hervor. Tabs werden mit einer Fenster-ID und einem Bereich von Tab-Indizes angegeben.
+Hebt einen oder mehrere Tabs hervor (wählt sie aus). Tabs werden mithilfe einer Fenster-ID und einem Bereich von Tab-Indizes angegeben.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,33 +22,30 @@ let highlighting = browser.tabs.highlight(
 ### Parameter
 
 - `highlightInfo`
-
   - : `object`.
-
     - `windowId` {{optional_inline}}
       - : `integer`. ID des Fensters, das die Tabs enthält.
     - `populate` {{optional_inline}}
-
-      - : `boolean`. Standardmäßig `true`. Wenn auf `false` gesetzt, wird das {{WebExtAPIRef('windows.Window')}}-Objekt keine `tabs`-Eigenschaft haben, die eine Liste von {{WebExtAPIRef('tabs.Tab')}}-Objekten enthält, die die im Fenster geöffneten Tabs darstellen.
+      - : `boolean`. Standardwert ist `true`. Wenn auf `false` gesetzt, wird das {{WebExtAPIRef('windows.Window')}}-Objekt keine `tabs`-Eigenschaft haben, die eine Liste von {{WebExtAPIRef('tabs.Tab')}}-Objekten enthält, die die im Fenster geöffneten Tabs darstellen.
 
         > [!NOTE]
-        > Das Auffüllen des Fensters (das Standardverhalten) kann eine aufwändige Operation sein, wenn viele Tabs geöffnet sind. Für eine bessere Leistung wird empfohlen, `populate` manuell auf `false` zu setzen, wenn Sie keine Tab-Details benötigen.
+        > Das Befüllen des Fensters (das Standardverhalten) kann eine aufwändige Operation sein, wenn viele Tabs vorhanden sind. Für eine bessere Leistung wird empfohlen, `populate` manuell auf `false` zu setzen, wenn Sie keine Tab-Details benötigen.
 
     - `tabs`
-      - : `array` von Integer-Werten, die einen oder mehrere Tab-Indizes angeben, die hervorgehoben werden sollen. Zuvor hervorgehobene Tabs, die nicht in `tabs` enthalten sind, werden nicht länger hervorgehoben. Der erste Tab in `tabs` wird aktiv.
+      - : `array` von Ganzzahlen, die einen oder mehrere Tab-Indizes angeben, die hervorgehoben werden sollen. Zuvor hervorgehobene Tabs, die nicht in `tabs` enthalten sind, werden nicht mehr hervorgehoben. Der erste Tab in `tabs` wird aktiv.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('windows.Window')}}-Objekt erfüllt wird, das Details über das Fenster enthält, dessen Tabs hervorgehoben wurden. Falls das Fenster nicht gefunden werden kann oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('windows.Window')}}-Objekt erfüllt wird, das Details über das Fenster enthält, dessen Tabs hervorgehoben wurden. Wenn das Fenster nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-highlight) API. Diese Dokumentation wurde von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-highlight) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,7 +2,7 @@
 title: tabs.getAllInWindow()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/getAllInWindow
 l10n:
-  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -25,20 +25,20 @@ let getting = browser.tabs.getAllInWindow(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Standardmäßig das aktuelle Fenster.
+  - : `integer`. Standardmäßig ist dies das aktuelle Fenster.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('tabs.Tab')}} Objekten erfüllt wird, die Informationen über alle Tabs im Fenster enthalten. Wenn das Fenster nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, die Informationen über alle Tabs im Fenster enthalten. Wenn das Fenster nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getAllInWindow) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getAllInWindow) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,7 +2,7 @@
 title: find.removeHighlighting()
 slug: Mozilla/Add-ons/WebExtensions/API/find/removeHighlighting
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -23,12 +23,12 @@ Keine.
 
 Keine.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
 ```js
 browser.find.removeHighlighting();
 ```
+
+## Browser-Kompatibilität
+
+{{Compat}}

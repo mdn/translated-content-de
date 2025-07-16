@@ -2,27 +2,23 @@
 title: browserSettings.colorManagement
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/colorManagement
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbeinstellungen des Browsers abzufragen und einzustellen.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbmanagement-Funktionen des Browsers abzufragen und einzustellen.
 
-Standardmäßig wendet Firefox Farbmanagement auf markierte Medien an und verwendet für nicht markierte Medien sRGB als Standardeinstellung. Dieses Verhalten bedeutet, dass einige nicht markierte Medien, wie die in Animationen und Filmproduktionen verwendeten, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
+Standardmäßig wendet Firefox Farbmanagement auf markierte Medien an und setzt nicht markierte Medien auf sRGB. Dieses Verhalten bedeutet, dass einige nicht markierte Medien, wie sie in der Animation und Filmproduktion verwendet werden, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
 
-Das Objekt hat die folgenden Eigenschaften:
+Das Objekt hat folgende Eigenschaften:
 
 - `mode`
-  - : Ein String, der den Modus darstellt, der für das Farbmanagement verwendet wird. Gültige Werte sind `off`, `full` und `tagged_only`.
+  - : Ein String, der den Modus für das Farbmanagement repräsentiert. Gültige Werte sind `off`, `full` und `tagged_only`.
 - `useNativeSRGB`
-  - : Ein boolscher Wert, der angibt, ob das integrierte sRGB-Farbmanagement verwendet wird oder nicht.
+  - : Ein Boolean, der darstellt, ob das integrierte sRGB-Farbmanagement verwendet wird.
 - `useWebRenderCompositor`
-  - : Ein boolscher Wert, der angibt, ob der WebRender-Compositor verwendet wird oder nicht.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : Ein Boolean, der darstellt, ob der WebRender-Kompositor verwendet wird.
 
 ## Beispiele
 
@@ -38,7 +34,7 @@ browser.browserSettings.colorManagement.mode
   .then(logResult);
 ```
 
-Den nativen sRGB-Farbverwaltungsmodus abrufen:
+Den nativen sRGB-Farbmanagement-Modus abrufen:
 
 ```js
 function logResult(result) {
@@ -49,3 +45,7 @@ browser.browserSettings.colorManagement.useNativeSRGB.get({}).then(logResult);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

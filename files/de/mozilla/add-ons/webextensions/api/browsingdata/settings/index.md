@@ -2,16 +2,16 @@
 title: browsingData.settings()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/settings
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Browser verfügen über eine integrierte Funktion "Verlauf löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Dieses hat eine Benutzeroberfläche, die es dem Benutzer ermöglicht, auszuwählen, welche Art von Daten entfernt werden sollen (z. B. Verlauf, Downloads, …) und wie weit in die Vergangenheit die Daten entfernt werden sollen.
+Browser haben eine integrierte Funktion "Verlauf löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Diese Funktion hat eine Benutzeroberfläche, die es dem Benutzer ermöglicht, auszuwählen, welche Art von Daten entfernt werden soll (z. B. Verlauf, Downloads, …) und wie weit in die Vergangenheit Daten entfernt werden sollen.
 
 Diese Funktion gibt den aktuellen Wert dieser Einstellungen zurück.
 
-Beachten Sie, dass nicht alle Datentypen immer über die Benutzeroberfläche entfernt werden können und einige UI-Optionen möglicherweise auf mehr als einen Datentyp abzielen.
+Beachten Sie, dass nicht alle Datentypen immer über die Benutzeroberfläche entfernbar sind und einige UI-Optionen möglicherweise auf mehr als einen Datentyp abbilden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,20 +27,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das bei Erfüllung ein Objekt mit den Einstellungsinformationen enthält. Dieses Objekt hat drei Eigenschaften:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die Einstellungsinformationen enthält. Dieses Objekt hat drei Eigenschaften:
 
 - `options`
   - : {{WebExtAPIRef("browsingData.RemovalOptions")}}. Ein `RemovalOptions`-Objekt, das die aktuell ausgewählten Entfernungsoptionen beschreibt.
 - `dataToRemove`
-  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn dieser Typ zur Entfernung ausgewählt ist, und andernfalls `false`.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft wird `true` als Wert haben, wenn dieser Typ zur Entfernung ausgewählt wurde, und `false` andernfalls.
 - `dataRemovalPermitted`
-  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und andernfalls `false`.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede wird `true` als Wert haben, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und `false` andernfalls.
 
-Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung zurückgewiesen.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -62,35 +58,39 @@ browser.browsingData.settings().then(onGotSettings, onError);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
 
 <!--
-// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weitergabe und Nutzung in Quell- und Binärformen, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen erlaubt:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weitergaben von Quellcode müssen das obige Urheberrecht
-// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// beibehalten.
-//    * Weitergaben in binärer Form müssen das obige Urheberrecht
-// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien enthalten, die mit der
-// Verteilung geliefert werden.
-//    * Weder der Name von Google Inc. noch die Namen der
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software
-// abgeleitet wurden, ohne spezifische vorherige schriftliche Erlaubnis zu unterstützen oder zu bewerben.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN BEREITGESTELLT
-// "WIE BESEHEN" UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR
-// EINEN BESTIMMTEN ZWECK SIND AUSGESCHLOSSEN. IN KEINEM FALL HAFTEN DIE COPYRIGHT-INHABER ODER
-// MITWIRKENDEN FÜR JEGLICHE DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, BEISPIELHAFTE ODER FOLGESCHÄDEN
-// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZGÜTERN ODER
-// DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER GEWINNVERLUST; ODER
-// GESCHÄFTSUNTERBRECHUNG) WIE UCHIMMER VERURSACHT UND UNABHÄNGIG VON DER HAFTUNGSTHEORIE, OB IN VERTRAG,
-// STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG)
-// AUS DER NUTZUNG DIESER SOFTWARE ENTSTANDEN, SELBST WENN DIE MÖGLICHKEIT SOLCHER SCHÄDEN
-// BEKANNT WAR.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

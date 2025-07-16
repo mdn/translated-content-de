@@ -2,14 +2,14 @@
 title: sessions.getWindowValue()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/getWindowValue
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ruft einen zuvor gespeicherten Wert durch einen Aufruf von {{WebExtAPIRef("sessions.setWindowValue")}} ab.
+Ruft einen Wert ab, der zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setWindowValue")}} gespeichert wurde.
 
-Sie können einen Wert von einem Fenster sogar über einen Schließ-/Wiederherstellungszyklus hinweg abrufen: Das bedeutet, dass wenn Sie einen Wert festlegen, der Benutzer das Fenster schließt und dann das Fenster mit der "Fenster wiederherstellen"-Funktion des Browsers wiederherstellt (zum Beispiel durch Drücken von Strg+Umschalt+N), Sie den Wert vom wiederhergestellten Fenster abrufen können. Beachten Sie jedoch, dass ein wiederhergestelltes Fenster nicht die gleiche ID wie das ursprüngliche erhält, sodass die ID, die Sie in `getWindowValue()` übergeben, sich von der ID unterscheiden wird, die Sie in `setWindowValue()` übergeben haben, obwohl sie sich beide auf dasselbe Fenster beziehen.
+Sie können einen Wert von einem Fenster selbst über einen Schließen-/Wiederherstellungszyklus abrufen. Das bedeutet, wenn Sie einen Wert setzen und der Benutzer das Fenster schließt und dann das Fenster mit der "Fenster wiederherstellen"-Funktion des Browsers (zum Beispiel durch Drücken von Control+Shift+N) wiederherstellt, können Sie den Wert aus dem wiederhergestellten Fenster abrufen. Beachten Sie jedoch, dass ein wiederhergestelltes Fenster nicht die gleiche ID wie das Original erhält, sodass sich die ID, die Sie an `getWindowValue()` übergeben, von der ID unterscheidet, die Sie an `setWindowValue()` übergeben haben, auch wenn beide auf dasselbe Fenster verweisen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,17 +25,13 @@ let retrieving = browser.sessions.getWindowValue(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des Fensters, dessen Daten Sie abrufen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. ID des Fensters, dessen Daten Sie abzurufen versuchen. Ein Fehler wird ausgegeben, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel zur Identifizierung des abzurufenden Wertes. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setWindowValue")}} verwendeten Schlüssel übereinstimmen.
+  - : `string`. Schlüssel, der den abzurufenden bestimmten Wert identifiziert. Dieser muss mit dem Schlüssel übereinstimmen, der zuvor in {{WebExtAPIRef("sessions.setWindowValue")}} angegeben wurde.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, wenn er existiert, oder `undefined`, wenn er nicht existiert. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit dem Wert aufgelöst wird, wenn er existiert, oder `undefined`, wenn er nicht existiert. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -58,3 +54,7 @@ browser.windows.onCreated.addListener((window) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

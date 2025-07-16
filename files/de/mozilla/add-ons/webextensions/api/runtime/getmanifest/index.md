@@ -2,12 +2,12 @@
 title: runtime.getManifest()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getManifest
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Erhalten Sie die komplette [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei, deserialisiert von JSON zu einem Objekt.
+Erhalten Sie die vollständige [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei, von JSON in ein Objekt deserialisiert.
 
 ## Syntax
 
@@ -23,10 +23,6 @@ Keine.
 
 Ein `object`, das das Manifest darstellt.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
 Holen Sie sich das Manifest und protokollieren Sie die "name"-Eigenschaft:
@@ -37,6 +33,10 @@ console.log(manifest.name);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getManifest)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.

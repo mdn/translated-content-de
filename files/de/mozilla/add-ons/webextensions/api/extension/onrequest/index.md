@@ -2,15 +2,15 @@
 title: extension.onRequest
 slug: Mozilla/Add-ons/WebExtensions/API/extension/onRequest
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 > [!WARNING]
-> Dies ist in Firefox nicht implementiert, da es seit Chrome 33 veraltet ist. Bitte nutzen Sie stattdessen [runtime.onMessage](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage).
+> Dies ist in Firefox nicht implementiert, da es seit Chrome 33 veraltet ist. Bitte verwenden Sie stattdessen [runtime.onMessage](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage).
 
-Wird ausgelöst, wenn eine Anfrage entweder von einem Erweiterungsprozess oder einem Inhaltsskript gesendet wird.
+Wird ausgelöst, wenn eine Anfrage entweder von einem Erweiterungsprozess oder von einem Content-Skript gesendet wird.
 
 ## Syntax
 
@@ -24,36 +24,36 @@ chrome.extension.onRequest.removeListener(listener)
 chrome.extension.onRequest.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die aufgerufene Funktion, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält folgende Argumente:
     - `request`
       - : `any`. Die vom aufrufenden Skript gesendete Anfrage.
     - `sender`
       - : {{WebExtAPIRef('runtime.MessageSender')}}.
     - `sendResponse`
-      - : `function`. Funktion, die (höchstens einmal) aufgerufen wird, wenn Sie eine Antwort haben. Das Argument sollte ein beliebiges JSON-fähiges Objekt sein oder undefined, wenn keine Antwort erforderlich ist. Wenn Sie mehr als einen `onRequest`-Listener im selben Dokument haben, darf nur einer eine Antwort senden.
+      - : `function`. Funktion, die (höchstens einmal) aufgerufen wird, wenn Sie eine Antwort haben. Das Argument sollte ein JSON-kompatibles Objekt sein oder undefined, wenn keine Antwort vorliegt. Wenn Sie mehr als einen `onRequest`-Listener im selben Dokument haben, darf nur einer eine Antwort senden.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequest)-API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequest) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -83,4 +83,4 @@ Ereignisse haben drei Funktionen:
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->‍
+-->

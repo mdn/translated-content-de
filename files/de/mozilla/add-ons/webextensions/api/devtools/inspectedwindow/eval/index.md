@@ -2,35 +2,35 @@
 title: devtools.inspectedWindow.eval()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/eval
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Führt JavaScript in dem Fenster aus, an das die Devtools angehängt sind.
+Führt JavaScript im Fenster aus, an das die Entwicklerwerkzeuge angehängt sind.
 
-Das ist ähnlich wie die Verwendung von {{WebExtAPIRef("tabs.executeScript()")}}, um ein Inhaltsskript anzuhängen, hat aber zwei Hauptunterschiede:
+Dies ähnelt der Verwendung von {{WebExtAPIRef("tabs.executeScript()")}}, um ein Inhalts-Skript anzuhängen, jedoch mit zwei Hauptunterschieden:
 
-Erstens kann das JavaScript eine Reihe von [speziellen Befehlen verwenden, die Browser normalerweise in ihrer Devtools-Konsolenimplementierung bereitstellen](#helfer): Zum Beispiel die Verwendung von "$0", um auf das im Inspektor aktuell ausgewählte Element zu verweisen.
+Erstens kann das JavaScript eine Reihe von [speziellen Befehlen verwenden, die Browser normalerweise in ihrer Entwicklerwerkzeug-Konsole bereitstellen](#helfer): zum Beispiel die Verwendung von "$0", um sich auf das Element zu beziehen, das derzeit im Inspektor ausgewählt ist.
 
-Zweitens kann das ausgeführte JavaScript alle Änderungen sehen, die durch Skripte, die die Seite geladen hat, vorgenommen wurden. Dies steht im Gegensatz zu Inhaltsskripten, die die Seite [sehen, wie sie existieren würde, wenn keine Seitenskripte geladen wären](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access). Beachten Sie jedoch, dass die Isolation, die durch Inhaltsskripte bereitgestellt wird, ein bewusstes Sicherheitsmerkmal ist, das dazu bestimmt ist, es böswilligen oder unkooperativen Webseiten zu erschweren, WebExtensions-APIs durch Neudefinition von DOM-Funktionen und -Eigenschaften zu verwirren oder zu untergraben. Das bedeutet, dass Sie sehr vorsichtig sein müssen, wenn Sie diesen Schutz durch die Verwendung von `eval()` aufheben, und dass Sie Inhaltsskripte verwenden sollten, es sei denn, Sie müssen `eval()` verwenden.
+Zweitens kann das von Ihnen ausgeführte JavaScript alle Änderungen sehen, die auf der Seite von Skripten vorgenommen werden, die auf der Seite geladen werden. Dies steht im Gegensatz zu Inhalts-Skripten, die die Seite [sehen, wie sie existieren würde, wenn keine Seiten-Skripte geladen wären](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access). Beachten Sie jedoch, dass die Isolation, die durch Inhalts-Skripte geboten wird, eine geplante Sicherheitsfunktion ist, die es schwieriger machen soll, dass bösartige oder unkooperative Webseiten die WebExtensions-APIs durch Umdefinieren von DOM-Funktionen und -Eigenschaften verwirren oder unterlaufen. Dies bedeutet, dass Sie sehr vorsichtig sein müssen, wenn Sie diesen Schutz durch die Verwendung von `eval()` aufheben, und Sie sollten Inhalts-Skripte verwenden, es sei denn, Sie müssen `eval()` verwenden.
 
-Das Skript wird standardmäßig im Hauptframe der Seite ausgewertet. Das Skript muss zu einem Wert ausgewertet werden, der als JSON dargestellt werden kann (was bedeutet, dass es z.B. nicht zu einer Funktion oder einem Objekt ausgewertet werden darf, das Funktionen enthält). Standardmäßig sieht das Skript keine Inhaltsskripte, die an die Seite angehängt sind.
+Das Skript wird standardmäßig im Hauptframe der Seite ausgewertet. Das Skript muss zu einem Wert ausgewertet werden, der als JSON dargestellt werden kann (was bedeutet, dass es beispielsweise nicht zu einer Funktion oder einem Objekt ausgewertet werden darf, das Funktionen enthält). Standardmäßig sieht das Skript keine Inhalts-Skripte, die der Seite angehängt sind.
 
 Sie können `eval()` nicht auf privilegierten Browserfenstern wie "about:addons" aufrufen.
 
-Sie können optional einen `options`-Parameter angeben, der Optionen beinhaltet, um das Skript in einem anderen Frame oder im Kontext von angehängten Inhaltsskripten auszuwerten. Beachten Sie, dass Firefox den `options`-Parameter derzeit noch nicht unterstützt.
+Sie können optional einen `options`-Parameter bereitstellen, der Optionen zum Auswerten des Skripts in einem anderen Frame oder im Kontext angehängter Inhalts-Skripte umfasst. Beachten Sie, dass Firefox den `options`-Parameter noch nicht unterstützt.
 
 Die Funktion `eval()` gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das auf das ausgewertete Ergebnis des Skripts oder auf einen Fehler aufgelöst wird.
 
 ## Helfer
 
-Das Skript erhält Zugriff auf eine Reihe von Objekten, die dem eingespritzten Skript dabei helfen, mit den Entwicklertools zu interagieren. Die folgenden Helfer werden derzeit unterstützt:
+Das Skript erhält Zugriff auf eine Anzahl von Objekten, die dem injizierten Skript helfen, mit den Entwicklerwerkzeugen zu interagieren. Die folgenden Helfer werden derzeit unterstützt:
 
 - `$0`
-  - : Enthält eine Referenz auf das momentan im DevTools-Inspektor ausgewählte Element.
+  - : Enthält eine Referenz auf das Element, das im Entwicklerwerkzeug-Inspektor derzeit ausgewählt ist.
 - `inspect()`
-  - : Gibt bei einem Objekt, wenn es sich um ein DOM-Element auf der Seite handelt, dieses im DevTools-Inspektor an, andernfalls wird eine Objektvorschau in der Konsole erstellt.
+  - : Wenn ein Objekt übergeben wird, das ein DOM-Element auf der Seite ist, wird es im Entwicklerwerkzeug-Inspektor ausgewählt, andernfalls wird eine Objektvorschau in der Konsole erstellt.
 
 [Siehe einige Beispiele.](#beispiele)
 
@@ -46,40 +46,35 @@ let evaluating = browser.devtools.inspectedWindow.eval(
 ### Parameter
 
 - `expression`
-  - : `String`. Der JavaScript-Ausdruck, der ausgewertet werden soll. Die Zeichenkette muss sich zu einem Objekt auswerten, das als JSON dargestellt werden kann, sonst wird eine Ausnahme ausgelöst. Beispielsweise darf sich `expression` nicht zu einer Funktion auswerten.
+  - : `string`. Der JavaScript-Ausdruck, der ausgewertet werden soll. Der String muss zu einem Objekt ausgewertet werden, das als JSON dargestellt werden kann, sonst wird eine Ausnahme ausgelöst. Zum Beispiel darf `expression` nicht zu einer Funktion ausgewertet werden.
 - `options` {{optional_inline}}
-  - : `Object`. Optionen für die Funktion (beachten Sie, dass Firefox diese Optionen noch nicht unterstützt), wie folgt:
+  - : `object`. Optionen für die Funktion (Beachten Sie, dass Firefox diese Optionen noch nicht unterstützt), wie folgt:
     - `frameURL` {{optional_inline}}
-      - : `String`. Die URL des Frames, in dem der Ausdruck ausgewertet werden soll. Wenn dieses weggelassen wird, wird der Ausdruck im Hauptframe des Fensters ausgewertet.
+      - : `string`. Die URL des Frames, in dem der Ausdruck ausgewertet werden soll. Wenn dies weggelassen wird, wird der Ausdruck im Hauptframe des Fensters ausgewertet.
     - `useContentScriptContext` {{optional_inline}}
-      - : `Boolean`. Wenn `true`, wird der Ausdruck im Kontext von Inhaltsskripten ausgewertet, die diese Erweiterung an die Seite angehängt hat. Wenn Sie diese Option setzen, müssen tatsächlich einige Inhaltsskripte an die Seite angehängt worden sein, sonst wird ein DevTools-Fehler ausgelöst.
+      - : `boolean`. Wenn `true`, wird der Ausdruck im Kontext aller Inhalts-Skripte ausgewertet, die diese Erweiterung an die Seite angehängt hat. Wenn Sie diese Option setzen, müssen Sie tatsächlich einige Inhalts-Skripte an die Seite angehängt haben, sonst wird ein DevTools-Fehler ausgelöst.
     - `contextSecurityOrigin` {{optional_inline}}
-      - : `String`. Der Ausdruck wird im Kontext eines Inhaltsskripts ausgewertet, das von einer anderen Erweiterung angehängt wurde und dessen Ursprung mit dem hier angegebenen Wert übereinstimmt. Dies überschreibt `useContentScriptContext`.
+      - : `string`. Bewertet den Ausdruck im Kontext eines Inhalts-Skripts, das von einer anderen Erweiterung angehängt wurde, deren Herkunft mit dem hier angegebenen Wert übereinstimmt. Dies überschreibt `useContentScriptContext`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` erfüllt wird, das zwei Elemente enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array`, das zwei Elemente enthält, erfüllt wird.
 
-Wenn kein Fehler aufgetreten ist, wird Element 0 das Ergebnis der Auswertung des Ausdrucks enthalten und Element 1 wird `undefined` sein.
+Wenn kein Fehler auftritt, enthält Element 0 das Ergebnis der Auswertung des Ausdrucks und Element 1 wird `undefined` sein.
 
-Wenn ein Fehler aufgetreten ist, wird Element 0 `undefined` sein, und Element 1 wird ein Objekt enthalten, das Details über den Fehler gibt. Zwei verschiedene Fehlerarten werden unterschieden:
+Wenn ein Fehler auftritt, wird Element 0 `undefined` sein und Element 1 enthält ein Objekt mit Details zum Fehler. Zwei verschiedene Arten von Fehlern werden unterschieden:
 
-- Fehler, die bei der Auswertung des JavaScripts aufgetreten sind (z.B. Syntaxfehler im Ausdruck). In diesem Fall wird Element 1 folgendes enthalten:
-
+- Fehler bei der Auswertung des JavaScripts (zum Beispiel Syntaxfehler im Ausdruck). In diesem Fall enthält Element 1:
   - eine boolesche Eigenschaft `isException`, die auf `true` gesetzt ist
-  - eine String-Eigenschaft `value`, die weitere Details angibt.
+  - eine string-Eigenschaft `value`, die weitere Details liefert.
 
-- andere Fehler (z.B. ein Ausdruck, der zu einem Objekt ausgewertet wird, das nicht als JSON dargestellt werden kann). In diesem Fall wird Element 1 folgendes enthalten:
+- andere Fehler (zum Beispiel ein Ausdruck, der zu einem Objekt ausgewertet wird, das nicht als JSON dargestellt werden kann). In diesem Fall enthält Element 1:
   - eine boolesche Eigenschaft `isError`, die auf `true` gesetzt ist
-  - eine String-Eigenschaft `code`, die einen Fehlercode enthält.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - eine string-Eigenschaft `code`, die einen Fehlercode enthält.
 
 ## Beispiele
 
-Dieses Beispiel testet, ob jQuery im inspizierten Fenster definiert ist, und protokolliert das Ergebnis. Beachten Sie, dass dies in einem Inhaltsskript nicht funktionieren würde, da das Inhaltsskript jQuery nicht sehen würde, selbst wenn es definiert wäre.
+Dies testet, ob jQuery im inspizierten Fenster definiert ist, und protokolliert das Ergebnis. Beachten Sie, dass dies in einem Inhalts-Skript nicht funktionieren würde, da selbst wenn jQuery definiert wäre, das Inhalts-Skript es nicht sehen würde.
 
 ```js
 function handleError(error) {
@@ -106,9 +101,9 @@ evalButton.addEventListener("click", () => {
 });
 ```
 
-### Beispiele für Helfer
+### Helfer-Beispiele
 
-Dieses Beispiel verwendet den `$0`-Helfer, um die Hintergrundfarbe des Elements festzulegen, das momentan im Inspektor ausgewählt ist:
+Dies verwendet den `$0`-Helfer, um die Hintergrundfarbe des Elements festzulegen, das derzeit im Inspektor ausgewählt ist:
 
 ```js
 const evalButton = document.querySelector("#reddinate");
@@ -133,7 +128,7 @@ evalButton.addEventListener("click", () => {
 });
 ```
 
-Dieses Beispiel verwendet den `inspect()`-Helfer, um das erste \<h1>-Element auf der Seite auszuwählen:
+Dies verwendet den `inspect()`-Helfer, um das erste \<h1>-Element auf der Seite auszuwählen:
 
 ```js
 const inspectButton = document.querySelector("#inspect");
@@ -160,38 +155,39 @@ inspectButton.addEventListener("click", () => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) API.
+> Diese API basiert auf der [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) API von Chromium.
 
 <!--
-// Urheberrecht 2015 Die Chromium-Autoren. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Nutzung in Quell- und Binärformen, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen erlaubt:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen von Quellcode müssen das obige Urheberrecht
-// Hinweismeldung, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss enthalten.
-//    * Weiterverteilungen in binärer Form müssen das obige
-// Urheberrecht Hinweismeldung, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien enthalten,
-// die mit der Verteilung geliefert werden.
-//    * Weder der Name Google Inc. noch die Namen seiner
-// Beitragenden dürfen verwendet werden, um Produkte, die von
-// dieser Software abgeleitet sind, zu unterstützen oder zu bewerben, ohne
-// spezifische vorherige schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEDER AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
-// GARANTIE, EINSCHLIESSLICH ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN
-// GARANTIEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK,
-// WIRD ABGELEHNT. IN KEINEM FALL SOLL DER RECHTSINHABER ODER DIE
-// BEITRAGENDEN FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE
-// ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF BESCHAFFUNG
-// VON ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST
-// ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNGEN) HAFTBAR GEMACHT WERDEN
-// AUF JEDER THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER
-// HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF
-// IRGENDEINE WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTANDEN SIND, SELBST
-// WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

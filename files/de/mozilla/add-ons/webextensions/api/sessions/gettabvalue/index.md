@@ -2,14 +2,14 @@
 title: sessions.getTabValue()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/getTabValue
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ruft einen zuvor gespeicherten Wert durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} ab.
+Ruft einen zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} gespeicherten Wert ab.
 
-Sie können einen Wert von einem Tab abrufen, auch nach einem Schließen/Wiederherstellen-Zyklus: Das bedeutet, wenn Sie einen Wert setzen und der Benutzer dann den Tab schließt und mithilfe der Browserfunktion "Tab wiederherstellen" (zum Beispiel durch Drücken von Strg+Umschalt+T) den Tab wiederherstellt, können Sie den Wert vom wiederhergestellten Tab abrufen. Beachten Sie jedoch, dass ein wiederhergestellter Tab nicht die gleiche ID wie das Original erhält, sodass die ID, die Sie in `getTabValue()` übergeben, sich von der ID unterscheidet, die Sie in `setTabValue()` übergeben haben, obwohl sie sich auf denselben Tab beziehen.
+Sie können einen Wert aus einem Tab auch über einen Schließen/Wiederherstellen-Zyklus hinweg abrufen: Das bedeutet, wenn Sie einen Wert setzen, der Benutzer den Tab schließt und dann über die "Tab wiederherstellen"-Funktion des Browsers (beispielsweise durch Drücken von Strg+Umschalt+T) wiederherstellt, können Sie den Wert aus dem wiederhergestellten Tab abrufen. Beachten Sie jedoch, dass ein wiederhergestellter Tab nicht dieselbe ID wie das Original erhält, sodass die ID, die Sie an `getTabValue()` übergeben, sich von der ID unterscheidet, die Sie an `setTabValue()` übergeben haben, obwohl beide sich auf dasselbe Tab beziehen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,21 +25,17 @@ let retrieving = browser.sessions.getTabValue(
 ### Parameter
 
 - `tabId`
-  - : `integer`. ID des Tabs, dessen Daten Sie abrufen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. Die ID des Tabs, dessen Daten Sie abrufen möchten. Ein Fehler wird ausgegeben, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den bestimmten abzurufenden Wert identifiziert. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
+  - : `string`. Der Schlüssel, der den bestimmten abzurufenden Wert identifiziert. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, falls er existiert, oder `undefined`, falls er nicht existiert. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, falls er existiert, oder `undefined`, falls er nicht existiert. Falls der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Protokollieren Sie den Wert von "my-key" für alle neu erstellten Tabs (dazu gehören auch alle Tabs, die wiederhergestellt wurden):
+Protokollieren Sie den Wert von "my-key" für alle neu erstellten Tabs (dies umfasst alle Tabs, die wiederhergestellt wurden):
 
 ```js
 function onGetResolved(r) {
@@ -58,3 +54,7 @@ browser.tabs.onCreated.addListener((tab) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

@@ -2,25 +2,25 @@
 title: menus.ACTION_MENU_TOP_LEVEL_LIMIT
 slug: Mozilla/Add-ons/WebExtensions/API/menus/ACTION_MENU_TOP_LEVEL_LIMIT
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von Erweiterungselementen auf oberster Ebene, die zu einem Menüelement hinzugefügt werden können, dessen {{WebExtAPIRef("contextMenus.ContextType", "ContextType")}} entweder "browser_action" oder "page_action" ist. Alle Elemente, die über diese Grenze hinausgehen, werden ignoriert.
+Die maximale Anzahl von obersten Erweiterungselementen, die zu einem Menüelement hinzugefügt werden können, dessen {{WebExtAPIRef("contextMenus.ContextType", "ContextType")}} "browser_action" oder "page_action" ist. Alle Elemente über diesem Limit hinaus werden ignoriert.
 
 Der Wert beträgt `6` in Firefox und Chrome.
 
-Für die Kompatibilität mit anderen Browsern stellt Firefox diese Eigenschaft sowohl im `contextMenus`-Namespace als auch im `menus`-Namespace zur Verfügung.
+Zur Kompatibilität mit anderen Browsern stellt Firefox diese Eigenschaft sowohl über den `contextMenus`-Namensraum als auch den `menus`-Namensraum zur Verfügung.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#property-ACTION_MENU_TOP_LEVEL_LIMIT) API von Chromium. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#property-ACTION_MENU_TOP_LEVEL_LIMIT) API. Diese Dokumentation leitet sich von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

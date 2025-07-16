@@ -2,30 +2,30 @@
 title: browserAction
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Lesen und Ändern von Attributen sowie Reagieren auf Klicks auf die Schaltfläche in der Browser-Symbolleiste, die mit dem Manifest-Key [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) definiert ist.
+Lesen und Ändern von Attributen sowie Reagieren auf Klicks auf die Browser-Symbolleistenschaltfläche, die mit dem [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) Manifest-Schlüssel definiert ist.
 
-Eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) ist eine Schaltfläche in der Symbolleiste des Browsers.
+Eine [Browseraktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) ist eine Schaltfläche in der Browser-Symbolleiste.
 
-Sie können ein Popup mit der Schaltfläche verknüpfen. Wie bei einer Webseite wird das Popup mithilfe von HTML, CSS und JavaScript spezifiziert. JavaScript, das im Popup ausgeführt wird, hat Zugriff auf die gleichen WebExtension-APIs wie Ihre Hintergrundskripte, jedoch ist der globale Kontext das Popup und nicht die aktuell im Browser angezeigte Seite. Um Webseiten zu beeinflussen, müssen Sie über [Nachrichten](/de/docs/Mozilla/Add-ons/WebExtensions/Modify_a_web_page#messaging) mit ihnen kommunizieren.
+Sie können ein Popup mit der Schaltfläche verknüpfen. Wie eine Webseite wird das Popup mit HTML, CSS und JavaScript spezifiziert. JavaScript, das im Popup ausgeführt wird, hat Zugriff auf dieselben WebExtension-APIs wie Ihre Hintergrundskripte, aber sein globaler Kontext ist das Popup, nicht die aktuell im Browser angezeigte Seite. Um Webseiten zu beeinflussen, müssen Sie mit ihnen über [Nachrichten](/de/docs/Mozilla/Add-ons/WebExtensions/Modify_a_web_page#messaging) kommunizieren.
 
-Wenn Sie ein Popup angeben, wird es angezeigt — und der Inhalt geladen —, wenn der Benutzer auf das Symbol klickt. Wenn Sie kein Popup angeben, wird ein Ereignis an Ihre Erweiterung gesendet, wenn der Benutzer auf das Symbol klickt.
+Wenn Sie ein Popup angeben, wird es angezeigt — und der Inhalt geladen — wenn der Benutzer das Symbol anklickt. Wenn Sie kein Popup angeben, wird ein Ereignis an Ihre Erweiterung gesendet, wenn der Benutzer das Symbol anklickt.
 
-Die Schaltfläche verfügt auch über ein Kontextmenü, und Sie können mit der {{WebExtAPIRef("menus")}} API Elemente zu diesem Menü mit dem `browser_action` {{WebExtAPIRef("menus.ContextType")}} hinzufügen.
+Die Schaltfläche hat auch ein Kontextmenü, zu dem Sie mit der {{WebExtAPIRef("menus")}} API Elemente hinzufügen können, indem Sie den `browser_action` {{WebExtAPIRef("menus.ContextType")}} verwenden.
 
 Mit der `browserAction` API können Sie:
 
-- {{WebExtAPIRef("browserAction.onClicked")}} verwenden, um Klicks auf das Symbol zu überwachen.
-- Die Eigenschaften des Symbols — Symbol, Titel, Popup usw. — abrufen und festlegen. Sie können diese global für alle Tabs oder für einen bestimmten Tab festlegen, indem Sie die Tab-ID als zusätzliches Argument übergeben.
+- {{WebExtAPIRef("browserAction.onClicked")}} verwenden, um auf Klicks auf das Symbol zu reagieren.
+- Die Eigenschaften des Symbols global über alle Tabs oder für einen Tab festlegen und abrufen, indem Sie die Tab-ID als zusätzliches Argument übergeben.
 
 ## Typen
 
 - {{WebExtAPIRef("browserAction.ColorArray")}}
-  - : Ein Array von vier Ganzzahlen im Bereich 0-255, die eine RGBA-Farbe definieren.
+  - : Ein Array von vier Ganzzahlen im Bereich 0-255, das eine RGBA-Farbe definiert.
 - {{WebExtAPIRef("browserAction.ImageDataType")}}
   - : Pixeldaten für ein Bild. Muss ein [`ImageData`](/de/docs/Web/API/ImageData) Objekt sein (zum Beispiel von einem {{htmlelement("canvas")}} Element).
 
@@ -38,45 +38,45 @@ Mit der `browserAction` API können Sie:
 - {{WebExtAPIRef("browserAction.setIcon()")}}
   - : Setzt das Symbol der Browser-Aktion.
 - {{WebExtAPIRef("browserAction.setPopup()")}}
-  - : Legt das HTML-Dokument fest, das als Popup geöffnet wird, wenn der Benutzer auf das Symbol der Browser-Aktion klickt.
+  - : Setzt das HTML-Dokument, das als Popup geöffnet wird, wenn der Benutzer auf das Symbol der Browser-Aktion klickt.
 - {{WebExtAPIRef("browserAction.getPopup()")}}
-  - : Ruft das HTML-Dokument ab, das als Popup der Browser-Aktion festgelegt wurde.
+  - : Ruft das HTML-Dokument ab, das als Popup der Browser-Aktion festgelegt ist.
 - {{WebExtAPIRef("browserAction.openPopup()")}}
   - : Öffnet das Popup der Browser-Aktion.
 - {{WebExtAPIRef("browserAction.setBadgeText()")}}
-  - : Setzt den Abzeichen-Text der Browser-Aktion. Der Abzeichen wird über dem Symbol angezeigt.
+  - : Setzt den Text des Badges der Browser-Aktion. Das Badge wird über dem Symbol angezeigt.
 - {{WebExtAPIRef("browserAction.getBadgeText()")}}
-  - : Ruft den Abzeichen-Text der Browser-Aktion ab.
+  - : Ruft den Text des Badges der Browser-Aktion ab.
 - {{WebExtAPIRef("browserAction.setBadgeBackgroundColor()")}}
-  - : Setzt die Hintergrundfarbe des Abzeichens.
+  - : Setzt die Hintergrundfarbe des Badges.
 - {{WebExtAPIRef("browserAction.getBadgeBackgroundColor()")}}
-  - : Ruft die Hintergrundfarbe des Abzeichens ab.
+  - : Ruft die Hintergrundfarbe des Badges ab.
 - {{WebExtAPIRef("browserAction.setBadgeTextColor()")}}
-  - : Setzt die Textfarbe des Abzeichens.
+  - : Setzt die Textfarbe des Badges.
 - {{WebExtAPIRef("browserAction.getBadgeTextColor()")}}
-  - : Ruft die Textfarbe des Abzeichens ab.
+  - : Ruft die Textfarbe des Badges ab.
 - {{WebExtAPIRef("browserAction.getUserSettings()")}}
-  - : Ruft die benutzerdefinierten Einstellungen für die Browser-Aktion ab.
+  - : Holt die benutzerspezifizierten Einstellungen für die Browser-Aktion.
 - {{WebExtAPIRef("browserAction.enable()")}}
   - : Aktiviert die Browser-Aktion für einen Tab. Standardmäßig sind Browser-Aktionen für alle Tabs aktiviert.
 - {{WebExtAPIRef("browserAction.disable()")}}
-  - : Deaktiviert die Browser-Aktion für einen Tab, was bedeutet, dass sie nicht angeklickt werden kann, wenn dieser Tab aktiv ist.
+  - : Deaktiviert die Browser-Aktion für einen Tab, sodass sie nicht angeklickt werden kann, wenn dieser Tab aktiv ist.
 - {{WebExtAPIRef("browserAction.isEnabled()")}}
-  - : Überprüft, ob die Browser-Aktion aktiviert ist.
+  - : Überprüft, ob die Browser-Aktion aktiviert ist oder nicht.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("browserAction.onClicked")}}
-  - : Wird ausgelöst, wenn ein Browser-Aktionssymbol angeklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Browser-Aktion ein Popup hat.
+  - : Wird ausgelöst, wenn auf ein Browseraktionssymbol geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Browser-Aktion ein Popup hat.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction) API. Diese Dokumentation ist von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

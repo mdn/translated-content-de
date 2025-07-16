@@ -2,18 +2,18 @@
 title: downloads.InterruptReason
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/InterruptReason
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Der Typ `InterruptReason` der {{WebExtAPIRef("downloads")}} API definiert eine Reihe möglicher Gründe, warum ein Download unterbrochen wurde.
+Der `InterruptReason`-Typ der {{WebExtAPIRef("downloads")}} API definiert eine Reihe von möglichen Gründen, warum ein Download unterbrochen wurde.
 
-Die `error`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten stammt.
+Die `error`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält eine Zeichenfolge, die aus den in diesem Typ definierten Werten stammt.
 
 ## Typ
 
-Werte dieses Typs sind Strings. Mögliche Werte sind in Kategorien unterteilt, wobei jede Gruppe den gleichen Anfangs-Substring hat:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind in Kategorien unterteilt, wobei jede Gruppe denselben Substring am Anfang hat:
 
 Dateibezogene Fehler:
 
@@ -50,15 +50,15 @@ Benutzerbezogene Fehler:
 - `"USER_CANCELED"`
 - `"USER_SHUTDOWN"`
 
-Sonstige:
+Sonstiges:
 
 - `"CRASH"`
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-InterruptReason) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-InterruptReason) API.

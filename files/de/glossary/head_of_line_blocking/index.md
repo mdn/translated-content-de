@@ -1,18 +1,23 @@
 ---
-title: Head-of-line Blocking
+title: Head-of-line-Blockierung
+short-title: HOL blocking
 slug: Glossary/Head_of_line_blocking
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: aa751052a9d07bdf29274fbb216f2d6d13993c11
 ---
 
-Im Bereich der Computernetzwerke bezieht sich **Head-of-line Blocking** (_HOL Blocking_) auf einen Leistungsengpass, der auftritt, wenn eine Warteschlange von Paketen durch das erste Paket in der Reihe blockiert wird, obwohl andere Pakete in der Warteschlange verarbeitet werden könnten.
+Im Bereich der Computernetzwerke bezieht sich die **Head-of-line-Blockierung** (_HOL-Blockierung_) auf einen Leistungsengpass, der auftritt, wenn eine Warteschlange von Paketen durch das erste Paket in der Warteschlange blockiert wird, obwohl andere Pakete in der Warteschlange bearbeitet werden könnten.
 
-In HTTP/1.1 kann HOL Blocking auftreten, wenn ein Client mehrere Anfragen an einen {{Glossary("server", "Server")}} sendet, ohne auf die Antworten zu warten. Der Server verarbeitet die Anfragen der Reihe nach, aber wenn die Antwort auf die erste Anfrage verzögert wird, sind auch die Antworten auf die nachfolgenden Anfragen verzögert. HTTP/2 adressiert dieses Problem durch Anfragemultiplexing, wodurch HOL Blocking auf der Anwendungsebene beseitigt wird, jedoch besteht es weiterhin auf der Transportebene ({{Glossary("TCP", "TCP")}}).
+In HTTP/1.1 tritt die HOL-Blockierung auf, wenn ein Client mehrere Anfragen an einen {{Glossary("server", "Server")}} über eine bestimmte TCP-Verbindung sendet und eine Antwort auf dieser Verbindung aus irgendeinem Grund verzögert wird — etwa durch Netzwerküberlastung, {{Glossary("TCP_slow_start", "TCP-Slow-Start")}} oder durch Probleme während der Übertragung. HTTP/1.1-Anfragen werden pro TCP-Verbindung nacheinander gesendet, sodass eine Verzögerung beim Empfang einer Antwort den nächsten Anfrage-Antwort-Austausch blockiert.
+
+Ein Mechanismus namens _HTTP-Pipelining_ versuchte, dieses Problem zu umgehen, indem ein Client mehrere Anfragen absendete, ohne auf Antworten zu warten. In der Praxis erwies sich Pipelining jedoch als schwierig umzusetzen, daher wird dieser Mechanismus selten, wenn überhaupt, verwendet, und die meisten Browser unterstützen ihn nicht mehr.
+
+HTTP/2 behebt die HOL-Blockierungsprobleme in HTTP/1.1 durch Anfrage-_Multiplexing_. Multiplexing erlaubt es einer einzigen TCP-Verbindung, Anfragen und Antworten in nummerierten Streams zu verflechten. Ein Client kann viele Anfragen über eine einzige Verbindung senden, ohne auf frühere Antworten zu warten. Es ist zu beachten, dass, obwohl die HOL-Blockierung in HTTP/2 behoben wurde, sie auf der Transportebene ({{Glossary("TCP", "TCP")}}) immer noch ein Problem darstellt.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe
   - {{Glossary("HTTP", "HTTP")}}, {{Glossary("HTTP_2", "HTTP/2")}}
   - {{Glossary("TCP", "TCP")}}
-- [Aufbau der Seite: wie Browser funktionieren](/de/docs/Web/Performance/Guides/How_browsers_work)
-- [Head-of-line Blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking) auf Wikipedia
+- [Die Seite füllen: wie Browser funktionieren](/de/docs/Web/Performance/Guides/How_browsers_work)
+- [Head-of-line blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking) auf Wikipedia

@@ -2,15 +2,15 @@
 title: windows.onFocusChanged
 slug: Mozilla/Add-ons/WebExtensions/API/windows/onFocusChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich das derzeit fokussierte Fenster ändert. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browser-Fenster den Fokus verloren haben.
+Wird ausgelöst, wenn das aktuell fokussierte Fenster wechselt. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browserfenster den Fokus verloren haben.
 
 > [!NOTE]
-> In Windows und einigen Linux-Fenster-Managern wird WINDOW_ID_NONE immer sofort vor einem Wechsel von einem Browser-Fenster zu einem anderen gesendet.
+> Unter Windows und bei einigen Linux-Fenstermanagern wird WINDOW_ID_NONE immer unmittelbar vor einem Wechsel von einem Browserfenster zum anderen gesendet.
 
 ## Syntax
 
@@ -25,26 +25,22 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `windowId`
       - : `integer`. ID des neu fokussierten Fensters.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Protokollieren Sie Fokusänderungen:
+Protokollieren von Fokuswechseln:
 
 ```js
 browser.windows.onFocusChanged.addListener((windowId) => {
@@ -54,8 +50,12 @@ browser.windows.onFocusChanged.addListener((windowId) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

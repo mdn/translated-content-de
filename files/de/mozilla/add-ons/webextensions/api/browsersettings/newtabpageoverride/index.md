@@ -2,22 +2,18 @@
 title: browserSettings.newTabPageOverride
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/newTabPageOverride
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um eine Zeichenfolge abzurufen, die die URL für die „Neuer Tab“-Seite darstellt, also die Seite, die geladen wird, wenn der Benutzer einen neuen leeren Tab öffnet.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das dazu verwendet werden kann, eine Zeichenkette zu erhalten, die die URL für die "neuer Tab"-Seite darstellt: das heißt, die Seite, die geladen wird, wenn der Benutzer einen neuen leeren Tab öffnet.
 
 Beachten Sie, dass dies eine schreibgeschützte Einstellung ist.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Rufen Sie den aktuellen Wert der neuen Tab-URL ab:
+Den aktuellen Wert der neuen Tab-URL abrufen:
 
 ```js
 browser.browserSettings.newTabPageOverride.get({}).then((result) => {
@@ -26,3 +22,7 @@ browser.browserSettings.newTabPageOverride.get({}).then((result) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

@@ -2,73 +2,64 @@
 title: privacy.websites
 slug: Mozilla/Add-ons/WebExtensions/API/privacy/websites
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Die Eigenschaft `privacy.websites` enthält datenschutzbezogene Einstellungen, die die Interaktion des Browsers mit Websites steuern. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
+Die Eigenschaft `privacy.websites` enthält datenschutzbezogene Einstellungen, die steuern, wie der Browser mit Websites interagiert. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
 
-Standardwerte für diese Eigenschaften können je nach Browser variieren.
+Standardwerte für diese Eigenschaften variieren in der Regel je nach Browser.
 
 ## Eigenschaften
 
 - `cookieConfig`
-
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Objekt ist.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Objekt ist.
 
     Das Objekt hat zwei Eigenschaften:
-
     - `behavior`: ein String, der einen der folgenden Werte annehmen kann:
-
-      - "allow_all": alle Cookies akzeptieren
-      - "reject_all": alle Cookies ablehnen
-      - "reject_third_party": alle Drittanbieter-Cookies ablehnen
-      - "allow_visited": ein Drittanbieter-Cookie nur dann akzeptieren, wenn die Top-Level-Domain des Cookies bereits mindestens ein Cookie hat.
-      - "reject_trackers": Tracking-Cookies ablehnen
-      - "reject_trackers_and_partition_foreign": Tracker ablehnen und Drittanbieter-Cookies partitionieren.
+      - "allow_all": akzeptiere alle Cookies
+      - "reject_all": lehne alle Cookies ab
+      - "reject_third_party": lehne alle Drittanbieter-Cookies ab
+      - "allow_visited": akzeptiere ein Drittanbieter-Cookie nur, wenn die Top-Level-Domain des Cookies bereits mindestens ein Cookie hat.
+      - "reject_trackers": lehne Tracking-Cookies ab
+      - "reject_trackers_and_partition_foreign": lehne Tracker ab und partitioniere Drittanbieter-Cookies.
 
     - `nonPersistentCookies` {{deprecated_inline}}: ein Boolean. Wenn `true`, werden alle Cookies als Sitzungscookies behandelt.
 
 - `firstPartyIsolate`
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist.
 
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist.
+    Wenn `true`, veranlasst die `firstPartyIsolate`-Einstellung, dass der Browser alle Daten (einschließlich Cookies, HSTS-Daten, gecachte Bilder und mehr) für alle Drittanbieterdomains mit der Domain in der Adressleiste verknüpft. Dies verhindert, dass Drittanbieter-Tracker direkt gespeicherte Informationen verwenden, um den Benutzer über verschiedene Websites hinweg zu identifizieren, kann jedoch Websites stören, bei denen der Benutzer sich mit einem Drittanbieterkonto anmeldet (wie ein Facebook- oder Google-Konto).
 
-    Wenn `true`, bewirkt die `firstPartyIsolate`-Einstellung, dass der Browser alle Daten (einschließlich Cookies, HSTS-Daten, gecachte Bilder und mehr) für alle Drittanbieter-Domains mit der Domain in der Adressleiste assoziiert. Dies verhindert, dass Drittanbieter-Tracker direkt gespeicherte Informationen verwenden, um den Benutzer auf verschiedenen Websites zu identifizieren, kann jedoch Websites beeinträchtigen, bei denen sich der Benutzer mit einem Drittanbieter-Konto anmeldet (wie einem Facebook- oder Google-Konto).
-
-    Standardwert ist `false`.
+    Standardmäßig `false`.
 
 - `hyperlinkAuditingEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn `true`, sendet der Browser Auditing-Pings, wenn eine Website das `ping`-Attribut verwendet, um diese anzufordern.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist. Wenn `true`, sendet der Browser Auditing-Pings, wenn eine Website das `ping`-Attribut verwendet, um dies anzufordern.
 - `protectedContentEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist. Nur auf Windows verfügbar. Wenn `true`, stellt der Browser Plugins eine eindeutige ID zur Verfügung, um geschützte Inhalte auszuführen.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist. Nur auf Windows verfügbar. Wenn `true`, stellt der Browser Plugins eine eindeutige ID zur Verfügung, um geschützte Inhalte abzuspielen.
 - `referrersEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn aktiviert, sendet der Browser [referer](/de/docs/Web/HTTP/Reference/Headers/Referer)-Header mit Ihren Anfragen.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist. Wenn aktiviert, sendet der Browser [Referer](/de/docs/Web/HTTP/Reference/Headers/Referer)-Header mit Ihren Anfragen.
 - `resistFingerprinting`
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist.
 
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist.
+    Browser-Fingerprinting ist die Praxis, bei der Websites Web-APIs verwenden, um Status- oder Konfigurationsdaten zu sammeln, die mit dem Browser oder dem Gerät, auf dem es läuft, verbunden sind. Auf diese Weise können sie einen digitalen Fingerabdruck erstellen, den sie verwenden können, um einen bestimmten Benutzer zu identifizieren und zu verfolgen.
 
-    Browser-Fingerabdrücke sind eine Praxis, bei der Websites Web-APIs nutzen, um Status- oder Konfigurationsdaten zu sammeln, die mit dem Browser oder dem Gerät, auf dem dieser läuft, verbunden sind. Durch diese Praxis können sie einen digitalen Fingerabdruck erstellen, den sie verwenden können, um einen bestimmten Benutzer zu identifizieren und zu verfolgen.
+    Wenn `true`, veranlasst die `resistFingerprinting`-Einstellung, dass der Browser generische, gefälschte Informationen für Daten meldet, die häufig für Fingerprinting verwendet werden. Solche Daten umfassen die Anzahl der CPU-Kerne, die Präzision von JavaScript-Timern und die lokale Zeitzone. Es werden auch Funktionen deaktiviert, die beim Fingerprinting verwendet werden, wie z.B. GamePad-Unterstützung und die WebSpeech- sowie Navigator-APIs.
 
-    Wenn `true`, bewirkt die `resistFingerprinting`-Einstellung, dass der Browser generische falsche Informationen für Daten meldet, die typischerweise für Fingerabdrücke verwendet werden. Solche Daten umfassen die Anzahl der CPU-Kerne, die Genauigkeit von JavaScript-Timern und die lokale Zeitzone. Es werden auch Funktionen deaktiviert, die in Fingerabdrücken verwendet werden, wie zum Beispiel GamePad-Unterstützung sowie die WebSpeech- und Navigator-APIs.
-
-    Standardwert ist `false`.
+    Standardmäßig `false`.
 
 - `thirdPartyCookiesAllowed`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn `false`, blockiert der Browser [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies).
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist. Wenn `false`, blockiert der Browser [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies).
 - `trackingProtectionMode`
-  - : "Tracking-Schutz" ist eine Browser-Funktion, die Anfragen an Domains blockiert, die dafür bekannt sind, Benutzer über Websites hinweg zu verfolgen. Seiten, die Benutzer verfolgen, sind meist Drittanbieter-Werbe- und Analyseseiten. Diese Einstellung ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, das bestimmt, ob der Browser den Tracking-Schutz aktivieren soll. Sein zugrunde liegender Wert ist ein String, der einen von drei Werten annehmen kann:
-    - `"always"`: Tracking-Schutz ist aktiviert.
-    - `"never"`: Tracking-Schutz ist deaktiviert.
-    - `"private_browsing"`: Tracking-Schutz ist nur in privaten Browserfenstern aktiviert.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : "Tracking-Schutz" ist eine Browserfunktion, die Anfragen an Domains blockiert, die dafür bekannt sind, Nutzer über Seiten hinweg zu verfolgen. Webseiten, die Nutzer verfolgen, sind häufig Drittanbieter-Werbe- und Analysewebseiten. Diese Einstellung ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, das bestimmt, ob der Browser den Tracking-Schutz aktivieren soll. Sein zugrundeliegender Wert ist ein String, der einen der drei Werte annehmen kann:
+    - `"always"`: Tracking-Schutz ist immer an.
+    - `"never"`: Tracking-Schutz ist aus.
+    - `"private_browsing"`: Tracking-Schutz ist nur in privaten Browsing-Fenstern an.
 
 ## Beispiele
 
-Setzen Sie die Eigenschaft `hyperlinkAuditingEnabled`.
+Setzen Sie die `hyperlinkAuditingEnabled`-Eigenschaft.
 
 ```js
 function onSet(result) {
@@ -100,5 +91,9 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API. Diese Dokumentation ist abgeleitet aus [`privacy.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/privacy.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy)-API von Chromium. Diese Dokumentation ist abgeleitet von [`privacy.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/privacy.json) im Chromium-Code.

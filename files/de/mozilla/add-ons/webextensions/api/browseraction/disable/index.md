@@ -2,12 +2,12 @@
 title: browserAction.disable()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/disable
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Deaktiviert die Browser-Aktion für einen Tab, was bedeutet, dass sie nicht geklickt werden kann, wenn dieser Tab aktiv ist.
+Deaktiviert die Browser-Aktion für einen Tab, was bedeutet, dass sie nicht angeklickt werden kann, wenn dieser Tab aktiv ist.
 
 ## Syntax
 
@@ -22,13 +22,9 @@ browser.browserAction.disable(
 - `tabId` {{optional_inline}}
   - : `integer`. Die ID des Tabs, für den Sie die Browser-Aktion deaktivieren möchten.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Deaktivieren Sie die Browser-Aktion beim Klicken und aktivieren Sie sie erneut, jedes Mal wenn ein neuer Tab geöffnet wird:
+Deaktivieren Sie die Browser-Aktion, wenn sie angeklickt wird, und aktivieren Sie sie jedes Mal erneut, wenn ein neuer Tab geöffnet wird:
 
 ```js
 browser.tabs.onCreated.addListener(() => {
@@ -49,6 +45,10 @@ browser.browserAction.onClicked.addListener((tab) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-disable) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.

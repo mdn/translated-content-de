@@ -2,64 +2,64 @@
 title: storage
 slug: Mozilla/Add-ons/WebExtensions/API/storage
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ermöglicht es Erweiterungen, Daten zu speichern und abzurufen sowie Änderungen an gespeicherten Elementen zu überwachen.
+Ermöglicht es Erweiterungen, Daten zu speichern und abzurufen und auf Änderungen gespeicherter Elemente zu reagieren.
 
-Das Speichersystem basiert auf der [Web Storage API](/de/docs/Web/API/Web_Storage_API), mit einigen Unterschieden. Zu diesen Unterschieden gehören unter anderem:
+Das Speichersystem basiert auf der [Web Storage API](/de/docs/Web/API/Web_Storage_API), weist jedoch einige Unterschiede auf. Zu den Unterschieden gehören unter anderem:
 
 - Es ist asynchron.
-- Werte sind auf die Erweiterung begrenzt und nicht auf eine bestimmte Domain (d.h. dasselbe Set von Schlüssel-/Werte-Paaren ist für alle Skripte im Hintergrundkontext und in Inhaltsskripten verfügbar).
-- Die gespeicherten Werte können beliebige JSON-konvertierbare Werte sein, nicht nur [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String). Dazu gehören unter anderem: [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) und [`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object), jedoch nur, wenn deren Inhalte als JSON dargestellt werden können, was keine DOM-Knoten umfasst. Sie müssen Ihre Werte vor der Speicherung nicht in JSON-`Strings` umwandeln, aber sie werden intern als JSON dargestellt, weshalb sie JSON-konvertierbar sein müssen.
-- Mehrere Schlüssel-/Werte-Paare können in einem einzigen API-Aufruf gesetzt oder abgerufen werden.
+- Werte sind auf die Erweiterung beschränkt und nicht auf eine bestimmte Domain (d.h. derselbe Satz von Schlüssel/Wert-Paaren ist für alle Skripte im Hintergrundkontext und Inhaltsskripte verfügbar).
+- Die gespeicherten Werte können jeden JSON-ifizierbaren Wert umfassen, nicht nur [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String). Dazu gehören unter anderem: [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) und [`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object), allerdings nur, wenn deren Inhalte als JSON dargestellt werden können, was keine DOM-Knoten einschließt. Es ist nicht erforderlich, Ihre Werte vor dem Speichern in JSON-`Strings` umzuwandeln, aber sie werden intern als JSON dargestellt, was die Anforderung begründet, dass sie JSON-ifizierbar sein müssen.
+- Mehrere Schlüssel/Wert-Paare können in demselben API-Aufruf gesetzt oder abgerufen werden.
 
-Um diese API zu verwenden, müssen Sie die `"storage"`-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei einfügen.
+Um diese API zu verwenden, müssen Sie die `"storage"`-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei einschließen.
 
-Jede Erweiterung hat ihren eigenen Speicherbereich, der in verschiedene Speicherarten aufgeteilt werden kann.
+Jede Erweiterung hat ihren eigenen Speicherbereich, der in verschiedene Speicherarten unterteilt werden kann.
 
-Obwohl diese API [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) ähnelt, wird empfohlen, `Window.localStorage` im Erweiterungscode nicht zu verwenden, um erweiterungsbezogene Daten zu speichern. Firefox löscht Daten, die von Erweiterungen mit der localStorage-API gespeichert wurden, in verschiedenen Szenarien, in denen Benutzer ihren Browserverlauf und ihre Daten aus Datenschutzgründen löschen, während Daten, die mit der [`storage.local`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)-API gespeichert werden, in diesen Szenarien korrekt erhalten bleiben.
+Obwohl diese API ähnlich wie [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) ist, wird empfohlen, `Window.localStorage` im Erweiterungscode nicht zu verwenden, um erweiterungsbezogene Daten zu speichern. Firefox wird Daten, die von Erweiterungen mit der localStorage-API gespeichert wurden, in verschiedenen Szenarien löschen, in denen Benutzer ihren Browserverlauf und -daten aus Datenschutzgründen löschen, während Daten, die mit der [`storage.local`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)-API gespeichert wurden, in diesen Szenarien korrekt erhalten bleiben.
 
-Sie können die gespeicherten Daten unter dem Punkt "Extension Storage" im [Storage Inspector](https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/index.html) im [Entwicklerwerkzeugkasten](https://extensionworkshop.com/documentation/develop/debugging/) einsehen, der über `about:debugging` zugänglich ist.
+Sie können die gespeicherten Daten unter dem Punkt Extension Storage im [Storage Inspector](https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/index.html) Reiter der [Entwickler-Toolbox](https://extensionworkshop.com/documentation/develop/debugging/) überprüfen, zugänglich über `about:debugging`.
 
 > [!NOTE]
-> Der Speicherbereich ist nicht verschlüsselt und sollte nicht zur Speicherung vertraulicher Benutzerdaten verwendet werden.
+> Der Speicherbereich ist nicht verschlüsselt und sollte nicht zum Speichern vertraulicher Benutzerinformationen verwendet werden.
 
 ## Arten
 
 - {{WebExtAPIRef("storage.StorageArea")}}
-  - : Ein Objekt, das einen Speicherbereich darstellt.
+  - : Ein Objekt, das einen Speicherbereich repräsentiert.
 - {{WebExtAPIRef("storage.StorageChange")}}
   - : Ein Objekt, das eine Änderung an einem Speicherbereich darstellt.
 
 ## Eigenschaften
 
-`storage` hat vier Eigenschaften, die die verschiedenen Arten von verfügbaren Speicherbereichen darstellen.
+`storage` hat vier Eigenschaften, die die verschiedenen verfügbaren Speicherbereiche darstellen.
 
 - {{WebExtAPIRef("storage.local")}}
-  - : Repräsentiert den `local`-Speicherbereich. Elemente im `local`-Speicher sind lokal auf dem Computer, auf dem die Erweiterung installiert wurde.
+  - : Repräsentiert den `local` Speicherbereich. Elemente im `local` Speicher sind lokal auf dem Computer, auf dem die Erweiterung installiert wurde.
 - {{WebExtAPIRef("storage.managed")}}
-  - : Repräsentiert den `managed`-Speicherbereich. Elemente im `managed`-Speicher werden vom Domain-Administrator gesetzt und sind für die Erweiterung schreibgeschützt. Ein Versuch, diesen Namensraum zu modifizieren, führt zu einem Fehler.
+  - : Repräsentiert den `managed` Speicherbereich. Elemente im `managed` Speicher werden vom Domain-Administrator festgelegt und sind für die Erweiterung nur lesbar. Der Versuch, diesen Namensraum zu ändern, führt zu einem Fehler.
 - {{WebExtAPIRef("storage.session")}}
-  - : Repräsentiert den `session`-Speicherbereich. Elemente im `session`-Speicher werden im Speicher abgelegt und nicht auf der Festplatte gespeichert.
+  - : Repräsentiert den `session` Speicherbereich. Elemente im `session` Speicher werden im Speicher gehalten und nicht auf die Festplatte geschrieben.
 - {{WebExtAPIRef("storage.sync")}}
-  - : Repräsentiert den `sync`-Speicherbereich. Elemente im `sync`-Speicher werden vom Browser synchronisiert und sind auf allen Instanzen dieses Browsers verfügbar, in die der Benutzer eingeloggt ist, über verschiedene Geräte hinweg.
+  - : Repräsentiert den `sync` Speicherbereich. Elemente im `sync` Speicher werden vom Browser synchronisiert und sind über alle Instanzen dieses Browsers hinweg verfügbar, bei denen sich der Benutzer angemeldet hat, über verschiedene Geräte hinweg.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("storage.onChanged")}}
   - : Wird ausgelöst, wenn sich ein oder mehrere Elemente in einem der Speicherbereiche ändern.
 
+{{WebExtExamples("h2")}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage)-API von Chromium. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

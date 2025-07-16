@@ -2,15 +2,15 @@
 title: runtime.onSuspend
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onSuspend
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird an die Ereignisseite gesendet, kurz bevor sie entladen wird. Dies gibt der Erweiterung die Möglichkeit, einige Bereinigungsarbeiten durchzuführen. Beachten Sie, dass, da die Seite entladen wird, keine Garantie besteht, dass asynchrone Operationen, die beim Behandeln dieses Ereignisses gestartet werden, abgeschlossen werden.
+Wird an die Ereignisseite gesendet, kurz bevor sie entladen wird. Dies gibt der Erweiterung die Möglichkeit, einige Bereinigungen durchzuführen. Beachten Sie, dass aufgrund des Entladens der Seite keine Garantie besteht, dass asynchrone Operationen, die beim Behandeln dieses Ereignisses gestartet werden, abgeschlossen werden.
 
 > [!NOTE]
-> Wenn etwas verhindert, dass die Ereignisseite entladen wird, wird das {{WebExtAPIRef("runtime.onSuspendCanceled")}}-Ereignis gesendet und die Seite wird nicht entladen.
+> Falls etwas das Entladen der Ereignisseite verhindert, wird das Ereignis {{WebExtAPIRef("runtime.onSuspendCanceled")}} gesendet, und die Seite wird nicht entladen.
 
 ## Syntax
 
@@ -23,9 +23,9 @@ browser.runtime.onSuspend.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener für dieses Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
@@ -34,15 +34,11 @@ Ereignisse haben drei Funktionen:
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt.
 
 ## Beispiele
 
-Auf `suspend`-Ereignisse lauschen:
+Auf Suspend-Ereignisse hören:
 
 ```js
 function handleSuspend() {
@@ -55,8 +51,12 @@ browser.runtime.onSuspend.addListener(handleSuspend);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onSuspend) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onSuspend) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

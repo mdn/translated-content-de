@@ -2,17 +2,17 @@
 title: windows
 slug: Mozilla/Add-ons/WebExtensions/API/windows
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Interagieren Sie mit Browserfenstern. Sie können diese API verwenden, um Informationen über offene Fenster zu erhalten sowie Fenster zu öffnen, zu ändern und zu schließen. Außerdem können Sie auf Ereignisse wie das Öffnen, Schließen und Aktivieren von Fenstern lauschen.
+Interagieren Sie mit Browserfenstern. Mit dieser API können Sie Informationen über geöffnete Fenster abrufen sowie Fenster öffnen, ändern und schließen. Sie können auch Ereignissen zuhören, die Fenster öffnen, schließen und aktivieren betreffen.
 
 ## Typen
 
 - {{WebExtAPIRef("windows.WindowType")}}
-  - : Der Typ des Browserfensters.
+  - : Der Typ dieses Browserfensters.
 - {{WebExtAPIRef("windows.WindowState")}}
   - : Der Zustand dieses Browserfensters.
 - {{WebExtAPIRef("windows.Window")}}
@@ -23,31 +23,31 @@ Interagieren Sie mit Browserfenstern. Sie können diese API verwenden, um Inform
 ## Konstanten
 
 - {{WebExtAPIRef("windows.WINDOW_ID_NONE")}}
-  - : Der `windowId`-Wert, der die Abwesenheit eines Browserfensters darstellt.
+  - : Der `windowId`-Wert, der das Fehlen eines Browserfensters darstellt.
 - {{WebExtAPIRef("windows.WINDOW_ID_CURRENT")}}
   - : Ein Wert, der anstelle einer `windowId` in einigen APIs verwendet werden kann, um das aktuelle Fenster darzustellen.
 
 ## Methoden
 
 - {{WebExtAPIRef("windows.get()")}}
-  - : Ruft Details über ein Fenster anhand seiner ID ab.
+  - : Ruft Details zu einem Fenster anhand seiner ID ab.
 - {{WebExtAPIRef("windows.getCurrent()")}}
   - : Ruft das aktuelle Fenster ab.
 - {{WebExtAPIRef("windows.getLastFocused()")}}
-  - : Ruft das Fenster ab, das zuletzt fokussiert war — typischerweise das Fenster 'oben'.
+  - : Ruft das Fenster ab, das zuletzt fokussiert war - typischerweise das Fenster 'oben'.
 - {{WebExtAPIRef("windows.getAll()")}}
   - : Ruft alle Fenster ab.
 - {{WebExtAPIRef("windows.create()")}}
   - : Erstellt ein neues Fenster.
 - {{WebExtAPIRef("windows.update()")}}
-  - : Aktualisiert die Eigenschaften eines Fensters. Verwenden Sie dies, um ein Fenster zu verschieben, seine Größe zu ändern und den Fokus (un)setzen, usw.
+  - : Aktualisiert die Eigenschaften eines Fensters. Verwenden Sie dies, um ein Fenster zu verschieben, die Größe zu ändern und (ent)fokussieren usw.
 - {{WebExtAPIRef("windows.remove()")}}
-  - : Schließt ein Fenster und alle seine Tabs.
+  - : Schließt ein Fenster und all seine Tabs.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("windows.onBoundsChanged")}}
-  - : Wird ausgelöst, wenn ein Fenster in der Größe verändert oder verschoben wird.
+  - : Wird ausgelöst, wenn ein Fenster in der Größe geändert oder verschoben wird.
 - {{WebExtAPIRef("windows.onCreated")}}
   - : Wird ausgelöst, wenn ein Fenster erstellt wird.
 - {{WebExtAPIRef("windows.onRemoved")}}
@@ -55,17 +55,17 @@ Interagieren Sie mit Browserfenstern. Sie können diese API verwenden, um Inform
 - {{WebExtAPIRef("windows.onFocusChanged")}}
   - : Wird ausgelöst, wenn sich das aktuell fokussierte Fenster ändert.
 
+{{WebExtExamples("h2")}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows) API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows)-API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
-/ Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are

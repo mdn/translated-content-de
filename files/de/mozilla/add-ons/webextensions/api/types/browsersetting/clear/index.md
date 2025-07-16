@@ -2,16 +2,16 @@
 title: clear()
 slug: Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/clear
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Verwenden Sie `BrowserSetting.clear()`, um alle Änderungen, die die Erweiterung an der Browsereinstellung vorgenommen hat, zu löschen. Die Browsereinstellung wird auf ihren vorherigen Wert zurückgesetzt.
+Verwenden Sie `BrowserSetting.clear()`, um alle Änderungen zu löschen, die die Erweiterung an der Browsereinstellung vorgenommen hat. Die Browsereinstellung wird auf ihren vorherigen Wert zurückgesetzt.
 
-Die Erweiterung gibt zudem die Kontrolle über die Einstellung auf, sodass eine Erweiterung mit niedrigerer Priorität (also eine Erweiterung, die vor dieser installiert wurde) die Einstellung ändern kann. Siehe [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set), um mehr über die Kontrolle von Einstellungen zu erfahren.
+Die Erweiterung gibt auch die Kontrolle über die Einstellung auf, sodass eine Erweiterung mit niedrigerer Priorität (d.h. eine Erweiterung, die vor dieser installiert wurde) die Einstellung ändern kann. Weitere Informationen zur Steuerung von Einstellungen finden Sie unter [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set).
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Wenn das Löschen des Wertes fehlschlug, wird das Promise mit `false` aufgelöst. Wenn das Löschen des Wertes erfolgreich war, wird es mit `true` aufgelöst.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Wenn das Löschen des Werts fehlschlägt, wird das Promise mit `false` aufgelöst. Wenn das Löschen des Werts erfolgreich war, wird es mit `true` aufgelöst.
 
 ## Syntax
 
@@ -28,11 +28,7 @@ let clearing = setting.clear(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `boolean` erfüllt wird: `true`, wenn die Einstellung gelöscht wurde, `false` andernfalls.
-
-## Browser-Kompatibilität
-
-Siehe {{WebExtAPIRef("types.BrowserSetting")}}.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `boolean` erfüllt wird: `true`, wenn die Einstellung gelöscht wurde, andernfalls `false`.
 
 ## Beispiel
 
@@ -53,8 +49,12 @@ clearing.then(onCleared);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+Siehe {{WebExtAPIRef("types.BrowserSetting")}}.
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API.
+> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

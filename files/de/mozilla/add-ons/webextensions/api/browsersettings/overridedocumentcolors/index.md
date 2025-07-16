@@ -2,28 +2,24 @@
 title: browserSettings.overrideDocumentColors
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/overrideDocumentColors
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein String ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert eine Zeichenkette ist.
 
-Firefox ermöglicht es dem Benutzer, eigene Farben für Dokumenthintergründe und -texte festzulegen. Standardmäßig werden diese Werte nur angewendet, wenn ein Hochkontrast-Design ausgewählt ist (ein Hochkontrast-Design ist eine Funktion einiger Betriebssystem-UIs, die den Kontrast zur Verbesserung der Zugänglichkeit erhöht). Benutzer können jedoch auch wählen, diese Farben immer oder nie anzuwenden. Diese Browsereinstellung macht diese Präferenz zugänglich.
+Firefox ermöglicht es dem Benutzer, eigene Farben für Hintergrund und Text von Dokumenten festzulegen. Standardmäßig werden diese Werte nur angewendet, wenn ein Hochkontrast-Thema ausgewählt ist (ein Hochkontrast-Thema ist eine Funktion einiger Betriebssystem-Oberflächen, die den Kontrast für eine verbesserte Zugänglichkeit erhöht). Benutzer können jedoch auch wählen, diese Farben immer oder nie anzuwenden. Diese Browser-Einstellung gibt diese Präferenz an.
 
-Der zugrunde liegende Wert ist ein String, der einen der folgenden Werte annehmen kann:
+Der zugrunde liegende Wert ist eine Zeichenkette, die einen der folgenden Werte annehmen kann:
 
-- "high-contrast-only": Wenden Sie die Benutzerwahl nur an, wenn ein Hochkontrast-Design ausgewählt ist. Dies ist der Standard.
-- "never": Wenden Sie die Benutzerwahl niemals an.
-- "always": Wenden Sie die Benutzerwahl immer an.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+- "high-contrast-only": Anwenden der Benutzerwahl nur dann, wenn ein Hochkontrast-Thema ausgewählt ist. Dies ist die Standardeinstellung.
+- "never": Nie die Benutzerwahl anwenden.
+- "always": Immer die Benutzerwahl anwenden.
 
 ## Beispiele
 
-Setzen Sie die Einstellung auf "always":
+Die Einstellung auf "always" setzen:
 
 ```js
 function logResult(result) {
@@ -36,3 +32,7 @@ browser.browserSettings.overrideDocumentColors
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

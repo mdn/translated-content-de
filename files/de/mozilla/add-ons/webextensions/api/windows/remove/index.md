@@ -2,12 +2,12 @@
 title: windows.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/windows/remove
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Schließt ein Fenster und alle darin enthaltenen Tabs anhand der ID des Fensters.
+Schließt ein Fenster und alle darin befindlichen Tabs, basierend auf der ID des Fensters.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,19 +22,15 @@ let removing = browser.windows.remove(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des zu schließenden Fensters.
+  - : `integer`. ID des Fensters, das geschlossen werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Fenster geschlossen wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Fenster geschlossen wurde. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Wenn der Benutzer auf das Symbol einer Browser-Aktion klickt, schließen Sie das Fenster, in dem auf das Symbol geklickt wurde:
+Wenn der Benutzer auf das Symbol einer Browser-Aktion klickt, schließen Sie das Fenster, in dem das Symbol angeklickt wurde:
 
 ```js
 function onRemoved() {
@@ -51,7 +47,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 });
 ```
 
-Schließen Sie das aktuelle, z.B. Popup-Fenster, wenn der Benutzer auf eine Schaltfläche auf der Seite klickt:
+Schließen Sie das aktuelle, z. B. Popup-Fenster, wenn der Benutzer auf eine Schaltfläche auf der Seite klickt:
 
 ```js
 // in a script loaded by the page in the window
@@ -67,12 +63,16 @@ document.querySelector("#close").addEventListener(async ({ button }) => {
 });
 ```
 
-In Firefox könnte dasselbe mit der `.allowScriptsToClose` Fenstereigenschaft beim Erstellen und `window.close()` erreicht werden.
+In Firefox könnte das Gleiche mit der `.allowScriptsToClose`-Fenstererstellungseigenschaft und `window.close()` erreicht werden.
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-remove) API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-remove)-API von Chromium. Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

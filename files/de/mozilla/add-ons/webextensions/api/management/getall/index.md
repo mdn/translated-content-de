@@ -2,18 +2,18 @@
 title: management.getAll()
 slug: Mozilla/Add-ons/WebExtensions/API/management/getAll
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ruft ein Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekten ab, eines für jedes installierte Add-on.
+Ruht ein Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekten ab, eines für jedes installierte Add-on.
 
 Beachten Sie, dass Google Chrome sowohl Apps als auch Add-ons abruft. In Chrome können Sie Apps von Add-ons anhand der `type`-Eigenschaft von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} unterscheiden.
 
 Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -28,10 +28,6 @@ Keine.
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekten erfüllt wird, eines für jedes installierte Add-on.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -52,8 +48,12 @@ gettingAll.then(gotAll);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getAll)-API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getAll) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

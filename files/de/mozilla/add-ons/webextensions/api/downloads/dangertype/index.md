@@ -2,21 +2,21 @@
 title: downloads.DangerType
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/DangerType
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Der `DangerType`-Typ der {{WebExtAPIRef("downloads")}} API definiert eine Reihe von möglichen Gründen, warum eine herunterladbare Datei als gefährlich angesehen werden könnte.
+Der Typ `DangerType` der {{WebExtAPIRef("downloads")}} API definiert eine Reihe möglicher Gründe, warum eine herunterladbare Datei als gefährlich angesehen werden könnte.
 
-Die `danger`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält eine Zeichenkette, die aus den in diesem Typ definierten Werten entnommen ist.
+Die `danger`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten stammt.
 
 > [!NOTE]
-> Diese Zeichenkettenkonstanten werden sich niemals ändern, jedoch kann sich die Menge der `DangerTypes` ändern.
+> Diese Zeichenfolgenkonstanten werden sich niemals ändern, jedoch kann sich die Menge der DangerTypes ändern.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - `file`
   - : Der Dateiname des Downloads ist verdächtig.
@@ -29,17 +29,17 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 - `host`
   - : Der Download stammt von einem Host, der bekannt dafür ist, bösartige Binärdateien zu verbreiten.
 - `unwanted`
-  - : Der Download ist potenziell unerwünscht oder unsicher.
+  - : Der Download ist möglicherweise unerwünscht oder unsicher.
 - `safe`
   - : Der Download stellt keine bekannte Gefahr für den Computer des Benutzers dar.
 - `accepted`
   - : Der Benutzer hat den gefährlichen Download akzeptiert.
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-DangerType) API von Chromium.

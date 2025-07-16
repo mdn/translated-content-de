@@ -2,7 +2,7 @@
 title: browserAction.isEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/isEnabled
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -22,28 +22,24 @@ let gettingIsEnabled = browser.browserAction.isEnabled(
 ### Parameter
 
 - `details`
-  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` zum Überprüfen enthält.
+  - : `object`. Ein Objekt, das optional die `tabId` oder `windowId` enthält, die überprüft werden soll.
     - `tabId` {{optional_inline}}
-      - : `integer`. ID eines Tabs, der überprüft werden soll.
+      - : `integer`. ID eines Tabs zur Überprüfung.
     - `windowId` {{optional_inline}}
-      - : `integer`. ID eines Fensters, das überprüft werden soll.
+      - : `integer`. ID eines Fensters zur Überprüfung.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird der globale Aktiviert-/Deaktiviert-Status zurückgegeben.
+- Wenn sowohl windowId als auch tabId angegeben sind, schlägt die Funktion fehl.
+- Wenn sowohl windowId als auch tabId weggelassen werden, wird der globale Aktiviert/Deaktiviert-Status zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und `false` andernfalls.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und sonst `false`.
 
 ## Beispiele
 
-Überprüfen des globalen Status:
+Überprüfen Sie den globalen Status:
 
 ```js
 browser.browserAction.isEnabled({}).then((result) => {
@@ -51,7 +47,7 @@ browser.browserAction.isEnabled({}).then((result) => {
 });
 ```
 
-Überprüfen des Status des aktuell aktiven Tabs:
+Überprüfen Sie den Status des aktuell aktiven Tabs:
 
 ```js
 async function enabledInActiveTab() {
@@ -67,3 +63,7 @@ async function enabledInActiveTab() {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

@@ -2,17 +2,17 @@
 title: sidebarAction.isOpen()
 slug: Mozilla/Add-ons/WebExtensions/API/sidebarAction/isOpen
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Gibt `true` zurück, wenn die Seitenleiste der Erweiterung in einem bestimmten Fenster geöffnet ist.
+Gibt `true` zurück, wenn die Seitenleiste der Erweiterung in einem gegebenen Fenster geöffnet ist.
 
-Diese Funktion akzeptiert einen `windowId` als Parameter:
+Diese Funktion akzeptiert ein `windowId` als Parameter:
 
-- Wenn Sie `windowId` angeben, überprüft die Funktion das angegebene Browserfenster.
-- Wenn Sie `windowId` weglassen, überprüft die Funktion das oberste Browserfenster.
+- Wenn Sie `windowId` angeben, wird das angegebene Browserfenster überprüft.
+- Wenn Sie `windowId` weglassen, wird das oberste Browserfenster überprüft.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,19 +29,15 @@ let gettingIsOpen = browser.sidebarAction.isOpen(
 - `details`
   - : `object`. Ein Objekt, das optional die zu überprüfende `windowId` enthält.
     - `windowId` {{optional_inline}}
-      - : `integer`. ID eines zu überprüfenden Browserfensters. Wenn weggelassen, wird standardmäßig {{WebExtAPIRef("windows.WINDOW_ID_CURRENT")}} verwendet, was sich auf das oberste Browserfenster bezieht.
+      - : `integer`. ID eines zu überprüfenden Browserfensters. Wenn nicht angegeben, wird der Standardwert {{WebExtAPIRef("windows.WINDOW_ID_CURRENT")}} verwendet, was sich auf das oberste Browserfenster bezieht.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Seitenleiste der Erweiterung im angegebenen Fenster geöffnet ist, oder mit `false` andernfalls.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Seitenleiste der Erweiterung im angegebenen Fenster geöffnet ist, oder mit `false` ansonsten.
 
 ## Beispiele
 
-Das oberste Fenster überprüfen:
+Überprüfen des obersten Fensters:
 
 ```js
 browser.sidebarAction.isOpen({}).then((result) => {
@@ -49,7 +45,7 @@ browser.sidebarAction.isOpen({}).then((result) => {
 });
 ```
 
-Alle geöffneten Fenster überprüfen:
+Überprüfen aller offenen Fenster:
 
 ```js
 async function checkWindow(windowId) {
@@ -65,3 +61,7 @@ browser.windows.getAll().then((all) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

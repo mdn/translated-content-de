@@ -2,14 +2,14 @@
 title: runtime.connectNative()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/connectNative
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Stellt eine Verbindung der Erweiterung zu einer nativen Anwendung auf dem Computer des Benutzers her. Dies erfordert den Namen einer nativen Anwendung als Parameter. Es startet die native Anwendung und gibt ein {{WebExtAPIRef("runtime.Port")}}-Objekt an den Aufrufer zurück. Der Aufrufer kann dann den `Port` verwenden, um Nachrichten mit der nativen Anwendung über `Port.postMessage()` und `port.onMessage` auszutauschen. Die native Anwendung wird ausgeführt, bis sie selbst beendet wird oder der Aufrufer `Port.disconnect()` aufruft, oder die Seite, die `Port` erstellt hat, zerstört wird. Sobald der `Port` getrennt ist, gibt der Browser dem Prozess einige Sekunden, um sauber zu beenden, und beendet ihn dann, falls er nicht schon beendet wurde.
+Verbindet die Erweiterung mit einer nativen Anwendung auf dem Computer des Benutzers. Dies erfordert den Namen einer nativen Anwendung als Parameter. Es startet die native Anwendung und gibt ein {{WebExtAPIRef("runtime.Port")}}-Objekt an den Aufrufer zurück. Der Aufrufer kann dann den `Port` verwenden, um Nachrichten mit der nativen Anwendung über `Port.postMessage()` und `port.onMessage` auszutauschen. Die native Anwendung wird ausgeführt, bis sie selbst beendet wird, oder der Aufrufer `Port.disconnect()` aufruft, oder die Seite, die den `Port` erstellt hat, gelöscht wird. Sobald der `Port` getrennt wird, gibt der Browser dem Prozess ein paar Sekunden Zeit, um sich ordentlich zu beenden, und beendet ihn dann, falls er noch nicht gestoppt wurde.
 
-Weitere Informationen finden Sie unter [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
+Für weitere Informationen siehe [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
 
 ## Syntax
 
@@ -22,19 +22,15 @@ let port = browser.runtime.connectNative(
 ### Parameter
 
 - `application`
-  - : `string`. Der Name der nativen Anwendung, zu der eine Verbindung hergestellt werden soll. Dies muss mit der Eigenschaft "name" in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
+  - : `string`. Der Name der nativen Anwendung, zu der eine Verbindung hergestellt werden soll. Dieser muss mit der "name"-Eigenschaft in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
 
 ### Rückgabewert
 
 Ein {{WebExtAPIRef('runtime.Port')}}-Objekt. Der Port, den der Aufrufer verwenden kann, um Nachrichten mit der nativen Anwendung auszutauschen.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, Nachrichten von dieser Anwendung zu empfangen. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer ein Browser-Aktionssymbol anklickt:
+Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt mit dem Lauschen auf Nachrichten von ihr. Es sendet auch eine Nachricht an die native Anwendung, wenn der Benutzer auf ein Browser-Aktionssymbol klickt:
 
 ```js
 /*
@@ -60,8 +56,12 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connectNative) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connectNative)-API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

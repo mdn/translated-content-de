@@ -2,12 +2,12 @@
 title: contextualIdentities.onCreated
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/onCreated
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine neue kontextuelle Identität erstellt wird. Kontextuelle Identitäten können von Erweiterungen mithilfe der `contextualIdentities` API oder direkt vom Benutzer über die Benutzeroberfläche des Browsers erstellt werden.
+Wird ausgelöst, wenn eine neue kontextuelle Identität erstellt wird. Kontextuelle Identitäten können von Erweiterungen mithilfe der `contextualIdentities`-API oder direkt vom Benutzer über die Benutzeroberfläche des Browsers erstellt werden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
@@ -31,13 +31,9 @@ Ereignisse haben drei Funktionen:
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `changeInfo`
-      - : `object`. Ein Objekt, das eine einzige Eigenschaft enthält, `contextualIdentity`, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}}-Objekt ist und die Identität repräsentiert, die erstellt wurde.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : `object`. Ein Objekt, das eine einzige Eigenschaft `contextualIdentity` enthält, welche ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}}-Objekt darstellt, das die erstellte Identität repräsentiert.
 
 ## Beispiele
 
@@ -50,6 +46,10 @@ browser.contextualIdentities.onCreated.addListener(handleCreated);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,12 +2,12 @@
 title: Befehl
 slug: Mozilla/Add-ons/WebExtensions/API/commands/Command
 l10n:
-  sourceCommit: 9c9be5239fe7fb2907784e8cace339d4910eb103
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Informationen über die Einstellungen der Befehle, die im [`commands` manifest.json Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegeben sind.
+Informationen zu den Einstellungen für die Befehle, die im [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegeben sind.
 
 Ein Array dieser Objekte wird von {{WebExtAPIRef('commands.getAll()')}} zurückgegeben.
 
@@ -16,19 +16,19 @@ Ein Array dieser Objekte wird von {{WebExtAPIRef('commands.getAll()')}} zurückg
 Ein Wert dieses Typs ist ein Objekt, das diese Eigenschaften für die Befehle enthält:
 
 - `name`
-  - : `string`. Name des Befehls. Dieser wird an den {{WebExtAPIRef('commands.onCommand')}} Event-Listener übergeben.
+  - : `string`. Name des Befehls. Dieser wird an den {{WebExtAPIRef('commands.onCommand')}} Ereignis-Listener übergeben.
 - `description` {{optional_inline}}
-  - : `string`. Beschreibung des Befehls. Diese wird verwendet, um dem Benutzer zu erklären, was dieser Befehl tut.
+  - : `string`. Beschreibung des Befehls. Diese wird verwendet, um dem Benutzer zu erklären, was dieser Befehl bewirkt.
 - `shortcut` {{optional_inline}}
-  - : `string`. Tasten, die zum Ausführen des Befehls verwendet werden, angegeben als String. Weitere Details finden Sie im Abschnitt [shortcut values](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values) der Dokumentation zum `commands` manifest Schlüssel.
+  - : `string`. Tasten, die verwendet werden, um den Befehl auszuführen, angegeben als Zeichenkette. Weitere Details finden Sie im Abschnitt [shortcut values](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values) der Dokumentation des `commands` manifest-Keys.
 
-`description` und `shortcut` spiegeln die im `commands` manifest.json Schlüssel angegebenen Werte wider, es sei denn, sie wurden mit {{WebExtAPIRef('commands.update()')}} aktualisiert oder, im Fall der Verknüpfung, vom Benutzer angepasst.
+`description` und `shortcut` spiegeln die Werte wider, die im `commands` manifest.json key angegeben sind, es sei denn, sie wurden mit {{WebExtAPIRef('commands.update()')}} aktualisiert oder, im Fall des Shortcuts, vom Benutzer angepasst.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
+> Diese API basiert auf der Chromium-API [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands).

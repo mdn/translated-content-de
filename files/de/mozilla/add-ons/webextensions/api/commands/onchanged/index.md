@@ -2,14 +2,14 @@
 title: onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/commands/onChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn die Tastenkombination für einen Befehl geändert wird.
+Ausgelöst, wenn die Tastenkombination für einen Befehl geändert wird.
 
-Der Listener erhält ein Objekt, das den Namen des Befehls, seine neue aktive Tastenkombination und seine alte Tastenkombination enthält.
+Der Listener erhält ein Objekt, das den Namen des Befehls, die neue aktive Tastenkombination und die alte Tastenkombination enthält.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Der `listener`-Parameter ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn sich die Tastenkombination eines Befehls ändert. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn sich die Tastenkombination eines Befehls ändert. Der Funktion werden folgende Argumente übergeben:
     - `changeInfo`
       - : `object`. Ein Objekt, das den Namen des Befehls, seine neue aktive Tastenkombination und seine alte Tastenkombination enthält.
         - `name`
@@ -43,13 +43,9 @@ Ereignisse haben drei Funktionen:
         - `oldShortcut`
           - : `string`. Die Tastenkombination, die für diesen Befehl aktiv war, oder leer, wenn keine Tastenkombination aktiv war.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Sie könnten Änderungen an den Tastenkombinationen von Befehlen auf diese Weise protokollieren:
+Sie könnten Änderungen an Befehls-Tastenkombinationen wie folgt protokollieren:
 
 ```js
 function handleChanged(changeInfo) {
@@ -62,3 +58,7 @@ browser.commands.onChanged.addListener(handleChanged);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

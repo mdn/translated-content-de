@@ -2,12 +2,12 @@
 title: browserAction.getPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getPopup
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ruft das HTML-Dokument ab, das als Popup für diese Browser-Aktion gesetzt ist.
+Ruft das als Popup für diese Browser-Aktion gesetzte HTML-Dokument ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -30,16 +30,12 @@ let gettingPopup = browser.browserAction.getPopup(
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird das globale Popup zurückgegeben.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Popup zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL des Dokuments des Popups enthält. Dies wird eine vollständig qualifizierte URL sein, wie zum Beispiel `moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/popups/popup2.html`.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL des Popup-Dokuments enthält. Dies wird eine vollständig qualifizierte URL sein, wie `moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/popups/popup2.html`.
 
 ## Beispiele
 
@@ -56,8 +52,12 @@ gettingPopup.then(gotPopup);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getPopup) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getPopup) API von Chromium. Diese Dokumentation ist von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

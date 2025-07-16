@@ -2,32 +2,32 @@
 title: tabs.MutedInfoReason
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/MutedInfoReason
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Gibt den Grund an, warum ein Tab stumm geschaltet oder die Stummschaltung aufgehoben wurde.
+Gibt den Grund an, warum ein Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde.
 
 ## Typ
 
 Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - "capture"
-  - : Tab-Aufnahme gestartet, was eine Änderung des Stummschaltungsstatus erzwingt.
+  - : Tab-Aufnahme wurde gestartet, wodurch eine Änderung des stummgeschalteten Zustands erzwungen wurde.
 - "extension"
-  - : Eine Erweiterung hat den Stummschaltungsstatus festgelegt. Wenn dies der Grund ist, wird `extensionId` in {{WebExtAPIRef("tabs.mutedInfo")}} die ID der verantwortlichen Erweiterung enthalten.
+  - : Eine Erweiterung hat den stummgeschalteten Zustand festgelegt. Ist dies der Grund, enthält `extensionId` in {{WebExtAPIRef("tabs.mutedInfo")}} die ID der verantwortlichen Erweiterung.
 - "user"
-  - : Der Benutzer hat den Stummschaltungsstatus festgelegt.
+  - : Der Benutzer hat den stummgeschalteten Zustand festgelegt.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfoReason) API von Chromium. Diese Dokumentation wurde aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfoReason) API von Chromium. Diese Dokumentation leitet sich von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

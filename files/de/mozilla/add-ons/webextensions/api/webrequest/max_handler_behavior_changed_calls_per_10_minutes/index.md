@@ -2,50 +2,55 @@
 title: webRequest.MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
 l10n:
-  sourceCommit: 9d86be96f9c486e46ca0aab0c434ab23aa9ba444
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von Aufrufen, die {{WebExtAPIRef("webRequest.handlerBehaviorChanged", "handlerBehaviorChanged()")}} in einem Zeitraum von 10 Minuten ausgeführt werden kann.
+Die maximale Anzahl, wie oft {{WebExtAPIRef("webRequest.handlerBehaviorChanged", "handlerBehaviorChanged()")}} innerhalb eines Zeitraums von 10 Minuten aufgerufen werden kann.
 
-Diese Eigenschaft ist schreibgeschützt und hat einen Wert von `20`.
+Diese Eigenschaft ist schreibgeschützt und hat den Wert `20`.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES) API. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der `chrome.webRequest`-API von Chromium. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+/ Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Die Wiederverwendung und Nutzung von Quell- und Binärform, mit oder ohne
+// Veränderungen, ist unter der Bedingung gestattet, dass die folgenden
+// Voraussetzungen erfüllt sind:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen des Quellcodes müssen den oben angeführten
+// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// enthalten.
+//    * Weiterverteilungen in binärer Form müssen den oben angeführten
+// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung einhergehen, enthalten.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser
+// Software abgeleitet wurden, zu unterstützen oder zu bewerben, ohne
+// vorherige ausdrückliche schriftliche Erlaubnis.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITARBEITERN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
+// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR
+// EINEN BESTIMMTEN ZWECK SIND AUSGESCHLOSSEN. UNTER KEINEN UMSTÄNDEN SIND
+// DIE COPYRIGHT-INHABER ODER MITARBEITER HAFTBAR FÜR JEGLICHE DIREKTE,
+// INDIREKTE, BEILÄUFIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON
+// ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST
+// ODER PROFITVERLUST; ODER BETRIEBSUNTERBRECHUNGEN) JEDOCH AUSGELÖST,
+// SEIEN SIE IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
+// (EINSCHLIEßLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER
+// NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT
+// SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

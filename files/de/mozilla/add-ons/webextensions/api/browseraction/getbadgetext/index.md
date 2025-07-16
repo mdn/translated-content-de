@@ -2,12 +2,12 @@
 title: browserAction.getBadgeText()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeText
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Erhält den Text des Badges der Browser-Aktion.
+Ruft den Text im Badge der Browser-Aktion ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,19 +31,15 @@ let gettingText = browser.browserAction.getBadgeText(
 <!---->
 
 - Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Badge-Text zurückgegeben.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird der globale Badge-Text zurückgegeben.
 
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Badge-Text enthält.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Protokollieren Sie den Badge-Text:
+Protokollieren des Badge-Textes:
 
 ```js
 function gotBadgeText(text) {
@@ -55,6 +51,10 @@ gettingBadgeText.then(gotBadgeText);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getBadgeText) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.

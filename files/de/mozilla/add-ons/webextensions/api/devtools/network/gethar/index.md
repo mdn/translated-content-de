@@ -2,7 +2,7 @@
 title: devtools.network.getHAR()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/network/getHAR
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -23,11 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches das HAR-Protokoll für den aktuellen Tab enthält. Für Details, was das Protokoll-Objekt enthält, lesen Sie die [HAR-Spezifikation](http://www.softwareishard.com/blog/har-12-spec/#log).
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das das HAR-Protokoll für den aktuellen Tab enthält. Details dazu, was das Protokollobjekt enthält, finden Sie in der [HAR-Spezifikation](http://www.softwareishard.com/blog/har-12-spec/#log).
 
 ## Beispiele
 
@@ -47,8 +43,12 @@ logRequestsButton.addEventListener("click", logRequests);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API.
+> Diese API basiert auf der [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network)-API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

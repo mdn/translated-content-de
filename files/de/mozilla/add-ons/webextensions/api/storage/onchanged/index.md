@@ -2,15 +2,15 @@
 title: storage.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/storage/onChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}}, {{WebExtAPIRef('storage.StorageArea.remove','storageArea.remove')}}, oder {{WebExtAPIRef('storage.StorageArea.clear','storageArea.clear')}} in einem Speicherbereich ausgeführt wird und Details nur der geänderten Schlüssel zurückgegeben werden. Ein Callback wird nur aufgerufen, wenn es Änderungen an den zugrunde liegenden Daten gibt.
+Wird ausgelöst, wenn {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}}, {{WebExtAPIRef('storage.StorageArea.remove','storageArea.remove')}}, oder {{WebExtAPIRef('storage.StorageArea.clear','storageArea.clear')}} auf einen Speicherbereich angewendet wird und gibt Details nur über die geänderten Schlüssel zurück. Ein Rückruf wird nur aufgerufen, wenn es Änderungen an den zugrunde liegenden Daten gibt.
 
 > [!NOTE]
-> In Firefox umfasst die zurückgegebene Information alle Schlüssel innerhalb des Speicherbereichs, gegen den {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}} ausgeführt wurde, unabhängig davon, ob sie sich geändert haben oder nicht. Auch kann ein Callback aufgerufen werden, wenn es keine Änderung an den zugrunde liegenden Daten gibt. Details der geänderten Elemente finden Sie, indem Sie das {{WebExtAPIRef('storage.StorageChange')}}-Objekt jedes zurückgegebenen Schlüssels untersuchen. Siehe [Firefox Fehler 1833153](https://bugzil.la/1833153).
+> In Firefox umfasst die zurückgegebene Information alle Schlüssel innerhalb des Speicherbereichs, gegen den {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}} ausgeführt wurde, unabhängig davon, ob sie sich geändert haben oder nicht. Außerdem kann ein Rückruf aufgerufen werden, wenn es keine Veränderungen an den zugrunde liegenden Daten gibt. Details der geänderten Elemente finden Sie durch die Untersuchung des {{WebExtAPIRef('storage.StorageChange')}} Objekts jedes zurückgegebenen Schlüssels. Siehe [Firefox bug 1833153](https://bugzil.la/1833153).
 
 ## Syntax
 
@@ -20,14 +20,14 @@ browser.storage.onChanged.removeListener(listener)
 browser.storage.onChanged.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Ereignisse besitzen drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu hören. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es empfängt, `false` andernfalls.
 
 ## addListener Syntax
 
@@ -36,13 +36,9 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `changes`
-      - : `object`. Objekt, das die Änderung beschreibt. Der Name jeder Eigenschaft ist der Name jedes Schlüssels. Der Wert jedes Schlüssels ist ein {{WebExtAPIRef('storage.StorageChange')}}-Objekt, das die Änderung dieses Elements beschreibt.
+      - : `object`. Objekt, das die Änderung beschreibt. Der Name jeder Eigenschaft ist der Name jedes Schlüssels. Der Wert jedes Schlüssels ist ein {{WebExtAPIRef('storage.StorageChange')}} Objekt, das die Änderung an diesem Element beschreibt.
     - `areaName`
       - : `string`. Der Name des Speicherbereichs (`"sync"`, `"local"`, oder `"managed"`), in dem die Änderungen vorgenommen wurden.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -69,8 +65,12 @@ browser.storage.onChanged.addListener(logStorageChange);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-onChanged) API. Diese Dokumentation ist aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,7 +2,7 @@
 title: pkcs11.isModuleInstalled()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/isModuleInstalled
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -26,13 +26,9 @@ let checking = browser.pkcs11.isModuleInstalled(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn das Modul installiert ist, andernfalls mit `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn das Modul installiert ist, andernfalls `false`.
 
 Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -47,3 +43,7 @@ browser.pkcs11.isModuleInstalled("pkcs11_module").then(logIsInstalled);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

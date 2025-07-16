@@ -2,14 +2,14 @@
 title: pageAction.hide()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/hide
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Blendet die Seitenaktion für einen bestimmten Tab aus.
+Blendet die Page-Action für einen bestimmten Tab aus.
 
-`hide()` überschreibt die Mustererkennung, sodass die Seitenaktion im angegebenen Tab nicht angezeigt wird, selbst wenn seine URL von [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) übereinstimmt.
+`hide()` überschreibt die Mustererkennung, sodass die Page-Action im angegebenen Tab nicht angezeigt wird, selbst wenn seine URL durch [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) übereinstimmt.
 
 ## Syntax
 
@@ -22,15 +22,11 @@ browser.pageAction.hide(
 ### Parameter
 
 - `tabId`
-  - : `integer`. Die ID des Tabs, für den Sie die Seitenaktion ausblenden möchten.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : `integer`. Die ID des Tabs, für den Sie die Page-Action ausblenden möchten.
 
 ## Beispiele
 
-Blenden Sie die Seitenaktion für den aktuellen Tab aus, wenn der Benutzer darauf klickt:
+Blendet die Page-Action für den aktuellen Tab aus, wenn der Benutzer darauf klickt:
 
 ```js
 browser.pageAction.onClicked.addListener((tab) => {
@@ -40,8 +36,12 @@ browser.pageAction.onClicked.addListener((tab) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-hide) API von Chromium. Diese Dokumentation stammt aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-hide) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

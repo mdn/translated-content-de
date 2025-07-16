@@ -2,12 +2,12 @@
 title: notifications.onClicked
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/onClicked
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn der Benutzer auf eine Benachrichtigung klickt, jedoch nicht auf eine der Schaltflächen der Benachrichtigung (siehe dazu {{WebExtAPIRef("notifications.onButtonClicked")}}).
+Wird ausgelöst, wenn der Benutzer auf eine Benachrichtigung klickt, jedoch nicht auf eine der Schaltflächen der Benachrichtigung (dafür siehe {{WebExtAPIRef("notifications.onButtonClicked")}}).
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Zuhören bei diesem Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
@@ -35,13 +35,9 @@ Ereignisse haben drei Funktionen:
     - `notificationId`
       - : `string`. ID der Benachrichtigung, auf die der Benutzer geklickt hat.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-In diesem einfachen Beispiel fügen wir einen Listener zum Ereignis `notifications.onClicked` hinzu, um auf Klicks auf Systembenachrichtigungen zu lauschen. Sobald dies eintritt, protokollieren wir eine entsprechende Nachricht in der Konsole.
+In diesem einfachen Beispiel fügen wir einen Listener zum `notifications.onClicked` Ereignis hinzu, um auf das Klicken von Systembenachrichtigungen zu hören. Wenn dies geschieht, protokollieren wir eine entsprechende Nachricht in die Konsole.
 
 ```js
 browser.notifications.onClicked.addListener((notificationId) => {
@@ -51,5 +47,9 @@ browser.notifications.onClicked.addListener((notificationId) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.

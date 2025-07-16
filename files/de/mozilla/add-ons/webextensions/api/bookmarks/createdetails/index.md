@@ -2,36 +2,36 @@
 title: bookmarks.CreateDetails
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/CreateDetails
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Der Typ `CreateDetails` wird verwendet, um die Eigenschaften eines neuen Lesezeichens, Lesezeichenordners oder Trennzeichens beim Aufruf der Methode {{WebExtAPIRef("bookmarks.create()")}} zu beschreiben.
+Der `CreateDetails` Typ wird verwendet, um die Eigenschaften eines neuen Lesezeichens, Lesezeichnungsordners oder Trennzeichens zu beschreiben, wenn die Methode {{WebExtAPIRef("bookmarks.create()")}} aufgerufen wird.
 
 ## Typ
 
 Ein {{jsxref("object")}}, das eine Kombination der folgenden Felder enthält:
 
 - `index` {{optional_inline}}
-  - : Eine Ganzzahl {{jsxref("Number")}}, die die Position angibt, an der das neue Lesezeichen unter seinem übergeordneten Element platziert werden soll. Ein Wert von 0 platziert es an der obersten Stelle der Liste.
+  - : Eine Ganzzahl {{jsxref("Number")}}, die die Position angibt, an der das neue Lesezeichen unter seinem übergeordneten Element platziert werden soll. Ein Wert von 0 platziert es oben in der Liste.
 - `parentId` {{optional_inline}}
-  - : Ein {{jsxref("string")}}, das die ID des übergeordneten Ordners angibt, in den das neue Lesezeichen oder der neue Lesezeichenordner platziert werden soll. In Chrome und Firefox ist der Standardordner der Ordner "Weitere Lesezeichen" im Lesezeichenmenü.
+  - : Ein {{jsxref("string")}}, das die ID des übergeordneten Ordners angibt, in den das neue Lesezeichen oder der neue Lesezeichnungsordner platziert werden soll. In Chrome und Firefox ist das Standard der Ordner "Weitere Lesezeichen" im Lesezeichenmenü.
 - `title` {{optional_inline}}
-  - : Ein {{jsxref("string")}}, der den Titel für das Lesezeichen oder den Namen des zu erstellenden Ordners angibt. Falls dies nicht angegeben wird, ist der Titel `""`.
+  - : Ein {{jsxref("string")}}, der den Titel für das Lesezeichen oder den Namen des zu erstellenden Ordners angibt. Wenn dies nicht angegeben ist, ist der Titel `""`.
 - `type` {{optional_inline}}
-  - : Ein {{WebExtAPIRef("bookmarks.BookmarkTreeNodeType")}} Objekt, das angibt, ob es sich um ein Lesezeichen, einen Ordner oder ein Trennzeichen handelt. Standardmäßig `"bookmark"`, es sei denn, die `url` wird weggelassen, in diesem Fall ist der Standard `"folder"`.
+  - : Ein {{WebExtAPIRef("bookmarks.BookmarkTreeNodeType")}} Objekt, das angibt, ob es sich um ein Lesezeichen, einen Ordner oder ein Trennzeichen handelt. Standardmäßig `"bookmark"`, es sei denn, `url` wird weggelassen, in diesem Fall ist der Standard `"folder"`.
 - `url` {{optional_inline}}
-  - : `string`. Ein {{jsxref("string")}}, der die URL der zu speichernden Seite angibt. Wenn dies weggelassen wird oder `null` ist, wird stattdessen ein Ordner erstellt.
+  - : `string`. Ein {{jsxref("string")}}, der die URL der zu markierenden Seite angibt. Wenn dies weggelassen wird oder `null` ist, wird stattdessen ein Ordner erstellt.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-CreateDetails) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der `chrome.bookmarks`-API von Chromium ([`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-CreateDetails)). Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

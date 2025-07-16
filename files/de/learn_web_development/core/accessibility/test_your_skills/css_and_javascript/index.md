@@ -1,32 +1,32 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: CSS und JavaScript Barrierefreiheit"
+title: "Testen Sie Ihre Fähigkeiten: CSS- und JavaScript-Zugänglichkeit"
 short-title: CSS und JavaScript
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript
 l10n:
-  sourceCommit: 0c486f69de815c2882a21badb6a7772e124d1a7a
+  sourceCommit: c699955e1e368bd42d6ea9318a6afc9256c3036f
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel über [CSS- und JavaScript-Barrierefreiheit Best Practices](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen zu überprüfen, ob Sie unseren Artikel zu den [CSS- und JavaScript-Zugänglichkeits-Best-Practices](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript) verstanden haben.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie stecken bleiben, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## CSS Barrierefreiheit 1
+## CSS-Zugänglichkeit 1
 
-In der ersten Aufgabe wird Ihnen eine Liste von Links präsentiert. Ihre Barrierefreiheit ist jedoch ziemlich schlecht – es gibt keine Möglichkeit wirklich zu erkennen, dass es sich um Links handelt oder welcher Link sich im Fokus des Nutzers befindet. Wir möchten, dass Sie davon ausgehen, dass das bestehende Regelset mit dem `a`-Selektor von einem CMS bereitgestellt wird und dass Sie es nicht ändern können.
+Im ersten Aufgabe haben Sie eine Liste von Links vor sich. Ihre Zugänglichkeit ist jedoch ziemlich schlecht – es gibt keine Möglichkeit wirklich zu erkennen, dass es Links sind oder welcher Fokus gerade vom Benutzer genutzt wird. Wir möchten, dass Sie davon ausgehen, dass das bestehende Regelwerk mit dem `a`-Selektor von einem CMS bereitgestellt wird und dass Sie es nicht ändern können.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie neue Regeln, damit die Links wie Links aussehen und sich verhalten, und damit der Benutzer erkennen kann, auf welchen Link er in der Liste fokussiert ist.
+1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Erstellen Sie neue Regeln, damit die Links wie Links aussehen und sich verhalten, und damit der Benutzer erkennen kann, auf welchen Link in der Liste er fokussiert ist.
 
 > [!CALLOUT]
 >
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/css/css-a11y1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor daran zu arbeiten.
+> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/css/css-a11y1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Live-Ausgabe anzeigen.
 
 <!-- Code shared across examples -->
 
@@ -78,7 +78,7 @@ a {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges CSS könnte so aussehen:
+Ihr abgeschlossener CSS-Code könnte so aussehen:
 
 ```css
 /* ... */
@@ -86,34 +86,34 @@ Ihr fertiges CSS könnte so aussehen:
 
 li a {
   text-decoration: underline;
-  color: rgb(150, 0, 0);
+  color: rgb(150 0 0);
 }
 
 li a:hover,
 li a:focus {
   text-decoration: none;
-  color: rgb(255, 0, 0);
+  color: rgb(255 0 0);
 }
 ```
 
 </details>
 
-## CSS Barrierefreiheit 2
+## CSS-Zugänglichkeit 2
 
-In der nächsten Aufgabe wird Ihnen ein einfaches Stück Inhalt präsentiert – nur Überschriften und Absätze. Es gibt Barrierefreiheitsprobleme mit den Farben und der Größe des Textes, und wir möchten, dass Sie diese beheben.
+In dieser nächsten Aufgabe wird Ihnen ein einfacher Inhalt präsentiert – nur Überschriften und Absätze. Es gibt Barrierefreiheitsprobleme mit den Farben und der Größe des Texts, und wir möchten, dass Sie diese beheben.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Überlegen Sie, wo die Probleme liegen und welche Richtlinien die akzeptablen Werte für Farbe und Größe angeben.
-3. Aktualisieren Sie das CSS mit neuen Werten für die Farbe und die Schriftgröße, um das Problem zu beheben.
-4. Testen Sie den Code, um sicherzustellen, dass das Problem jetzt behoben ist. Erklären Sie, welche Tools oder Methoden Sie verwendet haben, um die neuen Werte auszuwählen und den Code zu testen.
+1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Überlegen Sie, was die Probleme sind und welche Richtlinien die akzeptablen Werte für Farbe und Größe vorgeben.
+3. Aktualisieren Sie das CSS mit neuen Werten für die Farbe und Schriftgröße, um das Problem zu beheben.
+4. Testen Sie den Code, um sicherzustellen, dass das Problem nun behoben ist. Erklären Sie, welche Tools oder Methoden Sie verwendet haben, um die neuen Werte auszuwählen und den Code zu testen.
 
 > [!CALLOUT]
 >
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/css/css-a11y2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor daran zu arbeiten.
+> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/css/css-a11y2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Live-Ausgabe anzeigen.
 
 <!-- spellchecker: disable -->
 
@@ -178,16 +178,16 @@ p {
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 1. Die Probleme sind:
-   - Der Farbkontrast ist nicht akzeptabel, gemäß WCAG Kriterien [1.4.3 (AA)](https://www.w3.org/TR/WCAG21/#contrast-minimum) und [1.4.6 (AAA)](https://www.w3.org/TR/WCAG21/#contrast-enhanced).
-   - Der Text wird in `vw`-Einheiten dimensioniert, was bedeutet, dass es in den meisten Browsern nicht zoombar ist. [WCAG 1.4.4 (AA)](https://www.w3.org/TR/WCAG21/#resize-text) fordert, dass Text skalierbar sein sollte.
-2. Um den Code zu reparieren, müssen Sie:
-   - Ein besser kontrastierendes Set von Hintergrund- und Vordergrundfarben wählen.
-   - Andere Einheiten verwenden, um den Text zu dimensionieren (wie `rem` oder sogar `px`), oder sogar etwas implementieren, das eine Kombination aus `vw` und anderen Einheiten verwendet, wenn Sie ihn skalierbar, aber dennoch relativ zur Viewport-Größe wünschen.
-3. Für die Tests:
-   - Sie können den Farbkontrast mit einem Tool wie [aXe](https://www.deque.com/axe/), dem [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) oder sogar einem einfachen eigenständigen Webseitentool wie dem [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) testen.
-   - Für die Textskalierung müssten Sie das Beispiel in einem Browser laden und versuchen, es zu skalieren. Die Skalierung von Text in `vw`-Einheiten funktioniert in Safari, aber nicht in Firefox oder auf Chromium-basierten Browsern.
+   - Der Farbkontrast ist nach den WCAG-Kriterien [1.4.3 (AA)](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum) und [1.4.6 (AAA)](https://w3c.github.io/wcag/guidelines/22/#contrast-enhanced) nicht ausreichend.
+   - Der Text wird mit `vw`-Einheiten skaliert, was bedeutet, dass er in den meisten Browsern nicht zoombar ist. [WCAG 1.4.4 (AA)](https://w3c.github.io/wcag/guidelines/22/#resize-text) besagt, dass Text anpassbar sein sollte.
+2. Um den Code zu beheben, müssen Sie
+   - Eine besser kontrastierende Kombination von Hintergrund- und Vordergrundfarben wählen.
+   - Andere Einheiten verwenden, um den Text zu skalieren (wie `rem` oder auch `px`), oder etwas implementieren, das eine Kombination von `vw` und anderen Einheiten nutzt, wenn Sie ihn anpassbar, aber dennoch relativ zur Ansichtsfenstergröße möchten.
+3. Zum Testen:
+   - Sie können den Farbkontrast mit einem Tool wie [aXe](https://www.deque.com/axe/), dem [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) oder einem einfachen Tool wie dem [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) testen.
+   - Für das Textzoomen müssen Sie das Beispiel in einem Browser laden und versuchen, es zu vergrößern. Zoom mit `vw`-Einheiten funktioniert in Safari, aber nicht in Firefox oder Chromium-basierten Browsern.
 
-Für den aktualisierten Code würde etwas wie dies den Farbkontrast beheben:
+Für den aktualisierten Code würde Folgendes den Farbkontrast beheben:
 
 ```css
 main {
@@ -202,7 +202,7 @@ p {
 }
 ```
 
-Und etwas wie dies würde für die Schriftgröße funktionieren:
+Und so würde die Schriftgrößenanpassung funktionieren:
 
 ```css
 h1 {
@@ -218,7 +218,7 @@ p {
 }
 ```
 
-Oder dies, wenn Sie etwas intelligenteres machen möchten, das Ihnen skalierbaren, viewport-relativen Text gibt:
+Oder so, wenn Sie etwas Clevereres möchten, das Ihnen anpassbaren text im Verhältnis zur Ansicht bietet:
 
 ```css
 h1 {
@@ -236,19 +236,19 @@ p {
 
 </details>
 
-## JavaScript Barrierefreiheit 1
+## JavaScript-Zugänglichkeit 1
 
-In unserer letzten Barrierefreiheitsaufgabe haben Sie einige JavaScript-Aufgaben zu erledigen. Wir haben eine App, die eine Liste von Tiernamen anzeigt. Durch Klicken auf einen der Tiernamen erscheint eine weitere Beschreibung dieses Tieres in einem Kasten unterhalb der Liste.
+In unserer letzten Zugänglichkeitsaufgabe haben Sie etwas JavaScript zu erledigen. Wir haben eine App, die eine Liste von Tiernamen präsentiert. Durch Klicken auf einen der Tiernamen erscheint eine weiterführende Beschreibung dieses Tiers in einem Kasten unter der Liste.
 
-Aber sie ist nicht sehr zugänglich – im aktuellen Zustand kann sie nur mit der Maus bedient werden. Wir möchten, dass Sie etwas HTML und JavaScript hinzufügen, um sie auch tastaturzugänglich zu machen.
+Derzeit ist die App jedoch nicht sehr zugänglich – sie lässt sich nur mit der Maus bedienen. Wir möchten, dass Sie etwas HTML und JavaScript hinzufügen, um die Bedienung auch mit der Tastatur zu ermöglichen.
 
-Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten und die erforderlichen Änderungen vorzunehmen.
+Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten, und führen Sie die erforderlichen Änderungen durch.
 
 > [!CALLOUT]
 >
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/js/js/js1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor daran zu arbeiten.
+> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/js/js/js1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Live-Ausgabe anzeigen.
 
 ```html live-sample___css-js-ally-3
 <section class="preview">
@@ -300,7 +300,7 @@ const listItems = document.querySelectorAll("li");
 const descHeading = document.querySelector(".animal-description h2");
 const descPara = document.querySelector(".animal-description p");
 
-listItems.forEach(function (item) {
+listItems.forEach((item) => {
   item.addEventListener("mouseup", handleSelection);
 });
 
@@ -317,11 +317,11 @@ function handleSelection(e) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-1. Zunächst müssen Sie `tabindex="0"` zu den Listenelementen hinzufügen, um sie per Tastatur fokussierbar zu machen.
-2. Anschließend müssen Sie einen weiteren Event-Listener innerhalb der `forEach()`-Schleife hinzufügen, damit der Code auf Tastenanschläge reagiert, während die Listenelemente ausgewählt sind. Es ist wahrscheinlich eine gute Idee, ihn auf eine bestimmte Taste reagieren zu lassen, wie "Enter", in welchem Fall etwas wie das Folgende wahrscheinlich akzeptabel ist:
+1. Zuerst müssen Sie `tabindex="0"` zu den Listenelementen hinzufügen, damit diese über die Tastatur fokussierbar sind.
+2. Dann müssen Sie einen weiteren Event-Listener innerhalb der `forEach()`-Schleife hinzufügen, damit der Code auf gedrückte Tasten reagiert, während die Listenelemente ausgewählt sind. Es ist wahrscheinlich eine gute Idee, eine spezifische Taste wie "Enter" zu verwenden, in welchem Fall Folgendes akzeptabel wäre:
 
 ```js
-item.addEventListener("keyup", function (e) {
+item.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     handleSelection(e);
   }

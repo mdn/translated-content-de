@@ -2,92 +2,86 @@
 title: events.UrlFilter
 slug: Mozilla/Add-ons/WebExtensions/API/events/UrlFilter
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Beschreibt verschiedene Kriterien für das Filtern von URLs. Wenn alle in den Eigenschaften des Filters angegebenen Kriterien mit der URL übereinstimmen, dann passt der Filter. Filter werden oft als [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von UrlFilters zu API-Methoden bereitgestellt. Zum Beispiel können [webNavigation](/de/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation)-Listener mit einem Filter hinzugefügt werden, der ein Objekt mit einer einzigen `url`-Eigenschaft ist, die ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von UrlFilters ist, z.B. `{url:[UrlFilter, UrlFilter, …]}`. Wenn irgendein Filter innerhalb des Arrays von UrlFilters übereinstimmt, wird es als Übereinstimmung für das Array betrachtet. Effektiv werden die Kriterien innerhalb eines einzigen Filters miteinander verbunden (UND-Verbindung), während alle individuellen Filter innerhalb eines Arrays verbunden sind (ODER-Verbindung).
+Beschreibt verschiedene Kriterien zum Filtern von URLs. Wenn alle in den Eigenschaften des Filters angegebenen Kriterien mit der URL übereinstimmen, dann passt der Filter. Filter werden oft API-Methoden in einem [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von UrlFilters zur Verfügung gestellt. Beispielsweise können [webNavigation](/de/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation) Listener mit einem Filter hinzugefügt werden, der ein Objekt mit einer einzelnen `url`-Eigenschaft ist, die ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von UrlFilters ist, z.B. `{url:[UrlFilter, UrlFilter, …]}`. Wenn ein Filter innerhalb des Arrays von UrlFilters übereinstimmt, wird dies als Übereinstimmung für das Array betrachtet. Effektiv werden die Kriterien innerhalb eines einzelnen Filters mit UND verknüpft, während alle einzelnen Filter innerhalb eines Arrays mit ODER verknüpft werden.
 
-Alle Kriterien sind case-sensitive.
+Alle Kriterien sind case-sensitiv.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
-Beachten Sie jedoch, dass diese letzten beiden Muster nicht mit der letzten Komponente des Hostnamens übereinstimmen, da kein implizierter Punkt am Ende des Hostnamens hinzugefügt wird. Zum Beispiel wird `"org."` `https://borg.com` matchen, aber nicht `https://example.org`. Um diese Muster zu treffen, verwenden Sie `hostSuffix`.
+Beachten Sie jedoch, dass diese letzten beiden Muster nicht mit der letzten Komponente des Hostnamens übereinstimmen, da kein impliziter Punkt am Ende des Hostnamens hinzugefügt wird. Beispielsweise stimmt `"org."` mit `https://borg.com` überein, aber nicht mit `https://example.org`. Um diese Muster abzugleichen, verwenden Sie `hostSuffix`.
 
 - `hostContains` {{optional_inline}}
-
-  - : `string`. Passt, wenn der [Hostname](/de/docs/Web/API/HTMLAnchorElement/hostname) der URL (ohne Protokoll oder Port – siehe `schemes` und `ports`) den angegebenen String enthält.
-    - Um zu testen, ob eine Hostname-Komponente mit "foo" beginnt, verwenden Sie `".foo"`. Dies passt zu `www.foobar.com` und `foo.com`, da ein impliziter Punkt am Anfang des Hostnamens hinzugefügt wird.
+  - : `string`. Stimmt überein, wenn der [Hostname](/de/docs/Web/API/HTMLAnchorElement/hostname) der URL (ohne Protokoll oder Port – siehe `schemes` und `ports`) die angegebene Zeichenkette enthält.
+    - Um zu testen, ob eine Hostname-Komponente mit "foo" beginnt, verwenden Sie `".foo"`. Das stimmt mit `www.foobar.com` und `foo.com` überein, da ein impliziter Punkt am Anfang des Hostnamens hinzugefügt wird.
     - Um zu testen, ob eine Hostname-Komponente mit "foo" endet, verwenden Sie `"foo."`.
     - Um zu testen, ob eine Hostname-Komponente genau "foo" entspricht, verwenden Sie `".foo."`.
 
 - `hostEquals` {{optional_inline}}
-
-  - : `string`. Passt, wenn der Hostname der URL einer angegebenen Zeichenkette entspricht.
-    - Beispiel: `"www.example.com"` passt zu `http://www.example.com` und `https://www.example.com/`, aber nicht zu `http://example.com/`.
+  - : `string`. Stimmt überein, wenn der Hostname der URL mit einer angegebenen Zeichenkette identisch ist.
+    - Beispiel: `"www.example.com"` stimmt überein mit `http://www.example.com` und `https://www.example.com/`, aber nicht mit `http://example.com/`.
 
 - `hostPrefix` {{optional_inline}}
-  - : `string`. Passt, wenn der Hostname der URL mit einem angegebenen String beginnt.
+  - : `string`. Stimmt überein, wenn der Hostname der URL mit einer angegebenen Zeichenkette beginnt.
 - `hostSuffix` {{optional_inline}}
-
-  - : `string`. Passt, wenn der Hostname der URL mit einem angegebenen String endet.
-    - Beispiel: `".example.com"` passt zu `http://www.example.com/`, aber nicht zu `http://example.com/`.
-    - Beispiel: `"example.com"` passt zu `http://www.example.com/` und `http://fakeexample.com/`.
+  - : `string`. Stimmt überein, wenn der Hostname der URL mit einer angegebenen Zeichenkette endet.
+    - Beispiel: `".example.com"` stimmt überein mit `http://www.example.com/`, aber nicht mit `http://example.com/`.
+    - Beispiel: `"example.com"` stimmt überein mit `http://www.example.com/`, und `http://fakeexample.com/`.
 
 - `pathContains` {{optional_inline}}
-  - : `string`. Passt, wenn das Pfadsegment der URL einen angegebenen String enthält.
+  - : `string`. Stimmt überein, wenn der Pfadabschnitt der URL eine angegebene Zeichenkette enthält.
 - `pathEquals` {{optional_inline}}
-  - : `string`. Passt, wenn das Pfadsegment der URL einem angegebenen String entspricht.
+  - : `string`. Stimmt überein, wenn der Pfadabschnitt der URL einer angegebenen Zeichenkette entspricht.
 - `pathPrefix` {{optional_inline}}
-  - : `string`. Passt, wenn das Pfadsegment der URL mit einem angegebenen String beginnt.
+  - : `string`. Stimmt überein, wenn der Pfadabschnitt der URL mit einer angegebenen Zeichenkette beginnt.
 - `pathSuffix` {{optional_inline}}
-  - : `string`. Passt, wenn das Pfadsegment der URL mit einem angegebenen String endet.
+  - : `string`. Stimmt überein, wenn der Pfadabschnitt der URL mit einer angegebenen Zeichenkette endet.
 - `queryContains` {{optional_inline}}
-  - : `string`. Passt, wenn das Abfrage-Segment der URL einen angegebenen String enthält.
+  - : `string`. Stimmt überein, wenn der Query-Abschnitt der URL eine angegebene Zeichenkette enthält.
 - `queryEquals` {{optional_inline}}
-  - : `string`. Passt, wenn das Abfrage-Segment der URL einem angegebenen String entspricht.
+  - : `string`. Stimmt überein, wenn der Query-Abschnitt der URL einer angegebenen Zeichenkette entspricht.
 - `queryPrefix` {{optional_inline}}
-  - : `string`. Passt, wenn das Abfrage-Segment der URL mit einem angegebenen String beginnt.
+  - : `string`. Stimmt überein, wenn der Query-Abschnitt der URL mit einer angegebenen Zeichenkette beginnt.
 - `querySuffix` {{optional_inline}}
-  - : `string`. Passt, wenn das Abfrage-Segment der URL mit einem angegebenen String endet.
+  - : `string`. Stimmt überein, wenn der Query-Abschnitt der URL mit einer angegebenen Zeichenkette endet.
 - `urlContains` {{optional_inline}}
-  - : `string`. Passt, wenn die URL (ohne Fragmentkennung) einen angegebenen String enthält. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
+  - : `string`. Stimmt überein, wenn die URL (ohne Fragmentbezeichner) eine angegebene Zeichenkette enthält. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
 - `urlEquals` {{optional_inline}}
-  - : `string`. Passt, wenn die URL (ohne Fragmentkennung) einem angegebenen String entspricht. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
+  - : `string`. Stimmt überein, wenn die URL (ohne Fragmentbezeichner) einer angegebenen Zeichenkette entspricht. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
 - `urlMatches` {{optional_inline}}
-
-  - : `string`. Passt, wenn die URL (ohne Fragmentkennung) einem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) entspricht. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
-    - Zum Beispiel: `urlMatches: "^[^:]*:(?://)?(?:[^/]*\\.)?mozilla\\.org/.*$"` passt zu `https://mozilla.org/`, `https://developer.mozilla.org/`, aber nicht zu `https://developer.fakemozilla.org/`.
+  - : `string`. Stimmt überein, wenn die URL (ohne Fragmentbezeichner) einem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) entspricht. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
+    - Beispiel: `urlMatches: "^[^:]*:(?://)?(?:[^/]*\\.)?mozilla\\.org/.*$"` stimmt überein mit `https://mozilla.org/`, `https://developer.mozilla.org/`, aber nicht mit `https://developer.fakemozilla.org/`.
 
 - `originAndPathMatches` {{optional_inline}}
-  - : `string`. Passt, wenn die URL ohne Abfrage-Segment und Fragmentkennung einem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) entspricht. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
+  - : `string`. Stimmt überein, wenn die URL ohne Query-Segment und Fragmentbezeichner einem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) entspricht. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
 - `urlPrefix` {{optional_inline}}
-
-  - : `string`. Passt, wenn die URL (ohne Fragmentkennung) mit einem angegebenen String beginnt. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
-    - Beispiel: `"https://developer"` passt zu `https://developer.mozilla.org/` und `https://developers.facebook.com/`.
+  - : `string`. Stimmt überein, wenn die URL (ohne Fragmentbezeichner) mit einer angegebenen Zeichenkette beginnt. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen.
+    - Beispiel: `"https://developer"` stimmt überein mit `https://developer.mozilla.org/` und `https://developers.facebook.com/`.
 
 - `urlSuffix` {{optional_inline}}
-  - : `string`. Passt, wenn die URL (ohne Fragmentkennung) mit einem angegebenen String endet. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen. Beachten Sie, dass ein implizierter Schrägstrich "/" nach dem Host hinzugefügt wird, sodass `"com/"` zu `https://example.com` passt, aber `"com"` nicht.
+  - : `string`. Stimmt überein, wenn die URL (ohne Fragmentbezeichner) mit einer angegebenen Zeichenkette endet. Portnummern werden aus der URL entfernt, wenn sie mit der Standardportnummer übereinstimmen. Beachten Sie, dass nach dem Host ein impliziter Schrägstrich "/" hinzugefügt wird, sodass `"com/"` mit `https://example.com` übereinstimmt, aber `"com"` nicht.
 - `schemes` {{optional_inline}}
-
-  - : `array` von `string`. Passt, wenn das Schema der URL einem der in dem Array angegebenen Schemas entspricht. Da Schemas immer in Kleinbuchstaben umgewandelt werden, sollte es immer in Kleinbuchstaben angegeben werden, sonst wird es nie übereinstimmen.
-    - Beispiel: `["https"]` wird nur HTTPS-URLs entsprechen.
+  - : `array` von `string`. Stimmt überein, wenn das Schema der URL gleich einem der in dem Array angegebenen Schemata ist. Da Schemata immer in Kleinbuchstaben umgewandelt werden, sollte dies immer in Kleinbuchstaben angegeben werden, da es sonst nie übereinstimmen wird.
+    - Beispiel: `["https"]` wird nur HTTPS-URLs abgleichen.
 
 - `ports` {{optional_inline}}
-  - : `array` von (`integer` oder (`array` von `integer`)). Ein Array, das ganze Zahlen und Arrays von ganzen Zahlen enthalten kann. Ganze Zahlen werden als Portnummern interpretiert, während Arrays von ganzen Zahlen als Portbereiche interpretiert werden. Passt, wenn der Port der URL mit einer Portnummer übereinstimmt oder in einem der Bereiche enthalten ist.
-    - Zum Beispiel: `[80, 443, [1000, 1200]]` entspricht allen Anfragen auf den Ports 80, 443 und im Bereich 1000-1200.
+  - : `array` von (`integer` oder (`array` von `integer`)). Ein Array, das Ganzzahlen und Arrays von Ganzzahlen enthalten kann. Ganzzahlen werden als Portnummern interpretiert, während Arrays von Ganzzahlen als Portbereiche interpretiert werden. Stimmt überein, wenn der Port der URL mit einer Portnummer übereinstimmt oder in einem der Bereiche enthalten ist.
+    - Zum Beispiel: `[80, 443, [1000, 1200]]` stimmt mit allen Anforderungen an den Ports 80, 443 und im Bereich 1000-1200 überein.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-UrlFilter) API. Diese Dokumentation ist von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-UrlFilter) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,12 +2,12 @@
 title: notifications.clear()
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/clear
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Löscht eine Benachrichtigung anhand ihrer ID.
+Löscht eine Benachrichtigung mit der angegebenen ID.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,19 +22,15 @@ let clearing = browser.notifications.clear(
 ### Parameter
 
 - `id`
-  - : `string`. Die ID der zu löschenden Benachrichtigung. Dies ist dieselbe ID, die im Callback von {{WebExtAPIRef('notifications.create()')}} übergeben wird.
+  - : `string`. Die ID der zu löschenden Benachrichtigung. Diese entspricht der ID, die im Callback von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird: `true`, wenn die Benachrichtigung gelöscht wurde, oder `false`, wenn dies nicht der Fall war (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Boolean erfüllt wird: `true`, wenn die Benachrichtigung gelöscht wurde, oder `false`, wenn sie nicht gelöscht wurde (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browseraktion klickt, es sei denn, die Benachrichtigung wird bereits angezeigt, in diesem Fall wird die Benachrichtigung gelöscht:
+Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browser-Aktion klickt, es sei denn, die Benachrichtigung wird bereits angezeigt, in diesem Fall wird die Benachrichtigung gelöscht:
 
 ```js
 let myNotification = "my-notification";
@@ -62,5 +58,9 @@ browser.browserAction.onClicked.addListener(handleClick);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.

@@ -2,38 +2,38 @@
 title: devtools.panels.ExtensionSidebarPane
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Das `ExtensionSidebarPane`-Objekt repräsentiert ein Bereich, den eine Erweiterung zur Seitenleiste im HTML/CSS-Inspektor des Browsers hinzugefügt hat.
+Das `ExtensionSidebarPane`-Objekt repräsentiert ein Paneel, das eine Erweiterung der Seitenleiste im HTML/CSS-Inspektor des Browsers hinzugefügt hat.
 
-![neuer Bereich mit dem Titel "My pane", der ein JSON-Objekt anzeigt](inspector-sidebar.png)
+![neues Paneel mit dem Titel "My pane", das ein JSON-Objekt anzeigt](inspector-sidebar.png)
 
 Um ein `ExtensionSidebarPane` zu erstellen, rufen Sie die Funktion [`browser.devtools.panels.elements.createSidebarPane()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel/createSidebarPane) auf.
 
 ## Funktionen
 
 - [`devtools.panels.ExtensionSidebarPane.setExpression()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setExpression)
-  - : Evaluieren Sie einen JavaScript-Ausdruck auf der Webseite, die der Inspektor untersucht. Das Ergebnis wird im Seitenleistenbereich angezeigt.
+  - : Evaluieren Sie einen JavaScript-Ausdruck auf der Webseite, die vom Inspektor untersucht wird. Das Ergebnis wird im Seitenleisten-Paneel angezeigt.
 - [`devtools.panels.ExtensionSidebarPane.setObject()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setObject)
-  - : Setzt ein JSON-Objekt, das im Seitenleistenbereich angezeigt wird.
+  - : Legt ein JSON-Objekt fest, das im Seitenleisten-Paneel angezeigt wird.
 - [`devtools.panels.ExtensionSidebarPane.setPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setPage)
-  - : Lädt die Seite, auf die durch die übergebene URL verwiesen wird.
+  - : Lädt die Seite, auf die die angegebene URL verweist.
 
 ## Ereignisse
 
 - [`devtools.panels.ExtensionSidebarPane.onShown`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/onShown)
-  - : Wird ausgelöst, wenn der Seitenleistenbereich angezeigt wird.
+  - : Wird ausgelöst, wenn das Seitenleisten-Paneel angezeigt wird.
 - [`devtools.panels.ExtensionSidebarPane.onHidden`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/onHidden)
-  - : Wird ausgelöst, wenn der Seitenleistenbereich ausgeblendet wird.
+  - : Wird ausgelöst, wenn das Seitenleisten-Paneel verborgen wird.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples("h2")}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

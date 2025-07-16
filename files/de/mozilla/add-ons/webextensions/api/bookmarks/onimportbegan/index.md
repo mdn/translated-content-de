@@ -2,14 +2,14 @@
 title: bookmarks.onImportBegan
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/onImportBegan
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Browser beginnt, eine Reihe von Lesezeichen zu importieren.
+Wird ausgelöst, wenn der Browser beginnt, eine Sammlung von Lesezeichen zu importieren.
 
-Während eine Reihe von Lesezeichen importiert wird, kann {{WebExtAPIRef("bookmarks.onCreated", "onCreated")}} sehr oft ausgelöst werden. Wenn Ihre Erweiterung auf `onCreated` hört und der Listener ressourcenintensiv ist, sollten Sie auch auf `onImportBegan` und {{WebExtAPIRef("bookmarks.onImportEnded", "onImportEnded")}} hören. Wenn Sie `onImportBegan` empfangen, ignorieren Sie `onCreated`, bis Sie `onImportEnded` empfangen. Alle anderen Benachrichtigungen können wie üblich behandelt werden.
+Während eine Sammlung von Lesezeichen importiert wird, kann {{WebExtAPIRef("bookmarks.onCreated", "onCreated")}} viele Male ausgelöst werden. Wenn Ihre Erweiterung auf `onCreated` hört und der Listener kostspielig ist, sollten Sie auch auf `onImportBegan` und {{WebExtAPIRef("bookmarks.onImportEnded", "onImportEnded")}} hören. Sobald Sie `onImportBegan` empfangen haben, ignorieren Sie `onCreated`, bis Sie `onImportEnded` empfangen. Alle anderen Benachrichtigungen können wie üblich gehandhabt werden.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ browser.bookmarks.onImportBegan.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, sonst `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -34,10 +34,6 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Es werden keine Parameter übergeben.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -60,8 +56,12 @@ browser.browserAction.onClicked.addListener(handleClick);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onImportBegan) API von Chromium. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onImportBegan) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

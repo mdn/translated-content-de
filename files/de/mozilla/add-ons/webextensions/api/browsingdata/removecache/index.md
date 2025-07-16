@@ -2,7 +2,7 @@
 title: browsingData.removeCache()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeCache
 l10n:
-  sourceCommit: 73eeba4ecd149e9a322e64369c0451b460dbb8c1
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -24,15 +24,15 @@ let removing = browser.browsingData.removeCache(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt. Dieser Parameter muss gesetzt sein, hat aber keine Auswirkungen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt. Dieser Parameter muss gesetzt werden, hat aber keine Wirkung.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Löschen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Den Browser-Cache leeren:
+Löschen Sie den Browser-Cache:
 
 ```js
 function onRemoved() {
@@ -46,11 +46,11 @@ function onError(error) {
 browser.browsingData.removeCache({}).then(onRemoved, onError);
 ```
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.

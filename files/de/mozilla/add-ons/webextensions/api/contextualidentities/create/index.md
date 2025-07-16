@@ -2,12 +2,12 @@
 title: contextualIdentities.create()
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/create
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Erstellt eine neue kontextuelle Identität. Sobald sie erstellt ist, kann der Benutzer neue Tabs erstellen, die zu dieser kontextuellen Identität gehören, genau wie bei den eingebauten Identitäten.
+Erstellt eine neue kontextbezogene Identität. Sobald sie erstellt ist, wird der Benutzer in der Lage sein, neue Tabs zu erstellen, die zu dieser kontextbezogenen Identität gehören, genau wie bei den eingebauten Identitäten.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,14 +22,11 @@ let createContext = browser.contextualIdentities.create(
 ### Parameter
 
 - `details`
-
-  - : `object`. Ein Objekt, das Eigenschaften für die neue kontextuelle Identität enthält. Dies umfasst die folgenden Eigenschaften:
-
+  - : `object`. Ein Objekt, das Eigenschaften für die neue kontextbezogene Identität enthält. Dies umfasst folgende Eigenschaften:
     - `name`
-      - : `string`. Der Name der neuen Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt, sodass sie einen neuen Tab öffnen können, der zu dieser Identität gehört. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
+      - : `string`. Der Name der neuen Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt und ermöglicht es, einen neuen Tab zu öffnen, der zu dieser Identität gehört. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
     - `color`
-
-      - : `string`. Die Farbe, die mit der neuen Identität verbunden ist. Diese wird verwendet, um Tabs hervorzuheben, die zu dieser Identität gehören. Sie können hier einen der folgenden Werte angeben:
+      - : `string`. Die Farbe, die mit der neuen Identität verbunden ist. Diese wird verwendet, um Tabs hervorzuheben, die zu dieser Identität gehören. Sie können einen der folgenden Werte angeben:
         - "blue"
         - "turquoise"
         - "green"
@@ -41,7 +38,7 @@ let createContext = browser.contextualIdentities.create(
         - "toolbar"
 
     - `icon`
-      - : `string`. Der Name eines Icons, das in der URL-Leiste für Tabs angezeigt wird, die zu dieser Identität gehören. Sie können hier einen der folgenden Werte angeben:
+      - : `string`. Der Name eines Symbols, das in der URL-Leiste für Tabs angezeigt wird, die zu dieser Identität gehören. Sie können einen der folgenden Werte angeben:
         - "fingerprint"
         - "briefcase"
         - "dollar"
@@ -58,15 +55,11 @@ let createContext = browser.contextualIdentities.create(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, das die neue Identität beschreibt. Wenn die Funktion für kontextuelle Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die neue Identität beschreibt. Wenn die Funktion für kontextbezogene Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine neue kontextuelle Identität und protokolliert deren Cookie-Store-ID:
+Dieses Beispiel erstellt eine neue kontextbezogene Identität und protokolliert deren Cookie-Store-ID:
 
 ```js
 function onCreated(context) {
@@ -87,3 +80,7 @@ browser.contextualIdentities
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

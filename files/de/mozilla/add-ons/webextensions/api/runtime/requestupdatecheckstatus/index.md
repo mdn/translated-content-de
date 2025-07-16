@@ -2,29 +2,29 @@
 title: runtime.RequestUpdateCheckStatus
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/RequestUpdateCheckStatus
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ergebnis eines Aufrufs von {{WebExtAPIRef("runtime.requestUpdateCheck()")}}.
+Das Ergebnis eines Aufrufs von {{WebExtAPIRef("runtime.requestUpdateCheck()")}}.
 
 ## Typ
 
 Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - `"throttled"`
-  - : Update wird gedrosselt.
+  - : Aktualisierung ist verzögert.
 - `"no_update"`
-  - : Kein Update verfügbar.
+  - : Keine Aktualisierung verfügbar.
 - `"update_available"`
-  - : Ein Update der Erweiterung ist verfügbar.
+  - : Eine Aktualisierung der Erweiterung ist verfügbar.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-RequestUpdateCheckStatus) von Chromium. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-RequestUpdateCheckStatus) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.

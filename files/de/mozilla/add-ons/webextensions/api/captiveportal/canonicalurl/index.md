@@ -2,18 +2,18 @@
 title: captivePortal.canonicalURL
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/canonicalURL
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Gibt die kanonische URL der Erkennungsseite für das Captive-Portal zurück. Nur lesbar.
+Gibt die kanonische URL der Captive-Portal-Erkennungsseite zurück. Nur lesbar.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

@@ -2,12 +2,12 @@
 title: contextualIdentities.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/remove
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Entfernt eine kontextbezogene Identität anhand ihrer Cookie-Store-ID.
+Entfernt eine kontextuelle Identität anhand ihrer Cookie Store-ID.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,19 +22,15 @@ let removeContext = browser.contextualIdentities.remove(
 ### Parameter
 
 - `cookieStoreId`
-  - : `string`. Die ID des Cookie-Stores der kontextbezogenen Identität. Da kontextbezogene Identitäten jeweils ihren eigenen Cookie-Store haben, dient dies als Identifikator für die kontextbezogene Identität selbst.
+  - : `string`. Die ID des Cookie Stores der kontextuellen Identität. Da jede kontextuelle Identität einen eigenen Cookie Store hat, dient dies als Bezeichner für die kontextuelle Identität selbst.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die entfernte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die Funktion der kontextbezogenen Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die entfernte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder das Feature für kontextuelle Identitäten nicht aktiviert ist, wird das Versprechen abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel versucht, die kontextbezogene Identität zu entfernen, deren ID "firefox-container-1" ist:
+Dieses Beispiel versucht, die kontextuelle Identität zu entfernen, deren ID "firefox-container-1" ist:
 
 ```js
 function onRemoved(context) {
@@ -55,3 +51,7 @@ browser.contextualIdentities
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

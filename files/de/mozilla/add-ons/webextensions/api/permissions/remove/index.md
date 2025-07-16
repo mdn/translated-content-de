@@ -2,14 +2,14 @@
 title: permissions.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/remove
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Fordern Sie auf, die im angegebenen {{WebExtAPIRef("permissions.Permissions")}} Objekt aufgeführten Berechtigungen aufzugeben.
+Fordert auf, die im angegebenen {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgeführten Berechtigungen aufzugeben.
 
-Das `Permissions` Argument kann entweder eine `origins` Eigenschaft enthalten, die ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist, oder eine `permissions` Eigenschaft, die ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) ist, oder beides. Berechtigungen müssen aus der Menge der im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) manifest.json-Schlüssel definierten Berechtigungen stammen.
+Das `Permissions`-Argument kann entweder eine `origins`-Eigenschaft enthalten, die ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist, oder eine `permissions`-Eigenschaft, die ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) ist, oder beides. Berechtigungen müssen aus dem Satz von Berechtigungen stammen, die im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions)-Eintrag in der manifest.json definiert sind.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,19 +24,15 @@ let removing = browser.permissions.remove(
 ### Parameter
 
 - `permissions`
-  - : Ein {{WebExtAPIRef("permissions.Permissions")}} Objekt.
+  - : Ein {{WebExtAPIRef("permissions.Permissions")}}-Objekt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit `true` erfüllt wird, wenn die im `permissions` Argument aufgeführten Berechtigungen der Erweiterung jetzt nicht mehr gewährt werden, oder mit `false` andernfalls.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die im `permissions`-Argument aufgeführten Berechtigungen nun nicht mehr der Erweiterung gewährt sind, oder `false` sonst.
 
 ## Beispiele
 
-Dieser Code fügt einen Klick-Handler hinzu, der eine bestimmte Berechtigung entfernt.
+Dieser Code fügt einen Klick-Handler hinzu, der eine gegebene Berechtigung entfernt.
 
 ```js
 const permissionToRemove = {
@@ -54,5 +50,9 @@ document.querySelector("#remove").addEventListener("click", remove);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.
+> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions)-API von Chromium.

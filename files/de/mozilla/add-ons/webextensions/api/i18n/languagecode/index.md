@@ -2,7 +2,7 @@
 title: i18n.LanguageCode
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/LanguageCode
 l10n:
-  sourceCommit: 5ae01a458eced9772d628f91d035ada423cd073c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -11,44 +11,43 @@ Ein [Sprachtag](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.10) 
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten.
+Werte dieses Typs sind Zeichenfolgen.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#type-LanguageCode) API von Chromium. Diese Dokumentation ist aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#type-LanguageCode)-API von Chromium. Diese Dokumentation stammt aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und die Nutzung in Quellen- und Binärformen, mit oder ohne
-// Veränderung, sind unter der Voraussetzung gestattet, dass die folgenden Bedingungen
-// erfüllt sind:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen des Quellcodes müssen den obigen Copyright-
-// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// enthalten.
-//    * Weiterverbreitungen in binärer Form müssen den obigen Copyright-
-// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
-// Dokumentation und/oder anderen Materialien, die mit der
-// Verteilung einhergehen, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen zur Unterstützung oder Werbung für Produkte, die von
-// dieser Software abgeleitet sind, ohne spezielle vorherige schriftliche Genehmigung verwendet werden.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITARBEITERN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF, DIE IMPLIZIERTEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN
-// BESTIMMTEN ZWECK SIND AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE COPYRIGHT-INHABER ODER
-// MITARBEITER VERANTWORTLICH FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
-// BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
-// BEGRENZT AUF, BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
-// DATEN- ODER GEWINNVERLUSTE; ODER BETRIEBSUNTERBRECHUNG) WIE AUCH IMMER
-// VERURSACHT UND UNTER JEGLICHER HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERM), DIE AUS DER NUTZUNG DIESER
-// SOFTWARE ENTSTEHEN, SELBST WENN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

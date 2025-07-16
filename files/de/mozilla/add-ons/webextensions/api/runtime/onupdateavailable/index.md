@@ -2,18 +2,18 @@
 title: runtime.onUpdateAvailable
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onUpdateAvailable
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Update für die Erweiterung verfügbar ist. Dieses Ereignis ermöglicht es einer Erweiterung, ein Update zu verzögern, zum Beispiel, weil sie sich mitten in einem Vorgang befindet, der nicht unterbrochen werden sollte.
+Wird ausgelöst, wenn ein Update für die Erweiterung verfügbar ist. Dieses Ereignis ermöglicht es einer Erweiterung, ein Update zu verzögern; beispielsweise, weil sie sich mitten in einer Operation befindet, die nicht unterbrochen werden sollte.
 
-Wenn die Erweiterung nicht auf dieses Ereignis hört, wenn ein Update verfügbar wird, wird die Erweiterung sofort neu geladen und das Update angewendet. Wenn die Erweiterung zuhört, wird das Update beim nächsten Neuladen der Erweiterung angewendet. Dies geschieht, wenn:
+Wenn die Erweiterung nicht auf dieses Ereignis hört und ein Update verfügbar wird, wird die Erweiterung sofort neu geladen und das Update wird angewendet. Wenn die Erweiterung zuhört, wird das Update beim nächsten Neuladen der Erweiterung angewendet. Dies passiert, wenn:
 
 - der Browser neu gestartet wird
-- die Erweiterung deaktiviert und wieder aktiviert wird
-- die Erweiterung sich selbst explizit neu lädt, indem sie {{WebExtAPIRef('runtime.reload()')}} aufruft.
+- die Erweiterung deaktiviert und erneut aktiviert wird
+- die Erweiterung sich explizit selbst neu lädt, indem sie {{WebExtAPIRef('runtime.reload()')}} aufruft.
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -39,15 +39,11 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `details`
-      - : `object`. Enthält eine einzelne Eigenschaft, einen String namens `version`, der die Versionsnummer des Updates darstellt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : `object`. Enthält eine einzelne Eigenschaft, einen String namens `version`, der die Versionsnummer des Updates repräsentiert.
 
 ## Beispiele
 
-Lauschen auf `UpdateAvailable`-Ereignisse:
+Auf `UpdateAvailable`-Ereignisse hören:
 
 ```js
 function handleUpdateAvailable(details) {
@@ -61,8 +57,12 @@ browser.runtime.onUpdateAvailable.addListener(handleUpdateAvailable);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onUpdateAvailable) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onUpdateAvailable) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

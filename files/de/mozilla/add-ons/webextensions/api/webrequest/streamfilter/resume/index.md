@@ -2,14 +2,14 @@
 title: webRequest.StreamFilter.resume()
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/resume
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Setzt eine Anforderung fort, die zuvor durch einen Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.suspend()", "suspend()")}} angehalten wurde.
+Setzt eine Anfrage fort, die zuvor durch einen Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.suspend()", "suspend()")}} angehalten wurde.
 
-Diese Funktion kann erst aufgerufen werden, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
+Sie können diese Funktion erst aufrufen, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
 
 ## Syntax
 
@@ -23,15 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Keiner.
 
 ## Beispiele
 
-Dieses Beispiel verwendet suspend/resume, um eine Webanforderung zu verzögern.
+Dieses Beispiel verwendet suspend/resume, um eine Webanfrage zu verzögern.
 
 ```js
 function listener(details) {
@@ -55,3 +51,7 @@ browser.webRequest.onBeforeRequest.addListener(
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

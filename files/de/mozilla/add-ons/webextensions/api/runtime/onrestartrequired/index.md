@@ -2,12 +2,12 @@
 title: runtime.onRestartRequired
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onRestartRequired
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn eine App oder das Gerät, auf dem sie läuft, neu gestartet werden muss. Die App sollte so bald wie möglich alle ihre Fenster schließen, um den Neustart zu ermöglichen. Wenn die App nichts unternimmt, wird der Neustart nach einer Schonfrist von 24 Stunden erzwungen. Derzeit wird dieses Ereignis nur für ChromeOS-Kiosk-Apps ausgelöst.
+Wird ausgelöst, wenn eine App oder das Gerät, auf dem sie läuft, neu gestartet werden muss. Die App sollte alle ihre Fenster so schnell wie möglich schließen, um den Neustart zu ermöglichen. Wenn die App nichts unternimmt, wird ein Neustart erzwungen, nachdem eine 24-stündige Schonfrist abgelaufen ist. Derzeit wird dieses Ereignis nur für ChromeOS-Kiosk-Apps ausgelöst.
 
 ## Syntax
 
@@ -20,31 +20,31 @@ browser.runtime.onRestartRequired.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, `false` andernfalls.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `function`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `reason`
-      - : Ein Wert von {{WebExtAPIRef('runtime.OnRestartRequiredReason')}} — der Grund, warum das Ereignis gesendet wird.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : Ein {{WebExtAPIRef('runtime.OnRestartRequiredReason')}} Wert — der Grund, warum das Ereignis ausgelöst wird.
 
 ## Beispiele
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onRestartRequired)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onRestartRequired) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

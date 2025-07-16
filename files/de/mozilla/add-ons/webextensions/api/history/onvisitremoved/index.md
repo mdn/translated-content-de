@@ -2,16 +2,16 @@
 title: history.onVisitRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/history/onVisitRemoved
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 Wird ausgelöst, wenn eine Seite vollständig aus dem Browser-Verlauf entfernt wird.
 
-- Wenn alle Besuche einer einzelnen Seite entfernt werden (beispielsweise durch die Verwendung von {{WebExtAPIRef("history.deleteUrl")}}), wird dieses Ereignis einmal ausgelöst.
-- Wenn ein Bereich von Besuchen entfernt wird (beispielsweise durch die Verwendung von {{WebExtAPIRef("history.deleteRange")}} oder einer Browserfunktion wie "Neueste Chronik löschen"), wird es einmal für jede Seite ausgelöst, deren Besuche alle innerhalb des gelöschten Bereichs liegen.
-- Wenn der gesamte Verlauf des Browsers gelöscht wird (beispielsweise durch die Verwendung von {{WebExtAPIRef("history.deleteAll")}}), wird es nur einmal ausgelöst.
+- Wenn alle Besuche einer einzelnen Seite entfernt werden (zum Beispiel mithilfe von {{WebExtAPIRef("history.deleteUrl")}}), wird dieses Ereignis einmal ausgelöst.
+- Wenn ein Bereich von Besuchen entfernt wird (zum Beispiel mit {{WebExtAPIRef("history.deleteRange")}} oder einer Browser-Funktion wie "Neueste Chronik löschen"), wird es einmal für jede Seite ausgelöst, _deren Besuche alle in den gelöschten Bereich fallen_.
+- Wenn der gesamte Verlauf des Browsers gelöscht wird (zum Beispiel mit {{WebExtAPIRef("history.deleteAll")}}), wird es nur einmal ausgelöst.
 
 ## Syntax
 
@@ -26,24 +26,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Anhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn der Listener registriert ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `removed`
-      - : `object`. Details zur Entfernung. Dies ist ein Objekt, das zwei Eigenschaften enthält: ein boolesches `allHistory` und ein Array `urls`.
-        - Wenn dieses Ereignis ausgelöst wird, weil der gesamte Verlauf gelöscht wurde, ist `allHistory` `true` und `urls` ist ein leeres Array.
-        - Andernfalls ist `allHistory` `false` und `urls` enthält ein Element, das die URL der entfernten Seite ist.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : `object`. Details zur Entfernung. Dies ist ein Objekt mit zwei Eigenschaften: einem booleschen `allHistory` und einem Array `urls`.
+        - Wenn dieses Ereignis ausgelöst wird, weil der gesamte Verlauf gelöscht wurde, wird `allHistory` `true` sein und `urls` ein leeres Array.
+        - Andernfalls wird `allHistory` `false` sein und `urls` wird ein Element enthalten, das die URL der entfernten Seite ist.
 
 ## Beispiele
 
@@ -61,8 +57,12 @@ browser.history.onVisitRemoved.addListener(onRemoved);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisitRemoved). Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisitRemoved) von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,15 +2,15 @@
 title: extension.getExtensionTabs()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/getExtensionTabs
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 > [!WARNING]
-> Diese Methode ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("extension.getViews()")}}.
+> Diese Methode wurde veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("extension.getViews()")}}.
 
-Gibt ein Array der JavaScript [Window](/de/docs/Web/API/Window)-Objekte für jeden der Tabs zurück, die innerhalb der aktuellen Erweiterung laufen. Wenn `windowId` angegeben ist, werden nur die Window-Objekte der Tabs zurückgegeben, die an das angegebene Fenster angehängt sind.
+Gibt ein Array der JavaScript-[Window](/de/docs/Web/API/Window)-Objekte für jeden der Tabs zurück, die innerhalb der aktuellen Erweiterung laufen. Wenn `windowId` angegeben ist, werden nur die Window-Objekte der an das angegebene Fenster angehängten Tabs zurückgegeben.
 
 ## Syntax
 
@@ -29,16 +29,16 @@ Diese API ist auch als `browser.extension.getExtensionTabs()` verfügbar.
 
 ### Rückgabewert
 
-`array` von `object`. Array von globalen Window-Objekten
+`array` von `object`. Array von globalen Window-Objekten.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getExtensionTabs) API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getExtensionTabs)-API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

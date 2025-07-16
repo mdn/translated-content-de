@@ -2,17 +2,17 @@
 title: browsingData.removeCookies()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeCookies
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 Löscht die Cookies des Browsers.
 
-Sie können den Parameter `removalOptions` verwenden, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
+Sie können den `removalOptions`-Parameter verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um:
 
-- nur Cookies zu löschen, die nach einer bestimmten Zeit erstellt wurden
-- zu steuern, ob nur Cookies gelöscht werden sollen, die von normalen Webseiten gesetzt wurden, oder ob auch Cookies, die von gehosteten Apps und Erweiterungen gesetzt wurden, gelöscht werden sollen.
+- nur Cookies zu löschen, die nach einem bestimmten Zeitpunkt erstellt wurden
+- zu steuern, ob nur Cookies gelöscht werden sollen, die von normalen Webseiten gesetzt wurden, oder ob auch Cookies gelöscht werden sollen, die von gehosteten Apps und Erweiterungen gesetzt wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +27,15 @@ let removing = browser.browsingData.removeCookies(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Cookies zu löschen, die nach einer bestimmten Zeit erstellt wurden, und ob nur Cookies gelöscht werden sollen, die von normalen Webseiten gesetzt wurden, oder ob auch Cookies von gehosteten Apps und Erweiterungen gelöscht werden sollen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Cookies zu löschen, die nach einem bestimmten Zeitpunkt erstellt wurden, und ob nur Cookies gelöscht werden sollen, die von normalen Webseiten gesetzt wurden, oder ob auch Cookies gelöscht werden sollen, die von gehosteten Apps und Erweiterungen gesetzt wurden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Löschen abgeschlossen ist. Sollte ein Fehler auftreten, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Cookies der letzten Woche entfernen:
+Cookies löschen, die in der letzten Woche erstellt wurden:
 
 ```js
 function onRemoved() {
@@ -60,9 +60,9 @@ browser.browsingData
 Alle Cookies entfernen:
 
 > [!WARNING]
-> Wenn Sie die API verwenden, um alle Cookies zu entfernen, werden gleichzeitig alle lokalen Speicherobjekte (einschließlich derer anderer Erweiterungen) gelöscht.
+> Wenn die API verwendet wird, um alle Cookies zu entfernen, werden gleichzeitig alle lokalen Speicherobjekte (einschließlich derer anderer Erweiterungen) gelöscht.
 >
-> Wenn Sie alle Cookies löschen möchten, ohne die lokalen Speichereinrichtungen zu stören, verwenden Sie [browser.cookies](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies), um durch alle Cookie-Stores zu gehen und deren Inhalte zu entfernen.
+> Wenn Sie alle Cookies löschen möchten, ohne die lokalen Speicherfunktionen zu stören, verwenden Sie [browser.cookies](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies), um den Inhalt aller Cookie-Speicher zu durchsuchen und zu entfernen.
 
 ```js
 function onRemoved() {
@@ -76,11 +76,11 @@ function onError(error) {
 browser.browsingData.removeCookies({}).then(onRemoved, onError);
 ```
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.

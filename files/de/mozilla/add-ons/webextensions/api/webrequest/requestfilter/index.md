@@ -2,36 +2,36 @@
 title: webRequest.RequestFilter
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter
 l10n:
-  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ein Objekt, das Filter beschreibt, die auf webRequest-Ereignisse angewendet werden sollen.
+Ein Objekt, das Filter beschreibt, die auf `webRequest`-Ereignisse angewendet werden.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `urls`
-  - : `array` von `string`. Ein Array von [Musterübereinstimmungen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Der Listener wird nur für Anfragen aufgerufen, deren Ziele mit einem der angegebenen Muster übereinstimmen. Nur Anfragen, die HTTP oder HTTPS verwenden, lösen Ereignisse aus, andere Protokolle (wie data: und file:), die von der Musterübereinstimmung unterstützt werden, lösen keine Ereignisse aus. `view-source:` Anfragen können basierend auf ihrer inneren URL übereinstimmen.
+  - : `array` von `string`. Ein Array von [Muster-Vorlagen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Der Listener wird nur für Anfragen aufgerufen, deren Ziele mit einem der angegebenen Muster übereinstimmen. Nur Anfragen, die über HTTP oder HTTPS gemacht werden, lösen Ereignisse aus; andere Protokolle (wie data: und file:), die von der Mustererkennung unterstützt werden, lösen keine Ereignisse aus. `view-source:`-Anfragen können basierend auf ihrer inneren URL abgeglichen werden.
 - `types` {{optional_inline}}
-  - : `array` von {{WebExtAPIRef('webRequest.ResourceType')}}. Eine Liste von Ressourcentypen (zum Beispiel Stylesheets, Bilder, Skripte). Der Listener wird nur für Anfragen nach Ressourcen aufgerufen, die einem der angegebenen Typen entsprechen.
+  - : `array` von {{WebExtAPIRef('webRequest.ResourceType')}}. Eine Liste von Ressourcentypen (zum Beispiel Stylesheets, Bilder, Skripte). Der Listener wird nur für Anfragen für Ressourcen aufgerufen, die zu einem der angegebenen Typen gehören.
 - `tabId` {{optional_inline}}
-  - : `integer`. Der Listener wird nur für Anfragen aus dem durch diese ID identifizierten {{WebExtAPIRef("tabs.Tab", "Tab")}} aufgerufen.
+  - : `integer`. Der Listener wird nur für Anfragen von dem {{WebExtAPIRef("tabs.Tab", "Tab")}} aufgerufen, der durch diese ID identifiziert wird.
 - `windowId` {{optional_inline}}
-  - : `integer`. Der Listener wird nur für Anfragen aus dem durch diese ID identifizierten {{WebExtAPIRef("windows.Window", "Fenster")}} aufgerufen.
+  - : `integer`. Der Listener wird nur für Anfragen von dem {{WebExtAPIRef("windows.Window", "Fenster")}} aufgerufen, der durch diese ID identifiziert wird.
 - `incognito` {{optional_inline}}
-  - : `boolean`. Wenn angegeben, werden Anfragen, die nicht dem Inkognito-Status (`true` oder `false`) entsprechen, herausgefiltert.
+  - : `boolean`. Falls angegeben, werden Anfragen, die nicht dem Inkognito-Zustand (`true` oder `false`) entsprechen, herausgefiltert.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-RequestFilter) API. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der `chrome.webRequest`-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

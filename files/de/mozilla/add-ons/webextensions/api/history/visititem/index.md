@@ -2,36 +2,36 @@
 title: history.VisitItem
 slug: Mozilla/Add-ons/WebExtensions/API/history/VisitItem
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ein Objekt, das einen einzelnen Besuch einer Seite beschreibt.
+Ein Objekt, das einen einzelnen Besuch auf einer Seite beschreibt.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `id`
-  - : `string`. Der eindeutige Bezeichner für das {{WebExtAPIRef("history.HistoryItem")}}, das mit diesem Besuch verknüpft ist.
+  - : `string`. Die eindeutige Kennung für das mit diesem Besuch verknüpfte {{WebExtAPIRef("history.HistoryItem")}}.
 - `visitId`
-  - : `string`. Der eindeutige Bezeichner für diesen Besuch.
+  - : `string`. Die eindeutige Kennung für diesen Besuch.
 - `visitTime` {{optional_inline}}
   - : `number`. Wann dieser Besuch stattfand, dargestellt in Millisekunden seit dem Epoch-Zeitpunkt.
 - `referringVisitId`
-  - : `string`. Die Besuchs-ID des Referrers.
+  - : `string`. Die Besuchs-ID des Verweisenden.
 - `transition`
-  - : {{WebExtAPIRef('history.TransitionType')}}. Beschreibt, wie der Browser bei diesem Anlass zur Seite navigierte.
+  - : {{WebExtAPIRef('history.TransitionType')}}. Beschreibt, wie der Browser bei dieser Gelegenheit zur Seite navigierte.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-VisitItem)-API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-VisitItem) API von Chromium. Diese Dokumentation leitet sich von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

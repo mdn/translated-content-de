@@ -2,12 +2,12 @@
 title: webRequest.UploadData
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/UploadData
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Enthält Daten, die in einer URL-Anfrage hochgeladen wurden.
+Enthält Daten, die in einer URL-Anfrage hochgeladen werden.
 
 ## Typ
 
@@ -18,14 +18,14 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 - `file` {{optional_inline}}
   - : `string`. Ein String mit dem Pfad und Namen der Datei.
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-UploadData) API. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-UploadData)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

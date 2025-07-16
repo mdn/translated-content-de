@@ -1,33 +1,33 @@
 ---
-title: sessions
+title: Sitzungen
 slug: Mozilla/Add-ons/WebExtensions/API/sessions
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Verwenden Sie die sessions API, um Tabs und Fenster aufzulisten und wiederherzustellen, die während der Ausführung des Browsers geschlossen wurden.
+Verwenden Sie die Sitzungs-API, um Tabs und Fenster aufzulisten und wiederherzustellen, die geschlossen wurden, während der Browser lief.
 
 Die Funktion {{WebExtAPIRef("sessions.getRecentlyClosed()")}} gibt ein Array von {{WebExtAPIRef("tabs.Tab")}} und {{WebExtAPIRef("windows.Window")}} Objekten zurück, die Tabs und Fenster darstellen, die seit dem Start des Browsers geschlossen wurden, bis zu dem in {{WebExtAPIRef("sessions.MAX_SESSION_RESULTS")}} definierten Maximum.
 
-Sie können dann ein Fenster oder einen Tab mit der Funktion {{WebExtAPIRef("sessions.restore()")}} wiederherstellen. Das Wiederherstellen öffnet nicht nur den Tab erneut: Es stellt auch den Verlauf des Tabs wieder her, sodass die Vorwärts-/Rückwärts-Schaltflächen funktionieren.
+Sie können dann ein Fenster oder einen Tab mit der Funktion {{WebExtAPIRef("sessions.restore()")}} wiederherstellen. Das Wiederherstellen öffnet den Tab nicht nur erneut: Es stellt auch den Navigationsverlauf des Tabs wieder her, sodass die Vor- und Zurück-Schaltflächen funktionieren.
 
-Diese API bietet auch eine Gruppe von Funktionen, die es einer Erweiterung ermöglichen, zusätzlichen Zustand zu speichern, der mit einem Tab oder Fenster verbunden ist. Wenn der Tab oder das Fenster geschlossen und anschließend wiederhergestellt wird, kann die Erweiterung den Zustand abrufen. Ein Beispiel wäre eine Tab-Gruppenerweiterung, die damit speichert, zu welcher Gruppe ein Tab gehört, um ihn beim Wiederherstellen in die richtige Gruppe zuzuordnen.
+Diese API bietet auch eine Gruppe von Funktionen, die es einer Erweiterung ermöglichen, zusätzlichen Zustand zu speichern, der mit einem Tab oder einem Fenster verbunden ist. Wenn der Tab oder das Fenster geschlossen und anschließend wiederhergestellt wird, kann die Erweiterung den Zustand abrufen. Zum Beispiel könnte eine Tab-Gruppierungs-Erweiterung dies verwenden, um sich zu merken, in welcher Gruppe sich ein Tab befindet, um ihn in die richtige Gruppe wiederherzustellen, wenn der Benutzer den Tab wiederherstellt.
 
-Um die sessions API zu verwenden, müssen Sie die "sessions" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) besitzen.
+Um die Sitzungs-API zu verwenden, müssen Sie die "sessions" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
 
 ## Typen
 
 - {{WebExtAPIRef("sessions.Filter")}}
-  - : Ermöglicht es Ihnen, die Anzahl der {{WebExtAPIRef("sessions.Session", "Session")}} Objekte zu begrenzen, die von einem Aufruf von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegeben werden.
+  - : Ermöglicht Ihnen, die Anzahl der von einem Aufruf an {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegebenen {{WebExtAPIRef("sessions.Session", "Session")}} Objekte zu beschränken.
 - {{WebExtAPIRef("sessions.Session")}}
   - : Stellt einen Tab oder ein Fenster dar, das der Benutzer in der aktuellen Browsersitzung geschlossen hat.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("sessions.MAX_SESSION_RESULTS")}}
-  - : Die maximale Anzahl von Sitzungen, die durch einen Aufruf von [`sessions.getRecentlyClosed()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/sessions/getRecentlyClosed) zurückgegeben werden.
+  - : Die maximale Anzahl von Sitzungen, die von einem Aufruf an [`sessions.getRecentlyClosed()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/sessions/getRecentlyClosed) zurückgegeben werden.
 
 ## Funktionen
 
@@ -36,35 +36,35 @@ Um die sessions API zu verwenden, müssen Sie die "sessions" [API-Berechtigung](
 - {{WebExtAPIRef("sessions.forgetClosedWindow()")}}
   - : Entfernt ein geschlossenes Fenster aus der Liste der kürzlich geschlossenen Fenster des Browsers.
 - {{WebExtAPIRef("sessions.getRecentlyClosed()")}}
-  - : Gibt ein Array von {{WebExtAPIRef("sessions.Session", "Session")}} Objekten zurück, die Fenster und Tabs repräsentieren, die in der aktuellen Browsersitzung geschlossen wurden (also: seit der Browser gestartet wurde).
+  - : Gibt ein Array von {{WebExtAPIRef("sessions.Session", "Session")}} Objekten zurück, die Fenster und Tabs darstellen, die in der aktuellen Browsersitzung geschlossen wurden (d.h.: die Zeit seit dem Start des Browsers).
 - {{WebExtAPIRef("sessions.restore()")}}
-  - : Stellt einen geschlossenen Tab oder ein Fenster wieder her.
+  - : Stellt einen geschlossenen Tab oder ein geschlossenes Fenster wieder her.
 - {{WebExtAPIRef("sessions.setTabValue()")}}
-  - : Speichert ein Schlüssel/Wert-Paar, das mit einem gegebenen Tab verbunden ist.
+  - : Speichert ein Schlüssel/Wert-Paar, das mit einem bestimmten Tab verknüpft ist.
 - {{WebExtAPIRef("sessions.getTabValue()")}}
-  - : Ruft einen zuvor für einen gegebenen Tab gespeicherten Wert anhand seines Schlüssels ab.
+  - : Ruft einen zuvor gespeicherten Wert für einen gegebenen Tab ab, basierend auf seinem Schlüssel.
 - {{WebExtAPIRef("sessions.removeTabValue()")}}
-  - : Entfernt ein Schlüssel/Wert-Paar aus einem gegebenen Tab.
+  - : Entfernt ein Schlüssel/Wert-Paar aus einem bestimmten Tab.
 - {{WebExtAPIRef("sessions.setWindowValue()")}}
-  - : Speichert ein Schlüssel/Wert-Paar, das mit einem gegebenen Fenster verbunden ist.
+  - : Speichert ein Schlüssel/Wert-Paar, das mit einem bestimmten Fenster verknüpft ist.
 - {{WebExtAPIRef("sessions.getWindowValue()")}}
-  - : Ruft einen zuvor für ein gegebenes Fenster gespeicherten Wert anhand seines Schlüssels ab.
+  - : Ruft einen zuvor gespeicherten Wert für ein bestimmtes Fenster ab, basierend auf seinem Schlüssel.
 - {{WebExtAPIRef("sessions.removeWindowValue()")}}
-  - : Entfernt ein Schlüssel/Wert-Paar aus einem gegebenen Fenster.
+  - : Entfernt ein Schlüssel/Wert-Paar aus einem bestimmten Fenster.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("sessions.onChanged")}}
   - : Wird ausgelöst, wenn ein Tab oder Fenster geschlossen wird.
 
+{{WebExtExamples("h2")}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.sessions`](https://developer.chrome.com/docs/extensions/reference/api/sessions) API von Chromium.
+> Diese API basiert auf der Chromium-API [`chrome.sessions`](https://developer.chrome.com/docs/extensions/reference/api/sessions).
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

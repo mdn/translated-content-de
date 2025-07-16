@@ -2,14 +2,14 @@
 title: omnibox.onInputStarted
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox/onInputStarted
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer mit Ihrer Erweiterung interagiert, indem er deren Schlüsselwort in die Adressleiste eingibt und dann die Leertaste drückt.
+Wird ausgelöst, wenn der Benutzer anfängt, mit Ihrer Erweiterung zu interagieren, indem er das Schlüsselwort in die Adressleiste eingibt und anschließend die Leertaste drückt.
 
-Dies wird gesendet, bevor irgendwelche {{WebExtAPIRef("omnibox.onInputChanged")}}-Ereignisse ausgelöst werden.
+Dies wird gesendet, bevor irgendwelche {{WebExtAPIRef("omnibox.onInputChanged")}} Ereignisse auftreten.
 
 ## Syntax
 
@@ -24,20 +24,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden keine Argumente übergeben.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -48,6 +44,10 @@ browser.omnibox.onInputStarted.addListener(() => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API von Chromium.

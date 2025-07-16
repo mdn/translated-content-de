@@ -2,12 +2,12 @@
 title: contentScripts.RegisteredContentScript.unregister()
 slug: Mozilla/Add-ons/WebExtensions/API/contentScripts/RegisteredContentScript/unregister
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Hebt die Registrierung der Inhalts-Skripte auf, die durch dieses `RegisteredContentScript`-Objekt dargestellt werden.
+Hebt die Registrierung der durch dieses `RegisteredContentScript`-Objekt dargestellten Inhaltsskripte auf.
 
 ## Syntax
 
@@ -23,13 +23,9 @@ Keine.
 
 Keiner.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Dieser Code schaltet ein registriertes Inhalts-Skript beim Klick auf eine Browser-Aktion um:
+Dieser Code wechselt ein registriertes Inhaltsskript bei einem Klick auf eine Browseraktion:
 
 ```js
 let registered = null;
@@ -59,3 +55,7 @@ browser.browserAction.onClicked.addListener(toggle);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

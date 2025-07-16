@@ -2,77 +2,79 @@
 title: webNavigation.TransitionType
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/TransitionType
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ursache der Navigation: zum Beispiel, wenn der Benutzer auf einen Link geklickt, eine Adresse eingegeben oder ein Lesezeichen geklickt hat.
+Ursache der Navigation: Zum Beispiel, der Benutzer klickte auf einen Link, oder tippte eine Adresse ein oder klickte auf ein Lesezeichen.
 
-Beachten Sie, dass viele Werte hier momentan nicht in Firefox unterstützt werden: siehe die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
+Beachten Sie, dass viele Werte hier derzeit in Firefox nicht unterstützt werden: Einzelheiten finden Sie in der [Browser-Kompatibilitätstabelle](#browser-kompatibilität).
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - "link"
-  - : Der Benutzer hat auf einen Link in einer anderen Seite geklickt.
+  - : Der Benutzer klickte auf einen Link in einer anderen Seite.
 - "typed"
-  - : Der Benutzer hat die URL in die Adressleiste eingegeben. Dies wird auch verwendet, wenn der Benutzer begonnen hat, in die Adressleiste zu tippen, und dann eine URL aus den angebotenen Vorschlägen ausgewählt hat. Siehe auch "generated".
+  - : Der Benutzer tippte die URL in die Adressleiste ein. Dies wird auch verwendet, wenn der Benutzer anfängt, in die Adressleiste zu tippen, dann eine URL aus den vorgeschlagenen Einträgen auswählt. Siehe auch "generated".
 - "auto_bookmark"
-  - : Der Benutzer hat ein Lesezeichen oder einen Eintrag im Browserverlauf angeklickt.
+  - : Der Benutzer klickte auf ein Lesezeichen oder einen Eintrag im Browserverlauf.
 - "auto_subframe"
-  - : Alle verschachtelten iframes, die automatisch von ihrer übergeordneten Seite geladen werden.
+  - : Alle verschachtelten iframes, die automatisch von ihrem Elternteil geladen werden.
 - "manual_subframe"
-  - : Alle verschachtelten iframes, die durch eine explizite Benutzeraktion geladen werden. Das Laden eines solchen iframes erzeugt einen Eintrag in der Vor-/Zurück-Navigationsliste.
+  - : Alle verschachtelten iframes, die als explizite Benutzeraktion geladen werden. Das Laden eines solchen iframes erzeugt einen Eintrag in der Rück-/Vorlauf-Navigation.
 - "generated"
-  - : Der Benutzer begann mit der Eingabe in die Adressleiste und klickte dann auf einen vorgeschlagenen Eintrag, der keine URL enthielt.
+  - : Der Benutzer begann, in die Adressleiste zu tippen, dann klickte er auf einen vorgeschlagenen Eintrag, der keine URL enthielt.
 - "start_page"
-  - : Die Seite wurde über die Befehlszeile übergeben oder ist die Startseite.
+  - : Die Seite wurde der Befehlszeile übergeben oder ist die Startseite.
 - "form_submit"
-  - : Der Benutzer hat ein Formular abgeschickt. Beachten Sie, dass in einigen Situationen, beispielsweise wenn ein Formular ein Skript zur Übermittlung seiner Inhalte verwendet, das Abschicken eines Formulars nicht zu diesem Übergangstyp führt.
+  - : Der Benutzer sendete ein Formular ab. Beachten Sie, dass in manchen Situationen, wie wenn ein Formular ein Skript verwendet, um seine Inhalte zu senden, das Abschicken eines Formulars nicht zu diesem Übergangstyp führt.
 - "reload"
-  - : Der Benutzer hat die Seite neu geladen, indem er die Schaltfläche "Neu laden" benutzt oder die Eingabetaste in der Adressleiste gedrückt hat. Dies wird auch für die Wiederherstellung von Sitzungen und das Wiederöffnen geschlossener Tabs verwendet.
+  - : Der Benutzer lud die Seite neu, indem er die Neuladen-Schaltfläche verwendete oder Enter in der Adressleiste drückte. Dies wird auch für Sitzungswiederherstellung und das erneute Öffnen geschlossener Tabs verwendet.
 - "keyword"
-  - : Die URL wurde mithilfe einer von den Benutzern konfigurierten [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert.
+  - : Die URL wurde durch eine vom Benutzer konfigurierte [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert.
 - "keyword_generated"
   - : Entspricht einem Besuch, der für ein Schlüsselwort generiert wurde.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#type-TransitionType) API von Chromium. Diese Dokumentation basiert auf [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#type-TransitionType) API von Chromium. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen das obige Urheberrecht
+// sowie diese Liste der Bedingungen und den folgenden Haftungsausschluss beibehalten.
+//    * Weiterverbreitungen in binärer Form müssen das obige
+// Urheberrecht, diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung bereitgestellt werden, beibehalten.
+//    * Weder der Name von Google Inc. noch die Namen
+// seiner Mitwirkenden dürfen verwendet werden, um Produkte, die von
+// dieser Software abgeleitet wurden, zu unterstützen oder zu bewerben, ohne vorherige spezifische
+// schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZITE
+// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF
+// DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR
+// EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL HAFTEN DIE
+// URHEBERRECHTSINHABER ODER MITWIRKENDEN FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE,
+// BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN;
+// NUTZUNGSVERLUST, DATEN- ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG)
+// UNABHÄNGIG DAVON, OB IM RAHMEN EINES VERTRAGS, EINER STRENGEN HAFTUNG ODER EINER
+// UNERLAUBTEN HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG),
+// DIE AUF IRGENDEINE WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN,
+// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

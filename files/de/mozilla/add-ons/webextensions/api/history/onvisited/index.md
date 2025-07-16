@@ -2,12 +2,12 @@
 title: history.onVisited
 slug: Mozilla/Add-ons/WebExtensions/API/history/onVisited
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird jedes Mal ausgelöst, wenn der Benutzer eine Seite besucht. Ein {{WebExtAPIRef("history.HistoryItem")}}-Objekt wird an den Listener übergeben. Dieses Ereignis wird ausgelöst, bevor die Seite geladen ist.
+Wird jedes Mal ausgelöst, wenn der Benutzer eine Seite besucht. Ein {{WebExtAPIRef("history.HistoryItem")}}-Objekt wird an den Listener übergeben. Dieses Ereignis wird ausgelöst, bevor die Seite geladen wurde.
 
 ## Syntax
 
@@ -24,25 +24,18 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn darauf gehört wird, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
     - `result`
-
       - : {{WebExtAPIRef('history.HistoryItem')}}. Ein Objekt, das den Eintrag im Browserverlauf darstellt.
 
-        Zu dem Zeitpunkt, an dem dieses Ereignis gesendet wird, kennt der Browser den Titel der Seite noch nicht. Wenn der Browser diese Seite vorher besucht hat und sich ihren alten Titel gemerkt hat, wird das Objekt `HistoryItem.title` den alten Titel der Seite enthalten. Wenn der Browser keinen Eintrag für den alten Titel der Seite hat, wird `HistoryItem.title` leer sein. Um die Titel der Seiten zu erhalten, sobald sie bekannt sind, hören Sie auf {{WebExtAPIRef("history.onTitleChanged")}}.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+        Zu dem Zeitpunkt, zu dem dieses Ereignis gesendet wird, kennt der Browser den Titel der Seite noch nicht. Wenn der Browser diese Seite zuvor besucht hat und sich ihren alten Titel gemerkt hat, wird das Objekt `HistoryItem.title` den alten Titel der Seite enthalten. Hat der Browser keinen Eintrag über den alten Titel der Seite, wird `HistoryItem.title` leer sein. Um die Titel der Seiten zu erhalten, sobald sie bekannt sind, hören Sie auf {{WebExtAPIRef("history.onTitleChanged")}}.
 
 ## Beispiele
 
@@ -59,8 +52,12 @@ browser.history.onVisited.addListener(onVisited);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisited). Diese Dokumentation ist aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisited) API. Diese Dokumentation leitet sich von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

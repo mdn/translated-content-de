@@ -2,22 +2,22 @@
 title: notifications
 slug: Mozilla/Add-ons/WebExtensions/API/notifications
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Zeigen Sie Benachrichtigungen dem Benutzer an, indem Sie den Benachrichtigungsmechanismus des zugrunde liegenden Betriebssystems verwenden. Da diese API den Benachrichtigungsmechanismus des Betriebssystems nutzt, können die Details, wie Benachrichtigungen erscheinen und sich verhalten, abhängig vom Betriebssystem und den Einstellungen des Benutzers unterschiedlich sein.
+Benachrichtigungen an den Benutzer anzeigen, unter Verwendung des Benachrichtigungsmechanismus des zugrunde liegenden Betriebssystems. Da diese API den Benachrichtigungsmechanismus des Betriebssystems verwendet, können die Details, wie Benachrichtigungen angezeigt und verhalten werden, je nach Betriebssystem und Benutzereinstellungen unterschiedlich sein.
 
-Unter macOS sieht die Benachrichtigung ungefähr so aus:
+Auf macOS sieht die Benachrichtigung ungefähr so aus:
 
-![Beispiel einer Benachrichtigung auf macOS, die sich unterhalb der Systemuhr befindet. Der fettgedruckte Titel lautet "Click notification", gefolgt von normalem Text mit der Aufschrift "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat das Firefox Nightly-Logo auf der linken Seite und ein Link-Symbol auf der rechten Seite.](notification-macos.png)
+![Beispiel einer Benachrichtigung auf macOS, unterhalb der Systemuhr, mit einem fett gedruckten Titel "Click notification", gefolgt von normalem Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat links das Firefox Nightly-Logo und ein Linksymbol rechts.](notification-macos.png)
 
-Unter Windows bleibt die Benachrichtigung im Action Center, bis der Browser geschlossen wird. Die Benachrichtigung sieht ungefähr so aus:
+Unter Windows bleibt die Benachrichtigung im Info-Center, bis der Browser geschlossen wird. Die Benachrichtigung sieht ungefähr so aus:
 
-![Beispiel einer Benachrichtigung auf Windows 10, die sich oberhalb der Systemuhr befindet. Der fettgedruckte Titel lautet "Click notification", gefolgt von normalem Text mit der Aufschrift "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat ein kleines Firefox-Logo in der oberen linken Ecke, gefolgt von "Mozilla Firefox", und ein Link-Symbol links von dem Hauptbenachrichtigungstext.](notification-windows.png)
+![Beispiel einer Benachrichtigung auf Windows 10, über der Systemuhr, mit einem fett gedruckten Titel "Click notification", gefolgt von normalem Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat ein kleines Firefox-Logo in der oberen linken Ecke, gefolgt von "Mozilla Firefox", und ein Linksymbol links vom Hauptbenachrichtigungstext.](notification-windows.png)
 
-Um diese API zu verwenden, müssen Sie die "notifications" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Um diese API zu verwenden, benötigen Sie die "notifications"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 ## Typen
 
@@ -29,7 +29,7 @@ Um diese API zu verwenden, müssen Sie die "notifications" [Berechtigung](/de/do
 ## Funktionen
 
 - {{WebExtAPIRef("notifications.clear()")}}
-  - : Löscht eine bestimmte Benachrichtigung anhand ihrer ID.
+  - : Löscht eine spezifische Benachrichtigung, angegeben durch ihre ID.
 - {{WebExtAPIRef("notifications.create()")}}
   - : Erstellt und zeigt eine neue Benachrichtigung an.
 - {{WebExtAPIRef("notifications.getAll()")}}
@@ -42,17 +42,17 @@ Um diese API zu verwenden, müssen Sie die "notifications" [Berechtigung](/de/do
 - {{WebExtAPIRef("notifications.onButtonClicked")}}
   - : Wird ausgelöst, wenn der Benutzer eine Schaltfläche in der Benachrichtigung anklickt.
 - {{WebExtAPIRef("notifications.onClicked")}}
-  - : Wird ausgelöst, wenn der Benutzer die Benachrichtigung anklickt, aber nicht eine Schaltfläche.
+  - : Wird ausgelöst, wenn der Benutzer die Benachrichtigung anklickt, jedoch nicht auf eine Schaltfläche.
 - {{WebExtAPIRef("notifications.onClosed")}}
-  - : Wird ausgelöst, wenn eine Benachrichtigung geschlossen wurde, entweder durch das System oder weil der Benutzer sie abgewiesen hat.
+  - : Wird ausgelöst, wenn eine Benachrichtigung geschlossen wird, entweder durch das System oder weil der Benutzer sie verworfen hat.
 - {{WebExtAPIRef("notifications.onShown")}}
   - : Wird unmittelbar nach dem Anzeigen einer Benachrichtigung ausgelöst.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.

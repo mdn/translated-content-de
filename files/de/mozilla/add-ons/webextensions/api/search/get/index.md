@@ -2,14 +2,14 @@
 title: search.get()
 slug: Mozilla/Add-ons/WebExtensions/API/search/get
 l10n:
-  sourceCommit: abee83f167ee1a7f39626374764f50a61794a189
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 Erhält ein Array aller installierten Suchmaschinen.
 
-Jede zurückgegebene Suchmaschine wird mit einem Namen identifiziert, den Sie in {{WebExtAPIRef("search.search()")}} übergeben können, um mit dieser speziellen Suchmaschine eine Suche auszuführen.
+Jede zurückgegebene Suchmaschine ist mit einem Namen identifiziert, den Sie in {{WebExtAPIRef("search.search()")}} übergeben können, um diese spezielle Suchmaschine für eine Suche zu verwenden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -30,19 +30,15 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `name`
   - : `string`. Der Name der Suchmaschine.
 - `isDefault`
-  - : `boolean`. `true`, wenn die Suchmaschine die Standard-Suchmaschine ist. Es kann zu einem bestimmten Zeitpunkt nur eine Standard-Suchmaschine geben.
+  - : `boolean`. `true`, wenn die Suchmaschine die Standardeinstellung ist. Zu jedem Zeitpunkt kann nur eine Suchmaschine die Standardeinstellung sein.
 - `alias` {{optional_inline}}
-  - : `string`. Wenn eine Suchmaschine ein Alias hat, kann der Benutzer mit einer bestimmten Suchmaschine suchen, indem er den Alias in die Adressleiste vor dem Suchbegriff eingibt. Zum Beispiel, wenn die Wikipedia-Suchmaschine den Alias „wk“ hat, kann der Benutzer Wikipedia nach Pandas durchsuchen, indem er „wk pandas“ in die Adressleiste eingibt. Der Alias wird manchmal auch als „Schlüsselwort“ bezeichnet.
+  - : `string`. Wenn eine Suchmaschine über ein Alias verfügt, kann der Benutzer mit einer bestimmten Suchmaschine suchen, indem er das Alias vor dem Suchbegriff in der Adressleiste eingibt. Zum Beispiel, wenn die Wikipedia-Suchmaschine das Alias "wk" hat, kann der Benutzer auf Wikipedia nach Pandas suchen, indem er "wk pandas" in die Adressleiste eingibt. Das Alias wird manchmal auch als "Schlüsselwort" bezeichnet.
 - `favIconUrl` {{optional_inline}}
-  - : `string`. Das Icon der Suchmaschine, als eine data: URL.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : `string`. Das Symbol der Suchmaschine, als data: URL.
 
 ## Beispiele
 
-Erhalten Sie alle installierten Suchmaschinen:
+Holen Sie alle installierten Suchmaschinen:
 
 ```js
 function retrieved(results) {
@@ -58,3 +54,7 @@ browser.search.get().then(retrieved);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

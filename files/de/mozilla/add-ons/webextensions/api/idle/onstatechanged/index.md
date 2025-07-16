@@ -2,16 +2,16 @@
 title: idle.onStateChanged
 slug: Mozilla/Add-ons/WebExtensions/API/idle/onStateChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das System in einen aktiven, inaktiven oder gesperrten Zustand wechselt. Der Ereignis-Listener erhält einen String, der einen von drei Werten hat:
+Wird ausgelöst, wenn das System in einen aktiven, inaktiven oder gesperrten Zustand wechselt. Der Event-Listener erhält einen String mit einem von drei Werten:
 
 - "locked", wenn der Bildschirm gesperrt ist oder der Bildschirmschoner aktiviert wird
-- "idle", wenn das System entsperrt ist und der Benutzer für eine angegebene Anzahl von Sekunden keine Eingabe getätigt hat. Diese Zahl ist standardmäßig auf 60 eingestellt, kann aber mit {{WebExtAPIRef("idle.setDetectionInterval()")}} festgelegt werden.
-- "active", wenn der Benutzer auf einem inaktiven System eine Eingabe erzeugt.
+- "idle", wenn das System entsperrt ist und der Benutzer für eine bestimmte Anzahl von Sekunden keine Eingabe generiert hat. Diese Zahl ist standardmäßig auf 60 eingestellt, kann aber mit {{WebExtAPIRef("idle.setDetectionInterval()")}} festgelegt werden.
+- "active", wenn der Benutzer eine Eingabe auf einem inaktiven System erzeugt.
 
 ## Syntax
 
@@ -21,27 +21,23 @@ browser.idle.onStateChanged.removeListener(listener)
 browser.idle.onStateChanged.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt diesem Event einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Event. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Event auftritt. Der Funktion wird folgendes Argument übergeben:
     - `newState`
-      - : {{WebExtAPIRef('idle.IdleState')}}. Der neue inaktive Zustand.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : {{WebExtAPIRef('idle.IdleState')}}. Der neue Inaktivitätszustand.
 
 ## Beispiele
 
@@ -55,8 +51,12 @@ browser.idle.onStateChanged.addListener(newState);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#event-onStateChanged) API. Diese Dokumentation basiert auf [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#event-onStateChanged) API. Diese Dokumentation stammt aus [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

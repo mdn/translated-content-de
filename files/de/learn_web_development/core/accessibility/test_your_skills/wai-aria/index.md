@@ -3,30 +3,30 @@ title: "Testen Sie Ihre Fähigkeiten: WAI-ARIA"
 short-title: WAI-ARIA
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/WAI-ARIA
 l10n:
-  sourceCommit: 0c486f69de815c2882a21badb6a7772e124d1a7a
+  sourceCommit: c699955e1e368bd42d6ea9318a6afc9256c3036f
 ---
 
-Ziel dieses Fähigkeitstests ist es, Ihnen bei der Beurteilung zu helfen, ob Sie unseren Artikel [WAI-ARIA-Grundlagen](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) verstanden haben.
+Ziel dieses Tests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel über die [grundlegenden Konzepte von WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen im interaktiven Editor auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
+> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie feststecken, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## WAI-ARIA 1
 
-In unserer ersten ARIA-Aufgabe präsentieren wir Ihnen einen Abschnitt mit nicht-semantischem Markup, der visuell als Liste gedacht ist. Angenommen, Sie können die verwendeten Elemente nicht ändern, wie können Sie es Bildschirmlesegeräten ermöglichen zu verstehen, was es ist?
+In unserer ersten ARIA-Aufgabe präsentieren wir Ihnen einen Abschnitt mit nicht-semantischem Markup, der optisch als Liste gedacht ist. Angenommen, Sie können die verwendeten Elemente nicht ändern, wie können Sie es ermöglichen, dass Bildschirmleseprogramme erkennen, um was es sich handelt?
 
-Um die Aufgabe zu erfüllen:
+Um die Aufgabe zu lösen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie einige WAI-ARIA-Semantiken hinzu, damit Bildschirmlesegeräte die `<div>`-Elemente als ungeordnete Liste erkennen.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Fügen Sie einige WAI-ARIA-Semantiken hinzu, damit Bildschirmleseprogramme die `<div>`-Elemente als ungeordnete Liste erkennen.
 
 > [!CALLOUT]
 >
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/aria/aria1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/aria/aria1-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter der Live-Ausgabe anzeigen.
 
 <!-- Code shared across examples -->
 
@@ -101,19 +101,19 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## WAI-ARIA 2
 
-In unserer zweiten WAI-ARIA-Aufgabe präsentieren wir ein grundlegendes Suchformular, und wir möchten, dass Sie ein paar WAI-ARIA-Features hinzufügen, um seine Zugänglichkeit zu verbessern.
+In unserer zweiten WAI-ARIA-Aufgabe präsentieren wir ein einfaches Suchformular, und wir möchten, dass Sie ein paar WAI-ARIA-Funktionen hinzufügen, um dessen Zugänglichkeit zu verbessern.
 
-Um die Aufgabe zu erfüllen:
+Um die Aufgabe zu lösen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie ein Attribut hinzu, damit das Suchformular von Bildschirmlesegeräten als separates Landmark auf der Seite erkannt und leicht gefunden werden kann.
-3. Geben Sie dem Suchfeld eine geeignete Bezeichnung, ohne explizit ein sichtbares Textlabel zum DOM hinzuzufügen.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Fügen Sie ein Attribut hinzu, damit das Suchformular von Bildschirmleseprogrammen als eigenes Landmark auf der Seite hervorgehoben wird und leicht auffindbar ist.
+3. Geben Sie dem Suchfeld ein geeignetes Label, ohne explizit ein sichtbares Textlabel zum DOM hinzuzufügen.
 
 > [!CALLOUT]
 >
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/aria/aria2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/aria/aria2-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter der Live-Ausgabe anzeigen.
 
 ```html live-sample___aria-2
 <form>
@@ -141,21 +141,20 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## WAI-ARIA 3
 
-Für diese letzte WAI-ARIA-Aufgabe kehren wir zu einem Beispiel zurück, das wir zuvor im [CSS- und JavaScript-Fähigkeitstest](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript) gesehen haben.
-Wie zuvor haben wir eine App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Kasten unterhalb der Liste. Hier beginnen wir mit einer maus- und tastaturzugänglichen Version.
+Für diese letzte WAI-ARIA-Aufgabe kehren wir zu einem Beispiel zurück, das wir bereits im [CSS- und JavaScript-Fähigkeitstest](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript) gesehen haben. Wie zuvor haben wir eine App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Kästchen unterhalb der Liste. Hier beginnen wir mit einer Version, die mit Maus und Tastatur zugänglich ist.
 
-Das Problem, das wir jetzt haben, ist, dass wenn sich das DOM ändert, um eine neue Beschreibung anzuzeigen, Bildschirmlesegeräte nicht erkennen können, was sich geändert hat. Können Sie es so aktualisieren, dass die Änderungen der Beschreibung vom Bildschirmleser angekündigt werden?
+Das Problem, das wir jetzt haben, ist, dass Bildschirmleseprogramme nicht sehen können, was sich geändert hat, wenn das DOM aktualisiert wird, um eine neue Beschreibung anzuzeigen. Können Sie es so aktualisieren, dass Beschreibungseränderungen von dem Bildschirmleseprogramm angesagt werden?
 
-Um die Aufgabe zu erfüllen:
+Um die Aufgabe zu lösen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Aktualisieren Sie das HTML, sodass die Aktualisierungen der Beschreibung vom Bildschirmleser angekündigt werden.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Aktualisieren Sie das HTML, sodass die Beschreibungsänderungen vom Bildschirmleseprogramm angesagt werden.
 
 > [!CALLOUT]
 >
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/js/aria/aria-js1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/js/aria/aria-js1-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter der Live-Ausgabe anzeigen.
 
 ```html live-sample___aria-3
 <section class="preview">
@@ -214,9 +213,9 @@ const listItems = document.querySelectorAll("li");
 const descHeading = document.querySelector(".animal-description h2");
 const descPara = document.querySelector(".animal-description p");
 
-listItems.forEach(function (item) {
+listItems.forEach((item) => {
   item.addEventListener("mouseup", handleSelection);
-  item.addEventListener("keyup", function (e) {
+  item.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
       handleSelection(e);
     }
@@ -238,7 +237,7 @@ function handleSelection(e) {
 
 Es gibt zwei Möglichkeiten, das in dieser Aufgabe beschriebene Problem zu lösen:
 
-- Fügen Sie ein `aria-live=""`-Attribut zum `<div>`-Element der Tierbeschreibung hinzu, um es in eine Live-Region zu verwandeln, sodass beim Ändern des Inhalts der aktualisierte Inhalt vom Bildschirmleser vorgelesen wird. Der beste Wert ist wahrscheinlich `assertive`, wodurch der Bildschirmleser den aktualisierten Inhalt sofort vorliest, wenn er sich geändert hat. `polite` bedeutet, dass der Bildschirmleser wartet, bis andere Beschreibungen fertig sind, bevor er den geänderten Inhalt vorliest.
-- Fügen Sie ein `role="alert"`-Attribut zum `<div>`-Element der Tierbeschreibung hinzu, um es mit den Semantiken einer Alarmbox zu versehen. Dies hat denselben Effekt auf den Bildschirmleser, wie die Einstellung von `aria-live="assertive"` darauf.
+- Fügen Sie dem Tierbeschreibungs-`<div>` ein `aria-live=""` Attribut hinzu, um es in eine Live-Region zu verwandeln, sodass der aktualisierte Inhalt vom Bildschirmleseprogramm vorgelesen wird, sobald sich der Inhalt ändert. Der beste Wert ist wahrscheinlich `assertive`, wodurch das Bildschirmleseprogramm den aktualisierten Inhalt sofort liest, sobald er geändert wurde. `polite` bedeutet, dass das Bildschirmleseprogramm wartet, bis andere Beschreibungen zu Ende sind, bevor es mit dem Lesen des geänderten Inhalts beginnt.
+- Fügen Sie dem Tierbeschreibungs-`<div>` ein `role="alert"` Attribut hinzu, um es mit Alertbox-Semantik zu versehen. Dies hat die gleiche Wirkung auf das Bildschirmleseprogramm wie das Setzen von `aria-live="assertive"` darauf.
 
 </details>

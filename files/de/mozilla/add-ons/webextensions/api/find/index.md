@@ -2,26 +2,26 @@
 title: find
 slug: Mozilla/Add-ons/WebExtensions/API/find
 l10n:
-  sourceCommit: 2c5465eab20015868a1eeca59c5623d37b105f7c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Findet Text auf einer Webseite und hebt die Übereinstimmungen hervor.
+Findet Text auf einer Webseite und hebt Übereinstimmungen hervor.
 
-Um diese API zu verwenden, müssen Sie die Berechtigung "find" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Um diese API zu verwenden, benötigen Sie die "find" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 ## Funktionen
 
 - {{WebExtAPIRef("find.find()")}}
   - : Findet Text auf einer Webseite.
 - {{WebExtAPIRef("find.highlightResults()")}}
-  - : Hebt die zuletzt gefundenen Übereinstimmungen hervor.
+  - : Hebt das zuletzt gefundene Set von Übereinstimmungen hervor.
 - {{WebExtAPIRef("find.removeHighlighting()")}}
-  - : Entfernt alle Hervorhebungen.
-
-## Browser-Kompatibilität
+  - : Entfernt jegliche Hervorhebung.
 
 {{WebExtExamples("h2")}}
+
+## Browser-Kompatibilität
 
 {{Compat}}

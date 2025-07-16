@@ -2,12 +2,12 @@
 title: get()
 slug: Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/get
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Die Methode `BrowserSetting.get()` ruft den aktuellen Wert der Browsereinstellung und eine Aufzählung ab, die angibt, wie der Wert der Einstellung derzeit gesteuert wird.
+Die Methode `BrowserSetting.get()` ruft den aktuellen Wert der Browsereinstellung sowie eine Aufzählung ab, die anzeigt, wie der Wert der Einstellung derzeit gesteuert wird.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,9 +29,9 @@ let getting = setting.get(
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
 
 - `value`
-  - : Der Wert der Einstellung. Der Typ dieser Eigenschaft wird durch die jeweilige Einstellung bestimmt.
+  - : Der Wert der Einstellung. Der Typ dieser Eigenschaft wird durch die besondere Einstellung bestimmt.
 - `levelOfControl`
-  - : `string`. Dies stellt dar, wie die Einstellung derzeit gesteuert wird. Sie können es verwenden, um zu prüfen, ob Sie die Einstellung ändern können. Details dazu finden Sie unter [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set). Sein Wert kann einer der folgenden sein:<table class="fullwidth-table standard-table">
+  - : `string`. Dies repräsentiert die Art und Weise, wie die Einstellung derzeit gesteuert wird. Sie können sie verwenden, um zu überprüfen, ob Sie die Einstellung ändern können. Weitere Details finden Sie unter [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set). Der Wert kann einer der folgenden sein:<table class="fullwidth-table standard-table">
       <tbody>
         <tr>
           <td><code>"not_controllable"</code></td>
@@ -55,13 +55,9 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
       </tbody>
     </table>
 
-## Browser-Kompatibilität
-
-Siehe {{WebExtAPIRef("types.BrowserSetting")}}.
-
 ## Beispiel
 
-Protokollieren Sie den Wert und das Kontrollniveau der Eigenschaft `networkPredictionEnabled` des Objekts {{WebExtAPIRef("privacy.network")}}, für private Browserfenster. Beachten Sie, dass dazu die Berechtigung "privacy" des Browsers erforderlich ist.
+Protokollieren Sie den Wert und die Steuerungsebene der Eigenschaft `networkPredictionEnabled` des {{WebExtAPIRef("privacy.network")}} Objekts für Fenster im privaten Modus. Beachten Sie, dass dies die "privacy"-Berechtigung des Browsers erfordert.
 
 ```js
 let getting = browser.privacy.network.networkPredictionEnabled.get({});
@@ -73,6 +69,10 @@ getting.then((got) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+Siehe {{WebExtAPIRef("types.BrowserSetting")}}.
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.

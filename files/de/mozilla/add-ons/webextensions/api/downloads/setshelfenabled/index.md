@@ -2,17 +2,17 @@
 title: downloads.setShelfEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/setShelfEnabled
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Die Funktion **`setShelfEnabled()`** der {{WebExtAPIRef("downloads")}} API aktiviert oder deaktiviert das graue Regal am unteren Rand jedes Fensters, das mit dem aktuellen Browser-Profil verknüpft ist. Das Regal bleibt deaktiviert, solange es von mindestens einer Erweiterung deaktiviert wurde.
+Die Funktion **`setShelfEnabled()`** der {{WebExtAPIRef("downloads")}} API ermöglicht das Aktivieren oder Deaktivieren des grauen Regals am unteren Rand jedes Fensters, das mit dem aktuellen Browser-Profil verknüpft ist. Das Regal bleibt deaktiviert, solange mindestens eine Erweiterung es deaktiviert hat.
 
-Wenn Sie versuchen, das Regal zu aktivieren, während mindestens eine andere Erweiterung es bereits deaktiviert hat, schlägt der Aufruf fehl und {{WebExtAPIRef("runtime.lastError")}} wird mit einer entsprechenden Fehlermeldung gesetzt.
+Wenn Sie versuchen, das Regal zu aktivieren, während mindestens eine andere Erweiterung es bereits deaktiviert hat, wird der Aufruf fehlschlagen und {{WebExtAPIRef("runtime.lastError")}} wird mit einer entsprechenden Fehlermeldung gesetzt.
 
 > [!NOTE]
-> Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie um die `"downloads.shelf"` [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie um die `"downloads"` Berechtigung bitten.
+> Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie die Berechtigung `"downloads.shelf"` im [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die Berechtigung `"downloads"` anfordern.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ Diese API ist auch als `browser.downloads.setShelfEnabled()` verfügbar.
 ### Parameter
 
 - `enabled`
-  - : Ein `boolean`, der den Zustand darstellt, den Sie für `setShelfEnabled()` festlegen möchten — `true` für aktivieren und `false` für deaktivieren.
+  - : Ein `boolean`, der den Zustand darstellt, den Sie mit `setShelfEnabled()` festlegen möchten — `true` für aktivieren und `false` für deaktivieren.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-setShelfEnabled) API.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-setShelfEnabled) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

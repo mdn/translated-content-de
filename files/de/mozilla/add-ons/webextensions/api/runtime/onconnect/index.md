@@ -2,12 +2,12 @@
 title: runtime.onConnect
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onConnect
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine Verbindung entweder zu einem Erweiterungsprozess oder einem Inhalts-Skript hergestellt wird.
+Wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Inhaltsskript hergestellt wird.
 
 ## Syntax
 
@@ -22,30 +22,26 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Beendet das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, sonst `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `function`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `port`
-      - : Ein {{WebExtAPIRef('runtime.Port')}}-Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet, mit dem es verbunden wird.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet, zu dem es sich verbindet.
 
 ## Beispiele
 
-Dieses Inhalts-Skript:
+Dieses Inhaltsskript:
 
-- verbindet sich mit dem Hintergrund-Skript und speichert den `Port` in einer Variablen `myPort`
-- hört auf Nachrichten auf `myPort` und protokolliert sie
-- sendet Nachrichten an das Hintergrund-Skript, unter Verwendung von `myPort`, wenn der Benutzer auf das Dokument klickt
+- stellt eine Verbindung zum Hintergrundskript her und speichert den `Port` in einer Variablen `myPort`
+- lauscht auf Nachrichten auf `myPort` und protokolliert sie
+- sendet Nachrichten an das Hintergrundskript, indem es `myPort` verwendet, wenn der Benutzer auf das Dokument klickt
 
 ```js
 // content-script.js
@@ -63,16 +59,15 @@ document.body.addEventListener("click", () => {
 });
 ```
 
-Das entsprechende Hintergrund-Skript:
+Das entsprechende Hintergrundskript:
 
-- hört auf Verbindungsversuche des Inhalts-Skripts
-- wenn es einen Verbindungsversuch erhält:
-
+- lauscht auf Verbindungsversuche vom Inhaltsskript
+- wenn es einen Verbindungsversuch empfängt:
   - speichert es den Port in einer Variablen namens `portFromCS`
-  - sendet dem Inhalts-Skript eine Nachricht über den Port
-  - beginnt, auf empfangene Nachrichten auf dem Port zu lauschen und protokolliert sie
+  - sendet dem Inhaltsskript über den Port eine Nachricht
+  - beginnt, auf Nachrichten zu hören, die auf dem Port empfangen werden, und protokolliert sie
 
-- sendet Nachrichten an das Inhalts-Skript, unter Verwendung von `portFromCS`, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt
+- sendet Nachrichten an das Inhaltsskript, indem es `portFromCS` verwendet, wenn der Benutzer auf die Browseraktion der Erweiterung klickt
 
 ```js
 // background-script.js
@@ -97,15 +92,19 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
 // Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// modification, sind unter der Voraussetzung erlaubt, dass die
+// folgenden Bedingungen erfüllt sind:
 //
 //    * Redistributions of source code must retain the above copyright
 // notice, this list of conditions and the following disclaimer.

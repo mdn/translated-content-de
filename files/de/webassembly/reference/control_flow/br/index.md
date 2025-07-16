@@ -2,12 +2,12 @@
 title: br
 slug: WebAssembly/Reference/Control_flow/br
 l10n:
-  sourceCommit: b67c2be9feee1463ea5a27e5c7b3e0062162354f
+  sourceCommit: c699955e1e368bd42d6ea9318a6afc9256c3036f
 ---
 
-Die **`br`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, einer [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung.
+Die **`br`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop), einem [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung.
 
-Andere Varianten von `br` umfassen [`br_if`](/en-US/docs/WebAssembly/Reference/Control_flow/br_if) und [`br_table`](/en-US/docs/WebAssembly/Reference/Control_flow/br_table).
+Andere Varianten von `br` sind [`br_if`](/de/docs/WebAssembly/Reference/Control_flow/br_if) und [`br_table`](/de/docs/WebAssembly/Reference/Control_flow/br_table).
 
 {{InteractiveExample("Wat Demo: br", "tabbed-taller")}}
 
@@ -52,6 +52,6 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `br`      | `0x0c`         |
+| Anweisung | Binäroperator |
+| --------- | ------------- |
+| `br`      | `0x0c`        |

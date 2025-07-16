@@ -1,60 +1,59 @@
 ---
-title: privacy
+title: Datenschutz
 slug: Mozilla/Add-ons/WebExtensions/API/privacy
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Zugriff auf verschiedene datenschutzbezogene Browsereinstellungen und deren Änderung.
+Zugriff auf verschiedene datenschutzbezogene Browser-Einstellungen und deren Modifikation.
 
-Um die privacy API zu verwenden, müssen Sie die "privacy" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
+Um die Datenschutz-API zu verwenden, müssen Sie die "privacy" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) besitzen.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("privacy.network")}}
-  - : Zugriff auf Netzwerkeinstellungen zum Datenschutz und deren Änderung.
+  - : Zugriff auf und Modifikation von Datenschutzeinstellungen, die das Netzwerk betreffen.
 - {{WebExtAPIRef("privacy.services")}}
-  - : Zugriff auf Datenschutzeinstellungen in Bezug auf die vom Browser oder von Drittanbietern bereitgestellten Dienste und deren Änderung.
+  - : Zugriff auf und Modifikation von Datenschutzeinstellungen, die die vom Browser oder Drittparteien bereitgestellten Dienste betreffen.
 - {{WebExtAPIRef("privacy.websites")}}
-  - : Zugriff auf Datenschutzeinstellungen in Bezug auf das Verhalten von Websites und deren Änderung.
+  - : Zugriff auf und Modifikation von Datenschutzeinstellungen, die das Verhalten von Websites betreffen.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
 > Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API von Chromium.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Eine Weiterverbreitung und Nutzung in Form von Quell- und Binärformaten, mit oder ohne
+// Modifikation, ist unter der Bedingung gestattet, dass die folgenden Bedingungen
+// erfüllt werden:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Der obige Urheberrechtshinweis, diese Liste der Bedingungen und der folgende
+// Haftungsausschluss müssen in allen Kopien oder bedeutenden Teilen der Software
+// enthalten sein.
+//    * Der Name Google Inc. oder die Namen seiner Beitragenden dürfen nicht verwendet werden,
+// um Produkte, die aus dieser Software abgeleitet wurden, zu bewerben oder zu fördern,
+// ohne vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VOM COPYRIGHT-INHABER UND DEN BEITRAGENDEN
+// "WIE BESEHEN" UND JEGLICHE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN
+// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BEGRENZT AUF DIE
+// STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER HANDELSÜBLICHKEIT UND EIGNUNG FÜR
+// EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL HAFTEN DIE
+// COPYRIGHT-INHABER ODER BEITRAGENDEN FÜR JEGLICHE DIREKTEN, INDIREKTEN,
+// ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN;
+// NUTZUNGSAUSFALL, DATEN ODER GEWINNE; ODER GESCHÄFTSUNTERBRECHUNG) WIE AUCH IMMER VERURSACHT
+// UND UNABHÄNGIG VON DER HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG ODER
+// UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE
+// AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE
+// MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

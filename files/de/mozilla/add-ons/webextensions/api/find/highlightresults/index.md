@@ -2,16 +2,16 @@
 title: find.highlightResults()
 slug: Mozilla/Add-ons/WebExtensions/API/find/highlightResults
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 Hebt die Ergebnisse eines vorherigen Aufrufs von {{WebExtAPIRef("find.find()")}} hervor.
 
-Wenn eine Erweiterung `find()` aufruft, werden die Übereinstimmungen nicht automatisch hervorgehoben, sondern sie werden vom Browser gespeichert. Rufen Sie `highlightResults()` auf, um sie hervorzuheben.
+Wenn eine Erweiterung `find()` aufruft, werden die Übereinstimmungen nicht automatisch hervorgehoben, aber sie werden vom Browser gespeichert. Rufen Sie `highlightResults()` auf, um sie hervorzuheben.
 
-Beachten Sie, dass die gespeicherten Ergebnisse global über alle Erweiterungen hinweg sind. Zum Beispiel, wenn Erweiterung A `find("apple")` aufruft, und dann Erweiterung B `find("banana")`, dann werden, wenn Erweiterung A `highlightResults()` aufruft, die Ergebnisse für "banana" hervorgehoben.
+Beachten Sie, dass die gespeicherten Ergebnisse global für alle Erweiterungen sind. Wenn also zum Beispiel Erweiterung A `find("apple")` aufruft und dann Erweiterung B `find("banana")` aufruft, werden bei einem anschließenden Aufruf von Erweiterung A mit `highlightResults()` die Ergebnisse für "banana" hervorgehoben.
 
 ## Syntax
 
@@ -24,25 +24,21 @@ browser.find.highlightResults(
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : `object`. Ein Objekt, das zusätzliche Optionen angibt. Es kann eine der folgenden Eigenschaften enthalten, alle optional:
+  - : `object`. Ein Objekt, das zusätzliche Optionen angibt. Es kann alle folgenden Eigenschaften enthalten, die alle optional sind:
     - `tabId`
-      - : `integer`. ID des Tabs, das hervorgehoben werden soll. Standardmäßig der aktive Tab.
+      - : `integer`. ID des Tabs, das hervorgehoben werden soll. Standard ist der aktive Tab.
     - `rangeIndex`
       - : `integer`. Index des Bereichs, der hervorgehoben werden soll. Standardmäßig werden alle Bereiche hervorgehoben.
     - `noScroll`
-      - : `boolean`. Nicht zum hervorgehobenen Element scrollen. Standardwert ist `true`.
+      - : `boolean`. Nicht zum hervorgehobenen Element scrollen. Standard ist `true`.
 
 ### Rückgabewert
 
 Keiner.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Durchsuchen Sie den aktiven Tab nach "banana", protokollieren Sie die Anzahl der Übereinstimmungen und heben Sie sie hervor:
+Suchen Sie im aktiven Tab nach "banana", protokollieren Sie die Anzahl der Übereinstimmungen und heben Sie diese hervor:
 
 ```js
 function found(results) {
@@ -54,3 +50,7 @@ function found(results) {
 
 browser.find.find("banana").then(found);
 ```
+
+## Browser-Kompatibilität
+
+{{Compat}}

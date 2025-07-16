@@ -2,14 +2,14 @@
 title: menus.removeAll()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/removeAll
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Entfernt alle Menüeinträge, die von der Erweiterung hinzugefügt wurden.
+Entfernt alle vom Add-on hinzugefügten Menüelemente.
 
-Für die Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl im `contextMenus`-Namensraum als auch im `menus`-Namensraum bereit.
+Zur Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum zur Verfügung.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,15 +25,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle Elemente entfernt wurden.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, wenn alle Elemente entfernt wurden.
 
 ## Beispiele
 
-Dieses Beispiel fügt zwei Menüeinträge hinzu. Wenn der Benutzer auf den Eintrag mit der Beschriftung "Remove all!" klickt, entfernt die Erweiterung beide Einträge mit `removeAll()`.
+Dieses Beispiel fügt zwei Menüelemente hinzu. Wenn der Benutzer auf das Element mit der Bezeichnung "Remove all!" klickt, entfernt das Add-on beide Elemente mit `removeAll()`.
 
 ```js
 function onRemoved() {
@@ -62,8 +58,12 @@ browser.menus.onClicked.addListener((info, tab) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-removeAll) API. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-removeAll)-API von Chromium. Diese Dokumentation ist aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

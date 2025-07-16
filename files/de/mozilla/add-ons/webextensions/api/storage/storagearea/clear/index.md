@@ -2,7 +2,7 @@
 title: StorageArea.clear()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/clear
 l10n:
-  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -17,7 +17,7 @@ Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/R
 let clearing = browser.storage.<storageType>.clear()
 ```
 
-Wobei `<storageType>` einer der beschreibbaren Speicherarten ist — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}
+Wobei `<storageType>` einer der beschreibbaren Speichertypen ist — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}
 
 ### Parameter
 
@@ -25,11 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Vorgang erfolgreich war. Falls der Vorgang fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -48,5 +44,9 @@ clearStorage.then(onCleared, onError);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

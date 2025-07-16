@@ -2,48 +2,48 @@
 title: i18n
 slug: Mozilla/Add-ons/WebExtensions/API/i18n
 l10n:
-  sourceCommit: 44f564a6c7918d7db234b8e7126472161a407591
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Funktionen zur Internationalisierung Ihrer Erweiterung. Sie können diese APIs verwenden, um lokalisierte Zeichenfolgen aus Paketdateien Ihrer Erweiterung zu erhalten, die aktuelle Sprache des Browsers zu ermitteln und den Wert des [Accept-Language-Headers](/de/docs/Web/HTTP/Guides/Content_negotiation#the_accept-language_header) zu erfahren.
+Funktionen zur Internationalisierung Ihrer Erweiterung. Sie können diese APIs verwenden, um lokalisierte Zeichenfolgen aus mit Ihrer Erweiterung gepackten Sprachdateien abzurufen, die aktuelle Sprache des Browsers zu ermitteln und den Wert seines [Accept-Language Headers](/de/docs/Web/HTTP/Guides/Content_negotiation#the_accept-language_header) herauszufinden.
 
-Sehen Sie sich die Seite zur [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Verwendung dieser API an.
+Sehen Sie sich die Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Verwendung dieser API an.
 
 ## Typen
 
 - {{WebExtAPIRef("i18n.LanguageCode")}}
-  - : Ein [Sprach-Tag](https://www.rfc-editor.org/rfc/rfc9110.html#name-language-tags) wie `"en-US"` oder `"fr"`.
+  - : Ein [Sprachtag](https://www.rfc-editor.org/rfc/rfc9110.html#name-language-tags) wie `"en-US"` oder `"fr"`.
 
 ## Funktionen
 
 - {{WebExtAPIRef("i18n.detectLanguage()")}}
-  - : Erkennt die Sprache des bereitgestellten Textes mit dem [Compact Language Detector](https://github.com/CLD2Owners/cld2).
+  - : Erkennt die Sprache des bereitgestellten Textes unter Verwendung des [Compact Language Detector](https://github.com/CLD2Owners/cld2).
 - {{WebExtAPIRef("i18n.getMessage()")}}
   - : Ruft die lokalisierte Zeichenfolge für die angegebene Nachricht ab.
 - {{WebExtAPIRef("i18n.getAcceptLanguages()")}}
-  - : Ruft die [Accept-Languages](/de/docs/Web/HTTP/Guides/Content_negotiation#the_accept-language_header) des Browsers ab. Dies unterscheidet sich von der vom Browser verwendeten Lokalisierung. Um die Lokalisierung zu erhalten, verwenden Sie {{WebExtAPIRef('i18n.getUILanguage')}}.
+  - : Ruft die [accept-languages](/de/docs/Web/HTTP/Guides/Content_negotiation#the_accept-language_header) des Browsers ab. Dies unterscheidet sich von der vom Browser verwendeten Sprache. Um die Sprache zu ermitteln, verwenden Sie {{WebExtAPIRef('i18n.getUILanguage')}}.
 - {{WebExtAPIRef("i18n.getUILanguage()")}}
-  - : Holt die UI-Sprache des Browsers. Dies ist unterschiedlich zu {{WebExtAPIRef('i18n.getAcceptLanguages')}}, das die bevorzugten Benutzersprachen zurückgibt.
+  - : Ruft die UI-Sprache des Browsers ab. Dies unterscheidet sich von {{WebExtAPIRef('i18n.getAcceptLanguages')}}, welche die bevorzugten Benutzersprachen zurückgibt.
 - {{WebExtAPIRef("i18n.getPreferredSystemLanguages()")}}
-  - : Gibt die bevorzugten Gebietsschemas des Betriebssystems zurück.
+  - : Gibt die bevorzugten Sprachen des Betriebssystems zurück.
 - {{WebExtAPIRef("i18n.getSystemUILanguage()")}}
-  - : Gibt das aktuelle UI-Gebietsschema des Betriebssystems zurück.
+  - : Gibt die aktuelle UI-Sprache des Betriebssystems zurück.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n) API. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n) API von Chromium. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 ## Siehe auch
 
-- [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization): ein Leitfaden zur Verwendung des WebExtension i18n-Systems.
-- [Locale-Specific Message reference](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/Locale-Specific_Message_reference): Erweiterungen liefern lokalisierungsspezifische Zeichenfolgen in Dateien namens `messages.json`. Diese Seite beschreibt das Format von `messages.json`.
+- [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization): ein Leitfaden zur Verwendung des WebExtension-i18n-Systems.
+- [Locale-Specific Message reference](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/Locale-Specific_Message_reference): Erweiterungen liefern sprachspezifische Zeichenfolgen in Dateien namens `messages.json`. Diese Seite beschreibt das Format von `messages.json`.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

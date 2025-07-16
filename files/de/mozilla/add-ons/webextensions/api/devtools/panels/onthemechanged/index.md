@@ -2,12 +2,12 @@
 title: devtools.panels.onThemeChanged
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/onThemeChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn das DevTools-Theme geändert wird.
+Wird ausgelöst, wenn sich das DevTools-Theme ändert.
 
 ## Syntax
 
@@ -24,20 +24,16 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es am Zuhören ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zugehört wird, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `themeName`
-      - : `string`. Name des neuen Themes: Dies wird einer der zulässigen Werte für [`devtools.panels.themeName`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName) sein.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : `string`. Name des neuen Themes: dies wird einer der erlaubten Werte für [`devtools.panels.themeName`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName) sein.
 
 ## Beispiele
 
@@ -49,5 +45,9 @@ browser.devtools.panels.onThemeChanged.addListener((newThemeName) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

@@ -2,12 +2,12 @@
 title: omnibox.onInputCancelled
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox/onInputCancelled
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer seine Interaktion mit Ihrer Erweiterung abgebrochen hat (zum Beispiel durch Klicken außerhalb der Adressleiste).
+Ausgelöst, wenn der Benutzer die Interaktion mit Ihrer Erweiterung abgebrochen hat (zum Beispiel durch Klicken außerhalb der Adressleiste).
 
 ## Syntax
 
@@ -22,17 +22,13 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## AddListener-Syntax
+## addListener-Syntax
 
 Der Listener-Funktion werden keine Parameter übergeben.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -44,5 +40,9 @@ browser.omnibox.onInputCancelled.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) von Chromium.
+> Diese API basiert auf Chromiums [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.

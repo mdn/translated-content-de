@@ -2,14 +2,14 @@
 title: BrowserSetting.onChange
 slug: Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/onChange
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
 Das `BrowserSetting.onChange`-Ereignis wird ausgelöst, wenn die Einstellung geändert wird.
 
-In Firefox wird es nicht ausgelöst, wenn die Änderung über `about:config` vorgenommen wurde.
+Unter Firefox wird es nicht ausgelöst, wenn die Änderung über `about:config` vorgenommen wurde.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ BrowserSetting.onChange.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob der `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `details`
-      - : Ein `object`, das Details über die erfolgte Änderung enthält. Seine Eigenschaften sind wie folgt:
+      - : Ein `object`, das Details der stattgefundenen Änderung enthält. Seine Eigenschaften sind wie folgt:
         - `value`
           - : Der neue Wert der Einstellung. Der Typ dieser Eigenschaft wird durch die jeweilige Einstellung bestimmt.
         - `levelOfControl`
-          - : `string`. Dies stellt dar, wie die Einstellung derzeit gesteuert wird. Sie können es verwenden, um zu überprüfen, ob Sie die Einstellung ändern können. Siehe [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set) für Details. Sein Wert kann einer der folgenden sein:<table class="fullwidth-table standard-table">
+          - : `string`. Dies repräsentiert, wie die Einstellung derzeit gesteuert wird. Sie können es verwenden, um zu überprüfen, ob Sie die Einstellung ändern können. Siehe [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set) für Details. Sein Wert kann einer der folgenden sein:<table class="fullwidth-table standard-table">
               <tbody>
                 <tr>
                   <td><code>"not_controllable"</code></td>
@@ -47,10 +47,7 @@ Ereignisse haben drei Funktionen:
                 </tr>
                 <tr>
                   <td><code>"controlled_by_other_extensions"</code></td>
-                  <td>
-                    Eine andere Erweiterung, die nach dieser installiert wurde, hat diese
-                    Einstellung geändert.
-                  </td>
+                  <td>Eine andere Erweiterung, die nach dieser installiert wurde, hat diese Einstellung geändert.</td>
                 </tr>
                 <tr>
                   <td><code>"controllable_by_this_extension"</code></td>
@@ -63,16 +60,16 @@ Ereignisse haben drei Funktionen:
               </tbody>
             </table>
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types)-API von Chromium.
+> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

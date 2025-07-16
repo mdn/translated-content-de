@@ -2,7 +2,7 @@
 title: sessions.removeTabValue()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/removeTabValue
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -23,21 +23,17 @@ let removing = browser.sessions.removeTabValue(
 ### Parameter
 
 - `tabId`
-  - : `integer`. ID des Tabs, dessen Daten Sie entfernen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. Die ID des Tabs, dessen Daten entfernt werden sollen. Es wird ein Fehler ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den bestimmten zu entfernenden Wert identifiziert. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
+  - : `string`. Der Schlüssel, der den bestimmten Wert identifiziert, der entfernt werden soll. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das aufgelöst wird, ohne Argumente, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieser Code fügt zwei Kontextmenüelemente hinzu: eines speichert einen Wert, der mit dem aktuellen Tab verknüpft ist, das andere entfernt ihn:
+Dieser Code fügt zwei Kontextmenüeinträge hinzu: einer speichert einen mit dem aktuellen Tab verknüpften Wert, der andere entfernt ihn:
 
 ```js
 async function setOnActiveTab() {
@@ -80,3 +76,7 @@ browser.menus.onClicked.addListener((info) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

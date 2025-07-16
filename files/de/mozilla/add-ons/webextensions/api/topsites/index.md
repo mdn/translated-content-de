@@ -2,16 +2,16 @@
 title: topSites
 slug: Mozilla/Add-ons/WebExtensions/API/topSites
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Verwenden Sie die `topSites` API, um ein Array mit Seiten zu erhalten, die der Benutzer häufig besucht hat.
+Verwenden Sie die `topSites`-API, um ein Array zu erhalten, das Seiten enthält, die der Benutzer häufig besucht hat.
 
-Browser pflegen dies, um dem Benutzer zu helfen, leicht zu diesen Orten zurückzukehren. Beispielsweise bietet Firefox standardmäßig eine Liste der am häufigsten besuchten Seiten auf der Seite "Neuer Tab" an.
+Browser pflegen dies, um dem Benutzer zu helfen, leicht zu diesen Orten zurückzukehren. Zum Beispiel stellt Firefox standardmäßig eine Liste der am häufigsten besuchten Seiten auf der "Neuer Tab"-Seite zur Verfügung.
 
-Um die `topSites` API zu verwenden, müssen Sie die "topSites" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
+Um die `topSites`-API zu verwenden, müssen Sie die "topSites" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
 
 ## Typen
 
@@ -21,13 +21,13 @@ Um die `topSites` API zu verwenden, müssen Sie die "topSites" [API-Berechtigung
 ## Methoden
 
 - {{WebExtAPIRef("topSites.get()")}}
-  - : Gibt ein Array zurück, das alle auf der "Neuer Tab"-Seite des Browsers aufgelisteten Seiten enthält. Beachten Sie, dass die Anzahl der hier zurückgegebenen Seiten browserspezifisch ist und die zurückgegebenen Seiten wahrscheinlich benutzerspezifisch sind, basierend auf ihrem Browserverlauf.
+  - : Ruft ein Array ab, das alle auf der "Neuer Tab"-Seite des Browsers gelisteten Seiten enthält. Beachten Sie, dass die Anzahl der hier zurückgegebenen Seiten browser-spezifisch ist und die zurückgegebenen Seiten wahrscheinlich spezifisch für den Benutzer sind, basierend auf dessen Browserverlauf.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples("h2")}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.topSites`](https://developer.chrome.com/docs/extensions/reference/api/topSites) API von Chromium.

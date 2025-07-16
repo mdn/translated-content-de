@@ -2,14 +2,14 @@
 title: contentScripts.register()
 slug: Mozilla/Add-ons/WebExtensions/API/contentScripts/register
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Verwenden Sie diese Funktion, um ein oder mehrere Inhaltsskripte zu registrieren.
+Verwenden Sie diese Funktion, um ein oder mehrere Content-Skripte zu registrieren.
 
-Sie akzeptiert einen Parameter, der ein Objekt mit ähnlichen Eigenschaften wie die Objekte im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Manifest-Schlüssel ist (aber beachten Sie, dass `content_scripts` ein Array von Objekten ist, während das Argument für `register()` ein Objekt ist).
+Sie akzeptiert einen Parameter, der ein Objekt mit ähnlichen Eigenschaften wie die Objekte im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) Manifest-Schlüssel ist (aber beachten Sie, dass `content_scripts` ein Array von Objekten ist, während das Argument für `register()` ein einzelnes Objekt ist).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,52 +24,45 @@ let registering = browser.contentScripts.register(
 ### Parameter
 
 - `contentScriptOptions`
+  - : `object`. Ein `RegisteredContentScriptOptions` Objekt, das die zu registrierenden Content-Skripte repräsentiert. Es hat eine ähnliche Syntax wie die Objekte im `content_scripts` Manifest-Schlüssel-Array. Die Unterschiede sind:
+    - Eigenschaftsnamen verwenden das {{Glossary("camel_case", "camel case")}}, anstatt Unterstriche ({{Glossary("snake_case", "snake case")}}) — zum Beispiel, `excludeMatches`, nicht `exclude_matches`.
+    - die Eigenschaften `js` und `css` erlauben es, sowohl Strings als auch URLs zu registrieren, daher muss ihre Syntax diese Typen unterscheiden.
 
-  - : `object`. Ein `RegisteredContentScriptOptions`-Objekt, das die zu registrierenden Inhaltsskripte darstellt. Es hat eine ähnliche Syntax wie die Objekte im Array des [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Manifestschlüssels. Die Unterschiede sind:
-
-    - Eigenschaftsnamen verwenden {{Glossary("camel_case", "camel case")}}, anstatt Unterstriche ({{Glossary("snake_case", "snake case")}}) — zum Beispiel `excludeMatches`, nicht `exclude_matches`.
-    - Die `js`- und `css`-Eigenschaften ermöglichen es Ihnen, sowohl Zeichenfolgen als auch URLs zu registrieren, daher muss ihre Syntax diese Typen unterscheiden.
-
-    Das `RegisteredContentScriptOptions`-Objekt hat die folgenden Eigenschaften:
-
+    Das `RegisteredContentScriptOptions` Objekt hat die folgenden Eigenschaften:
     - `allFrames` {{optional_inline}}
-      - : Entspricht [`all_frames` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#all_frames).
+      - : Gleich wie [`all_frames` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#all_frames) Schlüssel.
     - `cookieStoreId` {{optional_inline}}
-      - : Ein String oder Array von Strings. Registriert das Inhaltsskript in den Tabs, die zu einer oder mehreren Cookie-Store-IDs gehören. Dies ermöglicht es, Skripte für alle Standard- oder nicht-kontextuellen Identitätstabs, private Browsing-Tabs (wenn die [Erweiterung im privaten Modus aktiviert ist](https://support.mozilla.org/en-US/kb/extensions-private-browsing)), die Tabs einer [kontextuellen Identität](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) oder eine Kombination davon zu registrieren. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+      - : Ein String oder ein Array von Strings. Registriert das Content-Skript in den Tabs, die zu einer oder mehreren Cookie-Store-IDs gehören. Dies ermöglicht die Registrierung von Skripten für alle Standard- oder nicht-kontextuellen Identitäts-Tabs, private Browsing-Tabs (wenn die [Erweiterung im privaten Browsing aktiviert ist](https://support.mozilla.org/en-US/kb/extensions-private-browsing)), die Tabs einer [kontextuellen Identität](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) oder einer Kombination dieser. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
     - `css` {{optional_inline}}
       - : Ein Array von Objekten. Jedes Objekt hat entweder eine Eigenschaft namens `file`, die eine URL ist, die beim Manifest der Erweiterung beginnt und auf eine zu registrierende CSS-Datei zeigt, oder eine Eigenschaft namens `code`, die einige zu registrierende CSS-Code enthält.
     - `excludeGlobs` {{optional_inline}}
-      - : Entspricht [`exclude_globs` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#exclude_globs).
+      - : Gleich wie [`exclude_globs` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#exclude_globs) Schlüssel.
     - `excludeMatches` {{optional_inline}}
-      - : Entspricht [`exclude_matches` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#exclude_matches).
+      - : Gleich wie [`exclude_matches` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#exclude_matches) Schlüssel.
     - `includeGlobs` {{optional_inline}}
-      - : Entspricht [`include_globs` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#include_globs).
+      - : Gleich wie [`include_globs` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#include_globs) Schlüssel.
     - `js` {{optional_inline}}
-      - : Ein Array von Objekten. Jedes Objekt hat entweder eine Eigenschaft namens `file`, die eine URL ist, die beim Manifest der Erweiterung beginnt und auf eine zu registrierende JavaScript-Datei zeigt, oder eine Eigenschaft namens `code`, die einige zu registrierende JavaScript-Code enthält.
+      - : Ein Array von Objekten. Jedes Objekt hat entweder eine Eigenschaft namens `file`, die eine URL ist, die beim Manifest der Erweiterung beginnt und auf eine zu registrierende JavaScript-Datei zeigt, oder eine Eigenschaft namens `code`, die einigen zu registrierenden JavaScript-Code enthält.
     - `matchAboutBlank` {{optional_inline}}
-      - : Entspricht [`match_about_blank` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#match_about_blank).
+      - : Gleich wie [`match_about_blank` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#match_about_blank) Schlüssel.
     - `matchOriginAsFallback` {{optional_inline}}
-      - : Entspricht [`match_origin_as_fallback` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#match_origin_as_fallback).
+      - : Gleich wie [`match_origin_as_fallback` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#match_origin_as_fallback) Schlüssel.
     - `matches`
-      - : Entspricht [`matches` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#matches).
+      - : Gleich wie [`matches` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#matches) Schlüssel.
     - `runAt` {{optional_inline}}
-      - : Entspricht [`run_at` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#run_at).
+      - : Gleich wie [`run_at` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#run_at) Schlüssel.
     - `world` {{optional_inline}}
-      - : Die Ausführungsumgebung, in der ein Skript ausgeführt werden soll. Entspricht [`world` im `content_scripts`-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#world).
+      - : Die Ausführungsumgebung, in der ein Skript ausgeführt werden soll. Gleich wie [`world` im `content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#world) Schlüssel.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("contentScripts.RegisteredContentScript")}} Objekt erfüllt wird, mit dem Sie die Inhaltsskripte abmelden können.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("contentScripts.RegisteredContentScript")}} Objekt erfüllt wird, welches Sie verwenden können, um die Content-Skripte abzumelden.
 
-Derzeit werden Inhaltsskripte abgemeldet, wenn die zugehörige Erweiterungsseite (von der die Inhaltsskripte registriert wurden) entladen wird. Daher sollten Sie ein Inhaltsskript von einer Erweiterungsseite registrieren, die so lange besteht, wie Sie möchten, dass die Inhaltsskripte registriert bleiben.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Derzeit werden Content-Skripte abgemeldet, wenn die zugehörige Erweiterungsseite (von der die Content-Skripte registriert wurden) entladen wird. Daher sollten Sie ein Content-Skript von einer Erweiterungsseite registrieren, die mindestens so lange bestehen bleibt, wie Sie die Content-Skripte registriert haben möchten.
 
 ## Beispiele
 
-Dieses Beispiel registriert das `defaultCode` Inhaltsskript für alle `.org` URLs:
+Dieses Beispiel registriert das `defaultCode` Content-Skript für alle `.org` URLs:
 
 ```js
 const defaultHosts = "*://*.org/*";
@@ -99,3 +92,7 @@ const scriptObj = await browser.contentScripts.register({
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

@@ -2,19 +2,19 @@
 title: downloads.download()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/download
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Die Funktion **`download()`** der {{WebExtAPIRef("downloads")}} API lädt eine Datei herunter, basierend auf ihrer URL und anderen optionalen Einstellungen.
+Die **`download()`** Funktion der {{WebExtAPIRef("downloads")}} API lädt eine Datei herunter, wenn ihre URL und andere optionale Präferenzen angegeben werden.
 
-Wenn die URL das HTTP- oder HTTPS-Protokoll verwendet, umfasst die Anfrage alle relevanten Cookies, d.h. jene Cookies, die für den Hostnamen der URL, das Sicherheitskennzeichen, den Pfad usw. gesetzt sind. Die Standard-Cookies, die Cookies aus der normalen Browsersitzung, werden verwendet, es sei denn:
+Wenn die URL das HTTP- oder HTTPS-Protokoll verwendet, enthält die Anforderung alle relevanten Cookies, d.h. jene Cookies, die für den Hostnamen der URL, das Sicherheitsflag, den Pfad usw. gesetzt sind. Die Standardcookies, d.h. die Cookies aus der normalen Browsersitzung, werden verwendet, es sei denn:
 
-- die Option `incognito` wird verwendet, dann werden die Cookies aus dem privaten Browsen verwendet.
-- die Option `cookieStoreId` wird verwendet, dann werden die Cookies aus dem angegebenen Speicher verwendet.
+- die `incognito` Option wird verwendet, dann werden die Cookies des privaten Browsens verwendet.
+- die `cookieStoreId` Option wird verwendet, dann werden die Cookies aus dem angegebenen Speicher verwendet.
 
-Wenn sowohl `filename` als auch `saveAs` angegeben sind, wird der "Speichern unter"-Dialog angezeigt und mit dem `filename` ausgefüllt.
+Wenn sowohl `filename` als auch `saveAs` angegeben sind, wird der Speichern-unter-Dialog angezeigt und mit dem `filename` vorausgefüllt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,54 +29,46 @@ let downloading = browser.downloads.download(
 ### Parameter
 
 - `options`
-
-  - : Ein `object`, das angibt, welche Datei Sie herunterladen möchten und welche anderen Einstellungen Sie bezüglich des Downloads vornehmen möchten. Es kann die folgenden Eigenschaften enthalten:
-
+  - : Ein `object`, das angibt, welche Datei Sie herunterladen möchten und welche anderen Präferenzen Sie in Bezug auf den Download festlegen möchten. Es kann die folgenden Eigenschaften enthalten:
     - `allowHttpErrors` {{optional_inline}}
-
-      - : Ein `boolean`-Flag, das Downloads ermöglicht, auch wenn sie auf HTTP-Fehler stoßen. Mit diesem Flag lassen sich beispielsweise Serverfehlermeldungen herunterladen. Standardwert ist `false`. Wenn auf gesetzt:
+      - : Ein `boolean` Flag, das Downloads ermöglicht, auch wenn HTTP-Fehler auftreten. Mit dieser Option können beispielsweise Serverfehlerseiten heruntergeladen werden. Standardwert ist `false`. Wenn gesetzt auf:
         - `false`, wird der Download abgebrochen, wenn ein HTTP-Fehler auftritt.
-        - `true`, wird der Download fortgesetzt, wenn ein HTTP-Fehler auftritt, und der HTTP-Serverfehler wird nicht gemeldet. Wenn der Download jedoch aufgrund eines Dateifehlers, Netzwerkfehlers, Benutzerfehlers oder eines anderen Fehlers fehlschlägt, wird dieser Fehler gemeldet.
+        - `true`, wird der Download fortgesetzt, wenn ein HTTP-Fehler auftritt und der HTTP-Serverfehler nicht gemeldet wird. Allerdings, wenn der Download aufgrund eines Dateifehlers, Netzwerkfehlers, Benutzerfehlers oder eines anderen Fehlers fehlschlägt, wird dieser Fehler gemeldet.
 
     - `body` {{optional_inline}}
-      - : Ein `string`, der den Post-Body der Anfrage darstellt.
+      - : Ein `string`, der den Post-Body der Anforderung darstellt.
     - `conflictAction` {{optional_inline}}
-      - : Ein String, der die Aktion angibt, die bei einem Dateinamenkonflikt ausgeführt werden soll, wie in der {{WebExtAPIRef('downloads.FilenameConflictAction')}}-Typ definiert (Standard ist "uniquify" wenn nicht angegeben).
+      - : Eine Zeichenkette, die die Aktion darstellt, die Sie im Falle eines Dateinamenkonflikts durchführen möchten, wie sie im {{WebExtAPIRef('downloads.FilenameConflictAction')}} Typ definiert ist (Standard ist "uniquify" wenn nicht angegeben).
     - `cookieStoreId` {{optional_inline}}
-      - : Die Cookie-Speicher-ID der [kontextuellen Identität](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities), mit der der Download verknüpft ist. Wenn nicht angegeben, wird der Standard-Cookie-Speicher verwendet. Die Nutzung erfordert die "cookies" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions). Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
+      - : Die Cookie-Store-ID der [kontextuellen Identität](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities), mit der der Download verknüpft ist. Wenn weggelassen, wird der Standard-Cookie-Store verwendet. Die Verwendung erfordert die "cookies" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions). Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
     - `filename` {{optional_inline}}
-      - : Ein `string`, der einen Dateipfad relativ zum Standard-Downloads-Verzeichnis darstellt — dies gibt den Speicherort an, wo Sie die Datei speichern möchten, und welchen Dateinamen Sie verwenden möchten. Absolute Pfade, leere Pfade, Pfadkomponenten, die mit einem Punkt beginnen und/oder enden (.) und Pfade, die Rückverweise (`../`) enthalten, verursachen einen Fehler. Wenn nicht angegeben, wird dieser Wert standardmäßig auf den bereits dem Download zugewiesenen Dateinamen gesetzt und befindet sich unmittelbar innerhalb des Downloads-Verzeichnisses.
+      - : Ein `string`, der einen Dateipfad relativ zum Standard-Download-Verzeichnis darstellt — dies gibt den Speicherort an, an dem Sie die Datei speichern und welchen Dateinamen Sie verwenden möchten. Absolute Pfade, leere Pfade, Pfadkomponenten, die mit einem Punkt (.) beginnen und/oder enden, und Pfade, die Rückverweise (`../`) enthalten, führen zu einem Fehler. Wenn nicht angegeben, wird dieser Wert standardmäßig auf den Dateinamen gesetzt, der bereits der heruntergeladenen Datei zugeordnet wurde, und auf einen Standort unmittelbar innerhalb des Download-Verzeichnisses.
     - `headers` {{optional_inline}}
-      - : Wenn die URL die HTTP- oder HTTPS-Protokolle verwendet, ein `array` von `objects`, das zusätzliche HTTP-Header darstellt, die mit der Anfrage gesendet werden sollen. Jeder Header wird als Wörterbuchobjekt dargestellt, das die Schlüssel `name` und entweder `value` oder `binaryValue` enthält. Die Header, die durch `XMLHttpRequest` und `fetch` untersagt sind, können nicht angegeben werden. Allerdings ermöglicht Firefox 70 und später die Verwendung des `Referer`-Headers. Der Versuch, einen verbotenen Header zu verwenden, führt zu einem Fehler.
+      - : Wenn die URL die HTTP- oder HTTPS-Protokolle verwendet, ein `array` von `objects`, die zusätzliche HTTP-Header darstellen, die mit der Anforderung gesendet werden sollen. Jeder Header wird als Wörterbuchobjekt dargestellt, das die Schlüssel `name` und entweder `value` oder `binaryValue` enthält. Die Header, die von `XMLHttpRequest` und `fetch` verboten sind, können nicht spezifiziert werden. Firefox 70 und höher ermöglichen jedoch die Verwendung des `Referer` Headers. Der Versuch, einen verbotenen Header zu verwenden, führt zu einem Fehler.
     - `incognito` {{optional_inline}}
-      - : Ein `boolean`: Wenn vorhanden und auf true gesetzt, dann wird dieser Download mit einer privaten Browsersitzung verknüpft. Dies bedeutet, dass er nur im Download-Manager für alle derzeit geöffneten privaten Fenster erscheint.
+      - : Ein `boolean`: Wenn vorhanden und auf true gesetzt, wird dieser Download mit einer privaten Browsersitzung verknüpft. Das bedeutet, dass er nur im Download-Manager für alle derzeit geöffneten privaten Fenster angezeigt wird.
     - `method` {{optional_inline}}
-      - : Ein `string`, der die HTTP-Methode darstellt, die verwendet werden soll, wenn die `url` das HTTP\[S]-Protokoll nutzt. Dies kann entweder "GET" oder "POST" sein.
+      - : Ein `string`, der die HTTP-Methode darstellt, die verwendet werden soll, wenn die `url` das HTTP\[S] Protokoll verwendet. Dies kann entweder "GET" oder "POST" sein.
     - `saveAs` {{optional_inline}}
+      - : Ein `boolean`, das angibt, ob ein Dateiauswahl-Dialog bereitgestellt werden soll, um dem Benutzer die Auswahl eines Dateinamens zu ermöglichen (`true`), oder nicht (`false`).
 
-      - : Ein `boolean`, der angibt, ob ein Dateiauswahldialog angezeigt werden soll, um dem Benutzer die Auswahl eines Dateinamens zu ermöglichen (`true`), oder nicht (`false`).
-
-        Wenn diese Option nicht angegeben ist, zeigt der Browser je nach allgemeiner Benutzereinstellung für dieses Verhalten den Dateiauswahldialog an oder nicht (in Firefox wird diese Einstellung als "Immer nachfragen, wo Dateien gespeichert werden sollen" in about:preferences oder `browser.download.useDownloadDir` in about:config bezeichnet).
+        Wenn diese Option nicht angegeben ist, zeigt der Browser den Dateiauswahldialog basierend auf der allgemeinen Benutzerpräferenz für dieses Verhalten an oder nicht an (in Firefox ist diese Präferenz als "Immer fragen, wo Dateien gespeichert werden sollen" in about:preferences gekennzeichnet, oder `browser.download.useDownloadDir` in about:config).
 
         > [!NOTE]
-        > Firefox für Android gibt einen Fehler aus, wenn `saveAs` auf `true` gesetzt ist. Der Parameter wird ignoriert, wenn `saveAs` `false` ist oder nicht enthalten ist.
+        > Firefox für Android führt einen Fehler aus, wenn `saveAs` auf `true` gesetzt ist. Der Parameter wird ignoriert, wenn `saveAs` `false` oder nicht enthalten ist.
 
     - `url`
-      - : Ein `string`, der die zu herunterladende URL darstellt.
+      - : Ein `string`, der die zu ladende URL darstellt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Download erfolgreich gestartet wurde, wird das Promise mit der `id` des neuen {{WebExtAPIRef("downloads.DownloadItem")}} erfüllt. Andernfalls wird das Promise mit einer Fehlermeldung abgelehnt, die von {{WebExtAPIRef("downloads.InterruptReason")}} stammt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Download erfolgreich gestartet wurde, wird das Versprechen mit der `id` des neuen {{WebExtAPIRef("downloads.DownloadItem")}} erfüllt. Andernfalls wird das Versprechen mit einer Fehlermeldung, die von {{WebExtAPIRef("downloads.InterruptReason")}} stammt, abgelehnt.
 
-Wenn Sie [URL.createObjectURL()](/de/docs/Web/API/URL/createObjectURL_static) verwenden, um in JavaScript erstellte Daten herunterzuladen und Sie die Objekt-URL später (wie dringend empfohlen) mit [revokeObjectURL](/de/docs/Web/API/URL/revokeObjectURL_static) widerrufen möchten, müssen Sie das tun, nachdem der Download abgeschlossen ist. Um dies zu tun, können Sie das [downloads.onChanged](/de/docs/Mozilla/Add-ons/WebExtensions/API/downloads/onChanged)-Ereignis nutzen.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Wenn Sie [URL.createObjectURL()](/de/docs/Web/API/URL/createObjectURL_static) verwenden, um Daten herunterzuladen, die in JavaScript erstellt wurden, und Sie die Objekt-URL später (wie dringend empfohlen) mit [revokeObjectURL](/de/docs/Web/API/URL/revokeObjectURL_static) widerrufen möchten, müssen Sie dies tun, nachdem der Download abgeschlossen ist. Dazu hören Sie auf das [downloads.onChanged](/de/docs/Mozilla/Add-ons/WebExtensions/API/downloads/onChanged) Ereignis.
 
 ## Beispiele
 
-Das folgende Beispiel versucht, eine Beispieldatei herunterzuladen, wobei auch ein Dateiname und Speicherort angegeben wird und `uniquify` als Wert der Option `conflictAction` verwendet wird.
+Das folgende Snippet versucht, eine Beispieldatei herunterzuladen und gibt auch einen Dateinamen und Speicherort an, um sie zu speichern, sowie `uniquify` als den Wert der `conflictAction` Option.
 
 ```js
 function onStartedDownload(id) {
@@ -100,5 +92,39 @@ downloading.then(onStartedDownload, onFailed);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
 > Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-download) API von Chromium.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

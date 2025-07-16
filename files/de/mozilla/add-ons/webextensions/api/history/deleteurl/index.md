@@ -2,7 +2,7 @@
 title: history.deleteUrl()
 slug: Mozilla/Add-ons/WebExtensions/API/history/deleteUrl
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -28,15 +28,11 @@ let deletingUrl = browser.history.deleteUrl(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird ohne Parameter erfüllt, wenn die Besuche entfernt wurden.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Parameter, wenn die Besuche entfernt wurden.
 
 ## Beispiele
 
-Entfernen Sie alle Besuche von "https\://example.org/" aus dem Verlauf und überprüfen Sie dann, dass diese URL nicht mehr von {{WebExtAPIRef("history.search()")}} zurückgegeben wird:
+Entfernen Sie alle Besuche von "https\://example.org/" aus der Chronik und überprüfen Sie dann, dass diese URL nicht mehr von {{WebExtAPIRef("history.search()")}} zurückgegeben wird:
 
 ```js
 let urlToRemove = "https://example.org/";
@@ -63,7 +59,7 @@ let deletingUrl = browser.history.deleteUrl({ url: urlToRemove });
 deletingUrl.then(onRemoved);
 ```
 
-Entfernen Sie die zuletzt besuchte Seite aus dem Verlauf, mit einem Listener für {{WebExtAPIRef("history.onVisitRemoved")}}, um die URL der entfernten Seite zu protokollieren:
+Entfernen Sie die zuletzt besuchte Seite aus der Chronik mit einem Listener für {{WebExtAPIRef("history.onVisitRemoved")}}, um die URL der entfernten Seite zu protokollieren:
 
 ```js
 function onRemoved(removeInfo) {
@@ -92,5 +88,9 @@ searching.then(onGot);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteUrl) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteUrl) API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.

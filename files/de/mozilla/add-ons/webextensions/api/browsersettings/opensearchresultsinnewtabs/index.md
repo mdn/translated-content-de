@@ -2,20 +2,16 @@
 title: browserSettings.openSearchResultsInNewTabs
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/openSearchResultsInNewTabs
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein boolean ist.
 
-Wenn auf `true` gesetzt, werden die Suchergebnisse in einem neuen Tab angezeigt, wenn der Benutzer einen Begriff im Suchfeld des Browsers auswählt. Wenn auf `false` (der Standardwert) gesetzt, werden die Suchergebnisse im aktuellen Tab angezeigt.
+Wenn auf `true` gesetzt, werden die Suchergebnisse in einem neuen Tab angezeigt, wenn der Benutzer einen Begriff im Suchfeld des Browsers auswählt. Wenn auf `false` (die Standardeinstellung) gesetzt, werden die Suchergebnisse im aktuellen Tab angezeigt.
 
 Beachten Sie, dass dies das Verhalten beim Auswählen von Elementen aus der Omnibox/Awesomebar nicht beeinflusst, sondern nur das dedizierte Suchfeld.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -32,3 +28,7 @@ browser.browserSettings.openSearchResultsInNewTabs
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

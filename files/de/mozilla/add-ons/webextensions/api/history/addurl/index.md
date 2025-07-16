@@ -2,12 +2,12 @@
 title: history.addUrl()
 slug: Mozilla/Add-ons/WebExtensions/API/history/addUrl
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Fügt dem Browserverlauf einen Eintrag eines Besuchs der angegebenen URL hinzu. Die Zeit des Besuchs wird als die Zeit des Aufrufs aufgezeichnet, und der {{WebExtAPIRef("history.TransitionType", "TransitionType")}} wird als "link" aufgezeichnet.
+Fügt der Browser-Historie einen Eintrag eines Besuchs der angegebenen URL hinzu. Die Besuchszeit wird als Zeit des Aufrufs erfasst, und der {{WebExtAPIRef("history.TransitionType", "TransitionType")}} wird als "link" erfasst.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,23 +26,19 @@ let addingUrl = browser.history.addUrl(
     - `url`
       - : `string`. Die hinzuzufügende URL.
     - `title` {{optional_inline}}
-      - : string: Der Titel der Seite. Wenn dies nicht angegeben wird, wird der Titel als `null` aufgezeichnet.
+      - : string: Der Titel der Seite. Falls nicht angegeben, wird der Titel als `null` erfasst.
     - `transition` {{optional_inline}}
-      - : {{WebExtAPIRef("history.TransitionType")}}. Beschreibt, wie der Browser bei diesem Anlass zur Seite navigiert ist. Wenn dies nicht angegeben wird, wird ein Transitionstyp von "link" aufgezeichnet.
+      - : {{WebExtAPIRef("history.TransitionType")}}. Beschreibt, wie der Browser in diesem Fall zur Seite navigierte. Wenn dies nicht angegeben wird, wird ein Übergangstyp von "link" erfasst.
     - `visitTime` {{optional_inline}}
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datumszeichenfolge](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit dem Epoch. Legt die Besuchszeit auf diesen Wert fest. Wenn dies nicht angegeben wird, wird die aktuelle Zeit aufgezeichnet.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt, ein [ISO 8601-Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit dem Epoch. Setzt die Besuchszeit auf diesen Wert. Wird nichts angegeben, wird die aktuelle Zeit erfasst.
 
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird ohne Parameter erfüllt, wenn das Element hinzugefügt wurde.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Fügen Sie einen Eintrag eines Besuchs bei "https\://example.org/" hinzu, und prüfen Sie dann, ob der neue Besuch aufgezeichnet wurde, indem Sie den Verlauf nach dem neuesten Element durchsuchen und es protokollieren:
+Fügen Sie einen Eintrag eines Besuchs auf "https\://example.org/" hinzu und überprüfen Sie dann, dass der neue Besuch verzeichnet wurde, indem Sie den Verlauf nach dem aktuellsten Eintrag durchsuchen und diesen protokollieren:
 
 ```js
 function onGot(results) {
@@ -64,7 +60,7 @@ browser.history
   .then(onGot);
 ```
 
-Fügen Sie einen Eintrag eines Besuchs bei "https\://example.org" hinzu, geben Sie ihm jedoch eine `visitTime`, die 24 Stunden in der Vergangenheit liegt, und einen `transition` von "typed":
+Fügen Sie einen Eintrag eines Besuchs auf "https\://example.org" hinzu, geben Sie jedoch eine `visitTime` an, die 24 Stunden in der Vergangenheit liegt, und einen `transition` von "typed":
 
 ```js
 const DAY = 24 * 60 * 60 * 1000;
@@ -96,38 +92,9 @@ browser.history
 
 {{WebExtExamples}}
 
-> [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-addUrl)-API von Chromium. Diese Dokumentation stammt von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+## Browser-Kompatibilität
 
-<!--
-// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
-//
-// Weiterveröffentlichung und Nutzung in Quell- und Binärformen, mit oder ohne
-// Änderungen, sind unter den folgenden Bedingungen gestattet:
-//
-//    * Weiterveröffentlichungen des Quellcodes müssen den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterveröffentlichungen in binärer Form müssen den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien, die mit der
-// Verteilung geliefert werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software abgeleitet sind,
-// zu unterstützen oder zu bewerben, ohne spezifische vorherige schriftliche Erlaubnis.
-//
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
-// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, STILLSCHWEIGENDE
-// GEWÄHRLEISTUNGEN DER MARKTTAUGLICHKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK
-// SIND ABGELEHNT. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER
-// MITWIRKENDEN HAFTBAR FÜR JEDWEDE DIREKTEN, INDIREKTEN, BEILÄUFIGEN,
-// SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF, DIE BESCHAFFUNG VON ERSATZGÜTERN ODER
-// DIENSTLEISTUNGEN; NUTZUNGSAUSFALLS; DATENVERLUST ODER GEWINNVERLUST;
-// GESCHÄFTSUNTERBRECHUNGEN) WIE AUCH IMMER VERURSACHT UND UNTER JEGLICHER
-// HAFTUNGSTHEORIE, OB IN VERTRAG, HAFTUNG ODER UNTER
-// UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG)
-// AUS ODER IN VERBINDUNG MIT DER NUTZUNG ODER VERARBEITUNG DIESER
-// SOFTWARE, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN
-// WURDE.
--->
+{{Compat}}
+
+> [!NOTE]
+> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-addUrl) API. Diese Dokumentation basiert auf [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.

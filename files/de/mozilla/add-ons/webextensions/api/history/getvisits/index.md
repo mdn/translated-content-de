@@ -2,12 +2,12 @@
 title: history.getVisits()
 slug: Mozilla/Add-ons/WebExtensions/API/history/getVisits
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Ruft Informationen über alle Besuche für die gegebene URL ab.
+Ruft Informationen über alle Besuche der angegebenen URL ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,19 +24,15 @@ let getting = browser.history.getVisits(
 - `details`
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `url`
-      - : `string`. Die URL, für die Besuchsinformationen abgerufen werden sollen.
+      - : `string`. Die URL, für die Informationen über Besuche abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von {{WebExtAPIRef('history.VisitItem')}}-Objekten erfüllt, die jeweils einen Besuch der angegebenen URL darstellen. Besuche sind in umgekehrt chronologischer Reihenfolge sortiert.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von {{WebExtAPIRef('history.VisitItem')}} Objekten erfüllt, die jeweils einen Besuch der angegebenen URL repräsentieren. Die Besuche sind in umgekehrter chronologischer Reihenfolge sortiert.
 
 ## Beispiele
 
-Alle Besuche der zuletzt besuchten Seite auflisten:
+Liste aller Besuche der zuletzt besuchten Seite:
 
 ```js
 function gotVisits(visits) {
@@ -67,35 +63,9 @@ searching.then(listVisits);
 
 {{WebExtExamples}}
 
-> [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-getVisits)-API von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+## Browser-Kompatibilität
 
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+{{Compat}}
+
+> [!NOTE]
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-getVisits) API von Chromium. Diese Dokumentation leitet sich von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code ab.

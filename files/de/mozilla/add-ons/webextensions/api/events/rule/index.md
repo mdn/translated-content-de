@@ -2,7 +2,7 @@
 title: events.Rule
 slug: Mozilla/Add-ons/WebExtensions/API/events/Rule
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
@@ -14,9 +14,9 @@ Beschreibung einer deklarativen Regel zur Behandlung von Ereignissen.
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `id` {{optional_inline}}
-  - : `string`. Optionaler Bezeichner, mit dem diese Regel referenziert werden kann.
+  - : `string`. Optionaler Identifikator, der es ermöglicht, auf diese Regel zu verweisen.
 - `tags` {{optional_inline}}
-  - : `array` von `string`. Tags können verwendet werden, um Regeln zu annotieren und Operationen auf Regelmengen auszuführen.
+  - : `array` von `string`. Tags können verwendet werden, um Regeln zu annotieren und Operationen auf Regelmengen durchzuführen.
 - `conditions`
   - : `array` von `any`. Liste von Bedingungen, die die Aktionen auslösen können.
 - `actions`
@@ -24,11 +24,11 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 - `priority` {{optional_inline}}
   - : `integer`. Optionale Priorität dieser Regel. Standardwert ist 100.
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Rule) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.

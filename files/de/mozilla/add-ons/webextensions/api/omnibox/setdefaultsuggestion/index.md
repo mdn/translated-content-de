@@ -2,14 +2,14 @@
 title: omnibox.setDefaultSuggestion()
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox/setDefaultSuggestion
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
 ---
 
 {{AddonSidebar}}
 
-Setzt den Standardsuchvorschlag, der im Dropdown-Menü der Adressleiste erscheint, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
+Legen Sie den Standardvorschlag fest, der in der Dropdown-Liste der Adressleiste erscheint, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
 
-Sobald der Benutzer Ihr Stichwort eingegeben und begonnen hat, mit Ihrer Erweiterung zu interagieren, erscheint der Standardsuchvorschlag immer als erstes im Dropdown-Menü. Im Gegensatz zu den Vorschlägen, die Sie in {{WebExtAPIRef("omnibox.onInputChanged")}} bereitstellen, kann dieser Eintrag nicht ausgewählt werden. Verwenden Sie ihn, um dem Benutzer Hinweise zu geben, was er eingeben sollte und was er erwarten kann zu sehen, wenn er dies tut.
+Sobald der Benutzer Ihr Schlüsselwort eingegeben hat und mit Ihrer Erweiterung zu interagieren beginnt, wird der Standardvorschlag immer zuerst in der Dropdown-Liste angezeigt. Im Gegensatz zu den Vorschlägen, die Sie in {{WebExtAPIRef("omnibox.onInputChanged")}} bereitstellen, kann dieses Element nicht ausgewählt werden. Verwenden Sie es, um dem Benutzer einige Hinweise darauf zu geben, was er eingeben kann und was er zu sehen erwarten kann, wenn er dies tut.
 
 ## Syntax
 
@@ -22,15 +22,11 @@ browser.omnibox.setDefaultSuggestion(
 ### Parameter
 
 - `suggestion`
-  - : `object`. Ein Objekt, das eine einzelne Zeichenketteneigenschaft `description` enthält, welche als erster Eintrag im Dropdown-Menü angezeigt wird, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
+  - : `object`. Ein Objekt mit einer einzelnen Zeichenfolgen-Eigenschaft `description`, die als erstes Element im Dropdown angezeigt wird, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
 
 ### Rückgabewert
 
-Keine.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Keiner.
 
 ## Beispiele
 
@@ -42,5 +38,9 @@ browser.omnibox.setDefaultSuggestion({
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [chrome.omnibox](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.
+> Diese API basiert auf der [chrome.omnibox](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API von Chromium.
