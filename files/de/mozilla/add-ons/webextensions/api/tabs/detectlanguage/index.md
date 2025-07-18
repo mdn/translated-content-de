@@ -2,12 +2,10 @@
 title: tabs.detectLanguage()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/detectLanguage
 l10n:
-  sourceCommit: d7143e171b5f18fb37a686a7d4947db417fd74f3
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Erkennt die primäre Sprache des Inhalts in einem Tab unter Verwendung des [Compact Language Detector](https://github.com/CLD2Owners/cld2) (CLD).
+Ermittelt die Hauptsprache des Inhalts in einem Tab mit dem [Compact Language Detector](https://github.com/CLD2Owners/cld2) (CLD).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,15 +23,15 @@ let detecting = browser.tabs.detectLanguage(
 - `tabId` {{optional_inline}}
   - : `integer`. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
 - `callback` {{optional_inline}}
-  - : `function`. Derzeit wird, wenn ein `tabId` angegeben ist, dieser Rückruf verwendet, um die Ergebnisse zurückzugeben, anstatt ein Promise zurückzugeben. Der Rückruf erhält als einziges Eingabeparameter einen String, der den erkannten Sprachcode wie `en` oder `fr` enthält.
+  - : `function`. Wenn derzeit eine `tabId` angegeben ist, verwendet diese Methode diesen Callback, um die Ergebnisse zurückzugeben, anstatt ein Promise zu retournieren. Der Callback erhält als einziges Eingabeparameter einen String, der den erkannten Sprachcode wie `en` oder `fr` enthält.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der einen ISO-Sprachcode wie `en` oder `fr` darstellt. Für eine vollständige Liste der von dieser Methode unterstützten Sprachen sehen Sie [kLanguageInfoTable](https://source.chromium.org/chromium/chromium/src/+/main:third_party/ced/src/util/languages/languages.cc;l=35). Für eine unbekannte Sprache wird `"und"` zurückgegeben (siehe [Fehler 1288263](https://bugzil.la/1288263)). Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der einen ISO-Sprachcode wie `en` oder `fr` darstellt. Für eine vollständige Liste der von dieser Methode unterstützten Sprachen siehe [kLanguageInfoTable](https://source.chromium.org/chromium/chromium/src/+/main:third_party/ced/src/util/languages/languages.cc;l=35). Für eine unbekannte Sprache wird `"und"` zurückgegeben (siehe jedoch [Bug 1288263](https://bugzil.la/1288263)). Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Erkennt und protokolliert die Sprache des aktiven Tabs, wenn der Benutzer auf eine Browser-Aktion klickt:
+Ermitteln und protokollieren Sie die Sprache des aktiven Tabs, wenn der Benutzer auf eine Browser-Aktion klickt:
 
 ```js
 function onLanguageDetected(lang) {
@@ -49,7 +47,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Erkennt und protokolliert die Sprache jedes offenen Tabs, wenn der Benutzer auf eine Browser-Aktion klickt (beachten Sie, dass dieses Beispiel die Berechtigung "tabs" erfordert):
+Ermitteln und protokollieren Sie die Sprache jedes offenen Tabs, wenn der Benutzer auf eine Browser-Aktion klickt (beachten Sie, dass dieses Beispiel die Berechtigung "tabs" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) erfordert):
 
 ```js
 function onLanguageDetected(url, lang) {
@@ -80,7 +78,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-detectLanguage) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-detectLanguage). Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -89,31 +87,25 @@ browser.browserAction.onClicked.addListener(() => {
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions des Quellcodes müssen den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// enthalten.
-//    * Redistributionen in binärer Form müssen den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien,
-// die mit der Verteilung bereitgestellt werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Beitragsleistenden dürfen ohne spezifische vorherige schriftliche
-// Genehmigung verwendet werden, um Produkte, die von dieser Software
-// abgeleitet wurden, zu unterstützen oder zu bewerben.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGSLEISTENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
-// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
-// IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR
-// EINEN BESTIMMTEN ZWECK SIND ABGELEHNT. IN KEINEM FALL SIND DIE
-// URHEBERRECHTSINHABER ODER BEITRAGSLEISTENDEN HAFTBAR FÜR JEGLICHE
-// DIREKTEN, INDIREKTEN, ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER
-// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
-// BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN; NUTZUNGSAUSFÄLLE;
-// DATENVERLUSTE; ODER GEWINNVERLUSTE; ODER GESCHÄFTSUNTERBRECHUNGEN),
-// JEDOCH VERURSACHT UND AUF JEDER THEORIE DER HAFTUNG, SEI ES IN VERTRAG,
-// STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
-// FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER NUTZUNG DIESER
-// SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER
-// SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

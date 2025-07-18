@@ -2,18 +2,16 @@
 title: webRequest.StreamFilter.close()
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/close
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Schließt die Anfrage. Nachdem diese Funktion aufgerufen wurde, werden keine weiteren Antwortdaten an die Rendering-Engine des Browsers übergeben, und es werden keine weiteren Filter-Ereignisse an die Erweiterung gesendet.
 
-Schließt die Anfrage. Nachdem dies aufgerufen wurde, werden dem Rendering-Engine des Browsers keine weiteren Antwortdaten mehr übergeben, und es werden keine weiteren Filterereignisse an die Erweiterung gesendet.
+Beachten Sie den Unterschied zwischen dieser Funktion und {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}. Bei `disconnect()` wird der Browser weiterhin alle weiteren Antwortdaten verarbeiten, diese sind jedoch nicht mehr über den Filter zugänglich. Mit `close()` ignoriert der Browser alle Antwortdaten, die nicht bereits an die Rendering-Engine übergeben wurden.
 
-Beachten Sie den Unterschied zwischen dieser Funktion und {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}. Mit `disconnect()` wird der Browser die weiteren Antwortdaten weiterhin verarbeiten, aber sie werden über den Filter nicht zugänglich sein. Mit `close()` wird der Browser alle Antwortdaten ignorieren, die noch nicht an das Rendering-Engine übergeben wurden.
+Sie sollten immer `close()` oder `disconnect()` aufrufen, wenn Sie nicht mehr mit der Antwort interagieren müssen.
 
-Sie sollten immer `close()` oder `disconnect()` aufrufen, wenn Sie nicht weiter mit der Antwort interagieren müssen.
-
-Sie können diese Funktion erst aufrufen, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
+Sie können diese Funktion erst aufrufen, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
 
 ## Syntax
 
@@ -31,7 +29,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel wird der Seiteninhalt durch "replacement text" ersetzt:
+Dieses Beispiel ersetzt den Seiteninhalt durch "replacement text":
 
 ```js
 function listener(details) {

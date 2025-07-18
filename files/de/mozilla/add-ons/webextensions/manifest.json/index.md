@@ -2,19 +2,17 @@
 title: manifest.json
 slug: Mozilla/Add-ons/WebExtensions/manifest.json
 l10n:
-  sourceCommit: 355619a1194739dfba5a262aab61d3ea22907456
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
 > [!NOTE]
-> Dieser Artikel beschreibt `manifest.json` für Web-Erweiterungen. Wenn Sie Informationen über `manifest.json` in PWAs suchen, schauen Sie sich den Artikel zum [Web App Manifest](/de/docs/Web/Progressive_web_apps/Manifest) an.
+> Dieser Artikel beschreibt `manifest.json` für Web-Erweiterungen. Wenn Sie Informationen über `manifest.json` in PWAs suchen, lesen Sie den [Web App Manifest](/de/docs/Web/Progressive_web_apps/Manifest) Artikel.
 
-Die Datei `manifest.json` ist die einzige Datei, die jede Erweiterung verwenden muss, die WebExtension-APIs nutzt.
+Die Datei `manifest.json` ist die einzige Datei, die jede Erweiterung, die WebExtension-APIs verwendet, enthalten muss.
 
-Mit `manifest.json` geben Sie grundlegende Metadaten über Ihre Erweiterung an, wie den Namen und die Version, und können auch Aspekte der Funktionalität Ihrer Erweiterung angeben (wie Hintergrundskripte, Inhaltsskripte und Browseraktionen).
+Mit `manifest.json` geben Sie grundlegende Metadaten Ihrer Erweiterung an, wie den Namen und die Version, und können auch Aspekte der Funktionalität Ihrer Erweiterung angeben (wie Hintergrundskripte, Inhalts-Skripte und Browser-Aktionen).
 
-Es handelt sich um eine im {{Glossary("JSON", "JSON")}}-formatierte Datei mit einer Ausnahme: Sie darf Kommentare im `//`-Stil enthalten.
+Es ist eine {{Glossary("JSON", "JSON")}}-formatierte Datei mit einer Ausnahme: Es ist erlaubt, `//`-Kommentare zu enthalten.
 
 ## Liste der manifest.json-Schlüssel
 
@@ -23,7 +21,7 @@ Dies sind die `manifest.json`-Schlüssel; diese Schlüssel sind in Manifest V2 u
 - [action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) (Manifest V3 und höher)
 - [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author)
 - [background](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background)
-- [browser_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) (nur Manifest V2)
+- [browser_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) (Nur Manifest V2)
 - [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings)
 - [chrome_settings_overrides](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides)
 - [chrome_url_overrides](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_url_overrides)
@@ -36,41 +34,41 @@ Dies sind die `manifest.json`-Schlüssel; diese Schlüssel sind in Manifest V2 u
 - [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)
 - [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page)
 - [dictionaries](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/dictionaries)
-- [externally_connectable](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) (nicht unterstützt in Firefox)
+- [externally_connectable](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) (Nicht unterstützt in Firefox)
 - [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url)
 - [host_permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) (Manifest V3 und höher)
 - [icons](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons)
 - [incognito](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/incognito)
 - [manifest_version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version)
 - [name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)
-- [offline_enabled](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/offline_enabled) (nicht unterstützt in Firefox)
+- [offline_enabled](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/offline_enabled) (Nicht unterstützt in Firefox)
 - [omnibox](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/omnibox)
 - [optional_host_permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions) (Manifest V3 und höher)
 - [optional_permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions)
 - [options_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_page)
 - [options_ui](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui)
-- [page_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) (nur Manifest V2 in Chrome)
+- [page_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) (Nur Manifest V2 in Chrome)
 - [permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
-- [protocol_handlers](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers) (nur Firefox)
+- [protocol_handlers](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers) (Nur Firefox)
 - [short_name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/short_name)
 - [sidebar_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)
-- [storage](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/storage) (nicht unterstützt in Firefox)
+- [storage](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/storage) (Nicht unterstützt in Firefox)
 - [theme](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme)
-- [theme_experiment](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme_experiment) (nur Firefox) (experimentell)
-- [user_scripts](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) (nur Manifest V2)
+- [theme_experiment](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme_experiment) (Nur Firefox) (experimentell)
+- [user_scripts](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) (Nur Manifest V2)
 - [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)
 - [version_name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version_name)
 - [web_accessible_resources](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources)
 
 ### Hinweise zu manifest.json-Schlüsseln
 
-- `"manifest_version"`, `"version"` und `"name"` sind die einzigen Pflichtschlüssel.
-- `"default_locale"` muss vorhanden sein, wenn das `_locales`-Verzeichnis vorhanden ist, und muss andernfalls nicht vorhanden sein.
+- `"manifest_version"`, `"version"` und `"name"` sind die einzigen obligatorischen Schlüssel.
+- `"default_locale"` muss vorhanden sein, wenn das `_locales`-Verzeichnis vorhanden ist, und darf ansonsten nicht vorhanden sein.
 - `"browser_specific_settings"` wird in Google Chrome nicht unterstützt.
 
 ### Zugriff auf manifest.json-Schlüssel zur Laufzeit
 
-Sie können auf das Manifest Ihrer Erweiterung aus dem JavaScript der Erweiterung zugreifen, indem Sie die Funktion {{WebExtAPIRef("runtime.getManifest()")}} verwenden:
+Sie können auf das Manifest Ihrer Erweiterung im JavaScript der Erweiterung mit der Funktion {{WebExtAPIRef("runtime.getManifest()")}} zugreifen:
 
 ```js
 browser.runtime.getManifest().version;
@@ -81,7 +79,7 @@ browser.runtime.getManifest().version;
 Der folgende Block zeigt die grundlegende Syntax für einige gängige Manifest-Schlüssel.
 
 > [!NOTE]
-> Dies ist nicht als kopierfertiges Beispiel gedacht. Die Auswahl der benötigten Schlüssel hängt von der Erweiterung ab, die Sie entwickeln.
+> Dies ist nicht als kopierfertiges Beispiel gedacht. Die Auswahl der benötigten Schlüssel hängt von der Entwicklung Ihrer Erweiterung ab.
 
 Für vollständige Beispiel-Erweiterungen siehe [Beispiel-Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples).
 
@@ -167,4 +165,4 @@ Für vollständige Beispiel-Erweiterungen siehe [Beispiel-Erweiterungen](/de/doc
 
 ## Siehe auch
 
-{{WebExtAPIRef("permissions")}} JavaScript-API
+{{WebExtAPIRef("permissions")}} JavaScript API

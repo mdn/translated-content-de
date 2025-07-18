@@ -2,35 +2,33 @@
 title: storage.session
 slug: Mozilla/Add-ons/WebExtensions/API/storage/session
 l10n:
-  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Repräsentiert den `session` Speicherbereich. Elemente im `session` Speicher werden für die Dauer der Browsersitzung im Arbeitsspeicher gespeichert und nicht auf der Festplatte abgelegt.
+Repräsentiert den `session` Speicherbereich. Elemente im `session` Speicher werden für die Dauer der Browsersitzung im Speicher gespeichert und nicht auf der Festplatte gespeichert.
 Standardmäßig ist er für Inhaltsskripte nicht zugänglich, aber dieses Verhalten kann durch {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}} geändert werden.
 
-Die Menge an Daten, die eine Erweiterung im `session` Speicherbereich speichern kann, ist auf 10 MB begrenzt, sofern in der [Browser-Kompatibilitätstabelle](#browser-kompatibilität) nichts anderes angegeben ist.
+Die Menge an Daten, die eine Erweiterung im Sitzungsspeicherbereich speichern kann, ist auf 10 MB begrenzt, sofern in der [Browser-Kompatibilitätstabelle](#browser-kompatibilität) nichts anderes angegeben ist.
 
-Wenn der Browser beendet wird, wird der gesamte `session` Speicher gelöscht. Wenn die Erweiterung deinstalliert wird, wird der zugehörige `session` Speicher gelöscht.
+Wenn der Browser beendet wird, wird der gesamte Sitzungsspeicher gelöscht. Beim Deinstallieren der Erweiterung wird der zugehörige Sitzungsspeicher ebenfalls gelöscht.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("storage.session.QUOTA_BYTES")}}
-  - : Die maximale Menge an Daten (in Bytes), die im `session` Speicher gespeichert werden kann.
+  - : Die maximale Menge an Daten (in Bytes), die im Sitzungsspeicher gespeichert werden kann.
 
 ## Methoden
 
-Das `session` Objekt implementiert die Methoden, die auf dem {{WebExtAPIRef("storage.StorageArea")}} Typ definiert sind:
+Das `session` Objekt implementiert die Methoden, die im {{WebExtAPIRef("storage.StorageArea")}} Typ definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.get()", "storage.session.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.session.getBytesInUse()")}}
-  - : Ermittelt die Speichernutzung (in Bytes) für ein oder mehrere Elemente im Speicherbereich.
+  - : Ermittelt die Menge an Speicherplatz (in Bytes), die für ein oder mehrere Elemente im Speicherbereich verwendet wird.
 - {{WebExtAPIRef("storage.StorageArea.set()", "storage.session.set()")}}
   - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn das Element existiert, wird dessen Wert aktualisiert.
 - {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}}
-  - : Setzt das Zugriffslevel für den Speicherbereich.
+  - : Legt das Zugriffslevel für den Speicherbereich fest.
 - {{WebExtAPIRef("storage.StorageArea.remove()", "storage.session.remove()")}}
   - : Entfernt ein oder mehrere Elemente aus dem Speicherbereich.
 - {{WebExtAPIRef("storage.StorageArea.clear()", "storage.session.clear()")}}
@@ -38,7 +36,7 @@ Das `session` Objekt implementiert die Methoden, die auf dem {{WebExtAPIRef("sto
 
 ## Ereignisse
 
-Das `session` Objekt implementiert die Ereignisse, die auf dem {{WebExtAPIRef("storage.StorageArea")}} Typ definiert sind:
+Das `session` Objekt implementiert die Ereignisse, die im {{WebExtAPIRef("storage.StorageArea")}} Typ definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.onChanged", "storage.session.onChanged")}}
   - : Wird ausgelöst, wenn sich ein oder mehrere Elemente im Speicherbereich ändern.

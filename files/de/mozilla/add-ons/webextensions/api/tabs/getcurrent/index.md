@@ -2,17 +2,15 @@
 title: tabs.getCurrent()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent
 l10n:
-  sourceCommit: c4c42a1573a65a808f085999a4d8d97199e142d1
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Holen Sie ein {{WebExtAPIRef("tabs.Tab")}}, das Informationen über den Tab enthält, in dem dieses Skript ausgeführt wird.
 
 > [!NOTE]
-> Diese Funktion ist nur nützlich in Kontexten, in denen es einen Browser-Tab gibt, wie zum Beispiel auf einer [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#sidebars_popups_and_options_pages).
+> Diese Funktion ist nur in Kontexten nützlich, in denen ein Browser-Tab vorhanden ist, wie z. B. eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#sidebars_popups_and_options_pages).
 >
-> Wenn Sie es von einem Hintergrundskript oder einem Popup aus aufrufen, wird `undefined` zurückgegeben.
+> Wenn Sie sie von einem Hintergrundskript oder einem Popup aufrufen, wird `undefined` zurückgegeben.
 
 Dies ist eine asynchrone Funktion, die ein {{jsxref("Promise")}} zurückgibt.
 
@@ -28,11 +26,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Informationen über den aktuellen Tab enthält. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das mit einem {{WebExtAPIRef('tabs.Tab')}} Objekt erfüllt wird, das Informationen über den aktuellen Tab enthält. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Holen Sie Informationen über den aktuellen Tab:
+Informationen über den aktuellen Tab abrufen:
 
 ```js
 function onGot(tabInfo) {
@@ -54,7 +52,7 @@ gettingCurrent.then(onGot, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getCurrent) API. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getCurrent) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

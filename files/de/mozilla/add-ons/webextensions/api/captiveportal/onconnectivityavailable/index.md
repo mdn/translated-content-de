@@ -2,12 +2,10 @@
 title: onConnectivityAvailable
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/onConnectivityAvailable
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn der Captive-Portal-Dienst feststellt, dass der Benutzer eine Verbindung zum Internet herstellen kann.
+Wird ausgelöst, wenn der Dienst für captive Portale feststellt, dass der Benutzer eine Verbindung zum Internet herstellen kann.
 
 ## Syntax
 
@@ -22,22 +20,22 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `status`
-      - : `string` Der Status des Dienstes, entweder `captive`, wenn ein entsperrtes Captive-Portal vorhanden ist, oder `clear`, wenn kein Captive-Portal erkannt wird.
+      - : `string` Der Status des Dienstes, entweder `captive`, wenn ein entsperrtes Captive Portal vorhanden ist, oder `clear`, wenn kein Captive Portal erkannt wird.
 
 ## Beispiele
 
-Umgehen eines Wechsels der Benutzerfähigkeit, sich mit dem Internet zu verbinden:
+Verarbeitung der Änderung der Fähigkeit eines Benutzers, eine Verbindung zum Internet herzustellen:
 
 ```js
 function handleConnectivity(connectivityInfo) {

@@ -2,18 +2,16 @@
 title: browserSettings.cacheEnabled
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/cacheEnabled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um den Browser-Cache global zu aktivieren oder zu deaktivieren.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um den Browser-Cache global zu aktivieren oder zu deaktivieren.
-
-Der zugrunde liegende Wert ist ein boolescher Wert.
+Der zugrunde liegende Wert ist ein Boolean.
 
 ## Beispiele
 
-Abrufen des aktuellen Wertes dieser Einstellung:
+Abrufen des aktuellen Werts dieser Einstellung:
 
 ```js
 function logResult(result) {

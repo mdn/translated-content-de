@@ -2,12 +2,10 @@
 title: devtools.panels.onThemeChanged
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/onThemeChanged
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn sich das DevTools-Theme ändert.
+Wird ausgelöst, wenn das DevTools-Theme geändert wird.
 
 ## Syntax
 
@@ -20,11 +18,11 @@ browser.devtools.panels.onThemeChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zugehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -33,7 +31,7 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `themeName`
-      - : `string`. Name des neuen Themes: dies wird einer der erlaubten Werte für [`devtools.panels.themeName`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName) sein.
+      - : `string`. Name des neuen Themes: Dies wird einer der erlaubten Werte für [`devtools.panels.themeName`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName) sein.
 
 ## Beispiele
 

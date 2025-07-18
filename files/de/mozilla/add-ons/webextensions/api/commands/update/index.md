@@ -2,12 +2,10 @@
 title: commands.update()
 slug: Mozilla/Add-ons/WebExtensions/API/commands/update
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ändert die Beschreibung oder Tastenkombination für den angegebenen Befehl.
+Ändern Sie die Beschreibung oder Tastenkombination für den angegebenen Befehl.
 
 ## Syntax
 
@@ -22,23 +20,23 @@ browser.commands.update(
 - `details`
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
     - `name`
-      - : `string`. Der Name des zu aktualisierenden Befehls. Dieser muss mit dem Namen eines bestehenden Befehls übereinstimmen, wie er beispielsweise in der `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}} Objekts angegeben ist.
+      - : `string`. Der Name des zu aktualisierenden Befehls. Dieser muss mit dem Namen eines vorhandenen Befehls übereinstimmen, wie er beispielsweise in der `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}}-Objekts angegeben ist.
     - `description` {{optional_inline}}
       - : `string`. Eine neue Beschreibung, die für den Befehl festgelegt werden soll.
     - `shortcut` {{optional_inline}}
-      - : `string`. Eine neue Tastenkombination, die für den Befehl festgelegt werden soll. Dies kann sein:
-        - ein leerer String, um die Tastenkombination zu löschen.
-        - ein String, der dem Format des [`commands` manifest.json Schlüssels](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) entspricht, um eine neue Tastenkombination festzulegen. Wenn der String diesem Format nicht entspricht, löst die Funktion einen Fehler aus.
+      - : `string`. Eine neue Abkürzung, die für den Befehl festgelegt werden soll. Dies kann sein:
+        - ein leerer String, um die Abkürzung zu löschen.
+        - ein String, der dem Format des [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) entspricht, um eine neue Abkürzungstaste festzulegen. Wenn der String dieses Format nicht erfüllt, löst die Funktion einen Fehler aus.
           > [!NOTE]
-          > Ab Firefox 135 können Erweiterungen diese Methode verwenden, um die Tasten `F13` bis `F19` zusätzlich zu den von `commands` unterstützten Tasten zuzuweisen.
+          > Ab Firefox 135 können Erweiterungen mit dieser Methode die Tasten `F13` bis `F19` zusätzlich zu den von `commands` unterstützten Tasten zuweisen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Tastenkombination aktualisiert wurde. Das Versprechen wird mit einem Fehler abgelehnt, wenn der Befehl nicht gefunden werden konnte.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Abkürzung aktualisiert wurde. Das Versprechen wird mit einem Fehler abgelehnt, wenn der Befehl nicht gefunden werden konnte.
 
 ## Beispiele
 
-Aktualisiert den Befehl mit dem Namen "my-command" mit dem angegebenen Wert der Tastenkombination, wenn der Benutzer auf "update" klickt:
+Aktualisiert den Befehl namens "my-command" mit dem angegebenen Abkürzungswert, wenn der Benutzer auf "update" klickt:
 
 ```js
 const commandName = "my-command";

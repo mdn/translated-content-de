@@ -2,14 +2,12 @@
 title: tabGroups.onCreated
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/onCreated
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn eine Tab-Gruppe erstellt wird.
 
-In Chrome wird dieses Ereignis auch ausgelöst, wenn eine Tab-Gruppe zwischen Fenstern verschoben wird, anstelle von {{WebExtAPIRef("tabGroups.onMoved")}}.
+In Chrome wird dieses Ereignis auch ausgelöst, wenn eine Tab-Gruppe zwischen Fenstern verschoben wird, anstatt {{WebExtAPIRef("tabGroups.onMoved")}}.
 
 ## Syntax
 
@@ -22,13 +20,13 @@ browser.tabGroups.onCreated.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
   - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv lauscht, ansonsten `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
@@ -39,7 +37,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Lauschen auf das Erstellen von Tab-Gruppen und Protokollierung:
+Lauschen und Protokollieren der Erstellung einer Tab-Gruppe:
 
 ```js
 function tabGroupCreated(group) {

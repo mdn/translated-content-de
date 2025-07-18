@@ -2,10 +2,8 @@
 title: page_action
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/page_action
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -39,21 +37,21 @@ l10n:
   </tbody>
 </table>
 
-Eine Page Action ist ein Symbol, das Ihre Erweiterung in die URL-Leiste des Browsers hinzufügt.
+Eine Page Action ist ein Symbol, das Ihre Erweiterung in der URL-Leiste des Browsers hinzufügt.
 
-Ihre Erweiterung kann optional auch ein zugehöriges Popup bereitstellen, dessen Inhalt mit HTML, CSS und JavaScript spezifiziert wird.
+Ihre Erweiterung kann optional auch ein zugehöriges Popup bereitstellen, dessen Inhalt mithilfe von HTML, CSS und JavaScript angegeben wird.
 
-Sie müssen diesen Schlüssel angeben, um eine Page Action in Ihre Erweiterung aufzunehmen. Wenn angegeben, können Sie die Schaltfläche programmgesteuert mit der {{WebExtAPIRef("pageAction")}} API manipulieren.
+Sie müssen diesen Schlüssel angeben, um eine Page Action in Ihre Erweiterung aufzunehmen. Wenn angegeben, können Sie die Schaltfläche programmatisch mithilfe der {{WebExtAPIRef("pageAction")}} API manipulieren.
 
-Wenn Sie ein Popup bereitstellen, wird das Popup geöffnet, wenn der Benutzer auf das Symbol klickt. Ihr JavaScript, das im Popup läuft, kann dann die Interaktion des Benutzers damit verarbeiten. Wenn Sie kein Popup bereitstellen, wird beim Klick des Benutzers auf das Symbol ein Klick-Ereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) Ihrer Erweiterung gesendet.
+Wenn Sie ein Popup bereitstellen, wird dieses geöffnet, wenn der Benutzer auf das Symbol klickt, und Ihr JavaScript, das im Popup ausgeführt wird, kann die Interaktion des Benutzers damit verarbeiten. Wenn Sie kein Popup bereitstellen, wird beim Klick des Benutzers auf das Symbol ein Klickereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) Ihrer Erweiterung gesendet.
 
-Page Actions ähneln Browser Actions, sind jedoch mit bestimmten Webseiten anstelle des gesamten Browsers verbunden. Wenn eine Aktion nur auf bestimmten Seiten relevant ist, sollten Sie eine Page Action verwenden und sie nur auf den relevanten Seiten anzeigen. Wenn eine Aktion für alle Seiten oder den Browser selbst relevant ist, verwenden Sie eine Browser Action.
+Page Actions ähneln Browser Actions, außer dass sie mit bestimmten Webseiten und nicht mit dem gesamten Browser verbunden sind. Wenn eine Aktion nur auf bestimmten Seiten relevant ist, sollten Sie eine Page Action verwenden und sie nur auf den relevanten Seiten anzeigen. Wenn eine Aktion für alle Seiten oder für den Browser selbst relevant ist, verwenden Sie eine Browser Action.
 
-Während Browser Actions standardmäßig angezeigt werden, sind Page Actions standardmäßig ausgeblendet. Sie können für einen bestimmten Tab angezeigt werden, indem Sie {{WebExtAPIRef("pageAction.show()")}} aufrufen und die `id` des Tabs übergeben. Sie können dieses Standardverhalten auch mit der `show_matches` Eigenschaft ändern.
+Während Browser Actions standardmäßig angezeigt werden, sind Page Actions standardmäßig ausgeblendet. Sie können für einen bestimmten Tab angezeigt werden, indem Sie {{WebExtAPIRef("pageAction.show()")}} aufrufen und die `id` des Tabs übergeben. Sie können dieses Standardverhalten auch mit der Eigenschaft `show_matches` ändern.
 
 ## Syntax
 
-Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften haben kann:
+Der Schlüssel `page_action` ist ein Objekt, das bis zu drei Eigenschaften enthalten kann, alle optional:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -85,7 +83,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
         <p>
           In Firefox kann das Stylesheet unter
           <code>chrome://browser/content/extension.css</code> oder
-          <code>chrome://browser/content/extension-mac.css</code> auf macOS eingesehen werden.
+          <code>chrome://browser/content/extension-mac.css</code> auf macOS angesehen werden.
         </p>
         <p>
           Die
@@ -101,11 +99,11 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
       <td><code>default_icon</code></td>
       <td><code>Object</code> oder <code>String</code></td>
       <td>
-        <p>Verwenden Sie dies, um ein Symbol für die Aktion festzulegen.</p>
+        <p>Verwenden Sie dies, um ein Symbol für die Aktion anzugeben.</p>
         <p>
-          Es wird empfohlen, hier zwei Symbole bereitzustellen (19×19 Pixel und
-          38×38 Pixel) und sie in einem Objekt mit den Eigenschaften
-          <code>"19"</code> und <code>"38"</code> anzugeben, wie folgt:
+          Es wird empfohlen, hier zwei Symbole anzugeben (19×19 Pixel und
+          38×38 Pixel) und diese in einem Objekt mit den Eigenschaften
+          <code>"19"</code> und <code>"38"</code> zu spezifizieren, wie folgt:
         </p>
         <pre class="brush: json">
     "default_icon": {
@@ -114,12 +112,14 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
     }</pre
         >
         <p>
-          Wenn Sie dies tun, wählt der Browser die richtige Symbolgröße entsprechend der Pixeldichte des Bildschirms aus.
+          Wenn Sie dies tun, wählt der Browser die richtige Symbolgröße für die
+          Pixeldichte des Bildschirms.
         </p>
         <p>Sie können hier auch einfach einen String angeben:</p>
         <pre class="brush: json">"default_icon": "geo.png"</pre>
         <p>
-          In diesem Fall wird das Symbol skaliert, um in die Symbolleiste zu passen und kann unscharf erscheinen.
+          Wenn Sie dies tun, wird das Symbol skaliert, um in die Symbolleiste zu passen, und
+          kann unscharf erscheinen.
         </p>
       </td>
     </tr>
@@ -131,7 +131,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
           Der Pfad zu einer HTML-Datei, die die Spezifikation des Popups enthält.
         </p>
         <p>
-          Die HTML-Datei kann CSS- und JavaScript-Dateien mit den
+          Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, die mit
           <code
             ><a href="/de/docs/Web/HTML/Reference/Elements/link">&#x3C;link></a></code
           >
@@ -141,14 +141,14 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
               >&#x3C;script></a
             ></code
           >
-          Elementen einbinden, genau wie eine normale Webseite. Verwenden Sie jedoch nicht
+          -Elementen eingebunden werden, genau wie eine normale Webseite. Verwenden Sie jedoch nicht
           <code
             ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
-          mit eingebettetem Code, da Sie sonst einen
-          Content-Sicherheitsrichtlinienfehler erhalten. Stattdessen muss
+          mit eingebettetem Code, da Sie sonst einen Content Violation Policy
+          Fehler erhalten. Stattdessen muss
           <code
             ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
@@ -159,15 +159,17 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
           Attribut verwenden, um eine separate Skriptdatei zu laden.
         </p>
         <p>
-          Im Gegensatz zu einer normalen Webseite kann JavaScript, das im Popup ausgeführt wird, auf alle
+          Im Gegensatz zu einer normalen Webseite kann JavaScript, das im Popup ausgeführt wird, auf
+          alle
           <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
             >WebExtension-APIs</a
           >
-          zugreifen (natürlich unter der Voraussetzung, dass die Erweiterung die entsprechenden
+          zugreifen (natürlich vorausgesetzt, dass die Erweiterung über die entsprechenden
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions"
             >Berechtigungen</a
-          > besitzt).
+          >
+          verfügt).
         </p>
         <p>
           Dies ist eine
@@ -183,7 +185,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
       <td><code>String</code></td>
       <td>
         <p>
-          Tooltip für das Symbol, das angezeigt wird, wenn der Benutzer mit der Maus darüber fährt.
+          Tooltip für das Symbol, das angezeigt wird, wenn der Benutzer die Maus darüber bewegt.
         </p>
         <p>
           Dies ist eine
@@ -202,7 +204,8 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
       </td>
       <td>
         <p>
-          Blendet die Page Action standardmäßig aus für Seiten, deren URLs mit einem der angegebenen
+          Blendet die Page Action standardmäßig für Seiten aus, deren URLs mit einem der
+          angegebenen
           <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns"
             >Match Patterns</a
           >
@@ -210,7 +213,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
         </p>
         <p>
           Beachten Sie, dass Page Actions standardmäßig immer ausgeblendet sind, es sei denn,
-          <code>show_matches</code> wird angegeben. Daher macht es nur Sinn, diese Eigenschaft einzuschließen, wenn <code>show_matches</code> ebenfalls angegeben wird und die Muster in <code>show_matches</code> überschreibt.
+          <code>show_matches</code> ist angegeben. Aus diesem Grund macht es nur Sinn, diese Eigenschaft aufzunehmen, wenn auch <code>show_matches</code> angegeben ist, und sie überschreibt die Muster in <code>show_matches</code>.
         </p>
         <p>Beispielsweise könnte ein Wert wie folgt aussehen:</p>
         <pre class="brush: json">
@@ -221,7 +224,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
         >
         <p>
           Dies zeigt die Page Action standardmäßig für alle HTTPS-URLs unter der
-          <code>"mozilla.org"</code> Domain an, außer für Seiten unter
+          Domain <code>"mozilla.org"</code> an, außer für Seiten unter
           <code>"developer.mozilla.org"</code>.
         </p>
       </td>
@@ -231,7 +234,8 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
       <td><code>Array</code> von <code>Match Pattern</code></td>
       <td>
         <p>
-          Zeigt die Page Action standardmäßig für Seiten an, deren URLs mit einem der angegebenen Muster übereinstimmen.
+          Zeigt die Page Action standardmäßig für Seiten an, deren URLs mit einem der
+          angegebenen Muster übereinstimmen.
         </p>
         <p>Siehe auch <code>hide_matches</code>.</p>
       </td>
@@ -242,7 +246,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
       <td>
         <p>Optional. Standardmäßig <code>true</code>.</p>
         <p>
-          Bestimmt, ob die Page Action standardmäßig in der Adressleiste erscheinen soll, wenn der Benutzer die Erweiterung installiert. Diese Eigenschaft wird seit Firefox 89 nicht mehr unterstützt.
+          Kontrolliert, ob die Page Action standardmäßig in der Adressleiste angezeigt werden soll, wenn der Benutzer die Erweiterung installiert. Diese Eigenschaft wird seit Firefox 89 nicht mehr unterstützt.
         </p>
       </td>
     </tr>
@@ -260,7 +264,7 @@ Der Schlüssel `page_action` ist ein Objekt, das drei optionale Eigenschaften ha
 }
 ```
 
-Eine Page Action mit nur einem Symbol, das in 2 verschiedenen Größen angegeben ist. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Symbol klickt, mit Code wie diesem:
+Eine Page Action mit nur einem Symbol, das in 2 verschiedenen Größen angegeben ist. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Symbol klickt, indem Code wie folgt verwendet wird:
 
 ```js
 browser.pageAction.onClicked.addListener(handleClick);

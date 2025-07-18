@@ -2,10 +2,8 @@
 title: pkcs11.isModuleInstalled()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/isModuleInstalled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Überprüft, ob das benannte PKCS #11-Modul derzeit in Firefox installiert ist.
 
@@ -22,11 +20,11 @@ let checking = browser.pkcs11.isModuleInstalled(
 ### Parameter
 
 - `name`
-  - : `string`. Name des Moduls, das überprüft werden soll.
+  - : `string`. Name des zu überprüfenden Moduls.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn das Modul installiert ist, andernfalls `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn das Modul installiert ist, andernfalls mit `false`.
 
 Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 

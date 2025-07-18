@@ -2,23 +2,21 @@
 title: tabs.ZoomSettingsScope
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettingsScope
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam sind. Standardmäßig wird `per-origin` verwendet, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} auf "automatic" steht, und andernfalls immer `per-tab`.
+Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam sind. Dies ist standardmäßig `per-origin`, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} auf "automatic" steht, und immer `per-tab` in anderen Fällen.
 
 ## Typ
 
 Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - "per-origin"
-  - : Alle anderen Tabs mit demselben Ursprung wie dieser Tab übernehmen die Zoomänderungen. Dieser Bereich ist nur verfügbar, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} auf "automatic" steht.
+  - : Alle anderen Tabs mit demselben Ursprung wie dieser Tab werden von den Zoomänderungen betroffen sein. Dieser Umfang ist nur verfügbar, wenn {{WebExtAPIRef("tabs.zoomSettingsMode")}} auf "automatic" steht.
 - "per-tab"
-  - : Zoomänderungen sind nur in diesem Tab wirksam, und Änderungen in anderen Tabs beeinflussen diesen Tab nicht. Außerdem:
-    - in Firefox bleibt die Zoomstufe über Seitenladevorgänge und Navigationen innerhalb des Tabs bestehen.
-    - In auf Chrome basierenden Browsern werden Zoomänderungen bei der Navigation zurückgesetzt; ein Tab lädt Seiten immer mit ihren per-Origin-Zoomfaktoren.
+  - : Zoomänderungen wirken sich nur in diesem Tab aus, und Zoomänderungen in anderen Tabs beeinflussen das Zoomen dieses Tabs nicht. Außerdem:
+    - in Firefox bleibt der Zoomlevel über Seitenladungen und Navigation innerhalb des Tabs bestehen.
+    - in Chrome-basierten Browsern werden Zoomänderungen bei der Navigation zurückgesetzt; eine Navigation in einem Tab lädt Seiten immer mit ihren per-origin Zoomfaktoren.
 
 {{WebExtExamples}}
 
@@ -27,7 +25,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsScope) API von Chromium. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsScope) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

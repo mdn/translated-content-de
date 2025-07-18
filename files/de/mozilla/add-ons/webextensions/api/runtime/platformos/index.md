@@ -2,16 +2,14 @@
 title: runtime.PlatformOs
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/PlatformOs
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Das Betriebssystem, auf dem der Browser läuft.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - `"mac"`
   - : Das zugrunde liegende Betriebssystem ist macOS.
@@ -37,7 +35,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformOs) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformOs) API von Chromium. Diese Dokumentation wird aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

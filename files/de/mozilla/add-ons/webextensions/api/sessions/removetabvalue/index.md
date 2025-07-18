@@ -2,12 +2,10 @@
 title: sessions.removeTabValue()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/removeTabValue
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Entfernt einen zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} gespeicherten Wert.
+Entfernt einen Wert, der zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} gespeichert wurde.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +21,17 @@ let removing = browser.sessions.removeTabValue(
 ### Parameter
 
 - `tabId`
-  - : `integer`. Die ID des Tabs, dessen Daten entfernt werden sollen. Es wird ein Fehler ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. ID des Tabs, dessen Daten Sie entfernen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Der Schlüssel, der den bestimmten Wert identifiziert, der entfernt werden soll. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
+  - : `string`. Schlüssel, der den bestimmten Wert identifiziert, der entfernt werden soll. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieser Code fügt zwei Kontextmenüeinträge hinzu: einer speichert einen mit dem aktuellen Tab verknüpften Wert, der andere entfernt ihn:
+Dieser Code fügt zwei Kontextmenüeinträge hinzu: Einer speichert einen mit dem aktuellen Tab verknüpften Wert, der andere entfernt ihn:
 
 ```js
 async function setOnActiveTab() {

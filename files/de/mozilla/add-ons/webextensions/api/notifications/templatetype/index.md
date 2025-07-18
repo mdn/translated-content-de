@@ -2,14 +2,12 @@
 title: notifications.TemplateType
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/TemplateType
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Dies ist ein String und stellt den Typ der Benachrichtigung dar, die erstellt werden soll. Es gibt vier Typen von Benachrichtigungen: "basic", "image", "list", "progress".
 
-Dies ist ein String und repräsentiert den Typ der Benachrichtigung, die erstellt werden soll. Es gibt vier Typen von Benachrichtigungen: "basic", "image", "list", "progress".
-
-Dies wird in {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} als die Eigenschaft `type` von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} übergeben.
+Dies wird als `type`-Eigenschaft von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} an {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} übergeben.
 
 ## Typ
 
@@ -18,18 +16,18 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
 - `"basic"`: die Benachrichtigung beinhaltet:
   - einen Titel (`NotificationOptions.title`)
   - eine Nachricht (`NotificationOptions.message`)
-  - ein Icon (`NotificationOptions.iconUrl`) {{optional_inline}}
+  - ein Symbol (`NotificationOptions.iconUrl`) {{optional_inline}}
   - eine zusätzliche Nachricht (`NotificationOptions.contextMessage`) {{optional_inline}}
   - bis zu zwei Schaltflächen (`NotificationOptions.buttons`) {{optional_inline}}
 
-- `"image"`: alles in `"basic"` und zusätzlich:
+- `"image"`: alles wie bei `"basic"` und zusätzlich:
   - ein Bild (`NotificationOptions.imageUrl`)
 
-- `"list"`: alles in `"basic"` und zusätzlich:
+- `"list"`: alles wie bei `"basic"` und zusätzlich:
   - eine Liste von Elementen (`NotificationOptions.items`)
 
-- `"progress"`: alles in `"basic"` und zusätzlich:
-  - einen Fortschrittsanzeiger (`NotificationOptions.progress`)
+- `"progress"`: alles wie bei `"basic"` und zusätzlich:
+  - eine Fortschrittsanzeige (`NotificationOptions.progress`)
 
 Aktuell unterstützt Firefox hier nur "basic".
 

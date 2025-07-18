@@ -2,10 +2,8 @@
 title: management.onInstalled()
 slug: Mozilla/Add-ons/WebExtensions/API/management/onInstalled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn ein Add-on installiert wird.
 
@@ -24,11 +22,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -39,7 +37,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokollieren Sie die Namen der Add-ons, wenn sie installiert werden:
+Protokollierung der Namen von Add-ons, wenn sie installiert werden:
 
 ```js
 browser.management.onInstalled.addListener((info) => {
@@ -54,7 +52,7 @@ browser.management.onInstalled.addListener((info) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onInstalled) API von Chromium. Diese Dokumentation stammt von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onInstalled) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

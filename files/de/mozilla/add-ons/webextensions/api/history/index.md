@@ -2,62 +2,60 @@
 title: history
 slug: Mozilla/Add-ons/WebExtensions/API/history
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Verwenden Sie die `history`-API, um mit dem Browserverlauf zu interagieren.
 
-Verwenden Sie die `history` API, um mit dem Browserverlauf zu interagieren.
-
-Wenn Sie Informationen über den Browser-Sitzungsverlauf suchen, siehe die [History-Schnittstelle](/de/docs/Web/API/History).
+Wenn Sie Informationen über den Browserverlauf der Sitzung suchen, lesen Sie die [History-Schnittstelle](/de/docs/Web/API/History).
 
 > [!NOTE]
-> Downloads werden als [`HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem)-Objekte behandelt. Daher werden Ereignisse wie [`history.onVisited`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/onVisited) auch für Downloads ausgelöst.
+> Downloads werden als [`HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem)-Objekte behandelt. Daher werden Ereignisse wie [`history.onVisited`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/onVisited) für Downloads ausgelöst.
 
-Der Browserverlauf ist ein chronologischer Datensatz von Seiten, die der Benutzer besucht hat. Die `history` API ermöglicht es Ihnen:
+Der Browserverlauf ist ein chronologischer Verlauf der Seiten, die der Benutzer besucht hat. Die history-API ermöglicht es Ihnen:
 
-- [nach Seiten zu suchen, die im Browserverlauf erscheinen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/search)
+- [nach Seiten, die im Browserverlauf erscheinen, zu suchen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/search)
 - [einzelne Seiten aus dem Browserverlauf zu entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteUrl)
 - [Seiten zum Browserverlauf hinzuzufügen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/addUrl)
 - [alle Seiten aus dem Browserverlauf zu entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteAll).
 
-Jedoch kann es sein, dass der Benutzer eine einzelne Seite mehrmals besucht hat, daher hat die API auch das Konzept der "Besuche". Sie können diese API also auch verwenden, um:
+Allerdings kann der Benutzer eine einzelne Seite mehrmals besucht haben, daher hat die API auch das Konzept der "Besuche". So können Sie mit dieser API auch:
 
-- [die gesamte Anzahl der Besuche abzurufen, die der Benutzer für eine bestimmte Seite gemacht hat](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/getVisits)
-- [Besuche von Seiten, die während eines bestimmten Zeitraums gemacht wurden, zu entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteRange).
+- [die komplette Reihe von Besuchen abrufen, die der Benutzer zu einer bestimmten Seite gemacht hat](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/getVisits)
+- [Besuche auf irgendeiner Seite während eines bestimmten Zeitraums entfernen](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/deleteRange).
 
-Um diese API zu nutzen, muss eine Erweiterung die "history"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um diese API zu verwenden, muss eine Erweiterung die "history"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
 
 ## Typen
 
 - {{WebExtAPIRef("history.TransitionType")}}
-  - : Beschreibt, wie der Browser zu einer bestimmten Seite navigiert hat.
+  - : Beschreibt, wie der Browser zu einer bestimmten Seite navigierte.
 - {{WebExtAPIRef("history.HistoryItem")}}
-  - : Bietet Informationen über eine bestimmte Seite im Browserverlauf.
+  - : Bietet Informationen zu einer bestimmten Seite im Browserverlauf.
 - {{WebExtAPIRef("history.VisitItem")}}
-  - : Beschreibt einen einzelnen Besuch einer Seite.
+  - : Beschreibt einen einzelnen Besuch auf einer Seite.
 
 ## Funktionen
 
 - {{WebExtAPIRef("history.search()")}}
-  - : Durchsucht den Browserverlauf nach [`history.HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem)-Objekten, die den angegebenen Kriterien entsprechen.
+  - : Sucht im Browserverlauf nach [`history.HistoryItem`](/de/docs/Mozilla/Add-ons/WebExtensions/API/history/HistoryItem)-Objekten, die den gegebenen Kriterien entsprechen.
 - {{WebExtAPIRef("history.getVisits()")}}
-  - : Ruft Informationen über Besuche einer angegebenen Seite ab.
+  - : Ruft Informationen über Besuche zu einer bestimmten Seite ab.
 - {{WebExtAPIRef("history.addUrl()")}}
-  - : Fügt dem Browserverlauf einen Eintrag für einen Besuch der angegebenen Seite hinzu.
+  - : Fügt einen Eintrag zum Browserverlauf eines Besuchs der gegebenen Seite hinzu.
 - {{WebExtAPIRef("history.deleteUrl()")}}
-  - : Entfernt alle Besuche der angegebenen URL aus dem Browserverlauf.
+  - : Entfernt alle Besuche zur gegebenen URL aus dem Browserverlauf.
 - {{WebExtAPIRef("history.deleteRange()")}}
-  - : Entfernt alle Besuche von Seiten, die der Benutzer während des angegebenen Zeitraums gemacht hat.
+  - : Entfernt alle Besuche auf Seiten, die der Benutzer während des angegebenen Zeitraums gemacht hat.
 - {{WebExtAPIRef("history.deleteAll()")}}
   - : Entfernt alle Besuche aus dem Browserverlauf.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("history.onTitleChanged")}}
-  - : Wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite erfasst wird.
+  - : Wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite aufgezeichnet wird.
 - {{WebExtAPIRef("history.onVisited")}}
-  - : Wird jedes Mal ausgelöst, wenn der Benutzer eine Seite besucht, und liefert die {{WebExtAPIRef("history.HistoryItem")}}-Daten für diese Seite.
+  - : Wird jedes Mal ausgelöst, wenn der Benutzer eine Seite besucht, und stellt die {{WebExtAPIRef("history.HistoryItem")}}-Daten für diese Seite bereit.
 - {{WebExtAPIRef("history.onVisitRemoved")}}
   - : Wird ausgelöst, wenn eine URL vollständig aus dem Browserverlauf entfernt wird.
 
@@ -68,34 +66,39 @@ Um diese API zu nutzen, muss eine Erweiterung die "history"-[Berechtigung](/de/d
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history). Diese Dokumentation ist von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history)-API von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Verteilung und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen des Quellcodes müssen das obige Urheberrecht
+// und diese Bedingungen sowie den folgenden Haftungsausschluss enthalten.
+//    * Weiterverteilungen in Binärform müssen das obige Urheberrecht
+// und diese Bedingungen sowie den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der Verteilung
+// gegeben werden, enthalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
+// Software abgeleitet sind, zu unterstützen oder zu bewerben, ohne
+// vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND
+// MITWIRKENDEN "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE
+// AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDE GEWÄHRLEISTUNG DER
+// MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN
+// ABGELEHNT. IN KEINEM FALL SIND DIE URHEBER ODER MITWIRKENDEN
+// HAFTBAR FÜR DIREKTE, INDIREKTE, BEILÄUFIGE, BESONDERE,
+// BEISPIELHAFTE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN;
+// NUTZUNGSVERLUST, DATEN- ODER GEWINNVERLUST; ODER
+// BETRIEBSUNTERBRECHUNG), WIE AUCH IMMER DIESE VERURSACHT WERDEN UND
+// UNTER WELCHER HAFTUNGSTHEORIE, SEI ES IN VERTRAG, STRIKTER HAFTUNG
+// ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
+// ANDERWEITIG), DIE IN IRGENDEINER WEISE AUS DER VERWENDUNG DIESER
+// SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
+// HINGEWIESEN WURDE.
 -->

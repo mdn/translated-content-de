@@ -2,18 +2,16 @@
 title: management.getAll()
 slug: Mozilla/Add-ons/WebExtensions/API/management/getAll
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ruft ein Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} Objekten ab, eines für jedes installierte Add-on.
 
-Ruht ein Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekten ab, eines für jedes installierte Add-on.
-
-Beachten Sie, dass Google Chrome sowohl Apps als auch Add-ons abruft. In Chrome können Sie Apps von Add-ons anhand der `type`-Eigenschaft von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} unterscheiden.
+Beachten Sie, dass Google Chrome sowohl Apps als auch Add-ons abruft. In Chrome können Sie Apps von Add-ons mithilfe der `type`-Eigenschaft von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} unterscheiden.
 
 Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
-Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -27,11 +25,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}}-Objekten erfüllt wird, eines für jedes installierte Add-on.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("management.ExtensionInfo", "ExtensionInfo")}} Objekten erfüllt wird, eines für jedes installierte Add-on.
 
 ## Beispiele
 
-Protokollieren Sie den Namen aller installierten Add-ons:
+Das Protokoll der Namen aller installierten Add-ons:
 
 ```js
 function gotAll(infoArray) {
@@ -53,7 +51,7 @@ gettingAll.then(gotAll);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getAll) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getAll) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

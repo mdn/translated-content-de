@@ -2,21 +2,19 @@
 title: storage.StorageChange
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageChange
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-`StorageChange` ist ein Objekt, das eine Änderung in einem Speicherbereich darstellt.
+`StorageChange` ist ein Objekt, das eine Änderung an einem Speicherbereich darstellt.
 
 ## Typ
 
 `StorageChange`-Objekte enthalten die folgenden Eigenschaften:
 
 - `oldValue` {{optional_inline}}
-  - : Der alte Wert des Elements, falls ein alter Wert vorhanden war. Dies kann ein beliebiger Datentyp sein.
+  - : Der alte Wert des Elements, falls ein alter Wert vorhanden war. Dies kann jeder Datentyp sein.
 - `newValue` {{optional_inline}}
-  - : Der neue Wert des Elements, falls ein neuer Wert vorhanden ist. Dies kann ein beliebiger Datentyp sein.
+  - : Der neue Wert des Elements, falls ein neuer Wert vorhanden ist. Dies kann jeder Datentyp sein.
 
 {{WebExtExamples}}
 
@@ -25,7 +23,7 @@ l10n:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageChange)-API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageChange) API von Chromium. Diese Dokumentation ist aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

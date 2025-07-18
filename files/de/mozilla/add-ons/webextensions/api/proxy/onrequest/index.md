@@ -2,24 +2,22 @@
 title: proxy.onRequest
 slug: Mozilla/Add-ons/WebExtensions/API/proxy/onRequest
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wird ausgelöst, wenn eine Webanfrage gestellt werden soll, um der Erweiterung die Möglichkeit zu geben, sie zu proxen.
 
-Ausgelöst, wenn eine Webanfrage kurz davor steht, gemacht zu werden, um der Erweiterung die Möglichkeit zu geben, diese zu proxyen.
-
-Dieses Ereignis orientiert sich eng an den im [`webRequest`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) API definierten Ereignissen. Wie diese Ereignisse nimmt seine `addListener()`-Funktion drei Argumente entgegen:
+Dieses Ereignis ist eng an die im [`webRequest`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) API definierten Ereignisse angelehnt. Wie diese Ereignisse nimmt die `addListener()`-Funktion drei Argumente entgegen:
 
 - den Listener, der aufgerufen wird, wenn das Ereignis ausgelöst wird.
-- ein [`RequestFilter`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter)-Objekt, das steuert, welche Anfragen das Ereignis auslösen.
+- ein [`RequestFilter`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter)-Objekt, das kontrolliert, welche Anfragen das Ereignis auslösen.
 - ein Array von Strings, um andere Aspekte des Verhaltens des Ereignisses zu steuern.
 
-Das Ereignis wird vor allen `webRequest`-Ereignissen für die gleiche Anfrage ausgelöst.
+Das Ereignis wird ausgelöst, bevor eines der `webRequest`-Ereignisse für dieselbe Anfrage ausgelöst wird.
 
-Wenn das Ereignis ausgelöst wird, wird der Listener mit einem Objekt aufgerufen, das Informationen über die Anfrage enthält. Der Listener gibt ein {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekt zurück, das einen zu verwendenden Proxy darstellt (oder ein Array von {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekten, was es dem Browser ermöglicht, bei Nichterreichbarkeit eines Proxys einen anderen zu verwenden). Standardmäßig fällt die Anfrage auf einen vom Browser definierten Proxy zurück, es sei denn, es wird ein `null`-Objekt oder ein Array, das mit einem `null`-Objekt endet, zurückgegeben.
+Wenn das Ereignis ausgelöst wird, wird der Listener mit einem Objekt aufgerufen, das Informationen zur Anfrage enthält. Der Listener gibt ein {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekt zurück, das einen zu verwendenden Proxy darstellt (oder ein Array von {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekten, wodurch es dem Browser ermöglicht wird, auf einen anderen Proxy zurückzugreifen, falls ein Proxy nicht erreichbar ist). Standardmäßig erfolgt bei der Anfrage ein Fallback auf einen vom Browser definierten Proxy, es sei denn, ein `null`-Objekt oder ein Array, das mit einem `null`-Objekt endet, wird zurückgegeben.
 
-Um `proxy.onRequest` zu verwenden, muss eine Erweiterung die "proxy" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) sowie die [host permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die URLs der abgefangenen Anfragen besitzen. Das bedeutet, dass die Übereinstimmungsmuster im `filter`-Argument ein Teil der Host-Berechtigungen der Erweiterung sein müssen.
+Um `proxy.onRequest` verwenden zu können, muss eine Erweiterung die "proxy" [API-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) und die [Host-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die URLs der Anfragen besitzen, die sie abfängt. Das bedeutet, dass die Übereinstimmungsmuster im `filter`-Argument eine Teilmenge der Host-Erlaubnisse der Erweiterung sein müssen.
 
 ## Syntax
 
@@ -38,7 +36,7 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener, filter, extraInfoSpec)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
@@ -47,30 +45,28 @@ Ereignisse haben drei Funktionen:
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird ein Argument übergeben, das ein {{WebExtAPIRef("proxy.RequestDetails")}}-Objekt mit Details der Anfrage ist.
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird ein Argument übergeben, das ein {{WebExtAPIRef("proxy.RequestDetails")}}-Objekt ist, das Details zur Anfrage enthält.
 
     Der Listener kann eines der folgenden zurückgeben:
-
     - ein {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekt.
     - ein Array von {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekten.
     - ein `Promise`, das zu einem `ProxyInfo`-Objekt auflöst.
     - ein `Promise`, das zu einem Array von `ProxyInfo`-Objekten auflöst.
 
-    Wenn der Listener ein Array oder ein `Promise`, das zu einem Array auflöst, zurückgibt, stellen die `ProxyInfo`-Objekte ab dem zweiten einen Failover dar. Ist der Proxy an Position N im Array nicht erreichbar, wenn dessen `ProxyInfo.failoverTimeout` abläuft, versucht der Browser den Proxy an Position N+1.
+    Wenn der Listener ein Array oder ein Promise zurückgibt, das zu einem Array auflöst, stellen die `ProxyInfo`-Objekte nach dem ersten einen Fallback dar. Wenn der Proxy an Position N im Array nicht erreichbar ist, wenn seine `ProxyInfo.failoverTimeout` abläuft, versucht der Browser den Proxy an Position N+1.
 
-    Standardmäßig fällt die Anfrage auf einen vom Browser definierten Proxy zurück, es sei denn, es wird ein `null`-Objekt oder ein Array, das mit einem `null`-Objekt (`[{ ... proxy info ...} , null]`) endet, zurückgegeben.
+    Standardmäßig erfolgt bei der Anfrage ein Fallback auf einen vom Browser definierten Proxy, es sei denn, ein `null`-Objekt oder ein Array, das mit einem `null`-Objekt endet (`[{ ... proxy info ...} , null]`), wird zurückgegeben.
 
     Wenn es einen Fehler bei der Angabe der {{WebExtAPIRef("proxy.ProxyInfo")}}-Objekte gibt, wird {{WebExtAPIRef("proxy.onError")}} aufgerufen.
 
 - `filter`
   - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Eine Reihe von Filtern, die die an den Listener gesendeten Ereignisse einschränken.
 - `extraInfoSpec` {{optional_inline}}
-  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Übergeben Sie `"requestHeaders"`, um die Anforderungsheader im `details`-Objekt zu enthalten, das an den Listener übergeben wird.
+  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Übergeben Sie `"requestHeaders"`, um die Anfrage-Header im `details`-Objekt einzuschließen, das an den Listener übergeben wird.
 
 ## Beispiele
 
-Dieser Code fängt Anfragen an `<all_urls>` ab und verwendet Proxys, wenn sie nicht für ein Top-Level-Frame sind.
+Dieser Code fängt Anfragen an `<all_urls>` ab und proxyt sie, wenn sie nicht für einen Top-Level-Frame bestimmt sind.
 
 ```js
 function shouldProxyRequest(requestInfo) {

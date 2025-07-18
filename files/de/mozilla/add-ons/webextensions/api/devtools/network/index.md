@@ -2,19 +2,17 @@
 title: devtools.network
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/network
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die `devtools.network` API ermöglicht es einer Devtools-Erweiterung, Informationen über Netzwerk-Anfragen zu erhalten, die mit dem Fenster verbunden sind, an das die Devtools angehängt sind (das inspizierte Fenster).
 
-Die `devtools.network` API ermöglicht es einer DevTools-Erweiterung, Informationen über Netzwerk-Anfragen zu erhalten, die mit dem Fenster verbunden sind, an das die DevTools angehängt sind (das inspizierte Fenster).
-
-Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument läuft, das im [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Schlüssel der manifest.json definiert ist, oder in anderen DevTools-Dokumenten, die von der Erweiterung erstellt wurden (wie das Dokument des Panels selbst). Siehe [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools) für mehr Informationen.
+Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument ausgeführt wird, das im [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) manifest.json Schlüssel definiert ist, oder in anderen von der Erweiterung erstellten Devtools-Dokumenten (wie z.B. dem eigenen Dokument des Panels). Siehe [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools) für mehr Informationen.
 
 ## Funktionen
 
 - [`devtools.network.getHAR()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/network/getHAR)
-  - : Holt ein [HAR Protokoll](http://www.softwareishard.com/blog/har-12-spec/#log) für die Seite, die im aktuellen Tab geladen ist.
+  - : Holt ein [HAR-Protokoll](http://www.softwareishard.com/blog/har-12-spec/#log) für die Seite, die im aktuellen Tab geladen ist.
 
 ## Ereignisse
 
@@ -30,7 +28,7 @@ Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API von Chromium.
+> Diese API basiert auf der `chrome.devtools.network` API von Chromium's [chrome.devtools.network](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,16 +2,14 @@
 title: browsingData.settings()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/settings
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Browser haben eine integrierte Funktion "Verlauf löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Diese Funktion hat eine Benutzeroberfläche, die es dem Benutzer ermöglicht, auszuwählen, welche Art von Daten entfernt werden soll (z. B. Verlauf, Downloads, …) und wie weit in die Vergangenheit Daten entfernt werden sollen.
+Browser verfügen über eine integrierte Funktion "Verlauf löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Diese Funktion bietet eine Benutzeroberfläche, mit der der Benutzer auswählen kann, welche Art von Daten gelöscht werden sollen (z. B. Verlauf, Downloads, …) und wie weit in die Vergangenheit Daten entfernt werden sollen.
 
 Diese Funktion gibt den aktuellen Wert dieser Einstellungen zurück.
 
-Beachten Sie, dass nicht alle Datentypen immer über die Benutzeroberfläche entfernbar sind und einige UI-Optionen möglicherweise auf mehr als einen Datentyp abbilden.
+Beachten Sie, dass nicht alle Datentypen immer über die Benutzeroberfläche entfernbar sind und einige Benutzeroberflächenoptionen möglicherweise mehr als einem Datentyp zugeordnet sind.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,14 +25,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die Einstellungsinformationen enthält. Dieses Objekt hat drei Eigenschaften:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die Einstellungen enthält. Dieses Objekt hat drei Eigenschaften:
 
 - `options`
-  - : {{WebExtAPIRef("browsingData.RemovalOptions")}}. Ein `RemovalOptions`-Objekt, das die aktuell ausgewählten Entfernungsoptionen beschreibt.
+  - : {{WebExtAPIRef("browsingData.RemovalOptions")}}. Ein `RemovalOptions`-Objekt, das die derzeit ausgewählten Entfernungsmöglichkeiten beschreibt.
 - `dataToRemove`
-  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft wird `true` als Wert haben, wenn dieser Typ zur Entfernung ausgewählt wurde, und `false` andernfalls.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn dieser Typ zur Entfernung ausgewählt ist, und `false` ansonsten.
 - `dataRemovalPermitted`
-  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede wird `true` als Wert haben, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und `false` andernfalls.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede hat den Wert `true`, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und `false` ansonsten.
 
 Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
@@ -63,7 +61,7 @@ browser.browsingData.settings().then(onGotSettings, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

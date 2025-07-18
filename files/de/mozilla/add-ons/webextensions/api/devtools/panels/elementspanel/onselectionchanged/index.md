@@ -2,12 +2,10 @@
 title: onSelectionChanged
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel/onSelectionChanged
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn der Benutzer ein anderes Seitenelement zur Inspektion mit den Entwicklertools des Browsers auswählt, zum Beispiel durch Auswahl des Kontextmenüpunktes "Element untersuchen" in Firefox.
+Wird ausgelöst, wenn der Benutzer ein anderes Seitenelement zur Inspektion mit den Entwicklerwerkzeugen des Browsers auswählt, zum Beispiel durch Auswahl des Kontextmenüeintrags "Element untersuchen" in Firefox.
 
 ## Syntax
 
@@ -20,13 +18,13 @@ browser.devtools.panels.elements.onSelectionChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der Listener, der entfernt werden soll.
+  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -35,7 +33,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Ereignisse, bei denen die Auswahl geändert wurde, und protokollieren Sie den Textinhalt des neu ausgewählten Elements:
+Hören Sie auf Ereignisse für geänderte Auswahlen und protokollieren Sie den Textinhalt des neu ausgewählten Elements:
 
 ```js
 function handleSelectedElement() {
@@ -56,4 +54,4 @@ browser.devtools.panels.elements.onSelectionChanged.addListener(
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) API.
+> Diese API basiert auf Chromiums [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools)-API.

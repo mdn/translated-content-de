@@ -2,12 +2,10 @@
 title: webRequest.StreamFilter.ondata
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/ondata
 l10n:
-  sourceCommit: 697e5e35955c1103e77fb7d4822edd655fb652dd
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein Ereignis-Handler, der wiederholt aufgerufen wird, wenn Antwortdaten verfügbar sind. Dem Handler wird ein [`Event` Object](/de/docs/Web/API/Event) mit einer `data`-Eigenschaft übergeben. Die `data`-Eigenschaft enthält einen Teil der Antwortdaten als ein {{jsxref("ArrayBuffer")}}.
+Ein Ereignis-Handler, der wiederholt aufgerufen wird, wenn Antwortdaten verfügbar sind. Dem Handler wird ein [`Event`-Objekt](/de/docs/Web/API/Event) mit einer `data`-Eigenschaft übergeben. Die `data`-Eigenschaft enthält ein Datenstück der Antwort als {{jsxref("ArrayBuffer")}}.
 
 Um die Daten zu dekodieren, verwenden Sie entweder [`TextDecoder`](/de/docs/Web/API/TextDecoder) oder [`Blob`](/de/docs/Web/API/Blob).
 
@@ -15,10 +13,10 @@ Ohne einen `ondata`-Listener erhalten Sie den ursprünglichen Antwortkörper nic
 
 ## Beispiele
 
-Dieses Beispiel fügt einen `ondata`-Listener hinzu, der "Example" in der Antwort mit "WebExtension Example" ersetzt, indem die Methode {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwendet wird.
+Dieses Beispiel fügt einen `ondata`-Listener hinzu, der "Example" in der Antwort mithilfe der {{jsxref("String.prototype.replaceAll()", "replaceAll()")}}-Methode durch "WebExtension Example" ersetzt.
 
 > [!NOTE]
-> Dieses Beispiel funktioniert nur für Vorkommen von „Example“, die sich vollständig innerhalb eines Datenblocks befinden, und nicht für solche, die sich über zwei Blöcke erstrecken (was bei großen Dokumenten etwa \~0,1 % der Zeit passieren kann). Außerdem werden nur UTF-8-codierte Dokumente behandelt. Eine echte Implementierung müsste komplexer sein.
+> Dieses Beispiel funktioniert nur für Vorkommen von "Example", die vollständig innerhalb eines Datenstücks enthalten sind, und nicht für solche, die sich über zwei Stücke erstrecken (was in \~0,1 % der Fälle bei großen Dokumenten passieren könnte). Außerdem behandelt es nur UTF-8-codierte Dokumente. Eine echte Implementierung müsste komplexer sein.
 
 <!-- cSpell:ignore Examp -->
 
@@ -55,7 +53,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Ein weiteres Beispiel zur Verarbeitung großer Dokumente:
+Ein weiteres Beispiel zur Handhabung großer Dokumente:
 
 ```js
 function listener(details) {
@@ -91,7 +89,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Hier ist eine weitere Version:
+Hier ist eine andere Version:
 
 ```js
 function listener(details) {
@@ -124,7 +122,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Das obige Beispiel kann auch so geschrieben werden:
+Das obige Beispiel kann auch wie folgt geschrieben werden:
 
 ```js
 function listener(details) {
@@ -182,7 +180,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel nutzt die [`DOMParser`](/de/docs/Web/API/DOMParser) Schnittstelle:
+Dieses Beispiel nutzt die [`DOMParser`](/de/docs/Web/API/DOMParser)-Schnittstelle:
 
 ```js
 function listener(details) {
@@ -215,7 +213,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel kombiniert alle Puffer in einem einzelnen Puffer:
+Dieses Beispiel kombiniert alle Puffer in einen einzigen:
 
 ```js
 function listener(details) {
@@ -250,7 +248,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Das obige Beispiel kann auch so geschrieben werden:
+Das obige Beispiel kann auch wie folgt geschrieben werden:
 
 ```js
 function listener(details) {
@@ -280,7 +278,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel zeigt, wie man erkennen kann, ob es sich um den letzten Block in der Antwort handelt:
+Dieses Beispiel zeigt, wie man erkennen kann, ob es sich um das letzte Stück in der Antwort handelt:
 
 ```js
 function listener(details) {

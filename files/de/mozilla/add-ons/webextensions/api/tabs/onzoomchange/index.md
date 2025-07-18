@@ -2,12 +2,10 @@
 title: tabs.onZoomChange
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onZoomChange
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein Tab vergrößert oder verkleinert wird.
+Wird ausgelöst, wenn ein Tab gezoomt wird.
 
 ## Syntax
 
@@ -22,18 +20,18 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `ZoomChangeInfo`
-      - : `object`. Informationen über das Zoomereignis. Siehe den Abschnitt [ZoomChangeInfo](#zoomchangeinfo_2) für weitere Details.
+      - : `object`. Informationen über das Zoom-Ereignis. Siehe den Abschnitt [ZoomChangeInfo](#zoomchangeinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -50,7 +48,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Zoomereignisse und protokollieren Sie die Informationen:
+Hören Sie auf Zoom-Ereignisse und protokollieren Sie die Informationen:
 
 ```js
 function handleZoomed(zoomChangeInfo) {
@@ -69,7 +67,7 @@ browser.tabs.onZoomChange.addListener(handleZoomed);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onZoomChange). Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onZoomChange)-API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

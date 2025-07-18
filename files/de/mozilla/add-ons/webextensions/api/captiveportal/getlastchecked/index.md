@@ -2,12 +2,10 @@
 title: getLastChecked
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/getLastChecked
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt die Zeit seit Abschluss der letzten Anfrage zurück.
+Gibt die Zeit seit der letzten abgeschlossenen Anfrage zurück.
 
 ## Syntax
 

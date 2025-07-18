@@ -2,12 +2,10 @@
 title: declarativeNetRequest.MAX_NUMBER_OF_STATIC_RULESETS
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_STATIC_RULESETS
 l10n:
-  sourceCommit: 39a2c86675005f0682b7c5d0c32c8066be412aac
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die maximale Anzahl von statischen Regelsätzen, die eine Erweiterung als Teil des [`declarative_net_request.rule_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) Manifest-Schlüssels angeben kann. Weitere Informationen zu den Grenzen statischer Regelsätze finden Sie unter [Grenzen für statische Regelsätze](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Die maximale Anzahl an statischen Regelsets, die eine Erweiterung als Teil des [`declarative_net_request.rule_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request)-Manifest-Schlüssels angeben kann. Weitere Informationen zu den Grenzen von statischen Regelsets finden Sie unter [Limits für statische Regelsets](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
 Der Wert ist `50`.
 

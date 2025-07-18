@@ -2,23 +2,21 @@
 title: userScripts.ScriptSource
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts/ScriptSource
 l10n:
-  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Der Code oder die Quelldatei für ein Benutzer-Skript. Dies beschreibt die Objektwerte der Eigenschaft "js" in {{WebExtAPIRef("userScripts.RegisteredUserScript","RegisteredUserScript")}}.
+Der Code oder die Quelldatei für ein Benutzerskript. Dies beschreibt die Objektwerte der "js"-Eigenschaft in {{WebExtAPIRef("userScripts.RegisteredUserScript","RegisteredUserScript")}}.
 
 ## Typ
 
-Werte dieses Typs sind ein Objekt, das folgende Eigenschaften enthält:
+Werte dieses Typs sind ein Objekt, das die folgenden Eigenschaften enthält:
 
 - `file` {{optional_inline}}
-  - : `string`. Der Pfad der Datei, die den Benutzer-Skriptcode enthält. Der Pfad ist relativ zum Stammverzeichnis der Erweiterung.
+  - : `string`. Der Pfad der Datei, die den Code des Benutzerskripts enthält. Der Pfad ist relativ zum Stammverzeichnis der Erweiterung.
 - `allFrames` {{optional_inline}}
-  - : `code`. JavaScript-Code für das Benutzer-Skript.
+  - : `code`. JavaScript-Code für das Benutzerskript.
 
-`file` oder `code` muss angegeben werden, nicht beide.
+`file` oder `code` muss angegeben werden, nicht beides.
 
 {{WebExtExamples("h2")}}
 

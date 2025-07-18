@@ -2,15 +2,13 @@
 title: tabs.onActiveChanged
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onActiveChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 > [!WARNING]
 > Dieses Ereignis ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("tabs.onActivated")}}.
 
-Wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise nicht festgelegt ist, wenn dieses Ereignis ausgelöst wird. Sie können jedoch auf {{WebExtAPIRef('tabs.onUpdated')}}-Ereignisse hören, um benachrichtigt zu werden, wenn eine URL festgelegt wird.
+Wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise zum Zeitpunkt des Ereignisses noch nicht gesetzt ist. Sie können jedoch auf {{WebExtAPIRef('tabs.onUpdated')}}-Ereignisse hören, um benachrichtigt zu werden, wenn eine URL gesetzt wird.
 
 ## Syntax
 
@@ -23,18 +21,18 @@ browser.tabs.onActiveChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, sonst `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `tabId`
       - : `integer`. Die ID des Tabs, der aktiv geworden ist.
     - `selectInfo`
@@ -52,4 +50,4 @@ Ereignisse haben drei Funktionen:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActiveChanged) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActiveChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

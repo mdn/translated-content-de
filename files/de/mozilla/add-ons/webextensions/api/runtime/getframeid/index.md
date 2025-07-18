@@ -2,12 +2,10 @@
 title: runtime.getFrameId()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getFrameId
 l10n:
-  sourceCommit: 873e38320b7f7dbe0492f96a02e7e6503ac8c3b3
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt die Frame-ID eines beliebigen Fenster-Globals oder eines Frame-Elements zurück, wenn sie von einem Content-Skript oder einer Erweiterungsseite aufgerufen wird, einschließlich Hintergrundseiten.
+Gibt die Frame-ID eines beliebigen globalen Fensters oder Frame-Elements zurück, wenn es von einem Content Script oder einer Erweiterungsseite, einschließlich Hintergrundseiten, aufgerufen wird.
 
 ## Syntax
 
@@ -20,7 +18,7 @@ let gettingInfo = browser.runtime.getFrameId(
 ### Parameter
 
 - `target`
-  - : Ein {{Glossary("WindowProxy", "WindowProxy")}} oder ein {{Glossary("browsing_context", "browsing context")}} Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}} oder ein Container der {{Glossary("browsing_context", "browsing context")}} [Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
 
 ### Rückgabewert
 
@@ -28,7 +26,7 @@ Gibt die Frame-ID des Ziel-Frames zurück oder -1, wenn das Frame nicht existier
 
 ## Beispiele
 
-Dieser Code durchläuft rekursiv Nachkommen-Frames und erhält die Frame-IDs der übergeordneten Frames.
+Dieser Code durchläuft rekursiv Nachkommen-Frames und erhält übergeordnete Frame-IDs.
 
 ```js
 const parents = {};

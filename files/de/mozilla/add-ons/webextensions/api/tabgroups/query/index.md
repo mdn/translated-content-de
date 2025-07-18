@@ -2,10 +2,8 @@
 title: tabGroups.query
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/query
 l10n:
-  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Gibt alle Tab-Gruppen zurück oder findet Gruppen mit bestimmten Eigenschaften.
 
@@ -20,21 +18,21 @@ let group = await browser.tabGroups.query(
 ### Parameter
 
 - `queryInfo`
-  - : Ein Objekt, das Details der Eigenschaftswerte enthält, die in den zurückgegebenen Tab-Gruppen übereinstimmen sollen.
+  - : Ein Objekt, das Details der Eigenschaften enthält, die in den zurückgegebenen Tab-Gruppen übereinstimmen sollen.
     - `collapsed` {{optional_inline}}
-      - : `boolean`. Ob die zurückgegebenen Tab-Gruppen im Tab-Streifen eingeklappt oder ausgeklappt sind.
+      - : `boolean`. Ob die zurückgegebenen Tab-Gruppen in der Tab-Leiste eingeklappt oder ausgeklappt sind.
     - `color` {{optional_inline}}
-      - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die von den zurückgegebenen Tab-Gruppen verwendet wird.
+      - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die die zurückgegebenen Tab-Gruppen verwenden.
     - `shared` {{optional_inline}}
-      - : `boolean`. Ob die zurückgegebenen Tab-Gruppen gemeinsam genutzt werden.
+      - : `boolean`. Ob die zurückgegebenen Tab-Gruppen freigegeben sind.
     - `title` {{optional_inline}}
-      - : `string`. Der Name der zurückzugebenden Tab-Gruppen.
+      - : `string`. Der Name der Tab-Gruppen, die zurückgegeben werden sollen.
     - `windowId` {{optional_inline}}
-      - : `integer`. Die ID des Fensters, in dem sich die zurückgegebene Tab-Gruppe befindet.
+      - : `integer`. Die ID des Fensters, in dem sich die zurückgegebenen Tab-Gruppen befinden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekten erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("tabGroups.TabGroup")}} Objekten erfüllt wird. Wenn die Anfrage fehlschlägt, wird das `Promise` mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples("h2")}}
 

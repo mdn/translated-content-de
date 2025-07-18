@@ -2,10 +2,8 @@
 title: alarms.clearAll()
 slug: Mozilla/Add-ons/WebExtensions/API/alarms/clearAll
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Hebt alle aktiven Alarme auf.
 
@@ -23,7 +21,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean-Wert erfüllt wird. Dieser Wert ist `true`, wenn Alarme gelöscht wurden, andernfalls `false`. Beachten Sie, dass Chrome hier immer `true` übergibt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird. Dieses wird `true` sein, wenn Alarme gelöscht wurden, und `false` andernfalls. Beachten Sie, dass Chrome hier immer `true` übergibt.
 
 ## Beispiele
 

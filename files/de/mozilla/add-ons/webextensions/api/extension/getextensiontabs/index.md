@@ -2,15 +2,13 @@
 title: extension.getExtensionTabs()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/getExtensionTabs
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 > [!WARNING]
 > Diese Methode wurde veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("extension.getViews()")}}.
 
-Gibt ein Array der JavaScript-[Window](/de/docs/Web/API/Window)-Objekte für jeden der Tabs zurück, die innerhalb der aktuellen Erweiterung laufen. Wenn `windowId` angegeben ist, werden nur die Window-Objekte der an das angegebene Fenster angehängten Tabs zurückgegeben.
+Gibt ein Array der JavaScript-[Window](/de/docs/Web/API/Window)-Objekte für jede der Registerkarten zurück, die innerhalb der aktuellen Erweiterung laufen. Wenn `windowId` angegeben ist, werden nur die Window-Objekte der an das angegebene Fenster angehängten Registerkarten zurückgegeben.
 
 ## Syntax
 
@@ -29,7 +27,7 @@ Diese API ist auch als `browser.extension.getExtensionTabs()` verfügbar.
 
 ### Rückgabewert
 
-`array` von `object`. Array von globalen Window-Objekten.
+`array` von `object`. Array der globalen Window-Objekte
 
 {{WebExtExamples}}
 
@@ -38,7 +36,7 @@ Diese API ist auch als `browser.extension.getExtensionTabs()` verfügbar.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getExtensionTabs)-API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getExtensionTabs)-API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

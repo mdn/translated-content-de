@@ -2,10 +2,8 @@
 title: tabs.getSelected()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/getSelected
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 > [!WARNING]
 > Diese Methode ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("tabs.query", "tabs.query({active: true})")}}.
@@ -38,7 +36,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getSelected) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getSelected) API von Chromium. Diese Dokumentation ist aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

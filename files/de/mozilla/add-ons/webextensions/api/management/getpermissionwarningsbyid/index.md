@@ -2,14 +2,12 @@
 title: management.getPermissionWarningsById()
 slug: Mozilla/Add-ons/WebExtensions/API/management/getPermissionWarningsById
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wenn der Benutzer ein Add-on installiert oder aktualisiert, kann der Browser den Benutzer vor besonders mächtigen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) warnen, die das Add-on angefordert hat. Nicht alle Berechtigungen führen zu Warnungen, und dieses Verhalten ist nicht standardisiert über alle Browser hinweg.
 
-Wenn der Benutzer ein Add-on installiert oder aktualisiert, kann der Browser den Benutzer über besonders mächtige [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) warnen, die das Add-on angefordert hat. Nicht alle Berechtigungen führen zu Warnungen, und dieses Verhalten ist nicht über alle Browser hinweg standardisiert.
-
-Basierend auf der ID eines Add-ons gibt diese Funktion die Berechtigungswarnungen dafür als ein Array von Zeichenfolgen zurück.
+Diese Funktion gibt, basierend auf der ID eines Add-ons, dessen Berechtigungswarnungen als Array von Strings zurück.
 
 Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
@@ -30,7 +28,7 @@ let gettingWarnings = browser.management.getPermissionWarningsById(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Zeichenfolgen erfüllt wird, von denen jede den Text einer Berechtigungswarnung enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Strings erfüllt wird, von denen jeder den Text einer Berechtigungswarnung enthält.
 
 ## Beispiele
 
@@ -55,38 +53,34 @@ browser.management.getPermissionWarningsById(id).then(gotWarnings);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getPermissionWarningsById) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getPermissionWarningsById) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium Code.
 
 <!--
-// Copyright 2015 Die Chromium-Autoren. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Redistribution und Verwendung in sowohl Source- als auch Binary-Form,
-// mit oder ohne Modifikation, sind unter den folgenden Bedingungen erlaubt:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverteilungen des Sourcecodes müssen das obige Copyright,
-// diesen Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverteilungen in binärer Form müssen das obige
-// Copyright, diese Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien, die mit der
-// Verteilung bereitgestellt werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Beitragszahler dürfen verwendet werden, um Produkte zu unterstützen
-// oder zu bewerben, die sich aus dieser Software ableiten, ohne spezifische
-// vorherige schriftliche Erlaubnis.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND BEITRAGENDEN
-// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHE ODER
-// IMPLIZIERTE GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF
-// DIE IMPLIZIERTEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR
-// EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL
-// SIND DIE COPYRIGHTINHABER ODER BEITRAGENDEN FÜR JEGLICHE DIREKTEN,
-// INDIREKTEN, ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
-// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON
-// ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER
-// GEWINNE; ODER GESCHÄFTSUNTERBRECHUNG) HAFTBAR, UNABHÄNGIG VON DER
-// URSACHE UND DER HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG
-// ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
-// ANDERWEITIG), DIE IN IRGENDEINER WEISE AUS DER VERWENDUNG DER
-// SOFTWARE ENTSTANDEN SIND, SELBST WENN SIE AUF DIE MÖGLICHKEIT
-// SOLCHER SCHÄDEN HINGEWIESEN WURDEN.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

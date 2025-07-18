@@ -2,43 +2,41 @@
 title: runtime.Port
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/Port
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ein `Port`-Objekt repräsentiert ein Ende einer Verbindung zwischen zwei spezifischen Kontexten, die zum Austausch von Nachrichten verwendet werden kann.
 
-Eine Seite initiiert die Verbindung, indem sie eine `connect()`-API verwendet. Diese gibt ein `Port`-Objekt zurück. Die andere Seite wartet auf Verbindungsversuche mit einem `onConnect`-Listener. Dieser wird ein entsprechendes `Port`-Objekt übergeben.
+Eine Seite initiiert die Verbindung mithilfe der `connect()`-API. Dies gibt ein `Port`-Objekt zurück. Die andere Seite horcht auf Verbindungsversuche mit einem `onConnect`-Listener. Diesem wird ein entsprechendes `Port`-Objekt übergeben.
 
-Sobald beide Seiten `Port`-Objekte haben, können sie Nachrichten mithilfe von `Port.postMessage()` und `Port.onMessage` austauschen. Wenn sie fertig sind, kann jede Seite die Verbindung mit `Port.disconnect()` trennen, was ein `Port.onDisconnect`-Ereignis am anderen Ende erzeugt und es dem anderen Ende ermöglicht, notwendige Aufräumarbeiten durchzuführen.
+Sobald beide Seiten über `Port`-Objekte verfügen, können sie Nachrichten mit `Port.postMessage()` und `Port.onMessage` austauschen. Wenn sie fertig sind, kann jede Seite die Verbindung mit `Port.disconnect()` trennen, was ein `Port.onDisconnect`-Ereignis auf der anderen Seite auslöst, so dass die andere Seite alle erforderlichen Aufräumarbeiten durchführen kann.
 
-Ein `Port` kann auch in Reaktion auf verschiedene Ereignisse getrennt werden. Siehe [Lebenszyklus](#lebenszyklus).
+Ein `Port` kann auch infolge verschiedener Ereignisse getrennt werden. Siehe [Lebenszyklus](#lebenszyklus).
 
-Sie können dieses Muster verwenden, um zwischen Folgendem zu kommunizieren:
+Dieses Muster kann zur Kommunikation zwischen:
 
-- verschiedenen Teilen Ihrer Erweiterung (z. B. zwischen [Content-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) und [Background-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts))
-- zwischen Ihrer Erweiterung und einer [auf dem Computer des Benutzers laufenden nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
+- verschiedenen Teilen Ihrer Erweiterung verwendet werden (zum Beispiel zwischen [Inhaltsskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) und [Hintergrundskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts))
+- zwischen Ihrer Erweiterung und einer [auf dem Computer des Nutzers laufenden nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
 - zwischen Ihrer Erweiterung und einer anderen Erweiterung
 
-Sie müssen verschiedene Verbindungs-APIs für verschiedene Arten von Verbindungen verwenden, wie in der Tabelle unten beschrieben.
+Sie müssen unterschiedliche Verbindungsschnittstellen-APIs für verschiedene Arten von Verbindungen verwenden, wie in der folgenden Tabelle beschrieben.
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="col">Verbindungstyp</th>
       <th scope="col">Verbindungsversuch initiieren</th>
-      <th scope="col">Verbindungsversuch handhaben</th>
+      <th scope="col">Verbindungsversuch verarbeiten</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Hintergrundskript zu Content-Skript</td>
+      <td>Hintergrundskript zu Inhaltsskript</td>
       <td>{{WebExtAPIRef("tabs.connect()")}}</td>
       <td>{{WebExtAPIRef("runtime.onConnect")}}</td>
     </tr>
     <tr>
-      <td>Content-Skript zu Hintergrundskript</td>
+      <td>Inhaltsskript zu Hintergrundskript</td>
       <td>{{WebExtAPIRef("runtime.connect()")}}</td>
       <td>{{WebExtAPIRef("runtime.onConnect")}}</td>
     </tr>
@@ -67,11 +65,11 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 - `name`
   - : `string`. Der Name des Ports, definiert im Aufruf von {{WebExtAPIRef("runtime.connect()")}} oder {{WebExtAPIRef("tabs.connect()")}}, der ihn erstellt hat. Wenn dieser Port mit einer nativen Anwendung verbunden ist, ist sein Name der Name der nativen Anwendung.
 - `disconnect`
-  - : `function`. Trennt einen Port. Beide Enden können dies aufrufen, wenn sie mit dem Port fertig sind. Es wird verursachen, dass `onDisconnect` am anderen Ende ausgelöst wird. Dies ist nützlich, wenn das andere Ende einen Zustand in Bezug auf diesen Port beibehält, der bei der Trennung bereinigt werden kann. Wenn dieser Port mit einer nativen Anwendung verbunden ist, wird mit dieser Funktion die native Anwendung geschlossen.
+  - : `function`. Trennt einen Port. Jede Seite kann dies aufrufen, wenn sie mit dem Port fertig ist. Dadurch wird `onDisconnect` auf der anderen Seite ausgelöst. Dies ist nützlich, wenn die andere Seite einen Zustand in Bezug auf diesen Port aufrechterhält, der beim Trennen der Verbindung bereinigt werden kann. Wenn dieser Port mit einer nativen Anwendung verbunden ist, wird diese Funktion die native Anwendung schließen.
 - `error`
-  - : `object`. Wenn der Port aufgrund eines Fehlers getrennt wurde, wird dies auf ein Objekt mit einer `message`-Eigenschaft gesetzt, die Ihnen mehr Informationen über den Fehler gibt. Siehe `onDisconnect`.
+  - : `object`. Wenn der Port aufgrund eines Fehlers getrennt wurde, wird dies auf ein Objekt mit einer String-Eigenschaft `message` gesetzt, das weitere Informationen über den Fehler gibt. Siehe `onDisconnect`.
 - `onDisconnect`
-  - : `object`. Enthält die Funktionen `addListener()` und `removeListener()`, die allen Ereignissen für Erweiterungen gemeinsam sind, die mit WebExtension-APIs erstellt wurden. Listener-Funktionen werden aufgerufen, wenn das andere Ende `Port.disconnect()` aufgerufen hat. Dieses Ereignis wird nur einmal für jeden Port ausgelöst. Der Listener-Funktion wird das `Port`-Objekt übergeben. Wenn der Port aufgrund eines Fehlers getrennt wurde, enthält das `Port`-Argument eine `error`-Eigenschaft, die mehr Informationen über den Fehler liefert:
+  - : `object`. Dies enthält die Funktionen `addListener()` und `removeListener()`, die allen Ereignissen für Erweiterungen, die die WebExtension-APIs verwenden, gemeinsam sind. Listener-Funktionen werden aufgerufen, wenn die andere Seite `Port.disconnect()` aufgerufen hat. Dieses Ereignis wird nur einmal für jeden Port ausgelöst. Der Listener-Funktion wird das `Port`-Objekt übergeben. Wenn der Port aufgrund eines Fehlers getrennt wurde, enthält das `Port`-Argument eine `error`-Eigenschaft, die weitere Informationen über den Fehler gibt:
 
     ```js
     port.onDisconnect.addListener((p) => {
@@ -81,38 +79,38 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
     });
     ```
 
-    Beachten Sie, dass in Google Chrome `port.error` nicht unterstützt wird: Verwenden Sie stattdessen {{WebExtAPIRef("runtime.lastError")}}, um die Fehlermeldung zu erhalten.
+    Beachten Sie, dass in Google Chrome `port.error` nicht unterstützt wird: stattdessen verwenden Sie {{WebExtAPIRef("runtime.lastError")}}, um die Fehlermeldung zu erhalten.
 
 - `onMessage`
-  - : `object`. Enthält die Funktionen `addListener()` und `removeListener()`, die allen Ereignissen für Erweiterungen gemeinsam sind, die mit WebExtension-APIs erstellt wurden. Listener-Funktionen werden aufgerufen, wenn das andere Ende diesem Port eine Nachricht gesendet hat. Der Listener wird der Wert übergeben, den das andere Ende gesendet hat.
+  - : `object`. Dies enthält die Funktionen `addListener()` und `removeListener()`, die allen Ereignissen für Erweiterungen, die die WebExtension-APIs verwenden, gemeinsam sind. Listener-Funktionen werden aufgerufen, wenn die andere Seite diesem Port eine Nachricht gesendet hat. Der Listener wird der Wert übergeben, den die andere Seite gesendet hat.
 - `postMessage`
-  - : `function`. Sendet eine Nachricht an das andere Ende. Dies nimmt ein Argument, das ein serialisierbarer Wert ist (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)), der die zu sendende Nachricht repräsentiert. Sie wird an jedes Skript geliefert, das das `onMessage`-Ereignis des Ports abhört, oder an die native Anwendung, wenn dieser Port mit einer nativen Anwendung verbunden ist.
+  - : `function`. Sendet eine Nachricht an die andere Seite. Dies nimmt ein Argument, das einen serialisierbaren Wert darstellt (siehe [Datenduplizierungs-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)), der die zu sendende Nachricht repräsentiert. Es wird an jedes Skript übermittelt, das auf das `onMessage`-Ereignis des Ports hört, oder an die native Anwendung, wenn dieser Port mit einer nativen Anwendung verbunden ist.
 - `sender` {{optional_inline}}
-  - : {{WebExtAPIRef('runtime.MessageSender')}}. Enthält Informationen über den Absender der Nachricht. Nur vorhanden bei Ports, die an die {{WebExtAPIRef('runtime.onConnect')}}, {{WebExtAPIRef('runtime.onConnectExternal')}}, oder {{WebExtAPIRef("runtime.onUserScriptConnect")}} Listener übergeben werden.
+  - : {{WebExtAPIRef('runtime.MessageSender')}}. Enthält Informationen über den Absender der Nachricht. Nur vorhanden bei Ports, die den `{{WebExtAPIRef('runtime.onConnect')}}`, {{WebExtAPIRef('runtime.onConnectExternal')}} oder `{{WebExtAPIRef("runtime.onUserScriptConnect")}}-Listenern übergeben werden.
 
 ## Lebenszyklus
 
-Der Lebenszyklus eines `Port` wird [in den Chrome-Dokumenten](https://developer.chrome.com/docs/extensions/develop/concepts/messaging#port-lifetime) beschrieben.
+Der Lebenszyklus eines `Port` ist [in den Chrome-Dokumenten](https://developer.chrome.com/docs/extensions/develop/concepts/messaging#port-lifetime) beschrieben.
 
-Es gibt jedoch einen wichtigen Unterschied zwischen Firefox und Chrome, der sich daraus ergibt, dass die `runtime.connect`- und `tabs.connect`-APIs Broadcast-Kanäle sind. Dies bedeutet, dass es potenziell mehr als einen Empfänger geben kann, und dies führt zu Mehrdeutigkeiten, wenn einer der Kontexte mit einem `runtime.onConnect`-Aufruf geschlossen wird. In Chrome bleibt ein Port aktiv, solange es noch einen anderen Empfänger gibt. In Firefox wird der Port geschlossen, wenn einer der Kontexte entladen wird. Mit anderen Worten, die Trennungsbedingung,
+Es gibt jedoch einen wichtigen Unterschied zwischen Firefox und Chrome, der sich daraus ergibt, dass die `runtime.connect`- und `tabs.connect`-APIs als Broadcast-Kanäle fungieren. Dies bedeutet, dass es möglicherweise mehr als einen Empfänger gibt, was zu Mehrdeutigkeiten führt, wenn einer der Kontexte mit einem `runtime.onConnect`-Aufruf geschlossen wird. In Chrome bleibt ein Port aktiv, solange es einen anderen Empfänger gibt. In Firefox wird der Port geschlossen, wenn einer der Kontexte entladen wird. Mit anderen Worten, die Bedingung zum Trennen der Verbindung,
 
-- Alle Frames, die den Port empfangen haben (über `runtime.onConnect`), sind entladen.
+- Alle Frames, die den Port (über `runtime.onConnect`) empfangen haben, wurden entladen.
 
-die in Chrome hält, wird in Firefox ersetzt durch
+was in Chrome gilt, wird durch
 
-- _Jeder_ Frame, der den Port empfangen hat (über `runtime.onConnect`), ist entladen.
+- _Irgendein_ Frame, das den Port (über `runtime.onConnect`) empfangen hat, wurde entladen.
 
-(siehe [Bug 1465514](https://bugzil.la/1465514)).
+in Firefox ersetzt (siehe [Fehler 1465514](https://bugzil.la/1465514)).
 
 ## Beispiele
 
-### Verbindung von Content-Skripten
+### Verbindung von Inhaltsskripten
 
-Dieses Content-Skript:
+Dieses Inhaltsskript:
 
-- verbindet sich mit dem Hintergrundskript und speichert den `Port` in einer Variable namens `myPort`.
-- wartet auf Nachrichten über `myPort` und protokolliert sie.
-- sendet Nachrichten an das Hintergrundskript, verwendet `myPort`, wenn der Benutzer in das Dokument klickt.
+- verbindet sich mit dem Hintergrundskript und speichert den `Port` in einer Variablen namens `myPort`.
+- hört auf Nachrichten auf `myPort` und protokolliert sie.
+- sendet Nachrichten an das Hintergrundskript, indem es `myPort` verwendet, wenn der Nutzer auf das Dokument klickt.
 
 ```js
 // content-script.js
@@ -132,13 +130,13 @@ document.body.addEventListener("click", () => {
 
 Das entsprechende Hintergrundskript:
 
-- wartet auf Verbindungsversuche vom Content-Skript.
+- horcht auf Verbindungsversuche vom Inhaltsskript.
 - wenn es einen Verbindungsversuch erhält:
-  - speichert den Port in einer Variablen namens `portFromCS`.
-  - sendet dem Content-Skript eine Nachricht unter Verwendung des Ports.
-  - beginnt, auf Nachrichten zu lauschen, die über den Port empfangen werden, und protokolliert sie.
+  - speichert es den Port in einer Variablen namens `portFromCS`.
+  - sendet es dem Inhaltsskript eine Nachricht über den Port.
+  - beginnt es, auf empfangene Nachrichten über den Port zu hören und protokolliert sie.
 
-- sendet Nachrichten an das Content-Skript, verwendet `portFromCS`, wenn der Benutzer die Browser-Aktion der Erweiterung anklickt.
+- sendet Nachrichten an das Inhaltsskript, indem es `portFromCS` verwendet, wenn der Nutzer auf die Browseraktion der Erweiterung klickt.
 
 ```js
 // background-script.js
@@ -161,9 +159,9 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-#### Mehrere Content-Skripte
+#### Mehrere Inhaltsskripte
 
-Wenn Sie mehrere Content-Skripte haben, die gleichzeitig kommunizieren, möchten Sie möglicherweise jede Verbindung in einem Array speichern.
+Wenn Sie gleichzeitig mehrere Inhaltsskripte haben, die kommunizieren, möchten Sie möglicherweise jede Verbindung in einem Array speichern.
 
 ```js
 // background-script.js
@@ -186,7 +184,7 @@ browser.browserAction.onClicked.addListener(() => {
 
 ### Verbindung zu nativen Anwendungen
 
-Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, auf Nachrichten von dieser zu hören. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer ein Browser-Aktionssymbol anklickt:
+Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, Nachrichten von ihr zu empfangen. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Nutzer ein Browseraktions-Icon klickt:
 
 ```js
 /*
@@ -217,37 +215,38 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-Port) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-Port) API. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Verteilung und Nutzung in Quell- und Binärformaten, mit oder ohne
+// Modifikation, sind unter folgenden Bedingungen gestattet:
 //
-//    * Redistributions von Quellcode müssen den obigen Copyright-Hinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// beibehalten.
-//    * Redistributions in binarer Form müssen den obigen
-// Copyright-Hinweis, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
-// beibehalten, die mit der Verteilung geliefert werden.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte zu bewerben oder
-// zu fördern, die von dieser Software abgeleitet wurden, ohne
-// vorherige schriftliche Genehmigung.
+//    * Weiterverteilungen von Quellcode müssen das oben stehende Urheberrecht
+// in dieser Liste der Bedingungen und den folgenden Haftungsausschluss
+// enthalten.
+//    * Weiterverteilungen im Binärformat müssen das oben stehende
+// Urheberrecht, diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien enthalten, die mit der
+// Verteilung geliefert werden.
+//    * Weder der Name Google Inc. noch die Namen ihrer
+// Beiträge dürfen verwendet werden, um Produkte, die aus
+// dieser Software abgeleitet sind, zu unterstützen oder zu bewerben ohne
+// eine spezifische vorherige schriftliche Genehmigung.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-EIGENTÜMERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHEN ODER
-// IMPLIZIERTEN GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
-// AUF DIE STILLSCHWEIGENDEN GARANTIEN DER MARKTFÄHIGKEIT UND
-// EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM
-// FALL HAFTEN DIE COPYRIGHT-INHABER ODER MITWIRKENDEN FÜR DIREKTE,
-// INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN
+// GARANTIEN DER MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK,
+// WERDEN AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER
+// ODER BEITRAGENDEN HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN,
+// ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
 // (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON
-// ERSATZWAREN ODER -DIENSTEN; NUTZUNGSAUSFALL, DATEN ODER GEWINNE;
-// ODER GESCHÄFTSUNTERBRECHUNG) JEDER ART, DIE DURCH DIE NUTZUNG
-// DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER
-// SCHÄDEN HINGEWIESEN WURDE.
+// ERSATZGÜTERN ODER -DIENSTLEISTUNGEN; NUTZUNGSAUSFALL; DATENVERLUST
+// ODER ENTGANGENER GEWINN; ODER GESCHÄFTSUNTERBRECHUNG) JEDOCH
+// UND UNABHÄNGIG VON DER THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER
+// HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT)
+// DIE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN DER
+// MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

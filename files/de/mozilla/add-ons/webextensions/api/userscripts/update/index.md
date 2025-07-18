@@ -2,12 +2,10 @@
 title: userScripts.update()
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts/update
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Aktualisiert von der Erweiterung registrierte Benutzer-Skripte.
+Aktualisiert von der Erweiterung registrierte Benutzerskripte.
 
 ## Syntax
 
@@ -20,18 +18,17 @@ let updatingUserScript = browser.userScripts.update(
 ### Parameter
 
 - `scripts`
+  - : `Array` von {{WebExtAPIRef("userScripts.RegisteredUserScript")}}. Details zu den Benutzerskripten, die aktualisiert werden sollen.
 
-  - : `array` von {{WebExtAPIRef("userScripts.RegisteredUserScript")}}. Details zu den zu aktualisierenden Benutzer-Skripten.
-
-    Eigenschaften, die `null` sind oder weggelassen werden, werden nicht geändert. Das Übergeben eines leeren Arrays an `matches`, `excludeMatches`, `globs` und `excludeGlobs` löscht diese Eigenschaften.
+    Eigenschaften, die `null` sind oder weggelassen werden, bleiben unverändert. Das Übergeben eines leeren Arrays an `matches`, `excludeMatches`, `globs` und `excludeGlobs` löscht diese Eigenschaften.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn alle angeforderten Benutzer-Skripte aktualisiert sind. Wenn ein Benutzer-Skript nicht aktualisiert wird oder die Anfrage aus einem anderen Grund fehlschlägt, wird keines der Skripte aktualisiert, und das Promise wird mit einer Fehlermeldung zurückgewiesen.
+Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn alle angeforderten Benutzerskripte aktualisiert werden. Wenn ein Benutzerskript nicht aktualisiert werden kann oder die Anfrage aus einem anderen Grund fehlschlägt, werden keine der Skripte aktualisiert und das Versprechen wird mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt zwei Aktualisierungen von Benutzer-Skripten. Das erste Update schlägt fehl, da es versucht, eine ungültige Skriptregistrierung zu erstellen. Das zweite Beispiel zeigt ein erfolgreiches Update.
+Dieses Codebeispiel zeigt zwei Aktualisierungsbeispiele von Benutzerskripten. Das erste Update schlägt fehl, weil es versucht, eine ungültige Skriptregistrierung zu erstellen. Das zweite Beispiel zeigt ein erfolgreiches Update.
 
 ```js
 // Valid registration:

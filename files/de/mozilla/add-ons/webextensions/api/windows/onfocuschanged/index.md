@@ -2,15 +2,13 @@
 title: windows.onFocusChanged
 slug: Mozilla/Add-ons/WebExtensions/API/windows/onFocusChanged
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn das aktuell fokussierte Fenster wechselt. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browserfenster den Fokus verloren haben.
+Wird ausgelöst, wenn sich das derzeit fokussierte Fenster ändert. Wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browser-Fenster den Fokus verloren haben.
 
 > [!NOTE]
-> Unter Windows und bei einigen Linux-Fenstermanagern wird WINDOW_ID_NONE immer unmittelbar vor einem Wechsel von einem Browserfenster zum anderen gesendet.
+> In Windows und einigen Linux-Fensterverwaltungen wird WINDOW_ID_NONE immer unmittelbar gesendet, bevor von einem Browser-Fenster zu einem anderen gewechselt wird.
 
 ## Syntax
 
@@ -25,11 +23,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -40,7 +38,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokollieren von Fokuswechseln:
+Protokollieren von Fokusänderungen:
 
 ```js
 browser.windows.onFocusChanged.addListener((windowId) => {
@@ -55,34 +53,37 @@ browser.windows.onFocusChanged.addListener((windowId) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API von Chromium. Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Die Verbreitung und Nutzung in Quell- und Binärform, mit oder ohne
+// Modifikation, ist unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen des Quellcodes müssen den obigen Urheberrechts-
+// hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// im Quellcode beibehalten.
+//    * Weiterverteilungen in Binärform müssen den obigen Urheberrechts-
+// hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der Verbreitung
+// geliefert werden, beibehalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Beitragenden dürfen verwendet werden, um Produkte, die von dieser Software
+// abgeleitet wurden, ohne ausdrückliche schriftliche Genehmigung zu
+// unterstützen oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESES SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE IMPLIZIERTEN
+// GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK,
+// WERDEN HIERMIT ABGELEHNT. IN KEINEM FALL SIND DIE RECHTSINHABER ODER
+// BEITRAGENDEN HAFTBAR FÜR MEHR ALS MITTELBARE, ZUFÄLLIGE, BESONDERE,
+// EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF, DIE BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
+// DATENVERLUST ODER GEWINNVERLUST; GESCHÄFTSUNTERBRECHUNG), WIE AUCH IMMER
+// VERURSACHT UND UNTER JEGLICHER HAFTUNGSTHEORIE, SEI ES AUS VERTRAG,
+// STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT
+// ODER ANDERWEITIG), DIE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST
+// WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WORDEN IST.
 -->

@@ -2,18 +2,16 @@
 title: browserSettings.openBookmarksInNewTabs
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/openBookmarksInNewTabs
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein boolean ist.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist.
-
-Wenn auf `true` gesetzt, wird beim Auswählen eines Lesezeichens dieses in einem neuen Tab geöffnet. Wenn auf `false` gesetzt (die Standardeinstellung), werden Lesezeichen im aktuellen Tab geöffnet.
+Wenn auf `true` gesetzt, wird ein Lesezeichen beim Auswählen durch den Benutzer in einem neuen Tab geöffnet. Wenn auf `false` gesetzt (der Standardwert), werden Lesezeichen im aktuellen Tab geöffnet.
 
 ## Beispiele
 
-Die Einstellung auf `true` setzen:
+Einstellung auf `true` setzen:
 
 ```js
 function logResult(result) {

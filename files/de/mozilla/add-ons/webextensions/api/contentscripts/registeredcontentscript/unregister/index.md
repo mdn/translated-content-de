@@ -2,10 +2,8 @@
 title: contentScripts.RegisteredContentScript.unregister()
 slug: Mozilla/Add-ons/WebExtensions/API/contentScripts/RegisteredContentScript/unregister
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Hebt die Registrierung der durch dieses `RegisteredContentScript`-Objekt dargestellten Inhaltsskripte auf.
 

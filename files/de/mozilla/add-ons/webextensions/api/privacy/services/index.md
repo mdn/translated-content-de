@@ -2,21 +2,19 @@
 title: privacy.services
 slug: Mozilla/Add-ons/WebExtensions/API/privacy/services
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die Eigenschaft `privacy.services` enthält Datenschutz-Einstellungen zur Steuerung von Diensten, die entweder vom Browser oder von Drittanbietern angeboten werden. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
+Die `privacy.services`-Eigenschaft enthält datenschutzbezogene Einstellungen, die Dienste steuern, die vom Browser oder von Dritten angeboten werden. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
 
 ## Eigenschaften
 
 - `passwordSavingEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist. Wenn `true`, wird der Passwort-Manager des Browsers anbieten, Passwörter zu speichern, wenn der Benutzer sie eingibt. Standardmäßig `true`.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolean ist. Wenn `true`, bietet der Passwort-Manager des Browsers an, Passwörter zu speichern, wenn der Benutzer sie eingibt. Standardmäßig auf `true` gesetzt.
 
 ## Beispiele
 
-Deaktivieren Sie den Passwort-Manager, wenn möglich.
+Deaktivieren Sie den Passwort-Manager, falls möglich.
 
 ```js
 function onSet(result) {

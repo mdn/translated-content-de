@@ -2,20 +2,18 @@
 title: management.setEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/management/setEnabled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Aktiviert oder deaktiviert das angegebene Add-on.
 
-Diese Funktion muss in der Regel im Kontext einer Benutzeraktion aufgerufen werden, z.B. im Klick-Handler für eine Schaltfläche. Der Browser kann den Benutzer auch bitten, die Änderung zu bestätigen.
+Diese Funktion muss normalerweise im Kontext einer Benutzeraktion aufgerufen werden, beispielsweise im Klick-Handler eines Buttons. Der Browser kann den Benutzer zudem bitten, die Änderung zu bestätigen.
 
 Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Die Funktion erlaubt das Aktivieren/Deaktivieren von Theme-Add-ons, gibt jedoch einen Fehler zurück, wenn versucht wird, andere Arten von Web-Erweiterungen zu aktivieren oder zu deaktivieren.
+Die Funktion ermöglicht das Aktivieren/Deaktivieren von Themen-Add-ons, wird jedoch einen Fehler zurückgeben, wenn sie zum Aktivieren oder Deaktivieren anderer Arten von Web-Erweiterungen verwendet wird.
 
 ## Syntax
 
@@ -29,9 +27,9 @@ let settingEnabled = browser.management.setEnabled(
 ### Parameter
 
 - `id`
-  - : `string`. ID des Add-ons, das aktiviert/deaktiviert werden soll.
+  - : `string`. ID des zu aktivierenden/deaktivierenden Add-ons.
 - `enabled`
-  - : `boolean`. Ob das Add-on aktiviert oder deaktiviert werden soll.
+  - : `boolean`. Gibt an, ob das Add-on aktiviert oder deaktiviert werden soll.
 
 ### Rückgabewert
 
@@ -39,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Wechsel zwischen Aktivierung/Deaktivierung des Add-ons mit der ID "my-add-on":
+Aktivieren/Deaktivieren des Add-ons mit der ID "my-add-on":
 
 ```js
 let id = "my-add-on";
@@ -61,7 +59,7 @@ toggleEnabled(id);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled) API. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

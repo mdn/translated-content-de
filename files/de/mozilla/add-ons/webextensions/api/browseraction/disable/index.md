@@ -2,10 +2,8 @@
 title: browserAction.disable()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/disable
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Deaktiviert die Browser-Aktion für einen Tab, was bedeutet, dass sie nicht angeklickt werden kann, wenn dieser Tab aktiv ist.
 
@@ -24,7 +22,7 @@ browser.browserAction.disable(
 
 ## Beispiele
 
-Deaktivieren Sie die Browser-Aktion, wenn sie angeklickt wird, und aktivieren Sie sie jedes Mal erneut, wenn ein neuer Tab geöffnet wird:
+Deaktivieren Sie die Browser-Aktion, wenn sie angeklickt wird, und aktivieren Sie sie jedes Mal wieder, wenn ein neuer Tab geöffnet wird:
 
 ```js
 browser.tabs.onCreated.addListener(() => {

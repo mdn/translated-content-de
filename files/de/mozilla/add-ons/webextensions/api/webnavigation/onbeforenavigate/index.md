@@ -2,12 +2,10 @@
 title: webNavigation.onBeforeNavigate
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onBeforeNavigate
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ausgelöst, wenn der Browser im Begriff ist, ein Navigationsereignis zu starten.
+Wird ausgelöst, wenn der Browser im Begriff ist, ein Navigationsevent zu starten.
 
 ## Syntax
 
@@ -23,40 +21,40 @@ browser.webNavigation.onBeforeNavigate.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `details`
-      - : `object`. Details über das Navigationsereignis. Siehe den Abschnitt [details](#details) für mehr Informationen.
+      - : `object`. Details über das Navigationsevent. Siehe den [Details](#details)-Abschnitt für weitere Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, welche ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einbeziehen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `tabId`
-  - : `integer`. Die ID des Tabs, in dem die Navigation stattfinden wird.
+  - : `integer`. Die ID des Tabs, in dem die Navigation zu erfolgen hat.
 - `url`
-  - : `string`. Die URL, zu der das gegebene Frame navigieren wird.
+  - : `string`. Die URL, zu der das entsprechende Frame navigieren wird.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht festgelegt. Wenn er festgelegt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführte.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Als er gesetzt war, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
 - `frameId`
-  - : `integer`. Frame, in dem die Navigation stattfinden wird. `0` gibt an, dass die Navigation im obersten Browsing-Kontext des Tabs stattfindet, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert gibt an, dass die Navigation in einem verschachtelten iframe stattfindet. Frame-IDs sind für einen gegebenen Tab und Prozess eindeutig.
+  - : `integer`. Frame, in dem die Navigation zu erfolgen hat. `0` gibt an, dass die Navigation im obersten Browsing-Kontext des Tabs erfolgt, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert gibt an, dass die Navigation in einem verschachtelten `iframe` erfolgt. Frame-IDs sind eindeutig für einen gegebenen Tab und Prozess.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Auf `-1` gesetzt, wenn dies ein oberstes Frame ist.
+  - : `integer`. ID des übergeordneten Frames dieses Frames. Auf `-1` gesetzt, wenn es sich um ein oberster Rahmen handelt.
 - `timeStamp`
-  - : `number`. Der Zeitpunkt, zu dem der Browser die Navigation starten wird, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, zu der der Browser die Navigation zu starten beabsichtigt, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 
 ## Beispiele
 

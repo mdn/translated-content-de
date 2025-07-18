@@ -2,12 +2,10 @@
 title: storage.StorageArea
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein `StorageArea` ist ein Objekt, das einen Speicherbereich repräsentiert.
+StorageArea ist ein Objekt, das einen Speicherbereich repräsentiert.
 
 ## Typ
 
@@ -18,11 +16,11 @@ Werte dieses Typs sind Objekte.
 - {{WebExtAPIRef("storage.StorageArea.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()")}}
-  - : Ermittelt die Menge an Speicherplatz (in Bytes), die von einem oder mehreren gespeicherten Elementen im Speicherbereich verwendet wird.
+  - : Ermittelt die Menge an Speicherplatz (in Bytes), die von einem oder mehreren im Speicherbereich gespeicherten Elementen genutzt wird.
 - {{WebExtAPIRef("storage.StorageArea.set()")}}
-  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn ein Element bereits existiert, wird dessen Wert aktualisiert.
+  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn ein Element bereits existiert, wird sein Wert aktualisiert.
 - {{WebExtAPIRef("storage.StorageArea.setAccessLevel()")}}
-  - : Setzt das Zugriffslevel für den Speicherbereich.
+  - : Legt das Zugriffslevel für den Speicherbereich fest.
 - {{WebExtAPIRef("storage.StorageArea.remove()")}}
   - : Entfernt ein oder mehrere Elemente aus dem Speicherbereich.
 - {{WebExtAPIRef("storage.StorageArea.clear()")}}
@@ -40,7 +38,7 @@ Werte dieses Typs sind Objekte.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageArea) API von Chromium. Diese Dokumentation wurde von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageArea) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

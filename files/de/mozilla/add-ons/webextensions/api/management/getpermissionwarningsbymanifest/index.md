@@ -2,16 +2,14 @@
 title: management.getPermissionWarningsByManifest()
 slug: Mozilla/Add-ons/WebExtensions/API/management/getPermissionWarningsByManifest
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wenn der Benutzer ein Add-on installiert oder aktualisiert, kann der Browser den Benutzer über besonders leistungsstarke [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) warnen, die das Add-on angefordert hat. Nicht alle Berechtigungen führen zu Warnungen, und dieses Verhalten ist nicht in allen Browsern standardisiert.
 
-Wenn der Benutzer ein Add-on installiert oder aktualisiert, kann der Browser den Benutzer vor besonders mächtigen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) warnen, die das Add-on angefordert hat. Nicht alle Berechtigungen führen zu Warnungen, und dieses Verhalten ist nicht standardisiert über verschiedene Browser hinweg.
+Basierend auf dem Text einer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei gibt diese Funktion die Berechtigungswarnungen zurück, die für das resultierende Add-on gegeben würden, als ein Array von Zeichenketten.
 
-Gegeben dem Text einer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei gibt diese Funktion die Berechtigungs-Warnungen zurück, die für das resultierende Add-on gegeben würden, als ein Array von Zeichenketten.
-
-Diese API _erfordert nicht_ die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert _nicht_ die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,15 +24,15 @@ let gettingWarnings = browser.management.getPermissionWarningsByManifest(
 ### Parameter
 
 - `manifestString`
-  - : `string`. Zeichenkette, die die Manifest-Datei enthält. Diese muss ein gültiges Manifest sein: zum Beispiel muss sie alle obligatorischen Manifest-Schlüssel enthalten.
+  - : `string`. Zeichenkette, die die Manifest-Datei enthält. Das muss ein gültiges Manifest sein: Zum Beispiel muss es alle obligatorischen Manifest-Schlüssel enthalten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Zeichenketten erfüllt wird, von denen jede den Text einer Berechtigungs-Warnung enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Zeichenketten erfüllt wird, von denen jede den Text einer Berechtigungswarnung enthält.
 
 ## Beispiele
 
-Protokollieren Sie die Berechtigungs-Warnungen für die gegebene Manifest-Datei:
+Protokollieren Sie die Berechtigungswarnungen für die gegebene Manifest-Datei:
 
 ```js
 let manifest = {
@@ -66,7 +64,7 @@ gettingWarnings.then(gotWarnings, gotError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getPermissionWarningsByManifest) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getPermissionWarningsByManifest) API. Diese Dokumentation ist aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,12 +2,10 @@
 title: notifications.getAll()
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/getAll
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft alle derzeit aktiven Benachrichtigungen ab, die von der Erweiterung erstellt wurden.
+Ruft alle aktuell aktiven Benachrichtigungen ab, die von der Erweiterung erstellt wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,13 +21,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird. Jede derzeit aktive Benachrichtigung ist eine Eigenschaft dieses Objekts: Der Name der Eigenschaft ist die ID der Benachrichtigung, und der Wert der Eigenschaft ist ein {{WebExtAPIRef("notifications.NotificationOptions")}}-Objekt, das diese Benachrichtigung beschreibt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird. Jede aktuell aktive Benachrichtigung ist eine Eigenschaft dieses Objekts: Der Name der Eigenschaft ist die ID der Benachrichtigung, und der Wert der Eigenschaft ist ein {{WebExtAPIRef("notifications.NotificationOptions")}} Objekt, das diese Benachrichtigung beschreibt.
 
-Beachten Sie, dass Sie eine ID für eine Benachrichtigung explizit definieren können, indem Sie sie in {{WebExtAPIRef("notifications.create()")}} übergeben. Wenn Sie dies nicht tun, generiert der Browser eine. Explizit angegebene IDs sind Zeichenfolgen, aber generierte IDs sind Zahlen.
+Beachten Sie, dass Sie eine ID für eine Benachrichtigung explizit definieren können, indem Sie sie in {{WebExtAPIRef("notifications.create()")}} übergeben. Wenn Sie dies nicht tun, generiert der Browser eine. Explizit angegebene IDs sind Zeichenfolgen, während generierte IDs Zahlen sind.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browser-Aktion klickt, es sei denn, die Benachrichtigung wird bereits angezeigt, in diesem Fall wird die Benachrichtigung gelöscht. Es verwendet getAll(), um herauszufinden, ob die Benachrichtigung angezeigt wird:
+Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browseraktion klickt, es sei denn, die Benachrichtigung wurde bereits angezeigt, in diesem Fall wird die Benachrichtigung gelöscht. Es verwendet getAll(), um festzustellen, ob die Benachrichtigung angezeigt wird:
 
 ```js
 const myNotification = "my-notification";
@@ -76,4 +74,4 @@ browser.notifications.getAll().then(logNotifications);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

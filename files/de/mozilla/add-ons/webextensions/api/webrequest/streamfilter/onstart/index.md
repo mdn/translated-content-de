@@ -2,16 +2,14 @@
 title: webRequest.StreamFilter.onstart
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/onstart
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein Event-Handler, der aufgerufen wird, wenn der Stream geöffnet wird und beginnt, Daten zu liefern. Ab diesem Punkt kann die Erweiterung Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}} oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} verwenden.
+Ein Ereignishandler, der aufgerufen wird, wenn der Stream geöffnet wird und kurz davor steht, Daten zu liefern. Ab diesem Punkt kann die Erweiterung Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}, oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} verwenden.
 
 ## Beispiele
 
-Dieses Beispiel ersetzt den Seiteninhalt durch "replacement text":
+Dieses Beispiel wird den Seiteninhalt durch "Ersatztext" ersetzen:
 
 ```js
 function listener(details) {

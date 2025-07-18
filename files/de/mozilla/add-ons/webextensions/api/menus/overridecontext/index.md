@@ -2,16 +2,14 @@
 title: menus.overrideContext()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/overrideContext
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Verstecken Sie alle Standard-Menüelemente von Firefox zugunsten einer benutzerdefinierten Kontextmenü-Oberfläche.
 
-Verstecken Sie alle standardmäßigen Firefox-Menüeinträge zugunsten einer benutzerdefinierten Kontextmenü-Oberfläche.
+Die `overrideContext`-Methode bewirkt, dass die übereinstimmenden Menüelemente dieser Erweiterung statt des Standardmenüs angezeigt werden. Diese Methode sollte von einem [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)-DOM-Event-Handler aufgerufen werden und gilt nur für das Menü, das nach diesem Ereignis geöffnet wird.
 
-Die Methode `overrideContext` sorgt dafür, dass die übereinstimmenden Menüeinträge dieser Erweiterung anstelle des Standardmenüs angezeigt werden. Diese Methode sollte von einem [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) DOM-Event-Handler aufgerufen werden und gilt nur für das Menü, das nach diesem Event geöffnet wird.
-
-Diese Schnittstelle erfordert die `menus.overrideContext` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese Schnittstelle erfordert die `menus.overrideContext`-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 ## Syntax
 
@@ -26,17 +24,17 @@ browser.menus.overrideContext(
 - `contextOptions`
   - : `object`. Optionen dafür, wie die Kontextmenüs überschrieben werden.
     - `showDefaults` {{optional_inline}}
-      - : `boolean`. Ob standardmäßige Menüeinträge ebenfalls im Menü enthalten sein sollen.
+      - : `boolean`. Ob auch Standard-Menüelemente in das Menü aufgenommen werden sollen.
     - `context` {{optional_inline}}
-      - : `string`. Zu überschreibender `ContextType`, um Menüeinträge von anderen Erweiterungen im Menü zuzulassen. Derzeit werden nur `'bookmark'` und `'tab'` unterstützt. `showDefaults` kann nicht mit dieser Option verwendet werden.
+      - : `string`. ContextType, das überschrieben werden soll, um Menüelemente aus anderen Erweiterungen im Menü zuzulassen. Derzeit werden nur `'bookmark'` und `'tab'` unterstützt. `showDefaults` kann nicht mit dieser Option verwendet werden.
     - `bookmarkId` {{optional_inline}}
-      - : `string`. Erforderlich, wenn der Kontext `'bookmark'` ist. Erfordert die 'bookmark'-Berechtigung.
+      - : `string`. Erforderlich, wenn der Kontext `'bookmark'` ist. Erfordert die Berechtigung 'bookmark'.
     - `tabId` {{optional_inline}}
-      - : `integer`. Erforderlich, wenn der Kontext `'tab'` ist. Erfordert die 'tabs'-Berechtigung.
+      - : `integer`. Erforderlich, wenn der Kontext `'tab'` ist. Erfordert die Berechtigung 'tabs'.
 
 ## Beispiele
 
-Öffnen Sie das Tab-Kontextmenü auf Ihrer benutzerdefinierten Oberfläche, in diesem Fall:
+Öffnen Sie das Tab-Kontextmenü in Ihrer benutzerdefinierten UI, in diesem Fall:
 
 ```js
 document.addEventListener(
@@ -56,7 +54,7 @@ document.addEventListener(
 );
 ```
 
-Weitere Details finden Sie in [diesem Blogbeitrag](https://blog.mozilla.org/addons/2018/11/08/extensions-in-firefox-64/#cm).
+Weitere Details finden Sie in [diesem Blog-Beitrag](https://blog.mozilla.org/addons/2018/11/08/extensions-in-firefox-64/#cm).
 
 ## Browser-Kompatibilität
 

@@ -2,14 +2,12 @@
 title: bookmarks.getTree()
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/getTree
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+**`bookmarks.getTree()`** gibt ein Array zurück, das die Wurzel des Lesezeichenbaums als ein {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}}-Objekt enthält.
 
-**`bookmarks.getTree()`** gibt ein Array zurück, das die Wurzel des Lesezeichenbaums als {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}}-Objekt enthält.
-
-Sie können den gesamten Baum rekursiv über seine `children`-Eigenschaft und die `children`-Eigenschaft seiner Nachkommen durchsuchen, wenn diese selbst Ordner sind.
+Sie können auf den gesamten Baum rekursiv über seine `children`-Eigenschaft und die `children`-Eigenschaft seiner Nachkommen zugreifen, wenn diese selbst Ordner sind.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -70,7 +68,7 @@ gettingTree.then(logTree, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getTree) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getTree)-API von Chromium. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

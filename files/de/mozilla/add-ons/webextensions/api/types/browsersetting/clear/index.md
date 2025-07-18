@@ -2,16 +2,14 @@
 title: clear()
 slug: Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/clear
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Verwenden Sie `BrowserSetting.clear()`, um alle Änderungen zu löschen, die die Erweiterung an der Browsereinstellung vorgenommen hat. Die Browsereinstellung wird auf ihren vorherigen Wert zurückgesetzt.
 
-Die Erweiterung gibt auch die Kontrolle über die Einstellung auf, sodass eine Erweiterung mit niedrigerer Priorität (d.h. eine Erweiterung, die vor dieser installiert wurde) die Einstellung ändern kann. Weitere Informationen zur Steuerung von Einstellungen finden Sie unter [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set).
+Die Erweiterung gibt auch die Kontrolle über die Einstellung auf, sodass eine Erweiterung mit niedrigerer Priorität (also eine Erweiterung, die vor dieser installiert wurde) die Einstellung ändern kann. Weitere Informationen zum Steuern von Einstellungen finden Sie unter [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set).
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Wenn das Löschen des Werts fehlschlägt, wird das Promise mit `false` aufgelöst. Wenn das Löschen des Werts erfolgreich war, wird es mit `true` aufgelöst.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Wenn das Löschen des Wertes fehlgeschlagen ist, löst das Promise `false` auf. Wenn das Löschen des Wertes erfolgreich war, löst es `true` auf.
 
 ## Syntax
 
@@ -32,7 +30,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiel
 
-Löschen Sie die Einstellung `webRTCIPHandlingPolicy`:
+Löschen Sie die `webRTCIPHandlingPolicy`-Einstellung:
 
 ```js
 function onCleared(result) {

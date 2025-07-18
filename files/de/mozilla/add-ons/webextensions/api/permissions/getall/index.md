@@ -2,12 +2,10 @@
 title: permissions.getAll()
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/getAll
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt ein {{WebExtAPIRef("permissions.Permissions")}}-Objekt zurück, das alle derzeit der Erweiterung gewährten Berechtigungen enthält.
+Ruft ein {{WebExtAPIRef("permissions.Permissions")}}-Objekt ab, das alle aktuell der Erweiterung gewährten Berechtigungen enthält.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +21,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("permissions.Permissions")}}-Objekt erfüllt wird, welches alle der Erweiterung derzeit gewährten Berechtigungen enthält. Dies beinhaltet alle Berechtigungen, die die Erweiterung im [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)-Schlüssel angegeben hat, und alle im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufgeführten Berechtigungen, die der Erweiterung durch Aufruf von {{WebExtAPIRef("permissions.request()")}} gewährt wurden.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("permissions.Permissions")}}-Objekt erfüllt wird, das alle der Erweiterung aktuell gewährten Berechtigungen enthält. Dies umfasst alle Berechtigungen, die die Erweiterung im Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) aufgelistet hat, sowie alle Berechtigungen, die im Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufgeführt sind und der Erweiterung durch den Aufruf von {{WebExtAPIRef("permissions.request()")}} gewährt wurden.
 
 ## Beispiele
 
@@ -44,4 +42,4 @@ console.log(currentPermissions.origins); // [ "*://*.mozilla.org/*" ]
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions)-API von Chromium.
+> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.

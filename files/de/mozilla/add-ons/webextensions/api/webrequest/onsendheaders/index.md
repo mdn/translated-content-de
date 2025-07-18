@@ -2,14 +2,12 @@
 title: webRequest.onSendHeaders
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/onSendHeaders
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Dieses Ereignis wird ausgelöst, kurz bevor Header gesendet werden. Wenn Ihre Erweiterung oder eine andere Erweiterung Header im {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} modifiziert hat, sehen Sie hier die modifizierte Version.
 
-Dieses Ereignis wird kurz vor dem Senden der Header ausgelöst. Wenn Ihre Erweiterung oder eine andere Erweiterung Header in {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} modifiziert hat, werden Sie die modifizierte Version hier sehen.
-
-Dieses Ereignis ist nur informativ.
+Dieses Ereignis ist rein informativ.
 
 ## Syntax
 
@@ -28,9 +26,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener, filter, extraInfoSpec)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Hören auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob der `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, sonst `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -39,37 +37,37 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `details`
-      - : `object`. Details über die Anfrage. Siehe den Abschnitt [details](#details) für weitere Informationen.
+      - : `object`. Details zur Anfrage. Siehe den Abschnitt [details](#details) für weitere Informationen.
 
 - `filter`
   - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Ein Filter, der die Ereignisse einschränkt, die an diesen Listener gesendet werden.
 - `extraInfoSpec` {{optional_inline}}
-  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können hier nur einen Wert angeben:
-    - `"requestHeaders"`: schließt die Anforderungsheader im `details`-Objekt ein, das an den Listener übergeben wird.
+  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können hier nur einen Wert übergeben:
+    - `"requestHeaders"`: Einschließen der Anforderungs-Header im `details`-Objekt, das an den Listener übergeben wird
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `cookieStoreId`
-  - : `string`. Wenn die Anfrage von einem Tab mit einer kontextuellen Identität stammt, die Cookie-Store-ID der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+  - : `string`. Wenn die Anfrage von einem Tab stammt, der in einer kontextuellen Identität geöffnet ist, die Cookie-Store-ID der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 - `documentUrl`
-  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn beispielsweise die Webseite unter "https://example.com" ein Bild oder ein iframe enthält, dann wird die `documentUrl` für das Bild oder iframe "https://example.com" sein. Für ein Dokument auf oberster Ebene ist `documentUrl` undefiniert.
+  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Beispiel: Wenn die Webseite unter "https://example.com" ein Bild oder ein Iframe enthält, dann ist die `documentUrl` für das Bild oder Iframe "https://example.com". Für ein Dokument auf oberster Ebene ist `documentUrl` undefiniert.
 - `frameId`
-  - : `integer`. Null, wenn die Anfrage im Hauptframe stattfindet; ein positiver Wert ist die ID eines Unterframes, in dem die Anfrage stattfindet. Wenn das Dokument eines (Unter-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Frames an, nicht die ID des äußeren Frames. Frame-IDs sind einzigartig innerhalb eines Tabs.
+  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unter-Frames, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), weist `frameId` die ID dieses Frames zu, nicht die ID des äußeren Frames. Frame-IDs sind eindeutig innerhalb eines Tabs.
 - `incognito`
-  - : `boolean`. Ob die Anfrage von einem Fenster im privaten Modus stammt.
+  - : `boolean`. Ob die Anfrage aus einem privaten Browserfenster stammt.
 - `method`
   - : `string`. Standard-HTTP-Methode: zum Beispiel "GET" oder "POST".
 - `originUrl`
-  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Wenn beispielsweise "https://example.com" einen Link enthält und der Benutzer auf den Link klickt, dann ist die `originUrl` für die resultierende Anfrage "https://example.com".
+  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Beispiel: Wenn "https://example.com" einen Link enthält und der Benutzer auf den Link klickt, dann ist die `originUrl` für die resultierende Anfrage "https://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer, die gleiche wie die `documentUrl`. Wenn zum Beispiel eine Seite ein iframe enthält und das iframe einen Link enthält, der ein neues Dokument in das iframe lädt, dann wird die `documentUrl` für die resultierende Anfrage das Parent-Dokument des iframes sein, die `originUrl` jedoch die URL des Dokuments im iframe, das den Link enthielt.
+    Die `originUrl` ist häufig, aber nicht immer identisch mit der `documentUrl`. Beispiel: Wenn eine Seite ein Iframe enthält und das Iframe einen Link enthält, der ein neues Dokument in das Iframe lädt, dann ist die `documentUrl` für die resultierende Anfrage das Iframe-übergeordnete Dokument, aber die `originUrl` ist die URL des Dokuments im Iframe, das den Link enthielt.
 
 - `parentFrameId`
-  - : `integer`. ID des Frames, der den Frame enthält, der die Anfrage gesendet hat. Auf -1 gesetzt, wenn kein übergeordneter Frame existiert.
+  - : `integer`. ID des Frames, der den Frame enthält, der die Anfrage gesendet hat. Setzt auf -1, wenn kein übergeordneter Frame existiert.
 - `proxyInfo`
-  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy weitergeleitet wird. Es enthält die folgenden Eigenschaften:
+  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy geleitet wird. Sie enthält die folgenden Eigenschaften:
     - `host`
       - : `string`. Der Hostname des Proxy-Servers.
     - `port`
@@ -77,56 +75,56 @@ Ereignisse haben drei Funktionen:
     - `type`
       - : `string`. Der Typ des Proxy-Servers. Einer von:
         - "http": HTTP-Proxy (oder SSL CONNECT für HTTPS)
-        - "https": HTTP-Proxying über TLS-Verbindung zum Proxy
+        - "https": HTTP-Proxy über TLS-Verbindung zum Proxy
         - "socks": SOCKS v5-Proxy
         - "socks4": SOCKS v4-Proxy
         - "direct": kein Proxy
         - "unknown": unbekannter Proxy
 
     - `username`
-      - : `string`. Benutzername für den Proxy-Dienst.
+      - : `string`. Benutzername für den Proxydienst.
     - `proxyDNS`
-      - : `boolean`. `true`, wenn der Proxy die Namensauflösung basierend auf dem bereitgestellten Hostnamen durchführen wird, was bedeutet, dass der Client keine eigene DNS-Abfrage durchführen sollte.
+      - : `boolean`. Wahr, wenn der Proxy die DNS-Auflösung basierend auf dem angegebenen Hostnamen durchführt, was bedeutet, dass der Client keine eigene DNS-Abfrage durchführen sollte.
     - `failoverTimeout`
-      - : `integer`. Ausfallzeit in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht erneut verwendet.
+      - : `integer`. Failover-Timeout in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht wieder verwendet.
 
 - `requestId`
-  - : `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browser-Sitzung einzigartig, sodass sie verwendet werden können, um verschiedene Ereignisse zu verknüpfen, die mit derselben Anfrage verbunden sind.
+  - : `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse zu verknüpfen, die mit derselben Anfrage verbunden sind.
 - `requestHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Header der Anfrage, die mit dieser Anfrage gesendet wurden.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Anforderungs-Header, die mit dieser Anfrage gesendet wurden.
 - `tabId`
-  - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Auf -1 gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
+  - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Setzt auf -1, wenn die Anfrage nicht mit einem Tab verbunden ist.
 - `thirdParty`
-  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Drittanbietern stammt.
+  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie Drittanbieter sind.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Der Zeitpunkt, zu dem dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `type`
   - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel "image", "script", "stylesheet".
 - `url`
   - : `string`. Ziel der Anfrage.
 - `urlClassification`
-  - : `object`. Die Art des Trackings, das mit der Anfrage assoziiert ist, wenn die Anfrage von [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
+  - : `object`. Der Typ der Verfolgung, die mit der Anfrage verbunden ist, falls die Anfrage durch [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
     - `firstParty`
-      - : `array` von `string`. Klassifizierungsflags für die First-Party der Anfrage.
+      - : `array` von `string`. Klassifizierungsflags für den First-Party-Teil der Anfrage.
     - `thirdParty`
       - : `array` von `string`. Klassifizierungsflags für die Drittparteien der Anfrage oder ihrer Fensterhierarchie.
 
-    Die Klassifizierungsflags umfassen:
-    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage am Fingerprinting beteiligt ist ("ein Ursprung, der unternommen wurde, um zu fingerprintern").
-      - `fingerprinting` zeigt an, dass die Domain zur Fingerprinting- und Tracking-Kategorie gehört. Beispiele für diese Art von Domain sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
-      - `fingerprinting_content` zeigt an, dass die Domain zur Fingerprinting-Kategorie gehört, aber nicht zur Tracking-Kategorie. Beispiele für diese Art von Domain sind Zahlungsdienstleister, die Fingerprinting-Techniken verwenden, um den Besuchern zur Betrugsbekämpfung zu identifizieren.
-    - `cryptomining` und `cryptomining_content`: ähnlich wie die Kategorie Fingerprinting, aber für Kryptomining-Ressourcen.
-    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: zeigt an, dass die Anfrage am Tracking beteiligt ist. `tracking` ist jede generische Tracking-Anfrage, die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Trackers.
-    - `emailtracking` und `emailtracking_content`: zeigt an, dass die Anfrage an der E-Mail-Verfolgung beteiligt ist.
-    - `any_basic_tracking`: ein Meta-Flag, das Tracking- und Fingerprinting-Flags kombiniert, mit Ausnahme von `tracking_content` und `fingerprinting_content`.
-    - `any_strict_tracking`: ein Meta-Flag, das alle Tracking- und Fingerprinting-Flags kombiniert.
-    - `any_social_tracking`: ein Meta-Flag, das alle Social-Tracking-Flags kombiniert.
+    Die Klassifizierungsflags beinhalten:
+    - `fingerprinting` und `fingerprinting_content`: gibt an, dass die Anfrage mit Fingerabdruckserstellung zu tun hat ("ein Ursprung, der Fingerabdruck erstellt").
+      - `fingerprinting` gibt an, dass die Domain in der Kategorie für Fingerabdruckserstellung und -verfolgung ist. Beispiele für diese Art von Domain sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
+      - `fingerprinting_content` gibt an, dass die Domain in der Kategorie für Fingerabdruckserstellung, aber nicht in der Verfolgungskategorie ist. Beispiele für diese Art von Domain sind Zahlungsanbieter, die Fingerabdrucktechniken verwenden, um den besuchenden Benutzer zu Identifizierung bei Betrugsbekämpfung zu nutzen.
+    - `cryptomining` und `cryptomining_content`: ähnlich der Fingerabdruckskategorie, aber für Ressourcen zum Krypto-Mining.
+    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: gibt an, dass die Anfrage mit Verfolgung zu tun hat. `tracking` ist jede allgemeine Verfolgungsanfrage, die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Verfolgers.
+    - `emailtracking` und `emailtracking_content`: gibt an, dass die Anfrage mit der Verfolgung von E-Mails zu tun hat.
+    - `any_basic_tracking`: ein Metaflag, das Tracking- und Fingerabdrucksflags kombiniert, mit Ausnahme von `tracking_content` und `fingerprinting_content`.
+    - `any_strict_tracking`: ein Metaflag, das alle Tracking- und Fingerabdrucksflags kombiniert.
+    - `any_social_tracking`: ein Metaflag, das alle sozialen Tracking-Flags kombiniert.
 
-    Weitere Informationen zu Trackertypen finden Sie auf der Website von [disconnect.me](https://disconnect.me/trackerprotection#categories_of_trackers). Das Suffix `content` zeigt Tracker an, die Inhalte verfolgen und bereitstellen. Das Blockieren dieser schützt Benutzer, kann jedoch dazu führen, dass Seiten fehlerhaft sind oder Elemente nicht angezeigt werden.
+    Weitere Informationen über Typen von Trackern finden Sie auf der [disconnect.me](https://disconnect.me/trackerprotection#categories_of_trackers) Webseite. Das `content`-Suffix zeigt Tracker an, die verfolgen und Inhalte bereitstellen. Die Blockierung schützt Benutzer, kann jedoch dazu führen, dass Websites nicht richtig funktionieren oder Elemente nicht angezeigt werden.
 
 ## Beispiele
 
-Dieser Code protokolliert alle Cookies, die beim Anfragen an das Ziel gesendet werden [match pattern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns):
+Dieser Code protokolliert alle Cookies, die beim Anfragen an das Ziel [Übereinstimmungsmuster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) gesendet werden:
 
 ```js
 // The target match pattern
@@ -157,4 +155,4 @@ browser.webRequest.onSendHeaders.addListener(
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onSendHeaders) API. Diese Dokumentation stammt von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onSendHeaders) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.

@@ -2,10 +2,8 @@
 title: management.onDisabled()
 slug: Mozilla/Add-ons/WebExtensions/API/management/onDisabled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn ein Add-on deaktiviert wird.
 
@@ -24,11 +22,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, ansonsten `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -39,7 +37,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokollieren Sie die Namen von Add-ons, wenn sie deaktiviert werden:
+Protokollieren Sie die Namen der Add-ons, wenn sie deaktiviert werden:
 
 ```js
 browser.management.onDisabled.addListener((info) => {
@@ -54,7 +52,7 @@ browser.management.onDisabled.addListener((info) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onDisabled) API. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onDisabled) API von Chromium. Diese Dokumentation wird aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

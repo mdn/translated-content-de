@@ -2,12 +2,10 @@
 title: userScripts.getWorldConfigurations()
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts/getWorldConfigurations
 l10n:
-  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt alle im `USER_SCRIPT`-World registrierten Konfigurationen zurück, die von der Erweiterung mit {{WebExtAPIRef("userScripts.configureWorld()")}} registriert wurden.
+Gibt alle `USER_SCRIPT`-Weltkonfigurationen zurück, die von der Erweiterung mit {{WebExtAPIRef("userScripts.configureWorld()")}} registriert wurden.
 
 ## Syntax
 
@@ -17,7 +15,7 @@ const gettingWorldConfigurations = await browser.userScripts.getWorldConfigurati
 
 ### Parameter
 
-Diese Funktion nimmt keine Parameter.
+Diese Funktion nimmt keine Parameter an.
 
 ### Rückgabewert
 

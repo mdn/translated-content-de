@@ -2,31 +2,29 @@
 title: idle
 slug: Mozilla/Add-ons/WebExtensions/API/idle
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Erfahren Sie, wann das System des Benutzers im Leerlauf, gesperrt oder aktiv ist.
 
-Ermitteln Sie, wann das System des Benutzers inaktiv, gesperrt oder aktiv ist.
-
-Um diese API zu nutzen, benötigen Sie die "idle"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Um diese API zu nutzen, müssen Sie die "idle"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
 
 ## Typen
 
 - {{WebExtAPIRef("idle.IdleState")}}
-  - : String, der den Inaktivitätsstatus des Geräts beschreibt.
+  - : String, der den Leerlaufzustand des Geräts beschreibt.
 
 ## Funktionen
 
 - {{WebExtAPIRef("idle.queryState()")}}
-  - : Gibt `"locked"` zurück, wenn das System gesperrt ist, `"idle"`, wenn der Benutzer für eine bestimmte Anzahl von Sekunden keine Eingabe gemacht hat, oder `"active"` ansonsten.
+  - : Gibt `"locked"` zurück, wenn das System gesperrt ist, `"idle"`, wenn der Benutzer eine bestimmte Anzahl von Sekunden keine Eingabe gemacht hat, oder `"active"` andernfalls.
 - {{WebExtAPIRef("idle.setDetectionInterval()")}}
-  - : Legt das Intervall fest, das verwendet wird, um festzustellen, wann sich das System im Inaktivitätszustand für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse befindet.
+  - : Legt das Intervall fest, das verwendet wird, um zu bestimmen, wann das System im Leerlaufzustand für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse ist.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("idle.onStateChanged")}}
-  - : Wird ausgelöst, wenn sich der Zustand des Systems ändert.
+  - : Wird ausgelöst, wenn das System den Zustand ändert.
 
 {{WebExtExamples("h2")}}
 
@@ -35,7 +33,7 @@ Um diese API zu nutzen, benötigen Sie die "idle"-[Berechtigung](/de/docs/Mozill
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle)-API von Chromium. Diese Dokumentation basiert auf [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle)-API von Chromium. Diese Dokumentation stammt aus [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

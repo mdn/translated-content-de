@@ -2,34 +2,32 @@
 title: Arbeiten mit der Tabs-API
 slug: Mozilla/Add-ons/WebExtensions/Working_with_the_Tabs_API
 l10n:
-  sourceCommit: fd56a549d24a8002df09735ee8319ce1a721c233
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Tabs ermöglichen es einem Benutzer, mehrere Webseiten in seinem Browserfenster zu öffnen und dann zwischen diesen Webseiten zu wechseln. Mit der Tabs-API können Sie diese Tabs bearbeiten und manipulieren, um Hilfsprogramme zu erstellen, die den Benutzern neue Möglichkeiten bieten, mit Tabs zu arbeiten oder die Funktionen Ihrer Erweiterung bereitzustellen.
 
-Mit Tabs kann ein Benutzer mehrere Webseiten in seinem Browserfenster öffnen und dann zwischen diesen Webseiten wechseln. Mit der Tabs-API können Sie mit diesen Tabs arbeiten und sie manipulieren, um Hilfsprogramme zu erstellen, die den Benutzern neue Möglichkeiten bieten, mit Tabs zu arbeiten oder die Funktionen Ihrer Erweiterung bereitzustellen.
+In diesem Anleitung-Artikel werden wir uns mit folgenden Themen beschäftigen:
 
-In diesem Artikel werden wir Folgendes behandeln:
+- Berechtigungen, die für die Verwendung der Tabs-API erforderlich sind.
+- Erfahren Sie mehr über Tabs und ihre Eigenschaften mit {{WebExtAPIRef("tabs.query")}}.
+- Erstellen, duplizieren, verschieben, aktualisieren, neu laden und entfernen von Tabs.
+- Manipulieren des Zoom-Levels eines Tabs.
+- Manipulieren von CSS eines Tabs.
 
-- Notwendige Berechtigungen für die Nutzung der Tabs-API.
-- Mehr über Tabs und ihre Eigenschaften herausfinden mit {{WebExtAPIRef("tabs.query")}}.
-- Erstellen, Duplizieren, Verschieben, Aktualisieren, Neuladen und Entfernen von Tabs.
-- Manipulation der Zoomstufe eines Tabs.
-- Manipulation der CSS eines Tabs.
-
-Abschließend werfen wir einen Blick auf einige weitere, sonstige Funktionen, die von der API angeboten werden.
+Zum Schluss betrachten wir einige andere, verschiedene Funktionen, die die API bietet.
 
 > [!NOTE]
-> Einige Funktionen der Tabs-API werden an anderer Stelle behandelt. Dies sind die Methoden, die Sie verwenden können, um Tab-Inhalte mit Skripten zu manipulieren ({{WebExtAPIRef("tabs.connect")}}, {{WebExtAPIRef("tabs.sendMessage")}} und {{WebExtAPIRef("tabs.executeScript")}}). Wenn Sie mehr Informationen zu diesen Methoden wünschen, lesen Sie den Konzept-Artikel [Inhaltsskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) und die Anleitung [Eine Webseite ändern](/de/docs/Mozilla/Add-ons/WebExtensions/Modify_a_web_page).
+> Es gibt einige Tab-API-Funktionen, die an anderer Stelle behandelt werden. Dies sind die Methoden, die Sie verwenden können, um Tab-Inhalte mit Skripten zu manipulieren ({{WebExtAPIRef("tabs.connect")}}, {{WebExtAPIRef("tabs.sendMessage")}} und {{WebExtAPIRef("tabs.executeScript")}}). Wenn Sie mehr Informationen zu diesen Methoden benötigen, lesen Sie den Konzepte-Artikel [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) und die Anleitung [Eine Webseite modifizieren](/de/docs/Mozilla/Add-ons/WebExtensions/Modify_a_web_page).
 
 ## Berechtigungen und die Tabs-API
 
-Für die meisten Funktionen der Tabs-API benötigen Sie keine Berechtigungen; es gibt jedoch einige Ausnahmen:
+Für die Mehrheit der Funktionen der Tabs-API benötigen Sie keine Berechtigungen; es gibt jedoch einige Ausnahmen:
 
-- Die Berechtigung `"tabs"` wird benötigt, um auf die Eigenschaften `Tab.url`, `Tab.title` und `Tab.favIconUrl` des Tab-Objekts zuzugreifen. In Firefox benötigen Sie `"tabs"` auch, um eine [Abfrage](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query) nach URL durchzuführen.
+- Die Berechtigung `"tabs"` ist erforderlich, um auf die Eigenschaften `Tab.url`, `Tab.title` und `Tab.favIconUrl` des Tab-Objekts zuzugreifen. In Firefox benötigen Sie `"tabs"` auch, um eine [Abfrage](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query) nach URL durchzuführen.
 - [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist erforderlich für {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}}.
 
-Im Folgenden wird gezeigt, wie Sie die Berechtigung `"tabs"` in der Datei manifest.json Ihrer Erweiterung anfordern könnten:
+So können Sie die `"tabs"`-Berechtigung in Ihrer manifest.json-Datei Ihrer Erweiterung anfordern:
 
 ```json
 "permissions": [
@@ -38,29 +36,29 @@ Im Folgenden wird gezeigt, wie Sie die Berechtigung `"tabs"` in der Datei manife
 ],
 ```
 
-Diese Anfrage ermöglicht Ihnen die Nutzung aller Funktionen der Tabs-API auf allen Websites, die Ihr Benutzer besucht. Es gibt auch einen alternativen Ansatz zur Anforderung von Berechtigungen zur Verwendung von {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}}, bei dem Sie keine Host-Berechtigung benötigen, in Form von [`"activeTab"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission). Diese Berechtigung bietet dieselben Rechte wie `"tabs"` mit `<all_urls>`, jedoch mit zwei Einschränkungen:
+Diese Anfrage erlaubt Ihnen die Verwendung aller Funktionen der Tabs-API auf allen Websites, die Ihr Benutzer besucht. Es gibt auch einen alternativen Ansatz, um Berechtigungen für die Verwendung von {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}} anzufordern, bei dem keine Host-Berechtigung erforderlich ist, in Form von [`"activeTab"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission). Diese Berechtigung bietet die gleichen Rechte wie `"tabs"` mit `<all_urls>`, jedoch mit zwei Einschränkungen:
 
-- Der Benutzer muss über die Browser- oder Seitenaktion der Erweiterung, das Kontextmenü oder eine Tastenkombination mit der Erweiterung interagieren.
-- Sie gewährt nur innerhalb des aktiven Tabs eine Berechtigung.
+- Der Benutzer muss über die Browser- oder Seitenaktion der Erweiterung, über das Kontextmenü oder Shortcut-Taste mit der Erweiterung interagieren.
+- Sie gewährt nur Zugriff innerhalb des aktiven Tabs.
 
-Der Vorteil dieses Ansatzes ist, dass der Benutzer keine Berechtigungswarnung erhält, die besagt, dass Ihre Erweiterung "Auf Ihre Daten für alle Websites zugreifen kann". Dies liegt daran, dass die `<all_urls>`-Berechtigung einer Erweiterung die Möglichkeit gibt, Skripte in jedem Tab zu jedem Zeitpunkt auszuführen, wohingegen [`"activeTab"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) darauf beschränkt ist, der Erweiterung zu erlauben, eine vom Benutzer angeforderte Aktion im aktuellen Tab auszuführen.
+Der Vorteil dieses Ansatzes ist, dass der Benutzer keine Warnung erhält, die besagt, dass Ihre Erweiterung "Ihre Daten für alle Websites zugreifen" kann. Dies liegt daran, dass die Berechtigung `<all_urls>` einer Erweiterung die Möglichkeit gibt, in jedem Tab zu jedem Zeitpunkt Skripte auszuführen, während [`"activeTab"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) auf die Ausführung einer benutzerangeforderten Aktion im aktuellen Tab beschränkt ist.
 
-## Mehr über Tabs und ihre Eigenschaften herausfinden
+## Mehr über Tabs und deren Eigenschaften entdecken
 
-Es wird Gelegenheiten geben, bei denen Sie eine Liste aller Tabs in allen Browserfenstern erhalten möchten. Zu anderen Zeiten möchten Sie vielleicht eine Teilmenge von Tabs finden, die bestimmten Kriterien entspricht, z. B. solche, die von einem spezifischen Tab geöffnet wurden oder Seiten von einer bestimmten Domain anzeigen. Und sobald Sie Ihre Tab-Liste haben, möchten Sie wahrscheinlich mehr über ihre Eigenschaften erfahren.
+Es wird Gelegenheiten geben, bei denen Sie eine Liste aller Tabs in allen Browserfenstern erhalten möchten. Manchmal möchten Sie möglicherweise einen Teil der Tabs finden, die einige spezifische Kriterien erfüllen, wie z. B. diejenigen, die von einem bestimmten Tab geöffnet wurden oder Seiten von einer bestimmten Domain anzeigen. Und sobald Sie Ihre Liste der Tabs haben, möchten Sie wahrscheinlich mehr über deren Eigenschaften erfahren.
 
-Hierbei kommt {{WebExtAPIRef("tabs.query()")}} ins Spiel. Allein verwendet, um alle Tabs zu erhalten, oder mit dem `queryInfo`-Objekt, um Abfragekriterien anzugeben, z. B. ob der Tab aktiv, im aktuellen Fenster oder eines von mehr als 17 Kriterien ist, gibt {{WebExtAPIRef("tabs.query()")}} ein Array von {{WebExtAPIRef("tabs.Tab")}}-Objekten zurück, die Informationen über die Tabs enthalten.
+Hier kommt {{WebExtAPIRef("tabs.query()")}} ins Spiel. Alleine verwendet, um alle Tabs abzurufen oder das `queryInfo`-Objekt zu übernehmen – um Abfragekriterien anzugeben, wie ob der Tab aktiv ist, im aktuellen Fenster oder eine oder mehrere von 17 Kriterien erfüllt – gibt {{WebExtAPIRef("tabs.query()")}} ein Array von {{WebExtAPIRef("tabs.Tab")}}-Objekten zurück, die Informationen über die Tabs enthalten.
 
-Wenn Sie nur Informationen über den aktuellen Tab wünschen, können Sie ein {{WebExtAPIRef("tabs.Tab")}}-Objekt für diesen Tab mit {{WebExtAPIRef("tabs.getCurrent()")}} erhalten. Wenn Sie die ID eines Tabs haben, können Sie sein {{WebExtAPIRef("tabs.Tab")}}-Objekt mit {{WebExtAPIRef("tabs.get()")}} abrufen.
+Wenn Sie Informationen nur über den aktuellen Tab wünschen, können Sie ein {{WebExtAPIRef("tabs.Tab")}}-Objekt für diesen Tab mit {{WebExtAPIRef("tabs.getCurrent()")}} abrufen. Wenn Sie die ID eines Tabs haben, können Sie sein {{WebExtAPIRef("tabs.Tab")}}-Objekt mit {{WebExtAPIRef("tabs.get()")}} abrufen.
 
-### Anleitung
+### Anleitung Beispiel
 
-Um zu sehen, wie {{WebExtAPIRef("tabs.query()")}} und {{WebExtAPIRef("tabs.Tab")}} verwendet werden, führen wir durch, wie das [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/main/tabs-tabs-tabs)-Beispiel die Liste der "Zu Tabs wechseln" zu seinem Popup-Schaltflächenmenü hinzufügt.
+Um zu sehen, wie {{WebExtAPIRef("tabs.query()")}} und {{WebExtAPIRef("tabs.Tab")}} verwendet werden, lassen Sie uns durchgehen, wie das [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/main/tabs-tabs-tabs)-Beispiel die Liste der "zu Tabs wechseln" zu seinem Toolbar-Button-Popup hinzufügt.
 
-![Das Tabs-Werkzeugleistenmenü zeigt den Bereich "Zu Tabs wechseln"](switch_to_tab.png)
+![Das Tabs-Toolbar-Menü zeigt den Bereich "Zu Tab wechseln"](switch_to_tab.png)
 
 - manifest.json
-  - : Hier ist die [`manifest.json`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/manifest.json):
+  - : Hier ist das [`manifest.json`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/manifest.json):
 
     ```json
     {
@@ -79,8 +77,8 @@ Um zu sehen, wie {{WebExtAPIRef("tabs.query()")}} und {{WebExtAPIRef("tabs.Tab")
 
     > [!NOTE]
     >
-    > - **`tabs.html` ist als `default_popup` in `browser_action` definiert.** Es wird angezeigt, wann immer der Benutzer auf das Symbol der Erweiterung in der Werkzeugleiste klickt.
-    > - **Berechtigungen schließen Tabs ein.** Dies ist erforderlich, um die Tab-Liste zu unterstützen, da die Erweiterung die Titel der Tabs liest, um sie im Popup anzuzeigen.
+    > - **`tabs.html` ist als `default_popup` in `browser_action` definiert.** Es wird angezeigt, wenn der Benutzer auf das Symbol der Erweiterung in der Symbolleiste klickt.
+    > - **Die Berechtigungen umfassen Tabs.** Dies ist erforderlich, um die Tab-Liste zu unterstützen, da die Erweiterung den Titel der Tabs liest, um ihn im Popup anzuzeigen.
 
 - tabs.html
   - : `tabs.html` definiert den Inhalt des Popups der Erweiterung:
@@ -117,23 +115,23 @@ Um zu sehen, wie {{WebExtAPIRef("tabs.query()")}} und {{WebExtAPIRef("tabs.Tab")
     </html>
     ```
 
-    Folgendes wird ausgeführt:
+    Dies tut Folgendes:
     1. Die Menüelemente werden deklariert.
     2. Ein leerer `div` mit der ID `tabs-list` wird deklariert, um die Liste der Tabs zu enthalten.
     3. `tabs.js` wird aufgerufen.
 
 - tabs.js
-  - : In [`tabs.js`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.js) sehen wir, wie die Liste der Tabs erstellt und dem Popup hinzugefügt wird.
+  - : In [`tabs.js`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.js) werden wir sehen, wie die Liste der Tabs erstellt und dem Popup hinzugefügt wird.
 
 #### Erstellen des Popups
 
-Zunächst wird ein Ereignishandler hinzugefügt, um `listTabs()` auszuführen, wenn `tabs.html` geladen wird:
+Zunächst wird ein Event-Handler hinzugefügt, um `listTabs()` auszuführen, wenn `tabs.html` geladen wird:
 
 ```js
 document.addEventListener("DOMContentLoaded", listTabs);
 ```
 
-Das Erste, was `listTabs()` tut, ist `getCurrentWindowTabs()` aufzurufen. Hier wird {{WebExtAPIRef("tabs.query()")}} verwendet, um ein {{WebExtAPIRef("tabs.Tab")}}-Objekt für die Tabs im aktuellen Fenster zu erhalten:
+Das erste, was `listTabs()` tut, ist, `getCurrentWindowTabs()` aufzurufen. Hierbei wird {{WebExtAPIRef("tabs.query()")}} verwendet, um ein {{WebExtAPIRef("tabs.Tab")}}-Objekt für die Tabs im aktuellen Fenster zu erhalten:
 
 ```js
 function getCurrentWindowTabs() {
@@ -143,12 +141,12 @@ function getCurrentWindowTabs() {
 
 Nun ist `listTabs()` bereit, den Inhalt für das Popup zu erstellen.
 
-Zu Beginn:
+Zunächst:
 
-1. Das Element `<div id="tabs-list">` erfassen.
-2. Ein Dokument-Fragment erstellen (in das die Liste aufgebaut wird).
-3. Zähler setzen.
-4. Den Inhalt des Elements `<div id="tabs-list">` leeren.
+1. Holen Sie sich das `<div id="tabs-list">`-Element.
+2. Erstellen Sie ein Dokumentfragment (in dem die Liste erstellt wird).
+3. Setzen Sie Zähler.
+4. Löschen Sie den Inhalt des `<div id="tabs-list">`-Elements.
 
 ```js
 function listTabs() {
@@ -164,12 +162,12 @@ function listTabs() {
 }
 ```
 
-Als Nächstes erstellen wir die Links für jeden Tab:
+Als nächstes erstellen wir die Links für jeden Tab:
 
-1. Durchläuft die ersten 5 Elemente des {{WebExtAPIRef("tabs.Tab")}}-Objekts.
-2. Für jedes Element wird ein Hyperlink zum Dokument-Fragment hinzugefügt.
-   - Das Label des Links, also sein Text, wird mit dem `title` des Tabs gesetzt (oder der `id`, wenn er keinen `title` hat).
-   - Die Adresse des Links wird mit der `id` des Tabs gesetzt.
+1. Schleifen durch die ersten 5 Elemente aus dem {{WebExtAPIRef("tabs.Tab")}}-Objekt.
+2. Für jedes Element fügen Sie dem Dokumentfragment einen Hyperlink hinzu.
+   - Das Label des Links — das heißt, sein Text — wird mit dem `title` des Tabs festgelegt (oder der `id`, wenn kein `title` vorhanden ist).
+   - Die Adresse des Links wird mit der `id` des Tabs festgelegt.
 
 ```js
 function listTabs() {
@@ -193,7 +191,7 @@ function listTabs() {
 }
 ```
 
-Schließlich wird das Dokument-Fragment in das Element `<div id="tabs-list">` geschrieben:
+Schließlich wird das Dokumentfragment in das `<div id="tabs-list">`-Element geschrieben:
 
 ```js
 function listTabs() {
@@ -206,7 +204,7 @@ function listTabs() {
 
 #### Arbeiten mit dem aktiven Tab
 
-Eine weitere verwandte Beispiel-Funktion ist die "Aktiven Tab alarmieren"-Infooption, die alle {{WebExtAPIRef("tabs.Tab")}}-Objekteigenschaften für den aktiven Tab in einem Alert ausgibt:
+Eine weitere verwandte Beispiel-Funktion ist die "Warnung aktiven Tab"-Info-Option, die alle {{WebExtAPIRef("tabs.Tab")}}-Objekteigenschaften für den aktiven Tab in eine Warnmeldung ausgibt:
 
 ```js
 // Other if conditions...
@@ -221,7 +219,7 @@ if (e.target.id === "tabs-alert-info") {
 }
 ```
 
-Wo `callOnActiveTab()` das aktive Tab-Objekt findet, indem durch die {{WebExtAPIRef("tabs.Tab")}}-Objekte geloopt wird und nach dem Element gesucht wird, bei dem aktiv gesetzt ist:
+Wo `callOnActiveTab()` das aktive Tab-Objekt durch Schleifen durch die {{WebExtAPIRef("tabs.Tab")}}-Objekte findet und das Element sucht, das auf aktiv gesetzt ist:
 
 ```js
 document.addEventListener("click", (e) => {
@@ -237,43 +235,43 @@ document.addEventListener("click", (e) => {
 });
 ```
 
-## Erstellen, duplizieren, verschieben, aktualisieren, neuladen und entfernen von Tabs
+## Erstellen, duplizieren, verschieben, aktualisieren, neu laden und entfernen von Tabs
 
-Nachdem Sie Informationen über die Tabs gesammelt haben, möchten Sie wahrscheinlich etwas mit ihnen tun, sei es, um Benutzern Funktionen zur Manipulation und Verwaltung von Tabs anzubieten oder um Funktionalitäten in Ihrer Erweiterung zu implementieren.
+Nachdem Sie Informationen über die Tabs gesammelt haben, möchten Sie wahrscheinlich etwas mit ihnen tun – entweder um Benutzern Funktionen zum Manipulieren und Verwalten von Tabs zu bieten oder um Funktionalität in Ihrer Erweiterung zu implementieren.
 
-Die folgenden Funktionen stehen zur Verfügung:
+Folgende Funktionen stehen zur Verfügung:
 
-- Erstellen eines neuen Tabs ({{WebExtAPIRef("tabs.create()")}}).
-- Duplizieren eines Tabs ({{WebExtAPIRef("tabs.duplicate()")}}).
-- Entfernen eines Tabs ({{WebExtAPIRef("tabs.remove()")}}).
-- Verschieben eines Tabs ({{WebExtAPIRef("tabs.move()")}}).
-- Aktualisieren der URL des Tabs—(effektiv zu einer neuen Seite navigieren)—({{WebExtAPIRef("tabs.update()")}}).
-- Neuladen der Seite des Tabs ({{WebExtAPIRef("tabs.reload()")}}).
+- einen neuen Tab erstellen ({{WebExtAPIRef("tabs.create()")}}).
+- einen Tab duplizieren ({{WebExtAPIRef("tabs.duplicate()")}}).
+- einen Tab entfernen ({{WebExtAPIRef("tabs.remove()")}}).
+- einen Tab verschieben ({{WebExtAPIRef("tabs.move()")}}).
+- die URL des Tabs aktualisieren — effektiv zu einer neuen Seite browsen — ({{WebExtAPIRef("tabs.update()")}}).
+- die Seite des Tabs neu laden ({{WebExtAPIRef("tabs.reload()")}}).
 
 > [!NOTE]
-> Diese Funktionen benötigen alle die ID (oder IDs) des Tabs, den sie manipulieren:
+> Diese Funktionen erfordern alle die ID (oder IDs) des Tabs, den sie manipulieren:
 >
 > - {{WebExtAPIRef("tabs.duplicate()")}}
 > - {{WebExtAPIRef("tabs.remove()")}}
 > - {{WebExtAPIRef("tabs.move()")}}
 >
-> Während die folgenden Funktionen auf den aktiven Tab wirken, wenn keine Tab-`id` angegeben wird:
+> Während die folgenden Funktionen auf dem aktiven Tab agieren (wenn keine Tab-`id` angegeben ist):
 >
 > - {{WebExtAPIRef("tabs.update()")}}
 > - {{WebExtAPIRef("tabs.reload()")}}
 
-### Anleitung
+### Anleitung Beispiel
 
-Das [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/main/tabs-tabs-tabs) Beispiel nutzt alle diese Funktionen außer dem Aktualisieren der URL eines Tabs. Die Art und Weise, wie diese APIs verwendet werden, ist ähnlich, daher werden wir uns eine der komplexeren Implementierungen ansehen, nämlich die Option "Aktiven Tab an den Anfang der Fensterliste verschieben".
+Das [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/main/tabs-tabs-tabs)-Beispiel umfasst alle diese Funktionen, mit Ausnahme der Aktualisierung der URL eines Tabs. Die Art und Weise, wie diese APIs verwendet werden, ist ähnlich, daher werden wir uns eine der aufwendigeren Implementierungen ansehen, nämlich die Option "Aktiven Tab an den Anfang der Fensterliste verschieben".
 
-Aber zuerst hier eine Demonstration der Funktion in Aktion:
+Aber zuerst, hier ist eine Demonstration der Funktion in Aktion:
 
 {{EmbedYouTube("-lJRzTIvhxo")}}
 
 - manifest.json
-  - : Keine der Funktionen erfordert eine Berechtigung, um zu funktionieren, daher gibt es keine Features in der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/manifest.json)-Datei, die hervorgehoben werden müssen.
+  - : Keiner der Funktionen erfordert eine Berechtigung zum Betrieb, daher gibt es in der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/manifest.json)-Datei keine hervorzuhebenden Funktionen.
 - tabs.html
-  - : [`tabs.html`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.html) definiert das "Menü", das im Popup angezeigt wird, einschließlich der Option "Aktiven Tab an den Anfang der Fensterliste verschieben", mit einer Reihe von `<a>`-Tags, die durch einen visuellen Trennstrich gruppiert sind. Jedes Menüelement erhält eine `id`, die in `tabs.js` verwendet wird, um festzustellen, welches Menüelement angefordert wird.
+  - : [`tabs.html`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.html) definiert das im Popup angezeigte "Menü", das die Option "Aktiven Tab an den Anfang der Fensterliste verschieben" enthält, mit einer Reihe von `<a>`-Tags, die durch einen visuellen Trenner gruppiert sind. Jedes Menüelement erhält eine `id`, die in `tabs.js` verwendet wird, um zu bestimmen, welches Menüelement angefordert wird.
 
     ```html
     <a href="#" id="tabs-move-beginning">
@@ -307,9 +305,9 @@ Aber zuerst hier eine Demonstration der Funktion in Aktion:
     });
     ```
 
-    Eine Reihe von `if`-Anweisungen versucht dann, die `id` des angeklickten Elements abzugleichen.
+    Eine Reihe von `if`-Anweisungen versucht dann, die `id` des angeklickten Elements zu erkennen.
 
-    Dieser Code-Schnipsel ist für die Option "Aktiven Tab an den Anfang der Fensterliste verschieben":
+    Dieses Code-Snippet ist für die Option "Aktiven Tab an den Anfang der Fensterliste verschieben":
 
     ```js
     if (e.target.id === "tabs-move-beginning") {
@@ -324,11 +322,11 @@ Aber zuerst hier eine Demonstration der Funktion in Aktion:
     }
     ```
 
-    Es ist erwähnenswert, dass `console.log()` verwendet wird. Dies ermöglicht es Ihnen, Informationen an die [Debugger](https://extensionworkshop.com/documentation/develop/debugging/)-Konsole zu senden, was nützlich sein kann, wenn Sie Probleme beheben, die während der Entwicklung entdeckt werden.
+    Es ist bemerkenswert, die Verwendung von `console.log()`. Dies ermöglicht es Ihnen, Informationen an die [Debugger](https://extensionworkshop.com/documentation/develop/debugging/)-Konsole auszugeben, was nützlich sein kann, wenn Probleme während der Entwicklung behoben werden.
 
-    ![Beispiel der Console.log-Ausgabe des Funktionen zur Tab-Verschiebung im Debugging-Console](console.png)
+    ![Beispiel für die console.log-Ausgabe, von der Verschieben-Tabs-Funktion, in der Debugging-Konsole](console.png)
 
-    Der Verschiebungscode ruft zuerst `callOnActiveTab()` auf, das wiederum `getCurrentWindowTabs()` aufruft, um ein {{WebExtAPIRef("tabs.Tab")}}-Objekt, das die Tabs des aktiven Fensters enthält, zu erhalten. Dann wird durch das Objekt geschleift, um das aktive Tab-Objekt zu finden und zurückzugeben:
+    Der Verschiebungscode ruft zunächst `callOnActiveTab()` auf, das wiederum `getCurrentWindowTabs()` aufruft, um ein {{WebExtAPIRef("tabs.Tab")}}-Objekt zu erhalten, das die Tabs des aktiven Fensters enthält. Es durchläuft dann das Objekt, um das aktive Tab-Objekt zu finden und zurückzugeben:
 
     ```js
     function callOnActiveTab(callback) {
@@ -342,9 +340,9 @@ Aber zuerst hier eine Demonstration der Funktion in Aktion:
     }
     ```
 
-#### Anheftbare Tabs
+#### Angeheftete Tabs
 
-Eine Funktion von Tabs ist, dass der Benutzer Tabs in einem Fenster anheften kann. Angehängte Tabs werden am Anfang der Tab-Liste platziert und können nicht bewegt werden. Dies bedeutet, dass die frühest mögliche Position, zu der ein Tab verschoben werden kann, die erste Position nach allen angehefteten Tabs ist. Daher wird `firstUnpinnedTab()` aufgerufen, um die Position des ersten nicht angehefteten Tabs zu finden, indem durch das `tabs`-Objekt geschleift wird:
+Ein Merkmal von Tabs ist, dass der Benutzer Tabs in einem Fenster _anheften_ kann. Angeheftete Tabs werden am Anfang der Tab-Liste platziert und können nicht verschoben werden. Das bedeutet, dass die früheste Position, zu der ein Tab verschoben werden kann, die erste Position nach allen angehefteten Tabs ist. Daher wird `firstUnpinnedTab()` aufgerufen, um die Position des ersten nicht angehefteten Tabs zu finden, indem das `tabs`-Objekt durchlaufen wird:
 
 ```js
 function firstUnpinnedTab(tabs) {
@@ -356,40 +354,40 @@ function firstUnpinnedTab(tabs) {
 }
 ```
 
-Wir haben nun alles, was wir benötigen, um den Tab zu bewegen: das aktive Tab-Objekt, aus dem wir die Tab-`id` und die Position, zu der der Tab verschoben werden soll, erhalten können. So können wir die Verschiebung durchführen:
+Nun haben wir alles, was notwendig ist, um den Tab zu verschieben: das aktive Tab-Objekt, aus dem wir die Tab-`id` erhalten können, und die Position, zu der der Tab verschoben werden soll. Also können wir die Verschiebung implementieren:
 
 ```js
 browser.tabs.move([tab.id], { index });
 ```
 
-Die übrigen Funktionen zum Duplizieren, Neuladen, Erstellen und Entfernen von Tabs werden ähnlich implementiert.
+Die verbleibenden Funktionen zum Duplizieren, Neuladen, Erstellen und Entfernen von Tabs werden ähnlich implementiert.
 
-## Manipulation der Zoomstufe eines Tabs
+## Manipulieren des Zoom-Levels eines Tabs
 
-Die nächste Reihe von Funktionen ermöglicht es Ihnen, die Zoomstufe innerhalb eines Tabs zu erhalten ({{WebExtAPIRef("tabs.getZoom")}}) und zu setzen ({{WebExtAPIRef("tabs.setZoom")}}). Sie können auch die Zoom-Einstellungen abrufen ({{WebExtAPIRef("tabs.getZoomSettings")}}), jedoch war die Möglichkeit, die Einstellungen zu setzen ({{WebExtAPIRef("tabs.setZoomSettings")}}), zum Zeitpunkt des Schreibens in Firefox nicht verfügbar.
+Der nächste Satz von Funktionen ermöglicht es Ihnen, das Zoom-Level innerhalb eines Tabs zu erhalten ({{WebExtAPIRef("tabs.getZoom")}}) und festzulegen ({{WebExtAPIRef("tabs.setZoom")}}). Sie können auch die Zoom-Einstellungen abrufen ({{WebExtAPIRef("tabs.getZoomSettings")}}), aber zum Zeitpunkt des Schreibens war die Möglichkeit, die Einstellungen festzulegen ({{WebExtAPIRef("tabs.setZoomSettings")}}), in Firefox nicht verfügbar.
 
-Der Zoomgrad kann zwischen 30% bis 500% liegen (dargestellt als Dezimalzahlen von `0.3` bis `5`).
+Das Zoom-Level kann zwischen 30% und 500% betragen (dargestellt als Dezimalzahlen `0.3` bis `5`).
 
-In Firefox sind die standardmäßigen Zoomeinstellungen:
+In Firefox sind die Standardeinstellungen für das Zoomen:
 
-- **Standard-Zoomstufe:** 100%.
-- **Zoommodus:** automatisch (der Browser verwaltet, wie Zoomstufen gesetzt werden).
-- **Reichweite der Zoomänderungen:** `"per-origin"`, das bedeutet, dass wenn Sie eine Website erneut besuchen, der während Ihres letzten Besuchs gesetzte Zoomgrad angewendet wird.
+- **Standard-Zoom-Level:** 100%.
+- **Zoom-Modus:** automatisch (der Browser verwaltet, wie Zoom-Level angepasst werden).
+- **Geltungsbereich der Zoom-Änderungen:** `"per-origin"`, was bedeutet, dass, wenn Sie eine Seite erneut besuchen, das Zoom-Level festgelegt wird, das Sie bei Ihrem letzten Besuch eingestellt haben.
 
-### Anleitung
+### Anleitung Beispiel
 
-Das [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/main/tabs-tabs-tabs) Beispiel beinhaltet drei Demonstrationen der Zoomfunktion: Vergrößern, Verkleinern und Zoom zurücksetzen. Hier ist die Funktion in Aktion:
+Das [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/main/tabs-tabs-tabs)-Beispiel beinhaltet drei Demonstrationen der Zoom-Funktion: Vergrößern, Verkleinern und Zoom zurücksetzen. Hier ist die Funktion in Aktion:
 
 {{EmbedYouTube("RFr3oYBCg28")}}
 
-Schauen wir uns an, wie das Vergrößern implementiert ist.
+Lassen Sie uns schauen, wie das Vergrößern implementiert wird.
 
 - manifest.json
-  - : Keine der Zoom-Funktionen erfordert Berechtigungen, so dass es in der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/manifest.json)-Datei keine Features gibt, die hervorgehoben werden müssen.
+  - : Keiner der Zoom-Funktionen erfordert Berechtigungen, daher gibt es in der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/manifest.json)-Datei keine hervorzuhebenden Funktionen.
 - tabs.html
-  - : Wir haben bereits besprochen, wie [`tabs.html`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.html) die Optionen für diese Erweiterung definiert, es wird nichts Neues oder Einzigartiges getan, um die Zoom-Optionen bereitzustellen.
+  - : Wir haben bereits besprochen, wie das [`tabs.html`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.html) die Optionen für diese Erweiterung definiert, es wird nichts Neues oder Einzigartiges getan, um die Zoom-Optionen bereitzustellen.
 - tabs.js
-  - : [`tabs.js`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.js) beginnt mit der Definition mehrerer Konstanten, die im Zoom-Code verwendet werden:
+  - : [`tabs.js`](https://github.com/mdn/webextensions-examples/blob/main/tabs-tabs-tabs/tabs.js) beginnt damit, mehrere Konstanten zu definieren, die im Zoom-Code verwendet werden:
 
     ```js
     const ZOOM_INCREMENT = 0.2;
@@ -398,9 +396,9 @@ Schauen wir uns an, wie das Vergrößern implementiert ist.
     const DEFAULT_ZOOM = 1;
     ```
 
-    Dann verwendet es den zuvor besprochenen Listener, um auf Klicks in `tabs.html` zu reagieren.
+    Es verwendet dann denselben Listener, den wir zuvor besprochen haben, um auf Klicks in `tabs.html` zu reagieren.
 
-    Für die Vergrößerungsfunktion läuft dies:
+    Für die Zoom-in-Funktion führt dies aus:
 
     ```js
     // Other if conditions...
@@ -422,28 +420,28 @@ Schauen wir uns an, wie das Vergrößern implementiert ist.
     }
     ```
 
-    Dieser Code verwendet `callOnActiveTab()`, um die Details des aktiven Tabs zu erhalten, dann bekommt {{WebExtAPIRef("tabs.getZoom")}} den aktuellen Zoomfaktor des Tabs. Der aktuelle Zoom wird mit dem definierten Maximum (`MAX_ZOOM`) verglichen, und falls der Tab bereits beim maximalen Zoom ist, wird eine Warnung ausgegeben. Andernfalls wird die Zoom-Stufe hochgezählt, aber auf den maximalen Zoom begrenzt, und dann wird der Zoom mit {{WebExtAPIRef("tabs.getZoom")}} gesetzt.
+    Dieser Code verwendet `callOnActiveTab()`, um die Details des aktiven Tabs zu erhalten, dann verwendet {{WebExtAPIRef("tabs.getZoom")}} den aktuellen Zoom-Faktor des Tabs. Das aktuelle Zoom-Level wird mit dem definierten Maximum (`MAX_ZOOM`) verglichen und eine Warnung ausgegeben, falls sich der Tab bereits im maximalen Zoom befindet. Ansonsten wird das Zoom-Level erhöht, jedoch auf das maximale Zoom begrenzt, dann wird das Zoom mit {{WebExtAPIRef("tabs.getZoom")}} eingestellt.
 
-## Manipulation der CSS eines Tabs
+## Manipulieren von CSS eines Tabs
 
-Eine weitere wichtige Fähigkeit, die die Tabs-API bietet, ist die Möglichkeit zur Manipulation der CSS innerhalb eines Tabs—neue CSS zu einem Tab hinzufügen ({{WebExtAPIRef("tabs.insertCSS()")}}) oder CSS aus einem Tab entfernen ({{WebExtAPIRef("tabs.removeCSS()")}}).
+Eine weitere bedeutende Fähigkeit, die die Tabs-API bietet, ist die Möglichkeit, das CSS innerhalb eines Tabs zu manipulieren—neues CSS in einen Tab einzufügen ({{WebExtAPIRef("tabs.insertCSS()")}}) oder das CSS eines Tabs zu entfernen ({{WebExtAPIRef("tabs.removeCSS()")}}).
 
-Dies kann nützlich sein, zum Beispiel, wenn Sie bestimmte Seiten-Elemente hervorheben oder das Standard-Layout der Seite ändern möchten.
+Dies kann nützlich sein, beispielsweise wenn Sie bestimmte Seitenelemente hervorheben oder das Standardlayout der Seite ändern möchten.
 
-### Anleitung
+### Anleitung Beispiel
 
-Das [apply-css](https://github.com/mdn/webextensions-examples/tree/main/apply-css) Beispiel verwendet diese Funktionen, um einen roten Rand zur Webseite im aktiven Tab hinzuzufügen. Hier ist die Funktion in Aktion:
+Das [apply-css](https://github.com/mdn/webextensions-examples/tree/main/apply-css)-Beispiel verwendet diese Funktionen, um der Webseite im aktiven Tab einen roten Rahmen hinzuzufügen. Hier ist die Funktion in Aktion:
 
 {{EmbedYouTube("bcK-GT2Dyhs")}}
 
 Lassen Sie uns durchgehen, wie es eingerichtet ist.
 
 - manifest.json
-  - : Die [`manifest.json`](https://github.com/mdn/webextensions-examples/blob/main/apply-css/manifest.json) fordert Berechtigungen an, die für die Verwendung der CSS-Funktionen erforderlich sind. Sie benötigen entweder:
-    - Die Berechtigung `"tabs"` und [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions); oder,
-    - Die Berechtigung `"activeTab"`.
+  - : Das [`manifest.json`](https://github.com/mdn/webextensions-examples/blob/main/apply-css/manifest.json) fordert die Berechtigungen an, die erforderlich sind, um die CSS-Funktionen zu verwenden. Sie benötigen entweder:
+    - `"tabs"`-Berechtigung und [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions); oder
+    - `"activeTab"`-Berechtigung.
 
-    Letzteres ist das nützlichste, da es einer Erweiterung erlaubt, {{WebExtAPIRef("tabs.insertCSS()")}} und {{WebExtAPIRef("tabs.removeCSS()")}} im aktiven Tab zu verwenden, wenn es aus der Browser- oder Seitenaktion der Erweiterung, dem Kontextmenü oder einer Tastenkombination ausgeführt wird.
+    Letzteres ist am nützlichsten, da es einer Erweiterung ermöglicht, {{WebExtAPIRef("tabs.insertCSS()")}} und {{WebExtAPIRef("tabs.removeCSS()")}} im aktiven Tab zu verwenden, wenn es über die Browser- oder Seitenaktion, das Kontextmenü oder eine Verknüpfung ausgeführt wird.
 
     ```json
     {
@@ -466,14 +464,14 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
     }
     ```
 
-    Sie werden feststellen, dass die Berechtigung `"tabs"` zusätzlich zur Berechtigung `"activeTab"` angefordert wird. Diese zusätzliche Berechtigung ist erforderlich, damit das Skript der Erweiterung auf die URL des Tabs zugreifen kann, dessen Wichtigkeit wir gleich sehen werden.
+    Sie werden bemerken, dass die `"tabs"`-Berechtigung zusätzlich zur `"activeTab"`-Berechtigung angefordert wird. Diese zusätzliche Berechtigung ist erforderlich, um dem Script der Erweiterung den Zugriff auf die URL des Tabs zu ermöglichen, deren Wichtigkeit wir gleich sehen werden.
 
-    Die anderen Hauptfunktionen in der manifest.json-Datei sind die Definition von:
-    - **einem Hintergrundskript**, das sofort beim Laden der Erweiterung gestartet wird.
+    Die anderen Hauptmerkmale in der manifest.json-Datei sind die Definition von:
+    - **einem Hintergrund-Skript**, das ausgeführt wird, sobald die Erweiterung geladen ist.
     - **einer "Seitenaktion"**, die ein Symbol definiert, das der Adressleiste des Browsers hinzugefügt wird.
 
 - background.js
-  - : Bei Start definiert [`background.js`](https://github.com/mdn/webextensions-examples/blob/main/apply-css/background.js) einige Konstanten, um die anzuwendende CSS, Titel für die "Seitenaktion" und eine Liste von Protokollen, in denen die Erweiterung funktioniert, festzulegen:
+  - : Beim Starten setzt [`background.js`](https://github.com/mdn/webextensions-examples/blob/main/apply-css/background.js) einige Konstanten, um das anzuwendende CSS, Titel für die "Seitenaktion" und eine Liste von Protokollen festzulegen, bei denen die Erweiterung funktioniert:
 
     ```js
     const CSS = "body { border: 20px solid red; }";
@@ -482,7 +480,7 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
     const APPLICABLE_PROTOCOLS = ["http:", "https:"];
     ```
 
-    Wenn die Erweiterung das erste Mal geladen wird, verwendet sie {{WebExtAPIRef("tabs.query()")}}, um eine Liste aller Tabs im aktuellen Browserfenster zu erhalten. Es wird dann durch die Tabs iteriert und `initializePageAction()` aufgerufen.
+    Beim ersten Laden verwendet die Erweiterung {{WebExtAPIRef("tabs.query()")}}, um eine Liste aller Tabs im aktuellen Browserfenster zu erhalten. Es durchläuft dann die Tabs und ruft `initializePageAction()` auf.
 
     ```js
     browser.tabs.query({}).then((tabs) => {
@@ -492,7 +490,7 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
     });
     ```
 
-    `initializePageAction` verwendet `protocolIsApplicable()`, um festzustellen, ob die URL des aktiven Tabs eines der Protokolle ist, auf die die CSS angewendet werden kann:
+    `initializePageAction` verwendet `protocolIsApplicable()`, um festzustellen, ob die URL des aktiven Tabs ein Protokoll ist, auf das das CSS angewendet werden kann:
 
     ```js
     function protocolIsApplicable(url) {
@@ -502,7 +500,7 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
     }
     ```
 
-    Wenn das Beispiel auf dem Tab arbeiten kann, setzt `initializePageAction()` das `pageAction` (Navigationsleiste)-Symbol und den Titel des Tab auf die "off"-Versionen, bevor es die `pageAction` sichtbar macht:
+    Dann setzt `initializePageAction()` das `pageAction`-Symbol und den Titel des Tabs auf die "aus"-Versionen, bevor es die `pageAction` sichtbar macht, falls das Beispiel auf den Tab wirken kann:
 
     ```js
     function initializePageAction(tab) {
@@ -514,20 +512,20 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
     }
     ```
 
-    Danach wartet ein Listener auf `pageAction.onClicked` auf einen Klick auf das `pageAction`-Symbol und ruft `toggleCSS` auf, wenn es angeklickt wird.
+    Als nächstes wartet ein Listener auf `pageAction.onClicked` darauf, dass das `pageAction`-Symbol angeklickt wird, und ruft `toggleCSS` auf, wenn dies der Fall ist.
 
     ```js
     browser.pageAction.onClicked.addListener(toggleCSS);
     ```
 
-    `toggleCSS()` holt den Titel der `pageAction` und führt dann die beschriebene Aktion aus:
+    `toggleCSS()` ruft den Titel von der `pageAction`- und führt dann die beschriebene Aktion aus:
     - **Für "CSS anwenden":**
-      - schaltet die `pageAction`-Icon und -Titel auf die "remove"-Versionen.
-      - wendet die CSS mit {{WebExtAPIRef("tabs.insertCSS()")}} an.
+      - Ändert das `pageAction`-Symbol und den Titel in die "entfernen"-Versionen.
+      - Wendet das CSS mit {{WebExtAPIRef("tabs.insertCSS()")}} an.
 
     - **Für "CSS entfernen":**
-      - schaltet die `pageAction`-Icon und -Titel auf die "apply"-Versionen.
-      - entfernt die CSS mit {{WebExtAPIRef("tabs.removeCSS()")}}.
+      - Ändert das `pageAction`-Symbol und den Titel in die "anwenden"-Versionen.
+      - Entfernt das CSS mit {{WebExtAPIRef("tabs.removeCSS()")}}.
 
     ```js
     function toggleCSS(tab) {
@@ -547,7 +545,7 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
     }
     ```
 
-    Schließlich, um sicherzustellen, dass die `pageAction` nach jedem Update des Tabs gültig ist, ruft ein Listener auf {{WebExtAPIRef("tabs.onUpdated")}} `initializePageAction()` jedes Mal, wenn der Tab aktualisiert wird, auf, um zu überprüfen, ob der Tab immer noch ein Protokoll verwendet, auf das die CSS angewendet werden kann.
+    Schließlich, um sicherzustellen, dass die `pageAction` auch nach jeder Aktualisierung des Tabs gültig ist, ruft ein Listener auf {{WebExtAPIRef("tabs.onUpdated")}} `initializePageAction()` jedes Mal auf, wenn der Tab aktualisiert wird, um zu prüfen, ob der Tab weiterhin ein Protokoll verwendet, auf das das CSS angewendet werden kann.
 
     ```js
     browser.tabs.onUpdated.addListener((id, changeInfo, tab) => {
@@ -557,14 +555,14 @@ Lassen Sie uns durchgehen, wie es eingerichtet ist.
 
 ## Einige andere interessante Fähigkeiten
 
-Es gibt ein paar andere Funktionen der Tabs-API, die nicht in eine der vorherigen Kategorien passen:
+Es gibt ein paar andere Funktionen der Tabs-API, die nicht in eine der vorherigen Abschnitte passen:
 
 - Erfassung des sichtbaren Tab-Inhalts mit {{WebExtAPIRef("tabs.captureVisibleTab")}}.
-- Erkennung der Hauptsprache des Inhalts in einem Tab mit {{WebExtAPIRef("tabs.detectLanguage")}}. Dies könnte zum Beispiel verwendet werden, um die Sprache in der Benutzeroberfläche Ihrer Erweiterung an die der Seite, auf der sie läuft, anzupassen.
+- Erkennen der Hauptsprache des Inhalts in einem Tab mit {{WebExtAPIRef("tabs.detectLanguage")}}. Dies könnte beispielsweise verwendet werden, um die Sprache der Benutzeroberfläche Ihrer Erweiterung an die der Seite, auf der sie ausgeführt wird, anzupassen.
 
 ## Mehr erfahren
 
-Wenn Sie mehr über die Tabs-API erfahren möchten, schauen Sie sich an:
+Wenn Sie mehr über die Tabs-API erfahren möchten, schauen Sie in:
 
-- [Tabs API-Referenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
-- [Beispiel-Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples) (von denen viele die Tabs-API verwenden)
+- [Tabs-API-Referenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
+- [Beispielerweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples) (von denen viele die Tabs-API verwenden)

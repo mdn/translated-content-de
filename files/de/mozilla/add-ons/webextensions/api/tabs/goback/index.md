@@ -2,12 +2,10 @@
 title: tabs.goBack()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/goBack
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Navigieren Sie zur vorherigen Seite in der Verlaufshistorie des Tabs, wenn verfügbar.
+Navigieren Sie zur vorherigen Seite im Verlauf des Tabs, falls verfügbar.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +21,17 @@ let withGoingBack = browser.tabs.goBack(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, in dem navigiert werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
+  - : `integer`. Die ID des Tabs, zu dem navigiert werden soll. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
 - `callback` {{optional_inline}}
-  - : `function`. Diese Funktion wird aufgerufen, wenn die Seiten-Navigation abgeschlossen ist, ohne Parameter.
+  - : `function`. Wenn die Seitennavigation abgeschlossen ist, wird diese Funktion ohne Parameter aufgerufen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die Seiten-Navigation abgeschlossen ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die Seitennavigation abgeschlossen ist.
 
 ## Beispiele
 
-Zur vorherigen Seite im aktuellen Tab zurückkehren:
+Zurück zur vorherigen Seite im aktuellen Tab gehen:
 
 ```js
 function onGoBack() {
@@ -55,7 +53,7 @@ goingBack.then(onGoBack, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

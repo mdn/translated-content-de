@@ -2,12 +2,10 @@
 title: Event.removeRules()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/removeRules
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Entfernt Regeln, die auf einem deklarativen Ereignis unter Verwendung von {{WebExtAPIRef("events.Event.addRules()")}} registriert wurden.
+Entfernt Regeln, die bei einem deklarativen Event mit {{WebExtAPIRef("events.Event.addRules()")}} registriert wurden.
 
 ## Syntax
 
@@ -18,7 +16,6 @@ events.Event.removeRules(ruleIdentifiers, callback)
 ### Parameter
 
 - `ruleIdentifiers` {{optional_inline}}
-
   - : `array` von `string`. Bezeichner für die zu entfernenden Regeln. Wenn kein Array übergeben wird, werden alle Regeln entfernt.
 
 - `callback` {{optional_inline}}
@@ -29,34 +26,37 @@ events.Event.removeRules(ruleIdentifiers, callback)
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeRules)-API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeRules) API. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 Die Chromium-Urheber. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Nutzung in Quell- und Binärformen, mit oder ohne
+// Änderungen, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen das obige Urheberrecht
+// sowie diese Bedingungen und den folgenden Haftungsausschluss beibehalten.
+//    * Weiterverbreitungen in Binärform müssen das obenstehende Urheberrecht
+// sowie diese Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung bereitgestellt werden, enthalten.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus
+// dieser Software abgeleitet wurden, zu bewerben oder zu bewerben,
+// ohne vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
+// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT ODER EIGNUNG FÜR
+// EINEN BESTIMMTEN ZWECK WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE URHEBER
+// ODER MITWIRKENDEN HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN,
+// ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER
+// DIENSTLEISTUNGEN; NUTZUNGSAUSFALL ODER DATENVERLUST ODER
+// ENTGANGENE GEWINNE ODER GESCHÄFTSUNTERBRECHUNG) JEDER
+// THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER HAFTUNG ODER
+// UNERLAUBTER HANDLUNG (EINSCHLIESSLICH NACHLÄSSIGKEIT ODER ANDERWEITIG)
+// AUS DEM EINSATZ DER SOFTWARE ENTSTANDEN SIND, SELBST WENN SIE
+// ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WURDEN.
 -->

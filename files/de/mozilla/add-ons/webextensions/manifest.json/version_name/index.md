@@ -2,10 +2,8 @@
 title: version_name
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/version_name
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -18,7 +16,7 @@ l10n:
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -28,9 +26,9 @@ l10n:
   </tbody>
 </table>
 
-Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann [version_name](https://developer.chrome.com/docs/extensions/reference/manifest/version) auf einen beschreibenden Versionsstring gesetzt werden und wird für Anzeigezwecke verwendet, wenn es vorhanden ist.
+Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann **version_name** auf einen beschreibenden Versionsstring gesetzt werden und wird für Anzeigzwecke verwendet, wenn vorhanden.
 
-Falls kein **version_name** vorhanden ist, wird das **version**-Feld ebenfalls für Anzeigezwecke verwendet.
+Wenn kein **version_name** vorhanden ist, wird das **version**-Feld ebenfalls für Anzeigzwecke verwendet.
 
 ## Browser-Kompatibilität
 

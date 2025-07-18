@@ -2,12 +2,10 @@
 title: pageAction.getTitle()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/getTitle
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Erhält den Titel der Page Action.
+Ruft den Titel der Seitenaktion ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,15 +22,15 @@ let gettingTitle = browser.pageAction.getTitle(
 - `details`
   - : `object`.
     - `tabId`
-      - : `integer`. Die ID des Tabs, der die Page Action enthält, deren Titel Sie abrufen möchten.
+      - : `integer`. Die ID des Tabs, der die Seitenaktion enthält, deren Titel Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Titel der Page Action enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Titel der Seitenaktion enthält.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert den Titel der Page Action, wenn der Benutzer auf ihr Symbol klickt:
+Dieses Beispiel protokolliert den Titel der Seitenaktion, wenn der Benutzer auf ihr Symbol klickt:
 
 ```js
 function gotTitle(title) {
@@ -54,7 +52,7 @@ browser.pageAction.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-getTitle) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-getTitle) API von Chromium. Diese Dokumentation basiert auf [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

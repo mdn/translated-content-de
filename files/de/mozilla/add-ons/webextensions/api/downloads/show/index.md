@@ -2,12 +2,10 @@
 title: downloads.show()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/show
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die **`show()`**-Funktion der {{WebExtAPIRef("downloads")}} API zeigt die heruntergeladene Datei im entsprechenden Ordner im Dateimanager der zugrunde liegenden Plattform an.
+Die **`show()`** Funktion der {{WebExtAPIRef("downloads")}} API zeigt die heruntergeladene Datei im entsprechenden Ordner im Dateimanager der zugrunde liegenden Plattform an.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,7 +24,7 @@ let showing = browser.downloads.show(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise mit einem Boolean erfüllt, der angibt, ob die Anfrage erfolgreich war. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise mit einem boolean erfüllt, der angibt, ob die Anfrage erfolgreich war. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -64,4 +62,4 @@ searching.then(openDownload, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-show) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-show) API.

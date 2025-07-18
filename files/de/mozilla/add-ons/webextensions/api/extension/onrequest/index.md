@@ -2,15 +2,13 @@
 title: extension.onRequest
 slug: Mozilla/Add-ons/WebExtensions/API/extension/onRequest
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
 > [!WARNING]
-> Dies ist in Firefox nicht implementiert, da es seit Chrome 33 veraltet ist. Bitte verwenden Sie stattdessen [runtime.onMessage](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage).
+> Dies ist nicht in Firefox implementiert, da es seit Chrome 33 veraltet ist. Bitte verwenden Sie stattdessen [runtime.onMessage](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage).
 
-Wird ausgelöst, wenn eine Anfrage entweder von einem Erweiterungsprozess oder von einem Content-Skript gesendet wird.
+Wird ausgelöst, wenn eine Anfrage entweder von einem Erweiterungsprozess oder einem Inhaltsskript gesendet wird.
 
 ## Syntax
 
@@ -24,27 +22,27 @@ chrome.extension.onRequest.removeListener(listener)
 chrome.extension.onRequest.hasListener(listener)
 ```
 
-Events haben drei Funktionen:
+Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält folgende Argumente:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
     - `request`
-      - : `any`. Die vom aufrufenden Skript gesendete Anfrage.
+      - : `any`. Die Anfrage, die vom aufrufenden Skript gesendet wird.
     - `sender`
       - : {{WebExtAPIRef('runtime.MessageSender')}}.
     - `sendResponse`
-      - : `function`. Funktion, die (höchstens einmal) aufgerufen wird, wenn Sie eine Antwort haben. Das Argument sollte ein JSON-kompatibles Objekt sein oder undefined, wenn keine Antwort vorliegt. Wenn Sie mehr als einen `onRequest`-Listener im selben Dokument haben, darf nur einer eine Antwort senden.
+      - : `function`. Funktion, die (höchstens einmal) aufgerufen wird, wenn Sie eine Antwort haben. Das Argument sollte ein beliebiges JSON-fähiges Objekt sein oder undefiniert, wenn es keine Antwort gibt. Wenn Sie mehr als einen `onRequest`-Listener im selben Dokument haben, darf nur einer eine Antwort senden.
 
 {{WebExtExamples}}
 
@@ -53,7 +51,7 @@ Events haben drei Funktionen:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequest) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequest) API von Chromium. Diese Dokumentation ist aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

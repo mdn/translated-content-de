@@ -2,12 +2,10 @@
 title: browserSettings.openSearchResultsInNewTabs
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/openSearchResultsInNewTabs
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein boolean ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
 
 Wenn auf `true` gesetzt, werden die Suchergebnisse in einem neuen Tab angezeigt, wenn der Benutzer einen Begriff im Suchfeld des Browsers auswählt. Wenn auf `false` (die Standardeinstellung) gesetzt, werden die Suchergebnisse im aktuellen Tab angezeigt.
 
@@ -15,7 +13,7 @@ Beachten Sie, dass dies das Verhalten beim Auswählen von Elementen aus der Omni
 
 ## Beispiele
 
-Setzen Sie die Einstellung auf `true`:
+Stellen Sie die Einstellung auf `true`:
 
 ```js
 function logResult(result) {

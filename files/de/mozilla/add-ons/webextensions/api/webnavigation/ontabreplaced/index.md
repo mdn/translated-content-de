@@ -2,12 +2,10 @@
 title: webNavigation.onTabReplaced
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onTabReplaced
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn der Inhalt des Tabs durch einen anderen (normalerweise zuvor vorgerenderten) Tab ersetzt wird.
+Wird ausgelöst, wenn der Inhalt des Tabs durch einen anderen (in der Regel zuvor vor-gerenderten) Tab ersetzt wird.
 
 ## Syntax
 
@@ -25,16 +23,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` ansonsten.
+  - : Überprüft, ob der `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die ausgeführt wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `details`
       - : `object`. Siehe den Abschnitt [details](#details) für weitere Informationen.
 
@@ -47,7 +45,7 @@ Ereignisse haben drei Funktionen:
 - `tabId`
   - : `integer`. Die ID des Tabs, der den alten Tab ersetzt hat.
 - `timeStamp`
-  - : `number`. Der Zeitpunkt, zu dem die Ersetzung stattfand, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, wann der Austausch stattfand, in [Millisekunden seit dem Epoche](https://en.wikipedia.org/wiki/Unix_time).
 
 ## Beispiele
 
@@ -66,34 +64,36 @@ browser.webNavigation.onTabReplaced.addListener(logOnTabReplaced);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onTabReplaced) API von Chromium. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onTabReplaced) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Redistribution und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weitergaben des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// enthalten.
+//    * Weitergaben in binärer Form müssen den obigen Urheberrechtshinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung bereitgestellt werden, enthalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von
+// dieser Software abgeleitet wurden, zu unterstützen oder zu bewerben,
+// ohne vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND ALLE AUSDRÜCKLICHEN ODER
+// IMPLIZIERTER GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF DIE IMPLIZIERTEN GARANTIEN DER MARKTREIFE UND EIGNUNG
+// FÜR EINEN BESTIMMTEN ZWECK, WERDEN AUSGESCHLOSSEN. IN KEINEM FALL
+// SOLLEN DIE URHEBER ODER BEITRAGENDEN FÜR DIREKTE, INDIREKTE,
+// INZIDENTELLE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN
+// HAFTBAR GEMACHT WERDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
+// DATENVERLUST ODER GEWINNVERLUST; ODER BETRIEBSUNTERBRECHUNG)
+// JEDOCH URSÄCHLICH, OB IN VERTRAG, STRIKTER HAFTUNG ODER FALSCH,
+// AUCH WENN BERATEN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN.
 -->

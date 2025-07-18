@@ -2,10 +2,8 @@
 title: manifest_version
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version
 l10n:
-  sourceCommit: 1169c2bd4a0c7d56cdc9460438445762a8887004
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -14,7 +12,7 @@ l10n:
       <td><code>Number</code></td>
     </tr>
     <tr>
-      <th scope="row">Verbindlich</th>
+      <th scope="row">Verpflichtend</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -24,7 +22,7 @@ l10n:
   </tbody>
 </table>
 
-Dieser Schlüssel gibt die Version der `manifest.json` an, die von dieser Erweiterung verwendet wird.
+Dieser Schlüssel gibt die Version von manifest.json an, die von dieser Erweiterung verwendet wird.
 
 ## Beispiel
 

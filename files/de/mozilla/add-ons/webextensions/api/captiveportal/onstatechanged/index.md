@@ -2,12 +2,10 @@
 title: onStateChanged
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/onStateChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn sich der Zustand des Captive Portals ändert.
+Wird ausgelöst, wenn sich der Status des Captive Portals ändert.
 
 ## Syntax
 
@@ -20,9 +18,9 @@ browser.captivePortal.onStateChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stellt das Lauschen auf dieses Ereignis ein. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -31,13 +29,13 @@ Ereignisse haben drei Funktionen:
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird dieses Argument übergeben:
     - `details`
-      - : `string` Der Zustand des Captive Portals, eine der folgenden Optionen: `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
+      - : `string` Der Captive Portal-Status, einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
 
 ## Beispiele
 
-Umgang mit einer Änderung des Captive Portal-Status:
+Handhabung einer Änderung des Captive Portal-Status:
 
 ```js
 function handlePortalStatus(portalStatusInfo) {
@@ -54,37 +52,31 @@ browser.captivePortal.onStateChanged.addListener(handlePortalStatus);
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Nutzung in Quell- und Binärform, mit oder ohne
-// Änderungen, sind erlaubt, sofern die folgenden Bedingungen erfüllt sind:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen des Quellcodes müssen den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss enthalten.
-//    * Weiterverbreitungen in binärer Form müssen den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
-// enthalten, die mit der Verbreitung geliefert werden.
-//    * Weder der Name Google Inc. noch die Namen ihrer
-// Mitwirkenden dürfen ohne spezifische vorherige schriftliche Erlaubnis
-// verwendet werden, um Produkte zu unterstützen oder zu fördern, die von
-// dieser Software abgeleitet sind.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND
-// MITWIRKENDEN "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE
-// AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GARANTIEN, EINSCHLIESSLICH,
-// ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN GARANTIEN DER
-// MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN
-// ABGELEHNT. IN KEINEM FALL HAFTEN DIE INHABER DER URHEBERRECHTE
-// ODER MITWIRKENDEN FÜR JEGLICHE DIREKTEN, INDIREKTEN,
-// BEILÄUFIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
-// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON
-// ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN- ODER
-// GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) JEDOCH VERURSACHT UND
-// UNTER JEGLICHER HAFTUNGSTHEORIE, OB VERTRAG, STRIKTE HAFTUNG
-// ODER UNERLAUBTE HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
-// ANDERWEITIG), DIE IN IRGENDEINER WEISE AUS DER NUTZUNG DIESER
-// SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER
-// SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

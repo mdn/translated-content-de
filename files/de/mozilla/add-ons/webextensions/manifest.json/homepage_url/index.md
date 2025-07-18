@@ -2,10 +2,8 @@
 title: homepage_url
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url
 l10n:
-  sourceCommit: 6b7f22c8cc81515d9a17d988f4bb8006357dcd59
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -34,7 +32,7 @@ l10n:
 
 URL für die Startseite der Erweiterung.
 
-Wenn ein [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel mit der "url"-Eigenschaft und "homepage_url" definiert sind, verwendet Firefox "developer.url", während Opera "homepage_url" verwendet. Chrome und Safari unterstützen den "developer"-Schlüssel nicht.
+Wenn ein [Entwickler](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel mit der Eigenschaft "url" und "homepage_url" definiert sind, verwendet Firefox "developer.url", während Opera "homepage_url" verwendet. Chrome und Safari unterstützen den "developer"-Schlüssel nicht.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

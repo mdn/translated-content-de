@@ -2,12 +2,10 @@
 title: devtools.panels.ExtensionSidebarPane.onHidden
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/onHidden
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird aufgerufen, wenn das Seitenleistenfeld ausgeblendet wird, weil der Benutzer davon wegschaltet.
+Wird aufgerufen, wenn das Seitenleistenfenster ausgeblendet wird, da der Benutzer zu einem anderen Fenster wechselt.
 
 ## Syntax
 
@@ -22,20 +20,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, und `false` andernfalls.
 
 ## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Dieser Funktion werden keine Argumente übergeben.
+  - : Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Diese Funktion erhält keine Argumente.
 
 ## Beispiele
 
-Erstellen Sie ein Seitenleistenfeld und protokollieren Sie Show- und Hide-Ereignisse.
+Erstellen Sie ein Seitenleistenfenster und protokollieren Sie Show- und Hide-Ereignisse.
 
 ```js
 function onCreated(sidebarPane) {

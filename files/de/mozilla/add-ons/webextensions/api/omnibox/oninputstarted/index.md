@@ -2,14 +2,12 @@
 title: omnibox.onInputStarted
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox/onInputStarted
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wird ausgelöst, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren, indem er das Schlüsselwort in die Adressleiste eingibt und dann die Leertaste drückt.
 
-Wird ausgelöst, wenn der Benutzer anfängt, mit Ihrer Erweiterung zu interagieren, indem er das Schlüsselwort in die Adressleiste eingibt und anschließend die Leertaste drückt.
-
-Dies wird gesendet, bevor irgendwelche {{WebExtAPIRef("omnibox.onInputChanged")}} Ereignisse auftreten.
+Dies wird gesendet, bevor irgendwelche {{WebExtAPIRef("omnibox.onInputChanged")}} Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -26,9 +24,9 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
@@ -50,4 +48,4 @@ browser.omnibox.onInputStarted.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.

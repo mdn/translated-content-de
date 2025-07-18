@@ -2,12 +2,10 @@
 title: runtime.onInstalled
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onInstalled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn die Erweiterung zum ersten Mal installiert wird, wenn die Erweiterung auf eine neue Version aktualisiert wird und wenn der Browser auf eine neue Version aktualisiert wird.
+Wird ausgelöst, wenn die Erweiterung erstmals installiert wird, wenn die Erweiterung auf eine neue Version aktualisiert wird und wenn der Browser auf eine neue Version aktualisiert wird.
 
 Beachten Sie, dass `runtime.onInstalled` nicht dasselbe ist wie {{WebExtAPIRef("management.onInstalled")}}. Das `runtime.onInstalled`-Ereignis wird nur für Ihre Erweiterung ausgelöst. Das `browser.management.onInstalled`-Ereignis wird für alle Erweiterungen ausgelöst.
 
@@ -22,18 +20,18 @@ browser.runtime.onInstalled.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, `false` andernfalls.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `function`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
     - `details`
       - : Ein Objekt mit den folgenden Eigenschaften:
         - `id` {{optional_inline}}
@@ -43,11 +41,11 @@ Ereignisse haben drei Funktionen:
         - `reason`
           - : Ein {{WebExtAPIRef('runtime.OnInstalledReason')}}-Wert, der den Grund angibt, warum dieses Ereignis gesendet wird.
         - `temporary`
-          - : `boolean`. Wahr, wenn das Add-on vorübergehend installiert wurde. Zum Beispiel durch Verwendung der "about:debugging"-Seite in Firefox oder durch Verwendung von [web-ext run](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/). Falsch andernfalls.
+          - : `boolean`. Wahr, wenn das Add-on zeitweilig installiert wurde. Zum Beispiel mit der Seite „about:debugging“ in Firefox oder mit [web-ext run](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/). Andernfalls falsch.
 
 ## Beispiele
 
-Wenn die Erweiterung installiert wird, protokollieren Sie den Installationsgrund und öffnen Sie <https://example.com>:
+Wenn die Erweiterung installiert wird, loggen Sie den Installationsgrund und öffnen Sie <https://example.com>:
 
 ```js
 function handleInstalled(details) {

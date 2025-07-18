@@ -2,10 +2,8 @@
 title: history.VisitItem
 slug: Mozilla/Add-ons/WebExtensions/API/history/VisitItem
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ein Objekt, das einen einzelnen Besuch auf einer Seite beschreibt.
 
@@ -14,11 +12,11 @@ Ein Objekt, das einen einzelnen Besuch auf einer Seite beschreibt.
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `id`
-  - : `string`. Die eindeutige Kennung für das mit diesem Besuch verknüpfte {{WebExtAPIRef("history.HistoryItem")}}.
+  - : `string`. Die eindeutige Kennung für das {{WebExtAPIRef("history.HistoryItem")}}, das mit diesem Besuch verknüpft ist.
 - `visitId`
   - : `string`. Die eindeutige Kennung für diesen Besuch.
 - `visitTime` {{optional_inline}}
-  - : `number`. Wann dieser Besuch stattfand, dargestellt in Millisekunden seit dem Epoch-Zeitpunkt.
+  - : `number`. Zeitpunkt des Besuchs, dargestellt in Millisekunden seit der Epoche.
 - `referringVisitId`
   - : `string`. Die Besuchs-ID des Verweisenden.
 - `transition`
@@ -31,7 +29,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-VisitItem) API von Chromium. Diese Dokumentation leitet sich von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-VisitItem) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

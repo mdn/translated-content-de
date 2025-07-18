@@ -2,12 +2,10 @@
 title: downloads.showDefaultFolder()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/showDefaultFolder
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die **`showDefaultFolder()`** Funktion der {{WebExtAPIRef("downloads")}} API öffnet den Standard-Download-Ordner im Dateimanager der Plattform.
+Die Funktion **`showDefaultFolder()`** der {{WebExtAPIRef("downloads")}} API öffnet den standardmäßigen Download-Ordner im Dateimanager der Plattform.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel enthält eine Schaltfläche zum Anzeigen, die bei Klick `showDefaultFolder()` aufruft, um den Standard-Download-Ordner im Dateimanager der Plattform zu öffnen:
+Das folgende Snippet enthält einen Anzeigeknopf, der beim Klicken die Funktion `showDefaultFolder()` aufruft, um den standardmäßigen Download-Ordner im Dateimanager der Plattform zu öffnen:
 
 ```js
 let showBtn = document.querySelector(".show");

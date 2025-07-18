@@ -2,10 +2,8 @@
 title: idle.setDetectionInterval()
 slug: Mozilla/Add-ons/WebExtensions/API/idle/setDetectionInterval
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Legt das Intervall in Sekunden fest, das verwendet wird, um zu bestimmen, wann das System für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse in einem Leerlaufzustand ist. Das Standardintervall beträgt 60 Sekunden.
 
@@ -22,7 +20,7 @@ browser.idle.setDetectionInterval(
 ### Parameter
 
 - `intervalInSeconds`
-  - : `integer`. Schwellenwert in Sekunden, der verwendet wird, um zu bestimmen, wann das System in einem Leerlaufzustand ist. Der Mindestwert, den Sie hier angeben können, ist 15.
+  - : `integer`. Schwellenwert in Sekunden, der verwendet wird, um zu bestimmen, wann sich das System in einem Leerlaufzustand befindet. Der minimale Wert, den Sie hier angeben können, ist 15.
 
 ## Beispiele
 
@@ -37,7 +35,7 @@ browser.idle.setDetectionInterval(15);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-setDetectionInterval) API. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-setDetectionInterval) API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

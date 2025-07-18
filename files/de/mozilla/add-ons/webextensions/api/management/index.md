@@ -2,22 +2,20 @@
 title: management
 slug: Mozilla/Add-ons/WebExtensions/API/management
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Erhalten Sie Informationen über installierte Add-ons.
 
-Mit der `management` API können Sie:
+Mit der `management`-API können Sie:
 
-- Informationen über installierte Add-ons erhalten
+- Informationen über installierte Add-ons abrufen
 - Add-ons aktivieren/deaktivieren
 - Add-ons deinstallieren
-- herausfinden, welche Berechtigungswarnungen für bestimmte Add-ons oder Manifeste gegeben werden
-- Benachrichtigungen erhalten, wenn Add-ons installiert, deinstalliert, aktiviert oder deaktiviert werden.
+- herausfinden, welche Berechtigungswarnungen für bestimmte Add-ons oder Manifeste gegeben sind
+- Benachrichtigungen über installierte, deinstallierte, aktivierte oder deaktivierte Add-ons erhalten.
 
-Die meisten dieser Vorgänge erfordern die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Vorgänge, die nicht auf andere Add-ons zugreifen, benötigen diese Berechtigung nicht.
+Die meisten dieser Operationen erfordern die Berechtigung "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Operationen, die keinen Zugriff auf andere Add-ons gewähren, benötigen diese Berechtigung nicht.
 
 ## Typen
 
@@ -39,9 +37,9 @@ Die meisten dieser Vorgänge erfordern die "management" [API-Berechtigung](/de/d
 - {{WebExtAPIRef("management.uninstallSelf()")}}
   - : Deinstalliert das aufrufende Add-on.
 - {{WebExtAPIRef("management.getPermissionWarningsById()")}}
-  - : Ruft das Set von Berechtigungswarnungen für ein bestimmtes Add-on ab, basierend auf seiner ID.
+  - : Gibt die Menge der Berechtigungswarnungen für ein bestimmtes Add-on zurück, basierend auf seiner ID.
 - {{WebExtAPIRef("management.getPermissionWarningsByManifest()")}}
-  - : Ruft das Set von Berechtigungswarnungen ab, das für die gegebene Manifest-Zeichenkette angezeigt würde.
+  - : Gibt die Menge der Berechtigungswarnungen zurück, die für den gegebenen Manifest-String angezeigt würden.
 - {{WebExtAPIRef("management.setEnabled()")}}
   - : Aktiviert/deaktiviert ein bestimmtes Add-on, basierend auf seiner ID.
 
@@ -63,7 +61,7 @@ Die meisten dieser Vorgänge erfordern die "management" [API-Berechtigung](/de/d
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management) API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

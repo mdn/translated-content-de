@@ -2,21 +2,19 @@
 title: notifications.create()
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/create
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Erstellt und zeigt eine Benachrichtigung an.
 
 Übergeben Sie eine {{WebExtAPIRef("notifications.NotificationOptions")}}, um den Inhalt und das Verhalten der Benachrichtigung zu definieren.
 
-Sie können optional eine ID für die Benachrichtigung angeben. Wenn Sie die ID weglassen, wird eine ID generiert. Sie können die ID verwenden, um die Benachrichtigung zu {{WebExtAPIRef("notifications.update()", "update")}} oder zu {{WebExtAPIRef("notifications.clear()", "clear")}}.
+Sie können optional eine ID für die Benachrichtigung angeben. Wenn Sie die ID weglassen, wird eine ID generiert. Sie können die ID verwenden, um die Benachrichtigung mit {{WebExtAPIRef("notifications.update()", "update")}} oder {{WebExtAPIRef("notifications.clear()", "clear")}} zu aktualisieren oder zu entfernen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 > [!WARNING]
-> Wenn Sie `notifications.create()` mehrmals in schneller Folge aufrufen, kann es sein, dass Firefox überhaupt keine Benachrichtigung anzeigt.
+> Wenn Sie `notifications.create()` mehrmals in schneller Folge aufrufen, kann es passieren, dass Firefox überhaupt keine Benachrichtigung anzeigt.
 
 ## Syntax
 
@@ -30,17 +28,17 @@ let creating = browser.notifications.create(
 ### Parameter
 
 - `id` {{optional_inline}}
-  - : `string`. Diese wird verwendet, um auf diese Benachrichtigung in {{WebExtAPIRef("notifications.update()")}}, {{WebExtAPIRef("notifications.clear()")}} und in Ereignis-Listenern zu verweisen. Wenn Sie dieses Argument weglassen oder einen leeren String übergeben, wird eine neue ID für diese Benachrichtigung generiert. Wenn die von Ihnen angegebene ID mit der ID einer vorhandenen Benachrichtigung dieser Erweiterung übereinstimmt, wird die andere Benachrichtigung gelöscht.
+  - : `string`. Diese wird verwendet, um auf diese Benachrichtigung in {{WebExtAPIRef("notifications.update()")}}, {{WebExtAPIRef("notifications.clear()")}} und Ereignis-Listenern zu verweisen. Wenn Sie dieses Argument weglassen oder einen leeren String übergeben, wird eine neue ID für diese Benachrichtigung generiert. Wenn die von Ihnen angegebene ID mit der ID einer bestehenden Benachrichtigung dieser Erweiterung übereinstimmt, wird die andere Benachrichtigung entfernt.
 - `options`
   - : {{WebExtAPIRef('notifications.NotificationOptions')}}. Definiert den Inhalt und das Verhalten der Benachrichtigung.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die Benachrichtigung erstellt und der Anzeigeprozess gestartet wurde, was vor der tatsächlichen Anzeige der Benachrichtigung für den Benutzer erfolgt. Es wird mit einem String erfüllt, der die ID der Benachrichtigung darstellt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die Benachrichtigung erstellt wurde und der Anzeigevorgang gestartet hat, was vor der tatsächlichen Anzeige der Benachrichtigung für den Benutzer erfolgt. Es wird mit einem String erfüllt, der die ID der Benachrichtigung darstellt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt regelmäßig eine Benachrichtigung an, indem es {{WebExtAPIRef("alarms", "alarm")}} verwendet. Das Klicken auf die Browseraktion verwirft die Benachrichtigung. Sie benötigen die "alarms"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions), um Alarme zu erstellen (sowie die "notifications"-Berechtigung, um Benachrichtigungen zu erstellen).
+Dieses Beispiel zeigt regelmäßig eine Benachrichtigung an, verwendet dabei {{WebExtAPIRef("alarms", "alarm")}}. Das Klicken auf die Browser-Aktion schließt die Benachrichtigung. Sie benötigen die "alarms" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions), um Alarme zu erstellen (sowie die "notifications"-Berechtigung, um Benachrichtigungen zu erstellen).
 
 ```js
 let cakeNotification = "cake-notification";
@@ -82,4 +80,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications#method-create)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications#method-create) API.

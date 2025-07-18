@@ -2,16 +2,14 @@
 title: runtime.PlatformNaclArch
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/PlatformNaclArch
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die Native Client-Architektur. Diese kann sich auf einigen Plattformen von `arch` unterscheiden.
+Die Architektur des Native Clients. Diese kann auf einigen Plattformen von `arch` abweichen.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"arm"`, `"x86-32"`, `"x86-64"`.
+Werte dieses Typs sind Zeichenketten (Strings). Mögliche Werte sind: `"arm"`, `"x86-32"`, `"x86-64"`.
 
 {{WebExtExamples}}
 

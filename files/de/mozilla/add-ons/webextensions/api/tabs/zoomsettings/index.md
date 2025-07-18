@@ -2,23 +2,21 @@
 title: tabs.ZoomSettings
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettings
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Definiert Zoom-Einstellungen für einen Tab: {{WebExtAPIRef("tabs.ZoomSettingsMode", "mode")}}, {{WebExtAPIRef("tabs.ZoomSettingsScope", "scope")}}, und den Standard-Zoomfaktor.
+Definiert die Zoom-Einstellungen für einen Tab: {{WebExtAPIRef("tabs.ZoomSettingsMode", "mode")}}, {{WebExtAPIRef("tabs.ZoomSettingsScope", "scope")}}, und den standardmäßigen Zoomfaktor.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `defaultZoomFactor` {{optional_inline}}
-  - : `number`. Der Standard-Zoomlevel für den aktuellen Tab. Beachten Sie, dass dies nur in {{WebExtAPIRef("tabs.getZoomSettings")}} verwendet wird.
+  - : `number`. Das Standard-Zoomlevel für den aktuellen Tab. Beachten Sie, dass dies nur in {{WebExtAPIRef("tabs.getZoomSettings")}} verwendet wird.
 - `mode` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.ZoomSettingsMode')}}. Definiert, ob Zoomänderungen vom Browser, durch die Erweiterung oder deaktiviert gehandhabt werden.
+  - : {{WebExtAPIRef('tabs.ZoomSettingsMode')}}. Definiert, ob Zoomänderungen vom Browser, durch die Erweiterung oder deaktiviert behandelt werden.
 - `scope` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.ZoomSettingsScope')}}. Definiert, ob Zoomänderungen für den Ursprung der Seite beibehalten werden oder nur in diesem Tab wirksam sind.
+  - : {{WebExtAPIRef('tabs.ZoomSettingsScope')}}. Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam werden.
 
 {{WebExtExamples}}
 

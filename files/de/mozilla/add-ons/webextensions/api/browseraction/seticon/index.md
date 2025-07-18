@@ -2,18 +2,16 @@
 title: browserAction.setIcon()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setIcon
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Setzt das Symbol für die Browseraktion.
 
-Setzt das Icon für die Browser-Aktion.
+Sie können ein einzelnes Symbol entweder als Pfad zu einer Bilddatei oder als ein {{WebExtAPIRef('browserAction.ImageDataType')}}-Objekt angeben.
 
-Sie können ein einzelnes Icon entweder als Pfad zu einer Bilddatei oder als {{WebExtAPIRef('browserAction.ImageDataType')}} Objekt angeben.
+Sie können mehrere Symbole in verschiedenen Größen angeben, indem Sie ein Wörterbuch mit mehreren Pfaden oder `ImageData`-Objekten bereitstellen. Dies bedeutet, dass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss.
 
-Sie können mehrere Icons in verschiedenen Größen angeben, indem Sie ein Wörterbuch bereitstellen, das mehrere Pfade oder `ImageData`-Objekte enthält. Dies bedeutet, dass das Icon nicht für ein Gerät mit unterschiedlicher Pixeldichte skaliert werden muss.
-
-Registerkarten ohne spezifisches Icon erben das globale Icon, das standardmäßig dem [`default_icon`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) entspricht, das im Manifest angegeben ist.
+Registerkarten ohne ein spezifisches Symbol übernehmen das globale Symbol, das standardmäßig dem [`default_icon`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) entspricht, das im Manifest angegeben ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -32,7 +30,7 @@ let settingIcon = browser.browserAction.setIcon(
     - `imageData` {{optional_inline}}
       - : {{WebExtAPIRef('browserAction.ImageDataType')}} oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuch-Objekt.
 
-        Verwenden Sie ein Wörterbuch-Objekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, damit das Icon nicht für ein Gerät mit unterschiedlicher Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und sein Name seine Größe, wie folgt:
+        Verwenden Sie ein Wörterbuch-Objekt, um mehrere `ImageData`-Objekte in unterschiedlichen Größen anzugeben, damit das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.browserAction.setIcon({
@@ -43,12 +41,12 @@ let settingIcon = browser.browserAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild je nach Pixeldichte des Bildschirms aus. Siehe [Auswahl von Icon-Größen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
+        Der Browser wählt das Bild, das verwendet werden soll, abhängig von der Pixeldichte des Bildschirms. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen hierzu.
 
     - `path` {{optional_inline}}
-      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Icon-Datei oder ein Wörterbuch-Objekt.
+      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Symboldatei oder ein Wörterbuch-Objekt.
 
-        Verwenden Sie ein Wörterbuch-Objekt, um mehrere Icon-Dateien in verschiedenen Größen anzugeben, damit das Icon nicht für ein Gerät mit unterschiedlicher Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad und sein Name seine Größe, wie folgt:
+        Verwenden Sie ein Wörterbuch-Objekt, um mehrere Symboldateien in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.browserAction.setIcon({
@@ -59,31 +57,31 @@ let settingIcon = browser.browserAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild je nach Pixeldichte des Bildschirms aus. Siehe [Auswahl von Icon-Größen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
+        Der Browser wählt das Bild, das verwendet werden soll, abhängig von der Pixeldichte des Bildschirms. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen hierzu.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt das Icon nur für den angegebenen Tab. Das Icon wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
+      - : `integer`. Setzt das Symbol nur für die angegebene Registerkarte. Das Symbol wird zurückgesetzt, wenn der Benutzer diese Registerkarte zu einer neuen Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt das Icon für das angegebene Fenster.
+      - : `integer`. Setzt das Symbol für das angegebene Fenster.
 
 <!---->
 
-- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und das Icon wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Icon gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das Symbol wird nicht gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird das globale Symbol gesetzt.
 
-Wenn jeweils eines von `imageData` und `path` `undefined`, `null` oder ein leeres Objekt ist:
+Wenn jedes der `imageData` und `path` eines der folgenden ist: `undefined`, `null` oder leeres Objekt:
 
-- Wenn `tabId` angegeben ist und der Tab ein tabspezifisches Icon hat, erbt der Tab das Icon des Fensters, zu dem er gehört.
-- Wenn `windowId` angegeben ist und das Fenster ein fensterspezifisches Icon hat, erbt das Fenster das globale Icon.
-- Andernfalls wird das globale Icon auf das Manifest-Icon zurückgesetzt.
+- Wenn `tabId` angegeben ist und die Registerkarte ein spezifisches Symbol hat, erbt die Registerkarte das Symbol von dem Fenster, zu dem sie gehört.
+- Wenn `windowId` angegeben ist und das Fenster ein fensterspezifisches Symbol hat, erbt das Fenster das globale Symbol.
+- Andernfalls wird das globale Symbol auf das Manifestsymbol zurückgesetzt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, sobald das Icon gesetzt wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Symbol gesetzt wurde.
 
 ## Beispiele
 
-Der folgende Code verwendet eine Browser-Aktion, um einen Listener für {{WebExtAPIRef("webRequest.onHeadersReceived")}} umzuschalten und verwendet `setIcon()`, um anzuzeigen, ob das Zuhören ein- oder ausgeschaltet ist:
+Der folgende Code verwendet eine Browseraktion zum Umschalten eines Listeners für {{WebExtAPIRef("webRequest.onHeadersReceived")}} und verwendet `setIcon()`, um anzuzeigen, ob das Abhören ein- oder ausgeschaltet ist:
 
 ```js
 function logResponseHeaders(requestDetails) {
@@ -115,7 +113,7 @@ function toggleListener() {
 browser.browserAction.onClicked.addListener(toggleListener);
 ```
 
-Der folgende Code setzt das Icon mit einem [`ImageData`](/de/docs/Web/API/ImageData)-Objekt:
+Der folgende Code setzt das Symbol mithilfe eines [`ImageData`](/de/docs/Web/API/ImageData)-Objekts:
 
 ```js
 function getImageData() {
@@ -133,7 +131,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Das folgende Snippet aktualisiert das Icon, wenn der Benutzer darauf klickt, jedoch nur für den aktiven Tab:
+Der folgende Ausschnitt aktualisiert das Symbol, wenn der Benutzer darauf klickt, jedoch nur für die aktive Registerkarte:
 
 ```js
 browser.browserAction.onClicked.addListener((tab) => {
@@ -151,7 +149,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setIcon) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setIcon) API. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

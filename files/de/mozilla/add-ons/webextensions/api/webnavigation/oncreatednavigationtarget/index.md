@@ -2,19 +2,17 @@
 title: webNavigation.onCreatedNavigationTarget
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onCreatedNavigationTarget
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein neues Fenster oder ein neuer Tab in einem bestehenden Fenster erstellt wird, um das Ziel einer Navigation aufzunehmen. Zum Beispiel wird dieses Ereignis gesendet, wenn:
+Ausgelöst, wenn ein neues Fenster oder ein neuer Tab in einem bestehenden Fenster erstellt wird, um das Ziel einer Navigation aufzunehmen. Zum Beispiel wird dieses Ereignis gesendet, wenn:
 
 - der Benutzer einen Link in einem neuen Tab oder Fenster öffnet
-- eine Webseite eine Ressource in einem neuen Tab oder Fenster mit [`window.open()`](/de/docs/Web/API/Window/open) lädt (dabei ist zu beachten, dass das Ereignis nicht gesendet wird, falls der Popup-Blocker des Browsers das Laden blockiert).
+- eine Webseite eine Ressource in einem neuen Tab oder Fenster mit [`window.open()`](/de/docs/Web/API/Window/open) lädt (beachten Sie jedoch, dass das Ereignis nicht gesendet wird, wenn der Pop-up-Blocker des Browsers das Laden blockiert).
 
 Das Ereignis wird nicht gesendet, wenn ein Tab oder Fenster ohne ein Navigationsziel erstellt wird (zum Beispiel, wenn der Benutzer einen neuen Tab durch Drücken von <kbd>Strg+T</kbd> öffnet).
 
-Wenn dieses Ereignis ausgelöst wird, wird es vor {{WebExtAPIRef("webNavigation.onBeforeNavigate")}} ausgelöst.
+Falls dieses Ereignis ausgelöst wird, geschieht dies vor {{WebExtAPIRef("webNavigation.onBeforeNavigate")}}.
 
 ## Syntax
 
@@ -30,38 +28,38 @@ browser.webNavigation.onCreatedNavigationTarget.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `details`
-      - : `object`. Details über das Navigationsevent. Weitere Informationen finden Sie im Abschnitt [details](#details).
+      - : `object`. Details zum Navigationsereignis. Siehe den Abschnitt [details](#details) für weitere Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mit mindestens einem `UrlFilter` im Array übereinstimmen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst. Beachten Sie, dass `filter` in Firefox nicht unterstützt wird.
+  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, welche ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter angeben, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst. Beachten Sie, dass `filter` in Firefox nicht unterstützt wird.
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `sourceFrameId`
-  - : `integer`. ID des Frames, von dem die Navigation initiiert wird. `0` zeigt an, dass der Rahmen der obersten Ebene des Tabs ist, nicht ein verschachteltes {{HTMLElement("iframe")}}. Ein positiver Wert zeigt an, dass die Navigation von einem verschachtelten iframe ausgeht. Frame-IDs sind eindeutig für einen gegebenen Tab und Prozess.
+  - : `integer`. ID des Frames, von dem die Navigation ausgeht. `0` gibt an, dass der Frame der oberste Browsing-Kontext des Tabs ist, nicht ein verschachteltes {{HTMLElement("iframe")}}. Ein positiver Wert gibt an, dass die Navigation von einem verschachtelten iframe ausgeht. Frame-IDs sind innerhalb eines gegebenen Tabs und Prozesses eindeutig.
 - `processId` {{optional_inline}} {{deprecated_inline}}
   - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, repräsentierte er die ID des Prozesses, von dem die Navigation ausging.
 - `sourceTabId`
-  - : `integer`. Die ID des Tabs, von dem die Navigation initiiert wird. Zum Beispiel, wenn der Benutzer einen Link in einem neuen Tab öffnet, ist dies die ID des Tabs, das den Link enthält.
+  - : `integer`. Die ID des Tabs, von dem die Navigation ausgeht. Zum Beispiel, wenn der Benutzer einen Link in einem neuen Tab öffnet, ist dies die ID des Tabs, der den Link enthält.
 - `tabId`
   - : `integer`. Die ID des neu erstellten Tabs.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der der Browser das Navigationsziel erstellt hat, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+  - : `number`. Der Zeitpunkt, zu dem der Browser das Navigationsziel erstellt hat, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `url`
   - : `string`. Die URL, die im neuen Tab geladen wird.
 - `windowId`
@@ -95,4 +93,4 @@ browser.webNavigation.onCreatedNavigationTarget.addListener(
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation basiert auf [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.

@@ -2,12 +2,10 @@
 title: contextualIdentities.onRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/onRemoved
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn eine neue kontextuelle Identität entfernt wird. Kontextuelle Identitäten können von Erweiterungen mithilfe der `contextualIdentities`-API entfernt werden oder direkt durch den Benutzer über die Benutzeroberfläche des Browsers.
+Wird ausgelöst, wenn eine neue kontextuelle Identität entfernt wird. Kontextuelle Identitäten können von Erweiterungen mithilfe der `contextualIdentities` API entfernt werden oder direkt vom Benutzer über die Benutzeroberfläche des Browsers.
 
 ## Syntax
 
@@ -22,18 +20,18 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `changeInfo`
-      - : `object`. Ein Objekt, das eine Eigenschaft enthält, `contextualIdentity`, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}}-Objekt darstellt, das die entfernte Identität repräsentiert.
+      - : `object`. Ein Objekt, das eine einzelne Eigenschaft enthält, `contextualIdentity`, das ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}} Objekt darstellt, das die entfernte Identität repräsentiert.
 
 ## Beispiele
 

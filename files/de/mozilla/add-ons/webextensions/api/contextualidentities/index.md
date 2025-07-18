@@ -2,30 +2,28 @@
 title: contextualIdentities
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Arbeiten Sie mit kontextuellen Identitäten: Listen, Erstellen, Entfernen und Aktualisieren von kontextuellen Identitäten.
 
-Arbeiten Sie mit kontextuellen Identitäten: auflisten, erstellen, entfernen und aktualisieren Sie kontextuelle Identitäten.
+"Kontextuelle Identitäten", auch bekannt als "Container", sind eine Browser-Funktion, die es Nutzern ermöglicht, beim Surfen im Internet mehrere Identitäten anzunehmen und eine gewisse Trennung zwischen diesen Identitäten zu wahren. Zum Beispiel könnte ein Nutzer seine "Arbeitsidentität" von seiner "persönlichen Identität" getrennt betrachten und keine Cookies zwischen diesen beiden Kontexten teilen wollen.
 
-"Kontextuelle Identitäten", auch als "Container" bekannt, sind eine Browser-Funktion, die es Benutzern ermöglicht, beim Surfen im Internet mehrere Identitäten anzunehmen und eine gewisse Trennung zwischen diesen Identitäten aufrechtzuerhalten. Zum Beispiel könnte ein Benutzer seine "Arbeitsidentität" getrennt von seiner "persönlichen Identität" betrachten und keine Cookies zwischen diesen beiden Kontexten teilen wollen.
+Mit der Funktion der kontextuellen Identitäten hat jede kontextuelle Identität einen Namen, eine Farbe und ein Symbol. Neue Tabs können einer Identität zugewiesen werden, und der Name, das Symbol und die Farbe erscheinen in der Adressleiste. Intern erhält jede Identität einen Cookie-Speicher, der nicht mit anderen Tabs geteilt wird. Dieser Cookie-Speicher wird in dieser und anderen APIs durch die `cookieStoreId` identifiziert.
 
-Mit der Funktion für kontextuelle Identitäten hat jede kontextuelle Identität einen Namen, eine Farbe und ein Symbol. Neue Registerkarten können einer Identität zugewiesen werden, und der Name, das Symbol und die Farbe erscheinen in der Adressleiste. Intern erhält jede Identität einen Cookie-Store, der nicht mit anderen Registerkarten geteilt wird. Dieser Cookie-Store wird durch die `cookieStoreId` in dieser und anderen APIs identifiziert.
+![Ein Kontextmenü mit hervorgehobenem Untermenü "in neuem Containertab öffnen". Das Untermenü zeigt persönliche, Arbeits-, Bank- und Einkaufs-Kontainertilitäten.](containers.png)
 
-![Ein Kontextmenü mit hervorgehobenem Untermenü "In neuem Container-Tab öffnen". Das Untermenü zeigt persönliche, Arbeits-, Bank- und Einkaufs-Identitäten an.](containers.png)
+Kontextuelle Identitäten sind ein experimentelles Feature in Firefox und nur standardmäßig in Firefox Nightly aktiviert. Um sie in anderen Versionen von Firefox zu aktivieren, setzen Sie die Einstellung `privacy.userContext.enabled` auf `true`. Beachten Sie, dass kontextuelle Identitäten zwar in Firefox für Android verfügbar sind, es jedoch in dieser Version des Browsers keine Benutzeroberfläche gibt, um mit ihnen zu arbeiten.
 
-Kontextuelle Identitäten sind eine experimentelle Funktion in Firefox und sind standardmäßig nur in Firefox Nightly aktiviert. Um sie in anderen Versionen von Firefox zu aktivieren, setzen Sie die Einstellung `privacy.userContext.enabled` auf `true`. Beachten Sie, dass kontextuelle Identitäten zwar in Firefox für Android verfügbar sind, es in dieser Browserversion keine Benutzeroberfläche gibt, um mit ihnen zu arbeiten.
+Vor Firefox 57 ist die `contextualIdentities` API nur verfügbar, wenn das Feature der kontextuellen Identitäten selbst aktiviert ist. Wenn eine Erweiterung versuchte, die `contextualIdentities` API zu verwenden, ohne dass das Feature aktiviert war, würden die Methodenaufrufe ihre Versprechen mit `false` auflösen.
 
-Vor Firefox 57 ist die `contextualIdentities`-API nur verfügbar, wenn die kontextuellen Identitäten selbst aktiviert sind. Wenn eine Erweiterung versucht hat, die `contextualIdentities`-API zu verwenden, ohne dass die Funktion aktiviert ist, würden methodenbezogene Versprechungen mit `false` aufgelöst.
+Ab Firefox 57 wird das Feature der kontextuellen Identitäten automatisch aktiviert, wenn eine Erweiterung installiert wird, die die `contextualIdentities` API verwendet. Beachten Sie jedoch, dass es für den Benutzer immer noch möglich ist, das Feature über die Einstellung "privacy.userContext.enabled" zu deaktivieren. Wenn dies passiert, werden die Methodenaufrufe der `contextualIdentities` ihre Versprechen mit einer Fehlermeldung ablehnen.
 
-Ab Firefox 57 wird die Funktion für kontextuelle Identitäten automatisch aktiviert, wenn eine Erweiterung, die die `contextualIdentities`-API verwendet, installiert ist. Beachten Sie jedoch, dass es dem Benutzer weiterhin möglich ist, die Funktion mit der Einstellung "privacy.userContext.enabled" zu deaktivieren. Falls dies geschieht, werden `contextualIdentities`-Methodenaufrufe ihre Versprechen mit einer Fehlermeldung ablehnen.
-
-Weitere Informationen finden Sie unter [Arbeiten Sie mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
 
 Kontextuelle Identitäten werden in keinem anderen Browser unterstützt.
 
-Um diese API verwenden zu können, müssen Sie die Berechtigungen "contextualIdentities" und "cookies" in Ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei einschließen.
+Um diese API zu verwenden, müssen Sie die Berechtigungen "contextualIdentities" und "cookies" in Ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei einschließen.
 
 ## Typen
 
@@ -37,7 +35,7 @@ Um diese API verwenden zu können, müssen Sie die Berechtigungen "contextualIde
 - {{WebExtAPIRef("contextualIdentities.create()")}}
   - : Erstellt eine neue kontextuelle Identität.
 - {{WebExtAPIRef("contextualIdentities.get()")}}
-  - : Ruft eine kontextuelle Identität ab, gegeben ihrer Cookie-Store-ID.
+  - : Ruft eine kontextuelle Identität ab, wenn die Cookie-Speicher-ID angegeben ist.
 - {{WebExtAPIRef("contextualIdentities.move()")}}
   - : Verschiebt eine oder mehrere kontextuelle Identitäten innerhalb der Liste der kontextuellen Identitäten.
 - {{WebExtAPIRef("contextualIdentities.query()")}}

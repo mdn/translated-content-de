@@ -2,43 +2,41 @@
 title: windows.Window
 slug: Mozilla/Add-ons/WebExtensions/API/windows/Window
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Informationen zu einem Browserfenster.
+Informationen über ein Browserfenster.
 
 ## Typ
 
-Werte dieses Typs sind `Objekte`. Sie enthalten die folgenden Eigenschaften:
+Werte dieses Typs sind `objects`. Sie enthalten die folgenden Eigenschaften:
 
 - `alwaysOnTop`
   - : `boolean`. Ob das Fenster so eingestellt ist, dass es immer im Vordergrund bleibt.
 - `focused`
-  - : `boolean`. Ob das Fenster aktuell das fokussierte Fenster ist.
+  - : `boolean`. Ob das Fenster derzeit das fokussierte Fenster ist.
 - `height` {{optional_inline}}
-  - : `integer`. Die Höhe des Fensters, einschließlich des Rahmens, in Pixeln.
+  - : `integer`. Die Höhe des Fensters einschließlich des Rahmens in Pixeln.
 - `id` {{optional_inline}}
   - : `integer`. Die ID des Fensters. Fenster-IDs sind innerhalb einer Browsersitzung eindeutig.
 - `incognito`
   - : `boolean`. Ob das Fenster im Inkognito-Modus (privat) ist.
 - `left` {{optional_inline}}
-  - : `integer`. Der Abstand des Fensters vom linken Bildschirmrand in Pixeln.
+  - : `integer`. Der Versatz des Fensters vom linken Bildschirmrand in Pixeln.
 - `sessionId` {{optional_inline}}
-  - : `string`. Die Sitzungs-ID, die verwendet wird, um ein Fenster eindeutig zu identifizieren, das von der {{WebExtAPIRef('sessions')}} API abgerufen wurde.
+  - : `string`. Die Sitzungs-ID, die zur eindeutigen Identifizierung eines Fensters verwendet wird, das von der {{WebExtAPIRef('sessions')}} API abgerufen wurde.
 - `state` {{optional_inline}}
-  - : Ein {{WebExtAPIRef('windows.WindowState')}} Wert, der den Zustand dieses Browserfensters repräsentiert — maximiert, minimiert, usw.
+  - : Ein {{WebExtAPIRef('windows.WindowState')}}-Wert, der den Zustand dieses Browserfensters beschreibt — maximiert, minimiert usw.
 - `tabs` {{optional_inline}}
-  - : Array von {{WebExtAPIRef('tabs.Tab')}} Objekten, die die aktuellen Tabs im Fenster darstellen.
+  - : Array von {{WebExtAPIRef('tabs.Tab')}}-Objekten, die die aktuellen Tabs im Fenster darstellen.
 - `title` {{optional_inline}}
-  - : Der Titel des Browserfensters. Erfordert die Berechtigung "tabs" oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die URL des aktiven Tabs. Nur lesbar.
+  - : Der Titel des Browserfensters. Benötigt die Berechtigung "tabs" oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die URL des aktiven Tabs. Nur Lesezugriff.
 - `top` {{optional_inline}}
-  - : `integer`. Der Abstand des Fensters vom oberen Bildschirmrand in Pixeln.
+  - : `integer`. Der Versatz des Fensters vom oberen Bildschirmrand in Pixeln.
 - `type` {{optional_inline}}
-  - : Ein {{WebExtAPIRef('windows.WindowType')}} Wert, der den Typ dieses Browserfensters darstellt — normales Browserfenster, Popup, usw.
+  - : Ein {{WebExtAPIRef('windows.WindowType')}}-Wert, der den Fenstertyp des Browsers beschreibt — normales Browserfenster, Popup usw.
 - `width` {{optional_inline}}
-  - : `integer`. Die Breite des Fensters, einschließlich des Rahmens, in Pixeln.
+  - : `integer`. Die Breite des Fensters einschließlich des Rahmens in Pixeln.
 
 {{WebExtExamples}}
 
@@ -47,7 +45,7 @@ Werte dieses Typs sind `Objekte`. Sie enthalten die folgenden Eigenschaften:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-Window) API. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-Window) API von Chromium. Diese Dokumentation stammt von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -67,8 +65,8 @@ Werte dieses Typs sind `Objekte`. Sie enthalten die folgenden Eigenschaften:
 // this software without specific prior written permission.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-// TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
 // A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
 // OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
 // SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT

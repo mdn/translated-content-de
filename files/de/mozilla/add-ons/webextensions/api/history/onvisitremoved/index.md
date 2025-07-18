@@ -2,16 +2,14 @@
 title: history.onVisitRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/history/onVisitRemoved
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wird ausgelöst, wenn eine Seite vollständig aus dem Browserverlauf entfernt wird.
 
-Wird ausgelöst, wenn eine Seite vollständig aus dem Browser-Verlauf entfernt wird.
-
-- Wenn alle Besuche einer einzelnen Seite entfernt werden (zum Beispiel mithilfe von {{WebExtAPIRef("history.deleteUrl")}}), wird dieses Ereignis einmal ausgelöst.
-- Wenn ein Bereich von Besuchen entfernt wird (zum Beispiel mit {{WebExtAPIRef("history.deleteRange")}} oder einer Browser-Funktion wie "Neueste Chronik löschen"), wird es einmal für jede Seite ausgelöst, _deren Besuche alle in den gelöschten Bereich fallen_.
-- Wenn der gesamte Verlauf des Browsers gelöscht wird (zum Beispiel mit {{WebExtAPIRef("history.deleteAll")}}), wird es nur einmal ausgelöst.
+- Wenn alle Besuche einer einzelnen Seite entfernt werden (zum Beispiel durch die Verwendung von {{WebExtAPIRef("history.deleteUrl")}}), wird dieses Ereignis einmal ausgelöst.
+- Wenn ein Bereich von Besuchen entfernt wird (zum Beispiel durch die Verwendung von {{WebExtAPIRef("history.deleteRange")}} oder einer Browserfunktion wie "Jüngsten Verlauf löschen"), wird es einmal für jede Seite ausgelöst, _deren Besuche vollständig innerhalb des gelöschten Bereichs liegen_.
+- Wenn der gesamte Browserverlauf gelöscht wird (zum Beispiel durch die Verwendung von {{WebExtAPIRef("history.deleteAll")}}), wird es nur einmal ausgelöst.
 
 ## Syntax
 
@@ -26,20 +24,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Anhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `removed`
-      - : `object`. Details zur Entfernung. Dies ist ein Objekt mit zwei Eigenschaften: einem booleschen `allHistory` und einem Array `urls`.
-        - Wenn dieses Ereignis ausgelöst wird, weil der gesamte Verlauf gelöscht wurde, wird `allHistory` `true` sein und `urls` ein leeres Array.
-        - Andernfalls wird `allHistory` `false` sein und `urls` wird ein Element enthalten, das die URL der entfernten Seite ist.
+      - : `object`. Details der Entfernung. Dies ist ein Objekt, das zwei Eigenschaften enthält: ein boolesches `allHistory` und ein Array `urls`.
+        - Wenn dieses Ereignis ausgelöst wird, weil der gesamte Verlauf gelöscht wurde, ist `allHistory` `true` und `urls` ist ein leeres Array.
+        - Andernfalls ist `allHistory` `false` und `urls` enthält einen Eintrag, der die URL der entfernten Seite ist.
 
 ## Beispiele
 
@@ -62,7 +60,7 @@ browser.history.onVisitRemoved.addListener(onRemoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisitRemoved) von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisitRemoved) API von Chromium. Diese Dokumentation leitet sich von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

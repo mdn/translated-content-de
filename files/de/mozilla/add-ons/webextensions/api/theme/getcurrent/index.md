@@ -2,12 +2,10 @@
 title: theme.getCurrent()
 slug: Mozilla/Add-ons/WebExtensions/API/theme/getCurrent
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft das aktuelle Theme als ein {{WebExtAPIRef("theme.Theme", "Theme")}} Objekt ab.
+Gibt das aktuelle Theme als ein {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekt zurück.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +20,11 @@ let getting = browser.theme.getCurrent(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn dies angegeben wird, ist das aufgelöste Theme dasjenige, das auf dieses Fenster angewendet wird. Wenn es weggelassen wird, ist das aufgelöste Theme dasjenige, das auf das zuletzt fokussierte Fenster angewendet wird.
+  - : `integer`. Die ID eines Fensters. Wenn dies angegeben wird, wird das Theme bestimmt, das auf dieses Fenster angewendet wird. Wenn es weggelassen wird, wird das Theme bestimmt, das auf das zuletzt fokussierte Fenster angewendet wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das Promise wird mit einem {{WebExtAPIRef("theme.Theme")}} Objekt aufgelöst, das das auf das angegebene Fenster angewendete Theme darstellt. Wenn kein von einer Erweiterung bereitgestelltes Theme auf das angegebene Fenster angewendet wurde, wird es mit einem leeren Objekt aufgelöst.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das Promise wird mit einem {{WebExtAPIRef("theme.Theme")}}-Objekt erfüllt, das das auf das angegebene Fenster angewendete Theme darstellt. Wenn kein von der Erweiterung bereitgestelltes Theme auf das angegebene Fenster angewendet wurde, wird es mit einem leeren Objekt erfüllt.
 
 ## Beispiele
 

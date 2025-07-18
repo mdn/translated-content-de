@@ -2,158 +2,156 @@
 title: tabs
 slug: Mozilla/Add-ons/WebExtensions/API/tabs
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Interagieren Sie mit dem Tab-System des Browsers.
+Interagieren Sie mit dem Tabsystem des Browsers.
 
 > [!NOTE]
-> Bei der Verwendung von Manifest V3 oder höher werden die Methoden zum Ausführen von Skripten, Einfügen von CSS und Entfernen von CSS durch die {{WebExtAPIRef("scripting")}} API mithilfe der Methoden {{WebExtAPIRef("scripting.executeScript()")}}, {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}} bereitgestellt.
+> Wenn Sie Manifest V3 oder höher verwenden, werden die Methoden zum Ausführen von Skripten, Einfügen von CSS und Entfernen von CSS durch die {{WebExtAPIRef("scripting")}} API über die Methoden {{WebExtAPIRef("scripting.executeScript()")}}, {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}} bereitgestellt.
 
-Sie können diese API verwenden, um eine Liste geöffneter Tabs zu erhalten, die nach verschiedenen Kriterien gefiltert sind, und um Tabs zu öffnen, zu aktualisieren, zu verschieben, neu zu laden und zu entfernen. Sie können nicht direkt auf den von Tabs gehosteten Inhalt zugreifen, aber Sie können JavaScript und CSS in Tabs einfügen, indem Sie die APIs {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}} verwenden.
+Sie können diese API verwenden, um eine Liste geöffneter Tabs zu erhalten, gefiltert nach verschiedenen Kriterien, und um Tabs zu öffnen, zu aktualisieren, zu verschieben, neu zu laden und zu entfernen. Sie können mit dieser API nicht direkt auf die von Tabs gehosteten Inhalte zugreifen, aber Sie können JavaScript und CSS in Tabs mit den APIs {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}} einfügen.
 
-Die meisten dieser APIs können ohne besondere Berechtigung verwendet werden. Jedoch:
+Sie können den Großteil dieser API ohne besondere Berechtigung nutzen. Allerdings:
 
-- Um auf `Tab.url`, `Tab.title` und `Tab.favIconUrl` zuzugreifen (oder um nach diesen Eigenschaften über {{WebExtAPIRef("tabs.query()")}} zu filtern), müssen Sie die `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) besitzen, die mit `Tab.url` übereinstimmen.
-  - Der Zugriff auf diese Eigenschaften durch Host-Berechtigungen wird seit Firefox 86 und Chrome 50 unterstützt. In Firefox 85 und früher war stattdessen die "tabs" Berechtigung erforderlich.
+- Um auf `Tab.url`, `Tab.title` und `Tab.favIconUrl` zuzugreifen (oder um nach diesen Eigenschaften über {{WebExtAPIRef("tabs.query()")}} zu filtern), benötigen Sie die `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), die mit `Tab.url` übereinstimmen.
+  - Der Zugriff auf diese Eigenschaften durch Host-Berechtigungen wird seit Firefox 86 und Chrome 50 unterstützt. In Firefox 85 und älter war stattdessen die "tabs"-Berechtigung erforderlich.
 
-- Um {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}} zu verwenden, müssen Sie die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für den Tab haben.
+- Um {{WebExtAPIRef("tabs.executeScript()")}} oder {{WebExtAPIRef("tabs.insertCSS()")}} zu verwenden, müssen Sie die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für das Tab haben.
 
-Alternativ können Sie diese Berechtigungen vorübergehend nur für den aktuell aktiven Tab und nur als Antwort auf eine explizite Benutzeraktion erhalten, indem Sie die [`"activeTab"` Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) anfordern.
+Alternativ können Sie diese Berechtigungen vorübergehend nur für das aktuell aktive Tab und nur als Antwort auf eine explizite Benutzeraktion erhalten, indem Sie die [`"activeTab"` Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) anfordern.
 
-Viele Tab-Operationen verwenden eine Tab-`id`. Tab-`id`s sind innerhalb einer Browsersitzung eindeutig für einen einzelnen Tab garantiert. Wenn der Browser neu gestartet wird, können und werden Tab-`id`s wiederverwendet. Um Informationen mit einem Tab über Browserneustarts hinweg zu verknüpfen, verwenden Sie {{WebExtAPIRef("sessions.setTabValue()")}}.
+Viele Tab-Operationen verwenden eine Tab-`id`. Tab-`id`s sind nur innerhalb einer Browser-Sitzung für ein einzelnes Tab eindeutig garantiert. Wenn der Browser neu gestartet wird, können Tab-`id`s wiederverwendet werden. Um Informationen mit einem Tab über Browser-Neustarts hinweg zu verknüpfen, verwenden Sie {{WebExtAPIRef("sessions.setTabValue()")}}.
 
 ## Typen
 
 - {{WebExtAPIRef("tabs.MutedInfoReason")}}
-  - : Gibt den Grund an, warum ein Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde.
+  - : Gibt den Grund an, warum ein Tab stummgeschaltet oder lautgeschaltet wurde.
 - {{WebExtAPIRef("tabs.MutedInfo")}}
-  - : Dieses Objekt enthält ein boolesches Feld, das angibt, ob der Tab stummgeschaltet ist, und den Grund für die letzte Statusänderung.
+  - : Dieses Objekt enthält einen booleschen Wert, der angibt, ob das Tab stummgeschaltet ist, und den Grund für die letzte Statusänderung.
 - {{WebExtAPIRef("tabs.PageSettings")}}
-  - : Wird verwendet, um zu steuern, wie ein Tab als PDF vom [`tabs.saveAsPDF()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/saveAsPDF)-Methode gerendert wird.
+  - : Wird verwendet, um zu steuern, wie ein Tab als PDF durch die Methode [`tabs.saveAsPDF()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/saveAsPDF) gerendert wird.
 - {{WebExtAPIRef("tabs.Tab")}}
-  - : Dieser Typ enthält Informationen über einen Tab.
+  - : Dieser Typ enthält Informationen über ein Tab.
 - {{WebExtAPIRef("tabs.TabStatus")}}
-  - : Zeigt an, ob der Tab das Laden abgeschlossen hat.
+  - : Gibt an, ob das Tab das Laden abgeschlossen hat.
 - {{WebExtAPIRef("tabs.WindowType")}}
-  - : Der Fenstertyp, der diesen Tab hostet.
+  - : Der Fenstertyp, der dieses Tab hostet.
 - {{WebExtAPIRef("tabs.ZoomSettingsMode")}}
-  - : Definiert, ob Zoomänderungen vom Browser, von der Erweiterung oder deaktiviert gehandhabt werden.
+  - : Definiert, ob Zoomänderungen vom Browser, von der Erweiterung oder gar nicht gehandhabt werden.
 - {{WebExtAPIRef("tabs.ZoomSettingsScope")}}
-  - : Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam werden.
+  - : Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam sind.
 - {{WebExtAPIRef("tabs.ZoomSettings")}}
-  - : Definiert Zoom-Einstellungen {{WebExtAPIRef("tabs.ZoomSettingsMode", "mode")}}, {{WebExtAPIRef("tabs.ZoomSettingsScope", "scope")}} und den Standard-Zoomfaktor.
+  - : Definiert Zoom-Einstellungen {{WebExtAPIRef("tabs.ZoomSettingsMode", "mode")}}, {{WebExtAPIRef("tabs.ZoomSettingsScope", "scope")}}, und den Standard-Zoomfaktor.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("tabs.TAB_ID_NONE")}}
-  - : Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browser-Tabs sind (z.B. Tabs in Devtools-Fenstern).
+  - : Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browser-Tabs sind (zum Beispiel Tabs in Entwicklerwerkzeug-Fenstern).
 
 ## Funktionen
 
 - {{WebExtAPIRef("tabs.captureTab()")}}
-  - : Erstellt eine Data-URL, die ein Bild des sichtbaren Bereichs des angegebenen Tabs kodiert.
+  - : Erstellt eine Daten-URL, die ein Bild des sichtbaren Bereichs des angegebenen Tabs kodiert.
 - {{WebExtAPIRef("tabs.captureVisibleTab()")}}
-  - : Erstellt eine Data-URL, die ein Bild des sichtbaren Bereichs des derzeit aktiven Tabs im angegebenen Fenster kodiert.
+  - : Erstellt eine Daten-URL, die ein Bild des sichtbaren Bereichs des aktuell aktiven Tabs im angegebenen Fenster kodiert.
 - {{WebExtAPIRef("tabs.connect()")}}
-  - : Baut eine Nachrichtenverbindung zwischen den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie Pop-up-Skripten oder Optionsseiten-Skripten) und allen [Contentskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) auf, die im angegebenen Tab ausgeführt werden.
+  - : Richtet eine Nachrichtenverbindung zwischen den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie Popup-Skripten oder Optionsseiten-Skripten) und den im angegebenen Tab ausgeführten [Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) ein.
 - {{WebExtAPIRef("tabs.create()")}}
-  - : Erstellt einen neuen Tab.
+  - : Erstellt ein neues Tab.
 - {{WebExtAPIRef("tabs.detectLanguage()")}}
-  - : Erkennt die Hauptsprache des Inhalts in einem Tab.
+  - : Erkennt die primäre Sprache des Inhalts in einem Tab.
 - {{WebExtAPIRef("tabs.discard()")}}
-  - : Verwirft einen oder mehrere Tabs.
+  - : Entlädt ein oder mehrere Tabs.
 - {{WebExtAPIRef("tabs.duplicate()")}}
-  - : Dupliziert einen Tab.
-- {{WebExtAPIRef("tabs.executeScript()")}} (Manifest V2 nur)
-  - : Führt JavaScript-Code in einer Seite ein.
+  - : Dupliziert ein Tab.
+- {{WebExtAPIRef("tabs.executeScript()")}} (Nur Manifest V2)
+  - : Injiziert JavaScript-Code in eine Seite.
 - {{WebExtAPIRef("tabs.get()")}}
-  - : Ruft Details über den angegebenen Tab ab.
+  - : Ruft Details über das angegebene Tab ab.
 - {{WebExtAPIRef("tabs.getAllInWindow()")}} {{deprecated_inline}}
-  - : Holt Details über alle Tabs im angegebenen Fenster.
+  - : Ruft Details über alle Tabs im angegebenen Fenster ab.
 - {{WebExtAPIRef("tabs.getCurrent()")}}
-  - : Ruft Informationen über den Tab ab, in dem dieses Skript ausgeführt wird, als ein [`tabs.Tab`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab)-Objekt.
+  - : Ruft Informationen über das Tab ab, in dem dieses Skript ausgeführt wird, als ein [`tabs.Tab`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab)-Objekt.
 - {{WebExtAPIRef("tabs.getSelected()")}} {{deprecated_inline}}
-  - : Ruft den Tab ab, der im angegebenen Fenster ausgewählt ist. **Veraltet**: Verwenden Sie stattdessen [`tabs.query({active: true})`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query).
+  - : Ruft das im angegebenen Fenster ausgewählte Tab ab. **Veraltet**: Verwenden Sie stattdessen [`tabs.query({active: true})`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query).
 - {{WebExtAPIRef("tabs.getZoom()")}}
-  - : Holt den aktuellen Zoomfaktor des angegebenen Tabs.
+  - : Ruft den aktuellen Zoomfaktor des angegebenen Tabs ab.
 - {{WebExtAPIRef("tabs.getZoomSettings()")}}
-  - : Holt die aktuellen Zoom-Einstellungen für den angegebenen Tab.
+  - : Ruft die aktuellen Zoom-Einstellungen für das angegebene Tab ab.
 - {{WebExtAPIRef("tabs.goForward()")}}
-  - : Geht zur nächsten Seite, falls eine verfügbar ist.
+  - : Geht zur nächsten Seite weiter, falls eine vorhanden ist.
 - {{WebExtAPIRef("tabs.goBack()")}}
-  - : Geht zur vorherigen Seite zurück, falls verfügbar.
+  - : Geht zur vorherigen Seite zurück, falls eine vorhanden ist.
 - {{WebExtAPIRef("tabs.group()")}}
-  - : Fügt Tabs zu einer Tabgruppe hinzu.
+  - : Fügt Tabs zu einer Tab-Gruppe hinzu.
 - {{WebExtAPIRef("tabs.hide()")}} {{experimental_inline}}
-  - : Verbirgt einen oder mehrere Tabs.
+  - : Verbirgt ein oder mehrere Tabs.
 - {{WebExtAPIRef("tabs.highlight()")}}
-  - : Hebt einen oder mehrere Tabs hervor.
-- {{WebExtAPIRef("tabs.insertCSS()")}} (Manifest V2 nur)
-  - : Fügt CSS in eine Seite ein.
+  - : Markiert ein oder mehrere Tabs.
+- {{WebExtAPIRef("tabs.insertCSS()")}} (Nur Manifest V2)
+  - : Injiziert CSS in eine Seite.
 - {{WebExtAPIRef("tabs.move()")}}
-  - : Verschiebt einen oder mehrere Tabs an eine neue Position im selben Fenster oder in ein anderes Fenster.
+  - : Verschiebt ein oder mehrere Tabs in eine neue Position im gleichen Fenster oder in ein anderes Fenster.
 - {{WebExtApiRef("tabs.moveInSuccession()")}}
-  - : Ändert die Nachfolgeverknüpfung für eine Gruppe von Tabs.
+  - : Modifiziert die Abhängigkeit in der Reihenfolge für eine Gruppe von Tabs.
 - {{WebExtAPIRef("tabs.print()")}}
   - : Druckt den Inhalt des aktiven Tabs.
 - {{WebExtAPIRef("tabs.printPreview()")}}
-  - : Öffnet die Druckvorschau für den aktiven Tab.
+  - : Öffnet die Druckvorschau für das aktive Tab.
 - {{WebExtAPIRef("tabs.query()")}}
-  - : Holt alle Tabs, die die angegebenen Eigenschaften haben, oder alle Tabs, wenn keine Eigenschaften angegeben sind.
+  - : Ruft alle Tabs mit den angegebenen Eigenschaften ab, oder alle Tabs, wenn keine Eigenschaften angegeben sind.
 - {{WebExtAPIRef("tabs.reload()")}}
-  - : Lädt einen Tab neu und umgeht dabei optional den lokalen Webcache.
+  - : Lädt ein Tab erneut, optional unter Umgehung des lokalen Webcaches.
 - {{WebExtAPIRef("tabs.remove()")}}
-  - : Schließt einen oder mehrere Tabs.
-- {{WebExtAPIRef("tabs.removeCSS()}} (Manifest V2 nur)
-  - : Entfernt aus einer Seite CSS, das zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.insertCSS()")}} eingefügt wurde.
+  - : Schließt ein oder mehrere Tabs.
+- {{WebExtAPIRef("tabs.removeCSS()")}} (Nur Manifest V2)
+  - : Entfernt aus einer Seite CSS, das zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.insertCSS()")}} injiziert wurde.
 - {{WebExtAPIRef("tabs.saveAsPDF()")}}
   - : Speichert die aktuelle Seite als PDF.
 - {{WebExtAPIRef("tabs.sendMessage()")}}
-  - : Sendet eine einzelne Nachricht an die Inhaltskript(e) im angegebenen Tab.
+  - : Sendet eine einzelne Nachricht an das/die Inhalts-Skript(e) im angegebenen Tab.
 - {{WebExtAPIRef("tabs.sendRequest()")}} {{deprecated_inline}}
-  - : Sendet eine einzelne Anfrage an die Inhaltskript(e) im angegebenen Tab. **Veraltet**: Verwenden Sie stattdessen {{WebExtAPIRef("tabs.sendMessage()")}}.
+  - : Sendet eine einzelne Anfrage an das/die Inhalts-Skript(e) im angegebenen Tab. **Veraltet**: Verwenden Sie statt dessen {{WebExtAPIRef("tabs.sendMessage()")}}.
 - {{WebExtAPIRef("tabs.setZoom()")}}
-  - : Zoomt den angegebenen Tab.
+  - : Zoomt das angegebene Tab.
 - {{WebExtAPIRef("tabs.setZoomSettings()")}}
-  - : Legt die Zoom-Einstellungen für den angegebenen Tab fest.
+  - : Legt die Zoom-Einstellungen für das angegebene Tab fest.
 - {{WebExtAPIRef("tabs.show()")}} {{experimental_inline}}
-  - : Zeigt einen oder mehrere Tabs an, die zuvor {{WebExtAPIRef("tabs.hide()", "versteckt")}} wurden.
+  - : Zeigt ein oder mehrere zuvor {{WebExtAPIRef("tabs.hide()", "versteckte")}} Tabs an.
 - {{WebExtAPIRef("tabs.toggleReaderMode()")}}
-  - : Wechselt den Lesemodus für den angegebenen Tab.
+  - : Schaltet den Leser-Modus für das angegebene Tab um.
 - {{WebExtAPIRef("tabs.ungroup()")}}
-  - : Entfernt Tabs aus Tabgruppen.
+  - : Entfernt Tabs aus Tab-Gruppen.
 - {{WebExtAPIRef("tabs.update()")}}
-  - : Navigiert den Tab zu einer neuen URL oder ändert andere Eigenschaften des Tabs.
+  - : Navigiert das Tab zu einer neuen URL oder ändert andere Eigenschaften des Tabs.
 - {{WebExtAPIRef("tabs.warmup()")}}
-  - : Bereitet den Tab vor, um einen potenziellen folgenden Wechsel schneller zu machen.
+  - : Bereitet das Tab vor, um einen potenziellen folgenden Wechsel schneller zu machen.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("tabs.onActivated")}}
-  - : Wird ausgelöst, wenn sich der aktive Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise nicht gesetzt ist, wenn dieses Ereignis ausgelöst wird.
+  - : Wird ausgelöst, wenn sich das aktive Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise nicht gesetzt ist, wenn dieses Ereignis ausgelöst wird.
 - {{WebExtAPIRef("tabs.onActiveChanged")}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. **Veraltet**: Verwenden Sie stattdessen {{WebExtAPIRef("tabs.onActivated")}}.
+  - : Wird ausgelöst, wenn sich das ausgewählte Tab in einem Fenster ändert. **Veraltet**: Verwenden Sie statt dessen {{WebExtAPIRef("tabs.onActivated")}}.
 - {{WebExtAPIRef("tabs.onAttached")}}
-  - : Wird ausgelöst, wenn ein Tab an ein Fenster angehängt wird, zum Beispiel weil er zwischen Fenstern verschoben wurde.
+  - : Wird ausgelöst, wenn ein Tab an ein Fenster angehängt wird, zum Beispiel weil es zwischen Fenstern verschoben wurde.
 - {{WebExtAPIRef("tabs.onCreated")}}
   - : Wird ausgelöst, wenn ein Tab erstellt wird. Beachten Sie, dass die URL des Tabs möglicherweise nicht gesetzt ist, wenn dieses Ereignis ausgelöst wird.
 - {{WebExtAPIRef("tabs.onDetached")}}
-  - : Wird ausgelöst, wenn ein Tab von einem Fenster getrennt wird, zum Beispiel weil er zwischen Fenstern verschoben wird.
+  - : Wird ausgelöst, wenn ein Tab von einem Fenster abgetrennt wird, zum Beispiel weil es zwischen Fenstern verschoben wird.
 - {{WebExtAPIRef("tabs.onHighlightChanged")}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn sich die hervorgehobenen oder ausgewählten Tabs in einem Fenster ändern. **Veraltet**: Verwenden Sie stattdessen {{WebExtAPIRef("tabs.onHighlighted")}}.
+  - : Wird ausgelöst, wenn sich die markierten oder ausgewählten Tabs in einem Fenster ändern. **Veraltet**: Verwenden Sie statt dessen {{WebExtAPIRef("tabs.onHighlighted")}}.
 - {{WebExtAPIRef("tabs.onHighlighted")}}
-  - : Wird ausgelöst, wenn sich die hervorgehobenen oder ausgewählten Tabs in einem Fenster ändern.
+  - : Wird ausgelöst, wenn sich die markierten oder ausgewählten Tabs in einem Fenster ändern.
 - {{WebExtAPIRef("tabs.onMoved")}}
   - : Wird ausgelöst, wenn ein Tab innerhalb eines Fensters verschoben wird.
 - {{WebExtAPIRef("tabs.onRemoved")}}
   - : Wird ausgelöst, wenn ein Tab geschlossen wird.
 - {{WebExtAPIRef("tabs.onReplaced")}}
-  - : Wird ausgelöst, wenn ein Tab durch einen anderen Tab aufgrund von Prerendering ersetzt wird.
+  - : Wird ausgelöst, wenn ein Tab durch ein anderes Tab aufgrund von Vorab-Rendering ersetzt wird.
 - {{WebExtAPIRef("tabs.onSelectionChanged")}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. **Veraltet**: Verwenden Sie stattdessen {{WebExtAPIRef("tabs.onActivated")}}.
+  - : Wird ausgelöst, wenn sich das ausgewählte Tab in einem Fenster ändert. **Veraltet**: Verwenden Sie statt dessen {{WebExtAPIRef("tabs.onActivated")}}.
 - {{WebExtAPIRef("tabs.onUpdated")}}
   - : Wird ausgelöst, wenn ein Tab aktualisiert wird.
 - {{WebExtAPIRef("tabs.onZoomChange")}}
@@ -166,7 +164,7 @@ Viele Tab-Operationen verwenden eine Tab-`id`. Tab-`id`s sind innerhalb einer Br
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs) von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs) API von Chromium. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,15 +2,13 @@
 title: extension.getURL()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/getURL
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 > [!WARNING]
 > Diese Funktion ist veraltet. Bitte verwenden Sie [`runtime.getURL`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getURL).
 
-Konvertiert einen relativen Pfad innerhalb des Installationsverzeichnisses einer Erweiterung in eine vollqualifizierte URL.
+Konvertiert einen relativen Pfad innerhalb des Installationsverzeichnisses einer Erweiterung in eine vollständig qualifizierte URL.
 
 ## Syntax
 
@@ -27,11 +25,11 @@ browser.extension.getURL(
 
 ### Rückgabewert
 
-`string`. Die vollqualifizierte URL zur Ressource.
+`string`. Die vollständig qualifizierte URL zur Ressource.
 
 ## Beispiele
 
-Angenommen, eine Datei ist im Add-on unter "beasts/frog.html" verpackt, dann erhalten Sie die vollständige URL wie folgt:
+Angenommen, eine Datei wird mit dem Add-on unter "beasts/frog.html" geliefert. Holen Sie sich die vollständige URL so:
 
 ```js
 let fullURL = browser.extension.getURL("beasts/frog.html");
@@ -47,7 +45,7 @@ let fullURL = browser.extension.getURL("beasts/frog.html");
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getURL) API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getURL). Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

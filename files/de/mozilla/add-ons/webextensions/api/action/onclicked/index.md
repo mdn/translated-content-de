@@ -2,17 +2,15 @@
 title: action.onClicked
 slug: Mozilla/Add-ons/WebExtensions/API/action/onClicked
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein Symbol für eine Browseraktion angeklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Browseraktion ein Popup hat.
+Wird ausgelöst, wenn ein Browser-Aktionssymbol angeklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Browser-Aktion ein Popup hat.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-Um eine Rechtsklickaktion zu definieren, verwenden Sie die [`contextMenus`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus) API mit dem "browser_action" [Kontexttyp](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/ContextType).
+Um eine Rechtsklick-Aktion zu definieren, verwenden Sie die [`contextMenus`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus) API mit dem "browser_action" [Kontexttyp](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/ContextType).
 
 ## Syntax
 
@@ -27,9 +25,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -40,15 +38,15 @@ Ereignisse haben drei Funktionen:
     - `tab`
       - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als das Symbol angeklickt wurde.
     - `OnClickData`
-      - : Ein Objekt, das Informationen über den Klick enthält.
+      - : Ein Objekt mit Informationen über den Klick.
         - `modifiers`
-          - : Ein `Array`. Die beim Klick aktiven Tastaturmodifikatoren, bestehend aus einem oder mehreren von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
+          - : Ein `array`. Die Tastaturmodifikatoren, die zum Zeitpunkt des Klicks aktiv waren, wobei es sich um einen oder mehrere von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl` handeln kann.
         - `button`
-          - : Ein `Integer`. Gibt die Taste an, mit der das Seitensymbol angeklickt wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus in Verbindung steht, wie z.B. von der Tastatur, und `1` für einen Mittelknopf- oder Raddruck. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
+          - : Ein `integer`. Gibt die Taste an, mit der das Seitensymbol angeklickt wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie zum Beispiel einer von der Tastatur, und `1` für eine mittlere Taste oder einen Mausradklick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
 
 ## Beispiele
 
-Wenn der Benutzer auf das Symbol klickt, deaktivieren Sie es für den aktiven Tab und loggen Sie die URL des Tabs:
+Wenn der Benutzer auf das Symbol klickt, deaktivieren Sie es für den aktiven Tab und protokollieren Sie die URL des Tabs:
 
 ```js
 browser.action.onClicked.addListener((tab) => {
@@ -66,7 +64,7 @@ browser.action.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#event-onClicked) API. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#event-onClicked) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

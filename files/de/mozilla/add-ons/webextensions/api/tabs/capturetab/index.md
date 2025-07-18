@@ -2,12 +2,10 @@
 title: tabs.captureTab()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/captureTab
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Erstellt eine Daten-URL, die das Bild eines Bereichs des angegebenen Tabs codiert. Sie müssen die `<all_urls>` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben, um diese Methode zu verwenden.
+Erstellt eine Daten-URL, die das Bild eines Bereichs des angegebenen Tabs kodiert. Sie müssen die Berechtigung `<all_urls>` haben, um diese Methode zu verwenden. Weitere Informationen finden Sie unter [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +21,17 @@ let capturing = browser.tabs.captureTab(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. ID des Tabs, der erfasst werden soll. Standardmäßig ist der aktive Tab im aktuellen Fenster.
+  - : `integer`. ID des Tabs, der erfasst werden soll. Standardmäßig der aktive Tab im aktuellen Fenster.
 - `options` {{optional_inline}}
   - : {{WebExtAPIRef('extensionTypes.ImageDetails')}}.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, welche das erfasste Bild codiert. Diese kann der 'src'-Eigenschaft eines HTML-Image-Elements zur Anzeige zugewiesen werden. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, welche das erfasste Bild kodiert. Diese URL kann der 'src'-Eigenschaft eines HTML-Bild-Elements zugewiesen werden, um es anzuzeigen. Bei einem Fehler wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Ein Bild des aktiven Tabs im aktuellen Fenster mit den Standardeinstellungen erfassen:
+Erfassen eines Bildes des aktiven Tabs im aktuellen Fenster mit den Standardeinstellungen:
 
 ```js
 function onCaptured(imageUri) {
@@ -57,7 +55,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab). Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

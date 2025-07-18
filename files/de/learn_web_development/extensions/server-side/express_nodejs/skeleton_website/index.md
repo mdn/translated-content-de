@@ -1,18 +1,14 @@
 ---
-title: "Express Tutorial Teil 2: Erstellung einer Website-Skeleton"
-short-title: "2: Skeleton-Website"
+title: "Express Tutorial Teil 2: Erstellen einer Skelett-Website"
+short-title: "2: Skelett-Website"
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website", "Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose", "Learn_web_development/Extensions/Server-side/Express_Nodejs")}}
 
-Dieser zweite Artikel in unserem [Express Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) zeigt, wie Sie ein "Skeleton"-Website-Projekt erstellen können, das dann mit seiten-spezifischen Routen, Templates/Views und Datenbankabfragen gefüllt werden kann.
-
-> [!WARNING]
-> Das Express-Tutorial ist für Express Version 4 geschrieben, während die neueste Version Express 5 ist.
-> Wir planen, die Dokumentation in der zweiten Hälfte von 2025 zu aktualisieren.
+Dieser zweite Artikel unseres [Express-Tutorials](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) zeigt, wie Sie ein "Skelett"-Website-Projekt erstellen können, das Sie dann mit sitespezifischen Routen, Templates/Views und Datenbankaufrufen füllen können.
 
 <table>
   <tbody>
@@ -20,13 +16,13 @@ Dieser zweite Artikel in unserem [Express Tutorial](/de/docs/Learn_web_developme
       <th scope="row">Voraussetzungen:</th>
       <td>
         <a href="/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment">Einrichten einer Node-Entwicklungsumgebung</a>.
-          Überprüfen Sie das Express-Tutorial.
+          Überprüfung des Express-Tutorials.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        In der Lage zu sein, eigene neue Website-Projekte mit dem <em>Express Application Generator</em> zu starten.
+        Die Fähigkeit, eigene neue Website-Projekte mit dem <em>Express Application Generator</em> zu starten.
       </td>
     </tr>
   </tbody>
@@ -34,21 +30,21 @@ Dieser zweite Artikel in unserem [Express Tutorial](/de/docs/Learn_web_developme
 
 ## Übersicht
 
-Dieser Artikel zeigt, wie Sie mithilfe des [Express Application Generator](https://expressjs.com/en/starter/generator.html) ein "Skeleton"-Website-Projekt erstellen können, das Sie dann mit seiten-spezifischen Routen, Views/Templates und Datenbankaufrufen füllen können. In diesem Fall verwenden wir das Tool, um das Grundgerüst für unsere [Local Library Website](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) zu erstellen, zu der wir später alle anderen benötigten Code-Komponenten hinzufügen. Der Prozess ist extrem einfach, Sie müssen nur den Generator mit einem neuen Projektnamen in der Befehlszeile aufrufen und optional auch die Template-Engine und den CSS-Generator der Seite angeben.
+Dieser Artikel zeigt, wie Sie mit dem Tool [Express Application Generator](https://expressjs.com/en/starter/generator.html) eine "Skelett"-Website erstellen können, die Sie dann mit sitespezifischen Routen, Views/Templates und Datenbankaufrufen füllen können. In diesem Fall werden wir das Tool verwenden, um das Grundgerüst für unsere [Local Library Website](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) zu erstellen, zu dem wir später den gesamten weiteren Code hinzufügen werden, den die Seite benötigt. Der Prozess ist äußerst einfach und erfordert nur, dass Sie den Generator in der Befehlszeile mit einem neuen Projektnamen aufrufen, wobei Sie optional auch die Template-Engine und den CSS-Generator der Seite angeben können.
 
-Die folgenden Abschnitte zeigen, wie Sie den Anwendungsgenerator aufrufen und bieten eine kleine Erklärung zu den verschiedenen View/CSS-Optionen. Wir erklären auch, wie die Skeleton-Website strukturiert ist. Am Ende zeigen wir, wie Sie die Website ausführen können, um zu überprüfen, dass sie funktioniert.
+Die folgenden Abschnitte zeigen Ihnen, wie Sie den Application Generator aufrufen, und geben eine kleine Erklärung zu den verschiedenen View/CSS-Optionen. Wir erklären auch, wie die Skelett-Website strukturiert ist. Am Ende zeigen wir, wie Sie die Website ausführen können, um zu überprüfen, ob sie funktioniert.
 
 > [!NOTE]
 >
-> - Der _Express Application Generator_ ist nicht der einzige Generator für Express-Anwendungen, und das generierte Projekt ist nicht die einzige mögliche Art, Ihre Dateien und Verzeichnisse zu strukturieren. Die generierte Seite hat jedoch eine modulare Struktur, die leicht zu erweitern und zu verstehen ist. Für Informationen über eine _minimal_ Express-Anwendung, siehe [Hello world example](https://expressjs.com/en/starter/hello-world.html) (Express-Dokumentation).
+> - Der _Express Application Generator_ ist nicht der einzige Generator für Express-Anwendungen, und das generierte Projekt ist nicht die einzige praktikable Möglichkeit, Ihre Dateien und Verzeichnisse zu strukturieren. Die generierte Seite hat jedoch eine modulare Struktur, die leicht zu erweitern und zu verstehen ist. Für Informationen über eine _minimale_ Express-Anwendung siehe [Hallo Welt Beispiel](https://expressjs.com/en/starter/hello-world.html) (Express-Dokumentation).
 > - Der _Express Application Generator_ deklariert die meisten Variablen mit `var`.
->   Wir haben die meisten davon zu [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) geändert (und ein paar zu [`let`](/de/docs/Web/JavaScript/Reference/Statements/let)) im Tutorial, weil wir moderne JavaScript-Praxis demonstrieren möchten.
-> - Dieses Tutorial verwendet die Version von _Express_ und anderen Abhängigkeiten, die in der durch den _Express Application Generator_ erstellten **package.json** definiert sind.
->   Diese sind nicht (notwendig) die neuesten Versionen, und Sie möchten sie möglicherweise aktualisieren, wenn Sie eine echte Anwendung in Produktion bereitstellen.
+>   Wir haben in diesem Tutorial die meisten davon in [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) (und einige in [`let`](/de/docs/Web/JavaScript/Reference/Statements/let)) geändert, da wir moderne JavaScript-Praxis demonstrieren möchten.
+> - Dieses Tutorial verwendet die Version von _Express_ und anderen Abhängigkeiten, die in der von dem _Express Application Generator_ erstellten **package.json** definiert sind.
+>   Diese sind nicht (notwendigerweise) die neueste Version, und Sie sollten sie aktualisieren, wenn Sie eine reale Anwendung in der Produktion bereitstellen.
 
-## Verwendung des Anwendungsgenerators
+## Verwendung des Application Generators
 
-Sie sollten den Generator bereits als Teil des [Einrichtens einer Node-Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment) installiert haben. Zur schnellen Erinnerung: Sie installieren das Generator-Tool site-weit mithilfe des npm-Paketmanagers, wie gezeigt:
+Sie sollten den Generator bereits im Rahmen des [Einrichtens einer Node-Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment) installiert haben. Zur schnellen Erinnerung: Sie installieren das Generator-Tool site-wide mit dem npm-Paketmanager, wie gezeigt:
 
 ```bash
 npm install express-generator -g
@@ -76,64 +72,64 @@ Der Generator hat eine Reihe von Optionen, die Sie in der Befehlszeile mit dem B
     -h, --help           output usage information
 ```
 
-Sie können `express` angeben, um ein Projekt im _aktuellen_ Verzeichnis mit der _Jade_ View-Engine und einfachem CSS zu erstellen (wenn Sie einen Verzeichnisnamen angeben, wird das Projekt in einem Unterordner mit diesem Namen erstellt).
+Sie können express anweisen, ein Projekt im _aktuellen_ Verzeichnis zu erstellen, indem Sie die _Jade_-View-Engine und einfaches CSS verwenden (wenn Sie einen Verzeichnisnamen angeben, wird das Projekt in einem Unterordner mit diesem Namen erstellt).
 
 ```bash
 express
 ```
 
-Sie können auch eine View- (Template-) Engine mit `--view` und/oder eine CSS-Generierungs-Engine mit `--css` auswählen.
+Sie können auch eine View (Template)-Engine mit `--view` und/oder eine CSS-Generation-Engine mit `--css` wählen.
 
 > [!NOTE]
-> Die anderen Optionen zur Auswahl von Template-Engines (z.B. `--hogan`, `--ejs`, `--hbs` usw.) sind veraltet. Verwenden Sie `--view` (oder `-v`).
+> Die anderen Optionen für die Auswahl von Template-Engines (z.B. `--hogan`, `--ejs`, `--hbs` etc.) sind veraltet. Verwenden Sie `--view` (oder `-v`).
 
 ### Welche View-Engine sollte ich verwenden?
 
-Der _Express Application Generator_ ermöglicht Ihnen die Konfiguration einer Reihe von populären View-/Template-Engines, einschließlich [EJS](https://www.npmjs.com/package/ejs), [Hbs](https://github.com/pillarjs/hbs), [Pug](https://pugjs.org/api/getting-started.html) (Jade), [Twig](https://www.npmjs.com/package/twig) und [Vash](https://www.npmjs.com/package/vash), obwohl er standardmäßig Jade auswählt, wenn Sie keine View-Option angeben. Express selbst kann auch eine große Anzahl von anderen Template-Sprachen [Out of the Box](https://github.com/expressjs/express/wiki#template-engines) unterstützen.
+Der _Express Application Generator_ ermöglicht es Ihnen, eine Reihe von beliebten View/Templating-Engines zu konfigurieren, darunter [EJS](https://www.npmjs.com/package/ejs), [Hbs](https://github.com/pillarjs/hbs), [Pug](https://pugjs.org/api/getting-started.html) (Jade), [Twig](https://www.npmjs.com/package/twig) und [Vash](https://www.npmjs.com/package/vash), obwohl er standardmäßig Jade wählt, wenn Sie keine View-Option angeben. Express selbst kann auch eine Vielzahl anderer Templating-Sprachen [out of the box](https://github.com/expressjs/express/wiki#template-engines) unterstützen.
 
 > [!NOTE]
-> Wenn Sie eine Template-Engine verwenden möchten, die vom Generator nicht unterstützt wird, sehen Sie sich [Using template engines with Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation) und die Dokumentation für Ihre Ziel-View-Engine an.
+> Wenn Sie eine Template-Engine verwenden möchten, die nicht vom Generator unterstützt wird, lesen Sie [Using template engines with Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation) und die Dokumentation für Ihre Ziel-View-Engine.
 
-Generell sollten Sie eine Template-Engine auswählen, die Ihnen alle benötigten Funktionalitäten bietet und es Ihnen ermöglicht, schneller produktiv zu sein - oder mit anderen Worten, auf die gleiche Weise, wie Sie jede andere Komponente auswählen würden! Einige der Dinge, die bei der Auswahl von Template-Engines zu berücksichtigen sind:
+Im Allgemeinen sollten Sie eine Templating-Engine wählen, die alle Funktionen bietet, die Sie benötigen, und Ihnen ermöglicht, schneller produktiv zu sein — oder mit anderen Worten, genauso, wie Sie jede andere Komponente auswählen würden! Einige Dinge, die Sie bei der Vergleich von Template-Engines beachten sollten:
 
-- Zeit bis zur Produktivität — Wenn Ihr Team bereits Erfahrung mit einer Template-Sprache hat, werden sie wahrscheinlich schneller produktiv sein, wenn sie diese Sprache verwenden. Wenn nicht, sollten Sie die relative Lernkurve der in Betracht kommenden Template-Engines in Betracht ziehen.
-- Popularität und Aktivität — Überprüfen Sie die Popularität der Engine und ob sie eine aktive Community hat. Es ist wichtig, bei auftretenden Problemen im Laufe der Lebensdauer der Website Unterstützung zu erhalten.
-- Stil — Einige Template-Engines verwenden spezielle Markierungen, um eingefügten Inhalt innerhalb "normalen" HTMLs zu kennzeichnen, während andere das HTML mit einer anderen Syntax (z.B. mithilfe von Einrückungen und Blocknamen) konstruieren.
+- Zeit bis zur Produktivität — Wenn Ihr Team bereits Erfahrung mit einer Templating-Sprache hat, werden sie wahrscheinlich schneller produktiv sein, wenn sie diese Sprache verwenden. Wenn nicht, sollten Sie die relative Lernkurve für die in Betracht gezogenen Templating-Engines berücksichtigen.
+- Beliebtheit und Aktivität — Prüfen Sie die Beliebtheit der Engine und ob sie eine aktive Community hat. Es ist wichtig, Unterstützung zu erhalten, wenn Probleme im Laufe der Lebensdauer der Website auftreten.
+- Stil — Einige Template-Engines verwenden spezielle Markup, um eingefügten Inhalt innerhalb von "gewöhnlichem" HTML anzuzeigen, während andere das HTML mit einer anderen Syntax erstellen (zum Beispiel durch Einrückung und Blocknamen).
 - Performance/Renderzeit.
-- Funktionen — Sie sollten überlegen, ob die Engines, die Sie in Betracht ziehen, folgende Funktionen haben:
-  - Layout-Vererbung: Ermöglicht Ihnen, eine Basistemplate zu definieren und dann nur die Teile zu "erben", die Sie für eine bestimmte Seite anders haben möchten. Dies ist typischerweise ein besserer Ansatz als das Erstellen von Templates, indem eine Reihe von erforderlichen Komponenten eingeschlossen oder jedes Mal von Grund auf neu erstellt wird.
-  - "Include"-Unterstützung: Ermöglicht Ihnen, Templates zu erstellen, indem andere Templates eingeschlossen werden.
-  - Prägnante Variablen- und Schleifenkontrollsyntax.
-  - Möglichkeit, Variablenwerte auf Template-Ebene zu filtern, wie z.B. Variablen in Großbuchstaben darzustellen oder einen Datumswert zu formatieren.
-  - Möglichkeit, Ausgaben in anderen Formaten als HTML zu generieren, wie z.B. JSON oder XML.
+- Features — Sie sollten prüfen, ob die Engines, die Sie in Betracht ziehen, die folgenden Features bieten:
+  - Layout-Vererbung: Erlaubt es Ihnen, ein Basistemplate zu definieren und dann nur die Teile davon zu "erben", die Sie für eine bestimmte Seite ändern möchten. Dies ist in der Regel besser, als Templates durch Einbeziehung einer Reihe von erforderlichen Komponenten zu erstellen oder jedes Mal ein Template von Grund auf neu zu erstellen.
+  - "Include"-Unterstützung: Erlaubt es Ihnen, Templates durch Aufnahme anderer Templates aufzubauen.
+  - Prägnante Variablen- und Schleifensteuerungssyntax.
+  - Möglichkeit zur Filterung von Variablenwerten auf Templatenebene, wie z.B. Variablen in Großbuchstaben setzen oder ein Datumswert formatieren.
+  - Fähigkeit zur Erzeugung von Ausgabeformaten außer HTML, wie z.B. JSON oder XML.
   - Unterstützung für asynchrone Operationen und Streaming.
-  - Client-seitige Funktionen. Wenn eine Template-Engine clientseitig verwendet werden kann, besteht die Möglichkeit, dass das gesamte oder der größte Teil des Renderings clientseitig durchgeführt wird.
+  - Client-seitige Features. Wenn eine Templating-Engine clientseitig verwendet werden kann, ermöglicht dies die Möglichkeit, das gesamte oder den größten Teil des Renderings clientseitig durchzuführen.
 
 > [!NOTE]
 > Es gibt viele Ressourcen im Internet, die Ihnen helfen, die verschiedenen Optionen zu vergleichen!
 
-Für dieses Projekt verwenden wir die [Pug](https://pugjs.org/api/getting-started.html) Template-Engine (dies ist die kürzlich umbenannte Jade-Engine), da sie eine der populärsten Express/JavaScript-Template-Sprachen ist und vom Generator Out of the Box unterstützt wird.
+Für dieses Projekt werden wir die [Pug](https://pugjs.org/api/getting-started.html) Templating-Engine verwenden (zuvor "Jade" genannt), da dies eine der beliebtesten Express/JavaScript-Templating-Sprachen ist und vom Generator unterstützt wird.
 
 ### Welche CSS-Stylesheet-Engine sollte ich verwenden?
 
-Der _Express Application Generator_ ermöglicht es Ihnen, ein Projekt zu erstellen, das so konfiguriert ist, dass es die gängigsten CSS-Stylesheet-Engines verwendet: [LESS](https://lesscss.org/), [SASS](https://sass-lang.com/), [Stylus](https://stylus-lang.com/).
+Der _Express Application Generator_ ermöglicht es Ihnen, ein Projekt zu erstellen, das für die Verwendung der gängigsten CSS-Stylesheet-Engines konfiguriert ist: [LESS](https://lesscss.org/), [SASS](https://sass-lang.com/), [Stylus](https://stylus-lang.com/).
 
 > [!NOTE]
-> CSS hat einige Einschränkungen, die bestimmte Aufgaben schwierig machen. CSS-Stylesheet-Engines ermöglichen es Ihnen, mächtigere Syntaxen zur Definition Ihrer CSS zu verwenden und diese Definition dann zu einfachem, altem CSS für Browser zu kompilieren.
+> CSS hat einige Einschränkungen, die bestimmte Aufgaben schwierig machen. CSS-Stylesheet-Engines ermöglichen es Ihnen, eine mächtigere Syntax für die Definition Ihres CSS zu verwenden und dann die Definition in einfaches CSS zu kompilieren, das von Browsern verwendet werden kann.
 
-Wie bei den Template-Engines sollten Sie die Stylesheet-Engine verwenden, die es Ihrem Team ermöglicht, am produktivsten zu sein. Für dieses Projekt verwenden wir Vanilla-CSS (der Standard), da unsere CSS-Anforderungen nicht ausreichend komplex sind, um die Verwendung einer anderen Engine zu rechtfertigen.
+Wie bei Templating-Engines sollten Sie die Stylesheet-Engine verwenden, die Ihrem Team am produktivsten macht. Für dieses Projekt werden wir pures CSS (die Standardeinstellung) verwenden, da unsere CSS-Anforderungen nicht so kompliziert sind, dass sich der Einsatz einer anderen Engine lohnt.
 
 ### Welche Datenbank sollte ich verwenden?
 
-Der generierte Code verwendet/enthält keine Datenbanken. _Express_-Apps können jede [Datenbankmechanismen](https://expressjs.com/en/guide/database-integration.html) verwenden, die von _Node_ unterstützt werden (Express selbst definiert keine spezifischen zusätzlichen Verhaltensweisen/Anforderungen für das Datenbankmanagement).
+Der generierte Code verwendet/integriert keine Datenbanken. _Express_-Apps können jeden [Datenbankmechanismus](https://expressjs.com/en/guide/database-integration.html) verwenden, der von _Node_ unterstützt wird (_Express_ selbst definiert kein spezifisches zusätzliches Verhalten/Anforderungen für Datenbankverwaltung).
 
-Wir werden in einem späteren Artikel darüber sprechen, wie man sich mit einer Datenbank integriert.
+Wir werden die Integration mit einer Datenbank in einem späteren Artikel besprechen.
 
 ## Erstellen des Projekts
 
-Für die Beispiel-App _Local Library_, die wir erstellen werden, erstellen wir ein Projekt mit dem Namen _express-locallibrary-tutorial_ unter Verwendung der Template-Bibliothek _Pug_ und ohne CSS-Engine.
+Für die Beispiel-App _Local Library_, die wir erstellen werden, erstellen wir ein Projekt namens _express-locallibrary-tutorial_ unter Verwendung der _Pug_-Vorlagenbibliothek und keiner CSS-Engine.
 
-Navigieren Sie zuerst zu dem Ort, an dem Sie das Projekt erstellen möchten, und führen Sie dann den _Express Application Generator_ im Befehlsprompt aus, wie gezeigt:
+Zuerst navigieren Sie zu dem Ort, an dem Sie das Projekt erstellen möchten, und führen dann den _Express Application Generator_ in der Eingabeaufforderung wie gezeigt aus:
 
 ```bash
 express express-locallibrary-tutorial --view=pug
@@ -170,23 +166,23 @@ Der Generator erstellt (und listet) die Dateien des Projekts auf.
      > DEBUG=express-locallibrary-tutorial:* npm start
 
    run the app (PowerShell (Windows))
-     > $ENV:DEBUG = "express-locallibrary-tutorial:*"; npm start
+     > $env:DEBUG = "express-locallibrary-tutorial:*"; npm start
 
    run the app (Command Prompt (Windows)):
      > SET DEBUG=express-locallibrary-tutorial:* & npm start
 ```
 
-Am Ende der Ausgabe gibt der Generator Anweisungen, wie die Abhängigkeiten (wie in der **package.json**-Datei) installiert und die Anwendung auf verschiedenen Betriebssystemen ausgeführt werden können.
+Am Ende der Ausgabe gibt der Generator Anweisungen, wie die Abhängigkeiten installiert werden (wie in der Datei **package.json** aufgeführt) und wie die Anwendung auf verschiedenen Betriebssystemen ausgeführt wird.
 
 > [!NOTE]
-> Die vom Generator erstellten Dateien definieren alle Variablen als `var`.
-> Öffnen Sie alle generierten Dateien und ändern die `var`-Deklarationen zu `const`, bevor Sie fortfahren (der Rest des Tutorials geht davon aus, dass Sie dies getan haben).
+> Die generierten Dateien definieren alle Variablen als `var`.
+> Öffnen Sie alle generierten Dateien und ändern Sie die `var`-Deklarationen in `const`, bevor Sie fortfahren (der Rest des Tutorials geht davon aus, dass Sie dies getan haben).
 
-## Ausführen der Skeleton-Website
+## Ausführen der Skelett-Website
 
-An diesem Punkt haben wir ein vollständiges Skeleton-Projekt. Die Website _macht_ zwar noch nicht viel, aber es lohnt sich, sie auszuführen, um zu zeigen, dass sie funktioniert.
+An diesem Punkt haben wir ein vollständiges Skelettprojekt. Die Website _tut_ wirklich noch nicht viel, aber es lohnt sich, sie auszuführen, um zu zeigen, dass sie funktioniert.
 
-1. Installieren Sie zuerst die Abhängigkeiten (der `install`-Befehl wird alle in der **package.json**-Datei des Projekts aufgeführten Abhängigkeitspakete abrufen).
+1. Installieren Sie zuerst die Abhängigkeiten (der `install`-Befehl lädt alle im **package.json** des Projekts aufgeführten Abhängigkeitspakete herunter).
 
    ```bash
    cd express-locallibrary-tutorial
@@ -194,23 +190,22 @@ An diesem Punkt haben wir ein vollständiges Skeleton-Projekt. Die Website _mach
    ```
 
 2. Führen Sie dann die Anwendung aus.
-
-   - Verwenden Sie im Windows CMD-Prompt diesen Befehl:
+   - Verwenden Sie auf der Windows-Eingabeaufforderung diesen Befehl:
 
      ```batch
      SET DEBUG=express-locallibrary-tutorial:* & npm start
      ```
 
-   - Verwenden Sie in Windows PowerShell diesen Befehl:
+   - Verwenden Sie unter Windows PowerShell diesen Befehl:
 
      ```powershell
-     ENV:DEBUG = "express-locallibrary-tutorial:*"; npm start
+     $env:DEBUG = "express-locallibrary-tutorial:*"; npm start
      ```
 
      > [!NOTE]
-     > PowerShell-Befehle werden in diesem Tutorial nicht behandelt (Die bereitgestellten "Windows"-Befehle gehen davon aus, dass Sie die Windows CMD-Eingabeaufforderung verwenden.)
+     > PowerShell-Befehle werden in diesem Tutorial nicht behandelt (Die bereitgestellten "Windows"-Befehle setzen voraus, dass Sie die Windows-Eingabeaufforderung verwenden.)
 
-   - Verwenden Sie in macOS oder Linux diesen Befehl:
+   - Verwenden Sie unter macOS oder Linux diesen Befehl:
 
      ```bash
      DEBUG=express-locallibrary-tutorial:* npm start
@@ -218,14 +213,14 @@ An diesem Punkt haben wir ein vollständiges Skeleton-Projekt. Die Website _mach
 
 3. Laden Sie dann `http://localhost:3000/` in Ihrem Browser, um auf die App zuzugreifen.
 
-Sie sollten eine Browser-Seite sehen, die so aussieht:
+Sie sollten eine Browserseite sehen, die so aussieht:
 
-![Browser für die standardmäßige Express App Generator Website](expressgeneratorskeletonwebsite.png)
+![Browser für Standard-Express-App Generator Website](expressgeneratorskeletonwebsite.png)
 
-Herzlichen Glückwunsch! Sie haben nun eine funktionierende Express-Anwendung, die über Port 3000 zugänglich ist.
+Herzlichen Glückwunsch! Sie haben jetzt eine funktionierende Express-Anwendung, die über Port 3000 zugänglich ist.
 
 > [!NOTE]
-> Sie könnten die App auch einfach mit dem `npm start`-Befehl starten. Das Festlegen der DEBUG-Variablen wie gezeigt ermöglicht die Protokollierung/Konsole Debugging. Wenn Sie die obige Seite besuchen, sehen Sie beispielsweise Debug-Ausgaben wie diese:
+> Sie könnten die App auch einfach mit dem `npm start`-Befehl starten. Das Festlegen der DEBUG-Variable wie gezeigt, aktiviert die Konsolenprotokollierung/Debugging. Wenn Sie beispielsweise die oben genannte Seite besuchen, sehen Sie Debug-Ausgaben wie diese:
 >
 > ```bash
 > SET DEBUG=express-locallibrary-tutorial:* & npm start
@@ -240,17 +235,17 @@ Herzlichen Glückwunsch! Sie haben nun eine funktionierende Express-Anwendung, d
 > GET /stylesheets/style.css 200 4.886 ms - 111
 > ```
 
-## Serverneustart bei Dateiänderungen ermöglichen
+## Automatisches Neustarten des Servers bei Dateiänderungen
 
-Änderungen, die Sie an Ihrer Express-Website vornehmen, sind derzeit erst sichtbar, wenn Sie den Server neu starten. Es wird schnell sehr ärgerlich, den Server jedes Mal stoppen und neu starten zu müssen, wenn Sie eine Änderung vornehmen. Daher lohnt es sich, die Zeit zu investieren, um den Server bei Bedarf automatisch neu zu starten.
+Änderungen, die Sie an Ihrer Express-Website vornehmen, sind derzeit nicht sichtbar, bis Sie den Server neu starten. Es wird schnell sehr lästig, den Server jedes Mal stoppen und neu starten zu müssen, wenn Sie eine Änderung vornehmen, daher lohnt es sich, Zeit zu investieren, um das Neustarten des Servers bei Bedarf zu automatisieren.
 
-Ein praktisches Tool für diesen Zweck ist [nodemon](https://github.com/remy/nodemon). Dies wird normalerweise global installiert (da es sich um ein "Tool" handelt), aber hier installieren wir es lokal als _Entwicklungsabhängigkeit_, sodass alle Entwickler, die mit dem Projekt arbeiten, es automatisch erhalten, wenn sie die Anwendung installieren. Verwenden Sie den folgenden Befehl im Stammverzeichnis des Skeleton-Projekts:
+Ein praktisches Tool für diesen Zweck ist [nodemon](https://github.com/remy/nodemon). Dieses wird normalerweise global installiert (da es sich um ein "Tool" handelt), aber hier werden wir es lokal als _Entwicklerabhängigkeit_ installieren und verwenden, damit es jeder Entwickler, der an dem Projekt arbeitet, automatisch erhält, wenn er die Anwendung installiert. Verwenden Sie den folgenden Befehl im Stammverzeichnis des Skelettprojekts:
 
 ```bash
 npm install --save-dev nodemon
 ```
 
-Wenn Sie immer noch [nodemon](https://github.com/remy/nodemon) global auf Ihrem Rechner installieren möchten und nicht nur in Ihrer **package.json**-Datei des Projekts:
+Wenn Sie sich immer noch dazu entscheiden, [nodemon](https://github.com/remy/nodemon) global auf Ihrem Rechner zu installieren und nicht nur in der **package.json**-Datei Ihres Projekts:
 
 ```bash
 npm install -g nodemon
@@ -260,13 +255,13 @@ Wenn Sie die **package.json**-Datei Ihres Projekts öffnen, sehen Sie jetzt eine
 
 ```json
  "devDependencies": {
-    "nodemon": "^3.1.3"
+    "nodemon": "^3.1.10"
 }
 ```
 
-Da das Tool nicht global installiert ist, können wir es nicht über die Befehlszeile starten (es sei denn, wir fügen es dem Pfad hinzu), aber wir können es über ein npm-Skript aufrufen, da npm alle installierten Pakete kennt. Finden Sie den `scripts`-Abschnitt Ihrer **package.json**. Ursprünglich enthält er eine Zeile, die mit `"start"` beginnt. Aktualisieren Sie es, indem Sie am Ende dieser Zeile ein Komma setzen und die `"devstart"`- und `"serverstart"`-Zeilen hinzufügen:
+Da das Tool nicht global installiert ist, können wir es nicht von der Befehlszeile aus starten (es sei denn, wir fügen es dem Pfad hinzu). Wir können es jedoch über ein npm-Skript aufrufen, da npm weiß, welche Pakete installiert sind. Suchen Sie den `scripts`-Abschnitt Ihrer **package.json**. Zunächst enthält es eine Zeile, die mit `"start"` beginnt. Aktualisieren Sie ihn, indem Sie am Ende dieser Zeile ein Komma setzen und die Zeilen `"devstart"` und `"serverstart"` hinzufügen:
 
-- Unter Linux und macOS sieht der Scripts-Abschnitt so aus:
+- Unter Linux und macOS sieht der Skriptabschnitt so aus:
 
   ```json
     "scripts": {
@@ -282,27 +277,28 @@ Da das Tool nicht global installiert ist, können wir es nicht über die Befehls
   "serverstart": "SET DEBUG=express-locallibrary-tutorial:* & npm run devstart"
   ```
 
-Jetzt können wir den Server fast genauso wie zuvor starten, allerdings mit dem Befehl `devstart`.
+Wir können den Server jetzt fast genauso wie zuvor starten, aber mit dem `devstart`-Befehl.
 
 > [!NOTE]
-> Wenn Sie nun eine Datei im Projekt bearbeiten, wird der Server neu gestartet (oder Sie können ihn jederzeit neu starten, indem Sie `rs` in die Eingabeaufforderung eingeben). Sie müssen immer noch den Browser neu laden, um die Seite zu aktualisieren.
+> Jetzt wird der Server neu gestartet, wenn Sie eine Datei im Projekt bearbeiten (oder Sie können ihn jederzeit durch Eingabe von `rs` in der Eingabeaufforderung neu starten). Sie müssen den Browser dennoch neu laden, um die Seite zu aktualisieren.
 >
-> Wir müssen jetzt `npm run <script-name>` anstelle von nur `npm start` aufrufen, da "start" eigentlich ein npm-Befehl ist, der mit dem benannten Skript verknüpft ist. Wir hätten den Befehl im _start_-Skript ersetzen können, aber wir möchten _nodemon_ nur während der Entwicklung verwenden, daher macht es Sinn, ein neues Skriptkommando zu erstellen.
+> Wir müssen jetzt `npm run <script-name>` anstelle von nur `npm start` verwenden, da "start" tatsächlich ein npm-Befehl ist, der auf ein benanntes Skript abgebildet ist. Wir hätten den Befehl im _start_-Skript ersetzen können, aber wir möchten _nodemon_ nur während der Entwicklung verwenden, also ist es sinnvoll, einen neuen Skriptbefehl zu erstellen.
 >
-> Das `serverstart`-Kommando, das den Skripts in der **package.json** oben hinzugefügt wurde, ist ein sehr gutes Beispiel. Dieser Ansatz bedeutet, dass Sie keinen langen Befehl mehr eingeben müssen, um den Server zu starten. Beachten Sie, dass das hinzugefügte Kommando nur für macOS oder Linux funktioniert.
+> Der oben in die **package.json** hinzugefügte `serverstart`-Befehl ist ein sehr gutes Beispiel. Mit dieser Vorgehensweise müssen Sie keinen langen Befehl mehr eingeben, um den Server zu starten. Beachten Sie, dass der zu dem Skript hinzugefügte spezielle Befehl nur für macOS oder Linux funktioniert.
 
 ## Das generierte Projekt
 
-Werfen wir nun einen Blick auf das Projekt, das wir gerade erstellt haben.
+Werfen wir nun einen Blick auf das von uns erstellte Projekt.
+Wir werden im Laufe des Projekts einige kleinere Änderungen daran vornehmen.
 
 ### Verzeichnisstruktur
 
-Das generierte Projekt hat nach der Installation der Abhängigkeiten die folgende Dateistruktur (Dateien sind die Elemente ohne führenden "/").
-Die **package.json**-Datei definiert die Anwendungsabhängigkeiten und weitere Informationen.
-Es definiert auch ein Startskript, das den Anwendungs-Einstiegspunkt, die JavaScript-Datei **/bin/www**, aufruft.
-Dies richtet einige der Fehlerbehandlungen der Anwendung ein und lädt dann **app.js**, um die restliche Arbeit zu erledigen.
+Das generierte Projekt hat nun, nach der Installation der Abhängigkeiten, die folgende Dateistruktur (Dateien sind die Elemente ohne vorangestelltes "/").
+Die **package.json**-Datei definiert die Abhängigkeiten der Anwendung und andere Informationen.
+Sie definiert auch ein Startskript, das den Einstiegspunkt der Anwendung aufruft, die JavaScript-Datei **/bin/www**.
+Dies richtet einen Teil der Fehlerbehandlung der Anwendung ein und lädt dann die **app.js**, um den Rest der Arbeit zu erledigen.
 Die App-Routen werden in separaten Modulen im Verzeichnis **routes/** gespeichert.
-Die Vorlagen sind im Verzeichnis /**views** gespeichert.
+Die Templates werden im Verzeichnis /**views** gespeichert.
 
 ```plain
 express-locallibrary-tutorial
@@ -327,11 +323,11 @@ express-locallibrary-tutorial
         layout.pug
 ```
 
-Die folgenden Abschnitte beschreiben die Dateien etwas genauer.
+Die folgenden Abschnitte beschreiben die Dateien etwas detaillierter.
 
 ### package.json
 
-Die **package.json**-Datei definiert die Anwendungsabhängigkeiten und weitere Informationen:
+Die **package.json**-Datei definiert die Abhängigkeiten der Anwendung und andere Informationen:
 
 ```json
 {
@@ -350,15 +346,15 @@ Die **package.json**-Datei definiert die Anwendungsabhängigkeiten und weitere I
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
-    "nodemon": "^3.1.3"
+    "nodemon": "^3.1.10"
   }
 }
 ```
 
-Der Scripts-Abschnitt definiert zuerst ein "_start_"-Skript, das wir aufrufen, wenn wir `npm start` zum Starten des Servers ausführen (dieses Skript wurde vom _Express Application Generator_ hinzugefügt). Aus der Skriptdefinition können Sie sehen, dass dies tatsächlich die JavaScript-Datei **./bin/www** mit _node_ startet.
+Der Skriptabschnitt definiert zunächst ein "_start_"-Skript, das wir aufrufen, wenn wir `npm start` aufrufen, um den Server zu starten (dieses Skript wurde vom _Express Application Generator_ hinzugefügt). Aus der Skriptdefinition können Sie sehen, dass es tatsächlich die JavaScript-Datei **./bin/www** mit _node_ startet.
 
-Wir haben diesen Abschnitt bereits in [Serverneustart bei Dateiänderungen ermöglichen](#serverneustart_bei_dateiänderungen_ermöglichen) geändert, indem wir die _devstart_- und _serverstart_-Skripte hinzugefügt haben.
-Diese können verwendet werden, um dieselbe **./bin/www**-Datei mit _nodemon_ anstelle von _node_ zu starten (diese Version der Skripte ist für Linux und macOS, wie oben beschrieben).
+Wir haben diesen Abschnitt bereits in [Automatisches Neustarten des Servers bei Dateiänderungen](#automatisches-neustarten-des-servers-bei-dateiänderungen) geändert, indem wir die Skripte _devstart_ und _serverstart_ hinzugefügt haben.
+Diese können verwendet werden, um dieselbe **./bin/www**-Datei mit _nodemon_ anstelle von _node_ zu starten (diese Version der Skripte ist für Linux und macOS, wie oben diskutiert).
 
 ```json
   "scripts": {
@@ -368,50 +364,50 @@ Diese können verwendet werden, um dieselbe **./bin/www**-Datei mit _nodemon_ an
   },
 ```
 
-Die Abhängigkeiten umfassen das _express_-Paket und das Paket für unsere ausgewählte View-Engine (_pug_).
+Die Abhängigkeiten beinhalten das _express_-Paket und das Paket für unsere ausgewählte View-Engine (_pug_).
 Zusätzlich haben wir die folgenden Pakete, die in vielen Webanwendungen nützlich sind:
 
-- [cookie-parser](https://www.npmjs.com/package/cookie-parser): Wird verwendet, um den Cookie-Header zu parsen und `req.cookies` zu befüllen (bietet im Wesentlichen eine bequeme Methode zum Zugriff auf Cookie-Informationen).
-- [debug](https://www.npmjs.com/package/debug): Ein kleines Node-Debugging-Werkzeug, das nach der Debugging-Technik des Node-Kerns modelliert ist.
-- [morgan](https://www.npmjs.com/package/morgan): Ein HTTP-Anfrage-Logger-Middleware für Node.
-- [http-errors](https://www.npmjs.com/package/http-errors): Erstellung von HTTP-Fehlern, wo benötigt (für Express-Fehlerbehandlung).
+- [cookie-parser](https://www.npmjs.com/package/cookie-parser): Wird verwendet, um den Cookie-Header zu parsen und `req.cookies` zu füllen (essentiell eine bequeme Methode, um auf Cookie-Informationen zuzugreifen).
+- [debug](https://www.npmjs.com/package/debug): Ein kleines Node-Debugging-Utility, das nach dem Debugging-Verfahren des Kerns von Node modelliert ist.
+- [morgan](https://www.npmjs.com/package/morgan): Eine HTTP-Request-Logger-Middleware für Node.
+- [http-errors](https://www.npmjs.com/package/http-errors): Erstellen Sie HTTP-Fehler nach Bedarf (für express Fehlerbehandlung).
 
 Die Standardversionen im generierten Projekt sind etwas veraltet.
-Ersetzen Sie den Abhängigkeitsabschnitt Ihrer `package.json`-Datei durch den folgenden Text, der die neuesten Versionen dieser Bibliotheken zum Zeitpunkt des Schreibens angibt:
+Ersetzen Sie den Abschnitt mit den Abhängigkeiten Ihrer `package.json`-Datei durch den folgenden Text, der die neuesten Versionen dieser Bibliotheken zum Zeitpunkt der Erstellung angibt:
 
 ```json
   "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "debug": "^4.3.5",
-    "express": "^4.19.2",
+    "cookie-parser": "^1.4.7",
+    "debug": "^4.4.1",
+    "express": "^5.1.0",
     "http-errors": "~2.0.0",
     "morgan": "^1.10.0",
     "pug": "3.0.3"
   },
 ```
 
-Dann aktualisieren Sie Ihre installierten Abhängigkeiten mit dem Befehl:
+Aktualisieren Sie dann Ihre installierten Abhängigkeiten mit dem Befehl:
 
 ```bash
 npm install
 ```
 
 > [!NOTE]
-> Es ist eine gute Idee, regelmäßig auf die neuesten kompatiblen Versionen Ihrer Abhängigkeitsbibliotheken zu aktualisieren — dies kann sogar automatisch oder halbautomatisch als Teil eines kontinuierlichen Integrationssetups erfolgen.
+> Es ist eine gute Idee, regelmäßig auf die neuesten kompatiblen Versionen Ihrer Abhängigkeitsbibliotheken zu aktualisieren — dies kann sogar automatisch oder halbautomatisch als Teil einer kontinuierlichen Integrationsumgebung geschehen.
 >
-> In der Regel bleiben Bibliotheks-Updates der minor und patch Version kompatibel.
-> Wir haben jede Version mit `^` vorangestellt, damit wir automatisch auf die neueste `minor.patch`-Version aktualisieren können, indem wir:
+> In der Regel bleiben Bibliotheksaktualisierungen der Minor- und Patch-Version kompatibel.
+> Wir haben oben `^` vor jeder Version gesetzt, damit wir automatisch auf die neueste `Minor.Patch`-Version aktualisieren können, indem wir ausführen:
 >
 > ```bash
 > npm update --save
 > ```
 >
-> Hauptversionen ändern die Kompatibilität.
-> Für diese Updates müssen wir die `package.json` und den Code, der die Bibliothek verwendet, manuell aktualisieren und das Projekt umfangreich nachtesten.
+> Major-Versionen ändern die Kompatibilität.
+> Für diese müssen wir die `package.json` und den Code, der die Bibliothek verwendet, manuell aktualisieren und das Projekt umfassend neu testen.
 
-### www-Datei
+### www Datei
 
-Die Datei **/bin/www** ist der Einstiegspunkt der Anwendung! Das allererste, was dies tut, ist, die "echte" Anwendungseinstiegsdatei (**app.js**, im Projektstamm) zu `require()`-en, die das [`express()`](https://expressjs.com/en/api.html) Anwendungsobjekt einrichtet und zurückgibt.
+Die Datei **/bin/www** ist der Einstiegspunkt der Anwendung! Das erste, was sie macht, ist `require()` des "echten" Eintrittspunkts der Anwendung (**app.js**, im Projektstamm), die das [`express()`](https://expressjs.com/en/api.html) Anwendungsobjekt einrichtet und zurückgibt.
 `require()` ist die [CommonJS-Methode](https://nodejs.org/api/modules.html), um JavaScript-Code, JSON und andere Dateien in die aktuelle Datei zu importieren.
 Hier geben wir das **app.js**-Modul mit einem relativen Pfad an und lassen die optionale (.**js**) Dateierweiterung weg.
 
@@ -427,14 +423,14 @@ const app = require("../app");
 
 > [!NOTE]
 > Node.js 14 und später unterstützen ES6 `import`-Anweisungen zum Importieren von JavaScript (ECMAScript)-Modulen.
-> Um diese Funktion zu nutzen, müssen Sie `"type": "module"` zu Ihrer **package.json**-Datei von Express hinzufügen, alle Module in Ihrer Anwendung müssen `import` anstelle von `require()` verwenden, und für _relative Importe_ müssen Sie die Dateierweiterung einschließen (für weitere Informationen siehe die [Node-Dokumentation](https://nodejs.org/api/esm.html#introduction)).
-> Obwohl es Vorteile bei der Verwendung von `import` gibt, verwendet dieses Tutorial `require()`, um mit [der Express-Dokumentation](https://expressjs.com/en/starter/hello-world.html) übereinzustimmen.
+> Um diese Funktion zu nutzen, müssen Sie `"type": "module"` zu Ihrer Express **package.json**-Datei hinzufügen, alle Module in Ihrer Anwendung müssen `import` anstelle von `require()` verwenden, und für _relative Importe_ müssen Sie die Dateierweiterung angeben (weitere Informationen finden Sie in der [Node-Dokumentation](https://nodejs.org/api/esm.html#introduction)).
+> Während es Vorteile bei der Verwendung von `import` gibt, verwendet dieses Tutorial `require()`, um der [Express-Dokumentation](https://expressjs.com/en/starter/hello-world.html) zu entsprechen.
 
-Der Rest des Codes in dieser Datei richtet einen Node-HTTP-Server ein, wobei `app` auf einen bestimmten Port festgelegt wird (definiert in einer Umgebungsvariablen oder 3000, wenn die Variable nicht definiert ist), und beginnt zu lauschen und Serverfehler und Verbindungen zu melden. Fürs Erste müssen Sie nichts weiter über den Code wissen (alles in dieser Datei ist "Boilerplate"), aber fühlen Sie sich frei, ihn zu überprüfen, wenn Sie interessiert sind.
+Der Rest des Codes in dieser Datei richtet einen Node-HTTP-Server mit `app`, der auf einen bestimmten Port (der in einer Umgebungsvariablen definiert ist oder 3000, wenn die Variable nicht definiert ist) eingestellt ist, und beginnt, Serverfehler und Verbindungen zu überwachen und zu melden. Vorerst brauchen Sie über den Code nicht viel mehr zu wissen (alles in dieser Datei ist "Boilerplate"), aber fühlen Sie sich frei, ihn zu überprüfen, wenn Sie interessiert sind.
 
 ### app.js
 
-Diese Datei erstellt ein `express` Anwendungsobjekt (standardmäßig `app` genannt), richtet die Anwendung mit verschiedenen Einstellungen und Middleware ein und exportiert dann die App aus dem Modul. Der Code unten zeigt nur die Teile der Datei, die das App-Objekt erstellen und exportieren:
+Diese Datei erstellt ein `express`-Anwendungsobjekt (standardmäßig `app` genannt), konfiguriert die Anwendung mit verschiedenen Einstellungen und Middleware und exportiert dann die App aus dem Modul. Der untenstehende Code zeigt nur die Teile der Datei, die das App-Objekt erstellen und exportieren:
 
 ```js
 const express = require("express");
@@ -444,9 +440,9 @@ const app = express();
 module.exports = app;
 ```
 
-Zurück in der oben genannten **www**-Einstiegsdatei ist es dieses `module.exports`-Objekt, das dem Aufrufer bereitgestellt wird, wenn diese Datei importiert wird.
+Zurück in der **www**-Einstiegsdatei oben ist dies das `module.exports`-Objekt, das dem Aufrufer bereitgestellt wird, wenn diese Datei importiert wird.
 
-Lassen Sie uns die Datei **app.js** im Detail durchgehen. Zuerst importieren wir einige nützliche Node-Bibliotheken in die Datei mithilfe von `require()`, einschließlich _http-errors_, _express_, _morgan_ und _cookie-parser_, die wir zuvor für unsere Anwendung mit npm heruntergeladen haben; und _path_, das eine Kernbibliothek von Node für das Parsen von Datei- und Verzeichnispfaden ist.
+Lassen Sie uns die **app.js**-Datei im Detail durchgehen. Zuerst importieren wir einige nützliche Node-Bibliotheken in die Datei mit `require()`, einschließlich _http-errors_, _express_, _morgan_ und _cookie-parser_, die wir zuvor mit npm für unsere Anwendung heruntergeladen haben; und _path_, eine zentrale Node-Bibliothek zum Parsen von Datei- und Verzeichnispfaden.
 
 ```js
 const createError = require("http-errors");
@@ -456,7 +452,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 ```
 
-Dann `require()` wir Module aus unserem Routenverzeichnis. Diese Module/Dateien enthalten Code zur Handhabung bestimmter Sätze verwandter "Routen" (URL-Pfade). Wenn wir die Skeleton-Anwendung erweitern, zum Beispiel um alle Bücher in der Bibliothek aufzulisten, werden wir eine neue Datei hinzufügen, die sich mit buchbezogenen Routen befasst.
+Dann `require()` wir Module aus unserem Routenverzeichnis. Diese Module/Dateien enthalten Code, der bestimmte Gruppen verwandter "Routen" (URL-Pfade) behandelt. Wenn wir die Skelettanwendung erweitern, zum Beispiel, um alle Bücher in der Bibliothek aufzulisten, werden wir eine neue Datei hinzufügen, die sich mit buchbezogenen Routen befasst.
 
 ```js
 const indexRouter = require("./routes/index");
@@ -464,9 +460,9 @@ const usersRouter = require("./routes/users");
 ```
 
 > [!NOTE]
-> An diesem Punkt haben wir das Modul nur _importiert_; wir haben seine Routen noch nicht verwendet (das passiert nur ein wenig weiter unten in der Datei).
+> An diesem Punkt haben wir das Modul nur _importiert_; wir haben seine Routen noch nicht tatsächlich genutzt (das passiert ein wenig weiter unten in der Datei).
 
-Als nächstes erstellen wir das `app`-Objekt unter Verwendung unseres importierten _express_-Moduls und verwenden es dann, um die View-(Template)-Engine einzurichten. Es gibt zwei Teile zum Einrichten der Engine. Erstens setzen wir den Wert `"views"`, um den Ordner anzugeben, in dem die Templates gespeichert werden (in diesem Fall der Unterordner **/views**). Dann setzen wir den Wert `"view engine"`, um die Template-Bibliothek (in diesem Fall "pug") anzugeben.
+Als nächstes erstellen wir das `app`-Objekt, indem wir unser importiertes _express_-Modul verwenden, und nutzen es, um die View (Template)-Engine einzurichten. Es gibt zwei Teile, um die Engine einzurichten. Zuerst setzen wir den `"views"`-Wert, um das Verzeichnis anzugeben, in dem die Templates gespeichert werden (in diesem Fall das Unterverzeichnis **/views**). Dann setzen wir den `"view engine"`-Wert, um die Vorlagenbibliothek anzugeben (in diesem Fall "pug").
 
 ```js
 const app = express();
@@ -476,9 +472,9 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 ```
 
-Der nächste Satz von Funktionen ruft `app.use()` auf, um die oben importierten _Middleware_-Bibliotheken in die Anfrageverarbeitungskette einzufügen.
-Zum Beispiel sind `express.json()` und `express.urlencoded()` notwendig, um [`req.body`](https://expressjs.com/en/api.html#req.body) mit den Formularfeldern zu befüllen.
-Nach diesen Bibliotheken verwenden wir auch die Middleware `express.static`, die _Express_ alle statischen Dateien im Verzeichnis **/public** im Projektstamm bereitstellen lässt.
+Die nächste Reihe von Funktionen ruft `app.use()` auf, um die _Middleware_-Bibliotheken, die wir oben importiert haben, in die Anfrageverarbeitungskette einzufügen.
+Zum Beispiel sind `express.json()` und `express.urlencoded()` notwendig, um [`req.body`](https://expressjs.com/en/api.html#req.body) mit den Formularfeldern zu füllen.
+Nach diesen Bibliotheken verwenden wir auch die `express.static`-Middleware, die _Express_ alle statischen Dateien im **/public**-Verzeichnis im Projektstamm dient.
 
 ```js
 app.use(logger("dev"));
@@ -489,7 +485,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 ```
 
-Nachdem nun alle anderen Middleware eingerichtet sind, fügen wir unseren (zuvor importierten) Routen-Handling-Code in die Anfrageverarbeitungskette ein. Der importierte Code wird bestimmte Routen für die verschiedenen _Teile_ der Seite definieren:
+Nachdem alle anderen Middleware eingerichtet sind, fügen wir unseren (zuvor importierten) Routencode in die Anfragenverarbeitungskette ein. Der importierte Code wird bestimmte Routen für die verschiedenen _Teile_ der Seite definieren:
 
 ```js
 app.use("/", indexRouter);
@@ -497,10 +493,10 @@ app.use("/users", usersRouter);
 ```
 
 > [!NOTE]
-> Die oben angegebenen Pfade (`"/"` und `"/users"`) werden als Präfix für Routendefinitionen in den importierten Dateien behandelt.
-> Wenn zum Beispiel das importierte **users**-Modul eine Route für `/profile` definiert, würden Sie auf diese Route über `/users/profile` zugreifen. Wir werden später mehr über Routen in einem späteren Artikel sprechen.
+> Die oben angegebenen Pfade (`"/"` und `"/users"`) werden als Präfix für Routen in den importierten Dateien behandelt.
+> So würde zum Beispiel, wenn das importierte **users**-Modul eine Route für `/profile` definiert, diese Route unter `/users/profile` zugänglich sein. Wir werden in einem späteren Artikel mehr über Routen sprechen.
 
-Die letzte Middleware in der Datei fügt Handler-Methoden für Fehler und HTTP 404-Antworten hinzu.
+Die letzte Middleware in der Datei fügt Handler-Methoden für Fehler und HTTP-404-Antworten hinzu.
 
 ```js
 // catch 404 and forward to error handler
@@ -520,7 +516,7 @@ app.use((err, req, res, next) => {
 });
 ```
 
-Das Express-Anwendungsobjekt (app) ist jetzt vollständig konfiguriert. Der letzte Schritt ist, es zu den Modul-Exports hinzuzufügen (dadurch kann es von **/bin/www** importiert werden).
+Das Express-Anwendungsobjekt (app) ist nun vollständig konfiguriert. Der letzte Schritt besteht darin, es den Modulexporten hinzuzufügen (das ist es, was es **/bin/www** ermöglicht, es zu importieren).
 
 ```js
 module.exports = app;
@@ -528,9 +524,9 @@ module.exports = app;
 
 ### Routen
 
-Die Routen-Datei **/routes/users.js** wird unten gezeigt (Routendateien haben eine ähnliche Struktur, daher müssen wir nicht auch **index.js** zeigen).
-Zuerst lädt es das _express_-Modul und verwendet es, um ein `express.Router`-Objekt zu erhalten.
-Dann gibt es auf diesem Objekt eine Route an und exportiert abschließend den Router aus dem Modul (dies ermöglicht, dass die Datei in **app.js** importiert werden kann).
+Die Routen-Datei **/routes/users.js** ist unten gezeigt (Routendateien haben eine ähnliche Struktur, daher müssen wir **index.js** nicht auch zeigen).
+Zuerst lädt sie das _express_-Modul und verwendet es, um ein `express.Router`-Objekt zu erhalten.
+Dann spezifiziert sie eine Route auf diesem Objekt und exportiert schließlich den Router aus dem Modul (das ist es, was es ermöglicht, die Datei in **app.js** zu importieren).
 
 ```js
 const express = require("express");
@@ -545,16 +541,16 @@ router.get("/", (req, res, next) => {
 module.exports = router;
 ```
 
-Die Route definiert einen Rückruf, der jedes Mal aufgerufen wird, wenn eine HTTP-`GET`-Anfrage mit dem richtigen Muster erkannt wird. Das übereinstimmende Muster ist die beim Import des Moduls angegebene Route (`"/users"`) plus das, was in dieser Datei definiert ist (`"/"`). Mit anderen Worten, diese Route wird verwendet, wenn eine URL von `/users/` empfangen wird.
+Die Route definiert einen Rückruf, der aufgerufen wird, wann immer eine HTTP-`GET`-Anfrage mit dem richtigen Muster erkannt wird. Das übereinstimmende Muster ist die bei der Modulintegration angegebene Route (`"/users"`) plus das, was in dieser Datei definiert ist (`"/"`). Mit anderen Worten, diese Route wird verwendet, wenn eine URL von `/users/` empfangen wird.
 
 > [!NOTE]
 > Probieren Sie dies aus, indem Sie den Server mit node ausführen und die URL in Ihrem Browser besuchen: `http://localhost:3000/users/`. Sie sollten eine Nachricht sehen: 'respond with a resource'.
 
-Ein interessantes Detail oben ist, dass die Rückruffunktion das dritte Argument `next` hat und daher eine Middleware-Funktion ist und keine einfache Routen-Rückruffunktion. Während der Code derzeit nicht das `next`-Argument verwendet, kann es in Zukunft nützlich sein, wenn Sie mehrere Routen-Handler zur `'/'`-Routen-Pfad hinzufügen möchten.
+Ein interessantes Detail oben ist, dass die Rückruffunktion das dritte Argument `next` hat und daher eine Middleware-Funktion und keine einfache Route ist. Obwohl der Code das `next`-Argument derzeit nicht verwendet, könnte es in der Zukunft nützlich sein, wenn Sie mehrere Routenhandler zur `'/'`-Route hinzufügen möchten.
 
 ### Views (Templates)
 
-Die Views (Templates) sind im Verzeichnis **/views** gespeichert (wie in **app.js** angegeben) und haben die Dateiendung **.pug**. Die Methode [`Response.render()`](https://expressjs.com/en/4x/api.html#res.render) wird verwendet, um ein bestimmtes Template zusammen mit den Werten von benannten Variablen, die in einem Objekt übergeben werden, zu rendern und dann das Ergebnis als Antwort zu senden. Im unten stehenden Code aus **/routes/index.js** können Sie sehen, wie diese Route eine Antwort mithilfe des Templates "index" rendert und die Template-Variable "title" übergibt.
+Die Views (Templates) werden im Verzeichnis **/views** gespeichert (wie in **app.js** angegeben) und haben die Dateierweiterung **.pug**. Die Methode [`Response.render()`](https://expressjs.com/en/5x/api.html#res.render) wird verwendet, um ein angegebenes Template zusammen mit den Werten benannter Variablen, die in einem Objekt übergeben werden, zu rendern und dann das Ergebnis als Antwort zu senden. Im unten stehenden Code von **/routes/index.js** können Sie sehen, wie diese Route eine Antwort mit der Vorlage "index" rendert, wobei die Template-Variable "title" übergeben wird.
 
 ```js
 /* GET home page. */
@@ -563,7 +559,7 @@ router.get("/", (req, res, next) => {
 });
 ```
 
-Das entsprechende Template für die obige Route finden Sie im Folgenden (**index.pug**). Wir werden später mehr über die Syntax sprechen. Alles, was Sie jetzt wissen müssen, ist, dass die `title`-Variable (mit dem Wert `'Express'`) dort eingefügt wird, wo sie im Template angegeben ist.
+Das entsprechende Template für die obige Route ist unten angegeben (**index.pug**). Wir werden später mehr über die Syntax sprechen. Alles, was Sie jetzt wissen müssen, ist, dass die `title`-Variable (mit dem Wert `'Express'`) an der im Template angegebenen Stelle eingefügt wird.
 
 ```pug
 extends layout
@@ -575,17 +571,17 @@ block content
 
 ## Fordern Sie sich selbst heraus
 
-Erstellen Sie eine neue Route in **/routes/users.js**, die den Text "_You're so cool_" unter der URL `/users/cool/` anzeigt. Testen Sie es, indem Sie den Server laufen lassen und `http://localhost:3000/users/cool/` in Ihrem Browser besuchen.
+Erstellen Sie eine neue Route in **/routes/users.js**, die den Text "_You're so cool_" an der URL `/users/cool/` anzeigt. Testen Sie es, indem Sie den Server ausführen und `http://localhost:3000/users/cool/` in Ihrem Browser besuchen.
 
 ## Zusammenfassung
 
-Sie haben nun ein Skeleton-Website-Projekt für die [Local Library](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) erstellt und überprüft, dass es mit _node_ läuft. Am wichtigsten ist, dass Sie auch verstehen, wie das Projekt strukturiert ist, sodass Sie eine gute Vorstellung davon haben, wo wir Änderungen vornehmen müssen, um Routen und Views für unsere lokale Bibliothek hinzuzufügen.
+Sie haben jetzt ein Skelett-Website-Projekt für die [Local Library](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) erstellt und überprüft, dass es mit _node_ läuft. Am wichtigsten ist, dass Sie auch verstehen, wie das Projekt strukturiert ist, sodass Sie ein gutes Verständnis davon haben, wo wir Änderungen vornehmen müssen, um Routen und Views für unsere lokale Bibliothek hinzuzufügen.
 
-Als nächstes werden wir beginnen, das Skeleton so zu ändern, dass es als Bibliotheks-Website funktioniert.
+Als nächstes werden wir das Skelett so modifizieren, dass es als Bibliothekswebsite funktioniert.
 
 ## Siehe auch
 
-- [Express application generator](https://expressjs.com/en/starter/generator.html) (Express-Dokumentation)
-- [Using template engines with Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation)
+- [Express Applikationsgenerator](https://expressjs.com/en/starter/generator.html) (Express-Dokumentation)
+- [Verwendung von Template-Engines mit Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website", "Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose", "Learn_web_development/Extensions/Server-side/Express_Nodejs")}}

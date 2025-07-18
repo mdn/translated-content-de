@@ -2,16 +2,14 @@
 title: theme.reset()
 slug: Mozilla/Add-ons/WebExtensions/API/theme/reset
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Setzt ein beliebiges mit der Methode {{WebExtAPIRef("theme.update()")}} angewendetes Theme zurück.
 
-Setzt ein über die Methode {{WebExtAPIRef("theme.update()")}} angewendetes Theme zurück.
+Um diese Methode zu nutzen, muss eine Erweiterung die "theme"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
 
-Um diese Methode zu verwenden, muss eine Erweiterung die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
-
-Beachten Sie, dass dies das Theme immer auf das ursprüngliche Standard-Theme zurücksetzt, auch wenn der Benutzer zuvor ein anderes Theme ausgewählt hat, bevor das Theme dieser Erweiterung angewendet wurde (siehe [Bug 1415267](https://bugzil.la/1415267)).
+Beachten Sie, dass dies das Theme immer auf das ursprüngliche Standard-Theme zurücksetzt, selbst wenn der Benutzer vorher ein anderes Theme ausgewählt hat, bevor das Theme dieser Erweiterung angewendet wurde (siehe [bug 1415267](https://bugzil.la/1415267)).
 
 ## Syntax
 
@@ -24,11 +22,11 @@ browser.theme.reset(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn diese angegeben ist, wird das auf dieses Fenster angewendete Theme zurückgesetzt. Wenn sie weggelassen wird, wird das Theme auf allen Fenstern zurückgesetzt.
+  - : `integer`. Die ID eines Fensters. Wenn dies angegeben ist, wird das auf dieses Fenster angewendete Theme zurückgesetzt. Wenn es weggelassen wird, wird das Theme in allen Fenstern zurückgesetzt.
 
 ## Beispiele
 
-Dieser Code wendet ein Theme an und entfernt es, wenn der Benutzer auf eine Browseraktion klickt:
+Dieser Code wendet ein Theme an und entfernt es dann, wenn der Benutzer auf eine Browser-Aktion klickt:
 
 ```js
 browser.theme.update(themes.night);

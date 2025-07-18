@@ -2,14 +2,12 @@
 title: theme.update()
 slug: Mozilla/Add-ons/WebExtensions/API/theme/update
 l10n:
-  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Aktualisiert das Browser-Theme entsprechend dem Inhalt des {{WebExtAPIRef("theme.Theme", "Theme")}} Objekts.
 
-Aktualisiert das Browser-Theme gemäß dem Inhalt des {{WebExtAPIRef("theme.Theme", "Theme")}} Objekts.
-
-Um diese Methode zu verwenden, muss eine Erweiterung im [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) anfordern.
+Um diese Methode zu verwenden, muss eine Erweiterung die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
 
 ## Syntax
 
@@ -25,11 +23,11 @@ browser.theme.update(
 - `windowId` {{optional_inline}}
   - : `integer`. Die ID eines Fensters. Wenn dies angegeben ist, wird das Theme nur auf dieses Fenster angewendet. Wenn es weggelassen wird, wird das Theme auf alle Fenster angewendet.
 - `theme`
-  - : `object`. Ein {{WebExtAPIRef("theme.Theme", "Theme")}} Objekt, das die Werte für die UI-Elemente angibt, die Sie ändern möchten.
+  - : `object`. Ein {{WebExtAPIRef("theme.Theme", "Theme")}} Objekt, das Werte für die UI-Elemente angibt, die Sie ändern möchten.
 
 ## Beispiele
 
-Setzt das Browser-Theme, um eine Sonnengrafik mit einer komplementären Hintergrundfarbe zu verwenden:
+Setzt das Browser-Theme auf eine Sonnen-Grafik mit einer ergänzenden Hintergrundfarbe:
 
 ```js
 const sunTheme = {
@@ -45,7 +43,7 @@ const sunTheme = {
 browser.theme.update(sunTheme);
 ```
 
-Setzen Sie das Theme nur für das fokussierte Fenster:
+Setzt das Theme nur für das fokussierte Fenster:
 
 ```js
 const day = {

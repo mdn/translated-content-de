@@ -2,14 +2,12 @@
 title: browserAction.getTitle()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getTitle
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ruft den Titel der Browser-Aktion ab.
 
-Erhält den Titel der Browser-Aktion.
-
-Genauso wie Sie den Titel tab-spezifisch mit {{WebExtAPIRef("browserAction.setTitle()")}} setzen können, können Sie einen tab-spezifischen Titel abrufen, indem Sie die ID des Tabs an diese Funktion übergeben.
+So wie Sie den Titel auf einer pro-Tab-Basis mithilfe von {{WebExtAPIRef("browserAction.setTitle()")}} setzen können, können Sie auch einen tab-spezifischen Titel abrufen, indem Sie die ID des Tabs an diese Funktion übergeben.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -37,11 +35,11 @@ let gettingTitle = browser.browserAction.getTitle(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Titel der Browser-Aktion enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String, der den Titel der Browser-Aktion enthält, erfüllt wird.
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer die Browser-Aktion anklickt:
+Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browser-Aktion klickt:
 
 ```js
 function toggleTitle(title) {
@@ -65,7 +63,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getTitle) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getTitle) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

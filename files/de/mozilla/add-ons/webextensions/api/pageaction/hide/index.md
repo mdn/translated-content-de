@@ -2,14 +2,12 @@
 title: pageAction.hide()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/hide
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Blendet die Page-Action für einen bestimmten Tab aus.
 
-`hide()` überschreibt die Mustererkennung, sodass die Page-Action im angegebenen Tab nicht angezeigt wird, selbst wenn seine URL durch [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) übereinstimmt.
+`hide()` überschreibt das Musterabgleich, sodass die Page-Action im angegebenen Tab nicht angezeigt wird, selbst wenn seine URL durch [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) übereinstimmt.
 
 ## Syntax
 
@@ -41,7 +39,7 @@ browser.pageAction.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-hide) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-hide) API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

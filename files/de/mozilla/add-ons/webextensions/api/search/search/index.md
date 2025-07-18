@@ -2,16 +2,14 @@
 title: search.search()
 slug: Mozilla/Add-ons/WebExtensions/API/search/search
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Führen Sie eine Suche mit der angegebenen Suchmaschine oder der Standardsuchmaschine durch, wenn keine Suchmaschine angegeben ist.
 
-Führen Sie eine Suche mit der angegebenen Suchmaschine oder der Standard-Suchmaschine durch, wenn keine Suchmaschine angegeben ist.
+Die Ergebnisse werden im aktuellen Tab, einem neuen Tab oder einem neuen Fenster entsprechend der Eigenschaft `disposition` oder im in der Eigenschaft `tabId` angegebenen Tab angezeigt. Wenn keine von beiden angegeben ist, werden die Ergebnisse in einem neuen Tab angezeigt.
 
-Die Ergebnisse werden im aktuellen Tab, einem neuen Tab oder einem neuen Fenster entsprechend der `disposition`-Eigenschaft oder im Tab, der in der `tabId`-Eigenschaft angegeben ist, angezeigt. Wenn keins angegeben ist, werden die Ergebnisse in einem neuen Tab angezeigt.
-
-Um diese Funktion zu verwenden, muss Ihre Erweiterung die Berechtigung `"search"` in der [Manifestdatei](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Um diese Funktion zu nutzen, muss Ihre Erweiterung die Berechtigung `"search"` im [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
 
 Um die installierten Suchmaschinen zu erhalten, verwenden Sie {{WebExtAPIRef("search.get()")}}.
 
@@ -28,9 +26,9 @@ browser.search.search(
 - `searchProperties`
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
     - `disposition` {{optional_inline}}
-      - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardwert ist `NEW_TAB`. Kann nicht zusammen mit `tabId` angegeben werden.
+      - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardmäßig `NEW_TAB`. Kann nicht zusammen mit `tabId` angegeben werden.
     - `engine` {{optional_inline}}
-      - : `string`. Der Name der Suchmaschine. Wenn der Name der Suchmaschine nicht existiert, wird die Funktion mit einem Fehler abgelehnt. Wenn diese Eigenschaft weggelassen wird, wird die Standard-Suchmaschine verwendet.
+      - : `string`. Der Name der Suchmaschine. Wenn der Name der Suchmaschine nicht existiert, lehnt die Funktion den Aufruf mit einem Fehler ab. Wenn diese Eigenschaft weggelassen wird, wird die Standardsuchmaschine verwendet.
     - `query`
       - : `string`. Die Suchanfrage.
     - `tabId` {{optional_inline}}
@@ -42,7 +40,7 @@ Keiner.
 
 ## Beispiele
 
-Eine Suche mit der Standard-Suchmaschine, wobei die Ergebnisse im aktuellen Tab angezeigt werden (Standard):
+Eine Suche mit der Standardsuchmaschine, wobei die Ergebnisse im aktuellen Tab angezeigt werden (Standard):
 
 ```js
 function search() {

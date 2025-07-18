@@ -2,18 +2,18 @@
 title: Buchdetailseite
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_detail_page
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
 ---
 
-Die _Buchdetailseite_ muss die Informationen für ein bestimmtes `Book` anzeigen (identifiziert durch den automatisch generierten `_id` Feldwert), zusammen mit Informationen über jede zugehörige Kopie in der Bibliothek (`BookInstance`). Wo immer wir einen Autor, ein Genre oder eine Buchkopie anzeigen, sollten diese mit der entsprechenden Detailseite für dieses Element verlinkt werden.
+Die _Buchdetailseite_ soll die Informationen für ein spezifisches `Book` anzeigen (identifiziert durch den automatisch generierten Wert des `_id` Feldes), zusammen mit Informationen über jede verknüpfte Kopie in der Bibliothek (`BookInstance`). Wo immer wir einen Autor, ein Genre oder eine Buchinstanz anzeigen, sollten diese mit der zugehörigen Detailseite für diesen Artikel verlinkt sein.
 
 ## Controller
 
-Öffnen Sie **/controllers/bookController.js**. Finden Sie die exportierte `book_detail()` Kontrollermethode und ersetzen Sie diese durch den folgenden Code.
+Öffnen Sie **/controllers/bookController.js**. Finden Sie die exportierte `book_detail()` Controller-Methode und ersetzen Sie sie mit dem folgenden Code.
 
 ```js
 // Display detail page for a specific book.
-exports.book_detail = asyncHandler(async (req, res, next) => {
+exports.book_detail = async (req, res, next) => {
   // Get details of books, book instances for specific book
   const [book, bookInstances] = await Promise.all([
     Book.findById(req.params.id).populate("author").populate("genre").exec(),
@@ -32,17 +32,21 @@ exports.book_detail = asyncHandler(async (req, res, next) => {
     book,
     book_instances: bookInstances,
   });
-});
+};
 ```
 
 > [!NOTE]
-> Wir müssen in diesem Schritt keine zusätzlichen Module erfordern, da wir die Abhängigkeiten bereits beim Erstellen des Home-Page-Controllers importiert haben.
+> In diesem Schritt müssen wir keine zusätzlichen Module einbinden, da wir die Abhängigkeiten bereits importiert haben, als wir den Controller für die Startseite implementiert haben.
 
-Der Ansatz entspricht genau dem, der für die [Genre-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page) beschrieben wurde. Die Routen-Kontrollerfunktion verwendet `Promise.all()`, um das angegebene `Book` und die zugehörigen Kopien (`BookInstance`) parallel abzufragen. Wenn kein passendes Buch gefunden wird, wird ein Fehlerobjekt mit einem "404: Nicht gefunden"-Fehler zurückgegeben. Wenn das Buch gefunden wird, werden die abgerufenen Datenbankeninformationen mithilfe der "book_detail"-Vorlage gerendert. Da der Schlüssel 'title' verwendet wird, um der Webseite einen Namen zu geben (wie in der Kopfzeile in 'layout.pug' definiert), übergeben wir dieses Mal `results.book.title`, während die Webseite gerendert wird.
+Die Vorgehensweise ist exakt die gleiche wie beschrieben auf der [Genre-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page).
+Die Routen-Controller-Funktion verwendet `Promise.all()`, um das spezifizierte `Book` und dessen zugehörige Kopien (`BookInstance`) parallel abzufragen.
+Wenn kein passendes Buch gefunden wird, wird ein `Error`-Objekt mit einem "404: Not Found"-Fehler zurückgegeben.
+Wird das Buch gefunden, werden die abgerufenen Datenbankinformationen mit dem "book_detail"-Template gerendert.
+Da der Schlüssel 'title' verwendet wird, um der Webseite einen Namen zu geben (wie im Header in 'layout.pug' definiert), übergeben wir diesmal `results.book.title`, während wir die Webseite rendern.
 
 ## Ansicht
 
-Erstellen Sie **/views/book_detail.pug** und fügen Sie den untenstehenden Text hinzu.
+Erstellen Sie **/views/book_detail.pug** und fügen Sie den folgenden Text hinzu.
 
 ```pug
 extends layout
@@ -81,12 +85,14 @@ block content
       p There are no copies of this book in the library.
 ```
 
-Beachten Sie das vorausgehende `!` in `!{book.title}` und `!{book.summary}`, das sicherstellt, dass Werte nicht zur Anzeige maskiert werden. Das wird gemacht, weil wir die Daten, die wir programmatisch anzeigen, bereits bereinigt haben, und eine erneute Bereinigung würde unser "bereinigtes Markup" anzeigen, anstatt die sichere Version des Originaltextes. Wir haben uns entschieden, dies nicht für Autor, Genre und so weiter zu tun (obwohl wir könnten), da wir nicht erwarten, dass sie "gefährliche" Zeichen enthalten, die eine Bereinigung erfordern.
+Beachten Sie das vorausgehende `!` in `!{book.title}` und `!{book.summary}`, das sicherstellt, dass Werte bei der Darstellung nicht maskiert werden.
+Das wird gemacht, weil wir die Daten, die wir anzeigen, bereits programmgesteuert bereinigt haben, und eine erneute Bereinigung würde unser "bereinigtes Markup" anstelle der sicheren Version des Originaltexts anzeigen.
+Wir haben uns entschieden, dies nicht für Autor, Genre usw. zu tun (obwohl wir könnten), da wir nicht erwarten, dass diese potenziell "gefährliche" Zeichen enthalten, die eine Bereinigung erfordern.
 
-Fast alles andere in dieser Vorlage wurde in vorherigen Abschnitten demonstriert.
+Fast alles andere in diesem Template wurde in vorherigen Abschnitten demonstriert.
 
 > [!NOTE]
-> Die Liste der Genres, die mit dem Buch assoziiert sind, wird in der Vorlage wie unten implementiert. Dies fügt ein Komma und ein geschütztes Leerzeichen nach jedem Genre hinzu, das mit dem Buch verbunden ist, außer dem letzten.
+> Die Liste der mit dem Buch verbundenen Genres wird im Template wie unten implementiert. Dies fügt nach jedem mit dem Buch verbundenen Genre ein Komma und ein geschütztes Leerzeichen hinzu, außer nach dem letzten.
 >
 > ```pug
 >   p #[strong Genre: ]
@@ -98,11 +104,11 @@ Fast alles andere in dieser Vorlage wurde in vorherigen Abschnitten demonstriert
 
 ## Wie sieht es aus?
 
-Starten Sie die Anwendung und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den _Alle Bücher_-Link und dann eines der Bücher. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite wie der folgende Screenshot aussehen.
+Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Bücher_, dann wählen Sie eines der Bücher. Wenn alles richtig eingerichtet ist, sollte Ihre Seite etwa wie der folgende Screenshot aussehen.
 
 ![Buchdetailseite - Express Local Library Seite](locallibary_express_book_detail.png)
 
 ## Nächste Schritte
 
-- Zurück zum [Express Tutorial Teil 5: Anzeigen von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Weiter zum nächsten Unterartikel von Teil 5: [Autorendetailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_detail_page).
+- Zurück zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
+- Gehen Sie zum nächsten Unterartikel von Teil 5: [Autor-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_detail_page).

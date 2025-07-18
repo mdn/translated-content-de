@@ -2,18 +2,16 @@
 title: runtime.OnPerformanceWarningCategory
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/OnPerformanceWarningCategory
 l10n:
-  sourceCommit: 0bbf7b0f1c3e0966ce9534e70de5e8749a23e2b2
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Die Kategorie der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
-- `"content_script"`: Die Leistungswarnung betrifft ein langsames Content-Script in der abhörenden Erweiterung.
+- `"content_script"`: Die Leistungswarnung bezieht sich auf ein langsames Content Script in der zuhörenden Erweiterung.
 
 {{WebExtExamples("h2")}}
 

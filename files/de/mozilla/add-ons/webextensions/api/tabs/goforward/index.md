@@ -2,12 +2,10 @@
 title: tabs.goForward()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/goForward
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Navigiert zur nächsten Seite in der Verlaufsansicht des Tabs, falls verfügbar.
+Navigieren Sie zur nächsten Seite in der Chronik des Tabs, falls verfügbar.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,7 +23,7 @@ let goingForward = browser.tabs.goForward(
 - `tabId` {{optional_inline}}
   - : `integer`. Die ID des Tabs, zu dem navigiert werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
 - `callback` {{optional_inline}}
-  - : `function`. Wenn die Seitennavigation abgeschlossen ist, wird diese Funktion ohne Parameter aufgerufen.
+  - : `function`. Diese Funktion wird aufgerufen, wenn die Seitennavigation abgeschlossen ist, ohne Parameter.
 
 ### Rückgabewert
 
@@ -33,7 +31,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das e
 
 ## Beispiele
 
-Vorwärts zur nächsten Seite im aktuellen Tab navigieren:
+Vorwärts zur nächsten Seite im aktuellen Tab gehen:
 
 ```js
 function onGoForward() {
@@ -55,7 +53,7 @@ goingForward.then(onGoForward, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

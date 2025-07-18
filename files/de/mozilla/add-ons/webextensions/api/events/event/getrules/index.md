@@ -2,12 +2,10 @@
 title: Event.getRules()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/getRules
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft alle registrierten Regeln für ein deklaratives Ereignis ab.
+Ruft alle Regeln ab, die für ein deklaratives Ereignis registriert sind.
 
 ## Syntax
 
@@ -18,18 +16,17 @@ events.Event.getRules(ruleIdentifiers, callback)
 ### Parameter
 
 - `ruleIdentifiers` {{optional_inline}}
-
-  - : `array` von `string`. Bezeichner für die zurückzugebenden Regeln. Wenn kein Array übergeben wird, werden alle Regeln zurückgegeben.
+  - : `array` von `string`. Kennungen für die Regeln, die zurückgegeben werden sollen. Wenn kein Array übergeben wird, werden alle Regeln zurückgegeben.
 
 - `callback`
-  - : `function`. Der Parameter der Rückruffunktion ist ein Array von {{WebExtAPIRef("events.Rule")}} Objekten.
+  - : `function`. Der Parameter der Callback-Funktion ist ein Array von {{WebExtAPIRef("events.Rule")}} Objekten.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-getRules) API von Chromium. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-getRules) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,10 +2,8 @@
 title: sessions.forgetClosedTab()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/forgetClosedTab
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Entfernt einen geschlossenen Tab aus der Liste der kürzlich geschlossenen Tabs des Browsers. Beachten Sie, dass die von diesem Tab besuchten Seiten nicht aus dem Browserverlauf entfernt werden. Verwenden Sie die APIs {{WebExtAPIRef("browsingData")}} oder {{WebExtAPIRef("history")}}, um den Verlauf zu entfernen.
 
@@ -23,7 +21,7 @@ let forgettingTab = browser.sessions.forgetClosedTab(
 ### Parameter
 
 - `windowId`
-  - : `Integer`. Die ID des Fensters, das den Tab, den Sie vergessen möchten, beherbergte.
+  - : `Integer`. Die ID des Fensters, das den Tab gehostet hat, den Sie vergessen möchten.
 - `sessionId`
   - : `String`. Die ID der Sitzung, die Sie vergessen möchten.
 
@@ -35,7 +33,7 @@ Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieser Code vergisst die am kürzesten geschlossene Sitzung, unabhängig davon, ob es sich um einen Tab oder ein Fenster handelt:
+Dieser Code vergisst die zuletzt geschlossene Sitzung, unabhängig davon, ob es sich um einen Tab oder ein Fenster handelt:
 
 ```js
 function forgetMostRecent(sessionInfos) {

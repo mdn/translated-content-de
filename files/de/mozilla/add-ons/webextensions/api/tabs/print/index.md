@@ -2,12 +2,10 @@
 title: tabs.print()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/print
 l10n:
-  sourceCommit: d82c19fea93f7b36787c6d84af600c955c2732d5
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Rufen Sie diese Funktion auf, um den Inhalt des aktiven Tabs zu drucken. Wenn diese Funktion aufgerufen wird, wird dem Benutzer das Druckdialogfeld der zugrunde liegenden Plattform angezeigt, und er hat die Möglichkeit, die Druckeinstellungen zu ändern und dann den derzeit aktiven Tab zu drucken.
+Rufen Sie diese Funktion auf, um die Inhalte des aktiven Tabs zu drucken. Wenn diese Funktion aufgerufen wird, erhält der Benutzer das Druckdialogfeld der zugrunde liegenden Plattform und hat die Möglichkeit, die Druckeinstellungen zu ändern und dann den aktuell aktiven Tab zu drucken.
 
 ## Syntax
 
@@ -21,11 +19,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine.
+Keiner.
 
 ## Beispiele
 
-In diesem Beispiel hört ein Hintergrundskript auf einen Klick auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), um dann zu versuchen, den aktuell aktiven Tab zu drucken:
+In diesem Beispiel hört ein Hintergrundskript auf einen Klick auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) und versucht dann, den aktuell aktiven Tab zu drucken:
 
 ```js
 browser.browserAction.onClicked.addListener(() => {

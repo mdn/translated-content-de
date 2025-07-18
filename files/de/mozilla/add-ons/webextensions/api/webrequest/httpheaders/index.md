@@ -2,12 +2,10 @@
 title: webRequest.HttpHeaders
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/HttpHeaders
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein Array von HTTP-Headern. Jeder Header wird als Objekt mit zwei Eigenschaften dargestellt: `name` und entweder `value` oder `binaryValue`.
+Ein Array von HTTP-Headern. Jeder Header wird als ein Objekt mit zwei Eigenschaften dargestellt: `name` und entweder `value` oder `binaryValue`.
 
 ## Typ
 
@@ -27,7 +25,7 @@ Ein `array` von `object`s. Jedes Objekt hat die folgenden Eigenschaften:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-HttpHeaders) API. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-HttpHeaders) API von Chromium. Diese Dokumentation leitet sich von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

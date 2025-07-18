@@ -2,12 +2,10 @@
 title: pkcs11.installModule()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/installModule
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Installiert das benannte PKCS #11-Modul und macht es in Firefox verfügbar.
+Installiert das benannte PKCS #11-Modul, sodass es in Firefox verfügbar ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +21,7 @@ let installing = browser.pkcs11.installModule(
 ### Parameter
 
 - `name`
-  - : `string`. Name des zu installierenden Moduls. Dies muss mit der `name` Eigenschaft im [PKCS #11 Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
+  - : `string`. Name des zu installierenden Moduls. Dieser muss mit der `name`-Eigenschaft im [PKCS #11-Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
 - `flags` {{optional_inline}}
   - : `integer`. Flags, die an das Modul übergeben werden.
 
@@ -35,7 +33,7 @@ Falls das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, w
 
 ## Beispiele
 
-Installiert ein Modul, listet dann seine Slots auf und zeigt die darin enthaltenen Tokens an:
+Installiert ein Modul, listet anschließend seine Slots und die darin enthaltenen Tokens auf:
 
 ```js
 function onInstalled() {

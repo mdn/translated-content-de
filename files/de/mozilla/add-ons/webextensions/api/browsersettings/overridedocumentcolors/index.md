@@ -2,20 +2,18 @@
 title: browserSettings.overrideDocumentColors
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/overrideDocumentColors
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein String ist.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert eine Zeichenkette ist.
+Firefox ermöglicht es dem Nutzer, eigene Farben für Dokumenthintergründe und Text festzulegen. Standardmäßig werden diese Werte nur angewendet, wenn ein Hochkontrast-Thema ausgewählt ist (ein Hochkontrast-Thema ist eine Funktion einiger Betriebssystem-Benutzeroberflächen, die den Kontrast zur besseren Zugänglichkeit erhöht). Nutzer können jedoch auch wählen, diese Farben immer oder nie anzuwenden. Diese Browsereinstellung macht diese Präferenz zugänglich.
 
-Firefox ermöglicht es dem Benutzer, eigene Farben für Hintergrund und Text von Dokumenten festzulegen. Standardmäßig werden diese Werte nur angewendet, wenn ein Hochkontrast-Thema ausgewählt ist (ein Hochkontrast-Thema ist eine Funktion einiger Betriebssystem-Oberflächen, die den Kontrast für eine verbesserte Zugänglichkeit erhöht). Benutzer können jedoch auch wählen, diese Farben immer oder nie anzuwenden. Diese Browser-Einstellung gibt diese Präferenz an.
+Der zugrunde liegende Wert ist ein String, der einen der folgenden Werte annehmen kann:
 
-Der zugrunde liegende Wert ist eine Zeichenkette, die einen der folgenden Werte annehmen kann:
-
-- "high-contrast-only": Anwenden der Benutzerwahl nur dann, wenn ein Hochkontrast-Thema ausgewählt ist. Dies ist die Standardeinstellung.
-- "never": Nie die Benutzerwahl anwenden.
-- "always": Immer die Benutzerwahl anwenden.
+- "high-contrast-only": Wendet die Nutzerwahl nur an, wenn ein Hochkontrast-Thema ausgewählt ist. Dies ist die Standardeinstellung.
+- "never": Die Nutzerwahl niemals anwenden.
+- "always": Die Nutzerwahl immer anwenden.
 
 ## Beispiele
 

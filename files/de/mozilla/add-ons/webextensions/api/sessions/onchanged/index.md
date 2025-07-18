@@ -2,10 +2,8 @@
 title: sessions.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/onChanged
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn sich die Liste der geschlossenen Tabs oder Fenster ändert.
 
@@ -22,7 +20,7 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -31,11 +29,11 @@ Ereignisse haben drei Funktionen:
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Es werden keine Parameter übergeben.
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Sie wird ohne Parameter übergeben.
 
 ## Beispiele
 
-Diese sehr nervige Erweiterung hört auf `onChanged` und stellt dann sofort die zuletzt geschlossene Sitzung wieder her, wodurch es unmöglich wird, Fenster oder Tabs zu schließen:
+Diese sehr nervige Erweiterung hört auf `onChanged` und stellt dann sofort die zuletzt geschlossene Sitzung wieder her, was es unmöglich macht, Fenster oder Tabs zu schließen:
 
 ```js
 function restoreSession(sessionInfos) {
@@ -72,4 +70,4 @@ browser.sessions.onChanged.addListener(restoreMostRecent);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.sessions`](https://developer.chrome.com/docs/extensions/reference/api/sessions) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.sessions`](https://developer.chrome.com/docs/extensions/reference/api/sessions) API.

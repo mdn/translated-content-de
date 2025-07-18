@@ -2,12 +2,10 @@
 title: declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_DYNAMIC_RULES
 l10n:
-  sourceCommit: 787fd072f8bc00cbdf62cef85921f0a6d9f0b4a7
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die maximale Anzahl von dynamischen Regeln, die eine Erweiterung hinzufügen kann.
+Die maximale Anzahl dynamischer Regeln, die eine Erweiterung hinzufügen kann.
 
 Dieses Limit ist:
 

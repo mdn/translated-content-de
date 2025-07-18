@@ -2,22 +2,20 @@
 title: browserSettings.newTabPosition
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/newTabPosition
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um die Position neu geöffneter Tabs relativ zu bereits geöffneten Tabs zu steuern.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Position neu geöffneter Tabs relativ zu bereits offenen Tabs zu steuern.
-
-Der zugrunde liegende Wert ist ein String, der einen von drei Werten annehmen kann:
+Der zugrundeliegende Wert ist ein String, der einen von drei Werten annehmen kann:
 
 - "afterCurrent": Öffnet alle neuen Tabs neben dem aktuellen Tab.
-- "relatedAfterCurrent": Der Standardwert. Öffnet neue Tabs neben dem aktuellen Tab, wenn sie mit dem aktuellen Tab in Zusammenhang stehen (zum Beispiel, wenn sie über einen Link im aktuellen Tab geöffnet wurden). Andernfalls werden neue Tabs am Ende der Tab-Leiste geöffnet.
+- "relatedAfterCurrent": Der Standardwert. Öffnet neue Tabs neben dem aktuellen Tab, wenn sie in Beziehung zum aktuellen Tab stehen (zum Beispiel, wenn sie über einen Link im aktuellen Tab geöffnet wurden). Andernfalls werden neue Tabs am Ende der Tab-Leiste geöffnet.
 - "atEnd": Öffnet alle Tabs am Ende der Tab-Leiste.
 
 ## Beispiele
 
-Dieser Code setzt den Wert auf "afterCurrent" und gibt dann den neuen Wert im Log aus:
+Dieser Code setzt den Wert auf "afterCurrent" und protokolliert dann den neuen Wert:
 
 ```js
 async function setAfterCurrent() {

@@ -2,24 +2,22 @@
 title: browserSettings.overrideContentColorScheme
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/overrideContentColorScheme
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein String ist.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein String ist.
-
-Firefox ermöglicht es Benutzern, ein Thema für die Benutzeroberfläche des Browsers auszuwählen. Diese Themen verwenden entweder ein helles oder dunkles Thema für Webseiten. Mit der Einstellung `layout.css.prefers-color-scheme.content-override` können Benutzer das Thema überschreiben und wählen, ob Webseiten in einem hellen oder dunklen Thema gerendert werden sollen. Diese Browsereinstellung stellt diese Präferenz dar.
+Firefox ermöglicht es den Benutzern, ein Thema für die Browser-Benutzeroberfläche auszuwählen. Diese Themen wenden entweder ein helles oder dunkles Thema auf Webseiten an. Mit der Einstellung `layout.css.prefers-color-scheme.content-override` können Benutzer das Thema überschreiben und wählen, Webseiten in einem hellen oder dunklen Thema darzustellen. Diese Browsereinstellung stellt diese Präferenz zur Verfügung.
 
 Dieses Objekt nimmt folgende Werte an:
 
 - "light": Wendet ein helles Thema auf Webseiten an.
 - "dark": Wendet ein dunkles Thema auf Webseiten an.
-- "auto": Wendet basierend auf dem Browser-Thema automatisch ein helles oder dunkles Thema auf Webseiten an.
+- "auto": Wendet automatisch ein helles oder dunkles Thema auf Webseiten basierend auf dem Browser-Thema an.
 
 ## Beispiele
 
-Dieses Beispiel überschreibt die Einstellung, um das dunkle Thema für Webseiten zu verwenden:
+Dieses Beispiel setzt die Einstellung auf das dunkle Thema für Webseiten:
 
 ```js
 function logResult(result) {

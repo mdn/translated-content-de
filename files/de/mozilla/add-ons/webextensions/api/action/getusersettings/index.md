@@ -2,12 +2,10 @@
 title: action.getUserSettings()
 slug: Mozilla/Add-ons/WebExtensions/API/action/getUserSettings
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft die vom Benutzer spezifizierten Einstellungen für die Browser-Aktion ab.
+Ruft die vom Benutzer angegebenen Einstellungen für die Browser-Aktion ab.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -26,16 +24,16 @@ Diese Funktion nimmt keine Parameter.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches folgende Eigenschaften hat:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das folgende Eigenschaften enthält:
 
 - `userSettings`
-  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion enthält mit folgenden Eigenschaften:
+  - : Ein Objekt, das die vom Benutzer spezifizierten Einstellungen für die Browser-Aktion mit folgenden Eigenschaften enthält:
     - `isOnToolbar` {{optional_inline}}
-      - : `boolean`. Gibt an, ob der Benutzer das Symbol der Aktion an die Browser-Oberfläche angeheftet hat. Diese Einstellung zeigt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Oberfläche ab.
+      - : `boolean`. Ob der Benutzer das Aktionssymbol an die Browseroberfläche angeheftet hat. Diese Einstellung zeigt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browseroberfläche ab.
 
 ## Beispiele
 
-Dieser Code gibt eine Meldung aus, die anzeigt, ob die Aktion angeheftet ist oder nicht:
+Dieser Code protokolliert eine Nachricht, die angibt, ob die Aktion angeheftet ist oder nicht:
 
 ```js
 function gotSettings(userSettings) {

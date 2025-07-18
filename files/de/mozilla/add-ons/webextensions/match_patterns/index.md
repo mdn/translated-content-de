@@ -1,23 +1,21 @@
 ---
-title: Mustermuster
+title: Übereinstimmungsmuster
 slug: Mozilla/Add-ons/WebExtensions/Match_patterns
 l10n:
-  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Übereinstimmungsmuster sind eine Methode, um Gruppen von URLs zu spezifizieren: Ein Übereinstimmungsmuster passt auf eine bestimmte Menge von URLs. Sie werden in den WebExtensions-APIs an einigen Stellen verwendet, insbesondere um zu definieren, in welche Dokumente [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) geladen werden sollen, und um anzugeben, bei welchen URLs [`webRequest`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) Listener hinzugefügt werden sollen.
 
-Mustermuster sind eine Möglichkeit, Gruppen von URLs zu spezifizieren: Ein Mustermuster entspricht einer bestimmten Gruppe von URLs. Sie werden in WebExtensions APIs an einigen Stellen verwendet, vor allem um anzugeben, in welche Dokumente [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) geladen werden sollen, und um anzugeben, auf welche URLs [`webRequest`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) Listener hinzugefügt werden sollen.
+APIs, die Übereinstimmungsmuster verwenden, akzeptieren in der Regel eine Liste von Übereinstimmungsmustern und führen die entsprechende Aktion aus, wenn die URL einem der Muster entspricht. Siehe zum Beispiel den [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Schlüssel in manifest.json.
 
-APIs, die Mustermuster verwenden, akzeptieren normalerweise eine Liste von Mustermustern und führen die entsprechende Aktion aus, wenn die URL mit einem der Muster übereinstimmt. Siehe zum Beispiel den [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) Schlüssel in manifest.json.
-
-## Struktur von Mustermustern
+## Struktur des Übereinstimmungsmusters
 
 > [!NOTE]
-> Einige Browser unterstützen bestimmte Schemata nicht.
-> Überprüfen Sie die [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität) für Details.
+> Einige Browser unterstützen bestimmte Schemes nicht.
+> Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
-Alle Mustermuster sind als Zeichenfolgen angegeben. Abgesehen vom speziellen [`<all_urls>`](#all_urls) Muster bestehen Mustermuster aus drei Teilen: _scheme_, _host_ und _path_. Das Schema und der Host sind durch `://` getrennt.
+Alle Übereinstimmungsmuster werden als Strings angegeben. Abgesehen vom speziellen Muster [`<all_urls>`](#all_urls) bestehen Übereinstimmungsmuster aus drei Teilen: _scheme_, _host_ und _path_. Scheme und Host sind durch `://` getrennt.
 
 ```plain
 <scheme>://<host><path>
@@ -31,7 +29,7 @@ Die Komponente _scheme_ kann eine von zwei Formen annehmen:
   <thead>
     <tr>
       <th scope="col">Form</th>
-      <th scope="col">Entspricht</th>
+      <th scope="col">Übereinstimmungen</th>
     </tr>
   </thead>
   <tbody>
@@ -44,11 +42,11 @@ Die Komponente _scheme_ kann eine von zwei Formen annehmen:
     </tr>
     <tr>
       <td>
-        Eine der folgenden: <code>http</code>, <code>https</code>, <code>ws</code>,
+        Eines von <code>http</code>, <code>https</code>, <code>ws</code>,
         <code>wss</code>, <code>ftp</code>, <code>data</code>,
-        <code>file</code>, oder <code>(chrome-)extension</code>.
+        <code>file</code> oder <code>(chrome-)extension</code>.
       </td>
-      <td>Nur das angegebene Schema.</td>
+      <td>Nur das angegebene Scheme.</td>
     </tr>
   </tbody>
 </table>
@@ -61,7 +59,7 @@ Die Komponente _host_ kann eine von drei Formen annehmen:
   <thead>
     <tr>
       <th scope="col">Form</th>
-      <th scope="col">Entspricht</th>
+      <th scope="col">Übereinstimmungen</th>
     </tr>
   </thead>
   <tbody>
@@ -82,26 +80,26 @@ Die Komponente _host_ kann eine von drei Formen annehmen:
 
 _host_ darf keine Portnummer enthalten.
 
-_host_ ist nur optional, wenn das _scheme_ "file" ist.
+_host_ ist nur dann optional, wenn das _scheme_ "file" ist.
 
-Beachten Sie, dass der Platzhalter nur am Anfang stehen darf.
+Beachten Sie, dass das Platzhalterzeichen nur am Anfang stehen darf.
 
 ### path
 
 Die Komponente _path_ muss mit einem `/` beginnen.
 
-Danach kann sie jede Kombination des `*` Platzhalters und der Zeichen enthalten, die in URL-Pfaden oder Abfragezeichenfolgen erlaubt sind. Im Gegensatz zu _host_ kann die Komponente _path_ den `*` Platzhalter in der Mitte oder am Ende enthalten, und der `*` Platzhalter kann mehrmals auftauchen.
+Danach kann sie jede Kombination aus dem Platzhalterzeichen `*` und den Zeichen enthalten, die in URL-Pfaden oder Abfragezeichenfolgen erlaubt sind. Im Gegensatz zu _host_ darf die Komponente _path_ das Platzhalterzeichen `*` in der Mitte oder am Ende enthalten, und das Platzhalterzeichen `*` darf mehr als einmal vorkommen.
 
-Der Wert für den _path_ wird mit dem String abgeglichen, der der URL-Pfad plus die [URL-Abfragezeichenfolge](https://de.wikipedia.org/wiki/Query_string) ist. Dazu gehört das `?` zwischen den beiden, wenn die Abfragezeichenfolge in der URL vorhanden ist. Zum Beispiel, wenn Sie URLs auf einer beliebigen Domain abgleichen wollen, bei denen der URL-Pfad mit `foo.bar` endet, dann müssen Sie ein Array von Mustermustern wie `["*://*/*foo.bar", "*://*/*foo.bar?*"]` verwenden. Das `?*` wird benötigt, anstatt einfach `bar*`, um das Ende `*` als auf die URL-Abfragezeichenfolge anwendbar zu verankern und nicht auf einen Teil des URL-Pfads.
+Der Wert für den _path_ wird mit dem String abgeglichen, der aus dem URL-Pfad plus der [URL-Abfragezeichenfolge](https://en.wikipedia.org/wiki/Query_string) besteht. Dies schließt gegebenenfalls das `?` zwischen den beiden ein, wenn die Abfragezeichenfolge in der URL vorhanden ist. Wenn Sie beispielsweise URLs in einer beliebigen Domain abgleichen möchten, bei denen der URL-Pfad mit `foo.bar` endet, müssen Sie ein Array von Übereinstimmungsmustern wie `["*://*/*foo.bar", "*://*/*foo.bar?*"]` verwenden. Das `?*` ist notwendig, um zu verhindern, dass das abschließende `*` auf den URL-Pfad anstelle der URL-Abfragezeichenfolge angewendet wird.
 
-Weder der [URL-Fragment-Identifier](https://de.wikipedia.org/wiki/Fragment_identifier) noch das `#`, das ihm vorausgeht, werden als Teil des _path_ betrachtet.
+Weder der [URL-Fragment-Identifier](https://en.wikipedia.org/wiki/Fragment_identifier) noch das `#`, das ihm vorangeht, werden als Teil des _path_ betrachtet.
 
 > [!NOTE]
-> Der Path-Muster-String sollte keine Portnummer enthalten. Das Hinzufügen eines Ports, wie in: `http://localhost:1234/*`, führt dazu, dass das Mustermuster ignoriert wird. Jedoch, `http://localhost:1234` wird mit `http://localhost/*` übereinstimmen.
+> Die String-Formatierung für das Pfadmuster sollte keine Portnummer enthalten. Das Hinzufügen eines Ports, wie in: `http://localhost:1234/*`, führt dazu, dass das Übereinstimmungsmuster ignoriert wird. Jedoch passt `http://localhost:1234` zu `http://localhost/*`.
 
 ### \<all_urls>
 
-Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstützten Schemata: das heißt "http", "https", "ws", "wss", "ftp", "data" und "file".
+Der spezielle Wert `<all_urls>` stimmt mit allen URLs unter jedem unterstützten Scheme überein, das sind "http", "https", "ws", "wss", "ftp", "data" und "file".
 
 ## Beispiele
 
@@ -109,15 +107,15 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
   <thead>
     <tr>
       <th scope="col">Muster</th>
-      <th scope="col">Beispielhafte Übereinstimmungen</th>
-      <th scope="col">Beispielhafte Nicht-Übereinstimmungen</th>
+      <th scope="col">Beispielmatches</th>
+      <th scope="col">Beispiel-Nicht-Übereinstimmungen</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
         <p><code>&#x3C;all_urls></code></p>
-        <p>Entspricht allen URLs.</p>
+        <p>Übereinstimmung mit allen URLs.</p>
       </td>
       <td>
         <p><code>http://example.org/</code></p>
@@ -127,16 +125,16 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>ftp://files.somewhere.org/</code></p>
       </td>
       <td>
-        <p><code>resource://a/b/c/</code><br />(unterstütztes Schema)</p>
+        <p><code>resource://a/b/c/</code><br />(nicht unterstütztes Scheme)</p>
         <p>
-          <code>ftps://files.somewhere.org/</code><br />(unterstütztes Schema)
+          <code>ftps://files.somewhere.org/</code><br />(nicht unterstütztes Scheme)
         </p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>*://*/*</code></p>
-        <p>Entspricht allen HTTP-, HTTPS- und WebSocket-URLs.</p>
+        <p>Übereinstimmung mit allen HTTP-, HTTPS- und WebSocket-URLs.</p>
       </td>
       <td>
         <p><code>http://example.org/</code></p>
@@ -145,15 +143,15 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>wss://ws.example.com/stuff/</code></p>
       </td>
       <td>
-        <p><code>ftp://ftp.example.org/</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>file:///a/</code><br />(nicht übereinstimmendes Schema)</p>
+        <p><code>ftp://ftp.example.org/</code><br />(nicht passendes Scheme)</p>
+        <p><code>file:///a/</code><br />(nicht passendes Scheme)</p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>*://*.mozilla.org/*</code></p>
         <p>
-          Entspricht allen HTTP-, HTTPS- und WebSocket-URLs, die bei
+          Übereinstimmung mit allen HTTP-, HTTPS- und WebSocket-URLs, die auf
           "mozilla.org" oder einer seiner Subdomains gehostet werden.
         </p>
       </td>
@@ -167,17 +165,17 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>wss://secure.mozilla.org/something</code></p>
       </td>
       <td>
-        <p><code>ftp://mozilla.org/</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>http://mozilla.com/</code><br />(nicht übereinstimmender Host)</p>
-        <p><code>http://firefox.org/</code><br />(nicht übereinstimmender Host)</p>
+        <p><code>ftp://mozilla.org/</code><br />(nicht passendes Scheme)</p>
+        <p><code>http://mozilla.com/</code><br />(nicht passender Host)</p>
+        <p><code>http://firefox.org/</code><br />(nicht passender Host)</p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>*://mozilla.org/</code></p>
         <p>
-          Entspricht allen HTTP-, HTTPS- und WebSocket-URLs, die exakt bei
-          "mozilla.org/" gehostet werden.
+          Übereinstimmung mit allen HTTP-, HTTPS- und WebSocket-URLs, die
+          exakt unter "mozilla.org/" gehostet werden.
         </p>
       </td>
       <td>
@@ -187,27 +185,27 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>wss://mozilla.org/</code></p>
       </td>
       <td>
-        <p><code>ftp://mozilla.org/</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>http://a.mozilla.org/</code><br />(nicht übereinstimmender Host)</p>
-        <p><code>http://mozilla.org/a</code><br />(nicht übereinstimmender Pfad)</p>
+        <p><code>ftp://mozilla.org/</code><br />(nicht passendes Scheme)</p>
+        <p><code>http://a.mozilla.org/</code><br />(nicht passender Host)</p>
+        <p><code>http://mozilla.org/a</code><br />(nicht passender Pfad)</p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>ftp://mozilla.org/</code></p>
-        <p>Entspricht nur "ftp://mozilla.org/".</p>
+        <p>Übereinstimmung nur mit "ftp://mozilla.org/".</p>
       </td>
       <td><code>ftp://mozilla.org</code></td>
       <td>
-        <p><code>http://mozilla.org/</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>ftp://sub.mozilla.org/</code><br />(nicht übereinstimmender Host)</p>
-        <p><code>ftp://mozilla.org/path</code><br />(nicht übereinstimmender Pfad)</p>
+        <p><code>http://mozilla.org/</code><br />(nicht passendes Scheme)</p>
+        <p><code>ftp://sub.mozilla.org/</code><br />(nicht passender Host)</p>
+        <p><code>ftp://mozilla.org/path</code><br />(nicht passender Pfad)</p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>https://*/path</code></p>
-        <p>Entspricht HTTPS-URLs auf jedem Host, deren Pfad "path" ist.</p>
+        <p>Übereinstimmung mit HTTPS-URLs auf jedem Host, deren Pfad "path" ist.</p>
       </td>
       <td>
         <p><code>https://mozilla.org/path</code></p>
@@ -215,12 +213,13 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>https://something.com/path</code></p>
       </td>
       <td>
-        <p><code>http://mozilla.org/path</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>https://mozilla.org/path/</code><br />(nicht übereinstimmender Pfad)</p>
-        <p><code>https://mozilla.org/a</code><br />(nicht übereinstimmender Pfad)</p>
-        <p><code>https://mozilla.org/</code><br />(nicht übereinstimmender Pfad)</p>
+        <p><code>http://mozilla.org/path</code><br />(nicht passendes Scheme)</p>
+        <p><code>https://mozilla.org/path/</code><br />(nicht passender Pfad)</p>
+        <p><code>https://mozilla.org/a</code><br />(nicht passender Pfad)</p>
+        <p><code>https://mozilla.org/</code><br />(nicht passender Pfad)</p>
         <p>
-          <code>https://mozilla.org/path?foo=1</code><br />(nicht übereinstimmender Pfad aufgrund der URL-Abfragezeichenfolge)
+          <code>https://mozilla.org/path?foo=1</code><br />(nicht passender Pfad aufgrund
+          der URL-Abfragezeichenfolge)
         </p>
       </td>
     </tr>
@@ -228,22 +227,23 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
       <td>
         <p><code>https://*/path/</code></p>
         <p>
-          Entspricht HTTPS-URLs auf jedem Host, deren Pfad "path/" ist und die
-          keine URL-Abfragezeichenfolge haben.
+          Übereinstimmung mit HTTPS-URLs auf jedem Host, deren Pfad "path/" ist
+          und die keine URL-Abfragezeichenfolge haben.
         </p>
       </td>
       <td>
         <p><code>https://mozilla.org/path/</code></p>
         <p><code>https://a.mozilla.org/path/</code></p>
-        <p><code>https://something.com/path/</code></p>
+        <p><code>https://something.com/path</code>/</p>
       </td>
       <td>
-        <p><code>http://mozilla.org/path/</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>https://mozilla.org/path</code><br />(nicht übereinstimmender Pfad)</p>
-        <p><code>https://mozilla.org/a</code><br />(nicht übereinstimmender Pfad)</p>
-        <p><code>https://mozilla.org/</code><br />(nicht übereinstimmender Pfad)</p>
+        <p><code>http://mozilla.org/path/</code><br />(nicht passendes Scheme)</p>
+        <p><code>https://mozilla.org/path</code><br />(nicht passender Pfad)</p>
+        <p><code>https://mozilla.org/a</code><br />(nicht passender Pfad)</p>
+        <p><code>https://mozilla.org/</code><br />(nicht passender Pfad)</p>
         <p>
-          <code>https://mozilla.org/path/?foo=1</code><br />(nicht übereinstimmender Pfad aufgrund der URL-Abfragezeichenfolge)
+          <code>https://mozilla.org/path/?foo=1</code
+          ><br />(nicht passender Pfad aufgrund der URL-Abfragezeichenfolge)
         </p>
       </td>
     </tr>
@@ -251,8 +251,8 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
       <td>
         <p><code>https://mozilla.org/*</code></p>
         <p>
-          Entspricht HTTPS-URLs nur bei "mozilla.org", mit jedem URL-Pfad und
-          jeder URL-Abfragezeichenfolge.
+          Übereinstimmung mit HTTPS-URLs nur bei "mozilla.org", mit jedem URL-Pfad
+          und jeder URL-Abfragezeichenfolge.
         </p>
       </td>
       <td>
@@ -263,14 +263,14 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>https://mozilla.org/path/to/doc?foo=1</code></p>
       </td>
       <td>
-        <p><code>http://mozilla.org/path</code><br />(nicht übereinstimmendes Schema)</p>
-        <p><code>https://mozilla.com/path</code><br />(nicht übereinstimmender Host)</p>
+        <p><code>http://mozilla.org/path</code><br />(nicht passendes Scheme)</p>
+        <p><code>https://mozilla.com/path</code><br />(nicht passender Host)</p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>https://mozilla.org/a/b/c/</code></p>
-        <p>Entspricht nur dieser URL oder dieser URL mit jedem URL-Fragment.</p>
+        <p>Übereinstimmung nur mit dieser URL oder mit dieser URL mit einem beliebigem URL-Fragment.</p>
       </td>
       <td>
         <p><code>https://mozilla.org/a/b/c/</code></p>
@@ -282,10 +282,10 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
       <td>
         <p><code>https://mozilla.org/*/b/*/</code></p>
         <p>
-          Entspricht HTTPS-URLs, die bei "mozilla.org" gehostet sind und deren
-          Pfad irgendwo in der Mitte eine Komponente "b" enthält. Wird mit
-          URLs mit Abfragezeichenfolgen übereinstimmen, wenn der String mit
-          einem <code>/</code> endet.
+          Übereinstimmung mit HTTPS-URLs, die auf "mozilla.org" gehostet werden,
+          deren Pfad irgendwo in der Mitte eine Komponente "b" enthält. URLs mit
+          Abfragezeichenfolgen werden übereinstimmen, wenn die Zeichenfolge mit einem
+          <code>/</code> endet.
         </p>
       </td>
       <td>
@@ -295,32 +295,35 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
         <p><code>https://mozilla.org/a/b/c/d/#section1</code></p>
         <p><code>https://mozilla.org/a/b/c/d/?foo=/</code></p>
         <p>
-          <code>https://mozilla.org/a?foo=21314&#x26;bar=/b/&#x26;extra=c/</code>
+          <code
+            >https://mozilla.org/a?foo=21314&#x26;bar=/b/&#x26;extra=c/</code
+          >
         </p>
       </td>
       <td>
-        <p><code>https://mozilla.org/b/*/</code><br />(nicht übereinstimmender Pfad)</p>
-        <p><code>https://mozilla.org/a/b/</code><br />(nicht übereinstimmender Pfad)</p>
+        <p><code>https://mozilla.org/b/*/</code><br />(nicht passender Pfad)</p>
+        <p><code>https://mozilla.org/a/b/</code><br />(nicht passender Pfad)</p>
         <p>
-          <code>https://mozilla.org/a/b/c/d/?foo=bar</code><br />(nicht übereinstimmender Pfad aufgrund der URL-Abfragezeichenfolge)
+          <code>https://mozilla.org/a/b/c/d/?foo=bar</code><br />(nicht passender Pfad
+          aufgrund der URL-Abfragezeichenfolge)
         </p>
       </td>
     </tr>
     <tr>
       <td>
         <p><code>file:///blah/*</code></p>
-        <p>Entspricht jeder FILE-URL, deren Pfad mit "blah" beginnt.</p>
+        <p>Übereinstimmung mit jeder FILE-URL, deren Pfad mit "blah" beginnt.</p>
       </td>
       <td>
         <p><code>file:///blah/</code></p>
         <p><code>file:///blah/bleh</code></p>
       </td>
-      <td><code>file:///bleh/</code><br />(nicht übereinstimmender Pfad)</td>
+      <td><code>file:///bleh/</code><br />(nicht passender Pfad)</td>
     </tr>
   </tbody>
 </table>
 
-### Ungültige Mustermuster
+### Ungültige Übereinstimmungsmuster
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -332,11 +335,11 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
   <tbody>
     <tr>
       <td><code>resource://path/</code></td>
-      <td>Nicht unterstütztes Schema.</td>
+      <td>Nicht unterstütztes Scheme.</td>
     </tr>
     <tr>
       <td><code>https://mozilla.org</code></td>
-      <td>Kein Pfad.</td>
+      <td>Kein Pfad vorhanden.</td>
     </tr>
     <tr>
       <td><code>https://mozilla.*.org/</code></td>
@@ -348,19 +351,19 @@ Der spezielle Wert `<all_urls>` entspricht allen URLs unter einem der unterstüt
     </tr>
     <tr>
       <td><code>http*://mozilla.org/</code></td>
-      <td>"*" im Schema muss das einzige Zeichen sein.</td>
+      <td>"*" im Scheme muss das einzige Zeichen sein.</td>
     </tr>
     <tr>
       <td><code>https://mozilla.org:80/</code></td>
-      <td>Host darf keine Portnummer enthalten.</td>
+      <td>Der Host darf keine Portnummer enthalten.</td>
     </tr>
     <tr>
       <td><code>*://*</code></td>
-      <td>Leerer Pfad: dies sollte <code>*://*/*</code> sein.</td>
+      <td>Leerzeichen: das sollte <code>*://*/*</code> sein.</td>
     </tr>
     <tr>
       <td><code>file://*</code></td>
-      <td>Leerer Pfad: dies sollte <code>file:///*</code> sein.</td>
+      <td>Leerzeichen: das sollte <code>file:///*</code> sein.</td>
     </tr>
   </tbody>
 </table>

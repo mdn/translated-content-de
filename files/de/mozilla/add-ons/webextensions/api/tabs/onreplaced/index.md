@@ -2,14 +2,12 @@
 title: tabs.onReplaced
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onReplaced
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wird ausgelöst, wenn ein Tab durch einen anderen Tab aufgrund von Prerendering oder Instant ersetzt wird.
 
-Ausgelöst, wenn ein Tab aufgrund von Prerendering oder Instant mit einem anderen Tab ersetzt wird.
-
-Dieses Ereignis könnte für Browser außer Chrome nicht relevant oder unterstützt sein.
+Dieses Ereignis ist möglicherweise für andere Browser als Chrome nicht relevant oder nicht unterstützt.
 
 ## Syntax
 
@@ -24,24 +22,24 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
 
-## Syntax für addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
     - `addedTabId`
       - : `integer`. ID des Ersatztabs.
     - `removedTabId`
-      - : `integer`. ID des ersetzten Tabs.
+      - : `integer`. ID des Tabs, der ersetzt wurde.
 
 ## Beispiele
 
-Hören Sie auf Ersatztab-Ereignisse und protokollieren Sie die zugehörigen Informationen:
+Hören Sie auf Ersatzevents und protokollieren Sie die zugehörigen Informationen:
 
 ```js
 function handleReplaced(addedTabId, removedTabId) {
@@ -59,7 +57,7 @@ browser.tabs.onReplaced.addListener(handleReplaced);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onReplaced) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onReplaced) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

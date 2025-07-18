@@ -2,12 +2,10 @@
 title: declarativeNetRequest.SESSION_RULESET_ID
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/SESSION_RULESET_ID
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die Regel-ID für die sitzungsgebundenen Regeln, die von der Erweiterung hinzugefügt wurden.
+Die Ruleset-ID für die sitzungsbezogenen Regeln, die von der Erweiterung hinzugefügt werden.
 
 Ihr Wert ist `"_session"`.
 

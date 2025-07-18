@@ -2,18 +2,16 @@
 title: RegisteredUserScript.unregister() (Legacy)
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/RegisteredUserScript/unregister
 l10n:
-  sourceCommit: 6b26a56826b43f539b79033378683bb3be5bbba9
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
 > [!WARNING]
-> Dies ist die Dokumentation für die Legacy-API `userScripts`. Sie ist in Firefox für Manifest V2 verfügbar. Für Funktionalitäten mit User Scripts in Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}} API.
+> Dies ist die Dokumentation für die veraltete `userScripts` API. Sie ist in Firefox für Manifest V2 verfügbar. Für Funktionalität mit Benutzerskripten in Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}} API.
 
-Die Methode `unregister()` des Objekts {{WebExtAPIRef("userScripts_legacy.RegisteredUserScript","RegisteredUserScript")}} hebt die Registrierung der von diesem Objekt repräsentierten User Scripts auf, also der User Scripts, die mit {{WebExtAPIRef("userScripts_legacy.register","userScripts.register()")}} registriert wurden.
+Die Methode `unregister()` des Objekts {{WebExtAPIRef("userScripts_legacy.RegisteredUserScript","RegisteredUserScript")}} hebt die Registrierung der durch das Objekt repräsentierten Benutzerskripte auf. Diese Skripte wurden mit {{WebExtAPIRef("userScripts_legacy.register","userScripts.register()")}} registriert.
 
 > [!NOTE]
-> User Scripts werden automatisch abgemeldet, wenn die zugehörige Erweiterungsseite (von der die User Scripts registriert wurden) entladen wird. Deshalb sollten Sie ein User Script von einer Erweiterungsseite aus registrieren, die mindestens so lange besteht, wie Sie möchten, dass die User Scripts registriert bleiben.
+> Benutzerskripte werden automatisch abgemeldet, wenn die zugehörige Erweiterungsseite (von der die Benutzerskripte registriert wurden) entladen wird. Sie sollten daher ein Benutzerskript von einer Erweiterungsseite aus registrieren, die mindestens so lange besteht, wie Sie möchten, dass die Benutzerskripte registriert bleiben.
 
 ## Syntax
 
@@ -31,7 +29,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das aufgelöst wird, sobald die User Scripts abgemeldet sind. Das Versprechen gibt keinen Wert zurück.
+Ein {{JSxRef("Promise")}}, der aufgelöst wird, sobald die Benutzerskripte abgemeldet sind. Der Promise gibt keinen Wert zurück.
 
 ## Browser-Kompatibilität
 

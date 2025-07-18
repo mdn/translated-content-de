@@ -1,15 +1,13 @@
 ---
-title: Native-Manifeste
+title: Native Manifeste
 slug: Mozilla/Add-ons/WebExtensions/Native_manifests
 l10n:
-  sourceCommit: a6579e93790c428b743976b246ee8563c3ea464b
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Native Manifeste sind JSON-Dateien, die auf dem Computer des Benutzers auf anderem Wege als dem Erweiterungsinstallationsprozess bereitgestellt werden. Zum Beispiel könnte ein natives Manifest von einem Geräteadministrator oder einem nativen Anwendungsinstallationsprogramm bereitgestellt werden.
 
-Native Manifeste sind JSON-Dateien, die auf dem Computer des Benutzers durch andere Mittel als den Erweiterungsinstallationsprozess bereitgestellt werden. Beispielsweise kann ein natives Manifest von einem Geräteadministrator oder einem nativen Anwendungsinstaller bereitgestellt werden.
-
-Es gibt drei Typen von nativen Manifesten:
+Es gibt drei Arten von nativen Manifesten:
 
 <table class="standard-table">
   <tbody>
@@ -18,35 +16,36 @@ Es gibt drei Typen von nativen Manifesten:
         <a href="#native_messaging_manifests">Native Messaging Manifeste</a>
       </td>
       <td>
-        Aktiviert eine Funktion namens
+        Aktiviert ein Feature namens
         <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging"
           >Native Messaging</a
-        >, bei der eine Erweiterung mit einer auf dem Gerät installierten nativen App kommunizieren kann.
+        >, bei dem eine Erweiterung mit einer auf dem Gerät installierten nativen App kommunizieren kann.
       </td>
     </tr>
     <tr>
       <td>
-        <a href="#managed_storage_manifests">Managed Storage Manifeste</a>
+        <a href="#managed_storage_manifests">Verwaltete Speicher-Manifeste</a>
       </td>
       <td>
-        Definiert schreibgeschützte Daten, auf die eine Erweiterung mithilfe der
+        Definiert schreibgeschützte Daten, auf die eine Erweiterung mit der
         {{WebExtAPIRef("storage.managed")}} API zugreifen kann.
       </td>
     </tr>
     <tr>
       <td><a href="#pkcs_11_manifests">PKCS #11 Manifeste</a></td>
       <td>
-        Ermöglicht einer Erweiterung die Verwendung der {{WebExtAPIRef("pkcs11")}} API, um PKCS #11-Sicherheitsmodule aufzulisten und in Firefox zu installieren.
+        Ermöglicht einer Erweiterung die Nutzung der {{WebExtAPIRef("pkcs11")}} API,
+        um PKCS #11 Sicherheitsmodule aufzulisten und in Firefox zu installieren.
       </td>
     </tr>
   </tbody>
 </table>
 
-Für alle nativen Manifeste müssen Sie die Datei so speichern, dass der Browser sie finden kann. Der Abschnitt über den [Standort des Manifests](#manifeststandort) beschreibt, wie dies zu tun ist. Auf Linux und macOS befinden sich die Dateien an einem festen Ort, auf Windows wird der Dateispeicherort in der Windows-Registrierungsdatenbank festgehalten.
+Für alle nativen Manifeste müssen Sie die Datei so speichern, dass der Browser sie finden kann. Der Abschnitt zur [Manifest-Speicherort](#manifest-speicherort) beschreibt, wie dies getan wird. Unter Linux und macOS befinden sich die Dateien an einem festen Speicherort, unter Windows wird der Speicherort der Datei in der Windows-Registrierung festgelegt.
 
 ## Native Messaging Manifeste
 
-Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von der Erweiterung an {{WebExtAPIRef("runtime.connectNative()")}} oder {{WebExtAPIRef("runtime.sendNativeMessage()")}} übergebenen String übereinstimmt, mit der Erweiterung `.json`. Es enthält ein JSON-Objekt mit folgenden Eigenschaften:
+Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von der Erweiterung übergebenen String in {{WebExtAPIRef("runtime.connectNative()")}} oder {{WebExtAPIRef("runtime.sendNativeMessage()")}} übereinstimmt, mit der `.json` Erweiterung. Es enthält ein JSON-Objekt mit diesen Eigenschaften:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -63,16 +62,21 @@ Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von de
       <td>
         <p>Name der nativen Anwendung.</p>
         <p>
-          Dies muss mit dem von der Erweiterung an
+          Dies muss mit dem Namen übereinstimmen, der in
           {{WebExtAPIRef("runtime.connectNative()")}} oder
-          {{WebExtAPIRef("runtime.sendNativeMessage()")}} übergebenen Namen übereinstimmen.
+          {{WebExtAPIRef("runtime.sendNativeMessage()")}} von
+          der Erweiterung übergeben wird.
         </p>
         <p>
-          Unter Windows verwenden Sie diesen Wert als Namen des Registrierungsschlüssels, den Sie erstellen, um den Speicherort des Native Messaging Manifests anzugeben.
+          Unter Windows verwenden Sie diesen Wert als Namen des Registrierungsschlüssels,
+          den Sie erstellen, der den Speicherort des Native Messaging Manifests enthält.
         </p>
         <p>
-          Der Name muss regulären Ausdruck entsprechen:
-          <code>"^\w+(\.\w+)*$"</code>. Das bedeutet, dass er nur (kleine oder große) alphanumerische Zeichen, Unterstriche und Punkte enthalten darf. Er darf nicht mit einem Punkt beginnen oder enden, und ein Punkt darf nicht von einem weiteren Punkt gefolgt werden.
+          Der Name muss dem regulären Ausdruck entsprechen:
+          <code>"^\w+(\.\w+)*$"</code>. Dies bedeutet, dass er nur
+          (Klein- oder Großbuchstaben) alphanumerische Zeichen, Unterstriche und
+          Punkte enthalten darf. Er darf nicht mit einem Punkt beginnen oder enden,
+          und ein Punkt darf nicht auf einen anderen folgen.
         </p>
       </td>
     </tr>
@@ -87,7 +91,8 @@ Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von de
       <td>
         <p>Pfad zur nativen Anwendung.</p>
         <p>
-          Unter Windows darf dieser relativ zum Manifest selbst sein. Unter macOS und Linux muss er absolut sein.
+          Unter Windows kann dies relativ zum Manifest selbst sein. Unter macOS und
+          Linux muss es absolut sein.
         </p>
       </td>
     </tr>
@@ -97,20 +102,24 @@ Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von de
       <td>
         <p>Beschreibt die Methode, mit der die Erweiterung mit der App verbunden wird.</p>
         <p>
-          Nimmt den Wert <code>"stdio"</code> an, was bedeutet, dass Nachrichten von der App mithilfe des Standardeingangs (<code>stdin</code>) empfangen und mithilfe des Standardausgangs (<code>stdout</code>) gesendet werden.
+          Nimmt nur den Wert <code>"stdio"</code> an,
+          was bedeutet, dass Nachrichten von der App über die Standard-
+          eingabe (<code>stdin</code>) empfangen und über die Standard-
+          ausgabe (<code>stdout</code>) gesendet werden.
         </p>
       </td>
     </tr>
     <tr>
       <td><code>allowed_extensions</code></td>
-      <td>Array von Strings</td>
+      <td>Array von String</td>
       <td>
         <p>
           Ein Array von
           <a
             href="https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/"
-            >Add-on-IDs</a
-          >. Jeder Wert repräsentiert eine Erweiterung, die mit dieser nativen Anwendung kommunizieren darf.
+            >Add-on ID</a
+          >
+          Werten. Jeder Wert steht für eine Erweiterung, die mit dieser nativen Anwendung kommunizieren darf.
         </p>
         <div class="notecard note">
           <p>
@@ -121,7 +130,8 @@ Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von de
                 >browser_specific_settings</a
               ></code
             >
-            Schlüssel in Ihrer <code>manifest.json</code>-Datei der Erweiterung einschließen möchten, um während der Entwicklung eine explizite ID festzulegen.
+            Schlüssel in die <code>manifest.json</code> Datei Ihrer Erweiterung
+            einfügen möchten, um während der Entwicklung eine explizite ID festzulegen.
           </p>
         </div>
       </td>
@@ -129,7 +139,7 @@ Das Native Messaging Manifest ist eine Datei mit einem Namen, der mit dem von de
   </tbody>
 </table>
 
-Zum Beispiel, hier ist der Inhalt der `ping_pong.json` Manifestdatei für die `ping_pong` native Anwendung aus dem [Native Messaging Beispiel](https://github.com/mdn/webextensions-examples/tree/main/native-messaging):
+Zum Beispiel zeigt das folgende Beispiel den Inhalt der `ping_pong.json` Manifestdatei für die `ping_pong` native Anwendung aus dem [Native Messaging Beispiel](https://github.com/mdn/webextensions-examples/tree/main/native-messaging):
 
 ```json
 {
@@ -141,11 +151,11 @@ Zum Beispiel, hier ist der Inhalt der `ping_pong.json` Manifestdatei für die `p
 }
 ```
 
-Dadurch kann die Erweiterung mit der ID `ping_pong@example.org` eine Verbindung herstellen, indem sie den Namen `ping_pong` in die relevante {{WebExtAPIRef("runtime")}} API-Funktion übergibt. Die native Anwendung befindet sich unter `/path/to/native-messaging/app/ping_pong.py`.
+Dies erlaubt der Erweiterung mit der ID `ping_pong@example.org`, zu verbinden, indem sie den Namen `ping_pong` in die relevante {{WebExtAPIRef("runtime")}} API-Funktion übergibt. Die native Anwendung befindet sich unter `/path/to/native-messaging/app/ping_pong.py`.
 
-## Managed Storage Manifeste
+## Verwaltete Speicher-Manifeste
 
-Das Managed Storage Manifest ist eine Datei mit einem Namen, der mit der in der Erweiterung unter dem Schlüssel [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) angegebenen ID übereinstimmt, mit der Erweiterung `.json`. Es enthält ein JSON-Objekt mit folgenden Eigenschaften:
+Das verwaltete Speicher-Manifest ist eine Datei mit einem Namen, der mit der im <code>browser_specific_settings</code> Schlüssel der Erweiterung spezifizierten ID und der `.json` Erweiterung übereinstimmt. Es enthält ein JSON-Objekt mit diesen Eigenschaften:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -161,24 +171,25 @@ Das Managed Storage Manifest ist eine Datei mit einem Namen, der mit der in der 
       <td>String</td>
       <td>
         <p>
-          Die ID der Erweiterung, die auf diesen Speicher zugreifen kann, angegeben als die ID, die im
+          Die ID der Erweiterung, die auf diesen Speicher zugreifen kann, wie im
           <code
             ><a
               href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings"
               >browser_specific_settings</a
             ></code
           >
-          Schlüssel der Erweiterung angegeben ist.
+          Schlüssel der Erweiterung angegeben.
         </p>
         <p>
-          Unter Windows verwenden Sie dies als Namen des Registrierungsschlüssels, den Sie erstellen, der den Speicherort des Manifests enthält.
+          Unter Windows verwenden Sie dies als Namen des Registrierungsschlüssels, den Sie erstellen,
+          der den Speicherort des Manifests enthält.
         </p>
       </td>
     </tr>
     <tr>
       <td><code>description</code></td>
       <td>String</td>
-      <td>Menschlich lesbare Beschreibung, die von Firefox ignoriert wird.</td>
+      <td>Menschlich lesbare Beschreibung, von Firefox ignoriert.</td>
     </tr>
     <tr>
       <td><code>type</code></td>
@@ -192,14 +203,16 @@ Das Managed Storage Manifest ist eine Datei mit einem Namen, der mit der in der 
       <td>Objekt</td>
       <td>
         <p>
-          Ein JSON-Objekt, das alle gültigen JSON-Werte enthalten kann, einschließlich Strings, Zahlen, Booleans, Arrays oder Objekte. Dies wird zu den Daten im <code>browser.storage.managed</code> Speicherbereich.
+          Ein JSON-Objekt, das beliebige gültige JSON-Werte enthalten kann, einschließlich
+          Strings, Zahlen, Booleans, Arrays oder Objekten. Dies wird zu den
+          Daten im <code>browser.storage.managed</code> Speicherbereich.
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-Zum Beispiel wird im [favourite-colour Beispiel](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) Managed Storage Data in der Datei `favourite-colour-examples@mozilla.org.json` festgelegt, die folgendes enthält:
+Zum Beispiel wird im [Favorite Colour Beispiel](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) die verwaltete Speicherungs-Daten in der Datei mit dem Namen `favourite-colour-examples@mozilla.org.json` festgelegt, die folgendes enthält:
 
 ```json
 {
@@ -212,7 +225,7 @@ Zum Beispiel wird im [favourite-colour Beispiel](https://github.com/mdn/webexten
 }
 ```
 
-Die Erweiterung `favourite-colour-examples@mozilla.org` greift dann mit folgendem Code auf die Daten zu:
+Die `favourite-colour-examples@mozilla.org` Erweiterung greift dann mit dem folgenden Code auf die Daten zu:
 
 ```js
 let storageItem = browser.storage.managed.get("color");
@@ -223,7 +236,7 @@ storageItem.then((res) => {
 
 ## PKCS #11 Manifeste
 
-Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS #11 Moduls übereinstimmt (wie in der <code>pkcs11</code> API verwendet) und die Erweiterung `.json` aufweist. Es enthält ein JSON-Objekt mit folgenden Eigenschaften:
+Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS #11 Moduls (wie in der <code>pkcs11</code> API verwendet) und der `.json` Erweiterung übereinstimmt. Es enthält ein JSON-Objekt mit diesen Eigenschaften:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -241,11 +254,15 @@ Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS
         <p>Name des PKCS #11 Moduls.</p>
         <p>Dies muss mit dem Namen übereinstimmen, der in der {{WebExtAPIRef("pkcs11")}} API verwendet wird.</p>
         <p>
-          Unter Windows verwenden Sie dies als Namen des Registrierungsschlüssels, den Sie erstellen, der den Speicherort des Manifests enthält.
+          Unter Windows verwenden Sie dies als Namen des Registrierungsschlüssels, den Sie erstellen,
+          der den Speicherort des Manifests enthält.
         </p>
         <p>
           Der Name muss dem regulären Ausdruck entsprechen:
-          <code>"^\w+(\.\w+)*$"</code>. Das bedeutet, dass er nur kleine alphanumerische Zeichen, Unterstriche und Punkte enthalten darf. Er darf nicht mit einem Punkt beginnen oder enden, und ein Punkt darf nicht von einem weiteren Punkt gefolgt werden.
+          <code>"^\w+(\.\w+)*$"</code>. Dies bedeutet, dass er nur
+          Kleinbuchstaben, alphanumerische Zeichen, Unterstriche und
+          Punkte enthalten darf. Er darf nicht mit einem Punkt beginnen oder enden,
+          und ein Punkt darf nicht auf einen anderen folgen.
         </p>
       </td>
     </tr>
@@ -255,7 +272,8 @@ Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS
       <td>
         <p>Beschreibung des PKCS #11 Moduls.</p>
         <p>
-          Dies setzt den benutzerfreundlichen Namen für das Modul in der Benutzeroberfläche des Browsers (zum Beispiel im Dialogfeld "Sicherheitsgeräte" in Firefox).
+          Dies setzt den benutzerfreundlichen Namen für das Modul in der Benutzeroberfläche
+          des Browsers (zum Beispiel im Dialog "Sicherheitsgeräte" in Firefox).
         </p>
       </td>
     </tr>
@@ -264,9 +282,7 @@ Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS
       <td>String</td>
       <td>
         <p>Pfad zum PKCS #11 Modul.</p>
-        <p>
-          Der Pfad zum PKCS #11 Modul kann absolut sein oder relativ zum Manifest selbst.
-        </p>
+        <p>Der Pfad zum PKCS #11 Modul kann absolut oder relativ zum Manifest selbst sein.</p>
       </td>
     </tr>
     <tr>
@@ -276,14 +292,15 @@ Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS
     </tr>
     <tr>
       <td><code>allowed_extensions</code></td>
-      <td>Array von Strings</td>
+      <td>Array von String</td>
       <td>
         <p>
           Ein Array von
           <a
             href="https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/"
-            >Add-on-IDs</a
-          >. Jeder Wert repräsentiert eine Erweiterung, die mit dem Modul interagieren darf.
+            >Add-on ID</a
+          >
+          Werten. Jeder Wert steht für eine Erweiterung, die mit dem Modul interagieren darf.
         </p>
         <div class="notecard note">
           <p>
@@ -294,7 +311,8 @@ Das PKCS #11 Manifest ist eine Datei mit einem Namen, der mit dem Namen des PKCS
                 >browser_specific_settings</a
               ></code
             >
-            Schlüssel in Ihrer <code>manifest.json</code>-Datei der Erweiterung einschließen möchten, um während der Entwicklung eine explizite ID festzulegen.
+            Schlüssel in die <code>manifest.json</code> Datei Ihrer Erweiterung
+            einfügen möchten, um während der Entwicklung eine explizite ID festzulegen.
           </p>
         </div>
       </td>
@@ -314,21 +332,21 @@ Zum Beispiel:
 }
 ```
 
-Angenommen, dieses JSON-Manifest wird als `my_module.json` gespeichert, könnte die Erweiterung `my-extension@mozilla.org` das Sicherheitsmodul unter `/path/to/libpkcs11testmodule.dylib` mit einem Code installieren:
+Mit diesem JSON-Manifest, gespeichert als `my_module.json`, könnte die `my-extension@mozilla.org` Erweiterung das Sicherheitsmodul bei `/path/to/libpkcs11testmodule.dylib` mit folgendem Code installieren:
 
 ```js
 browser.pkcs11.installModule("my_module");
 ```
 
-## Manifeststandort
+## Manifest-Speicherort
 
-Auf Linux und macOS müssen Sie das Manifest an einem bestimmten Ort speichern. Unter Windows müssen Sie einen Registrierungsschlüssel erstellen, der auf den Speicherort des Manifests verweist.
+Unter Linux und macOS müssen Sie das Manifest an einem bestimmten Ort speichern. Unter Windows müssen Sie einen Registrierungsschlüssel erstellen, der auf den Speicherort des Manifests verweist.
 
-Die detaillierten Regeln sind für alle Manifesttypen gleich, außer dass die vorletzte Komponente des Pfades den Typ des Manifests identifiziert. Die folgenden Beispiele zeigen die Form für jede der drei verschiedenen Typen. In allen Beispielen ist `<name>` der Wert der Namen-Eigenschaft im nativen Manifest.
+Die detaillierten Regeln sind für alle Manifesttypen gleich, außer dass die vorletzte Komponente des Pfades den Typ des Manifests identifiziert. Die folgenden Beispiele zeigen die Form für jede der drei unterschiedlichen Typen. In allen Beispielen ist `<name>` der Wert der Namenseigenschaft im nativen Manifest.
 
 ### Windows
 
-Für globale Sichtbarkeit erstellen Sie einen Registrierungsschlüssel mit dem folgenden Namen:
+Für globale Sichtbarkeit erstellen Sie einen Registrierungsschlüssel mit folgendem Namen:
 
 ```plain
 HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\NativeMessagingHosts\<name>
@@ -342,14 +360,14 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\ManagedStorage\<name>
 HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\PKCS11Modules\<name>
 ```
 
-Der Schlüssel sollte einen einzigen Standardwert haben, der der Weg zum Manifest ist.
+Der Schlüssel sollte einen einzigen Standardwert haben, welcher der Pfad zum Manifest ist.
 
 > [!WARNING]
-> Seit Firefox 64 wird die 32-Bit-Registrierungsansicht [Wow6432Node](https://en.wikipedia.org/wiki/WoW64#Registry_and_file_system) zuerst für diese Schlüssel überprüft, gefolgt von der "nativen" Registrierungsansicht. Verwenden Sie diejenige, die für Ihre Anwendung geeignet ist.
+> Seit Firefox 64 wird die 32-Bit-Registrierungsansicht [Wow6432Node](https://en.wikipedia.org/wiki/WoW64#Registry_and_file_system) zuerst für diese Schlüssel überprüft, gefolgt von der "nativen" Registrierungsansicht. Verwenden Sie diejenige, die für Ihre Anwendung angemessen ist.
 >
-> **Für Firefox 63 und ältere Versionen:** Dieser Schlüssel sollte _nicht_ unter [Wow6432Node](https://en.wikipedia.org/wiki/WoW64#Registry_and_file_system) erstellt werden, selbst wenn die App 32-Bit ist. Frühere Versionen des Browsers suchen immer nach dem Schlüssel unter der "nativen" Ansicht der Registrierung, nicht in der 32-Bit-Emulation. Um sicherzustellen, dass der Schlüssel in der "nativen" Ansicht erstellt wird, können Sie die Flags `KEY_WOW64_64KEY` oder `KEY_WOW64_32KEY` in `RegCreateKeyEx` übergeben. Siehe [Zugriff auf eine alternative Registrierungsansicht](https://learn.microsoft.com/en-us/windows/win32/winprog64/accessing-an-alternate-registry-view).
+> **Für Firefox 63 und älter:** Dieser Schlüssel sollte _nicht_ unter [Wow6432Node](https://en.wikipedia.org/wiki/WoW64#Registry_and_file_system) erstellt werden, selbst wenn die App 32-Bit ist. Frühere Versionen des Browsers werden immer nach dem Schlüssel unter der "nativen" Ansicht der Registrierung suchen, nicht der 32-Bit-Emulation. Um sicherzustellen, dass der Schlüssel in der "nativen" Ansicht erstellt wird, können Sie die `KEY_WOW64_64KEY` oder `KEY_WOW64_32KEY` Flags in `RegCreateKeyEx` übergeben. Siehe [Accessing an Alternate Registry View](https://learn.microsoft.com/en-us/windows/win32/winprog64/accessing-an-alternate-registry-view).
 
-Für benutzerspezifische Sichtbarkeit erstellen Sie einen Registrierungsschlüssel mit dem folgenden Namen:
+Für Benutzersichtbarkeit erstellen Sie einen Registrierungsschlüssel mit folgendem Namen:
 
 ```plain
 HKEY_CURRENT_USER\SOFTWARE\Mozilla\NativeMessagingHosts\<name>
@@ -363,7 +381,7 @@ HKEY_CURRENT_USER\SOFTWARE\Mozilla\ManagedStorage\<name>
 HKEY_CURRENT_USER\SOFTWARE\Mozilla\PKCS11Modules\<name>
 ```
 
-Der Schlüssel sollte einen einzigen Standardwert haben, der den Pfad zum Manifest angibt.
+Der Schlüssel sollte einen einzigen Standardwert haben, welcher der Pfad zum Manifest ist.
 
 ### macOS
 
@@ -381,7 +399,7 @@ Für globale Sichtbarkeit speichern Sie das Manifest in:
 /Library/Application Support/Mozilla/PKCS11Modules/<name>.json
 ```
 
-Für benutzerspezifische Sichtbarkeit speichern Sie das Manifest in:
+Für Benutzersichtbarkeit speichern Sie das Manifest in:
 
 ```plain
 ~/Library/Application Support/Mozilla/NativeMessagingHosts/<name>.json
@@ -397,7 +415,7 @@ Für benutzerspezifische Sichtbarkeit speichern Sie das Manifest in:
 
 ### Linux
 
-Für globale Sichtbarkeit speichern Sie das Manifest entweder in:
+Für globale Sichtbarkeit speichern Sie das Manifest in entweder:
 
 ```plain
 /usr/lib/mozilla/native-messaging-hosts/<name>.json
@@ -425,7 +443,7 @@ oder:
 /usr/lib64/mozilla/pkcs11-modules/<name>.json
 ```
 
-Für benutzerspezifische Sichtbarkeit speichern Sie das Manifest in:
+Für Benutzersichtbarkeit speichern Sie das Manifest in:
 
 ```plain
 ~/.mozilla/native-messaging-hosts/<name>.json

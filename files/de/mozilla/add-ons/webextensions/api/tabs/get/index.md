@@ -2,12 +2,10 @@
 title: tabs.get()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/get
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Bei Angabe einer Tab-ID werden die Details des Tabs als ein {{WebExtAPIRef("tabs.Tab")}} Objekt abgerufen.
+Angenommen, Sie haben eine Tab-ID, erhalten Sie die Details des Tabs als ein {{WebExtAPIRef("tabs.Tab")}} Objekt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,15 +20,15 @@ let getting = browser.tabs.get(
 ### Parameter
 
 - `tabId`
-  - : `integer`. ID des Tabs, der abgerufen werden soll.
+  - : `integer`. ID des Tabs, den Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}} Objekt erfüllt wird, welches Informationen über den Tab enthält. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Informationen über den Tab enthält. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Informationen über einen Tab abrufen, wenn er aktiviert wird:
+Abrufen von Informationen über einen Tab, wenn er aktiviert wird:
 
 ```js
 async function logListener(info) {
@@ -52,7 +50,7 @@ browser.tabs.onActivated.addListener(logListener);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-get) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-get) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

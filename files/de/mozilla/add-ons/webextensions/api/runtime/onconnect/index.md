@@ -2,12 +2,10 @@
 title: runtime.onConnect
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onConnect
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Inhaltsskript hergestellt wird.
+Wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Inhalts-Skript hergestellt wird.
 
 ## Syntax
 
@@ -22,26 +20,26 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, sonst `false`.
+  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `function`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die aufgerufene Funktion, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
     - `port`
-      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet, zu dem es sich verbindet.
+      - : Ein {{WebExtAPIRef('runtime.Port')}}-Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet, mit dem es sich verbindet.
 
 ## Beispiele
 
-Dieses Inhaltsskript:
+Dieses Inhalts-Skript:
 
 - stellt eine Verbindung zum Hintergrundskript her und speichert den `Port` in einer Variablen `myPort`
-- lauscht auf Nachrichten auf `myPort` und protokolliert sie
-- sendet Nachrichten an das Hintergrundskript, indem es `myPort` verwendet, wenn der Benutzer auf das Dokument klickt
+- horcht auf Nachrichten auf `myPort` und protokolliert sie
+- sendet Nachrichten an das Hintergrundskript, indem `myPort` verwendet wird, wenn der Benutzer auf das Dokument klickt
 
 ```js
 // content-script.js
@@ -61,13 +59,13 @@ document.body.addEventListener("click", () => {
 
 Das entsprechende Hintergrundskript:
 
-- lauscht auf Verbindungsversuche vom Inhaltsskript
+- horcht auf Verbindungsversuche vom Inhalts-Skript
 - wenn es einen Verbindungsversuch empfängt:
   - speichert es den Port in einer Variablen namens `portFromCS`
-  - sendet dem Inhaltsskript über den Port eine Nachricht
-  - beginnt, auf Nachrichten zu hören, die auf dem Port empfangen werden, und protokolliert sie
+  - sendet dem Inhalts-Skript eine Nachricht über den Port
+  - beginnt, auf Nachrichten auf dem Port zu horchen und protokolliert sie
 
-- sendet Nachrichten an das Inhaltsskript, indem es `portFromCS` verwendet, wenn der Benutzer auf die Browseraktion der Erweiterung klickt
+- sendet Nachrichten an das Inhalts-Skript, indem `portFromCS` verwendet wird, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt
 
 ```js
 // background-script.js
@@ -97,34 +95,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, sind unter der Voraussetzung erlaubt, dass die
-// folgenden Bedingungen erfüllt sind:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.

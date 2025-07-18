@@ -2,12 +2,10 @@
 title: bookmarks.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/onChanged
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ausgelöst, wenn es eine Änderung gibt an:
+Wird ausgelöst, wenn es eine Änderung gibt bei:
 
 - dem Titel oder der URL eines Lesezeichens
 - dem Namen eines Ordners.
@@ -25,23 +23,23 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
     - `id`
-      - : `string`. ID des geänderten Elements.
+      - : `string`. ID des Elements, das sich geändert hat.
     - `changeInfo`
-      - : [`object`](#changeinfo). Objekt mit zwei Eigenschaften: `title`, ein String, der den Titel des Elements enthält, und `url`, ein String, der die URL des Elements enthält. Wenn das Element ein Ordner ist, wird `url` weggelassen.
+      - : [`object`](#changeinfo). Objekt, das zwei Eigenschaften enthält: `title`, ein String, der den Titel des Elements enthält, und `url`, ein String, der die URL des Elements enthält. Wenn das Element ein Ordner ist, wird `url` weggelassen.
 
 > [!NOTE]
-> Mehrere Ereignisse können auftreten, wenn sich ein Lesezeichen ändert, und das changeInfo-Objekt kann nur die geänderten Daten enthalten, anstatt aller Daten für das Lesezeichen. Anders gesagt, wenn sich die `url` eines Lesezeichens ändert, kann das changeInfo nur die neue `url`-Information enthalten.
+> Mehrere Ereignisse können auftreten, wenn sich ein Lesezeichen ändert, und das changeInfo-Objekt kann nur die geänderten Daten enthalten, anstatt aller Daten des Lesezeichens. Mit anderen Worten, wenn sich die `url` eines Lesezeichens ändert, kann changeInfo nur die neuen `url`-Informationen enthalten.
 
 ## Beispiele
 
@@ -66,7 +64,7 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChanged) API von Chromium. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

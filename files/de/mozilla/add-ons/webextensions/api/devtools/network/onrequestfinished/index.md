@@ -2,16 +2,14 @@
 title: devtools.network.onRequestFinished
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/network/onRequestFinished
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Wird ausgelöst, wenn eine Netzwerk-Anfrage abgeschlossen ist und ihre Details der Erweiterung zur Verfügung stehen.
 
-Wird ausgelöst, wenn eine Netzwerkanfrage abgeschlossen ist und ihre Details für die Erweiterung verfügbar sind.
+Die Anfrage wird als [HAR-Eintragsobjekt](http://www.softwareishard.com/blog/har-12-spec/#entries) übergeben, dem auch eine asynchrone `getContent()`-Methode hinzugefügt ist, die den Inhalt des Antwortkörpers abruft.
 
-Die Anfrage wird als [HAR-Eintragsobjekt](http://www.softwareishard.com/blog/har-12-spec/#entries) bereitgestellt, welches auch eine asynchrone `getContent()`-Methode enthält, die den Inhalt der Antwort im Body erhält.
-
-Beachten Sie, dass Ihre Erweiterung jederzeit einen Listener hinzufügen kann, er jedoch erst ausgelöst wird, nachdem der Nutzer mindestens einmal das [Netzwerk-Panel](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) des Browsers aktiviert hat.
+Beachten Sie, dass Ihre Erweiterung jederzeit einen Listener hinzufügen kann, dieser jedoch erst ausgelöst wird, nachdem der Benutzer das [Netzwerkpanel](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) des Browsers mindestens einmal aktiviert hat.
 
 ## Syntax
 
@@ -21,27 +19,27 @@ browser.devtools.network.onRequestFinished.removeListener(listener)
 browser.devtools.network.onRequestFinished.hasListener(listener)
 ```
 
-Events haben drei Funktionen:
+Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Event hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Event. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `request`
-      - : `object`. Ein Objekt, das die Anfrage darstellt. Dieses Objekt ist ein einzelnes [HAR-Eintragsobjekt](http://www.softwareishard.com/blog/har-12-spec/#entries). Es definiert auch eine asynchrone `getContent()`-Methode, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, welches sich mit einem Array von zwei Elementen auflöst. Das erste Element ist der HTTP-Antwort-Body als Zeichenkette, während das zweite Element der {{Glossary("MIME_type", "MIME-Typ")}} der HTTP-Antwort ebenfalls als Zeichenkette ist.
+      - : `object`. Ein Objekt, das die Anfrage darstellt. Dieses Objekt ist ein einzelnes [HAR-Eintragsobjekt](http://www.softwareishard.com/blog/har-12-spec/#entries). Es definiert auch eine asynchrone `getContent()`-Methode, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das mit einem Array von zwei Elementen aufgelöst wird. Das erste Element ist der HTTP-Antwortkörper als Zeichenfolge, während das zweite Element der {{Glossary("MIME_type", "MIME-Typ")}} der HTTP-Antwort ebenfalls als Zeichenfolge ist.
 
 ## Beispiele
 
-Fügen Sie einen Listener hinzu, der die Server-IP-Adresse und den Antwortbody für jede Netzwerkanfrage protokolliert.
+Fügen Sie einen Listener hinzu, der die Server-IP-Adresse und den Antwortkörper für jede Netzwerk-Anfrage protokolliert.
 
 ```js
 function handleRequestFinished(request) {

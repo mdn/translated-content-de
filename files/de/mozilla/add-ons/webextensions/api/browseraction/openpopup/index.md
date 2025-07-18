@@ -2,14 +2,12 @@
 title: browserAction.openPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/openPopup
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Öffnen Sie das Popup der Browser-Aktion.
 
-Öffnen Sie das Popup für die Browser-Aktion.
-
-In stabilen Versionen von Firefox können Sie diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.
+In stabilen Versionen von Firefox können Sie diese Funktion nur aus dem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -28,7 +26,7 @@ browser.browserAction.openPopup(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
 
 ## Beispiele
 

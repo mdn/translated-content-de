@@ -2,14 +2,12 @@
 title: 201 Created
 slug: Web/HTTP/Reference/Status/201
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 52d840333a70d06e6f667faaeb160f3ad4b03eca
 ---
 
-Der HTTP-Statuscode **`201 Created`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass die HTTP-Anfrage zur Erstellung einer Ressource geführt hat.
-Dieser Statuscode wird häufig als Ergebnis einer {{HTTPMethod("POST")}}-Anfrage gesendet.
+Der HTTP-Statuscode **`201 Created`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass die HTTP-Anfrage zur Erstellung einer Ressource geführt hat. Dieser Statuscode wird häufig als Ergebnis einer {{HTTPMethod("POST")}}-Anfrage gesendet.
 
-Die neue Ressource oder eine Beschreibung und ein Link zur neuen Ressource wird erstellt, bevor die Antwort zurückgegeben wird.
-Die neu erstellten Elemente werden im Nachrichtenkörper zurückgegeben und befinden sich entweder an der **URL der ursprünglichen Anfrage** oder der URL im Wert des {{HTTPHeader("Location")}}-Headers in der Antwort.
+Die neue Ressource oder eine Beschreibung und ein Link zur neuen Ressource wird erstellt, bevor die Antwort zurückgegeben wird. Die neu erstellten Elemente können im Body der Antwortnachricht zurückgegeben werden, müssen jedoch durch die **URL der auslösenden Anfrage** oder durch die URL im Wert des mit der Antwort bereitgestellten {{HTTPHeader("Location")}}-Headers auffindbar sein.
 
 ## Status
 
@@ -19,9 +17,9 @@ Die neu erstellten Elemente werden im Nachrichtenkörper zurückgegeben und befi
 
 ## Beispiele
 
-### Empfangen einer Antwort, die die Erstellung eines Benutzers anzeigt
+### Empfang einer Antwort, die die Benutzererstellung angibt
 
-Nehmen wir an, es gibt eine REST-API zur Verwaltung von Benutzern mit einem Endpunkt unter `http://example.com/users`. In diesem Beispiel senden wir eine `POST`-Anfrage mit folgendem Körper, um einen Benutzer zu erstellen:
+Nehmen wir an, es gibt eine REST-API zur Verwaltung von Benutzern mit einem Endpunkt unter `http://example.com/users`. In diesem Beispiel senden wir eine `POST`-Anfrage mit folgendem Body, um einen Benutzer zu erstellen:
 
 ```http
 POST /users HTTP/1.1
@@ -35,7 +33,7 @@ Content-Type: application/json
 }
 ```
 
-Nach erfolgreicher Erstellung des Benutzers sieht die `201 Created`-Antwort folgendermaßen aus:
+Nach erfolgreicher Benutzererstellung sieht die `201 Created`-Antwort wie folgt aus:
 
 ```http
 HTTP/1.1 201 Created

@@ -2,16 +2,14 @@
 title: tabGroups.Color
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/Color
 l10n:
-  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Die Farbe einer Tab-Gruppe.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen und können folgende Werte annehmen:
+Werte dieses Typs sind als Zeichenfolge angegeben und können folgende Werte annehmen:
 
 - blue
 - cyan

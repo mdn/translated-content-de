@@ -2,12 +2,10 @@
 title: i18n.LanguageCode
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/LanguageCode
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein [Sprachtag](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.10) wie `"en-US"` oder `"fr"`.
+Ein [Sprach-Tag](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.10) wie `"en-US"` oder `"fr"`.
 
 ## Typ
 
@@ -20,7 +18,7 @@ Werte dieses Typs sind Zeichenfolgen.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#type-LanguageCode)-API von Chromium. Diese Dokumentation stammt aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#type-LanguageCode) API von Chromium. Diese Dokumentation stammt aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

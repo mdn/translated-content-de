@@ -2,12 +2,10 @@
 title: tabs.reload()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/reload
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Lädt einen Tab neu, wobei optional der lokale Web-Cache umgangen werden kann.
+Lädt einen Tab neu und kann dabei optional den lokalen Web-Cache umgehen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,31 +21,31 @@ let reloading = browser.tabs.reload(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, der neu geladen werden soll. Standardmäßig wird der ausgewählte Tab des aktuellen Fensters verwendet.
+  - : `integer`. Die ID des Tabs, der neu geladen werden soll. Standardmäßig der ausgewählte Tab des aktuellen Fensters.
 - `reloadProperties` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `bypassCache` {{optional_inline}}
-      - : `boolean`. Umgehen Sie den lokalen Web-Cache. Standard ist `false`.
+      - : `boolean`. Den lokalen Web-Cache umgehen. Standard ist `false`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Tab neu geladen wurde. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Tab neu geladen wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Neuladen des aktiven Tabs des aktuellen Fensters:
+Laden Sie den aktiven Tab des aktuellen Fensters neu:
 
 ```js
 browser.tabs.reload();
 ```
 
-Neuladen des aktiven Tabs des aktuellen Fensters unter Umgehung des Cache:
+Laden Sie den aktiven Tab des aktuellen Fensters neu und umgehen Sie den Cache:
 
 ```js
 browser.tabs.reload({ bypassCache: true });
 ```
 
-Neuladen des Tabs mit der ID 2, Umgehung des Cache und Aufrufen einer Rückruffunktion, sobald es fertig ist:
+Laden Sie den Tab, dessen ID 2 ist, umgehen Sie den Cache und rufen Sie einen Callback auf, wenn der Vorgang abgeschlossen ist:
 
 ```js
 function onReloaded() {
@@ -69,7 +67,7 @@ reloading.then(onReloaded, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-reload) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-reload) API. Diese Dokumentation leitet sich von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

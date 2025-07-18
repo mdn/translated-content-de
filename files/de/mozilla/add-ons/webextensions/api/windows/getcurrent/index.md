@@ -2,14 +2,12 @@
 title: windows.getCurrent()
 slug: Mozilla/Add-ons/WebExtensions/API/windows/getCurrent
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ruft das aktuelle Browserfenster ab und übergibt dessen Details an einen Callback.
 
-Das „aktuelle“ Fenster ist nicht unbedingt dasselbe wie das derzeit fokussierte Fenster. Wenn diese Funktion von einem Hintergrundskript aufgerufen wird, wird das derzeit fokussierte Fenster zurückgegeben. Wenn sie jedoch von einem Skript aufgerufen wird, dessen Dokument mit einem bestimmten Browserfenster verknüpft ist, wird dieses Browserfenster zurückgegeben. Zum Beispiel, wenn der Browser eine Seitenleiste anzeigt, hat jedes Browserfenster seine eigene Instanz des Seitenleisten-Dokuments. Wenn ein Skript, das im Seitenleisten-Dokument ausgeführt wird, `getCurrent()` aufruft, gibt es das Fenster dieses Seitenleisten-Dokuments zurück.
+Das "aktuelle" Fenster ist nicht notwendigerweise dasselbe wie das aktuell fokussierte Fenster. Wenn diese Funktion von einem Hintergrundskript aufgerufen wird, wird das aktuell fokussierte Fenster zurückgegeben. Wenn sie jedoch von einem Skript aufgerufen wird, dessen Dokument einem bestimmten Browserfenster zugeordnet ist, wird dieses Browserfenster zurückgegeben. Zum Beispiel, wenn der Browser eine Seitenleiste anzeigt, dann hat jedes Browserfenster seine eigene Instanz des Seitenleisten-Dokuments. Wenn ein Skript, das im Seitenleisten-Dokument läuft, `getCurrent()` aufruft, dann wird das Fenster dieses Seitenleisten-Dokuments zurückgegeben.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,20 +24,20 @@ let gettingCurrent = browser.windows.getCurrent(
 - `getInfo` {{optional_inline}}
   - : `object`.
     - `populate` {{optional_inline}}
-      - : `boolean`. Wenn true, wird das {{WebExtAPIRef('windows.Window')}}-Objekt eine `tabs`-Eigenschaft haben, die eine Liste von {{WebExtAPIRef('tabs.Tab')}}-Objekten enthält, die die Tabs im Fenster repräsentieren. Die `Tab`-Objekte enthalten nur die Eigenschaften `url`, `title` und `favIconUrl`, wenn die Manifest-Datei der Erweiterung die Berechtigung `"tabs"` oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) enthält, die zur URL des Tabs passen.
+      - : `boolean`. Falls `true`, enthält das {{WebExtAPIRef('windows.Window')}}-Objekt eine `tabs`-Eigenschaft, die eine Liste von {{WebExtAPIRef('tabs.Tab')}}-Objekten enthält, die die Tabs im Fenster repräsentieren. Die `Tab`-Objekte enthalten nur die Eigenschaften `url`, `title` und `favIconUrl`, wenn die Manifestdatei der Erweiterung die Berechtigung `"tabs"` oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) enthält, die mit der URL des Tabs übereinstimmen.
     - `windowTypes` {{deprecated_inline}} {{optional_inline}}
-      - : Ein `array` von {{WebExtAPIRef('windows.WindowType')}}-Objekten. Wenn gesetzt, wird das zurückgegebene {{WebExtAPIRef('windows.Window')}} basierend auf seinem Typ gefiltert. Wenn nicht gesetzt, lautet der Standardfilter `['normal', 'panel', 'popup']`, wobei `'panel'`-Fenstertypen auf die eigenen Fenster der Erweiterung beschränkt sind.
+      - : Ein `array` von {{WebExtAPIRef('windows.WindowType')}}-Objekten. Wenn gesetzt, wird das zurückgegebene {{WebExtAPIRef('windows.Window')}}-Objekt basierend auf seinem Typ gefiltert. Wenn nicht gesetzt, ist der Standardfilter auf `['normal', 'panel', 'popup']` gesetzt, wobei `'panel'`-Fenstertypen auf die eigenen Fenster der Erweiterung beschränkt sind.
 
 > [!NOTE]
 > Wenn vorhanden, wird die `windowTypes`-Komponente von `getInfo` ignoriert. Die Verwendung von `windowTypes` ist seit Firefox 62 veraltet.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`windows.Window`](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/Window)-Objekt erfüllt wird, das die Details des Fensters enthält. Bei einem Fehler wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem [`windows.Window`](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/Window)-Objekt erfüllt wird, das die Details des Fensters enthält. Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Wenn der Benutzer auf das Symbol einer Browseraktion klickt, holt sich dieses Beispiel das aktuelle Fenster und gibt die URLs der enthaltenen Tabs aus. Beachten Sie, dass Sie die Berechtigung "tabs" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, um auf die Tab-URLs zuzugreifen.
+Wenn der Benutzer auf das Symbol einer Browseraktion klickt, ruft dieses Beispiel das aktuelle Fenster ab und protokolliert die URLs der enthaltenen Tabs. Beachten Sie, dass Sie die Berechtigung "tabs" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, um auf Tab-URLs zuzugreifen.
 
 ```js
 function logTabs(windowInfo) {
@@ -64,7 +62,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getCurrent) API. Diese Dokumentation ist von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getCurrent)-API von Chromium. Diese Dokumentation leitet sich von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

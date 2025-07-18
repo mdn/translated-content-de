@@ -2,12 +2,10 @@
 title: contextualIdentities.move()
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/move
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Verschiebt eine oder mehrere kontextuelle Identitäten an eine neue Position innerhalb der Liste der kontextuellen Identitäten.
+Verschiebt ein oder mehrere kontextuelle Identitäten an eine neue Position innerhalb der Liste der kontextuellen Identitäten.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +21,17 @@ let moveContainers = browser.contextualIdentities.move(
 ### Parameter
 
 - `cookieStoreIds`
-  - : `string` oder `array` von `string`. Eine geordnete Liste der IDs der kontextuellen Identität (Cookie Store IDs), die verschoben werden sollen.
+  - : `string` oder `array` von `string`. Eine geordnete Liste der kontextuellen Identitäts-Cookie-Store-IDs, die verschoben werden sollen.
 - `position`
-  - : `integer`. Die Position, an die `cookieStoreIds` in der Liste der kontextuellen Identitäten verschoben werden sollen. Nullbasiert; `0` gibt die erste Position an. `-1` bedeutet, dass die Elemente an das Ende der Liste verschoben werden.
+  - : `integer`. Die Position, zu der `cookieStoreIds` in der Liste der kontextuellen Identitäten verschoben werden sollen. Nullbasiert; `0` zeigt die erste Position an. `-1` zeigt an, dass die Elemente an das Ende der Liste verschoben werden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die kontextuellen Identitäten neu geordnet wurden. Das Versprechen wird abgelehnt, wenn die Anforderung für eine ungültige Verschiebung erfolgt oder die Funktion für kontextuelle Identitäten nicht aktiviert ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die kontextuellen Identitäten neu geordnet sind. Das Versprechen wird abgelehnt, wenn die Anforderung für eine ungültige Verschiebung erfolgt oder die Funktion der kontextuellen Identitäten nicht aktiviert ist.
 
 ## Beispiele
 
-Dieses Beispiel verschiebt die erste Identität ans Ende und dann zurück an den Anfang.
+Dieses Beispiel verschiebt die erste Identität an das Ende und dann zurück an den Anfang.
 
 ```js
 let identities = await browser.contextualIdentities.query({});
@@ -46,7 +44,7 @@ await browser.contextualIdentities.move(firstId, -1);
 await browser.contextualIdentities.move(firstId, 0);
 ```
 
-Eine andere Möglichkeit, die erste Identität ans Ende zu verschieben, besteht darin, alle anderen Identitäten an den Anfang zu verschieben.
+Eine andere Möglichkeit, die erste Identität an das Ende zu verschieben, besteht darin, alle anderen Identitäten an den Anfang zu verschieben.
 
 ```js
 let identities = await browser.contextualIdentities.query({});
@@ -59,7 +57,7 @@ let otherIds = ids.slice(1);
 await browser.contextualIdentities.move(otherIds, 0);
 ```
 
-Dieses Beispiel verschiebt die "Personal"-Identität vor "Work". Das Beispiel geht davon aus, dass Container mit diesen Namen existieren. Dies ist möglicherweise nicht der Fall in angepassten oder lokalisierten (nicht englischen) Firefox-Instanzen.
+Dieses Beispiel verschiebt die "Personal"-Identität vor die "Work"-Identität. Das Beispiel setzt voraus, dass Container mit diesen Namen existieren. Dies ist möglicherweise nicht der Fall in angepassten oder lokalisierten (nicht-englischen) Firefox-Instanzen.
 
 ```js
 let identities = await browser.contextualIdentities.query({});

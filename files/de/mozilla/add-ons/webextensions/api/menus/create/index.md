@@ -2,27 +2,25 @@
 title: menus.create()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/create
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Erstellt ein Menüelement mithilfe eines Optionsobjekts, das Eigenschaften für das Element definiert.
 
-Erstellt ein Menüelement mit einem Optionsobjekt, das Eigenschaften für das Element definiert.
+Im Gegensatz zu anderen asynchronen Funktionen gibt diese keinen Promise zurück, sondern verwendet einen optionalen Rückruf, um über Erfolg oder Misserfolg zu kommunizieren. Dies liegt daran, dass der Rückgabewert die ID des neuen Elements ist.
 
-Im Gegensatz zu anderen asynchronen Funktionen gibt diese keine `Promise` zurück, sondern verwendet einen optionalen Rückruf, um Erfolg oder Misserfolg zu kommunizieren. Der Rückgabewert ist die ID des neuen Elements.
-
-Für die Kompatibilität mit anderen Browsern stellt Firefox diese Methode im `contextMenus`-Namespace und im `menus`-Namespace zur Verfügung. Es ist jedoch nicht möglich, Menüelemente für das Tool-Menü (`contexts: ["tools_menu"]`) mit dem `contextMenus`-Namespace zu erstellen.
+Für die Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl im `contextMenus`-Namespace als auch im `menus`-Namespace zur Verfügung. Es ist jedoch nicht möglich, Werkzeuge-Menüelemente (`contexts: ["tools_menu"]`) mit dem `contextMenus`-Namespace zu erstellen.
 
 > **Erstellen von Menüs in persistenten und nicht-persistenten Erweiterungen**
 >
 > Wie Sie Menüelemente erstellen, hängt davon ab, ob Ihre Erweiterung verwendet:
 >
-> - Nicht-persistente Hintergrundseiten (eine Ereignisseite), wo Menüs über Browser- und Erweiterungsneustarts hinweg bestehen bleiben. Sie rufen `menus.create` (mit einer menüspezifischen ID) innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}}-Listeners auf. Dies verhindert wiederholte Versuche, das Menüelement zu erstellen, wenn die Seiten neu starten, was bei einem Aufruf auf oberster Ebene geschehen würde.
-> - Persistente Hintergrundseiten:
->   - in Chrome werden Menüelemente von persistenten Hintergrundseiten gespeichert. Erstellen Sie Ihre Menüs in einem {{WebExtAPIRef("runtime.onInstalled")}}-Listener.
->   - in Firefox werden Menüelemente von persistenten Hintergrundseiten nie gespeichert. Rufen Sie `menus.create` bedingungslos von der obersten Ebene auf, um die Menüpunkte zu registrieren.
+> - nicht-persistente Hintergrundseiten (eine Ereignisseite), bei denen Menüs über Browser- und Erweiterungsneustarts hinweg bestehen. Sie rufen `menus.create` (mit einer menüspezifischen ID) innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}}-Listeners auf. Dies vermeidet wiederholte Versuche, das Menüelement zu erstellen, wenn die Seiten neu starten würden, was bei einem Aufruf auf oberster Ebene der Fall wäre.
+> - persistente Hintergrundseiten:
+>   - In Chrome werden Menüelemente aus persistenten Hintergrundseiten beibehalten. Erstellen Sie Ihre Menüs in einem {{WebExtAPIRef("runtime.onInstalled")}}-Listener.
+>   - In Firefox werden Menüelemente aus persistenten Hintergrundseiten niemals beibehalten. Rufen Sie `menus.create` bedingungslos aus der obersten Ebene auf, um die Menüelemente zu registrieren.
 >
-> Weitere Informationen finden Sie unter [Erweiterung initialisieren](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts#initialize_the_extension) auf der Seite zu Hintergrundskripten und [Ereignisgesteuerte Hintergrundskripte](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/#event-driven-background-scripts) im Extension Workshop.
+> Weitere Informationen finden Sie unter [Die Erweiterung initialisieren](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts#initialize_the_extension) auf der Seite zu Hintergrundskripten und [Ereignisgesteuerte Hintergrundskripte](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/#event-driven-background-scripts) im Extension Workshop.
 
 ## Syntax
 
@@ -36,37 +34,31 @@ browser.menus.create(
 ### Parameter
 
 - `createProperties`
-
   - : `object`. Eigenschaften für das neue Menüelement.
-
     - `checked` {{optional_inline}}
-      - : `boolean`. Der anfängliche Zustand eines Kontrollkästchens oder Radio-Elements: `true` für ausgewählt und `false` für nicht ausgewählt. Nur ein Radio-Element kann gleichzeitig in einer bestimmten Gruppe von Radio-Elementen ausgewählt sein.
+      - : `boolean`. Der anfängliche Zustand eines Checkbox- oder Radio-Elements: `true` für ausgewählt und `false` für nicht ausgewählt. Nur ein Radio-Element kann gleichzeitig in einer gegebenen Gruppe von Radio-Elementen ausgewählt sein.
     - `command` {{optional_inline}}
+      - : `string`. Ein String, der eine Aktion beschreibt, die ausgeführt werden soll, wenn der Benutzer auf das Element klickt. Anerkannte Werte sind:
+        - `"_execute_browser_action"`: simuliert einen Klick auf die Browseraktion der Erweiterung und öffnet dessen Popup, falls vorhanden (nur Manifest V2)
+        - `"_execute_action"`: simuliert einen Klick auf die Aktion der Erweiterung und öffnet dessen Popup, falls vorhanden (nur Manifest V3)
+        - `"_execute_page_action"`: simuliert einen Klick auf die Seitenaktion der Erweiterung und öffnet dessen Popup, falls vorhanden
+        - `"_execute_sidebar_action"`: öffnet die Seitenleiste der Erweiterung
 
-      - : `string`. String, der eine Aktion beschreibt, die ausgeführt werden soll, wenn der Benutzer auf das Element klickt. Die anerkannten Werte sind:
+        Siehe die Dokumentation der speziellen Tastenkombinationen im manifest.json-Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts) für Details.
 
-        - `"_execute_browser_action"`: Simuliert einen Klick auf die Browseraktion der Erweiterung und öffnet deren Popup, wenn es eines gibt (nur Manifest V2)
-        - `"_execute_action"`: Simuliert einen Klick auf die Aktion der Erweiterung und öffnet deren Popup, wenn es eines gibt (nur Manifest V3)
-        - `"_execute_page_action"`: Simuliert einen Klick auf die Seitenaktion der Erweiterung und öffnet deren Popup, wenn es eines gibt
-        - `"_execute_sidebar_action"`: Öffnet die Seitenleiste der Erweiterung
-
-        Siehe die Dokumentation zu speziellen Shortcuts im `manifest.json` Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts) für Details.
-
-        Wenn einer der anerkannten Werte angegeben ist, löst ein Klick auf das Element nicht das {{WebExtAPIRef("menus.onClicked")}}-Ereignis aus; stattdessen wird die Standardaktion ausgelöst, wie das Öffnen eines Popups. Andernfalls löst ein Klick auf das Element {{WebExtAPIRef("menus.onClicked")}} aus und das Ereignis kann verwendet werden, um ein alternatives Verhalten zu implementieren.
+        Wenn einer der anerkannten Werte angegeben ist, löst ein Klick auf das Element nicht das {{WebExtAPIRef("menus.onClicked")}}-Ereignis aus; stattdessen wird die Standardaktion ausgelöst, wie z. B. das Öffnen eines Pop-Ups. Andernfalls löst ein Klick auf das Element das {{WebExtAPIRef("menus.onClicked")}}-Ereignis aus, das verwendet werden kann, um ein alternatives Verhalten zu implementieren.
 
     - `contexts` {{optional_inline}}
-
-      - : `array` von {{WebExtAPIRef('menus.ContextType')}}. Array von Kontexten, in denen dieses Menüelement angezeigt wird. Wenn diese Option nicht angegeben ist:
-        - Wenn das übergeordnete Element Kontexte gesetzt hat, übernimmt dieses Element die Kontexte des übergeordneten Elements
-        - Andernfalls erhält das Element ein Kontextarray von \["page"].
+      - : `array` von {{WebExtAPIRef('menus.ContextType')}}. Array von Kontexten, in denen dieses Menüelement erscheinen wird. Wenn diese Option weggelassen wird:
+        - Wenn das übergeordnete Element Kontexte festgelegt hat, erbt dieses Element die Kontexte seines übergeordneten Elements
+        - Andernfalls wird dem Element ein Kontext-Array von \["page"] zugewiesen.
 
     - `documentUrlPatterns` {{optional_inline}}
-      - : `array` von `string`. Ermöglicht es Ihnen, dass das Element nur für Dokumente angewendet wird, deren URL einem der angegebenen [Match-Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) entspricht. Dies gilt auch für Rahmen.
+      - : `array` von `string`. Ermöglicht es, das Element so zu beschränken, dass es nur auf Dokumente angewendet wird, deren URL einem der angegebenen [Übereinstimmungsmuster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) entspricht. Dies gilt auch für Frames.
     - `enabled` {{optional_inline}}
-      - : `boolean`. Ob dieses Menüelement aktiviert oder deaktiviert ist. Der Standardwert ist `true`.
+      - : `boolean`. Ob dieses Menüelement aktiviert oder deaktiviert ist. Standardmäßig `true`.
     - `icons` {{optional_inline}}
-
-      - : `object`. Eines oder mehrere benutzerdefinierte Symbole, die neben dem Element angezeigt werden sollen. Benutzerdefinierte Symbole können nur für Elemente festgelegt werden, die in Untermenüs angezeigt werden. Diese Eigenschaft ist ein Objekt mit einer Eigenschaft für jedes bereitgestellte Symbol: Der Name der Eigenschaft sollte die Größe des Symbols in Pixeln enthalten, und der Pfad ist relativ zum Symbol aus dem Stammverzeichnis der Erweiterung. Der Browser versucht, ein 16x16 Pixel-Symbol für ein normales Display oder ein 32x32 Pixel-Symbol für ein hochauflösendes Display zu wählen. Um ein Skalieren zu vermeiden, können Sie Symbole so angeben:
+      - : `object`. Eines oder mehrere benutzerdefinierte Symbole, die neben dem Element angezeigt werden sollen. Benutzerdefinierte Symbole können nur für Elemente festgelegt werden, die in Untermenüs erscheinen. Diese Eigenschaft ist ein Objekt mit einer Eigenschaft für jedes bereitgestellte Symbol: Der Name der Eigenschaft sollte die Größe des Symbols in Pixeln enthalten, und der Pfad ist relativ zum Symbol aus dem Stammverzeichnis der Erweiterung. Der Browser versucht, ein 16x16 Pixel großes Symbol für ein normales Display oder ein 32x32 Pixel großes Symbol für ein hochauflösendes Display auszuwählen. Um jegliche Skalierung zu vermeiden, können Sie Symbole wie folgt angeben:
 
         ```js
         browser.menus.create({
@@ -88,41 +80,39 @@ browser.menus.create(
         ```
 
         > [!NOTE]
-        > Das oberste Menüelement verwendet die [icons](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons), die im Manifest angegeben sind, anstatt der mit diesem Schlüssel angegebenen.
+        > Das Menüelement auf oberster Ebene verwendet die im Manifest angegebenen [Symbole](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons), anstatt was mit diesem Schlüssel angegeben ist.
 
     - `id` {{optional_inline}}
-      - : `string`. Die eindeutige ID, die diesem Element zugeordnet wird. Dies ist obligatorisch für nicht-persistente [Hintergrund- (Ereignis-) Seiten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) in Manifest V2 und in Manifest V3. Darf nicht mit einer anderen ID dieser Erweiterung identisch sein.
+      - : `string`. Die eindeutige ID, die diesem Element zugewiesen werden soll. Ist obligatorisch für nicht-persistente [Hintergrund- (Ereignis-) Seiten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) in Manifest V2 und in Manifest V3. Kann nicht dieselbe wie eine andere ID für diese Erweiterung sein.
     - `onclick` {{optional_inline}}
-      - : `function`. Die Funktion, die aufgerufen wird, wenn auf das Menüelement geklickt wird. Ereignisseiten können dies nicht verwenden; stattdessen sollten sie einen Listener für {{WebExtAPIRef('menus.onClicked')}} registrieren.
+      - : `function`. Die Funktion, die aufgerufen wird, wenn das Menüelement angeklickt wird. Ereignisseiten können dies nicht verwenden: Stattdessen sollten sie einen Listener für {{WebExtAPIRef('menus.onClicked')}} registrieren.
     - `parentId` {{optional_inline}}
-      - : `integer` oder `string`. Die ID eines übergeordneten Menüelements; dies macht das Element zu einem Kind eines zuvor hinzugefügten Elements. Hinweis: Wenn Sie mehr als ein Menüelement erstellt haben, werden die Elemente in einem Untermenü platziert. Der Elternteil des Untermenüs wird mit dem Namen der Erweiterung beschriftet.
+      - : `integer` oder `string`. Die ID eines übergeordneten Menüelements; dies macht das Element zu einem Kind eines zuvor hinzugefügten Elements. Hinweis: Wenn Sie mehr als ein Menüelement erstellt haben, werden die Elemente in einem Untermenü platziert. Das übergeordnete Element des Untermenüs wird mit dem Namen der Erweiterung beschriftet.
     - `targetUrlPatterns` {{optional_inline}}
-      - : `array` von `string`. Ähnlich wie `documentUrlPatterns`, ermöglicht es Ihnen jedoch, basierend auf dem `href` von Anker-Tags und dem `src`-Attribut von img/audio/video-Tags zu filtern. Dieser Parameter unterstützt jedes URL-Schema, selbst solche, die normalerweise nicht in einem Match-Muster erlaubt sind.
+      - : `array` von `string`. Ähnlich wie `documentUrlPatterns`, jedoch ermöglicht es, basierend auf dem `href` von Anker-Tags und dem `src`-Attribut von img/audio/video-Tags zu filtern. Dieser Parameter unterstützt jedes URL-Schema, auch solche, die normalerweise in einem Übereinstimmungsmuster nicht erlaubt sind.
     - `title` {{optional_inline}}
+      - : `string`. Der Text, der im Element angezeigt wird. Obligatorisch, es sei denn, `type` ist "separator".
 
-      - : `string`. Der Text, der im Element angezeigt werden soll. Obligatorisch, es sei denn, `type` ist "separator".
+        Sie können `%s` im String verwenden. Wenn Sie dies in einem Menüelement tun und etwas Text auf der Seite ausgewählt ist, wenn das Menü angezeigt wird, wird der ausgewählte Text in den Titel interpoliert. Zum Beispiel, wenn `title` "Übersetze '%s' in Pig Latin" ist und der Benutzer das Wort "cool" auswählt, dann das Menü aktiviert, lautet der Titel des Menüelements: "Übersetze 'cool' in Pig Latin".
 
-        Sie können `%s` im String verwenden. Wenn Sie dies in einem Menüelement tun und ein Text auf der Seite ausgewählt ist, wenn das Menü angezeigt wird, dann wird der ausgewählte Text in den Titel interpoliert. Zum Beispiel, wenn `title` "Übersetze '%s' ins Pig Latin" lautet und der Benutzer das Wort "cool" auswählt und dann das Menü aktiviert, dann lautet der Titel des Menüelements: "Übersetze 'cool' ins Pig Latin".
+        Wenn der Titel ein Kaufmanns-Und "&" enthält, wird das nächste Zeichen als Zugangsschlüssel für das Element verwendet, und das Kaufmanns-Und wird nicht angezeigt. Ausnahmen hiervon sind:
+        - Wenn das nächste Zeichen ebenfalls ein Kaufmanns-Und ist: dann wird ein einzelnes Kaufmanns-Und angezeigt und kein Zugangsschlüssel festgelegt. Im Effekt wird "&&" verwendet, um ein einzelnes Kaufmanns-Und anzuzeigen.
+        - Wenn die nächsten Zeichen die Interpolationsanweisung "%s" sind: dann wird das Kaufmanns-Und nicht angezeigt und es wird kein Zugangsschlüssel festgelegt.
+        - Wenn das Kaufmanns-Und das letzte Zeichen im Titel ist: dann wird das Kaufmanns-Und nicht angezeigt und es wird kein Zugangsschlüssel festgelegt.
 
-        Wenn der Titel ein kaufmännisches Und-Zeichen "&" enthält, wird der nächste Buchstabe als Zugriffstaste für das Element verwendet, und das kaufmännische Und-Zeichen wird nicht angezeigt. Ausnahmen hiervon sind:
+        Nur das erste Kaufmanns-Und wird verwendet, um einen Zugangsschlüssel festzulegen: nachfolgende Kaufmanns-Unds werden nicht angezeigt, aber auch keine Schlüssel festgelegt. Also wird "\&A und \&B" als "A und B" angezeigt und "A" als Zugangsschlüssel festgelegt.
 
-        - Wenn das nächste Zeichen ebenfalls ein kaufmännisches Und-Zeichen ist: dann wird ein einzelnes kaufmännisches Und-Zeichen angezeigt und keine Zugriffstaste gesetzt. Effektiv wird "&&" verwendet, um ein einzelnes kaufmännisches Und-Zeichen anzuzeigen.
-        - Wenn das nächste Zeichen die Interpolationsdirektive "%s" ist: dann wird das kaufmännische Und-Zeichen nicht angezeigt und keine Zugriffstaste gesetzt.
-        - Wenn das kaufmännische Und-Zeichen das letzte Zeichen im Titel ist: dann wird das kaufmännische Und-Zeichen nicht angezeigt und keine Zugriffstaste gesetzt.
-
-        Nur das erste kaufmännische Und-Zeichen wird verwendet, um eine Zugriffstaste festzulegen: Nachfolgende kaufmännische Und-Zeichen werden nicht angezeigt, setzen jedoch keine Tasten. So wird "\&A and \&B" als "A and B" angezeigt und setzt "A" als Zugriffstaste.
-
-        In einigen lokalisierten Versionen von Firefox (Japanisch und Chinesisch) wird die Zugriffstaste in Klammern gesetzt und an das Menülable angehängt, _es sei denn_, der Menütitel endet bereits mit der Zugriffstaste (`"toolkit(&K)"` zum Beispiel). Für mehr Details siehe [Firefox Bug 1647373](https://bugzil.la/1647373).
+        In einigen lokalisierten Versionen von Firefox (Japanisch und Chinesisch) ist der Zugangsschlüssel in Klammern gesetzt und wird an das Menülabel angehängt, _es sei denn_, der Menütitel selbst endet bereits mit dem Zugangsschlüssel (`"toolkit(&K)"` zum Beispiel). Weitere Details finden Sie in [Firefox Bug 1647373](https://bugzil.la/1647373).
 
     - `type` {{optional_inline}}
-      - : {{WebExtAPIRef('menus.ItemType')}}. Der Typ des Menüelements: "normal", "checkbox", "radio", "separator". Der Standardwert ist "normal".
+      - : {{WebExtAPIRef('menus.ItemType')}}. Der Typ des Menüelements: "normal", "checkbox", "radio", "separator". Standardmäßig "normal".
     - `viewTypes` {{optional_inline}}
-      - : {{WebExtAPIRef('extension.ViewType')}}. Liste der Ansichtsarten, in denen das Menüelement angezeigt wird. Standardmäßig werden alle Ansichten angezeigt, einschließlich derer ohne `viewType`.
+      - : {{WebExtAPIRef('extension.ViewType')}}. Liste der Ansichtstypen, in denen das Menüelement angezeigt wird. Standardmäßig auf jede Ansicht, einschließlich solcher ohne `viewType`.
     - `visible` {{optional_inline}}
-      - : `boolean`. Ob das Element im Menü angezeigt wird. Der Standardwert ist `true`.
+      - : `boolean`. Ob das Element im Menü angezeigt wird. Standardmäßig `true`.
 
 - `callback` {{optional_inline}}
-  - : `function`. Wird aufgerufen, wenn das Element erstellt wurde. Wenn es Probleme beim Erstellen des Elements gab, sind Details in {{WebExtAPIRef('runtime.lastError')}} verfügbar.
+  - : `function`. Wird aufgerufen, wenn das Element erstellt wurde. Wenn es Probleme bei der Erstellung des Elements gab, sind Einzelheiten in {{WebExtAPIRef('runtime.lastError')}} verfügbar.
 
 ### Rückgabewert
 
@@ -130,7 +120,7 @@ browser.menus.create(
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein Kontextmenüelement, das angezeigt wird, wenn der Benutzer auf der Seite Text ausgewählt hat. Es protokolliert einfach den ausgewählten Text in der Konsole:
+Dieses Beispiel erstellt ein Kontextmenüelement, das angezeigt wird, wenn der Benutzer Text auf der Seite ausgewählt hat. Es protokolliert einfach den ausgewählten Text in die Konsole:
 
 ```js
 browser.menus.create({
@@ -146,7 +136,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 });
 ```
 
-Dieses Beispiel fügt zwei Radio-Elemente hinzu, mit denen Sie auswählen können, ob ein grüner oder blauer Rahmen auf die Seite angewendet werden soll. Beachten Sie, dass dieses Beispiel die [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) benötigt.
+Dieses Beispiel fügt zwei Radioelemente hinzu, mit denen Sie einen grünen oder blauen Rahmen auf die Seite anwenden können. Beachten Sie, dass dieses Beispiel die [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) benötigt.
 
 ```js
 function onCreated() {
@@ -202,7 +192,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-create) API. Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-create) API von Chromium. Diese Dokumentation ist von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,23 +2,21 @@
 title: tabs.MutedInfoReason
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/MutedInfoReason
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Gibt den Grund an, warum ein Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - "capture"
-  - : Tab-Aufnahme wurde gestartet, wodurch eine Änderung des stummgeschalteten Zustands erzwungen wurde.
+  - : Tab-Aufnahme begann, was eine Änderung des stummgeschalteten Zustands erzwang.
 - "extension"
-  - : Eine Erweiterung hat den stummgeschalteten Zustand festgelegt. Ist dies der Grund, enthält `extensionId` in {{WebExtAPIRef("tabs.mutedInfo")}} die ID der verantwortlichen Erweiterung.
+  - : Eine Erweiterung setzte den stummgeschalteten Zustand. Wenn dies der Grund ist, wird `extensionId` in {{WebExtAPIRef("tabs.mutedInfo")}} die ID der verantwortlichen Erweiterung enthalten.
 - "user"
-  - : Der Benutzer hat den stummgeschalteten Zustand festgelegt.
+  - : Der Benutzer setzte den stummgeschalteten Zustand.
 
 {{WebExtExamples}}
 
@@ -27,7 +25,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfoReason) API von Chromium. Diese Dokumentation leitet sich von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfoReason) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

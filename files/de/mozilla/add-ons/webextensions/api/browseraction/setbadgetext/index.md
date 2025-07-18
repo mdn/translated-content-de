@@ -2,14 +2,12 @@
 title: browserAction.setBadgeText()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Setzt den Badgetext für die Browseraktion. Das Badge wird oben auf dem Symbol angezeigt.
 
-Legt den Badge-Text für die Browser-Aktion fest. Der Badge wird über dem Icon angezeigt.
-
-Tabs ohne spezifischen Badge-Text erben den globalen Badge-Text, der standardmäßig `""` ist.
+Tabs ohne einen spezifischen Badgetext erben den globalen Badgetext, der standardmäßig `""` ist.
 
 ## Syntax
 
@@ -19,34 +17,34 @@ browser.browserAction.setBadgeText(
 )
 ```
 
-Diese API ist auch als `chrome.browserAction.setBadgeText()` verfügbar.
+Diese API ist auch verfügbar als `chrome.browserAction.setBadgeText()`.
 
 ### Parameter
 
 - `details`
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `text`
-      - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, aber es passen nur etwa vier in den verfügbaren Platz.
+      - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, aber nur etwa vier passen in den verfügbaren Raum.
 
-        Verwenden Sie einen leeren String - `""` -, wenn Sie keinen Badge wünschen.
+        Verwenden Sie einen leeren String - `""`, wenn Sie kein Badge wünschen.
 
-        Wenn eine `tabId` angegeben wird, entfernt `null` den tab-spezifischen Badge-Text, sodass der Tab den globalen Badge-Text erbt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
+        Wenn eine `tabId` angegeben ist, entfernt `null` den tab-spezifischen Badgetext, sodass der Tab den globalen Badgetext erbt. Andernfalls wird der globale Badgetext auf `""` zurückgesetzt.
 
-        Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Badge-Text, sodass der Tab den globalen Badge-Text erbt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
+        Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Badgetext, sodass der Tab den globalen Badgetext erbt. Andernfalls wird der globale Badgetext auf `""` zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt den Badge-Text nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
+      - : `integer`. Setzt den Badgetext nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt den Badge-Text für das angegebene Fenster.
+      - : `integer`. Setzt den Badgetext für das angegebene Fenster.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Badge gesetzt.
+- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Badge gesetzt.
 
 ## Beispiele
 
-Fügen Sie einen Badge hinzu, der angibt, wie oft der Benutzer den Button geklickt hat:
+Fügen Sie ein Badge hinzu, das anzeigt, wie oft der Benutzer den Button geklickt hat:
 
 ```js
 let clicks = 0;

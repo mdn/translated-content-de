@@ -2,10 +2,8 @@
 title: declarativeNetRequest.MatchedRule
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MatchedRule
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ein Objekt, das die übereinstimmende Regel beschreibt. Dieser Typ kann von den Methoden {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} oder {{WebExtAPIRef("declarativeNetRequest.testMatchOutcome")}} zurückgegeben oder durch das Ereignis {{WebExtAPIRef("declarativeNetRequest.onRuleMatchedDebug")}} beobachtet werden.
 
@@ -14,14 +12,14 @@ Ein Objekt, das die übereinstimmende Regel beschreibt. Dieser Typ kann von den 
 Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
 
 - `extensionId`
-  - : Ein `string`. Die ID der Erweiterung, falls diese Regel zu einer anderen Erweiterung gehört. Diese Eigenschaft ist nur verfügbar, wenn sie mit {{WebExtAPIRef("declarativeNetRequest.testMatchOutcome")}} verwendet wird, mit der Option `includeOtherExtensions` auf `true` gesetzt.
+  - : Ein `string`. Die ID der Erweiterung, wenn diese Regel zu einer anderen Erweiterung gehört. Diese Eigenschaft ist nur verfügbar, wenn sie mit {{WebExtAPIRef("declarativeNetRequest.testMatchOutcome")}} verwendet wird und die Option `includeOtherExtensions` auf `true` gesetzt ist.
 - `ruleId`
   - : Eine `number`. Die ID der übereinstimmenden Regel.
 - `rulesetId`
   - : Ein `string`. Die ID des [Regelsatzes](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rulesets), zu dem diese Regel gehört. Der zurückgegebene Wert ist:
-    - Für eine Regel, die aus dem Satz statischer Regeln stammt, der in dem "id"-Schlüssel des Regelsatzes in dem [`declarative_net_request.rule_resources` Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) angegebene Wert.
+    - Für eine Regel, die aus dem Satz statischer Regeln stammt, der Wert, der im "id"-Schlüssel des Regelsatzes im [`declarative_net_request.rule_resources` Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) angegeben ist.
     - Für eine Regel, die aus dem Satz dynamischer Regeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.DYNAMIC_RULESET_ID")}} definierte Wert, d.h. `"_dynamic"`.
-    - Für eine Regel, die aus dem Satz von Sitzung-Regeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.SESSION_RULESET_ID")}} definierte Wert, d.h. `"_session"`.
+    - Für eine Regel, die aus dem Satz von Sitzungsregeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.SESSION_RULESET_ID")}} definierte Wert, d.h. `"_session"`.
 
 {{WebExtExamples("h2")}}
 

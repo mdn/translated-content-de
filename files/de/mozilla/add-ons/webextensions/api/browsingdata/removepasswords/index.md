@@ -2,17 +2,15 @@
 title: browsingData.removePasswords()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removePasswords
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Löscht gespeicherte Passwörter.
 
-Sie können den Parameter `removalOptions`, ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, verwenden, um:
+Sie können den Parameter `removalOptions` verwenden, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
 
 - nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden
-- zu steuern, ob Passwörter gelöscht werden sollen, die auf normalen Webseiten gespeichert wurden oder ob Passwörter gelöscht werden sollen, die in gehosteten Apps und Erweiterungen gespeichert wurden.
+- zu steuern, ob Passwörter, die auf normalen Webseiten gespeichert wurden, gelöscht werden sollen oder ob auch Passwörter von gehosteten Apps und Erweiterungen gelöscht werden sollen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +25,15 @@ let removing = browser.browsingData.removePasswords(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und ob Passwörter gelöscht werden sollen, die auf normalen Webseiten gespeichert wurden oder ob Passwörter gelöscht werden sollen, die in gehosteten Apps und Erweiterungen gespeichert wurden.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und ob Passwörter, die auf normalen Webseiten gespeichert wurden oder auf gehosteten Apps und Erweiterungen, gelöscht werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente abgeschlossen wird, wenn das Löschen abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Entfernen Sie Passwörter, die in der letzten Woche gespeichert wurden:
+Passwörter entfernen, die in der letzten Woche gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -57,7 +55,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Entfernen Sie alle gespeicherten Passwörter:
+Alle gespeicherten Passwörter entfernen:
 
 ```js
 function onRemoved() {
@@ -78,4 +76,4 @@ browser.browsingData.removePasswords({}).then(onRemoved, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.

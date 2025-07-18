@@ -2,30 +2,28 @@
 title: sidebarAction.setIcon()
 slug: Mozilla/Add-ons/WebExtensions/API/sidebarAction/setIcon
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Setzt das Icon für die Seitenleiste.
 
-Legt das Symbol für die Seitenleiste fest.
+Sie können ein einzelnes Icon entweder als Pfad zu einer Bilddatei oder als {{WebExtAPIRef('sidebarAction.ImageDataType')}}-Objekt angeben.
 
-Sie können ein einzelnes Symbol entweder als Pfad zu einer Bilddatei oder als ein {{WebExtAPIRef('sidebarAction.ImageDataType')}}-Objekt angeben.
-
-Sie können mehrere Symbole in verschiedenen Größen angeben, indem Sie ein Wörterbuch mit mehreren Pfaden oder `ImageData`-Objekten bereitstellen. Dies bedeutet, dass das Symbol nicht für ein Gerät mit unterschiedlicher Pixeldichte skaliert werden muss.
+Sie können mehrere Icons in verschiedenen Größen angeben, indem Sie ein Wörterbuch mit mehreren Pfaden oder `ImageData`-Objekten bereitstellen. Das bedeutet, dass das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-## Arten von Symbolen
+## Arten von Icons
 
-Ihre Erweiterung sollte ein Symbol für die Seitenleiste im [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) Manifest-Schlüssel angeben. Dies wird als _"Manifest-Symbol"_ bezeichnet.
+Ihre Erweiterung sollte ein Icon für die Seitenleiste im manifest-Schlüssel [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) angeben. Dies wird als _"Manifest-Icon"_ bezeichnet.
 
-Wenn Sie kein Symbol im `sidebar_action`-Schlüssel angeben, erhalten Sie das Standardsymbol des Browsers. Dies wird als _"Standardsymbol"_ bezeichnet.
+Wenn Sie kein Icon im `sidebar_action`-Schlüssel angeben, erhalten Sie das Standard-Icon des Browsers. Dies wird als _"Standard-Icon"_ bezeichnet.
 
-Wenn Sie ein neues Symbol mit `setIcon()` festlegen und die `tabId`-Option einschließen, wird das Symbol nur für die angegebene Registerkarte festgelegt. Dieses Symbol wird als _"Registerkarten-spezifisches Symbol"_ bezeichnet.
+Wenn Sie ein neues Icon mit `setIcon()` setzen und die Option `tabId` einschließen, wird das Icon nur für den angegebenen Tab gesetzt. Dieses Icon wird als _"tab-spezifisches Icon"_ bezeichnet.
 
-Wenn Sie ein neues Symbol mit `setIcon()` festlegen und die `windowId`-Option einschließen, wird das Symbol nur für das angegebene Fenster festgelegt. Dieses Symbol wird als _"Fenster-spezifisches Symbol"_ bezeichnet und erscheint in allen Registerkarten dieses Fensters, die kein Registerkarten-spezifisches Symbol festgelegt haben.
+Wenn Sie ein neues Icon mit `setIcon()` setzen und die Option `windowId` einschließen, wird das Icon nur für das angegebene Fenster gesetzt. Dieses Icon wird als _"fensterspezifisches Icon"_ bezeichnet und wird in allen Tabs dieses Fensters erscheinen, die kein tab-spezifisches Icon gesetzt haben.
 
-Wenn Sie ein neues Symbol mit `setIcon()` festlegen und sowohl die `tabId`- als auch `windowId`-Optionen weglassen, wird das _"globale Symbol"_ gesetzt. Das globale Symbol erscheint dann in allen Registerkarten, die kein Registerkarten-spezifisches Symbol und deren Fenster kein Fenster-spezifisches Symbol haben.
+Wenn Sie ein neues Icon mit `setIcon()` setzen und sowohl die `tabId` als auch die `windowId` Optionen weglassen, dann wird das _"globale Icon"_ gesetzt. Das globale Icon erscheint dann in allen Tabs, die kein tab-spezifisches Icon setzen und deren Fenster kein fensterspezifisches Icon besitzen.
 
 ## Syntax
 
@@ -42,7 +40,7 @@ let settingIcon = browser.sidebarAction.setIcon(
     - `imageData` {{optional_inline}}
       - : {{WebExtAPIRef('sidebarAction.ImageDataType')}} oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuchobjekt.
 
-        Verwenden Sie ein Wörterbuchobjekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit unterschiedlicher Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt, und sein Name ist die Größe, so:
+        Verwenden Sie ein Wörterbuchobjekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, so dass das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt, und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.sidebarAction.setIcon({
@@ -53,12 +51,12 @@ let settingIcon = browser.sidebarAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild aus, das je nach Pixeldichte des Bildschirms verwendet werden soll. Weitere Informationen finden Sie unter [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes).
+        Der Browser wählt das Bild basierend auf der Pixeldichte des Bildschirms aus. Siehe [Choosing icon sizes](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
 
     - `path` {{optional_inline}}
-      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Symboldatei oder ein Wörterbuchobjekt.
+      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Icon-Datei oder ein Wörterbuchobjekt.
 
-        Verwenden Sie ein Wörterbuchobjekt, um mehrere Symboldateien in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit unterschiedlicher Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad, und sein Name ist die Größe, so:
+        Verwenden Sie ein Wörterbuchobjekt, um mehrere Icon-Dateien in verschiedenen Größen anzugeben, so dass das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad, und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.sidebarAction.setIcon({
@@ -69,33 +67,33 @@ let settingIcon = browser.sidebarAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild aus, das je nach Pixeldichte des Bildschirms verwendet werden soll. Weitere Informationen finden Sie unter [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes).
+        Der Browser wählt das Bild basierend auf der Pixeldichte des Bildschirms aus. Siehe [Choosing icon sizes](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
 
-        Wenn `path` eine leere Zeichenfolge ist, verwendet der Browser das Standardsymbol.
+        Wenn `path` eine leere Zeichenkette ist, verwendet der Browser das Standard-Icon.
 
-        Wenn `path` nicht leer ist, aber nicht auf eine Symboldatei verweist, wird das Symbol ausgeblendet.
+        Wenn `path` nicht leer ist, aber nicht auf eine Icon-Datei zeigt, wird das Icon ausgeblendet.
 
-        Wenn `path` `null` ist und `tabId` angegeben wurde und die angegebene Registerkarte ein registerkartenspezifisches Symbol hatte: Dann wird das registerkartenspezifische Symbol auf das globale Symbol zurückgesetzt (wenn ein globales Symbol festgelegt ist) oder das Manifest-Symbol.
+        Wenn `path` `null` ist und `tabId` angegeben wurde und der angegebene Tab ein tab-spezifisches Icon hatte: dann wird das tab-spezifische Icon auf das globale Icon zurückgesetzt (wenn ein globales Icon gesetzt ist) oder auf das Manifest-Icon.
 
-        Wenn `path` `null` ist und `tabId` weggelassen wurde und ein globales Symbol gesetzt war, wird es auf das Manifest-Symbol zurückgesetzt.
+        Wenn `path` `null` ist, `tabId` weggelassen wurde und ein globales Icon gesetzt war, wird es auf das Manifest-Icon zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt das Symbol nur für die angegebene Registerkarte.
+      - : `integer`. Setzt das Icon nur für den angegebenen Tab.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt das Symbol nur für das angegebene Fenster.
+      - : `integer`. Setzt das Icon nur für das angegebene Fenster.
 
 <!---->
 
-- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und das Symbol wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird das Symbol global gesetzt.
+- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und das Icon wird nicht gesetzt.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das Icon global gesetzt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Symbol gesetzt wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente erfüllt wird, sobald das Icon gesetzt wurde.
 
 ## Beispiele
 
-Der folgende Code wechselt das Seitenleistensymbol für die aktive Registerkarte, wenn der Benutzer auf eine Browseraktion klickt:
+Der folgende Code schaltet das Icon der Seitenleiste für den aktiven Tab um, wenn der Benutzer auf ein Browser-Action-Element klickt:
 
 ```js
 let on = false;

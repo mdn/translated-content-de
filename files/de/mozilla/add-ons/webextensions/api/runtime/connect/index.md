@@ -2,21 +2,19 @@
 title: runtime.connect()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/connect
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Stellen Sie eine Verbindung zwischen verschiedenen Kontexten innerhalb der Erweiterung her.
 
-Stellt eine Verbindung zwischen verschiedenen Kontexten innerhalb der Erweiterung her.
+Diese Funktion kann aufgerufen werden:
 
-Sie können dies aufrufen:
+- in den Inhalts-Skripten einer Erweiterung, um eine Verbindung mit den Hintergrund-Skripten der Erweiterung (oder ähnlich privilegierten Skripten, wie Popup-Skripten oder Optionsseiten-Skripten) herzustellen.
+- in den Hintergrund-Skripten einer Erweiterung (oder ähnlich privilegierten Skripten), um eine Verbindung mit einer anderen Erweiterung herzustellen.
 
-- in den Inhaltsskripten einer Erweiterung, um eine Verbindung mit den Hintergrundskripten der Erweiterung (oder ähnlich privilegierten Skripten wie Popup-Skripten oder Optionsseiten-Skripten) herzustellen.
-- in den Hintergrundskripten einer Erweiterung (oder ähnlich privilegierten Skripten), um eine Verbindung mit einer anderen Erweiterung herzustellen.
+Beachten Sie, dass Sie diese Funktion nicht verwenden können, um eine Erweiterung mit ihren Inhalts-Skripten zu verbinden. Verwenden Sie dafür {{WebExtAPIRef('tabs.connect()')}}.
 
-Beachten Sie, dass Sie diese Funktion nicht verwenden können, um eine Erweiterung mit ihren Inhaltsskripten zu verbinden. Dafür verwenden Sie {{WebExtAPIRef('tabs.connect()')}}.
-
-Standardmäßig ermöglicht diese Verbindung der Erweiterung, Nachrichten mit sich selbst oder einer anderen Erweiterung (falls `extensionId` angegeben ist) auszutauschen. Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken und die Kommunikation mit Websites zu ermöglichen. Verbindungen innerhalb der Erweiterung lösen das {{WebExtAPIRef('runtime.onConnect')}}-Ereignis aus, Verbindungen von anderen Erweiterungen oder Webseiten lösen das {{WebExtAPIRef('runtime.onConnectExternal')}}-Ereignis aus.
+Standardmäßig ermöglicht diese Verbindung der Erweiterung den Nachrichtenaustausch mit sich selbst oder einer anderen Erweiterung (falls `extensionId` angegeben ist). Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation mit bestimmten Erweiterungen zu beschränken und die Kommunikation mit Websites zu ermöglichen. Verbindungen innerhalb der Erweiterung lösen das {{WebExtAPIRef('runtime.onConnect')}} Ereignis aus, Verbindungen von anderen Erweiterungen oder Webseiten lösen das {{WebExtAPIRef('runtime.onConnectExternal')}} Ereignis aus.
 
 ## Syntax
 
@@ -30,25 +28,25 @@ let port = browser.runtime.connect(
 ### Parameter
 
 - `extensionId` {{optional_inline}}
-  - : `string`. Die ID der Erweiterung, mit der verbunden werden soll. Wenn das Ziel explizit eine ID mithilfe des [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) Schlüssels in manifest.json gesetzt hat, sollte `extensionId` diesen Wert haben. Andernfalls sollte es die für das Ziel generierte ID haben.
+  - : `string`. Die ID der Erweiterung, zu der die Verbindung hergestellt werden soll. Wenn das Ziel eine ID explizit mit dem Schlüssel [browser_specific_settings](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) in manifest.json festgelegt hat, sollte `extensionId` diesen Wert haben. Andernfalls sollte es die für das Ziel generierte ID haben.
 - `connectInfo` {{optional_inline}}
   - : `object`. Details zur Verbindung:
     - `name` {{optional_inline}}
-      - : `string`. Wird an {{WebExtAPIRef("runtime.onConnect")}} für Prozesse übergeben, die auf das Verbindungsevent hören.
+      - : `string`. Wird in {{WebExtAPIRef("runtime.onConnect")}} übergeben für Prozesse, die auf das Verbindungsevent warten.
     - `includeTlsChannelId` {{optional_inline}}
-      - : `boolean`. Ob die TLS-Kanal-ID an {{WebExtAPIRef("runtime.onConnectExternal")}} für Prozesse übergeben wird, die auf das Verbindungsevent hören.
+      - : `boolean`. Ob die TLS-Kanal-ID in {{WebExtAPIRef("runtime.onConnectExternal")}} übergeben wird für Prozesse, die auf das Verbindungsevent warten.
 
 ### Rückgabewert
 
-{{WebExtAPIRef('runtime.Port')}}. Port, durch den Nachrichten gesendet und empfangen werden können. Das `onDisconnect`-Ereignis des Ports wird ausgelöst, wenn die Erweiterung nicht existiert.
+{{WebExtAPIRef('runtime.Port')}}. Port, über den Nachrichten gesendet und empfangen werden können. Das `onDisconnect` Ereignis des Ports wird ausgelöst, wenn die Erweiterung nicht existiert.
 
 ## Beispiele
 
-Dieses Inhaltsskript:
+Dieses Inhalts-Skript:
 
-- verbindet sich mit dem Hintergrundskript und speichert den `Port` in einer Variablen namens `myPort`.
-- hört auf Nachrichten auf `myPort` und protokolliert diese.
-- sendet Nachrichten an das Hintergrundskript, indem es `myPort` verwendet, wenn der Benutzer auf das Dokument klickt.
+- stellt eine Verbindung zum Hintergrund-Skript her und speichert den `Port` in einer Variablen namens `myPort`.
+- hört auf Nachrichten auf `myPort` und protokolliert sie.
+- sendet Nachrichten an das Hintergrund-Skript unter Verwendung von `myPort`, wenn der Benutzer auf das Dokument klickt.
 
 ```js
 // content-script.js
@@ -66,15 +64,15 @@ document.body.addEventListener("click", () => {
 });
 ```
 
-Das entsprechende Hintergrundskript:
+Das zugehörige Hintergrund-Skript:
 
-- hört auf Verbindungsversuche vom Inhaltsskript.
+- hört auf Verbindungsversuche vom Inhalts-Skript.
 - wenn es einen Verbindungsversuch erhält:
-  - speichert den Port in einer Variablen namens `portFromCS`.
-  - sendet dem Inhaltsskript eine Nachricht über den Port.
-  - beginnt, auf über den Port empfangene Nachrichten zu hören, und protokolliert diese.
+  - speichert es den Port in einer Variablen namens `portFromCS`.
+  - sendet dem Inhalts-Skript eine Nachricht über den Port.
+  - beginnt, Nachrichten zu hören, die auf dem Port empfangen werden, und protokolliert sie.
 
-- sendet Nachrichten an das Inhaltsskript, indem es `portFromCS` verwendet, wenn der Benutzer auf die Browseraktion der Erweiterung klickt.
+- sendet Nachrichten an das Inhalts-Skript unter Verwendung von `portFromCS`, wenn der Benutzer auf die Browseraktion der Erweiterung klickt.
 
 ```js
 // background-script.js
@@ -104,34 +102,34 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connect) API von Chromium. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connect) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Die Weitergabe und Verwendung in Quell- und Binärformen, mit oder ohne
+// Modifikation, ist unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverteilungen in binärer Form müssen den obigen
+// Urheberrechtshinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien enthalten, die mit der
+// Verteilung geliefert werden.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Beitragenden dürfen verwendet werden, um Produkte zu unterstützen oder zu fördern, die aus
+// dieser Software abgeleitet sind, ohne spezifische vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNGEN,
+// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND
+// EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN ABGELEHNT. IN KEINEM FALL SOLLEN DIE INHABER DER COPYRIGHTS
+// ODER BEITRAGENDEN HAFTBAR GEMACHT WERDEN FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
+// SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF, BESCHAFFUNG VON ERSATZWARE ODER -DIENSTLEISTUNGEN; VERLUST VON
+// NUTZUNGSDATEN ODER -GEWINNEN; ODER BETRIEBSUNTERBRECHUNG) JEDOCH
+// ENTSTANDEN UND UNABHÄNGIG VON DER HAFTUNGSTHEORIE, OB IN
+// VERTRAG, STRENGER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
+// FAHRLÄSSIGKEIT ODER ANDERWEITIG) IN VERBINDUNG MIT DER VERWENDUNG DIESER
+// SOFTWARE, SELBST WENN DER MÖGLICHKEIT EINER SOLCHEN SCHÄDEN GESAGT WURDE.
 -->

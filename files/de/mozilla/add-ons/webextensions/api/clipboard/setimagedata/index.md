@@ -2,21 +2,19 @@
 title: clipboard.setImageData()
 slug: Mozilla/Add-ons/WebExtensions/API/clipboard/setImageData
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Kopiert ein Bild in die Zwischenablage. Das Bild wird neu codiert, bevor es in die Zwischenablage geschrieben wird. Wenn das Bild ungültig ist, wird die Zwischenablage nicht verändert.
 
-Kopiert ein Bild in die Zwischenablage. Das Bild wird neu kodiert, bevor es in die Zwischenablage geschrieben wird. Wenn das Bild ungültig ist, wird die Zwischenablage nicht verändert.
+Das Bild wird als ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) bereitgestellt, der das codierte Bild enthält. JPEG- und PNG-Formate werden unterstützt.
 
-Das Bild wird als [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) bereitgestellt, der das kodierte Bild enthält. JPEG- und PNG-Formate werden unterstützt.
-
-Obwohl diese API auf der [`clipboard.setImageData()`](https://developer.chrome.com/docs/apps/reference/clipboard)-API von Chrome basiert, gibt es einige Unterschiede:
+Obwohl diese API auf der [`clipboard.setImageData()`](https://developer.chrome.com/docs/apps/reference/clipboard) API von Chrome basiert, gibt es einige Unterschiede:
 
 - Die Chrome-API ist nur für Apps, nicht für Erweiterungen.
 - Diese API erfordert nur die Berechtigung `"clipboardWrite"`, während die Chrome-Version auch die Berechtigung `"clipboard"` erfordert.
-- Die API von Chrome verwendet Rückrufe, während diese API nur Zusagen (`promises`) unterstützt.
-- Diese API unterstützt den Parameter `additionalItems` nicht.
+- Die API von Chrome verwendet Callbacks, während diese API nur Versprechungen (`promises`) unterstützt.
+- Diese API unterstützt nicht den Parameter `additionalItems`.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,17 +27,17 @@ browser.clipboard.setImageData(imageData, imageType)
 ### Parameter
 
 - `imageData`
-  - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), der die zu kopierenden Bilddaten in die Zwischenablage enthält.
+  - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), der die zu kopierenden, codierten Bilddaten zur Zwischenablage enthält.
 - `imageType`
-  - : Ein String, der den Typ des im `imageData` enthaltenen Bildes angibt: `"png"` oder `"jpeg"`.
+  - : Ein String, der den Typ des Bildes in `imageData` angibt: `"png"` oder `"jpeg"`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn die Operation erfolgreich war, oder abgelehnt wird, wenn ein Fehler aufgetreten ist (zum Beispiel, weil die Daten kein gültiges Bild darstellten).
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das aufgelöst wird, ohne Argumente, wenn die Operation erfolgreich war, oder abgelehnt wird, wenn ein Fehler auftrat (zum Beispiel weil die Daten kein gültiges Bild darstellten).
 
 ## Beispiele
 
-Ein Bild von einer entfernten Quelle kopieren:
+Ein entferntes Bild kopieren:
 
 ```js
 // requires:
@@ -68,4 +66,4 @@ fetch(browser.runtime.getURL("image.png"))
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.clipboard`](https://developer.chrome.com/docs/apps/reference/clipboard)-API von Chromium.
+> Diese API basiert auf der [`chrome.clipboard`](https://developer.chrome.com/docs/apps/reference/clipboard) API von Chromium.

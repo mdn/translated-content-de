@@ -2,20 +2,18 @@
 title: devtools.panels.ElementsPanel.createSidebarPane()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel/createSidebarPane
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Fügt ein neues Paneel zur Seitenleiste im HTML/CSS-Inspektor hinzu.
 
-Fügt eine neue Registerkarte zur Seitenleiste im HTML/CSS-Inspektor hinzu.
+Der HTML/CSS-Inspektor, der in Firefox als [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) und in Chrome als [Elements panel](https://developer.chrome.com/docs/devtools/css/) bezeichnet wird, zeigt das Seiten-DOM im Hauptteil seines Fensters an und hat eine Seitenleiste, die verschiedene andere Aspekte der Seite HTML/CSS in einer Registerkartenoberfläche anzeigt. Zum Beispiel kann in Firefox die Seitenleiste die CSS-Regeln für das ausgewählte Element anzeigen oder dessen Schriftarten oder das Boxmodell.
 
-Der HTML/CSS-Inspektor, in Firefox als [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) und in Chrome als [Elements Panel](https://developer.chrome.com/docs/devtools/css/) bezeichnet, zeigt das DOM der Seite im Hauptteil seines Fensters an und verfügt über eine Seitenleiste, die verschiedene andere Aspekte des HTML/CSS der Seite in einer Registerkarten-Schnittstelle anzeigt. In Firefox kann die Seitenleiste beispielsweise die CSS-Regeln für das ausgewählte Element, seine Schriftarten oder sein Box-Modell anzeigen.
+Die Funktion `createSidebarPane()` fügt ein neues Paneel zur Seitenleiste hinzu. Zum Beispiel zeigt der untenstehende Screenshot ein neues Paneel mit dem Titel "My pane", das ein JSON-Objekt anzeigt:
 
-Die Funktion `createSidebarPane()` fügt eine neue Registerkarte zur Seitenleiste hinzu. Das nachstehende Bild zeigt zum Beispiel eine neue Registerkarte mit dem Titel "My pane", die ein JSON-Objekt anzeigt:
+![Bild zeigt ein neues Paneel mit dem Titel "My pane", das ein JSON-Objekt anzeigt](inspector-sidebar.png)
 
-![Bild zeigt eine neue Registerkarte mit dem Titel "My pane", die ein JSON-Objekt anzeigt](inspector-sidebar.png)
-
-Diese Funktion erfordert ein Argument, das einen String darstellt, der den Titel der Registerkarte repräsentiert. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das zu einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane) Objekt aufgelöst wird, welches die neue Registerkarte repräsentiert. Sie können dieses Objekt verwenden, um den Inhalt und das Verhalten der Registerkarte zu definieren.
+Diese Funktion nimmt ein Argument an, welches ein String ist und den Titel des Paneels darstellt. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das zu einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)-Objekt aufgelöst wird, welches das neue Paneel darstellt. Sie können dieses Objekt verwenden, um den Inhalt und das Verhalten des Paneels zu definieren.
 
 ## Syntax
 
@@ -28,15 +26,15 @@ let creating = browser.devtools.panels.elements.createSidebarPane(
 ### Parameter
 
 - `title`
-  - : `string`. Der Titel der Registerkarte. Dieser erscheint in der Reihe der Tabs am oberen Rand der Seitenleiste und ist der Hauptweg, wie der Benutzer Ihre Registerkarte identifizieren kann.
+  - : `string`. Der Titel des Paneels. Dieser erscheint in der Zeile der Registerkarten oben in der Seitenleiste und ist die Hauptmethode, wie der Benutzer Ihr Paneel anhand des Titels identifizieren kann.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane) Objekt aufgelöst wird, welches die neue Registerkarte repräsentiert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)-Objekt erfüllt wird, das das neue Paneel darstellt.
 
 ## Beispiele
 
-Erstellen Sie eine neue Registerkarte und füllen Sie sie mit einem JSON-Objekt. Sie könnten diesen Code in einem Skript ausführen, das durch die [devtools page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
+Erstellen Sie ein neues Paneel und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Script ausführen, das von der [devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
 
 ```js
 function onCreated(sidebarPane) {

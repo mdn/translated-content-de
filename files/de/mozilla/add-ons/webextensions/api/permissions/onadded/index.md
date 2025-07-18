@@ -2,12 +2,10 @@
 title: permissions.onAdded
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/onAdded
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ausgelöst, wenn die Erweiterung neue Berechtigungen gewährt.
+Wird ausgelöst, wenn der Erweiterung neue Berechtigungen gewährt werden.
 
 ## Syntax
 
@@ -20,18 +18,18 @@ browser.permissions.onAdded.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Zuhörer hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Zuhörer.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn Zuhören aktiv ist, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `permissions`
       - : {{WebExtAPIRef("permissions.Permissions")}}-Objekt, das die gewährten Berechtigungen enthält.
 

@@ -2,12 +2,10 @@
 title: tabs.setZoom()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/setZoom
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Zoomt den angegebenen Tab.
+Vergrößert den angegebenen Tab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,9 +21,9 @@ let zooming = browser.tabs.setZoom(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, der gezoomt werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
+  - : `integer`. Die ID des Tabs, der vergrößert werden soll. Standardmäßig ist der aktive Tab des aktuellen Fensters ausgewählt.
 - `zoomFactor`
-  - : `number`. Der neue Zoomfaktor. Nutzen Sie hier den Wert 0, um den Tab auf seinen aktuellen Standardzoomfaktor einzustellen. Ansonsten muss dies eine Zahl zwischen 0,3 und 5 sein, die einen Zoomfaktor angibt.
+  - : `number`. Der neue Zoomfaktor. Verwenden Sie hier einen Wert von 0, um den Tab auf seinen aktuellen Standardzoomfaktor zu setzen. Ansonsten muss dies eine Zahl zwischen 0,3 und 5 sein, die einen Zoomfaktor angibt.
 
 ### Rückgabewert
 
@@ -44,7 +42,7 @@ let setting = browser.tabs.setZoom(2);
 setting.then(null, onError);
 ```
 
-Setzen Sie den Zoomfaktor für den Tab mit der ID 16 auf 0,5:
+Setzen Sie den Zoomfaktor für den Tab, dessen ID 16 ist, auf 0,5:
 
 ```js
 function onError(error) {
@@ -62,7 +60,7 @@ setting.then(null, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-setZoom) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-setZoom) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

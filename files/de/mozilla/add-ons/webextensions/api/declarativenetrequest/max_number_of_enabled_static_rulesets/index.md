@@ -2,16 +2,14 @@
 title: declarativeNetRequest.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 l10n:
-  sourceCommit: 39a2c86675005f0682b7c5d0c32c8066be412aac
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die maximale Anzahl von statischen Rulesets, die eine Erweiterung aktiviert haben kann. Weitere Informationen zu den statischen Ruleset-Grenzen finden Sie unter [statische Ruleset-Grenzen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
-Die maximale Anzahl statischer Regelwerke, die eine Erweiterung aktiviert haben kann. Weitere Informationen zu den Begrenzungen statischer Regelwerke finden Sie unter [statische Regelwerkbegrenzungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Eine Erweiterung kann die Anzahl der aktivierten Rulesets mit der Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets", "updateEnabledRulesets")}} ändern.
 
-Eine Erweiterung kann die Anzahl der aktivierten Regelwerke mithilfe der Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets", "updateEnabledRulesets")}} ändern.
-
-Ihr Wert ist `10`.
+Der Wert ist `10`.
 
 {{WebExtExamples("h2")}}
 

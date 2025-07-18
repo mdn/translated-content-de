@@ -2,10 +2,8 @@
 title: Event.addRules()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/addRules
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Registriert Regeln für ein deklaratives Ereignis.
 
@@ -18,18 +16,17 @@ events.Event.addRules(rules, callback)
 ### Parameter
 
 - `rules`
-
   - : `array` von {{WebExtAPIRef("events.Rule")}}. Zu registrierende Regeln. Diese Regeln ersetzen nicht die bereits registrierten Regeln.
 
 - `callback` {{optional_inline}}
-  - : `function`. Wird aufgerufen, wenn die Regeln registriert sind. Der Parameter der Callback-Funktion ist ein Array der registrierten {{WebExtAPIRef("events.Rule")}} Objekte.
+  - : `function`. Wird aufgerufen, wenn die Regeln registriert werden. Der Parameter der Callback-Funktion ist ein Array der registrierten {{WebExtAPIRef("events.Rule")}} Objekte.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addRules) API. Diese Dokumentation leitet sich von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) aus dem Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-addRules) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

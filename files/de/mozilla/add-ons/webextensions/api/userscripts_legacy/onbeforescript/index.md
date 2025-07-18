@@ -2,15 +2,13 @@
 title: userScripts.onBeforeScript (Legacy)
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/onBeforeScript
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
 > [!WARNING]
-> Dies ist die Dokumentation für die veraltete `userScripts`-API. Sie ist in Firefox für Manifest V2 verfügbar. Für die Funktionalität mit Nutzer-Skripten im Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}}-API.
+> Dies ist die Dokumentation für die veraltete `userScripts`-API. Sie ist in Firefox für Manifest V2 verfügbar. Für die Funktionalität von Benutzerskripten in Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}} API.
 
-Das `onBeforeScript`-Ereignis der {{WebExtAPIRef("userScripts_legacy","browser.userScripts")}} wird ausgelöst, bevor ein Nutzer-Skript ausgeführt wird. Es kann nur im API-Skript enthalten sein, dem Skript, das in [`"user_scripts"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) registriert ist, wo es verwendet wird, um zu erkennen, dass die benutzerdefinierten API-Methoden zum Nutzer-Skript exportiert werden sollten.
+Das `onBeforeScript`-Ereignis der {{WebExtAPIRef("userScripts_legacy","browser.userScripts")}} wird ausgelöst, bevor ein Benutzerskript ausgeführt wird. Es kann nur im API-Skript enthalten sein, dem Skript, das in [`"user_scripts"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) registriert ist, wo es verwendet wird, um zu erkennen, dass die benutzerdefinierten API-Methoden an das Benutzerskript exportiert werden sollen.
 
 ## Syntax
 
@@ -25,9 +23,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stellt das Lauschen auf dieses Ereignis ein. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stellt das Lauschen auf dieses Ereignis ein. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, ansonsten `false`.
 
 ## addListener-Syntax
 
@@ -36,15 +34,15 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `script`
-      - : Ein `object`, das das Nutzer-Skript repräsentiert, das mit einer Webseite übereinstimmt. Seine Eigenschaften und Methoden sind wie folgt:
+      - : Ein `object`, das das Benutzerskript darstellt, das zu einer Webseite passt. Seine Eigenschaften und Methoden sind wie folgt:
         - `defineGlobals`
-          - : Eine Methode, die ein Objekt exportiert, das Eigenschaften und Methoden enthält, die global im Nutzer-Skript-Sandbox verfügbar sind. Diese Methode muss synchron aufgerufen werden, um sicherzustellen, dass das Nutzer-Skript nicht ausgeführt wurde.
+          - : Eine Methode, die ein Objekt exportiert, das Eigenschaften und Methoden enthält, die global für die Benutzerskript-Sandbox verfügbar sind. Diese Methode muss synchron aufgerufen werden, um zu garantieren, dass das Benutzerskript nicht ausgeführt wurde.
         - `export`
-          - : Eine Methode, die einen Wert in einen konvertiert, auf den der Nutzer-Skripte-Code zugreifen kann. Diese Methode wird in den API-Methoden verwendet, die an das Nutzer-Skript exportiert werden, um nicht primitive Werte zu liefern oder aufzulösen. Die exportierten Objekte können auch Methoden bereitstellen, auf die der Nutzer-Skripte-Code zugreifen und aufrufen kann.
+          - : Eine Methode, die einen Wert in einen umwandelt, den der Benutzerskript-Code erreichen kann. Diese Methode wird in API-Methoden verwendet, die an das Benutzerskript exportiert werden, um nicht-primitive Werte zu resultieren oder zu lösen. Die exportierten Objekte können auch Methoden bereitstellen, die der Benutzerskript-Code erreichen und aufrufen kann.
         - `global`
-          - : Ein `object`, das Zugriff auf die Sandbox für das Nutzer-Skript bietet.
+          - : Ein `object`, das Zugriff auf die Sandbox für das Benutzerskript bietet.
         - `metadata`
-          - : Die `scriptMetadata`-Eigenschaft, die festgelegt wird, wenn das Nutzer-Skript mit `userScripts.register` registriert wurde.
+          - : Die `scriptMetadata`-Eigenschaft, die gesetzt wird, wenn das Benutzerskript mit `userScripts.register` registriert wurde.
 
 ## Beispiele
 

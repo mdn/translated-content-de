@@ -2,12 +2,10 @@
 title: runtime.setUninstallURL()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/setUninstallURL
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Legt die URL fest, die beim Deinstallieren der Erweiterung besucht werden soll. Dies kann verwendet werden, um serverseitige Daten zu bereinigen, Analysen durchzuführen oder Umfragen zu implementieren. Die URL kann bis zu 1023 Zeichen lang sein. Diese Grenze betrug früher 255 Zeichen. Einzelheiten finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
+Setzt die URL, die beim Deinstallieren der Erweiterung aufgerufen wird. Dies kann verwendet werden, um serverseitige Daten zu bereinigen, Analysen durchzuführen oder Umfragen zu implementieren. Die URL kann bis zu 1023 Zeichen lang sein. Dieses Limit betrug früher 255 Zeichen. Weitere Details finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +20,11 @@ let settingUrl = browser.runtime.setUninstallURL(
 ### Parameter
 
 - `url`
-  - : `string`. URL, die geöffnet wird, nachdem die Erweiterung deinstalliert wurde. Diese URL muss ein `http`- oder `https`-Schema aufweisen. Kann bis zu 1023 Zeichen lang sein. Setzen Sie sie auf einen leeren String, um beim Deinstallieren der Erweiterung keinen neuen Tab zu öffnen.
+  - : `string`. URL, die nach der Deinstallation der Erweiterung geöffnet wird. Diese URL muss ein `http`- oder `https`-Schema haben. Kann bis zu 1023 Zeichen lang sein. Auf einen leeren String setzen, um keinen neuen Tab zu öffnen, wenn die Erweiterung deinstalliert wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die URL gesetzt wird, oder mit einer Fehlermeldung abgelehnt wird, wenn der Vorgang fehlschlägt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die URL festgelegt ist, oder mit einer Fehlermeldung abgelehnt wird, wenn der Vorgang fehlschlägt.
 
 ## Beispiele
 
@@ -50,7 +48,7 @@ settingUrl.then(onSetURL, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-setUninstallURL) API. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-setUninstallURL) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,48 +2,46 @@
 title: browsingData
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ermöglicht Erweiterungen, die Daten zu löschen, die beim Browsen des Nutzers angehäuft werden.
 
-Ermöglicht es Erweiterungen, die Daten zu löschen, die während des Surfens des Nutzers gesammelt werden.
-
-Innerhalb der `browsingData` API wird das Surf-Daten in folgende Typen unterteilt:
+Im `browsingData`-API werden die Browserdaten in folgende Typen unterteilt:
 
 - Browser-Cache
 - Cookies
 - Downloads
 - Verlauf
 - Lokaler Speicher
-- Plugin-Daten
+- Plugindaten
 - Gespeicherte Formulardaten
 - Gespeicherte Passwörter
 
-Sie können die Funktion {{WebExtAPIRef("browsingData.remove()")}} verwenden, um jede Kombination dieser Typen zu entfernen. Es gibt auch spezielle Funktionen zum Entfernen jedes bestimmten Datentyps, wie {{WebExtAPIRef("browsingData.removePasswords()", "removePasswords()")}}, {{WebExtAPIRef("browsingData.removeHistory()", "removeHistory()")}} und so weiter.
+Sie können die Funktion {{WebExtAPIRef("browsingData.remove()")}} verwenden, um eine beliebige Kombination dieser Typen zu entfernen. Es gibt auch spezielle Funktionen, um jeden Datentyp separat zu entfernen, wie {{WebExtAPIRef("browsingData.removePasswords()", "removePasswords()")}}, {{WebExtAPIRef("browsingData.removeHistory()", "removeHistory()")}} und so weiter.
 
-Alle `browsingData.remove[X]()` Funktionen akzeptieren ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das Sie verwenden können, um zwei weitere Aspekte der Datenentfernung zu steuern:
+Alle `browsingData.remove[X]()`-Funktionen nehmen ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt an, mit dem Sie zwei weitere Aspekte der Datenentfernung steuern können:
 
-- wie weit in der Vergangenheit Daten entfernt werden sollen
-- ob Daten nur von normalen Webseiten oder auch von gehosteten Web-Apps und Add-ons entfernt werden sollen. Beachten Sie, dass diese Option in Firefox noch nicht unterstützt wird.
+- Wie weit in die Vergangenheit die Daten entfernt werden sollen
+- Ob Daten nur von normalen Webseiten oder auch von gehosteten Web-Apps und Add-ons entfernt werden sollen. Beachten Sie, dass diese Option in Firefox noch nicht unterstützt wird.
 
-Abschließend bietet Ihnen diese API die Funktion {{WebExtAPIRef("browsingData.settings()")}}, die Ihnen den aktuellen Wert der Einstellungen für die eingebaute "Verlauf löschen"-Funktion des Browsers gibt.
+Schließlich bietet Ihnen dieses API eine {{WebExtAPIRef("browsingData.settings()")}}-Funktion, die Ihnen den aktuellen Wert der Einstellungen für die integrierte "Verlauf löschen"-Funktion des Browsers anzeigt.
 
-Um diese API zu verwenden, müssen Sie die "browsingData" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
+Um dieses API zu verwenden, müssen Sie die "browsingData" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) haben.
 
 ## Typen
 
 - {{WebExtAPIRef("browsingData.DataTypeSet")}}
-  - : Objekt zum Spezifizieren des Typs der zu entfernenden Daten: zum Beispiel, Verlauf, Downloads, Passwörter und so weiter.
+  - : Objekt, das verwendet wird, um den Datentyp zum Entfernen anzugeben: zum Beispiel Verlauf, Downloads, Passwörter und so weiter.
 - {{WebExtAPIRef("browsingData.RemovalOptions")}}
-  - : Objekt zum Spezifizieren wie weit in der Vergangenheit Daten entfernt werden sollen und ob Daten entfernt werden sollen, die durch normales Web-Browsing, durch gehostete Apps oder Add-ons hinzugefügt wurden.
+  - : Objekt, das verwendet wird, um anzugeben, wie weit in die Vergangenheit die Daten entfernt werden sollen und ob Daten entfernt werden sollen, die durch normales Web-Browsing, gehostete Apps oder Add-ons hinzugefügt wurden.
 
 ## Methoden
 
 - {{WebExtAPIRef("browsingData.remove()")}}
-  - : Entfernt die Surf-Daten für die angegebenen Datentypen.
+  - : Entfernt Browserdaten für die angegebenen Datentypen.
 - {{WebExtAPIRef("browsingData.removeCache()")}}
-  - : Löscht den Browser-Cache.
+  - : Leert den Cache des Browsers.
 - {{WebExtAPIRef("browsingData.removeCookies()")}}
   - : Entfernt Cookies.
 - {{WebExtAPIRef("browsingData.removeDownloads()")}}
@@ -53,11 +51,11 @@ Um diese API zu verwenden, müssen Sie die "browsingData" [API-Berechtigung](/de
 - {{WebExtAPIRef("browsingData.removeHistory()")}}
   - : Löscht den Verlauf des Browsers.
 - {{WebExtAPIRef("browsingData.removeLocalStorage()")}}
-  - : Löscht jeden durch Websites erstellten [lokalen Speicher](/de/docs/Web/API/Window/localStorage).
+  - : Löscht jeglichen von Websites erstellten [lokalen Speicher](/de/docs/Web/API/Window/localStorage).
 - {{WebExtAPIRef("browsingData.removePasswords()")}}
   - : Löscht gespeicherte Passwörter.
 - {{WebExtAPIRef("browsingData.removePluginData()")}}
-  - : Löscht Daten, die mit Plugins verbunden sind.
+  - : Löscht Daten, die mit Plugins assoziiert sind.
 - {{WebExtAPIRef("browsingData.settings()")}}
   - : Ruft den aktuellen Wert der Einstellungen in der "Verlauf löschen"-Funktion des Browsers ab.
 
@@ -68,4 +66,4 @@ Um diese API zu verwenden, müssen Sie die "browsingData" [API-Berechtigung](/de
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
+> Dieses API basiert auf dem [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.

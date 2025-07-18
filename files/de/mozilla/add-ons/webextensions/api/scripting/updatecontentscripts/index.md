@@ -2,17 +2,15 @@
 title: scripting.updateContentScripts()
 slug: Mozilla/Add-ons/WebExtensions/API/scripting/updateContentScripts
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Aktualisiert registrierte Inhalts-Skripte. Wenn während der Skript-Analyse und der Dateiüberprüfung Fehler auftreten oder wenn die angegebenen IDs nicht existieren, werden keine Skripte aktualisiert.
+Aktualisiert registrierte Inhalts-Skripte. Wenn während des Skriptparsing und der Dateivalidierung Fehler auftreten oder die angegebenen IDs nicht existieren, werden keine Skripte aktualisiert.
 
 > [!NOTE]
 > Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API zu verwenden, müssen Sie die Berechtigung `"scripting"` und die Berechtigung für die URL der Seite entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder mithilfe der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) besitzen.
+Um diese API verwenden zu können, müssen Sie die Berechtigung `"scripting"` sowie die Berechtigung für die URL der Seite besitzen, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder durch Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +25,15 @@ await browser.scripting.updateContentScripts(
 ### Parameter
 
 - `scripts`
-  - : `array` von {{WebExtAPIRef("scripting.RegisteredContentScript")}}. Details eines Skripts, das aktualisiert werden soll. Alle Eigenschaften sind optional, außer `id`.
+  - : `array` von {{WebExtAPIRef("scripting.RegisteredContentScript")}}. Details eines Skripts zur Aktualisierung. Alle Eigenschaften sind optional, außer `id`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("scripting.RegisteredContentScript")}} erfüllt wird. Tritt ein Fehler auf, wird das Versprechen abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("scripting.RegisteredContentScript")}} erfüllt wird. Wenn ein Fehler auftritt, wird das Versprechen abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert ein Content-Skript, das mit der ID `a-script` registriert wurde, indem `allFrames` auf `true` gesetzt wird:
+Dieses Beispiel aktualisiert ein Inhalts-Skript, das mit der ID `a-script` registriert ist, indem `allFrames` auf `true` gesetzt wird:
 
 ```js
 try {
@@ -67,4 +65,4 @@ try {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-updateContentScripts) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-updateContentScripts) API.

@@ -2,14 +2,12 @@
 title: tabs.onMoved
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onMoved
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn ein Tab innerhalb eines Fensters verschoben wird.
 
-Es wird nur ein Verschiebungsereignis ausgelöst, das den Tab darstellt, den der Benutzer direkt verschoben hat. Verschiebungsereignisse werden nicht für die anderen Tabs ausgelöst, die daraufhin verschoben werden müssen. Dieses Ereignis wird nicht ausgelöst, wenn ein Tab zwischen Fenstern verschoben wird. Siehe dafür {{WebExtAPIRef('tabs.onDetached')}}.
+Es wird nur ein Move-Event ausgelöst, welches den Tab darstellt, den der Benutzer direkt verschoben hat. Move-Events werden nicht für die anderen Tabs ausgelöst, die als Reaktion verschoben werden müssen. Dieses Ereignis wird nicht ausgelöst, wenn ein Tab zwischen Fenstern verschoben wird. Dafür siehe {{WebExtAPIRef('tabs.onDetached')}}.
 
 ## Syntax
 
@@ -24,11 +22,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## `addListener`-Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -37,7 +35,7 @@ Ereignisse haben drei Funktionen:
     - `tabId`
       - : `integer`. ID des Tabs, den der Benutzer verschoben hat.
     - `moveInfo`
-      - : `object`. Informationen über die Verschiebung. Siehe den [moveInfo](#moveinfo_2)-Abschnitt für weitere Details.
+      - : `object`. Informationen über die Verschiebung. Siehe den Abschnitt [moveInfo](#moveinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -52,7 +50,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf und protokollieren Sie Verschiebungsereignisse:
+Hören Sie Move-Events ab und protokollieren Sie sie:
 
 ```js
 function handleMoved(tabId, moveInfo) {
@@ -71,7 +69,7 @@ browser.tabs.onMoved.addListener(handleMoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der `chrome.tabs`-API von Chromium. Diese Dokumentation leitet sich aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onMoved) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

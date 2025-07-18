@@ -2,12 +2,10 @@
 title: webNavigation.getAllFrames()
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/getAllFrames
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt bei Angabe einer Tab-ID Informationen über alle darin enthaltenen Frames zurück.
+Gibt für eine angegebene Tab-ID Informationen über alle Frames zurück, die dieser enthält.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,17 +29,17 @@ let gettingFrames = browser.webNavigation.getAllFrames(
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, von denen jedes die folgenden Eigenschaften hat:
 
 - `errorOccurred`
-  - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}}-Ereignis wurde ausgelöst.
+  - : `boolean`. True, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} Ereignis ausgelöst wurde.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführte.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführt.
 - `frameId`
-  - : `integer`. Die ID des Frames. Wenn dies der Hauptframe ist, dann ist `frameId` null.
+  - : `integer`. Die ID des Frames. Ist dies der Hauptframe, dann ist `frameId` null.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn kein übergeordneter Frame vorhanden ist: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
+  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn es keinen übergeordneten Frame gibt: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
 - `url`
   - : `string`. Die URL, die derzeit mit diesem Frame verknüpft ist.
 
-Wenn der Tab verworfen ist, wird das Promise stattdessen mit einem `null`-Wert gelöst. Wenn der angegebene Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Tab verworfen wird, wird das Promise stattdessen mit einem `null`-Wert erfüllt. Kann der angegebene Tab nicht gefunden werden oder tritt ein anderer Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -83,7 +81,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

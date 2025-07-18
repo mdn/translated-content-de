@@ -2,12 +2,10 @@
 title: userScripts.unregister()
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts/unregister
 l10n:
-  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Hebt die Registrierung von Benutzer-Skripten auf, die durch die Erweiterung registriert wurden.
+Hebt die Registrierung von Benutzerskripten auf, die von der Erweiterung registriert wurden.
 
 ## Syntax
 
@@ -20,11 +18,11 @@ let unregisteringUserScripts = browser.userScripts.unregister(
 ### Parameter
 
 - `filter` {{optional_inline}}
-  - : {{WebExtAPIRef("userScripts.UserScriptFilter")}}. Eine Liste von Benutzer-Skript-IDs, die aufgehoben werden sollen. Wird kein Wert angegeben, werden alle Benutzer-Skripte abgemeldet.
+  - : {{WebExtAPIRef("userScripts.UserScriptFilter")}}. Eine Liste von IDs der Benutzerskripte, die abgemeldet werden sollen. Wenn nicht angegeben, werden alle Benutzerskripte abgemeldet.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn die Benutzer-Skripte abgemeldet sind. Scheitert die Anforderung, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein {{JSxRef("Promise")}}, das ohne Argumente erfüllt wird, wenn die Benutzerskripte abgemeldet sind. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples("h2")}}
 

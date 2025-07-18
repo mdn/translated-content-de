@@ -2,14 +2,12 @@
 title: tabs.onHighlighted
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onHighlighted
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn sich die Menge der hervorgehobenen Tabs in einem Fenster ändert.
 
-Beachten Sie, dass Firefox vor Version 63 das Konzept des Markierens mehrerer Tabs nicht hatte, sodass dieses Ereignis nur ein Alias für {{WebExtAPIRef("tabs.onActivated")}} war.
+Beachten Sie, dass Firefox vor Version 63 das Konzept der Hervorhebung mehrerer Tabs nicht kannte, weshalb dieses Ereignis lediglich ein Alias für {{WebExtAPIRef("tabs.onActivated")}} war.
 
 ## Syntax
 
@@ -24,16 +22,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob der `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die ausgeführt wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `highlightInfo`
       - : `object`. ID(s) der hervorgehobenen Tabs und ID ihres Fensters. Siehe den Abschnitt [highlightInfo](#highlightinfo_2) für weitere Details.
 
@@ -48,7 +46,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Lauschen Sie auf Markierungsereignisse und protokollieren Sie die IDs der hervorgehobenen Tabs:
+Abhören von Hervorhebungsereignissen und Protokollierung der IDs hervorgehobener Tabs:
 
 ```js
 function handleHighlighted(highlightInfo) {
@@ -65,7 +63,7 @@ browser.tabs.onHighlighted.addListener(handleHighlighted);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onHighlighted). Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onHighlighted) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

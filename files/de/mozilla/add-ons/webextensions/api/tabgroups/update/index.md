@@ -2,12 +2,10 @@
 title: tabGroups.update
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/update
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ändert den Status einer Tabgruppe.
+Ändert den Zustand einer Tab-Gruppe.
 
 ## Syntax
 
@@ -21,21 +19,20 @@ let updatedTabGroup = await browser.tabGroups.update(
 ### Parameter
 
 - `groupId`
-
-  - : `integer` Die ID der zu aktualisierenden Tabgruppe.
+  - : `integer` Die ID der Tab-Gruppe, die aktualisiert werden soll.
 
 - `updateProperties`
-  - : Ein Objekt, das Details zu den Eigenschaften enthält, die für diese Tabgruppe aktualisiert werden sollen. Eigenschaften, die nicht angegeben sind, werden nicht geändert.
+  - : Ein Objekt, das Details über die zu ändernden Eigenschaften dieser Tab-Gruppe enthält. Nicht angegebene Eigenschaften werden nicht modifiziert.
     - `collapsed` {{optional_inline}}
-      - : `boolean`. Gibt an, ob die Tabgruppe in der Tableiste eingeklappt oder ausgeklappt ist.
+      - : `boolean`. Ob die Tab-Gruppe in der Tab-Leiste eingeklappt oder ausgeklappt ist.
     - `color` {{optional_inline}}
-      - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die für die Tabgruppe verwendet werden soll.
+      - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die für die Tab-Gruppe verwendet werden soll.
     - `title` {{optional_inline}}
-      - : `string`. Der Name der Tabgruppe.
+      - : `string`. Der Name der Tab-Gruppe.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekt erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("tabGroups.TabGroup")}} Objekt erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples("h2")}}
 

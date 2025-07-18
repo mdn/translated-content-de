@@ -2,10 +2,8 @@
 title: runtime.PlatformInfo
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/PlatformInfo
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ein Objekt, das Informationen über die aktuelle Plattform enthält.
 
@@ -18,7 +16,7 @@ Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten:
 - `arch`
   - : {{WebExtAPIRef('runtime.PlatformArch')}}. Die Prozessorarchitektur der Plattform.
 - `nacl_arch`
-  - : {{WebExtAPIRef('runtime.PlatformNaclArch')}}. Die native Client-Architektur. Diese kann auf einigen Plattformen von `arch` abweichen.
+  - : {{WebExtAPIRef('runtime.PlatformNaclArch')}}. Die Architektur des nativen Clients. Diese kann auf einigen Plattformen von `arch` abweichen.
 
 {{WebExtExamples}}
 
@@ -27,7 +25,7 @@ Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformInfo) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformInfo) API. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

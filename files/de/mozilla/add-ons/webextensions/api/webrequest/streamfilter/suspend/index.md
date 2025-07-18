@@ -2,14 +2,12 @@
 title: webRequest.StreamFilter.suspend()
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/suspend
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Pausiert eine Anfrage. Nachdem diese Methode aufgerufen wurde, werden keine Daten mehr geliefert, bis die Anfrage mit einem Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.resume()", "resume()")}} fortgesetzt wird.
 
-Setzt eine Anfrage aus. Nachdem dies aufgerufen wurde, werden keine weiteren Daten geliefert, bis die Anfrage mit einem Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.resume()", "resume()")}} fortgesetzt wird.
-
-Sie können diese Funktion erst aufrufen, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
+Sie können diese Funktion erst aufrufen, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
 
 ## Syntax
 

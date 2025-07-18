@@ -1,61 +1,58 @@
 ---
-title: Schaltfläche in der Adressleiste
+title: Adressleisten-Button
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Page_actions
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Häufig als [Seitenaktions-](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) Button bezeichnet, ist diese Benutzeroberflächenoption ein Knopf, der zur Adressleiste des Browsers hinzugefügt wird. Benutzer klicken auf den Button, um mit Erweiterungen zu interagieren.
 
-Oft wird diese Benutzeroberflächenoption als [Page-Action](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) Schaltfläche bezeichnet. Dabei handelt es sich um eine Schaltfläche, die der Browser-Adressleiste hinzugefügt wird. Benutzer klicken auf die Schaltfläche, um mit Erweiterungen zu interagieren.
+![Seitenaktions-Button ist ein Symbol eines Hundepfotenabdrucks](address_bar_button.png)
 
-![Page-Action-Schaltfläche ist ein Symbol eines Hundepfotenabdrucks](address_bar_button.png)
+## Seitenaktionen und Browseraktionen
 
-## Page Actions und Browser Actions
-
-Die Schaltfläche in der Adressleiste (oder Page Action) ist ähnlich der Symbolleistenschaltfläche (oder Browser Action).
+Der Adressleisten-Button (oder Seitenaktion) ist ähnlich dem Toolbar-Button (oder Browseraktion).
 
 Die Unterschiede sind:
 
-- **Die Position der Schaltfläche:**
+- **Der Ort des Buttons:**
+  - Die Seitenaktion wird innerhalb der Adressleiste des Browsers angezeigt.
+  - Die Browseraktion wird außerhalb der Adressleiste, in der Symbolleiste des Browsers, angezeigt.
 
-  - Die Page Action wird innerhalb der Browser-Adressleiste angezeigt.
-  - Die Browser Action wird außerhalb der Adressleiste, in der Browser-Symbolleiste, angezeigt.
+- **Die Sichtbarkeit des Buttons:**
+  - Die Seitenaktion ist standardmäßig verborgen (obwohl dieser Standard über die `show_matches` und `hide_matches` [manifest key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Eigenschaften geändert werden kann), und Sie verwenden [`pageAction.show()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show) und [`pageAction.hide()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/hide), um sie in bestimmten Tabs anzuzeigen oder zu verbergen.
+  - Die Browseraktion wird immer angezeigt.
 
-- **Die Sichtbarkeit der Schaltfläche:**
-  - Die Page Action ist standardmäßig ausgeblendet (obwohl dieser Standard über die Eigenschaften `show_matches` und `hide_matches` des [Manifest-Schlüssels](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) geändert werden kann), und Sie rufen [`pageAction.show()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show) und [`pageAction.hide()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/hide) auf, um sie in bestimmten Tabs anzuzeigen oder auszublenden.
-  - Die Browser Action wird immer angezeigt.
-
-Verwenden Sie eine Page Action, wenn die Aktion sich auf die aktuelle Seite bezieht. Nutzen Sie eine Browser Action, wenn die Aktion sich auf den gesamten Browser oder auf viele Seiten bezieht. Zum Beispiel:
+Verwenden Sie eine Seitenaktion, wenn die Aktion sich auf die aktuelle Seite bezieht. Verwenden Sie eine Browseraktion, wenn die Aktion sich auf den gesamten Browser oder auf viele Seiten bezieht. Zum Beispiel:
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="row">Typ</th>
-      <th scope="col">Lesezeichenaktion</th>
+      <th scope="col">Lesezeichen-Aktion</th>
       <th scope="col">Inhaltsaktion</th>
       <th scope="col">Tab-Operation</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">page action</th>
-      <td>Diese Seite als Lesezeichen hinzufügen</td>
+      <th scope="row">Seitenaktion</th>
+      <td>Diese Seite zu Favoriten hinzufügen</td>
       <td>Reddit-Verbesserung</td>
       <td>Tab senden</td>
     </tr>
     <tr>
-      <th scope="row">browser action</th>
+      <th scope="row">Browseraktion</th>
       <td>Alle Lesezeichen anzeigen</td>
-      <td>Werbungsblockierung aktivieren</td>
+      <td>Werbeblockierung aktivieren</td>
       <td>Alle offenen Tabs synchronisieren</td>
     </tr>
   </tbody>
 </table>
 
-## Festlegen der Page Action
+## Spezifizierung der Seitenaktion
 
-Sie definieren die Eigenschaften der Page Action mit dem [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Schlüssel in der manifest.json:
+Sie definieren die Eigenschaften der Seitenaktion mithilfe des [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Schlüssels in der manifest.json:
 
 ```json
 "page_action": {
@@ -67,26 +64,26 @@ Sie definieren die Eigenschaften der Page Action mit dem [`page_action`](/de/doc
 }
 ```
 
-Der einzige obligatorische Schlüssel ist `default_icon`.
+Der einzige erforderliche Schlüssel ist `default_icon`.
 
-Es gibt zwei Möglichkeiten, eine Page Action zu spezifizieren: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups).
+Es gibt zwei Möglichkeiten, eine Seitenaktion zu bestimmen: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups).
 
-- **Ohne ein Popup:** Wenn der Benutzer auf die Schaltfläche klickt, wird ein Ereignis an die Erweiterung gesendet, welches die Erweiterung mit [`pageAction.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/onClicked) überwacht:
+- **Ohne Popup:** Wenn der Benutzer auf den Button klickt, wird ein Ereignis an die Erweiterung gesendet, auf das die Erweiterung mit [`pageAction.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/onClicked) lauscht:
 
   ```js
   browser.pageAction.onClicked.addListener(handleClick);
   ```
 
-- **Mit einem Popup:** das `click`-Ereignis wird nicht gesendet. Stattdessen erscheint das Popup, wenn der Benutzer auf die Schaltfläche klickt. Der Benutzer interagiert dann mit dem Popup. Wenn der Benutzer außerhalb des Popups klickt, wird es automatisch geschlossen. Siehe den [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) Artikel für weitere Details zur Erstellung und Verwaltung von Popups.
+- **Mit Popup:** das `click`-Ereignis wird nicht gesendet. Stattdessen erscheint das Popup, wenn der Benutzer auf den Button klickt. Der Benutzer interagiert dann mit dem Popup. Wenn der Benutzer außerhalb des Popups klickt, schließt es sich automatisch. Sehen Sie sich den [Popup-Artikel](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) an, um mehr über das Erstellen und Verwalten von Popups zu erfahren.
 
-Beachten Sie, dass Ihre Erweiterung nur eine Page Action haben kann.
+Bitte beachten Sie, dass Ihre Erweiterung nur eine Seitenaktion haben kann.
 
-Sie können jede der Eigenschaften der Page Action programmatisch mit der [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) API ändern.
+Sie können alle Eigenschaften der Seitenaktion programmatisch über die [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) API ändern.
 
-## Symbole
+## Icons
 
-Für Details zur Erstellung von Symbolen, die Sie mit Ihrer Page Action verwenden können, sehen Sie unter [Iconography](https://acorn.firefox.com/latest/styles/iconography/overview-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation nach.
+Für Details, wie Sie Icons für Ihre Seitenaktion erstellen können, sehen Sie sich die [Ikonographie](https://acorn.firefox.com/latest/styles/iconography/overview-QEDMXQqj) in der Dokumentation des [Acorn Design Systems](https://acorn.firefox.com/latest) an.
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [chill-out](https://github.com/mdn/webextensions-examples/tree/main/chill-out) Beispiel, das eine Page Action ohne ein Popup implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub beinhaltet das [chill-out](https://github.com/mdn/webextensions-examples/tree/main/chill-out) Beispiel, das eine Seitenaktion ohne Popup implementiert.

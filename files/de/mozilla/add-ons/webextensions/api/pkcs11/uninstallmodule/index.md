@@ -2,12 +2,10 @@
 title: pkcs11.uninstallModule()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/uninstallModule
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Deinstalliert das benannte PKCS #11-Modul aus Firefox.
+Deinstalliert das benannte PKCS #11 Modul aus Firefox.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,13 +20,13 @@ let uninstalling = browser.pkcs11.uninstallModule(
 ### Parameter
 
 - `name`
-  - : `string`. Name des zu deinstallierenden Moduls. Dieser muss mit der Eigenschaft `name` im [PKCS #11-Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
+  - : `string`. Name des Moduls, das deinstalliert werden soll. Dieser muss mit der `name`-Eigenschaft im [PKCS #11 Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Modul deinstalliert ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird ohne Argumente, sobald das Modul deinstalliert ist.
 
-Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Falls das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

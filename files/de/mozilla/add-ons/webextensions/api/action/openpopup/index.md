@@ -2,10 +2,8 @@
 title: action.openPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/action/openPopup
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Öffnet das Popup der Browseraktion.
 
@@ -31,11 +29,11 @@ browser.action.openPopup(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird.
 
 ## Beispiele
 
-Öffnet das Popup, wenn der Benutzer ein Kontextmenü-Element auswählt:
+Öffnen Sie das Popup, wenn der Benutzer ein Kontextmenüelement auswählt:
 
 ```js
 browser.menus.create({

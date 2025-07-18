@@ -2,26 +2,26 @@
 title: Autor-Detailseite
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_detail_page
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
 ---
 
-Die Autor-Detailseite muss die Informationen über den angegebenen `Author` darstellen, identifiziert durch den (automatisch generierten) `_id` Feldwert, zusammen mit einer Liste aller `Book` Objekte, die mit diesem `Author` verbunden sind.
+Die Autor-Detailseite muss die Informationen über den angegebenen `Author` anzeigen, identifiziert durch ihren (automatisch generierten) `_id` Feldwert, zusammen mit einer Liste aller `Book` Objekte, die diesem `Author` zugeordnet sind.
 
 ## Controller
 
 Öffnen Sie **/controllers/authorController.js**.
 
-Fügen Sie die folgenden Zeilen am Anfang der Datei hinzu, um das `Book` Modul, das von der Autor-Detailseite benötigt wird, mit `require()` einzubinden (andere Module wie "express-async-handler" sollten bereits vorhanden sein).
+Fügen Sie die folgenden Zeilen am Anfang der Datei hinzu, um das `Book` Modul zu `require()`, das von der Autor-Detailseite benötigt wird.
 
 ```js
 const Book = require("../models/book");
 ```
 
-Finden Sie die exportierte `author_detail()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Suchen Sie die exportierte `author_detail()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display detail page for a specific Author.
-exports.author_detail = asyncHandler(async (req, res, next) => {
+exports.author_detail = async (req, res, next) => {
   // Get details of author and all their books (in parallel)
   const [author, allBooksByAuthor] = await Promise.all([
     Author.findById(req.params.id).exec(),
@@ -40,13 +40,13 @@ exports.author_detail = asyncHandler(async (req, res, next) => {
     author,
     author_books: allBooksByAuthor,
   });
-});
+};
 ```
 
-Der Ansatz ist genau derselbe wie für die [Genre-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page) beschrieben.
+Der Ansatz ist genau der gleiche wie auf der [Genre-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page) beschrieben.
 Die Routen-Controller-Funktion verwendet `Promise.all()`, um den angegebenen `Author` und deren zugehörige `Book` Instanzen parallel abzufragen.
-Wenn kein passender Autor gefunden wird, wird ein Error-Objekt an die Express-Fehlerbehandlungsmiddleware gesendet.
-Wird der Autor gefunden, werden die abgerufenen Datenbankinformationen mit der Vorlage "author_detail" gerendert.
+Wenn kein passender Autor gefunden wird, wird ein `Error` Objekt an die Express-Fehlerbehandlungsmiddleware gesendet.
+Wenn der Autor gefunden wird, werden die abgerufenen Datenbankinformationen mit der "author_detail" Vorlage gerendert.
 
 ## Ansicht
 
@@ -73,18 +73,18 @@ block content
       p This author has no books.
 ```
 
-Alles in dieser Vorlage wurde in den vorangegangenen Abschnitten demonstriert.
+Alles in dieser Vorlage wurde in den vorherigen Abschnitten demonstriert.
 
 ## Wie sieht es aus?
 
-Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Autoren_, und dann einen der Autoren. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite ungefähr wie der folgende Screenshot aussehen.
+Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Autoren_ und wählen Sie dann einen der Autoren. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite wie der folgende Screenshot aussehen.
 
-![Autor-Detailseite - Express Local Library Seite](locallibary_express_author_detail.png)
+![Autor-Detailseite - Express Local Library Website](locallibary_express_author_detail.png)
 
 > [!NOTE]
-> Das Erscheinungsbild der _Lebenszeitraum_-Daten des Autors ist unschön! Wir werden das im letzten Abschnitt dieses Artikels angehen.
+> Das Aussehen der _Lebensspanne_ Datumsangaben des Autors ist hässlich! Wir werden dies in der letzten Herausforderung in diesem Artikel ansprechen.
 
 ## Nächste Schritte
 
-- Zurück zu [Express Tutorial Teil 5: Anzeigen von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie fort mit dem letzten Unterartikel von Teil 5: [BookInstance-Detailseite und Herausforderung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_detail_page_and_challenge).
+- Kehren Sie zurück zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
+- Fahren Sie fort mit dem letzten Unterartikel von Teil 5: [BookInstance Detailseite und Herausforderung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_detail_page_and_challenge).

@@ -2,32 +2,30 @@
 title: identity.launchWebAuthFlow
 slug: Mozilla/Add-ons/WebExtensions/API/identity/launchWebAuthFlow
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Führt den ersten Teil eines [OAuth2](https://oauth.net/2/)-Flows aus, einschließlich Benutzerauthentifizierung und Client-Autorisierung.
 
-Führt den ersten Teil eines [OAuth2](https://oauth.net/2/)-Flows aus, einschließlich der Benutzer-Authentifizierung und der Client-Autorisierung.
+Der einzige obligatorische Parameter dieser Funktion ist die Autorisierungs-URL des Dienstanbieters, die eine Reihe von URL-Parametern enthalten muss, einschließlich der [Weiterleitungs-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url) und der [Client-ID](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#registering_your_extension) der Erweiterung. Der Dienstanbieter:
 
-Der einzige obligatorische Parameter dieser Funktion ist die Autorisierungs-URL des Dienstanbieters, die eine Reihe von URL-Parametern enthalten muss, einschließlich der [Redirect-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url) und der [Client-ID](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#registering_your_extension) der Erweiterung. Der Dienstanbieter führt dann Folgendes durch:
+- authentifiziert den Benutzer beim Dienstanbieter, falls erforderlich (das heißt: wenn der Benutzer nicht bereits angemeldet ist)
+- bittet den Benutzer um Autorisierung der Erweiterung, um auf die angeforderten Daten zuzugreifen, falls erforderlich (das heißt: wenn der Benutzer die Erweiterung nicht bereits autorisiert hat)
 
-- authentifiziert den Benutzer beim Dienstanbieter, falls erforderlich (das heißt: wenn er noch nicht angemeldet ist)
-- bittet den Benutzer, die Erweiterung zu autorisieren, um auf die angeforderten Daten zuzugreifen, falls erforderlich (das heißt: wenn der Benutzer die Erweiterung noch nicht autorisiert hat)
+Beachten Sie, dass diese Funktion, falls weder Authentifizierung noch Autorisierung erforderlich sind, stillschweigend abgeschlossen wird, ohne dass eine Benutzerinteraktion erfolgt.
 
-Beachten Sie, dass, wenn weder eine Authentifizierung noch eine Autorisierung erforderlich sind, diese Funktion stillschweigend ohne Benutzereingriff abgeschlossen wird.
+Diese Funktion akzeptiert auch einen optionalen Parameter `interactive`: wenn dieser weggelassen wird oder auf `false` gesetzt ist, wird der Flow gezwungen, stillschweigend abgeschlossen zu werden. In diesem Fall schlägt die Operation fehl, falls der Benutzer authentifizieren oder autorisieren muss.
 
-Diese Funktion nimmt auch einen optionalen Parameter `interactive` an: Wenn dieser weggelassen oder auf false gesetzt wird, wird der Flow gezwungen, stillschweigend abgeschlossen zu werden. In diesem Fall schlägt der Vorgang fehl, wenn der Benutzer sich authentifizieren oder autorisieren muss.
+Diese Funktion gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück: Wenn Authentifizierung und Autorisierung erfolgreich waren, wird das Promise mit einer Weiterleitungs-URL erfüllt, die eine Reihe von URL-Parametern enthält. Abhängig vom OAuth2-Flow, der vom betreffenden Dienstanbieter implementiert wird, muss die Erweiterung weitere Schritte durchführen, um einen gültigen Zugriffscode zu erhalten, den sie dann nutzen kann, um auf die Daten des Benutzers zuzugreifen.
 
-Diese Funktion gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück: Wenn die Authentifizierung und Autorisierung erfolgreich waren, wird das Promise mit einer Redirect-URL erfüllt, die eine Reihe von URL-Parametern enthält. Abhängig von dem implementierten OAuth2-Flow des betreffenden Dienstanbieters muss die Erweiterung weitere Schritte durchlaufen, um einen gültigen Zugangscode zu erhalten, den sie dann verwenden kann, um auf die Benutzerdaten zuzugreifen.
-
-Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt. Fehlerbedingungen können folgende sein:
+Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt. Fehlerbedingungen können umfassen:
 
 - Die URL des Dienstanbieters konnte nicht erreicht werden
 - Die Client-ID stimmte nicht mit der ID eines registrierten Clients überein
-- Die Redirect-URL stimmte nicht mit einer für diesen Client registrierten Redirect-URL überein
-- Der Benutzer hat sich nicht erfolgreich authentifiziert
+- Die Weiterleitungs-URL stimmte mit keiner der für diesen Client registrierten Weiterleitungs-URLs überein
+- Der Benutzer konnte nicht erfolgreich authentifiziert werden
 - Der Benutzer hat die Erweiterung nicht autorisiert
-- Der `interactive`-Parameter wurde weggelassen oder war false, aber eine Benutzerinteraktion wäre nötig gewesen, um die Erweiterung zu autorisieren.
+- Der `interactive`-Parameter wurde weggelassen oder war `false`, aber Benutzerinteraktion wäre erforderlich gewesen, um die Erweiterung zu autorisieren.
 
 ## Syntax
 
@@ -40,27 +38,27 @@ let authorizing = browser.identity.launchWebAuthFlow(
 ### Parameter
 
 - `details`
-  - : `object`. Optionen für den Flow, die folgende Eigenschaften enthalten:
+  - : `object`. Optionen für den Flow, die die folgenden Eigenschaften enthalten:
     - `url`
-      - : `string`. Die vom OAuth2-Dienstanbieter angebotene URL, um ein Zugriffstoken zu erhalten. Die Details dieser URL sollten in der Dokumentation des betreffenden Dienstanbieters angegeben werden, aber die URL-Parameter sollten stets enthalten: die [Redirect-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url) und die [Client-ID](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#registering_your_extension) der Erweiterung.
+      - : `string`. Die vom OAuth2-Dienstanbieter angebotene URL, um einen Zugriffstoken zu erhalten. Die Details dieser URL sollten in der Dokumentation des betreffenden Dienstanbieters angegeben werden, aber die URL-Parameter sollten immer beinhalten: die [Weiterleitungs-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url) und die [Client-ID](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#registering_your_extension) der Erweiterung.
     - `redirect_uri` {{optional_inline}}
-      - : `string`. Dies stellt die URI dar, zu der Ihre Erweiterung umgeleitet wird, wenn der Flow abgeschlossen ist. Nicht erforderlich für den Ablauf auf der Browserseite, wenn sie mit der generierten Redirect-URL übereinstimmt. Siehe [Abrufen der Redirect-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url).
+      - : `string`. Dies stellt die URI dar, zu der Ihre Erweiterung geleitet wird, wenn der Flow abgeschlossen ist. Nicht erforderlich für den Flow, um auf der Browser-Seite zu funktionieren, wenn es mit der generierten Weiterleitungs-URL übereinstimmt. Siehe [Erhalten der Weiterleitungs-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url).
     - `interactive` {{optional_inline}}
-      - : `boolean`. Wenn weggelassen oder `false`, wird der Flow gezwungen, stillschweigend abgeschlossen zu werden, ohne jegliche Benutzerinteraktion.
+      - : `boolean`. Wenn weggelassen oder `false`, zwingt es den Flow, stillschweigend abzuschließen, ohne jegliche Benutzerinteraktion.
 
-        Wenn der Benutzer bereits angemeldet ist und bereits Zugriff für die Erweiterung gewährt hat, kann `launchWebAuthFlow()` stillschweigend abgeschlossen werden, ohne jegliche Benutzerinteraktion. Andernfalls (wenn der Dienstanbieter den Benutzer zur Anmeldung oder zur Autorisierung der Erweiterung benötigt) wird der Benutzer aufgefordert: das heißt, der Flow wird interaktiv.
+        Wenn der Benutzer bereits angemeldet ist und bereits Zugriff für die Erweiterung gewährt hat, kann `launchWebAuthFlow()` stillschweigend abgeschlossen werden, ohne jegliche Benutzerinteraktion. Ansonsten (wenn der Dienstanbieter möchte, dass sich der Benutzer anmeldet oder die Erweiterung autorisiert), wird `launchWebAuthFlow()` den Benutzer dazu auffordern: das heißt, der Flow wird interaktiv sein.
 
-        Erweiterungen sollten keine interaktiven Flows starten, es sei denn, als Reaktion auf eine Benutzeraktion. Manchmal möchten Erweiterungen jedoch auf Benutzerdaten zugreifen, ohne dass eine direkte Benutzeraktion stattfindet (zum Beispiel stellen Sie sich eine Erweiterung vor, die beim Start des Browsers auf Daten zugreifen möchte).
+        Erweiterungen sollten interaktive Flows nur als Reaktion auf eine Benutzeraktion starten. Manchmal möchten Erweiterungen jedoch auf die Daten des Benutzers zugreifen, ohne dass eine direkte Benutzeraktion erfolgt (zum Beispiel stellen Sie sich eine Erweiterung vor, die beim Starten des Browsers auf Daten zugreifen möchte).
 
-        Dies ist der Zweck von `interactive`: wenn Sie `interactive` weglassen oder auf `false` setzen, wird der Flow gezwungen, stillschweigend abzuschließen: wenn der Dienstanbieter mit dem Benutzer interagieren muss, schlägt der Flow einfach fehl. Daher als allgemeine Regel: setzen Sie `interactive` auf `true`, wenn Sie den Flow als Reaktion auf eine Benutzeraktion starten, und lassen Sie es ansonsten weg.
+        Dies ist der Zweck von `interactive`: Wenn Sie `interactive` weglassen oder auf `false` setzen, wird der Flow gezwungen, stillschweigend abzuschließen: Wenn der Dienstanbieter mit dem Benutzer interagieren muss, schlägt der Flow einfach fehl. Daher als allgemeine Regel: Setzen Sie `interactive` auf `true`, wenn Sie den Flow als Reaktion auf eine Benutzeraktion starten, und lassen Sie es ansonsten weg.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Erweiterung erfolgreich autorisiert wird, wird dies mit einem String erfüllt, der die Redirect-URL enthält. Die URL wird einen Parameter enthalten, der entweder ein Zugriffstoken ist oder gegen ein Zugriffstoken ausgetauscht werden kann, mithilfe des dokumentierten Flows des betreffenden Dienstanbieters.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Erweiterung erfolgreich autorisiert wurde, wird es mit einem String erfüllt, der die Weiterleitungs-URL enthält. Die URL wird einen Parameter beinhalten, der entweder ein Zugriffstoken ist oder gegen ein Zugriffstoken ausgetauscht werden kann, unter Verwendung des dokumentierten Flows für den speziellen Dienstanbieter.
 
 ## Beispiele
 
-Diese Funktion autorisiert eine Erweiterung, um auf die Google-Daten eines Benutzers zuzugreifen, entsprechend der Dokumentation unter <https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow>. Die Validierung des zurückgegebenen Zugriffstokens wird hier nicht gezeigt:
+Diese Funktion autorisiert eine Erweiterung, um auf die Google-Daten eines Benutzers zuzugreifen, gemäß der Dokumentation unter <https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow>. Die Validierung des zurückgegebenen Zugriffstokens wird hier nicht angezeigt:
 
 ```js
 function validate(redirectURL) {
@@ -96,4 +94,4 @@ function getAccessToken() {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`identity`](https://developer.chrome.com/docs/extensions/reference/api/identity)-API von Chromium.
+> Diese API basiert auf Chromiums [`identity`](https://developer.chrome.com/docs/extensions/reference/api/identity) API.

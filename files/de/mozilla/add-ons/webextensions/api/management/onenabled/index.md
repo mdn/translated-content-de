@@ -2,14 +2,12 @@
 title: management.onEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/management/onEnabled
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Der Event-Listener, der aufgerufen wird, wenn das `enabled`-Ereignis ausgelöst wird, was anzeigt, dass ein Add-on jetzt aktiviert ist.
 
-Der Event-Listener, der aufgerufen wird, wenn das `enabled`-Ereignis ausgelöst wird, was darauf hinweist, dass ein Add-on jetzt aktiviert ist.
-
-Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die Berechtigung "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 ## Syntax
 
@@ -24,22 +22,22 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält dieses Argument:
     - `info`
       - : [`ExtensionInfo`](/de/docs/Mozilla/Add-ons/WebExtensions/API/management/ExtensionInfo): Informationen über das aktivierte Add-on.
 
 ## Beispiele
 
-Protokollieren Sie die Namen von Add-ons, wenn sie aktiviert werden:
+Protokollieren Sie die Namen der Add-ons, wenn sie aktiviert werden:
 
 ```js
 browser.management.onEnabled.addListener((info) => {
@@ -54,7 +52,7 @@ browser.management.onEnabled.addListener((info) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onEnabled) API von Chromium. Diese Dokumentation stammt von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onEnabled) API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,14 +2,12 @@
 title: proxy.onError
 slug: Mozilla/Add-ons/WebExtensions/API/proxy/onError
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ausgelöst, wenn ein Fehler beim Auswerten der PAC-Datei oder des `onRequest`-Listeners auftritt.
 
-Dieser Event wird ausgelöst, wenn ein Fehler bei der Auswertung der PAC-Datei oder des `onRequest`-Listeners auftritt.
-
-Der Fehler kann ausgelöst werden, indem im proxy.onRequest Event-Handler ein ungültiger Wert geworfen oder zurückgegeben wird.
+Der Fehler kann durch das Auslösen oder Zurückgeben eines ungültigen Wertes im `proxy.onRequest`-Ereignishandler verursacht werden.
 
 ## Syntax
 
@@ -19,23 +17,23 @@ browser.proxy.onError.removeListener(listener)
 browser.proxy.onError.hasListener(listener)
 ```
 
-Events haben drei Funktionen:
+Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Event einen Listener hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Event. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn darauf gelauscht wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Event eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `newState`
-      - : `Object`. Ein [Error](/de/docs/Web/JavaScript/Reference/Global_Objects/Error) Objekt, das den Fehler darstellt.
+      - : `Object`. Ein [Error](/de/docs/Web/JavaScript/Reference/Global_Objects/Error)-Objekt, das den Fehler darstellt.
 
 {{WebExtExamples}}
 

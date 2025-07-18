@@ -2,21 +2,19 @@
 title: scripting.ExecutionWorld
 slug: Mozilla/Add-ons/WebExtensions/API/scripting/ExecutionWorld
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Bestimmt die Ausführungsumgebung eines Skripts, das mit {{WebExtAPIRef("scripting.executeScript()")}} injiziert oder mit {{WebExtAPIRef("scripting.registerContentScripts()")}} registriert wird.
+Legt die Ausführungsumgebung eines mit {{WebExtAPIRef("scripting.executeScript()")}} injizierten Skripts fest oder eines Skripts, das mit {{WebExtAPIRef("scripting.registerContentScripts()")}} registriert wurde.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Die Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - `ISOLATED`
 
-  Die Standard-Ausführungsumgebung für [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts).
-  Diese Umgebung ist vom Kontext der Seite isoliert: Während sie dasselbe Dokument teilen, unterscheiden sich die globalen Bereiche und verfügbaren APIs.
+  Die Standardausführungsumgebung für [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts).
+  Diese Umgebung ist vom Kontext der Seite isoliert: Obwohl sie dasselbe Dokument teilen, unterscheiden sich die globalen Bereiche und verfügbaren APIs.
 
 - `MAIN`
 
@@ -24,8 +22,8 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
   Skripte in dieser Umgebung haben keinen Zugriff auf APIs, die nur für Inhalts-Skripte verfügbar sind.
 
   > [!WARNING]
-  > Aufgrund der fehlenden Isolation kann die Webseite den ausgeführten Code erkennen und stören.
-  > Verwenden Sie die `MAIN`-Umgebung nur, wenn es akzeptabel ist, dass Webseiten die Logik oder Daten lesen, darauf zugreifen oder ändern, die durch den ausgeführten Code fließen.
+  > Aufgrund der fehlenden Isolation kann die Webseite den ausgeführten Code erkennen und beeinflussen.
+  > Verwenden Sie die `MAIN`-Umgebung nur, wenn es akzeptabel ist, dass Webseiten die Logik oder Daten, die durch den ausgeführten Code fließen, lesen, darauf zugreifen oder sie modifizieren können.
 
 {{WebExtExamples("h2")}}
 
@@ -34,4 +32,4 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld) API von Chromium.
+> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld)-API von Chromium.

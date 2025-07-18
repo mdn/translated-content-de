@@ -2,16 +2,14 @@
 title: runtime.onUserScriptConnect
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onUserScriptConnect
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn eine Verbindung mit einem Benutzerskript aus einer der `USER_SCRIPT`-Welten der Erweiterung hergestellt wird. Weitere Informationen finden Sie in den [`USER_SCRIPT` worlds](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/ExecutionWorld).
+Ausgelöst, wenn eine Verbindung zu einem Userskript aus einer der Erweiterungs- [`USER_SCRIPT`-Welten](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/ExecutionWorld) hergestellt wird.
 
 In Firefox erfordert dieses Ereignis die [`userScripts`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions). In Chrome ist das Ereignis immer vorhanden, auch in Erweiterungen, die die `userScripts`-Berechtigung nicht deklarieren.
 
-Ein Benutzerskript kann nur aus einer `USER_SCRIPT`-Welt, die durch {{WebExtAPIRef('userScripts.configureWorld()')}} mit `messaging` auf `true` konfiguriert ist, eine Verbindung herstellen und Nachrichten senden.
+Ein Userskript kann nur aus einer `USER_SCRIPT`-Welt eine Verbindung herstellen und Nachrichten senden, die mit {{WebExtAPIRef('userScripts.configureWorld()')}} konfiguriert wurde, wobei `messaging` auf `true` gesetzt ist.
 
 ## Syntax
 
@@ -26,16 +24,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `function`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `port`
       - : {{WebExtAPIRef('runtime.Port')}}. Ein Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet.
 

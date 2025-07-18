@@ -2,19 +2,17 @@
 title: cookies.get()
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/get
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die **`get()`**-Methode der {{WebExtAPIRef("cookies")}} API ruft Informationen zu einem Cookie ab, basierend auf dem Namen und der URL des Cookies.
 
-Die **`get()`**-Methode der {{WebExtAPIRef("cookies")}} API ruft Informationen über ein Cookie ab, basierend auf dem Namen und der URL des Cookies.
+Um diese Methode zu verwenden, muss eine Erweiterung die Berechtigung `"cookies"` sowie die relevanten Hostberechtigungen besitzen. Weitere Details finden Sie unter [`cookie` permissions](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#permissions).
 
-Um diese Methode zu nutzen, muss eine Erweiterung die Berechtigung `"cookies"` und die entsprechenden Host-Berechtigungen haben. Weitere Informationen finden Sie unter [`cookie` Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#permissions).
-
-Wenn es mehr als ein Cookie mit demselben Namen für eine URL gibt, wird das Cookie mit dem längsten Pfad zurückgegeben. Bei Cookies mit gleicher Pfadlänge wird das Cookie mit der frühesten Erstellungszeit ausgegeben. Wenn kein passendes Cookie gefunden wird, wird `null` zurückgegeben.
+Wenn es mehr als ein Cookie mit demselben Namen für eine URL gibt, wird das Cookie mit dem längsten Pfad zurückgegeben. Bei Cookies mit derselben Pfadlänge wird das Cookie mit der frühesten Erstellungszeit zurückgegeben. Wenn kein übereinstimmendes Cookie gefunden wird, wird `null` zurückgegeben.
 
 > [!NOTE]
-> Vor Firefox 133 wurde bei mehr als einem Cookie mit demselben Namen das Cookie mit der frühesten Erstellungszeit zurückgegeben.
+> Vor Firefox 133 wurde bei mehreren Cookies mit demselben Namen das Cookie mit der frühesten Erstellungszeit in Firefox zurückgegeben.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,31 +27,28 @@ let getting = browser.cookies.get(
 ### Parameter
 
 - `details`
-
-  - : Ein `object`, das Details enthält, die verwendet werden, um ein abzurufendes Cookie zu identifizieren. Es kann folgende Eigenschaften enthalten:
-
+  - : Ein `object`, das die Details enthält, die verwendet werden, um ein abzurufendes Cookie zu identifizieren. Es kann folgende Eigenschaften beinhalten:
     - `firstPartyDomain` {{optional_inline}}
-      - : Ein `string`, der die Erstanbieterdomäne repräsentiert, mit der das abzurufende Cookie verbunden ist. Diese Eigenschaft muss angegeben werden, wenn der Browser die Isolation für Erstanbieter aktiviert hat. Siehe [Erstanbieter-Isolierung](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
+      - : Ein `string`, der die First-Party-Domain repräsentiert, mit der das abzurufende Cookie verknüpft ist. Diese Eigenschaft muss angegeben werden, wenn der Browser die First-Party-Isolierung aktiviert hat. Siehe [First-party isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
     - `name`
       - : Ein `string`, der den Namen des abzurufenden Cookies repräsentiert.
     - `partitionKey` {{optional_inline}}
-
-      - : Ein `object`, das die [Speicherpartition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) repräsentiert, die das Cookie enthält. Schließen Sie dieses Objekt mit `topLevelSite` ein, um ein Cookie aus partitioniertem Speicher zu erhalten. Andernfalls wird das Cookie aus nicht partitioniertem Speicher zurückgegeben. Dieses Objekt enthält:
+      - : Ein `object`, das die [storage partition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) beschreibt, die das Cookie enthält. Schließen Sie dieses Objekt mit `topLevelSite` ein, um ein Cookie aus partitioniertem Speicher zu erhalten. Ansonsten wird das Cookie aus nicht partitioniertem Speicher zurückgegeben. Dieses Objekt enthält:
         - `topLevelSite` {{optional_inline}}
-          - : Ein `string`, der die Erstanbieter-URL des Top-Level-Site-Speicherbereichs repräsentiert, der das Cookie enthält.
+          - : Ein `string`, der die First-Party-URL der obersten Site-Speicherpartition enthält, die das Cookie enthält.
 
     - `storeId` {{optional_inline}}
-      - : Ein `string`, der die ID des [Cookie-Speichers](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies/CookieStore) repräsentiert, in dem nach dem Cookie gesucht werden soll (wie von {{WebExtAPIRef("cookies.getAllCookieStores()")}} zurückgegeben). Standardmäßig wird der Cookie-Speicher des aktuellen Ausführungskontexts verwendet.
+      - : Ein `string`, der die ID des [cookie store](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies/CookieStore) repräsentiert, in dem das Cookie gesucht werden soll (wie von {{WebExtAPIRef("cookies.getAllCookieStores()")}} zurückgegeben). Standardmäßig wird der Cookie-Speicher des aktuellen Ausführungskontexts verwendet.
     - `url`
-      - : Ein `string`, der die URL repräsentiert, mit der das abzurufende Cookie verbunden ist. Dieses Argument kann eine vollständige URL sein, wobei alle Daten nach dem URL-Pfad (z. B. die Abfragezeichenkette) ignoriert werden. Wenn [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) für diese URL nicht in der [Manifestdatei](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) der Erweiterung angegeben sind, schlägt der API-Aufruf fehl.
+      - : Ein `string`, das die URL repräsentiert, mit der das abzurufende Cookie verknüpft ist. Dieses Argument kann eine vollständige URL sein, wobei alle Daten nach dem URL-Pfad (z.B. der Abfrage-String) ignoriert werden. Wenn [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) für diese URL nicht in der [Manifestdatei](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) der Erweiterung angegeben sind, schlägt der API-Aufruf fehl.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie', 'Cookie')}}-Objekt erfüllt wird, das Details über das Cookie enthält, oder `null`, wenn das Cookie nicht gefunden wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem {{WebExtAPIRef('cookies.Cookie', 'Cookie')}}-Objekt erfüllt wird, das Details über das Cookie enthält, oder `null`, wenn das Cookie nicht gefunden wird.
 
 ## Beispiele
 
-Dieses Beispiel versucht, das Cookie mit dem Namen "favorite-color", das mit der URL des aktiven Tabs verbunden ist, abzurufen:
+Dieses Beispiel versucht, das Cookie mit dem Namen "favorite-color" zu erhalten, das mit der URL des aktiven Tabs verknüpft ist:
 
 ```js
 function logCookie(cookie) {
@@ -84,7 +79,7 @@ getActive.then(getCookie);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-get) API von Chromium. Diese Dokumentation stammt aus [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-get)-API von Chromium. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

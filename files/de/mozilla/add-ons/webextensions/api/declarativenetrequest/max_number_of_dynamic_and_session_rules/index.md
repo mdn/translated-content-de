@@ -2,16 +2,14 @@
 title: declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 l10n:
-  sourceCommit: 787fd072f8bc00cbdf62cef85921f0a6d9f0b4a7
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die maximale Anzahl an dynamischen und sitzungsgespeicherten Regeln, die eine Erweiterung hinzufügen kann.
 
-Die maximale Anzahl an dynamischen Regeln und session-spezifischen Regeln, die eine Erweiterung hinzufügen kann.
-
-- Bis Firefox 126 hatte diese Eigenschaft einen Wert von 5.000 und zeigte an, dass eine Erweiterung bis zu 5.000 dynamische Regeln und bis zu 5.000 session-spezifische Regeln erstellen konnte. Diese Eigenschaft wurde in Firefox 126 veraltet, und die Limits werden jetzt separat für jeden Regeltyp durch {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES")}} und {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES")}} definiert.
-- Bis Chrome 119 hatte diese Eigenschaft einen Wert von 5.000 und zeigte an, dass eine Erweiterung jede Kombination von dynamischen und session-spezifischen Regeln bis zu 5.000 erstellen konnte. Diese Eigenschaft wurde in Chrome 120 veraltet. Siehe [Regel-Limits](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest#limits) in der Chrome-Dokumentation für Informationen zu Limits in Chrome 120 und höher.
-- In Safari hat diese Eigenschaft einen Wert von 30.000 und zeigt an, dass eine Erweiterung jede Kombination von dynamischen und session-spezifischen Regeln bis zu 30.000 erstellen kann.
+- Bis Firefox 126 hatte diese Eigenschaft einen Wert von 5.000 und gab an, dass eine Erweiterung bis zu 5.000 dynamische Regeln und bis zu 5.000 sitzungsspezifische Regeln erstellen konnte. Diese Eigenschaft wurde in Firefox 126 veraltet, und die Grenzen werden nun separat für jeden Regeltyp durch {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES")}} und {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES")}} definiert.
+- Bis Chrome 119 hatte diese Eigenschaft einen Wert von 5.000 und bedeutete, dass eine Erweiterung jede Kombination aus dynamischen und sitzungsspezifischen Regeln bis zu 5.000 erstellen konnte. Diese Eigenschaft wurde in Chrome 120 veraltet. Siehe [Regelgrenzen](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest#limits) in der Chrome-Dokumentation für Informationen zu Grenzen in Chrome 120 und höher.
+- In Safari hat diese Eigenschaft einen Wert von 30.000 und gibt an, dass eine Erweiterung jede Kombination aus dynamischen und sitzungsspezifischen Regeln bis zu 30.000 erstellen kann.
 
 {{WebExtExamples("h2")}}
 

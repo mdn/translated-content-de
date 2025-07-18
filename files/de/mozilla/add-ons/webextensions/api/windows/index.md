@@ -2,17 +2,15 @@
 title: windows
 slug: Mozilla/Add-ons/WebExtensions/API/windows
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Interagieren Sie mit Browserfenstern. Mit dieser API können Sie Informationen über geöffnete Fenster abrufen sowie Fenster öffnen, ändern und schließen. Sie können auch Ereignissen zuhören, die Fenster öffnen, schließen und aktivieren betreffen.
+Interagieren Sie mit Browserfenstern. Mit dieser API können Sie Informationen über offene Fenster erhalten und Fenster öffnen, ändern und schließen. Sie können auch Ereignisse wie Öffnen, Schließen und Aktivieren von Fenstern überwachen.
 
 ## Typen
 
 - {{WebExtAPIRef("windows.WindowType")}}
-  - : Der Typ dieses Browserfensters.
+  - : Der Typ des Browserfensters, das dies ist.
 - {{WebExtAPIRef("windows.WindowState")}}
   - : Der Zustand dieses Browserfensters.
 - {{WebExtAPIRef("windows.Window")}}
@@ -23,7 +21,7 @@ Interagieren Sie mit Browserfenstern. Mit dieser API können Sie Informationen �
 ## Konstanten
 
 - {{WebExtAPIRef("windows.WINDOW_ID_NONE")}}
-  - : Der `windowId`-Wert, der das Fehlen eines Browserfensters darstellt.
+  - : Der `windowId` Wert, der das Fehlen eines Browserfensters darstellt.
 - {{WebExtAPIRef("windows.WINDOW_ID_CURRENT")}}
   - : Ein Wert, der anstelle einer `windowId` in einigen APIs verwendet werden kann, um das aktuelle Fenster darzustellen.
 
@@ -34,26 +32,26 @@ Interagieren Sie mit Browserfenstern. Mit dieser API können Sie Informationen �
 - {{WebExtAPIRef("windows.getCurrent()")}}
   - : Ruft das aktuelle Fenster ab.
 - {{WebExtAPIRef("windows.getLastFocused()")}}
-  - : Ruft das Fenster ab, das zuletzt fokussiert war - typischerweise das Fenster 'oben'.
+  - : Ruft das Fenster ab, das zuletzt fokussiert war - typischerweise das Fenster "oben".
 - {{WebExtAPIRef("windows.getAll()")}}
   - : Ruft alle Fenster ab.
 - {{WebExtAPIRef("windows.create()")}}
   - : Erstellt ein neues Fenster.
 - {{WebExtAPIRef("windows.update()")}}
-  - : Aktualisiert die Eigenschaften eines Fensters. Verwenden Sie dies, um ein Fenster zu verschieben, die Größe zu ändern und (ent)fokussieren usw.
+  - : Aktualisiert die Eigenschaften eines Fensters. Verwenden Sie dies, um ein Fenster zu verschieben, die Größe zu ändern und zu (de)fokussieren etc.
 - {{WebExtAPIRef("windows.remove()")}}
-  - : Schließt ein Fenster und all seine Tabs.
+  - : Schließt ein Fenster und alle seine Tabs.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("windows.onBoundsChanged")}}
-  - : Wird ausgelöst, wenn ein Fenster in der Größe geändert oder verschoben wird.
+  - : Wird ausgelöst, wenn ein Fenster in der Größe verändert oder verschoben wird.
 - {{WebExtAPIRef("windows.onCreated")}}
   - : Wird ausgelöst, wenn ein Fenster erstellt wird.
 - {{WebExtAPIRef("windows.onRemoved")}}
   - : Wird ausgelöst, wenn ein Fenster geschlossen wird.
 - {{WebExtAPIRef("windows.onFocusChanged")}}
-  - : Wird ausgelöst, wenn sich das aktuell fokussierte Fenster ändert.
+  - : Wird ausgelöst, wenn das aktuell fokussierte Fenster sich ändert.
 
 {{WebExtExamples("h2")}}
 
@@ -62,7 +60,7 @@ Interagieren Sie mit Browserfenstern. Mit dieser API können Sie Informationen �
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows)-API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows). Diese Dokumentation stammt von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

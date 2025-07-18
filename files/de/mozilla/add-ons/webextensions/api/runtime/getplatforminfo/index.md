@@ -2,12 +2,11 @@
 title: runtime.getPlatformInfo()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getPlatformInfo
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt Informationen über die aktuelle Plattform zurück. Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Gibt Informationen zur aktuellen Plattform zurück.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -21,11 +20,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('runtime.PlatformInfo')}}-Wert erfüllt wird, der die aktuelle Plattform darstellt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('runtime.PlatformInfo')}}-Wert erfüllt wird, der die aktuelle Plattform repräsentiert.
 
 ## Beispiele
 
-Erhalten und protokollieren Sie das Plattform-OS:
+Erhalten und protokollieren Sie das Plattform-Betriebssystem:
 
 ```js
 function gotPlatformInfo(info) {
@@ -43,7 +42,7 @@ gettingInfo.then(gotPlatformInfo);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getPlatformInfo) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getPlatformInfo) API. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,23 +2,21 @@
 title: menus.ItemType
 slug: Mozilla/Add-ons/WebExtensions/API/menus/ItemType
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Der Typ des Menüelements.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - normal
-  - : Ein Menüpunkt, der nur ein Label anzeigt.
+  - : Ein Menüpunkt, der einfach ein Label anzeigt.
 - checkbox
-  - : Ein Menüpunkt, der einen binären Zustand darstellt. Es zeigt ein Häkchen neben dem Label an. Ein Klick auf das Element schaltet das Häkchen um. Der {{WebExtAPIRef("menus.onClicked")}}-Listener erhält zwei zusätzliche Eigenschaften: "checked", das anzeigt, ob das Element jetzt geprüft ist, und "wasChecked", das angibt, ob das Element vor dem Klickereignis geprüft war.
+  - : Ein Menüpunkt, der einen binären Zustand darstellt. Er zeigt ein Häkchen neben dem Label an. Durch Klicken auf das Element wird das Häkchen umgeschaltet. Der {{WebExtAPIRef("menus.onClicked")}} Listener erhält zwei zusätzliche Eigenschaften: "checked", die angibt, ob das Element jetzt markiert ist, und "wasChecked", die angibt, ob das Element vor dem Klickereignis markiert war.
 - radio
-  - : Ein Menüpunkt, der eine von mehreren Auswahlmöglichkeiten darstellt. Genau wie ein Kontrollkästchen zeigt es auch ein Häkchen neben dem Label an, und sein {{WebExtAPIRef("menus.onClicked")}}-Listener erhält "checked" und "wasChecked". Wenn Sie jedoch mehr als ein Radioelement erstellen, funktionieren die Elemente als Gruppe von Radioelementen: Nur ein Element in der Gruppe kann geprüft sein, und ein Klick auf ein Element macht es zum geprüften Element.
+  - : Ein Menüpunkt, der eine von mehreren Auswahlmöglichkeiten darstellt. Wie bei einer Checkbox wird auch hier ein Häkchen neben dem Label angezeigt, und sein {{WebExtAPIRef("menus.onClicked")}} Listener erhält "checked" und "wasChecked". Wenn Sie jedoch mehr als ein Radioelement erstellen, funktionieren die Elemente als Gruppe von Radioelementen: Nur ein Element in der Gruppe kann markiert sein, und ein Klick auf ein Element macht es zum markierten Element.
 - separator
   - : Eine Linie, die eine Gruppe von Elementen trennt.
 
@@ -29,7 +27,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-ItemType) API. Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-ItemType). Diese Dokumentation ist entnommen aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

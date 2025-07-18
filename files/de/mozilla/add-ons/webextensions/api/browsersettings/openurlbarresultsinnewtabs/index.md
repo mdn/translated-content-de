@@ -2,16 +2,14 @@
 title: browserSettings.openUrlbarResultsInNewTabs
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/openUrlbarResultsInNewTabs
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolean ist.
+Wenn der Benutzer die Adressleiste fokussiert und zu tippen beginnt, bietet der Browser Autovervollständigungsvorschläge an: eine Dropdown-Liste mit Webseiten basierend auf der unvollständigen Eingabe des Benutzers und seinem Browserverlauf.
 
-Wenn der Benutzer die Adressleiste fokussiert und zu tippen beginnt, bietet der Browser Autovervollständigungsvorschläge an: eine Dropdown-Liste von Webseiten basierend auf den unvollständigen Eingaben des Benutzers und seinem Browserverlauf.
-
-Wenn auf `true` gesetzt, wird das ausgewählte Element in einem neuen Tab geöffnet, wenn der Benutzer eines dieser Elemente auswählt. Wenn auf `false` (Standard) gesetzt, wird das Element im aktuellen Tab geöffnet.
+Ist dieser Wert auf `true` gesetzt, wird der ausgewählte Eintrag in einem neuen Tab geöffnet. Ist der Wert auf `false` gesetzt (Standardeinstellung), wird der Eintrag im aktuellen Tab geöffnet.
 
 ## Beispiele
 

@@ -2,12 +2,10 @@
 title: Event.removeListener()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/removeListener
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Entfernt einen mit {{WebExtAPIRef("events.Event.addListener()")}} registrierten Event-Listener aus dem Event.
+Entfernt einen mit {{WebExtAPIRef("events.Event.addListener()")}} registrierten Event-Listener vom Ereignis.
 
 ## Syntax
 

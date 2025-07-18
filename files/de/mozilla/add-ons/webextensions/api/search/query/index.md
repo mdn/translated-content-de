@@ -2,16 +2,14 @@
 title: search.query()
 slug: Mozilla/Add-ons/WebExtensions/API/search/query
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Führen Sie eine Suche mit der Standardsuchmaschine des Browsers durch.
 
-Die Ergebnisse werden im aktuellen Tab, einem neuen Tab oder einem neuen Fenster entsprechend der `disposition`-Eigenschaft oder im Tab angezeigt, der in der `tabId`-Eigenschaft angegeben ist. Wenn keine dieser Eigenschaften angegeben ist, werden die Ergebnisse im aktuellen Tab angezeigt.
+Die Ergebnisse werden entsprechend der `disposition`-Eigenschaft oder im Tab, der in der `tabId`-Eigenschaft angegeben ist, im aktuellen Tab, einem neuen Tab oder einem neuen Fenster angezeigt. Wenn keines von beiden angegeben ist, werden die Ergebnisse im aktuellen Tab angezeigt.
 
-Um diese Funktion zu nutzen, muss Ihre Erweiterung die `"search"` [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
+Um diese Funktion zu verwenden, muss Ihre Erweiterung die `"search"` [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
 
 ## Syntax
 
@@ -26,9 +24,9 @@ browser.search.query(
 - `queryInfo`
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
     - `disposition` {{optional_inline}}
-      - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardmäßig `CURRENT_TAB`. Kann nicht mit `tabId` angegeben werden.
+      - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardmäßig `CURRENT_TAB`. Kann nicht zusammen mit `tabId` angegeben werden.
     - `tabId` {{optional_inline}}
-      - : `integer`. Eine optionale Kennung für den Tab, in dem Sie die Suche ausführen möchten. Wenn diese Eigenschaft weggelassen wird, werden die Suchergebnisse in einem neuen Tab angezeigt. Kann nicht mit `disposition` angegeben werden.
+      - : `integer`. Eine optionale Kennung für den Tab, in dem Sie die Suche ausführen möchten. Wenn diese Eigenschaft weggelassen wird, werden die Suchergebnisse in einem neuen Tab angezeigt. Kann nicht zusammen mit `disposition` angegeben werden.
     - `text`
       - : `string`. Die Suchanfrage.
 

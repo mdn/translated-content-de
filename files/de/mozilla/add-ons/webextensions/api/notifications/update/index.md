@@ -2,10 +2,8 @@
 title: notifications.update()
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/update
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Aktualisiert eine Benachrichtigung anhand ihrer ID.
 
@@ -23,19 +21,19 @@ let updating = browser.notifications.update(
 ### Parameter
 
 - `id`
-  - : `string`. Die ID der zu aktualisierenden Benachrichtigung. Diese ist dieselbe wie die ID, die in den Rückruf von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
+  - : `string`. Die ID der zu aktualisierenden Benachrichtigung. Diese ist dieselbe ID, die im Callback von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
 - `options`
   - : {{WebExtAPIRef('notifications.NotificationOptions')}}. Definiert den neuen Inhalt und das Verhalten der Benachrichtigung.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem boolean-Wert erfüllt wird: `true`, wenn die Benachrichtigung aktualisiert wurde, oder `false`, wenn sie nicht aktualisiert wurde (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Boolean erfüllt wird: `true`, wenn die Benachrichtigung aktualisiert wurde, oder `false`, wenn nicht (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
 
 ## Beispiele
 
-Dieses Beispiel verwendet `update()`, um eine Fortschrittsbenachrichtigung zu aktualisieren. Durch Klicken auf die Browseraktion wird die Benachrichtigung angezeigt und ein {{WebExtAPIRef("alarms", "alarm")}} gestartet, den wir verwenden, um den Fortschrittsanzeiger der Benachrichtigung zu aktualisieren.
+Dieses Beispiel verwendet `update()`, um eine Fortschrittsbenachrichtigung zu aktualisieren. Beim Klicken auf die Browseraktion wird die Benachrichtigung angezeigt und ein {{WebExtAPIRef("alarms", "alarm")}} gestartet, den wir nutzen, um den Fortschrittsindikator der Benachrichtigung zu aktualisieren.
 
-Beachten Sie, dass Sie die "alarms" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um Alarms zu erstellen (sowie die "notifications"-Berechtigung, um Benachrichtigungen zu erstellen). Beachten Sie auch, dass Firefox das `progress`-Attribut nicht unterstützt.
+Beachten Sie, dass Sie die "alarms"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um Alarme zu erstellen (sowie die "notifications"-Berechtigung, um Benachrichtigungen zu erstellen). Beachten Sie auch, dass Firefox das `progress`-Attribut nicht unterstützt.
 
 ```js
 let cakeNotification = "cake-notification";

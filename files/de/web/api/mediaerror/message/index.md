@@ -3,69 +3,88 @@ title: "MediaError: message-Eigenschaft"
 short-title: message
 slug: Web/API/MediaError/message
 l10n:
-  sourceCommit: 58cc81b21f777d745877ec1430df8ba2852ff411
+  sourceCommit: 14121dd74b6f0157537e31b17f548c9e727d2c13
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`MediaError.message`** gibt einen
-menschlich lesbaren String zurück, der spezifische Diagnoseinformationen in Bezug auf den vom `MediaError`-Objekt beschriebenen Fehler bietet, oder einen leeren String (`""`), wenn keine Diagnoseinformationen bestimmt oder bereitgestellt werden können.
+Die schreibgeschützte Eigenschaft **`MediaError.message`** gibt einen lesbaren String zurück, der spezifische Diagnoseinformationen zu dem im `MediaError` Objekt beschriebenen Fehler bietet, oder einen leeren String (`""`), wenn keine Diagnoseinformationen ermittelt oder bereitgestellt werden können.
 
 ## Wert
 
-Ein String, der eine detaillierte, spezifische Erklärung bietet, was schiefgelaufen ist und möglicherweise, wie es behoben werden könnte. Dies ist _nicht_ eine generische Beschreibung des Werts der [`MediaError.code`](/de/docs/Web/API/MediaError/code) Eigenschaft, sondern geht stattdessen tiefer in die Einzelheiten dieses speziellen Fehlers und seiner Umstände ein. Wenn keine spezifischen Details verfügbar sind, ist dieser String leer.
+Ein String, der eine detaillierte, spezifische Erklärung darüber liefert, was schiefgelaufen ist und möglicherweise, wie es behoben werden kann. Dies ist _keine_ generische Beschreibung des Werts der [`MediaError.code`](/de/docs/Web/API/MediaError/code)-Eigenschaft, sondern geht tiefer auf die Besonderheiten dieses speziellen Fehlers und seine Umstände ein.
+Wenn keine spezifischen Details verfügbar sind, ist dieser String leer.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein {{HTMLElement("audio")}}-Element, richtet einen Fehlerbehandler dafür ein und lässt den Benutzer Schaltflächen anklicken, um zu wählen, ob der `src`-Attribut des Elements eine gültige Audiodatei oder eine fehlende Datei zugewiesen werden soll. Der Fehlerbehandler gibt eine Nachricht auf einem Bildschirm aus, die den Fehler beschreibt, einschließlich sowohl des Codes als auch der Nachricht.
+Dieses Beispiel erstellt ein {{HTMLElement("audio")}}-Element, definiert einen Fehlermanager dafür und ermöglicht dem Benutzer, über Schaltflächen zu wählen, ob er eine gültige Audiodatei oder eine fehlende Datei dem [`src`](/de/docs/Web/HTML/Reference/Elements/audio#src)-Attribut des Elements zuweist.
+Der Fehlermanager gibt eine Nachricht in einem Kasten auf dem Bildschirm aus, die den Fehler beschreibt und sowohl den `code` als auch die `message` enthält.
 
-Es werden nur die relevanten Teile des Codes angezeigt; Sie können [den vollständigen Quellcode hier sehen](https://github.com/mdn/dom-examples/tree/main/media/mediaerror).
+```html
+<audio controls id="audio"></audio>
+<div>
+  <button id="valid-button">Valid File</button>
+  <button id="invalid-button">Missing File</button>
+</div>
+<pre id="log"></pre>
+```
 
-Das Beispiel erstellt ein {{HTMLElement("audio")}}-Element und lässt den Benutzer entweder eine gültige Musikdatei oder einen Link zu einer nicht existierenden Datei zuweisen. Dies ermöglicht es uns, das Verhalten des [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignishandlers zu sehen, das wir dem `<audio>`-Element selbst hinzufügen.
+Das Beispiel erstellt ein {{HTMLElement("audio")}}-Element und ermöglicht es dem Benutzer, entweder eine gültige Musikdatei zuzuweisen oder einen Link zu einer Datei, die nicht existiert.
+So können wir das Verhalten des [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignishandlers beobachten, der von einem Ereignishandler empfangen wird, den wir dem `<audio>`-Element selbst hinzufügen.
 
-Der Fehlerbehandler sieht so aus:
+Der Fehlermanager sieht folgendermaßen aus:
 
 ```js
+const audioElement = document.getElementById("audio");
+const validButton = document.getElementById("valid-button");
+const invalidButton = document.getElementById("invalid-button");
+
+const logMessage = (msg) => {
+  const now = new Date();
+  const timestamp = now.toLocaleTimeString();
+  document.getElementById("log").innerText += `[${timestamp}] ${msg}\n`;
+};
+
+validButton.addEventListener("click", () => {
+  audioElement.src = "https://mdn.github.io/shared-assets/audio/guitar.mp3";
+});
+
+invalidButton.addEventListener("click", () => {
+  audioElement.src = "no-file-here.mp3";
+});
+
 audioElement.onerror = () => {
-  let s = "";
-  const err = audioElement.error;
+  let message = "";
+  let err = audioElement.error;
 
   switch (err.code) {
     case MediaError.MEDIA_ERR_ABORTED:
-      s += "The user canceled the audio.";
+      message += "The user canceled the audio.";
       break;
     case MediaError.MEDIA_ERR_NETWORK:
-      s += "A network error occurred while fetching the audio.";
+      message += "A network error occurred while fetching the audio.";
       break;
     case MediaError.MEDIA_ERR_DECODE:
-      s += "An error occurred while decoding the audio.";
+      message += "An error occurred while decoding the audio.";
       break;
     case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
-      s +=
+      message +=
         "The audio is missing or is in a format not supported by your browser.";
       break;
     default:
-      s += "An unknown error occurred.";
+      message += "An unknown error occurred.";
       break;
   }
 
-  const message = err.message;
-
-  if (message?.length > 0) {
-    s += ` ${message}`;
-  }
-
-  displayErrorMessage(`<strong>Error ${err.code}:</strong> ${s}<br>`);
+  logMessage(`Error ${err.code}: ${message}`);
 };
 ```
 
-Dies erhält das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den Fehler beschreibt, aus der [`error`](/de/docs/Web/API/HTMLMediaElement/error)-Eigenschaft auf dem [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement), das den Audioplayer darstellt. Das `code`-Attribut des Fehlers wird überprüft, um eine generische Fehlermeldung anzuzeigen, und falls `message` nicht leer ist, wird diese zur Bereitstellung zusätzlicher Details angefügt. Dann wird der resultierende Text im Protokoll ausgegeben.
+Dies erhält das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den Fehler beschreibt, von der [`error`](/de/docs/Web/API/HTMLMediaElement/error)-Eigenschaft des [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement), das den Audioplayer repräsentiert.
+Das `code`-Attribut des Fehlers wird überprüft, um eine generische Fehlermeldung anzuzeigen, und, falls `message` nicht leer ist, wird es hinzugefügt, um zusätzliche Details bereitzustellen.
+Der resultierende Text wird dann im Log ausgegeben.
 
-### Ergebnis
-
-Sie können dieses Beispiel unten ausprobieren und [das Beispiel in Aktion außerhalb dieser Seite hier sehen](https://mdn.github.io/dom-examples/media/mediaerror/).
-
-{{ EmbedGHLiveSample('dom-examples/media/mediaerror', 650, 200) }}
+{{embedlivesample("", , '300')}}
 
 ## Spezifikationen
 

@@ -2,12 +2,10 @@
 title: bookmarks.onChildrenReordered
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/onChildrenReordered
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn sich die Reihenfolge der Kinder eines Ordners geändert hat, weil die Reihenfolge in der Benutzeroberfläche sortiert wurde. Dies wird nicht durch einen Aufruf von {{WebExtAPIRef("bookmarks.move()")}} oder eine Drag & Drop-Operation in der Benutzeroberfläche ausgelöst.
+Wird ausgelöst, wenn sich die Reihenfolge der Unterelemente eines Ordners aufgrund einer Sortierung im UI geändert hat. Dies wird nicht als Ergebnis eines Aufrufs von {{WebExtAPIRef("bookmarks.move()")}} oder einer Ziehoperation im UI aufgerufen.
 
 ## Syntax
 
@@ -22,27 +20,27 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `id`
-      - : `string`. ID des Ordners, dessen Kinder neu geordnet wurden.
+      - : `string`. ID des Ordners, dessen Unterelemente neu geordnet wurden.
     - `reorderInfo`
-      - : `object`. Objekt, das zusätzliche Objekte enthält. Siehe den Abschnitt [reorderInfo](#reorderinfo_2) für weitere Details.
+      - : `object`. Objekt, das zusätzliche Objekte enthält. Weitere Details finden Sie im Abschnitt [reorderInfo](#reorderinfo_2).
 
 ## Zusätzliche Objekte
 
 ### reorderInfo
 
 - `childIds`
-  - : `array` von `string`. Array, das die IDs aller Lesezeichenobjekte in diesem Ordner in der Reihenfolge enthält, in der sie jetzt in der Benutzeroberfläche angezeigt werden.
+  - : `array` von `string`. Array, das die IDs aller Lesezeichen-Elemente in diesem Ordner enthält, in der Reihenfolge, in der sie jetzt im UI erscheinen.
 
 ## Beispiele
 

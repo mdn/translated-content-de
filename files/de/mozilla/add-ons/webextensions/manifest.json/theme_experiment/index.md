@@ -2,19 +2,17 @@
 title: theme_experiment
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/theme_experiment
 l10n:
-  sourceCommit: 668b38a4f6cd96609b9a969fe4653b46aec4e712
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
     <tr>
-      <th scope="row">Typ</th>
+      <th scope="row">Type</th>
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Obligatorisch</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -44,22 +42,22 @@ l10n:
   </tbody>
 </table>
 
-Dieser Schlüssel ermöglicht die Definition experimenteller Eigenschaften des [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme)-Schlüssels für die Firefox-Oberfläche. Diese Experimente sind ein Vorläufer, um neue Theme-Features vorzuschlagen, die in Firefox aufgenommen werden sollen. Das Experimentieren erfolgt durch:
+Dieser Schlüssel ermöglicht die Definition experimenteller [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) Schlüsseleigenschaften für die Firefox-Oberfläche. Diese Experimente sind ein Vorläufer, um neue Designfunktionen zur Aufnahme in Firefox vorzuschlagen. Das Experimentieren erfolgt durch:
 
-- Erstellen eines Stylesheets, das Zuordnungen zwischen internen CSS-Selektoren für Firefox-UI-Elemente und beliebigen CSS-Variablen definiert. Die CSS-Variablen werden dann in den Objekten `colors`, `images` und `properties` neuen Eigenschaften des `theme`-Schlüssels zugeordnet.
-- (ohne ein Stylesheet) Verwendung von `colors`, `images` und `properties`, um interne Firefox-CSS-Selektoren wie `--arrowpanel-dimmed` neuen Eigenschaften des `theme`-Schlüssels zuzuordnen. Diese Option beschränkt das Experimentieren auf UI-Komponenten, die mit einer eingebauten CSS-Variable verbunden sind.
+- Erstellen eines Stylesheets, das Zuordnungen zwischen internen CSS-Selektoren für Firefox-UI-Elemente und willkürlichen CSS-Variablen definiert. Die CSS-Variablen werden dann in den Objekten `colors`, `images` und `properties` neuen `theme` Schlüsseleigenschaften zugeordnet.
+- (ohne ein Stylesheet) Verwendung von `colors`, `images` und `properties`, um interne Firefox-CSS-Selektoren wie `--arrowpanel-dimmed` neuen `theme` Schlüsseleigenschaften zuzuordnen. Diese Option beschränkt Experimente auf UI-Komponenten, die mit einer eingebauten CSS-Variable verbunden sind.
 
 Um die CSS-Selektoren für Firefox-UI-Elemente oder interne Firefox-CSS-Variablen zu entdecken, verwenden Sie das [Browser-Toolbox](https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html).
 
 > [!NOTE]
-> Dieser Schlüssel kann nur in den Firefox Developer Edition und Firefox Nightly Kanälen verwendet werden und erfordert das Aktivieren der Einstellung `extensions.experiments.enabled`. In Firefox 73 und früher musste stattdessen `extensions.legacy.enabled` verwendet werden.
+> Dieser Schlüssel ist nur in Firefox Developer Edition und Firefox Nightly-Kanälen verfügbar und erfordert, dass die Einstellung `extensions.experiments.enabled` aktiviert ist. In Firefox 73 und früher musste stattdessen die Einstellung `extensions.legacy.enabled` verwendet werden.
 
 > [!WARNING]
-> Diese Funktion ist experimentell und könnte Änderungen unterworfen sein.
+> Diese Funktion ist experimentell und könnte Änderungen unterliegen.
 
 ## Syntax
 
-Der `theme_experiment`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften annimmt:
+Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschaften annimmt:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -76,7 +74,7 @@ Der `theme_experiment`-Schlüssel ist ein Objekt, das die folgenden Eigenschafte
       <td>
         <p>Optional</p>
         <p>
-          Name eines Stylesheets, das die Zuordnung von Firefox-UI-Element-CSS-Selektoren zu CSS-Variablen bereitstellt.
+          Name eines Stylesheets, das die Zuordnung von Firefox-UI-Elementen CSS-Selektoren zu CSS-Variablen bereitstellt.
         </p>
       </td>
     </tr>
@@ -137,7 +135,7 @@ Der `theme_experiment`-Schlüssel ist ein Objekt, das die folgenden Eigenschafte
 
 ## Beispiele
 
-Dieses Beispiel verwendet ein Stylesheet mit dem Namen `style.css`, um die Möglichkeit zu bieten, eine Farbe für den Browser-Neuladeknopf im [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme)-Schlüssel festzulegen.
+Dieses Beispiel verwendet ein Stylesheet namens `style.css`, um die Möglichkeit zu bieten, eine Farbe für die Schaltfläche "Aktualisieren" im Browser im `theme`-Schlüssel festzulegen.
 
 Das Stylesheet definiert:
 
@@ -147,9 +145,9 @@ Das Stylesheet definiert:
 }
 ```
 
-wobei `#reload-button` der interne Firefox-CSS-Selektor für den Neuladeknopf ist und `--reload-button-color` ein beliebiger Name ist.
+wobei `#reload-button` der interne Firefox-CSS-Selektor für die Schaltfläche "Aktualisieren" ist und `--reload-button-color` ein willkürlicher Name ist.
 
-In der `manifest.json`-Datei wird `--reload-button-color` dann dem Namen zugeordnet, der in der `colors`-Eigenschaft von `theme` verwendet werden soll:
+Im `manifest.json`-File wird `--reload-button-color` dann auf den Namen gemappt, der in der Eigenschaft `colors` des `theme` verwendet werden soll:
 
 ```json
 "theme_experiment": {
@@ -170,9 +168,9 @@ Das Argument `reload_button` wird auf die gleiche Weise wie jede andere `theme`-
 }
 ```
 
-Dies hat zur Folge, dass das Neuladensymbol orange wird.
+Dies hat den Effekt, dass das Aktualisierungssymbol orange wird.
 
-![Ergebnis eines Theme-Experiments, das den Neu-Ladeknopf in Orange zeigt.](theme_experiment.png)
+![Ergebnis eines Theme-Experiments, das die Schaltfläche zum Aktualisieren orange färbt.](theme_experiment.png)
 
 Diese Eigenschaft kann auch in `browser.theme.update()` verwendet werden. `images` und `properties` funktionieren ähnlich wie `colors`.
 

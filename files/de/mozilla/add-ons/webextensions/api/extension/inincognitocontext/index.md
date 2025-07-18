@@ -2,12 +2,10 @@
 title: extension.inIncognitoContext
 slug: Mozilla/Add-ons/WebExtensions/API/extension/inIncognitoContext
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Boolean-Wert, `true` für Inhaltsskripte, die innerhalb von privaten Tabs ausgeführt werden, und für Erweiterungsseiten, die in einem privaten Browsing-Prozess laufen.
+Boolean-Wert, `true` für Content Scripts, die in Registerkarten für privates Surfen ausgeführt werden, und für Erweiterungsseiten, die in einem privaten Surfvorgang ausgeführt werden.
 
 ## Syntax
 
@@ -17,7 +15,7 @@ let isPrivate = browser.extension.inIncognitoContext;  // true or false
 
 ### Wert
 
-Ein _boolean_-Wert, der anzeigt, ob das aktuelle Skript in einem privaten Tab oder Prozess ausgeführt wird.
+Ein _boolean_-Wert, der angibt, ob das aktuelle Skript in einem privaten Tab oder Vorgang ausgeführt wird.
 
 {{WebExtExamples}}
 
@@ -26,7 +24,7 @@ Ein _boolean_-Wert, der anzeigt, ob das aktuelle Skript in einem privaten Tab od
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-inIncognitoContext) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-inIncognitoContext) von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

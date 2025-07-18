@@ -2,12 +2,10 @@
 title: browserAction.getUserSettings()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getUserSettings
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft die vom Benutzer festgelegten Einstellungen für die Browser-Action ab.
+Ruft die vom Benutzer festgelegten Einstellungen für die Browser-Aktion ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -19,20 +17,20 @@ let userSettings = await browser.browserAction.getUserSettings();
 
 ### Parameter
 
-Diese Funktion benötigt keine Parameter.
+Diese Funktion nimmt keine Parameter.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ein Objekt mit folgenden Eigenschaften erfüllt:
 
 - `userSettings`
-  - : Ein Objekt, das die vom Benutzer festgelegten Einstellungen für die Browser-Action mit diesen Eigenschaften enthält:
+  - : Ein Objekt, das die vom Benutzer festgelegten Einstellungen für die Browser-Aktion mit diesen Eigenschaften enthält:
     - `isOnToolbar` {{optional_inline}}
-      - : `boolean`. Ob der Benutzer das Aktionssymbol an das Browser-UI angeheftet hat. Diese Einstellung zeigt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-UI ab.
+      - : `boolean`. Ob der Benutzer das Symbol der Aktion an die Benutzeroberfläche des Browsers angeheftet hat. Diese Einstellung gibt nicht an, ob das Symbol der Aktion sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Benutzeroberfläche des Browsers ab.
 
 ## Beispiele
 
-Dieser Code protokolliert eine Nachricht, die anzeigt, ob die Browser-Action angeheftet ist oder nicht:
+Dieser Code protokolliert eine Nachricht, die angibt, ob die Browser-Aktion angeheftet ist oder nicht:
 
 ```js
 function gotSettings(userSettings) {

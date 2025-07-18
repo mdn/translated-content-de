@@ -2,14 +2,12 @@
 title: sessions.setWindowValue()
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/setWindowValue
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Speichert ein Schlüssel/Wert-Paar, das einem bestimmten Fenster zugeordnet werden soll. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getWindowValue")}} abrufen.
 
-Speichert ein Schlüssel/Wert-Paar, das mit einem bestimmten Fenster verknüpft wird. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getWindowValue")}} abrufen.
-
-Bitte beachten Sie, dass diese Daten nur für die Erweiterung sichtbar sind, die sie festgelegt hat, und nicht für andere Erweiterungen.
+Beachten Sie, dass diese Daten nur für die Erweiterung sichtbar sind, die sie gesetzt hat, und nicht für andere Erweiterungen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,19 +24,19 @@ let storing = browser.sessions.setWindowValue(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des Fensters, mit dem Sie die Daten verknüpfen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. ID des Fensters, dem Sie die Daten zuordnen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
   - : `string`. Schlüssel, den Sie später verwenden können, um diesen bestimmten Datenwert abzurufen.
 - `value`
-  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringifiziert](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass Methoden des Objekts zum Beispiel weggelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
+  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringifiziert](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass Objektmethoden beispielsweise ausgelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn der Aufruf erfolgreich war. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn der Aufruf erfolgreich war. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Setzen Sie einen Wert auf dem aktiven Fenster, wenn der Benutzer einen Menüeintrag auswählt. Beachten Sie, dass Sie die Berechtigung "menus" benötigen, um dieses Beispiel auszuführen:
+Setzen Sie einen Wert im aktiven Fenster, wenn der Benutzer ein Menüpunktelement auswählt. Beachten Sie, dass Sie die "menus" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
 
 ```js
 async function setOnActiveWindow() {

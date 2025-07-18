@@ -2,12 +2,10 @@
 title: bookmarks.onRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/onRemoved
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein Lesezeichen oder ein Ordner entfernt wird. Wenn ein Ordner rekursiv entfernt wird, wird eine einzelne Benachrichtigung für den Ordner ausgelöst, aber keine für dessen Inhalt.
+Wird ausgelöst, wenn ein Lesezeichen oder Ordner entfernt wird. Wenn ein Ordner rekursiv entfernt wird, wird eine einzelne Benachrichtigung für den Ordner ausgelöst und keine für dessen Inhalte.
 
 ## Syntax
 
@@ -22,29 +20,29 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn der Listener lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden die folgenden Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `id`
-      - : `string`. ID des entfernten Elements.
+      - : `string`. ID des Elements, das entfernt wurde.
     - `removeInfo`
-      - : `object`. Weitere Details über das entfernte Element. Siehe den Abschnitt [removeInfo](#removeinfo_2) für weitere Details.
+      - : `object`. Weitere Details zu dem entfernten Element. Siehe den Abschnitt [removeInfo](#removeinfo_2) für mehr Details.
 
 ## Zusätzliche Objekte
 
 ### removeInfo
 
 - `parentId`
-  - : `string`. ID des Elternteils des Elements im Baum.
+  - : `string`. ID des übergeordneten Elements im Baum.
 - `index`
-  - : `integer`. Nullbasierte Positionsindex dieses Elements im Elternteil.
+  - : `integer`. Null-basierter Index der Position dieses Elements bei seinem übergeordneten Element.
 - `node`
   - : {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}}. Detaillierte Informationen über das entfernte Element.
 
@@ -71,7 +69,7 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onRemoved) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onRemoved) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

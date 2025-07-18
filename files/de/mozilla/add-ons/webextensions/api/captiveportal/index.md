@@ -2,14 +2,12 @@
 title: captivePortal
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Bestimmen Sie den Zustand des Captive Portals der Benutzerverbindung. Ein Captive Portal ist eine Webseite, die angezeigt wird, wenn ein Benutzer sich erstmals mit einem Wi-Fi-Netzwerk verbindet. Der Benutzer gibt Informationen an oder handelt auf der Captive Portal-Webseite, um weiterreichenden Zugriff auf Netzwerkressourcen zu erhalten, wie zum Beispiel das Akzeptieren von Geschäftsbedingungen oder das Tätigen einer Zahlung.
 
-Ermitteln Sie den Captive-Portal-Zustand der Verbindung des Benutzers. Ein Captive Portal ist eine Webseite, die angezeigt wird, wenn ein Benutzer erstmals eine Verbindung zu einem Wi-Fi-Netzwerk herstellt. Der Benutzer stellt Informationen bereit oder führt eine Aktion auf der Captive-Portal-Webseite durch, um einen umfassenderen Zugriff auf Netzwerkressourcen zu erhalten, wie zum Beispiel das Akzeptieren von Bedingungen oder das Tätigen einer Zahlung.
-
-Um diese API zu verwenden, benötigen Sie die "captivePortal"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Um diese API zu nutzen, benötigen Sie die "captivePortal" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 ## Eigenschaften
 
@@ -19,16 +17,16 @@ Um diese API zu verwenden, benötigen Sie die "captivePortal"-[Berechtigung](/de
 ## Funktionen
 
 - {{WebExtAPIRef("captivePortal.getLastChecked()")}}
-  - : Gibt die Zeit in Millisekunden zurück, seit die letzte Anforderung abgeschlossen wurde.
+  - : Gibt die Zeit in Millisekunden seit Abschluss der letzten Anfrage zurück.
 - {{WebExtAPIRef("captivePortal.getState()")}}
-  - : Gibt den Portalzustand als eines von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal` zurück.
+  - : Gibt den Portalzustand als einen der folgenden Werte zurück: `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("captivePortal.onConnectivityAvailable")}}
-  - : Wird ausgelöst, wenn der Captive-Portal-Dienst feststellt, dass der Benutzer eine Verbindung zum Internet herstellen kann.
+  - : Wird ausgelöst, wenn der Captive Portal-Dienst feststellt, dass der Benutzer eine Verbindung zum Internet herstellen kann.
 - {{WebExtAPIRef("captivePortal.onStateChanged")}}
-  - : Wird ausgelöst, wenn sich der Captive-Portal-Zustand ändert.
+  - : Wird ausgelöst, wenn sich der Zustand des Captive Portals ändert.
 
 {{WebExtExamples("h2")}}
 

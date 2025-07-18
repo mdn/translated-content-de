@@ -2,10 +2,8 @@
 title: notifications.onClosed
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/onClosed
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn eine Benachrichtigung entweder vom System oder vom Benutzer geschlossen wird.
 
@@ -22,16 +20,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
     - `notificationId`
       - : `string`. ID der Benachrichtigung, die geschlossen wurde.
     - `byUser`
@@ -39,7 +37,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-In diesem einfachen Beispiel fügen wir einen Listener zum Ereignis `notifications.onClosed` hinzu, um zu überwachen, wann Systembenachrichtigungen geschlossen werden. Wenn dies eintritt, protokollieren wir eine entsprechende Nachricht in der Konsole.
+In diesem einfachen Beispiel fügen wir einen Listener zum `notifications.onClosed`-Ereignis hinzu, um auf das Schließen von Systembenachrichtigungen zu lauschen. Wenn dies geschieht, protokollieren wir eine entsprechende Nachricht in der Konsole.
 
 ```js
 browser.notifications.onClosed.addListener((notificationId) => {
@@ -54,4 +52,4 @@ browser.notifications.onClosed.addListener((notificationId) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.

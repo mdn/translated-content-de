@@ -2,12 +2,10 @@
 title: alarms.onAlarm
 slug: Mozilla/Add-ons/WebExtensions/API/alarms/onAlarm
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein vom Add-on gesetzter Alarm ausgelöst wird.
+Wird ausgelöst, wenn ein von der Erweiterung gesetzter Alarm ausgelöst wird.
 
 ## Syntax
 
@@ -22,9 +20,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn der Listener aktiv ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -33,11 +31,11 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `alarm`
-      - : {{WebExtAPIRef('alarms.Alarm')}}. Der ausgelöste Alarm. Verwenden Sie `Alarm.name`, um festzustellen, welcher Alarm ausgelöst wurde.
+      - : {{WebExtAPIRef('alarms.Alarm')}}. Der Alarm, der ausgelöst wurde. Verwenden Sie `Alarm.name`, um festzustellen, welcher Alarm ausgelöst wurde.
 
 ## Beispiele
 
-Einen Alarm behandeln, der ausgelöst wird:
+Behandeln eines Alarms, der ausgelöst wird:
 
 ```js
 function handleAlarm(alarmInfo) {
@@ -54,4 +52,4 @@ browser.alarms.onAlarm.addListener(handleAlarm);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) von Chromium.
+> Diese API basiert auf der [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API von Chromium.

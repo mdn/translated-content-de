@@ -2,17 +2,17 @@
 title: letter-spacing
 slug: Web/SVG/Reference/Attribute/letter-spacing
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: da8c3171b7a7ea6694af71fac7a3194d8e9ba869
 ---
 
-Das Attribut **`letter-spacing`** steuert den Abstand zwischen Textzeichen.
+Das **`letter-spacing`** Attribut steuert den Abstand zwischen den Textzeichen.
 
-Wenn der Attributwert eine einheitenlose Zahl ist (wie `128`), verarbeitet der Browser ihn als {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
+Wenn der Attributwert eine zahl ohne Einheit ist (wie `128`), verarbeitet der Browser es als {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
 
-Wenn der Attributwert eine Einheit enthält, wie zum Beispiel `.25em` oder `1%`, konvertiert der Browser die \<length> in ihren entsprechenden Wert im aktuellen Benutzerkoordinatensystem.
+Wenn der Attributwert eine Einheit enthält, wie `.25em` oder `1%`, konvertiert der Browser das `\<length>` in den entsprechenden Wert im aktuellen Benutzerkoordinatensystem.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `letter-spacing` auch ein entsprechendes CSS-Eigenschafts-Counterpart: {{cssxref("letter-spacing")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `letter-spacing` auch ein entsprechendes CSS-Property: {{cssxref("letter-spacing")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -20,15 +20,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
 
-## Beispiel
+## Beispiele
 
-```css hidden
-html,
-body,
-svg {
-  height: 100%;
-}
-```
+### Steuerung des Buchstabenabstands in SVG
 
 ```html
 <svg viewBox="0 0 400 30" xmlns="http://www.w3.org/2000/svg">
@@ -37,9 +31,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "200", "30")}}
+{{EmbedLiveSample}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

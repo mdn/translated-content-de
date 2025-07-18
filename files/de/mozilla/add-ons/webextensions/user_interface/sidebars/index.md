@@ -2,24 +2,22 @@
 title: Seitenleisten
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Sidebars
 l10n:
-  sourceCommit: 33cada2d06f8d0cd009d9d5348de6e3165bba67f
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Eine Seitenleiste ist ein Fensterbereich, der an der Seite des Browserfensters neben der Webseite angezeigt wird. Diese Seite beschreibt Seitenleisten, deren Spezifizierung, Gestaltung und Beispiele für deren Nutzung.
 
-Eine Seitenleiste ist ein Bereich, der seitlich im Browserfenster neben der Webseite angezeigt wird. Diese Seite beschreibt Seitenleisten, wie man sie spezifiziert, entwirft und Anwendungsbeispiele.
+Der Browser stellt eine Benutzeroberfläche zur Verfügung, die es dem Nutzer ermöglicht, eine Seitenleiste zur Anzeige auszuwählen. Zum Beispiel hat Firefox das Menü "Ansicht" > "Seitenleiste". Jedes Browserfenster kann seine eigene Seitenleiste anzeigen, die in jedem Tab im Fenster dargestellt wird.
 
-Der Browser bietet eine Benutzeroberfläche, die es dem Benutzer ermöglicht, eine Seitenleiste auszuwählen, die angezeigt werden soll. Beispielsweise verfügt Firefox über das Menü "Ansicht" > "Sidebar". Jedes Browserfenster kann seine eigene Seitenleiste anzeigen, die in jedem Tab des Fensters angezeigt wird.
+Der Browser kann eine Anzahl von integrierten Seitenleisten enthalten. Zum Beispiel beinhaltet Firefox eine Seitenleiste für die Interaktion mit Lesezeichen:
 
-Der Browser kann eine Reihe von integrierten Seitenleisten enthalten. Beispielsweise enthält Firefox eine Seitenleiste zur Interaktion mit Lesezeichen:
+![Annotator-Seitenleiste mit einem Feld, das dem Nutzer erlaubt, Notizen zur Seite zu machen.](bookmarks-sidebar.png)
 
-![Annotator-Seitenleiste mit einem Feld, das es dem Benutzer ermöglicht, Anmerkungen zur Seite zu machen.](bookmarks-sidebar.png)
+Mithilfe des [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Schlüssels in der manifest.json-Datei kann eine Erweiterung ihre eigene Seitenleiste zum Browser hinzufügen. Sie wird neben den integrierten Seitenleisten aufgelistet und der Nutzer kann sie mit demselben Mechanismus öffnen wie die integrierten Seitenleisten.
 
-Mithilfe des Manifests.json-Schlüssels [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) kann eine Erweiterung ihre eigene Seitenleiste zum Browser hinzufügen. Sie wird neben den integrierten Seitenleisten aufgeführt, und der Benutzer kann sie mit dem gleichen Mechanismus wie die integrierten Seitenleisten öffnen.
+Ähnlich wie ein Popup für Browseraktionen werden die Inhalte der Seitenleiste als HTML-Dokument spezifiziert. Wenn der Nutzer die Seitenleiste öffnet, wird das Dokument der Seitenleiste in jedes offene Browserfenster geladen. Jedes Fenster erhält seine eigene Instanz des Dokuments. Wenn neue Fenster geöffnet werden, erhalten diese ebenfalls ihre eigenen Seitenleistendokumente.
 
-Wie bei einem „Browser Action“-Popup werden die Inhalte der Seitenleiste als HTML-Dokument spezifiziert. Wenn der Benutzer die Seitenleiste öffnet, wird das Dokument der Seitenleiste in jedem offenen Browserfenster geladen. Jedes Fenster erhält seine eigene Instanz des Dokuments. Wenn neue Fenster geöffnet werden, erhalten auch sie eigene Seitenleistentexte.
-
-Ein Dokument für einen bestimmten Tab kann mit der Funktion {{WebExtAPIRef("sidebarAction.setPanel()")}} festgelegt werden. Eine Seitenleiste kann mithilfe der API {{WebExtAPIRef("windows.getCurrent()")}} herausfinden, zu welchem Fenster sie gehört:
+Ein Dokument für einen speziellen Tab kann mit der Funktion {{WebExtAPIRef("sidebarAction.setPanel()")}} festgelegt werden. Eine Seitenleiste kann herausfinden, zu welchem Fenster sie gehört, indem sie die API {{WebExtAPIRef("windows.getCurrent()")}} verwendet:
 
 ```js
 // sidebar.js
@@ -28,17 +26,17 @@ browser.windows.getCurrent({ populate: true }).then((windowInfo) => {
 });
 ```
 
-Dies ist nützlich, wenn eine Seitenleiste für unterschiedliche Fenster unterschiedliche Inhalte anzeigen möchte. Für ein Beispiel dazu, siehe das ["annotate-page" Beispiel](https://github.com/mdn/webextensions-examples/tree/main/annotate-page).
+Das ist nützlich, wenn eine Seitenleiste unterschiedliche Inhalte für verschiedene Fenster anzeigen möchte. Für ein Beispiel dafür, siehe das ["annotate-page" Beispiel](https://github.com/mdn/webextensions-examples/tree/main/annotate-page).
 
-Seitenleistentexte haben Zugriff auf denselben Satz privilegierter JavaScript-APIs, den auch die Hintergrund- und Popup-Skripte der Erweiterung erhalten. Sie können direkten Zugriff auf die Hintergrundseite erhalten (sofern die Seitenleiste nicht zu einem Inkognito-Modus-Fenster gehört) mithilfe von {{WebExtAPIRef("runtime.getBackgroundPage()")}}, und können mit Inhalts-Skripten oder nativen Anwendungen über Messaging-APIs wie {{WebExtAPIRef("tabs.sendMessage()")}} und {{WebExtAPIRef("runtime.sendNativeMessage()")}} interagieren.
+Seitenleistendokumente haben Zugriff auf das gleiche Set von privilegierten JavaScript-APIs, auf das auch die Hintergrund- und Popup-Skripte der Erweiterung zugreifen können. Sie können direkten Zugriff auf die Hintergrundseite erhalten (es sei denn, die Seitenleiste gehört zu einem Inkognito-Fenster) durch {{WebExtAPIRef("runtime.getBackgroundPage()")}} und können mit Inhaltsskripten oder nativen Anwendungen über Messaging-APIs wie {{WebExtAPIRef("tabs.sendMessage()")}} und {{WebExtAPIRef("runtime.sendNativeMessage()")}} interagieren.
 
-Seitenleistentexte werden entladen, wenn ihr Browserfenster geschlossen wird oder wenn der Benutzer die Seitenleiste schließt. Das bedeutet, dass im Gegensatz zu Hintergrundseiten Seitenleistentexte nicht die ganze Zeit geladen bleiben, aber im Gegensatz zu „Browser Action“-Popups bleiben sie geladen, während der Benutzer mit Webseiten interagiert.
+Seitenleistendokumente werden entladen, wenn ihr Browserfenster geschlossen wird oder der Nutzer die Seitenleiste schließt. Das bedeutet, dass im Gegensatz zu Hintergrundseiten die Seitenleistendokumente nicht die ganze Zeit geladen bleiben, aber im Gegensatz zu Popups für Browseraktionen bleiben sie geladen, während der Nutzer mit Webseiten interagiert.
 
-Wenn eine Erweiterung, die eine Seitenleiste definiert, erstmals installiert wird, wird ihre Seitenleiste automatisch geöffnet. Dies soll dem Benutzer helfen zu verstehen, dass die Erweiterung eine Seitenleiste enthält. Beachten Sie, dass es nicht möglich ist, dass eine Erweiterung Seitenleisten programmgesteuert öffnet: Seitenleisten können nur vom Benutzer geöffnet werden.
+Wenn eine Erweiterung, die eine Seitenleiste definiert, erstmals installiert wird, wird ihre Seitenleiste automatisch geöffnet. Dies soll dem Benutzer helfen zu verstehen, dass die Erweiterung eine Seitenleiste enthält. Beachten Sie, dass es für eine Erweiterung nicht möglich ist, Seitenleisten programmgesteuert zu öffnen: Seitenleisten können nur vom Benutzer geöffnet werden.
 
-## Spezifizierung von Seitenleisten
+## Spezifizieren von Seitenleisten
 
-Um eine Seitenleiste zu spezifizieren, definieren Sie das Standarddokument mit dem Manifests.json-Schlüssel [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) zusammen mit einem Standardtitel und -symbol:
+Um eine Seitenleiste zu spezifizieren, definieren Sie das Standarddokument mit dem [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Schlüssel in der manifest.json-Datei, zusammen mit einem Standardtitel und -symbol:
 
 ```json
 "sidebar_action": {
@@ -48,14 +46,14 @@ Um eine Seitenleiste zu spezifizieren, definieren Sie das Standarddokument mit d
 }
 ```
 
-Titel, Panel und Symbol können programmgesteuert mithilfe der {{WebExtAPIRef("sidebarAction")}} API geändert werden.
+Titel, Panel und Symbol können programmgesteuert mit der API {{WebExtAPIRef("sidebarAction")}} verändert werden.
 
-Titel und Symbol werden dem Benutzer in jeder vom Browser bereitgestellten Benutzeroberfläche zum Auflisten von Seitenleisten gezeigt, wie im Menü „Ansicht > Sidebar“ in Firefox.
+Titel und Symbol werden dem Benutzer in jeder vom Browser bereitgestellten Benutzeroberfläche angezeigt, die Seitenleisten auflistet, wie zum Beispiel das Menü "Ansicht > Seitenleiste" in Firefox.
 
 ## Design der Seitenleiste
 
-Einzelheiten dazu, wie Sie das Webseitendesign einer Seitenleiste an den Stil von Firefox anpassen können, finden Sie in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
+Einzelheiten dazu, wie Sie die Webseite einer Seitenleiste gestalten können, um dem Stil von Firefox zu entsprechen, finden Sie in der [Acorn Design System-Dokumentation](https://acorn.firefox.com/latest).
 
 ## Beispiel
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [annotate-page](https://github.com/mdn/webextensions-examples/tree/main/annotate-page) Beispiel, das eine Seitenleiste implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples)-Repository auf GitHub enthält das [annotate-page](https://github.com/mdn/webextensions-examples/tree/main/annotate-page) Beispiel, das eine Seitenleiste implementiert.

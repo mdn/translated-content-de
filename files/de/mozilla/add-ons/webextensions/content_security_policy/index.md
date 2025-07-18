@@ -2,16 +2,14 @@
 title: Content Security Policy
 slug: Mozilla/Add-ons/WebExtensions/Content_Security_Policy
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Erweiterungen, die mit WebExtension-APIs entwickelt wurden, haben standardmäßig eine Content Security Policy (CSP) angewendet. Diese beschränkt die Quellen, von denen sie Code laden können, wie zum Beispiel [`<script>`](/de/docs/Web/HTML/Reference/Elements/script) und verbietet potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Dieser Artikel erklärt kurz, was eine CSP ist, was die Standardrichtlinie ist und was sie für eine Erweiterung bedeutet und wie eine Erweiterung die Standard-CSP ändern kann.
 
-Erweiterungen, die mit WebExtension-APIs entwickelt wurden, haben standardmäßig eine Content Security Policy (CSP), die auf sie angewendet wird. Diese beschränkt die Quellen, von denen sie Code wie [`<script>`](/de/docs/Web/HTML/Reference/Elements/script) laden können, und verbietet potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Dieser Artikel erklärt kurz, was eine CSP ist, was die Standardrichtlinie ist und was sie für eine Erweiterung bedeutet, sowie wie eine Erweiterung die Standard-CSP ändern kann.
+[Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) (CSP) ist ein Mechanismus, der hilft, zu verhindern, dass Websites versehentlich schädlichen Inhalt ausführen. Eine Website gibt eine CSP mittels eines HTTP-Headers an, der vom Server gesendet wird. Die CSP befasst sich hauptsächlich damit, legitime Quellen für verschiedene Arten von Inhalten anzugeben, wie Skripte oder eingebettete Plugins. Beispielsweise kann eine Website sie verwenden, um anzugeben, dass der Browser nur JavaScript ausführen soll, das von der Website selbst geliefert wird, und nicht aus anderen Quellen. Eine CSP kann den Browser auch anweisen, potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) zu verbieten.
 
-Die [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) (CSP) ist ein Mechanismus, um zu verhindern, dass Webseiten versehentlich bösartigen Inhalt ausführen. Eine Webseite gibt eine CSP über einen HTTP-Header an, der vom Server gesendet wird. Die CSP beschäftigt sich hauptsächlich mit der Angabe legitimer Quellen verschiedener Arten von Inhalten, wie Skripten oder eingebetteten Plugins. Zum Beispiel kann eine Webseite damit angeben, dass der Browser nur JavaScript ausführen soll, das von der Webseite selbst bereitgestellt wird, und nicht aus anderen Quellen. Eine CSP kann den Browser auch anweisen, potenziell unsichere Praktiken, wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval), zu verbieten.
-
-Wie Webseiten können Erweiterungen Inhalte aus verschiedenen Quellen laden. Beispielsweise wird das Popup einer Browseraktion als HTML-Dokument angegeben, und es kann JavaScript und CSS aus verschiedenen Quellen enthalten, genau wie eine normale Webseite:
+Wie Websites können Erweiterungen Inhalte aus verschiedenen Quellen laden. Beispielsweise wird das Popup einer Browseraktion als HTML-Dokument angegeben und kann JavaScript und CSS aus unterschiedlichen Quellen enthalten, genau wie eine normale Webseite:
 
 ```html
 <!doctype html>
@@ -36,12 +34,12 @@ Wie Webseiten können Erweiterungen Inhalte aus verschiedenen Quellen laden. Bei
 </html>
 ```
 
-Im Vergleich zu einer Webseite haben Erweiterungen Zugriff auf zusätzliche privilegierte APIs, sodass die Risiken größer sind, wenn sie durch bösartigen Code kompromittiert werden. Aus diesem Grund:
+Im Vergleich zu einer Website haben Erweiterungen Zugang zu zusätzlichen privilegierten APIs, sodass die Risiken größer sind, wenn sie durch schädlichen Code kompromittiert werden. Aus diesem Grund:
 
-- wird standardmäßig eine ziemlich strenge Content Security Policy auf Erweiterungen angewendet. Siehe [Standard-Content-Security-Policy](#standard-content-security-policy).
-- der Autor der Erweiterung kann die Standardrichtlinie mit dem `content_security_policy`-Schlüssel in der manifest.json ändern, aber es gibt Einschränkungen für die erlaubten Richtlinien. Siehe [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy).
+- wird standardmäßig eine ziemlich strikte Content Security Policy auf Erweiterungen angewendet. Siehe [standardmäßige Content Security Policy](#standardmäßige_content_security_policy).
+- kann der Autor der Erweiterung die Standardrichtlinie mit dem `content_security_policy`-Schlüssel in der manifest.json ändern, aber es gibt Einschränkungen hinsichtlich der erlaubten Richtlinien. Siehe [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy).
 
-## Standard-Content-Security-Policy
+## Standardmäßige Content Security Policy
 
 Die Standard-Content-Security-Policy für Erweiterungen, die Manifest V2 verwenden, ist:
 
@@ -49,41 +47,41 @@ Die Standard-Content-Security-Policy für Erweiterungen, die Manifest V2 verwend
 "script-src 'self'; object-src 'self';"
 ```
 
-Für Erweiterungen, die Manifest V3 verwenden, lautet die Standard-Content-Security-Policy:
+Für Erweiterungen, die Manifest V3 verwenden, ist die Standard-Content-Security-Policy:
 
 ```plain
 "script-src 'self'; upgrade-insecure-requests;"
 ```
 
-Diese Richtlinien werden auf alle Erweiterungen angewendet, die keine eigene Content-Security-Policy explizit mit dem [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy) Schlüssel in manifest.json festgelegt haben. Es hat die folgenden Konsequenzen:
+Diese Richtlinien werden auf jede Erweiterung angewendet, die nicht explizit ihre eigene Content Security Policy mit dem [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy)-Schlüssel in der manifest.json festgelegt hat. Dies hat folgende Konsequenzen:
 
-- [Sie dürfen nur `<script>` und `<object>` Ressourcen laden, die lokal zur Erweiterung sind.](#standort_von_skript-_und_objektressourcen)
-- [Die Erweiterung darf keine Zeichenfolgen als JavaScript auswerten.](#eval_and_friends)
+- [Sie dürfen nur `<script>` und `<object>` Ressourcen laden, die lokal in der Erweiterung sind.](#standort_der_script-_und_objekt-ressourcen)
+- [Die Erweiterung darf keine Strings als JavaScript auswerten.](#eval_and_friends)
 - [Inline-JavaScript wird nicht ausgeführt.](#inline-javascript)
 - [WebAssembly kann standardmäßig nicht verwendet werden.](#webassembly)
-- [Unsichere Netzwerkanfragen werden in Manifest V3 aufgewertet.](#unsichere_netzwerkanfragen_in_manifest_v3_aufwerten)
+- [Unsichere Netzwerk-Anfragen werden in Manifest V3 aufgewertet.](#unsichere_netzwerk-anfragen_in_manifest_v3_aufwerten)
 
-### Standort von Skript- und Objektressourcen
+### Standort der Script- und Objekt-Ressourcen
 
-Unter der Standard-CSP können Sie nur Code laden, der lokal zur Erweiterung ist. Die CSP beschränkt {{CSP("script-src")}} auf sichere Quellen, die [`<script>`](/de/docs/Web/HTML/Reference/Elements/script) Ressourcen, [ES6-Module](/de/docs/Web/JavaScript/Guide/Modules) und [Web-Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) umfassen. In Browsern, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen, ist auch die {{CSP("object-src")}} Direktive eingeschränkt. Weitere Informationen zu object-src in Erweiterungen finden Sie im WECG-Issue [Remove object-src from the CSP (at least in MV3)](https://github.com/w3c/webextensions/issues/204)).
+Unter der Standard-CSP können Sie nur Code laden, der lokal in der Erweiterung ist. Die CSP beschränkt {{CSP("script-src")}} auf sichere Quellen, was [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Ressourcen, [ES6-Module](/de/docs/Web/JavaScript/Guide/Modules) und [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) umfasst. In Browsern, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen, ist auch die {{CSP("object-src")}}-Richtlinie eingeschränkt. Für mehr Informationen über object-src in Erweiterungen siehe das WECG-Problem [Remove object-src from the CSP (at least in MV3)](https://github.com/w3c/webextensions/issues/204)).
 
-Zum Beispiel, betrachten Sie eine Zeile wie diese in einem Dokument der Erweiterung:
+Betrachten Sie zum Beispiel eine Zeile wie diese in einem Dokument einer Erweiterung:
 
 ```html
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 ```
 
-Dies lädt die angeforderte Ressource nicht: Es schlägt lautlos fehl und jedes Objekt, das Sie von der Ressource erwarten, wird nicht gefunden. Es gibt zwei Hauptlösungen dafür:
+Dies lädt die angeforderte Ressource nicht: Es schlägt stillschweigend fehl und das Objekt, das Sie von der Ressource erwarten, wird nicht gefunden. Es gibt zwei Hauptlösungen dafür:
 
-- Laden Sie die Ressource herunter, paketieren Sie sie in Ihrer Erweiterung und verweisen Sie auf diese Version der Ressource.
-- Erlauben Sie den benötigten entfernten Ursprung unter Verwendung des [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy) Schlüssels oder, in Manifest V3, der `content_scripts` Eigenschaft.
+- Laden Sie die Ressource herunter, packen Sie sie in Ihre Erweiterung und beziehen Sie sich auf diese Version der Ressource.
+- Erlauben Sie den benötigten entfernten Ursprung mit dem [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy)-Schlüssel oder in Manifest V3 mit der `content_scripts`-Eigenschaft.
 
 > [!NOTE]
-> Wenn Ihre modifizierte CSP Remote-Skript-Injektion erlaubt, wird Ihre Erweiterung während der Überprüfung bei addons.mozilla.org (AMO) abgelehnt. Weitere Informationen finden Sie in den Details zu [Sicherheitsbestpraktiken](https://extensionworkshop.com/documentation/develop/build-a-secure-extension/).
+> Wenn Ihre angepasste CSP das Einspritzen von entfernten Skripten erlaubt, wird Ihre Erweiterung während der Überprüfung von addons.mozilla.org (AMO) abgelehnt. Weitere Informationen dazu finden Sie in den Details zu [Sicherheits-Best Practices](https://extensionworkshop.com/documentation/develop/build-a-secure-extension/).
 
-### eval() und ähnliche Funktionen
+### eval() und Vergleichbares
 
-Unter der Standard-CSP können Erweiterungen keine Zeichenfolgen als JavaScript auswerten. Dies bedeutet, dass Folgendes nicht erlaubt ist:
+Unter der Standard-CSP können Erweiterungen keine Strings als JavaScript auswerten. Das bedeutet, dass Folgendes nicht erlaubt ist:
 
 ```js
 eval("console.log('some output');");
@@ -111,31 +109,31 @@ Unter der Standard-CSP wird Inline-JavaScript nicht ausgeführt. Dies verbietet 
 <div onclick="console.log('click')">Click me!</div>
 ```
 
-Wenn Sie derzeit Code wie `<body onload="main()">` verwenden, um Ihr Skript auszuführen, wenn die Seite geladen wurde, hören Sie stattdessen auf [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event) oder [load](/de/docs/Web/API/Window/load_event).
+Wenn Sie momentan Code wie `<body onload="main()">` verwenden, um Ihr Skript auszuführen, sobald die Seite geladen ist, sollten Sie stattdessen auf [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event) oder [load](/de/docs/Web/API/Window/load_event) hören.
 
 ### WebAssembly
 
-Erweiterungen, die [WebAssembly](/de/docs/WebAssembly) verwenden möchten, müssen `'wasm-unsafe-eval'` in der `script-src` Direktive angeben.
+Erweiterungen, die [WebAssembly](/de/docs/WebAssembly) verwenden möchten, müssen `'wasm-unsafe-eval'` in der `script-src`-Richtlinie angeben.
 
-Ab Firefox 102 und Chrome 103 kann `'wasm-unsafe-eval'` im [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy) manifest.json Schlüssel enthalten sein, um die Verwendung von WebAssembly in Erweiterungen zu ermöglichen.
+Ab Firefox 102 und Chrome 103 kann `'wasm-unsafe-eval'` im [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy)-Schlüssel in manifest.json enthalten sein, um die Verwendung von WebAssembly in Erweiterungen zu ermöglichen.
 
-Manifest V2 Erweiterungen in Firefox können WebAssembly ohne `'wasm-unsafe-eval'` in ihrer CSP aufgrund von Rückwärtskompatibilität verwenden. Dieses Verhalten ist jedoch nicht garantiert, siehe [Firefox Bug 1770909](https://bugzil.la/1770909). Erweiterungen, die WebAssembly verwenden, werden daher ermutigt, `'wasm-unsafe-eval'` in ihrer CSP zu deklarieren.
+Manifest V2-Erweiterungen in Firefox können WebAssembly ohne `'wasm-unsafe-eval'` in ihrer CSP für die Rückwärtskompatibilität verwenden. Dieses Verhalten ist jedoch nicht garantiert, siehe [Firefox-Fehler 1770909](https://bugzil.la/1770909). Daher wird Erweiterungen, die WebAssembly verwenden, empfohlen, `'wasm-unsafe-eval'` in ihrer CSP zu deklarieren.
 
-Für Chrome können Erweiterungen in Version 101 oder früher WebAssembly nicht verwenden. In 102 können Erweiterungen WebAssembly verwenden (gleiches Verhalten wie Firefox 101 und früher). Ab Version 103 können Erweiterungen WebAssembly verwenden, wenn sie `'wasm-unsafe-eval'` in der `content_security_policy` im manifest-Schlüssel enthalten.
+Für Chrome können Erweiterungen WebAssembly in Version 101 oder früher nicht verwenden. In 102 können Erweiterungen WebAssembly verwenden (das gleiche Verhalten wie Firefox 101 und früher). Ab Version 103 können Erweiterungen WebAssembly verwenden, wenn sie `'wasm-unsafe-eval'` in der `content_security_policy` im manifest-Schlüssel enthalten.
 
-### Unsichere Netzwerkanfragen in Manifest V3 aufwerten
+### Unsichere Netzwerk-Anfragen in Manifest V3 aufwerten
 
-Erweiterungen sollten `https:` und `wss:` verwenden, wenn sie mit externen Servern kommunizieren. Um dies als Standardverhalten zu fördern, enthält die Standard-CSP von Manifest V3 die {{CSP("upgrade-insecure-requests")}} Direktive. Diese Direktive wertet Netzwerkanfragen an `http:` automatisch zu `https:` auf.
+Erweiterungen sollten `https:` und `wss:` verwenden, wenn sie mit externen Servern kommunizieren. Um dies als Standardverhalten zu fördern, umfasst die Standard-CSP für Manifest V3 die {{CSP("upgrade-insecure-requests")}}-Richtlinie. Diese Richtlinie wertet automatisch Netzwerk-Anfragen zu `http:` auf `https:` auf.
 
-Obwohl Anfragen automatisch aufgewertet werden, wird dennoch empfohlen, in der Quelle der Erweiterung, wo möglich, `https:`-URLs zu verwenden. Insbesondere sollten Einträge im [`host_permissions` Abschnitt der manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) mit `https://` oder `*://` anstelle von nur `http://` beginnen.
+Obwohl Anfragen automatisch aufgewertet werden, wird trotzdem empfohlen, soweit möglich `https:`-URLs im Quellcode der Erweiterung zu verwenden. Insbesondere sollten Einträge im [`host_permissions` Abschnitt von manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) mit `https://` oder `*://` anstelle von nur `http://` beginnen.
 
-Manifest V3 Erweiterungen, die `http:` oder `ws:` Anfragen stellen müssen, können sich durch Überschreiben der Standard-CSP mit dem [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy) manifest.json Schlüssel mit einer Richtlinie, die die `upgrade-insecure-requests` Direktive ausschließt, von diesem Verhalten abmelden. Um jedoch den [Sicherheitsanforderungen](https://extensionworkshop.com/documentation/publish/add-on-policies/#security-compliance-and-blocking) der Add-on-Richtlinien zu entsprechen, müssen alle Benutzerdaten sicher übertragen werden.
+Manifest V3-Erweiterungen, die `http:`- oder `ws:`-Anfragen stellen müssen, können dieses Verhalten ablehnen, indem sie die Standard-CSP überschreiben, indem sie den [`content_security_policy`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy)-Schlüssel in manifest.json mit einer Richtlinie verwenden, die die `upgrade-insecure-requests`-Richtlinie ausschließt. Allerdings müssen, um die [Sicherheitsanforderungen](https://extensionworkshop.com/documentation/publish/add-on-policies/#security-compliance-and-blocking) der Add-on-Policies zu erfüllen, alle Benutzerdaten sicher übertragen werden.
 
-## CSP für Inhalts-Skripte
+## CSP für Content Scripts
 
-In Manifest V2 haben Inhalts-Skripte keine CSP.
-Ab Manifest V3 teilen Inhalts-Skripte die Standard-CSP wie Erweiterungen. Derzeit ist es nicht möglich, eine separate CSP für Inhalts-Skripte festzulegen ([Quelle](https://bugzil.la/1581611#c10)).
+In Manifest V2 haben Content Scripts keine CSP.
+Ab Manifest V3 teilen Content Scripts die Standard-CSP mit Erweiterungen. Es ist derzeit nicht möglich, eine separate CSP für Content Scripts anzugeben ([Quelle](https://bugzil.la/1581611#c10)).
 
-Das Ausmaß, in dem die CSP das Laden von Inhalts-Skripten steuert, variiert je nach Browser.
-In Firefox sind JavaScript-Funktionen wie eval durch die Erweiterungs-CSP eingeschränkt. Im Allgemeinen unterliegen die meisten DOM-basierten APIs der CSP der Webseite.
-In Chrome werden viele DOM-APIs von der Erweiterungs-CSP abgedeckt anstelle der CSP der Webseite ([crbug 896041](https://crbug.com/896041)).
+Das Ausmaß, in dem die CSP Ladeoperationen von Content Scripts kontrolliert, variiert je nach Browser.
+In Firefox sind JavaScript-Features wie eval durch die Erweiterungs-CSP eingeschränkt. Im Allgemeinen unterliegen die meisten DOM-basierten APIs der CSP der Webseite.
+In Chrome werden viele DOM-APIs durch die Erweiterungs-CSP abgedeckt anstelle der CSP der Webseite ([crbug 896041](https://crbug.com/896041)).

@@ -1,18 +1,16 @@
 ---
-title: Typen
+title: types
 slug: Mozilla/Add-ons/WebExtensions/API/types
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Definiert den Typ `BrowserSetting`, der verwendet wird, um eine Browsereinstellung darzustellen.
+Definiert den `BrowserSetting`-Typ, der verwendet wird, um eine Browsereinstellung darzustellen.
 
 ## Typen
 
 - {{WebExtAPIRef("types.BrowserSetting")}}
-  - : Repräsentiert eine Browsereinstellung.
+  - : Stellt eine Browsereinstellung dar.
 
 {{WebExtExamples("h2")}}
 
@@ -21,7 +19,7 @@ Definiert den Typ `BrowserSetting`, der verwendet wird, um eine Browsereinstellu
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types)-API von Chromium.
+> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -30,30 +28,25 @@ Definiert den Typ `BrowserSetting`, der verwendet wird, um eine Browsereinstellu
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions des Quellcodes müssen die obige Copyright-
-// Mitteilung, diese Liste der Bedingungen und den folgenden Haftungsausschluss
-// enthalten.
-//    * Weiterverteilungen in binärer Form müssen die obige Copyright-
-// Mitteilung, diese Liste der Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien, die mit der
-// Verteilung bereitgestellt werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software
-// abgeleitet sind, ohne vorherige schriftliche Genehmigung spezifisch zu bewerben
-// oder zu bewerben.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
-// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
-// IMPLIZIERTEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN
-// ZWECK WERDEN ABGELEHNT. IN KEINEM FALL SOLLEN DIE COPYRIGHT-INHABER ODER
-// MITWIRKENDE FÜR JEGLICHE DIREKTE, INDIREKTE, ZUFÄLLIGE,
-// SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF DEN ERSATZ VON WAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
-// DATEN- ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) HAFTBAR GEHALTEN WERDEN,
-// UNABHÄNGIG VON DER URSACHE UND JEGLICHER HAFTUNGSTHEORIE, OB IN VERTRAG,
-// GEFÄHRDUNGSHAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
-// ANDERWEITIG), AUF IRGENDEINE WEISE AUS DER NUTZUNG DIESER SOFTWARE
-// ENTSTANDEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
-// HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

@@ -2,12 +2,10 @@
 title: runtime.getManifest()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getManifest
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Erhalten Sie die vollständige [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei, von JSON in ein Objekt deserialisiert.
+Rufen Sie die vollständige [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei ab, die von JSON in ein Objekt deserialisiert wurde.
 
 ## Syntax
 
@@ -25,7 +23,7 @@ Ein `object`, das das Manifest darstellt.
 
 ## Beispiele
 
-Holen Sie sich das Manifest und protokollieren Sie die "name"-Eigenschaft:
+Holen Sie das Manifest und protokollieren Sie die Eigenschaft "name":
 
 ```js
 let manifest = browser.runtime.getManifest();
@@ -39,34 +37,39 @@ console.log(manifest.name);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getManifest)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getManifest). Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Verbreitung und Verwendung in Quell- und Binärform, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Verbreitungen des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// beibehalten.
+//    * Verbreitungen in binärer Form müssen den obigen
+// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
+// beibehalten, die mit der Verbreitung geliefert werden.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen ohne spezielle vorherige schriftliche Genehmigung
+// verwendet werden, um Produkte, die von dieser Software abgeleitet
+// wurden, zu unterstützen oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHEN ODER
+// IMPLIZIERTEN GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND
+// EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, SIND ABGELEHNT. IN KEINEM FALL
+// HAFTEN DIE URHEBERRECHTSINHABER ODER MITWIRKENDEN FÜR JEGLICHE
+// DIREKTEN, INDIREKTEN, ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER
+// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
+// BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN, NUTZUNGSAUSFALL,
+// DATEN- ODER GEWINNVERLUST ODER GESCHÄFTSUNTERBRECHUNG), WIE AUCH
+// IMMER, VERURSACHT UND UNABHÄNGIG VON DER VERANTWORTUNGSTHEORIE,
+// SEI ES AUFGRUND DES VERTRAGS, DER STRIKTEN HAFTUNG ODER EINER
+// UNERLAUBTEN HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG),
+// DIE IN IRGENDEINER WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN,
+// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

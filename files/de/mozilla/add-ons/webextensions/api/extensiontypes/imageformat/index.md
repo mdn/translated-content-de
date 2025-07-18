@@ -2,16 +2,14 @@
 title: extensionTypes.ImageFormat
 slug: Mozilla/Add-ons/WebExtensions/API/extensionTypes/ImageFormat
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Das Format eines Bildes.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind: `"jpeg"`, `"png"`.
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"jpeg"`, `"png"`.
 
 {{WebExtExamples}}
 
@@ -20,7 +18,7 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind: `"jpeg"`, `"png"`.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-ImageFormat) API von Chromium. Diese Dokumentation stammt aus [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-ImageFormat) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

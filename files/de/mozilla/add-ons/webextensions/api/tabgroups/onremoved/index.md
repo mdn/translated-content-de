@@ -2,12 +2,10 @@
 title: tabGroups.onRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/onRemoved
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn eine Tab-Gruppe entfernt wird. Dies geschieht, wenn ein Benutzer eine Tab-Gruppe schließt oder eine Tab-Gruppe automatisch geschlossen wird, weil durch eine andere Änderung keine Tabs mehr enthalten sind.
+Wird ausgelöst, wenn eine Tab-Gruppe entfernt wird. Dies geschieht, wenn ein Benutzer eine Tab-Gruppe schließt oder eine Tab-Gruppe automatisch geschlossen wird, da eine andere Änderung bedeutet, dass sie keine Tabs mehr enthält.
 
 ## Syntax
 
@@ -22,9 +20,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es abhört, `false` andernfalls.
 
 ## addListener-Syntax
 
@@ -41,7 +39,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Lauschen und protokollieren von Entfernungen von Tab-Gruppen:
+Auf das Entfernen von Tab-Gruppen hören und diese protokollieren:
 
 ```js
 function tabGroupRemoved(group) {

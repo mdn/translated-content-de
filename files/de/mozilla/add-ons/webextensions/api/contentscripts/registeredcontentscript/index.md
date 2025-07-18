@@ -2,17 +2,15 @@
 title: contentScripts.RegisteredContentScript
 slug: Mozilla/Add-ons/WebExtensions/API/contentScripts/RegisteredContentScript
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein `RegisteredContentScript` wird durch einen Aufruf von {{WebExtAPIRef("contentScripts.register()")}} zurückgegeben und repräsentiert die in diesem Aufruf registrierten Content-Skripte.
 
-Ein `RegisteredContentScript` wird zurückgegeben durch einen Aufruf von {{WebExtAPIRef("contentScripts.register()")}} und repräsentiert die in diesem Aufruf registrierten Content-Skripte.
-
-Es definiert eine einzelne Funktion {{WebExtAPIRef("contentScripts.RegisteredContentScript.unregister", "unregister()")}}, die verwendet werden kann, um die Content-Skripte zu entfernen.
+Es definiert eine einzelne Funktion {{WebExtAPIRef("contentScripts.RegisteredContentScript.unregister", "unregister()")}}, die verwendet werden kann, um die Content-Skripte abzuregistrieren.
 
 > [!NOTE]
-> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es nicht mehr im Gültigkeitsbereich ist), dann werden die Content-Skripte automatisch abgemeldet. Daher sollten Sie eine Referenz auf dieses Objekt behalten, solange Sie möchten, dass die Content-Skripte registriert bleiben.
+> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es aus dem Geltungsbereich fällt), werden die Content-Skripte automatisch abgemeldet. Daher sollten Sie eine Referenz zu diesem Objekt behalten, solange Sie möchten, dass die Content-Skripte registriert bleiben.
 
 ## Methoden
 

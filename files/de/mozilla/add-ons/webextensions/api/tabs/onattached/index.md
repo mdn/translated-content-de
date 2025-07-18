@@ -2,10 +2,8 @@
 title: tabs.onAttached
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onAttached
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn ein Tab an ein Fenster angehängt wird, zum Beispiel weil es zwischen Fenstern verschoben wurde.
 
@@ -22,11 +20,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener` Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn zugehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -35,7 +33,7 @@ Ereignisse haben drei Funktionen:
     - `tabId`
       - : `integer`. ID des Tabs, der an ein neues Fenster angehängt wurde.
     - `attachInfo`
-      - : `object`. ID des neuen Fensters und Index des Tabs innerhalb dieses. Siehe den Abschnitt [attachInfo](#attachinfo_2) für weitere Details.
+      - : `object`. ID des neuen Fensters und Index des Tabs darin. Siehe den [attachInfo](#attachinfo_2) Abschnitt für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -48,7 +46,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Attach-Ereignisse und protokollieren Sie die Information:
+Beispiel, um auf Anheftungsevents zu hören und die Informationen zu protokollieren:
 
 ```js
 function handleAttached(tabId, attachInfo) {
@@ -67,7 +65,7 @@ browser.tabs.onAttached.addListener(handleAttached);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onAttached) API von Chromium. Diese Dokumentation ist aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onAttached) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

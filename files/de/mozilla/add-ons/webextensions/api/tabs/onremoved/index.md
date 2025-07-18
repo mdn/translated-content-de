@@ -2,10 +2,8 @@
 title: tabs.onRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onRemoved
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn ein Tab geschlossen wird.
 
@@ -22,9 +20,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
 
 ## addListener-Syntax
 
@@ -33,9 +31,9 @@ Ereignisse haben drei Funktionen:
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `tabId`
-      - : `integer`. ID des geschlossenen Tabs.
+      - : `integer`. ID des Tabs, der geschlossen wurde.
     - `removeInfo`
-      - : `object`. Die Fenster-ID des Tabs und ein Boolean, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für weitere Details.
+      - : `object`. Die Fenster-ID des Tabs und ein boolean, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für mehr Details.
 
 ## Zusätzliche Objekte
 
@@ -48,7 +46,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Lauschen Sie auf Schließereignisse und protokollieren Sie die Informationen:
+Lauschen auf Schließereignisse und protokollieren der Informationen:
 
 ```js
 function handleRemoved(tabId, removeInfo) {
@@ -67,7 +65,7 @@ browser.tabs.onRemoved.addListener(handleRemoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onRemoved) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onRemoved) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -76,25 +74,29 @@ browser.tabs.onRemoved.addListener(handleRemoved);
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss beibehalten.
+//    * Redistributionen in binärer Form müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und / oder anderen Materialien, die mit der Verteilung zur Verfügung
+// gestellt werden, wiedergeben.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software
+// abgeleitet wurden, ohne ausdrückliche vorherige schriftliche Genehmigung zu unterstützen
+// oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
+// "SO WIE SIE IST" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
+// STILLSCHWEIGENDEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN
+// BESTIMMTEN ZWECK SIND ABGELEHNT. IN KEINEM FALL HAFTEN DIE
+// COPYRIGHT-INHABER ODER MITWIRKENDEN FÜR JEGLICHE DIREKTEN, INDIREKTEN,
+// ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZGÜTERN ODER -DIENSTLEISTUNGEN;
+// NUTZUNGSAUSFALL, DATENVERLUST ODER GEWINNE ODER
+// GESCHÄFTSUNTERBRECHUNG) WIE AUCH IMMER VERURSACHT UND UNTER WELCHER
+// HAFTUNGSTHEORIE, SEI ES VERTRAG, STRIKTE HAFTUNG ODER UNERLAUBTE HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG) AUF IRGENDEINE WEISE AUS
+// DER NUTZUNG DIESER SOFTWARE ENTSTANDEN SIND, SELBST WENN AUF DIE
+// MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

@@ -2,12 +2,10 @@
 title: events.Event
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein Objekt, das das Hinzufügen und Entfernen von Listenern für ein Browser-Ereignis ermöglicht.
+Ein Objekt, das das Hinzufügen und Entfernen von Listenern für ein Browserevent ermöglicht.
 
 ## Typ
 
@@ -16,19 +14,19 @@ Werte dieses Typs sind Objekte.
 ## Methoden
 
 - {{WebExtAPIRef("events.Event.addListener","events.Event.addListener()")}}
-  - : Registriert einen Ereignis-Listener für ein Ereignis.
+  - : Registriert einen Event-Listener für ein Event.
 - {{WebExtAPIRef("events.Event.removeListener","events.Event.removeListener()")}}
-  - : Deregistriert einen Ereignis-Listener von einem Ereignis.
+  - : Deregistriert einen Event-Listener von einem Event.
 - {{WebExtAPIRef("events.Event.hasListener","events.Event.hasListener()")}}
-  - : Testet den Registrierungsstatus eines Listeners.
+  - : Prüft den Registrierungsstatus eines Listeners.
 - {{WebExtAPIRef("events.Event.hasListeners","events.Event.hasListeners()")}}
-  - : Testet, ob Listener für das Ereignis registriert sind.
+  - : Prüft, ob Listener für das Event registriert sind.
 - {{WebExtAPIRef("events.Event.addRules","events.Event.addRules()")}}
-  - : Registriert Regeln zur Bearbeitung von Ereignissen.
+  - : Registriert Regeln zur Handhabung von Events.
 - {{WebExtAPIRef("events.Event.getRules","events.Event.getRules()")}}
-  - : Gibt derzeit registrierte Regeln zurück.
+  - : Gibt aktuell registrierte Regeln zurück.
 - {{WebExtAPIRef("events.Event.removeRules","events.Event.removeRules()")}}
-  - : Deregistriert derzeit registrierte Regeln.
+  - : Deregistriert aktuell registrierte Regeln.
 
 {{WebExtExamples}}
 
@@ -37,4 +35,4 @@ Werte dieses Typs sind Objekte.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Event) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Event) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.

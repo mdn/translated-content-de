@@ -2,18 +2,16 @@
 title: UserScripts.UserScriptOptions (Legacy)
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/UserScriptOptions
 l10n:
-  sourceCommit: d9e11f88996e97a259d2ec47f47a660062c12c4f
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
 > [!WARNING]
-> Dies ist die Dokumentation für die veraltete API `userScripts`. Sie ist in Firefox für Manifest V2 verfügbar. Um Funktionen mit Benutzerskripten in Manifest V3 zu verwenden, siehe die neue {{WebExtAPIRef("userScripts")}} API.
+> Dies ist die Dokumentation für die veraltete `userScripts` API. Sie ist in Firefox für Manifest V2 verfügbar. Für die Funktionalität der Benutzerskripte in Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}} API.
 
-Das `UserScriptOptions`-Objekt repräsentiert die zu registrierenden Inhaltsskripte. Es hat eine ähnliche Syntax wie die `contentScript`-Optionen, die von `browser.contentScripts.register` unterstützt werden. Die Unterschiede sind:
+Das `UserScriptOptions`-Objekt repräsentiert die Content-Skripte, die registriert werden sollen. Es hat eine ähnliche Syntax wie die `contentScript`-Optionen, die von `browser.contentScripts.register` unterstützt werden. Die Unterschiede sind:
 
-- Es unterstützt keine CSS-Eigenschaft (verwenden Sie `browser.contentScripts.register`, um Stylesheets dynamisch zu registrieren/abzumelden)
-- Es unterstützt eine optionale `scriptMetadata`-Eigenschaft (als einfaches JSON-Objekt, das einige Metadateneigenschaften enthält, die den registrierten `userScripts` zugeordnet sind)
+- Es unterstützt keine CSS-Eigenschaft (verwenden Sie `browser.contentScripts.register`, um Stylesheets dynamisch zu registrieren/abzumelden).
+- Es unterstützt eine optionale `scriptMetadata`-Eigenschaft (als einfaches JSON-Objekt, das einige Metadaten-Eigenschaften enthält, die mit den registrierten `userScripts` verbunden sind).
 
 Das `UserScriptOptions`-Objekt hat die folgenden Eigenschaften:
 
@@ -26,7 +24,7 @@ Das `UserScriptOptions`-Objekt hat die folgenden Eigenschaften:
 - `includeGlobs` {{optional_inline}}
   - : Entspricht `include_globs` im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Schlüssel.
 - `js` {{optional_inline}}
-  - : Ein Array von Objekten. Jedes Objekt hat entweder eine Eigenschaft namens `file`, die eine URL ist, die im Manifest.json des Add-ons beginnt und auf eine zu registrierende JavaScript-Datei zeigt, oder eine Eigenschaft namens `code`, die JavaScript-Code zum Registrieren enthält.
+  - : Ein Array von Objekten. Jedes Objekt hat entweder eine Eigenschaft namens `file`, die eine URL ist, die beim Manifest.json der Erweiterung beginnt und auf eine zu registrierende JavaScript-Datei zeigt, oder eine Eigenschaft namens `code`, die JavaScript-Code zur Registrierung ist.
 - `matchAboutBlank` {{optional_inline}}
   - : Entspricht `match_about_blank` im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Schlüssel.
 - `matches`
@@ -34,6 +32,6 @@ Das `UserScriptOptions`-Objekt hat die folgenden Eigenschaften:
 - `runAt` {{optional_inline}}
   - : Entspricht `run_at` im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Schlüssel.
 - `scriptMetadata` {{optional_inline}}
-  - : Ein Benutzerskript-Metadatenwert.
+  - : Ein Metadatenwert für Benutzerskripte.
 
 Es hat eine ähnliche Syntax wie die `contentScript`-Optionen, die von `browser.contentScripts.register` unterstützt werden.

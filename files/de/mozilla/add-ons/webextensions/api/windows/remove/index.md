@@ -2,12 +2,10 @@
 title: windows.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/windows/remove
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Schließt ein Fenster und alle darin befindlichen Tabs, basierend auf der ID des Fensters.
+Schließt ein Fenster und alle darin enthaltenen Tabs, basierend auf der ID des Fensters.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,11 +24,11 @@ let removing = browser.windows.remove(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Fenster geschlossen wurde. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Fenster geschlossen wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Wenn der Benutzer auf das Symbol einer Browser-Aktion klickt, schließen Sie das Fenster, in dem das Symbol angeklickt wurde:
+Wenn der Benutzer auf das Symbol einer Browseraktion klickt, schließen Sie das Fenster, in dem das Symbol angeklickt wurde:
 
 ```js
 function onRemoved() {
@@ -47,7 +45,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 });
 ```
 
-Schließen Sie das aktuelle, z. B. Popup-Fenster, wenn der Benutzer auf eine Schaltfläche auf der Seite klickt:
+Schließen Sie das aktuelle, z.B. Popup, Fenster, wenn der Benutzer auf einen Button auf der Seite klickt:
 
 ```js
 // in a script loaded by the page in the window
@@ -63,7 +61,7 @@ document.querySelector("#close").addEventListener(async ({ button }) => {
 });
 ```
 
-In Firefox könnte das Gleiche mit der `.allowScriptsToClose`-Fenstererstellungseigenschaft und `window.close()` erreicht werden.
+In Firefox könnte dasselbe mit der `.allowScriptsToClose`-Fenstererstellungseigenschaft und `window.close()` erreicht werden.
 
 {{WebExtExamples}}
 

@@ -2,20 +2,18 @@
 title: browserSettings.contextMenuShowEvent
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/contextMenuShowEvent
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das bestimmt, ob das Kontextmenü des Browsers beim Mouseup-Event oder beim Mousedown-Event angezeigt wird.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das bestimmt, ob das Kontextmenü des Browsers beim `mouseup`- oder beim `mousedown`-Ereignis angezeigt wird.
+Der zugrunde liegende Wert ist ein String, der entweder "mouseup" oder "mousedown" sein kann.
 
-Sein zugrunde liegender Wert ist ein String, der entweder "mouseup" oder "mousedown" sein kann.
-
-Der Standardwert ist "mouseup" unter Windows und "mousedown" unter macOS und Linux. Eine Zuweisung unter Windows hat keine Auswirkung - die Einstellung ist nur dafür gedacht, das Kontextmenü bei `mouseup` anstatt bei `mousedown` zu öffnen, nicht umgekehrt.
+Der Standardwert ist "mouseup" unter Windows und "mousedown" auf macOS und Linux. Eine Zuweisung auf Windows hat keinen Effekt - die Einstellung ist nur dafür gedacht, das Kontextmenü bei Mouseup anstelle von Mousedown zu öffnen, nicht umgekehrt.
 
 ## Beispiele
 
-Setzen Sie die Einstellung auf "mouseup":
+Die Einstellung auf "mouseup" setzen:
 
 ```js
 function logResult(result) {

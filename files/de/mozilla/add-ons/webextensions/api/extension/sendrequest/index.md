@@ -2,15 +2,15 @@
 title: extension.sendRequest()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/sendRequest
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}{{Deprecated_Header}}
+{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Methode wurde veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("runtime.sendMessage")}}.
+> Diese Methode ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("runtime.sendMessage")}}.
 
-Sendet eine Anforderung an andere Listener innerhalb der Erweiterung. Ähnlich wie {{WebExtAPIRef('runtime.connect')}}, jedoch wird nur eine Anforderung mit einer optionalen Antwort gesendet. Das {{WebExtAPIRef('extension.onRequest')}}-Ereignis wird auf jeder Seite der Erweiterung ausgelöst.
+Sendet eine Anfrage an andere Listener innerhalb der Erweiterung. Ähnlich wie {{WebExtAPIRef('runtime.connect')}}, aber sendet nur eine Anfrage mit einer optionalen Antwort. Das {{WebExtAPIRef('extension.onRequest')}}-Ereignis wird auf jeder Seite der Erweiterung ausgelöst.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ chrome.extension.sendRequest(
 )
 ```
 
-Diese API ist auch als `browser.extension.sendRequest()` in einer Version verfügbar, die ein Versprechen zurückgibt.
+Diese API ist auch als `browser.extension.sendRequest()` in einer Version verfügbar, die ein Promise zurückgibt.
 
 ### Parameter
 
 - `extensionId` {{optional_inline}}
-  - : `string`. Die Erweiterungs-ID der Erweiterung, mit der Sie verbinden möchten. Wird dieser nicht angegeben, wird standardmäßig Ihre eigene Erweiterung verwendet.
+  - : `string`. Die ID der Erweiterung, zu der Sie eine Verbindung herstellen möchten. Wenn weggelassen, ist die Standarderweiterung Ihre eigene.
 - `request`
   - : `any`.
 - `responseCallback` {{optional_inline}}
-  - : `function`. Die Funktion erhält die folgenden Argumente:
+  - : `function`. Der Funktion werden diese Argumente übergeben:
     - `response`
-      - : `any`. Das JSON-Antwortobjekt, das vom Handler der Anforderung gesendet wurde. Tritt ein Fehler beim Verbinden zur Erweiterung auf, wird der Callback ohne Argumente aufgerufen und {{WebExtAPIRef('runtime.lastError')}} wird auf die Fehlermeldung gesetzt.
+      - : `any`. Das JSON-Antwortobjekt, das vom Handler der Anfrage gesendet wird. Wenn ein Fehler bei der Verbindung zur Erweiterung auftritt, wird der Callback ohne Argumente aufgerufen und {{WebExtAPIRef('runtime.lastError')}} wird auf die Fehlermeldung gesetzt.
 
 {{WebExtExamples}}
 
@@ -42,7 +42,7 @@ Diese API ist auch als `browser.extension.sendRequest()` in einer Version verfü
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-sendRequest) API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-sendRequest) API. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,16 +2,14 @@
 title: downloads.getFileIcon()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/getFileIcon
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die Funktion **`getFileIcon()`** der {{WebExtAPIRef("downloads")}}-API ruft ein Symbol für den angegebenen Download ab.
 
-Die Funktion **`getFileIcon()`** der {{WebExtAPIRef("downloads")}} API ruft ein Icon für den angegebenen Download ab.
+Bei neuen Downloads sind Dateisymbole verfügbar, nachdem das {{WebExtAPIRef("downloads.onCreated")}} Ereignis empfangen wurde. Das von dieser Funktion zurückgegebene Bild während eines laufenden Downloads kann sich von dem Bild unterscheiden, das nach Abschluss des Downloads zurückgegeben wird.
 
-Für neue Downloads sind Dateisymbole verfügbar, nachdem das {{WebExtAPIRef("downloads.onCreated")}}-Ereignis empfangen wurde. Das Bild, das von dieser Funktion während eines laufenden Downloads zurückgegeben wird, kann sich von dem Bild unterscheiden, das nach Abschluss des Downloads zurückgegeben wird.
-
-Das Abrufen von Icons erfolgt durch Abfragen der zugrunde liegenden Plattform. Das zurückgegebene Icon hängt daher von verschiedenen Faktoren ab, darunter der Status des Downloads, die Plattform, registrierte Dateitypen und das visuelle Thema.
+Das Abrufen der Symbole erfolgt durch Abfrage der zugrunde liegenden Plattform. Das zurückgegebene Symbol hängt daher von mehreren Faktoren ab, einschließlich des Status des Downloads, der Plattform, registrierter Dateitypen und des visuellen Themas.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,19 +25,19 @@ let gettingIcon = browser.downloads.getFileIcon(
 ### Parameter
 
 - `downloadId`
-  - : Eine `Ganzzahl`, die die ID des Downloads darstellt.
+  - : Ein `integer`, der die ID des Downloads darstellt.
 - `options` {{optional_inline}}
-  - : Ein Options`objekt`, das Präferenzen für das abzurufende Icon darstellt. Es kann die folgenden Eigenschaften haben:
+  - : Ein Options-`object`, das Präferenzen für das abzurufende Symbol darstellt. Es kann die folgenden Eigenschaften enthalten:
     - `size` {{optional_inline}}
-      - : Eine `Ganzzahl`, die die Größe des Icons darstellt. Die Größe des zurückgegebenen Icons entspricht der quadrierten angegebenen Größe (in Pixeln). Wenn weggelassen, beträgt die Standardgröße des Icons 32x32 Pixel.
+      - : Ein `integer`, der die Größe des Symbols darstellt. Die Größe des zurückgegebenen Symbols entspricht dem Quadrat der angegebenen Größe (in Pixel). Wenn nicht angegeben, ist die Standardgröße für das Symbol 32x32 Pixel.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise mit einem String, der die absolute URL des Icons darstellt, erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise mit einem String erfüllt, der die absolute URL des Symbols darstellt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert die URL des Icons für den jüngsten Download:
+Dieses Beispiel protokolliert die Symbol-URL für den letzten Download:
 
 ```js
 function gotIcon(iconUrl) {
@@ -73,4 +71,4 @@ searching.then(getIcon, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-getFileIcon)-API von Chromium.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-getFileIcon) API von Chromium.

@@ -2,10 +2,8 @@
 title: windows.WINDOW_ID_CURRENT
 slug: Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_CURRENT
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 `browser.windows.WINDOW_ID_CURRENT` ist ein Wert, der als `windowId`-Parameter in einigen APIs verwendet werden kann, um das aktuelle Fenster darzustellen.
 
@@ -16,7 +14,7 @@ l10n:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#property-WINDOW_ID_CURRENT)-API von Chromium. Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#property-WINDOW_ID_CURRENT) API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

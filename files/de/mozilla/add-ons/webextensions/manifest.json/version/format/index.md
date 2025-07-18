@@ -1,49 +1,47 @@
 ---
-title: Legacy-Version-Formate
+title: Alte Versionsformate
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/version/format
 l10n:
-  sourceCommit: 997a0ec66e1514b7269076195b2419db334e876e
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Diese Seite beschreibt veraltete Versionsstring-Formate für Webextensionen. Lesen Sie die Dokumentation des Manifests zum [Version-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) für Informationen zum aktuellen Versionsstring-Format.
 
-Diese Seite beschreibt veraltete Versionszeichenfolgenformate für Web-Erweiterungen. Siehe die Dokumentation zum [version key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) im Manifest für Informationen zum aktuellen Versionszeichenfolgenformat.
+## Firefox altes Versionsnummerformat
 
-## Firefox Legacy-Versionsnummer
+Ein **Versionsstring** besteht aus einem oder mehreren _Versionsabschnitten_, die durch Punkte getrennt sind.
 
-Eine **Versionszeichenfolge** besteht aus einem oder mehreren _Versionsbestandteilen_, die durch Punkte getrennt sind.
+Jeder **Versionsabschnitt** wird als eine Folge von vier Teilen geparst: `<number-a><string-b><number-c><string-d>`. Jeder dieser Teile ist optional. Zahlen sind ganze Zahlen in Basis 10 (können negativ sein), und Zeichenfolgen sind nicht-numerische {{Glossary("ASCII", "ASCII")}}-Zeichen.
 
-Jeder **Versionsbestandteil** wird als eine Sequenz von vier Teilen analysiert: `<number-a><string-b><number-c><string-d>`. Jeder der Teile ist optional. Zahlen sind ganze Zahlen in Basis 10 (können negativ sein), und Zeichenfolgen sind nicht-numerische {{Glossary("ASCII", "ASCII")}}-Zeichen.
-
-Hier sind einige Beispiele für gültige Versionsbestandteile:
+Hier sind einige Beispiele für gültige Versionsabschnitte:
 
 - `0` (wie in `1.0`): `<number-a>=0`
 - `5a` (wie in `1.5a`): `<number-a>=5`, `<string-b>=a`
 - `5pre4` (wie in `3.5pre4`): `<number-a>=5`, `<string-b>=pre`, `<number-c>=4`
 - `*` (wie in `1.0.*`): `<string-b>=*`
 
-Einige spezielle Parsing-Regeln werden zur Wahrung der Abwärtskompatibilität und Lesbarkeit angewendet:
+Einige spezielle Parsing-Regeln werden für Rückwärtskompatibilität und Lesbarkeit angewendet:
 
-- Wenn der Versionsbestandteil ein einzelner Stern ist, wird er als unendlich große Zahl interpretiert:
-  `1.5.0.*` ist dasselbe wie `1.5.0.(unendlich)`
-- Wenn string-b ein Pluszeichen ist, wird number-a um eins erhöht, um mit dem Firefox 1.0.x-Versionsformat kompatibel zu sein:
+- Wenn der Versionsabschnitt ein einzelner Stern ist, wird er als unendlich große Zahl interpretiert:
+  `1.5.0.*` ist dasselbe wie `1.5.0.(infinity)`
+- Wenn string-b ein Pluszeichen ist, wird number-a inkrementiert, um mit dem Firefox 1.0.x-Versionsformat kompatibel zu sein:
   `1.0+` ist dasselbe wie `1.1pre`
 
-Der Grund für die Aufteilung eines Versionsbestandteils in eine Sequenz von Zeichenfolgen und Zahlen liegt darin, dass beim Vergleichen von Versionsbestandteilen die numerischen Teile als Zahlen verglichen werden, zum Beispiel '1.0pre1' < '1.0pre10', während die Zeichenfolgen byteweise verglichen werden. Siehe den nächsten Abschnitt für Details, wie Versionen verglichen werden.
+Der Grund, einen Versionsabschnitt in eine Folge von Zeichenfolgen und Zahlen aufzuteilen, liegt darin, dass beim Vergleichen von Versionsabschnitten die numerischen Teile als Zahlen verglichen werden, zum Beispiel '1.0pre1' < '1.0pre10', während die Zeichenfolgen byteweise verglichen werden. Details dazu, wie Versionen verglichen werden, finden Sie im nächsten Abschnitt.
 
-Ab Firefox 108 löst die Verwendung dieser Versionszeichenfolge bei der Installation einer Web-Erweiterung eine Warnung aus.
+Ab Firefox 108 lösen Webextensionen, die diesen Versionsstring verwenden, bei der Installation eine Warnung aus.
 
 ## Vergleichen von Versionen
 
-Wenn zwei Versionszeichenfolgen verglichen werden, werden ihre Versionsbestandteile von links nach rechts verglichen. Ein leerer oder fehlender Versionsbestandteil entspricht `0`.
+Wenn zwei Versionsstrings verglichen werden, werden ihre Versionsabschnitte von links nach rechts verglichen. Ein leerer oder fehlender Versionsabschnitt ist gleichbedeutend mit `0`.
 
-Wenn an irgendeinem Punkt ein Versionsbestandteil einer Versionszeichenfolge größer ist als der entsprechende Versionsbestandteil einer anderen Versionszeichenfolge, dann ist die erste Versionszeichenfolge größer als die andere.
+Wenn an einem Punkt ein Versionsabschnitt eines Versionsstrings größer ist als der entsprechende Abschnitt eines anderen Versionsstrings, dann ist der erste Versionsstring größer als der andere.
 
-Andernfalls sind die Versionszeichenfolgen gleich. Da fehlende Versionsbestandteile so behandelt werden, als wären sie `0`, sind diese Versionszeichenfolgen gleich: `1`, `1.0`, `1.0.`, `1.0.0` und sogar `1.0..`.
+Andernfalls sind die Versionsstrings gleich. Da fehlende Versionsabschnitte so behandelt werden, als wären sie `0`, sind diese Versionsstrings gleich: `1`, `1.0`, `1.0.`, `1.0.0` und sogar `1.0..`.
 
-### Vergleich von Versionsbestandteilen
+### Vergleich von Versionsabschnitten
 
-Versionsbestandteile werden ebenfalls von links nach rechts verglichen; Teile A und C werden als Zahlen verglichen, während Teile B und D byteweise verglichen werden. Ein vorhandener Zeichenfolgenteil ist immer kleiner als ein nicht vorhandener Zeichenfolgenteil (`1.6a` ist kleiner als `1.6`).
+Versionsabschnitte werden ebenfalls von links nach rechts verglichen; Teile A und C werden als Zahlen verglichen, während Teile B und D byteweise verglichen werden. Ein existierender Zeichenfolgenabschnitt ist immer niedriger als ein nicht existierender Zeichenfolgenabschnitt (`1.6a` ist niedriger als `1.6`).
 
 ## Beispiele
 

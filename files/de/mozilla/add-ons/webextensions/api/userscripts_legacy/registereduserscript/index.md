@@ -1,21 +1,19 @@
 ---
-title: userScripts.RegisteredUserScript (Veraltet)
+title: userScripts.RegisteredUserScript (Legacy)
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/RegisteredUserScript
 l10n:
-  sourceCommit: 6b26a56826b43f539b79033378683bb3be5bbba9
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
 > [!WARNING]
-> Dies ist die Dokumentation für die veraltete `userScripts` API. Sie ist in Firefox für Manifest V2 verfügbar. Für die Funktionalität von Benutzerskripten in Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}} API.
+> Dies ist die Dokumentation für die veraltete `userScripts` API. Sie ist in Firefox für Manifest V2 verfügbar. Für die Funktionalität mit Benutzerskripten in Manifest V3 siehe die neue {{WebExtAPIRef("userScripts")}} API.
 
 Ein `RegisteredUserScript`-Objekt wird durch einen Aufruf von {{WebExtAPIRef("userScripts_legacy.register","userScripts.register()")}} zurückgegeben und repräsentiert die in diesem Aufruf registrierten Benutzerskripte.
 
-Das Objekt definiert eine einzige Methode, {{WebExtAPIRef("userScripts_legacy.RegisteredUserScript.unregister","unregister()")}}, die verwendet wird, um die registrierten Benutzerskripte abzumelden.
+Das Objekt definiert eine einzelne Methode, {{WebExtAPIRef("userScripts_legacy.RegisteredUserScript.unregister","unregister()")}}, die verwendet wird, um die Benutzerskripte abzumelden.
 
 > [!NOTE]
-> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es außer Reichweite gerät), werden die zugehörigen Skripte automatisch abgemeldet. Daher sollten Sie eine Referenz auf dieses Objekt behalten, solange Sie möchten, dass die Benutzerskripte registriert bleiben.
+> Wenn dieses Objekt zerstört wird (z.B. weil es aus dem Gültigkeitsbereich herausfällt), werden die zugehörigen Skripte automatisch abgemeldet, daher sollten Sie eine Referenz auf dieses Objekt behalten, solange Sie möchten, dass die Benutzerskripte registriert bleiben.
 
 ## Methoden
 

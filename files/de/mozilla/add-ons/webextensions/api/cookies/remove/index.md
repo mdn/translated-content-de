@@ -2,19 +2,17 @@
 title: cookies.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/remove
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die **`remove()`** Methode der {{WebExtAPIRef("cookies")}} API löscht ein Cookie, basierend auf seinem Namen und der URL.
 
-Die **`remove()`** Methode des {{WebExtAPIRef("cookies")}} API löscht ein Cookie, basierend auf dessen Namen und URL.
+Um diese Methode zu verwenden, muss eine Erweiterung die Berechtigung `"cookies"` und relevante Host-Berechtigungen besitzen. Weitere Details finden Sie unter [`cookie` Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#permissions).
 
-Um diese Methode zu nutzen, muss eine Erweiterung die Berechtigung `"cookies"` und die entsprechenden Hostberechtigungen besitzen. Lesen Sie [„cookie“-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#permissions) für mehr Details.
-
-Wenn mehr als ein Cookie mit demselben Namen für eine URL existiert, wird das Cookie mit dem längsten Pfad gelöscht. Bei Cookies mit gleicher Pfadlänge wird das Cookie mit der frühesten Erstellungszeit gelöscht. Wenn kein übereinstimmendes Cookie gefunden wird, wird `null` zurückgegeben.
+Wenn es mehr als ein Cookie mit demselben Namen für eine URL gibt, wird das Cookie mit dem längsten Pfad gelöscht. Bei Cookies mit derselben Pfadlänge wird das Cookie mit der frühesten Erstellungszeit gelöscht. Wenn kein passendes Cookie gefunden wird, wird `null` zurückgegeben.
 
 > [!NOTE]
-> Vor Firefox 133 wurde, wenn es mehr als ein Cookie mit demselben Namen gab, das Cookie mit der frühesten Erstellungszeit von Firefox gelöscht.
+> Vor Firefox 133 wurde, wenn es mehr als ein Cookie mit demselben Namen gab, von Firefox das Cookie mit der frühesten Erstellungszeit gelöscht.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,31 +27,28 @@ let removing = browser.cookies.remove(
 ### Parameter
 
 - `details`
-
   - : Ein `object`, das Informationen enthält, um das zu löschende Cookie zu identifizieren. Es enthält folgende Eigenschaften:
-
     - `firstPartyDomain` {{optional_inline}}
-      - : Ein `string`, der die First-Party-Domain repräsentiert, mit der das zu löschende Cookie verknüpft ist. Diese Eigenschaft muss angegeben werden, wenn der Browser die First-Party-Isolation aktiviert hat. Siehe [First-Party-Isolierung](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
+      - : Ein `string`, der die mit dem zu löschenden Cookie assoziierte first-party Domain darstellt. Diese Eigenschaft muss angegeben werden, wenn der Browser First-Party Isolation aktiviert hat. Siehe [First-party Isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
     - `name`
-      - : Ein `string`, der den Namen des zu löschenden Cookies repräsentiert.
+      - : Ein `string`, der den Namen des zu löschenden Cookies darstellt.
     - `partitionKey` {{optional_inline}}
-
-      - : Ein `object`, das die [Speicherpartition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) enthält, in der sich das Cookie befindet. Dieses Objekt anzugeben, um ein Cookie aus partitioniertem Speicher zu löschen. Dieses Objekt enthält:
+      - : Ein `object`, das die [Storage-Partition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) enthält, die das Cookie enthält. Dieses Objekt muss angegeben werden, um ein Cookie aus partitioniertem Speicher zu entfernen. Dieses Objekt enthält:
         - `topLevelSite` {{optional_inline}}
-          - : Ein `string`, der die First-Party-URL der obersten Site-Speicherpartition repräsentiert, die das Cookie enthält.
+          - : Ein `string`, das die first-party URL der obersten Speicherpartition, die das Cookie enthält, darstellt.
 
     - `storeId` {{optional_inline}}
-      - : Ein `string`, der die ID des Cookie-Speichers repräsentiert, in dem das Cookie gefunden werden soll. Wenn nicht angegeben, wird das Cookie im Cookie-Speicher des aktuellen Ausführungskontextes gesucht.
+      - : Ein `string`, das die ID des Cookie-Speichers, in dem das Cookie gefunden werden soll, darstellt. Wenn nicht angegeben, wird das Cookie im Cookie-Speicher des aktuellen Ausführungskontexts gesucht.
     - `url`
-      - : Ein `string`, der die URL repräsentiert, die mit dem Cookie verknüpft ist. Der API-Aufruf schlägt fehl, wenn die Erweiterung keine [Hostberechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für diese URL hat.
+      - : Ein `string`, der die mit dem Cookie assoziierte URL darstellt. Der API-Aufruf schlägt fehl, wenn die Erweiterung keine [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für diese URL hat.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie')}} Objekt erfüllt wird, das Details über das entfernte Cookie enthält. Wenn kein Cookie gefunden wird, das dem `details`-Parameter entspricht, wird das Promise mit `null` erfüllt. Wenn der Aufruf fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie')}} Objekt erfüllt wird, das Details über das entfernte Cookie enthält. Wenn ein Cookie, das dem `details`-Parameter entspricht, nicht gefunden wird, wird das Versprechen mit `null` erfüllt. Wenn der Aufruf fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel versucht, das Cookie mit dem Namen "favorite-color" zu entfernen, dessen URL mit der URL des Dokuments im aktiven Tab übereinstimmt:
+Dieses Beispiel versucht, das Cookie mit dem Namen "favorite-color" zu entfernen, dessen URL mit der URL des Dokuments übereinstimmt, das vom aktiven Tab gehostet wird:
 
 ```js
 function onRemoved(cookie) {
@@ -83,7 +78,7 @@ getActive.then(removeCookie);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-remove) API. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-remove) API. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

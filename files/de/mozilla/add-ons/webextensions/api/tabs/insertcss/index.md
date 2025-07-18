@@ -2,22 +2,20 @@
 title: tabs.insertCSS()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Fügt CSS in eine Seite ein.
 
 > [!NOTE]
-> Bei Verwendung von Manifest V3 oder höher, verwenden Sie {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}}, um CSS einzufügen und zu entfernen.
+> Verwenden Sie bei der Nutzung von Manifest V3 oder höher {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}}, um CSS einzufügen und zu entfernen.
 
-Um diese API zu verwenden, müssen Sie die Erlaubnis für die URL der Seite haben, entweder explizit als [Host-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), oder durch die Verwendung der [activeTab-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
+Um diese API zu verwenden, müssen Sie die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder durch die [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
 
-Sie können CSS nur in Seiten injizieren, deren URL mithilfe eines [Match-Musters](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausgedrückt werden kann: Das bedeutet, das Schema muss "http", "https" oder "file" sein. Das bedeutet, dass Sie CSS nicht in eine der eingebauten Browser-Seiten injizieren können, wie etwa about:debugging, about:addons oder die Seite, die geöffnet wird, wenn Sie einen neuen leeren Tab öffnen.
+Sie können nur CSS in Seiten einfügen, deren URL mittels eines [Übereinstimmungsmusters](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausgedrückt werden kann: Das bedeutet, dass das Schema "http", "https" oder "file" sein muss. Das heißt, dass Sie kein CSS in irgendeine der eingebauten Browser-Seiten einfügen können, wie etwa about:debugging, about:addons oder die Seite, die sich öffnet, wenn Sie eine neue leere Registerkarte öffnen.
 
 > [!NOTE]
-> Firefox löst URLs in injizierten CSS-Dateien relativ zu der CSS-Datei selbst auf, anstatt zu der Seite, in die sie injiziert werden.
+> Firefox löst URLs in eingebetteten CSS-Dateien relativ zur CSS-Datei selbst auf, anstatt zu der Seite, in die sie eingefügt wird.
 
 Das eingefügte CSS kann wieder entfernt werden, indem {{WebExtAPIRef("tabs.removeCSS()")}} aufgerufen wird.
 
@@ -35,37 +33,34 @@ let inserting = browser.tabs.insertCSS(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, in den das CSS eingefügt werden soll. Standardmäßig ist dies der aktive Tab des aktuellen Fensters.
+  - : `integer`. Die ID der Registerkarte, in die das CSS eingefügt werden soll. Standardmäßig wird die aktive Registerkarte des aktuellen Fensters verwendet.
 - `details`
-
   - : Ein Objekt, das das einzufügende CSS beschreibt. Es enthält die folgenden Eigenschaften:
-
     - `allFrames` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird das CSS in alle Frames der aktuellen Seite injiziert. Bei `false` wird das CSS nur in den obersten Frame injiziert. Standardmäßig `false`.
+      - : `boolean`. Wenn `true`, wird das CSS in alle Frames der aktuellen Seite eingefügt. Wenn `false`, wird das CSS nur in den obersten Frame eingefügt. Standardmäßig `false`.
     - `code` {{optional_inline}}
-      - : `string`. Zu injizierender Code als Textstring.
+      - : `string`. Der einzufügende Code als Textzeichenfolge.
     - `cssOrigin` {{optional_inline}}
-
-      - : `string`. Dies kann einen von zwei Werten annehmen: "user", um das CSS als Benutzer-Stylesheet hinzuzufügen, oder "author", um es als Autor-Stylesheet hinzuzufügen. Wird diese Option weggelassen, wird das CSS als Autor-Stylesheet hinzugefügt.
-        - "user" ermöglicht es Ihnen, zu verhindern, dass Websites das von Ihnen eingefügte CSS überschreiben: siehe [Cascading Order](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order).
-        - "author"-Stylesheets verhalten sich so, als ob sie nach allen von der Webseite angegebenen Autorenregeln erscheinen. Dieses Verhalten schließt alle von den Skripten der Seite dynamisch hinzugefügten Autoren-Stylesheets ein, selbst wenn diese Hinzufügung nach Abschluss des `insertCSS`-Aufrufs erfolgt.
+      - : `string`. Dies kann einen von zwei Werten annehmen: "user", um das CSS als Benutzer-Stylesheet hinzuzufügen oder "author", um es als Autor-Stylesheet hinzuzufügen. Wenn diese Option weggelassen wird, wird das CSS als Autor-Stylesheet hinzugefügt.
+        - "user" erlaubt es Ihnen, zu verhindern, dass Webseiten das von Ihnen eingefügte CSS überschreiben: siehe [Kaskadierungsreihenfolge](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order).
+        - "author"-Stylesheets verhalten sich, als ob sie nach allen vom Web Seite spezifizierten Autor-Regeln erscheinen. Dieses Verhalten schließt alle von der Seite dynamisch durch Skripte hinzugefügten Autor-Stylesheets ein, auch wenn diese Hinzufügung nach Abschluss des `insertCSS`-Aufrufs erfolgt.
 
     - `file` {{optional_inline}}
-      - : `string`. Pfad zu einer Datei, die den zu injizierenden Code enthält. In Firefox werden relative URLs relativ zur aktuellen Seiten-URL aufgelöst. In Chrome werden diese URLs relativ zur Basis-URL der Erweiterung aufgelöst. Um browserübergreifend zu arbeiten, können Sie den Pfad als absolute URL angeben, beginnend am Wurzelverzeichnis der Erweiterung, wie folgt: `"/path/to/stylesheet.css"`.
+      - : `string`. Pfad zu einer Datei, die den einzufügenden Code enthält. In Firefox werden relative URLs relativ zur aktuellen Seiten-URL aufgelöst. In Chrome werden diese URLs relativ zur Basis-URL der Erweiterung aufgelöst. Um länderübergreifend zu arbeiten, können Sie den Pfad als absolute URL angeben, beginnend am Stamm der Erweiterung, wie folgt: `"/path/to/stylesheet.css"`.
     - `frameId` {{optional_inline}}
-      - : `integer`. Der Frame, in den das CSS injiziert werden soll. Standardmäßig `0` (der oberste Frame).
+      - : `integer`. Der Frame, in den das CSS eingefügt werden soll. Standardmäßig `0` (der oberste Frame).
     - `matchAboutBlank` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird der Code in eingebettete "about:blank"- und "about:srcdoc"-Frames injiziert, sofern Ihre Erweiterung Zugriff auf deren Elterndokument hat. Der Code kann nicht in oberste about: Frames eingefügt werden. Standardmäßig `false`.
+      - : `boolean`. Wenn `true`, wird der Code in eingebettete "about:blank" und "about:srcdoc"-Frames eingefügt, wenn Ihre Erweiterung Zugriff auf deren übergeordnetes Dokument hat. Der Code kann nicht in oberste about: Frames eingefügt werden. Standardmäßig `false`.
     - `runAt` {{optional_inline}}
-      - : {{WebExtAPIRef('extensionTypes.RunAt')}}. Der frühestmögliche Zeitpunkt, zu dem der Code in den Tab injiziert wird. Standardmäßig "document_idle".
+      - : {{WebExtAPIRef('extensionTypes.RunAt')}}. Der früheste Zeitpunkt, zu dem der Code in die Registerkarte eingefügt wird. Standardmäßig "document_idle".
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS eingefügt wurde. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle CSS eingefügt wurden. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel fügt in den aktuell aktiven Tab CSS ein, das aus einem String entnommen wird.
+Dieses Beispiel fügt in die aktuell aktive Registerkarte CSS ein, das aus einem String stammt.
 
 ```js
 let css = "body { border: 20px dotted pink; }";
@@ -80,7 +75,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Dieses Beispiel fügt CSS ein, das aus einer mit der Erweiterung gepackten Datei geladen wird. Das CSS wird in den Tab mit der ID 2 eingefügt:
+Dieses Beispiel fügt CSS ein, das aus einer Datei geladen wird, die mit der Erweiterung gepackt ist. Das CSS wird in die Registerkarte eingefügt, deren ID 2 ist:
 
 ```js
 browser.browserAction.onClicked.addListener(() => {
@@ -100,7 +95,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-insertCSS) API. Diese Dokumentation wird aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-insertCSS) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

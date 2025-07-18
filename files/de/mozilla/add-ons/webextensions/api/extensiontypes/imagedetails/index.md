@@ -2,32 +2,30 @@
 title: extensionTypes.ImageDetails
 slug: Mozilla/Add-ons/WebExtensions/API/extensionTypes/ImageDetails
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Details zum Format, zur Qualität, zum Bereich und zur Skalierung eines aufgenommenen Bildes.
+Details über das Format, die Qualität, den Bereich und die Skalierung eines aufgenommenen Bildes.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `format` {{optional_inline}}
-  - : {{WebExtAPIRef('extensionTypes.ImageFormat')}}. Das Format des resultierenden Bildes. Standardmäßig ist es `"png"`.
+  - : {{WebExtAPIRef('extensionTypes.ImageFormat')}}. Das Format des resultierenden Bildes. Standard ist `"png"`.
 - `quality` {{optional_inline}}
-  - : `integer`. Wenn das Format `"jpeg"` ist, steuert dies die Qualität des resultierenden Bildes. Es ist eine Zahl zwischen 0 und 100, die in einen Wert zwischen 0 und 1 umgewandelt wird und dann als `encoderOptions`-Argument an [`HTMLCanvasElement.toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) verwendet wird. Wenn diese weggelassen wird, wird 92 verwendet. Bei abnehmender Qualität hat das resultierende Bild mehr visuelle Artefakte, und die Anzahl der für die Speicherung benötigten Bytes nimmt ab. Dieser Wert wird für PNG-Bilder ignoriert.
+  - : `integer`. Wenn das Format `"jpeg"` ist, steuert dies die Qualität des resultierenden Bildes. Es ist eine Zahl zwischen 0 und 100, die in einen Wert zwischen 0 und 1 umgewandelt wird und dann als `encoderOptions`-Argument an [`HTMLCanvasElement.toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) verwendet wird. Wenn es ausgelassen wird, wird 92 verwendet. Wenn die Qualität verringert wird, wird das resultierende Bild mehr visuelle Artefakte aufweisen, und die Anzahl der Bytes, die zur Speicherung benötigt werden, wird verringert. Dieser Wert wird für PNG-Bilder ignoriert.
 - `rect` {{optional_inline}}
-  - : Ein `object`, das den Bereich des Dokuments angibt, der erfasst werden soll, in CSS-Pixeln relativ zur Seite. Alle Eigenschaften sind standardmäßig `0`. Die Eigenschaften sind:
+  - : Ein `object`, das den zu erfassenden Bereich des Dokuments in CSS-Pixeln relativ zur Seite angibt. Alle Eigenschaften haben standardmäßig den Wert `0`. Die Eigenschaften sind:
     - `x`: Die Koordinate der linken Seite des Rechtecks.
     - `y`: Die Koordinate der oberen Seite des Rechtecks.
     - `width`: Die Breite des Rechtecks.
     - `height`: Die Höhe des Rechtecks.
 
-    Diese Option wurde in Firefox 82 eingeführt. Wenn weggelassen, wird der aktuell sichtbare Viewport erfasst.
+    Diese Option wurde in Firefox 82 eingeführt. Wenn sie weggelassen wird, wird das derzeit sichtbare Viewport erfasst.
 
 - `scale` {{optional_inline}}
-  - : `number`. Die Skalierung, bei der gerendert werden soll, standardmäßig [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio). Diese Option wurde in Firefox 82 eingeführt.
+  - : `number`. Die zu verwendende Skalierung, standardmäßig [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio). Diese Option wurde in Firefox 82 eingeführt.
 
 {{WebExtExamples}}
 
@@ -36,7 +34,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-ImageDetails)-API von Chromium. Diese Dokumentation ist abgeleitet von [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-ImageDetails) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -45,25 +43,27 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions von Quellcode müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Bei der Verbreitung in binärer Form muss der obige Urheberrechtshinweis,
+// diese Liste von Bedingungen und der folgende Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der Verbreitung geliefert werden,
+// enthalten sein.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die sich aus dieser Software
+// ableiten, ohne vorherige schriftliche Genehmigung zu kennzeichnen oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN
+// GARANTIEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN
+// ABGELEHNT. IN KEINEM FALL HAFTEN DIE COPYRIGHT-INHABER ODER MITWIRKENDEN
+// FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER
+// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG
+// VON ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSAUSFALL, DATEN- ODER
+// GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) JEDER ART, DIE UNABHÄNGIG
+// VON DER URSACHE UND DER HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER
+// HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
+// ANDEREM) ENTSTEHEN, SELBST WENN SIE AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
+// HINGEWIESEN WURDEN.
 -->

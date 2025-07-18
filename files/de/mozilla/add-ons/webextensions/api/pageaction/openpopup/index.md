@@ -2,14 +2,12 @@
 title: pageAction.openPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/openPopup
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Öffnet das Popup der Page Action.
 
-Öffnet das Popup der Seitenaktion.
-
-Sie können diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
+Sie können diese Funktion nur aus einem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
 
 ## Syntax
 
@@ -27,7 +25,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Öffnen des Popups, wenn der Benutzer ein Kontextmenüelement auswählt:
+Öffnen Sie das Popup, wenn der Benutzer einen Kontextmenüpunkt auswählt:
 
 ```js
 browser.menus.create({

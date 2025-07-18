@@ -2,21 +2,19 @@
 title: action.ColorArray
 slug: Mozilla/Add-ons/WebExtensions/API/action/ColorArray
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 ## Typ
 
-Ein `array` von vier Ganzzahlen im Bereich von 0-255, das eine RGBA-Farbe definiert. Die vier Werte geben die folgenden Kanäle an:
+Ein `array` von vier Ganzzahlen im Bereich von 0-255, das eine RGBA-Farbe definiert. Die vier Werte spezifizieren die folgenden Kanäle:
 
 1. Rot
 2. Grün
 3. Blau
 4. Alpha (Deckkraft).
 
-Zum Beispiel ist undurchsichtiges Rot `[255, 0, 0, 255]`.
+Zum Beispiel, undurchsichtiges Rot ist `[255, 0, 0, 255]`.
 
 {{WebExtExamples}}
 

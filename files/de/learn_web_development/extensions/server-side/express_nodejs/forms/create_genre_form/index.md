@@ -1,28 +1,28 @@
 ---
-title: Genre-Formular erstellen
+title: Erstellen Sie das Formular für Genre
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_genre_form
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
 ---
 
-Dieser Unterartikel zeigt, wie wir unsere Seite definieren, um `Genre`-Objekte zu erstellen (dies ist ein guter Einstiegspunkt, da das `Genre` nur ein Feld, seinen `name`, hat und keine Abhängigkeiten). Wie bei allen anderen Seiten müssen wir Routen, Controller und Ansichten einrichten.
+Dieser Unterartikel zeigt, wie wir unsere Seite zum Erstellen von `Genre`-Objekten definieren (dies ist ein guter Ausgangspunkt, da das `Genre` nur ein Feld hat, seinen `name`, und keine Abhängigkeiten). Wie bei allen anderen Seiten müssen wir Routen, Controller und Ansichten einrichten.
 
-## Validierungs- und Bereinigungsmethoden importieren
+## Importieren von Validierungs- und Bereinigungsmethoden
 
-Um den _express-validator_ in unseren Controllern zu verwenden, müssen wir die Funktionen, die wir verwenden möchten, aus dem Modul `'express-validator'` _anfordern_.
+Um den _express-validator_ in unseren Controllern zu verwenden, müssen wir die Funktionen, die wir verwenden möchten, aus dem `'express-validator'`-Modul _anfordern_.
 
-Öffnen Sie **/controllers/genreController.js** und fügen Sie die folgende Zeile am Anfang der Datei ein, vor allen Route-Handler-Funktionen:
+Öffnen Sie **/controllers/genreController.js** und fügen Sie die folgende Zeile am Anfang der Datei hinzu, vor allen Routen-Handler-Funktionen:
 
 ```js
 const { body, validationResult } = require("express-validator");
 ```
 
-Beachten Sie, dass `require("express-validator")` nur ein Funktionsaufruf ist, der ein Objekt zurückgibt, und wir die beiden Eigenschaften `body` und `validationResult` aus dem Objekt [destruieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring), sodass wir sie direkt als Variablen verwenden können.
+Beachten Sie, dass `require("express-validator")` einfach ein Funktionsaufruf ist, der ein Objekt zurückgibt, und wir die beiden Eigenschaften, `body` und `validationResult`, aus dem Objekt [destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring), sodass wir sie direkt als Variablen verwenden können.
 
 ## Controller—GET-Route
 
-Suchen Sie die exportierte `genre_create_get()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
-Dies rendert die **genre_form.pug** Ansicht und übergibt eine Titelvariable.
+Finden Sie die exportierte `genre_create_get()`-Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Dies rendert die **genre_form.pug**-Ansicht und übergibt eine Titelvariable.
 
 ```js
 // Display Genre create form on GET.
@@ -31,12 +31,9 @@ exports.genre_create_get = (req, res, next) => {
 };
 ```
 
-Bitte beachten Sie, dass dies den Platzhalter-Asynchronhandler ersetzt, den wir im [Express-Tutorial Teil 4: Routen und Controller](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes#genre_controller) hinzugefügt haben, durch eine "normale" Express-Route-Handler-Funktion.
-Wir benötigen den `asyncHandler()` Wrapper für diese Route nicht, da sie keinen Code enthält, der eine Ausnahme werfen kann.
-
 ## Controller—POST-Route
 
-Suchen Sie die exportierte `genre_create_post()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Finden Sie die exportierte `genre_create_post()`-Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Handle Genre create on POST.
@@ -48,7 +45,7 @@ exports.genre_create_post = [
     .escape(),
 
   // Process request after validation and sanitization.
-  asyncHandler(async (req, res, next) => {
+  async (req, res, next) => {
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
@@ -64,6 +61,7 @@ exports.genre_create_post = [
       });
       return;
     }
+
     // Data from form is valid.
     // Check if Genre with same name already exists.
     const genreExists = await Genre.findOne({ name: req.body.name })
@@ -72,22 +70,23 @@ exports.genre_create_post = [
     if (genreExists) {
       // Genre exists, redirect to its detail page.
       res.redirect(genreExists.url);
-    } else {
-      await genre.save();
-      // New genre saved. Redirect to genre detail page.
-      res.redirect(genre.url);
+      return;
     }
-  }),
+
+    // New genre. Save and redirect to its detail page.
+    await genre.save();
+    res.redirect(genre.url);
+  },
 ];
 ```
 
-Das Erste, was auffällt, ist, dass der Controller anstelle einer einzelnen Middleware-Funktion (mit den Argumenten `(req, res, next)`) ein _Array_ von Middleware-Funktionen angibt.
-Das Array wird an die Router-Funktion übergeben und jede Methode wird der Reihe nach aufgerufen.
+Das Erste, das auffällt, ist, dass der Controller statt einer einzelnen Middleware-Funktion (mit den Argumenten `(req, res, next)`) ein _Array_ von Middleware-Funktionen angibt.
+Das Array wird der Router-Funktion übergeben und jede Methode wird der Reihe nach aufgerufen.
 
 > [!NOTE]
-> Dieser Ansatz ist erforderlich, da die Validatoren Middleware-Funktionen sind.
+> Dieser Ansatz ist notwendig, da die Validatoren Middleware-Funktionen sind.
 
-Die erste Methode im Array definiert einen Body-Validator (`body()`), der das Feld validiert und bereinigt. Dies verwendet `trim()`, um Leerzeichen zu entfernen, überprüft, dass das _name_ Feld nicht leer ist, und verwendet dann `escape()`, um gefährliche HTML-Zeichen zu entfernen).
+Die erste Methode im Array definiert einen Body-Validator (`body()`), der das Feld validiert und bereinigt. Dies verwendet `trim()`, um jeglichen führenden/nachgestellten Leerraum zu entfernen, überprüft, dass das _name_-Feld nicht leer ist, und entfernt dann mithilfe von `escape()` alle gefährlichen HTML-Zeichen.
 
 ```js
 [
@@ -100,11 +99,11 @@ Die erste Methode im Array definiert einen Body-Validator (`body()`), der das Fe
 ];
 ```
 
-Nachdem wir die Validatoren angegeben haben, erstellen wir eine Middleware-Funktion, um mögliche Validierungsfehler zu extrahieren. Wir verwenden `isEmpty()`, um zu überprüfen, ob es Fehler im Validierungsergebnis gibt. Wenn ja, rendern wir das Formular erneut und übergeben unser bereinigtes Genre-Objekt und das Array der Fehlermeldungen (`errors.array()`).
+Nachdem wir die Validatoren spezifiziert haben, erstellen wir eine Middleware-Funktion, um etwaige Validierungsfehler zu extrahieren. Wir verwenden `isEmpty()`, um zu überprüfen, ob Fehler im Validierungsergebnis vorhanden sind. Wenn es Fehler gibt, rendern wir das Formular erneut, indem wir unser bereinigtes Genre-Objekt und das Array von Fehlermeldungen (`errors.array()`) übergeben.
 
 ```js
 // Process request after validation and sanitization.
-asyncHandler(async (req, res, next) => {
+async (req, res, next) => {
   // Extract the validation errors from a request.
   const errors = validationResult(req);
 
@@ -122,15 +121,15 @@ asyncHandler(async (req, res, next) => {
   }
   // Data from form is valid.
   // …
-});
+};
 ```
 
-Falls die Genre-Namensdaten gültig sind, führen wir eine nicht auf Groß-/Kleinschreibung achtende Suche durch, um zu sehen, ob bereits ein `Genre` mit demselben Namen existiert (da wir keine doppelten oder nahezu doppelten Datensätze erstellen möchten, die sich nur in der Groß-/Kleinschreibung unterscheiden, wie: "Fantasy", "fantasy", "FaNtAsY" und so weiter).
-Um Groß-/Kleinschreibung und Akzente bei der Suche zu ignorieren, verkettet man die [`collation()`](<https://mongoosejs.com/docs/api/query.html#Query.prototype.collation()>) Methode, wobei die Sprache 'en' und Stärke 2 spezifiziert werden (für weitere Informationen siehe das MongoDB-Thema [Collation](https://www.mongodb.com/docs/manual/reference/collation/)).
+Wenn die Genre-Namensdaten gültig sind, führen wir eine nicht case-sensitive Suche durch, um zu sehen, ob ein `Genre` mit dem gleichen Namen bereits existiert (da wir keine Duplikate oder Beinahe-Duplikate erstellen möchten, die sich nur durch Groß-/Kleinschreibung unterscheiden, wie z.B.: "Fantasy", "fantasy", "FaNtAsY" usw.).
+Um bei der Suche Groß-/Kleinschreibung und Akzente zu ignorieren, hängen wir die [`collation()`](<https://mongoosejs.com/docs/api/query.html#Query.prototype.collation()>) Methode an, indem wir die Lokale 'en' und die Stärke von 2 angeben (weitere Informationen finden Sie im MongoDB [Collation](https://www.mongodb.com/docs/manual/reference/collation/) Thema).
 
-Wenn ein `Genre` mit einem übereinstimmenden Namen bereits existiert, leiten wir zur Detailseite weiter.
-Falls nicht, speichern wir das neue `Genre` und leiten zur Detailseite weiter.
-Beachten Sie, dass wir hier das Ergebnis der Datenbankabfrage `await`-en, und demselben Muster folgen wie bei anderen Route-Handlern.
+Wenn ein `Genre` mit einem passenden Namen bereits existiert, leiten wir zur Detailseite weiter.
+Wenn nicht, speichern wir das neue `Genre` und leiten zur Detailseite weiter.
+Beachten Sie, dass wir hier auf das Ergebnis der Datenbankanfrage `await`en, nach dem gleichen Muster wie bei anderen Routen-Handlern.
 
 ```js
 // Check if Genre with same name already exists.
@@ -140,19 +139,19 @@ const genreExists = await Genre.findOne({ name: req.body.name })
 if (genreExists) {
   // Genre exists, redirect to its detail page.
   res.redirect(genreExists.url);
-} else {
-  await genre.save();
-  // New genre saved. Redirect to genre detail page.
-  res.redirect(genre.url);
 }
+
+// New genre. Save and redirect to its detail page.
+await genre.save();
+res.redirect(genre.url);
 ```
 
-Dieses Muster wird in all unseren Post-Controllern verwendet: Wir führen Validatoren (mit Bereinigern) aus, überprüfen dann auf Fehler und rendern entweder das Formular mit Fehlerinformationen erneut oder speichern die Daten.
+Dieses Muster wird in allen unseren Post-Controllern verwendet: Wir führen Validatoren (mit Bereinigern) aus, überprüfen dann auf Fehler und rendern entweder das Formular mit Fehlerinformationen erneut oder speichern die Daten.
 
 ## Ansicht
 
-Dasselbe Formular wird in den `GET`- und `POST`-Controllern/Routen gerendert, wenn wir ein neues `Genre` erstellen (und später auch, wenn wir ein `Genre` _aktualisieren_). Im `GET`-Fall ist das Formular leer, und wir übergeben nur eine Titelvariable. Im `POST`-Fall hat der Benutzer zuvor ungültige Daten eingegeben — in der `genre`-Variable geben wir eine bereinigte Version der eingegebenen Daten zurück und in der `errors`-Variable ein Array von Fehlermeldungen.
-Der folgende Code zeigt den Controller-Code zum Rendern des Templates für beide Fälle.
+Die gleiche Ansicht wird sowohl in den `GET`- als auch in den `POST`-Controllern/Routen verwendet, wenn wir ein neues `Genre` erstellen (und später auch, wenn wir ein `Genre` _aktualisieren_). Im `GET`-Fall ist das Formular leer und wir übergeben nur eine Titelvariable. Im `POST`-Fall hat der Benutzer zuvor ungültige Daten eingegeben – in der `genre`-Variable übergeben wir eine bereinigte Version der eingegebenen Daten und in der `errors`-Variable übergeben wir ein Array der Fehlermeldungen.
+Der untenstehende Code zeigt den Controller-Code für das Rendern der Vorlage in beiden Fällen.
 
 ```js
 // Render the GET route
@@ -187,29 +186,29 @@ block content
         li!= error.msg
 ```
 
-Vieles von diesem Template wird Ihnen aus unseren früheren Tutorials bekannt vorkommen. Zuerst erweitern wir das **layout.pug** Basistemplate und überschreiben den `block` namens '**content**'. Dann haben wir eine Überschrift mit dem `title`, den wir aus dem Controller (über die `render()`-Methode) übergeben haben.
+Vieles an dieser Vorlage wird Ihnen aus unseren vorherigen Tutorials vertraut sein. Zuerst erweitern wir die **layout.pug**-Basistemplate und überschreiben den `block` namens '**content**'. Dann haben wir eine Überschrift mit dem `title`, den wir vom Controller übergeben haben (via der `render()`-Methode).
 
-Als nächstes haben wir den Pug-Code für unser HTML-Formular, das `method="POST"` verwendet, um die Daten an den Server zu senden. Da die `action` ein leerer String ist, werden die Daten an dieselbe URL wie die Seite gesendet.
+Als nächstes haben wir den Pug-Code für unser HTML-Formular, das `method="POST"` verwendet, um die Daten an den Server zu senden, und weil das `action` ein leerer String ist, werden die Daten an dieselbe URL wie die Seite gesendet.
 
-Das Formular definiert ein einziges erforderliches Feld vom Typ "text" namens "name". Der Standard-_value_ des Feldes hängt davon ab, ob die `genre`-Variable definiert ist. Wenn es von der `GET`-Route aufgerufen wird, ist es leer, da dies ein neues Formular ist. Wenn es von einer `POST`-Route aufgerufen wird, enthält es den (ungültigen) Wert, den der Benutzer ursprünglich eingegeben hat.
+Das Formular definiert ein einzelnes erforderliches Feld vom Typ „text“ mit dem Namen „name“. Der Standardwert dieses Feldes hängt davon ab, ob die Variable `genre` definiert ist. Wenn es von der `GET`-Route aufgerufen wird, wird es leer sein, da dies ein neues Formular ist. Wenn es von einer `POST`-Route aus aufgerufen wird, enthält es den (ungültigen) Wert, den der Benutzer ursprünglich eingegeben hat.
 
-Der letzte Teil der Seite ist der Fehlercode. Dieser druckt eine Liste von Fehlern, falls die Fehler-Variable definiert wurde (mit anderen Worten: dieser Abschnitt wird nicht erscheinen, wenn das Template auf der `GET`-Route gerendert wird).
+Der letzte Teil der Seite ist der Fehlercode. Dieser druckt eine Liste von Fehlern aus, wenn die Fehler-Variable definiert ist (mit anderen Worten, dieser Abschnitt wird nicht auftauchen, wenn die Vorlage auf der `GET`-Route gerendert wird).
 
 > [!NOTE]
-> Dies ist nur eine Möglichkeit, die Fehler darzustellen. Sie können auch die Namen der betroffenen Felder aus der Fehler-Variable erhalten und diese verwenden, um zu steuern, wo die Fehlermeldungen dargestellt werden, ob benutzerdefiniertes CSS angewendet werden soll, usw.
+> Dies ist nur eine Möglichkeit, die Fehler darzustellen. Sie können auch die Namen der betroffenen Felder aus der Fehler-Variable erhalten und diese verwenden, um zu steuern, wo die Fehlermeldungen gerendert werden sollen, ob benutzerdefiniertes CSS angewendet werden soll usw.
 
 ## Wie sieht es aus?
 
-Führen Sie die Anwendung aus, öffnen Sie Ihren Browser unter `http://localhost:3000/` und wählen Sie dann den Link _Create new genre_ aus. Wenn alles korrekt eingerichtet ist, sollte Ihre Website ungefähr so aussehen wie auf dem folgenden Screenshot. Nachdem Sie einen Wert eingegeben haben, sollte er gespeichert werden, und Sie werden zur Genre-Detailseite weitergeleitet.
+Führen Sie die Anwendung aus, öffnen Sie Ihren Browser auf `http://localhost:3000/`, und wählen Sie den Link _Create new genre_. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite ähnlich wie im folgenden Screenshot aussehen. Nachdem Sie einen Wert eingegeben haben, sollte dieser gespeichert werden, und Sie werden zur Genre-Detailseite geleitet.
 
 ![Genre Create Page - Express Local Library site](locallibary_express_genre_create_empty.png)
 
-Der einzige Fehler, den wir serverseitig validieren, ist, dass das Genre-Feld mindestens drei Zeichen haben muss. Der untenstehende Screenshot zeigt, wie die Fehlerliste aussehen würde, wenn Sie ein Genre mit nur einem oder zwei Zeichen angeben (hervorgehoben in Gelb).
+Der einzige Fehler, gegen den wir serverseitig validieren, ist, dass das Genre-Feld mindestens drei Zeichen haben muss. Der untenstehende Screenshot zeigt, wie die Fehlerliste aussehen würde, wenn Sie ein Genre mit nur einem oder zwei Zeichen angeben (gelb hervorgehoben).
 
-![The Create Genre section of the Local library application. The left column has a vertical navigation bar. The right section is the create a new Genre from with a heading that reads 'Create Genre'. There is one input field labeled 'Genre'. There is a submit button at the bottom. There is an error message that reads 'Genre name required' directly below the Submit button. The error message was highlighted by the author of this article. There is no visual indication in the form that the genre is required nor that the error message only appears on error.](locallibary_express_genre_create_error.png)
+![Der Abschnitt im Local Library-Anwendungsbereich für das Erstellen eines Genres. Die linke Spalte hat eine vertikale Navigationsleiste. Der rechte Abschnitt ist das Formular zum Erstellen eines neuen Genres mit der Überschrift 'Create Genre'. Es gibt ein Eingabefeld mit der Beschriftung 'Genre'. Am unteren Rand befindet sich ein Senden-Button. Es gibt eine Fehlermeldung, die 'Genre name required' direkt unter dem Senden-Button liest. Die Fehlermeldung wurde vom Autor dieses Artikels hervorgehoben. Es gibt keinen visuellen Hinweis im Formular, dass das Genre erforderlich ist oder dass die Fehlermeldung nur bei einem Fehler erscheint.](locallibary_express_genre_create_error.png)
 
 > [!NOTE]
-> Unsere Validierung verwendet `trim()`, um sicherzustellen, dass Leerzeichen nicht als Genre-Name akzeptiert werden. Wir validieren auch, dass das Feld auf der Clientseite nicht leer ist, indem wir das {{Glossary("Boolean/HTML", "boolesche Attribut")}} `required` zur Felddefinition im Formular hinzufügen:
+> Unsere Validierung verwendet `trim()`, um sicherzustellen, dass Leerzeichen nicht als Genres akzeptiert werden. Wir validieren auch, dass das Feld auf der Client-Seite nicht leer ist, indem wir das {{Glossary("Boolean/HTML", "boolesche Attribut")}} `required` zur Felddefinition im Formular hinzufügen:
 >
 > ```pug
 > input#name.form-control(type='text', placeholder='Fantasy, Poetry etc.' name='name' required value=(undefined===genre ? '' : genre.name) )
@@ -217,5 +216,5 @@ Der einzige Fehler, den wir serverseitig validieren, ist, dass das Genre-Feld mi
 
 ## Nächste Schritte
 
-1. Kehren Sie zurück zu [Express-Tutorial Teil 6: Arbeiten mit Formularen.](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms)
-2. Fahren Sie fort mit dem nächsten Unterartikel von Teil 6: [Autor-Formular erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_author_form).
+1. Kehren Sie zurück zu [Express Tutorial Part 6: Arbeiten mit Formularen.](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms)
+2. Fahren Sie mit dem nächsten Unterartikel von Teil 6 fort: [Erstellen Sie das Autorenformular](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_author_form).

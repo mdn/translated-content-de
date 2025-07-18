@@ -2,17 +2,15 @@
 title: browsingData.removePluginData()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removePluginData
 l10n:
-  sourceCommit: 5c2abb422d26ae422891e699cc083bdd93c5e410
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Löscht von Browser-Plugins gespeicherte Daten.
 
-Löscht Daten, die von Browser-Plugins gespeichert wurden.
+Sie können den `removalOptions`-Parameter verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um:
 
-Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um:
-
-- nur die Plugin-Daten zu löschen, die nach einer bestimmten Zeit gespeichert wurden
-- zu steuern, ob nur Daten von Plugins gelöscht werden, die in normalen Webseiten ausgeführt werden, oder ob auch Daten von Plugins gelöscht werden sollen, die in gehosteten Apps und Erweiterungen ausgeführt werden.
+- nur Plugin-Daten zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden
+- zu steuern, ob nur Daten gelöscht werden sollen, die von Plugins in normalen Webseiten gespeichert wurden, oder ob auch Daten gelöscht werden sollen, die von Plugins in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,11 +25,11 @@ let removing = browser.browsingData.removePluginData(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur die Plugin-Daten zu löschen, die nach einer bestimmten Zeit gespeichert wurden, und ob nur Daten von Plugins gelöscht werden sollen, die in normalen Webseiten ausgeführt werden, oder auch Daten von Plugins, die in gehosteten Apps und Erweiterungen laufen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Plugin-Daten zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden und ob nur Daten gelöscht werden sollen, die von Plugins in normalen Webseiten gespeichert wurden, oder ob auch Daten gelöscht werden sollen, die von Plugins in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen beendet ist. Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -57,7 +55,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Entfernen Sie alle Daten, die von Plugins gespeichert wurden:
+Entfernen Sie alle von Plugins gespeicherten Daten:
 
 ```js
 function onRemoved() {
@@ -78,4 +76,4 @@ browser.browsingData.removePluginData({}).then(onRemoved, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
