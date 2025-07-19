@@ -1,12 +1,12 @@
 ---
-title: Stetige Medien
+title: Kontinuierliche Medien
 slug: Glossary/Continuous_Media
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-**Stetige Medien** sind Daten, bei denen es eine zeitliche Beziehung zwischen Quelle und Ziel gibt. Die häufigsten Beispiele für stetige Medien sind Audio- und Videobewegungsbilder. Stetige Medien können in Echtzeit (interaktiv) ablaufen, bei der es eine "enge" zeitliche Beziehung zwischen Quelle und Senke gibt, oder als Streaming (Wiedergabe), bei der die Beziehung weniger streng ist.
+**Kontinuierliche Medien** sind Daten, bei denen eine zeitliche Beziehung zwischen Quelle und Ziel besteht. Die häufigsten Beispiele für kontinuierliche Medien sind Audio und Bewegtbild. Kontinuierliche Medien können in Echtzeit (interaktiv) sein, bei denen eine "enge" zeitliche Beziehung zwischen Quelle und Senke besteht, oder sie können gestreamt (Wiedergabe) werden, bei denen die Beziehung weniger streng ist.
 
-CSS kann in einer Vielzahl von Kontexten verwendet werden, einschließlich Druckmedien. Und einige CSS, insbesondere solche, die für das Layout verwendet werden, verhalten sich je nach Kontext unterschiedlich.
+CSS kann in einer Vielzahl von Kontexten eingesetzt werden, einschließlich Druckmedien. Und einige CSS-Regeln, insbesondere jene, die für das Layout verwendet werden, verhalten sich je nach Kontext unterschiedlich.
 
-Stetige Medien identifizieren daher einen Kontext, in dem der Inhalt nicht unterbrochen wird. Er fließt kontinuierlich. Webinhalte, die auf einem Bildschirm angezeigt werden, sind stetige Medien, ebenso wie gesprochene Inhalte.
+Kontinuierliche Medien identifizieren daher einen Kontext, in dem der Inhalt nicht unterbrochen wird. Er fließt kontinuierlich. Webinhalte, die auf einem Bildschirm angezeigt werden, sind kontinuierliche Medien, ebenso wie gesprochene Inhalte.

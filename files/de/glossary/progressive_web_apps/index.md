@@ -1,15 +1,15 @@
 ---
-title: Progressive Web-Apps
+title: Progressive Web-Apps (PWAs)
 slug: Glossary/Progressive_web_apps
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-Progressive Web-Apps (PWA) sind Anwendungen, die mit Technologien der Webplattform erstellt werden, aber ein Benutzererlebnis wie eine plattformspezifische App bieten.
+**Progressive Web-Apps** (**PWAs**) sind Anwendungen, die mit Webplattform-Technologien erstellt werden, aber eine Benutzererfahrung wie eine plattformspezifische App bieten.
 
-Diese Art von Apps nutzt alle Vorteile des Webs — wie Auffindbarkeit über Suchmaschinen, Verlinkbarkeit über {{Glossary("URL", "URL")}}s und die Fähigkeit, über mehrere Formfaktoren hinweg zu funktionieren. Sie werden jedoch schrittweise mit modernen APIs verbessert (wie [Service Workers](/de/docs/Web/API/Service_Worker_API) und [Push](/de/docs/Web/API/Push_API)).
+Diese Art von Apps profitiert von all den besten Eigenschaften des Webs – wie Auffindbarkeit über Suchmaschinen, Verlinkbarkeit über {{Glossary("URL", "URL")}}s und das Funktionieren auf mehreren Formfaktoren. Sie werden jedoch schrittweise durch moderne APIs (wie [Service Workers](/de/docs/Web/API/Service_Worker_API) und [Push](/de/docs/Web/API/Push_API)) erweitert.
 
-Diese Funktionen umfassen die Möglichkeit, installiert zu werden, offline zu arbeiten und einfach mit dem Server synchronisiert zu werden, um den Benutzer erneut einzubinden.
+Zu diesen Merkmalen gehören die Installationsfähigkeit, das Arbeiten im Offline-Modus und die einfache Synchronisation und Rückgewinnung der Benutzer vom Server.
 
 ## Siehe auch
 

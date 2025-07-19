@@ -1,87 +1,86 @@
 ---
 title: Anleitung zur Recherche einer Technologie
-short-title: Recherche einer Technologie
+short-title: Eine Technologie recherchieren
 slug: MDN/Writing_guidelines/Howto/Research_technology
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
 ---
 
-Dieser Artikel bietet nützliche Informationen darüber, wie Sie den Ansatz zur Dokumentation von Technologien angehen können.
+Dieser Artikel bietet Ihnen nützliche Informationen darüber, wie Sie Technologien dokumentieren können.
 
-## Die Vorbereitungen
+## Vorbereitung
 
-Bevor Sie beginnen, auf MDN Web Docs etwas zu dokumentieren oder zu aktualisieren, gibt es einige Dinge, die Sie vorbereiten und planen sollten, bevor Sie tatsächlich zu schreiben beginnen.
+Bevor Sie beginnen, etwas auf MDN Web Docs zu dokumentieren oder zu aktualisieren, gibt es einige Dinge, die Sie vorbereiten und planen sollten, bevor Sie tatsächlich mit dem Schreiben beginnen.
 
-Es wird vorausgesetzt, dass Sie, bevor Sie diesen Leitfaden lesen, ein angemessenes Wissen über folgende Themen haben:
+Es wird angenommen, dass Sie dieses Leitfaden lesen, nachdem Sie über ausreichende Kenntnisse von:
 
-- Web-Technologien wie HTML, CSS und JavaScript.
-- Lesen von Web-Technologie-Spezifikationen. Diese werden Sie häufig ansehen, während Sie APIs dokumentieren.
+- Webtechnologien wie HTML, CSS und JavaScript
+- Webtechnologiespezifikationen lesen verfügen. Sie werden diese häufig durchgehen, während Sie APIs dokumentieren.
 
-Alles andere kann unterwegs gelernt werden.
+Alles andere kann auf dem Weg gelernt werden.
 
 ### Ressourcen überprüfen
 
-Nützliche Ressourcen für die Erstellung jeglicher Dokumentation sind:
+Nützliche Ressourcen für jegliche Dokumentation umfassen:
 
-1. Die [Anleitungen](/de/docs/MDN/Writing_guidelines/Howto) für MDN Web Docs: Sie sind bereits hier, aber es ist gut, alle Artikel zu durchsuchen und sich mit unserem Schreibstil, den verschiedenen Seitentypen und den darin enthaltenen Abschnitten sowie den verschiedenen Methoden zur Einbindung von Seitenelementen (wie Spezifikationen und Browser-Kompatibilität) vertraut zu machen.
-2. Die neueste Spezifikation: Verschiedene Standardisierungsorganisationen erstellen Spezifikationen für Technologien, die auf MDN Web Docs dokumentiert sind. Beispiele sind [TC39](https://tc39.es/) für JavaScript, die [WHATWG](https://whatwg.org/) für HTML sowie die [W3C](https://www.w3.org/) für CSS, XML und einige Web-APIs. Spezifikationen sind auf MDN Web Docs in den Referenzseiten verlinkt (prüfen Sie den Abschnitt "Specifications"). Alternativ können Sie normalerweise eine Websuche durchführen. Arbeiten Sie stets mit der aktuellsten, neuesten Spezifikation.
-3. Die neuesten modernen Webbrowser: Diese sollten experimentelle/Alpha-Versionen wie [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly), [Chrome Canary](https://www.google.com/intl/en/chrome/canary/) oder [Safari Technology Preview](https://webkit.org/downloads/) sein, die eher die Funktionen unterstützen, die Sie dokumentieren. Dies ist besonders wichtig, wenn Sie ein bevorstehendes Feature dokumentieren.
-4. Demos/Blogartikel/andere Informationen: Finden Sie so viele Informationen wie möglich. Wenn Sie eine Technologie aktualisieren, weil sie sich geändert hat, stellen Sie sicher, dass die Ressourcen, die Sie zum Lernen verwenden, nicht veraltet sind. Deshalb sind die ersten beiden Punkte oben wichtig.
+1. Die [Anleitungen](/de/docs/MDN/Writing_guidelines/Howto) für MDN Web Docs: Sie sind bereits hier, aber es ist gut, alle Artikel durchzulesen und sich mit unserem Schreibstil sowie mit den verschiedenen Arten von Seiten und deren Abschnitten vertraut zu machen, sowie mit den unterschiedlichen Möglichkeiten, wie wir verschiedene Teile der Seite einbeziehen (wie Spezifikationen und Browser-Kompatibilität).
+2. Die neueste Spezifikation: Verschiedene Standardgremien erstellen Spezifikationen für Technologien, die auf MDN Web Docs dokumentiert sind. Zum Beispiel erstellt [TC39](https://tc39.es/) die Spezifikation für JavaScript, die [WHATWG](https://whatwg.org/) für HTML und das [W3C](https://www.w3.org/) für CSS, XML und einige Web-APIs. Spezifikationen sind auf MDN Web Docs von den Referenzseiten verlinkt (überprüfen Sie den Abschnitt "Specifications"). Alternativ können Sie üblicherweise eine Websuche durchführen. Arbeiten Sie immer mit der neuesten, aktuellen Spezifikation.
+3. Die neuesten modernen Webbrowser: Diese sollten experimentelle/Alpha-Versionen sein, wie [Firefox Nightly](https://www.firefox.com/en-US/channel/desktop/#nightly), [Chrome Canary](https://www.google.com/intl/en/chrome/canary/) oder [Safari Technology Preview](https://webkit.org/downloads/) die mit höherer Wahrscheinlichkeit die Funktionen unterstützen, die Sie dokumentieren. Dies ist besonders relevant, wenn Sie eine Funktion dokumentieren, die "kommend" ist.
+4. Demos/Blog-Posts/weitere Informationen: Suchen Sie so viele Informationen wie möglich. Wenn Sie eine Technologie aktualisieren, weil sie sich verändert hat, stellen Sie sicher, dass die Ressourcen, die Sie verwenden, um zu lernen, nicht veraltet sind. Aus diesem Grund sind die ersten beiden Punkte oben wichtig.
 
-Es kann auch sinnvoll sein, jemanden zu finden, der bei Fragen hilft. Das können die Autoren der Spezifikation oder die Ingenieure sein, die Browser-Features implementieren.
+Es kann auch klug sein, jemanden zu finden, der bei Fragen hilft. Diese Person kann ein Autor der Spezifikation oder ein Ingenieur sein, der Browser-Features implementiert.
 
 ### Spezifikationen lesen
 
-Dies kann sich anfangs etwas fremd anfühlen, aber je öfter Sie es tun, desto vertrauter wird es. Hier sind einige gute Links, um den Einstieg zu erleichtern:
+Dies kann sich anfangs etwas befremdlich anfühlen, aber je öfter Sie es tun, desto mehr gewöhnen Sie sich daran. Hier sind einige gute Links, die Ihnen den Einstieg erleichtern:
 
-- [How to read W3C specs](https://alistapart.com/article/readspec/) von J. David Eisenberg auf A List Apart
-- [Understanding the CSS specifications](https://www.w3.org/Style/CSS/read) von der W3C
-- [How to read web specs part I – or: WebVR, how do you work?](https://surma.dev/things/reading-specs/) behandelt das Lesen der WebVR-Spezifikation speziell, ist aber eine großartige Einführung in das Lesen von Web-API-Spezifikationen.
-- [How to read web specs part IIa – or: ECMAScript Symbols](https://surma.dev/things/reading-specs-2/) der zweite Teil des obigen Links enthält Informationen über das Verständnis der ECMAScript-Spezifikation, die die JavaScript-Sprache umreißt.
+- [Wie man W3C-Spezifikationen liest](https://alistapart.com/article/readspec/) von J. David Eisenberg auf A List Apart
+- [Die CSS-Spezifikationen verstehen](https://www.w3.org/Style/CSS/read) vom W3C
+- [Wie man Webspezifikationen Teil I liest – oder: WebVR, wie funktioniert das?](https://surma.dev/things/reading-specs/) behandelt speziell das Lesen der WebVR-Spezifikation, ist aber eine großartige Einführung in das Lesen von Web-API-Spezifikationen.
+- [Wie man Webspezifikationen Teil IIa liest – oder: ECMAScript-Symbole](https://surma.dev/things/reading-specs-2/) der zweite Teil des obigen Links enthält Informationen zum Verstehen der ECMAScript-Spezifikation, die die JavaScript-Sprache beschreibt.
 
-Zusätzlich haben wir den [Information contained in a WebIDL file](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file) Leitfaden, der wirklich beim Lesen von Web-API-Spezifikationen helfen kann.
+Zusätzlich haben wir den [Informationen enthaltend in einer WebIDL-Datei](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file) Leitfaden, der beim Lesen von Web-API-Spezifikationen wirklich hilfreich sein kann.
 
-## Das Feature erforschen
+## Das Feature erkunden
 
-Sie werden während des Dokumentierens einer Technologie viele Male auf das Schreiben von Codebeispielen oder das Erstellen von Demos zurückkommen. Es ist jedoch sehr nützlich, sich zunächst damit vertraut zu machen, wie die Technologie funktioniert. Dies ist eine wirklich wertvolle Übung, da sie Ihnen ein gutes Verständnis der Anwendungsfälle vermittelt (_warum_ ein Entwickler diese Technologie nutzen würde) und Ihnen gleichzeitig beim Erstellen einiger Codebeispiele hilft.
+Sie werden im Laufe der Dokumentation einer Technologie viele Male zu Codebeispielen oder Demos zurückkehren, aber es ist sehr nützlich, damit zu beginnen, sich mit der Funktionsweise der Technologie vertraut zu machen. Dies ist eine wirklich wertvolle Übung, da sie Ihnen ein gutes Verständnis dafür vermittelt, was die Anwendungsfälle sind (_warum_ ein Entwickler diese Technologie verwenden würde) und gleichzeitig bei der Erstellung einiger Codebeispiele hilft.
 
 > [!NOTE]
-> Wenn die Spezifikation kürzlich aktualisiert wurde, sodass beispielsweise eine Methode jetzt anders definiert ist, die alte Methode jedoch weiterhin in den Browsern funktioniert, müssen Sie häufig beide Methoden an derselben Stelle dokumentieren, damit die alten und neuen Methoden abgedeckt sind.
-> Wenn Sie Hilfe benötigen, beziehen Sie sich auf gefundene Demos oder fragen Sie einen technischen Kontakt.
+> Wenn die Spezifikation kürzlich aktualisiert wurde, sodass, sagen wir, eine Methode jetzt anders definiert ist, die alte Methode jedoch weiterhin in Browsern funktioniert, müssen Sie oft beide an derselben Stelle dokumentieren, damit die alten und neuen Methoden abgedeckt sind.
+> Wenn Sie Hilfe benötigen, beziehen Sie sich auf die Demos, die Sie gefunden haben, oder fragen Sie einen technischen Ansprechpartner.
 
-## Erstellen der Liste der zu schreibenden oder zu aktualisierenden Seiten
+## Die Liste der zu schreibenden oder zu aktualisierenden Seiten erstellen
 
-Die verschiedenen Seiten, die Sie von Grund auf neu schreiben oder aktualisieren müssen, variieren je nach der von Ihnen dokumentierten Technologie. Schauen Sie sich die [Seiten-Typen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) und den entsprechenden Abschnitt für die von Ihnen dokumentierte Technologie an. Wahrscheinlich müssen Sie auch die bestehende Dokumentation aktualisieren, also suchen Sie auf MDN Web Docs nach Seiten, die mit dem, was Sie schreiben, zusammenhängen.
+Die verschiedenen Seiten, die Sie von Grund auf neu schreiben oder aktualisieren müssen, variieren je nach Technologie, über die Sie schreiben. Schauen Sie sich die [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) und den relevanten Abschnitt für die Technologie an, die Sie dokumentieren. Es ist sehr wahrscheinlich, dass Sie auch vorhandene Dokumentationen aktualisieren müssen, also suchen Sie auf MDN Web Docs nach Seiten, die mit Ihrem Thema in Verbindung stehen.
 
-### Sidebars
+### Seitenleisten
 
-Es ist möglich, dass das Seitenmenü der von Ihnen geschriebenen Seiten ebenfalls definiert oder aktualisiert werden muss. Um herauszufinden, ob dies notwendig ist und wie man es tut, schauen Sie sich den [Sidebar-Leitfaden](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) an.
+Es ist möglich, dass die Seitenleiste der von Ihnen erstellten Seiten ebenfalls definiert oder aktualisiert werden muss. Um herauszufinden, ob dies erforderlich ist und wie man es macht, schauen Sie sich den [Leitfaden für Seitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) an.
 
 ### Codebeispiele
 
-Einige der Codebeispiele für MDN Web Docs befinden sich in separaten Repositories. Besonders erwähnenswert sind die interaktiven Beispiele im Abschnitt "Try it" auf den Referenzseiten und der größere Demo-Code, der für Leitfäden benötigt wird. Wenn Sie eines dieser Repositories hinzufügen oder ändern müssen, ist es eine gute Idee, es in Ihrer Liste zu vermerken.
+Einige der Codebeispiele für MDN Web Docs befinden sich in separaten Repositories. Vor allem sind dies die interaktiven Beispiele, die im Abschnitt "Probieren Sie es aus" auf den Referenzseiten erscheinen sowie der größere Democode, der für Leitfäden benötigt wird. Wenn Sie eines dieser Repositories hinzufügen oder ändern müssen, ist es eine gute Idee, dies auf Ihrer Liste zu notieren.
 
-Der Artikel [Code examples](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) beschreibt die verschiedenen Arten von Codebeispielen, die wir auf MDN Web Docs verwenden.
+Der [Artikel über Codebeispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) beschreibt die verschiedenen Arten von Codebeispielen, die wir auf MDN Web Docs verwenden.
 
 ### Beispiel
 
-Angenommen, Sie dokumentieren eine neue Web-API, Ihre anfängliche Liste der zu dokumentierenden Abschnitte sieht ungefähr so aus:
+Angenommen, Sie dokumentieren eine neue Web-API, Ihre anfängliche Liste der zu dokumentierenden Abschnitte könnte wie folgt aussehen:
 
 1. Übersichtsseite
-2. Interface-Seiten
+2. Schnittstellenseiten
 3. Konstruktorseiten
 4. Methodenseiten
 5. Eigenschaftsseiten
-6. Ereignisse-Seiten
-7. Konzept-/Leitfaden-Seiten
+6. Ereignisseiten
+7. Konzept-/Leitfadenseiten
 8. Codebeispiele
-9. Sidebars
+9. Seitenleisten
 
-Sie können es dann mit mehr Details erweitern, indem Sie jedes Interface und seine Mitglieder hinzufügen. Wenn Sie beispielsweise die Web Audio API dokumentieren würden, könnte Ihre Liste folgendermaßen aussehen:
+Sie können dann mit mehr Details darauf aufbauen, indem Sie jede Schnittstelle und ihre Mitglieder hinzufügen. Wenn Sie zum Beispiel die Web Audio API dokumentieren würden, könnte Ihre Liste so aussehen:
 
 - Web_Audio_API
 - AudioContext
-
   - AudioContext.currentTime
   - AudioContext.destination
   - AudioContext.listener
@@ -91,7 +90,6 @@ Sie können es dann mit mehr Details erweitern, indem Sie jedes Interface und se
   - ...
 
 - AudioNode
-
   - AudioNode.context
   - AudioNode.numberOfInputs
   - AudioNode.numberOfOutputs
@@ -101,14 +99,14 @@ Sie können es dann mit mehr Details erweitern, indem Sie jedes Interface und se
 
 - AudioParam
 - Ereignisse (Liste aktualisieren)
-  - starten
-  - beenden
+  - start
+  - end
   - …
 
-## Ein Issue eröffnen
+## Ein Issue erstellen
 
-Es ist an dieser Stelle eine gute Idee, ein Tracking-[Issue](https://github.com/mdn/content/issues) im `mdn/content` Repository mit den aufgelisteten Seiten als To-Do- (Kontrollkästchen-)Liste zu eröffnen. Dies ermöglicht es nicht nur Ihnen, sondern auch anderen, die an der Dokumentation arbeiten, öffentlich den Status zu verfolgen. Sie können auch Ihre Pull Requests mit diesem Issue verlinken, um allen mehr Kontext zu geben.
+Es ist zu diesem Zeitpunkt eine gute Idee, ein Tracking-[Issue](https://github.com/mdn/content/issues) im `mdn/content`-Repository mit den als To-Do (Checkboxen) aufgelisteten Seiten zu eröffnen. Dies ermöglicht nicht nur Ihnen, sondern auch anderen, die an der Dokumentation arbeiten, den Status öffentlich nachzuverfolgen. Sie können Ihre Pull-Requests auch mit diesem Issue verlinken, um allen mehr Kontext zu geben.
 
-## Seiten erstellen
+## Die Seiten erstellen
 
-Erstellen Sie nun die benötigten Seiten. Um eine neue Seite zu erstellen, sehen Sie sich die Anweisungen in unserer [Anleitung zum Erstellen, Verschieben, Löschen und Bearbeiten von Seiten](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting) an. Sehen Sie sich unsere [Seiten-Typen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) an, um eventuell nützliche Seitentemplates zu finden.
+Erstellen Sie nun die benötigten Seiten. Um eine neue Seite zu erstellen, sehen Sie sich die Anweisungen in unserem [Anleitung zum Erstellen, Verschieben, Löschen und Bearbeiten von Seiten](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting) Leitfaden an. Schauen Sie sich unseren [Leitfaden für Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) an, um Vorlagen für Seiten zu finden, die nützlich sein könnten.

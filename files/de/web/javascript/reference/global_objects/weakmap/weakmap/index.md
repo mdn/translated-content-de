@@ -3,7 +3,7 @@ title: WeakMap()-Konstruktor
 short-title: WeakMap()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/WeakMap
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
 ---
 
 Der **`WeakMap()`**-Konstruktor erstellt {{jsxref("WeakMap")}}-Objekte.
@@ -16,12 +16,12 @@ new WeakMap(iterable)
 ```
 
 > [!NOTE]
-> `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable`
-  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-elementiges Array-ähnliches Objekt erzeugt. Dessen erstes Element wird als `WeakMap`-Schlüssel und das zweite als Wert genutzt, der dem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
+  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-elementiges array-ähnliches Objekt produziert, dessen erstes Element ein Wert ist, der als `WeakMap`-Schlüssel verwendet wird und dessen zweites Element der Wert ist, der diesem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
 
 ## Beispiele
 
@@ -69,7 +69,6 @@ wm1.has(o1); // false
 
 - [Polyfill von `WeakMap` in `core-js`](https://github.com/zloirock/core-js#weakmap)
 - [`WeakMap` im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
-- [Verbergen von Implementierungsdetails mit ECMAScript 6 WeakMaps](https://fitzgen.com/2014/01/13/hiding-implementation-details-with-e6-weakmaps.html)
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}
 - {{jsxref("WeakSet")}}

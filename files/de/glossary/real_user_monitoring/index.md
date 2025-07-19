@@ -2,14 +2,14 @@
 title: Real User Monitoring (RUM)
 slug: Glossary/Real_User_Monitoring
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-**Real User Monitoring** oder RUM misst die Leistung einer Seite anhand der Maschinen echter Benutzer. Im Allgemeinen fügt ein Drittanbieter-Skript auf jeder Seite ein Skript ein, um die Daten zum Laden der Seite für jede Anfrage zu messen und zu berichten. Diese Technik überwacht die tatsächlichen Benutzerinteraktionen einer Anwendung. Bei RUM sammelt das Drittanbieter-Skript Leistungsmetriken aus den Browsern der realen Benutzer. RUM hilft zu identifizieren, wie eine Anwendung genutzt wird, einschließlich der geografischen Verteilung der Benutzer und deren Auswirkungen auf die Benutzererfahrung.
+**Real User Monitoring** (**RUM**) misst die Leistung einer Seite von den Maschinen echter Benutzer. Normalerweise fügt ein Drittanbieterskript auf jeder Seite ein Skript ein, um die Ladezeiten der Seite für jede gestellte Anfrage zu messen und zu melden. Diese Technik überwacht die tatsächlichen Benutzerinteraktionen einer Anwendung. Im RUM sammelt das Drittanbieterskript Leistungsmetriken aus den Browsern der realen Benutzer. RUM hilft dabei, zu erkennen, wie eine Anwendung genutzt wird, einschließlich der geografischen Verteilung der Benutzer und der Auswirkungen dieser Verteilung auf das Endbenutzererlebnis.
 
 ## Siehe auch
 
-- [Real User Monitoring (RUM) versus synthetische Überwachung](/de/docs/Web/Performance/Guides/Rum-vs-Synthetic)
+- [Real User Monitoring (RUM) versus Synthetic Monitoring](/de/docs/Web/Performance/Guides/Rum-vs-Synthetic)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Synthetic_monitoring", "Synthetische Überwachung")}}
+  - {{Glossary("Synthetic_monitoring", "Synthetic monitoring")}}
   - {{Glossary("Beacon", "Beacon")}}

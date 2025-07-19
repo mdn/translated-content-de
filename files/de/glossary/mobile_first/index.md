@@ -1,8 +1,8 @@
 ---
-title: Mobile First
+title: Mobil zuerst
 slug: Glossary/Mobile_First
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-**Mobile first**, eine Form der {{Glossary("progressive_enhancement", "progressiven Verbesserung")}}, ist ein Webentwicklungs- und Webdesign-Ansatz, der sich darauf konzentriert, Design und Entwicklung für mobile Bildschirmgrößen den Vorrang vor Design und Entwicklung für Desktop-Bildschirmgrößen zu geben. Die Begründung hinter dem Mobile-First-Ansatz ist, den Nutzern auf allen Bildschirmgrößen gute Benutzererfahrungen zu bieten – indem man mit der Schaffung einer Benutzererfahrung beginnt, die auf kleinen Bildschirmen gut funktioniert, und dann darauf aufbaut, um die Benutzererfahrung weiter zu bereichern, sobald die Bildschirmgröße zunimmt. Der Mobile-First-Ansatz steht im Gegensatz zu dem älteren Ansatz, zunächst für Desktop-Bildschirmgrößen zu gestalten und dann erst später einige Anpassungen für kleine Bildschirmgrößen hinzuzufügen.
+**Mobil zuerst**, eine Form der {{Glossary("progressive_enhancement", "progressiven Verbesserung")}}, ist ein Ansatz in der Webentwicklung und im Webdesign, der den Schwerpunkt auf das Design und die Entwicklung für mobile Bildschirmgrößen legt, bevor Entwurf und Entwicklung für Desktop-Bildschirmgrößen erfolgen. Der Grundgedanke hinter dem "Mobil zuerst"-Ansatz ist, den Nutzern bei allen Bildschirmgrößen gute Benutzererfahrungen zu bieten. Dies wird erreicht, indem zunächst eine Benutzererfahrung geschaffen wird, die auf kleinen Bildschirmen gut funktioniert, und darauf aufbauend die Benutzererfahrung bei zunehmender Bildschirmgröße weiter bereichert wird. Der "Mobil zuerst"-Ansatz steht im Gegensatz zum älteren Ansatz, der zuerst das Design für Desktop-Bildschirmgrößen erstellt und später nur begrenzte Unterstützung für kleine Bildschirmgrößen hinzufügt.

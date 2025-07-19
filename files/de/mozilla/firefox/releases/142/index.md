@@ -3,20 +3,20 @@ title: Firefox 142 für Entwickler
 short-title: Firefox 142 (Nightly)
 slug: Mozilla/Firefox/Releases/142
 l10n:
-  sourceCommit: 01f300455f5926d1aefc16a24e6bb3f3de7828ff
+  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 142, die Entwickler betreffen.
-Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 142, die Entwickler betreffen.
+Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
+<!-- Autoren: Bitte heben Sie die Kommentare bei Überschriften, für die Sie Notizen schreiben, auf. -->
 
-## Änderungen für Web-Entwickler
+## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Entwicklertools -->
 
 <!-- ### HTML -->
 
@@ -70,7 +70,7 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ## Änderungen für Add-on-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} in Nightly erstellt wurden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Die Implementierung in Nightly dient dazu, die Überwachung auf mögliche Probleme zu ermöglichen. Die Absicht ist, die Validierung in allen Kanälen in einer zukünftigen Version durchzusetzen. ([Firefox Bug 1976197](https://bugzil.la/1976197))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} in Nightly erstellt wurden, werden jetzt überprüft, und ungültige Cookies werden abgelehnt. Die Implementierung in Nightly dient dazu, mögliche Probleme zu überwachen. Die Absicht ist, die Überprüfung in einer zukünftigen Version in allen Kanälen durchzusetzen. ([Firefox-Bug 1976197](https://bugzil.la/1976197))
 
 <!-- ### Entfernungen -->
 
@@ -78,6 +78,4 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ## Experimentelle Web-Features
 
-Diese Funktionen sind in Firefox 142 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config` Seite und setzen Sie sie auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 142 enthalten, aber standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

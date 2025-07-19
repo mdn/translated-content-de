@@ -1,23 +1,23 @@
 ---
-title: Unkonventionelle Steuerungen
+title: Unkonventionelle Steuerungsmethoden
 slug: Games/Techniques/Control_mechanisms/Other
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
 ---
 
 {{PreviousMenu("Games/Techniques/Control_mechanisms/Desktop_with_gamepad", "Games/Techniques/Control_mechanisms")}}
 
-Verschiedene Steuerungsmechanismen in Ihrem Spiel helfen dabei, ein breiteres Publikum zu erreichen. Die Implementierung von mobilen und Desktop-Steuerungen wird empfohlen, und Gamepad-Steuerungen bieten ein zusätzliches Erlebnis. Stellen Sie sich jedoch vor, noch einen Schritt weiter zu gehen – in diesem Artikel werden wir verschiedene unkonventionelle Möglichkeiten erkunden, um Ihr Webspiel zu steuern, einige davon sind unkonventioneller als andere.
+Verschiedene Steuerungsmechanismen in Ihr Spiel zu integrieren, hilft Ihnen, ein breiteres Publikum zu erreichen. Die Implementierung von mobilen und Desktop-Steuerungen ist empfohlen und ein Muss, und Gamepad-Steuerungen bieten ein zusätzliches Erlebnis. Aber stellen Sie sich vor, noch weiter zu gehen — in diesem Artikel werden wir verschiedene unkonventionelle Möglichkeiten erkunden, um Ihr Web-Spiel zu steuern, einige mehr unkonventionell als andere.
 
 ## TV-Fernbedienung
 
-Spiele auf einem TV-Bildschirm zu spielen, muss nicht immer über Konsolen erfolgen. Es gibt bereits eine Gamepad-API, die auf Desktop-Computern funktioniert, sodass wir das Erlebnis nachahmen können, aber wir können noch weiter gehen. Moderne Smart-TVs können HTML-Spiele ausführen, weil sie einen integrierten Browser haben, der als Spieleplattform genutzt werden kann. Smart-TVs werden mit Fernbedienungen geliefert, die zur Steuerung Ihrer Spiele verwendet werden können, wenn Sie wissen, wie.
+Spiele auf einem Fernseher zu spielen, muss nicht immer über Konsolen geschehen. Es gibt bereits eine Gamepad-API, die auf Desktop-Computern funktioniert, sodass wir das Erlebnis imitieren können, aber wir können noch weiter gehen. Moderne Smart-TVs können HTML-Spiele ausführen, da sie einen eingebauten Browser haben, der als Gaming-Plattform genutzt werden kann. Smart-TVs werden mit Fernbedienungen geliefert, die zur Steuerung Ihrer Spiele verwendet werden können, wenn Sie wissen, wie.
 
-Die früheste Demo von [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/) wurde so angepasst, dass sie auf einem riesigen TV funktioniert. Interessanterweise wurde das erste Captain Rogers-Spiel (Asteroid Belt of Sirius) für günstige, kleine, schwache Smartphones mit Firefox OS optimiert, sodass Sie erkennen können, welchen Unterschied drei Jahre machen können – die ganze Geschichte können Sie in unserem [einem Hacks-Post über das Erstellen von Spielen für Firefox OS TV](https://hacks.mozilla.org/2016/01/building-games-for-firefox-os-tv/) lesen.
+Die früheste Demo von [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/) wurde angepasst, um auf einem großen Fernseher zu funktionieren. Interessanterweise wurde das erste Captain Rogers Spiel (Asteroid Belt of Sirius) für leistungsschwache, kleinbildige, günstige Smartphones optimiert, die unter Firefox OS laufen, sodass Sie den Unterschied sehen können, den drei Jahre ausmachen — die ganze Geschichte können Sie in unserem [Building games for Firefox OS TV](https://hacks.mozilla.org/2016/01/building-games-for-firefox-os-tv/) Hacks-Beitrag nachlesen.
 
-![Panasonic TV-Fernbedienungssteuerungen für das Spiel Captain Rogers: Battle at Andromeda.](controls-tvremote.png)
+![Panasonic TV-Fernbedienung für das Spiel Captain Rogers: Battle at Andromeda.](controls-tvremote.png)
 
-Die Verwendung einer TV-Fernbedienung zur Steuerung des Spiels erwies sich als überraschend einfach, da die von der Steuerung ausgelösten Ereignisse konventionelle Tastaturtasten emulieren. Captain Rogers hatte die Tastatursteuerung bereits implementiert:
+Die Nutzung der TV-Fernbedienung zur Steuerung des Spiels stellte sich als überraschend einfach heraus, da die von der Steuerung ausgelösten Ereignisse herkömmliche Tastaturtasten emulieren. Captain Rogers hatte die Tastatursteuerung bereits implementiert:
 
 ```js
 this.cursors = this.input.keyboard.createCursorKeys();
@@ -27,7 +27,7 @@ if (this.cursors.right.isDown) {
 }
 ```
 
-Es funktioniert sofort. Die Cursortasten sind die vier Pfeiltasten auf der Tastatur, und diese haben genau die gleichen Tasten-Codes wie die Pfeiltasten auf der Fernbedienung. Woher wissen Sie die Codes für die anderen Fernbedienungstasten? Sie können sie überprüfen, indem Sie die Antworten in der Konsole ausdrucken:
+Es funktioniert einfach von Haus aus. Die Cursor sind die vier Richtungspfeiltasten auf der Tastatur, und diese haben exakt dieselben Tastencodes wie die Pfeiltasten auf der Fernbedienung. Wie erfahren Sie die Codes für die anderen Tasten der Fernbedienung? Sie können sie überprüfen, indem Sie die Antworten in der Konsole ausdrucken:
 
 ```js
 window.addEventListener(
@@ -39,11 +39,11 @@ window.addEventListener(
 );
 ```
 
-Jede auf der Fernbedienung gedrückte Taste zeigt ihren Tastencode in der Konsole an. Sie können auch dieses praktische Spickzettel unten sehen, wenn Sie mit Panasonic-TVs arbeiten, die Firefox OS ausführen:
+Jede auf der Fernbedienung gedrückte Taste wird ihren Tastencode in der Konsole anzeigen. Sie können auch dieses praktische Cheat Sheet, das unten zu sehen ist, verwenden, wenn Sie mit Panasonic-TVs arbeiten, die Firefox OS ausführen:
 
-![Tastencodes der Fernbedienung für Panasonic TV.](controls-tvkeys.png)
+![Fernbedienungstastencodes für Panasonic TV.](controls-tvkeys.png)
 
-Sie können hinzufügen, zwischen Zuständen zu wechseln, ein neues Spiel zu starten, das Schiff zu steuern und Dinge in die Luft zu jagen, das Spiel zu pausieren und neu zu starten. Alles, was Sie tun müssen, ist, auf Tastendrücke zu überprüfen:
+Sie können das Bewegen zwischen Zuständen, das Starten eines neuen Spiels, die Kontrolle des Schiffs und das Zerstören von Objekten, das Pausieren und Neustarten des Spiels hinzufügen. Alles, was Sie tun müssen, ist, auf Tastendrücke zu überprüfen:
 
 ```js
 window.addEventListener(
@@ -65,19 +65,19 @@ window.addEventListener(
 );
 ```
 
-Sie können es in Aktion sehen, indem Sie [dieses Video](https://www.youtube.com/watch?v=Bh11sP0bcTY) ansehen.
+Sie können es in Aktion sehen, indem Sie sich [dieses Video](https://www.youtube.com/watch?v=Bh11sP0bcTY) ansehen.
 
 ## Leap Motion
 
-Haben Sie jemals darüber nachgedacht, ein Spiel nur mit Ihren Händen zu steuern? Es ist möglich mit [Leap Motion](https://www.ultraleap.com/), einem immersiven Controller für Spiele und Anwendungen.
+Haben Sie schon einmal daran gedacht, ein Spiel nur mit Ihren Händen zu steuern? Das ist möglich mit [Leap Motion](https://www.ultraleap.com/), einem immersiven Controller für Spiele und Apps.
 
-Leap Motion wird immer beliebter aufgrund der sehr guten Integration mit VR-Headsets – die Vorführung von [Rainbow Membrane](https://mozilla.github.io/rainbow/) auf einem Oculus Rift mit angefügtem Leap Motion wurde von JavaScript-Entwicklern, die Demo-Stände auf Konferenzen weltweit besuchten, als eine der besten WebVR-Erfahrungen eingestuft.
+Leap Motion wird immer beliebter, da es sehr gut mit VR-Headsets integriert werden kann — die Präsentation von [Rainbow Membrane](https://mozilla.github.io/rainbow/) auf einem Oculus Rift mit Leap Motion wurde von JavaScript-Entwicklern auf Konferenzen weltweit als eines der besten WebVR-Erlebnisse bewertet.
 
-Neben der Eignung für virtuelle Schnittstellen kann es auch für eine zwanglose 2D-Spielerfahrung verwendet werden. Es wäre sehr schwierig, alles nur mit Ihren Händen zu tun, aber es ist völlig machbar für das einfache Gameplay von Captain Roger – das Schiff zu steuern und die Kugeln abzuschießen.
+Es eignet sich nicht nur hervorragend für virtuelle Schnittstellen, sondern kann auch für ein zwangloses 2D-Spielerlebnis genutzt werden. Alles nur mit den Händen zu machen, wäre sehr schwierig, aber für das einfache Gameplay von Captain Rogers — das Steuern des Schiffs und das Abfeuern der Kugeln — ist es durchaus machbar.
 
-Um Leap Motion auf Ihrem Computer zum Laufen zu bringen, müssen Sie es zuerst installieren, indem Sie den Schritten unter [docs.ultraleap.com](https://docs.ultraleap.com/hand-tracking/getting-started.html#installation-guides) folgen. Wenn alles installiert ist und der Controller mit Ihrem Computer verbunden ist, können wir mit der Implementierung der Unterstützung in unserer [kleinen Demo](https://github.com/end3r/JavaScript-Game-Controls/) fortfahren. Zuerst fügen wir ein `<script>`-Tag mit der `url` hinzu, die auf [diese Datei](https://js.leapmotion.com/leap-0.6.4.min.js) verweist, und fügen `<div id="output"></div>` direkt vor dem schließenden `</body>`-Tag hinzu, um Diagnosedaten auszugeben.
+Um Leap Motion auf Ihrem Computer zum Laufen zu bringen, müssen Sie es zunächst installieren, indem Sie die Schritte auf [docs.ultraleap.com](https://docs.ultraleap.com/hand-tracking/getting-started.html#installation-guides) befolgen. Wenn alles installiert und der Controller mit Ihrem Computer verbunden ist, können Sie mit der Implementierung der Unterstützung in unserer [kleinen Demo](https://github.com/end3r/JavaScript-Game-Controls/) fortfahren. Zunächst fügen wir ein `<script>`-Tag mit der `url` ein, die auf `https://js.leapmotion.com/leap-0.6.4.min.js` zeigt, und fügen `<div id="output"></div>` direkt vor dem schließenden `</body>`-Tag für die Ausgabe diagnostischer Informationen hinzu.
 
-Wir benötigen einige Hilfsvariablen, damit unser Code funktioniert – eine zum Berechnen der Grad aus Radians, zwei zum Halten der horizontalen und vertikalen Gradzahlen, die unsere Hand über dem Controller geneigt ist, eine für den Schwellenwert dieser Neigung und eine für den Status des Handgriffs unserer Hand. Wir fügen diese Zeilen nach allen Ereignis-Listenern für Tastatur und Maus hinzu, aber vor der `draw`-Methode:
+Wir benötigen ein paar Hilfsvariablen, damit unser Code funktioniert — eine zum Zweck der Berechnung der Grad aus Radiant, zwei zur Speicherung der horizontalen und vertikalen Menge der Grade, die unsere Hand über dem Controller geneigt ist, eine für den Schwellenwert dieser Neigung und eine für den Status des Greifens unserer Hand. Als Nächstes fügen wir diese Zeilen nach allen Ereignis-Listenern für Tastatur und Maus, aber vor der `draw`-Methode hinzu:
 
 ```js
 const toDegrees = 1 / (Math.PI / 180);
@@ -87,7 +87,7 @@ const degreeThreshold = 30;
 let grabStrength = 0;
 ```
 
-Direkt danach verwenden wir die `loop`-Methode von Leap, um die Informationen, die in der `hand`-Variable gehalten werden, bei jedem Frame zu erhalten:
+Direkt danach verwenden wir die `loop`-Methode von Leap, um die Informationen, die in der `hand`-Variable gehalten werden, in jedem Frame zu erhalten:
 
 ```js
 Leap.loop({
@@ -104,7 +104,7 @@ Leap.loop({
 });
 ```
 
-Der obige Code berechnet und weist die Werte `horizontalDegree`, `verticalDegree` und `grabStrength` zu, die wir später verwenden werden, und gibt sie in HTML aus, sodass wir die tatsächlichen Werte sehen können. Wenn diese Variablen auf dem neuesten Stand sind, können wir sie in der `draw()`-Funktion verwenden, um das Schiff zu bewegen:
+Der obige Code berechnet und weist die Werte `horizontalDegree`, `verticalDegree` und `grabStrength` zu, die wir später verwenden werden, und gibt sie in HTML aus, damit wir die tatsächlichen Werte sehen können. Wenn diese Variablen auf dem neuesten Stand sind, können wir sie in der `draw()`-Funktion verwenden, um das Schiff zu bewegen:
 
 ```js
 function draw() {
@@ -131,21 +131,21 @@ function draw() {
 }
 ```
 
-Wenn der Wert von `horizontalDegree` größer als unser `degreeThreshold` ist, der in diesem Fall 30 beträgt, wird das Schiff in jedem Frame 5 Pixel nach links bewegt. Wenn sein Wert niedriger als der negative Schwellenwert ist, wird das Schiff nach rechts bewegt. Die Auf-/Ab-Bewegung funktioniert in ähnlicher Weise. Der letzte Wert ist `grabStrength`, was ein Float zwischen 0 und 1 ist – wenn er 1 erreicht (Faust vollständig geschlossen), zeigen wir vorerst einen Alarm an (in einem vollständigen Spiel könnte dies durch die Schießlogik ersetzt werden).
+Wenn der Wert von `horizontalDegree` größer ist als unser Schwellenwert `degreeThreshold`, was in diesem Fall 30 ist, wird das Schiff in jedem Frame um 5 Pixel nach links bewegt. Wenn sein Wert kleiner ist als der negative Wert des Schwellenwerts, wird das Schiff nach rechts bewegt. Die Auf- und Abwärtsbewegung funktioniert auf ähnliche Weise. Der letzte Wert ist `grabStrength`, der ein Wert zwischen 0 und 1 ist — wenn er 1 erreicht (Faust vollständig geballt), zeigen wir vorerst eine Warnung an (in einem vollständigen Spiel könnte dies durch die Schusslogik ersetzt werden).
 
-![Leap Motion Steuerung im Spiel mit sichtbarer Ausgabe für Neigung, Neigung und Stärke.](controls-leapmotion.png)
+![Leap Motion Controller-Unterstützung im Spiel, mit sichtbarer Ausgabe für Roll, Pitch und Strength.](controls-leapmotion.png)
 
-Das war's – alles, was Sie für ein funktionierendes Leap Motion-Beispiel in JavaScript benötigen, ist bereits hier. Sie können die Eigenschaften der `hand` weiter erforschen und jedes gewünschte Verhalten direkt in Ihrem Spiel implementieren.
+Das ist alles — alles, was Sie für ein funktionierendes Leap Motion-Beispiel in JavaScript benötigen, ist bereits hier. Sie können die Eigenschaften der `hand` erkunden und jedes gewünschte Verhalten direkt in Ihrem Spiel implementieren.
 
 ## Doppler-Effekt
 
-Es gibt einen sehr interessanten Artikel über [Bewegungserkennung mittels Doppler-Effekt](https://danielrapp.github.io/doppler/), der das Winken Ihrer Hand und das Benutzen des Mikrofons kombiniert. Es geht darum, Schallwellen zu erkennen, die von Objekten reflektiert werden und zum Mikrofon zurückkehren.
+Es gibt einen sehr interessanten Artikel über [Bewegungserkennung mit Hilfe des Doppler-Effekts](https://danielrapp.github.io/doppler/), der das Winken der Hand und die Nutzung des Mikrofons kombiniert. Dieses Mal geht es darum, Schallwellen zu erkennen, die von Objekten abprallen und zum Mikrofon zurückkehren.
 
-![Doppler-Effekt zur Steuerung des Bildlaufs eines Artikels auf einem Laptop mit einer Handbewegung.](controls-doppler.png)
+![Doppler-Effekt als Möglichkeit zur Steuerung des Scrollens eines Artikels auf einem Laptop mit Handbewegung.](controls-doppler.png)
 
-Wenn die Frequenz des reflektierten Schalls von der ursprünglichen abweicht, können wir erkennen, dass die Bewegung dieses Objekts stattgefunden hat. So können wir eine Handbewegung nur mit einem eingebauten Mikrofon erkennen!
+Wenn die Frequenz des zurückgeworfenen Schalls von der ursprünglichen abweicht, können wir erkennen, dass eine Bewegung dieses Objekts stattgefunden hat. Auf diese Weise können wir eine Handbewegung nur mit einem eingebauten Mikrofon erkennen!
 
-Dies kann mit [einer kleinen Bibliothek](https://github.com/DanielRapp/doppler) erreicht werden, die von Daniel Rapp erstellt wurde – es kann so einfach sein wie das Berechnen der Differenz zwischen zwei Frequenzen:
+Dies kann mit [einer kleinen Bibliothek](https://github.com/DanielRapp/doppler) erreicht werden, die von Daniel Rapp entwickelt wurde — es kann so einfach sein wie das Berechnen der Differenz zwischen zwei Frequenzen:
 
 ```js
 doppler.init((bandwidth) => {
@@ -153,19 +153,19 @@ doppler.init((bandwidth) => {
 });
 ```
 
-Der `diff` wäre die Differenz zwischen der anfänglichen Position der Hand und der finalen.
+Der `diff` wäre der Unterschied zwischen der anfänglichen Position der Hand und der finalen.
 
-Dieser Ansatz bietet nicht die volle Flexibilität eines Gamepads oder sogar Leap Motion, aber er ist definitiv eine interessante, unkonventionelle Alternative. Sie können ihn verwenden, um eine Seite freihändig zu scrollen oder ein Theremin zu spielen, aber es sollte auch ausreichen, um das Schiff auf dem Bildschirm nach oben und unten zu bewegen, wenn er richtig implementiert wird.
+Dieser Ansatz bietet nicht die volle Flexibilität der Nutzung eines Gamepads oder sogar Leap Motion, aber es ist definitiv eine interessante, unkonventionelle Alternative. Sie können ihn nutzen, um eine Seite freihändig zu scrollen oder Theremin zu spielen, aber es sollte auch ausreichen, um das Schiff auf dem Bildschirm auf- und abwärts zu bewegen, wenn es korrekt implementiert ist.
 
 ## Makey Makey
 
-Wenn Sie völlig verrückt werden möchten, können Sie [Makey Makey](https://makeymakey.com/) verwenden, ein Board, das alles in einen Controller verwandeln kann – es geht darum, reale, leitende Objekte mit einem Computer zu verbinden und sie als Berührungsschnittstellen zu verwenden.
+Wenn Sie etwas völlig Verrücktes ausprobieren möchten, können Sie [Makey Makey](https://makeymakey.com/) verwenden, eine Platine, die alles in einen Controller verwandeln kann — es geht darum, leitfähige Objekte der realen Welt mit einem Computer zu verbinden und sie als Berührungsinterfaces zu verwenden.
 
-![Ein Bananenklavier steuern mit Makey Makey.](controls-banana.png)
+![Steuerung eines Bananenklaviers mit Makey Makey.](controls-banana.png)
 
-Sehen Sie sich das [Bananenklavier-Video](https://www.youtube.com/watch?v=_DWQ6ce2Ags) an und besuchen Sie unbedingt den [Schnellstartleitfaden](https://learn.sparkfun.com/tutorials/makey-makey-quickstart-guide) für alle erforderlichen Informationen.
+Sehen Sie sich das [Banana Piano Video](https://www.youtube.com/watch?v=_DWQ6ce2Ags) an, und besuchen Sie unbedingt den [schnellen Startleitfaden](https://learn.sparkfun.com/tutorials/makey-makey-quickstart-guide) für alle notwendigen Informationen.
 
-Es gibt sogar eine vom Makey Makey-Board inspirierte [Cylon.js-unterstützte Makey-Button-Funktionalität](https://cylonjs.com/documentation/drivers/makey-button/), sodass Sie das beliebte Cylon-Roboterframework für Ihre Experimente mit Arduino oder Raspberry Pi verwenden können. Die Boards zu verbinden und zu verwenden könnte so aussehen:
+Es gibt sogar eine [Cylon.js-unterstützte Makey Button-Funktionalität](https://cylonjs.com/documentation/drivers/makey-button/), inspiriert von der Makey Makey-Platine, sodass Sie das beliebte Cylon-Robotik-Framework für Ihre Experimente mit Arduino oder Raspberry Pi verwenden können. Das Verbinden der Platinen und ihre Nutzung könnte so aussehen:
 
 ```js
 const Cylon = require("cylon");
@@ -185,12 +185,12 @@ Cylon.robot({
 }).start();
 ```
 
-Wie in der Beschreibung steht: Dieser GPIO-Treiber ermöglicht es, einen 10 MOhm-Widerstand an einen digitalen Pin auf Ihrem Arduino oder Raspberry Pi anzuschließen, um Ihre Roboter mit Bananen, Ton oder zeichnbarer Schaltung zu steuern.
+Wie in der Beschreibung steht: Dieser GPIO-Treiber ermöglicht es Ihnen, einen 10 MOhm-Widerstand mit einem digitalen Pin Ihres Arduino oder Raspberry Pi zu verbinden, um Ihre Roboter mit Bananen, Ton oder auf Zeichnungen basierenden Stromkreisen zu steuern.
 
 ## Zusammenfassung
 
-Ich hoffe, Ihnen haben die Experimente gefallen – wenn Sie andere kennen, die andere Leute interessieren könnten, fügen Sie hier gerne Details dazu hinzu.
+Ich hoffe, Sie mochten die Experimente — wenn Sie andere haben, die Sie für interessant für andere Menschen halten, zögern Sie nicht, hier Details hinzuzufügen.
 
-Und denken Sie daran: Viel Spaß beim Spiele machen!
+Und denken Sie daran: Viel Spaß beim Spieleentwickeln!
 
 {{PreviousMenu("Games/Techniques/Control_mechanisms/Desktop_with_gamepad", "Games/Techniques/Control_mechanisms")}}

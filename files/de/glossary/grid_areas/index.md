@@ -1,19 +1,19 @@
 ---
-title: Rasterbereiche
+title: Gitternetz-Bereiche
 slug: Glossary/Grid_Areas
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-Ein **Rasterbereich** ist eine oder mehrere {{Glossary("grid_cell", "Rasterzellen")}}, die einen rechteckigen Bereich im Raster bilden. Rasterbereiche entstehen, wenn Sie ein Element mit [linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) positionieren oder wenn Sie Bereiche mit [benannten Rasterbereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
+Ein **Gitternetz-Bereich** besteht aus einem oder mehreren {{Glossary("grid_cell", "Gitterzellen")}}, die zusammen einen rechteckigen Bereich im Gitternetz bilden. Gitternetz-Bereiche werden erstellt, wenn Sie ein Element mithilfe der [linienbasierten Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) positionieren oder wenn Sie Bereiche unter Verwendung von [benannten Gitternetz-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
 
-![Bild, das einen hervorgehobenen Rasterbereich zeigt](1_grid_area.png)
+![Bild, das einen hervorgehobenen Gitternetz-Bereich zeigt](1_grid_area.png)
 
-Rasterbereiche _müssen_ rechteckig sein; es ist beispielsweise nicht möglich, einen T- oder L-förmigen Rasterbereich zu erstellen.
+Gitternetz-Bereiche _müssen_ rechteckig sein; es ist nicht möglich, z.B. einen T- oder L-förmigen Gitternetz-Bereich zu erstellen.
 
 ## Beispiel
 
-Im folgenden Beispiel habe ich einen Rastercontainer mit zwei Rasterelementen. Ich habe diese mit der {{cssxref("grid-area")}}-Eigenschaft benannt und dann mit {{cssxref("grid-template-areas")}} im Raster angeordnet. Dies erzeugt zwei Rasterbereiche, einer umfasst vier Rasterzellen, der andere zwei.
+Im Beispiel unten habe ich einen Gitternetz-Container mit zwei Gitternetz-Elementen. Ich habe diese mit der {{cssxref("grid-area")}} Eigenschaft benannt und sie dann auf dem Gitternetz mit {{cssxref("grid-template-areas")}} angeordnet. Dadurch entstehen zwei Gitternetz-Bereiche, einer, der vier Gitterzellen abdeckt, und ein anderer, der zwei abdeckt.
 
 ```css hidden
 * {
@@ -72,9 +72,9 @@ Im folgenden Beispiel habe ich einen Rastercontainer mit zwei Rasterelementen. I
 - {{cssxref("grid-template-areas")}}
 - {{cssxref("grid-area")}}
 
-### Weiterführende Informationen
+### Weiterführende Literatur
 
-- CSS-Rasterlayout-Leitfaden:
-  - [Grundkonzepte des Rasterlayouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Rastervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Definition von Rasterbereichen in der CSS-Rasterlayoutspezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)
+- CSS-Grid-Layout-Leitfaden:
+  - [Grundlegende Konzepte des Gitternetz-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+  - [Gitternetz-Bereichsvorlagen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Definition von Gitternetz-Bereichen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)

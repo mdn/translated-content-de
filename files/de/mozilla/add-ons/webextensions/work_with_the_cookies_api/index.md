@@ -2,17 +2,17 @@
 title: Arbeiten mit der Cookies-API
 slug: Mozilla/Add-ons/WebExtensions/Work_with_the_Cookies_API
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 7348ad4bf0fa7351041e9a3661c8a2bd2659d6e5
 ---
 
-Mit der Cookies-API haben Ihre Erweiterungen Zugriff auf Funktionen, die denen ähneln, die von Websites verwendet werden, um Cookies zu speichern und zu lesen. Die Funktionen der API geben Erweiterungen die Möglichkeit, Informationen basisweise für jede Website zu speichern. Wie wir im Beispiel sehen werden, könnten Sie die Details der Wahl einer Hintergrundfarbe eines Benutzers für eine Website speichern. Wenn der Benutzer die Website erneut besucht, kann Ihre Erweiterung die Fähigkeit der API nutzen, Details über Cookies zu erhalten und sie zu lesen, um die Wahl des Benutzers wiederherzustellen und auf die Website anzuwenden.
+Mit der Cookies-API haben Ihre Erweiterungen Zugang zu Funktionen, die mit denen vergleichbar sind, die von Websites verwendet werden, um Cookies zu speichern und zu lesen. Die Funktionen der API ermöglichen es Erweiterungen, Informationen websitespezifisch zu speichern. So könnten Sie, wie wir im Beispiel sehen werden, die Auswahl der Hintergrundfarbe eines Nutzers für eine Website speichern. Wenn der Nutzer die Seite erneut besucht, kann Ihre Erweiterung die Fähigkeit der API nutzen, um Informationen über Cookies abzurufen und sie zu lesen, um die Auswahl des Nutzers wiederherzustellen und auf der Website anzuwenden.
 
 > [!NOTE]
-> Das Verhalten von Cookies kann über die {{WebExtAPIRef("privacy.websites")}}-Eigenschaft `cookieConfig` gesteuert werden. Diese Eigenschaft steuert, ob und wie Cookies akzeptiert oder ob alle Cookies als Sitzungscookies behandelt werden.
+> Das Verhalten von Cookies kann über die {{WebExtAPIRef("privacy.websites")}} `cookieConfig` Eigenschaft gesteuert werden. Diese Eigenschaft steuert, ob und wie Cookies akzeptiert werden oder ob alle Cookies als Sitzungscookies behandelt werden.
 
 ## Berechtigungen
 
-Um die Cookies-API zu verwenden, müssen Sie sowohl die Berechtigung `"cookies"` als auch [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Protokolle, Domains oder Websites anfordern, auf die Sie zugreifen möchten, oder `"<all_urls>"` verwenden, um auf jedes Protokoll und jede Domain zuzugreifen. Die Art und Weise, wie Sie Ihren Host-Berechtigungsstring definieren, beeinflusst die Fähigkeit Ihrer Erweiterung, Cookies zu lesen, zu schreiben und zu löschen.
+Um die Cookies-API zu verwenden, müssen Sie sowohl die Berechtigung `"cookies"` als auch [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Protokolle, Domains oder Websites anfordern, auf die Sie zugreifen oder `<all_urls>` verwenden möchten, um auf jedes Protokoll und jede Domain zuzugreifen. Die Art und Weise, wie Sie Ihren Host-Berechtigungs-String definieren, wirkt sich auf die Fähigkeit Ihrer Erweiterung aus, Cookies zu lesen, zu schreiben und zu löschen.
 
 <table>
   <colgroup>
@@ -24,15 +24,15 @@ Um die Cookies-API zu verwenden, müssen Sie sowohl die Berechtigung `"cookies"`
   </colgroup>
   <tbody>
     <tr>
-      <td rowspan="2"><p>Host-Berechtigungsstring</p></td>
+      <td rowspan="2"><p>Host-Berechtigung String</p></td>
       <td colspan="2"><p>Lesen</p></td>
       <td colspan="2"><p>Schreiben/Löschen</p></td>
     </tr>
     <tr>
       <td><p>Sicher</p></td>
-      <td><p>Nicht sicher</p></td>
+      <td><p>Nicht-sicher</p></td>
       <td><p>Sicher</p></td>
-      <td><p>Nicht sicher</p></td>
+      <td><p>Nicht-sicher</p></td>
     </tr>
     <tr>
       <td>
@@ -81,23 +81,23 @@ Um die Cookies-API zu verwenden, müssen Sie sowohl die Berechtigung `"cookies"`
   </tbody>
 </table>
 
-## Cookiestores
+## Cookie-Stores
 
-Firefox bietet drei Arten von Cookiestores:
+Firefox stellt drei Arten von Cookie-Stores bereit:
 
-- Der Standardstore, der Cookies aus normalem Browsing speichert.
-- Stores für den privaten Modus, die Cookies speichern, die während einer Sitzung im privaten Modus erstellt wurden. Diese Stores und alle Cookies, die sie enthalten, werden entfernt, wenn das zugehörige Fenster im privaten Modus geschlossen wird.
+- Den Standardstore, der Cookies vom normalen Surfen speichert.
+- Private Browsing Mode Stores, die Cookies speichern, die während einer privaten Browsersitzung erstellt wurden. Diese Stores und alle enthaltenen Cookies werden entfernt, wenn das zugehörige private Browserfenster geschlossen wird.
 
   > [!NOTE]
-  > Nur sichtbar, wenn {{WebExtAPIRef("extension.isAllowedIncognitoAccess()")}} wahr zurückgibt. Safari unterstützt keinen Zugriff auf private Cookies.
+  > Nur sichtbar, wenn {{WebExtAPIRef("extension.isAllowedIncognitoAccess()")}} true zurückgibt. Safari unterstützt keinen Zugriff auf private Cookies.
 
-- Container-Tab-Stores, die Cookies für jede kontextuelle Identität in Firefox speichern. Kontextuelle Identitäten ermöglichen es einem Benutzer, mehrere Identitäten in einem Browserfenster zu verwalten. Dies ist nützlich, wenn Sie beispielsweise ein Geschäfts- und ein privates E-Mail-Konto bei Gmail haben. Mit kontextuellen Identitäten können Sie einen Tab mit einer persönlichen Identität öffnen und einen zweiten Tab mit einer geschäftlichen Identität. Jeder Tab kann sich dann mit einem anderen Benutzernamen bei Google Mail anmelden, und die beiden Konten können nebeneinander verwendet werden. Weitere Informationen finden Sie im [Security/Contextual Identity Project/Containers](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) in der Mozilla-Wiki.
+- Container-Tab-Stores, die Cookies für jede kontextuelle Identität in Firefox speichern. Kontextuelle Identitäten ermöglichen es einem Nutzer, mehrere Identitäten innerhalb eines Browserfensters zu verwalten. Dies ist nützlich, wenn Sie beispielsweise sowohl ein Unternehmens- als auch ein persönliches E-Mail-Konto bei Gmail haben. Mit kontextuellen Identitäten können Sie einen Tab für eine persönliche Identität und einen zweiten für eine geschäftliche Identität öffnen. Jeder Tab kann dann mit einem anderen Benutzernamen bei Google Mail angemeldet werden, und die beiden Konten können nebeneinander verwendet werden. Weitere Informationen finden Sie im [Security/Contextual Identity Project/Containers](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) im Mozilla-Wiki.
 
-Sie können herausfinden, welche Cookiestores verfügbar sind, indem Sie {{WebExtAPIRef("cookies.getAllCookieStores")}} verwenden, das ein Objekt zurückgibt, das die ID jedes Cookiestores und eine Liste der IDs der Tabs enthält, die jeden Cookiestore verwenden.
+Sie können herausfinden, welche Cookie-Stores verfügbar sind, indem Sie {{WebExtAPIRef("cookies.getAllCookieStores")}} verwenden, das ein Objekt zurückgibt, das die ID jedes Cookie-Stores und eine Liste der IDs der Tabs enthält, die jeden Cookie-Store verwenden.
 
-## Beispiel-Durchführung
+## Beispiel-Durchlauf
 
-Die Beispielerweiterung [cookie-bg-picker](https://github.com/mdn/webextensions-examples/tree/main/cookie-bg-picker) ermöglicht es ihrem Benutzer, eine Farbe und ein Symbol auszuwählen, die auf den Hintergrund der Webseiten einer Site angewendet werden. Diese Entscheidungen werden pro Website-Basis mit {{WebExtAPIRef("cookies.set")}} gespeichert. Wenn eine Seite von der Website geöffnet wird, liest {{WebExtAPIRef("cookies.get")}} jede frühere Auswahl, und die Erweiterung wendet sie auf die Webseite an. Eine Rücksetzoption entfernt das Hintergrundsymbol und die Farbe von der Site sowie das Cookie, mithilfe von {{WebExtAPIRef("cookies.remove")}}. Es verwendet auch {{WebExtAPIRef("cookies.onChanged")}}, um auf Änderungen an Cookies zu lauschen und Details der Änderung an die Konsole zu senden.
+Die Beispiel-Erweiterung [cookie-bg-picker](https://github.com/mdn/webextensions-examples/tree/main/cookie-bg-picker) ermöglicht es dem Nutzer, eine Farbe und ein Symbol auszuwählen, die auf den Hintergrund der Webseiten einer Website angewendet werden. Diese Entscheidungen werden websitespezifisch mit {{WebExtAPIRef("cookies.set")}} gespeichert. Wenn eine Seite der Website geöffnet wird, liest {{WebExtAPIRef("cookies.get")}} frühere Entscheidungen, und die Erweiterung wendet diese auf die Webseite an. Eine Reset-Option entfernt das Hintergrundsymbol und die Farbe von der Website sowie das Cookie, indem {{WebExtAPIRef("cookies.remove")}} verwendet wird. Es wird auch {{WebExtAPIRef("cookies.onChanged")}} verwendet, um auf Änderungen der Cookies zu lauschen und Details der Änderung in der Konsole auszugeben.
 
 Dieses Video zeigt die Erweiterung in Aktion:
 
@@ -107,7 +107,7 @@ Dieses Beispiel verwendet auch die Tabs- und Runtime-APIs, aber wir werden diese
 
 ### manifest.json
 
-Das Schlüsselmerkmal der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/manifest.json)-Datei in Bezug auf die Verwendung der Cookies-API ist die Berechtigungsanforderung:
+Die Hauptfunktion der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/manifest.json) Datei in Bezug auf die Verwendung der Cookies-API ist der Berechtigungsantrag:
 
 ```json
   "permissions": [
@@ -117,31 +117,30 @@ Das Schlüsselmerkmal der [manifest.json](https://github.com/mdn/webextensions-e
 ],
 ```
 
-Hier fordert die Erweiterung die Berechtigung an, die Cookies-API (`"cookies"`) mit allen Websites (`"<all_urls>"`) zu verwenden. Dies ermöglicht der Erweiterung, die Hintergrundfarbenwahl des Symbols für jede Website zu speichern.
+Hier bittet die Erweiterung um Erlaubnis, die Cookies-API (`"cookies"`) mit allen Websites (`"<all_urls>"`) zu verwenden. Dies ermöglicht der Erweiterung, die Auswahl des Hintergrundsymbols für jede Website zu speichern.
 
 ### Skripte—bgpicker.js
 
-Die Benutzeroberfläche der Erweiterung verwendet eine Symbolleisten-Schaltfläche ({{WebExtAPIRef("browserAction")}}), implementiert mit [bgpicker.html](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.html), die [bgpicker.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.js) aufruft. Zusammen ermöglichen diese es dem Benutzer, das Symbol auszuwählen und die Farbe einzugeben, die er als Hintergrund der Website anwenden möchte. Sie bieten auch die Option, diese Einstellungen zu löschen.
+Die Benutzeroberfläche der Erweiterung verwendet eine Symbolleistenschaltfläche ({{WebExtAPIRef("browserAction")}}), die mit [bgpicker.html](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.html) implementiert ist und [bgpicker.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.js) aufruft. Zusammen ermöglichen sie es dem Nutzer, das Symbol auszuwählen und die Farbe einzugeben, die als Hintergrund der Website angewendet werden sollen. Sie bieten auch die Möglichkeit, diese Einstellungen zu löschen.
 
-[bgpicker.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.js) verarbeitet die Auswahl des Symbols oder die Eingabe einer Farbe für den Hintergrund in separaten Funktionen.
+[bgpicker.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.js) behandelt die Auswahl des Symbols oder die Eingabe einer Farbe für den Hintergrund in separaten Funktionen.
 
-Um die Symbolschaltflächen zu verarbeiten, sammelt das Skript zuerst alle Klassennamen, die für die Schaltflächen in der HTML-Datei verwendet werden. Dann durchläuft es alle Schaltflächen, weist ihnen ihr Bild zu und erstellt einen `onclick`-Listener für jede Schaltfläche:
+Um die Symbolschaltflächen zu verwalten, sammelt das Skript zuerst alle Klassennamen, die für die Schaltflächen in der HTML-Datei verwendet werden. Dann durchläuft es alle Schaltflächen und weist ihnen ihr Bild zu und erstellt einen `onclick`-Listener für jede Schaltfläche:
 
 ```js
-let bgBtns = document.querySelectorAll(".bg-container button");
+const bgBtns = document.querySelectorAll(".bg-container button");
 
-for (let i = 0; i < bgBtns.length; i++) {
-  let imgName = bgBtns[i].getAttribute("class");
-  let bgImg = `url('images/${imgName}.png')`;
-  bgBtns[i].style.backgroundImage = bgImg;
+for (const btn of bgBtns) {
+  const imgName = btn.getAttribute("class");
+  btn.style.backgroundImage = `url('images/${imgName}.png')`;
 
-  bgBtns[i].onclick = (e) => {
+  btn.onclick = (e) => {
     // ...
   };
 }
 ```
 
-Wenn eine Schaltfläche angeklickt wird, erhält ihre zugehörige Listener-Funktion den Klassennamen der Schaltfläche und dann den Symbolpfad, den sie mithilfe einer Nachricht an das Inhaltsskript der Seite ([updatebg.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/content_scripts/updatebg.js)) übermittelt. Das Inhaltsskript wendet dann das Symbol auf den Hintergrund der Webseite an. In der Zwischenzeit speichert [bgpicker.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.js) die Details des auf dem Hintergrund angewendeten Symbols in einem Cookie:
+Wenn eine Schaltfläche angeklickt wird, ruft die zugehörige Listener-Funktion den Klassennamen der Schaltfläche und den Pfad des Symbols ab, den sie über eine Nachricht an das Inhaltsskript der Seite ([updatebg.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/content_scripts/updatebg.js)) übergibt. Das Inhaltsskript wendet dann das Symbol auf den Hintergrund der Webseite an. In der Zwischenzeit speichert [bgpicker.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/popup/bgpicker.js) die Details des auf den Hintergrund angewendeten Symbols in einem Cookie:
 
 ```js
 cookieVal.image = fullURL;
@@ -152,7 +151,7 @@ browser.cookies.set({
 });
 ```
 
-Die Farbeinstellung wird auf ähnliche Weise gehandhabt, ausgelöst durch einen Listener im Farbeingabefeld. Wenn eine Farbe eingegeben wird, wird der aktive Tab ermittelt und die Farbauswahl mit einer Nachricht an das Inhaltsskript der Seite gesendet, um auf den Hintergrund der Webseite angewendet zu werden. Dann wird die Farbauswahl dem Cookie hinzugefügt:
+Die Farbauswahl wird auf ähnliche Weise behandelt, durch einen Listener im Farbeingabefeld ausgelöst. Wenn eine Farbe eingegeben wird, wird der aktive Tab ermittelt und die Farbauswahldetails werden mittels einer Nachricht an das Inhaltsskript der Seite gesendet, um sie auf den Webseitenhintergrund anzuwenden. Dann wird die Farbauswahl dem Cookie hinzugefügt:
 
 ```js
 cookieVal.color = currColor;
@@ -163,13 +162,13 @@ browser.cookies.set({
 });
 ```
 
-Wenn der Benutzer die Rücksetztaste klickt, die der Variablen reset zugewiesen wurde:
+Wenn der Nutzer auf die Reset-Schaltfläche klickt, die der Variablen "reset" zugewiesen wurde:
 
 ```js
 let reset = document.querySelector(".color-reset button");
 ```
 
-findet `reset.onclick` zuerst den aktiven Tab. Dann, unter Verwendung der Tab-ID, übermittelt es eine Nachricht an das Inhaltsskript der Seite ([updatebg.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/content_scripts/updatebg.js)), um es dazu zu bringen, das Symbol und die Farbe von der Seite zu entfernen. Die Funktion löscht dann die Cookie-Werte (damit die alten Werte nicht weitergeführt und auf ein Cookie geschrieben werden, das für eine neue Symbol- oder Farbauswahl auf derselben Seite erstellt wurde), bevor sie das Cookie entfernt:
+Sucht `reset.onclick` zuerst den aktiven Tab. Dann wird mit der ID des Tabs eine Nachricht an das Inhaltsskript der Seite ([updatebg.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/content_scripts/updatebg.js)) gesendet, um das Symbol und die Farbe von der Seite zu entfernen. Die Funktion löscht dann die Cookie-Werte (so dass die alten Werte nicht übernommen und in ein Cookie geschrieben werden, das für eine neue Symbol- oder Farbauswahl auf derselben Seite erstellt wurde), bevor das Cookie entfernt wird:
 
 ```js
 cookieVal = { image: "", color: "" };
@@ -179,7 +178,7 @@ browser.cookies.remove({
 });
 ```
 
-Außerdem berichtet das Skript, damit Sie sehen können, was mit den Cookies vor sich geht, über alle Änderungen an Cookies in der Konsole:
+Außerdem, damit Sie sehen können, was mit den Cookies vor sich geht, berichtet das Skript über alle Änderungen der Cookies in der Konsole:
 
 ```js
 browser.cookies.onChanged.addListener((changeInfo) => {
@@ -192,7 +191,7 @@ browser.cookies.onChanged.addListener((changeInfo) => {
 
 ### Skripte—background.js
 
-Ein Hintergrundskript ([background.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/background_scripts/background.js)) bietet die Möglichkeit, dass der Benutzer in einer früheren Sitzung ein Hintergrundsymbol und eine Farbe für die Website ausgewählt hat. Das Skript hört auf Änderungen am aktiven Tab, entweder der Benutzer wechselt zwischen Tabs oder ändert die URL der im Tab angezeigten Seite. Wenn eines dieser Ereignisse eintritt, wird `cookieUpdate()` aufgerufen. `cookieUpdate()` verwendet wiederum `getActiveTab()`, um die ID des aktiven Tabs zu erhalten. Die Funktion kann dann überprüfen, ob ein Cookie für die Erweiterung existiert, wobei die URL des Tabs verwendet wird:
+Ein Hintergrundskript ([background.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/background_scripts/background.js)) bietet die Möglichkeit, dass der Nutzer in einer früheren Sitzung ein Hintergrundsymbol und eine Farbe für die Website ausgewählt hat. Das Skript lauscht auf Änderungen im aktiven Tab, entweder wenn der Nutzer zwischen Tabs wechselt oder die URL der im Tab angezeigten Seite ändert. Wenn eines dieser Ereignisse eintritt, wird `cookieUpdate()` aufgerufen. `cookieUpdate()` verwendet dann `getActiveTab()`, um die ID des aktiven Tabs zu erhalten. Die Funktion kann dann überprüfen, ob ein Cookie für die Erweiterung existiert, unter Verwendung der URL des Tabs:
 
 ```js
 let gettingCookies = browser.cookies.get({
@@ -201,7 +200,7 @@ let gettingCookies = browser.cookies.get({
 });
 ```
 
-Wenn das Cookie `"bgpicker"` für die Website existiert, werden die Details des zuvor ausgewählten Symbols und der Farbe abgerufen und mithilfe von Nachrichten an das Inhaltsskript [updatebg.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/content_scripts/updatebg.js) übermittelt:
+Wenn das `"bgpicker"`-Cookie für die Website existiert, werden die Details des zuvor ausgewählten Symbols und der Farbe abgerufen und mittels Nachrichten an das Inhaltsskript [updatebg.js](https://github.com/mdn/webextensions-examples/blob/main/cookie-bg-picker/content_scripts/updatebg.js) übermittelt:
 
 ```js
 gettingCookies.then((cookie) => {
@@ -215,11 +214,11 @@ gettingCookies.then((cookie) => {
 
 ## Andere Funktionen
 
-Neben den bisher erwähnten APIs bietet die Cookies-API auch {{WebExtAPIRef("cookies.getAll")}}. Diese Funktion nimmt das Detailobjekt, um Filter für die ausgewählten Cookies zu spezifizieren, und gibt ein Array von {{WebExtAPIRef("cookies.Cookie")}}-Objekten zurück, die die Filterkriterien erfüllen.
+Zusätzlich zu den bisher erwähnten APIs bietet die Cookies-API auch {{WebExtAPIRef("cookies.getAll")}}. Diese Funktion nimmt das Detailobjekt, um Filter für die ausgewählten Cookies zu spezifizieren, und gibt ein Array von {{WebExtAPIRef("cookies.Cookie")}}-Objekten zurück, die die Filterkriterien erfüllen.
 
 ## Mehr erfahren
 
-Wenn Sie mehr über die Cookies-API erfahren möchten, schauen Sie sich an:
+Wenn Sie mehr über die Cookies-API erfahren möchten, schauen Sie sich folgende Links an:
 
-- [Cookies-API-Referenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies).
-- [List-cookies](https://github.com/mdn/webextensions-examples/tree/main/list-cookies)-Beispiel.
+- [Cookies API Referenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies).
+- [List-cookies](https://github.com/mdn/webextensions-examples/tree/main/list-cookies) Beispiel.

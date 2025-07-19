@@ -2,7 +2,7 @@
 title: Begrenzungsrahmen
 slug: Glossary/Bounding_box
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-Der **Begrenzungsrahmen** eines Elements ist das kleinstmögliche Rechteck (ausgerichtet auf die Achsen des Benutzerkoordinatensystems dieses Elements), das das Element und seine Nachkommen vollständig umschließt. Der Begrenzungsrahmen ist das unsichtbare rechteckige Kästchen, in das der Browser das Objekt platziert, wenn er das Objekt auf einer Seite zeichnet.
+Der **Begrenzungsrahmen** eines Elements ist das kleinstmögliche Rechteck (ausgerichtet an den Achsen des Benutzerskoordinatensystems dieses Elements), das es und seine Nachfahren vollständig umschließt. Der Begrenzungsrahmen ist das unsichtbare rechteckige Feld, in das der Browser das Objekt platziert, wenn er das Objekt auf einer Seite zeichnet.

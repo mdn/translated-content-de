@@ -2,23 +2,23 @@
 title: Firefox
 slug: Mozilla/Firefox
 l10n:
-  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
+  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
 ---
 
-[Firefox](https://www.mozilla.org/en-US/firefox/new/) ist Mozillas beliebter Webbrowser, der für mehrere Plattformen verfügbar ist, darunter Windows, macOS und Linux auf dem Desktop sowie auf allen mobilen Geräten mit Android und iOS. Mit breiter Kompatibilität, den neuesten Webtechnologien und leistungsstarken Entwicklungstools ist Firefox eine ausgezeichnete Wahl sowohl für Webentwickler als auch für Endbenutzer.
+[Firefox](https://www.firefox.com/en-US/) ist Mozillas populärer Webbrowser, verfügbar für mehrere Plattformen, einschließlich Windows, macOS und Linux auf dem Desktop sowie für alle Android- und iOS-Mobilgeräte. Mit umfassender Kompatibilität, den neuesten Webtechnologien und leistungsstarken Entwicklungstools ist Firefox eine ausgezeichnete Wahl sowohl für Webentwickler als auch für Endanwender.
 
-Firefox ist ein Open-Source-Projekt; ein Großteil des Codes wird von unserer großen Gemeinschaft von Freiwilligen beigesteuert. Hier können Sie erfahren, wie Sie zum Firefox-Projekt beitragen können, und finden Links zu Informationen über die Erstellung von Firefox-Add-ons, die Nutzung der Entwickler-Tools in Firefox und andere Themen.
+Firefox ist ein Open-Source-Projekt; ein großer Teil des Codes wird von unserer großen Gemeinschaft von Freiwilligen beigetragen. Hier können Sie lernen, wie Sie zum Firefox-Projekt beitragen können, und Sie finden auch Links zu Informationen über die Erstellung von Firefox-Add-ons, die Verwendung der Entwicklertools in Firefox und andere Themen.
 
-Erfahren Sie, wie man Add-ons für [Firefox](https://www.mozilla.org/en-US/firefox/new/) erstellt, wie man Firefox selbst entwickelt und erstellt und wie die internen Abläufe von Firefox und seinen Unterprojekten funktionieren.
+Erfahren Sie, wie Sie Add-ons für [Firefox](https://www.firefox.com/en-US/) erstellen, wie Sie Firefox selbst entwickeln und aufbauen und wie die internen Abläufe von Firefox und seinen Teilprojekten funktionieren.
 
 ## Wichtige Ressourcen
 
 - Firefox-Entwicklerleitfaden
-  - : Unser [Entwicklerleitfaden](https://firefox-source-docs.mozilla.org/contributing/index.html) erklärt, wie man den Quellcode von Firefox erhält, wie man ihn auf Linux, macOS und Windows erstellt, wie man sich zurechtfindet und wie man zum Projekt beiträgt.
+  - : Unser [Entwicklerleitfaden](https://firefox-source-docs.mozilla.org/contributing/index.html) erläutert, wie Sie den Quellcode von Firefox erhalten, wie Sie ihn unter Linux, macOS und Windows erstellen, wie Sie sich zurechtfinden und wie Sie zum Projekt beitragen können.
 - Firefox-Add-on-Leitfaden
-  - : Der [Add-on-Leitfaden](/de/docs/Mozilla/Add-ons) bietet Informationen über die Entwicklung und Bereitstellung von Firefox-Erweiterungen.
-- Entwicklerveröffentlichungshinweise
-  - : [Entwicklerorientierte Veröffentlichungshinweise](/de/docs/Mozilla/Firefox/Releases); erfahren Sie, welche neuen Funktionen für Websites und Add-ons in jeder Version von Firefox hinzukommen.
+  - : Der [Add-on-Leitfaden](/de/docs/Mozilla/Add-ons) bietet Informationen zur Entwicklung und Bereitstellung von Firefox-Erweiterungen.
+- Entwickler-Release-Notes
+  - : [Entwicklerfokussierte Release-Notes](/de/docs/Mozilla/Firefox/Releases); lernen Sie, welche neuen Funktionen sowohl für Websites als auch für Add-ons in jeder Firefox-Version verfügbar sind.
 
 ## Firefox-Kanäle
 
@@ -26,39 +26,39 @@ Firefox ist in fünf **Kanälen** verfügbar.
 
 ### Firefox Nightly
 
-Jede Nacht erstellen wir Firefox aus dem neuesten Code in [mozilla-central](https://hg-edge.mozilla.org/mozilla-central/). Diese Builds sind für Firefox-Entwickler oder diejenigen, die die neuesten Spitzenfunktionen ausprobieren möchten, während sie sich noch in aktiver Entwicklung befinden.
+Jede Nacht erstellen wir Firefox aus dem neuesten Code in [mozilla-central](https://hg-edge.mozilla.org/mozilla-central/). Diese Builds sind für Firefox-Entwickler oder diejenigen, die die neuesten speziellen Funktionen ausprobieren möchten, während sie noch in aktivem Entwicklungsstadium sind.
 
-[Download Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly)
+[Firefox Nightly herunterladen](https://www.firefox.com/en-US/channel/desktop/#nightly)
 
 ### Firefox Developer Edition
 
-Dies ist eine Version von Firefox, die speziell für Entwickler angepasst ist. Die Firefox Developer Edition verfügt über alle neuesten Entwicklertools, die die Betaphase erreicht haben. Wir fügen auch einige zusätzliche Funktionen für Entwickler hinzu, die nur in diesem Kanal verfügbar sind. Sie verwendet ihren eigenen Pfad und ihr eigenes Profil, sodass Sie sie parallel zu Release oder Beta Firefox ausführen können.
+Dies ist eine Version von Firefox, die speziell für Entwickler zugeschnitten ist. Firefox Developer Edition verfügt über alle neuesten Entwicklertools, die die Beta-Phase erreicht haben. Wir fügen auch einige zusätzliche Funktionen für Entwickler hinzu, die nur in diesem Kanal verfügbar sind. Es verwendet seinen eigenen Pfad und sein eigenes Profil, sodass Sie es neben der Release- oder Beta-Version von Firefox ausführen können.
 
-[Download Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
+[Firefox Developer Edition herunterladen](https://www.firefox.com/en-US/channel/desktop/developer/)
 
 ### Firefox Beta
 
-Alle vier Wochen nehmen wir die stabilen Funktionen und erstellen eine neue Version von Firefox Beta. Firefox Beta-Builds sind für Firefox-Enthusiasten gedacht, um zu testen, was die nächste veröffentlichte Firefox-Version werden soll.
+Alle vier Wochen nehmen wir die Funktionen, die stabil genug sind, und erstellen eine neue Version von Firefox Beta. Firefox Beta-Builds sind für Firefox-Enthusiasten gedacht, um die nächste veröffentlichte Firefox-Version zu testen.
 
-[Download Firefox Beta](https://www.mozilla.org/en-US/firefox/channel/desktop/#beta)
+[Firefox Beta herunterladen](https://www.firefox.com/en-US/channel/desktop/#beta)
 
 ### Firefox
 
-Nach einer weiteren vierwöchigen Stabilisierung in der Beta-Version sind wir bereit, die neuen Funktionen in einer neuen Release-Version von Firefox an Hunderte Millionen Nutzer auszuliefern.
+Nach weiteren vier Wochen Stabilisierung in der Beta-Version sind wir bereit, die neuen Funktionen in einer neuen Release-Version von Firefox an Hunderte von Millionen Nutzern auszuliefern.
 
-[Download Firefox](https://www.mozilla.org/en-US/firefox/new/)
+[Firefox herunterladen](https://www.firefox.com/en-US/)
 
 ### Firefox Extended Support Release (ESR)
 
-Firefox ESR ist die Langzeitunterstützungsausgabe von Firefox für den Desktop, die von Organisationen einschließlich Schulen, Universitäten, Unternehmen und anderen genutzt wird, die eine erweiterte Unterstützung für Massenbereitstellungen benötigen.
+Firefox ESR ist die Langzeit-Support-Edition von Firefox für den Desktop zur Verwendung durch Organisationen, einschließlich Schulen, Universitäten, Unternehmen und andere, die erweiterten Support für Massenbereitstellungen benötigen.
 
-[Download Firefox ESR](https://www.mozilla.org/en-US/firefox/all/#product-desktop-esr)
+[Firefox ESR herunterladen](https://www.firefox.com/en-US/download/all/#product-desktop-esr)
 
-## Inhalte
+## Inhalt
 
 {{SubpagesWithSummaries}}
 
 ## Siehe auch
 
-- [Mailingliste](https://groups.google.com/a/mozilla.org/g/firefox-dev)
-- [Veröffentlichungszeitplan](https://whattrainisitnow.com/calendar/)
+- [Mailing-Liste](https://groups.google.com/a/mozilla.org/g/firefox-dev)
+- [Release-Zeitplan](https://whattrainisitnow.com/calendar/)

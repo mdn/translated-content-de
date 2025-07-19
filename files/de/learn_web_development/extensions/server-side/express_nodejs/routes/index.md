@@ -1,14 +1,14 @@
 ---
-title: "Express-Tutorial Teil 4: Routen und Controller"
+title: "Express Tutorial Teil 4: Routen und Controller"
 short-title: "4: Routen und Controller"
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/routes
 l10n:
-  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
+  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data", "Learn_web_development/Extensions/Server-side/Express_Nodejs")}}
 
-In diesem Tutorial richten wir Routen (URL-Verarbeitungscode) mit "Dummy"-Handler-Funktionen für alle Ressourcenendpunkte ein, die wir letztendlich auf der [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website) Website benötigen werden. Am Ende haben wir eine modulare Struktur für unseren Routen-Verarbeitungscode, die wir in den folgenden Artikeln mit echten Handler-Funktionen erweitern können. Außerdem werden wir ein wirklich gutes Verständnis dafür haben, wie man mit Express modulare Routen erstellt!
+In diesem Tutorial richten wir Routen (URL-Verarbeitungscode) mit "Dummy"-Handlerfunktionen für alle Ressourcenendpunkte ein, die wir eventual auf der [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Tutorial_local_library_website)-Website benötigen werden. Nach Abschluss werden wir eine modulare Struktur für unseren Routenverarbeitungscode haben, die wir in den folgenden Artikeln mit echten Handlerfunktionen erweitern können. Wir werden auch ein sehr gutes Verständnis dafür haben, wie man modulare Routen mit Express erstellt!
 
 <table>
   <tbody>
@@ -16,14 +16,14 @@ In diesem Tutorial richten wir Routen (URL-Verarbeitungscode) mit "Dummy"-Handle
       <th scope="row">Voraussetzungen:</th>
       <td>
         Lesen Sie die <a href="/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction">Express/Node-Einführung</a>.
-        Schließen Sie die vorherigen Tutorial-Themen ab (einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose">Express-Tutorial Teil 3: Verwendung einer Datenbank (mit Mongoose)</a>).
+        Schließen Sie die vorherigen Tutorial-Themen ab (einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose">Express Tutorial Teil 3: Verwendung einer Datenbank (mit Mongoose)</a>).
       </td>
     </tr>
     <tr>
-      <th scope="row">Ziel:</th>
+      <th scope="row">Zielsetzung:</th>
       <td>
-        Das Erstellen einfacher Routen verstehen.
-        Alle unsere URL-Endpunkte einrichten.
+        Verstehen, wie man einfache Routen erstellt.
+        Einrichten aller unserer URL-Endpunkte.
       </td>
     </tr>
   </tbody>
@@ -31,38 +31,38 @@ In diesem Tutorial richten wir Routen (URL-Verarbeitungscode) mit "Dummy"-Handle
 
 ## Übersicht
 
-Im [letzten Tutorial-Artikel](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose) haben wir _Mongoose_-Modelle definiert, um mit der Datenbank zu interagieren, und ein (eigenständiges) Skript verwendet, um einige anfängliche Bibliotheksdatensätze zu erstellen. Nun können wir den Code schreiben, um diese Informationen Benutzern zu präsentieren. Das Erste, was wir tun müssen, ist zu bestimmen, welche Informationen wir in unseren Seiten anzeigen möchten, und anschließend geeignete URLs für die Rückgabe dieser Ressourcen zu definieren. Dann müssen wir die Routen (URL-Handler) und Ansichten (Vorlagen) erstellen, um diese Seiten anzuzeigen.
+Im [letzten Tutorial-Artikel](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose) haben wir _Mongoose_-Modelle definiert, um mit der Datenbank zu interagieren, und ein (eigenständiges) Skript verwendet, um einige anfängliche Bibliotheksdatensätze zu erstellen. Jetzt können wir den Code schreiben, um diese Informationen den Benutzern zu präsentieren. Das Erste, was wir tun müssen, ist zu bestimmen, welche Informationen wir auf unseren Seiten anzeigen möchten, und dann geeignete URLs zu definieren, um diese Ressourcen zurückzugeben. Dann müssen wir die Routen (URL-Handler) und Ansichten (Templates) erstellen, um diese Seiten anzuzeigen.
 
-Das unten stehende Diagramm erinnert an den Hauptdatenfluss und die Dinge, die implementiert werden müssen, wenn eine HTTP-Anfrage/Antwort bearbeitet wird. Zusätzlich zu den Ansichten und Routen zeigt das Diagramm "Controller" – Funktionen, die den Code zum Routing von Anfragen vom Code, der die Anfragen tatsächlich verarbeitet, trennen.
+Das untenstehende Diagramm dient als Erinnerung an den Hauptdatenfluss und die Punkte, die bei der Bearbeitung einer HTTP-Anforderung/-Antwort implementiert werden müssen. Zusätzlich zu den Ansichten und Routen zeigt das Diagramm "Controller" — Funktionen, die den Code zur Routenanfrage von dem Code trennen, der die Anfragen tatsächlich verarbeitet.
 
 Da wir bereits die Modelle erstellt haben, müssen wir hauptsächlich Folgendes erstellen:
 
-- "Routen", um die unterstützten Anfragen (und alle Informationen, die in Anfrage-URLs kodiert sind) an die entsprechenden Controller-Funktionen weiterzuleiten.
-- Controller-Funktionen, um die angeforderten Daten von den Modellen abzurufen, eine HTML-Seite zu erstellen, die die Daten anzeigt, und diese zur Ansicht an den Benutzer zurückzugeben.
-- Ansichten (Vorlagen), die von den Controllern verwendet werden, um die Daten darzustellen.
+- "Routen", um die unterstützten Anfragen (und alle in den Anforderungs-URLs kodierten Informationen) an die entsprechenden Controller-Funktionen weiterzuleiten.
+- Controller-Funktionen, um die angeforderten Daten von den Modellen zu erhalten, eine HTML-Seite zu erstellen, die die Daten anzeigt, und sie dem Benutzer zur Ansicht im Browser zurückzugeben.
+- Ansichten (Templates), die von den Controllern verwendet werden, um die Daten darzustellen.
 
-![Hauptdatenfluss-Diagramm eines MVC-Express-Servers: 'Routen' empfangen die HTTP-Anfragen, die an den Express-Server gesendet werden, und leiten sie an die entsprechende 'Controller'-Funktion weiter. Der Controller liest und schreibt Daten aus den Modellen. Modelle sind mit der Datenbank verbunden, um dem Server den Datenzugriff bereitzustellen. Controller verwenden 'Ansichten', auch Vorlagen genannt, um die Daten darzustellen. Der Controller sendet die HTML-HTTP-Antwort als HTTP-Antwort zurück an den Client.](mvc_express.png)
+![Hauptdatenflussdiagramm eines MVC-Express-Servers: 'Routen' empfangen die an den Express-Server gesendeten HTTP-Anfragen und leiten sie an die entsprechenden 'Controller'-Funktionen weiter. Der Controller liest und schreibt Daten von den Modellen. Modelle sind mit der Datenbank verbunden, um dem Server Datenzugriff zu ermöglichen. Controller verwenden 'Ansichten', auch Templates genannt, um die Daten darzustellen. Der Controller sendet die HTML-HTTP-Antwort als HTTP-Antwort zurück an den Client.](mvc_express.png)
 
-Letztendlich könnten wir Seiten haben, um Listen und Detailinformationen für Bücher, Genres, Autoren und Buchinstanzen anzuzeigen sowie Seiten, um Datensätze zu erstellen, zu aktualisieren und zu löschen. Das ist viel, um es in einem Artikel zu dokumentieren. Daher konzentriert sich der größte Teil dieses Artikels darauf, unsere Routen und Controller so einzurichten, dass sie "Dummy"-Inhalte zurückgeben. Wir werden die Controllermethoden in unseren folgenden Artikeln erweitern, um mit Modelldaten zu arbeiten.
+Letztendlich könnten wir Seiten haben, die Listen und Detailinformationen für Bücher, Genres, Autoren und Buchinstanzen anzeigen, zusammen mit Seiten zum Erstellen, Aktualisieren und Löschen von Datensätzen. Das ist eine Menge, um es in einem Artikel zu dokumentieren. Daher wird sich der Großteil dieses Artikels darauf konzentrieren, unsere Routen und Controller so einzurichten, dass sie "Dummy"-Inhalte zurückgeben. Wir werden die Controller-Methoden in unseren anschließenden Artikeln erweitern, um mit Modelldaten zu arbeiten.
 
-Der erste Abschnitt unten bietet eine kurze "Einführung" in die Verwendung von Express [Router](https://expressjs.com/en/5x/api.html#router) Middleware. Wir werden dieses Wissen dann in den folgenden Abschnitten anwenden, wenn wir die LocalLibrary-Routen einrichten.
+Der erste Abschnitt unten bietet einen kurzen "Primer" dazu, wie die Express-[Router](https://expressjs.com/en/5x/api.html#router)-Middleware verwendet wird. Dieses Wissen werden wir dann in den folgenden Abschnitten nutzen, wenn wir die LocalLibrary-Routen einrichten.
 
-## Routen-Einführung
+## Einführung in Routen
 
-Eine Route ist ein Abschnitt von Express-Code, der ein HTTP-Verb (`GET`, `POST`, `PUT`, `DELETE`, usw.), einen URL-Pfad/ein URL-Muster und eine Funktion, die für das Muster zuständig ist, assoziiert.
+Eine Route ist ein Abschnitt von Express-Code, der ein HTTP-Verb (`GET`, `POST`, `PUT`, `DELETE`, usw.), einen URL-Pfad/-Muster und eine Funktion assoziiert, die aufgerufen wird, um dieses Muster zu bearbeiten.
 
-Es gibt mehrere Möglichkeiten, Routen zu erstellen. In diesem Tutorial werden wir die [`express.Router`](https://expressjs.com/en/guide/routing.html#express-router) Middleware verwenden, da sie es uns ermöglicht, die Routen-Handler für einen bestimmten Teil einer Site zusammenzufassen und sie mit einem gemeinsamen Routen-Präfix zuzugreifen. Wir werden alle unsere bibliotheksbezogenen Routen in einem "catalog"-Modul halten, und falls wir Routen für die Verwaltung von Benutzerkonten oder andere Funktionen hinzufügen, können wir sie gesondert gruppieren.
+Es gibt mehrere Möglichkeiten, Routen zu erstellen. Für dieses Tutorial werden wir die [`express.Router`](https://expressjs.com/en/guide/routing.html#express-router)-Middleware verwenden, da sie uns ermöglicht, die Routen-Handler für einen bestimmten Teil einer Site zusammenzufassen und sie mit einem gemeinsamen Routen-Präfix zuzugreifen. Wir werden alle unsere bibliotheksbezogenen Routen in einem "catalog"-Modul belassen, und wenn wir Routen zum Bearbeiten von Benutzerkonten oder anderen Funktionen hinzufügen, können wir sie separat gruppiert halten.
 
 > [!NOTE]
-> Wir haben Express-Anwendungsrouten kurz in unserer [Express Einführung > Erstellen von Routen-Handlern](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction#creating_route_handlers) besprochen. Abgesehen von der besseren Unterstützung für Modularisierung (wie im ersten Unterabschnitt unten besprochen) ist die Verwendung von _Router_ sehr ähnlich zur direkten Definition von Routen auf dem _Express-Anwendungsobjekt_.
+> Wir haben Express-Anwendungsrouten kurz in unserer [Express-Einführung > Erstellen von Routenhandlern](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction#creating_route_handlers) besprochen. Andere als der bessere Support für Modularisierung (wie im ersten Unterabschnitt unten besprochen), ist die Verwendung von _Router_ sehr ähnlich wie das direkte Definieren von Routen auf dem _Express-Anwendungsobjekt_.
 
-Der Rest dieses Abschnitts gibt einen Überblick darüber, wie der `Router` verwendet werden kann, um die Routen zu definieren.
+Der Rest dieses Abschnitts bietet einen Überblick darüber, wie der `Router` verwendet werden kann, um die Routen zu definieren.
 
 ### Definieren und Verwenden separater Routenmodule
 
-Der folgende Code liefert ein konkretes Beispiel dafür, wie wir ein Routenmodul erstellen und dann in einer _Express_ Anwendung verwenden können.
+Der untenstehende Code bietet ein konkretes Beispiel dafür, wie wir ein Routemodul erstellen und es dann in einer _Express_-Anwendung verwenden können.
 
-Zuerst erstellen wir Routen für ein Wiki in einem Modul namens **wiki.js**. Der Code importiert zuerst das Express-Anwendungsobjekt, verwendet es, um ein `Router`-Objekt zu erhalten, und fügt dann ein paar Routen mit der `get()`-Methode hinzu. Zu guter Letzt exportiert das Modul das `Router`-Objekt.
+Zuerst erstellen wir Routen für ein Wiki in einem Modul namens **wiki.js**. Der Code importiert zunächst das Express-Anwendungsobjekt, verwendet es, um ein `Router`-Objekt zu erhalten und fügt dann ein paar Routen hinzu, indem er die `get()`-Methode verwendet. Zuletzt exportiert das Modul das `Router`-Objekt.
 
 ```js
 // wiki.js - Wiki route module.
@@ -85,9 +85,9 @@ module.exports = router;
 ```
 
 > [!NOTE]
-> Oben definieren wir unsere Routen-Handler-Callbacks direkt in den Router-Funktionen. In der LocalLibrary werden wir diese Callbacks in einem separaten Controller-Modul definieren.
+> Oben definieren wir unsere Routen-Handler-Callbacks direkt in den Router-Funktionen. In der LocalLibrary werden wir diese Callbacks in einem separaten Controllermodul definieren.
 
-Um das Router-Modul in unserer Haupt-App-Datei zu verwenden, müssen wir zuerst das Routenmodul (**wiki.js**) mit `require()` einfügen. Dann rufen wir `use()` auf dem _Express_-Anwendungsobjekt auf, um den Router dem Middleware-Verarbeitungspfad hinzuzufügen, indem wir einen URL-Pfad 'wiki' spezifizieren.
+Um das Routermodul in unserer Haupt-App-Datei zu verwenden, `require()` wir zuerst das Routemodul (**wiki.js**). Dann rufen wir `use()` auf der _Express_-Anwendung auf, um den Router zum Middleware-Verarbeitungspfad hinzuzufügen und geben einen URL-Pfad von 'wiki' an.
 
 ```js
 const wiki = require("./wiki.js");
@@ -96,11 +96,11 @@ const wiki = require("./wiki.js");
 app.use("/wiki", wiki);
 ```
 
-Die beiden in unserem Wiki-Routenmodul definierten Routen sind dann von `/wiki/` und `/wiki/about/` aus zugänglich.
+Die beiden in unserem Wiki-Routemodul definierten Routen sind dann von `/wiki/` und `/wiki/about/` aus zugänglich.
 
 ### Routenfunktionen
 
-Unser obiges Modul definiert ein paar typische Routenfunktionen. Die "about"-Route (unten reproduziert) wird mit der `Router.get()` Methode definiert, die nur auf HTTP-GET-Anfragen antwortet. Das erste Argument dieser Methode ist der URL-Pfad, während das zweite eine Callback-Funktion ist, die aufgerufen wird, wenn eine HTTP-GET-Anfrage mit dem Pfad empfangen wird.
+Das Modul oben definiert ein paar typische Routenfunktionen. Die "about"-Route (unten reproduziert) wird mit der `Router.get()`-Methode definiert, die nur auf HTTP-GET-Anfragen antwortet. Das erste Argument dieser Methode ist der URL-Pfad, während das zweite eine Callback-Funktion ist, die aufgerufen wird, wenn eine HTTP-GET-Anfrage mit dem Pfad empfangen wird.
 
 ```js
 router.get("/about", (req, res) => {
@@ -108,22 +108,22 @@ router.get("/about", (req, res) => {
 });
 ```
 
-Das Callback nimmt drei Argumente entgegen (normalerweise wie gezeigt benannt: `req`, `res`, `next`), die das HTTP-Anfrageobjekt, die HTTP-Antwort und die _next_-Funktion in der Middleware-Kette enthalten.
+Das Callback nimmt drei Argumente entgegen (normalerweise wie gezeigt benannt: `req`, `res`, `next`), die das HTTP-Anfrage-Objekt, die HTTP-Antwort und die _nächste_ Funktion in der Middleware-Kette enthalten.
 
 > [!NOTE]
-> Router-Funktionen sind [Express-Middleware](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction#using_middleware), was bedeutet, dass sie entweder die Anfrage abschließen (auf die Anfrage antworten) oder die `next`-Funktion in der Kette aufrufen müssen. Im obigen Fall schließen wir die Anfrage mit `send()` ab, daher wird das `next`-Argument nicht verwendet (und wir entscheiden uns, es nicht zu spezifizieren).
+> Router-Funktionen sind [Express-Middleware](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction#using_middleware), was bedeutet, dass sie entweder die Anfrage abschließen (darauf antworten) oder die `next`-Funktion in der Kette aufrufen müssen. Im obigen Fall schließen wir die Anfrage mit `send()` ab, sodass das `next`-Argument nicht verwendet wird (und wir entscheiden uns, es nicht anzugeben).
 >
-> Die Router-Funktion oben nimmt ein einzelnes Callback entgegen, aber Sie können so viele Callback-Argumente angeben, wie Sie möchten, oder ein Array von Callback-Funktionen. Jede Funktion ist Teil der Middleware-Kette und wird in der Reihenfolge aufgerufen, in der sie zur Kette hinzugefügt wird (es sei denn, eine vorherige Funktion schließt die Anfrage ab).
+> Die obenstehende Router-Funktion nimmt ein einzelnes Callback an, Sie können jedoch beliebig viele Callback-Argumente angeben oder ein Array von Callback-Funktionen. Jede Funktion ist Teil der Middleware-Kette und wird in der Reihenfolge aufgerufen, in der sie zur Kette hinzugefügt wird (es sei denn, eine vorherige Funktion schließt die Anfrage ab).
 
-Die Callback-Funktion ruft [`send()`](https://expressjs.com/en/5x/api.html#res.send) für die Antwort auf, um den String "About this wiki" zurückzusenden, wenn wir eine GET-Anfrage mit dem Pfad (`/about`) erhalten. Es gibt eine [Reihe anderer Antwortmethoden](https://expressjs.com/en/guide/routing.html#response-methods), um den Anfrage-/Antwortzyklus zu beenden. Beispielsweise könnten Sie [`res.json()`](https://expressjs.com/en/5x/api.html#res.json) aufrufen, um eine JSON-Antwort zu senden, oder [`res.sendFile()`](https://expressjs.com/en/5x/api.html#res.sendFile), um eine Datei zu senden. Die Antwortmethode, die wir am häufigsten verwenden werden, während wir die Bibliothek aufbauen, ist [`render()`](https://expressjs.com/en/5x/api.html#res.render), die HTML-Dateien mit Vorlagen und Daten erstellt und zurückgibt — darüber werden wir in einem späteren Artikel viel mehr sprechen!
+Die Callback-Funktion ruft `send()` auf der Antwort auf, um die Zeichenkette "About this wiki" zurückzugeben, wenn wir eine GET-Anfrage mit dem Pfad (`/about`) erhalten. Es gibt eine [Reihe anderer Antwortmethoden](https://expressjs.com/en/guide/routing.html#response-methods), um den Anforderungs-/Antwortzyklus zu beenden. Beispielsweise könnten Sie `res.json()` aufrufen, um eine JSON-Antwort zu senden, oder `res.sendFile()`, um eine Datei zu senden. Die Antwortmethode, die wir am häufigsten verwenden werden, während wir die Bibliothek aufbauen, ist `render()`, die HTML-Dateien mit Hilfe von Templates und Daten erstellt — darüber werden wir in einem späteren Artikel noch viel mehr sprechen!
 
 ### HTTP-Verben
 
-Die obigen Beispielrouten verwenden die `Router.get()` Methode, um auf HTTP-GET-Anfragen mit einem bestimmten Pfad zu antworten.
+Die obigen Beispielrouten verwenden die `Router.get()`-Methode, um auf HTTP-GET-Anfragen mit einem bestimmten Pfad zu antworten.
 
-Der `Router` bietet auch Routenmöglichkeiten für alle anderen HTTP-Verben, die meist auf genau gleiche Weise verwendet werden: `post()`, `put()`, `delete()`, `options()`, `trace()`, `copy()`, `lock()`, `mkcol()`, `move()`, `purge()`, `propfind()`, `proppatch()`, `unlock()`, `report()`, `mkactivity()`, `checkout()`, `merge()`, `m-search()`, `notify()`, `subscribe()`, `unsubscribe()`, `patch()`, `search()`, und `connect()`.
+Der `Router` bietet auch Routenmethoden für alle anderen HTTP-Verben, die meistens auf dieselbe Weise verwendet werden: `post()`, `put()`, `delete()`, `options()`, `trace()`, `copy()`, `lock()`, `mkcol()`, `move()`, `purge()`, `propfind()`, `proppatch()`, `unlock()`, `report()`, `mkactivity()`, `checkout()`, `merge()`, `m-search()`, `notify()`, `subscribe()`, `unsubscribe()`, `patch()`, `search()` und `connect()`.
 
-Beispielsweise verhält sich der unten stehende Code genau wie die vorherige `/about`-Route, antwortet jedoch nur auf HTTP-POST-Anfragen.
+Das nachstehende Beispiel zeigt, dass der Code genauso funktioniert wie die vorherige `/about`-Route, jedoch nur auf HTTP-POST-Anfragen reagiert.
 
 ```js
 router.post("/about", (req, res) => {
@@ -133,17 +133,17 @@ router.post("/about", (req, res) => {
 
 ### Routenpfade
 
-Die Routenpfade definieren die Endpunkte, an denen Anfragen gestellt werden können. Die Beispiele, die wir bisher gesehen haben, waren nur Strings und wurden genau so verwendet, wie sie geschrieben sind: '/', '/about', '/book', '/any-random.path'.
+Die Routenpfade definieren die Endpunkte, an denen Anfragen gestellt werden können. Die Beispiele, die wir bisher gesehen haben, waren nur Zeichenketten und werden genau so verwendet, wie sie geschrieben sind: '/', '/about', '/book', '/any-random.path'.
 
-Routenpfade können auch String-Muster sein. String-Muster verwenden eine Form von regulärem Ausdruck, um _Muster_ von Endpunkten zu definieren, die übereinstimmen.
-Die meisten unserer Routen für die LocalLibrary werden Strings und keine regulären Ausdrücke verwenden.
-Wir verwenden auch Routenparameter, wie im nächsten Abschnitt besprochen wird.
+Routenpfade können auch Zeichenkettenmuster sein. Zeichenkettenmuster verwenden eine Form von regulärer Ausdruckssyntax, um _Muster_ von Endpunkten zu definieren, die übereinstimmen.
+Die meisten unserer Routen für die LocalLibrary werden Zeichenketten und keine regulären Ausdrücke verwenden.
+Wir werden auch Routenparameter verwenden, wie im nächsten Abschnitt besprochen.
 
 ### Routenparameter
 
-Routenparameter sind _benannte URL-Segmente_, die verwendet werden, um Werte an bestimmten Positionen in der URL zu erfassen. Die benannten Segmente haben einen Doppelpunkt vorangestellt, gefolgt von dem Namen (z.B., `/:your_parameter_name/`). Die erfassten Werte werden im `req.params` Objekt unter Verwendung der Namen der Parameter als Schlüssel gespeichert (z.B., `req.params.your_parameter_name`).
+Routenparameter sind _benannte URL-Segmente_, die verwendet werden, um Werte an bestimmten Positionen in der URL zu erfassen. Die benannten Segmente werden mit einem Doppelpunkt vorangestellt und dann der Name (z.B. `/:your_parameter_name/`). Die erfassten Werte werden im `req.params`-Objekt unter Verwendung der Parameternamen als Schlüssel gespeichert (z.B. `req.params.your_parameter_name`).
 
-So zum Beispiel bei einer URL, die Informationen über Benutzer und Bücher enthält: `http://localhost:3000/users/34/books/8989`. Wir können diese Informationen wie unten gezeigt extrahieren, mit den `userId` und `bookId` Pfadparametern:
+Betrachten Sie zum Beispiel eine URL, die codierte Informationen über Benutzer und Bücher enthält: `http://localhost:3000/users/34/books/8989`. Wir können diese Informationen wie unten gezeigt extrahieren, mit den Pfadparametern `userId` und `bookId`:
 
 ```js
 app.get("/users/:userId/books/:bookId", (req, res) => {
@@ -154,11 +154,11 @@ app.get("/users/:userId/books/:bookId", (req, res) => {
 ```
 
 > [!NOTE]
-> Die URL _/book/create_ wird durch eine Route wie `/book/:bookId` übereinstimmen (weil `:bookId` ein Platzhalter für _jeden_ String ist, daher passt `create`). Die erste Route, die mit einer eingehenden URL übereinstimmt, wird verwendet. Wenn Sie also `/book/create` URLs spezifisch verarbeiten möchten, muss deren Routen-Handler vor Ihrer `/book/:bookId`-Route definiert werden.
+> Die URL _/book/create_ wird von einer Route wie `/book/:bookId` übereinstimmt (da `:bookId` ein Platzhalter für _jede_ Zeichenkette ist, passt also `create`). Die erste Route, die mit einer eingehenden URL übereinstimmt, wird verwendet, also falls Sie `/book/create`-URLs konkret verarbeiten wollen, muss ihr Routen-Handler vor Ihrer `/book/:bookId`-Route definiert sein.
 
-Routenparameternamen (beispielsweise `bookId` oben) können beliebige gültige JavaScript-Identifier sein, die mit einem Buchstaben, `_`, oder `$` beginnen. Sie können Ziffern nach dem ersten Zeichen einschließen, aber keine Bindestriche und Leerzeichen.
-Sie können auch Namen verwenden, die keine gültigen JavaScript-Identifier sind, einschließlich Leerzeichen, Bindestrichen, Emojis oder anderen Zeichen, aber Sie müssen sie mit einem Anführungszeichen definieren und mit der Klammernnotation darauf zugreifen.
-Zum Beispiel:
+Routenparameternamen (zum Beispiel `bookId`, oben) können beliebige gültige JavaScript-Bezeichner sein, die mit einem Buchstaben, `_`, oder `$` beginnen. Sie können Ziffern nach dem ersten Zeichen einbeziehen, aber keine Bindestriche und Leerzeichen.
+Sie können auch Namen verwenden, die keine gültigen JavaScript-Bezeichner sind, einschließlich Leerzeichen, Bindestrichen, Emoticons oder anderen Zeichen, aber Sie müssen sie mit einer Zeichenkette definieren und mit der Punktnotation darauf zugreifen.
+Beispiel:
 
 ```js
 app.get('/users/:"user id"/books/:"book-id"', (req, res) => {
@@ -169,12 +169,12 @@ app.get('/users/:"user id"/books/:"book-id"', (req, res) => {
 });
 ```
 
-### Wildcards
+### Platzhalter
 
-Wildcard-Parameter passen zu einem oder mehreren Zeichen über mehrere Segmente und geben jedes Segment als Wert in einem Array zurück.
-Sie werden auf die gleiche Weise wie reguläre Parameter definiert, sind jedoch mit einem Sternchen vorangestellt.
+Platzhalterparameter stimmen mit einem oder mehreren Zeichen über mehrere Segmente überein und geben jedes Segment als Wert in einem Array zurück.
+Sie werden auf die gleiche Weise wie reguläre Parameter definiert, aber einem Sternchen wird vorangestellt.
 
-So zum Beispiel bei der URL `http://localhost:3000/users/34/books/8989`, können wir alle Informationen nach `users/` mit dem `example` Wildcard extrahieren:
+Angenommen, die URL lautet `http://localhost:3000/users/34/books/8989`, so können wir alle Informationen nach `users/` mit dem Platzhalter `example` extrahieren:
 
 ```js
 app.get("/users/*example", (req, res) => {
@@ -186,7 +186,7 @@ app.get("/users/*example", (req, res) => {
 ### Optionale Teile
 
 Klammern können verwendet werden, um Teile des Pfads zu definieren, die optional sind.
-Zum Beispiel, unten stimmen wir mit einem Dateinamen mit beliebiger Erweiterung (oder keiner) überein.
+Beispielsweise passen wir unten einen Dateinamen mit beliebiger Erweiterung (oder ohne) an.
 
 ```js
 app.get("/file/:filename{.:ext}", (req, res) => {
@@ -201,20 +201,20 @@ app.get("/file/:filename{.:ext}", (req, res) => {
 Die folgenden Zeichen sind reserviert: `(()[]?+!)`.
 Wenn Sie sie verwenden möchten, müssen Sie sie mit einem Backslash (`\`) maskieren.
 
-Außerdem können Sie das Pipeline-Zeichen (`|`) in einem regulären Ausdruck nicht verwenden.
+Sie können das Pipe-Zeichen (`|`) auch nicht in einem regulären Ausdruck verwenden.
 
-Das ist alles, was Sie benötigen, um mit Routen zu beginnen.
-Falls notwendig, können Sie mehr Informationen in den Express-Dokumentationen finden: [Grundlegendes Routing](https://expressjs.com/en/starter/basic-routing.html) und [Routing-Leitfaden](https://expressjs.com/en/guide/routing.html). Die folgenden Abschnitte zeigen, wie wir unsere Routen und Controller für die LocalLibrary einrichten werden.
+Das ist alles, was Sie benötigen, um mit Routen zu starten.
+Falls nötig, finden Sie mehr Informationen in den Express-Dokumentationen: [Grundlegendes Routing](https://expressjs.com/en/starter/basic-routing.html) und [Leitfaden zum Routing](https://expressjs.com/en/guide/routing.html). Die folgenden Abschnitte zeigen, wie wir die Routen und Controller für die LocalLibrary einrichten werden.
 
-### Umgang mit Fehlern und Ausnahmen in den Routenfunktionen
+### Fehler- und Ausnahmebehandlung in den Routenfunktionen
 
-Die zuvor gezeigten Routenfunktionen haben alle Argumente `req` und `res`, die die Anfrage und die Antwort darstellen.
-Routenfunktionen wird auch ein drittes Argument, `next`, übergeben, das eine Callback-Funktion enthält, die aufgerufen werden kann, um Fehler oder Ausnahmen an die Express-Middleware-Kette weiterzugeben, wo sie schließlich zu Ihrem globalen Fehlerbehandlungscode propagiert werden.
+Die zuvor gezeigten Routenfunktionen haben alle die Argumente `req` und `res`, die jeweils die Anfrage und die Antwort repräsentieren.
+Routenfunktionen erhalten auch ein drittes Argument, `next`, das eine Callback-Funktion enthält, die aufgerufen werden kann, um Fehler oder Ausnahmen an die Express-Middleware-Kette zu übergeben, wo sie schließlich zu Ihrem globalen Fehlerbehandlungscode propagiert werden.
 
-Ab Express 5 wird `next` automatisch mit dem Ablehnungswert aufgerufen, wenn ein Routen-Handler ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das danach abgelehnt wird; daher ist kein Fehlerbehandlungscode in Routenfunktionen erforderlich, wenn Promises verwendet werden.
-Dies führt zu sehr kompaktem Code bei der Arbeit mit asynchronen, auf Promises basierenden APIs, insbesondere bei der Verwendung von [`async` und `await`](/de/docs/Learn_web_development/Extensions/Async_JS/Promises#async_and_await).
+Ab Express 5 wird `next` automatisch mit dem Ablehnungswert aufgerufen, wenn ein Routenhandler ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das anschließend abgelehnt wird; daher ist kein Fehlerbehandlungscode in Routenfunktionen erforderlich, wenn Promises verwendet werden.
+Dies führt zu sehr kompaktem Code, wenn mit asynchronen, auf Promises basierenden APIs gearbeitet wird, insbesondere beim Verwenden von [`async` und `await`](/de/docs/Learn_web_development/Extensions/Async_JS/Promises#async_and_await).
 
-Zum Beispiel verwendet der folgende Code die `find()`-Methode, um eine Datenbank abzufragen und dann das Ergebnis darzustellen.
+Das folgende Codebeispiel verwendet die Methode `find()`, um eine Datenbank abzufragen und dann das Ergebnis darzustellen.
 
 ```js
 exports.get("/about", async (req, res, next) => {
@@ -223,30 +223,30 @@ exports.get("/about", async (req, res, next) => {
 });
 ```
 
-Der untenstehende Code zeigt das gleiche Beispiel mit einer Promise-Kette.
-Beachten Sie, dass Sie, wenn Sie wollten, den Fehler mit `catch()` abfangen und eine eigene Anpassung implementieren könnten.
+Der Code unten zeigt dasselbe Beispiel mit einer Promise-Kette.
+Beachten Sie, dass Sie, wenn Sie wollten, den Fehler `catch()` könnten und Ihre eigene individuelle Behandlung implementieren könnten.
 
 ```js
-exports.get("/about", (req, res, next) => {
+exports.get(
+  "/about",
   // Removed 'async'
-  return About.find({})
-    .exec()
-    .then((successfulResult) => {
-      res.render("about_view", { title: "About", list: successfulResult });
-    });
-  /*
-    .catch(err => {
-      next(err);
-    });
-    */
-});
+  (req, res, next) =>
+    About.find({})
+      .exec()
+      .then((successfulResult) => {
+        res.render("about_view", { title: "About", list: successfulResult });
+      })
+      .catch((err) => {
+        next(err);
+      }),
+);
 ```
 
 > [!NOTE]
-> Die meisten modernen APIs sind asynchron und auf Promises basierend, daher ist die Fehlerbehandlung oft so unkompliziert.
-> Sicherlich ist das alles, was Sie wirklich _wissen_ müssen, über die Fehlerbehandlung für dieses Tutorial!
+> Die meisten modernen APIs sind asynchron und basieren auf Promises, daher ist die Fehlerbehandlung oft so einfach.
+> Das ist sicherlich alles, was Sie wirklich _wissen_ müssen über Fehlerbehandlung für dieses Tutorial!
 
-Express 5 fängt automatisch alle Ausnahmen ab und leitet sie weiter, wenn sie in synchronem Code auftreten:
+Express 5 fängt automatisch Ausnahmen ein, die in synchronem Code geworfen werden, und leitet sie weiter:
 
 ```js
 app.get("/", (req, res) => {
@@ -255,7 +255,7 @@ app.get("/", (req, res) => {
 });
 ```
 
-Allerdings müssen Sie Ausnahmen, die in asynchronem Code auftreten, den die Routen-Handler oder Middleware aufrufen, mit [`catch()`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) behandeln. Diese werden nicht vom Standardcode abgefangen:
+Sie müssen jedoch Ausnahmen, die im asynchronen Code von Routenhandlern oder Middleware-Handlern auftreten, mit einem [`catch()`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block verarbeiten. Diese werden nicht vom Standardcode abgefangen:
 
 ```js
 app.get("/", (req, res, next) => {
@@ -270,8 +270,8 @@ app.get("/", (req, res, next) => {
 });
 ```
 
-Wenn Sie schließlich den älteren Stil asynchroner Methoden verwenden, die ein Ergebnis oder einen Fehler an eine Callback-Funktion zurückgeben, müssen Sie den Fehler selbst weitergeben.
-Das folgende Beispiel zeigt, wie.
+Zum Schluss, wenn Sie den älteren Stil asynchroner Methoden verwenden, die einen Fehler oder ein Ergebnis in einer Callback-Funktion zurückgeben, dann müssen Sie den Fehler selbst weitergeben.
+Das folgende Beispiel zeigt, wie das geht.
 
 ```js
 router.get("/about", (req, res, next) => {
@@ -286,33 +286,33 @@ router.get("/about", (req, res, next) => {
 });
 ```
 
-Für mehr Informationen siehe [Fehlerbehandlung](https://expressjs.com/en/guide/error-handling.html).
+Weitere Informationen finden Sie unter [Fehlerbehandlung](https://expressjs.com/en/guide/error-handling.html).
 
 ## Routen, die für die LocalLibrary benötigt werden
 
-Die URLs, die wir letztendlich für unsere Seiten benötigen, sind unten aufgeführt, wobei _object_ durch den Namen jedes unserer Modelle (Buch, Buchinstanz, Genre, Autor) ersetzt wird, _objects_ der Plural von Objekt ist, und _id_ das einzigartige Instanzfeld (`_id`) ist, das standardmäßig jeder Mongoose-Modellinstanz zugewiesen wird.
+Die URLs, die wir letztendlich für unsere Seiten benötigen, sind unten aufgelistet, wobei _object_ durch den Namen jedes unserer Modelle (Buch, Buchinstanz, Genre, Autor) ersetzt wird, und _objects_ die Mehrzahl von object ist und _id_ das eindeutige Instanzfeld (`_id`), das jedem Mongoose-Modellinstanz standardmäßig zugewiesen wird.
 
-- `catalog/` — Die Start-/Index-Seite.
-- `catalog/<objects>/` — Die Liste aller Bücher, Buchinstanzen, Genres oder Autoren (z.B., /`catalog/books/`, /`catalog/genres/`, etc.)
-- `catalog/<object>/<id>` — Die Detailseite für ein bestimmtes Buch, eine Buchinstanz, ein Genre oder einen Autor mit dem angegebenen `_id` Feldwert (z.B., `/catalog/book/584493c1f4887f06c0e67d37)`).
-- `catalog/<object>/create` — Das Formular, um ein neues Buch, eine Buchinstanz, ein Genre oder einen Autor zu erstellen (z.B., `/catalog/book/create)`).
-- `catalog/<object>/<id>/update` — Das Formular, um ein bestimmtes Buch, eine Buchinstanz, ein Genre oder einen Autor mit dem angegebenen `_id` Feldwert zu aktualisieren (z.B., `/catalog/book/584493c1f4887f06c0e67d37/update)`).
-- `catalog/<object>/<id>/delete` — Das Formular, um ein bestimmtes Buch, eine Buchinstanz, ein Genre oder einen Autor mit dem angegebenen `_id` Feldwert zu löschen (z.B., `/catalog/book/584493c1f4887f06c0e67d37/delete)`).
+- `catalog/` — Die Startseite/Indexseite.
+- `catalog/<objects>/` — Die Liste aller Bücher, Buchinstanzen, Genres oder Autoren (z.B. /`catalog/books/`, /`catalog/genres/`, usw.)
+- `catalog/<object>/<id>` — Die Detailseite für ein bestimmtes Buch, eine Buchinstanz, ein Genre oder einen Autoren mit dem angegebenen `_id`-Feldwert (z.B. `/catalog/book/584493c1f4887f06c0e67d37)`).
+- `catalog/<object>/create` — Das Formular zum Erstellen eines neuen Buches, einer Buchinstanz, eines Genres oder eines Autors (z.B. `/catalog/book/create)`).
+- `catalog/<object>/<id>/update` — Das Formular zum Aktualisieren eines bestimmten Buches, einer Buchinstanz, eines Genres oder eines Autors mit dem angegebenen `_id`-Feldwert (z.B. `/catalog/book/584493c1f4887f06c0e67d37/update)`).
+- `catalog/<object>/<id>/delete` — Das Formular zum Löschen eines bestimmten Buches, einer Buchinstanz, eines Genres oder eines Autors mit dem angegebenen `_id`-Feldwert (z.B. `/catalog/book/584493c1f4887f06c0e67d37/delete)`).
 
-Die erste Startseite und die Listen-Seiten kodieren keine zusätzlichen Informationen. Während die zurückgegebenen Ergebnisse von dem Modelltyp und dem Inhalt in der Datenbank abhängen, werden die durchgeführten Abfragen, um die Informationen zu erhalten, immer gleich sein (ähnlich wird der Code zur Erstellung von Objekten immer ähnlich sein).
+Die ersten Start- und Übersichtsseiten enkodieren keine zusätzlichen Informationen. Während die zurückgegeben Ergebnisse von Modelltyp und dem Inhalt in der Datenbank abhängen, werden die Abfragen, um die Informationen zu erhalten, immer gleich sein (ähnlich wird der Code für das Erstellen von Objekten immer ähnlich sein).
 
-Im Gegensatz dazu werden die anderen URLs verwendet, um auf ein spezifisches Dokument/eine Modellinstanz zu wirken — diese kodieren die Identität des Elements in der URL (oben als `<id>` dargestellt). Wir verwenden Pfadparameter, um die kodierten Informationen zu extrahieren und an den Routen-Handler zu übergeben (und in einem späteren Artikel verwenden wir dies, um dynamisch zu bestimmen, welche Informationen aus der Datenbank abgerufen werden sollen). Indem wir die Informationen in unsere URL kodieren, benötigen wir nur eine Route für jede Ressource eines bestimmten Typs (z.B., eine Route, um die Darstellung jedes einzelnen Buchs zu behandeln).
+Im Gegensatz dazu werden die anderen URLs verwendet, um auf ein bestimmtes Dokument/Modellinstanz zu wirken—diese kodieren die Identität des Elements in der URL (wie oben mit `<id>` gezeigt). Wir werden Pfadparameter verwenden, um die kodierten Informationen zu extrahieren und an den Routenhandler weiterzuleiten (und in einem späteren Artikel verwenden wir diese, um dynamisch zu bestimmen, welche Informationen aus der Datenbank abgerufen werden sollen). Indem wir die Informationen in unserer URL kodieren, benötigen wir nur eine Route für jede Ressource eines bestimmten Typs (z.B. eine Route, um die Anzeige eines einzelnen Buchartikels zu bearbeiten).
 
 > [!NOTE]
-> Express erlaubt Ihnen, Ihre URLs beliebig zu konstruieren — Sie können Informationen wie oben gezeigt im Hauptteil der URL kodieren oder URL `GET`-Parameter verwenden (z.B., `/book/?id=6`). Welche Methode auch immer Sie verwenden, die URLs sollten sauber, logisch und gut lesbar sein ([schauen Sie sich den W3C-Rat hier an](https://www.w3.org/Provider/Style/URI)).
+> Express erlaubt es Ihnen, Ihre URLs beliebig zu gestalten – Sie können Informationen im Hauptteil der URL wie oben gezeigt enkodieren oder URL-`GET`-Parameter verwenden (z.B. `/book/?id=6`). Unabhängig davon, welchen Ansatz Sie verwenden, sollten die URLs sauber, logisch und lesbar gehalten werden ([sehen Sie sich den W3C-Rat hier an](https://www.w3.org/Provider/Style/URI)).
 
-Als Nächstes erstellen wir unsere Routen-Handler-Callback-Funktionen und den Routencode für alle oben genannten URLs.
+Als Nächstes erstellen wir unsere Routenhandler-Callback-Funktionen und Routen-Code für alle oben genannten URLs.
 
-## Erstellen der Routen-Handler-Callback-Funktionen
+## Erstellen Sie die Routenhandler-Callback-Funktionen
 
-Bevor wir unsere Routen definieren, erstellen wir zunächst alle Dummy-/Skelett-Callback-Funktionen, die sie aufrufen werden. Die Callbacks werden in separaten "Controller"-Modulen für `Book`, `BookInstance`, `Genre` und `Author` gespeichert (Sie können jede Datei-/Modulstruktur verwenden, aber dies scheint eine geeignete Granularität für dieses Projekt zu sein).
+Bevor wir unsere Routen definieren, erstellen wir zuerst alle Dummy-/Skelett-Callback-Funktionen, die sie aufrufen. Die Callbacks werden in separaten "Controller"-Modulen für `Book`, `BookInstance`, `Genre` und `Author` abgelegt (Sie können jede Datei-/Modulstruktur verwenden, aber dies scheint eine geeignete Granularität für dieses Projekt zu sein).
 
-Beginnen Sie damit, ein Verzeichnis für unsere Controller im Projektstammverzeichnis zu erstellen (**/controllers**) und dann separate Controller-Dateien/Module für die Bearbeitung jedes der Modelle zu erstellen:
+Beginnen Sie damit, einen Ordner für unsere Controller im Projektstamm (**/controllers**) zu erstellen und dann separate Controller-Dateien/-Module für die Verwaltung jedes der Modelle zu erstellen:
 
 ```plain
 /express-locallibrary-tutorial  # the project root
@@ -371,16 +371,16 @@ exports.author_update_post = async (req, res, next) => {
 };
 ```
 
-Das Modul erfordert zunächst das `Author` Modell, das wir später verwenden, um auf unsere Daten zuzugreifen und diese zu aktualisieren.
+Das Modul erfordert zuerst das `Author`-Modell, das später verwendet wird, um auf unsere Daten zuzugreifen und diese zu aktualisieren.
 Es exportiert dann Funktionen für jede der URLs, die wir bearbeiten möchten.
-Beachten Sie, dass die Erstellungs-, Aktualisierungs- und Löschoperationen Formulare verwenden und daher auch zusätzliche Methoden zur Bearbeitung von Formular-Post-Anfragen haben — wir werden diese Methoden im späteren "Formular-Artikel" diskutieren.
+Beachten Sie, dass die Operationen für Erstellen, Aktualisieren und Löschen Formulare verwenden und daher zusätzliche Methoden haben, um Anforderungs-Post-Anfragen zu bearbeiten — wir werden diese Methoden im "Formularartikel" später besprechen.
 
-Die Funktionen antworten mit einem String, der angibt, dass die zugehörige Seite noch nicht erstellt wurde.
-Wenn eine Controller-Funktion Pfadparameter erhalten soll, werden diese im Nachrichten-String ausgegeben (siehe `req.params.id` oben).
+Die Funktionen antworten mit einer Zeichenfolge, die angibt, dass die zugehörige Seite noch nicht erstellt wurde.
+Wenn eine Controller-Funktion erwartet wird, um Pfadparameter zu empfangen, werden diese in der Nachrichtenzeichenkette ausgegeben (siehe `req.params.id` oben).
 
 #### BookInstance-Controller
 
-Öffnen Sie die Datei **/controllers/bookinstanceController.js** und kopieren Sie den folgenden Code (dies folgt dem gleichen Muster wie das `Author` Controller-Modul):
+Öffnen Sie die Datei **/controllers/bookinstanceController.js** und kopieren Sie den folgenden Code hinein (dies folgt einem identischen Muster wie das `Author`-Controllermodul):
 
 ```js
 const BookInstance = require("../models/bookinstance");
@@ -428,7 +428,7 @@ exports.bookinstance_update_post = async (req, res, next) => {
 
 #### Genre-Controller
 
-Öffnen Sie die Datei **/controllers/genreController.js** und kopieren Sie den folgenden Text (dies folgt dem gleichen Muster wie die `Author` und `BookInstance` Dateien):
+Öffnen Sie die Datei **/controllers/genreController.js** und kopieren Sie den folgenden Text hinein (dies folgt einem identischen Muster wie die `Author`- und `BookInstance`-Dateien):
 
 ```js
 const Genre = require("../models/genre");
@@ -477,7 +477,7 @@ exports.genre_update_post = async (req, res, next) => {
 #### Book-Controller
 
 Öffnen Sie die Datei **/controllers/bookController.js** und kopieren Sie den folgenden Code hinein.
-Dies folgt dem gleichen Muster wie die anderen Controller-Module, hat aber zusätzlich eine `index()` Funktion zum Darstellen der Webseite der Begrüßungsseite:
+Dies folgt demselben Muster wie die anderen Controllermodule, hat jedoch zusätzlich eine `index()`-Funktion für die Anzeige der Willkommensseite der Website:
 
 ```js
 const Book = require("../models/book");
@@ -527,12 +527,12 @@ exports.book_update_post = async (req, res, next) => {
 };
 ```
 
-## Erstellen des Katalog-Routenmoduls
+## Erstellen Sie das Katalogroutenmodul
 
-Als nächstes erstellen wir _Routen_ für alle URLs [die von der LocalLibrary-Website benötigt werden](#routen,_die_für_die_locallibrary_benötigt_werden), die die Controller-Funktionen aufrufen, die wir in den vorherigen Abschnitten definiert haben.
+Als nächstes erstellen wir _Routen_ für alle URLs [die von der LocalLibrary-Website benötigt werden](#routen,_die_für_die_locallibrary_benötigt_werden), welche die zuvor definierten Controller-Funktionen aufrufen werden.
 
-Das Grundgerüst enthält bereits einen **./routes** Ordner mit Routen für den _index_ und die _users_.
-Erstellen Sie eine weitere Routen-Datei — **catalog.js** — innerhalb dieses Ordners, wie gezeigt.
+Das Grundgerüst hat bereits einen **./routes**-Ordner mit Routen für den _Index_ und _Benutzer_.
+Erstellen Sie eine weitere Routen-Datei — **catalog.js** — in diesem Ordner, wie gezeigt.
 
 ```plain
 /express-locallibrary-tutorial # the project root
@@ -542,7 +542,7 @@ Erstellen Sie eine weitere Routen-Datei — **catalog.js** — innerhalb dieses 
     catalog.js
 ```
 
-Öffnen Sie **/routes/catalog.js** und kopieren Sie den unten stehenden Code hinein:
+Öffnen Sie **/routes/catalog.js** und kopieren Sie den folgenden Code hinein:
 
 ```js
 const express = require("express");
@@ -685,16 +685,16 @@ module.exports = router;
 
 Das Modul erfordert Express und verwendet es dann, um ein `Router`-Objekt zu erstellen. Die Routen werden alle auf dem Router eingerichtet, der dann exportiert wird.
 
-Die Routen werden entweder mit den Methoden `.get()` oder `.post()` auf dem Router-Objekt definiert. Alle Pfade sind mit Strings definiert (wir verwenden keine String-Muster oder reguläre Ausdrücke).
-Routen, die auf einer spezifischen Ressource agieren (z.B., Buch), verwenden Pfadparameter, um die Objekt-ID aus der URL zu erhalten.
+Die Routen werden entweder mit `.get()` oder `.post()`-Methoden auf dem Router-Objekt definiert. Alle Pfade sind mit Zeichenketten definiert (wir verwenden keine Zeichenmuster oder regulären Ausdrücke).
+Routen, die auf eine spezifische Ressource (z.B. ein Buch) wirken, verwenden Pfadparameter, um die Objekt-ID aus der URL zu erhalten.
 
-Die Handler-Funktionen werden alle aus den Controller-Modulen importiert, die wir im vorherigen Abschnitt erstellt haben.
+Die Handler-Funktionen stammen alle von den Controllermodulen, die wir im vorherigen Abschnitt erstellt haben.
 
-### Aktualisieren des Index-Routenmoduls
+### Aktualisieren Sie das Indexroutenmodul
 
-Wir haben alle unsere neuen Routen eingerichtet, aber wir haben immer noch eine Route zur ursprünglichen Seite. Lassen Sie uns stattdessen auf die neue Indexseite umleiten, die wir unter dem Pfad `/catalog` erstellt haben.
+Wir haben jetzt alle unsere neuen Routen eingerichtet, aber wir haben immer noch eine Route zur ursprünglichen Seite. Lassen Sie uns stattdessen zu der neuen Startseite umleiten, die wir unter dem Pfad `/catalog` erstellt haben.
 
-Öffnen Sie **/routes/index.js** und ersetzen Sie die bestehende Route mit der unten stehenden Funktion.
+Öffnen Sie **/routes/index.js** und ersetzen Sie die vorhandene Route durch die folgende Funktion.
 
 ```js
 // GET home page.
@@ -704,14 +704,14 @@ router.get("/", (req, res) => {
 ```
 
 > [!NOTE]
-> Dies ist unsere erste Nutzung der [redirect()](https://expressjs.com/en/5x/api.html#res.redirect) Antwortmethode. Dies leitet auf die angegebene Seite um und sendet standardmäßig den HTTP-Statuscode "302 Found". Sie können den zurückgegebenen Statuscode bei Bedarf ändern und entweder absolute oder relative Pfade angeben.
+> Dies ist unsere erste Verwendung der [redirect()](https://expressjs.com/en/5x/api.html#res.redirect)-Antwortmethode. Diese leitet zur angegebenen Seite um, indem sie standardmäßig den HTTP-Statuscode "302 Found" sendet. Sie können den zurückgegeben Statuscode bei Bedarf ändern und entweder absolute oder relative Pfade angeben.
 
-### Aktualisieren der app.js
+### Aktualisieren Sie app.js
 
-Der letzte Schritt besteht darin, die Routen in die Middleware-Kette aufzunehmen.
-Wir tun dies in `app.js`.
+Der letzte Schritt besteht darin, die Routen zur Middleware-Kette hinzuzufügen.
+Das tun wir in `app.js`.
 
-Öffnen Sie **app.js** und importieren Sie die Katalogroute unter den anderen Routen (fügen Sie die dritte Zeile hinzu, wie unten gezeigt, unter den anderen beiden, die bereits in der Datei vorhanden sein sollten):
+Öffnen Sie **app.js** und fügen Sie die Katalog-Route unterhalb der anderen Routen hinzu (fügen Sie die dritte Zeile, die unten gezeigt wird, unterhalb der anderen beiden Zeilen hinzu, die bereits in der Datei vorhanden sein sollten):
 
 ```js
 const indexRouter = require("./routes/index");
@@ -719,7 +719,7 @@ const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog"); // Import routes for "catalog" area of site
 ```
 
-Fügen Sie als Nächstes die Katalogroute zum Middleware-Stack unter den anderen Routen hinzu (fügen Sie die dritte Zeile hinzu, wie unten gezeigt, unter den anderen beiden, die bereits in der Datei vorhanden sein sollten):
+Fügen Sie als nächstes die Katalog-Route zum Middleware-Stapel unter den anderen Routen hinzu (fügen Sie die dritte Zeile hinzu, die unten gezeigt wird, unterhalb der anderen beiden Zeilen, die bereits in der Datei vorhanden sein sollten):
 
 ```js
 app.use("/", indexRouter);
@@ -728,13 +728,13 @@ app.use("/catalog", catalogRouter); // Add catalog routes to middleware chain.
 ```
 
 > [!NOTE]
-> Wir haben unser Katalogmodul unter einem Pfad `/catalog` hinzugefügt. Dies wird allen im Katalogmodul definierten Pfaden vorangestellt. Wenn Sie also zum Beispiel eine Liste von Büchern aufrufen möchten, wird die URL: `/catalog/books/` sein.
+> Wir haben unser Katalogmodul zu einem Pfad `/catalog` hinzugefügt. Dieser wird allen im Katalogmodul definierten Pfaden vorangestellt. Beispielsweise lautet die URL für den Zugriff auf eine Liste von Büchern: `/catalog/books/`.
 
-Das war's. Wir sollten jetzt Routen und Skelettfunktionen für alle URLs eingerichtet haben, die wir letztendlich auf der LocalLibrary-Website unterstützen werden.
+Das war's. Wir sollten nun Routen und Skelettfunktionen für alle URLs aktiviert haben, die wir letztendlich auf der LocalLibrary-Website unterstützen werden.
 
 ### Testen der Routen
 
-Um die Routen zu testen, starten Sie zuerst die Website mit Ihrer üblichen Methode
+Um die Routen zu testen, starten Sie zuerst die Website mit Ihrem üblichen Ansatz
 
 - Die Standardmethode
 
@@ -752,7 +752,7 @@ Um die Routen zu testen, starten Sie zuerst die Website mit Ihrer üblichen Meth
   npm run serverstart
   ```
 
-Navigieren Sie dann zu einer Reihe von LocalLibrary-URLs und überprüfen Sie, dass Sie keine Fehlerseite (HTTP 404) erhalten. Eine kleine Auswahl von URLs wird nachfolgend für Ihre Bequemlichkeit aufgeführt:
+Navigieren Sie dann zu einer Reihe von LocalLibrary-URLs und überprüfen Sie, dass Sie keine Fehlerseite (HTTP 404) erhalten. Eine kleine Reihe von URLs ist unten zu Ihrer Verfügung aufgeführt:
 
 - `http://localhost:3000/`
 - `http://localhost:3000/catalog`
@@ -765,9 +765,9 @@ Navigieren Sie dann zu einer Reihe von LocalLibrary-URLs und überprüfen Sie, d
 
 ## Zusammenfassung
 
-Wir haben jetzt alle Routen für unsere Seite erstellt, zusammen mit Dummy-Controller-Funktionen, die wir in späteren Artikeln mit einer vollständigen Implementierung füllen können. Unterwegs haben wir viel grundlegende Informationen über Express-Routen, das Behandeln von Ausnahmen und einige Ansätze zur Strukturierung unserer Routen und Controller gelernt.
+Wir haben jetzt alle Routen für unsere Website erstellt, zusammen mit Dummy-Controller-Funktionen, die wir in späteren Artikeln mit einer vollständigen Implementierung füllen können. Auf dem Weg haben wir eine Menge grundlegender Informationen über Express-Routen, das Behandeln von Ausnahmen, und einige Ansätze zur Strukturierung unserer Routen und Controller gelernt.
 
-In unserem nächsten Artikel werden wir eine richtige Begrüßungsseite für die Seite erstellen, unter Verwendung von Ansichten (Vorlagen) und Informationen, die in unseren Modellen gespeichert sind.
+In unserem nächsten Artikel erstellen wir eine ordentliche Willkommensseite für die Website, indem wir Ansichten (Templates) und in unseren Modellen gespeicherte Informationen verwenden.
 
 ## Siehe auch
 

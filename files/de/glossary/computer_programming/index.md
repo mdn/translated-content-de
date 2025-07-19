@@ -2,12 +2,12 @@
 title: Computerprogrammierung
 slug: Glossary/Computer_Programming
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-**Computerprogrammierung** ist der Prozess des Verfassens und Organisierens einer Sammlung von Anweisungen. Diese Anweisungen sagen einem Computer/Softwareprogramm, was in einer Sprache, die der Computer versteht, zu tun ist. Diese Anweisungen kommen in Form vieler verschiedener Sprachen wie C++, Java, JavaScript, HTML, Python, Ruby und Rust.
+**Computerprogrammierung** ist der Prozess des Verfassens und Organisierens einer Sammlung von Anweisungen. Diese sagen einem Computer/Softwareprogramm, was es in einer Sprache tun soll, die der Computer versteht. Diese Anweisungen gibt es in vielen verschiedenen Sprachen, wie C++, Java, JavaScript, HTML, Python, Ruby und Rust.
 
-Mit einer geeigneten Sprache können Sie alle Arten von Software programmieren/erstellen. Zum Beispiel ein Programm, das Wissenschaftlern bei komplexen Berechnungen hilft, eine Datenbank, die riesige Datenmengen speichert, eine Website, die es Menschen ermöglicht, Musik herunterzuladen, oder Animationssoftware, die es Menschen erlaubt, animierte Filme zu erstellen.
+Durch die Verwendung einer geeigneten Sprache können Sie alle Arten von Software programmieren/erstellen. Zum Beispiel ein Programm, das Wissenschaftlern bei komplexen Berechnungen hilft, eine Datenbank, die riesige Datenmengen speichert, eine Website, die es Menschen ermöglicht, Musik herunterzuladen, oder Animationssoftware, die es Menschen ermöglicht, Animationsfilme zu erstellen.
 
 ## Siehe auch
 

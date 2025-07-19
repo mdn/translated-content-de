@@ -1,20 +1,20 @@
 ---
-title: Time to Interactive
+title: Time to Interactive (TTI)
 slug: Glossary/Time_to_interactive
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-**Time to Interactive** (TTI) ist eine nicht standardisierte Messgröße für die Web-Performance im Sinne eines 'Fortschritts', die als der Zeitpunkt definiert ist, wenn die letzte [Long Task](/de/docs/Web/API/PerformanceLongTaskTiming) beendet wurde und darauf 5 Sekunden Netzwerk- und Hauptthread-Inaktivität folgten.
+**Time to Interactive** (**TTI**) ist ein nicht-standardisierter Web-Performance-'Fortschritts'-Metrik, der als der Zeitpunkt definiert ist, an dem die letzte [Long Task](/de/docs/Web/API/PerformanceLongTaskTiming) abgeschlossen wurde und anschließend 5 Sekunden keine Aktivität im Netzwerk und im Hauptthread stattfand.
 
-TTI wurde 2018 von der Web Incubator Community Group vorgeschlagen, um eine Messgröße bereitzustellen, die beschreibt, wann eine Seite oder Anwendung nützliche Inhalte enthält und der Hauptthread frei sowie bereit ist, auf Benutzerinteraktionen zu reagieren, einschließlich der Registrierung von Event-Handlern.
+TTI, vorgeschlagen von der Web Incubator Community Group im Jahr 2018, sollte eine Metrik bereitstellen, die beschreibt, wann eine Seite oder Anwendung nützlichen Inhalt enthält und der Hauptthread frei ist, um auf Benutzerinteraktionen zu reagieren, einschließlich der Registrierung von Event-Handlern.
 
-#### Hinweis
+#### Einschränkung
 
-TTI wird abgeleitet, indem Informationen aus der [Long Task API](/de/docs/Web/API/PerformanceLongTaskTiming) genutzt werden. Obwohl in einigen Performance-Überwachungstools verfügbar, ist TTI kein Bestandteil einer offiziellen Web-Spezifikation.
+TTI wird abgeleitet, indem Informationen von der [Long Task API](/de/docs/Web/API/PerformanceLongTaskTiming) genutzt werden. Obwohl in einigen Performance-Monitoring-Tools verfügbar, ist TTI kein Teil einer offiziellen Web-Spezifikation.
 
 ## Siehe auch
 
 - [Definition von TTI](https://github.com/WICG/time-to-interactive) von der Web Incubator Community Group
-- [Time to Interactive — focusing on human-centric metrics](https://calibreapp.com/blog/time-to-interactive) von Radimir Bitsov
+- [Time to Interactive — fokussieren auf menschengerechte Metriken](https://calibreapp.com/blog/time-to-interactive) von Radimir Bitsov
 - {{Glossary("Time_to_first_byte", "Time to first byte (TTFB)")}}

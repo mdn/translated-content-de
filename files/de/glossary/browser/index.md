@@ -2,10 +2,10 @@
 title: Browser
 slug: Glossary/Browser
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
 ---
 
-Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es Benutzern ermöglicht, über {{Glossary("hyperlink", "Hyperlinks")}} auf weitere Seiten zuzugreifen. Ein Browser ist der vertrauteste Typ von {{Glossary("user_agent", "User-Agent")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
+Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es den Benutzern ermöglicht, über {{Glossary("hyperlink", "Hyperlinks")}} auf weitere Seiten zuzugreifen. Ein Browser ist der bekannteste Typ eines {{Glossary("user_agent", "User-Agents")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
 
 Gängige Browser sind:
 
@@ -19,8 +19,8 @@ Gängige Browser sind:
 
 - [Webbrowser](https://en.wikipedia.org/wiki/Web_browser) auf Wikipedia
 - {{HTTPHeader("User-agent")}} (HTTP-Header)
-- Einen Browser herunterladen
-  - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+- Laden Sie einen Browser herunter
+  - [Mozilla Firefox](https://www.firefox.com/en-US/)
   - [Google Chrome](https://www.google.com/chrome/)
   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
   - [Opera Browser](https://www.opera.com/)
