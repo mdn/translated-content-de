@@ -3,22 +3,22 @@ title: Map.prototype.delete()
 short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/Map/delete
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`delete()`**-Methode von {{jsxref("Map")}}-Instanzen entfernt das angegebene Element aus dieser Map anhand des Schlüssels.
+Die **`delete()`** Methode von {{jsxref("Map")}} Instanzen entfernt das angegebene Element aus dieser Map anhand des Schlüssels.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.delete()")}}
 
 ```js interactive-example
-const map1 = new Map();
-map1.set("bar", "foo");
+const map = new Map();
+map.set("bar", "foo");
 
-console.log(map1.delete("bar"));
+console.log(map.delete("bar"));
 // Expected result: true
 // True indicates successful removal
 
-console.log(map1.has("bar"));
+console.log(map.has("bar"));
 // Expected result: false
 ```
 
@@ -31,11 +31,12 @@ mapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt entfernt werden soll.
+  - : Der Schlüssel des Elements, das aus dem `Map` Objekt entfernt werden soll.
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `Map`-Objekt existierte und entfernt wurde, oder `false`, wenn das Element nicht existiert.
+`true`, wenn ein Element im `Map` Objekt existierte und entfernt wurde, oder
+`false`, wenn das Element nicht existiert.
 
 ## Beispiele
 

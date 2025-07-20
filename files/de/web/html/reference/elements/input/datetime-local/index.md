@@ -2,10 +2,10 @@
 title: <input type="datetime-local">
 slug: Web/HTML/Reference/Elements/input/datetime-local
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 13856107d2cab5bb9e40de608ee38a5770ef7c4d
 ---
 
-{{htmlelement("input")}}-Elemente vom Typ **`datetime-local`** erstellen Eingabesteuerungen, die es dem Benutzer ermöglichen, sowohl ein Datum als auch eine Uhrzeit einfach einzugeben, einschließlich Jahr, Monat und Tag sowie der Uhrzeit in Stunden und Minuten.
+{{htmlelement("input")}}-Elemente vom Typ **`datetime-local`** erzeugen Eingabesteuerelemente, mit denen der Benutzer einfach sowohl ein Datum als auch eine Uhrzeit eingeben kann, einschließlich Jahr, Monat und Tag sowie der Uhrzeit in Stunden und Minuten.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;datetime-local&quot;&gt;", "tabbed-shorter")}}
 
@@ -35,13 +35,13 @@ label {
 }
 ```
 
-Die Benutzeroberfläche der Steuerelemente variiert im Allgemeinen von Browser zu Browser. Das Steuerelement soll _ein lokales Datum und eine lokale Uhrzeit_ repräsentieren und nicht unbedingt _das lokale Datum und die lokale Uhrzeit des Benutzers_. Mit anderen Worten, die Eingabe erlaubt jede gültige Kombination von Jahr, Monat, Tag, Stunde und Minute — selbst wenn eine solche Kombination in der lokalen Zeitzone des Benutzers ungültig ist (wie die eine Stunde innerhalb einer Zeitumstellung im Frühling).
+Das UI des Steuerelements variiert im Allgemeinen von Browser zu Browser. Das Steuerelement soll _ein lokales Datum und eine lokale Uhrzeit_ darstellen und nicht unbedingt _das lokale Datum und die Uhrzeit des Benutzers_. Mit anderen Worten, die Eingabe erlaubt jede gültige Kombination von Jahr, Monat, Tag, Stunde und Minute — auch wenn eine solche Kombination in der lokalen Zeitzone des Benutzers ungültig ist (wie die eine Stunde innerhalb einer Sommerzeitsprung-Übergangslücke).
 
 ## Wert
 
-Ein String, der den Wert des in das Eingabefeld eingegebenen Datums repräsentiert. Das Format des von diesem Eingabetyp verwendeten Datums- und Zeitwertes wird in [Lokale Datums- und Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) beschrieben.
+Ein String, der den Wert des im Eingabefeld eingegebenen Datums darstellt. Das Format des von diesem Eingabetyp verwendeten Datums- und Zeitwertes wird in [Lokale Datums- und Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) beschrieben.
 
-Sie können einen Standardwert für die Eingabe festlegen, indem Sie ein Datum und eine Uhrzeit in das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut einschließen, wie folgt:
+Sie können einen Standardwert für die Eingabe festlegen, indem Sie ein Datum und eine Uhrzeit innerhalb des [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attributs angeben, wie folgt:
 
 ```html
 <label for="party">Enter a date and time for your party booking:</label>
@@ -54,12 +54,12 @@ Sie können einen Standardwert für die Eingabe festlegen, indem Sie ein Datum u
 
 {{ EmbedLiveSample('Value', 600, 60) }}
 
-Es ist zu beachten, dass die angezeigten Datums- und Zeitformate von dem tatsächlichen `value` abweichen; die angezeigten Datums- und Zeitformate werden gemäß der vom Betriebssystem des Benutzers gemeldeten Locale formatiert, während der Datum/Uhrzeit-`value` immer im Format `YYYY-MM-DDTHH:mm` formatiert wird. Wenn der obige Wert beispielsweise an den Server übermittelt wird, sieht er so aus: `party-date=2024-06-01T08:30`.
+Es ist zu beachten, dass die angezeigten Datums- und Zeitformate von dem tatsächlichen `value` abweichen; die angezeigten Daten und Zeiten sind gemäß der vom Betriebssystem des Benutzers gemeldeten Benutzerlokale formatiert, während der Datum/Uhrzeit-`value` immer im Format `YYYY-MM-DDTHH:mm` formatiert ist. Wenn der obige Wert beispielsweise an den Server übermittelt wird, sieht er so aus: `party-date=2024-06-01T08:30`.
 
 > [!NOTE]
-> Beachten Sie auch, dass, wenn solche Daten über HTTP [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET) übermittelt werden, das Doppelpunkt-Zeichen für die Einbindung in die URL-Parameter umgewandelt werden muss, z.B. `party-date=2024-06-01T08%3A30`. Siehe {{jsxref("Global_Objects/encodeURI", "encodeURI()")}} für eine Möglichkeit, dies zu tun.
+> Bedenken Sie auch, dass, wenn solche Daten über HTTP [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET) übermittelt werden, das Doppelpunktzeichen für die Aufnahme in die URL-Parameter maskiert werden muss, z. B. `party-date=2024-06-01T08%3A30`. Siehe {{jsxref("Global_Objects/encodeURI", "encodeURI()")}} für eine Möglichkeit, dies zu tun.
 
-Sie können auch den Datumswert in JavaScript mit der `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) abrufen und festlegen, zum Beispiel:
+Sie können den Datumswert auch in JavaScript abrufen und setzen, indem Sie die `value`-Eigenschaft von [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) verwenden, zum Beispiel:
 
 ```js
 const dateControl = document.querySelector('input[type="datetime-local"]');
@@ -68,52 +68,50 @@ dateControl.value = "2017-06-01T08:30";
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den Attributen, die allen {{HTMLElement("input")}}-Elementen gemeinsam sind, bieten `datetime-local` Eingaben die folgenden Attribute.
+Zusätzlich zu den für alle {{HTMLElement("input")}}-Elemente gemeinsamen Attributen bieten `datetime-local`-Eingaben die folgenden Attribute.
 
 ### max
 
-Das späteste Datum und die späteste Uhrzeit, die akzeptiert wird. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) später als dieser Zeitstempel ist, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) des Elements fehl. Wenn der Wert des `max`-Attributs kein gültiger String ist, der dem Format `YYYY-MM-DDTHH:mm` entspricht, hat das Element keinen Maximalwert.
+Das späteste zu akzeptierende Datum und die späteste zu akzeptierende Uhrzeit. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) nach diesem Zeitstempel liegt, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) des Elements fehl. Wenn der Wert des `max`-Attributs kein gültiger String ist, der dem Format `YYYY-MM-DDTHH:mm` folgt, hat das Element keinen Maximalwert.
 
-Dieser Wert muss einen Datum-String angeben, der später oder gleich dem durch das `min`-Attribut angegebenen ist.
+Dieser Wert muss ein Datumsstring spezifizieren, der später oder gleich dem durch das `min`-Attribut angegebenen Wert ist.
 
 ### min
 
-Das früheste Datum und die früheste Uhrzeit, die akzeptiert wird; Zeitstempel, die früher sind, führen dazu, dass die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) des Elements fehlschlägt. Wenn der Wert des `min`-Attributs kein gültiger String ist, der dem Format `YYYY-MM-DDTHH:mm` folgt, hat das Element keinen Minimalwert.
+Das früheste zu akzeptierende Datum und die früheste zu akzeptierende Uhrzeit; Zeitstempel, die früher sind, führen dazu, dass das Element die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht besteht. Wenn der Wert des `min`-Attributs kein gültiger String ist, der dem Format `YYYY-MM-DDTHH:mm` folgt, hat das Element keinen Minimalwert.
 
-Dieser Wert muss einen Datum-String angeben, der früher oder gleich dem durch das `max`-Attribut angegebenen ist.
+Dieser Wert muss ein Datumsstring spezifizieren, der früher oder gleich dem durch das `max`-Attribut angegebenen Wert ist.
 
 ### step
 
-Das `step`-Attribut ist eine Zahl, die die Granularität angibt, der der Wert entsprechen muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die dem Ausgangspunkt für das Schrittmachen entsprechen ([`min`](#min), falls angegeben, [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) andernfalls, und ein entsprechender Standardwert, wenn keiner von beiden angegeben ist), sind gültig.
+Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die sich der Wert halten muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die eine ganze Anzahl von Schritten vom Schrittgrund entfernt sind, sind gültig. Der Schrittgrund ist [`min`](#min), wenn angegeben; andernfalls [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) oder `0` (die Unix-Zeit, `1970-01-01T00:00`), wenn keiner angegeben ist.
 
-Ein String-Wert von `any` bedeutet, dass kein Schrittmachen impliziert ist, und jeder Wert (vorbehaltlich anderer Beschränkungen, wie [`min`](#min) und [`max`](#max)) erlaubt ist.
+Für `datetime-local`-Eingabefelder wird der Wert von `step` in Sekunden angegeben und als Anzahl von Millisekunden behandelt, die dem 1000-fachen des `step`-Wertes entsprechen (der zugrunde liegende numerische Wert ist in Millisekunden). Der Standardwert ist 60, was 1 Minute anzeigt.
+
+Ein String-Wert von `any` bedeutet, dass keine Schrittweitenanforderung impliziert wird, und es wird jeder Wert zugelassen (vorbehaltlich anderer Beschränkungen, wie [`min`](#min) und [`max`](#max)). In Wirklichkeit hat es denselben Effekt wie `60` für `datetime-local`-Eingaben, da die Auswahlanzeige in diesem Fall nur das Auswählen ganzer Minuten erlaubt.
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Schrittkonfiguration entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächstgelegenen gültigen Wert runden und bei zwei gleich nahen Optionen bevorzugt einen größeren Wert wählen.
+> Wenn die vom Benutzer eingegebenen Daten nicht mit der Schrittweitenkonfiguration übereinstimmen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächsten gültigen Wert runden und bevorzugt dabei Werte in positiver Richtung, wenn zwei gleich weit entfernte Optionen vorhanden sind.
 
-Für `datetime-local` Eingaben wird der Wert von `step` in Sekunden angegeben, mit einem Skalierungsfaktor von 1000 (da der zugrunde liegende numerische Wert in Millisekunden ist). Der Standardwert von `step` ist 60, was 60 Sekunden bedeutet (oder 1 Minute, oder 60.000 Millisekunden).
+## Verwendung von datetime-local-Eingaben
 
-_Zu diesem Zeitpunkt ist unklar, was ein Wert von `any` für `step` bedeutet, wenn er mit `datetime-local`-Eingaben verwendet wird. Dies wird aktualisiert, sobald diese Informationen bestimmt sind._
-
-## Verwendung von datetime-local Eingaben
-
-Datum/Uhrzeit-Eingaben sind praktisch für den Entwickler; sie bieten eine einfache Benutzeroberfläche zum Auswählen von Datum und Uhrzeit und normalisieren das Datenformat, das an den Server gesendet wird, unabhängig von der Locale des Benutzers. Es ist jedoch wichtig, Ihre Benutzer zu berücksichtigen. Verlangen Sie nicht von Ihren Benutzern, dass sie Daten eingeben, die für Ihr Programm nicht erforderlich sind.
+Datum-/Uhrzeit-Eingaben sind für den Entwickler praktisch; sie bieten eine einfache Benutzeroberfläche zum Auswählen von Daten und Zeiten und normalisieren das Datenformat, das an den Server gesendet wird, unabhängig von der Lokale des Benutzers. Es ist jedoch wichtig, Ihre Benutzer zu berücksichtigen. Verlangen Sie nicht von Ihren Benutzern, Daten einzugeben, die für die Funktionsweise Ihrer Anwendung nicht erforderlich sind.
 
 ### Steuerung der Eingabegröße
 
-`<input type="datetime-local">` unterstützt keine Attribute zur Steuerung der Formularkontrollgröße wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size). Sie müssen auf [CSS](/de/docs/Web/CSS) zurückgreifen, um die Größen dieser Elemente anzupassen.
+`<input type="datetime-local">` unterstützt keine Formulareinsteuergrößenattribute wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size). Sie müssen auf [CSS](/de/docs/Web/CSS) zurückgreifen, um die Größen dieser Elemente anzupassen.
 
-### Festlegen von Zeitzonen
+### Zeitzoneneinstellungen setzen
 
-Eine Sache, die der Eingabetyp `datetime-local` nicht bietet, ist eine Möglichkeit, die Zeitzone und/oder die Locale der Datum/Uhrzeit-Steuerung festzulegen. Dies war im Eingabetyp `datetime` verfügbar, aber dieser Typ ist jetzt veraltet und wurde aus der Spezifikation entfernt. Die Hauptgründe hierfür waren fehlende Implementierung in Browsern und Bedenken in Bezug auf die Benutzeroberfläche/Benutzererfahrung. Es ist einfacher, ein (oder mehrere) Steuerelemente für die Eingabe von Datum/Uhrzeit zu haben und dann die Locale in einem separaten Steuerelement zu behandeln.
+Eines, das der Eingabetyp `datetime-local` nicht bietet, ist die Möglichkeit, die Zeitzone und/oder Lokale des Datum-/Uhrzeit-Steuerelements festzulegen. Dies war im Eingabetyp `datetime` möglich, doch dieser Typ ist jetzt veraltet und wurde aus der Spezifikation entfernt. Die Hauptgründe für dessen Entfernung waren ein Mangel an Implementierung in Browsern und Bedenken hinsichtlich der Benutzeroberfläche/-erfahrung. Es ist einfacher, nur ein Steuerelement (oder Steuerelemente) zum Einstellen des Datums/Zeit anzubieten und sich dann mit der Lokale in einem separaten Steuerelement zu befassen.
 
-Zum Beispiel, wenn Sie ein System erstellen, in dem der Benutzer wahrscheinlich bereits angemeldet ist und seine Locale bereits festgelegt ist, könnten Sie die Zeitzone in einem [`hidden`](/de/docs/Web/HTML/Reference/Elements/input/hidden) Eingabefeld bereitstellen. Zum Beispiel:
+Wenn Sie beispielsweise ein System erstellen, bei dem der Benutzer wahrscheinlich bereits angemeldet ist und seine Lokale bereits festgelegt ist, könnten Sie die Zeitzone in einem [`hidden`](/de/docs/Web/HTML/Reference/Elements/input/hidden)-Eingabetyp bereitstellen. Zum Beispiel:
 
 ```html
 <input type="hidden" id="timezone" name="timezone" value="-08:00" />
 ```
 
-Andererseits, wenn Sie vom Benutzer verlangen müssen, dass er eine Zeitzone zusammen mit einer Datum/Uhrzeit-Eingabe eingibt, können Sie ein {{htmlelement("select")}}-Element haben, das es dem Benutzer ermöglicht, die richtige Zeitzone auszuwählen, indem er einen bestimmten Standort aus einer Reihe von Standorten auswählt:
+Wenn Sie andererseits dem Benutzer erlauben müssen, eine Zeitzone zusammen mit einer Datum/Zeit-Eingabe einzugeben, könnten Sie ein {{htmlelement("select")}}-Element verwenden, um dem Benutzer das Einstellen der richtigen Zeitzone durch Auswahl eines bestimmten Ortes aus einer Reihe von Standorten zu ermöglichen:
 
 ```html
 <select name="timezone" id="timezone">
@@ -125,15 +123,15 @@ Andererseits, wenn Sie vom Benutzer verlangen müssen, dass er eine Zeitzone zus
 </select>
 ```
 
-In beiden Fällen würden die Datum/Uhrzeit- und Zeitzonenwerte als separate Datenpunkte an den Server übermittelt, und Sie müssten diese dann serverseitig in der Datenbank entsprechend speichern.
+In beiden Fällen würden die Datum/Zeit- und Zeitzonenwerte als separate Datenpunkte an den Server übermittelt und dann auf der Serverseite entsprechend in der Datenbank gespeichert werden müssen.
 
 ## Validierung
 
-Standardmäßig wendet `<input type="datetime-local">` keine Validierung auf eingegebene Werte an. Die UI-Implementierungen lassen im Allgemeinen keine Eingaben zu, die nicht Datum/Uhrzeit sind — was hilfreich ist — aber ein Benutzer könnte dennoch keinen Wert eingeben und abschicken oder ein ungültiges Datum und/oder eine Zeit eingeben (z.B. den 32. April).
+Standardmäßig wendet `<input type="datetime-local">` keine Validierung auf eingegebene Werte an. Die UI-Implementierungen lassen im Allgemeinen keine Eingaben zu, die nicht einem Datum/Zeit entsprechen — was hilfreich ist — aber ein Benutzer könnte dennoch keinen Wert eingeben und absenden oder ein ungültiges Datum und/oder eine ungültige Zeit (z.B. der 32. April) eintragen.
 
-Sie können [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) verwenden, um die verfügbaren Daten einzuschränken (siehe [Maximale und minimale Daten und Uhrzeiten festlegen](#maximale_und_minimale_daten_und_uhrzeiten_festlegen)), und Sie können das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden, um das Ausfüllen des Datums/Uhrzeit-Feldes zwingend erforderlich zu machen. Infolgedessen werden Browser einen Fehler anzeigen, wenn Sie versuchen, ein Datum, das außerhalb der festgelegten Grenzen liegt, oder ein leeres Datumsfeld zu übermitteln.
+Sie können [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) verwenden, um die verfügbaren Daten einzuschränken (siehe [Festlegen von maximalen und minimalen Daten](#festlegen_von_maximalen_und_minimalen_daten_und_zeiten)), und Sie können das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden, um das Ausfüllen des Datums/Zeit-Feldes obligatorisch zu machen. Infolgedessen zeigen Browser einen Fehler an, wenn Sie versuchen, ein Datum einzugeben, das außerhalb der festgelegten Grenzen liegt, oder ein leeres Datumsfeld einzugeben.
 
-Lassen Sie uns ein Beispiel ansehen; hier haben wir minimale und maximale Datum/Uhrzeit-Werte festgelegt und das Feld außerdem als erforderlich markiert:
+Sehen wir uns ein Beispiel an; hier haben wir minimale und maximale Datum/Zeit-Werte festgelegt und das Feld auch obligatorisch gemacht:
 
 ```html
 <form>
@@ -157,11 +155,11 @@ Lassen Sie uns ein Beispiel ansehen; hier haben wir minimale und maximale Datum/
 </form>
 ```
 
-Wenn Sie versuchen, das Formular mit einem unvollständigen Datum (oder mit einem Datum außerhalb der festgelegten Grenzen) zu übermitteln, zeigt der Browser einen Fehler an. Versuchen Sie jetzt, mit dem Beispiel zu spielen:
+Wenn Sie versuchen, das Formular mit einem unvollständigen Datum zu senden (oder mit einem Datum außerhalb der festgelegten Grenzen), zeigt der Browser einen Fehler an. Versuchen Sie jetzt, mit dem Beispiel zu spielen:
 
 {{ EmbedLiveSample('Validation', 600, 120) }}
 
-Hier ist das CSS, das im obigen Beispiel verwendet wird. Hier verwenden wir die CSS-Eigenschaften {{cssxref(":valid")}} und {{cssxref(":invalid")}}, um das Eingabefeld basierend darauf zu stylen, ob der aktuelle Wert gültig ist. Wir platzieren die Symbole auf einem {{htmlelement("span")}} neben dem Eingabefeld.
+Hier ist das im obigen Beispiel verwendete CSS. Hier nutzen wir die {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-CSS-Eigenschaften, um die Eingabe basierend darauf zu gestalten, ob der aktuelle Wert gültig ist. Wir platzieren die Symbole auf einem {{htmlelement("span")}} neben der Eingabe.
 
 ```css
 div {
@@ -187,16 +185,16 @@ input:valid + span::after {
 ```
 
 > [!WARNING]
-> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format sind. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm erlauben, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, können Probleme auftauchen, wenn falsch formatierte Daten übermittelt werden (oder Daten, die zu groß sind, vom falschen Typ sind usw.).
+> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm ermöglichen, die Validierung zu umgehen, oder sie ganz zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr Server-seitiger Code die Daten, die er erhält, nicht validiert, können Probleme auftreten, wenn nicht korrekt formatierte Daten (oder zu große Daten, Daten des falschen Typs usw.) übermittelt werden.
 
 > [!NOTE]
-> Bei einer `datetime-local` Eingabe wird der Datumswert immer auf das Format `YYYY-MM-DDTHH:mm` normalisiert.
+> Bei einem `datetime-local`-Eingabefeld wird der Datumswert immer auf das Format `YYYY-MM-DDTHH:mm` normalisiert.
 
 ## Beispiele
 
 ### Grundlegende Verwendungen von datetime-local
 
-Der grundlegendste Gebrauch von `<input type="datetime-local">` beinhaltet eine grundlegende Kombination aus `<input>` und {{htmlelement("label")}}, wie unten gezeigt:
+Die einfachste Verwendung von `<input type="datetime-local">` umfasst eine grundlegende Kombination aus `<input>` und {{htmlelement("label")}}-Element, wie im Folgenden gezeigt:
 
 ```html
 <form>
@@ -207,9 +205,9 @@ Der grundlegendste Gebrauch von `<input type="datetime-local">` beinhaltet eine 
 
 {{ EmbedLiveSample('Basic_uses_of_datetime-local', 600, 40) }}
 
-### Maximale und minimale Daten und Uhrzeiten festlegen
+### Festlegen von maximalen und minimalen Daten und Zeiten
 
-Sie können die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) verwenden, um die Daten/Uhrzeiten einzuschränken, die der Benutzer auswählen kann. Im folgenden Beispiel legen wir ein minimales Datum/Uhrzeit von `2025-06-01T08:30` und ein maximales Datum/Uhrzeit von `2025-06-30T16:30` fest:
+Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute verwenden, um die vom Benutzer wählbaren Daten/Zeiten einzuschränken. Im folgenden Beispiel setzen wir ein Mindestdatum von `2025-06-01T08:30` und ein Maximaldatum von `2025-06-30T16:30`:
 
 ```html
 <form>
@@ -225,24 +223,24 @@ Sie können die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min
 
 {{ EmbedLiveSample('Setting_maximum_and_minimum_dates_and_times', 600, 40) }}
 
-Nur Tage im Juni 2025 können ausgewählt werden. Je nachdem, welchen Browser Sie verwenden, sind Zeiten außerhalb der angegebenen Werte möglicherweise nicht auswählbar. In anderen Browsern sind ungültige Daten und Uhrzeiten zwar auswählbar, entsprechen jedoch {{CSSXref(":invalid")}} und {{CSSXref(":out-of-range")}} und werden die [Validierung](#validierung) nicht bestehen.
+Nur Tage im Juni 2025 können ausgewählt werden. Abhängig davon, welchen Browser Sie verwenden, sind Zeiten außerhalb der angegebenen Werte möglicherweise nicht auswählbar. In anderen Browsern sind ungültige Daten und Zeiten auswählbar, aber sie werden übereinstimmend mit {{CSSXref(":invalid")}} und {{CSSXref(":out-of-range")}} sein und [Validierung](#validierung) fehlschlagen.
 
-In einigen Browsern (Chrome und Edge) wird nur der "Tage"-Teil des Datumswertes bearbeitbar sein, und Daten außerhalb des Juni können nicht durchscrollt werden. In anderen (Safari) scheint der Datumsauswahl-Bereich jedes Datum zu erlauben, aber der Wert wird auf den gültigen Bereich begrenzt, wenn ein Datum ausgewählt wird.
+In einigen Browsern (Chrome und Edge) wird nur der "Tage"-Teil des Datumswertes bearbeitbar sein und Daten außerhalb des Juni können nicht gescrollt werden. In anderen (Safari) scheint der Datumsauswähler jedes Datum zuzulassen, aber der Wert wird beim Auswählen eines Datums auf den gültigen Bereich geklemmt.
 
-Der gültige Bereich umfasst alle Zeiten zwischen den `min`- und `max`-Werten; die Tageszeit wird nur am ersten und letzten Datum im Bereich eingeschränkt.
+Der gültige Bereich umfasst alle Zeiten zwischen den `min`- und `max`-Werten; die Tageszeit ist nur an den ersten und letzten Daten im Bereich eingeschränkt.
 
 > [!NOTE]
-> Sie sollten in der Lage sein, das Attribut [`step`](/de/docs/Web/HTML/Reference/Elements/input#step) zu verwenden, um die Anzahl der Tage zu variieren, die jedes Mal übersprungen werden, wenn das Datum inkrementiert wird (z.B., vielleicht möchten Sie nur Samstage auswählbar machen). Dies scheint jedoch zum Zeitpunkt des Schreibens in keiner Implementierung effektiv zu funktionieren.
+> Sie sollten in der Lage sein, das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut zu verwenden, um die Anzahl der Tage zu variieren, die bei jeder Erhöhung des Datums übersprungen werden (z.B. möchten Sie vielleicht nur Samstage auswählbar machen). Dies scheint jedoch zum Zeitpunkt der Erstellung dieses Artikels in keiner Implementierung effektiv zu funktionieren.
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der ein Datum und eine Uhrzeit (in der
-        lokalen Zeitzone) darstellt, oder leer.
+        Ein String, der ein Datum und eine Zeit (in der lokalen Zeitzone)
+        darstellt, oder leer.
       </td>
     </tr>
     <tr>
@@ -299,7 +297,7 @@ Der gültige Bereich umfasst alle Zeiten zwischen den `min`- und `max`-Werten; d
 
 ## Siehe auch
 
-- Das generische {{HTMLElement("input")}}-Element und die Schnittstelle, die zur Manipulation verwendet wird, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- Das generische {{HTMLElement("input")}}-Element und die Schnittstelle zur Manipulation, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`<input type="date">`](/de/docs/Web/HTML/Reference/Elements/input/date) und [`<input type="time">`](/de/docs/Web/HTML/Reference/Elements/input/time)
-- [In HTML verwendete Datums- und Zeitformate](/de/docs/Web/HTML/Guides/Date_and_time_formats)
-- [Tutorial zum Datum- und Zeit-Auswahlfeld](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#date_and_time_pickers)
+- [Verwendete Datums- und Zeitformate in HTML](/de/docs/Web/HTML/Guides/Date_and_time_formats)
+- [Datum- und Zeitwähler-Tutorial](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#date_and_time_pickers)

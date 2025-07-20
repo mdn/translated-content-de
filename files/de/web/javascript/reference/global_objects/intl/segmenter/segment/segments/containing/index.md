@@ -3,18 +3,18 @@ title: Segments.prototype.containing()
 short-title: containing()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`containing()`**-Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen gibt ein Objekt zurück, das das Segment in der Zeichenkette beschreibt, das die Code-Einheit am angegebenen Index enthält.
+Die **`containing()`**-Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen liefert ein Objekt, das das Segment in der Zeichenkette beschreibt, das die Code-Einheit am angegebenen Index enthält.
 
 {{InteractiveExample("JavaScript Demo: Segments.prototype.containing()")}}
 
 ```js interactive-example
 const segmenterFr = new Intl.Segmenter("fr", { granularity: "word" });
-const string1 = "Que ma joie demeure";
+const string = "Que ma joie demeure";
 
-const segments = segmenterFr.segment(string1);
+const segments = segmenterFr.segment(string);
 
 console.log(segments.containing(5));
 // Expected output:
@@ -30,20 +30,20 @@ containing(codeUnitIndex)
 ### Parameter
 
 - `codeUnitIndex` {{optional_inline}}
-  - : Eine Zahl, die den Index der Code-Einheit in der ursprünglichen Eingabezeichenkette angibt. Wenn der Wert weggelassen wird, ist der Standardwert `0`.
+  - : Eine Zahl, die den Index der Code-Einheit in der ursprünglichen Eingabezeichenfolge angibt. Wenn der Wert weggelassen wird, wird `0` als Standardwert verwendet.
 
 ### Rückgabewert
 
 Ein Objekt, das das Segment der ursprünglichen Zeichenkette mit den folgenden Eigenschaften beschreibt, oder `undefined`, wenn der angegebene Indexwert außerhalb des gültigen Bereichs liegt.
 
 - `segment`
-  - : Ein String, der das aus der ursprünglichen Eingabezeichenkette extrahierte Segment enthält.
+  - : Eine Zeichenfolge, die das aus der ursprünglichen Eingabezeichenfolge extrahierte Segment enthält.
 - `index`
-  - : Der Code-Einheit-Index in der ursprünglichen Eingabezeichenkette, an dem das Segment beginnt.
+  - : Der Code-Einheiten-Index in der ursprünglichen Eingabezeichenfolge, an dem das Segment beginnt.
 - `input`
-  - : Die gesamte segmentierte Eingabezeichenkette.
+  - : Die vollständige Eingabezeichenfolge, die segmentiert wurde.
 - `isWordLike`
-  - : Ein boolescher Wert nur, wenn `granularity` `"word"` ist; andernfalls `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment einem Wort ähnlich ist (d.h. aus Buchstaben/Zahlen/Ideogrammen/etc. besteht); andernfalls `false`.
+  - : Ein `boolean`-Wert nur, wenn `granularity` `"word"` ist; ansonsten `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment wortähnlich ist (d.h. aus Buchstaben/Zahlen/Ideogrammen/etc. besteht); andernfalls `false`.
 
 ## Beispiele
 

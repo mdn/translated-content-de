@@ -3,14 +3,14 @@ title: Array.prototype.sort()
 short-title: sort()
 slug: Web/JavaScript/Reference/Global_Objects/Array/sort
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`sort()`** Methode von {{jsxref("Array")}} Instanzen sortiert die Elemente eines Arrays _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ und gibt die Referenz auf dasselbe, nun sortierte Array zurück. Die Standardsortierreihenfolge ist aufsteigend, basierend auf der Umwandlung der Elemente in Strings, die dann nach ihren UTF-16-Code-Einheit-Werten verglichen werden.
+Die **`sort()`**-Methode von {{jsxref("Array")}}-Instanzen sortiert die Elemente eines Arrays _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ und gibt die Referenz auf dasselbe, nun sortierte Array zurück. Die Standard-Sortierreihenfolge ist aufsteigend und basiert darauf, die Elemente in Strings zu konvertieren und dann ihre Folge von UTF-16-Codeeinheitwerten zu vergleichen.
 
 Die Zeit- und Platzkomplexität der Sortierung kann nicht garantiert werden, da sie von der Implementierung abhängt.
 
-Um die Elemente eines Arrays zu sortieren, ohne das Original-Array zu verändern, verwenden Sie {{jsxref("Array/toSorted", "toSorted()")}}.
+Um die Elemente eines Arrays zu sortieren, ohne das ursprüngliche Array zu verändern, verwenden Sie {{jsxref("Array/toSorted", "toSorted()")}}.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.sort()")}}
 
@@ -20,9 +20,9 @@ months.sort();
 console.log(months);
 // Expected output: Array ["Dec", "Feb", "Jan", "March"]
 
-const array1 = [1, 30, 4, 21, 100000];
-array1.sort();
-console.log(array1);
+const array = [1, 30, 4, 21, 100000];
+array.sort();
+console.log(array);
 // Expected output: Array [1, 100000, 21, 30, 4]
 ```
 
@@ -42,37 +42,37 @@ sort(compareFn)
     - `b`
       - : Das zweite Element zum Vergleich. Wird niemals `undefined` sein.
 
-    Die Funktion sollte eine Zahl zurückgeben, bei der:
-    - Ein negativer Wert anzeigt, dass `a` vor `b` kommt.
-    - Ein positiver Wert anzeigt, dass `a` nach `b` kommt.
+    Sie sollte eine Zahl zurückgeben, wobei:
+    - Ein negativer Wert anzeigt, dass `a` vor `b` kommen soll.
+    - Ein positiver Wert anzeigt, dass `a` nach `b` kommen soll.
     - Null oder `NaN` anzeigt, dass `a` und `b` als gleich betrachtet werden.
 
-    Um sich das zu merken, bedenken Sie, dass `(a, b) => a - b` Zahlen in aufsteigender Reihenfolge sortiert.
+    Um sich dies zu merken: `(a, b) => a - b` sortiert Zahlen in aufsteigender Reihenfolge.
 
-    Wenn die Funktion nicht angegeben wird, werden die Array-Elemente in Strings umgewandelt und dann gemäß dem Unicode-Codepunktwert jedes Zeichens sortiert.
+    Wenn nicht angegeben, werden die Array-Elemente in Strings konvertiert und dann gemäß dem Unicode-Codepunktwert jedes Zeichens sortiert.
 
 ### Rückgabewert
 
-Die Referenz auf das Original-Array, das nun sortiert ist. Beachten Sie, dass das Array _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ sortiert wird und keine Kopie erstellt wird.
+Die Referenz auf das ursprüngliche, nun sortierte Array. Beachten Sie, dass das Array _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ sortiert wird und keine Kopie erstellt wird.
 
 ## Beschreibung
 
-Wenn `compareFn` nicht angegeben wird, werden alle nicht-`undefined`-Array-Elemente durch Umwandeln in Strings sortiert und die Strings gemäß der Reihenfolge ihrer UTF-16-Codes verglichen. Zum Beispiel kommt "banana" vor "cherry". In einer numerischen Sortierung kommt 9 vor 80, aber da Zahlen in Strings umgewandelt werden, kommt "80" im Unicode vor "9". Alle `undefined`-Elemente werden ans Ende des Arrays sortiert.
+Wenn `compareFn` nicht angegeben ist, werden alle nicht-`undefined` Array-Elemente durch Konvertieren in Strings und Vergleichen der Strings in UTF-16-Codeeinheitenreihenfolge sortiert. Zum Beispiel kommt "banana" vor "cherry". Bei einer numerischen Sortierung kommt 9 vor 80, aber da Zahlen in Strings konvertiert werden, kommt "80" im Unicode vor "9". Alle `undefined`-Elemente werden an das Ende des Arrays sortiert.
 
-Die `sort()` Methode bewahrt leere Plätze. Wenn das Quell-Array [sparse](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, werden die leeren Plätze an das Ende des Arrays verschoben und kommen immer nach allen `undefined`.
+Die `sort()`-Methode bewahrt leere Slots. Wenn das Quell-Array [sparse](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, werden die leeren Slots an das Ende des Arrays verschoben und kommen immer nach allen `undefined`.
 
 > [!NOTE]
-> In UTF-16 werden Unicode-Zeichen über `\uFFFF` als zwei Surrogat-Code-Einheiten kodiert, im Bereich von `\uD800` - `\uDFFF`. Der Wert jeder Code-Einheit wird bei der Vergleichen einzeln berücksichtigt. Somit wird das Zeichen, das durch das Surrogatpaar `\uD855\uDE51` gebildet wird, vor dem Zeichen `\uFF3A` sortiert.
+> In UTF-16 werden Unicode-Zeichen oberhalb von `\uFFFF` als zwei Surrogat-Codeeinheiten enkodiert, im Bereich von `\uD800` bis `\uDFFF`. Der Wert jeder Codeeinheit wird separat bei der Vergleichung berücksichtigt. Somit wird das durch das Surrogatpaar `\uD855\uDE51` gebildete Zeichen vor dem Zeichen `\uFF3A` sortiert.
 
-Wenn `compareFn` angegeben ist, werden alle nicht-`undefined`-Array-Elemente gemäß dem Rückgabewert der Vergleichsfunktion sortiert (alle `undefined`-Elemente werden ans Ende des Arrays sortiert, ohne Aufruf der `compareFn`).
+Wenn `compareFn` angegeben ist, werden alle nicht-`undefined` Array-Elemente gemäß dem Rückgabewert der Vergleichsfunktion sortiert (alle `undefined`-Elemente werden ans Ende des Arrays sortiert, ohne dass `compareFn` aufgerufen wird).
 
-| `compareFn(a, b)` Rückgabewert | Sortierreihenfolge                                       |
-| ------------------------------ | -------------------------------------------------------- |
-| > 0                            | sortiert `a` nach `b`, z.B. `[b, a]`                     |
-| < 0                            | sortiert `a` vor `b`, z.B. `[a, b]`                      |
-| === 0                          | behält die ursprüngliche Reihenfolge von `a` und `b` bei |
+| Rückgabewert von `compareFn(a, b)` | Sortierreihenfolge                                    |
+| ---------------------------------- | ----------------------------------------------------- |
+| > 0                                | sortiere `a` nach `b`, z.B., `[b, a]`                 |
+| < 0                                | sortiere `a` vor `b`, z.B., `[a, b]`                  |
+| === 0                              | behalte die ursprüngliche Reihenfolge von `a` und `b` |
 
-Daher hat die Vergleichsfunktion die folgende Form:
+Die Vergleichsfunktion hat somit die folgende Form:
 
 ```js-nolint
 function compareFn(a, b) {
@@ -86,19 +86,19 @@ function compareFn(a, b) {
 }
 ```
 
-Formal erwartet man, dass der Komparator die folgenden Eigenschaften aufweist, um ein korrektes Sortierverhalten sicherzustellen:
+Formell sollte der Vergleich folgende Eigenschaften haben, um das korrekte Sortierverhalten zu gewährleisten:
 
-- _Rein_: Der Komparator verändert die zu vergleichenden Objekte oder irgendeinen äußeren Zustand nicht. (Dies ist wichtig, weil es keine Garantie gibt, _wann_ und _wie_ der Komparator aufgerufen wird, so dass ein bestimmter Anruf keine sichtbaren Effekte nach außen haben sollte.)
-- _Stabil_: Der Komparator gibt bei denselben Eingabepaaren dasselbe Ergebnis zurück.
+- _Pure_: Der Vergleich verändert nicht die zu vergleichenden Objekte oder einen anderen äußeren Zustand. (Dies ist wichtig, weil es keine Garantie gibt, _wann_ und _wie_ der Vergleich aufgerufen wird, daher sollte ein bestimmter Aufruf keine sichtbaren Effekte nach außen haben.)
+- _Stabil_: Der Vergleich gibt für dasselbe Paar von Eingaben dasselbe Ergebnis zurück.
 - _Reflexiv_: `compareFn(a, a) === 0`.
-- _Anti-symmetrisch_: `compareFn(a, b)` und `compareFn(b, a)` müssen beide `0` sein oder entgegengesetzte Vorzeichen haben.
-- _Transitiv_: Wenn `compareFn(a, b)` und `compareFn(b, c)` beide positiv, null oder negativ sind, dann hat `compareFn(a, c)` dieselbe Positivität wie die vorherigen beiden.
+- _Anti-symmetrisch_: `compareFn(a, b)` und `compareFn(b, a)` müssen beide `0` oder entgegengesetzte Vorzeichen haben.
+- _Transitiv_: Wenn `compareFn(a, b)` und `compareFn(b, c)` beide positiv, null oder negativ sind, hat `compareFn(a, c)` dieselbe Positivität wie die vorherigen zwei.
 
-Ein Komparator, der den oben genannten Beschränkungen entspricht, kann immer alle von `1`, `0` und `-1` zurückgeben oder konsequent `0` zurückgeben. Wenn ein Komparator beispielsweise nur `1` und `0` oder nur `0` und `-1` zurückgibt, wird er nicht zuverlässig sortieren können, da die _Anti-Symmetrie_ gebrochen ist. Ein Komparator, der stets `0` zurückgibt, wird das Array gar nicht verändern, ist aber dennoch zuverlässig.
+Ein Vergleich, der die oben genannten Einschränkungen erfüllt, kann immer `1`, `0` und `-1` zurückgeben, oder konsistent `0` zurückgeben. Ein Vergleich, der immer `0` zurückgibt, führt dazu, dass das Array nicht verändert wird, ist aber dennoch zuverlässig.
 
-Der standardmäßig lexikographische Komparator erfüllt alle oben genannten Bedingungen.
+Der Standard-Lexikografische-Vergleich entspricht allen oben genannten Einschränkungen.
 
-Um Zahlen anstelle von Strings zu vergleichen, kann die Vergleichsfunktion `b` von `a` subtrahieren. Die folgende Funktion sortiert das Array in aufsteigender Reihenfolge (wenn es nicht `NaN` enthält):
+Um Zahlen anstelle von Strings zu vergleichen, kann die Vergleichsfunktion `b` von `a` subtrahieren. Die folgende Funktion sortiert das Array in aufsteigender Reihenfolge (sofern es kein `NaN` enthält):
 
 ```js
 function compareNumbers(a, b) {
@@ -106,13 +106,13 @@ function compareNumbers(a, b) {
 }
 ```
 
-Die `sort()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und Integer-Index-Properties hat. Obwohl Strings auch array-ähnlich sind, ist diese Methode nicht geeignet, auf sie angewendet zu werden, da Strings unveränderlich sind.
+Die `sort()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat. Obwohl Strings auch array-ähnlich sind, eignet sich diese Methode nicht dafür, auf ihnen angewendet zu werden, da Strings unveränderlich sind.
 
 ## Beispiele
 
-### Ein Array erstellen, anzeigen und sortieren
+### Erstellen, Anzeigen und Sortieren eines Arrays
 
-Das folgende Beispiel erstellt vier Arrays und zeigt das Original-Array, dann die sortierten Arrays. Die numerischen Arrays werden ohne eine Vergleichsfunktion sortiert und dann unter Verwendung einer.
+Das folgende Beispiel erstellt vier Arrays und zeigt das ursprüngliche Array, dann die sortierten Arrays an. Die numerischen Arrays werden ohne Vergleichsfunktion sortiert und danach mit einer.
 
 ```js
 const stringArray = ["Blue", "Humpback", "Beluga"];
@@ -140,9 +140,9 @@ mixedNumericArray.sort(); // [1, 200, 40, 5, '700', '80', '9']
 mixedNumericArray.sort(compareNumbers); // [1, 5, '9', 40, '80', 200, '700']
 ```
 
-### Sortieren eines Arrays von Objekten
+### Sortieren von Arrays von Objekten
 
-Arrays von Objekten können sortiert werden, indem man den Wert einer ihrer Eigenschaften vergleicht.
+Arrays von Objekten können sortiert werden, indem der Wert einer ihrer Eigenschaften verglichen wird.
 
 ```js
 const items = [
@@ -175,7 +175,7 @@ items.sort((a, b) => {
 
 ### Sortieren von nicht-ASCII-Zeichen
 
-Für das Sortieren von Strings mit nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen, d.h. Zeichenketten mit Akzenten (e, é, è, a, ä, etc.), Strings aus anderen als der englischen Sprache, verwenden Sie {{jsxref("String.prototype.localeCompare()")}}. Diese Funktion kann diese Zeichen vergleichen, so dass sie in der richtigen Reihenfolge erscheinen.
+Um Strings mit nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen zu sortieren, das heißt Strings mit Akzentbuchstaben (e, é, è, a, ä usw.), Strings aus anderen Sprachen als Englisch, verwenden Sie {{jsxref("String.prototype.localeCompare()")}}. Diese Funktion kann diese Zeichen vergleichen, sodass sie in der richtigen Reihenfolge erscheinen.
 
 ```js
 const items = ["réservé", "premier", "communiqué", "café", "adieu", "éclair"];
@@ -184,9 +184,9 @@ items.sort((a, b) => a.localeCompare(b));
 // items is ['adieu', 'café', 'communiqué', 'éclair', 'premier', 'réservé']
 ```
 
-### Sortieren mit `map`
+### Sortieren mit map
 
-Der `compareFn` kann innerhalb des Arrays mehrfach pro Element aufgerufen werden. Abhängig von der Natur des `compareFn` kann dies zu einem hohen Overhead führen. Je mehr Arbeit ein `compareFn` leistet und je mehr Elemente es zu sortieren gibt, desto effizienter kann es sein, [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) für die Sortierung zu verwenden. Die Idee ist, das Array einmal zu durchlaufen, um die tatsächlich für das Sortieren verwendeten Werte in ein temporäres Array zu extrahieren, das temporäre Array zu sortieren und dann das temporäre Array zu durchlaufen, um die richtige Ordnung zu erreichen.
+Die `compareFn` kann innerhalb des Arrays mehrmals pro Element aufgerufen werden. Abhängig von der Art der `compareFn` kann dies einen hohen Overhead verursachen. Je mehr Arbeit eine `compareFn` leistet und je mehr Elemente es zu sortieren gibt, desto effizienter kann es sein, [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) für das Sortieren zu verwenden. Die Idee ist, das Array einmal zu durchlaufen, um die tatsächlichen Werte in ein temporäres Array zu extrahieren, das für das Sortieren verwendet wird, das temporäre Array zu sortieren und dann das temporäre Array zu durchlaufen, um die richtige Reihenfolge zu erreichen.
 
 ```js
 // the array to be sorted
@@ -211,9 +211,9 @@ const result = mapped.map((v) => data[v.i]);
 
 Es gibt eine Open-Source-Bibliothek namens [mapsort](https://github.com/Pimm/mapsort), die diesen Ansatz verfolgt.
 
-### `sort()` gibt die Referenz auf dasselbe Array zurück
+### sort() gibt die Referenz auf dasselbe Array zurück
 
-Die `sort()` Methode gibt eine Referenz auf das Original-Array zurück. Das bedeutet, dass das Mutieren des zurückgegebenen Arrays auch das Original-Array ändern wird.
+Die `sort()`-Methode gibt eine Referenz auf das ursprüngliche Array zurück, sodass die Änderung des zurückgegebenen Arrays auch das ursprüngliche Array ändert.
 
 ```js
 const numbers = [3, 1, 4, 1, 5];
@@ -223,7 +223,7 @@ sorted[0] = 10;
 console.log(numbers[0]); // 10
 ```
 
-Falls Sie `sort()` verwenden möchten, ohne das Original-Array zu verändern, aber ein {{Glossary("Shallow_copy", "flach kopiertes")}} Array erhalten möchten, wie dies bei anderen Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)) der Fall ist, verwenden Sie die {{jsxref("Array/toSorted", "toSorted()")}} Methode. Alternativ können Sie eine flache Kopie vor dem Aufruf von `sort()` machen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
+Falls Sie möchten, dass `sort()` das ursprüngliche Array nicht modifiziert, sondern ein {{Glossary("Shallow_copy", "flach-kopiertes")}} Array zurückgibt, wie es andere Array-Methoden tun (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), verwenden Sie die {{jsxref("Array/toSorted", "toSorted()")}}-Methode. Alternativ können Sie eine flache Kopie erstellen, bevor Sie `sort()` aufrufen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
 
 ```js
 const numbers = [3, 1, 4, 1, 5];
@@ -233,11 +233,11 @@ sorted[0] = 10;
 console.log(numbers[0]); // 3
 ```
 
-### Sortierstabilität
+### Stabilität der Sortierung
 
-Seit Version 10 (oder ECMAScript 2019) schreibt die Spezifikation vor, dass `Array.prototype.sort` stabil ist.
+Seit Version 10 (oder ECMAScript 2019) gibt die Spezifikation vor, dass `Array.prototype.sort` stabil ist.
 
-Angenommen, Sie haben eine Liste von Studenten zusammen mit ihren Noten. Beachten Sie, dass die Liste der Studenten bereits alphabetisch nach Namen vorsortiert ist:
+Zum Beispiel, nehmen Sie an, Sie hätten eine Liste von Schülern zusammen mit ihren Noten. Beachten Sie, dass die Schülerliste bereits nach Namen in alphabetischer Reihenfolge vorsortiert ist:
 
 ```js
 const students = [
@@ -248,13 +248,13 @@ const students = [
 ];
 ```
 
-Nachdem Sie dieses Array nach `grade` in aufsteigender Reihenfolge sortiert haben:
+Nach dem Sortieren dieses Arrays nach `grade` in aufsteigender Reihenfolge:
 
 ```js
 students.sort((firstItem, secondItem) => firstItem.grade - secondItem.grade);
 ```
 
-Hat die Variable `students` dann den folgenden Wert:
+Der `students`-Variable wird dann den folgenden Wert haben:
 
 ```js
 [
@@ -265,9 +265,9 @@ Hat die Variable `students` dann den folgenden Wert:
 ];
 ```
 
-Es ist wichtig zu beachten, dass Studenten, die die gleiche Note haben (zum Beispiel Alex und Devlin), in der gleichen Reihenfolge bleiben, wie vor dem Aufruf von `sort()`. Das garantiert ein stabiles Sortierverfahren.
+Es ist wichtig zu beachten, dass Schüler mit derselben Note (zum Beispiel Alex und Devlin) in derselben Reihenfolge wie vor dem Aufruf der Sortierung bleiben. Dies ist, was ein stabiler Sortieralgorithmus garantiert.
 
-Vor Version 10 (oder ECMAScript 2019) war die Sortierstabilität nicht garantiert, was dazu führen konnte, dass das Ergebnis folgendes war:
+Vor Version 10 (oder ECMAScript 2019) war die Stabilität der Sortierung nicht garantiert, was bedeutete, dass Sie möglicherweise das folgende Ergebnis erhalten könnten:
 
 ```js
 [
@@ -278,9 +278,9 @@ Vor Version 10 (oder ECMAScript 2019) war die Sortierstabilität nicht garantier
 ];
 ```
 
-### Sortieren mit einem nicht wohldefinierten Komparator
+### Sortieren mit nicht gut geformtem Vergleichsoperator
 
-Wenn eine Vergleichsfunktion nicht alle Regeln der Reinheit, Stabilität, Reflexivität, Anti-Symmetrie und Transitivität erfüllt, wie in der [Beschreibung](#beschreibung) erklärt, ist das Verhalten des Programms nicht wohldefiniert.
+Wenn eine Vergleichsfunktion nicht alle Regeln von Reinheit, Stabilität, Reflexivität, Anti-Symmetrie und Transitivität, wie in der [Beschreibung](#beschreibung) erklärt, einhält, ist das Verhalten des Programms nicht wohldefiniert.
 
 Betrachten Sie zum Beispiel diesen Code:
 
@@ -290,9 +290,9 @@ const compareFn = (a, b) => (a > b ? 1 : 0);
 arr.sort(compareFn);
 ```
 
-Die `compareFn` Funktion hier ist nicht wohldefiniert, da sie die Anti-Symmetrie nicht erfüllt: Wenn `a > b`, gibt sie `1` zurück; aber indem man `a` und `b` austauscht, gibt sie `0` anstelle eines negativen Werts zurück. Deshalb wird das resultierende Array in verschiedenen Engines unterschiedlich sein. Zum Beispiel würde V8 (verwendet von Chrome, Node.js, etc.) und JavaScriptCore (verwendet von Safari) das Array überhaupt nicht sortieren und `[3, 1, 4, 1, 5, 9]` zurückgeben, während SpiderMonkey (verwendet von Firefox) das Array aufsteigend sortieren würde, als `[1, 1, 3, 4, 5, 9]`.
+Die `compareFn`-Funktion hier ist nicht gut geformt, da sie nicht die Anti-Symmetrie erfüllt: Wenn `a > b`, gibt sie `1` zurück; aber wenn `a` und `b` vertauscht werden, gibt sie `0` anstelle eines negativen Werts zurück. Daher wird das resultierende Array je nach Engine unterschiedlich sein. Zum Beispiel würden V8 (verwendet von Chrome, Node.js, etc.) und JavaScriptCore (verwendet von Safari) das Array überhaupt nicht sortieren und `[3, 1, 4, 1, 5, 9]` zurückgeben, während SpiderMonkey (verwendet von Firefox) das Array aufsteigend sortiert zurückgeben wird, als `[1, 1, 3, 4, 5, 9]`.
 
-Wird jedoch die `compareFn` Funktion geringfügig geändert, so dass sie `-1` oder `0` zurückgibt:
+Wenn die `compareFn`-Funktion jedoch leicht so geändert wird, dass sie `-1` oder `0` zurückgibt:
 
 ```js
 const arr = [3, 1, 4, 1, 5, 9];
@@ -302,20 +302,20 @@ arr.sort(compareFn);
 
 Dann sortieren V8 und JavaScriptCore es absteigend, als `[9, 5, 4, 3, 1, 1]`, während SpiderMonkey es unverändert zurückgibt: `[3, 1, 4, 1, 5, 9]`.
 
-Aufgrund dieser Implementierungskonsistenz wird immer empfohlen, Ihren Komparator wohldefiniert zu machen, indem Sie den fünf Bedingungen folgen.
+Aufgrund dieser Implementierungskonsistenz wird immer empfohlen, Ihren Vergleich so zu gestalten, dass er den fünf Einschränkungen entspricht.
 
-### Verwenden von `sort()` bei spärlichen Arrays
+### Verwenden von sort() auf sparsamen Arrays
 
-Leere Plätze werden an das Ende des Arrays verschoben.
+Leere Slots werden an das Ende des Arrays verschoben.
 
 ```js
 console.log(["a", "c", , "b"].sort()); // ['a', 'b', 'c', empty]
 console.log([, undefined, "a", "b"].sort()); // ["a", "b", undefined, empty]
 ```
 
-### Aufruf von `sort()` bei Nicht-Array-Objekten
+### Aufrufen von sort() auf Nicht-Array-Objekten
 
-Die `sort()` Methode liest die `length` Eigenschaft von `this`. Dann sammelt sie alle vorhandenen, ganzzahlig indizierten Eigenschaften im Bereich von `0` bis `length - 1`, sortiert sie und schreibt sie zurück. Wenn es in diesem Bereich fehlende Eigenschaften gibt, werden die entsprechenden nachfolgenden Eigenschaften [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete), als ob die nicht vorhandenen Eigenschaften am Ende sortiert würden.
+Die `sort()`-Methode liest die `length`-Eigenschaft von `this`. Sie sammelt dann alle vorhandenen integer-indizierten Eigenschaften im Bereich von `0` bis `length - 1`, sortiert sie und schreibt sie zurück. Wenn es fehlende Eigenschaften in dem Bereich gibt, werden die entsprechenden angehängten Eigenschaften [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete), als ob die nicht existierenden Eigenschaften zum Ende sortiert wurden.
 
 ```js
 const arrayLike = {
@@ -339,12 +339,12 @@ console.log(Array.prototype.sort.call(arrayLike));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.sort` mit modernem Verhalten wie stabile Sortierung in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.reverse()")}}
 - {{jsxref("Array.prototype.toSorted()")}}
 - {{jsxref("String.prototype.localeCompare()")}}
 - {{jsxref("TypedArray.prototype.sort()")}}
-- [Elemente in V8 sortieren](https://v8.dev/blog/array-sort) auf v8.dev (2018)
+- [Konzepte der Sortierung in V8](https://v8.dev/blog/array-sort) auf v8.dev (2018)
 - [Stabile `Array.prototype.sort`](https://v8.dev/features/stable-sort) auf v8.dev (2019)
-- [`Array.prototype.sort` Stabilität](https://mathiasbynens.be/demo/sort-stability) von Mathias Bynens
+- [`Array.prototype.sort`-Stabilität](https://mathiasbynens.be/demo/sort-stability) von Mathias Bynens

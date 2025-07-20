@@ -2,12 +2,12 @@
 title: <input type="range">
 slug: Web/HTML/Reference/Elements/input/range
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 13856107d2cab5bb9e40de608ee38a5770ef7c4d
 ---
 
-{{HTMLElement("input")}}-Elemente vom Typ **`range`** ermöglichen es dem Benutzer, einen numerischen Wert anzugeben, der nicht kleiner als ein gegebener Wert und nicht größer als ein anderer gegebener Wert sein darf. Der genaue Wert wird jedoch nicht als wichtig erachtet. Dies wird typischerweise durch einen Schieberegler oder eine Drehsteuerung und nicht durch ein Texteingabefeld wie bei der Eingabe vom Typ {{HTMLElement('input/number', 'number')}} dargestellt.
+{{HTMLElement("input")}}-Elemente vom Typ **`range`** ermöglichen es dem Benutzer, einen numerischen Wert anzugeben, der nicht kleiner als ein bestimmter Wert und nicht größer als ein anderer bestimmter Wert sein darf. Der genaue Wert wird jedoch nicht als wichtig erachtet. Dies wird normalerweise durch einen Schieberegler oder ein Drehregler dargestellt, anstatt eines Texteingabefeldes wie beim {{HTMLElement('input/number', 'number')}}-Eingabetyp.
 
-Da diese Art von Widget ungenau ist, sollte es nur verwendet werden, wenn der genaue Wert der Steuerung nicht wichtig ist.
+Da diese Art von Steuerelement ungenau ist, sollte sie nur verwendet werden, wenn der genaue Wert der Steuerung nicht wichtig ist.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;range&quot;&gt;", "tabbed-standard")}}
 
@@ -45,11 +45,11 @@ input {
 }
 ```
 
-Wenn der Browser des Benutzers den Typ `range` nicht unterstützt, wird er als Eingabe vom Typ `{{HTMLElement('input/text', 'text')}}` behandelt.
+Wenn der Browser des Benutzers den Typ `range` nicht unterstützt, wird er zurückgesetzt und als `{{HTMLElement('input/text', 'text')}}`-Eingabe behandelt.
 
 ## Wert
 
-Der Wert eines `<input type="range">`-Elements wird über das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut festgelegt, welches einen String akzeptiert, der die gewählte Nummer repräsentiert. Der Wert ist niemals eine leere Zeichenkette (`""`). Der Standardwert liegt in der Mitte zwischen dem angegebenen Minimum und Maximum—es sei denn, das Maximum tatsächlich kleiner ist als das Minimum, in diesem Fall wird der Standardwert auf den Wert des `min`-Attributs eingestellt. Der Algorithmus zur Bestimmung des Standardwerts ist:
+Der Wert eines `<input type="range">`-Elements wird mit dem [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut gesetzt, das eine Zeichenkette akzeptiert, die die ausgewählte Zahl darstellt. Der Wert ist niemals ein leerer String (`""`). Der Standardwert liegt auf halbem Weg zwischen dem angegebenen Minimum und Maximum - es sei denn, das Maximum ist tatsächlich kleiner als das Minimum, in diesem Fall wird der Standard auf den Wert des `min`-Attributs gesetzt. Der Algorithmus zur Bestimmung des Standardwerts ist:
 
 ```js
 defaultValue =
@@ -58,80 +58,80 @@ defaultValue =
     : rangeElem.min + (rangeElem.max - rangeElem.min) / 2;
 ```
 
-Wenn versucht wird, den Wert unter das Minimum zu setzen, wird er auf das Minimum gesetzt. Ebenso resultiert ein Versuch, den Wert über das Maximum zu setzen, darin, dass er auf das Maximum gesetzt wird.
+Wenn versucht wird, den Wert niedriger als das Minimum zu setzen, wird er auf das Minimum gesetzt. Ebenso führt ein Versuch, den Wert höher als das Maximum zu setzen, dazu, dass er auf das Maximum gesetzt wird.
 
 ### Validierung
 
-Es gibt keine Muster-Validierung; jedoch werden folgende Formen der automatischen Validierung durchgeführt:
+Es gibt keine Mustervalidierung; jedoch werden folgende Formen der automatischen Validierung durchgeführt:
 
-- Wenn das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) auf etwas gesetzt wird, das nicht in eine gültige Gleitkommazahl umgewandelt werden kann, schlägt die Validierung fehl, da die Eingabe eine schlechte Eingabe aufweist.
-- Der Wert wird nicht kleiner sein als [`min`](/de/docs/Web/HTML/Reference/Elements/input#min). Der Standard ist 0.
-- Der Wert wird nicht größer sein als [`max`](/de/docs/Web/HTML/Reference/Elements/input#max). Der Standard ist 100.
+- Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) auf etwas gesetzt ist, das nicht in eine gültige Gleitkommazahl umgewandelt werden kann, schlägt die Validierung fehl, da die Eingabe ein fehlerhafter Input ist.
+- Der Wert wird nicht kleiner als [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) sein. Der Standard ist 0.
+- Der Wert wird nicht größer als [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) sein. Der Standard ist 100.
 - Der Wert wird ein Vielfaches von [`step`](/de/docs/Web/HTML/Reference/Elements/input#step) sein. Der Standard ist 1.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den Attributen, die allen {{HTMLElement("input")}}-Elementen gemeinsam sind, bieten Bereichseingaben die folgenden Attribute:
+Neben den Attributen, die von allen {{HTMLElement("input")}}-Elementen geteilt werden, bieten Range-Eingaben die folgenden Attribute.
 
 > [!NOTE]
-> Die folgenden Eingabeattribute gelten nicht für die Eingabe `range`: `accept`, `alt`, `checked`, `dirname`, `formaction`, `formenctype`, `formmethod`, `formnovalidate`, `formtarget`, `height`, `maxlength`, `minlength`, `multiple`, `pattern`, `placeholder`, `readonly`, `required`, `size` und `src`. Jedes dieser Attribute, falls enthalten, wird ignoriert.
+> Die folgenden Eingabeattribute gelten nicht für den Eingabebereich: `accept`, `alt`, `checked`, `dirname`, `formaction`, `formenctype`, `formmethod`, `formnovalidate`, `formtarget`, `height`, `maxlength`, `minlength`, `multiple`, `pattern`, `placeholder`, `readonly`, `required`, `size` und `src`. Alle diese Attribute werden ignoriert, wenn sie enthalten sind.
 
 ### list
 
-Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, um dem Benutzer für diese Eingabe Vorschläge zu machen. Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Der {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle Werte in der Liste, die mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) nicht kompatibel sind, werden in den vorgeschlagenen Optionen nicht eingeschlossen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
 
-Siehe das Beispiel für das [Hinzufügen von Markierungen](#markierungen_hinzufügen) unten, um zu sehen, wie die Optionen für einen Bereich in unterstützten Browsern gekennzeichnet sind.
+Sehen Sie sich das unten stehende Beispiel [Hinzufügen von Abhebe-Punkten](#hinzufügen_von_abhebe-punkten) an, um ein Beispiel dafür zu sehen, wie die Optionen auf einem Bereich in unterstützten Browsern dargestellt werden.
 
 ### max
 
-Der größte Wert im Bereich der zulässigen Werte. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) diesen überschreitet, schlägt das Element in der [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der Wert des [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attributs keine Zahl ist, dann hat das Element keinen Maximalwert.
+Der größte Wert im Bereich der erlaubten Werte. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) diesen überschreitet, schlägt das Element bei der [Konstraintvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der Wert des [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attributs keine Zahl ist, hat das Element keinen Maximalwert.
 
-Dieser Wert muss größer oder gleich dem Wert des [`min`](/de/docs/Web/HTML/Reference/Attributes/min)-Attributs sein. Siehe das HTML-Attribut [`max`](/de/docs/Web/HTML/Reference/Attributes/max).
+Dieser Wert muss größer oder gleich dem Wert des [`min`](/de/docs/Web/HTML/Reference/Attributes/min)-Attributs sein. Siehe HTML [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attribut.
 
 ### min
 
-Der kleinste Wert im Bereich der zulässigen Werte. Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements kleiner ist als dieser, schlägt das Element in der [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn ein Wert für `min` angegeben wird, der keine gültige Zahl ist, hat die Eingabe keinen Minimalwert.
+Der kleinste Wert im Bereich der erlaubten Werte. Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements kleiner als dieser ist, schlägt das Element bei der [Konstraintvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn ein Wert für `min` angegeben ist, der keine gültige Zahl ist, hat die Eingabe keinen Minimalwert.
 
-Dieser Wert muss kleiner oder gleich dem Wert des [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attributs sein. Siehe das HTML-Attribut [`min`](/de/docs/Web/HTML/Reference/Attributes/min).
+Dieser Wert muss kleiner oder gleich dem Wert des [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attributs sein. Siehe HTML [`min`](/de/docs/Web/HTML/Reference/Attributes/min)-Attribut.
 
 > [!NOTE]
-> Wenn `min` und `max` Werte gleich sind oder der `max` Wert niedriger ist als der `min` Wert, kann der Benutzer nicht mit dem Bereich interagieren.
+> Wenn die `min`- und `max`-Werte gleich sind oder der `max`-Wert niedriger als der `min`-Wert ist, kann der Benutzer nicht mit dem Bereich interagieren.
 
 ### step
 
-Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die sich der Wert halten muss. Nur Werte, die dem angegebenen Schrittintervall entsprechen ([`min`](#min) falls angegeben, oder [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) ansonsten, oder ein angemessener Standardwert, falls keiner dieser Werte bereitgestellt wird) sind gültig.
+Das `step`-Attribut ist eine Zahl, die die Feinheit angibt, der der Wert entsprechen muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die eine ganze Anzahl von Schritten vom Step-Basiswert entfernt sind, sind gültig. Die Step-Basis ist [`min`](#min), falls angegeben, ansonsten [`value`](/de/docs/Web/HTML/Reference/Elements/input#value), oder `0`, wenn keines von beiden angegeben ist.
 
-Das `step`-Attribut kann auch auf den Stringwert `any` gesetzt werden. Dieser `step`-Wert bedeutet, dass kein Schrittintervall impliziert ist und jeder Wert im angegebenen Bereich erlaubt ist (außer anderen Einschränkungen wie [`min`](#min) und [`max`](#max)). Siehe das Beispiel [Schritteinstellung auf den `any` Wert](#setting_step_to_any) um zu sehen, wie dies in unterstützten Browsern funktioniert.
+Der Standard-Schrittwert für `step`-Eingaben ist `1`, wodurch nur ganze Zahlen eingegeben werden können — _es sei denn_, die Basisschritte sind keine ganze Zahl.
+
+Ein Zeichenfolgenwert von `any` bedeutet, dass kein Step impliziert ist und jeder Wert erlaubt ist (mit Ausnahme anderer Einschränkungen wie [`min`](#min) und [`max`](#max)). Siehe das Beispiel [Einstellung von Step auf den Wert `any`](#setting_step_to_any), um zu sehen, wie das in unterstützten Browsern funktioniert.
 
 > [!NOTE]
-> Wenn der vom Benutzer eingegebene Wert nicht der Schrittkonfiguration entspricht, kann der {{Glossary("user_agent", "Benutzeragent")}} den Wert auf den nächstgelegenen gültigen Wert abrunden, wobei normalerweise aufgerundet wird, wenn es zwei gleich nahe Optionen gibt.
+> Wenn der vom Benutzer eingegebene Wert nicht der Step-Konfiguration entspricht, kann der {{Glossary("user_agent", "Benutzer-Agent")}} den Wert auf den nächsten gültigen Wert runden, wobei er bevorzugt Zahlen aufrundet, wenn es zwei gleich nahe Optionen gibt.
 
-Der Standard-Schrittwert für `range`-Eingaben ist 1, wodurch nur ganze Zahlen eingegeben werden können, _es sei denn_, die Schrittbasis ist keine Ganze Zahl; zum Beispiel, wenn Sie `min` auf -10 und `value` auf 1.5 setzen, dann erlaubt ein `step` von 1 nur Werte wie 1.5, 2.5, 3.5,… in positiver Richtung und -0.5, -1.5, -2.5,… in negativer Richtung. Siehe das [HTML `step` Attribut](/de/docs/Web/HTML/Reference/Attributes/step).
-
-## Nicht-standardmäßige Attribute
+## Nicht standardmäßige Attribute
 
 ### orient
 
-Ähnlich dem nicht standardmäßigen CSS-Attribut -moz-orient, welches die {{htmlelement('progress')}} und {{htmlelement('meter')}}-Elemente beeinflusst, definiert das `orient`-Attribut die Ausrichtung des Bereichsreglers. Zu den Werten gehören `horizontal`, was bedeutet, dass der Bereich horizontal gerendert wird, und `vertical`, wobei der Bereich vertikal gerendert wird.
+Ähnlich dem nicht standardmäßigen CSS-Eigenschaft -moz-orient, das die {{htmlelement('progress')}}- und {{htmlelement('meter')}}-Elemente betrifft, definiert das `orient`-Attribut die Ausrichtung des Bereichs-Schiebereglers. Werte umfassen `horizontal`, was bedeutet, dass der Bereich horizontal dargestellt wird, und `vertical`, wo der Bereich vertikal dargestellt wird.
 
 ## Beispiele
 
-Während der `number`-Typ es den Benutzern ermöglicht, eine Zahl mit optionalen Einschränkungen einzugeben, die ihren Wert zwischen einem Minimum- und einem Maximumwert erzwingen, erfordert er, dass sie einen spezifischen Wert eingeben. Der `range`-Eingabetyp ermöglicht es Ihnen, den Benutzer nach einem Wert zu fragen, in Fällen, in denen der Benutzer sich vielleicht nicht einmal darum kümmert oder weiß, welcher spezifische numerische Wert ausgewählt ist.
+Während der Typ `number` es Benutzern erlaubt, eine Zahl mit optionalen Einschränkungen einzugeben, die ihren Wert auf ein Minimum und ein Maximum beschränken, erfordert er, dass sie einen spezifischen Wert eingeben. Der `range`-Eingabetyp ermöglicht es Ihnen, den Benutzer nach einem Wert zu fragen, in Fällen, in denen der Benutzer möglicherweise gar nicht interessiert ist — oder nicht weiß —, welcher spezifische Zahlenwert ausgewählt wurde.
 
-Einige Beispiele für Situationen, in denen Bereichseingaben häufig verwendet werden:
+Einige Beispiele für Situationen, in denen Range-Eingaben häufig verwendet werden:
 
 - Audiosteuerungen wie Lautstärke und Balance oder Filtersteuerungen.
 - Farbkonfigurationssteuerungen wie Farbkanäle, Transparenz, Helligkeit usw.
-- Spielkonfigurationssteuerungen wie Schwierigkeitsgrad, Sichtreichweite, Weltgröße usw.
-- Passwortlänge für ein von einem Passwort-Manager generiertes Passwort.
+- Spielkonfigurationssteuerungen wie Schwierigkeitsgrad, Sichtbarkeitsdistanz, Weltgröße und so weiter.
+- Passwortlänge für von einem Passwort-Manager generierte Passwörter.
 
-In der Regel, wenn der Benutzer eher an dem Prozentsatz der Entfernung zwischen dem Minimum und dem Maximum interessiert ist als an der tatsächlichen Zahl selbst, ist eine Bereichseingabe ein guter Kandidat. Beispielsweise denken Benutzer im Fall einer Heimstereo-Lautstärkeregelung typischerweise "Lautstärke auf halbem Weg zum Maximum einstellen" anstatt "Lautstärke auf 0.5 einstellen".
+Als Regel gilt: Wenn der Benutzer sich wahrscheinlich mehr für den Prozentsatz der Distanz zwischen Mindest- und Höchstwerten interessiert als für die tatsächliche Zahl selbst, ist eine Range-Eingabe eine gute Wahl. Zum Beispiel denkt man bei einer Heim-Stereoanlage-Lautstärkeregelung typischerweise an "Lautstärke auf halber Höhe des Maximums einstellen" statt "Lautstärke auf 0.5 einstellen".
 
-### Spezifizieren von Minimum und Maximum
+### Spezifizieren von Mindest- und Höchstwerten
 
-Standardmäßig ist das Minimum 0 und das Maximum 100. Wenn das nicht das ist, was Sie wollen, können Sie leicht andere Grenzen festlegen, indem Sie die Werte der [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und/oder [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) Attribute ändern. Diese können jeden Gleitkommawert annehmen.
+Standardmäßig beträgt das Minimum 0 und das Maximum 100. Wenn das nicht das ist, was Sie wollen, können Sie leicht andere Grenzen angeben, indem Sie die Werte der [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und/oder [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute ändern. Diese können jeden Gleitkommawert annehmen.
 
-Zum Beispiel, um den Benutzer nach einem Wert zwischen -10 und 10 zu fragen, können Sie folgendes verwenden:
+Zum Beispiel, um den Benutzer nach einem Wert zwischen -10 und 10 zu fragen, können Sie verwenden:
 
 ```html
 <input type="range" min="-10" max="10" />
@@ -139,11 +139,11 @@ Zum Beispiel, um den Benutzer nach einem Wert zwischen -10 und 10 zu fragen, kö
 
 {{EmbedLiveSample("Specifying_the_minimum_and_maximum", 600, 40)}}
 
-### Festlegen der Wertgranularität
+### Einstellung der Feinheit der Werte
 
-Die Granularität ist standardmäßig 1, was bedeutet, dass der Wert immer eine ganze Zahl ist. Um die Granularität zu steuern, können Sie das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut ändern. Wenn Sie beispielsweise einen Wert in der Mitte zwischen 5 und 10 benötigen, sollten Sie den `step`-Wert auf 0.5 setzen:
+Standardmäßig ist die Feinheit 1, was bedeutet, dass der Wert immer eine ganze Zahl ist. Um die Feinheit zu steuern, können Sie das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut ändern. Zum Beispiel, wenn Sie einen Wert haben möchten, der auf halbem Wege zwischen 5 und 10 ist, sollten Sie den `step`-Wert auf 0.5 setzen:
 
-#### Setzen des `step`-Attributs
+#### Einstellung des Step-Attributs
 
 ```html
 <input type="range" min="5" max="10" step="0.5" />
@@ -151,9 +151,9 @@ Die Granularität ist standardmäßig 1, was bedeutet, dass der Wert immer eine 
 
 {{EmbedLiveSample("Setting_the_step_attribute", 600, 40)}}
 
-#### Setze `step` auf `any`
+#### Step auf `any` setzen
 
-Wenn Sie jeden Wert unabhängig von der Anzahl der Dezimalstellen akzeptieren möchten, können Sie für das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step) Attribut den Wert `any` angeben:
+Wenn Sie jeden Wert akzeptieren möchten, unabhängig davon, wie viele Dezimalstellen er hat, können Sie einen Wert von `any` für das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut angeben:
 
 ##### HTML
 
@@ -175,11 +175,11 @@ input.addEventListener("input", (event) => {
 
 {{EmbedLiveSample("Setting_step_to_any", 600, 75)}}
 
-Dieses Beispiel ermöglicht es dem Benutzer, jeden Wert zwischen 0 und π ohne Einschränkungen bezüglich des Bruchteils des ausgewählten Wertes auszuwählen. JavaScript wird verwendet, um zu zeigen, wie sich der Wert ändert, wenn der Benutzer mit dem Bereich interagiert.
+Dieses Beispiel ermöglicht es dem Benutzer, jeden Wert zwischen 0 und π auszuwählen, ohne Einschränkung des Bruchteils des ausgewählten Werts. JavaScript wird verwendet, um zu zeigen, wie sich der Wert ändert, während der Benutzer mit dem Bereich interagiert.
 
-### Markierungen hinzufügen
+### Hinzufügen von Abhebe-Punkten
 
-Um Markierungen zu einer Bereichssteuerung hinzuzufügen, fügen Sie das `list`-Attribut hinzu und geben ihm die `id` eines {{HTMLElement("datalist")}}-Elements, das eine Reihe von Markierungen auf der Steuerung definiert. Jeder Punkt wird mit einem {{HTMLElement("option")}}-Element repräsentiert, dessen [`value`](/de/docs/Web/HTML/Reference/Elements/option#value) auf den Wert des Bereichs gesetzt ist, an dem eine Markierung gezeichnet werden soll.
+Um Abhebe-Punkte zu einem Bereichs-Steuerelement hinzuzufügen, fügen Sie das `list`-Attribut hinzu und geben ihm die `id` eines {{HTMLElement("datalist")}}-Elements, das eine Reihe von Abhebe-Punkten auf dem Steuerelement definiert. Jeder Punkt wird durch ein {{HTMLElement("option")}}-Element mit seinem [`value`](/de/docs/Web/HTML/Reference/Elements/option#value) dargestellt, das auf den Bereichswert gesetzt ist, bei dem eine Markierung gezeichnet werden soll.
 
 #### HTML
 
@@ -200,12 +200,12 @@ Um Markierungen zu einer Bereichssteuerung hinzuzufügen, fügen Sie das `list`-
 
 {{EmbedLiveSample("Adding tick marks", 600, 50)}}
 
-### Verwenden derselben Datalist für mehrere Bereichssteuerungen
+### Verwenden derselben Datalist für mehrere Bereichs-Steuerelemente
 
-Um Code-Duplikationen zu vermeiden, können Sie dieselbe {{HTMLElement("datalist")}} für mehrere `<input type="range">`-Elemente und andere {{HTMLElement("input")}}-Typen wiederverwenden.
+Um Code-Wiederholungen zu vermeiden, können Sie dieselbe {{HTMLElement("datalist")}} für mehrere `<input type="range">`-Elemente und andere {{HTMLElement("input")}}-Typen wiederverwenden.
 
 > [!NOTE]
-> Wenn Sie auch die [Labels anzeigen](#labels_hinzufügen) möchten, wie im Beispiel unten, dann benötigen Sie eine `datalist` für jede Bereichseingabe.
+> Wenn Sie auch [die Label anzeigen](#hinzufügen_von_beschriftungen) möchten, wie im Beispiel unten, benötigen Sie eine `datalist` für jede Range-Eingabe.
 
 #### HTML
 
@@ -237,9 +237,9 @@ Um Code-Duplikationen zu vermeiden, können Sie dieselbe {{HTMLElement("datalist
 
 {{EmbedLiveSample("Using the same datalist for multiple range controls")}}
 
-### Labels hinzufügen
+### Hinzufügen von Beschriftungen
 
-Sie können Markierungen labeln, indem Sie den `<option>`-Elementen `label`-Attribute geben. Der Labelinhalt wird jedoch standardmäßig nicht angezeigt. Sie können CSS verwenden, um die Labels anzuzeigen und sie korrekt zu positionieren. Hier ist eine Möglichkeit, wie Sie dies tun könnten.
+Sie können Abhebe-Punkte beschriften, indem Sie den `<option>`-Elementen `label`-Attribute geben. Der Label-Inhalt wird jedoch standardmäßig nicht angezeigt. Sie können CSS verwenden, um die Beschriftungen anzuzeigen und sie korrekt zu positionieren. Hier ist eine Möglichkeit, dies zu tun.
 
 #### HTML
 
@@ -281,11 +281,11 @@ input[type="range"] {
 
 {{EmbedLiveSample("Adding labels")}}
 
-### Erstellen vertikaler Bereichssteuerungen
+### Erstellen von vertikalen Bereichs-Steuerelementen
 
-Standardmäßig rendern Browser Bereichseingaben als Schieberegler, bei denen der Regler links und rechts gleitet.
+Standardmäßig stellen Browser Range-Eingaben als Schieberegler dar, bei denen der Knopf nach links und rechts gleitet.
 
-Um eine vertikale Bereichssteuerung zu erstellen, bei der der Regler auf und ab gleitet, setzen Sie die {{cssxref("writing-mode")}}-Eigenschaft auf einen Wert von entweder `vertical-rl` oder `vertical-lr`:
+Um einen vertikalen Bereich zu erstellen, bei dem der Schieberegler nach oben und unten gleitet, setzen Sie die {{cssxref("writing-mode")}}-Eigenschaft auf einen Wert von entweder `vertical-rl` oder `vertical-lr`:
 
 ```html hidden
 <input type="range" min="0" max="10" value="8" />
@@ -297,13 +297,13 @@ input[type="range"] {
 }
 ```
 
-Dies führt dazu, dass der Bereichsregler vertikal gerendert wird:
+Dies bewirkt, dass der Bereichs-Schieberegler vertikal gerendert wird:
 
 {{EmbedLiveSample("Creating vertical range controls", 200, 200)}}
 
-Sie können auch die CSS {{cssxref('appearance')}}-Eigenschaft auf den nicht standardmäßigen Wert `slider-vertical` setzen, wenn Sie ältere Versionen von Chrome und Safari unterstützen möchten, und das nicht standardmäßige `orient="vertical"`-Attribut hinzufügen, um ältere Versionen von Firefox zu unterstützen.
+Sie können auch die {{cssxref('appearance')}}-Eigenschaft auf den nicht standardmäßigen Wert `slider-vertical` setzen, wenn Sie ältere Versionen von Chrome und Safari unterstützen möchten, und das nicht standardmäßige `orient="vertical"`-Attribut hinzufügen, um ältere Versionen von Firefox zu unterstützen.
 
-Siehe [Erstellen vertikaler Steuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls) für Beispiele.
+Sehen Sie sich [Erstellen von vertikalen Formularsteuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls) für Beispiele an.
 
 ## Technische Zusammenfassung
 
@@ -312,9 +312,9 @@ Siehe [Erstellen vertikaler Steuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vert
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Eine Zeichenkette, die die Zeichenkettenrepräsentation
-        des ausgewählten numerischen Werts enthält; verwenden Sie
-        [`valueAsNumber`](/de/docs/Web/API/HTMLInputElement/valueAsNumber),
+        Eine Zeichenfolge, die die Zeichenfolgen-Darstellung
+        des ausgewählten numerischen Werts enthält; verwenden
+        Sie [`valueAsNumber`](/de/docs/Web/API/HTMLInputElement/valueAsNumber),
         um den Wert als Zahl zu erhalten.
       </td>
     </tr>
@@ -355,7 +355,7 @@ Siehe [Erstellen vertikaler Steuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vert
       </td>
     </tr>
     <tr>
-      <td><strong>Implizite ARIA-Rolle</strong></td>
+      <td><strong>Implizite ARIA Rolle</strong></td>
       <td>
         <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role">slider</a></code>
       </td>
@@ -374,9 +374,9 @@ Siehe [Erstellen vertikaler Steuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vert
 ## Siehe auch
 
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, auf der es basiert
+- {{HTMLElement("input")}} und die darauf basierende [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle
 - [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number)
 - [`validityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow) und [`validityState.rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow)
-- [Kontrolle mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode)
-- [Erstellen vertikaler Steuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
-- [Styling des Bereichselements](https://css-tricks.com/sliding-nightmare-understanding-range-input/)
+- [Steuerung mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode)
+- [Erstellen vertikaler Formularsteuerungen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- [Styling des Range-Elements](https://css-tricks.com/sliding-nightmare-understanding-range-input/)

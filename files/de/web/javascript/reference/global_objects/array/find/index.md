@@ -3,25 +3,26 @@ title: Array.prototype.find()
 short-title: find()
 slug: Web/JavaScript/Reference/Global_Objects/Array/find
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`find()`**-Methode von {{jsxref("Array")}}-Instanzen gibt das erste Element im bereitgestellten Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben.
+Die **`find()`**-Methode von {{jsxref("Array")}}-Instanzen gibt das erste Element im bereitgestellten Array zurück, das die bereitgestellte Testfunktion erfüllt.
+Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben.
 
 - Wenn Sie den **Index** des gefundenen Elements im Array benötigen, verwenden Sie {{jsxref("Array/findIndex", "findIndex()")}}.
-- Wenn Sie den **Index eines Werts** finden müssen, verwenden Sie {{jsxref("Array/indexOf", "indexOf()")}}.
-  (Es ist ähnlich wie {{jsxref("Array/findIndex", "findIndex()")}}, prüft aber jedes Element auf Gleichheit mit dem Wert anstatt einer Testfunktion.)
-- Wenn Sie überprüfen müssen, ob ein Wert **existiert** in einem Array, verwenden Sie {{jsxref("Array/includes", "includes()")}}.
-  Auch hier wird jedes Element auf Gleichheit mit dem Wert geprüft anstatt mit einer Testfunktion.
-- Wenn Sie überprüfen müssen, ob irgendein Element die bereitgestellte Testfunktion erfüllt, verwenden Sie {{jsxref("Array/some", "some()")}}.
+- Wenn Sie den **Index eines Wertes** finden müssen, verwenden Sie {{jsxref("Array/indexOf", "indexOf()")}}.
+  (Es ist ähnlich wie {{jsxref("Array/findIndex", "findIndex()")}}, überprüft jedoch jedes Element auf Gleichheit mit dem Wert, anstatt eine Testfunktion zu verwenden.)
+- Wenn Sie herausfinden müssen, ob ein Wert **existiert** in einem Array, verwenden Sie {{jsxref("Array/includes", "includes()")}}.
+  Auch hier wird jedes Element auf Gleichheit mit dem Wert überprüft, anstatt eine Testfunktion zu verwenden.
+- Wenn Sie feststellen müssen, ob irgendein Element die bereitgestellte Testfunktion erfüllt, verwenden Sie {{jsxref("Array/some", "some()")}}.
 - Wenn Sie alle Elemente finden müssen, die die bereitgestellte Testfunktion erfüllen, verwenden Sie {{jsxref("Array/filter", "filter()")}}.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.find()", "shorter")}}
 
 ```js interactive-example
-const array1 = [5, 12, 8, 130, 44];
+const array = [5, 12, 8, 130, 44];
 
-const found = array1.find((element) => element > 10);
+const found = array.find((element) => element > 10);
 
 console.log(found);
 // Expected output: 12
@@ -37,7 +38,7 @@ find(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}}-Wert sonst. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert ansonsten. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -49,15 +50,16 @@ find(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Das erste Element im Array, das die bereitgestellte Testfunktion erfüllt. Ansonsten wird {{jsxref("undefined")}} zurückgegeben.
+Das erste Element im Array, das die bereitgestellte Testfunktion erfüllt.
+Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beschreibung
 
-Die `find()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Array in aufsteigender Indexreihenfolge auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. `find()` gibt dann dieses Element zurück und stoppt die Iteration durch das Array. Wenn `callbackFn` niemals einen truthy Wert zurückgibt, gibt `find()` {{jsxref("undefined")}} zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die `find()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Array in aufsteigender Indexreihenfolge auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. `find()` gibt dann dieses Element zurück und stoppt das Durchlaufen des Arrays. Wenn `callbackFn` nie einen truthy Wert zurückgibt, gibt `find()` {{jsxref("undefined")}} zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
 
-`callbackFn` wird für _jeden_ Index des Arrays aufgerufen, nicht nur für diejenigen mit zugewiesenen Werten. Leere Slots in [sparse arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verhalten sich genauso wie `undefined`.
+`callbackFn` wird für _jeden_ Index des Arrays aufgerufen, nicht nur für solche mit zugewiesenen Werten. Leere Plätze in [sparsamente Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verhalten sich wie `undefined`.
 
-Die `find()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert über eine `length`-Eigenschaft und integer-indizierte Eigenschaften verfügt.
+Die `find()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integer-schlüsselbasierte Eigenschaften hat.
 
 ## Beispiele
 
@@ -78,7 +80,7 @@ console.log(inventory.find(isCherries));
 // { name: 'cherries', quantity: 5 }
 ```
 
-#### Verwenden von Arrow-Funktionen und Destructuring
+#### Mit Pfeilfunktion und Destrukturierung
 
 ```js
 const inventory = [
@@ -117,9 +119,9 @@ console.log([4, 5, 8, 12].find(isPrime)); // 5
 ```
 
 > [!NOTE]
-> Die `isPrime()`-Implementierung dient nur zur Demonstration. Für eine echte Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
+> Die Implementierung von `isPrime()` dient nur zu Demonstrationszwecken. Für eine reale Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
 
-### Den dritten Parameter von callbackFn verwenden
+### Verwenden des dritten Arguments von callbackFn
 
 Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Im folgenden Beispiel wird zuerst `filter()` verwendet, um die positiven Werte zu extrahieren, und dann `find()`, um das erste Element zu finden, das kleiner als seine Nachbarn ist.
 
@@ -137,9 +139,9 @@ const firstTrough = numbers
 console.log(firstTrough); // 1
 ```
 
-### Verwendung von find() auf spärlichen Arrays
+### Verwenden von find() auf sparsamente Arrays
 
-Leere Slots in spärlichen Arrays _werden_ besucht und genauso behandelt wie `undefined`.
+Leere Plätze in sparsamente Arrays _werden_ besucht und wie `undefined` behandelt.
 
 ```js
 // Declare array with no elements at indexes 2, 3, and 4
@@ -179,9 +181,9 @@ array.find((value, index) => {
 // Visited index 6 with value 6
 ```
 
-### Aufrufe von find() auf Nicht-Array-Objekten
+### Aufrufen von find() auf Nicht-Array-Objekten
 
-Die `find()`-Methode liest die `length`-Eigenschaft von `this` aus und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
+Die `find()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -206,7 +208,7 @@ console.log(Array.prototype.find.call(arrayLike, (x) => !Number.isInteger(x)));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.find` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.find`](https://www.npmjs.com/package/array.prototype.find)
+- [es-shims polyfill von `Array.prototype.find`](https://www.npmjs.com/package/array.prototype.find)
 - [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.findIndex()")}}

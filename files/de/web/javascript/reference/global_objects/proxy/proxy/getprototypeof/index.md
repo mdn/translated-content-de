@@ -3,15 +3,15 @@ title: handler.getPrototypeOf()
 short-title: getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/getPrototypeOf
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`handler.getPrototypeOf()`**-Methode ist eine Trap für die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.getPrototypeOf()")}} verwendet wird.
+Die **`handler.getPrototypeOf()`** Methode ist eine Falle für die `[[GetPrototypeOf]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.getPrototypeOf()")}} verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.getPrototypeOf()", "taller")}}
 
 ```js interactive-example
-const monster1 = {
+const monster = {
   eyeCount: 4,
 };
 
@@ -25,12 +25,12 @@ const handler = {
   },
 };
 
-const proxy1 = new Proxy(monster1, handler);
+const proxy = new Proxy(monster, handler);
 
-console.log(Object.getPrototypeOf(proxy1) === monsterPrototype);
+console.log(Object.getPrototypeOf(proxy) === monsterPrototype);
 // Expected output: true
 
-console.log(Object.getPrototypeOf(proxy1).eyeCount);
+console.log(Object.getPrototypeOf(proxy).eyeCount);
 // Expected output: 2
 ```
 
@@ -45,20 +45,20 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird an die `getPrototypeOf()`-Methode übergeben. `this` ist an den Handler gebunden.
+Der folgende Parameter wird an die `getPrototypeOf()` Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die `getPrototypeOf()`-Methode muss ein Objekt oder `null` zurückgeben, das das Prototyp des Zielobjekts darstellt.
+Die `getPrototypeOf()` Methode muss ein Objekt oder `null` zurückgeben, das das Prototyp des Zielobjekts darstellt.
 
 ## Beschreibung
 
-### Abfangoperationen
+### Abfangvorgänge
 
-Diese Trap kann folgende Operationen abfangen:
+Diese Falle kann folgende Operationen abfangen:
 
 - {{jsxref("Object.getPrototypeOf()")}}
 - {{jsxref("Reflect.getPrototypeOf()")}}
@@ -70,10 +70,10 @@ Oder jede andere Operation, die die `[[GetPrototypeOf]]` [interne Methode](/de/d
 
 ### Invarianten
 
-Die `[[GetPrototypeOf]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition gegen eine der folgenden Invarianten verstößt:
+Die `[[GetPrototypeOf]]` interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handlerdefinition eine der folgenden Invarianten verletzt:
 
 - Das Ergebnis muss entweder ein {{jsxref("Object")}} oder `null` sein.
-- Wenn das Zielobjekt nicht erweiterbar ist (das heißt, {{jsxref("Reflect.isExtensible()")}} gibt `false` für `target` zurück), muss das Ergebnis dasselbe wie das Ergebnis von `Reflect.getPrototypeOf(target)` sein.
+- Wenn das Zielobjekt nicht erweiterbar ist (das heißt, {{jsxref("Reflect.isExtensible()")}} gibt `false` für `target` zurück), muss das Ergebnis das gleiche sein wie das Ergebnis von `Reflect.getPrototypeOf(target)`.
 
 ## Beispiele
 
@@ -94,7 +94,7 @@ const p = new Proxy(obj, handler);
 console.log(Object.getPrototypeOf(p) === proto); // true
 ```
 
-### Fünf Möglichkeiten, die getPrototypeOf-Trap auszulösen
+### Fünf Möglichkeiten, die getPrototypeOf-Falle auszulösen
 
 ```js
 const obj = {};

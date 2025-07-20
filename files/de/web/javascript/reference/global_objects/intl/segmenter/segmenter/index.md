@@ -1,25 +1,25 @@
 ---
-title: Intl.Segmenter() Konstruktor
+title: Intl.Segmenter()-Konstruktor
 short-title: Intl.Segmenter()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/Segmenter
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Der **`Intl.Segmenter()`** Konstruktor erstellt {{jsxref("Intl.Segmenter")}} Objekte.
+Der **`Intl.Segmenter()`**-Konstruktor erzeugt {{jsxref("Intl.Segmenter")}}-Objekte.
 
-{{InteractiveExample("JavaScript Demo: Intl.Segmenter() constructor")}}
+{{InteractiveExample("JavaScript Demo: Intl.Segmenter()-Konstruktor")}}
 
 ```js interactive-example
 const segmenterFr = new Intl.Segmenter("fr", { granularity: "word" });
-const string1 = "Que ma joie demeure";
+const string = "Que ma joie demeure";
 
-const iterator1 = segmenterFr.segment(string1)[Symbol.iterator]();
+const iterator = segmenterFr.segment(string)[Symbol.iterator]();
 
-console.log(iterator1.next().value.segment);
+console.log(iterator.next().value.segment);
 // Expected output: 'Que'
 
-console.log(iterator1.next().value.segment);
+console.log(iterator.next().value.segment);
 // Expected output: ' '
 ```
 
@@ -32,28 +32,28 @@ new Intl.Segmenter(locales, options)
 ```
 
 > [!NOTE]
-> `Intl.Segmenter()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> `Intl.Segmenter()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprachcode oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Sprachkennungen. Die Standard-Locale der Laufzeit wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Sprachkennungen unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprachcode oder einer {{jsxref("Intl.Locale")}}-Instanz oder ein Array solcher Gebietsschema-Identifikatoren. Das Standardgebietsschema der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Gebietsschema-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
+  - : Ein Objekt, das die folgenden Eigenschaften in der Reihenfolge enthält, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Algorithmus zum Abgleichen der Locale. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie unter [Locale-Erkennung und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Gebietsschema-Abstimmungsalgorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie unter [Gebietsschema-Identifizierung und -Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `granularity`
-      - : Wie granular das Eingabematerial aufgeteilt werden soll. Mögliche Werte sind:
+      - : Wie granulär der Eingabetext aufgeteilt werden soll. Mögliche Werte sind:
         - `"grapheme"` (Standard)
-          - : Teilt das Eingabematerial an den Grenzen von Graphemclustern (vom Benutzer wahrgenommene Zeichen) auf, wie durch die Locale bestimmt.
+          - : Teilt den Eingabetext in Segmente an den Grenzen der Graphemcluster (vom Benutzer wahrgenommene Zeichen) auf, wie vom Gebietsschema bestimmt.
         - `"word"`
-          - : Teilt das Eingabematerial an Wortgrenzen auf, wie durch die Locale bestimmt.
+          - : Teilt den Eingabetext in Segmente an Wortgrenzen auf, wie vom Gebietsschema bestimmt.
         - `"sentence"`
-          - : Teilt das Eingabematerial an Satzgrenzen auf, wie durch die Locale bestimmt.
+          - : Teilt den Eingabetext in Segmente an Satzgrenzen auf, wie vom Gebietsschema bestimmt.
 
 ### Rückgabewert
 
-Eine neue [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) Instanz.
+Eine neue [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter)-Instanz.
 
 ### Ausnahmen
 
@@ -64,7 +64,7 @@ Eine neue [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/In
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt, wie man Wörter in einem String unter Verwendung der japanischen Sprache zählt (wobei das Aufteilen des Strings mit `String`-Methoden ein falsches Ergebnis geliefert hätte).
+Das folgende Beispiel zeigt, wie man Wörter in einem String auf Japanisch zählt (wobei das Aufteilen des Strings mit `String`-Methoden ein falsches Ergebnis ergeben hätte).
 
 ```js
 const text = "吾輩は猫である。名前はたぬき。";

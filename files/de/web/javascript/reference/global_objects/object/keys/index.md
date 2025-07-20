@@ -3,21 +3,21 @@ title: Object.keys()
 short-title: keys()
 slug: Web/JavaScript/Reference/Global_Objects/Object/keys
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die statische Methode **`Object.keys()`** gibt ein Array der aufzählbaren, eigenen, string-keyed Eigenschaftenamen eines gegebenen Objekts zurück.
+Die statische Methode **`Object.keys()`** gibt ein Array der eigenen aufzählbaren, mit String-Schlüssel versehenen Eigenschaftsnamen eines gegebenen Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.keys()")}}
 
 ```js interactive-example
-const object1 = {
+const object = {
   a: "some string",
   b: 42,
   c: false,
 };
 
-console.log(Object.keys(object1));
+console.log(Object.keys(object));
 // Expected output: Array ["a", "b", "c"]
 ```
 
@@ -34,11 +34,11 @@ Object.keys(obj)
 
 ### Rückgabewert
 
-Ein Array von Strings, das die aufzählbaren, eigenen, string-keyed Eigenschaftenamen des gegebenen Objekts darstellt.
+Ein Array von Strings, die die eigenen aufzählbaren, mit String-Schlüssel versehenen Eigenschaftenschlüssel des gegebenen Objekts darstellen.
 
 ## Beschreibung
 
-`Object.keys()` gibt ein Array zurück, dessen Elemente Strings sind, die den aufzählbaren, string-keyed Eigenschaftenamen entsprechen, die direkt auf dem `object` gefunden werden. Dies ist dasselbe wie das Iterieren mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, außer dass eine `for...in` Schleife auch Eigenschaften in der Prototypenkette aufzählt. Die Reihenfolge des von `Object.keys()` zurückgegebenen Arrays ist die gleiche wie die, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
+`Object.keys()` gibt ein Array zurück, dessen Elemente Strings sind, die den aufzählbaren, mit String-Schlüssel versehenen Eigenschaftsnamen entsprechen, die direkt auf dem `object` gefunden werden. Dies ist das Gleiche wie das Iterieren mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, mit dem Unterschied, dass eine `for...in` Schleife auch Eigenschaften in der Prototyp-Kette aufzählt. Die Reihenfolge des von `Object.keys()` zurückgegebenen Arrays ist die gleiche wie die, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
 
 Wenn Sie die Eigenschaftswerte benötigen, verwenden Sie stattdessen {{jsxref("Object.values()")}}. Wenn Sie sowohl die Eigenschaftsschlüssel als auch die Werte benötigen, verwenden Sie stattdessen {{jsxref("Object.entries()")}}.
 
@@ -74,11 +74,11 @@ myObj.foo = 1;
 console.log(Object.keys(myObj)); // ['foo']
 ```
 
-Wenn Sie _alle_ string-keyed eigenen Eigenschaften, einschließlich nicht-aufläslicher, möchten, siehe {{jsxref("Object.getOwnPropertyNames()")}}.
+Wenn Sie _alle_ mit String-Schlüssel versehenen eigenen Eigenschaften, einschließlich nicht aufzählbarer, wünschen, siehe {{jsxref("Object.getOwnPropertyNames()")}}.
 
-### Verwendung von Object.keys() auf primitiven Werten
+### Verwendung von Object.keys() mit Primitiven
 
-Nicht-Objekt-Argumente werden [in Objekte umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht in Objekte umgewandelt werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Strings können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
+Nicht-Objekt-Argumente werden [zu Objekten gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten gezwungen werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Strings können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
 
 ```js
 // Strings have indices as enumerable own properties

@@ -3,24 +3,24 @@ title: Reflect.getPrototypeOf()
 short-title: getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`Reflect.getPrototypeOf()`** statische Methode ist ähnlich wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototyp des angegebenen Objekts zurück.
+Die statische Methode **`Reflect.getPrototypeOf()`** ist ähnlich wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototyp-Objekt des angegebenen Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Reflect.getPrototypeOf()")}}
 
 ```js interactive-example
-const object1 = {
-  property1: 42,
+const object = {
+  foo: 42,
 };
 
-const proto1 = Reflect.getPrototypeOf(object1);
+const proto = Reflect.getPrototypeOf(object);
 
-console.log(proto1);
+console.log(proto);
 // Expected output: Object {  }
 
-console.log(Reflect.getPrototypeOf(proto1));
+console.log(Reflect.getPrototypeOf(proto));
 // Expected output: null
 ```
 
@@ -33,11 +33,11 @@ Reflect.getPrototypeOf(target)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, dessen Prototyp ermittelt werden soll.
+  - : Das Zielobjekt, dessen Prototyp abgerufen werden soll.
 
 ### Rückgabewert
 
-Der Prototyp des gegebenen Objekts, der entweder ein Objekt oder `null` sein kann.
+Das Prototyp-Objekt des angegebenen Objekts, das entweder ein Objekt oder `null` sein kann.
 
 ### Ausnahmen
 
@@ -46,9 +46,9 @@ Der Prototyp des gegebenen Objekts, der entweder ein Objekt oder `null` sein kan
 
 ## Beschreibung
 
-`Reflect.getPrototypeOf()` bietet die reflexive Semantik zur Rückgabe des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} besteht darin, wie nicht-objektartige Ziele behandelt werden. `Reflect.getPrototypeOf()` löst einen {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es in ein Objekt umwandelt.
+`Reflect.getPrototypeOf()` bietet die reflektierende Semantik zum Abrufen des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} besteht darin, wie nicht-objektartige Ziele behandelt werden. `Reflect.getPrototypeOf()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es zu einem Objekt konvertiert.
 
-`Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` auf.
+`Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 

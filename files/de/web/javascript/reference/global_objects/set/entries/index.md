@@ -3,21 +3,21 @@ title: Set.prototype.entries()
 short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Set/entries
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`entries()`**-Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[set iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element in diesem Set in der Einfügereihenfolge enthält. Für `Set`-Objekte gibt es keinen `key` wie bei `Map`-Objekten. Um die API jedoch ähnlich wie das `Map`-Objekt zu halten, hat jeder _Eintrag_ hier denselben Wert für seinen _key_ und _value_, sodass ein Array `[value, value]` zurückgegeben wird.
+Die **`entries()`** Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[Set-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element in diesem Set in Einfügereihenfolge enthält. Bei `Set` Objekten gibt es keinen `key` wie bei `Map` Objekten. Um jedoch die API dem `Map` Objekt ähnlich zu halten, hat hier jeder _Eintrag_ denselben Wert für seinen _Key_ und _Value_, so dass ein Array `[value, value]` zurückgegeben wird.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.entries()")}}
 
 ```js interactive-example
-const set1 = new Set();
-set1.add(42);
-set1.add("forty two");
+const set = new Set();
+set.add(42);
+set.add("forty two");
 
-const iterator1 = set1.entries();
+const iterator = set.entries();
 
-for (const entry of iterator1) {
+for (const entry of iterator) {
   console.log(entry);
   // Expected output: Array [42, 42]
   // Expected output: Array ["forty two", "forty two"]

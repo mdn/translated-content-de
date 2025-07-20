@@ -2,12 +2,12 @@
 title: <input type="number">
 slug: Web/HTML/Reference/Elements/input/number
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 13856107d2cab5bb9e40de608ee38a5770ef7c4d
 ---
 
-{{HTMLElement("input")}}-Elemente vom Typ **`number`** werden verwendet, um den Benutzer eine Zahl eingeben zu lassen. Sie enthalten eine eingebaute Validierung, um nicht-numerische Eingaben abzulehnen.
+{{HTMLElement("input")}}-Elemente vom Typ **`number`** werden verwendet, um dem Benutzer die Eingabe einer Zahl zu ermöglichen. Sie beinhalten eine integrierte Validierung, um nicht-numerische Eingaben abzulehnen.
 
-Der Browser kann optional Wippenpfeile bereitstellen, mit denen der Benutzer den Wert mit der Maus oder durch Tippen mit einem Finger erhöhen und verringern kann.
+Der Browser kann optional Steuerelemente bereitstellen, die es dem Benutzer ermöglichen, den Wert mit der Maus oder einem Fingertipp zu erhöhen oder zu verringern.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;number&quot;&gt;", "tabbed-shorter")}}
 
@@ -31,11 +31,11 @@ label {
 }
 ```
 
-In Browsern, die Eingaben vom Typ `number` nicht unterstützen, wird ein `number`-Input auf den Typ `text` zurückgesetzt.
+In Browsern, die Eingaben vom Typ `number` nicht unterstützen, fällt eine `number`-Eingabe auf den Typ `text` zurück.
 
 ## Wert
 
-Eine Zahl, die den Wert der in das Eingabefeld eingegebenen Zahl darstellt. Sie können einen Standardwert für das Eingabefeld festlegen, indem Sie eine Zahl innerhalb des [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attributs angeben, wie folgt:
+Eine Zahl, die den in die Eingabe eingegebenen Wert darstellt. Sie können einen Standardwert für die Eingabe festlegen, indem Sie eine Zahl innerhalb des [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attributs angeben, wie unten gezeigt:
 
 ```html
 <input id="number" type="number" value="42" />
@@ -45,72 +45,72 @@ Eine Zahl, die den Wert der in das Eingabefeld eingegebenen Zahl darstellt. Sie 
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den von allen {{HTMLElement("input")}}-Typen üblicherweise unterstützten Attributen unterstützen Eingaben vom Typ `number` diese Attribute.
+Zusätzlich zu den Attributen, die allgemein von allen {{HTMLElement("input")}}-Typen unterstützt werden, unterstützen Eingaben vom Typ `number` diese Attribute.
 
 ### `list`
 
-Der Wert des list-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Der {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements im selben Dokument. Die {{HTMLElement("datalist")}} bietet eine Liste von vordefinierten Werten, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht zu den vorgeschlagenen Optionen hinzugefügt. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
 
 ### `max`
 
-Der maximale Wert, der für diese Eingabe akzeptiert wird. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) diesen überschreitet, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) des Elements fehl. Wenn der Wert des max-Attributs keine Zahl ist, hat das Element keinen Maximalwert.
+Der maximale Wert, der für diese Eingabe akzeptiert wird. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) diesen Wert überschreitet, schlägt das Element bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn der Wert des `max`-Attributs keine Zahl ist, hat das Element keinen Maximalwert.
 
-Dieser Wert muss größer oder gleich dem Wert des min-Attributs sein.
+Dieser Wert muss größer oder gleich dem Wert des `min`-Attributs sein.
 
 ### `min`
 
-Der minimale Wert, der für diese Eingabe akzeptiert wird. Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements kleiner als dieser ist, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) des Elements fehl. Wenn ein Wert für min angegeben wird, der keine gültige Zahl ist, hat die Eingabe keinen Minimalwert.
+Der minimale Wert, der für diese Eingabe akzeptiert wird. Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements kleiner ist als dieser, schlägt das Element bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) fehl. Wenn ein Wert für `min` angegeben ist, der keine gültige Zahl ist, hat die Eingabe keinen Minimalwert.
 
-Dieser Wert muss kleiner oder gleich dem Wert des max-Attributs sein.
+Dieser Wert muss kleiner oder gleich dem Wert des `max`-Attributs sein.
 
 ### `placeholder`
 
-Das placeholder-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen in dem Feld erwartet werden. Es sollte ein Wort oder ein kurzer Satz sein, der den erwarteten Datentyp zeigt, anstatt einer erklärenden Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
+Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text _darf_ _keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung (LTR oder RTL) hat, der Platzhalter jedoch in der entgegengesetzten Richtung dargestellt werden muss, können Sie die Unicode-Bidi-Algo-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; Weitere Informationen finden Sie unter [Wie man Unicode-Steuerelemente für Bidirektionalen Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls).
+Falls der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, aber der Platzhalter in der entgegengesetzten Richtung präsentiert werden soll, können Sie Zeichen zur Formatierung des Unicode-bidirektionalen Algorithmus verwenden, um die Richtung des Platzhalters zu überschreiben; siehe [Wie man Unicode-Steuerzeichen für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
-> Vermeiden Sie es, das placeholder-Attribut zu verwenden, wenn Sie können. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Reference/Elements/input#labels) für weitere Informationen.
+> Vermeiden Sie, wenn möglich, das `placeholder`-Attribut zu verwenden. Es ist semantisch nicht so nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Beschriftungen](/de/docs/Web/HTML/Reference/Elements/input#labels) für mehr Informationen.
 
 ### `readonly`
 
-Ein boolesches Attribut, das, wenn vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch JavaScript-Code direkt durch Setzen der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-`value`-Eigenschaft geändert werden.
+Ein Boolean-Attribut, das, falls vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch immer noch durch direktem Setzen des `value`-Eigenschaft im [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) mittels JavaScript geändert werden.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Wirkung auf Eingaben, bei denen das `readonly`-Attribut ebenfalls angegeben ist.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Auswirkungen auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
 ### `step`
 
-Das step-Attribut ist eine Zahl, die die Granularität angibt, an die sich der Wert halten muss, oder der spezielle Wert `any`, der unten beschrieben ist. Nur Werte, die gleich dem Ausgangspunkt für das Stufen ([`min`](#min) falls angegeben, [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) ansonsten und ein entsprechender Standardwert, wenn keiner von diesen angegeben ist) sind gültig.
+Das `step`-Attribut ist eine Zahl, die die Granularität angibt, die der Wert einhalten muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die eine ganze Anzahl von Schritten vom Schritt-Basiswert entfernt sind, sind gültig. Der Schritt-Basiswert ist [`min`](#min), falls angegeben, ansonsten [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) oder `0`, falls keiner angegeben ist.
 
-Ein String-Wert von `any` bedeutet, dass keine Stufung impliziert wird und jeder Wert erlaubt ist (abgesehen von anderen Einschränkungen wie [`min`](#min) und [`max`](#max)).
+Der Standardschrittwert für `number`-Eingaben ist `1`, wodurch nur Ganzzahlen eingegeben werden dürfen — _es sei denn_, die Basis des Schritts ist keine Ganzzahl.
+
+Ein Zeichenfolgenwert von `any` bedeutet, dass kein Schritt impliciert wird und jeder Wert erlaubt ist (mit Ausnahme anderer Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Stufenkonfiguration entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächstgelegenen gültigen Wert runden und bevorzugt dabei Zahlen in positiver Richtung, wenn zwei gleich nah aneinanderliegende Optionen bestehen.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Schrittkonfiguration entsprechen, kann der {{Glossary("user_agent", "User Agent")}} auf den nächstgelegenen gültigen Wert runden und bevorzugt dabei Zahlen in positiver Richtung, wenn es zwei gleich weit entfernte Optionen gibt.
 
-Der Standard-Stufenwert für `number`-Eingaben ist `1`, sodass nur ganze Zahlen eingegeben werden können—_es sei denn,_ der Stufenbasiswert ist keine ganze Zahl.
+## Verwendung von Zahleneingaben
 
-## Verwendung von Number-Eingaben
-
-Der `number`-Input-Typ sollte nur für inkrementelle Zahlen verwendet werden, insbesondere wenn das inkrementieren und dekrementieren mit Schaltflächen die Benutzererfahrung verbessert. Der `number`-Input-Typ ist nicht geeignet für Werte, die zufällig nur aus Zahlen bestehen, aber eigentlich keine Nummer sind, wie Postleitzahlen in vielen Ländern oder Kreditkartennummern. Für nicht-numerische Eingaben sollten Sie einen anderen Input-Typ in Betracht ziehen, wie zum Beispiel [`<input type="tel">`](/de/docs/Web/HTML/Reference/Elements/input/tel) oder einen anderen {{HTMLElement('input')}}-Typ mit dem [`inputmode`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode)-Attribut:
+Der `number`-Eingabetyp sollte nur für inkrementelle Zahlen verwendet werden, insbesondere wenn die Inkrementierung und Dekrementierung mit der Spinbutton-Funktion für die Benutzererfahrung hilfreich sind. Der `number`-Eingabetyp ist nicht geeignet für Werte, die zufällig nur aus Zahlen bestehen, aber streng genommen keine Zahlen sind, wie Postleitzahlen in vielen Ländern oder Kreditkartennummern. Für nicht-numerische Eingaben sollten Sie einen anderen Eingabetyp verwenden, wie etwa [`<input type="tel">`](/de/docs/Web/HTML/Reference/Elements/input/tel) oder einen anderen {{HTMLElement('input')}}-Typ mit dem [`inputmode`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode)-Attribut:
 
 ```html
 <input type="text" inputmode="numeric" pattern="\d*" />
 ```
 
-`<input type="number">`-Elemente können Ihre Arbeit vereinfachen, wenn Sie die Benutzeroberfläche und Logik für die Eingabe von Zahlen in ein Formular erstellen. Wenn Sie eine Nummerneingabe mit dem richtigen `type`-Wert erstellen, erhalten Sie eine automatische Validierung, dass der eingegebene Text eine Zahl ist, und normalerweise ein Set an Aufwärts- und Abwärtspfeil-Schaltflächen, um den Wert zu erhöhen oder zu verringern.
+`<input type="number">`-Elemente können Ihnen helfen, Ihre Arbeit bei der Erstellung der Benutzeroberfläche und Logik zum Eingeben von Zahlen in ein Formular zu vereinfachen. Wenn Sie eine Zahleneingabe mit dem richtigen `type`-Wert `number` erstellen, erhalten Sie eine automatische Validierung, dass der eingegebene Text eine Zahl ist, und in der Regel ein Set Up- und Down-Tasten, um den Wert zu erhöhen oder zu verringern.
 
 > [!WARNING]
-> Logisch gesehen sollten Sie innerhalb einer Nummerneingabe keine anderen Zeichen als Zahlen eingeben können. Einige Browser erlauben ungültige Zeichen, andere nicht; siehe [Firefox-Bug 1398528](https://bugzil.la/1398528).
+> Logischerweise sollten Sie in einer Zahleneingabe keine anderen Zeichen als Zahlen eingeben können. Einige Browser erlauben ungültige Zeichen, andere nicht; siehe [Firefox Bug 1398528](https://bugzil.la/1398528).
 
 > [!NOTE]
-> Ein Benutzer kann im Hintergrund mit Ihrem HTML spielen, daher _darf_ Ihre Website keine clientseitige Validierung aus Sicherheitsgründen verwenden. Sie _müssen_ auf der Serverseite jede Transaktion überprüfen, bei der der bereitgestellte Wert irgendeine Art von Sicherheitsimplikationen haben könnte.
+> Ein Benutzer kann hinter den Kulissen mit Ihrem HTML herumspielen, deshalb darf Ihre Seite _auf keinen Fall_ die Client-seitige Validierung aus Sicherheitsgründen verwenden. Sie _müssen_ serverseitig jede Transaktion überprüfen, bei der der bereitgestellte Wert irgendwelche sicherheitsrelevanten Implikationen haben könnte.
 
-Mobile Browser helfen zusätzlich bei der Benutzererfahrung, indem sie eine spezielle Tastatur anzeigen, die besser zum Eingeben von Zahlen geeignet ist, wenn der Benutzer versucht, einen Wert einzugeben.
+Mobile Browser unterstützen die Benutzererfahrung zusätzlich, indem sie eine spezielle Tastatur anzeigen, die besser geeignet ist, um Zahlen einzugeben, sobald der Benutzer einen Wert eingeben möchte.
 
-### Eine grundlegende Nummerneingabe
+### Eine einfache Zahleneingabe
 
-In ihrer einfachsten Form kann eine Nummerneingabe wie folgt implementiert werden:
+In ihrer einfachsten Form kann eine Zahleneingabe so implementiert werden:
 
 ```html
 <label for="ticketNum">Number of tickets you would like to buy:</label>
@@ -119,16 +119,16 @@ In ihrer einfachsten Form kann eine Nummerneingabe wie folgt implementiert werde
 
 {{EmbedLiveSample('A_basic_number_input', 600, 40)}}
 
-Eine Nummerneingabe wird als gültig angesehen, wenn sie leer ist und wenn eine einzelne Zahl eingegeben wird, andernfalls ist sie ungültig. Wenn das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwendet wird, wird die Eingabe nicht mehr als gültig angesehen, wenn sie leer ist.
+Eine Zahleneingabe wird als gültig angesehen, wenn sie leer ist und wenn eine einzelne Zahl eingegeben wird, andernfalls ist sie ungültig. Wenn das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwendet wird, wird die Eingabe nicht mehr als gültig angesehen, wenn sie leer ist.
 
 > [!NOTE]
-> Jede Zahl ist ein akzeptabler Wert, solange sie eine [gültige Fließkommazahl](https://html.spec.whatwg.org/multipage/infrastructure.html#valid-floating-point-number) ist (das heißt, keine [NaN](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) oder [Infinity](/de/docs/Web/JavaScript/Reference/Global_Objects/Infinity)).
+> Jede Zahl ist ein akzeptabler Wert, solange sie eine [gültige Gleitkommazahl](https://html.spec.whatwg.org/multipage/infrastructure.html#valid-floating-point-number) ist (das heißt, keine [NaN](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) oder [Infinity](/de/docs/Web/JavaScript/Reference/Global_Objects/Infinity)).
 
 ### Platzhalter
 
-Manchmal ist es hilfreich, einen kontextbezogenen Hinweis zu geben, in welcher Form die Eingabedaten erscheinen sollen. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Labels für jedes {{HTMLElement("input")}} bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der am häufigsten verwendet wird, um einen Hinweis darauf zu geben, in welchem Format die Eingabe `value` sein sollte. Er wird innerhalb des Eingabefeldes angezeigt, wenn der `value` des Elements `""` ist. Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; und wenn das Feld geleert wird, erscheint der Platzhalter erneut.
+Manchmal ist es hilfreich, einen kontextuellen Hinweis zu bieten, in welcher Form die eingegebenen Daten vorliegen sollen. Das kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Beschriftungen für jedes {{HTMLElement("input")}} bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der am häufigsten verwendet wird, um einen Hinweis auf das Format zu geben, das die Eingabe annehmen soll `value`. Er wird im Bearbeitungsfeld angezeigt, wenn der `value` des Elements `""` ist. Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; wenn das Feld geleert wird, erscheint der Platzhalter wieder.
 
-Hier haben wir eine `number`-Eingabe mit dem Platzhalter "Mehrfaches von 10". Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, während Sie den Inhalt des Eingabefeldes manipulieren.
+Hier haben wir eine `number`-Eingabe mit dem Platzhalter "Mehrfach von 10". Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, je nachdem, wie Sie den Inhalt des Bearbeitungsfeldes manipulieren.
 
 ```html
 <input type="number" placeholder="Multiple of 10" />
@@ -136,9 +136,9 @@ Hier haben wir eine `number`-Eingabe mit dem Platzhalter "Mehrfaches von 10". Be
 
 {{EmbedLiveSample('Placeholders', 600, 40)}}
 
-### Steuerung der Schrittweite
+### Steuerung der Schrittgröße
 
-Standardmäßig erhöhen und verringern die bereitgestellten Auf- und Abwärtspfeil-Schaltflächen den Wert um 1. Sie können dies ändern, indem Sie ein [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut angeben, das als Wert eine Zahl angibt, die die Schrittmenge spezifiziert. Unser obiges Beispiel enthält einen Platzhalter, der besagt, dass der Wert ein Vielfaches von 10 sein sollte, daher ist es sinnvoll, einen `step`-Wert von `10` hinzuzufügen:
+Standardmäßig erhöhen und verringern die bereitgestellten Auf- und Abwärts-Schaltflächen den Wert jeweils um 1. Sie können dies ändern, indem Sie ein [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut bereitstellen, das als Wert eine Zahl zur Angabe der Schrittmenge vorgibt. Unser obiges Beispiel enthält einen Platzhalter, der besagt, dass der Wert ein Vielfaches von 10 sein sollte, daher ist es sinnvoll, einen `step`-Wert von `10` hinzuzufügen:
 
 ```html
 <input type="number" placeholder="multiple of 10" step="10" />
@@ -146,11 +146,11 @@ Standardmäßig erhöhen und verringern die bereitgestellten Auf- und Abwärtspf
 
 {{EmbedLiveSample('Controlling_step_size', 600, 40)}}
 
-In diesem Beispiel sollten Sie feststellen, dass die Auf- und Abwärtspfeile den Wert jedes Mal um 10 erhöhen und verringern, nicht um 1. Sie können weiterhin manuell eine Zahl eingeben, die kein Vielfaches von 10 ist, aber sie wird als ungültig betrachtet.
+In diesem Beispiel sollten die Auf- und Abwärts-Pfeile den Wert jeweils um 10 und nicht um 1 erhöhen und verringern. Sie können immer noch manuell eine Zahl eingeben, die kein Vielfaches von 10 ist, aber diese wird als ungültig angesehen.
 
-### Mindest- und Höchstwerte angeben
+### Festlegen von minimalen und maximalen Werten
 
-Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute verwenden, um einen minimalen und maximalen Wert anzugeben, den das Feld haben kann. Geben wir unserem Beispiel einen Mindestwert von `0` und einen Höchstwert von `100`:
+Sie können die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) verwenden, um einen minimalen und maximalen Wert festzulegen, den das Feld haben kann. Geben wir zum Beispiel unserem Beispiel ein Minimum von `0` und ein Maximum von `100`:
 
 ```html
 <input type="number" placeholder="multiple of 10" step="10" min="0" max="100" />
@@ -158,11 +158,11 @@ Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`m
 
 {{EmbedLiveSample('Specifying_minimum_and_maximum_values', 600, 40)}}
 
-In dieser aktualisierten Version sollten Sie feststellen, dass die Auf- und Abwärtspfeile nicht zulassen, dass Sie unter 0 oder über 100 gehen. Sie können weiterhin manuell eine Zahl eingeben, die außerhalb dieser Grenzen liegt, aber sie wird als ungültig betrachtet.
+In dieser aktualisierten Version sollten Sie feststellen, dass die Auf- und Abwärts-Schaltflächen nicht zulassen, dass Sie unter 0 oder über 100 gehen. Sie können immer noch manuell eine Zahl eingeben, die außerhalb dieser Grenzen liegt, aber diese wird als ungültig angesehen.
 
-### Dezimalwerte zulassen
+### Ermöglichung dezimaler Werte
 
-Ein Problem mit Nummerneingaben ist, dass ihre Schrittweite standardmäßig 1 ist. Wenn Sie versuchen, eine Zahl mit einem Dezimalwert einzugeben, der keine ganze Zahl ist (wie "1.1"), wird sie als ungültig angesehen. Beachten Sie, dass Werte wie "1.0" als gültig angesehen werden, da sie numerisch äquivalent zu ganzen Zahlen sind. Wenn Sie Werte mit Dezimalstellen eingeben möchten, müssen Sie dies im `step`-Wert widerspiegeln (zum Beispiel `step="0.01"` um Dezimalstellen bis auf zwei Stellen zuzulassen). Hier ist ein einfaches Beispiel:
+Ein Problem mit Zahleneingaben ist, dass ihre Schrittgröße standardmäßig 1 beträgt. Wenn Sie versuchen, eine Zahl mit einem Dezimalwert einzugeben, die keine ganze Zahl ist (wie "1.1"), wird sie als ungültig betrachtet. Beachten Sie, dass Werte wie "1.0" als gültig angesehen werden, da sie numerisch äquivalent zu ganzen Zahlen sind. Wenn Sie Werte mit Brüchen eingeben möchten, müssen Sie dies im `step`-Wert widerspiegeln (z.B. `step="0.01"`, um Dezimalzahlen auf zwei Dezimalstellen zu erlauben). Hier ist ein einfaches Beispiel:
 
 ```html
 <input type="number" placeholder="1.0" step="0.01" min="0" max="10" />
@@ -170,15 +170,15 @@ Ein Problem mit Nummerneingaben ist, dass ihre Schrittweite standardmäßig 1 is
 
 {{EmbedLiveSample("Allowing_decimal_values", 600, 40)}}
 
-Sehen Sie, dass dieses Beispiel jeden Wert zwischen `0.0` und `10.0` erlaubt, mit Dezimalen bis zwei Stellen. Zum Beispiel ist "9.52" gültig, aber "9.521" ist es nicht.
+Sehen Sie, dass dieses Beispiel einen Wert zwischen `0.0` und `10.0` mit Dezimalstellen bis zu zwei Stellen erlaubt. Zum Beispiel ist "9.52" gültig, aber "9.521" nicht.
 
 Wenn Sie beliebige Dezimalwerte zulassen möchten, können Sie den `step`-Wert auf `"any"` setzen.
 
 ### Steuerung der Eingabegröße
 
-{{HTMLElement("input")}}-Elemente vom Typ `number` unterstützen keine Formen von Größenattributen wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size). Sie müssen auf [CSS](/de/docs/Web/CSS) zurückgreifen, um die Größe dieser Steuerungen zu ändern.
+{{HTMLElement("input")}}-Elemente vom Typ `number` unterstützen keine Form-Attributgrößen wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size). Sie müssen [CSS](/de/docs/Web/CSS) verwenden, um die Größe dieser Steuerelemente zu ändern.
 
-Zum Beispiel, um die Breite der Eingabe nur so weit anzupassen, dass sie eine dreistellige Zahl zulässt, können wir unser HTML ändern, um eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) hinzuzufügen und unseren Platzhalter zu verkürzen, da das Feld zu schmal für den bisher verwendeten Text wird:
+Zum Beispiel, um die Breite der Eingabe so anzupassen, dass nur eine dreistellige Zahl eingegeben werden kann, können wir unser HTML ändern, um eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) einzuschließen und unseren Platzhalter zu verkürzen, da das Feld für den Text, den wir bisher verwendet haben, zu schmal ist:
 
 ```html
 <input
@@ -190,7 +190,7 @@ Zum Beispiel, um die Breite der Eingabe nur so weit anzupassen, dass sie eine dr
   id="number" />
 ```
 
-Dann fügen wir etwas CSS hinzu, um die Breite des Elements mit dem ID-Selektor `#number` zu verengen:
+Dann fügen wir etwas CSS hinzu, um die Breite des Elements mit dem `id`-Selektor `#number` zu verengen:
 
 ```css
 #number {
@@ -202,9 +202,9 @@ Das Ergebnis sieht so aus:
 
 {{EmbedLiveSample('Controlling_input_size', 600, 40)}}
 
-### Vorgeschlagene Werte anbieten
+### Vorschlagen vordefinierter Werte
 
-Sie können eine Liste von Standardoptionen bereitstellen, aus der der Benutzer auswählen kann, indem Sie das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut angeben, das als Wert die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) einer {{HTMLElement("datalist")}} enthält, die wiederum ein {{HTMLElement("option")}}-Element pro vorgeschlagenem Wert enthält. Der `value` jedes `option` ist der entsprechende vorgeschlagene Wert für den Nummerneingabebereich.
+Sie können eine Liste mit Standardoptionen bereitstellen, aus denen der Benutzer auswählen kann, indem Sie das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut angeben, das als Wert die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) einer {{HTMLElement("datalist")}} enthält, die wiederum ein {{HTMLElement("option")}}-Element pro vorgeschlagenem Wert enthält. Der `value` jeder `option` ist der entsprechende vorgeschlagene Wert für das Zahleneingabefeld.
 
 ```html
 <input id="ticketNum" type="number" name="ticketNum" list="defaultNumbers" />
@@ -223,14 +223,14 @@ Sie können eine Liste von Standardoptionen bereitstellen, aus der der Benutzer 
 
 ## Validierung
 
-Wir haben bereits eine Reihe von Validierungsmerkmalen von `number`-Eingaben erwähnt, aber lassen Sie uns sie jetzt zusammenfassen:
+Wir haben bereits eine Reihe von Validierungsfunktionen für `number`-Eingaben erwähnt, aber lassen Sie uns diese nun zusammenfassen:
 
-- `<input type="number">`-Elemente machen jeden Eintrag ungültig, der keine Zahl ist (oder leer, es sei denn, `required` ist angegeben).
-- Sie können das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden, um einen leeren Eintrag ungültig zu machen. (Mit anderen Worten, die Eingabe _muss_ ausgefüllt werden.)
-- Sie können das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut verwenden, um gültige Werte auf eine bestimmte Schriftsätze zu beschränken (zum Beispiel Vielfache von 10).
-- Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute verwenden, um gültige Werte auf untere und obere Schranken zu beschränken.
+- `<input type="number">`-Elemente werden automatisch als ungültig angesehen, wenn sie etwas anderes als eine Zahl enthalten (oder leer sind, es sei denn `required` ist angegeben).
+- Sie können das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden, um eine leere Eingabe ungültig zu machen. (Mit anderen Worten, die Eingabe _muss_ ausgefüllt werden.)
+- Sie können das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut verwenden, um gültige Werte auf eine bestimmte Menge von Schritten zu beschränken (z.B. Vielfache von 10).
+- Sie können die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) verwenden, um gültige Werte auf untere und obere Grenzen zu beschränken.
 
-Das folgende Beispiel zeigt alle oben genannten Funktionen sowie die Verwendung von etwas CSS, um gültige und ungültige Symbole basierend auf dem Wert des `input` als generierten Inhalt auf dem benachbarten {{htmlelement("span")}}-Element anzuzeigen, als visuellen Indikator für die Gültigkeit.
+Das folgende Beispiel zeigt alle oben genannten Funktionen sowie die Verwendung von etwas CSS, um je nach `input`-Wert gültige und ungültige Symbole anzuzeigen:
 
 ```html
 <form>
@@ -254,9 +254,9 @@ Das folgende Beispiel zeigt alle oben genannten Funktionen sowie die Verwendung 
 
 {{EmbedLiveSample("Validation", 600, 110)}}
 
-Versuchen Sie, das Formular mit verschiedenen ungültigen Werten abzusenden — z.B. kein Wert; ein Wert unter 0 oder über 100; ein Wert, der kein Vielfaches von 10 ist; oder ein nicht-numerischer Wert — und sehen Sie, wie die Fehlermeldungen, die der Browser Ihnen gibt, bei unterschiedlichen Werttypen abweichen.
+Versuchen Sie, das Formular mit verschiedenen ungültigen Werten abzuschicken — z.B. kein Wert; ein Wert unter 0 oder über 100; ein Wert, der kein Vielfaches von 10 ist; oder ein nicht-numerischer Wert — und sehen Sie, wie die Fehlermeldungen des Browsers mit unterschiedlichen Eingaben variieren.
 
-Das auf dieses Beispiel angewendete CSS ist wie folgt:
+Das auf dieses Beispiel angewandte CSS sieht wie folgt aus:
 
 ```css
 div {
@@ -274,38 +274,38 @@ input:valid + span::after {
 }
 ```
 
-Hier benutzen wir die {{cssxref(":invalid")}} und {{cssxref(":valid")}} Pseudoklassen, um ein entsprechendes ungültiges oder gültiges Symbol als generierten Inhalt auf dem benachbarten {{htmlelement("span")}}-Element anzuzeigen, als visuellen Hinweis auf die Gültigkeit.
+Hier verwenden wir die {{cssxref(":invalid")}}- und {{cssxref(":valid")}}-Pseudo-Klassen, um ein entsprechendes ungültiges oder gültiges Symbol als generierten Inhalt auf dem angrenzenden {{htmlelement("span")}}-Element anzuzeigen, als visuelle Anzeige der Gültigkeit.
 
-Wir bringen es auf einem separaten `<span>`-Element an, um mehr Flexibilität zu bieten. Einige Browser zeigen generierte Inhalte auf einigen Typen von Formulareingaben nicht sehr effektiv an. (Lesen Sie zum Beispiel den Abschnitt zum [`<input type="date">`-Validation](/de/docs/Web/HTML/Reference/Elements/input/date#validation).)
+Wir setzen es auf ein separates `<span>`-Element für zusätzliche Flexibilität. Einige Browser zeigen generierten Inhalt bei einigen Arten von Formulareingaben nicht sehr effektiv an. (Lesen Sie zum Beispiel den Abschnitt über die [`<input type="date">`-Validierung](/de/docs/Web/HTML/Reference/Elements/input/date#validation).)
 
 > [!WARNING]
-> Die HTML-Formularvalidierung ist _kein_ Ersatz für serverseitige Skripts, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen!
+> HTML-Formularvalidierung ist _kein_ Ersatz für serverseitige Skripte, die sicherstellen, dass die eingegebenen Daten im korrekten Format vorliegen!
 >
-> Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die ihm ermöglichen, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML umgeht und die Daten direkt an Ihren Server übermittelt.
+> Es ist viel zu leicht für jemanden, Anpassungen am HTML vorzunehmen, die ihm ermöglichen, die Validierung zu umgehen oder vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML umgeht und die Daten direkt an Ihren Server übermittelt.
 >
-> Wenn Ihr Servercode die Daten, die er erhält, nicht validiert, könnte eine Katastrophe eintreten, wenn falsch formatierte Daten übermittelt werden (oder Daten, die zu groß sind, den falschen Typ haben usw.).
+> Wenn Ihr serverseitiger Code die erhaltenen Daten nicht überprüft, könnte ein Disaster entstehen, wenn falsch formatierte Daten übermittelt werden (oder Daten, die zu groß sind, den falschen Typ haben usw.).
 
 ### Muster-Validierung
 
-`<input type="number">`-Elemente unterstützen die Verwendung des [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attributs nicht, um eingegebene Werte an ein bestimmtes Regex-Muster anzupassen.
+`<input type="number">`-Elemente unterstützen nicht die Verwendung des [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attributs, um eingegebene Werte einem bestimmten Regex-Muster anzupassen.
 
-Der Grund dafür ist, dass Number-Inputs nicht gültig sind, wenn sie etwas anderes als Zahlen enthalten, und Sie die minimale und maximale Anzahl gültiger Ziffern unter Verwendung der [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute beschränken können (wie oben erläutert).
+Der Grund dafür ist, dass Zahlen-Eingaben nicht gültig sind, wenn sie etwas anderes als Zahlen enthalten, und Sie die minimale und maximale Anzahl gültiger Ziffern mit den Attributen [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) (wie oben erklärt) einschränken können.
 
 ## Barrierefreiheit
 
-Die implizite [Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) für das `<input type="number">`-Element ist [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role). Wenn das Spinbutton für Ihr Formularsteuerungselement keine wichtige Funktion ist, ziehen Sie in Betracht, _nicht_ `type="number"` zu verwenden. Stattdessen können Sie [`inputmode="numeric"`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode) zusammen mit einem [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)-Attribut verwenden, das die Zeichen auf Zahlen und zugehörige Zeichen beschränkt. Mit `<input type="number">` besteht das Risiko, dass Benutzer versehentlich eine Zahl erhöhen, wenn sie versuchen, etwas anderes zu tun. Außerdem gibt es keine explizite Rückmeldung darüber, was sie falsch machen, wenn sie versuchen, etwas einzugeben, das keine Zahl ist.
+Die implizite [Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) für das `<input type="number">`-Element ist [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role). Wenn die Spinbutton-Funktion für Ihre Formsteuerung nicht wichtig ist, sollten Sie _nicht_ `type="number"` verwenden. Stattdessen sollten Sie [`inputmode="numeric"`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode) zusammen mit einem [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)-Attribut verwenden, das die Zeichen auf Zahlen und zugehörige Zeichen beschränkt. Bei `<input type="number">` besteht das Risiko, dass Benutzer versehentlich eine Zahl inkrementieren, während sie versuchen, etwas anderes zu tun. Wenn Benutzer etwas eingeben, das keine Zahl ist, gibt es zudem kein explizites Feedback darüber, was sie falsch machen.
 
-Ziehen Sie auch die Verwendung des [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attributs in Betracht, um Benutzern zu helfen, Formulare schneller und mit weniger Fehlern auszufüllen. Zum Beispiel, um das automatische Ausfüllen eines Feldes für die Postleitzahl zu aktivieren, setzen Sie `autocomplete="postal-code"`.
+Erwägen Sie auch die Verwendung des [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attributs, um Benutzern dabei zu helfen, Formulare schneller und mit weniger Fehlern auszufüllen. Zum Beispiel, um Autofill auf einem Postleitzahlenfeld zu ermöglichen, setzen Sie `autocomplete="postal-code"`.
 
 ## Beispiele
 
-Wir haben bereits erwähnt, dass der Standard-inkrement ein `1` ist, und Sie können das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut verwenden, um Dezimaleingaben zuzulassen. Sehen wir uns das genauer an.
+Wir haben bereits erwähnt, dass der Standard-Inkrementwert `1` ist und dass Sie das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut verwenden können, um Dezimaleingaben zu ermöglichen. Lassen Sie uns einen genaueren Blick darauf werfen.
 
-Im folgenden Beispiel handelt es sich um ein Formular zur Eingabe der Größe des Benutzers. Es akzeptiert standardmäßig einen Wert in Metern, Sie können jedoch den entsprechenden Knopf betätigen, um das Formular anzupassen, damit es stattdessen die Eingabe in Fuß und Zoll akzeptiert. Die Eingabe für die Höhe in Metern akzeptiert Dezimalstellen bis zu zwei Stellen.
+Im folgenden Beispiel befindet sich ein Formular zur Eingabe der Körpergröße des Benutzers. Standardmäßig wird die Eingabe der Größe in Metern akzeptiert, aber Sie können den entsprechenden Button klicken, um das Formular so zu ändern, dass es stattdessen Fuß und Zoll akzeptiert. Die Eingabe für die Größe in Metern akzeptiert Dezimalzahlen bis zu zwei Stellen.
 
 {{EmbedLiveSample("Examples", 600, 150)}}
 
-Der HTML-Code sieht folgendermaßen aus:
+Das HTML sieht so aus:
 
 ```html
 <form>
@@ -342,11 +342,11 @@ Der HTML-Code sieht folgendermaßen aus:
 </form>
 ```
 
-Sie werden feststellen, dass wir viele der Attribute verwenden, die wir bereits früher im Artikel angesehen haben. Da wir eine Meterhöhe in Zentimetern akzeptieren möchten, haben wir den `step`-Wert auf `0.01` gesetzt, damit Werte wie _1.78_ nicht als ungültig angesehen werden. Wir haben auch einen Platzhalter für diese Eingabe bereitgestellt.
+Sie werden sehen, dass wir viele der Attribute verwenden, die wir im Artikel zuvor betrachtet haben. Da wir einen Meterwert in Zentimetern akzeptieren möchten, haben wir den `step`-Wert auf `0.01` festgelegt, sodass Werte wie _1.78_ nicht als ungültig angesehen werden. Wir haben auch einen Platzhalter für diese Eingabe bereitgestellt.
 
-Wir haben die Fuß- und Zolleingaben initial durch `style="display: none;"` verborgen, sodass die Eingabe in Metern der Standard-Eingabetyp ist.
+Wir haben die Füße- und Zoll-Eingaben initial versteckt, indem wir `style="display: none;"` verwenden, sodass Meter der Standardeingabetyp ist.
 
-Nun zum CSS. Dies sieht der Validierungsstil, den wir zuvor gesehen haben, sehr ähnlich; nichts Bemerkenswertes hier.
+Nun zum CSS. Dies sieht sehr ähnlich aus wie das Validierungsstyling, das wir bereits gesehen haben; hier ist nichts Bemerkenswertes.
 
 ```css
 div {
@@ -417,14 +417,14 @@ switchBtn.addEventListener("click", () => {
 });
 ```
 
-Nach der Deklaration einiger Variablen wird der `button` ein Event-Listener hinzugefügt, um den Umschaltmechanismus zu steuern. Dies beinhaltet das Ändern der `class` des Buttons und das {{HTMLElement("label")}}, sowie das Aktualisieren der Display-Werte der beiden Eingabesets, wenn der Knopf gedrückt wird.
+Nach der Deklaration einiger Variablen wird ein Ereignislistener zum `button` hinzugefügt, um den Wechselschaltermechanismus zu steuern. Dies beinhaltet das Wechseln der `class` des Buttons und der {{HTMLElement("label")}}, sowie das Aktualisieren der Anzeigewerte der beiden Sets von Eingaben, wenn der Button gedrückt wird.
 
-(Beachten Sie, dass wir hier nicht hin und her zwischen Metern und Fuß/Zoll konvertieren, was eine echte Webanwendung wahrscheinlich tun würde.)
+(Beachten Sie, dass wir hier nicht zwischen Metern und Füßen/Zoll hin- und herkonvertieren, was eine reale Webanwendung wahrscheinlich tun würde.)
 
 > [!NOTE]
-> Wenn der Benutzer den Button klickt, werden das `required`-Attribut(e) der versteckten Eingabe(n) entfernt und die `value`-Attribut(e) geleert. Dies ist so, dass das Formular abgeschickt werden kann, auch wenn nicht beide Eingabesets ausgefüllt sind. Es stellt auch sicher, dass das Formular keine Daten übermittelt, die der Benutzer nicht übermitteln wollte.
+> Wenn der Benutzer den Button klickt, werden die `required`-Attribute der Eingaben entfernt, die wir verstecken, sowie die `value`-Attribute geleert. Dies erfolgt, damit das Formular eingereicht werden kann, auch wenn, nicht beide Satzarten von Eingaben ausgefüllt sind. Es stellt auch sicher, dass das Formular keine Daten übermittelt, die der Benutzer nicht beabsichtigt hat.
 >
-> Wenn Sie das nicht tun, müssten Sie sowohl die Fuß/Zoll- als auch die Metrangaben ausfüllen, um das Formular abzusenden!
+> Wenn Sie dies nicht tun würden, müssten Sie sowohl Fuß/Zoll **als auch** Meter ausfüllen, um das Formular abzuschicken!
 
 ## Technische Zusammenfassung
 
@@ -432,7 +432,7 @@ Nach der Deklaration einiger Variablen wird der `button` ein Event-Listener hinz
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
-      <td>Ein {{jsxref("Number")}} der eine Nummer repräsentiert oder leer ist</td>
+      <td>Eine {{jsxref("Number")}}, die eine Zahl darstellt, oder leer</td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
@@ -442,7 +442,7 @@ Nach der Deklaration einiger Variablen wird der `button` ein Event-Listener hinz
       </td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td>
          <a href="/de/docs/Web/HTML/Reference/Elements/input#autocomplete"><code>autocomplete</code></a>,
          <a href="/de/docs/Web/HTML/Reference/Elements/input#list"><code>list</code></a>,
@@ -489,7 +489,7 @@ Nach der Deklaration einiger Variablen wird der `button` ein Event-Listener hinz
 
 ## Siehe auch
 
-- [HTML Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
+- [HTML Forms Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
 - {{HTMLElement("input")}}
 - [`<input type="tel">`](/de/docs/Web/HTML/Reference/Elements/input/tel)
 - [Artikel: Warum Gov.UK den Eingabetyp für Zahlen geändert hat](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/)

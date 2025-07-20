@@ -3,20 +3,20 @@ title: Array.prototype[Symbol.iterator]()
 short-title: "[Symbol.iterator]()"
 slug: Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die Methode **`[Symbol.iterator]()`** von {{jsxref("Array")}}-Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, Arrays durch die meisten Syntaxen zu nutzen, die Iterables erwarten, wie etwa die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im Array liefert.
+Die Methode **`[Symbol.iterator]()`** von {{jsxref("Array")}} Instanzen implementiert das [iterable Protocol](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es Arrays, von den meisten Syntaxen konsumiert zu werden, die Iterables erwarten, wie zum Beispiel dem [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im Array liefert.
 
-Der Anfangswert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der Anfangswert der Eigenschaft {{jsxref("Array.prototype.values")}}.
+Der anfängliche Wert dieser Eigenschaft ist das gleiche Funktionsobjekt wie der anfängliche Wert der Eigenschaft {{jsxref("Array.prototype.values")}}.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype[Symbol.iterator]()")}}
 
 ```js interactive-example
-const array1 = ["a", "b", "c"];
-const iterator1 = array1[Symbol.iterator]();
+const array = ["a", "b", "c"];
+const iterator = array[Symbol.iterator]();
 
-for (const value of iterator1) {
+for (const value of iterator) {
   console.log(value);
 }
 
@@ -37,13 +37,13 @@ Keine.
 
 ### Rückgabewert
 
-Der gleiche Rückgabewert wie {{jsxref("Array.prototype.values()")}}: ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im Array liefert.
+Der gleiche Rückgabewert wie {{jsxref("Array.prototype.values()")}}: ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im Array liefert.
 
 ## Beispiele
 
-### Iteration mit der for...of-Schleife
+### Iteration mit der for...of Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()`-Methode macht Arrays [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator zum Durchlaufen zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()` Methode macht Arrays [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterations-Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zu erhalten, über den iteriert werden soll.
 
 #### HTML
 
@@ -67,9 +67,9 @@ for (const letter of arr) {
 
 {{EmbedLiveSample("Iteration_using_for...of_loop", "", "")}}
 
-### Manueller Aufbau des Iterators
+### Manuelles Erstellen des Iterators
 
-Sie können dennoch die `next()`-Methode des zurückgegebenen Iterator-Objekts manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erhalten.
+Sie können die `next()` Methode des zurückgegebenen Iterator-Objekts dennoch manuell aufrufen, um die maximale Kontrolle über den Iterationsprozess zu erhalten.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -81,9 +81,9 @@ console.log(arrIter.next().value); // d
 console.log(arrIter.next().value); // e
 ```
 
-### Umgang mit Strings und String-Arrays mit derselben Funktion
+### Handhabung von Zeichenfolgen und Zeichenfolgen-Arrays mit derselben Funktion
 
-Da sowohl [Strings](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) als auch Arrays das iterable Protokoll implementieren, kann eine generische Funktion gestaltet werden, um beide Eingaben auf die gleiche Weise zu behandeln. Dies ist besser, als {{jsxref("Array.prototype.values()")}} direkt aufzurufen, was erfordert, dass die Eingabe ein Array ist oder zumindest ein Objekt mit einer solchen Methode.
+Da sowohl [Zeichenfolgen](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) als auch Arrays das iterable Protocol implementieren, kann eine generische Funktion entworfen werden, um beide Eingaben auf die gleiche Weise zu behandeln. Dies ist besser, als {{jsxref("Array.prototype.values()")}} direkt aufzurufen, was erfordert, dass die Eingabe ein Array oder zumindest ein Objekt mit einer solchen Methode ist.
 
 ```js
 function logIterable(it) {
@@ -124,7 +124,7 @@ logIterable(123);
 ## Siehe auch
 
 - [Polyfill von `Array.prototype[Symbol.iterator]` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- Leitfaden zu [Indexierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.keys()")}}
 - {{jsxref("Array.prototype.entries()")}}
@@ -132,4 +132,4 @@ logIterable(123);
 - [`TypedArray.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/Symbol.iterator)
 - [`String.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator)
 - {{jsxref("Symbol.iterator")}}
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iteration Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

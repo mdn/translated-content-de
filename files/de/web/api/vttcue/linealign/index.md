@@ -3,38 +3,38 @@ title: "VTTCue: lineAlign-Eigenschaft"
 short-title: lineAlign
 slug: Web/API/VTTCue/lineAlign
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`lineAlign`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert die Ausrichtung dieses VTT-Cue.
+Die **`lineAlign`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle repräsentiert die Ausrichtung dieses VTT-Cues.
 
 ## Wert
 
-Eine Zeichenkette, die einen der folgenden Werte enthält:
+Ein String, der einen der folgenden Werte enthält:
 
 - `"start"`
-  - : Startausrichtung.
+  - : Start-Aus alignment.
 - `"center"`
-  - : Mittige Ausrichtung.
+  - : Zentrumsaus alignment.
 - `"end"`
-  - : Endausrichtung.
+  - : End-Aus alignment.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, und dann wird der Wert von `lineAlign` auf `"center"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `lineAlign` auf `"center"` gesetzt. Der Wert wird dann in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");
 let track = video.addTextTrack("captions", "Captions", "en");
 track.mode = "showing";
 
-let cue1 = new VTTCue(0, 0.9, "Hildy!");
-cue1.lineAlign = "center";
-console.log(cue1.lineAlign);
+let cue = new VTTCue(0, 0.9, "Hildy!");
+cue.lineAlign = "center";
+console.log(cue.lineAlign);
 
-track.addCue(cue1);
+track.addCue(cue);
 ```
 
 ## Spezifikationen

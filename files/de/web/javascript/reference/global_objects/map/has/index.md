@@ -3,7 +3,7 @@ title: Map.prototype.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Map/has
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 Die **`has()`**-Methode von {{jsxref("Map")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in dieser Map existiert oder nicht.
@@ -11,13 +11,13 @@ Die **`has()`**-Methode von {{jsxref("Map")}}-Instanzen gibt einen booleschen We
 {{InteractiveExample("JavaScript Demo: Map.prototype.has()")}}
 
 ```js interactive-example
-const map1 = new Map();
-map1.set("bar", "foo");
+const map = new Map();
+map.set("bar", "foo");
 
-console.log(map1.has("bar"));
+console.log(map.has("bar"));
 // Expected output: true
 
-console.log(map1.has("baz"));
+console.log(map.has("baz"));
 // Expected output: false
 ```
 

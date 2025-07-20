@@ -3,25 +3,25 @@ title: Set.prototype.delete()
 short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/Set/delete
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`delete()`** Methode von {{jsxref("Set")}} Instanzen entfernt einen angegebenen Wert aus diesem Set, sofern er im Set vorhanden ist.
+Die **`delete()`** Methode von {{jsxref("Set")}} Instanzen entfernt einen angegebenen Wert aus dieser Menge, falls er sich in der Menge befindet.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.delete()")}}
 
 ```js interactive-example
-const set1 = new Set();
-set1.add({ x: 10, y: 20 }).add({ x: 20, y: 30 });
+const set = new Set();
+set.add({ x: 10, y: 20 }).add({ x: 20, y: 30 });
 
 // Delete any point with `x > 10`.
-set1.forEach((point) => {
+set.forEach((point) => {
   if (point.x > 10) {
-    set1.delete(point);
+    set.delete(point);
   }
 });
 
-console.log(set1.size);
+console.log(set.size);
 // Expected output: 1
 ```
 
@@ -34,16 +34,16 @@ setInstance.delete(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der aus `Set` entfernt werden soll.
+  - : Der Wert, der aus dem `Set` entfernt werden soll.
 
 ### Rückgabewert
 
 Gibt `true` zurück, wenn `value` bereits in
-`Set` war; ansonsten `false`.
+`Set` enthalten war; andernfalls `false`.
 
 ## Beispiele
 
-### Verwendung der delete() Methode
+### Die delete() Methode verwenden
 
 ```js
 const mySet = new Set();
@@ -55,9 +55,9 @@ console.log(mySet.delete("foo")); // true; successfully removed.
 console.log(mySet.has("foo")); // false; the "foo" element is no longer present.
 ```
 
-### Löschen eines Objekts aus einem Set
+### Ein Objekt aus einem Set löschen
 
-Da Objekte nach Referenz verglichen werden, müssen Sie sie durch Überprüfung einzelner Eigenschaften löschen, wenn Sie keinen Verweis auf das Originalobjekt haben.
+Da Objekte durch Referenz verglichen werden, müssen Sie sie löschen, indem Sie einzelne Eigenschaften überprüfen, wenn Sie keine Referenz auf das ursprüngliche Objekt haben.
 
 ```js
 const setObj = new Set(); // Create a new set.

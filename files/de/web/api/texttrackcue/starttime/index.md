@@ -3,12 +3,12 @@ title: "TextTrackCue: startTime-Eigenschaft"
 short-title: startTime
 slug: Web/API/TextTrackCue/startTime
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`startTime`**-Eigenschaft des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt die Startzeit des Cues zurück und setzt sie.
+Die **`startTime`**-Eigenschaft des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt die Startzeit des Textausschnitts zurück und setzt sie.
 
 ## Wert
 
@@ -23,9 +23,9 @@ let video = document.querySelector("video");
 let track = video.addTextTrack("captions", "Captions", "en");
 track.mode = "showing";
 
-let cue1 = new VTTCue(0.1, 0.9, "Hildy!");
-console.log(cue1.startTime); // 0.1
-track.addCue(cue1);
+let cue = new VTTCue(0.1, 0.9, "Hildy!");
+console.log(cue.startTime); // 0.1
+track.addCue(cue);
 ```
 
 ## Spezifikationen

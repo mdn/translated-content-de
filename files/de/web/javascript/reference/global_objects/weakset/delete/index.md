@@ -3,7 +3,7 @@ title: WeakSet.prototype.delete()
 short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/delete
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 Die **`delete()`**-Methode von {{jsxref("WeakSet")}}-Instanzen entfernt das angegebene Element aus diesem `WeakSet`.
@@ -11,17 +11,17 @@ Die **`delete()`**-Methode von {{jsxref("WeakSet")}}-Instanzen entfernt das ange
 {{InteractiveExample("JavaScript Demo: WeakSet.Prototype.delete()")}}
 
 ```js interactive-example
-const weakset1 = new WeakSet();
-const object1 = {};
+const weakset = new WeakSet();
+const object = {};
 
-weakset1.add(object1);
+weakset.add(object);
 
-console.log(weakset1.has(object1));
+console.log(weakset.has(object));
 // Expected output: true
 
-weakset1.delete(object1);
+weakset.delete(object);
 
-console.log(weakset1.has(object1));
+console.log(weakset.has(object));
 // Expected output: false
 ```
 
@@ -38,7 +38,7 @@ weakSetInstance.delete(value)
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `WeakSet`-Objekt erfolgreich entfernt wurde. `false`, wenn der `value` im `WeakSet` nicht gefunden wurde. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+`true`, wenn ein Element im `WeakSet`-Objekt erfolgreich entfernt wurde. `false`, wenn der `value` nicht im `WeakSet` gefunden wird. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 

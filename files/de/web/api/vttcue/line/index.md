@@ -3,31 +3,31 @@ title: "VTTCue: line-Eigenschaft"
 short-title: line
 slug: Web/API/VTTCue/line
 l10n:
-  sourceCommit: 3975bcf6caa09c9c5f7fddf2eef2be6c021d00f6
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`line`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle repräsentiert die Cue-Linie dieses WebVTT-Cues.
+Die **`line`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert die Zeile des WebVTT-Cues.
 
 ## Wert
 
-Eine Zahl oder `"auto"`, die die Cue-Linie dieses WebVTT-Cues darstellt.
+Eine Zahl oder `"auto"`, die die Zeile des WebVTT-Cues darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, und dann wird der Wert von `line` auf `1` gesetzt. Der Wert wird anschließend in die Konsole ausgegeben.
+Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt. Anschließend wird der Wert von `line` auf `1` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");
 let track = video.addTextTrack("captions", "Captions", "en");
 track.mode = "showing";
 
-let cue1 = new VTTCue(0, 0.9, "Hildy!");
-cue1.line = "1";
-console.log(cue1.line);
+let cue = new VTTCue(0, 0.9, "Hildy!");
+cue.line = "1";
+console.log(cue.line);
 
-track.addCue(cue1);
+track.addCue(cue);
 ```
 
 ## Spezifikationen

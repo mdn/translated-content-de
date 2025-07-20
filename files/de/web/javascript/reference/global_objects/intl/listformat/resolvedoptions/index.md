@@ -3,25 +3,25 @@ title: Intl.ListFormat.prototype.resolvedOptions()
 short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/resolvedOptions
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`resolvedOptions()`** Methode von {{jsxref("Intl.ListFormat")}} Instanzen gibt ein neues Objekt zurück, das die während der Initialisierung des `ListFormat`-Objekts berechneten Optionen widerspiegelt.
+Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `ListFormat`-Objekts berechneten Optionen widerspiegeln.
 
 {{InteractiveExample("JavaScript Demo: Intl.ListFormat.prototype.resolvedOptions()")}}
 
 ```js interactive-example
-const deListFormatter1 = new Intl.ListFormat("de-DE", { type: "disjunction" });
-const options1 = deListFormatter1.resolvedOptions();
+const deListFormatter = new Intl.ListFormat("de-DE", { type: "disjunction" });
+const options = deListFormatter.resolvedOptions();
 
-console.log(options1.locale);
+console.log(options.locale);
 // Expected output (Firefox / Safari): "de-DE"
 // Expected output (Chrome): "de"
 
-console.log(options1.style);
+console.log(options.style);
 // Expected output: "long"
 
-console.log(options1.type);
+console.log(options.type);
 // Expected output: "disjunction"
 ```
 
@@ -40,11 +40,11 @@ Keine.
 Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `ListFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
 
 - `locale`
-  - : Der BCP 47-Sprachcode für das tatsächlich verwendete Gebietsschema, bestimmt durch den [Prozess der Sprachauswahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
+  - : Der BCP 47-Sprach-Tag für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Verhandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in die Ausgabe einbezogen.
 - `type`
-  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, wobei erforderlichenfalls Standardwerte ergänzt werden. Es ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`. Der Standardwert ist `"conjunction"`.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, wobei der Standardwert bei Bedarf ausgefüllt wird. Es ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`. Der Standardwert ist `"conjunction"`.
 - `style`
-  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, wobei erforderlichenfalls Standardwerte ergänzt werden. Es ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, wobei der Standardwert bei Bedarf ausgefüllt wird. Es ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
 
 ## Beispiele
 

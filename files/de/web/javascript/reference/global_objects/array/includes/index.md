@@ -3,17 +3,17 @@ title: Array.prototype.includes()
 short-title: includes()
 slug: Web/JavaScript/Reference/Global_Objects/Array/includes
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`includes()`**-Methode von {{jsxref("Array")}}-Instanzen bestimmt, ob ein Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück.
+Die **`includes()`** Methode von {{jsxref("Array")}} Instanzen bestimmt, ob ein Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.includes()")}}
 
 ```js interactive-example
-const array1 = [1, 2, 3];
+const array = [1, 2, 3];
 
-console.log(array1.includes(2));
+console.log(array.includes(2));
 // Expected output: true
 
 const pets = ["cat", "dog", "bat"];
@@ -37,22 +37,22 @@ includes(searchElement, fromIndex)
 - `searchElement`
   - : Der zu suchende Wert.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem mit der Suche begonnen wird, [in einen Integer umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Arrays rückwärts — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet. Das Array wird jedoch immer noch von vorne nach hinten durchsucht.
-    - Ist `fromIndex < -array.length` oder wird `fromIndex` weggelassen, wird `0` verwendet, sodass das gesamte Array durchsucht wird.
-    - Ist `fromIndex >= array.length`, wird das Array nicht durchsucht und es wird `false` zurückgegeben.
+  - : Nullbasierter Index, ab dem die Suche gestartet wird, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet. In diesem Fall wird das Array jedoch weiterhin von vorne nach hinten durchsucht.
+    - Wenn `fromIndex < -array.length` ist oder `fromIndex` weggelassen wird, wird `0` verwendet, wodurch das gesamte Array durchsucht wird.
+    - Wenn `fromIndex >= array.length` ist, wird das Array nicht durchsucht und `false` wird zurückgegeben.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` im Array gefunden wird (oder in dem durch den Index `fromIndex` angegebenen Teil des Arrays, falls angegeben).
+Ein Boolean-Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des Arrays (oder dem durch den Index `fromIndex` angegebenen Teil des Arrays, falls angegeben) gefunden wird.
 
 ## Beschreibung
 
-Die `includes()`-Methode vergleicht `searchElement` mit den Elementen des Arrays unter Verwendung des [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus. Werte von Null werden unabhängig von ihrem Vorzeichen als gleich betrachtet (d.h. `-0` ist gleich `0`), aber `false` wird _nicht_ als gleich `0` angesehen. [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) kann korrekt gesucht werden.
+Die `includes()` Methode vergleicht `searchElement` mit den Elementen des Arrays unter Verwendung des [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality) Algorithmus. Nullwerte werden unabhängig vom Vorzeichen als gleich betrachtet (das heißt, `-0` ist gleich `0`), aber `false` wird _nicht_ als gleich `0` angesehen. [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) kann korrekt durchsucht werden.
 
-Wenn sie auf [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `includes()`-Methode leere Slots, als ob sie den Wert `undefined` hätten.
+Bei Verwendung auf [sparsely besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) iteriert die `includes()` Methode leere Plätze, als hätten sie den Wert `undefined`.
 
-Die `includes()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und Integer-indizierte Eigenschaften hat.
+Die `includes()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-basierte Eigenschaften hat.
 
 ## Beispiele
 
@@ -80,7 +80,7 @@ arr.includes("c", 100); // false
 
 ### Berechneter Index ist kleiner als 0
 
-Wenn `fromIndex` negativ ist, wird der berechnete Index verwendet, um die Position im Array zu ermitteln, an der die Suche nach `searchElement` beginnt. Ist der berechnete Index kleiner oder gleich `0`, wird das gesamte Array durchsucht.
+Wenn `fromIndex` negativ ist, wird der berechnete Index berechnet, um als Position im Array verwendet zu werden, an der die Suche nach `searchElement` beginnt. Wenn der berechnete Index kleiner oder gleich `0` ist, wird das gesamte Array durchsucht.
 
 ```js
 // array length is 3
@@ -95,17 +95,17 @@ arr.includes("c", -100); // true
 arr.includes("a", -2); // false
 ```
 
-### Nutzung von includes() auf dünn besetzten Arrays
+### Verwendung von includes() bei sporadischen Arrays
 
-Sie können `undefined` in einem dünn besetzten Array suchen und `true` zurückbekommen.
+Sie können nach `undefined` in einem sporadischen Array suchen und `true` erhalten.
 
 ```js
 console.log([1, , 3].includes(undefined)); // true
 ```
 
-### Aufruf von includes() auf Nicht-Array-Objekten
+### Nutzung von includes() bei Nicht-Array-Objekten
 
-Die `includes()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl ist, die kleiner als `length` ist.
+Die `includes()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {

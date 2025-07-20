@@ -3,29 +3,29 @@ title: "TextTrackCue: id-Eigenschaft"
 short-title: id
 slug: Web/API/TextTrackCue/id
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`id`**-Eigenschaft des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt den Bezeichner für diesen Cue zurück und setzt ihn.
+Die **`id`**-Eigenschaft der [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle gibt den Bezeichner für diese Cue zurück und legt ihn fest.
 
 ## Wert
 
-Ein String, der die ID dieses Cues enthält.
+Ein Zeichenfolge, die die ID dieser Cue enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt (das von `TextTrackCue` erbt). Die `id`-Eigenschaft wird dann auf "first" gesetzt, bevor der Cue hinzugefügt wird.
+Im folgenden Beispiel wird eine neue [`VTTCue`](/de/docs/Web/API/VTTCue) (die von `TextTrackCue` erbt) erstellt. Die `id`-Eigenschaft wird dann auf "first" gesetzt, bevor die Cue hinzugefügt wird.
 
 ```js
 let video = document.querySelector("video");
 let track = video.addTextTrack("captions", "Captions", "en");
 track.mode = "showing";
 
-let cue1 = new VTTCue(0, 0.9, "Hildy!");
-cue1.id = "first";
-track.addCue(cue1);
+let cue = new VTTCue(0, 0.9, "Hildy!");
+cue.id = "first";
+track.addCue(cue);
 ```
 
 ## Spezifikationen

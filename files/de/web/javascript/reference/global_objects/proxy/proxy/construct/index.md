@@ -3,30 +3,30 @@ title: handler.construct()
 short-title: construct()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/construct
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-Die **`handler.construct()`**-Methode ist eine Falle für die `[[Construct]]`-Methode des [internen Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/new", "new")}} Operator genutzt wird. Damit die neue Operation auf dem resultierenden Proxy-Objekt gültig ist, muss das zur Initialisierung des Proxys verwendete Ziel selbst ein gültiger Konstruktor sein.
+Die **`handler.construct()`** Methode ist eine Falle für die `[[Construct]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/new", "new")}} Operator verwendet wird. Damit die `new`-Operation auf dem resultierenden Proxy-Objekt gültig ist, muss das Ziel, das verwendet wird, um den Proxy zu initialisieren, selbst ein gültiger Konstruktor sein.
 
 {{InteractiveExample("JavaScript Demo: handler.construct()", "taller")}}
 
 ```js interactive-example
-function monster1(disposition) {
+function Monster(disposition) {
   this.disposition = disposition;
 }
 
-const handler1 = {
+const handler = {
   construct(target, args) {
     console.log(`Creating a ${target.name}`);
-    // Expected output: "Creating a monster1"
+    // Expected output: "Creating a monster"
 
     return new target(...args);
   },
 };
 
-const proxy1 = new Proxy(monster1, handler1);
+const ProxiedMonster = new Proxy(Monster, handler);
 
-console.log(new proxy1("fierce").disposition);
+console.log(new ProxiedMonster("fierce").disposition);
 // Expected output: "fierce"
 ```
 
@@ -41,40 +41,40 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `construct()`-Methode übergeben. `this` ist mit dem Handler verbunden.
+Die folgenden Parameter werden an die `construct()` Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
-  - : Das Zielkonstruktor-Objekt.
+  - : Das Ziel-Konstruktorobjekt.
 - `argumentsList`
   - : Ein {{jsxref("Array")}}, das die an den Konstruktor übergebenen Argumente enthält.
 - `newTarget`
-  - : Der ursprünglich aufgerufene Konstruktor.
+  - : Der Konstruktor, der ursprünglich aufgerufen wurde.
 
 ### Rückgabewert
 
-Die `construct()`-Methode muss ein Objekt zurückgeben, das das neu erstellte Objekt darstellt.
+Die `construct()` Methode muss ein Objekt zurückgeben, das das neu erstellte Objekt darstellt.
 
 ## Beschreibung
 
-### Abfangvorgänge
+### Abfangmethoden
 
 Diese Falle kann folgende Operationen abfangen:
 
-- Der [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator: `new myFunction(...args)`
+- Den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator: `new myFunction(...args)`
 - {{jsxref("Reflect.construct()")}}
 
-Oder jede andere Operation, die die `[[Construct]]`-[interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
+Oder jede andere Operation, die die `[[Construct]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[Construct]]`-Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Construct]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
 - Das `target` muss selbst ein Konstruktor sein.
 - Das Ergebnis muss ein {{jsxref("Object")}} sein.
 
 ## Beispiele
 
-### Abfangen des new Operators
+### Den new-Operator abfangen
 
 Der folgende Code fängt den {{jsxref("Operators/new", "new")}} Operator ab.
 

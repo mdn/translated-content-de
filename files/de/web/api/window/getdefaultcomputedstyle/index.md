@@ -1,14 +1,14 @@
 ---
-title: "Fenster: getDefaultComputedStyle() Methode"
+title: "Fenster: Methode getDefaultComputedStyle()"
 short-title: getDefaultComputedStyle()
 slug: Web/API/Window/getDefaultComputedStyle
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
 {{APIRef("CSSOM")}}{{Non-standard_Header}}
 
-Die **`getDefaultComputedStyle()`** Methode liefert die Standard-[berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) aller CSS-Eigenschaften eines Elements und ignoriert dabei autorenmäßige Stile. Das heißt, es werden nur Benutzer-Agent- und Benutzer-Stile berücksichtigt.
+Die **`getDefaultComputedStyle()`**-Methode liefert die Standard-[berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) aller CSS-Eigenschaften eines Elements, wobei die Autoren-Styles ignoriert werden. Das bedeutet, dass nur Benutzeragent- und Benutzer-Styles berücksichtigt werden.
 
 ## Syntax
 
@@ -20,24 +20,24 @@ getDefaultComputedStyle(element, pseudoElt)
 ### Parameter
 
 - `element`
-  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Stil abgerufen werden soll.
+  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Style ermittelt werden soll.
 - `pseudoElt` {{optional_inline}}
-  - : Ein String, der das Pseudo-Element angibt, das übereinstimmen soll. Muss `null` (oder nicht angegeben) für reguläre Elemente sein.
+  - : Ein Zeichenfolgenwert, der das zu berücksichtigende Pseudo-Element angibt. Muss `null` sein (oder nicht angegeben), wenn es sich um reguläre Elemente handelt.
 
 ### Rückgabewert
 
-Der zurückgegebene `style` ist ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) Objekt. Das Objekt ist vom gleichen Typ wie das Objekt, das von [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird, berücksichtigt jedoch nur Benutzer-Agent- und Benutzerrichtlinien.
+Der zurückgegebene `style` ist ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt. Dieses Objekt ist vom gleichen Typ wie das Objekt, das von [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird, berücksichtigt jedoch nur Benutzeragent- und Benutzerregeln.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
 ```js
-const elem1 = document.getElementById("elemId");
-const style = getDefaultComputedStyle(elem1);
+const elem = document.getElementById("elemId");
+const style = getDefaultComputedStyle(elem);
 ```
 
-### Umfangreicheres Beispiel
+### Längeres Beispiel
 
 ```html
 <div id="elem-container">dummy</div>
@@ -61,7 +61,7 @@ document.getElementById("output").textContent = theCSSprop; // outputs "static"
 
 ### Verwendung mit Pseudo-Elementen
 
-Die `getDefaultComputedStyle()` Methode kann Stilinformationen von Pseudo-Elementen abrufen (z.B. {{cssxref("::before")}} oder {{cssxref("::after")}}).
+Die `getDefaultComputedStyle()`-Methode kann Style-Informationen von Pseudo-Elementen abrufen (z.B. {{cssxref("::before")}} oder {{cssxref("::after")}}).
 
 ```html
 <h3>generated content</h3>
@@ -82,7 +82,7 @@ console.log("the generated content is: ", result); // returns 'none'
 
 ## Anmerkungen
 
-Der zurückgegebene Wert ist in bestimmten bekannten Fällen ausdrücklich absichtlich falsch. Insbesondere, um das sogenannte CSS History Leak Sicherheitsproblem zu vermeiden, können Browser ausdrücklich "lügen" über den verwendeten Wert für einen Link und immer Werte zurückgeben, als hätte ein Benutzer die verlinkte Seite nie besucht, und/oder die Stile einschränken, die mit dem `:visited` Pseudoselektor angewendet werden können. Weitere Details und Beispiele, wie dies implementiert wird, finden Sie unter <https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/> und <https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/>.
+Der zurückgegebene Wert ist in bestimmten bekannten Fällen bewusst inkorrekt, und zwar aus Sicherheitsgründen. Speziell um das sogenannte CSS-Verlaufsleck-Sicherheitsproblem zu vermeiden, können Browser bewusst "lügen" über den verwendeten Wert für einen Link und immer Werte zurückgeben, als ob ein Benutzer die verlinkte Seite nie besucht hätte, und/oder die Styles einschränken, die mit dem `:visited`-Pseudoselektor angewandt werden können. Details zur Implementierung dieser Beispiele finden Sie unter <https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/> und <https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/>.
 
 ## Spezifikationen
 
