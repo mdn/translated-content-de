@@ -2,31 +2,31 @@
 title: CSS Custom Highlight API
 slug: Web/API/CSS_Custom_Highlight_API
 l10n:
-  sourceCommit: 4a0413ef319179b7d0d833c42a156629544c8248
+  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
 ---
 
 {{DefaultAPISidebar("CSS Custom Highlight API")}}
 
-Die CSS Custom Highlight API bietet einen Mechanismus, um beliebige Textbereiche in einem Dokument mit JavaScript zu erstellen und mit CSS zu gestalten.
+Die CSS Custom Highlight API bietet einen Mechanismus zum Stylen beliebiger Textbereiche in einem Dokument, indem JavaScript verwendet wird, um die Bereiche zu erstellen und CSS, um sie zu stylen.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Das Gestalten von Textbereichen auf einer Webseite kann sehr nützlich sein. Beispielsweise heben Textbearbeitungs-Web-Apps Rechtschreib- oder Grammatikfehler hervor, und Code-Editoren zeigen Syntaxfehler an.
+Das Stylen von Textbereichen auf einer Webseite kann sehr nützlich sein. Zum Beispiel heben Textbearbeitungs-Apps Rechtschreib- oder Grammatikfehler hervor, und Code-Editoren heben Syntaxfehler hervor.
 
-Die CSS Custom Highlight API erweitert das Konzept anderer Highlight-Pseudoelemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}} und {{cssxref('::target-text')}}. Sie ermöglicht das Erstellen und Gestalten von beliebigen [`Range`](/de/docs/Web/API/Range)-Objekten, anstatt auf browserdefinierte Bereiche beschränkt zu sein.
+Die CSS Custom Highlight API erweitert das Konzept anderer Highlight-Pseudoelemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}} und {{cssxref('::target-text')}} durch die Bereitstellung einer Möglichkeit, beliebige [`Range`](/de/docs/Web/API/Range)-Objekte zu erstellen und zu stylen, anstatt auf browserdefinierte Bereiche beschränkt zu sein.
 
-Mit der CSS Custom Highlight API können Sie programmgesteuert Textbereiche erstellen und hervorheben, ohne die DOM-Struktur der Seite zu beeinflussen.
+Mit der CSS Custom Highlight API können Sie programmgesteuert Textranges erstellen und hervorheben, ohne die DOM-Struktur auf der Seite zu beeinflussen.
 
-Es gibt vier Schritte, um Textbereiche auf einer Webseite mit der CSS Custom Highlight API zu gestalten:
+Es gibt vier Schritte, um Textbereiche auf einer Webseite mit der CSS Custom Highlight API zu stylen:
 
 1. Erstellen von [`Range`](/de/docs/Web/API/Range)-Objekten.
 2. Erstellen von [`Highlight`](/de/docs/Web/API/Highlight)-Objekten für diese Bereiche.
-3. Registrieren der Highlights mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry).
-4. Gestalten der Highlights mit dem {{cssxref("::highlight", "::highlight()")}} Pseudoelement.
+3. Registrieren der Highlights mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry).
+4. Stylen der Highlights mit dem {{cssxref("::highlight", "::highlight()")}} Pseudoelement.
 
 ### Bereiche erstellen
 
-Der erste Schritt besteht darin, die Textbereiche zu definieren, die Sie gestalten möchten, indem Sie [`Range`](/de/docs/Web/API/Range)-Objekte in JavaScript erstellen. Zum Beispiel:
+Der erste Schritt besteht darin, die Textbereiche zu definieren, die Sie stylen möchten, indem Sie [`Range`](/de/docs/Web/API/Range)-Objekte in JavaScript erstellen. Zum Beispiel:
 
 ```js
 const parentNode = document.getElementById("foo");
@@ -50,29 +50,29 @@ Mehrere Bereiche können einem Highlight zugeordnet werden. Wenn Sie mehrere Tex
 const highlight = new Highlight(range1, range2);
 ```
 
-Sie können jedoch auch so viele Highlights erstellen, wie Sie benötigen. Wenn Sie beispielsweise einen kollaborativen Texteditor entwickeln, bei dem jeder Benutzer eine andere Textfarbe erhält, können Sie ein Highlight pro Benutzer erstellen, wie im folgenden Codeausschnitt zu sehen ist:
+Aber Sie können auch so viele Highlights erstellen, wie Sie benötigen. Wenn Sie zum Beispiel einen kollaborativen Texteditor erstellen, bei dem jeder Benutzer eine andere Textfarbe erhält, dann können Sie ein Highlight pro Benutzer erstellen, wie im folgenden Code-Snippet gezeigt:
 
 ```js
 const user1Highlight = new Highlight(user1Range1, user1Range2);
 const user2Highlight = new Highlight(user2Range1, user2Range2, user2Range3);
 ```
 
-Jedes Highlight kann unterschiedlich gestaltet werden.
+Jedes Highlight kann unterschiedlich gestylt werden.
 
 ### Highlights registrieren
 
-Sobald Highlights erstellt wurden, registrieren Sie sie mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry), das als [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) verfügbar ist.
+Sobald die Highlights erstellt wurden, registrieren Sie sie mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry), das als [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) verfügbar ist.
 
-Das Registry ist ein {{jsxref("Map")}}-ähnliches Objekt, das verwendet wird, um Highlights mit Namen zu registrieren, wie unten zu sehen ist:
+Das Register ist ein {{jsxref("Map")}}-ähnliches Objekt, das zur Registrierung von Highlights mit benutzerdefinierten Namen verwendet wird, wie unten zu sehen:
 
 ```js
 CSS.highlights.set("user-1-highlight", user1Highlight);
 CSS.highlights.set("user-2-highlight", user2Highlight);
 ```
 
-Im obigen Codebeispiel sind die Zeichenfolgen `user-1-highlight` und `user-2-highlight` benutzerdefinierte Kennungen, die in CSS verwendet werden können, um Styles auf die registrierten Highlights anzuwenden.
+In dem obigen Code-Snippet sind die Zeichenfolgen `user-1-highlight` und `user-2-highlight` benutzerdefinierte Bezeichner, die in CSS verwendet werden können, um Styles auf die registrierten Highlights anzuwenden.
 
-Sie können so viele Highlights im Registry registrieren, wie Sie benötigen, sowie Highlights entfernen und das gesamte Registry löschen.
+Sie können so viele Highlights wie nötig im Register registrieren sowie Highlights entfernen und das gesamte Register leeren.
 
 ```js
 // Remove a single highlight from the registry.
@@ -84,7 +84,7 @@ CSS.highlights.clear();
 
 ### Highlights stylen
 
-Der letzte Schritt besteht darin, die registrierten Highlights zu gestalten. Dies geschieht durch die Verwendung des {{cssxref("::highlight", "::highlight()")}} Pseudoelements. Zum Beispiel, um das `user-1-highlight` Highlight zu stylen, das im vorherigen Schritt registriert wurde:
+Der letzte Schritt besteht darin, die registrierten Highlights zu stylen. Dies geschieht mithilfe des {{cssxref("::highlight", "::highlight()")}} Pseudoelements. Zum Beispiel, um das `user-1-highlight`, das im vorherigen Schritt registriert wurde, zu stylen:
 
 ```css
 ::highlight(user-1-highlight) {
@@ -96,19 +96,19 @@ Der letzte Schritt besteht darin, die registrierten Highlights zu gestalten. Die
 ## Schnittstellen
 
 - [`Highlight`](/de/docs/Web/API/Highlight)
-  - : Diese Schnittstelle wird verwendet, um eine Sammlung von Bereichen darzustellen, die in einem Dokument gestaltet werden sollen.
+  - : Diese Schnittstelle wird verwendet, um eine Sammlung von Bereichen zu repräsentieren, die auf einem Dokument gestylt werden sollen.
 - [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)
-  - : Über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) zugänglich, wird dieses {{jsxref("Map")}}-ähnliche Objekt verwendet, um Highlights mit benutzerdefinierten Kennungen zu registrieren.
+  - : Zugriff über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static), dieses {{jsxref("Map")}}-ähnliche Objekt wird verwendet, um Highlights mit benutzerdefinierten Bezeichnern zu registrieren.
 
 ## Beispiele
 
 ### Hervorheben von Suchergebnissen
 
-Dieses Beispiel zeigt, wie Sie die CSS Custom Highlight API verwenden, um Suchergebnisse hervorzuheben.
+Dieses Beispiel zeigt, wie man die CSS Custom Highlight API verwendet, um Suchergebnisse hervorzuheben.
 
 #### HTML
 
-Der folgende HTML-Code definiert ein Suchfeld und einen Artikel mit einigen Absätzen Text:
+Der unten stehende HTML-Code-Schnipsel definiert ein Suchfeld und einen Artikel mit einigen Textabsätzen:
 
 ```html
 <label>Search within text <input id="query" type="text" /></label>
@@ -136,7 +136,7 @@ Der folgende HTML-Code definiert ein Suchfeld und einen Artikel mit einigen Abs�
 
 #### JavaScript
 
-JavaScript wird verwendet, um auf das `input`-Ereignis im Suchfeld zu hören. Wenn das Ereignis ausgelöst wird, findet der Code Übereinstimmungen für den eingegebenen Text im Artikeltext. Anschließend erstellt er Bereiche für die Übereinstimmungen und verwendet die CSS Custom Highlight API, um ein `search-results` Highlight-Objekt zu erstellen und zu registrieren:
+JavaScript wird verwendet, um das `input` Ereignis im Suchfeld zu überwachen. Wenn das Ereignis ausgelöst wird, sucht der Code im Artikeltext nach Übereinstimmungen mit dem eingegebenen Text. Dann erstellt er Bereiche für die Übereinstimmungen und verwendet die CSS Custom Highlight API, um ein `search-results` Highlight-Objekt zu erstellen und zu registrieren:
 
 ```js
 const query = document.getElementById("query");
@@ -205,7 +205,7 @@ query.addEventListener("input", () => {
 
 #### CSS
 
-Abschließend wird das `::highlight()` Pseudoelement in CSS verwendet, um die Highlights zu gestalten:
+Abschließend wird das `::highlight()` Pseudoelement in CSS verwendet, um die Highlights zu stylen:
 
 ```css
 ::highlight(search-results) {
@@ -216,7 +216,7 @@ Abschließend wird das `::highlight()` Pseudoelement in CSS verwendet, um die Hi
 
 #### Ergebnis
 
-Das Ergebnis wird unten angezeigt. Geben Sie Text in das Suchfeld ein, um Übereinstimmungen im Artikel hervorzuheben:
+Das Ergebnis wird unten gezeigt. Geben Sie Text in das Suchfeld ein, um Übereinstimmungen im Artikel hervorzuheben:
 
 {{ EmbedLiveSample('Highlighting search results', 700, 300) }}
 
@@ -233,3 +233,4 @@ Das Ergebnis wird unten angezeigt. Geben Sie Text in das Suchfeld ein, um Übere
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
 - HTML [`contentEditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut
 - CSS {{cssxref("pseudo-elements")}}
+- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul

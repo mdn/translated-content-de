@@ -3,37 +3,39 @@ title: Intl.Locale.prototype.script
 short-title: script
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/script
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
 ---
 
-Die **`script`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt das Schriftsystem zurück, das für das Schreiben der jeweiligen Sprache in diesem Gebietsschema verwendet wird.
+Die **`script`** Accessor-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt das Schriftsystem zurück, das zur Darstellung der besonderen Sprache in diesem Gebietsschema verwendet wird.
 
 ## Beschreibung
 
-Das Schriftsystem, manchmal auch als Schreibsystem bezeichnet, ist eines der Kernelemente eines Gebietsschemas. Es gibt die Menge von Symbolen oder Glyphen an, die zum Schreiben einer bestimmten Sprache verwendet werden. Zum Beispiel ist das mit Englisch verbundene Schriftsystem Latein, während das mit Koreanisch typischerweise verbundene Schriftsystem Hangul ist. In vielen Fällen ist es nicht unbedingt erforderlich, ein Schriftsystem anzugeben, da die Sprache (die erforderlich ist) nur in einem einzigen Schriftsystem geschrieben wird. Es gibt jedoch Ausnahmen von dieser Regel, und es ist wichtig, das Schriftsystem anzugeben, wenn mehrere Schriftsysteme anwendbar sind. Der Wert der `script` Eigenschaft wird zur Konstruktion festgelegt, entweder durch den `script` Subtag (zweiter Teil, falls vorhanden) des Gebietsschema-Identifikators oder durch die `script` Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letzteres hat Vorrang, wenn beide vorhanden sind; und wenn keins vorhanden ist, hat die Eigenschaft den Wert `undefined`.
+Schrift, manchmal auch als Schriftsystem bezeichnet, ist eines der Kernelemente eines Gebietsschemas. Es gibt den Satz von Symbolen oder Glyphen an, die verwendet werden, um eine bestimmte Sprache zu schreiben. Zum Beispiel ist das mit Englisch assoziierte Schriftsystem Latein, während das üblicherweise mit Koreanisch assoziierte Schriftsystem Hangul ist. In vielen Fällen ist es nicht unbedingt notwendig, ein Schriftsystem zu benennen, da die Sprache (die erforderlich ist) nur in einem einzigen Schriftsystem geschrieben wird. Es gibt jedoch Ausnahmen von dieser Regel, und es ist wichtig, das Schriftsystem zu benennen, wenn mehrere Schriftsysteme anwendbar sind.
 
-Der set Zugriff von `script` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Wert der `script`-Eigenschaft wird zur Bauzeit festgelegt, entweder durch den Teil des Gebietsschema-Identifiers nach `language` oder durch die `script`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letztere hat Vorrang, wenn beide vorhanden sind; und wenn keine vorhanden ist, hat die Eigenschaft den Wert `undefined`.
+
+Der Set-Accessor von `script` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-Wie andere Gebietsschema-Subtags kann das Schriftsystem über den Gebietsschema-String oder ein Konfigurationsobjekt-Argument dem {{jsxref("Intl.Locale")}} Objekt hinzugefügt werden.
+Wie andere Gebietsschema-Subtags kann das Schriftsystem über den Gebietsschema-String oder ein Konfigurationsobjekt als Argument dem {{jsxref("Intl.Locale")}}-Objekt hinzugefügt werden.
 
 ### Hinzufügen eines Schriftsystems über den Gebietsschema-String
 
-Das Schriftsystem, falls vorhanden, ist der zweite Teil eines gültigen Unicode-Sprachidentifikator-Strings und kann dem anfänglichen Gebietsschema-Identifier-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Beachten Sie, dass das Schriftsystem kein erforderlicher Bestandteil eines Gebietsschema-Identifikators ist.
+Das Schriftsystem, sofern vorhanden, ist der zweite Teil eines gültigen Unicode-Sprach-Identifier-Strings und kann dem ursprünglichen Gebietsschema.Identifier-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Beachten Sie, dass das Schriftsystem kein erforderlicher Teil eines Gebietsschema-Identifiers ist.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US");
-console.log(locale.script); // Prints "Latn"
+console.log(locale.script); // "Latn"
 ```
 
 ### Hinzufügen eines Schriftsystems über das Konfigurationsobjekt-Argument
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument. Setzen Sie die `script` Eigenschaft des Konfigurationsobjekts auf das gewünschte Schriftsystem und übergeben Sie es dann in den Konstruktor.
+Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument. Setzen Sie die `script`-Eigenschaft des Konfigurationsobjekts auf Ihr gewünschtes Schriftsystem und übergeben Sie es dann an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("fr-FR", { script: "Latn" });
-console.log(locale.script); // Prints "Latn"
+console.log(locale.script); // "Latn"
 ```
 
 ## Spezifikationen
@@ -47,4 +49,4 @@ console.log(locale.script); // Prints "Latn"
 ## Siehe auch
 
 - {{jsxref("Intl.Locale")}}
-- [Unicode Script Subtag](https://www.unicode.org/reports/tr35/#unicode_script_subtag_validity) in der Unicode-Gebietsschema-Daten-Markup-Sprachenspezifikation
+- [Unicode script subtag](https://www.unicode.org/reports/tr35/#unicode_script_subtag_validity) in der Unicode locale data markup language Spezifikation

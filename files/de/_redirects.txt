@@ -455,7 +455,7 @@
 /de/docs/CSS/Alternative_style_sheets	/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet
 /de/docs/CSS/At-rule	/de/docs/Web/CSS/CSS_syntax/At-rule
 /de/docs/CSS/Attribute_selectors	/de/docs/Web/CSS/Attribute_selectors
-/de/docs/CSS/Aural	/de/docs/Web/CSS/@media/aural
+/de/docs/CSS/Aural	/de/docs/Web/CSS/@media
 /de/docs/CSS/CSS3_Columns	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/CSS/CSS_Properties_Reference	/de/docs/Web/CSS/Reference#index
 /de/docs/CSS/CSS_Reference	/de/docs/Web/CSS/Reference
@@ -935,7 +935,7 @@
 /de/docs/CSS:@media	/de/docs/Web/CSS/@media
 /de/docs/CSS:Adjacent_sibling_selectors	/de/docs/Web/CSS/Next-sibling_combinator
 /de/docs/CSS:Attribute_selectors	/de/docs/Web/CSS/Attribute_selectors
-/de/docs/CSS:Aural	/de/docs/Web/CSS/@media/aural
+/de/docs/CSS:Aural	/de/docs/Web/CSS/@media
 /de/docs/CSS:Child_selectors	/de/docs/Web/CSS/Child_combinator
 /de/docs/CSS:Descendant_selectors	/de/docs/Web/CSS/Descendant_combinator
 /de/docs/CSS:FAQ	/de/docs/Web/CSS
@@ -9796,6 +9796,7 @@
 /de/docs/Web/API/PaymentRequest/onshippingaddresschange	/de/docs/Web/API/PaymentRequest/shippingaddresschange_event
 /de/docs/Web/API/PaymentRequest/onshippingoptionchange	/de/docs/Web/API/PaymentRequest/shippingoptionchange_event
 /de/docs/Web/API/PaymentRequest/shippingaddresschange	/de/docs/Web/API/PaymentRequest/shippingaddresschange_event
+/de/docs/Web/API/PaymentRequestEvent/instrumentKey	/de/docs/Web/API/PaymentRequestEvent
 /de/docs/Web/API/PaymentRequestEvent/topLevelOrigin	/de/docs/Web/API/PaymentRequestEvent/topOrigin
 /de/docs/Web/API/PaymentResponse/onpayerdetailchange	/de/docs/Web/API/PaymentResponse/payerdetailchange_event
 /de/docs/Web/API/PaymentResponse/payerdetail_event	/de/docs/Web/API/PaymentResponse/payerdetailchange_event
@@ -12086,6 +12087,7 @@
 /de/docs/Web/CSS/:nth-of-type()	/de/docs/Web/CSS/:nth-of-type
 /de/docs/Web/CSS/@-moz-document	/de/docs/Web/CSS/@document
 /de/docs/Web/CSS/@font-face/font-variant	/de/docs/Web/CSS/@font-face
+/de/docs/Web/CSS/@media/aural	/de/docs/Web/CSS/@media
 /de/docs/Web/CSS/@media/update-frequency	/de/docs/Web/CSS/@media/update
 /de/docs/Web/CSS/@page_rule	/de/docs/Web/CSS/@page
 /de/docs/Web/CSS/@scroll-timeline	/de/docs/Web/CSS/scroll-timeline
@@ -12110,7 +12112,7 @@
 /de/docs/Web/CSS/Alternative_style_sheets	/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet
 /de/docs/Web/CSS/At-rule	/de/docs/Web/CSS/CSS_syntax/At-rule
 /de/docs/Web/CSS/At-rule-functions	/de/docs/Web/CSS/CSS_syntax/At-rule_functions
-/de/docs/Web/CSS/Aural	/de/docs/Web/CSS/@media/aural
+/de/docs/Web/CSS/Aural	/de/docs/Web/CSS/@media
 /de/docs/Web/CSS/Block_formatting_context	/de/docs/Web/CSS/CSS_display/Block_formatting_context
 /de/docs/Web/CSS/CSS3_Columns	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/Web/CSS/CSS_Background_and_Borders	/de/docs/Web/CSS/CSS_backgrounds_and_borders

@@ -3,12 +3,12 @@ title: "Highlight: Highlight() Konstruktor"
 short-title: Highlight()
 slug: Web/API/Highlight/Highlight
 l10n:
-  sourceCommit: 4dc98c2d0eb29d966d217605a5c49565dbb3ca76
+  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Der **`Highlight()`** Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestylt werden können.
+Der **`Highlight()`** Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestaltet werden können.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Ein neues `Highlight`-Objekt.
 
 ## Beispiele
 
-Der unten stehende Beispielcode zeigt, wie man ein leeres Highlight-Objekt erstellt und dann Bereiche hinzufügt:
+Der folgende Beispielcode zeigt, wie man ein leeres Highlight-Objekt erstellt und dann Bereiche hinzufügt:
 
 ```js
 const highlight = new Highlight();
@@ -37,7 +37,7 @@ highlight.add(range1);
 highlight.add(range2);
 ```
 
-Der unten stehende Beispielcode zeigt, wie man ein neues Highlight-Objekt erstellt und während der Instanziierung Bereiche hinzufügt:
+Der folgende Beispielcode zeigt, wie man ein neues Highlight-Objekt erstellt und während der Instanziierung Bereiche hinzufügt:
 
 ```js
 const highlight = new Highlight(range1, range2);
@@ -54,4 +54,5 @@ const highlight = new Highlight(range1, range2);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: Die Zukunft des Textbereichs-Hervorhebens im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
+- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

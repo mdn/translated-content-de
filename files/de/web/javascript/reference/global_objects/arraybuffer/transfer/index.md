@@ -3,10 +3,10 @@ title: ArrayBuffer.prototype.transfer()
 short-title: transfer()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/transfer
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 16f462ee43bbd7fd39561a480e3e323d1c542966
 ---
 
-Die **`transfer()`** Methode von {{jsxref("ArrayBuffer")}} Instanzen erstellt einen neuen `ArrayBuffer` mit demselben Byte-Inhalt wie dieser Puffer und trennt dann diesen Puffer.
+Die **`transfer()`** Methode von {{jsxref("ArrayBuffer")}} Instanzen erstellt einen neuen `ArrayBuffer` mit demselben Byte-Inhalt wie dieser Puffer und trennt dann diesen Puffer ab.
 
 ## Syntax
 
@@ -18,33 +18,33 @@ transfer(newByteLength)
 ### Parameter
 
 - `newByteLength` {{optional_inline}}
-  - : Die {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des neuen `ArrayBuffer`. Standardmäßig die `byteLength` dieses `ArrayBuffer`.
-    - Wenn `newByteLength` kleiner ist als die `byteLength` dieses `ArrayBuffer`, werden die "überschüssigen" Bytes verworfen.
-    - Wenn `newByteLength` größer ist als die `byteLength` dieses `ArrayBuffer`, werden die zusätzlichen Bytes mit Nullen gefüllt.
-    - Wenn dieser `ArrayBuffer` anpassbar ist, darf `newByteLength` nicht größer als sein {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} sein.
+  - : Der {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des neuen `ArrayBuffer`. Standardmäßig ist dies der `byteLength` dieses `ArrayBuffer`.
+    - Wenn `newByteLength` kleiner als der `byteLength` dieses `ArrayBuffer` ist, werden die "überlaufenden" Bytes verworfen.
+    - Wenn `newByteLength` größer als der `byteLength` dieses `ArrayBuffer` ist, werden die zusätzlichen Bytes mit Nullen gefüllt.
+    - Wenn dieser `ArrayBuffer` vergrößerbar ist, darf `newByteLength` nicht größer als sein {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} sein.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("ArrayBuffer")}} Objekt. Sein Inhalt ist initialisiert auf den Inhalt dieses `ArrayBuffer`, und zusätzliche Bytes, falls vorhanden, sind mit Nullen gefüllt. Der neue `ArrayBuffer` ist anpassbar genau dann, wenn dieser `ArrayBuffer` anpassbar ist, in welchem Fall sein {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} derselbe ist wie der dieses `ArrayBuffer`. Der ursprüngliche `ArrayBuffer` ist getrennt.
+Ein neues {{jsxref("ArrayBuffer")}} Objekt. Sein Inhalt wird auf den Inhalt dieses `ArrayBuffer` initialisiert, und zusätzliche Bytes, falls vorhanden, werden mit Nullen gefüllt. Der neue `ArrayBuffer` ist nur dann vergrößerbar, wenn auch dieser `ArrayBuffer` vergrößerbar ist, in diesem Fall ist sein {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} das gleiche wie das dieses `ArrayBuffer`. Der ursprüngliche `ArrayBuffer` wird getrennt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn dieser `ArrayBuffer` anpassbar ist und `newByteLength` größer als der {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} dieses `ArrayBuffer` ist.
+  - : Wird ausgelöst, wenn dieser `ArrayBuffer` vergrößerbar ist und `newByteLength` größer ist als der {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} dieses `ArrayBuffer`.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn dieser `ArrayBuffer` bereits getrennt ist.
+  - : Wird ausgelöst, wenn dieser `ArrayBuffer` bereits getrennt ist oder wenn er nur durch bestimmte Operationen getrennt werden kann. Derzeit sind es nur bestimmte Web-APIs, die in der Lage sind, `ArrayBuffer` Objekte mit bestimmten Trennmethoden zu erstellen, wie zum Beispiel [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) und [`WebAssembly.Memory.buffer`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/buffer).
 
 ## Beschreibung
 
-Die `transfer()` Methode führt dieselbe Operation durch wie der [strukturierte Klonalgorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Sie kopiert die Bytes dieses `ArrayBuffer` in ein neues `ArrayBuffer` Objekt und trennt dann dieses `ArrayBuffer` Objekt. Weitere Informationen finden Sie unter [Übertragen von ArrayBuffers](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers).
+Die `transfer()` Methode führt dieselbe Operation wie der [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) aus. Sie kopiert die Bytes dieses `ArrayBuffer` in ein neues `ArrayBuffer` Objekt und trennt dann dieses `ArrayBuffer` Objekt. Weitere Informationen finden Sie unter [Übergabe von ArrayBuffers](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers).
 
-`transfer()` bewahrt die Anpassbarkeit dieses `ArrayBuffer`. Wenn Sie möchten, dass der neue `ArrayBuffer` nicht anpassbar ist, verwenden Sie stattdessen {{jsxref("ArrayBuffer/transferToFixedLength", "transferToFixedLength()")}}. Es gibt keine Möglichkeit, einen Puffer zu übertragen, der einen Puffer fester Länge anpassbar macht.
+`transfer()` bewahrt die Vergrößerbarkeit dieses `ArrayBuffer`. Wenn Sie möchten, dass der neue `ArrayBuffer` nicht vergrößerbar ist, verwenden Sie stattdessen {{jsxref("ArrayBuffer/transferToFixedLength", "transferToFixedLength()")}}. Es gibt keinen Weg, einen Puffer zu übertragen, der einen Festlängenpuffer vergrößerbar macht.
 
-`transfer()` ist sehr effizient, da Implementierungen diese Methode als eine Zero-Copy-Bewegung oder als `realloc` implementieren können — es muss kein tatsächliches Kopieren der Daten erfolgen.
+`transfer()` ist sehr effizient, da Implementierungen diese Methode als Zero-Copy-Verschiebung oder als `realloc` implementieren können – es muss keine tatsächliche Kopie der Daten erfolgen.
 
 ## Beispiele
 
-### Übertragen eines ArrayBuffer
+### Ein ArrayBuffer übertragen
 
 ```js
 // Create an ArrayBuffer and write a few bytes
@@ -79,7 +79,7 @@ console.log(view4[7]); // 0
 buffer.transfer(); // TypeError: Cannot perform ArrayBuffer.prototype.transfer on a detached ArrayBuffer
 ```
 
-### Übertragen eines anpassbaren ArrayBuffer
+### Einen vergrößerbaren ArrayBuffer übertragen
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });

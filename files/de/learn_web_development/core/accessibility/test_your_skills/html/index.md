@@ -3,30 +3,30 @@ title: "Testen Sie Ihre Fähigkeiten: HTML-Zugänglichkeit"
 short-title: HTML
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/HTML
 l10n:
-  sourceCommit: 0c486f69de815c2882a21badb6a7772e124d1a7a
+  sourceCommit: 1d4acd0cc450af2e293b9856d5763b92a0812e30
 ---
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie unseren Artikel [HTML: Eine gute Grundlage für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu prüfen, ob Sie unseren Artikel [HTML: A good basis for accessibility](/de/docs/Learn_web_development/Core/Accessibility/HTML) verstanden haben.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich über unsere [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## HTML-Zugänglichkeit 1
 
-In dieser Aufgabe testen wir Ihr Verständnis von semantischem HTML und warum es gut für die Barrierefreiheit ist. Der gegebene Text ist ein Informationspanel mit Aktionsschaltflächen, aber das HTML ist wirklich schlecht.
+In dieser Aufgabe testen wir Ihr Verständnis von semantischem HTML und warum es für die Zugänglichkeit wichtig ist. Der gegebene Text ist ein Informationsfeld mit Aktionsschaltflächen, aber das HTML ist wirklich schlecht.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Aktualisieren Sie das Markup mit entsprechendem semantischen HTML. Sie müssen sich nicht allzu sehr darum kümmern, das _genau_ gleiche Aussehen und die gleiche Schriftgröße nachzubilden, solange die Semantik gut ist.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Aktualisieren Sie das Markup, um geeignetes semantisches HTML zu verwenden. Sie müssen sich nicht zu sehr darum kümmern, das _exakte_ gleiche Aussehen und die gleiche Textgröße nachzubilden, solange die Semantik stimmt.
 
 > [!CALLOUT]
 >
-> Sie können auch den [Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht mehr weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
 
 <!-- Code shared across examples -->
 
@@ -92,7 +92,7 @@ answer you're looking for.
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte ungefähr so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <h2>Need help?</h2>
@@ -127,27 +127,27 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 Bonuspunkte für:
 
-- Nur `<button>` verwenden und nicht `<button class="button">` (sich wiederholende Semantik ist unnötig) und den CSS-Selektor aktualisieren, um sicherzustellen, dass die Schaltfläche immer noch die Stile erhält.
-- Eine ungeordnete Liste anstatt einer geordneten Liste verwenden — die Liste der Elemente muss nicht wirklich in einer bestimmten Reihenfolge sein.
+- Einfach die Verwendung von `<button>` statt `<button class="button">` (wiederholte Semantik ist unnötig) und Aktualisierung des CSS-Selectors, um sicherzustellen, dass die Schaltfläche weiterhin die Stile aufnimmt.
+- Verwendung einer ungeordneten Liste statt einer geordneten Liste — die Liste der Elemente muss nicht wirklich in einer bestimmten Reihenfolge sein.
 
 </details>
 
 ## HTML-Zugänglichkeit 2
 
-In der zweiten Aufgabe haben Sie ein Formular mit drei Eingabefeldern.
+In der zweiten Aufgabe haben Sie ein Formular, das drei Eingabefelder enthält.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Verknüpfen Sie semantisch die Eingabefelder mit ihren Labels.
-3. Gehen Sie davon aus, dass diese Eingaben Teil eines größeren Formulars sein werden, und umschließen Sie sie mit einem Element, das sie als zusammengehörige Gruppe vereint.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Verknüpfen Sie semantisch die Eingaben mit ihren Labels.
+3. Gehen Sie davon aus, dass diese Eingaben Teil eines größeren Formulars sein werden, und umschließen Sie sie mit einem Element, das sie alle zusammen als eine einzelne verwandte Gruppe verbindet.
 4. Geben Sie der Gruppe eine Beschreibung/einen Titel, der alle Informationen als persönliche Daten zusammenfasst.
 
 > [!CALLOUT]
 >
-> Sie können auch den [Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht mehr weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
 
 ```html live-sample___html-ally-2
 <form>
@@ -186,7 +186,7 @@ li {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte ungefähr so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -217,19 +217,19 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 In dieser Aufgabe müssen Sie alle Informationslinks im Absatz in gute, zugängliche Links umwandeln.
 
 - Die ersten beiden Links führen einfach zu regulären Webseiten.
-- Der dritte Link führt zu einem PDF, und es ist groß — 8 MB.
+- Der dritte Link führt zu einem PDF und ist groß — 8MB.
 - Der vierte Link führt zu einem Word-Dokument, sodass der Benutzer eine Anwendung installiert haben muss, die damit umgehen kann.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Aktualisieren Sie die Links gemäß der oben beschriebenen Hinweise.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Aktualisieren Sie die Links entsprechend den oben beschriebenen Anforderungen.
 
 > [!CALLOUT]
 >
-> Sie können auch den [Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht mehr weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
 
 ```html live-sample___html-ally-3
 <p>
@@ -246,7 +246,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Ta
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte ungefähr so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <p>
@@ -262,21 +262,21 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## HTML-Zugänglichkeit 4
 
-In unserer letzten HTML-Zugänglichkeitsaufgabe erhalten Sie eine Bildergalerie, die einige Zugänglichkeitsprobleme aufweist. Können Sie sie beheben?
+In unserer letzten HTML-Zugänglichkeitsaufgabe haben Sie eine Bildergalerie, die einige Zugänglichkeitsprobleme aufweist. Können Sie sie beheben?
 
-- Das Header-Bild hat ein Zugänglichkeitsproblem, ebenso die Galeriebilder.
-- Sie könnten das Header-Bild weiter verbessern und es mit CSS für eine möglicherweise bessere Zugänglichkeit implementieren. Wie würden Sie eine solche Lösung erstellen?
+- Das Titelbild hat ein Zugänglichkeitsproblem, ebenso wie die Galerie-Bilder.
+- Sie könnten das Titelbild weiterführen und es mit CSS für möglicherweise bessere Zugänglichkeit implementieren. Wie würden Sie eine solche Lösung erstellen?
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
 2. Aktualisieren Sie den Code, um die oben beschriebenen Probleme zu beheben.
 
 > [!CALLOUT]
 >
-> Sie können auch den [Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/accessibility/tasks/html-css/html/html-a11y4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich nicht mehr weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
 
 ```html live-sample___html-ally-4
 <header>
@@ -321,10 +321,10 @@ header {
 
 Die Zugänglichkeitsprobleme sind:
 
-1. Das Header-Bild ist dekorativ und benötigt daher keinen Alt-Text. Die beste Lösung, wenn Sie dekorative HTML-Bilder verwenden, ist `alt=""` zu setzen, damit ein Screenreader einfach nichts vorliest — anstatt einer Beschreibung oder des Bilddateinamens. Es ist nicht Teil des Inhalts.
-2. Die Galeriebilder benötigen Alt-Text und sind Teil des Inhalts.
+1. Das Titelbild ist dekorativ, daher benötigt es keinen Alt-Text. Die beste Lösung, wenn Sie dekorative HTML-Bilder verwenden, ist, `alt=""` zu setzen, damit ein Screenreader einfach nichts liest — anstatt einer Beschreibung oder des Bilddateinamens. Es ist kein Teil des Inhalts.
+2. Die Galerie-Bilder benötigen Alt-Text, da sie Teil des Inhalts sind.
 
-Das aktualisierte HTML könnte ungefähr so aussehen:
+Das aktualisierte HTML könnte in etwa so aussehen:
 
 ```html
 <header>
@@ -343,7 +343,7 @@ Das aktualisierte HTML könnte ungefähr so aussehen:
 </main>
 ```
 
-Es wäre möglicherweise besser, das Hintergrund-Header-Bild unter Verwendung von CSS-Hintergrundbildern zu implementieren. Dazu würden Sie das erste `<img>`-Element aus dem Markup entfernen und eine Regel wie diese zum CSS hinzufügen:
+Es wäre möglicherweise besser, das Hintergrundtitelbild mithilfe von CSS-Hintergrundbildern zu implementieren. Dazu würde man das erste `<img>`-Element aus dem Markup entfernen und eine Regel im CSS hinzufügen wie diese:
 
 ```css
 h1 {

@@ -1,55 +1,55 @@
 ---
-title: Cookies mit unabhängigem partitioniertem Zustand (CHIPS)
+title: Cookies mit unabhängigem partitionierten Zustand (CHIPS)
 short-title: CHIPS
 slug: Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies
 l10n:
-  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
+  sourceCommit: 0148e092e50db75e7dd065425de9e37648fa4198
 ---
 
-**Cookies mit unabhängigem partitioniertem Zustand** (**CHIPS**, auch bekannt als **Partitionierte Cookies**) ermöglicht es Entwicklern, ein Cookie in partitionierten Speicher zu integrieren, mit einem separaten Cookie-Container pro oberste Ebene einer Website.
+**Cookies mit unabhängigem partitionierten Zustand** (**CHIPS**, auch bekannt als **Partitionierte Cookies**) ermöglicht Entwicklern, ein Cookie in partitionierten Speicher aufzunehmen, mit einem separaten Cookie-Container pro Top-Level-Website.
 
-Ohne Cookie-Partitionierung können Drittanbieter-Cookies Dienste in die Lage versetzen, Nutzer zu verfolgen und deren Informationen über nicht verwandte Top-Level-Websites hinweg zu verknüpfen. Cookies, die als `Partitioned` gekennzeichnet sind, werden doppelt verknüpft: durch die Herkunft, die sie setzt _und_ die Herkunft der obersten Seite.
+Ohne Cookie-Partitionierung können Drittanbieter-Cookies Dienste in die Lage versetzen, Nutzer zu verfolgen und ihre Informationen über nicht verwandte Top-Level-Websites hinweg zu verknüpfen. Cookies, die als `Partitioned` markiert sind, werden doppelt gesperrt: nach dem Ursprung, der sie setzt, _und_ dem Ursprung der Top-Level-Seite.
 
-Das bedeutet, dass sie nur im Kontext der obersten Website gelesen werden können, auf der sie gesetzt wurden. Dies ermöglicht es, Cross-Site-Tracking zu blockieren, während legitime Verwendungen von Drittanbieter-Cookies, wie das Speichern des Zustands eingebetteter Karten oder Chat-Widgets über eine Domain und ihre Subdomains oder das Speichern von Konfigurationsinformationen für Subressourcen-CDN-Lastverteilung und Headless-CMS-Anbieter, weiterhin möglich sind.
+Das bedeutet, dass sie nur im Kontext der Top-Level-Website gelesen werden können, auf der sie gesetzt wurden. Dies ermöglicht es, das Tracking über Websites hinweg zu blockieren, während es dennoch legitime Verwendungen von Drittanbieter-Cookies ermöglicht, wie z.B. die Speicherung des Zustands eingebetteter Karten oder Chat-Widgets über eine Domain und deren Subdomains hinweg sowie die Speicherung von Konfigurationsinformationen für Subressourcen-CDN-Lastverteilung und Headless-CMS-Anbieter.
 
 ## Wie funktioniert CHIPS?
 
-Um zu verstehen, wie CHIPS funktioniert, schauen wir uns ein kurzes Beispiel an. Historisch gesehen konnte ein auf einer Website eingebetteter Inhalt über ein {{htmlelement("iframe")}} ein Cookie auf dem Gerät des Nutzers als Reaktion auf die Cross-Site-Anfrage setzen. Besucht der Nutzer andere Websites, die denselben Inhalt einbetten, kann der eingebettete Inhalt auf dasselbe Cookie zugreifen, das ursprünglich von der ersten Instanz des eingebetteten Inhalts gesetzt wurde. Dies ermöglicht es dem Inhaltsanbieter, die Nutzeraktivität über diese Websites und andere, die denselben Inhalt einbetten, zu verfolgen.
+Um zu verstehen, wie CHIPS funktioniert, betrachten wir ein kurzes Beispiel. Historisch gesehen, wenn eine Website Inhalte über ein {{htmlelement("iframe")}} einbettet, konnte der eingebettete Inhalt ein Cookie auf dem Gerät des Nutzers als Reaktion auf die Cross-Site-Anfrage setzen. Wenn der Nutzer andere Websites besucht, die denselben Inhalt einbetten, kann der eingebettete Inhalt auf dasselbe Cookie zugreifen, das ursprünglich vom ersten eingebetteten Inhalt gesetzt wurde. Dies ermöglicht es dem Inhaltsanbieter, die Nutzeraktivität über diese Websites und alle anderen Websites hinweg zu verfolgen, die denselben Inhalt einbetten.
 
 Zum Beispiel:
 
-1. Ein Nutzer besucht `https://site-a.example`, die Inhalte von `https://3rd-party.example` einbettet. `https://3rd-party.example` setzt ein Cookie auf dem Gerät des Nutzers.
-2. Der Nutzer besucht `https://site-b.example`, die ebenfalls `https://3rd-party.example` einbettet. Diese neue Instanz von `https://3rd-party.example` kann weiterhin auf das Cookie zugreifen, das gesetzt wurde, als sich der Nutzer auf der vorherigen Seite befand.
+1. Ein Nutzer besucht `https://site-a.example`, das Inhalte von `https://3rd-party.example` einbettet. `https://3rd-party.example` setzt ein Cookie auf dem Gerät des Nutzers.
+2. Der Nutzer besucht `https://site-b.example`, das ebenfalls `https://3rd-party.example` einbettet. Dieses neue Exemplar von `https://3rd-party.example` kann weiterhin auf das Cookie zugreifen, das gesetzt wurde, als der Nutzer die vorherige Seite besucht hat.
 
-Das funktioniert, weil Cookies historisch mit einem Schlüssel basierend auf dem Host- oder Domainnamen der Website, die sie gesetzt hat, aka dem **Host Key**, gespeichert wurden. Im obigen Fall würde das Cookie mit einem Schlüssel von `("3rd-party.example")` gespeichert werden.
+Dies funktioniert, weil Cookies historisch gesehen mit einem Schlüssel basierend auf dem Host- oder Domainnamen der Website, die sie gesetzt haben, gespeichert wurden, auch bekannt als **Host-Schlüssel**. Im obigen Fall würde das Cookie mit einem Schlüssel von `("3rd-party.example")` gespeichert.
 
-Browser mit CHIPS-Unterstützung bieten ein neues Attribut für den {{httpheader("Set-Cookie")}} HTTP-Header — `Partitioned` — das es Website-Betreibern ermöglicht, die Nutzung von CHIPS zu erlauben:
+Browser mit CHIPS-Unterstützung bieten ein neues Attribut für den {{httpheader("Set-Cookie")}} HTTP-Header — `Partitioned` — das es den Website-Betreibern ermöglicht, sich für die Nutzung von CHIPS zu entscheiden:
 
 ```http
 Set-Cookie: __Host-example=34d8g; SameSite=None; Secure; Path=/; Partitioned;
 ```
 
 > [!NOTE]
-> Partitionierte Cookies müssen mit `Secure` gesetzt werden. Zusätzlich können Sie das `__Host`-Präfix verwenden, wenn Sie partitionierte Cookies setzen, um diese nur an die aktuelle Domain oder Subdomain zu binden; dies wird empfohlen, wenn Sie Cookies nicht zwischen Subdomains teilen müssen.
+> Partitionierte Cookies müssen mit `Secure` gesetzt werden. Zusätzlich können Sie das `__Host`-Präfix verwenden, wenn sie partitionierte Cookies setzen, um sie nur an die aktuelle Domain oder Subdomain zu binden, und dies wird empfohlen, wenn Sie keine Cookies zwischen Subdomains teilen müssen.
 
-Mit `Partitioned` gesetzt, werden Drittanbieter-Cookies unter Verwendung von zwei Schlüsseln gespeichert, dem Host Key und einem neuen **Partition Key**. Der Partition Key basiert auf dem Schema und {{Glossary("eTLD", "eTLD+1")}} der obersten URL, die der Browser beim Anfragezeitpunkt besuchte, die das Cookie gesetzt hat.
+Mit `Partitioned` gesetzt, werden Drittanbieter-Cookies unter Verwendung zweier Schlüssel gespeichert, dem Host-Schlüssel und einem neuen **Partition-Schlüssel**. Der Partition-Schlüssel basiert auf dem Schema und {{Glossary("eTLD", "eTLD+1")}} der Top-Level-URL, die der Browser besuchte, als die Anfrage an den URL-Endpunkt gestellt wurde, der das Cookie gesetzt hat.
 
 Zurück zu unserem Beispiel:
 
-1. Ein Nutzer besucht `https://site-a.example`, die Inhalte von `https://3rd-party.example` einbettet. `https://3rd-party.example` setzt ein Cookie auf dem Gerät des Nutzers unter Verwendung von `Partitioned`, d.h. der Website-Betreiber stimmt der Nutzung von CHIPS zu.
-2. Der Speicherschlüssel für das Cookie wäre jetzt `{("https://site-a.example"), ("3rd-party.example")}}`.
-3. Wenn der Nutzer `https://site-b.example` besucht, die ebenfalls `https://3rd-party.example` einbettet, kann diese neue eingebettete Instanz nicht mehr auf das Cookie zugreifen, weil der Partition Key nicht übereinstimmt.
+1. Ein Nutzer besucht `https://site-a.example`, das Inhalte von `https://3rd-party.example` einbettet. `https://3rd-party.example` setzt ein Cookie auf dem Gerät des Nutzers unter Verwendung von `Partitioned`, was bedeutet, dass der Site-Betreiber sich für CHIPS entscheidet.
+2. Der Speicher-Schlüssel für das Cookie wäre nun `{("https://site-a.example"), ("3rd-party.example")}}`.
+3. Wenn der Nutzer `https://site-b.example` besucht, das ebenfalls `https://3rd-party.example` einbettet, kann dieses neue eingebettete Exemplar nicht mehr auf das Cookie zugreifen, da der Partition-Schlüssel nicht übereinstimmt.
 
 > [!NOTE]
-> CHIPS ähnelt dem von Firefox implementierten [Zustandspartitionierungsmechanismus](/de/docs/Web/Privacy/Guides/State_Partitioning). Der Unterschied besteht darin, dass die Zustandspartitionierung die Speicherung und den Abruf von Cookies in getrennten Cookie-Behältern für jede oberste Website partitioniert, ohne eine Möglichkeit, sich bei der Nutzung von Drittanbieter-Cookies zu registrieren, wenn dies gewünscht ist. Während Browser beginnen, die Verwendung von Drittanbieter-Cookies auslaufen zu lassen, gibt es immer noch gültige, nicht-verfolgende Verwendungen von Drittanbieter-Cookies, die erlaubt werden müssen, während Entwickler beginnen, diese Änderung zu bewältigen.
+> CHIPS ist ähnlich dem [Zustandspartitionierungsmechanismus](/de/docs/Web/Privacy/Guides/State_Partitioning), der von Firefox implementiert wurde. Allerdings partitioniert die Zustandspartitionierung standardmäßig die Cookie-Speicherung in Drittanbieter-Kontexten, während CHIPS es erlaubt, sich für partitionierte Cookies sowohl in Erst- als auch in Drittanbieter-Kontexten zu entscheiden. Es wird empfohlen, den Opt-in-Mechanismus von CHIPS anstelle der Zustandspartitionierung zu verwenden, um die kompatibelsten partitionierten Cookies bereitzustellen.
 
 ## CHIPS und Subdomains
 
-CHIPS ermöglicht es immer noch, dass Drittanbieter-Inhalte, die über verschiedene Subdomains einer Website eingebettet sind, auf Drittanbieter-Cookies zugreifen können, die von diesem Inhalt gesetzt wurden. Schauen wir uns ein Beispiel einer Einzelhandelswebsite an, die einen Drittanbieter-Chat-Dienst nutzt:
+CHIPS erlaubt weiterhin, dass Drittanbieter-Inhalte, die über verschiedene Subdomains einer Website eingebettet sind, auf Drittanbieter-Cookies zugreifen können, die durch diesen Inhalt gesetzt wurden. Schauen wir uns ein Beispiel einer Einzelhandelsseite an, die einen Drittanbieter-Chatdienst verwendet:
 
-1. Ein Nutzer besucht `https://shoppy.example`, die einen Drittanbieter-Chat-Dienst von `https://3rd-party.example/chat` einbettet, um Unterstützung für Nutzer anzubieten, die Hilfe benötigen. `https://3rd-party.example/chat` setzt ein Cookie auf dem Gerät des Nutzers unter Verwendung von `Partitioned`, um den Zustand des Chats über verschiedene Subdomains der Website hinweg aufrechtzuerhalten.
-2. Der Speicherschlüssel für das Cookie wäre `{("https://shoppy.example"), ("3rd-party.example/chat")}}`.
-3. Der Nutzer besucht verschiedene Subdomains, die ebenfalls `https://3rd-party.example/chat` einbetten, darunter `https://support.shoppy.example` und `https://checkout.shoppy.example`. Die neuen eingebetteten Instanzen können auf das Cookie zugreifen, da der Partition Key weiterhin übereinstimmt.
+1. Ein Nutzer besucht `https://shoppy.example`, das einen Drittanbieter-Chatdienst von `https://3rd-party.example/chat` einbettet, um Unterstützung für Nutzer bereitzustellen, die Hilfe benötigen. `https://3rd-party.example/chat` setzt ein Cookie auf dem Gerät des Nutzers, um den Zustand des Chats über verschiedene Subdomains der Website hinweg zu speichern.
+2. Der Speicher-Schlüssel für das Cookie wäre `{("https://shoppy.example"), ("3rd-party.example/chat")}}`.
+3. Der Nutzer besucht verschiedene Subdomains, die ebenfalls `https://3rd-party.example/chat` einbetten, einschließlich `https://support.shoppy.example` und `https://checkout.shoppy.example`. Die neuen eingebetteten Instanzen können auf das Cookie zugreifen, da der Partition-Schlüssel weiterhin übereinstimmt.
 
 ## Spezifikationen
 
@@ -61,5 +61,5 @@ CHIPS ermöglicht es immer noch, dass Drittanbieter-Inhalte, die über verschied
 
 ## Siehe auch
 
-- [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](https://privacysandbox.google.com/cookies/chips) auf privacysandbox.google.com
-- [CHIPS Erklärer](https://github.com/privacycg/CHIPS)
+- [Cookies mit unabhängiger partitionierter Speicherung (CHIPS)](https://privacysandbox.google.com/cookies/chips) auf privacysandbox.google.com
+- [CHIPS Erklärungsdokument](https://github.com/privacycg/CHIPS)

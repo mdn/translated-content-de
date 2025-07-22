@@ -3,33 +3,39 @@ title: Intl.Locale.prototype.numeric
 short-title: numeric
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/numeric
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
 ---
 
-Die **`numeric`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt zurück, ob diese Locale eine spezielle Sortierbehandlung für numerische Zeichen aufweist.
+Die **`numeric`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}}-Instanzen gibt zurück, ob diese Locale eine spezielle Kollationsbehandlung für numerische Zeichen hat.
 
 ## Beschreibung
 
-Wie {{jsxref("Intl/Locale/caseFirst", "caseFirst")}} stellt `numeric` eine Modifikation der Sortierregeln dar, die von der Locale verwendet werden. `numeric` ist ein boolescher Wert, was bedeutet, dass er entweder `true` oder `false` sein kann. Wenn `numeric` auf `false` gesetzt ist, gibt es keine spezielle Behandlung von numerischen Werten in Zeichenfolgen. Ist `numeric` auf `true` gesetzt, wird die Locale numerische Zeichen bei der Sortierung von Zeichenfolgen berücksichtigen. Diese spezielle numerische Behandlung bedeutet, dass Folgen von Dezimalziffern als Zahlen verglichen werden. Zum Beispiel wird die Zeichenkette "A-21" als kleiner als "A-123" betrachtet.
+Ähnlich wie {{jsxref("Intl/Locale/caseFirst", "caseFirst")}} repräsentiert `numeric` eine Modifikation der Kollationsregeln, die von der Locale genutzt werden. `numeric` ist ein boolescher Wert, was bedeutet, dass er entweder `true` oder `false` sein kann. Wenn `numeric` auf `false` gesetzt ist, gibt es keine spezielle Behandlung von numerischen Werten in Zeichenfolgen. Ist `numeric` auf `true` gesetzt, wird die Locale numerische Zeichen bei der Kollision von Zeichenfolgen berücksichtigen. Diese spezielle numerische Behandlung bedeutet, dass Folgen von Dezimalziffern als Zahlen verglichen werden. Zum Beispiel wird die Zeichenfolge "A-21" als kleiner angesehen als "A-123".
+
+Der Wert der `numeric`-Eigenschaft wird zur Erstellungszeit festgelegt, entweder durch den `kn`-Schlüssel des Locale-Bezeichners oder durch die `numeric`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktors. Letzterer hat Vorrang, wenn beide vorhanden sind; und wenn keiner vorhanden ist, hat die Eigenschaft den Wert `undefined`.
+
+Der Set-Zugriff von `numeric` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-### Einstellen des numeric-Werts über den Locale-String
+Wie andere Locale-Subtags kann der `numeric`-Wert dem {{jsxref("Intl.Locale")}}-Objekt über den Locale-String oder ein Konfigurationsobjekt-Argument des Konstructors hinzugefügt werden.
 
-In der [Unicode-Locale-String-Spezifikation](https://www.unicode.org/reports/tr35/) entsprechen die Werte, die `numeric` darstellt, dem Schlüssel `kn`. `kn` wird als Locale-String-"Erweiterungstag" betrachtet. Diese Subtags fügen zusätzliche Daten über die Locale hinzu und werden zum Locale-Bezeichner unter Verwendung des `-u` Erweiterungsschlüssels hinzugefügt. Somit kann der `numeric`-Wert dem anfänglichen Locale-Bezeichner-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Um den `numeric`-Wert festzulegen, fügen Sie zuerst den `-u` Erweiterungsschlüssel zum String hinzu. Fügen Sie als nächstes den `-kn` Erweiterungsschlüssel hinzu, um anzugeben, dass Sie einen Wert für `numeric` hinzufügen. Schließlich fügen Sie den `numeric`-Wert zum String hinzu. Wenn Sie `numeric` auf `true` setzen möchten, genügt es, den `kn` Schlüssel hinzuzufügen. Um den Wert auf `false` zu setzen, müssen Sie dies angeben, indem Sie `"false"` nach dem `kn` Schlüssel hinzufügen.
+### Hinzufügen eines `numeric`-Wertes über den Locale-String
+
+Im [Unicode-Locale-String-Spezifikation](https://www.unicode.org/reports/tr35/) ist `numeric` ein "Extension-Subtag". Diese Subtags fügen zusätzliche Daten über die Locale hinzu und werden mit dem `-u`-Erweiterungsschlüssel zu Locale-Bezeichnern hinzugefügt. Um den `numeric`-Wert zum anfänglichen Locale-Bezeichner-String hinzuzufügen, der an den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor übergeben wird, fügen Sie zuerst den `-u`-Erweiterungsschlüssel hinzu, falls er nicht existiert. Fügen Sie als Nächstes die `-kn`-Erweiterung hinzu, um anzuzeigen, dass Sie einen Wert für `numeric` hinzufügen. Schließlich fügen Sie den `numeric`-Wert hinzu. Wenn Sie `numeric` auf `true` setzen möchten, genügt die Hinzufügung des `kn`-Schlüssels. Um den Wert auf `false` zu setzen, müssen Sie `"false"` nach dem `kn`-Schlüssel hinzufügen.
 
 ```js
 const locale = new Intl.Locale("fr-Latn-FR-u-kn-false");
-console.log(locale.numeric); // Prints "false"
+console.log(locale.numeric); // "false"
 ```
 
-### Einstellen des numeric-Werts über das Konfigurationsobjekt-Argument
+### Hinzufügen eines `numeric`-Wertes über das Konfigurationsobjekt-Argument
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das verwendet werden kann, um Erweiterungstypen zu übergeben. Setzen Sie die `numeric`-Eigenschaft des Konfigurationsobjekts auf den gewünschten `numeric`-Wert und übergeben Sie es an den Konstruktor.
+Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das verschiedene Erweiterungstypen enthalten kann, einschließlich `numeric`. Setzen Sie die `numeric`-Eigenschaft des Konfigurationsobjekts auf den gewünschten `numeric`-Wert und übergeben Sie es dann an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US", { numeric: true });
-console.log(locale.numeric); // Prints "true"
+console.log(locale.numeric); // "true"
 ```
 
 ## Spezifikationen

@@ -3,25 +3,25 @@ title: "Highlight: type-Eigenschaft"
 short-title: type
 slug: Web/API/Highlight/type
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die `type`-Eigenschaft des [`Highlight`](/de/docs/Web/API/Highlight)-Interfaces ist ein aufgezählter {{jsxref("String")}}, der verwendet wird, um die Bedeutung des Highlights anzugeben. Dies ermöglicht es unterstützenden Technologien, wie z. B. Screenreadern, diese Bedeutung zu umfassen, wenn sie das Highlight den Benutzern präsentieren.
+Die `type`-Eigenschaft des [`Highlight`](/de/docs/Web/API/Highlight)-Interfaces ist ein enumerierter {{jsxref("String")}}, der verwendet wird, um die Bedeutung der Hervorhebung festzulegen. Dies ermöglicht es unterstützenden Technologien, wie Bildschirmlesegeräten, diese Bedeutung einzubeziehen, wenn die Hervorhebung Benutzern zugänglich gemacht wird.
 
-Standardmäßig wird ein Highlight-Objekt seinen Typ auf `highlight` setzen. Sie können ihn jedoch in `spelling-error` oder `grammar-error` ändern.
+Standardmäßig hat ein Highlight-Objekt seinen Typ auf `highlight` gesetzt, aber Sie können ihn in `spelling-error` oder `grammar-error` ändern.
 
 ## Wert
 
-Die möglichen Werte der aufgezählten `type`-Werte sind:
+Die möglichen Werte des `type`-Enumerationswerts sind:
 
 - `highlight`
-  - : Dies ist der Standard-Highlight-Typ. Er hat keine spezifische Bedeutung.
+  - : Dies ist der Standardtyp der Hervorhebung. Er hat keine spezielle Bedeutung.
 - `spelling-error`
-  - : Verwenden Sie diesen Typ, wenn das Highlight verwendet wird, um falsch geschriebenen Inhalt hervorzuheben.
+  - : Verwenden Sie diesen Typ, wenn die Hervorhebung verwendet wird, um falsch geschriebenen Inhalt hervorzuheben.
 - `grammar-error`
-  - : Verwenden Sie diesen Typ, wenn das Highlight verwendet wird, um grammatisch falschen Inhalt hervorzuheben.
+  - : Verwenden Sie diesen Typ, wenn die Hervorhebung verwendet wird, um grammatikalisch inkorrekten Inhalt hervorzuheben.
 
 ## Beispiele
 
@@ -46,4 +46,5 @@ spellErrorsHighlight.type = "spelling-error";
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API)-Modul
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

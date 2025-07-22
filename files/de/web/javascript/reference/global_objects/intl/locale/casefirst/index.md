@@ -3,43 +3,45 @@ title: Intl.Locale.prototype.caseFirst
 short-title: caseFirst
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/caseFirst
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
 ---
 
-Die **`caseFirst`** Accessor-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt zurück, ob Groß- und Kleinschreibung in den Kollationsregeln dieser Lokalisierung berücksichtigt wird.
+Die **`caseFirst`**-Zugriffseigenschaft von {{jsxref("Intl.Locale")}}-Instanzen gibt an, ob die Groß-/Kleinschreibung bei den Kollationsregeln dieses Gebietsschemas berücksichtigt wird.
 
 ## Beschreibung
 
-Die Kollationsregeln einer Lokalisierung werden verwendet, um zu bestimmen, wie Zeichenfolgen in dieser Lokalisierung angeordnet werden. Bestimmte Lokalisierungen verwenden die Groß- oder Kleinschreibung eines Zeichens (GROßBUCHSTABEN oder kleinschreibung) im Kollationsprozess. Diese zusätzliche Regel kann in der `caseFirst`-Eigenschaft eines {{jsxref("Intl.Locale")}} Objekts ausgedrückt werden.
+Die Kollationsregeln eines Gebietsschemas bestimmen, wie Zeichenfolgen in diesem Gebietsschema geordnet werden. Einige Gebietsschemata verwenden die Groß-/Kleinschreibung eines Zeichens (GROßBUCHSTABEN oder kleinschreibung) im Kollationsprozess. Diese zusätzliche Regel kann in der `caseFirst`-Eigenschaft eines {{jsxref("Intl.Locale")}}-Objekts ausgedrückt werden. Es gibt 3 Werte, die die `caseFirst`-Eigenschaft annehmen kann, die in der folgenden Tabelle aufgeführt sind.
 
-Es gibt 3 Werte, die die `caseFirst`-Eigenschaft haben kann, wie in der folgenden Tabelle dargestellt.
+| Wert    | Beschreibung                                      |
+| ------- | ------------------------------------------------- |
+| `upper` | Großschreibung wird vor Kleinschreibung sortiert. |
+| `lower` | Kleinschreibung wird vor Großschreibung sortiert. |
+| `false` | Keine spezielle Groß-/Kleinbuchstaben-Sortierung. |
 
-### `caseFirst` Werte
+Der Wert der `caseFirst`-Eigenschaft wird zur Erstellungszeit festgelegt, entweder durch den `kf`-Schlüssel des Gebietsschema-Identifiers oder durch die `caseFirst`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktors. Letzteres hat Vorrang, wenn beide vorhanden sind; und wenn keines von beiden vorhanden ist, hat die Eigenschaft den Wert `undefined`.
 
-| Wert    | Beschreibung                                            |
-| ------- | ------------------------------------------------------- |
-| `upper` | Großbuchstaben werden vor Kleinbuchstaben sortiert.     |
-| `lower` | Kleinbuchstaben werden vor Großbuchstaben sortiert.     |
-| `false` | Keine spezielle Sortierung durch Groß-/Kleinschreibung. |
+Der Set-Accessor von `caseFirst` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-### Festlegen des caseFirst-Wertes über den Lokalisierungs-String
+Wie andere Gebietsschema-Subtags kann der `caseFirst`-Wert dem {{jsxref("Intl.Locale")}}-Objekt über den Gebietsschemastring oder ein Konfigurationsobjekt-Argument für den Konstruktor hinzugefügt werden.
 
-In der [Spezifikation für Unicode-Lokalisierungs-Strings](https://www.unicode.org/reports/tr35/), entsprechen die Werte, die `caseFirst` repräsentiert, dem Schlüssel `kf`. `kf` wird als "Erweiterungs-Untertag" des Lokalisierungs-Strings behandelt. Diese Untertags fügen zusätzliche Daten über die Lokalisierung hinzu und werden zu Lokalisierungsbezeichnern hinzugefügt, indem der `-u` Erweiterungs-Schlüssel verwendet wird. Somit kann der `caseFirst` Wert dem anfänglichen Lokalisierungsbezeichner-String hinzugefügt werden, der in den `Locale`-Konstruktor übergeben wird. Um den `caseFirst` Wert hinzuzufügen, fügen Sie zuerst den `-u` Erweiterungs-Schlüssel zum String hinzu. Fügen Sie dann den `-kf` Erweiterungs-Schlüssel hinzu, um anzugeben, dass Sie einen Wert für `caseFirst` hinzufügen. Fügen Sie schließlich den `caseFirst` Wert zum String hinzu.
+### Hinzufügen eines caseFirst-Werts über den Gebietsschemastring
+
+Im [Unicode locale string spec](https://www.unicode.org/reports/tr35/) ist `caseFirst` ein "Erweiterungs-Subtag". Diese Subtags fügen zusätzliche Daten über das Gebietsschema hinzu und werden zu Gebietsschema-Identifikatoren mithilfe des `-u`-Erweiterungsschlüssels hinzugefügt. Um den `caseFirst`-Wert zum initialen Gebietsschema-Identifier-String hinzuzufügen, der an den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor übergeben wird, fügen Sie zuerst den `-u`-Erweiterungsschlüssel hinzu, wenn dieser nicht vorhanden ist. Fügen Sie anschließend die `-kf`-Erweiterung hinzu, um anzuzeigen, dass Sie einen Wert für `caseFirst` hinzufügen. Fügen Sie schließlich den `caseFirst`-Wert hinzu.
 
 ```js
 const locale = new Intl.Locale("fr-Latn-FR-u-kf-upper");
-console.log(locale.caseFirst); // Prints "upper"
+console.log(locale.caseFirst); // "upper"
 ```
 
-### Festlegen des caseFirst-Wertes über das Konfigurationsobjekt-Argument
+### Hinzufügen eines caseFirst-Werts über das Konfigurationsobjekt-Argument
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das verwendet werden kann, um Erweiterungstypen zu übergeben. Setzen Sie die `caseFirst` Eigenschaft des Konfigurationsobjekts auf Ihren gewünschten `caseFirst` Wert und übergeben Sie es dann an den Konstruktor.
+Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das eine beliebige Anzahl von Erweiterungstypen, einschließlich `caseFirst`, enthalten kann. Setzen Sie die `caseFirst`-Eigenschaft des Konfigurationsobjekts auf den gewünschten `caseFirst`-Wert und übergeben Sie es dann an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US", { caseFirst: "lower" });
-console.log(locale.caseFirst); // Prints "lower"
+console.log(locale.caseFirst); // "lower"
 ```
 
 ## Spezifikationen
@@ -53,4 +55,4 @@ console.log(locale.caseFirst); // Prints "lower"
 ## Siehe auch
 
 - {{jsxref("Intl.Locale")}}
-- [Unicode-Spezifikation für caseFirst-Kollation](https://github.com/unicode-org/cldr/blob/main/common/bcp47/collation.xml#L49)
+- [Unicode case first collation spec](https://github.com/unicode-org/cldr/blob/main/common/bcp47/collation.xml#L49)

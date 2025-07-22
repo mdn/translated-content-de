@@ -3,7 +3,7 @@ title: "Range: Range() Konstruktor"
 short-title: Range()
 slug: Web/API/Range/Range
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
 ---
 
 {{ APIRef("DOM") }}
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen `Range` mit dem `Range()` Konstruktor und setzen seine Anfangs- und Endpositionen mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter). Anschließend wählen wir den Range mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
+In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()`-Konstruktor und setzen die Anfangs- und Endpositionen mithilfe der Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter). Dann wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
 
 ### HTML
 
@@ -68,5 +68,6 @@ selection.addRange(range);
 
 ## Siehe auch
 
-- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)
 - [`Document.createRange()`](/de/docs/Web/API/Document/createRange)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API)-Modul

@@ -2,10 +2,10 @@
 title: Intl.Locale
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
 ---
 
-Das **`Intl.Locale`**-Objekt ist eine eingebaute Standard-Eigenschaft des Intl-Objekts, das einen Unicode-Gebietsidentifikator darstellt.
+Das **`Intl.Locale`**-Objekt ist eine standardmäßig integrierte Eigenschaft des Intl-Objekts, das einen Unicode-Locale-Identifikator darstellt.
 
 {{InteractiveExample("JavaScript Demo: Intl.Locale")}}
 
@@ -28,15 +28,16 @@ console.log(korean.hourCycle, japanese.hourCycle);
 
 ## Beschreibung
 
-Das **`Intl.Locale`**-Objekt wurde erstellt, um die Manipulation von Unicode-Gebieten zu erleichtern. Unicode repräsentiert Gebiete mit einem String, der als _Gebietsidentifikator_ bezeichnet wird. Der Gebietsidentifikator besteht aus einem _Sprachenidentifikator_ und _Erweiterungs-Tags_. Sprachenidentifikatoren sind der Kern des Gebiets und bestehen aus _Sprache_, _Schrift_ und _Region-Subtags_. Zusätzliche Informationen über das Gebiet werden in den optionalen _Erweiterungs-Tags_ gespeichert. Erweiterungs-Tags enthalten Informationen über Gebietsaspekte wie Kalendertyp, Uhrentyp und Nummerierungssystemtyp.
+Das **`Intl.Locale`**-Objekt wurde erstellt, um die Manipulation von Unicode-Locale zu erleichtern. Unicode repräsentiert Locales mit einem String, der ein _Locale-Identifikator_ genannt wird. Der Locale-Identifikator besteht aus einem _Sprachidentifikator_ und _Erweiterungstags_. Sprachidentifikatoren sind der Kern der Locale und bestehen aus _Sprache_, _Schrift_, _Region_ und _Varianten_ Subtags. Zusätzliche Informationen über die Locale werden in den optionalen _Erweiterungstags_ gespeichert. Erweiterungstags enthalten Informationen über Aspekte der Locale wie Kalenderart, Uhrzeitsystem und Nummerierungssystem.
 
-Traditionell verwendete die Intl-API Strings zur Darstellung von Gebieten, genau wie Unicode. Dies ist eine einfache und leichte Lösung, die gut funktioniert. Das Hinzufügen einer Locale-Klasse erleichtert jedoch das Parsen und Manipulieren der Sprache, Schrift und Region sowie der Erweiterungs-Tags. Die folgenden Eigenschaften von `Intl.Locale` entsprechen den Unicode-Gebietsidentifikator-Subtags:
+Traditionell hat die Intl-API Strings verwendet, um Locales darzustellen, genau wie Unicode. Dies ist eine einfache und leichte Lösung, die gut funktioniert. Das Hinzufügen einer Locale-Klasse erleichtert jedoch das Parsen und Manipulieren von Sprache, Schrift und Region sowie Erweiterungstags. Die folgenden Eigenschaften von `Intl.Locale` entsprechen Unicode-Locale-Identifikator-Subtags:
 
-| Eigenschaft                                                  | Entsprechendes Subtag           |
+| Eigenschaft                                                  | Entsprechender Subtag           |
 | ------------------------------------------------------------ | ------------------------------- |
-| {{jsxref("Intl/Locale/language", "language")}}               | `language` (erster Teil)        |
-| {{jsxref("Intl/Locale/script", "script")}}                   | `script` (zweiter Teil)         |
-| {{jsxref("Intl/Locale/region", "region")}}                   | `region` (zweiter/dritter Teil) |
+| {{jsxref("Intl/Locale/language", "language")}}               | Sprach-ID, erster Teil          |
+| {{jsxref("Intl/Locale/script", "script")}}                   | Sprach-ID, Teil nach `language` |
+| {{jsxref("Intl/Locale/region", "region")}}                   | Sprach-ID, Teil nach `script`   |
+| {{jsxref("Intl/Locale/variants", "variants")}}               | Sprach-ID, Teil nach `region`   |
 | {{jsxref("Intl/Locale/calendar", "calendar")}}               | `ca` (Erweiterung)              |
 | {{jsxref("Intl/Locale/caseFirst", "caseFirst")}}             | `kf` (Erweiterung)              |
 | {{jsxref("Intl/Locale/collation", "collation")}}             | `co` (Erweiterung)              |
@@ -44,7 +45,7 @@ Traditionell verwendete die Intl-API Strings zur Darstellung von Gebieten, genau
 | {{jsxref("Intl/Locale/numberingSystem", "numberingSystem")}} | `nu` (Erweiterung)              |
 | {{jsxref("Intl/Locale/numeric", "numeric")}}                 | `kn` (Erweiterung)              |
 
-Obige Informationen werden genau so bereitgestellt, wie sie beim Erstellen des `Locale`-Objekts angegeben wurden, ohne eine externe Datenbank zu konsultieren. Das `Intl.Locale`-Objekt bietet zusätzlich einige Methoden, die Informationen über die realen Informationen des Gebiets zurückgeben, wie verfügbare Kalender, Sortierarten und Nummerierungssysteme.
+Die obigen Informationen werden genau so bereitgestellt, wie sie sind, wenn das `Locale`-Objekt erstellt wird, ohne eine externe Datenbank zu konsultieren. Das `Intl.Locale`-Objekt bietet zusätzlich einige Methoden, die Informationen über die realen Informationen der Locale zurückgeben, wie verfügbare Kalender, Kollationen und Nummerierungssysteme.
 
 ## Konstruktor
 
@@ -56,66 +57,68 @@ Obige Informationen werden genau so bereitgestellt, wie sie beim Erstellen des `
 Diese Eigenschaften sind auf `Intl.Locale.prototype` definiert und werden von allen `Intl.Locale`-Instanzen geteilt.
 
 - {{jsxref("Intl/Locale/baseName", "Intl.Locale.prototype.baseName")}}
-  - : Gibt grundlegende, Kerndaten über das `Locale` in Form eines Substrings der gesamten Datenzeichenfolge zurück.
+  - : Gibt grundlegende, zentrale Informationen über das `Locale` in Form eines Substrings der vollständigen Datenzeichenkette zurück.
 - {{jsxref("Intl/Locale/calendar", "Intl.Locale.prototype.calendar")}}
-  - : Gibt den Teil des `Locale` zurück, der die Kalenderära des Gebiets angibt.
+  - : Gibt den Teil des `Locale` zurück, der die Kalenderära der Locale angibt.
 - {{jsxref("Intl/Locale/caseFirst", "Intl.Locale.prototype.caseFirst")}}
-  - : Gibt zurück, ob Groß- und Kleinschreibung für die Sortierregeln des Gebiets berücksichtigt werden.
+  - : Gibt zurück, ob bei der Kollation der Locale die Groß- und Kleinschreibung berücksichtigt wird.
 - {{jsxref("Intl/Locale/collation", "Intl.Locale.prototype.collation")}}
-  - : Gibt den Sortiertyp für das `Locale` zurück, der verwendet wird, um Strings entsprechend den Regeln des Gebiets zu ordnen.
+  - : Gibt den Kollationstyp für das `Locale` zurück, der verwendet wird, um Zeichenfolgen entsprechend den Regeln der Locale zu ordnen.
 - {{jsxref("Object/constructor", "Intl.Locale.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Intl.Locale`-Instanzen ist der Anfangswert der {{jsxref("Intl/Locale/Locale", "Intl.Locale")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Intl.Locale`-Instanzen ist der Ausgangswert der {{jsxref("Intl/Locale/Locale", "Intl.Locale")}}-Konstruktor.
 - {{jsxref("Intl/Locale/hourCycle", "Intl.Locale.prototype.hourCycle")}}
-  - : Gibt das Zeitformat-Konventionssystem zurück, das vom Gebiet verwendet wird.
+  - : Gibt das Zeitformatkonvention zurück, das von der Locale verwendet wird.
 - {{jsxref("Intl/Locale/language", "Intl.Locale.prototype.language")}}
-  - : Gibt die Sprache zurück, die mit dem Gebiet verbunden ist.
+  - : Gibt die Sprache zurück, die mit der Locale verbunden ist.
 - {{jsxref("Intl/Locale/numberingSystem", "Intl.Locale.prototype.numberingSystem")}}
-  - : Gibt das von dem Gebiet verwendete Zahlensystem zurück.
+  - : Gibt das Ziffernsystem zurück, das von der Locale verwendet wird.
 - {{jsxref("Intl/Locale/numeric", "Intl.Locale.prototype.numeric")}}
-  - : Gibt zurück, ob das Gebiet eine spezielle Sortierbehandlung für numerische Zeichen hat.
+  - : Gibt zurück, ob die Locale spezielle Kollationsverarbeitung für numerische Zeichen hat.
 - {{jsxref("Intl/Locale/region", "Intl.Locale.prototype.region")}}
-  - : Gibt die Region der Welt (normalerweise ein Land) zurück, die mit dem Gebiet verbunden ist.
+  - : Gibt die Region der Welt (meist ein Land) zurück, die mit der Locale verbunden ist.
 - {{jsxref("Intl/Locale/script", "Intl.Locale.prototype.script")}}
-  - : Gibt das Schriftsystem zurück, das zum Schreiben der spezifischen Sprache verwendet wird, die im Gebiet genutzt wird.
+  - : Gibt das Skript zurück, das für das Schreiben der bestimmten Sprache verwendet wird, die in der Locale verwendet wird.
+- {{jsxref("Intl/Locale/variants", "Intl.Locale.prototype.variants")}}
+  - : Gibt die Varianten-Subtags (wie verschiedene Orthografien) zurück, die mit der Locale verbunden sind.
 - `Intl.Locale.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.Locale"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Ausgangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist die Zeichenfolge `"Intl.Locale"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("Intl/Locale/getCalendars", "Intl.Locale.prototype.getCalendars()")}}
-  - : Gibt ein {{jsxref("Array")}} von verfügbaren Kalenderidentifikatoren gemäß den Regeln des Gebiets zurück.
+  - : Gibt ein {{jsxref("Array")}} von verfügbaren Kalender-Identifikatoren entsprechend den Regeln der Locale zurück.
 - {{jsxref("Intl/Locale/getCollations", "Intl.Locale.prototype.getCollations()")}}
-  - : Gibt ein {{jsxref("Array")}} der Sortiertypen für das `Locale` zurück.
+  - : Gibt ein {{jsxref("Array")}} der Kollationstypen für das `Locale` zurück.
 - {{jsxref("Intl/Locale/getHourCycles", "Intl.Locale.prototype.getHourCycles()")}}
-  - : Gibt ein {{jsxref("Array")}} der Stundenzyklusidentifikatoren zurück, die entweder die 12-Stunden-Uhr ("h12"), die japanische 12-Stunden-Uhr ("h11"), die 24-Stunden-Uhr ("h23") oder das ungenutzte Format "h24" anzeigen.
+  - : Gibt ein {{jsxref("Array")}} von Stundensystem-Identifikatoren zurück und zeigt entweder die 12-Stunden-Uhr ("h12"), die japanische 12-Stunden-Uhr ("h11"), die 24-Stunden-Uhr ("h23") oder das unbenutzte Format "h24" an.
 - {{jsxref("Intl/Locale/getNumberingSystems", "Intl.Locale.prototype.getNumberingSystems()")}}
-  - : Gibt ein {{jsxref("Array")}} von Nummerierungssystemidentifikatoren zurück, die gemäß den Regeln des Gebiets verfügbar sind.
+  - : Gibt ein {{jsxref("Array")}} von Nummerierungssystem-Identifikatoren zurück, die entsprechend den Regeln der Locale verfügbar sind.
 - {{jsxref("Intl/Locale/getTextInfo", "Intl.Locale.prototype.getTextInfo()")}}
-  - : Gibt den Teil zurück, der die Reihenfolge der Zeichen `ltr` (left-to-right) oder `rtl` (right-to-left) anzeigt.
+  - : Gibt den Teil zurück, der die Anordnung der Zeichen `ltr` (von links nach rechts) oder `rtl` (von rechts nach links) angibt.
 - {{jsxref("Intl/Locale/getTimeZones", "Intl.Locale.prototype.getTimeZones()")}}
-  - : Gibt ein {{jsxref("Array")}} von Zeitzonenidentifikatoren zurück, die mit dem `Locale` verbunden sind.
+  - : Gibt ein {{jsxref("Array")}} von Zeitzonen-Identifikatoren zurück, die mit der `Locale` verbunden sind.
 - {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}
-  - : Gibt [Wochenelemente von UTS 35](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Patterns_Week_Elements) gemäß den Regeln des Gebiets zurück.
+  - : Gibt die [Wochenelemente von UTS 35](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Patterns_Week_Elements) entsprechend den Locale-Regeln zurück.
 - {{jsxref("Intl/Locale/maximize", "Intl.Locale.prototype.maximize()")}}
-  - : Ermittelt die wahrscheinlichsten Werte für die Sprache, das Schriftsystem und die Region des Gebiets basierend auf den vorhandenen Werten.
+  - : Ruft die wahrscheinlichsten Werte für Sprache, Skript und Region der Locale basierend auf bestehenden Werten ab.
 - {{jsxref("Intl/Locale/minimize", "Intl.Locale.prototype.minimize()")}}
-  - : Versucht, Informationen über das Gebiet zu entfernen, die durch den Aufruf von {{jsxref("Intl/Locale/maximize", "maximize()")}} hinzugefügt würden.
+  - : Versucht, Informationen über die Locale zu entfernen, die durch den Aufruf von {{jsxref("Intl/Locale/maximize", "maximize()")}} hinzugefügt würde.
 - {{jsxref("Intl/Locale/toString", "Intl.Locale.prototype.toString()")}}
-  - : Gibt den vollständigen Gebietsidentifikator-String des `Locale` zurück.
+  - : Gibt die vollständige Locale-Identifikator-Zeichenkette der Locale zurück.
 
 ## Beispiele
 
 ### Grundlegende Nutzung
 
-Im einfachsten Fall nimmt der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor einen Gebietsschema-Identifikator-String als Argument:
+Im einfachsten Fall nimmt der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor eine Locale-Identifikator-Zeichenkette als Argument:
 
 ```js
 const us = new Intl.Locale("en-US");
 ```
 
-### Verwendung des Locale-Konstruktors mit einem Optionsobjekt
+### Verwenden des Locale-Konstruktors mit einem Optionsobjekt
 
-Der Konstruktor nimmt auch ein optionales Konfigurationsobjekt als Argument, das eine der mehreren Erweiterungstypen enthalten kann. Beispielsweise setzen Sie die {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}-Eigenschaft des Konfigurationsobjekts auf Ihren gewünschten Stundentyp und übergeben ihn dann an den Konstruktor:
+Der Konstruktor nimmt auch ein optionales Konfigurationsobjektargument, das eine beliebige Anzahl von Erweiterungstypen enthalten kann. Zum Beispiel setzen Sie die {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}-Eigenschaft des Konfigurationsobjekts auf Ihren gewünschten Stundensystem-Typ und übergeben es dann an den Konstruktor:
 
 ```js
 const us12hour = new Intl.Locale("en-US", { hourCycle: "h12" });
@@ -134,4 +137,4 @@ console.log(us12hour.hourCycle); // Prints "h12"
 
 - [Polyfill von `Intl.Locale` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-locale/)
 - {{jsxref("Intl")}}
-- [Kanonische Unicode-Gebietsidentifikatoren](https://www.unicode.org/reports/tr35/#Canonical_Unicode_Locale_Identifiers) im Unicode-Gebietsmarkierungssprache-Spezifikation
+- [Kanonische Unicode-Locale-Identifikatoren](https://www.unicode.org/reports/tr35/#Canonical_Unicode_Locale_Identifiers) in der Unicode Locale Data Markup Language Spezifikation

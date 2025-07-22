@@ -2,25 +2,25 @@
 title: Internationalisierung
 slug: Web/JavaScript/Guide/Internationalization
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Iterators_and_generators", "Web/JavaScript/Guide/Modules")}}
 
-Das {{jsxref("Intl")}}-Objekt ist der Namensraum für die ECMAScript Internationalization API, die eine breite Palette von lokalisierungs- und kultursensitiven Daten und Operationen bereitstellt.
+Das {{jsxref("Intl")}}-Objekt ist der Namensraum für die ECMAScript-Internationalisierungs-API, welche eine breite Palette von daten- und kulturabhängigen Operationen bereitstellt.
 
-## Überblick
+## Übersicht
 
-Das `Intl`-Objekt ist sehr anwendungsfallorientiert. Es stellt für jeden Anwendungsfall, der lokalspezifische Logik erfordert, ein separates Objekt bereit. Derzeit bietet es folgende Funktionalitäten:
+Das `Intl`-Objekt ist sehr anwendungsorientiert. Es stellt ein separates Objekt für jede Anforderung bereit, die eine lokalisierungsspezifische Logik erfordert. Derzeit bietet es die folgenden Funktionen:
 
-- [Informationen über ein Gebietsschema abrufen](#gebietsschemainformationen) mit {{jsxref("Intl.Locale")}}.
-- [Daten formatieren](#daten_formatieren) mit {{jsxref("Intl.DateTimeFormat")}}, {{jsxref("Intl.DurationFormat")}}, {{jsxref("Intl.ListFormat")}}, {{jsxref("Intl.NumberFormat")}} und {{jsxref("Intl.RelativeTimeFormat")}}.
-- [Sortierung](#sortierung) (d.h. Vergleich von Zeichenfolgen zum Sortieren oder Suchen) mit {{jsxref("Intl.Collator")}}.
+- [Abrufen von Informationen über eine Locale](#lokale_informationen) mit {{jsxref("Intl.Locale")}}.
+- [Formatierung von Daten](#formatierung_von_daten) mit {{jsxref("Intl.DateTimeFormat")}}, {{jsxref("Intl.DurationFormat")}}, {{jsxref("Intl.ListFormat")}}, {{jsxref("Intl.NumberFormat")}}, und {{jsxref("Intl.RelativeTimeFormat")}}.
+- [Sortierung](#kollation) (d.h. Vergleich von Strings zum Sortieren oder Suchen) mit {{jsxref("Intl.Collator")}}.
 - [Auswahl von Pluralformen](#pluralregeln) mit {{jsxref("Intl.PluralRules")}}.
-- [Textaufteilung](#segmentierung) in Einheiten wie Wörter, Sätze oder Grapheme mit {{jsxref("Intl.Segmenter")}}.
-- [Den angezeigten Namen abrufen](#angezeigte_namen) für Währungen, Sprachen, Schriftsysteme, Regionen und Zeitzonen mit {{jsxref("Intl.DisplayNames")}}.
+- [Segmentierung von Text](#segmentierung) in Einheiten wie Wörter, Sätze oder Grapheme mit {{jsxref("Intl.Segmenter")}}.
+- [Abrufen des angezeigten Namens](#anzeigemöglichkeiten) für Währungen, Sprachen, Skripte, Regionen und Zeitzonen mit {{jsxref("Intl.DisplayNames")}}.
 
-Die meisten `Intl`-APIs haben ein ähnliches Design ({{jsxref("Intl.Locale")}} ist die einzige Ausnahme). Man beginnt damit, eine Instanz mit dem gewünschten Gebietsschema und Optionen zu erstellen. Dies definiert einen Satz von Regeln für die gewünschte Operation (Formatierung, Sortierung, Segmentierung etc.). Wenn Sie dann die Methode an der Instanz aufrufen, wie `format()`, `compare()` oder `segment()`, wendet das Objekt die angegebene Regel auf die übergebenen Daten an.
+Die meisten `Intl`-APIs teilen ein ähnliches Design ({{jsxref("Intl.Locale")}} ist die einzige Ausnahme). Sie beginnen damit, eine Instanz mit der gewünschten Locale und Optionen zu erstellen. Dies definiert eine Reihe von Regeln für die gewünschte Operation (Formatierung, Sortierung, Segmentierung usw.). Wenn Sie dann die Methode auf der Instanz aufrufen, wie `format()`, `compare()` oder `segment()`, wendet das Objekt die angegebene Regel auf die übergebenen Daten an.
 
 ```js
 // 1. Construct a formatter object, specifying the locale and formatting options:
@@ -40,19 +40,20 @@ new Intl.SomeObject(locales, options)
 ```
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprachcode oder einer {{jsxref("Intl.Locale")}}-Instanz oder ein Array solcher Gebietsidentifikatoren. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Gebietsschema-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Eine Zeichenfolge mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Eigenschaften enthält, die bestimmte Aspekte der Operation anpassen, was entscheidend ist, um zu verstehen, wie jedes `Intl`-Objekt verwendet werden kann.
+  - : Ein Objekt, das Eigenschaften enthält, die spezifische Aspekte der Operation anpassen, was entscheidend ist, um zu verstehen, wie man jedes `Intl`-Objekt verwendet.
 
-## Gebietsschemainformationen
+## Lokale Informationen
 
-Gebietsschemas unterliegen allen Verhaltensweisen von `Intl`. Ein _Locale_ ist ein Satz von Konventionen, dargestellt in der `Intl`-API durch das {{jsxref("Intl.Locale")}}-Objekt. Alle `Intl`-Konstruktoren, die Sprache-Tags akzeptieren, akzeptieren auch `Intl.Locale`-Objekte.
+Locales liegen allen Verhaltensweisen von `Intl` zugrunde. Eine _Locale_ ist eine Reihe von Konventionen, dargestellt in der `Intl`-API durch das {{jsxref("Intl.Locale")}}-Objekt. Alle `Intl`-Konstruktoren, die Sprach-Tags akzeptieren, akzeptieren auch `Intl.Locale`-Objekte.
 
-Jedes Gebietsschema wird hauptsächlich durch drei Dinge definiert: ein {{jsxref("Intl/Locale/language", "language")}}, ein {{jsxref("Intl/Locale/script", "script")}} und eine {{jsxref("Intl/Locale/region", "region")}}. Wenn sie in dieser Reihenfolge durch `-` verbunden werden, bilden sie ein [BCP 47-Sprach-Tag](https://datatracker.ietf.org/doc/html/rfc5646).
+Jede Locale wird hauptsächlich durch vier Dinge definiert: eine {{jsxref("Intl/Locale/language", "Sprache")}}, ein {{jsxref("Intl/Locale/script", "Skript")}}, eine {{jsxref("Intl/Locale/region", "Region")}}, und manchmal einige {{jsxref("Intl/Locale/variants", "Varianten")}}. Wenn sie in dieser Reihenfolge mit `-` verbunden werden, bilden sie ein [BCP 47-Sprach-Tag](https://datatracker.ietf.org/doc/html/rfc5646).
 
-- Die Sprache ist der wichtigste Teil des Gebietsschemas und obligatorisch. Bei Angabe einer einzigen Sprache, wie `en` oder `fr`, gibt es Algorithmen, um den Rest der Informationen abzuleiten (siehe {{jsxref("Intl/Locale/maximize", "Intl.Locale.prototype.maximize()")}}).
-- Oftmals möchten Sie jedoch auch die Region angeben, da sich die Konventionen zwischen Regionen, die dieselbe Sprache sprechen, drastisch unterscheiden können. Zum Beispiel ist das Datumsformat in den USA MM/TT/JJJJ, während es in Großbritannien TT/MM/JJJJ ist. Daher ist es wichtig, `en-US` oder `en-GB` anzugeben.
-- Sie können auch ein Schriftsystem angeben. Das Schriftsystem ist das Schreibsystem oder die Zeichen, die verwendet werden, um die Sprache zu transkribieren. In der Praxis ist das Schriftsystem oft unnötig, da die Sprache in einer bestimmten Region nur in einem Schriftsystem geschrieben wird. Es gibt jedoch Ausnahmen, wie die serbische Sprache, die sowohl in lateinischer als auch in kyrillischer Schrift geschrieben werden kann (`sr-Latn` und `sr-Cyrl`), oder die chinesische Sprache, die sowohl in vereinfachter als auch in traditioneller Schrift geschrieben werden kann (`zh-Hans` und `zh-Hant`).
+- Die Sprache ist der wichtigste Teil der Locale und ist obligatorisch. Wenn eine einzelne Sprache angegeben wird, wie `en` oder `fr`, gibt es Algorithmen, um die restlichen Informationen abzuleiten (siehe {{jsxref("Intl/Locale/maximize", "Intl.Locale.prototype.maximize()")}}).
+- Häufig möchten Sie jedoch auch die Region angeben, da sich Konventionen zwischen Regionen, die dieselbe Sprache sprechen, drastisch unterscheiden können. Beispielsweise ist das Datumsformat in den USA MM/TT/JJJJ, während es im Vereinigten Königreich TT/MM/JJJJ ist, daher ist die Angabe von `en-US` oder `en-GB` wichtig.
+- Sie können auch ein Skript spezifizieren. Das Skript ist das Schriftsystem oder die Zeichen, die zur Transkription der Sprache verwendet werden. In der Praxis ist das Skript oft nicht notwendig, da die in einer bestimmten Region verwendete Sprache nur in einem Skript geschrieben wird. Es gibt jedoch Ausnahmen wie die serbische Sprache, die sowohl in lateinischen als auch in kyrillischen Skripten geschrieben werden kann (`sr-Latn` und `sr-Cyrl`), oder die chinesische Sprache, die sowohl in vereinfachten als auch in traditionellen Skripten (`zh-Hans` und `zh-Hant`) geschrieben werden kann.
+- Die Varianten werden selten genutzt. Normalerweise bezeichnen sie unterschiedliche Orthographien; zum Beispiel hat Deutsch die Orthographievarianten `1901` und `1996`, die als `de-1901` und `de-1996` geschrieben werden.
 
 ```js
 // These two are equivalent when passed to other Intl APIs
@@ -63,62 +64,62 @@ console.log(locale1.language, locale1.script, locale1.region); // "en", undefine
 console.log(locale2.language, locale2.script, locale2.region); // "en", "Latn", "US"
 ```
 
-Ein Gebietsschema enthält auch einen Satz von Konventionen, die von dieser besonderen Kultur verwendet werden:
+Eine Locale enthält auch eine Reihe von Konventionen, die von dieser speziellen Kultur verwendet werden:
 
 <table>
-<thead><tr><th>Anwendungsfall</th><th>Eigenschaft</th><th>Beschreibung</th><th>Erweiterungssubtag</th></tr></thead>
+<thead><tr><th>Anwendungsfall</th><th>Eigenschaft</th><th>Beschreibung</th><th>Erweiterungs-Untertitel</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="2">Datums-/Zeitformatierung</td>
-<td>{{jsxref("Intl/Locale/calendar", "calendar")}}</td>
-<td>Verwendet, um Tage in Jahre, Monate und Wochen zu gruppieren und ihnen Namen zuzuweisen. Zum Beispiel wird das <code>gregory</code> Datum "2022-01-01" im <code>hebrew</code> Kalender zu "28 Tevet 5782".</td>
+<td rowspan="2">Datums-/Uhrzeitformatierung</td>
+<td>{{jsxref("Intl/Locale/calendar", "Kalendar")}}</td>
+<td>Wird verwendet, um Tage in Jahre, Monate und Wochen zu gruppieren und ihnen Namen zuzuweisen. Zum Beispiel wird das <code>gregorianische</code> Datum „2022-01-01“ im <code>hebräischen</code> Kalender zu „28 Tevet 5782“.</td>
 <td><code>ca</code></td>
 </tr>
 <tr>
-<td>{{jsxref("Intl/Locale/hourCycle", "hourCycle")}}</td>
-<td>Entscheidet, ob Zeiten im 12-Stunden- oder 24-Stunden-Format angezeigt werden und ob die kleinste Stundenzahl 0 oder 1 ist.</td>
+<td>{{jsxref("Intl/Locale/hourCycle", "Stundenzyklus")}}</td>
+<td>Entscheidet, ob die Uhrzeit im 12- oder 24-Stunden-Format angezeigt wird und ob die kleinste Stundenzahl 0 oder 1 ist.</td>
 <td><code>hc</code></td>
 </tr>
 <tr>
-<td>Zahlenformatierung, einschließlich Daten, Zeiten, Dauer etc.</td>
-<td>{{jsxref("Intl/Locale/numberingSystem", "numberingSystem")}}</td>
-<td>Transformiert Zahlen in eine auf das Gebietsschema abgestimmte Notation. Das reguläre <code>0123456789</code> System wird <code>latn</code> (Latein) genannt. Oft hat jedes Schriftsystem ein Nummerierungssystem, das nur eine Ziffer-für-Ziffer-Übersetzung ist, aber einige Schriftsysteme haben mehr als ein Nummerierungssystem, einige schreiben normalerweise keine Zahlen in dieser Schrift (zum Beispiel hat Chinesisch sein eigenes <code>hanidec</code> Nummerierungssystem, aber die meisten Texte verwenden das Standard <code>latn</code> System), und andere benötigen spezielle Konvertierungsalgorithmen (zum Beispiel römische Zahlen — <code>roman</code>).</td>
+<td>Zahlenformatierung, einschließlich Daten, Zeiten, Dauer usw.</td>
+<td>{{jsxref("Intl/Locale/numberingSystem", "Nummerierungssystem")}}</td>
+<td>Transformiert Zahlen in eine locale-spezifische Notation. Das reguläre <code>0123456789</code>-System wird <code>latn</code> (Latein) genannt. Häufig hat jedes Skript ein Nummerierungssystem, das nur eine Ziffer-für-Ziffer-Übersetzung ist, aber einige Skripte haben mehr als ein Nummerierungssystem, einige schreiben möglicherweise normalerweise keine Zahlen in diesem Skript (zum Beispiel hat Chinesisch sein eigenes <code>hanidec</code>-Nummerierungssystem, aber die meisten Texte verwenden das Standard-<code>latn</code>-System), und andere erfordern möglicherweise spezielle Umrechnungsalgorithmen (zum Beispiel die römischen Zahlen — <code>roman</code>).</td>
 <td><code>nu</code></td>
 </tr>
 <tr>
 <td rowspan="3">Sortierung</td>
-<td>{{jsxref("Intl/Locale/collation", "collation")}}</td>
-<td>Definiert den generischen Sortieralgorithmus. Zum Beispiel wird bei Verwendung der deutschen <code>phonebk</code> Sortierung "ä" als "ae" behandelt und wird zwischen "ad" und "af" einsortiert.</td>
+<td>{{jsxref("Intl/Locale/collation", "Sortierung")}}</td>
+<td>Definiert den generischen Sortieralgorithmus. Wenn Sie zum Beispiel die deutsche <code>phonebk</code>-Sortierung verwenden, wird „ä“ wie „ae“ behandelt und zwischen „ad“ und „af“ sortiert.</td>
 <td><code>co</code></td>
 </tr>
 <tr>
 <td>{{jsxref("Intl/Locale/caseFirst", "caseFirst")}}</td>
-<td>Entscheidet, ob Groß- oder Kleinbuchstaben zuerst sortiert werden sollen oder ob die Groß-/Kleinschreibung ignoriert werden soll.</td>
+<td>Entscheidet, ob Groß- oder Kleinbuchstaben zuerst sortiert werden sollen oder ob die Groß-/Kleinschreibung ignoriert wird.</td>
 <td><code>kf</code></td>
 </tr>
 <tr>
-<td>{{jsxref("Intl/Locale/numeric", "numeric")}}</td>
-<td>Entscheidet, ob Zahlen als Zahlen oder als Strings sortiert werden. Zum Beispiel, wenn wahr, wird "10" nach "2" einsortiert.</td>
+<td>{{jsxref("Intl/Locale/numeric", "numerisch")}}</td>
+<td>Entscheidet, ob Zahlen als Zahlen oder als Strings sortiert werden. Wenn es zum Beispiel wahr ist, wird „10“ nach „2“ sortiert.</td>
 <td><code>kn</code></td>
 </tr>
 </tbody>
 </table>
 
-Sie können diese Eigenschaften explizit angeben, wenn Sie das `Intl.Locale` konstruieren oder Sprach-Tags an andere `Intl`-Konstruktoren übergeben. Es gibt zwei Möglichkeiten, dies zu tun — sie an das Sprach-Tag anhängen oder sie als Optionen angeben.
+Sie können diese Eigenschaften explizit angeben, wenn Sie die `Intl.Locale` erstellen oder Sprach-Tags an andere `Intl`-Konstruktoren übergeben. Es gibt zwei Möglichkeiten, dies zu tun — Sie hängen sie entweder an das Sprach-Tag an oder geben sie als Optionen an.
 
-- Um sie an das Sprach-Tag anzuhängen, fügen Sie zuerst den String `-u` an (bedeutet "Unicode-Erweiterung"), dann den Erweiterungssubtag wie oben angegeben, dann den Wert.
-- Um sie als Optionen anzugeben, fügen Sie einfach den Eigenschaftsnamen wie oben angegeben zusammen mit seinem Wert zum `options`-Objekt hinzu.
+- Um sie an das Sprach-Tag anzuhängen, fügen Sie zuerst die Zeichenfolge `-u` (bedeutet "Unicode-Erweiterung") an, dann den Erweiterung-Untertitel wie oben angegeben, dann den Wert.
+- Um sie als Optionen anzugeben, fügen Sie einfach den Eigenschaftsnamen wie oben angegeben zusammen mit seinem Wert dem `options`-Objekt hinzu.
 
-Mit `Intl.DateTimeFormat` als Beispiel erstellen beide der folgenden Zeilen einen Formatter, der Daten im hebräischen Kalender formatiert:
+Am Beispiel der `Intl.DateTimeFormat` erzeugen beide der folgenden Zeilen einen Formatter, der Daten im hebräischen Kalender formatiert:
 
 ```js
 const df1 = new Intl.DateTimeFormat("en-US-u-ca-hebrew");
 const df2 = new Intl.DateTimeFormat("en-US", { calendar: "hebrew" });
 ```
 
-Nicht erkannte Eigenschaften werden ignoriert, daher können Sie dieselbe Syntax wie oben mit `Intl.NumberFormat` verwenden, aber es wird nichts anderes bewirken als nur `en-US` zu übergeben, da die Zahlenformatierung die `calendar`-Eigenschaft nicht verwendet.
+Nicht erkannte Eigenschaften werden ignoriert, sodass Sie die gleiche Syntax wie oben mit `Intl.NumberFormat` verwenden können, aber es wird nichts anderes tun als nur `en-US` zu übergeben, da die Zahlenformatierung die `calendar`-Eigenschaft nicht verwendet.
 
-Es ist knifflig, die Standardwerte dieser Gebietsschema-Konventionen herauszufinden. `new Intl.Locale("en-US").calendar` gibt `undefined` zurück, da das `Locale`-Objekt nur die Informationen enthält, die Sie ihm übergeben haben. Der Standardkalender ist theoretisch abhängig davon, mit welcher API Sie den Kalender verwenden, daher können Sie den Standardkalender von `en-US` wie von `Intl.DateTimeFormat` verwendet mit der {{jsxref("Intl/DateTimeFormat/resolvedOptions", "resolvedOptions()")}}-Methode abrufen. Das Gleiche gilt für andere Eigenschaften.
+Es ist schwierig, die Standardwerte dieser Locale-Konventionen herauszufinden. `new Intl.Locale("en-US").calendar` gibt `undefined` zurück, da das `Locale`-Objekt nur die von Ihnen übergebenen Informationen enthält. Der Standardkalender hängt theoretisch davon ab, mit welcher API Sie den Kalender verwenden, sodass Sie den Standardkalender von `en-US`, wie er von `Intl.DateTimeFormat` verwendet wird, mit seiner Methode {{jsxref("Intl/DateTimeFormat/resolvedOptions", "resolvedOptions()")}} abrufen können. Das Gleiche gilt für andere Eigenschaften.
 
 ```js
 const locale = new Intl.Locale("en-US");
@@ -126,20 +127,20 @@ console.log(locale.calendar); // undefined; it's not provided
 console.log(new Intl.DateTimeFormat(locale).resolvedOptions().calendar); // "gregory"
 ```
 
-`Intl.Locale`-Objekte tun zwei Dinge gleichzeitig: Sie repräsentieren ein analysiertes BCP 47-Sprach-Tag (wie oben demonstriert) und sie liefern Informationen über dieses Gebietsschema. Alle seine Eigenschaften, wie beispielsweise `calendar`, werden nur aus der Eingabe extrahiert, ohne eine Datenquelle nach Standardwerten abzufragen. Andererseits hat es eine Gruppe von Methoden zum Abfragen realer Informationen über das Gebietsschema. Zum Beispiel ergänzen die Methoden {{jsxref("Intl/Locale/getCalendars", "getCalendars()")}}, {{jsxref("Intl/Locale/getHourCycles", "getHourCycles()")}}, {{jsxref("Intl/Locale/getNumberingSystems", "getNumberingSystems()")}} und {{jsxref("Intl/Locale/getCollations", "getCollations()")}} die Eigenschaften `calendar`, `hourCycle`, `numberingSystem` und `collation`; jede gibt ein Array von bevorzugten Werten für diese Eigenschaft zurück.
+`Intl.Locale`-Objekte erfüllen zwei Aufgaben gleichzeitig: Sie repräsentieren ein geparstes BCP 47-Sprach-Tag (wie oben gezeigt), und sie liefern Informationen über diese Locale. Alle seine Eigenschaften, wie `calendar`, werden ausschließlich aus der Eingabe extrahiert, ohne eine Datenquelle für Standardwerte abzufragen. Auf der anderen Seite verfügt es über eine Gruppe von Methoden, um reale Informationen über die Locale abzufragen. Zum Beispiel ergänzen die Methoden {{jsxref("Intl/Locale/getCalendars", "getCalendars()")}}, {{jsxref("Intl/Locale/getHourCycles", "getHourCycles()")}}, {{jsxref("Intl/Locale/getNumberingSystems", "getNumberingSystems()")}}, und {{jsxref("Intl/Locale/getCollations", "getCollations()")}} die Eigenschaften `calendar`, `hourCycle`, `numberingSystem`, und `collation`, und jede gibt einem Array der bevorzugten Werte für diese Eigenschaft zurück.
 
 ```js
 const locale = new Intl.Locale("ar-EG");
 console.log(locale.getCalendars()); // ['gregory', 'coptic', 'islamic', 'islamic-civil', 'islamic-tbla']
 ```
 
-`Intl.Locale`-Instanzen enthalten auch andere Methoden, die nützliche Informationen bereitstellen, wie {{jsxref("Intl/Locale/getTextInfo", "getTextInfo()")}}, {{jsxref("Intl/Locale/getTimeZones", "getTimeZones()")}} und {{jsxref("Intl/Locale/getWeekInfo", "getWeekInfo()")}}.
+`Intl.Locale`-Instanzen enthalten auch andere Methoden, die nützliche Informationen offenlegen, wie {{jsxref("Intl/Locale/getTextInfo", "getTextInfo()")}}, {{jsxref("Intl/Locale/getTimeZones", "getTimeZones()")}}, und {{jsxref("Intl/Locale/getWeekInfo", "getWeekInfo()")}}.
 
-## Herausfinden des Gebietsschemas
+## Herausfinden der Locale
 
-Eine gemeinsame Sorge für die Internationalisierung ist: wie weiß ich, welches Gebietsschema ich verwenden soll?
+Ein gemeinsames Anliegen bei der Internationalisierung ist: Woher weiß ich, welche Locale ich verwenden soll?
 
-Die offensichtlichste Antwort ist "was der Benutzer bevorzugt". Browser stellen die Sprachpräferenzen des Benutzers über die [`navigator.languages`](/de/docs/Web/API/Navigator/languages)-Eigenschaft bereit. Dies ist ein Array von Sprachidentifikatoren, das direkt an den Formatter-Konstruktor übergeben werden kann — mehr dazu später. Der Benutzer kann diese Liste in seinen Browsereinstellungen konfigurieren. Sie können auch ein leeres Array oder `undefined` übergeben, was beides dazu führt, dass das Standard-Gebietsschema des Browsers verwendet wird.
+Die offensichtlichste Antwort lautet "was der Nutzer bevorzugt." Browser stellen die Spracheinstellungen des Nutzers über die [`navigator.languages`](/de/docs/Web/API/Navigator/languages)-Eigenschaft bereit. Dies ist ein Array von Sprach-Identifikatoren, das direkt an den Konstruktor des Formatters übergeben werden kann – mehr dazu später. Der Benutzer kann diese Liste in seinen Browsereinstellungen konfigurieren. Sie können auch ein leeres Array oder `undefined` übergeben, was beides dazu führt, dass die Standard-Locale des Browsers verwendet wird.
 
 ```js
 const numberFormatter = new Intl.NumberFormat(navigator.languages);
@@ -148,9 +149,9 @@ console.log(numberFormatter.format(1234567.89));
 const numberFormatter2 = new Intl.NumberFormat([]);
 ```
 
-Dies führt jedoch möglicherweise nicht immer zu dem wünschenswertesten Ergebnis. Von `Intl`-Formatierern formatierte Zeichenfolgen stellen einen winzigen Bruchteil des auf Ihrer Website angezeigten Textes dar; die meiste lokale Inhalte werden von Ihnen, dem Entwickler der Website, bereitgestellt. Angenommen, Ihre Website wird nur in zwei Sprachen angeboten: Englisch und Französisch. Wenn ein japanischer Benutzer Ihre Website besucht und erwartet, Ihre Website auf Englisch zu nutzen, wird er verwirrt sein, wenn er den englischen Text zwischen Zahlen und Daten auf Japanisch sieht!
+Dies liefert jedoch möglicherweise nicht immer das wünschenswerteste Ergebnis. Strings, die von `Intl`-Formattern formatiert werden, stellen nur einen kleinen Bruchteil des Textes dar, der auf Ihrer Website angezeigt wird; der größte Teil der lokalisierten Inhalte wird von Ihnen, dem Webseitenentwickler, bereitgestellt. Angenommen, Ihre Website wird nur in zwei Sprachen angeboten: Englisch und Französisch. Wenn ein japanischer Nutzer Ihre Website besucht und erwartet, sie in Englisch zu verwenden, wird er verwirrt sein, wenn er den englischen Text mit Zahlen und Daten in Japanisch vermischt sieht!
 
-Normalerweise möchten Sie nicht die Standardsprache des Browsers verwenden. Vielmehr möchten Sie dieselbe Sprache verwenden, die auch auf Ihre Website angeboten wird. Angenommen, Ihre Website hat einen Sprachumschalter, der die Auswahl des Benutzers irgendwo speichert — Sie könnten diesen direkt verwenden.
+In der Regel möchten Sie also nicht die Standardsprache des Browsers verwenden. Stattdessen möchten Sie dieselbe Sprache verwenden, in der der Rest Ihrer Website angeboten wird. Angenommen, Ihre Website hat einen Sprachumschalter, der die Auswahl des Nutzers irgendwo speichert – Sie könnten diese direkt verwenden.
 
 ```js
 // Suppose this can be changed by some site-wide control
@@ -162,11 +163,11 @@ const numberFormatter = new Intl.NumberFormat(userSettings.locale);
 console.log(numberFormatter.format(1234567.89));
 ```
 
-Wenn Ihre Website über einen Backend verfügt, das die Sprache basierend auf dem {{httpheader("Accept-Language")}}-Header des Benutzers dynamisch auswählt und basierend darauf unterschiedliche HTML zurücksendet, könnten Sie auch die `lang`-Eigenschaft des HTML-Elements verwenden: `new Intl.NumberFormat(document.documentElement.lang)`.
+Wenn Ihre Website ein Backend hat, das die Sprache basierend auf der {{httpheader("Accept-Language")}}-Header des Nutzers dynamisch auswählt und basierend darauf unterschiedliche HTML-Dateien zurücksendet, können Sie auch die [`HTMLElement.lang`](/de/docs/Web/API/HTMLElement/lang)-Eigenschaft des HTML-Elements verwenden: `new Intl.NumberFormat(document.documentElement.lang)`.
 
-Wenn Ihre Website nur in einer Sprache angeboten wird, können Sie das Gebietsschema auch fest in Ihrem Code hinterlegen: `new Intl.NumberFormat("en-US")`.
+Wenn Ihre Website nur in einer Sprache angeboten wird, könnten Sie die Locale auch hardcoden: `new Intl.NumberFormat("en-US")`.
 
-Wie bereits erwähnt, können Sie dem Konstruktor auch ein Array von Gebietsschemas übergeben, das eine Liste von Fallback-Optionen darstellt. Das erste Beispiel unter Verwendung von `navigator.languages` ist ein Beispiel hierfür: Wenn das erste benutzerkonfigurierte Gebietsschema für die bestimmte Operation nicht unterstützt wird, wird das nächste versucht und so weiter, bis ein angefordertes Gebietsschema gefunden wird, für das die Laufzeitumgebung Daten hat. Sie können dies auch manuell tun. Im folgenden Beispiel geben wir eine Liste von Gebietsschemas in abnehmender Spezifität an, die alle Sprachen darstellen, die von einem Hongkonger Chinesisch-Sprecher verstanden werden könnten, sodass der Formatter das spezifischste auswählt, das er unterstützt.
+Wie bereits erwähnt, können Sie auch ein Array von Locales an den Konstruktor übergeben, das eine Liste von Ausweichmöglichkeiten darstellt. Das erste Beispiel mit `navigator.languages` ist ein Beispiel hierfür: Wenn die erste benutzerkonfigurierte Locale für die bestimmte Operation nicht unterstützt wird, wird die nächste versucht, und so weiter, bis wir eine angeforderte Locale finden, für die die Laufzeitumgebung Daten hat. Sie können dies auch manuell tun. Im Beispiel unten spezifizieren wir eine Liste von Locales in abnehmender Spezifität, die alle Sprachen darstellen, die ein chinesischer Sprecher in Hongkong wahrscheinlich verstehen würde, sodass der Formatter die spezifischste Auswahl trifft, die er unterstützt.
 
 ```js
 const numberFormatter = new Intl.NumberFormat([
@@ -177,33 +178,31 @@ const numberFormatter = new Intl.NumberFormat([
 ]);
 ```
 
-Es gibt keine API zur Auflistung aller unterstützten Gebietsschemas, aber es gibt einige Methoden zur Handhabung der Gebietsschemaliste:
+Es gibt keine API, um alle unterstützten Locales aufzulisten, aber es gibt einige Methoden zur Handhabung der Locales-Liste:
 
-- {{jsxref("Intl.getCanonicalLocales()")}}: Diese Funktion nimmt eine Liste von Gebietsschema-Identifikatoren und gibt eine Liste von kanonisierten Gebietsschema-Identifikatoren zurück. Dies ist nützlich, um den Kanonisierungsprozess für jeden `Intl`-Konstruktor zu verstehen.
-- Die `supportedLocalesOf()`-Methode auf jedem `Intl`-Objekt (wie {{jsxref("Intl.DateTimeFormat.supportedLocalesOf()")}}): Diese Methode nimmt die gleichen Argumente wie der Konstruktor (`locales` und `options`) und gibt eine Teilmenge der angegebenen Gebietsschema-Tags zurück, die zu den gegebenen Daten passt. Dies ist nützlich, um zu verstehen, welche Gebietsschemas von der Laufzeitumgebung für eine bestimmte Operation unterstützt werden, zum Beispiel, um einen Sprachumschalter mit nur den unterstützten Sprachen anzuzeigen.
+- {{jsxref("Intl.getCanonicalLocales()")}}: Diese Funktion nimmt eine Liste von Locale-Identifikatoren und gibt eine Liste von kanonisierten Locale-Identifikatoren zurück. Dies ist nützlich, um den Kanonisierungsprozess für jeden `Intl`-Konstruktor zu verstehen.
+- Die `supportedLocalesOf()`-statische Methode auf jedem `Intl`-Objekt (zum Beispiel {{jsxref("Intl.DateTimeFormat.supportedLocalesOf()")}}): Diese Methode nimmt dieselben Argumente wie der Konstruktor (`locales` und `options`) und gibt eine Teilmenge der angegebenen Locale-Tags zurück, die mit den angegebenen Daten übereinstimmen. Dies ist nützlich, um zu verstehen, welche Locales von der Laufzeitumgebung für eine bestimmte Operation unterstützt werden, zum Beispiel, um einen Sprachumschalter mit nur den unterstützten Sprachen anzuzeigen.
 
-## Verständnis des Rückgabewerts
+## Das Rückgabewert verstehen
 
-Die zweite gemeinsame Sorge für alle Objekte ist "Was gibt die Methode zurück?" Dies ist eine schwierige Frage, da es über die Struktur oder den Typ des zurückgegebenen Werts hinaus keine normative Spezifikation gibt, die angibt, was _genau_ zurückgegeben werden sollte. Meistens ist das Ergebnis einer Methode konsistent. Das Ergebnis kann jedoch je nach Implementierung variieren, selbst innerhalb desselben Gebietsschemas — Abweichungen des Outputs sind beabsichtigt und durch die Spezifikation erlaubt. Es ist möglicherweise auch nicht das, was Sie erwarten. Beispielsweise kann die von `format()` zurückgegebene Zeichenfolge nicht-unterbrechende Leerzeichen enthalten oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse einer `Intl`-Methode nicht mit fest kodierten Konstanten vergleichen; sie sollten nur dem Benutzer angezeigt werden.
+Die zweite gemeinsame Frage für alle Objekte lautet: "Was gibt die Methode zurück?" Diese Frage ist schwer zu beantworten, jenseits der Struktur oder des Typs des zurückgegebenen Wertes, weil es keine normative Spezifikation gibt, die vorschreibt, was _genau_ zurückgegeben werden soll. Meistens ist das Ergebnis einer Methode konsistent. Das Ergebnis kann jedoch je nach Implementierung variieren, sogar innerhalb derselben Locale – Variationen in der Ausgabe sind gewollt und von der Spezifikation erlaubt. Es kann auch nicht das sein, was Sie erwarten. Zum Beispiel kann der von `format()` zurückgegebene String nicht-brechende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollen die Ergebnisse einer `Intl`-Methode nicht mit hartkodierten Konstanten vergleichen; sie sollen nur dem Nutzer angezeigt werden.
 
-Natürlich scheint diese Antwort unbefriedigend, denn die meisten Entwickler wünschen sich, die Kontrolle darüber zu haben, wie das Ergebnis aussieht — zumindest möchten Sie nicht, dass Ihr Benutzer von unsinnigem Ergebnis verwirrt wird. Hier sind einige Richtlinien, sofern Sie Tests, ob automatisiert oder manuell, durchführen möchten:
+Natürlich erscheint diese Antwort unbefriedigend, weil sich die meisten Entwickler wünschen, Einfluss darauf zu nehmen, wie die Ausgabe aussieht – zumindest soll der Nutzer nicht durch unsinnige Ausgaben verwirrt werden. Hier sind einige Richtlinien, wenn Sie Tests durchführen möchten, egal ob automatisiert oder manuell:
 
-- Testen Sie alle Gebietsschemas, die Ihr Benutzer möglicherweise verwendet. Dies ist einfacher, wenn Sie eine feste Reihe unterstützter Gebietsschemas haben (zum Beispiel über einen Sprachumschalter). Wenn Sie das verwenden, was der Benutzer bevorzugt, können Sie einige gängige für Ihre Benutzer auswählen, beachten jedoch, dass das, was der Benutzer sieht, variieren könnte. Sie können die Benutzerpräferenz in der Regel über die Testlauf-Konfiguration oder das Mocking der `Intl`-Konstruktoren simulieren.
+- Testen Sie alle Locales, die Ihr Nutzer verwenden könnte. Dies ist einfacher, wenn Sie eine feste Menge unterstützter Locales haben (zum Beispiel über einen Sprachumschalter). Wenn Sie das verwenden, was der Nutzer bevorzugt, können Sie einige der gängigen für Ihre Nutzer auswählen, aber bedenken Sie, dass das, was der Nutzer sieht, variieren könnte. Sie können normalerweise die Benutzereinstellungen über die Konfiguration des Testrunners oder durch Mocken der `Intl`-Konstruktoren abfangen.
+- Testen Sie mit mehreren JavaScript-Engines. Die `Intl`-API wird direkt von der JavaScript-Engine implementiert, sodass Sie beispielsweise erwarten sollten, dass Node.js und Chrome (die beide V8 verwenden) dieselbe Ausgabe haben, während Firefox (der SpiderMonkey verwendet) eine andere Ausgabe haben könnte. Obwohl alle Engines wahrscheinlich die CLDR-Daten verwenden, werden diese normalerweise in unterschiedlicher Weise nachbearbeitet. Einige Browsereinstellungen (zum Beispiel zur Reduzierung der Installationsgröße) können ebenfalls beeinflussen, welche Locales und Optionen unterstützt werden.
+- Gehen Sie nicht davon aus, dass die Ausgabe festliegt. Das bedeutet, dass Sie die Ausgabe nicht manuell schreiben sollten, wie `expect(result).toBe("foo")`. Stattdessen verwenden Sie Snapshot-Tests oder kopieren den String-Wert aus der Ausgabe eines Testruns.
 
-- Testen Sie mit mehreren JavaScript-Engines. Die `Intl`-API wird direkt von der JavaScript-Engine implementiert, also sollten Sie beispielsweise erwarten, dass Node.js und Chrome (die beide V8 verwenden) denselben Output erzeugen, während Firefox (das SpiderMonkey verwendet) einen anderen Output haben könnte. Obwohl alle Engines wahrscheinlich die CLDR-Daten verwenden, verarbeiten sie sie in der Regel auf unterschiedliche Weise nach. Einige Browsereinstellungskonfigurationen (zum Beispiel zur Reduzierung der Installationsgröße) können auch beeinflussen, welche Gebietsschemas und Optionen unterstützt werden.
+## Formatierung von Daten
 
-- Gehen Sie nicht vom erwarteten Ergebnis aus. Das bedeutet, dass Sie das Ergebnis nicht manuell schreiben sollten, wie `expect(result).toBe("foo")`. Stattdessen verwenden Sie Snapshot-Tests oder kopieren Sie den Zeichenfolgenwert aus dem Ergebnis eines Testlaufs.
+Ein wichtiger Anwendungsfall von `Intl` ist die Ausgabe von lokalisierungsspezifischen Texten, die strukturierte Daten darstellen. Dies ist ähnlich wie bei Übersetzungssoftware, aber anstatt Ihnen zu ermöglichen, beliebigen Text zu übersetzen, nimmt es Daten wie Datumsangaben, Zahlen und Listen und formatiert sie nach lokalisierungsspezifischen Regeln.
 
-## Daten formatieren
+Die Objekte {{jsxref("Intl.DateTimeFormat")}}, {{jsxref("Intl.DurationFormat")}}, {{jsxref("Intl.ListFormat")}}, {{jsxref("Intl.NumberFormat")}}, und {{jsxref("Intl.RelativeTimeFormat")}} formatieren jeweils einen Datentyp. Jede Instanz bietet zwei Methoden:
 
-Ein Hauptanwendungsfall von `Intl` ist die Ausgabe von lokalisierten Texten, die strukturierte Daten darstellen. Dies ähnelt Übersetzungssoftware, doch anstatt Ihnen zu ermöglichen, beliebigen Text zu übersetzen, verarbeitet sie Daten wie Daten, Zahlen und Listen und formatiert sie gemäß lokalspezifischen Regeln.
+- `format()`: Nimmt ein Datenstück und gibt einen String zurück, der die Formatierungsregel verwendet, wie sie durch die Locale und die Optionen bestimmt wird.
+- `formatToParts()`: Nimmt die gleichen Daten und gibt den gleichen String zurück, jedoch in Teile zerlegt, wobei jeder Teil ein Objekt mit einem `type` und einem `value` ist. Dies ist nützlich für anspruchsvollere Anwendungsfälle, wie das Verschachteln des formatierten Textes mit anderen Texten.
 
-Die Objekte {{jsxref("Intl.DateTimeFormat")}}, {{jsxref("Intl.DurationFormat")}}, {{jsxref("Intl.ListFormat")}}, {{jsxref("Intl.NumberFormat")}} und {{jsxref("Intl.RelativeTimeFormat")}} formatieren jeweils eine Art von Daten. Jede Instanz bietet zwei Methoden:
-
-- `format()`: Nimmt ein Datenstück und gibt eine Zeichenfolge mithilfe der Formatierungsregel zurück, die durch das Gebietsschema und die Optionen bestimmt wird.
-- `formatToParts()`: Nimmt die gleichen Daten und gibt die gleiche Zeichenfolge zurück, jedoch aufgeteilt in Teile, wobei jeder Teil ein Objekt mit einem `type` und einem `value` ist. Dies ist nützlich für fortgeschrittenere Anwendungsfälle, wie das Einfügen des formatierten Textes mit anderem Text.
-
-Zum Beispiel hier ist eine typische Verwendung des {{jsxref("Intl.NumberFormat")}}-Objekts:
+Ein typisches Beispiel für die Verwendung des {{jsxref("Intl.NumberFormat")}}-Objekts:
 
 ```js
 // 1. Construct a formatter object, specifying the locale and formatting options:
@@ -225,7 +224,7 @@ console.table(price.formatToParts(5.259));
 // | 3 | "fraction" | "26"  |
 ```
 
-Sie müssen nicht immer ein Formatter-Objekt erstellen, um Zeichenfolgen zu formatieren. Für Gelegenheitsnutzungen können Sie auch direkt die `toLocaleString()`-Methode an den Daten aufrufen und das Gebietsschema und die Optionen als Argumente übergeben. Die `toLocaleString()`-Methode wird von {{jsxref("Temporal/PlainDate/toLocaleString", "Temporal.PlainDate.prototype.toLocaleString()")}}, {{jsxref("Temporal/Duration/toLocaleString", "Temporal.Duration.prototype.toLocaleString()")}}, {{jsxref("Number.prototype.toLocaleString()")}} usw. implementiert. Lesen Sie die Dokumentation für die Daten, die Sie formatieren, um zu sehen, ob sie `toLocaleString()` unterstützen und welche Formatter-Optionen es entspricht.
+Es ist nicht immer erforderlich, ein Formatter-Objekt zu erstellen, um Strings zu formatieren. Für den gelegentlichen Gebrauch können Sie auch direkt die `toLocaleString()`-Methode auf den Daten aufrufen und die Locale und Optionen als Argumente übergeben. Die `toLocaleString()`-Methode wird von {{jsxref("Temporal/PlainDate/toLocaleString", "Temporal.PlainDate.prototype.toLocaleString()")}}, {{jsxref("Temporal/Duration/toLocaleString", "Temporal.Duration.prototype.toLocaleString()")}}, {{jsxref("Number.prototype.toLocaleString()")}}, und so weiter implementiert. Lesen Sie die Dokumentation zu den von Ihnen zu formatierenden Daten, um zu sehen, ob sie `toLocaleString()` unterstützen und welche Optionen zum Formatter sie entsprechen.
 
 ```js
 console.log(
@@ -236,29 +235,29 @@ console.log(
 ); // $5.26
 ```
 
-Beachten Sie, dass `toLocaleString()` potenziell weniger effizient ist als die Verwendung eines Formatter-Objekts, da `toLocaleString` jedes Mal, wenn es aufgerufen wird, eine Suche in einer großen Datenbank von Lokalisierungsstrings durchführen muss. Wenn die Methode oft mit denselben Argumenten aufgerufen wird, ist es besser, ein Formatter-Objekt zu erstellen und dessen `format()`-Methode zu verwenden, da ein Formatter-Objekt die übergebenen Argumente speichert und möglicherweise entscheidet, einen Teil der Datenbank zwischenzuspeichern, sodass zukünftige `format`-Aufrufe in einem eingeschränkteren Kontext nach Lokalisierungsstrings suchen können.
+Beachten Sie, dass `toLocaleString()` potenziell weniger effizient ist als die Verwendung eines Formatter-Objekts, da bei jedem Aufruf von `toLocaleString` eine Suche in einer großen Datenbank von Lokalisierungsstrings durchgeführt werden muss. Wenn die Methode viele Male mit denselben Argumenten aufgerufen wird, ist es besser, ein Formatter-Objekt zu erstellen und seine `format()`-Methode zu verwenden, da ein Formatter-Objekt sich die ihm übergebenen Argumente merkt und eventuell beschließen kann, einen Teil der Datenbank zu speichern, sodass zukünftige `format`-Aufrufe innerhalb eines eingeschränkteren Kontexts suchen können.
 
 ### Datums- und Zeitformatierung
 
-{{jsxref("Intl.DateTimeFormat")}} formatiert Daten und Zeiten sowie Bereiche von Daten und Zeiten. Das `DateTimeFormat`-Objekt akzeptiert Datums-/Zeit-Eingaben in einer der folgenden Formen: {{jsxref("Date")}}, {{jsxref("Temporal.PlainDateTime")}}, {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}.
+{{jsxref("Intl.DateTimeFormat")}} formatiert Daten und Uhrzeiten sowie Bereiche von Daten und Uhrzeiten. Das `DateTimeFormat`-Objekt nimmt Eingaben in Form von Datums-/Uhrzeitangaben in einer der folgenden Formen an: {{jsxref("Date")}}, {{jsxref("Temporal.PlainDateTime")}}, {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}}, oder {{jsxref("Temporal.PlainMonthDay")}}.
 
 > [!NOTE]
-> Sie können kein {{jsxref("Temporal.ZonedDateTime")}}-Objekt direkt übergeben, da die Zeitzone bereits im Objekt festgelegt ist. Sie sollten entweder {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} verwenden oder es zuerst in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt konvertieren.
+> Sie können kein {{jsxref("Temporal.ZonedDateTime")}}-Objekt direkt übergeben, da die Zeitzone bereits im Objekt festgelegt ist. Sie sollten {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} verwenden oder es zuerst in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt umwandeln.
 
-Häufige Anwendungsfälle der lokalisierten Datums- und Zeitformatierung sind wie folgt:
+Häufige Anwendungsfälle für lokalisierte Datums- und Zeitformatierung sind wie folgt:
 
-- Ausgabe desselben Datums und derselben Zeit in einem anderen Kalendersystem, wie dem islamischen, hebräischen oder chinesischen Kalender.
-- Ausgabe derselben realen Zeit (Moment), jedoch in einer anderen Zeitzone.
-- Selektive Ausgabe bestimmter Komponenten des Datums und der Zeit, wie nur des Jahres und des Monats, und die spezifische Darstellung davon (wie "Donnerstag" oder "Do").
-- Ausgabe des Datums gemäß lokalspezifischen Konventionen, wie MM/TT/JJJJ in den USA, TT/MM/JJJJ im Vereinigten Königreich oder JJJJ/MM/TT in Japan.
-- Ausgabe der Zeit gemäß lokalspezifischen Konventionen, wie 12-Stunden- oder 24-Stunden-Uhr.
+- Ausgabe desselben Datums und derselben Uhrzeit in einem anderen Kalendersystem, wie dem Islamischen, Hebräischen oder Chinesischen Kalender.
+- Ausgabe derselben realen Uhrzeit, aber in einer anderen Zeitzone.
+- Selektive Ausgabe bestimmter Komponenten des Datums und der Uhrzeit, wie nur das Jahr und den Monat, und deren spezifische Darstellung (z. B. "Donnerstag" oder "Do").
+- Ausgabe des Datums nach lokalisierungsspezifischen Konventionen, wie MM/TT/JJJJ in den USA, TT/MM/JJJJ im Vereinigten Königreich oder JJJJ/MM/TT in Japan.
+- Ausgabe der Uhrzeit nach lokalisierungsspezifischen Konventionen, wie der 12-Stunden- oder der 24-Stunden-Uhr.
 
-Um zu entscheiden, wie die formatierte Zeichenfolge aussieht, wählen Sie zunächst den Kalender (der das Jahr, den Monat, die Woche und die Tagesberechnung betrifft) und die Zeitzone (die die genaue Zeit sowie möglicherweise das Datum betrifft). Dies geschieht mit der oben genannten `calendar`-Option (oder dem `-ca-`-Erweiterungsschlüssel im Lokalidentifikator) und der `timeZone`-Option.
+Um zu entscheiden, wie der formatierte String aussehen soll, wählen Sie zuerst den Kalender (der die Berechnung von Jahr, Monat, Woche und Tag beeinflusst) und die Zeitzone (die die genaue Zeit sowie möglicherweise das Datum beeinflusst). Dies geschieht mit der zuvor erwähnten `calendar`-Option (oder dem `-ca-`-Erweiterungsschlüssel im Locale-Identifikator) und der `timeZone`-Option.
 
-- `Date`-Objekte stellen einen einzigartigen Moment in der Zeitzone des Benutzers und im ISO 8601-Kalender dar (wie durch Methoden wie {{jsxref("Date.prototype.getHours()")}} und {{jsxref("Date.prototype.getMonth()")}} berichtet). Sie werden in den angegebenen `calendar` und `timeZone` durch Beibehalten des Moments konvertiert, sodass sich die Datum- und Zeitkomponenten ändern können.
-- Verschiedene {{jsxref("Temporal")}}-Objekte haben bereits einen integrierten Kalender, sodass die `calendar`-Option mit dem Kalender des Objekts übereinstimmen muss – es sei denn, der Kalender des Datums ist `"iso8601"`, in welchem Fall es in den angeforderten `calendar` konvertiert wird. Diese Objekte haben keine Zeitzone, daher werden sie direkt in der angegebenen `timeZone` ohne Umwandlung angezeigt.
+- `Date`-Objekte repräsentieren einen eindeutigen Moment in der Zeitzone des Nutzers und im ISO 8601-Kalender (wie von Methoden wie {{jsxref("Date.prototype.getHours()")}} und {{jsxref("Date.prototype.getMonth()")}} berichtet). Sie werden in den angegebenen `calendar` und `timeZone` umgewandelt, indem der Moment erhalten bleibt, sodass sich Datum- und Zeitkomponenten ändern können.
+- Die verschiedenen {{jsxref("Temporal")}}-Objekte haben bereits einen Kalender eingebaut, sodass die `calendar`-Option mit dem Kalender des Objekts übereinstimmen muss – es sei denn, der Kalender des Datums ist `"iso8601"`, in diesem Fall wird er in den angeforderten `calendar` umgewandelt. Diese Objekte haben keine Zeitzone, sodass sie direkt in der angegebenen `timeZone` angezeigt werden, ohne Konversion.
 
-Hier zeigen wir, wie die Kombination aus `calendar`- und `timeZone`-Konfigurationen zu unterschiedlichen Darstellungen desselben Moments führen.
+Hier demonstrieren wir, wie die Kombination der Konfigurationen von `calendar` und `timeZone` zu unterschiedlichen Darstellungen desselben Moments führt.
 
 ```js
 // Assume that the local time zone is UTC
@@ -283,23 +282,23 @@ console.table(results);
 
 Die Ausgabe sieht folgendermaßen aus:
 
-| calendar  | timeZone           | Ausgabe                                                        |
+| Calendar  | TimeZone           | Ausgabe                                                        |
 | --------- | ------------------ | -------------------------------------------------------------- |
 | 'gregory' | 'America/New_York' | 'Freitag, 31. Dezember 2021 um 19:00:00 Eastern Standard Time' |
-| 'gregory' | 'Asia/Tokyo'       | 'Samstag, 1. Januar 2022 um 9:00:00 Japan Standard Time'       |
-| 'hebrew'  | 'America/New_York' | 'Freitag, 27. Tevet 5782 um 19:00:00 Eastern Standard Time'    |
-| 'hebrew'  | 'Asia/Tokyo'       | 'Samstag, 28. Tevet 5782 um 9:00:00 Japan Standard Time'       |
+| 'gregory' | 'Asia/Tokyo'       | 'Samstag, 1. Januar 2022 um 09:00:00 Japan Standard Time'      |
+| 'hebrew'  | 'America/New_York' | 'Freitag, 27 Tevet 5782 um 19:00:00 Eastern Standard Time'     |
+| 'hebrew'  | 'Asia/Tokyo'       | 'Samstag, 28 Tevet 5782 um 09:00:00 Japan Standard Time'       |
 
-Ein Datum/Zeit setzt sich aus den folgenden Komponenten zusammen: `weekday`, `era`, `year`, `month`, `day`, `dayPeriod`, `hour`, `minute`, `second`, `fractionalSecondDigits`, und `timeZoneName`. Ihre nächste Entscheidung ist, welche Komponenten in der Ausgabe enthalten sein sollen und in welcher Form sie dargestellt werden sollen. Sie haben zwei Möglichkeiten:
+Ein Datum/Zeit besteht aus den folgenden Komponenten: `weekday`, `era`, `year`, `month`, `day`, `dayPeriod`, `hour`, `minute`, `second`, `fractionalSecondDigits`, und `timeZoneName`. Ihre nächste Entscheidung ist, welche Komponenten in der Ausgabe enthalten sein sollen und in welcher Form. Sie haben zwei Optionen:
 
-- Sie können jede Komponente manuell konfigurieren, indem Sie Optionen mit demselben Namen wie die Komponente verwenden. Nur die von Ihnen spezifizierten Komponenten werden in die Ausgabe aufgenommen, mit der angegebenen Form.
-- Sie können die Abkürzungen `dateStyle` und `timeStyle` verwenden, die vordefinierte Sätze von Komponenten sind. Sie erweitern sich zu einem Satz von Komponentenoptionen, abhängig vom Gebietsschema.
+- Sie können jede Komponente manuell konfigurieren, indem Sie Optionen mit dem gleichen Namen wie die Komponente verwenden. Nur die von Ihnen angegebenen Komponenten werden in die Ausgabe aufgenommen, mit der angegebenen Form.
+- Sie können die Abkürzungen `dateStyle` und `timeStyle` verwenden, die vordefinierte Sets von Komponenten sind. Sie erweitern sich zu einem Satz von Komponentenoptionen, abhängig von der Locale.
 
-Sie sollten eine dieser beiden Methoden wählen, da sie sich gegenseitig ausschließen. Die gleichzeitige Verwendung beider Methoden führt zu einem Fehler.
+Sie sollten sich für eine dieser beiden Methoden entscheiden, da sie sich gegenseitig ausschließen. Die gleichzeitige Verwendung beider Methoden führt zu einem Fehler.
 
-Grundlegend, nachdem eine Kombination von Komponenten angefordert wird, sucht das `DateTimeFormat`-Objekt nach einer "Vorlage", die den angeforderten Komponenten entspricht, sodass es nur die Werte nacheinander ausfüllen muss. Nicht jede Kombination von Komponenten hat eine vordefinierte Vorlage. `DateTimeFormat` hat eine `formatMatcher`-Option, die entscheidet, wie die Verhandlung funktioniert, indem Komponenten länger oder kürzer als gefordert gemacht oder durch Hinzufügen oder Weglassen von Komponenten. Es wird ziemlich technisch, also sollten Sie das Referenzmaterial zum Thema [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) lesen, um besser zu verstehen, wie damit umgegangen wird.
+Im Hintergrund sucht das `DateTimeFormat`-Objekt nach einem „Template“, das den angeforderten Komponenten entspricht, sodass es nur die Werte einer nach dem anderen ausfüllen muss. Nicht jede Kombination von Komponenten hat ein vordefiniertes Template. `DateTimeFormat` hat eine `formatMatcher`-Option, die entscheidet, wie verhandelt wird, indem Komponenten länger oder kürzer als angefordert gemacht werden oder durch Entfernen oder Hinzufügen von Komponenten. Es wird ziemlich technisch, daher sollten Sie die Referenz zur [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) lesen, um besser zu verstehen, wie dies gehandhabt wird.
 
-Hier demonstrieren wir einige häufig verwendete Methoden zur Formatierung der Komponenten:
+Hier zeigen wir Ihnen einige gängige Möglichkeiten zur Formatierung der Komponenten:
 
 ```js
 const df1 = new Intl.DateTimeFormat("en-US", {
@@ -331,9 +330,9 @@ console.log(df1.format(targetDate));
 // 12:34:56 PM GMT
 ```
 
-Es gibt noch andere Anpassungsoptionen. Zum Beispiel können Sie die Option `hourCycle` verwenden, um die Zeit im 12-Stunden- oder 24-Stunden-Format anzuzeigen und Mitternacht/Mittag als 12:00 oder 0:00 anzuzeigen. Sie können auch die Option `numberingSystem` verwenden, um alle Zahlen in einem anderen Nummerierungssystem anzuzeigen.
+Es gibt weitere Anpassungsoptionen. Zum Beispiel können Sie die `hourCycle`-Option verwenden, um die Uhrzeit im 12- oder 24-Stunden-Format anzuzeigen und Mitternacht/Mittag als 12:00 oder 0:00 darzustellen. Sie können auch die `numberingSystem`-Option verwenden, um alle Zahlen in einem anderen Nummerierungssystem anzuzeigen.
 
-Neben `format()` gibt es eine zweite wichtige Methode, {{jsxref("Intl/DateTimeFormat/formatRange", "formatRange()")}}, die einen Bereich von Daten oder Zeiten formatiert. Sie nimmt zwei Datumsangaben des gleichen Typs, formatiert jede davon, verbindet sie mit einem Bereichstrennzeichen (wie dem Gedankenstrich) und entfernt gegebenenfalls duplizierte Teile.
+Abgesehen von `format()` gibt es eine zweite wichtige Methode, {{jsxref("Intl/DateTimeFormat/formatRange", "formatRange()")}}, die einen Bereich von Daten oder Uhrzeiten formatiert. Sie nimmt zwei Datum/Uhrzeit-Werte des gleichen Typs, formatiert jeden einzelnen, verbindet sie mit einem Bereichstrennzeichen (wie dem Bindestrich) und verdrängt die gemeinsamen Teile.
 
 ```js
 const springBreak = {
@@ -348,18 +347,18 @@ console.log(df.formatRange(springBreak.start, springBreak.end));
 
 ### Zahlenformatierung
 
-Die Zahlenformatierung erfolgt mit dem {{jsxref("Intl.NumberFormat")}}-Objekt. Das `NumberFormat`-Objekt akzeptiert Eingaben in Form von Zahlen, Zeichenfolgen oder `BigInt`-Werten. Durch die Übergabe einer Zeichenfolge oder eines `BigInt` anstelle einer Zahl können Sie Zahlen formatieren, die zu groß oder zu klein sind, um präzise als JavaScript-Zahl dargestellt zu werden.
+Die Zahlenformatierung erfolgt mit dem {{jsxref("Intl.NumberFormat")}}-Objekt. Das `NumberFormat`-Objekt akzeptiert Eingaben in Form von Zahlen, Strings oder `BigInt`-Werten. Das Übergeben von Strings oder `BigInt` anstelle von Zahlen ermöglicht es Ihnen, Zahlen zu formatieren, die zu groß oder zu klein sind, um präzise als JavaScript-Zahl dargestellt zu werden.
 
-Häufige Anwendungsfälle der lokalisierten Zahlenformatierung sind wie folgt:
+Häufige Anwendungsfälle für die lokalisierte Zahlenformatierung sind wie folgt:
 
-- Ausgabe der Zahl in einem anderen Nummerierungssystem (Schriftsystem), wie Chinesisch, Arabisch oder Römisch.
-- Ausgabe der Zahl mit lokalspezifischen Konventionen, wie dem Dezimalsymbol (". " in Englisch, aber "," in vielen europäischen Kulturen) oder der Zifferngruppierung (3 Ziffern in Englisch, kann jedoch 4 oder 2 in anderen Kulturen sein und kann ", ", " " oder "." verwenden).
-- Ausgabe der Zahl mit Exponentialnotation wie "3,7 Millionen" oder "2 Tausend".
-- Ausgabe der Zahl als Währung, indem spezifische Währungszeichen und Rundungsregeln angewendet werden. Beispielsweise sind Geldwerte unter einem Cent in den USA oder unter einem Yen in Japan möglicherweise nicht sinnvoll anzuzeigen.
-- Ausgabe der Zahl als Prozentsatz, indem lokal spezifische Umrechnungs- und Formatierungsregeln angewendet werden.
-- Ausgabe der Zahl mit Einheiten, wie "Meter" oder "Liter", mit übersetzten Einheitsnamen.
+- Ausgabe der Zahl in einem anderen Nummerierungssystem (Schriftart), wie Chinesisch, Arabisch oder Römisch.
+- Ausgabe der Zahl mit lokalisierungsspezifischen Konventionen, wie dem Dezimalsymbol („.“ im Englischen, aber „,“ in vielen europäischen Kulturen) oder dem Gruppieren von Ziffern (3 Ziffern im Englischen, aber möglicherweise 4 oder 2 in anderen Kulturen und möglicherweise Verwendung von „,“, „ “, oder „. “).
+- Ausgabe der Zahl in exponentieller Notation wie „3,7 Millionen“ oder „2 Tausend“.
+- Ausgabe der Zahl als Währung, wobei spezifische Währungssymbole und Rundungsregeln angewendet werden. Zum Beispiel, Geldbeträge unter einem Cent in den USA oder unter einem Yen in Japan sind möglicherweise nicht sinnvoll, um angezeigt zu werden.
+- Ausgabe der Zahl als Prozentangabe, wobei lokalisierungsspezifische Umwandlungs- und Formatierungsregeln angewendet werden.
+- Ausgabe der Zahl mit Einheiten, wie „Meter“ oder „Liter“, mit übersetzten Einheitsnamen.
 
-Um zu entscheiden, wie die formatierte Zeichenfolge aussieht, wählen Sie zunächst das Nummerierungssystem (das sich auf die für die Ziffern verwendeten Zeichen auswirkt). Der Zweck eines Nummerierungssystems wurde bereits bei den [Gebietsschemainformationen](#gebietsschemainformationen) besprochen. Eine weitere Option, die Sie entscheiden müssen, ist der `style`, der den Kontext festlegt, in dem die Zahl dargestellt wird, und möglicherweise die Standardwerte anderer Optionen beeinflusst. Es kann entweder `"decimal"`, `"percent"`, `"currency"` oder `"unit"` sein. Wenn Sie Währungen formatieren möchten, müssen Sie die Option `currency` angeben. Wenn Sie Einheiten formatieren möchten, müssen Sie die Option `unit` angeben.
+Um zu entscheiden, wie der formatierte String aussieht, wählen Sie zuerst das Nummerierungssystem (welches die Zeichen, die für die Ziffern verwendet werden, beeinflusst). Der Zweck eines Nummerierungssystems wurde bereits in den [lokalen Informationen](#lokale_informationen) besprochen. Eine weitere Option, die Sie entscheiden müssen, ist der `style`, der den Kontext festlegt, was die Zahl darstellt und möglicherweise die Standardwerte anderer Optionen beeinflusst. Er ist einer von `"decimal"`, `"percent"`, `"currency"`, oder `"unit"`. Wenn Sie Währungen formatieren möchten, müssen Sie auch die `currency`-Option angeben. Wenn Sie Einheiten formatieren möchten, müssen Sie auch die `unit`-Option angeben.
 
 ```js
 const results = [];
@@ -375,16 +374,16 @@ for (const options of [
 console.table(results);
 ```
 
-Das Ergebnis sieht folgendermaßen aus:
+Die Ausgabe sieht wie folgt aus:
 
 | style      | Ausgabe          |
 | ---------- | ---------------- |
-| 'decimal'  | '1.234.567,89'   |
-| 'percent'  | '123.456.789%'   |
-| 'currency' | '1.234.567,89 €' |
-| 'unit'     | '1.234.567,89 m' |
+| 'decimal'  | '1,234,567.89'   |
+| 'percent'  | '123,456,789%'   |
+| 'currency' | '$1,234,567.89'  |
+| 'unit'     | '1,234,567.89 m' |
 
-Die nächste Gruppe von Optionen gibt an, wie der numerische Teil aussehen soll. Zunächst möchten Sie möglicherweise extrem große Werte auf eine lesbarere Weise darstellen. Sie können die Option `notation` auf `"scientific"` oder `"engineering"` setzen, die beide die `1.23e+6`-Notation verwenden. Der Unterschied besteht darin, dass die letztere Vielfache von 3 für den Exponenten verwendet, wobei die [Mantisse](https://de.wikipedia.org/wiki/Wissenschaftliche_Notation) (der Teil vor dem `e`-Symbol) zwischen 1 und 1000 bleibt, während die erstere beliebige ganze Zahlen für den Exponenten verwenden kann und die Mantisse zwischen 1 und 10 bleibt. Sie können auch `notation` auf `"compact"` setzen, um eine leserlichere Notation zu verwenden.
+Die nächste Gruppe von Optionen spezifiziert, wie der numerische Teil aussehen soll. Zunächst möchten Sie möglicherweise extrem große Werte auf eine lesbarere Weise darstellen. Sie können die `notation`-Option auf `"scientific"` oder `"engineering"` festlegen, die beide die `1.23e+6 NOTATION` verwenden. Der Unterschied besteht darin, dass letztere Vielfache von 3 für den Exponenten verwendet und die [Mantissa](https://en.wikipedia.org/wiki/Scientific_notation) (der Teil vor dem `e`-Symbol) zwischen 1 und 1000 hält, während die erstere einen beliebigen ganzzahligen Exponenten verwenden kann und die Mantissa zwischen 1 und 10 bleibt. Sie können auch `notation` auf `"compact"` setzen, um eine lesbarere Notation für Menschen zu verwenden.
 
 ```js
 const results = [];
@@ -405,16 +404,16 @@ for (const options of [
 console.table(results);
 ```
 
-Das Ergebnis sieht folgendermaßen aus:
+Die Ausgabe sieht folgendermaßen aus:
 
-| notation        | Ausgabe      |
-| --------------- | ------------ |
-| 'scientific'    | '1,2E4'      |
-| 'engineering'   | '12E3'       |
-| 'compact-short' | '12 Tsd.'    |
-| 'compact-long'  | '12 Tausend' |
+| notation        | Ausgabe       |
+| --------------- | ------------- |
+| 'scientific'    | '1.2E4'       |
+| 'engineering'   | '12E3'        |
+| 'compact-short' | '12K'         |
+| 'compact-long'  | '12 thousand' |
 
-Dann möchten Sie möglicherweise die Zahl runden (falls Sie `notation` angegeben haben, dann nur den Mantissenteil), um keine Zahl anzuzeigen, die zu lang ist. Dies sind die Digit-Optionen, die beinhalten:
+Dann möchten Sie möglicherweise die Zahl (oder, wenn Sie `notation` angegeben haben, nur den Mantissateil) runden, damit Sie keine zu lange Zahl anzeigen. Das sind die Optionsoptionen, die Folgendes umfassen:
 
 - `minimumIntegerDigits`
 - `minimumFractionDigits`
@@ -425,7 +424,7 @@ Dann möchten Sie möglicherweise die Zahl runden (falls Sie `notation` angegebe
 - `roundingIncrement`
 - `roundingMode`
 
-Die genaue Interaktion dieser Optionen ist ziemlich komplex und nicht wert, hier abgedeckt zu werden. Sie sollten die [Digit-Optionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options) Referenz für mehr Details lesen. Dennoch ist die allgemeine Idee einfach: Wir finden zuerst die Anzahl der Dezimalstellen, die wir behalten möchten, und dann runden wir die überflüssigen Dezimalstellen, entweder nach unten oder oben, je nachdem, was der Wert der letzten Ziffer ist.
+Die genaue Interaktion dieser Optionen ist ziemlich komplex und es lohnt sich nicht, sie hier zu behandeln. Sie sollten die [Digit-Options](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options) durchlesen, um mehr Details zu erhalten. Dennoch ist die allgemeine Idee recht einfach: Wir bestimmen zunächst die Anzahl der Nachkommastellen, die wir behalten möchten, und dann runden wir überschüssige Nachkommastellen ab, entweder nach unten oder nach oben, abhängig vom Wert der letzten Ziffer.
 
 ```js
 const results = [];
@@ -449,18 +448,18 @@ for (const options of [
 console.table(results);
 ```
 
-Das Ergebnis sieht folgendermaßen aus:
+Die Ausgabe sieht so aus:
 
-| options                                                                                                | Ausgabe      |
+| Optionen                                                                                               | Ausgabe      |
 | ------------------------------------------------------------------------------------------------------ | ------------ |
-| `{ minimumFractionDigits: 4, maximumFractionDigits: 4 }`                                               | '1.234,5679' |
-| `{ minimumSignificantDigits: 4, maximumSignificantDigits: 4 }`                                         | '1.235'      |
-| `{ minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: "floor" }`                        | '1.234'      |
-| `{ minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: "floor", roundingIncrement: 10 }` | '1.230'      |
+| `{ minimumFractionDigits: 4, maximumFractionDigits: 4 }`                                               | '1,234.5679' |
+| `{ minimumSignificantDigits: 4, maximumSignificantDigits: 4 }`                                         | '1,235'      |
+| `{ minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: "floor" }`                        | '1,234'      |
+| `{ minimumFractionDigits: 0, maximumFractionDigits: 0, roundingMode: "floor", roundingIncrement: 10 }` | '1,230'      |
 
-Es gibt weitere Anpassungsoptionen. Zum Beispiel können Sie die Optionen `useGrouping` und `signDisplay` verwenden, um anzupassen, ob und wie die Gruppentrennzeichen (wie "," in "1.234.567,89") und das Vorzeichen angezeigt werden. Beachten Sie jedoch, dass die verwendeten Zeichen für das Gruppentrennzeichen, das Dezimaltrennzeichen und das Vorzeichen lokalspezifisch sind, sodass Sie sie nicht direkt anpassen können.
+Es gibt noch weitere Anpassungsoptionen. Zum Beispiel können Sie die `useGrouping`- und `signDisplay`-Optionen verwenden, um anzupassen, ob und wie Gruppenseparatoren (wie „,“ in „1,234,567.89“) und das Zeichen angezeigt werden. Beachten Sie jedoch, dass die für den Gruppenseparator, das Dezimalzeichen und das Zeichen verwendeten Zeichen localespezifisch sind, sodass Sie sie nicht direkt anpassen können.
 
-Neben `format()` gibt es eine zweite wichtige Methode, {{jsxref("Intl/NumberFormat/formatRange", "formatRange()")}}, die einen Bereich von Zahlen formatiert. Sie nimmt zwei Zahlenrepräsentationen, formatiert jede davon, verbindet sie mit einem Bereichstrennzeichen (wie das en-Dash) und entfernt gegebenenfalls duplizierte Teile.
+Abgesehen von `format()`, gibt es eine zweite wichtige Methode, {{jsxref("Intl/NumberFormat/formatRange", "formatRange()")}}, die einen Bereich von Zahlen formatiert. Sie nimmt zwei Zahlenrepräsentationen, formatiert jede einzelne, verbindet sie mit einem Bereichsseparator (wie dem Bindestrich) und verdrängt gegebenenfalls die gemeinsamen Teile.
 
 ```js
 const heightRange = {
@@ -475,7 +474,7 @@ console.log(nf.formatRange(heightRange.min, heightRange.max));
 
 ### Listenformatierung
 
-Möglicherweise haben Sie bereits Code geschrieben, der Folgendes tut:
+Sie haben möglicherweise bereits Code geschrieben, der dies tut:
 
 ```js example-bad
 const fruits = ["apple", "banana", "cherry"];
@@ -483,9 +482,9 @@ console.log(`I like ${fruits.join(", ")}.`);
 // I like apple, banana, cherry.
 ```
 
-Dieser Code ist nicht internationalisiert. In einigen Sprachen ist das Listentrennzeichen kein Komma. In den _meisten_ Sprachen (einschließlich Englisch) benötigen Sie eine Konjunktion vor dem letzten Element. Aber sogar nur ein "und" manuell hinzuzufügen, macht es nicht korrekt unter allen englischen Sprechern, weil es die Debatte der [Oxford-Kommas](https://de.wikipedia.org/wiki/Oxford-Komma) im Englischen gibt: "apple, banana, and cherry" vs. "apple, banana and cherry".
+Dieser Code ist nicht internationalisiert. In einigen Sprachen ist der Listen-Trenner kein Komma. In _den meisten_ Sprachen (einschließlich Englisch) benötigt man vor dem letzten Element eine Konjunktion. Aber selbst das Hinzufügen eines „und“ manuell macht es nicht korrekt bei allen englischen Sprechern, da es in der englischen Sprache Debatten über [Oxford-Kommas](https://en.wikipedia.org/wiki/Serial_comma) gibt: „apple, banana, and cherry“ vs. „apple, banana and cherry“.
 
-Das {{jsxref("Intl.ListFormat")}}-Objekt löst dieses Problem. Es nimmt ein Array von Zeichenfolgen und verbindet sie auf eine lokalspezifische Weise, sodass das Ergebnis eine Konjunktion (und), Disjunktion (oder) oder eine Liste von Einheiten darstellt.
+Das {{jsxref("Intl.ListFormat")}}-Objekt löst dieses Problem. Es nimmt ein Array von Strings und verbindet diese auf lokalisierungsspezifische Weise, sodass das Ergebnis eine Konjunktion (und), Disjunktion (oder) oder eine Liste von Einheiten darstellt.
 
 ```js
 const fruits = ["apple", "banana", "cherry"];
@@ -498,17 +497,17 @@ console.log(`I can give you ${lf.format(fruits)}.`);
 // I can give you apple, banana, or cherry.
 ```
 
-Weitere Beispiele und Optionen finden Sie unter {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat()")}}.
+Sehen Sie sich {{jsxref("Intl/ListFormat/ListFormat", "Intl.ListFormat()")}} für weitere Beispiele und Optionen an.
 
 ### Relative Zeitformatierung
 
-{{jsxref("Intl.RelativeTimeFormat")}} formatiert eine Zeitdifferenz. Das `RelativeTimeFormat`-Objekt nimmt relative Zeiten in Form von zwei Argumenten entgegen: einer Zahl (mit beliebigem Vorzeichen) und einer Zeiteinheit, wie `"day"`, `"hour"` oder `"minute"`.
+{{jsxref("Intl.RelativeTimeFormat")}} formatiert ein Zeitunterschied. Das `RelativeTimeFormat`-Objekt nimmt relative Zeiten in Form von zwei Argumenten an: einer Zahl (mit beliebigem Vorzeichen) und einer Zeiteinheit, etwa „Tag“, „Stunde“ oder „Minute“.
 
-Es erledigt mehrere Dinge auf einmal:
+Es erledigt mehrere Dinge gleichzeitig:
 
-- Es lokalisiert und pluralisiert die Zeiteinheit, wie "1 day" vs. "2 days", ähnlich wie in der Zahlenformatierung.
-- Es wählt die passende Phrase für vergangene und zukünftige Zeiten, z.B. "in 1 day" vs. "1 day ago".
-- Es kann eine spezielle Phrase für einige Zeiteinheiten auswählen, wie "1 day ago" vs. "yesterday".
+- Es lokalisiert und pluralisiert die Zeiteinheit, wie „1 Tag“ vs. „2 Tage“, ähnlich wie bei der Zahlenformatierung.
+- Es wählt die passende Phrase für vergangene und zukünftige Zeiten, etwa „in 1 Tag“ vs. „vor 1 Tag“.
+- Es wählt möglicherweise eine spezielle Phrase für einige Zeiteinheiten, wie „vor 1 Tag“ vs. „gestern“.
 
 ```js
 const rtf = new Intl.RelativeTimeFormat("en-US", { numeric: "auto" });
@@ -517,13 +516,13 @@ console.log(rtf.format(2, "day")); // in 2 days
 console.log(rtf.format(-1, "hour")); // 1 hour ago
 ```
 
-Weitere Beispiele und Optionen siehe {{jsxref("Intl/RelativeTimeFormat/RelativeTimeFormat", "Intl.RelativeTimeFormat()")}}.
+Sehen Sie sich {{jsxref("Intl/RelativeTimeFormat/RelativeTimeFormat", "Intl.RelativeTimeFormat()")}} für weitere Beispiele und Optionen an.
 
 ### Dauerformatierung
 
-{{jsxref("Intl.DurationFormat")}} bietet Dauerformatierung an, wie "3 hours, 4 minutes, 5 seconds". Es ist keine primitive Operation mit eigenem Formatter: Es verwendet {{jsxref("Intl.NumberFormat")}} und {{jsxref("Intl.ListFormat")}} intern, um jede Dauerkomponente zu formatieren, dann verbindet es sie mit einem Listentrennzeichen. Das `DurationFormat`-Objekt nimmt Dauerangaben in Form eines {{jsxref("Temporal.Duration")}}-Objekts oder eines einfachen Objekts mit denselben Eigenschaften entgegen.
+{{jsxref("Intl.DurationFormat")}} bietet die Dauerformatierung, wie „3 Stunden, 4 Minuten, 5 Sekunden“. Es ist keine primitive Operation mit eigenem Formatter: es verwendet intern {{jsxref("Intl.NumberFormat")}} und {{jsxref("Intl.ListFormat")}}, um jede Daurkomponente zu formatieren und verbindet sie dann mit einem Listenseparator. Das `DurationFormat`-Objekt akzeptiert Dauerangaben in Form eines {{jsxref("Temporal.Duration")}}-Objekts oder eines einfachen Objekts mit denselben Eigenschaften.
 
-Neben der Anpassung des Nummerierungssystems entscheidet die Dauerformatierungsoption darüber, ob und wie lange jede Komponente angezeigt werden soll.
+Abgesehen von der Anpassung des Nummerierungssystems entscheidet die Dauerformatierungs-Option, ob und wie jede Komponente angezeigt werden soll.
 
 ```js
 console.log(
@@ -534,23 +533,23 @@ console.log(
 // 3 hours, 4 minutes, and 5 seconds
 ```
 
-Weitere Beispiele und Optionen finden Sie unter {{jsxref("Intl/DurationFormat/DurationFormat", "Intl.DurationFormat()")}}.
+Sehen Sie sich {{jsxref("Intl/DurationFormat/DurationFormat", "Intl.DurationFormat()")}} für weitere Beispiele und Optionen an.
 
-## Sortierung
+## Kollation
 
-Das {{jsxref("Intl.Collator")}}-Objekt ist nützlich zum Vergleichen und Sortieren von Zeichenfolgen. Es nimmt zwei Zeichenfolgen und gibt eine Zahl zurück, die ihre relative Reihenfolge angibt, auf dieselbe Weise wie das `compareFn`-Argument der {{jsxref("Array.prototype.sort")}}-Methode.
+Das {{jsxref("Intl.Collator")}}-Objekt ist nützlich zum Vergleichen und Sortieren von Strings. Es nimmt zwei Strings und gibt eine Zahl zurück, die ihre relative Reihenfolge angibt, genauso wie das `compareFn`-Argument der {{jsxref("Array.prototype.sort")}}-Methode.
 
-Es gibt viele Gründe, warum Sie keine JavaScript-Operatoren wie `===` oder `>` verwenden sollten, um benutzerorientierte Zeichenfolgen zu vergleichen:
+Es gibt viele Gründe, warum Sie nicht JavaScript-Operatoren wie `===` oder `>` verwenden sollten, um benutzerorientierte Strings zu vergleichen:
 
-- Irrelevante orthografische Varianten: Zum Beispiel sind im Englischen "naïve" und "naive" nur alternative Schreibweisen des gleichen Wortes und sollten als gleich behandelt werden.
-- Ignorieren der Groß-/Kleinschreibung: Oft möchten Sie die Groß-/Kleinschreibung ignorieren, wenn Sie Zeichenfolgen vergleichen. Zum Beispiel sollten "apple" und "Apple" als gleich behandelt werden.
-- Unicode-Codepunkt-Reihenfolge ergibt keinen Sinn: Vergleichsoperatoren wie `>` vergleichen nach Unicode-Codepunkt-Reihenfolge, was nicht dasselbe ist wie die Reihenfolge von Zeichen in einem Wörterbuch. Zum Beispiel kommt "ï" in der Codepunkt-Reihenfolge nach "z", aber Sie würden es in einem Wörterbuch neben "i" anordnen wollen.
-- Unicode-Normalisierung: Dasselbe Zeichen kann in Unicode mehrere Darstellungen haben. Zum Beispiel kann "ñ" als einzelnes Zeichen oder als "n" gefolgt von einer kombinierenden Tilde dargestellt werden. (Siehe {{jsxref("String.prototype.normalize()")}}.) Diese sollten als gleichbehandelt werden.
-- Zahlenvergleich: Zahlen in Zeichenfolgen sollten als Zahlen und nicht als Zeichenfolgen verglichen werden. Zum Beispiel möchten Sie, dass "test-10" nach "test-2" kommt.
+- Irrelevante orthographische Varianten: Zum Beispiel werden im Englischen „naïve“ und „naive“ einfach als alternative Schreibweisen desselben Wortes behandelt und sollten als gleich behandelt werden.
+- Groß-/Kleinschreibung ignorieren: Oft möchten Sie die Groß-/Kleinschreibung beim Vergleichen von Strings ignorieren. Zum Beispiel sollten „apple“ und „Apple“ als gleich behandelt werden.
+- Die Reihenfolge der Unicode-Codepunkte ergibt keinen Sinn: Vergleichsoperatoren wie `>` vergleichen nach der Reihenfolge der Unicode-Codepunkte, die nicht der Reihenfolge der Zeichen in einem Wörterbuch entspricht. Zum Beispiel kommt „ï“ nach „z“ in der Reihenfolge der Codepunkte, aber Sie möchten, dass es im Wörterbuch neben „i“ geordnet wird.
+- Unicode-Normalisierung: Dasselbe Zeichen kann in Unicode mehrere Darstellungen haben. Zum Beispiel kann „ñ“ als einzelnes Zeichen oder als „n“ gefolgt von einer kombinierten Tilde dargestellt werden. (Siehe {{jsxref("String.prototype.normalize()")}}.) Diese sollten als gleich behandelt werden.
+- Zahlenvergleich: Zahlen in Strings sollten als Zahlen und nicht als Strings verglichen werden. Zum Beispiel möchten Sie, dass „test-10“ nach „test-2“ kommt.
 
-Es gibt zwei unterschiedliche Anwendungsfälle für die Sortierung: **Sortierung** und **Suche**. Sortierung ist, wenn Sie eine Liste von Zeichenfolgen haben und sie gemäß einer Regel ordnen möchten. Suche ist, wenn Sie eine Liste von Zeichenfolgen haben und eine Zeichenfolge finden möchten, die einer Abfrage entspricht. Bei der Suche sollten Sie nur darauf achten, ob das Vergleichsergebnis null (gleich) ist oder nicht, nicht auf das Vorzeichen des Ergebnisses.
+Es gibt zwei verschiedene Anwendungsfälle für die Sortierung: **Sortieren** und **Suchen**. Sortieren ist, wenn Sie eine Liste von Strings haben und diese nach einer Regel ordnen möchten. Suchen ist, wenn Sie eine Liste von Strings haben und einen String finden möchten, der mit einer Abfrage übereinstimmt. Beim Suchen sollten Sie nur darauf achten, ob das Vergleichsergebnis Null (gleich) oder nicht ist, nicht das Vorzeichen des Ergebnisses.
 
-Es gibt viele verschiedene Möglichkeiten, zu sortieren, sogar innerhalb desselben Gebietsschemas. Zum Beispiel gibt es im Deutschen zwei verschiedene Sortierreihenfolgen, _Telefonbuch_ und _Wörterbuch_. Die Telefonbuch-Sortierung betont den Klang — als ob "ä", "ö" usw. vor dem Sortieren zu "ae", "oe" usw. erweitert würden.
+Es gibt viele verschiedene Möglichkeiten, zu sortieren, sogar innerhalb derselben Locale. Zum Beispiel gibt es zwei verschiedene Sortierordnungen im Deutschen, _Telefonbuch_ und _Wörterbuch_. Die Sortierung des Telefonbuchs betont den Klang – als ob „ä“, „ö“ und so weiter vor dem Sortieren auf „ae“, „oe“ und so weiter erweitert würden.
 
 ```js
 const names = ["Hochberg", "Hönigswald", "Holzman"];
@@ -562,7 +561,7 @@ console.log(names.sort(germanPhonebook.compare));
 // ['Hochberg', 'Hönigswald', 'Holzman']
 ```
 
-Einige deutsche Wörter konjugieren mit zusätzlichen Umlauten, sodass es in Wörterbüchern sinnvoll ist, ohne Umlaute zu sortieren (außer beim Sortieren von Wörtern, die sich nur durch Umlaute unterscheiden: _schon_ vor _schön_).
+Einige deutsche Wörter konjugieren mit zusätzlichen Umlauten, sodass es in Wörterbüchern sinnvoll ist, beim Sortieren die Umlaute zu ignorieren (außer wenn Wörter differenziert werden, die _nur_ von Umlauten unterscheiden: _schon_ vor _schön_).
 
 ```js
 const germanDictionary = new Intl.Collator("de-DE-u-co-dict");
@@ -574,7 +573,7 @@ console.log(names.sort(germanDictionary.compare).join(", "));
 
 ## Pluralregeln
 
-Das {{jsxref("Intl.PluralRules")}}-Objekt ist nützlich, um die richtige Pluralform eines Wortes zu wählen. Es pluralisiert nicht automatisch Wörter für Sie (zum Beispiel können Sie ihm nicht "apple" übergeben und erwarten, dass "apples" zurückkommt), aber es teilt Ihnen mit, welche Pluralform basierend auf einer Zahl zu verwenden ist. Möglicherweise machen Sie dies bereits:
+Das {{jsxref("Intl.PluralRules")}}-Objekt ist nützlich zum Auswählen der richtigen Pluralform eines Wortes. Es pluralisiert nicht automatisch Wörter für Sie (zum Beispiel können Sie „apple“ nicht übergeben und „apples“ erwarten), aber es sagt Ihnen, welche Pluralform basierend auf einer Zahl verwendet werden soll. Sie machen das möglicherweise bereits so:
 
 ```js
 function formatMessage(n) {
@@ -582,7 +581,7 @@ function formatMessage(n) {
 }
 ```
 
-Aber dies ist schwer, über alle Sprachen zu verallgemeinern, insbesondere solche mit vielen Pluralformen. Sie können {{jsxref("Intl.PluralRules")}} für eine allgemeine Einführung in Pluralregeln ansehen. Hier demonstrieren wir nur einige häufige Anwendungsfälle.
+Aber das ist schwer zu generalisieren über Sprachen hinweg, insbesondere jene mit vielen Pluralformen. Sie können {{jsxref("Intl.PluralRules")}} für eine allgemeine Einführung in Pluralregeln verwenden. Hier zeigen wir nur einige häufige Anwendungsfälle.
 
 ```js
 const prCard = new Intl.PluralRules("en-US");
@@ -610,7 +609,7 @@ console.log(formatMessage(45, 0)); // The 45th U.S. president had 0 cats.
 
 ## Segmentierung
 
-Das {{jsxref("Intl.Segmenter")}}-Objekt ist nützlich, um eine Zeichenfolge in Segmente aufzuteilen. Ohne `Intl` können Sie bereits eine Zeichenfolge nach [UTF-16-Einheiten und Unicode-Codepunkten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) aufteilen:
+Das {{jsxref("Intl.Segmenter")}}-Objekt ist nützlich zum Aufbrechen eines Strings in Segmente. Ohne `Intl` können Sie einen String bereits nach [UTF-16-Codeeinheiten und Unicode-Codepunkten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) aufspalten:
 
 ```js
 const str = "🇺🇸🇨🇳🇷🇺🇬🇧🇫🇷";
@@ -620,7 +619,7 @@ console.log([...str]);
 // Array(10) ['🇺', '🇸', '🇨', '🇳', '🇷', '🇺', '🇬', '🇧', '🇫', '🇷']
 ```
 
-Aber wie Sie sehen können, sind Unicode-Codepunkte nicht dasselbe wie das, was menschliche Benutzer als diskrete Zeichen wahrnehmen. Dies geschieht oft mit Emojis, bei denen ein einzelnes Emoji durch mehrere Codepunkte dargestellt werden kann. Wenn der Benutzer mit Text interagiert, ist ein Graphem die kleinste Einheit von Text, die er manipulieren kann, wie Löschen oder Auswählen. Das `Segmenter`-Objekt ermöglicht die Segmentierung auf Graphem-Ebene, was nützlich ist, um Zeichen zu zählen, Textbreite zu messen und so weiter. Es nimmt eine Zeichenfolge und gibt ein iterierbares [segments](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt zurück, wobei jedes Element eine `segment`-Eigenschaft enthält, die den Text des Segments darstellt.
+Wie Sie sehen können, sind Unicode-Codepunkte nicht dasselbe wie das, was Menschen als diskrete Zeichen wahrnehmen. Dies geschieht häufig mit Emojis, bei denen ein einzelnes Emoji durch mehrere Codepunkte dargestellt werden kann. Wenn der Benutzer mit Text interagiert, ist ein Graphem die kleinste Einheit von Text, die sie manipulieren können, wie löschen oder auswählen. Das `Segmenter`-Objekt ermöglicht eine Segmentierung auf Graphem-Ebene, die nützlich für das Zählen von Zeichen, Messen der Textbreite usw. ist. Es nimmt einen String und gibt ein iterables [Segmente](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt zurück, dessen jedes Element eine `segment`-Eigenschaft hat, die den Text des Segments darstellt.
 
 ```js
 const segmenter = new Intl.Segmenter("en-US", { granularity: "grapheme" });
@@ -628,14 +627,14 @@ console.log([...segmenter.segment("🇺🇸🇨🇳🇷🇺🇬🇧🇫🇷")].m
 // ['🇺🇸', '🇨🇳', '🇷🇺', '🇬🇧', '🇫🇷']
 ```
 
-Der Segmentierer kann auch eine Segmentierung auf höherer Ebene durchführen, einschließlich der Aufteilung auf Wort- und Satzebene. Diese Anwendungsfälle sind notwendigerweise sprachenspezifisch. Zum Beispiel ist das Folgende eine sehr schlechte Implementierung des Wortzählens:
+Der Segmenter kann auch eine höherstufige Segmentierung durchführen, einschließlich der Trennung auf Wort- und Satzebene. Diese Anwendungsfälle sind notwendigerweise sprachspezifisch. Zum Beispiel ist das folgende eine sehr schlechte Implementierung zur Wortzählung:
 
 ```js example-bad
 const wordCount = (str) => str.split(/\s+/).length;
 console.log(wordCount("Hello, world!")); // 2
 ```
 
-Es gibt mehrere Probleme damit: Nicht alle Sprachen verwenden Leerzeichen, um Wörter zu trennen, nicht alle Leerzeichen sind worttrennend, und nicht alle Wörter werden durch Leerzeichen getrennt. Um dies zu lösen, verwenden Sie `Segmenter` mit `granularity: "word"`. Das Ergebnis ist die Eingabezeichenfolge, aufgeteilt in Segmente von Wörtern und Nicht-Wörtern. Wenn Sie Wörter zählen, sollten Sie die Nicht-Wörter herausfiltern, indem Sie die `isWordLike`-Eigenschaft jedes Segments überprüfen.
+Es gibt mehrere Probleme mit diesem Ansatz: nicht alle Sprachen verwenden Leerzeichen, um Wörter zu trennen; nicht alle Leerzeichen trennen Wörter; und nicht alle Wörter sind durch Leerzeichen getrennt. Um dies zu lösen, verwenden Sie `Segmenter` mit `granularity: "word"`. Das Ergebnis ist der Eingabestring, aufgeteilt in Segmente von Wörtern und Nicht-Wörtern. Wenn Sie Wörter zählen, sollten Sie die Nicht-Wörter herausfiltern, indem Sie die `isWordLike`-Eigenschaft jedes Segments überprüfen.
 
 ```js
 const segmenter = new Intl.Segmenter("en-US", { granularity: "word" });
@@ -667,7 +666,7 @@ console.log(
 // ['It', 'can', 'even', 'split', 'non', 'space', 'separated', 'words']
 ```
 
-Die Wortsegmentierung funktioniert auch für sprachbasierte Sprachen. Zum Beispiel können in Chinesisch mehrere Zeichen ein einzelnes Wort darstellen, aber es gibt keine Leerzeichen dazwischen. Der Segmentierer implementiert dasselbe Verhalten wie die integrierte Wortsegmentierung des Browsers, die durch Doppelklicken eines Wortes ausgelöst wird.
+Die Wortsegmentierung funktioniert auch für zeichenbasierte Sprachen. Zum Beispiel können im Chinesischen mehrere Zeichen ein einziges Wort darstellen, aber es gibt kein Leerzeichen zwischen ihnen. Der Segmenter implementiert dasselbe Verhalten wie die eingebaute Wortsegmentierung des Browsers, die durch Doppelklicken auf ein Wort ausgelöst wird.
 
 ```js
 const segmenter = new Intl.Segmenter("zh-Hans", { granularity: "word" });
@@ -675,7 +674,7 @@ console.log([...segmenter.segment("我是这篇文档的作者")].map((s) => s.s
 // ['我是', '这', '篇', '文', '档', '的', '作者']
 ```
 
-Die Satzsegmentierung ist ähnlich komplex. Zum Beispiel gibt es im Englischen viele Satzzeichen, die das Ende eines Satzes markieren könnten (".", "!", "?", usw.).
+Die Satzsegmentierung ist ähnlich komplex. Zum Beispiel gibt es im Englischen viele Interpunktionszeichen, die das Ende eines Satzes markieren könnten (".", "!", "?" usw.).
 
 ```js
 const segmenter = new Intl.Segmenter("en-US", { granularity: "sentence" });
@@ -687,13 +686,13 @@ console.log(
 // ['I ate a sandwich. ', 'Then I went to bed.']
 ```
 
-Beachten Sie, dass der Segmentierer keine Zeichen entfernt. Er teilt die Zeichenfolge nur in Segmente auf, wobei jedes ein Satz ist. Sie können dann die Satzzeichen entfernen, wenn Sie möchten. Außerdem unterstützt die derzeitige Implementierung des Segmentierers keine Satzsegmentierungsunterdrückungen (Verhindern von Satzumbrüchen nach Punkten wie "Mr." oder "Approx."), aber es gibt laufende Arbeiten zur Unterstützung hierfür.
+Beachten Sie, dass der Segmenter keine Zeichen entfernt. Er trennt nur den String in Segmente, von denen jedes eine Aussage ist. Sie können dann die Interpunktionen entfernen, wenn Sie möchten. Auch unterstützt die aktuelle Implementierung des Segmenters keine Satzsegmentierungssuppressionen (Verhinderung von Satzumbrüchen nach Punkten wie "Mr." oder "Approx."), aber es wird daran gearbeitet, dies zu unterstützen.
 
-## Angezeigte Namen
+## Anzeigemöglichkeiten
 
-Nach der Einführung so vieler Optionen und Verhaltensweisen fragen Sie sich vielleicht, wie Sie diese dem Benutzer präsentieren. `Intl` bietet zwei nützliche APIs zum Erstellen von Benutzeroberflächen: {{jsxref("Intl.supportedValuesOf()")}} und {{jsxref("Intl.DisplayNames")}}.
+Nach der Vorstellung von so vielen Optionen und Verhaltensweisen fragen Sie sich vielleicht, wie man sie dem Benutzer präsentiert. `Intl` bietet zwei nützliche APIs zum Erstellen von Benutzeroberflächen: {{jsxref("Intl.supportedValuesOf()")}} und {{jsxref("Intl.DisplayNames")}}.
 
-Die {{jsxref("Intl.supportedValuesOf()")}}-Funktion gibt ein Array von unterstützten Werten für eine bestimmte Option zurück. Zum Beispiel können Sie sie verwenden, um eine Dropdown-Liste der unterstützten Kalender zu füllen, aus denen Benutzer auswählen können, um Daten anzuzeigen.
+Die Funktion {{jsxref("Intl.supportedValuesOf()")}} gibt ein Array von unterstützten Werten für eine bestimmte Option zurück. Zum Beispiel können Sie es verwenden, um eine Dropdown-Liste mit unterstützten Kalendern zu füllen, aus der die Benutzer auswählen können, um Daten anzuzeigen.
 
 ```js
 const supportedCal = Intl.supportedValuesOf("calendar");
@@ -701,7 +700,7 @@ console.log(supportedCal);
 // ['buddhist', 'chinese', 'coptic', 'dangi', ...]
 ```
 
-Aber oft sind diese Identifikatoren nicht benutzerfreundlich. Zum Beispiel möchten Sie vielleicht, dass die Kalender in der Sprache des Benutzers angezeigt werden oder sie abgekürzt werden. Das {{jsxref("Intl.DisplayNames")}}-Objekt ist dafür nützlich. Es ist wie ein Formatter, aber es ist nicht vorlagenbasiert. Stattdessen handelt es sich um eine direkte Zuordnung von sprachunabhängigen Identifikatoren zu lokalisierten Namen. Es unterstützt die Formatierung von Sprachen, Regionen, Schriftsystemen (die drei Unterfelder eines BCP 47-Tags), Währung, Kalender und Datums-/Zeiteinheiten.
+Aber häufig sind diese Identifikatoren nicht benutzerfreundlich. Zum Beispiel möchten Sie die Kalender in der Sprache des Benutzers anzeigen oder sie unabgekürzt darstellen. Das {{jsxref("Intl.DisplayNames")}}-Objekt ist dafür nützlich. Es ist wie ein Formatter, ist jedoch nicht vorlagenbasiert. Stattdessen handelt es sich um ein direktes Mapping von sprachunabhängigen Identifikatoren zu lokalisierten Namen. Es unterstützt das Formatieren von Sprachen, Regionen, Skripten (die drei Unterfelder eines BCP 47-Tags), Währung, Kalender und Datums-Zeit-Feldern.
 
 Versuchen Sie die Demo unten:
 

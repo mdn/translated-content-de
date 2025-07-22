@@ -1,16 +1,16 @@
 ---
-title: "Dokumentation: startViewTransition() Methode"
+title: "Dokument: startViewTransition() Methode"
 short-title: startViewTransition()
 slug: Web/API/Document/startViewTransition
 l10n:
-  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
+  sourceCommit: 462dc4b2f5c9eaef94d21da0f37ec3bf977c5592
 ---
 
 {{APIRef("View Transition API")}}
 
-Die **`startViewTransition()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle startet eine neue Ansichtstransition im gleichen Dokument (SPA) und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das diese repräsentiert.
+Die **`startViewTransition()`** Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces startet eine neue, gleichbleibende Dokumentansicht (SPA) [view transition](/de/docs/Web/API/View_Transition_API) und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das diese repräsentiert.
 
-Wenn `startViewTransition()` aufgerufen wird, wird eine Abfolge von Schritten durchgeführt, wie in [Der Prozess der Ansichtstransition](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erklärt.
+Wenn `startViewTransition()` aufgerufen wird, folgt eine Abfolge von Schritten, wie sie im [Prozess der View Transition](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erklärt werden.
 
 ## Syntax
 
@@ -22,44 +22,77 @@ startViewTransition(updateCallback)
 ### Parameter
 
 - `updateCallback` {{optional_inline}}
-  - : Eine optionale Callback-Funktion, die typischerweise dazu aufgerufen wird, das DOM während des SPA-Übergangsprozesses zu aktualisieren und die ein {{jsxref("Promise")}} zurückgibt. Der Callback wird aufgerufen, nachdem die API eine Momentaufnahme der aktuellen Seite gemacht hat. Wenn das von dem Callback zurückgegebene Versprechen erfüllt wird, beginnt der Übergang im nächsten Frame. Wenn das Versprechen zurückgewiesen wird, wird der Übergang abgebrochen.
+  - : Eine optionale Callback-Funktion, die typischerweise aufgerufen wird, um das DOM während des SPA-View-Transition-Prozesses zu aktualisieren und die ein {{jsxref("Promise")}} zurückgibt. Der Callback wird aufgerufen, sobald die API einen Schnappschuss der aktuellen Seite erstellt hat. Wenn das durch den Callback zurückgegebene Promise erfüllt wird, beginnt die View Transition im nächsten Frame. Wenn das Promise zurückgewiesen wird, wird die Transition abgebrochen.
 
 ### Rückgabewert
 
-Eine Instanz eines [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekts.
+Eine Instanz des [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekts.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Verwendung einer gleichen Dokument-View-Transition
 
-In unserem [Grundlegenden SPA View Transitions Demo](https://mdn.github.io/dom-examples/view-transitions/spa/) verwaltet die `updateView()`-Funktion sowohl Browser, die die View Transition API unterstützen, als auch solche, die es nicht tun. In unterstützenden Browsern rufen wir `startViewTransition()` auf, um den Übergangsprozess auszulösen, ohne uns um den Rückgabewert zu kümmern.
+In dieser gleichen Dokument-View-Transition prüfen wir, ob der Browser View Transitions unterstützt.
+Falls keine Unterstützung vorhanden ist, setzen wir die Hintergrundfarbe mit einer Ersatzmethode, die sofort angewendet wird.
+Andernfalls kann `document.startViewTransition()` mit Animationsregeln, die wir in CSS definieren, sicher aufgerufen werden.
+
+```html
+<main>
+  <section></section>
+  <button id="change-color">Change color</button>
+</main>
+```
+
+Wir setzen die `animation-duration` auf 2 Sekunden unter Verwendung des {{CSSXRef("::view-transition-group")}} Pseudo-Elements.
+
+```css
+html {
+  --bg: indigo;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+section {
+  background-color: var(--bg);
+  height: 60px;
+  border-radius: 5px;
+}
+::view-transition-group(root) {
+  animation-duration: 2s;
+}
+```
 
 ```js
-function updateView(event) {
-  // Handle the difference in whether the event is fired on the <a> or the <img>
-  let targetIdentifier;
-  if (event.target.firstChild === null) {
-    targetIdentifier = event.target;
-  } else {
-    targetIdentifier = event.target.firstChild;
-  }
-
-  const displayNewImage = () => {
-    const mainSrc = `${targetIdentifier.src.split("_th.jpg")[0]}.jpg`;
-    galleryImg.src = mainSrc;
-    galleryCaption.textContent = targetIdentifier.alt;
-  };
-
+const colors = ["darkred", "darkslateblue", "darkgreen"];
+const colBlock = document.querySelector("section");
+let count = 0;
+const updateColour = () => {
+  colBlock.style = `--bg: ${colors[count]}`;
+  count = count !== colors.length - 1 ? ++count : 0;
+};
+const changeColor = () => {
   // Fallback for browsers that don't support View Transitions:
   if (!document.startViewTransition) {
-    displayNewImage();
+    updateColour();
     return;
   }
 
   // With View Transitions:
-  const transition = document.startViewTransition(() => displayNewImage());
-}
+  const transition = document.startViewTransition(() => {
+    updateColour();
+  });
+};
+const changeColorButton = document.querySelector("#change-color");
+changeColorButton.addEventListener("click", changeColor);
+changeColorButton.addEventListener("keypress", changeColor);
 ```
+
+Wenn View Transitions unterstützt werden, wird durch Klicken auf den Button die Farbe von einer zur anderen über 2 Sekunden hinweg übergehen.
+Andernfalls wird die Hintergrundfarbe ohne Animation mit einer Ersatzmethode gesetzt.
+
+{{EmbedLiveSample('color_change', '100%', '120')}}
 
 ## Spezifikationen
 
@@ -71,4 +104,6 @@ function updateView(event) {
 
 ## Siehe auch
 
-- [Fließende Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- {{CSSXRef(":active-view-transition")}} Pseudo-Klasse
+- {{cssxref(":active-view-transition-type", ":active-view-transition-type()")}} Pseudo-Klasse
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
