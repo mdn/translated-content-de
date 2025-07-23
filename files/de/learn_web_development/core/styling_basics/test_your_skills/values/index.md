@@ -1,31 +1,27 @@
 ---
-title: "Testen Sie Ihr Können: Werte und Einheiten"
+title: "Testen Sie Ihre Fähigkeiten: Werte und Einheiten"
 short-title: Werte und Einheiten
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Values
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist zu beurteilen, ob Sie die verschiedenen Arten von [Werten und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie die verschiedenen Arten von [Werten und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
 
 > [!NOTE]
-> Klicken Sie auf **"Abspielen"** in den untenstehenden Code-Blöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Zwischenablage-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Verwendungsleitfaden für Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe wurde dem ersten Listenelement eine Hintergrundfarbe mit einem Hex-Farbcode zugewiesen. Ihre Aufgabe ist es, die CSS mit demselben Farbwert in verschiedenen Formaten zu vervollständigen, sowie ein letztes Listenelement, bei dem der Hintergrund halbdeckend sein soll.
+In dieser Aufgabe wurde dem ersten Listenelement eine Hintergrundfarbe mittels eines Hex-Farbcodes gegeben. Vervollständigen Sie das CSS, indem Sie dieselbe Farbe in verschiedenen Formaten verwenden, sowie ein letztes Listenelement, bei dem Sie den Hintergrund halbtransparent machen sollten.
 
-- Das zweite Listenelement sollte RGB-Farbe verwenden.
-- Das dritte sollte HSL-Farbe verwenden.
-- Das vierte sollte RGB-Farbe verwenden, aber mit dem Alpha-Kanal auf `0.6` gesetzt.
+- Das zweite Listenelement sollte die RGB-Farbwiedergabe verwenden.
+- Das dritte sollte die HSL-Farbwiedergabe verwenden.
+- Das vierte sollte die RGB-Farbwiedergabe verwenden, aber mit dem Alpha-Kanal auf `0.6` gesetzt.
 
-Sie [können die Hex-Farbe bei convertingcolors.com umwandeln](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie Sie die Werte in CSS verwenden. Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+[Sie können die Hex-Farbe bei convertingcolors.com konvertieren](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie die Werte in CSS verwendet werden. Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Vier Listenelemente. Die ersten drei mit derselben Hintergrundfarbe und das letzte mit einem helleren Hintergrund.](mdn-value-color.png)
-
-Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___color
 <ul>
@@ -36,7 +32,7 @@ Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubi
 </ul>
 ```
 
-```css hidden live-sample___color
+```css live-sample___color
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -50,9 +46,7 @@ li {
   margin: 1em;
   padding: 0.5em;
 }
-```
 
-```css live-sample___color
 .hex {
   background-color: #86defa;
 }
@@ -65,7 +59,7 @@ li {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Durch die Verwendung eines [Farbumwandlungswerkzeugs](https://convertingcolors.com/hex-color-86DEFA.html) sollten Sie in der Lage sein, verschiedene [Farb-Funktionen](/de/docs/Web/CSS/color_value#syntax) zu verwenden, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
+Indem Sie [ein Farbkonvertierungstool](https://convertingcolors.com/hex-color-86DEFA.html) verwenden, sollten Sie in der Lage sein, verschiedene [Farbfunktionen](/de/docs/Web/CSS/color_value#syntax) zu verwenden, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
 
 ```css
 .hex {
@@ -89,18 +83,16 @@ Durch die Verwendung eines [Farbumwandlungswerkzeugs](https://convertingcolors.c
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die Größe verschiedener Textteile wie unten beschrieben festlegen:
+In dieser Aufgabe möchten wir, dass Sie die Schriftgröße verschiedener Textteile festlegen:
 
-- Das `<h1>`-Element sollte 50 Pixel groß sein.
-- Das `<h2>`-Element sollte 2em groß sein.
-- Alle `<p>`-Elemente sollten 16 Pixel groß sein.
-- Ein `<p>`-Element, das direkt nach einem `<h1>` kommt, sollte 120% groß sein.
+- Das `<h1>`-Element sollte `50px` sein.
+- Das `<h2>`-Element sollte `2em` sein.
+- Alle `<p>`-Elemente sollten `16px` sein.
+- Ein `<p>`-Element, das direkt nach einem `<h1>` steht, sollte `120%` sein.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Einige Texte in unterschiedlichen Größen.](mdn-value-length.png)
-
-Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___length
 <h1>Level 1 heading</h1>
@@ -116,23 +108,25 @@ Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubi
 </p>
 ```
 
-```css hidden live-sample___length
+```css live-sample___length
 body {
   font: 1.2em / 1.5 sans-serif;
 }
-```
 
-```css live-sample___length
 h1 {
+  /* Add styles here */
 }
 
 h2 {
+  /* Add styles here */
 }
 
 p {
+  /* Add styles here */
 }
 
 h1 + p {
+  /* Add styles here */
 }
 ```
 
@@ -165,26 +159,22 @@ h1 + p {
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass Sie das Hintergrundbild so verschieben, dass es horizontal zentriert und 20% vom oberen Rand des Kastens entfernt ist.
+Um die Aufgabe zu vervollständigen, aktualisieren Sie das CSS, um das Hintergrundbild so zu verschieben, dass es horizontal zentriert ist und `20%` vom oberen Rand des Kastens entfernt ist.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein horizontales Zentrum in einem Kasten und ein kurzer Abstand vom oberen Rand des Kastens.](mdn-value-position.png)
-
-Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+![Ein statistisches Element, das horizontal in einem Kasten zentriert und etwas vom oberen Rand des Kastens entfernt ist.](mdn-value-position.png)
 
 ```html live-sample___position
 <div class="box"></div>
 ```
 
-```css hidden live-sample___position
+```css live-sample___position
 .box {
   border: 5px solid #000;
   height: 350px;
 }
-```
 
-```css live-sample___position
 .box {
   background-image: url(https://mdn.github.io/shared-assets/images/examples/purple-star.png);
   background-repeat: no-repeat;
@@ -207,7 +197,3 @@ Verwenden Sie `background-position` mit dem Schlüsselwort `center` und einem Pr
 ```
 
 </details>
-
-## Siehe auch
-
-- [Grundlagen des CSS-Stylings](/de/docs/Learn_web_development/Core/Styling_basics)

@@ -3,23 +3,19 @@ title: "Testen Sie Ihre Fähigkeiten: Floats"
 short-title: Floats
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Floats
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie die [Floats in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Floats) anhand der {{CSSxRef("float")}}- und {{CSSxRef("clear")}}-Eigenschaften und Werte sowie anderer Methoden zum Freigeben von Floats verstehen. Sie werden drei kleine Aufgaben bearbeiten, die verschiedene Elemente des Materials verwenden, das Sie gerade behandelt haben.
+Das Ziel dieses Fähigkeits-Tests ist es, Ihnen zu helfen, zu beurteilen, ob Sie [Floats in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Floats) unter Verwendung der {{CSSxRef("float")}} und {{CSSxRef("clear")}} Eigenschaften und Werte sowie anderer Methoden zum Entfernen von Floats verstehen. Sie werden sich mit drei kleinen Aufgaben befassen, die verschiedene Elemente des gerade behandelten Materials verwenden.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Zwischenablage-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe müssen Sie die beiden Elemente mit einer Klasse von `float1` und `float2` links bzw. rechts schweben lassen. Der Text sollte dann zwischen den beiden Kästchen erscheinen, wie im Bild unten:
+Um diese Aufgabe zu vervollständigen, lassen Sie die zwei Elemente mit einer Klasse von `float1` und `float2` links bzw. rechts floaten. Der Text sollte dann zwischen den beiden Boxen erscheinen, wie im Bild unten gezeigt:
 
 ![Zwei Blöcke, die links und rechts von einem Text angezeigt werden.](float-task1.png)
-
-Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___float1
 <div class="box">
@@ -29,16 +25,19 @@ Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nach
 </div>
 ```
 
-```css hidden live-sample___float1
+```css live-sample___float1
 body {
   font: 1.2em / 1.5 sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
+
 .box {
   padding: 0.5em;
 }
+
 .float {
   margin: 15px;
   width: 150px;
@@ -48,13 +47,13 @@ body {
   color: #fff;
   padding: 1em;
 }
-```
 
-```css live-sample___float1
 .float1 {
+  /* Add styles here */
 }
 
 .float2 {
+  /* Add styles here */
 }
 ```
 
@@ -63,7 +62,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie können `float` für beide Kästchen verwenden:
+Sie können `float` für beide Boxen verwenden:
 
 ```css
 .float1 {
@@ -79,13 +78,14 @@ Sie können `float` für beide Kästchen verwenden:
 
 ## Aufgabe 2
 
-In dieser Aufgabe sollte das Element mit einer Klasse von `float` nach links schweben. Dann möchten wir, dass die erste Textzeile neben diesem Element angezeigt wird, aber die folgende Textzeile (die eine Klasse von `below` hat) darunter angezeigt wird.
+Um diese Aufgabe zu vervollständigen:
+
+1. Lassen Sie das Element mit einer Klasse von `float` nach links floaten.
+2. Aktualisieren Sie den Code so, dass die erste Textzeile neben diesem Element angezeigt wird, aber die folgende Textzeile (die eine Klasse von `below` hat) darunter angezeigt wird.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Kasten, der links von einer Textzeile angezeigt wird, mit etwas mehr Text darunter.](float-task2.png)
-
-Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+![Eine Box wird links von einer Textzeile angezeigt, mit mehr Text darunter.](float-task2.png)
 
 ```html live-sample___float2
 <div class="box">
@@ -95,16 +95,19 @@ Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nach
 </div>
 ```
 
-```css hidden live-sample___float2
+```css live-sample___float2
 body {
   font: 1.2em / 1.5 sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
+
 .box {
   padding: 0.5em;
 }
+
 .float {
   margin: 15px;
   width: 150px;
@@ -114,13 +117,13 @@ body {
   color: #fff;
   padding: 1em;
 }
-```
 
-```css live-sample___float2
 .float {
+  /* Add styles here */
 }
 
 .below {
+  /* Add styles here */
 }
 ```
 
@@ -145,11 +148,11 @@ Sie müssen das Element nach links fließen lassen und dann `clear: left` zur Kl
 
 ## Aufgabe 3
 
-In dieser Aufgabe haben wir ein schwebendes Element. Der Kasten, der den Float und den Text umschließt, wird hinter dem Float angezeigt. Verwenden Sie die modernste verfügbare Methode, um den Hintergrund des Kastens bis unter das Float zu erweitern, wie im Bild unten:
+In dieser Aufgabe haben wir ein gefloatetes Element. Die Box, die den Float und Text umhüllt, wird hinter dem Float angezeigt.
 
-![Ein Block, der rechts von einem Text angezeigt wird, beide umschlossen von einem Kasten mit Hintergrundfarbe.](float-task3.png)
+Um die Aufgabe zu vervollständigen, verwenden Sie die aktuellste Methode, um zu bewirken, dass sich der Box-Hintergrund bis unter den Float erstreckt, wie im Bild unten:
 
-Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+![Ein Block wird rechts von einem Text angezeigt, beide umhüllt von einer Box mit Hintergrundfarbe.](float-task3.png)
 
 ```html live-sample___float3
 <div class="box">
@@ -158,10 +161,11 @@ Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nach
 </div>
 ```
 
-```css hidden live-sample___float3
+```css live-sample___float3
 body {
   font: 1.2em / 1.5 sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -185,14 +189,13 @@ body {
   padding: 10px;
   color: #fff;
 }
-```
 
-```css live-sample___float3
 .float {
   float: right;
 }
 
 .box {
+  /* Add styles here */
 }
 ```
 
@@ -201,7 +204,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Entfernen Sie das Element unter dem schwebenden Element, indem Sie `display: flow-root` zur Klasse für `.box` hinzufügen. Andere Methoden könnten die Verwendung von `overflow` oder ein Clearfix-Hack sein, jedoch beschreiben die Lernmaterialien die `flow-root`-Methode als den modernen Weg, dies zu erreichen.
+Lösen Sie die Box unterhalb des gefloateten Elements, indem Sie `display: flow-root` zur Klasse für `.box` hinzufügen.
+Andere Methoden könnten `overflow` oder ein clearfix-Hack sein, jedoch erklären die Lernmaterialien die `flow-root` Methode als die moderne Methode, um dies zu erreichen.
 
 ```css
 .box {
@@ -210,7 +214,3 @@ Entfernen Sie das Element unter dem schwebenden Element, indem Sie `display: flo
 ```
 
 </details>
-
-## Siehe auch
-
-- [CSS Stil-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)

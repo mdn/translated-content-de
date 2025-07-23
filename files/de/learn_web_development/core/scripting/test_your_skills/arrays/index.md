@@ -1,42 +1,34 @@
 ---
-title: "Testen Sie Ihr Können: Arrays"
+title: "Testen Sie Ihre Fähigkeiten: Arrays"
 short-title: Arrays
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Arrays
 l10n:
-  sourceCommit: 4f8c4b31478742a2a39fdb03993d08fc1c90bbea
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie unseren [Arrays](/de/docs/Learn_web_development/Core/Scripting/Arrays) Artikel verstanden haben.
+Ziel dieses Tests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren [Arrays](/de/docs/Learn_web_development/Core/Scripting/Arrays)-Artikel verstanden haben.
 
 > [!NOTE]
-> Für die Aufgaben 1–4 können Sie Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
-> Wenn Sie feststecken, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungshinweis. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Interaktiver Herausforderung
+## Interaktive Herausforderung
 
-Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Arrays-Herausforderung, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
+Zuerst bieten wir Ihnen eine unterhaltsame, interaktive Arrays-Herausforderung, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
 
-Sehen Sie sich die eingebettete Lektion an, und schließen Sie die Aufgabe auf der Zeitleiste (das kleine Geistersymbol) ab, indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie die Lektion fortsetzen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich das eingebettete Scrim an und vervollständigen Sie die Aufgabe auf dem Zeitstrahl (das kleine Geister-Symbol), indem Sie den Anweisungen folgen und den Code bearbeiten. Sobald Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~05e" scrimtitle="Bilder aus einem Array rendern" survey="true"></scrim-inline>
+<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~05e" scrimtitle="Render images from an array" survey="true"></scrim-inline>
 
 > [!NOTE]
-> Diese Aufgabe ist ein gewisses Stretch-Ziel, da sie sich auf JavaScript-Funktionen stützt, die Sie im Kurs noch nicht explizit behandelt haben. Geben Sie Ihr Bestes und suchen Sie online nach Informationen zu allem, worüber Sie sich nicht sicher sind.
+> Diese Aufgabe ist ein etwas anspruchsvolles Ziel, da sie sich auf JavaScript-Funktionen stützt, die im Kurs noch nicht explizit behandelt wurden. Geben Sie Ihr Bestes und suchen Sie online nach Informationen zu allem, bei dem Sie sich nicht sicher sind.
 
 ## Aufgabe 1
 
-Diese Aufgabe gibt Ihnen einige grundlegende Array-Übungen:
+Diese Aufgabe bietet Ihnen einige grundlegende Array-Übungen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie ein Array mit drei Elementen und speichern Sie es in einer Variablen namens `myArray`. Die Elemente können alles sein, was Sie wollen — wie wäre es mit Ihren Lieblingsspeisen oder -bands?
-3. Ändern Sie dann die ersten beiden Elemente im Array mithilfe von Klammernotation und Zuweisung.
-4. Fügen Sie schließlich ein neues Element am Anfang des Arrays hinzu.
-
-> [!CALLOUT]
->
-> Sie können auch [den Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/arrays/arrays1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Erstellen Sie ein Array mit drei Elementen und speichern Sie es in einer Variablen namens `myArray`. Die Elemente können beliebig sein - wie wäre es mit Ihren Lieblingsspeisen oder Bands?
+2. Ändern Sie anschließend die ersten beiden Elemente im Array mit Hilfe der Klammernotation und der Zuweisung.
+3. Fügen Sie schließlich ein neues Element am Anfang des Arrays hinzu.
 
 <!-- Code shared across examples -->
 
@@ -91,20 +83,13 @@ myArray.unshift("crocodiles");
 
 ## Aufgabe 2
 
-Kommen wir nun zu einer weiteren Aufgabe. Hier wird Ihnen ein String zur Bearbeitung bereitgestellt.
+Kommen wir nun zu einer weiteren Aufgabe. Hier erhalten Sie einen String, mit dem Sie arbeiten sollen.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Konvertieren Sie den String in ein Array und entfernen Sie dabei die `+` Zeichen. Speichern Sie das Ergebnis in einer Variablen namens `myArray`.
-3. Speichern Sie die Länge des Arrays in einer Variablen namens `arrayLength`.
-4. Speichern Sie das letzte Element im Array in einer Variablen namens `lastItem`.
-
-> [!CALLOUT]
->
-> Sie können auch [den Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/arrays/arrays2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Wandeln Sie den String in ein Array um, indem Sie die `+` Zeichen entfernen. Speichern Sie das Ergebnis in einer Variablen namens `myArray`.
+2. Speichern Sie die Länge des Arrays in einer Variablen namens `arrayLength`.
+3. Speichern Sie das letzte Element im Array in einer Variablen namens `lastItem`.
 
 ```js live-sample___arrays-2
 const myString = "Ryu+Ken+Chun-Li+Cammy+Guile+Sakura+Sagat+Juri";
@@ -149,19 +134,12 @@ let lastItem = myArray[arrayLength - 1];
 
 ## Aufgabe 3
 
-Für diese Array-Aufgabe stellen wir Ihnen ein Anfangs-Array bereit, und Sie arbeiten in gewisser Weise in die entgegengesetzte Richtung. Sie müssen:
+Für diese Array-Aufgabe stellen wir Ihnen ein Start-Array zur Verfügung, und Sie arbeiten in gewisser Weise in die entgegengesetzte Richtung. Sie müssen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Entfernen Sie das letzte Element im Array.
-3. Fügen Sie zwei neue Namen am Ende des Arrays hinzu.
-4. Durchlaufen Sie jedes Element im Array und fügen Sie die Indexnummer nach dem Namen in Klammern hinzu, zum Beispiel `Ryu (0)`. Beachten Sie, dass wir Ihnen im Arrays-Artikel nicht beibringen, wie man dies tut, also müssen Sie ein wenig recherchieren.
-5. Verbinden Sie schließlich die Array-Elemente zu einem einzigen String namens `myString`, mit einem Trennzeichen von `"-"`.
-
-> [!CALLOUT]
->
-> Sie können auch [den Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/arrays/arrays3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Entfernen Sie das letzte Element im Array.
+2. Fügen Sie zwei neue Namen am Ende des Arrays hinzu.
+3. Iterieren Sie über jedes Element im Array und fügen Sie die Indexnummer nach dem Namen in Klammern hinzu, zum Beispiel `Ryu (0)`. Beachten Sie, dass wir dies im Arrays-Artikel nicht lehren, daher müssen Sie einige Recherchen durchführen.
+4. Verbinden Sie schließlich die Array-Elemente zu einem einzelnen String namens `myString`, mit einem Trennzeichen von `"-"`.
 
 ```js live-sample___arrays-3
 const myArray = [
@@ -224,21 +202,14 @@ const myString = myArray.join(" - ");
 
 ## Aufgabe 4
 
-Für diese Array-Aufgabe stellen wir Ihnen ein Anfangs-Array mit den Namen einiger Vögel bereit.
+Für diese Array-Aufgabe stellen wir Ihnen ein Start-Array zur Verfügung, das die Namen einiger Vögel auflistet.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Finden Sie den Index des Elements `"Eagles"`, und verwenden Sie diesen, um das Element `"Eagles"` zu entfernen.
-3. Erstellen Sie ein neues Array aus diesem, genannt `eBirds`, das nur die Vögel aus dem Original-Array enthält, deren Namen mit dem Buchstaben "E" beginnen. Beachten Sie, dass {{jsxref("String.prototype.startsWith()", "startsWith()")}} ein großartiger Weg ist, um zu überprüfen, ob ein String mit einem bestimmten Zeichen beginnt.
+1. Finden Sie den Index des Elements `"Eagles"` und verwenden Sie diesen, um das Element `"Eagles"` zu entfernen.
+2. Erstellen Sie ein neues Array aus diesem, genannt `eBirds`, das nur Vögel aus dem Original-Array enthält, deren Namen mit dem Buchstaben "E" beginnen. Beachten Sie, dass {{jsxref("String.prototype.startsWith()", "startsWith()")}} eine großartige Möglichkeit ist, zu überprüfen, ob ein String mit einem bestimmten Zeichen beginnt.
 
 Wenn es funktioniert, sollten Sie `"Emus,Egrets"` auf der Seite sehen.
-
-> [!CALLOUT]
->
-> Sie können auch [den Startpunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/arrays/arrays4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Reset_ im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
 
 ```js live-sample___arrays-4
 const birds = ["Parrots", "Falcons", "Eagles", "Emus", "Caracaras", "Egrets"];

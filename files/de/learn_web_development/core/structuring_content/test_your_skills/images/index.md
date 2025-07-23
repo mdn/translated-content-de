@@ -3,27 +3,23 @@ title: "Testen Sie Ihre Fähigkeiten: HTML-Bilder"
 short-title: Images
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Images
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie [Bilder und deren Einbettung in HTML](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie [Bilder und wie man sie in HTML einbettet](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images) verstehen.
 
 > [!NOTE]
-> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
->
-> Wenn Sie nicht weiterkommen, können Sie in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Unterstützung finden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie ein Bild von Blaubeeren auf der Seite einbetten. Sie müssen:
+In dieser Aufgabe sollen Sie ein Bild von einigen Blaubeeren in die Seite einbetten.
 
-- Den Pfad zum Bild in ein geeignetes Attribut einfügen, um es auf der Seite einzubetten. Das Bild heißt `blueberries.jpg` und ist unter dem Pfad `https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/images/images/blueberries.jpg?raw=true` verfügbar.
-- Einen alternativen Text in ein geeignetes Attribut einfügen, um das Bild für Personen zu beschreiben, die es nicht sehen können.
-- Dem `<img>`-Element eine geeignete `width` geben, damit es im richtigen {{Glossary("aspect_ratio", "Seitenverhältnis")}} angezeigt wird und genügend Platz auf der Seite bleibt, um es darzustellen. Die {{Glossary("intrinsic_size", "intrinsische Größe")}} des Bildes beträgt 615 x 419 Pixel.
+Um die Aufgabe zu erledigen:
 
-Um zu beginnen, können Sie auf **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/images/images1-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts ansehen.
+1. Fügen Sie den Pfad des Bildes zu einem geeigneten Attribut hinzu, um es auf der Seite einzubetten. Das Bild heißt `blueberries.jpg` und ist unter dem Pfad `https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/images/images/blueberries.jpg?raw=true` verfügbar.
+2. Fügen Sie einen alternativen Text zu einem geeigneten Attribut hinzu, um das Bild für Personen zu beschreiben, die es nicht sehen können.
+3. Geben Sie dem `<img>`-Element eine geeignete `width`, damit es im korrekten {{Glossary("aspect_ratio", "Seitenverhältnis")}} angezeigt wird und genug Platz auf der Seite ist, um es darzustellen. Die {{Glossary("intrinsic_size", "intrinsische Größe")}} des Bildes beträgt 615 x 419 Pixel.
 
 ```html live-sample___images-1
 <h1>Basic image embed</h1>
@@ -31,7 +27,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im 
 <img />
 ```
 
-<!-- Gemeinsamer/Setup CSS-Code -->
+<!-- Gemeinsamer/Setup-CSS-Code -->
 
 ```css hidden live-sample___images-1 live-sample___images-2 live-sample___images-3
 body {
@@ -74,11 +70,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben Sie bereits ein vollständiges Bild, aber wir möchten, dass Sie einen Tooltip hinzufügen, der erscheint, wenn Sie mit der Maus über das Bild fahren. Sie sollten geeignete Informationen in den Tooltip einfügen.
-
-Um zu beginnen, können Sie auf **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/images/images2-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts ansehen.
+In dieser Aufgabe haben Sie bereits ein voll funktionsfähiges Bild, aber wir möchten, dass Sie einen Tooltip hinzufügen, der angezeigt wird, wenn das Bild mit der Maus berührt wird. Sie sollten einige geeignete Informationen in den Tooltip einfügen.
 
 ```html live-sample___images-2
 <h1>Basic image title</h1>
@@ -108,11 +100,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 3
 
-In dieser Aufgabe wird Ihnen sowohl ein vollständiges Bild als auch etwas Bildunterschriftstext bereitgestellt. Was Sie hier tun müssen, ist, Elemente hinzuzufügen, die das Bild mit der Bildunterschrift verbinden.
-
-Um zu beginnen, können Sie auf **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/images/images3-download.html) und arbeiten Sie lokal in Ihrem eigenen Editor.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts ansehen.
+In dieser Aufgabe erhalten Sie sowohl ein voll funktionsfähiges Bild als auch einen Beschriftungstext. Was Sie hier tun müssen, ist, Elemente hinzuzufügen, die das Bild mit der Beschriftung verknüpfen.
 
 ```html live-sample___images-3
 <h1>Image and caption</h1>

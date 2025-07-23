@@ -3,34 +3,25 @@ title: "Testen Sie Ihre Fähigkeiten: Strings"
 short-title: Strings
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Strings
 l10n:
-  sourceCommit: 53ed5fbd3a7d323ef0629f68c41be8a1ed15c885
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie unsere Artikel [Umgang mit Text — Strings in JavaScript](/de/docs/Learn_web_development/Core/Scripting/Strings) und [Nützliche String-Methoden](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods) verstanden haben.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unsere Artikel [Text bearbeiten — Strings in JavaScript](/de/docs/Learn_web_development/Core/Scripting/Strings) und [Nützliche String-Methoden](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite ausprobieren oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/).
->
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Strings 1
 
-In unserer ersten String-Aufgabe beginnen wir klein. Sie haben bereits die Hälfte eines berühmten Zitats in einer Variablen namens `quoteStart`, und wir möchten, dass Sie es vervollständigen.
+In unserer ersten Aufgabe zu Strings beginnen wir klein. Sie haben bereits die Hälfte eines berühmten Zitats in einer Variablen namens `quoteStart`, und wir möchten, dass Sie es vervollständigen.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Schlagen Sie die andere Hälfte des Zitats nach und fügen Sie sie dem Beispiel innerhalb einer Variablen namens `quoteEnd` hinzu.
-3. Verketten Sie die beiden Strings, um einen vollständigen String mit dem gesamten Zitat zu erstellen. Speichern Sie das Ergebnis in einer Variablen namens `finalQuote`.
-4. Sie werden feststellen, dass Sie an diesem Punkt einen Fehler erhalten. Können Sie das Problem mit `quoteStart` beheben, damit das vollständige Zitat korrekt angezeigt wird?
+1. Schlagen Sie die andere Hälfte des Zitats nach und fügen Sie sie dem Beispiel in einer Variablen namens `quoteEnd` hinzu.
+2. Verketten Sie die beiden Strings, um einen einzigen String zu erstellen, der das vollständige Zitat enthält. Speichern Sie das Ergebnis in einer Variablen namens `finalQuote`.
+3. Sie werden feststellen, dass Sie an dieser Stelle einen Fehler bekommen. Können Sie das Problem mit `quoteStart` beheben, damit das vollständige Zitat korrekt angezeigt wird?
 
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/strings/strings1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
-
-<!-- Code shared across examples -->
+<!-- Gemeinsam genutzter Code über Beispiele hinweg -->
 
 ```html hidden live-sample___strings-1 live-sample___strings-2 live-sample___strings-3 live-sample___strings-4
 <section></section>
@@ -47,7 +38,7 @@ p {
 }
 ```
 
-<!-- Example-specific code -->
+<!-- Beispiel-spezifischer Code -->
 
 ```js-nolint live-sample___strings-1
 const quoteStart = 'Don't judge each day by the harvest you reap ';
@@ -67,7 +58,7 @@ section.appendChild(para1);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte wie folgt aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js-nolint
 // You need to escape the quote
@@ -87,18 +78,11 @@ const finalQuote = `${quoteStart}${quoteEnd}`;
 
 In dieser Aufgabe werden Ihnen zwei Variablen, `quote` und `substring`, zur Verfügung gestellt, die zwei Strings enthalten.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Rufen Sie die Länge des Zitats ab und speichern Sie sie in einer Variablen namens `quoteLength`.
-3. Finden Sie die Indexposition, an der `substring` im `quote` erscheint, und speichern Sie diesen Wert in einer Variablen namens `index`.
-4. Verwenden Sie eine Kombination der Ihnen zur Verfügung stehenden Variablen und verfügbaren String-Eigenschaften/Methoden, um das ursprüngliche Zitat auf "I do not like green eggs and ham." zu kürzen, und speichern Sie es in einer Variablen namens `revisedQuote`.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/strings/strings2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Ermitteln Sie die Länge des Zitats und speichern Sie sie in einer Variablen namens `quoteLength`.
+2. Finden Sie die Indexposition, an der `substring` im `quote` erscheint, und speichern Sie diesen Wert in einer Variablen namens `index`.
+3. Verwenden Sie eine Kombination der Ihnen zur Verfügung stehenden Variablen und verfügbare String-Eigenschaften/Methoden, um das ursprüngliche Zitat auf „I do not like green eggs and ham.“ zu kürzen, und speichern Sie es in einer Variablen namens `revisedQuote`.
 
 ```js live-sample___strings-2
 const quote = "I do not like green eggs and ham. I do not like them, Sam-I-Am.";
@@ -125,7 +109,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte wie folgt aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...
@@ -143,20 +127,13 @@ const revisedQuote = quote.slice(0, index + substring.length + 1);
 
 ## Strings 3
 
-In der nächsten String-Aufgabe erhalten Sie dasselbe Zitat, das Sie in der vorherigen Aufgabe hatten, aber es ist etwas kaputt! Wir möchten, dass Sie es reparieren und aktualisieren.
+In der nächsten String-Aufgabe erhalten Sie das gleiche Zitat, das Sie in der vorherigen Aufgabe hatten, aber es ist ein wenig fehlerhaft! Wir möchten, dass Sie es reparieren und aktualisieren.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Ändern Sie das Gehäuse, um den Satz zu korrigieren (alles klein, außer dem großen Anfangsbuchstaben). Speichern Sie das neue Zitat in einer Variablen namens `fixedQuote`.
-3. Ersetzen Sie in `fixedQuote` "green eggs and ham" durch ein anderes Essen, das Sie wirklich nicht mögen.
-4. Es gibt noch eine kleine Korrektur zu machen — fügen Sie einen Punkt am Ende des Zitats hinzu und speichern Sie die endgültige Version in einer Variablen namens `finalQuote`.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/strings/strings3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Ändern Sie die Groß-/Kleinschreibung in die richtige Satzstruktur (alles klein, außer der erste Buchstabe groß). Speichern Sie das neue Zitat in einer Variablen namens `fixedQuote`.
+2. Ersetzen Sie in `fixedQuote` „green eggs and ham“ durch ein anderes Lebensmittel, das Sie wirklich nicht mögen.
+3. Es gibt noch eine kleine Korrektur zu machen — fügen Sie am Ende des Zitats einen Punkt hinzu und speichern Sie die endgültige Version in einer Variablen namens `finalQuote`.
 
 ```js live-sample___strings-3
 const quote = "I dO nOT lIke gREen eGgS anD HAM";
@@ -178,7 +155,7 @@ section.appendChild(para1);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte wie folgt aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...
@@ -198,22 +175,15 @@ const finalQuote = `${fixedQuote}.`;
 
 ## Strings 4
 
-In der letzten String-Aufgabe haben wir Ihnen den Namen eines Theorems, zwei numerische Werte und einen unvollständigen String gegeben (die hinzuzufügenden Teile sind mit Sternchen (`*`) markiert). Wir möchten, dass Sie den Wert des Strings ändern.
+In der letzten String-Aufgabe haben wir Ihnen den Namen eines Theorems, zwei numerische Werte und einen unvollständigen String gegeben (die Teile, die hinzugefügt werden müssen, sind mit Sternchen (`*`) markiert). Wir möchten, dass Sie den Wert des Strings ändern.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Ändern Sie den String von einem normalen String-Literal in ein Template Literal.
-3. Ersetzen Sie die vier Sternchen durch vier eingebettete Ausdrücke von Template-Literalen. Diese sollten sein:
+1. Ändern Sie den String von einem regulären Stringliteral in ein Template-Stringliteral.
+2. Ersetzen Sie die vier Sternchen durch vier eingebettete Ausdrücke eines Template-Stringliterals. Diese sollten sein:
    1. Der Name des Theorems.
    2. Die beiden Zahlenwerte, die wir haben.
-   3. Die Länge der Hypotenuse eines rechtwinkligen Dreiecks, vorausgesetzt, die beiden anderen Seitenlängen sind dieselben wie die beiden Werte, die wir haben. Sie müssen nachschlagen, wie man dies mit den vorhandenen Daten berechnet. Machen Sie die Berechnung im Platzhalter.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/strings/strings4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche _Zurücksetzen_ im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+   3. Die Länge der Hypotenuse eines rechtwinkligen Dreiecks, vorausgesetzt, die beiden anderen Seitenlängen sind die gleichen wie die beiden Werte, die wir haben. Sie müssen nachschlagen, wie man dies aus dem, was Sie haben, berechnet. Führen Sie die Berechnung in der Platzhalterstelle durch.
 
 ```js live-sample___strings-4
 const theorem = "Pythagorean theorem";
@@ -240,7 +210,7 @@ section.appendChild(para1);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte wie folgt aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...

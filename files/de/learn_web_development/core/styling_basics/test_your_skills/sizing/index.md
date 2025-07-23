@@ -3,25 +3,27 @@ title: "Testen Sie Ihr Können: Größenanpassung"
 short-title: Sizing
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Sizing
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie die verschiedenen Möglichkeiten zur [Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie die verschiedenen Methoden zum [Größen von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) verstehen.
 
 > [!NOTE]
-> Klicken Sie **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Klemmbrettsymbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Tests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe haben Sie zwei Boxen. Die erste sollte so dimensioniert werden, dass die Höhe mindestens 100 Pixel beträgt, selbst wenn der Inhalt geringer ist und dadurch die Box nicht wachsen würde. Der Inhalt sollte jedoch nicht überlaufen, wenn es mehr Inhalt gibt, als in 100 Pixel passt. Testen Sie diese Box, indem Sie den Inhalt aus dem HTML entfernen, um sicherzustellen, dass Sie immer noch eine 100 Pixel hohe Box haben, selbst ohne Inhalt.
+In dieser Aufgabe haben Sie zwei Boxen.
 
-Die zweite Box sollte fest auf 100 Pixel Höhe eingestellt sein, sodass der Inhalt überläuft, wenn es zu viel Inhalt gibt.
+So vervollständigen Sie die Aufgabe:
 
-![Zwei Boxen, eine mit überfließendem Inhalt](mdn-sizing-height-min-height.png)
+1. Passen Sie die Größe der ersten Box so an, dass die Höhe mindestens `100px` beträgt, selbst wenn der Inhalt geringer ist, sodass sie auf diese Höhe anwächst. Der Inhalt sollte jedoch nicht überlaufen, wenn mehr Inhalt vorhanden ist, als in 100 Pixel passen.
+2. Testen Sie diese Box, indem Sie den Inhalt aus dem HTML entfernen, um sicherzustellen, dass Sie weiterhin eine `100px` hohe Box erhalten, auch ohne Inhalt.
+3. Passen Sie die Größe der zweiten Box so an, dass sie fest auf `100px` Höhe bleibt, sodass der Inhalt überläuft, wenn es zu viel gibt.
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
+
+![Zwei Boxen, eine mit überlaufendem Inhalt](mdn-sizing-height-min-height.png)
 
 ```html live-sample___height-min-height
 <div class="box box1">
@@ -41,7 +43,7 @@ Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel
 </div>
 ```
 
-```css hidden live-sample___height-min-height
+```css live-sample___height-min-height
 body {
   font: 1.2em / 1.5 sans-serif;
   padding: 1em;
@@ -52,9 +54,7 @@ body {
   width: 400px;
   margin-bottom: 1em;
 }
-```
 
-```css live-sample___height-min-height
 .box1 {
   /* Add styles here */
 }
@@ -69,7 +69,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es gibt zwei Boxen, die erste sollte eine Mindesthöhe haben, wobei sie sich bei zusätzlichem Inhalt ausdehnt, aber bei entfernten Inhalten mindestens so hoch wie die `min-height` bleibt. Die zweite hat eine feste Höhe, was dazu führt, dass der Inhalt überläuft.
+Es gibt zwei Boxen, die erste sollte eine Mindesthöhe erhalten, in welchem Fall sie sich ausdehnt, um den zusätzlichen Inhalt aufzunehmen, aber wenn Sie etwas Inhalt entfernen, bleibt die Box mindestens so hoch wie das `min-height`. Die zweite erhält eine feste Höhe, wodurch der Inhalt überläuft.
 
 ```css
 .box1 {
@@ -85,13 +85,16 @@ Es gibt zwei Boxen, die erste sollte eine Mindesthöhe haben, wobei sie sich bei
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben Sie eine Box, die eine weitere Box enthält. Ihre Aufgabe ist es, die innere Box 60% der Breite der äußeren Box zu machen. Der Wert der {{cssxref("box-sizing")}}-Eigenschaft ist auf `border-box` gesetzt, was bedeutet, dass die Gesamtbreite jegliche Polsterung und den Rand einschließt. Sie sollten der inneren Box auch eine Polsterung von 10% geben, wobei die Breite (oder Inline-Größe) als Basis verwendet wird, von der dieser Prozentsatz berechnet wird.
+In dieser Aufgabe haben Sie eine Box, die eine weitere Box enthält.
 
-Ihr Endergebnis sollte dem untenstehenden Bild ähneln:
+So vervollständigen Sie die Aufgabe:
+
+1. Machen Sie die Breite der inneren Box `60%` der Breite der äußeren Box. Der Wert der {{cssxref("box-sizing")}} Eigenschaft ist auf `border-box` gesetzt, was bedeutet, dass die Gesamtbreite jedwedes Padding und Rahmen einschließt.
+2. Geben Sie der inneren Box ein Padding von `10%`, wobei die Breite (oder Inline-Größe) als Basis zur Berechnung dieses Prozentsatzes dient.
+
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
 ![Eine Box mit einer weiteren Box darin](mdn-sizing-percentages.png)
-
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___percentages
 <div class="box">
@@ -99,11 +102,12 @@ Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel
 </div>
 ```
 
-```css hidden live-sample___percentages
+```css live-sample___percentages
 body {
   font: 1.2em / 1.5 sans-serif;
   padding: 1em;
 }
+
 .box {
   border: 5px solid #000;
   width: 400px;
@@ -115,9 +119,7 @@ body {
   color: white;
   border-radius: 5px;
 }
-```
 
-```css live-sample___percentages
 * {
   box-sizing: border-box;
 }
@@ -131,8 +133,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Machen Sie die Box 60% des Containers und geben Sie ihr auf allen Seiten eine Polsterung von 10%.
-Alle Elemente haben bereits `box-sizing: border-box`, damit Sie sich keine Gedanken darüber machen müssen, welche Breite Sie verwenden:
+Machen Sie die Box 60% des Containers und geben Sie ihr 10% Padding auf allen Seiten. Alle Elemente haben bereits `box-sizing: border-box`, damit Sie sich keine Gedanken darüber machen müssen, welche Breite Sie verwenden:
 
 ```css
 * {
@@ -148,13 +149,13 @@ Alle Elemente haben bereits `box-sizing: border-box`, damit Sie sich keine Gedan
 
 ## Aufgabe 3
 
-In dieser Aufgabe haben Sie zwei Bilder in Boxen. Ein Bild ist kleiner als die Box, das andere ist größer und bricht aus der Box heraus. Wenn Sie sich vorstellen, dass die Box reaktionsfähig ist und daher wachsen und schrumpfen könnte, welche Eigenschaft würden Sie auf das Bild anwenden, damit das große Bild in die Box schrumpft, das kleine Bild jedoch nicht gedehnt wird.
+In dieser Aufgabe haben Sie zwei Bilder in Boxen. Ein Bild ist kleiner als die Box, das andere ist größer und ragt aus der Box heraus.
 
-Ihr Endergebnis sollte den untenstehenden Bildern ähneln:
+Um die Aufgabe abzuschließen, stellen Sie sich vor, dass die Box responsiv ist und sich daher vergrößern und verkleinern könnte. Wenden Sie eine Deklaration auf das Bild an, damit das große Bild in die Box schrumpft, das kleine Bild jedoch nicht gestreckt wird.
+
+Ihr Endergebnis sollte wie die folgenden Bilder aussehen:
 
 ![Zwei Boxen mit Bildern darin](mdn-sizing-max-width.png)
-
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___max-width
 <div class="box">
@@ -170,7 +171,7 @@ Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel
 </div>
 ```
 
-```css hidden live-sample___max-width
+```css live-sample___max-width
 body {
   font: 1.2em / 1.5 sans-serif;
   padding: 1em;
@@ -180,9 +181,7 @@ body {
   margin-bottom: 1em;
   width: 500px;
 }
-```
 
-```css live-sample___max-width
 img {
   /* Add styles here */
 }
@@ -193,7 +192,7 @@ img {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Das Beispiel hat ein Bild, das aus der Box herausbricht, und eines, das kleiner als die Box ist. Sie müssen `max-width` auf 100% setzen, damit das größere Bild nur so groß wie die Box wächst. Wenn Sie `width: 100%` verwenden, wird das kleine Bild gestreckt.
+Das Beispiel enthält ein Bild, das aus der Box herausragt, und eines, das kleiner als die Box ist. Sie müssen `max-width` auf 100% setzen, damit das größere Bild nur so groß wie die Box wird. Wenn Sie `width: 100%` verwenden, wird das kleine Bild gestreckt.
 
 ```css
 img {
@@ -202,7 +201,3 @@ img {
 ```
 
 </details>
-
-## Siehe auch
-
-- [CSS Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)

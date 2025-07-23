@@ -1,35 +1,25 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Objektgrundlagen"
+title: "Testen Sie Ihr Wissen: Grundlagen der Objekte"
 short-title: Objects
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Object_basics
 l10n:
-  sourceCommit: 53ed5fbd3a7d323ef0629f68c41be8a1ed15c885
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Das Ziel dieses Fähigkeits-Tests ist es, zu prüfen, ob Sie unseren Artikel zu den [JavaScript-Objektgrundlagen](/de/docs/Learn_web_development/Core/Scripting/Object_basics) verstanden haben.
+Ziel dieses Kompetenztests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel zu den [Grundlagen der JavaScript-Objekte](/de/docs/Learn_web_development/Core/Scripting/Object_basics) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite ausprobieren oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/).
-> Wenn es einen Fehler in Ihrem Code gibt, wird er im Ergebnisfeld auf dieser Seite oder in der JavaScript-Konsole protokolliert.
->
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie bitte unser [Testen Sie Ihr Wissen](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## Objektgrundlagen 1
+## Grundlagen der Objekte 1
 
-In dieser Aufgabe wird Ihnen ein Objektliteral zur Verfügung gestellt, und wir möchten, dass Sie daran arbeiten.
+In dieser Aufgabe wird Ihnen ein Objektliteral bereitgestellt, und wir möchten, dass Sie daran arbeiten.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Speichern Sie den Wert der `name`-Eigenschaft in der Variablen `catName` mit der Klammernotation.
-3. Führen Sie die Methode `greeting()` mittels Punktnotation aus (es wird die Begrüßung in die Konsole protokolliert).
-4. Aktualisieren Sie den Wert der `color`-Eigenschaft auf `black`.
-
-> [!CALLOUT]
->
-> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/object-basics/object-basics1-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Liveausgabe ansehen.
+1. Speichern Sie den Wert der `name`-Eigenschaft in der Variable `catName`, unter Verwendung von Klammernotation.
+2. Führen Sie die `greeting()`-Methode unter Verwendung der Punktnotation aus (es wird die Begrüßung in der Konsole protokollieren).
+3. Aktualisieren Sie den Wert der `color`-Eigenschaft auf `black`.
 
 <!-- Code shared across examples -->
 
@@ -78,9 +68,9 @@ section.appendChild(para2);
 {{ EmbedLiveSample("objects-1", "100%", 60) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 // ...
@@ -96,32 +86,25 @@ cat.color = "black";
 
 </details>
 
-## Objektgrundlagen 2
+## Grundlagen der Objekte 2
 
-In unserer nächsten Aufgabe möchten wir, dass Sie versuchen, Ihr eigenes Objektliteral zu erstellen, das eine Ihrer Lieblingsbands darstellt.
+In unserer nächsten Aufgabe möchten wir, dass Sie versuchen, Ihr eigenes Objektliteral zu erstellen, das eine Ihrer Lieblingsbands repräsentiert.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie ein Objektliteral namens `band`, das die folgenden Eigenschaften enthält:
-   - `name`: Ein String, der den Bandnamen darstellt.
-   - `nationality`: Ein String, der das Land darstellt, aus dem die Band kommt.
+1. Erstellen Sie ein Objektliteral namens `band`, das die folgenden Eigenschaften enthält:
+   - `name`: Ein String, der den Namen der Band repräsentiert.
+   - `nationality`: Ein String, der das Land repräsentiert, aus dem die Band stammt.
    - `genre`: Welche Art von Musik die Band spielt.
    - `members`: Eine Zahl, die die Anzahl der Mitglieder der Band darstellt.
    - `formed`: Eine Zahl, die das Jahr darstellt, in dem die Band gegründet wurde.
-   - `split`: Eine Zahl, die das Jahr darstellt, in dem sich die Band aufgelöst hat, oder `false`, wenn sie noch zusammen sind.
-   - `albums`: Ein Array, das die von der Band veröffentlichten Alben darstellt. Jedes Array-Element sollte ein Objekt enthalten mit den folgenden Mitgliedern:
-     - `name`: Ein String, der den Namen des Albums darstellt.
+   - `split`: Eine Zahl, die das Jahr darstellt, in dem die Band sich aufgelöst hat, oder `false`, wenn sie noch zusammen sind.
+   - `albums`: Ein Array, das die von der Band veröffentlichten Alben darstellt. Jedes Array-Element sollte ein Objekt mit den folgenden Mitgliedern enthalten:
+     - `name`: Ein String, der den Namen des Albums repräsentiert.
      - `released`: Eine Zahl, die das Jahr darstellt, in dem das Album veröffentlicht wurde.
        > [!NOTE]
-       > Fügen Sie mindestens zwei Alben im `albums`-Array ein.
-3. Schreiben Sie einen String in die Variable `bandInfo`, der eine kurze Biografie enthält, die deren Namen, Nationalität, aktive Jahre und Stil beschreibt und den Titel und das Erscheinungsjahr ihres ersten Albums angibt.
-
-> [!CALLOUT]
->
-> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/object-basics/object-basics2-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Liveausgabe ansehen.
+       > Fügen Sie mindestens zwei Alben in das `albums`-Array ein.
+2. Schreiben Sie einen String in die Variable `bandInfo`, der eine kurze Biografie enthält, in der ihr Name, ihre Nationalität, die aktiven Jahre, ihr Stil und der Titel sowie das Veröffentlichungsdatum ihres ersten Albums enthalten sind.
 
 ```js live-sample___objects-2
 let bandInfo;
@@ -141,9 +124,9 @@ section.appendChild(para1);
 {{ EmbedLiveSample("objects-2", "100%", 60) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 // ...
@@ -184,22 +167,15 @@ bandInfo = `The ${band.nationality} ${band.genre} band ${band.name} were active 
 
 </details>
 
-## Objektgrundlagen 3
+## Grundlagen der Objekte 3
 
-In dieser Aufgabe möchten wir, dass Sie zum `cat`-Objektliteral aus Objektgrundlagen 1 zurückkehren.
+In dieser Aufgabe möchten wir, dass Sie zum `cat`-Objektliteral aus den Grundlagen der Objekte 1 zurückkehren.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Schreiben Sie die `greeting()`-Methode so um, dass sie `"Hello, said Bertie the Cymric."` in die Browser-Konsole protokolliert, jedoch so, dass es für _jedes_ Katzenobjekt derselben Struktur funktioniert, unabhängig von seinem Namen oder seiner Rasse.
-3. Schreiben Sie Ihr eigenes Objekt namens `cat2`, das dieselbe Struktur und eine `greeting()`-Methode hat, jedoch einen anderen `name`, `breed` und `color`.
-4. Rufen Sie beide `greeting()`-Methoden auf, um zu überprüfen, ob sie geeignete Begrüßungen in die Konsole protokollieren.
-
-> [!CALLOUT]
->
-> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/object-basics/object-basics3-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Liveausgabe ansehen.
+1. Schreiben Sie die `greeting()`-Methode so um, dass sie `"Hello, said Bertie the Cymric."` in der Konsole des Browsers protokolliert, jedoch so, dass sie bei _jedem_ Katzenobjekt derselben Struktur funktioniert, unabhängig von seinem Namen oder seiner Rasse.
+2. Schreiben Sie Ihr eigenes Objekt namens `cat2`, das dieselbe Struktur und `greeting()`-Methode hat, jedoch einen anderen `name`, `breed` und `color`.
+3. Rufen Sie beide `greeting()`-Methoden auf, um zu überprüfen, ob sie passende Grüße in der Konsole protokollieren.
 
 ```js live-sample___objects-3
 const cat = {
@@ -219,9 +195,9 @@ const cat = {
 {{ EmbedLiveSample("objects-3", "100%", 60) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 // ...
@@ -242,21 +218,14 @@ cat2.greeting();
 
 </details>
 
-## Objektgrundlagen 4
+## Grundlagen der Objekte 4
 
-Im Code, den Sie für Aufgabe 3 geschrieben haben, sind die `greeting()`-Methode und die Eigenschaften zweimal definiert, einmal für jede Katze. Das ist nicht ideal: Insbesondere verletzt es ein Prinzip in der Programmierung, das als [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) oder "Don't Repeat Yourself" bezeichnet wird. In dieser Aufgabe möchten wir, dass Sie den Code verbessern, sodass die Objektelemente nur einmal definiert werden.
+In dem Code, den Sie für Aufgabe 3 geschrieben haben, sind die `greeting()`-Methode und die Eigenschaften zweimal definiert, einmal für jede Katze. Dies ist nicht ideal: insbesondere verstößt es gegen ein Prinzip in der Programmierung namens [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) oder "Don't Repeat Yourself". In dieser Aufgabe möchten wir, dass Sie den Code verbessern, sodass die Objektelemente nur einmal definiert werden.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie eine JavaScript-Klasse, die Katzeninstanzen definiert.
-3. Verwenden Sie Ihre Klasse zusammen mit dem `new`-Schlüsselwort, um die `cat`- und `cat2`-Instanzen zu erstellen.
-
-> [!CALLOUT]
->
-> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/object-basics/object-basics4-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Liveausgabe ansehen.
+1. Erstellen Sie eine JavaScript-Klasse, die Katzeninstanzen definiert.
+2. Verwenden Sie Ihre Klasse zusammen mit dem `new` Schlüsselwort, um die Instanzen `cat` und `cat2` zu erstellen.
 
 ```js live-sample___objects-4
 const cat = {
@@ -286,9 +255,9 @@ cat2.greeting();
 {{ EmbedLiveSample("objects-4", "100%", 60) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 class Cat {

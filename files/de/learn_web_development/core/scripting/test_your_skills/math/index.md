@@ -3,41 +3,30 @@ title: "Testen Sie Ihre Fähigkeiten: Mathematik"
 short-title: Math
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Math
 l10n:
-  sourceCommit: 449a2acf7d57948a55e4c8381d52da4360743402
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel der Tests auf dieser Seite ist es, zu beurteilen, ob Sie den Artikel [Grundlegende Mathematik in JavaScript — Zahlen und Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math) verstanden haben.
+Ziel der Tests auf dieser Seite ist es, Ihnen zu helfen einzuschätzen, ob Sie den Artikel [Grundlegende Mathematik in JavaScript — Zahlen und Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
-> Wenn ein Fehler in Ihrem Code vorliegt, wird dieser im Ergebnis-Panel auf dieser Seite oder in der JavaScript-Konsole protokolliert.
->
-> Wenn Sie stecken bleiben, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von 'Testen Sie Ihre Fähigkeiten'](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## Mathematik 1
+## Math 1
 
-Beginnen wir mit der Überprüfung Ihres Wissens über grundlegende mathematische Operatoren.
-Sie werden vier numerische Werte erstellen, zwei zusammenaddieren, einen von einem anderen subtrahieren und dann die Ergebnisse multiplizieren.
-Schließlich schreiben Sie einen Test, um zu beweisen, dass dieser Wert eine gerade Zahl ist.
+Beginnen wir damit, Ihr Wissen über grundlegende mathematische Operatoren zu testen.
+Sie werden vier numerische Werte erstellen, zwei zusammen addieren, einen von einem anderen subtrahieren und dann die Ergebnisse multiplizieren. Abschließend schreiben Sie einen Test, um zu beweisen, dass dieser Wert eine gerade Zahl ist.
 
-Um die Aufgabe zu erledigen:
+Um die Aufgabe zu erfüllen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie vier Variablen, die Zahlen enthalten. Benennen Sie die Variablen sinnvoll.
-3. Addieren Sie die ersten beiden Variablen und speichern Sie das Ergebnis in einer weiteren Variablen.
-4. Subtrahieren Sie die vierte Variable von der dritten und speichern Sie das Ergebnis in einer weiteren Variablen.
-5. Multiplizieren Sie die Ergebnisse aus Schritt **2** und **3** und speichern Sie das Ergebnis in einer Variablen namens `finalResult`.
-6. Überprüfen Sie, ob `finalResult` eine gerade Zahl ist, indem Sie einen der [arithmetischen Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math#arithmetic_operators) verwenden. Speichern Sie das Ergebnis (`0` für gerade, `1` für ungerade) in einer Variablen namens `evenOddResult`.
+1. Erstellen Sie vier Variablen, die Zahlen enthalten. Geben Sie den Variablen sinnvolle Namen.
+2. Addieren Sie die ersten beiden Variablen und speichern Sie das Ergebnis in einer anderen Variable.
+3. Subtrahieren Sie die vierte Variable von der dritten und speichern Sie das Ergebnis in einer anderen Variable.
+4. Multiplizieren Sie die Ergebnisse aus den Schritten **2** und **3** und speichern Sie das Ergebnis in einer Variablen namens `finalResult`.
+5. Überprüfen Sie, ob `finalResult` eine gerade Zahl ist, indem Sie einen der [arithmetischen Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math#arithmetic_operators) verwenden. Speichern Sie das Ergebnis (`0` für gerade, `1` für ungerade) in einer Variablen namens `evenOddResult`.
 
-Um diesen Test zu bestehen, sollte `finalResult` den Wert `48` und `evenOddResult` den Wert `0` haben.
+Um diesen Test zu bestehen, sollte `finalResult` den Wert `48` haben und `evenOddResult` sollte den Wert `0` haben.
 
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/math/math1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_ Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe einsehen.
-
-<!-- Code shared across examples -->
+<!-- Code geteilt über Beispiele -->
 
 ```html hidden live-sample___math-1 live-sample___math-2 live-sample___math-3
 <section></section>
@@ -54,7 +43,7 @@ p {
 }
 ```
 
-<!-- Example-specific code -->
+<!-- Beispiel-spezifischer Code -->
 
 ```js live-sample___math-1
 let finalResult;
@@ -86,7 +75,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 // ...
@@ -110,24 +99,17 @@ evenOddResult = finalResult % 2;
 
 </details>
 
-## Mathematik 2
+## Math 2
 
 In der zweiten Aufgabe werden Ihnen zwei Berechnungen zur Verfügung gestellt, deren Ergebnisse in den Variablen `result` und `result2` gespeichert sind. Sie müssen die Berechnungen multiplizieren und das Ergebnis auf zwei Dezimalstellen formatieren.
 
-Um die Aufgabe zu erledigen:
+Um die Aufgabe zu erfüllen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Multiplizieren Sie `result` und `result2` und weisen Sie das Ergebnis zurück an `result` (verwenden Sie die abgekürzte Zuweisung).
-3. Formatieren Sie `result`, sodass es zwei Dezimalstellen hat und speichern Sie es in einer Variablen namens `finalResult`.
-4. Überprüfen Sie den Datentyp von `finalResult` mit `typeof`. Wenn es ein `string` ist, konvertieren Sie es in einen `number` Typ und speichern Sie das Ergebnis in einer Variablen namens `finalNumber`.
+1. Multiplizieren Sie `result` und `result2` und weisen Sie das Ergebnis `result` wieder zu (verwenden Sie die Kurzschreibweise der Zuweisung).
+2. Formatieren Sie `result`, sodass es zwei Dezimalstellen hat und speichern Sie es in einer Variablen namens `finalResult`.
+3. Überprüfen Sie den Datentyp von `finalResult` mit `typeof`. Wenn es ein `string` ist, konvertieren Sie es in einen `number`-Typ und speichern Sie das Ergebnis in einer Variablen namens `finalNumber`.
 
-Um diesen Test zu bestehen, sollte `finalNumber` das Ergebnis `4633.33` haben. Möglicherweise müssen Sie die Operatorpräzedenz berücksichtigen und einige Klammern zu den Eingabeausdrücken hinzufügen oder ändern, um das korrekte Ergebnis zu erhalten.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/math/math2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_ Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe einsehen.
+Um diesen Test zu bestehen, sollte `finalNumber` ein Ergebnis von `4633.33` haben. Möglicherweise müssen Sie die Operatorpräzedenz berücksichtigen und einige Klammern zu den Ausdrücken hinzufügen oder ändern, um das korrekte Ergebnis zu erzielen.
 
 ```js live-sample___math-2
 // Final result should be 4633.33
@@ -157,7 +139,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js-nolint
 // Final result should be 4633.33
@@ -177,21 +159,14 @@ const finalNumber = Number(finalResult);
 
 </details>
 
-## Mathematik 3
+## Math 3
 
 In der letzten Aufgabe dieses Artikels möchten wir, dass Sie einige Tests schreiben.
 
-Um die Aufgabe zu erledigen:
+Um die Aufgabe zu erfüllen:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Es gibt drei Gruppen, die jeweils aus einer Aussage und zwei Variablen bestehen. Schreiben Sie für jede eine Prüfung, die die gemachte Aussage bestätigt oder widerlegt.
-3. Speichern Sie die Ergebnisse dieser Tests in den Variablen `weightComparison`, `heightComparison` und `pwdMatch`.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/math/math3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_ Taste im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Live-Ausgabe einsehen.
+1. Es gibt drei Gruppen, die jeweils aus einer Aussage und zwei Variablen bestehen. Schreiben Sie für jede einen Test, der die gemachte Aussage beweist oder widerlegt.
+2. Speichern Sie die Ergebnisse dieser Tests in Variablen namens `weightComparison`, `heightComparison` und `pwdMatch`.
 
 ```js live-sample___math-3
 // Statement 1: The elephant weighs less than the mouse
@@ -236,7 +211,7 @@ section.appendChild(para3);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js-nolint
 // ...

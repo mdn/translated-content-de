@@ -1,30 +1,30 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Erweitertes HTML-Text"
-short-title: Erweitertes HTML-Text
+title: "Testen Sie Ihre Fähigkeiten: Fortgeschrittener HTML-Text"
+short-title: Fortgeschrittener HTML-Text
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie Sie [weniger bekannte HTML-Elemente zur Markierung erweiterter semantischer Funktionen](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features) verwenden können.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu bewerten, ob Sie verstehen, wie man [weniger bekannte HTML-Elemente verwendet, um erweiterte semantische Merkmale zu markieren](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features).
 
 > [!NOTE]
-> Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
->
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Verwendung](/de/docs/Learn_web_development#test_your_skills) des Fähigkeitstests. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-Bei dieser Aufgabe möchten wir, dass Sie einige Semantiken zu dem bereitgestellten HTML hinzufügen, wie folgt:
+In dieser Aufgabe möchten wir, dass Sie einigen semantischen Inhalt zum bereitgestellten HTML hinzufügen.
 
-- Verwandeln Sie den zweiten Absatz in ein blockweises Zitat und geben Sie semantisch an, dass das Zitat aus [Accessibility](/de/docs/Learn_web_development/Core/Accessibility) stammt.
-- Markieren Sie "HTML" und "CSS" semantisch als Akronyme und geben Sie Erweiterungen als Tooltips an.
-- Verwenden Sie Tief- und Hochschrift, um die chemischen Formeln und Daten korrekt zu markieren und korrekt anzuzeigen.
-- Verknüpfen Sie semantisch maschinenlesbare Daten mit den Daten im Text.
+Um diese Aufgabe zu erfüllen:
 
-Um zu beginnen, können Sie auf **"Play"** im Codeblock unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/tasks/advanced-text/advanced-text2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+1. Wandeln Sie den zweiten Absatz in ein Block-Quote um und geben Sie semantisch an, dass das Zitat aus [Accessibility](/de/docs/Learn_web_development/Core/Accessibility) stammt.
+2. Markieren Sie "HTML" und "CSS" semantisch als Akronyme und bieten Sie die Erweiterungen als Tooltips an.
+3. Verwenden Sie Tief- und Hochstellungen, um korrekte Semantik für die chemischen Formeln und Daten bereitzustellen, und sorgen Sie dafür, dass sie korrekt angezeigt werden.
+4. Verknüpfen Sie maschinenlesbare Daten semantisch mit den Daten im Text.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unten im Abschnitt ansehen.
+Das fertige Beispiel sollte wie folgt aussehen:
+
+{{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/advanced-text/advanced-text2-finished.html", '100%', 300)}}
 
 ```html live-sample___advanced-text
 <h1>Advanced text semantics</h1>
@@ -75,10 +75,6 @@ time {
 ```
 
 {{ EmbedLiveSample('advanced-text', "100%", 260) }}
-
-Das fertige Beispiel sollte wie folgt aussehen:
-
-{{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/advanced-text/advanced-text2-finished.html", '100%', 300)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>

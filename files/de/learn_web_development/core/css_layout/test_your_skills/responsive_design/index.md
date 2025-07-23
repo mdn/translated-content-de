@@ -1,25 +1,28 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Responsives Webdesign und Media Queries"
-short-title: Responsives Design und Media Queries
+title: "Testen Sie Ihre Fähigkeiten: Responsives Webdesign und Medienabfragen"
+short-title: Responsives Design und Medienabfragen
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Responsive_design
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es zu beurteilen, ob Sie verstehen, [wie man Media Queries verwendet](/de/docs/Learn_web_development/Core/CSS_layout/Media_queries) und Ihnen praktisches Arbeiten mit responsivem Webdesign zu vermitteln. Alles, was Sie wissen müssen, um diese Aufgabe zu bewältigen, wird in den Layout-Lektionen des [CSS-Layout-Moduls](/de/docs/Learn_web_development/Core/CSS_layout) behandelt.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie [wie man Medienabfragen verwendet](/de/docs/Learn_web_development/Core/CSS_layout/Media_queries) verstehen und Sie mit einem praktischen Aufgabe im responsiven Webdesign arbeiten zu lassen. Alles, was Sie wissen müssen, um diese Aufgabe abzuschließen, wird in den Layout-Lektionen im [CSS-Layout-Modul](/de/docs/Learn_web_development/Core/CSS_layout) behandelt.
 
 > [!NOTE]
-> Da Sie Ihr Design auf mehreren Bildschirmgrößen testen müssen, haben wir auf dieser Seite keine interaktiven Editoren.
-> Laden Sie den Code herunter und arbeiten Sie lokal, oder verwenden Sie einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/).
->
-> Wenn Sie feststecken, können Sie sich an einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsguide. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe
 
-[Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/rwd/rwd-download.html). Öffnen Sie die heruntergeladene HTML-Datei in Ihrem Browser und Sie werden eine skizzierte Webseite finden, die auf einem mobilen Gerät lesbar lädt. Sie können Ihr Fenster kleiner ziehen oder die [Ansicht für responsives Design in den Firefox-Entwicklertools](https://firefox-source-docs.mozilla.org/devtools-user/index.html#responsive-design-mode) verwenden, um dies wie auf einem Telefon anzuzeigen.
+Da Sie Ihr Design auf mehreren Bildschirmgrößen testen müssen, haben wir keine interaktiven Editoren auf dieser Seite.
 
-Ihre Aufgabe ist es, eine Desktop-Version dieses Layouts zu erstellen, die angezeigt wird, wenn genügend Bildschirmbreite dafür vorhanden ist. Ihr Endergebnis sollte wie das Bild unten aussehen:
+Um anzufangen:
 
-![Ein zweispaltiges skizziertes Layout.](rwd-task.png)
+1. [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/rwd/rwd-download.html).
+2. Öffnen Sie die heruntergeladene HTML-Datei in Ihrem Browser und Sie werden eine drahtgerahmte Seite finden, die auf einem mobilen Gerät in einer lesbaren Weise geladen wird.
+3. Ziehen Sie Ihr Fenster kleiner oder verwenden Sie die [Ansicht für responsives Design in Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html#responsive-design-mode), um dies so zu betrachten, als ob es auf einem Telefon wäre.
 
-Es gibt verschiedene Möglichkeiten, das Desktop-Layout zu erstellen, probieren Sie es aus. Sie könnten auch einen zweiten Breakpoint hinzufügen und vielleicht ein Layout erstellen, das gut auf einem Tablet im Hochformat funktioniert.
+Ihre Aufgabe besteht darin, eine Desktop-Version dieses Layouts zu erstellen, die angezeigt wird, wenn genügend Bildschirmbreite vorhanden ist, um sie unterzubringen. Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+
+![Ein zweispaltiges drahtgerahmtes Layout.](rwd-task.png)
+
+Es gibt eine Reihe von Möglichkeiten, wie Sie das Desktop-Layout erstellen könnten - genießen Sie das Experimentieren. Sie könnten auch einen zweiten Breakpoint hinzufügen, vielleicht ein Layout erstellen, das im Hochformat auf einem Tablet gut funktionieren würde.

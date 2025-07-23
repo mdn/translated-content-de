@@ -1,25 +1,28 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Overflow"
+title: "Testen Sie Ihre Fähigkeiten: Überlauf"
 short-title: Overflow
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Overflow
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Tests ist es, zu beurteilen, ob Sie das [Overflow in CSS und dessen Handhabung](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) verstehen.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie [Overflow in CSS und dessen Verwaltung](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) verstehen.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den Codeblöcken unten, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von "Testen Sie Ihre Fähigkeiten"](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe läuft der Inhalt aus der Box heraus, da sie eine feste Höhe hat. Behalten Sie die Höhe bei, aber sorgen Sie dafür, dass die Box nur dann Scrollleisten hat, wenn genügend Text vorhanden ist, um ein Overflow zu verursachen. Testen Sie es, indem Sie etwas Text aus dem HTML entfernen, sodass, wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft, keine Scrollleiste erscheint.
+In dieser Aufgabe läuft der Inhalt aus dem Kasten heraus, weil er eine feste Höhe hat.
 
-![Eine kleine Box mit einem Rahmen und einer vertikalen Scrollleiste.](mdn-overflow1.png)
+Um die Aufgabe abzuschließen:
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+1. Aktualisieren Sie das CSS so, dass die Höhe beibehalten wird und der Kasten nur Scrollleisten hat, wenn genügend Text vorhanden ist, um einen Überlauf zu verursachen.
+2. Testen Sie Ihre Lösung, indem Sie einige der Texte aus dem HTML entfernen und überprüfen, dass keine Scrollleiste erscheint, wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft.
+
+Ihr finales Ergebnis sollte wie das Bild unten aussehen:
+
+![Ein kleiner Kasten mit einem Rahmen und einer vertikalen Scrollleiste.](mdn-overflow1.png)
 
 ```html live-sample___overflow-scroll
 <div class="box">
@@ -52,9 +55,9 @@ body {
 {{EmbedLiveSample("overflow-scroll", "", "450px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
-Sie sollten `overflow: auto` hinzufügen, sodass die Box nur dann Scrollleisten erhält, wenn der Inhalt zu groß ist:
+Sie sollten `overflow: auto` hinzufügen, sodass der Kasten nur dann Scrollleisten erhält, wenn der Inhalt zu groß ist:
 
 ```css
 .box {
@@ -66,13 +69,11 @@ Sie sollten `overflow: auto` hinzufügen, sodass die Box nur dann Scrollleisten 
 
 ## Aufgabe 2
 
-In dieser Aufgabe befindet sich ein Bild in der Box, das größer ist als die Abmessungen der Box, sodass es sichtbar überläuft. Ändern Sie es so, dass jedes außerhalb der Box befindliche Bild verborgen ist.
+In dieser Aufgabe befindet sich ein Bild im Kasten, das größer als die Abmessungen des Kastens ist, sodass es sichtbar überläuft. Aktualisieren Sie das CSS so, dass jedes Bild außerhalb des Kastens verborgen wird.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr finales Ergebnis sollte wie das Bild unten aussehen:
 
-![Eine Box mit einem Bild, das die Box ausfüllt, aber nicht über die Ränder hinausgeht.](mdn-overflow2.png)
-
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+![Ein Kasten mit einem Bild, das den Kasten ausfüllt, aber nicht über die Ränder hinausläuft.](mdn-overflow2.png)
 
 ```html live-sample___overflow-hidden
 <div class="box">
@@ -96,7 +97,7 @@ body {
 {{EmbedLiveSample("overflow-hidden", "", "300px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
 Sie sollten `overflow: hidden` zum `.box`-Selektor hinzufügen:
 
@@ -107,7 +108,3 @@ Sie sollten `overflow: hidden` zum `.box`-Selektor hinzufügen:
 ```
 
 </details>
-
-## Siehe auch
-
-- [CSS-Stil-Basics](/de/docs/Learn_web_development/Core/Styling_basics)

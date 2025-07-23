@@ -2,10 +2,72 @@
 title: CSS text decoration
 slug: Web/CSS/CSS_text_decoration
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 068bb0449377f73e358a92b1b26265aa30c02db1
 ---
 
-Das **CSS Textdekoration** Modul definiert Funktionen in Bezug auf Textdekoration, wie Unterstreichungen, Textschatten und Betonungszeichen.
+Das **CSS text decoration** Modul definiert Funktionen im Zusammenhang mit Textdekorationen, wie Unterstreichungen, Textschatten und Hervorhebungsmarkierungen. Textdekorationen können visuelle Hinweise auf Rechtschreibfehler, Grammatikprobleme und Links geben. Diese Funktionen können die Benutzerfreundlichkeit, Zugänglichkeit, Funktionalität und Ästhetik Ihres Textes verbessern.
+
+Indem Sie die Farbe, den Stil und die Dicke der Textdekoration mit Hilfe von Pseudo-Klassen und Pseudo-Elementen variieren, können Sie die Betonung im Text auf eine Weise hervorheben, die nicht nur auf Farbänderungen angewiesen ist.
+
+Mehrere Funktionen können die Lesbarkeit des Textes verbessern:
+
+- {{cssxref("text-decoration-skip-ink")}} kann die Lesbarkeit erhöhen, indem Absenker übersprungen werden.
+- {{cssxref("text-underline-offset")}} ermöglicht es Ihnen, die Platzierung der Unterstreichung fein abzustimmen, um besser zu den Schriftmetriken oder dem Designästhetik zu passen, was insbesondere für einzigartige [Schriftarten](/de/docs/Web/CSS/CSS_fonts) nützlich sein kann.
+- {{cssxref("text-shadow")}} Farben, die im Kontrast zur Text-{{cssxref("color")}} stehen, können den Text optisch hervorstechen lassen, wenn er auf einem Hintergrund mit unzureichendem Kontrast platziert ist.
+
+Diese Funktionen tragen alle zur Verbesserung der Lesbarkeit und damit der Zugänglichkeit bei. Die Reduzierung von visuellem Rauschen und die Verbesserung der Textklarheit ist besonders hilfreich für Menschen mit [Legasthenie](https://en.wikipedia.org/wiki/Dyslexia) oder Sehbehinderungen.
+
+In den Schriftsystemen einiger Sprachen haben [Overlines](/de/docs/Web/CSS/text-decoration-line#overline) und [Unterstreichungen](/de/docs/Web/CSS/text-decoration-line#underline) eine semantische Bedeutung. CSS ermöglicht es Ihnen, das Styling an kulturelle Normen anzupassen. Textdekorationen sind besonders nützlich für Sprachen, die keine auf dem Latein basierenden Schriften verwenden und stattdessen anderen Unterstreichungsplatzierungen folgen, wie Japanisch und Koreanisch.
+
+Textdekorationen ermöglichen es Ihnen auch, redaktionelle und Lokalisierungsstandards zu befolgen, die aus Printmedien stammen. Beispielsweise können Sie mit einem Durchstrich (line-through) den Status von Inhalten anzeigen. Verwenden Sie ihn, um Benutzer darauf hinzuweisen, dass Inhalte entfernt wurden oder dass Preise halbiert wurden. Diese Funktion ermöglicht es Ihnen, sowohl die ursprünglichen als auch die aktualisierten Inhalte darzustellen. Overlines oder doppelte Unterstreichungen werden häufig für akademische und redaktionelle Annotationen verwendet.
+
+## Textdekoration in Aktion
+
+```css hidden
+p {
+  margin: 1em 0;
+}
+.under {
+  text-decoration: underline red;
+}
+
+.over {
+  text-decoration: wavy overline lime;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.underover {
+  text-decoration: dashed underline overline;
+}
+
+.thick {
+  text-decoration: solid underline purple 4px;
+  text-underline-offset: -5px;
+}
+.shadow {
+  text-shadow: red 4px 4px 0;
+}
+.emphasis {
+  text-emphasis: triangle red;
+}
+```
+
+```html hidden
+        <p class="under">A red underline</p>
+        <p class="over">A wavy lime overlines</p>
+        <p class="line">This has a line-through it</p>
+        <p class="underover">This has a dashed underline and overline</p>
+        <p class="thick">An offset solid purple underline</p>
+        <p class="shadow">This has a red shadow</p>
+        <p class="emphasis">Emphasised with red triangles</p>
+  >
+</p>
+```
+
+{{EmbedLiveSample('Text decoration in action','auto','320')}}
 
 ## Referenz
 
@@ -26,59 +88,36 @@ Das **CSS Textdekoration** Modul definiert Funktionen in Bezug auf Textdekoratio
 - {{cssxref("text-underline-offset")}}
 - {{cssxref("text-underline-position")}}
 
-Die Spezifikation definiert auch die Eigenschaften `text-decoration-skip-box`, `text-decoration-skip-self`, `text-decoration-skip-spaces`, `text-decoration-trim` und `text-emphasis-skip`, die bisher von keinem Browser unterstützt werden.
+Die Spezifikation definiert auch die Eigenschaften `text-decoration-skip-box`, `text-decoration-skip-self`, `text-decoration-skip-spaces`, `text-decoration-trim` und `text-emphasis-skip`, die noch von keinem Browser unterstützt werden.
 
-## Beispiele
+## Leitfäden
 
-```css
-.under {
-  text-decoration: underline red;
-}
+- [Einführung in Textschatten](/de/docs/Web/CSS/CSS_text_decoration/Text_shadows)
+  - : Übersicht über die Komponenten der {{cssxref("text-shadow")}}-Eigenschaft und das Erstellen mehrerer Textschatten
 
-.over {
-  text-decoration: wavy overline lime;
-}
+## Verwandte Konzepte
 
-.line {
-  text-decoration: line-through;
-}
-
-.plain {
-  text-decoration: none;
-}
-
-.underover {
-  text-decoration: dashed underline overline;
-}
-
-.thick {
-  text-decoration: solid underline purple 4px;
-}
-
-.blink {
-  text-decoration: blink;
-}
-```
-
-```html
-<p class="under">This text has a line underneath it.</p>
-<p class="over">This text has a line over it.</p>
-<p class="line">This text has a line going through it.</p>
-<p>
-  This <a class="plain" href="#">link will not be underlined</a>, as links
-  generally are by default. Be careful when removing the text decoration on
-  anchors since users often depend on the underline to denote hyperlinks.
-</p>
-<p class="underover">This text has lines above <em>and</em> below it.</p>
-<p class="thick">
-  This text has a really thick purple underline in supporting browsers.
-</p>
-<p class="blink">
-  This text might blink for you, depending on the browser you use.
-</p>
-```
-
-{{EmbedLiveSample('Examples','auto','320')}}
+- {{cssxref("::spelling-error")}}
+- {{cssxref("::grammar-error")}}
+- {{cssxref("::first-letter")}}
+- {{cssxref("::first-line")}}
+- {{cssxref("box-shadow")}}
+- {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
+- {{cssxref("box-decoration-break")}}
+- {{cssxref("line-style")}}
+- {{cssxref("letter-spacing")}}
+- {{cssxref("word-spacing")}}
+- {{cssxref("font-size")}}
+- {{cssxref("font-variant-position")}}
+- {{cssxref("font-kerning")}}
+- {{cssxref("ruby-overhang")}}
+- {{HTMLElement("ruby")}}
+- {{HTMLElement("rt")}}
+- {{HTMLElement("rp")}}
+- {{HTMLElement("sup")}}
+- {{HTMLElement("sub")}}
+- [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
+- [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts#inline_formatting_contexts)
 
 ## Spezifikationen
 
@@ -86,7 +125,9 @@ Die Spezifikation definiert auch die Eigenschaften `text-decoration-skip-box`, `
 
 ## Siehe auch
 
-- [CSS-Fonts](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS-Schriftarten](/de/docs/Web/CSS/CSS_fonts) Modul
 - [CSS Ruby Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
 - [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
-- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Schriftarten](/de/docs/Web/CSS/CSS_fonts) Modul

@@ -3,37 +3,25 @@ title: "Testen Sie Ihre Fähigkeiten: Variablen"
 short-title: Variables
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Variables
 l10n:
-  sourceCommit: 53ed5fbd3a7d323ef0629f68c41be8a1ed15c885
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist zu überprüfen, ob Sie unseren Artikel [Das Speichern der benötigten Informationen — Variablen](/de/docs/Learn_web_development/Core/Scripting/Variables) verstanden haben.
+Ziel dieses Fertigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie unseren Artikel [Informationen, die Sie benötigen, speichern — Variablen](/de/docs/Learn_web_development/Core/Scripting/Variables) verstanden haben.
 
 > [!NOTE]
-> Bei den Aufgaben 1 und 2 können Sie die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) ausprobieren.
-> Wenn ein Fehler in Ihrem Code vorliegt, wird er im Ergebnisfenster auf dieser Seite oder in der JavaScript-Konsole protokolliert.
->
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von Fertigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Interaktive Herausforderung
 
-Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Variablen-Herausforderung, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
+Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Herausforderung zu Variablen an, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
 
-Schauen Sie sich die eingebettete Lernsequenz an und führen Sie die Aufgabe auf der Timeline (das kleine Geistersymbol) aus, indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie die Lernsequenz fortsetzen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich den eingebetteten Scrim an und führen Sie die Aufgabe auf der Timeline (das kleine Geistersymbol) durch, indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie den Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~011" scrimtitle="Variablenübung" survey="true"></scrim-inline>
+<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~011" scrimtitle="Variablen üben" survey="true"></scrim-inline>
 
 ## Aufgabe 1
 
-Um diese Aufgabe abzuschließen:
-
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie eine neue Zeile hinzu, um den im vorhandenen `myName`-Variable gespeicherten Wert auf Ihren eigenen Namen zu korrigieren.
-
-> [!CALLOUT]
->
-> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/variables/variables2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Um diese Aufgabe abzuschließen, fügen Sie eine neue Zeile hinzu, um den in der vorhandenen Variablen `myName` gespeicherten Wert auf Ihren eigenen Namen zu korrigieren.
 
 <!-- Code shared across examples -->
 
@@ -74,7 +62,7 @@ section.appendChild(para);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiges JavaScript sollte etwa so aussehen:
 
 ```js
 // ...
@@ -90,18 +78,7 @@ myName = "Chris";
 
 ## Aufgabe 2
 
-Die letzte Aufgabe für jetzt — in diesem Fall wird Ihnen ein vorhandener Code zur Verfügung gestellt, der zwei Fehler enthält. Das Ergebnisfenster sollte den Namen `Chris` ausgeben und eine Aussage darüber, wie alt Chris in 20 Jahren sein wird.
-
-Um diese Aufgabe abzuschließen:
-
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Beheben Sie das Problem und korrigieren Sie die Ausgabe.
-
-> [!CALLOUT]
->
-> Sie können auch den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/tasks/variables/variables3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Die letzte Aufgabe für den Moment — in diesem Fall wird Ihnen ein vorhandener Code bereitgestellt, der zwei Fehler enthält. Das Ergebnispanel sollte den Namen `Chris` und eine Aussage darüber ausgeben, wie alt Chris in 20 Jahren sein wird. Wir möchten, dass Sie das Problem beheben und die Ausgabe korrigieren.
 
 ```js live-sample___variables-2
 // Fix the following code
@@ -127,7 +104,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiges JavaScript sollte etwa so aussehen:
 
 ```js
 // Turn the const into a let, so the value can be changed

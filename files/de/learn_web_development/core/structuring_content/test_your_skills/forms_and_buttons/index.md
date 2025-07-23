@@ -3,32 +3,23 @@ title: "Testen Sie Ihre Fähigkeiten: Formulare und Schaltflächen"
 short-title: Formulare und Schaltflächen
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons
 l10n:
-  sourceCommit: 5f677b960051016819ecb3b1f40bc3d36a43156d
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Das Ziel dieses Tests ist es, zu beurteilen, ob Sie verstehen, wie [HTML-Formulare und Schaltflächen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_forms) funktionieren.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie verstehen, wie [HTML-Formulare und Schaltflächen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_forms) funktionieren.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und ihn in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen. 
-> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [„Testen Sie Ihre Fähigkeiten“](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt zu uns aufnehmen.
 
 ## Formulare und Schaltflächen 1
 
-Diese Aufgabe beginnt sanft, indem Sie aufgefordert werden, zwei `<input>`-Elemente für die Benutzer-ID und das Passwort sowie eine Senden-Schaltfläche zu erstellen.
+Diese Aufgabe beginnt ganz sanft, indem Sie gebeten werden, zwei `<input>` Elemente für eine Benutzer-ID und ein Passwort zu erstellen, sowie eine Absenden-Schaltfläche.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** in dem untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie geeignete Eingaben für Benutzer-ID und Passwort.
-3. Sie sollten diese auch semantisch mit ihren Textbeschriftungen verknüpfen.
-4. Erstellen Sie eine Senden-Schaltfläche innerhalb der verbleibenden Listeneinträge, mit dem Schaltflächentext "Log in".
-
-> [!CALLOUT]
->
-> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/basic-controls/basic-controls1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unter der Live-Ausgabe ansehen.
+1. Erstellen Sie geeignete Eingabefelder für Benutzer-ID und Passwort.
+2. Sie sollten diese auch semantisch mit ihren Textbeschriftungen verknüpfen.
+3. Erstellen Sie eine Absenden-Schaltfläche innerhalb des verbleibenden Listenelements mit dem Schaltflächentext "Log in".
 
 <!-- Code shared across examples -->
 
@@ -67,7 +58,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so ähnlich aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -91,21 +82,14 @@ Ihr fertiges HTML sollte so ähnlich aussehen:
 
 ## Formulare und Schaltflächen 2
 
-Bei der nächsten Aufgabe müssen Sie funktionierende Gruppen von Kontrollkästchen und Optionsfeldern aus den bereitgestellten Textbeschriftungen erstellen.
+Die nächste Aufgabe erfordert, dass Sie funktionierende Checkbox- und Radiobutton-Sets aus den bereitgestellten Textbeschriftungen erstellen.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** in dem untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Wandeln Sie die Inhalte des ersten `<fieldset>` in eine Gruppe von Optionsfeldern um — es sollte möglich sein, nur ein Pony-Charakter auf einmal auszuwählen.
-3. Stellen Sie sicher, dass das erste Optionsfeld beim Laden der Seite ausgewählt ist.
-4. Wandeln Sie die Inhalte des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen um.
-5. Fügen Sie ein paar weitere Hotdog-Optionen Ihrer Wahl hinzu.
-
-> [!CALLOUT]
->
-> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/basic-controls/basic-controls2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unter der Live-Ausgabe ansehen.
+1. Verwandeln Sie den Inhalt des ersten `<fieldset>` in eine Auswahl von Radiobuttons — es sollte nur möglich sein, einen Pony-Charakter gleichzeitig auszuwählen.
+2. Stellen Sie sicher, dass der erste Radiobutton beim Laden der Seite ausgewählt ist.
+3. Verwandeln Sie den Inhalt des zweiten `<fieldset>` in eine Auswahl von Checkboxen.
+4. Fügen Sie ein paar weitere Hotdog-Optionen nach Ihren Vorstellungen hinzu.
 
 ```html live-sample___forms-buttons-2
 <form>
@@ -143,7 +127,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Sc
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so ähnlich aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -194,22 +178,12 @@ Ihr fertiges HTML sollte so ähnlich aussehen:
 
 ## Formulare und Schaltflächen 3
 
-In dieser Aufgabe werden Sie einige spezifischere Eingabetypen erkunden.
+In dieser Aufgabe erkunden Sie einige spezifischere Eingabetypen. Wir möchten, dass Sie geeignete Eingabefelder für einen Benutzer erstellen, um seine Daten zu aktualisieren für:
 
-Um die Aufgabe abzuschließen:
-
-1. Klicken Sie auf **"Play"** in dem untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie geeignete Eingaben, damit ein Benutzer seine Daten aktualisieren kann für:
-   1. E-Mail
-   2. Website
-   3. Telefonnummer
-   4. Lieblingsfarbe
-
-> [!CALLOUT]
->
-> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/html5-controls/html5-controls1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unter der Live-Ausgabe ansehen.
+1. E-Mail
+2. Webseite
+3. Telefonnummer
+4. Lieblingsfarbe
 
 ```html live-sample___forms-buttons-3
 <form>
@@ -239,7 +213,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Sc
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so ähnlich aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -272,20 +246,13 @@ Ihr fertiges HTML sollte so ähnlich aussehen:
 
 ## Formulare und Schaltflächen 4
 
-Jetzt ist es an der Zeit, ein Dropdown-Auswahlmenü zu implementieren, das es einem Benutzer ermöglicht, sein Lieblingsessen aus den bereitgestellten Optionen auszuwählen.
+Nun ist es an der Zeit, ein Dropdown-Auswahlmenü zu implementieren, damit ein Benutzer sein Lieblingsessen aus den bereitgestellten Optionen auswählen kann.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** in dem untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie eine grundlegende Auswahlbox-Struktur.
-3. Verknüpfen Sie es semantisch mit dem bereitgestellten "food"-Label.
-4. Teilen Sie die Auswahlmöglichkeiten innerhalb der Liste in 2 Untergruppen auf — "Hauptgerichte" und "Snacks".
-
-> [!CALLOUT]
->
-> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/other-controls/other-controls2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unter der Live-Ausgabe ansehen.
+1. Erstellen Sie eine grundlegende Struktur für das Auswahlfeld.
+2. Verknüpfen Sie es semantisch mit dem bereitgestellten "food"-Label.
+3. Teilen Sie die Auswahlmöglichkeiten in der Liste in 2 Untergruppen — "Hauptspeisen" und "Snacks".
 
 ```html live-sample___forms-buttons-4
 <form>
@@ -307,7 +274,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Sc
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so ähnlich aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -340,20 +307,13 @@ Ihr fertiges HTML sollte so ähnlich aussehen:
 
 ## Formulare und Schaltflächen 5
 
-Bei dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularfunktionen strukturieren.
+Bei dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularelemente strukturieren.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** in dem untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Trennen Sie die ersten zwei und die zweiten zwei Formularfelder in zwei unterschiedliche Container, jede mit einer beschreibenden Legende (verwenden Sie "Persönliche Informationen" für die ersten zwei und "Kommentarinformationen" für die zweiten zwei).
-3. Markieren Sie jede Textbeschriftung mit einem geeigneten Element, sodass es semantisch mit ihrem jeweiligen Formularfeld verbunden ist.
-4. Fügen Sie eine geeignete Gruppe von strukturellen Elementen um die Label/Feld-Paare hinzu, um sie voneinander zu trennen.
-
-> [!CALLOUT]
->
-> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/form-structure/form-structure1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unter der Live-Ausgabe ansehen.
+1. Trennen Sie die ersten beiden und die zweiten beiden Formularfelder in zwei separate Container, jeweils mit einer beschreibenden Legende (verwenden Sie "Personal details" für die ersten beiden und "Comment information" für die zweiten beiden).
+2. Markieren Sie jedes Textlabel mit einem geeigneten Element, sodass es semantisch mit dem jeweiligen Formularfeld verknüpft ist.
+3. Fügen Sie geeignete strukturelle Elemente um die Label/Feld-Paare hinzu, um sie zu trennen.
 
 ```html live-sample___forms-buttons-5
 <form>
@@ -376,7 +336,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Sc
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so ähnlich aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -413,22 +373,15 @@ Ihr fertiges HTML sollte so ähnlich aussehen:
 
 ## Formulare und Schaltflächen 6
 
-Bei dieser Aufgabe stellen wir Ihnen ein einfaches Support-Anfrageformular zur Verfügung, und wir möchten, dass Sie einige Validierungsfunktionen hinzufügen. Diese Aufgabe erfordert Kenntnisse, die wir im Artikel "Formulare und Schaltflächen in HTML" nicht lehren, sodass Sie möglicherweise anderswo recherchieren müssen.
+In dieser Aufgabe stellen wir Ihnen ein einfaches Support-Anfrageformular zur Verfügung und möchten, dass Sie einige Validierungsfunktionen hinzufügen. Diese Aufgabe erfordert Kenntnisse, die wir im Artikel "Formulare und Schaltflächen in HTML" nicht vermitteln, sodass Sie möglicherweise anderweitig recherchieren müssen.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** in dem untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Machen Sie alle Eingabefelder obligatorisch, bevor das Formular abgeschickt werden kann.
-3. Ändern Sie den Typ der Felder "E-Mail-Adresse" und "Telefonnummer", um den Browser dazu zu bringen, spezifischere Validierungen anzuwenden, die zu den angeforderten Daten passen.
-4. Geben Sie dem Feld "Benutzername" eine erforderliche Länge zwischen 5 und 20 Zeichen, dem Feld "Telefonnummer" eine maximale Länge von 15 Zeichen und dem Feld "Kommentar" eine maximale Länge von 200 Zeichen.
+1. Machen Sie alle Eingabefelder erforderlich, bevor das Formular abgesendet werden kann.
+2. Ändern Sie den Typ der Felder "Email address" und "Phone number", sodass der Browser spezifische Validierungen durchführt, die für die angeforderten Daten geeignet sind.
+3. Legen Sie für das Feld "User name" eine erforderliche Länge von 5 bis 20 Zeichen fest, für das Feld "Phone number" eine maximale Länge von 15 Zeichen und für das Feld "Comment" eine maximale Länge von 200 Zeichen.
 
-Versuchen Sie, Ihr Formular zu übermitteln — es sollte sich weigern, es zu senden, bis die oben genannten Einschränkungen eingehalten werden, und geeignete Fehlermeldungen anzeigen.
-
-> [!CALLOUT]
->
-> Sie können den [Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/form-validation/form-validation1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unter der Live-Ausgabe ansehen.
+Versuchen Sie, Ihr Formular abzusenden — es sollte sich weigern, gesendet zu werden, bis die obigen Anforderungen erfüllt sind, und geeignete Fehlermeldungen anzeigen.
 
 ```html live-sample___forms-buttons-6
 <form>
@@ -462,7 +415,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Sc
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so ähnlich aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>

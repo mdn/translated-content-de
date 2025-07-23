@@ -1,29 +1,25 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Positionierung"
+title: "Testen Sie Ihr Können: Positionierung"
 short-title: Positioning
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Position
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie [Positionierung in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mithilfe der CSS-Eigenschaft {{CSSxRef("position")}} und deren Werten verstehen. Sie werden zwei kleine Aufgaben durcharbeiten, die unterschiedliche Elemente des Materials verwenden, das Sie gerade behandelt haben.
+Ziel dieses Fähigkeiten-Tests ist es, Ihnen dabei zu helfen einzuschätzen, ob Sie das [Positionieren mit CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) unter Verwendung der CSS-{{CSSxRef("position")}}-Eigenschaft und deren Werte verstehen. Sie werden zwei kleine Aufgaben bearbeiten, die verschiedene Elemente des soeben behandelten Materials verwenden.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den Codeblöcken unten, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Unterstützung zu erhalten, lesen Sie bitte unseren [Leitfaden zur Nutzung der "Testen Sie Ihr Können"](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie das Element mit der Klasse `target` oben rechts im Container positionieren, der die 5px graue Grenze hat.
+Um diese Aufgabe zu vervollständigen, positionieren Sie das Element mit der Klasse `target` oben rechts im Container, der eine 5px graue Umrandung hat.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Der grüne Kasten befindet sich oben rechts in einem Container mit grauer Umrandung.](position-task1.png)
+![Das grüne Kästchen befindet sich oben rechts in einem Container mit grauer Umrandung.](position-task1.png)
 
-**Bonusfrage:** Können Sie das Ziel so ändern, dass es unter dem Text angezeigt wird?
-
-Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+**Bonusfrage:** Können Sie das Ziel unter den Text verschieben?
 
 ```html live-sample___position1
 <div class="container">
@@ -40,10 +36,11 @@ Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubi
 </div>
 ```
 
-```css hidden live-sample___position1
+```css live-sample___position1
 body {
   font: 1.2em / 1.5 sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -61,23 +58,23 @@ body {
   padding: 1em;
   color: white;
 }
-```
 
-```css live-sample___position1
 .container {
+  /* Add styles here */
 }
 
 .target {
+  /* Add styles here */
 }
 ```
 
 {{EmbedLiveSample("position1", "", "400px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Dies erfordert `position: relative` und `position: absolute` und das Verständnis, wie sie sich zueinander verhalten, wobei relative Positionierung einen neuen Positionierungskontext schafft.
-Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel gemäß dem Viewport positioniert.
+Dies erfordert `position: relative` und `position: absolute` und das Verständnis, wie sie sich zueinander verhalten in Bezug auf das relative Positionieren, das einen neuen Positionierungskontext schafft.
+Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel nach dem Viewport positioniert.
 
 ```css
 .container {
@@ -97,11 +94,9 @@ Für die Bonusfrage müssen Sie dem Ziel einen negativen `z-index` hinzufügen, 
 
 ## Aufgabe 2
 
-In dieser Aufgabe scrollt, wenn Sie das Kästchen im folgenden Beispiel scrollen, die Seitenleiste mit dem Inhalt. Ändern Sie es so, dass die Seitenleiste (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt.
+In dieser Aufgabe, wenn Sie den Kasten im unten stehenden Beispiel scrollen, scrollt die Seitenleiste mit dem Inhalt. Wir möchten, dass Sie den Code so aktualisieren, dass die Seitenleiste (`<div class="sidebar">`) an ihrem Platz bleibt und nur der Inhalt scrollt.
 
-![Der Inhalt wurde gescrollt, aber die Seitenleiste bleibt an Ort und Stelle.](position-task2.png)
-
-Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+![Der Inhalt wird gescrollt, aber die Seitenleiste bleibt an ihrem Platz.](position-task2.png)
 
 ```html live-sample___position2
 <div class="container">
@@ -134,10 +129,11 @@ Versuchen Sie, den Code unten zu aktualisieren, um das fertige Beispiel nachzubi
 </div>
 ```
 
-```css hidden live-sample___position2
+```css live-sample___position2
 body {
   font: 1.2em / 1.5 sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -161,22 +157,22 @@ body {
   padding: 1em;
   margin-left: 160px;
 }
-```
 
-```css live-sample___position2
 .container {
+  /* Add styles here */
 }
 
 .sidebar {
+  /* Add styles here */
 }
 ```
 
 {{EmbedLiveSample("position2", "", "400px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Wir testen Ihr Verständnis von `position: fixed` mit einem etwas anderen Beispiel als denen in den Lernmaterialien.
+Wir testen Ihr Verständnis von `position: fixed` mit einem etwas anderen Beispiel als in den Lernmaterialien.
 
 ```css
 .sidebar {
@@ -185,7 +181,3 @@ Wir testen Ihr Verständnis von `position: fixed` mit einem etwas anderen Beispi
 ```
 
 </details>
-
-## Siehe auch
-
-- [CSS-Grundlagen der Gestaltung](/de/docs/Learn_web_development/Core/Styling_basics)

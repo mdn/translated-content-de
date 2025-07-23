@@ -1,27 +1,23 @@
 ---
-title: "Testen Sie Ihr Wissen: Bilder und Formularelemente"
+title: "Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente"
 short-title: Bilder und Formulare
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Images
 l10n:
-  sourceCommit: 5f677b960051016819ecb3b1f40bc3d36a43156d
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
+Das Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den folgenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Symbol des Ablagebretts) und in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe haben Sie ein Bild, das aus dem Kasten herausragt. Wir möchten, dass das Bild verkleinert wird, um in den Kasten zu passen, ohne zusätzlichen weißen Raum, aber es macht uns nichts aus, wenn Teile des Bildes abgeschnitten werden.
+In dieser Aufgabe haben Sie ein Bild, das aus dem Rahmen herausragt. Wir möchten, dass das Bild verkleinert wird, um in den Rahmen zu passen, ohne zusätzlichen Leerraum, aber wir haben nichts dagegen, wenn ein Teil des Bildes abgeschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Bild in einem Kasten](mdn-images-object-fit.png)
-
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel so nachzubilden, dass das Bild nicht aus dem Kasten herausragt:
+![Ein Bild in einem Rahmen](mdn-images-object-fit.png)
 
 ```html live-sample___object-fit
 <div class="box">
@@ -48,8 +44,8 @@ img {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist in Ordnung, wenn einige Teile des Bildes abgeschnitten werden.
-Die Verwendung von `object-fit: cover` ist die beste Wahl, Sie müssen auch die Breite und Höhe auf `100%` setzen:
+Es ist in Ordnung, wenn einige Teile des Bildes abgeschnitten sind.
+`object-fit: cover` zu verwenden ist die beste Wahl. Sie müssen auch die Breite und Höhe auf `100%` setzen:
 
 ```css
 img {
@@ -63,18 +59,18 @@ img {
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben Sie ein einfaches Formular. Ihre Aufgabe ist es, die folgenden Änderungen vorzunehmen:
+In dieser Aufgabe haben Sie ein einfaches Formular.
 
-- Verwenden Sie Attributselektoren, um das Suchfeld und die Schaltfläche innerhalb von `.my-form` anzusprechen.
-- Sorgen Sie dafür, dass das Formularfeld und die Schaltfläche die gleiche Textgröße wie der Rest des Formulars verwenden.
-- Geben Sie dem Formularfeld und der Schaltfläche 10px Abstand (Padding).
-- Geben Sie der Schaltfläche einen Hintergrund von `rebeccapurple`, weiße Schriftfarbe, keinen Rahmen und abgerundete Ecken von 5px.
+Um die Aufgabe abzuschließen:
+
+1. Verwenden Sie Attributselektoren, um das Suchfeld und die Schaltfläche innerhalb von `.my-form` anzusprechen.
+2. Passen Sie das Textformat des Formularfelds und der Schaltfläche an den Rest des Formulars an.
+3. Vergeben Sie dem Formularfeld und der Schaltfläche `10px` Abstand.
+4. Geben Sie der Schaltfläche einen Hintergrund von `rebeccapurple`, eine weiße Schriftfarbe, keinen Rahmen und abgerundete Ecken von 5px.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Ein einzeiliges Formular](mdn-images-form.png)
-
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___forms-1
 <form action="" class="my-form" method="post">
@@ -101,7 +97,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Hier ist ein Beispiel für die Lösung der Aufgabe:
+Hier ist ein Beispiel für eine Lösung der Aufgabe:
 
 ```css
 .my-form {
@@ -128,20 +124,13 @@ Hier ist ein Beispiel für die Lösung der Aufgabe:
 
 ## Aufgabe 3
 
-Unsere zweite Bewertung der Formularstilierung ist ziemlich frei und Sie haben viel Flexibilität bei der Ausführung. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
+Unsere zweite Bewertung der Formularstilierung ist ziemlich frei gestaltet, und Sie haben viel Freiheit bei der Gestaltung. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
 
 Um die Aufgabe abzuschließen:
 
-1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie eine Art leichtgewichtigen "Reset" hinzu, um Schriften, Abstände, Ränder und Größen konsistenter zu machen, wie im [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
-3. Fügen Sie darauf aufbauend eine schöne, konsistente Gestaltung für die Eingabefelder und die Schaltfläche hinzu.
-4. Verwenden Sie eine Art Layouttechnik, um die Eingabefelder und Labels sauber auszurichten.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/forms/tasks/styling-basics/styling-basics1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter dem Live-Ausgang anzeigen.
+1. Fügen Sie eine Art leichtes "Reset" hinzu, um Schriftarten, Abstände, Margen und Größen anfangs konsistenter zu machen, wie beschrieben in [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior).
+2. Fügen Sie darauf aufbauend ein ansprechendes, konsistentes Styling für die Eingaben und die Schaltfläche hinzu.
+3. Verwenden Sie eine Art Layout-Technik, um die Eingaben und Beschriftungen ordentlich auszurichten.
 
 ```html hidden live-sample___forms-2
 <form>
@@ -198,7 +187,7 @@ body {
 /* Add your code here */
 ```
 
-{{ EmbedLiveSample("forms-2", "100%", 250) }}
+{{EmbedLiveSample("forms-2", "100%", 250)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>

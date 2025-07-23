@@ -3,37 +3,25 @@ title: "Testen Sie Ihre Fähigkeiten: Events"
 short-title: Events
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Events
 l10n:
-  sourceCommit: 6d76a8fd20a1345010796083ddcab76b86d543c7
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Das Ziel dieses Fähigkeitstests ist zu beurteilen, ob Sie unseren Artikel [Einführung in Events](/de/docs/Learn_web_development/Core/Scripting/Events) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel [Einführung in Events](/de/docs/Learn_web_development/Core/Scripting/Events) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn ein Fehler auftritt, wird er im Ergebnisfenster auf der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
->
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## DOM-Manipulation: als nützlich erachtet
 
-Einige der folgenden Fragen erfordern, dass Sie etwas {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu lösen — wie zum Beispiel neue HTML-Elemente zu erstellen, deren Textinhalt auf bestimmte Zeichenfolgenwerte zu setzen und sie in bestehende Elemente auf der Seite zu nisten — alles über JavaScript.
+Einige der unten stehenden Fragen erfordern, dass Sie ein wenig {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu beantworten – zum Beispiel das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgen und das Verschachteln dieser innerhalb bestehender Elemente auf der Seite – alles über JavaScript.
 
-Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie haben einige Beispiele gesehen, die dies verwenden, und wir möchten, dass Sie einige Recherchen anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Einführung in das DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting)-Tutorial.
+Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie haben einige Beispiele gesehen, die davon Gebrauch machen, und wir möchten, dass Sie ein wenig recherchieren, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Einführung in DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) Tutorial.
 
 ## Events 1
 
 Unsere erste auf Events bezogene Aufgabe beinhaltet einen {{htmlelement("button")}}, der, wenn er angeklickt wird, sein Textlabel aktualisiert. Das HTML sollte nicht geändert werden; nur das JavaScript.
 
-Um die Aufgabe abzuschließen:
-
-1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie einen Event-Listener, der den Text innerhalb des Buttons (`btn`) ändert, wenn er angeklickt wird, und wieder zurückändert, wenn er erneut angeklickt wird.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/events/events1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter der Live-Ausgabe einsehen.
+Um die Aufgabe abzuschließen, erstellen Sie einen Event-Listener, der verursacht, dass der Text innerhalb des Buttons (`btn`) sich ändert, wenn er angeklickt wird, und wieder zurückwechselt, wenn er nochmals angeklickt wird.
 
 ```css hidden live-sample___events-1
 p {
@@ -90,24 +78,16 @@ btn.addEventListener("click", () => {
 
 ## Events 2
 
-Jetzt schauen wir uns Tastaturereignisse an.
+Nun betrachten wir Tastatur-Events.
 
-Um diese Aufgabe abzuschließen:
+Um diese Aufgabe zu erfüllen, erstellen Sie einen Event-Listener, der den Kreis auf der bereitgestellten Leinwand bewegt, wenn die WASD-Tasten auf der Tastatur gedrückt werden. Der Kreis wird mit der Funktion `drawCircle()` gezeichnet, die folgende Parameter als Eingaben nimmt:
 
-1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie einen Event-Listener, der den Kreis auf der bereitgestellten Leinwand bewegt, wenn die WASD-Tasten auf der Tastatur gedrückt werden. Der Kreis wird mit der Funktion `drawCircle()` gezeichnet, die folgende Parameter als Eingaben verwendet:
-   - `x` — die x-Koordinate des Kreises.
-   - `y` — die y-Koordinate des Kreises.
-   - `size` — der Radius des Kreises.
+- `x` — die x-Koordinate des Kreises.
+- `y` — die y-Koordinate des Kreises.
+- `size` — der Radius des Kreises.
 
 > [!WARNING]
-> Beim Testen Ihres Codes müssen Sie sich auf die Leinwand fokussieren, bevor Sie Ihre Tastaturbefehle ausprobieren (zum Beispiel darauf klicken oder mit der Tastatur darauf zugreifen). Andernfalls funktionieren sie nicht.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/events/events2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter der Live-Ausgabe einsehen.
+> Beim Testen Ihres Codes müssen Sie sich zuerst auf die Leinwand fokussieren, bevor Sie Ihre Tastaturbefehle testen (beispielsweise durch Klicken darauf oder Heraustaben zur Leinwand mit der Tastatur). Andernfalls funktionieren sie nicht.
 
 ```html hidden live-sample___events-2
 <canvas width="480" height="320" tabindex="0"> </canvas>
@@ -182,20 +162,9 @@ window.addEventListener("keydown", (e) => {
 
 ## Events 3
 
-In der nächsten auf Events bezogenen Aufgabe wird Ihr Wissen über Event-Bubbling getestet.
+Die nächste auf Events bezogene Aufgabe testet Ihr Wissen über Event-Bubbling. Wir möchten, dass Sie einen Event-Listener auf dem Eltern-Element der `<button>`s (`<div class="button-bar"> … </div>`) setzen, der, wenn durch Klicken auf einen der Buttons ausgelöst, den Hintergrund der `button-bar` auf die Farbe setzt, die im `data-color` Attribut des Buttons enthalten ist.
 
-Um diese Aufgabe abzuschließen:
-
-1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
-2. Setzen Sie einen Event-Listener auf das Eltern-Element der `<button>`s (`<div class="button-bar"> … </div>`), das beim Klicken auf einen der Buttons den Hintergrund der `button-bar` auf die im `data-color`-Attribut des Buttons enthaltene Farbe setzt.
-
-Wir möchten, dass Sie dies lösen, ohne durch alle Buttons zu schleifen und jedem einen eigenen Event-Listener zu geben.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/events/events3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter der Live-Ausgabe einsehen.
+Wir möchten, dass Sie dies lösen, ohne durch alle Buttons zu schleifen und jedem seinen eigenen Event-Listener zu geben.
 
 ```html hidden live-sample___events-3
 <div class="button-bar">

@@ -3,42 +3,31 @@ title: "Testen Sie Ihre Fähigkeiten: JSON"
 short-title: JSON
 slug: Learn_web_development/Core/Scripting/Test_your_skills/JSON
 l10n:
-  sourceCommit: 449a2acf7d57948a55e4c8381d52da4360743402
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie unseren Artikel [Arbeiten mit JSON](/de/docs/Learn_web_development/Core/Scripting/JSON) verstanden haben.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie unseren [Working with JSON](/de/docs/Learn_web_development/Core/Scripting/JSON)-Artikel verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Bei einem Fehler wird er im Ergebnispanel auf der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
->
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills)-Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## JSON 1
 
-Die einzige Aufgabe in diesem Artikel besteht darin, auf JSON-Daten zuzugreifen und diese in Ihrer Seite zu verwenden. JSON-Daten über einige Katzenmütter und ihre Kätzchen stehen in [sample.json](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/json/sample.json) zur Verfügung. Das JSON wird als Textzeichenkette in die Seite geladen und im Parameter `catString` der Funktion `displayCatInfo()` bereitgestellt.
+Die einzige Aufgabe in diesem Artikel betrifft den Zugriff auf JSON-Daten und deren Nutzung auf Ihrer Seite. JSON-Daten über einige Mutterkatzen und ihre Kätzchen sind in [sample.json](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/json/sample.json) verfügbar. Das JSON wird als Textzeichenfolge in die Seite geladen und im `catString`-Parameter der Funktion `displayCatInfo()` verfügbar gemacht.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe zu vervollständigen, füllen Sie die fehlenden Teile der Funktion `displayCatInfo()` aus, um zu speichern:
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Füllen Sie die fehlenden Teile der `displayCatInfo()`-Funktion aus, um zu speichern:
-   - Die Namen der drei Katzenmütter, getrennt durch Kommas, in der Variablen `motherInfo`.
-   - Die Gesamtzahl der Kätzchen sowie deren Anzahl an männlichen und weiblichen Kätzchen in der Variablen `kittenInfo`.
+- Die Namen der drei Mutterkatzen, getrennt durch Kommas, in der Variable `motherInfo`.
+- Die Gesamtanzahl der Kätzchen und wie viele davon männlich und weiblich sind, in der Variable `kittenInfo`.
 
-Die Werte dieser Variablen werden dann innerhalb von Absätzen auf dem Bildschirm angezeigt.
+Die Werte dieser Variablen werden dann innerhalb von Absätzen auf dem Bildschirm ausgegeben.
 
 Einige Hinweise/Fragen:
 
-- Die JSON-Daten werden innerhalb der Funktion `displayCatInfo()` als Text bereitgestellt. Sie müssen sie in JSON parsen, bevor Sie Daten daraus extrahieren können.
-- Sie werden wahrscheinlich eine äußere Schleife verwenden wollen, um durch die Katzen zu schleifen und deren Namen zur Variablenzeichenkette `motherInfo` hinzuzufügen, und eine innere Schleife, um alle Kätzchen durchzugehen, die Gesamtzahl aller/männlichen/weiblichen Kätzchen zu addieren und diese Details zur Variablenzeichenkette `kittenInfo` hinzuzufügen.
-- Der letzte Katzenmuttername sollte ein "und" davor haben und einen Punkt danach. Wie stellen Sie sicher, dass dies funktioniert, egal wie viele Katzen im JSON sind?
-- Warum sind die Zeilen `para1.textContent = motherInfo;` und `para2.textContent = kittenInfo;` innerhalb der Funktion `displayCatInfo()` und nicht am Ende des Skripts? Dies hat etwas mit asynchronem Code zu tun.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/oojs/tasks/json/json1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+- Die JSON-Daten werden als Text innerhalb der Funktion `displayCatInfo()` bereitgestellt. Sie müssen sie in JSON parsen, bevor Sie irgendwelche Daten daraus extrahieren können.
+- Sie werden wahrscheinlich eine äußere Schleife verwenden wollen, um durch die Katzen zu schleifen und ihre Namen dem `motherInfo`-Variablen-String hinzuzufügen, und eine innere Schleife, um durch alle Kätzchen zu schleifen, die Gesamtzahl der Kätzchen/männlich/weiblich zu summieren und diese Details dem `kittenInfo`-Variablen-String hinzuzufügen.
+- Der letzte Mutterkatzenname sollte ein "und" davor haben und einen Punkt danach. Wie stellen Sie sicher, dass dies funktioniert, egal wie viele Katzen im JSON sind?
+- Warum stehen die Zeilen `para1.textContent = motherInfo;` und `para2.textContent = kittenInfo;` innerhalb der Funktion `displayCatInfo()` und nicht am Ende des Skripts? Das hat etwas mit asynchronem Code zu tun.
 
 ```html hidden live-sample___json-1
 <p class="one"></p>
@@ -88,7 +77,7 @@ function displayCatInfo(catString) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 // ...

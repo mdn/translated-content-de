@@ -3,44 +3,34 @@ title: "Testen Sie Ihre Fähigkeiten: Funktionen"
 short-title: Functions
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Functions
 l10n:
-  sourceCommit: 449a2acf7d57948a55e4c8381d52da4360743402
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie unsere [Funktionen — wiederverwendbare Codeblöcke](/de/docs/Learn_web_development/Core/Scripting/Functions), [Erstellen Sie Ihre eigene Funktion](/de/docs/Learn_web_development/Core/Scripting/Build_your_own_function) und [Rückgabewerte von Funktionen](/de/docs/Learn_web_development/Core/Scripting/Return_values) Artikel verstanden haben.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie unsere Artikel [Funktionen — wiederverwendbare Codeblöcke](/de/docs/Learn_web_development/Core/Scripting/Functions), [Erstellen Sie Ihre eigene Funktion](/de/docs/Learn_web_development/Core/Scripting/Build_your_own_function) und [Rückgabewerte von Funktionen](/de/docs/Learn_web_development/Core/Scripting/Return_values) verstanden haben.
 
 > [!NOTE]
-> Bei Aufgaben 1–4 können Sie Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Tritt ein Fehler auf, wird dieser im Ergebnisbereich auf der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
->
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Unterstützung zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## DOM-Manipulation: als nützlich erachtet
+## DOM-Manipulation: als nützlich betrachtet
 
-Einige der unten stehenden Fragen erfordern von Ihnen, etwas {{Glossary("DOM", "DOM")}}-Manipulationscode zu schreiben, um sie zu lösen — wie z.B. neue HTML-Elemente zu erstellen, deren Textinhalte auf bestimmte Zeichenkettenwerte zu setzen und sie in vorhandene Elemente auf der Seite zu verschachteln — alles über JavaScript.
+Einige der unten stehenden Fragen erfordern von Ihnen, etwas {{Glossary("DOM", "DOM")}}-Manipulationscode zu schreiben, um sie zu vervollständigen — etwa neue HTML-Elemente zu erstellen, deren Textinhalte auf spezifische Zeichenfolgenwerte festzulegen und sie innerhalb bestehender Elemente auf der Seite zu verschachteln — alles über JavaScript.
 
-Wir haben dies noch nicht explizit im Kurs behandelt, aber Sie haben vielleicht einige Beispiele gesehen, die es verwenden, und wir möchten, dass Sie etwas Recherche betreiben, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [DOM-Scripting-Einführung](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) Tutorial.
+Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie werden einige Beispiele gesehen haben, die es verwenden. Wir möchten, dass Sie einige Recherchen darüber anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Einführung in das DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) Tutorial.
 
 ## Interaktive Herausforderung
 
-Zunächst präsentieren wir Ihnen eine unterhaltsame, interaktive Herausforderung mit Rückgabewerten von Funktionen, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
+Zunächst geben wir Ihnen eine unterhaltsame, interaktive Herausforderung, die Rückgabewerte von Funktionen behandelt, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
 
-Sehen Sie sich den eingebetteten Clip an, und vervollständigen Sie die Aufgabe auf der Zeitachse (das kleine Geistsymbol), indem Sie die Anweisungen befolgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie den Clip weiter ansehen, um zu prüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich das eingebettete Scrim an und erfüllen Sie die Aufgabe auf der Zeitachse (das kleine Geistersymbol), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter beobachten, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
 <scrim-inline url="https://scrimba.com/learn-javascript-c0v/~02h" scrimtitle="Rückgabewerte in Funktionen" survey="true"></scrim-inline>
 
 ## Aufgabe 1
 
-Um unsere erste Funktionen-Aufgabe abzuschließen:
+Um unsere erste Aufgabenstellung zu Funktionen abzuschließen:
 
-1. Klicken Sie **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Definieren Sie eine Funktion — `chooseName()` — die einen zufälligen Namen aus dem bereitgestellten Array (`names`) in den bereitgestellten Absatz (`para`) ausgibt.
-3. Rufen Sie die `chooseName()` Funktion einmal auf.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich steckenbleiben, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Definieren Sie eine Funktion — `chooseName()` — die einen zufälligen Namen aus dem bereitgestellten Array (`names`) in den bereitgestellten Absatz (`para`) ausgibt.
+2. Rufen Sie die Funktion `chooseName()` einmal auf.
 
 <!-- Code shared across examples -->
 
@@ -103,23 +93,13 @@ chooseName();
 
 ## Aufgabe 2
 
-Diese Aufgabe erfordert, dass Sie eine Funktion definieren, die auf ein `<canvas>`-Element zeichnet.
+Diese Aufgabe erfordert, dass Sie eine Funktion erstellen, die ein Rechteck auf das bereitgestellte `<canvas>` (Referenzvariable `canvas`, Kontext verfügbar in `ctx`) zeichnet, basierend auf den fünf bereitgestellten Eingabevariablen:
 
-Um die Aufgabe abzuschließen:
-
-1. Klicken Sie **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Erstellen Sie eine Funktion, die ein Rechteck auf das bereitgestellte `<canvas>` (Referenzvariable `canvas`, Kontext verfügbar in `ctx`) basierend auf den fünf bereitgestellten Eingabevariablen zeichnet:
-   - `x` — die x-Koordinate des Rechtecks.
-   - `y` — die y-Koordinate des Rechtecks.
-   - `width` — die Breite des Rechtecks.
-   - `height` — die Höhe des Rechtecks.
-   - `color` — die Farbe des Rechtecks.
-
-> [!CALLOUT]
->
-> Sie können [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich steckenbleiben, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+- `x` — die x-Koordinate des Rechtecks.
+- `y` — die y-Koordinate des Rechtecks.
+- `width` — die Breite des Rechtecks.
+- `height` — die Höhe des Rechtecks.
+- `color` — die Farbe des Rechtecks.
 
 ```html hidden live-sample___functions-2
 <canvas width="240" height="160"></canvas>
@@ -170,20 +150,13 @@ drawSquare(x, y, width, height, color);
 
 ## Aufgabe 3
 
-In dieser Aufgabe kehren Sie zu dem in Aufgabe 1 gestellten Problem zurück, um drei Verbesserungen daran vorzunehmen.
+In dieser Aufgabe kehren Sie zum Problem aus Aufgabe 1 zurück, mit dem Ziel, drei Verbesserungen daran vorzunehmen.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu vervollständigen:
 
-1. Klicken Sie **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Refaktorieren Sie den Code, der die Zufallszahl erzeugt, in eine separate Funktion namens `random()`, die als Parameter zwei generische Grenzen nimmt, zwischen denen die Zufallszahl liegen soll, und das Ergebnis zurückgibt.
-3. Aktualisieren Sie die `chooseName()` Funktion so, dass sie die Zufallszahlenfunktion verwendet, das Array, aus dem gewählt wird, als Parameter übernimmt (sodass sie flexibler wird), und das Ergebnis zurückgibt.
-4. Geben Sie das zurückgegebene Ergebnis in den `textContent` des Absatzes (`para`) aus.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich steckenbleiben, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+1. Refaktorisieren Sie den Code, der die zufällige Zahl generiert, in eine separate Funktion namens `random()`, die als Parameter zwei generische Grenzen nimmt, zwischen denen die Zufallszahl liegen soll, und das Ergebnis zurückgibt.
+2. Aktualisieren Sie die Funktion `chooseName()`, sodass sie die Zufallszahlenfunktion nutzt, das Array, aus dem gewählt werden soll, als Parameter nimmt (um sie flexibler zu machen) und das Ergebnis zurückgibt.
+3. Geben Sie das zurückgegebene Ergebnis in den `textContent` des Absatzes (`para`) aus.
 
 ```js live-sample___functions-3
 const names = [
@@ -239,18 +212,9 @@ para.textContent = chooseItem(names);
 
 ## Aufgabe 4
 
-In dieser Aufgabe haben wir ein Array von Namen, und wir verwenden {{jsxref("Array.filter()")}}, um ein Array zu erhalten, das nur die Namen enthält, die kürzer als 5 Zeichen sind. Der Filter wird derzeit mit einer benannten Funktion `isShort()` aufgerufen. Diese prüft die Länge des Namens und gibt `true` zurück, wenn der Name weniger als 5 Zeichen lang ist, und `false` ansonsten.
+In dieser Aufgabe haben wir ein Array von Namen und verwenden {{jsxref("Array.filter()")}}, um ein Array zu erhalten, das nur die Namen enthält, die kürzer als 5 Zeichen sind. Der Filter bekommt derzeit eine benannte Funktion `isShort()` übergeben. Diese überprüft die Länge des Namens und gibt `true` zurück, wenn der Name weniger als 5 Zeichen lang ist, andernfalls `false`.
 
-Um die Aufgabe abzuschließen:
-
-1. Klicken Sie **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Aktualisieren Sie den Code so, dass die Funktionalität innerhalb von `isShort()` stattdessen direkt innerhalb des `filter()`-Aufrufs als Pfeilfunktion eingeschlossen wird. Schauen Sie, wie kompakt Sie es machen können.
-
-> [!CALLOUT]
->
-> Sie können auch [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/functions/functions4-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
-
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich steckenbleiben, können Sie die Lösung unterhalb der Live-Ausgabe anzeigen.
+Um die Aufgabe zu vervollständigen, aktualisieren Sie den Code so, dass die Funktionalität innerhalb von `isShort()` stattdessen direkt in den `filter()`-Aufruf als Pfeilfunktion einbezogen wird. Sehen Sie, wie kompakt Sie es machen können.
 
 ```js live-sample___functions-4
 const names = [

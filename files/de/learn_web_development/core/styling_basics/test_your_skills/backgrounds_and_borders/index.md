@@ -1,35 +1,33 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Hintergründe und Rahmen"
-short-title: Hintergründe und Rahmen
+title: "Testen Sie Ihre Fähigkeiten: Hintergründe und Ränder"
+short-title: Hintergründe und Ränder
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Backgrounds_and_borders
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
 ---
 
-Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie die [Hintergründe und Ränder von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
 
 > [!NOTE]
-> Klicken Sie auf **"Abspielen"** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Symbol mit der Zwischenablage) und in einen Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt mit uns aufnehmen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie einem Seitenkopf einen Hintergrund, einen Rahmen und einige grundlegende Stile hinzufügen:
+In dieser Aufgabe möchten wir, dass Sie einem Seitenheader einen Hintergrund, einen Rand und einige grundlegende Stile hinzufügen.
 
-1. Geben Sie der Box einen 5px schwarzen soliden Rahmen mit abgerundeten Ecken von 10px.
-2. Geben Sie dem `<h2>` einen halbtransparenten schwarzen Hintergrund und machen Sie den Text weiß.
-3. Fügen Sie ein Hintergrundbild hinzu und passen Sie es so an, dass es die Box abdeckt. Sie können das folgende Bild verwenden:
+Um die Aufgabe zu erfüllen:
+
+1. Geben Sie der Box einen 5px breiten schwarzen durchgezogenen Rand mit abgerundeten Ecken von 10px.
+2. Versehen Sie das `<h2>` mit einer halbtransparenten schwarzen Hintergrundfarbe und machen Sie den Text weiß.
+3. Fügen Sie ein Hintergrundbild hinzu und skalieren Sie es so, dass es die Box abdeckt. Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/balloons.jpg
    ```
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Das Bild zeigt eine Box mit einem Fotohintergrund, gerundetem Rand und weißem Text auf einem halbtransparenten schwarzen Hintergrund.](backgrounds-task1.png)
-
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
+![Das Bild zeigt eine Box mit einem Foto-Hintergrund, abgerundetem Rand und weißem Text auf einem halbtransparenten schwarzen Hintergrund.](backgrounds-task1.png)
 
 ```html live-sample___backgrounds1
 <div class="box">
@@ -37,20 +35,20 @@ Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel
 </div>
 ```
 
-```css hidden live-sample___backgrounds1
+```css live-sample___backgrounds1
 body {
   padding: 1em;
   font: 1.2em / 1.5 sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
+
 .box {
   padding: 0.5em;
 }
-```
 
-```css live-sample___backgrounds1
 .box {
   /* Add styles here */
 }
@@ -65,7 +63,7 @@ h2 {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie sollten `border`, `border-radius`, `background-image` und `background-size` verwenden und verstehen, wie man RGB-Farben nutzt, um eine Hintergrundfarbe teilweise transparent zu machen:
+Sie sollten `border`, `border-radius`, `background-image` und `background-size` verwenden und verstehen, wie man RGB-Farben verwendet, um eine Hintergrundfarbe teilweise transparent zu machen:
 
 ```css
 .box {
@@ -85,24 +83,23 @@ h2 {
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie dekorativen Boxen Hintergrundbilder, einen Rahmen und einige weitere Stile hinzufügen:
+In dieser Aufgabe möchten wir, dass Sie dekorativen Boxen Hintergrundbilder, einen Rand und einige andere Stile hinzufügen.
 
-1. Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke 20px und die untere rechte Ecke 40px ab.
+Um die Aufgabe zu erfüllen:
 
-2. Die Überschrift verwendet das Bild `star.png` als Hintergrundbild, mit einem einzelnen zentrierten Stern auf der linken Seite und einem sich wiederholenden Muster von Sternen auf der rechten Seite.
+1. Geben Sie der Box einen 5px breiten hellblauen Rand und runden Sie die obere linke Ecke 20px und die untere rechte Ecke 40px ab.
+2. Die Überschrift verwendet das Bild `star.png` als Hintergrundbild, mit einem einzelnen zentrierten Stern links und einem sich wiederholenden Muster von Sternen rechts.
    Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/star.png
    ```
 
-3. Stellen Sie sicher, dass der Überschriftstext nicht das Bild überlagert und zentriert ist — Sie müssen Techniken anwenden, die Sie in früheren Lektionen gelernt haben, um dies zu erreichen.
+3. Stellen Sie sicher, dass der Überschriftstext das Bild nicht überlagert und zentriert ist — Sie müssen Techniken anwenden, die Sie in früheren Lektionen gelernt haben, um dies zu erreichen.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Das Bild zeigt eine Box mit einem blauen Rahmen, der an den oberen linken und unteren rechten Ecken abgerundet ist. Links vom Text befindet sich ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
-
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel zu reproduzieren:
+![Das Bild zeigt eine Box mit einem blauen Rand, der an der oberen linken und unteren rechten Ecke abgerundet ist. Links vom Text ist ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
 
 ```html live-sample___backgrounds2
 <div class="box">
@@ -110,7 +107,7 @@ Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel
 </div>
 ```
 
-```css hidden live-sample___backgrounds2
+```css live-sample___backgrounds2
 body {
   padding: 1em;
   font: 1.2em / 1.5 sans-serif;
@@ -122,9 +119,7 @@ body {
   width: 300px;
   padding: 0.5em;
 }
-```
 
-```css live-sample___backgrounds2
 .box {
   /* Add styles here */
 }
@@ -139,8 +134,8 @@ h2 {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen der Überschrift Padding hinzufügen, damit sie das Sternbild nicht überlagert - dies bezieht sich auf das Lernen aus der früheren [Box Model-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model).
-Der Text sollte mit der Eigenschaft `text-align` ausgerichtet werden:
+Sie müssen der Überschrift ein Padding hinzufügen, damit sie das Sternbild nicht überlagert – dies bezieht sich auf das Lernen aus der früheren [Box-Modell Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model).
+Der Text sollte mit der `text-align` Eigenschaft ausgerichtet werden:
 
 ```css
 .box {
@@ -161,7 +156,3 @@ h2 {
 ```
 
 </details>
-
-## Siehe auch
-
-- [CSS-Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
