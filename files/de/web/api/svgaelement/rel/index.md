@@ -3,14 +3,14 @@ title: "SVGAElement: rel-Eigenschaft"
 short-title: rel
 slug: Web/API/SVGAElement/rel
 l10n:
-  sourceCommit: 068bb0449377f73e358a92b1b26265aa30c02db1
+  sourceCommit: 99d723c4f77d7f537292a07dd7b5e5c13cb610da
 ---
 
 {{APIRef("SVG")}}
 
-Die **`rel`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt einen [`String`](/de/docs/Web/API/String) zurück, der den Wert des [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel)-Attributs des SVG-{{svgelement("a")}}-Elements widerspiegelt.
+Die **`rel`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt einen String zurück, der den Wert des `rel`-Attributs des SVG-{{svgelement("a")}}-Elements widerspiegelt.
 
-Das `rel`-Attribut gibt die durch Leerzeichen getrennte Liste von Linktypen an, den [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel), die die Beziehung zwischen dem vom {{SVGElement("a")}}-Element dargestellten Ziel oder Ressource und dem aktuellen Dokument anzeigt. Die Eigenschaft kann den Wert des `rel`-Attributs abrufen oder setzen.
+Das `rel`-Attribut gibt die durch Leerzeichen getrennte Liste von Linktypen, die [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel), an, die die Beziehung zwischen dem Ziel oder der Ressource, die durch das {{SVGElement("a")}}-Element dargestellt wird, und dem aktuellen Dokument beschreibt. Die Eigenschaft kann den Wert des `rel`-Attributs abrufen oder festlegen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String; der Wert des `rel`-Attributs.
 
 ## Beispiele
 
-Angenommen, das folgende SVG:
+Gegebenes SVG:
 
 ```html
 <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ function log(text) {
 }
 ```
 
-Wir können das `rel`-Attribut abrufen und setzen:
+Wir können das `rel`-Attribut abrufen und festlegen:
 
 ```js
 // Select an SVG <a> element
@@ -86,6 +86,5 @@ log(`New rel: "${svgLink.rel}"`); // New rel: "alternate bookmark"
 
 - [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel)
 - [`SVGAElement.relList`](/de/docs/Web/API/SVGAElement/relList)
-- [`SVGAnchorElement.rel`](/de/docs/Web/API/SVGAnchorElement/rel)
 - [`HTMLAnchorElement.rel`](/de/docs/Web/API/HTMLAnchorElement/rel)
 - [`HTMLLinkElement.rel`](/de/docs/Web/API/HTMLLinkElement/rel)
