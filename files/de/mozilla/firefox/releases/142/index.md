@@ -1,18 +1,18 @@
 ---
 title: Firefox 142 für Entwickler
-short-title: Firefox 142 (Nightly)
+short-title: Firefox 142 (Beta)
 slug: Mozilla/Firefox/Releases/142
 l10n:
-  sourceCommit: 3178e192054bded810d61aecc360b16df23019e7
+  sourceCommit: bd4faec13d4e90c342bededd2378671311f186a0
 ---
 
-Dieser Artikel enthält Informationen über die Änderungen in Firefox 142, die Entwickler betreffen.
-Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
+Dieser Artikel bietet Informationen zu den Änderungen in Firefox 142, die Entwickler betreffen.
+Firefox 142 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=142) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
+<!-- Autoren: Bitte kommentieren Sie nur die Überschriften aus, für die Sie Hinweise schreiben -->
 
 ## Änderungen für Webentwickler
 
@@ -22,45 +22,45 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### CSS -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 ### APIs
 
 #### DOM
 
-- Die Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) wird jetzt unterstützt, sodass Entwickler ausgewählte Textbereiche genau über Shadow DOM-Grenzen hinweg erhalten können. Zusätzlich wurden die Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle so geändert, dass sie Knoten innerhalb eines Shadow-Roots akzeptieren. ([Firefox Fehler 1903870](https://bugzil.la/1903870)).
+- Die Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) wird jetzt unterstützt, sodass Entwickler ausgewählte Textbereiche über Grenzen des Shadow DOM hinweg genau erfassen können. Darüber hinaus wurden die Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle so geändert, dass sie Knoten innerhalb eines Shadow Roots akzeptieren. ([Firefox-Bug 1903870](https://bugzil.la/1903870)).
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
@@ -72,14 +72,14 @@ Firefox 142 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 ## Änderungen für Add-on-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} in Nightly erstellt werden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Die Implementierung in Nightly dient dazu, mögliche Probleme zu überwachen. Ziel ist es, die Validierung in einer zukünftigen Version in allen Kanälen durchzusetzen. ([Firefox Fehler 1976197](https://bugzil.la/1976197))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} in Nightly erstellt werden, werden nun validiert, und ungültige Cookies werden abgelehnt. Die Implementierung in Nightly soll die Überwachung auf etwaige Probleme ermöglichen. Die Absicht ist, die Validierung in einer zukünftigen Version in allen Kanälen durchzusetzen. ([Firefox-Bug 1976197](https://bugzil.la/1976197))
 
-<!-- ### Entfernungen -->
+<!-- ### Entfernt -->
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Features
 
-Diese Funktionen sind in Firefox 142 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Diese Funktionen werden in Firefox 142 ausgeliefert, sind aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config` Seite und setzen Sie diese auf `true`.
 Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
