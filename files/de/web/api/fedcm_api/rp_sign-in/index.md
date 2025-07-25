@@ -1,28 +1,28 @@
 ---
-title: Anbieter für föderierte Anmeldung
+title: Föderierte Anmeldung durch vertrauende Partei
 slug: Web/API/FedCM_API/RP_sign-in
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 8cd7f0fdcb2ea8d53ec7dae071eb2eb76bf5bfaf
 ---
 
 {{DefaultAPISidebar("FedCM API")}}
 
-Dieser Artikel beschreibt den Prozess, durch den eine anfragende Partei (RP) die [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) verwenden kann, um eine föderierte Anmeldung über einen Identitätsanbieter (IdP) durchzuführen.
+Dieser Artikel beschreibt den Prozess, durch den eine {{Glossary("Relying_party", "vertrauende Partei")}} (RP) die [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) verwenden kann, um eine föderierte Anmeldung über einen {{Glossary("Identity_provider", "Identitätsanbieter")}} (IdP) durchzuführen.
 
-## Aufrufen der get()-Methode
+## Aufrufen der `get()`-Methode
 
-RPs können [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option aufrufen, um zu verlangen, dass sich ein Benutzer mit einem vorhandenen IdP-Konto anmeldet, bei dem er bereits im Browser angemeldet ist. Der IdP identifiziert die RP anhand ihrer `clientId`, die vom IdP an die RP in einem separaten, spezifischen Prozess ausgegeben wurde. Der IdP identifiziert den spezifischen Benutzer mithilfe von Anmeldedaten (Cookies), die dem Browser beim Login zur Verfügung gestellt werden.
+RPs können [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option aufrufen, um zu verlangen, dass einem Benutzer die Option gegeben wird, sich bei der RP mit einer Auswahl bestehender IdP-Konten (mit denen sie bereits im Browser angemeldet sind) anzumelden. Die IdPs identifizieren die RP durch ihre `clientId`, die jedem IdP in einem separaten, IdP-spezifischen Prozess an die RP ausgegeben wurde. Der gewählte IdP identifiziert den spezifischen Benutzer, der versucht, sich mit den Anmeldeinformationen (Cookies) anzumelden, die dem Browser während des [Anmeldevorgangs](#fedcm_anmeldevorgang) bereitgestellt wurden.
 
-Die Methode gibt ein Versprechen zurück, das mit einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt erfüllt wird, wenn die Benutzeridentität erfolgreich vom IdP validiert wurde. Dieses Objekt enthält ein Token mit Benutzeridentitätsinformationen, die mit dem {{Glossary("digital_certificate", "digitalen Zertifikat")}} des IdP signiert wurden.
+Die Methode gibt ein Versprechen zurück, das mit einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt erfüllt wird, wenn die Benutzeridentität erfolgreich vom gewählten IdP validiert wird. Dieses Objekt enthält ein Token, das Benutzeridentifikationsinformationen enthält, die mit dem {{Glossary("digital_certificate", "digitalen Zertifikat")}} des IdPs signiert wurden.
 
-Die RP sendet das Token an ihren Server, um das Zertifikat zu validieren. Bei Erfolg kann sie die (jetzt vertrauenswürdigen) Identitätsinformationen im Token verwenden, um den Benutzer in ihren Dienst einzuloggen (eine neue Sitzung zu beginnen), ihn bei ihrem Dienst anzumelden, falls es sich um einen neuen Benutzer handelt, usw.
+Die RP sendet das Token an ihren Server, um das Zertifikat zu validieren, und kann bei Erfolg die (nun vertrauenswürdigen) Identitätsinformationen im Token verwenden, um sie in ihren Dienst einzuloggen (eine neue Sitzung zu starten), sie für ihren Dienst zu registrieren, wenn sie neue Benutzer sind, usw.
 
-Wenn der Benutzer sich noch nie beim IdP angemeldet hat oder ausgeloggt ist, lehnt die `get()`-Methode mit einem Fehler ab und die RP kann den Benutzer zur IdP-Anmeldeseite leiten, um sich anzumelden oder ein Konto zu erstellen.
+Wenn der Benutzer sich noch nie bei einem IdP angemeldet hat oder ausgeloggt ist, lehnt die `get()`-Methode mit einem Fehler ab und die RP kann den Benutzer auf eine IdP-Seite weiterleiten, um sich anzumelden oder ein Konto zu erstellen.
 
 > [!NOTE]
-> Die genaue Struktur und der Inhalt des Validierungstokens sind für die FedCM API und den Browser undurchsichtig. Der IdP entscheidet über die Syntax und Anwendung und die RP muss den Anweisungen des IdP folgen (siehe [Überprüfen des Google-ID-Tokens auf Ihrer Serverseite](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token) als Beispiel), um sicherzustellen, dass es richtig verwendet wird.
+> Die genaue Struktur und der Inhalt des Validierungstokens sind für die FedCM API und den Browser undurchsichtig. Ein IdP entscheidet über die Syntax und Verwendungsweise, und die RP muss den Anweisungen des IdPs folgen (siehe z.B. [Google ID-Token auf Ihrer Serverseite validieren](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token)), um sicherzustellen, dass sie es korrekt verwenden.
 
-Ein typischer Request könnte so aussehen:
+Eine typische Anfrage könnte folgendermaßen aussehen:
 
 ```js
 async function signIn() {
@@ -36,82 +36,107 @@ async function signIn() {
           nonce: "******",
           loginHint: "user1@example.com",
         },
+        {
+          //...
+        },
       ],
     },
   });
 }
 ```
 
-Die `identity.providers`-Eigenschaft nimmt ein Array entgegen, das ein einzelnes Objekt enthält, das den Pfad zu einer IdP-Konfigurationsdatei (`configURL`) und die vom IdP ausgegebene Kundenkennung (`clientId`) der RP angibt.
+Die Eigenschaft `identity.providers` nimmt ein Array auf, das ein oder mehrere Objekte enthält, die den Pfad zu jeder IdP-Konfigurationsdatei (`configURL`) und die dem IdP von der RP zugewiesene Client-ID (`clientId`) spezifizieren.
 
-> [!NOTE]
-> Derzeit erlaubt FedCM nur, dass die API mit einem einzigen IdP aufgerufen wird, d.h. das `identity.providers`-Array muss die Länge 1 haben. Um den Benutzern die Wahl eines Identitätsanbieters zu ermöglichen, muss die RP `get()` für jeden IdP separat aufrufen. Dies könnte sich in Zukunft ändern.
+Das vorherige Beispiel beinhaltet auch einige optionale Funktionen:
 
-Das obige Beispiel enthält auch einige optionale Funktionen:
+- `identity.context` spezifiziert den Kontext, in dem der Benutzer mit FedCM authentifiziert wird. Zum Beispiel, handelt es sich um eine erstmalige Anmeldung für dieses Konto oder um eine Anmeldung mit einem bestehenden Konto? Der Browser verwendet diese Informationen, um den Text in seiner FedCM-Benutzeroberfläche entsprechend dem Kontext anzupassen.
+- Die Eigenschaft `nonce` bietet einen zufälligen Nonce-Wert, der sicherstellt, dass die Antwort für diese spezifische Anfrage ausgestellt wird, wodurch {{Glossary("replay_attack", "Replay-Angriffe")}} verhindert werden.
+- Die Eigenschaft `loginHint` bietet einen Hinweis auf die Konten, die der Browser für die Benutzeranmeldung präsentieren sollte. Dieser Hinweis wird mit den `login_hints`-Werten abgeglichen, die der IdP am [accounts list endpoint](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) bereitstellt.
 
-- `identity.context` spezifiziert den Kontext, in dem der Benutzer sich mit FedCM authentifiziert. Zum Beispiel, ob es sich um eine erstmalige Anmeldung für dieses Konto handelt oder um eine Anmeldung mit einem vorhandenen Konto. Der Browser verwendet diese Informationen, um den Text in seiner FedCM-Benutzeroberfläche entsprechend dem Kontext anzupassen.
-- Die Eigenschaft `nonce` bietet einen zufälligen Nonce-Wert, der sicherstellt, dass die Antwort für diese spezifische Anfrage ausgestellt wird, um {{Glossary("replay_attack", "Wiederholungsangriffe")}} zu verhindern.
-- Die Eigenschaft `loginHint` gibt einen Hinweis auf die Kontenoptionen, die der Browser für die Benutzeranmeldung präsentieren sollte. Dieser Hinweis wird mit den `login_hints`-Werten abgeglichen, die der IdP vom [Konto-Liste-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) bereitstellt.
+Der Browser fordert die IdP-Konfigurationsdateien an und führt den unten beschriebenen Anmeldevorgang durch. Weitere Informationen darüber, welche Art von Interaktion ein Benutzer von der browsergestützten Benutzeroberfläche erwarten könnte, finden Sie unter [Anmeldung beim vertrauenden Dienst mit dem Identitätsanbieter](https://privacysandbox.google.com/cookies/fedcm#sign-in).
 
-Der Browser fordert die IdP-Konfigurationsdatei an und führt den unten detaillierten Anmeldefluss durch. Für weitere Informationen über die Art der Interaktion, die ein Benutzer von der browsergesteuerten Benutzeroberfläche erwarten könnte, siehe [Anmeldung bei der anfragenden Partei mit dem Identitätsanbieter](https://privacysandbox.google.com/cookies/fedcm#sign-in).
+## FedCM Anmeldevorgang
 
-## FedCM-Anmeldefluss
+Am Anmeldeprozess sind drei Parteien beteiligt — die RP-App, der Browser selbst und der IdP. Das folgende Diagramm fasst zusammen, was visuell passiert.
 
-Am Anmeldefluss sind drei Parteien beteiligt — die RP-App, der Browser selbst und der IdP. Das folgende Diagramm fasst zusammen, was visuell geschieht.
+![eine visuelle Darstellung des unten im Detail beschriebenen Ablaufs](fedcm-flow.png)
 
-![eine visuelle Darstellung des unten detailliert beschriebenen Flusses](fedcm-flow.png)
+Der Ablauf ist wie folgt:
 
-Der Fluss ist wie folgt:
+1. Die RP ruft [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) auf, um den Anmeldeprozess zu starten.
 
-1. Die RP ruft [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) auf, um den Anmeldefluss zu starten.
+2. Vom `configURL`, das für jeden IdP bereitgestellt wird, fordert der Browser zwei Dateien an:
+   1. Die bekannte Datei (`/.well-known/web-identity`), verfügbar unter `/.well-known/web-identity` auf dem [eTLD+1](https://web.dev/articles/same-site-same-origin#site) des `configURL`.
+   2. Die [IdP-Konfigurationsdatei](/de/docs/Web/API/FedCM_API/IDP_integration#provide_a_config_file_and_endpoints) (`/config.json`), verfügbar unter der `configURL`.
 
-2. Vom in der `get()`-Anfrage angegebenen `configURL` fordert der Browser zwei Dateien an:
+   Diese sind beide [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET)-Anfragen, die keine Cookies haben und keine Umleitungen folgen. Dies verhindert effektiv, dass IdPs erfahren, wer die Anfrage gestellt hat und welche RP zu verbinden versucht.
 
-   1. Die bekannte Datei (`/.well-known/web-identity`), verfügbar unter `/.well-known/web-identity` auf der [eTLD+1](https://web.dev/articles/same-site-same-origin#site) des `configURL`.
-   2. Die [IdP-Konfigurationsdatei](/de/docs/Web/API/FedCM_API/IDP_integration#provide_a_config_file_and_endpoints) (`/config.json`), verfügbar am `configURL`.
+   Alle Anfragen, die über FedCM vom Browser gesendet werden, beinhalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header, um {{Glossary("CSRF", "CSRF")}}-Angriffe zu verhindern. Alle IdP-Endpunkte müssen bestätigen, dass dieser Header enthalten ist.
 
-   Dies sind beide [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET)-Anfragen, die keine Cookies haben und keinen Weiterleitungen folgen. Dies verhindert effektiv, dass der IdP erfährt, wer die Anfrage gestellt hat und welche RP eine Verbindung herzustellen versucht.
+3. Die IdPs reagieren mit der angeforderten bekannten Datei und `config.json`-Dateien. Der Browser validiert die URL der Konfigurationsdatei in der `get()`-Anfrage gegen die Liste der gültigen Konfigurations-URLs in der bekannten Datei.
 
-   Alle über FedCM vom Browser gesendeten Anfragen enthalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header, um {{Glossary("CSRF", "CSRF")}}-Angriffe zu verhindern. Alle IdP-Endpunkte müssen bestätigen, dass dieser Header enthalten ist.
-
-3. Der IdP antwortet mit der angeforderten bekannten Datei und den `config.json`-Dateien. Der Browser validiert die Konfigurationsdatei-URL in der `get()`-Anfrage anhand der Liste der gültigen Konfigurations-URLs in der bekannten Datei.
-
-4. Wenn der Browser den [IdP-Anmeldestatus](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) auf `"eingeloggt"` gesetzt hat, stellt er eine autorisierte Anfrage (d.h. mit einem Cookie, das den angemeldeten Benutzer identifiziert) an den [`accounts_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) in der IdP-Konfigurationsdatei für die Kontodetails des Benutzers. Dies ist eine `GET`-Anfrage mit Cookies, jedoch ohne `client_id`-Parameter oder {{httpheader("Origin")}}-Header. Dies verhindert effektiv, dass der IdP erfährt, bei welcher RP sich der Benutzer anmelden möchte. Infolgedessen ist die Liste der zurückgegebenen Konten RP-agnostisch.
+4. Wenn der Browser einen [Anmeldestatus eines IdPs](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) auf `"logged-in"` gesetzt hat, macht er eine berechtigte Anfrage (d.h. mit einem Cookie, das den angemeldeten Benutzer identifiziert) an den [`accounts_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) innerhalb der IdP-Konfigurationsdatei für die Benutzerdetails. Dies ist eine `GET`-Anfrage mit Cookies, aber ohne `client_id`-Parameter oder den {{httpheader("Origin")}}-Header. Dies verhindert effektiv, dass IdPs herausfinden, bei welcher RP sich der Benutzer anmelden möchte. Infolgedessen ist die Liste der zurückgegebenen Konten RP-agnostisch.
 
    > [!NOTE]
-   > Wenn der IdP-Anmeldestatus `"logged-out"` ist, lehnt der `get()`-Aufruf mit einem `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException) ab und es wird keine Anfrage an den `accounts_endpoint` des IdP gestellt. In diesem Fall liegt es am Entwickler, den Fluss zu steuern, zum Beispiel indem er den Benutzer auffordert, sich beim richtigen IdP anzumelden. Beachten Sie, dass es eine gewisse Verzögerung bei der Ablehnung geben kann, um zu verhindern, dass der Anmeldestatus des IdP an die RP weitergegeben wird.
+   > Wenn der Anmeldestatus der IdPs alle auf `"logged-out"` sind, lehnt der `get()`-Aufruf mit einem `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException) ab und es wird keine Anfrage an den `accounts_endpoint` eines IdPs gesendet. In diesem Fall liegt es am Entwickler, den Ablauf zu handhaben, zum Beispiel indem er den Benutzer auffordert, sich bei einem geeigneten IdP anzumelden. Beachten Sie, dass es zu einigen Verzögerungen bei der Ablehnung kommen kann, um das Durchsickern des IdP-Anmeldestatus zur RP zu vermeiden.
 
-5. Der IdP antwortet mit den angeforderten Kontoinformationen vom `accounts_endpoint`. Dies ist ein Array aller Konten, die mit den IdP-Cookies des Benutzers für alle RPs, die mit dem IdP verbunden sind, assoziiert sind.
+5. Die IdPs reagieren mit den angeforderten Kontoinformationen von ihren `accounts_endpoint`s. Dies sind Arrays aller Konten, die mit den IdP-Cookies des Benutzers für alle RPs verbunden sind, die mit einem IdP verbunden sind.
 
-6. {{optional_inline}} Wenn in der IdP-Konfigurationsdatei enthalten, sendet der Browser eine nicht autorisierte Anfrage an den [`client_metadata_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_client_metadata_endpoint) für die Lage der RP-Servicebedingungen und Datenschutzrichtlinienseiten. Dies ist eine `GET`-Anfrage, die mit dem als Parameter in den `get()`-Aufruf übergebenen `clientId` gesendet wird, ohne Cookies.
+6. {{optional_inline}} Wenn in einer IdP-Konfigurationsdatei enthalten, macht der Browser eine unberechtigte Anfrage an den [`client_metadata_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_client_metadata_endpoint) für den Standort der Seiten mit den Allgemeinen Geschäftsbedingungen und der Datenschutzrichtlinie der RP. Dies ist eine `GET`-Anfrage, die mit der `clientId`, die in den `get()`-Aufruf als Parameter übergeben wurde, und ohne Cookies gesendet wird.
 
-7. {{optional_inline}} Der IdP antwortet mit den angeforderten URLs vom `client_metadata_endpoint`.
+7. {{optional_inline}} Die IdPs antworten mit den von `client_metadata_endpoint` angeforderten URLs.
 
-8. Der Browser verwendet die Informationen aus den vorherigen beiden Anfragen, um die Benutzeroberfläche zu erstellen, die den Benutzer auffordert, ein Konto auszuwählen, mit dem er sich bei der RP anmelden möchte (für den Fall, dass mehr als eines verfügbar ist). Die Benutzeroberfläche bittet den Benutzer auch um Erlaubnis, sich mit ihrem gewählten föderierten IdP-Konto bei der RP anzumelden.
+8. Der Browser verwendet die durch die vorhergehenden zwei Anfragen erhaltenen Informationen, um die Benutzeroberfläche zu erstellen, die den Benutzer dazu auffordert, einen IdP auszuwählen (falls mehr als einer angemeldet ist) und ein Konto auszuwählen, um sich bei der RP anzumelden. Die Benutzeroberfläche fordert den Benutzer auch dazu auf, die Erlaubnis zu erteilen, sich bei der RP mit ihrem ausgewählten federierten IdP-Konto anzumelden.
 
    > [!NOTE]
-   > In diesem Stadium, wenn sich der Benutzer zuvor bei einem föderierten RP-Konto in der aktuellen Browserinstanz authentifiziert hat (d.h. ein neues Konto bei der RP erstellt oder sich mit einem bestehenden Konto auf der RP-Website angemeldet hat), ist es ihm möglich, sich **auto-authentifizieren** zu lassen, abhängig davon, was die [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option im `get()`-Aufruf eingestellt hat. Wenn es so ist, wird der Benutzer automatisch ohne Eingabe seiner Anmeldedaten angemeldet, sobald `get()` aufgerufen wird. Weitere Details finden Sie im Abschnitt [Auto-authentication](#automatische_reauthentifizierung).
+   > In diesem Stadium, wenn der Benutzer zuvor in der aktuellen Browserinstanz mit einem federierten RP-Konto authentifiziert wurde (das heißt, ein neues Konto mit der RP erstellt oder sich auf der RP-Webseite mit einem vorhandenen Konto angemeldet hat), könnte es möglich sein, **automatisch erneut zu authentifizieren**, abhängig davon, auf welche Option [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) im `get()`-Aufruf gesetzt wurde. Wenn ja, wird der Benutzer automatisch angemeldet, ohne seine Anmeldeinformationen einzugeben, sobald `get()` aufgerufen wird. Siehe den Abschnitt [Automatische Neuauthentifizierung](#automatische_neuauthentifizierung) für weitere Details.
 
-9. Wenn der Benutzer die Erlaubnis erteilt, sendet der Browser eine autorisierte Anfrage an den [`id_assertion_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint), um vom IdP ein Validierungstoken für das ausgewählte Konto anzufordern.
+9. Wenn der Benutzer die Erlaubnis erteilt, sendet der Browser eine berechtigte Anfrage an den [`id_assertion_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint), um ein Validierungstoken vom ausgewählten IdP für das ausgewählte Konto anzufordern.
 
-   Die Anmeldedaten werden in einer HTTP-`POST`-Anfrage mit Cookies und einem Inhaltstyp von `application/x-www-form-urlencoded` gesendet.
+   Die Anmeldeinformationen werden in einer HTTP [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfrage mit Cookies und einem Content-Type von `application/x-www-form-urlencoded` gesendet.
 
-   Wenn der Aufruf fehlschlägt, wird eine Fehlernutzlast zurückgegeben, wie in [ID-Bestätigungsfehlerantworten](/de/docs/Web/API/FedCM_API/IDP_integration#id_assertion_error_responses) erläutert wird, und das von `get()` zurückgegebene Versprechen wird mit dem Fehler abgelehnt.
+   Wenn der Aufruf fehlschlägt, wird eine Fehlermeldung wie in [ID-Ausstellungsfehlerantworten](/de/docs/Web/API/FedCM_API/IDP_integration#id_assertion_error_responses) erklärt zurückgegeben und das Versprechen, das von `get()` zurückgegeben wird, wird mit dem Fehler abgelehnt.
 
-10. Der IdP überprüft, ob die von der RP gesendete Konto-ID mit der ID des bereits angemeldeten Kontos übereinstimmt und ob der `Origin` mit dem Ursprung der RP übereinstimmt, der im Voraus beim IdP registriert wurde. Wenn alles in Ordnung ist, antwortet er mit dem angeforderten Validierungstoken.
+10. Der gewählte IdP überprüft, ob die von der RP gesendete Konto-ID mit der ID des bereits angemeldeten Kontos übereinstimmt, und ob der `Origin` mit dem Ursprung der RP übereinstimmt, der im Voraus beim IdP registriert wurde. Wenn alles in Ordnung ist, antwortet er mit dem angeforderten Validierungstoken.
 
     > [!NOTE]
-    > Der Ursprung der RP wird in einem völlig separaten Prozess registriert, wenn die RP erstmals mit dem IdP integriert wird. Dieser Prozess ist für jeden IdP spezifisch.
+    > Der Ursprung der RP wird in einem völlig separaten Prozess bei dem IdP registriert, wenn die RP erstmals mit dem IdP integriert wird. Dieser Prozess ist spezifisch für jeden IdP.
 
-11. Wenn der Fluss abgeschlossen ist, löst das `get()`-Versprechen mit einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt aus, das weitere RP-Funktionalitäten bietet. Am bemerkenswertesten ist, dass dieses Objekt ein Token enthält, das die RP verifizieren kann, dass es vom IdP stammt (mithilfe eines Zertifikats) und das vertrauenswürdige Informationen über den angemeldeten Benutzer enthält. Sobald die RP das Token validiert hat, kann sie die darin enthaltenen Informationen verwenden, um den Benutzer anzumelden und eine neue Sitzung zu starten, ihn bei ihrem Dienst anzumelden usw. Das Format und die Struktur des Tokens hängen vom IdP ab und haben nichts mit der FedCM-API zu tun (die RP muss den Anweisungen des IdP folgen).
+11. Wenn der Ablauf abgeschlossen ist, löst sich das `get()`-Versprechen mit einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt auf, das weitere RP-Funktionalität bereitstellt. Besonders bemerkenswert ist, dass dieses Objekt ein Token enthält, das die RP überprüfen kann, dass es vom IdP stammt (unter Verwendung eines Zertifikats) und das vertrauenswürdige Informationen über den angemeldeten Benutzer enthält. Nachdem die RP das Token validiert hat, kann sie die enthaltenen Informationen verwenden, um den Benutzer anzumelden und eine neue Sitzung zu starten, ihn für ihren Dienst zu registrieren usw. Das Format und die Struktur des Tokens hängen vom IdP ab und haben nichts mit der FedCM API zu tun (die RP muss den Anweisungen des IdPs folgen).
 
-## Automatische Reauthentifizierung
+## Aktiver versus passiver Modus
 
-FedCM ermöglicht die automatische Reauthentifizierung, indem Benutzer sich automatisch wieder authentifizieren können, wenn sie versuchen, sich nach ihrer anfänglichen Authentifizierung mit FedCM erneut bei einer RP anzumelden. "Anfängliche Authentifizierung" bezieht sich auf den Zeitpunkt, zu dem der Benutzer ein Konto erstellt oder sich über das FedCM-Anmeldedialogfeld zum ersten Mal auf der RP-Website im selben Browser anmeldet.
+Es gibt zwei verschiedene UI-Modi, die der Browser einer RP-Benutzers anbieten kann, wenn sie sich über die FedCM API anmelden, **`active`** und **`passive`** Modus. Welcher Modus für die Anmeldung verwendet wird, wird durch die Option [`mode`](/de/docs/Web/API/IdentityCredentialRequestOptions#mode) des `identity`-Objekts gesteuert:
 
-Nach der anfänglichen Authentifizierung kann die automatische Reauthentifizierung genutzt werden, um sich erneut automatisch auf der RP-Website anzumelden, ohne dass dem Benutzer eine "Weiter als..."-Bestätigung angezeigt werden muss. Wenn der Benutzer kürzlich die Erlaubnis erteilt hat, eine föderierte Anmeldung mit einem bestimmten Konto durchzuführen, gibt es keinen Datenschutz- oder Sicherheitsvorteil, eine sofortige weitere ausdrückliche Benutzerbestätigung zu erzwingen.
+```js
+async function signIn() {
+  const identityCredential = await navigator.credentials.get({
+    identity: {
+      mode: active,
+      providers: [
+        {
+          configURL: "https://accounts.idp.example/config.json",
+          clientId: "********",
+        },
+      ],
+    },
+  });
+}
+```
 
-Das Verhalten der automatischen Reauthentifizierung wird durch die [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option im `get()`-Aufruf gesteuert:
+Der Standardwert für `mode` ist `passive`. Wenn `mode` nicht gesetzt ist oder explizit auf `passive` gesetzt wurde, kann der Browser den Anmeldeprozess über einen `get()`-Aufruf ohne direkte Benutzerinteraktion initiieren. Zum Beispiel, Sie könnten den Anmeldeprozess initiieren wollen, sobald der Benutzer zur Anmeldeseite navigiert, vorausgesetzt er hat IdP-Konten zur Anmeldung. In diesem Modus präsentieren Browser dem Benutzer typischerweise ein Anmeldefenster mit allen verschiedenen Anmeldeoptionen, die im `providers`-Objekt angegeben sind, und sie können diejenige auswählen, die ihnen am besten passt, und dann die entsprechenden Anmeldeinformationen eingeben.
+
+Wenn `mode` auf `active` gesetzt ist, erfordert der Browser, dass der Anmeldeprozess durch eine Benutzeraktion wie das Klicken auf eine Schaltfläche initiiert wird ({{Glossary("transient_activation", "transiente Aktivierung")}} ist erforderlich), und das `providers`-Objekt darf nur eine Länge von `1` haben, ansonsten wird das `get()`-Promise abgelehnt. Dieser Modus wird typischerweise verwendet, wenn die RP eine separate Schaltfläche für jede IdP-Auswahl bereitstellen möchte. Wenn der Benutzer auf eine dieser Schaltflächen klickt, erscheint ein vereinfachtes Dialogfenster, das nur die Eingabe der Anmeldeinformationen für dieses Konto erfordert.
+
+Siehe [FedCM UI-Modi](https://privacysandbox.google.com/cookies/fedcm/why#fedcm_ui_modes) auf privacysandbox.google.com für ein Beispiel, wie die verschiedenen UI-Modi in Google Chrome präsentiert werden.
+
+## Automatische Neuauthentifizierung
+
+Die FedCM-Automatische-Neuauthentifizierung erlaubt es Benutzern, sich automatisch erneut zu authentifizieren, wenn sie versuchen, sich erneut bei einer RP anzumelden, nachdem sie sich initial mit FedCM authentifiziert haben. "Initiale Authentifizierung" bezieht sich darauf, wann der Benutzer ein Konto erstellt oder sich zum ersten Mal auf der Webseite der RP über das FedCM-Anmeldedialog bei der RP anmeldet, in derselben Browserinstanz.
+
+Nach der initialen Authentifizierung kann die automatische Neuauthentifizierung verwendet werden, um sich erneut automatisch auf der RP-Webseite anzumelden, ohne dem Benutzer eine "Fortfahren als..."-Bestätigungsaufforderung zeigen zu müssen. Wenn der Benutzer kürzlich die Erlaubnis erteilt hat, das federierte Anmelden mit einem bestimmten Konto durchzuführen, gibt es keinen Datenschutz- oder Sicherheitsvorteil, eine weitere explizite Benutzerbestätigung sofort zu erzwingen.
+
+Das Verhalten der automatischen Neuauthentifizierung wird durch die Option [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) im `get()`-Aufruf gesteuert:
 
 ```js
 async function signIn() {
@@ -132,25 +157,40 @@ async function signIn() {
 }
 ```
 
-Die automatische Reauthentifizierung kann erfolgen, wenn `mediation` auf `optional` oder `silent` gesetzt ist.
+Die automatische Neuauthentifizierung kann erfolgen, wenn `mediation` auf `optional` oder `silent` gesetzt ist.
 
-Mit diesen `mediation`-Optionen tritt die automatische Reauthentifizierung unter folgenden Bedingungen auf:
+Mit diesen `mediation`-Optionen erfolgt die automatische Neuauthentifizierung unter den folgenden Bedingungen:
 
-- FedCM steht zur Nutzung zur Verfügung. Zum Beispiel hat der Benutzer FedCM nicht global oder in den Einstellungen der RP deaktiviert.
-- Der Benutzer hat sich nur mit einem Konto über FedCM auf dieser Browserinstanz auf der RP-Website angemeldet.
-- Der Benutzer ist mit diesem Konto beim IdP angemeldet.
-- Die automatische Reauthentifizierung fand nicht in den letzten 10 Minuten statt. Diese Einschränkung dient dazu, zu verhindern, dass Benutzer sofort nach dem Abmelden automatisch wieder authentifiziert werden, was zu einer ziemlich verwirrenden Benutzererfahrung führen würde.
-- Die RP hat nach der vorherigen Anmeldung nicht [`preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess) aufgerufen. Dies kann von einer RP verwendet werden, um die automatische Reauthentifizierung explizit zu deaktivieren, wenn gewünscht.
+- FedCM steht zur Verfügung. Zum Beispiel hat der Benutzer FedCM weder global noch in den Einstellungen der RP deaktiviert.
+- Der Benutzer hat nur ein Konto verwendet, um sich über FedCM im Browser auf der Webseite der RP anzumelden. Wenn Konten für mehrere IdPs existieren, wird der Benutzer nicht automatisch neu authentifiziert.
+- Der Benutzer ist bei dem IdP mit diesem Konto angemeldet.
+- Die automatische Neuauthentifizierung fand nicht innerhalb der letzten 10 Minuten statt. Diese Einschränkung wird vorgenommen, um zu verhindern, dass Benutzer unmittelbar nach dem Abmelden automatisch neu authentifiziert werden — was eine ziemlich verwirrende Benutzererfahrung darstellen würde.
+- Die RP hat nicht [`preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess) nach der vorherigen Anmeldung aufgerufen. Dies kann von einer RP verwendet werden, um die automatische Neuauthentifizierung bei Bedarf explizit zu deaktivieren.
+- Der UI-Modus ist [passiv]().
 
-Wenn diese Bedingungen erfüllt sind, wird ein Versuch gestartet, den Benutzer automatisch erneut zu authentifizieren, sobald `get()` aufgerufen wird. Wenn die automatische Reauthentifizierung erfolgreich ist, wird der Benutzer erneut auf der RP-Website angemeldet, ohne dass ihm ein Bestätigungsdialogfeld angezeigt wird, wobei dasselbe IdP-Konto und das validierte Token wie zuvor verwendet werden.
+Wenn diese Bedingungen erfüllt sind, wird versucht, den Benutzer automatisch erneut zu authentifizieren, sobald `get()` aufgerufen wird. Wenn die automatische Neuauthentifizierung erfolgreich ist, wird der Benutzer erneut auf der RP-Seite angemeldet, ohne dass ihm eine Bestätigungsaufforderung angezeigt wird, und verwendet dasselbe IdP-Konto und validierte Token wie zuvor.
 
-Wenn die automatische Reauthentifizierung fehlschlägt, hängt das Verhalten von dem gewählten `mediation`-Wert ab:
+Wenn die automatische Neuauthentifizierung fehlschlägt, hängt das Verhalten vom gewählten `mediation`-Wert ab:
 
-- `optional`: dem Benutzer _wird_ der Dialog angezeigt und er wird erneut um Bestätigung gebeten. Infolgedessen macht es meist Sinn, diese Option auf einer Seite zu verwenden, auf der eine Benutzerreise nicht mitten im Fluss ist, wie auf einer RP-Anmeldeseite.
-- `silent`: Das `get()`-Versprechen wird abgelehnt, und der Entwickler muss den Benutzer zur Anmeldeseite zurückführen, um den Prozess von neuem zu starten. Diese Option ergibt auf Seiten Sinn, auf denen sich eine Benutzerreise im Fluss befindet und Sie ihn bis zum Abschluss angemeldet halten müssen, zum Beispiel auf den Seiten eines Checkout-Flows auf einer E-Commerce-Website.
+- `optional`: dem Benutzer _wird_ das Dialogfenster angezeigt und er wird erneut um Bestätigung gebeten. Daraus ergibt sich, dass sich diese Option idealerweise auf einer Seite eignet, auf der sich der Benutzer nicht gerade mitten im Ablauf befindet, wie eine RP-Anmeldeseite.
+- `silent`: Das `get()`-Promise wird abgelehnt und der Entwickler muss den Benutzer zur Anmeldeseite leiten, um den Prozess erneut zu starten. Diese Option macht auf Seiten Sinn, wo der Nutzerfluss im Gange ist und Sie den Benutzer bis zur Fertigstellung angemeldet halten müssen, beispielsweise die Seiten eines Checkout-Ablaufs auf einer E-Commerce-Webseite.
 
 > [!NOTE]
-> Die [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected)-Eigenschaft gibt an, ob die föderierte Anmeldung mit einer automatischen Reauthentifizierung durchgeführt wurde. Dies ist hilfreich, um die API-Leistung zu evaluieren und das Benutzererlebnis entsprechend zu verbessern. Außerdem könnte der Benutzer, wenn sie nicht verfügbar ist, mit einer expliziten Benutzervermittlung zur Anmeldung aufgefordert werden, was ein `get()`-Aufruf mit `mediation: required` ist.
+> Die [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected)-Eigenschaft gibt einen Hinweis darauf, ob die föderierte Anmeldung mithilfe der automatischen Neuauthentifizierung durchgeführt wurde. Dies ist hilfreich, um die API-Leistung zu evaluieren und die Benutzererfahrung entsprechend zu verbessern. Auch wenn sie nicht verfügbar ist, wird der Benutzer möglicherweise aufgefordert, sich mit einer expliziten Benutzersteuerung anzumelden, was ein `get()`-Aufruf mit `mediation: required` ist.
+
+## Trennen einer föderierten Anmeldung
+
+Die RP kann ein angegebenes föderiertes Anmeldekonto vom zugehörigen IdP trennen, indem sie [`IdentityCredential.disconnect()`](/de/docs/Web/API/IdentityCredential/disconnect_static) aufruft. Diese Funktion kann aus einem Top-Level-RP-Frame aufgerufen werden.
+
+```js
+IdentityCredential.disconnect({
+  configURL: "https://idp.example.com/config.json",
+  clientId: "rp123",
+  accountHint: "account456",
+});
+```
+
+Damit ein `disconnect()`-Aufruf funktioniert, muss der IdP einen [`disconnect_endpoint`](/docs/Web/API/FedCM_API/IDP_integration#disconnect_endpoint) in seiner Konfigurationsdatei enthalten. Siehe [Der Disconnect-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_disconnect_endpoint) für weitere Details zur zugrunde liegenden HTTP-Kommunikation.
 
 ## Siehe auch
 
