@@ -1,14 +1,15 @@
 ---
-title: "Element: remove()-Methode"
+title: "Element: remove() Methode"
 short-title: remove()
 slug: Web/API/Element/remove
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 04abc9f51d485a5ad2c4c59bdd1511464d14e78f
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.remove()`**-Methode entfernt das Element aus dem DOM.
+Die **`Element.remove()`** Methode entfernt das Element von seinem übergeordneten Knoten.
+Wenn es keinen übergeordneten Knoten hat, bewirkt der Aufruf von `remove()` nichts.
 
 ## Syntax
 
@@ -39,9 +40,9 @@ const element = document.getElementById("div-02");
 element.remove(); // Removes the div with the 'div-02' id
 ```
 
-### `Element.remove()` ist nicht umgrenzbar
+### `Element.remove()` ist unscopable
 
-Die `remove()`-Methode wird nicht in die `with`-Anweisung eingebunden.
+Die `remove()` Methode wird nicht in die `with` Anweisung einbezogen.
 Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js
