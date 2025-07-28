@@ -3,16 +3,16 @@ title: "GPUDevice: adapterInfo-Eigenschaft"
 short-title: adapterInfo
 slug: Web/API/GPUDevice/adapterInfo
 l10n:
-  sourceCommit: ec1cb9e541bd5df1e86e17dd4f098781e5b6804b
+  sourceCommit: 66f1ba7918610f1145cde4a1d2d7ecb3baea5f65
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`adapterInfo`**-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt ein [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt zurück, das Identifikationsinformationen über den Ursprungsadapter des Geräts enthält.
+Die **`adapterInfo`** Nur-Lese-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt ein [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt zurück, das identifizierende Informationen über den Adapter des Geräts enthält.
 
 ## Wert
 
-Eine Instanz eines [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekts.
+Eine Instanz des [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekts.
 
 ## Beispiele
 
