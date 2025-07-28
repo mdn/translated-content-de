@@ -2,10 +2,10 @@
 title: :active-view-transition
 slug: Web/CSS/:active-view-transition
 l10n:
-  sourceCommit: 462dc4b2f5c9eaef94d21da0f37ec3bf977c5592
+  sourceCommit: 90e5b796c5741c209aaa674e9ff86d4d7c8e0427
 ---
 
-Die **`:active-view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wird auf das Wurzelelement eines Dokuments angewendet, wenn ein [Ansichtsübergang](/de/docs/Web/API/View_Transition_API#concepts_and_usage) (_active_) im Gange ist und sie hört auf zu greifen, sobald der Übergang abgeschlossen ist.
+Die **`:active-view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft auf das Wurzelelement eines Dokuments zu, wenn ein [View-Transition](/de/docs/Web/API/View_Transition_API#concepts_and_usage) im Gange ist (_aktiv_) und hört auf zuzutreffen, sobald die Transition abgeschlossen ist.
 
 ## Syntax
 
@@ -17,9 +17,9 @@ Die **`:active-view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/doc
 
 ## Beispiele
 
-### Stilierung eines aktiven Ansichtsübergangs
+### Styling einer aktiven View-Transition
 
-Dieses Beispiel baut auf dem [Angleichungsübergang innerhalb desselben Dokuments](/de/docs/Web/API/Document/startViewTransition#same-document_view_transition) auf der `startViewTransition`-Seite auf.
+Dieses Beispiel basiert auf das [same-document view transition](/de/docs/Web/API/Document/startViewTransition#using_a_same-document_view_transition) Beispiel auf der `startViewTransition`-Seite.
 
 ```html
 <main>
@@ -30,8 +30,7 @@ Dieses Beispiel baut auf dem [Angleichungsübergang innerhalb desselben Dokument
 </main>
 ```
 
-Ein `<h2>`-Element hat zunächst einen `display: none`-Stil, und dieser wird durch die `:active-view-transition`-Pseudoklasse überschrieben, indem der Stil des `<h2>`-Elements auf `display: block` gesetzt wird.
-Der Button wird mit `visibility: hidden` versteckt, wenn der Ansichtsübergang im Gange ist:
+Ein `<h2>`-Element hat anfänglich einen Stil von `display: none`, und dies wird überschrieben durch die Verwendung der `:active-view-transition` Pseudoklasse, die den `<h2>`-Stil auf `display: block` setzt. Der Button wird mittels `visibility: hidden` ausgeblendet, wenn die View-Transition im Gange ist:
 
 ```css hidden
 html {

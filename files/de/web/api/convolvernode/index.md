@@ -2,15 +2,15 @@
 title: ConvolverNode
 slug: Web/API/ConvolverNode
 l10n:
-  sourceCommit: e0ffae60f27e8842a53936038d4b1ddb290591c0
+  sourceCommit: 90e5b796c5741c209aaa674e9ff86d4d7c8e0427
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das `ConvolverNode`-Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine lineare Faltung auf einem gegebenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) durchführt, oft um einen Nachhalleffekt zu erzielen. Ein `ConvolverNode` hat immer genau einen Eingang und einen Ausgang.
+Das `ConvolverNode`-Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine lineare Faltung auf einem gegebenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) durchführt und häufig zur Erzielung eines Hall-Effekts verwendet wird. Ein `ConvolverNode` hat immer genau einen Eingang und einen Ausgang.
 
 > [!NOTE]
-> Für weitere Informationen zur Theorie hinter der linearen Faltung, siehe den [Artikel über Faltung auf Wikipedia](https://de.wikipedia.org/wiki/Faltung).
+> Für weitere Informationen zur Theorie hinter der linearen Faltung siehe den [Wikipedia-Artikel zur Faltung](<https://de.wikipedia.org/wiki/Faltung_(Mathematik)>).
 
 {{InheritanceDiagram}}
 
@@ -25,15 +25,15 @@ Das `ConvolverNode`-Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode),
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel count mode</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"clamped-max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel count</th>
+      <th scope="row">Kanalanzahl</th>
       <td><code>1</code>, <code>2</code> oder <code>4</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel interpretation</th>
+      <th scope="row">Kanalauslegung</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -42,24 +42,24 @@ Das `ConvolverNode`-Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode),
 ## Konstruktor
 
 - [`ConvolverNode()`](/de/docs/Web/API/ConvolverNode/ConvolverNode)
-  - : Erstellt eine neue Instanz des `ConvolverNode`-Objekts.
+  - : Erstellt eine neue Instanz eines `ConvolverNode`-Objekts.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt Eigenschaften vom Elternteil [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`ConvolverNode.buffer`](/de/docs/Web/API/ConvolverNode/buffer)
-  - : Ein mono, stereo oder 4-Kanal _[`AudioBuffer`](/de/docs/Web/API/AudioBuffer)_, der die (möglicherweise mehrkanalige) Impulsantwort enthält, die vom `ConvolverNode` zur Erstellung des Nachhalleffekts verwendet wird.
+  - : Ein mono-, stereo- oder 4-Kanal- _[`AudioBuffer`](/de/docs/Web/API/AudioBuffer)_, das das (möglicherweise mehrkanalige) Impulsantwortsignal enthält, das vom `ConvolverNode` zur Erzeugung des Hall-Effekts verwendet wird.
 - [`ConvolverNode.normalize`](/de/docs/Web/API/ConvolverNode/normalize)
-  - : Ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Puffer mit einer Gleichstrom-Normalisierung skaliert wird, wenn das `buffer`-Attribut gesetzt ist, oder nicht.
+  - : Ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Puffer bei der Einstellung des `buffer`-Attributs durch eine gleichwertige Leistungsverstärkung skaliert wird oder nicht.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifische Methode; erbt Methoden vom Elternteil [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-## Beispiel für ConvolverNode
+## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Convolver-Nodes. Sie müssen eine Impulsantwort finden, um das unten stehende Beispiel abzuschließen. Sehen Sie sich unser [HolySpaceCow](https://mdn.github.io/webaudio-examples/holy-space-cow)-Beispiel für ein vollständiges, angewandtes Beispiel an.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zum Erstellen eines Convolver-Knotens. Sie müssen ein Impulsantwortsignal finden, um das folgende Beispiel zu vervollständigen. Siehe unser Beispiel [HolySpaceCow](https://mdn.github.io/webaudio-examples/holy-space-cow/) für ein vollständiges, angewandtes Beispiel.
 
 ```js
 let audioCtx = new window.AudioContext();

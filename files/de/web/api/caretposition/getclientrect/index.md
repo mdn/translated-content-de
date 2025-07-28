@@ -1,12 +1,14 @@
 ---
-title: "CaretPosition: Methode getClientRect()"
+title: "CaretPosition: getClientRect()-Methode"
 short-title: getClientRect()
 slug: Web/API/CaretPosition/getClientRect
 l10n:
-  sourceCommit: 1dd95ade52a35667c940948e5e69eae2bf42cdab
+  sourceCommit: 90e5b796c5741c209aaa674e9ff86d4d7c8e0427
 ---
 
-Die Methode `getClientRect()` der Schnittstelle [`CaretPosition`](/de/docs/Web/API/CaretPosition) gibt das Client-Rechteck für den Bereich des Cursors zurück.
+{{APIRef("CSSOM")}}
+
+Die `getClientRect()`-Methode der [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Schnittstelle gibt das Client-Rechteck für den Caret-Bereich zurück.
 
 ## Syntax
 
@@ -24,13 +26,19 @@ Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt.
 
 ## Beispiele
 
-### Die Bildschirmposition des Cursors ermitteln
+### Bildschirmposition des Carets erhalten
 
 ```html
-<input
-  aria-label="text field"
-  value="Click inside this input field"
-  style="width: 100%; padding: 10px; font-size: 16px; box-sizing: border-box" />
+<input aria-label="text field" value="Click inside this input field" />
+```
+
+```css
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
 ```
 
 ```js
