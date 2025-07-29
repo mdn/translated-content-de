@@ -1,14 +1,14 @@
 ---
-title: "CaretPosition: getClientRect()-Methode"
+title: "CaretPosition: getClientRect() Methode"
 short-title: getClientRect()
 slug: Web/API/CaretPosition/getClientRect
 l10n:
-  sourceCommit: 90e5b796c5741c209aaa674e9ff86d4d7c8e0427
+  sourceCommit: ce31fcc3aced95a022db44b8b83f96221a10a5fd
 ---
 
 {{APIRef("CSSOM")}}
 
-Die `getClientRect()`-Methode der [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Schnittstelle gibt das Client-Rechteck für den Caret-Bereich zurück.
+Die `getClientRect()` Methode der [`CaretPosition`](/de/docs/Web/API/CaretPosition) Schnittstelle gibt das Client-Rechteck für den Caret-Bereich zurück.
 
 ## Syntax
 
@@ -22,22 +22,33 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt.
+Ein [`DOMRect`](/de/docs/Web/API/DOMRect) Objekt.
 
 ## Beispiele
 
-### Bildschirmposition des Carets erhalten
+### Die Bildschirmposition des Carets bestimmen
 
 ```html
 <input aria-label="text field" value="Click inside this input field" />
 ```
 
-```css
+```html hidden
+<pre id="log"></pre>
+```
+
+```css hidden
 input {
   width: 100%;
   padding: 10px;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+#log {
+  height: 200px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
 }
 ```
 
@@ -47,16 +58,27 @@ document.querySelector("input").addEventListener("click", (event) => {
   const y = event.clientY;
 
   const caret = document.caretPositionFromPoint?.(x, y);
-  if (!caret) return;
+  if (!caret) {
+    log("Not supported");
+    return;
+  }
 
   const rect = caret.getClientRect();
 
-  console.dir("Caret bounding rect:", rect);
-  console.log(`Caret is at (${rect.x.toFixed(2)}, ${rect.y.toFixed(2)})`);
+  log(`Caret bounding rect: ${JSON.stringify(rect)}`);
+  log(`Caret is at (${rect.x.toFixed(2)}, ${rect.y.toFixed(2)})`);
 });
 ```
 
-{{EmbedLiveSample("get_client_rect", "", 300)}}
+```js hidden
+const logElement = document.querySelector("#log");
+function log(text) {
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
+```
+
+{{EmbedLiveSample("Die Bildschirmposition des Carets bestimmen", "", 300)}}
 
 ## Spezifikationen
 

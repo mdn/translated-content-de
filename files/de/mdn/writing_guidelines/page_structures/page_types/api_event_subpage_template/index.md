@@ -1,18 +1,19 @@
 ---
-title: Vorlagenunterseite für API-Ereignisse
+title: API-Ereignisse-Unterseite Vorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/API_event_subpage_template
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: f4c0e822eb6a1ea438c7342f43a3e4809adbd56a
 ---
 
-> [!NOTE] > _Entfernen Sie diese gesamte erklärende Anmerkung vor der Veröffentlichung._
+> [!NOTE]
+> _Entfernen Sie diese gesamte erläuternde Anmerkung vor der Veröffentlichung._
 >
 > ---
 >
-> **Seitenanfang:**
+> **Seiten-Metadaten:**
 >
-> Der Seitenanfang oben auf der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
-> Die Werte sollten entsprechend für das jeweilige Ereignis aktualisiert werden.
+> Die Metadaten oben auf der Seite werden verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Werte sollten entsprechend dem jeweiligen Ereignis aktualisiert werden.
 >
 > ```md
 > ---
@@ -28,75 +29,74 @@ l10n:
 > ```
 >
 > - **title**
->   - : Der Titelkopf wird oben auf der Seite angezeigt.
->     Formatieren Sie ihn als "_NameOfTheParentInterface_**:** _NameOfTheEvent_ **event**".
->     Zum Beispiel hat das [animationcancel](/de/docs/Web/API/Element/animationcancel_event) Ereignis der [Window](/de/docs/Web/API/Window) Schnittstelle einen _title_ von `Window: animationcancel event`.
+>   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
+>     Formatieren Sie sie als "_NameOfTheParentInterface_**:** _NameOfTheEvent_ **event**".
+>     Zum Beispiel hat das [animationcancel](/de/docs/Web/API/Element/animationcancel_event)-Ereignis der [Window](/de/docs/Web/API/Window)-Schnittstelle einen _title_ von `Window: animationcancel event`.
 > - **slug**
 >   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
 >     Dies wird formatiert wie `Web/API/NameOfTheParentInterface/NameOfTheEvent_event`.
 > - **page-type**
->   - : Der `page-type`-Schlüssel für Web/API-Ereignisse ist immer `web-api-event`.
+>   - : Der `page-type` Key für Web/API-Ereignisse ist immer `web-api-event`.
 > - **status**
->   - : Flags, die den Status dieser Funktion beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch anhand der Werte in den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe [Wie Funktionsstatus hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Flags, die den Status dieser Funktion beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe [Wie Funktionsstatus hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
+>   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheEvent_event` durch den Abfrage-String für das Ereignis im [Browser compat data repo](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros).
 >
->   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheEvent_event` mit der Abfragezeichenfolge für das Ereignis im [Browser compat data repo](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (ersetzen der `\{{Compat}}` und `\{{Specifications}}` Makros).
->
->     Beachten Sie, dass Sie möglicherweise zunächst einen Eintrag für das Ereignis in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und dieser Eintrag muss Spezifikationsinformationen enthalten.
->     Siehe unseren [Leitfaden, wie Sie dies tun](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Ereignis in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und dieser Eintrag muss Spezifikationsinformationen enthalten.
+>     Siehe unseren [Leitfaden zur Erstellung eines solchen Eintrags](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > ---
 >
 > **Makros am Anfang der Seite**
 >
-> Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsbereichs (unmittelbar unterhalb der Seitenanfangsdaten).
+> Einige Makroaufrufe erscheinen am Anfang des Inhaltsabschnitts (unmittelbar unter den Seiten-Metadaten).
 >
-> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht erforderlich, diese hinzuzufügen/zu entfernen):
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht erforderlich, sie hinzuzufügen/zu entfernen):
 >
-> - `\{{SeeCompatTable}}` — dies erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es experimentell ist und die Technologie in Firefox hinter einem Präfix verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — dies erzeugt ein **Veraltet**-Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — dies erzeugt ein **Nicht standardmäßig**-Banner, das darauf hinweist, dass die Funktion nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — Dies erzeugt ein **Dies ist eine experimentelle Technologie** Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn sie experimentell ist und die Technologie hinter einem pref in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — Dies erzeugt ein **Veraltet** Banner, das anzeigt, dass die Verwendung der Technologie [abzuraten](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
+> - `\{{Non-standard_Header}}` — Dies erzeugt ein **Nicht standardmäßig** Banner, das anzeigt, dass die Funktion Teil keiner Spezifikation ist.
 >
-> Sie sollten das folgende Makro gemäß dem folgenden Hinweis aktualisieren oder löschen:
+> Sie sollten die folgenden Makros entsprechend den untenstehenden Ratschlägen aktualisieren oder löschen:
 >
-> - `\{{SecureContext_Header}}` — dies erzeugt ein **Sicherer Kontext**-Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+> - `\{{SecureContext_Header}}` — Dies erzeugt ein **Sicherer Kontext** Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
 >   Wenn dies nicht der Fall ist, können Sie den Makroaufruf entfernen.
->   Wenn dies der Fall ist, sollten Sie auch einen Eintrag dafür auf der Seite [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
-> - `\{{AvailableInWorkers}}` — dies erzeugt einen **Verfügbar in Workern**-Hinweis, der darauf hinweist, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
->   Wenn es nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen.
->   Wenn es auch im Worker-Kontext oder nur dort verfügbar ist, müssen Sie möglicherweise einen Parameter übergeben, um seine Verfügbarkeit anzugeben (siehe [\\{{AvailableInWorkers}} Makro-Quellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) für alle verfügbaren Werte), und Sie müssen möglicherweise auch einen Eintrag auf der Seite [Webapis verfügbar in Workern](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) ausfüllen.
-> - `\{{APIRef("GroupDataName")}}` — dies erzeugt die linksseitige Referenz-Sidebar mit schnellen Referenzlinks zur aktuellen Seite.
->   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Sidebar, die auf die anderen Seiten in der API verweist.
->   Um die richtige Sidebar für Ihre API zu erstellen, müssen Sie einen `GroupData`-Eintrag in unserem GitHub-Repo hinzufügen und den Eintragsnamen im Makroaufruf anstelle von _GroupDataName_ einfügen.
->   Siehe unseren [Leitfaden zu API-Referenz-Sidebars](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen, wie dies getan wird.
+>   Wenn doch, sollten Sie auch einen Eintrag dafür auf der Seite [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
+> - `\{{AvailableInWorkers}}` — Dies erzeugt eine **In Workern verfügbar** Notiz, die anzeigt, dass die Technologie im [Arbeiterkontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+>   Wenn sie nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen.
+>   Wenn sie auch im Arbeiterkontext oder nur im Arbeiterkontext verfügbar ist, müssen Sie möglicherweise aufgrund der Verfügbarkeit einen Parameter übergeben (siehe [\\{{AvailableInWorkers}} Makroquellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) für alle verfügbaren Werte), und Sie müssen möglicherweise einen Eintrag dafür auf der Seite [Web-APIs verfügbar in Workern](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) ausfüllen.
+> - `\{{APIRef("GroupDataName")}}` — Dies erzeugt die linke Referenzseitenleiste, die Schnellverweislinks enthält, die sich auf die aktuelle Seite beziehen.
+>   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Seitenleiste, die auf die anderen Seiten in der API hinweist.
+>   Um die korrekte Seitenleiste für Ihre API zu erzeugen, müssen Sie einen `GroupData`-Eintrag in unserem GitHub-Repo hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ einfügen.
+>   Siehe unseren [Leitfaden zu API-Referenz-Seitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen dazu, wie dies zu tun ist.
 >
-> Status-Header-Makros sollten nicht manuell bereitgestellt werden. Lesen Sie den Abschnitt ["Wie Funktionsstatus hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zu den Seiten hinzuzufügen.
+> Fügen Sie keine Status-Header-Makros manuell hinzu. Informieren Sie sich im Abschnitt ["Wie Funktionsstatus hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status der Seite hinzuzufügen.
 >
-> Beispiele der **Sicherer Kontext**, **Verfügbar in Workern**, **Experimentell**, **Veraltet** und **Nicht standardmäßig**-Banner werden direkt nach diesem Hinweisblock angezeigt.
+> Beispiele für die **Sicherer Kontext**, **In Arbeitern verfügbar**, **Experimentell**, **Veraltet** und **Nicht standardmäßig** Banner werden direkt nach diesem Anmerkungsblock gezeigt.
 >
 > ---
 >
-> **Link auf übergeordnetes Objekt**
+> **Verweis auf das übergeordnete Objekt**
 >
-> Fügen Sie einen Link zu dieser neuen Seite aus dem Abschnitt _Events_ des übergeordneten Objekts hinzu.
-> Zum Beispiel ist [Element: wheel event](/de/docs/Web/API/Element/wheel_event) aus [`Element` Events](/de/docs/Web/API/Element#events) verlinkt.
+> Fügen Sie einen Link zu dieser neuen Seite im _Ereignisse_-Abschnitt des übergeordneten Objekts hinzu.
+> Zum Beispiel ist [Element: wheel-Ereignis](/de/docs/Web/API/Element/wheel_event) aus [`Element` Ereignisse](/de/docs/Web/API/Element#events) verlinkt.
 >
-> Wenn das übergeordnete Objekt keinen _Events_-Abschnitt hat, dann fügen Sie einen hinzu.
-> Wenn es sich um eine neue "Klasse" von Ereignis handelt, sollten Sie einen Link zu diesem Abschnitt des übergeordneten Elements aus der [Ereignisreferenz](/de/docs/Web/Events) hinzufügen.
+> Wenn das übergeordnete Objekt keinen _Ereignisse_-Abschnitt hat, fügen Sie einen hinzu.
+> Wenn dies eine neue "Klasse" von Ereignissen ist, sollten Sie einen Link zu diesem Abschnitt von dem übergeordneten Objekt aus dem [DOM-Ereignisse](/de/docs/Web/API/Document_Object_Model/Events#event_index) Leitfaden hinzufügen.
 >
-> _Denken Sie daran, diese gesamte erklärende Anmerkung vor der Veröffentlichung zu entfernen._
+> _Denken Sie daran, diese gesamte erläuternde Anmerkung vor der Veröffentlichung zu entfernen._
 
 {{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie damit, das Ereignis zu benennen, welcher Schnittstelle es angehört und was es tut.
-Dies sollte idealerweise ein bis zwei kurze Sätze umfassen.
-Sie können das meiste davon von der Zusammenfassung der Eigenschaft auf der entsprechenden API-Referenzseite übernehmen.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie mit der Benennung des Ereignisses, geben Sie an, zu welcher Schnittstelle es gehört und was es tut.
+Dies sollte idealerweise ein oder zwei kurze Sätze sein.
+Sie könnten den größten Teil davon von der Zusammenfassung der Eigenschaft auf der entsprechenden API-Referenzseite kopieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("NameOfTheEvent", (event) => { })
@@ -110,7 +110,7 @@ Wenn das Ereignis einen speziellen Typ hat, erwähnen Sie ihn zusammen mit seine
 
 _Ein generisches [`Event`](/de/docs/Web/API/Event)._
 
-Oder, zum Beispiel:
+Oder zum Beispiel:
 
 _Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de/docs/Web/API/Event)._
 
@@ -118,17 +118,17 @@ _Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de
 
 ## Ereigniseigenschaften
 
-Wenn das Ereignis nicht nur ein generisches [`Event`](/de/docs/Web/API/Event) ist, listen Sie die zusätzlichen Eigenschaften auf, die das Ereignis hat.
+Wenn das Ereignis nicht nur ein generisches [`Event`](/de/docs/Web/API/Event) ist, listen Sie die zusätzlichen Eigenschaften des Ereignisses auf.
 
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`session`](/de/docs/Web/API/XRSessionEvent/session) {{ReadOnlyInline}}
   - : Die [`XRSession`](/de/docs/Web/API/XRSession), auf die sich das Ereignis bezieht.
 
 ## Beschreibung
 
-Wenn Sie zusätzlichen Text bereitstellen möchten (zu lang für die Zusammenfassung), fügen Sie einen Abschnitt "Beschreibung" hinzu.
-Dieser kann die Überschriften
+Wenn Sie zusätzlichen Text bereitstellen möchten (zu lang für die Zusammenfassung), fügen Sie einen Abschnitt Beschreibung hinzu.
+Er kann die Überschriften enthalten
 
 ### Auslöser
 
@@ -136,7 +136,7 @@ und
 
 ### Anwendungsfälle
 
-enthalten, die weitere Informationen bieten können.
+welche mehr Informationen bieten können.
 
 ## Beispiele
 
@@ -144,23 +144,23 @@ Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend sein, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend sein, was das Beispiel macht. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unseren Leitfaden, wie Sie [Code-Beispiele hinzufügen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben werden.
+> Manchmal möchten Sie auf Beispiele, die auf einer anderen Seite gegeben sind, verlinken.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und weitere Beispiele auf einer anderen Seite:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> ### Nutzung der Fetch-API
+> ### Die Fetch-API verwenden
 >
-> Beispiel für Fetch
+> Beispiel von Fetch
 >
 > ### Weitere Beispiele
 >
@@ -181,18 +181,18 @@ Siehe unseren Leitfaden, wie Sie [Code-Beispiele hinzufügen](/de/docs/MDN/Writi
 
 `\{{Specifications}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Rückstriche und Anführungszeichen in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Rückwärtsschrägstrich in der Markdown-Datei._
 
 ## Browser-Kompatibilität
 
 `\{{Compat}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Rückstriche und Anführungszeichen in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Rückwärtsschrägstrich in der Markdown-Datei._
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit der aktuellen API in Zusammenhang stehen. Für weitere Richtlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibrichtlinienleitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle API beziehen. Für weitere Richtlinien siehe den [Abschnitt "Siehe auch"](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
 
 - link1
 - link2
-- external_link (year)
+- external_link (Jahr)

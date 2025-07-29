@@ -2,12 +2,12 @@
 title: export
 slug: Web/JavaScript/Reference/Statements/export
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
 ---
 
-Die **`export`**-Deklaration wird verwendet, um Werte aus einem JavaScript-Modul zu exportieren. Exportierte Werte können dann in andere Programme mit der {{jsxref("Statements/import", "import")}}-Deklaration oder dem [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import) importiert werden. Der Wert einer importierten Bindung kann sich in dem Modul ändern, das ihn exportiert – wenn ein Modul den Wert einer Bindung aktualisiert, die es exportiert, ist die Änderung auch im importierten Wert sichtbar.
+Die **`export`**-Deklaration wird verwendet, um Werte aus einem JavaScript-Modul zu exportieren. Exportierte Werte können dann in andere Programme mit der {{jsxref("Statements/import", "import")}}-Deklaration oder durch [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import) importiert werden. Der Wert einer importierten Bindung kann sich im Modul, das es exportiert, ändern — wenn ein Modul den Wert einer Bindung aktualisiert, die es exportiert, wird die Aktualisierung im importierten Wert sichtbar.
 
-Um die `export`-Deklaration in einer Quelldatei zu verwenden, muss die Datei zur Laufzeit als [Modul](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. In HTML wird dies erreicht, indem dem {{HTMLElement("script")}}-Tag `type="module"` hinzugefügt wird, oder indem es von einem anderen Modul importiert wird. Module werden automatisch im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
+Um die `export`-Deklaration in einer Quelldatei zu verwenden, muss die Datei von der Laufzeit als [Modul](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. Dies wird in HTML durch das Hinzufügen von `type="module"` zum {{HTMLElement("script")}}-Tag erreicht oder indem die Datei von einem anderen Modul importiert wird. Module werden automatisch im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
 
 ## Syntax
 
@@ -46,13 +46,13 @@ export { default as name1 } from "module-name";
 ```
 
 - `nameN`
-  - : Bezeichner, der exportiert werden soll (damit er über {{jsxref("Statements/import", "import")}} in einem anderen Skript importiert werden kann). Wenn Sie einen Alias mit `as` verwenden, kann der tatsächlich exportierte Name als String-Literal angegeben werden, das möglicherweise kein gültiger Bezeichner ist.
+  - : Bezeichner, der exportiert werden soll (damit er über `import` in einem anderen Skript importiert werden kann). Wenn Sie ein Alias mit `as` verwenden, kann der tatsächlich exportierte Name als Zeichenfolgenliteral angegeben werden, das möglicherweise kein gültiger Bezeichner ist.
 
 ## Beschreibung
 
-Jedes Modul kann zwei verschiedene Arten von Exporten haben: _named export_ und _default export_. Sie können mehrere benannte Exporte pro Modul haben, aber nur einen Standardexport. Jede Art entspricht einer der obigen Syntaxen.
+Jedes Modul kann zwei verschiedene Arten von Exporten haben: _Named Export_ und _Default Export_. Sie können mehrere Named Exports pro Modul haben, aber nur einen Default Export. Jeder Type entspricht einer der obigen Syntaxe.
 
-Benannte Exporte:
+Named Exports:
 
 ```js
 // export features declared elsewhere
@@ -66,9 +66,19 @@ export function myFunction() {
 }
 ```
 
-Nach dem `export`-Schlüsselwort können Sie `let`-, `const`- und `var`-Deklarationen sowie Funktions- oder Klassendeklarationen verwenden. Sie können auch die `export { name1, name2 }`-Syntax verwenden, um eine Liste von Namen zu exportieren, die anderswo deklariert wurden. Beachten Sie, dass `export {}` kein leeres Objekt exportiert – es ist eine No-Op-Deklaration, die nichts exportiert (eine leere Namensliste).
+Nach dem `export`-Schlüsselwort können `let`-, `const`- und `var`-Deklarationen sowie Funktions- oder Klassendeklarationen verwendet werden. Sie können auch die `export { name1, name2 }`-Syntax verwenden, um eine Liste von Namen zu exportieren, die anderswo deklariert wurden. Beachten Sie, dass `export {}` kein leeres Objekt exportiert — es ist eine Nicht-Operation-Deklaration, die nichts exportiert (eine leere Namensliste).
 
-Export-Deklarationen unterliegen nicht den Regeln der [zeitlichen Todeszone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz). Sie können deklarieren, dass das Modul `X` exportiert, bevor der Name `X` selbst deklariert wird.
+Sie können `export` nicht für eine {{jsxref("Statements/using", "using")}}- oder {{jsxref("Statements/await_using", "await using")}}-Deklaration verwenden. Sie können jedoch eine Variable exportieren, die anderswo mit `using` oder `await using` deklariert wurde. Dies wird jedoch dringend abgeraten, da die Variable entsorgt wird, sobald das Modul fertig ist, was dazu führt, dass alle Importeure einen schon entsorgten Wert erhalten.
+
+```js-nolint example-bad
+export using resource1 = getResource(); // SyntaxError
+
+// Allowed by syntax but discouraged
+using resource2 = getResource();
+export { resource2 };
+```
+
+Export-Deklarationen unterliegen nicht den [temporal dead zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)-Regeln. Sie können deklarieren, dass das Modul `X` exportiert, bevor der Name `X` selbst deklariert ist.
 
 ```js
 export { x };
@@ -77,7 +87,7 @@ const x = 1;
 // utilize the value of `x`.
 ```
 
-Standardexporte:
+Default Exports:
 
 ```js
 // export feature declared elsewhere as default
@@ -91,7 +101,7 @@ export default class { /* … */ }
 ```
 
 > [!NOTE]
-> Namen für Exportdeklarationen müssen eindeutig sein. Das Vorhandensein von Exporten mit doppelten Namen oder mehr als einem `default`-Export führt zu einem {{jsxref("SyntaxError")}} und verhindert, dass das Modul ausgewertet wird.
+> Namen für Export-Deklarationen müssen sich voneinander unterscheiden. Exporte mit doppelten Namen oder die Nutzung von mehr als einem `default`-Export führen zu einem {{jsxref("SyntaxError")}} und hindern das Modul daran, ausgewertet zu werden.
 
 Die `export default`-Syntax erlaubt jeden Ausdruck.
 
@@ -99,7 +109,7 @@ Die `export default`-Syntax erlaubt jeden Ausdruck.
 export default 1 + 1;
 ```
 
-Als Sonderfall werden Funktionen und Klassen als _Deklarationen_ und nicht als Ausdrücke exportiert, und diese Deklarationen können anonym sein. Das bedeutet, dass Funktionen gehoben werden.
+Als Spezialfall werden Funktionen und Klassen als _Deklarationen_ exportiert, nicht als Ausdrücke, und diese Deklarationen können anonym sein. Das bedeutet, dass Funktionen gehoben werden.
 
 ```js
 // Works because `foo` is a function declaration,
@@ -117,7 +127,7 @@ export default function () {
 }
 ```
 
-Benannte Exporte sind nützlich, wenn Sie mehrere Werte exportieren müssen. Beim Importieren dieses Moduls müssen benannte Exporte mit genau demselben Namen referenziert werden (optional mit `as` umbenennen), aber der Standardexport kann mit beliebigem Namen importiert werden. Zum Beispiel:
+Named Exports sind nützlich, wenn Sie mehrere Werte exportieren müssen. Beim Import dieses Moduls müssen Named Exports mit genau dem gleichen Namen angesprochen werden (optional kann dieser mit `as` umbenannt werden), aber der Default-Export kann mit jedem beliebigen Namen importiert werden. Zum Beispiel:
 
 ```js
 // file test.js
@@ -132,21 +142,21 @@ import m from "./test"; // note that we have the freedom to use import m instead
 console.log(m); // 12
 ```
 
-Sie können benannte Exporte auch umbenennen, um Namenskonflikte zu vermeiden:
+Sie können auch Named Exports umbenennen, um Namenskonflikte zu vermeiden:
 
 ```js
 export { myFunction as function1, myVariable as variable };
 ```
 
-Sie können einen Namen in etwas umbenennen, das kein gültiger Bezeichner ist, indem Sie ein String-Literal verwenden. Zum Beispiel:
+Sie können einen Namen in etwas umbenennen, das kein gültiger Bezeichner ist, indem Sie ein Zeichenfolgenliteral verwenden. Zum Beispiel:
 
 ```js
 export { myFunction as "my-function" };
 ```
 
-### Re-Exporting / Aggregieren
+### Re-exporting / Aggregating
 
-Ein Modul kann auch Werte, die aus anderen Modulen exportiert werden, "weiterleiten", ohne den Aufwand von zwei separaten Import-/Export-Deklarationen. Dies ist oft nützlich, wenn ein einzelnes Modul erstellt wird, das verschiedene Exporte aus verschiedenen Modulen konzentriert (oft als "Barrel-Modul" bezeichnet).
+Ein Modul kann auch die von anderen Modulen exportierten Werte weiterleiten, ohne zwei separate Import/Export-Deklarationen schreiben zu müssen. Dies ist oft nützlich, wenn ein einzelnes Modul erstellt wird, das verschiedene Exporte aus verschiedenen Modulen bündelt (häufig als "Barrel-Modul" bezeichnet).
 
 Dies kann mit der "export from"-Syntax erreicht werden:
 
@@ -154,7 +164,7 @@ Dies kann mit der "export from"-Syntax erreicht werden:
 export { default as function1, function2 } from "bar.js";
 ```
 
-Was vergleichbar mit einer Kombination aus Import und Export ist, außer dass `function1` und `function2` im aktuellen Modul nicht verfügbar werden:
+Dies ist vergleichbar mit einer Kombination aus Import und Export, außer dass `function1` und `function2` im aktuellen Modul nicht zur Verfügung stehen:
 
 ```js
 import { default as function1, function2 } from "bar.js";
@@ -162,7 +172,7 @@ import { default as function1, function2 } from "bar.js";
 export { function1, function2 };
 ```
 
-Die meisten "import from"-Syntaxen haben "export from"-Gegenstücke.
+Die meisten der "import from"-Syntaxen haben "export from"-Gegenstücke.
 
 ```js
 export { x } from "mod";
@@ -170,7 +180,7 @@ export { x as v } from "mod";
 export * as ns from "mod";
 ```
 
-Es gibt auch `export * from "mod"`, obwohl es kein `import * from "mod"` gibt. Dies re-exportiert alle **benannten** Exporte von `mod` als die benannten Exporte des aktuellen Moduls, aber der Standardexport von `mod` wird nicht erneut exportiert. Wenn es zwei Wildcard-Exportanweisungen gibt, die denselben Namen implizit re-exportieren, wird keiner von ihnen re-exportiert.
+Es gibt auch `export * from "mod"`, obwohl es kein `import * from "mod"` gibt. Dies exportiert alle **Named** Exporte von `mod` als Named Exporte des aktuellen Moduls weiter, aber der Default-Export von `mod` wird nicht weiterexportiert. Wenn es zwei Wildcard-Export-Aussagen gibt, die denselben Namen implizit weiterexportieren, wird keiner von ihnen weiterexportiert.
 
 ```js
 // -- mod1.js --
@@ -189,32 +199,32 @@ import * as ns from "./barrel.js";
 console.log(ns.a); // undefined
 ```
 
-Der Versuch, den doppelten Namen direkt zu importieren, führt zu einem Fehler.
+Der Versuch, den doppelten Namen direkt zu importieren, wird einen Fehler verursachen.
 
 ```js
 import { a } from "./barrel.js";
 // SyntaxError: The requested module './barrel.js' contains conflicting star exports for name 'a'
 ```
 
-Das Folgende ist trotz seines Import-Äquivalents syntaktisch ungültig:
+Folgendes ist trotz der importäquivalenten Syntax syntaktisch ungültig:
 
 ```js-nolint example-bad
 export DefaultExport from "bar.js"; // Invalid
 ```
 
-Der korrekte Weg hierfür ist, den Export umzubenennen:
+Der korrekte Weg, dies zu tun, ist der Export umzubenennen:
 
 ```js
 export { default as DefaultExport } from "bar.js";
 ```
 
-Die "export from"-Syntax ermöglicht es, das `as`-Token wegzulassen, wodurch der Standardexport immer noch als Standardexport re-exportiert wird.
+Die "export from"-Syntax erlaubt es, das `as`-Token wegzulassen, wodurch der Default-Export trotzdem als Default-Export weiterexportiert wird.
 
 ```js
 export { default, function2 } from "bar.js";
 ```
 
-`export from` unterstützt alle Funktionen, die `import` unterstützt — zum Beispiel [Import-Attribute](/de/docs/Web/JavaScript/Reference/Statements/import/with):
+`export from` unterstützt alle Funktionen, die `import` unterstützt — beispielsweise [Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with):
 
 ```js
 export { default } from "./data.json" with { type: "json" };
@@ -222,9 +232,9 @@ export { default } from "./data.json" with { type: "json" };
 
 ## Beispiele
 
-### Verwenden von benannten Exporten
+### Verwendung von Named Exports
 
-In einem Modul `my-module.js` könnten wir den folgenden Code einschließen:
+In einem Modul `my-module.js` könnten wir den folgenden Code einfügen:
 
 ```js
 // module "my-module.js"
@@ -247,7 +257,7 @@ const graph = {
 export { cube, foo, graph };
 ```
 
-Dann im obersten Modul, das in Ihrer HTML-Seite enthalten ist, könnten wir haben:
+Dann könnten wir im Top-Level-Modul, das in Ihre HTML-Seite eingebunden ist, Folgendes haben:
 
 ```js
 import { cube, foo, graph } from "./my-module.js";
@@ -262,14 +272,14 @@ console.log(cube(3)); // 27
 console.log(foo); // 4.555806215962888
 ```
 
-Es ist wichtig, Folgendes zu beachten:
+Beachten Sie Folgendes:
 
 - Sie müssen dieses Skript in Ihrem HTML mit einem {{HTMLElement("script")}}-Element vom `type="module"` einfügen, damit es als Modul erkannt und entsprechend behandelt wird.
-- Sie können keine JS-Module über eine `file://` URL ausführen — Sie erhalten [CORS](/de/docs/Web/HTTP/Guides/CORS) Fehler. Sie müssen es über einen HTTP-Server ausführen.
+- Sie können JS-Module nicht über eine `file://`-URL ausführen — Sie erhalten [CORS](/de/docs/Web/HTTP/Guides/CORS)-Fehler. Sie müssen es über einen HTTP-Server laufen lassen.
 
-### Verwenden des Standardexports
+### Verwendung des Default-Exports
 
-Wenn wir einen einzelnen Wert exportieren möchten, der ein ganzes Modul darstellt, könnten wir einen Standardexport verwenden:
+Wenn wir einen einzigen Wert exportieren möchten, der ein ganzes Modul darstellt, könnten wir einen Default-Export verwenden:
 
 ```js
 // module "cube.js"
@@ -279,7 +289,7 @@ export default function cube(x) {
 }
 ```
 
-Dann ist es in einem anderen Skript einfach, den Standardexport zu importieren:
+Dann ist es in einem anderen Skript unkompliziert, den Default-Export zu importieren:
 
 ```js
 import cube from "./cube.js";
@@ -287,16 +297,16 @@ import cube from "./cube.js";
 console.log(cube(3)); // 27
 ```
 
-### Verwenden von export from
+### Verwendung von "Export from"
 
-Nehmen wir ein Beispiel, bei dem wir die folgende Hierarchie haben:
+Nehmen wir ein Beispiel, in dem wir die folgende Hierarchie haben:
 
-- `childModule1.js`: exportiert `myFunction` und `myVariable`
-- `childModule2.js`: exportiert `MyClass`
-- `parentModule.js`: fungiert als Aggregator (und tut sonst nichts)
-- Oberstes Modul: konsumiert die Exporte von `parentModule.js`
+- `childModule1.js`: Exportiert `myFunction` und `myVariable`
+- `childModule2.js`: Exportiert `MyClass`
+- `parentModule.js`: Fungiert als Aggregator (und tut sonst nichts)
+- Top-Level-Modul: Konsumiert die Exporte von `parentModule.js`
 
-So würde es mit Code-Schnipseln aussehen:
+So würde es in Code-Snippets aussehen:
 
 ```js
 // In childModule1.js

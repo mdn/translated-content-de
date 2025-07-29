@@ -2,43 +2,43 @@
 title: Iterator
 slug: Web/JavaScript/Reference/Global_Objects/Iterator
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
 ---
 
-Ein **`Iterator`**-Objekt ist ein Objekt, das dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) entspricht, indem es eine `next()`-Methode bereitstellt, die ein Iterator-Ergebnisobjekt zurückgibt. Alle eingebauten Iteratoren erben von der `Iterator`-Klasse. Die `Iterator`-Klasse stellt eine [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator/Symbol.iterator)-Methode bereit, die das Iterator-Objekt selbst zurückgibt, wodurch der Iterator auch [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) wird. Außerdem bietet sie einige Hilfsmethoden zur Arbeit mit Iteratoren.
+Ein **`Iterator`**-Objekt ist ein Objekt, das dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) entspricht, indem es eine `next()`-Methode bereitstellt, die ein Iterator-Ergebnisobjekt zurückgibt. Alle eingebauten Iteratoren erben von der `Iterator`-Klasse. Die `Iterator`-Klasse bietet eine [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator/Symbol.iterator)-Methode, die das Iterator-Objekt selbst zurückgibt, wodurch der Iterator auch [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) wird. Außerdem bietet sie einige Hilfsmethoden für die Arbeit mit Iteratoren.
 
 ## Beschreibung
 
-Die folgenden sind alle eingebauten JavaScript-Iteratoren:
+Folgende sind alle eingebauten JavaScript-Iteratoren:
 
-- Der _Array-Iterator_, der von {{jsxref("Array.prototype.values()")}}, {{jsxref("Array.prototype.keys()")}}, {{jsxref("Array.prototype.entries()")}}, [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator), {{jsxref("TypedArray.prototype.values()")}}, {{jsxref("TypedArray.prototype.keys()")}}, {{jsxref("TypedArray.prototype.entries()")}}, [`TypedArray.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/Symbol.iterator) und [`arguments[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Functions/arguments/Symbol.iterator) zurückgegeben wird.
-- Der _String-Iterator_, der von [`String.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) zurückgegeben wird.
-- Der _Map-Iterator_, der von {{jsxref("Map.prototype.values()")}}, {{jsxref("Map.prototype.keys()")}}, {{jsxref("Map.prototype.entries()")}} und [`Map.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator) zurückgegeben wird.
-- Der _Set-Iterator_, der von {{jsxref("Set.prototype.values()")}}, {{jsxref("Set.prototype.keys()")}}, {{jsxref("Set.prototype.entries()")}} und [`Set.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator) zurückgegeben wird.
-- Der _RegExp-String-Iterator_, der von [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}} zurückgegeben wird.
-- Das {{jsxref("Generator")}}-Objekt, das von [Generator-Funktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) zurückgegeben wird.
-- Der _Segments-Iterator_, der von der [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/Symbol.iterator)-Methode des [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekts, das von [`Intl.Segmenter.prototype.segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment) zurückgegeben wird.
-- Der _Iterator Helper_, der von Iterator-Hilfsmethoden wie {{jsxref("Iterator.prototype.filter()")}} und {{jsxref("Iterator.prototype.map()")}} zurückgegeben wird.
+- Der _Array Iterator_, zurückgegeben durch {{jsxref("Array.prototype.values()")}}, {{jsxref("Array.prototype.keys()")}}, {{jsxref("Array.prototype.entries()")}}, [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator), {{jsxref("TypedArray.prototype.values()")}}, {{jsxref("TypedArray.prototype.keys()")}}, {{jsxref("TypedArray.prototype.entries()")}}, [`TypedArray.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/Symbol.iterator) und [`arguments[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Functions/arguments/Symbol.iterator).
+- Der _String Iterator_, zurückgegeben durch [`String.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator).
+- Der _Map Iterator_, zurückgegeben durch {{jsxref("Map.prototype.values()")}}, {{jsxref("Map.prototype.keys()")}}, {{jsxref("Map.prototype.entries()")}} und [`Map.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator).
+- Der _Set Iterator_, zurückgegeben durch {{jsxref("Set.prototype.values()")}}, {{jsxref("Set.prototype.keys()")}}, {{jsxref("Set.prototype.entries()")}} und [`Set.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator).
+- Der _RegExp String Iterator_, zurückgegeben durch [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
+- Das {{jsxref("Generator")}}-Objekt, zurückgegeben durch [Generator-Funktionen](/de/docs/Web/JavaScript/Reference/Statements/function*).
+- Der _Segments Iterator_, zurückgegeben durch die [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/Symbol.iterator)-Methode des [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekts, das durch [`Intl.Segmenter.prototype.segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment) zurückgegeben wird.
+- Der _Iterator Helper_, zurückgegeben durch Iterator-Hilfsmethoden wie {{jsxref("Iterator.prototype.filter()")}} und {{jsxref("Iterator.prototype.map()")}}.
 
-Auch Web-APIs können Iteratoren zurückgeben. Einige wiederverwenden die Iteratoren von JavaScript, während andere ihre eigenen Iteratoren definieren. Zum Beispiel:
+Auch Web-APIs können Iteratoren zurückgeben. Einige verwenden die Kern-JavaScript-Iteratoren, während andere ihre eigenen Iteratoren definieren. Beispielsweise:
 
-- [Array-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) Objekte wie [`NodeList`](/de/docs/Web/API/NodeList) geben einen _Array-Iterator_ aus ihren jeweiligen Methoden `keys()`, `values()`, `entries()` und `[Symbol.iterator]()` zurück.
-- [Map-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis) Objekte von Web-APIs wie [`Headers`](/de/docs/Web/API/Headers) geben ihren eigenen Iteratortyp wie _Headers-Iterator_ aus ihren jeweiligen Methoden `keys()`, `values()`, `entries()` und `[Symbol.iterator]()` zurück.
-- [Set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis) Objekte von Web-APIs wie [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) geben ihren eigenen Iteratortyp wie _FontFaceSet-Iterator_ aus ihren jeweiligen Methoden `keys()`, `values()`, `entries()` und `[Symbol.iterator]()` zurück.
+- [Array-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) Objekte wie [`NodeList`](/de/docs/Web/API/NodeList) geben einen _Array Iterator_ von ihren jeweiligen Methoden `keys()`, `values()`, `entries()` und `[Symbol.iterator]()` zurück.
+- [Map-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis) Objekte aus Web-APIs wie [`Headers`](/de/docs/Web/API/Headers) geben ihren eigenen Iteratortyp wie _Headers Iterator_ von ihren jeweiligen Methoden `keys()`, `values()`, `entries()` und `[Symbol.iterator]()` zurück.
+- [Set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis) Objekte aus Web-APIs wie [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) geben ihren eigenen Iteratortyp wie _FontFaceSet Iterator_ von ihren jeweiligen Methoden `keys()`, `values()`, `entries()` und `[Symbol.iterator]()` zurück.
 
 > [!NOTE]
-> [`NodeIterator`](/de/docs/Web/API/NodeIterator) und andere alte Schnittstellen sind so benannt, entsprechen jedoch nicht dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) oder dem [iterierbaren Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol).
+> [`NodeIterator`](/de/docs/Web/API/NodeIterator) und andere alte Schnittstellen sind so benannt, entsprechen aber nicht dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) oder [Iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol).
 
-Jeder dieser Iteratoren hat ein unterschiedliches Prototyp-Objekt, das die `next()`-Methode definiert, die vom jeweiligen Iterator verwendet wird. Zum Beispiel erben alle String-Iterator-Objekte von einem versteckten Objekt `StringIteratorPrototype`, das eine `next()`-Methode hat, die diesen String durch dessen Code-Punkte iteriert. `StringIteratorPrototype` hat auch eine [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft, deren Anfangswert der String `"String Iterator"` ist. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet. Ähnlich haben andere Iterator-Prototypen auch ihre eigenen `[Symbol.toStringTag]`-Werte, die den oben genannten Namen entsprechen.
+Jeder dieser Iteratoren hat ein eigenes Prototypobjekt, das die `next()`-Methode definiert, die vom jeweiligen Iterator verwendet wird. Beispielsweise erben alle String-Iterator-Objekte von einem versteckten Objekt `StringIteratorPrototype`, das eine `next()`-Methode hat, die diese Zeichenkette durch Codepunkte iteriert. `StringIteratorPrototype` hat auch eine [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft, deren Anfangswert die Zeichenkette `"String Iterator"` ist. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet. Ebenso haben andere Iterator-Prototypen auch ihre eigenen `[Symbol.toStringTag]`-Werte, die mit den oben genannten Namen übereinstimmen.
 
-All diese Prototyp-Objekte erben von `Iterator.prototype`, das eine [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode bietet, die das Iterator-Objekt selbst zurückgibt, wodurch der Iterator auch [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) wird.
+Alle diese Prototypobjekte erben von `Iterator.prototype`, das eine [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode bereitstellt, die das Iterator-Objekt selbst zurückgibt, wodurch der Iterator auch [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) wird.
 
 ### Iterator-Hilfsmethoden
 
 > [!NOTE]
-> Diese Methoden sind _Iterator_-Helfer, nicht _iterierbare_ Helfer, da die einzige Anforderung für ein iterierbares Objekt nur das Vorhandensein einer `[Symbol.iterator]()`-Methode ist. Es gibt keinen gemeinsamen Prototyp, um diese Methoden zu installieren.
+> Diese Methoden sind _Iterator_-Helfer, keine _Iterable_-Helfer, da die einzige Voraussetzung für ein Objekt, um iterable zu sein, nur die Anwesenheit einer `[Symbol.iterator]()`-Methode ist. Es gibt keinen gemeinsamen Prototyp, um diese Methoden zu installieren.
 
-Die `Iterator`-Klasse selbst bietet einige Hilfsmethoden zur Arbeit mit Iteratoren. Zum Beispiel könnten Sie versucht sein, Folgendes zu tun:
+Die `Iterator`-Klasse selbst bietet einige Hilfsmethoden zum Arbeiten mit Iteratoren. Beispielsweise könnten Sie versucht sein, Folgendes zu tun:
 
 ```js
 const nameToDeposit = new Map([
@@ -50,13 +50,13 @@ const nameToDeposit = new Map([
 const totalDeposit = [...nameToDeposit.values()].reduce((a, b) => a + b);
 ```
 
-Dies konvertiert zuerst den Iterator, der von {{jsxref("Map.prototype.values()")}} zurückgegeben wird, in ein Array und verwendet dann die {{jsxref("Array.prototype.reduce()")}}-Methode, um die Summe zu berechnen. Dies erstellt jedoch sowohl ein Zwischen-Array als auch iteriert das Array zweimal. Stattdessen können Sie die `reduce()`-Methode des Iterators selbst verwenden:
+Dies konvertiert zuerst den von {{jsxref("Map.prototype.values()")}} zurückgegebenen Iterator in ein Array und verwendet dann die {{jsxref("Array.prototype.reduce()")}}-Methode, um die Summe zu berechnen. Dies erzeugt jedoch sowohl ein Zwischen-Array als auch durchläuft das Array zweimal. Stattdessen können Sie die `reduce()`-Methode des Iterators selbst verwenden:
 
 ```js
 const totalDeposit = nameToDeposit.values().reduce((a, b) => a + b);
 ```
 
-Diese Methode kann effizienter sein, insbesondere speichermäßig, da sie den Iterator nur einmal iteriert, ohne Zwischenwerte zu speichern. Iterator-Hilfsmethoden sind notwendig, um mit unendlichen Iteratoren zu arbeiten:
+Diese Methode ist möglicherweise effizienter, insbesondere speichermäßig, da sie den Iterator nur einmal durchläuft, ohne irgendwelche Zwischenwerte zu merken. Iterator-Hilfsmethoden sind notwendig, um mit unendlichen Iteratoren zu arbeiten:
 
 ```js
 function* fibonacci() {
@@ -72,9 +72,9 @@ const seq = fibonacci();
 const firstThreeDigitTerm = seq.find((n) => n >= 100);
 ```
 
-Sie können `seq` nicht in ein Array konvertieren, weil es unendlich ist. Stattdessen können Sie die `find()`-Methode des Iterators selbst verwenden, die `seq` nur so weit iteriert, wie nötig, um den ersten Wert zu finden, der die Bedingung erfüllt.
+Sie können `seq` nicht in ein Array konvertieren, da es unendlich ist. Stattdessen können Sie die `find()`-Methode des Iterators selbst verwenden, die `seq` nur so weit durchläuft, wie nötig ist, um den ersten Wert zu finden, der die Bedingung erfüllt.
 
-Sie werden viele Iterator-Methoden finden, die zu Array-Methoden analog sind, wie:
+Sie werden viele Iterator-Methoden finden, die den Array-Methoden analog sind, wie zum Beispiel:
 
 | Iterator-Methode                           | Array-Methode                           |
 | ------------------------------------------ | --------------------------------------- |
@@ -87,21 +87,21 @@ Sie werden viele Iterator-Methoden finden, die zu Array-Methoden analog sind, wi
 | {{jsxref("Iterator.prototype.reduce()")}}  | {{jsxref("Array.prototype.reduce()")}}  |
 | {{jsxref("Iterator.prototype.some()")}}    | {{jsxref("Array.prototype.some()")}}    |
 
-{{jsxref("Iterator.prototype.drop()")}} und {{jsxref("Iterator.prototype.take()")}} zusammen sind etwas vergleichbar mit {{jsxref("Array.prototype.slice()")}}.
+{{jsxref("Iterator.prototype.drop()")}} und {{jsxref("Iterator.prototype.take()")}} kombiniert sind etwas analog zu {{jsxref("Array.prototype.slice()")}}.
 
-### Iterator-Hilfeobjekte
+### Iterator-Helferobjekte
 
 > [!NOTE]
-> _Iterator-Hilfeobjekte_ und _Iterator-Hilfsmethoden_ sind zwei verschiedene Konzepte. Ein Iterator-Hilfeobjekt ist zur Laufzeit erkennbar, während "Iterator-Hilfsmethode" nur ein Name für eine Satz von Methoden zur Verständnisunterstützung ist. _Iterator-Hilfe_ kann entweder auf das Objekt oder die Methode hinweisen, je nach Kontext.
+> _Iterator-Helferobjekte_ und _Iterator-Hilfsmethoden_ sind zwei unterschiedliche Konzepte. Ein Iterator-Helferobjekt ist zur Laufzeit erkennbar, während der Begriff "Iterator-Hilfsmethode" nur ein Name für eine Gruppe von Methoden zur Veranschaulichung ist. _Iterator-Helfer_ kann je nach Kontext entweder auf das Objekt oder die Methode verweisen.
 
-Unter den Iterator-Hilfsmethoden gibt {{jsxref("Iterator/filter", "filter()")}}, {{jsxref("Iterator/flatMap", "flatMap()")}}, {{jsxref("Iterator/map", "map()")}}, {{jsxref("Iterator/drop", "drop()")}} und {{jsxref("Iterator/take", "take()")}} ein neues _Iterator-Hilfeobjekt_ zurück. Der Iterator-Helfer ist ebenfalls eine `Iterator`-Instanz, wodurch diese Hilfsmethoden kaskadierbar sind. Alle Iterator-Hilfeobjekte erben von einem gemeinsamen Prototyp-Objekt, das das Iterator-Protokoll implementiert:
+Unter den Iterator-Hilfsmethoden geben {{jsxref("Iterator/filter", "filter()")}}, {{jsxref("Iterator/flatMap", "flatMap()")}}, {{jsxref("Iterator/map", "map()")}}, {{jsxref("Iterator/drop", "drop()")}} und {{jsxref("Iterator/take", "take()")}} ein neues _Iterator-Helfer_-Objekt zurück. Der Iterator-Helfer ist auch eine `Iterator`-Instanz, was diese Hilfsmethoden kaskadierbar macht. Alle Iterator-Helferobjekte erben von einem gemeinsamen Prototypobjekt, das das Iterator-Protokoll implementiert:
 
 - `next()`
   - : Ruft die `next()`-Methode des zugrunde liegenden Iterators auf, wendet die Hilfsmethode auf das Ergebnis an und gibt das Ergebnis zurück.
 - `return()`
   - : Ruft die `return()`-Methode des zugrunde liegenden Iterators auf und gibt das Ergebnis zurück.
 
-Der Iterator-Helfer teilt dieselbe Datenquelle wie der zugrunde liegende Iterator, sodass das Iterieren des Iterator-Helfers auch den zugrunde liegenden Iterator iteriert. Es gibt keine Möglichkeit, einen Iterator zu "verzweigen", um ihn mehrfach iterierbar zu machen.
+Der Iterator-Helfer teilt die gleiche Datenquelle wie der zugrunde liegende Iterator, sodass das Durchlaufen des Iterator-Helfers auch den zugrunde liegenden Iterator durchläuft. Es gibt keine Möglichkeit, einen Iterator zu "forken", um ihn mehrfach durchlaufbar zu machen.
 
 ```js
 const it = [1, 2, 3].values();
@@ -113,7 +113,7 @@ console.log(it.next().value); // 3
 
 ### Richtige Iteratoren
 
-Es gibt zwei Arten von "Iteratoren": Objekte, die dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) entsprechen (das, minimal, nur das Vorhandensein einer `next()`-Methode erfordert), und Objekte, die von der `Iterator`-Klasse erben, welche die Hilfsmethoden nutzen. Sie schließen sich nicht gegenseitig ein — Objekte, die von `Iterator` erben, werden nicht automatisch zu Iteratoren, da die `Iterator`-Klasse keine `next()`-Methode definiert. Stattdessen muss das Objekt selbst eine `next()`-Methode definieren. Ein _richtiger Iterator_ ist einer, der sowohl dem Iterator-Protokoll entspricht als auch von `Iterator` erbt, und die meiste Software erwartet, dass Iteratoren richtige Iteratoren sind und dass iterierbare Objekte richtige Iteratoren zurückgeben. Um richtige Iteratoren zu erstellen, definieren Sie eine Klasse, die von {{jsxref("Iterator/Iterator", "Iterator")}} erbt, oder verwenden Sie die {{jsxref("Iterator.from()")}}-Methode.
+Es gibt zwei Arten von "Iteratoren": Objekte, die dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) entsprechen (was im Minimum nur die Anwesenheit einer `next()`-Methode erfordert), und Objekte, die von der `Iterator`-Klasse erben, die die Hilfsmethoden haben. Sie bedingen sich nicht gegenseitig – Objekte, die von `Iterator` erben, werden nicht automatisch zu Iteratoren, da die `Iterator`-Klasse keine `next()`-Methode definiert. Stattdessen muss das Objekt eine `next()`-Methode selbst definieren. Ein _richtiger Iterator_ ist einer, der sowohl dem Iterator-Protokoll entspricht als auch von `Iterator` erbt, und die meisten Code erwarten, dass Iteratoren richtige Iteratoren sind und Iterables richtige Iteratoren zurückgeben. Um richtige Iteratoren zu erstellen, definieren Sie eine Klasse, die {{jsxref("Iterator/Iterator", "Iterator")}} erweitert, oder verwenden Sie die {{jsxref("Iterator.from()")}}-Methode.
 
 ```js
 class MyIterator extends Iterator {
@@ -132,57 +132,59 @@ const myIterator = Iterator.from({
 ## Konstruktor
 
 - {{jsxref("Iterator/Iterator", "Iterator()")}}
-  - : Soll von anderen Klassen [erweitert](/de/docs/Web/JavaScript/Reference/Classes/extends) werden, die Iteratoren erzeugen. Löst einen Fehler aus, wenn es selbst konstruiert wird.
+  - : Soll von anderen Klassen erweitert werden, die Iteratoren erstellen. Löst einen Fehler aus, wenn er von sich selbst konstruiert wird.
 
 ## Statische Methoden
 
 - {{jsxref("Iterator.from()")}}
-  - : Erstellt ein neues `Iterator`-Objekt aus einem Iterator oder iterierbaren Objekt.
+  - : Erstellt ein neues `Iterator`-Objekt aus einem Iterator oder Iterable-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `Iterator.prototype` definiert und werden von allen `Iterator`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Iterator.prototype.constructor")}}
-  - : Die Konstrukturfunktion, die das Instanz-Objekt erstellt hat. Für `Iterator`-Instanzen ist der Anfangswert der {{jsxref("Iterator/Iterator", "Iterator")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Iterator`-Instanzen ist der Anfangswert der {{jsxref("Iterator/Iterator", "Iterator")}}-Konstruktor.
 - `Iterator.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Iterator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist die Zeichenfolge `"Iterator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
     > [!NOTE]
-    > Im Gegensatz zu den `[Symbol.toStringTag]`-Eigenschaften bei den meisten eingebauten Klassen ist `Iterator.prototype[Symbol.toStringTag]` aus Gründen der Webkompatibilität beschreibbar.
+    > Im Gegensatz zu dem `[Symbol.toStringTag]` in den meisten eingebauten Klassen ist `Iterator.prototype[Symbol.toStringTag]` beschreibbar aus Gründen der Webkompatibilität.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Iterator.prototype.drop()")}}
-  - : Gibt ein neues Iterator-Hilfeobjekt zurück, das die gegebene Anzahl von Elementen am Anfang dieses Iterators überspringt.
+  - : Gibt ein neues Iterator-Helferobjekt zurück, das die angegebene Anzahl von Elementen am Anfang dieses Iterators überspringt.
 - {{jsxref("Iterator.prototype.every()")}}
-  - : Testet, ob alle vom Iterator erzeugten Elemente den Test bestehen, der von der bereitgestellten Funktion implementiert wurde.
+  - : Prüft, ob alle Elemente, die vom Iterator erzeugt werden, den in der bereitgestellten Funktion implementierten Test bestehen.
 - {{jsxref("Iterator.prototype.filter()")}}
-  - : Gibt ein neues Iterator-Hilfeobjekt zurück, das nur die Elemente des Iterators liefert, für die die bereitgestellte Callback-Funktion `true` zurückgibt.
+  - : Gibt ein neues Iterator-Helferobjekt zurück, das nur diejenigen Elemente des Iterators ausgibt, für die die bereitgestellte Callback-Funktion `true` zurückgibt.
 - {{jsxref("Iterator.prototype.find()")}}
-  - : Gibt das erste Element zurück, das vom Iterator erzeugt wird und die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion bestehen, wird {{jsxref("undefined")}} zurückgegeben.
+  - : Gibt das erste Element zurück, das vom Iterator erzeugt wird und die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben.
 - {{jsxref("Iterator.prototype.flatMap()")}}
-  - : Gibt ein neues Iterator-Hilfeobjekt zurück, das jedes Element im ursprünglichen Iterator durch eine Mapping-Funktion laufen lässt und die von der Mapping-Funktion zurückgegebenen Elemente liefert (die in einem anderen Iterator oder iterierbaren Objekt enthalten sind).
+  - : Gibt ein neues Iterator-Helferobjekt zurück, das jedes Element im ursprünglichen Iterator nimmt, es durch eine Abbildungsfunktion laufen lässt und Elemente ausgibt, die von der Abbildungsfunktion zurückgegeben werden (die in einem anderen Iterator oder Iterable enthalten sind).
 - {{jsxref("Iterator.prototype.forEach()")}}
-  - : Führt eine bereitgestellte Funktion einmal für jedes Element aus, das vom Iterator erzeugt wird.
+  - : Führt eine bereitgestellte Funktion einmal für jedes vom Iterator erzeugte Element aus.
 - {{jsxref("Iterator.prototype.map()")}}
-  - : Gibt ein neues Iterator-Hilfeobjekt zurück, das die Elemente des Iterators liefert, von denen jedes durch eine Mapping-Funktion transformiert wird.
+  - : Gibt ein neues Iterator-Helferobjekt zurück, das die vom Iterator erzeugten Elemente ausgibt, wobei jedes durch eine Abbildungsfunktion transformiert wird.
 - {{jsxref("Iterator.prototype.reduce()")}}
-  - : Führt eine von der Benutzerschaft bereitgestellte "Reducer"-Callback-Funktion auf jedem Element aus, das vom Iterator erzeugt wird, und gibt den Rückgabewert der Berechnung auf dem vorhergehenden Element weiter. Das Endergebnis des Durchlaufs des Reducers über alle Elemente ist ein einzelner Wert.
+  - : Führt eine vom Benutzer bereitgestellte "Reducer"-Callback-Funktion für jedes vom Iterator erzeugte Element aus und übergibt den Rückgabewert der Berechnung des vorhergehenden Elements. Das endgültige Ergebnis des Reduzierens aller Elemente ist ein einzelner Wert.
 - {{jsxref("Iterator.prototype.some()")}}
-  - : Testet, ob mindestens ein Element im Iterator den Test besteht, der von der bereitgestellten Funktion implementiert wurde. Gibt einen booleschen Wert zurück.
+  - : Prüft, ob mindestens ein Element im Iterator den in der bereitgestellten Funktion implementierten Test besteht. Es gibt einen Booleschen Wert zurück.
 - {{jsxref("Iterator.prototype.take()")}}
-  - : Gibt ein neues Iterator-Hilfeobjekt zurück, das die gegebene Anzahl von Elementen in diesem Iterator liefert und dann beendet.
+  - : Gibt ein neues Iterator-Helferobjekt zurück, das die angegebene Anzahl von Elementen in diesem Iterator ausgibt und dann beendet.
 - {{jsxref("Iterator.prototype.toArray()")}}
-  - : Erstellt eine neue {{jsxref("Array")}}-Instanz, die mit den vom Iterator gelieferten Elementen gefüllt ist.
+  - : Erstellt eine neue {{jsxref("Array")}}-Instanz, die mit den aus dem Iterator ausgegebenen Elementen gefüllt ist.
+- [`Iterator.prototype[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator/Symbol.dispose)
+  - : Ruft die `return()`-Methode von `this` auf, falls sie existiert. Dies implementiert das _Disposable-Protokoll_ und ermöglicht es, beim Gebrauch mit {{jsxref("Statements/using", "using")}} oder {{jsxref("Statements/await_using", "await using")}} entsorgt zu werden.
 - [`Iterator.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator/Symbol.iterator)
-  - : Gibt das Iterator-Objekt selbst zurück. Dadurch können Iterator-Objekte ebenfalls iterierbar sein.
+  - : Gibt das Iterator-Objekt selbst zurück. Dies ermöglicht es Iterator-Objekten, auch iterable zu sein.
 
 ## Beispiele
 
-### Verwenden eines Iterators als iterierbares Objekt
+### Verwenden eines Iterators als Iterable
 
-Alle eingebauten Iteratoren sind auch iterierbar, sodass Sie sie in einer `for...of`-Schleife verwenden können:
+Alle eingebauten Iteratoren sind auch iterable, sodass Sie sie in einer `for...of`-Schleife verwenden können:
 
 ```js
 const arrIterator = [1, 2, 3].values();
@@ -202,7 +204,7 @@ for (const value of arrIterator) {
 
 ## Siehe auch
 
-- [Polyfill des `Iterator` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill des `Iterator` und der zugehörigen Helfer](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill von `Iterator` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
+- [es-shims Polyfill von `Iterator` und zugehörigen Hilfsmitteln](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Statements/function*", "function*")}}
-- [Iterator-Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

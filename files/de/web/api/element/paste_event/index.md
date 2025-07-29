@@ -1,24 +1,24 @@
 ---
-title: "Element: paste Event"
+title: "Element: paste event"
 short-title: paste
 slug: Web/API/Element/paste_event
 l10n:
-  sourceCommit: 34055723f9d2bbadfa8b0f0d27102e3adcedbd58
+  sourceCommit: f4c0e822eb6a1ea438c7342f43a3e4809adbd56a
 ---
 
 {{APIRef}}
 
-Das **`paste`**-Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine "Einfügen"-Aktion initiiert hat.
+Das **`paste`**-Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer eine "Einfügen"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Wenn der Cursor sich in einem editierbaren Kontext befindet (zum Beispiel in einem {{HTMLElement("textarea")}} oder einem Element mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), das auf `true` gesetzt ist), dann ist die Standardaktion, den Inhalt der Zwischenablage an der Cursorposition in das Dokument einzufügen.
+Wenn sich der Cursor in einem editierbaren Kontext befindet (zum Beispiel in einer {{HTMLElement("textarea")}} oder einem Element mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut auf `true` gesetzt), ist die Standardaktion, den Inhalt der Zwischenablage an der Cursorposition in das Dokument einzufügen.
 
-Ein Handler für dieses Ereignis kann auf den Inhalt der Zwischenablage zugreifen, indem er [`getData()`](/de/docs/Web/API/DataTransfer/getData) auf der `clipboardData`-Eigenschaft des Ereignisses aufruft.
+Ein Handler für dieses Ereignis kann auf die Inhalte der Zwischenablage zugreifen, indem er [`getData()`](/de/docs/Web/API/DataTransfer/getData) auf der `clipboardData`-Eigenschaft des Ereignisses aufruft.
 
-Um das Standardverhalten zu überschreiben (zum Beispiel, um andere Daten oder eine Transformation des Zwischenablageinhalts einzufügen), muss ein Ereignishandler die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen und dann die gewünschten Daten manuell einfügen.
+Um das Standardverhalten zu überschreiben (zum Beispiel, um andere Daten oder eine Transformation der Zwischenablageinhalte einzufügen), muss ein Ereignishandler die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen und dann die gewünschten Daten manuell einfügen.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `paste`-Ereignis zu erstellen und auszulösen, allerdings wird dies die Inhalte des Dokuments nicht beeinflussen.
+Es ist möglich, ein [synthetisches](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) `paste`-Ereignis zu konstruieren und abzusetzen, aber dies wird die Inhalte des Dokuments nicht beeinflussen.
 
-Dieses Ereignis [blubbert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) den DOM-Baum nach oben, schließlich bis zu [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window), es ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und ist [komponiert](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [bubbles](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) den DOM-Baum hinauf, letztendlich bis zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window), ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und ist [komponiert](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
@@ -90,5 +90,5 @@ target.addEventListener("paste", (event) => {
 
 ## Siehe auch
 
-- [`cut`](/de/docs/Web/API/Element/cut_event) Ereignis
-- [`copy`](/de/docs/Web/API/Element/copy_event) Ereignis
+- [`cut`](/de/docs/Web/API/Element/cut_event)-Ereignis
+- [`copy`](/de/docs/Web/API/Element/copy_event)-Ereignis
