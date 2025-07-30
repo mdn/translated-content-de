@@ -2,31 +2,31 @@
 title: Fähigkeiten, Einschränkungen und Einstellungen
 slug: Web/API/Media_Capture_and_Streams_API/Constraints
 l10n:
-  sourceCommit: e0f97a8a4e8a2fc45f1a7bdc8d1e3f524ccb627d
+  sourceCommit: 9c2c116a665347cc25ce024bf4983beef88373c1
 ---
 
 {{DefaultAPISidebar("Media Capture and Streams")}}
 
-Dieser Artikel behandelt die beiden Konzepte der **Einschränkungen** und **Fähigkeiten** sowie der Medieneinstellungen und enthält ein Beispiel, das wir den [Constraint Exerciser](#example_constraint_exerciser) nennen. Der Constraint Exerciser ermöglicht es Ihnen, mit den Ergebnissen verschiedener Einschränkungssätze zu experimentieren, die auf die Audio- und Video-Tracks der A/V-Eingabegeräte des Computers (wie Webcam und Mikrofon) angewendet werden.
+Dieser Artikel behandelt die beiden Konzepte **Einschränkungen** und **Fähigkeiten** sowie Medieneinstellungen und enthält ein Beispiel, das wir [Constraint Exerciser](#example_constraint_exerciser) nennen. Der Constraint Exerciser ermöglicht es Ihnen, mit den Ergebnissen verschiedener Einschränkungssätze zu experimentieren, die auf die Audio- und Videospuren von den A/V-Eingabegeräten des Computers (wie die Webcam und das Mikrofon) angewendet werden.
 
-Historisch gesehen ist das Schreiben von Skripten für das Web, die eng mit Web-APIs arbeiten, mit einer bekannten Herausforderung verbunden: Oft muss Ihr Code wissen, ob eine API existiert und, falls ja, welche Einschränkungen für den {{Glossary("user_agent", "User-Agent")}} gelten, auf dem er ausgeführt wird. Dies herauszufinden war oft schwierig und beinhaltete normalerweise die Prüfung, welcher {{Glossary("user_agent", "User-Agent")}} (oder Browser) verwendet wird, welche Version es ist, ob bestimmte Objekte existieren, ob verschiedene Dinge funktionieren oder nicht und welche Fehler auftreten. Das Ergebnis war viel sehr fragiler Code oder eine Abhängigkeit von Bibliotheken, die dies für Sie herausfinden und dann {{Glossary("polyfill", "Polyfills")}} implementieren, um die Lücken in der Implementierung in Ihrem Namen zu stopfen.
+Historisch gesehen stellte das Schreiben von Skripten für das Web, die eng mit Web-APIs arbeiten, eine bekannte Herausforderung dar: Häufig muss Ihr Code wissen, ob eine API existiert und falls ja, welche Einschränkungen der {{Glossary("user_agent", "User-Agent")}}, auf dem er läuft, hat. Dies herauszufinden war oft schwierig und erforderte in der Regel eine Kombination von Faktoren: Auf welchem {{Glossary("user_agent", "User-Agent")}} (oder Browser) läuft Ihr Code, welche Version ist es, gibt es bestimmte Objekte, funktionieren verschiedene Dinge oder nicht, und welche Fehler treten auf? Das Ergebnis war viel sehr anfälliger Code oder eine Abhängigkeit von Bibliotheken, die dies für Sie herausfinden, und dann {{Glossary("polyfill", "Polyfills")}} implementieren, um die Lücken in der Implementierung in Ihrem Namen zu schließen.
 
 Fähigkeiten und Einschränkungen ermöglichen es dem Browser und der Website oder App, Informationen darüber auszutauschen, welche **einschränkbaren Eigenschaften** die Implementierung des Browsers unterstützt und welche Werte sie für jede unterstützt.
 
 ## Überblick
 
-Der Prozess funktioniert folgendermaßen (unter Verwendung von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) als Beispiel):
+Der Prozess funktioniert so (unter Verwendung von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) als Beispiel):
 
-1. Falls erforderlich, rufen Sie [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) auf, um die Liste der **unterstützten Einschränkungen** zu erhalten. Diese Liste sagt Ihnen, welche einschränkbaren Eigenschaften der Browser kennt. Das ist nicht immer notwendig, da unbekannte einfach ignoriert werden, wenn Sie sie angeben. Wenn es jedoch welche gibt, auf die Sie nicht verzichten können, können Sie damit beginnen, sie zu überprüfen, um sicherzustellen, dass sie auf der Liste stehen.
-2. Sobald das Skript weiß, ob die gewünschten Eigenschaften unterstützt werden, kann es die **Fähigkeiten** der API und ihrer Implementierung überprüfen, indem es das Objekt untersucht, das von der Methode `getCapabilities()` des Tracks zurückgegeben wird. Dieses Objekt listet jede unterstützte Einschränkung und die Werte oder Wertebereiche auf, die unterstützt werden.
-3. Schließlich wird die Methode `applyConstraints()` des Tracks aufgerufen, um die API wie gewünscht zu konfigurieren, indem die Werte oder Wertebereiche angegeben werden, die sie für eine der einschränkbaren Eigenschaften, über die sie eine Präferenz hat, verwenden möchte.
-4. Die Methode `getConstraints()` des Tracks gibt den Satz von Einschränkungen zurück, der beim letzten Aufruf von `applyConstraints()` übergeben wurde. Dies repräsentiert möglicherweise nicht den tatsächlichen aktuellen Zustand des Tracks aufgrund von Eigenschaften, deren angeforderte Werte angepasst werden mussten, und weil Plattform-Standardwerte nicht dargestellt werden. Für eine vollständige Darstellung der aktuellen Konfiguration des Tracks verwenden Sie `getSettings()`.
+1. Falls erforderlich, rufen Sie [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) auf, um die Liste der **unterstützten Einschränkungen** zu erhalten, die Ihnen mitteilt, welche einschränkbaren Eigenschaften dem Browser bekannt sind. Dies ist nicht immer notwendig, da alle, die nicht bekannt sind, ignoriert werden, wenn Sie sie angeben. Wenn es jedoch welche gibt, auf die Sie nicht verzichten können, können Sie damit beginnen, zu überprüfen, ob sie auf der Liste stehen.
+2. Sobald das Skript weiß, ob die Eigenschaft oder Eigenschaften, die es verwenden möchte, unterstützt werden, kann es die **Fähigkeiten** der API und ihrer Implementierung überprüfen, indem es das vom Track zurückgegebene Objekt durch die `getCapabilities()`-Methode untersucht; dieses Objekt listet jede unterstützte Einschränkung und die Werte oder Wertbereiche auf, die unterstützt werden.
+3. Schließlich wird die Methode `applyConstraints()` des Tracks aufgerufen, um die API wie gewünscht zu konfigurieren, indem die Werte oder Wertbereiche angegeben werden, die für alle einschränkbaren Eigenschaften, über die es eine Präferenz hat, verwendet werden sollen.
+4. Die Methode `getConstraints()` des Tracks gibt die Menge der Einschränkungen zurück, die bei dem letzten Aufruf von `applyConstraints()` übergeben wurden. Dies spiegelt möglicherweise nicht den tatsächlichen aktuellen Zustand des Tracks wider, da Eigenschaften, deren angeforderte Werte angepasst werden mussten und weil Standardwerte der Plattform nicht dargestellt werden. Für eine vollständige Darstellung der aktuellen Konfiguration des Tracks verwenden Sie `getSettings()`.
 
-Im Media Capture and Streams API haben sowohl [`MediaStream`](/de/docs/Web/API/MediaStream) als auch [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) einschränkbare Eigenschaften.
+In der Media Capture and Streams API haben sowohl [`MediaStream`](/de/docs/Web/API/MediaStream) als auch [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) einschränkbare Eigenschaften.
 
-## Feststellen, ob eine Einschränkung unterstützt wird
+## Bestimmen, ob eine Einschränkung unterstützt wird
 
-Wenn Sie wissen müssen, ob eine bestimmte Einschränkung vom User-Agent unterstützt wird, können Sie dies herausfinden, indem Sie [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) aufrufen, um eine Liste der einschränkbaren Eigenschaften zu erhalten, die der Browser kennt, wie folgt:
+Falls Sie feststellen müssen, ob eine bestimmte Einschränkung vom User-Agent unterstützt wird, können Sie dies herausfinden, indem Sie [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) aufrufen, um eine Liste der einschränkbaren Eigenschaften zu erhalten, die der Browser kennt, wie folgt:
 
 ```js
 const supported = navigator.mediaDevices.getSupportedConstraints();
@@ -34,17 +34,17 @@ const supported = navigator.mediaDevices.getSupportedConstraints();
 document.getElementById("frameRateSlider").disabled = !supported["frameRate"];
 ```
 
-In diesem Beispiel werden die unterstützten Einschränkungen abgerufen, und eine Steuerung, die dem Benutzer die Konfiguration der Bildrate ermöglicht, wird deaktiviert, wenn die Einschränkung `frameRate` nicht unterstützt wird.
+In diesem Beispiel werden die unterstützten Einschränkungen abgerufen, und ein Steuerungselement, das dem Benutzer ermöglicht, die Bildrate zu konfigurieren, wird deaktiviert, wenn die Einschränkung `frameRate` nicht unterstützt wird.
 
 ## Wie Einschränkungen definiert sind
 
-Eine einzelne Einschränkung ist ein Objekt, dessen Name der einschränkbaren Eigenschaft entspricht, deren gewünschter Wert oder Wertebereich angegeben wird. Dieses Objekt enthält null oder mehr einzelne Einschränkungen sowie ein optionales Unterobjekt namens `advanced`, das eine weitere Menge von null oder mehr Einschränkungen enthält, die der User-Agent erfüllen muss, wenn möglich. Der User-Agent versucht, die Einschränkungen in der im Einschränkungssatz angegebenen Reihenfolge zu erfüllen.
+Eine einzelne Einschränkung ist ein Objekt, dessen Name mit der einschränkbaren Eigenschaft übereinstimmt, deren gewünschter Wert oder Wertebereich angegeben wird. Dieses Objekt enthält null oder mehr individuelle Einschränkungen sowie ein optionales Unterobjekt mit dem Namen `advanced`, das einen weiteren Satz von null oder mehr Einschränkungen enthält, die der User-Agent erfüllen muss, wenn möglich. Der User-Agent versucht, die Einschränkungen in der im Einschränkungssatz angegebenen Reihenfolge zu erfüllen.
 
-Das Wichtigste, was Sie verstehen müssen, ist, dass die meisten Einschränkungen keine Anforderungen sind; stattdessen sind sie Anfragen. Es gibt Ausnahmen, auf die wir gleich eingehen werden.
+Das Wichtigste, das zu verstehen ist, ist, dass die meisten Einschränkungen keine Anforderungen sind; sie sind stattdessen Anfragen. Es gibt Ausnahmen, auf die wir gleich noch eingehen werden.
 
-### Anfordern eines bestimmten Wertes für eine Einstellung
+### Anfordern eines bestimmten Werts für eine Einstellung
 
-Die meisten, jede Einschränkung kann ein bestimmter Wert sein, der einen gewünschten Wert für die Einstellung angibt. Zum Beispiel:
+Bei den meisten Einschränkungen kann es sich um einen bestimmten Wert handeln, der einen gewünschten Wert für die Einstellung angibt. Zum Beispiel:
 
 ```js
 const constraints = {
@@ -56,15 +56,15 @@ const constraints = {
 myTrack.applyConstraints(constraints);
 ```
 
-In diesem Fall geben die Einschränkungen an, dass beliebige Werte für fast alle Eigenschaften in Ordnung sind, aber eine Standard-High-Definition (HD) Videoauflösung mit dem Standard-Seitenverhältnis 16:9 angestrebt wird. Es gibt keine Garantie, dass der resultierende Track eine dieser Anforderungen erfüllt, aber der User-Agent sollte sein Bestes tun, so viele wie möglich zu erfüllen.
+In diesem Fall geben die Einschränkungen an, dass jede Werte für fast alle Eigenschaften in Ordnung sind, aber eine standardmäßige High-Definition (HD) Videogröße erwünscht ist, mit dem standardmäßigen 16:9 {{Glossary("aspect_ratio", "Seitenverhältnis")}}. Es gibt keine Garantie dafür, dass die resultierende Spur mit einer dieser übereinstimmt, aber der User-Agent sollte sein Bestes tun, um so viele wie möglich zu erfüllen.
 
-Die Priorisierung der Eigenschaften ist einfach: Wenn zwei Eigenschaften gegensätzliche angeforderte Werte haben, wird die zuerst im Einschränkungssatz aufgeführte verwendet. Wenn der Browser den oben genannten Code ausführt und keinen 1920x1080-Track bereitstellen kann, aber 1920x900 bieten kann, wird das bereitgestellt.
+Die Priorisierung der Eigenschaften ist einfach: Wenn zwei Eigenschaften widersprüchliche angeforderte Werte haben, wird die zuerst in der Einschränkungsliste aufgeführte verwendet. Als Beispiel: Wenn der Browser, der den oben genannten Code ausführt, keine 1920x1080 Spur liefern könnte, aber 1920x900 möglich wäre, dann würde dies bereitgestellt werden.
 
-Einfache Einschränkungen wie diese, die einen einzelnen Wert festlegen, werden immer als nicht erforderlich behandelt. Der User-Agent wird versuchen, das zu liefern, was Sie anfordern, aber es wird nicht garantiert, dass das, was Sie erhalten, entspricht. Wenn Sie jedoch einfache Werte für Eigenschaften verwenden, wenn Sie [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufrufen, wird die Anfrage immer erfolgreich sein, da diese Werte als Anfrage und nicht als Anforderung betrachtet werden.
+Einfache Einschränkungen wie diese, die einen einzelnen Wert angeben, werden immer als nicht erforderlich behandelt. Der User-Agent wird versuchen, das Gewünschte bereitzustellen, aber es ist nicht garantiert, dass das Ergebnis übereinstimmt. Wenn Sie jedoch einfache Werte für Eigenschaften beim Aufruf der Methode [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) verwenden, wird die Anfrage immer erfolgreich sein, weil diese Werte als Anfrage und nicht als Anforderung betrachtet werden.
 
-### Einen Wertebereich angeben
+### Festlegen eines Wertebereichs
 
-Manchmal ist jeder Wert innerhalb eines Bereichs akzeptabel für den Wert einer Eigenschaft. Sie können Bereiche mit entweder oder beidem Mindest- und Höchstwerten angeben, und Sie können sogar einen idealen Wert innerhalb des Bereichs angeben, wenn Sie möchten. Wenn Sie einen idealen Wert angeben, wird der Browser versuchen, so nah wie möglich an diesen Wert heranzukommen, angesichts der anderen angegebenen Einschränkungen.
+Manchmal ist jeder Wert innerhalb eines Bereichs für einen Eigenschaftswert akzeptabel. Sie können Bereiche mit entweder oder sowohl Mindest- als auch Höchstwerten festlegen, und Sie können, falls gewünscht, einen Idealwert innerhalb des Bereichs angeben. Wenn Sie einen Idealwert angeben, wird der Browser versuchen, so nah wie möglich an diesen Wert heranzukommen, unter Berücksichtigung der anderen festgelegten Einschränkungen.
 
 ```js
 const supports = navigator.mediaDevices.getSupportedConstraints();
@@ -96,20 +96,20 @@ if (
 }
 ```
 
-Hier, nachdem sichergestellt wurde, dass die einschränkbaren Eigenschaften, für die Übereinstimmungen gefunden werden müssen, unterstützt werden (`width`, `height`, `frameRate` und `facingMode`), richten wir Einschränkungen ein, die eine Breite nicht kleiner als 640 und nicht größer als 1920 (aber vorzugsweise 1920) anfordern, eine Höhe nicht kleiner als 400 (aber idealerweise 1080), ein Seitenverhältnis von 16:9 (1.777777778) und eine Bildrate von maximal 30 Bildern pro Sekunde. Zusätzlich ist das einzige akzeptable Eingabegerät eine Kamera, die zum Benutzer gerichtet ist (eine "Selfie-Kamera"). Wenn die Einschränkungen `width`, `height`, `frameRate` oder `facingMode` nicht erfüllt werden können, wird das von `applyConstraints()` zurückgegebene Versprechen abgelehnt.
+Hier setzen wir, nachdem sichergestellt wurde, dass die einschränkbaren Eigenschaften, für die Übereinstimmungen gefunden werden müssen, unterstützt werden (`width`, `height`, `frameRate` und `facingMode`), Einschränkungen, die eine Breite von nicht weniger als 640 und nicht mehr als 1920 (aber vorzugsweise 1920) anfordern, eine Höhe von nicht weniger als 400 (aber idealerweise 1080), ein Seitenverhältnis von 16:9 (1.777777778) und eine Bildrate von maximal 30 Bildern pro Sekunde. Außerdem ist das einzige akzeptable Eingabegerät eine nach vorn gerichtete Kamera (eine "Selfie-Kamera"). Wenn die Einschränkungen `width`, `height`, `frameRate` oder `facingMode` nicht erfüllt werden können, wird das bei `applyConstraints()` zurückgegebene Versprechen abgelehnt.
 
 > [!NOTE]
-> Einschränkungen, die mit `max`, `min` oder `exact` angegeben werden, werden immer als zwingend behandelt. Wenn eine Einschränkung, die eine oder mehrere davon verwendet, nicht erfüllt werden kann, wenn `applyConstraints()` aufgerufen wird, wird das Versprechen abgelehnt.
+> Einschränkungen, die unter Verwendung von `max`, `min` oder `exact` angegeben werden, werden immer als verpflichtend behandelt. Wenn eine Einschränkung, die eine dieser Optionen verwendet, bei einem Aufruf von `applyConstraints()` nicht erfüllt werden kann, wird das Versprechen abgelehnt.
 
 ### Erweiterte Einschränkungen
 
-Die sogenannten erweiterten Einschränkungen werden durch Hinzufügen einer `advanced`-Eigenschaft zum Einschränkungssatz erstellt; der Wert dieser Eigenschaft ist ein Array zusätzlicher Einschränkungssätze, die als optional betrachtet werden. Es gibt wenige, wenn überhaupt, Anwendungsfälle für dieses Feature, und es besteht Interesse daran, es aus der Spezifikation zu entfernen, daher wird es hier nicht diskutiert. Wenn Sie mehr darüber erfahren möchten, siehe [Abschnitt 11 der Media Capture and Streams-Spezifikation](https://w3c.github.io/mediacapture-main/#constrainable-interface), nach Beispiel 2.
+Die sogenannten erweiterten Einschränkungen werden erstellt, indem der Einschränkungssammlung eine `advanced`-Eigenschaft hinzugefügt wird; der Wert dieser Eigenschaft ist ein Array zusätzlicher Einschränkungssätze, die als optional betrachtet werden. Für diese Funktion gibt es nur wenige, wenn überhaupt, Anwendungsfälle, und es besteht Interesse daran, sie aus der Spezifikation zu entfernen, daher wird sie hier nicht behandelt. Wenn Sie mehr erfahren möchten, lesen Sie [Abschnitt 11 der Media Capture and Streams-Spezifikation](https://w3c.github.io/mediacapture-main/#constrainable-interface), hinter Beispiel 2.
 
-## Überprüfung der Fähigkeiten
+## Überprüfen der Fähigkeiten
 
-Sie können [`MediaStreamTrack.getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities) aufrufen, um eine Liste aller unterstützten Fähigkeiten und die Werte oder Bereiche von Werten, die jeder akzeptiert, auf der aktuellen Plattform und dem User-Agent zu erhalten. Diese Funktion gibt ein Objekt zurück, das jede vom Browser unterstützte einschränkbare Eigenschaft und einen Wert oder Bereich von Werten auflistet, die für jede dieser Eigenschaften unterstützt werden.
+Sie können [`MediaStreamTrack.getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities) aufrufen, um eine Liste aller unterstützten Fähigkeiten und der Werte oder Wertebereiche zu erhalten, die jede von ihnen auf der aktuellen Plattform und dem aktuellen User-Agent akzeptiert. Diese Funktion gibt ein Objekt zurück, das jede einschränkbare Eigenschaft auflistet, die vom Browser unterstützt wird und einen Wert oder Wertebereich, der für jede dieser Eigenschaften unterstützt wird.
 
-Beispielsweise führt der folgende Ausschnitt dazu, dass der Benutzer um Erlaubnis gebeten wird, auf seine lokale Kamera und sein Mikrofon zuzugreifen. Sobald die Erlaubnis erteilt wird, werden `MediaTrackCapabilities`-Objekte in die Konsole protokolliert, die die Fähigkeiten jedes [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) im Detail anzeigen:
+Beispielsweise wird durch den folgenden Schnipsel der Benutzer um Erlaubnis gebeten, auf die lokale Kamera und das Mikrofon zuzugreifen. Sobald die Erlaubnis erteilt ist, werden `MediaTrackCapabilities`-Objekte an die Konsole ausgegeben, die die Fähigkeiten jedes [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) detailliert beschreiben:
 
 ```js
 navigator.mediaDevices
@@ -120,7 +120,7 @@ navigator.mediaDevices
   });
 ```
 
-Ein Beispiel für ein Fähigkeitenobjekt sieht so aus:
+Ein Beispiel für ein Fähigkeitenobjekt sieht folgendermaßen aus:
 
 ```json
 {
@@ -136,11 +136,11 @@ Ein Beispiel für ein Fähigkeitenobjekt sieht so aus:
 }
 ```
 
-Der genaue Inhalt des Objekts hängt vom Browser und der Medienhardware ab.
+Der exakte Inhalt des Objekts hängt vom Browser und der Medienhardware ab.
 
 ## Anwenden von Einschränkungen
 
-Die erste und häufigste Methode zur Verwendung von Einschränkungen besteht darin, sie anzugeben, wenn Sie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufrufen:
+Die erste und häufigste Methode, Einschränkungen anzuwenden, besteht darin, sie anzugeben, wenn Sie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufrufen:
 
 ```js
 navigator.mediaDevices
@@ -161,12 +161,12 @@ navigator.mediaDevices
   .catch(handleError);
 ```
 
-In diesem Beispiel werden Einschränkungen zur Zeit von `getUserMedia()` angewendet, wobei ein ideales Set von Optionen mit Fallbacks für das Video angefordert wird.
+In diesem Beispiel werden Einschränkungen zur Zeit von `getUserMedia()` angewendet, indem ein ideales Optionsset mit Fallbacks für das Video angefordert wird.
 
 > [!NOTE]
-> Sie können eine oder mehrere Medien-Eingabegeräte-IDs angeben, um Einschränkungen dafür festzulegen, welche Eingabequellen zulässig sind. Um eine Liste der verfügbaren Geräte zu sammeln, können Sie [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufrufen und dann die `deviceId` jedes Geräts, das die gewünschten Kriterien erfüllt, zum `MediaConstraints`-Objekt hinzufügen, das schließlich an `getUserMedia()` übergeben wird.
+> Sie können eine oder mehrere Medien-Eingabe-Geräte-IDs angeben, um Einschränkungen darüber zu verhängen, welche Eingabequellen erlaubt sind. Um eine Liste der verfügbaren Geräte zu sammeln, können Sie [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufrufen und dann für jedes Gerät, das die gewünschten Kriterien erfüllt, die `deviceId` dem `MediaConstraints`-Objekt hinzufügen, das schließlich in `getUserMedia()` übergeben wird.
 
-Sie können auch die Einschränkungen eines bestehenden [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) im laufenden Betrieb ändern, indem Sie die Methode [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) des Tracks aufrufen und ein Objekt übergeben, das die Einschränkungen darstellt, die Sie auf den Track anwenden möchten:
+Sie können die Einschränkungen eines vorhandenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auch dynamisch ändern, indem Sie die Methode [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) des Tracks aufrufen und ein Objekt übergeben, das die Einschränkungen darstellt, die Sie auf den Track anwenden möchten:
 
 ```js
 videoTrack.applyConstraints({
@@ -175,15 +175,15 @@ videoTrack.applyConstraints({
 });
 ```
 
-In diesem Ausschnitt wird der Videotrack, der durch `videoTrack` referenziert wird, aktualisiert, sodass seine Auflösung möglichst eng 1920x1080 Pixel (1080p High Definition) beträgt.
+In diesem Schnipsel wird die Videospur, die durch `videoTrack` referenziert wird, aktualisiert, sodass ihre Auflösung so nah wie möglich an 1920x1080 Pixel (1080p High Definition) heranreicht.
 
 ## Abrufen aktueller Einschränkungen und Einstellungen
 
-Es ist wichtig, den Unterschied zwischen **Einschränkungen** und **Einstellungen** zu verstehen. Einschränkungen sind eine Möglichkeit, anzugeben, welche Werte Sie benötigen, wünschen und bereit sind, für die verschiedenen einschränkbaren Eigenschaften zu akzeptieren (wie in der Dokumentation für [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) beschrieben), während Einstellungen die tatsächlichen Werte jeder einschränkbaren Eigenschaft zu einem gegebenen Zeitpunkt sind.
+Es ist wichtig, den Unterschied zwischen **Einschränkungen** und **Einstellungen** zu verstehen. Einschränkungen sind eine Möglichkeit, anzugeben, welche Werte Sie für die verschiedenen einschränkbaren Eigenschaften benötigen, wünschen und akzeptieren können (wie in der Dokumentation zu [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) beschrieben), während Einstellungen die tatsächlichen Werte jeder einschränkbaren Eigenschaft zu einem bestimmten Zeitpunkt sind.
 
-### Abrufen der aktuellen Einschränkungen
+### Abrufen der in Kraft befindlichen Einschränkungen
 
-Wenn Sie zu irgendeinem Zeitpunkt den Satz von Einschränkungen abrufen müssen, die derzeit auf die Medien angewandt werden, können Sie diese Informationen durch Aufrufen von [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints) abrufen, wie im folgenden Beispiel gezeigt.
+Wenn Sie zu irgendeinem Zeitpunkt die Menge der Einschränkungen abrufen müssen, die derzeit auf die Medien angewendet werden, können Sie diese Informationen durch Aufruf von [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints) erhalten, wie im folgenden Beispiel gezeigt.
 
 ```js
 function switchCameras(track, camera) {
@@ -193,11 +193,11 @@ function switchCameras(track, camera) {
 }
 ```
 
-Diese Funktion akzeptiert einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) und eine Zeichenkette, die den zu verwendenden Kamera-Facing-Modus angibt, ruft die aktuellen Einschränkungen ab, setzt den Wert von [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) auf den angegebenen Wert und wendet den aktualisierten Einschränkungssatz an.
+Diese Funktion akzeptiert einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) und einen String, der angibt, welcher Kameramodus verwendet werden soll, holt die aktuellen Einschränkungen, setzt den Wert des [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) auf den angegebenen Wert und wendet den aktualisierten Einschränkungssatz an.
 
-### Abrufen der aktuellen Einstellungen eines Tracks
+### Abrufen der aktuellen Einstellungen für eine Spur
 
-Es sei denn, Sie verwenden nur genaue Einschränkungen (was ziemlich einschränkend ist, seien Sie also sicher, dass Sie es so meinen!), es gibt keine Garantie, was Sie tatsächlich erhalten, nachdem die Einschränkungen angewendet wurden. Die Werte der einschränkbaren Eigenschaften, wie sie tatsächlich in den resultierenden Medien sind, werden als die Einstellungen bezeichnet. Wenn Sie das tatsächliche Format und andere Eigenschaften der Medien kennen müssen, können Sie diese Einstellungen abrufen, indem Sie [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aufrufen. Dies gibt ein auf dem Wörterbuch [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) basierendes Objekt zurück. Beispiel:
+Es gibt keine Garantie, was genau Sie erhalten, nachdem die Einschränkungen angewendet wurden, es sei denn, Sie verwenden nur exakte Einschränkungen (was ziemlich restriktiv ist, also vergewissern Sie sich, dass Sie es ernst meinen!). Die Werte der einschränkbaren Eigenschaften, wie sie tatsächlich im resultierenden Medium sind, werden als Einstellungen bezeichnet. Wenn Sie das tatsächliche Format und die anderen Eigenschaften des Mediums kennen müssen, können Sie diese Einstellungen durch Aufruf von [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) erhalten. Dies gibt ein Objekt basierend auf dem Wörterbuch [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) zurück. Zum Beispiel:
 
 ```js
 function whichCamera(track) {
@@ -205,13 +205,13 @@ function whichCamera(track) {
 }
 ```
 
-Diese Funktion verwendet `getSettings()`, um die zurzeit verwendeten Werte der einschränkbaren Eigenschaften des Tracks zu erhalten und gibt den Wert von [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode) zurück.
+Diese Funktion verwendet `getSettings()`, um die aktuell verwendeten Werte der einschränkbaren Eigenschaften der Spur zu erhalten und gibt den Wert von [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode) zurück.
 
 ## Beispiel: Constraint Exerciser
 
-In diesem Beispiel erstellen wir einen Exerciser, der es Ihnen ermöglicht, mit Medieneinschränkungen zu experimentieren, indem Sie den Quellcode ändern, der die Einschränkungssätze für Audio- und Video-Tracks beschreibt. Anschließend können Sie diese Änderungen anwenden und das Ergebnis sehen, einschließlich dessen, wie der Stream aussieht und welche tatsächlichen Medieneinstellungen nach Anwendung der neuen Einschränkungen eingestellt sind.
+In diesem Beispiel erstellen wir einen Exerciser, der es Ihnen ermöglicht, mit Medieneinschränkungen zu experimentieren, indem Sie den Quellcode, der die Einschränkungssätze für Audio- und Videospuren beschreibt, bearbeiten. Sie können diese Änderungen dann anwenden und das Ergebnis sehen, einschließlich wie der Stream aussieht und welche tatsächlichen Medieneinstellungen nach dem Anwenden der neuen Einschränkungen festgelegt sind.
 
-Das HTML und CSS für dieses Beispiel sind ziemlich einfach und werden hier nicht gezeigt. Sie können den vollständigen Code ansehen, indem Sie auf "Play" klicken, um ihn im Playground anzuzeigen.
+Das HTML und CSS für dieses Beispiel ist ziemlich einfach und wird hier nicht gezeigt. Sie können den vollständigen Code ansehen, indem Sie auf "Play" klicken, um es im Playground anzuzeigen.
 
 ```html hidden
 <p>
@@ -320,7 +320,7 @@ h3 {
 
 ### Standardwerte und Variablen
 
-Zuerst haben wir die Standard-Einschränkungssätze als Zeichenfolgen. Diese Zeichenfolgen werden in bearbeitbaren {{HTMLElement("textarea")}}s dargestellt, aber dies ist die anfängliche Konfiguration des Streams.
+Zuerst haben wir die Standard-Einschränkungssätze als Strings. Diese Strings werden in editierbaren {{HTMLElement("textarea")}}s präsentiert, dies ist jedoch die anfängliche Konfiguration des Streams.
 
 ```js
 const videoDefaultConstraintString =
@@ -329,9 +329,9 @@ const audioDefaultConstraintString =
   '{\n  "sampleSize": 16,\n  "channelCount": 2,\n  "echoCancellation": false\n}';
 ```
 
-Diese Standardwerte fordern eine ziemlich allgemeine Kamerakonfiguration an, bestehen jedoch nicht darauf, dass eine bestimmte Eigenschaft von besonderer Bedeutung ist. Der Browser sollte sein Bestes tun, diese Einstellungen zu erfüllen, aber sich mit allem zufriedengeben, was er als nahe Übereinstimmung ansieht.
+Diese Standardwerte bitten um eine sehr gängige Kamerakonfiguration, bestehen jedoch nicht darauf, dass eine Eigenschaft besonders wichtig ist. Der Browser sollte sein Bestes tun, um diese Einstellungen zu erfüllen, sich jedoch mit allem zufriedengeben, was er als nah genug ansieht.
 
-Dann initialisieren wir die Variablen, die die [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die Video- und Audiotracks sowie die Variablen, die Referenzen auf die Video- und Audiotracks selbst enthalten werden, mit `null`.
+Dann initialisieren wir die Variablen, die die [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die Video- und Audiotracks enthalten werden, sowie die Variablen für Verweise auf die Video- und Audiotracks selbst, auf `null`.
 
 ```js
 let videoConstraints = null;
@@ -341,7 +341,7 @@ let audioTrack = null;
 let videoTrack = null;
 ```
 
-Und wir erhalten Referenzen zu allen Elementen, auf die wir zugreifen müssen.
+Und wir erhalten Referenzen zu allen Elementen, die wir benötigen werden.
 
 ```js
 const videoElement = document.getElementById("video");
@@ -356,30 +356,30 @@ const audioSettingsText = document.getElementById("audioSettingsText");
 Diese Elemente sind:
 
 - `videoElement`
-  - : Das {{HTMLElement("video")}}-Element, das den Stream anzeigen wird.
+  - : Das {{HTMLElement("video")}}-Element, das den Stream zeigen wird.
 - `logElement`
-  - : Ein {{HTMLElement("div")}}, in den alle Fehlermeldungen oder andere Protokollausgaben geschrieben werden.
+  - : Ein {{HTMLElement("div")}}, in das Fehlermeldungen oder andere log-ähnliche Ausgaben geschrieben werden.
 - `supportedConstraintList`
-  - : Eine {{HTMLElement("ul")}} (ungeordnete Liste), in die wir programmatisch die Namen jeder der vom Benutzer unterstützten einschränkbaren Eigenschaften hinzufügen.
+  - : Ein {{HTMLElement("ul")}} (ungeordnete Liste), in die wir die Namen jeder der einschränkbaren Eigenschaften hinzufügen, die der Browser des Benutzers unterstützt.
 - `videoConstraintEditor`
-  - : Ein {{HTMLElement("textarea")}}-Element, das es dem Benutzer ermöglicht, den Code für die Einschränkungssätze des Videotracks zu bearbeiten.
+  - : Ein {{HTMLElement("textarea")}}-Element, das den Benutzern ermöglicht, den Code des Einschränkungssatzes der Videospur zu bearbeiten.
 - `audioConstraintEditor`
-  - : Ein {{HTMLElement("textarea")}}-Element, das es dem Benutzer ermöglicht, den Code für die Einschränkungssätze des Audiotracks zu bearbeiten.
+  - : Ein {{HTMLElement("textarea")}}-Element, das den Benutzern ermöglicht, den Code des Einschränkungssatzes der Audiospur zu bearbeiten.
 - `videoSettingsText`
-  - : Ein {{HTMLElement("textarea")}} (das immer deaktiviert ist), das die aktuellen Einstellungen für die einschränkbaren Eigenschaften des Videotracks anzeigt.
+  - : Ein immer deaktiviertes {{HTMLElement("textarea")}}, das die aktuellen Einstellungen für die einschränkbaren Eigenschaften der Videospur anzeigt.
 - `audioSettingsText`
-  - : Ein {{HTMLElement("textarea")}} (das immer deaktiviert ist), das die aktuellen Einstellungen für die einschränkbaren Eigenschaften des Audiotracks anzeigt.
+  - : Ein immer deaktiviertes {{HTMLElement("textarea")}}, das die aktuellen Einstellungen für die einschränkbaren Eigenschaften der Audiospur anzeigt.
 
-Schließlich setzen wir den aktuellen Inhalt der beiden Einschränkungssätze-Editoren auf die Standardwerte.
+Schließlich setzen wir den aktuellen Inhalt der zwei Einschränkungssatzelemente auf die Standardwerte.
 
 ```js
 videoConstraintEditor.value = videoDefaultConstraintString;
 audioConstraintEditor.value = audioDefaultConstraintString;
 ```
 
-### Aktualisierung der Einstellungsanzeige
+### Aktualisieren der Einstellungsausgabe
 
-Rechts von jedem der Einschränkungssatz-Editoren befindet sich ein zweites Textfeld, das wir verwenden, um die aktuelle Konfiguration der konfigurierbaren Eigenschaften des Tracks anzuzeigen. Diese Anzeige wird von der Funktion `getCurrentSettings()` aktualisiert, die die aktuellen Einstellungen für die Audio- und Videotracks erhält und den entsprechenden Code in die Anzeige der Track-Einstellungen durch Setzen ihrer [`value`](/de/docs/Web/API/HTMLTextAreaElement/value) einfügt.
+Rechts von jedem Anzeige-Editor der Einschränkungssätze befindet sich ein zweites Textfeld, das wir verwenden, um die aktuelle Konfiguration der konfigurierbaren Eigenschaften der Spur anzuzeigen. Diese Anzeige wird von der Funktion `getCurrentSettings()` aktualisiert, die die aktuellen Einstellungen für die Audio- und Videospuren abruft und den entsprechenden Code in die Anzeige-Boxen der Spur-Einstellungen einfügt, indem sie den [`value`](/de/docs/Web/API/HTMLTextAreaElement/value) setzt.
 
 ```js
 function getCurrentSettings() {
@@ -393,11 +393,11 @@ function getCurrentSettings() {
 }
 ```
 
-Dies wird aufgerufen, nachdem der Stream erstmals gestartet wurde, sowie jedes Mal, wenn wir aktualisierte Einschränkungen angewendet haben, wie Sie weiter unten sehen werden.
+Dies wird aufgerufen, nachdem der Stream zuerst gestartet wurde, sowie jedes Mal, wenn wir aktualisierte Einschränkungen angewendet haben, wie Sie unten sehen werden.
 
-### Erstellen der Track-Einschränkungssatzobjekte
+### Erstellen der Objekte für die Track-Einschränkungssätze
 
-Die Funktion `buildConstraints()` erstellt die [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die Audio- und Videotracks mit dem Code in den beiden Editoren der Einschränkungssätze.
+Die Funktion `buildConstraints()` erstellt die [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die Audio- und Videotracks unter Verwendung des Codes in den beiden Bearbeitungsboxen der Einschränkungssätze der Tracks.
 
 ```js
 function buildConstraints() {
@@ -410,11 +410,11 @@ function buildConstraints() {
 }
 ```
 
-Dies verwendet {{jsxref("JSON.parse()")}}, um den Code in jedem Editor in ein Objekt zu parsen. Wenn einer der Aufrufe von JSON.parse() eine Ausnahme auslöst, wird `handleError()` aufgerufen, um die Fehlermeldung in das Protokoll einzutragen.
+Dies verwendet {{jsxref("JSON.parse()")}}, um den Code in jedem Editor in ein Objekt umzuwandeln. Wenn einer der Aufrufe von JSON.parse() eine Ausnahme auslöst, wird `handleError()` aufgerufen, um die Fehlermeldung in das Log auszugeben.
 
 ### Konfigurieren und Starten des Streams
 
-Die Methode `startVideo()` kümmert sich um das Einrichten und Starten des Videostreams.
+Die Methode `startVideo()` übernimmt die Einrichtung und den Start des Videostreams.
 
 ```js
 function startVideo() {
@@ -452,16 +452,16 @@ function startVideo() {
 }
 ```
 
-Es gibt mehrere Schritte hier:
+Hier gibt es mehrere Schritte:
 
-1. Sie ruft `buildConstraints()` auf, um die [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die beiden Tracks aus dem Code in den Editoren zu erstellen.
-2. Sie ruft [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf und übergibt dabei die Einschränkungsobjekte für die Video- und Audiotracks. Dies gibt einen [`MediaStream`](/de/docs/Web/API/MediaStream) mit dem Audio und Video von einer Quelle zurück, die den Eingaben entspricht (normalerweise eine Webcam, obwohl Sie bei Angabe der richtigen Einschränkungen Medien von anderen Quellen erhalten können).
-3. Wenn der Stream erhalten wird, wird er an das {{HTMLElement("video")}}-Element angehängt, damit er auf dem Bildschirm sichtbar ist, und wir erhalten den Audiotrack und Videotrack in die Variablen `audioTrack` und `videoTrack`.
-4. Dann richten wir ein Versprechen ein, das aufgelöst wird, wenn das [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)-Ereignis auf dem Videoelement auftritt.
-5. Wenn dies geschieht, wissen wir, dass das Video zu spielen begonnen hat, daher rufen wir unsere Funktion `getCurrentSettings()` (oben beschrieben) auf, um die tatsächlichen Einstellungen anzuzeigen, die der Browser festgelegt hat, nachdem es unsere Einschränkungen und die Fähigkeiten der Hardware berücksichtigt hat.
-6. Wenn ein Fehler auftritt, protokollieren wir ihn mit der Methode `handleError()`, die wir weiter unten in diesem Artikel betrachten werden.
+1. Es ruft `buildConstraints()` auf, um die [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die beiden Tracks aus dem Code in den Bearbeitungsfeldern zu erstellen.
+2. Es ruft [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf und übergibt dabei die Einschränkungsobjekte für die Video- und Audiotracks. Dies gibt einen [`MediaStream`](/de/docs/Web/API/MediaStream) mit dem Audio und Video von einer Quelle zurück, die den Eingaben entspricht (in der Regel eine Webcam, obwohl Sie, wenn Sie die richtigen Einschränkungen angeben, Medien von anderen Quellen erhalten können).
+3. Wenn der Stream abgerufen wird, wird er dem {{HTMLElement("video")}}-Element beigefügt, sodass er auf dem Bildschirm sichtbar ist, und wir holen den Audiotrack und Videotrack in die Variablen `audioTrack` und `videoTrack`.
+4. Dann richten wir ein Versprechen ein, das aufgelöst wird, wenn das [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)-Ereignis auf dem Videoelement eintritt.
+5. Wenn dies geschieht, wissen wir, dass das Video zu spielen begonnen hat, sodass wir unsere Funktion `getCurrentSettings()` (oben beschrieben) aufrufen, um die tatsächlichen Einstellungen anzuzeigen, die der Browser nach Berücksichtigung unserer Einschränkungen und der Fähigkeiten der Hardware entschieden hat.
+6. Wenn ein Fehler auftritt, loggen wir diesen mit der Methode `handleError()`, die wir weiter unten in diesem Artikel betrachten.
 
-Wir müssen auch einen Event-Listener einrichten, um zu überwachen, wann der "Start Video"-Button geklickt wird:
+Wir müssen auch einen Ereignis-Listener einrichten, um auf das Klicken auf die Schaltfläche "Video starten" zu reagieren:
 
 ```js
 document.getElementById("startButton").addEventListener(
@@ -473,14 +473,14 @@ document.getElementById("startButton").addEventListener(
 );
 ```
 
-### Anwenden von Einschränkungssatz-Updates
+### Anwenden von Updates auf die Einschränkungssätze
 
-Als nächstes richten wir einen Event-Listener für den "Apply Constraints"-Button ein. Wenn er geklickt wird und noch keine Medien verwendet werden, rufen wir `startVideo()` auf und lassen diese Funktion den Stream mit den angegebenen Einstellungen starten. Andernfalls folgen wir diesen Schritten, um die aktualisierten Einschränkungen auf den bereits aktiven Stream anzuwenden:
+Als Nächstes richten wir einen Ereignis-Listener für die Schaltfläche "Einschränkungen anwenden" ein. Wenn darauf geklickt wird und noch keine Medien verwendet werden, rufen wir `startVideo()` auf und überlassen dieser Funktion die Handhabung des Startens des Streams mit den spezifischen Einstellungen. Andernfalls gehen wir wie folgt vor, um die aktualisierten Einschränkungen auf den bereits aktiven Stream anzuwenden:
 
-1. `buildConstraints()` wird aufgerufen, um aktualisierte [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für den Audiotrack (`audioConstraints`) und den Videotrack (`videoConstraints`) zu erstellen.
-2. [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) wird auf dem Videotrack (falls einer vorhanden ist) aufgerufen, um die neuen `videoConstraints` anzuwenden. Wenn dies gelingt, werden die Inhalte des aktuellen Einstellungsfeldes des Videotracks basierend auf dem Ergebnis des Aufrufs seiner Methode [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aktualisiert.
-3. Sobald dies erledigt ist, wird `applyConstraints()` auf dem Audiotrack (falls einer vorhanden ist) aufgerufen, um die neuen Audioeinstellungen anzuwenden. Wenn dies gelingt, werden die Inhalte des aktuellen Einstellungsfeldes des Audiotracks basierend auf dem Ergebnis des Aufrufs seiner Methode [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aktualisiert.
-4. Wenn ein Fehler beim Anwenden einer der beiden Einschränkungssätze auftritt, wird `handleError()` verwendet, um eine Nachricht in das Protokoll auszugeben.
+1. `buildConstraints()` wird aufgerufen, um aktualisierte [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekte für die Audiospur (`audioConstraints`) und die Videospur (`videoConstraints`) aus dem Code in den Bearbeitungsfeldern zu erstellen.
+2. [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) wird für den Videotrack (falls vorhanden) aufgerufen, um die neuen `videoConstraints` anzuwenden. Wenn dies erfolgreich ist, wird der Inhalt des aktuellen Einstellungsfeldes der Videospur basierend auf dem Ergebnis des Aufrufs ihrer Methode [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aktualisiert.
+3. Sobald dies erledigt ist, wird `applyConstraints()` auf dem Audiotrack (falls vorhanden) aufgerufen, um die neuen Audioeinschränkungen anzuwenden. Wenn dies erfolgreich ist, wird der Inhalt des aktuellen Einstellungsfeldes der Audiospur basierend auf dem Ergebnis des Aufrufs ihrer Methode [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) aktualisiert.
+4. Wenn ein Fehler beim Anwenden eines der Einschränkungssätze auftritt, wird `handleError()` verwendet, um eine Nachricht in das Log auszugeben.
 
 ```js
 document.getElementById("applyButton").addEventListener(
@@ -516,9 +516,9 @@ document.getElementById("applyButton").addEventListener(
 );
 ```
 
-### Handhabung des Stop-Buttons
+### Die Stopp-Schaltfläche handhaben
 
-Dann richten wir den Handler für den Stop-Button ein.
+Dann richten wir den Handler für die Stopp-Schaltfläche ein.
 
 ```js
 document.getElementById("stopButton").addEventListener("click", () => {
@@ -535,11 +535,11 @@ document.getElementById("stopButton").addEventListener("click", () => {
 });
 ```
 
-Dies stoppt die aktiven Tracks, setzt die Variablen `videoTrack` und `audioTrack` auf `null`, um zu wissen, dass sie entfernt wurden, und entfernt den Stream aus dem {{HTMLElement("video")}}-Element, indem [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) auf `null` gesetzt wird.
+Dies stoppt die aktiven Tracks, setzt die Variablen `videoTrack` und `audioTrack` auf `null`, damit wir wissen, dass sie weg sind, und entfernt den Stream aus dem {{HTMLElement("video")}}-Element, indem die [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) auf `null` gesetzt wird.
 
-### Einfache Tab-Unterstützung im Editor
+### Einfache Tabulator-Unterstützung im Editor
 
-Dieser Code fügt den {{HTMLElement("textarea")}}-Elementen eine einfache Unterstützung für Tabs hinzu, indem die Tabulatortaste beim Fokussieren eines der beiden Editoren zwei Leerzeichen einfügt.
+Dieser Code fügt den {{HTMLElement("textarea")}}-Elementen eine einfache Unterstützung für Tabs hinzu, indem er die Tabulatortaste zwei Leerzeichen einfügen lässt, wenn entweder das Einschränkungsbearbeitungsfeld fokussiert ist.
 
 ```js
 function keyDownHandler(event) {
@@ -561,12 +561,12 @@ videoConstraintEditor.addEventListener("keydown", keyDownHandler, false);
 audioConstraintEditor.addEventListener("keydown", keyDownHandler, false);
 ```
 
-### Anzeigen der vom Browser unterstützten einschränkbaren Eigenschaften
+### Anzeige der einschränkbaren Eigenschaften, die der Browser unterstützt
 
-Das letzte bedeutende Stück des Puzzles: Code, der dem Benutzer, als Referenz, eine Liste der einschränkbaren Eigenschaften anzeigt, die ihr Browser unterstützt. Jede Eigenschaft ist ein Link zur entsprechenden Dokumentation auf MDN für die Bequemlichkeit des Benutzers. Weitere Informationen zur Funktionsweise dieses Codes finden Sie in den [Beispielen zu `MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#examples).
+Das letzte bedeutende Stück des Puzzles: Code, das zur Darstellung, als Referenz für den Benutzer, eine Liste der einschränkbaren Eigenschaften anzeigt, die der Browser des Benutzers unterstützt. Jede Eigenschaft ist ein Link zu ihrer Dokumentation auf MDN zur Bequemlichkeit des Benutzers. Siehe die Beispiele zu [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#examples) für Details zur Funktionsweise dieses Codes.
 
 > [!NOTE]
-> Natürlich kann es nicht-standardisierte Eigenschaften in dieser Liste geben, in diesem Fall werden Sie wahrscheinlich feststellen, dass der Dokumentationslink nicht viel hilft.
+> Natürlich, könnte es nicht standardisierte Eigenschaften in dieser Liste geben, in diesem Fall werden Sie wahrscheinlich feststellen, dass der Dokumentationslink nicht viel hilft.
 
 ```js
 const supportedConstraints = navigator.mediaDevices.getSupportedConstraints();
@@ -582,7 +582,7 @@ for (const constraint in supportedConstraints) {
 
 ### Fehlerbehandlung
 
-Wir haben auch einfachen Code zur Fehlerbehandlung; `handleError()` wird aufgerufen, um gescheiterte Versprechen zu verwalten, und die Funktion `log()` fügt die Fehlermeldung in ein spezielles Protokoll-{{HTMLElement("div")}}-Feld unter dem Video ein.
+Wir haben auch einfachen Code zur Fehlerbehandlung; `handleError()` wird aufgerufen, um fehlgeschlagene Versprechen zu behandeln, und die Funktion `log()` fügt die Fehlermeldung einer speziellen Protokoll-{{HTMLElement("div")}}-Box unter dem Video hinzu.
 
 ```js
 function log(msg) {
@@ -600,7 +600,7 @@ function handleError(reason) {
 
 Hier können Sie das vollständige Beispiel in Aktion sehen.
 
-{{EmbedLiveSample("Example_Constraint_exerciser", 650, 800)}}
+{{EmbedLiveSample("Example_Constraint_exerciser", 650, 1200, , , , "camera;microphone")}}
 
 ## Spezifikationen
 

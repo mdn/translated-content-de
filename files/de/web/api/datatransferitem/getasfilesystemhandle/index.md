@@ -1,14 +1,14 @@
 ---
-title: "DataTransferItem: getAsFileSystemHandle()-Methode"
+title: "DataTransferItem: getAsFileSystemHandle() Methode"
 short-title: getAsFileSystemHandle()
 slug: Web/API/DataTransferItem/getAsFileSystemHandle
 l10n:
-  sourceCommit: 59d87e8756161420f3f40dc554562858f4427e72
+  sourceCommit: a2079173e316405eb47f3d15d3a4b3b7577fc14e
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{SeeCompatTable}}
 
-Die **`getAsFileSystemHandle()`**-Methode der [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt wird, wenn das gezogene Element eine Datei ist, oder mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
+Die **`getAsFileSystemHandle()`** Methode des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt wird, wenn das gezogene Element eine Datei ist, oder mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 Ein {{jsxref('Promise')}}.
 
-Wenn die [`kind`](/de/docs/Web/API/DataTransferItem/kind)-Eigenschaft des Elements `"file"` ist und auf dieses Element in den Ereignis-Handlern [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) oder [`drop`](/de/docs/Web/API/HTMLElement/drop_event) zugegriffen wird, dann wird das zurückgegebene Promise mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt, wenn das gezogene Element eine Datei ist oder einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
+Wenn die [`kind`](/de/docs/Web/API/DataTransferItem/kind) Eigenschaft des Elements `"file"` ist und dieses Element in den Event-Handlern [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) oder [`drop`](/de/docs/Web/API/HTMLElement/drop_event) aufgerufen wird, wird das zurückgegebene Promise mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt, wenn das gezogene Element eine Datei ist, oder mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
 
 Andernfalls wird das Promise mit `null` erfüllt.
 
@@ -34,8 +34,11 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet die `getAsFileSystemHandle()`-Methode, um
+Dieses Beispiel verwendet die `getAsFileSystemHandle()` Methode, um
 [Datei-Handles](/de/docs/Web/API/FileSystemHandle) für abgelegte Elemente zurückzugeben.
+
+> [!NOTE]
+> Da `getAsFileSystemHandle()` den Eintragshandle nur im gleichen Tick wie der `drop` Ereignis-Handler abrufen kann, darf davor kein `await` stehen. Deshalb rufen wir `getAsFileSystemHandle()` zuerst synchron für alle Elemente auf und warten dann gleichzeitig auf ihre Ergebnisse.
 
 ```js
 elem.addEventListener("dragover", (e) => {
@@ -45,17 +48,18 @@ elem.addEventListener("dragover", (e) => {
 elem.addEventListener("drop", async (e) => {
   // Prevent navigation.
   e.preventDefault();
+  const handlesPromises = [...e.dataTransfer.items]
+    // kind will be 'file' for file/directory entries.
+    .filter((x) => x.kind === "file")
+    .map((x) => x.getAsFileSystemHandle());
+  const handles = await Promise.all(handlesPromises);
 
   // Process all of the items.
-  for (const item of e.dataTransfer.items) {
-    // kind will be 'file' for file/directory entries.
-    if (item.kind === "file") {
-      const entry = await item.getAsFileSystemHandle();
-      if (entry.kind === "file") {
-        // run code for if entry is a file
-      } else if (entry.kind === "directory") {
-        // run code for is entry is a directory
-      }
+  for (const handle of handles) {
+    if (handle.kind === "file") {
+      // run code for if handle is a file
+    } else if (handle.kind === "directory") {
+      // run code for is handle is a directory
     }
   }
 });
