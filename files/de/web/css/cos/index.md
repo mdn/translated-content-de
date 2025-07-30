@@ -2,10 +2,72 @@
 title: cos()
 slug: Web/CSS/cos
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: c51c4c3911715acdfd2e3912b6e6df95d40d4e0c
 ---
 
-Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, ein Wert zwischen `-1` und `1`. Die Funktion enthält eine einzelne Berechnung, die entweder in ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, dass `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` alle den gleichen Wert repräsentieren, ungefähr `0.707`.
+Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, ein Wert zwischen `-1` und `1`. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das heißt, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` repräsentieren alle den gleichen Wert, ungefähr `0,707`.
+
+{{InteractiveExample("CSS Demo: cos()")}}
+
+```css interactive-example-choice
+transform: translateX(calc(cos(0deg) * 140px))
+  translateY(calc(sin(0deg) * -140px));
+```
+
+```css interactive-example-choice
+transform: translateX(calc(cos(90deg) * 140px))
+  translateY(calc(sin(90deg) * -140px));
+```
+
+```css interactive-example-choice
+transform: translateX(calc(cos(135deg) * 140px))
+  translateY(calc(sin(135deg) * -140px));
+```
+
+```css interactive-example-choice
+transform: translateX(calc(cos(180deg) * 140px))
+  translateY(calc(sin(180deg) * -140px));
+```
+
+```css interactive-example-choice
+transform: translateX(calc(cos(-45deg) * 140px))
+  translateY(calc(sin(-45deg) * -140px));
+```
+
+```html interactive-example
+<div class="circle">
+  <span class="dot" id="example-element"></span>
+</div>
+```
+
+```css interactive-example
+:root {
+  --radius: 140px;
+  --dotsize: 10px;
+}
+.circle {
+  display: grid;
+  place-content: center;
+  margin: 0 auto;
+  width: calc(var(--radius) * 2);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid #666;
+  background-image:
+    radial-gradient(black var(--dotsize), transparent var(--dotsize)),
+    linear-gradient(135deg, #0000ff, #00c9ff, #92fe9d, #e6e6fa, #f0fff0);
+}
+.dot {
+  display: block;
+  width: var(--dotsize);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid #666;
+  background-color: #f66;
+  transform: translateX(calc(cos(0deg) * var(--radius)))
+    translateY(calc(sin(0deg) * var(--radius) * -1));
+}
+```
 
 ## Syntax
 
@@ -29,13 +91,13 @@ width: calc(100px * cos(e / 2));
 Die `cos(angle)` Funktion akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Wenn einheitslose Zahlen angegeben werden, werden sie als Anzahl von Bogenmaß interpretiert, die ein {{cssxref("&lt;angle&gt;")}} darstellen.
+  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} auflösen muss. Wenn zahlenlose Zahlen angegeben werden, werden sie als Anzahl von Radianten interpretiert und stellen einen {{cssxref("&lt;angle&gt;")}} dar.
 
 ### Rückgabewert
 
-Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückgeben.
+Der Kosinus eines `angle` gibt immer eine Zahl zwischen `−1` und `1` zurück.
 
-- Wenn `angle` `unendlich`, `-unendlich` oder `NaN` ist, ist das Ergebnis `NaN`.
+- Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
 
 ## Formale Syntax
 
@@ -47,9 +109,9 @@ Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückge
 
 Die `cos()` Funktion kann verwendet werden, um die Größe eines gedrehten Kastens beizubehalten.
 
-Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, überschreitet es seine ursprüngliche Größe. Um dies zu beheben, verwenden wir `cos()`, um die Größe des Elements zu aktualisieren.
+Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, geht es über seine ursprüngliche Größe hinaus. Um dies zu korrigieren, verwenden wir `cos()`, um die Elementgröße zu aktualisieren.
 
-Zum Beispiel, wenn Sie ein `100px`/`100px` Quadrat um `45deg` drehen, wird die resultierende Raute breiter und höher als das ursprüngliche Quadrat sein. Um die Raute auf die Größe des für das ursprüngliche Quadrat vorgesehenen Kastens zu verkleinern, müssen Sie die Raute mit dieser Formel skalieren: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
+Beispielsweise, wenn Sie ein `100px`/`100px` Quadrat um `45deg` drehen, wird der entstehende Diamant breiter und höher als das ursprüngliche Quadrat. Um den Diamanten in das für das ursprüngliche Quadrat vorgesehene Kästchen zu verkleinern, müssen Sie den Diamanten mit dieser Formel verkleinern: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
 
 #### HTML
 

@@ -1,11 +1,12 @@
 ---
-title: SuppressedError() Konstruktor
+title: SuppressedError()-Konstruktor
+short-title: SuppressedError()
 slug: Web/JavaScript/Reference/Global_Objects/SuppressedError/SuppressedError
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Der **`SuppressedError()`** Konstruktor erstellt {{jsxref("SuppressedError")}} Objekte.
+Der **`SuppressedError()`**-Konstruktor erzeugt {{jsxref("SuppressedError")}}-Objekte.
 
 ## Syntax
 
@@ -18,16 +19,16 @@ SuppressedError(error, suppressed, message)
 ```
 
 > [!NOTE]
-> `SuppressedError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Möglichkeiten erzeugen eine neue `SuppressedError` Instanz.
+> `SuppressedError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue `SuppressedError`-Instanz.
 
 ### Parameter
 
 - `error`
   - : Der neue Fehler, der zur Unterdrückung von `suppressed` führt.
 - `suppressed`
-  - : Der Fehler, der ursprünglich geworfen wurde und nun unterdrückt wird.
+  - : Der ursprünglich ausgelöste Fehler, der nun unterdrückt wird.
 - `message` {{optional_inline}}
-  - : Eine optionale, menschenlesbare Beschreibung des zusammengefassten Fehlers.
+  - : Eine optionale, menschenlesbare Beschreibung des aggregierten Fehlers.
 
 > [!NOTE]
 > `SuppressedError()` akzeptiert keine `options` wie {{jsxref("Error/Error", "Error()")}} und andere Unterklassen, da die Semantik von {{jsxref("Error/cause", "cause")}} sich mit `suppressed` überschneidet.

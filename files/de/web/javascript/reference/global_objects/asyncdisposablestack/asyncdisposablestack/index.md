@@ -1,11 +1,12 @@
 ---
 title: AsyncDisposableStack() Konstruktor
+short-title: AsyncDisposableStack()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/AsyncDisposableStack
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Der **`AsyncDisposableStack()`**-Konstruktor erstellt {{jsxref("AsyncDisposableStack")}}-Objekte.
+Der **`AsyncDisposableStack()`** Konstruktor erstellt {{jsxref("AsyncDisposableStack")}} Objekte.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `AsyncDisposableStack`-Objekt.
+Ein neues `AsyncDisposableStack` Objekt.
 
 ## Beispiele
 
@@ -45,4 +46,4 @@ await disposer.disposeAsync();
 
 ## Siehe auch
 
-- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)

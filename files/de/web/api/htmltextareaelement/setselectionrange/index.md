@@ -1,21 +1,21 @@
 ---
-title: "HTMLTextAreaElement: setSelectionRange() Methode"
+title: "HTMLTextAreaElement: setSelectionRange()-Methode"
 short-title: setSelectionRange()
 slug: Web/API/HTMLTextAreaElement/setSelectionRange
 l10n:
-  sourceCommit: 58cc81b21f777d745877ec1430df8ba2852ff411
+  sourceCommit: 76d6c2c2bcca61d0d14ed464356716090097bc7a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`setSelectionRange()`** Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces setzt die Start- und Endpositionen der aktuellen Textauswahl und optional die Richtung in einem {{HTMLElement("textarea")}}-Element. Die Richtung gibt an, in welcher die Auswahl erfolgt sein soll, zum Beispiel, dass die Auswahl durch Klicken und Ziehen des Benutzers vom Ende des ausgewählten Textes zum Anfang gesetzt wurde. Zusätzlich werden die [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) und [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) Ereignisse ausgelöst.
+Die **`setSelectionRange()`**-Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces setzt die Start- und Endpositionen der aktuellen Textauswahl und optional die Richtung in einem {{HTMLElement("textarea")}}-Element. Dies aktualisiert den Auswahlszustand sofort, obwohl das visuelle Hervorheben nur erscheint, wenn das Element fokussiert ist. Die Richtung gibt an, in welcher Weise die Auswahl erfolgt ist; zum Beispiel, dass die Auswahl durch den Benutzer durch Klicken und Ziehen vom Ende des ausgewählten Textes zum Beginn hin gesetzt wurde. Zusätzlich werden die [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) und [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) Events ausgelöst.
 
-Diese Methode aktualisiert auch die Eigenschaften [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart), [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) und [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection).
+Diese Methode aktualisiert die [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart), [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) und [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)-Eigenschaften sofort, unabhängig vom Fokuszustand. Das visuelle Auswahl-Hervorheben erfordert, dass das Element fokussiert ist.
 
 > [!NOTE]
-> Der `<textarea>` muss fokussiert sein, um eine Untersektion des Textes mit der `setSelectionRange()` Methode auszuwählen. Das Setzen des Fokus löst ebenfalls ein `selectchange` Ereignis aus.
+> Während `setSelectionRange()` die Auswahl-Eigenschaften sofort aktualisiert, erscheint das visuelle Auswahl-Hervorheben nur, wenn das `<textarea>` fokussiert ist. Das Fokussieren des Elements wird ebenfalls ein `selectionchange`-Event auslösen.
 
-Um **alle** Texte eines `<textarea>` Elements auszuwählen, verwenden Sie die [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select) Methode.
+Um **allen** Text eines `<textarea>`-Elements zu markieren, verwenden Sie die [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)-Methode.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ setSelectionRange(selectionStart, selectionEnd, selectionDirection)
 ### Parameter
 
 - `selectionStart`
-  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer ist als die Länge des Wertes des Elements, wird als Zeiger auf das Ende des Wertes behandelt. Weitere Informationen finden Sie in der [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) Eigenschaft.
+  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer ist als die Länge des Werts des Elements, wird als das Ende des Werts behandelt. Siehe die [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)-Eigenschaft für weitere Informationen.
 - `selectionEnd`
-  - : Der Index des Zeichens _nach_ dem zuletzt ausgewählten Zeichen. Ein Index, der größer ist als die Länge des Wertes des Elements, wird als Zeiger auf das Ende des Wertes behandelt. Wenn `selectionEnd` kleiner ist als `selectionStart`, werden beide als der Wert von `selectionEnd` behandelt. Weitere Informationen finden Sie in der [`selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) Eigenschaft.
+  - : Der Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein Index, der größer ist als die Länge des Werts des Elements, wird als das Ende des Werts behandelt. Wenn `selectionEnd` kleiner ist als `selectionStart`, werden beide als der Wert von `selectionEnd` behandelt. Siehe die [`selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd)-Eigenschaft für weitere Informationen.
 - `selectionDirection` {{optional_inline}}
-  - : Das Schlüsselwort `"forward"`, `"backward"` oder der Standardwert `"none"` — dies gibt die Richtung an, in der die Auswahl als durchgeführt betrachtet wird. Weitere Informationen finden Sie in der [`selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection) Eigenschaft.
+  - : Das Schlüsselwort `"forward"`, `"backward"` oder der Standardwert `"none"`, welches die Richtung angibt, in der die Auswahl erfolgt ist. Siehe die [`selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)-Eigenschaft für weitere Informationen.
 
 ### Rückgabewert
 

@@ -3,10 +3,10 @@ title: Date.prototype.setMonth()
 short-title: setMonth()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setMonth
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: b3840f6234d24ade72a43171fd6489dd533aaf15
 ---
 
-Die **`setMonth()`**-Methode von {{jsxref("Date")}}-Instanzen ändert den Monat und/oder den Tag des Monats dieses Datums entsprechend der lokalen Zeit.
+Die **`setMonth()`**-Methode von {{jsxref("Date")}}-Instanzen ändert den Monat und/oder Tag des Monats für dieses Datum gemäß der Ortszeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setMonth()")}}
 
@@ -33,21 +33,25 @@ setMonth(monthValue, dateValue)
 ### Parameter
 
 - `monthValue`
-  - : Eine ganze Zahl, die den Monat darstellt: 0 für Januar, 1 für Februar, und so weiter.
+  - : Eine ganze Zahl, die den Monat repräsentiert: 0 für Januar, 1 für Februar und so weiter.
 - `dateValue` {{optional_inline}}
-  - : Eine ganze Zahl von 1 bis 31, die den Tag des Monats darstellt.
+  - : Eine ganze Zahl von 1 bis 31, die den Tag des Monats repräsentiert.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt direkt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie z.B. `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt an Ort und Stelle und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die in `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie den `dateValue`-Parameter nicht angeben, wird derselbe Wert verwendet, der von {{jsxref("Date/getDate", "getDate()")}} zurückgegeben wird.
+Wenn Sie den `dateValue`-Parameter nicht angeben, wird derselbe Wert wie der verwendet, der von {{jsxref("Date/getDate", "getDate()")}} zurückgegeben wird.
 
-Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Zum Beispiel, wenn Sie 15 als `monthValue` angeben, wird das Jahr um 1 erhöht und 3 wird für den Monat verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Wenn Sie beispielsweise 15 für `monthValue` angeben, wird das Jahr um 1 erhöht und 3 wird für den Monat verwendet.
 
-Der aktuelle Tag des Monats hat einen Einfluss auf das Verhalten dieser Methode. Konzeptionell wird die Anzahl der Tage, die durch den aktuellen Tag des Monats angegeben wird, zum 1. Tag des neuen Monats addiert, der als Parameter angegeben wurde, um das neue Datum zurückzugeben. Zum Beispiel, wenn der aktuelle Wert der 31. Januar 2016 ist, ergibt ein Aufruf von setMonth mit einem Wert von 1 den 2. März 2016. Dies liegt daran, dass der Februar im Jahr 2016 29 Tage hatte.
+Der aktuelle Tag des Monats hat Auswirkungen auf das Verhalten dieser Methode. Konzeptuell wird die Anzahl der Tage, die der aktuelle Tag des Monats darstellt, zum 1. Tag des neuen Monats hinzugefügt, der als Parameter angegeben ist, um das neue Datum zu berechnen. Beispielsweise, wenn der aktuelle Wert der 31. Januar 2016 ist, wird ein Aufruf von setMonth mit einem Wert von 1 den 2. März 2016 ergeben. Dies liegt daran, dass Februar 2016 29 Tage hatte.
+
+Da `setMonth()` auf der Ortszeit basiert, kann das Überschreiten einer Grenze der Sommerzeit (Daylight Saving Time, DST) zu einer anderen vergangenen Zeit als erwartet führen. Wenn beispielsweise das Setzen des Monats einen Übergang zum Vorstellen der Uhrzeit (eine Stunde weniger) überschreitet, ist die Differenz zwischen dem neuen und alten Datum eine Stunde weniger als der nominelle Unterschied der Tage multipliziert mit 24 Stunden. Umgekehrt führt das Überschreiten eines Übergangs zum Zurückstellen (eine Stunde mehr) zu einer zusätzlichen Stunde. Wenn Sie das Datum um eine feste Zeitspanne anpassen müssen, ziehen Sie in Betracht, {{jsxref("Date/setUTCMonth", "setUTCMonth()")}} oder {{jsxref("Date/setTime", "setTime()")}} zu verwenden.
+
+Wenn die neue Ortszeit in einen Offset-Übergang fällt, wird die genaue Zeit unter Verwendung desselben Verhaltens wie die `Temporal`-Option [`disambiguation: "compatible"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) abgeleitet. Das heißt, wenn die Ortszeit zwei Zeitpunkten entspricht, wird der frühere gewählt; existiert die Ortszeit nicht (es gibt eine Lücke), wird um die Dauer der Lücke vorgegangen.
 
 ## Beispiele
 

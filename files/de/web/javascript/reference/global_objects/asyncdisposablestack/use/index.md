@@ -1,11 +1,12 @@
 ---
 title: AsyncDisposableStack.prototype.use()
+short-title: use()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/use
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die **`use()`**-Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen registriert einen Wert, der das [asynchrone Entsorgungsprotokoll](/de/docs/Web/JavaScript/Guide/Resource_management) auf den Stack implementiert.
+Die **`use()`**-Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen registriert einen Wert, der das [asynchrone Disposable-Protokoll](/de/docs/Web/JavaScript/Guide/Resource_management) in den Stack implementiert.
 
 Siehe {{jsxref("DisposableStack.prototype.use()")}} für allgemeine Informationen über die `use()`-Methode.
 
@@ -18,7 +19,7 @@ use(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf dem Stack registriert werden soll. Muss entweder eine `[Symbol.asyncDispose]()`- oder `[Symbol.dispose]()`-Methode enthalten, oder `null` oder `undefined` sein.
+  - : Der Wert, der im Stack registriert werden soll. Muss entweder eine `[Symbol.asyncDispose]()` oder `[Symbol.dispose]()`-Methode enthalten oder `null` oder `undefined` sein.
 
 ### Rückgabewert
 
@@ -27,7 +28,7 @@ Der gleiche `value`, der übergeben wurde.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `value` nicht `null` oder `undefined` ist und keine `[Symbol.asyncDispose]()`- oder `[Symbol.dispose]()`-Methode enthält.
+  - : Wird ausgelöst, wenn `value` nicht `null` oder `undefined` ist und keine `[Symbol.asyncDispose]()` oder `[Symbol.dispose]()`-Methode enthält.
 - {{jsxref("ReferenceError")}}
   - : Wird ausgelöst, wenn der Stack bereits entsorgt wurde.
 

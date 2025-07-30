@@ -1,13 +1,14 @@
 ---
 title: DisposableStack.prototype.dispose()
+short-title: dispose()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/dispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die **`dispose()`** Methode von {{jsxref("DisposableStack")}} Instanzen gibt diesen Stack frei, indem sie alle bei ihm registrierten Disposers in umgekehrter Reihenfolge der Registrierung aufruft. Wenn der Stack bereits freigegeben ist, macht diese Methode nichts.
+Die **`dispose()`** Methode von {{jsxref("DisposableStack")}} Instanzen entsorgt diesen Stack, indem sie alle ihm registrierten Disposer in umgekehrter Registrierungsreihenfolge aufruft. Wenn der Stack bereits entsorgt wurde, tut diese Methode nichts.
 
-Sie führt die gleiche Aktion aus wie `using disposer = new isposableStack()` beim scope exit. Sie kann verwendet werden, wenn Sie an einem anderen Punkt als beim scope exit eine Bereinigung durchführen müssen.
+Sie führt die gleiche Aktion wie `using disposer = new disposableStack()` beim Verlassen des Gültigkeitsbereichs aus. Sie kann verwendet werden, wenn Sie einen Aufräumvorgang an einem anderen Punkt als beim Verlassen des Gültigkeitsbereichs benötigen.
 
 ## Syntax
 
@@ -21,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - {{jsxref("SuppressedError")}}
-  - : Wird geworfen, wenn mehrere Disposers im Stack einen Fehler ausgelöst haben. Wenn nur ein Fehler ausgelöst wird, wird er unverändert erneut geworfen. Andernfalls wird für jeden zusätzlichen Fehler ein neuer {{jsxref("SuppressedError")}} erstellt, mit dem ursprünglichen Fehler als `suppressed`-Eigenschaft und dem neuen Fehler als `error`-Eigenschaft.
+  - : Wird ausgelöst, wenn mehrere Disposer im Stack einen Fehler geworfen haben. Wenn nur ein Fehler geworfen wird, wird er unverändert erneut geworfen. Andernfalls wird für jeden zusätzlichen Fehler ein neuer {{jsxref("SuppressedError")}} erstellt, wobei der ursprüngliche Fehler als `suppressed`-Eigenschaft und der neue Fehler als `error`-Eigenschaft fungiert.
 
 ## Beispiele
 
-### Einen Stack freigeben
+### Einen Stack entsorgen
 
-Hier fügen wir dem Stack drei Disposers hinzu, indem wir die Methoden {{jsxref("DisposableStack/use", "use()")}}, {{jsxref("DisposableStack/adopt", "adopt()")}} und {{jsxref("DisposableStack/defer", "defer()")}} verwenden. Wenn `dispose()` aufgerufen wird, werden die Disposers in umgekehrter Reihenfolge der Registrierung aufgerufen.
+Hier fügen wir drei Disposer zum Stack hinzu, indem wir die Methoden {{jsxref("DisposableStack/use", "use()")}}, {{jsxref("DisposableStack/adopt", "adopt()")}} und {{jsxref("DisposableStack/defer", "defer()")}} verwenden. Wenn `dispose()` aufgerufen wird, werden die Disposer in umgekehrter Registrierungsreihenfolge aufgerufen.
 
-Beachten Sie, dass Sie `dispose()` normalerweise nicht manuell aufrufen müssen. Deklarieren Sie den Stack mit {{jsxref("Statements/using", "using")}}, und seine [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/DisposableStack/Symbol.dispose)-Methode wird automatisch aufgerufen, wenn der Stack außer Sicht geht.
+Beachten Sie, dass Sie normalerweise `dispose()` nicht manuell aufrufen müssen. Deklarieren Sie den Stack mit {{jsxref("Statements/using", "using")}}, und seine [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/DisposableStack/Symbol.dispose) Methode wird automatisch aufgerufen, wenn der Stack den Gültigkeitsbereich verlässt.
 
 ```js
 class Resource {
@@ -71,7 +72,7 @@ class Resource {
 
 ## Siehe auch
 
-- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.adopt()")}}
 - {{jsxref("DisposableStack.prototype.defer()")}}

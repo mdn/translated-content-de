@@ -1,11 +1,12 @@
 ---
 title: DisposableStack.prototype[Symbol.dispose]()
+short-title: "[Symbol.dispose]()"
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/Symbol.dispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die **`[Symbol.dispose]()`**-Methode von {{jsxref("DisposableStack")}}-Instanzen implementiert das _disposable protocol_ und ermöglicht es, diese zu entsorgen, wenn sie mit {{jsxref("Statements/using", "using")}} oder {{jsxref("Statements/await_using", "await using")}} verwendet werden. Sie ist ein Alias für die {{jsxref("DisposableStack/dispose", "dispose()")}}-Methode.
+Die **`[Symbol.dispose]()`** Methode von {{jsxref("DisposableStack")}} Instanzen implementiert das _disposable protocol_ und ermöglicht es, diese zu entsorgen, wenn sie mit {{jsxref("Statements/using", "using")}} oder {{jsxref("Statements/await_using", "await using")}} verwendet werden. Sie ist ein Alias für die {{jsxref("DisposableStack/dispose", "dispose()")}} Methode.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Deklarieren eines Stacks mit `using`
 
-Die `Symbol.dispose`-Methode soll automatisch in einer `using`-Deklaration aufgerufen werden.
+Die `Symbol.dispose` Methode soll automatisch in einer `using` Deklaration aufgerufen werden.
 
 ```js
 {
@@ -47,6 +48,6 @@ Die `Symbol.dispose`-Methode soll automatisch in einer `using`-Deklaration aufge
 
 ## Siehe auch
 
-- [JavaScript-Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.dispose()")}}

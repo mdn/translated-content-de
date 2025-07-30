@@ -1,13 +1,14 @@
 ---
 title: AsyncDisposableStack.prototype.disposeAsync()
+short-title: disposeAsync()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/disposeAsync
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die Methode **`disposeAsync()`** von {{jsxref("AsyncDisposableStack")}}-Instanzen entsorgt diesen Stack, indem sie alle damit registrierten "Disposer" in umgekehrter Reihenfolge der Registrierung aufruft und auf den Abschluss eines jeden wartet, bevor der nächste aufgerufen wird. Wenn der Stack bereits entsorgt ist, tut diese Methode nichts.
+Die **`disposeAsync()`**-Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen entsorgt diesen Stack, indem sie alle registrierten Disposer in umgekehrter Reihenfolge ihrer Registrierung aufruft und auf den Abschluss jedes Einzelnen wartet, bevor sie den nächsten aufruft. Wenn der Stack bereits entsorgt ist, macht diese Methode nichts.
 
-Es führt dieselbe Aktion aus wie `await using disposer = new AsyncDisposableStack()` beim Verlassen des Gültigkeitsbereichs. Sie kann verwendet werden, wenn Sie an einem anderen Punkt als beim Verlassen des Gültigkeitsbereichs bereinigen müssen.
+Sie führt dieselbe Aktion aus wie `await using disposer = new AsyncDisposableStack()` beim Verlassen des Geltungsbereichs. Sie kann verwendet werden, wenn Sie an einem anderen Punkt als dem Geltungsbereichsende bereinigen müssen.
 
 ## Syntax
 
@@ -28,15 +29,15 @@ Ein neues {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, wenn alle 
 `disposeAsync()` wirft niemals synchron einen Fehler. Das zurückgegebene Promise kann mit einem der folgenden Fehler abgelehnt werden:
 
 - {{jsxref("SuppressedError")}}
-  - : Wird geworfen, wenn mehrere Disposer im Stack einen Fehler geworfen haben. Wenn nur ein Fehler geworfen wird, wird dieser unverändert erneut geworfen. Andernfalls wird für jeden zusätzlichen Fehler ein neuer {{jsxref("SuppressedError")}} erstellt, wobei der ursprüngliche Fehler als `suppressed`-Eigenschaft und der neue Fehler als `error`-Eigenschaft festgelegt ist.
+  - : Wird ausgelöst, wenn mehrere Disposer im Stack einen Fehler geworfen haben. Wenn nur ein Fehler auftritt, wird dieser direkt wieder geworfen. Andernfalls wird für jeden zusätzlichen Fehler ein neuer {{jsxref("SuppressedError")}} erstellt, wobei der ursprüngliche Fehler als `suppressed`-Eigenschaft und der neue Fehler als `error`-Eigenschaft angegeben wird.
 
 ## Beispiele
 
-### Einen Stack entsorgen
+### Entsorgung eines Stacks
 
-Hier fügen wir drei Disposer zum Stack hinzu, indem wir die Methoden {{jsxref("AsyncDisposableStack/use", "use()")}}, {{jsxref("AsyncDisposableStack/adopt", "adopt()")}} und {{jsxref("AsyncDisposableStack/defer", "defer()")}} verwenden. Wenn `disposeAsync()` aufgerufen wird, werden die Disposer in umgekehrter Reihenfolge der Registrierung aufgerufen.
+Hier fügen wir dem Stack drei Disposer hinzu, indem wir die Methoden {{jsxref("AsyncDisposableStack/use", "use()")}}, {{jsxref("AsyncDisposableStack/adopt", "adopt()")}} und {{jsxref("AsyncDisposableStack/defer", "defer()")}} verwenden. Wenn `disposeAsync()` aufgerufen wird, werden die Disposer in umgekehrter Reihenfolge ihrer Registrierung aufgerufen.
 
-Beachten Sie, dass Sie normalerweise `disposeAsync()` nicht manuell aufrufen müssen. Deklarieren Sie den Stack mit {{jsxref("Statements/await_using", "await using")}}, und seine [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose)-Methode wird automatisch aufgerufen, wenn der Stack den Gültigkeitsbereich verlässt.
+Beachten Sie, dass Sie `disposeAsync()` normalerweise nicht manuell aufrufen müssen. Deklarieren Sie den Stack mit {{jsxref("Statements/await_using", "await using")}}, und seine [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose)-Methode wird automatisch aufgerufen, wenn der Stack den Geltungsbereich verlässt.
 
 ```js
 class Resource {
@@ -83,7 +84,7 @@ doSomething();
 
 ## Siehe auch
 
-- [JavaScript Ressourcen-Management](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript-Quellenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.adopt()")}}
 - {{jsxref("AsyncDisposableStack.prototype.defer()")}}

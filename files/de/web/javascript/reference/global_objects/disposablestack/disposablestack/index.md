@@ -1,11 +1,12 @@
 ---
 title: DisposableStack() Konstruktor
+short-title: DisposableStack()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/DisposableStack
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Der **`DisposableStack()`** Konstruktor erstellt {{jsxref("DisposableStack")}} Objekte.
+Der **`DisposableStack()`** Konstruktor erstellt {{jsxref("DisposableStack")}}-Objekte.
 
 ## Syntax
 
@@ -14,7 +15,7 @@ new DisposableStack()
 ```
 
 > [!NOTE]
-> `DisposableStack()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `DisposableStack()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -45,4 +46,4 @@ disposer.dispose();
 
 ## Siehe auch
 
-- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)

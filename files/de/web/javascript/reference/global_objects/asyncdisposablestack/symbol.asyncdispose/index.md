@@ -1,11 +1,12 @@
 ---
 title: AsyncDisposableStack.prototype[Symbol.asyncDispose]()
+short-title: "[Symbol.asyncDispose]()"
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die Methode **`[Symbol.asyncDispose]()`** von {{jsxref("AsyncDisposableStack")}}-Instanzen implementiert das _asynchrone Entsorgungsprotokoll_ und ermöglicht es, dass sie in Verbindung mit {{jsxref("Statements/await_using", "await using")}} entsorgt werden. Es ist ein Alias für die {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}}-Methode.
+Die **`[Symbol.asyncDispose]()`** Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen implementiert das _asynchrone Protokoll zur Entsorgung_ und ermöglicht es, dass sie entsorgt wird, wenn sie mit {{jsxref("Statements/await_using", "await using")}} verwendet wird. Es ist ein Alias für die {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}}-Methode.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Deklarieren eines Stacks mit `await using`
 
-Die `Symbol.asyncDispose`-Methode soll automatisch in einer `await using`-Deklaration aufgerufen werden.
+Die `Symbol.asyncDispose` Methode soll automatisch in einer `await using` Deklaration aufgerufen werden.
 
 ```js
 async function doSomething() {
@@ -47,6 +48,6 @@ async function doSomething() {
 
 ## Siehe auch
 
-- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript-Resource-Management](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.disposeAsync()")}}

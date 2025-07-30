@@ -1,15 +1,16 @@
 ---
 title: AsyncDisposableStack.prototype.disposed
+short-title: disposed
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/disposed
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die **`disposed`** Zugriffseigenschaft von {{jsxref("AsyncDisposableStack")}} Instanzen gibt einen booleschen Wert zurück, der anzeigt, ob dieser `AsyncDisposableStack` entsorgt oder durch eine der folgenden Aktionen verschoben wurde:
+Die **`disposed`** Zugriffs-Eigenschaft von Instanzen des {{jsxref("AsyncDisposableStack")}} gibt einen booleschen Wert zurück, der anzeigt, ob dieser `AsyncDisposableStack` entsorgt oder verschoben wurde, indem eine der folgenden Aktionen ausgeführt wurde:
 
 - Aufrufen der {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}} Methode
 - Aufrufen der {{jsxref("AsyncDisposableStack/move", "move()")}} Methode
-- Deklaration mit {{jsxref("Statements/await_using", "await using")}} und das Variablenende des Bereichs erreichen, was automatisch die [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose) Methode aufruft.
+- Deklarieren mit {{jsxref("Statements/await_using", "await using")}} und das Variablen aus dem Gültigkeitsbereich entlassen, was automatisch die Methode [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose) aufruft.
 
 ## Beispiele
 

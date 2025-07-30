@@ -1,11 +1,12 @@
 ---
 title: DisposableStack.prototype.defer()
+short-title: defer()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/defer
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die **`defer()`** Methode von {{jsxref("DisposableStack")}} Instanzen nimmt eine Callback-Funktion an, die aufgerufen wird, wenn der Stack entsorgt wird.
+Die **`defer()`** Methode von {{jsxref("DisposableStack")}} Instanzen nimmt eine Rückruffunktion an, die aufgerufen wird, wenn der Stack entsorgt wird.
 
 ## Syntax
 
@@ -31,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Der Hauptzweck von `defer()` ist es, einen Bereinigungs-Callback zu registrieren, der nicht spezifisch für die Entsorgung einer bestimmten Ressource ist. Wenn der Callback spezifisch für eine Ressource ist, sollten Sie stattdessen {{jsxref("DisposableStack/use", "use()")}} oder {{jsxref("DisposableStack/adopt", "adopt()")}} verwenden. Sie können `defer` auch verwenden, wenn die Ressource nicht innerhalb Ihres Codes beansprucht wird:
+Der Hauptzweck von `defer()` besteht darin, einen Bereinigungs-Callback zu registrieren, der nicht spezifisch für die Entsorgung einer bestimmten Ressource ist. Wenn der Callback spezifisch für eine Ressource ist, sollten Sie {{jsxref("DisposableStack/use", "use()")}} oder {{jsxref("DisposableStack/adopt", "adopt()")}} verwenden. Sie können `defer` auch verwenden, wenn die Ressource nicht in Ihrem Code beansprucht wird:
 
 ```js
 function consumeReader(reader) {
@@ -45,7 +46,7 @@ function consumeReader(reader) {
 
 ### Verwendung von defer()
 
-Diese Funktion setzt eine einfache Sperre, um zu verhindern, dass mehrere asynchrone Operationen gleichzeitig ausgeführt werden. Die Sperre wird aufgehoben, wenn die Funktion abgeschlossen ist.
+Diese Funktion setzt ein einfaches Sperre, um zu verhindern, dass mehrere asynchrone Operationen gleichzeitig ausgeführt werden. Die Sperre wird freigegeben, wenn die Funktion abgeschlossen ist.
 
 ```js
 let isLocked = false;
@@ -72,7 +73,7 @@ async function requestWithLock(url, options) {
 
 ## Siehe auch
 
-- [JavaScript Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.adopt()")}}
 - {{jsxref("DisposableStack.prototype.use()")}}

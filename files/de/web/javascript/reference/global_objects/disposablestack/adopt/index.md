@@ -1,11 +1,12 @@
 ---
 title: DisposableStack.prototype.adopt()
+short-title: adopt()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/adopt
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
 ---
 
-Die **`adopt()`**-Methode von {{jsxref("DisposableStack")}}-Instanzen registriert einen Wert, der das Disposable-Protokoll nicht implementiert, im Stack, indem eine benutzerdefinierte "Disposer"-Funktion bereitgestellt wird.
+Die **`adopt()`** Methode von {{jsxref("DisposableStack")}} Instanzen registriert einen Wert, der das disposable Protokoll nicht implementiert, auf dem Stack, indem eine benutzerdefinierte Dispose-Funktion bereitgestellt wird.
 
 ## Syntax
 
@@ -16,9 +17,9 @@ adopt(value, onDispose)
 ### Parameter
 
 - `value`
-  - : Jeder Wert, der im Stack registriert werden soll.
+  - : Beliebiger Wert, der auf dem Stack registriert werden soll.
 - `onDispose`
-  - : Eine Funktion, die aufgerufen wird, wenn der Stack disposed wird. Die Funktion erhält `value` als ihr einziges Argument.
+  - : Eine Funktion, die aufgerufen wird, wenn der Stack entsorgt wird. Die Funktion erhält `value` als einziges Argument.
 
 ### Rückgabewert
 
@@ -29,13 +30,13 @@ Der gleiche `value`, der übergeben wurde.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `onDispose` keine Funktion ist.
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits disposed wurde.
+  - : Wird ausgelöst, wenn der Stack bereits entsorgt ist.
 
 ## Beschreibung
 
-Der Hauptzweck von `adopt()` besteht darin, einen Wert, der das Disposable-Protokoll nicht implementiert, im Stack zu registrieren. Wenn der Wert bereits disposable ist, können Sie stattdessen {{jsxref("DisposableStack/use", "use()")}} verwenden, welches automatisch die Methode `[Symbol.dispose]()` des Werts als Disposer verwendet.
+Der Hauptzweck von `adopt()` ist es, einen Wert zu registrieren, der das disposable Protokoll nicht implementiert. Wenn der Wert bereits disposable ist, können Sie stattdessen {{jsxref("DisposableStack/use", "use()")}} verwenden, welches automatisch die `[Symbol.dispose]()` Methode des Wertes als Disposer nutzt.
 
-`adopt(value, onDispose)` ist fast dasselbe wie `defer(() => onDispose(value))`, ermöglicht Ihnen jedoch, die Ressource zu deklarieren und im selben Schritt zu registrieren. Auf diese Weise besteht ein minimales Risiko, dass zwischen der Ressourcenerstellung und der Registrierung ein Fehler auftritt, der die Ressource durchsickern lässt.
+`adopt(value, onDispose)` ist fast das gleiche wie `defer(() => onDispose(value))`, aber es ermöglicht Ihnen, die Ressource zu deklarieren und auf derselben Zeile zu registrieren. Auf diese Weise gibt es minimalen Spielraum für Fehler zwischen der Erstellung und Registrierung der Ressource, was dazu führen könnte, dass die Ressource verloren geht.
 
 ```js example-good
 using disposer = new DisposableStack();
@@ -52,7 +53,7 @@ const reader = stream.getReader();
 disposer.defer(() => reader.close());
 ```
 
-Im selben Geiste von "registrieren Sie Ihre Ressource, sobald sie deklariert wurde", sollten Sie immer Ihre Ressourcenakquisitionsausdrücke in `adopt()` einwickeln, anstatt sie auf eine separate Anweisung auszulagern.
+Im gleichen Sinne des "Registrieren Sie Ihre Ressource, sobald sie deklariert ist", sollten Sie immer Ihren Ressourcenerwerbsausdruck in `adopt()` einwickeln, anstatt ihn in eine separate Anweisung auszulagern.
 
 ```js example-bad
 using disposer = new DisposableStack();
@@ -62,9 +63,9 @@ disposer.adopt(reader, (reader) => reader.close());
 
 ## Beispiele
 
-### Verwendung von adopt()
+### Nutzung von adopt()
 
-Dieser Code verbraucht einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) über einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader). Der Reader implementiert das Disposable-Protokoll nicht, daher verwenden wir `adopt()`, um ihn im Stack zu registrieren.
+Dieses Codebeispiel konsumiert einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) über einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader). Der Reader implementiert das disposable Protokoll nicht, daher nutzen wir `adopt()`, um ihn auf dem Stack zu registrieren.
 
 ```js
 {
@@ -90,7 +91,7 @@ Dieser Code verbraucht einen [`ReadableStream`](/de/docs/Web/API/ReadableStream)
 
 ## Siehe auch
 
-- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcensverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.defer()")}}
 - {{jsxref("DisposableStack.prototype.use()")}}
