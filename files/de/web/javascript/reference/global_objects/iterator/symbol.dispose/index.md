@@ -1,11 +1,12 @@
 ---
 title: Iterator.prototype[Symbol.dispose]()
+short-title: "[Symbol.dispose]()"
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/Symbol.dispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 99e4e41ce89ef69db3d08766296699f342c5a8ff
 ---
 
-Die **`[Symbol.dispose]()`** Methode von {{jsxref("Iterator")}} Instanzen implementiert das _disposable protocol_ und ermöglicht es, bei Verwendung mit {{jsxref("Statements/using", "using")}} entsorgt zu werden. Sie ruft die `return()` Methode von `this` auf, falls diese existiert.
+Die **`[Symbol.dispose]()`**-Methode von {{jsxref("Iterator")}}-Instanzen implementiert das _disposable protocol_ und ermöglicht es, den Iterator zu entsorgen, wenn er mit {{jsxref("Statements/using", "using")}} verwendet wird. Sie ruft die `return()`-Methode von `this` auf, falls diese existiert.
 
 ## Syntax
 
@@ -23,9 +24,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Deklaration eines Iterators mit `using`
+### Deklarieren eines Iterators mit `using`
 
-Die `Symbol.dispose` Methode soll automatisch in einer `using` Deklaration aufgerufen werden. Dies ist nützlich, wenn Sie einen Iterator haben, über den Sie manuell iterieren, indem Sie seine `next()` Methode aufrufen; wenn Sie ihn mit {{jsxref("Statements/for...of", "for...of")}} oder etwas Ähnlichem iterieren, erfolgt die Fehlerbehandlung und Bereinigung automatisch.
+Die `Symbol.dispose`-Methode soll in einer `using`-Deklaration automatisch aufgerufen werden. Dies ist nützlich, wenn Sie einen Iterator haben, den Sie manuell durch Aufrufen seiner `next()`-Methode durchlaufen; wenn Sie ihn mit {{jsxref("Statements/for...of", "for...of")}} oder etwas Ähnlichem durchlaufen, werden Fehlerbehandlung und Bereinigung automatisch durchgeführt.
 
 ```js
 function* generateNumbers() {

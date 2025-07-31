@@ -1,16 +1,18 @@
 ---
-title: "Navigator: `vibrate()`-Methode"
+title: "Navigator: vibrate() Methode"
 short-title: vibrate()
 slug: Web/API/Navigator/vibrate
 l10n:
-  sourceCommit: 77915a2ad318fb78b1d02a35d6b1de61ea1b1f5f
+  sourceCommit: 75cd611e663ea499706cedf219eadac4e73e12a4
 ---
 
 {{APIRef("Vibration API")}}
 
-Die **`vibrate()`**-Methode der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle aktiviert die Vibrationseinheit des Geräts, sofern eine solche Hardware vorhanden ist. Wenn das Gerät keine Vibration unterstützt, hat diese Methode keine Wirkung. Wenn ein Vibrationsmuster bereits aktiv ist, wenn diese Methode aufgerufen wird, wird das vorherige Muster gestoppt und das neue beginnt stattdessen.
+Die **`vibrate()`** Methode des [`Navigator`](/de/docs/Web/API/Navigator) Interfaces steuert die Vibrationseinheit des Geräts, falls eine solche vorhanden ist. Wenn das Gerät keine Vibration unterstützt, hat diese Methode keine Wirkung. Wenn ein Vibrationsmuster bereits aktiv ist, wird das vorherige Muster beim Aufruf dieser Methode abgebrochen und das neue beginnt stattdessen.
 
-Wenn die Methode aufgrund ungültiger Parameter nicht vibrieren konnte, wird `false` zurückgegeben, andernfalls `true`. Wenn das Muster zu einer zu langen Vibration führt, wird es gekürzt: die maximale Länge hängt von der Implementierung ab.
+Wenn die Methode aufgrund ungültiger Parameter nicht vibrieren konnte, gibt sie `false` zurück, andernfalls gibt sie `true` zurück. Wenn das Muster zu einer zu langen Vibration führt, wird es gekürzt: Die maximale Länge hängt von der Implementierung ab.
+
+Einige Geräte vibrieren möglicherweise nicht, wenn sie im Lautlosmodus oder im Nicht-stören-Modus (DND) sind. Um sicherzustellen, dass die Vibration funktioniert, stellen Sie sicher, dass diese Modi ausgeschaltet sind und dass die Vibration in den Systemeinstellungen aktiviert ist.
 
 ## Syntax
 
@@ -21,13 +23,13 @@ vibrate(pattern)
 ### Parameter
 
 - `pattern`
-  - : Bietet ein Muster von Vibrationen und Pausenintervallen. Jeder Wert gibt an, wie viele Millisekunden vibriert oder pausiert werden soll, im Wechsel. Sie können entweder einen einzelnen Wert angeben (um einmal für so viele Millisekunden zu vibrieren) oder ein Array von Werten, um abwechselnd zu vibrieren, zu pausieren und dann erneut zu vibrieren. Siehe [Vibration API](/de/docs/Web/API/Vibration_API) für Details.
+  - : Gibt ein Muster von Vibrations- und Pausenintervallen an. Jeder Wert gibt eine Anzahl von Millisekunden an, die abwechselnd vibriert oder pausiert wird. Sie können entweder einen einzelnen Wert angeben (um einmal für diese Anzahl von Millisekunden zu vibrieren) oder ein Array von Werten, um abwechselnd zu vibrieren, zu pausieren und dann wieder zu vibrieren. Siehe [Vibration API](/de/docs/Web/API/Vibration_API) für Details.
 
-Die Angabe eines Wertes von `0`, eines leeren Arrays oder eines Arrays, das nur Nullen enthält, wird jedes derzeit laufende Vibrationsmuster abbrechen.
+Das Übergeben eines Werts von `0`, eines leeren Arrays oder eines Arrays, das nur Nullen enthält, bricht jedes aktuell laufende Vibrationsmuster ab.
 
 ### Rückgabewert
 
-Ein boolean.
+Ein boolescher Wert.
 
 ## Sicherheit
 

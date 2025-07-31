@@ -1,11 +1,12 @@
 ---
 title: AsyncIterator.prototype[Symbol.asyncDispose]()
+short-title: "[Symbol.asyncDispose]()"
 slug: Web/JavaScript/Reference/Global_Objects/AsyncIterator/Symbol.asyncDispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 99e4e41ce89ef69db3d08766296699f342c5a8ff
 ---
 
-Die Methode **`[Symbol.asyncDispose]()`** von {{jsxref("AsyncIterator")}}-Instanzen implementiert das _asynchrone Disposal-Protokoll_ und ermöglicht es, sie zu entsorgen, wenn sie mit {{jsxref("Statements/await_using", "await using")}} verwendet werden. Sie ruft die `return()`-Methode von `this` auf und wartet darauf, falls sie existiert.
+Die **`[Symbol.asyncDispose]()`** Methode von {{jsxref("AsyncIterator")}} Instanzen implementiert das _asynchrone Entsorgungsprotokoll_ und ermöglicht es, entsorgt zu werden, wenn es mit {{jsxref("Statements/await_using", "await using")}} verwendet wird. Sie ruft die `return()` Methode von `this` auf und wartet diese ab, falls sie existiert.
 
 ## Syntax
 
@@ -23,9 +24,9 @@ Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Deklarieren eines asynchronen Iterators mit `await using`
+### Deklaration eines asynchronen Iterators mit `await using`
 
-Die Methode `Symbol.asyncDispose` soll in einer `await using`-Deklaration automatisch aufgerufen werden. Dies ist nützlich, wenn Sie einen asynchronen Iterator haben, den Sie manuell durch Aufrufen seiner `next()`-Methode durchlaufen; wenn Sie ihn mit {{jsxref("Statements/for-await...of", "for await...of")}} oder etwas Ähnlichem durchlaufen, werden Fehlerbehandlung und Bereinigung automatisch durchgeführt.
+Die Methode `Symbol.asyncDispose` soll automatisch in einer `await using`-Deklaration aufgerufen werden. Dies ist nützlich, wenn Sie einen asynchronen Iterator haben, den Sie manuell durch Aufruf seiner `next()` Methode iterieren; wenn Sie ihn mit {{jsxref("Statements/for-await...of", "for await...of")}} oder etwas Ähnlichem iterieren, dann werden Fehlerbehandlung und Aufräumarbeiten automatisch durchgeführt.
 
 ```js
 async function* generateNumbers() {
