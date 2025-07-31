@@ -1,14 +1,17 @@
 ---
-title: "Document: queryCommandSupported() Methode"
+title: "Dokumentation: queryCommandSupported() Methode"
 short-title: queryCommandSupported()
 slug: Web/API/Document/queryCommandSupported
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 22cf84fc5704222a2e2e5ac67b95b02dcfea08ff
 ---
 
 {{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`Document.queryCommandSupported()`** Methode gibt an, ob der angegebene Editorbefehl vom Browser unterstützt wird oder nicht.
+> [!NOTE]
+> Auch wenn die Methode [`execCommand()`](/de/docs/Web/API/Document/execCommand) veraltet ist, sollten Sie, falls Sie sich aus den auf dieser Seite genannten Gründen dafür entscheiden, in Betracht ziehen, die Verfügbarkeit des Befehls mit `queryCommandSupported()` zu überprüfen, um die Kompatibilität sicherzustellen.
+
+Die **`Document.queryCommandSupported()`**-Methode meldet, ob der angegebene Editor-Befehl vom Browser unterstützt wird oder nicht.
 
 ## Syntax
 
@@ -23,11 +26,11 @@ queryCommandSupported(command)
 
 ### Rückgabewert
 
-Gibt einen booleschen Wert zurück, der `true` ist, wenn der Befehl unterstützt wird, und `false`, wenn er nicht unterstützt wird.
+Gibt einen booleschen Wert zurück, der `true` ist, wenn der Befehl unterstützt wird, und `false`, wenn der Befehl nicht unterstützt wird.
 
-## Anmerkungen
+## Hinweise
 
-Der `'paste'`-Befehl gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch, wenn das aufrufende Skript nicht über ausreichende Berechtigungen verfügt, um die Aktion auszuführen.
+Der `'paste'`-Befehl gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch, wenn das Skript, das den Aufruf tätigt, nicht die erforderlichen Berechtigungen hat, um die Aktion auszuführen.
 
 ## Beispiele
 
@@ -41,7 +44,7 @@ if (flg) {
 
 ## Spezifikationen
 
-Dieses Feature ist nicht Teil einer aktuellen Spezifikation. Es besteht keine Aussicht mehr, dass es ein Standard wird.
+Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr vorgesehen, dass es ein Standard wird. Es gibt einen inoffiziellen [W3C execCommand Spec-Entwurf](https://w3c.github.io/editing/docs/execCommand/).
 
 ## Browser-Kompatibilität
 
@@ -49,5 +52,5 @@ Dieses Feature ist nicht Teil einer aktuellen Spezifikation. Es besteht keine Au
 
 ## Siehe auch
 
-- [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
-- [`Document.queryCommandEnabled()`](/de/docs/Web/API/Document/queryCommandEnabled)
+- [`document.execCommand()`](/de/docs/Web/API/Document/execCommand)
+- [`document.queryCommandEnabled()`](/de/docs/Web/API/Document/queryCommandEnabled)

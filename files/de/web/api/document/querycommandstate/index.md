@@ -1,14 +1,17 @@
 ---
-title: "Dokument: queryCommandState() Methode"
+title: "Dokument: queryCommandState()-Methode"
 short-title: queryCommandState()
 slug: Web/API/Document/queryCommandState
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 22cf84fc5704222a2e2e5ac67b95b02dcfea08ff
 ---
 
 {{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`queryCommandState()`** Methode gibt an, ob die aktuelle Auswahl einen bestimmten [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand) Befehl angewendet hat.
+> [!NOTE]
+> Obwohl die [`execCommand()`](/de/docs/Web/API/Document/execCommand)-Methode veraltet ist, gibt es immer noch einige gültige Anwendungsfälle, für die es noch keine brauchbaren Alternativen gibt, wie im Artikel zu `execCommand()` erwähnt. In diesen Fällen kann es nützlich sein, diese Methode für ein umfassendes Benutzererlebnis zu implementieren, jedoch sollte die Browser-Kompatibilität getestet werden.
+
+Die **`queryCommandState()`**-Methode teilt Ihnen mit, ob die aktuelle Auswahl einen bestimmten [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)-Befehl angewendet hat.
 
 ## Syntax
 
@@ -19,7 +22,7 @@ queryCommandState(command)
 ### Parameter
 
 - `command`
-  - : Ein Befehl aus [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
+  - : Ein Befehl von [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
 
 ### Rückgabewert
 
@@ -73,7 +76,7 @@ document.querySelector("button").addEventListener("click", makeBold);
 
 ## Spezifikationen
 
-Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden. Es gibt einen inoffiziellen [W3C execCommand-Spezifikationsentwurf](https://w3c.github.io/editing/docs/execCommand/).
 
 ## Browser-Kompatibilität
 
@@ -83,4 +86,5 @@ Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie ist nicht mehr auf d
 
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
 - [`document.designMode`](/de/docs/Web/API/Document/designMode)
-- Browserfehler im Zusammenhang mit `queryCommandState()`: [Scribe's "Browser Inconsistencies" Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)
+- [`document.execCommand()`](/de/docs/Web/API/Document/execCommand)
+- Browserfehler in Bezug auf `queryCommandState()`: [Scribes "Browser Inconsistencies"-Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)
