@@ -3,83 +3,87 @@ title: Firefox 142 für Entwickler
 short-title: Firefox 142 (Beta)
 slug: Mozilla/Firefox/Releases/142
 l10n:
-  sourceCommit: bd4faec13d4e90c342bededd2378671311f186a0
+  sourceCommit: 933dc286637998da88bb11f7f4f452ea6d57c9b1
 ---
 
-Dieser Artikel bietet Informationen zu den Änderungen in Firefox 142, die Entwickler betreffen.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 142, die sich auf Entwickler auswirken.
 Firefox 142 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [19. August 2025](https://whattrainisitnow.com/release/?version=142) veröffentlicht.
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie nur die Überschriften aus, für die Sie Hinweise schreiben -->
+<!-- Autoren: Bitte heben Sie alle Überschriften hervor, für die Sie Anmerkungen schreiben -->
 
-## Änderungen für Webentwickler
+## Änderungen für Web-Entwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Developer Tools -->
 
 <!-- ### HTML -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 <!-- ### CSS -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
-<!-- ### Sicherheit -->
+<!-- ### Security -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 ### APIs
 
 #### DOM
 
-- Die Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) wird jetzt unterstützt, sodass Entwickler ausgewählte Textbereiche über Grenzen des Shadow DOM hinweg genau erfassen können. Darüber hinaus wurden die Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle so geändert, dass sie Knoten innerhalb eines Shadow Roots akzeptieren. ([Firefox-Bug 1903870](https://bugzil.la/1903870)).
+- Die Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) wird nun unterstützt und ermöglicht es Entwicklern, ausgewählte Textbereiche genau über Shadow-DOM-Grenzen hinweg zu erfassen. Darüber hinaus wurden die Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle geändert, um Knoten innerhalb eines Shadow-Root zu akzeptieren. ([Firefox Bug 1903870](https://bugzil.la/1903870)).
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, und Web Audio -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernt -->
+<!-- #### Removals -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemein -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
 <!-- #### Marionette -->
 
-## Änderungen für Add-on-Entwickler
+## Änderungen für Add-On-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} in Nightly erstellt werden, werden nun validiert, und ungültige Cookies werden abgelehnt. Die Implementierung in Nightly soll die Überwachung auf etwaige Probleme ermöglichen. Die Absicht ist, die Validierung in einer zukünftigen Version in allen Kanälen durchzusetzen. ([Firefox-Bug 1976197](https://bugzil.la/1976197))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} im Nightly erstellt werden, werden nun validiert, und ungültige Cookies werden abgelehnt. Die Implementierung im Nightly dient dazu, eventuelle Probleme zu überwachen. Die Absicht ist, die Validierung in einer zukünftigen Veröffentlichung in allen Kanälen durchzusetzen. ([Firefox Bug 1976197](https://bugzil.la/1976197))
 
-<!-- ### Entfernt -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
-Diese Funktionen werden in Firefox 142 ausgeliefert, sind aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config` Seite und setzen Sie diese auf `true`.
+- **`anchor-size()`** (Nightly): `layout.css.anchor-positioning.enabled`
+
+  Die CSS-Funktion {{CSSXRef("anchor-size")}} ermöglicht es, die Größe, Position und Ränder eines anchor-positionierten Elements relativ zu den Dimensionen der Ankerelemente festzulegen. ([Firefox Bug 1972610](https://bugzil.la/1972610)).
+
+Diese Funktionen sind in Firefox 142 enthalten, aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie die entsprechende Präferenz auf der `about:config`-Seite und setzen Sie sie auf `true`.
 Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
