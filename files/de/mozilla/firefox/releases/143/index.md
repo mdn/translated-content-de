@@ -3,50 +3,50 @@ title: Firefox 143 für Entwickler
 short-title: Firefox 143 (Nightly)
 slug: Mozilla/Firefox/Releases/143
 l10n:
-  sourceCommit: bd4faec13d4e90c342bededd2378671311f186a0
+  sourceCommit: 89d941878af42738cbd429acaa06789db7fa55f6
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 143, die Entwickler betreffen.
 Firefox 143 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [16. September 2025](https://whattrainisitnow.com/release/?version=143) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Release-Notes für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Authors: Please uncomment any headings you are writing notes for -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Developer Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### CSS -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### SVG -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### HTTP -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### APIs -->
 
@@ -54,11 +54,11 @@ Firefox 143 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
@@ -68,14 +68,16 @@ Firefox 143 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- #### Marionette -->
 
-<!-- ## Änderungen für Add-on-Entwickler -->
+## Änderungen für Add-on-Entwickler
 
-<!-- ### Removals -->
+- Hinzufügung von {{WebExtAPIRef("storage.StorageArea.getKeys()")}}. Diese Methode gibt ein Array zurück, das alle Schlüssel in einem Speicherbereich enthält. Sie ist für alle Speicherbereiche verfügbar, das heißt {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}} und {{WebExtAPIRef("storage.managed", "managed")}}. ([Firefox Bug 1910669](https://bugzil.la/1910669))
 
-<!-- ### Sonstiges -->
+<!-- ### Entfernungen -->
 
-## Experimentelle Web-Features
+<!-- ### Andere -->
 
-Diese Funktionen sind in Firefox 143 verfügbar, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+## Experimentelle Webfunktionen
+
+Diese Funktionen sind in Firefox 143 enthalten, aber standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

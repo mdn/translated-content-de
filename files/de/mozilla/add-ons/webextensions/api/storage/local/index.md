@@ -2,32 +2,34 @@
 title: storage.local
 slug: Mozilla/Add-ons/WebExtensions/API/storage/local
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 89d941878af42738cbd429acaa06789db7fa55f6
 ---
 
-Repräsentiert den `local`-Speicherbereich. Elemente im `local`-Speicher sind lokal auf dem Rechner, auf dem die Erweiterung installiert ist.
+Repräsentiert den `local` Speicherbereich. Elemente im `local` Speicher sind lokal auf dem Computer, auf dem die Erweiterung installiert ist.
 
-Der Browser kann die Menge an Daten beschränken, die eine Erweiterung im lokalen Speicherbereich speichern kann. Zum Beispiel:
+Der Browser kann die Menge der Daten beschränken, die eine Erweiterung im lokalen Speicherbereich speichern kann. Zum Beispiel:
 
-- In Chrome ist eine Erweiterung auf das Speichern von 5 MB Daten mit dieser API beschränkt, es sei denn, sie hat die Berechtigung [`"unlimitedStorage"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#unlimited_storage).
-- In Firefox unterliegt die Datenmenge, die eine Erweiterung speichern kann, denselben [Speicherbeschränkungen](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_much_data_can_be_stored) wie bei IndexedDB-Datenbanken. Erweiterungen, die beabsichtigen, mehr Daten als dieses Limit zu speichern, benötigen die Berechtigung ["unlimitedStorage"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#unlimited_storage). Erweiterungen mit der "unlimitedStorage"-Berechtigung können jedoch einen Quota exceeded error erhalten, wenn der durch den Speicher genutzte Speicherplatz das globale Limit überschreitet.
+- In Chrome ist eine Erweiterung darauf beschränkt, 5 MB Daten mit dieser API zu speichern, es sei denn, sie hat die [`"unlimitedStorage"`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#unlimited_storage).
+- In Firefox unterliegt die Menge der Daten, die eine Erweiterung speichern kann, denselben [Speichergrenzen](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_much_data_can_be_stored) wie bei IndexedDB-Datenbanken. Erweiterungen, die beabsichtigen, mehr Daten als dieses Limit zu speichern, benötigen die ["unlimitedStorage"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#unlimited_storage)-Berechtigung. Allerdings kann bei Erweiterungen mit der "unlimitedStorage"-Berechtigung ein Quota-Exceeded-Fehler auftreten, wenn der für die Speicherung verwendete Speicherplatz das globale Limit überschreitet.
 
-Wenn die Erweiterung deinstalliert wird, wird ihr zugehöriger lokal gespeicherter Speicher gelöscht.
+Wenn die Erweiterung deinstalliert wird, wird ihr zugeordneter lokaler Speicher gelöscht.
 
-Auch in Firefox können Sie verhindern, dass der Browser den lokalen Speicher beim Deinstallieren löscht, indem Sie `about:config` besuchen und diese Browsereinstellungen auf `true` setzen: `"keepUuidOnUninstall"` und `"keepStorageOnUninstall"`. Diese Funktion wird bereitgestellt, um Entwicklern bei der Testung ihrer Erweiterungen zu helfen. Erweiterungen selbst können diese Voreinstellungen nicht ändern.
+Auch in Firefox können Sie verhindern, dass der Browser den lokalen Speicher bei der Deinstallation löscht, indem Sie `about:config` aufrufen und diese Browser-Einstellungen auf `true` setzen: `"keepUuidOnUninstall"` und `"keepStorageOnUninstall"`. Diese Funktion soll Entwicklern helfen, ihre Erweiterungen zu testen. Die Erweiterungen selbst können diese Einstellungen nicht ändern.
 
-Obwohl diese API der [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) ähnlich ist, wird empfohlen, `Window.localStorage` im Erweiterungscode nicht zu verwenden. Firefox löscht Daten, die von Erweiterungen mit der localStorage-API gespeichert wurden, in verschiedenen Szenarien, in denen Benutzer ihren Browserverlauf und ihre Daten aus Datenschutzgründen löschen. Daten, die mit der `storage.local`-API gespeichert werden, bleiben in diesen Szenarien korrekt erhalten.
+Obwohl diese API der [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) ähnelt, wird empfohlen, `Window.localStorage` nicht im Erweiterungscode zu verwenden. Firefox löscht Daten, die von Erweiterungen mit der localStorage-API gespeichert wurden, in verschiedenen Situationen, in denen Benutzer ihren Browserverlauf und ihre Daten aus Datenschutzgründen löschen. Daten, die mit der `storage.local` API gespeichert werden, bleiben in diesen Szenarien korrekt erhalten.
 
 ## Methoden
 
-Das `local`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.StorageArea")}} definierten Methoden:
+Das `local` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageArea")}}-Typ definierten Methoden:
 
 - {{WebExtAPIRef("storage.StorageArea.get()", "storage.local.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.local.getBytesInUse()")}}
-  - : Ermittelt die Menge des Speicherplatzes (in Bytes), die für ein oder mehrere Elemente im Speicherbereich verwendet wird.
+  - : Ruft die Menge des Speicherplatzes (in Bytes) ab, der für ein oder mehrere Elemente im Speicherbereich verwendet wird.
+- {{WebExtAPIRef("storage.StorageArea.getKeys()", "storage.local.getKeys()")}}
+  - : Ruft die Schlüssel aller Elemente im Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.set()", "storage.local.set()")}}
-  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn das Element existiert, wird sein Wert aktualisiert.
+  - : Speichert ein oder mehrere Elemente im Speicherbereich. Falls das Element existiert, wird sein Wert aktualisiert.
 - {{WebExtAPIRef("storage.StorageArea.remove()", "storage.local.remove()")}}
   - : Entfernt ein oder mehrere Elemente aus dem Speicherbereich.
 - {{WebExtAPIRef("storage.StorageArea.clear()", "storage.local.clear()")}}
@@ -35,10 +37,10 @@ Das `local`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.Storage
 
 ## Ereignisse
 
-Das `local`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.StorageArea")}} definierten Ereignisse:
+Das `local` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageArea")}}-Typ definierten Ereignisse:
 
 - {{WebExtAPIRef("storage.StorageArea.onChanged", "storage.local.onChanged")}}
-  - : Wird ausgelöst, wenn sich ein oder mehrere Elemente im Speicherbereich ändern.
+  - : Wird ausgelöst, wenn ein oder mehrere Elemente im Speicherbereich geändert werden.
 
 {{WebExtExamples}}
 
@@ -47,7 +49,7 @@ Das `local`-Objekt implementiert die auf dem Typ {{WebExtAPIRef("storage.Storage
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-local) API von Chromium. Diese Dokumentation ist aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-local) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

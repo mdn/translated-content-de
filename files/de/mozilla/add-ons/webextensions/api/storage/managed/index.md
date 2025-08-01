@@ -2,16 +2,16 @@
 title: storage.managed
 slug: Mozilla/Add-ons/WebExtensions/API/storage/managed
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 89d941878af42738cbd429acaa06789db7fa55f6
 ---
 
-Ein {{WebExtAPIRef("storage.StorageArea")}} Objekt, das den `managed` Speicherbereich darstellt. Elemente im `managed` Speicher werden vom Domain-Administrator oder anderen nativen Anwendungen auf dem Computer des Benutzers festgelegt und sind für die Erweiterung schreibgeschützt. Ein Versuch, diesen Speicherbereich zu ändern, führt zu einem Fehler.
+Ein {{WebExtAPIRef("storage.StorageArea")}}-Objekt, das den `managed`-Speicherbereich repräsentiert. Elemente im `managed`-Speicher werden vom Domain-Administrator oder anderen nativen Anwendungen, die auf dem Computer des Benutzers installiert sind, festgelegt und sind für die Erweiterung schreibgeschützt. Der Versuch, diesen Speicherbereich zu ändern, führt zu einem Fehler.
 
-## Bereitstellung von managed storage
+## Bereitstellung von verwaltetem Speicher
 
-Das Verfahren zur Bereitstellung von managed storage variiert je nach Browser. Für Anweisungen zu Chrome siehe den Artikel ["Manifest for storage areas"](https://developer.chrome.com/docs/extensions/reference/manifest/storage).
+Das Verfahren zur Bereitstellung von verwaltetem Speicher variiert je nach Browser. Für Anweisungen zu Chrome siehe den Artikel ["Manifest for storage areas"](https://developer.chrome.com/docs/extensions/reference/manifest/storage).
 
-Für Firefox müssen Sie eine [JSON-Manifeste (native Manifeste) Datei in einem bestimmten Format und an einem bestimmten Ort erstellen](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) oder die [`3rdparty` Unternehmensrichtlinie](https://mozilla.github.io/policy-templates/#3rdparty) verwenden.
+Für Firefox müssen Sie eine [JSON-Manifeste (native Manifest) Datei in einem bestimmten Format und Ort erstellen](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) oder die [`3rdparty`-Unternehmensrichtlinie](https://mozilla.github.io/policy-templates/#3rdparty) verwenden.
 
 Hier ist ein Beispiel für ein natives Manifest:
 
@@ -26,7 +26,7 @@ Hier ist ein Beispiel für ein natives Manifest:
 }
 ```
 
-Mit diesem Manifest könnte die [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) Erweiterung auf die Daten mit folgendem Code zugreifen:
+Mit diesem Manifest könnte die [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) Erweiterung auf die Daten mit Code wie diesem zugreifen:
 
 ```js
 let storageItem = browser.storage.managed.get("colour");
@@ -36,20 +36,22 @@ storageItem.then((res) => {
 ```
 
 > [!NOTE]
-> In Firefox ist ein Browser-Neustart erforderlich, um Änderungen am JSON-Manifest oder an der Richtlinie in den managed Speicher zu laden. In anderen Browsern erfolgt das Laden der Änderungen dynamisch.
+> In Firefox ist ein Neustart des Browsers erforderlich, um Änderungen am JSON-Manifest oder an der Richtlinie in den verwalteten Speicher zu laden. In anderen Browsern erfolgt das Laden von Änderungen dynamisch.
 
 ## Methoden
 
-Das `managed` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageArea")}} Typ definierten Methoden:
+Das `managed`-Objekt implementiert die Methoden, die im {{WebExtAPIRef("storage.StorageArea")}}-Typ definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.get()", "storage.managed.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.managed.getBytesInUse()")}}
-  - : Ermittelt den Speicherplatz (in Bytes), der für ein oder mehrere Elemente im Speicherbereich verwendet wird.
+  - : Bestimmt den Speicherplatz (in Bytes), der für ein oder mehrere Elemente im Speicherbereich verwendet wird.
+- {{WebExtAPIRef("storage.StorageArea.getKeys()", "storage.managed.getKeys()")}}
+  - : Ruft die Schlüssel aller Elemente im Speicherbereich ab.
 
 ## Ereignisse
 
-Das `managed` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageArea")}} Typ definierten Ereignisse:
+Das `managed`-Objekt implementiert die Ereignisse, die im {{WebExtAPIRef("storage.StorageArea")}}-Typ definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.onChanged", "storage.managed.onChanged")}}
   - : Wird ausgelöst, wenn sich ein oder mehrere Elemente im Speicherbereich ändern.
@@ -61,7 +63,7 @@ Das `managed` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageAr
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-managed) API von Chromium. Diese Dokumentation ist aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-managed) API. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -70,7 +72,7 @@ Das `managed` Objekt implementiert die auf dem {{WebExtAPIRef("storage.StorageAr
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
+//    * Redistributions des source code must retain the above copyright
 // notice, this list of conditions and the following disclaimer.
 //    * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer

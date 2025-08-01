@@ -2,18 +2,18 @@
 title: Verwendung der Fetch API
 slug: Web/API/Fetch_API/Using_Fetch
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: d8ecbd3de36a098b1f83f935e581993e9600a916
 ---
 
 {{DefaultAPISidebar("Fetch API")}}
 
-Die [Fetch API](/de/docs/Web/API/Fetch_API) bietet eine JavaScript-Schnittstelle, um HTTP-Anfragen zu stellen und die Antworten zu verarbeiten.
+Die [Fetch API](/de/docs/Web/API/Fetch_API) bietet eine JavaScript-Schnittstelle für das Ausführen von HTTP-Anfragen und die Verarbeitung der Antworten.
 
-Fetch ist der moderne Ersatz für [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest): Im Gegensatz zu `XMLHttpRequest`, das Rückruffunktionen verwendet, basiert Fetch auf Promises und ist mit modernen Web-Features wie [Service Worker](/de/docs/Web/API/Service_Worker_API) und [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) integriert.
+Fetch ist der moderne Ersatz für [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest): Im Gegensatz zu `XMLHttpRequest`, das Callbacks verwendet, basiert Fetch auf Versprechen (Promises) und ist in moderne Webfunktionen wie [Service Workers](/de/docs/Web/API/Service_Worker_API) und [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) integriert.
 
-Mit der Fetch API stellen Sie eine Anfrage, indem Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen, welche als globale Funktion sowohl im [`window`](/de/docs/Web/API/Window)- als auch im [`worker`](/de/docs/Web/API/WorkerGlobalScope)-Kontext verfügbar ist. Sie übergeben ihr ein [`Request`](/de/docs/Web/API/Request)-Objekt oder einen String mit der zu ladenden URL sowie ein optionales Argument zur Konfiguration der Anfrage.
+Mit der Fetch API führen Sie eine Anfrage durch, indem Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen, welches als globale Funktion sowohl im [`window`](/de/docs/Web/API/Window)- als auch im [`worker`](/de/docs/Web/API/WorkerGlobalScope)-Kontext verfügbar ist. Sie übergeben ihr ein [`Request`](/de/docs/Web/API/Request)-Objekt oder einen String, der die URL enthält, die abgerufen werden soll, zusammen mit einem optionalen Argument zur Konfiguration der Anfrage.
 
-Die Funktion `fetch()` gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Response`](/de/docs/Web/API/Response)-Objekt erfüllt wird, das die Antwort des Servers repräsentiert. Sie können dann den Anfragestatus überprüfen und den Inhalt des Antwortkörpers in verschiedenen Formaten, einschließlich Text und JSON, extrahieren, indem Sie die entsprechende Methode auf der Antwort aufrufen.
+Die Funktion `fetch()` gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Response`](/de/docs/Web/API/Response)-Objekt erfüllt wird, welches die Antwort des Servers darstellt. Sie können dann den Status der Anfrage überprüfen und den Inhalt der Antwort in verschiedenen Formaten, einschließlich Text und JSON, extrahieren, indem Sie die entsprechende Methode für die Antwort aufrufen.
 
 Hier ist eine minimale Funktion, die `fetch()` verwendet, um einige JSON-Daten von einem Server abzurufen:
 
@@ -26,33 +26,33 @@ async function getData() {
       throw new Error(`Response status: ${response.status}`);
     }
 
-    const json = await response.json();
-    console.log(json);
+    const result = await response.json();
+    console.log(result);
   } catch (error) {
     console.error(error.message);
   }
 }
 ```
 
-Wir deklarieren einen String mit der URL und rufen dann `fetch()` auf, wobei wir die URL ohne zusätzliche Optionen übergeben.
+Wir deklarieren einen String, der die URL enthält, und rufen dann `fetch()` auf, wobei wir die URL ohne zusätzliche Optionen übergeben.
 
-Die Funktion `fetch()` wird bei einigen Fehlern das Promise verwerfen, jedoch nicht, wenn der Server mit einem Fehlerstatus wie {{httpstatus("404")}} antwortet: Daher überprüfen wir auch den Antwortstatus und werfen eine Ausnahme, wenn dieser nicht OK ist.
+Die Funktion `fetch()` wird in einigen Fällen das Versprechen ablehnen, jedoch nicht, wenn der Server mit einem Fehlerstatus wie {{httpstatus("404")}} antwortet: Daher überprüfen wir auch den Antwortstatus und werfen eine Ausnahme, wenn dieser nicht OK ist.
 
-Andernfalls holen wir den Inhalt des Antwortkörpers als {{Glossary("JSON", "JSON")}}, indem wir die Methode [`json()`](/de/docs/Web/API/Response/json) von `Response` aufrufen und einen ihrer Werte protokollieren. Beachten Sie, dass `json()`, genauso wie `fetch()` selbst, asynchron ist, ebenso wie alle anderen Methoden, um auf den Inhalt des Antwortkörpers zuzugreifen.
+Andernfalls holen wir den Inhalt des Antwortkörpers als {{Glossary("JSON", "JSON")}} ab, indem wir die Methode [`json()`](/de/docs/Web/API/Response/json) des `Response`-Objekts aufrufen und einen ihrer Werte protokollieren. Beachten Sie, dass `json()` ebenso asynchron ist wie `fetch()` selbst, genauso wie alle anderen Methoden zum Zugriff auf den Antwortkörper.
 
 Im Rest dieser Seite werden wir die verschiedenen Phasen dieses Prozesses detaillierter betrachten.
 
-## Eine Anfrage erstellen
+## Eine Anfrage stellen
 
-Um eine Anfrage zu erstellen, rufen Sie `fetch()` auf und übergeben:
+Um eine Anfrage zu stellen, rufen Sie `fetch()` auf, wobei Sie folgendes übergeben:
 
-1. eine Definition der abzurufenden Ressource. Dies kann eine der folgenden sein:
+1. eine Definition der abzurufenden Ressource. Dies kann eines der folgenden sein:
    - ein String, der die URL enthält
-   - ein Objekt, wie eine Instanz von [`URL`](/de/docs/Web/API/URL), das einen {{Glossary("stringifier", "Stringifier")}} besitzt, der einen String mit der URL erzeugt
+   - ein Objekt, wie eine Instanz von [`URL`](/de/docs/Web/API/URL), das einen {{Glossary("stringifier", "stringifier")}} hat, der einen String mit der URL erzeugt
    - eine [`Request`](/de/docs/Web/API/Request)-Instanz
-2. optional ein Objekt mit Optionen zur Konfiguration der Anfrage.
+2. optional, ein Objekt mit Optionen zur Konfiguration der Anfrage.
 
-In diesem Abschnitt betrachten wir einige der am häufigsten verwendeten Optionen. Um mehr über alle möglichen Optionen zu lesen, sehen Sie auf der Referenzseite von [`fetch()`](/de/docs/Web/API/Window/fetch) nach.
+In diesem Abschnitt werden wir einige der am häufigsten verwendeten Optionen betrachten. Um über alle Optionen zu lesen, die übergeben werden können, siehe die Referenzseite zu [`fetch()`](/de/docs/Web/API/Window/fetch).
 
 ### Die Methode festlegen
 
@@ -65,13 +65,13 @@ const response = await fetch("https://example.org/post", {
 });
 ```
 
-Wenn die `mode`-Option auf `no-cors` gesetzt ist, muss `method` `GET`, `POST` oder `HEAD` sein.
+Wenn die Option `mode` auf `no-cors` gesetzt ist, muss die Methode `GET`, `POST` oder `HEAD` sein.
 
-### Einen Anfragekörper festlegen
+### Einen Körper festlegen
 
-Der Anfragekörper ist die Nutzlast der Anfrage: Es ist das, was der Client an den Server sendet. Sie können keinen Körper mit `GET`-Anfragen einfügen, aber es ist nützlich für Anfragen, die Inhalte an den Server senden, wie {{httpmethod("POST")}}- oder {{httpmethod("PUT")}}-Anfragen. Zum Beispiel, wenn Sie eine Datei an den Server hochladen möchten, könnten Sie eine `POST`-Anfrage stellen und die Datei als Anfragekörper einfügen.
+Der Anfragkörper ist die Nutzlast der Anfrage: Das ist das, was der Client an den Server sendet. Sie können keinen Körper mit `GET`-Anfragen einschließen, aber es ist nützlich für Anfragen, die Inhalte an den Server senden, wie {{httpmethod("POST")}}- oder {{httpmethod("PUT")}}-Anfragen. Wenn Sie beispielsweise eine Datei auf den Server hochladen möchten, könnten Sie eine `POST`-Anfrage stellen und die Datei als Anfragkörper einschließen.
 
-Um einen Anfragekörper festzulegen, übergeben Sie ihn als `body`-Option:
+Um einen Anfragkörper festzulegen, übergeben Sie ihn als Option `body`:
 
 ```js
 const response = await fetch("https://example.org/post", {
@@ -83,7 +83,7 @@ const response = await fetch("https://example.org/post", {
 
 Sie können den Körper als Instanz einer der folgenden Typen angeben:
 
-- ein String
+- einen String
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("TypedArray")}}
 - {{jsxref("DataView")}}
@@ -93,7 +93,7 @@ Sie können den Körper als Instanz einer der folgenden Typen angeben:
 - [`FormData`](/de/docs/Web/API/FormData)
 - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
 
-Andere Objekte werden durch ihre `toString()`-Methode in Strings konvertiert. Zum Beispiel können Sie ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt verwenden, um Formulardaten zu kodieren (siehe [Header setzen](#header_festlegen) für mehr Informationen):
+Andere Objekte werden mithilfe ihrer Methode `toString()` in Strings konvertiert. Beispielsweise können Sie ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt verwenden, um Formulardaten zu kodieren (siehe [Headers festlegen](#headers_festlegen) für weitere Informationen):
 
 ```js
 const response = await fetch("https://example.org/post", {
@@ -107,7 +107,7 @@ const response = await fetch("https://example.org/post", {
 });
 ```
 
-Beachten Sie, dass wie bei Antwortkörpern auch Anfragkörper Streams sind, und das Stellen der Anfrage den Stream liest, so dass eine Anfrage mit einem Körper nicht zweimal gemacht werden kann:
+Beachten Sie, dass Anfragkörper, genau wie Antwortkörper, Streams sind, und das Stellen der Anfrage den Stream liest, sodass, wenn eine Anfrage einen Körper enthält, Sie sie nicht zweimal stellen können:
 
 ```js example-bad
 const request = new Request("https://example.org/post", {
@@ -123,7 +123,7 @@ const response2 = await fetch(request);
 console.log(response2.status);
 ```
 
-Stattdessen müssten Sie [einen Klon erstellen](/de/docs/Web/API/Request/clone) der Anfrage, bevor sie gesendet wird:
+Stattdessen müssen Sie eine [Kopie erstellen](/de/docs/Web/API/Request/clone) der Anfrage, bevor Sie sie senden:
 
 ```js
 const request1 = new Request("https://example.org/post", {
@@ -140,15 +140,15 @@ const response2 = await fetch(request2);
 console.log(response2.status);
 ```
 
-Weitere Informationen finden Sie unter [Gesperrte und gestörte Streams](#gesperrte_und_gestörte_streams).
+Siehe [Gesperrte und gestörte Streams](#gesperrte_und_gestörte_streams) für weitere Informationen.
 
-### Header festlegen
+### Headers festlegen
 
-Anfrageheader geben dem Server Informationen über die Anfrage: Beispielsweise sagt der {{httpheader("Content-Type")}}-Header bei einer `POST`-Anfrage dem Server, in welchem Format der Körper der Anfrage vorliegt.
+Anfrage-Header geben dem Server Informationen über die Anfrage: Zum Beispiel teilt der `Content-Type`-Header bei einer `POST`-Anfrage dem Server das Format des Anfragkörpers mit.
 
-Um Anfrageheader festzulegen, weisen Sie sie der `headers`-Option zu.
+Um Anfrage-Header festzulegen, ordnen Sie sie der Option `headers` zu.
 
-Sie können hier ein Objektliteral übergeben, das `header-name: header-value`-Eigenschaften enthält:
+Sie können hier ein Objektliteral übergeben, das Eigenschaften der Form `header-name: header-value` enthält:
 
 ```js
 const response = await fetch("https://example.org/post", {
@@ -161,7 +161,7 @@ const response = await fetch("https://example.org/post", {
 });
 ```
 
-Alternativ können Sie ein [`Headers`](/de/docs/Web/API/Headers)-Objekt konstruieren, dem Objekt Header mit [`Headers.append()`](/de/docs/Web/API/Headers/append) hinzufügen und das `Headers`-Objekt dann der `headers`-Option zuweisen:
+Alternativ können Sie ein [`Headers`](/de/docs/Web/API/Headers)-Objekt konstruieren, Header zu diesem Objekt mit [`Headers.append()`](/de/docs/Web/API/Headers/append) hinzufügen und dann das `Headers`-Objekt der Option `headers` zuweisen:
 
 ```js
 const myHeaders = new Headers();
@@ -175,11 +175,11 @@ const response = await fetch("https://example.org/post", {
 });
 ```
 
-Im Vergleich zur Verwendung einfacher Objekte bietet das `Headers`-Objekt zusätzliche Eingabesanitierung. Beispielsweise normalisiert es Header-Namen in Kleinbuchstaben, entfernt führende und nachfolgende Leerzeichen aus Header-Werten und verhindert, dass bestimmte Header gesetzt werden. Viele Header werden automatisch vom Browser gesetzt und können nicht von einem Skript gesetzt werden: Diese werden {{Glossary("Forbidden_request_header", "verbotene Anfrageheader")}} genannt. Wenn die [`mode`](/de/docs/Web/API/Request/mode)-Option auf `no-cors` gesetzt ist, wird das Set der erlaubten Header weiter eingeschränkt.
+Im Vergleich zur Verwendung von einfachen Objekten bietet das `Headers`-Objekt einige zusätzliche Eingabesanierungen. Beispielsweise normalisiert es Header-Namen auf Kleinbuchstaben, entfernt führende und nachfolgende Leerzeichen aus Header-Werten und verhindert das Setzen bestimmter Header. Viele Header werden automatisch vom Browser festgelegt und können nicht von einem Skript gesetzt werden: Diese werden als {{Glossary("Forbidden_request_header", "verbotene Anforderungsheader")}} bezeichnet. Wenn die Option [`mode`](/de/docs/Web/API/Request/mode) auf `no-cors` gesetzt ist, wird die Menge der zulässigen Header weiter eingeschränkt.
 
 ### Daten in einer GET-Anfrage senden
 
-`GET`-Anfragen haben keinen Körper, aber Sie können dennoch Daten an den Server senden, indem Sie diese als Query-String an die URL anhängen. Dies ist eine übliche Methode, um Formulardaten an den Server zu senden. Sie können dies tun, indem Sie [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) verwenden, um die Daten zu kodieren, und sie dann an die URL anhängen:
+`GET`-Anfragen haben keinen Anfragkörper, aber Sie können dennoch Daten an den Server senden, indem Sie sie an die URL als Abfragezeichenfolge anfügen. Dies ist eine übliche Methode, um Formulardaten an den Server zu senden. Sie können dies tun, indem Sie [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) verwenden, um die Daten zu kodieren, und sie dann an die URL anhängen:
 
 ```js
 const params = new URLSearchParams();
@@ -189,46 +189,45 @@ params.append("username", "example");
 const response = await fetch(`https://example.org/login?${params}`);
 ```
 
-### Cross-Origin-Anfragen durchführen
+### Cross-Origin-Anfragen erstellen
 
-Ob eine Anfrage über Ursprung hinweg gemacht werden kann oder nicht, wird durch den Wert der [`RequestInit.mode`](/de/docs/Web/API/RequestInit#mode)-Option bestimmt. Diese kann einen der drei Werte `cors`, `same-origin` oder `no-cors` annehmen.
+Ob eine Anfrage cross-origin durchgeführt werden kann oder nicht, wird durch den Wert der Option [`RequestInit.mode`](/de/docs/Web/API/RequestInit#mode) bestimmt. Diese kann einen von drei Werten annehmen: `cors`, `same-origin` oder `no-cors`.
 
-- Für Fetch-Anfragen ist der Standardwert von `mode` `cors`, was bedeutet, dass, wenn die Anfrage über Ursprung hinweg ist, sie den [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)-Mechanismus verwendet. Das bedeutet, dass:
+- Für Fetch-Anfragen ist der Standardwert von `mode` `cors`, was bedeutet, dass bei einer cross-origin Anfrage der Mechanismus [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) verwendet wird. Dies bedeutet, dass:
+  - Wenn die Anfrage eine [einfache Anfrage](/de/docs/Web/HTTP/Guides/CORS#simple_requests) ist, wird die Anfrage immer gesendet, aber der Server muss mit dem korrekten {{httpheader("Access-Control-Allow-Origin")}}-Header antworten, ansonsten teilt der Browser die Antwort nicht mit dem Anrufer.
+  - Wenn die Anfrage keine einfache Anfrage ist, sendet der Browser eine [preflighted request](/de/docs/Web/HTTP/Guides/CORS#preflighted_requests), um zu überprüfen, ob der Server CORS versteht und die Anfrage zulässt. Die tatsächliche Anfrage wird nicht gesendet, es sei denn, der Server antwortet auf die Preflight-Anfrage mit den entsprechenden CORS-Headern.
 
-  - wenn die Anfrage eine [einfache Anfrage](/de/docs/Web/HTTP/Guides/CORS#simple_requests) ist, wird die Anfrage immer gesendet, aber der Server muss mit dem korrekten {{httpheader("Access-Control-Allow-Origin")}}-Header antworten, andernfalls wird der Browser die Antwort nicht mit dem Anrufer teilen.
-  - wenn die Anfrage keine einfache Anfrage ist, wird der Browser eine [vorabgefragte Anfrage](/de/docs/Web/HTTP/Guides/CORS#preflighted_requests) senden, um zu überprüfen, ob der Server CORS versteht und die Anfrage erlaubt, und die tatsächliche Anfrage wird nicht gesendet, es sei denn, der Server antwortet auf die vorabgefragte Anfrage mit den entsprechenden CORS-Headern.
+- Das Setzen von `mode` auf `same-origin` verbietet cross-origin Anfragen vollständig.
 
-- Das Setzen von `mode` auf `same-origin` untersagt vollständig über Ursprung hinweggehende Anfragen.
+- Das Setzen von `mode` auf `no-cors` deaktiviert CORS für cross-origin Anfragen. Dies schränkt die Header ein, die gesetzt werden dürfen, und beschränkt die Methoden auf GET, HEAD und POST. Die Antwort ist _undurchsichtig_, was bedeutet, dass ihre Header und der Körper für JavaScript nicht verfügbar sind. Meistens sollte eine Website `no-cors` nicht verwenden: Der Hauptanwendungsfall ist für bestimmte Anwendungsfälle von Service Workern.
 
-- Das Setzen von `mode` auf `no-cors` deaktiviert CORS für über Ursprung hinweggehende Anfragen. Dies beschränkt die setzbaren Header und beschränkt die Methoden auf GET, HEAD und POST. Die Antwort ist _opak_, was bedeutet, dass ihre Header und der Körper für JavaScript nicht verfügbar sind. Meistens sollte eine Website `no-cors` nicht verwenden: Die Hauptanwendung liegt in bestimmten Service-Worker-Anwendungsfällen.
+Siehe die Referenzdokumentation für [`RequestInit.mode`](/de/docs/Web/API/RequestInit#mode) für weitere Details.
 
-Sehen Sie die Referenzdokumentation für [`RequestInit.mode`](/de/docs/Web/API/RequestInit#mode) für weitere Details.
+### Einbeziehen von Anmeldeinformationen
 
-### Mit Anmeldeinformationen arbeiten
+Anmeldeinformationen sind Cookies, {{Glossary("TLS", "TLS")}}-Client-Zertifikate oder Authentifizierungs-Header, die einen Benutzernamen und ein Passwort enthalten.
 
-Anmeldeinformationen sind Cookies, {{Glossary("TLS", "TLS")}}-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
+Um zu steuern, ob der Browser Anmeldeinformationen sendet oder nicht, sowie ob der Browser irgendwelche **`Set-Cookie`**-Antwortheader respektiert, setzen Sie die `credentials`-Option, die einen der folgenden drei Werte annehmen kann:
 
-Um zu steuern, ob der Browser Anmeldeinformationen sendet oder nicht, sowie ob der Browser auf **`Set-Cookie`**-Antwortheader achtet, setzen Sie die `credentials`-Option, die einen der folgenden drei Werte annehmen kann:
+- `omit`: Niemals Anmeldeinformationen in der Anfrage senden oder in der Antwort einbeziehen.
+- `same-origin` (der Standard): Anmeldeinformationen nur für gleichartige Anfragen senden und einbeziehen.
+- `include`: Immer Anmeldeinformationen einbeziehen, auch bei cross-origin Anfragen.
 
-- `omit`: Niemals Anmeldeinformationen in der Anfrage senden oder in der Antwort einschließen.
-- `same-origin` (Standard): Nur Anmeldeinformationen für gleich ursprungsbezogene Anfragen senden und einschließen.
-- `include`: Immer Anmeldeinformationen einschließen, auch über Ursprung hinweg.
+Beachten Sie, dass, wenn das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Attribut eines Cookies auf `Strict` oder `Lax` gesetzt ist, das Cookie nicht cross-site gesendet wird, auch wenn `credentials` auf `include` gesetzt ist.
 
-Beachten Sie, dass, wenn das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Attribut eines Cookies auf `Strict` oder `Lax` gesetzt ist, das Cookie nicht über Sites hinweg gesendet wird, auch wenn `credentials` auf `include` gesetzt ist.
+Das Einbeziehen von Anmeldeinformationen in cross-origin Anfragen kann eine Site für {{Glossary("CSRF", "CSRF")}}-Angriffe anfällig machen, daher muss der Server, auch wenn `credentials` auf `include` gesetzt ist, auch die Einbeziehung durch das Hinzufügen des {{httpheader("Access-Control-Allow-Credentials")}}-Headers zu seiner Antwort einverstanden sein. Zusätzlich muss der Server in diesem Fall explizit den Ursprung des Clients im {{httpheader("Access-Control-Allow-Origin")}}-Header der Antwort angeben (das heißt, `*` ist nicht erlaubt).
 
-Das Einschließen von Anmeldeinformationen in Anfragen über Ursprung hinweg kann eine Site anfällig für {{Glossary("CSRF", "CSRF")}}-Angriffe machen, daher muss der Server, selbst wenn `credentials` auf `include` gesetzt ist, auch ihrer Aufnahme zustimmen, indem er den {{httpheader("Access-Control-Allow-Credentials")}}-Header in seiner Antwort einfügt. Zusätzlich muss in diesem Fall der Server explizit den Ursprung des Clients im {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader angeben (das heißt, `*` ist nicht erlaubt).
+Das bedeutet, dass, wenn `credentials` auf `include` gesetzt ist und die Anfrage cross-origin ist, dann:
 
-Dies bedeutet, dass, wenn `credentials` auf `include` gesetzt ist und die Anfrage über Ursprung hinweggeht:
+- Wenn die Anfrage eine [einfache Anfrage](/de/docs/Web/HTTP/Guides/CORS#simple_requests) ist, wird die Anfrage mit Anmeldeinformationen gesendet, aber der Server muss die {{httpheader("Access-Control-Allow-Credentials")}}- und {{httpheader("Access-Control-Allow-Origin")}}-Header in der Antwort setzen, sonst gibt der Browser einen Netzwerkfehler an den Anrufer zurück. Wenn der Server die richtigen Header setzt, wird die Antwort, einschließlich Anmeldeinformationen, an den Anrufer geliefert.
 
-- Wenn die Anfrage eine [einfache Anfrage](/de/docs/Web/HTTP/Guides/CORS#simple_requests) ist, wird die Anfrage mit Anmeldeinformationen gesendet, aber der Server muss die {{httpheader("Access-Control-Allow-Credentials")}}- und {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader setzen, oder der Browser gibt einen Netzwerkfehler an den Anrufer zurück. Wenn der Server die korrekten Header setzt, wird die Antwort, einschließlich der Anmeldeinformationen, dem Anrufer zugestellt.
+- Wenn die Anfrage keine einfache Anfrage ist, sendet der Browser eine [preflighted request](/de/docs/Web/HTTP/Guides/CORS#preflighted_requests) ohne Anmeldeinformationen, und der Server muss die {{httpheader("Access-Control-Allow-Credentials")}}- und {{httpheader("Access-Control-Allow-Origin")}}-Header in der Antwort setzen, sonst gibt der Browser einen Netzwerkfehler an den Anrufer zurück. Wenn der Server die richtigen Header setzt, führt der Browser die tatsächliche Anfrage aus, einschließlich Anmeldeinformationen, und liefert die tatsächliche Antwort, einschließlich Anmeldeinformationen, an den Anrufer.
 
-- Wenn die Anfrage keine einfache Anfrage ist, wird der Browser eine [vorabgefragte Anfrage](/de/docs/Web/HTTP/Guides/CORS#preflighted_requests) ohne Anmeldeinformationen senden, und der Server muss die {{httpheader("Access-Control-Allow-Credentials")}}- und {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader setzen, oder der Browser gibt einen Netzwerkfehler an den Anrufer zurück. Wenn der Server die korrekten Header setzt, wird der Browser mit der tatsächlichen Anfrage fortfahren, einschließlich der Anmeldeinformationen, und wird die tatsächliche Antwort, einschließlich der Anmeldeinformationen, dem Anrufer zustellen.
+### Erstellen eines `Request`-Objekts
 
-### Ein `Request`-Objekt erstellen
+Der Konstruktor [`Request()`](/de/docs/Web/API/Request/Request) nimmt die gleichen Argumente wie `fetch()` selbst. Das bedeutet, dass anstatt Optionen in `fetch()` zu übergeben, Sie dieselben Optionen an den `Request()`-Konstruktor übergeben können und dann dieses Objekt an `fetch()` übergeben können.
 
-Der Konstruktor [`Request()`](/de/docs/Web/API/Request/Request) nimmt dieselben Argumente wie `fetch()` selbst. Das bedeutet, dass anstatt Optionen an `fetch()` zu übergeben, können Sie dieselben Optionen dem `Request()`-Konstruktor übergeben und dann dieses Objekt an `fetch()` übergeben.
-
-Zum Beispiel können wir eine POST-Anfrage stellen, indem wir Optionen an `fetch()` mit folgendem Code übergeben:
+Zum Beispiel können wir eine POST-Anfrage machen, indem wir Optionen in `fetch()` mit dem folgenden Code übergeben:
 
 ```js
 const myHeaders = new Headers();
@@ -256,7 +255,7 @@ const myRequest = new Request("https://example.org/post", {
 const response = await fetch(myRequest);
 ```
 
-Das bedeutet auch, dass Sie eine Anfrage aus einer anderen Anfrage erstellen können, während Sie einige ihrer Eigenschaften mit dem zweiten Argument ändern:
+Dies bedeutet auch, dass Sie eine Anfrage aus einer anderen Anfrage erstellen können, während Sie einige ihrer Eigenschaften mit dem zweiten Argument ändern:
 
 ```js
 async function post(request) {
@@ -287,9 +286,9 @@ post(request2);
 
 ## Eine Anfrage abbrechen
 
-Um eine Anfrage abbrechbar zu machen, erstellen Sie einen [`AbortController`](/de/docs/Web/API/AbortController) und weisen dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) der `signal`-Eigenschaft der Anfrage zu.
+Um eine Anfrage abbrechbar zu machen, erstellen Sie einen [`AbortController`](/de/docs/Web/API/AbortController) und ordnen Sie dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) der `signal`-Eigenschaft der Anfrage zu.
 
-Um die Anfrage abzubrechen, rufen Sie die [`abort()`](/de/docs/Web/API/AbortController/abort)-Methode des Controllers auf. Der `fetch()`-Aufruf wird das Promise mit einer `AbortError`-Ausnahme verwerfen.
+Um die Anfrage abzubrechen, rufen Sie die Methode [`abort()`](/de/docs/Web/API/AbortController/abort) des Controllers auf. Der Aufruf von `fetch()` wird das Versprechen mit einer `AbortError`-Ausnahme ablehnen.
 
 ```js
 const controller = new AbortController();
@@ -314,7 +313,7 @@ cancelButton.addEventListener("click", () => {
 });
 ```
 
-Wenn die Anfrage abgebrochen wird, nachdem der `fetch()`-Aufruf erfüllt wurde, aber bevor der Antwortkörper gelesen wurde, dann wird der Versuch, den Antwortkörper zu lesen, mit einer `AbortError`-Ausnahme abgelehnt.
+Wenn die Anfrage abgebrochen wird, nachdem der Aufruf von `fetch()` erfüllt wurde, aber bevor der Antwortkörper gelesen wurde, wird der Versuch, den Antwortkörper zu lesen, mit einer `AbortError`-Ausnahme abgelehnt.
 
 ```js
 async function get() {
@@ -333,15 +332,15 @@ async function get() {
 
 ## Die Antwort verarbeiten
 
-Sobald der Browser den Antwortstatus und die Header vom Server erhalten hat (und potenziell bevor der Antwortkörper selbst empfangen wurde), wird das von `fetch()` zurückgegebene Promise mit einem [`Response`](/de/docs/Web/API/Response)-Objekt erfüllt.
+Sobald der Browser den Antwortstatus und die Header vom Server erhalten hat (und möglicherweise bevor der Antwortkörper selbst empfangen wurde), wird das Versprechen, das von `fetch()` zurückgegeben wird, mit einem [`Response`](/de/docs/Web/API/Response)-Objekt erfüllt.
 
-### Überprüfen des Antwortstatus
+### Prüfung des Antwortstatus
 
-Das von `fetch()` zurückgegebene Promise wird bei einigen Fehlern, wie einem Netzwerkfehler oder einem schlechten Schema, abgelehnt. Wenn jedoch der Server mit einem Fehler wie {{httpstatus("404")}} antwortet, wird `fetch()` mit einer `Response` erfüllt, daher müssen wir den Status überprüfen, bevor wir den Antwortkörper lesen können.
+Das von `fetch()` zurückgegebene Versprechen wird bei einigen Fehlern abgelehnt, wie bei einem Netzwerkfehler oder einem schlechten Schema. Wenn jedoch der Server mit einem Fehler wie {{httpstatus("404")}} antwortet, dann erfüllt `fetch()` mit einer `Response`, sodass wir den Status überprüfen müssen, bevor wir den Antwortkörper lesen können.
 
-Die Eigenschaft [`Response.status`](/de/docs/Web/API/Response/status) gibt uns den numerischen Statuscode an, und die Eigenschaft [`Response.ok`](/de/docs/Web/API/Response/ok) gibt `true` zurück, wenn der Status im [200-Bereich](/de/docs/Web/HTTP/Reference/Status#successful_responses) liegt.
+Die Eigenschaft [`Response.status`](/de/docs/Web/API/Response/status) gibt uns den numerischen Statuscode, und die Eigenschaft [`Response.ok`](/de/docs/Web/API/Response/ok) gibt `true` zurück, wenn der Status im [200-Bereich](/de/docs/Web/HTTP/Reference/Status#successful_responses) liegt.
 
-Ein gebräuchliches Muster ist, den Wert von `ok` zu überprüfen und eine Ausnahme zu werfen, wenn er `false` ist:
+Ein häufiges Muster ist es, den Wert von `ok` zu überprüfen und eine Ausnahme zu werfen, wenn er `false` ist:
 
 ```js
 async function getData() {
@@ -358,28 +357,28 @@ async function getData() {
 }
 ```
 
-### Überprüfen des Antworttyps
+### Prüfung des Antworttyps
 
-Antworten haben eine [`type`](/de/docs/Web/API/Response/type)-Eigenschaft, die einer der folgenden sein kann:
+Antworten haben eine Eigenschaft [`type`](/de/docs/Web/API/Response/type), die einer der folgenden sein kann:
 
-- `basic`: Die Anfrage war eine gleiche Ursprungsanfrage.
-- `cors`: Die Anfrage war eine über Ursprung hinausgehende CORS-Anfrage.
-- `opaque`: Die Anfrage war eine über Ursprung hinausragende einfache Anfrage, die im `no-cors`-Modus gemacht wurde.
-- `opaqueredirect`: Die Anfrage setzte die `redirect`-Option auf `manual`, und der Server gab einen [Umleitungsstatus](/de/docs/Web/HTTP/Reference/Status#redirection_messages) zurück.
+- `basic`: Die Anfrage war eine gleichartige Anfrage.
+- `cors`: Die Anfrage war eine cross-origin CORS-Anfrage.
+- `opaque`: Die Anfrage war eine cross-origin einfache Anfrage, die mit dem `no-cors`-Modus durchgeführt wurde.
+- `opaqueredirect`: Die Anfrage hat die Option `redirect` auf `manual` gesetzt, und der Server hat einen [Redirect-Status](/de/docs/Web/HTTP/Reference/Status#redirection_messages) zurückgegeben.
 
 Der Typ bestimmt den möglichen Inhalt der Antwort wie folgt:
 
-- Basic-Antworten schließen Antwortheader aus der Liste {{Glossary("Forbidden_response_header_name", "verbotene Antwortheadernamen")}} aus.
+- Basisantworten schließen Antwortheader von der Liste der {{Glossary("Forbidden_response_header_name", "verbotenen Antwortheadernamen")}} aus.
 
-- CORS-Antworten enthalten nur Antwortheader aus der {{Glossary("CORS-safelisted_response_header", "CORS-sicherheitsfreigegebenen Antwortheader")}}-Liste.
+- CORS-Antworten enthalten nur Antwortheader von der {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwortheader")}}-Liste.
 
-- Opake Antworten und opake Umleitungsantworten haben einen `status` von `0`, eine leere Liste von Headern und einen `null`-Körper.
+- Undurchsichtige Antworten und undurchsichtige Redirect-Antworten haben einen `status` von `0`, eine leere Header-Liste und einen `null`-Körper.
 
-### Überprüfen von Headern
+### Prüfung der Header
 
-Genau wie die Anfrage verfügt auch die Antwort über eine [`headers`](/de/docs/Web/API/Response/headers)-Eigenschaft, das ein [`Headers`](/de/docs/Web/API/Headers)-Objekt ist, und dies enthält alle Antwortheader, die Skripten zur Verfügung stehen, unter Berücksichtigung der Ausschlüsse basierend auf dem Antworttyp.
+Genau wie bei der Anfrage hat die Antwort eine Eigenschaft [`headers`](/de/docs/Web/API/Response/headers), die ein [`Headers`](/de/docs/Web/API/Headers)-Objekt ist, und dieses enthält alle Antwortheader, die Skripten ausgesetzt sind, vorbehaltlich der Ausschlüsse, die basierend auf dem Antworttyp vorgenommen wurden.
 
-Ein häufiger Anwendungsfall hierfür ist, den Inhaltstyp zu überprüfen, bevor versucht wird, den Körper zu lesen:
+Ein häufiger Anwendungsfall dafür ist die Überprüfung des Inhaltstyps, bevor versucht wird, den Körper zu lesen:
 
 ```js
 async function fetchJSON(request) {
@@ -396,9 +395,9 @@ async function fetchJSON(request) {
 }
 ```
 
-### Den Antwortkörper lesen
+### Lesen des Antwortkörpers
 
-Das `Response`-Interface bietet eine Reihe von Methoden, um den gesamten Inhalt des Körpers in einer Vielzahl unterschiedlicher Formate abzurufen:
+Das `Response`-Interface bietet eine Reihe von Methoden, um den gesamten Körperinhalt in einer Vielzahl von verschiedenen Formaten abzurufen:
 
 - [`Response.arrayBuffer()`](/de/docs/Web/API/Response/arrayBuffer)
 - [`Response.blob()`](/de/docs/Web/API/Response/blob)
@@ -406,9 +405,9 @@ Das `Response`-Interface bietet eine Reihe von Methoden, um den gesamten Inhalt 
 - [`Response.json()`](/de/docs/Web/API/Response/json)
 - [`Response.text()`](/de/docs/Web/API/Response/text)
 
-Dies sind alles asynchrone Methoden, die ein {{jsxref("Promise")}} zurückgeben, das mit dem Körperinhalt erfüllt wird.
+Diese sind alle asynchrone Methoden, die ein {{jsxref("Promise")}} zurückgeben, das mit dem Körperinhalt erfüllt wird.
 
-In diesem Beispiel laden wir ein Bild und lesen es als [`Blob`](/de/docs/Web/API/Blob), das wir dann verwenden können, um eine Objekt-URL zu erstellen:
+In diesem Beispiel holen wir ein Bild ab und lesen es als [`Blob`](/de/docs/Web/API/Blob), das wir dann verwenden können, um eine Objekt-URL zu erstellen:
 
 ```js
 const image = document.querySelector("img");
@@ -430,15 +429,15 @@ async function setImage() {
 }
 ```
 
-Die Methode wird eine Ausnahme werfen, wenn der Antwortkörper nicht im entsprechenden Format vorliegt: beispielsweise, wenn Sie `json()` auf eine Antwort aufrufen, die nicht als JSON geparst werden kann.
+Die Methode wird eine Ausnahme auslösen, wenn der Antwortkörper nicht im entsprechenden Format ist: Zum Beispiel, wenn Sie `json()` auf eine Antwort aufrufen, die nicht als JSON geparst werden kann.
 
-### Den Antwortkörper streamen
+### Streaming des Antwortkörpers
 
-Anfrage- und Antwortkörper sind tatsächlich [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekte, und wann immer Sie sie lesen, streamen Sie den Inhalt. Dies ist gut für die Speichereffizienz, da der Browser den gesamten Antwortinhalt nicht vollständig im Speicher puffern muss, bevor es vom Anrufer mit einer Methode wie `json()` abgerufen wird.
+Anfrage- und Antwortkörper sind tatsächlich [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekte, und wann immer Sie sie lesen, streamen Sie den Inhalt. Dies ist gut für die Speichereffizienz, da der Browser den gesamten Antwortinhalt nicht puffern muss, bevor der Anrufer ihn mit einer Methode wie `json()` abruft.
 
-Das bedeutet auch, dass der Anrufer den Inhalt schrittweise während des Empfangs verarbeiten kann.
+Dies bedeutet auch, dass der Anrufer den Inhalt inkrementell verarbeiten kann, während er empfangen wird.
 
-Zum Beispiel, betrachten Sie eine `GET`-Anfrage, die eine große Textdatei lädt und auf irgendeine Weise verarbeitet oder sie dem Benutzer anzeigt:
+Betrachten Sie zum Beispiel eine `GET`-Anfrage, die eine große Textdatei abruft und auf irgendeine Weise verarbeitet oder sie dem Benutzer anzeigt:
 
 ```js
 const url = "https://www.example.org/a-large-file.txt";
@@ -458,9 +457,9 @@ async function fetchText(url) {
 }
 ```
 
-Wenn wir [`Response.text()`](/de/docs/Web/API/Response/text) verwenden, wie oben, müssen wir warten, bis die gesamte Datei empfangen wurde, bevor wir irgendetwas davon verarbeiten können.
+Wenn wir [`Response.text()`](/de/docs/Web/API/Response/text) verwenden, wie oben, müssen wir warten, bis die ganze Datei empfangen wurde, bevor wir irgendeinen Teil davon verarbeiten können.
 
-Wenn wir stattdessen die Antwort streamen, können wir Teile des Körpers verarbeiten, während sie vom Netzwerk empfangen werden:
+Wenn wir die Antwort jedoch streamen, können wir Teile des Körpers verarbeiten, sobald sie aus dem Netzwerk eintreffen:
 
 ```js
 const url = "https://www.example.org/a-large-file.txt";
@@ -482,13 +481,13 @@ async function fetchTextAsStream(url) {
 }
 ```
 
-In diesem Beispiel {{jsxref("Statements/for-await...of", "iterieren wir asynchron", "", "nocode")}} über den Stream und verarbeiten jeden Chunk, sobald er ankommt.
+In diesem Beispiel {{jsxref("Statements/for-await...of", "iterieren wir asynchron", "", "nocode")}} über den Stream, um jeden Chunk zu verarbeiten, sobald er ankommt.
 
-Beachten Sie, dass wenn Sie den Körper direkt so zugreifen, erhalten Sie die rohen Bytes der Antwort und müssen sie selbst transformieren. In diesem Fall rufen wir [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) auf, um die Antwort durch einen [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) zu leiten, der die UTF-8-codierten Körpers als Text dekodiert.
+Beachten Sie, dass wenn Sie auf den Körper direkt zugreifen, Sie die rohen Bytes der Antwort erhalten und selbst transformieren müssen. In diesem Fall rufen wir [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) auf, um die Antwort durch einen [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) zu leiten, der die UTF-8-kodierten Körperdaten als Text dekodiert.
 
-### Eine Textdatei zeilenweise verarbeiten
+### Eine Textdatei Zeile für Zeile verarbeiten
 
-Im folgenden Beispiel laden wir eine Textressource und verarbeiten sie zeilenweise, indem wir mit einem regulären Ausdruck nach Zeilenumbrüchen suchen. Zur Vereinfachung nehmen wir an, dass der Text UTF-8 ist, und behandeln keine Fehler bei Fetch:
+Im folgenden Beispiel holen wir eine Text-Ressource ab und verarbeiten sie Zeile für Zeile, indem wir einen regulären Ausdruck verwenden, um nach Zeilenumbrüchen zu suchen. Zur Vereinfachung nehmen wir an, dass der Text UTF-8 ist und keine Fetch-Fehler behandelt werden:
 
 ```js
 async function* makeTextFileLineIterator(fileURL) {
@@ -535,12 +534,12 @@ run("https://www.example.org/a-large-file.txt");
 
 ### Gesperrte und gestörte Streams
 
-Die Konsequenzen von Anfragen- und Antwortkörpern als Streams sind, dass:
+Die Konsequenzen daraus, dass Anfrag- und Antwortkörper Streams sind, sind:
 
-- Wenn ein Leser an einen Stream mit `ReadableStream.getReader()` angehängt wurde, ist der Stream _gesperrt_, und nichts anderes kann den Stream lesen.
-- Wenn ein beliebiger Inhalt aus dem Stream gelesen wurde, ist der Stream _gestört_, und nichts anderes kann aus dem Stream lesen.
+- Wenn ein Leser an einen Stream mit `ReadableStream.getReader()` angehängt wurde, dann ist der Stream _gesperrt_ und nichts anderes kann den Stream lesen.
+- Wenn ein Inhalt aus dem Stream gelesen wurde, dann ist der Stream _gestört_ und nichts anderes kann aus dem Stream lesen.
 
-Das bedeutet, dass es nicht möglich ist, den gleichen Antwort- (oder Anfrage-)Körper mehrmals zu lesen:
+Das bedeutet, dass es nicht möglich ist, denselben Antwort- (oder Anfrag-)körper mehr als einmal zu lesen:
 
 ```js example-bad
 async function getData() {
@@ -551,8 +550,8 @@ async function getData() {
       throw new Error(`Response status: ${response.status}`);
     }
 
-    const json1 = await response.json();
-    const json2 = await response.json(); // will throw
+    const result1 = await response.json();
+    const result2 = await response.json(); // will throw
   } catch (error) {
     console.error(error.message);
   }
@@ -572,15 +571,15 @@ async function getData() {
 
     const response2 = response1.clone();
 
-    const json1 = await response1.json();
-    const json2 = await response2.json();
+    const result1 = await response1.json();
+    const result2 = await response2.json();
   } catch (error) {
     console.error(error.message);
   }
 }
 ```
 
-Dies ist ein übliches Muster beim [Implementieren eines Offline-Caches mit Service-Workern](/de/docs/Web/Progressive_web_apps/Guides/Caching). Der Service Worker möchte die Antwort an die App zurückgeben, sie aber auch cachen. Also klont er die Antwort, gibt das Original zurück und speichert den Klon:
+Dies ist ein häufiges Muster beim [Implementieren eines Offline-Cache mit Service Workern](/de/docs/Web/Progressive_web_apps/Guides/Caching). Der Service Worker möchte die Antwort an die App zurückgeben, aber auch die Antwort cachen. Daher klont er die Antwort, gibt das Original zurück und cached den Klon:
 
 ```js
 async function cacheFirst(request) {
