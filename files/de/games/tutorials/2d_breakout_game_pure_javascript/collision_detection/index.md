@@ -1,21 +1,21 @@
 ---
-title: Kollisionserkennung
+title: Kollisionsdetektion
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
 ---
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Build_the_brick_field", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win")}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win")}}
 
-Dies ist der **7. Schritt** von 10 des [Gamedev Canvas-Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson7.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson07.html).
+Dies ist der **7. Schritt** von 10 des [Gamedev Canvas Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson7.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson07.html).
 
-Die Ziegel erscheinen bereits auf dem Bildschirm, aber das Spiel ist noch nicht _so_ interessant, da der Ball durch sie hindurchgeht. Wir müssen darüber nachdenken, eine Kollisionserkennung hinzuzufügen, damit der Ball von den Ziegeln abprallen und sie zerstören kann.
+Die Ziegel erscheinen bereits auf dem Bildschirm, aber das Spiel ist immer noch nicht _so_ interessant, da der Ball durch sie hindurchgeht. Wir müssen über die Hinzufügung einer Kollisionsdetektion nachdenken, damit der Ball von den Ziegeln abprallen und sie zerstören kann.
 
-Es liegt natürlich an uns, wie wir das umsetzen, aber es kann schwierig sein, zu berechnen, ob der Ball das Rechteck berührt oder nicht, da es dafür keine Hilfsfunktionen in Canvas gibt. In diesem Tutorial werden wir es so einfach wie möglich machen. Wir prüfen, ob der Mittelpunkt des Balls mit einem der gegebenen Ziegel kollidiert. Dies wird nicht jedes Mal ein perfektes Ergebnis liefern, und es gibt weitaus ausgefeiltere Wege zur Kollisionserkennung, aber dies wird ausreichen, um Ihnen die Grundkonzepte beizubringen.
+Es liegt an uns, wie wir dies umsetzen, jedoch kann es schwierig sein zu berechnen, ob der Ball das Rechteck berührt, da es dafür keine Hilfsfunktionen in Canvas gibt. Für diesen Leitfaden werden wir es auf die einfachste Weise tun. Wir werden prüfen, ob das Zentrum des Balls mit einem der gegebenen Ziegel kollidiert. Dies wird nicht jedes Mal ein perfektes Ergebnis liefern und es gibt weitaus ausgefeiltere Methoden zur Kollisionsdetektion, aber es wird ausreichen, um Ihnen die grundlegenden Konzepte zu vermitteln.
 
-## Eine Kollisionserkennungsfunktion
+## Eine Funktion zur Kollisionsdetektion
 
-Um dies zu starten, möchten wir eine Kollisionserkennungsfunktion erstellen, die alle Ziegel durchläuft und die Position jedes einzelnen Ziegels mit den Koordinaten des Balls vergleicht, während jedes Bild gezeichnet wird. Zur besseren Lesbarkeit des Codes definieren wir die Variable `b`, um das Ziegelobjekt in jeder Schleife der Kollisionserkennung zu speichern:
+Um dies zu starten, möchten wir eine Funktion zur Kollisionsdetektion erstellen, die alle Ziegel durchläuft und die Position jedes einzelnen Ziegels mit den Ballkoordinaten vergleicht, während jeden Frame gezeichnet wird. Für bessere Lesbarkeit des Codes werden wir die Variable `b` definieren, um das Ziegelobjekt in jeder Schleife der Kollisionsdetektion zu speichern:
 
 ```js
 function collisionDetection() {
@@ -28,7 +28,7 @@ function collisionDetection() {
 }
 ```
 
-Wenn der Mittelpunkt des Balls innerhalb der Koordinaten eines unserer Ziegel liegt, ändern wir die Richtung des Balls. Damit der Mittelpunkt des Balls innerhalb des Ziegels liegt, müssen alle vier der folgenden Aussagen wahr sein:
+Wenn sich das Zentrum des Balls innerhalb der Koordinaten eines unserer Ziegel befindet, ändern wir die Richtung des Balls. Damit das Zentrum des Balls innerhalb des Ziegels liegt, müssen alle vier der folgenden Bedingungen wahr sein:
 
 - Die x-Position des Balls ist größer als die x-Position des Ziegels.
 - Die x-Position des Balls ist kleiner als die x-Position des Ziegels plus dessen Breite.
@@ -50,11 +50,11 @@ function collisionDetection() {
 }
 ```
 
-Fügen Sie den obigen Block Ihrem Code unterhalb der Funktion `keyUpHandler()` hinzu.
+Fügen Sie den obigen Codeblock zu Ihrem Code unterhalb der `keyUpHandler()` Funktion hinzu.
 
 ## Die Ziegel verschwinden lassen, nachdem sie getroffen wurden
 
-Der obige Code funktioniert wie gewünscht und der Ball ändert seine Richtung. Das Problem ist, dass die Ziegel dort bleiben, wo sie sind. Wir müssen uns etwas einfallen lassen, um die bereits mit dem Ball getroffenen Ziegel loszuwerden. Wir können dies tun, indem wir einen zusätzlichen Parameter hinzufügen, um anzuzeigen, ob wir jeden Ziegel auf dem Bildschirm malen wollen oder nicht. In dem Teil des Codes, in dem wir die Ziegel initialisieren, fügen wir jedem Ziegelobjekt eine `status`-Eigenschaft hinzu. Aktualisieren Sie den folgenden Teil des Codes, wie durch die hervorgehobene Zeile angezeigt:
+Der oben genannte Code funktioniert wie gewünscht und der Ball ändert seine Richtung. Das Problem ist, dass die Ziegel dort bleiben, wo sie sind. Wir müssen einen Weg finden, um die zu entfernen, die wir bereits mit dem Ball getroffen haben. Wir können dies tun, indem wir ein zusätzliches Parameter hinzufügen, das angibt, ob wir jeden Ziegel auf dem Bildschirm zeichnen wollen oder nicht. In dem Teil des Codes, in dem wir die Ziegel initialisieren, fügen wir jedem Ziegelobjekt eine `status`-Eigenschaft hinzu. Aktualisieren Sie den folgenden Teil des Codes entsprechend der hervorgehobenen Zeile:
 
 ```js
 let bricks = [];
@@ -67,7 +67,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 }
 ```
 
-Als nächstes überprüfen wir den Wert der `status`-Eigenschaft jedes Ziegels in der Funktion `drawBricks()` bevor wir ihn zeichnen — wenn `status` `1` ist, dann zeichnen wir ihn, aber wenn es `0` ist, dann wurde er vom Ball getroffen und wir wollen ihn nicht mehr auf dem Bildschirm haben. Aktualisieren Sie Ihre `drawBricks()`-Funktion wie folgt:
+Als nächstes prüfen wir den Wert jeder `status`-Eigenschaft des Ziegels in der `drawBricks()` Funktion, bevor wir ihn zeichnen — wenn `status` `1` ist, dann zeichnen wir ihn, aber wenn er `0` ist, wurde er vom Ball getroffen und wir wollen ihn nicht mehr auf dem Bildschirm haben. Aktualisieren Sie Ihre `drawBricks()` Funktion wie folgt:
 
 ```js
 function drawBricks() {
@@ -89,9 +89,9 @@ function drawBricks() {
 }
 ```
 
-## Den Status in der Kollisionserkennungsfunktion verfolgen und aktualisieren
+## Verfolgen und Aktualisieren des Status in der Kollisionsdetektionsfunktion
 
-Nun müssen wir die `status`-Eigenschaft des Ziegels in die Funktion `collisionDetection()` einbeziehen: Wenn der Ziegel aktiv ist (sein Status ist `1`), überprüfen wir, ob die Kollision auftritt; wenn eine Kollision stattfindet, setzen wir den Status des gegebenen Ziegels auf `0`, damit er nicht mehr auf dem Bildschirm gemalt wird. Aktualisieren Sie Ihre Funktion `collisionDetection()` wie unten angegeben:
+Nun müssen wir die `status`-Eigenschaft des Ziegels in die `collisionDetection()` Funktion einbeziehen: wenn der Ziegel aktiv ist (sein Status ist `1`), prüfen wir, ob die Kollision stattfindet; wenn eine Kollision auftritt, setzen wir den Status des Ziegels auf `0`, sodass er nicht mehr auf dem Bildschirm gezeichnet wird. Aktualisieren Sie Ihre `collisionDetection()` Funktion wie unten angegeben:
 
 ```js
 function collisionDetection() {
@@ -114,9 +114,9 @@ function collisionDetection() {
 }
 ```
 
-## Unsere Kollisionserkennung aktivieren
+## Aktivierung unserer Kollisionsdetektion
 
-Das Letzte, was zu tun ist, ist einen Aufruf der Funktion `collisionDetection()` in unsere Hauptfunktion `draw()` hinzuzufügen. Fügen Sie die folgende Zeile in die `draw()`-Funktion ein, direkt unter dem Aufruf `drawPaddle()`:
+Der letzte Schritt ist das Hinzufügen eines Aufrufs der `collisionDetection()` Funktion zu unserer Haupt-`draw()` Funktion. Fügen Sie die folgende Zeile zur `draw()` Funktion, direkt unter dem `drawPaddle()` Aufruf, hinzu:
 
 ```js
 collisionDetection();
@@ -124,7 +124,7 @@ collisionDetection();
 
 ## Vergleichen Sie Ihren Code
 
-Die Kollisionserkennung des Balls wird jetzt in jedem Rahmen, mit jedem Ziegel überprüft. Jetzt können wir Ziegel zerstören! :-)
+Die Kollisionsdetektion des Balls wird nun bei jedem Frame, mit jedem Ziegel geprüft. Jetzt können wir Ziegel zerstören! :-)
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -292,6 +292,6 @@ runButton.addEventListener("click", () => {
 
 ## Nächste Schritte
 
-Wir sind definitiv auf einem guten Weg; lassen Sie uns weitermachen! Im achten Kapitel werden wir uns ansehen, wie man [die Punktzahl verfolgt und gewinnt](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win).
+Wir nähern uns definitiv dem Ziel; lassen Sie uns weitermachen! Im achten Kapitel werden wir uns ansehen, wie wir [den Punktestand verfolgen und gewinnen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win) können.
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Build_the_brick_field", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win")}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win")}}

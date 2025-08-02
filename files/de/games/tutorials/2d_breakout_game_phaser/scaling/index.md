@@ -2,53 +2,91 @@
 title: Skalierung
 slug: Games/Tutorials/2D_breakout_game_Phaser/Scaling
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
 ---
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Initialize_the_framework", "Games/Workflows/2D_Breakout_game_Phaser/Load_the_assets_and_print_them_on_screen")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Initialize_the_framework", "Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen")}}
 
-Dies ist der **2. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Sie finden den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Phaser-Content-Kit/demos/lesson02.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson02.html).
-
-Skalierung bezieht sich darauf, wie das Spielfeld auf verschiedenen Bildschirmgrößen skaliert wird. Wir können das Spiel während der Preload-Phase automatisch an jede Bildschirmgröße anpassen, sodass wir uns später keine Sorgen mehr machen müssen.
+Dies ist der **2. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Wir werden an der Skalierung arbeiten, die sich darauf bezieht, wie die Spielfläche auf verschiedenen Bildschirmgrößen skaliert wird. Wir können das Spiel so konfigurieren, dass es auf jede Bildschirmgröße skaliert, indem wir `scale` während der Initialisierung einstellen, damit wir uns später nicht darum kümmern müssen.
 
 ## Das Phaser-Skalierungsobjekt
 
-In Phaser gibt es ein spezielles `scale` Objekt mit einigen nützlichen Methoden und Eigenschaften. Aktualisieren Sie Ihre vorhandene `preload()` Funktion wie folgt:
+Die `scale`-Eigenschaft des `config`-Objekts ermöglicht es uns einzustellen, wie die Spielfläche skaliert wird. Aktualisieren Sie Ihr `config`-Objekt wie folgt:
 
 ```js
-function preload() {
-  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-  game.scale.pageAlignHorizontally = true;
-  game.scale.pageAlignVertically = true;
-}
+const config = {
+  // ...
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+};
 ```
 
-Für `scaleMode` stehen verschiedene Optionen zur Verfügung, wie die Canvas skaliert werden kann:
+Die `mode`-Eigenschaft in `scale` bietet einige verschiedene Optionen, wie die Fläche skaliert werden kann:
 
-- `NO_SCALE` — Es wird nichts skaliert.
-- `EXACT_FIT` — Skaliert die Canvas, um den gesamten verfügbaren Platz sowohl vertikal als auch horizontal zu füllen, ohne das Seitenverhältnis beizubehalten.
-- `SHOW_ALL` — Skaliert die Canvas, behält jedoch das Seitenverhältnis bei, sodass Bilder nicht wie im vorherigen Modus verzerrt werden. Es können schwarze Streifen an den Bildschirmrändern sichtbar sein, aber das können wir tolerieren.
-- `RESIZE` — Erstellt die Canvas mit der gleichen Größe wie die verfügbare Breite und Höhe, sodass Sie die Objekte in Ihrem Spiel dynamisch platzieren müssen; dies ist eher ein fortgeschrittener Modus.
-- `USER_SCALE` — Ermöglicht benutzerdefinierte dynamische Skalierung, wobei Größe, Skala und Verhältnis selbst berechnet werden; auch dies ist ein eher fortgeschrittener Modus.
+- `NO_SCALE`—nichts wird skaliert (der Standardwert).
+- `ENVELOP`—passt Breite und Höhe automatisch an, um den gesamten Zielbereich unter Beibehaltung des Seitenverhältnisses abzudecken. Es kann weiter als die Zielgröße hinausragen.
+- `FIT`—skaliert die Fläche, um den verfügbaren Raum zu füllen, während das Seitenverhältnis unangetastet bleibt. Abhängig vom Seitenverhältnis kann es den gesamten Raum nicht abdecken.
+- `HEIGHT_CONTROLS_WIDTH`—passt die Breite der Fläche basierend auf der Höhe an.
+- `WIDTH_CONTROLS_HEIGHT`—passt die Höhe der Fläche basierend auf der Breite an.
+- `RESIZE`—passt den sichtbaren Bereich der Fläche an, um den gesamten verfügbaren _Eltern_-Bereich abzudecken, unabhängig vom Seitenverhältnis.
+- `EXPAND`—passt den sichtbaren Bereich der Fläche an, um den gesamten verfügbaren _Eltern_-Bereich wie im RESIZE-Modus zu füllen und skaliert die Größe der Fläche, um innerhalb des sichtbaren Bereichs wie im FIT-Modus zu passen.
 
-Die anderen beiden Codezeilen in der `preload()` Funktion sind dafür verantwortlich, das Canvas-Element horizontal und vertikal auszurichten, sodass es unabhängig von der Größe immer zentriert auf dem Bildschirm ist.
+Die andere Eigenschaft, `autoCenter`, ist verantwortlich für die horizontale und vertikale Ausrichtung des Canvas-Elements, sodass es immer zentriert auf dem Bildschirm bleibt, unabhängig von der Größe.
 
-## Hinzufügen einer benutzerdefinierten Canvas-Hintergrundfarbe
+## Hinzufügen einer benutzerdefinierten Hintergrundfarbe für das Canvas
 
-Wir können auch eine benutzerdefinierte Hintergrundfarbe zu unserem Canvas hinzufügen, damit es nicht schwarz bleibt. Das `stage` Objekt hat eine `backgroundColor` Eigenschaft zu diesem Zweck, die wir mit der CSS-Farbdefinitionssyntax setzen können. Fügen Sie die folgende Zeile unter den zuvor hinzugefügten drei Zeilen hinzu:
+Wir können auch eine benutzerdefinierte Hintergrundfarbe zu unserem Canvas hinzufügen, damit es nicht schwarz bleibt. Das Konfigurationsobjekt hat eine `backgroundColor`-Eigenschaft für diesen Zweck, die wir mithilfe der CSS-Farbdefinitionssyntax festlegen können. Fügen Sie die folgende Zeile zu Ihrem `config`-Objekt hinzu:
 
 ```js
-game.stage.backgroundColor = "#eee";
+const config = {
+  // ...
+  backgroundColor: "#eeeeee",
+};
 ```
 
 ## Vergleichen Sie Ihren Code
 
-Sie können den fertigen Code für diese Lektion im folgenden Live-Demo überprüfen und damit spielen, um besser zu verstehen, wie es funktioniert:
+Hier ist, was Sie bisher haben sollten, live ausgeführt. Um dessen Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
-{{JSFiddleEmbed("https://jsfiddle.net/end3r/6a64vecL/","","400")}}
+```html hidden
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
+```
+
+```css hidden
+* {
+  padding: 0;
+  margin: 0;
+}
+```
+
+```js hidden
+class ExampleScene extends Phaser.Scene {
+  preload() {}
+  create() {}
+  update() {}
+}
+
+const config = {
+  type: Phaser.CANVAS,
+  width: 480,
+  height: 320,
+  scene: ExampleScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  backgroundColor: "#eeeeee",
+};
+
+const game = new Phaser.Game(config);
+```
+
+{{EmbedLiveSample("vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Nachdem wir die Skalierung für unser Spiel eingerichtet haben, fahren wir mit der dritten Lektion fort und arbeiten daran, [die Assets zu laden und sie auf dem Bildschirm anzuzeigen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen).
+Nun, da wir die Skalierung für unser Spiel eingerichtet haben, gehen wir zur dritten Lektion über und arbeiten daran, [die Assets zu laden und sie auf dem Bildschirm anzuzeigen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen).
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Initialize_the_framework", "Games/Workflows/2D_Breakout_game_Phaser/Load_the_assets_and_print_them_on_screen")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Initialize_the_framework", "Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen")}}

@@ -2,16 +2,16 @@
 title: Node
 slug: Web/API/Node
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a48be85fa7559156c431e325e2c57a66df88a092
 ---
 
 {{APIRef("DOM")}}
 
-Die {{Glossary("DOM", "DOM")}} **`Node`**-Schnittstelle ist eine abstrakte Basisklasse, auf der viele andere DOM-API-Objekte basieren, wodurch diese Objekttypen ähnlich und oft austauschbar verwendet werden können. Als abstrakte Klasse existiert kein einfaches `Node`-Objekt. Alle Objekte, die `Node`-Funktionen implementieren, basieren auf einer ihrer Unterklassen. Am bemerkenswertesten sind [`Document`](/de/docs/Web/API/Document), [`Element`](/de/docs/Web/API/Element) und [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
+Die {{Glossary("DOM", "DOM")}} **`Node`**-Schnittstelle ist eine abstrakte Basisklasse, auf der viele andere DOM-API-Objekte basieren, sodass diese Objekttypen ähnlich und oft austauschbar verwendet werden können. Als abstrakte Klasse gibt es kein einfaches `Node`-Objekt. Alle Objekte, die `Node`-Funktionalitäten implementieren, basieren auf einer ihrer Unterklassen. Am bemerkenswertesten sind [`Document`](/de/docs/Web/API/Document), [`Element`](/de/docs/Web/API/Element) und [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
-Darüber hinaus wird jede Art von DOM-Knoten durch eine auf `Node` basierende Schnittstelle dargestellt. Dazu gehören [`Attr`](/de/docs/Web/API/Attr), [`CharacterData`](/de/docs/Web/API/CharacterData) (worauf [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment), [`CDATASection`](/de/docs/Web/API/CDATASection) und [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) basieren) und [`DocumentType`](/de/docs/Web/API/DocumentType).
+Darüber hinaus wird jede Art von DOM-Knoten durch eine auf `Node` basierende Schnittstelle dargestellt. Dazu gehören [`Attr`](/de/docs/Web/API/Attr), [`CharacterData`](/de/docs/Web/API/CharacterData) (auf denen [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment), [`CDATASection`](/de/docs/Web/API/CDATASection) und [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) basieren) und [`DocumentType`](/de/docs/Web/API/DocumentType).
 
-In einigen Fällen kann ein bestimmtes Merkmal der Basis-`Node`-Schnittstelle nicht auf eine ihrer Kinderschnittstellen angewendet werden; in diesem Fall kann der ererbte Knoten `null` zurückgeben oder eine Ausnahme werfen, je nach den Umständen. Zum Beispiel wird der Versuch, einem Knoten, der keine Kinder haben kann, Kinder hinzuzufügen, eine Ausnahme werfen.
+In einigen Fällen kann eine bestimmte Funktion der Basisschnittstelle `Node` nicht auf eine ihrer Kinderschnittstellen angewendet werden; in diesem Fall kann der vererbende Knoten `null` zurückgeben oder je nach Umstand eine Ausnahme auslösen. Beispielsweise wird eine Ausnahme ausgelöst, wenn versucht wird, Kinder zu einem Knotentyp hinzuzufügen, der keine Kinder haben kann.
 
 {{InheritanceDiagram}}
 
@@ -20,21 +20,20 @@ In einigen Fällen kann ein bestimmtes Merkmal der Basis-`Node`-Schnittstelle ni
 _Neben den unten aufgeführten Eigenschaften erbt `Node` Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`Node.baseURI`](/de/docs/Web/API/Node/baseURI) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die die Basis-URL des Dokuments darstellt, welches den `Node` enthält.
+  - : Gibt eine Zeichenkette zurück, die die Basis-URL des Dokuments enthält, das den `Node` enthält.
 - [`Node.childNodes`](/de/docs/Web/API/Node/childNodes) {{ReadOnlyInline}}
-  - : Gibt eine Live-`NodeList` zurück, die alle Kinder dieses Knotens enthält (einschließlich Elementen, Texten und Kommentaren). Da `NodeList` live ist, wird das `NodeList`-Objekt automatisch aktualisiert, wenn sich die Kinder des `Node` ändern.
+  - : Gibt eine Live-`NodeList` zurück, die alle Kinder dieses Knotens enthält (einschließlich Elementen, Text und Kommentaren). Da [`NodeList`](/de/docs/Web/API/NodeList) live ist, bedeutet dies, dass sich dieses Objekt automatisch aktualisiert, wenn sich die Kinder des `Node` ändern.
 - [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) {{ReadOnlyInline}}
   - : Gibt einen `Node` zurück, der den ersten direkten Kindknoten des Knotens darstellt, oder `null`, wenn der Knoten kein Kind hat.
 - [`Node.isConnected`](/de/docs/Web/API/Node/isConnected) {{ReadOnlyInline}}
-  - : Ein Boolean, der angibt, ob der Node direkt oder indirekt mit dem Kontextobjekt verbunden ist, z. B. dem [`Document`](/de/docs/Web/API/Document)-Objekt im Fall des normalen DOMs oder dem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) im Fall eines Schatten-DOMs.
+  - : Ein boolescher Wert, der angibt, ob der Node mit dem Kontextobjekt verbunden ist (direkt oder indirekt), z.B. das [`Document`](/de/docs/Web/API/Document)-Objekt im normalen DOM oder das [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) im Fall eines Shadow-DOMs.
 - [`Node.lastChild`](/de/docs/Web/API/Node/lastChild) {{ReadOnlyInline}}
   - : Gibt einen `Node` zurück, der den letzten direkten Kindknoten des Knotens darstellt, oder `null`, wenn der Knoten kein Kind hat.
 - [`Node.nextSibling`](/de/docs/Web/API/Node/nextSibling) {{ReadOnlyInline}}
-  - : Gibt einen `Node` zurück, der den nächsten Knoten im Baum darstellt, oder `null`, wenn es keinen solchen Knoten gibt.
+  - : Gibt einen `Node` zurück, der den nächsten Knoten im Baum darstellt, oder `null`, wenn ein solcher Knoten nicht existiert.
 - [`Node.nodeName`](/de/docs/Web/API/Node/nodeName) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den Namen des `Node` enthält. Die Struktur des Namens variiert je nach Knotentyp. Z. B. ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) enthält den Namen des entsprechenden Tags, wie `'AUDIO'` für ein [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement), ein [`Text`](/de/docs/Web/API/Text)-Knoten hat die Zeichenkette `'#text'`, oder ein [`Document`](/de/docs/Web/API/Document)-Knoten hat die Zeichenkette `'#document'`.
+  - : Gibt eine Zeichenkette zurück, die den Namen des `Node` enthält. Die Struktur des Namens unterscheidet sich je nach Knotentyp. Z.B. Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) enthält den Namen des entsprechenden Tags, wie `'AUDIO'` für ein [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement), ein [`Text`](/de/docs/Web/API/Text)-Knoten hat die Zeichenkette `'#text'` oder ein [`Document`](/de/docs/Web/API/Document)-Knoten hat die Zeichenkette `'#document'`.
 - [`Node.nodeType`](/de/docs/Web/API/Node/nodeType) {{ReadOnlyInline}}
-
   - : Gibt einen `unsigned short` zurück, der den Typ des Knotens darstellt. Mögliche Werte sind:
 
     | Name                          | Wert |
@@ -50,24 +49,24 @@ _Neben den unten aufgeführten Eigenschaften erbt `Node` Eigenschaften von seine
     | `DOCUMENT_FRAGMENT_NODE`      | `11` |
 
 - [`Node.nodeValue`](/de/docs/Web/API/Node/nodeValue)
-  - : Gibt den Wert des aktuellen Knotens zurück / Setzt den Wert des aktuellen Knotens.
+  - : Gibt den Wert des aktuellen Knotens zurück oder setzt ihn.
 - [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) {{ReadOnlyInline}}
   - : Gibt das [`Document`](/de/docs/Web/API/Document) zurück, zu dem dieser Knoten gehört. Wenn der Knoten selbst ein Dokument ist, wird `null` zurückgegeben.
 - [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) {{ReadOnlyInline}}
-  - : Gibt einen `Node` zurück, der der Elternknoten dieses Knotens ist. Wenn es keinen solchen Knoten gibt, wie wenn dieser Knoten die Spitze des Baums ist oder nicht an einem Baum teilnimmt, gibt diese Eigenschaft `null` zurück.
+  - : Gibt einen `Node` zurück, der das Elternteil dieses Knotens ist. Wenn es keinen solchen Knoten gibt, z.B. wenn dieser Knoten der oberste im Baum ist oder nicht an einem Baum teilnimmt, gibt diese Eigenschaft `null` zurück.
 - [`Node.parentElement`](/de/docs/Web/API/Node/parentElement) {{ReadOnlyInline}}
-  - : Gibt ein [`Element`](/de/docs/Web/API/Element) zurück, das der Elternknoten dieses Knotens ist. Wenn der Knoten keinen Elternknoten hat, oder wenn dieser Elternknoten kein [`Element`](/de/docs/Web/API/Element) ist, gibt diese Eigenschaft `null` zurück.
+  - : Gibt ein [`Element`](/de/docs/Web/API/Element) zurück, das das Elternteil dieses Knotens ist. Wenn der Knoten keinen Elternteil hat oder dieser Elternteil kein [`Element`](/de/docs/Web/API/Element) ist, gibt diese Eigenschaft `null` zurück.
 - [`Node.previousSibling`](/de/docs/Web/API/Node/previousSibling) {{ReadOnlyInline}}
-  - : Gibt einen `Node` zurück, der den vorherigen Knoten im Baum darstellt, oder `null`, wenn es keinen solchen Knoten gibt.
+  - : Gibt einen `Node` zurück, der den vorherigen Knoten im Baum darstellt, oder `null`, wenn ein solcher Knoten nicht existiert.
 - [`Node.textContent`](/de/docs/Web/API/Node/textContent)
-  - : Gibt den Textinhalt eines Elements und all seiner Nachkommen zurück / setzt ihn.
+  - : Gibt den textuellen Inhalt eines Elements und all seiner Nachkommen zurück oder setzt ihn.
 
 ## Instanz-Methoden
 
 _Neben den unten aufgeführten Methoden erbt `Node` Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
-  - : Fügt das angegebene `childNode`-Argument als letztes Kind des aktuellen Knotens hinzu. Wenn das Argument auf einen vorhandenen Knoten im DOM-Baum verweist, wird der Knoten von seiner aktuellen Position getrennt und an der neuen Position angehängt.
+  - : Fügt das angegebene `childNode`-Argument als letztes Kind zum aktuellen Knoten hinzu. Wenn das Argument auf einen bestehenden Knoten im DOM-Baum verweist, wird der Knoten von seiner aktuellen Position gelöst und an der neuen Position angefügt.
 - [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode)
   - : Klont einen `Node` und optional all seine Inhalte. Standardmäßig klont es den Inhalt des Knotens.
 - [`Node.compareDocumentPosition()`](/de/docs/Web/API/Node/compareDocumentPosition)
@@ -75,38 +74,38 @@ _Neben den unten aufgeführten Methoden erbt `Node` Methoden von seinem Elternte
 - [`Node.contains()`](/de/docs/Web/API/Node/contains)
   - : Gibt einen `true`- oder `false`-Wert zurück, der angibt, ob ein Knoten ein Nachfahre des aufrufenden Knotens ist.
 - [`Node.getRootNode()`](/de/docs/Web/API/Node/getRootNode)
-  - : Gibt das Wurzelobjekt des Kontextobjekts zurück, das optional die Schattenwurzel einschließt, falls verfügbar.
+  - : Gibt das Wurzelobjekt des Kontextes zurück, das optional die Schattenwurzel enthält, wenn sie verfügbar ist.
 - [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes)
-  - : Gibt einen Boolean-Wert zurück, der angibt, ob das Element Kindknoten hat oder nicht.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element untergeordnete Knoten hat.
 - [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)
   - : Fügt einen `Node` vor dem Referenzknoten als Kind eines angegebenen Elternknotens ein.
 - [`Node.isDefaultNamespace()`](/de/docs/Web/API/Node/isDefaultNamespace)
-  - : Akzeptiert einen Namespace-URI als Argument und gibt einen Boolean-Wert mit dem Wert `true` zurück, wenn der Namespace der Standard-Namespace für den gegebenen Knoten ist, oder `false` wenn nicht.
+  - : Akzeptiert eine Namensraum-URI als Argument und gibt einen booleschen Wert mit einem Wert von `true` zurück, wenn der Namensraum der Standardnamensraum auf dem angegebenen Knoten ist, oder `false`, wenn nicht.
 - [`Node.isEqualNode()`](/de/docs/Web/API/Node/isEqualNode)
-  - : Gibt einen Boolean-Wert zurück, der angibt, ob zwei Knoten vom gleichen Typ sind und alle ihre bestimmenden Datenpunkte übereinstimmen.
+  - : Gibt einen booleschen Wert zurück, der anzeigt, ob zwei Knoten vom gleichen Typ sind und alle ihre definierenden Datenpunkte übereinstimmen.
 - [`Node.isSameNode()`](/de/docs/Web/API/Node/isSameNode)
-  - : Gibt einen Boolean-Wert zurück, der angibt, ob die beiden Knoten gleich sind (d.h. sie verweisen auf dasselbe Objekt).
+  - : Gibt einen booleschen Wert zurück, der angibt, ob die beiden Knoten gleich sind (d.h. sie dasselbe Objekt referenzieren).
 - [`Node.lookupPrefix()`](/de/docs/Web/API/Node/lookupPrefix)
-  - : Gibt eine Zeichenkette mit dem Präfix für einen gegebenen Namespace-URI zurück, falls vorhanden, und `null` wenn nicht. Wenn mehrere Präfixe möglich sind, ist das Ergebnis implementationsabhängig.
+  - : Gibt eine Zeichenkette zurück, die das Präfix für eine gegebene Namensraum-URI enthält, falls vorhanden, und `null`, wenn nicht. Wenn mehrere Präfixe möglich sind, ist das Ergebnis implementierungsabhängig.
 - [`Node.lookupNamespaceURI()`](/de/docs/Web/API/Node/lookupNamespaceURI)
-  - : Akzeptiert ein Präfix und gibt den damit assoziierten Namespace-URI auf dem gegebenen Knoten zurück, falls gefunden (und `null` wenn nicht). Die Angabe von `null` für das Präfix gibt den Standard-Namespace zurück.
+  - : Akzeptiert ein Präfix und gibt die Namensraum-URI zurück, die mit ihm auf dem angegebenen Knoten verknüpft ist, falls gefunden (und `null`, wenn nicht). Wenn `null` als Präfix angegeben wird, wird der Standardnamensraum zurückgegeben.
 - [`Node.normalize()`](/de/docs/Web/API/Node/normalize)
-  - : Bereinigt alle Textknoten unter diesem Element (zusammenführen von angrenzenden, Entfernen von leeren).
+  - : Bereinigt alle Textknoten unter diesem Element (zusammenführen angrenzender, entfernen leerer).
 - [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild)
-  - : Entfernt einen Kindknoten aus dem aktuellen Element, der ein Kind des aktuellen Knotens sein muss.
+  - : Entfernt einen Kindknoten aus dem aktuellen Element, das ein Kind des aktuellen Knotens sein muss.
 - [`Node.replaceChild()`](/de/docs/Web/API/Node/replaceChild)
-  - : Ersetzt einen Kind-`Node` des aktuellen durch den zweiten, der als Parameter übergeben wird.
+  - : Ersetzt einen Kind-`Node` des aktuellen Knotens mit dem zweiten gegebenen im Parameter.
 
 ## Ereignisse
 
 - [`selectstart`](/de/docs/Web/API/Node/selectstart_event)
-  - : Wird ausgelöst, wenn der Benutzer eine neue Auswahl in diesem Knoten startet.
+  - : Wird ausgelöst, wenn der Benutzer eine neue Auswahl in diesem Knoten beginnt.
 
 ## Beispiele
 
-### Alle innerhalb eines Knotens verschachtelten Kinder entfernen
+### Alle verschachtelten Kinder eines Knotens entfernen
 
-Diese Funktion entfernt jedes erste Kind eines Elements, bis keine mehr übrig sind.
+Diese Funktion entfernt jedes erste Kind eines Elements, bis keins mehr übrig ist.
 
 ```js
 function removeAllChildren(element) {
@@ -116,17 +115,17 @@ function removeAllChildren(element) {
 }
 ```
 
-Diese Funktion kann in einem einzigen Aufruf verwendet werden. Hier leeren wir den Körper des Dokuments:
+Die Verwendung dieser Funktion erfolgt in einem einzigen Aufruf. Hier leeren wir den Body des Dokuments:
 
 ```js
 removeAllChildren(document.body);
 ```
 
-Eine Alternative könnte sein, `textContent` auf den leeren String zu setzen: `document.body.textContent = ""`.
+Eine Alternative könnte sein, den `textContent` auf die leere Zeichenkette zu setzen: `document.body.textContent = ""`.
 
-### Durch Kindknoten rekursiv durchlaufen
+### Durch Kindknoten rekursiv iterieren
 
-Die folgende Funktion ruft rekursiv eine Callback-Funktion für jeden vom Wurzelknoten enthaltenen Knoten (einschließlich des Wurzelknotens selbst) auf:
+Die folgende Funktion ruft rekursiv eine Rückruffunktion für jeden Knoten auf, der von einem Wurzelknoten enthalten ist (einschließlich des Wurzelknotens selbst):
 
 ```js
 function eachNode(rootNode, callback) {
@@ -154,18 +153,18 @@ function eachNode(rootNode, callback) {
 
 Die Funktion ruft rekursiv eine Funktion für jeden Nachfahrenknoten von `rootNode` (einschließlich des Wurzelknotens selbst) auf.
 
-Wenn `callback` weggelassen wird, gibt die Funktion stattdessen ein {{jsxref("Array")}} zurück, welches `rootNode` und alle darin enthaltenen Knoten enthält.
+Wenn `callback` weggelassen wird, gibt die Funktion stattdessen ein {{jsxref("Array")}} zurück, das `rootNode` und alle darin enthaltenen Knoten umfasst.
 
-Wenn `callback` bereitgestellt wird und es `false` zurückgibt, wenn es aufgerufen wird, wird die aktuelle Rekursionsebene abgebrochen und die Funktion setzt die Ausführung auf der Ebene des letzten Eltern fort. Dies kann verwendet werden, um Schleifen abzubrechen, sobald ein Knoten gefunden wurde (wie zum Beispiel die Suche nach einem Textknoten, der einen bestimmten String enthält).
+Wenn `callback` bereitgestellt wird und `false` zurückgibt, wenn es aufgerufen wird, wird die aktuelle Rekursionsebene abgebrochen, und die Funktion setzt die Ausführung auf der Ebene des letzten Elternteils fort. Dies kann verwendet werden, um Schleifen abzubrechen, sobald ein Knoten gefunden wurde (z.B. das Suchen nach einem Textknoten, der eine bestimmte Zeichenkette enthält).
 
 Die Funktion hat zwei Parameter:
 
 - `rootNode`
-  - : Das `Node`-Objekt, dessen Nachfahren durchlaufen werden.
+  - : Das `Node`-Objekt, dessen Nachfahren rekursiv durchlaufen werden.
 - `callback` {{optional_inline}}
-  - : Eine optionale Callback-[Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Function), die einen `Node` als einziges Argument erhält. Wenn es weggelassen wird, gibt `eachNode` ein {{jsxref("Array")}} jedes innerhalb von `rootNode` enthaltenen Knotens (einschließlich des Wurzelknotens selbst) zurück.
+  - : Eine optionale Rückruf-[Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Function), die einen `Node` als einziges Argument erhält. Wenn weggelassen, gibt `eachNode` ein {{jsxref("Array")}} jeden Knoten innerhalb von `rootNode` (einschließlich des Wurzelknotens selbst) zurück.
 
-Das folgende Beispiel zeigt eine praktische Anwendung der `eachNode()`-Funktion: die Suche nach Text auf einer Webseite.
+Das Folgende zeigt eine praktische Anwendung der Funktion `eachNode()`: die Suche nach Text auf einer Webseite.
 
 Wir verwenden eine Wrapper-Funktion namens `grep`, um die Suche durchzuführen:
 

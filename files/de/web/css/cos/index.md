@@ -2,10 +2,10 @@
 title: cos()
 slug: Web/CSS/cos
 l10n:
-  sourceCommit: c51c4c3911715acdfd2e3912b6e6df95d40d4e0c
+  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
 ---
 
-Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, ein Wert zwischen `-1` und `1`. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das heißt, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` repräsentieren alle den gleichen Wert, ungefähr `0,707`.
+Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, welcher einen Wert zwischen `-1` und `1` darstellt. Die Funktion enthält eine einzelne Berechnung, die entweder auf eine {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das heißt, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` repräsentieren alle denselben Wert, ungefähr `0.707`.
 
 {{InteractiveExample("CSS Demo: cos()")}}
 
@@ -43,7 +43,7 @@ transform: translateX(calc(cos(-45deg) * 140px))
 ```css interactive-example
 :root {
   --radius: 140px;
-  --dotsize: 10px;
+  --dot-size: 10px;
 }
 .circle {
   display: grid;
@@ -54,12 +54,12 @@ transform: translateX(calc(cos(-45deg) * 140px))
   border-radius: 50%;
   border: 2px solid #666;
   background-image:
-    radial-gradient(black var(--dotsize), transparent var(--dotsize)),
+    radial-gradient(black var(--dot-size), transparent var(--dot-size)),
     linear-gradient(135deg, #0000ff, #00c9ff, #92fe9d, #e6e6fa, #f0fff0);
 }
 .dot {
   display: block;
-  width: var(--dotsize);
+  width: var(--dot-size);
   aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid #666;
@@ -88,14 +88,14 @@ width: calc(100px * cos(e / 2));
 
 ### Parameter
 
-Die `cos(angle)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `cos(angle)` akzeptiert nur einen Wert als ihren Parameter.
 
 - `angle`
-  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} auflösen muss. Wenn zahlenlose Zahlen angegeben werden, werden sie als Anzahl von Radianten interpretiert und stellen einen {{cssxref("&lt;angle&gt;")}} dar.
+  - : Eine Berechnung, die in eine {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Bei Angaben von zahlenlosen Werten werden diese als Anzahl an Radianten interpretiert, die ein {{cssxref("&lt;angle&gt;")}} darstellen.
 
 ### Rückgabewert
 
-Der Kosinus eines `angle` gibt immer eine Zahl zwischen `−1` und `1` zurück.
+Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückgeben.
 
 - Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
 
@@ -107,11 +107,11 @@ Der Kosinus eines `angle` gibt immer eine Zahl zwischen `−1` und `1` zurück.
 
 ### Die Größe eines gedrehten Kastens beibehalten
 
-Die `cos()` Funktion kann verwendet werden, um die Größe eines gedrehten Kastens beizubehalten.
+Die `cos()`-Funktion kann verwendet werden, um die Größe eines gedrehten Kastens beizubehalten.
 
-Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, geht es über seine ursprüngliche Größe hinaus. Um dies zu korrigieren, verwenden wir `cos()`, um die Elementgröße zu aktualisieren.
+Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, überschreitet es seine ursprüngliche Größe. Um dies zu beheben, verwenden wir `cos()`, um die Elementgröße zu aktualisieren.
 
-Beispielsweise, wenn Sie ein `100px`/`100px` Quadrat um `45deg` drehen, wird der entstehende Diamant breiter und höher als das ursprüngliche Quadrat. Um den Diamanten in das für das ursprüngliche Quadrat vorgesehene Kästchen zu verkleinern, müssen Sie den Diamanten mit dieser Formel verkleinern: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
+Zum Beispiel, wenn Sie ein `100px`/`100px` Quadrat um `45deg` drehen, wird der daraus entstehende Rhombus breiter und höher als das ursprüngliche Quadrat. Um den Rhombus in das für das ursprüngliche Quadrat vorgesehene Feld zu verkleinern, müssen Sie den Rhombus mit dieser Formel herunterskalieren: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
 
 #### HTML
 

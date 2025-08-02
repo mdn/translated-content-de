@@ -1,11 +1,12 @@
 ---
 title: Symbol.dispose
+short-title: dispose
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/dispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
 ---
 
-Die **`Symbol.dispose`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.dispose`. Die {{jsxref("Statements/using", "using")}} Deklaration sucht dieses Symbol im Variableninitialisierer für die Methode, die aufgerufen werden soll, wenn die Variable aus dem Bereich fällt.
+Die **`Symbol.dispose`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.dispose`. Die {{jsxref("Statements/using", "using")}}-Deklaration sucht dieses Symbol im Variableninitialisierer, um die Methode aufzurufen, wenn die Variable aus dem Gültigkeitsbereich verschwindet.
 
 ## Wert
 
@@ -15,19 +16,19 @@ Das wohlbekannte Symbol `Symbol.dispose`.
 
 ## Beschreibung
 
-Ein Objekt ist entsorgbar, wenn es die Methode `[Symbol.dispose]()` besitzt. Es wird erwartet, dass die Methode folgende Semantik hat:
+Ein Objekt ist entsorgbar, wenn es die Methode `[Symbol.dispose]()` hat. Die Methode sollte die folgenden Semantiken haben:
 
-- Der Aufruf dieser Methode benachrichtigt das entsorgbare Objekt darüber, dass der Aufrufer nicht beabsichtigt, dieses Objekt weiter zu verwenden. Diese Methode sollte jegliche notwendige Logik durchführen, um die Ressource explizit aufzuräumen, einschließlich, aber nicht beschränkt auf, Dateisystem-Handles, Streams, Host-Objekte usw.
-- Wenn eine Ausnahme von dieser Methode geworfen wird, bedeutet das normalerweise, dass die Ressource nicht explizit freigegeben werden konnte.
-- Wenn die Methode mehr als einmal auf demselben Objekt aufgerufen wird, sollte die Funktion keine Ausnahme werfen. Diese Anforderung wird jedoch nicht erzwungen.
+- Der Aufruf dieser Methode teilt dem Disposable-Objekt mit, dass der Anrufer nicht beabsichtigt, dieses Objekt weiterhin zu verwenden. Diese Methode sollte jede notwendige Logik ausführen, um die Ressource explizit zu bereinigen, einschließlich, aber nicht beschränkt auf Dateisystem-Handles, Streams, Hostobjekte usw.
+- Wenn von dieser Methode eine Ausnahme ausgelöst wird, bedeutet dies typischerweise, dass die Ressource nicht explizit freigegeben werden konnte.
+- Wenn die Methode mehrmals auf dasselbe Objekt aufgerufen wird, sollte die Funktion keine Ausnahme werfen. Diese Anforderung wird jedoch nicht erzwungen.
 
-Diese Methode sollte kein Versprechen zurückgeben, da Versprechen, die von `[Symbol.dispose]()` zurückgegeben werden, nicht von {{jsxref("Statements/await_using", "await using")}} erwartet werden. Um asynchrone Entsorgungen zu deklarieren, verwenden Sie {{jsxref("Symbol.asyncDispose")}}.
+Diese Methode sollte kein Promise zurückgeben, da Promises, die von `[Symbol.dispose]()` zurückgegeben werden, nicht von {{jsxref("Statements/await_using", "await using")}} abgewartet werden. Um asynchrone Disposables zu deklarieren, verwenden Sie {{jsxref("Symbol.asyncDispose")}}.
 
 ## Beispiele
 
-### Benutzerdefinierte Entsorgbare
+### Benutzerdefinierte Disposables
 
-`[Symbol.dispose]` ermöglicht die Erstellung von benutzerdefinierten Entsorgbaren. Weitere Informationen finden Sie im {{jsxref("Statements/using", "using")}} Verweis.
+`[Symbol.dispose]` ermöglicht die Erstellung benutzerdefinierter Disposables. Weitere Informationen finden Sie in der {{jsxref("Statements/using", "using")}}-Referenz.
 
 ```js
 class Disposable {
@@ -63,7 +64,7 @@ console.log(resource.isDisposed); // true
 ## Siehe auch
 
 - [Polyfill von `Symbol.dispose` in `core-js`](https://github.com/zloirock/core-js#explicit-resource-management)
-- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("Symbol.asyncDispose")}}
 - {{jsxref("Statements/using", "using")}}
 - [`DisposableStack.prototype[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/DisposableStack/Symbol.dispose)

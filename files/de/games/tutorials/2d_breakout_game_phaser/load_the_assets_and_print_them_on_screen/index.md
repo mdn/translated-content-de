@@ -1,60 +1,106 @@
 ---
-title: Laden Sie die Assets und drucken Sie sie auf dem Bildschirm aus
+title: Laden der Assets und Anzeige auf dem Bildschirm
 slug: Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
 ---
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Scaling", "Games/Workflows/2D_Breakout_game_Phaser/Move_the_ball")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Scaling", "Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball")}}
 
-Dies ist der **3. Schritt** von 16 im [Gamedev Phaser Tutorial](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Phaser-Content-Kit/demos/lesson03.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson03.html) finden.
+Dies ist der **3. Schritt** von 16 im [Gamedev Phaser Leitfaden](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). In diesem Artikel schauen wir uns an, wie Sprites in unsere Spielwelt hinzugefügt werden. Unser Spiel wird eine Kugel enthalten, die über den Bildschirm rollt, von einer Paddle abprallt und Ziegel zerstört, um Punkte zu sammeln — bekannt, oder?
 
-Unser Spiel wird einen Ball zeigen, der sich auf dem Bildschirm bewegt, von einem Schläger abprallt und Ziegel zerstört, um Punkte zu sammeln — klingt vertraut, oder? In diesem Artikel schauen wir uns an, wie man Sprites in unsere Spielwelt einfügt.
+## Eine Kugel haben
 
-## Einen Ball haben
-
-Beginnen wir damit, eine JavaScript-Variable zu erstellen, die unseren Ball repräsentiert. Fügen Sie die folgende Zeile zwischen dem Spielinitialisierungscode (unserem `const game` Block) und der `preload()` Funktion hinzu:
+Beginnen wir damit, eine Eigenschaft für unsere Kugel zur `ExampleScene` Klasse hinzuzufügen. Fügen Sie die folgende Zeile direkt nach der Eröffnungszeile innerhalb des Klassenrumpfs hinzu:
 
 ```js
-let ball;
-```
-
-> [!NOTE]
-> Für den Zweck dieses Tutorials werden wir globale Variablen verwenden. Das Ziel des Tutorials ist es, Phaser-spezifische Ansätze zur Spielentwicklung zu lehren, anstatt sich mit subjektiv besten Ansätzen zu befassen.
-
-## Laden des Ball-Sprites
-
-Das Laden von Bildern und deren Darstellung auf unserer Leinwand ist mit Phaser viel einfacher als mit reinem JavaScript. Um das Asset zu laden, verwenden wir das durch Phaser erstellte `game`-Objekt und führen dessen `load.image()`-Methode aus. Fügen Sie die folgende neue Zeile innerhalb der `preload()` Funktion am Ende hinzu:
-
-```js
-function preload() {
-  // …
-  game.load.image("ball", "img/ball.png");
+class ExampleScene extends Phaser.Scene {
+  ball;
+  // ...
 }
 ```
 
-Der erste Parameter, den wir dem Asset geben möchten, ist der Name, der im gesamten Spielcode verwendet wird — zum Beispiel in unserem `ball` Variablennamen — daher müssen wir sicherstellen, dass er derselbe ist. Der zweite Parameter ist der relative Pfad zum grafischen Asset. In unserem Fall werden wir das Bild für unseren Ball laden. (Beachten Sie, dass der Dateiname nicht auch gleich sein muss, aber wir empfehlen es, da es alles einfacher macht, zu folgen.)
+## Laden des Kugelsprites
 
-Natürlich muss das Bild, um geladen zu werden, in unserem Codeverzeichnis vorhanden sein. [Holen Sie sich das Ballbild von GitHub](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/img/ball.png) und speichern Sie es in einem `/img` Verzeichnis am selben Ort wie Ihre `index.html` Datei.
-
-Um es nun auf dem Bildschirm anzuzeigen, verwenden wir eine weitere Phaser-Methode namens `add.sprite()`; fügen Sie die folgende neue Codezeile innerhalb der `create()` Funktion hinzu, wie gezeigt:
+Das Laden von Bildern und deren Darstellung auf unserem Canvas ist mit Phaser viel einfacher als mit reinem JavaScript. Um das Asset zu laden, verwenden wir die Methode `load.image()` der `Phaser.Scene`, verfügbar als `this.load.image`. Fügen Sie die folgende neue Zeile innerhalb der `preload()` Methode hinzu:
 
 ```js
-function create() {
-  ball = game.add.sprite(50, 50, "ball");
+class ExampleScene extends Phaser.Scene {
+  // ...
+  preload() {
+    this.load.image("ball", "img/ball.png");
+  }
 }
 ```
 
-Dies fügt den Ball dem Spiel hinzu und rendert ihn auf dem Bildschirm. Die ersten beiden Parameter sind die x- und y-Koordinaten der Leinwand, wo Sie ihn hinzufügen möchten, und der dritte ist der Name des vorher definierten Assets. Das war's — wenn Sie Ihre `index.html` Datei laden, sehen Sie das Bild bereits geladen und auf der Leinwand gerendert!
+Der erste Parameter gibt dem Asset seinen Namen, der im gesamten Spielcode verwendet wird. Zur Konsistenz verwenden Sie denselben Namen wie die zugehörige Eigenschaft, die `ball` ist. Der zweite Parameter ist der relative Pfad zum grafischen Asset. In unserem Fall laden wir das Bild für unsere Kugel. (Beachten Sie, dass die Datei nicht `ball` heißen muss, wir empfehlen es jedoch, da es die Verfolgung erleichtert.)
+
+Natürlich muss das Bild, um geladen zu werden, in unserem Codeverzeichnis vorhanden sein. [Laden Sie das Kugelbild von unserer Asset-Website herunter](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/ball.png) und speichern Sie es in einem `/img` Verzeichnis am selben Ort wie Ihre `index.html` Datei.
+
+Um es nun auf dem Bildschirm anzuzeigen, verwenden wir eine andere Methode der `Phaser.Scene` namens `add.sprite()`. Fügen Sie die folgende neue Zeile innerhalb der `create()` Methode hinzu:
+
+```js
+class ExampleScene extends Phaser.Scene {
+  // ...
+  create() {
+    this.ball = this.add.sprite(50, 50, "ball");
+  }
+  // ...
+}
+```
+
+Dies wird die Kugel dem Spiel hinzufügen und auf dem Bildschirm rendern. Die ersten beiden Parameter sind die x- und y-Koordinaten des Canvas, wo Sie es hinzufügen möchten, und der dritte ist der Name des zuvor definierten Assets. Das war's — wenn Sie Ihre `index.html` Datei laden, sehen Sie das Bild bereits geladen und auf dem Canvas dargestellt!
 
 ## Vergleichen Sie Ihren Code
 
-Sie können den fertigen Code für diese Lektion in der Live-Demo unten selbst überprüfen und damit spielen, um besser zu verstehen, wie er funktioniert:
+Hier ist, was Sie bisher haben sollten, live ausgeführt. Um den Quellcode zu sehen, klicken Sie auf die Schaltfläche "Play".
 
-{{JSFiddleEmbed("https://jsfiddle.net/end3r/98xrv9x5/","","400")}}
+```html hidden
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
+```
+
+```css hidden
+* {
+  padding: 0;
+  margin: 0;
+}
+```
+
+```js hidden
+class ExampleScene extends Phaser.Scene {
+  ball;
+  preload() {
+    this.load.setBaseURL(
+      "https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser",
+    );
+
+    this.load.image("ball", "ball.png");
+  }
+  create() {
+    this.ball = this.add.sprite(50, 50, "ball");
+  }
+  update() {}
+}
+
+const config = {
+  type: Phaser.CANVAS,
+  width: 480,
+  height: 320,
+  scene: ExampleScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  backgroundColor: "#eeeeee",
+};
+
+const game = new Phaser.Game(config);
+```
+
+{{EmbedLiveSample("vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Den Ball zu drucken war einfach; als nächstes werden wir versuchen, [den Ball zu bewegen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball) auf dem Bildschirm.
+Das Ausgeben der Kugel war einfach; als nächstes versuchen wir, [die Kugel zu bewegen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball) auf dem Bildschirm.
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Scaling", "Games/Workflows/2D_Breakout_game_Phaser/Move_the_ball")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Scaling", "Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball")}}

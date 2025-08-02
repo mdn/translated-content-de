@@ -2,10 +2,10 @@
 title: sin()
 slug: Web/CSS/sin
 l10n:
-  sourceCommit: c51c4c3911715acdfd2e3912b6e6df95d40d4e0c
+  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
 ---
 
-Die **`sin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Sinus eines Wertes zurückgibt, der zwischen `-1` und `1` liegt. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das bedeutet, `sin(45deg)`, `sin(0.125turn)` und `sin(3.14159 / 4)` stellen alle denselben Wert dar, ungefähr `0.707`.
+Die **`sin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine trigonometrische Funktion, die den Sinus eines Wertes zurückgibt, welcher zwischen `-1` und `1` liegt. Die Funktion enthält eine einzige Berechnung, die sich entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} auflösen muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das heißt, `sin(45deg)`, `sin(0.125turn)` und `sin(3.14159 / 4)` repräsentieren alle denselben Wert, ungefähr `0.707`.
 
 {{InteractiveExample("CSS Demo: sin()")}}
 
@@ -43,7 +43,7 @@ transform: translateX(calc(cos(-45deg) * 140px))
 ```css interactive-example
 :root {
   --radius: 140px;
-  --dotsize: 10px;
+  --dot-size: 10px;
 }
 .circle {
   display: grid;
@@ -54,12 +54,12 @@ transform: translateX(calc(cos(-45deg) * 140px))
   border-radius: 50%;
   border: 2px solid #666;
   background-image:
-    radial-gradient(black var(--dotsize), transparent var(--dotsize)),
+    radial-gradient(black var(--dot-size), transparent var(--dot-size)),
     linear-gradient(135deg, #0000ff, #00c9ff, #92fe9d, #e6e6fa, #f0fff0);
 }
 .dot {
   display: block;
-  width: var(--dotsize);
+  width: var(--dot-size);
   aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid #666;
@@ -91,7 +91,7 @@ width: calc(100px * sin(e / 4));
 Die `sin(angle)` Funktion akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst wird. Bei der Angabe von einheitenlosen Zahlen werden diese als Anzahl von Radianten interpretiert, was einem {{cssxref("&lt;angle&gt;")}} entspricht.
+  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} auflöst. Bei der Angabe einheitsloser Zahlen werden diese als eine Anzahl von Radianten interpretiert und repräsentieren einen {{cssxref("&lt;angle&gt;")}}
 
 ### Rückgabewert
 
@@ -106,9 +106,9 @@ Der Sinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückgebe
 
 ## Beispiele
 
-### Änderung der Box-Größen
+### Ändern der Box-Größen
 
-In diesem Beispiel gibt `sin(30deg)` `0.5` zurück, wodurch die Box eine Breite von `50px` und eine Höhe von `50px` hat.
+In diesem Beispiel wird `sin(30deg)` `0.5` zurückgeben, wodurch die Box eine `50px` Breite und eine `50px` Höhe hat.
 
 ```css
 div {
@@ -120,7 +120,7 @@ div {
 
 ### Steuerung der Animationsdauer
 
-Ein weiterer Anwendungsfall ist die Steuerung der {{cssxref("animation-duration")}}, indem die Dauer basierend auf dem Sinuswert reduziert wird. In diesem Fall wird die Animationsdauer `1s` betragen.
+Ein weiterer Anwendungsfall ist die Steuerung der {{cssxref("animation-duration")}}, indem die Dauer basierend auf dem Sinuswert reduziert wird. In diesem Fall beträgt die Animationsdauer `1s`.
 
 ```css
 div {

@@ -2,43 +2,177 @@
 title: Gewinnen Sie das Spiel
 slug: Games/Tutorials/2D_breakout_game_Phaser/Win_the_game
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
 ---
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/The_score", "Games/Workflows/2D_Breakout_game_Phaser/Extra_lives")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/The_score", "Games/Tutorials/2D_breakout_game_Phaser/Extra_lives")}}
 
-Dies ist der **12. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Phaser-Content-Kit/demos/lesson12.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson12.html) finden.
-
-Das Implementieren des Gewinnens in unserem Spiel ist recht einfach: Wenn Sie alle Ziegel zerstören, dann gewinnen Sie.
+Dies ist der **12. Schritt** von insgesamt 16 im [Gamedev Phaser Leitfaden](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Das Implementieren des Gewinnens in unserem Spiel ist ziemlich einfach: Wenn Sie alle Steine zerstören, gewinnen Sie.
 
 ## Wie gewinnt man?
 
-Fügen Sie den folgenden neuen Code in Ihre `ballHitBrick()`-Funktion ein:
+Fügen Sie den folgenden neuen Code in Ihre `update()`-Methode ein:
 
 ```js
-function ballHitBrick(ball, brick) {
-  brick.kill();
-  score += 10;
-  scoreText.setText(`Points: ${score}`);
-
-  const countAlive = bricks.children.filter((b) => b.alive).length;
-  if (countAlive === 0) {
-    alert("You won the game, congratulations!");
-    location.reload();
+class ExampleScene extends Phaser.Scene {
+  // ...
+  update() {
+    // ...
+    if (this.bricks.countActive() === 0) {
+      alert("You won the game, congratulations!");
+      location.reload();
+    }
   }
+  // ...
 }
 ```
 
-Wir durchlaufen die Ziegel im `bricks.children`-Array der Gruppe und überprüfen mit der `.alive`-Eigenschaft jedes Ziegels, ob sie noch "lebendig" sind. Wenn keine Ziegel mehr übrig sind, zeigen wir eine Gewinnnachricht an und starten das Spiel neu, sobald die Benachrichtigung beendet ist.
+Wir zählen die Anzahl der Steine, die noch leben, indem wir die `countAlive()`-Methode auf `this.bricks` anwenden. Wenn keine Steine mehr lebendig sind, zeigen wir die Gewinnmeldung an und starten das Spiel neu, sobald die Benachrichtigung geschlossen wird.
 
 ## Vergleichen Sie Ihren Code
 
-Sie können den fertigen Code für diese Lektion im untenstehenden Live-Demo überprüfen und damit spielen, um besser zu verstehen, wie er funktioniert:
+Hier sehen Sie, was Sie bisher haben sollten, live ausgeführt. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche "Abspielen".
 
-{{JSFiddleEmbed("https://jsfiddle.net/u8waa4Lx/1/","","400")}}
+```html hidden
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
+```
+
+```css hidden
+* {
+  padding: 0;
+  margin: 0;
+}
+```
+
+```js hidden
+class ExampleScene extends Phaser.Scene {
+  ball;
+  paddle;
+  bricks;
+  scoreText;
+  score = 0;
+
+  preload() {
+    this.load.setBaseURL(
+      "https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser",
+    );
+
+    this.load.image("ball", "ball.png");
+    this.load.image("paddle", "paddle.png");
+    this.load.image("brick", "brick.png");
+  }
+  create() {
+    this.physics.world.checkCollision.down = false;
+
+    this.ball = this.add.sprite(
+      this.scale.width * 0.5,
+      this.scale.height - 25,
+      "ball",
+    );
+    this.physics.add.existing(this.ball);
+    this.ball.body.setVelocity(150, -150);
+    this.ball.body.setCollideWorldBounds(true, 1, 1);
+    this.ball.body.setBounce(1);
+
+    this.paddle = this.add.sprite(
+      this.scale.width * 0.5,
+      this.scale.height - 5,
+      "paddle",
+    );
+    this.paddle.setOrigin(0.5, 1);
+    this.physics.add.existing(this.paddle);
+    this.paddle.body.setImmovable(true);
+
+    this.initBricks();
+
+    this.scoreText = this.add.text(5, 5, "Points: 0", {
+      font: "18px Arial",
+      color: "#0095dd",
+    });
+  }
+  update() {
+    this.physics.collide(this.ball, this.paddle);
+    this.physics.collide(this.ball, this.bricks, (ball, brick) =>
+      this.hitBrick(ball, brick),
+    );
+
+    this.paddle.x = this.input.x || this.scale.width * 0.5;
+    const ballIsOutOfBounds = !Phaser.Geom.Rectangle.Overlaps(
+      this.physics.world.bounds,
+      this.ball.getBounds(),
+    );
+    if (ballIsOutOfBounds) {
+      // Game over logic
+      location.reload();
+    }
+    if (this.bricks.countActive() === 0) {
+      alert("You won the game, congratulations!");
+      location.reload();
+    }
+  }
+
+  initBricks() {
+    const bricksLayout = {
+      width: 50,
+      height: 20,
+      count: {
+        row: 3,
+        col: 7,
+      },
+      offset: {
+        top: 50,
+        left: 60,
+      },
+      padding: 10,
+    };
+
+    this.bricks = this.add.group();
+    for (let c = 0; c < bricksLayout.count.col; c++) {
+      for (let r = 0; r < bricksLayout.count.row; r++) {
+        const brickX =
+          c * (bricksLayout.width + bricksLayout.padding) +
+          bricksLayout.offset.left;
+        const brickY =
+          r * (bricksLayout.height + bricksLayout.padding) +
+          bricksLayout.offset.top;
+
+        const newBrick = this.add.sprite(brickX, brickY, "brick");
+        this.physics.add.existing(newBrick);
+        newBrick.body.setImmovable(true);
+        this.bricks.add(newBrick);
+      }
+    }
+  }
+
+  hitBrick(ball, brick) {
+    brick.destroy();
+    this.score += 10;
+    this.scoreText.setText(`Points: ${this.score}`);
+  }
+}
+
+const config = {
+  type: Phaser.CANVAS,
+  width: 480,
+  height: 320,
+  scene: ExampleScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  backgroundColor: "#eeeeee",
+  physics: {
+    default: "arcade",
+  },
+};
+
+const game = new Phaser.Game(config);
+```
+
+{{EmbedLiveSample("vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Sowohl Verlieren als auch Gewinnen sind implementiert, sodass das Kernspiel unseres Spiels abgeschlossen ist. Lassen Sie uns nun etwas extra hinzufügen – wir geben dem Spieler statt einem, drei [Leben](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Extra_lives).
+Sowohl Verlieren als auch Gewinnen sind implementiert, sodass das Kerngameplay unseres Spiels abgeschlossen ist. Fügen wir nun etwas Extra hinzu—wir geben dem Spieler drei [Leben](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Extra_lives) anstelle von einem.
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/The_score", "Games/Workflows/2D_Breakout_game_Phaser/Extra_lives")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/The_score", "Games/Tutorials/2D_breakout_game_Phaser/Extra_lives")}}

@@ -1,11 +1,12 @@
 ---
 title: Symbol.asyncDispose
+short-title: asyncDispose
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
 ---
 
-Die **`Symbol.asyncDispose`** statische Daten-Eigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncDispose`. Die Deklaration {{jsxref("Statements/await_using", "await using")}} sucht dieses Symbol im Variablen-Initializer, um die Methode aufzurufen, wenn die Variable aus dem Gültigkeitsbereich tritt.
+Die statische Dateneigenschaft **`Symbol.asyncDispose`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncDispose`. Die {{jsxref("Statements/await_using", "await using")}}-Deklaration sucht dieses Symbol im Variablen-Initializer für die Methode, die aufgerufen werden soll, wenn die Variable außer Reichweite gerät.
 
 ## Wert
 
@@ -15,18 +16,18 @@ Das wohlbekannte Symbol `Symbol.asyncDispose`.
 
 ## Beschreibung
 
-Ein Objekt ist asynchron entsorgbar, wenn es die Methode `[Symbol.asyncDispose]()` besitzt. Die Methode sollte die folgenden Semantiken haben:
+Ein Objekt ist asynchron disposable, wenn es die Methode `[Symbol.asyncDispose]()` hat. Diese Methode sollte die folgenden Semantiken besitzen:
 
-- Das Aufrufen dieser Methode benachrichtigt das AsyncDisposable-Objekt, dass der Aufrufer nicht beabsichtigt, dieses Objekt weiterhin zu verwenden. Diese Methode sollte jede notwendige Logik zum expliziten Aufräumen der Ressource ausführen, einschließlich, aber nicht beschränkt auf Dateisystem-Handles, Streams, Host-Objekte usw.
-- Diese Methode kann ein Promise zurückgeben, das abgewartet wird, bevor fortgefahren wird.
-- Wenn von dieser Methode eine Ausnahme geworfen wird, bedeutet dies typischerweise, dass die Ressource nicht explizit freigegeben werden konnte. Ein AsyncDisposable-Objekt gilt erst als "entsorgt", wenn das resultierende Promise erfüllt wurde.
-- Wenn auf dasselbe Objekt mehrmals aufgerufen wird, sollte die Funktion keine Ausnahme werfen. Diese Anforderung wird jedoch nicht erzwungen.
+- Der Aufruf dieser Methode benachrichtigt das AsyncDisposable-Objekt, dass der Aufrufer nicht die Absicht hat, das Objekt weiter zu verwenden. Diese Methode sollte alle notwendigen Logiken ausführen, um die Ressource explizit zu bereinigen, einschließlich, aber nicht beschränkt auf Dateisystem-Handles, Streams, Host-Objekte etc.
+- Diese Methode kann ein Promise zurückgeben, das vor dem Fortfahren abgewartet wird.
+- Wenn eine Ausnahme von dieser Methode ausgelöst wird, bedeutet das typischerweise, dass die Ressource nicht explizit freigegeben werden konnte. Ein AsyncDisposable-Objekt wird nicht als "disposed" betrachtet, bis das resultierende Promise erfüllt worden ist.
+- Wenn die Funktion mehr als einmal auf dasselbe Objekt aufgerufen wird, sollte keine Ausnahme ausgelöst werden. Diese Anforderung wird jedoch nicht erzwungen.
 
 ## Beispiele
 
-### Benutzerdefinierte asynchrone Entsorgungen
+### Benutzerdefinierte asynchrone Disposables
 
-`[Symbol.asyncDispose]` ermöglicht die Erstellung von benutzerdefinierten asynchronen Entsorgungen. Weitere Informationen finden Sie im `await using` Verweis.
+`[Symbol.asyncDispose]` ermöglicht die Erstellung von benutzerdefinierten asynchronen Disposables. Siehe die Referenz zu `await using` für weitere Informationen.
 
 ```js
 class Disposable {

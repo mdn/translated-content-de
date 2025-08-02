@@ -2,26 +2,26 @@
 title: Maussteuerung
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
 ---
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Finishing_up")}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up")}}
 
-Dies ist der **9. Schritt** von 10 des [Gamedev Canvas-Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson9.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson09.html) finden.
+Dies ist der **9. Schritt** von 10 des [Gamedev Canvas-Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson9.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson09.html) finden.
 
-Das Spiel selbst ist eigentlich fertig, also lassen Sie uns daran arbeiten, es zu verfeinern. Wir haben bereits Tastatursteuerungen hinzugefügt, aber wir könnten leicht auch Maussteuerungen hinzufügen.
+Das Spiel selbst ist eigentlich fertig, also lassen Sie uns daran arbeiten, es zu verfeinern. Wir haben bereits Tastatursteuerungen hinzugefügt, aber wir könnten problemlos auch Maussteuerungen hinzufügen.
 
-## Mausbewegungen abhören
+## Auf Mausbewegungen lauschen
 
-Mausbewegungen abzuhören ist sogar noch einfacher als Tastaturanschläge abzuhören: alles was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Event. Fügen Sie die folgende Zeile an derselben Stelle wie die anderen Event-Listener hinzu, direkt unterhalb des `keyup events`:
+Auf Mausbewegungen zu lauschen ist noch einfacher als auf Tastendrücke: Alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis. Fügen Sie die folgende Zeile an der gleichen Stelle wie die anderen Ereignis-Listener hinzu, direkt unter dem `keyup event`.
 
 ```js
 document.addEventListener("mousemove", mouseMoveHandler, false);
 ```
 
-## Verankerung der Schlägerbewegung an die Mausbewegung
+## Die Bewegung des Schlägers an die Mausbewegung anpassen
 
-Wir können die Schlägerposition basierend auf den Zeigerkoordinaten aktualisieren — die folgende Handlerfunktion wird genau das tun. Fügen Sie die folgende Funktion zu Ihrem Code hinzu, unterhalb der vorher hinzugefügten Zeile:
+Wir können die Position des Schlägers basierend auf den Koordinaten des Zeigers aktualisieren — die folgende Handlerfunktion macht genau das. Fügen Sie die folgende Funktion zu Ihrem Code hinzu, unter der zuvor eingefügten Zeile:
 
 ```js
 function mouseMoveHandler(e) {
@@ -32,13 +32,13 @@ function mouseMoveHandler(e) {
 }
 ```
 
-In dieser Funktion berechnen wir zuerst einen `relativeX`-Wert, der gleich der horizontalen Mausposition im Ansichtsfenster (`e.clientX`) minus der Entfernung zwischen dem linken Rand der Leinwand und dem linken Rand des Ansichtsfensters (`canvas.offsetLeft`) ist — effektiv ist dies gleich der Entfernung zwischen dem linken Leinwandrand und dem Mauszeiger. Wenn die relative X-Zeigerposition größer als null und kleiner als die Breite der Leinwand ist, befindet sich der Zeiger innerhalb der Leinwandgrenzen, und die `paddleX`-Position (verankert am linken Rand des Schlägers) wird auf den `relativeX`-Wert minus die halbe Breite des Schlägers gesetzt, sodass die Bewegung tatsächlich relativ zur Mitte des Schlägers erfolgt.
+In dieser Funktion berechnen wir zuerst einen `relativeX`-Wert, der gleich der horizontalen Mausposition im Ansichtsfenster (`e.clientX`) minus der Entfernung zwischen dem linken Rand der Leinwand und dem linken Rand des Ansichtsfensters (`canvas.offsetLeft`) ist — effektiv entspricht dies der Entfernung zwischen dem linken Rand der Leinwand und dem Mauszeiger. Wenn die relative X-Zeigerposition größer als Null und kleiner als die Breite der Leinwand ist, befindet sich der Zeiger innerhalb der Grenzen der Leinwand, und die `paddleX`-Position (verankert am linken Rand des Schlägers) wird auf den `relativeX`-Wert minus der halben Breite des Schlägers gesetzt, sodass die Bewegung tatsächlich relativ zur Mitte des Schlägers erfolgt.
 
-Der Schläger wird nun der Position des Mauszeigers folgen, aber da wir die Bewegung auf die Größe der Leinwand beschränken, wird er nicht vollständig von einer der Seiten verschwinden.
+Der Schläger wird jetzt der Position des Mauszeigers folgen, aber da wir die Bewegung auf die Größe der Leinwand beschränken, verschwindet er nicht vollständig an einer der beiden Seiten.
 
 ## Vergleichen Sie Ihren Code
 
-Dies ist der aktuellste Stand des Codes, mit dem Sie vergleichen können:
+Dies ist der neueste Stand des Codes zum Vergleich:
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -230,6 +230,6 @@ runButton.addEventListener("click", () => {
 
 ## Nächste Schritte
 
-Nun, da wir ein vollständiges Spiel haben, werden wir unsere Reihe von Lektionen mit einigen weiteren kleinen Anpassungen abschließen — [Beenden](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up).
+Jetzt, da wir ein vollständiges Spiel haben, beenden wir unsere Serie von Lektionen mit einigen weiteren kleinen Anpassungen — [Abschließen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up).
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Finishing_up")}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up")}}
