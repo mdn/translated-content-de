@@ -3,10 +3,10 @@ title: Intl.getCanonicalLocales()
 short-title: getCanonicalLocales()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 939067a53bb5bb3787f2d536b83df2252d4e838e
 ---
 
-Die **`Intl.getCanonicalLocales()`** statische Methode gibt ein Array zurück, das die kanonischen Lokalisierungsnamen enthält. Duplikate werden weggelassen, und die Elemente werden als strukturell gültige Sprachbezeichnungen validiert.
+Die **`Intl.getCanonicalLocales()`** statische Methode gibt ein Array zurück, das die kanonischen Sprachgebietsschemata enthält. Duplikate werden weggelassen und Elemente werden als strukturell gültige Sprach-Tags validiert.
 
 {{InteractiveExample("JavaScript Demo: Intl.getCanonicalLocales()")}}
 
@@ -21,8 +21,7 @@ try {
   Intl.getCanonicalLocales("EN_US");
 } catch (err) {
   console.log(err.toString());
-  // Expected output (Firefox/Safari): RangeError: invalid language tag: "EN_US"
-  // Expected output (Chrome): RangeError: Incorrect locale information provided
+  // Expected output: RangeError: invalid language tag: "EN_US"
 }
 ```
 
@@ -35,11 +34,11 @@ Intl.getCanonicalLocales(locales)
 ### Parameter
 
 - `locales`
-  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Lokalisierungsnamen abgerufen werden sollen.
+  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Sprachgebietsschemata erhalten werden sollen.
 
 ### Rückgabewert
 
-Ein Array, das die kanonischen Lokalisierungsnamen enthält.
+Ein Array, das die kanonischen Sprachgebietsschemata enthält.
 
 ## Beispiele
 
