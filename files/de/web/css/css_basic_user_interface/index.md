@@ -1,17 +1,17 @@
 ---
-title: CSS-Grundlagen Benutzeroberfläche
+title: CSS-Grundlagen der Benutzeroberfläche
 slug: Web/CSS/CSS_basic_user_interface
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
-Das **CSS-Grundlagenmodul der Benutzeroberfläche** ermöglicht es Ihnen, die Darstellung und Funktionalität von Funktionen im Zusammenhang mit der Benutzeroberfläche zu definieren, einschließlich Umriss-Eigenschaften, visuelle Rückmeldungen bei Zeigegeräten und Tastaturen sowie die Veränderung des Standarderscheinungsbilds von UI-Widgets.
+Das **CSS-Grundlagen der Benutzeroberfläche**-Modul ermöglicht es Ihnen, das Rendering und die Funktionalität von Merkmalen im Zusammenhang mit der Benutzeroberfläche zu definieren, einschließlich Umriss-Eigenschaften, visuelles Feedback für Zeigegerät und Tastatur sowie die Änderung des Standardaussehens von UI-Widgets.
 
-Grundlegende Benutzeroberflächeneigenschaften können verwendet werden, um die Benutzerfreundlichkeit und Barrierefreiheit zu verbessern, indem visuelle Hinweise zu den Elementen bereitgestellt werden, mit denen interagiert wird, einschließlich der Gestaltung von Mauszeigern, der Navigation des Tastaturfokus und der Gestaltung der Caret-Zeiger, wenn ein bearbeitbares Element den Fokus hat. Das Modul ermöglicht es, Umrisse für fokussierte (oder nicht fokussierte) Elemente bereitzustellen, ohne die Abmessungen und das Styling des [Boxmodells](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#what_is_the_css_box_model) eines Elements zu beeinträchtigen. Dieses UI-Modul ermöglicht auch das Styling von Benutzeroberflächensteuerungen.
+Grundlegende Benutzeroberflächeneigenschaften können verwendet werden, um die Benutzererfahrung und Zugänglichkeit zu verbessern, indem visuelle Hinweise für Elemente bereitgestellt werden, mit denen interagiert wird, einschließlich der Gestaltung von Mauszeigern und der fokussierten Navigation mit der Tastatur. Ebenfalls umfasst ist das Styling von Caret-Cursorn, wenn ein bearbeitbares Element den Fokus hat. Das Modul ermöglicht es, Umrisse für fokussierte (oder nicht fokussierte) Elemente bereitzustellen, ohne die Dimensionen und das Styling des [Box-Modells](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#what_is_the_css_box_model) eines Elements zu beeinflussen. Dieses UI-Modul ermöglicht auch das Styling von Steuerelementen der Benutzeroberfläche.
 
 ### Grundlegende Benutzeroberfläche in Aktion
 
-Um zu sehen, wie grundlegende Benutzeroberflächeneigenschaften das Erscheinungsbild von UI-Funktionen verändern können, interagieren Sie mit den Elementen in diesem Beispiel. Beachten Sie, dass einige Funktionen in diesem Beispiel die Benutzerfreundlichkeit verbessern, während andere das Benutzererlebnis beeinträchtigen.
+Um zu sehen, wie grundlegende Benutzeroberflächeneigenschaften das Erscheinungsbild von UI-Funktionen verändern können, interagieren Sie mit den Elementen in diesem Beispiel. Beachten Sie, dass einige Funktionen in diesem Beispiel die Benutzerfreundlichkeit verbessern, während andere die Benutzererfahrung beeinträchtigen.
 
 ```html hidden live-sample___basicUI
 <div><span contenteditable>Edit this text </span></div>
@@ -71,11 +71,11 @@ textarea:nth-of-type(3) {
 
 {{EmbedLiveSample("basicUI", "", "300px")}}
 
-Die CSS-Eigenschaften {{CSSxRef("outline")}} und {{CSSxRef("outline-offset")}} wurden verwendet, um den Benutzern Rückmeldung zu geben, welches Element aktuell den Fokus hat. Eine {{CSSxRef("accent-color")}} bietet eine Themenfarbe für alle Formularelemente. Der Caret, der erscheint, wenn der Text bearbeitet wird, hat dank der Eigenschaft {{CSSxRef("caret-color")}} die gleiche Farbe. Diese können alle als UI-Verbesserungen betrachtet werden.
+Die CSS-Eigenschaften {{CSSxRef("outline")}} und {{CSSxRef("outline-offset")}} wurden verwendet, um Benutzern Feedback darüber zu geben, welches Element derzeit den Fokus hat. Eine {{CSSxRef("accent-color")}} sorgt für eine Themenfarbe für alle Formularelemente. Der Caret, der erscheint, wenn der Text bearbeitet wird, hat dank der {{CSSxRef("caret-color")}}-Eigenschaft die gleiche Farbe. Diese können alle als Verbesserungen der Benutzeroberfläche betrachtet werden.
 
-Einige Funktionen beeinträchtigen die Benutzerfreundlichkeit. Die Eigenschaft {{CSSxRef("cursor")}} wurde verwendet, um Cursor vom Browser-Standard zu ändern, was verwirrend ist. Die Eigenschaft {{CSSxRef("resize")}} verhindert, dass das zweite {{HTMLElement("textarea")}} in der Größe verändert werden kann, während die Eigenschaft {{CSSxRef("pointer-events")}} verhindert, dass das dritte `<textarea>` Klickereignisse empfängt. Es kann jedoch weiterhin über die Tastatur fokussiert werden.
+Einige Funktionen beeinträchtigen die Benutzerfreundlichkeit. Die {{CSSxRef("cursor")}}-Eigenschaft wurde verwendet, um Cursorn vom Browserstandard zu ändern, was verwirrend ist. Die {{CSSxRef("resize")}}-Eigenschaft verhindert, dass das zweite {{HTMLElement("textarea")}} größenveränderbar ist, während die {{CSSxRef("pointer-events")}}-Eigenschaft verhindert, dass das dritte `<textarea>` Klick-Ereignisse empfängt. Es kann weiterhin über die Tastatur fokussiert werden.
 
-Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN Playground zu sehen oder zu bearbeiten.
+Klicken Sie oben im Beispiel auf "Play", um den Code für die Animation im MDN Playground zu sehen oder zu bearbeiten.
 
 ## Referenz
 
@@ -85,7 +85,7 @@ Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN
 - {{CSSxRef("appearance")}}
 - {{CSSxRef("caret-color")}}
 - {{CSSxRef("cursor")}}
-- {{CSSxRef("outline")}}, Kurzschreibweise für:
+- {{CSSxRef("outline")}}, Kurzform für:
   - {{CSSxRef("outline-color")}}
   - {{CSSxRef("outline-style")}}
   - {{CSSxRef("outline-width")}}
@@ -94,13 +94,12 @@ Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN
 - {{CSSxRef("resize")}}
 - {{CSSxRef("user-select")}}
 
-> [!NOTE]
-> Die Spezifikation definiert auch die Eigenschaften: `caret`, `caret-shape`, `nav-down`, `nav-left`, `nav-right` und `nav-up`. Diese Eigenschaften wurden bisher in keinem Browser implementiert.
+Das CSS-Grundlagen der Benutzeroberfläche-Modul definiert auch die Eigenschaften `caret`, `caret-shape`, `nav-down`, `nav-left`, `nav-right` und `nav-up`. Derzeit unterstützen keine Browser diese Funktionen.
 
 ## Leitfäden
 
-- [Lernen Sie Formulare: Fortgeschrittenes Formularstyling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
-  - : Erklärt, wie {{CSSxRef("appearance")}} verwendet werden kann, um Formularelemente zu stylen.
+- [Formulare lernen: Fortgeschrittenes Formularstyling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
+  - : Erklärt, wie {{CSSxRef("appearance")}} verwendet werden kann, um Steuerelemente von Formularen zu stylen.
 
 ## Verwandte Konzepte
 
@@ -115,4 +114,4 @@ Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN
 
 ## Siehe auch
 
-- [Tipps für das Design nützlicher und benutzbarer Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/) (2016)
+- [Tipps zur Gestaltung nützlicher und benutzbarer Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/) (2016)

@@ -2,10 +2,10 @@
 title: CSS-Ruby-Layout
 slug: Web/CSS/CSS_ruby_layout
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
-Das Modul **CSS-Ruby-Layout** bietet das Rendering-Modell und die Formatsteuerungen in Bezug auf die Anzeige von Ruby-Anmerkungen. Ruby-Anmerkungen sind eine Form von Zwischenzeilenanmerkungen, bestehend aus kurzen Textpassagen neben dem Basistext. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzuzeigen oder die Bedeutung zu definieren.
+Das **CSS-Ruby-Layout** Modul stellt das Rendering-Modell und die Formatierungssteuerungen im Zusammenhang mit der Darstellung von Ruby-Anmerkungen bereit. Ruby-Anmerkungen sind eine Form der Interlinear-Anmerkung, die aus kurzen Textabschnitten neben dem Basistext bestehen. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder die Bedeutung zu definieren.
 
 ## Referenz
 
@@ -14,12 +14,11 @@ Das Modul **CSS-Ruby-Layout** bietet das Rendering-Modell und die Formatsteuerun
 - {{cssxref("ruby-align")}}
 - {{cssxref("ruby-position")}}
 
-> [!NOTE]
-> Das CSS-Ruby-Layout-Modul führt zwei Eigenschaften ein, `ruby-merge` und `ruby-overhang`, die in keinem Browser umgesetzt wurden.
+Das CSS-Ruby-Layout-Modul führt auch die `ruby-merge` und `ruby-overhang` Eigenschaften ein. Derzeit unterstützen keine Browser diese Funktionen.
 
-### Display-Werte
+### Anzeige-Werte
 
-Das CSS-Ruby-Layout-Modul fügt der Eigenschaft {{cssxref("display")}} die folgenden Werte hinzu:
+Das CSS-Ruby-Layout-Modul fügt folgende Werte zur {{cssxref("display")}} Eigenschaft hinzu:
 
 - `ruby`
 - `ruby-base`
@@ -33,14 +32,14 @@ Das CSS-Ruby-Layout-Modul fügt der Eigenschaft {{cssxref("display")}} die folge
 
 ## Verwandte Konzepte
 
-- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS-Anzeige](/de/docs/Web/CSS/CSS_display) Modul
   - {{cssxref("display")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}
 - [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
   - {{cssxref("text-emphasis-color")}}
   - {{cssxref("text-emphasis-position")}}
   - {{cssxref("text-emphasis-style")}}
-  - {{cssxref("text-emphasis")}} Abkürzung
+  - {{cssxref("text-emphasis")}} Kurzform
 - [HTML-Elemente](/de/docs/Web/HTML/Reference/Elements)
   - {{HTMLElement("rb")}}
   - {{HTMLElement("rp")}}

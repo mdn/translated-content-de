@@ -2,21 +2,21 @@
 title: shape
 slug: Web/CSS/@media/shape
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
 {{SeeCompatTable}}
 
-Die `shape` [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen, um zwischen rechteckigen und runden Anzeigen zu unterscheiden.
+Das `shape`-[CSS](/de/docs/Web/CSS)-[Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen, um rechteckige und runde Displays zu unterscheiden.
 
 ## Syntax
 
-Das diskrete `shape`-Feature wird als einer von zwei akzeptablen Zeichenfolgen angegeben, entweder `rect`, das einen rechteckigen Bildschirm darstellt, oder `round`, das einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
+Das diskrete `shape`-Merkmal wird als einer von zwei akzeptablen Strings angegeben, entweder `rect`, das einen rechteckigen Bildschirm darstellt, oder `round`, das einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
 
 - `rect`
-  - : Die Form ist ein achsenausgerichtetes Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für das traditionelle Designs geeignet sind.
+  - : Die Form ist ein achsenausgerichtetes Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für die traditionelle Designs geeignet sind.
 - `round`
-  - : Die Form ist abgerundet oder eine dem Kreis ähnliche Form wie ein Oval, eine Ellipse, für die unverwechselbar abgerundete Designs geeignet sind.
+  - : Die Form ist rund oder eine dem Kreis ähnliche Form wie ein Oval, eine Ellipse, für die eindeutig abgerundete Designs geeignet sind.
 
 ## Beispiele
 
@@ -69,7 +69,7 @@ Dieses HTML wird ein spezielles Stylesheet für Geräte mit runden Bildschirmen 
 
 ## Browser-Kompatibilität
 
-Es gibt keinen Browser, der dieses Feature implementiert.
+Derzeit unterstützen keine Browser dieses Feature.
 
 ## Siehe auch
 

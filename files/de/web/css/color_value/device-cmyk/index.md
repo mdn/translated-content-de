@@ -2,12 +2,12 @@
 title: device-cmyk()
 slug: Web/CSS/color_value/device-cmyk
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
-Die funktionale Notation **`device-cmyk()`** wird verwendet, um CMYK-Farben geräteabhängig auszudrücken, indem die Komponenten Cyan, Magenta, Gelb und Schwarz angegeben werden.
+Die **`device-cmyk()`** Funktionsnotation wird verwendet, um CMYK-Farben in geräteabhängiger Weise auszudrücken, indem die Komponenten Cyan, Magenta, Gelb und Schwarz angegeben werden.
 
-Dieser Ansatz zur Farbgebung ist nützlich, wenn Materialien erstellt werden, die auf einem bestimmten Drucker ausgegeben werden sollen, wenn das Ergebnis für bestimmte Farbkombinationen bekannt ist. CSS-Prozessoren können versuchen, die Farbe zu approximieren, jedoch wird das Endergebnis wahrscheinlich vom gedruckten Ergebnis abweichen.
+Dieser Ansatz zur Farbwahl ist nützlich, wenn Materialien erstellt werden, die auf einen bestimmten Drucker ausgegeben werden sollen, und wenn das Ergebnis bestimmter Tintenkompositionen bekannt ist. CSS-Prozessoren können versuchen, die Farbe zu approximieren, jedoch wird das Endergebnis wahrscheinlich vom gedruckten Ergebnis abweichen.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ device-cmyk(0 81% 81% 30% / .5, rgb(178 34 34));
 
 ### Werte
 
-Funktionale Notation: `device-cmyk(C M Y K[ / A][, color])`
+Funktionsnotation: `device-cmyk(C M Y K[ / A][, color])`
 
 - `C`, `M`, `Y`, `K`
-  - : {{CSSXref("number")}} oder {{CSSXref("percentage")}} Werte, die die Komponenten Cyan, Magenta, Gelb und Schwarz der CMYK-Farbe angeben.
+  - : {{CSSXref("number")}} oder {{CSSXref("percentage")}} Werte, die die Cyan-, Magenta-, Gelb- und Schwarz-Komponenten einer CMYK-Farbe angeben.
 
 - `A` {{optional_inline}}
   - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, wobei die Zahl `1` `100%` (volle Deckkraft) entspricht.
 
 - `color` {{optional_inline}}
-  - : Eine optionale Ersatz-{{CSSXref("&lt;color&gt;")}}, die verwendet wird, wenn der User-Agent nicht weiß, wie er die CMYK-Farbe zu RGB übersetzen soll.
+  - : Eine optionale Ersatz-{{CSSXref("&lt;color&gt;")}}, die verwendet wird, falls der User-Agent nicht weiß, wie die CMYK-Farbe in RGB übersetzt werden soll.
 
 ## Formale Syntax
 
@@ -40,9 +40,9 @@ Funktionale Notation: `device-cmyk(C M Y K[ / A][, color])`
 
 ## Browser-Kompatibilität
 
-Es gibt keinen Browser, der diese Funktion implementiert.
+Derzeit unterstützt kein Browser dieses Feature.
 
 ## Siehe auch
 
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
 - {{cssxref("@page")}}

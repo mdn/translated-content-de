@@ -1,19 +1,19 @@
 ---
-title: CSS-Formen
+title: CSS Shapes
 slug: Web/CSS/CSS_shapes
 l10n:
-  sourceCommit: efebdd806165ea668d49fc67fd5b1d7f6229907b
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
-Das **CSS-Formen Modul** beschreibt geometrische Formen. Es definiert auch CSS-Eigenschaften, die diese Formen nutzen können, um die Geometrie des Schwebe-Bereichs eines Elements zu kontrollieren; dieser Bereich kann dann auf Ausschlüsse angewendet oder zur Spezifizierung des Inhaltsbereichs eines Elements verwendet werden.
+Das **CSS Shapes** Modul beschreibt geometrische Formen. Es definiert auch CSS-Eigenschaften, die die Formen nutzen können, um die Geometrie des Float-Bereichs eines Elements zu steuern; dieser Bereich kann dann auf Ausschlüsse angewendet oder zur Spezifizierung des Inhaltsbereichs eines Elements verwendet werden.
 
-Die Spezifikation definiert mehrere Möglichkeiten zur Erstellung von Formen. Inhalte können um oder innerhalb einer Form angeordnet werden, anstatt der Standard-Rechteckform des Elementkastens zu folgen.
+Die Spezifikation definiert mehrere Möglichkeiten zur Erstellung von Formen. Inhalte können um eine Form herum oder innerhalb einer Form angeordnet werden, anstatt der Standardrechteckform des Elementboxs zu folgen.
 
-Formen definieren Geometrien, die als CSS-Werte verwendet werden können. Dieses Modul bietet Funktionen zur Erstellung von Ellipsen, Polygonen und beliebigen Geometrien. Andere CSS-Module können die in dieser Spezifikation definierten Formen verwenden, einschließlich [CSS-Bewegungspfad](/de/docs/Web/CSS/CSS_motion_path) und [CSS-Maskierung](/de/docs/Web/CSS/CSS_masking).
+Formen definieren Geometrien, die als CSS-Werte verwendet werden können. Dieses Modul bietet Funktionen zur Erstellung von Ellipsen, Polygonen und willkürlichen Geometrien. Andere CSS-Module können die in dieser Spezifikation definierten Formen nutzen, darunter [CSS motion path](/de/docs/Web/CSS/CSS_motion_path) und [CSS masking](/de/docs/Web/CSS/CSS_masking).
 
-## CSS-Formen im Einsatz
+## CSS-Formen in Aktion
 
-Das folgende Beispiel zeigt ein Bild, das links schwebt, wobei die Eigenschaft `shape-outside` mit einem Wert von `circle(50%)` angewendet wurde. Dies erzeugt eine Kreisform, und der Inhalt, der das Schweben umgibt, umschließt nun diese Form. Dies ändert die Länge der Zeilenkästen des umgebenden Textes. Sie können auf "Play" klicken, um den Code im MDN Playground zu bearbeiten.
+Das folgende Beispiel zeigt ein Bild, das nach links gefloatet wurde, und die `shape-outside` Eigenschaft, die mit einem Wert von `circle(50%)` angewendet wird. Dies erzeugt eine Kreisform und der Inhalt, der das Float umgibt, wird jetzt um diese Form herum angeordnet. Dies ändert die Länge der Linienstücke des umgebenden Textes. Sie können auf "Play" klicken, um den Code im MDN Playground zu bearbeiten.
 
 ```html live-sample___circle hidden
 <div class="box">
@@ -54,8 +54,7 @@ img {
 - {{cssxref("shape-margin")}}
 - {{cssxref("shape-outside")}}
 
-> [!NOTE]
-> Das CSS-Formen Modul führt die Eigenschaften `shape-inside` und `shape-padding` ein, die noch nicht implementiert wurden.
+Das CSS-Shapes-Modul führt auch die Eigenschaften `shape-inside` und `shape-padding` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Datentypen
 
@@ -74,26 +73,25 @@ img {
 
 ### Begriffe
 
-- [Referenzierungsbox](/de/docs/Web/CSS/CSS_shapes/Basic_shapes#the_reference_box)
+- [Reference box](/de/docs/Web/CSS/CSS_shapes/Basic_shapes#the_reference_box)
 
 ## Leitfäden
 
-- [Überblick über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
-  - : Definieren von Grundformen mit den Eigenschaften `shape-margin` und `clip-path` und Debuggen von Grundformen mit
-    Entwicklerwerkzeugen.
+- [Übersicht über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+  - : Definition grundlegender Formen mit den Eigenschaften `shape-margin` und `clip-path`, sowie das Debuggen grundlegender Formen mit den Entwicklerwerkzeugen.
 
 - [Formen aus Box-Werten](/de/docs/Web/CSS/CSS_shapes/From_box_values)
-  - : Verwenden von `border-radius` Krümmungen und CSS Box-Modell-Werten zur Erstellung von Formen.
+  - : Verwendung von `border-radius` Krümmungen und CSS-Boxmodellwerten zur Erstellung von Formen.
 
-- [Grundformen mit `shape-outside`](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
-  - : Erstellen von Rechtecken, Kreisen, Ellipsen und Polygonen mit CSS-Formen, der Referenzierungsbox und der Eigenschaft `shape-outside`.
+- [Grundlegende Formen mit `shape-outside`](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
+  - : Erstellen von Rechtecken, Kreisen, Ellipsen und Polygonen mit CSS-Formen, der Referenzbox und der `shape-outside` Eigenschaft.
 
 - [Formen aus Bildern](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images)
-  - : Erstellen von Formen aus halbtransparenten Bilddateien und CSS-Verläufen.
+  - : Erstellen von Formen aus teiltransparenten Bilddateien und CSS-Verläufen.
 
 ## Verwandte Konzepte
 
-[CSS-Bewegungspfad](/de/docs/Web/CSS/CSS_motion_path) Modul
+[CSS motion path](/de/docs/Web/CSS/CSS_motion_path) Modul
 
 - {{cssxref("offset")}}
 - {{cssxref("offset-anchor")}}
@@ -103,7 +101,7 @@ img {
 - {{cssxref("offset-rotate")}}
 - {{cssxref("ray")}} Funktion
 
-[CSS-Maskierung](/de/docs/Web/CSS/CSS_masking) Modul
+[CSS masking](/de/docs/Web/CSS/CSS_masking) Modul
 
 - {{cssxref("clip")}}
 - {{cssxref("clip-path")}}
@@ -112,11 +110,11 @@ img {
 - {{cssxref("mask-origin")}}
 - {{cssxref("mask-position")}}
 
-[CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+[CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
 
 - {{cssxref("border-radius")}} Kurzform
 
-[CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+[CSS box model](/de/docs/Web/CSS/CSS_box_model) Modul
 
 - {{cssxref("box-edge")}} Datentyp
 
@@ -127,9 +125,9 @@ img {
 ## Siehe auch
 
 - [Formengenerator](/de/docs/Web/CSS/CSS_shapes/Shape_generator)
-- [CSS-Formen Ressourcen](https://codepen.io/KristopherVanSant/post/css-shapes-resources)
-- [CSS Shapes 101](https://alistapart.com/article/css-shapes-101/) über alistapart.com (2014)
-- [Erstellen von nicht-rechteckigen Layouts mit CSS-Formen](https://www.sarasoueidan.com/blog/css-shapes/) über sarasoueidan.com (2013)
-- [Wie man CSS-Formen in Ihrem Webdesign verwendet](https://webdesign.tutsplus.com/how-to-use-css-shapes-in-your-web-design--cms-27498t) über tutsplus.com (2016)
-- [Wie man mit CSS-Formen beginnt](https://webdesignerdepot.com/how-to-get-started-with-css-shapes/) über webdesignerdepot.com (2015)
-- [Bearbeiten von CSS-Formen mit dem Formpfad-Editor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) über mozilla.org (2018) ([Video](https://www.youtube.com/watch?v=u9bDe3Bw0sA))
+- [CSS Shapes Ressourcen](https://codepen.io/KristopherVanSant/post/css-shapes-resources)
+- [CSS Shapes 101](https://alistapart.com/article/css-shapes-101/) via alistapart.com (2014)
+- [Erstellen nicht-rechteckiger Layouts mit CSS Shapes](https://www.sarasoueidan.com/blog/css-shapes/) via sarasoueidan.com (2013)
+- [Anleitung zur Verwendung von CSS Shapes im Webdesign](https://webdesign.tutsplus.com/how-to-use-css-shapes-in-your-web-design--cms-27498t) via tutsplus.com (2016)
+- [Anleitung zum Einstieg in CSS Shapes](https://webdesignerdepot.com/how-to-get-started-with-css-shapes/) via webdesignerdepot.com (2015)
+- [CSS-Formen mit dem Shape-Pfad-Editor bearbeiten](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) via mozilla.org (2018) ([Video](https://www.youtube.com/watch?v=u9bDe3Bw0sA))

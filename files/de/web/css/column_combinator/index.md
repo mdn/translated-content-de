@@ -1,13 +1,13 @@
 ---
-title: Column-Kombinator
+title: Spaltenkombinator
 slug: Web/CSS/Column_combinator
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
 {{SeeCompatTable}}
 
-Der **column-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er stimmt nur mit jenen Elementen überein, die durch den zweiten Selektor beschrieben werden und zu den Spaltenelementen gehören, die durch den ersten Selektor beschrieben werden.
+Der **Spaltenkombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er erfasst nur diejenigen Elemente, die durch den zweiten Selektor übereinstimmen und zu den Spaltenelementen gehören, die durch den ersten übereinstimmen.
 
 ```css
 /* Table cells that belong to the "selected" column */
@@ -74,7 +74,7 @@ col.selected||td {
 
 ## Browser-Kompatibilität
 
-Derzeit hat kein Browser dieses Feature implementiert.
+Derzeit wird dieses Feature von keinem Browser unterstützt.
 
 ## Siehe auch
 
@@ -83,3 +83,4 @@ Derzeit hat kein Browser dieses Feature implementiert.
 - {{CSSxRef("grid")}}
 - {{CSSxRef(":nth-of-type")}}
 - {{CSSxRef(":nth-last-of-type")}}
+- [CSS-Selektor](/de/docs/Web/CSS/CSS_selectors) Modul

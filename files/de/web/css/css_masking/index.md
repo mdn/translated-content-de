@@ -1,21 +1,21 @@
 ---
-title: CSS-Maskierung
+title: CSS-Masking
 slug: Web/CSS/CSS_masking
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
 ---
 
-Das **CSS-Masking**-Modul definiert Maskierung und Zuschnitt, zwei verschiedene grafische Operationen, die dazu verwendet werden, Teile von visuellen Elementen teilweise oder vollständig zu verbergen.
+Das **CSS-Masking**-Modul definiert Maskierung und Beschneidung, zwei unterschiedliche grafische Operationen, die verwendet werden, um Teile von visuellen Elementen teilweise oder vollständig zu verbergen.
 
-**Zuschnitt** beinhaltet das Definieren eines geschlossenen Vektorpfads, einer Form oder eines Polygons als **Zuschnittspfad**. Alles innerhalb des Zuschnittspfadbereichs bleibt sichtbar, während alles außerhalb verborgen oder "ausgeschnitten" wird. Die {{cssxref("clip-path")}}-Eigenschaft spezifiziert eine {{cssxref("&lt;basic-shape&gt;")}} oder verweist auf ein SVG-{{SVGElement("clipPath")}}-Element, das als Zuschnittspfad verwendet wird.
+**Beschneidung** beinhaltet das Definieren eines geschlossenen Vektorpfads, einer Form oder eines Polygons als **Beschnittpfad**. Alles innerhalb des Bereichs des Beschnittpfads bleibt sichtbar, während alles außerhalb verborgen oder "ausgeblendet" wird. Die {{cssxref("clip-path")}}-Eigenschaft spezifiziert eine {{cssxref("&lt;basic-shape&gt;")}} oder referenziert ein SVG-{{SVGElement("clipPath")}}-Element, das als Beschnittpfad verwendet werden soll.
 
-CSS-**Maskierungs**eigenschaften werden verwendet, um einem Element oder seinem Rahmen eine Maske anzuwenden. Ein grafisches Objekt wird dann auf den Hintergrund oder Rahmen gemalt und maskiert je nach Deckkraft oder Luminanz der Maske entweder vollständig oder teilweise Teile des Elements oder seines Rahmens.
+CSS-**Maskierungs**-Eigenschaften werden verwendet, um eine Maske auf ein Element oder dessen Rand anzuwenden. Ein grafisches Objekt wird dann vollständig oder teilweise auf den Hintergrund oder Rand gemalt, wodurch Teile des Elements oder seine Ränder je nach Deckkraft oder Luminanz der Maske ausgeblendet werden.
 
-Das als Maske verwendete Bild wird durch die Eigenschaften {{cssxref("mask-image")}} oder {{cssxref("mask-border-source")}} angegeben. Die angegebene Maske kann ein {{cssxref("image")}}, ein {{cssxref("gradient")}} oder ein SVG-{{SVGElement("mask")}}-Element sein. Die Maske kann ähnlich wie [Hintergrund- und Rahmenbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) skaliert und positioniert werden.
+Das Bild, das als Maske verwendet wird, wird durch die {{cssxref("mask-image")}}- oder {{cssxref("mask-border-source")}}-Eigenschaften festgelegt. Die angegebene Maske kann ein {{cssxref("image")}}, ein {{cssxref("gradient")}} oder ein SVG-{{SVGElement("mask")}}-Element sein. Die Maske kann ähnlich wie [Hintergrund- und Randbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) skaliert und positioniert werden.
 
-Zuschnitt und Maskierung in CSS verhalten sich genauso wie in SVG: Zuerst wird das Element ohne Filtereffekte, Maskierung, Zuschnitt und Deckkraft gestylt. Danach werden alle Effekte in folgender Reihenfolge auf das Element angewendet: [Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects), Zuschnitt, Maskierung und Deckkraft.
+Beschneidung und Maskierung in CSS verhalten sich genauso wie bei SVG: Zuerst wird das Element ohne Filtereffekte, Maskierung, Beschneidung und Deckkraft gestylt. Dann werden dem Element die Effekte in folgender Reihenfolge angewendet: [Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects), Beschneidung, Maskierung und Deckkraft.
 
-Obwohl Maskierung mehr Kontrolle und Optionen bietet, kann Zuschnitt bei der Verwendung einer einfachen Form leistungsstärker sein, da sie einfacher zu interpolieren sind.
+Während die Maskierung mehr Kontrolle und Optionen bietet, kann die Beschneidung bessere Leistung bieten, wenn nur eine einfache Form benötigt wird — sie sind einfacher zu interpolieren.
 
 ## Referenz
 
@@ -35,12 +35,12 @@ Obwohl Maskierung mehr Kontrolle und Optionen bietet, kann Zuschnitt bei der Ver
 - {{cssxref("mask-size")}}
 - {{cssxref("mask-type")}}
 - {{cssxref("mask-border")}} Kurzform
-- {{cssxref("mask-border-mode")}}
 - {{cssxref("mask-border-outset")}}
 - {{cssxref("mask-border-repeat")}}
 - {{cssxref("mask-border-slice")}}
 - {{cssxref("mask-border-source")}}
 - {{cssxref("mask-border-width")}}
+- {{cssxref("mask-border-mode")}}
 
 ### Datentypen
 
@@ -58,17 +58,17 @@ Obwohl Maskierung mehr Kontrolle und Optionen bietet, kann Zuschnitt bei der Ver
 
 ## Leitfäden
 
-- [Einführung in das CSS-Zuschnitt](/de/docs/Web/CSS/CSS_masking/Clipping)
-  - : Einführung in den Zuschnitt in CSS, einschließlich der `clip-path`-Eigenschaft mit Beispielen.
+- [Einführung in CSS-Beschneidung](/de/docs/Web/CSS/CSS_masking/Clipping)
+  - : Einführung in die Beschneidung in CSS, inklusive der `clip-path`-Eigenschaft mit Beispielen.
 
-- [Einführung in das CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
-  - : Einführung in die Maskierung in CSS, die verschiedenen Maskenbildtypen und die Effekte von Luminanz und Alphatransparenz bei der Maskierung.
+- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
+  - : Einführung in die Maskierung in CSS, die verschiedenen Maskenbildtypen und die Effekte von Luminanz und Alpha-Transparenz in der Maskierung.
 
-- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
-  - : Einführung in Maskenschichten und Anleitung zur Deklaration mehrerer Maskenbilder.
+- [Deklaration mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
+  - : Einführung in Maskenschichten und wie man mehrere Maskenbilder deklariert.
 
-- [CSS-Maskeneigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
-  - : Eine Erkundung der CSS-Maskierung und der `mask`-Kurzformelementeigenschaften mit Erklärungen und Beispielen.
+- [CSS-Masken-Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
+  - : Eine Erkundung von CSS-Maskierung und den `mask`-Kurzformkomponenten-Eigenschaften, mit Erläuterungen und Beispielen.
 
 ## Verwandte Konzepte
 
@@ -77,7 +77,7 @@ Obwohl Maskierung mehr Kontrolle und Optionen bietet, kann Zuschnitt bei der Ver
 - {{cssxref("&lt;position&gt;")}}
 - {{cssxref("&lt;url&gt;")}}
 
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)-Modul
+- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)-Modul
   - {{cssxref("background")}} Kurzform
   - {{cssxref("background-origin")}}
   - {{cssxref("background-position")}}
@@ -103,7 +103,7 @@ Obwohl Maskierung mehr Kontrolle und Optionen bietet, kann Zuschnitt bei der Ver
 
 - {{cssxref("background-clip")}}
 - [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)-Modul
-- [SVG-Tutorial: Zuschnitt und Maskierung](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Clipping_and_masking)
+- [SVG-Tutorial: Beschneidung und Maskierung](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Clipping_and_masking)
 - [`CanvasRenderingContext2D.clip()`](/de/docs/Web/API/CanvasRenderingContext2D/clip)
 - [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask)
-- [PWA-Symbol-Maskierung](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons#support_masking)
+- [PWA-Symbolmaskierung](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons#support_masking)

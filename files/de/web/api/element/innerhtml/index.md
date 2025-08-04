@@ -3,235 +3,132 @@ title: "Element: innerHTML-Eigenschaft"
 short-title: innerHTML
 slug: Web/API/Element/innerHTML
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: ffe043e6d4c6b80d4975f9172adf02ca0407c530
 ---
 
 {{APIRef("DOM")}}
 
-Die **`innerHTML`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle holt oder setzt das HTML- oder XML-Markup, das innerhalb des Elements enthalten ist.
+> [!WARNING]
+> Diese Eigenschaft analysiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
+> Solche APIs sind bekannt als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+>
+> Sie können das Risiko verringern, indem Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Strings zuweisen und [trusted types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mithilfe der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive.
+> Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [sanitisieren](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup wie {{htmlelement("script")}}-Elemente und Event-Handler-Attribute zu entfernen.
 
-Genauer gesagt, `innerHTML` liest eine Serialisierung der verschachtelten Kind-DOM-Elemente innerhalb des Elements oder setzt HTML oder XML, das geparst werden soll, um den DOM-Baum innerhalb des Elements zu ersetzen.
+Die **`innerHTML`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces liest oder setzt das HTML- oder XML-Markup, das im Element enthalten ist, und ignoriert dabei jegliche {{Glossary("shadow_tree", "Shadow Roots")}} in beiden Fällen.
 
-Um das HTML in das Dokument einzufügen, anstatt den Inhalt eines Elements zu ersetzen, verwenden Sie die Methode [`insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML).
-
-Die Serialisierung des DOM-Baums, die von der Eigenschaft gelesen wird, umfasst keine {{Glossary("shadow_tree", "Shadow Roots")}} — wenn Sie einen HTML-String erhalten möchten, der Shadow Roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
-Ähnlich, wenn Sie den Inhalt eines Elements mit `innerHTML` setzen, wird der HTML-String in DOM-Elemente geparst, die keine Shadow Roots enthalten.
-
-Zum Beispiel wird [`<template>`](/de/docs/Web/HTML/Reference/Elements/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) angegeben ist oder nicht.
-Um die Inhalte eines Elements aus einem HTML-String zu setzen, der deklarative Shadow Roots enthält, müssen Sie entweder [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
-
-Beachten Sie, dass einige Browser die `<`- und `>`-Zeichen als `&lt;` und `&gt;` serialisieren, wenn sie in Attributwerten erscheinen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
-Dies soll eine potenzielle Sicherheitslücke ([Mutation XSS](https://www.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html)) verhindern, bei der ein Angreifer Eingaben erstellen kann, die eine [Sanitisierungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen, wodurch ein Cross-Site-Scripting (XSS)-Angriff ermöglicht wird.
+Um HTML in das Dokument einzufügen, anstatt den Inhalt eines Elements zu ersetzen, verwenden Sie die Methode [`insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML).
 
 ## Wert
 
-Ein String, der die HTML-Serialisierung der Nachfahren des Elements enthält.
-Das Setzen des Wertes von `innerHTML` entfernt alle Nachfahren des Elements und ersetzt sie durch Knoten, die durch das Parsen des in der Zeichenkette _htmlString_ angegebenen HTMLs konstruiert werden.
+Das Abrufen der Eigenschaft gibt einen String zurück, der die HTML-Serialisierung der Nachfahren des Elements enthält.
 
-Wenn der Wert `null` gesetzt wird, wird dieser `null`-Wert in die leere Zeichenkette (`""`) umgewandelt, sodass `elt.innerHTML = null` gleichbedeutend mit `elt.innerHTML = ""` ist.
+Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt oder einen String. Es analysiert diesen Wert als HTML und ersetzt alle Nachfahren des Elements mit dem Ergebnis.
+Wenn er auf den Wert `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) konvertiert, sodass `elt.innerHTML = null` gleichbedeutend mit `elt.innerHTML = ""` ist.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, den Wert von `innerHTML` mit einer Zeichenkette zu setzen, die kein korrekt formatiertes HTML ist.
+  - : Wird ausgelöst, wenn versucht wurde, den Wert von `innerHTML` mit einem String zu setzen, der nicht korrekt geformtes HTML ist.
+- `TypeError`
+  - : Wird ausgelöst, wenn die Eigenschaft auf einen String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, das HTML in einen Knoten einzufügen, dessen Elternknoten ein [`Document`](/de/docs/Web/API/Document) ist.
+  - : Wird ausgelöst, wenn versucht wurde, das HTML in einen Knoten einzufügen, dessen Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
 
-## Nutzungshinweise
+## Beschreibung
 
-### Lesen der HTML-Inhalte eines Elements
+`innerHTML` erhält eine Serialisierung der verschachtelten untergeordneten DOM-Elemente innerhalb des Elements oder setzt HTML oder XML, das analysiert werden soll, um den DOM-Baum innerhalb des Elements zu ersetzen.
 
-Das Lesen von `innerHTML` veranlasst den User-Agent, das HTML- oder XML-Fragment zu serialisieren, das sich aus den Nachfahren des Elements zusammensetzt.
-Die resultierende Zeichenkette wird zurückgegeben.
+Beachten Sie, dass einige Browser die Zeichen `<` und `>` in Attributwerten als `&lt;` und `&gt;` serialisieren (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Dies dient dazu, eine potenzielle Sicherheitsanfälligkeit ([mutation XSS](https://research.securitum.com/dompurify-bypass-using-mxss/)) zu verhindern, bei der ein Angreifer Eingaben erstellen kann, die eine [Sanitisierungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen, wodurch ein Cross-Site-Scripting (XSS)-Angriff ermöglicht wird.
 
-```js
-const contents = myElement.innerHTML;
-```
+### Überlegungen zum Shadow DOM
 
-Dies ermöglicht es Ihnen, das HTML-Markup der Inhaltsknoten des Elements anzusehen.
+Die Serialisierung des DOM-Baums, die von der Eigenschaft gelesen wird, schließt keine {{Glossary("shadow_tree", "Shadow Roots")}} ein — wenn Sie einen HTML-String erhalten möchten, der Shadow Roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
 
-> [!NOTE]
-> Das zurückgegebene HTML- oder XML-Fragment wird basierend auf dem aktuellen Inhalt des Elements generiert, sodass das Markup und die Formatierung des zurückgegebenen Fragments wahrscheinlich nicht mit dem ursprünglichen Seitenmarkup übereinstimmen.
+Ebenso wird beim Setzen von Element-Inhalten mit `innerHTML` der HTML-String in DOM-Elemente geparst, die keine Shadow Roots enthalten.
+So wird beispielsweise ein [`<template>`](/de/docs/Web/HTML/Reference/Elements/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) angegeben ist oder nicht.
+Um die Inhalte eines Elements aus einem HTML-String zu setzen, der deklarative Shadow Roots enthält, müssen Sie stattdessen [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
 
-### Ersetzen der Inhalte eines Elements
+### Sicherheitshinweise
 
-Das Setzen des Wertes von `innerHTML` ermöglicht es Ihnen, den vorhandenen Inhalt eines Elements einfach durch neuen Inhalt zu ersetzen.
-
-> [!WARNING]
-> Dies stellt ein [Sicherheitsrisiko](#sicherheitsüberlegungen) dar, wenn die einzufügende Zeichenkette potenziell bösartige Inhalte enthalten könnte.
-> Bei der Einfügung von Benutzerdaten sollten Sie immer die Verwendung einer Sanitisierungsbibliothek in Betracht ziehen, um den Inhalt zu sanitisieren, bevor er eingefügt wird.
-
-Zum Beispiel können Sie den gesamten Inhalt eines Dokuments löschen, indem Sie den Inhalt des [`body`](/de/docs/Web/API/Document/body)-Attributs des Dokuments leeren:
-
-```js
-document.body.textContent = "";
-```
-
-Dieses Beispiel holt das aktuelle HTML-Markup des Dokuments und ersetzt die `"<"`-Zeichen mit der {{Glossary("character_reference", "Zeichenreferenz")}} `"&lt;"`, wobei im Wesentlichen das HTML in reinen Text umgewandelt wird.
-Dies wird dann in ein {{HTMLElement("pre")}}-Element eingeschlossen.
-Dann wird der Wert von `innerHTML` auf diese neue Zeichenkette geändert.
-Infolgedessen werden die Inhalte des Dokuments durch eine Darstellung des gesamten Quellcodes der Seite ersetzt.
-
-```js
-document.documentElement.innerHTML = `<pre>${document.documentElement.innerHTML.replace(
-  /</g,
-  "&lt;",
-)}</pre>`;
-```
-
-#### Operative Details
-
-Was passiert genau, wenn Sie den Wert von `innerHTML` setzen?
-Dies führt dazu, dass der User-Agent die folgenden Schritte ausführt:
-
-1. Der angegebene Wert wird als HTML oder XML geparst (abhängig vom Dokumenttyp), was ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt erzeugt, das die neue Menge an DOM-Knoten für die neuen Elemente darstellt.
-2. Wenn das Element, dessen Inhalt ersetzt wird, ein {{HTMLElement("template")}}-Element ist, dann wird das [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Attribut des `<template>`-Elements durch das in Schritt 1 erstellte neue `DocumentFragment` ersetzt.
-3. Für alle anderen Elemente wird der Inhalt des Elements durch die Knoten im neuen `DocumentFragment` ersetzt.
-
-### HTML zu einem Element hinzufügen
-
-Das Setzen des Wertes von `innerHTML` ermöglicht es Ihnen, neue Inhalte zu den vorhandenen Inhalten eines Elements hinzuzufügen.
-
-Zum Beispiel können wir ein neues Listenelement (`<li>`) zu der vorhandenen Liste (`<ul>`) hinzufügen:
-
-#### HTML
-
-```html
-<ul id="list">
-  <li><a href="#">Item 1</a></li>
-  <li><a href="#">Item 2</a></li>
-  <li><a href="#">Item 3</a></li>
-</ul>
-```
-
-#### JavaScript
-
-```js
-const list = document.getElementById("list");
-
-list.innerHTML += `<li><a href="#">Item ${list.children.length + 1}</a></li>`;
-```
-
-Bitte beachten Sie, dass die Verwendung von `innerHTML`, um HTML-Elemente hinzuzufügen (z.B. `el.innerHTML += "<a href='…'>link</a>"`), dazu führt, dass alle zuvor gesetzten Event-Listener entfernt werden.
-Das bedeutet, dass Sie nach dem Hinzufügen eines HTML-Elements auf diese Weise die zuvor gesetzten Event-Listener nicht mehr verwenden können.
-
-### Sicherheitsüberlegungen
-
-Es ist nicht ungewöhnlich, dass `innerHTML` verwendet wird, um Text in eine Webseite einzufügen.
-Dies kann ein Angriffspunkt auf einer Seite werden und ein potenzielles Sicherheitsrisiko darstellen.
-
-```js
-let name = "John";
-// assuming 'el' is an HTML DOM element
-el.innerHTML = name; // harmless in this case
-
-// …
-
-name = "<script>alert('I am John in an annoying alert!')</script>";
-el.innerHTML = name; // harmless in this case
-```
-
-Obwohl dies wie ein [Cross-Site-Scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)-Angriff aussieht, ist das Ergebnis harmlos. Ein mit `innerHTML` eingefügtes {{HTMLElement("script")}}-Tag wird nicht ausgeführt.
-
-Es gibt jedoch Möglichkeiten, JavaScript auszuführen, ohne {{HTMLElement("script")}}-Elemente zu verwenden, sodass ein Sicherheitsrisiko besteht, wann immer Sie `innerHTML` verwenden, um Zeichenketten zu setzen, über die Sie keine Kontrolle haben.
-Zum Beispiel:
+Die `innerHTML`-Eigenschaft ist wahrscheinlich der häufigste Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, bei denen potenziell unsichere von einem Benutzer bereitgestellte Strings in das DOM eingefügt werden, ohne dass sie vorher sanitisiert werden.
+Während die Eigenschaft {{HTMLElement("script")}}-Elemente daran hindert, ausgeführt zu werden, wenn sie injiziert werden, ist sie anfällig für viele andere Wege, auf denen Angreifer HTML erstellen können, um böswilliges JavaScript auszuführen.
+Zum Beispiel würde das folgende Beispiel den Code im `error`-Event-Handler ausführen, da der {{htmlelement("img")}} `src`-Wert keine gültige Bild-URL ist:
 
 ```js
 const name = "<img src='x' onerror='alert(1)'>";
 el.innerHTML = name; // shows the alert
 ```
 
-Aus diesem Grund wird empfohlen, anstelle von `innerHTML` folgende Alternativen zu verwenden:
+Sie können diese Probleme mildern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Strings zuweisen und einen CSP-Header festlegen, um [trusted type durchzusetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [sanitisieren](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup zu entfernen, bevor es injiziert wird.
 
-- [`Node.textContent`](/de/docs/Web/API/Node/textContent), wenn Sie reinen Text einfügen, da dies den Text als reinen Text und nicht als HTML einfügt.
-
-> [!WARNING]
-> Wenn Ihr Projekt eine Form von Sicherheitsüberprüfung durchläuft, wird die Verwendung von `innerHTML` höchstwahrscheinlich dazu führen, dass Ihr Code abgelehnt wird.
-> Wenn Sie `innerHTML` in einer [Browser-Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions) verwenden und die Erweiterung bei [addons.mozilla.org](https://addons.mozilla.org/) einreichen, kann sie im Review-Prozess abgelehnt werden.
-> Bitte beachten Sie [Sicheres Einfügen von externen Inhalten in eine Seite](/de/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page) für alternative Methoden.
+> [!NOTE]
+> [`Node.textContent`](/de/docs/Web/API/Node/textContent) sollte verwendet werden, wenn Sie wissen, dass der vom Benutzer bereitgestellte Inhalt reiner Text sein sollte.
+> Dies verhindert, dass er als HTML geparst wird.
 
 ## Beispiele
 
-Dieses Beispiel verwendet `innerHTML`, um einen Mechanismus zum Protokollieren von Nachrichten in einem Kasten auf einer Webseite zu erstellen.
+### Lesen der HTML-Inhalte eines Elements
 
-### JavaScript
+Das Lesen von `innerHTML` führt dazu, dass der Benutzeragent die Nachfahren des Elements serialisiert.
 
-```js
-function log(msg) {
-  const logElem = document.querySelector(".log");
-
-  const time = new Date();
-  const timeStr = time.toLocaleTimeString();
-  logElem.innerHTML += `${timeStr}: ${msg}<br/>`;
-}
-
-log("Logging mouse events inside this container…");
-```
-
-Die `log()`-Funktion erstellt die Protokollausgabe, indem sie die aktuelle Zeit von einem {{jsxref("Date")}}-Objekt mit {{jsxref("Date.toLocaleTimeString", "toLocaleTimeString()")}} abruft und eine Zeichenkette mit dem Zeitstempel und dem Nachrichtentext erstellt.
-Dann wird die Nachricht zu dem Kasten mit der Klasse `"log"` hinzugefügt.
-
-Wir fügen eine zweite Methode hinzu, die Informationen über auf [`MouseEvent`](/de/docs/Web/API/MouseEvent) basierende Ereignisse protokolliert (wie [`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`click`](/de/docs/Web/API/Element/click_event) und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)):
-
-```js
-function logEvent(event) {
-  const msg = `Event <strong>${event.type}</strong> at <em>${event.clientX}, ${event.clientY}</em>`;
-  log(msg);
-}
-```
-
-Dann verwenden wir dies als Event-Handler für eine Reihe von Mausereignissen auf dem Kasten, der unser Protokoll enthält:
-
-```js
-const boxElem = document.querySelector(".box");
-
-boxElem.addEventListener("mousedown", logEvent);
-boxElem.addEventListener("mouseup", logEvent);
-boxElem.addEventListener("click", logEvent);
-boxElem.addEventListener("mouseenter", logEvent);
-boxElem.addEventListener("mouseleave", logEvent);
-```
-
-### HTML
-
-Das HTML ist in unserem Beispiel ziemlich einfach.
+Angenommen, das folgende HTML:
 
 ```html
-<div class="box">
-  <div><strong>Log:</strong></div>
-  <div class="log"></div>
+<div id="example">
+  <p>My name is Joe</p>
 </div>
 ```
 
-Das {{HTMLElement("div")}} mit der Klasse `"box"` ist nur ein Container für Layout-Zwecke, der die Inhalte mit einem Rand präsentiert.
-Das `<div>`, dessen Klasse `"log"` ist, ist der Container für den Protokolltext selbst.
+Sie können das Markup für die Inhalte des äußeren {{htmlelement("div")}} wie gezeigt abrufen und protokollieren:
 
-### CSS
-
-Das folgende CSS gestaltet unser Beispielinhalt.
-
-```css
-.box {
-  width: 600px;
-  height: 300px;
-  border: 1px solid black;
-  padding: 2px 4px;
-  overflow-y: scroll;
-  overflow-x: auto;
-}
-
-.log {
-  margin-top: 8px;
-  font-family: monospace;
-}
+```js
+const myElement = document.querySelector("#example");
+const contents = myElement.innerHTML;
+console.log(contents); // "\n  <p>My name is Joe</p>\n"
 ```
 
-### Ergebnis
+### Ersetzen der Inhalte eines Elements
 
-Der resultierende Inhalt sieht so aus.
-Sie können Ausgaben in das Protokoll sehen, indem Sie die Maus in und aus dem Kasten bewegen, darauf klicken usw.
+In diesem Beispiel ersetzen wir das DOM eines Elements, indem wir HTML der `innerHTML`-Eigenschaft des Elements zuweisen.
+Um das Risiko von XSS zu mindern, erstellen wir zuerst ein `TrustedHTML`-Objekt aus dem String, der das HTML enthält, und weisen dieses Objekt dann `innerHTML` zu.
 
-{{EmbedLiveSample("Examples", 640, 350)}}
+Trusted Types werden noch nicht in allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Dies fungiert als transparenter Ersatz für die Trusted Types JavaScript API:
+
+```js
+if (typeof trustedTypes === "undefined")
+  trustedTypes = { createPolicy: (n, rules) => rules };
+```
+
+Dann erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) für die Transformation eines Eingabestrings in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen definiert.
+Implementierungen von `createHTML()` verwenden häufig eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu sanitisieren:
+
+```js
+const policy = trustedTypes.createPolicy("my-policy", {
+  createHTML: (input) => DOMPurify.sanitize(input),
+});
+```
+
+Dann verwenden wir dieses `policy`-Objekt, um ein `TrustedHTML`-Objekt aus dem potenziell unsicheren Eingabestring zu erstellen und das Ergebnis dem Element zuzuweisen:
+
+```js
+// The potentially malicious string
+const untrustedString = "<p>I might be XSS</p><img src='x' onerror='alert(1)'>";
+
+// Create a TrustedHTML instance using the policy
+const trustedHTML = policy.createHTML(untrustedString);
+
+// Inject the TrustedHTML (which contains a trusted string)
+const element = document.querySelector("#container");
+element.innerHTML = trustedHTML;
+```
+
+> [!WARNING]
+> Obwohl Sie einen String direkt `innerHTML` zuweisen können, stellt dies ein [Sicherheitsrisiko](#sicherheitshinweise) dar, wenn der einzufügende String potenziell schädlichen Inhalt enthalten könnte.
+> Sie sollten `TrustedHTML` verwenden, um sicherzustellen, dass der Inhalt vor dem Einfügen sanitisiert wird, und Sie sollten einen CSP-Header festlegen, um [trusted types durchzusetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 
 ## Spezifikationen
 
@@ -247,8 +144,9 @@ Sie können Ausgaben in das Protokoll sehen, indem Sie die Maus in und aus dem K
 - [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
 - [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
 - Parsen von HTML oder XML in einen DOM-Baum: [`DOMParser`](/de/docs/Web/API/DOMParser)
-- Serialisierung eines DOM-Baums in eine XML-Zeichenkette: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
+- Serialisierung eines DOM-Baums in einen XML-String: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
 - [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML)
 - [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML)
 - [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe)
 - [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe)
+- [Trusted Types API](/de/docs/Web/API/Trusted_Types_API)
