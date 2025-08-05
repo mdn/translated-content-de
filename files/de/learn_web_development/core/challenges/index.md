@@ -1,23 +1,22 @@
 ---
-title: Lösungen für Herausforderungen
+title: Lösungen für Aufgaben
 slug: Learn_web_development/Core/Challenges
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Diese Seite bietet Lösungen für die in dem Modul [CSS Styling Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics) gestellten Herausforderungen. Dies sind nicht die einzigen möglichen Lösungen. Die folgenden Abschnitte entsprechen den Titeln der Tutorialabschnitte.
+Diese Seite bietet Lösungen zu den in dem Modul [Grundlagen des CSS-Stylings](/de/docs/Learn_web_development/Core/Styling_basics) gestellten Aufgaben. Dies sind nicht die einzigen möglichen Lösungen. Die untenstehenden Abschnitte entsprechen den Titeln der Tutorialabschnitte.
 
 ## Kaskadierung und Vererbung
 
-Die Herausforderungen auf der Seite [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) sind:
+Die Aufgaben auf der Seite [Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) sind:
 
 ### Vererbte Stile
 
-- Herausforderung
+- Aufgabe
   - : Ändern Sie Ihr Stylesheet so, dass nur die roten Buchstaben unterstrichen sind.
 - Lösung
-
-  - : Verschieben Sie die Deklaration für das Unterstreichen von der Regel für {{ HTMLElement("p") }} zur Regel für {{ HTMLElement("strong") }}. Die resultierende Datei sieht folgendermaßen aus:
+  - : Verschieben Sie die Deklaration für das Unterstreichen von der Regel für {{ HTMLElement("p") }} zu der für {{ HTMLElement("strong") }}. Die resultierende Datei sieht wie folgt aus:
 
     ```css
     p {
@@ -29,19 +28,18 @@ Die Herausforderungen auf der Seite [Umgang mit Konflikten](/de/docs/Learn_web_d
     }
     ```
 
-Spätere Abschnitte dieses Tutorials beschreiben Stilregeln und Deklarationen ausführlicher.
+In späteren Abschnitten dieses Tutorials werden Stilregeln und Deklarationen ausführlicher beschrieben.
 
 ## Selektoren
 
-Die Herausforderungen auf der Seite [Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) sind:
+Die Aufgaben auf der Seite [Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) sind:
 
 ### Zweiter Absatz blau
 
-- Herausforderung
-  - : Fügen Sie, ohne Ihre HTML-Datei zu ändern, eine einzelne Regel in Ihre CSS-Datei ein, die alle Anfangsbuchstaben in ihrer ursprünglichen Farbe belässt, aber den gesamten anderen Text im zweiten Absatz blau färbt.
+- Aufgabe
+  - : Fügen Sie eine einzige Regel zu Ihrer CSS-Datei hinzu, ohne die HTML-Datei zu ändern, die alle Anfangsbuchstaben in ihrer jetzigen Farbe lässt, aber den restlichen Text im zweiten Absatz blau macht.
 - Lösung
-
-  - : Fügen Sie eine Regel mit einem ID-Selektor von `#second` und einer Deklaration `color: blue;` hinzu, wie unten gezeigt:
+  - : Fügen Sie eine Regel mit einem ID-Selektor von `#second` und einer Deklaration `color: blue;` hinzu:
 
     ```css
     #second {
@@ -53,11 +51,10 @@ Die Herausforderungen auf der Seite [Grundlegende Selektoren](/de/docs/Learn_web
 
 ### Beide Absätze blau
 
-- Herausforderung
-  - : Ändern Sie die Regel, die Sie gerade hinzugefügt haben (ohne etwas anderes zu ändern), um den ersten Absatz ebenfalls blau zu machen.
+- Aufgabe
+  - : Ändern Sie nun die Regel, die Sie gerade hinzugefügt haben (ohne sonst etwas zu verändern), damit auch der erste Absatz blau wird.
 - Lösung
-
-  - : Ändern Sie den Selektor der neuen Regel in einen Tag-Selektor mit `p`:
+  - : Ändern Sie den Selektor der neuen Regel zu einem Tag-Selektor mit `p`:
 
     ```css
     p {
@@ -67,15 +64,14 @@ Die Herausforderungen auf der Seite [Grundlegende Selektoren](/de/docs/Learn_web
 
 Die Regeln für die anderen Farben haben alle spezifischere Selektoren, sodass sie das Blau des Absatzes überschreiben.
 
-## Lesbare CSS
+## Lesbares CSS
 
-### Eine Regel auskommentieren
+### Eine Regel Auskommentieren
 
-- Herausforderung
-  - : Kommentieren Sie einen Teil Ihres Stylesheets aus, ohne etwas anderes zu ändern, um den allerersten Buchstaben Ihres Dokuments rot zu machen.
+- Aufgabe
+  - : Kommentieren Sie einen Teil Ihres Stylesheets aus, ohne sonst etwas zu ändern, um den allerersten Buchstaben Ihres Dokuments rot zu machen.
 - Lösung
-
-  - : Eine Möglichkeit besteht darin, Kommentardelimiter um die Regel für `.carrot` zu setzen:
+  - : Eine Möglichkeit, dies zu tun, besteht darin, die Regel für `.carrot` mit Kommentarzeichen zu versehen:
 
     ```css
     /*
@@ -89,26 +85,24 @@ Die Regeln für die anderen Farben haben alle spezifischere Selektoren, sodass s
 
 ### Große Anfangsbuchstaben
 
-- Herausforderung
-  - : Ändern Sie nichts anderes und machen Sie alle sechs Anfangsbuchstaben doppelt so groß in der Standardschriftart des Browsers.
+- Aufgabe
+  - : Ohne etwas anderes zu ändern, machen Sie alle sechs Anfangsbuchstaben doppelt so groß in der serifen Schriftart des Browsers.
 - Lösung
-
-  - : Fügen Sie die folgende Stil-Deklaration in die `strong`-Regel ein:
+  - : Fügen Sie die folgende Stil-Deklaration zur `strong`-Regel hinzu:
 
     ```css
     font: 200% serif;
     ```
 
-    Wenn Sie separate Deklarationen für `font-size` und `font-family` verwenden, wird die `font-style`-Einstellung im ersten Absatz _nicht_ überschrieben.
+    Wenn Sie separate Deklarationen für `font-size` und `font-family` verwenden, dann wird die `font-style`-Einstellung des ersten Absatzes _nicht_ überschrieben.
 
 ## Farbe
 
-### Drei-Stellen-Farbcodes
+### Drei-stellige Farbcodes
 
-- Herausforderung
-  - : Ändern Sie in Ihrer CSS-Datei alle Farbnamen in 3-stellige Farbcodes, ohne das Ergebnis zu beeinflussen.
+- Aufgabe
+  - : Ändern Sie in Ihrer CSS-Datei alle Farbnamen zu 3-stelligen Farbcodes, ohne das Ergebnis zu beeinträchtigen.
 - Lösung
-
   - : Die folgenden Werte sind vernünftige Annäherungen an die benannten Farben:
 
     ```css
@@ -133,15 +127,14 @@ Die Regeln für die anderen Farben haben alle spezifischere Selektoren, sodass s
 
 ## Inhalt
 
-Die Herausforderungen auf der Seite sind:
+Die Aufgaben auf der Seite sind:
 
 ### Ein Bild hinzufügen
 
-- Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, sodass das Bild zu Beginn jeder Zeile angezeigt wird.
+- Aufgabe
+  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, damit das Bild am Anfang jeder Zeile angezeigt wird.
 - Lösung
-
-  - : Fügen Sie diese Regel zu Ihrem Stylesheet hinzu:
+  - : Fügen Sie diese Regel Ihrem Stylesheet hinzu:
 
     ```css
     p::before {
@@ -151,15 +144,14 @@ Die Herausforderungen auf der Seite sind:
 
 ## Listen
 
-Die Herausforderungen auf der Seite [Styling von Listen](/de/docs/Learn_web_development/Core/Text_styling/Styling_lists) sind:
+Die Aufgaben auf der Seite [Listen gestalten](/de/docs/Learn_web_development/Core/Text_styling/Styling_lists) sind:
 
-### Kleinere römische Ziffern
+### Kleinbuchstabige römische Ziffern
 
-- Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, um die Ozeane mit römischen Ziffern von i bis v zu nummerieren.
+- Aufgabe
+  - : Fügen Sie eine Regel Ihrem Stylesheet hinzu, um die Ozeane mit römischen Ziffern von i bis v zu nummerieren.
 - Lösung
-
-  - : Definieren Sie eine Regel für Listenelemente, um den Listentyp `lower-roman` zu verwenden:
+  - : Definieren Sie eine Regel für Listenelemente, um den `lower-roman`-Listentyp zu verwenden:
 
     ```css
     li {
@@ -167,13 +159,12 @@ Die Herausforderungen auf der Seite [Styling von Listen](/de/docs/Learn_web_deve
     }
     ```
 
-### Große Buchstaben
+### Großbuchstaben
 
-- Herausforderung
-  - : Ändern Sie Ihr Stylesheet, um die Überschriften mit großen Buchstaben in Klammern zu kennzeichnen.
+- Aufgabe
+  - : Ändern Sie Ihr Stylesheet, um die Überschriften mit Großbuchstaben in Klammern zu kennzeichnen.
 - Lösung
-
-  - : Fügen Sie eine Regel zum Body-Element (Elternteil der Überschriften) hinzu, um einen neuen Zähler zurückzusetzen, und eine Regel, um den Zähler auf den Überschriften anzuzeigen und zu erhöhen:
+  - : Fügen Sie eine Regel für das Body-Element (Elternteil der Überschriften) hinzu, um einen neuen Zähler zurückzusetzen, und eine, um den Zähler auf den Überschriften anzuzeigen und zu inkrementieren:
 
     ```css
     /* numbered headings */
@@ -186,17 +177,16 @@ Die Herausforderungen auf der Seite [Styling von Listen](/de/docs/Learn_web_deve
     }
     ```
 
-## Kästen
+## Boxen
 
-Die Herausforderungen auf der Seite [Kästen](/de/docs/Learn_web_development/Core/CSS_layout) sind:
+Die Aufgaben auf der Seite [Boxen](/de/docs/Learn_web_development/Core/CSS_layout) sind:
 
 ### Ozean-Rahmen
 
-- Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, die den Ozeanen einen breiten Rahmen in einer Farbe verleiht, die Sie an das Meer erinnert.
+- Aufgabe
+  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, die einen breiten Rahmen um die Ozeane in einer Farbe, die an das Meer erinnert, erstellt.
 - Lösung
-
-  - : Die folgende Regel erreicht diesen Effekt:
+  - : Die folgende Regel erzielt diesen Effekt:
 
     ```css
     ul {
@@ -207,22 +197,20 @@ Die Herausforderungen auf der Seite [Kästen](/de/docs/Learn_web_development/Cor
 
 ## Layout
 
-Die Herausforderungen auf der Seite [Layout](/de/docs/Learn_web_development/Core/CSS_layout) sind:
+Die Aufgaben auf der Seite [Layout](/de/docs/Learn_web_development/Core/CSS_layout) sind:
 
-### Standardposition des Bildes
+### Standard-Bildposition
 
 ### Feste Bildposition
 
-- Herausforderung
-  - : Ändern Sie Ihr Beispieldokument, `doc2.html`, und fügen Sie diesen Tag am Ende, direkt vor `</BODY>`, hinzu: `<IMG id="fixed-pin" src="Yellow-pin.png" alt="Yellow map pin">`. Voraussagen Sie, wo das Bild in Ihrem Dokument erscheint. Aktualisieren Sie dann Ihren Browser, um zu sehen, ob Sie richtig lagen.
+- Aufgabe
+  - : Ändern Sie Ihr Beispieldokument, `doc2.html`, indem Sie dieses Tag am Ende hinzufügen, direkt vor `</BODY>`: `<IMG id="fixed-pin" src="Yellow-pin.png" alt="Yellow map pin">`. Vorhersagen, wo das Bild in Ihrem Dokument erscheinen wird. Aktualisieren Sie dann Ihren Browser, um zu sehen, ob Sie richtig lagen.
 - Lösung
-  - : Das Bild erscheint rechts neben der zweiten Liste.
-    ![Eine Liste von fünf Platzhaltertexten trägt den Titel "Nummerierte Absätze". Ein gelber Pin befindet sich rechts von einem blauen Kasten, der die Liste enthält.](pin_placement.png)
-- Herausforderung
+  - : Das Bild erscheint rechts von der zweiten Liste. ![Eine Liste von fünf Platzhaltertexten ist mit Numerierten Absätzen betitelt. Eine gelbe Stecknadel ist rechts von einem blauen Kasten platziert, der die Liste enthält.](pin_placement.png)
+- Aufgabe
   - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, die das Bild oben rechts in Ihrem Dokument platziert.
 - Lösung
-
-  - : Die folgende Regel erreicht das gewünschte Ergebnis:
+  - : Die folgende Regel erzielt das gewünschte Ergebnis:
 
     ```css
     #fixed-pin {
@@ -234,15 +222,14 @@ Die Herausforderungen auf der Seite [Layout](/de/docs/Learn_web_development/Core
 
 ## Tabellen
 
-Die Herausforderungen auf der Seite [Tabellen](/de/docs/Learn_web_development/Core/Styling_basics/Tables) sind:
+Die Aufgaben auf der Seite [Tabellen](/de/docs/Learn_web_development/Core/Styling_basics/Tables) sind:
 
-### Rahmen nur um Datenszellen
+### Rahmen nur für Datenelemente
 
-- Herausforderung
-  - : Ändern Sie das Stylesheet so, dass der Tisch nur einen grünen Rahmen um die DatensZellen hat.
+- Aufgabe
+  - : Ändern Sie das Stylesheet so, dass die Tabelle einen grünen Rahmen nur um die Datenelemente hat.
 - Lösung
-
-  - : Die folgende Regel umfasst nur {{ HTMLElement("td") }} Elemente, die sich innerhalb des {{ HTMLElement("tbody") }} Elements der Tabelle mit `id=demo-table` befinden:
+  - : Die folgende Regel setzt Rahmen nur um {{ HTMLElement("td") }}-Elemente, die sich im {{ HTMLElement("tbody") }}-Element der Tabelle mit `id=demo-table` befinden:
 
     ```css
     #demo-table tbody td {
@@ -252,27 +239,25 @@ Die Herausforderungen auf der Seite [Tabellen](/de/docs/Learn_web_development/Co
 
 ## Medien
 
-Die Herausforderungen auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) sind:
+Die Aufgaben auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) sind:
 
-### Separates Druckstil-Datei
+### Separater Druckstil-Datei
 
-- Herausforderung
-  - : Verschieben Sie die druckspezifischen Stilregeln in eine separate CSS-Datei und importieren Sie sie in Ihr `style4.css` Stylesheet.
+- Aufgabe
+  - : Verschieben Sie die druckspezifischen Stilregeln in eine separate CSS-Datei und importieren Sie sie in Ihr `style4.css`-Stylesheet.
 - Lösung
-
-  - : Schneiden Sie die Zeilen zwischen `/* print only */` und `/* end print only */` aus und fügen Sie sie in eine Datei namens `style4_print.css` ein. Fügen Sie in style4.css die folgende Zeile am Anfang der Datei hinzu:
+  - : Schneiden Sie die Linien zwischen `/* print only */` und `/* end print only */` aus und fügen Sie sie in eine Datei namens `style4_print.css` ein. Fügen Sie in style4.css folgende Zeile am Anfang der Datei hinzu:
 
     ```css
-    @import url("style4_print.css") print;
+    @import "style4_print.css" print;
     ```
 
-### Farbe bei Überschriften-Hover
+### Überschrift Hover-Farbe
 
-- Herausforderung
-  - : Lassen Sie die Überschriften blau werden, wenn der Mauszeiger darüber schwebt.
+- Aufgabe
+  - : Machen Sie die Überschriften, wenn sich der Mauszeiger über ihnen befindet, blau.
 - Lösung
-
-  - : Die folgende Regel erreicht das gewünschte Ergebnis:
+  - : Die folgende Regel erzielt das gewünschte Ergebnis:
 
     ```css
     h1:hover {
@@ -282,13 +267,12 @@ Die Herausforderungen auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/
 
 ## JavaScript
 
-### Kasten nach rechts verschieben
+### Box nach rechts verschieben
 
-- Herausforderung
-  - : Ändern Sie das Skript so, dass das Quadrat um 20 em nach rechts springt, wenn sich seine Farbe ändert, und danach wieder zurückspringt.
+- Aufgabe
+  - : Ändern Sie das Skript, damit das Quadrat nach rechts um 20 em springt, wenn sich seine Farbe ändert, und anschließend zurückspringt.
 - Lösung
-
-  - : Fügen Sie Zeilen hinzu, um die Eigenschaft `margin-left` zu ändern. Bei JavaScript müssen Sie es als `marginLeft` angeben. Das folgende Skript erreicht das gewünschte Ergebnis:
+  - : Fügen Sie Zeilen hinzu, um die `margin-left`-Eigenschaft zu ändern. Stellen Sie sicher, dass Sie diese als `marginLeft` in JavaScript spezifizieren. Das folgende Skript erzielt das gewünschte Ergebnis:
 
     ```js
     // JavaScript demonstration
@@ -312,11 +296,10 @@ Die Herausforderungen auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/
 
 ### Farbe der inneren Blütenblätter ändern
 
-- Herausforderung
-  - : Ändern Sie das Stylesheet so, dass die inneren Blütenblätter alle rosa werden, wenn der Mauszeiger über einem von ihnen schwebt, ohne die Funktionsweise der äußeren Blütenblätter zu ändern.
+- Aufgabe
+  - : Ändern Sie das Stylesheet so, dass die inneren Blütenblätter alle rosa werden, wenn der Mauszeiger über einem von ihnen ist, ohne die Funktionsweise der äußeren Blütenblätter zu ändern.
 - Lösung
-
-  - : Verschieben Sie die Position der :hover Pseudoklasse von einem spezifischen Blütenblatt auf alle Blütenblätter
+  - : Verschieben Sie die Position der :hover-Pseudoklasse von einem spezifischen Blütenblatt zu allen Blütenblättern:
 
     ```css
     #inner-petals {

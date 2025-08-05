@@ -2,10 +2,10 @@
 title: margin-inline-end
 slug: Web/CSS/margin-inline-end
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Ende-Abstand eines Elements, welches in einen physischen Rand umgewandelt wird, abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}}-Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Endrand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements einem physischen Rand zugeordnet wird. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{InteractiveExample("CSS Demo: margin-inline-end")}}
 
@@ -67,7 +67,7 @@ margin-inline-end: 10px; /* An absolute length */
 margin-inline-end: 1em; /* relative to the text size */
 margin-inline-end: 5%; /* relative to the nearest block container's width */
 margin-inline-end: anchor-size(height);
-margin-inline-end: calc(anchor-size(--myAnchor self-inline, 25px) / 5);
+margin-inline-end: calc(anchor-size(--my-anchor self-inline, 25px) / 5);
 
 /* Keyword values */
 margin-inline-end: auto;
@@ -80,11 +80,11 @@ margin-inline-end: revert-layer;
 margin-inline-end: unset;
 ```
 
-Sie bezieht sich auf {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}} und {{cssxref("margin-inline-start")}}, welche die anderen Ränder des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}} und {{cssxref("margin-inline-start")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("margin-left")}}-Eigenschaft an.
+Die `margin-inline-end` Eigenschaft nimmt dieselben Werte an wie die {{cssxref("margin-left")}} Eigenschaft.
 
 ## Formale Definition
 
@@ -96,7 +96,7 @@ Die `margin-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("
 
 ## Beispiele
 
-### Festlegung des Inline-Ende-Abstands
+### Festlegung des Inline-Endrands
 
 #### HTML
 
@@ -138,5 +138,5 @@ div {
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - {{cssxref("margin-inline-start")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

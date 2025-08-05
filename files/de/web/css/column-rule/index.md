@@ -2,10 +2,10 @@
 title: column-rule
 slug: Web/CSS/column-rule
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie zwischen den Spalten in einem Mehrspaltenlayout fest.
+Die **`column-rule`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem Mehrspaltenlayout gezogen wird.
 
 {{InteractiveExample("CSS Demo: column-rule")}}
 
@@ -47,7 +47,7 @@ column-rule: thick inset blue;
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("column-rule-color")}}
 - {{Cssxref("column-rule-style")}}
@@ -71,10 +71,10 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
+Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte angegeben, in beliebiger Reihenfolge.
 
 - `<'column-rule-width'>`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium`, oder `thick`. Siehe {{cssxref("border-width")}} für Details.
 - `<'column-rule-style'>`
   - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
@@ -93,7 +93,7 @@ Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgefüh
 ### Beispiel 1
 
 ```css
-/* Same as "medium dotted currentcolor" */
+/* Same as "medium dotted currentColor" */
 p.foo {
   column-rule: dotted;
 }
@@ -103,7 +103,7 @@ p.bar {
   column-rule: solid blue;
 }
 
-/* Same as "8px solid currentcolor" */
+/* Same as "8px solid currentColor" */
 p.baz {
   column-rule: solid 8px;
 }

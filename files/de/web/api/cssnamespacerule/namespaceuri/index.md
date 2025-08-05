@@ -3,23 +3,23 @@ title: "CSSNamespaceRule: namespaceURI-Eigenschaft"
 short-title: namespaceURI
 slug: Web/API/CSSNamespaceRule/namespaceURI
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`namespaceURI`**-Eigenschaft der [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) gibt einen String zurück, der den Text der URI des gegebenen Namensraums enthält.
+Die schreibgeschützte **`namespaceURI`**-Eigenschaft der [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) gibt einen String zurück, der den Text des URI des angegebenen Namensraums enthält.
 
 ## Wert
 
-Ein String, der eine URI enthält.
+Ein String, der einen URI enthält.
 
 ## Beispiele
 
 Das Stylesheet enthält einen Namensraum als einzige Regel. Daher wird die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) eine `CSSNamespaceRule` sein. Der Wert der `namespaceURI`-Eigenschaft wird `http://www.w3.org/1999/xhtml` sein.
 
 ```css
-@namespace url(http://www.w3.org/1999/xhtml);
+@namespace url("http://www.w3.org/1999/xhtml");
 ```
 
 ```js

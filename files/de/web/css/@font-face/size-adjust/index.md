@@ -2,12 +2,12 @@
 title: size-adjust
 slug: Web/CSS/@font-face/size-adjust
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Der **`size-adjust`** CSS-Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert einen Multiplikator für Glyphenumrisse und Metriken, die mit dieser Schriftart verbunden sind. Dies erleichtert die Harmonisierung der Designs verschiedener Schriftarten, wenn sie in derselben Schriftgröße gerendert werden.
+Der **`size-adjust`** CSS-Deskriptor für die {{cssxref("@font-face")}} Regel definiert einen Multiplikator für Glyphenumrisse und Metriken, die mit dieser Schriftart verbunden sind. Dies erleichtert es, die Designs verschiedener Schriftarten beim Rendern in derselben Schriftgröße zu harmonisieren.
 
-Der `size-adjust` Deskriptor verhält sich ähnlich wie die {{cssxref("font-size-adjust")}} Eigenschaft. Er berechnet eine Anpassung pro Schriftart durch das Abgleichen der x-Höhen.
+Der `size-adjust` Deskriptor verhält sich ähnlich wie die {{cssxref("font-size-adjust")}} Eigenschaft. Er berechnet eine Anpassung pro Schriftart, indem er die x-Höhen abgleicht.
 
 ## Syntax
 
@@ -18,9 +18,9 @@ size-adjust: 90%;
 ### Werte
 
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert mit einem Initialwert von 100%.
+  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert mit einem Anfangswert von 100%.
 
-Alle mit dieser Schriftart verbundenen Metriken werden durch den angegebenen Prozentsatz skaliert. Dies umfasst Glyphenerweiterungen, Basistabellen und Überschreibungen, die durch {{cssxref("@font-face")}}-Deskriptoren bereitgestellt werden.
+Alle Metriken, die mit dieser Schriftart verbunden sind, werden mit dem angegebenen Prozentsatz skaliert. Dies umfasst Glyphenfortschritte, Baselinien-Tabellen und Überschreibungen, die durch {{cssxref("@font-face")}} Deskriptoren bereitgestellt werden.
 
 ## Formale Definition
 
@@ -32,9 +32,9 @@ Alle mit dieser Schriftart verbundenen Metriken werden durch den angegebenen Pro
 
 ## Beispiele
 
-### Überschreiben von Metriken einer Ersatzschrift
+### Überschreiben von Metriken einer Ersatzschriftart
 
-Die `size-adjust` Eigenschaft kann helfen, wenn die Metriken einer Ersatzschrift überschrieben werden, um besser mit denen einer primären Webschrift übereinzustimmen.
+Die `size-adjust` Eigenschaft kann hilfreich sein, wenn Sie die Metriken einer Ersatzschriftart überschreiben, um diese besser an eine primäre Webschriftart anzupassen.
 
 ```css
 @font-face {
@@ -44,7 +44,7 @@ Die `size-adjust` Eigenschaft kann helfen, wenn die Metriken einer Ersatzschrift
 
 @font-face {
   font-family: local-font;
-  src: local(Local Font);
+  src: local("Local Font");
   size-adjust: 90%;
 }
 ```

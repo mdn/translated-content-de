@@ -2,12 +2,12 @@
 title: -webkit-mask-position-x
 slug: Web/CSS/-webkit-mask-position-x
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{Non-standard_header}}
 
-Die CSS-Eigenschaft `-webkit-mask-position-x` setzt die initiale horizontale Position eines Maskenbildes.
+Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale Position eines Maskenbildes fest.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` setzt die initiale horizontale Pos
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der linken Kante des Bildes relativ zur linken Randeinlage des Box anzeigt. Prozentsätze werden im Verhältnis zur horizontalen Dimension des Box-Randbereichs berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass die linke Kante des Bildes an der linken Randeinlage des Box ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die rechte Kante des Bildes an der rechten Randeinlage des Box ausgerichtet ist.
+  - : Eine Länge, die die Position des linken Randes des Bildes relativ zur linken Innenkante des Kastens angibt. Prozentsätze werden in Bezug auf die horizontale Dimension des Innenbereichs des Kastens berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit der linken Innenkante des Kastens ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit der rechten Innenkante des Kastens ausgerichtet ist.
 - `left`
   - : Entspricht `0%`.
 - `center`
@@ -60,23 +60,23 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` setzt die initiale horizontale Pos
 
 ## Beispiele
 
-### Horizontale Positionierung eines Maskenbildes
+### Horizontales Positionieren eines Maskenbildes
 
 ```css
 .exampleOne {
-  -webkit-mask-image: url(mask.png);
+  -webkit-mask-image: url("mask.png");
   -webkit-mask-position-x: right;
 }
 
 .exampleTwo {
-  -webkit-mask-image: url(mask.png);
+  -webkit-mask-image: url("mask.png");
   -webkit-mask-position-x: 25%;
 }
 ```
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

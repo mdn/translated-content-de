@@ -2,10 +2,10 @@
 title: margin-left
 slug: Web/CSS/margin-left
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`margin-left`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) auf der linken Seite eines Elements fest. Ein positiver Wert entfernt es weiter von seinen Nachbarn, während ein negativer Wert es näher rückt.
+Die **`margin-left`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) auf der linken Seite eines Elements. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
 
 {{InteractiveExample("CSS Demo: margin-left")}}
 
@@ -57,9 +57,9 @@ margin-left: 0;
 }
 ```
 
-Die vertikalen Ränder von zwei angrenzenden Boxen können verschmelzen. Dies wird als [_margin collapsing_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) bezeichnet.
+Die vertikalen Ränder von zwei angrenzenden Boxen können verschmelzen. Dies wird [_Ränder-Kollaps_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt.
 
-In seltenen Fällen, in denen die Breite überbeschränkt ist (d.h. wenn alle `width`, `margin-left`, `border`, `padding`, der Inhaltsbereich und `margin-right` definiert sind), wird `margin-left` ignoriert und erhält denselben berechneten Wert, als wäre der Wert `auto` angegeben.
+In den seltenen Fällen, in denen die Breite überbeansprucht ist (d.h. wenn alle `width`, `margin-left`, `border`, `padding`, der Inhaltsbereich und `margin-right` definiert sind), wird `margin-left` ignoriert und hat denselben berechneten Wert, als wenn der Wert `auto` angegeben wäre.
 
 ## Syntax
 
@@ -69,7 +69,7 @@ margin-left: 10px; /* An absolute length */
 margin-left: 1em; /* relative to the text size */
 margin-left: 5%; /* relative to the nearest block container's width */
 margin-left: anchor-size(self-inline);
-margin-left: calc(anchor-size(--myAnchor width, 20px) / 4);
+margin-left: calc(anchor-size(--my-anchor width, 20px) / 4);
 
 /* Keyword values */
 margin-left: auto;
@@ -82,18 +82,18 @@ margin-left: revert-layer;
 margin-left: unset;
 ```
 
-Die `margin-left`-Eigenschaft wird als das Schlüsselwort `auto` oder als `<length>` oder `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
+Die `margin-left` Eigenschaft wird als das Schlüsselwort `auto`, oder als `<length>`, oder als `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Randes als fester Wert.
-    - Für _ankerpositionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Elementrands basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+    - Für _anker-positionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} auf einen {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Elementrands basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Randes als Prozentsatz relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Die Größe des Randes als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
-  - : Der linke Rand erhält einen Anteil des ungenutzten horizontalen Raumes, was hauptsächlich durch den verwendeten Layoutmodus bestimmt wird. Wenn `margin-left` und `margin-right` beide `auto` sind, wird der berechnete Raum gleichmäßig verteilt. Diese Tabelle fasst die verschiedenen Fälle zusammen:
+  - : Der linke Rand erhält einen Anteil des ungenutzten horizontalen Raums, der hauptsächlich durch den verwendeten Layout-Modus bestimmt wird. Wenn die Werte von `margin-left` und `margin-right` beide `auto` sind, wird der berechnete Raum gleichmäßig verteilt. Diese Tabelle fasst die verschiedenen Fälle zusammen:
 
     <table class="standard-table">
       <thead>
@@ -111,7 +111,7 @@ Die `margin-left`-Eigenschaft wird als das Schlüsselwort `auto` oder als `<leng
             <code>inline</code>, <code>inline-block</code>,
             <code>inline-table</code>
           </th>
-          <th><em>irgendein</em></th>
+          <th><em>beliebig</em></th>
           <th><code>static</code> oder <code>relative</code></th>
           <td><code>0</code></td>
           <td>Inline-Layout-Modus</td>
@@ -122,12 +122,11 @@ Die `margin-left`-Eigenschaft wird als das Schlüsselwort `auto` oder als `<leng
             <code>block</code>, <code>table</code>, <code>inline-table</code>,
             <code>list-item</code>, <code>table-caption</code>
           </th>
-          <th><em>irgendein</em></th>
+          <th><em>beliebig</em></th>
           <th><code>static</code> oder <code>relative</code></th>
           <td>
             <code>0</code>, außer wenn sowohl <code>margin-left</code> als auch
-            <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall
-            wird es auf den Wert gesetzt, der das Element innerhalb seines Elternteils zentriert.
+            <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall wird der Wert gewählt, der das Element innerhalb seines Elternteils zentriert.
           </td>
           <td>Block-Layout-Modus</td>
         </tr>
@@ -144,38 +143,37 @@ Die `margin-left`-Eigenschaft wird als das Schlüsselwort `auto` oder als `<leng
         </tr>
         <tr>
           <th>
-            <em>irgendein </em><code>table-*</code><em>, außer </em
+            <em>beliebig </em><code>table-*</code><em>, außer </em
             ><code>table-caption</code>
           </th>
-          <th><em>irgendein</em></th>
-          <th><em>irgendein</em></th>
+          <th><em>beliebig</em></th>
+          <th><em>beliebig</em></th>
           <td><code>0</code></td>
           <td>
-            Interne <code>table-*</code>-Elemente haben keine Ränder, stattdessen
-            {{ cssxref("border-spacing") }} verwenden
+            Interne <code>table-*</code> Elemente haben keine Ränder, verwenden
+            Sie {{ cssxref("border-spacing") }} stattdessen
           </td>
         </tr>
         <tr>
           <th>
-            <em>irgendein, außer <code>flex</code>,</em> <code>inline-flex</code
+            <em>beliebig, außer <code>flex</code>,</em> <code>inline-flex</code
             ><em>, oder </em><code>table-*</code>
           </th>
-          <th><em>irgendein</em></th>
+          <th><em>beliebig</em></th>
           <th>
             <em><code>fixed</code></em> oder <code>absolute</code>
           </th>
           <td>
             <code>0</code>, außer wenn sowohl <code>margin-left</code> als auch
-            <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall
-            wird es auf den Wert gesetzt, der den Randbereich innerhalb der verfügbaren
-            <code>width</code> zentriert, falls festgelegt.
+            <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall wird der Wert gewählt, der den Randbereich innerhalb der verfügbaren
+            <code>width</code> zentriert, falls fixiert.
           </td>
           <td>Absolut positionierter Layout-Modus</td>
         </tr>
         <tr>
           <th><code>flex</code>, <code>inline-flex</code></th>
-          <th><em>irgendein</em></th>
-          <th><em>irgendein</em></th>
+          <th><em>beliebig</em></th>
+          <th><em>beliebig</em></th>
           <td>
             <code>0</code>, außer wenn es irgendeinen positiven horizontalen freien Raum gibt.
             In diesem Fall wird er gleichmäßig auf alle horizontalen
@@ -196,9 +194,9 @@ Die `margin-left`-Eigenschaft wird als das Schlüsselwort `auto` oder als `<leng
 
 ## Beispiele
 
-### margin-left als Prozentsatz setzen
+### `margin-left` als Prozentsatz festlegen
 
-Prozentuale Werte für `margin-left` sind relativ zur Inline-Größe des Containers.
+Prozentwerte für `margin-left` sind relativ zur Inline-Größe des Containers.
 
 #### HTML
 

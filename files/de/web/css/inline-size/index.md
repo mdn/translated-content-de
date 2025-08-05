@@ -2,10 +2,10 @@
 title: inline-size
 slug: Web/CSS/inline-size
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Größe eines Elements entlang der {{Glossary("Grid_Axis", "Inline-Achse")}}. Wenn der {{cssxref("writing-mode")}} horizontal ist, entspricht sie der {{cssxref("width")}}; wenn der Schreibmodus vertikal ist, entspricht sie der {{cssxref("height")}}. Eine verwandte Eigenschaft ist {{cssxref("block-size")}}, die die andere Dimension des Elements definiert.
+Die **`inline-size`**-Eigenschaft in [CSS](/de/docs/Web/CSS) definiert die Größe eines Blockelements entlang der {{Glossary("Grid_Axis", "Inline-Achse")}}. Wenn der {{cssxref("writing-mode")}} horizontal ist, entspricht sie der {{cssxref("width")}}; wenn der Schreibmodus vertikal ist, entspricht sie der {{cssxref("height")}}. Eine verwandte Eigenschaft ist {{cssxref("block-size")}}, die die andere Dimension des Elements definiert.
 
 {{InteractiveExample("CSS Demo: inline-size")}}
 
@@ -55,7 +55,7 @@ writing-mode: vertical-lr;
 inline-size: 300px;
 inline-size: 25em;
 inline-size: anchor-size(width);
-inline-size: anchor-size(--myAnchor inline);
+inline-size: anchor-size(--my-anchor inline);
 
 /* <percentage> values */
 inline-size: 75%;
@@ -77,7 +77,7 @@ inline-size: unset;
 
 ### Werte
 
-Die Eigenschaft `inline-size` nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
+Die `inline-size`-Eigenschaft nimmt dieselben Werte an wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
 
 ## Formale Definition
 
@@ -121,5 +121,5 @@ Die Eigenschaft `inline-size` nimmt die gleichen Werte an wie die Eigenschaften 
 
 ## Siehe auch
 
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("width")}} und {{cssxref("height")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("width")}} und {{cssxref("height")}}
 - {{cssxref("writing-mode")}}

@@ -2,10 +2,10 @@
 title: Universalselektoren
 slug: Web/CSS/Universal_selectors
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Der CSS **Universalselektor** (`*`) passt zu Elementen jeglichen Typs.
+Der CSS **Universal Selektor** (`*`) stimmt mit Elementen jeglichen Typs überein.
 
 ```css
 /* Selects all elements */
@@ -14,7 +14,7 @@ Der CSS **Universalselektor** (`*`) passt zu Elementen jeglichen Typs.
 }
 ```
 
-Der Universalselektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann daher bei Verwendung von {{CSSXref("@namespace")}} mit einem Namensraum versehen werden. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namensräume enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Der Universal Selektor ist ein spezieller [Typsselektor](/de/docs/Web/CSS/Type_selectors) und kann daher namespaced werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich, wenn mit Dokumenten gearbeitet wird, die mehrere Namensräume enthalten, wie HTML mit eingebettetem SVG oder MathML oder XML, das mehrere Vokabulare mischt.
 
 - `ns|*` - passt zu allen Elementen im Namensraum _ns_
 - `*|*` - passt zu allen Elementen
@@ -26,7 +26,7 @@ Der Universalselektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_sel
 * { style properties }
 ```
 
-Der Asterisk ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` gleichwertig.
+Der Stern ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` gleichwertig.
 
 ## Beispiele
 
@@ -72,10 +72,10 @@ Der Asterisk ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning
 
 ### Namensräume
 
-In diesem Beispiel wird der Selektor nur zu Elementen im Beispielnamensraum passen.
+In diesem Beispiel stimmt der Selektor nur mit Elementen im Beispiel-Namensraum überein.
 
 ```css
-@namespace example url(http://www.example.com/);
+@namespace example url("http://www.example.com/");
 example|* {
   color: blue;
 }
@@ -91,5 +91,5 @@ example|* {
 
 ## Siehe auch
 
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

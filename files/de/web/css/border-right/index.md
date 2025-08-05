@@ -2,10 +2,10 @@
 title: border-right
 slug: Web/CSS/border-right
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`border-right`** [Verkürzungseigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS) legt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements fest.
+Die **`border-right`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Rands](/de/docs/Web/CSS/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-right")}}
 
@@ -40,32 +40,32 @@ border-right: 4mm ridge rgb(211 220 50 / 0.6);
 ```css interactive-example
 #example-element {
   background-color: #eee;
-  color: #8b008b;
+  color: darkmagenta;
   padding: 0.75em;
   width: 80%;
   height: 100px;
 }
 ```
 
-Wie bei allen Verkürzungseigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt die nicht spezifizierten auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt die nicht angegebenen auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-right-style: dotted;
 border-right: thick green;
 ```
 
-Er ist tatsächlich gleichbedeutend mit diesem:
+Er ist tatsächlich derselbe wie der folgende:
 
 ```css
 border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wird, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rand.
 
-## Bestandeigenschaften
+## Bestandteile
 
-Diese Eigenschaft ist eine Verkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
@@ -86,7 +86,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Verkürzungseigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -107,7 +107,7 @@ Die drei Werte der Verkürzungseigenschaft können in beliebiger Reihenfolge ang
 
 ## Beispiele
 
-### Anwendung eines rechten Rahmens
+### Anwenden eines rechten Rands
 
 #### HTML
 

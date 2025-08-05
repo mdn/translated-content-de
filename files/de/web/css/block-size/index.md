@@ -2,10 +2,10 @@
 title: block-size
 slug: Web/CSS/block-size
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Größe eines Elements entlang der {{Glossary("Grid_Axis", "Block-Achse")}}. Wenn der {{cssxref("writing-mode")}} horizontal ist, entspricht dies der {{cssxref("height")}}; wenn der Schreibmodus vertikal ist, entspricht dies der {{cssxref("width")}}. Eine verwandte Eigenschaft ist {{cssxref("inline-size")}}, die die andere Dimension des Elements definiert.
+Die **`block-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Größe eines Elements entlang der {{Glossary("Grid_Axis", "Block-Achse")}}. Ist der {{cssxref("writing-mode")}} horizontal, entspricht sie der {{cssxref("height")}}; ist der Schreibmodus vertikal, entspricht sie der {{cssxref("width")}}. Eine verwandte Eigenschaft ist {{cssxref("inline-size")}}, die die andere Dimension des Elements definiert.
 
 {{InteractiveExample("CSS Demo: block-size")}}
 
@@ -43,7 +43,7 @@ writing-mode: vertical-lr;
   flex-direction: column;
   background-color: #5b6dcd;
   justify-content: center;
-  color: #ffffff;
+  color: white;
 }
 ```
 
@@ -54,7 +54,7 @@ writing-mode: vertical-lr;
 block-size: 300px;
 block-size: 25em;
 block-size: anchor-size(height);
-block-size: calc(anchor-size(--myAnchor block) * 0.75);
+block-size: calc(anchor-size(--my-anchor block) * 0.75);
 
 /* <percentage> values */
 block-size: 75%;
@@ -76,7 +76,7 @@ block-size: unset;
 
 ### Werte
 
-Die `block-size` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("width")}} und {{cssxref("height")}} Eigenschaften an.
+Die `block-size`-Eigenschaft nimmt dieselben Werte wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}} an.
 
 ## Formale Definition
 

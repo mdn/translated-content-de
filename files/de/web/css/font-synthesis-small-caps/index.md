@@ -2,12 +2,12 @@
 title: font-synthesis-small-caps
 slug: Web/CSS/font-synthesis-small-caps
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`font-synthesis-small-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Ihnen, anzugeben, ob der Browser eine Kleinbuchstaben-Schriftart bei Fehlen in einer Schriftfamilie synthetisieren darf oder nicht. Kleinbuchstaben-Glyphen verwenden normalerweise die Form von Großbuchstaben, sind jedoch auf die Größe von Kleinbuchstaben reduziert.
+Die **`font-synthesis-small-caps`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, festzulegen, ob der Browser fehlende Kapitälchen in einer Schriftfamilie synthetisieren darf oder nicht. Kapitälchen-Glyphen verwenden typischerweise die Form von Großbuchstaben, werden jedoch auf die Größe von Kleinbuchstaben reduziert.
 
-Es ist oft bequem, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftartensynthese zu steuern.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schrifttyp-Synthese zu steuern.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ font-synthesis-small-caps: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass der fehlende Kleinbuchstaben-Schriftstil bei Bedarf vom Browser synthetisiert werden kann.
+  - : Gibt an, dass der fehlende Kapitälchen-Schriftstil bei Bedarf vom Browser synthetisiert werden darf.
 - `none`
-  - : Gibt an, dass die Synthese des fehlenden Kleinbuchstaben-Schriftstils durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese des fehlenden Kapitälchen-Schriftstils durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -41,9 +41,9 @@ font-synthesis-small-caps: unset;
 
 ## Beispiele
 
-### Deaktivierung der Synthese des Kleinbuchstaben-Schriftstils
+### Deaktivieren der Synthese des Kapitälchen-Schriftstils
 
-Dieses Beispiel zeigt, wie die Synthese des Kleinbuchstaben-Schriftstils durch den Browser in der `Montserrat`-Schrift deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des Kapitälchen-Schriftstils durch den Browser in der `Montserrat`-Schriftart deaktiviert wird.
 
 #### HTML
 
@@ -62,7 +62,7 @@ Dieses Beispiel zeigt, wie die Synthese des Kleinbuchstaben-Schriftstils durch d
 #### CSS
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Montserrat&display=swap";
 
 .english {
   font-family: "Montserrat", sans-serif;

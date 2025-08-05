@@ -2,23 +2,23 @@
 title: marker
 slug: Web/CSS/marker
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft zeigt auf einen Marker, der an den ersten, mittleren und letzten Eckpunkten des Pfades des Elements gezeichnet wird; das heißt, an all seinen Eckpunkten. Der Marker muss unter Verwendung eines SVG {{SVGElement('marker')}} Elements definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der `marker-start`, `marker`, und `marker-end` Attribute im SVG.
+Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft zeigt auf einen Marker, der auf den ersten, mittleren und letzten Vertices des Pfads des Elements gezeichnet wird; das heißt, an allen seinen Vertices. Der Marker muss mit einem SVG {{SVGElement('marker')}} Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der Attribute `marker-start`, `marker` und `marker-end` im SVG.
 
-Bei vielen Marker-unterstützenden Formen sind der erste und letzte Eckpunkt an derselben Stelle: beispielsweise die obere linke Ecke eines {{SVGElement('rect')}}. Bei solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden zwei Marker an diesem Punkt gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
+Bei vielen Formen, die Marker unterstützen, befinden sich der erste und letzte Vertex an derselben Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen werden, wenn sowohl der erste als auch der letzte Marker definiert sind, zwei Marker an dieser Stelle gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
 
-Für die mittleren Eckpunkte ist die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die sich auf halbem Weg zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Anfangs des nachfolgenden Pfadsegments befindet. Dies kann als das Kreuzprodukt der durch die beiden Pfadrichtungen definierten Vektoren betrachtet werden.
+Für die mittleren Vertices wird die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die genau zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Anfangs des folgenden Pfadsegments liegt. Dies kann als das Kreuzprodukt der Vektoren betrachtet werden, die durch die beiden Pfadrichtungen definiert sind.
 
 > [!NOTE]
-> Die `marker` Eigenschaft hat nur eine Wirkung bei Elementen, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
+> Die `marker` Eigenschaft hat nur Auswirkungen auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
 
 ## Syntax
 
 ```css
 marker: none;
-marker: url(markers.svg#arrow);
+marker: url("markers.svg#arrow");
 
 /* Global values */
 marker: inherit;
@@ -31,10 +31,10 @@ marker: unset;
 ### Werte
 
 - `none`
-  - : Dies bedeutet, dass kein Marker an jedem Eckpunkt des Pfades des Elements gezeichnet wird.
+  - : Dies bedeutet, dass kein Marker an jedem Vertex des Pfads des Elements gezeichnet wird.
 
 - `<marker-ref>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG {{SVGElement('marker')}} Element definiert wurde und an jedem Eckpunkt des Pfades des Elements gezeichnet wird. Wenn die URL-Referenz ungültig ist, wird kein Marker an den Eckpunkten des Pfades gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der sich auf einen Marker bezieht, der durch ein SVG {{SVGElement('marker')}} Element definiert ist und an jedem Vertex des Pfads des Elements gezeichnet werden soll. Wenn der URL-Verweis ungültig ist, wird kein Marker an den Vertices des Pfads gezeichnet.
 
 ## Formale Definition
 
@@ -79,11 +79,11 @@ svg {
 
 ```css
 polyline#test {
-  marker: url(#triangle);
+  marker: url("#triangle");
 }
 ```
 
-{{EmbedLiveSample("Example", "200", "200")}}
+{{EmbedLiveSample("Beispiel", "200", "200")}}
 
 ## Spezifikationen
 

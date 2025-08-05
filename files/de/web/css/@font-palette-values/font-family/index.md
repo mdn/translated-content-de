@@ -2,10 +2,10 @@
 title: font-family
 slug: Web/CSS/@font-palette-values/font-family
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Deskriptor")}} **`font-family`** wird verwendet, um anzugeben, welche `font-family`-Palettenwerte angewendet werden sollen. Diese müssen genau mit den Werten übereinstimmen, die beim Festlegen der CSS [font-family](/de/docs/Web/CSS/font-family) verwendet werden.
+Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Deskriptor")}} **`font-family`** wird verwendet, um anzugeben, auf welche font-family-Palettenwerte angewendet werden sollen. Dies muss genau mit den Werten übereinstimmen, die beim Setzen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CS
 }
 ```
 
-Andere folgende Palettenwerte gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie die gleichen [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Das bedeutet, dass Sie, wenn Sie mehrere Farbfonts haben, denselben Bezeichner für jeden verwenden können.
+Andere nachfolgende Palettenwerte gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie die gleichen [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Das bedeutet, dass Sie, wenn Sie mehrere Farbschriften haben, denselben Identifikator für jede verwenden können.
 
 ### Werte
 
@@ -33,9 +33,9 @@ Andere folgende Palettenwerte gelten nur für die angegebene Schriftfamilie. Sie
 
 ## Beispiele
 
-### Verwendung passender Familiennamen
+### Verwendung übereinstimmender Familiennamen
 
-In diesem Beispiel wird derselbe Wert für `font-family` verwendet, wenn der `font-family`-Deskriptor in der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) Regel verwendet wird, wie wenn er deklariert wird.
+In diesem Beispiel wird, wenn der `font-family`-Deskriptor in der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) at-Regel verwendet wird, derselbe Wert wie für die `font-family` verwendet, wie er deklariert ist.
 
 #### HTML
 
@@ -47,12 +47,12 @@ In diesem Beispiel wird derselbe Wert für `font-family` verwendet, wenn der `fo
 #### CSS
 
 ```css
-@import url(https://fonts.googleapis.com/css2?family=Bungee+Spice);
+@import "https://fonts.googleapis.com/css2?family=Bungee+Spice";
 @font-palette-values --bungee-extra-spicy {
   font-family: "Bungee Spice";
   override-colors:
-    0 DarkRed,
-    1 Red;
+    0 darkred,
+    1 red;
 }
 
 h2 {
@@ -68,9 +68,9 @@ h2.extra-spicy {
 
 {{EmbedLiveSample("Using matching family names")}}
 
-### Verwenden desselben Palettenbezeichners für mehrere Schriftfamilien
+### Verwendung desselben Palettenidentifikators für mehrere Schriftfamilien
 
-In diesem Beispiel sind zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) Regeln für zwei Schriftfamilien festgelegt, aber beide Regeln verwenden denselben `dashed-ident` Bezeichner, `--Dark Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente, `h1` und `h2` in diesem Fall, gleichzeitig festzulegen. Dies kann nützlich sein, wenn Sie die Schriftfarben aktualisieren möchten, um das Branding Ihrer Website anzupassen.
+In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) at-Regeln für zwei Schriftfamilien festgelegt, aber beide at-Regeln verwenden denselben dashed-ident Identifikator, `--Dark Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente, in diesem Fall `h1` und `h2`, gleichzeitig zu setzen. Dies kann nützlich sein, wenn Sie die Schriftfarben aktualisieren möchten, um zum Branding Ihrer Website zu passen.
 
 ```css
 @font-palette-values --Dark-Mode {

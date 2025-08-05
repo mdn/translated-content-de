@@ -2,10 +2,10 @@
 title: width
 slug: Web/CSS/width
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elements fest. Standardmäßig bestimmt sie die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area), aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, legt sie die Breite des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) fest.
+Die **`width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite eines Elements fest. Standardmäßig wird die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) festgelegt. Wenn jedoch {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, wird die Breite des [Rahmenbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) festgelegt.
 
 {{InteractiveExample("CSS Demo: width")}}
 
@@ -46,11 +46,11 @@ width: auto;
 
 Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
 
-- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, überschreibt `min-width` die `width`.
-- Wenn der Wert für `width` größer ist als der Wert für `max-width`, überschreibt `max-width` die `width`.
+- Wenn der Wert für `width` kleiner als der Wert für `min-width` ist, überschreibt `min-width` die `width`.
+- Wenn der Wert für `width` größer als der Wert für `max-width` ist, überschreibt `max-width` die `width`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` aufgelöst wird und für andere Elemente zu `0`, und Prozentwerte relativ zur Breite des SVG-Ansichtsfensters für `<rect>` sind. Der CSS `width` Eigenschaftswert überschreibt jeden SVG {{SVGAttr("width")}} Attributwert, der auf dem SVG-Element gesetzt ist.
+> Als geometrische Eigenschaft gilt `width` auch für die SVG-Elemente {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}}, wobei `auto` zu `100%` für `<svg>` und `0` für andere Elemente aufgelöst wird und Prozentwerte relativ zur SVG-Viewport-Breite für `<rect>` sind. Der CSS-Wert der `width`-Eigenschaft überschreibt jeden SVG-{{SVGAttr("width")}}-Attributwert, der am SVG-Element festgelegt ist.
 
 ## Syntax
 
@@ -59,7 +59,7 @@ Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert 
 width: 300px;
 width: 25em;
 width: anchor-size(width);
-width: anchor-size(--myAnchor inline, 120%);
+width: anchor-size(--my-anchor inline, 120%);
 
 /* <percentage> value */
 width: 75%;
@@ -83,28 +83,28 @@ width: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Definiert die Breite als Distanzwert.
+  - : Definiert die Breite als Entfernungswert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die Breite als Prozentsatz der Breite des [ihn umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Definiert die Breite als Prozentsatz der Breite des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
-  - : Der Browser berechnet und wählt eine Breite für das angegebene Element.
+  - : Der Browser berechnet und wählt eine Breite für das angegebene Element aus.
 - `max-content`
   - : Die intrinsische bevorzugte Breite.
 - `min-content`
-  - : Die intrinsische minimale Breite.
+  - : Die intrinsische Mindestbreite.
 - `fit-content`
-  - : Nutzt den verfügbaren Raum, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Verwendet den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die Fit-Content-Formel mit dem verfügbaren Raum, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, <length-percentage>))`.
+  - : Verwendet die fit-content-Formel, wobei der verfügbare Platz durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, <length-percentage>))`.
 - `stretch`
-  - : Setzt die Breite der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [ihn umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox in den verfügbaren Raum des umgebenden Blocks zu füllen, verhält sich also in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Randbox an und nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box.
+  - : Setzt die Breite der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox im verfügbaren Raum des umschließenden Blocks auszufüllen, und verhält sich in gewisser Weise ähnlich wie `100%`, wendet jedoch die resultierende Größe auf die Randbox an, anstatt auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box.
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente, die mit `width` festgelegt sind, nicht abgeschnitten werden und/oder andere Inhalte verdecken, wenn die Seite zum Vergrößern der Textgröße gezoomt wird.
+Stellen Sie sicher, dass Elemente, bei denen `width` gesetzt ist, nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Verständnis von WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgsrichtwerts 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN-Verständnis von WCAG, Richtlinie 1.4 Erläuterungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgsindikators 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -155,7 +155,7 @@ p.gold {
 
 {{EmbedLiveSample('Example using pixels and ems', '500px', '64px')}}
 
-### Beispiel mit Prozentsatz
+### Beispiel mit Prozent
 
 ```css
 .percent {
@@ -201,7 +201,7 @@ p.min-blue {
 
 {{EmbedLiveSample('Example using "min-content"', '500px', '155px')}}
 
-### Breite strecken, um den umgebenden Block zu füllen
+### Dehnen der Breite, um den umschließenden Block auszufüllen
 
 #### HTML
 

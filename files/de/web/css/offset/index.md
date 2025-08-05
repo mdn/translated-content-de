@@ -2,10 +2,10 @@
 title: offset
 slug: Web/CSS/offset
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`offset`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt alle Eigenschaften fest, die zum Animieren eines Elements entlang eines definierten Pfads erforderlich sind. Die Offset-Eigenschaften helfen zusammen dabei, einen _Offset-Transform_ zu definieren, einen [Transform](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), der einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) an einer _Offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Punkten entlang des Pfads ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/offset-rotate)), um der Richtung des Pfads zu folgen.
+Die **`offset`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt alle Eigenschaften fest, die erforderlich sind, um ein Element entlang eines definierten Pfads zu animieren. Die Offset-Eigenschaften helfen dabei, eine _Offset-Transformation_ zu definieren, eine [Transformation](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) an einer _Offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Punkten entlang des Pfads ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/offset-rotate)), um der Richtung des Pfads zu folgen.
 
 > [!NOTE]
 > Frühere Versionen der Spezifikation nannten diese Eigenschaft `motion`.
@@ -87,9 +87,9 @@ window.addEventListener("load", () => {
 });
 ```
 
-## Zugehörige Eigenschaften
+## Bestandteil-Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("offset-anchor")}}
 - {{cssxref("offset-distance")}}
@@ -108,18 +108,18 @@ offset: none;
 /* Offset path */
 offset: ray(45deg closest-side);
 offset: path("M 100 100 L 300 100 L 200 300 z");
-offset: url(arc.svg);
+offset: url("arc.svg");
 
 /* Offset path with distance and/or rotation */
-offset: url(circle.svg) 100px;
-offset: url(circle.svg) 40%;
-offset: url(circle.svg) 30deg;
-offset: url(circle.svg) 50px 20deg;
+offset: url("circle.svg") 100px;
+offset: url("circle.svg") 40%;
+offset: url("circle.svg") 30deg;
+offset: url("circle.svg") 50px 20deg;
 
 /* Including offset anchor */
 offset: ray(45deg closest-side) / 40px 20px;
-offset: url(arc.svg) 2cm / 0.5cm 3cm;
-offset: url(arc.svg) 30deg / 50px 100px;
+offset: url("arc.svg") 2cm / 0.5cm 3cm;
+offset: url("arc.svg") 30deg / 50px 100px;
 
 /* Global values */
 offset: inherit;
@@ -139,7 +139,7 @@ offset: unset;
 
 ## Beispiele
 
-### Animieren eines Elements entlang eines Pfads
+### Animation eines Elements entlang eines Pfads
 
 #### HTML
 

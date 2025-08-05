@@ -2,7 +2,7 @@
 title: border-left-style
 slug: Web/CSS/border-left-style
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
 Die **`border-left-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des linken {{cssxref("border")}} eines Elements fest.
@@ -44,7 +44,7 @@ border-left-style: inset;
 ```css interactive-example
 #example-element {
   background-color: #eee;
-  color: #000;
+  color: black;
   border: 0.75em solid;
   padding: 0.75em;
   width: 80%;
@@ -52,12 +52,12 @@ border-left-style: inset;
 }
 
 body {
-  background-color: #fff;
+  background-color: white;
 }
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Grenzen unterschiedlicher Stile an den Ecken verbinden.
 
 ## Syntax
 
@@ -94,7 +94,7 @@ Die `border-left-style`-Eigenschaft wird als einzelner {{cssxref("line-style")}}
 
 ## Beispiele
 
-### border-left-style einstellen
+### Festlegen von border-left-style
 
 #### HTML
 
@@ -179,5 +179,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rand-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen mit dem linken Rand verbundenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.
+- Die anderen stilbezogenen Border-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
+- Die anderen linken Border-bezogenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.

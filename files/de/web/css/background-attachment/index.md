@@ -2,10 +2,10 @@
 title: background-attachment
 slug: Web/CSS/background-attachment
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`background-attachment`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob die Position eines Hintergrundbilds innerhalb des {{Glossary("viewport", "Viewports")}} fixiert ist oder mit seinem enthaltenden Block scrollt.
+Die **`background-attachment`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Position eines Hintergrundbildes innerhalb des {{Glossary("viewport", "Ansichtsfensters (Viewport)")}} fixiert ist oder mit ihrem enthaltenden Block scrollt.
 
 {{InteractiveExample("CSS Demo: background-attachment")}}
 
@@ -68,8 +68,8 @@ body {
   overflow: auto;
   padding: 20px;
   text-shadow:
-    0 0 0.6rem #000,
-    0 0 0.6rem #000;
+    0 0 0.6rem black,
+    0 0 0.6rem black;
 }
 ```
 
@@ -89,16 +89,16 @@ background-attachment: revert-layer;
 background-attachment: unset;
 ```
 
-Die `background-attachment`-Eigenschaft wird als einer der Schlüsselwortwerte aus der folgenden Liste angegeben.
+Die `background-attachment` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `fixed`
-  - : Der Hintergrund ist relativ zum Viewport fixiert. Selbst wenn ein Element einen Bildlaufmechanismus hat, bewegt sich der Hintergrund nicht mit dem Element.
+  - : Der Hintergrund ist relativ zum Ansichtsfenster fixiert. Auch wenn ein Element einen Scroll-Mechanismus hat, bewegt sich der Hintergrund nicht mit dem Element.
 - `local`
-  - : Der Hintergrund ist relativ zum Inhalt des Elements fixiert. Wenn das Element einen Bildlaufmechanismus hat, scrollt der Hintergrund mit dem Inhalt des Elements, und der Hintergrundmalbereich sowie der Hintergrundpositionierungsbereich beziehen sich auf den scrollbaren Bereich des Elements anstatt auf den Rahmen, der sie umgibt.
+  - : Der Hintergrund ist relativ zum Inhalt des Elements fixiert. Wenn das Element einen Scroll-Mechanismus hat, scrollt der Hintergrund mit dem Inhalt des Elements, und der Hintergrundmalbereich und der Hintergrundpositionierungsbereich sind relativ zum scrollbaren Bereich des Elements, anstatt zu dem Rahmen, der sie umgibt.
 - `scroll`
-  - : Der Hintergrund ist relativ zum Element selbst fixiert und scrollt nicht mit seinem Inhalt. (Er ist effektiv an den Rahmen des Elements gebunden.)
+  - : Der Hintergrund ist relativ zum Element selbst fixiert und scrollt nicht mit seinem Inhalt. (Er ist effektiv am Rahmen des Elements befestigt.)
 
 ## Formale Definition
 
@@ -137,7 +137,7 @@ p {
 
 ### Mehrere Hintergrundbilder
 
-Diese Eigenschaft unterstützt mehrere Hintergrundbilder. Sie können ein unterschiedliches `<attachment>` für jeden Hintergrund angeben, getrennt durch Kommas. Jedes Bild wird mit dem entsprechenden `<attachment>`-Typ von erstem angegebenem bis zum letzten abgeglichen.
+Diese Eigenschaft unterstützt mehrere Hintergrundbilder. Sie können für jeden Hintergrund ein anderes `<attachment>` angeben, getrennt durch Kommata. Jedes Bild wird mit dem entsprechenden `<attachment>`-Typ, vom zuerst bis zuletzt angegeben, abgeglichen.
 
 #### HTML
 

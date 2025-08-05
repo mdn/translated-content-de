@@ -1,75 +1,75 @@
 ---
-title: Kaskadenschichten
+title: Cascade-Ebenen
 slug: Learn_web_development/Core/Styling_basics/Cascade_layers
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Diese Lektion soll Ihnen einen Überblick über [Kaskadenschichten](/de/docs/Web/CSS/@layer) geben, eine fortgeschrittene Funktion, die auf den grundlegenden Konzepten der [CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) und der [CSS-Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) aufbaut.
+Diese Lektion soll Ihnen [Cascade-Ebenen](/de/docs/Web/CSS/@layer) vorstellen, ein fortgeschritteneres Feature, das auf den grundlegenden Konzepten des [CSS-Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade) und der [CSS-Spezifizität](/de/docs/Web/CSS/CSS_cascade/Specificity) aufbaut.
 
-Wenn Sie neu in CSS sind, mag diese Lektion zunächst etwas weniger relevant und etwas akademischer erscheinen als andere Teile des Kurses. Es ist jedoch hilfreich, die Grundlagen dessen zu kennen, was Kaskadenschichten sind, falls Sie ihnen in Ihren Projekten begegnen. Je mehr Sie mit CSS arbeiten, desto mehr werden Sie verstehen, dass Kaskadenschichten hilfreich sind und Ihnen viel Mühe ersparen können, eine Codebasis mit CSS von verschiedenen Parteien, Plugins und Entwicklerteams zu verwalten.
+Wenn Sie neu in CSS sind, mag diese Lektion zunächst weniger relevant erscheinen und etwas akademischer als andere Teile des Kurses sein. Es ist jedoch hilfreich, die Grundlagen dessen zu kennen, was Cascade-Ebenen sind, falls Sie ihnen in Ihren Projekten begegnen. Je mehr Sie mit CSS arbeiten, desto mehr wird das Verständnis von Cascade-Ebenen und der Umgang mit ihrer Leistungsfähigkeit Ihnen helfen, Schmerz beim Verwalten einer Codebasis mit CSS von verschiedenen Parteien, Plugins und Entwicklerteams zu vermeiden.
 
-Kaskadenschichten sind am relevantesten, wenn Sie mit CSS aus mehreren Quellen arbeiten, bei denen es zu Konflikten zwischen CSS-Selektoren und konkurrierenden Spezifitäten kommt, oder wenn Sie überlegen, [`!important`](/de/docs/Web/CSS/important) zu verwenden.
+Cascade-Ebenen sind besonders relevant, wenn Sie mit CSS aus mehreren Quellen arbeiten, bei denen sich CSS-Selektoren und konkurrierende Spezifitäten im Konflikt befinden oder wenn Sie daran denken, [`!important`](/de/docs/Web/CSS/important) zu verwenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Eine Vorstellung davon, wie CSS funktioniert, einschließlich Kaskade und Spezifität (studieren Sie
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Styling-Grundlagen</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts">Umgang mit Konflikten</a>).
+      <td>Eine Vorstellung davon, wie CSS funktioniert, einschließlich Cascade und Spezifität (studieren Sie
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts">Umgang mit Konflikten</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu lernen, wie Kaskadenschichten funktionieren.
+        Lernen, wie Cascade-Ebenen funktionieren.
       </td>
     </tr>
   </tbody>
 </table>
 
-Für jede CSS-Eigenschaft, die auf ein Element angewendet wird, kann es nur einen Wert geben. Sie können alle auf ein Element angewendeten Eigenschaftswerte anzeigen, indem Sie das Element in den Entwickler-Tools Ihres Browsers untersuchen. Das "Styles"-Panel des Tools zeigt alle auf das untersuchte Element angewendeten Eigenschaftswerte an, zusammen mit dem übereinstimmenden Selektor und der CSS-Quelldatei. Der Selektor mit der höchsten Priorität hat seine Werte auf das übereinstimmende Element angewendet.
+Für jede auf ein Element angewendete CSS-Eigenschaft kann es nur einen Wert geben. Sie können alle auf ein Element angewendeten Eigenschaftswerte anzeigen, indem Sie das Element in den Entwicklertools Ihres Browsers inspizieren. Das "Styles"-Panel des Tools zeigt alle auf das inspizierte Element angewendeten Eigenschaftswerte, zusammen mit dem passenden Selektor und der CSS-Quelldatei. Der Selektor aus dem Ursprung mit Vorrang hat seine Werte auf das übereinstimmende Element angewendet.
 
-Zusätzlich zu den angewendeten Stilen zeigt das Styles-Panel ausgegraute Werte an, die zwar auf das ausgewählte Element zutrafen, aber aufgrund der Kaskade, der Spezifität oder der Reihenfolge der Quellen nicht angewendet wurden. Ausgegraute Stile können von derselben Quelle mit Priorität stammen, jedoch mit geringerer Spezifität, oder mit übereinstimmender Quelle und Spezifität, wurden jedoch früher im Code gefunden. Bei jedem angewendeten Eigenschaftswert kann es mehrere ausgegraute Deklarationen aus vielen verschiedenen Quellen geben. Wenn Sie einen durchgestrichenen Stil sehen, der einen Selektor mit größerer Spezifität hat, bedeutet dies, dass der Wert mangelnde Priorität oder Wichtigkeit hat.
+Zusätzlich zu den angewendeten Stilen zeigt das Styles-Panel durchgestrichene Werte, die zwar zum ausgewählten Element passten, aber aufgrund der Cascade, Spezifität oder Quellreihenfolge nicht angewendet wurden. Durchgestrichene Stile können vom gleichen Ursprung mit Vorrang stammen, aber mit geringerer Spezifität, oder mit übereinstimmendem Ursprung und Spezifität, aber sie wurden früher in der Codebasis gefunden. Wenn Sie einen durchgestrichenen Stil sehen, der einen Selektor mit größerer Spezifität hat, bedeutet das, dass der Wert an Ursprung oder Bedeutung fehlt.
 
-Häufig, wenn die Komplexität einer Website zunimmt, erhöht sich die Anzahl der Stylesheets, was die Reihenfolge der Stylesheets sowohl wichtiger als auch komplexer macht. Kaskadenschichten vereinfachen das Verwalten von Stylesheets in einer solchen Codebasis. Kaskadenschichten sind explizite Spezifitätscontainer, die eine einfachere und größere Kontrolle über die letztendlich angewendeten CSS-Deklarationen bieten, sodass Webentwickler CSS-Abschnitte priorisieren können, ohne gegen die Spezifität kämpfen zu müssen.
+Oftmals, wenn die Komplexität einer Website steigt, steigt auch die Anzahl der Stylesheets, wodurch die Quellreihenfolge der Stylesheets sowohl wichtiger als auch komplexer wird. Cascade-Ebenen vereinfachen die Wartung von Stylesheets in solchen Codebasen. Cascade-Ebenen sind explizite Spezifitätscontainer, die eine einfachere und größere Kontrolle über die CSS-Deklarationen bieten, die letztendlich angewendet werden sollen, wodurch Webentwickler die Möglichkeit haben, CSS-Bereiche zu priorisieren, ohne mit der Spezifität kämpfen zu müssen.
 
-Um Kaskadenschichten zu verstehen, müssen Sie die CSS-Kaskade gut verstehen. Die folgenden Abschnitte bieten eine kurze Zusammenfassung der wichtigen Kaskadenkonzepte.
+Um Cascade-Ebenen zu verstehen, müssen Sie die CSS-Cascade gut verstehen. Die folgenden Abschnitte bieten einen kurzen Rückblick auf die wichtigen Cascade-Konzepte.
 
-## Rückblick auf das Kaskadenkonzept
+## Rückblick auf das Cascade-Konzept
 
-Das 'C' in CSS steht für "Cascading". Es ist die Methode, mit der Stile zusammengeführt werden. Der Benutzeragent durchläuft mehrere klar definierte Schritte, um die Werte zu ermitteln, die jeder Eigenschaft für jedes Element zugewiesen sind. Wir listen diese Schritte hier kurz auf und gehen dann näher auf Schritt 4, **Kaskadenschichten**, ein, den Sie hier lernen möchten:
+Das 'C' in CSS steht für "Cascading". Es ist die Methode, nach der Stile zusammenkaskadieren. Der User-Agent durchläuft mehrere klar definierte Schritte, um die Werte zu bestimmen, die jeder Eigenschaft für jedes Element zugewiesen werden. Wir werden diese Schritte hier kurz aufzählen und dann tiefer in Schritt 4 einsteigen, **Cascade-Ebenen**, was Sie hier lernen sollen:
 
-1. **Relevanz:** Finden Sie alle Deklarationsblöcke mit einem übereinstimmenden Selektor für jedes Element.
-2. **Wichtigkeit:** Sortieren Sie Regeln basierend darauf, ob sie normal oder wichtig sind. Wichtige Stile sind solche, die das [`!important`](/de/docs/Web/CSS/important)-Flag gesetzt haben.
-3. **Herkunft:** Sortieren Sie innerhalb der beiden Wichtigkeitsstufen die Regeln nach Autor-, Benutzer- oder Benutzeragenten-Herkunft.
-4. **Kaskadenschichten:** Sortieren Sie innerhalb der sechs Ursprungs-Wichtigkeitskategorien nach Kaskadenschicht. Die Schichtreihenfolge für normale Deklarationen reicht von der ersten bis zur letzten erstellten Schicht, gefolgt von nicht geschichteten normalen Stilen. Diese Reihenfolge wird für wichtige Stile invertiert, wobei nicht geschichtete wichtige Stile die niedrigste Priorität haben.
-5. **Spezifität:** Sortieren Sie bei konkurrierenden Stilen in der Ursprungs-Schicht mit Priorität Deklarationen nach [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity).
-6. **Nähe zur Einbettung**: Wenn zwei Selektoren in der Ursprungs-Schicht mit Priorität die gleiche Spezifität haben, gewinnt der Eigenschaftswert innerhalb der eingebetteten Regeln mit der geringsten Anzahl von Sprüngen in der DOM-Hierarchie zur Scope-Root. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für weitere Details und ein Beispiel.
-7. **Erscheinungsreihenfolge:** Wenn zwei Selektoren in der Ursprungs-Schicht mit Priorität die gleiche Spezifität und Einbettungsnähe haben, gewinnt der Eigenschaftswert vom zuletzt deklarierten Selektor mit der höchsten Spezifität.
+1. **Relevanz:** Finden Sie alle Deklarationsblöcke mit einem Selektormatch für jedes Element.
+2. **Wichtigkeit:** Sortieren Sie Regeln basierend darauf, ob sie normal oder wichtig sind. Wichtige Stile sind diejenigen, die das [`!important`](/de/docs/Web/CSS/important)-Flag gesetzt haben.
+3. **Ursprung:** Sortieren Sie innerhalb jedes der beiden Wichtigkeitsgruppen Regeln nach Autor-, Benutzer- oder User-Agent-Ursprung.
+4. **Cascade-Ebenen:** Sortieren Sie innerhalb jedes der sechs Ursprungs-Wichtigkeitsgruppen nach Cascade-Ebene. Die Ebenenreihenfolge für normale Deklarationen ist von der zuerst erstellten Ebene zur letzten, gefolgt von nicht geschichteten normalen Stilen. Diese Reihenfolge ist für wichtige Stile umgekehrt, mit nicht geschichteten wichtigen Stilen mit der niedrigsten Priorität.
+5. **Spezifizität:** Für konkurrierende Stile in der Ursprungs-Ebene mit Vorrang sortieren Sie Deklarationen anhand der [Spezifizität](/de/docs/Web/CSS/CSS_cascade/Specificity).
+6. **Nähe des Scopings:** Wenn zwei Selektoren in der Ursprungs-Ebene mit Vorrang die gleiche Spezifität haben, gewinnt der Eigenschaftswert innerhalb von Scoped-Regeln mit der geringsten Anzahl an Sprüngen in der DOM-Hierarchie bis zur Scope-Wurzel. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für weitere Details und ein Beispiel.
+7. **Reihenfolge des Auftretens:** Wenn zwei Selektoren in der Ursprungs-Ebene mit Vorrang die gleiche Spezifität und Scope-Nähe haben, gewinnt der Eigenschaftswert aus dem zuletzt deklarierten Selektor mit der höchsten Spezifität.
 
-Für jeden Schritt kommen nur die Deklarationen "noch im Rennen" weiter, um im nächsten Schritt "zu konkurrieren". Wenn nur eine Deklaration im Rennen ist, "gewinnt" sie, und die nachfolgenden Schritte sind hinfällig.
+Für jeden Schritt bewegen sich nur die Deklarationen, die „noch im Rennen“ sind, um im nächsten Schritt zu „konkurrieren“. Wenn nur eine Deklaration im Rennen ist, „gewinnt“ sie, und die nachfolgenden Schritte sind hinfällig.
 
-### Ursprung und Kaskade
+### Ursprung und Cascade
 
-Es gibt drei [Kaskaden-Ursprungstypen](/de/docs/Web/CSS/CSS_cascade/Cascade#origin_types): Benutzeragentenstylesheets, Benutzerstylesheets und Autorenstylesheets. Der Browser sortiert jede Deklaration in sechs Ursprungskategorien nach Ursprung und Wichtigkeit. Es gibt acht Ebenen der Priorität: die sechs Ursprungskategorien, Eigenschaften, die sich im Übergang befinden, und Eigenschaften, die animiert werden. Die Reihenfolge der Priorität reicht von normalen Benutzeragentenstilen, die die niedrigste Priorität haben, bis zu Stilen innerhalb momentan angewandter Animationen, über wichtige Benutzeragentenstile und dann Übergangsstile, die die höchste Priorität haben:
+Es gibt drei [Cascade-Ursprungstypen](/de/docs/Web/CSS/CSS_cascade/Cascade#origin_types): User-Agent-Stylesheets, Benutzer-Stylesheets und Autoren-Stylesheets. Der Browser sortiert jede Deklaration in sechs Ursprungsgruppen nach Ursprung und Wichtigkeit. Es gibt acht Ebenen des Vorrangs: die sechs Ursprungsgruppen, Eigenschaften, die im Übergang sind, und Eigenschaften, die animiert werden. Die Rangfolge reicht von normalen User-Agent-Stilen, die den niedrigsten Vorrang haben, bis hin zu Stilen in derzeit angewendeten Animationen, bis hin zu wichtigen User-Agent-Stilen und dann Stilen, die sich im Übergang befinden, die den höchsten Vorrang haben:
 
-1. normale Benutzeragentenstile
-2. normale Benutzerstile
-3. normale Autorenstile
-4. animierte Stile
-5. wichtige Autorenstile
-6. wichtige Benutzerstile
-7. wichtige Benutzeragentenstile
-8. Übergangsstile
+1. Benutzer-Agent normale Stile
+2. Benutzer normale Stile
+3. Autor normale Stile
+4. Stile, die animiert werden
+5. Autor wichtige Stile
+6. Benutzer wichtige Stile
+7. Benutzer-Agent wichtige Stile
+8. Stile im Übergang
 
-Der "Benutzeragent" ist der Browser. Der "Benutzer" ist der Website-Besucher. Der "Autor" sind Sie, der Entwickler. Direkt auf einem Element deklarierte Stile mit dem {{HTMLElement('style')}}-Element sind Autorenstile. Ohne animierte und übergangene Stile haben normale Benutzeragentenstile die niedrigste Priorität; wichtige Benutzeragentenstile haben die höchste.
+Der "Benutzer-Agent" ist der Browser. Der "Benutzer" ist der Seitenbesucher. Der "Autor" sind Sie, der Entwickler. Direkt auf einem Element deklarierte Stile mit dem {{HTMLElement('style')}}-Element sind Autorenstile. Ohne animierende und Übergangsstile haben User-Agent normale Stile den niedrigsten Vorrang; User-Agent wichtige Stile haben den höchsten Vorrang.
 
-### Ursprung und Spezifität
+### Ursprung und Spezifizität
 
-Für jede Eigenschaft gewinnt die Deklaration, die vom Ursprung mit der höchsten Priorität basierend auf dem Gewichtung (normal oder wichtig) stammt. Ignorieren Sie Schichten für den Moment, der Wert aus dem Ursprung mit der höchsten Priorität wird angewendet. Wenn der gewinnende Ursprung mehr als eine Eigenschaftsdeklaration für ein Element hat, wird die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) der Selektoren für diese konkurrierenden Eigenschaftswerte verglichen. Spezifität wird niemals zwischen Selektoren aus verschiedenen Ursprüngen verglichen.
+Für jede Eigenschaft ist die „gewinnende“ Deklaration diejenige aus dem Ursprung mit dem Vorrang basierend auf dem Gewicht (normal oder wichtig). Ohne Berücksichtigung von Ebenen wird der Wert aus dem Ursprung mit dem höchsten Vorrang angewendet. Wenn der gewinnende Ursprung mehr als eine Eigenschaftsdeklaration für ein Element hat, wird die [Spezifizität](/de/docs/Web/CSS/CSS_cascade/Specificity) der Selektoren für diese konkurrierenden Eigenschaftswerte verglichen. Die Spezifizität wird nie zwischen Selektoren aus verschiedenen Ursprüngen verglichen.
 
-Im Beispiel unten gibt es zwei Links. Der erste hat keine angewandten Autorenstile, sodass nur Benutzeragentenstile angewendet werden (und Ihre persönlichen Benutzerstile, falls vorhanden). Der zweite hat [`text-decoration`](/de/docs/Web/CSS/text-decoration) und [`color`](/de/docs/Web/CSS/color), die von Autorenstilen gesetzt werden, obwohl der Selektor im Autorenstylesheet eine Spezifität von [`0-0-0`](/de/docs/Web/CSS/CSS_cascade/Specificity#selector_weight_categories) hat. Der Grund, warum Autorenstile "gewinnen", ist, dass wenn es zu Konflikten zwischen Stilen aus verschiedenen Ursprüngen kommt, die Regeln aus dem Ursprung mit Priorität angewendet werden, unabhängig von der Spezifität im Ursprung, der keine Priorität hat.
+Im folgenden Beispiel gibt es zwei Links. Der erste hat keine Autorenstile angewendet, sodass nur User-Agent-Stile angewendet werden (und Ihre persönlichen Benutzerstile, falls vorhanden). Der zweite hat [`text-decoration`](/de/docs/Web/CSS/text-decoration) und [`color`](/de/docs/Web/CSS/color), die durch Autorenstile festgelegt sind, auch wenn der Selektor im Autoren-Stylesheet eine Spezifität von [`0-0-0`](/de/docs/Web/CSS/CSS_cascade/Specificity#selector_weight_categories) hat. Der Grund, warum Autorenstile "gewinnen", ist, dass wenn es Konflikte von Stilen aus verschiedenen Ursprüngen gibt, die Regeln aus dem Ursprung mit Vorrang angewendet werden, unabhängig von der Spezifizität im Ursprung, der keinen Vorrang hat.
 
 ```html live-sample___basic-cascade
 <p><a href="https://example.org">User agent styles</a></p>
@@ -85,98 +85,96 @@ Im Beispiel unten gibt es zwei Links. Der erste hat keine angewandten Autorensti
 
 {{EmbedLiveSample("basic-cascade")}}
 
-Der "konkurrierende" Selektor im Benutzeragentenstylesheet ist zum Zeitpunkt dieses Schreibens `a:any-link`, der ein Spezifitätsgewicht von `0-1-1` hat. Obwohl dies größer ist als der `0-0-0`-Selektor im Autorenstylesheet, spielt es keine Rolle, selbst wenn der Selektor in Ihrem aktuellen Benutzeragenten anders ist: die Spezifitätsgewichte von Autoren- und Benutzeragentenursprüngen werden niemals verglichen. Erfahren Sie mehr darüber, wie [Spezifitätsgewicht berechnet wird](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated).
+Der "konkurrierende" Selektor im User-Agent-Stylesheet zum Zeitpunkt dieses Schreibens ist `a:any-link`, der ein Spezifitätsgewicht von `0-1-1` hat. Auch wenn dies größer ist als der `0-0-0` Selektor im Autoren-Stylesheet, spielt es keine Rolle, auch wenn der Selektor in Ihrem aktuellen User-Agent anders ist: Die Spezifitätsgewichte aus Autoren- und User-Agent-Ursprüngen werden nie verglichen. Erfahren Sie mehr darüber, [wie das Spezifitätsgewicht berechnet wird](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated).
 
-Ursprungspriorität gewinnt immer über Selektorspezifität. Wenn eine Element-Eigenschaft mit einer normalen Stil-Deklaration in mehreren Ursprüngen gestaltet wird, überschreibt das Autorenstylesheet immer die redundanten normalen Eigenschaften, die in einem Benutzer- oder Benutzeragentenstylesheet deklariert wurden. Wenn der Stil wichtig ist, gewinnt das Benutzeragentenstylesheet immer über Autoren- und Benutzerstile. Die Priorität der Kaskaden-Herkunft stellt sicher, dass Spezifitätskonflikte zwischen Ursprüngen niemals auftreten.
+Ursprungs-Vorrang gewinnt immer über die Selektor-Spezifizität. Wenn eine Element-Eigenschaft mit einer normalen Stil-Deklaration in mehreren Ursprüngen gestylt wird, überschreibt das Autoren-Stylesheet immer die redundanten normalen Eigenschaften, die in einem Benutzer- oder User-Agent-Stylesheet deklariert sind. Wenn der Stil wichtig ist, gewinnt das User-Agent-Stylesheet immer über Autoren- und Benutzerstile. Ursprungs-Vorrang in der Cascade stellt sicher, dass Spezifizierungskonflikte zwischen Ursprüngen nie vorkommen.
 
-Eine letzte Sache, bevor wir fortfahren: die Erscheinungsreihenfolge wird nur relevant, wenn konkurrierende Deklarationen im Ursprung mit Priorität die gleiche Spezifität haben.
+Eine letzte Sache, die es zu beachten gilt, bevor wir fortfahren: Die Reihenfolge des Auftretens wird relevant, wenn konkurrierende Deklarationen im Ursprung des Vorrangs die gleiche Spezifizität haben.
 
-## Überblick über Kaskadenschichten
+## Überblick über Cascade-Ebenen
 
-Wir verstehen nun die "Priorität der Kaskadenherkunft", aber was ist die "Priorität der Kaskadenschicht"? Wir werden diese Frage beantworten, indem wir behandeln, was Kaskadenschichten sind, wie sie angeordnet sind und wie Stile Kaskadenschichten zugewiesen werden. Wir werden [reguläre Schichten](#erstellen_von_kaskadenschichten), [verschachtelte Schichten](#überblick_über_verschachtelte_kaskadenschichten) und anonyme Schichten abdecken. Lassen Sie uns zuerst besprechen, was Kaskadenschichten sind und welche Probleme sie lösen.
+Wir verstehen nun den „Ursprungs-Vorrang der Cascade“, aber was ist der „Vorrang der Cascade-Ebene“? Wir werden diese Frage beantworten, indem wir ansprechen, was Cascade-Ebenen sind, wie sie geordnet sind und wie Stile Ebenen zugewiesen werden. Wir werden [reguläre Ebenen](#erstellung_von_cascade-ebenen), [verschachtelte Ebenen](#überblick_über_verschachtelte_cascade-ebenen) und anonyme Ebenen besprechen. Lassen Sie uns zunächst darüber sprechen, was Cascade-Ebenen sind und welche Probleme sie lösen.
 
-### Reihenfolge der Priorität von Kaskadenschichten
+### Vorrangsreihenfolge der Cascade-Ebenen
 
-Ähnlich wie wir sechs Ebenen der Priorität basierend auf Herkunft und Wichtigkeit haben, ermöglichen es Kaskadenschichten, innerhalb einer dieser Herkünfte eine Unter-Ebene der Priorität zu erstellen.
+Ähnlich wie wir sechs Ebenen der Priorität basierend auf Ursprung und Bedeutung haben, ermöglichen Cascade-Ebenen die Erstellung von Unter-Ursprungsprioritäten innerhalb eines der Ursprünge.
 
-Innerhalb jeder der sechs Ursprungs-Eimer (`origin buckets`) kann es mehrere Kaskadenschichten geben. Die [Reihenfolge der Schichterstellung](/de/docs/Web/CSS/@layer) ist von großer Bedeutung. Es ist die Reihenfolge der Erstellung, die die Prioritätsreihenfolge zwischen Schichten innerhalb einer Herkunft festlegt.
+Innerhalb jeder der sechs Ursprungsgruppen kann es mehrere Cascade-Ebenen geben. Die [Reihenfolge der Ebenenerstellung](/de/docs/Web/CSS/@layer) ist sehr wichtig. Die Reihenfolge der Erstellung legt die Vorrangsreihenfolge zwischen den Ebenen innerhalb eines Ursprungs fest.
 
-In normalen Ursprungs-Eimern werden Schichten in der Reihenfolge ihrer Erstellung sortiert. Die Reihenfolge der Priorität reicht von der ersten erstellten Schicht bis zur letzten, gefolgt von nicht geschichteten normalen Stilen.
+In normalen Ursprungsgruppen werden Ebenen in der Reihenfolge der Erstellung jeder Ebene sortiert. Die Vorrangsreihenfolge reicht von der zuerst erstellten Ebene bis zur letzten, gefolgt von nicht geschichteten normalen Stilen.
 
-Diese Reihenfolge wird für wichtige Stile invertiert. Alle nicht geschichteten wichtigen Stile kaskadieren zusammen in eine implizite Schicht mit Priorität über allen nicht-transitionierenden normalen Stilen. Die nicht geschichteten wichtigen Stile haben eine niedrigere Priorität als alle wichtigen geschichteten Stile. Die wichtigen Stile in früher deklarierten Schichten haben Vorrang über wichtige Stile in später deklarierten Schichten innerhalb derselben Herkunft.
+Diese Reihenfolge ist für wichtige Stile umgekehrt. Alle nicht geschichteten wichtigen Stile kaskadieren in eine implizite Ebene, die Vorrang vor allen nicht übergehenden normalen Stilen hat. Die nicht geschichteten wichtigen Stile haben einen niedrigeren Vorrang als alle wichtigen geschichteten Stile. Die wichtigen Stile in früher deklarierten Ebenen haben Vorrang vor wichtigen Stilen in später deklarierten Ebenen innerhalb des gleichen Ursprungs.
 
-Für den Rest dieses Tutorials werden wir unsere Diskussion auf Autorenstile beschränken, aber denken Sie daran, dass Schichten auch in Benutzer- und Benutzeragentenstylesheets existieren können.
+Für den Rest dieses Tutorials werden wir unsere Diskussion auf Autorenstile beschränken, aber denken Sie daran, dass Ebenen auch in Benutzer- und User-Agent-Stylesheets existieren können.
 
-### Probleme, die Kaskadenschichten lösen können
+### Probleme, die Cascade-Ebenen lösen können
 
-Große Codebasen können Stile aus mehreren Teams, Komponentenbibliotheken, Frameworks und Drittanbietern haben. Egal wie viele Stylesheets eingeschlossen sind, all diese Stile kaskadieren in einer einzigen Herkunft: dem _Autoren_-Stylesheet.
+Große Codebasen können Stile haben, die von mehreren Teams, Komponenten-Bibliotheken, Frameworks und Dritten kommen. Egal wie viele Stylesheets eingeschlossen sind, all diese Stile kaskadieren in einem einzigen Ursprung: dem _Autoren_-Stylesheet.
 
-Das Zusammenführen von Stilen aus vielen Quellen, insbesondere von Teams, die nicht zusammenarbeiten, kann Probleme schaffen. Verschiedene Teams können unterschiedliche Methoden haben; eines könnte die beste Praxis der Reduzierung von Spezifität verfolgen, während ein anderes eine Richtlinie hat, die `id` in jeden Selektor einzubeziehen.
+Stile aus vielen Quellen zusammen zu kaskadieren, insbesondere von Teams, die nicht zusammenarbeiten, kann Probleme verursachen. Verschiedene Teams können unterschiedliche Methoden haben; eines könnte eine Best Practice der Reduzierung der Spezifizität haben, während ein anderes einen Standard des Einschlusses einer `id` in jedem Selektor haben könnte.
 
-Inhalte zu Spezifitätskonflikten können schnell eskalieren. Ein Webentwickler könnte eine "schnelle Lösung" erstellen, indem er ein `!important`-Flag hinzufügt. Obwohl dies wie eine einfache Lösung erscheint, verschiebt es oft nur den Spezifitätskrieg von normalen zu wichtigen Deklarationen.
+Spezifität-Konflikte können schnell eskalieren. Ein Webentwickler könnte einen „schnellen Fix“ erstellen, indem er ein `!important`-Flag hinzufügt. Auch wenn dies wie eine einfache Lösung erscheinen mag, verlagert es oft nur den Spezifizitätskrieg von normalen zu wichtigen Deklarationen.
 
-So wie Kaskadenherkünfte ein Gleichgewicht der Kräfte zwischen Benutzer-, Benutzeragenten- und Autorenstilen bieten, bieten Kaskadenschichten eine strukturierte Möglichkeit, Bedenken innerhalb einer einzigen Herkunft zu organisieren und auszugleichen, als ob jede Schicht in einer Herkunft eine Unterherkunft wäre. Eine Schicht kann für jedes Team, jede Komponente und jeden Drittanbieter erstellt werden, wobei die Stilpriorität auf der Schichtreihenfolge basiert.
+In derselben Weise, wie Cascade-Ursprünge ein Machtgleichgewicht zwischen Benutzer-, User-Agent- und Autorenstilen bieten, bieten Cascade-Ebenen eine strukturierte Möglichkeit, um Bedenken innerhalb eines einzigen Ursprungs zu organisieren und auszubalancieren, als ob jede Ebene in einem Ursprung ein Unter-Ursprung wäre. Eine Ebene kann für jedes Team, jede Komponente und jede Drittpartei erstellt werden, mit Stilpriorität basierend auf der Ebenenreihenfolge.
 
-Regeln innerhalb einer Schicht kaskadieren zusammen, ohne mit Stilregeln außerhalb der Schicht zu konkurrieren. Kaskadenschichten ermöglichen die Priorisierung ganzer Stylesheets über andere Stylesheets, ohne sich um Spezifität zwischen diesen Unterherkünften kümmern zu müssen.
+Regeln innerhalb einer Ebene kaskadieren zusammen, ohne mit Stilregeln außerhalb der Ebene zu konkurrieren. Cascade-Ebenen ermöglichen die Priorisierung ganzer Stylesheets über andere Stylesheets, ohne sich um Spezifizität zwischen diesen Unter-Ursprüngen kümmern zu müssen.
 
-Schichtpriorität gewinnt immer über Selektorspezifität. Stile in Schichten mit Priorität "gewinnen" über Schichten mit weniger Priorität. Die Spezifität eines Selektors in einer verlierenden Schicht ist irrelevant. Spezifität ist immer noch wichtig für konkurrierende Eigenschaftswerte innerhalb einer Schicht, aber es gibt keine Spezifitätsprobleme zwischen Schichten, da nur die Schicht mit der höchsten Priorität für jede Eigenschaft berücksichtigt wird.
+Ebenenvorrang gewinnt immer über Selektorspezifität. Stile in Ebenen mit Vorrang „gewinnen“ über Ebenen mit weniger Vorrang. Die Spezifizität eines Selektors in einer verlierenden Ebene ist irrelevant. Spezifizität spielt immer noch eine Rolle für konkurrierende Eigenschaftswerte innerhalb einer Ebene, aber es gibt keine Spezifizitätsbedenken zwischen Ebenen, da nur die höchste Prioritätsebene für jede Eigenschaft berücksichtigt wird.
 
-### Probleme, die verschachtelte Kaskadenschichten lösen können
+### Probleme, die verschachtelte Cascade-Ebenen lösen können
 
-Kaskadenschichten ermöglichen die Erstellung verschachtelter Schichten. Jede Kaskadenschicht kann verschachtelte Schichten enthalten.
+Cascade-Ebenen erlauben die Erstellung von verschachtelten Ebenen. Jede Cascade-Ebene kann verschachtelte Ebenen enthalten.
 
-Zum Beispiel kann eine Komponentenbibliothek in eine `components`-Schicht importiert werden. Eine reguläre Kaskadenschicht wird die Komponentenbibliothek zur Autorenherkunft hinzufügen und alle Spezifitätskonflikte mit anderen Autorenstilen entfernen. Innerhalb der `components`-Schicht kann ein Entwickler verschiedene Themen definieren, jedes als separate verschachtelte Schicht. Die Reihenfolge dieser verschachtelten Themens
+Zum Beispiel könnte eine Komponentenbibliothek in eine `components`-Ebene importiert werden. Eine reguläre Cascade-Ebene fügt die Komponentenbibliothek zum Autorenursprung hinzu und entfernt jegliche Spezifizierungskonflikte mit anderen Autorenstilen. Innerhalb der `components`-Ebene kann ein Entwickler verschiedene Themen definieren, jede als separate verschachtelte Ebene. Die Reihenfolge dieser verschachtelten Themenebenen kann basierend auf Media-Queries definiert werden (siehe den Abschnitt [Ebenenerstellung und Media Abfragen](#ebenenerstellung_und_media_abfragen) unten) wie zum Beispiel Viewportgröße oder [Ausrichtung](/de/docs/Web/CSS/@media/orientation). Diese verschachtelten Ebenen bieten eine Möglichkeit, Themen zu erstellen, die nicht basierend auf Spezifizität in Konflikt stehen.
 
-chichten kann basierend auf Medienabfragen (siehe den Abschnitt [Layer-Erstellung und Medienabfragen](#schichterstellung_und_medienabfragen) unten) definiert werden, wie zum Beispiel die Ansichtsgröße oder [Ausrichtung](/de/docs/Web/CSS/@media/orientation). Diese verschachtelten Schichten bieten eine Möglichkeit, Themen zu erstellen, die nicht auf Spezifität basieren konkurrieren.
+Die Möglichkeit der Verschachtelung von Ebenen ist sehr nützlich für jeden, der an der Entwicklung von Komponentenbibliotheken, Frameworks, Drittanbieter-Widgets und Themen arbeitet.
 
-Die Fähigkeit, Schichten zu verschachteln, ist sehr nützlich für alle, die an der Entwicklung von Komponentenbibliotheken, Frameworks, Drittanbieter-Widgets und Themen arbeiten.
+Die Möglichkeit, verschachtelte Ebenen zu erstellen, beseitigt auch die Sorge, widersprüchliche Ebenennamen zu haben. Dies wird im Abschnitt über [verschachtelte Ebenen](#überblick_über_verschachtelte_cascade-ebenen) behandelt.
 
-Die Fähigkeit, verschachtelte Schichten zu erstellen, beseitigt auch die Sorge, dass es zu Konflikten bei Schichtnamen kommt. Wir werden dies im Abschnitt [verschachtelte Schicht](#überblick_über_verschachtelte_kaskadenschichten) behandeln.
-
-> "Autoren können Schichten für Elementstandards, Drittanbieter-Bibliotheken, Themen, Komponenten, Überschreibungen und andere Styling-Angelegenheiten erstellen - und können die Kaskade der Schichten in einer expliziten Weise neu ordnen, ohne die Selektoren oder Spezifität innerhalb jeder Schicht zu ändern oder sich auf die Reihenfolge des Erscheinens zu verlassen, um Konflikte zwischen Schichten zu lösen."
+> "Autoren können Ebenen erstellen, um Elementstandards, Drittanbieterbibliotheken, Themen, Komponenten, Überschreibungen und andere Styling-Anliegen darzustellen – und sind in der Lage, die Cascade der Ebenen auf eine explizite Weise neu zu ordnen, ohne Selektoren oder Spezifizität innerhalb jeder Ebene zu ändern oder sich auf die Reihenfolge des Auftretens zu verlassen, um Konflikte zwischen Ebenen zu lösen."
 >
-> —[Spezifikation zu Kaskade und Vererbung](https://drafts.csswg.org/css-cascade-5/#layering).
+> —[Spezifikation zu Kaskadierung und Vererbung](https://drafts.csswg.org/css-cascade-5/#layering).
 
-## Erstellen von Kaskadenschichten
+## Erstellung von Cascade-Ebenen
 
-Schichten können mit einer der folgenden Methoden erstellt werden:
+Ebenen können mit einer der folgenden Methoden erstellt werden:
 
-- Die `@layer`-Anweisung als At-Regel, bei der Schichten mit `@layer` gefolgt von den Namen einer oder mehrerer Schichten deklariert werden. Dies erstellt benannte Schichten, ohne ihnen Stile zuzuweisen.
-- Die `@layer` Block-at-Regel, in der alle Stile innerhalb eines Blocks einer benannten oder unbenannten Schicht hinzugefügt werden.
-- Die `@import`-Regel mit dem `layer`-Schlüsselwort oder der `layer()`-Funktion, die den Inhalt der importierten Datei in diese Schicht einfügt.
+- Die [`@layer`](/de/docs/Web/CSS/@layer) Anweisung, gefolgt von den Namen einer oder mehrerer Ebenen. Dies erstellt benannte Ebenen, ohne ihnen Stile zuzuweisen.
+- Die `@layer`-Blockregel, in der alle Stile innerhalb eines Blocks einer benannten oder unbenannten Ebene hinzugefügt werden.
+- Die [`@import`](/de/docs/Web/CSS/@import)-Regel mit dem Schlüsselwort `layer` oder der Funktion `layer()`, die den Inhalt der importierten Datei in diese Ebene zuweist.
 
-Alle drei Methoden erstellen eine Schicht, wenn eine Schicht mit diesem Namen noch nicht initialisiert wurde. Wenn kein Schichtname in der `@layer`-Regel oder `@import` mit `layer()` angegeben ist, wird eine neue anonyme (unbenannte) Schicht erstellt.
+Alle drei Methoden erstellen eine Ebene, wenn eine Ebene mit diesem Namen nicht bereits initialisiert wurde. Wenn kein Name in der `@layer`-Regel oder `@import` mit `layer()` angegeben wird, wird eine neue anonyme (unnamete) Ebene erstellt.
 
 > [!NOTE]
-> Die Reihenfolge der Priorität von Schichten ist die Reihenfolge, in der sie erstellt werden. Stile, die nicht in einer Schicht sind oder "ungeschichtete Stile", kaskadieren zusammen in eine letzte implizite Etikette.
+> Die Reihenfolge des Vorrangs der Ebenen ist die Reihenfolge, in der sie erstellt werden. Stile, die nicht in einer Ebene sind, oder "nicht geebnete Stile", kaskadieren zusammen in eine letzte implizite Ebene.
 
-Bevor wir verschachtelte Schichten diskutieren, werfen wir einen genaueren Blick auf die drei Möglichkeiten zur Erstellung einer Schicht.
+Lassen Sie uns die drei Möglichkeiten zur Erstellung einer Ebene etwas genauer behandeln, bevor wir über verschachtelte Ebenen sprechen.
 
-### Die @layer-Anweisung als At-Regel für benannte Schichten
+### Die @layer-Anweisung zur Erstellung benannter Ebenen
 
-Die Reihenfolge der Schichten wird durch die Reihenfolge festgelegt, in der die Schichten in Ihrem CSS erscheinen. Schichten mit `@layer` gefolgt von den Namen einer oder mehrerer Schichten zu deklarieren, ohne ihnen Stile zuzuweisen, ist eine Möglichkeit, die [Schichtreihenfolge](#bestimmung_der_priorität_basierend_auf_der_reihenfolge_der_schichten) zu definieren.
+Die Reihenfolge der Ebenen wird durch die Reihenfolge festgelegt, in der die Ebenen in Ihrem CSS erscheinen. Das Deklarieren von Ebenen mit `@layer`, gefolgt von den Namen einer oder mehrerer Ebenen ohne Zuordnung von Stilen, ist eine Möglichkeit, die [Ebenenreihenfolge](#bestimmen_der_vorrangfolge_basierend_auf_der_reihenfolge_der_ebenen) zu definieren.
 
-Die [`@layer`](/de/docs/Web/CSS/@layer)-CSS-At-Regel wird verwendet, um eine Kaskadenschicht zu deklarieren und die Prioritätsreihenfolge festzulegen, wenn es mehrere Kaskadenschichten gibt. Die folgende At-Regel deklariert drei Schichten, in der aufgeführten Reihenfolge:
+Die [`@layer`](/de/docs/Web/CSS/@layer) CSS-Regel wird verwendet, um eine Cascade-Ebene zu deklarieren und die Reihenfolge des Vorrangs festzulegen, wenn es mehrere Cascade-Ebenen gibt. Die folgende Regel erklärt drei Ebenen, in der angegebenen Reihenfolge:
 
 ```css
 @layer theme, layout, utilities;
 ```
 
-Oftmals möchten Sie, dass Ihre erste Zeile in Ihrem CSS diese `@layer`-Deklaration ist (natürlich mit Schichtnamen, die für Ihre Website sinnvoll sind), um die volle Kontrolle über die Schichtreihenfolge zu haben.
+Sie möchten oft, dass Ihre erste Zeile CSS diese `@layer`-Deklaration ist (mit Ebenennamen, die auf Ihre Website passen, natürlich), um die volle Kontrolle über die Ebenenanordnung zu haben.
 
-Wenn die obige Anweisung die erste Zeile des CSS einer Website ist, wird die Schichtreihenfolge `theme`, `layout` und `utilities` sein. Wenn einige Schichten vor der obigen Anweisung erstellt wurden, werden, solange es noch keine Schichten mit diesen Namen gibt, diese drei Schichten erstellt und am Ende der Liste der bestehenden Schichten hinzugefügt. Wenn jedoch eine Schicht mit demselben Namen bereits existiert, erstellt die obige Anweisung nur zwei neue Schichten. So werden zum Beispiel nur `theme` und `utilities` erstellt, wenn `layout` bereits existiert. In diesem Fall wird die Schichtreihenfolge `layout`, `theme` und `utilities` sein.
+Wenn die obige Anweisung die erste Zeile des CSS einer Website ist, wird die Ebenenreihenfolge `theme`, `layout` und `utilities` sein. Wenn einige Ebenen vor der obigen Anweisung erstellt wurden, werden diese drei Ebenen erstellt und am Ende der Liste der bestehenden Ebenen hinzugefügt, solange keine Ebenen mit diesen Namen bereits existieren. Wenn jedoch eine Ebene mit dem gleichen Namen bereits existiert, erstellt die obige Anweisung nur zwei neue Ebenen. Zum Beispiel, wenn `layout` bereits existierte, werden nur `theme` und `utilities` erstellt, aber die Reihenfolge der Ebenen wird in diesem Fall `layout`, `theme` und `utilities` sein.
 
-### Die @layer Block-at-Regel für benannte und anonyme Schichten
+### Die @layer-Blockregel zur Erstellung von benannten und anonymen Ebenen
 
-Schichten können mit der Block-`@layer`-Regel erstellt werden. Befolgt eine `@layer`-Regel ein Bezeichner und einen Stilblock, wird der Bezeichner verwendet, um die Schicht zu benennen, und die Stile in dieser At-Regel werden den Stilen der Schicht hinzugefügt. Wenn eine Schicht mit dem angegebenen Namen noch nicht existiert, wird eine neue Schicht erstellt. Wenn eine Schicht mit dem angegebenen Namen bereits existiert, werden die Stile der zuvor bestehenden Schicht hinzugefügt. Wenn beim Erstellen eines Stilsblocks mit `@layer` kein Name angegeben ist, werden die Stile in der At-Regel einer neuen anonymen Schicht hinzugefügt.
+Ebenen können mit der Blockregel `@layer` erstellt werden. Wenn eine `@layer`-Regel auf einen Bezeichner und einen Block von Stilen folgt, wird der Bezeichner verwendet, um die Ebene zu benennen, und die Stile in dieser Regel werden zu den Stilen der Ebene hinzugefügt. Wenn keine Ebene mit dem angegebenen Namen bereits existiert, wird eine neue Ebene erstellt. Wenn eine Ebene mit dem angegebenen Namen bereits existiert, werden die Stile zu der bereits vorhandenen Ebene hinzugefügt. Wenn beim Erstellen eines Stilblocks mit `@layer` kein Name angegeben wird, werden die Stile in der Regel einer neuen anonymen Ebene hinzugefügt.
 
-Im untenstehenden Beispiel haben wir vier `@layer` Block-at-Regeln und eine `@layer`-Anweisung als At-Regel verwendet. Dieses CSS macht Folgendes in der aufgeführten Reihenfolge:
+Im folgenden Beispiel haben wir vier `@layer`-Blockregeln und eine `@layer`-Anweisung verwendet. Dieses CSS tut das Folgende in der angegebenen Reihenfolge:
 
-1. Erstellt eine benannte `layout`-Schicht
-2. Erstellt eine unbenannte, anonyme Schicht
-3. Deklariert eine Liste von drei Schichten und erstellt nur zwei neue Schichten, `theme` und `utilities`, da `layout` bereits existiert
-4. Fügt der bereits bestehenden `layout`-Schicht zusätzliche Stile hinzu
-5. Erstellt eine zweite unbenannte, anonyme Schicht
+1. Erstellen einer benannten `layout`-Ebene
+2. Erstellen einer unbenannten, anonymen Ebene
+3. Erklären einer Liste von drei Ebenen und Erstellen von nur zwei neuen Ebenen, `theme` und `utilities`, weil `layout` bereits existiert
+4. Hinzufügen zusätzlicher Stile zur bereits existierenden `layout`-Ebene
+5. Erstellen einer zweiten unbenannten, anonymen Ebene
 
 ```css
 /* file: layers1.css */
@@ -218,22 +216,22 @@ body {
 }
 ```
 
-In dem obigen CSS haben wir fünf Schichten erstellt: `layout`, `<anonymous(01)>`, `theme`, `utilities`, und `<anonymous(02)>` - in dieser Reihenfolge - mit einer sechsten, impliziten Schicht von ungeschichteten Stilen, die im `body`-Stilblock enthalten sind. Die Schichtreihenfolge ist die Reihenfolge, in der die Schichten erstellt werden, wobei die implizite Schicht von ungeschichteten Stilen immer zuletzt ist. Es gibt keine Möglichkeit, die Schichtreihenfolge nach der Erstellung zu ändern.
+In dem obigen CSS haben wir fünf Ebenen erstellt: `layout`, `<anonymous(01)>`, `theme`, `utilities` und `<anonymous(02)>` – in dieser Ordnung – mit einer sechsten, impliziten Ebene von nicht geschichteten Stilen im `body`-Stilblock. Die Ebenenordnung ist die Reihenfolge, in der die Ebenen erstellt werden, wobei die implizite Ebene der nicht geschichteten Stile immer die letzte ist. Es gibt keine Möglichkeit, die Ebenenordnung nach ihrer Erstellung zu ändern.
 
-Wir haben der Schicht mit dem Namen `layout` einige Stile zugewiesen. Wenn eine benannte Schicht noch nicht existiert, erstellt die Angabe des Namens in einer `@layer`-Regel, mit oder ohne Zuweisen von Stilen zu der Schicht, die Schicht; Dies fügt die Schicht am Ende der Serie von bestehenden Schichtnamen hinzu. Existiert die benannte Schicht bereits, werden alle Stile innerhalb des benannten Blocks den Stilen in der zuvor bestehenden Schicht hinzugefügt – das Spezifizieren von Stilen in einem Block unter Wiederverwendung eines bereits bestehenden Schichtnamens erstellt keine neue Schicht.
+Wir haben einige Stile zu der Ebene mit dem Namen `layout` zugewiesen. Wenn eine benannte Ebene nicht bereits existiert, erstellt das Angeben des Namens in einer `@layer`-Regel, mit oder ohne Zuweisung von Stilen zur Ebene, diese Ebene; dies fügt die Ebene am Ende der Serie der bestehenden Ebenennamen hinzu. Wenn die benannte Ebene bereits existiert, werden alle Stile innerhalb des benannten Blocks zu den Stilen der bereits existierenden Ebene hinzugefügt – das Angeben von Stilen in einem Block durch die Wiederverwendung eines bestehenden Ebenennamens erstellt keine neue Ebene.
 
-Anonyme Schichten werden erstellt, indem Stilen eine Schicht zugewiesen wird, ohne die Schicht zu benennen. Stile können einer unbenannten Schicht nur zum Zeitpunkt ihrer Erstellung hinzugefügt werden.
+Anonyme Ebenen werden erstellt, indem man Stile einer Ebene zuweist, ohne die Ebene zu benennen. Stile können einer unbenannten Ebene nur zum Zeitpunkt ihrer Erstellung hinzugefügt werden.
 
 > [!NOTE]
-> Die wiederholte Verwendung von `@layer` ohne Schichtnamen erstellt zusätzliche unbenannte Schichten; es fügt nicht Stile zu einer zuvor bestehenden unbenannten Schicht hinzu.
+> Nachfolgende Verwendung von `@layer` ohne Ebenennamen erstellt zusätzliche unbenannte Ebenen; es fügt keine Stile zu einer zuvor existierenden unbenannten Ebene hinzu.
 
-Die `@layer`-Regel erstellt eine Schicht, benannt oder nicht, oder fügt Stile zu einer Schicht hinzu, wenn die benannte Schicht bereits existiert. Wir haben die erste anonyme Schicht `<anonymous(01)>` und die zweite `<anonymous(02)>` genannt, dies ist nur zu erläuterungszwecken. Es handelt sich eigentlich um unbenannte Schichten. Es gibt keine Möglichkeit, auf sie zuzugreifen oder ihnen nachträglich Stile hinzuzufügen.
+Die `@layer`-Regel erstellt eine Ebene, benannt oder nicht, oder fügt Stile zu einer Ebene hinzu, wenn die benannte Ebene bereits existiert. Wir nannten die erste anonyme Ebene `<anonymous(01)>` und die zweite `<anonymous(02)>`, dies dient nur dazu, sie zu erläutern. Dies sind tatsächlich unbenannte Ebenen. Es gibt keine Möglichkeit, auf sie zuzugreifen oder zusätzliche Stile hinzuzufügen.
 
-Alle Deklarationen, die außerhalb einer Schicht stehen, werden in eine implizite Schicht zusammengeführt. Im obigen Beispiel hat die erste Deklaration die Eigenschaft `color: #333` auf `body` gesetzt. Dies wurde außerhalb jeder Schicht deklariert. Normale ungeschichtete Deklarationen haben Priorität über normale geschichtete Deklarationen, selbst wenn die ungeschichteten Stile eine niedrigere Spezifität haben und zuerst in der Erscheinungsreihenfolge erscheinen. Dies erklärt, warum die ungeschichteten CSS, obwohl sie zuerst im Codeblock deklariert wurden, die implizite Schicht dieser ungeschichteten Stile wie wenn es die letzte deklarierte Schicht wäre, übertreffen.
+Alle außerhalb einer Ebene deklarierten Stile werden in einer impliziten Ebene zusammengeführt. Im obigen Beispiel legte die erste Deklaration die Eigenschaft `color: #333` auf `body` fest. Diese wurde außerhalb einer Ebene deklariert. Normale nicht geschichtete Deklarationen haben Vorrang vor normalen geschichteten Deklarationen, auch wenn die nicht geschichteten Stile eine niedrigere Spezifizität haben und zuerst im Erscheinungsreihenfolge erscheinen. Dies erklärt, warum die implizite Ebene, die diese ungeschichteten Stile enthält, Vorrang hat, als wäre sie die zuletzt deklarierte Ebene, obwohl das nicht geschichtete CSS zuerst im Codeblock deklariert wurde.
 
-In der Zeile `@layer theme, layout, utilities;`, in der eine Serie von Schichten deklariert wurde, wurden nur die Schichten `theme` und `utilities` erstellt; `layout` wurde bereits in der ersten Zeile erstellt. Beachten Sie, dass diese Deklaration die Reihenfolge bereits erstellter Schichten nicht ändert. Derzeit gibt es keine Möglichkeit, die Reihenfolge der Schichten nach der Deklaration zu ändern.
+In der Zeile `@layer theme, layout, utilities;`, in der eine Reihe von Ebenen deklariert wurde, wurden nur die Ebenen `theme` und `utilities` erstellt; `layout` war bereits in der ersten Zeile erstellt. Beachten Sie, dass diese Deklaration die Reihenfolge der bereits erstellten Ebenen nicht ändert. Derzeit gibt es keine Möglichkeit, die Ebenenreihenfolge nach der Deklaration neu zu ordnen.
 
-Im folgenden Beispiel weisen wir Stilen zwei Schichten zu, erstellen und benennen sie im Prozess. Da sie bereits existieren, weil sie beim ersten Gebrauch erstellt wurden, macht die Deklaration in der letzten Zeile nichts.
+Im folgenden Beispiel weisen wir zwei Ebenen Stile zu, erstellen sie und benennen sie gleichzeitig. Da sie bereits existieren, weil sie bei der ersten Verwendung erstellt wurden, tut die Deklaration auf der letzten Zeile nichts.
 
 ```html live-sample___layer-order
 <h1>Is this heading underlined?</h1>
@@ -260,11 +258,11 @@ Im folgenden Beispiel weisen wir Stilen zwei Schichten zu, erstellen und benenne
 
 {{EmbedLiveSample("layer-order")}}
 
-Versuchen Sie, die letzte Zeile, `@layer site, page;`, zu verschieben, um die erste Zeile zu machen. Was passiert?
+Versuchen Sie, die letzte Zeile `@layer site, page;` an den Anfang zu verschieben. Was passiert?
 
-#### Schichterstellung und Medienabfragen
+#### Ebenenerstellung und Media Abfragen
 
-Wenn Sie eine Schicht mit [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) oder [Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries) definieren und die Medien nicht zutreffen oder das Feature nicht unterstützt wird, wird die Schicht nicht erstellt. Das folgende Beispiel zeigt, wie sich durch das Ändern der Größe Ihres Geräts oder Browsers die Schichtreihenfolge ändern kann. In diesem Beispiel erstellen wir die `site`-Schicht nur in breiteren Browsern. Wir weisen dann den `page`- und `site`-Schichten Stile zu, in dieser Reihenfolge.
+Wenn Sie eine Ebene mit [Media](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) oder [Feature](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries) Abfragen definieren und die Medien nicht übereinstimmen oder das Feature nicht unterstützt wird, wird die Ebene nicht erstellt. Das folgende Beispiel zeigt, wie das Ändern der Größe Ihres Geräts oder Browsers die Ebenenreihenfolge ändern kann. In diesem Beispiel erstellen wir die `site`-Ebene nur in breiteren Browsern. Dann weisen wir Stile den `page` und `site` Ebenen zu, in der jeweiligen Reihenfolge.
 
 ```html live-sample___media-order
 <h1>Is this heading underlined?</h1>
@@ -292,75 +290,75 @@ Wenn Sie eine Schicht mit [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Us
 
 {{EmbedLiveSample("media-order")}}
 
-In Breitbildschirmen wird die `site`-Schicht in der ersten Zeile deklariert, was bedeutet, dass `site` weniger Vorrang als `page` hat. Andernfalls hat `site` Vorrang vor `page`, weil es später auf schmalen Bildschirmen deklariert wird. Wenn das nicht funktioniert, versuchen Sie, die `50em` in der Medienabfrage auf `10em` oder `100em` zu ändern.
+Auf breiten Bildschirmen wird die `site`-Ebene in der ersten Zeile deklariert, was bedeutet, dass `site` weniger Vorrang hat als `page`. Andernfalls hat `site` Vorrang vor `page`, weil es auf engen Bildschirmen später deklariert wird. Wenn das nicht funktioniert, versuchen Sie, die `50em` im Media-Query auf `10em` oder `100em` zu ändern.
 
-### Der Import von Stylesheets in benannte und anonyme Schichten mit @import
+### Importieren von Stylesheets in benannte und anonyme Ebenen mit @import
 
-Die [`@import`](/de/docs/Web/CSS/@import)-Regel ermöglicht es Benutzern, Stilregeln aus anderen Stylesheets in eine CSS-Datei oder ein {{htmlelement('style')}}-Element zu importieren.
+Die [`@import`](/de/docs/Web/CSS/@import)-Regel ermöglicht es Benutzern, Stilregeln aus anderen Stylesheets entweder direkt in eine CSS-Datei oder in ein {{htmlelement('style')}}-Element zu importieren.
 
-Beim Importieren von Stylesheets muss die `@import`-Anweisung vor allen CSS-Stilen im Stylesheet oder `<style>`-Block definiert werden. Die `@import`-Anweisung muss zuerst kommen, vor allen Stilen, kann jedoch von einer `@layer`-At-Regel gefolgt werden, die eine oder mehrere Schichten erstellt, ohne ihnen Stile zuzuweisen. (`@import` kann auch von einer [`@charset`](/de/docs/Web/CSS/@charset)-Regel gefolgt werden.)
+Beim Import von Stylesheets muss die `@import`-Anweisung vor allen CSS-Stilen innerhalb des Stylesheets oder `<style>`-Blocks definiert werden. Die `@import`-Anweisung muss zuerst kommen, vor allen Stilen, kann aber durch eine `@layer`-Regel, die eine oder mehrere Ebenen erstellt, ohne ihnen Stile zuzuweisen, vorangegangen werden. (`@import` kann auch durch eine [`@charset`](/de/docs/Web/CSS/@charset)-Regel vorangegangen werden.)
 
-Sie können ein Stylesheet in eine benannte Schicht, eine verschachtelte Schicht oder eine anonyme Schicht importieren. Die folgende Schicht importiert die Stylesheets in eine `components`-Schicht, eine verschachtelte `dialog`-Schicht innerhalb der `components`-Schicht und eine unbenannte Schicht:
+Sie können ein Stylesheet in eine benannte Ebene, eine geschachtelte benannte Ebene oder eine anonyme Ebene importieren. Die folgende Ebene importiert die Stylesheets in eine `components`-Ebene, eine geschachtelte `dialog`-Ebene innerhalb der `components`-Ebene und eine unbenannte Ebene:
 
 ```css
-@import url("components-lib.css") layer(components);
-@import url("dialog.css") layer(components.dialog);
-@import url("marketing.css") layer();
+@import "components-lib.css" layer(components);
+@import "dialog.css" layer(components.dialog);
+@import "marketing.css" layer();
 ```
 
-Sie können mehr als eine CSS-Datei in eine einzige Schicht importieren. Die folgende Deklaration importiert zwei separate Dateien in eine einzige `social`-Schicht:
+Sie können mehr als eine CSS-Datei in eine einzelne Ebene importieren. Die folgende Deklaration importiert zwei separate Dateien in eine einzige `social`-Ebene:
 
 ```css
-@import url(comments.css) layer(social);
-@import url(sm-icons.css) layer(social);
+@import "comments.css" layer(social);
+@import "sm-icons.css" layer(social);
 ```
 
-Sie können Stile importieren und Schichten basierend auf spezifischen Bedingungen verwenden, die mit Hilfe von [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) und [Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries) definiert werden. Die folgende importiert ein Stylesheet in eine `international`-Schicht nur, wenn der Browser `display: ruby` unterstützt, und die zu importierende Datei ist abhängig von der Bildschirmbreite.
+Sie können Stile importieren und Ebenen basierend auf spezifischen Bedingungen erstellen, indem Sie [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) und [Feature Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries) verwenden. Das folgende importiert ein Stylesheet in eine `international`-Ebene nur dann, wenn der Browser `display: ruby` unterstützt, und die importierte Datei ist abhängig von der Breite des Bildschirms.
 
 ```css
-@import url("ruby-narrow.css") layer(international) supports(display: ruby)
+@import "ruby-narrow.css" layer(international) supports(display: ruby)
   (width < 32rem);
-@import url("ruby-wide.css") layer(international) supports(display: ruby)
+@import "ruby-wide.css" layer(international) supports(display: ruby)
   (width >= 32rem);
 ```
 
 > [!NOTE]
-> Es gibt keinen Äquivalent der {{HTMLElement('link')}}-Methode zum Verknüpfen von Stylesheets. Verwenden Sie `@import`, um ein Stylesheet in eine Schicht zu importieren, wenn `@layer` nicht im Stylesheet verwendet werden kann.
+> Es gibt kein Äquivalent zur {{HTMLElement('link')}}-Methode, um Stylesheets zu verknüpfen. Verwenden Sie `@import`, um ein Stylesheet in eine Ebene zu importieren, wenn Sie `@layer` nicht im Stylesheet verwenden können.
 
-## Überblick über verschachtelte Kaskadenschichten
+## Überblick über verschachtelte Cascade-Ebenen
 
-Verschachtelte Schichten sind Schichten innerhalb einer benannten oder einer anonymen Schicht. Jede Kaskadenschicht, auch eine anonyme, kann verschachtelte Schichten enthalten. Schichten, die in eine andere Schicht importiert werden, werden verschachtelte Schichten innerhalb dieser Schicht.
+Verschachtelte Ebenen sind Ebenen innerhalb einer benannten oder anonymen Ebene. Jede Cascade-Ebene, sogar eine anonyme, kann verschachtelte Ebenen enthalten. Ebenen, die in eine andere Ebene importiert werden, werden zu verschachtelten Ebenen innerhalb dieser Ebene.
 
-### Vorteile der Verschachtelung von Schichten
+### Vorteile des Verschachtelns von Ebenen
 
-Die Fähigkeit, Schichten zu verschachteln, ermöglicht es Teams, Kaskadenschichten zu erstellen, ohne sich Sorgen zu machen, ob andere Teams sie in eine Schicht importieren werden. Ebenso ermöglicht es die Verschachtelung, dass Sie Drittanbieter-Stylesheets in eine Schicht importieren können, ohne sich Sorgen machen zu müssen, ob dieses Stylesheet selbst Schichten hat. Da Schichten verschachtelt werden können, müssen Sie sich keine Sorge über Konflikte bei Schichtnamen zwischen externen und internen Stylesheets machen.
+Die Fähigkeit, Ebenen zu verschachteln, ermöglicht es Teams, Cascade-Ebenen zu erstellen, ohne sich Gedanken darüber zu machen, ob andere Teams sie in eine Ebene importieren. Ähnlich ermöglicht das Verschachteln, Drittanbieter-Stylesheets in eine Ebene zu importieren, ohne sich Gedanken darüber zu machen, ob dieses Stylesheet selbst Ebenen hat. Da Ebenen verschachtelt werden können, müssen Sie sich keine Sorgen über widersprüchliche Ebenennamen zwischen externen und internen Stylesheets machen.
 
-### Erstellen von verschachtelten Kaskadenschichten
+### Erstellung von verschachtelten Cascade-Ebenen
 
-Verschachtelte Schichten können mit den gleichen Methoden erstellt werden wie reguläre Schichten. Sie können zum Beispiel mit einer `@layer`-Regel erstellt werden, gefolgt von den Namen einer oder mehrerer Schichten, die mit einer Punktnotation verwandt sind. Mehrere Punkte und Schichtnamen bedeuten mehrfache Verschachtelungen.
+Verschachtelte Ebenen können mit den gleichen Methoden wie reguläre Ebenen erstellt werden. Zum Beispiel können sie mit der `@layer`-Regel gefolgt von den Namen einer oder mehrerer Ebenen erstellt werden, unter Verwendung einer Punktnotation. Mehrere Punkte und Ebenennamen zeigen mehrere Verschachtelungen an.
 
-Wenn Sie eine Block-`@layer`-Regel innerhalb einer anderen Block-`@layer`-Regel verschachteln, mit oder ohne Namen, wird der verschachtelte Block zu einer verschachtelten Schicht. Ebenso wird beim Importieren eines Stylesheets mit einer `@import`-Deklaration, die das `layer`-Schlüsselwort oder die `layer()`-Funktion enthält, der Stil dieser benannten oder anonymen Schicht zugewiesen. Wenn die `@import`-Anweisung Schichten enthält, werden diese Schichten verschachtelte Schichten innerhalb dieser anonymen oder benannten Schicht.
+Wenn Sie eine Blockregel `@layer` innerhalb einer anderen Blockregel `@layer` verschachteln, mit oder ohne Namen, wird der verschachtelte Block zu einer verschachtelten Ebene. Ähnlich, wenn ein Stylesheet mit einer `@import`-Deklaration, die das Schlüsselwort `layer` oder die Funktion `layer()` enthält, importiert wird, werden die Stile dieser benannten oder anonymen Ebene zugewiesen. Wenn die `@import`-Anweisung Ebenen enthält, werden diese Ebenen zu verschachtelten Ebenen innerhalb dieser anonymen oder benannten Ebene.
 
-Lassen Sie uns das folgende Beispiel ansehen:
-
-```css
-@import url("components-lib.css") layer(components);
-@import url("narrow-theme.css") layer(components.narrow);
-```
-
-In der ersten Zeile importieren wir `components-lib.css` in die `components`-Schicht. Wenn diese Datei Schichten enthält, werden diese Schichten verschachtelte Schichten innerhalb der `components`-Schicht.
-
-Die zweite Zeile importiert `narrow-theme.css` in die `narrow`-Schicht, die eine Unterlage der `components`-Schicht ist. Die verschachtelte `components.narrow`-Schicht wird als letzte Schicht innerhalb der `components`-Schicht erstellt, es sei denn, `components-lib.css` enthält bereits eine `narrow`-Schicht, in diesem Fall würde der Inhalt von `narrow-theme.css` der verschachtelten `components.narrow`-Schicht hinzugefügt werden. Weitere verschachtelte benannte Schichten können der `components`-Schicht mit dem Muster `components.<layerName>` hinzugefügt werden. Wie bereits erwähnt, können unbenannte Schichten erstellt werden, aber sie können nicht nachträglich zugegriffen werden.
-
-Schauen wir uns ein weiteres Beispiel an, in dem wir [import `layers1.css` in eine benannte Schicht](#the_layer_block_at-rule_for_named_and_anonymous_layers) mit der folgenden Anweisung importieren:
+Sehen wir uns das folgende Beispiel an:
 
 ```css
-@import url(layers1.css) layer(example);
+@import "components-lib.css" layer(components);
+@import "narrow-theme.css" layer(components.narrow);
 ```
 
-Dies wird eine einzelne `example`-Schicht erstellen, die einige Deklarationen und fünf verschachtelte Schichten - `example.layout`, `example.<anonymous(01)>`, `example.theme`, `example.utilities` und `example.<anonymous(02)>` - enthält.
+In der ersten Zeile importieren wir `components-lib.css` in die `components`-Ebene. Wenn diese Datei Ebenen, benannte oder nicht, enthält, werden diese Ebenen zu verschachtelten Ebenen innerhalb der `components`-Ebene.
 
-Um Stilen eine benannte verschachtelte Schicht hinzuzufügen, verwenden Sie die Punktnotierung:
+Die zweite Zeile importiert `narrow-theme.css` in die `narrow`-Ebene, die eine Unterebene der `components`-Ebene ist. Die geschachtelte `components.narrow` wird als letzte Ebene innerhalb der `components`-Ebene erstellt, es sei denn, `components-lib.css` enthält bereits eine `narrow`-Ebene, in diesem Fall würde der Inhalt von `narrow-theme.css` der geschachtelten `components.narrow`-Ebene hinzugefügt. Zusätzliche geschachtelte benannte Ebenen können zur `components`-Ebene unter Verwendung des Musters `components.<layerName>` hinzugefügt werden. Wie bereits erwähnt, können unbenannte Ebenen erstellt werden, aber sie können anschließend nicht mehr aufgerufen werden.
+
+Sehen wir uns ein weiteres Beispiel an, in dem wir [`layers1.css` in eine benannte Ebene](#the_layer_block_at-rule_for_named_and_anonymous_layers) mit der folgenden Anweisung importieren:
+
+```css
+@import "layers1.css" layer(example);
+```
+
+Dies wird eine einzige Ebene namens `example` erstellen, die einige Deklarationen und fünf verschachtelte Ebenen enthält - `example.layout`, `example.<anonymous(01)>`, `example.theme`, `example.utilities`, und `example.<anonymous(02)>`.
+
+Um Stile zu einer benannten verschachtelten Ebene hinzuzufügen, verwenden Sie die Punktnotation:
 
 ```css
 @layer example.layout {
@@ -370,44 +368,44 @@ Um Stilen eine benannte verschachtelte Schicht hinzuzufügen, verwenden Sie die 
 }
 ```
 
-## Bestimmung der Priorität basierend auf der Reihenfolge der Schichten
+## Bestimmen der Vorrangfolge basierend auf der Reihenfolge der Ebenen
 
-Die Reihenfolge der Schichten bestimmt deren Prioritätsreihenfolge. Daher ist die Reihenfolge der Schichten sehr wichtig. In der gleichen Weise, wie die Kaskade nach Herkunft und Wichtigkeit sortiert wird, sortiert die Kaskade jede CSS-Deklaration nach Ursprungsschicht und Wichtigkeit.
+Die Reihenfolge der Ebenen bestimmt ihre Vorrangreihenfolge. Daher ist die Reihenfolge der Ebenen sehr wichtig. In der gleichen Weise, wie die Kaskade nach Ursprung und Bedeutung sortiert, sortiert die Kaskade jede CSS-Deklaration nach Ursprungsebene und Bedeutung.
 
-### Vorrangordnung von regulären Kaskadenschichten
+### Vorrangsreihenfolge regulärer Cascade-Ebenen
 
 ```css
-@import url(A.css) layer(firstLayer);
-@import url(B.css) layer(secondLayer);
-@import url(C.css);
+@import "A.css" layer(firstLayer);
+@import "B.css" layer(secondLayer);
+@import "C.css";
 ```
 
-Der obige Code erstellt zwei benannte Schichten (C.css-Stile werden der impliziten Schicht von ungeschichteten Stilen hinzugefügt). Lassen Sie uns annehmen, dass die drei Dateien (`A.css`, `B.css` und `C.css`) keine zusätzlichen Schichten in sich enthalten. Die folgende Liste zeigt, wo die innerhalb und außerhalb dieser Dateien deklarierten Stile von der geringsten (1) bis zur höchsten (10) Priorität sortiert werden.
+Der obige Code erstellt zwei benannte Ebenen (C.css-Stile werden der impliziten Ebene nicht geschichteter Stile hinzugefügt). Lassen Sie uns davon ausgehen, dass die drei Dateien (`A.css`, `B.css` und `C.css`) innerhalb von ihnen keine zusätzlichen Ebenen enthalten. Die folgende Liste zeigt, wo innerhalb und außerhalb dieser Dateien deklarierte Stile vom geringsten (1) bis zum höchsten Vorrang (10) sortiert werden.
 
 1. `firstLayer` normale Stile (`A.css`)
 2. `secondLayer` normale Stile (`B.css`)
-3. ungeschichtete normale Stile (`C.css`)
-4. Inline-Normale Stile
+3. nicht geschichtete normale Stile (`C.css`)
+4. inline normale Stile
 5. animierende Stile
-6. wichtige ungeschichtete Stile (`C.css`)
+6. nicht geschichtete wichtige Stile (`C.css`)
 7. `secondLayer` wichtige Stile (`B.css`)
 8. `firstLayer` wichtige Stile (`A.css`)
-9. wichtige Inline-Stile
-10. übergangsstile
+9. inline wichtige Stile
+10. Übergangsstile
 
-Normale Stile, die innerhalb von Schichten deklariert sind, erhalten die niedrigste Priorität und werden in der Reihenfolge sortiert, in der die Schichten erstellt wurden. Normale Stile in der zuerst erstellten Schicht haben die niedrigste Priorität, und normale Stile in der zuletzt erstellten Schicht haben die höchste Priorität unter den Schichten. Mit anderen Worten, normale Stile, die innerhalb von `firstLayer` deklariert werden, werden von jedem nachfolgenden Styling auf der Liste überschrieben, wenn Konflikte bestehen.
+Normale Stile, die innerhalb von Ebenen deklariert werden, erhalten die niedrigste Priorität und werden nach der Reihenfolge der Erstellung der Ebenen sortiert. Normale Stile in der zuerst erstellten Ebene haben den niedrigsten Vorrang und normale Stile in der zuletzt erstellten Ebene haben den höchsten Vorrang unter den Ebenen. Mit anderen Worten, normale Stile, die innerhalb von `firstLayer` erklärt werden, werden von allen nachfolgenden Stylings in der Liste überschrieben, wenn Konflikte bestehen.
 
-Nächste in der Reihenfolge sind alle außerhalb von Schichten deklarierten Stile. Die in `C.css` enthaltenen Stile wurden nicht in eine Schicht importiert und überschreiben alle störenden Stile aus `firstLayer` und `secondLayer`. Alle Stile, die nicht in einer Schicht deklariert sind, haben immer höhere Priorität als Stile, die in einer Schicht deklariert wurden (mit Ausnahme der wichtigen Stile).
+Als nächstes kommen alle Stile, die außerhalb von Ebenen deklariert sind. Die Stile in `C.css` wurden nicht in eine Ebene importiert und überschreiben alle konkurrierenden Stile aus `firstLayer` und `secondLayer`. Stile, die nicht in einer Ebene deklariert sind, haben immer höheren Vorrang als Stile, die innerhalb einer Ebene _sind_ deklariert (mit Ausnahme wichtiger Stile).
 
-Inline-Stile werden unter Verwendung des [`style`-Attributs](/de/docs/Web/HTML/Reference/Global_attributes/style) deklariert. Normale Stile, die auf diese Weise deklariert werden, haben Vorrang vor normalen Stilen, die in ungeschichteten und geschichteten Stylesheets (`firstLayer – A.css`, `secondLayer – B.css` und `C.css`) zu finden sind.
+Inline-Stile werden mit dem [`style`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/style) deklariert. Normal deklarierte Stile auf diese Weise haben Vorrang über normale Stile in den nicht geschichteten und geschichteten Stylesheets (`firstLayer – A.css`, `secondLayer – B.css` und `C.css`).
 
-Animierende Stile haben eine höhere Priorität als alle normalen Stile, einschließlich Inline-normale Stile.
+Animierte Stile haben höheren Vorrang als alle normalen Stile, einschließlich inline normaler Stile.
 
-Wichtige Stile, das heißt Eigenschaftswerte, die das `!important`-Flag enthalten, haben Vorrang vor allen zuvor in unserer Liste erwähnten Stilen. Sie sind in umgekehrter Reihenfolge der normalen Stile sortiert. Alle wichtigen Stile, die außerhalb einer Schicht deklariert sind, haben weniger Priorität als diejenigen, die innerhalb einer Schicht deklariert sind. Wichtige Stile, die innerhalb von Schichten zu finden sind, werden ebenfalls in der Reihenfolge der Schichterstellung sortiert. Für wichtige Stile hat die zuletzt erstellte Schicht die niedrigste Priorität und die zuerst erstellte Schicht hat die höchste Priorität unter den deklarierten Schichten.
+Wichtige Stile, das heißt Eigenschaftswerte, die das `!important`-Flag enthalten, haben Vorrang über alle zuvor in unserer Liste genannten Stile. Sie werden in umgekehrter Reihenfolge zu normalen Stilen sortiert. Alle wichtig deklarierten außerhalb einer Ebene haben weniger Vorrang als diejenigen, die innerhalb einer Ebene deklariert sind. Wichtige Stile, die innerhalb von Ebenen gefunden werden, werden ebenfalls in der Reihenfolge der Erstellung der Ebenen sortiert. Bei wichtigen Stilen hat die zuletzt erstellte Ebene den niedrigsten Vorrang und die zuerst erstellte Ebene den höchsten Vorrang unter den deklarierten Ebenen.
 
-Wichtige Inline-Stile haben wiederum eine höhere Priorität als wichtige Stile, die anderswo deklariert werden.
+Inline wichtige Stile haben wiederum höheren Vorrang als an anderer Stelle deklarierten wichtigen Stile.
 
-Übergangsstile haben die höchste Priorität. Wenn ein normaler Eigenschaftswert übergangen wird, hat er Vorrang vor allen anderen Eigenschaftswertdeklarationen, sogar vor wichtigen Inline-Stilen; jedoch nur während des Übergangs.
+Übergangsstile haben den höchsten Vorrang. Wenn ein normaler Eigenschaftswert übergeht, hat er Vorrang vor allen anderen Eigenschaftswertdeklarationen, auch wichtigen Inline-Stilen, jedoch nur während des Übergangs.
 
 ```html live-sample___layer-precedence
 <div>
@@ -455,37 +453,37 @@ h1 {
 
 {{EmbedLiveSample("layer-precedence")}}
 
-In diesem Beispiel werden zwei Schichten (`A` und `B`) zunächst mit einer `@layer`-Anweisung als At-Regel deklariert, ohne Stile. Die Schichtstile werden in zwei `@layer` Block-at-Regeln definiert, die nach der Deklaration der `h1` CSS-Regel, die außerhalb jeder Schicht deklariert ist, erscheinen.
+In diesem Beispiel werden zwei Ebenen (`A` und `B`) initialisiert, indem eine `@layer`-Anweisung ohne Stile definiert wird. Die Ebenenstile werden in zwei `@layer`-Block-Regeln definiert, die nach der `h1` CSS-Regel erscheinen, die außerhalb jeder Ebene deklariert ist.
 
-Die Inline-Stile, die mit dem `style`-Attribut auf das `h1`-Element angewendet werden, setzen einen normalen `color` und einen wichtigen `background-color`. Normale Inline-Stile überschreiben alle geschichteten und ungeschichteten normalen Stile. Wichtige Inline-Stile überschreiben alle geschichteten und ungeschichteten normalen und wichtigen Autorenstile. Es gibt keine Möglichkeit, dass Autorenstile wichtige Inline-Stile überschreiben können.
+Die Inline-Stile, die dem `h1`-Element mit dem `style`-Attribut hinzugefügt wurden, setzen ein normales `color` und ein wichtiges `background-color`. Normale Inline-Stile überschreiben alle geschichteten und ungeschichteten normalen Stile. Wichtige Inline-Stile überschreiben alle geschichteten und ungeschichteten normalen und wichtigen Autorenstile. Es gibt keine Möglichkeit für Autorenstile, wichtige Inline-Stile zu überschreiben.
 
-Der normale `text-decoration` und der wichtige `box-shadow` sind nicht Teil der `style`-Inline-Stile und können daher überschrieben werden. Bei normalen Nicht-Inline-Stilen haben ungeschichtete Stile Priorität. Bei wichtigen Stilen spielt auch die Schichtreihenfolge eine Rolle. Während normale ungeschichtete Stile alle normalen Stile, die in einer Schicht konfiguriert sind, überschreiben, ist bei wichtigen Stilen die Vorrangordnung umgekehrt; ungeschichtete wichtige Stile haben weniger Priorität als geschichtete Stile.
+Das normale `text-decoration` und wichtige `box-shadow` sind nicht Teil der `style`-Inline-Stile und können daher überschrieben werden. Für normale Nicht-Inline-Stile haben ungeschichtete Stile Vorrang. Bei wichtigen Stilen spielt die Ebenenreihenfolge eine Rolle. Während normale ungeschichtete Stile alle normalen Stile in einer Ebene überschreiben, ist dies bei wichtigen Stilen umgekehrt; ungeschichtete wichtige Stile haben weniger Vorrang als geschichtete Stile.
 
-Die beiden Stile, die nur innerhalb von Schichten deklariert sind, sind `font-style` mit normaler Wichtigkeit und `font-weight` mit einem `!important`-Flag. Für normale Stile hat die `B` Schicht, die zuletzt deklariert wurde, Vorrang vor Stilen in der früher deklarierten Schicht `A`. Für normale Stile haben spätere Schichten Vorrang vor früheren Schichten. Die Reihenfolge der Priorität wird für wichtige Stile umgekehrt. Bei den wichtigen `font-weight`-Deklarationen hat die Schicht `A`, die zuerst deklariert wurde, Vorrang vor der zuletzt deklarierten Schicht `B`.
+Die zwei Stile, die nur innerhalb von Ebenen deklariert sind, sind `font-style` mit normaler Bedeutung und `font-weight` mit einem `!important`-Flag. Für normale Stile überschreibt die zuletzt deklarierte Ebene `B` die Stile in der früher deklarierten Ebene `A`. Für normale Stile haben spätere Ebenen Vorrang vor früheren Ebenen. Bei wichtigen Stilen ist die Vorrangsreihenfolge umgekehrt. Für die wichtigen `font-weight` Deklarationen hat die zuerst deklarierte Ebene `A` Vorrang vor der zuletzt deklarierten Ebene `B`.
 
-Sie können die Schichtreihenfolge umkehren, indem Sie die erste Zeile von `@layer A, B;` zu `@layer B, A;` ändern. Probieren Sie das. Welche Stile werden dadurch geändert und welche bleiben gleich? Warum?
+Sie können die Ebenenreihenfolge umkehren, indem Sie die erste Zeile von `@layer A, B;` in `@layer B, A;` ändern. Versuchen Sie das. Welche Stile ändern sich dadurch und welche bleiben gleich? Warum?
 
-Die Reihenfolge der Schichten wird durch die Reihenfolge bestimmt, in der die Schichten in Ihrem CSS erscheinen. In unserer ersten Zeile haben wir Schichten ohne Zuweisung von Stilen mit `@layer` gefolgt von den Namen unserer Schichten deklariert und mit einem Semikolon beendet. Hätten wir diese Zeile weggelassen, wäre das Ergebnis das Gleiche gewesen. Warum? Wir haben Stilregeln in benannten `@layer`-Blöcken in der Reihenfolge A dann B zugewiesen. Die beiden Schichten wurden in dieser ersten Zeile erstellt. Wären sie nicht erstellt worden, hätten diese Regelblöcke diese in dieser Reihenfolge erstellt.
+Die Reihenfolge der Ebenen wird durch die Reihenfolge festgelegt, in der die Ebenen in Ihrem CSS erscheinen. In unserer ersten Zeile erklärten wir Ebenen, ohne Stilen zuzuweisen, mit `@layer`, gefolgt von den Namen unserer Ebenen, abgeschlossen mit einem Semikolon. Hätten wir diese Zeile weggelassen, wären die Ergebnisse dieselben gewesen. Warum? Wir ordneten Stilregeln in benannten `@layer`-Blöcken in der Reihenfolge A dann B zu. Die beiden Ebenen wurden in dieser ersten Zeile erstellt. Hätten sie dies nicht, hätten diese Regelblöcke sie in dieser Reihenfolge erstellt.
 
-Wir haben diese erste Zeile aus zwei Gründen aufgenommen: erstens, damit Sie die Zeile einfach bearbeiten und die Reihenfolge ändern können, und zweitens, weil Sie oft feststellen werden, dass die Schichtreihenfolge upfront zu deklarieren die beste Praxis für Ihr Schichtreihenfolgenmanagement ist.
+Wir haben diese erste Zeile aus zwei Gründen aufgenommen: erstens, damit Sie die Zeile leicht bearbeiten und die Reihenfolge ändern können, und zweitens, weil oft das Deklarieren der Ebenenordnung im Voraus die beste Praxis für Ihr Ebenenbestandsmanagement ist.
 
 Zusammenfassend:
 
-- Die Reihenfolge der Vorrang von Schichten ist die Reihenfolge, in der die Schichten erstellt werden.
-- Sobald erstellt, gibt es keine Möglichkeit, die Schichtreihenfolge zu ändern.
-- Schichtpriorität für normale Stile ist die Reihenfolge, in der die Schichten erstellt werden.
-- Ungeschichtete normale Stile haben Vorrang vor normalen geschichteten Stilen.
-- Schichtpriorität für wichtige Stile ist umgekehrt, wobei früher erstellte Schichten Vorrang haben.
+- Die Vorrangsreihenfolge der Ebenen ist die Reihenfolge, in der die Ebenen erstellt werden.
+- Einmal erstellt, gibt es keine Möglichkeit, die Ebenenordnung zu ändern.
+- Die Ebenenordnung für normale Stile ist die Reihenfolge, in der die Ebenen erstellt werden.
+- Nicht geschichtete normale Stile haben Vorrang vor normalen geschichteten Stilen.
+- Die Ebenenordnung für wichtige Stile ist umgekehrt, wobei frühere erstellte Ebenen Vorrang haben.
 - Alle geschichteten wichtigen Stile haben Vorrang vor ungeschichteten wichtigen (und normalen) Stilen.
-- Normale Inline-Stile haben Vorrang vor allen normalen Stilen, ob geschichtet oder nicht.
-- Wichtige Inline-Stile haben Vorrang vor allen anderen Stilen, mit Ausnahme von Stilen, die übergangen werden.
-- Es gibt keine Möglichkeit für Autorenstile, wichtige Inline-Stile zu überschreiben (außer sie zu übergehen, was vorübergehend ist).
+- Normale Inline-Stile haben Vorrang vor allen normalen Stilen, geschichtet oder nicht.
+- Wichtige Inline-Stile haben Vorrang vor allen anderen Stilen, mit Ausnahme von Stilen, die übergehen.
+- Es gibt keine Möglichkeit für Autorenstile, wichtige Inline-Stile zu überschreiben (außer sie zu übergehen, was temporär ist).
 
-### Vorrangordnung von verschachtelten Kaskadenschichten
+### Vorrangsreihenfolge verschachtelter Cascade-Ebenen
 
-Die Kaskaden-Vorrangordnung für verschachtelte Schichten ist ähnlich wie bei regulären Schichten, jedoch innerhalb der Schicht. Die Vorrangordnung basiert auf der Reihenfolge der verschachtelten Schichterstellung. Nicht verschachtelte Stile in einer Schicht haben Vorrang vor verschachtelten normalen Stilen, wobei die Vorrangordnung für wichtige Stile umgekehrt ist. Spezifitätsgewichte zwischen verschachtelten Schichten spielen keine Rolle, obwohl sie für konkurrierende Stile innerhalb einer verschachtelten Schicht eine Rolle spielen.
+Die Cascade-Vorrangsreihenfolge verschachtelter Ebenen ist ähnlich der regulärer Ebenen, jedoch innerhalb der Ebene. Die Vorrangsreihenfolge basiert auf der Reihenfolge der Erstellung der verschachtelten Ebenen. Nicht verschachtelte Stile innerhalb einer Ebene haben Vorrang vor normalen verschachtelten Stilen, wobei die Vorrangsreihenfolge für wichtige Stile umgekehrt ist. Das Spezifizitätsgewicht zwischen verschachtelten Ebenen spielt keine Rolle, obwohl es für konkurrierende Stile innerhalb einer verschachtelten Ebene eine Rolle spielt.
 
-Das folgende Beispiel erstellt und fügt der `components`-Schicht, der `components.narrow`-verschachtelten Schicht, und der `components.wide`-verschachtelten Schicht Stile hinzu:
+Das Folgende erstellt und fügt Stile zur `components`-Ebene, zur verschachtelten `components.narrow`-Ebene und zur verschachtelten `components.wide`-Ebene hinzu:
 
 ```html hidden
 <div>Text</div>
@@ -534,19 +532,19 @@ div {
 }
 ```
 
-{{EmbedLiveSample("Precedence order of nested cascade layers", "100%", "250")}}
+{{EmbedLiveSample("Vorrangsreihenfolge verschachtelter Cascade-Ebenen", "100%", "250")}}
 
-Hier eine Zusammenfassung der verwendeten Eigenschaften und warum jede Deklaration angewendet wird:
+Hier ist eine Zusammenfassung der verwendeten Eigenschaften und warum jede Deklaration angewendet wird:
 
-- `background-color`: Da ungeschichtete normale Stile Vorrang vor geschichteten normalen Stilen haben, gewinnt der `wheat`-Farbton.
-- `border`: Da innerhalb einer Schicht nicht verschachtelte Stile Vorrang vor normalen verschachtelten Stilen haben, gewinnt der `red`-Farbton.
-- `color`: Bei wichtigen Stilen haben geschichtete Stile Vorrang vor ungeschichteten Stilen, wobei wichtige Stile in früher deklarierten Schichten Vorrang vor später deklarierten Schichten haben. In diesem Beispiel ist die Reihenfolge der verschachtelten Schichterstellung `components.narrow`, dann `components.wide`, sodass wichtige Stile in `components.narrow` Vorrang vor wichtigen Stilen in `components.wide` haben, was bedeutet, dass `purple`-Farbe gewinnt.
-- `border-radius`: Die Eigenschaft wurde nur in den verschachtelten Schichten gesetzt, sodass nach Deklarationsreihenfolge `20%`-Radius gewinnt.
+- `background-color`: Da nicht geschichtete normale Stile Vorrang vor geschichteten normalen Stilen haben, gewinnt die `wheat`-Farbe.
+- `border`: Da nicht verschachtelte Stile innerhalb einer Ebene Vorrang vor normalen verschachtelten Stilen haben, gewinnt die `red`-Farbe.
+- `color`: Bei wichtigen Stilen haben geschichtete Stile Vorrang vor ungeschichteten Stilen, wobei wichtige Stile in früher deklarierten Ebenen Vorrang vor später deklarierten Ebenen haben. In diesem Beispiel ist die Reihenfolge der Erstellung der verschachtelten Ebenen `components.narrow`, dann `components.wide`, sodass wichtige Stile in `components.narrow` Vorrang vor wichtigen Stilen in `components.wide` haben, was bedeutet, dass die `purple`-Farbe gewinnt.
+- `border-radius`: Die Eigenschaft ist nur in den verschachtelten Ebenen gesetzt, daher gewinnt die `20%`-Radius entsprechend der Deklarationsreihenfolge.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie die Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Die Kaskade, Aufgabe 2](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade#task_2).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden ein paar weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Die Cascade, Aufgabe 2](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade#task_2).
 
 ## Zusammenfassung
 
-Wenn Sie den Großteil dieses Artikels verstanden haben, dann herzlichen Glückwunsch — Sie sind jetzt mit den grundlegenden Mechanismen der CSS-Kaskadenschichten vertraut.
+Wenn Sie den größten Teil dieses Artikels verstanden haben, dann herzlichen Glückwunsch — Sie sind jetzt mit den grundlegenden Mechanismen der CSS-Cascade-Ebenen vertraut.

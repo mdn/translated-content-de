@@ -2,10 +2,10 @@
 title: mix-blend-mode
 slug: Web/CSS/mix-blend-mode
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
 
 {{InteractiveExample("CSS Demo: mix-blend-mode")}}
 
@@ -76,11 +76,11 @@ mix-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der Mischmodus, der angewendet werden soll.
+  - : Der anzuwendende Mischmodus.
 - `plus-darker`
-  - : Mischen mit dem [_plus-darker_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+  - : Vermischung mit dem [_plus-darker_ Kompositionsoperator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Mischen mit dem [_plus-lighter_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Vermischung mit dem [_plus-lighter_ Kompositionsoperator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagerte Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -92,7 +92,7 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Effekt verschiedener mix-blend-mode Werte
+### Effekt unterschiedlicher mix-blend-mode-Werte
 
 ```html hidden
 <div class="grid">
@@ -655,19 +655,19 @@ body {
 .R {
   transform-origin: center;
   transform: rotate(-30deg);
-  fill: url(#red);
+  fill: url("#red");
 }
 
 .G {
   transform-origin: center;
   transform: rotate(90deg);
-  fill: url(#green);
+  fill: url("#green");
 }
 
 .B {
   transform-origin: center;
   transform: rotate(210deg);
-  fill: url(#blue);
+  fill: url("#blue");
 }
 
 .isolate .group {
@@ -811,7 +811,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Schriftfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
 
 #### HTML
 
@@ -827,7 +827,7 @@ Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrund
 #### CSS
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap";
 
 .container {
   background-color: blue;

@@ -2,10 +2,10 @@
 title: background-origin
 slug: Web/CSS/background-origin
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randbeginn, innerhalb des Rands oder innerhalb des Abstands.
+Die **`background-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randstart, innerhalb des Randes oder innerhalb des Abstands.
 
 {{InteractiveExample("CSS Demo: background-origin")}}
 
@@ -60,14 +60,14 @@ background-origin: revert-layer;
 background-origin: unset;
 ```
 
-Die `background-origin` Eigenschaft wird als einer der unten aufgef체hrten Schl체sselwortwerte angegeben.
+Die Eigenschaft `background-origin` wird als eines der unten aufgef체hrten Schl체sselwortwerte angegeben.
 
 ### Werte
 
 - `border-box`
   - : Der Hintergrund wird relativ zur Randbox positioniert.
 - `padding-box`
-  - : Der Hintergrund wird relativ zur Polsterbox positioniert. Standardwert.
+  - : Der Hintergrund wird relativ zur Auff체llbox positioniert. Standardwert.
 - `content-box`
   - : Der Hintergrund wird relativ zur Inhaltsbox positioniert.
 
@@ -81,7 +81,7 @@ Die `background-origin` Eigenschaft wird als einer der unten aufgef체hrten Schl�
 
 ## Beispiele
 
-### Hintergrundurspr체nge festlegen
+### Festlegen von Hintergrundurspr체ngen
 
 ```css
 .example {
@@ -116,12 +116,12 @@ div {
 
 ### Verwendung von zwei Verl채ufen
 
-In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin`, und daher sitzt der Hintergrund innerhalb des Rands. Der zweite verwendet die `content-box` und wird daher nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin` und daher befindet sich der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {
   margin: 10px 0;
-  color: #fff;
+  color: white;
   background:
     linear-gradient(
       90deg,
@@ -129,7 +129,7 @@ In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf 
       rgb(253 29 29 / 60%) 60%,
       rgb(252 176 69 / 100%) 100%
     ),
-    radial-gradient(circle, rgb(255 255 255 / 100%) 0%, rgb(0 0 0 / 100%) 28%);
+    radial-gradient(circle, white 0%, black 28%);
   border: 20px dashed black;
   padding: 20px;
   width: 400px;

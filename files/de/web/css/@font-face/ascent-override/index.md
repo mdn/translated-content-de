@@ -2,10 +2,10 @@
 title: ascent-override
 slug: Web/CSS/@font-face/ascent-override
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Der **`ascent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}} at-rule definiert die Aufstiegsmetrik der Schriftart. Die Aufstiegsmetrik ist die Höhe über der Basislinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungskontext anzuordnen.
+Der **`ascent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}}-Regel definiert die Aufstiegsmetrik für die Schriftart. Die Aufstiegsmetrik ist die Höhe über der Grundlinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungszusammenhang auszulegen.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ ascent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftartdatei entnommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftdatei übernommen.
 - `<percentage>`
   - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
@@ -31,9 +31,9 @@ ascent-override: 90%;
 
 ## Beispiele
 
-### Überschreiben der Metriken einer Fallback-Schriftart
+### Überschreibung der Metriken einer Fallback-Schriftart
 
-Die `ascent-override`-Eigenschaft kann helfen, wenn die Metriken einer Fallback-Schriftart überschrieben werden sollen, um besser zu einer primären Webschriftart zu passen.
+Die `ascent-override`-Eigenschaft kann hilfreich sein, wenn Sie die Metriken einer Fallback-Schriftart überschreiben, um diese besser an eine primäre Web-Schriftart anzupassen.
 
 ```css
 @font-face {
@@ -43,7 +43,7 @@ Die `ascent-override`-Eigenschaft kann helfen, wenn die Metriken einer Fallback-
 
 @font-face {
   font-family: local-font;
-  src: local(Local Font);
+  src: local("Local Font");
   ascent-override: 125%;
 }
 ```

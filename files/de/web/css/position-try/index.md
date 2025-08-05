@@ -2,14 +2,14 @@
 title: position-try
 slug: Web/CSS/position-try
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`position-try`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("position-try-order")}} und {{cssxref("position-try-fallbacks")}} entspricht.
+Die **`position-try`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzschreibweise, die den {{cssxref("position-try-order")}} und {{cssxref("position-try-fallbacks")}} Eigenschaften entspricht.
 
-## Bestandeigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("position-try-order")}}
 - {{cssxref("position-try-fallbacks")}}
@@ -49,9 +49,9 @@ position-try: unset;
 
 ### Werte
 
-Siehe {{cssxref("position-try-order")}} und {{cssxref("position-try-fallbacks")}} für Wertbeschreibungen.
+Siehe {{cssxref("position-try-order")}} und {{cssxref("position-try-fallbacks")}} für Beschreibungen der Werte.
 
-Die `position-try`-Kurzform kann Werte für `position-try-fallbacks`, oder `position-try-order` und `position-try-fallbacks` in dieser Reihenfolge spezifizieren. Wenn `position-try-order` ausgelassen wird, wird es auf den Initialwert der Eigenschaft gesetzt, der `normal` ist, was bedeutet, dass die Optionen für die Rückfallpositionierung in der Reihenfolge ausprobiert werden, in der sie in der Eigenschaft erscheinen.
+Die `position-try` Kurzschreibweise kann Werte für `position-try-fallbacks` oder für `position-try-order` und `position-try-fallbacks` in dieser Reihenfolge spezifizieren. Wenn `position-try-order` weggelassen wird, ist es auf den Initialwert der Eigenschaft gesetzt, der `normal` ist, was bedeutet, dass die Rückfallebenen in der Reihenfolge ausprobiert werden, in der sie in der Eigenschaft erscheinen.
 
 ## Formale Definition
 
@@ -65,11 +65,11 @@ Die `position-try`-Kurzform kann Werte für `position-try-fallbacks`, oder `posi
 
 ### Grundlegende Verwendung von `position-try`
 
-Dieses Demo zeigt die Wirkung von `position-try`.
+Diese Demo zeigt den Effekt von `position-try`.
 
 #### HTML
 
-Das HTML enthält zwei {{htmlelement("div")}}-Elemente, die zu einem Anker und einem ankerpositionierten Element werden.
+Das HTML enthält zwei {{htmlelement("div")}} Elemente, die zu einem Anker und einem Anker-positionierten Element werden.
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -81,7 +81,7 @@ Das HTML enthält zwei {{htmlelement("div")}}-Elemente, die zu einem Anker und e
 
 #### CSS
 
-Im CSS erhält der Anker einen {{cssxref("anchor-name")}} und hat einen {{cssxref("position")}}-Wert von `absolute` darauf gesetzt. Wir positionieren ihn im oberen Teil des Viewports mit {{cssxref("top")}}- und {{cssxref("left")}}-Werten:
+Im CSS erhält der Anker einen {{cssxref("anchor-name")}} und hat einen {{cssxref("position")}} Wert von `absolute` gesetzt. Wir positionieren es in der oberen Hälfte des Viewports mit {{cssxref("top")}} und {{cssxref("left")}} Werten:
 
 ```css hidden
 .anchor {
@@ -98,7 +98,7 @@ Im CSS erhält der Anker einen {{cssxref("anchor-name")}} und hat einen {{cssxre
 
 ```css
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
   position: absolute;
   top: 100px;
   left: 45%;
@@ -123,7 +123,7 @@ form {
 }
 ```
 
-Wir fügen dann eine benutzerdefinierte Positionsoption — `--custom-bottom` — hinzu, die das Element unter dem Anker positioniert und ihm einen entsprechenden Abstand gibt:
+Wir fügen dann eine benutzerdefinierte Positionsoption — `--custom-bottom` — hinzu, die das Element unter dem Anker positioniert und ihm einen entsprechenden Rand gibt:
 
 ```css
 @position-try --custom-bottom {
@@ -133,12 +133,12 @@ Wir fügen dann eine benutzerdefinierte Positionsoption — `--custom-bottom` �
 }
 ```
 
-Wir positionieren das Element zunächst über seinem Anker und setzen dann einen `position-try`-Wert darauf, der ihm eine `position-try-order` von `most-height` und eine `position-try-fallbacks`-Liste gibt, die nur unsere benutzerdefinierte Rückfalloption enthält:
+Wir positionieren das Element zunächst über seinem Anker und setzen dann einen `position-try` Wert darauf, der ihm eine `position-try-order` von `most-height` gibt, und eine `position-try-fallbacks` Liste, die nur unsere benutzerdefinierte Rückfalloption enthält:
 
 ```css
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
 
   bottom: anchor(top);
   margin-bottom: 10px;
@@ -150,7 +150,7 @@ Wir positionieren das Element zunächst über seinem Anker und setzen dann einen
 
 #### Ergebnis
 
-Das Element erscheint unter seinem Anker, obwohl es zunächst über diesem positioniert wurde. Dies geschieht, weil unter dem Anker mehr vertikaler Platz vorhanden ist als darüber. Die `most-height`-Versuchsreihenfolge bewirkt, dass die `--custom-bottom`-Rückfalloption angewendet wird, wodurch das positionierte Element an der Stelle platziert wird, die seinem Containerblock die größte Höhe gibt.
+Das Element erscheint unter seinem Anker, obwohl es ursprünglich darüber positioniert ist. Dies geschieht, weil es mehr vertikalen Raum unter dem Anker als darüber gibt. Die `most-height` Versuch-Reihenfolge bewirkt, dass die `--custom-bottom` Rückfalloption angewendet wird, die das positionierte Element in die Position bringt, die seinem enthaltenen Block die größte Höhe gibt.
 
 {{ EmbedLiveSample("Basic `position-try` usage", "100%", "300") }}
 
@@ -167,8 +167,8 @@ Das Element erscheint unter seinem Anker, obwohl es zunächst über diesem posit
 - {{cssxref("position-area")}}
 - {{cssxref("position-try-fallbacks")}}
 - {{cssxref("position-try-order")}}
-- Die {{cssxref("@position-try")}}-At-Regel
-- Der [`<position-area>`](/de/docs/Web/CSS/position-area_value)-Wert
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
+- Die {{cssxref("@position-try")}} Regel
+- Der [`<position-area>`](/de/docs/Web/CSS/position-area_value) Wert
+- [CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Verwendung der CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
 - [Rückfalloptionen und bedingtes Verbergen bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden

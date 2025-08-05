@@ -2,10 +2,10 @@
 title: border-image
 slug: Web/CSS/border-image
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`border-image`** [CSS](/de/docs/Web/CSS)-Eigenschaft zeichnet ein Bild um ein gegebenes Element. Sie ersetzt den regulären [Rand](/de/docs/Web/CSS/border) des Elements.
+Die **`border-image`** [CSS](/de/docs/Web/CSS) Eigenschaft zieht ein Bild um ein gegebenes Element. Sie ersetzt den normalen [Rand](/de/docs/Web/CSS/border) des Elements.
 
 {{InteractiveExample("CSS Demo: border-image")}}
 
@@ -47,7 +47,7 @@ border-image: repeating-linear-gradient(30deg, #4d9f0c, #9198e5, #4d9f0c 20px)
   justify-content: center;
   padding: 50px;
   background: #fff3d4;
-  color: #000;
+  color: black;
   border: 30px solid;
   border-image: url("/shared-assets/images/examples/border-diamonds.png") 30
     round;
@@ -56,9 +56,9 @@ border-image: repeating-linear-gradient(30deg, #4d9f0c, #9198e5, #4d9f0c 20px)
 ```
 
 > [!NOTE]
-> Sie sollten einen separaten {{cssxref("border-style")}} angeben, falls das Rahmenbild nicht geladen wird. Obwohl die Spezifikation dies nicht strikt verlangt, rendern einige Browser das Rahmenbild nicht, wenn {{cssxref("border-style")}} `none` oder {{cssxref("border-width")}} `0` ist.
+> Sie sollten einen separaten {{cssxref("border-style")}} angeben, falls das Randbild nicht geladen werden kann. Auch wenn die Spezifikation es nicht strikt erfordert, rendern einige Browser das Randbild nicht, wenn {{cssxref("border-style")}} `none` ist oder {{cssxref("border-width")}} `0` ist.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteil-Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -91,30 +91,30 @@ border-image: revert-layer;
 border-image: unset;
 ```
 
-Die `border-image`-Eigenschaft kann mit einem bis fünf der unten aufgeführten Werte angegeben werden.
+Die `border-image` Eigenschaft kann mit einem bis fünf der unten aufgeführten Werte angegeben werden.
 
 > [!NOTE]
-> Wenn der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) von {{cssxref("border-image-source")}} `none` ist oder wenn das Bild nicht angezeigt werden kann, wird stattdessen der {{cssxref("border-style")}} angezeigt.
+> Wenn der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) von {{cssxref("border-image-source")}} `none` ist oder wenn das Bild nicht angezeigt werden kann, wird der {{cssxref("border-style")}} stattdessen angezeigt.
 
 ### Werte
 
 - `<'border-image-source'>`
-  - : Die Quell-Bilddatei. Siehe {{cssxref("border-image-source")}}.
+  - : Die Quellbild. Siehe {{cssxref("border-image-source")}}.
 - `<'border-image-slice'>`
-  - : Die Abmessungen zum Zerteilen des Quellbildes in Regionen. Bis zu vier Werte können angegeben werden. Siehe {{cssxref("border-image-slice")}}.
+  - : Die Dimensionen für das Zerteilen des Quellbildes in Regionen. Bis zu vier Werte können angegeben werden. Siehe {{cssxref("border-image-slice")}}.
 - `<'border-image-width'>`
-  - : Die Breite des Rahmenbilds. Bis zu vier Werte können angegeben werden. Siehe {{cssxref("border-image-width")}}.
+  - : Die Breite des Randbildes. Bis zu vier Werte können angegeben werden. Siehe {{cssxref("border-image-width")}}.
 - `<'border-image-outset'>`
-  - : Der Abstand des Rahmenbilds von der äußeren Kante des Elements. Bis zu vier Werte können angegeben werden. Siehe {{cssxref("border-image-outset")}}.
+  - : Die Entfernung des Randbildes von der äußeren Kante des Elements. Bis zu vier Werte können angegeben werden. Siehe {{cssxref("border-image-outset")}}.
 - `<'border-image-repeat'>`
-  - : Definiert, wie die Randregionen des Quellbildes angepasst werden, um die Abmessungen des Rahmenbilds zu füllen. Bis zu zwei Werte können angegeben werden. Siehe {{cssxref("border-image-repeat")}}.
+  - : Definiert, wie die Randbereiche des Quellbildes angepasst werden, um in die Dimensionen des Randbildes zu passen. Bis zu zwei Werte können angegeben werden. Siehe {{cssxref("border-image-repeat")}}.
 
 ## Barrierefreiheit
 
-Assistive Technologien können keine Rahmenbilder verarbeiten. Wenn das Bild Informationen enthält, die für das Verständnis des gesamten Zwecks der Seite entscheidend sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Hilfstechnologien können Randbilder nicht verarbeiten. Wenn das Bild Informationen enthält, die für das Verständnis des Gesamtszwecks der Seite entscheidend sind, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Verständnis WCAG, Erklärung der Richtlinie 1.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis des Erfolgskriteriums 1.1.1 | Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Verständnis der WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Erklärung des Erfolgskriteriums 1.1.1 | Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Formale Definition
 
@@ -128,9 +128,9 @@ Assistive Technologien können keine Rahmenbilder verarbeiten. Wenn das Bild Inf
 
 ### Bitmap
 
-In diesem Beispiel wenden wir ein Diamantmuster auf die Ränder eines Elements an. Die Quelle für das Rahmenbild ist eine ".png"-Datei von 81 x 81 Pixeln, mit drei Diamanten vertikal und horizontal:
+In diesem Beispiel wenden wir ein Rauten-Muster auf die Ränder eines Elements an. Die Quelle für das Randbild ist eine ".png"-Datei mit 81 mal 81 Pixeln, die drei Rauten vertikal und horizontal hat:
 
-![Acht Diamanten: vier rote Diamanten, einer in jeder Ecke, und vier orange Diamanten, einer auf jeder Seite. Die Mitte ist leer.](border.png)
+![Acht Rauten: vier rote Rauten, eine in jeder Ecke, und vier orange Rauten, eine auf jeder Seite. Die Mitte ist leer.](border.png)
 
 #### HTML
 
@@ -142,7 +142,7 @@ In diesem Beispiel wenden wir ein Diamantmuster auf die Ränder eines Elements a
 
 #### CSS
 
-Um die Größe eines einzelnen Diamanten anzupassen, verwenden wir einen Wert von 81 geteilt durch 3, oder `27`, um das Bild in Eck- und Randregionen zu schneiden. Um das Rahmenbild am Rand des Hintergrunds des Elements zu zentrieren, machen wir die Werte für den Außensatz gleich der Hälfte der Werte für die Breite. Schließlich sorgt ein Wiederholungswert von `round` dafür, dass die Rahmenschnitte gleichmäßig passen, d.h. ohne Zuschneiden oder Lücken.
+Um die Größe einer einzelnen Raute zu entsprechen, verwenden wir einen Wert von 81 geteilt durch 3, oder `27`, um das Bild in Eck- und Kantenbereiche zu zerteilen. Um das Randbild auf der Kante des Hintergrunds des Elements zu zentrieren, machen wir die 'outset'-Werte gleich der Hälfte der Breitenwerte. Schließlich sorgt ein Wiederholwert von `round` dafür, dass die Randstücke gleichmäßig passen, d.h. ohne Schnitt oder Lücken.
 
 ```css
 #bitmap {
@@ -186,9 +186,9 @@ Um die Größe eines einzelnen Diamanten anzupassen, verwenden wir einen Wert vo
 
 {{EmbedLiveSample('Gradient')}}
 
-### Runde Kanten
+### Gerundete Ränder
 
-{{cssxref("border-radius")}} hat keinen Effekt auf das Rahmenbild. Dies liegt daran, dass {{cssxref("border-image-outset")}} das Bild außerhalb des Randrahmens platzieren kann, sodass es keinen Sinn macht, das Rahmenbild durch den Randbereich abzuschneiden. Um runde Kanten bei Verwendung eines Rahmenbilds zu erstellen, sollten Sie das Bild selbst mit abgerundeten Ecken erstellen oder, im Falle eines Verlaufs, es stattdessen als Hintergrund zeichnen. Unten zeigen wir einen Ansatz, dies zu erreichen, indem zwei {{cssxref("background-image")}}s verwendet werden: eines, das den Randrahmen erweitert, und ein weiteres für den Innenabstand.
+{{cssxref("border-radius")}} hat keine Wirkung auf das Randbild. Das liegt daran, dass {{cssxref("border-image-outset")}} in der Lage ist, das Bild außerhalb des Randrahmens zu platzieren, sodass es keinen Sinn ergibt, dass das Randbild durch den Randbereich abgeschnitten wird. Um gerundete Ränder bei Verwendung eines Randbildes zu erstellen, sollten Sie das Bild selbst mit abgerundeten Ecken erstellen oder, im Fall eines Verlaufs, ihn stattdessen als Hintergrund zeichnen. Unten zeigen wir einen Ansatz, dies zu tun, indem zwei {{cssxref("background-image")}}s verwendet werden: eins, das den Randrahmen erweitert, und ein anderes für den Innenabstandsrahmen.
 
 #### HTML
 
@@ -219,7 +219,7 @@ Um die Größe eines einzelnen Diamanten anzupassen, verwenden wir einen Wert vo
 {{EmbedLiveSample('rounded_borders')}}
 
 > [!NOTE]
-> Es gibt einen neuen `{{cssxref("background-clip")}}: border-area`-Wert, der [vorgeschlagen wird](https://github.com/w3c/csswg-drafts/issues/9456), um diesen Anwendungsfall zu adressieren.
+> Es gibt einen neuen `{{cssxref("background-clip")}}: border-area` Wert, der [vorgeschlagen wird](https://github.com/w3c/csswg-drafts/issues/9456), um diesen Anwendungsfall zu adressieren.
 
 ## Spezifikationen
 
@@ -235,6 +235,6 @@ Um die Größe eines einzelnen Diamanten anzupassen, verwenden wir einen Wert vo
 - {{cssxref("outline")}}
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
-- {{cssxref("url_value", "&lt;url&gt;")}}-Typ
+- {{cssxref("url_value", "&lt;url&gt;")}} type
 - Verlauf-Funktionen: {{CSSxRef("gradient/conic-gradient", "conic-gradient()")}}, {{CSSxRef("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}, {{CSSxRef("gradient/linear-gradient", "linear-gradient()")}}, {{CSSxRef("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{CSSxRef("gradient/radial-gradient", "radial-gradient()")}}, {{CSSxRef("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
-- [Rahmenbilder in CSS: Ein Schlüsselbereich für das Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Randbilder in CSS: Ein wichtiger Fokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

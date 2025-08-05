@@ -2,10 +2,10 @@
 title: column-rule-color
 slug: Web/CSS/column-rule-color
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`column-rule-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule-color")}}
 
@@ -22,7 +22,7 @@ column-rule-color: hsl(120 80% 40% / 0.6);
 ```
 
 ```css interactive-example-choice
-column-rule-color: currentcolor;
+column-rule-color: currentColor;
 ```
 
 ```html interactive-example
@@ -62,7 +62,7 @@ column-rule-color: revert-layer;
 column-rule-color: unset;
 ```
 
-Die `column-rule-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
+Die `column-rule-color` Eigenschaft wird als einzelner `<color>`-Wert angegeben.
 
 ### Werte
 
@@ -79,7 +79,7 @@ Die `column-rule-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
 
 ## Beispiele
 
-### Einstellen einer blauen Spaltenlinie
+### Eine blaue Spaltenlinie festlegen
 
 #### HTML
 
@@ -116,4 +116,4 @@ p {
 ## Siehe auch
 
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, und {{cssxref("caret-color")}}
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}} und {{cssxref("caret-color")}}

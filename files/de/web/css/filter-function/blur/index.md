@@ -2,10 +2,10 @@
 title: blur()
 slug: Web/CSS/filter-function/blur
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`blur()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet einen [Gaussian Blur](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`blur()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet einen [Gaussian blur](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: blur()")}}
 
@@ -40,7 +40,7 @@ blur(radius)
 ### Parameter
 
 - `radius` {{Optional_Inline}}
-  - : Der Radius der Unschärfe, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung der Gauß-Funktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; daher erzeugt ein größerer Wert mehr Unschärfe. Ein Wert von `0` lässt die Eingabe unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolierung")}} ist `0`. Prozentuale Werte sind ungültig. Der Standardwert ist `0px`.
+  - : Der Radius des Weichzeichners, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gauß-Funktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; daher wird ein größerer Wert mehr Unschärfe erzeugen. Ein Wert von `0` belässt den Input unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig. Der Standardwert ist `0px`.
 
 ### Beispiele für Unschärfewerte
 
@@ -54,7 +54,7 @@ blur(1.17rem)  /* Blur with 1.17rem radius */
 
 ## SVG-Filter
 
-Das SVG-Element {{SVGElement("feGaussianBlur")}} kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, um komplexere Unschärfewerte zu erzeugen. Um eine äquivalente Unschärfe zu erzeugen, geben wir einen Wert für `stdDeviation` an. Dieser SVG-Effekt kann dann über eine ID referenziert werden:
+Das SVG {{SVGElement("feGaussianBlur")}}-Filter-Element kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, die die Erstellung komplexerer Unschärfewertrenderungen ermöglichen. Um eine gleichwertige Unschärfe zu erzeugen, geben wir einen Wert für `stdDeviation` an. Dieser SVG-Effekt kann dann über die ID referenziert werden:
 
 ```html
 <svg role="none">
@@ -68,8 +68,8 @@ Die folgenden Deklarationen erzeugen denselben Effekt:
 
 ```css
 filter: blur(1.1px);
-filter: url(#blur11); /* with embedded SVG */
-filter: url(folder/fileName.svg#blur11); /* external svg filter definition */
+filter: url("#blur11"); /* with embedded SVG */
+filter: url("folder/fileName.svg#blur11"); /* external svg filter definition */
 ```
 
 ## Formale Syntax
@@ -78,7 +78,7 @@ filter: url(folder/fileName.svg#blur11); /* external svg filter definition */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()`-Filterfunktion, das Bild mit der äquivalenten SVG-Blur-Funktion und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()`-Filterfunktion angewendet, das Bild mit der äquivalenten SVG-Unschärfefunktion angewendet und die Originalbilder zum Vergleich:
 
 ```css
 .filter {
@@ -94,7 +94,7 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()`-Filterfunktion, d
   <image
     href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
     xlink:href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
-    filter="url(#blur)" />
+    filter="url('#blur')" />
 </svg>
 ```
 
@@ -129,7 +129,7 @@ svg:not([height]) {
           <image
             href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
             xlink:href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
-            filter="url(#svgBlur)" />
+            filter="url('#svgBlur')" />
         </svg>
       </td>
       <td>
@@ -155,7 +155,7 @@ svg:not([height]) {
 ## Siehe auch
 
 - [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)-Modul
-- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+- Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in den Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, umfassen:
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

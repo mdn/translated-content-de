@@ -2,15 +2,15 @@
 title: :-moz-loading
 slug: Web/CSS/:-moz-loading
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente erfasst, die nicht angezeigt werden können, weil sie noch nicht mit dem Laden begonnen haben, wie zum Beispiel Bilder, die noch nicht eingetroffen sind. Beachten Sie, dass Bilder, die _bereits im Prozess_ des Ladens sind, _nicht_ von dieser Pseudoklasse erfasst werden.
+Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die nicht angezeigt werden können, weil sie noch nicht zu laden begonnen haben, wie Bilder, die noch nicht begonnen haben, anzukommen. Beachten Sie, dass Bilder, die _gerade_ geladen werden, _nicht_ von dieser Pseudoklasse erfasst werden.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für die Nutzung durch Theme-Entwickler gedacht.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler vorgesehen.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 ## Beispiele
 
-### Einen Hintergrund für ladende Bilder setzen
+### Hintergrund für ladeende Bilder festlegen
 
 ```css
 :-moz-loading {
-  background: url(loading-animation.gif) center no-repeat;
+  background: url("loading-animation.gif") center no-repeat;
 }
 ```
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Siehe auch
 

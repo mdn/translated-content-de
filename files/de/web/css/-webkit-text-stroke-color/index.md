@@ -2,10 +2,10 @@
 title: -webkit-text-stroke-color
 slug: Web/CSS/-webkit-text-stroke-color
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Kontur-[Farbe](/de/docs/Web/CSS/color_value) von Textzeichen an. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}}-Eigenschaft verwendet.
+Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Strich-[Farbe](/de/docs/Web/CSS/color_value) von Textzeichen fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}}-Eigenschaft verwendet.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die
 ### Werte
 
 - `<color>`
-  - : Die Farbe der Kontur.
+  - : Die Farbe des Strichs.
 
 ## Formale Definition
 
@@ -38,7 +38,7 @@ Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die
 
 ## Beispiele
 
-### Variation der Konturfarbe
+### Variierung der Strichfarbe
 
 #### HTML
 
@@ -54,7 +54,7 @@ p {
   margin: 0;
   font-size: 4em;
   -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #ff0000; /* Can be changed in the live sample */
+  -webkit-text-stroke-color: red; /* Can be changed in the live sample */
 }
 ```
 

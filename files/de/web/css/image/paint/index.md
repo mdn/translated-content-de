@@ -2,10 +2,10 @@
 title: paint()
 slug: Web/CSS/image/paint
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der mit einem PaintWorklet generiert wird.
+Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der mit einem PaintWorklet erzeugt wird.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ wo:
 - _workletName_
   - : Der Name des registrierten Worklets.
 - _parameters_ {{optional_inline}}
-  - : Optionale zusätzliche Parameter, die an das paintWorklet übergeben werden
+  - : Optionale zusätzliche Parameter, die an das paintWorklet übergeben werden.
 
 ## Formale Syntax
 
@@ -46,7 +46,7 @@ Angenommen, folgendes HTML:
 </ul>
 ```
 
-In JavaScript registrieren wir den [paint worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
+Im JavaScript registrieren wir das [paint worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
 
 ```js live-sample___example-boxbg
 CSS.paintWorklet.addModule(
@@ -54,7 +54,7 @@ CSS.paintWorklet.addModule(
 );
 ```
 
-Im CSS definieren wir das `background-image` als einen `paint()`-Typ mit dem Worklet-Namen `boxbg`, zusammen mit allen Variablen (z.B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
+Im CSS definieren wir das `background-image` als `paint()` Typ mit dem Worklet-Namen `boxbg`, zusammen mit allen Variablen (z.B. `--box-color` und `--width-subtractor`), die das Worklet verwenden wird:
 
 ```css live-sample___example-boxbg
 body {
@@ -62,17 +62,17 @@ body {
 }
 li {
   background-image: paint(boxbg);
-  --boxColor: hsl(55 90% 60%);
+  --box-color: hsl(55 90% 60%);
 }
 
 li:nth-of-type(3n) {
-  --boxColor: hsl(155 90% 60%);
-  --widthSubtractor: 20;
+  --box-color: hsl(155 90% 60%);
+  --width-subtractor: 20;
 }
 
 li:nth-of-type(3n + 1) {
-  --boxColor: hsl(255 90% 60%);
-  --widthSubtractor: 40;
+  --box-color: hsl(255 90% 60%);
+  --width-subtractor: 40;
 }
 ```
 
@@ -80,7 +80,7 @@ li:nth-of-type(3n + 1) {
 
 ### CSS paint() mit Parametern
 
-Sie können optionale Argumente in der CSS `paint()` Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben, die steuern, ob das `background-image` einer Gruppe von Listenelementen `filled` ist oder eine `stroke` Umrandung hat, und die `width` dieser Umrandung:
+Sie können optionale Argumente in der CSS `paint()` Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben, die steuern, ob das `background-image` einer Gruppe von Listenelementen `filled` ist oder nur eine `stroke` Umrisslinie hat, und die `width` dieser Linie:
 
 ```html hidden live-sample___example-highlight
 <ul>
@@ -110,22 +110,22 @@ body {
 }
 
 li {
-  --boxColor: hsl(55 90% 60% / 100%);
-  background-image: paint(hollowHighlights, stroke, 2px);
+  --box-color: hsl(55 90% 60% / 100%);
+  background-image: paint(hollow-highlights, stroke, 2px);
 }
 
 li:nth-of-type(3n) {
-  --boxColor: hsl(155 90% 60% / 100%);
-  background-image: paint(hollowHighlights, filled, 3px);
+  --box-color: hsl(155 90% 60% / 100%);
+  background-image: paint(hollow-highlights, filled, 3px);
 }
 
 li:nth-of-type(3n + 1) {
-  --boxColor: hsl(255 90% 60% / 100%);
-  background-image: paint(hollowHighlights, stroke, 1px);
+  --box-color: hsl(255 90% 60% / 100%);
+  background-image: paint(hollow-highlights, stroke, 1px);
 }
 ```
 
-Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock eingebunden, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für den PaintWorklet zugänglich.
+Wir haben eine benutzerdefinierte Eigenschaft im Selektor-Block eingefügt, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
 
 {{EmbedLiveSample("example-highlight", "", "300px")}}
 

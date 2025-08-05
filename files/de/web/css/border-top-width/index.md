@@ -2,10 +2,10 @@
 title: border-top-width
 slug: Web/CSS/border-top-width
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`border-top-width`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Breite des oberen Rands eines Elements.
+Die **`border-top-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des oberen Randes eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-top-width")}}
 
@@ -40,7 +40,7 @@ border-top-width: 0;
 ```css interactive-example
 #example-element {
   background-color: palegreen;
-  color: #000;
+  color: black;
   border: 0 solid crimson;
   padding: 0.75em;
   width: 80%;
@@ -72,13 +72,13 @@ border-top-width: unset;
 ### Werte
 
 - `<line-width>`
-  - : Definiert die Breite des Rands, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Sollte es sich um ein Schlüsselwort handeln, muss es einer der folgenden Werte sein:
+  - : Definiert die Breite des Randes, entweder als explizites nicht-negatives {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
     - `thin`
     - `medium`
     - `thick`
 
 > [!NOTE]
-> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort angegeben wird, nicht definiert, ist das präzise Ergebnis bei deren Verwendung implementationsspezifisch. Dennoch folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines einzelnen Dokuments konstant.
+> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort angegeben wird, nicht festlegt, ist das genaue Ergebnis bei Verwendung eines dieser Schlüsselwörter implementierungsspezifisch. Trotzdem folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
 
 ## Formale Definition
 
@@ -127,5 +127,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen border-width-bezogenen CSS-Eigenschaften: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen border-top-bezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-top")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-top-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Randbreite beziehen: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den oberen Rand beziehen: {{Cssxref("border")}}, {{Cssxref("border-top")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-top-color")}}.

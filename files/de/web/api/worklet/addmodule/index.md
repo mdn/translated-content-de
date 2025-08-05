@@ -1,16 +1,14 @@
 ---
-title: "Worklet: addModule() Methode"
+title: "Worklet: addModule()-Methode"
 short-title: addModule()
 slug: Web/API/Worklet/addModule
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
 {{APIRef("Worklets")}}{{SecureContext_Header}}
 
-Die **`addModule()`** Methode des
-[`Worklet`](/de/docs/Web/API/Worklet)-Interfaces lädt das Modul in der angegebenen JavaScript-Datei und
-fügt es dem aktuellen `Worklet` hinzu.
+Die **`addModule()`**-Methode der [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle lädt das Modul in der angegebenen JavaScript-Datei und fügt es dem aktuellen `Worklet` hinzu.
 
 ## Syntax
 
@@ -22,19 +20,20 @@ addModule(moduleURL, options)
 ### Parameter
 
 - `moduleURL`
-  - : Ein {{jsxref("String")}}, der die URL einer JavaScript-Datei enthält, die das hinzuzufügende Modul enthält.
+  - : Ein {{jsxref("String")}}, der die URL einer JavaScript-Datei mit dem hinzuzufügenden Modul enthält.
 - `options` {{optional_inline}}
   - : Ein Objekt mit einer der folgenden Optionen:
     - `credentials`
-      - : Ein [`Request.credentials`](/de/docs/Web/API/Request/credentials)-Wert, der angibt, ob beim Laden des Moduls Anmeldeinformationen (z.B. Cookies und HTTP-Authentifizierung) gesendet werden sollen. Kann einer der folgenden Werte sein: `"omit"`, `"same-origin"` oder `"include"`. Standardwert ist `"same-origin"`. Siehe auch [`Request.credentials`](/de/docs/Web/API/Request/credentials).
+      - : Ein [`Request.credentials`](/de/docs/Web/API/Request/credentials)-Wert, der angibt, ob Anmeldeinformationen (z.B. Cookies und HTTP-Authentifizierung) beim Laden des Moduls gesendet werden sollen. Kann einer der Werte `"omit"`,
+        `"same-origin"` oder `"include"` sein. Standardmäßig auf `"same-origin"` gesetzt. Siehe auch [`Request.credentials`](/de/docs/Web/API/Request/credentials).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald das Modul von der angegebenen URL hinzugefügt wurde. Das Versprechen liefert keinen Wert zurück.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald das Modul von der angegebenen URL hinzugefügt wurde. Das Versprechen gibt keinen Wert zurück.
 
 ### Ausnahmen
 
-Wenn `addModule()` fehlschlägt, wird das Versprechen zurückgewiesen und einer der folgenden Fehler an den Ablehnungshandler geliefert.
+Wenn `addModule()` fehlschlägt, lehnt es das Versprechen ab und übergibt einen der folgenden Fehler an den Ablehnungshandler.
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das angegebene Skript ist ungültig oder konnte nicht geladen werden.
@@ -43,7 +42,7 @@ Wenn `addModule()` fehlschlägt, wird das Versprechen zurückgewiesen und einer 
 
 ## Beispiele
 
-### AudioWorklet Beispiel
+### AudioWorklet-Beispiel
 
 ```js
 const audioCtx = new AudioContext();
@@ -53,7 +52,7 @@ audioWorklet.addModule("modules/bypassFilter.js", {
 });
 ```
 
-### PaintWorklet Beispiel
+### PaintWorklet-Beispiel
 
 ```js
 CSS.paintWorklet.addModule(
@@ -61,12 +60,12 @@ CSS.paintWorklet.addModule(
 );
 ```
 
-Sobald das Skript dem [Paint-Worklet](/de/docs/Web/API/CSS/paintWorklet_static) hinzugefügt wurde, kann die CSS {{cssxref("image/paint", "paint()")}}-Funktion verwendet werden, um das vom Worklet erstellte Bild einzubinden:
+Sobald das Skript zum [paint worklet](/de/docs/Web/API/CSS/paintWorklet_static) hinzugefügt wurde, kann die CSS-{{cssxref("image/paint", "paint()")}}-Funktion verwendet werden, um das vom Worklet erstellte Bild einzubinden:
 
 ```css
 @supports (background-image: paint(id)) {
   h1 {
-    background-image: paint(hollowHighlights, filled, 3px);
+    background-image: paint(hollow-highlights, filled, 3px);
   }
 }
 ```

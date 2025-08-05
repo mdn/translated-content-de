@@ -2,10 +2,11 @@
 title: matrix3d()
 slug: Web/CSS/transform-function/matrix3d
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 3d06d82cbddf640291fd66cf85cd9014c4e867c5
 ---
 
-Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine 3D-Transformation als eine 4x4 homogene Matrix. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine 3D-Transformation als 4x4 homogene Matrix.
+Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: matrix3d()")}}
 
@@ -69,13 +70,13 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
 
 ### Werte
 
-Die `matrix3d()` Funktion wird mit 16 Werten spezifiziert. Sie werden in der Spalten-Major-Reihenfolge beschrieben.
+Die `matrix3d()`-Funktion wird mit 16 Werten angegeben. Sie sind in spaltenweiser Reihenfolge beschrieben.
 
 - _a1_ _b1_ _c1_ _d1_ _a2_ _b2_ _c2_ _d2_
   _a3_ _b3_ _c3_ _d3_
-  - : Sind {{cssxref("&lt;number&gt;")}} und beschreiben die lineare Transformation.
+  - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
 - _a4_ _b4_ _c4 d4_
-  - : Sind {{cssxref("&lt;number&gt;")}} und beschreiben die anzuwendende Translation.
+  - : Sind {{cssxref("&lt;number&gt;")}}s, die die anzuwendende Übersetzung beschreiben.
 
 <table class="standard-table">
   <thead>
@@ -89,10 +90,10 @@ Die `matrix3d()` Funktion wird mit 16 Werten spezifiziert. Sie werden in der Spa
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
-        Eine generische 3D <a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
+        Eine generische 3D-<a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht unter Verwendung einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
       </td>
       <td>
         <math display="block">
@@ -109,9 +110,9 @@ Die `matrix3d()` Funktion wird mit 16 Werten spezifiziert. Sie werden in der Spa
 
 ## Beispiele
 
-### Beispiel zur Kompression eines Würfels
+### Würfel-Quetschen-Beispiel
 
-Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde, der angefahren/gefocused werden kann, um eine `matrix3d()`-Transformation anzuwenden.
+Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde, und beim Überfahren/Fokussieren wird eine `matrix3d()`-Transformation darauf angewendet.
 
 #### HTML
 
@@ -191,7 +192,7 @@ Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transfor
 
 {{EmbedLiveSample('Cube_squashing_example', '100%', '300px')}}
 
-### Beispiel zur Matrix-Translation und Skalierung
+### Matrix-Übersetzungs- und Skalierungsbeispiel
 
 Ein weiteres `transform3d()`-Beispiel, das eine animierte kombinierte Translation und Skalierung implementiert.
 
@@ -207,7 +208,7 @@ Ein weiteres `transform3d()`-Beispiel, das eine animierte kombinierte Translatio
 
 #### CSS
 
-```css-nolint
+```css
 html {
   width: 100%;
 }
@@ -233,7 +234,7 @@ body {
 }
 
 @keyframes MotionScale {
-  from {
+  0% {
     /*
       Identity matrix is used as basis here.
       The matrix below describes the
@@ -243,6 +244,7 @@ body {
         Translates every Z point by 0
         Scales down by 10%
     */
+    /* prettier-ignore */
     transform: matrix3d(
       1, 0, 0, 0,
       0, 1, 0, 0,
@@ -251,6 +253,7 @@ body {
     );
   }
   50% {
+    /* prettier-ignore */
     transform: matrix3d(
       1, 0, 0, 0,
       0, 1, 0, 0,
@@ -258,8 +261,9 @@ body {
       0, 0, 0, 0.9
     );
   }
-  to {
-     transform: matrix3d(
+  100% {
+    /* prettier-ignore */
+    transform: matrix3d(
       1, 0, 0, 0,
       0, 1, 0, 0,
       0, 0, 1, 0,
@@ -284,7 +288,7 @@ body {
 ## Siehe auch
 
 - {{cssxref("transform")}}
-- Einzelne Transformationsfunktionen:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

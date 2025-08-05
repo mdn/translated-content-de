@@ -2,10 +2,10 @@
 title: border-image-source
 slug: Web/CSS/border-image-source
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Rahmenbild](/de/docs/Web/CSS/border-image) eines Elements zu erstellen.
+Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellebild fest, das verwendet wird, um das [Rahmenbild](/de/docs/Web/CSS/border-image) eines Elements zu erstellen.
 
 {{InteractiveExample("CSS Demo: border-image-source")}}
 
@@ -44,7 +44,7 @@ border-image-source: none;
   justify-content: center;
   padding: 50px;
   background: #fff3d4;
-  color: #000;
+  color: black;
   border: 30px solid;
   border-image: url("/shared-assets/images/examples/border-diamonds.png") 30
     round;
@@ -52,7 +52,7 @@ border-image-source: none;
 }
 ```
 
-Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf das endgültige Rahmenbild angewendet werden.
+Die Eigenschaft {{cssxref("border-image-slice")}} wird verwendet, um das Quellebild in Bereiche zu unterteilen, die dann dynamisch auf das endgültige Rahmenbild angewendet werden.
 
 ## Syntax
 
@@ -61,7 +61,7 @@ Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbi
 border-image-source: none;
 
 /* <image> values */
-border-image-source: url(image.jpg);
+border-image-source: url("image.jpg");
 border-image-source: linear-gradient(to top, red, yellow);
 
 /* Global values */
@@ -75,7 +75,7 @@ border-image-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Rahmenbild verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Aussehen angezeigt.
+  - : Es wird kein Rahmenbild verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Erscheinungsbild angezeigt.
 - {{cssxref("&lt;image&gt;")}}
   - : Bildreferenz, die für den Rahmen verwendet werden soll.
 
@@ -112,4 +112,4 @@ border-image-source: unset;
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
 - {{cssxref("url_value", "&lt;url&gt;")}} Typ
-- [Rahmenbilder in CSS: Ein Schlüsselfokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Rahmenbilder in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)

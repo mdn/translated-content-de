@@ -2,10 +2,10 @@
 title: mask-composite
 slug: Web/CSS/mask-composite
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`mask-composite`** [CSS](/de/docs/Web/CSS) Eigenschaft stellt einen Kompositionsvorgang dar, der auf die aktuelle Maskenschicht mit den darunter liegenden Maskenschichten angewendet wird.
+Die **`mask-composite`** [CSS](/de/docs/Web/CSS)-Eigenschaft repräsentiert eine Kompositionsoperation, die auf die aktuelle Maskenschicht mit den darunter liegenden Maskenschichten angewendet wird.
 
 ## Syntax
 
@@ -26,26 +26,26 @@ mask-composite: unset;
 
 ### Werte
 
-Die Eigenschaft akzeptiert eine durch Kommas getrennte Liste von `<compositing-operator>` Schlüsselwortwerten, die jeweils einen Porter-Duff-Kompositionsoperator darstellen, der den Kompositionsvorgang definiert, der auf die aktuelle Maskenschicht mit den darunter liegenden Maskenschichten angewendet wird, einschließlich:
+Die Eigenschaft akzeptiert eine kommagetrennte Liste von `<compositing-operator>` Schlüsselwortwerten, wobei jeder einen Porter-Duff-Kompositionsoperator darstellt, der die Kompositionsoperation definiert, die auf die aktuelle Maskenschicht mit den darunter liegenden Maskenschichten angewendet wird, einschließlich:
 
 - `add`
-  - : Das zugehörige Maskenbild wird über alle darunter liegenden Maskenschichten gelegt (mit den entsprechenden Kompositionsoperatoren angewendet). Dies ist der Standardwert.
+  - : Das zugeordnete Maskenbild wird über alle darunter liegenden Maskenschichten gelegt (mit den entsprechenden Kompositionsoperatoren angewendet). Dies ist der Standardwert.
 - `subtract`
-  - : Das zugehörige Maskenbild wird dort platziert, wo es außerhalb aller darunter liegenden Maskenschichten fällt (mit den entsprechenden Kompositionsoperatoren angewendet).
+  - : Das zugeordnete Maskenbild wird dort platziert, wo es außerhalb aller darunter liegenden Maskenschichten liegt (mit den entsprechenden Kompositionsoperatoren angewendet).
 - `intersect`
-  - : Die Teile des zugehörigen Maskenbilds, die alle darunter zusammengefügten Maskenschichten überlappen, ersetzen die zuvor zusammengefügten Schichten.
+  - : Die Teile des zugeordneten Maskenbilds, die alle komponierten Maskenschichten darunter überlappen, ersetzen diese zuvor komponierten Schichten.
 - `exclude`
-  - : Die nicht überlappenden Bereiche des zugehörigen Maskenbilds und der darunter liegenden Maskenschichten werden mit ihren entsprechenden Kompositionsoperatoren kombiniert.
+  - : Die nicht überlappenden Bereiche des zugeordneten Maskenbilds und der darunter liegenden Maskenschichten, mit den entsprechenden Kompositionsoperatoren angewendet, werden kombiniert.
 
 ## Beschreibung
 
-Wenn ein Element mehrere Maskenlagen hat, kann die `mask-composite` Eigenschaft verwendet werden, um zu definieren, wie die mehreren Masken miteinander interagieren oder kombiniert werden, um den endgültigen Maskeneffekt zu erstellen.
+Wenn ein Element mehrere Maskenschichten verwendet, kann die `mask-composite`-Eigenschaft verwendet werden, um zu definieren, wie die mehreren Masken miteinander interagieren oder kombiniert werden, um den endgültigen Maskeneffekt zu erzeugen.
 
-Die Anzahl der Lagen wird durch die Anzahl der durch Kommas getrennten Werte im Wert der `mask-image` Eigenschaft bestimmt (selbst wenn ein Wert `none` ist). Jeder `mask-composite` Wert in der durch Kommas getrennten Liste von Werten wird der Reihe nach mit einem `mask-image` Wert abgeglichen. Wenn die Anzahl der Werte in `mask-composite` gleich oder größer ist als die Anzahl der `mask-image` Werte, werden die zusätzlichen Werte ignoriert. Wenn die `mask-composite` Eigenschaft nicht genügend durch Kommas getrennte Werte hat, um die Anzahl der Schichten abzudecken, wird die Liste der Werte wiederholt, bis genügend vorhanden sind.
+Die Anzahl der Schichten wird durch die Anzahl der kommagetrennten Werte im `mask-image`-Eigenschaftswert bestimmt (auch wenn ein Wert `none` ist). Jeder `mask-composite`-Wert in der kommagetrennten Liste der Werte wird der Reihe nach einem `mask-image`-Wert zugeordnet. Wenn die Anzahl der Werte in `mask-composite` gleich oder größer ist als die Anzahl der `mask-image`-Werte, werden die zusätzlichen Werte ignoriert. Wenn die `mask-composite`-Eigenschaft nicht genügend kommagetrennte Werte hat, um die Anzahl der Schichten zu erreichen, wird die Liste der Werte wiederholt, bis genügend vorhanden sind.
 
-Für die Verarbeitung wird die _Quellenschicht_, das aktuelle oder zugehörige Maskenbild, entweder hinzugefügt (Standard), subtrahiert, geschnitten oder von den Zieldschichten ausgeschlossen. Die _Zieldschichten_ sind die darunter liegenden Maskenschichten, auf die ihre entsprechenden Kompositionsoperatoren angewendet werden; dies umfasst alle vorherigen Schichten, die in der Reihenfolge ihres Erscheinens innerhalb der durch Kommas getrennten Liste von Masken zusammengefügt werden. Alle Maskenschichten unter der aktuellen Maskenschicht müssen zusammengefügt werden, bevor der Kompositionsvorgang für die aktuelle Maskenschicht angewendet wird. Maskenebenenbilder werden vor dem Kombinieren durch den definierten Kompositionseigenschaftswert in Alpha-Masken umgewandelt.
+Für die Verarbeitung wird die _Quellschicht_, die aktuelle oder zugeordnete Maskenschichtbild, entweder zu den Zielschichten hinzugefügt (Standard), davon subtrahiert, damit geschnitten oder davon ausgeschlossen. Die _Zielschichten_ sind die darunter liegenden Maskenschichten mit ihren entsprechenden Kompositionsoperatoren angewendet; dies schließt alle vorherigen Schichten ein, die in der Reihenfolge des Auftretens in der kommagetrennten Liste der Masken zusammengesetzt sind. Alle Maskenschichten unter der aktuellen Maskenschicht müssen zusammengesetzt sein, bevor die Kompositionsoperation für die aktuelle Maskenschicht angewendet wird. Maskenschichtbilder werden zur Verarbeitung in Alphamasken transformiert, bevor sie durch den definierten Kompositionswert kombiniert werden.
 
-Die mehreren Maskenlagen, die auf ein beliebiges Element oder Pseudoelement angewendet werden, verhalten sich so, als ob sie in einer isolierten Gruppe gerendert würden. Anders ausgedrückt, die Maskenschichten werden mit anderen Maskenschichten zusammengefügt, nicht mit dem Inhalt des Elements oder dem dahinterliegenden Inhalt.
+Die mehreren Maskenschichten, die auf ein Element oder Pseudo-Element angewendet werden, wirken so, als ob sie in eine isolierte Gruppe gerendert werden. Anders ausgedrückt, die Maskenschichten werden mit anderen Maskenschichten zusammengesetzt, nicht mit dem Inhalt des Elements oder dem Inhalt hinter dem Element.
 
 ## Formale Definition
 
@@ -57,13 +57,13 @@ Die mehreren Maskenlagen, die auf ein beliebiges Element oder Pseudoelement ange
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `mask-composite` Eigenschaft.
+Dieses Beispiel demonstriert die grundlegende Nutzung der `mask-composite`-Eigenschaft.
 
 #### HTML
 
-Wir fügen ein HTML {{htmlelement("div")}} Element ein, das wir dann stylen.
+Wir fügen ein HTML {{htmlelement("div")}}-Element ein, das wir dann gestalten.
 
 ```html
 <div></div>
@@ -71,7 +71,7 @@ Wir fügen ein HTML {{htmlelement("div")}} Element ein, das wir dann stylen.
 
 #### CSS
 
-Wir legen die Größe und Farbe unseres `<div>` fest, fügen dann zwei {{cssxref("mask-image")}}s hinzu und passen ihre Größe mit der {{cssxref("mask-size")}} Eigenschaft an die des Elements an, das sie maskieren. Schließlich subtrahieren wir das zweite Maskenbild vom ersten Maskenbild mit der `mask-composite` Eigenschaft, die auf `subtract` gesetzt ist.
+Wir geben unserem `<div>` die Größe und Farbe und fügen dann zwei {{cssxref("mask-image")}} hinzu und passen ihre Größe mit der {{cssxref("mask-size")}}-Eigenschaft derjenigen des zu maskierenden Elements an. Schließlich subtrahieren wir das zweite Maskenbild von dem ersten Maskenbild, indem wir die `mask-composite`-Eigenschaft auf `subtract` setzen.
 
 ```css
 div {
@@ -80,8 +80,8 @@ div {
   background-color: red;
 
   mask-image:
-    url(https://mdn.github.io/shared-assets/images/examples/mdn.svg),
-    url(https://mdn.github.io/shared-assets/images/examples/mask-star.svg);
+    url("https://mdn.github.io/shared-assets/images/examples/mdn.svg"),
+    url("https://mdn.github.io/shared-assets/images/examples/mask-star.svg");
   mask-size: 100% 100%;
 
   mask-composite: subtract;
@@ -94,11 +94,11 @@ div {
 
 ### Wertvergleich
 
-Dieses Beispiel demonstriert die vier `<compositing-operator>` Schlüsselwortwerte der `mask-composite` Eigenschaft und vergleicht die Effekte der [`alpha` und `luminance`](/de/docs/Web/CSS/mask-type) Maskenmodi.
+Dieses Beispiel demonstriert die vier `<compositing-operator>` Schlüsselwortwerte der `mask-composite`-Eigenschaft, zusammen mit dem Vergleich der Effekte der [`alpha` und `luminance`](/de/docs/Web/CSS/mask-type) Maskenmodi.
 
 #### HTML
 
-Wir haben eine {{htmlelement("table")}}, die acht Bilder enthält. Die `<table>` wurde zur Übersichtlichkeit verborgen.
+Wir haben eine {{htmlelement("table")}}, die acht Bilder enthält. Das `<table>` wurde zur Übersichtlichkeit versteckt.
 
 ```html hidden
 <table>
@@ -178,7 +178,7 @@ Wir haben eine {{htmlelement("table")}}, die acht Bilder enthält. Die `<table>`
   alt="Pride flag" />
 ```
 
-Und ein SVG mit 4 Masken; einem Alpha-Herz und Kreis und einem Luminanz-Herz und Kreis. Die Herzmasken werden mit Vollfarben definiert. Die Kreismasken werden mit halbtransparenten weißen und schwarzen {{SVGAttr("stroke")}} und {{SVGAttr("fill")}} Farben erstellt.
+Und eine SVG mit 4 Masken; einem Alpha-Herz und Kreis und einem Luminanz-Herz und Kreis. Die Herzmasken werden mit Vollfarben definiert. Die Kreismasken werden mit halbtransparenten weißen und schwarzen {{SVGAttr("stroke")}} und {{SVGAttr("fill")}} Farben erstellt.
 
 ```html
 <svg height="0" width="0">
@@ -219,7 +219,7 @@ Und ein SVG mit 4 Masken; einem Alpha-Herz und Kreis und einem Luminanz-Herz und
 
 #### CSS
 
-Zuerst stylen wir die `<mask>` Elemente und versehen jede Maske mit einem {{cssxref("mask-type")}} Eigenschaftswert von entweder `alpha` oder `luminance`.
+Zuerst gestalten wir die `<mask>`-Elemente und geben jeder Maske einen {{cssxref("mask-type")}}-Eigenschaftswert von entweder `alpha` oder `luminance`.
 
 ```css
 mask.luminance {
@@ -231,20 +231,20 @@ mask.alpha {
 }
 ```
 
-Dann wenden wir die Herz- und Kreismasken als die durch Kommas getrennten {{cssxref("mask-image")}} Eigenschaftswerte an. Diese werden auf jedes {{htmlelement("img")}} Element angewendet, wobei alle Bilder in einer Reihe die gleichen Masken erhalten.
+Dann wenden wir die Herz- und Kreismasken als die kommagetrennten {{cssxref("mask-image")}}-Eigenschaftswerte an. Diese werden auf jedes {{htmlelement("img")}}-Element angewendet, wobei alle Bilder in einer Reihe die gleichen Masken erhalten.
 
 ```css
 /* apply the mask images */
 tr.alphaMaskType img {
-  mask-image: url(#heartAlpha), url(#circleAlpha);
+  mask-image: url("#heartAlpha"), url("#circleAlpha");
 }
 
 tr.luminanceMaskType img {
-  mask-image: url(#heartLuminance), url(#circleLuminance);
+  mask-image: url("#heartLuminance"), url("#circleLuminance");
 }
 ```
 
-Schließlich setzen wir die Masken mit der `mask-composite` Eigenschaft zusammen und wenden die vier verschiedenen aufgezählten `mask-composite` Werte nach Tabellenspalten an.
+Schließlich komponieren wir die Masken mit der `mask-composite`-Eigenschaft, indem wir die vier verschiedenen aufgezählten `mask-composite`-Werte nach Tabellenspalte anwenden.
 
 ```css
 /* property we're testing */
@@ -262,7 +262,7 @@ td:nth-of-type(4) img {
 }
 ```
 
-Die Tabellenstile wurden zur Übersichtlichkeit verborgen.
+Die Tabellenstile wurden zur Übersichtlichkeit ausgeblendet.
 
 ```css hidden
 mask {
@@ -299,10 +299,10 @@ body > img {
 
 ## Siehe auch
 
-- {{cssxref("mask")}} Kurzschrift
+- {{cssxref("mask")}} Kurzform
 - {{cssxref("mask-type")}}
 - {{cssxref("mask-mode")}}
-- [Einführung in CSS-Masking](/de/docs/Web/CSS/CSS_masking/Masking)
+- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
 - [CSS `mask` Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
 - [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
-- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
+- [CSS-Maskierung](/de/docs/Web/CSS/CSS_masking) Modul

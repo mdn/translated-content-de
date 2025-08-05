@@ -2,12 +2,12 @@
 title: <feMorphology>
 slug: Web/SVG/Reference/Element/feMorphology
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG)-Filterprimitive wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Es ist besonders nützlich für Effekte, die Objekte verbreitern oder verkleinern.
+Der **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitive wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Seine Nützlichkeit liegt besonders in der Verdickung oder Verdünnung von Bildeffekten.
 
-Wie andere Filterprimitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -21,11 +21,11 @@ Wie andere Filterprimitiven verarbeitet es Farbkomponenten standardmäßig im `l
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement) Schnittstelle.
 
 ## Beispiele
 
-### Filterung von SVG-Inhalten
+### SVG-Inhalte filtern
 
 #### SVG
 
@@ -52,17 +52,17 @@ text {
 }
 
 #thin {
-  filter: url(#erode);
+  filter: url("#erode");
 }
 
 #thick {
-  filter: url(#dilate);
+  filter: url("#dilate");
 }
 ```
 
 {{EmbedLiveSample("Filtering_SVG_content", 340, 180)}}
 
-### Filterung von HTML-Inhalten
+### HTML-Inhalte filtern
 
 #### SVG
 
@@ -91,11 +91,11 @@ p {
 }
 
 #thin {
-  filter: url(#erode);
+  filter: url("#erode");
 }
 
 #thick {
-  filter: url(#dilate);
+  filter: url("#dilate");
 }
 ```
 
@@ -129,4 +129,4 @@ p {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

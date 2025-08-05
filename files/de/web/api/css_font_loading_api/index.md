@@ -2,7 +2,7 @@
 title: CSS Font Loading API
 slug: Web/API/CSS_Font_Loading_API
 l10n:
-  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{DefaultAPISidebar("CSS Font Loading API")}}{{AvailableInWorkers}}
@@ -11,35 +11,35 @@ Die **CSS Font Loading API** bietet Ereignisse und Schnittstellen zum dynamische
 
 ## Konzepte und Verwendung
 
-CSS-Stylesheets ermöglichen es Autoren, benutzerdefinierte Schriften zu verwenden; sie geben Schriften an, die mithilfe der [`@font-face`](/de/docs/Web/CSS/@font-face)-Regel heruntergeladen werden sollen, und wenden sie mit der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft auf Elemente an.
-Der Zeitpunkt, zu dem eine Schrift heruntergeladen wird, wird vom User Agent kontrolliert.
-Die meisten Agents laden Schriften nur dann herunter, wenn sie zum ersten Mal benötigt werden, was zu einer wahrnehmbaren Verzögerung führen kann.
+CSS-Stylesheets erlauben es Autoren, benutzerdefinierte Schriften zu verwenden; sie spezifizieren Schriften, die mithilfe der [`@font-face`](/de/docs/Web/CSS/@font-face)-Regel heruntergeladen werden sollen, und wenden sie mithilfe der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft auf Elemente an.
+Der Zeitpunkt, an dem eine Schrift heruntergeladen wird, wird durch den User-Agent gesteuert.
+Die meisten Agenten laden Schriften erst dann herunter, wenn sie das erste Mal benötigt werden, was zu einer wahrnehmbaren Verzögerung führen kann.
 
-Die CSS Font Loading API löst dieses Problem, indem sie es Autoren ermöglicht, zu steuern und zu verfolgen, wann eine Schriftart abgerufen und geladen wird und wann sie zum Schriftsatz des Dokuments oder des Workers hinzugefügt wird.
-Das Hinzufügen einer Schriftart zum Schriftsatz des Dokuments oder des Workers ermöglicht es dem User Agent, die zugehörige Schriftressource bei Bedarf automatisch abzurufen und zu laden.
-Eine Schriftart kann entweder vor oder nachdem sie zu einem Schriftsatz hinzugefügt wurde, geladen werden, aber sie _muss_ zum Satz hinzugefügt werden, bevor sie zum Zeichnen verwendet werden kann.
+Die CSS Font Loading API überwindet dieses Problem, indem sie es Autoren ermöglicht, zu kontrollieren und nachzuverfolgen, wann eine Schriftart heruntergeladen und geladen wird und wann sie dem von Dokument oder Worker verwalteten Schriftartensatz hinzugefügt wird.
+Das Hinzufügen einer Schriftart zum Dokument- oder Worker-Schriftartensatz ermöglicht es dem User-Agent, die zugehörige Schriftressource bei Bedarf automatisch herunterzuladen und zu laden.
+Eine Schriftart kann entweder vor oder nach ihrer Hinzufügung zu einem Schriftartensatz geladen werden, sie _muss_ jedoch zum Satz hinzugefügt werden, bevor sie zum Zeichnen verwendet werden kann.
 
-Schriftarten werden in [`FontFace`](/de/docs/Web/API/FontFace)-Objekten definiert, die eine binäre oder URL-Schriftquelle und andere Schriftattribute ähnlich wie die CSS [`@font-face`](/de/docs/Web/CSS/@font-face)-Regel spezifizieren.
-`FontFace`-Objekte werden mithilfe von [`Document.fonts`](/de/docs/Web/API/Document/fonts) bzw. [`WorkerGlobalScope.fonts`](/de/docs/Web/API/WorkerGlobalScope/fonts) zum Schriftsatz des Dokuments oder des Workers [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) hinzugefügt.
-Autoren können das Herunterladen von Schriften mithilfe von `FontFace` oder `FontFaceSet` auslösen und das Laden überwachen.
-`FontFaceSet` kann zusätzlich verwendet werden, um festzustellen, wann alle von einer Seite benötigten Schriften geladen sind und das Dokumentlayout abgeschlossen ist.
+Schriftarten werden in [`FontFace`](/de/docs/Web/API/FontFace)-Objekten definiert, die eine binäre oder URL-Schriftquelle und andere Eigenschaften der Schrift ähnlich wie die CSS [`@font-face`](/de/docs/Web/CSS/@font-face)-Regel angeben.
+`FontFace`-Objekte werden dem Dokument- oder Worker-[`FontFaceSet`](/de/docs/Web/API/FontFaceSet) über [`Document.fonts`](/de/docs/Web/API/Document/fonts) und [`WorkerGlobalScope.fonts`](/de/docs/Web/API/WorkerGlobalScope/fonts) hinzugefügt.
+Autoren können den Download von Schriften entweder über `FontFace` oder `FontFaceSet` auslösen und den Abschluss des Ladevorgangs überwachen.
+`FontFaceSet` kann zusätzlich verwendet werden, um festzustellen, wann alle für eine Seite erforderlichen Schriften geladen wurden und das Dokument-Layout abgeschlossen ist.
 
 Die [`FontFace.status`](/de/docs/Web/API/FontFace/status)-Eigenschaft gibt den Ladezustand der Schriftart an: `unloaded`, `loading`, `loaded` oder `failed`.
 Dieser Status ist anfangs `unloaded`.
-Er wird auf `loading` gesetzt, wenn die Datei heruntergeladen oder die Schriftdaten verarbeitet werden, und auf `failed`, wenn die Schriftdefinition ungültig ist oder die Schrift nicht geladen werden kann.
-Der Status wird auf `loaded` gesetzt, wenn die Schriftart erfolgreich abgerufen (falls benötigt) und geladen wurde.
+Er wird auf `loading` gesetzt, wenn die Datei heruntergeladen oder die Schriftdaten verarbeitet werden, und auf `failed`, wenn die Schriftdefinition ungültig ist oder die Schriftdaten nicht geladen werden können.
+Der Status wird auf `loaded` gesetzt, wenn die Schriftartdaten erfolgreich abgerufen (falls erforderlich) und geladen wurden.
 
 ### Definieren einer Schriftart
 
-Schriftarten werden mithilfe des [`FontFace`-Konstruktors](/de/docs/Web/API/FontFace/FontFace) erstellt, der als Parameter die Schriftfamilie, die Schriftquelle und optionale Deskriptoren akzeptiert.
-Das Format und die Grammatik dieser Argumente sind dasselbe wie in der entsprechenden [`@font-face`](/de/docs/Web/CSS/@font-face)-Definition.
+Schriftarten werden mit dem [`FontFace`-Konstruktor](/de/docs/Web/API/FontFace/FontFace) erstellt, der folgende Parameter akzeptiert: die Schriftfamilie, die Schriftquelle und optionale Deskriptoren.
+Das Format und die Grammatik dieser Argumente entsprechen der äquivalenten [`@font-face`](/de/docs/Web/CSS/@font-face)-Definition.
 
-Die Schriftquelle kann entweder binäre Daten in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) oder eine Schriftquelle an einem URL sein.
-Eine typische Definition einer Schriftart unter Verwendung einer URL-Quelle könnte wie unten gezeigt aussehen.
-Beachten Sie, dass die Funktion `url()` für URL-Schriftquellen erforderlich ist.
+Die Schriftquelle kann entweder binäre Daten in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) oder eine Schriftressource bei einer URL sein.
+Eine typische Schriftart-Definition mit einer URL-Quelle könnte wie unten gezeigt aussehen.
+Beachten Sie, dass die `url()`-Funktion für URL-Schriftquellen erforderlich ist.
 
 ```js
-const font = new FontFace("my-font", "url(my-font.woff)", {
+const font = new FontFace("my-font", 'url("my-font.woff")', {
   style: "italic",
   weight: "400",
   stretch: "condensed",
@@ -47,21 +47,21 @@ const font = new FontFace("my-font", "url(my-font.woff)", {
 ```
 
 > [!NOTE]
-> Wie bei `@font-face` repräsentieren einige Deskriptoren die erwarteten Daten in den Schriftdaten und werden für das Schrift-Matching verwendet, während andere tatsächlich Eigenschaften der erzeugten Schriftart festlegen/definieren.
-> Zum Beispiel zeigt das Setzen des `style` auf "italic" an, dass die Datei kursive Schriften enthält; es liegt am Autor, eine Datei anzugeben, für die dies zutrifft.
+> Wie bei `@font-face` repräsentieren einige Deskriptoren die erwarteten Daten in den Schriftdaten und werden zum Schriftabgleich verwendet, während andere tatsächlich Eigenschaften der generierten Schriftart festlegen/definieren.
+> Zum Beispiel zeigt das Festlegen des `style` auf "italic" an, dass die Datei kursiv gesetzte Schriften enthält; es liegt in der Verantwortung des Autors, eine Datei anzugeben, für die dies zutrifft.
 
-Schriftarten mit einer _binären Quelle_ werden automatisch geladen, wenn die Schriftdefinition gültig ist und die Schriftdaten geladen werden können — [`FontFace.status`](/de/docs/Web/API/FontFace/status) wird im Erfolgsfall auf `loaded` und andernfalls auf `failed` gesetzt.
+Schriftarten mit einer _binären Quelle_ werden automatisch geladen, wenn die Schriftdefinition gültig ist und die Schriftdaten geladen werden können — [`FontFace.status`](/de/docs/Web/API/FontFace/status) wird bei Erfolg auf `loaded` und andernfalls auf `failed` gesetzt.
 Schriftarten mit einer URL-Quelle werden validiert, aber nicht automatisch geladen — [`FontFace.status`](/de/docs/Web/API/FontFace/status) wird auf `unloaded` gesetzt, wenn die Schriftdefinition gültig ist, und andernfalls auf `failed`.
 
-### Hinzufügen einer Schrift zu einem Dokument oder Worker
+### Hinzufügen einer Schriftart zu einem Dokument oder Worker
 
-Schriftarten werden normalerweise zum Schriftsatz des Dokuments oder des Workers [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) hinzugefügt, damit der User Agent die Schrift bei Bedarf automatisch laden kann, und _müssen_ hinzugefügt werden, damit die Schrift zum Rendern von Text verwendet werden kann.
+Schriftarten werden üblicherweise dem Dokument- oder Worker-[`FontFaceSet`](/de/docs/Web/API/FontFaceSet) hinzugefügt, um es dem User-Agent zu ermöglichen, die Schrift bei Bedarf automatisch zu laden. Sie _müssen_ hinzugefügt werden, damit die Schrift zum Rendern von Text verwendet werden kann.
 
-Der Code unten zeigt, wie eine Schriftart zum Dokument hinzugefügt wird.
+Der untenstehende Code zeigt, wie eine Schriftart dem Dokument hinzugefügt wird.
 
 ```js
 // Define a FontFace
-const font = new FontFace("my-font", "url(my-font.woff)", {
+const font = new FontFace("my-font", 'url("my-font.woff")', {
   style: "italic",
   weight: "400",
   stretch: "condensed",
@@ -71,16 +71,16 @@ const font = new FontFace("my-font", "url(my-font.woff)", {
 document.fonts.add(font);
 ```
 
-### Laden einer Schrift
+### Laden einer Schriftart
 
-Eine Schriftart kann manuell geladen werden, indem [`FontFace.load()`](/de/docs/Web/API/FontFace/load) aufgerufen wird, oder durch Aufrufen von [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load), falls die Schriftart zum `FontFaceSet` hinzugefügt wurde.
-Beachten Sie, dass der Versuch, eine bereits geladene Schrift zu laden, keine Wirkung hat.
+Eine Schriftart kann manuell geladen werden, indem [`FontFace.load()`](/de/docs/Web/API/FontFace/load) aufgerufen wird, oder durch Aufrufen von [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load), wenn die Schriftart zum `FontFaceSet` hinzugefügt wurde.
+Beachten Sie, dass das Laden einer bereits geladenen Schriftart keinen Effekt hat.
 
-Der Code unten zeigt, wie eine Schriftart definiert, zu den Dokumentschriften hinzugefügt und dann ein Schriftenladen initiiert wird.
+Der untenstehende Code zeigt, wie man eine Schriftart definiert, sie zu den Dokumentenschriften hinzufügt und dann das Laden der Schriftart initiiert.
 
 ```js
 // Define a FontFace
-const font = new FontFace("my-font", "url(my-font.woff)");
+const font = new FontFace("my-font", 'url("my-font.woff")');
 
 // Add to the document.fonts (FontFaceSet)
 document.fonts.add(font);
@@ -94,28 +94,28 @@ document.fonts.ready.then(() => {
 });
 ```
 
-Beachten Sie, dass `font.load()` ein Promise zurückgibt, sodass wir den Abschluss des Schriftladens durch anschließendes `then` behandeln könnten.
-Die Verwendung von [`document.fonts.ready`](/de/docs/Web/API/FontFaceSet/ready) kann in einigen Fällen besser sein, da sie nur aufgerufen wird, wenn alle Schriften im Dokument aufgelöst und das Layout abgeschlossen sind.
+Beachten Sie, dass `font.load()` ein Versprechen zurückgibt, sodass wir den Abschluss des Schriftladens durch Verkettung von `then` danach behandeln könnten.
+Die Verwendung von [`document.fonts.ready`](/de/docs/Web/API/FontFaceSet/ready) kann in einigen Fällen besser sein, da sie erst aufgerufen wird, wenn alle Schriften im Dokument aufgelöst sind und das Layout abgeschlossen ist.
 
 ## Schnittstellen
 
 - [`FontFace`](/de/docs/Web/API/FontFace)
   - : Repräsentiert eine einzelne verwendbare Schriftart.
 - [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)
-  - : Eine Schnittstelle zum Laden von Schriftarten und Überprüfen ihrer Download-Status.
+  - : Eine Schnittstelle zum Laden von Schriftarten und Überprüfen ihres Download-Status.
 - [`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)
-  - : Wird immer dann ausgelöst, wenn ein [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) lädt.
+  - : Wird ausgelöst, wenn ein [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) lädt.
 
 ## Beispiele
 
-### Einfaches Schriftenladen
+### Einfaches Schriftladen
 
-Dies ist ein sehr einfaches Beispiel, das zeigt, wie eine Schriftart von Google Fonts geladen und zum Zeichnen von Text in einem Canvas verwendet wird.
-Das Beispiel protokolliert auch den `status` sofort nach der Erstellung und nach dem Laden.
+Dies ist ein sehr einfaches Beispiel, das zeigt, wie eine Schrift von Google Fonts geladen und zum Zeichnen von Text auf einer Leinwand verwendet wird.
+Das Beispiel protokolliert auch den `status` unmittelbar nach der Erstellung und nach dem Laden.
 
 #### HTML
 
-Dieser Code definiert ein Canvas zum Zeichnen und ein Textfeld zum Protokollieren.
+Dieser Code definiert eine Leinwand zum Zeichnen und ein Texteingabefeld zum Protokollieren.
 
 ```html
 <canvas id="js-canvas"></canvas>
@@ -124,7 +124,7 @@ Dieser Code definiert ein Canvas zum Zeichnen und ein Textfeld zum Protokolliere
 
 #### JavaScript
 
-Zuerst holen wir das Element, auf das wir protokollieren werden, und das Canvas, das verwendet wird, um Text in der heruntergeladenen Schrift zu rendern.
+Zuerst holen wir das Element, in das wir protokollieren werden, und die Leinwand, die zum Rendern von Text in der heruntergeladenen Schriftart verwendet wird.
 
 ```js
 const log = document.getElementById("log");
@@ -134,20 +134,20 @@ canvas.width = 650;
 canvas.height = 75;
 ```
 
-Als nächstes definieren wir eine `FontFace`, die eine URL-Quelle hat, die eine Google-Schrift ist, und fügen sie zu `document.fonts` hinzu.
+Als nächstes definieren wir eine `FontFace`, die eine URL-Quelle ist, die eine Google-Schrift ist, und fügen sie zu `document.fonts` hinzu.
 Wir protokollieren dann den Schriftstatus, der `unloaded` sein sollte.
 
 ```js
 const bitterFontFace = new FontFace(
   "FontFamily Bitter",
-  "url(https://fonts.gstatic.com/s/bitter/v7/HEpP8tJXlWaYHimsnXgfCOvvDin1pK8aKteLpeZ5c0A.woff2)",
+  'url("https://fonts.gstatic.com/s/bitter/v7/HEpP8tJXlWaYHimsnXgfCOvvDin1pK8aKteLpeZ5c0A.woff2")',
 );
 document.fonts.add(bitterFontFace);
 log.textContent += `Bitter font: ${bitterFontFace.status}\n`; // > Bitter font: unloaded
 ```
 
-Dann rufen wir die Methode [`FontFace.load()`](/de/docs/Web/API/FontFace/load) auf, um die Schrift zu laden, und warten auf das zurückgegebene Promise.
-Sobald das Promise aufgelöst ist, protokollieren wir den geladenen Status (der `loaded` sein sollte) und zeichnen Text in der geladenen Schrift auf das Canvas.
+Dann rufen wir die Methode [`FontFace.load()`](/de/docs/Web/API/FontFace/load) auf, um die Schriftart zu laden, und warten auf das zurückgegebene Versprechen.
+Sobald das Versprechen erfüllt ist, protokollieren wir den geladenen Status (der auf `loaded` stehen sollte) und zeichnen Text in der geladenen Schriftart auf die Leinwand.
 
 ```js
 bitterFontFace.load().then(
@@ -164,19 +164,19 @@ bitterFontFace.load().then(
 );
 ```
 
-Beachten Sie, dass wir auch auf das Promise warten könnten, das von der Eigenschaft [`FontFace.loaded`](/de/docs/Web/API/FontFace/loaded) zurückgegeben wird, oder auf [`FontFaceSet.ready`](/de/docs/Web/API/FontFaceSet/ready).
+Beachten Sie, dass wir auch auf das Versprechen hätten warten können, das von der [`FontFace.loaded`](/de/docs/Web/API/FontFace/loaded)-Eigenschaft zurückgegeben wird, oder auf [`FontFaceSet.ready`](/de/docs/Web/API/FontFaceSet/ready).
 
 #### Ergebnis
 
-Das Ergebnis ist unten gezeigt.
-Es sollte den Namen der Schriftart im Canvas in der heruntergeladenen Schrift anzeigen und ein Protokoll, das den Ladezustand vor und nach dem Laden zeigt.
+Das Ergebnis ist unten angezeigt.
+Es sollte den Namen der Schriftart zeigen, die auf der Leinwand in der heruntergeladenen Schriftart gezeichnet ist, und ein Protokoll, das den Ladezustand vor und nach dem Laden zeigt.
 
 {{ EmbedLiveSample('Basic font loading', 700, 180) }}
 
-### Schriftenladen mit Ereignissen
+### Schriftladen mit Ereignissen
 
-Dieses Beispiel ähnelt dem vorherigen, verwendet jedoch [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load), um die Schrift zu laden.
-Es zeigt auch, wie man Schriftladeereignisse überwacht.
+Dieses Beispiel ist dem vorhergehenden ähnlich, verwendet jedoch [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load), um die Schrift zu laden.
+Es demonstriert auch, wie man auf Schriftereignisse hört.
 
 #### HTML
 
@@ -187,7 +187,7 @@ Es zeigt auch, wie man Schriftladeereignisse überwacht.
 
 #### JavaScript
 
-Der folgende Code definiert einen Canvas-Kontext zum Zeichnen von Text, definiert eine Schriftart und fügt sie zum Schriftsatz des Dokuments hinzu.
+Der folgende Code definiert einen Zeichnungskontext für Text, definiert eine Schriftart und fügt sie dem Dokument-Schriftartensatz hinzu.
 
 ```js
 const log = document.getElementById("log");
@@ -199,16 +199,16 @@ const ctx = canvas.getContext("2d");
 
 const oxygenFontFace = new FontFace(
   "FontFamily Oxygen",
-  "url(https://fonts.gstatic.com/s/oxygen/v5/qBSyz106i5ud7wkBU-FrPevvDin1pK8aKteLpeZ5c0A.woff2)",
+  'url("https://fonts.gstatic.com/s/oxygen/v5/qBSyz106i5ud7wkBU-FrPevvDin1pK8aKteLpeZ5c0A.woff2")',
 );
 document.fonts.add(oxygenFontFace);
 log.textContent += `Oxygen status: ${oxygenFontFace.status}\n`;
 ```
 
-Als nächstes verwenden wir `load()` auf dem Schriftsatz, um die Schrift zu laden und anzugeben, welche der Schriften geladen werden soll.
+Als nächstes verwenden wir `load()` für das Schriftart-Set, um die Schrift zu laden und anzugeben, welche der Schriften geladen werden sollen.
 Die Methode gibt ein {{jsxref("Promise")}} zurück.
-Wenn das Promise gelöst wird, verwenden wir die Schrift, um etwas Text zu zeichnen.
-Wenn es abgelehnt wird, wird der Fehler protokolliert.
+Wenn das Versprechen erfüllt wird, verwenden wir die Schrift, um Text zu zeichnen.
+Wird es abgelehnt, wird der Fehler protokolliert.
 
 ```js
 document.fonts.load("36px FontFamily Oxygen").then(
@@ -224,9 +224,9 @@ document.fonts.load("36px FontFamily Oxygen").then(
 );
 ```
 
-Statt auf ein Promise zu warten, könnten wir stattdessen Ereignisse verwenden, um die Schriftladeoperation zu verfolgen.
+Anstatt auf ein Versprechen zu warten, könnten wir auch Ereignisse verwenden, um den Schriftladevorgang zu verfolgen.
 Der folgende Code hört auf die Ereignisse `loading` und `loadingerror` und protokolliert die Anzahl der Schriftarten für jeden Fall.
-Im Ereignis-Listener `loadingdone` iterieren wir zusätzlich durch die Schriftarten und protokollieren die Familiennamen.
+Im `loadingdone`-Ereignislistener iterieren wir zusätzlich durch die Schriften und protokollieren die Familiennamen.
 
 ```js
 document.fonts.addEventListener("loading", (event) => {
@@ -243,10 +243,10 @@ document.fonts.addEventListener("loadingdone", (event) => {
 });
 ```
 
-Der letzte Codeblock zeigt, wie Sie den Abschluss des Schriftladens überwachen können, indem Sie das von [`FontFaceSet.ready`](/de/docs/Web/API/FontFaceSet/ready) zurückgegebene Promise verwenden.
-Im Gegensatz zu den anderen Mechanismen gibt dies zurück, wenn alle im Dokument definierten Schriften heruntergeladen und das Layout abgeschlossen sind.
+Der letzte Codeabschnitt zeigt, wie Sie den Abschluss des Schriftladens mit dem Versprechen überwachen können, das von [`FontFaceSet.ready`](/de/docs/Web/API/FontFaceSet/ready) zurückgegeben wird.
+Im Gegensatz zu den anderen Mechanismen wird dies zurückgegeben, wenn alle im Dokument definierten Schriftarten heruntergeladen wurden und das Layout abgeschlossen ist.
 
-Wenn das Promise aufgelöst wird, iterieren wir über die Werte in den Schriftsätzen des Dokuments.
+Wenn das Versprechen erfüllt wird, iterieren wir durch die Werte in den Schriftarten des Dokuments.
 
 ```js
 document.fonts.ready.then(() => {
@@ -263,8 +263,8 @@ document.fonts.ready.then(() => {
 
 #### Ergebnis
 
-Das untenstehende Ergebnis zeigt, dass der Text in der "Oxygen"-Schrift gezeichnet wird.
-Es zeigt auch Protokolle von den Ereignissen und wenn das Promise, das von `document.fonts.ready` zurückgegeben wird, aufgelöst ist.
+Das untenstehende Ergebnis zeigt den Text, der in der "Oxygen"-Schrift gezeichnet ist.
+Dies zeigt auch das Protokoll von den Ereignissen und wenn das Versprechen, das von `document.fonts.ready` zurückgegeben wird, erfüllt ist.
 
 {{ EmbedLiveSample('Font loading with events', 700, 520) }}
 

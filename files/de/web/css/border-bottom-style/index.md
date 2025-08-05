@@ -2,7 +2,7 @@
 title: border-bottom-style
 slug: Web/CSS/border-bottom-style
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
 Die **`border-bottom-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des unteren {{cssxref("border")}} eines Elements fest.
@@ -44,7 +44,7 @@ border-bottom-style: inset;
 ```css interactive-example
 #example-element {
   background-color: #eee;
-  color: #000;
+  color: black;
   border: 0.75em solid;
   padding: 0.75em;
   width: 80%;
@@ -52,12 +52,12 @@ border-bottom-style: inset;
 }
 
 body {
-  background-color: #fff;
+  background-color: white;
 }
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie Ränder unterschiedlicher Stile sich an den Ecken verbinden.
 
 ## Syntax
 
@@ -82,7 +82,7 @@ border-bottom-style: revert-layer;
 border-bottom-style: unset;
 ```
 
-Die `border-bottom-style` Eigenschaft wird als ein einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die `border-bottom-style` Eigenschaft wird als einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -94,7 +94,7 @@ Die `border-bottom-style` Eigenschaft wird als ein einzelner {{cssxref("line-sty
 
 ## Beispiele
 
-### Demonstration aller Rahmenstile
+### Demonstration aller Randstile
 
 #### HTML
 
@@ -180,4 +180,4 @@ td {
 ## Siehe auch
 
 - Die anderen stilbezogenen Rahmen-Eigenschaften: {{ Cssxref("border-left-style") }}, {{ Cssxref("border-right-style") }}, {{ Cssxref("border-top-style") }}, und {{ Cssxref("border-style") }}.
-- Die anderen unterer-Rahmen-bezogenen Eigenschaften: {{ Cssxref("border-bottom") }}, {{ Cssxref("border-bottom-color") }}, und {{ Cssxref("border-bottom-width") }}.
+- Die anderen mit dem unteren Rahmen verbundenen Eigenschaften: {{ Cssxref("border-bottom") }}, {{ Cssxref("border-bottom-color") }}, und {{ Cssxref("border-bottom-width") }}.

@@ -2,14 +2,14 @@
 title: ::highlight()
 slug: Web/CSS/::highlight
 l10n:
-  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Das **`::highlight()`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
+Das **`::highlight()`** CSS [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf einen benutzerdefinierten Highlight an.
 
-Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
+Ein benutzerdefinierter Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
 Nur bestimmte CSS-Eigenschaften können mit `::highlight()` verwendet werden:
 
@@ -29,7 +29,7 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Beispiele
 
-### Hervorheben von Zeichen
+### Zeichen hervorheben
 
 #### HTML
 
@@ -46,31 +46,31 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 }
 
 ::highlight(rainbow-color-1) {
-  color: #ad26ad;
+  color: violet;
   text-decoration: underline;
 }
 ::highlight(rainbow-color-2) {
-  color: #5d0a99;
+  color: purple;
   text-decoration: underline;
 }
 ::highlight(rainbow-color-3) {
-  color: #0000ff;
+  color: blue;
   text-decoration: underline;
 }
 ::highlight(rainbow-color-4) {
-  color: #07c607;
+  color: green;
   text-decoration: underline;
 }
 ::highlight(rainbow-color-5) {
-  color: #b3b308;
+  color: yellow;
   text-decoration: underline;
 }
 ::highlight(rainbow-color-6) {
-  color: #ffa500;
+  color: orange;
   text-decoration: underline;
 }
 ::highlight(rainbow-color-7) {
-  color: #ff0000;
+  color: red;
   text-decoration: underline;
 }
 ```
@@ -123,6 +123,6 @@ for (let i = 0; i < textNode.textContent.length; i++) {
 
 ## Siehe auch
 
-- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API)-Modul
-- [CSS Custom Highlight](/de/docs/Web/API/CSS_Custom_Highlight_API)-API
-- [CSS Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements)-Modul
+- [CSS custom highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
+- [CSS custom highlight](/de/docs/Web/API/CSS_Custom_Highlight_API) API
+- [CSS pseudo-elements](/de/docs/Web/CSS/CSS_pseudo-elements) Modul

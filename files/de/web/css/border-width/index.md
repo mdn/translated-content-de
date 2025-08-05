@@ -2,10 +2,10 @@
 title: border-width
 slug: Web/CSS/border-width
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
 ---
 
-Die **`border-width`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elementrandes fest.
+Die **`border-width`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des Rahmens eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-width")}}
 
@@ -40,7 +40,7 @@ border-width: 0 4px 8px 12px;
 ```css interactive-example
 #example-element {
   background-color: palegreen;
-  color: #000;
+  color: black;
   border: 0 solid crimson;
   padding: 0.75em;
   width: 80%;
@@ -48,7 +48,7 @@ border-width: 0 4px 8px 12px;
 }
 ```
 
-## Bestandteile der Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -86,23 +86,23 @@ border-width: revert-layer;
 border-width: unset;
 ```
 
-Die `border-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden.
+Die `border-width` Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt die gleiche Breite für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt die erste Breite für die **obere und untere** Seite, die zweite für die **linke und rechte** Seite.
-- Wenn **drei** Werte angegeben werden, gilt die erste Breite für die **obere**, die zweite für die **linke und rechte**, die dritte für die **untere** Seite.
-- Wenn **vier** Werte angegeben werden, gelten die Breiten in folgender Reihenfolge (im Uhrzeigersinn): **oben**, **rechts**, **unten** und **links**.
+- Wenn **ein** Wert angegeben wird, gilt dieselbe Breite für **alle vier Seiten**.
+- Werden **zwei** Werte angegeben, gilt die erste Breite für den **oberen und unteren** Rand, die zweite für den **linken und rechten**.
+- Bei **drei** angegebenen Werten gilt die erste Breite für den **oberen**, die zweite für den **linken und rechten**, die dritte für den **unteren** Rand.
+- Bei **vier** angegebenen Werten gelten die Breiten in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
 
 ### Werte
 
 - `<line-width>`
-  - : Definiert die Breite des Randes entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es sich um ein Schlüsselwort handelt, muss es einer der folgenden Werte sein:
+  - : Definiert die Breite des Rahmens, entweder als explizite nicht negative {{cssxref("&lt;length&gt;")}} oder als Stichwort. Wenn es ein Stichwort ist, muss es einen der folgenden Werte haben:
     - `thin`
     - `medium`
     - `thick`
 
 > [!NOTE]
-> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort angezeigt wird, nicht definiert, ist das genaue Ergebnis bei Verwendung eines dieser Schlüsselwörter implementierungsspezifisch. Trotzdem folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
+> Da die Spezifikation die genaue Dicke, die durch jedes Stichwort bezeichnet wird, nicht definiert, ist das genaue Ergebnis bei Verwendung eines davon implementierungsspezifisch. Dennoch folgen sie stets dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
 
 ## Formale Definition
 
@@ -173,5 +173,5 @@ p {
 
 ## Siehe auch
 
-- Die Rand-bezogenen Kurzform-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-style")}}, {{Cssxref("border-color")}}
-- Die Randbreiten-bezogenen Eigenschaften: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-top-width")}}
+- Die rahmenbezogenen Kurzschreibweise-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-style")}}, {{Cssxref("border-color")}}
+- Die rahmenbreitenbezogenen Eigenschaften: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-top-width")}}

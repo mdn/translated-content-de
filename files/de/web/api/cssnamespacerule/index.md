@@ -2,34 +2,34 @@
 title: CSSNamespaceRule
 slug: Web/API/CSSNamespaceRule
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSNamespaceRule`**-Schnittstelle beschreibt ein Objekt, das eine einzelne CSS {{ cssxref("@namespace") }} [At-Rule](/de/docs/Web/CSS/CSS_syntax/At-rule) darstellt.
+Das **`CSSNamespaceRule`** Interface beschreibt ein Objekt, das eine einzelne CSS {{ cssxref("@namespace") }} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) repräsentiert.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSNamespaceRule.namespaceURI`](/de/docs/Web/API/CSSNamespaceRule/namespaceURI)
-  - : Gibt einen String zurück, der den Text der URI des gegebenen Namensraums enthält.
+  - : Gibt einen String zurück, der den Text der URI des angegebenen Namespace enthält.
 - [`CSSNamespaceRule.prefix`](/de/docs/Web/API/CSSNamespaceRule/prefix)
-  - : Gibt einen String mit dem Namen des Präfixes zurück, das mit diesem Namensraum assoziiert ist. Wenn es kein solches Präfix gibt, wird ein leerer String zurückgegeben.
+  - : Gibt einen String mit dem Namen des Präfixes zurück, das diesem Namespace zugeordnet ist. Wenn es kein solches Präfix gibt, wird ein leerer String zurückgegeben.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das Stylesheet enthält ein Namespace als einzige Regel. Daher wird die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) eine `CSSNamespaceRule` sein.
+Das Stylesheet enthält einen Namespace als die einzige Regel. Daher wird die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) ein `CSSNamespaceRule` sein.
 
 ```css
-@namespace url(http://www.w3.org/1999/xhtml);
+@namespace url("http://www.w3.org/1999/xhtml");
 ```
 
 ```js

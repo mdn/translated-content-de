@@ -2,10 +2,10 @@
 title: background-size
 slug: Web/CSS/background-size
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`background-size`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Hintergrundbildes eines Elements fest. Das Bild kann in seiner natürlichen Größe belassen, gestreckt oder so angepasst werden, dass es in den verfügbaren Raum passt.
+Die **`background-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe des Hintergrundbildes eines Elements fest. Das Bild kann in seiner natürlichen Größe belassen, gestreckt oder an den verfügbaren Platz angepasst werden.
 
 {{InteractiveExample("CSS Demo: background-size")}}
 
@@ -44,7 +44,7 @@ background-size: 200px 100px;
 }
 ```
 
-Bereiche, die nicht von einem Hintergrundbild abgedeckt sind, werden mit der {{cssxref("background-color")}} Eigenschaft gefüllt, und die Hintergrundfarbe wird hinter transparenten oder durchscheinenden Hintergrundbildern sichtbar.
+Bereiche, die nicht von einem Hintergrundbild abgedeckt sind, werden mit der {{cssxref("background-color")}}-Eigenschaft gefüllt. Die Hintergrundfarbe wird auch hinter Hintergrundbildern sichtbar sein, die Transparenz oder Durchsichtigkeit aufweisen.
 
 ## Syntax
 
@@ -80,73 +80,73 @@ background-size: revert-layer;
 background-size: unset;
 ```
 
-Die `background-size` Eigenschaft kann auf folgende Arten angegeben werden:
+Die `background-size`-Eigenschaft wird auf eine der folgenden Arten angegeben:
 
-- Verwenden der Schlüsselwortwerte `contain` oder `cover`.
-- Verwenden eines Breitenwertes nur, wobei die Höhe standardmäßig `auto` ist.
-- Verwenden sowohl eines Breiten- als auch eines Höhenwerts, wobei der erste die Breite und der zweite die Höhe bestimmt.
-  Jeder Wert kann eine {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder `auto` sein.
+- Verwendung der Schlüsselwortwerte `contain` oder `cover`.
+- Verwendung nur eines Breitenwerts, wobei die Höhe standardmäßig auf `auto` gesetzt wird.
+- Verwendung sowohl eines Breiten- als auch eines Höhenwerts, wobei der erste die Breite und der zweite die Höhe festlegt.
+  Jeder Wert kann ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder `auto` sein.
 
-Um die Größe mehrerer Hintergrundbilder festzulegen, trennen Sie den Wert für jedes Bild mit einem Komma.
+Um die Größe mehrerer Hintergrundbilder anzugeben, trennen Sie den Wert für jedes Bild mit einem Komma.
 
 ### Werte
 
 - `contain`
-  - : Skaliert das Bild so groß wie möglich innerhalb seines Containers, ohne das Bild zu beschneiden oder zu strecken.
-    Wenn der Container größer als das Bild ist, führt dies zu Bildkacheln, es sei denn, die {{cssxref("background-repeat")}} Eigenschaft ist auf `no-repeat` gesetzt.
+  - : Skaliert das Bild so groß wie möglich innerhalb seines Containers, ohne das Bild zuzuschneiden oder zu strecken.
+    Wenn der Container größer als das Bild ist, führt dies zu einer Kachelung des Bildes, es sei denn, die {{cssxref("background-repeat")}}-Eigenschaft wird auf `no-repeat` gesetzt.
 - `cover`
-  - : Skaliert das Bild (unter Beibehaltung seines Verhältnisses) auf die kleinste Größe, um den Container auszufüllen (d.h.: sowohl die Höhe als auch die Breite _decken_ den Container vollständig ab), sodass kein leerer Raum bleibt.
-    Wenn die Proportionen des Hintergrunds von denen des Elements abweichen, wird das Bild entweder vertikal oder horizontal beschnitten.
+  - : Skaliert das Bild (wobei das Verhältnis beibehalten wird) auf die kleinste mögliche Größe, um den Container vollständig auszufüllen (das heißt: Sowohl die Höhe als auch die Breite decken den Container vollständig _ab_), ohne leeren Raum zu lassen.
+    Wenn die Proportionen des Hintergrunds vom Element abweichen, wird das Bild entweder vertikal oder horizontal beschnitten.
 - `auto`
-  - : Skaliert das Hintergrundbild in der entsprechenden Richtung so, dass seine intrinsischen Proportionen beibehalten werden.
+  - : Skaliert das Hintergrundbild in der entsprechenden Richtung, sodass seine intrinsischen Proportionen beibehalten werden.
 - {{cssxref("&lt;length&gt;")}}
-  - : Streckt das Bild in der entsprechenden Dimension auf die angegebene Länge. Negative Werte sind nicht zulässig.
+  - : Streckt das Bild in der entsprechenden Dimension auf die angegebene Länge. Negative Werte sind nicht erlaubt.
 - {{cssxref("&lt;percentage&gt;")}}
   - : Streckt das Bild in der entsprechenden Dimension auf den angegebenen Prozentsatz des _Hintergrundpositionierungsbereichs_.
-    Der Hintergrundpositionierungsbereich wird durch den Wert von {{cssxref("background-origin")}} bestimmt (standardmäßig die Padding-Box).
-    Wenn jedoch der Wert von {{cssxref("background-attachment")}} des Hintergrunds `fixed` ist, ist der Positionierungsbereich stattdessen das gesamte {{Glossary("viewport", "Ansichtsfenster")}}.
-    Negative Werte sind nicht zulässig.
+    Der Hintergrundpositionierungsbereich wird durch den Wert von {{cssxref("background-origin")}} bestimmt (standardmäßig die Inhalt-Box).
+    Wenn jedoch der {{cssxref("background-attachment")}}-Wert des Hintergrunds auf `fixed` gesetzt ist, ist der Positionierungsbereich stattdessen das gesamte {{Glossary("viewport", "Viewport")}}.
+    Negative Werte sind nicht erlaubt.
 
-### Intrinsische Dimensionen und Proportionen
+### Intrinsische Maße und Proportionen
 
-Die Berechnung der Werte hängt von den intrinsischen Dimensionen (Breite und Höhe) und den intrinsischen Proportionen (Breite-zu-Höhe-Verhältnis) des Bildes ab. Diese Attribute sind wie folgt:
+Die Berechnung der Werte hängt von den intrinsischen Maßen des Bildes (Breite und Höhe) und den intrinsischen Proportionen (Breiten-zu-Höhen-Verhältnis) ab. Diese Attribute sind wie folgt:
 
-- Ein Bitmap-Bild (wie JPG) hat immer intrinsische Dimensionen und Proportionen.
-- Ein Vektorgrafikbild (wie SVG) hat nicht notwendigerweise intrinsische Dimensionen.
-  Wenn es sowohl horizontale als auch vertikale intrinsische Dimensionen hat, hat es auch intrinsische Proportionen.
-  Hat es keine Dimensionen oder nur eine Dimension, kann es entweder Proportionen haben oder nicht.
-- CSS {{cssxref("&lt;gradient&gt;")}}s haben keine intrinsischen Dimensionen oder Proportionen.
-- Hintergrundbilder, die mit der {{cssxref("element", "element()")}} Funktion erstellt wurden, verwenden die intrinsischen Dimensionen und Proportionen des erzeugenden Elements.
+- Ein Bitmap-Bild (wie JPG) hat immer intrinsische Maße und Proportionen.
+- Ein Vektorbild (wie SVG) hat nicht unbedingt intrinsische Maße.
+  Wenn es sowohl horizontale als auch vertikale intrinsische Maße hat, hat es auch intrinsische Proportionen.
+  Wenn es keine Maße oder nur ein Maß hat, hat es möglicherweise oder möglicherweise keine Proportionen.
+- CSS-{{cssxref("&lt;gradient&gt;")}}s haben keine intrinsischen Maße oder intrinsische Proportionen.
+- Hintergrundbilder, die mit der {{cssxref("element", "element()")}}-Funktion erstellt werden, verwenden die intrinsischen Maße und Proportionen des erzeugenden Elements.
 
 > [!NOTE]
-> In Gecko werden Hintergrundbilder, die mit der [`element()`](/de/docs/Web/CSS/element) Funktion erstellt wurden, derzeit als Bilder mit den Dimensionen des Elements behandelt, oder als Bilder des Hintergrundpositionierungsbereichs, falls das Element ein SVG ist, mit den entsprechenden intrinsischen Proportionen. Dies ist ein nicht-standardmäßiges Verhalten.
+> In Gecko werden Hintergrundbilder, die mit der [`element()`](/de/docs/Web/CSS/element)-Funktion erstellt werden, derzeit als Bilder mit den Maßen des Elements oder des Hintergrundpositionierungsbereichs behandelt, wenn das Element ein SVG ist, mit den entsprechenden intrinsischen Proportionen. Dies ist ein nicht standardmäßiges Verhalten.
 
-Basierend auf den intrinsischen Dimensionen und Proportionen wird die gerenderte Größe des Hintergrundbildes wie folgt berechnet:
+Basierend auf den intrinsischen Maßen und Proportionen wird die gerenderte Größe des Hintergrundbildes wie folgt berechnet:
 
-- **Wenn beide Komponenten von `background-size` angegeben sind und nicht `auto`:** Das Hintergrundbild wird in der angegebenen Größe gerendert.
-- **Wenn `background-size` `contain` oder `cover` ist:** Während seine intrinsischen Proportionen beibehalten werden, wird das Bild in der größten Größe gerendert, die innerhalb oder deckend dem Hintergrundpositionierungsbereich entspricht.
+- **Wenn beide Komponenten von `background-size` angegeben sind und nicht `auto` sind:** Das Hintergrundbild wird in der angegebenen Größe gerendert.
+- **Wenn die `background-size` `contain` oder `cover` ist:** Während die intrinsischen Proportionen beibehalten werden, wird das Bild in der größten Größe gerendert, die innerhalb des Hintergrundpositionierungsbereichs enthalten ist oder diesen abdeckt.
   Wenn das Bild keine intrinsischen Proportionen hat, wird es in der Größe des Hintergrundpositionierungsbereichs gerendert.
-- **Wenn `background-size` `auto` oder `auto auto` ist:**
-  - Wenn das Bild sowohl horizontale als auch vertikale intrinsische Dimensionen hat, wird es in dieser Größe gerendert.
-  - Wenn das Bild keine intrinsischen Dimensionen und keine intrinsischen Proportionen hat, wird es in der Größe des Hintergrundpositionierungsbereichs gerendert.
-  - Wenn das Bild keine intrinsischen Dimensionen hat, aber intrinsische Proportionen, wird es gerendert, als ob `contain` spezifiziert worden wäre.
-  - Wenn das Bild nur eine intrinsische Dimension hat und intrinsische Proportionen, wird es in der Größe entsprechend dieser einen Dimension gerendert.
+- **Wenn die `background-size` `auto` oder `auto auto` ist:**
+  - Wenn das Bild sowohl horizontale als auch vertikale intrinsische Maße hat, wird es in dieser Größe gerendert.
+  - Wenn das Bild keine intrinsischen Maße und keine intrinsischen Proportionen hat, wird es in der Größe des Hintergrundpositionierungsbereichs gerendert.
+  - Wenn das Bild keine intrinsischen Maße, aber intrinsische Proportionen hat, wird es gerendert, als wäre `contain` angegeben worden.
+  - Wenn das Bild nur ein intrinsisches Maß und intrinsische Proportionen hat, wird es in der Größe gerendert, die dieser Dimension entspricht.
     Die andere Dimension wird unter Verwendung der angegebenen Dimension und der intrinsischen Proportionen berechnet.
-  - Wenn das Bild nur eine intrinsische Dimension hat, aber keine intrinsischen Proportionen, wird es unter Verwendung der angegebenen Dimension und der anderen Dimension des Hintergrundpositionierungsbereichs gerendert.
+  - Wenn das Bild nur ein intrinsisches Maß, aber keine intrinsischen Proportionen hat, wird es unter Verwendung der angegebenen Dimension und der anderen Dimension des Hintergrundpositionierungsbereichs gerendert.
 
   > [!NOTE]
-  > SVG-Bilder haben ein [`preserveAspectRatio`](/de/docs/Web/SVG/Reference/Attribute/preserveAspectRatio) Attribut, das standardmäßig dem Äquivalent von `contain` entspricht; eine explizite `background-size` verursacht, dass `preserveAspectRatio` ignoriert wird.
+  > SVG-Bilder haben ein [`preserveAspectRatio`](/de/docs/Web/SVG/Reference/Attribute/preserveAspectRatio)-Attribut, das standardmäßig dem Äquivalent von `contain` entspricht; eine explizite `background-size` lässt `preserveAspectRatio` ignorieren.
 
-- **Wenn `background-size` eine `auto` Komponente und eine nicht-`auto` Komponente hat:**
-  - Wenn das Bild intrinsische Proportionen hat, wird es auf die angegebene Dimension gestreckt.
+- **Wenn die `background-size` eine `auto`-Komponente und eine nicht-`auto`-Komponente besitzt:**
+  - Wenn das Bild intrinsische Proportionen hat, wird es entsprechend der angegebenen Dimension gestreckt.
     Die nicht spezifizierte Dimension wird unter Verwendung der angegebenen Dimension und der intrinsischen Proportionen berechnet.
-  - Wenn das Bild keine intrinsischen Proportionen hat, wird es auf die angegebene Dimension gestreckt.
+  - Wenn das Bild keine intrinsischen Proportionen hat, wird es entsprechend der angegebenen Dimension gestreckt.
     Die nicht spezifizierte Dimension wird unter Verwendung der entsprechenden intrinsischen Dimension des Bildes berechnet, falls vorhanden.
-    Wenn keine solche intrinsische Dimension vorhanden ist, wird sie zu der entsprechenden Dimension des Hintergrundpositionierungsbereichs.
+    Wenn es keine solche intrinsische Dimension gibt, wird es die entsprechende Dimension des Hintergrundpositionierungsbereichs.
 
 > [!NOTE]
-> Die Größenanpassung von Vektorgrafiken, die keine intrinsischen Dimensionen oder Proportionen aufweisen, ist in allen Browsern noch nicht vollständig implementiert.
-> Seien Sie vorsichtig bei der Abhängigkeit von dem oben beschriebenen Verhalten und testen Sie in mehreren Browsern, um sicherzustellen, dass die Ergebnisse akzeptabel sind.
+> Hintergrundgrößen für Vektorbilder, die keine intrinsischen Maße oder Proportionen haben, sind in allen Browsern noch nicht vollständig implementiert.
+> Seien Sie vorsichtig, sich auf das oben beschriebene Verhalten zu verlassen, und testen Sie in mehreren Browsern, um sicherzustellen, dass die Ergebnisse akzeptabel sind.
 
 ## Formale Definition
 
@@ -160,8 +160,8 @@ Basierend auf den intrinsischen Dimensionen und Proportionen wird die gerenderte
 
 ### Kacheln eines großen Bildes
 
-Betrachten wir ein großes Bild, ein 2982x2808 Firefox-Logo-Bild. Wir möchten vier Kopien dieses Bildes in ein 300x300-Pixel-Element kacheln.
-Dazu können wir einen festen `background-size`-Wert von 150 Pixeln verwenden.
+Betrachten wir ein großes Bild, ein 2982x2808 Firefox-Logo-Bild. Wir möchten vier Kopien dieses Bildes in ein 300x300-Pixel großes Element kacheln.
+Um dies zu erreichen, können wir einen festen `background-size`-Wert von 150 Pixeln verwenden.
 
 #### HTML
 
@@ -173,7 +173,7 @@ Dazu können wir einen festen `background-size`-Wert von 150 Pixeln verwenden.
 
 ```css
 .tiledBackground {
-  background-image: url(https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png);
+  background-image: url("https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png");
   background-size: 150px;
   width: 300px;
   height: 300px;
@@ -186,7 +186,7 @@ Dazu können wir einen festen `background-size`-Wert von 150 Pixeln verwenden.
 
 {{EmbedLiveSample("Tiling_a_large_image", 340, 340)}}
 
-Weitere Beispiele finden Sie unter [Hintergrundbilder umskalieren](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images).
+Siehe [Resizing background images](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images) für weitere Beispiele.
 
 ## Spezifikationen
 
@@ -198,6 +198,6 @@ Weitere Beispiele finden Sie unter [Hintergrundbilder umskalieren](/de/docs/Web/
 
 ## Siehe auch
 
-- [Hintergrundbilder umskalieren](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images)
-- [SVG-Hintergründe skalieren](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds)
+- [Resizing background images](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images)
+- [Scaling SVG backgrounds](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds)
 - {{cssxref("object-fit")}}

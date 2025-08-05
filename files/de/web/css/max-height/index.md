@@ -2,10 +2,10 @@
 title: max-height
 slug: Web/CSS/max-height
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Die **`max-height`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die maximale Höhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der {{cssxref("height")}}-Eigenschaft größer wird als der für `max-height` angegebene Wert.
+Die **`max-height`** [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die maximale Höhe eines Elements. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der {{cssxref("height")}}-Eigenschaft größer wird als der für `max-height` angegebene Wert.
 
 {{InteractiveExample("CSS Demo: max-height")}}
 
@@ -52,7 +52,7 @@ max-height: 10px;
 /* <length> value */
 max-height: 3.5em;
 max-height: anchor-size(height);
-max-height: calc(anchor-size(--myAnchor self-block, 250px) + 2em);
+max-height: calc(anchor-size(--my-anchor self-block, 250px) + 2em);
 
 /* <percentage> value */
 max-height: 75%;
@@ -80,27 +80,27 @@ max-height: unset;
 - {{cssxref("&lt;percentage&gt;")}}
   - : Definiert die `max-height` als Prozentsatz der Höhe des umgebenden Blocks.
 - `none`
-  - : Keine Begrenzung für die Größe des Kastens.
+  - : Keine Begrenzung der Box-Größe.
 - `max-content`
-  - : Der intrinsisch bevorzugte `max-height`.
+  - : Die intrinsische bevorzugte `max-height`.
 - `min-content`
-  - : Der intrinsisch minimale `max-height`.
+  - : Die intrinsische minimale `max-height`.
 - `fit-content`
   - : Verwendet den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
   - : Verwendet die `fit-content`-Formel mit dem verfügbaren Platz, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-  - : Begrenzung der maximalen Höhe der [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es wird versucht, die Margin-Box auf den verfügbaren Platz im umgebenden Block auszufüllen, und verhält sich somit ähnlich wie `100%`, wobei die resultierende Größe auf die Margin-Box und nicht auf den durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmten Kasten angewandt wird.
+  - : Begrenzung der maximalen Höhe der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Versucht, die Margin-Box so zu gestalten, dass sie den verfügbaren Platz im umgebenden Block ausfüllt, verhält sich also ähnlich zu `100%`, wendet die resultierende Größe jedoch auf die Margin-Box anstatt auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box an.
 
     > [!NOTE]
-    > Um Aliase zu überprüfen, die von Browsern für den `stretch`-Wert verwendet werden, und den Umsetzungsstatus, siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität).
+    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente, die mit `max-height` gesetzt werden, nicht abgeschnitten werden und/oder andere Inhalte nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit einer `max-height` nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Verständnis von WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Erklärung zum Erfüllungskriterium 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis der WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -112,7 +112,7 @@ Stellen Sie sicher, dass Elemente, die mit `max-height` gesetzt werden, nicht ab
 
 ## Beispiele
 
-### Einstellen von max-height mit Prozentsätzen und Schlüsselwort-Werten
+### Festlegen von max-height unter Verwendung von Prozent- und Schlüsselwortwerten
 
 ```css
 table {

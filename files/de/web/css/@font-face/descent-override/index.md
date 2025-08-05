@@ -2,10 +2,10 @@
 title: descent-override
 slug: Web/CSS/@font-face/descent-override
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Der **`descent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert die Descent-Metrik für die Schriftart. Die Descent-Metrik ist die Höhe unterhalb der Grundlinie, die CSS verwendet, um Linienboxen im Inline-Formatierungskontext zu layouten.
+Der **`descent-override`** CSS-Deskriptor der {{cssxref("@font-face")}} At-Regel definiert das Descent-Metrikum für die Schriftart. Das Descent-Metrikum ist die Höhe unterhalb der Grundlinie, die CSS zur Anordnung von Zeilenboxen in einem Inline-Formatierungskontext verwendet.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ descent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Wenn verwendet, wird der metrische Wert aus der Schriftartdatei übernommen.
+  - : Der Standardwert. Bei Verwendung wird der Metrikwert aus der Schriftartdatei entnommen.
 - `<percentage>`
   - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
@@ -31,9 +31,9 @@ descent-override: 90%;
 
 ## Beispiele
 
-### Überschreiben der Metriken einer Schriftart-Backup
+### Überschreiben von Metriken einer Ersatzschriftart
 
-Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Schriftart-Backup überschrieben werden, um besser mit denen einer primären Web-Schriftart übereinzustimmen.
+Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser mit denen einer primären Webschriftart übereinzustimmen.
 
 ```css
 @font-face {
@@ -43,7 +43,7 @@ Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer 
 
 @font-face {
   font-family: local-font;
-  src: local(Local Font);
+  src: local("Local Font");
   descent-override: 125%;
 }
 ```

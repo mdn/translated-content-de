@@ -2,12 +2,12 @@
 title: <marker>
 slug: Web/SVG/Reference/Element/marker
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Das **`<marker>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Grafik, die zum Zeichnen von Pfeilspitzen oder Polymarkern auf einem angegebenen {{SVGElement("path")}}, {{SVGElement("line")}}, {{SVGElement("polyline")}} oder {{SVGElement("polygon")}}-Element verwendet wird.
+Das **`<marker>`** [SVG](/de/docs/Web/SVG) Element definiert eine Grafik, die zum Zeichnen von Pfeilspitzen oder Polymarkern auf einem bestimmten {{SVGElement("path")}}, {{SVGElement("line")}}, {{SVGElement("polyline")}} oder {{SVGElement("polygon")}} Element verwendet wird.
 
-Marker können an Formen mithilfe der Eigenschaften {{SVGAttr("marker-start")}}, {{SVGAttr("marker-mid")}} und {{SVGAttr("marker-end")}} angebracht werden.
+Marker können an Formen mit den Eigenschaften {{SVGAttr("marker-start")}}, {{SVGAttr("marker-mid")}} und {{SVGAttr("marker-end")}} angehängt werden.
 
 ## Verwendungskontext
 
@@ -16,19 +16,19 @@ Marker können an Formen mithilfe der Eigenschaften {{SVGAttr("marker-start")}},
 ## Attribute
 
 - {{SVGAttr("markerHeight")}}
-  - : Dieses Attribut definiert die Höhe des Markerviewports.
+  - : Dieses Attribut definiert die Höhe des Marker-Viewports.
     _Wertetyp_: **[\<length>](/de/docs/Web/SVG/Guides/Content_type#length)**; _Standardwert_: `3`; _Animierbar_: **ja**
 - {{SVGAttr("markerUnits")}}
   - : Dieses Attribut definiert das Koordinatensystem für die Attribute `markerWidth`, `markerHeight` und den Inhalt des `<marker>`.
     _Wertetyp_: `userSpaceOnUse` | `strokeWidth`; _Standardwert_: `strokeWidth`; _Animierbar_: **ja**
 - {{SVGAttr("markerWidth")}}
-  - : Dieses Attribut definiert die Breite des Markerviewports.
+  - : Dieses Attribut definiert die Breite des Marker-Viewports.
     _Wertetyp_: **[\<length>](/de/docs/Web/SVG/Guides/Content_type#length)**; _Standardwert_: `3`; _Animierbar_: **ja**
 - {{SVGAttr("orient")}}
-  - : Dieses Attribut definiert die Ausrichtung des Markers relativ zu der Form, an der er angebracht ist.
+  - : Dieses Attribut definiert die Ausrichtung des Markers relativ zur Form, an der er angehängt ist.
     _Wertetyp_: `auto` | `auto-start-reverse` | **[\<angle>](/de/docs/Web/SVG/Guides/Content_type#angle)**; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment deformiert werden muss, wenn es in einen Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet wird.
+  - : Dieses Attribut definiert, wie das SVG-Fragment verformt werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
     _Wertetyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("refX")}}
   - : Dieses Attribut definiert die x-Koordinate für den Referenzpunkt des Markers.
@@ -37,19 +37,19 @@ Marker können an Formen mithilfe der Eigenschaften {{SVGAttr("marker-start")}},
   - : Dieses Attribut definiert die y-Koordinate für den Referenzpunkt des Markers.
     _Wertetyp_: `top` | `center` | `bottom` | **[\<coordinate>](/de/docs/Web/SVG/Guides/Content_type#coordinate)**; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("viewBox")}}
-  - : Dieses Attribut definiert die Grenze des SVG-Viewports für das aktuelle SVG-Fragment.
-    _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keiner; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Begrenzung des SVG-Viewports für das aktuelle SVG-Fragment.
+    _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keine; _Animierbar_: **ja**
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement) Schnittstelle.
 
 ## Beispiele
 
 ### Pfeilspitzen zeichnen
 
-Das folgende Beispiel zeigt, wie man eine Pfeilspitze auf einer Linie und einem gekrümmten Pfad zeichnet.
-Für den gekrümmten Pfad wird an jedem Punkt ein Pfeilkopf mit einem {{SVGAttr("marker-mid")}} Marker gezeichnet.
+Das folgende Beispiel zeigt, wie man eine Pfeilspitze auf einer Linie und auf einem gekrümmten Pfad zeichnet.
+Für den gekrümmten Pfad wird an jedem Punkt mit einem {{SVGAttr("marker-mid")}} Marker eine Pfeilspitze gezeichnet.
 
 ```css hidden
 html,
@@ -158,9 +158,9 @@ svg {
 
 {{EmbedLiveSample('Drawing_polymarkers', 200, 200)}}
 
-### Verwendung von Kontextfüllung und -umriss
+### Verwendung von Kontextfüllung und Linie
 
-Das folgende Beispiel zeigt, wie die Werte `context-fill` und `context-stroke` verwendet werden, um einen Marker dieselbe Füllung und denselben Umriss wie die Form, an der er angebracht ist, verwenden zu lassen.
+Das folgende Beispiel zeigt, wie die Werte `context-fill` und `context-stroke` verwendet werden, um einen Marker mit derselben Füllung und Linie wie die angebrachte Form zu versehen.
 
 ```html
 <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +176,7 @@ Das folgende Beispiel zeigt, wie die Werte `context-fill` und `context-stroke` v
 
   <style>
     path {
-      marker: url(#circle);
+      marker: url("#circle");
     }
   </style>
 
@@ -207,4 +207,4 @@ svg {
 
 ## Siehe auch
 
-- Verwandte Marker-Eigenschaften: {{SVGAttr("marker-start")}}, {{SVGAttr("marker-mid")}}, und {{SVGAttr("marker-end")}}
+- Verwandte Markereigenschaften: {{SVGAttr("marker-start")}}, {{SVGAttr("marker-mid")}}, und {{SVGAttr("marker-end")}}

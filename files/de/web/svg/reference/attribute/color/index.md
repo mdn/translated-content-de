@@ -2,17 +2,17 @@
 title: color
 slug: Web/SVG/Reference/Attribute/color
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
-Das **`color`**-Attribut wird verwendet, um einen potenziellen indirekten Wert, `currentcolor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}} anzugeben.
+Das **`color`** Attribut wird verwendet, um einen potenziellen indirekten Wert, `currentColor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}}, und {{SVGAttr("lighting-color")}} bereitzustellen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `color` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("color")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `color` auch ein entsprechendes CSS-Attribut: {{cssxref("color")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
 
-Technisch gesehen kann `color` auf jedes Element angewendet werden, aber es hat keine direkte Wirkung auf SVG-Elemente.
+Technisch kann `color` auf jedes Element angewendet werden, hat jedoch keinen direkten Effekt auf SVG-Elemente.
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -25,7 +25,7 @@ Technisch gesehen kann `color` auf jedes Element angewendet werden, aber es hat 
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Abhängig vom Benutzeragenten</td>
+      <td>Hängt vom Benutzeragenten ab</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -47,12 +47,12 @@ svg {
 ```html
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <g color="green">
-    <rect width="50" height="50" fill="currentcolor" />
+    <rect width="50" height="50" fill="currentColor" />
     <circle
       r="25"
       cx="70"
       cy="70"
-      stroke="currentcolor"
+      stroke="currentColor"
       fill="none"
       stroke-width="5" />
   </g>

@@ -2,12 +2,12 @@
 title: path()
 slug: Web/CSS/basic-shape/path
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 3d06d82cbddf640291fd66cf85cd9014c4e867c5
 ---
 
-Die **`path()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) akzeptiert einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path)-String und wird in den [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) und [CSS-Bewegungspfad](/de/docs/Web/CSS/CSS_motion_path) Modulen verwendet, um eine Form zu zeichnen. Die `path()`-Funktion ist ein {{cssxref("&lt;basic-shape&gt;")}} Datentypwert. Sie kann in den CSS-Eigenschaften [`offset-path`](/de/docs/Web/CSS/offset-path) und [`clip-path`](/de/docs/Web/CSS/clip-path) sowie im SVG-Attribut [`d`](/de/docs/Web/SVG/Reference/Attribute/d) verwendet werden.
+Die **`path()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) akzeptiert einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) als Zeichenkette und wird in den Modulen [CSS Shapes](/de/docs/Web/CSS/CSS_shapes) und [CSS Motion Path](/de/docs/Web/CSS/CSS_motion_path) verwendet, um eine Form zu zeichnen. Die `path()`-Funktion ist ein {{cssxref("&lt;basic-shape&gt;")}} Datentypwert. Sie kann in den CSS-Eigenschaften [`offset-path`](/de/docs/Web/CSS/offset-path) und [`clip-path`](/de/docs/Web/CSS/clip-path) sowie im SVG-Attribut [`d`](/de/docs/Web/SVG/Reference/Attribute/d) verwendet werden.
 
-Es gibt einige Einschränkungen bei der Verwendung der `path()`-Funktion. Der Pfad muss als einzelner String definiert sein, sodass ein benutzerdefinierter Pfad nicht mit Variablen ([`var()`](/de/docs/Web/CSS/var)-Funktionen) erstellt werden kann. Außerdem werden alle Längen im Pfad implizit in [Pixel](/de/docs/Web/CSS/CSS_Values_and_Units/Numeric_data_types#absolute_length_units) (`px`) definiert; andere Einheiten können nicht verwendet werden. Die [`shape()`](/de/docs/Web/CSS/basic-shape/shape)-Funktion bietet mehr Flexibilität als die `path()`-Funktion.
+Es gibt einige Einschränkungen bei der Verwendung der `path()`-Funktion. Der Pfad muss als einzelne Zeichenkette definiert werden, sodass ein benutzerdefinierter Pfad nicht mithilfe von Variablen ([`var()`](/de/docs/Web/CSS/var)-Funktionen) erstellt werden kann. Außerdem sind alle Längen im Pfad implizit in [Pixel](/de/docs/Web/CSS/CSS_Values_and_Units/Numeric_data_types#absolute_length_units) (`px`) Einheiten definiert; andere Einheiten können nicht verwendet werden. Die [`shape()`](/de/docs/Web/CSS/basic-shape/shape)-Funktion bietet mehr Flexibilität als die `path()`-Funktion.
 
 {{InteractiveExample("CSS Demo: path()")}}
 
@@ -58,20 +58,20 @@ path(evenodd,"M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80")
 ### Parameter
 
 - [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) {{optional_inline}}
-  - : Definiert, welche Teile des Pfads innerhalb der Form liegen. Mögliche Werte sind:
-    - `nonzero`: Ein Punkt wird als innerhalb der Form betrachtet, wenn ein vom Punkt gezeichneter Strahl mehr von links nach rechts als von rechts nach links Pfadsegmente kreuzt, was zu einer ungeraden Anzahl führt. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
+  - : Definiert, welche Teile des Pfades innerhalb der Form liegen. Die möglichen Werte umfassen:
+    - `nonzero`: Ein Punkt gilt als innerhalb der Form, wenn ein vom Punkt aus gezogener Strahl mehr von links nach rechts als von rechts nach links verlaufende Pfadsegmente kreuzt, was zu einem nicht-Null-Wert führt. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
 
-    - `evenodd`: Ein Punkt wird als innerhalb der Form betrachtet, wenn ein vom Punkt gezeichneter Strahl eine ungerade Anzahl von Pfadsegmenten kreuzt. Das bedeutet, dass der Strahl für jedes Mal, wenn er die Form betritt, nicht die gleiche Anzahl von Malen verlassen hat, was auf eine ungerade Anzahl von Eintritten ohne entsprechende Austritte hinweist.
+    - `evenodd`: Ein Punkt gilt als innerhalb der Form, wenn ein vom Punkt aus gezogener Strahl eine ungerade Anzahl von Pfadsegmenten kreuzt. Das bedeutet, dass der Strahl jedes Mal, wenn er die Form betritt, nicht in gleicher Anzahl austritt, wodurch eine ungerade Anzahl von Eingängen ohne entsprechende Ausgänge angegeben wird.
 
     > [!WARNING]
-    > `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt, und seine Verwendung macht die Eigenschaft ungültig.
+    > `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt und macht die Eigenschaft ungültig, wenn es verwendet wird.
 
 - {{cssxref("string")}}
-  - : Ein [Datenstring](/de/docs/Web/SVG/Reference/Attribute/d), der in Anführungszeichen enthalten ist und einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) definiert. Der SVG-Pfad-Datenstring enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixel-Einheiten verwenden. Ein leerer Pfad wird als ungültig betrachtet.
+  - : Eine [Datenzeichenkette](/de/docs/Web/SVG/Reference/Attribute/d) in Anführungszeichen, die einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) definiert. Die SVG-Pfad-Datenzeichenkette enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixeleinheiten verwenden. Ein leerer Pfad wird als ungültig betrachtet.
 
 ### Rückgabewert
 
-Gibt einen {{cssxref("basic-shape")}} Wert zurück.
+Gibt einen {{cssxref("basic-shape")}}-Wert zurück.
 
 ## Formale Syntax
 
@@ -79,9 +79,9 @@ Gibt einen {{cssxref("basic-shape")}} Wert zurück.
 
 ## Beispiele
 
-### Verwendung einer `path()` Funktion als `offset-path` Wert
+### Verwendung einer `path()`-Funktion als `offset-path`-Wert
 
-Eine `path()` Funktion wurde im folgenden Beispiel als {{cssxref("offset-path")}} Wert bereitgestellt, um eine elliptische Bahn zu erstellen, entlang der sich ein Ball bewegt.
+In dem folgenden Beispiel wurde eine `path()`-Funktion als {{cssxref("offset-path")}}-Wert bereitgestellt, um einen elliptischen Pfad für einen Ball zu erstellen, der sich entlang dieses Pfades bewegt.
 
 ```html
 <div id="path">
@@ -134,11 +134,11 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample("Verwendung als Wert von offset-path", "100%", 350)}}
 
-### Den Wert des SVG-Pfads-d-Attributs ändern
+### Änderung des Wertes des SVG-Pfades d-Attributs
 
-Die `path()` kann verwendet werden, um den Wert des SVG-[`d`-Attributs](/de/docs/Web/SVG/Reference/Attribute/d) zu ändern, das auch in Ihrem CSS auf `none` gesetzt werden kann.
+Die `path()`-Funktion kann verwendet werden, um den Wert des SVG-Attributs [`d`](/de/docs/Web/SVG/Reference/Attribute/d) zu ändern, welches auch in Ihrem CSS auf `none` gesetzt werden kann.
 
-Das "V"-Symbol wird sich vertikal umdrehen, wenn Sie darüber fahren, sofern `d` als CSS-Eigenschaft unterstützt wird.
+Das "V"-Symbol wird sich vertikal umdrehen, wenn Sie darüber fahren, falls `d` als CSS-Eigenschaft unterstützt wird.
 
 #### CSS
 
@@ -149,7 +149,7 @@ svg {
   height: 100%;
 }
 
-/* This path is displayed on hover*/
+/* This path is displayed on hover */
 #svg_css_ex1:hover path {
   d: path("M20,80 L50,20 L80,80");
 }
@@ -165,7 +165,7 @@ svg {
 
 #### Ergebnis
 
-{{EmbedLiveSample('Den Wert des SVG-Pfads-d-Attributs ändern', '100%', 200)}}
+{{EmbedLiveSample('Änderung des Wertes des SVG-Pfades d-Attributs', '100%', 200)}}
 
 ## Spezifikationen
 
@@ -178,6 +178,6 @@ svg {
 ## Siehe auch
 
 - {{cssxref("&lt;shape-outside&gt;")}}
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes)
-- [Übersicht über CSS-Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
-- [Illustrierter Leitfaden zur SVG-Pfadsyntax](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
+- [CSS Shapes](/de/docs/Web/CSS/CSS_shapes)
+- [Überblick über CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [SVG Path Syntax Illustrated Guide](https://css-tricks.com/svg-path-syntax-illustrated-guide/)

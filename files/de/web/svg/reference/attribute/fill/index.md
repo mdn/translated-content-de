@@ -2,15 +2,15 @@
 title: fill
 slug: Web/SVG/Reference/Attribute/fill
 l10n:
-  sourceCommit: 364ac5bc62331153a6a7daaba93ee3cd0396d18f
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Das **`fill`** Attribut hat zwei verschiedene Bedeutungen. Für Formen und Text ist es ein Präsentationsattribut, das die Farbe (_oder beliebige SVG-Farbdienste wie Verläufe oder Muster_) definiert, die zur Darstellung des Elements verwendet wird; für Animationen definiert es den Endzustand der Animation.
+Das **`fill`**-Attribut hat zwei verschiedene Bedeutungen. Für Formen und Text ist es ein Präsentationsattribut, das die Farbe (_oder andere SVG-Farbgeber wie Verlaufsfarben oder Muster_) definiert, die verwendet wird, um das Element zu färben; für Animationen definiert es den Endzustand der Animation.
 
 > [!NOTE]
-> Wenn `fill` als Präsentationsattribut verwendet wird, gibt es auch ein entsprechendes CSS-Attribut: {{cssxref("fill")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Wenn `fill` als Präsentationsattribut verwendet wird, gibt es auch ein entsprechendes CSS-Eigenschaft: {{cssxref("fill")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Das SVG-Präsentationsattribut `fill` und die CSS-Eigenschaft {{cssxref("fill")}} können mit folgenden SVG-Elementen verwendet werden:
+Das SVG-Präsentationsattribut `fill` und die CSS-Eigenschaft {{cssxref("fill")}} können mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -22,7 +22,7 @@ Das SVG-Präsentationsattribut `fill` und die CSS-Eigenschaft {{cssxref("fill")}
 - {{SVGElement('textPath')}}
 - {{SVGElement('tspan')}}
 
-Das SVG-Attribut `fill` kann verwendet werden, um den Endzustand einer Animation mit folgenden SVG-Elementen zu definieren:
+Das SVG `fill`-Attribut kann verwendet werden, um den finalen Animationszustand mit den folgenden SVG-Elementen zu definieren:
 
 - {{SVGElement('animate')}}
 - {{SVGElement('animateMotion')}}
@@ -31,7 +31,7 @@ Das SVG-Attribut `fill` kann verwendet werden, um den Endzustand einer Animation
 
 ## Beispiele
 
-### Grundlegende Farb- und Verlaufsfüllungen und Animation
+### Grundlegende Farb- und Verlaufsfüllungen sowie Animation
 
 ```css hidden
 html,
@@ -76,16 +76,16 @@ svg {
 
 ### `context-fill` Beispiel
 
-In diesem Beispiel definieren wir drei Formen mit {{SVGElement('path')}} Elementen, von denen jedes eine andere [`stroke`](/de/docs/Web/SVG/Reference/Attribute/stroke) und `fill` Farbe eingestellt hat. Wir definieren auch ein {{SVGElement('circle')}} Element als Marker über das {{SVGElement('marker')}} Element. Jede Form hat den Marker über die `marker` CSS-Eigenschaft angewendet.
+In diesem Beispiel definieren wir drei Formen mit {{SVGElement('path')}}-Elementen, die jeweils eine unterschiedliche [`stroke`](/de/docs/Web/SVG/Reference/Attribute/stroke) und `fill`-Farbe haben. Wir definieren auch ein {{SVGElement('circle')}}-Element als Marker über das {{SVGElement('marker')}}-Element. Jede Form hat den Marker über die `marker` CSS-Eigenschaft angewendet.
 
-Das {{SVGElement('circle')}} hat `stroke="context-stroke"` und `fill="context-fill"` darauf eingestellt. Da es als Marker im Kontext der Formen gesetzt wird, bewirken diese Attribute, dass die `fill` und `stroke` von den {{SVGElement('path')}} Elementen in jedem Fall geerbt werden.
+Das {{SVGElement('circle')}}-Element hat `stroke="context-stroke"` und `fill="context-fill"` darauf gesetzt. Da es im Kontext der Formen als Marker gesetzt wird, bewirken diese Attribute, dass es die `fill` und `stroke`, die auf das {{SVGElement('path')}}-Element gesetzt sind, in jedem Fall erbt.
 
 ```html-nolint
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90">
   <style>
     path {
       stroke-width: 2px;
-      marker: url(#circle);
+      marker: url("#circle");
     }
   </style>
   <path d="M 10 44.64 L 30 10 L 70 10 L 90 44.64 L 70 79.28 L 30 79.28 Z"
@@ -102,25 +102,25 @@ Das {{SVGElement('circle')}} hat `stroke="context-stroke"` und `fill="context-fi
 </svg>
 ```
 
-Das Ergebnis sieht wie folgt aus:
+Die Ausgabe ist wie folgt:
 
 {{EmbedLiveSample("`context-stroke` example", '100%', 220)}}
 
 > [!NOTE]
-> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke` und `fill` Werte zu erben, wenn sie durch {{SVGElement('use')}} Elemente referenziert werden.
+> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke`- und `fill`-Werte zu erben, wenn sie von {{SVGElement('use')}}-Elementen referenziert werden.
 
 ## animate
 
-Für {{SVGElement('animate')}} definiert `fill` den Endzustand der Animation.
+Für {{SVGElement('animate')}} definiert `fill` den finalen Zustand der Animation.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens</em
+        <code>freeze</code> (<em>Behält den Zustand des letzten Animationsbilds bei</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens</em
+          >Behält den Zustand des ersten Animationsbilds bei</em
         >)
       </td>
     </tr>
@@ -137,16 +137,16 @@ Für {{SVGElement('animate')}} definiert `fill` den Endzustand der Animation.
 
 ## animateMotion
 
-Für {{SVGElement('animateMotion')}} definiert `fill` den Endzustand der Animation.
+Für {{SVGElement('animateMotion')}} definiert `fill` den finalen Zustand der Animation.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens</em
+        <code>freeze</code> (<em>Behält den Zustand des letzten Animationsbilds bei</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens</em
+          >Behält den Zustand des ersten Animationsbilds bei</em
         >)
       </td>
     </tr>
@@ -163,16 +163,16 @@ Für {{SVGElement('animateMotion')}} definiert `fill` den Endzustand der Animati
 
 ## animateTransform
 
-Für {{SVGElement('animateTransform')}} definiert `fill` den Endzustand der Animation.
+Für {{SVGElement('animateTransform')}} definiert `fill` den finalen Zustand der Animation.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens</em
+        <code>freeze</code> (<em>Behält den Zustand des letzten Animationsbilds bei</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens</em
+          >Behält den Zustand des ersten Animationsbilds bei</em
         >)
       </td>
     </tr>
@@ -239,7 +239,7 @@ Für {{SVGElement('ellipse')}} ist `fill` ein Präsentationsattribut, das die Fa
 
 ## path
 
-Für {{SVGElement('path')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form definiert. (_Das Innere wird durch das {{SVGAttr('fill-rule')}} Attribut oder die {{cssxref("fill-rule")}} Eigenschaft definiert._)
+Für {{SVGElement('path')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form definiert. (_Das Innere wird durch das {{SVGAttr('fill-rule')}}-Attribut oder die {{cssxref("fill-rule")}}-Eigenschaft definiert._)
 
 <table class="properties">
   <tbody>
@@ -264,7 +264,7 @@ Für {{SVGElement('path')}} ist `fill` ein Präsentationsattribut, das die Farbe
 
 ## polygon
 
-Für {{SVGElement('polygon')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form definiert. (_Das Innere wird durch das {{SVGAttr('fill-rule')}} Attribut oder die {{cssxref("fill-rule")}} Eigenschaft definiert._)
+Für {{SVGElement('polygon')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form definiert. (_Das Innere wird durch das {{SVGAttr('fill-rule')}}-Attribut oder die {{cssxref("fill-rule")}}-Eigenschaft definiert._)
 
 <table class="properties">
   <tbody>
@@ -289,7 +289,7 @@ Für {{SVGElement('polygon')}} ist `fill` ein Präsentationsattribut, das die Fa
 
 ## polyline
 
-Für {{SVGElement('polyline')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form definiert. (_Das Innere wird durch das {{SVGAttr('fill-rule')}} Attribut oder die {{cssxref("fill-rule")}} Eigenschaft definiert._)
+Für {{SVGElement('polyline')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form definiert. (_Das Innere wird durch das {{SVGAttr('fill-rule')}}-Attribut oder die {{cssxref("fill-rule")}}-Eigenschaft definiert._)
 
 <table class="properties">
   <tbody>
@@ -339,16 +339,16 @@ Für {{SVGElement('rect')}} ist `fill` ein Präsentationsattribut, das die Farbe
 
 ## set
 
-Für {{SVGElement('set')}} definiert `fill` den Endzustand der Animation.
+Für {{SVGElement('set')}} definiert `fill` den finalen Zustand der Animation.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>freeze</code> (<em>Behalten Sie den Zustand des letzten Animationsrahmens</em
+        <code>freeze</code> (<em>Behält den Zustand des letzten Animationsbilds bei</em
         >) | <code>remove</code> (<em
-          >Behalten Sie den Zustand des ersten Animationsrahmens</em
+          >Behält den Zustand des ersten Animationsbilds bei</em
         >)
       </td>
     </tr>

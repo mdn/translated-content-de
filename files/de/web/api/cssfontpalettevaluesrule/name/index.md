@@ -3,12 +3,12 @@ title: "CSSFontPaletteValuesRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSFontPaletteValuesRule/name
 l10n:
-  sourceCommit: 48813be4b5187c6a17e744e7f9ba37a146302847
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle repräsentiert den Namen, der die zugehörige {{CSSxRef("@font-palette-values")}}-Regel identifiziert. Ein gültiger Name beginnt immer mit zwei Bindestrichen, wie zum Beispiel `--Alternate`.
+Die schreibgeschützte **`name`**-Eigenschaft des [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Interfaces repräsentiert den Namen, der die zugehörige {{CSSxRef("@font-palette-values")}}-At-Regel identifiziert. Ein gültiger Name beginnt immer mit zwei Bindestrichen, wie z. B. `--Alternate`.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein String, der mit zwei Bindestrichen beginnt.
 
 ## Beispiele
 
-### Den Namen der Regel auslesen
+### Den Namen der At-Regel lesen
 
-Dieses Beispiel definiert zunächst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-Regel. Dann wird die {{cssxref("@font-palette-values")}}-Regel ausgelesen und ihr Name angezeigt. Da diese Regeln im zuletzt hinzugefügten Stylesheet des Dokuments leben, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird. Daher gibt `rules[1]` ein [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück, aus dem wir auf `name` zugreifen können.
+In diesem Beispiel werden zuerst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-At-Regel definiert. Dann wird die {{cssxref("@font-palette-values")}}-Regel gelesen und ihr Name angezeigt. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite von der letzten Stylesheet im Dokument zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) sein (`document.styleSheets[document.styleSheets.length-1].cssRules`). Daher gibt `rules[1]` ein [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück, aus dem wir auf `name` zugreifen können.
 
 #### HTML
 
@@ -29,7 +29,7 @@ Dieses Beispiel definiert zunächst eine {{cssxref("@import")}}- und eine {{cssx
 #### CSS
 
 ```css
-@import url(https://fonts.googleapis.com/css2?family=Bungee+Spice);
+@import "https://fonts.googleapis.com/css2?family=Bungee+Spice";
 
 @font-palette-values --Alternate {
   font-family: "Bungee Spice";
@@ -55,7 +55,7 @@ log.textContent += ` ${fontPaletteValuesRule.name}`;
 
 #### Ergebnis
 
-{{EmbedLiveSample("Den Namen der Regel auslesen", "100", "40")}}
+{{EmbedLiveSample("Den Namen der At-Regel lesen", "100", "40")}}
 
 ## Spezifikationen
 
@@ -67,4 +67,4 @@ log.textContent += ` ${fontPaletteValuesRule.name}`;
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}}-Regel
+- {{cssxref("@font-palette-values")}}-At-Regel

@@ -2,13 +2,13 @@
 title: stroke
 slug: Web/CSS/stroke
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`stroke`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Farbe oder den SVG-Farbgeber, der verwendet wird, um den Umriss eines Elements zu zeichnen. Daher hat `stroke` nur eine Wirkung auf Elemente, denen ein Umriss zugewiesen werden kann (zum Beispiel {{SVGElement('rect')}} oder {{SVGElement('ellipse')}}); für eine vollständige Liste siehe die Seite zum SVG-Attribut {{SVGAttr('stroke')}}. Wenn angegeben, überschreibt der CSS-Wert jeden Wert des SVG-Attributs {{SVGAttr("stroke")}} des Elements.
+Die **`stroke`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert die Farbe oder den SVG-Malfarbserver, der zur Darstellung eines Pfades eines Elements verwendet wird. Daher hat `stroke` nur Auswirkungen auf Elemente, die einen Pfad erhalten können (zum Beispiel {{SVGElement('rect')}} oder {{SVGElement('ellipse')}}); siehe die Seite über das SVG-Attribut {{SVGAttr('stroke')}} für eine vollständige Liste. Wenn deklariert, überschreibt der CSS-Wert jeden Wert des {{SVGAttr("stroke")}}-SVG-Attributs des Elements.
 
 > [!NOTE]
-> Laut dem Entwurf vom 4. April 2017 der [CSS Fill and Stroke Module Level 3](https://drafts.fxtf.org/fill-stroke-3/#stroke-shorthand) Spezifikation ist die `stroke`-Eigenschaft eine Kurzform für eine Reihe anderer Umriss-Eigenschaften. In der Praxis, ab August 2024, unterstützen Browser nicht die Einstellung von anderen umrissbezogenen Werten wie Breite oder Strichmuster über die `stroke`-Eigenschaft, sondern behandeln sie stattdessen als direkte Entsprechung des SVG-Attributs {{SVGAttr("stroke")}}.
+> Laut dem Entwurf vom 4. April 2017 der Spezifikation des [CSS Fill and Stroke Module Level 3](https://drafts.fxtf.org/fill-stroke-3/#stroke-shorthand) ist die `stroke`-Eigenschaft eine Kurzform für eine Reihe von anderen Pfadeigenschaften. In der Praxis unterstützen Browser ab August 2024 nicht das Setzen anderer pfadbezogener Werte wie Breiten oder Strichmuster über die `stroke`-Eigenschaft und behandeln sie stattdessen als direkte Entsprechung des SVG-Attributs {{SVGAttr("stroke")}}.
 
 ## Syntax
 
@@ -32,13 +32,13 @@ stroke: unset;
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Legt die Bemalung des Umrisses mit einem gültigen CSS-Farbwert fest.
+  - : Setzt die Färbung des Pfades mit jedem gültigen CSS-Farbwert.
 
 - `<image>`
-  - : Legt die Bemalung des Umrisses mit dem fest, was SVG einen [_Farbgeber_](https://svgwg.org/svg2-draft/pservers.html) nennt, was in diesem Kontext ein SVG-Verlauf oder Muster ist. CSS-Verläufe können nicht mit der `stroke`-Eigenschaft verwendet werden.
+  - : Setzt die Färbung des Pfades mit einem von SVG so genannten [_Farbserver_](https://svgwg.org/svg2-draft/pservers.html), der in diesem Kontext ein SVG-Gradient oder -Muster ist. CSS-Gradienten können nicht mit der `stroke`-Eigenschaft verwendet werden.
 
 - `context-stroke`
-  - : Verursacht, dass ein Element seine Umrissdefinition von seinem [_Kontextelement_](https://svgwg.org/svg2-draft/painting.html#TermContextElement) "erbt". Wenn es kein gültiges Kontextelement gibt, führt dieser Wert dazu, dass keine Farbe für den Umriss verwendet wird.
+  - : Verursacht, dass ein Element seine Definition des Pfades von seinem [_Kontextelement_](https://svgwg.org/svg2-draft/painting.html#TermContextElement) "erbt". Wenn es kein gültiges Kontextelement gibt, führt dieser Wert dazu, dass keine Farbe für den Pfad verwendet wird.
 
 ## Formale Definition
 
@@ -50,9 +50,9 @@ stroke: unset;
 
 ## Beispiele
 
-### Grundlegende Farbgebung des Umrisses
+### Grundlegendes Pfad-Färben
 
-In diesem Beispiel erstellen wir zwei verschiedene Formen, einen Kreis und ein Rechteck, die Teil einer {{SVGElement("g")}} (Gruppe) sind, die als Standard für die beiden Formen eine graue Umrissfarbe hat.
+In diesem Beispiel erstellen wir zwei verschiedene Formen, einen Kreis und ein Rechteck, die Teil einer {{SVGElement("g")}} (Gruppe) sind, die als Standard für die beiden Formen eine graue Pfadfarbe hat.
 
 ```html
 <svg>
@@ -63,7 +63,7 @@ In diesem Beispiel erstellen wir zwei verschiedene Formen, einen Kreis und ein R
 </svg>
 ```
 
-Über CSS wenden wir dann eine düstere lila Farbe auf das Rechteck und rot auf den Kreis an.
+Über CSS wenden wir dann eine düstere lila Farbe auf das Rechteck und eine rote auf den Kreis an.
 
 ```css
 rect {
@@ -76,9 +76,9 @@ circle {
 
 {{EmbedLiveSample("Basic color stroking", "300", "180")}}
 
-### Musterumrandung
+### Muster-Färben
 
-Dieses Beispiel verwendet die gleiche Gruppe und Formen (mit dem Kreis etwas verschoben) wie im vorherigen Beispiel, hat aber auch ein definiertes SVG-Muster.
+Dieses Beispiel verwendet dieselbe Gruppe und Formen (wobei der Kreis etwas verschoben wurde) wie im vorherigen Beispiel, hat jedoch auch ein definiertes SVG-Muster.
 
 ```html
 <svg>
@@ -94,12 +94,12 @@ Dieses Beispiel verwendet die gleiche Gruppe und Formen (mit dem Kreis etwas ver
 </svg>
 ```
 
-Das Muster wird dann im CSS mit einem URL-Wert referenziert, der auf die ID des Musters zeigt. Dieses Muster wird auf beide Formen als Umrandungsfarbe angewendet, wobei das Ergebnis gezeigt wird.
+Das Muster wird dann im CSS mit einem URL-Wert referenziert, der auf die ID des Musters zeigt. Dieses Muster wird auf beide Formen als Pfadangabe aufgetragen, wobei das Ergebnis gezeigt wird.
 
 ```css
 rect,
 circle {
-  stroke: url(#star);
+  stroke: url("#star");
 }
 ```
 
@@ -107,9 +107,9 @@ Das Muster wird relativ zu den Begrenzungsrahmen der Formen gezeichnet, was zu v
 
 {{EmbedLiveSample("Pattern stroking", "300", "180")}}
 
-### SVG- versus CSS-Verläufe
+### SVG versus CSS-Gradienten
 
-Hier verwenden wir erneut dasselbe Gruppe-und-Formen-Markup wie im ersten Beispiel, fügen jedoch auch eine Definition für einen SVG-Verlauf hinzu.
+Hier verwenden wir erneut die gleiche Gruppen- und Formstruktur wie im ersten Beispiel, fügen aber auch eine SVG-Gradientendefinition hinzu.
 
 ```html
 <svg>
@@ -126,24 +126,24 @@ Hier verwenden wir erneut dasselbe Gruppe-und-Formen-Markup wie im ersten Beispi
 </svg>
 ```
 
-Im CSS wenden wir diesen SVG-Verlauf auf das Rechteck an, indem wir einen URL-Wert verwenden, der auf die ID des linearen Verlaufs zeigt. Auf den Kreis wenden wir einen CSS-linearen Verlauf an, der vom Design her dem SVG-Verlauf entspricht.
+Im CSS wenden wir diesen SVG-Gradienten auf das Rechteck an, indem wir einen URL-Wert verwenden, der auf die ID des linearen Gradienten zeigt. Auf den Kreis wenden wir einen CSS-linearen Gradienten an, der in der Absicht dem SVG-Gradienten entspricht.
 
 ```css
 rect {
-  stroke: url(#greenwhite);
+  stroke: url("#greenwhite");
 }
 circle {
   stroke: linear-gradient(90deg, green, white);
 }
 ```
 
-Nur das Rechteck erhält einen Verlauf für den Umriss, während der Kreis auf den grauen Umriss zurückgreift, der vom Gruppenelement festgelegt wurde. Dies passiert, weil CSS-Verläufe keine gültigen Werte für die `stroke`-Eigenschaft sind, während URL-Referenzen auf SVG-Verläufe erlaubt sind.
+Nur das Rechteck erhält einen Gradientenpfad, während der Kreis auf den grauen Pfad, der vom Gruppenelement festgelegt wurde, zurückfällt. Dies geschieht, weil CSS-Gradienten keine gültigen Werte für die `stroke`-Eigenschaft sind, während URL-Referenzen auf SVG-Gradienten zulässig sind.
 
 {{EmbedLiveSample("SVG versus CSS gradients", "300", "180")}}
 
-### Kontextspezifische Umrandung
+### Kontextuelles Färben
 
-In diesem Fall beginnen wir erneut mit einem Gruppenelement, innerhalb dessen zwei rechteckige Pfade definiert sind. Danach werden ein linearer Verlauf und ein SVG-Marker definiert.
+In diesem Fall beginnen wir erneut mit einem Gruppenelement, innerhalb dessen zwei rechteckige Pfade definiert sind. Danach werden ein linearer Gradient und ein SVG-Marker definiert.
 
 ```html
 <svg>
@@ -175,22 +175,22 @@ In diesem Fall beginnen wir erneut mit einem Gruppenelement, innerhalb dessen zw
 </svg>
 ```
 
-Anschließend schreiben wir CSS, um beiden Pfaden einen Marker hinzuzufügen und auch eine düstere lila Umrissfarbe anzuwenden. Diese wird für den zweiten Pfad überschrieben, der einen URL-Wert erhält, um den orange-zu-rot-Verlauf als Umrandung anzuwenden. Schließlich setzen wir das Kreiselement im Markerelement so, dass es einen Umrisswert von `context-stroke` hat.
+Dann schreiben wir CSS, um einen Marker zu beiden Pfaden hinzuzufügen und ebenfalls eine düstere violette Pfadfarbe zu haben. Dies wird für den zweiten Pfad überschrieben, dem ein URL-Wert zugewiesen wird, um den orange-zu-roten Gradient als seinen Pfad anzuwenden. Schließlich setzen wir das Kreiselement im Markerelement auf einen Pfadwert von `context-stroke`.
 
 ```css
 path {
   stroke: hsl(270deg 50% 40%);
-  marker: url(#circle);
+  marker: url("#circle");
 }
 path:nth-of-type(2) {
-  stroke: url(#orangered);
+  stroke: url("#orangered");
 }
 marker circle {
   stroke: context-stroke;
 }
 ```
 
-Da `stroke-context` auf ein Element angewendet wird, das von einem {{SVGElement('marker')}}-Element abstammt, ist das Kontextelement für jeden Kreis das Element, das das `<marker>`-Element aufgerufen hat; das heißt, die {{SVGElement('path')}}-Elemente. Das Ergebnis ist, dass die Marker auf dem ersten Pfad die Farbe des aufrufenden Pfades verwenden und lila sind. Die Marker auf dem zweiten Pfad hingegen verwenden denselben orange-zu-roten SVG-Verlauf, den der Pfad verwendet. Dieser letzte Fall veranschaulicht, wie SVG-Verläufe als ein einziger Verlauf auf die gesamte Form angewendet werden, anstatt unabhängig auf jeden einzelnen Teil der Form angewendet zu werden.
+Da `stroke-context` auf ein Element angewendet wird, das von einem {{SVGElement('marker')}}-Element abstammt, ist das Kontextelement für jeden Kreis das Element, das das `<marker>`-Element aufgerufen hat, also die {{SVGElement('path')}}-Elemente. Das Ergebnis ist, dass die Markierungen auf dem ersten Pfad die Farbe des aufrufenden Pfades verwenden und violett sind. Die Markierungen auf dem zweiten Pfad hingegen verwenden denselben orange-zu-roten SVG-Gradient, den der Pfad verwendet. Dieser letzte Fall verdeutlicht, wie SVG-Gradienten als einzelner Gradient auf die gesamte Form angewendet werden, anstatt unabhängig auf jeden einzelnen Teil der Form.
 
 {{EmbedLiveSample("Contextual stroking", "300", "180")}}
 

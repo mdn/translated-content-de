@@ -2,10 +2,10 @@
 title: font-display
 slug: Web/CSS/@font-face/font-display
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) At-Regel bestimmt, wie ein Schriftschnitt angezeigt wird, basierend darauf, ob und wann er heruntergeladen und einsatzbereit ist.
+Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) At-Regel bestimmt, wie eine Schriftart angezeigt wird, basierend darauf, ob und wann sie heruntergeladen und einsatzbereit ist.
 
 ## Syntax
 
@@ -21,28 +21,26 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Schriftanzeigestrategie wird durch den Benutzeragenten definiert.
+  - : Die Schriftanzeigestrategie wird vom Benutzeragenten festgelegt.
 - `block`
-  - : Gibt dem Schriftschnitt eine kurze Blockierungsperiode und eine unendliche Austauschperiode.
+  - : Gibt der Schriftart eine kurze Blockperiode und eine unendliche Austauschperiode.
 - `swap`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockierungsperiode und eine unendliche Austauschperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und eine unendliche Austauschperiode.
 - `fallback`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockierungsperiode und eine kurze Austauschperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und eine kurze Austauschperiode.
 - `optional`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockierungsperiode und keine Austauschperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und keine Austauschperiode.
 
 > [!NOTE]
-> In Firefox legen die Einstellungen `gfx.downloadable_fonts.fallback_delay`
-> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer
-> der "kurzen" und "extrem kurzen" Perioden fest.
+> In Firefox geben die Einstellungen `gfx.downloadable_fonts.fallback_delay` und `gfx.downloadable_fonts.fallback_delay_short` die Dauer der "kurzen" und "extrem kurzen" Perioden an.
 
 ## Beschreibung
 
-Der Zeitplan für die Schriftanzeige basiert auf einem Timer, der ab dem Moment beginnt, in dem der Benutzeragent versucht, einen gegebenen heruntergeladenen Schriftschnitt zu verwenden. Der Zeitplan ist in die drei untenstehenden Perioden unterteilt, die das Renderverhalten von beliebigen Elementen diktieren, die den Schriftschnitt verwenden:
+Der Zeitablauf für die Schriftdarstellung basiert auf einem Timer, der startet, sobald der Benutzeragent versucht, eine heruntergeladene Schriftart zu verwenden. Der Zeitablauf ist in die drei unten aufgeführten Perioden unterteilt, die das Rendering-Verhalten von Elementen bestimmen, die die Schriftart verwenden:
 
-- Schriftblockierungsperiode: Ist der Schriftschnitt nicht geladen, muss jedes Element, das ihn verwenden möchte, eine _unsichtbare_ Ersatzschrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftaustauschperiode: Ist der Schriftschnitt nicht geladen, muss jedes Element, das ihn verwenden möchte, eine Ersatzschrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftfehlerperiode: Ist der Schriftschnitt nicht geladen, behandelt der Benutzeragent dies als fehlgeschlagene Ladung, was zu einem normalen Schriftersatz führt.
+- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine _unsichtbare_ Ersatzschriftart rendern. Wird die Schriftart während dieser Periode erfolgreich geladen, wird sie normal verwendet.
+- Schriftaustauschperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine Ersatzschriftart rendern. Wird die Schriftart in dieser Periode erfolgreich geladen, wird sie normal verwendet.
+- Schriftfehlerperiode: Wenn die Schriftart nicht geladen ist, behandelt der Benutzeragent dies als fehlgeschlagenes Laden und löst eine normale Schriftfallerback aus.
 
 ## Formale Definition
 
@@ -54,14 +52,14 @@ Der Zeitplan für die Schriftanzeige basiert auf einem Timer, der ab dem Moment 
 
 ## Beispiele
 
-### Festlegen des fallback font-display
+### Festlegen der Rückfall-Schriftanzeige
 
 ```css
 @font-face {
   font-family: ExampleFont;
   src:
-    url(/path/to/fonts/example-font.woff) format("woff"),
-    url(/path/to/fonts/example-font.eot) format("eot");
+    url("/path/to/fonts/example-font.woff") format("woff"),
+    url("/path/to/fonts/example-font.eot") format("eot");
   font-weight: 400;
   font-style: normal;
   font-display: fallback;

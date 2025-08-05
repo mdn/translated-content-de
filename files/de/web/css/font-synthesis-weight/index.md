@@ -2,12 +2,12 @@
 title: font-synthesis-weight
 slug: Web/CSS/font-synthesis-weight
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Ihnen festzulegen, ob der Browser den fetten Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
+Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen zu bestimmen, ob der Browser die fette Schriftart synthetisieren darf, wenn sie in einer Schriftfamilie fehlt.
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftschnitt-Synthese zu steuern.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schrifttypen-Synthese zu steuern.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ font-synthesis-weight: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass der fehlende fette Schriftschnitt bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlende fette Schriftart vom Browser bei Bedarf synthetisiert werden kann.
 - `none`
-  - : Gibt an, dass die Synthese des fehlenden fetten Schriftschnitts durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese der fehlenden fetten Schriftart durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -41,9 +41,9 @@ font-synthesis-weight: unset;
 
 ## Beispiele
 
-### Deaktivierung der Synthese des fetten Schriftschnitts
+### Deaktivierung der Synthese für fette Schriftart
 
-Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Browser in der `Montserrat` Schrift deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese der fetten Schriftart durch den Browser in der `Montserrat`-Schriftart deaktiviert wird.
 
 #### HTML
 
@@ -62,7 +62,7 @@ Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Bro
 #### CSS
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Montserrat&display=swap";
 
 .english {
   font-family: "Montserrat", sans-serif;
@@ -86,5 +86,5 @@ Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Bro
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
+- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzform, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}

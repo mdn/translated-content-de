@@ -2,10 +2,10 @@
 title: background-position-y
 slug: Web/CSS/background-position-y
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Die **`background-position-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche vertikale Position für jedes Hintergrundbild fest. Die Position ist relativ zur durch {{cssxref("background-origin")}} festgelegten Positionsebene.
+Die **`background-position-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche vertikale Position für jedes Hintergrundbild fest. Die Position ist relativ zur Positionsebene, die durch {{cssxref("background-origin")}} festgelegt wird.
 
 {{InteractiveExample("CSS Demo: background-position-y")}}
 
@@ -44,9 +44,9 @@ background-position-y: bottom 32px;
 }
 ```
 
-<!-- Der Quellcode für dieses interaktive Beispiel wird in einem GitHub-Repository gespeichert. Wenn Sie zum Projekt der interaktiven Beispiele beitragen möchten, klonen Sie bitte https://github.com/mdn/interactive-examples und senden Sie uns eine Pull-Anfrage. -->
+<!-- Der Quellcode für dieses interaktive Beispiel ist in einem GitHub-Repository gespeichert. Wenn Sie zum Projekt der interaktiven Beispiele beitragen möchten, klonen Sie bitte https://github.com/mdn/interactive-examples und senden Sie uns eine Pull-Anfrage. -->
 
-Der Wert dieser Eigenschaft wird durch jede Deklaration der Kurzschreibeigenschaften {{cssxref("background")}} oder {{cssxref("background-position")}} überschrieben, die dem Element danach zugewiesen werden.
+Der Wert dieser Eigenschaft wird von jeder Deklaration der Kurzschreibweisen {{cssxref("background")}} oder {{cssxref("background-position")}}, die nachträglich auf das Element angewendet wird, überschrieben.
 
 ## Syntax
 
@@ -79,20 +79,20 @@ background-position-y: revert-layer;
 background-position-y: unset;
 ```
 
-Die `background-position-y` Eigenschaft wird als ein oder mehrere Werte angegeben, getrennt durch Kommata.
+Die `background-position-y` Eigenschaft wird als ein oder mehrere Werte, getrennt durch Kommas, angegeben.
 
 ### Werte
 
 - `top`
   - : Richtet die obere Kante des Hintergrundbildes an der oberen Kante der Hintergrundpositionsebene aus.
 - `center`
-  - : Richtet die vertikale Mitte des Hintergrundbildes an der vertikalen Mitte der Hintergrundpositionsebene aus.
+  - : Richtet das vertikale Zentrum des Hintergrundbildes am vertikalen Zentrum der Hintergrundpositionsebene aus.
 - `bottom`
   - : Richtet die untere Kante des Hintergrundbildes an der unteren Kante der Hintergrundpositionsebene aus.
 - {{cssxref("&lt;length&gt;")}}
-  - : Der Versatz der angegebenen horizontalen Kante des Hintergrundbildes von der entsprechenden oberen horizontalen Kante der Hintergrundpositionsebene. (Einige Browser erlauben es, die untere Kante für den Versatz festzulegen).
+  - : Der Versatz der horizontalen Kante des angegebenen Hintergrundbildes von der oberen horizontalen Kante der entsprechenden Hintergrundpositionsebene. (Einige Browser erlauben die Zuweisung der unteren Kante für den Versatz).
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Der Versatz der angegebenen vertikalen Position des Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass die obere Kante des Hintergrundbildes mit der oberen Kante des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass die _untere_ Kante des Hintergrundbildes mit der _unteren_ Kante des Containers ausgerichtet ist, sodass ein Wert von 50% das Hintergrundbild vertikal zentriert.
+  - : Der Versatz der vertikalen Position des angegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass die obere Kante des Hintergrundbildes mit der oberen Kante des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass die _untere_ Kante des Hintergrundbildes mit der _unteren_ Kante des Containers ausgerichtet ist, somit zentriert ein Wert von 50% das Hintergrundbild vertikal.
 
 ## Formale Definition
 
@@ -104,9 +104,9 @@ Die `background-position-y` Eigenschaft wird als ein oder mehrere Werte angegebe
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-Das folgende Beispiel zeigt eine Implementierung eines Hintergrundbildes, bei dem `background-position-x` und `background-position-y` verwendet werden, um die horizontalen und vertikalen Positionen des Bildes separat zu definieren.
+Das folgende Beispiel zeigt die Implementierung eines Hintergrundbildes, wobei `background-position-x` und `background-position-y` verwendet werden, um die horizontalen und vertikalen Positionen des Bildes separat zu definieren.
 
 #### HTML
 
@@ -121,7 +121,7 @@ div {
   width: 300px;
   height: 300px;
   background-color: skyblue;
-  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-image: url("https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png");
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: bottom;
@@ -132,9 +132,9 @@ div {
 
 {{EmbedLiveSample('Basic_example', '100%', 300)}}
 
-### Seitenbezogene Werte
+### Seitenrelative Werte
 
-Das folgende Beispiel zeigt die Unterstützung für seitenspezifische Offset-Syntax, die es dem Entwickler ermöglicht, den Hintergrund von jeder Kante aus zu versetzen.
+Das folgende Beispiel zeigt die Unterstützung für seitenrelatives Offsetsyntax, die es dem Entwickler ermöglicht, den Hintergrund von jeder Kante zu versetzen.
 
 #### HTML
 
@@ -149,7 +149,7 @@ div {
   width: 300px;
   height: 300px;
   background-color: seagreen;
-  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-image: url("https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png");
   background-repeat: no-repeat;
   background-position-x: right 20px;
   background-position-y: bottom 10px;

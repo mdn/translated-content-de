@@ -3,23 +3,23 @@ title: "Testen Sie Ihre Fähigkeiten: Werte und Einheiten"
 short-title: Werte und Einheiten
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Values
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie die verschiedenen Arten von [Werten und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Verwendungsleitfaden für Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungshinweis. Sie können sich auch über unsere [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe wurde dem ersten Listenelement eine Hintergrundfarbe mittels eines Hex-Farbcodes gegeben. Vervollständigen Sie das CSS, indem Sie dieselbe Farbe in verschiedenen Formaten verwenden, sowie ein letztes Listenelement, bei dem Sie den Hintergrund halbtransparent machen sollten.
+In dieser Aufgabe wurde dem ersten Listenelement eine Hintergrundfarbe mit einem Hex-Farbcode zugewiesen. Vervollständigen Sie das CSS, indem Sie dieselbe Farbe in verschiedenen Formaten verwenden, sowie ein letztes Listenelement, bei dem der Hintergrund halbtransparent sein soll.
 
-- Das zweite Listenelement sollte die RGB-Farbwiedergabe verwenden.
-- Das dritte sollte die HSL-Farbwiedergabe verwenden.
-- Das vierte sollte die RGB-Farbwiedergabe verwenden, aber mit dem Alpha-Kanal auf `0.6` gesetzt.
+- Das zweite Listenelement sollte RGB-Farbe verwenden.
+- Das dritte sollte HSL-Farbe verwenden.
+- Das vierte sollte RGB-Farbe verwenden, jedoch mit einem Alpha-Kanal von `0.6`.
 
-[Sie können die Hex-Farbe bei convertingcolors.com konvertieren](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie die Werte in CSS verwendet werden. Ihr Endergebnis sollte wie das Bild unten aussehen:
+Sie [können die Hex-Farbe auf convertingcolors.com umwandeln](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie Sie die Werte in CSS verwenden. Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Vier Listenelemente. Die ersten drei mit derselben Hintergrundfarbe und das letzte mit einem helleren Hintergrund.](mdn-value-color.png)
 
@@ -59,7 +59,7 @@ li {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Indem Sie [ein Farbkonvertierungstool](https://convertingcolors.com/hex-color-86DEFA.html) verwenden, sollten Sie in der Lage sein, verschiedene [Farbfunktionen](/de/docs/Web/CSS/color_value#syntax) zu verwenden, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
+Indem Sie [ein Farbkonvertierungstool](https://convertingcolors.com/hex-color-86DEFA.html) verwenden, sollten Sie in der Lage sein, verschiedene [Farbfunktionen](/de/docs/Web/CSS/color_value#syntax) zu verwenden, um dieselbe Farbe auf verschiedene Weise zu definieren:
 
 ```css
 .hex {
@@ -83,7 +83,7 @@ Indem Sie [ein Farbkonvertierungstool](https://convertingcolors.com/hex-color-86
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die Schriftgröße verschiedener Textteile festlegen:
+In dieser Aufgabe möchten wir, dass Sie die Schriftgröße verschiedener Textelemente festlegen:
 
 - Das `<h1>`-Element sollte `50px` sein.
 - Das `<h2>`-Element sollte `2em` sein.
@@ -159,11 +159,11 @@ h1 + p {
 
 ## Aufgabe 3
 
-Um die Aufgabe zu vervollständigen, aktualisieren Sie das CSS, um das Hintergrundbild so zu verschieben, dass es horizontal zentriert ist und `20%` vom oberen Rand des Kastens entfernt ist.
+Um die Aufgabe abzuschließen, aktualisieren Sie das CSS, sodass das Hintergrundbild horizontal zentriert und `20%` vom oberen Rand des Kastens entfernt ist.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein statistisches Element, das horizontal in einem Kasten zentriert und etwas vom oberen Rand des Kastens entfernt ist.](mdn-value-position.png)
+![Eine Statistik horizontal zentriert in einem Kasten und in kurzem Abstand vom oberen Rand des Kastens.](mdn-value-position.png)
 
 ```html live-sample___position
 <div class="box"></div>
@@ -176,7 +176,7 @@ Ihr Endergebnis sollte wie das Bild unten aussehen:
 }
 
 .box {
-  background-image: url(https://mdn.github.io/shared-assets/images/examples/purple-star.png);
+  background-image: url("https://mdn.github.io/shared-assets/images/examples/purple-star.png");
   background-repeat: no-repeat;
 }
 ```
@@ -186,11 +186,11 @@ Ihr Endergebnis sollte wie das Bild unten aussehen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Verwenden Sie `background-position` mit dem Schlüsselwort `center` und einem Prozentsatz:
+Verwenden Sie `background-position` mit dem `center`-Schlüsselwort und einem Prozentsatz:
 
 ```css
 .box {
-  background-image: url(https://mdn.github.io/shared-assets/images/examples/purple-star.png);
+  background-image: url("https://mdn.github.io/shared-assets/images/examples/purple-star.png");
   background-repeat: no-repeat;
   background-position: center 20%;
 }

@@ -2,10 +2,10 @@
 title: suffix
 slug: Web/CSS/@counter-style/suffix
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Der **`suffix`** Deskriptor der {{cssxref("@counter-style")}} Regel spezifiziert Inhalt, der am Ende der Markierungsdarstellung hinzugefügt wird.
+Der **`suffix`** Deskriptor der Regel {{cssxref("@counter-style")}} gibt den Inhalt an, der am Ende der Markerdarstellung hinzugefügt wird.
 
 ## Syntax
 
@@ -13,15 +13,15 @@ Der **`suffix`** Deskriptor der {{cssxref("@counter-style")}} Regel spezifiziert
 /* <symbol> value: string, image, or identifier  */
 suffix: "";
 suffix: ") ";
-suffix: url(bullet.png);
+suffix: url("bullet.png");
 ```
 
 ### Werte
 
-Der **`suffix`** Deskriptor nimmt als seinen Wert ein einzelnes `<symbol>`:
+Der **`suffix`** Deskriptor nimmt als Wert ein einzelnes `<symbol>`:
 
 - `<symbol>`
-  - : Spezifiziert ein `<symbol>`, das an die Markierungsdarstellung angehängt wird. Es kann ein {{cssxref("&lt;string&gt;")}}, {{cssxref("&lt;image&gt;")}} oder {{cssxref("&lt;custom-ident&gt;")}} sein.
+  - : Gibt ein `<symbol>` an, das an die Markerdarstellung angehängt wird. Es kann eine {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}} oder ein {{cssxref("&lt;custom-ident&gt;")}} sein.
 
 ## Formale Definition
 
@@ -33,7 +33,7 @@ Der **`suffix`** Deskriptor nimmt als seinen Wert ein einzelnes `<symbol>`:
 
 ## Beispiele
 
-### Festlegen eines Suffixes für einen Zähler
+### Ein Suffix für einen Zähler festlegen
 
 #### HTML
 
@@ -62,7 +62,7 @@ Der **`suffix`** Deskriptor nimmt als seinen Wert ein einzelnes `<symbol>`:
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Setting_a_suffix_for_a_counter')}}
+{{EmbedLiveSample('Setting_a_suffix_for_a_counter')}}
 
 ## Spezifikationen
 
@@ -74,8 +74,8 @@ Der **`suffix`** Deskriptor nimmt als seinen Wert ein einzelnes `<symbol>`:
 
 ## Siehe auch
 
-- Andere {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}} und {{cssxref("@counter-style/fallback", "fallback")}}
+- Andere {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, und {{cssxref("@counter-style/fallback", "fallback")}}
 - {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}}: die funktionale Notation zum Erstellen anonymer Zählerstile
-- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- {{cssxref("symbols", "symbols()")}}: die funktionale Notation zur Erstellung anonymer Zählerstile
+- [CSS Counter Styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS Lists and Counters](/de/docs/Web/CSS/CSS_lists) Modul

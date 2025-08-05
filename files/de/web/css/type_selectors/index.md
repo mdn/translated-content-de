@@ -1,11 +1,11 @@
 ---
-title: Typselektoren
+title: Typ-Selektoren
 slug: Web/CSS/Type_selectors
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Der CSS **Typselektor** wählt Elemente basierend auf dem Knotennamen aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS **Typ-Selektor** wählt Elemente anhand des Knotennamens aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
 ```css
 /* All <a> elements. */
@@ -14,11 +14,11 @@ a {
 }
 ```
 
-Typselektoren können mit einem Namensraum versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich bei der Verarbeitung von Dokumenten, die mehrere Namensräume enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Typ-Selektoren können namespaced werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich bei der Arbeit mit Dokumenten, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|h1` - wählt `<h1>`-Elemente im Namensraum _ns_
-- `*|h1` - wählt alle `<h1>`-Elemente
-- `|h1` - wählt alle `<h1>`-Elemente ohne einen deklarierten Namensraum
+- `ns|h1` - entspricht `<h1>`-Elementen im Namespace _ns_
+- `*|h1` - entspricht allen `<h1>`-Elementen
+- `|h1` - entspricht allen `<h1>`-Elementen ohne einen deklarierten Namespace
 
 ## Syntax
 
@@ -48,12 +48,12 @@ span {
 
 {{EmbedLiveSample('Examples', '100%', 150)}}
 
-### Namensräume
+### Namespaces
 
-In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispielnamensraum auswählen.
+In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace auswählen.
 
 ```css
-@namespace example url(http://www.example.com/);
+@namespace example url("http://www.example.com/");
 example|h1 {
   color: blue;
 }
@@ -70,4 +70,4 @@ example|h1 {
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
