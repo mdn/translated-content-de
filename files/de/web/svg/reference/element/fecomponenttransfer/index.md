@@ -2,14 +2,14 @@
 title: <feComponentTransfer>
 slug: Web/SVG/Reference/Element/feComponentTransfer
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Der **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG) Filterprimitive führt eine kanalweise Neukartierung der Daten für jedes Pixel durch. Es erlaubt Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbbalance oder Schwellenwertsetzung.
+Das **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG)-Filterprimär führt eine neuzuder Stammdaten für jede Pixel-Komponente durch. Es ermöglicht Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbgleichgewicht oder Schwellenwertbestimmung.
 
-Die Berechnungen werden an nicht-vorvermehrten Farbwerten durchgeführt. Die Farben werden modifiziert, indem jeder Kanal (R, G, B und A) auf das Ergebnis dessen geändert wird, was die Kindelemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wird mehr als eines desselben Elements bereitgestellt, wird das zuletzt angegebene verwendet, und wenn kein Element bereitgestellt wird, um einen der Kanäle zu modifizieren, ist der Effekt derselbe, als ob eine Identitätstransformation für diesen Kanal gegeben worden wäre.
+Die Berechnungen werden auf nicht-prämultiplizierten Farbwerten durchgeführt. Die Farben werden verändert, indem jeder Kanal (R, G, B und A) in das Ergebnis dessen geändert wird, was die Kinderelemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als ein gleiches Element angegeben ist, wird das letzte verwendete Element verwendet, und wenn kein Element bereitgestellt wird, um einen der Kanäle zu modifizieren, ist der Effekt derselbe, als ob eine Identitätstransformation für diesen Kanal angegeben worden wäre.
 
-Wie andere Filterprimitive behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filterprimitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB`- {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
 ## Verwendungskontext
 
@@ -21,7 +21,7 @@ Wie andere Filterprimitive behandelt es Farbkomponenten standardmäßig im `line
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement).
 
 ## Beispiel
 
@@ -37,12 +37,12 @@ Dieses Element implementiert die [`SVGFEComponentTransferElement`](/de/docs/Web/
       y1="0"
       x2="100%"
       y2="0">
-      <stop offset="0" stop-color="#ff0000"></stop>
-      <stop offset="0.2" stop-color="#ffff00"></stop>
-      <stop offset="0.4" stop-color="#00ff00"></stop>
-      <stop offset="0.6" stop-color="#00ffff"></stop>
-      <stop offset="0.8" stop-color="#0000ff"></stop>
-      <stop offset="1" stop-color="#800080"></stop>
+      <stop offset="0" stop-color="red"></stop>
+      <stop offset="0.2" stop-color="yellow"></stop>
+      <stop offset="0.4" stop-color="lime"></stop>
+      <stop offset="0.6" stop-color="cyan"></stop>
+      <stop offset="0.8" stop-color="blue"></stop>
+      <stop offset="1" stop-color="purple"></stop>
     </linearGradient>
     <filter id="identity" x="0" y="0" width="100%" height="100%">
       <feComponentTransfer>
@@ -120,7 +120,7 @@ rect {
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
+- [SVG-Filterprimitive Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}

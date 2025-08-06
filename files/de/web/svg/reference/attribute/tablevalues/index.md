@@ -2,12 +2,12 @@
 title: tableValues
 slug: Web/SVG/Reference/Attribute/tableValues
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Nachschlagetabelle von Werten für eine Farbkomponenten-Übertragungsfunktion festlegt.
+Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Look-up-Tabelle von Werten für eine Farbkomponenten-Transferfunktion festlegt.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
@@ -34,9 +34,9 @@ svg {
       y1="0"
       x2="200"
       y2="0">
-      <stop offset="0" stop-color="#ff0000" />
-      <stop offset="0.5" stop-color="#00ff00" />
-      <stop offset="1" stop-color="#0000ff" />
+      <stop offset="0" stop-color="red" />
+      <stop offset="0.5" stop-color="lime" />
+      <stop offset="1" stop-color="blue" />
     </linearGradient>
   </defs>
 
@@ -74,7 +74,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -90,7 +90,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Leere Liste, die zu einer Identitätsübertragung führt</em></td>
+      <td><em>Leere Liste, die in einer Identitätstransformation resultiert</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -100,9 +100,9 @@ svg {
 </table>
 
 - `<list-of-numbers>`
-  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Nachschlagetabelle für die Farbkomponenten-Übertragungsfunktion definieren. Jede Zahl kann zwischen `0` und `1` liegen.
+  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Look-up-Tabelle für die Farbkomponenten-Transferfunktion definieren. Jeder Wert kann zwischen `0` und `1` liegen.
 
-    Eine leere Liste führt zu einer Identitätsübertragungsfunktion.
+    Eine leere Liste führt zu einer Identitätstransformationsfunktion.
 
 ## Spezifikationen
 

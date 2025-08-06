@@ -2,21 +2,21 @@
 title: intercept
 slug: Web/SVG/Reference/Attribute/intercept
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`intercept`**-Attribut definiert den Achsenabschnitt der linearen Funktion für die Übertragung von Farbkomponenten, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
+Das **`intercept`**-Attribut definiert den Schnittpunkt der linearen Funktion der Farbkomponentenübertragungen, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
 
-Die `linear`-Funktion ist definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, der `intercept` einen Basiswert für das Ergebnis bereitstellt und der [`slope`](/de/docs/Web/SVG/Reference/Attribute/slope) ein Skalierungsfaktor ist.
+Die `linear`-Funktion ist definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, der `intercept` bietet einen Basiswert für das Ergebnis, und der [`slope`](/de/docs/Web/SVG/Reference/Attribute/slope) ist ein Skalierungsfaktor.
 
-Das `intercept`-Attribut wird von den Kind-Elementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt. Es wird mit den folgenden SVG-Komponententransfer-Funktionselementen verwendet, wenn `type="linear"` gesetzt ist:
+Das `intercept`-Attribut wird von Kindern des {{SVGElement("feComponentTransfer")}}-Filterprimitivs unterstützt und wird mit den folgenden SVG-Komponentenübertragungsfunktionselementen verwendet, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
 - {{SVGElement("feFuncG")}}
 - {{SVGElement("feFuncR")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -36,7 +36,7 @@ Das `intercept`-Attribut wird von den Kind-Elementen der {{SVGElement("feCompone
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den Achsenabschnitt der linearen Komponententransfer-Funktionen an.
+  - : Dieser Wert gibt den Schnittpunkt der linearen Komponentenübertragungsfunktionen an.
 
 ## Beispiel
 
@@ -58,9 +58,9 @@ svg {
       y1="0"
       x2="200"
       y2="0">
-      <stop offset="0" stop-color="#ff0000" />
-      <stop offset="0.5" stop-color="#00ff00" />
-      <stop offset="1" stop-color="#0000ff" />
+      <stop offset="0" stop-color="red" />
+      <stop offset="0.5" stop-color="lime" />
+      <stop offset="1" stop-color="blue" />
     </linearGradient>
   </defs>
 

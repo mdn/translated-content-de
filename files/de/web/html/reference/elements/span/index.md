@@ -2,10 +2,10 @@
 title: "<span>: Das Content-Span-Element"
 slug: Web/HTML/Reference/Elements/span
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`<span>`** [HTML](/de/docs/Web/HTML) Element ist ein generischer Inline-Container für Textinhalt, der von sich aus nichts repräsentiert. Es kann verwendet werden, um Elemente für Styling-Zwecke (durch die Verwendung der [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attribute) zu gruppieren oder weil sie gemeinsame Attributwerte, wie z.B. [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang), teilen. Es sollte nur verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist sehr ähnlich zu einem {{HTMLElement("div")}} Element, aber {{HTMLElement("div")}} ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, während `<span>` ein {{Glossary("Inline-level_content", "Inline-Level-Element")}} ist.
+Das **`<span>`**-[HTML](/de/docs/Web/HTML)-Element ist ein generischer Inline-Container für Textinhalte, der an sich nichts repräsentiert. Es kann verwendet werden, um Elemente für Stilzwecke zu gruppieren (unter Verwendung der Attribute [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)), oder weil sie gemeinsame Attributwerte haben, wie z.B. [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang). Es sollte nur dann verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist dem {{HTMLElement("div")}}-Element sehr ähnlich, aber {{HTMLElement("div")}} ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, während `<span>` ein {{Glossary("Inline-level_content", "Inline-Level-Element")}} ist.
 
 {{InteractiveExample("HTML Demo: &lt;span&gt;", "tabbed-shorter")}}
 
@@ -24,13 +24,13 @@ Das **`<span>`** [HTML](/de/docs/Web/HTML) Element ist ein generischer Inline-Co
 
 ```css interactive-example
 span.ingredient {
-  color: #f00;
+  color: red;
 }
 ```
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiel
 
@@ -82,7 +82,7 @@ li span {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Textinhalt</a
@@ -99,22 +99,22 @@ li span {
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
+      <td>Keine, sowohl Anfangs- als auch End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Elternelemente</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Textinhalt</a
-        > akzeptiert oder jedes Element, das
+        > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -123,7 +123,7 @@ li span {
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -144,4 +144,4 @@ li span {
 
 ## Siehe auch
 
-- HTML {{HTMLElement("div")}} Element
+- HTML-{{HTMLElement("div")}}-Element

@@ -3,12 +3,12 @@ title: "ToggleEvent: source-Eigenschaft"
 short-title: source
 slug: Web/API/ToggleEvent/source
 l10n:
-  sourceCommit: 303832e855634fdd74108d4a77c0654e9194ea24
+  sourceCommit: 49ff45bcbfa9a0ebe439338b0a88ea1549386e62
 ---
 
-{{APIRef("Popover API")}}
+{{APIRef("Popover API")}}{{SeeCompatTable}}
 
-Die **`source`** schreibgeschützte Eigenschaft der [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Schnittstelle ist eine [`Element`](/de/docs/Web/API/Element)-Objektinstanz, die das HTML-Popover-Steuerelement darstellt, das das Umschalten initiiert hat.
+Die schreibgeschützte Eigenschaft **`source`** der [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Schnittstelle ist eine [`Element`](/de/docs/Web/API/Element)-Objektinstanz, die das HTML-Popover-Steuerelement darstellt, das das Umschalten initiiert hat.
 
 ## Wert
 
@@ -16,27 +16,25 @@ Eine [`Element`](/de/docs/Web/API/Element)-Objektinstanz oder `null`, wenn das P
 
 ## Beschreibung
 
-Ein {{htmlelement("button")}}-Element kann als Popover-Steuerelement festgelegt werden, indem die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des Popover-Elements in seinem [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor)- oder [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut angegeben wird (wenn der Button mit `<input type="button">` spezifiziert wird, funktioniert nur das `popovertarget`-Attribut).
+Ein {{htmlelement("button")}}-Element kann als Popover-Steuerung festgelegt werden, indem die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des Popover-Elements im [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor)- oder [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut angegeben wird (wenn der Button mit `<input type="button">` spezifiziert wird, funktioniert nur das `popovertarget`-Attribut).
 
-Wenn das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis auf dem Popover ausgelöst wird, enthält die `source`-Eigenschaft des `ToggleEvent`-Ereignisobjekts eine Referenz auf den Popover-Steuerungsbutton, der das Umschalten initiiert hat. Dies ist nützlich, um unterschiedlichen Code als Reaktion auf das `toggle`-Ereignis auszuführen, je nachdem, welches Steuerungselement es initiiert hat (siehe ein [Beispiel](#basic_source_usage)).
+Wenn das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis auf dem Popover ausgelöst wird, enthält die `source`-Eigenschaft des `ToggleEvent`-Ereignisobjekts eine Referenz auf den Popover-Steuerungsbutton, der das Umschalten initiiert hat. Dies ist nützlich, um unterschiedlichen Code als Reaktion auf das `toggle`-Ereignis auszuführen, abhängig davon, welches Steuerelement es initiiert hat (siehe ein [Beispiel](#basic_source_usage)).
 
-Bevor die `source`-Eigenschaft verfügbar war, mussten Entwickler die `command`-Attributfunktionalität von Grund auf neu implementieren, um einen ähnlichen Identifikator bereitzustellen und diesen dann mit JavaScript zu überwachen, um zu wissen, welcher Button das Popover aufgerufen hat.
-Darüber hinaus bestand die Gefahr, dass solche JavaScript-Aufgaben das Anzeigen oder Verbergen des Popovers blockierten.
-Das `toggle`-Ereignis ist asynchron und vermeidet daher dieses Problem.
+Bevor die `source`-Eigenschaft verfügbar war, mussten Entwickler die Funktionalität des `command`-Attributs von Grund auf neu implementieren, um eine ähnliche Kennung bereitzustellen, und dann mit JavaScript überwachen, welcher Button das Popover aufgerufen hat. Zusätzlich bestand die Gefahr, dass solche JavaScript-Aufgaben das Anzeigen oder Verbergen des Popovers blockieren. Das `toggle`-Ereignis ist asynchron und vermeidet daher dieses Problem.
 
-Wenn das Popover nicht durch einen Steuerungsbutton aktiviert wurde — zum Beispiel, wenn das Popover mithilfe einer JavaScript-Methode wie [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) gesteuert wird — gibt die `source`-Eigenschaft `null` zurück.
+Wenn das Popover nicht durch einen Steuer-Button aktiviert wurde – zum Beispiel, wenn das Popover mithilfe einer JavaScript-Methode wie [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) gesteuert wird – gibt die `source`-Eigenschaft `null` zurück.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `source`
+### Grundlegende Nutzung der `source`-Eigenschaft
 
-Dieses Demo zeigt, wie die `source`-Eigenschaft verwendet wird, um je nach verwendetem Steuerungsbutton eine andere Aktion auszuführen, um ein Popover zu schließen.
+Diese Demo zeigt, wie die `source`-Eigenschaft verwendet wird, um je nach dem verwendeten Steuerschalter eine andere Aktion durchzuführen, um ein Popover zu schließen.
 
 #### HTML
 
-Unser Markup enthält ein `<button>`, ein {{htmlelement("p")}} und ein {{htmlelement("div")}}-Element. Das `<div>` ist als [`auto` Popover](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) festgelegt, und der Button ist als Steuerung zur Anzeige des Popovers mit den [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor)- und [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-Attributen festgelegt.
+Unser Markup enthält ein `<button>`, ein {{htmlelement("p")}} und ein {{htmlelement("div")}}-Element. Das `<div>` ist als [`auto`-Popover](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) gekennzeichnet, und der Button ist mit den Attributen [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) und [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) als Steuerung für das Anzeigen des Popovers gekennzeichnet.
 
-Das Popover enthält eine Überschrift, die den Benutzer fragt, ob er einen Cookie möchte, und zwei Buttons, die es dem Benutzer erlauben, "ja" oder "nein" zu wählen. Jeder dieser Buttons ist als Steuerung zum Verbergen des Popovers festgelegt.
+Das Popover enthält eine Überschrift, die den Benutzer fragt, ob er einen Keks möchte, und zwei Buttons, die ihm erlauben, "ja" oder "nein" auszuwählen. Jeder dieser Buttons ist als Steuerung zum Verbergen des Popovers festgelegt.
 
 ```html live-sample___toggleevent-source
 <button commandfor="popover" command="show-popover">
@@ -68,7 +66,7 @@ html {
 
 #### JavaScript
 
-In unserem Skript beginnen wir damit, Referenzen auf die "ja"- und "nein"-Buttons, das Popover und das Ausgabeelement `<p>` zu holen.
+In unserem Skript beginnen wir damit, Referenzen auf die "ja" und "nein" Buttons, das Popover und das Ausgabeelement `<p>` zu erhalten.
 
 ```js live-sample___toggleevent-source
 const yesBtn = document.getElementById("yes");
@@ -77,7 +75,7 @@ const popover = document.getElementById("popover");
 const output = document.getElementById("output");
 ```
 
-Wir fügen dann eine Funktionserkennung hinzu, um zu ermitteln, ob das HTML `command`-Attribut unterstützt wird und ob die `source`-Eigenschaft unterstützt wird. Wenn eines von beiden nicht unterstützt wird, geben wir eine entsprechende Nachricht an das Ausgabeelement `<p>` aus. Wenn beide unterstützt werden, fügen wir dem Popover einen [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignislistener hinzu. Wenn dieser ausgelöst wird, wird überprüft, ob der "ja"- oder "nein"-Button verwendet wurde, um das Popover umzuschalten (zu verbergen); in jedem Fall wird eine entsprechende Nachricht an das Ausgabeelement `<p>` ausgegeben.
+Dann fügen wir eine Funktionsüberprüfung hinzu, um zu erkennen, ob das HTML `command`-Attribut und die `source`-Eigenschaft unterstützt werden. Falls eines von beiden nicht unterstützt wird, geben wir eine entsprechende Nachricht im Ausgabeelement `<p>` aus. Falls beide unterstützt werden, fügen wir dem Popover einen [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignislistener hinzu. Beim Auslösen wird überprüft, ob der "ja" oder "nein" Button verwendet wurde, um das Popover umzuschalten (zu verbergen); eine entsprechende Nachricht wird in jedem Fall im Ausgabeelement `<p>` ausgegeben.
 
 ```js live-sample___toggleevent-source
 if (yesBtn.command === undefined) {

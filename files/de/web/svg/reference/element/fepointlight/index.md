@@ -2,14 +2,14 @@
 title: <fePointLight>
 slug: Web/SVG/Reference/Element/fePointLight
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`<fePointLight>`** [SVG](/de/docs/Web/SVG) Filterprimitiv definiert eine Lichtquelle, die es ermöglicht, einen Punktlichteffekt zu erzeugen. Es kann innerhalb eines Lichtfilterprimitivs verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Der **`<fePointLight>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert eine Lichtquelle, die einen Punktlichteffekt erzeugen kann. Es kann innerhalb eines Beleuchtungs-Filter-Primitives verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
-Wie andere Filterprimitive verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -19,9 +19,9 @@ Wie andere Filterprimitive verarbeitet es Farbkomponenten standardmäßig im `li
 - {{SVGAttr("y")}}
 - {{SVGAttr("z")}}
 
-## DOM-Interface
+## DOM-Schnittstelle
 
-Dieses Element implementiert das [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement) Interface.
+Dieses Element implementiert die [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement) Schnittstelle.
 
 ## Beispiel
 
@@ -39,7 +39,7 @@ Dieses Element implementiert das [`SVGFEPointLightElement`](/de/docs/Web/API/SVG
         result="spotlight"
         specularConstant="1.5"
         specularExponent="80"
-        lighting-color="#FFF">
+        lighting-color="white">
         <fePointLight x="50" y="50" z="220" />
       </feSpecularLighting>
       <feComposite

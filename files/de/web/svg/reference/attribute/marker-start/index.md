@@ -2,17 +2,17 @@
 title: marker-start
 slug: Web/SVG/Reference/Attribute/marker-start
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
 Das **`marker-start`** Attribut definiert den Pfeilkopf oder Polymarker, der am ersten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Reference/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. In diesem Fall, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, werden zwei Marker an diesem letzten Scheitelpunkt dargestellt. Für `<path>`-Elemente, für jeden geschlossenen Unterpfad, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. `marker-start` wird nur am ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) dargestellt.
+Bei allen Formelementen, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. In diesem Fall werden, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, zwei Marker an diesem letzten Scheitelpunkt gerendert. Bei `<path>` Elementen gilt, dass für jeden geschlossenen Teilpfad der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt ist. `marker-start` wird nur am ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `marker-start` auch ein entsprechendes CSS-Attribut: {{cssxref("marker-start")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
+> Als Präsentationsattribut hat `marker-start` auch ein entsprechendes CSS-Property: {{cssxref("marker-start")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -44,7 +44,7 @@ svg {
       markerWidth="10"
       markerHeight="10"
       orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f00" />
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="red" />
     </marker>
   </defs>
   <polyline
@@ -57,7 +57,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Verwendungshinweise
+## Nutzungsnotizen
 
 <table class="properties">
   <tbody>
@@ -94,4 +94,4 @@ svg {
 - {{SVGElement("marker")}}
 - {{SVGAttr("marker-end")}}
 - {{SVGAttr("marker-mid")}}
-- CSS {{cssxref('marker-start')}} Eigenschaft
+- CSS {{cssxref('marker-start')}}-Eigenschaft

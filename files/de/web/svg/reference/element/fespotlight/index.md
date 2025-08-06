@@ -2,14 +2,14 @@
 title: <feSpotLight>
 slug: Web/SVG/Reference/Element/feSpotLight
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`<feSpotLight>`** [SVG](/de/docs/Web/SVG) Filterprimitive definiert eine Lichtquelle, die verwendet werden kann, um einen Spotlight-Effekt zu erzeugen. Es wird innerhalb eines Lichtfilter-Primitives genutzt: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Die **`<feSpotLight>`** [SVG](/de/docs/Web/SVG) Filterprimitive definiert eine Lichtquelle, die verwendet werden kann, um einen Spotlichteffekt zu erzeugen. Sie wird innerhalb einer Lichtfilter-Primitive verwendet: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
-Wie andere Filterprimitiven, verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filterprimitiven behandelt sie Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -24,9 +24,9 @@ Wie andere Filterprimitiven, verarbeitet es Farbkomponenten standardmäßig im `
 - {{SVGAttr("specularExponent")}}
 - {{SVGAttr("limitingConeAngle")}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) Schnittstelle.
+Dieses Element implementiert das [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) Interface.
 
 ## Beispiel
 
@@ -44,7 +44,7 @@ Dieses Element implementiert die [`SVGFESpotLightElement`](/de/docs/Web/API/SVGF
         result="spotlight"
         specularConstant="1.5"
         specularExponent="4"
-        lighting-color="#FFF">
+        lighting-color="white">
         <feSpotLight x="600" y="600" z="400" limitingConeAngle="5.5" />
       </feSpecularLighting>
       <feComposite

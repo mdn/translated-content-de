@@ -2,12 +2,12 @@
 title: Beispiel
 slug: Web/SVG/Guides/Namespaces_crash_course/Example
 l10n:
-  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um ein Schwarm von "Motes" zu animieren. Diese Motes werden durch zwei grundlegende Prinzipien gesteuert. Erstens versucht jedes Mote, sich auf den Mauszeiger zuzubewegen, und zweitens versucht jedes Mote, sich vom durchschnittlichen Mote-Standort zu entfernen. Kombiniert ergibt das dieses sehr natürlich aussehende Verhalten.
+In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese "Motes" folgen zwei grundlegenden Prinzipien. Erstens versucht jedes Mote, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Mote, sich von der durchschnittlichen Mote-Position zu entfernen. Kombiniert ergibt dies ein sehr natürlich aussehendes Verhalten.
 
-[Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den Best Practices von 2006 geschrieben. Das folgende Beispiel wurde auf moderne JavaScript-Best Practices aktualisiert. Beide funktionieren.
+[Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den Best Practices von 2006 erstellt. Das folgende Beispiel wurde auf die modernen JavaScript-Best Practices aktualisiert. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>
@@ -38,7 +38,7 @@ br {
   <body onload='update()'>
     <svg:svg id='display' width='400' height='300'>
       <svg:circle id='cursor' cx='200'
-cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
+cy='150' r='7' fill='blue' fill-opacity='0.5'/>
     </svg:svg>
 
     <p>A swarm of motes, governed by two basic principles.

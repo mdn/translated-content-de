@@ -2,10 +2,10 @@
 title: <input type="button">
 slug: Web/HTML/Reference/Elements/input/button
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-{{HTMLElement("input")}}-Elemente vom Typ **`button`** werden als Schaltflächen dargestellt, die programmiert werden können, um benutzerdefinierte Funktionen überall auf der Webseite zu steuern, wenn ihnen eine Ereignis-Handler-Funktion zugewiesen wird (typischerweise für das [`click`](/de/docs/Web/API/Element/click_event) Ereignis).
+{{HTMLElement("input")}} Elemente des Typs **`button`** werden als Druckknöpfe dargestellt, die programmiert werden können, um benutzerdefinierte Funktionalitäten an beliebiger Stelle auf einer Webseite zu steuern, wenn eine Ereignisbehandlungsfunktion (typischerweise für das [`click`](/de/docs/Web/API/Element/click_event) Ereignis) zugewiesen wird.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;button&quot;&gt;", "tabbed-shorter")}}
 
@@ -20,15 +20,15 @@ l10n:
   padding: 0 20px;
   font-size: 1rem;
   text-align: center;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
+  color: white;
+  text-shadow: 1px 1px 1px black;
   border-radius: 10px;
-  background-color: rgb(220 0 0 / 100%);
+  background-color: tomato;
   background-image: linear-gradient(
     to top left,
     rgb(0 0 0 / 20%),
     rgb(0 0 0 / 20%) 30%,
-    rgb(0 0 0 / 0%)
+    transparent
   );
   box-shadow:
     inset 2px 2px 3px rgb(255 255 255 / 60%),
@@ -36,7 +36,7 @@ l10n:
 }
 
 .styled:hover {
-  background-color: rgb(255 0 0 / 100%);
+  background-color: red;
 }
 
 .styled:active {
@@ -47,13 +47,13 @@ l10n:
 ```
 
 > [!NOTE]
-> Obwohl `<input>`-Elemente vom Typ `button` immer noch vollkommen gültiges HTML sind, ist das neuere {{HTMLElement("button")}}-Element jetzt die bevorzugte Methode, um Schaltflächen zu erstellen. Da der Text des Labels eines {{HTMLElement("button")}} zwischen den öffnenden und schließenden Tags eingefügt wird, können Sie HTML im Label verwenden, sogar Bilder.
+> Während `<input>` Elemente des Typs `button` immer noch vollständig gültiges HTML sind, ist das neuere {{HTMLElement("button")}} Element jetzt die bevorzugte Methode, um Schaltflächen zu erstellen. Da der Beschriftungstext eines {{HTMLElement("button")}} zwischen den öffnenden und schließenden Tags eingefügt wird, können Sie HTML in die Beschriftung aufnehmen, sogar Bilder.
 
 ## Wert
 
-### Schaltfläche mit einem Wert
+### Button mit einem Wert
 
-Das `value`-Attribut eines `<input type="button">`-Elements enthält eine Zeichenkette, die als Label der Schaltfläche verwendet wird. Der `value` bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für die Schaltfläche.
+Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) Attribut eines `<input type="button">` Elements enthält einen String, der als Beschriftung der Schaltfläche verwendet wird. Der `value` bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für die Schaltfläche.
 
 ```html
 <input type="button" value="Click Me" />
@@ -61,7 +61,7 @@ Das `value`-Attribut eines `<input type="button">`-Elements enthält eine Zeiche
 
 {{EmbedLiveSample("Button_with_a_value", 650, 30)}}
 
-### Schaltfläche ohne Wert
+### Button ohne Wert
 
 Wenn Sie keinen `value` angeben, erhalten Sie eine leere Schaltfläche:
 
@@ -73,11 +73,11 @@ Wenn Sie keinen `value` angeben, erhalten Sie eine leere Schaltfläche:
 
 ## Verwendung von Schaltflächen
 
-`<input type="button">`-Elemente haben kein Standardverhalten (ihre Verwandten, `<input type="submit">` und [`<input type="reset">`](/de/docs/Web/HTML/Reference/Elements/input/reset), werden verwendet, um Formulare abzusenden und zurückzusetzen). Um die Schaltflächen etwas tun zu lassen, müssen Sie JavaScript-Code schreiben, der die Arbeit erledigt.
+`<input type="button">` Elemente haben kein Standardverhalten (ihre Verwandten, `<input type="submit">` und [`<input type="reset">`](/de/docs/Web/HTML/Reference/Elements/input/reset) werden jeweils verwendet, um Formulare zu senden und zurückzusetzen). Um Schaltflächen nützlich zu machen, müssen Sie JavaScript-Code schreiben, um die Arbeit zu erledigen.
 
-### Eine einfache Schaltfläche
+### Eine grundlegende Schaltfläche
 
-Wir beginnen mit der Erstellung einer einfachen Schaltfläche mit einem [`click`](/de/docs/Web/API/Element/click_event)-Ereignis-Handler, der unsere Maschine startet (bzw. den `value` der Schaltfläche und den Textinhalt des folgenden Absatzes umschaltet):
+Wir beginnen mit der Erstellung einer grundlegenden Schaltfläche mit einem [`click`](/de/docs/Web/API/Element/click_event) Ereignis-Handler, der unsere Maschine startet (nun, er wechselt den `value` der Schaltfläche und den Textinhalt des folgenden Absatzes):
 
 ```html
 <form>
@@ -103,15 +103,15 @@ function updateButton() {
 }
 ```
 
-Das Skript erhält eine Referenz auf das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, das das `<input>` im DOM darstellt, und speichert diese Referenz in der Variablen `button`. [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) wird dann verwendet, um eine Funktion zu etablieren, die ausgeführt wird, wenn [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse auf der Schaltfläche auftreten.
+Das Skript erhält eine Referenz auf das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Objekt, das das `<input>` im DOM repräsentiert, und speichert diese Referenz in der Variablen `button`. [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) wird dann verwendet, um eine Funktion festzulegen, die ausgeführt wird, wenn [`click`](/de/docs/Web/API/Element/click_event) Ereignisse auf der Schaltfläche auftreten.
 
 {{EmbedLiveSample("A_basic_button", 650, 100)}}
 
 ### Hinzufügen von Tastenkombinationen zu Schaltflächen
 
-Tastenkombinationen, auch als Zugriffsschlüssel und Tastaturäquivalente bekannt, ermöglichen dem Benutzer das Auslösen einer Schaltfläche über eine Taste oder Kombination von Tasten auf der Tastatur. Um einer Schaltfläche eine Tastenkombination hinzuzufügen – genau so, wie Sie es bei jedem {{HTMLElement("input")}} tun würden, bei dem es sinnvoll ist – verwenden Sie das globale Attribut [`accesskey`](/de/docs/Web/HTML/Reference/Global_attributes/accesskey).
+Tastenkombinationen, auch als Zugriffstasten und Tastaturäquivalente bekannt, ermöglichen es dem Benutzer, eine Schaltfläche durch Drücken einer Taste oder einer Tastenkombination auszulösen. Um einer Schaltfläche eine Tastenkombination hinzuzufügen - so wie bei jedem {{HTMLElement("input")}}, für das es sinnvoll ist - verwenden Sie das [`accesskey`](/de/docs/Web/HTML/Reference/Global_attributes/accesskey) globale Attribut.
 
-In diesem Beispiel ist <kbd>s</kbd> als Zugriffsschlüssel angegeben (Sie müssen <kbd>s</kbd> plus die besonderen Modifier-Tasten für Ihre Browser-/Betriebssystem-Kombination drücken; siehe [accesskey](/de/docs/Web/HTML/Reference/Global_attributes/accesskey) für eine nützliche Liste dieser).
+In diesem Beispiel wird <kbd>s</kbd> als Zugriffstaste angegeben (Sie müssen <kbd>s</kbd> zusammen mit den speziellen Modifikatortasten für Ihre Browser-/OS-Kombination drücken; siehe [accesskey](/de/docs/Web/HTML/Reference/Global_attributes/accesskey) für eine nützliche Liste davon).
 
 ```html
 <form>
@@ -140,19 +140,19 @@ function updateButton() {
 {{EmbedLiveSample("Adding_keyboard_shortcuts_to_buttons", 650, 100)}}
 
 > [!NOTE]
-> Das Problem mit dem obigen Beispiel ist natürlich, dass der Benutzer nicht weiß, was der Zugriffsschlüssel ist! Auf einer realen Seite müssten Sie diese Information auf eine Weise bereitstellen, die das Seitendesign nicht beeinträchtigt (zum Beispiel durch einen leicht zugänglichen Link, der auf Informationen zu den Zugriffsschlüsseln der Seite verweist).
+> Das Problem beim obigen Beispiel ist natürlich, dass der Benutzer nicht weiß, was die Zugriffstaste ist! Auf einer realen Seite müssten Sie diese Information auf eine Weise bereitstellen, die das Seitendesign nicht stört (zum Beispiel durch einen leicht zugänglichen Link, der auf Informationen verweist, welche Zugriffstasten die Seite hat).
 
 ### Deaktivieren und Aktivieren einer Schaltfläche
 
-Um eine Schaltfläche zu deaktivieren, geben Sie das globale Attribut [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) dafür an, wie folgt:
+Um eine Schaltfläche zu deaktivieren, geben Sie das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) globale Attribut an:
 
 ```html
 <input type="button" value="Disable me" disabled />
 ```
 
-#### Setzen des disabled-Attributs
+#### Festlegen des disabled-Attributs
 
-Sie können Schaltflächen zur Laufzeit aktivieren und deaktivieren, indem Sie `disabled` auf `true` oder `false` setzen. In diesem Beispiel beginnt unsere Schaltfläche im aktivierten Zustand, aber wenn Sie sie drücken, wird sie durch `button.disabled = true` deaktiviert. Eine [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-Funktion wird dann verwendet, um die Schaltfläche nach zwei Sekunden wieder in ihren aktivierten Zustand zurückzusetzen.
+Sie können Schaltflächen zur Laufzeit aktivieren und deaktivieren, indem Sie `disabled` auf `true` oder `false` setzen. In diesem Beispiel beginnt unsere Schaltfläche aktiviert, aber wenn Sie darauf drücken, wird sie mit `button.disabled = true` deaktiviert. Eine [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) Funktion wird dann verwendet, um die Schaltfläche nach zwei Sekunden wieder in den aktivierten Zustand zu versetzen.
 
 ```html
 <input type="button" value="Enabled" />
@@ -175,11 +175,11 @@ function disableButton() {
 
 {{EmbedLiveSample("Setting_the_disabled_attribute", 650, 60)}}
 
-#### Vererbung des deaktivierten Status
+#### Vererbung des deaktivierten Zustands
 
-Wenn das `disabled`-Attribut nicht angegeben ist, erbt die Schaltfläche ihren `disabled`-Status von ihrem Elternelement. Damit ist es möglich, Gruppen von Elementen auf einmal zu aktivieren oder zu deaktivieren, indem Sie sie in einem Container wie einem {{HTMLElement("fieldset")}}-Element umschließen und dann `disabled` auf den Container setzen.
+Wenn das `disabled` Attribut nicht angegeben ist, erbt die Schaltfläche ihren `disabled` Zustand von ihrem Elternelement. Dies ermöglicht es, Gruppen von Elementen gleichzeitig zu aktivieren und zu deaktivieren, indem sie in einem Container wie einem {{HTMLElement("fieldset")}} Element eingeschlossen werden, und dann `disabled` auf dem Container gesetzt wird.
 
-Das unten stehende Beispiel zeigt dies in Aktion. Dies ist dem vorherigen Beispiel sehr ähnlich, außer dass das `disabled`-Attribut auf dem `<fieldset>` gesetzt wird, wenn die erste Schaltfläche gedrückt wird — dies führt dazu, dass alle drei Schaltflächen deaktiviert werden, bis die zwei Sekunden Timeout vergangen sind.
+Das folgende Beispiel zeigt dies in Aktion. Dies ist dem vorherigen Beispiel sehr ähnlich, außer dass das `disabled` Attribut auf dem `<fieldset>` gesetzt wird, wenn die erste Schaltfläche gedrückt wird - dies bewirkt, dass alle drei Schaltflächen deaktiviert sind, bis die Zwei-Sekunden-Zeitüberschreitung abgelaufen ist.
 
 ```html
 <fieldset>
@@ -207,15 +207,15 @@ function disableButton() {
 {{EmbedLiveSample("Inheriting_the_disabled_state", 650, 100)}}
 
 > [!NOTE]
-> Anders als andere Browser behält Firefox den `disabled`-Zustand eines `<input>`-Elements auch nach dem Neuladen der Seite bei. Als Workaround setzen Sie das `autocomplete`-Attribut des `<input>`-Elements auf `off`. (Siehe [Firefox bug 654072](https://bugzil.la/654072) für weitere Details.)
+> Im Gegensatz zu anderen Browsern behält Firefox den `disabled` Zustand eines `<input>` Elements auch nach dem Neuladen der Seite bei. Als Workaround setzen Sie das `autocomplete` Attribut des `<input>` Elements auf `off`. (Siehe [Firefox bug 654072](https://bugzil.la/654072) für mehr Details.)
 
 ## Validierung
 
-Schaltflächen sind nicht an Einschränkungsvalidierung beteiligt; sie haben keinen echten Wert, der eingeschränkt werden könnte.
+Schaltflächen nehmen nicht an der Einschränkungsvalidierung teil; sie haben keinen realen Wert, der eingeschränkt werden könnte.
 
 ## Beispiele
 
-Das unten stehende Beispiel zeigt eine sehr grundlegende Zeichenanwendung, die mit einem {{htmlelement("canvas")}}-Element und etwas CSS und JavaScript erstellt wurde (wir blenden das CSS der Kürze halber aus). Die beiden oberen Bedienelemente ermöglichen Ihnen, die Farbe und Größe des Zeichenstiftes auszuwählen. Die Schaltfläche, wenn sie angeklickt wird, ruft eine Funktion auf, die die Leinwand löscht.
+Das untenstehende Beispiel zeigt eine sehr einfache Zeichen-App, die mit einem {{htmlelement("canvas")}} Element und etwas CSS und JavaScript erstellt wurde (wir verbergen das CSS der Kürze halber). Die oberen beiden Steuerelemente ermöglichen es Ihnen, die Farbe und Größe des Zeichenstifts auszuwählen. Die Schaltfläche, wenn geklickt, ruft eine Funktion auf, die die Leinwand löscht.
 
 ```html
 <div class="toolbar">
@@ -343,14 +343,14 @@ draw();
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
-      <td>Eine Zeichenkette, die als Label der Schaltfläche verwendet wird</td>
+      <td>Ein String, der als Beschriftung der Schaltfläche verwendet wird</td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
       <td>[`click`](/de/docs/Web/API/Element/click_event)</td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gewöhnliche Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/HTML/Reference/Elements/input#type"><code>type</code></a> und
         <a href="/de/docs/Web/HTML/Reference/Elements/input#value"><code>value</code></a>
@@ -361,7 +361,7 @@ draw();
       <td><code>value</code></td>
     </tr>
     <tr>
-      <td><strong>DOM-Schnittstelle</strong></td>
+      <td><strong>DOM-Interface</strong></td>
       <td><p>[`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)</p></td>
     </tr>
     <tr>
@@ -385,5 +385,5 @@ draw();
 
 ## Siehe auch
 
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
-- Das modernere {{HTMLElement("button")}}-Element.
+- {{HTMLElement("input")}} und das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interface, das es implementiert.
+- Das modernere {{HTMLElement("button")}} Element.

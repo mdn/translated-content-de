@@ -2,15 +2,15 @@
 title: marker-mid
 slug: Web/SVG/Reference/Attribute/marker-mid
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`marker-mid`** Attribut definiert den Pfeilkopf oder Polymarker, der an allen inneren Scheitelpunkten der angegebenen [Form](/de/docs/Web/SVG/Reference/Element#shape_elements) gezeichnet wird.
+Das **`marker-mid`** Attribut definiert die Pfeilspitze oder den Polymarker, der an allen inneren Ecken der gegebenen [Form](/de/docs/Web/SVG/Reference/Element#shape_elements) gezeichnet wird.
 
-Der Marker wird an jedem Scheitelpunkt gerendert, mit Ausnahme der ersten und letzten Scheitelpunkte der [Pfaddaten](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
+Der Marker wird an jedem Eckpunkt mit Ausnahme des ersten und letzten Eckpunkts der [Pfad-Daten](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `marker-mid` auch ein entsprechendes CSS-Property: {{cssxref("marker-mid")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `marker-mid` auch eine entsprechende CSS-Eigenschaft: {{cssxref("marker-mid")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -36,7 +36,7 @@ svg {
 <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4">
-      <circle cx="4" cy="4" r="4" stroke="none" fill="#f00" />
+      <circle cx="4" cy="4" r="4" stroke="none" fill="red" />
     </marker>
   </defs>
   <polyline
@@ -49,7 +49,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Gebrauchshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -69,9 +69,9 @@ svg {
 </table>
 
 - `none`
-  - : Gibt an, dass kein Markersymbol an den angegebenen Scheitelpunkten gezeichnet wird.
+  - : Gibt an, dass an den angegebenen Eckpunkten kein Markersymbol gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, das an den angegebenen Scheitelpunkten gezeichnet wird. Wenn der Verweis nicht gültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, das an den angegebenen Eckpunkten gezeichnet wird. Ist der Verweis ungültig, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 

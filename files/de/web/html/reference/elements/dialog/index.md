@@ -2,71 +2,71 @@
 title: "<dialog>: Das Dialog-Element"
 slug: Web/HTML/Reference/Elements/dialog
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`<dialog>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert ein modales oder nicht-modales Dialogfenster oder eine andere interaktive Komponente, wie z.B. eine entlassbare Warnung, einen Inspektor oder ein Unterfenster.
+Das **`<dialog>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert eine modale oder nicht-modale Dialogbox oder andere interaktive Komponenten, wie beispielsweise eine ausblendbare Warnung, einen Inspektor oder ein Unterfenster.
 
-Das HTML `<dialog>`-Element wird verwendet, um sowohl modale als auch nicht-modale Dialogfenster zu erstellen. Modale Dialogfenster unterbrechen die Interaktion mit dem Rest der Seite, während nicht-modale Dialogfenster eine Interaktion mit dem Rest der Seite erlauben.
+Das HTML `<dialog>`-Element wird zur Erstellung sowohl von modalen als auch von nicht-modalen Dialogboxen verwendet. Modale Dialogboxen unterbrechen die Interaktion mit dem Rest der Seite, während nicht-modale Dialogboxen die Interaktion mit dem Rest der Seite zulassen.
 
-JavaScript sollte verwendet werden, um das `<dialog>`-Element anzuzeigen. Verwenden Sie die [`.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode, um ein modales Dialogfeld anzuzeigen und die [`.show()`](/de/docs/Web/API/HTMLDialogElement/show)-Methode, um ein nicht-modales Dialogfeld anzuzeigen. Das Dialogfeld kann mit der [`.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode oder mit der [`dialog`](/de/docs/Web/HTML/Reference/Elements/form#method)-Methode geschlossen werden, wenn Sie ein `<form>` einreichen, das im `<dialog>`-Element eingebettet ist. Modale Dialoge können auch durch Drücken der <kbd>Esc</kbd>-Taste geschlossen werden.
+JavaScript sollte verwendet werden, um das `<dialog>`-Element anzuzeigen. Verwenden Sie die [`.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode, um einen modalen Dialog anzuzeigen, und die [`.show()`](/de/docs/Web/API/HTMLDialogElement/show)-Methode, um einen nicht-modalen Dialog anzuzeigen. Die Dialogbox kann mit der [`.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode oder der [`dialog`](/de/docs/Web/HTML/Reference/Elements/form#method)-Methode geschlossen werden, wenn ein `<form>`, das innerhalb des `<dialog>`-Elements eingebettet ist, gesendet wird. Modale Dialoge können auch durch Drücken der <kbd>Esc</kbd>-Taste geschlossen werden.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 > [!WARNING]
-> Das `tabindex`-Attribut darf nicht auf dem `<dialog>`-Element verwendet werden. Siehe [Hinweise zur Verwendung](#verwendungshinweise).
+> Das `tabindex`-Attribut darf nicht auf dem `<dialog>`-Element verwendet werden. Siehe [Nutzungshinweise](#nutzungshinweise).
 
 - `closedby`
-  - : Gibt die Arten von Benutzeraktionen an, mit denen das `<dialog>`-Element geschlossen werden kann. Dieses Attribut unterscheidet drei Methoden, mit denen ein Dialog geschlossen werden könnte:
-    - Eine _leichte Entlassungs-Benutzeraktion_, bei der das `<dialog>` geschlossen wird, wenn der Benutzer außerhalb klickt oder tippt. Dies entspricht dem ["light dismiss"-Verhalten von "Auto"-Zustands-Popovers](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss).
-    - Eine _plattformspezifische Benutzeraktion_, wie das Drücken der <kbd>Esc</kbd>-Taste auf Desktop-Plattformen oder eine "zurück" oder "ablehnen" Geste auf mobilen Plattformen.
-    - Ein vom Entwickler vorgegebener Mechanismus, wie ein {{htmlelement("button")}} mit einem [`click`](/de/docs/Web/API/Element/click_event)-Handler, der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) oder eine {{htmlelement("form")}}-Einreichung aufruft.
+  - : Gibt die Arten von Benutzeraktionen an, die zum Schließen des `<dialog>`-Elements verwendet werden können. Dieses Attribut unterscheidet drei Methoden, mit denen ein Dialog geschlossen werden kann:
+    - Eine _leichte Ausblend-Benutzeraktion_, bei der das `<dialog>` geschlossen wird, wenn der Benutzer außerhalb davon klickt oder tippt. Dies entspricht dem ["leichten Ausblend"-Verhalten von "Auto"-Status-Popovers](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss).
+    - Eine _plattformspezifische Benutzeraktion_, wie das Drücken der <kbd>Esc</kbd>-Taste auf Desktop-Plattformen oder eine "Zurück"- oder "Ausblende"-Geste auf Mobilplattformen.
+    - Ein vom Entwickler spezifizierter Mechanismus wie ein {{htmlelement("button")}} mit einem [`click`](/de/docs/Web/API/Element/click_event)-Handler, der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) aufruft, oder eine {{htmlelement("form")}}-Einreichung.
 
     Mögliche Werte sind:
     - `any`
-      - : Der Dialog kann mit einer der drei Methoden geschlossen werden.
+      - : Der Dialog kann mit einer der drei Methoden ausgeblendet werden.
     - `closerequest`
       - : Der Dialog kann mit einer plattformspezifischen Benutzeraktion oder einem vom Entwickler spezifizierten Mechanismus geschlossen werden.
     - `none`
       - : Der Dialog kann nur mit einem vom Entwickler spezifizierten Mechanismus geschlossen werden.
 
-    Wenn das `<dialog>`-Element keinen gültigen `closedby`-Wert angibt, dann
-    - verhält es sich, als ob der Wert `"closerequest"` wäre, wenn es mit [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde.
-    - andernfalls verhält es sich, als wäre der Wert `"none"`.
+    Wenn das `<dialog>`-Element keinen gültigen `closedby`-Wert angegeben hat, dann:
+    - Wenn es mit [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde, verhält es sich, als wäre der Wert `"closerequest"`
+    - Andernfalls verhält es sich, als wäre der Wert `"none"`.
 
 - `open`
-  - : Gibt an, dass das Dialogfeld aktiv ist und zur Interaktion zur Verfügung steht. Wenn das `open`-Attribut nicht gesetzt ist, wird das Dialogfeld für den Benutzer nicht sichtbar sein.
-    Es wird empfohlen, die `.show()` oder `.showModal()`-Methode zu verwenden, um Dialoge darzustellen, anstatt das `open`-Attribut zu verwenden. Wenn ein `<dialog>` mit dem `open`-Attribut geöffnet wird, ist es nicht modal.
+  - : Zeigt an, dass die Dialogbox aktiv ist und zur Interaktion zur Verfügung steht. Wenn das `open`-Attribut nicht gesetzt ist, wird die Dialogbox nicht für den Nutzer sichtbar sein.
+    Es wird empfohlen, die `.show()`- oder `.showModal()`-Methode zu verwenden, um Dialoge anzuzeigen, anstatt das `open`-Attribut. Wenn ein `<dialog>` mit dem `open`-Attribut geöffnet wird, ist es nicht modal.
 
     > [!NOTE]
-    > Während Sie zwischen den offenen und geschlossenen Zuständen von nicht-modalen Dialogfeldern wechseln können, indem Sie das Vorhandensein des `open`-Attributs umschalten, wird dieser Ansatz nicht empfohlen. Siehe [`open`](/de/docs/Web/API/HTMLDialogElement/open) für weitere Informationen.
+    > Obwohl Sie zwischen den offenen und geschlossenen Zuständen von nicht-modalen Dialogboxen wechseln können, indem Sie das Vorhandensein des `open`-Attributs umschalten, wird diese Methode nicht empfohlen. Siehe [`open`](/de/docs/Web/API/HTMLDialogElement/open) für weitere Informationen.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-- HTML {{HTMLElement("form")}}-Elemente können verwendet werden, um ein Dialogfeld zu schließen, wenn sie das Attribut `method="dialog"` haben oder wenn der Button, der das Formular absendet, [`formmethod="dialog"`](/de/docs/Web/HTML/Reference/Elements/input#formmethod) gesetzt hat. Wenn ein `<form>` innerhalb eines `<dialog>` über die `dialog`-Methode eingereicht wird, schließt sich das Dialogfeld, die Zustände der Formularelemente werden gespeichert, aber nicht gesendet und die [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) Eigenschaft wird auf den Wert des Buttons gesetzt, der aktiviert wurde.
-- Das CSS {{cssxref('::backdrop')}}-Pseudo-Element kann verwendet werden, um den Hintergrund eines modalen Dialogs zu stylen, der hinter dem `<dialog>`-Element angezeigt wird, wenn das Dialogfeld mit der [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode angezeigt wird. Zum Beispiel könnte dieses Pseudo-Element verwendet werden, um den inerten Inhalt hinter dem modalen Dialog zu verwischen, abzudunkeln oder anderweitig zu verschleiern.
-- Das [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-Attribut sollte zu dem Element hinzugefügt werden, mit dem der Benutzer sofort nach dem Öffnen eines modalen Dialogs interagieren soll. Wenn kein anderes Element eine unmittelbarere Interaktion erfordert, ist es ratsam, `autofocus` auf den Schließen-Button im Dialog oder auf den Dialog selbst zu setzen, wenn erwartet wird, dass der Benutzer auf ihn klickt/aktiviert, um ihn zu schließen.
-- Fügen Sie das `tabindex`-Attribut dem `<dialog>`-Element nicht hinzu, da es nicht interaktiv ist und keinen Fokus erhält. Der Inhalt des Dialogs, einschließlich des im Dialog enthaltenen Schließen-Buttons, kann den Fokus erhalten und interaktiv sein.
+- HTML {{HTMLElement("form")}}-Elemente können verwendet werden, um eine Dialogbox zu schließen, wenn sie das Attribut `method="dialog"` haben oder wenn der Button, der zum Absenden des Formulars verwendet wird, [`formmethod="dialog"`](/de/docs/Web/HTML/Reference/Elements/input#formmethod) gesetzt hat. Wenn ein `<form>` innerhalb eines `<dialog>` über die `dialog`-Methode gesendet wird, schließt die Dialogbox, die Zustände der Formularelemente werden gespeichert, aber nicht gesendet, und die [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue)-Eigenschaft wird auf den Wert des Buttons gesetzt, der aktiviert wurde.
+- Das CSS {{cssxref('::backdrop')}}-Pseudo-Element kann verwendet werden, um den Hintergrund eines modalen Dialogs zu stylen, der hinter dem `<dialog>`-Element angezeigt wird, wenn der Dialog mit der [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode angezeigt wird. Zum Beispiel könnte dieses Pseudo-Element verwendet werden, um den inerten Inhalt hinter dem modalen Dialog zu verwischen, zu verdunkeln oder anderweitig zu obskurieren.
+- Das [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-Attribut sollte zu dem Element hinzugefügt werden, mit dem der Benutzer unmittelbar nach dem Öffnen eines modalen Dialogs interagieren soll. Wenn kein anderes Element eine unmittelbarere Interaktion erfordert, wird empfohlen, `autofocus` dem Schließen-Knopf im Dialog hinzuzufügen, oder dem Dialog selbst, wenn der Benutzer erwartet wird, darauf zu klicken/aktivieren, um es auszublenden.
+- Fügen Sie dem `<dialog>`-Element nicht die Eigenschaft `tabindex` hinzu, da es nicht interaktiv ist und keinen Fokus erhält. Der Inhalt des Dialogs, einschließlich des Schließen-Knopfes, der im Dialog enthalten ist, kann den Fokus erhalten und interaktiv sein.
 
 ## Barrierefreiheit
 
-Beim Implementieren eines Dialogs ist es wichtig, den geeignetsten Ort für das Setzen des Benutzerfokus zu berücksichtigen. Wenn [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) verwendet wird, um ein `<dialog>` zu öffnen, wird der Fokus auf das erste verschachtelte fokussierbare Element gesetzt. Es wird empfohlen, den anfänglichen Fokus mit dem [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-Attribut ausdrücklich zu setzen, um sicherzustellen, dass der anfängliche Fokus auf dem Element gesetzt wird, das als bester anfänglicher Fokusplatz für einen bestimmten Dialog gilt. Wenn Unsicherheit besteht, da möglicherweise nicht immer bekannt ist, wo der anfängliche Fokus innerhalb eines Dialogs gesetzt werden könnte, insbesondere bei Instanzen, in denen der Inhalt eines Dialogs dynamisch beim Aufruf gerendert wird, könnte sich das `<dialog>`-Element selbst als der beste anfängliche Fokusplatz erweisen.
+Beim Implementieren eines Dialogs ist es wichtig, den am besten geeigneten Ort für den Benutzerfokus festzulegen. Wenn Sie [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) verwenden, um ein `<dialog>` zu öffnen, wird der Fokus auf das erste fokussierbare verschachtelte Element gesetzt. Die explizite Angabe der Anfangsfokusplatzierung durch das [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-Attribut hilft sicherzustellen, dass der Anfangsfokus auf das Element gesetzt wird, das als die beste Anfangsplatzierung für einen bestimmten Dialog angesehen wird. Wenn Sie unsicher sind, da es möglicherweise nicht immer bekannt ist, wo der Anfangsfokus innerhalb eines Dialogs gesetzt werden könnte, insbesondere in Fällen, in denen der Inhalt des Dialogs dynamisch beim Aufruf gerendert wird, könnte das `<dialog>`-Element selbst die beste Anfangsfokusplatzierung bieten.
 
-Stellen Sie sicher, dass eine Möglichkeit bereitgestellt wird, mit der Benutzer das Dialogfeld schließen können. Der robusteste Weg, sicherzustellen, dass alle Benutzer das Dialogfeld schließen können, besteht darin, eine explizite Schaltfläche dafür einzuschließen, wie eine Bestätigungs-, Abbruch- oder Schließen-Schaltfläche.
+Stellen Sie sicher, dass ein Mechanismus bereitgestellt wird, um den Benutzern das Schließen des Dialogs zu ermöglichen. Die robusteste Methode, um sicherzustellen, dass alle Benutzer den Dialog schließen können, besteht darin, einen expliziten Button dafür hinzuzufügen, wie beispielsweise einen Bestätigungs-, Abbruchs- oder Schließen-Button.
 
-Standardmäßig kann ein Dialog, der durch die `showModal()`-Methode ausgelöst wird, durch Drücken der <kbd>Esc</kbd>-Taste abgebrochen werden. Ein nicht-modales Dialogfeld wird standardmäßig nicht über die <kbd>Esc</kbd>-Taste geschlossen, und je nachdem, was das nicht-modale Dialogfeld darstellt, ist dieses Verhalten möglicherweise nicht erwünscht. Tastaturnutzer erwarten, dass die <kbd>Esc</kbd>-Taste modale Dialoge schließt; stellen Sie sicher, dass dieses Verhalten implementiert und beibehalten wird. Wenn mehrere modale Dialoge geöffnet sind, sollte das Drücken der <kbd>Esc</kbd>-Taste nur den zuletzt angezeigten Dialog schließen. Bei der Verwendung von `<dialog>` wird dieses Verhalten vom Browser bereitgestellt.
+Standardmäßig kann ein durch die `showModal()`-Methode aufgerufener Dialog durch Drücken der <kbd>Esc</kbd>-Taste geschlossen werden. Ein nicht-modaler Dialog wird standardmäßig nicht über die <kbd>Esc</kbd>-Taste geschlossen, und je nachdem, was der nicht-modale Dialog darstellt, ist dieses Verhalten möglicherweise nicht erwünscht. Tastaturanwender erwarten, dass die <kbd>Esc</kbd>-Taste modale Dialoge schließt; stellen Sie sicher, dass dieses Verhalten implementiert und aufrechterhalten wird. Wenn mehrere modale Dialoge geöffnet sind, sollte das Drücken der <kbd>Esc</kbd>-Taste nur den zuletzt gezeigten Dialog schließen. Beim Verwenden von `<dialog>` wird dieses Verhalten vom Browser bereitgestellt.
 
-Während Dialoge auch mit anderen Elementen erstellt werden können, bietet das native `<dialog>`-Element Benutzerfreundlichkeit und Zugänglichkeitsfunktionen, die repliziert werden müssen, wenn Sie andere Elemente für einen ähnlichen Zweck verwenden. Wenn Sie eine benutzerdefinierte Dialogimplementierung erstellen, stellen Sie sicher, dass alle erwarteten Standardverhaltensweisen unterstützt und ordnungsgemäße Beschriftungsempfehlungen befolgt werden.
+Obwohl Dialoge mit anderen Elementen erstellt werden können, bietet das native `<dialog>`-Element Benutzerfreundlichkeits- und Barrierefreiheitsfunktionen, die repliziert werden müssen, wenn Sie andere Elemente für einen ähnlichen Zweck verwenden. Wenn Sie eine benutzerdefinierte Dialogimplementierung erstellen, stellen Sie sicher, dass alle erwarteten Standardverhaltensweisen unterstützt und die richtigen Beschriftungsempfehlungen befolgt werden.
 
-Das `<dialog>`-Element wird von Browsern ähnlich wie benutzerdefinierte Dialoge dargestellt, die das ARIA [role="dialog"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)-Attribut verwenden. `<dialog>`-Elemente, die durch die `showModal()`-Methode aufgerufen werden, haben implizit [aria-modal="true"](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal), während `<dialog>`-Elemente, die durch die `show()`-Methode oder das `open`-Attribut oder durch Änderung der Standarddarstellung eines `<dialog>` angezeigt werden, als `[aria-modal="false"]` dargestellt werden. Beim Implementieren von modalen Dialogen sollte alles außer dem `<dialog>` und seinen Inhalten mithilfe des [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert) Attributs als inaktiv dargestellt werden. Bei der Verwendung von `<dialog>` zusammen mit der `HTMLDialogElement.showModal()`-Methode wird dieses Verhalten vom Browser bereitgestellt.
+Das `<dialog>`-Element wird von Browsern in ähnlicher Weise behandelt wie benutzerdefinierte Dialoge, die das ARIA-[role="dialog"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)-Attribut verwenden. `<dialog>`-Elemente, die durch die `showModal()`-Methode aufgerufen werden, haben implizit [aria-modal="true"](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal), während `<dialog>`-Elemente, die durch die `show()`-Methode oder das `open`-Attribut angezeigt werden oder durch Ändern des Standard-`display`-Wertes eines `<dialog>`, als `[aria-modal="false"]` behandelt werden. Beim Implementieren modaler Dialoge sollte alles außer dem `<dialog>` und seinem Inhalt als inert gerendert werden, indem das [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)-Attribut verwendet wird. Bei der Verwendung von `<dialog>` zusammen mit der `HTMLDialogElement.showModal()`-Methode wird dieses Verhalten vom Browser bereitgestellt.
 
 ## Beispiele
 
-### HTML-Dialog
+### HTML-nur Dialog
 
-Dieses Beispiel zeigt die Erstellung eines nicht-modalen Dialogs durch die ausschließliche Verwendung von HTML. Aufgrund des booleschen `open`-Attributs im `<dialog>`-Element wird das Dialogfeld geöffnet angezeigt, wenn die Seite geladen wird. Das Dialogfeld kann durch Klicken auf die "OK"-Schaltfläche geschlossen werden, da das `method`-Attribut im `<form>`-Element auf `"dialog"` gesetzt ist. In diesem Fall wird kein JavaScript benötigt, um das Formular zu schließen.
+Dieses Beispiel demonstriert die Erstellung eines nicht-modalen Dialogs nur mithilfe von HTML. Aufgrund des booleschen `open`-Attributs im `<dialog>`-Element erscheint der Dialog geöffnet, wenn die Seite geladen wird. Der Dialog kann durch Klicken auf den "OK"-Button geschlossen werden, da das `method`-Attribut im `<form>`-Element auf `"dialog"` gesetzt ist. In diesem Fall ist kein JavaScript erforderlich, um das Formular zu schließen.
 
 ```html
 <dialog open>
@@ -84,13 +84,13 @@ Dieses Beispiel zeigt die Erstellung eines nicht-modalen Dialogs durch die aussc
 > [!NOTE]
 > Laden Sie die Seite neu, um die Ausgabe zurückzusetzen.
 
-Dieses Dialogfeld ist zunächst geöffnet, da das `open`-Attribut vorhanden ist. Dialogfelder, die mithilfe des `open`-Attributs angezeigt werden, sind nicht-modale Dialoge. Nach dem Klicken auf "OK" wird das Dialogfeld geschlossen, sodass der Ergebnisrahmen leer bleibt. Wenn das Dialogfeld geschlossen wird, gibt es keine Methode, um es wieder zu öffnen. Aus diesem Grund ist die bevorzugte Methode, um nicht-modale Dialoge anzuzeigen, die Verwendung der [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show)-Methode. Es ist möglich, die Anzeige des Dialogs durch Hinzufügen oder Entfernen des booleschen `open`-Attributs umzuschalten, aber dies ist nicht die empfohlene Praxis.
+Dieser Dialog ist anfänglich geöffnet, da das `open`-Attribut vorhanden ist. Dialoge, die mit dem `open`-Attribut angezeigt werden, sind nicht modal. Nach dem Klicken auf "OK" wird der Dialog geschlossen, wodurch das Ergebnisfeld leer bleibt. Wenn der Dialog geschlossen wird, gibt es keine Methode, ihn wieder zu öffnen. Aus diesem Grund wird die Verwendung der [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show)-Methode empfohlen, um nicht-modale Dialoge anzuzeigen. Es ist möglich, die Anzeige des Dialogs umschalten, indem das boolesche `open`-Attribut hinzugefügt oder entfernt wird, aber dies ist nicht die empfohlene Praxis.
 
-### Erstellung eines modalen Dialogs
+### Erstellen eines modalen Dialogs
 
-Dieses Beispiel zeigt einen modalen Dialog mit einem [Verlauf](/de/docs/Web/CSS/gradient)-Hintergrund. Die `.showModal()`-Methode öffnet den modalen Dialog, wenn die "Dialog anzeigen"-Schaltfläche aktiviert wird. Der Dialog kann durch Drücken der <kbd>Esc</kbd>-Taste oder über die `close()`-Methode geschlossen werden, wenn die "Schließen"-Schaltfläche innerhalb des Dialogs aktiviert wird.
+Dieses Beispiel zeigt einen modalen Dialog mit einem [Verlauf](/de/docs/Web/CSS/gradient)-Hintergrund. Mit der `.showModal()`-Methode wird der modale Dialog geöffnet, wenn der Button "Show the dialog" aktiviert wird. Der Dialog kann durch Drücken der <kbd>Esc</kbd>-Taste oder über die `close()`-Methode geschlossen werden, wenn der "Close"-Button innerhalb des Dialogs aktiviert wird.
 
-Wenn ein Dialog geöffnet wird, setzt der Browser standardmäßig den Fokus auf das erste fokussierbare Element im Dialog. In diesem Beispiel wird das [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-Attribut auf die "Schließen"-Schaltfläche angewendet und gibt dieser den Fokus, wenn der Dialog geöffnet wird, da dies das Element ist, von dem wir erwarten, dass der Benutzer damit unmittelbar nach dem Öffnen des Dialogs interagiert.
+Wenn ein Dialog geöffnet wird, gibt der Browser standardmäßig Fokus auf das erste Element, das innerhalb des Dialogs fokussiert werden kann. In diesem Beispiel ist das [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-Attribut auf den "Close"-Button angewendet, wodurch es beim Öffnen des Dialogs fokussiert wird, da dies das Element ist, mit dem der Benutzer unmittelbar nach dem Öffnen des Dialogs interagieren soll.
 
 #### HTML
 
@@ -104,7 +104,7 @@ Wenn ein Dialog geöffnet wird, setzt der Browser standardmäßig den Fokus auf 
 
 #### CSS
 
-Wir können den Hintergrund des Dialogs mithilfe des {{cssxref('::backdrop')}}-Pseudo-Elements stylen.
+Wir können den Hintergrund des Dialogs mit dem {{cssxref('::backdrop')}}-Pseudo-Element stylen.
 
 ```css
 ::backdrop {
@@ -121,7 +121,7 @@ Wir können den Hintergrund des Dialogs mithilfe des {{cssxref('::backdrop')}}-P
 
 #### JavaScript
 
-Der Dialog wird modal mit der `.showModal()`-Methode geöffnet und mit den Methoden `.close()` oder `.requestClose()` geschlossen.
+Der Dialog wird modal mit der `.showModal()`-Methode geöffnet und geschlossen, indem die `.close()`- oder `.requestClose()`-Methoden verwendet werden.
 
 ```js
 const dialog = document.querySelector("dialog");
@@ -143,15 +143,15 @@ closeButton.addEventListener("click", () => {
 
 {{EmbedLiveSample("Creating_a_modal_dialog", "100%", 200)}}
 
-Wenn der modale Dialog angezeigt wird, erscheint er über allen anderen möglicherweise vorhandenen Dialogen. Alles außerhalb des modalen Dialogs ist inaktiv und Interaktionen außerhalb des Dialogs sind blockiert. Beachten Sie, dass, wenn der Dialog geöffnet ist, mit Ausnahme des Dialogs selbst, eine Interaktion mit dem Dokument nicht möglich ist; die "Dialog anzeigen"-Schaltfläche ist größtenteils durch den nahezu undurchsichtigen Hintergrund des Dialogs verdeckt und ist inaktiv.
+Wenn der modale Dialog angezeigt wird, erscheint er oberhalb aller anderen Dialoge, die möglicherweise vorhanden sind. Alles außerhalb des modalen Dialogs ist inaktiv, und Interaktionen außerhalb des Dialogs werden blockiert. Beachten Sie, dass beim Öffnen des Dialogs, außer dem Dialog selbst, keine Interaktion mit dem Dokument möglich ist; der "Show the dialog"-Button ist größtenteils durch den fast undurchsichtigen Hintergrund des Dialogs verdeckt und ist inaktiv.
 
-### Umgang mit dem Rückgabewert aus dem Dialog
+### Umgang mit dem Rückgabewert des Dialogs
 
-Dieses Beispiel demonstriert den [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des `<dialog>`-Elements und wie man einen modalen Dialog durch die Verwendung eines Formulars schließt. Standardmäßig ist der `returnValue` der leere String oder der Wert des Buttons, der das Formular innerhalb des `<dialog>`-Elements einreicht, falls vorhanden.
+Dieses Beispiel demonstriert den [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des `<dialog>`-Elements und wie man einen modalen Dialog über ein Formular schließen kann. Standardmäßig ist der `returnValue` der leere String oder der Wert des Buttons, der das Formular innerhalb des `<dialog>`-Elements einreicht, falls vorhanden.
 
-Dieses Beispiel öffnet einen modalen Dialog, wenn die "Dialog anzeigen"-Schaltfläche aktiviert wird. Der Dialog enthält ein Formular mit einem {{HTMLElement("select")}} und zwei {{HTMLElement("button")}}-Elementen, die standardmäßig auf `type="submit"` gesetzt sind. Ein Ereignis-Listener aktualisiert den Wert der "Bestätigen"-Schaltfläche, wenn sich die Auswahloption ändert. Wenn die "Bestätigen"-Schaltfläche aktiviert wird, um den Dialog zu schließen, ist der aktuelle Wert der Schaltfläche der Rückgabewert. Wenn der Dialog durch Drücken der "Abbrechen"-Schaltfläche geschlossen wird, ist der `returnValue` `cancel`.
+Dieses Beispiel öffnet einen modalen Dialog, wenn der Button "Show the dialog" aktiviert wird. Der Dialog enthält ein Formular mit einem {{HTMLElement("select")}} und zwei {{HTMLElement("button")}}-Elementen, die standardmäßig `type="submit"` haben. Ein Event-Listener aktualisiert den Wert des "Confirm"-Buttons, wenn die Auswahloption geändert wird. Wenn der "Confirm"-Button aktiviert wird, um den Dialog zu schließen, ist der aktuelle Wert des Buttons der Rückgabewert. Wenn der Dialog durch Drücken des "Cancel"-Buttons geschlossen wird, ist der `returnValue` `cancel`.
 
-Wenn der Dialog geschlossen wird, wird der Rückgabewert unter der "Dialog anzeigen"-Schaltfläche angezeigt. Wenn der Dialog durch Drücken der <kbd>Esc</kbd>-Taste geschlossen wird, wird der `returnValue` nicht aktualisiert und das `close`-Ereignis tritt nicht auf, sodass der Text im {{HTMLElement("output")}} nicht aktualisiert wird.
+Wenn der Dialog geschlossen wird, wird der Rückgabewert unter dem "Show the dialog"-Button angezeigt. Wenn der Dialog durch Drücken der <kbd>Esc</kbd>-Taste geschlossen wird, wird der `returnValue` nicht aktualisiert, und das `close`-Ereignis tritt nicht auf, sodass der Text im {{HTMLElement("output")}} nicht aktualisiert wird.
 
 #### HTML
 
@@ -215,22 +215,22 @@ confirmBtn.addEventListener("click", (event) => {
 
 {{EmbedLiveSample("Handling the return value from the dialog", "100%", 300)}}
 
-Die obigen Beispiele zeigen die folgenden drei Methoden zum Schließen von modalen Dialogen:
+Die obigen Beispiele demonstrieren die folgenden drei Methoden zum Schließen modaler Dialoge:
 
-- Durch Einreichung des Formulars innerhalb des Dialogformulars mit der `dialog`-Methode (wie im [HTML-only-Beispiel](#html-dialog) zu sehen).
+- Durch Absenden des Formulars innerhalb des Dialogformulars mithilfe der `dialog`-Methode (wie im [HTML-only-Beispiel](#html-nur_dialog) zu sehen).
 - Durch Drücken der <kbd>Esc</kbd>-Taste.
-- Durch Aufruf der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode (wie im [modalen Beispiel](#erstellung_eines_modalen_dialogs) zu sehen).
-  In diesem Beispiel schließt die "Abbrechen"-Schaltfläche den Dialog über die `dialog`-Formularmethode und die "Bestätigen"-Schaltfläche schließt den Dialog über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode.
+- Durch Aufrufen der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode (wie im [modalen Beispiel](#erstellen_eines_modalen_dialogs) zu sehen).
+  In diesem Beispiel schließt der "Cancel"-Button den Dialog über die `dialog`-Formularmethode, und der "Confirm"-Button schließt den Dialog über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode.
 
-Die "Abbrechen"-Schaltfläche enthält das [`formmethod="dialog"`](/de/docs/Web/HTML/Reference/Elements/input/submit#formmethod)-Attribut, das die Standard-{{HTTPMethod("GET")}}-Methode des {{HTMLElement("form")}}-Elements überschreibt. Wenn die Methode eines Formulars [`dialog`](#verwendungshinweise) ist, wird der Zustand des Formulars gespeichert aber nicht übermittelt, und das Dialogfeld wird geschlossen.
+Der "Cancel"-Button enthält das [`formmethod="dialog"`](/de/docs/Web/HTML/Reference/Elements/input/submit#formmethod)-Attribut, das die Standard-{{HTTPMethod("GET")}}-Methode des {{HTMLElement("form")}} überschreibt. Wenn die Methode eines Formulars [`dialog`](#nutzungshinweise) ist, wird der Zustand des Formulars gespeichert, aber nicht gesendet, und der Dialog wird geschlossen.
 
-Ohne eine `action` führt die Einreichung des Formulars über die Standard-{{HTTPMethod("GET")}}-Methode zu einem Seiteneinstellungs-Reload. Wir verwenden JavaScript, um die Übermittlung zu verhindern und den Dialog mit den Methoden [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) und [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) jeweils zu schließen.
+Ohne eine `action`-Angabe führt das Absenden des Formulars über die Standard-{{HTTPMethod("GET")}}-Methode zu einem Neuladen der Seite. Wir verwenden JavaScript, um die Übermittlung zu verhindern und den Dialog mit den [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault)- und [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methoden zu schließen.
 
-Es ist wichtig, in jedem `dialog`-Element einen Schließmechanismus bereitzustellen. Die <kbd>Esc</kbd>-Taste schließt nicht standardmäßig nicht-modale Dialoge, noch kann man davon ausgehen, dass ein Benutzer überhaupt Zugriff auf eine physische Tastatur hat (z.B. jemand, der ein Touchscreen-Gerät ohne Tastaturzugang verwendet).
+Es ist wichtig, in jedem `dialog`-Element einen Schließmechanismus bereitzustellen. Die <kbd>Esc</kbd>-Taste schließt standardmäßig keine nicht-modalen Dialoge, noch kann man davon ausgehen, dass ein Benutzer überhaupt Zugriff auf eine physische Tastatur hat (z. B. jemand, der ein Touch-Gerät ohne Tastaturzugriff verwendet).
 
 ### Schließen eines Dialogs mit einer erforderlichen Formulareingabe
 
-Wenn ein Formular in einem Dialog eine erforderliche Eingabe hat, lässt der Benutzeragent Sie den Dialog nur schließen, wenn Sie einen Wert für die erforderliche Eingabe angeben. Um ein solches Dialogfeld zu schließen, verwenden Sie entweder das [`formnovalidate`](/de/docs/Web/HTML/Reference/Elements/input#formnovalidate)-Attribut auf dem Schließ-Button oder rufen Sie die `close()`-Methode auf dem Dialogobjekt auf, wenn der Schließ-Button geklickt wird.
+Wenn ein Formular innerhalb eines Dialogs eine erforderliche Eingabe hat, lässt der Benutzeragent den Benutzer den Dialog erst schließen, wenn ein Wert für die erforderliche Eingabe bereitgestellt wurde. Um einen solchen Dialog zu schließen, verwenden Sie entweder das [`formnovalidate`](/de/docs/Web/HTML/Reference/Elements/input#formnovalidate)-Attribut auf dem Schließen-Button oder rufen Sie die `close()`-Methode auf dem Dialogobjekt auf, wenn der Schließen-Button geklickt wurde.
 
 ```html
 <dialog id="dialog">
@@ -285,15 +285,15 @@ jsCloseBtn.addEventListener("click", (e) => {
 
 {{EmbedLiveSample("Closing a dialog with a required form input", "100%", 300)}}
 
-Aus der Ausgabe sehen wir, dass es unmöglich ist, den Dialog mit der _Normal schließen_-Schaltfläche zu schließen. Der Dialog kann jedoch geschlossen werden, wenn wir die Formularvalidierung mithilfe des `formnovalidate`-Attributs auf der _Abbrechen_-Schaltfläche umgehen. Programmatisch schließt `dialog.close()` auch ein solches Dialogfeld.
+In der Ausgabe sehen wir, dass es unmöglich ist, den Dialog mit dem _Normal close_-Button zu schließen. Aber der Dialog kann geschlossen werden, wenn wir die Formularvalidierung mit dem `formnovalidate`-Attribut auf dem _Cancel_-Button umgehen. Programmatisch wird `dialog.close()` auch einen solchen Dialog schließen.
 
-### Vergleich der verschiedenen closedby-Verhaltensweisen
+### Vergleich der verschiedenen `closedby` Verhaltensweisen
 
-Dieses Beispiel demonstriert den Unterschied im Verhalten zwischen verschiedenen Werten des [`closedby`](#closedby)-Attributs.
+Dieses Beispiel zeigt den Unterschied im Verhalten zwischen verschiedenen Werten des [`closedby`](#closedby)-Attributs.
 
 #### HTML
 
-Wir geben drei {{htmlelement("button")}}-Elemente und drei `<dialog>`-Elemente an. Jede Schaltfläche wird programmiert, um einen anderen Dialog zu öffnen, der das Verhalten eines der drei Werte des `closedby`-Attributs — `none`, `closerequest` und `any` — demonstriert. Beachten Sie, dass jedes `<dialog>`-Element ein `<button>`-Element enthält, das zum Schließen verwendet wird.
+Wir stellen drei {{htmlelement("button")}}-Elemente und drei `<dialog>`-Elemente bereit. Jeder Button wird programmiert, einen anderen Dialog zu öffnen, der das Verhalten eines der drei Werte des `closedby`-Attributs — `none`, `closerequest` und `any` — demonstriert. Beachten Sie, dass jedes `<dialog>`-Element ein `<button>`-Element enthält, das zum Schließen verwendet wird.
 
 ```html live-sample___closedbyvalues
 <p>Choose a <code>&lt;dialog&gt;</code> type to show:</p>
@@ -357,7 +357,7 @@ dialog p {
 
 #### JavaScript
 
-Hier weisen wir verschiedene Variablen zu, um die Hauptsteuerungs-`<button>`-Elemente, die `<dialog>`-Elemente, und die "Schließen"-`<button>`-Elemente innerhalb der Dialoge zu referenzieren. Zuerst weisen wir jeder Steuerungsschaltfläche einen [`click`](/de/docs/Web/API/Element/click_event)-Ereignis-Listener unter Verwendung von [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) zu, dessen Event-Handler-Funktion das zugehörige `<dialog>`-Element über [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) öffnet. Dann schleifen wir durch die "Schließen"-`<button>`-Referenzen, wobei wir jeder eine `click`-Ereignis-Handler-Funktion zuweisen, die ihr `<dialog>`-Element über [`close()`](/de/docs/Web/API/HTMLDialogElement/close) schließt.
+Hier weisen wir verschiedenen Variablen zu, um auf die Hauptkontroll-`<button>`-Elemente, die `<dialog>`-Elemente und die "Close"-`<button>`-Elemente innerhalb der Dialoge zu verweisen. Zuerst weisen wir jedem Kontrollbutton mit [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) einen [`click`](/de/docs/Web/API/Element/click_event)-Ereignislistener zu, dessen Ereignishandlerfunktion das zugehörige `<dialog>`-Element über [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) öffnet. Dann durchlaufen wir die "Close"-`<button>`-Referenzen und weisen jedem eine `click`-Ereignishandlerfunktion zu, die das `<dialog>`-Element über [`close()`](/de/docs/Web/API/HTMLDialogElement/close) schließt.
 
 ```js live-sample___closedbyvalues
 const noneBtn = document.getElementById("none-btn");
@@ -395,38 +395,38 @@ Das gerenderte Ergebnis ist wie folgt:
 
 {{EmbedLiveSample("closedby-values", "100%", 300)}}
 
-Versuchen Sie, auf jede Schaltfläche zu klicken, um einen Dialog zu öffnen. Der erste kann nur durch Klicken auf seinen "Schließen"-Button geschlossen werden. Der zweite kann auch über eine gerätespezifische Benutzeraktion wie das Drücken der <kbd>Esc</kbd>-Taste geschlossen werden. Der dritte hat ein volles ["light-dismiss" Verhalten](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss), sodass es auch durch Klicken oder Tippen außerhalb des Dialogs geschlossen werden kann.
+Versuchen Sie, auf jeden Button zu klicken, um einen Dialog zu öffnen. Der erste kann nur durch Klicken auf seinen "Close"-Button geschlossen werden. Der zweite kann auch durch eine gerätespezifische Benutzeraktion wie das Drücken der <kbd>Esc</kbd>-Taste geschlossen werden. Der dritte hat ein vollständiges ["light-dismiss"-Verhalten](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss), sodass er auch durch Klicken oder Tippen außerhalb des Dialogs geschlossen werden kann.
 
 ### Animieren von Dialogen
 
-`<dialog>`s sind auf [`display: none;`](/de/docs/Web/CSS/display) gesetzt, wenn sie versteckt sind, und `display: block;` wenn sie angezeigt werden sowie werden sie aus der {{Glossary("top_layer", "Top-Schicht")}} und dem [Zugänglichkeit-Baum](/de/docs/Web/Performance/Guides/How_browsers_work#building_the_accessibility_tree) entfernt/hinzugefügt. Daher muss die {{cssxref("display")}}-Eigenschaft animierbar sein, damit `<dialog>`-Elemente animiert werden können. [Unterstützende Browser](/de/docs/Web/CSS/display#browser_compatibility) animieren `display` mit einer Variante des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Insbesondere wird der Browser zwischen `none` und einem anderen `display`-Wert wechseln, sodass der animierte Inhalt für die gesamte Dauer der Animation sichtbar ist.
+`<dialog>`-Elemente sind auf [`display: none;`](/de/docs/Web/CSS/display) gesetzt, wenn sie ausgeblendet sind, und `display: block;`, wenn sie angezeigt werden, und werden aus dem / in den {{Glossary("top_layer", "Top Layer")}} und den [Zugänglichkeitsbaum](/de/docs/Web/Performance/Guides/How_browsers_work#building_the_accessibility_tree) entfernt / hinzugefügt. Daher muss für `<dialog>`-Elemente die {{cssxref("display")}}-Eigenschaft animierbar sein, damit sie animiert werden können. [Unterstützende Browser](/de/docs/Web/CSS/display#browser_compatibility) animieren `display` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Insbesondere wechselt der Browser zwischen `none` und einem anderen `display`-Wert, sodass der animierte Inhalt für die gesamte Animationsdauer sichtbar ist.
 
 Ein Beispiel:
 
-- Wenn `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) animiert wird, wechselt der Wert bei `0%` der Animationsdauer zu `block`, damit er während der gesamten Animation sichtbar bleibt.
-- Wenn `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` animiert wird, wechselt der Wert bei `100%` der Animationsdauer zu `none`, damit er während der gesamten Animation sichtbar bleibt.
+- Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) wird der Wert bei `0%` der Animationsdauer auf `block` umgeschaltet, sodass er die gesamte Zeit über sichtbar ist.
+- Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` wechselt der Wert bei `100%` der Animationsdauer zu `none`, sodass er die ganze Zeit über sichtbar ist.
 
 > [!NOTE]
-> Bei Animationen mit [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) gesetzt sein, um das oben beschriebene Verhalten zu ermöglichen. Bei Animationen mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) ist dieses Verhalten standardmäßig verfügbar; ein entsprechender Schritt ist nicht erforderlich.
+> Wenn Sie mit [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) animieren, muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) gesetzt sein, um das oben genannte Verhalten zu ermöglichen. Dieses Verhalten ist standardmäßig beim Animieren mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verfügbar; ein entsprechender Schritt ist nicht erforderlich.
 
 #### Übergang von Dialogelementen
 
-Beim Animieren von `<dialog>`s mit CSS-Übergängen sind folgende Funktionen erforderlich:
+Bei der Animation von `<dialog>`-Elementen mit CSS-Übergängen sind folgende Merkmale erforderlich:
 
-- [`@starting-style`](/de/docs/Web/CSS/@starting-style) at-rule
-  - : Stellt einen Satz von Startwerten für die im `<dialog>` gesetzten Eigenschaften bereit, von denen Sie bei jedem Öffnen ausgehend animieren möchten. Dies ist erforderlich, um unerwartetes Verhalten zu vermeiden. Standardmäßig treten CSS-Übergänge nur dann auf, wenn sich ein Eigenschaftswert eines sichtbaren Elements ändert; sie werden nicht bei der ersten Stilaktualisierung eines Elements ausgelöst, oder wenn sich der `display`-Typ von `none` zu einem anderen Typ ändert.
-- [`display`](/de/docs/Web/CSS/display) Eigenschaft
-  - : Fügen Sie `display` zur Übergangsliste hinzu, damit das `<dialog>` für die gesamte Dauer des Übergangs als `display: block` (oder ein anderer sichtbarer `display`-Wert, der im geöffneten Zustand des Dialogs festgelegt ist) bestehen bleibt und somit die anderen Übergänge sichtbar sind.
-- [`overlay`](/de/docs/Web/CSS/overlay) Eigenschaft
-  - : Fügen Sie `overlay` zur Übergangsliste hinzu, um sicherzustellen, dass das Entfernen des `<dialog>` aus der Top-Schicht bis zum Abschluss des Übergangs verzögert wird, wodurch der Übergang wiederum sichtbar bleibt.
-- {{cssxref("transition-behavior")}} Eigenschaft
-  - : Setzen Sie `transition-behavior: allow-discrete` sowohl auf die `display`- als auch `overlay`-Übergänge (oder auf die {{cssxref("transition")}} Kurzform) um diskrete Übergänge auf diesen zwei Eigenschaften zu aktivieren, die standardmäßig nicht animierbar sind.
+- [`@starting-style`](/de/docs/Web/CSS/@starting-style)-At-Regel
+  - : Bietet eine Reihe von Startwerten für Eigenschaften, die Sie auf dem `<dialog>` gesetzt haben und von denen Sie jedes Mal, wenn es geöffnet wird, wechseln möchten. Dies ist erforderlich, um unerwartetes Verhalten zu vermeiden. Standardmäßig treten CSS-Übergänge nur auf, wenn sich ein Eigenschaftswert bei einem sichtbaren Element ändert; sie werden nicht ausgelöst bei den ersten Stilaktualisierungen von Elementen oder wenn sich der `display`-Typ von `none` in einen anderen Typ ändert.
+- [`display`](/de/docs/Web/CSS/display)-Eigenschaft
+  - : Fügen Sie `display` zur Übergangsliste hinzu, sodass das `<dialog>` die gesamte Dauer des Übergangs als `display: block` (oder ein anderer sichtbarer `display`-Wert, der im offenen Zustand des Dialogs gesetzt ist) verbleibt, um die anderen Übergänge sichtbar zu machen.
+- [`overlay`](/de/docs/Web/CSS/overlay)-Eigenschaft
+  - : Fügen Sie `overlay` zur Übergangsliste hinzu, um sicherzustellen, dass die Entfernung des `<dialog>` aus dem Top Layer so lange verzögert wird, bis der Übergang abgeschlossen ist, was wiederum sicherstellt, dass der Übergang sichtbar ist.
+- {{cssxref("transition-behavior")}}-Eigenschaft
+  - : Setzen Sie `transition-behavior: allow-discrete` auf den `display`- und `overlay`-Übergang (oder auf die {{cssxref("transition")}}-Shorthand), um diskrete Übergänge auf diesen beiden Eigenschaften zu ermöglichen, die standardmäßig nicht animierbar sind.
 
-Hier ist ein Beispiel, wie das aussehen könnte.
+Hier ist ein kurzes Beispiel, um zu zeigen, wie das aussehen könnte.
 
 ##### HTML
 
-Der HTML-Code enthält ein `<dialog>`-Element plus eine Schaltfläche, um den Dialog anzuzeigen. Zusätzlich enthält das `<dialog>`-Element eine weitere Schaltfläche, um sich selbst zu schließen.
+Das HTML enthält ein `<dialog>`-Element sowie einen Button, um den Dialog anzuzeigen. Zusätzlich enthält das `<dialog>`-Element einen weiteren Button, um sich selbst zu schließen.
 
 ```html
 <dialog id="dialog">
@@ -439,9 +439,9 @@ Der HTML-Code enthält ein `<dialog>`-Element plus eine Schaltfläche, um den Di
 
 ##### CSS
 
-In der CSS fügen wir einen `@starting-style` Block hinzu, der die Übergangsstilstartwerte für die `opacity`- und `transform`-Eigenschaften definiert, Übergangszielstile im `dialog:open`-Zustand sowie Standardstile im Standard-`dialog`-Zustand festlegt, zu dem das `<dialog>` einmal zurückkehrt, nachdem es angezeigt wurde. Beachten Sie, wie die `transition`-Liste des `<dialog>` nicht nur diese Eigenschaften umfasst, sondern auch die `display`- und `overlay`-Eigenschaften, jeweils mit `allow-discrete` gesetzt.
+Im CSS nehmen wir eine `@starting-style`-Block auf, der die Übergangsstile für die `opacity`- und `transform`-Eigenschaften angibt, Übergangsendstile im `dialog:open`-Zustand, und Standardstile im standardmäßigen `dialog`-Zustand, zu dem der Übergang zurückkehrt, nachdem das `<dialog>` erschienen ist. Beachten Sie, wie die `transition`-Liste des `<dialog>` nicht nur diese Eigenschaften enthält, sondern auch die `display`- und `overlay`-Eigenschaften, jede mit `allow-discrete` auf ihnen gesetzt.
 
-Wir setzen auch einen Startstilwert für die {{cssxref("background-color")}} Eigenschaft auf dem [`::backdrop`](/de/docs/Web/CSS/::backdrop), das hinter dem `<dialog>` erscheint, wenn es geöffnet wird, um eine angenehme Verdunklungsanimation zu bieten. Der `dialog:open::backdrop`-Selektor wählt nur die Hintergründe von `<dialog>`-Elementen, wenn der Dialog geöffnet ist.
+Wir setzen auch einen Ausgangsstilwert für die {{cssxref("background-color")}}-Eigenschaft auf dem [`::backdrop`](/de/docs/Web/CSS/::backdrop), der hinter dem `<dialog>` erscheint, wenn es geöffnet wird, um eine schöne Abdunkelungseffektanimierung zu liefern. Der `dialog:open::backdrop`-Selektor wählt nur die Hintergründe von `<dialog>`-Elementen aus, wenn sich der Dialog im offenen Zustand befindet.
 
 ```css
 /* Open state of the dialog  */
@@ -475,7 +475,7 @@ dialog {
 
 /* Transition the :backdrop when the dialog modal is promoted to the top layer */
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0%);
+  background-color: transparent;
   transition:
     display 0.7s allow-discrete,
     overlay 0.7s allow-discrete,
@@ -493,17 +493,17 @@ because the nesting selector cannot represent pseudo-elements. */
 
 @starting-style {
   dialog:open::backdrop {
-    background-color: rgb(0 0 0 / 0%);
+    background-color: transparent;
   }
 }
 ```
 
 > [!NOTE]
-> In Browsern, die das {{cssxref(":open")}}-Pseudo-Klasse nicht unterstützen, können Sie den Attributselektor `dialog[open]` verwenden, um das `<dialog>`-Element zu stylen, wenn es im offenen Zustand ist.
+> In Browsern, die die {{cssxref(":open")}}-Pseudo-Klasse nicht unterstützen, können Sie den Attributselektor `dialog[open]` verwenden, um das `<dialog>`-Element zu stylen, wenn es sich im offenen Zustand befindet.
 
 ##### JavaScript
 
-Das JavaScript fügt den Anzeige- und Schließschaltflächen Ereignishandler hinzu, die dazu führen, dass sie den `<dialog>` bei Klick zeigen und schließen:
+Das JavaScript fügt den Show- und Close-Buttons Event-Handler hinzu, die dafür sorgen, dass sie das `<dialog>` anzeigen beziehungsweise schließen, wenn sie angeklickt werden:
 
 ```js
 const dialogElem = document.getElementById("dialog");
@@ -521,29 +521,29 @@ closeBtn.addEventListener("click", () => {
 
 ##### Ergebnis
 
-Der Code wird folgendermaßen gerendert:
+Der Code rendert wie folgt:
 
 {{ EmbedLiveSample("Transitioning dialog elements", "100%", "200") }}
 
 > [!NOTE]
-> Da `<dialog>`s von `display: none` zu `display: block` wechseln, jedes Mal, wenn sie angezeigt werden, wechseln `<dialog>`-Übergänge von ihren `@starting-style`-Stilen zu ihren `dialog:open`-Stilen jedes Mal, wenn der Eintrittsübergang auftritt. Wenn das `<dialog>` geschlossen wird, wechselt es von seinem `dialog:open`-Zustand in den Standard-`dialog`-Zustand.
+> Da `<dialog>`-Elemente bei jeder Anzeige von `display: none` zu `display: block` wechseln, wechseln sie jedes Mal, wenn der Eintragsübergang auftritt, von ihren `@starting-style`-Stilen zu ihren `dialog:open`-Stilen. Wenn das `<dialog>` geschlossen wird, wechselt es von seinem `dialog:open`-Zustand zum Standard-`dialog`-Zustand.
 >
-> Es ist möglich, dass der Stilübergang beim Ein- und Austreten unterschiedlich ist. Sehen Sie unser [Beispiel zur Demonstration der Verwendung von Startstilen](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used) als Beweis für diese Möglichkeit.
+> Es ist möglich, dass die Stiländerung beim Eintritt und Austritt in solchen Fällen unterschiedlich ist. Sehen Sie unser [Demonstration of when starting styles are used](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used)-Beispiel für einen Beweis hierfür.
 
-#### Dialog-Keyframe-Animationen
+#### Dialog-Schlüsselbild-Animationen
 
-Beim Animieren eines `<dialog>` mit CSS-Keyframe-Animationen gibt es einige Unterschiede zu Übergängen zu beachten:
+Beim Animieren eines `<dialog>` mit CSS-Schlüsselbild-Animationen gibt es einige Unterschiede zu beachten im Vergleich zu Übergängen:
 
-- Sie geben keinen `@starting-style` an.
-- Sie fügen den `display`-Wert in einem Keyframe ein; dieser wird der `display`-Wert für die gesamte Animation sein, oder bis ein anderer `display`-Wert (kein `none`) auftritt.
-- Sie brauchen die diskreten Animationen nicht explizit zu aktivieren; in Keyframes gibt es kein Äquivalent zu `allow-discrete`.
-- Sie müssen `overlay` nicht in Keyframes setzen; die `display`-Animation übernimmt die Animation des `<dialog>` von sichtbar zu verborgen.
+- Sie geben kein `@starting-style` an.
+- Sie fügen den `display`-Wert in ein Schlüsselbild ein; dies wird der `display`-Wert für die gesamte Animation (oder bis ein anderer nicht-`none`-`display`-Wert auftritt).
+- Sie müssen diskrete Animationen nicht explizit aktivieren; es gibt kein Äquivalent zu `allow-discrete` innerhalb von Schlüsselbildern.
+- Sie müssen `overlay` auch nicht in Schlüsselbildern setzen; die `display`-Animation behandelt die Animation des `<dialog>` von sichtbar zu versteckt.
 
-Schauen wir uns ein Beispiel an, damit Sie sehen können, wie das aussieht.
+Schauen wir uns ein Beispiel an, damit Sie sehen können, wie dies aussieht.
 
 ##### HTML
 
-Zuerst enthält der HTML-Code ein `<dialog>`-Element plus eine Schaltfläche, um den Dialog anzuzeigen. Zusätzlich enthält das `<dialog>`-Element eine weitere Schaltfläche, um sich selbst zu schließen.
+Zuerst enthält das HTML ein `<dialog>`-Element, sowie einen Button, um den Dialog anzuzeigen. Zusätzlich enthält das `<dialog>`-Element einen weiteren Button, um sich selbst zu schließen.
 
 ```html
 <dialog id="dialog">
@@ -556,7 +556,7 @@ Zuerst enthält der HTML-Code ein `<dialog>`-Element plus eine Schaltfläche, um
 
 ##### CSS
 
-Die CSS definiert Keyframes, um zwischen den geschlossenen und sichtbaren Zuständen des `<dialog>` zu animieren, sowie die Fade-In-Animation für das Hintergrundbild des `<dialog>`. Die `<dialog>`-Animationen umfassen die Animation von `display`, um sicherzustellen, dass die tatsächlichen sichtbaren Animationseffekte für die gesamte Dauer sichtbar bleiben. Beachten Sie, dass es nicht möglich war, den Hintergrundbild-Ausblend-Effekt zu animieren – der Hintergrund wird sofort aus dem DOM entfernt, wenn das `<dialog>` geschlossen wird, sodass es nichts zu animieren gibt.
+Das CSS definiert Schlüsselbilder, um zwischen den geschlossenen und angezeigten Zuständen des `<dialog>` zu animieren, sowie die Verblassen-Animation für den Hintergrund des `<dialog>`. Die `<dialog>`-Animationen umfassen das Animieren von `display`, um sicherzustellen, dass die tatsächlichen sichtbaren Animationseffekte die gesamte Dauer sichtbar bleiben. Beachten Sie, dass es nicht möglich war, das Ausblenden des Hintergrundes zu animieren – der Hintergrund wird sofort aus dem DOM entfernt, wenn das `<dialog>` geschlossen wird, sodass nichts animiert werden kann.
 
 ```css
 dialog {
@@ -568,6 +568,7 @@ dialog:open {
 }
 
 dialog:open::backdrop {
+  background-color: black;
   animation: backdrop-fade-in 0.7s ease-out forwards;
 }
 
@@ -603,11 +604,11 @@ dialog:open::backdrop {
 
 @keyframes backdrop-fade-in {
   0% {
-    background-color: rgb(0 0 0 / 0%);
+    opacity: 0;
   }
 
   100% {
-    background-color: rgb(0 0 0 / 25%);
+    opacity: 0.25;
   }
 }
 
@@ -619,7 +620,7 @@ button {
 
 ##### JavaScript
 
-Zuletzt fügt das JavaScript den Schaltflächen Ereignishandler hinzu, um das Anzeigen und Schließen des `<dialog>` zu ermöglichen:
+Schließlich fügt das JavaScript den Buttons Event-Handler hinzu, um das Anzeigen und Schließen des `<dialog>` zu ermöglichen:
 
 ```js
 const dialogElem = document.getElementById("dialog");
@@ -637,7 +638,7 @@ closeBtn.addEventListener("click", () => {
 
 ##### Ergebnis
 
-Der Code wird folgendermaßen gerendert:
+Der Code rendert wie folgt:
 
 {{ EmbedLiveSample("dialog keyframe animations", "100%", "200") }}
 
@@ -650,26 +651,25 @@ Der Code wird folgendermaßen gerendert:
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließende Inhalte</a>,
-        sectioning root
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>,
+        Untergliederungs-Wurzel
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließende Inhalte</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">fließende Inhalte</a>
-        akzeptiert
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert
       </td>
     </tr>
     <tr>
@@ -679,7 +679,7 @@ Der Code wird folgendermaßen gerendert:
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role"><code>alertdialog</code></a></td>
     </tr>
     <tr>
@@ -699,10 +699,10 @@ Der Code wird folgendermaßen gerendert:
 
 ## Siehe auch
 
-- [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle
-- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis der `HTMLDialogElement` Schnittstelle
-- [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event) Ereignis der `HTMLDialogElement` Schnittstelle
-- [`open`](/de/docs/Web/API/HTMLDialogElement/open) Eigenschaft der `HTMLDialogElement` Schnittstelle
+- [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle
+- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis der `HTMLDialogElement`-Schnittstelle
+- [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis der `HTMLDialogElement`-Schnittstelle
+- [`open`](/de/docs/Web/API/HTMLDialogElement/open)-Eigenschaft der `HTMLDialogElement`-Schnittstelle
 - [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert) globales Attribut für HTML-Elemente
 - {{CSSXref("::backdrop")}} CSS-Pseudo-Element
 - [Web-Formulare](/de/docs/Learn_web_development/Extensions/Forms) im Lernbereich

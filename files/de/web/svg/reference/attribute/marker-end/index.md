@@ -2,15 +2,15 @@
 title: marker-end
 slug: Web/SVG/Reference/Attribute/marker-end
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`marker-end`** Attribut definiert den Pfeilkopf oder das Polymarker, das am letzten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Reference/Element#shape_elements) gezeichnet wird.
+Das **`marker-end`** Attribut definiert die Pfeilspitze oder den Punktmarker, der am letzten Scheitelpunkt der gegebenen [Form](/de/docs/Web/SVG/Reference/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste. In diesem Fall, wenn der Wert von {{SVGAttr("marker-start")}} und `marker-end` beide nicht `none` sind, werden zwei Marker an diesem letzten Scheitelpunkt gerendert. Für `<path>`-Elemente ist der letzte Scheitelpunkt bei jedem geschlossenen Teilpfad derselbe wie der erste. `marker-end` wird nur auf dem letzten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) gerendert.
+Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. In diesem Fall, wenn der Wert von {{SVGAttr("marker-start")}} und `marker-end` beide nicht `none` sind, dann werden zwei Marker auf diesem letzten Scheitelpunkt gerendert. Bei `<path>`-Elementen ist bei jedem geschlossenen Unterpfad der letzte Scheitelpunkt derselbe wie der erste. `marker-end` wird nur am letzten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `marker-end` auch ein entsprechendes CSS-Attribut: {{cssxref("marker-end")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
+> Als Präsentationsattribut hat `marker-end` auch ein entsprechendes CSS-Property: {{cssxref("marker-end")}}. Wenn beides angegeben ist, hat die CSS-Property Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -44,7 +44,7 @@ svg {
       markerWidth="10"
       markerHeight="10"
       orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f00" />
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="red" />
     </marker>
   </defs>
   <polyline
@@ -57,7 +57,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ svg {
 </table>
 
 - `none`
-  - : Gibt an, dass kein Markersymbol am letzten Scheitelpunkt gezeichnet werden soll.
+  - : Gibt an, dass kein Markersymbol am letzten Scheitelpunkt gezeichnet wird.
 - `<marker-ref>`
   - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}}-Element, das am letzten Scheitelpunkt gezeichnet wird. Wenn der Verweis ungültig ist, wird kein Marker gezeichnet.
 
@@ -94,4 +94,4 @@ svg {
 - {{SVGElement("marker")}}
 - {{SVGAttr("marker-start")}}
 - {{SVGAttr("marker-mid")}}
-- CSS {{cssxref('marker-end')}} Eigenschaft
+- CSS-{{cssxref('marker-end')}}-Eigenschaft

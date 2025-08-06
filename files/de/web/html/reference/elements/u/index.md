@@ -1,14 +1,14 @@
 ---
-title: "<u>: Das unabgegrenzte Anmerkungselement (Underline)"
+title: "<u>: Das nicht artikulierte Anmerkungselement (Unterstreichen)"
 slug: Web/HTML/Reference/Elements/u
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
 ---
 
-Das **`<u>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Bereich von Inline-Text, der auf eine Weise gerendert werden sollte, die anzeigt, dass es eine nicht-textuelle Anmerkung hat. Standardmäßig wird dies als ein einfacher durchgehender Unterstrich gerendert, aber es kann mithilfe von CSS geändert werden.
+Das **`<u>`** [HTML](/de/docs/Web/HTML) Element stellt einen Bereich von Inline-Text dar, der in einer Weise gerendert werden sollte, die darauf hinweist, dass es eine nicht-textuelle Anmerkung hat. Dies wird standardmäßig als eine einzelne durchgehende Unterstreichung dargestellt, kann aber mit CSS geändert werden.
 
 > [!WARNING]
-> Dieses Element wurde in älteren HTML-Versionen als "Underline"-Element (Unterstreichen) bezeichnet und wird manchmal immer noch fälschlicherweise auf diese Weise verwendet. Um Text zu unterstreichen, sollten Sie stattdessen einen Stil anwenden, der die CSS-Eigenschaft {{cssxref("text-decoration")}} mit dem Wert `underline` enthält.
+> In älteren Versionen von HTML wurde dieses Element als "Unterstreichen"-Element bezeichnet und wird manchmal immer noch fälschlicherweise so verwendet. Um Text zu unterstreichen, sollten Sie stattdessen einen Stil anwenden, der die CSS {{cssxref("text-decoration")}} Eigenschaft auf `underline` setzt.
 
 {{InteractiveExample("HTML Demo: &lt;u&gt;", "tabbed-shorter")}}
 
@@ -27,49 +27,49 @@ p {
 }
 
 u {
-  text-decoration: #f00 wavy underline;
+  text-decoration: red wavy underline;
 }
 ```
 
-Siehe den Abschnitt [Nutzungs-Hinweise](#nutzungs-hinweise) für weitere Details darüber, wann es angemessen ist, `<u>` zu verwenden und wann nicht.
+Siehe den Abschnitt [Nutzungsnotizen](#nutzungsnotizen) für weitere Details, wann es angemessen ist, `<u>` zu verwenden und wann nicht.
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Nutzungs-Hinweise
+## Nutzungsnotizen
 
-Zusammen mit anderen reinen Stilelementen wurde das ursprüngliche HTML-Unterstreichungselement (`<u>`) in HTML 4 abgeschafft; jedoch wurde `<u>` in HTML 5 mit einer neuen, semantischen Bedeutung wiederhergestellt: um Text als mit irgendeiner Form von nicht-textueller Anmerkung versehen zu markieren.
+Zusammen mit anderen reinen Stil-Elementen wurde das originale HTML-Unterstreichen (`<u>`) Element in HTML 4 als veraltet erklärt; jedoch wurde `<u>` in HTML 5 mit einer neuen, semantischen Bedeutung wieder eingeführt: um Text als mit irgendeiner Form nicht-textueller Anmerkung versehen zu markieren.
 
 > [!NOTE]
-> Vermeiden Sie die Verwendung des `<u>`-Elements mit seinem Standard-Styling (von unterstrichenem Text) auf eine Weise, die mit einem Hyperlink verwechselt werden kann, der ebenfalls standardmäßig unterstrichen ist.
+> Vermeiden Sie es, das `<u>` Element mit seiner Standard-Formatierung (von unterstrichenem Text) in einer Weise zu verwenden, dass es mit einem Hyperlink verwechselt werden könnte, der standardmäßig ebenfalls unterstrichen ist.
 
 ### Anwendungsfälle
 
-Gültige Anwendungsfälle für das `<u>`-Element umfassen das Kennzeichnen von Rechtschreibfehlern, das Anwenden eines [Eigenname-Zeichens](https://en.wikipedia.org/wiki/Proper_name_mark), um Eigennamen in chinesischem Text zu kennzeichnen, und andere Formen der Anmerkung.
+Gültige Anwendungsfälle für das `<u>` Element umfassen die Kennzeichnung von Rechtschreibfehlern, das Anwenden einer [Eigennamen-Markierung](https://en.wikipedia.org/wiki/Proper_name_mark) zur Kennzeichnung von Eigennamen im chinesischen Text und andere Formen der Anmerkung.
 
-Sie sollten `<u>` _nicht_ verwenden, um Text zu Unterstreichungszwecken für Präsentationen oder um Buchtitel anzugeben.
+Sie sollten `<u>` _nicht_ verwenden, um Text zwecks Präsentation zu unterstreichen oder um Buchtitel zu kennzeichnen.
 
-### Andere zu verwendende Elemente
+### Andere zu berücksichtigende Elemente
 
 In den meisten Fällen sollten Sie ein anderes Element als `<u>` verwenden, wie zum Beispiel:
 
-- {{HTMLElement("em")}} um Betonung zu kennzeichnen
-- {{HTMLElement("b")}} um Aufmerksamkeit auf Text zu lenken
+- {{HTMLElement("em")}} um eine Betonung auszudrücken
+- {{HTMLElement("b")}} um die Aufmerksamkeit auf Text zu lenken
 - {{HTMLElement("mark")}} um Schlüsselwörter oder -phrasen zu markieren
-- {{HTMLElement("strong")}} um anzugeben, dass Text von großer Bedeutung ist
-- {{HTMLElement("cite")}} um die Titel von Büchern oder anderen Publikationen zu kennzeichnen
-- {{HTMLElement("i")}} um technische Begriffe, Transliterationen, Gedanken oder Namen von Schiffen in westlichen Texten zu kennzeichnen
+- {{HTMLElement("strong")}} um anzuzeigen, dass Text von großer Bedeutung ist
+- {{HTMLElement("cite")}} um die Titel von Büchern oder anderen Veröffentlichungen zu kennzeichnen
+- {{HTMLElement("i")}} um technische Begriffe, Umschriften, Gedanken oder die Namen von Schiffen in westlichen Texten zu kennzeichnen
 
-Um textuelle Anmerkungen bereitzustellen (anstelle der nicht-textuellen Anmerkungen, die mit `<u>` erstellt werden), verwenden Sie das {{HTMLElement("ruby")}}-Element.
+Um textuelle Anmerkungen bereitzustellen (im Gegensatz zu den nicht-textuellen Anmerkungen, die mit `<u>` erstellt werden), verwenden Sie das {{HTMLElement("ruby")}} Element.
 
-Um eine unterstrichene Darstellung ohne jede semantische Bedeutung anzuwenden, verwenden Sie den Wert `underline` der {{cssxref("text-decoration")}}-Eigenschaft.
+Um ein unterstrichenes Erscheinungsbild ohne semantische Bedeutung anzuwenden, verwenden Sie den `underline` Wert der {{cssxref("text-decoration")}} Eigenschaft.
 
 ## Beispiele
 
-### Hinweis auf einen Schreibfehler
+### Hinweis auf einen Rechtschreibfehler
 
-Dieses Beispiel benutzt das `<u>`-Element und ein wenig CSS, um einen Absatz anzuzeigen, der einen falsch geschriebenen Fehler enthält, wobei der Fehler im roten gewellten Unterstreichungsstil angezeigt wird, der häufig für diesen Zweck verwendet wird.
+Dieses Beispiel verwendet das `<u>` Element und etwas CSS, um einen Absatz darzustellen, der ein falsch geschriebenes Wort enthält, wobei der Fehler im Stil einer roten, wellenförmigen Unterstreichung angezeigt wird, die für diesen Zweck ziemlich häufig verwendet wird.
 
 #### HTML
 
@@ -89,21 +89,21 @@ u.spelling {
 }
 ```
 
-Dieses CSS gibt an, dass, wenn das `<u>`-Element mit der Klasse `spelling` gestylt ist, es einen roten gewellten Unterstrich unter seinem Text haben sollte. Dies ist ein üblicher Stil für Rechtschreibfehler. Ein weiterer üblicher Stil kann durch `red dashed underline` dargestellt werden.
+Dieses CSS gibt an, dass wenn das `<u>` Element mit der Klasse `spelling` gestylt wird, es eine rote wellenförmige Unterstreichung unter seinem Text haben sollte. Dies ist eine übliche Formatierung für Rechtschreibfehler. Eine andere übliche Formatierung kann mit einer `red dashed underline` dargestellt werden.
 
 #### Ergebnis
 
-Das Ergebnis sollte jedem vertraut sein, der eine der populäreren Textbearbeitungsprogramme verwendet hat, die heute verfügbar sind.
+Das Ergebnis sollte jedem bekannt vorkommen, der eine der beliebten Textverarbeitungsprogramme von heute verwendet hat.
 
 {{EmbedLiveSample("Indicating_a_spelling_error", 650, 80)}}
 
-### Vermeiden von \<u>
+### Vermeidung von \<u>
 
-Die meiste Zeit möchte man tatsächlich `<u>` nicht verwenden. Hier sind einige Beispiele, die zeigen, was Sie stattdessen in verschiedenen Fällen tun sollten.
+Meistens möchten Sie `<u>` eigentlich nicht verwenden. Hier sind einige Beispiele, die zeigen, was Sie stattdessen in mehreren Fällen tun sollten.
 
 #### Nicht-semantische Unterstreichungen
 
-Um Text zu unterstreichen, ohne eine semantische Bedeutung zu implizieren, verwenden Sie ein {{HTMLElement("span")}}-Element mit der {{cssxref("text-decoration")}}-Eigenschaft auf `"underline"` gesetzt, wie unten gezeigt.
+Um Text zu unterstreichen, ohne irgendeine semantische Bedeutung anzudeuten, verwenden Sie ein {{HTMLElement("span")}} Element mit der {{cssxref("text-decoration")}} Eigenschaft auf `"underline"` gesetzt, wie unten gezeigt.
 
 ##### HTML
 
@@ -125,11 +125,11 @@ Chicken Noodle Soup With Carrots
 
 {{EmbedLiveSample("Non-semantic_underlines", 650, 80)}}
 
-#### Darstellung eines Buchtitels
+#### Präsentation eines Buchtitels
 
-Buchtitel sollten mit dem {{HTMLElement("cite")}}-Element dargestellt werden, anstatt `<u>` oder sogar `<i>` zu verwenden.
+Buchtitel sollten mit dem {{HTMLElement("cite")}} Element statt `<u>` oder sogar `<i>` präsentiert werden.
 
-##### Verwendung des cite-Elements
+##### Verwenden des cite-Elements
 
 ```html
 <p>The class read <cite>Moby-Dick</cite> in the first term.</p>
@@ -137,9 +137,9 @@ Buchtitel sollten mit dem {{HTMLElement("cite")}}-Element dargestellt werden, an
 
 {{EmbedLiveSample("Using_the_cite_element", 650, 80)}}
 
-##### Styling des cite-Elements
+##### Stil des cite-Elements
 
-Das Standard-Styling für das `<cite>`-Element rendert den Text in Kursivschrift. Sie können das mit CSS überschreiben:
+Die Standardstilierung für das `<cite>` Element gibt den Text in Kursivschrift aus. Sie können dies mit CSS überschreiben:
 
 ```html
 <p>The class read <cite>Moby-Dick</cite> in the first term.</p>
@@ -166,10 +166,10 @@ cite {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phrasierungsinhalt</a
         >, fühlbarer Inhalt.
       </td>
     </tr>
@@ -177,22 +177,21 @@ cite {
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
-        >
-        akzeptiert.
+          >Phrasierungsinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -207,10 +206,10 @@ cite {
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">DOM Schnittstelle</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
@@ -226,5 +225,5 @@ cite {
 
 ## Siehe auch
 
-- Die Elemente {{HTMLElement("span")}}, {{HTMLElement("i")}}, {{HTMLElement("em")}}, {{HTMLElement("b")}} und {{HTMLElement("cite")}} sollten normalerweise stattdessen verwendet werden.
-- Die CSS-Eigenschaft {{cssxref("text-decoration")}} sollte für nicht-semantische Unterstreichungen verwendet werden.
+- Die {{HTMLElement("span")}}, {{HTMLElement("i")}}, {{HTMLElement("em")}}, {{HTMLElement("b")}}, und {{HTMLElement("cite")}} Elemente sollten in der Regel stattdessen verwendet werden.
+- Die CSS {{cssxref("text-decoration")}} Eigenschaft sollte für nicht-semantische Unterstreichungen verwendet werden.
