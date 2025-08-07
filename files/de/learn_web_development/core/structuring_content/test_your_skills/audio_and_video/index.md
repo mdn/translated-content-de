@@ -3,13 +3,13 @@ title: "Testen Sie Ihre Fähigkeiten: Audio und Video"
 short-title: Audio und Video
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie verstehen, wie man [Video- und Audioinhalte in HTML einbettet](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
+Ziel dieses Fähigkeitentests ist es, Sie darin zu unterstützen, zu beurteilen, ob Sie verstehen, wie man [Video- und Audio-Inhalte in HTML einbettet](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
 
 > [!NOTE]
-> Um Unterstützung zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) mit uns in Kontakt treten.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung der Fähigkeitentests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
@@ -17,9 +17,9 @@ In dieser Aufgabe möchten wir, dass Sie eine Audiodatei auf der Seite einbetten
 
 Um diese Aufgabe zu erfüllen:
 
-1. Fügen Sie den Pfad zur Audiodatei einem geeigneten Attribut hinzu, um sie auf der Seite einzubetten. Das Audio wird `audio.mp3` genannt und ist unter folgendem Pfad verfügbar: `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/audio.mp3`.
-2. Fügen Sie ein Attribut hinzu, damit Browser einige Standard-Steuerelemente anzeigen.
-3. Fügen Sie geeigneten Fallback-Text für Browser hinzu, die `<audio>` nicht unterstützen.
+1. Fügen Sie den Pfad zur Audiodatei einem geeigneten Attribut hinzu, um sie auf der Seite einzubetten. Das Audio heißt `audio.mp3` und ist verfügbar unter dem Pfad `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/audio.mp3`.
+2. Fügen Sie ein Attribut hinzu, um Browsern anzuzeigen, einige Standardsteuerungen darzustellen.
+3. Fügen Sie einen geeigneten Fallback-Text für Browser hinzu, die `<audio>` nicht unterstützen.
 
 ```html live-sample___audio-1
 <h1>Basic audio embed</h1>
@@ -27,11 +27,11 @@ Um diese Aufgabe zu erfüllen:
 <audio></audio>
 ```
 
-<!-- Gemeinsame Styles -->
+<!-- Gemeinsame Stile -->
 
 ```css hidden live-sample___video-1 live-sample___audio-1
 body {
-  background-color: #fff;
+  background-color: white;
   color: #333;
   font:
     1em / 1.4 Helvetica Neue,
@@ -57,7 +57,7 @@ video {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte wie folgt aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
 <h1>Basic audio embed</h1>
@@ -80,20 +80,20 @@ Ihr fertiges HTML sollte wie folgt aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie einen etwas komplexeren Videoplayer mit mehreren Quellen, Untertiteln und anderen Funktionen versehen.
+In dieser Aufgabe möchten wir, dass Sie einen etwas komplexeren Videoplayer markieren, der mehrere Quellen, Untertitel und andere Merkmale enthält.
 
 Um diese Aufgabe zu erfüllen:
 
-1. Fügen Sie ein Attribut hinzu, damit Browser einige Standard-Steuerelemente anzeigen.
-2. Fügen Sie geeigneten Fallback-Text für Browser hinzu, die `<video>` nicht unterstützen.
+1. Fügen Sie ein Attribut hinzu, um Browsern anzuzeigen, einige Standardsteuerungen darzustellen.
+2. Fügen Sie einen geeigneten Fallback-Text für Browser hinzu, die `<video>` nicht unterstützen.
 3. Fügen Sie mehrere Quellen hinzu, die die Pfade zu den Videodateien enthalten. Die Dateien heißen `video.mp4` und `video.webm` und sind unter den folgenden Pfaden verfügbar:
    1. `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/video.mp4`
    2. `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/video.webm`
-4. Geben Sie dem Browser im Voraus an, auf welche Videoformate die Quellen verweisen, damit er eine fundierte Entscheidung darüber treffen kann, welches er im Voraus herunterladen soll.
+4. Lassen Sie den Browser im Voraus wissen, auf welche Videoformate die Quellen verweisen, sodass er eine informierte Wahl treffen kann, welche er im Voraus herunterladen soll.
 5. Geben Sie dem `<video>` eine Breite und Höhe entsprechend seiner intrinsischen Größe (320 x 240 Pixel).
 6. Machen Sie das Video standardmäßig stumm.
-7. Zeigen Sie die im `media`-Ordner enthaltenen Textspuren in einer Datei namens `https://raw.githubusercontent.com/mdn/learning-area/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/subtitles_en.vtt` an, wenn das Video abgespielt wird. Sie müssen den Typ explizit als Untertitel festlegen und die Untertitelsprache auf Englisch setzen.
-8. Stellen Sie sicher, dass die Leser die Untertitelsprache erkennen können, wenn sie die Standard-Steuerelemente verwenden.
+7. Zeigen Sie die enthaltenen Textspuren aus dem `media`-Ordner in einer Datei namens `https://raw.githubusercontent.com/mdn/learning-area/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/subtitles_en.vtt` an, wenn das Video abgespielt wird. Sie müssen den Typ ausdrücklich als Untertitel festlegen und die Untertitelsprache auf Englisch setzen.
+8. Stellen Sie sicher, dass die Leser die Untertitelsprache identifizieren können, wenn sie die Standardsteuerungen verwenden.
 
 ```html live-sample___video-1
 <h1>Video embed</h1>
@@ -106,7 +106,7 @@ Um diese Aufgabe zu erfüllen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte wie folgt aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
 <h1>Video embed</h1>

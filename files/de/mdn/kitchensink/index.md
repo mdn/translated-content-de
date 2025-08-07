@@ -1,39 +1,39 @@
 ---
-title: Die MDN-Inhalts-Kombination
+title: Der MDN Content Kitchensink
 slug: MDN/Kitchensink
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
 > [!WARNING]
-> Löschen Sie diese Seite nicht. Sie wird von [mdn/yari](https://github.com/mdn/yari) für deren Automatisierung verwendet.
+> Löschen Sie diese Seite nicht. Sie wird von [mdn/yari](https://github.com/mdn/yari) für die Automatisierung verwendet.
 
 ## Über diese Seite
 
-Der **kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und Yari-Makro einzubeziehen.
+Der **Kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und jeden Yari-Makro zu integrieren.
 
-Diese Seite versucht, die vollständige Schnittmenge jeder anderen Seite zu sein. Nicht im Hinblick auf den Text, sondern im Hinblick auf die Stile und Makros.
-Beginnen wir mit einigen Anmerkungen …
+Diese Seite versucht, die vollständige Schnittmenge jeder anderen Seite darzustellen. Nicht im Hinblick auf den Text, sondern im Hinblick auf die Stile und Makros.
+Lassen Sie uns mit einigen Notizen beginnen…
 
 Text, der das `<kbd>`-Tag verwendet: <kbd>Shift</kbd>
 
 > [!NOTE]
-> Hier ist eine Blockindikator-Anmerkung.
+> Hier ist eine Blockindikator-Notiz.
 
 > [!WARNING]
 > Hier ist eine Blockindikator-Warnung.
 
-## Vorherige/Nächste-Schaltflächen
+## Vor-/Zurück-Tasten
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}
 
-### Noch eine
+### Noch eine…
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Extra_lives", "Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}
 
-## Code-Beispiele
+## Code-Snippets
 
-### Klartext
+### Unformatierter Text
 
 ```plain
   ___________________________
@@ -182,7 +182,7 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
 
 ```css interactive-example
 .example-container {
-  background-color: #fff;
+  background-color: white;
   width: 260px;
   height: 260px;
   display: flex;
@@ -200,15 +200,15 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
 
 ### Markdown-Tabelle
 
-| Konstanter Name              | Wert   | Beschreibung                                                                                       |
+| Konstantenname               | Wert   | Beschreibung                                                                                       |
 | ---------------------------- | ------ | -------------------------------------------------------------------------------------------------- |
 | `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die verwendet werden, um das Abfrageergebnis für das gegebene Ziel zu halten. |
 | `CURRENT_QUERY_EXT`          | 0x8865 | Die derzeit aktive Abfrage.                                                                        |
 | `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                               |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolescher Wert, der angibt, ob ein Abfrageergebnis verfügbar ist.                             |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolean, der angibt, ob ein Abfrageergebnis verfügbar ist.                                     |
 | `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                               |
 | `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                 |
-| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolescher Wert, der angibt, ob die GPU eine unzusammenhängende Operation ausgeführt hat.      |
+| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolean, der angibt, ob die GPU eine unzusammenhängende Operation ausgeführt hat.              |
 
 ### HTML-Tabelle
 
@@ -219,24 +219,24 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasierter Inhalt</a>, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierter Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind verpflichtend.</td>
+      <td>Keine, sowohl Start- als auch End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalt</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasierte Inhalte</a> akzeptiert.
       </td>
     </tr>
     <tr>
@@ -272,16 +272,15 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
       <td><code>width</code></td>
       <td>Eine positive ganze Zahl oder der Text <code>device-width</code></td>
       <td>
-        Definiert die Pixelbreite des Viewports, bei der die Webseite gerendert werden soll.
+        Definiert die Pixelbreite des Viewports, bei der Sie möchten, dass die Website gerendert wird.
       </td>
     </tr>
     <tr>
       <td><code>user-scalable</code> {{ReadOnlyInline}}</td>
       <td><code>yes</code> oder <code>no</code></td>
       <td>
-        Wenn auf <code>no</code> gesetzt, kann der Benutzer nicht in die Webseite hineinzoomen.
-        Der Standardwert ist <code>yes</code>. Browsereinstellungen können diese Regel ignorieren
-        und iOS10+ ignoriert sie standardmäßig.
+        Wenn auf <code>no</code> gesetzt, kann der Benutzer die Webseite nicht vergrößern. Standard ist <code>yes</code>.
+        Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert sie standardmäßig.
       </td>
     </tr>
     <tr>
@@ -289,42 +288,39 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
       <td><code>auto</code>, <code>contain</code> oder <code>cover</code></td>
       <td>
         <p>
-          Der Wert <code>auto</code> beeinflusst nicht den anfänglichen Layout-Viewport, und die gesamte Webseite ist sichtbar.
+          Der <code>auto</code>-Wert beeinflusst das Initial-Layout-Viewport nicht. Die gesamte Webseite ist sichtbar.
         </p>
         <p>
-          Der Wert <code>contain</code> bedeutet, dass der Viewport skaliert wird, um das größte in das Display eingeschriebene Rechteck zu passen.
+          Der <code>contain</code>-Wert bedeutet, dass der Viewport skaliert wird, um das größte innerhalb des Displays eingeschriebene Rechteck zu passen.
         </p>
         <p>
-          Der Wert <code>cover</code> bedeutet, dass der Viewport skaliert wird, um das Gerätedisplay auszufüllen.
-          Es wird dringend empfohlen, die <a href="/de/docs/Web/CSS/env">sichere Bereichseinlage</a>-Variablen zu
-          verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb des Displays endet.
+          Der <code>cover</code>-Wert bedeutet, dass der Viewport skaliert wird, um das Geräte-Display auszufüllen.
+          Es wird dringend empfohlen, die <a href="/de/docs/Web/CSS/env">sicheren Bereichseinsetzungen</a> Variablen zu verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb des Displays landet.
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Jedes Makro unter der Sonne
+## Jeder Makro unter der Sonne
 
-**Nun, fast jedes Makro. Hoffentlich nur die, die aktiv genutzt werden.**
+**Nun, fast jeder Makro. Hoffentlich nur diejenigen, die aktiv verwendet werden.**
 
 Ein {{Glossary("HTTP", "HTTP")}}-Fehlercode, der "Bad Gateway" bedeutet.
 
-Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, vorgelagerten Server) fungieren.
-Wenn Sie eine Anfrage zum Zugriff auf eine {{Glossary("URL", "URL")}} stellen, kann der Gateway-Server Ihre Anfrage an den vorgelagerten Server weiterleiten.
-"502" bedeutet, dass der vorgelagerte Server eine ungültige Antwort zurückgegeben hat.
+Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, nachgelagerten Server fungieren. Wenn Sie eine {{Glossary("URL", "URL")}} aufrufen, kann der Gateway-Server Ihre Anfrage an den nachgelagerten Server weiterleiten. "502" bedeutet, dass der nachgelagerte Server eine ungültige Antwort zurückgegeben hat.
 
 - JavaScript {{jsxref("Array")}} auf MDN
 
-Das Hören auf Mausbewegungen ist sogar einfacher als das Hören auf Tastendrücke: Alles, was wir benötigen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
+Das Lauschen von Mausbewegungen ist noch einfacher als das Lauschen von Tastendrücken: Alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-## Achsen-ausgerichtetes Begrenzungsrechteck
+## Achsen-ausgerichtete Begrenzungsbox
 
-Eine der einfacheren Formen der Kollisionserkennung ist zwischen zwei rechteckigen Formen, die achsen-ausgerichtet sind — also ohne Drehung. Der Algorithmus funktioniert, indem man sicherstellt, dass es keine Lücke zwischen einer der 4 Seiten der Rechtecke gibt. Jede Lücke bedeutet, dass keine Kollision existiert.
+Eine der einfacheren Formen der Kollisionsdetektion ist zwischen zwei rechteckigen, achsen-ausgerichteten Objekten - d.h. ohne Rotation. Der Algorithmus funktioniert, indem er sicherstellt, dass kein Abstand zwischen einer der 4 Seiten der Rechtecke besteht. Jeder Abstand bedeutet, dass keine Kollision existiert.
 
 ```js
 var rect1 = { x: 5, y: 5, width: 50, height: 50 };
@@ -395,10 +391,10 @@ this.color("blue");
 
 {{EmbedGHLiveSample("web-tech-games/index.html", '100%', 820)}}
 
-- [Ressourcen zur Barrierefreiheit bei MDN](/de/docs/Web/Accessibility)
+- [Barrierefreiheitsressourcen bei MDN](/de/docs/Web/Accessibility)
 - [Web-Barrierefreiheit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
 
-Das Makro [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) fügt ein lokalisiertes Hinweisfeld ein, das anzeigt, dass eine Funktion in einem [Web Worker](/de/docs/Web/API/Web_Workers_API)-Kontext verfügbar ist.
+Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs)-Makro fügt eine lokalisierte Notizbox ein, die darauf hinweist, dass eine Funktion im Kontext eines [Web worker](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 
 {{AvailableInWorkers}}
 
@@ -416,10 +412,8 @@ Das Makro [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/ra
 <!---->
 
 - Erstellen Sie ein {{htmlelement("canvas")}}-Element und setzen Sie dessen `width`- und `height`-Attribute auf die ursprüngliche, kleinere Auflösung.
-- Setzen Sie dessen CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf das 2- oder 4-fache des Wertes der HTML-`width` und `height`.
-  Wenn das Canvas mit einer Breite von 128 Pixel erstellt wurde, würden wir die CSS-`width` auf `512px` setzen, wenn wir eine 4-fache Skalierung wünschen.
-- Setzen Sie die `image-rendering`-CSS-Eigenschaft des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht unscharf macht.
-  Entweder `crisp-edges` oder `pixelated` funktioniert. Überprüfen Sie den Artikel zu {{cssxref("image-rendering")}} für mehr Informationen über die Unterschiede zwischen diesen Werten und welche Präfixe je nach Browser verwendet werden sollen.
+- Setzen Sie dessen CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf das 2-fache oder 4-fache des HTML-`width`- und `height`-Werts. Wenn das Canvas beispielsweise mit einer Breite von 128 Pixel erstellt wurde, würden wir die CSS-`width` auf `512px` setzen, wenn wir einen 4x-Skalierung wünschen.
+- Setzen Sie die CSS-`image-rendering`-Eigenschaft des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht unscharf macht. Sowohl `crisp-edges` als auch `pixelated` funktionieren. Schauen Sie sich den Artikel über {{cssxref("image-rendering")}} für weitere Informationen zu den Unterschieden zwischen diesen Werten an und welche Präfixe je nach Browser verwendet werden sollten.
 
 <!---->
 
@@ -427,10 +421,10 @@ Das Makro [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/ra
   - {{Glossary("XMLHttpRequest", "XHR")}}
 
 - [AJAX](https://en.wikipedia.org/wiki/AJAX) auf Wikipedia
-- [Lernen: Netzwerk-Anfragen mit JavaScript machen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
+- [Lernen: Network-Anfragen mit JavaScript stellen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [`Fetch API`](/de/docs/Web/API/Fetch_API)
-- [Verwendung der Fetch API](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Fetch API verwenden](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [Synchron vs. Asynchron Kommunikation](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
 
 <!---->
@@ -445,8 +439,8 @@ Das Makro [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/ra
 ## Typen
 
 - {{WebExtAPIRef("alarms.Alarm")}}
-  - : Informationen über einen bestimmten Alarm.
+  - : Informationen zu einem bestimmten Alarm.
 
 {{Non-standard_Header}}
 {{Deprecated_Header}}
-[![Iceberg pic](iceberg.jpg)](iceberg.jpg)
+[![Eisberg Bild](iceberg.jpg)](iceberg.jpg)

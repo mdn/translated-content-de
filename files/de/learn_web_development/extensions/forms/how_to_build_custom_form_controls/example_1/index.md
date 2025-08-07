@@ -2,10 +2,10 @@
 title: Beispiel 1
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_1
 l10n:
-  sourceCommit: edb16c0a662d7e719efe67561389a7a087c1ace9
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
-Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefiniertes Formular-Widget erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
+Dies ist das erste Codebeispiel, das erklärt, [wie man ein benutzerdefiniertes Formular-Widget erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
 
 ## Grundzustand
 
@@ -66,7 +66,7 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
   padding: 0.1em 2.5em 0.2em 0.5em; /* 1px 25px 2px 5px */
   width: 10em; /* 100px */
 
-  border: 0.2em solid #000; /* 2px */
+  border: 0.2em solid black; /* 2px */
   border-radius: 0.4em; /* 4px */
 
   box-shadow: 0 0.1em 0.2em rgb(0 0 0 / 45%); /* 0 1px 2px */
@@ -99,11 +99,11 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
 
   text-align: center;
 
-  border-left: 0.2em solid #000;
+  border-left: 0.2em solid black;
   border-radius: 0 0.1em 0.1em 0;
 
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
 }
 
 .select .optList {
@@ -114,7 +114,7 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
   padding: 0;
 
   background: #f0f0f0;
-  border: 0.2em solid #000;
+  border: 0.2em solid black;
   border-top-width: 0.1em;
   border-radius: 0 0 0.4em 0.4em;
 
@@ -133,8 +133,8 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
 }
 
 .select .highlight {
-  background: #000;
-  color: #ffffff;
+  background: black;
+  color: white;
 }
 ```
 
@@ -201,7 +201,7 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
   padding: 0.1em 2.5em 0.2em 0.5em; /* 1px 25px 2px 5px */
   width: 10em; /* 100px */
 
-  border: 0.2em solid #000; /* 2px */
+  border: 0.2em solid black; /* 2px */
   border-radius: 0.4em; /* 4px */
 
   box-shadow: 0 0.1em 0.2em rgb(0 0 0 / 45%); /* 0 1px 2px */
@@ -234,11 +234,11 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
 
   text-align: center;
 
-  border-left: 0.2em solid #000;
+  border-left: 0.2em solid black;
   border-radius: 0 0.1em 0.1em 0;
 
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
 }
 
 .select .optList {
@@ -249,7 +249,7 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
   padding: 0;
 
   background: #f0f0f0;
-  border: 0.2em solid #000;
+  border: 0.2em solid black;
   border-top-width: 0.1em;
   border-radius: 0 0 0.4em 0.4em;
 
@@ -268,8 +268,8 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
 }
 
 .select .highlight {
-  background: #000;
-  color: #ffffff;
+  background: black;
+  color: white;
 }
 ```
 
@@ -336,7 +336,7 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
   padding: 0.1em 2.5em 0.2em 0.5em; /* 1px 25px 2px 5px */
   width: 10em; /* 100px */
 
-  border: 0.2em solid #000; /* 2px */
+  border: 0.2em solid black; /* 2px */
   border-radius: 0.4em; /* 4px */
 
   box-shadow: 0 0.1em 0.2em rgb(0 0 0 / 45%); /* 0 1px 2px */
@@ -369,11 +369,11 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
 
   text-align: center;
 
-  border-left: 0.2em solid #000;
+  border-left: 0.2em solid black;
   border-radius: 0 0.1em 0.1em 0;
 
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
 }
 
 .select .optList {
@@ -384,7 +384,7 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
   padding: 0;
 
   background: #f0f0f0;
-  border: 0.2em solid #000;
+  border: 0.2em solid black;
   border-top-width: 0.1em;
   border-radius: 0 0 0.4em 0.4em;
 
@@ -403,8 +403,8 @@ Dies ist das erste Beispiel für Code, das erklärt, [wie man ein benutzerdefini
 }
 
 .select .highlight {
-  background: #000;
-  color: #fff;
+  background: black;
+  color: white;
 }
 ```
 

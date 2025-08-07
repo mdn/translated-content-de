@@ -1,27 +1,27 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: CSS und JavaScript Barrierefreiheit"
+title: "Testen Sie Ihre Fähigkeiten: Barrierefreiheit mit CSS und JavaScript"
 short-title: CSS und JavaScript
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
-Ziel dieses Fertigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unser [CSS und JavaScript Barrierefreiheit beste Praktiken](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript) Artikel verstanden haben.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel über [CSS und JavaScript Barrierefreiheit Best Practices](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Verwendungsleitfaden Fertigkeitstest](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über eine unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von „Testen Sie Ihre Fähigkeiten“](/de/docs/Learn_web_development#test_your_skills). Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt mit uns aufnehmen.
 
-## CSS Barrierefreiheit 1
+## CSS-Barrierefreiheit 1
 
-In der ersten Aufgabe wird Ihnen eine Liste von Links präsentiert. Deren Zugänglichkeit ist jedoch ziemlich schlecht – man kann nicht wirklich erkennen, dass es sich um Links handelt oder auf welchen der Benutzer fokussiert ist. Wir möchten, dass Sie davon ausgehen, dass das bestehende Regelwerk mit dem `a` Selektor von einem CMS bereitgestellt wird und dass Sie es nicht ändern können.
+In der ersten Aufgabe wird Ihnen eine Liste von Links präsentiert. Allerdings ist ihre Barrierefreiheit ziemlich schlecht — es gibt keine Möglichkeit wirklich zu erkennen, dass es sich um Links handelt, oder zu erkennen, welcher Link gerade fokussiert ist. Wir möchten, dass Sie davon ausgehen, dass das bestehende Regelset mit dem `a`-Selektor von einem CMS bereitgestellt wird und dass Sie es nicht ändern können.
 
-Um die Aufgabe zu vervollständigen, erstellen Sie neue Regeln, damit die Links wie Links aussehen und sich verhalten und damit der Benutzer erkennen kann, auf welchen Link er in der Liste fokussiert ist.
+Um die Aufgabe abzuschließen, erstellen Sie neue Regeln, damit die Links wie Links aussehen und sich verhalten und damit der Benutzer erkennen kann, welcher Link in der Liste fokussiert ist.
 
 <!-- Code shared across examples -->
 
 ```css hidden live-sample___css-js-ally-1 live-sample___css-js-ally-2 live-sample___css-js-ally-3
 body {
-  background-color: #fff;
+  background-color: white;
   color: #333;
   font:
     1em / 1.4 Helvetica Neue,
@@ -67,7 +67,7 @@ a {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges CSS könnte folgendermaßen aussehen:
+Ihr fertiges CSS könnte ungefähr so aussehen:
 
 ```css
 /* ... */
@@ -81,21 +81,21 @@ li a {
 li a:hover,
 li a:focus {
   text-decoration: none;
-  color: rgb(255 0 0);
+  color: red;
 }
 ```
 
 </details>
 
-## CSS Barrierefreiheit 2
+## CSS-Barrierefreiheit 2
 
-In dieser nächsten Aufgabe wird Ihnen ein einfacher Inhalt präsentiert – nur Überschriften und Absätze. Es gibt Barrierefreiheitsprobleme mit den Farben und der Größe des Textes, und wir möchten, dass Sie diese beheben.
+In dieser nächsten Aufgabe wird Ihnen ein einfacher Inhalt präsentiert — nur Überschriften und Absätze. Es gibt Probleme mit der Barrierefreiheit in Bezug auf die Farben und die Größe des Textes, und wir möchten, dass Sie diese beheben.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
 1. Überlegen Sie, was die Probleme sind und welche Richtlinien die akzeptablen Werte für Farbe und Größe angeben.
-2. Aktualisieren Sie das CSS mit neuen Werten für die Farbe und Schriftgröße, um das Problem zu beheben.
-3. Testen Sie den Code, um sicherzustellen, dass das Problem jetzt behoben ist. Erklären Sie, welche Werkzeuge oder Methoden Sie verwendet haben, um die neuen Werte auszuwählen und den Code zu testen.
+2. Aktualisieren Sie das CSS mit neuen Werten für die Farbe und die Schriftgröße, um das Problem zu beheben.
+3. Testen Sie den Code, um sicherzustellen, dass das Problem behoben ist. Erklären Sie, welche Werkzeuge oder Methoden Sie verwendet haben, um die neuen Werte auszuwählen und den Code zu testen.
 
 <!-- spellchecker: disable -->
 
@@ -160,16 +160,16 @@ p {
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 1. Die Probleme sind:
-   - Der Farbkontrast ist nicht akzeptabel, gemäß den WCAG-Kriterien [1.4.3 (AA)](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum) und [1.4.6 (AAA)](https://w3c.github.io/wcag/guidelines/22/#contrast-enhanced).
-   - Der Text wird mit `vw` Einheiten dimensioniert, was bedeutet, dass er in den meisten Browsern nicht vergrößert werden kann. [WCAG 1.4.4 (AA)](https://w3c.github.io/wcag/guidelines/22/#resize-text) gibt an, dass Text vergrößerbar sein sollte.
-2. Um den Code zu beheben, müssen Sie:
-   - Ein besser kontrastierendes Set von Hintergrund- und Vordergrundfarben wählen.
-   - Andere Einheiten zur Größenbestimmung des Textes verwenden (z. B. `rem` oder sogar `px`), oder sogar etwas implementieren, das eine Kombination von `vw` und anderen Einheiten verwendet, wenn Sie es vergrößerbar, aber trotzdem relativ zur Viewport-Größe haben möchten.
+   - Der Farbkontrast ist laut WCAG-Kriterien [1.4.3 (AA)](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum) und [1.4.6 (AAA)](https://w3c.github.io/wcag/guidelines/22/#contrast-enhanced) nicht akzeptabel.
+   - Der Text ist in `vw`-Einheiten dimensioniert, was bedeutet, dass er in den meisten Browsern nicht vergrößert werden kann. [WCAG 1.4.4 (AA)](https://w3c.github.io/wcag/guidelines/22/#resize-text) besagt, dass Text skalierbar sein sollte.
+2. Um den Code zu beheben, müssen Sie
+   - Ein besser kontrastierendes Set von Hintergrund- und Vordergrundfarben auswählen.
+   - Andere Einheiten verwenden, um den Text zu dimensionieren (wie z.B. `rem` oder sogar `px`), oder sogar etwas implementieren, das eine Kombination aus `vw` und anderen Einheiten verwendet, wenn Sie es skalierbar aber dennoch relativ zur Ansichtsgröße haben möchten.
 3. Für das Testen:
-   - Sie können den Farbkontrast mit einem Werkzeug wie [aXe](https://www.deque.com/axe/), dem [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) oder sogar einem einfachen Web-Tool wie dem [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) testen.
-   - Zum Ändern der Textgröße müssen Sie das Beispiel in einem Browser laden und versuchen, es zu vergrößern. Das Vergrößern von Text in `vw` Einheiten funktioniert in Safari, aber nicht in Firefox oder auf Chromium-basierten Browsern.
+   - Sie können den Farbkontrast mit einem Tool wie [aXe](https://www.deque.com/axe/), dem [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) oder sogar einem einfachen eigenständigen Webseitentool wie dem [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) testen.
+   - Für die Textvergrößerung müssen Sie das Beispiel in einem Browser laden und versuchen, es zu vergrößern. Die Skalierung von `vw`-einheitlich dimensioniertem Text funktioniert in Safari, aber nicht in Firefox oder Chromium-basierten Browsern.
 
-Für den aktualisierten Code könnte so etwas den Farbkontrast beheben:
+Für den aktualisierten Code würde etwas wie dies den Farbkontrast beheben:
 
 ```css
 main {
@@ -184,7 +184,7 @@ p {
 }
 ```
 
-Und so etwas würde für die Schriftgröße funktionieren:
+Und etwas wie dies würde für die Schriftgrößenanpassung funktionieren:
 
 ```css
 h1 {
@@ -200,7 +200,7 @@ p {
 }
 ```
 
-Oder dies, wenn Sie etwas Cleveres tun möchten, das Ihnen vergrößerbaren, ansichtsfeldrelativen Text gibt:
+Oder dies, wenn Sie etwas Cleveres tun möchten, das Ihnen skalierbaren, ansichtsbezogenen Text bietet:
 
 ```css
 h1 {
@@ -218,11 +218,11 @@ p {
 
 </details>
 
-## JavaScript Barrierefreiheit 1
+## JavaScript-Barrierefreiheit 1
 
-In unserer letzten Barrierefreiheitsaufgabe haben Sie ein wenig JavaScript zu scripten. Wir haben eine App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Feld unter der Liste.
+In unserer letzten Barrierefreiheitsaufgabe haben Sie einige JavaScripting zu erledigen. Wir haben eine App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Feld unterhalb der Liste.
 
-Aber es ist nicht sehr zugänglich – im aktuellen Zustand kann man es nur mit der Maus bedienen. Wir möchten, dass Sie etwas HTML und JavaScript hinzufügen, um es auch für die Tastatur zugänglich zu machen.
+Aber es ist nicht sehr zugänglich — im jetzigen Zustand kann es nur mit der Maus bedient werden. Wir möchten, dass Sie etwas HTML und JavaScript hinzufügen, um es auch tastaturzugänglich zu machen.
 
 ```html live-sample___css-js-ally-3
 <section class="preview">
@@ -292,7 +292,7 @@ function handleSelection(e) {
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 1. Zunächst müssen Sie `tabindex="0"` zu den Listenelementen hinzufügen, um sie über die Tastatur fokussierbar zu machen.
-2. Dann müssen Sie einen weiteren Ereignis-Listener innerhalb der `forEach()` Schleife hinzufügen, um den Code auf Tasteneingaben zu reagieren, während die Listenelemente ausgewählt sind. Es ist wahrscheinlich eine gute Idee, es auf eine bestimmte Taste reagieren zu lassen, wie "Enter", in welchem Fall so etwas wahrscheinlich akzeptabel ist:
+2. Dann müssen Sie einen weiteren Event-Listener innerhalb der `forEach()` Schleife hinzufügen, damit der Code auf gedrückte Tasten reagiert, während die Listenelemente ausgewählt sind. Es ist wahrscheinlich eine gute Idee, ihn auf eine bestimmte Taste reagieren zu lassen, wie z.B. "Enter", in welchem Fall etwas wie das Folgende wahrscheinlich akzeptabel ist:
 
 ```js
 item.addEventListener("keyup", (e) => {

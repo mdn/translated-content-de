@@ -1,24 +1,24 @@
 ---
-title: "Anleitung: Eine Box halbtransparent machen"
-short-title: Eine Box halbtransparent machen
+title: So machen Sie einen Kasten halbtransparent
+short-title: Einen Kasten halbtransparent machen
 slug: Learn_web_development/Howto/Solve_CSS_problems/Make_box_transparent
 l10n:
-  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
-Dieser Leitfaden hilft Ihnen zu verstehen, wie Sie eine Box mithilfe von CSS halbtransparent machen können.
+Dieser Leitfaden wird Ihnen helfen, die Methoden zu verstehen, mit denen Sie einen Kasten mit CSS halbtransparent machen können.
 
-## Die Opazität der Box und des Inhalts ändern
+## Die Deckkraft des Kastens und des Inhalts ändern
 
-Wenn Sie möchten, dass die Box und alle Inhalte der Box ihre Opazität ändern, dann ist die CSS-{{cssxref("opacity")}}-Eigenschaft das geeignete Werkzeug. Opazität ist das Gegenteil von Transparenz; daher ist `opacity: 1` vollständig opak — Sie werden überhaupt nicht durch die Box hindurchsehen.
+Wenn Sie möchten, dass der Kasten und alle Inhalte im Kasten die Deckkraft ändern, ist die CSS-Eigenschaft {{cssxref("opacity")}} das richtige Werkzeug. Opazität ist das Gegenteil von Transparenz; daher ist `opacity: 1` vollständig undurchsichtig – Sie werden überhaupt nicht durch den Kasten sehen können.
 
-Ein Wert von `0` würde die Box vollständig transparent machen, und Werte dazwischen ändern die Opazität, wobei höhere Werte weniger Transparenz bieten.
+Ein Wert von `0` würde den Kasten komplett transparent machen, und Werte dazwischen werden die Deckkraft ändern, wobei höhere Werte weniger Transparenz bieten.
 
-## Nur die Opazität der Hintergrundfarbe ändern
+## Nur die Deckkraft der Hintergrundfarbe ändern
 
-In vielen Fällen möchten Sie möglicherweise nur die Hintergrundfarbe teilweise transparent machen und den Text und andere Elemente vollständig opak halten. Um dies zu erreichen, verwenden Sie einen [`<color>`](/de/docs/Web/CSS/color_value)-Wert mit einem Alphakanal, wie `rgb()`. Wie auch bei `opacity` macht ein Wert von `1` für den Alphakanal die Farbe vollständig opak. Daher setzt `background-color: rgb(0 0 0 / 50%);` die Hintergrundfarbe auf 50% Opazität.
+In vielen Fällen möchten Sie nur die Hintergrundfarbe teilweise transparent machen, während der Text und andere Elemente vollständig undurchsichtig bleiben. Um dies zu erreichen, verwenden Sie einen [`<color>`](/de/docs/Web/CSS/color_value)-Wert, der einen Alphakanal hat, wie z.B. `rgb()`. Wie bei `opacity` macht ein Wert von `1` für den Alphakanal die Farbe vollständig undurchsichtig. Daher wird `background-color: rgb(0 0 0 / 50%);` die Hintergrundfarbe auf 50% Deckkraft setzen.
 
-Versuchen Sie, die Opazitäts- und Alphakanalwerte in den untenstehenden Beispielen zu ändern, um mehr oder weniger vom Hintergrundbild hinter der Box zu sehen.
+Versuchen Sie, die Werte für die Deckkraft und den Alphakanal in den folgenden Beispielen zu ändern, um mehr oder weniger vom Hintergrundbild hinter dem Kasten zu sehen.
 
 ```html live-sample___opacity
 <div class="wrapper">
@@ -46,7 +46,7 @@ body {
 
 .box {
   flex: 1;
-  border: 5px solid #000;
+  border: 5px solid black;
   border-radius: 0.5em;
   font-size: 140%;
   padding: 20px;
@@ -55,22 +55,22 @@ body {
 
 ```css live-sample___opacity
 .box1 {
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
   opacity: 0.5;
 }
 
 .box2 {
   background-color: rgb(0 0 0 / 0.5);
-  color: #fff;
+  color: white;
 }
 ```
 
 {{EmbedLiveSample("opacity", "", "280px")}}
 
 > [!NOTE]
-> Achten Sie darauf, dass Ihr Text ausreichend Kontrast zum Hintergrund hat, wenn Sie ein Bild überlagern; andernfalls könnte der Inhalt schwer lesbar werden.
+> Achten Sie darauf, dass Ihr Text genügend Kontrast mit dem Hintergrund behält, insbesondere wenn Sie ein Bild überlagern; andernfalls könnte der Inhalt schwer lesbar werden.
 
 ## Siehe auch
 
-- [Farben auf HTML-Elemente mit CSS anwenden.](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farbe auf HTML-Elemente mit CSS anwenden.](/de/docs/Web/CSS/CSS_colors/Applying_color)

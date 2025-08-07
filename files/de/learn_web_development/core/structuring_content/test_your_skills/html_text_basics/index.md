@@ -1,21 +1,21 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Grundlagen der HTML-Texte"
-short-title: Grundlagen der HTML-Texte
+title: "Überprüfen Sie Ihre Fähigkeiten: Grundlagen von HTML-Text"
+short-title: Grundlagen von HTML-Text
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie verstehen, wie man Text in HTML strukturiert und ihm Bedeutung verleiht.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man Text in HTML auszeichnet, um ihm Struktur und Bedeutung zu verleihen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe sollen Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatzelementen auszeichnen.
+In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschrifts- und Absatz-Elementen auszeichnen.
 
-Das fertige Beispiel sollte folgendermaßen aussehen:
+Das fertige Beispiel sollte so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text1-finished.html", '100%', 300)}}
 
@@ -33,11 +33,11 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsamer/Setup-CSS-Code -->
+<!-- Gemeinsamer/eingesetzter CSS-Code -->
 
 ```css hidden live-sample___text-basics-1 live-sample___text-basics-2 live-sample___text-basics-3 live-sample___text-basics-4
 body {
-  background-color: #fff;
+  background-color: white;
   color: #333;
   font:
     1em / 1.4 Helvetica Neue,
@@ -82,7 +82,7 @@ p {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html
 <h1>Basic HTML Animals</h1>
@@ -108,9 +108,9 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
+In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste umwandeln und die zweite in eine geordnete Liste.
 
-Das fertige Beispiel sollte folgendermaßen aussehen:
+Das fertige Beispiel sollte so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text2-finished.html", '100%', 400)}}
 
@@ -157,7 +157,7 @@ ul {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html
 <h1>Looking at lists</h1>
@@ -185,9 +185,9 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 3
 
-In dieser Aufgabe sollen Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
+In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
 
-Das fertige Beispiel sollte folgendermaßen aussehen:
+Das fertige Beispiel sollte so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/advanced-text/advanced-text1-finished.html", '100%', 250)}}
 
@@ -223,7 +223,7 @@ dt {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html
 <h1>Advanced HTML Animals</h1>
@@ -248,9 +248,9 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 4
 
-In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige passende Wörter mit starker Wichtigkeit und einige mit Betonung mit Inline-Elementen auszuzeichnen.
+In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige Wörter mit besonderer Wichtigkeit hervorzuheben und andere zu betonen, indem Sie Inline-Elemente verwenden.
 
-Das fertige Beispiel sollte ungefähr so aussehen:
+Das fertige Beispiel sollte etwa so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text3-finished.html", '100%', 120)}}
 
@@ -284,7 +284,7 @@ em {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html
 <h1>Emphasis and importance</h1>

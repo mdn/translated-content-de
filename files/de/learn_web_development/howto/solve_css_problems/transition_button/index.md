@@ -1,22 +1,22 @@
 ---
-title: "Anleitung: Einen Button beim Hover verblassen lassen"
+title: Anleitung, um einen Button beim Hover zu verblassen
 short-title: Einen Button beim Hover verblassen lassen
 slug: Learn_web_development/Howto/Solve_CSS_problems/Transition_button
 l10n:
-  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
-In diesem Leitfaden erfahren Sie, wie Sie einen sanften Übergang zwischen zwei Farben beim Überfahren eines Buttons mit der Maus erzeugen können.
+In diesem Leitfaden erfahren Sie, wie Sie einen sanften Übergang zwischen zwei Farben erreichen können, wenn Sie über einen Button fahren.
 
-In unserem Button-Beispiel können wir den Hintergrund unseres Buttons ändern, indem wir eine andere Hintergrundfarbe für die dynamische Pseudo-Klasse `:hover` definieren. Allerdings wird der Hintergrund beim Überfahren des Buttons direkt zur neuen Farbe wechseln. Um einen sanfteren Übergang zwischen den beiden Farben zu erstellen, können wir CSS-Übergänge verwenden.
+In unserem Button-Beispiel können wir den Hintergrund unseres Buttons ändern, indem wir eine andere Hintergrundfarbe für die dynamische Pseudo-Klasse `:hover` definieren. Wenn Sie jedoch über den Button fahren, wird die Hintergrundfarbe schlagartig zur neuen Farbe wechseln. Um einen sanfteren Übergang zwischen den beiden zu schaffen, können wir CSS-Übergänge verwenden.
 
 ## Verwendung von Übergängen
 
-Nachdem Sie die gewünschte Farbe für den Hover-Zustand hinzugefügt haben, fügen Sie die {{cssxref("transition")}}-Eigenschaft zu den Regeln für den Button hinzu. Für einen einfachen Übergang ist der Wert von `transition` der Name der Eigenschaft oder Eigenschaften, auf die dieser Übergang angewendet werden soll, sowie die Dauer, die der Übergang in Anspruch nehmen soll.
+Nachdem Sie die gewünschte Farbe für den Hover-Zustand hinzugefügt haben, fügen Sie die Eigenschaft {{cssxref("transition")}} zu den Regeln für den Button hinzu. Für einen einfachen Übergang ist der Wert von `transition` der Name der Eigenschaft oder Eigenschaften, auf die dieser Übergang angewendet werden soll, sowie die Zeit, die der Übergang dauern soll.
 
-Für die Pseudo-Klassen `:active` und `:focus` ist die {{cssxref("transition")}}-Eigenschaft auf none gesetzt, sodass der Button beim Klicken direkt in den aktiven Zustand wechselt.
+Für die Pseudo-Klassen `:active` und `:focus` wird die Eigenschaft {{cssxref("transition")}} auf none gesetzt, damit der Button beim Klicken direkt in den aktiven Zustand springt.
 
-Im Beispiel dauert der Übergang 1 Sekunde. Sie können dies ändern, um den Unterschied zu sehen, den eine Änderung der Geschwindigkeit bewirkt.
+Im Beispiel dauert der Übergang 1 Sekunde, Sie können versuchen, dies zu ändern, um den Unterschied zu sehen, den eine Änderung der Geschwindigkeit bewirkt.
 
 ```html live-sample___transition-button
 <div class="wrapper">
@@ -50,7 +50,7 @@ button {
 ```css live-sample___transition-button
 .fade {
   background-color: #db1f48;
-  color: #fff;
+  color: white;
   transition: background-color 1s;
 }
 
@@ -68,7 +68,7 @@ button {
 {{EmbedLiveSample("transition-button")}}
 
 > [!NOTE]
-> Die {{cssxref("transition")}}-Eigenschaft ist eine Abkürzung für {{cssxref("transition-delay")}}, {{cssxref("transition-duration")}}, {{cssxref("transition-property")}}, und {{cssxref("transition-timing-function")}}. Besuchen Sie die Seiten dieser Eigenschaften auf MDN, um Möglichkeiten zur Feinabstimmung Ihrer Übergänge zu finden.
+> Die Eigenschaft {{cssxref("transition")}} ist eine Kurzform für {{cssxref("transition-delay")}}, {{cssxref("transition-duration")}}, {{cssxref("transition-property")}}, und {{cssxref("transition-timing-function")}}. Besuchen Sie die Seiten für diese Eigenschaften auf MDN, um Möglichkeiten zu finden, Ihre Übergänge anzupassen.
 
 ## Siehe auch
 

@@ -2,31 +2,29 @@
 title: Kombinatoren
 slug: Learn_web_development/Core/Styling_basics/Combinators
 l10n:
-  sourceCommit: c9f602a26092661130a031b7148d696a3ac9802e
+  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements", "Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics")}}
 
-Die letzten Selektoren, die wir betrachten werden, heißen Kombinatoren. Kombinatoren werden verwendet, um andere Selektoren so zu kombinieren, dass wir in der Lage sind, Elemente basierend auf ihrer Position im DOM relativ zu anderen Elementen auszuwählen (beispielsweise Kind- oder Geschwisterelemente).
+Die letzten Selektoren, die wir uns ansehen werden, werden Kombinatoren genannt. Kombinatoren werden verwendet, um andere Selektoren zu kombinieren, sodass wir Elemente basierend auf ihrer Position im DOM relativ zu anderen Elementen auswählen können (beispielsweise Kind oder Geschwister).
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlagen von HTML (Studieren Sie
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Die grundlegende HTML-Syntax</a
-        >), <a href="/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors">Grundlegende CSS-Selektoren</a>.
+        HTML-Grundlagen (studieren Sie
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">Grundlegende HTML-Syntax</a>), <a href="/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors">Grundlegende CSS-Selektoren</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Das Grundkonzept von Kombinatoren.</li>
-          <li>Nachfahren- und Kind-Kombinatoren.</li>
-          <li>Nächstes und Folgendes Geschwister-Kombinatoren.</li>
+          <li>Das grundlegende Konzept von Kombinatoren.</li>
+          <li>Kinder- und Nachkommen-Kombinatoren.</li>
+          <li>Nächster- und nachfolgender-Geschwister-Kombinator.</li>
           <li>Verschachtelung.</li>
           <li>Kombinieren von Kombinatoren mit Selektoren.</li>
         <ul>
@@ -35,16 +33,16 @@ Die letzten Selektoren, die wir betrachten werden, heißen Kombinatoren. Kombina
   </tbody>
 </table>
 
-## Nachfahren-Kombinator
+## Nachkommen-Kombinator
 
-Der **Nachfahren-Kombinator** — dargestellt durch ein einzelnes Leerzeichen (<code> </code>) — kombiniert zwei Selektoren so, dass Elemente, die durch den zweiten Selektor übereinstimmen, ausgewählt werden, wenn sie einen Vorfahren (einen Elternteil, den Elternteil eines Elternteils oder den Elternteil eines Elternteils eines Elternteils usw.) haben, der mit dem ersten Selektor übereinstimmt. Selektoren, die einen Nachfahren-Kombinator verwenden, werden _Nachfahren-Selektoren_ genannt.
+Der **Nachkommen-Kombinator** — dargestellt durch ein einzelnes Leerzeichen (<code> </code>) — kombiniert zwei Selektoren, sodass Elemente, die vom zweiten Selektor übereinstimmen, ausgewählt werden, wenn sie ein Vorfahrenelement (ein Elternteil, ein Elternteil des Elternteils oder ein Elternteil des Elternteils des Elternteils usw.) haben, das dem ersten Selektor entspricht. Selektoren, die einen Nachkommen-Kombinator nutzen, werden _Nachkommen-Selektoren_ genannt.
 
 ```css
 body article p {
 }
 ```
 
-Im unten stehenden Beispiel vergleichen wir nur das `<p>`-Element, das sich innerhalb eines Elements mit der Klasse `.box` befindet.
+Im folgenden Beispiel wählen wir nur das `<p>`-Element aus, das sich innerhalb eines Elements mit der Klasse `.box` befindet.
 
 ```html live-sample___descendant
 <div class="box"><p>Text in .box</p></div>
@@ -61,7 +59,7 @@ Im unten stehenden Beispiel vergleichen wir nur das `<p>`-Element, das sich inne
 
 ## Kind-Kombinator
 
-Der **Kind-Kombinator** (`>`) wird zwischen zwei CSS-Selektoren platziert. Er stimmt nur mit den Elementen überein, die durch den zweiten Selektor ausgewählt werden, die direkte Kinder der Elemente sind, die durch den ersten Selektor ausgewählt werden. Nachfahren-Elemente weiter unten in der Hierarchie stimmen nicht überein. Um beispielsweise nur `<p>`-Elemente auszuwählen, die direkte Kinder von `<article>`-Elementen sind:
+Der **Kind-Kombinator** (`>`) wird zwischen zwei CSS-Selektoren platziert. Er stimmt nur mit den Elementen überein, die vom zweiten Selektor ausgewählt werden und direkte Kinder von Elementen sind, die vom ersten Selektor ausgewählt werden. Nachkommenelemente weiter unten in der Hierarchie entsprechen nicht. Zum Beispiel, um nur `<p>`-Elemente auszuwählen, die direkte Kinder von `<article>`-Elementen sind:
 
 ```css
 article > p {
@@ -69,7 +67,7 @@ article > p {
 }
 ```
 
-Im nächsten Beispiel haben wir eine geordnete Liste ({{htmlelement("ol")}}), die in eine ungeordnete Liste ({{htmlelement("ul")}}) eingebettet ist. Der Kind-Kombinator wählt nur die `<li>`-Elemente aus, die direkte Kinder eines `<ul>` sind, und versieht sie mit einer oberen Umrandung.
+Im nächsten Beispiel haben wir eine geordnete Liste ({{htmlelement("ol")}}), die in eine ungeordnete Liste ({{htmlelement("ul")}}) eingebettet ist. Der Kind-Kombinator wählt nur diejenigen `<li>`-Elemente aus, die direkte Kinder eines `<ul>` sind, und stylt sie mit einem oberen Rand.
 
 ```html live-sample___child
 <ul>
@@ -92,11 +90,11 @@ ul > li {
 
 {{EmbedLiveSample("child")}}
 
-Versuchen Sie im vorherigen Beispiel, das `>` zu entfernen, das den Selektor als Kind-Selektor bezeichnet. Sie erhalten einen Nachfahren-Selektor, und alle `<li>`-Elemente erhalten eine rote Umrandung.
+Im vorherigen Beispiel versuchen Sie, das `>`, das den Selektor als Kind-Selektor kennzeichnet, zu entfernen. Sie erhalten einen Nachkommen-Selektor, und alle `<li>`-Elemente erhalten einen roten Rand.
 
-## Nächstes Geschwister-Kombinator
+## Nächster-Geschwister-Kombinator
 
-Der **nächste Geschwister-Kombinator** (`+`) wird zwischen zwei CSS-Selektoren platziert. Er stimmt nur mit den Elementen überein, die durch den zweiten Selektor ausgewählt werden und direkt nach dem Element kommen, das durch den ersten Selektor ausgewählt wird. Um beispielsweise alle `<img>`-Elemente auszuwählen, die unmittelbar von einem `<p>`-Element vorangegangen werden:
+Der **nächster-Geschwister-Kombinator** (`+`) wird zwischen zwei CSS-Selektoren platziert. Er stimmt nur mit den Elementen überein, die vom zweiten Selektor ausgewählt werden und direkt nach dem Element kommen, das vom ersten Selektor ausgewählt wird. Zum Beispiel, um alle `<img>`-Elemente auszuwählen, die unmittelbar von einem `<p>`-Element vorangegangen werden:
 
 ```css
 p + img {
@@ -104,7 +102,7 @@ p + img {
 }
 ```
 
-Ein häufiger Anwendungsfall ist es, etwas mit einem Absatz zu tun, der auf eine Überschrift folgt, wie im folgenden Beispiel. Hier wählen wir jeden Absatz aus, der ein Elternelement mit einem `<h1>` teilt und diesem `<h1>` unmittelbar folgt.
+Ein häufiges Anwendungsbeispiel ist, etwas mit einem Absatz zu tun, der einem Titel folgt, wie im folgenden Beispiel. Hier wählen wir jeden Absatz aus, der ein Elternelement mit einem `<h1>` teilt und dem `<h1>` unmittelbar folgt.
 
 ```html live-sample___adjacent
 <article>
@@ -130,7 +128,7 @@ body {
 h1 + p {
   font-weight: bold;
   background-color: #333;
-  color: #fff;
+  color: white;
   padding: 0.5em;
 }
 ```
@@ -139,12 +137,12 @@ h1 + p {
 
 Im vorherigen Beispiel:
 
-1. Versuchen Sie, ein weiteres Element wie ein `<h2>` zwischen das `<h1>` und das `<p>` einzufügen. Sie werden feststellen, dass der Absatz nicht mehr von dem Selektor erfasst wird und somit der Hintergrund- und Vordergrundfarbe nicht angewendet wird, wenn das Element angrenzend ist.
-2. Ändern Sie nun den `h1 + p`-Selektor so, dass der spezielle Stil erneut auf den ersten Absatz angewendet wird.
+1. Versuchen Sie, ein anderes Element wie ein `<h2>` zwischen dem `<h1>` und dem `<p>` einzufügen. Sie werden feststellen, dass der Absatz nicht mehr vom Selektor ausgewählt wird und daher nicht die Hintergrund- und Vordergrundfarbe angewendet wird, wenn das Element angrenzend ist.
+2. Ändern Sie nun den `h1 + p`-Selektor, sodass der spezielle Stil erneut auf den ersten Absatz angewendet wird.
 
-## Folgendes Geschwister-Kombinator
+## Nachfolgender-Geschwister-Kombinator
 
-Wenn Sie Geschwister eines Elements auswählen möchten, auch wenn sie nicht direkt angrenzend sind, dann können Sie den **folgenden Geschwister-Kombinator** (`~`) verwenden. Um alle `<img>`-Elemente auszuwählen, die _irgendwo_ nach `<p>`-Elementen kommen, würden wir Folgendes tun:
+Wenn Sie Geschwister eines Elements auswählen möchten, auch wenn diese nicht direkt daneben liegen, können Sie den **nachfolgender-Geschwister-Kombinator** (`~`) verwenden. Um alle `<img>`-Elemente auszuwählen, die _irgendwo_ nach `<p>`-Elementen kommen, würden wir dies tun:
 
 ```css
 p ~ img {
@@ -152,7 +150,7 @@ p ~ img {
 }
 ```
 
-Im unten stehenden Beispiel wählen wir alle `<p>`-Elemente aus, die nach dem `<h1>` kommen, und obwohl es auch ein `<div>` im Dokument gibt, wird das `<p>`, das danach kommt, ausgewählt.
+Im folgenden Beispiel wählen wir alle `<p>`-Elemente aus, die nach dem `<h1>` kommen, und selbst wenn noch ein `<div>` im Dokument vorhanden ist, wird das `<p>`, das nach ihm kommt, ausgewählt.
 
 ```html live-sample___general
 <article>
@@ -171,7 +169,7 @@ body {
 h1 ~ p {
   font-weight: bold;
   background-color: #333;
-  color: #fff;
+  color: white;
   padding: 0.5em;
 }
 ```
@@ -180,23 +178,23 @@ h1 ~ p {
 
 ## Kombinieren von Kombinatoren mit Selektoren
 
-Sie können alle Selektoren, die wir in den vorherigen Lektionen entdeckt haben, mit Kombinatoren kombinieren, um Teile Ihres Dokuments auszuwählen. Um zum Beispiel Listenelemente mit einer `class` von `a` auszuwählen, die direkte Kinder eines `<ul>` sind, probieren Sie Folgendes:
+Sie können alle Selektoren, die wir in früheren Lektionen entdeckt haben, mit Kombinatoren kombinieren, um einen Teil Ihres Dokuments auszuwählen. Zum Beispiel, um Listenelemente mit einer `class` von `a` auszuwählen, die direkte Kinder eines `<ul>` sind, probieren Sie das folgende:
 
 ```css
 ul > li[class="a"] {
 }
 ```
 
-Seien Sie jedoch vorsichtig, wenn Sie große Listen von Selektoren erstellen, die sehr spezifische Teile Ihres Dokuments auswählen. Es wird schwierig sein, die CSS-Regeln zu wiederverwenden, da Sie den Selektor sehr spezifisch für den Standort dieses Elements im Markup gemacht haben.
+Seien Sie jedoch vorsichtig, wenn Sie lange Listen von Selektoren erstellen, die sehr spezifische Teile Ihres Dokuments auswählen. Es wird schwierig sein, die CSS-Regeln wiederzuverwenden, da Sie den Selektor sehr spezifisch für die Position dieses Elements im Markup gemacht haben.
 
-Es ist oft besser, eine einfache Klasse zu erstellen und diese auf das betreffende Element anzuwenden. Das Wissen über Kombinatoren wird jedoch sehr nützlich sein, wenn Sie etwas in Ihrem Dokument stylen müssen und nicht auf das HTML zugreifen können, vielleicht weil es von einem {{Glossary("CMS", "CMS")}} generiert wird.
+Es ist oft besser, eine einfache Klasse zu erstellen und diese auf das betreffende Element anzuwenden. Dennoch wird Ihr Wissen über Kombinatoren sehr nützlich sein, wenn Sie etwas in Ihrem Dokument stylen müssen und keinen Zugriff auf das HTML haben, vielleicht weil es von einem {{Glossary("CMS", "CMS")}} generiert wird.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende unserer Reihe von Lektionen über Selektoren erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Selectors).
+Sie haben das Ende unserer Lektionen über Selektoren erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, dass Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Selectors).
 
 ## Zusammenfassung
 
-Das war's fürs Erste mit den Selektoren. Als Nächstes werden wir uns einem weiteren wichtigen Teil von CSS zuwenden — dem Box-Modell.
+Das war's vorerst mit Selektoren. Als nächstes werden wir uns einem weiteren wichtigen Teil von CSS zuwenden — dem Boxmodell.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements", "Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics")}}
