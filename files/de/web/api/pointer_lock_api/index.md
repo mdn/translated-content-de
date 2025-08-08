@@ -2,33 +2,33 @@
 title: Pointer Lock API
 slug: Web/API/Pointer_Lock_API
 l10n:
-  sourceCommit: 58cc81b21f777d745877ec1430df8ba2852ff411
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
 {{DefaultAPISidebar("Pointer Lock API")}}
 
-Die **Pointer Lock API** (früher _Mouse Lock API_ genannt) bietet Eingabemethoden, die auf der Bewegung der Maus über die Zeit basieren (d.h. Deltas), nicht nur auf der absoluten Position des Mauszeigers im Viewport. Sie ermöglicht den Zugriff auf die rohe Mausbewegung, sperrt das Ziel von Mausereignissen auf ein einzelnes Element, beseitigt Grenzen, wie weit sich die Maus in eine Richtung bewegen kann, und entfernt den Zeiger aus der Ansicht. Sie ist ideal für Ego-3D-Spiele, zum Beispiel.
+Die **Pointer Lock API** (früher _Mouse Lock API_ genannt) bietet Eingabemethoden basierend auf der Bewegung der Maus über die Zeit (d.h. Deltas), nicht nur der absoluten Position des Mauszeigers im Ansichtsfenster. Sie ermöglicht den Zugriff auf rohe Mausbewegungen, sperrt das Ziel von Mausereignissen auf ein einzelnes Element, beseitigt Begrenzungen, wie weit die Mausbewegung in eine einzelne Richtung gehen kann, und entfernt den Cursor aus der Sicht. Sie ist ideal für Ego-3D-Spiele.
 
-Darüber hinaus ist die API nützlich für Anwendungen, die signifikante Mauseingaben zur Steuerung von Bewegungen, zum Drehen von Objekten und zum Ändern von Einträgen erfordern, indem z. B. Benutzern ermöglicht wird, den Blickwinkel durch Bewegen der Maus ohne Mausklick zu steuern. Die Tasten werden dann für andere Aktionen freigegeben. Weitere Beispiele sind Apps zur Betrachtung von Karten oder Satellitenbildern.
+Darüber hinaus ist die API nützlich für Anwendungen, die umfangreiche Mauskontrollen für Bewegungen, Objektrotationen und Eingabeänderungen erfordern, z. B. indem Benutzer den Blickwinkel durch Bewegen der Maus ändern können, ohne eine Taste zu drücken. Die Buttons können dann für andere Aktionen genutzt werden. Andere Beispiele umfassen Apps zur Anzeige von Karten oder Satellitenbildern.
 
-Der Pointer Lock ermöglicht den Zugriff auf Mausereignisse, selbst wenn der Zeiger über den Rand des Browsers oder Bildschirms hinausgeht. Benutzer können zum Beispiel weiterhin ein 3D-Modell drehen oder manipulieren, indem sie die Maus unendlich bewegen. Ohne Pointer Lock stoppt die Drehung oder Manipulation in dem Moment, in dem der Zeiger den Rand des Browsers oder Bildschirms erreicht. Spieler können jetzt Tasten klicken und den Mauszeiger hin- und herbewegen, ohne befürchten zu müssen, den Spielbereich zu verlassen und versehentlich eine andere Anwendung zu klicken, die den Mausfokus vom Spiel ablenken würde.
+Durch die Zeigersperre können Mausereignisse auch dann erfasst werden, wenn der Cursor den Rand des Browsers oder Bildschirms überschreitet. Beispielsweise können Ihre Benutzer weiterhin ein 3D-Modell rotieren oder manipulieren, indem sie die Maus ohne Unterbrechung bewegen. Ohne Zeigersperre stoppt die Rotation oder Manipulation in dem Moment, in dem der Zeiger den Rand des Browsers oder Bildschirms erreicht. Spieler können jetzt Tasten klicken und den Mauszeiger hin- und herschieben, ohne sich Sorgen machen zu müssen, den Spielbereich zu verlassen und versehentlich eine andere Anwendung zu klicken, die den Mausfokus vom Spiel entfernt.
 
 ## Grundlegende Konzepte
 
-Pointer Lock ist mit [Pointer Capture](/de/docs/Web/API/Pointer_events#pointer_capture) verwandt. Pointer Capture bietet die kontinuierliche Übertragung von Ereignissen an ein Zielelement, während eine Maus gezogen wird, aber es stoppt, wenn die Maustaste losgelassen wird. Pointer Lock unterscheidet sich von Pointer Capture in folgenden Punkten:
+Die Zeigersperre ist mit dem [Pointer Capture](/de/docs/Web/API/Pointer_events#pointer_capture) verwandt. Pointer Capture sorgt dafür, dass weiterhin Ereignisse an ein Ziel-Element gesendet werden, während eine Maus gezogen wird, aber es stoppt, wenn die Maustaste losgelassen wird. Die Zeigersperre unterscheidet sich in folgenden Punkten von Pointer Capture:
 
-- Es ist persistent: Pointer Lock gibt die Maus nicht frei, bis ein expliziter API-Aufruf erfolgt oder der Benutzer eine bestimmte Entlassungsgeste verwendet.
-- Es ist nicht durch Browser- oder Bildschirmgrenzen beschränkt.
-- Es sendet weiterhin Ereignisse unabhängig vom Zustand der Maustaste.
-- Es versteckt den Cursor.
+- Sie ist persistent: Die Zeigersperre gibt die Maus erst frei, wenn ein expliziter API-Aufruf erfolgt oder der Benutzer eine spezifische Freigabegeste verwendet.
+- Sie ist nicht durch Browser- oder Bildschirmgrenzen eingeschränkt.
+- Sie sendet weiterhin Ereignisse unabhängig vom Zustand der Maustaste.
+- Sie verbirgt den Cursor.
 
-## Übersicht über Methoden/Eigenschaften
+## Methoden/Property-Übersicht
 
-Dieser Abschnitt bietet eine kurze Beschreibung jeder Eigenschaft und Methode, die sich auf die Pointer Lock Spezifikation bezieht.
+Dieser Abschnitt bietet eine kurze Beschreibung jeder Property und Methode in Bezug auf die Zeigersperrspezifikation.
 
 ### requestPointerLock()
 
-Die Pointer Lock API, ähnlich der [Fullscreen API](/de/docs/Web/API/Fullscreen_API), erweitert DOM-Elemente um eine neue Methode, [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock). Das folgende Beispiel fordert Pointer Lock für ein {{htmlelement("canvas")}}-Element an:
+Die Zeigersperr-API, ähnlich der [Fullscreen API](/de/docs/Web/API/Fullscreen_API), erweitert DOM-Elemente, indem sie eine neue Methode, [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock), hinzufügt. Das folgende Beispiel fordert die Zeigersperre auf einem {{htmlelement("canvas")}}-Element:
 
 ```js
 canvas.addEventListener("click", async () => {
@@ -37,11 +37,11 @@ canvas.addEventListener("click", async () => {
 ```
 
 > [!NOTE]
-> Wenn ein Benutzer den Pointer Lock über die [Standard-Entsperrgeste](https://w3c.github.io/pointerlock/#dfn-default-unlock-gesture) verlassen hat oder der Pointer Lock zuvor nicht für dieses Dokument aktiviert wurde, muss ein Ereignis, das als Ergebnis einer [Eingriffsgeste](https://w3c.github.io/pointerlock/#dfn-engagement-gesture) erzeugt wurde, vom Dokument empfangen werden, bevor [`requestPointerLock`](https://w3c.github.io/pointerlock/#dom-element-requestpointerlock) erfolgreich sein wird. (aus <https://w3c.github.io/pointerlock/#extensions-to-the-element-interface>)
+> Wenn ein Benutzer die Zeigersperre über die [Standard-Freigabegeste](https://w3c.github.io/pointerlock/#dfn-default-unlock-gesture) verlassen hat oder die Zeigersperre für dieses Dokument zuvor nicht aktiviert wurde, muss das Dokument ein Ereignis empfangen, das als Ergebnis einer [Engagement-Geste](https://w3c.github.io/pointerlock/#dfn-engagement-gesture) generiert wurde, bevor [`requestPointerLock`](https://w3c.github.io/pointerlock/#dom-element-requestpointerlock) erfolgreich sein wird. (aus <https://w3c.github.io/pointerlock/#extensions-to-the-element-interface>)
 
-Betriebssysteme aktivieren standardmäßig die Mausbeschleunigung, was nützlich ist, wenn Sie manchmal langsame präzise Bewegungen wünschen (denken Sie daran, wie Sie ein Grafikprogramm verwenden könnten), aber auch große Entfernungen mit schneller Maussbewegung zurücklegen möchten (denken Sie an Scrollen und das Auswählen mehrerer Dateien). Für einige Ego-Perspektiven-Spiele wird jedoch bevorzugt, rohe Mausdaten für die Steuerung der Kamera-Rotation zu verwenden – wobei die gleiche Bewegungsdistanz, ob schnell oder langsam, zu derselben Rotation führt. Laut professionellen Spielern führt dies zu einem besseren Spielerlebnis und höherer Genauigkeit.
+Betriebssysteme aktivieren standardmäßig die Mausbeschleunigung, was nützlich ist, wenn Sie manchmal eine langsame präzise Bewegung wünschen (denken Sie an eine Anwendung für Grafikdesign), aber auch große Entfernungen mit einer schnelleren Mausbewegung zurücklegen wollen (denken Sie an Scrollen und das Auswählen mehrerer Dateien). Für einige Spiele mit Egoperspektive ist jedoch rohe Maus-Eingabedaten bevorzugt für die Kamerasteuerung—wo dieselbe Entfernungsbewegung, schnell oder langsam, zur gleichen Rotation führt. Dies führt zu einem besseren Spielerlebnis und höherer Genauigkeit laut professionellen Spielern.
 
-Um die OS-Ebene der Mausbeschleunigung zu deaktivieren und Zugriff auf rohe Mausdaten zu erhalten, können Sie `unadjustedMovement` auf `true` setzen:
+Um die Betriebssystem-Ebene der Mausbeschleunigung zu deaktivieren und auf rohe Maus-Eingabe zuzugreifen, können Sie `unadjustedMovement` auf `true` setzen:
 
 ```js
 canvas.addEventListener("click", async () => {
@@ -53,9 +53,9 @@ canvas.addEventListener("click", async () => {
 
 ## Umgang mit Promise- und Nicht-Promise-Versionen von requestPointerLock()
 
-Der obige Codeausschnitt funktioniert weiterhin in Browsern, die die auf Promise basierende Version von `requestPointerLock()` oder die `unadjustedMovement`-Option nicht unterstützen — der [`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Operator ist vor einer Funktion zulässig, die kein Promise zurückgibt, und das Optionsobjekt wird in nicht unterstützenden Browsern einfach ignoriert.
+Der oben stehende Code-Schnipsel funktioniert weiterhin in Browsern, die die Promise-basierte Version von `requestPointerLock()` oder die Option `unadjustedMovement` nicht unterstützen—der [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) Operator ist vor einer Funktion erlaubt, die kein Promise zurückgibt, und das Optionsobjekt wird einfach ignoriert in nicht-unterstützenden Browsern.
 
-Dies könnte jedoch verwirrend sein und andere potenzielle Nebeneffekte haben (zum Beispiel würde der Versuch, `requestPointerLock().then()` in nicht unterstützenden Browsern zu verwenden, einen Fehler auslösen), daher sollten Sie dies möglicherweise explizit mit einem Code wie dem folgenden handhaben:
+Dies könnte jedoch verwirrend sein und hat andere potenzielle Nebeneffekte (zum Beispiel würde ein Versuch, `requestPointerLock().then()` zu verwenden, in nicht-unterstützenden Browsern zu einem Fehler führen), daher möchten Sie dies möglicherweise explizit mit einem Code wie dem folgenden behandeln:
 
 ```js
 function requestPointerLockWithUnadjustedMovement() {
@@ -82,14 +82,14 @@ function requestPointerLockWithUnadjustedMovement() {
 
 ### pointerLockElement und exitPointerLock()
 
-Die Pointer Lock API erweitert auch die [`Document`](/de/docs/Web/API/Document)-Schnittstelle und fügt eine neue Eigenschaft und eine neue Methode hinzu:
+Die Zeigersperr-API erweitert auch das [`Document`](/de/docs/Web/API/Document) Interface und fügt eine neue Property und eine neue Methode hinzu:
 
-- [`pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) wird verwendet, um auf das aktuell gesperrte Element zuzugreifen (falls vorhanden).
-- [`exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock) wird verwendet, um den Pointer Lock zu beenden.
+- [`pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) wird verwendet, um auf das aktuell gesperrte Element (falls vorhanden) zuzugreifen.
+- [`exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock) wird verwendet, um die Zeigersperre zu beenden.
 
-Die [`pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement)-Eigenschaft ist nützlich, um festzustellen, ob ein Element derzeit pointergelockt ist (z. B. für eine boolesche Prüfung) und um eine Referenz auf das gesperrte Element zu erhalten, falls vorhanden.
+Die [`pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) Property ist nützlich, um zu bestimmen, ob derzeit ein Element zeigergesperrt ist (z. B. für eine boolesche Überprüfung) und auch, um eine Referenz auf das gesperrte Element zu erhalten, falls vorhanden.
 
-Hier ist ein Beispiel für die Verwendung von `pointerLockElement`:
+Hier ist ein Beispiel zur Verwendung von `pointerLockElement`:
 
 ```js
 if (document.pointerLockElement === canvas) {
@@ -99,7 +99,7 @@ if (document.pointerLockElement === canvas) {
 }
 ```
 
-Die [`Document.exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock)-Methode wird verwendet, um den Pointer Lock zu beenden und funktioniert, wie [`requestPointerLock`](/de/docs/Web/API/Element/requestPointerLock), asynchron mithilfe der [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event) und [`pointerlockerror`](/de/docs/Web/API/Document/pointerlockerror_event) Ereignisse, die Sie weiter unten sehen werden.
+Die Methode [`Document.exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock) wird verwendet, um die Zeigersperre zu beenden, und funktioniert wie [`requestPointerLock`](/de/docs/Web/API/Element/requestPointerLock) asynchron unter Verwendung der Ereignisse [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event) und [`pointerlockerror`](/de/docs/Web/API/Document/pointerlockerror_event), über die weiter unten mehr zu erfahren ist.
 
 ```js
 document.exitPointerLock();
@@ -107,7 +107,7 @@ document.exitPointerLock();
 
 ## pointerlockchange-Ereignis
 
-Wenn sich der Pointer Lock-Zustand ändert — zum Beispiel beim Aufrufen von [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock) oder [`exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock), beim Benutzer der ESC-Taste usw. — wird das [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event)-Ereignis an das `document` gesendet. Dies ist ein einfaches Ereignis ohne zusätzliche Daten.
+Wenn sich der Zeigersperrstatus ändert—zum Beispiel bei einem Aufruf von [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock) oder [`exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock), das Drücken der ESC-Taste durch den Benutzer, usw.—wird das [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event) Ereignis an das `document` gesendet. Dies ist ein einfaches Ereignis ohne zusätzliche Daten.
 
 ```js
 document.addEventListener("pointerlockchange", lockChangeAlert, false);
@@ -125,7 +125,7 @@ function lockChangeAlert() {
 
 ## pointerlockerror-Ereignis
 
-Wenn ein Fehler auftritt, der durch das Aufrufen von [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock) oder [`exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock) verursacht wird, wird das [`pointerlockerror`](/de/docs/Web/API/Document/pointerlockerror_event)-Ereignis an das `document` gesendet. Dies ist ein einfaches Ereignis ohne zusätzliche Daten.
+Wenn es zu einem Fehler kommt, der durch den Aufruf von [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock) oder [`exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock) verursacht wird, wird das [`pointerlockerror`](/de/docs/Web/API/Document/pointerlockerror_event) Ereignis an das `document` gesendet. Dies ist ein einfaches Ereignis ohne zusätzliche Daten.
 
 ```js
 document.addEventListener("pointerlockerror", lockError, false);
@@ -135,23 +135,23 @@ function lockError(e) {
 }
 ```
 
-## Erweiterungen zu Mausereignissen
+## Erweiterungen von Mausereignissen
 
-Die Pointer Lock API erweitert die normale [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Schnittstelle mit Bewegungsattributen. Zwei neue Attribute für Mausereignisse — [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) — bieten die Änderung der Mauspositionen. Die Werte der Parameter sind die gleichen wie der Unterschied zwischen den Werten der [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Eigenschaften, [`screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`screenY`](/de/docs/Web/API/MouseEvent/screenY), die in zwei aufeinander folgenden [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignissen, `eNow` und `ePrevious`, gespeichert sind. Mit anderen Worten, der Pointer Lock-Parameter `movementX = eNow.screenX - ePrevious.screenX`.
+Die Zeigersperr-API erweitert das normale [`MouseEvent`](/de/docs/Web/API/MouseEvent) Interface mit Bewegungsattributen. Zwei neue Attribute für Mausereignisse—[`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY)—ermöglichen es, die Änderung der Mausposition zu ermitteln. Die Werte der Parameter entsprechen der Differenz zwischen den Werten von [`MouseEvent`](/de/docs/Web/API/MouseEvent) Properties, [`screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`screenY`](/de/docs/Web/API/MouseEvent/screenY), die in zwei aufeinanderfolgenden [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignissen, `eNow` und `ePrevious`, gespeichert werden. Mit anderen Worten, der Parameter der Zeigersperre `movementX = eNow.screenX - ePrevious.screenX`.
 
 ### Gesperrter Zustand
 
-Wenn Pointer Lock aktiviert ist, bleiben die standardmäßigen [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Eigenschaften [`clientX`](/de/docs/Web/API/MouseEvent/clientX), [`clientY`](/de/docs/Web/API/MouseEvent/clientY), [`screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`screenY`](/de/docs/Web/API/MouseEvent/screenY) konstant, als ob die Maus nicht bewegt wird. Die [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) Eigenschaften liefern weiterhin die Veränderung der Mausposition. Es gibt keine Begrenzung für die Werte von [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY), wenn sich die Maus kontinuierlich in einer Richtung bewegt. Das Konzept des Mauszeigers existiert nicht und der Zeiger kann nicht aus dem Fenster herausgehen oder durch eine Bildschirmkante begrenzt werden.
+Wenn die Zeigersperre aktiviert ist, werden die Standardwerte der [`MouseEvent`](/de/docs/Web/API/MouseEvent) Properties [`clientX`](/de/docs/Web/API/MouseEvent/clientX), [`clientY`](/de/docs/Web/API/MouseEvent/clientY), [`screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`screenY`](/de/docs/Web/API/MouseEvent/screenY) konstant gehalten, als ob sich die Maus nicht bewegt. Die [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) Properties liefern weiterhin die Änderung der Mausposition. Es gibt keine Begrenzung der Werte von [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY), wenn die Maus kontinuierlich in eine Richtung bewegt wird. Das Konzept des Mauszeigers existiert nicht und der Cursor kann nicht aus dem Fenster bewegt oder durch eine Bildschirmkante eingeschränkt werden.
 
-### Entsperrter Zustand
+### Ungesperrter Zustand
 
-Die Parameter [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) sind unabhängig vom Mausverriegelungszustand gültig und stehen auch im entsperrten Zustand zur Verfügung.
+Die Parameter [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) sind unabhängig vom Zeigersperrzustand gültig und stehen aus Bequemlichkeitsgründen auch im entsperrten Zustand zur Verfügung.
 
-Wenn die Maus entsperrt ist, kann der Systemzeiger das Browserfenster verlassen und wieder betreten. Wenn das passiert, könnten [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) auf Null gesetzt werden.
+Wenn die Maus entsperrt ist, kann der Systemcursor das Browserfenster verlassen und wieder betreten. Geschieht dies, könnten [`movementX`](/de/docs/Web/API/MouseEvent/movementX) und [`movementY`](/de/docs/Web/API/MouseEvent/movementY) auf Null gesetzt werden.
 
-## Einfaches Beispieldurchgang
+## Einfaches Beispiel Schritt-für-Schritt
 
-Wir haben einen [Pointer Lock-Demo](https://mdn.github.io/dom-examples/pointer-lock/) ([Quellcode anzeigen](https://github.com/mdn/dom-examples/tree/main/pointer-lock)) geschrieben, um zu zeigen, wie Sie ihn verwenden, um ein einfaches Steuerungssystem einzurichten. Dieses Demo verwendet JavaScript, um einen Ball auf einem {{htmlelement("canvas")}}-Element zu zeichnen. Wenn Sie auf das Canvas klicken, wird Pointer Lock verwendet, um den Mauszeiger zu entfernen und es Ihnen zu ermöglichen, den Ball direkt mit der Maus zu bewegen. Lassen Sie uns sehen, wie das funktioniert.
+Wir haben eine [Pointer Lock Demo](https://mdn.github.io/dom-examples/pointer-lock/) ([siehe Quellcode](https://github.com/mdn/dom-examples/tree/main/pointer-lock)) geschrieben, um Ihnen zu zeigen, wie Sie damit ein einfaches Steuerungssystem einrichten können. Diese Demo verwendet JavaScript, um einen Ball über ein {{ htmlelement("canvas") }}-Element zu zeichnen. Wenn Sie auf das Canvas klicken, wird die Zeigersperre verwendet, um den Mauszeiger zu entfernen und Sie den Ball direkt mit der Maus bewegen zu lassen. Sehen wir uns an, wie das funktioniert.
 
 Wir setzen anfängliche x- und y-Positionen auf dem Canvas:
 
@@ -160,7 +160,7 @@ let x = 50;
 let y = 50;
 ```
 
-Als nächstes richten wir einen Ereignislistener ein, um die `requestPointerLock()`-Methode auf dem Canvas bei einem Klick darauf auszuführen, was den Pointer Lock initiiert. Die `document.pointerLockElement`-Prüfung dient dazu, zu sehen, ob bereits ein aktiver Pointer Lock vorhanden ist — wir wollen `requestPointerLock()` nicht erneut auf dem Canvas aufrufen, wenn wir bereits einen Pointer Lock haben.
+Als Nächstes richten wir einen Ereignis-Listener ein, um die Methode `requestPointerLock()` auf dem Canvas auszuführen, wenn darauf geklickt wird, was die Zeigersperre initiiert. Der Check `document.pointerLockElement` dient dazu, zu sehen, ob bereits eine aktive Zeigersperre besteht—wir möchten nicht bei jedem Klick auf das Canvas `requestPointerLock()` aufrufen, wenn wir die Zeigersperre bereits haben.
 
 ```js
 canvas.addEventListener("click", async () => {
@@ -173,15 +173,15 @@ canvas.addEventListener("click", async () => {
 ```
 
 > [!NOTE]
-> Der obige Ausschnitt funktioniert in Browsern, die die Promise-Version von `requestPointerLock()` nicht unterstützen. Siehe [Umgang mit Promise- und Nicht-Promise-Versionen von requestPointerLock()](#handling_promise_and_non-promise_versions_of_requestpointerlock) für eine Erklärung.
+> Der obige Code-Schnipsel funktioniert auch in Browsern, die die Promise-Version von `requestPointerLock()` nicht unterstützen. Siehe [Umgang mit Promise- und Nicht-Promise-Versionen von requestPointerLock()](#handling_promise_and_non-promise_versions_of_requestpointerlock) für eine Erklärung.
 
-Jetzt zum dedizierten Pointer Lock-Ereignislistener: `pointerlockchange`. Wenn dies geschieht, rufen wir eine Funktion namens `lockChangeAlert()` auf, um die Änderung zu handhaben.
+Nun zum dedizierten Zeigersperr-Ereignislistener: `pointerlockchange`. Wenn dies auftritt, führen wir eine Funktion namens `lockChangeAlert()` aus, um die Änderung zu handhaben.
 
 ```js
 document.addEventListener("pointerlockchange", lockChangeAlert, false);
 ```
 
-Diese Funktion überprüft die `pointerLockElement`-Eigenschaft, um zu sehen, ob es sich um unser Canvas handelt. Falls ja, wird ein Ereignis-Listener angehängt, um die Mausbewegungen mit der `updatePosition()`-Funktion zu handhaben. Andernfalls wird der Ereignis-Listener wieder entfernt.
+Diese Funktion überprüft die `pointerLockElement` Property, um zu sehen, ob es unser Canvas ist. Wenn ja, wird ein Event Listener verbunden, um die Mausbewegungen mit der Funktion `updatePosition()` zu handhaben. Wenn nicht, wird der Listener wieder entfernt.
 
 ```js
 function lockChangeAlert() {
@@ -195,7 +195,7 @@ function lockChangeAlert() {
 }
 ```
 
-Die `updatePosition()`-Funktion aktualisiert die Position des Balls auf dem Canvas (`x` und `y`) und enthält auch `if ()`-Anweisungen, um zu überprüfen, ob der Ball über die Ränder des Canvas hinausgegangen ist. Wenn ja, bringt es den Ball zur gegenüberliegenden Kante zurück. Es enthält auch eine Überprüfung, ob ein [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Aufruf zuvor gemacht wurde und, falls ja, ruft es ihn bei Bedarf erneut auf und ruft die `canvasDraw()`-Funktion auf, die die Canvas-Szene aktualisiert. Ein Tracker wird ebenfalls eingerichtet, um die X- und Y-Werte zur Referenz auf dem Bildschirm auszugeben.
+Die Funktion `updatePosition()` aktualisiert die Position des Balls auf dem Canvas (`x` und `y`) und enthält auch `if ()`-Anweisungen, um zu überprüfen, ob der Ball die Ränder des Canvas überschritten hat. Falls ja, wird der Ball auf den gegenüberliegenden Rand zurückgesetzt. Außerdem enthält sie eine Prüfung, ob ein [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) Aufruf bereits gemacht wurde und, falls ja, ruft sie ihn wieder auf und ruft die Funktion `canvasDraw()` auf, die die Canvas-Szene aktualisiert. Ein Tracker wird ebenfalls eingerichtet, um die X- und Y-Werte zur Referenz auf dem Bildschirm anzuzeigen.
 
 ```js
 const tracker = document.getElementById("tracker");
@@ -225,24 +225,24 @@ function updatePosition(e) {
 }
 ```
 
-Die `canvasDraw()`-Funktion zeichnet den Ball in den aktuellen `x`- und `y`-Positionen:
+Die Funktion `canvasDraw()` zeichnet den Ball in den aktuellen `x`- und `y`-Positionen:
 
 ```js
 function canvasDraw() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#f00";
+  ctx.fillStyle = "red";
   ctx.beginPath();
   ctx.arc(x, y, RADIUS, 0, degToRad(360), true);
   ctx.fill();
 }
 ```
 
-## IFrame-Einschränkungen
+## Einschränkungen bei IFrames
 
-Pointer Lock kann nur ein {{htmlelement("iframe")}} gleichzeitig sperren. Wenn Sie ein `<iframe>` sperren, können Sie kein anderes sperren und das Ziel auf dieses übertragen; Pointer Lock wird fehlerhaft. Um diese Einschränkung zu vermeiden, entsperren Sie zuerst das gesperrte `<iframe>` und sperren Sie dann das andere.
+Die Zeigersperre kann nur ein {{htmlelement("iframe")}} gleichzeitig sperren. Wenn Sie ein `<iframe>` sperren, können Sie kein anderes sperren und das Ziel darauf übertragen; die Zeigersperre wird einen Fehler auslösen. Um diese Einschränkung zu vermeiden, entsperren Sie zuerst das gesperrte `<iframe>` und sperren dann das andere.
 
-Während `<iframe>` standardmäßig funktionieren, blockieren "sandboxed" `<iframe>`s den Pointer Lock. Um diese Einschränkung zu vermeiden, verwenden Sie `<iframe sandbox="allow-pointer-lock">`.
+Während `<iframe>` standardmäßig funktionieren, blockieren "sandboxed" `<iframe>` die Zeigersperre. Um diese Einschränkung zu umgehen, verwenden Sie `<iframe sandbox="allow-pointer-lock">`.
 
 ## Spezifikationen
 

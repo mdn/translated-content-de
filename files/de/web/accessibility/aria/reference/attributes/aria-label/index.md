@@ -3,18 +3,18 @@ title: "ARIA: aria-label-Attribut"
 short-title: aria-label
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-label
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
-Das `aria-label`-Attribut definiert einen Zeichenfolgenwert, der verwendet werden kann, um ein Element zu benennen, solange die Rolle des Elements das Benennen nicht [verhindert](#zugehörige_rollen).
+Das `aria-label`-Attribut definiert einen Zeichenfolgewert, der zur Benennung eines Elements verwendet werden kann, sofern die Rolle des Elements das Benennen nicht [verhindert](#zugehörige_rollen).
 
 ## Beschreibung
 
-Manchmal fehlt der standardmäßige {{Glossary("accessible_name", "zugängliche Name")}} eines Elements oder der zugängliche Name beschreibt die Inhalte des Elements nicht genau, und es gibt keinen im DOM sichtbaren Inhalt, der dem Objekt zugeordnet werden kann, um ihm Bedeutung zu verleihen. Ein häufiges Beispiel für ein solches Element ist ein Button, der ein SVG-Icon ohne Text enthält.
+Manchmal fehlt dem Standard-{{Glossary("accessible_name", "zugänglichen Namen")}} eines Elements oder der zugängliche Name beschreibt den Inhalt des Elements nicht genau und es gibt keinen im DOM sichtbaren Inhalt, der mit dem Objekt assoziiert werden kann, um ihm Bedeutung zu verleihen. Ein häufiges Beispiel für ein solches Element ist ein Button, der ein SVG-Icon ohne Text enthält.
 
-In Fällen, in denen ein Element, das nicht Teil der [verbotsliste](#zugehörige_rollen) ist, keinen zugänglichen Namen hat oder ein zugänglicher Name nicht genau ist, und es keinen im DOM sichtbaren Inhalt gibt, der über das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut referenziert werden kann, kann das `aria-label`-Attribut verwendet werden, um eine Zeichenfolge zu definieren, die das interaktive Element benennt, auf dem es gesetzt wird. Dies gibt dem Element einen zugänglichen Namen.
+In Fällen, in denen ein Element, das nicht Teil der [verbotsliste](#zugehörige_rollen) ist, keinen zugänglichen Namen hat oder ein zugänglicher Name nicht genau ist und es keinen im DOM sichtbaren Inhalt gibt, auf den über das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut verwiesen werden kann, kann das `aria-label`-Attribut verwendet werden, um eine Zeichenfolge zu definieren, die das interaktive Element, auf dem es gesetzt ist, kennzeichnet. Dies gibt dem Element einen zugänglichen Namen.
 
-Der untenstehende Code zeigt ein Beispiel dafür, wie das `aria-label`-Attribut verwendet werden kann, um einem `<button>`-Element einen zugänglichen Namen zu geben. Der Button in diesem Beispiel enthält eine SVG-Grafik und keinen Textinhalt, wodurch das `aria-label` für Benutzer von Bildschirmlesern notwendig ist, um seine Funktion zu verstehen, die in diesem Fall "Schließen" ist.
+Der folgende Code zeigt ein Beispiel, wie das `aria-label`-Attribut verwendet wird, um einem `<button>`-Element einen zugänglichen Namen zu geben. Der Button in diesem Beispiel enthält eine SVG-Grafik und hat keinen Textinhalt, was das `aria-label` für Benutzer von Bildschirmleseprogrammen unerlässlich macht, um seine Funktion zu verstehen, die in diesem Fall "Schließen" ist.
 
 ```html
 <button aria-label="Close">
@@ -26,7 +26,7 @@ Der untenstehende Code zeigt ein Beispiel dafür, wie das `aria-label`-Attribut 
     xmlns="http://www.w3.org/2000/svg">
     <path
       d="m.967 14.217 5.8-5.906-5.765-5.89L3.094.26l5.783 5.888L14.66.26l2.092 2.162-5.766 5.889 5.801 5.906-2.092 2.162-5.818-5.924-5.818 5.924-2.092-2.162Z"
-      fill="#000" />
+      fill="black" />
   </svg>
 </button>
 ```
@@ -37,37 +37,38 @@ document.querySelector("button").addEventListener("click", () => {
 });
 ```
 
-> [!NOTE] > `aria-label` ist für das Benennen von Elementen gedacht, deren implizite oder explizite Rolle das Benennen nicht verhindert. Es wird dringend empfohlen, `aria-labelledby` gegenüber `aria-label` zu bevorzugen, wenn ein sichtbares Label existiert, das für das Element referenziert werden und seinen Namen erhalten kann.
+> [!NOTE]
+> `aria-label` ist dazu gedacht, Elemente zu benennen, deren implizite oder explizite Rolle das Benennen nicht verhindert. Es wird dringend empfohlen, `aria-labelledby` zu priorisieren, wenn ein sichtbares Label für das Element existiert, auf das verwiesen und von dem der Name abgeleitet werden kann.
 
-Die meisten Inhalte haben einen zugänglichen Namen, der aus dem Textinhalt des unmittelbar umgebenden Elements generiert wird. Zugängliche Namen können auch durch bestimmte Attribute oder zugeordnete Elemente erstellt werden.
+Die meisten Inhalte haben einen zugänglichen Namen, der aus dem Textinhalt des umschließenden Elements generiert wird. Zugängliche Namen können auch durch bestimmte Attribute oder assoziierte Elemente erstellt werden.
 
-Standardmäßig ist der zugängliche Name eines Buttons der Inhalt zwischen den öffnenden und schließenden {{HTMLElement('button')}}-Tags, der zugängliche Name eines Bildes ist der Inhalt seines [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Attributs und der zugängliche Name eines Formulareingabewerts ist der Inhalt des zugeordneten {{HTMLElement('label')}}-Elements.
+Standardmäßig ist der zugängliche Name eines Buttons der Inhalt zwischen den öffnenden und schließenden {{HTMLElement('button')}}-Tags, ein Bild hat einen zugänglichen Namen, der dem Inhalt seines [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Attributs entspricht, und ein Formularelement erhält seinen zugänglichen Namen über den Inhalt des zugehörigen {{HTMLElement('label')}}-Elements.
 
-Wenn keine dieser Optionen verfügbar ist oder der standardmäßige zugängliche Name nicht angemessen ist, verwenden Sie das `aria-label`-Attribut, um den zugänglichen Namen eines Elements zu definieren.
+Wenn keine dieser Optionen verfügbar ist oder der Standard-zugängliche Name nicht geeignet ist, verwenden Sie das `aria-label`-Attribut, um den zugänglichen Namen eines Elements zu definieren.
 
 > [!NOTE]
-> Während `aria-label` auf jedem Element verwendet werden kann, das einen zugänglichen Namen haben kann, wird es in der Praxis jedoch nur für interaktive Elemente, [Widgets](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles), [Landmarks](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), Bilder und iFrames unterstützt.
+> Während `aria-label` auf jedem Element verwendet werden kann, das einen zugänglichen Namen haben kann, wird es in der Praxis jedoch nur auf interaktiven Elementen, [Widgets](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles), [Landmarks](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), Bildern und iframes unterstützt.
 
-Beim Verwenden von `aria-label` sollten Sie auch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) berücksichtigen:
+Beim Verwenden von `aria-label` sollten Sie auch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) in Betracht ziehen:
 
-- `aria-label` kann in Fällen verwendet werden, in denen der Text, der das Element beschriftet, _nicht_ sichtbar ist. Wenn es sichtbaren Text gibt, der ein Element beschriftet, verwenden Sie stattdessen `aria-labelledby`.
-- Der Zweck von `aria-label` ist derselbe wie der von `aria-labelledby`. Beide bieten einen zugänglichen Namen für ein Element. Wenn es keinen sichtbaren Namen für das Element gibt, auf den Sie Bezug nehmen können, verwenden Sie `aria-label`, um dem Benutzer einen erkennbaren zugänglichen Namen zu geben. Wenn der Beschriftungstext im DOM verfügbar ist und er für eine akzeptable Benutzererfahrung referenziert werden kann, bevorzugen Sie die Verwendung von `aria-labelledby`. Verwenden Sie nicht beide auf demselben Element, da `aria-labelledby` Vorrang vor `aria-label` hat, wenn beide angewendet werden.
+- `aria-label` kann in Fällen verwendet werden, in denen der Text, der das Element etikettieren könnte, _nicht_ sichtbar ist. Wenn es sichtbaren Text gibt, der ein Element etikettiert, verwenden Sie stattdessen `aria-labelledby`.
+- Der Zweck von `aria-label` ist derselbe wie der von `aria-labelledby`. Beide bieten einem Element einen zugänglichen Namen. Wenn es keinen sichtbaren Namen für das Element gibt, den Sie referenzieren können, verwenden Sie `aria-label`, um dem Benutzer einen erkennbaren zugänglichen Namen bereitzustellen. Wenn Label-Text im DOM verfügbar ist und es möglich ist, ihn für ein akzeptables Benutzererlebnis zu referenzieren, ziehen Sie `aria-labelledby` vor. Verwenden Sie nicht beide auf demselben Element, da `aria-labelledby` Vorrang vor `aria-label` hat, wenn beide angewendet werden.
 
-Beachten Sie die folgenden zusätzlichen Richtlinien beim Verwenden von `aria-label`:
+Beachten Sie beim Verwenden von `aria-label` die folgenden zusätzlichen Richtlinien:
 
-- Das `aria-label`-Attribut kann mit regulären, semantischen HTML-Elementen verwendet werden; es ist nicht auf Elemente beschränkt, denen eine [ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) zugewiesen ist.
-- Verwenden Sie `aria-label` nicht "übermäßig". Denken Sie daran, dass es in erster Linie für unterstützende Technologien gedacht ist. Um zusätzliche Anweisungen zu geben oder die Benutzeroberfläche zu klären, verwenden Sie sichtbaren Text mit `aria-describedby` oder [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description), nicht `aria-label`. Anweisungen sollten für alle Benutzer zugänglich sein, nicht nur für jene mit Bildschirmlesegeräten (oder vorzugsweise sollte Ihre Benutzeroberfläche intuitiver gestaltet werden).
+- Das `aria-label`-Attribut kann mit regulären, semantischen HTML-Elementen verwendet werden; es ist nicht auf Elemente beschränkt, die eine [ARIA `role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) zugewiesen haben.
+- Nutzen Sie `aria-label` nicht übermäßig. Denken Sie daran, dass es in erster Linie für unterstützende Technologien gedacht ist. Um zusätzliche Anweisungen bereitzustellen oder die Benutzeroberfläche zu klären, verwenden Sie sichtbaren Text mit `aria-describedby` oder [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description), nicht `aria-label`. Anweisungen sollten für alle Benutzer zugänglich sein, nicht nur für Benutzer von Bildschirmleseprogrammen (oder vorzugsweise sollte Ihre Benutzeroberfläche intuitiver gestaltet werden).
 
   > [!NOTE]
-  > Da der Inhalt von `aria-label` außerhalb von Hilfstechnologien nicht angezeigt wird, sollten Sie erwägen, wichtige Informationen für alle Benutzer sichtbar zu machen.
+  > Da der Inhalt von `aria-label` außerhalb unterstützender Technologien nicht angezeigt wird, sollten Sie in Erwägung ziehen, wichtige Informationen für alle Benutzer sichtbar zu machen.
 
-- Nicht alle Elemente können einen zugänglichen Namen haben. Weder `aria-label` noch `aria-labelledby` sollten mit Inline-Strukturrollen wie `code`, `term` und `emphasis` und Rollen, die nicht auf die Zugänglichkeits-API abgebildet sind, einschließlich `none`, verwendet werden. Das `aria-label`-Attribut ist für Elemente wie Links, Videos, Formularelemente und jene mit [Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) oder [Widget-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles) gedacht; `aria-label` bietet einen zugänglichen Namen, wenn im DOM kein sichtbares Label existiert.
-- Wenn Sie einem {{HTMLElement('iframe')}} einen `title` zuweisen, einem {{HTMLElement('img')}} ein `alt`-Attribut definieren oder {{HTMLElement('label')}} für ein {{HTMLElement('input')}} hinzufügen, ist `aria-label` nicht notwendig. Ist jedoch ein `aria-label`-Attribut vorhanden, hat es Vorrang vor dem `title` des iFrames, dem `alt` des Bildes oder dem `<label>`-Text des Eingabefelds als zugänglicher Name für dieses Element.
+- Nicht alle Elemente können mit einem zugänglichen Namen versehen werden. Weder `aria-label` noch `aria-labelledby` sollten mit Inline-Strukturrollen wie `code`, `term` und `emphasis` sowie Rollen, die nicht auf die Barrierefreiheits-API abgebildet sind, inklusive `none`, verwendet werden. Das `aria-label`-Attribut ist für Elemente wie Links, Videos, Formularelemente sowie solche mit [Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) oder [Widget-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles) vorgesehen; `aria-label` bietet einen zugänglichen Namen, wenn kein sichtbares Label im DOM vorhanden ist.
+- Wenn Sie einem {{HTMLElement('iframe')}} einen `title` zuweisen, einem {{HTMLElement('img')}} ein `alt`-Attribut definieren oder ein {{HTMLElement('label')}} für ein {{HTMLElement('input')}} hinzufügen, ist `aria-label` nicht notwendig. Wenn jedoch ein `aria-label`-Attribut vorhanden ist, hat es Vorrang vor dem `title` des iframes, dem `alt` eines Bildes oder dem Text des `<label>`-Elements als zugänglicher Name für dieses Element.
 
 ## Werte
 
 - `<string>`
-  - : Eine Textzeichenfolge, die der zugängliche Name für das Objekt sein wird.
+  - : Eine Zeichenkette, die der zugängliche Name für das Objekt sein wird.
 
 ## Zugehörige Schnittstellen
 
@@ -78,7 +79,7 @@ Beachten Sie die folgenden zusätzlichen Richtlinien beim Verwenden von `aria-la
 
 ## Zugehörige Rollen
 
-Wird in fast allen Rollen verwendet, **außer** in Rollen, denen der Autor keinen zugänglichen Namen zuweisen kann.
+Wird in fast allen Rollen verwendet, **außer** in Rollen, denen der Autor keinen zugänglichen Namen geben kann.
 
 Das `aria-label`-Attribut wird **NICHT** unterstützt in:
 
@@ -101,11 +102,11 @@ Das `aria-label`-Attribut wird **NICHT** unterstützt in:
 
 ## Spezifikationen
 
-{{Specifications}}
+{{Spezifikationen}}
 
 ## Siehe auch
 
 - {{HTMLElement('label')}}-Element
 - [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-- [Verwendung von HTML-Landmark-Rollen zur Verbesserung der Barrierefreiheit](/en-US/blog/aria-accessibility-html-landmark-roles/) auf dem MDN-Blog (2023)
+- [Verwendung von HTML-Landmark-Rollen zur Verbesserung der Barrierefreiheit](/en-US/blog/aria-accessibility-html-landmark-roles/) im MDN-Blog (2023)

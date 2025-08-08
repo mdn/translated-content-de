@@ -1,9 +1,9 @@
 ---
-title: "Element: transitioncancel Ereignis"
+title: "Element: transitioncancel event"
 short-title: transitioncancel
 slug: Web/API/Element/transitioncancel_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
 {{APIRef}}
@@ -12,7 +12,7 @@ Das **`transitioncancel`** Ereignis wird ausgelöst, wenn eine [CSS-Übergang](/
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("transitioncancel", (event) => { })
@@ -28,18 +28,18 @@ Ein [`TransitionEvent`](/de/docs/Web/API/TransitionEvent). Erbt von [`Event`](/d
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 - [`TransitionEvent.propertyName`](/de/docs/Web/API/TransitionEvent/propertyName) {{ReadOnlyInline}}
   - : Ein String, der den Namen der CSS-Eigenschaft enthält, die mit dem Übergang verbunden ist.
 - [`TransitionEvent.elapsedTime`](/de/docs/Web/API/TransitionEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Ein `float`, der die Zeitdauer in Sekunden angibt, wie lange der Übergang lief, als dieses Ereignis ausgelöst wurde. Dieser Wert wird nicht von der {{cssxref("transition-delay")}} Eigenschaft beeinflusst.
+  - : Ein `float`, der die Zeit in Sekunden angibt, wie lange der Übergang zum Zeitpunkt des Auslösens dieses Ereignisses bereits läuft. Dieser Wert wird von der Eigenschaft {{cssxref("transition-delay")}} nicht beeinflusst.
 - [`TransitionEvent.pseudoElement`](/de/docs/Web/API/TransitionEvent/pseudoElement) {{ReadOnlyInline}}
-  - : Ein String, der mit `::` beginnt und den Namen des [Pseudoelements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Falls der Übergang nicht auf einem Pseudoelement läuft, sondern auf dem Element selbst, ist der String leer: `''`.
+  - : Ein String, der mit `::` beginnt und den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn der Übergang nicht auf einem Pseudo-Element, sondern auf dem Element selbst erfolgt, ein leerer String: `''`.
 
 ## Beispiele
 
-Dieser Code holt sich ein Element, das einen definierten Übergang hat, und fügt einen Listener für das `transitioncancel` Ereignis hinzu:
+Dieser Code ruft ein Element ab, das einen definierten Übergang hat, und fügt einen Listener für das `transitioncancel` Ereignis hinzu:
 
 ```js
 const transition = document.querySelector(".transition");
@@ -61,7 +61,7 @@ transition.ontransitioncancel = () => {
 
 ### Live-Beispiel
 
-Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, das mit einem Übergang, der eine Verzögerung beinhaltet, gestylt ist:
+Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}} Element, das mit einem Übergang, der eine Verzögerung beinhaltet, gestylt ist:
 
 ```html
 <div class="transition"></div>
@@ -72,7 +72,7 @@ Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, da
 .transition {
   width: 100px;
   height: 100px;
-  background: rgb(255 0 0 / 100%);
+  background: red;
   transition-property: transform, background;
   transition-duration: 2s;
   transition-delay: 2s;
@@ -80,11 +80,11 @@ Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, da
 
 .transition:hover {
   transform: rotate(90deg);
-  background: rgb(255 0 0 / 0%);
+  background: transparent;
 }
 ```
 
-Hierzu fügen wir etwas JavaScript hinzu, um anzuzeigen, dass die Ereignisse [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event), [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event), `transitioncancel` und [`transitionend`](/de/docs/Web/API/Element/transitionend_event) ausgelöst werden. In diesem Beispiel brechen Sie den Übergang ab, indem Sie aufhören, über das Übergangselement zu schweben, bevor der Übergang endet. Damit das Übergangsende-Ereignis ausgelöst wird, bleiben Sie über dem Übergangselement, bis der Übergang endet.
+Dazu fügen wir etwas JavaScript hinzu, um anzuzeigen, dass die Ereignisse [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event), [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event), `transitioncancel` und [`transitionend`](/de/docs/Web/API/Element/transitionend_event) ausgelöst werden. In diesem Beispiel, um den Übergang abzubrechen, hören Sie auf, über der Transformationsbox zu schweben, bevor der Übergang endet. Damit das `transitionend` Ereignis ausgelöst wird, bleiben Sie so lange über dem Übergang, bis der Übergang endet.
 
 ```js
 const message = document.querySelector(".message");
@@ -109,9 +109,9 @@ el.addEventListener("transitionend", () => {
 
 {{ EmbedLiveSample('Live_example', '100%', '150px') }}
 
-Das `transitioncancel` Ereignis wird ausgelöst, wenn der Übergang in irgendeine Richtung abgebrochen wird, nachdem das `transitionrun` Ereignis aufgetreten ist und bevor das `transitionend` Ereignis ausgelöst wird.
+Das `transitioncancel` Ereignis wird ausgelöst, wenn der Übergang in beide Richtungen nach dem Auftreten des `transitionrun` Ereignisses und vor dem Auslösen des `transitionend` abgebrochen wird.
 
-Wenn es keine Übergangsverzögerung oder -dauer gibt, wenn beide 0s sind oder keines erklärt ist, gibt es keinen Übergang, und keines der Übergangsereignisse wird ausgelöst.
+Wenn es keine Übergangsverzögerung oder -dauer gibt, wenn beide 0s sind oder keines deklariert ist, gibt es keinen Übergang, und keines der Übergangsereignisse wird ausgelöst.
 
 Wenn das `transitioncancel` Ereignis ausgelöst wird, wird das `transitionend` Ereignis nicht ausgelöst.
 
@@ -125,6 +125,6 @@ Wenn das `transitioncancel` Ereignis ausgelöst wird, wird das `transitionend` E
 
 ## Siehe auch
 
-- Die [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Schnittstelle
+- Das [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Interface
 - CSS-Eigenschaften: {{cssxref("transition")}}, {{cssxref("transition-delay")}}, {{cssxref("transition-duration")}}, {{cssxref("transition-property")}}, {{cssxref("transition-timing-function")}}
 - Verwandte Ereignisse: [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event), [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event), [`transitionend`](/de/docs/Web/API/Element/transitionend_event)

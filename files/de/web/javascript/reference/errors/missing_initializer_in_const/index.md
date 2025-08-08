@@ -1,13 +1,13 @@
 ---
-title: "SyntaxError: missing = in const declaration"
+title: "SyntaxError: fehlendes = in const-Deklaration"
 slug: Web/JavaScript/Reference/Errors/Missing_initializer_in_const
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
-Der JavaScript-Ausnahmefehler "missing = in const declaration" tritt auf, wenn einer `const`-Deklaration im selben Satz kein Wert zugewiesen wurde (wie bei `const RED_FLAG;`). Sie müssen einen Wert angeben (`const RED_FLAG = "#ff0"`).
+Der JavaScript-Fehler "missing = in const declaration" tritt auf, wenn einer `const`-Deklaration im selben Ausdruck kein Wert zugewiesen wurde (wie `const RED_FLAG;`). Sie müssen einen Wert angeben (`const RED_FLAG = true`).
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Missing initializer in const declaration (V8-based)
@@ -21,11 +21,11 @@ SyntaxError: Unexpected token ';'. const declared variable 'x' must have an init
 
 ## Was ist schiefgelaufen?
 
-Eine Konstante ist ein Wert, der während der normalen Ausführung des Programms nicht verändert werden kann. Er kann nicht durch eine erneute Zuweisung geändert werden und kann nicht neu deklariert werden. In JavaScript werden Konstanten mit dem [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)-Schlüsselwort deklariert. Ein Initialisierer für eine Konstante ist erforderlich; das heißt, Sie müssen seinen Wert im selben Satz angeben, in dem er deklariert wird (was sinnvoll ist, da er später nicht geändert werden kann).
+Eine Konstante ist ein Wert, der während der normalen Programmausführung nicht verändert werden kann. Sie kann nicht durch Neu-Zuweisung geändert werden und auch nicht neu deklariert werden. In JavaScript werden Konstanten mit dem [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)-Schlüsselwort deklariert. Ein Initialisierer für eine Konstante ist erforderlich; das heißt, Sie müssen deren Wert im selben Ausdruck angeben, in dem sie deklariert wird (was sinnvoll ist, da sie später nicht geändert werden kann).
 
 ## Beispiele
 
-### Fehlender `const`-Initialisierer
+### Fehlender const-Initialisierer
 
 Im Gegensatz zu `var` oder `let` müssen Sie für eine `const`-Deklaration einen Wert angeben. Dies führt zu einem Fehler:
 
@@ -34,13 +34,13 @@ const COLUMNS;
 // SyntaxError: missing = in const declaration
 ```
 
-### Fehlerbehebung
+### Behebung des Fehlers
 
-Es gibt mehrere Möglichkeiten, diesen Fehler zu beheben. Prüfen Sie, was mit der betreffenden Konstante beabsichtigt war.
+Es gibt mehrere Möglichkeiten, diesen Fehler zu beheben. Prüfen Sie, was mit der betreffenden Konstante erreicht werden sollte.
 
-#### Hinzufügen eines konstanten Werts
+#### Hinzufügen eines konstanten Wertes
 
-Geben Sie den konstanten Wert im selben Satz an, in dem er deklariert wird:
+Geben Sie den konstanten Wert im selben Ausdruck an, in dem er deklariert wird:
 
 ```js example-good
 const COLUMNS = 80;
@@ -48,7 +48,7 @@ const COLUMNS = 80;
 
 #### `const`, `let` oder `var`?
 
-Verwenden Sie `const` nicht, wenn Sie keine Konstante deklarieren wollten. Vielleicht wollten Sie eine blockscoped-Variable mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder eine globale Variable mit [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) deklarieren. Beide erfordern keinen Anfangswert.
+Verwenden Sie `const` nicht, wenn Sie nicht beabsichtigten, eine Konstante zu deklarieren. Vielleicht wollten Sie eine block-skopierte Variable mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder eine globale Variable mit [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) deklarieren. Beide erfordern keinen Anfangswert.
 
 ```js example-good
 let columns;

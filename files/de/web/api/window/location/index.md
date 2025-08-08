@@ -1,20 +1,19 @@
 ---
-title: "Window: location-Eigenschaft"
+title: "Window: location Eigenschaft"
 short-title: location
 slug: Web/API/Window/location
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
 {{APIRef}}
 
-Die **`Window.location`**-Eigenschaft, die nur lesend zur Verfügung steht, gibt ein [`Location`](/de/docs/Web/API/Location)-Objekt mit Informationen über den aktuellen Ort des Dokuments zurück.
+Die schreibgeschützte Eigenschaft **`Window.location`** gibt ein [`Location`](/de/docs/Web/API/Location)-Objekt mit Informationen über den aktuellen Standort des Dokuments zurück.
 
-Obwohl `Window.location` ein _nur lesbares_ `Location`-Objekt ist, können Sie ihm auch einen String zuweisen.
-Das bedeutet, dass Sie in den meisten Fällen mit `location` arbeiten können, als wäre es ein String:
-`location = 'http://www.example.com'` ist ein Synonym für `location.href = 'http://www.example.com'`.
+Obwohl `Window.location` ein _schreibgeschütztes_ `Location`-Objekt ist, können Sie ihm auch einen String zuweisen.
+Das bedeutet, dass Sie in den meisten Fällen mit `location` arbeiten können, als wäre es ein String: `location = 'http://www.example.com'` ist ein Synonym für `location.href = 'http://www.example.com'`.
 
-Siehe [`Location`](/de/docs/Web/API/Location) für alle verfügbaren Eigenschaften.
+Sehen Sie [`Location`](/de/docs/Web/API/Location) für alle verfügbaren Eigenschaften.
 
 ## Wert
 
@@ -22,24 +21,24 @@ Ein [`Location`](/de/docs/Web/API/Location)-Objekt.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```js
 alert(location); // alerts "https://developer.mozilla.org/en-US/docs/Web/API/Window/location"
 ```
 
-### Beispiel 1: Navigation zu einer neuen Seite
+### Beispiel 1: Navigieren zu einer neuen Seite
 
-Jedes Mal, wenn dem Location-Objekt ein neuer Wert zugewiesen wird, wird ein Dokument mit der URL geladen, als wäre `location.assign()` mit der geänderten URL aufgerufen worden.
+Wann immer ein neuer Wert dem Location-Objekt zugewiesen wird, wird ein Dokument geladen, das die URL verwendet, als ob `location.assign()` mit der modifizierten URL aufgerufen worden wäre.
 
-Beachten Sie, dass [navigationsbezogene Sandbox-Flags](https://html.spec.whatwg.org/multipage/browsers.html#allowed-to-navigate) dazu führen können, dass eine Ausnahme ausgelöst wird und die Navigation fehlschlägt.
+Beachten Sie, dass [navigationsbezogene Sandbox-Flags](https://html.spec.whatwg.org/multipage/browsers.html#allowed-to-navigate) eine Ausnahme auslösen und die Navigation fehlschlagen lassen können.
 
 ```js
 location.assign("https://www.mozilla.org"); // or
 location = "https://www.mozilla.org";
 ```
 
-### Beispiel 2: Neuladen der aktuellen Seite
+### Beispiel 2: Aktuelle Seite neu laden
 
 ```js
 location.reload();
@@ -47,7 +46,7 @@ location.reload();
 
 ### Beispiel 3
 
-Betrachten Sie das folgende Beispiel, das die Seite neu lädt, indem es die Methode [`replace()`](/de/docs/Web/API/Location/replace) verwendet, um den Wert von `location.pathname` in den Hash einzufügen:
+Betrachten Sie das folgende Beispiel, das die Seite neu lädt, indem die [`replace()`](/de/docs/Web/API/Location/replace)-Methode verwendet wird, um den Wert von `location.pathname` in den Hash einzufügen:
 
 ```js
 function reloadPageWithHash() {
@@ -55,7 +54,7 @@ function reloadPageWithHash() {
 }
 ```
 
-### Beispiel 4: Anzeigen der Eigenschaften der aktuellen URL in einem Benachrichtigungsdialog
+### Beispiel 4: Die Eigenschaften der aktuellen URL in einem Warn-Dialog anzeigen
 
 ```js
 function showLoc() {
@@ -74,7 +73,7 @@ function showLoc() {
 // in html: <button onclick="showLoc();">Show location properties</button>
 ```
 
-### Beispiel 5: Senden eines Datenstrings an den Server durch Ändern der `search`-Eigenschaft
+### Beispiel 5: Eine Zeichenkette von Daten an den Server senden, indem die `search` Eigenschaft modifiziert wird
 
 ```js
 function sendData(data) {
@@ -84,9 +83,9 @@ function sendData(data) {
 // in html: <button onclick="sendData('Some data');">Send data</button>
 ```
 
-Die aktuelle URL mit "?Some%20data" angehängt wird an den Server gesendet (wenn keine Action vom Server erfolgt, wird das aktuelle Dokument mit dem geänderten Suchstring neu geladen).
+Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (wenn keine Aktion vom Server durchgeführt wird, wird das aktuelle Dokument mit dem modifizierten Suchstring neu geladen).
 
-### Beispiel 6: Verwenden von Lesezeichen ohne die `hash`-Eigenschaft zu ändern
+### Beispiel 6: Lesezeichen verwenden, ohne die `hash` Eigenschaft zu ändern
 
 ```html
 <p>
@@ -318,7 +317,7 @@ Die aktuelle URL mit "?Some%20data" angehängt wird an den Server gesendet (wenn
 ```css
 span.intLink {
   cursor: pointer;
-  color: #0000ff;
+  color: blue;
   text-decoration: underline;
 }
 ```
@@ -362,7 +361,7 @@ document
   });
 ```
 
-… dasselbe, aber mit einem animierten Bildlauf der Seite:
+… dasselbe, aber mit einem animierten Seiten-Scrollen:
 
 ```js
 const showBookmark = (() => {
@@ -439,7 +438,7 @@ const showBookmark = (() => {
 ## Siehe auch
 
 - Die Schnittstelle des zurückgegebenen Wertes, [`Location`](/de/docs/Web/API/Location)
-- Ähnliche Informationen, aber dem Dokument zugeordnet,
+- Ähnliche Informationen, aber am Dokument angehängt,
   [`Document.location`](/de/docs/Web/API/Document/location)
-- [Manipulation des Browserverlaufs](/de/docs/Web/API/History_API)
+- [Bearbeiten des Browserverlaufs](/de/docs/Web/API/History_API)
 - [`hashchange`](/de/docs/Web/API/Window/hashchange_event)

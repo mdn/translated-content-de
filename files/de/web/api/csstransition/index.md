@@ -2,38 +2,38 @@
 title: CSSTransition
 slug: Web/API/CSSTransition
 l10n:
-  sourceCommit: 76717f752447b6eef25bf29c12272e407ee5cb6b
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`CSSTransition`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert ein [`Animation`](/de/docs/Web/API/Animation)-Objekt, das für einen [CSS Übergang](/de/docs/Web/CSS/CSS_transitions) verwendet wird.
+Die **`CSSTransition`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert ein [`Animation`](/de/docs/Web/API/Animation)-Objekt, das für eine [CSS Transition](/de/docs/Web/CSS/CSS_transitions) verwendet wird.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
+_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Element, [`Animation`](/de/docs/Web/API/Animation)._
 
 - [`CSSTransition.transitionProperty`](/de/docs/Web/API/CSSTransition/transitionProperty) {{ReadOnlyInline}}
-  - : Gibt den Namen der Übergangs-CSS-Eigenschaft als Zeichenfolge zurück.
+  - : Gibt den Namen der CSS-Übergangseigenschaft als Zeichenkette zurück.
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt Methoden von seinem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
+_Diese Schnittstelle erbt Methoden von ihrem übergeordneten Element, [`Animation`](/de/docs/Web/API/Animation)._
 
 Keine spezifischen Methoden.
 
 ## Beispiele
 
-### Untersuchen der zurückgegebenen CSSTransition
+### Inspizieren der zurückgegebenen CSSTransition
 
-Der Übergang im folgenden Beispiel ändert die Breite des Kastens beim Hover. Ein Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück. In unserem Fall wird dadurch ein `CSSTransition`-Objekt zurückgegeben, das die erstellte Animation repräsentiert.
+Die Transition im folgenden Beispiel ändert die Breite des Kastens beim Hover. Der Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück. In unserem Fall wird ein `CSSTransition`-Objekt zurückgegeben, das die erstellte Animation repräsentiert.
 
 ```css
 .box {
   background-color: #165baa;
-  color: #fff;
+  color: white;
   width: 100px;
   height: 100px;
   transition: width 4s;
