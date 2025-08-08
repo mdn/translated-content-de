@@ -2,17 +2,17 @@
 title: manifest.json
 slug: Mozilla/Add-ons/WebExtensions/manifest.json
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 673a473ab4b40c5f6787b2d3438370269fff31c7
 ---
 
 > [!NOTE]
-> Dieser Artikel beschreibt `manifest.json` für Web-Erweiterungen. Wenn Sie Informationen über `manifest.json` in PWAs suchen, lesen Sie den [Web App Manifest](/de/docs/Web/Progressive_web_apps/Manifest) Artikel.
+> Dieser Artikel beschreibt `manifest.json` für Web-Erweiterungen. Wenn Sie Informationen über `manifest.json` in PWAs suchen, lesen Sie den Artikel über das [Web App Manifest](/de/docs/Web/Progressive_web_apps/Manifest).
 
 Die Datei `manifest.json` ist die einzige Datei, die jede Erweiterung, die WebExtension-APIs verwendet, enthalten muss.
 
-Mit `manifest.json` geben Sie grundlegende Metadaten Ihrer Erweiterung an, wie den Namen und die Version, und können auch Aspekte der Funktionalität Ihrer Erweiterung angeben (wie Hintergrundskripte, Inhalts-Skripte und Browser-Aktionen).
+Mit `manifest.json` geben Sie grundlegende Metadaten zu Ihrer Erweiterung an, wie z. B. Name und Version, und können auch Aspekte der Funktionalität Ihrer Erweiterung festlegen (wie Hintergrundskripte, Inhalts-Skripte und Browser-Aktionen).
 
-Es ist eine {{Glossary("JSON", "JSON")}}-formatierte Datei mit einer Ausnahme: Es ist erlaubt, `//`-Kommentare zu enthalten.
+Es ist eine {{Glossary("JSON", "JSON")}}-formatierte Datei, mit einer Ausnahme: Sie darf Kommentare im `//`-Stil enthalten.
 
 ## Liste der manifest.json-Schlüssel
 
@@ -62,13 +62,13 @@ Dies sind die `manifest.json`-Schlüssel; diese Schlüssel sind in Manifest V2 u
 
 ### Hinweise zu manifest.json-Schlüsseln
 
-- `"manifest_version"`, `"version"` und `"name"` sind die einzigen obligatorischen Schlüssel.
-- `"default_locale"` muss vorhanden sein, wenn das `_locales`-Verzeichnis vorhanden ist, und darf ansonsten nicht vorhanden sein.
+- `"manifest_version"`, `"version"` und `"name"` sind die einzigen erforderlichen Schlüssel.
+- `"default_locale"` muss vorhanden sein, wenn das `_locales`-Verzeichnis vorhanden ist, und muss andernfalls fehlen.
 - `"browser_specific_settings"` wird in Google Chrome nicht unterstützt.
 
 ### Zugriff auf manifest.json-Schlüssel zur Laufzeit
 
-Sie können auf das Manifest Ihrer Erweiterung im JavaScript der Erweiterung mit der Funktion {{WebExtAPIRef("runtime.getManifest()")}} zugreifen:
+Sie können auf das Manifest Ihrer Erweiterung aus dem JavaScript der Erweiterung mithilfe der Funktion {{WebExtAPIRef("runtime.getManifest()")}} zugreifen:
 
 ```js
 browser.runtime.getManifest().version;
@@ -76,18 +76,18 @@ browser.runtime.getManifest().version;
 
 ## Beispiel
 
-Der folgende Block zeigt die grundlegende Syntax für einige gängige Manifest-Schlüssel.
+Der folgende Block zeigt die grundlegende Syntax für einige allgemeine Manifest-Schlüssel.
 
 > [!NOTE]
-> Dies ist nicht als kopierfertiges Beispiel gedacht. Die Auswahl der benötigten Schlüssel hängt von der Entwicklung Ihrer Erweiterung ab.
+> Dies ist nicht als copy-paste-fähiges Beispiel gedacht. Die Auswahl der benötigten Schlüssel hängt von der Erweiterung ab, die Sie entwickeln.
 
-Für vollständige Beispiel-Erweiterungen siehe [Beispiel-Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples).
+Für vollständige Beispielerweiterungen siehe [Beispielerweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples).
 
 ```json
 {
   "browser_specific_settings": {
     "gecko": {
-      "id": "addon@example.com",
+      "id": "@addon-example",
       "strict_min_version": "42.0"
     }
   },
