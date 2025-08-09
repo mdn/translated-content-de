@@ -2,10 +2,10 @@
 title: flex-wrap
 slug: Web/CSS/flex-wrap
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Die **`flex-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Flex-Elemente auf einer Zeile erzwungen werden oder auf mehreren Zeilen umbrechen können. Wenn das Umbruch erlaubt ist, legt es die Richtung fest, in der die Zeilen gestapelt werden.
+Die **`flex-wrap`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob Flex-Elemente in eine einzelne Zeile gezwungen werden oder auf mehrere Zeilen umgebrochen werden können. Wenn Umbrüche erlaubt sind, wird die Richtung festgelegt, in der die Zeilen gestapelt werden.
 
 {{InteractiveExample("CSS Demo: flex-wrap")}}
 
@@ -49,7 +49,7 @@ flex-wrap: wrap-reverse;
 }
 ```
 
-Die Kurzform der Eigenschaft {{cssxref("flex-flow")}} kann verwendet werden, um sowohl die Eigenschaften {{CSSXRef("flex-direction")}} und `flex-wrap` festzulegen, die jeweils die Haupt- und die Querachse des Flex-Containers definieren.
+Die Kurzschreibweise der Eigenschaft {{cssxref("flex-flow")}} kann verwendet werden, um sowohl die Eigenschaften {{CSSXRef("flex-direction")}} als auch `flex-wrap` festzulegen, die jeweils die Haupt- und Querachse des Flex-Containers definieren.
 
 ## Syntax
 
@@ -68,14 +68,14 @@ flex-wrap: unset;
 
 ### Werte
 
-Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort aus den folgenden Werten festgelegt:
+Die `flex-wrap`-Eigenschaft wird als einzelnes Stichwort angegeben, das aus den folgenden Werten gewählt wird:
 
 - `nowrap`
-  - : Die Flex-Elemente werden in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überläuft. Der Cross-Start entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom Wert der {{cssxref("flex-direction")}}. Dies ist der Standardwert.
+  - : Die Flex-Elemente werden in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überläuft. Der Querstart entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom Wert von {{cssxref("flex-direction")}}. Dies ist der Standardwert.
 - `wrap`
-  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Cross-Start entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig von der aktuellen [Schreibweise](/de/docs/Web/CSS/CSS_writing_modes) und dem Wert der {{cssxref("flex-direction")}}.
+  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Querstart entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und dem Wert von {{cssxref("flex-direction")}}.
 - `wrap-reverse`
-  - : Verhält sich wie `wrap`, aber Cross-Start und Cross-Ende sind umgekehrt.
+  - : Verhält sich wie `wrap`, aber Querstart und Querende sind vertauscht.
 
 ## Formale Definition
 
@@ -87,7 +87,7 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort aus den folgen
 
 ## Beispiele
 
-### Festlegen von Flex-Container-Umbruchwerten
+### Festlegen von Flex-Container-Umschlagswerten
 
 #### HTML
 
@@ -119,7 +119,7 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort aus den folgen
 .content,
 .content1,
 .content2 {
-  color: #fff;
+  color: white;
   font: 100 24px/100px sans-serif;
   height: 150px;
   width: 897px;
@@ -172,7 +172,7 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort aus den folgen
 ## Siehe auch
 
 - {{CSSXRef("flex-direction")}}
-- {{CSSXRef("flex-flow")}} Kurzform
+- {{CSSXRef("flex-flow")}} Kurzschreibweise
 - [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Beherrschung des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
-- [CSS flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [Meisterung des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul

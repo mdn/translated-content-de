@@ -2,12 +2,12 @@
 title: min-block-size
 slug: Web/CSS/min-block-size
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`min-block-size`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die minimale horizontale oder vertikale Größe des Blockes eines Elements fest, abhängig vom Schreibrichtung-Modus. Sie entspricht entweder der {{cssxref("min-width")}}- oder der {{cssxref("min-height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
+Die **`min-block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig von dessen Schreibrichtung. Sie entspricht entweder der {{cssxref("min-width")}} oder der {{cssxref("min-height")}} Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
-Wenn der Schreibrichtung-Modus vertikal ausgerichtet ist, bezieht sich der Wert von `min-block-size` auf die minimale Breite des Elements; andernfalls bezieht er sich auf die minimale Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-inline-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-block-size` auf die minimale Breite des Elements; andernfalls bezieht er sich auf die minimale Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-inline-size")}}, die die andere Dimension des Elements definiert.
 
 {{InteractiveExample("CSS Demo: min-block-size")}}
 
@@ -47,7 +47,7 @@ writing-mode: vertical-lr;
   flex-direction: column;
   background-color: #5b6dcd;
   justify-content: center;
-  color: #ffffff;
+  color: white;
 }
 ```
 
@@ -78,7 +78,7 @@ min-block-size: unset;
 
 ### Werte
 
-Die `min-block-size`-Eigenschaft nimmt dieselben Werte an wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}}.
+Die `min-block-size` Eigenschaft nimmt die gleichen Werte wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}} an.
 
 ## Formale Definition
 
@@ -90,7 +90,7 @@ Die `min-block-size`-Eigenschaft nimmt dieselben Werte an wie die Eigenschaften 
 
 ## Beispiele
 
-### Einstellung der minimalen Blockgröße für vertikalen Text
+### Minimale Blockgröße für vertikalen Text festlegen
 
 #### HTML
 

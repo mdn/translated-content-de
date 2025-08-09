@@ -2,7 +2,7 @@
 title: caption-side
 slug: Web/CSS/caption-side
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
 Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines Tabellen-{{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
@@ -51,7 +51,7 @@ caption-side: bottom;
 table {
   font-size: 1.2rem;
   text-align: left;
-  color: #000;
+  color: black;
 }
 
 th,
@@ -88,17 +88,17 @@ caption-side: revert-layer;
 caption-side: unset;
 ```
 
-Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `caption-side` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `top`
-  - : Das Beschriftungsfeld sollte an der Block-Startseite der Tabelle positioniert werden.
+  - : Der Beschriftungsbereich sollte am Blockanfang der Tabelle positioniert werden.
 - `bottom`
-  - : Das Beschriftungsfeld sollte an der Block-Endseite der Tabelle positioniert werden.
+  - : Der Beschriftungsbereich sollte am Blockende der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um die Beschriftungskiste an der Inline-Startkante bzw. Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul definiert zwei logische Werte, `inline-start` und `inline-end`, um den Beschriftungsbereich an der Inline-Startkante bzw. Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -110,7 +110,7 @@ Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Beschriftungen oben und unten einstellen
+### Beschriftungen oben und unten setzen
 
 #### HTML
 

@@ -2,10 +2,10 @@
 title: scroll-padding-block-end
 slug: Web/CSS/scroll-padding-block-end
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-padding-block-end` definiert Versätze für die Kante am Blockende der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Elemente im Sichtbereich des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (z. B. fixierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-end` definiert Offsets für die Endkante in der Block-Dimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion zum Platzieren von Elementen in der Ansicht des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt (wie fest positionierten Werkzeugleisten oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block-end")}}
 
@@ -55,7 +55,7 @@ scroll-padding-block-end: 2em;
 .scroller > div {
   flex: 0 0 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@ scroll-padding-block-end: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -91,11 +91,11 @@ scroll-padding-block-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der Block-Endkante des Scrollports, als gültige Länge oder Prozentzahl.
+  - : Ein nach innen gerichtetes Offset von der Block-Endkante des Scrollports, angegeben als eine gültige Länge oder ein Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird in der Regel 0px sein, jedoch kann ein Benutzeragent Erkennung durchführen und etwas anderes festlegen, wenn ein nicht-null Wert angemessener ist.
+  - : Das Offset wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich Null angemessener ist.
 
-## Formale Definition
+## Formaler Definition
 
 {{cssinfo}}
 

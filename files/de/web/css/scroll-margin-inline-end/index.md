@@ -2,10 +2,10 @@
 title: scroll-margin-inline-end
 slug: Web/CSS/scroll-margin-inline-end
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die `scroll-margin-inline-end`-Eigenschaft definiert den Abstand des Scroll-Snap-Bereichs am Ende der Inline-Dimension, die verwendet wird, um dieses Feld an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird bestimmt, indem das transformierte Border-Box gefunden, seine rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt und dann die angegebenen Ausdehnungen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-inline-end` definiert den Rand des Scroll-Snap-Bereichs am Ende der Inline-Dimension, der verwendet wird, um dieses Kästchen an den {{Glossary("Scroll_snap#snapport", "snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen, deren rechteckige Umrandung (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und anschließend die angegebenen Ränder hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-inline-end")}}
 
@@ -58,7 +58,7 @@ scroll-margin-inline-end: 2em;
   flex: 0 0 250px;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ scroll-margin-inline-end: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -90,7 +90,7 @@ scroll-margin-inline-end: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand vom Inline-Endrand des Scroll-Containers.
+  - : Ein Überschuss vom Inline-Endrand des Scroll-Containers.
 
 ## Formale Definition
 
@@ -104,9 +104,9 @@ scroll-margin-inline-end: unset;
 
 ### Grundlegende Demonstration
 
-Dieses Beispiel implementiert etwas, das dem interaktiven Beispiel oben sehr ähnlich ist, mit dem Unterschied, dass wir Ihnen hier erklären, wie es implementiert ist.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir hier erklären, wie es implementiert wird.
 
-Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, wobei der zweite und dritte Block in Position einrasten, nahe, aber nicht ganz rechts von jedem Block.
+Das Ziel ist, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte in Position schnappen, nahe, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
@@ -123,7 +123,7 @@ Das HTML enthält einen Scroller mit vier Kindern:
 
 #### CSS
 
-Gehen wir den CSS-Code durch. Der äußere Container ist wie folgt gestaltet:
+Gehen wir den CSS-Code durch. Der äußere Container ist wie folgt gestylt:
 
 ```css
 .scroller {
@@ -133,21 +133,21 @@ Gehen wir den CSS-Code durch. Der äußere Container ist wie folgt gestaltet:
   overflow-x: scroll;
   display: flex;
   box-sizing: border-box;
-  border: 1px solid #000;
+  border: 1px solid black;
   scroll-snap-type: x mandatory;
 }
 ```
 
-Die wichtigsten Teile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, welches sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, welches vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse auftreten muss und das Scrollen immer auf einem Snap-Punkt zum Stillstand kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt scrollt und nicht verborgen wird, und `scroll-snap-type: x mandatory`, das vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer auf einem Snap-Punkt endet.
 
-Die Kindelemente sind wie folgt gestaltet:
+Die Kindelemente sind wie folgt gestylt:
 
 ```css
 .scroller > div {
   flex: 0 0 250px;
   width: 250px;
-  background-color: #663399;
-  color: #fff;
+  background-color: rebeccapurple;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -156,14 +156,14 @@ Die Kindelemente sind wie folgt gestaltet:
 }
 
 .scroller > div:nth-child(2n) {
-  background-color: #fff;
-  color: #663399;
+  background-color: white;
+  color: rebeccapurple;
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, welches angibt, dass die rechten Kanten (die "Enden" entlang der x-Achse, in unserem Fall) die bestimmten Snap-Punkte sind.
+Der hier relevanteste Teil ist `scroll-snap-align: end`, was angibt, dass die rechten Ränder (die "Enden" entlang der x-Achse, in unserem Fall) die vorgesehenen Snap-Punkte sind.
 
-Als letztes spezifizieren wir die Scroll-Marign-Werte, ein unterschiedlicher Wert für das zweite und dritte Kind-Element:
+Zuletzt geben wir die Scrollrandwerte an, einen anderen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -175,7 +175,7 @@ Als letztes spezifizieren wir die Scroll-Marign-Werte, ein unterschiedlicher Wer
 }
 ```
 
-Das bedeutet, dass beim Scrollen an den mittleren Kindelementen vorbei, das Scrollen `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` und `2rems` außerhalb des Inline-Endrandes des dritten `<div>` einrasten wird.
+Das bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen bei `1rem` außerhalb des Inline-Endrands des zweiten `<div>` und bei `2rems` außerhalb des Inline-Endrands des dritten `<div>` einrastet.
 
 #### Ergebnis
 
@@ -194,4 +194,4 @@ Probieren Sie es selbst aus:
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Well-controlled scrolling with CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

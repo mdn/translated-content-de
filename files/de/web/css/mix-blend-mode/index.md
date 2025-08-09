@@ -2,10 +2,10 @@
 title: mix-blend-mode
 slug: Web/CSS/mix-blend-mode
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
 
 {{InteractiveExample("CSS Demo: mix-blend-mode")}}
 
@@ -78,9 +78,9 @@ mix-blend-mode: unset;
 - {{cssxref("&lt;blend-mode&gt;")}}
   - : Der anzuwendende Mischmodus.
 - `plus-darker`
-  - : Vermischung mit dem [_plus-darker_ Kompositionsoperator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+  - : Mischung unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Vermischung mit dem [_plus-lighter_ Kompositionsoperator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagerte Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Mischung unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendungseffekte (verhindert unerwünschtes Blinken, wenn zwei überlappende Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -92,7 +92,7 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Effekt unterschiedlicher mix-blend-mode-Werte
+### Effekt verschiedener mix-blend-mode Werte
 
 ```html hidden
 <div class="grid">
@@ -624,7 +624,7 @@ body {
 .cell {
   margin: 0.5em;
   padding: 0.5em;
-  background-color: #fff;
+  background-color: white;
   overflow: hidden;
   text-align: center;
 }
@@ -645,8 +645,8 @@ body {
 .container {
   position: relative;
   background:
-    linear-gradient(to right, #000 0%, transparent 50%, #fff 100%),
-    linear-gradient(to bottom, #ff0 0%, #f0f 50%, #0ff 100%);
+    linear-gradient(to right, black 0%, transparent 50%, white 100%),
+    linear-gradient(to bottom, yellow 0%, magenta 50%, cyan 100%);
   width: 150px;
   height: 150px;
   margin: 0 auto;
@@ -811,7 +811,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Schriftfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu vermischen.
 
 #### HTML
 

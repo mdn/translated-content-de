@@ -2,10 +2,10 @@
 title: scroll-margin-right
 slug: Web/CSS/scroll-margin-right
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-margin-right` definiert den rechten Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, sein rechteckiger Begrenzungskasten (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Ränder hinzugefügt werden.
+Die Eigenschaft `scroll-margin-right` definiert den rechten Rand des Scroll-Schnappbereichs, der für das Einrasten dieses Box-Elements im {{Glossary("Scroll_snap#snapport", "Snapport")}} verwendet wird. Der Scroll-Schnappbereich wird ermittelt, indem der transformierte Border-Box genommen wird, sein rechteckiges Begrenzungsrechteck (in den Koordinaten des Scroll-Containers ausgerichtet) gefunden wird und dann die angegebenen Erweiterungen hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-right")}}
 
@@ -58,7 +58,7 @@ scroll-margin-right: 2em;
   flex: 0 0 250px;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ scroll-margin-right: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -90,7 +90,7 @@ scroll-margin-right: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand vom rechten Rand des Scroll-Containers.
+  - : Ein Versatz von der rechten Kante des Scroll-Containers.
 
 ## Formale Definition
 

@@ -2,17 +2,17 @@
 title: marker
 slug: Web/CSS/marker
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft zeigt auf einen Marker, der auf den ersten, mittleren und letzten Vertices des Pfads des Elements gezeichnet wird; das heißt, an allen seinen Vertices. Der Marker muss mit einem SVG {{SVGElement('marker')}} Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der Attribute `marker-start`, `marker` und `marker-end` im SVG.
+Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der an den ersten, mittleren und letzten Eckpunkten des Pfades eines Elements gezeichnet wird; das heißt, an allen seinen Eckpunkten. Der Marker muss mit einem SVG {{SVGElement('marker')}} Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der `marker-start`, `marker` und `marker-end` Attribute im SVG.
 
-Bei vielen Formen, die Marker unterstützen, befinden sich der erste und letzte Vertex an derselben Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen werden, wenn sowohl der erste als auch der letzte Marker definiert sind, zwei Marker an dieser Stelle gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
+Bei vielen Formen, die Marker unterstützen, befinden sich die ersten und letzten Eckpunkte am selben Ort: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. Bei solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden an diesem Punkt zwei Marker gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
 
-Für die mittleren Vertices wird die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die genau zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Anfangs des folgenden Pfadsegments liegt. Dies kann als das Kreuzprodukt der Vektoren betrachtet werden, die durch die beiden Pfadrichtungen definiert sind.
+Für die mittleren Eckpunkte wird die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die genau zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Beginns des folgenden Pfadsegments liegt. Dies kann als Kreuzprodukt der durch die beiden Pfadrichtungen definierten Vektoren betrachtet werden.
 
 > [!NOTE]
-> Die `marker` Eigenschaft hat nur Auswirkungen auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
+> Die `marker` Eigenschaft hat nur Wirkung bei Elementen, die SVG Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
 
 ## Syntax
 
@@ -31,10 +31,10 @@ marker: unset;
 ### Werte
 
 - `none`
-  - : Dies bedeutet, dass kein Marker an jedem Vertex des Pfads des Elements gezeichnet wird.
+  - : Das bedeutet, dass kein Marker an den Eckpunkten des Pfades des Elements gezeichnet wird.
 
 - `<marker-ref>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der sich auf einen Marker bezieht, der durch ein SVG {{SVGElement('marker')}} Element definiert ist und an jedem Vertex des Pfads des Elements gezeichnet werden soll. Wenn der URL-Verweis ungültig ist, wird kein Marker an den Vertices des Pfads gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG {{SVGElement('marker')}} Element definiert wurde und an jedem Eckpunkt des Pfades des Elements gezeichnet wird. Wenn der URL-Verweis ungültig ist, wird kein Marker an den Eckpunkten des Pfades gezeichnet.
 
 ## Formale Definition
 
@@ -66,7 +66,7 @@ svg {
       refY="5"
       markerUnits="strokeWidth"
       orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f00" />
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="red" />
     </marker>
   </defs>
   <polyline
@@ -83,7 +83,7 @@ polyline#test {
 }
 ```
 
-{{EmbedLiveSample("Beispiel", "200", "200")}}
+{{EmbedLiveSample("Example", "200", "200")}}
 
 ## Spezifikationen
 

@@ -2,10 +2,10 @@
 title: text-indent
 slug: Web/CSS/text-indent
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des Leerraums (Einrückung) fest, die vor den Zeilen eines Textblocks eingefügt wird.
+Die **`text-indent`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Länge des Leerraums (Einzugs) fest, der vor Zeilen von Text in einem Block eingefügt wird.
 
 {{InteractiveExample("CSS Demo: text-indent")}}
 
@@ -52,19 +52,19 @@ text-indent: 3em hanging each-line;
 ```css interactive-example
 section {
   font-size: 1.25em;
-  background-color: #483d8b;
+  background-color: darkslateblue;
   align-items: start;
 }
 
 #example-element {
   text-align: left;
   margin: 0 0 0 3em;
-  background-color: #6a5acd;
+  background-color: slateblue;
   color: white;
 }
 ```
 
-Der horizontale Abstand bezieht sich auf die linke (oder rechte, bei Rechts-nach-Links-Layout) Kante des Inhaltsblocks des enthaltenden Block-Elements.
+Der horizontale Abstand bezieht sich auf den linken (oder rechten, für rechts-nach-links-Anordnung) Rand des Inhaltskasten des blockelementischen enthaltenden Elements.
 
 ## Syntax
 
@@ -93,13 +93,13 @@ text-indent: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Einrückung wird als absolute {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
+  - : Der Einzug wird als absolute {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind zulässig. Siehe {{cssxref("&lt;length&gt;")}}-Werte für mögliche Einheiten.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Einrückung ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenden Blocks.
+  - : Der Einzug ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenden Blocks.
 - `each-line`
-  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, jedoch nicht die Zeilen nach einem _weichen Zeilenumbruch_.
+  - : Der Einzug betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, nicht jedoch Zeilen nach einem _weichen Umbruch_.
 - `hanging`
-  - : Kehrt die Einrückung um, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
+  - : Kehrt um, welche Zeilen eingezogen werden. Alle Zeilen _außer_ der ersten Zeile werden eingezogen.
 
 ## Formale Definition
 
@@ -111,7 +111,7 @@ text-indent: unset;
 
 ## Beispiele
 
-### Grundlegende Einrückung
+### Einfacher Einzug
 
 #### HTML
 
@@ -139,11 +139,11 @@ p {
 
 {{ EmbedLiveSample('Basic_indent','100%','100%') }}
 
-### Überspringen der Einrückung beim ersten Absatz
+### Einzug beim ersten Absatz überspringen
 
-Eine übliche typografische Praxis, wenn Absatzeinrückungen vorhanden sind, ist das Überspringen der Einrückung für den ersten Absatz. Wie es _The Chicago Manual of Style_ ausdrückt: "Die erste Zeile des Textes nach einer Unterüberschrift kann bündig links beginnen oder mit der üblichen Absatzeinrückung eingerückt werden."
+Eine übliche typografische Praxis, wenn Absatzeinzüge vorhanden sind, ist, den Einzug für den ersten Absatz zu überspringen. Wie _The Chicago Manual of Style_ es ausdrückt, "die erste Zeile des Textes nach einer Unterüberschrift kann flächenbündig links beginnen oder durch den üblichen Absatzeinzug eingerückt sein."
 
-Erstes Absätze anders als nachfolgende Absätze zu behandeln, kann mit dem [nächster Geschwister-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator) erfolgen, wie im folgenden Beispiel gezeigt:
+Erste Absätze anders als folgende Absätze zu behandeln, kann mit dem [Nachfolgender-Geschwister-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
 
 #### HTML
 
@@ -206,7 +206,7 @@ p + p {
 
 {{ EmbedLiveSample('Skipping_indentation_on_the_first_paragraph','','500px') }}
 
-### Prozentsatz Einrückung
+### Prozentualer Einzug
 
 #### HTML
 
@@ -244,7 +244,7 @@ p {
 
 ## Siehe auch
 
-- [Lernen Sie HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [Lernen Sie, HTML mit CSS zu gestalten](/de/docs/Learn_web_development/Core/Styling_basics)
 - Verwandte CSS-Eigenschaften:
   - [`text-justify`](/de/docs/Web/CSS/text-justify)
   - [`text-orientation`](/de/docs/Web/CSS/text-orientation)
@@ -254,4 +254,4 @@ p {
   - {{cssxref('hanging-punctuation')}}
 
 - [CSS Text Decoration](/de/docs/Web/CSS/CSS_text_decoration) CSS-Modul
-- [CSS Text Modul](/de/docs/Web/CSS/CSS_text)
+- [CSS Text-Modul](/de/docs/Web/CSS/CSS_text)

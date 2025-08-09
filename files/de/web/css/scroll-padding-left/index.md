@@ -2,10 +2,10 @@
 title: scroll-padding-left
 slug: Web/CSS/scroll-padding-left
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion für die Positionierung von Elementen verwendet wird, damit diese vom Benutzer eingesehen werden können. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte verdeckt sind (z. B. fest positionierte Symbolleisten oder Seitenleisten), oder es kann mehr Freiraum zwischen einem Ziel-Element und den Rändern des Scrollports geschaffen werden.
+Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge im Blickfeld des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie fest positionierte Symbolleisten oder Seitenleisten) oder um einem anvisierten Element mehr Abstand zu den Rändern des Scrollports zu geben.
 
 {{InteractiveExample("CSS Demo: scroll-padding-left")}}
 
@@ -58,7 +58,7 @@ scroll-padding-left: 2em;
   flex: 0 0 250px;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ scroll-padding-left: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -94,9 +94,9 @@ scroll-padding-left: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der linken Kante des Scrollports, als gültige Länge oder als Prozentsatz.
+  - : Ein innerer Versatz von der linken Kante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den User-Agent bestimmt. Dies wird im Allgemeinen 0px sein, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein anderer Wert geeigneter ist.
+  - : Der Versatz wird durch den Benutzeragenten bestimmt. Im Allgemeinen wird dies 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein ungleich Null Wert angemessener ist.
 
 ## Formale Definition
 

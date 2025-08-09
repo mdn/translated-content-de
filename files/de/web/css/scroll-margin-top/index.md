@@ -2,10 +2,10 @@
 title: scroll-margin-top
 slug: Web/CSS/scroll-margin-top
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird ermittelt, indem das transformierte Rahmenfeld genommen, seine rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Vergrößerungen hinzugefügt werden.
+Die `scroll-margin-top`-Eigenschaft definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Box-Element zum {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Randrahmen genommen wird, seine rechteckige Begrenzungsbox (achsenausgerichtet im Koordinatenraum des Scroll-Containers) ermittelt wird und dann die angegebenen Ränder hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-top")}}
 
@@ -55,7 +55,7 @@ scroll-margin-top: 2em;
 .scroller > div {
   flex: 0 0 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@ scroll-margin-top: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -87,7 +87,7 @@ scroll-margin-top: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Vorsprung von der oberen Kante des Scroll-Containers.
+  - : Ein Ausstand vom oberen Rand des Scroll-Containers.
 
 ## Formale Definition
 
@@ -108,4 +108,4 @@ scroll-margin-top: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

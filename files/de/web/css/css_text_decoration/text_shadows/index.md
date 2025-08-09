@@ -3,10 +3,10 @@ title: Einführung in Textschatten
 short-title: Text shadows
 slug: Web/CSS/CSS_text_decoration/Text_shadows
 l10n:
-  sourceCommit: 2517845d81ffbe9a8b12ccaac2042cd1746ad81b
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Sie können Ihren Texten Schatten hinzufügen, indem Sie die {{cssxref("text-shadow")}}-Eigenschaft verwenden. Diese Eigenschaft akzeptiert eine durch Kommata getrennte Liste von Schattenwerten. Jeder Schatten erfordert mindestens zwei {{cssxref("length")}}-Werte, kann aber bis zu drei `<length>`-Werte und einen {{cssxref("color")}}-Wert enthalten.
+Sie können Ihren Texten Schatten hinzufügen, indem Sie die Eigenschaft {{cssxref("text-shadow")}} verwenden. Diese Eigenschaft akzeptiert eine durch Kommas getrennte Liste von Schattenwerten. Jeder Schatten erfordert mindestens zwei {{cssxref("length")}}-Werte, kann aber bis zu drei `<length>`-Werte und einen {{cssxref("color")}}-Wert enthalten.
 
 ```css
 text-shadow: 1px 3px;
@@ -23,15 +23,15 @@ Um einen Schatten vom Text zu entfernen, verwenden Sie das Schlüsselwort `none`
 text-shadow: none;
 ```
 
-In diesem Leitfaden betrachten wir die Bestandteile von Textschatten und wie Sie mehrere Textschatten auf ein Element anwenden können.
+In diesem Leitfaden betrachten wir die Komponenten von Textschatten und wie Sie mehreren Texten eines Elements Schatten hinzufügen können.
 
-## Bestandteile von Textschatten
+## Komponenten von Textschatten
 
-Jeder Schatten umfasst einen horizontalen Versatz, einen vertikalen Versatz und einen optionalen Unschärferadius, in dieser Reihenfolge. Sie können auch die Farbe des Schattens definieren.
+Jeder Schatten umfasst in dieser Reihenfolge einen horizontalen Versatz, einen vertikalen Versatz und einen optionalen Unschärferadius. Außerdem können Sie die Farbe des Schattens definieren.
 
 ### Horizontaler Versatz
 
-Der erste {{cssxref("length")}}-Wert im `text-shadow`-Wert repräsentiert den horizontalen Versatz des Schattens relativ zum ursprünglichen Text. Positive Werte verschieben den Schatten nach rechts, während negative Werte ihn nach links verschieben. Ein Wert von `0` ist ein üblicher gültiger Wert.
+Der erste {{cssxref("length")}} im Wert von `text-shadow` repräsentiert den horizontalen Versatz des Schattens im Verhältnis zum ursprünglichen Text. Positive Werte verschieben den Schatten nach rechts, während negative Werte ihn nach links verschieben. Ein Wert von `0` ist ein häufiger gültiger Wert.
 
 In diesem Beispiel unterscheiden sich die verschiedenen `text-shadow`-Deklarationen nur in ihren horizontalen Versätzen. Der erste `<length>`-Wert verschiebt den Schatten nach links (`-30px`) oder nach rechts (`30px`).
 
@@ -66,11 +66,11 @@ p {
 
 {{EmbedLiveSample('horizontal','auto','320')}}
 
-Sie haben vielleicht bemerkt, dass die `text-shadow`-Eigenschaft, ähnlich der {{cssxref("outline")}}-Eigenschaft, keine Auswirkungen auf das [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) hat. Genau wie {{cssxref("box-shadow")}} beeinflussen Textschatten das Layout nicht, lösen kein Scrollen aus und haben keinen Einfluss auf die Größe des scrollbaren Überflussbereichs. Während Textschatten den Text eines Elements größer erscheinen lassen können, haben sie tatsächlich keine Auswirkungen auf die Breite (oder Höhe) des Inhalts.
+Sie haben vielleicht bemerkt, dass die `text-shadow`-Eigenschaft keine Auswirkung auf das [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) hat, ähnlich wie die {{cssxref("outline")}}-Eigenschaft. Genau wie {{cssxref("box-shadow")}} beeinflussen Textschatten weder das Layout, noch verursachen sie Scrollen oder wirken sich auf die Größe des scrollbar überlaufenden Bereichs aus. Obwohl Textschatten den Text eines Elements größer erscheinen lassen können, haben sie keine tatsächliche Auswirkung auf die Breite (oder Höhe) des Inhalts.
 
 ### Vertikaler Versatz
 
-Der zweite {{cssxref("length")}}-Wert im `text-shadow`-Wert repräsentiert den vertikalen Versatz des Schattens relativ zum ursprünglichen Text. Dieser erforderliche Wert verhält sich ähnlich wie der horizontale Versatz, mit dem Unterschied, dass er den Schatten nach oben oder unten bewegt, anstatt nach links oder rechts.
+Der zweite {{cssxref("length")}} im Wert von `text-shadow` repräsentiert den vertikalen Versatz des Schattens im Verhältnis zum ursprünglichen Text. Dieser erforderliche Wert verhält sich ähnlich wie der horizontale Versatz, außer dass er den Schatten nach oben oder unten statt nach links oder rechts verschiebt.
 
 In diesem Beispiel unterscheiden sich die `text-shadow`-Deklarationen nur in ihren vertikalen Versätzen. Der zweite `<length>`-Wert verschiebt den Schatten nach oben (`-30px`) oder nach unten (`30px`).
 
@@ -92,9 +92,9 @@ In diesem Beispiel unterscheiden sich die `text-shadow`-Deklarationen nur in ihr
 
 ### Unschärferadius
 
-Der Unschärferadius wird durch den dritten {{cssxref("length")}}-Wert definiert und ist optional. Wird er weggelassen, beträgt der Unschärferadius `0`, wodurch eine Kopie des durch die ersten beiden Längenwerte positionierten Texts entsteht. Der Wert muss `0` oder größer sein; je größer der Wert, desto weiter verbreitet sich der Schattierungseffekt.
+Der Unschärferadius wird durch den dritten {{cssxref("length")}}-Wert definiert und ist optional. Wenn er weggelassen wird, beträgt der Unschärferadius `0`, was eine Kopie des Textes erzeugt, die durch die ersten beiden Längenwerte positioniert wird. Der Wert muss `0` oder größer sein; je größer der Wert, desto weiter verbreitet ist der Schatteneffekt.
 
-In diesem Beispiel unterscheiden sich die `text-shadow`-Deklarationen nur in ihren Unschärferadien. Dieser dritte `<length>`-Wert ist entweder ungültig (`-5px`), verwischt den Schatten (`5px`), oder erstellt eine Kopie des Texts (`0`).
+In diesem Beispiel unterscheiden sich die `text-shadow`-Deklarationen nur in ihren Unschärferadien. Dieser dritte `<length>`-Wert ist entweder ungültig (`-5px`), verwischt den Schatten (`5px`) oder erzeugt eine Kopie des Textes (`0`).
 
 ```css live-sample___blur
 .negative {
@@ -115,7 +115,7 @@ In diesem Beispiel unterscheiden sich die `text-shadow`-Deklarationen nur in ihr
 
 ### Schattenfarbe
 
-Während Sie [mehrere Schatten](#mehrere_schatten) auf Text anwenden können, besteht jeder Schatten aus einer einzelnen Basisfarbe. Diese Farbe kann jeder gültige CSS {{cssxref("color")}}-Wert sein und wird standardmäßig zu [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword), wenn sie weggelassen wird.
+Obwohl Sie [mehrere Schatten](#mehrere_schatten) auf Text anwenden können, besteht jeder Schatten aus einer einzigen Basisfarbe. Diese Farbe kann jeder gültige CSS-{{cssxref("color")}}-Wert sein und wird, falls weggelassen, auf [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) standardisiert.
 
 Die folgenden drei Schatten sind hinsichtlich ihrer Schattenfarben gleichwertig:
 
@@ -144,11 +144,11 @@ Die folgenden drei Schatten sind hinsichtlich ihrer Schattenfarben gleichwertig:
 
 ## Mehrere Schatten
 
-Sie können mehrere Schatten auf denselben Text anwenden, indem Sie mehrere Schattenwerte durch Kommata getrennt angeben.
+Sie können mehrere Schatten auf denselben Text anwenden, indem Sie mehrere durch Kommas getrennte Schattenwerte hinzufügen.
 
-Die Schattierungseffekte werden von vorne nach hinten angewendet: Der erste Schatten ist oben.
+Die Schattierungseffekte werden von vorne nach hinten angewendet: Der erste Schatten liegt oben.
 
-In unserem Beispiel von `text-shadow: 5px 5px mediumblue, 10px 10px magenta, 15px 15px rebeccapurple;` werden drei Schatten definiert, wobei der blaue über dem rosa liegt, der über dem lila liegt:
+In unserem Beispiel von `text-shadow: 5px 5px mediumblue, 10px 10px magenta, 15px 15px rebeccapurple;` werden drei Schatten definiert, wobei der blaue oben auf dem rosa liegt, der wiederum oben auf dem lila liegt:
 
 ```css hidden live-sample___multiple1
 p {
@@ -167,9 +167,9 @@ p {
 
 ## Mehrere Schatten mit transparentem Text
 
-Schatten werden über alle Hintergrundfarben oder -bilder und unterhalb aller Ränder gemalt. Während Schatten sich gegenseitig überlagern, überlagern sie nicht den Text. Es gibt kein Äquivalent zum `inset`-Schlüsselwort der {{cssxref("box-shadow")}}-Eigenschaft in der Welt der Textschatten. Im Gegensatz zu einem Box-Schatten werden Textschatten nicht an die Form des Schattens zugeschnitten und können sichtbar werden, wenn der Text teilweise transparent ist.
+Schatten werden über alle Hintergrundfarben oder -bilder und unter allen Rahmenfarben gemalt. Während sich Schatten gegenseitig überlagern, überlagern sie nicht den Text. Es gibt kein Äquivalent zum Schlüsselwort `inset` der {{cssxref("box-shadow")}}-Eigenschaft in der Welt der Textschatten. Anders als bei einem Box-Schatten werden Textschatten nicht auf die geschattene Form zugeschnitten und können durchscheinen, wenn der Text teilweise transparent ist.
 
-Die folgenden Beispiele wenden dieselben Schatten auf den Text an, jedoch mit unterschiedlichen {{cssxref("color")}}-Eigenschaftswerten. Die halbtransparenten Beispiele sind schwer lesbar, aber sie werden aufgenommen, um zu zeigen, wie Schatten gerendert werden:
+Die folgenden Beispiele wenden dieselben Schatten auf den Text an, aber mit unterschiedlichen {{cssxref("color")}}-Eigenschaftenwerten. Die halbtransparenten Beispiele sind schwer zu lesen, werden jedoch inkludiert, um zu demonstrieren, wie Schatten gerendert werden:
 
 ```css live-sample___opaque
 p {
@@ -180,7 +180,7 @@ p {
 }
 
 .opaque {
-  color: rgb(0 0 0);
+  color: black;
 }
 
 .semitransparent {
@@ -188,11 +188,11 @@ p {
 }
 
 .transparent {
-  color: rgb(0 0 0 / 0);
+  color: transparent;
 }
 
 .white {
-  color: rgb(255 255 255);
+  color: white;
 }
 
 .semi-white {
@@ -220,4 +220,4 @@ p {
 
 {{EmbedLiveSample('opaque','auto','540')}}
 
-Im "transparent"-Beispiel ist der Text transparent, aber vollständig lesbar, da der obere Schatten nicht verwischt wird. Beachten Sie, wie der Schatten hinter dem Text erscheint und sichtbar ist, wenn der Text weniger als vollständig opak ist. Dies ist besonders im "halbopaken Weiß"-Beispiel bemerkbar. Dieses Verhalten unterscheidet sich von nicht-einbettenden Box-Schatten, bei denen die Schatten am äußeren Rand des Rahmens abgeschnitten werden.
+Im "transparenten" Beispiel ist der Text transparent, bleibt aber voll lesbar, da der obere Schatten nicht verwischt ist. Beachten Sie, wie der Schatten hinter dem Text erscheint und sichtbar ist, wenn der Text nicht völlig undurchsichtig ist. Dies ist besonders im "halbundurchsichtigen Weißen" Beispiel bemerkenswert. Dieses Verhalten unterscheidet sich von nicht-eingefügten Box-Schatten, bei denen die Schatten am äußeren Rand des Rahmens abgeschnitten werden.

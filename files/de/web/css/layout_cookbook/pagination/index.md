@@ -2,22 +2,22 @@
 title: Paginierung
 slug: Web/CSS/Layout_cookbook/Pagination
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Dieses Kochbuchmuster demonstriert das Navigationsmuster, das zur Anzeige der Paginierung verwendet wird. Hierbei kann der Benutzer zwischen Seiten von Inhalten, wie z.B. Suchergebnissen, navigieren.
+Dieses Kochbuchmuster demonstriert das Navigationsmuster, das zur Anzeige von Paginierungen verwendet wird, bei dem der Benutzer zwischen Seiten von Inhalten wie Suchergebnissen navigieren kann.
 
-![Links zu Seiten in einer paginierten Liste](pagination.png)
+![Links zu Seitensätzen in einer Seiteneinteilung](pagination.png)
 
 ## Anforderungen
 
-Das Paginierungsmuster zeigt normalerweise Elemente in einer Reihe an. Um sicherzustellen, dass die Paginierung von Personen, die einen Screenreader verwenden, verstanden wird, kennzeichnen wir die Elemente als Liste innerhalb eines {{htmlelement("nav")}}-Elements und verwenden dann CSS, um das Layout visuell als Reihe darzustellen.
+Das Paginierungsmuster zeigt Elemente typischerweise in einer Zeile an. Um sicherzustellen, dass die Paginierung für Personen, die einen Screenreader verwenden, verständlich ist, kennzeichnen wir die Elemente als Liste innerhalb eines {{htmlelement("nav")}}-Elements und verwenden dann CSS, um das Layout optisch als Reihe darzustellen.
 
-Typischerweise wird die Paginierungskomponente horizontal unter dem Inhalt zentriert.
+Normalerweise wird die Paginierungskomponente horizontal unterhalb des Inhalts zentriert.
 
 ## Rezept
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___pagination-example
 <nav aria-label="pagination">
@@ -96,7 +96,7 @@ nav {
 
 .pagination a[aria-current="page"] {
   background-color: #333;
-  color: #fff;
+  color: white;
 }
 ```
 
@@ -104,9 +104,9 @@ nav {
 
 ## Getroffene Entscheidungen
 
-Dieses Muster wird unter Verwendung von [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) erstellt — ein Flex-Container, der in einen anderen verschachtelt ist. Das {{htmlelement("nav")}}-Element wird als Flex-Container festgelegt, damit wir die Liste mit der {{cssxref("justify-content")}}-Eigenschaft zentrieren können.
+Dieses Muster wird mit [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) gestaltet — ein flexibler Container, der in einen anderen eingebettet ist. Das {{htmlelement("nav")}}-Element wird als flexibler Container festgelegt, damit wir die Liste mit der {{cssxref("justify-content")}}-Eigenschaft zentrieren können.
 
-Die Liste selbst wird ebenfalls zu einem Flex-Container, um die Elemente als Reihe anzuordnen. Um die Elemente auseinander zu halten, können wir entweder einen {{cssxref("margin")}} auf die Flex-Elemente anwenden oder einen {{cssxref("gap")}} auf den Flex-Container hinzufügen.
+Die Liste selbst wird ebenfalls zu einem flexiblen Container, um die Elemente in einer Reihe anzuordnen. Um die Elemente zu verteilen, können wir entweder einen {{cssxref("margin")}} auf den flexiblen Elementen verwenden oder einen {{cssxref("gap")}} auf den flexiblen Container hinzufügen.
 
 ```css
 .pagination {
@@ -120,16 +120,16 @@ Die Liste selbst wird ebenfalls zu einem Flex-Container, um die Elemente als Rei
 
 ## Barrierefreiheitsbedenken
 
-Wir möchten sicherstellen, dass eine Person, die einen Screenreader verwendet, versteht, was diese Navigation bewirkt und wohin sie gelangt, wenn sie auf einen Link klickt. Um dies zu unterstützen, haben wir [`aria-label="pagination"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) auf dem `<nav>`-Element hinzugefügt.
+Wir möchten sicherstellen, dass eine Person, die einen Screenreader verwendet, versteht, was diese Navigation tut und wohin sie gehen wird, wenn sie auf einen Link klickt. Um dies zu unterstützen, haben wir [`aria-label="pagination"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) auf dem `<nav>`-Element hinzugefügt.
 
-Wir haben auch zusätzlichen Inhalt eingefügt, der von einem Screenreader gelesen, aber visuell verborgen wird, und das [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) Attribut auf die Paginierungspfeile gesetzt.
+Wir haben auch zusätzlichen Inhalt hinzugefügt, der von einem Screenreader gelesen würde, aber visuell versteckt ist, und das Attribut [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) auf den Navigationspfeilen gesetzt.
 
-Der Abschnitt "Siehe auch" am Ende dieses Dokuments enthält Links zu verwandten Themen der Barrierefreiheit.
+Der Abschnitt "Siehe auch" am Ende dieses Dokuments enthält Links zu verwandten Themen zur Barrierefreiheit.
 
 ## Siehe auch
 
 - {{Cssxref("justify-content")}}, {{Cssxref("gap")}}
-- [Know your ARIA: 'hidden' vs 'none'](https://www.scottohara.me/blog/2018/05/05/hidden-vs-none.html) (2018)
-- [Invisible content just for screen reader users](https://webaim.org/techniques/css/invisiblecontent/#techniques) via WebAIM.org (2020)
-- [Writing CSS with accessibility in mind](https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939) (2017)
-- [a11y style guide: pagination](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
+- [Kennen Sie Ihr ARIA: 'hidden' vs 'none'](https://www.scottohara.me/blog/2018/05/05/hidden-vs-none.html) (2018)
+- [Unsichtbarer Inhalt nur für Screenreader-Benutzer](https://webaim.org/techniques/css/invisiblecontent/#techniques) über WebAIM.org (2020)
+- [CSS mit Barrierefreiheit im Hinterkopf schreiben](https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939) (2017)
+- [a11y Stil-Leitfaden: Paginierung](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)

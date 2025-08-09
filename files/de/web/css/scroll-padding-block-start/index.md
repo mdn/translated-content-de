@@ -2,10 +2,10 @@
 title: scroll-padding-block-start
 slug: Web/CSS/scroll-padding-block-start
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-padding-block-start` definiert Versätze für die Anfangskante in der Blockdimension der _optimalen Betrachtungsregion_ des Scrollports: der Region, die als Zielregion verwendet wird, um Elemente für den Nutzer sichtbar zu platzieren. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte (wie zum Beispiel fest positionierte Toolbars oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-start` definiert Versätze für den Startbereich in der Blockdimension der _optimalen Anzeigeregion_ des Scrollports: der Bereich, der als Zielregion zum Platzieren von Elementen im Sichtbereich des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderen Inhalten verdeckt werden (wie fix positionierte Werkzeugleisten oder Seitenleisten) oder mehr Abstand zwischen einem zielgerichteten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block-start")}}
 
@@ -55,7 +55,7 @@ scroll-padding-block-start: 2em;
 .scroller > div {
   flex: 0 0 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@ scroll-padding-block-start: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -91,9 +91,9 @@ scroll-padding-block-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Startkante des Scrollports in der Blockrichtung, als gültige Länge oder Prozentsatz.
+  - : Ein innerer Versatz vom Block-Startbereich des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und anders handeln, wenn ein Wert ungleich null geeigneter ist.
+  - : Der Versatz wird vom User-Agent bestimmt. Dies ist in der Regel 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein nicht-nuller Wert angemessener ist.
 
 ## Formale Definition
 

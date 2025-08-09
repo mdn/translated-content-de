@@ -2,13 +2,13 @@
 title: d
 slug: Web/CSS/d
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Die **`d`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen Pfad, der durch das SVG-{{SVGElement("path")}}-Element gezeichnet werden soll. Wenn vorhanden, überschreibt sie das {{SVGAttr("d")}}-Attribut des Elements.
+Die **`d`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert einen Pfad, der vom SVG {{SVGElement("path")}} Element gezeichnet wird. Wenn vorhanden, überschreibt sie das {{SVGAttr("d")}} Attribut des Elements.
 
 > [!NOTE]
-> Die `d`-Eigenschaft gilt nur für {{SVGElement("path")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-Elemente noch für HTML-Elemente oder Pseudo-Elemente.
+> Die `d`-Eigenschaft gilt nur für {{SVGElement("path")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-Elemente, HTML-Elemente oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -31,12 +31,12 @@ d: unset;
 
 ### Werte
 
-Der Wert ist entweder eine {{cssxref("basic-shape/path", "path()")}}-Funktion mit einem einzelnen {{cssxref("&lt;string&gt;")}}-Parameter oder das Schlüsselwort `none`.
+Der Wert ist entweder eine {{cssxref("basic-shape/path", "path()")}} Funktion mit einem einzigen {{cssxref("&lt;string&gt;")}} Parameter oder das Schlüsselwort `none`.
 
 - `none`
   - : Es wird kein Pfad gezeichnet.
 - `path(<string>)`
-  - : Eine `path()`-Funktion mit einem in Anführungszeichen gesetzten [Daten-String](/de/docs/Web/SVG/Reference/Attribute/d)-Parameter. Der Daten-String definiert einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path). Der SVG-Pfad-Daten-String enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixeleinheiten verwenden. Ein leerer Pfad wird als ungültig betrachtet.
+  - : Eine `path()` Funktion mit einem in Anführungszeichen gesetzten [Datenstring](/de/docs/Web/SVG/Reference/Attribute/d) als Parameter. Der Datenstring definiert einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path). Der SVG-Pfad-Datenstring enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixel-Einheiten verwenden. Ein leerer Pfad wird als ungültig angesehen.
 
 ## Formale Definition
 
@@ -48,13 +48,13 @@ Der Wert ist entweder eine {{cssxref("basic-shape/path", "path()")}}-Funktion mi
 
 ## Beispiele
 
-### Pfaddaten angeben
+### Pfaddaten spezifizieren
 
-Dieses Beispiel zeigt die grundlegende Verwendung von `d` und wie die CSS `d`-Eigenschaft den `d`-Attributwert überschreibt.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `d` und wie die CSS `d` Eigenschaft den Wert des `d` Attributs überschreibt.
 
 #### HTML
 
-Wir fügen zwei identische `<path>`-Elemente in ein SVG ein; ihre `d`-Attributwerte sind `"m 5,5 h 90 v 90 h -90 v -90 z"`, was ein `90px`-Quadrat erzeugt.
+Wir fügen zwei identische `<path>` Elemente in ein SVG ein; ihre `d` Attributwerte sind `"m 5,5 h 90 v 90 h -90 v -90 z"`, was ein `90px` Quadrat erstellt.
 
 ```html
 <svg>
@@ -65,7 +65,7 @@ Wir fügen zwei identische `<path>`-Elemente in ein SVG ein; ihre `d`-Attributwe
 
 #### CSS
 
-Mit CSS gestalten wir beide Pfade, indem wir einen schwarzen {{cssxref("stroke")}} und ein halbtransparentes rotes {{cssxref("fill")}} angeben. Dann verwenden wir die `d`-Eigenschaft, um den Wert des SVG-{{SVGAttr("d")}}-Attributs nur für den letzten Pfad zu überschreiben. Der Browser rendert SVG-Bilder standardmäßig als `300px` breit und `150px` hoch.
+Mit CSS gestalten wir beide Pfade und geben ihnen einen schwarzen {{cssxref("stroke")}} und eine halbtransparente rote {{cssxref("fill")}}. Wir verwenden dann die `d` Eigenschaft, um den Wert des SVG {{SVGAttr("d")}} Attributs nur für den letzten Pfad zu überschreiben. Der Browser rendert SVG-Bilder standardmäßig `300px` breit und `150px` hoch.
 
 ```css
 svg {
@@ -74,7 +74,7 @@ svg {
 
 path {
   fill: #f338;
-  stroke: #000;
+  stroke: black;
 }
 
 path:last-of-type {
@@ -88,15 +88,15 @@ path:last-of-type {
 
 {{EmbedLiveSample("Specifying path data", "300", "180")}}
 
-Der zweite `<path>` ist ein Herz, wie in der `path()`-Funktionswert der CSS `d`-Eigenschaft definiert. Der nicht gestylte `<path>`-Pfad blieb ein Quadrat, wie in seinem SVG `d`-Attributwert definiert.
+Der zweite `<path>` ist ein Herz, wie es im `path()` Funktionswert der CSS `d` Eigenschaft definiert ist. Der ungestylte `<path>` bleibt ein Quadrat, wie es im SVG `d` Attributwert definiert ist.
 
 ### Datenpfade animieren
 
-Dieses Beispiel zeigt die Animation des `d`-Attributwertes.
+Dieses Beispiel zeigt die Animation des `d` Attributwerts.
 
 #### HTML
 
-Wir erstellen ein `<svg>`, das ein einzelnes `<path>`-Element enthält.
+Wir erstellen ein `<svg>`, das ein einziges `<path>` Element enthält.
 
 ```html
 <svg>
@@ -106,7 +106,7 @@ Wir erstellen ein `<svg>`, das ein einzelnes `<path>`-Element enthält.
 
 #### CSS
 
-Wir verwenden das `d`-Attribut, um ein Herz mit einer Linie zu versehen. Wir definieren mit CSS das {{cssxref("fill")}}, {{cssxref("stroke")}} und {{cssxref("stroke-width")}} dieses Pfades und fügen eine zweisekündige {{cssxref("transition")}} hinzu. Wir fügen einen {{cssxref(":hover")}}-Stil hinzu, der eine leicht abweichende {{cssxref("basic-shape/path", "path()")}}-Funktion enthält; der Pfad hat die gleiche Anzahl von Datenpunkten wie der Standardzustand, was den Pfad animierbar macht.
+Wir verwenden das `d` Attribut, um ein Herz mit einem Strich durchzuziehen. Mit CSS definieren wir die {{cssxref("fill")}}, {{cssxref("stroke")}} und {{cssxref("stroke-width")}} dieses Pfades und fügen eine zweisekündige {{cssxref("transition")}} hinzu. Wir fügen einen {{cssxref(":hover")}} Stil hinzu, der eine leicht andere {{cssxref("basic-shape/path", "path()")}} Funktion enthält; der Pfad hat die gleiche Anzahl an Datenpunkten wie der Standardzustand, wodurch der Pfad animierbar ist.
 
 ```css
 svg {
@@ -135,7 +135,7 @@ svg:hover path {
 
 {{EmbedLiveSample("Animating data paths", "300", "180")}}
 
-Um die Animation anzuzeigen, bewegen Sie den Mauszeiger über das SVG.
+Um die Animation zu sehen, bewegen Sie den Mauszeiger über das SVG.
 
 ## Spezifikationen
 
@@ -147,10 +147,10 @@ Um die Animation anzuzeigen, bewegen Sie den Mauszeiger über das SVG.
 
 ## Siehe auch
 
-- SVG-{{SVGAttr("d")}}-Attribut
+- SVG {{SVGAttr("d")}} Attribut
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
-- {{cssxref("basic-shape/path", "path()")}}-Funktion
-- {{cssxref("basic-shape")}}-Datentyp
-- [Überblick über CSS-Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes)-Modul
+- {{cssxref("basic-shape/path", "path()")}} Funktion
+- {{cssxref("basic-shape")}} Datentyp
+- [Übersicht über CSS Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [CSS Formen](/de/docs/Web/CSS/CSS_shapes) Modul

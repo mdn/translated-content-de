@@ -2,10 +2,10 @@
 title: linear-gradient()
 slug: Web/CSS/gradient/linear-gradient
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Die **`linear-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) erstellt ein Bild, das aus einem fortschreitenden Übergang zwischen zwei oder mehr Farben entlang einer geraden Linie besteht. Das Ergebnis ist ein Objekt des {{CSSxRef("&lt;gradient&gt;")}} Datentyps, welcher eine besondere Art von {{CSSxRef("&lt;image&gt;")}} ist.
+Die **`linear-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) erstellt ein Bild, das aus einem fortschreitenden Übergang zwischen zwei oder mehr Farben entlang einer geraden Linie besteht. Das Ergebnis ist ein Objekt des Datentyps {{CSSxRef("&lt;gradient&gt;")}}, der eine besondere Art von {{CSSxRef("&lt;image&gt;")}} ist.
 
 {{InteractiveExample("CSS Demo: linear-gradient()")}}
 
@@ -23,9 +23,9 @@ background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
 
 ```css interactive-example-choice
 background:
-  linear-gradient(217deg, rgb(255 0 0 / 0.8), rgb(255 0 0 / 0) 70.71%),
-  linear-gradient(127deg, rgb(0 255 0 / 0.8), rgb(0 255 0 / 0) 70.71%),
-  linear-gradient(336deg, rgb(0 0 255 / 0.8), rgb(0 0 255 / 0) 70.71%);
+  linear-gradient(217deg, rgb(255 0 0 / 0.8), transparent 70.71%),
+  linear-gradient(127deg, rgb(0 255 0 / 0.8), transparent 70.71%),
+  linear-gradient(336deg, rgb(0 0 255 / 0.8), transparent 70.71%);
 ```
 
 ```html interactive-example
@@ -84,62 +84,62 @@ linear-gradient(45deg, red 0 50%, blue 50% 100%)
 ### Werte
 
 - `<side-or-corner>`
-  - : Die Position des Startpunkts der Verlaufslinie. Falls angegeben, besteht sie aus dem Wort `to` und bis zu zwei Schlüsselwörtern: eines gibt die horizontale Seite (`left` oder `right`) und das andere die vertikale Seite (`top` oder `bottom`) an. Die Reihenfolge der Seiten-Schlüsselwörter spielt keine Rolle. Wenn nicht angegeben, ist der Standardwert `to bottom`.
+  - : Die Position des Startpunktes der Liniengradienten. Wenn angegeben, besteht es aus dem Wort `to` und bis zu zwei Schlüsselwörtern: Eines gibt die horizontale Seite an (`left` oder `right`), und das andere die vertikale Seite (`top` oder `bottom`). Die Reihenfolge der Seiten-Schlüsselwörter spielt keine Rolle. Wenn nicht angegeben, ist der Standardwert `to bottom`.
 
-    Die Werte `to top`, `to bottom`, `to left` und `to right` entsprechen den Winkeln `0deg`, `180deg`, `270deg` und `90deg`. Die anderen Werte werden in einen Winkel übersetzt.
+    Die Werte `to top`, `to bottom`, `to left` und `to right` entsprechen den Winkeln `0deg`, `180deg`, `270deg` und `90deg`. Andere Werte werden in einen Winkel übersetzt.
 
 - {{CSSxRef("&lt;angle&gt;")}}
-  - : Der Winkel der Richtung der Verlaufslinie. Ein Wert von `0deg` entspricht `to top`; zunehmende Werte drehen sich von dort aus im Uhrzeigersinn.
+  - : Der Winkel der Gradientlinie. Ein Wert von `0deg` entspricht `to top`; steigende Werte drehen sich von dort im Uhrzeigersinn.
 - `<linear-color-stop>`
-  - : Ein {{CSSxRef("&lt;color&gt;")}} Wert eines Farbverlaufpunkts, gefolgt von einer oder zwei optionalen Stopp-Positionen (jede ist entweder ein {{CSSxRef("&lt;percentage&gt;")}} oder ein {{CSSxRef("&lt;length&gt;")}} entlang der Achse des Verlaufs).
+  - : Ein Farbstopps {{CSSxRef("&lt;color&gt;")}} Wert, gefolgt von einer oder zwei optionalen Stopp-Positionen (jeweils entweder ein {{CSSxRef("&lt;percentage&gt;")}} oder ein {{CSSxRef("&lt;length&gt;")}} entlang der Achse des Gradienten).
 - `<color-hint>`
-  - : Ein {{Glossary("interpolation", "Interpolation")}} Hinweis, der definiert, wie der Verlauf zwischen benachbarten Farbverlaufspunkten fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbverlaufspunkten die Verlausfarbe den Mittelwert des Farbübergangs erreichen sollte. Wird sie weggelassen, ist der Mittelwert des Farbübergangs der Mittelwert zwischen zwei Farbverlaufspunkten.
+  - : Ein {{Glossary("interpolation", "Interpolations")}}-Hinweis, der definiert, wie der Verlauf zwischen den benachbarten Farbstopps voranschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps die Verlauf-Farbe den Mittelpunkt der Farbüberblendung erreichen soll. Wenn weggelassen, ist der Mittelpunkt der Farbüberblendung der Mittelpunkt zwischen zwei Farbstopps.
 
 > [!NOTE]
-> Die Darstellung von [Farbverläufen in CSS-Verläufen](#zusammensetzung_eines_linearen_verlaufs) folgt den gleichen Regeln wie Farbverläufe in [SVG-Verläufen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Gradients).
+> Die Darstellung von [Color Stops in CSS-Verläufen](#komposition_eines_linearen_gradienten) folgt denselben Regeln wie Farbstopps in [SVG-Verläufen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Gradients).
 
 ## Beschreibung
 
-Wie bei jedem Verlauf hat ein Linearverlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); das heißt, er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe passt sich der Größe des Elements an, auf das er angewendet wird.
+Wie bei jedem Verlauf hat ein linearer Verlauf [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description), d.h. es gibt keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird.
 
-Um einen linearen Verlauf zu erzeugen, der sich wiederholt, um seinen Behälter zu füllen, verwenden Sie die {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}} Funktion.
+Um einen linearen Verlauf zu erstellen, der sich wiederholt, um seinen Container zu füllen, verwenden Sie stattdessen die {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}} Funktion.
 
-Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo [`<image>`](/de/docs/Web/CSS/image)s verwendet werden können. Aus diesem Grund funktioniert `linear-gradient()` nicht mit {{CSSxRef("background-color")}} und anderen Eigenschaften, die den {{CSSxRef("&lt;color&gt;")}} Datentyp verwenden.
+Da `<gradient>`s zum Datentyp `<image>` gehören, können sie nur dort verwendet werden, wo [`<image>`](/de/docs/Web/CSS/image)s verwendet werden können. Aus diesem Grund funktioniert `linear-gradient()` nicht mit {{CSSxRef("background-color")}} und anderen Eigenschaften, die den Datentyp {{CSSxRef("&lt;color&gt;")}} verwenden.
 
-### Zusammensetzung eines linearen Verlaufs
+### Komposition eines linearen Gradienten
 
-Ein linearer Verlauf wird durch eine Achse definiert—die _Verlaufslinie_—und zwei oder mehr _Farbverlaufspunkte_. Jeder Punkt auf der Achse ist eine eigene Farbe; um einen sanften Verlauf zu erzeugen, zeichnet die `linear-gradient()` Funktion eine Reihe von Farbstrichen, die senkrecht zur Verlaufslinie verlaufen, wobei jeder Strich der Farbe des Punktes entspricht, an dem er die Verlaufslinie schneidet.
+Ein linearer Verlauf wird durch eine Achse definiert — die _Verlaufsachse_ — und zwei oder mehr _Farbstopps_. Jeder Punkt auf der Achse ist eine spezifische Farbe; um einen gleichmäßigen Verlauf zu erzeugen, zieht die `linear-gradient()` Funktion eine Reihe von farbigen Linien, die senkrecht zur Verlaufsachse stehen und an jedem Punkt der Achse die Farbe annehmen, wo sie die Verlaufsachse schneiden.
 
 ![linear-gradient.png](linear-gradient.png)
 
-Die Verlaufslinie wird durch das Zentrum der Box bestimmt, die das Verlaufsbild enthält, und durch einen Winkel. Die Farben des Verlaufs werden durch zwei oder mehr Punkte bestimmt: den Startpunkt, den Endpunkt und dazwischen optionale Farbverlaufspunkte.
+Die Verlaufslinie wird durch das Zentrum des Kastens, der das Verlaufsbild enthält, und durch einen Winkel definiert. Die Farben des Verlaufs werden durch zwei oder mehr Punkte bestimmt: den Startpunkt, den Endpunkt und, dazwischen, optionale Farbstopppunkte.
 
-Der _Startpunkt_ ist der Ort auf der Verlaufslinie, an dem die erste Farbe beginnt. Der _Endpunkt_ ist der Punkt, an dem die letzte Farbe endet. Jeder dieser beiden Punkte wird durch den Schnittpunkt der Verlaufslinie mit einer senkrechten Linie bestimmt, die von der Eckbox kommt, die sich im selben Quadranten befindet. Der Endpunkt kann als symmetrischer Punkt des Startpunkts verstanden werden. Diese etwas komplexen Definitionen führen zu einem interessanten Effekt, der manchmal _magische Ecken_ genannt wird: die Ecken, die den Start- und Endpunkten am nächsten liegen, haben dieselbe Farbe wie ihre jeweiligen Start- oder Endpunkte.
+Der _Startpunkt_ ist die Stelle auf der Verlaufslinie, an der die erste Farbe beginnt. Der _Endpunkt_ ist der Punkt, an dem die letzte Farbe endet. Jeder dieser zwei Punkte wird durch den Schnittpunkt der Verlaufslinie mit einer Linie definiert, die senkrecht von der Ecke des Kästchens verläuft, die sich in derselben Quadrante befindet. Der Endpunkt kann als der symmetrische Punkt des Startpunkts verstanden werden. Diese etwas komplexen Definitionen führen zu einem interessanten Effekt, der manchmal als _magische Ecken_ bezeichnet wird: Die Ecken, die den Start- und Endpunkten am nächsten sind, haben dieselbe Farbe wie ihre jeweiligen Start- oder Endpunkte.
 
-#### Anpassen von Verläufen
+#### Anpassung von Verläufen
 
-Durch Hinzufügen weiterer Farbverlaufspunkte auf der Verlaufslinie können Sie einen höchst individuell gestalteten Übergang zwischen mehreren Farben erstellen. Die Position eines Farbverlaufs kann explizit durch die Verwendung eines {{CSSxRef("&lt;length&gt;")}} oder eines {{CSSxRef("&lt;percentage&gt;")}} definiert werden. Wenn Sie die Position einer Farbe nicht angeben, wird sie genau zwischen der vorhergehenden und der folgenden Farbe platziert. Die folgenden zwei Verläufe sind gleichwertig.
+Durch das Hinzufügen weiterer Farbstopps auf der Verlaufslinie können Sie einen stark angepassten Übergang zwischen mehreren Farben erstellen. Die Position eines Farbstopps kann explizit durch die Verwendung eines {{CSSxRef("&lt;length&gt;")}} oder eines {{CSSxRef("&lt;percentage&gt;")}} definiert werden. Wenn Sie den Ort einer Farbe nicht angeben, wird sie in der Mitte zwischen den vorhergehenden und nachfolgenden Farben platziert. Die folgenden beiden Verläufe sind äquivalent.
 
 ```css
 linear-gradient(red, orange, yellow, green, blue);
 linear-gradient(red 0%, orange 25%, yellow 50%, green 75%, blue 100%);
 ```
 
-Standardmäßig verlaufen die Farben sanft von der Farbe an einem Farbverlaufspunkt zur Farbe am folgenden Farbverlaufspunkt, wobei der Mittelwert zwischen den Farben der Halbpunkt des Farbübergangs ist. Sie können diesen Mittelwert an jede Position zwischen zwei Farbverlaufspunkten verschieben, indem Sie einen unbeschrifteten % Farbhinweis zwischen den beiden Farben hinzufügen, um anzugeben, wo das Zentrum des Farbübergangs sein soll. Das folgende Beispiel ist von Anfang bis zur 10%-Markierung durchgehend rot und von 90% bis zum Ende durchgehend blau. Zwischen 10% und 90% wechselt die Farbe von rot zu blau, jedoch ist der Mittelpunkt des Übergangs an der 30%-Marke anstatt bei 50%, wie es ohne den 30% Farbhinweis der Fall gewesen wäre.
+Standardmäßig wechseln Farben sanft von der Farbe an einem Farbstopppunkt zur Farbe am nächsten Farbstopppunkt, wobei der Mittelpunkt zwischen den Farben der halbe Weg der Farbüberblendung zwischen den beiden Punkten ist. Sie können diesen Mittelpunkt an jede Position zwischen zwei Farbstopps verschieben, indem Sie einen unlabelelden % Farbhinweis zwischen den beiden Farben hinzufügen, um anzuzeigen, wo der Mittelpunkt des Farbübergangs liegen soll. Das folgende Beispiel ist von Anfang an bis zur 10 %-Marke durchgehend rot und von 90 % bis zum Ende durchgehend blau. Zwischen 10 % und 90 % wechselt die Farbe von Rot zu Blau, jedoch liegt der Mittelpunkt des Übergangs bei der 30 %-Marke statt bei 50 %, was ohne den 30 % Farbhinweis passiert wäre.
 
 ```css
 linear-gradient(red 10%, 30%, blue 90%);
 ```
 
-Wenn zwei oder mehr Farbverlaufspunkte an derselben Stelle liegen, wird der Übergang eine harte Linie zwischen der ersten und der letzten an dieser Stelle deklarierten Farbe.
+Wenn zwei oder mehr Farbstopps an derselben Stelle sind, wird der Übergang eine harte Linie zwischen der ersten und letzten Farbangabe an dieser Stelle sein.
 
-Farbverlaufspunkte sollten in aufsteigender Reihenfolge aufgelistet werden. Nachfolgende Farbverlaufspunkte mit niedrigeren Werten überschreiben den Wert des vorherigen Farbverlaufs, wodurch ein harter Übergang entsteht. Folgendes Beispiel wechselt bei der 40%-Markierung von rot zu gelb und geht dann in einem Übergang von gelb zu blau über 25% des Verlaufs über:
+Farbstopps sollten in aufsteigender Reihenfolge aufgelistet werden. Nachfolgende Farbstopps mit niedrigerem Wert überschreiben den Wert des vorhergehenden Farbstopps, wodurch ein harter Übergang entsteht. Im folgenden Beispiel ändert sich die Farbe von Rot zu Gelb an der 40 %-Marke und wechselt dann von Gelb zu Blau über 25 % des Verlaufs:
 
 ```css
 linear-gradient(red 40%, yellow 30%, blue 65%);
 ```
 
-Farbverläufe mit mehreren Positionen sind erlaubt. Eine Farbe kann als zwei aneinandergrenzende Farbverläufe deklariert werden, indem beide Positionen in der CSS-Deklaration angegeben werden. Die folgenden drei Verläufe sind gleichwertig:
+Multi-Position-Farbstopps sind erlaubt. Eine Farbe kann als zwei benachbarte Farbstopps erklärt werden, indem beide Positionen in der CSS-Deklaration eingeschlossen werden. Die folgenden drei Verläufe sind gleichwertig:
 
 ```css
 linear-gradient(red 0%, orange 10%, orange 30%, yellow 50%, yellow 70%, green 90%, green 100%);
@@ -147,7 +147,7 @@ linear-gradient(red, orange 10% 30%, yellow 50% 70%, green 90%);
 linear-gradient(red 0%, orange 10% 30%, yellow 50% 70%, green 90% 100%);
 ```
 
-Standardmäßig wird, wenn keine Farbe mit einem `0%` Stopp angegeben ist, die zuerst deklarierte Farbe an diesem Punkt sein. Ebenso wird die letzte Farbe bis zur `100%`-Markierung weitergeführt oder an dieser liegen, wenn keine Länge für diesen letzten Stopp deklariert wurde.
+Standardmäßig, wenn keine Farbe mit einem `0%`-Stopp vorhanden ist, wird die zuerst deklarierte Farbe an diesem Punkt sein. In ähnlicher Weise wird die letzte Farbe bis zur `100%`-Marke fortgesetzt oder bei der `100%`-Marke sein, wenn auf diesem letzten Stopp keine Länge deklariert wurde.
 
 ## Formale Syntax
 
@@ -206,7 +206,7 @@ body {
 
 {{EmbedLiveSample("Interpolation in rectangular color space", 120, 120)}}
 
-### Interpolieren mit Farbton
+### Interpolation mit Farbton
 
 ```html hidden
 <div class="shorter">shorter hue</div>
@@ -221,7 +221,7 @@ div {
 }
 ```
 
-In diesem Beispiel zur Interpolation wird das [hsl](/de/docs/Web/CSS/color_value/hsl) Farbsystem verwendet und der [Farbton](/de/docs/Web/CSS/hue) wird interpoliert.
+In diesem Beispiel für die Interpolation wird das [HSL]-Farbmodell (/de/docs/Web/CSS/color_value/hsl) verwendet und der [Farbton](/de/docs/Web/CSS/hue) wird interpoliert.
 
 ```css
 .shorter {
@@ -233,13 +233,13 @@ In diesem Beispiel zur Interpolation wird das [hsl](/de/docs/Web/CSS/color_value
 }
 ```
 
-Das obere Kästchen verwendet [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von rot nach blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} geht. Das untere Kästchen verwendet [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), bedeutet, dass die Farbe von rot nach blau über den längeren Bogen geht, durchläuft Grün, Gelb und Orange.
+Das obere Kästchen verwendet die [kurzeren Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), das heißt, die Farbe wechselt direkt von Rot zu Blau unter Verwendung des kürzeren Bogens auf dem {{Glossary("Color_wheel", "Farbkreis")}}. Das untere Kästchen verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), das heißt, die Farbe wechselt von Rot zu Blau, indem sie den längeren Bogen durchläuft und dabei durch Grüns, Gelbs und Oranges geht.
 
 {{EmbedLiveSample("Interpolating with hue", 120, 120)}}
 
-### Verlauf mit mehrpositionalen Farbverläufen
+### Verlauf mit Multi-Position-Farbstopps
 
-Dieses Beispiel verwendet mehrpositionale Farbverläufe, wobei angrenzende Farben denselben Farbverlaufpunkt haben und so einen Streifeneffekt erzeugen.
+Dieses Beispiel verwendet Multi-Position-Farbstopps, wobei benachbarte Farben denselben Farbstopppunkt haben und einen gestreiften Effekt erzeugen.
 
 ```css hidden
 body {
@@ -263,9 +263,9 @@ body {
 
 {{EmbedLiveSample("Gradient_with_multi-position_color_stops", 120, 120)}}
 
-### Weitere Beispiele für linear-gradient
+### Weitere linear-gradient Beispiele
 
-Bitte sehen Sie [Verwendung von CSS Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) für mehr Beispiele.
+Bitte sehen Sie sich [die Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) für weitere Beispiele an.
 
 ## Spezifikationen
 
@@ -277,9 +277,9 @@ Bitte sehen Sie [Verwendung von CSS Verläufen](/de/docs/Web/CSS/CSS_images/Usin
 
 ## Siehe auch
 
-- [Verwendung von CSS Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- Andere Verlauf-Funktionen: {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- Andere Verlaufsfunktionen: {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
 - [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method)
 - [`<color-interpolation-method>`](/de/docs/Web/CSS/color-interpolation-method)
 - {{CSSxRef("&lt;image&gt;")}}
-- [CSS-Bilder Modul](/de/docs/Web/CSS/CSS_images)
+- [CSS-Bildermodul](/de/docs/Web/CSS/CSS_images)

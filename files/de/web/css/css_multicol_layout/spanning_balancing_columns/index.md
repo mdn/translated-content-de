@@ -1,19 +1,19 @@
 ---
-title: Überspannung und Ausgleich von Spalten
+title: Spannen und Ausbalancieren von Spalten
 slug: Web/CSS/CSS_multicol_layout/Spanning_balancing_columns
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-In diesem Leitfaden betrachten wir, wie Elemente über Spalten innerhalb des Mehrspaltencontainers (_multicol_) hinweg überspannt werden und wie die Füllung der Spalten gesteuert werden kann.
+In diesem Leitfaden betrachten wir, wie man Elemente innerhalb des Multi-Column (_multicol_) Containers über Spalten spannen kann und wie man kontrolliert, wie die Spalten gefüllt werden.
 
-## Überspannung der Spalten
+## Spalten spannen
 
-Um ein Element über Spalten hinweg zu überspannen, verwenden Sie die {{cssxref("column-span")}}-Eigenschaft mit dem Wert `all`. Dadurch wird das Element zu einem _Spanner_, der alle Spalten überspannt.
+Um ein Element über Spalten hinweg zu spannen, verwenden Sie die {{cssxref("column-span")}} Eigenschaft mit dem Wert `all`. Dadurch wird das Element zu einem _Spanner_, der alle Spalten umfasst.
 
-Jedes Nachkomelement des Multicol-Containers kann zu einem Spanner werden, einschließlich direkter und indirekter Kinder. Zum Beispiel könnte eine direkt im Container verschachtelte Überschrift zu einem Spanner werden, ebenso wie eine Überschrift, die in einem {{HTMLElement("section")}} innerhalb des Multicol-Containers verschachtelt ist.
+Jedes nachfolgende Element des Multicol-Containers kann zu einem Spanner gemacht werden, sowohl direkte als auch indirekte Nachkommen. Zum Beispiel könnte eine direkt im Container verschachtelte Überschrift zu einem Spanner werden, ebenso wie eine Überschrift, die in einem {{HTMLElement("section")}} innerhalb des Multicol-Containers verschachtelt ist.
 
-Im folgenden Beispiel ist das `<h2>`-Element auf `column-span: all` gesetzt und überspannt alle Spalten.
+Im folgenden Beispiel ist das `<h2>` Element auf `column-span: all` gesetzt und spannt alle Spalten.
 
 ```html live-sample___h2-span
 <div class="container">
@@ -49,13 +49,13 @@ body {
 h2 {
   column-span: all;
   background-color: #4d4e53;
-  color: #fff;
+  color: white;
 }
 ```
 
 {{EmbedLiveSample("h2-span", "", "420px")}}
 
-Im zweiten Beispiel befindet sich die Überschrift in einem {{HTMLElement("article")}}-Element und überspannt trotzdem wie erwartet den Inhalt.
+In diesem zweiten Beispiel befindet sich die Überschrift in einem {{HTMLElement("article")}} Element, spannt jedoch trotzdem den Inhalt wie erwartet.
 
 ```html live-sample___nested-h2-span
 <div class="container">
@@ -93,21 +93,21 @@ body {
 h2 {
   column-span: all;
   background-color: #4d4e53;
-  color: #fff;
+  color: white;
 }
 ```
 
 {{EmbedLiveSample("nested-h2-span", "", "420px")}}
 
-Wenn ein Spanner eingeführt wird, unterbricht er den Fluss der Spalten; die Spalten starten nach dem Spanner neu, wodurch effektiv ein neuer Satz von Spaltenboxen entsteht. Der Inhalt überspringt kein überspannendes Element.
+Wenn ein Spanner eingeführt wird, unterbricht er den Fluss der Spalten; die Spalten starten nach dem Spanner neu und erzeugen effektiv eine neue Reihe von Spaltenboxen. Der Inhalt springt nicht über ein spannendes Element hinweg.
 
 ### Einschränkungen von column-span
 
-`column-span` kann nur zwei Werte haben. Der Ausgangswert `none` bedeutet, dass das Element nicht überspannt wird und innerhalb einer Spalte bleibt. Der Wert `all` bedeutet, dass das Element alle Spalten überspannt. Es gibt keine Werte, die eine teilweise Überspannung ermöglichen, wie zum Beispiel das Überspannen von zwei aus drei Spalten.
+`column-span` kann nur zwei Werte haben. Der Anfangswert `none` bedeutet, dass das Element nicht spannt und innerhalb einer Spalte bleibt. Der Wert `all` bedeutet, dass das Element alle Spalten spannt. Es gibt keine Werte, die eine teilweise Spannweite ermöglichen, wie das Spannen über zwei von drei Spalten.
 
-### Dinge, die beachtet werden müssen
+### Dinge, auf die Sie achten sollten
 
-Wenn das überspannende Element sich in einem anderen Element mit Rändern, Abständen, einer Umrandung oder einer Hintergrundfarbe befindet, kann die Box über dem Spanner erscheinen, während der Rest des Inhalts darunter angezeigt wird. Aus diesem Grund sollte Vorsicht walten gelassen werden, wenn ein Element so eingestellt wird, dass es alle Spalten überspannt, um sicherzustellen, dass diesem Szenario Rechnung getragen wird.
+Wenn sich das spannende Element innerhalb eines anderen Elements mit Rändern, Polsterungen und einem Rahmen oder Hintergrundfarbe befindet, kann die Box über dem Spanner erscheinen, wobei der Rest des Inhalts darunter angezeigt wird. Aus diesem Grund sollte Vorsicht geboten sein, wenn ein Element über alle Spalten hinweg gespannt wird, um sicherzustellen, dass dieses Szenario berücksichtigt wird.
 
 ```html hidden live-sample___mpb-span
 <div class="container">
@@ -148,24 +148,24 @@ article {
 }
 h2 {
   background-color: #4d4e53;
-  color: #fff;
+  color: white;
   column-span: all;
 }
 ```
 
 {{EmbedLiveSample("mpb-span", "", "420px")}}
 
-Zusätzlich, wenn ein überspannendes Element später im Inhalt erscheint, kann es zu unerwartetem oder unerwünschtem Verhalten führen, wenn nicht genug Inhalt vorhanden ist, um Spalten nach dem Spanner zu erstellen. Verwenden Sie das Überspannen vorsichtig und testen Sie es bei verschiedenen Viewportgrößen, um sicherzustellen, dass Sie den gewünschten Effekt erzielen.
+Darüber hinaus kann ein später im Inhalt auftretendes spannendes Element unerwartetes oder unerwünschtes Verhalten verursachen, wenn nicht genügend Inhalt vorhanden ist, um Spalten nach dem Spanner zu erstellen. Verwenden Sie Spannungen sorgfältig und testen Sie bei verschiedenen Auflösungen, um sicherzustellen, dass Sie den gewünschten Effekt erzielen.
 
-## Füllen und Ausgleichen von Spalten
+## Füllen und Ausbalancieren von Spalten
 
-Ein ausgewogener Satz von Spalten liegt vor, wenn alle Spalten ungefähr die gleiche Menge an Inhalt haben. Das Füllen und Ausgleichen ist relevant, wenn die Menge des Inhalts nicht mit dem zur Verfügung stehenden Platz übereinstimmt, wie wenn eine {{CSSXref("height")}} auf dem Container deklariert ist.
+Ein ausgewogenes Set von Spalten ist eines, bei dem alle Spalten ungefähr die gleiche Menge an Inhalt haben. Das Füllen und Ausbalancieren ist relevant, wenn die Menge an Inhalt nicht mit dem verfügbaren Platz übereinstimmt, wie wenn eine {{CSSXref("height")}} am Container deklariert ist.
 
-Der Ausgangswert für {{cssxref("column-fill")}} ist `balance`. Der Wert von `balance` bedeutet, dass alle Spalten so gut wie möglich ausgeglichen sind. In fragmentierten Kontexten, wie z.B. [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Das bedeutet, dass auf der letzten Seite der letzte Satz von Spaltenboxen ausgeglichen ist.
+Der Anfangswert für {{cssxref("column-fill")}} ist `balance`. Der Wert `balance` bedeutet, dass alle Spalten so gleichmäßig wie möglich ausbalanciert sind. In fragmentierten Kontexten, wie [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausbalanciert. Das bedeutet, dass auf der letzten Seite die letzte Reihe von Spaltenboxen ausbalanciert ist.
 
-Der andere Wert zum Ausgleichen, `balance-all`, gleicht alle Spalten in fragmentierten Kontexten aus.
+Der andere Balancewert, `balance-all`, balanciert alle Spalten in fragmentierten Kontexten.
 
-Die Spalten in diesem Beispiel enthalten ein Bild und etwas Text, die ausgeglichen sind. Das Bild, das nicht unterbrochen werden kann, befindet sich in der ersten Spalte. Die anderen Spalten sind ausgeglichen und füllen sich mit gleichen Mengen an Text.
+Die Spalten in diesem Beispiel enthalten ein Bild und etwas Text, die ausgewogen sind. Das Bild, das nicht gebrochen werden kann, befindet sich in der ersten Spalte. Die anderen Spalten sind ausbalanciert und füllen sich mit gleichen Mengen an Text.
 
 ```html live-sample___balance
 <div class="container">
@@ -189,7 +189,7 @@ body {
 }
 h2 {
   background-color: #4d4e53;
-  color: #fff;
+  color: white;
 }
 img {
   max-width: 100%;
@@ -203,7 +203,7 @@ img {
 
 {{EmbedLiveSample("balance", "", "250px")}}
 
-Der `auto`-Wert für `column-fill` füllt eine Spalte nacheinander, indem er zuerst die erste Spalte in der Inline-Start-Richtung füllt, bevor er Inhalt in nachfolgende Spalten einfügt, anstatt alle Spalten gleichermaßen auszugleichen und zu füllen. In diesem Beispiel haben wir `column-fill` auf `auto` geändert. Die Spalten werden bis zur Höhe des Containers gefüllt und lassen am Ende leere Spalten.
+Der `auto` Wert für `column-fill` füllt eine Spalte sequentiell, indem sie die erste Spalte in der Inline-Start-Richtung füllt, bevor Inhalte in den nachfolgenden Spalten platziert werden, anstatt alle Spalten gleichmäßig auszubalancieren und zu füllen. In diesem Beispiel haben wir `column-fill` auf `auto` geändert. Die Spalten sind bis zur Höhe des Containers gefüllt, wobei am Ende leere Spalten bleiben.
 
 ```html hidden live-sample___auto
 <div class="container">
@@ -227,7 +227,7 @@ body {
 }
 h2 {
   background-color: #4d4e53;
-  color: #fff;
+  color: white;
 }
 img {
   max-width: 100%;
@@ -244,4 +244,4 @@ img {
 
 ## Nächste Schritte
 
-Im nächsten Leitfaden lernen Sie [wie multicol Überlauf behandelt](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout) innerhalb von Spalten und wenn mehr Spalten vorhanden sind, als in den Container passen.
+Im nächsten Leitfaden lernen Sie, [wie Multicol Überlauf handhabt](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout) innerhalb von Spalten und wenn es mehr Spalten gibt, als in den Container passen.

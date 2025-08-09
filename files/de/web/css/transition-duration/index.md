@@ -2,10 +2,10 @@
 title: transition-duration
 slug: Web/CSS/transition-duration
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`transition-duration`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Dauer fest, die eine Übergangsanimation zur Fertigstellung benötigt. Standardmäßig beträgt der Wert `0s`, was bedeutet, dass keine Animation stattfindet.
+Die **`transition-duration`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Dauer einer Übergangsanimation fest. Standardmäßig ist der Wert `0s`, was bedeutet, dass keine Animation erfolgt.
 
 {{InteractiveExample("CSS Demo: transition-duration")}}
 
@@ -38,7 +38,7 @@ transition-property: margin-right, color;
 ```css interactive-example
 #example-element {
   background-color: #e4f0f5;
-  color: #000;
+  color: black;
   padding: 1rem;
   border-radius: 0.5rem;
   font: 1em monospace;
@@ -48,12 +48,12 @@ transition-property: margin-right, color;
 
 #default-example:hover > #example-element {
   background-color: #909;
-  color: #fff;
+  color: white;
   margin-right: 40%;
 }
 ```
 
-Es können mehrere Dauern angegeben werden; jede Dauer wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{ cssxref("transition-property") }}-Eigenschaft, die als Masterliste fungiert, spezifiziert ist. Ist die Anzahl der angegebenen Dauern geringer als in der Masterliste, wiederholt der User-Agent die Dauer-Liste. Ist die Anzahl der angegebenen Dauern größer als in der Masterliste, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration gültig.
+Sie können mehrere Dauern angeben; jede Dauer wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{ cssxref("transition-property") }} Eigenschaft, die als Hauptliste fungiert, spezifiziert wird. Wenn die Anzahl der angegebenen Dauern geringer ist als in der Hauptliste, wiederholt der Benutzeragent die Liste der Dauern. Wenn die Anzahl der angegebenen Dauern größer ist als in der Hauptliste, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration gültig.
 
 ## Syntax
 
@@ -75,7 +75,7 @@ transition-duration: unset;
 ### Werte
 
 - `<time>`
-  - : Ist ein {{cssxref("&lt;time&gt;")}}, der die Zeitdauer angibt, die der Übergang vom alten zum neuen Wert einer Eigenschaft dauern sollte. Eine Zeit von `0s` bedeutet, dass keine Übergangsanimation stattfinden wird, d.h. der Wechsel zwischen den beiden Zuständen erfolgt augenblicklich. Ein negativer Wert für die Zeit macht die Deklaration ungültig.
+  - : Ist ein {{cssxref("&lt;time&gt;")}}, der die benötigte Zeit angibt, die der Übergang vom alten zum neuen Wert einer Eigenschaft dauern soll. Eine Zeit von `0s` bedeutet, dass kein Übergang stattfindet, also der Wechsel zwischen den beiden Zuständen unmittelbar erfolgt. Ein negativer Zeitwert macht die Deklaration ungültig.
 
 ## Formale Definition
 
@@ -87,7 +87,7 @@ transition-duration: unset;
 
 ## Beispiele
 
-### Beispiel, das unterschiedliche Dauern zeigt
+### Beispiel, das verschiedene Dauern zeigt
 
 #### HTML
 

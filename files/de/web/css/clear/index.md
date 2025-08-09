@@ -2,10 +2,10 @@
 title: clear
 slug: Web/CSS/clear
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Die **`clear`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element unter (geklärt) [fließenden](/de/docs/Web/CSS/float) Elementen, die ihm vorausgehen, platziert werden muss. Die `clear`-Eigenschaft gilt für fließende und nicht-fließende Elemente.
+Die **`clear`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob ein Element unterhalb (freigemacht) der ihm vorausgehenden [floating](/de/docs/Web/CSS/float)-Elemente verschoben werden muss. Die `clear`-Eigenschaft gilt für sowohl floatende als auch nicht-floatende Elemente.
 
 {{InteractiveExample("CSS Demo: clear")}}
 
@@ -64,14 +64,14 @@ clear: both;
 }
 ```
 
-Wenn sie auf nicht-fließende Blöcke angewendet wird, bewegt sie die [Rahmengrenze](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) des Elements nach unten, bis sie unterhalb der [Randgrenze](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) aller relevanten Fließ-Elemente liegt. Der obere Rand des nicht-fließenden Blocks kollabiert.
+Wenn sie auf nicht-floatende Blöcke angewendet wird, verschiebt sie den [Randabschluss](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) des Elements nach unten, bis er unterhalb des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) aller relevanten Floats liegt. Der obere Rand des nicht-floatenden Blocks kollabiert.
 
-Vertikale Ränder zwischen zwei fließenden Elementen kollabieren hingegen nicht. Wenn sie auf fließende Elemente angewendet wird, wird die Randgrenze des unteren Elements unterhalb der Randgrenze aller relevanten Fließ-Elemente bewegt. Dies beeinflusst die Position späterer Fließ-Elemente, da spätere Fließ-Elemente nicht höher als frühere positioniert werden können.
+Vertikale Ränder zwischen zwei floatenden Elementen hingegen kollabieren nicht. Wenn auf floatende Elemente angewendet, wird der Randbereich des unteren Elements unter den Randbereich aller relevanten Floats verschoben. Dies beeinflusst die Position späterer Floats, da spätere Floats nicht höher positioniert werden können als frühere.
 
-Die Fließ-Elemente, die geklärt werden müssen, sind die früheren Fließ-Elemente innerhalb desselben [Blockformatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
+Die Floats, die freigemacht werden müssen, sind die früheren Floats innerhalb desselben [Block-Formatierungskontextes](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
 
 > [!NOTE]
-> Wenn ein Element nur fließende Elemente enthält, kollabiert seine Höhe zu nichts. Wenn Sie möchten, dass es immer in der Lage ist, die Größe zu ändern, sodass es fließende Elemente innerhalb enthält, setzen Sie den Wert der [`display`](/de/docs/Web/CSS/display)-Eigenschaft des Elements auf [`flow-root`](/de/docs/Web/CSS/display#flow-root).
+> Wenn ein Element nur floatende Elemente enthält, geht seine Höhe gegen Null. Wenn Sie möchten, dass es immer veränderbar bleibt, sodass es floatende Elemente in sich enthalten kann, setzen Sie den Wert der [`display`](/de/docs/Web/CSS/display)-Eigenschaft des Elements auf [`flow-root`](/de/docs/Web/CSS/display#flow-root).
 >
 > ```css
 > #container {
@@ -101,17 +101,17 @@ clear: unset;
 ### Werte
 
 - `none`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element _nicht_ nach unten bewegt wird, um an Fließ-Elementen vorbeizukommen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element _nicht_ nach unten verschoben wird, um an floatenden Elementen vorbeizukommen.
 - `left`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten bewegt wird, um an _linken_ Fließ-Elementen vorbeizukommen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _linken_ Floats vorbeizukommen.
 - `right`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten bewegt wird, um an _rechten_ Fließ-Elementen vorbeizukommen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _rechten_ Floats vorbeizukommen.
 - `both`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten bewegt wird, um an _beiden_, linken und rechten Fließ-Elementen vorbeizukommen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um sowohl an _linken_ als auch an _rechten_ Floats vorbeizukommen.
 - `inline-start`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten bewegt wird, um Fließ-Elemente am _Anfang seines enthaltenden Blocks_ zu vermeiden, d.h. die _linken_ Fließ-Elemente bei ltr-Skripten und die _rechten_ Fließ-Elemente bei rtl-Skripten.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element verschoben wird, um Floats am _Anfangsrand seines umgebenden Blocks_ freizumachen, d.h. die _linken_ Floats bei ltr-Skripten und die _rechten_ Floats bei rtl-Skripten.
 - `inline-end`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten bewegt wird, um Fließ-Elemente am _Ende seines enthaltenden Blocks_ zu vermeiden, d.h. die _rechten_ Fließ-Elemente bei ltr-Skripten und die _linken_ Fließ-Elemente bei rtl-Skripten.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element verschoben wird, um Floats am _Endrand seines umgebenden Blocks_ freizumachen, d.h. die _rechten_ Floats bei ltr-Skripten und die _linken_ Floats bei rtl-Skripten.
 
 ## Formale Definition
 
@@ -153,7 +153,7 @@ clear: unset;
   float: left;
   margin: 0;
   background-color: black;
-  color: #fff;
+  color: white;
   width: 20%;
 }
 .red {
@@ -199,7 +199,7 @@ p {
   float: right;
   margin: 0;
   background-color: black;
-  color: #fff;
+  color: white;
   width: 20%;
 }
 .red {
@@ -249,7 +249,7 @@ p {
   float: left;
   margin: 0;
   background-color: black;
-  color: #fff;
+  color: white;
   width: 20%;
 }
 .red {
@@ -275,4 +275,4 @@ p {
 
 ## Siehe auch
 
-- [CSS-Grundlegendes Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [Grundlegendes CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)

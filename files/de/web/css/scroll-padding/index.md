@@ -2,10 +2,10 @@
 title: scroll-padding
 slug: Web/CSS/scroll-padding
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`scroll-padding`** [Shorthand-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt die Scroll-Padding auf allen Seiten eines Elements gleichzeitig fest, ähnlich wie die {{cssxref("padding")}}-Eigenschaft dies für das Padding eines Elements tut.
+Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt das Scroll-Padding auf allen Seiten eines Elements gleichzeitig, ähnlich wie die {{cssxref("padding")}}-Eigenschaft das Padding eines Elements festlegt.
 
 {{InteractiveExample("CSS Demo: scroll-padding")}}
 
@@ -55,7 +55,7 @@ scroll-padding: 2em;
 .scroller > div {
   flex: 0 0 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -64,16 +64,16 @@ scroll-padding: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
 
-Die `scroll-padding-*`-Eigenschaften definieren Offsets für die _optimale Anzeigeregion_ des Scrollport: die Region, die als Zielregion verwendet wird, um Dinge in den Blick des Benutzers zu rücken. Dies ermöglicht es dem Autor, Regionen des Scrollport auszuschließen, die durch andere Inhalte verdeckt sind (wie fest positionierte Werkzeugleisten oder Seitenleisten), oder um mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollport zu schaffen.
+Die Eigenschaften `scroll-padding-*` definieren Versätze für den _optimalen Anzeigebereich_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Dinge im Sichtbereich des Benutzers zu positionieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fixierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Shorthand-Eigenschaft für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -102,9 +102,9 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein inneres Offset vom entsprechenden Rand des Scrollport, als gültige {{cssxref("&lt;length&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein innenliegender Versatz vom entsprechenden Rand des Scrollports, als gültige {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Das Offset wird vom Benutzeragenten bestimmt. Dies ist in der Regel `0px`, aber der Benutzeragent kann auch etwas anderes erkennen und tun, wenn ein anderer Wert mehr geeignet ist.
+  - : Der Versatz wird vom User-Agent bestimmt. Dies ist im Allgemeinen `0px`, aber der User-Agent ist frei, etwas anderes zu erkennen und anzuwenden, falls ein anderer Wert geeigneter ist.
 
 ## Formale Definition
 

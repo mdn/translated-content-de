@@ -2,28 +2,28 @@
 title: Subgrid
 slug: Web/CSS/CSS_grid_layout/Subgrid
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Das [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul beinhaltet einen `subgrid` Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erklärt, was Subgrid tut und bietet einige Anwendungsfälle und Designmuster, die diese Funktion löst.
+Das [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)-Modul enthält einen `subgrid`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden beschreibt, was Subgrid tut, und gibt einige Anwendungsfälle und Designmuster, die das Feature löst.
 
 ## Einführung in Subgrid
 
 Wenn Sie [`display: grid`](/de/docs/Web/CSS/display) zu einem Grid-Container hinzufügen, werden nur die direkten Kinder zu Grid-Elementen, die dann auf dem von Ihnen erstellten Grid platziert werden können. Die Kinder dieser Elemente werden im normalen Fluss angezeigt.
 
-Sie können Grids "verschachteln", indem Sie ein Grid-Element zu einem Grid-Container machen. Diese Grids sind jedoch unabhängig vom übergeordneten Grid und voneinander, was bedeutet, dass sie ihre Spurgrößen nicht vom übergeordneten Grid übernehmen. Dies erschwert es, verschachtelte Grid-Elemente mit dem Hauptgrid auszurichten.
+Sie können Grids "verschachteln", indem Sie ein Grid-Element zu einem Grid-Container machen. Diese Grids sind jedoch unabhängig vom übergeordneten Grid und voneinander, das heißt, sie übernehmen ihre Spurgrößen nicht vom übergeordneten Grid. Dies erschwert es, verschachtelte Grid-Elemente mit dem Hauptgrid auszurichten.
 
 Wenn Sie den Wert `subgrid` auf `grid-template-columns`, `grid-template-rows` oder beides setzen, verwendet das verschachtelte Grid anstelle einer neuen Spurauflistung die im übergeordneten Grid definierten Spuren.
 
-Wenn Sie beispielsweise `grid-template-columns: subgrid` verwenden und das verschachtelte Grid drei Spalten-Spuren des Elternteils überspannt, hat das verschachtelte Grid drei Spalten-Spuren derselben Größe wie das übergeordnete Grid. Während [Lücken](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters) vererbt werden, können sie mit einem anderen {{cssxref("gap")}} Wert überschrieben werden. [Liniennamen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) können vom Elternteil an das Subgrid übergeben werden, und das Subgrid kann auch seine eigenen Liniennamen deklarieren.
+Wenn Sie zum Beispiel `grid-template-columns: subgrid` verwenden und das verschachtelte Grid sich über drei Spuren des übergeordneten Grids erstreckt, hat das verschachtelte Grid drei Spuren der gleichen Größe wie das übergeordnete Grid. Während [Abstände](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters) vererbt werden, können sie mit einem anderen {{cssxref("gap")}}-Wert überschrieben werden. [Liniennamen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) können vom Elternteil in das Subgrid übergeben werden, und das Subgrid kann auch seine eigenen Liniennamen deklarieren.
 
 ## Subgrid für Spalten
 
-Im untenstehenden Beispiel hat das Grid-Layout neun `1fr` Spalten-Spuren und vier Zeilen, die mindestens `100px` hoch sind.
+Im folgenden Beispiel hat das Grid-Layout neun `1fr` Spaltenspuren und vier Zeilen, die mindestens `100px` hoch sind.
 
-Die `.item` wird zwischen den Spaltenlinien 2 bis 7 und den Zeilen 2 bis 4 platziert. Dieses Grid-Element ist selbst als Grid mit `display: grid` angegeben und dann als Subgrid definiert, indem es ihm Spuren gibt, die ein Subgrid sind (`grid-template-columns: subgrid`) und normal definierte Zeilen. Das Subgrid hat fünf Spalten-Spuren, da es fünf Spalten-Spuren überspannt.
+Das `.item` wird zwischen den Spaltenlinien 2 bis 7 und den Zeilen 2 bis 4 platziert. Dieses Grid-Element selbst ist als Grid mit `display: grid` spezifiziert und dann als Subgrid definiert, indem ihm Spaltenspuren, die ein Subgrid sind (`grid-template-columns: subgrid`), und normal definierte Zeilen gegeben werden. Das Subgrid hat fünf Spaltenspuren, da es sich über fünf Spalten erstreckt.
 
-Da die `.item` ein Subgrid ist, kann die `.subitem`, obwohl sie kein direktes Kind des äußeren `.grid` ist, auf diesem äußeren Grid platziert werden, wobei ihre Spalten mit den Spalten des äußeren Grids ausgerichtet sind. Die Zeilen sind kein Subgrid, daher verhalten sie sich wie ein normal verschachteltes Grid. Der Grid-Bereich auf dem Elternteil erweitert sich, um groß genug für dieses verschachtelte Grid zu sein.
+Da das `.item` ein Subgrid ist, kann das `.subitem`, obwohl es kein direktes Kind des äußeren `.grid` ist, auf jenem äußeren Grid platziert werden, mit seinen Spalten in Ausrichtung mit den Spalten des äußeren Grids. Die Zeilen sind kein Subgrid und verhalten sich daher, wie ein verschachteltes Grid normalerweise tut. Der Grid-Bereich auf dem Elternteil dehnt sich aus, um groß genug für dieses verschachtelte Grid zu sein.
 
 ```html live-sample___columns
 <div class="grid">
@@ -77,13 +77,13 @@ Da die `.item` ein Subgrid ist, kann die `.subitem`, obwohl sie kein direktes Ki
 }
 ```
 
-Beachten Sie, dass die Liniennummerierung innerhalb des Subgrids neu beginnt – Spaltenlinie 1 ist, wenn sie sich innerhalb des Subgrids befindet, die erste Linie des Subgrids. Das subgeordnete Element erbt nicht die Liniennummern des übergeordneten Grids. Dies bedeutet, dass Sie sicher ein Komponentenset erstellen können, das möglicherweise an verschiedenen Positionen im Hauptgrid platziert wird, da die Liniennummern auf der Komponente immer gleich sind.
+Beachten Sie, dass die Liniennummerierung innerhalb des Subgrids neu beginnt — Spaltenlinie 1, wenn sich im Subgrid, ist die erste Linie des Subgrids. Das subgridded Element erbt nicht die Liniennummern des übergeordneten Grids. Das bedeutet, dass Sie ein sicheres Layout für eine Komponente erstellen können, die an verschiedenen Positionen im Hauptgrid platziert werden kann, indem Sie wissen, dass die Liniennummern auf der Komponente immer gleich sind.
 
 {{EmbedLiveSample("columns", "", "450px")}}
 
 ## Subgrid für Zeilen
 
-Dieses Beispiel verwendet denselben HTML-Code wie oben, aber hier wird das `subgrid` als Wert von `grid-template-rows` angewendet, mit explizit definierten Spalten-Spuren. In diesem Fall verhalten sich die Spalten-Spuren wie ein reguläres verschachteltes Grid, aber die Zeilen sind mit den zwei Spuren verbunden, die die `.item` überspannt.
+Dieses Beispiel verwendet dasselbe HTML wie oben, aber hier wird `subgrid` als Wert von `grid-template-rows` anstelle von explizit definierten Spaltenspuren angewendet. In diesem Fall verhalten sich die Spaltenspuren als reguläres verschachteltes Grid, aber die Zeilen sind an die beiden Spuren gebunden, die das `.item` überspannt.
 
 ```html live-sample___rows hidden
 <div class="grid">
@@ -141,7 +141,7 @@ Dieses Beispiel verwendet denselben HTML-Code wie oben, aber hier wird das `subg
 
 ## Ein Subgrid in beiden Dimensionen
 
-In diesem Beispiel sind sowohl Zeilen- als auch Spalten als Subgrid definiert, sodass das Subgrid in beiden Dimensionen mit den Spuren des übergeordneten Grids verbunden ist.
+In diesem Beispiel sind sowohl die Zeilen als auch die Spalten als Subgrid definiert, wodurch das Subgrid auf beiden Dimensionen an die Spuren des übergeordneten Grids gebunden wird.
 
 ```html live-sample___both hidden
 <div class="grid">
@@ -197,11 +197,11 @@ In diesem Beispiel sind sowohl Zeilen- als auch Spalten als Subgrid definiert, s
 
 {{EmbedLiveSample("both", "", "450px")}}
 
-### Kein implizites Grid in einer subgegriddeten Dimension
+### Kein implizites Grid in einer subgridded Dimension
 
-Wenn Sie Elemente automatisch platzieren müssen und nicht wissen, wie viele Elemente Sie haben werden, achten Sie darauf, wenn Sie ein Subgrid erstellen, da es die Erstellung zusätzlicher Zeilen verhindert, um diese Elemente aufzunehmen.
+Wenn Sie Elemente automatisch platzieren müssen und nicht wissen, wie viele Elemente Sie haben werden, seien Sie vorsichtig bei der Erstellung eines Subgrids, da es die Erstellung zusätzlicher Zeilen verhindert, um diese Elemente aufzunehmen.
 
-Betrachten Sie das nächste Beispiel – es verwendet dasselbe Eltern- und Kindgrid wie im obigen Beispiel. Es gibt zwölf Elemente im Subgrid, die versuchen, sich in zehn Grid-Zellen zu platzieren. Da das Subgrid auf beiden Dimensionen vorhanden ist, gibt es keinen Platz für die zusätzlichen zwei Elemente, sodass sie in der letzten Spur des Grids untergebracht werden. Dies ist das im Spezifikationsdokument definierte Verhalten.
+Werfen Sie einen Blick auf das nächste Beispiel — es verwendet das gleiche Eltern- und Kindgrid wie das oben stehende Beispiel. Es gibt zwölf Elemente innerhalb des Subgrids, die versuchen, sich in zehn Gitterzellen automatisch zu platzieren. Da das Subgrid in beiden Dimensionen vorhanden ist, gibt es keinen Platz für die zusätzlichen zwei Elemente, sodass sie in die letzte Spur des Grids gelangen. Dies ist das Verhalten, das in der Spezifikation definiert ist.
 
 ```html live-sample___no-implicit
 <div class="grid">
@@ -244,7 +244,7 @@ body {
 
 .subitem {
   background-color: #d9480f;
-  color: #fff;
+  color: white;
   border-radius: 5px;
 }
 ```
@@ -267,7 +267,7 @@ body {
 
 {{EmbedLiveSample("no-implicit", "", "440px")}}
 
-Durch das Entfernen des `grid-template-rows` Werts wird die reguläre Erstellung impliziter Spuren aktiviert, wobei so viele Zeilen erstellt werden, wie erforderlich sind. Diese werden nicht mit den Spuren des Elternteils übereinstimmen.
+Indem Sie den `grid-template-rows`-Wert entfernen, wird die regelmäßige Erstellung impliziter Spuren aktiviert, die so viele Zeilen erstellen, wie erforderlich sind. Diese werden nicht mit den Spuren des Elternteils ausgerichtet.
 
 ```html live-sample___implicit
 <div class="grid">
@@ -310,7 +310,7 @@ body {
 
 .subitem {
   background-color: #d9480f;
-  color: #fff;
+  color: white;
   border-radius: 5px;
 }
 ```
@@ -333,11 +333,11 @@ body {
 
 {{EmbedLiveSample("implicit", "", "520px")}}
 
-## Die Gap-Eigenschaften und Subgrid
+## Die Spalteneigenschaften und Subgrid
 
-Alle {{cssxref("gap")}}, {{cssxref("column-gap")}}, oder {{cssxref("row-gap")}} Werte, die im übergeordneten Element angegeben sind, werden in das Subgrid übernommen, wodurch derselbe Abstand zwischen den Spuren wie im Elternteil entsteht. Dieses Standardverhalten kann überschrieben werden, indem `gap-*` Eigenschaften auf dem Subgrid-Container angewendet werden.
+Alle {{cssxref("gap")}}, {{cssxref("column-gap")}} oder {{cssxref("row-gap")}} Werte, die auf dem Elternteil angegeben sind, werden in das Subgrid übernommen, wodurch derselbe Abstand zwischen Spuren wie beim Elternteil entsteht. Dieses Standardverhalten kann überschrieben werden, indem `gap-*`-Eigenschaften auf dem Subgrid-Container angewendet werden.
 
-In diesem Beispiel hat das übergeordnete Grid einen Abstand von `20px` für Zeilen und Spalten, und das Subgrid hat `row-gap` auf `0` gesetzt.
+In diesem Beispiel hat das übergeordnete Grid eine Lücke von `20px` für Zeilen und Spalten und das Subgrid hat `row-gap` auf `0` gesetzt.
 
 ```html live-sample___gap
 <div class="grid">
@@ -402,13 +402,13 @@ In diesem Beispiel hat das übergeordnete Grid einen Abstand von `20px` für Zei
 
 {{EmbedLiveSample("gap", "", "500px")}}
 
-Wenn Sie dies in Ihrem Entwickler-Tool Grid-Inspektor überprüfen, werden Sie feststellen, dass die Subgrid-Linie in der Mitte der Lücke ist. Das Einstellen der Lücke auf `0` wirkt sich ähnlich aus wie das Anwenden eines negativen Randes auf ein Element, sodass der Raum aus der Lücke zum Element zurückgegeben wird.
+Wenn Sie dies im Grid-Inspektor Ihrer Entwickler-Tools inspizieren, werden Sie feststellen, dass die Subgrid-Linie in der Mitte der Lücke liegt. Das Setzen der Lücke auf `0` wirkt ähnlich wie das Anwenden eines negativen Randes auf ein Element und gibt den Platz aus der Lücke an das Element zurück.
 
-![Das kleinere Element wird in der Lücke angezeigt, da row-gap auf 0 im Subgrid gesetzt ist, wie im Firefox Entwickler-Tool Grid-Inspektor zu sehen ist.](gap.png)
+![Das kleinere Element zeigt sich in der Lücke, da `row-gap` auf 0 im Subgrid gesetzt ist, wie im Firefox Developer Tools Grid-Inspektor zu sehen.](gap.png)
 
 ## Benannte Grid-Linien
 
-Bei der Verwendung von CSS Grid können Sie [Linien auf Ihrem Grid benennen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) und dann Elemente basierend auf diesen Namen anstelle der Liniennummer platzieren. Die Liniennamen auf dem übergeordneten Grid werden in das Subgrid übernommen, und Sie können Elemente mit ihnen platzieren. Im untenstehenden Beispiel werden die benannten Linien des Elternteils `col-start` und `col-end` verwendet, um das Subitem zu platzieren.
+Bei der Verwendung von CSS Grid können Sie [Linien auf Ihrem Grid benennen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) und dann Elemente basierend auf diesen Namen anstelle der Liniennummer positionieren. Die Liniennamen auf dem Eltern-Grid werden in das Subgrid übergeben und Sie können Elemente mit ihnen platzieren. Im folgenden Beispiel werden die benannten Linien des Elternteils `col-start` und `col-end` verwendet, um das Subitem zu platzieren.
 
 ```html live-sample___line-names
 <div class="grid">
@@ -465,9 +465,9 @@ Bei der Verwendung von CSS Grid können Sie [Linien auf Ihrem Grid benennen](/de
 
 {{EmbedLiveSample("line-names", "", "500px")}}
 
-Sie können auch Liniennamen im Subgrid angeben. Dies kann erreicht werden, indem nach dem `subgrid` Schlüsselwort eine Liste von Liniennamen in eckigen Klammern hinzugefügt wird. Wenn Sie zum Beispiel vier Linien in Ihrem Subgrid haben und sie alle benennen möchten, könnten Sie die Syntax `grid-template-columns: subgrid [line1] [line2] [line3] [line4]` verwenden.
+Sie können auch Liniennamen auf dem Subgrid angeben. Dies wird erreicht, indem eine Liste von Liniennamen in eckigen Klammern nach dem `subgrid`-Schlüsselwort hinzugefügt wird. Wenn Sie beispielsweise vier Linien in Ihrem Subgrid haben und sie alle benennen möchten, könnten Sie die Syntax `grid-template-columns: subgrid [line1] [line2] [line3] [line4]` verwenden.
 
-Linien, die im Subgrid festgelegt sind, werden zu den Linien hinzugefügt, die im Elternteil spezifiziert sind, sodass Sie entweder oder beide verwenden können. In diesem Beispiel wird ein Element unter Verwendung der Linien des Elternteils und eines mit den Subgrid-Linien platziert.
+Linien, die auf dem Subgrid angegeben sind, werden zu allen Linien hinzugefügt, die auf dem Elternteil angegeben sind, sodass Sie entweder nur die Linien des Elternteils oder beide verwenden können. Im folgenden Beispiel wird ein Element unten unter Verwendung der Elternlinien und eines unter Verwendung der Subgrid-Linien platziert.
 
 ```html live-sample___adding-line-names
 <div class="grid">
@@ -533,9 +533,9 @@ Linien, die im Subgrid festgelegt sind, werden zu den Linien hinzugefügt, die i
 
 ## Verwendung von Subgrids
 
-Ein Subgrid verhält sich sehr ähnlich wie jedes verschachtelte Grid; der einzige Unterschied besteht darin, dass die Spurenvergrößerung des Subgrids auf dem übergeordneten Grid festgelegt ist. Wie bei jeder verschachtelten Grid kann jedoch die Größe des Inhalts im Subgrid die Spurenvergrößerung ändern, vorausgesetzt, dass eine Spurvergrößerungsmethode verwendet wird, die es dem Inhalt ermöglicht, die Größe zu beeinflussen. In einem solchen Fall werden automatisch dimensionierte Zeilenspuren wachsen, um den Inhalt im Hauptgrid und den Inhalt im Subgrid aufzunehmen.
+Ein Subgrid verhält sich sehr ähnlich wie jedes verschachtelte Grid; der einzige Unterschied ist, dass die Spurgröße des Subgrids auf dem Eltern-Grid festgelegt wird. Wie bei jedem verschachtelten Grid kann die Größe des Inhalts im Subgrid die Spurgröße ändern, sofern eine Methode zur Größenbestimmung der Spuren verwendet wird, die es dem Inhalt ermöglicht, die Größe zu beeinflussen. In einem solchen Fall wachsen automatisch dimensionierte Zeilenspuren, um Inhalte im Hauptgrid und im Subgrid aufzunehmen.
 
-Da der Subgrid-Wert sich sehr ähnlich wie ein reguläres verschachteltes Grid verhält, ist es einfach, zwischen den beiden zu wechseln. Wenn Sie zum Beispiel feststellen, dass Sie ein implizites Grid für Zeilen benötigen, müssten Sie den `subgrid` Wert von `grid-template-rows` entfernen und möglicherweise einen Wert für `grid-auto-rows` angeben, um die implizite Spurgröße zu steuern.
+Da der Subgrid-Wert sehr ähnlich wie ein reguläres verschachteltes Grid funktioniert, ist es einfach, zwischen den beiden zu wechseln. Zum Beispiel, wenn Sie erkennen, dass Sie ein implizites Grid für Zeilen benötigen, müssten Sie den `subgrid`-Wert von `grid-template-rows` entfernen und möglicherweise einen Wert für `grid-auto-rows` angeben, um die implizite Spurgrößenbestimmung zu kontrollieren.
 
 ## Spezifikationen
 

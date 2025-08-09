@@ -2,10 +2,10 @@
 title: scroll-margin-block-end
 slug: Web/CSS/scroll-margin-block-end
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-margin-block-end` definiert den Rand des Scroll-Snap-Bereichs am Ende der Block-Dimension, der verwendet wird, um dieses Kästchen an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen wird, deren rechteckige Begrenzungsbox (achsen-ausgerichtet im Koordinatenraum des Scroll-Containers) gefunden wird, und dann die angegebenen Abstände hinzugefügt werden.
+Die Eigenschaft `scroll-margin-block-end` definiert den Rand des Scroll-Snap-Bereichs am Ende der Blockdimension, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Erweiterungen hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-block-end")}}
 
@@ -55,7 +55,7 @@ scroll-margin-block-end: 2em;
 .scroller > div {
   flex: 0 0 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@ scroll-margin-block-end: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -87,7 +87,7 @@ scroll-margin-block-end: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Rand vom Ende der Blockkante des Scroll-Containers.
+  - : Ein Ausmaß vom Blockende des Scroll-Containers.
 
 ## Formale Definition
 
@@ -108,4 +108,4 @@ scroll-margin-block-end: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut steuerbares Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

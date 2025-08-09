@@ -2,61 +2,61 @@
 title: Verwenden von Filtereffekten
 slug: Web/CSS/CSS_filter_effects/Using_filter_effects
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Haben Sie schon einmal über ein Schwarzweiß- oder Sepia-Bild geschwebt und das farbige Bild erschien sofort? Haben Sie jemals ein Hintergrundbild mit einem kleinen, unscharfen Bereich gesehen, der den darüber liegenden Text besser lesbar macht? In der Vergangenheit erforderten diese Manipulationen Bildbearbeitungssoftware, Zeit und zusätzliche HTTP-Anfragen.
+Haben Sie jemals über ein Schwarz-Weiß- oder Sepia-Bild geschwebt und das vollfarbige Bild erschien sofort? Haben Sie jemals ein Hintergrundbild mit einem kleinen verschwommenen Bereich gesehen, der den darüber liegenden Text lesbarer macht? In der Vergangenheit erforderten diese Manipulationen Bildbearbeitungssoftware, Zeit und zusätzliche HTTP-Anfragen.
 
 ## Vorteile der Verwendung von CSS-Filtereffekten
 
-Das [Filtereffekt-Modul](/de/docs/Web/CSS/CSS_filter_effects) in CSS bietet Eigenschaften und Funktionen, mit denen Sie die oben beschriebenen visuellen Effekte anwenden können, ohne Photoshop zu verwenden oder zusätzliche HTTP-Anfragen zu senden. Die einzige erforderliche Software ist der Browser des Benutzers. Darüber hinaus sind CSS-Filtereffekte im Gegensatz zu voreingestellten Bildeffekten reaktionsfähig und animierbar.
+Das [Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul in CSS bietet Eigenschaften und Funktionen, mit denen Sie die oben beschriebenen visuellen Effekte ohne Verwendung von Photoshop oder zusätzlichen HTTP-Anfragen anwenden können. Die einzige benötigte Software ist der Browser des Benutzers. Darüber hinaus sind CSS-Filtereffekte im Gegensatz zu vorgefertigten Bildeffekten reaktionsfähig und animierbar.
 
-Das CSS-Filtereffekt-Modul stellt die Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} bereit, die Sie verwenden können, um die Darstellung von Texten, Bildern, Hintergründen und Rahmen oder jedem Element, auf das Sie diese Eigenschaften anwenden, zu beeinflussen. Dieses Modul definiert auch den Datentyp {{cssxref("&lt;filter-function&gt;")}}, mit dem Sie grafische Effekte wie Unschärfen oder Farbverschiebungen hinzufügen können. Mit den Filterfunktionen können Sie nicht nur das Erscheinungsbild eines Elements ändern, sondern auch einen SVG-Filter referenzieren, den Sie erstellen.
+Das CSS-Filtereffekte-Modul bietet die {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften, die Sie verwenden können, um das Rendering von Text, Bildern, Hintergründen und Rahmen zu beeinflussen oder jedes Element, auf das Sie diese Eigenschaften anwenden. Dieses Modul definiert auch den {{cssxref("&lt;filter-function&gt;")}} Datentyp, der es Ihnen ermöglicht, grafische Effekte wie das Verwischen oder Verschieben von Farben hinzuzufügen. Mithilfe der Filterfunktionen können Sie nicht nur das Erscheinungsbild eines Elements ändern, sondern auch einen SVG-Filter referenzieren, indem Sie einen von Ihnen erstellten Filter verwenden.
 
-## Filtereigenschaften
+## Filtereffekteigenschaften
 
-Die folgenden beiden Filtereigenschaften des CSS-Filtereffekt-Moduls ermöglichen es Ihnen, null, ein oder mehrere grafische Effekte auf ein Element anzuwenden:
+Die folgenden zwei Filtereigenschaften des CSS-Filtereffekte-Moduls ermöglichen es Ihnen, null, eins oder mehrere grafische Effekte auf ein Element anzuwenden:
 
-- Mit der {{cssxref("filter")}} Eigenschaft können Sie Filtereffekte wie Unschärfe, Schlagschatten und Sepia auf ein Element anwenden, bevor das Element gerendert wird. Die Filtereffekte werden direkt auf das Element angewendet, einschließlich des Inhalts, der Ränder und der Abstände des Elements.
+- Mit der {{cssxref("filter")}} Eigenschaft können Sie Filtereffekte wie Unschärfe, Schlagschatten und Sepia auf ein Element anwenden, bevor das Element gerendert wird. Die Filtereffekte werden direkt auf das Element angewendet, einschließlich des Inhalts, der Rahmen und der Polsterung des Elements.
 
-- Mit der {{cssxref("backdrop-filter")}} Eigenschaft können Sie grafische Effekte auf den Bereich hinter einem Element (den "Hintergrund" des Elements) anwenden. Die `backdrop-filter` Eigenschaft wird häufig verwendet, um den Vordergrundinhalt besser lesbar zu machen, insbesondere wenn der größere Bereich, auf dem der Inhalt platziert ist, ansonsten nicht genug Kontrast für den Inhalt bietet. Die Filtereffekte werden nur auf den Hintergrund des Elements und nicht auf den Inhalt des Elements angewendet.
+- Mit der {{cssxref("backdrop-filter")}} Eigenschaft können Sie grafische Effekte auf den Bereich hinter einem Element (das Element "Hintergrund") anwenden. Die `backdrop-filter` Eigenschaft wird häufig verwendet, um den Vordergrundinhalt lesbarer zu machen, insbesondere wenn der größere Bereich, auf dem der Inhalt platziert wird, andernfalls nicht genug Kontrast für den Inhalt bietet. Die Filtereffekte werden nur auf den Hintergrund des Elements angewendet, nicht auf den Inhalt des Elements.
 
 Die Eigenschaften `filter` und `backdrop-filter` akzeptieren eine durch Leerzeichen getrennte Liste von Filtern, die in der angegebenen Reihenfolge angewendet werden.
 
 ## Filterfunktionen
 
-Das CSS-Filtereffekt-Modul bietet 10 [`<filter-function>`](/de/docs/Web/CSS/filter#functions) Funktionen sowie die Möglichkeit, eine nahezu endlose Reihe von Effekten mithilfe von SVG-Filtern zu definieren, die über einen `url()`-Verweis angewendet werden.
+Das CSS-Filtereffekte-Modul bietet 10 [`<filter-function>`](/de/docs/Web/CSS/filter#functions) Funktionen sowie die Möglichkeit, eine nahezu endlose Reihe von Effekten mithilfe von SVG-Filtern zu definieren, die über eine `url()` Referenz angewendet werden.
 
-Die folgende Tabelle listet die 10 Filterfunktionen, zusammen mit ihren Wertetypen, dem minimal gültigen Wert, falls zutreffend, dem größten Wert, der einen Effekt erzeugt, und dem Anfangswert für {{Glossary("Interpolation", "Interpolation")}}.
+Die folgende Tabelle listet die 10 Filterfunktionen auf, zusammen mit ihren Werttypen, dem minimalen gültigen Wert, falls zutreffend, dem größtmöglichen Effekt und dem initialen Wert, der für {{Glossary("Interpolation", "Interpolation")}} verwendet wird.
 
-| Filterfunktion                                              | Parametertyp                                                         | Min-Wert | Maximaler Effekt | Interpolationswert   | Standardwert (kein Effekt)              |
-| ----------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ---------------- | -------------------- | --------------------------------------- |
-| {{cssxref("filter-function/blur", "blur()")}}               | {{cssxref("&lt;length&gt;")}}                                        | `0`      |                  | `0`                  | `blur(0)`                               |
-| {{cssxref("filter-function/brightness", "brightness()")}}   | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`      |                  | `1`                  | `brightness(1)` oder `brightness(100%)` |
-| {{cssxref("filter-function/contrast", "contrast()")}}       | {{cssxref("&lt;length&gt;")}}                                        | `0`      |                  | `1`                  | `contrast(1)` oder `contrast(100%)`     |
-| {{cssxref("filter-function/drop-shadow", "drop-shadow()")}} | `<shadow>`                                                           |          |                  | `0 0 0 currentColor` | `drop-shadow(0 0 0 currentColor)`       |
-| {{cssxref("filter-function/grayscale", "grayscale()")}}     | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`      | `100%`           | `0`                  | `grayscale(0)` oder `grayscale(0%)`     |
-| {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}   | {{cssxref("&lt;angle&gt;")}}                                         |          |                  | `0`                  | `hue-rotate(0deg)`                      |
-| {{cssxref("filter-function/invert", "invert()")}}           | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`      | `100%`           | `0`                  | `invert(0)` oder `invert(0%)`           |
-| {{cssxref("filter-function/opacity", "opacity()")}}         | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`      | `100%`           | `1`                  | `opacity(1)` oder `opacity(100%)`       |
-| {{cssxref("filter-function/saturate", "saturate()")}}       | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`      | `100%`           | `1`                  | `saturate(100%)`                        |
-| {{cssxref("filter-function/sepia", "sepia()")}}             | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`      | `100%`           | `0`                  | `sepia(0%)`                             |
+| Filterfunktion                                              | Parametertyp                                                         | Min. Wert | Max. Effekt | Interpolationswert   | Standardwert (kein Effekt)              |
+| ----------------------------------------------------------- | -------------------------------------------------------------------- | --------- | ----------- | -------------------- | --------------------------------------- |
+| {{cssxref("filter-function/blur", "blur()")}}               | {{cssxref("&lt;length&gt;")}}                                        | `0`       |             | `0`                  | `blur(0)`                               |
+| {{cssxref("filter-function/brightness", "brightness()")}}   | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`       |             | `1`                  | `brightness(1)` oder `brightness(100%)` |
+| {{cssxref("filter-function/contrast", "contrast()")}}       | {{cssxref("&lt;length&gt;")}}                                        | `0`       |             | `1`                  | `contrast(1)` oder `contrast(100%)`     |
+| {{cssxref("filter-function/drop-shadow", "drop-shadow()")}} | `<shadow>`                                                           |           |             | `0 0 0 currentColor` | `drop-shadow(0 0 0 currentColor)`       |
+| {{cssxref("filter-function/grayscale", "grayscale()")}}     | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`       | `100%`      | `0`                  | `grayscale(0)` oder `grayscale(0%)`     |
+| {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}   | {{cssxref("&lt;angle&gt;")}}                                         |           |             | `0`                  | `hue-rotate(0deg)`                      |
+| {{cssxref("filter-function/invert", "invert()")}}           | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`       | `100%`      | `0`                  | `invert(0)` oder `invert(0%)`           |
+| {{cssxref("filter-function/opacity", "opacity()")}}         | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`       | `100%`      | `1`                  | `opacity(1)` oder `opacity(100%)`       |
+| {{cssxref("filter-function/saturate", "saturate()")}}       | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`       | `100%`      | `1`                  | `saturate(100%)`                        |
+| {{cssxref("filter-function/sepia", "sepia()")}}             | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`       | `100%`      | `0`                  | `sepia(0%)`                             |
 
-Der minimal zulässige Wert ist für Filterfunktionen angegeben, die einen Mindestwert haben. Wenn ein Wert kleiner als der Mindestwert für eine Filterfunktion angegeben wird, wird die gesamte Eigenschaftserklärung ungültig, nicht nur die fehlerhafte Filterfunktion in der kommagetrennten Liste.
+Der Mindestwert wird für Filterfunktionen angegeben, die einen Minimalwert haben. Ein Wert, der geringer ist als der Minimalwert, macht die gesamte Eigenschaftsdeklaration ungültig, nicht nur die betreffende Filterfunktion in der durch Kommas getrennten Liste.
 
-Der maximale Effektwert kann überschritten werden. Das Einfügen eines Wertes, der größer ist als der angegebene Maximalwert, ist gültig, erhöht jedoch nicht den Effekt über den angegebenen Maximalwert hinaus. Mit anderen Worten, der Effekt auf das Element sieht genauso aus wie bei Einstellen des Maximalwerts. Zum Beispiel ergibt das Setzen von `sepia(400%)` im [Sepia-Beispiel](#anwenden_des_sepiafilter-effekts) denselben Effekt wie `sepia(100%)`, dem Höchstwert.
+Der Maximalwert für den Effekt kann überschritten werden. Ein Wert, der größer ist als der angegebene Maximalwert, ist gültig, erhöht den Effekt jedoch nicht über den angegebenen Maximalwert hinaus. Mit anderen Worten, der Effekt auf das Element sieht genauso aus, wie wenn der Maximalwert gesetzt ist. Zum Beispiel erzeugt `sepia(400%)` dasselbe Ergebnis wie `sepia(100%)`, der Maximalwert.
 
-Der Standardwert ist ein Wert, der keinen Effekt erzeugt. Während diese Werte keinen Effekt erzeugen, bieten sie die anfänglichen Interpolationswerte und zeigen, wie der Wert festgelegt werden kann. Diese Standardwerte bieten einen Maßstab zwischen dem minimal zulässigen Wert und dem maximalen Effektwert.
+Der Standardwert ist ein Wert, der keinen Effekt erzeugt. Obwohl diese Werte keinen Effekt erzeugen, liefern sie die anfänglichen Interpolationswerte und bieten ein Beispiel dafür, wie der Wert gesetzt werden kann. Diese Standardwerte bieten eine Richtlinie zwischen dem Minimalwert und dem Maximalwert für den Effekt.
 
 ## Anwenden von Filtereffekten
 
-Die Eigenschaften `filter` und `backdrop-filter` akzeptieren eine Filterfunktionsliste, die eine oder mehrere `<filter-function>`s, das Standard-Schlüsselwort `none` oder einen [SVG-Filter](#verwenden_von_svg-filtern) als `url()`-Wert enthalten kann.
+Die Eigenschaften `filter` und `backdrop-filter` akzeptieren eine Filterfunktionsliste, die eine oder mehrere `<filter-function>`s, das Standard-Schlüsselwort `none` oder einen [SVG-Filter](#verwenden_von_svg-filtern) als `url()` Wert enthalten kann.
 
-### Anwenden des Sepiafilter-Effekts
+### Sepia-Filtereffekt anwenden
 
-Wenn Sie über das unten stehende Sepia-Bild schweben, sehen Sie sofort das farbige Bild.
+Wenn Sie über das Sepia-Bild unten schweben, sehen Sie, dass das vollfarbige Bild sofort erscheint.
 
-Das Bild ist auf Sepia gesetzt, indem der Wert der `filter`-Eigenschaft als die [`sepia()`](/de/docs/Web/CSS/filter-function/sepia) Filterfunktion angegeben wird. Der Filter wird bei [`:hover`](/de/docs/Web/CSS/:hover) und [`:focus`](/de/docs/Web/CSS/:focus) entfernt, indem `filter: none` gesetzt wird.
+Das Bild wird auf Sepia gesetzt, indem der Wert der `filter`-Eigenschaft als die [`sepia()`](/de/docs/Web/CSS/filter-function/sepia) Filterfunktion angegeben wird. Der Filter wird bei [`:hover`](/de/docs/Web/CSS/:hover) und [`:focus`](/de/docs/Web/CSS/:focus) entfernt, indem `filter: none` gesetzt wird.
 
 ```html
 <img tabindex="0" alt="Four trans-people, circa 1912" src="activists.jpg" />
@@ -72,7 +72,7 @@ img:focus {
 }
 ```
 
-Im {{HTMLElement("img")}} Element ist [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) auf `0` gesetzt, um den Fokus ohne Änderung der Tabulatorreihenfolge für Tastaturbenutzer zu ermöglichen, da `<img>` kein interaktives Element ist.
+Im {{HTMLElement("img")}} Element wird [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) auf `0` gesetzt, um das Fokussieren zu ermöglichen, ohne die Tab-Reihenfolge für Tastaturbenutzer zu ändern, da `<img>` kein interaktives Element ist.
 
 ```css hidden
 img {
@@ -83,11 +83,11 @@ img {
 
 {{EmbedLiveSample("Applying_sepia_filter_effect", 600, 550)}}
 
-### Anwenden von Filtereffekten auf andere Elemente
+### Filtereffekte auf andere Elemente anwenden
 
-Obwohl sie im Allgemeinen auf Bilder angewendet werden, können die Eigenschaften `filter` und `backdrop-filter` auf jedes Element oder Pseudoelement angewendet werden.
+Während sie im Allgemeinen auf Bilder angewendet werden, können die Eigenschaften `filter` und `backdrop-filter` auf jedes Element oder Pseudo-Element angewendet werden.
 
-In diesem Beispiel wird ein Glüheffekt hinzugefügt, indem ein [`drop-shadow()`](/de/docs/Web/CSS/filter-function/drop-shadow) Filter mit einer `3px` Unschärfe und `0` Versatz verwendet wird.
+In diesem Beispiel wird ein Glüheffekt mithilfe eines [`drop-shadow()`](/de/docs/Web/CSS/filter-function/drop-shadow) Filters mit einer `3px` Unschärfe und einem `0` Offset hinzugefügt.
 
 ```css
 h1 {
@@ -109,11 +109,11 @@ h1 {
 
 {{EmbedLiveSample('Applying_filter_effects_to_other_elements','100%','80')}}
 
-### Anwenden mehrerer Filter
+### Mehrere Filter anwenden
 
-Während das Sepia-`filter`-Beispiel nur eine einzige Filterfunktion beinhaltete, können Sie mehrere Filter festlegen. Die Eigenschaften `filter` und `backdrop-filter` akzeptieren eine durch Leerzeichen getrennte Liste von Filtern, die in der angegebenen Reihenfolge angewendet werden.
+Obwohl das Sepia-`filter`-Beispiel nur eine einzige Filterfunktion enthielt, können Sie mehrere Filter setzen. Die `filter`- und `backdrop-filter`-Eigenschaften akzeptieren eine liste von Filtern, die in der angegebenen Reihenfolge angewendet werden.
 
-In diesem Beispiel werden zwei Filter — [`hue-rotate()`](/de/docs/Web/CSS/filter-function/hue-rotate) und [`blur()`](/de/docs/Web/CSS/filter-function/blur) — über die `backdrop-filter` Eigenschaft angewendet. Der Hintergrund, der Bereich hinter dem {{HTMLElement("p")}} Element, hat eine Farbverschiebung und eine Unschärfe.
+Dieses Beispiel wendet zwei Filter an — [`hue-rotate()`](/de/docs/Web/CSS/filter-function/hue-rotate) und [`blur()`](/de/docs/Web/CSS/filter-function/blur) — über die `backdrop-filter`-Eigenschaft. Der Hintergrund, der Bereich hinter dem {{HTMLElement("p")}} Element, erfährt eine Farbverschiebung und es wird eine Unschärfe angewendet.
 
 ```css
 .container {
@@ -134,7 +134,7 @@ p {
 }
 p {
   padding: 0.5rem;
-  color: #ffffff;
+  color: white;
   font-size: 2rem;
   font-family: sans-serif;
 }
@@ -150,9 +150,9 @@ p {
 
 {{EmbedLiveSample('Applying_multiple_filters','100%','300')}}
 
-### Anwenden wiederholter Filter
+### Wiederholte Filter anwenden
 
-Da Filter in der angegebenen Reihenfolge angewendet werden, können Sie Filterfunktionen mehr als einmal verwenden. In diesem Beispiel wurde der [`drop-shadow()`](/de/docs/Web/CSS/filter-function/drop-shadow) Filter viermal verwendet, jedes Mal mit einem anderen `<shadow>` Wert.
+Da Filter in sequenzieller Ordnung angewendet werden, können Sie Filterfunktionen mehrmals verwenden. In diesem Beispiel wurde der [`drop-shadow()`](/de/docs/Web/CSS/filter-function/drop-shadow) Filter viermal verwendet, jedes Mal mit einem anderen `<shadow>` Wert.
 
 ```html
 <img src="mandala.svg" alt="Colorful mandala" role="img" />
@@ -167,25 +167,23 @@ img {
 
 ```css
 img {
-  filter: drop-shadow(2px 2px 0 hsl(300deg 100% 50%))
-    drop-shadow(-2px -2px 0 hsl(210deg 100% 50%))
-    drop-shadow(2px 2px 0 hsl(120deg 100% 50%))
-    drop-shadow(-2px -2px 0 hsl(30deg 100% 50%));
+  filter: drop-shadow(2px 2px 0 magenta) drop-shadow(-2px -2px 0 royalblue)
+    drop-shadow(2px 2px 0 lime) drop-shadow(-2px -2px 0 darkorange);
 }
 img + img {
   filter: none;
 }
 ```
 
-Im ersten Mandala-Beispiel werden vier Schlagschatten auf eine liniengezeichnete SVG angewendet. Die gleiche SVG, bei der der Filter mit `filter: none` entfernt wurde, wird zum Vergleich einbezogen.
+Im ersten Mandala-Beispiel werden vier Schlagschatten auf eine gezeichnete SVG-Linie angewendet. Die gleiche SVG, mit entferntem Filter mit `filter: none`, ist zum Vergleich enthalten.
 
 {{EmbedLiveSample("Applying_repeated_filters", 600, 400)}}
 
-### Festlegen der Reihenfolge der Filterfunktionen
+### Filterfunktionsreihenfolge angeben
 
 Beim Erstellen von Filtereffekten wird der `filter` oder `backdrop-filter` Eigenschaft eine durch Leerzeichen getrennte Liste von Filtern bereitgestellt. Diese Filtereffekte werden in der Reihenfolge angewendet, in der sie erscheinen.
 
-In diesem Beispiel werden sowohl ein `magenta` Schlagschatten als auch eine `180deg` Farbtonrotation auf die Überschrift erster Ebene angewendet. Das Beispiel zeigt den Effekt, wenn diese Filter in unterschiedlicher Reihenfolge angewendet werden.
+In diesem Beispiel werden sowohl ein `magenta` Schlagschatten als auch eine `180deg` Farbdrehung auf die Überschrift der ersten Ebene angewendet. Das Beispiel zeigt die Wirkung, wenn diese Filter in unterschiedlicher Reihenfolge angewendet werden.
 
 ```css
 h1 {
@@ -214,18 +212,18 @@ h1 {
 
 {{EmbedLiveSample('Applying_a_filter_to_an_element','100%','280')}}
 
-Die gleichen Filter werden auf beide Textzeilen angewendet, jedoch in unterschiedlicher Reihenfolge. In der ersten Zeile wird der Farbton des Textes geändert, bevor der Schatten angewendet wird, sodass der Schatten `magenta` ist. In der zweiten Zeile wird der Schlagschatten zu dem dunkelblauen Text hinzugefügt, und dann werden der Farbton sowohl des Textes als auch des Schattens geändert.
+Die gleichen Filter werden auf beide Textzeilen angewendet, jedoch in unterschiedlicher Reihenfolge. In der ersten Zeile wird der Farbton des Textes geändert, bevor der Schatten angewendet wird, sodass der Schatten `magenta` ist. In der zweiten Zeile wird der Schlagschatten auf den dunkelblauen Text angewendet, und dann wird der Farbton sowohl des Textes als auch des Schattens geändert.
 
-Auf die dritte Zeile wird kein Filtereffekt angewendet, um den ursprünglichen Effekt als Vergleich zu zeigen. Die dritte Zeile bleibt also `midnightblue` oder `#191970`. Der `hue-rotate(180deg)` Filter ändert den Text in den ersten beiden Zeilen in `#252500`.
+In der dritten Zeile wird kein Filtereffekt angewendet, um den ursprünglichen Effekt als Vergleich zu zeigen. So bleibt die dritte Zeile `midnightblue` oder `#191970`. Der `hue-rotate(180deg)` Filter ändert den Text in den ersten beiden Zeilen in `#252500`.
 
 > [!NOTE]
-> Die hexadezimale RGB-Farbe `#191970` entspricht `hsl(240deg 63.5% 26.9%)`, während `#252500` `hsl(60deg 100% 7.3%)` ist. Die [Farbrotation erfolgt im sRGB-Farbraum](/de/docs/Web/CSS/color_value#interpolation), weshalb der Farbton wie erwartet geändert wurde, während die Werte für Sättigung und Helligkeit nicht beibehalten wurden.
+> Der hexadezimale rgb-Farbwert `#191970` entspricht `hsl(240deg 63.5% 26.9%)`, während `#252500` `hsl(60deg 100% 7.3%)` ist. Die [Farbrotation erfolgt im sRGB-Farbraum](/de/docs/Web/CSS/color_value#interpolation), weshalb sich der Farbton wie zu erwarten geändert hat, wobei die Werte für Sättigung und Helligkeit nicht erhalten bleiben.
 
 ## Verwenden von SVG-Filtern
 
-Zusätzlich zu den 10 definierten {{cssxref("filter-function")}}s unterstützen die CSS-Filtereffekte `url()`, wobei der Parameter ein [SVG-Filter](/de/docs/Web/SVG/Reference/Element/filter) ist, der in einer internen oder externen SVG-Datei eingebettet sein kann.
+Neben den 10 definierten {{cssxref("filter-function")}}s unterstützen die CSS-Filtereffekte `url()`, wobei der Parameter ein [SVG-Filter](/de/docs/Web/SVG/Reference/Element/filter) sein kann, der in einer internen oder externen SVG-Datei eingebettet ist.
 
-Ein einziges SVG kann verwendet werden, um mehrere Filter zu definieren, die jeweils eine `id` haben:
+Ein einziges SVG kann verwendet werden, um mehrere Filter zu definieren, von denen jeder eine `id` hat:
 
 ```html
 <svg role="none">
@@ -243,7 +241,7 @@ Ein einziges SVG kann verwendet werden, um mehrere Filter zu definieren, die jew
 </svg>
 ```
 
-Die `id` des Filters wird in der `url()` für sowohl Inline- als auch externe SVGs referenziert:
+Die `id` des Filters wird in der `url()` sowohl für inline als auch externe SVGs referenziert:
 
 ```css
 filter: url("#blur3");
@@ -252,11 +250,11 @@ filter: url("https://example.com/svg/filters.svg#blur3");
 
 ### Ein Bild verwischen
 
-Genau wie die {{cssxref("filter-function/blur", "blur()")}} Filterfunktion eine Gaußsche Unschärfe auf die Elemente anwendet, auf die sie angewendet wird, kann das SVG-{{SVGElement("feGaussianBlur")}} Filterelement auch verwendet werden, um Inhalte zu verwischen.
+Genau wie die {{cssxref("filter-function/blur", "blur()")}} Filterfunktion einen Gaußschen Weichzeichner auf die Elemente anwendet, auf die sie angewendet wird, kann das SVG {{SVGElement("feGaussianBlur")}} Filterelement auch verwendet werden, um Inhalte zu verwischen.
 
-In beiden Fällen definiert der Unschärferadiuswert, der in CSS als {{cssxref("&lt;length&gt;")}} und in SVG als pixeläquivalentes {{cssxref("&lt;number&gt;")}} angegeben wird, den Wert der Standardabweichung zur Gaußschen Funktion. Mit anderen Worten, es definiert die Anzahl der Pixel auf dem Bildschirm, die ineinander übergehen; ein größerer Wert erzeugt mehr Unschärfe.
+In beiden Fällen definiert der Unschärferadiuswert, der als {{cssxref("&lt;length&gt;")}} in CSS und als pixeläquivalentes {{cssxref("&lt;number&gt;")}} in SVG spezifiziert wird, den Wert der Standardabweichung für die Gaußsche Funktion. Mit anderen Worten, er definiert die Anzahl der Pixel auf dem Bildschirm, die ineinander übergehen; ein größerer Wert erzeugt mehr Unschärfe.
 
-Das [`<filter>`](/de/docs/Web/SVG/Reference/Element/filter)'s {{SVGAttr("stdDeviation")}} Attribut akzeptiert bis zu zwei Werte, was die Erstellung komplexerer Unschärfewerte ermöglicht. Um eine äquivalente Unschärfe zu erzeugen, geben wir einen Wert für `stdDeviation` an:
+Das [`<filter>`](/de/docs/Web/SVG/Reference/Element/filter) {{SVGAttr("stdDeviation")}} Attribut akzeptiert bis zu zwei Werte, um komplexere Unschärfegrade zu erzeugen. Um eine äquivalente Unschärfe zu erzeugen, geben wir einen Wert für `stdDeviation` an:
 
 ```html hidden
 <table cellpadding="5">
@@ -302,7 +300,7 @@ Das [`<filter>`](/de/docs/Web/SVG/Reference/Element/filter)'s {{SVGAttr("stdDevi
 </svg>
 ```
 
-Der SVG `url()`-Filterwert kann als Wert des SVG [`<image>`](/de/docs/Web/SVG/Reference/Element/image) Elements [`filter`](/de/docs/Web/SVG/Reference/Attribute/filter) Attribut oder als Teil des Wertes der CSS Eigenschaften `filter` und `backdrop-filter` eingeschlossen werden.
+Der SVG `url()` Filterwert kann als Wert des SVG [`<image>`](/de/docs/Web/SVG/Reference/Element/image) Elementeigenschaft [`filter`](/de/docs/Web/SVG/Reference/Attribute/filter) oder als Teil des Werts der CSS Eigenschaften `filter` und `backdrop-filter` enthalten sein.
 
 ```css
 .filter {
@@ -321,4 +319,4 @@ Der SVG `url()`-Filterwert kann als Wert des SVG [`<image>`](/de/docs/Web/SVG/Re
 - {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
 - [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
 - SVG {{SVGElement("filter")}} Element, SVG {{SVGAttr("filter")}} Attribut in [SVG](/de/docs/Web/SVG)
-- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)
+- [Anwenden von SVG-Effekten auf HTML-Inhalt](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

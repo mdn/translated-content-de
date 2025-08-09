@@ -2,10 +2,10 @@
 title: isolation
 slug: Web/CSS/isolation
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Die **`isolation`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Stacking-Kontext")}} erstellen muss.
+Die **`isolation`**-[CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Staplekontext")}} erstellen muss.
 
 {{InteractiveExample("CSS Demo: isolation")}}
 
@@ -45,7 +45,7 @@ isolation: isolate;
 }
 ```
 
-Diese Eigenschaft ist besonders hilfreich in Verbindung mit {{cssxref("mix-blend-mode")}} und {{cssxref("z-index")}}.
+Diese Eigenschaft ist besonders nützlich in Verbindung mit {{cssxref("mix-blend-mode")}} und {{cssxref("z-index")}}.
 
 ## Syntax
 
@@ -62,14 +62,14 @@ isolation: revert-layer;
 isolation: unset;
 ```
 
-Die `isolation` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `isolation`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Ein neuer Stacking-Kontext wird nur erstellt, wenn eine der auf das Element angewendeten Eigenschaften dies erfordert.
+  - : Ein neuer Staplekontext wird nur erstellt, wenn eine der auf das Element angewendeten Eigenschaften dies erfordert.
 - `isolate`
-  - : Ein neuer Stacking-Kontext muss erstellt werden.
+  - : Ein neuer Staplekontext muss erstellt werden.
 
 ## Formale Definition
 
@@ -81,7 +81,7 @@ Die `isolation` Eigenschaft wird als einer der unten aufgeführten Schlüsselwor
 
 ## Beispiele
 
-### Einen neuen Stacking-Kontext für ein Element erzwingen
+### Einen neuen Staplekontext für ein Element erzwingen
 
 #### HTML
 
@@ -108,13 +108,13 @@ Die `isolation` Eigenschaft wird als einer der unten aufgeführten Schlüsselwor
 }
 
 .big-square {
-  background-color: rgb(0 255 0);
+  background-color: lime;
   width: 200px;
   height: 210px;
 }
 
 .small-square {
-  background-color: rgb(0 255 0);
+  background-color: lime;
   width: 100px;
   height: 100px;
   border: 1px solid black;

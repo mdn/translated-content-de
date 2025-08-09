@@ -2,10 +2,10 @@
 title: scroll-snap-align
 slug: Web/CSS/scroll-snap-align
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-snap-align` legt die Schnapp-Position der Box als Ausrichtung ihres {{Glossary("Scroll_snap#snap_area", "Schnappbereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}) innerhalb des Schnapp-Ports ihres Schnapp-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
+Die Eigenschaft `scroll-snap-align` legt die Schnapp-Position eines Kastens als Ausrichtung seines {{Glossary("Scroll_snap#snap_area", "Schnappbereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}) innerhalb des Schnapp-Ports seines Schnapp-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
 
 {{InteractiveExample("CSS Demo: scroll-snap-align")}}
 
@@ -58,7 +58,7 @@ scroll-snap-align: center;
   flex: 0 0 66%;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -66,7 +66,7 @@ scroll-snap-align: center;
 }
 
 #example-parent > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -95,16 +95,16 @@ scroll-snap-align: unset;
 
 ### Werte
 
-Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert gesetzt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte gesetzt sind, steuert der erste Wert die Block-Achse und der zweite Wert die Inline-Achse.
+Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert festgelegt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte festgelegt sind, steuert der erste Wert die Block-Achse und der zweite Wert steuert die Inline-Achse.
 
 - `none`
-  - : Die Box definiert keine Schnapp-Position in dieser Achse.
+  - : Der Kasten definiert keine Schnapp-Position auf dieser Achse.
 - `start`
-  - : Die Startausrichtung des Schnappbereichs dieser Box innerhalb des Scroll-Containers {{Glossary("Scroll_snap#snapport", "Snapport")}} ist eine Schnapp-Position in dieser Achse.
+  - : Die Startausrichtung des Schnappbereichs dieses Kastens innerhalb des Schnapp-Ports des Containers ist eine Schnapp-Position auf dieser Achse.
 - `end`
-  - : Die Endausrichtung des Schnappbereichs dieser Box innerhalb des Scroll-Containers Snapport ist eine Schnapp-Position in dieser Achse.
+  - : Die Endausrichtung des Schnappbereichs dieses Kastens innerhalb des Schnapp-Ports des Containers ist eine Schnapp-Position auf dieser Achse.
 - `center`
-  - : Die Mittelausrichtung des Schnappbereichs dieser Box innerhalb des Scroll-Containers Snapport ist eine Schnapp-Position in dieser Achse.
+  - : Die Mittelausrichtung des Schnappbereichs dieses Kastens innerhalb des Schnapp-Ports des Containers ist eine Schnapp-Position auf dieser Achse.
 
 ## Formale Definition
 

@@ -2,15 +2,15 @@
 title: marker-mid
 slug: Web/CSS/marker-mid
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`marker-mid`** [CSS](/de/docs/Web/CSS)-Eigenschaft zeigt auf einen Marker, der an den mittleren Eckpunkten des Pfads eines Elements gezeichnet wird; das heißt, an jedem seiner Eckpunkte zwischen dem Anfangs- und dem Endpunkt. Der Marker muss mit einem SVG-{{SVGElement('marker')}}-Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte des `marker-mid`-Attributs im SVG.
+Die **`marker-mid`** [CSS](/de/docs/Web/CSS) Eigenschaft weist auf einen Marker hin, der an den mittleren Scheitelpunkten des Pfades des Elements gezeichnet wird; das heißt, an jedem seiner Scheitelpunkte zwischen den Start- und Endscheitelpunkten. Der Marker muss mit einem SVG-{{SVGElement('marker')}}-Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte des `marker-mid`-Attributs im SVG.
 
-Die Richtung, in die jeder Marker zeigt, wird als die Richtung definiert, die halb zwischen der Richtung am Ende des vorhergehenden Pfadabschnitts und der Richtung des Anfangs des folgenden Pfadabschnitts liegt. Dies kann als Kreuzprodukt der Vektoren betrachtet werden, die durch die beiden Pfadrichtungen definiert sind.
+Die Richtung, in die jeder Marker zeigt, wird als die Richtung definiert, die in der Mitte zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung des Anfangs des folgenden Pfadsegments liegt. Dies kann als das Kreuzprodukt der Vektoren verstanden werden, die durch die beiden Pfadrichtungen definiert sind.
 
 > [!NOTE]
-> Die `marker-mid`-Eigenschaft wird nur für Elemente wirksam, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-mid")}} für eine Liste.
+> Die `marker-mid`-Eigenschaft hat nur Auswirkungen auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-mid")}} für eine Liste.
 
 ## Syntax
 
@@ -29,10 +29,10 @@ marker-mid: unset;
 ### Werte
 
 - `none`
-  - : Dies bedeutet, dass kein Marker an jedem mittleren Scheitelpunkt des Pfads des Elements gezeichnet wird.
+  - : Dies bedeutet, dass kein Marker an jedem mittleren Scheitelpunkt des Pfades des Elements gezeichnet wird.
 
 - `<marker-ref>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG-{{SVGElement('marker')}}-Element definiert ist und an jedem mittleren Eckpunkt des Pfads des Elements gezeichnet wird. Wenn die URL-Referenz ungültig ist, wird kein Marker an den mittleren Eckpunkten des Pfads gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG-{{SVGElement('marker')}}-Element definiert ist und an jedem mittleren Scheitelpunkt des Pfades des Elements gezeichnet werden soll. Wenn der URL-Verweis ungültig ist, wird kein Marker an den mittleren Scheitelpunkten des Pfades gezeichnet.
 
 ## Formale Definition
 
@@ -64,7 +64,7 @@ svg {
       refY="5"
       markerUnits="strokeWidth"
       orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f00" />
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="red" />
     </marker>
   </defs>
   <polyline

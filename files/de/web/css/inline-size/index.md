@@ -2,10 +2,10 @@
 title: inline-size
 slug: Web/CSS/inline-size
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
 ---
 
-Die **`inline-size`**-Eigenschaft in [CSS](/de/docs/Web/CSS) definiert die Größe eines Blockelements entlang der {{Glossary("Grid_Axis", "Inline-Achse")}}. Wenn der {{cssxref("writing-mode")}} horizontal ist, entspricht sie der {{cssxref("width")}}; wenn der Schreibmodus vertikal ist, entspricht sie der {{cssxref("height")}}. Eine verwandte Eigenschaft ist {{cssxref("block-size")}}, die die andere Dimension des Elements definiert.
+Die **`inline-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Größe eines Blockelements entlang der {{Glossary("Grid_Axis", "Inline-Achse")}}. Wenn der {{cssxref("writing-mode")}} horizontal ist, entspricht dies der {{cssxref("width")}}; wenn der Schreibmodus vertikal ist, entspricht dies der {{cssxref("height")}}. Eine verwandte Eigenschaft ist {{cssxref("block-size")}}, die die andere Dimension des Elements definiert.
 
 {{InteractiveExample("CSS Demo: inline-size")}}
 
@@ -44,7 +44,7 @@ writing-mode: vertical-lr;
   background-color: #5b6dcd;
   height: 80%;
   justify-content: center;
-  color: #ffffff;
+  color: white;
 }
 ```
 
@@ -77,7 +77,7 @@ inline-size: unset;
 
 ### Werte
 
-Die `inline-size`-Eigenschaft nimmt dieselben Werte an wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
+Die `inline-size`-Eigenschaft nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
 
 ## Formale Definition
 
@@ -89,7 +89,7 @@ Die `inline-size`-Eigenschaft nimmt dieselben Werte an wie die Eigenschaften {{c
 
 ## Beispiele
 
-### Inline-Größe in Pixeln festlegen
+### Festlegen der Inline-Größe in Pixeln
 
 #### HTML
 

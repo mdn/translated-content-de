@@ -2,10 +2,10 @@
 title: overscroll-behavior-block
 slug: Web/CSS/overscroll-behavior-block
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`overscroll-behavior-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Blockrichtung einer Scrollbereichsgrenze erreicht wird.
+Die **`overscroll-behavior-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Grenze eines Scrollbereichs in Blockrichtung erreicht wird.
 
 Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
 
@@ -25,16 +25,16 @@ overscroll-behavior-block: revert-layer;
 overscroll-behavior-block: unset;
 ```
 
-Die Eigenschaft `overscroll-behavior-block` wird als ein Schlüsselwort aus der unten stehenden Liste von Werten spezifiziert.
+Die `overscroll-behavior-block` Eigenschaft wird als ein Schlüsselwort festgelegt, das aus der unten aufgeführten Werteliste ausgewählt wird.
 
 ### Werte
 
 - `auto`
-  - : Das Standardverhalten bei Überlauf beim Scrollen tritt wie gewohnt auf.
+  - : Das Standard-Scroll-Überlaufverhalten tritt wie gewohnt auf.
 - `contain`
-  - : Standardverhalten bei Überlauf beim Scrollen (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert gesetzt ist. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll Chaining")}} in benachbarten Scrollbereichen auf; die darunterliegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
+  - : Das Standard-Scroll-Überlaufverhalten (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, wo dieser Wert gesetzt ist. Es tritt jedoch keine {{Glossary("Scroll_chaining", "Scrollverkettung")}} in benachbarten Scrollbereichen auf; die zugrundeliegenden Elemente werden nicht scrollen. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
 - `none`
-  - : Kein Scroll Chaining tritt in benachbarten Scrollbereichen auf, und das Standardverhalten bei Überlauf beim Scrollen wird verhindert.
+  - : Es tritt keine Scrollverkettung zu benachbarten Scrollbereichen auf, und das Standard-Scroll-Überlaufverhalten wird verhindert.
 
 ## Formale Definition
 
@@ -46,11 +46,11 @@ Die Eigenschaft `overscroll-behavior-block` wird als ein Schlüsselwort aus der 
 
 ## Beispiele
 
-### Verhindern von Block-Overscrolling
+### Verhindern von Block-Überscrollen
 
-In diesem Beispiel haben wir zwei Block-Level-Boxen, eine innerhalb der anderen. Die äußere Box hat eine große {{cssxref("height")}} gesetzt, sodass die Seite vertikal scrollt. Die innere Box hat eine kleine {{cssxref("width")}} (und `height`) gesetzt, sodass sie bequem in den Viewport passt, aber ihr Inhalt hat eine große `height`, damit sie ebenfalls vertikal scrollt.
+In diesem Beispiel haben wir zwei Block-Element-Boxen, eine innerhalb der anderen. Die äußere Box hat eine große {{cssxref("height")}} eingestellt, sodass die Seite vertikal scrollt. Die innere Box hat eine kleine {{cssxref("width")}} (und `height`) eingestellt, sodass sie bequem im Ansichtsfenster sitzt, aber ihr Inhalt hat eine große `height`, sodass sie ebenfalls vertikal scrollt.
 
-Standardmäßig, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht wird, beginnt die gesamte Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies im Block Richtung zu vermeiden, haben wir `overscroll-behavior-block: contain` auf der inneren Box gesetzt.
+Standardmäßig wird, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht wird, die gesamte Seite zu scrollen beginnen, was wahrscheinlich nicht gewünscht ist. Um dies in Blockrichtung zu vermeiden, haben wir `overscroll-behavior-block: contain` auf die innere Box gesetzt.
 
 #### HTML
 
@@ -77,8 +77,8 @@ main {
   background-color: white;
   background-image: repeating-linear-gradient(
     to bottom,
-    rgb(0 0 0 / 0%) 0px,
-    rgb(0 0 0 / 0%) 19px,
+    transparent 0px,
+    transparent 19px,
     rgb(0 0 0 / 50%) 20px
   );
 }
@@ -99,8 +99,8 @@ div > div {
   background-color: yellow;
   background-image: repeating-linear-gradient(
     to bottom,
-    rgb(0 0 0 / 0%) 0px,
-    rgb(0 0 0 / 0%) 19px,
+    transparent 0px,
+    transparent 19px,
     rgb(0 0 0 / 50%) 20px
   );
 }

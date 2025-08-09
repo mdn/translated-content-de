@@ -2,10 +2,10 @@
 title: scroll-padding-inline-start
 slug: Web/CSS/scroll-padding-inline-start
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-padding-inline-start` definiert Versätze für die Startkante in der Inline-Dimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge in den Blick des Nutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie z. B. fixierte Toolbars oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Kanten des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-start` definiert Offsets für die Startkante in der Inline-Dimension des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion für das Platzieren von Elementen im Sichtbereich des Benutzers genutzt wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-start")}}
 
@@ -58,7 +58,7 @@ scroll-padding-inline-start: 2em;
   flex: 0 0 250px;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ scroll-padding-inline-start: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -94,9 +94,9 @@ scroll-padding-inline-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der Inline-Startkante des Scrollports, als gültige Länge oder als Prozentsatz.
+  - : Ein nach innen gerichtetes Offset von der Inline-Startkante des Scrollports, angegeben als gültige Länge oder als Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den User-Agent bestimmt. Dies wird in der Regel 0px sein, aber ein User-Agent kann etwas anderes feststellen und tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Das Offset wird durch den User-Agent bestimmt. Dies ist in der Regel 0px, aber ein User-Agent kann etwas anderes feststellen und tun, wenn ein nicht-null Wert geeigneter ist.
 
 ## Formale Definition
 
@@ -117,4 +117,4 @@ scroll-padding-inline-start: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

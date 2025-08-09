@@ -2,10 +2,10 @@
 title: transition
 slug: Web/CSS/transition
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`transition`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) für {{ cssxref("transition-property") }}, {{ cssxref("transition-duration") }}, {{ cssxref("transition-timing-function") }}, {{ cssxref("transition-delay") }}, und {{ cssxref("transition-behavior") }}.
+Die **`transition`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) für {{ cssxref("transition-property") }}, {{ cssxref("transition-duration") }}, {{ cssxref("transition-timing-function") }}, {{ cssxref("transition-delay") }}, und {{ cssxref("transition-behavior") }}.
 
 {{InteractiveExample("CSS Demo: transition")}}
 
@@ -44,7 +44,7 @@ transition: all 1s ease-out;
 ```css interactive-example
 #example-element {
   background-color: #e4f0f5;
-  color: #000;
+  color: black;
   padding: 1rem;
   border-radius: 0.5rem;
   font: 1em monospace;
@@ -54,16 +54,16 @@ transition: all 1s ease-out;
 
 #default-example:hover > #example-element {
   background-color: #909;
-  color: #fff;
+  color: white;
   margin-right: 40%;
 }
 ```
 
-Transitions ermöglichen es Ihnen, den Übergang zwischen zwei Zuständen eines Elements zu definieren. Unterschiedliche Zustände können unter Verwendung von [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) wie {{cssxref(":hover")}} oder {{cssxref(":active")}} definiert oder dynamisch mit JavaScript festgelegt werden.
+Transitions ermöglichen es Ihnen, den Übergang zwischen zwei Zuständen eines Elements zu definieren. Unterschiedliche Zustände können durch [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) wie {{cssxref(":hover")}} oder {{cssxref(":active")}} definiert oder dynamisch mittels JavaScript gesetzt werden.
 
-## Bestandteile der Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`transition-behavior`](/de/docs/Web/CSS/transition-behavior)
 - [`transition-delay`](/de/docs/Web/CSS/transition-delay)
@@ -107,22 +107,22 @@ transition: revert-layer;
 transition: unset;
 ```
 
-Der Wert der `transition`-Eigenschaft wird als einer der folgenden angegeben:
+Der Wert der `transition` Eigenschaft wird wie folgt angegeben:
 
-- Der spezielle Wert `none`, der angibt, dass keine Transitionen auf diesem Element stattfinden werden. Dies ist der Standardwert.
-- Eine oder mehrere Einzel-Eigenschafts-Transitionen, getrennt durch Kommata.
+- Der spezielle Wert `none`, der angibt, dass keine Übergänge auf diesem Element stattfinden. Dies ist der Standardwert.
+- Eine oder mehrere Einzeleigenschafts-Übergänge, getrennt durch Kommas.
 
-Jede Einzel-Eigenschafts-Transition beschreibt die Transition, die auf eine einzelne Eigenschaft oder alle Eigenschaften angewendet werden soll. Sie umfasst:
+Jeder Einzeleigenschafts-Übergang beschreibt den Übergang, der auf eine einzelne Eigenschaft oder alle Eigenschaften angewendet werden sollte. Er umfasst:
 
-- Null oder einen Wert, der die Eigenschaft oder Eigenschaften angibt, auf die die Transition angewendet werden soll. Dies kann gesetzt werden als:
-  - Ein {{cssxref("&lt;custom-ident&gt;")}}, das eine einzelne Eigenschaft darstellt.
-  - Der spezielle Wert `all`, der angibt, dass die Transition auf alle Eigenschaften angewendet wird, die sich ändern, wenn das Element den Zustand wechselt.
-  - Kein Wert, in welchem Fall ein Wert von `all` angenommen wird und die angegebene Transition weiterhin auf alle sich ändernden Eigenschaften angewendet wird.
-- Null oder einen {{cssxref("&lt;easing-function&gt;")}} Wert, der die zu verwendende Übergangsfunktion darstellt.
-- Null, einen oder zwei {{cssxref("&lt;time&gt;")}} Werte. Der erste Wert, der als Zeit geparst werden kann, wird der {{cssxref("transition-duration")}} zugewiesen, und der zweite Wert, der als Zeit geparst werden kann, wird der {{cssxref("transition-delay")}} zugewiesen.
-- Null oder einen Wert, der angibt, ob Transitionen für Eigenschaften mit [diskretem](/de/docs/Web/CSS/CSS_animated_properties#discrete) Animationsverhalten gestartet werden sollen. Der Wert ist, falls vorhanden, entweder das Schlüsselwort `allow-discrete` oder das Schlüsselwort `normal`.
+- null oder einen Wert, der die Eigenschaft(en) darstellt, auf die der Übergang angewendet werden soll. Das kann wie folgt festgelegt werden:
+  - Ein {{cssxref("&lt;custom-ident&gt;")}}, der eine einzelne Eigenschaft repräsentiert.
+  - Der spezielle Wert `all`, der angibt, dass der Übergang auf alle Eigenschaften angewendet wird, die sich ändern, wenn das Element den Zustand ändert.
+  - Kein Wert, wobei dann ein Wert von `all` angenommen wird und der angegebene Übergang dennoch auf alle sich ändernden Eigenschaften angewendet wird.
+- null oder einen {{cssxref("&lt;easing-function&gt;")}} Wert, der die zu verwendende Übergangsfunktion repräsentiert
+- null, einen oder zwei {{cssxref("&lt;time&gt;")}} Werte. Der erste Wert, der als Zeit interpretiert werden kann, wird der {{cssxref("transition-duration")}} zugewiesen, und der zweite, der als Zeit interpretiert werden kann, wird der {{cssxref("transition-delay")}} zugewiesen.
+- null oder einen Wert, der erklärt, ob Übergänge für Eigenschaften, deren Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist, gestartet werden sollen. Der Wert, falls vorhanden, ist entweder das Schlüsselwort `allow-discrete` oder das Schlüsselwort `normal`.
 
-Wenn Sie `all` als die Übergangseigenschaft für eine Einzel-Eigenschafts-Transition angeben, aber dann nachfolgende Einzel-Eigenschafts-Transitionen mit {{cssxref("&lt;custom-ident&gt;")}} Werten angeben, überschreiben diese nachfolgenden Transitionen die erste. Zum Beispiel:
+Wenn Sie `all` als Übergangseigenschaft für einen Einzeleigenschafts-Übergang angeben, aber dann nachfolgende Einzeleigenschafts-Übergänge mit {{cssxref("&lt;custom-ident&gt;")}} Werten spezifizieren, werden diese nachfolgenden Übergänge den ersten überschreiben. Zum Beispiel:
 
 ```css
 transition:
@@ -130,9 +130,9 @@ transition:
   opacity 400ms;
 ```
 
-In diesem Fall werden alle Eigenschaften, die sich ändern, während das Element den Zustand wechselt, mit einer Dauer von 200 ms übergehen, außer {{cssxref("opacity")}}, die 400 ms für den Übergang benötigen wird.
+In diesem Fall werden alle Eigenschaften, die sich ändern, wenn das Element den Zustand ändert, mit einer Dauer von 200ms übergehen, außer {{cssxref("opacity")}}, das 400ms benötigt, um zu übergehen.
 
-Sehen Sie sich an, [wie Dinge gehandhabt werden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions#when_property_value_lists_are_of_different_lengths), wenn Listen von Eigenschaftswerten nicht die gleiche Länge haben. Kurz gesagt, zusätzliche Transition-Beschreibungen über die Anzahl der tatsächlich animierten Eigenschaften hinaus werden ignoriert.
+Sehen Sie sich an, [wie Dinge gehandhabt werden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions#when_property_value_lists_are_of_different_lengths), wenn Listen von Eigenschaftswerten nicht die gleiche Länge haben. Kurz gesagt, zusätzliche Übergangsbeschreibungen über die Anzahl der tatsächlich animierten Eigenschaften hinaus werden ignoriert.
 
 ## Formale Definition
 
@@ -146,7 +146,7 @@ Sehen Sie sich an, [wie Dinge gehandhabt werden](/de/docs/Web/CSS/CSS_transition
 
 ### Einfaches Beispiel
 
-In diesem Beispiel gibt es, wenn der Benutzer mit der Maus über das Element fährt, eine halbe Sekunde (`500ms`) Verzögerung, bevor ein zweisekündiger `background-color` Übergang erfolgt.
+In diesem Beispiel gibt es, wenn der Benutzer über das Element fährt, eine halbe Sekunde (`500ms`) Verzögerung, bevor ein zwei Sekunden `background-color` Übergang stattfindet.
 
 #### HTML
 
@@ -156,7 +156,7 @@ In diesem Beispiel gibt es, wenn der Benutzer mit der Maus über das Element fä
 
 #### CSS
 
-Wir fügen zwei {{cssxref("time")}} Werte ein. In der `transition` Kurzschreibweise ist der erste `<time>` Wert die `transition-duration`. Der zweite Zeitwert ist die `transition-delay`. Beide haben den Standardwert `0s`, wenn sie weggelassen werden.
+Wir fügen zwei {{cssxref("time")}} Werte hinzu. In der `transition` Kurzform ist der erste `<time>` Wert die `transition-duration`. Der zweite Zeitwert ist die `transition-delay`. Beide haben den Standardwert `0s`, wenn sie weggelassen werden.
 
 ```css
 .target {
@@ -182,6 +182,6 @@ Wir fügen zwei {{cssxref("time")}} Werte ein. In der `transition` Kurzschreibwe
 
 ## Siehe auch
 
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
+- [CSS transitions](/de/docs/Web/CSS/CSS_transitions) Modul
 - [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)

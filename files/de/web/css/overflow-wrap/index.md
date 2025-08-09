@@ -2,13 +2,13 @@
 title: overflow-wrap
 slug: Web/CSS/overflow-wrap
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf Text angewandt und legt fest, ob der Browser Zeilenumbrüche innerhalb einer sonst untrennbaren Zeichenfolge einfügen soll, um zu verhindern, dass der Text sein Zeilenfeld überschreitet.
+Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf Text angewendet und legt fest, ob der Browser Zeilenumbrüche innerhalb einer ansonsten untrennbaren Zeichenfolge einfügen soll, um zu verhindern, dass der Text über sein Zeilenfeld hinausläuft.
 
 > [!NOTE]
-> Die Eigenschaft war ursprünglich eine nicht standardisierte und unverantwortete Microsoft-Erweiterung namens `word-wrap` und wurde von den meisten Browsern mit demselben Namen implementiert. Sie wurde seitdem in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
+> Die Eigenschaft war ursprünglich eine nicht standardisierte und unveränderte Microsoft-Erweiterung, genannt `word-wrap`, und wurde von den meisten Browsern unter demselben Namen implementiert. Sie wurde inzwischen in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
 
 {{InteractiveExample("CSS Demo: overflow-wrap")}}
 
@@ -39,7 +39,7 @@ overflow-wrap: break-word;
 ```css interactive-example
 .example-container {
   background-color: rgb(255 0 200 / 0.2);
-  border: 3px solid #663399;
+  border: 3px solid rebeccapurple;
   padding: 0.75em;
   width: min-content;
   max-width: 11em;
@@ -48,7 +48,7 @@ overflow-wrap: break-word;
 ```
 
 > [!NOTE]
-> Im Gegensatz zu {{cssxref("word-break")}} erzeugt `overflow-wrap` nur dann einen Umbruch, wenn ein ganzes Wort nicht auf seine eigene Zeile gesetzt werden kann, ohne überzulaufen.
+> Im Gegensatz zu {{cssxref("word-break")}} erstellt `overflow-wrap` nur dann einen Umbruch, wenn ein ganzes Wort nicht ohne Überlauf in eine eigene Zeile gesetzt werden kann.
 
 ## Syntax
 
@@ -66,16 +66,16 @@ overflow-wrap: revert-layer;
 overflow-wrap: unset;
 ```
 
-Die `overflow-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus der unten stehenden Liste von Werten ausgewählt wird.
+Die `overflow-wrap` Eigenschaft wird als einzelnes Schlüsselwort aus der folgenden Liste von Werten festgelegt.
 
 ### Werte
 
 - `normal`
-  - : Zeilen dürfen nur an normalen Worttrennstellen (wie zum Beispiel ein Leerzeichen zwischen zwei Wörtern) umbrechen.
+  - : Zeilen können nur an normalen Worttrennungsstellen (wie einem Leerzeichen zwischen zwei Wörtern) umbrochen werden.
 - `anywhere`
-  - : Um Überlauf zu verhindern, kann eine ansonsten untrennbare Zeichenfolge — wie ein langes Wort oder eine URL — an jedem beliebigen Punkt umbrochen werden, wenn es keine anderen akzeptablen Trennstellen in der Zeile gibt. An der Trennstelle wird kein Trennzeichen eingefügt. Weiche Umbruchmöglichkeiten, die durch den Wortbruch eingeführt werden, werden bei der Berechnung von minimalen intrinsischen Größen berücksichtigt.
+  - : Um Überlauf zu vermeiden, kann eine ansonsten untrennbare Zeichenfolge — wie ein langes Wort oder eine URL — an jedem Punkt gebrochen werden, wenn es in der Zeile keine anderen akzeptablen Umbruchstellen gibt. An der Umbruchstelle wird kein Trennzeichen eingefügt. Weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
 - `break-word`
-  - : Entspricht dem `anywhere`-Wert, wobei normalerweise untrennbare Wörter an beliebigen Punkten umbrochen werden dürfen, wenn es keine anderen akzeptablen Trennstellen in der Zeile gibt, aber weiche Umbruchmöglichkeiten, die durch den Wortbruch eingeführt werden, werden NICHT bei der Berechnung von minimalen intrinsischen Größen berücksichtigt.
+  - : Entspricht dem `anywhere`-Wert, wobei normalerweise untrennbare Wörter an beliebigen Punkten gebrochen werden dürfen, wenn es in der Zeile keine anderen akzeptablen Umbruchstellen gibt, aber weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden NICHT bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
 
 ## Formale Definition
 
@@ -87,9 +87,9 @@ Die `overflow-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben,
 
 ## Beispiele
 
-### Vergleich von overflow-wrap, word-break und hyphens
+### Vergleich von overflow-wrap, word-break, und hyphens
 
-Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens` beim Aufbrechen eines langen Wortes.
+Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break`, und `hyphens` beim Aufteilen eines langen Wortes.
 
 #### HTML
 
@@ -176,4 +176,4 @@ p {
 - {{cssxref("white-space")}}
 - {{cssxref("hyphens")}}
 - {{cssxref("text-overflow")}}
-- [Leitfaden zum Umbrechen und Aufteilen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Leitfaden zum Umbruchs- und Trennungsprozess von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)

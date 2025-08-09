@@ -2,10 +2,10 @@
 title: scroll-padding-inline-end
 slug: Web/CSS/scroll-padding-inline-end
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension des _optimalen Ansichtsbereichs_ des Scrollportals: der Bereich, der als Zielbereich für die Platzierung von Inhalten im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollportals auszuschließen, die von anderem Inhalt verdeckt werden (wie z. B. fest positionierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem gezielten Element und den Rändern des Scrollportals zu schaffen.
+Die Eigenschaft `scroll-padding-inline-end` definiert Offsets für die Endkante in der Inline-Dimension des _optimalen Anzeigebereichs_ des Scrollports: Der Bereich, der als Zielregion verwendet wird, um Inhalte in das Sichtfeld des Benutzers zu bringen. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die von anderen Inhalten verdeckt werden (wie z.B. fest positionierte Symbolleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-end")}}
 
@@ -58,7 +58,7 @@ scroll-padding-inline-end: 2em;
   flex: 0 0 250px;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ scroll-padding-inline-end: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -94,15 +94,15 @@ scroll-padding-inline-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein Inwards-Versatz von der Inline-Endkante des Scrollportals als gültige Länge oder als Prozentsatz.
+  - : Ein nach innen gerichteter Offset von der Inline-Endkante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein anderer Wert angemessener ist.
+  - : Der Offset wird vom User-Agent bestimmt. Dies wird in der Regel 0px sein, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null geeigneter ist.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 

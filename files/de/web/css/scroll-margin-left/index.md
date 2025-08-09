@@ -2,10 +2,10 @@
 title: scroll-margin-left
 slug: Web/CSS/scroll-margin-left
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die Eigenschaft `scroll-margin-left` definiert den linken Rand des Scroll-Snap-Bereichs, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzupassen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmen der Box genommen, die rechteckige Begrenzungsbox (in den Koordinaten des Scroll-Containers achsenausgerichtet) ermittelt und dann die angegebenen Ausdehnungen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-left` definiert den linken Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzupassen. Der Scroll-Snap-Bereich wird ermittelt, indem der transformierte Rahmenkasten genommen wird, dessen rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) bestimmt wird, und dann die angegebenen Abstände hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-left")}}
 
@@ -58,7 +58,7 @@ scroll-margin-left: 2em;
   flex: 0 0 250px;
   width: 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ scroll-margin-left: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -90,7 +90,7 @@ scroll-margin-left: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Eine Ausdehnung vom linken Rand des Scroll-Containers.
+  - : Ein Abstand von der linken Kante des Scroll-Containers.
 
 ## Formale Definition
 

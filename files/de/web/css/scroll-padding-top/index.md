@@ -2,10 +2,10 @@
 title: scroll-padding-top
 slug: Web/CSS/scroll-padding-top
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
 ---
 
-Die **`scroll-padding-top`**-Eigenschaft definiert Versätze für den oberen Rand der _optimalen Betrachtungsregion_ des Scrollports: die Region, die als Zielbereich zum Platzieren von Elementen im Sichtbereich des Nutzers verwendet wird. Damit kann der Autor Bereiche des Scrollports ausschließen, die von anderem Inhalt verdeckt werden (wie feste Toolbars oder Sidebars), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
+Die **`scroll-padding-top`** Eigenschaft definiert Versätze für die Oberseite des _optimalen Anzeigebereichs_ des Scrollport: der Bereich, der als Zielbereich verwendet wird, um Dinge in das Blickfeld des Benutzers zu bringen. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die von anderem Inhalt verdeckt sind (wie fest positionierte Symbolleisten oder Seitenleisten) oder mehr Abstand zwischen einem gezielten Element und den Rändern des Scrollports schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-top")}}
 
@@ -55,7 +55,7 @@ scroll-padding-top: 2em;
 .scroller > div {
   flex: 0 0 250px;
   background-color: rebeccapurple;
-  color: #fff;
+  color: white;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@ scroll-padding-top: 2em;
 }
 
 .scroller > div:nth-child(even) {
-  background-color: #fff;
+  background-color: white;
   color: rebeccapurple;
 }
 ```
@@ -91,9 +91,9 @@ scroll-padding-top: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein innerer Versatz vom oberen Rand des Scrollports, entweder als gültige Länge oder als Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der oberen Kante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom User Agent bestimmt. Dies ist in der Regel 0px, aber ein User Agent kann auch einen anderen Wert verwenden, wenn ein Nicht-Null-Wert besser geeignet ist.
+  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein nicht-null Wert passender ist.
 
 ## Formale Definition
 
