@@ -3,14 +3,14 @@ title: "Animation: commitStyles() Methode"
 short-title: commitStyles()
 slug: Web/API/Animation/commitStyles
 l10n:
-  sourceCommit: b21dc41b8a458cb9cfa7e3eb6d6abcc4033b05ab
+  sourceCommit: 6eae35bc64a49865a469ca29bc40e6993b9cb8cc
 ---
 
 {{APIRef("Web Animations")}}
 
-Die `commitStyles()` Methode der [Web Animations API](/de/docs/Web/API/Web_Animations_API) Schnittstelle [`Animation`](/de/docs/Web/API/Animation) schreibt die [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) der aktuellen Stile einer Animation in das [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) Attribut des Ziel-Elements.
+Die `commitStyles()` Methode des [Web Animations API](/de/docs/Web/API/Web_Animations_API)'s [`Animation`](/de/docs/Web/API/Animation) Interface schreibt die [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) der aktuellen Stile der Animation in das [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) Attribut des Zielelements.
 
-Sie wird hauptsächlich verwendet, um die Stile für den Endzustand einer Animation in das Ziel-Element zu schreiben, sodass die Gestaltung nach dem Ende der Animation beibehalten wird.
+Sie wird hauptsächlich verwendet, um die Stile des Endzustands einer Animation in das Zielelement zu schreiben, sodass die Gestaltung nach dem Ende der Animation bestehen bleibt.
 
 ## Syntax
 
@@ -28,13 +28,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die `commitStyles()` Methode wird hauptsächlich verwendet, um die [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) für den Endzustand einer Animation in das [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) Attribut des Ziel-Elements zu schreiben, sodass die Gestaltung nach dem Ende der Animation beibehalten wird. Dies kann erfolgen, wenn die Animation abgeschlossen ist (d.h. die [`Animation`](/de/docs/Web/API/Animation) Eigenschaft [`finished`](/de/docs/Web/API/Animation/finished) aufgelöst wurde).
+Die `commitStyles()` Methode wird hauptsächlich verwendet, um die [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) für den Endzustand einer Animation in das [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) Attribut des Zielelements zu schreiben, sodass die Gestaltung nach dem Ende der Animation bestehen bleibt.
+Dies kann geschehen, wenn die Animation beendet ist (d.h. die [`Animation`](/de/docs/Web/API/Animation) Objekt's [`finished`](/de/docs/Web/API/Animation/finished) Eigenschaft aufgelöst wurde).
 
-### `commitStyles()` zusammen mit dem Fill-Modus
+### `commitStyles()` zusammen mit Fill-Modus
 
-In älteren Browsern müssen Sie den [`fill` Modus](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) angeben, um die Stile nach Abschluss der Animation auf das Element anwenden zu können.
+In älteren Browsern müssen Sie den [`fill` Modus](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) angeben, um die Stile _nach_ dem Abschluss der Animation auf das Element anwenden zu können.
 
-Der untenstehende Code zeigt, wie Sie ein Element namens `animatedElement` animieren können, indem Sie [`fill: "forwards"`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) setzen, um die Animationsstile nach Abschluss der Animation beizubehalten. Sobald die Animation beendet ist, wenden wir die Stile mit `commitStyles()` auf das Element an.
+Der folgende Code zeigt, wie Sie ein Element namens `animatedElement` animieren können, indem Sie [`fill: "forwards"`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) setzen, um die Animationsstile nach deren Abschluss zu bewahren.
+Sobald die Animation abgeschlossen ist, werden die Stile mit `commitStyles()` auf das Element angewendet.
 
 ```js
 // Start the animation
@@ -51,21 +53,24 @@ animation.commitStyles();
 animation.cancel();
 ```
 
-Da `fill` die Animation unbegrenzt fortsetzt, brechen wir die Animation ab, sobald wir die Stile festgeschrieben haben.
+Da `fill` die Animation auf unbestimmte Zeit aufrechterhält, stornieren wir die Animation, nachdem wir die Stile übernommen haben.
 
-Beachten Sie, dass derselbe Effekt allein mit `fill` erzielt werden könnte, aber [die Nutzung unbegrenzt laufender Animationen wird nicht empfohlen](https://drafts.csswg.org/web-animations-1/#fill-behavior). Animationen [haben Vorrang vor allen statischen Stilen](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order), sodass eine unbegrenzt laufende Animation verhindern kann, dass das Ziel-Element jemals normal gestylt wird.
-
-> [!NOTE]
-> Möglicherweise müssen Sie den Endzustand nicht explizit speichern, indem Sie diese als initiale Stilelemente setzen und auf die Endstile animieren.
-
-### `commitStyles()` ohne Fill-Modus
-
-In neueren Browsern müssen Sie den [`fill` Modus](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) nicht einstellen (siehe die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für spezifische Versionen).
+Beachten Sie, dass derselbe Effekt auch alleine mit `fill` erreicht werden könnte, jedoch [wird die Verwendung unbefristet füllender Animationen nicht empfohlen](https://drafts.csswg.org/web-animations-1/#fill-behavior).
+Animationen [haben Vorrang vor allen statischen Stilen](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order), sodass eine unbefristet füllende Animation verhindern kann, dass das Zielelement jemals normal gestylt wird.
 
 > [!NOTE]
-> Es gibt keine Möglichkeit, dieses neue Verhalten zu überprüfen. Bis jetzt sollte der meiste Code weiterhin `fill` wie im vorherigen Abschnitt gezeigt einstellen.
+> Sie könnten es auch vermeiden, den endgültigen Zustand explizit zu speichern, indem Sie ihn als anfängliche Stile des Elements festlegen und zur endgültigen Stilen animieren.
 
-Der untenstehende Code zeigt, wie Sie ein Element namens `animatedElement` animieren können, auf die Animation über die [`finished`](/de/docs/Web/API/Animation/finished) Eigenschaft warten und dann die Stile mit `commitStyles()` auf das Element anwenden. Da wir `fill` nicht einstellen, müssen wir die Animation danach nicht abbrechen.
+### `commitStyles()` ohne Festlegung des Fill-Modus
+
+In neueren Browsern müssen Sie den [`fill` Modus](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) nicht setzen (siehe die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für spezifische Versionen).
+
+> [!NOTE]
+> Es gibt keine Möglichkeit, dieses neue Verhalten zu überprüfen.
+> Vorerst sollte der meiste Code weiterhin `fill` setzen, wie im vorherigen Abschnitt gezeigt.
+
+Der folgende Code zeigt, wie Sie ein Element namens `animatedElement` animieren können, auf das Beenden der Animation mit der [`finished`](/de/docs/Web/API/Animation/finished) Eigenschaft warten und dann die Stile mit `commitStyles()` auf das Element anwenden.
+Da wir nicht `fill` setzen, müssen wir die Animation danach nicht abbrechen.
 
 ```js
 // Start the animation
@@ -81,17 +86,22 @@ await animation.finished;
 animation.commitStyles();
 ```
 
-`commitStyles()` funktioniert auch, wenn die Animation [automatisch entfernt wurde](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations). Nachdem die Stile des Elements festgeschrieben wurden, können sie wie gewohnt geändert und ersetzt werden.
+`commitStyles()` funktioniert, selbst wenn die Animation [automatisch entfernt wurde](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations).
+Sobald die Stile des Elements übernommen wurden, können sie normal modifiziert und ersetzt werden.
 
 ## Beispiele
 
-### Animation mit und ohne Nutzung von Fill
+### Animation mit und ohne Verwendung von Fill
 
-Dieses Beispiel zeigt, wie Sie `commitStyles()` verwenden können, um die berechneten Stile am Ende der Animation sowohl mit als auch ohne `fill` zu speichern. Es bietet auch ein Beispiel, was passiert, wenn weder `commitStyles()` noch `fill` verwendet werden, zum Vergleich.
+Dieses Beispiel zeigt, wie Sie `commitStyles()` verwenden können, um die berechneten Stile am Ende der Animation zu speichern, sowohl mit als auch ohne Verwendung von `fill`.
+Es bietet auch ein Beispiel dafür, was passiert, wenn weder `commitStyles()` noch `fill` verwendet werden, zum Vergleich.
 
-Das Beispiel zeigt zuerst zwei Schaltflächen mit den Bezeichnungen "commitStyles() only" und "commitStyles() with fill". Beide Schaltflächen animieren sich, wenn Sie sie anklicken, und beide Schaltflächen rufen `commitStyles()` auf, um den Endzustand der Animation beizubehalten. Der Unterschied besteht darin, dass "commitStyles() only" nicht `fill: "forwards"` definiert, um den Endzustand der Animation zu speichern. In Browsern, die nicht der aktuellen Spezifikation entsprechen, wird der Endzustand möglicherweise nicht erfasst.
+Das Beispiel zeigt zunächst zwei Schaltflächen mit den Bezeichnungen "commitStyles() only" und "commitStyles() with fill".
+Beide Schaltflächen animieren, wenn Sie sie anklicken, und beide Schaltflächen rufen `commitStyles()` auf, um den Endzustand der Animation zu bewahren.
+Der Unterschied besteht darin, dass "commitStyles() only" nicht `fill: "forwards"` angibt, um den Endzustand der Animation zu bewahren.
+In Browsern, die nicht der aktuellen Spezifikation entsprechen, wird der Endzustand möglicherweise nicht erfasst.
 
-Der Code zeigt dann eine Schaltfläche "No commitStyles() or fill" zur Nutzung als Vergleich und eine "Reset"-Schaltfläche.
+Der Code zeigt dann eine Schaltfläche "No commitStyles() or fill", die zum Vergleich verwendet werden kann, und eine "Reset"-Schaltfläche.
 
 #### HTML
 
@@ -122,9 +132,9 @@ reload.addEventListener("click", () => {
 
 #### JavaScript
 
-Dieser Code definiert einen Klick-Handler für die "commitStyles() only" Schaltfläche.
-Er animiert die Schaltfläche nach rechts oder links, wenn sie angeklickt wird.
-Beachten Sie, dass `commitStyles()` unmittelbar nach Abschluss der Animation aufgerufen wird.
+Dieser Code definiert einen Klick-Handler für die Schaltfläche "commitStyles() only".
+Diese animiert die Schaltfläche, um sie beim Klicken nach rechts oder links zu bewegen.
+Beachten Sie, dass `commitStyles()` unmittelbar nach dem Abschluss der Animation aufgerufen wird.
 
 ```js
 let offset1 = 0;
@@ -146,11 +156,11 @@ commitStyles.addEventListener("click", async (event) => {
 });
 ```
 
-Dieser Code definiert einen Klick-Handler für die "commitStyles() with fill" Schaltfläche.
-Auch hier wird die Schaltfläche nach rechts oder links bewegt, wenn sie angeklickt wird.
-Da ein `fill` definiert wird, muss die Animation danach abgebrochen werden.
+Dieser Code definiert einen Klick-Handler für die Schaltfläche "commitStyles() with fill".
+Diese animiert ebenfalls die Schaltfläche, um sie beim Klicken nach rechts oder links zu bewegen.
+Da es ein `fill` definiert, muss die Animation danach abgebrochen werden.
 
-Beachten Sie, dass `commitStyles()` unmittelbar nach Abschluss der Animation aufgerufen wird.
+Beachten Sie, dass `commitStyles()` unmittelbar nach dem Abschluss der Animation aufgerufen wird.
 
 ```js
 const commitStylesWithFill = document.querySelector(".commit-with-fill");
@@ -173,9 +183,9 @@ commitStylesWithFill.addEventListener("click", async (event) => {
 });
 ```
 
-Dieser Code definiert einen Klick-Handler für die "No commitStyles() or fill" Schaltfläche.
-Auch hier wird die Schaltfläche nach rechts oder links bewegt, wenn sie angeklickt wird.
-Es wird kein Fill definiert und wir brechen die Animation nicht ab.
+Dieser Code definiert einen Klick-Handler für die Schaltfläche "No commitStyles() or fill".
+Diese animiert ebenfalls die Schaltfläche, um sie beim Klicken nach rechts oder links zu bewegen.
+Es definiert kein fill und wir stornieren die Animation nicht.
 
 ```js
 const noCommitStylesOrFill = document.querySelector(".no-commit-or-fill");
@@ -193,7 +203,9 @@ noCommitStylesOrFill.addEventListener("click", async (event) => {
 
 #### Ergebnis
 
-Klicken Sie auf die Schaltflächen, um sie zu animieren. Beachten Sie, dass die erste Schaltfläche am Ende der Animation "springt", wenn der aktuelle Browser `fill` weiterhin benötigt, damit die Stile nach Ende der Animation festgeschrieben werden. Die "No commitStyles() or fill" Schaltfläche springt immer am Ende, da der Endzustand nicht gespeichert wird.
+Klicken Sie auf die Schaltflächen, um sie zu animieren.
+Beachten Sie, dass die erste Schaltfläche am Ende der Animation "springt", wenn der aktuelle Browser noch `fill` benötigt, um Stile nach dem Ende der Animation zu übernehmen.
+Die Schaltfläche "No commitStyles() or fill" springt am Ende immer, da der Endzustand nicht gespeichert wird.
 
 {{EmbedLiveSample("Animation with and without using fill")}}
 
@@ -208,4 +220,4 @@ Klicken Sie auf die Schaltflächen, um sie zu animieren. Beachten Sie, dass die 
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung der Webseiten-Animation verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseiten-Animationen verwenden können.
