@@ -1,14 +1,16 @@
 ---
-title: "AnalyserNode: getFloatTimeDomainData()-Methode"
+title: "AnalyserNode: getFloatTimeDomainData() Methode"
 short-title: getFloatTimeDomainData()
 slug: Web/API/AnalyserNode/getFloatTimeDomainData
 l10n:
-  sourceCommit: ca3afa7533ac5bc2d552b0c7926d672fe79d71de
+  sourceCommit: ba84d74d19a2c0c2351c8b9bce2fb10f6b890c55
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getFloatTimeDomainData()`**-Methode der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Schnittstelle kopiert die aktuelle Wellenform- oder Zeitdomaindaten in ein übergebenes {{jsxref("Float32Array")}}-Array. Jeder Array-Wert ist eine _Stichprobe_, die die Größe des Signals zu einem bestimmten Zeitpunkt darstellt.
+Die **`getFloatTimeDomainData()`** Methode der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode) Schnittstelle kopiert die aktuelle Wellenform oder Zeitbereichsdaten in ein {{jsxref("Float32Array")}} Array, das ihr übergeben wird. Jeder Array-Wert ist eine _Stichprobe_, die Größe des Signals zu einem bestimmten Zeitpunkt.
+
+Die Wellenform wird als PCM-Daten dargestellt, die einen nominalen Bereich von -1,0 bis 1,0 haben, aber Werte können den Bereich überschreiten, zum Beispiel beim Down-Mixing von Stereo auf Mono.
 
 ## Syntax
 
@@ -19,7 +21,8 @@ getFloatTimeDomainData(array)
 ### Parameter
 
 - `array`
-  - : Das {{jsxref("Float32Array")}}, in das die Zeitdomaindaten kopiert werden. Wenn das Array weniger Elemente hat als die [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize), werden überschüssige Elemente entfernt. Wenn es mehr Elemente hat als benötigt, werden überschüssige Elemente ignoriert.
+  - : Das {{jsxref("Float32Array")}}, in das die Zeitbereichsdaten kopiert werden.
+    Wenn das Array weniger Elemente als die [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize) hat, werden überzählige Elemente verworfen. Wenn es mehr Elemente als nötig hat, werden überzählige Elemente ignoriert.
 
 ### Rückgabewert
 
@@ -27,7 +30,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, und dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Zeitdomaindaten zu sammeln und eine "Oszilloskop-ähnliche" Ausgabe des aktuellen Audioeingangs zu zeichnen. Für vollständigere praktische Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, und dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Zeitbereichsdaten zu sammeln und eine "Oszilloskop-Stil"-Ausgabe des aktuellen Audioeingangs zu zeichnen.
+Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();

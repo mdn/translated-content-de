@@ -1,12 +1,12 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: CSS-Layout"
-short-title: Testen Sie Ihre Fähigkeiten
+short-title: "Test: Layout-Tests Index"
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills
 l10n:
-  sourceCommit: c44c4d14527eddf441079e3623abccd711adfc23
+  sourceCommit: 2a4d705a12d76ee17e013f8a50007fd25029e0fc
 ---
 
-Diese Seite listet CSS-Layout-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie die Inhalte in diesem Modul verstanden haben.
+Diese Seite listet CSS-Layout-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt in diesem Modul verstanden haben.
 
 ## Testen Sie Ihre CSS-Layout-Fähigkeiten nach Thema
 

@@ -3,12 +3,12 @@ title: Barrierefreiheit im Web
 short-title: Accessibility
 slug: Learn_web_development/Core/Accessibility
 l10n:
-  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
+  sourceCommit: 89e8e67d44039717f685a98d8b161f3d1ed1b233
 ---
 
 {{NextMenu("Learn_web_development/Core/Accessibility/What_is_accessibility", "Learn_web_development/Core")}}
 
-Der Zugang zu Webinhalten wie öffentliche Dienstleistungen, Bildung, E-Commerce-Seiten und Unterhaltung ist ein Menschenrecht. Niemand sollte aufgrund einer Behinderung, Rasse, geografischen Lage oder anderer menschlicher Eigenschaften ausgeschlossen werden. Dieses Modul bespricht die besten Praktiken und Techniken, die Sie erlernen sollten, um Ihre Websites so barrierefrei wie möglich zu gestalten.
+Der Zugang zu Webinhalten wie öffentliche Dienste, Bildung, E-Commerce-Seiten und Unterhaltung ist ein Menschenrecht. Niemand sollte aufgrund von Behinderung, Rasse, geografischer Lage oder anderen menschlichen Eigenschaften ausgeschlossen werden. Dieses Modul behandelt die besten Praktiken und Techniken, die Sie erlernen sollten, um Ihre Websites so barrierefrei wie möglich zu gestalten.
 
 ## Voraussetzungen
 
@@ -20,33 +20,37 @@ Sie sollten mit [HTML](/de/docs/Learn_web_development/Core/Structuring_content),
 ## Tutorials und Herausforderungen
 
 - [Was ist Barrierefreiheit?](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility)
-  - : Dieser Artikel beginnt das Modul mit einem genauen Blick darauf, was Barrierefreiheit ist—dazu gehört, welche Personengruppen wir berücksichtigen müssen und warum, welche Werkzeuge verschiedene Menschen verwenden, um mit dem Web zu interagieren, und wie wir die Barrierefreiheit in unseren Webentwicklungs-Workflow integrieren können.
-- [Barrierefreiheitstools und unterstützende Technologien](/de/docs/Learn_web_development/Core/Accessibility/Tooling)
-  - : Als nächstes widmen wir uns den Werkzeugen für die Barrierefreiheit, geben Informationen über die Arten von Tools, die Sie zur Lösung von Barrierefreiheitsproblemen verwenden können, und die unterstützenden Technologien, die von Menschen mit Behinderungen beim Surfen im Web verwendet werden. Sie werden diese Tools in den folgenden Artikeln verwenden.
+  - : Dieser Artikel startet das Modul mit einem guten Überblick darüber, was Barrierefreiheit ist — dazu gehört, welche Personengruppen wir berücksichtigen müssen und warum, welche Tools verschiedene Personen verwenden, um mit dem Web zu interagieren, und wie wir Barrierefreiheit in unseren Webentwicklungsworkflow integrieren können.
+- [Barrierefreiheits-Tools und unterstützende Technologien](/de/docs/Learn_web_development/Core/Accessibility/Tooling)
+  - : Als Nächstes richten wir unsere Aufmerksamkeit auf Barrierefreiheits-Tools und informieren über die Arten von Tools, die Sie verwenden können, um Barrierefreiheitsprobleme zu lösen, und die unterstützenden Technologien, die Menschen mit Behinderungen beim Surfen im Web verwenden. Diese Tools werden Sie in den folgenden Artikeln nutzen.
 - [HTML: Eine gute Grundlage für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML)
-  - : Ein Großteil der Webinhalte kann barrierefrei gestaltet werden, indem stets die richtigen HTML-Elemente für den richtigen Zweck verwendet werden. Dieser Artikel betrachtet im Detail, wie HTML verwendet werden kann, um maximale Barrierefreiheit sicherzustellen.
-- [CSS- und JavaScript-Barrierefreiheit Best Practices](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript)
-  - : CSS und JavaScript können, wenn sie richtig eingesetzt werden, ebenfalls dazu beitragen, zugängliche Web-Erlebnisse zu schaffen. Wenn sie jedoch falsch verwendet werden, können sie die Barrierefreiheit erheblich beeinträchtigen. Dieser Artikel skizziert einige der besten Praktiken für CSS und JavaScript, die berücksichtigt werden sollten, um sicherzustellen, dass auch komplexe Inhalte so barrierefrei wie möglich sind.
+  - : Ein Großteil der Webinhalte kann zugänglich gemacht werden, indem sichergestellt wird, dass die richtigen HTML-Elemente stets für den richtigen Zweck verwendet werden. Dieser Artikel erläutert im Detail, wie HTML genutzt werden kann, um maximale Barrierefreiheit zu gewährleisten.
+- [Barrierefreiheit: Best Practices für CSS und JavaScript](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript)
+  - : CSS und JavaScript haben bei sachgemäßer Nutzung das Potenzial, barrierefreie Web-Erlebnisse zu ermöglichen, können aber bei unsachgemäßer Verwendung die Barrierefreiheit erheblich beeinträchtigen. Dieser Artikel skizziert einige Best Practices für CSS und JavaScript, die berücksichtigt werden sollten, um sicherzustellen, dass selbst komplexe Inhalte so zugänglich wie möglich sind.
 - [WAI-ARIA-Grundlagen](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics)
-  - : Aufbauend auf dem vorherigen Artikel kann es manchmal schwierig sein, komplexe UI-Steuerelemente, die unsemantisches HTML und dynamischen JavaScript-aktualisierten Inhalt beinhalten, zu erstellen. WAI-ARIA ist eine Technologie, die bei solchen Problemen helfen kann, indem sie zusätzliche Semantik hinzufügt, die von Browsern und unterstützenden Technologien erkannt und verwendet werden kann, um Benutzer über das Geschehen zu informieren. Hier zeigen wir, wie es auf einer grundlegenden Ebene verwendet werden kann, um die Barrierefreiheit zu verbessern.
-- [Barrierefreies Multimedia](/de/docs/Learn_web_development/Core/Accessibility/Multimedia)
-  - : Eine weitere Kategorie von Inhalten, die Barrierefreiheitsprobleme schaffen können, ist Multimedia — Video-, Audio- und Bildinhalte müssen mit geeigneten Textalternativen versehen werden, damit sie von unterstützenden Technologien und deren Nutzern verstanden werden können. Dieser Artikel zeigt, wie das geht.
+  - : Im Anschluss an den vorherigen Artikel kann es schwierig sein, komplexe UI-Steuerelemente zu erstellen, die aus unsemantischem HTML bestehen und dynamische, mit JavaScript aktualisierte Inhalte beinhalten. WAI-ARIA ist eine Technologie, die bei solchen Problemen helfen kann, indem sie weitere Semantiken hinzufügt, die von Browsern und unterstützenden Technologien erkannt werden können, um den Benutzern mitzuteilen, was vor sich geht. Hier zeigen wir, wie es auf grundlegender Ebene verwendet werden kann, um die Barrierefreiheit zu verbessern.
+- [Barrierefreie Multimedia-Inhalte](/de/docs/Learn_web_development/Core/Accessibility/Multimedia)
+  - : Eine weitere Kategorie von Inhalten, die Barrierefreiheitsprobleme verursachen können, sind Multimedia-Inhalte — Video-, Audio- und Bildinhalte müssen mit geeigneten Textalternativen versehen werden, damit sie von unterstützenden Technologien und deren Nutzern verstanden werden können. Dieser Artikel zeigt, wie.
 - [Mobile Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/Mobile)
-  - : Da der Zugriff auf das Web von Mobilgeräten aus so beliebt ist und auf Plattformen wie iOS und Android vollwertige Barrierefreiheitstools verfügbar sind, ist es wichtig, die Barrierefreiheit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel befasst sich mit mobil-spezifischen Barrierefreiheitsüberlegungen.
-- [Barrierefreiheits-Fehlerbehebung](/de/docs/Learn_web_development/Core/Accessibility/Accessibility_troubleshooting) <sup>Herausforderung</sup>
+  - : Mit der Popularität des Webzugangs auf mobilen Geräten und populären Plattformen wie iOS und Android, die vollwertige Barrierefreiheits-Tools bieten, ist es wichtig, die Barrierefreiheit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel betrachtet mobil-spezifische Überlegungen zur Barrierefreiheit.
+- [Fehlerbehebung bei der Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/Accessibility_troubleshooting) <sup>Herausforderung</sup>
   - : In dieser Herausforderung präsentieren wir Ihnen eine einfache Website mit mehreren Barrierefreiheitsproblemen, die Sie diagnostizieren und beheben müssen.
+
+## Testen Sie Ihre Fähigkeiten
+
+Zwischen den Tutorial-Artikeln finden Sie "Testen Sie Ihre Fähigkeiten", um zu überprüfen, ob Sie die wichtigsten Informationen behalten haben, bevor Sie weitermachen. Wenn Sie all diese Artikel zusammen erkunden möchten, finden Sie sie unter [Testen Sie Ihre Fähigkeiten: Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills).
 
 ## Siehe auch
 
-- [Starten Sie noch heute mit dem Bau von barrierefreien Webanwendungen](https://egghead.io/courses/start-building-accessible-web-applications-today)
-  - : Eine hervorragende Serie von Videotutorials von Marcy Sutton.
+- [Starten Sie noch heute mit dem Aufbau barrierefreier Webanwendungen](https://egghead.io/courses/start-building-accessible-web-applications-today)
+  - : Eine ausgezeichnete Reihe von Video-Tutorials von Marcy Sutton.
 - [Deque University Ressourcen](https://dequeuniversity.com/resources/)
-  - : Beinhaltet Codebeispiele, Screenreader-Referenzen und andere nützliche Ressourcen.
+  - : Beinhaltet Code-Beispiele, Bildschirmleser-Referenzen und andere nützliche Ressourcen.
 - [WebAIM Ressourcen](https://webaim.org/resources/)
-  - : Enthält Leitfäden, Checklisten, Tools und mehr.
-- [Web Accessibility Evaluation Tools List](https://www.w3.org/WAI/ER/tools/)
-  - : Beinhaltet eine Liste von Werkzeugen zur Bewertung der Web-Barrierefreiheit.
+  - : Beinhaltet Leitfäden, Checklisten, Tools und mehr.
+- [Liste der Werkzeuge zur Bewertung der Web-Barrierefreiheit](https://www.w3.org/WAI/ER/tools/)
+  - : Beinhaltet eine Liste von Tools zur Bewertung der Barrierefreiheit des Webs.
 - [Lernen Sie barrierefreies Webdesign](https://scrimba.com/learn-accessible-web-design-c031?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
-  - : Der _Learn Accessible Web Design_ Kurs von [Scrimba](https://scrimba.com/?via=mdn) lehrt Sie, wie Sie barrierefreies HTML schreiben, indem Sie interaktive Codier-Herausforderungen lösen und eine reale Website reparieren.
+  - : Der Kurs _Learn Accessible Web Design_ von [Scrimba](https://scrimba.com/?via=mdn) lehrt, wie man zugängliches HTML durch das Lösen interaktiver Programmierherausforderungen und das Beheben einer realen Website schreibt.
 
 {{NextMenu("Learn_web_development/Core/Accessibility/What_is_accessibility", "Learn_web_development/Core")}}

@@ -1,14 +1,14 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Barrierefreiheit"
-short-title: Testen Sie Ihre Fähigkeiten
+short-title: "Test: A11y-Test-Index"
 slug: Learn_web_development/Core/Accessibility/Test_your_skills
 l10n:
-  sourceCommit: c44c4d14527eddf441079e3623abccd711adfc23
+  sourceCommit: 89e8e67d44039717f685a98d8b161f3d1ed1b233
 ---
 
-Diese Seite listet Barrierefreiheits-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
+Diese Seite listet Tests zur Barrierefreiheit auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
 
-## Testen Sie Ihre Barrierefreiheitsfähigkeiten nach Thema
+## Testen Sie Ihre Barrierefähigkeitskenntnisse nach Thema
 
 {{SubpagesWithSummaries}}
 

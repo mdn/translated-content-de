@@ -1,21 +1,23 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: WAI-ARIA"
-short-title: WAI-ARIA
+short-title: "Test: WAI-ARIA"
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/WAI-ARIA
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 89e8e67d44039717f685a98d8b161f3d1ed1b233
 ---
 
-Ziel dieses Fähigkeitstests ist es, Ihnen bei der Bewertung zu helfen, ob Sie unseren Artikel [WAI-ARIA-Grundlagen](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Accessibility/WAI-ARIA_basics","Learn_web_development/Core/Accessibility/Multimedia", "Learn_web_development/Core/Accessibility")}}
+
+Das Ziel dieses Fähigkeitstests ist es, Ihnen dabei zu helfen, zu beurteilen, ob Sie unseren Artikel zu den [WAI-ARIA Grundlagen](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung der Fähigkeitentests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie bitte unseren Leitfaden zur Nutzung von [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## WAI-ARIA 1
 
-In unserer ersten ARIA-Aufgabe präsentieren wir Ihnen einen Abschnitt mit nicht-semantischem Markup, der visuell als Liste gedacht ist. Angenommen, Sie können die verwendeten Elemente nicht ändern, wie können Sie es dann Bildschirmlesegeräten ermöglichen zu verstehen, was es ist?
+Unsere erste ARIA-Aufgabe umfasst einen Abschnitt mit nicht-semantischem Markup, der visuell wie eine Liste aussehen soll. Angenommen, Sie können die verwendeten Elemente nicht ändern, wie können Sie es Nutzern von Screenreadern ermöglichen zu verstehen, was es ist?
 
-Um die Aufgabe zu vervollständigen, fügen Sie einige WAI-ARIA-Semantiken hinzu, damit Bildschirmlesegeräte die `<div>`-Elemente als ungeordnete Liste erkennen.
+Um die Aufgabe zu vervollständigen, fügen Sie einige WAI-ARIA-Semantiken hinzu, um Screenreadern zu ermöglichen, die `<div>`-Elemente als ungeordnete Liste zu erkennen.
 
 <!-- Code shared across examples -->
 
@@ -90,12 +92,12 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## WAI-ARIA 2
 
-In unserer zweiten WAI-ARIA-Aufgabe präsentieren wir ein einfaches Suchformular, und wir möchten, dass Sie ein paar WAI-ARIA-Funktionen hinzufügen, um seine Zugänglichkeit zu verbessern.
+In unserer zweiten WAI-ARIA-Aufgabe präsentieren wir ein einfaches Suchformular, und wir möchten, dass Sie ein paar WAI-ARIA-Funktionen hinzufügen, um dessen Zugänglichkeit zu verbessern.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Fügen Sie ein Attribut hinzu, damit das Suchformular von Bildschirmlesegeräten als separates Landmarke auf der Seite aufgerufen werden kann, um es leichter auffindbar zu machen.
-2. Vergeben Sie dem Sucheingabefeld eine geeignete Beschriftung, ohne explizit eine sichtbare Textbeschriftung zum DOM hinzuzufügen.
+1. Fügen Sie ein Attribut hinzu, damit das Suchformular als separates Landmark auf der Seite von Screenreadern erkannt wird, um es leicht auffindbar zu machen.
+2. Geben Sie dem Sucheingabefeld ein geeignetes Label, ohne explizit ein sichtbares Textlabel in das DOM einzufügen.
 
 ```html live-sample___aria-2
 <form>
@@ -123,9 +125,10 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## WAI-ARIA 3
 
-Für diese letzte WAI-ARIA-Aufgabe kehren wir zu einem Beispiel zurück, das wir bereits im [Test Ihrer Fähigkeiten mit CSS und JavaScript](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript) gesehen haben. Wie zuvor, haben wir eine App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Kasten unter der Liste. Hier beginnen wir mit einer für Maus und Tastatur zugänglichen Version.
+Für diese letzte WAI-ARIA-Aufgabe kehren wir zu einem Beispiel zurück, das wir zuvor im [CSS und JavaScript Fähigkeitstest](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript) gesehen haben.
+Wie zuvor haben wir eine App, die eine Liste von Tiernamen präsentiert. Wenn man auf einen der Tiernamen klickt, erscheint eine weitere Beschreibung dieses Tieres in einem Feld unterhalb der Liste. Hier beginnen wir mit einer version, die sowohl mit Maus als auch mit Tastatur zugänglich ist.
 
-Das Problem, das wir jetzt haben, ist, dass Bildschirmlesegeräte nicht erkennen können, was sich geändert hat, wenn das DOM geändert wird, um eine neue Beschreibung anzuzeigen. Können Sie es so aktualisieren, dass Änderungen an der Beschreibung vom Bildschirmlesegerät angekündigt werden?
+Das Problem ist nun, dass wenn sich das DOM ändert um eine neue Beschreibung anzuzeigen, Screenreader nicht erfassen können, was sich geändert hat. Können Sie es aktualisieren, sodass Änderungen der Beschreibung vom Screenreader angekündigt werden?
 
 ```html live-sample___aria-3
 <section class="preview">
@@ -206,9 +209,11 @@ function handleSelection(e) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es gibt zwei Möglichkeiten, das in dieser Aufgabe beschriebene Problem zu lösen:
+Es gibt zwei Möglichkeiten, das im Rahmen dieser Aufgabe beschriebene Problem zu lösen:
 
-- Fügen Sie ein `aria-live=""` Attribut zum `<div>` der Tierbeschreibung hinzu, um es zu einem Live-Bereich zu machen, sodass, wenn sich ihr Inhalt ändert, der aktualisierte Inhalt von einem Bildschirmlesegerät vorgelesen wird. Der beste Wert ist wahrscheinlich `assertive`, was das Bildschirmlesegerät veranlasst, den aktualisierten Inhalt sofort nach der Änderung vorzulesen. `polite` bedeutet, dass das Bildschirmlesegerät wartet, bis andere Beschreibungen beendet sind, bevor es den geänderten Inhalt vorliest.
-- Fügen Sie ein `role="alert"` Attribut zum `<div>` der Tierbeschreibung hinzu, um es mit den Semantiken eines Alarmkastens zu versehen. Dies hat den gleichen Effekt auf das Bildschirmlesegerät, als würde `aria-live="assertive"` darauf gesetzt.
+- Fügen Sie dem Tierbeschreibungs-`<div>` ein `aria-live=""`-Attribut hinzu, um es zu einer Live-Region zu machen, damit bei Änderungen seines Inhalts der aktualisierte Inhalt von einem Screenreader vorgelesen wird. Der beste Wert ist wahrscheinlich `assertive`, wodurch der Screenreader den aktualisierten Inhalt sofort vorliest, sobald er sich geändert hat. `polite` bedeutet, dass der Screenreader wartet, bis andere Beschreibungen beendet sind, bevor er beginnt, den geänderten Inhalt vorzulesen.
+- Fügen Sie dem Tierbeschreibungs-`<div>` ein `role="alert"`-Attribut hinzu, um es mit den Semantiken einer Warnbox zu versehen. Dies hat den gleichen Effekt auf den Screenreader wie das Setzen von `aria-live="assertive"` darauf.
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Accessibility/WAI-ARIA_basics","Learn_web_development/Core/Accessibility/Multimedia", "Learn_web_development/Core/Accessibility")}}

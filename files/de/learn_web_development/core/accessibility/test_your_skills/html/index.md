@@ -1,21 +1,23 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: HTML-Zugänglichkeit"
-short-title: HTML
+title: "Testen Sie Ihr Wissen: HTML-Barrierefreiheit"
+short-title: "Test: HTML a11y"
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/HTML
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 89e8e67d44039717f685a98d8b161f3d1ed1b233
 ---
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen zu bewerten, ob Sie unseren Artikel [HTML: Eine gute Basis für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML) verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Accessibility/HTML","Learn_web_development/Core/Accessibility/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}
+
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel [HTML: Eine gute Grundlage für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unsere [Anleitung zur Nutzung von Wissenstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## HTML-Zugänglichkeit 1
+## HTML-Barrierefreiheit 1
 
-In dieser Aufgabe prüfen wir Ihr Verständnis von semantischem HTML und warum es gut für die Barrierefreiheit ist. Der gegebene Text ist ein Informationspanel mit Aktionsschaltflächen, aber das HTML ist wirklich schlecht.
+In dieser Aufgabe testen wir Ihr Verständnis von semantischem HTML und warum es gut für die Barrierefreiheit ist. Der gegebene Text ist ein Informationspanel mit Aktionsbuttons, aber das HTML ist wirklich schlecht.
 
-Um die Aufgabe abzuschließen, aktualisieren Sie das Markup, um geeignetes semantisches HTML zu verwenden. Sie müssen sich nicht allzu sehr darum kümmern, genau dasselbe Aussehen und dieselben Textgrößen wiederherzustellen, solange die Semantik gut ist.
+Um die Aufgabe abzuschließen, aktualisieren Sie das Markup, um geeignetes semantisches HTML zu verwenden. Sie müssen sich nicht zu sehr darum kümmern, das _exakt_ gleiche Aussehen und die Textgröße beizubehalten, solange die Semantik gut ist.
 
 <!-- Code shared across examples -->
 
@@ -114,22 +116,22 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 <button>Access forums</button>
 ```
 
-Zusätzliche Punkte für:
+Zusatzpunkte für:
 
-- Nur `<button>` verwenden, nicht `<button class="button">` (wiederholte Semantik ist unnötig) und den CSS-Selektor aktualisieren, um sicherzustellen, dass die Schaltfläche weiterhin die Stile übernimmt.
-- Eine ungeordnete Liste verwenden, keine geordnete Liste — die Liste der Elemente muss nicht wirklich in einer bestimmten Reihenfolge sein.
+- Nur `<button>` zu verwenden, nicht `<button class="button">` (wiederholte Semantik ist unnötig), und die CSS-Selektoren so zu aktualisieren, dass der Button weiterhin die Stile aufgreift.
+- Eine ungeordnete Liste zu verwenden, nicht eine geordnete Liste — die Liste der Elemente muss nicht wirklich in einer bestimmten Reihenfolge sein.
 
 </details>
 
-## HTML-Zugänglichkeit 2
+## HTML-Barrierefreiheit 2
 
-In der zweiten Aufgabe haben Sie ein Formular mit drei Eingabefeldern.
+In der zweiten Aufgabe haben Sie ein Formular, das drei Eingabefelder enthält.
 
 Um die Aufgabe abzuschließen:
 
-1. Verbinden Sie semantisch die Eingabefelder mit ihren Labels.
-2. Nehmen Sie an, dass diese Eingaben Teil eines größeren Formulars sein werden, und umwickeln Sie sie mit einem Element, das sie alle als eine einzige verwandte Gruppe assoziiert.
-3. Geben Sie der Gruppe eine Beschreibung/einen Titel, die/das alle Informationen als persönliche Daten zusammenfasst.
+1. Assoziieren Sie die Eingaben semantisch mit ihren Labels.
+2. Gehen Sie davon aus, dass diese Eingaben Teil eines größeren Formulars sein werden, und umschließen Sie sie in einem Element, das sie alle als eine einzige verwandte Gruppe zusammenführt.
+3. Geben Sie der Gruppe eine Beschreibung/einen Titel, der alle Informationen als persönliche Daten zusammenfasst.
 
 ```html live-sample___html-ally-2
 <form>
@@ -194,15 +196,15 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 </details>
 
-## HTML-Zugänglichkeit 3
+## HTML-Barrierefreiheit 3
 
-In dieser Aufgabe sollen alle Informationslinks im Absatz in gute, zugängliche Links umgewandelt werden.
+In dieser Aufgabe müssen Sie alle Informationslinks im Absatz in gute, zugängliche Links umwandeln.
 
 - Die ersten beiden Links führen einfach zu regulären Webseiten.
 - Der dritte Link führt zu einem PDF, und es ist groß — 8MB.
-- Der vierte Link führt zu einem Word-Dokument, daher benötigt der Benutzer eine Anwendung, um dies zu öffnen.
+- Der vierte Link führt zu einem Word-Dokument, sodass der Benutzer eine Anwendung installiert haben muss, die dies verarbeiten kann.
 
-Um die Aufgabe abzuschließen, aktualisieren Sie die Links entsprechend den oben beschriebenen Anforderungen.
+Um die Aufgabe abzuschließen, aktualisieren Sie die Links entsprechend den obigen Beschreibungen.
 
 ```html-nolint live-sample___html-ally-3
 <p>
@@ -216,7 +218,7 @@ Um die Aufgabe abzuschließen, aktualisieren Sie die Links entsprechend den oben
 ```
 
 > [!NOTE]
-> Die Links im Startcode haben das Attribut `target="_blank"` gesetzt, sodass beim Klicken auf sie, die verlinkten Seiten in einem neuen Tab statt im gleichen geöffnet werden. Dies ist nicht unbedingt best practice, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground-Ausgabe `<iframe>` geöffnet werden, und Ihr Beispielcode nicht verloren geht!
+> Die Links im Startcode haben das Attribut `target="_blank"`, damit sie beim Anklicken versuchen, die verlinkten Seiten in einem neuen Tab zu öffnen, statt im gleichen Tab. Das ist nicht unbedingt beste Praxis, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden und dabei Ihr Beispielcode verloren geht!
 
 {{ EmbedLiveSample("html-ally-3", "100%", 140) }}
 
@@ -241,12 +243,12 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 </details>
 
-## HTML-Zugänglichkeit 4
+## HTML-Barrierefreiheit 4
 
-In unserer letzten Aufgabe zur HTML-Zugänglichkeit erhalten Sie eine Bildergalerie, die einige Zugänglichkeitsprobleme hat. Können Sie sie beheben?
+In unserer letzten HTML-Barrierefreiheitsaufgabe erhalten Sie eine Bildergalerie, die einige Zugänglichkeitsprobleme aufweist. Können Sie sie beheben?
 
-- Das Header-Bild hat ein Zugänglichkeitsproblem, ebenso wie die Galeriebilder.
-- Sie könnten das Header-Bild weiter optimieren, indem Sie es mit CSS für möglicherweise bessere Zugänglichkeit implementieren. Wie würden Sie eine solche Lösung erstellen?
+- Das Headerbild hat ein Zugänglichkeitsproblem, ebenso wie die Galerie-Bilder.
+- Sie könnten das Headerbild weiterentwickeln und es unter Verwendung von CSS implementieren, für möglicherweise bessere Zugänglichkeit. Wie würden Sie eine solche Lösung erstellen?
 
 Aktualisieren Sie den Code, um die oben beschriebenen Probleme zu beheben.
 
@@ -293,10 +295,10 @@ header {
 
 Die Zugänglichkeitsprobleme sind:
 
-1. Das Header-Bild ist dekorativ, benötigt also keinen Alt-Text. Die beste Lösung, wenn Sie dekorative HTML-Bilder verwenden, ist `alt=""` zu setzen, sodass ein Screenreader einfach nichts liest — statt einer Beschreibung oder des Bilddateinamens. Es ist nicht Teil des Inhalts.
-2. Die Galeriebilder benötigen Alt-Text, da sie Teil des Inhalts sind.
+1. Das Headerbild ist dekorativ und benötigt daher keinen Alt-Text. Die beste Lösung, wenn Sie dekorative HTML-Bilder verwenden, ist `alt=""` zu setzen, so dass ein Screenreader einfach nichts vorliest — statt einer Beschreibung oder dem Bilddateinamen. Es ist kein Bestandteil des Inhalts.
+2. Die Galerie-Bilder benötigen Alt-Text und sind Bestandteil des Inhalts.
 
-Das aktualisierte HTML könnte ungefähr so aussehen:
+Das aktualisierte HTML könnte so aussehen:
 
 ```html
 <header>
@@ -315,7 +317,7 @@ Das aktualisierte HTML könnte ungefähr so aussehen:
 </main>
 ```
 
-Es wäre möglicherweise besser, das Hintergrundbild des Headers mit CSS-Hintergrundbildern zu implementieren. Dazu würden Sie das erste `<img>`-Element aus dem Markup entfernen und eine Regel im CSS wie folgt hinzufügen:
+Es wäre möglicherweise besser, das Hintergrund-Headerbild mithilfe von CSS-Hintergrundbildern zu implementieren. Dazu würden Sie das erste `<img>`-Element aus dem Markup entfernen und eine Regel wie diese zum CSS hinzufügen:
 
 ```css
 h1 {
@@ -326,3 +328,5 @@ h1 {
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Accessibility/HTML","Learn_web_development/Core/Accessibility/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}
