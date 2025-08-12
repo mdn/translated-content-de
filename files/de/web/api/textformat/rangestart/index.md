@@ -3,12 +3,12 @@ title: "TextFormat: rangeStart-Eigenschaft"
 short-title: rangeStart
 slug: Web/API/TextFormat/rangeStart
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`rangeStart`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interfaces gibt die Startposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden muss.
+Die **`rangeStart`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Startposition des Textranges an, der mit dem angegebenen Textformat formatiert werden muss.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine {{jsxref("Number")}}.
 
 ### Lesen des zu formatierenden Textbereichs
 
-Das folgende Beispiel zeigt, wie die `textformatupdate`-Ereigniseigenschaften `rangeStart` und `rangeEnd` verwendet werden können, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn Sie ein IME-Fenster zum Zusammenstellen von Text verwenden.
+Das folgende Beispiel zeigt, wie die Eigenschaften `rangeStart` und `rangeEnd` des `textformatupdate`-Ereignisses verwendet werden, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
 
 ```html
 <div id="editor"></div>
@@ -27,7 +27,7 @@ Das folgende Beispiel zeigt, wie die `textformatupdate`-Ereigniseigenschaften `r
 ```css hidden
 #editor {
   height: 200px;
-  background: #eee;
+  background: #eeeeee;
 }
 ```
 
@@ -57,4 +57,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.

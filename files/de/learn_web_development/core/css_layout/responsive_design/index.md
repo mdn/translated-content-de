@@ -1,80 +1,80 @@
 ---
-title: Responsives Webdesign
+title: Responsive Webdesign
 slug: Learn_web_development/Core/CSS_layout/Responsive_Design
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Grids", "Learn_web_development/Core/CSS_layout/Media_queries", "Learn_web_development/Core/CSS_layout")}}
 
-_Responsives Webdesign_ (RWD) ist ein Ansatz im Webdesign, um Webseiten so zu gestalten, dass sie auf allen Bildschirmgrößen und Auflösungen gut wiedergegeben werden und eine gute Benutzerfreundlichkeit gewährleisten. Es ist der Weg, um für ein Web mit mehreren Geräten zu entwerfen. In diesem Artikel helfen wir Ihnen, einige Techniken zu verstehen, die verwendet werden können, um es zu meistern.
+_Responsive Webdesign_ (RWD) ist ein Ansatz für Webdesign, bei dem Webseiten auf allen Bildschirmgrößen und -auflösungen gut dargestellt werden und gleichzeitig eine gute Benutzerfreundlichkeit gewährleistet ist. Es ist die Art und Weise, wie man für das Web auf verschiedenen Geräten gestaltet. In diesem Artikel werden wir Ihnen helfen, einige Techniken zu verstehen, die zur Beherrschung verwendet werden können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturierung von Inhalten mit HTML</a
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content">
+            Strukturierung von Inhalten mit HTML</a
         >,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>,
-        <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegende Text- und Schriftgestaltung</a>,
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">grundlegenden Konzepten des CSS-Layouts</a>.
+        <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegendes Text- und Schriftart-Styling</a>,
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">Grundlegende Konzepte des CSS-Layouts</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was responsives Design ist — Weblayouts so zu gestalten, dass sie flexibel sind und gut über verschiedene Geräteschirmgrößen, Auflösungen usw. funktionieren.</li>
+          <li>Was responsives Design ist — Weblayouts so zu gestalten, dass sie flexibel sind und gut auf verschiedenen Gerätebildschirmgrößen, Auflösungen usw. funktionieren.</li>
           <li>Die Beziehung zwischen modernen Layout-Tools wie Grid und Flexbox und responsivem Design.</li>
-          <li>Die Konzepte hinter der Verwendung von Media Queries für responsives Design, einschließlich Mobile-First und Breakpoints.</li>
-          <li>Warum <code>&lt;meta viewport=""&gt;</code> benötigt wird, um Webdokumente auf mobilen Geräten korrekt anzuzeigen.</li>
+          <li>Die Konzepte hinter der Verwendung von Media Queries für responsives Design, einschließlich mobiler Erstausrichtung und Breakpoints.</li>
+          <li>Warum <code>&lt;meta viewport=""&gt;</code> benötigt wird, um Webdokumente auf mobilen Geräten entsprechend anzeigen zu lassen.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Vorläufer des responsiven Designs: Mobiles Webdesign
+## Vorläufer des responsiven Designs: Mobile Webdesign
 
-Bevor responsives Webdesign der Standardansatz für die Erstellung von Websites wurde, die auf verschiedenen Gerätetypen funktionieren, sprachen Webentwickler oft über mobiles Webdesign, mobile Webentwicklung oder manchmal auch mobile-friendly Design. Diese sind im Grunde dasselbe wie responsives Webdesign — die Ziele sind sicherzustellen, dass Websites hinsichtlich Layout, Inhalt (Text und Medien) und Leistung gut über Geräte mit unterschiedlichen physischen Eigenschaften (Bildschirmgröße, Auflösung) funktionieren.
+Bevor responsive Webdesign zum Standardansatz wurde, um Websites geräteübergreifend funktionstüchtig zu machen, sprachen Webentwickler über Mobile Webdesign, Mobile Webentwicklung oder manchmal sogar mobile-freundliches Design. Diese Konzepte sind im Grunde dasselbe wie responsives Webdesign — die Ziele bestehen darin sicherzustellen, dass Websites geräteübergreifend mit unterschiedlichen physischen Merkmalen (Bildschirmgröße, Auflösung) hinsichtlich Layout, Content (Text und Medien) und Leistung gut funktionieren.
 
-Der Unterschied liegt hauptsächlich in den beteiligten Geräten und den verfügbaren Technologien zur Erstellung von Lösungen:
+Der Unterschied liegt hauptsächlich an den beteiligten Geräten und den verfügbaren Technologien zur Erstellung von Lösungen:
 
-- Früher sprachen wir über Desktop oder Mobilgeräte, aber jetzt gibt es viele verschiedene Gerätetypen wie Desktop, Laptop, Mobilgeräte, Tablets, Uhren usw. Statt nur ein paar verschiedene Bildschirmgrößen zu berücksichtigen, müssen wir jetzt Websites so gestalten, dass sie für häufige Bildschirmgrößen und Auflösungen sowie unbekannte Variablen geeignet sind.
-- Mobile Geräte waren früher leistungsschwach in Bezug auf CPU/GPU und verfügbare Bandbreite. Einige unterstützten kein CSS oder sogar HTML, und daher war es üblich, serverseitiges Browser-Sniffing durchzuführen, um den Gerätetyp/Browsertyp zu bestimmen, bevor dann eine Site bereitgestellt wurde, mit der das Gerät umgehen konnte. Mobile Geräte erhielten oft wirklich einfache, grundlegende Erlebnisse, weil dies alles war, was sie verarbeiten konnten. Heutzutage können mobile Geräte dieselben Technologien wie Desktop-Computer handhaben, sodass solche Techniken weniger verbreitet sind.
-  - Sie sollten immer noch die in diesem Artikel besprochenen Techniken verwenden, um mobilen Nutzern ein geeignetes Erlebnis zu bieten, da es immer noch Einschränkungen wie Akkulaufzeit und Bandbreite gibt, die zu berücksichtigen sind.
-  - Benutzererfahrung ist nach wie vor ein Anliegen. Ein mobiler Nutzer einer Reisewebsite möchte beispielsweise vielleicht nur die Flugzeiten und Verspätungsinformationen abrufen und nicht mit einem 3D-animierten Globus samt Flugrouten und Firmengeschichte konfrontiert werden.
-- Moderne Technologien sind viel besser für die Erstellung von responsiven Erlebnissen geeignet. Beispielsweise können [Responsive Bilder/Medientechnologien](#responsive_imagesmedia) jetzt geeignete Medien an verschiedene Geräte ausliefern, ohne auf Techniken wie serverseitiges Sniffing angewiesen zu sein.
+- Früher sprachen wir über Desktop oder Mobile, aber jetzt gibt es viele verschiedene Gerätetypen wie Desktop, Laptop, Mobile, Tablets, Uhren usw. Statt nur wenige Bildschirmgrößen zu berücksichtigen, müssen wir jetzt Websites defensiv gestalten, um gängige Bildschirmgrößen und Auflösungen sowie Unbekanntes zu berücksichtigen.
+- Mobile Geräte hatten früher eine geringere Leistungsfähigkeit in Bezug auf CPU/GPU und verfügbare Bandbreite. Manche unterstützten kein CSS oder sogar HTML, und es war üblich, serverseitiges Browser-Sniffing durchzuführen, um den Gerätetyp/Browsers zu bestimmen, bevor eine für das Gerät geeignete Website bereitgestellt wurde. Mobile Geräte erhielten oft wirklich einfache, grundlegende Erfahrungen, weil sie nicht mehr bewältigen konnten. Heutzutage können mobile Geräte die gleichen Technologien wie Desktop-Computer bewältigen, sodass solche Techniken weniger verbreitet sind.
+  - Sie sollten dennoch die in diesem Artikel besprochenen Techniken verwenden, um mobilen Nutzern ein geeignetes Erlebnis zu bieten, da es immer noch Einschränkungen wie Akkulaufzeit und Bandbreite gibt, auf die geachtet werden muss.
+  - Benutzererfahrung ist immer noch ein Anliegen. Ein mobiler Nutzer einer Reise-Website möchte vielleicht nur Flugzeiten und Verspätungsinformationen überprüfen und nicht einen 3D-animierten Globus mit Flugrouten und Ihrer Unternehmensgeschichte sehen.
+- Moderne Technologien sind viel besser für die Schaffung responsiver Erlebnisse. Beispielsweise ermöglichen [responsive Bild-/Medientechnologien](#responsive_imagesmedia) nun, dass geeignete Medien an verschiedene Geräte geliefert werden, ohne auf Techniken wie serverseitiges Sniffing angewiesen zu sein.
 
-## Einführung in das responsive Webdesign
+## Einführung in responsives Webdesign
 
-HTML ist von Natur aus responsiv oder _flüssig_. Wenn Sie eine Webseite erstellen, die nur HTML enthält, ohne CSS, und das Fenster ändern, passt der Browser den Text automatisch an, um in den Viewport zu passen.
+HTML ist grundlegend responsiv oder _fluid_. Wenn Sie eine Webseite erstellen, die nur HTML enthält, ohne CSS, und das Fenster ändern, reflowt der Browser den Text automatisch, um in den Viewport zu passen.
 
-Obwohl das standardmäßige responsive Verhalten nach keiner Lösung klingt, können lange Textzeilen, die auf einem breiten Monitor im Vollbildmodus angezeigt werden, schwer zu lesen sein. Dieses Problem kann mit CSS gelöst werden, zum Beispiel durch Erstellen schmaler Spalten, um die Zeilenlänge zu begrenzen. Dies kann jedoch neue Probleme für Benutzer verursachen, die ihr Browserfenster verkleinern oder die Website auf einem mobilen Gerät ansehen — die Spalten erscheinen gequetscht und werden schwerer lesbar.
+Auch wenn das standardmäßige responsive Verhalten so klingen mag, dass keine Lösung benötigt wird, können lange Textzeilen, die im Vollbildmodus auf einem breiten Monitor angezeigt werden, schwer zu lesen sein. Dieses Problem kann mit CSS gelöst werden, indem z. B. schmale Spalten erstellt werden, um die Zeilenlänge zu begrenzen. Dies kann jedoch neue Probleme für Benutzer schaffen, die ihr Browserfenster verkleinern oder die Seite auf einem mobilen Gerät ansehen — die Spalten werden eingeengt und schwerer zu lesen.
 
-![Ein Layout mit zwei in eine Mobilgröße gequetschten Spalten.](mdn-rwd-liquid.png)
+![Ein Layout mit zwei Spalten, die in einen mobilen Größenviewport zusammengequetscht sind.](mdn-rwd-liquid.png)
 
-Das Erstellen einer nicht skalierbaren Webseite durch Festlegen einer festen Breite funktioniert ebenfalls nicht; dies führt zu Scrollbalken auf schmalen Geräten und zu viel leerem Raum auf breiten Bildschirmen.
+Das Erstellen einer nicht resizable Webseite durch Festlegen einer festen Breite funktioniert ebenfalls nicht; dies führt zu Scrollleisten auf schmalen Geräten und zu viel leerem Raum auf breiten Bildschirmen.
 
-Responsives Webdesign oder RWD ist ein Designansatz, der das gesamte Spektrum an verfügbaren Geräten und Gerätegrößen anspricht und eine automatische Anpassung an den Bildschirm ermöglicht, unabhängig davon, ob der Inhalt auf einem Tablet, Telefon, Fernseher oder auf einer Uhr angezeigt wird.
+Responsive Webdesign, oder RWD, ist ein Designansatz, der das gesamte Spektrum der verfügbaren Geräte und Gerätegrößen berücksichtigt und eine automatische Anpassung an den Bildschirm ermöglicht, unabhängig davon, ob der Inhalt auf einem Tablet, Telefon, Fernseher oder einer Uhr betrachtet wird.
 
-Responsives Webdesign ist keine separate Technologie — es ist ein Ansatz. Es ist ein Begriff, der verwendet wird, um eine Reihe von Best Practices zu beschreiben, die verwendet werden, um ein Layout zu erstellen, das auf jedes Gerät reagieren kann, das zum Anzeigen des Inhalts verwendet wird.
+Responsive Webdesign ist keine separate Technologie — es ist ein Ansatz. Es ist ein Begriff, der eine Reihe von Best Practices beschreibt, die verwendet werden, um ein Layout zu erstellen, das auf jedes Gerät reagieren kann, das zum Anzeigen des Inhalts verwendet wird.
 
-Der Begriff _Responsive Design_, [von Ethan Marcotte 2010 geprägt](https://alistapart.com/article/responsive-web-design/), beschreibt die Verwendung von flüssigen Grids, flüssigen Bildern und Media Queries, um responsive Inhalte zu erstellen.
+Der Begriff _responsive Design_, [geprägt von Ethan Marcotte im Jahr 2010](https://alistapart.com/article/responsive-web-design/), beschrieb die Verwendung von fluiden Grids, fluiden Bildern und Media Queries, um responsive Inhalte zu erstellen.
 
-Zu dieser Zeit war die Empfehlung, CSS `float` für das Layout zu verwenden und Media Queries zu nutzen, um die Browserbreite abzufragen und Layouts für unterschiedliche Breakpoints zu erstellen. Flüssige Bilder sind so eingestellt, dass sie die Breite ihres Containers nicht überschreiten; sie haben ihre `max-width`-Eigenschaft auf `100%` gesetzt. Flüssige Bilder verkleinern sich, wenn ihre enthaltene Spalte schmaler wird, wachsen jedoch nicht über ihre intrinsische Größe hinaus, wenn die Spalte wächst. Dies ermöglicht es einem Bild, sich so zu verkleinern, dass es in seinen Inhalt passt, statt ihn zu überlappen, aber es nicht größer zu machen und somit verpixelt zu werden, sollte der Container breiter als das Bild werden.
+Zu der Zeit war die Empfehlung, CSS `float` für das Layout zu verwenden und Media Queries zu nutzen, um die Browserbreite zu ermitteln und Layouts für verschiedene Breakpoints zu erstellen. Fluide Bilder sind so eingestellt, dass sie nicht breiter als ihr Container sind; sie haben ihre `max-width`-Eigenschaft auf `100%` gesetzt. Fluide Bilder verkleinern sich, wenn ihre enthaltende Spalte enger wird, wachsen jedoch nicht über ihre intrinsische Größe hinaus, wenn die Spalte wächst. Dadurch kann ein Bild sich verkleinern, um in seinen Inhalt zu passen, ihn aber nicht überschreiten und pixelig werden, wenn der Container breiter wird als das Bild.
 
-Moderne CSS-Layoutmethoden sind von Natur aus responsiv, und seit der Veröffentlichung von Marcottes Artikel haben wir eine Vielzahl von Funktionen in die Webplattform integriert, um das Design von responsiven Seiten zu erleichtern.
+Moderne CSS-Layout-Methoden sind von Natur aus responsive und seit der Veröffentlichung von Marcottes Artikel haben wir eine Vielzahl von Funktionen in die Webplattform integriert, um die Gestaltung responsiver Websites zu erleichtern.
 
-Der Rest dieses Artikels erklärt die verschiedenen Funktionen der Webplattform, die Sie verwenden könnten, wenn Sie eine responsive Seite erstellen.
+Der Rest dieses Artikels wird die verschiedenen Funktionen der Webplattform erläutern, die Sie bei der Erstellung einer responsiven Website verwenden könnten.
 
 ## Media Queries
 
-[Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermöglichen es uns, eine Reihe von Tests (zum Beispiel, ob der Bildschirm des Benutzers größer als eine bestimmte Breite oder Auflösung ist) durchzuführen und CSS selektiv anzuwenden, um die Seite passend für die Bedürfnisse des Benutzers zu gestalten.
+[Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermöglichen es uns, eine Reihe von Tests durchzuführen (zum Beispiel, ob der Bildschirm des Benutzers größer als eine bestimmte Breite oder Auflösung ist) und selektiv CSS anzuwenden, um die Seite den Bedürfnissen des Benutzers entsprechend zu gestalten.
 
-Zum Beispiel prüft die folgende Media Query, ob die aktuelle Webseite als Bildschirmmedium angezeigt wird (also kein gedrucktes Dokument) und der Viewport mindestens `80rem` breit ist. Die `.container`-Regel wird nur angewendet, wenn diese beiden Bedingungen wahr sind.
+Zum Beispiel prüft die folgende Media Query, ob die aktuelle Webseite als Bildschirmmedium angezeigt wird (daher kein gedrucktes Dokument) und ob der Viewport mindestens `80rem` breit ist. Die `.container`-Regel wird nur angewendet, wenn diese beiden Bedingungen erfüllt sind.
 
 ```css
 @media screen and (width >= 80rem) {
@@ -84,32 +84,32 @@ Zum Beispiel prüft die folgende Media Query, ob die aktuelle Webseite als Bilds
 }
 ```
 
-Sie können innerhalb eines Stylesheets mehrere Media Queries hinzufügen, um Ihr gesamtes Layout oder Teile davon an die unterschiedlichen Bildschirmgrößen anzupassen. Die Punkte, an denen eine Media Query eingeführt wird und das Layout sich ändert, werden als _Breakpoints_ bezeichnet.
+Sie können mehrere Media Queries in einem Stylesheet hinzufügen und Ihr gesamtes Layout oder Teile davon anpassen, um die verschiedenen Bildschirmgrößen optimal zu unterstützen. Die Punkte, an denen eine Media Query eingeführt wird und sich das Layout ändert, sind als _Breakpoints_ bekannt.
 
-Ein üblicher Ansatz bei der Verwendung von Media Queries ist es, ein einfaches einspaltiges Layout für Geräte mit schmalem Bildschirm (zum Beispiel Mobiltelefone) zu erstellen und dann breitere Bildschirme zu prüfen und ein mehrspaltiges Layout einzuführen, wenn Sie wissen, dass Sie genügend Bildschirmbreite haben, um es zu handhaben. Das Entwerfen für mobile Geräte zuerst wird als **Mobile First**-Design bezeichnet.
+Ein gebräuchlicher Ansatz bei der Verwendung von Media Queries ist die Erstellung eines einfachen einspaltigen Layouts für Geräte mit schmalem Bildschirm (zum Beispiel Mobiltelefone), um dann für breitere Bildschirme zu prüfen und ein mehrspaltiges Layout zu implementieren, wenn Sie wissen, dass genügend Bildschirmbreite vorhanden ist, um es zu handhaben. Das Design für Mobile zuerst zu gestalten, wird als **Mobile First**-Design bezeichnet.
 
-Wenn Sie Breakpoints verwenden, wird empfohlen, Media Query Breakpoints mit [relativen Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units) statt mit absoluten Größen eines einzelnen Geräts zu definieren.
+Wenn Breakpoints verwendet werden, wird empfohlen, die Media Query-Breakpoints mit [relativen Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units) anstatt absoluter Größen eines einzelnen Geräts zu definieren.
 
-Es gibt verschiedene Ansätze für die Stile, die innerhalb eines Media Query-Blocks definiert sind; diese reichen von der Verwendung von Media Queries, um Stylesheets je nach Browsergröße mit {{htmlelement("link")}} zu laden, bis hin zur Verwendung von benutzerdefinierten Eigenschaftenvariablen, um Werte zu speichern, die jedem Breakpoint zugeordnet sind.
+Es gibt verschiedene Ansätze für die innerhalb eines Media Query-Blocks definierten Stile; diese reichen von der Verwendung von Media Queries, um {{htmlelement("link")}} Stylesheets basierend auf Browserspannweite zu verknüpfen, bis zur Aufnahme von nur benutzerdefinierten Eigenschaftsvariablen, um Werte zu speichern, die mit jedem Breakpoint verbunden sind.
 
-Media Queries können beim RWD helfen, sind jedoch keine Voraussetzung. Flexible Grids, relative Einheiten und minimale und maximale Einheit-Werte können auch ohne Media Queries verwendet werden.
+Media Queries können bei RWD helfen, sind aber nicht zwingend erforderlich. Flexible Grids, relative Einheiten und Minimum- und Maximum-Werte können ohne Media Queries verwendet werden.
 
 > [!NOTE]
-> Scrimba bietet ein Tutorial namens [Aside: Media Queries](https://scrimba.com/frontend-path-c0j/~0j3?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> an, das eine interaktive Einführung in Media Queries plus eine Herausforderung bietet, um zu testen, ob Sie die Grundlagen verstanden haben.
+> Scrimba bietet ein Tutorial namens [Aside: Media queries](https://scrimba.com/frontend-path-c0j/~0j3?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>, das eine interaktive Einführung in Media Queries bietet, sowie eine Herausforderung, um sicherzustellen, dass Sie die Grundlagen verstanden haben.
 
 ## Responsive Layout-Technologien
 
-Responsive Seiten basieren auf flexiblen Grids, was bedeutet, dass Sie nicht jede mögliche Gerätegröße mit pixelgenauen Layouts beachten müssen.
+Responsive Websites basieren auf flexiblen Grids, was bedeutet, dass Sie nicht jede mögliche Gerätegröße mit pixelgenauen Layouts anvisieren müssen.
 
-Durch die Verwendung eines flexiblen Grids können Sie ein Feature ändern oder einen Breakpoint einfügen und das Design an dem Punkt ändern, an dem der Inhalt anfängt, schlecht auszusehen. Beispielsweise können Sie {{cssxref('columns')}} verwenden, um sicherzustellen, dass Zeilenlängen bei zunehmender Bildschirmgröße nicht unlesbar lang werden; wenn eine Box mit zwei Wörtern pro Zeile gequetscht wird, wenn sie schmaler wird, können Sie einen Breakpoint setzen.
+Durch die Verwendung eines flexiblen Grids können Sie eine Funktion ändern oder einen Breakpoint hinzufügen und das Design an dem Punkt ändern, an dem der Inhalt schlecht aussieht. Zum Beispiel, um sicherzustellen, dass Zeilenlängen mit zunehmender Bildschirmgröße nicht schwer lesbar werden, können Sie {{cssxref('columns')}} verwenden; wenn eine Box mit zwei Wörtern in jeder Zeile bei Verkleinerung gequetscht aussieht, können Sie einen Breakpoint setzen.
 
 Mehrere Layout-Methoden — einschließlich [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) und [CSS Grid](/de/docs/Learn_web_development/Core/CSS_layout/Grids) — sind standardmäßig responsiv. Sie gehen alle davon aus, dass Sie versuchen, ein flexibles Grid zu erstellen und bieten Ihnen einfachere Möglichkeiten, dies zu tun.
 
 ### Flexbox
 
-Bei Flexbox schrumpfen oder wachsen Flex-Elemente und verteilen den Raum zwischen den Elementen entsprechend dem Platz in ihrem Container. Durch Ändern der Werte für `flex-grow` und `flex-shrink` können Sie angeben, wie sich die Elemente verhalten sollen, wenn sie mehr oder weniger Platz um sich herum haben.
+In Flexbox schrumpfen oder wachsen Flex-Items und verteilen den Raum zwischen den Elementen je nach Platz in ihrem Container. Durch Ändern der Werte für `flex-grow` und `flex-shrink` können Sie angeben, wie die Elemente sich verhalten sollen, wenn sie auf mehr oder weniger Platz stoßen.
 
-Im unten stehenden Beispiel nehmen die Flex-Elemente jeweils den gleichen Platz im Flex-Container ein, indem sie die Abkürzung `flex: 1` verwenden, wie bereits besprochen (siehe [Flexbox: Flexible Größenanpassung von Flex-Elementen](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#flexible_sizing_of_flex_items)).
+Im folgenden Beispiel nimmt jedes der Flex-Items eine gleichmäßige Menge an Platz im Flex-Container ein, wobei die Kurzschreibweise von `flex: 1` verwendet wird, wie zuvor besprochen (siehe [Flexbox: Flexible Größenanpassung von Flex-Items](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#flexible_sizing_of_flex_items)).
 
 ```css
 .container {
@@ -121,7 +121,7 @@ Im unten stehenden Beispiel nehmen die Flex-Elemente jeweils den gleichen Platz 
 }
 ```
 
-Hier ist, wie wir Flexbox mit einer Media Query für ein responsives Design verwenden könnten.
+So könnte Flexbox in Kombination mit einer Media Query für responsives Design verwendet werden.
 
 ```html live-sample___flex-based-rwd
 <div class="wrapper">
@@ -154,7 +154,7 @@ body {
   font: 1.2em / 1.5 sans-serif;
   margin: 20px;
   padding: 0;
-  background-color: #eee;
+  background-color: #eeeeee;
 }
 .wrapper {
   max-width: 960px;
@@ -186,11 +186,11 @@ body {
 
 {{EmbedLiveSample("flex-based-rwd", "", "550px")}}
 
-Ändern Sie die Größe Ihres Browserfensters. Das Layout wechselt zwischen einem einspaltigen und einem zweispaltigen Layout, wenn die Größe des obigen Beispiels den `600px`-Breitenschwellenwert überschreitet.
+Ändern Sie die Größe Ihres Browserfensters. Das Layout ändert sich zwischen einem einspaltigen und einem zweispaltigen Layout, wenn die Größe des obigen Beispiels die `600px` breite Schwelle überschreitet.
 
 ### CSS Grid
 
-Im CSS Grid Layout ermöglicht die `fr`-Einheit die Verteilung des verfügbaren Platzes über die Grid-Tracks. Das nächste Beispiel erstellt einen Grid-Container mit drei Tracks, die auf `1fr` gesetzt sind. Dies erstellt drei Spaltentracks, die jeweils einen Teil des verfügbaren Platzes im Container einnehmen. Sie haben diesen Ansatz bereits betrachtet (siehe [Flexible Grids mit der fr-Einheit](/de/docs/Learn_web_development/Core/CSS_layout/Grids#flexible_grids_with_the_fr_unit) für eine Wiederholung).
+Im CSS-Grid-Layout ermöglicht die `fr`-Einheit die Verteilung des verfügbaren Raumes über die Grid-Tracks. Das nächste Beispiel erstellt einen Grid-Container mit drei Tracks, die jeweils auf `1fr` gesetzt sind. Dies erzeugt drei Spalten-Tracks, die jeweils einen Teil des verfügbaren Raumes im Container einnehmen. Sie haben diesen Ansatz bereits betrachtet (siehe [Flexibles Grid mit der fr-Einheit](/de/docs/Learn_web_development/Core/CSS_layout/Grids#flexible_grids_with_the_fr_unit) für eine Wiederholung).
 
 ```css
 .container {
@@ -199,7 +199,7 @@ Im CSS Grid Layout ermöglicht die `fr`-Einheit die Verteilung des verfügbaren 
 }
 ```
 
-Hier ist, wie wir Grid-Layout mit einer Media Query für ein responsives Design verwenden könnten.
+So könnte das Grid-Layout mit einer Media Query für responsives Design verwendet werden.
 
 ```html live-sample___grid-based-rwd
 <div class="wrapper">
@@ -232,7 +232,7 @@ body {
   font: 1.2em / 1.5 sans-serif;
   margin: 20px;
   padding: 0;
-  background-color: #eee;
+  background-color: #eeeeee;
 }
 .wrapper {
   max-width: 960px;
@@ -257,11 +257,11 @@ body {
 
 {{EmbedLiveSample("grid-based-rwd", "", "550px")}}
 
-Auch hier sollten Sie Ihr Browserfenster ändern — Sie sollten sehen, wie sich das Layoutbeispiel bei Erreichen des `600px`-Breitenschwellenwerts ändert, ähnlich wie das vorherige Beispiel.
+Erneut probieren Sie, die Größe Ihres Browserfensters zu ändern — Sie sollten sehen, dass sich das Beispiel-Layout an der `600px` breiten Schwelle ändert, genauso wie beim vorherigen Beispiel.
 
 ## Responsive Bilder/Medien
 
-Um sicherzustellen, dass Medien niemals größer als ihr responsiver Container sind, kann der folgende Ansatz verwendet werden:
+Um sicherzustellen, dass Medien niemals größer als ihr responsiver Container sind, kann folgender Ansatz verwendet werden:
 
 ```css
 img,
@@ -271,24 +271,24 @@ video {
 }
 ```
 
-Dies skaliert Medienelemente so, dass sie niemals ihre Container überlaufen.
+Dieses skaliert Medienelemente so, dass sie nie über ihre Container hinausfließen.
 
 > [!NOTE]
-> Das Verwenden eines großen Bildes und dessen Herunterskalierung, um auf kleinen Geräten zu passen, verschwendet Bandbreite, indem Bilder heruntergeladen werden, die größer sind als benötigt. Es kann auch schlecht aussehen — ein Querformatbild zum Beispiel könnte auf einem Breitbildmonitor gut aussehen, aber auf einem mobilen Gerät schwer erkennbar sein, das eher für ein Hochformatbild geeignet wäre. Solche Probleme können mit dem {{htmlelement("picture")}}-Element und den `srcset`- und `sizes`-Attributen von {{htmlelement("img")}} gelöst werden. Dies sind erweiterte Funktionen, die über den Umfang dieses Kurses hinausgehen, aber Sie finden einen detaillierten Leitfaden unter [Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images).
+> Die Verwendung eines einzelnen großen Bildes und dessen Herunterskalierung, um auf kleine Geräte zu passen, verschwendet Bandbreite durch das Herunterladen größerer Bilder als nötig. Es kann auch schlecht aussehen — ein Landschaftsbild könnte beispielsweise auf einem Breitbildmonitor gut aussehen, aber auf einem mobilen Gerät schwer zu sehen sein, das ein Hochformat besser geeignet wäre. Solche Probleme können durch die Verwendung des {{htmlelement("picture")}}-Elements und der {{htmlelement("img")}}-Attribute `srcset` und `sizes` gelöst werden. Diese sind fortgeschrittene Funktionen, die außerhalb des Rahmens dieses Kurses liegen, aber Sie können ein detailliertes Handbuch unter [Responsive images](/de/docs/Web/HTML/Guides/Responsive_images) finden.
 
 Weitere nützliche Tipps:
 
-- Achten Sie darauf, ein geeignetes Bildformat für Ihre Website-Bilder zu verwenden (wie PNG oder JPG) und optimieren Sie die Dateigröße mit einem Grafikeditor, bevor Sie sie auf Ihre Website stellen.
-- Sie können CSS-Funktionen wie [Verläufe](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) und [Schatten](/de/docs/Web/CSS/box-shadow) verwenden, um visuelle Effekte ohne Bilder zu implementieren.
-- Sie können Media Queries im Media-Attribut auf {{htmlelement("source")}}-Elementen verwenden, die in {{htmlelement("video")}}/{{htmlelement("audio")}}-Elementen verschachtelt sind, um geeignete Video-/Audio-Dateien für verschiedene Geräte bereitzustellen (responsives Video/Audio).
+- Stellen Sie sicher, dass Sie ein geeignetes Bildformat für Ihre Website-Bilder verwenden (wie PNG oder JPG), und optimieren Sie die Dateigröße mit einem Grafikeditor, bevor Sie sie auf Ihre Website stellen.
+- Sie können CSS-Funktionen wie [Verläufe](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) und [Schatten](/de/docs/Web/CSS/box-shadow) nutzen, um visuelle Effekte ohne Bilder zu implementieren.
+- Sie können Media Queries innerhalb des Media-Attributs auf {{htmlelement("source")}}-Elementen nutzen, die innerhalb von {{htmlelement("video")}}/{{htmlelement("audio")}}-Elementen geschachtelt sind, um Video-/Audio-Dateien für verschiedene Geräte geeignet bereitzustellen (responsive Video/Audio).
 
 ## Responsive Typografie
 
-Responsive Typografie beschreibt die Anpassung der Schriftgrößen innerhalb von Media Queries oder die Verwendung von Viewporteinheiten, um kleinere oder größere Mengen an Bildschirmfläche widerzuspiegeln.
+Responsive Typografie beschreibt die Änderung der Schriftgrößen innerhalb von Media Queries oder die Nutzung von Viewport-Einheiten, um geringere oder größere Mengen an Bildschirmfläche widerzuspiegeln.
 
 ### Verwendung von Media Queries für responsive Typografie
 
-In diesem Beispiel möchten wir unsere Überschrift der Stufe 1 auf `4rem` setzen, was bedeutet, dass sie viermal so groß wie unsere Basis-Schriftgröße ist. Das ist eine wirklich große Überschrift! Wir möchten diese Jumbo-Überschrift nur auf größeren Bildschirmgrößen verwenden, daher geben wir der Überschrift zuerst eine kleinere Größe von `2rem` und verwenden dann Media Queries, um sie mit der größeren Größe zu überschreiben, wenn wir wissen, dass der Benutzer über eine Bildschirmbreite von mindestens `1200px` verfügt.
+In diesem Beispiel möchten wir unsere Überschrift der Stufe 1 auf `4rem` setzen, was bedeutet, dass sie viermal so groß ist wie unsere Basis-Schriftgröße. Das ist eine wirklich große Überschrift! Wir wollen diese große Überschrift nur bei größeren Bildschirmgrößen, daher geben wir der Überschrift zuerst eine kleinere Größe von `2rem`, dann verwenden wir Media Queries, um sie mit der größeren Größe zu überschreiben, wenn wir wissen, dass der Benutzer eine Bildschirmbreite von mindestens `1200px` hat.
 
 ```css
 html {
@@ -306,7 +306,7 @@ h1 {
 }
 ```
 
-Das nächste Beispiel ist eine modifizierte Version unseres früheren responsiven Grid-Beispiels, das eine responsive Überschrift mit der beschriebenen Methode enthält. Auf Mobilgeräten ist die Überschrift kleiner, aber auf dem Desktop sehen wir die größere Überschriftengröße:
+Das nächste Beispiel ist eine modifizierte Version unseres vorherigen responsiven Grid-Beispiels, das eine responsive Überschrift mit der beschriebenen Methode beinhaltet. Auf mobilen Geräten ist die Überschrift kleiner, aber auf dem Desktop sehen wir die größere Schriftgröße:
 
 ```html live-sample___type-rwd
 <div class="wrapper">
@@ -347,7 +347,7 @@ body {
     sans-serif;
   margin: 20px;
   padding: 0;
-  background-color: #eee;
+  background-color: #eeeeee;
 }
 .wrapper {
   max-width: 960px;
@@ -379,13 +379,13 @@ h1 {
 
 {{EmbedLiveSample("type-rwd", "", "550px")}}
 
-Wie bei früheren Beispielen sollten Sie die Breite des Browserfensters ändern und beachten, wie nicht nur das Layout sich bei Erreichen des `600px`-Breitenschwellenwerts ändert, sondern auch die Überschriftengröße.
+Wie bei den vorherigen Beispielen, ändern Sie die Breite des Browserfensters und beachten Sie, wie nicht nur das Layout an der `600px` breiten Schwelle ändert, sondern auch die Schriftgröße der Überschrift.
 
-Wie dieser Ansatz für die Typografie zeigt, müssen Sie Media Queries nicht nur einschränken, um das Layout der Seite zu ändern. Sie können verwendet werden, um jedes Element zu optimieren, um es bei alternativen Bildschirmgrößen benutzerfreundlicher oder attraktiver zu machen.
+Wie dieser Ansatz zur Typografie zeigt, müssen Sie Media Queries nicht nur auf die Änderung des Layouts der Seite beschränken. Sie können verwendet werden, um jedes Element anzupassen, um es auf alternativen Bildschirmgrößen benutzerfreundlicher oder attraktiver zu machen.
 
-### Verwendung von Viewporteinheiten für responsive Typografie
+### Verwendung von Viewport-Einheiten für responsive Typografie
 
-Viewporteinheiten `vw` können auch verwendet werden, um responsive Typografie zu ermöglichen, ohne die Notwendigkeit, Breakpoints mit Media Queries zu setzen. `1vw` entspricht einem Prozent der Viewport-Breite, was bedeutet, dass, wenn Sie Ihre Schriftgröße mit `vw` festlegen, sie immer in Beziehung zur Größe des Viewports steht.
+Viewport-Einheiten `vw` können auch genutzt werden, um responsive Typografie zu ermöglichen, ohne Breakpoints mit Media Queries setzen zu müssen. `1vw` entspricht einem Prozent der Viewport-Breite, was bedeutet, dass wenn Sie Ihre Schriftgröße mit `vw` setzen, sie immer in Bezug auf die Größe des Viewports ist.
 
 ```css
 h1 {
@@ -393,9 +393,9 @@ h1 {
 }
 ```
 
-Das Problem bei der obigen Methode ist, dass der Benutzer die Fähigkeit verliert, jeglichen Text zu zoomen, der mit der `vw`-Einheit eingestellt ist, da dieser Text immer in Beziehung zur Größe des Viewports steht. **Daher sollten Sie niemals Text ausschließlich mit Viewporteinheiten festlegen**.
+Das Problem bei der obigen Methode ist, dass der Benutzer die Möglichkeit verliert, jeglichen Text, der mit der `vw`-Einheit gesetzt ist, zu vergrößern, da dieser Text immer in Bezug auf die Größe des Viewports ist. **Daher sollten Sie Text niemals alleine mit Viewport-Einheiten setzen**.
 
-Es gibt eine Lösung, und diese beinhaltet die Verwendung von [`calc()`](/de/docs/Web/CSS/calc). Wenn Sie die `vw`-Einheit zu einem mit einer festen Größe wie `em`s oder `rem`s festgelegten Wert hinzufügen, dann wird der Text weiterhin zoombar sein. Im Wesentlichen fügt die `vw`-Einheit zusätzlich zu diesem gezoomten Wert hinzu:
+Es gibt eine Lösung, und sie umfasst die Verwendung von [`calc()`](/de/docs/Web/CSS/calc). Wenn Sie die `vw`-Einheit zu einem mit einer festen Größe wie `em`s oder `rem`s gesetzten Wert hinzufügen, bleibt der Text vergrößerbar. Im Wesentlichen wird die `vw`-Einheit auf diesen vergrößerten Wert hinzugefügt:
 
 ```css
 h1 {
@@ -403,7 +403,7 @@ h1 {
 }
 ```
 
-Dies bedeutet, dass wir die Schriftgröße für die Überschrift nur einmal festlegen müssen, anstatt sie für Mobilgeräte einzurichten und in den Media Queries neu zu definieren. Die Schrift vergrößert sich dann allmählich, während Sie die Größe des Viewports erhöhen.
+Dies bedeutet, dass wir die Schriftgröße für die Überschrift nur einmal angeben müssen, anstatt sie für mobile Geräte zu setzen und in den Media Queries neu zu definieren. Die Schrift vergrößert sich dann allmählich, wenn Sie die Größe des Viewports erhöhen.
 
 ```html live-sample___type-vw
 <div class="wrapper">
@@ -432,7 +432,7 @@ body {
   font: 1.2em / 1.5 sans-serif;
   margin: 20px;
   padding: 0;
-  background-color: #eee;
+  background-color: #eeeeee;
 }
 
 .wrapper {
@@ -461,42 +461,42 @@ h1 {
 
 {{EmbedLiveSample("type-vw", "", "550px")}}
 
-Versuchen Sie, das Browserfenster wie zuvor zu ändern und beachten Sie, wie dieses Mal die Überschriftengröße _allmählich_ ansteigt, während sich die Breite ändert.
+Versuchen Sie, die Größe Ihres Browserfensters zu ändern, wie zuvor, und beachten Sie, wie diesmal die Schriftgröße der Überschrift _allmählich_ zunimmt, wenn sich die Breite ändert.
 
-## Der Viewport-Meta-Tag
+## Das Viewport-Meta-Tag
 
-Wenn Sie sich den HTML-Quellcode einer responsiven Seite ansehen, sehen Sie im Allgemeinen den folgenden {{htmlelement("meta")}}-Tag im `<head>` des Dokuments.
+Wenn Sie den HTML-Quellcode einer responsiven Seite ansehen, werden Sie normalerweise folgendes {{htmlelement("meta")}}-Tag im `<head>` des Dokuments sehen.
 
 ```html
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 ```
 
-Dieser [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)-Meta-Tag sagt mobilen Browsern, dass sie die Breite des Viewports auf die Breite des Geräts setzen und das Dokument auf 100% seiner vorgesehenen Größe skalieren sollen, was das Dokument in der gewünschten mobiloptimierten Größe anzeigt.
+Dieses [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) Meta-Tag teilt mobilen Browsern mit, dass sie die Breite des Viewports auf die Breite des Geräts setzen und das Dokument auf 100% seiner beabsichtigten Größe skalieren sollen, was das Dokument in der mobil-optimierten Größe anzeigt, die Sie beabsichtigt haben.
 
-Warum ist dies erforderlich? Weil mobile Browser dazu neigen, über ihre Viewport-Breite zu lügen.
+Warum ist das nötig? Weil mobile Browser dazu tendieren, über ihre Viewport-Breite zu lügen.
 
-Dieser Meta-Tag existiert, weil als Smartphones erstmals auftauchten, die meisten Sites nicht für Mobilgeräte optimiert waren. Daher würde der mobile Browser die Viewport-Breite auf 980 Pixel setzen, die Seite in dieser Breite rendern und das Ergebnis als herausgezoomte Version des Desktop-Layouts anzeigen. Benutzer konnten heranzoomen und auf der Website hin und her schwenken, um die Teile zu sehen, die sie interessierten, aber es sah schlecht aus.
+Dieses Meta-Tag existiert, weil als Smartphones zuerst auftauchten, waren die meisten Websites nicht mobil optimiert. Der mobile Browser würde daher die Viewport-Breite auf 980 Pixel setzen, die Seite bei dieser Breite rendern und das Ergebnis als herausgezoomte Version des Desktop-Layouts anzeigen. Benutzer konnten in die Website hineinzoomen und sie durchscrollen, um die Teile anzusehen, die sie interessierten, aber es sah schlecht aus.
 
-Indem Sie `width=device-width` setzen, überschreiben Sie die Standardeinstellung eines mobilen Geräts, wie die Standardeinstellung des iPhones `width=980px`, mit der tatsächlichen Breite des Geräts. Ohne dies funktioniert das von Ihnen geplante responsive Design mit Breakpoints und Media Queries auf mobilen Browsern möglicherweise nicht wie beabsichtigt. Wenn Sie ein schmaleres Bildschirm-Layout haben, das bei einer Viewport-Breite von 480px oder weniger ausgelöst wird, aber das Gerät angibt, dass es 980px breit ist, wird dieser Benutzer Ihr schmaleres Bildschirm-Layout nicht sehen.
+Indem Sie `width=device-width` setzen, überschreiben Sie die Standardeinstellung eines mobilen Geräts, wie die Standardeinstellung `width=980px` des iPhones, mit der tatsächlichen Breite des Geräts. Ohne dies könnte Ihr responsives Design mit Breakpoints und Media Queries auf mobilen Browsern nicht wie beabsichtigt funktionieren. Wenn Sie ein Layout für einen schmalen Bildschirm erstellt haben, das bei einer Viewport-Breite von 480px oder weniger einschaltet, das Gerät jedoch sagt, dass es 980px breit ist, sieht dieser Nutzer Ihr Layout für schmale Bildschirme nicht.
 
-**Daher sollten Sie den Viewport-Meta-Tag _immer_ im Head Ihrer Dokumente einbinden.**
+**Daher sollten Sie _immer_ das Viewport-Meta-Tag im Kopfbereich Ihrer Dokumente einfügen.**
 
-Es gibt eine Reihe anderer Optionen, die Sie im `content`-Attribut des Viewport-Meta-Tags einfügen können — siehe [Verwendung des Viewport-Meta-Tags zur Steuerung des Layouts auf mobilen Browsern](/de/docs/Web/HTML/Guides/Viewport_meta_element) für weitere Details.
+Es gibt eine Reihe von anderen Optionen, die Sie innerhalb des `content`-Attributs des Viewport-Meta-Tags angeben können — siehe [Using the viewport meta tag to control layout on mobile browsers](/de/docs/Web/HTML/Guides/Viewport_meta_element) für weitere Details.
 
 ## Zusammenfassung
 
-Responsives Design bezieht sich auf ein Website- oder Anwendungsdesign, das auf die Umgebung reagiert, in der es betrachtet wird. Es umfasst eine Reihe von CSS- und HTML-Funktionen und -Techniken und ist im Wesentlichen, wie wir standardmäßig Websites erstellen. Betrachten Sie die Websites, die Sie auf Ihrem Telefon besuchen — es ist wahrscheinlich ziemlich ungewöhnlich, auf eine Website zu stoßen, die die Desktop-Version herunterskaliert, oder wo Sie seitlich scrollen müssen, um Dinge zu finden. Dies liegt daran, dass das Web auf diesen Ansatz des responsiven Designs übergegangen ist.
+Responsive Design bezieht sich auf ein Website- oder Applikationsdesign, das auf die Umgebung reagiert, in der es angezeigt wird. Es umfasst eine Reihe von CSS- und HTML-Funktionen und -Techniken und ist im Wesentlichen die Art und Weise, wie wir standardmäßig Websites erstellen. Betrachten Sie die Seiten, die Sie auf Ihrem Telefon besuchen — wahrscheinlich ist es ziemlich ungewöhnlich, auf eine Seite zu stoßen, die die Desktop-Version im verkleinerten Maßstab ist oder wo Sie seitwärts scrollen müssen, um Dinge zu finden. Dies liegt daran, dass das Web zu diesem Ansatz des responsiven Designs übergegangen ist.
 
-Es ist auch viel einfacher geworden, responsive Designs zu erreichen, dank der in diesem Artikel behandelten Layout-Methoden. Wenn Sie heute neu in der Webentwicklung sind, haben Sie viel mehr Werkzeuge zur Verfügung als in den frühen Tagen des responsiven Designs. Es lohnt sich daher, das Alter aller Materialien, die Sie verwenden, zu überprüfen. Während die historischen Artikel immer noch nützlich sind, macht die moderne Verwendung von CSS und HTML es viel einfacher, elegante und nützliche Designs zu erstellen, unabhängig davon, mit welchem Gerät Ihr Besucher die Site betrachtet.
+Es ist auch viel einfacher geworden, responsive Designs mit Hilfe der in diesem Artikel behandelten Layoutmethoden zu erreichen. Wenn Sie heute neu im Webdevelopment sind, haben Sie viel mehr Werkzeuge zur Verfügung als in den frühen Tagen des responsiven Designs. Es lohnt sich daher, das Alter der verwendeten Materialien zu überprüfen. Während die historischen Artikel immer noch nützlich sind, macht die moderne Verwendung von CSS und HTML es weit einfacher, elegante und nützliche Designs zu erstellen, unabhängig davon, mit welchem Gerät Ihr Besucher die Seite betrachtet.
 
-Als Nächstes werden wir Media Queries im Detail untersuchen und zeigen, wie man sie verwendet, um einige häufige Probleme zu lösen.
+Als Nächstes werden wir Media Queries im Detail studieren und zeigen, wie man sie zur Lösung einiger gängiger Probleme verwendet.
 
 ## Siehe auch
 
 - Arbeiten mit Touchscreen-Geräten:
-  - [Touch Events](/de/docs/Web/API/Touch_events) bieten die Fähigkeit, Finger- (oder Stift-) Aktivität auf Touchscreens oder Trackpads zu interpretieren, wodurch eine qualitativ hochwertige Unterstützung für komplexe, auf Touchscreens basierende Benutzeroberflächen ermöglicht wird.
-  - Verwenden Sie die [pointer](/de/docs/Web/CSS/@media/pointer)- oder [any-pointer](/de/docs/Web/CSS/@media/any-pointer)-Media Queries, um andere CSSs auf touchfähigen Geräten zu laden.
+  - [Touch Events](/de/docs/Web/API/Touch_events) bieten die Möglichkeit, Finger- (oder Stylus-)Aktivitäten auf Touchscreens oder Trackpads zu interpretieren, um hochwertige Unterstützung für komplexe touchbasierte Benutzeroberflächen zu ermöglichen.
+  - Verwenden Sie die [pointer](/de/docs/Web/CSS/@media/pointer) oder [any-pointer](/de/docs/Web/CSS/@media/any-pointer) Media Queries, um auf Touch-fähigen Geräten verschiedene CSS zu laden.
 - [CSS-Tricks Leitfaden zu Media Queries](https://css-tricks.com/a-complete-guide-to-css-media-queries/)
-- [Der Karriereweg für Frontend-Entwickler](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> von Scrimba lehrt alles, was Sie wissen müssen, um ein kompetenter Front-End-Webentwickler zu werden, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, kompetenten Lehrern und einer unterstützenden Community. Gehen Sie von null bis zur Landung Ihres ersten Front-End-Jobs! Viele der Kurskomponenten sind als eigenständige, kostenlose Versionen verfügbar. Dazu gehört ein Modul zum responsiven Design.
+- [The Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> von Scrimba lehrt alles, was Sie wissen müssen, um ein kompetenter Frontend-Webentwickler zu sein, mit lustigen interaktiven Lektionen und Herausforderungen, erfahrenen Lehrern und einer unterstützenden Community. Vom Anfänger bis zur Landung in Ihrem ersten Frontend-Job! Viele der Kurskomponenten sind als eigenständige, kostenlose Versionen verfügbar. Dazu gehört ein Modul über Responsive Design.
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Grids", "Learn_web_development/Core/CSS_layout/Media_queries", "Learn_web_development/Core/CSS_layout")}}

@@ -1,20 +1,20 @@
 ---
-title: "Element: mouseenter Ereignis"
+title: "Element: mouseenter event"
 short-title: mouseenter
 slug: Web/API/Element/mouseenter_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef}}
 
-Das **`mouseenter`** Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) initial bewegt wird, sodass dessen Hotspot innerhalb des Elements liegt, bei dem das Ereignis ausgelöst wurde.
+Das **`mouseenter`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) zuerst so bewegt wird, dass sein Hotspot innerhalb des Elements liegt, bei dem das Ereignis ausgelöst wurde.
 
-Beachten Sie, dass sich "in ein Element hineinbewegen" auf die Position des Elements im DOM-Baum bezieht, nicht auf seine visuelle Position. Zum Beispiel, wenn ein Kindelement so positioniert ist, dass es außerhalb des Elternteils liegt, wird das Bewegen in das Kindelement `mouseenter` auf dem Elternelement auslösen, obwohl der Zeiger sich immer noch außerhalb der Grenzen des Elternelements befindet.
+Beachten Sie, dass sich "in ein Element bewegen" auf die Position des Elements im DOM-Baum und nicht auf seine visuelle Position bezieht. Wenn zum Beispiel ein untergeordnetes Element so positioniert ist, dass es außerhalb seines übergeordneten Elements platziert ist, wird beim Bewegen in das untergeordnete Element `mouseenter` auf dem übergeordneten Element ausgelöst, obwohl der Zeiger noch außerhalb der Grenzen des übergeordneten Elements ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("mouseenter", (event) => { })
@@ -51,19 +51,19 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position der Polsterrandkante des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position der Polsterkante des Zielknotens.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Polsterrandkante des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Polsterkante des Zielknotens.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) {{ReadOnlyInline}}
-  - : Das sekundäre Ziel des Ereignisses, falls vorhanden.
+  - : Das sekundäre Ziel für das Ereignis, falls vorhanden.
 - [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 - [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) {{ReadOnlyInline}}
@@ -71,9 +71,10 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Typ des Geräts, das das Ereignis erzeugt hat (eines der `MOZ_SOURCE_*` Konstanten). Dies ermöglicht es Ihnen beispielsweise zu bestimmen, ob ein Mausereignis von einer tatsächlichen Maus oder durch ein Berührungsereignis erzeugt wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die mit dem Ereignis verbundenen Koordinaten interpretieren).
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*`-Konstanten).
+    Dies ermöglicht es Ihnen beispielsweise festzustellen, ob ein Mausereignis von einer tatsächlichen Maus oder von einem Touch-Ereignis erzeugt wurde (was die Genauigkeit, mit der Sie die dem Ereignis zugeordneten Koordinaten interpretieren, beeinflussen könnte).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Die Menge an Druck, die beim Klicken angewendet wird.
+  - : Die Menge des angewandten Drucks beim Klicken.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
@@ -81,30 +82,30 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 
 ## Verwendungshinweise
 
-Obwohl ähnlich wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event), unterscheidet sich `mouseenter` dadurch, dass es nicht [bubbelt](/de/docs/Web/API/Event/bubbles) und es wird nicht an Nachfahren gesendet, wenn der Zeiger von dem physischen Raum eines Nachfahren zu seinem eigenen physischen Raum bewegt wird. Ansonsten werden Enter- und Over-Ereignisse für dieselbe Situation zur gleichen Zeit ausgelöst, falls zutreffend.
+Obwohl ähnlich wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event), unterscheidet sich `mouseenter` dadurch, dass es nicht [bubbled](/de/docs/Web/API/Event/bubbles) und nicht an irgendwelche Nachkommen gesendet wird, wenn der Zeiger von einem der physischen Räume der Nachkommen in den eigenen physischen Raum bewegt wird. Abgesehen davon werden Enter- und Over-Ereignisse für dieselbe Situation zur selben Zeit gesendet, wenn dies zutrifft.
 
-### Verhalten von `mouseenter` Ereignissen
+### Verhalten von `mouseenter`-Ereignissen
 
-Dies beschreibt die `mouseenter` Ereignisse, die von jedem der vier konzentrischen `div`s ohne Padding oder Rand empfangen werden, sodass die Ereignisse alle zur gleichen Zeit auftreten:
-![Verhaltensdiagramm von Mouseenter](mouseenter.png)
-Ein `mouseenter` Ereignis wird an jedes Element der Hierarchie gesendet, wenn es betreten wird. Hier werden 4 Ereignisse an die vier Elemente der Hierarchie gesendet, wenn der Zeiger den Text erreicht.
+Dies beschreibt die `mouseenter`-Ereignisse, die von jedem der vier konzentrischen `divs` ohne Polsterung oder Rand empfangen werden, sodass die Ereignisse alle zur selben Zeit geschehen:
+![Diagramm des `mouseenter`-Verhaltens](mouseenter.png)
+Ein `mouseenter`-Ereignis wird an jedes Element der Hierarchie gesendet, wenn diese betreten werden. Hier werden 4 Ereignisse an die vier Elemente der Hierarchie gesendet, wenn der Zeiger den Text erreicht.
 
-### Verhalten von `mouseover` Ereignissen
+### Verhalten von `mouseover`-Ereignissen
 
-![Verhaltensdiagramm von Mouseover](mouseover.png)
-Ein einzelnes `mouseover` Ereignis wird an das tiefste Element des DOM-Baums gesendet und dann in der Hierarchie nach oben gebubbled, bis es von einem Handler abgebrochen wird oder die Wurzel erreicht.
+![Diagramm des `mouseover`-Verhaltens](mouseover.png)
+Ein einzelnes `mouseover`-Ereignis wird an das tiefste Element des DOM-Baums gesendet, dann steigt es die Hierarchie hinauf, bis es von einem Handler abgebrochen oder die Wurzel erreicht wird.
 
-Bei tiefen Hierarchien kann die Anzahl der gesendeten `mouseenter` Ereignisse sehr groß sein und erhebliche Leistungsprobleme verursachen. In solchen Fällen ist es besser, auf `mouseover` Ereignisse zu hören.
+Bei tiefen Hierarchien kann die Anzahl der `mouseenter`-Ereignisse ziemlich groß sein und erhebliche Leistungsprobleme verursachen. In solchen Fällen ist es besser, `mouseover`-Ereignisse zu hören.
 
-Kombiniert mit dem entsprechenden `mouseleave` (das bei dem Element ausgelöst wird, wenn die Maus dessen Inhaltsbereich verlässt), verhält sich das `mouseenter` Ereignis sehr ähnlich wie die CSS {{cssxref(':hover')}} Pseudoklasse.
+Kombiniert mit dem entsprechenden `mouseleave` (das ausgelöst wird, wenn die Maus den Inhaltsbereich eines Elements verlässt) verhält sich das `mouseenter`-Ereignis sehr ähnlich zur CSS {{cssxref(':hover')}}-Pseudoklasse.
 
 ## Beispiele
 
-Die Dokumentationsseite zu [`mouseover`](/de/docs/Web/API/Element/mouseover_event#examples) enthält ein Beispiel, das den Unterschied zwischen `mouseover` und `mouseenter` veranschaulicht.
+Die [`mouseover`](/de/docs/Web/API/Element/mouseover_event#examples)-Dokumentation enthält ein Beispiel, das den Unterschied zwischen `mouseover` und `mouseenter` veranschaulicht.
 
 ### mouseenter
 
-Das folgende triviale Beispiel verwendet das `mouseenter` Ereignis, um die Umrandung des `div` zu ändern, wenn die Maus den ihm zugewiesenen Bereich betritt. Es fügt dann einen Eintrag zur Liste hinzu mit der Nummer des `mouseenter` oder `mouseleave` Ereignisses.
+Das folgende einfache Beispiel verwendet das `mouseenter`-Ereignis, um den Rand des `div` zu ändern, wenn die Maus in den dafür vorgesehenen Bereich eintritt. Es fügt dann der Liste ein Element mit der Nummer des `mouseenter`- oder `mouseleave`-Ereignisses hinzu.
 
 #### HTML
 
@@ -118,13 +119,13 @@ Das folgende triviale Beispiel verwendet das `mouseenter` Ereignis, um die Umran
 
 #### CSS
 
-Styling des `div`, um es sichtbarer zu machen.
+Stylen des `div`, um es sichtbarer zu machen.
 
 ```css
 #mouseTarget {
   box-sizing: border-box;
   width: 15rem;
-  border: 1px solid #333;
+  border: 1px solid #333333;
 }
 ```
 
@@ -143,7 +144,7 @@ mouseTarget.addEventListener("mouseenter", (e) => {
 });
 
 mouseTarget.addEventListener("mouseleave", (e) => {
-  mouseTarget.style.border = "1px solid #333";
+  mouseTarget.style.border = "1px solid #333333";
   leaveEventCount++;
   addListItem(`This is mouseleave event ${leaveEventCount}.`);
 });

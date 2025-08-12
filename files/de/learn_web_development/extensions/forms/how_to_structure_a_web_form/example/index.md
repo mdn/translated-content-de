@@ -2,10 +2,10 @@
 title: Beispiel
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
-Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
+Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zum Strukturieren eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 
 ## Ein Zahlungsformular
 
@@ -120,7 +120,7 @@ form {
   margin: 0 auto;
   width: 400px;
   padding: 1em;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 1em;
 }
 
@@ -134,7 +134,7 @@ fieldset {
   font: 1em sans-serif;
   width: 250px;
   box-sizing: border-box;
-  border: 1px solid #999;
+  border: 1px solid #999999;
 }
 
 input[type="checkbox"],

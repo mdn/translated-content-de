@@ -3,27 +3,27 @@ title: "Testen Sie Ihre Fähigkeiten: Links"
 short-title: Links
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Links
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
-Das Ziel dieses Fähigkeitentests ist es, Ihnen zu helfen zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu bewerten, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 > [!NOTE]
-> Einige der Links im Ausgangscode für diese Aufgaben haben das Attribut `target="_blank"` gesetzt, sodass sie versuchen, die verlinkte Seite in einem neuen Tab zu öffnen, anstatt im gleichen Tab. Dies ist nicht unbedingt best practice, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground-Ausgabe-`<iframe>` geöffnet werden, wodurch Ihr Beispielcode verloren gehen würde.
+> Einige der Links im Startcode für diese Aufgaben haben das `target="_blank"` Attribut gesetzt, sodass sie beim Anklicken versuchen, die verlinkte Seite in einem neuen Tab statt im selben Tab zu öffnen. Dies ist nicht strikt best practice, aber wir haben es hier getan, damit die Seiten nicht im MDN Playground Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode dadurch verschwindet.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie uns helfen, die Links auf unserer Informationsseite über Wale auszufüllen.
+In dieser Aufgabe möchten wir, dass Sie helfen, die Links auf unserer Informationsseite über Wale zu ergänzen.
 
-Um die Aufgabe zu vervollständigen, aktualisieren Sie die Links wie folgt:
+Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte auf eine Seite namens `whales.html` verlinken, die sich im gleichen Verzeichnis wie die aktuelle Seite befindet.
-2. Geben Sie ihm einen Tooltip, der dem Benutzer beim Überfahren mit der Maus anzeigt, dass die Seite Informationen über Blauwale und Pottwale enthält.
-3. Der zweite Link sollte in einen Link umgewandelt werden, den Sie anklicken können, um eine E-Mail im Standard-Mailprogramm des Benutzers zu öffnen, mit dem Empfänger "whales\@example.com".
-4. Bonuspunkte, wenn Sie es auch so einstellen, dass die Betreffzeile der E-Mail automatisch mit "Frage zu Walen" ausgefüllt wird.
+1. Der erste Link sollte auf eine Seite namens `whales.html` verlinken, die sich im selben Verzeichnis wie die aktuelle Seite befindet.
+2. Geben Sie ihm ein Tooltip, das bei Mouseover dem Benutzer sagt, dass die Seite Informationen über Blau- und Pottwale enthält.
+3. Der zweite Link sollte in einen Link umgewandelt werden, den Sie anklicken können, um eine E-Mail in der Standardmailanwendung des Benutzers zu öffnen, wobei der Empfänger auf "whales\@example.com" gesetzt ist.
+4. Bonuspunkte, wenn Sie es auch so einstellen, dass die Betreffzeile der E-Mail automatisch als "Question about Whales" ausgefüllt wird.
 
 ```html live-sample___links-1
 <h1>Information on Whales</h1>
@@ -42,7 +42,7 @@ Um die Aufgabe zu vervollständigen, aktualisieren Sie die Links wie folgt:
 ```css hidden live-sample___links-1
 body {
   background-color: white;
-  color: #333;
+  color: #333333;
   font:
     1em / 1.4 Helvetica Neue,
     Helvetica,
@@ -95,14 +95,14 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die vier Links so ausfüllen, dass sie zu den entsprechenden Orten verlinken.
+In dieser Aufgabe möchten wir, dass Sie die vier Links so ergänzen, dass sie an die richtigen Stellen verlinken.
 
-Um die Aufgabe zu vervollständigen, aktualisieren Sie die Links wie folgt:
+Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte auf ein Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
-2. Der zweite Link sollte auf ein Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, das eine Verzeichnisebene über dem aktuellen Verzeichnis liegt.
-3. Der dritte Link sollte zur UK Google Bildersuche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
-4. Der vierte Link sollte zum Absatz am Ende der aktuellen Seite verlinken. Dieser hat die ID `bottom`.
+1. Der erste Link sollte auf ein Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` innerhalb des aktuellen Verzeichnisses befindet.
+2. Der zweite Link sollte auf ein Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, welches eine Verzeichnisebene oberhalb des aktuellen Verzeichnisses liegt.
+3. Der dritte Link sollte zur UK Google Bildersuche verlinken. Die Basis-URL lautet `https://www.google.co.uk` und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
+4. Der vierte Link sollte auf den Absatz am Ende der aktuellen Seite verlinken. Dieser hat die ID `bottom`.
 
 ```html live-sample___links-2
 <h1>List path tests</h1>
@@ -122,7 +122,7 @@ Um die Aufgabe zu vervollständigen, aktualisieren Sie die Links wie folgt:
 ```css hidden live-sample___links-2
 body {
   background-color: white;
-  color: #333;
+  color: #333333;
   font:
     1em / 1.4 Helvetica Neue,
     Helvetica,
@@ -182,12 +182,12 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 3
 
-Die folgenden Links führen zu einer Infoseite über Narwale, einer Support-E-Mail-Adresse und einem PDF-Datenblatt, das 4 MB groß ist.
+Die folgenden Links führen zu einer Infoseite über Narwale, einer Support-E-Mail-Adresse und einer PDF-Datei mit Informationen von 4 MB Größe.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Nehmen Sie die bestehenden Absätze mit schlecht geschriebenem Linktext und schreiben Sie sie so um, dass sie guten Linktext haben.
-2. Fügen Sie eine Warnung zu allen Links hinzu, die eine Warnung benötigen.
+1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Linktext und schreiben Sie sie so um, dass sie einen guten Linktext haben.
+2. Fügen Sie jedem Link, der eine Warnung benötigt, eine Warnung hinzu.
 
 ```html live-sample___links-3
 <p>
@@ -209,7 +209,7 @@ Um die Aufgabe zu vervollständigen:
 ```css hidden live-sample___links-3
 body {
   background-color: white;
-  color: #333;
+  color: #333333;
   font:
     1em / 1.4 Helvetica Neue,
     Helvetica,

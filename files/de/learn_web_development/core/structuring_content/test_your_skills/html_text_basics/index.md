@@ -1,19 +1,19 @@
 ---
-title: "Überprüfen Sie Ihre Fähigkeiten: Grundlagen von HTML-Text"
-short-title: Grundlagen von HTML-Text
+title: "Testen Sie Ihre Fähigkeiten: HTML-Textgrundlagen"
+short-title: HTML text basics
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man Text in HTML auszeichnet, um ihm Struktur und Bedeutung zu verleihen.
+Der Zweck dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie verstehen, wie Sie Text in HTML so kennzeichnen, dass er Struktur und Bedeutung erhält.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitungsleitfaden zu den Fähigkeiten-Tests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschrifts- und Absatz-Elementen auszeichnen.
+In dieser Aufgabe möchten wir, dass Sie das bereitgestellte HTML mittels semantischer Überschriften- und Absatzelemente kennzeichnen.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -33,12 +33,12 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsamer/eingesetzter CSS-Code -->
+<!-- Gemeinsamer/Setup CSS-Code -->
 
 ```css hidden live-sample___text-basics-1 live-sample___text-basics-2 live-sample___text-basics-3 live-sample___text-basics-4
 body {
   background-color: white;
-  color: #333;
+  color: #333333;
   font:
     1em / 1.4 Helvetica Neue,
     Helvetica,
@@ -63,7 +63,7 @@ h2 {
 }
 ```
 
-<!-- Beispiel-spezifischer Code -->
+<!-- Beispielspezifischer Code -->
 
 ```css hidden live-sample___text-basics-1
 h1,
@@ -82,7 +82,7 @@ p {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
 <h1>Basic HTML Animals</h1>
@@ -108,7 +108,7 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste umwandeln und die zweite in eine geordnete Liste.
+In dieser Aufgabe möchten wir, dass Sie die erste nicht gekennzeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -157,7 +157,7 @@ ul {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
 <h1>Looking at lists</h1>
@@ -223,7 +223,7 @@ dt {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
 <h1>Advanced HTML Animals</h1>
@@ -248,9 +248,9 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 ## Aufgabe 4
 
-In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige Wörter mit besonderer Wichtigkeit hervorzuheben und andere zu betonen, indem Sie Inline-Elemente verwenden.
+In dieser Aufgabe wird Ihnen ein Absatz bereitgestellt, und Ihr Ziel ist es, einige passende Wörter mit starker Bedeutung und einige mit Betonung über Inline-Elemente zu kennzeichnen.
 
-Das fertige Beispiel sollte etwa so aussehen:
+Das fertige Beispiel sollte ungefähr so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text3-finished.html", '100%', 120)}}
 
@@ -284,7 +284,7 @@ em {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
 <h1>Emphasis and importance</h1>

@@ -3,13 +3,13 @@ title: "Element: releasePointerCapture() Methode"
 short-title: releasePointerCapture()
 slug: Web/API/Element/releasePointerCapture
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`releasePointerCapture()`**-Methode der
-[`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt eine zuvor gesetzte [_Zeigererfassung_](/de/docs/Web/API/Pointer_events#pointer_capture) für einen bestimmten ([`PointerEvent`](/de/docs/Web/API/PointerEvent)) _Zeiger_ frei (stoppt sie).
+Die **`releasePointerCapture()`** Methode der
+[`Element`](/de/docs/Web/API/Element) Schnittstelle gibt die [_Pointer-Erfassung_](/de/docs/Web/API/Pointer_events#pointer_capture) frei (stoppt sie), die zuvor für einen bestimmten ([`PointerEvent`](/de/docs/Web/API/PointerEvent)) _Pointer_ gesetzt wurde.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ releasePointerCapture(pointerId)
 
 - `pointerId`
   - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
-    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objekts.
 
 ### Rückgabewert
 
@@ -30,11 +30,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `pointerId` mit keinem aktiven Zeiger übereinstimmt.
+  - : Wird ausgelöst, wenn `pointerId` keinem aktiven Pointer entspricht.
 
 ## Beispiele
 
-Dieses Beispiel setzt die Zeigererfassung auf einem {{HtmlElement("div")}}, wenn man darauf drückt. Dies ermöglicht es Ihnen, das Element horizontal zu verschieben, selbst wenn sich Ihr Zeiger außerhalb seiner Grenzen bewegt.
+Dieses Beispiel setzt die Pointer-Erfassung auf einem {{HtmlElement("div")}}, wenn Sie darauf drücken. So können Sie das Element horizontal verschieben, selbst wenn Ihr Pointer seine Grenzen überschreitet.
 
 ### HTML
 
@@ -51,7 +51,7 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fbe;
+  background: #ffbbee;
 }
 ```
 
@@ -94,4 +94,4 @@ slider.onpointerup = stopSliding;
 
 - [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
 - [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
-- [Zeigerereignisse](/de/docs/Web/API/Pointer_events)
+- [Pointer Events](/de/docs/Web/API/Pointer_events)

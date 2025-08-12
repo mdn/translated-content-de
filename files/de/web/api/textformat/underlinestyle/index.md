@@ -3,12 +3,12 @@ title: "TextFormat: underlineStyle-Eigenschaft"
 short-title: underlineStyle
 slug: Web/API/TextFormat/underlineStyle
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineStyle`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt den Stil der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
+Die **`underlineStyle`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt den Stil der Unterstreichung an, der auf den zu formatierenden Textbereich angewendet werden soll.
 
 ## Wert
 
@@ -19,13 +19,13 @@ Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
 - `"double"`: Eine doppelte Unterstreichung.
 - `"dotted"`: Eine gepunktete Unterstreichung.
 - `"dashed"`: Eine gestrichelte Unterstreichung.
-- `"wavy"`: Eine wellenförmige Unterstreichung.
+- `"wavy"`: Eine gewellte Unterstreichung.
 
 ## Beispiele
 
 ### Lesen des anzuwendenden Unterstreichungsstils
 
-Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den zu formatierenden Text angewendet werden soll. Beachten Sie, dass der Callback des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen des Textes verwendet wird.
+Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den zu formatierenden Text angewendet werden soll. Beachten Sie, dass der Event-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Komponieren von Text verwendet wird.
 
 ```html
 <div id="editor"></div>
@@ -34,7 +34,7 @@ Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textforma
 ```css hidden
 #editor {
   height: 200px;
-  background: #eee;
+  background: #eeeeee;
 }
 ```
 

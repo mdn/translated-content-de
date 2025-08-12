@@ -3,7 +3,7 @@ title: "HTMLElement: hidden-Eigenschaft"
 short-title: hidden
 slug: Web/API/HTMLElement/hidden
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -15,21 +15,21 @@ Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`hidden`** spieg
 Dieses Attribut kann einen von drei Werten haben:
 
 - `true`
-  - : Das Element ist versteckt.
+  - : Das Element ist verborgen.
 - `false`
-  - : Das Element ist nicht versteckt. Dies ist der Standardwert für das Attribut.
+  - : Das Element ist nicht verborgen. Dies ist der Standardwert für das Attribut.
 - `"until-found"`
-  - : Das Element ist _versteckt bis gefunden_, was bedeutet, dass es versteckt ist, aber angezeigt wird, wenn es durch eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
+  - : Das Element ist _verborgen bis es gefunden wird_, was bedeutet, dass es verborgen ist, aber sichtbar wird, wenn es durch eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
 
-Für Details zur Verwendung dieses Attributs siehe die Seite des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-HTML-Attributs, das diese Eigenschaft widerspiegelt.
+Für Details zur Verwendung dieses Attributs siehe die Seite für das [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-HTML-Attribut, das durch diese Eigenschaft reflektiert wird.
 
 ## Beispiele
 
-Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine Dankesnachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, in dem ein versteckter Block verwendet wird, um eine "Danke"-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
 
 ### HTML
 
-Das HTML enthält zwei Bereiche: einen Willkommensbereich, der die Benutzer fragt, ob sie großartig sein möchten, und einen Folge-Bereich, der zunächst versteckt ist.
+Das HTML enthält zwei Panels: ein Willkommens-Panel, das die Benutzer bittet, der Großartigkeit zuzustimmen, und ein Folge-Panel, das ursprünglich verborgen ist.
 
 ```html
 <div id="welcome" class="panel">
@@ -46,7 +46,7 @@ Das HTML enthält zwei Bereiche: einen Willkommensbereich, der die Benutzer frag
 
 ### CSS
 
-Der Inhalt wird mit dem unten stehenden CSS gestylt.
+Der Inhalt wird mit dem untenstehenden CSS gestaltet.
 
 ```css
 .panel {
@@ -55,7 +55,7 @@ Der Inhalt wird mit dem unten stehenden CSS gestylt.
     Helvetica,
     Arial,
     sans-serif;
-  border: 1px solid #22d;
+  border: 1px solid #2222dd;
   padding: 12px;
   width: 500px;
   text-align: center;
@@ -78,7 +78,7 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Event-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel versteckt und das "Großartig"-Panel anzeigt:
+Das JavaScript fügt dem "OK"-Button einen Event-Listener hinzu, der das "welcome"-Panel verbirgt und das "awesome"-Panel anzeigt:
 
 ```js
 document.getElementById("okButton").addEventListener(

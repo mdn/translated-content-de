@@ -1,25 +1,25 @@
 ---
-title: "Testen Sie Ihr Können: Positionierung"
+title: "Testen Sie Ihre Fähigkeiten: Positionierung"
 short-title: Positioning
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Position
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
-Ziel dieses Fähigkeiten-Tests ist es, Ihnen dabei zu helfen einzuschätzen, ob Sie das [Positionieren mit CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) unter Verwendung der CSS-{{CSSxRef("position")}}-Eigenschaft und deren Werte verstehen. Sie werden zwei kleine Aufgaben bearbeiten, die verschiedene Elemente des soeben behandelten Materials verwenden.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie [Positionierung in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) unter Verwendung der CSS-{{CSSxRef("position")}}-Eigenschaft und ihrer Werte verstehen. Sie werden zwei kleine Aufgaben durchgehen, die verschiedene Elemente des Materials, das Sie gerade behandelt haben, nutzen.
 
 > [!NOTE]
-> Um Unterstützung zu erhalten, lesen Sie bitte unseren [Leitfaden zur Nutzung der "Testen Sie Ihr Können"](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills)-Verwendungsleitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-Um diese Aufgabe zu vervollständigen, positionieren Sie das Element mit der Klasse `target` oben rechts im Container, der eine 5px graue Umrandung hat.
+Um diese Aufgabe zu vervollständigen, positionieren Sie das Element mit der Klasse `target` oben rechts im Container, der einen 5px grauen Rahmen hat.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Das grüne Kästchen befindet sich oben rechts in einem Container mit grauer Umrandung.](position-task1.png)
+![Das grüne Kästchen befindet sich oben rechts in einem Container mit grauem Rahmen.](position-task1.png)
 
-**Bonusfrage:** Können Sie das Ziel unter den Text verschieben?
+**Bonusfrage:** Können Sie das Ziel so ändern, dass es unter dem Text angezeigt wird?
 
 ```html live-sample___position1
 <div class="container">
@@ -47,7 +47,7 @@ body {
 
 .container {
   padding: 0.5em;
-  border: 5px solid #ccc;
+  border: 5px solid #cccccc;
 }
 
 .target {
@@ -73,8 +73,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Dies erfordert `position: relative` und `position: absolute` und das Verständnis, wie sie sich zueinander verhalten in Bezug auf das relative Positionieren, das einen neuen Positionierungskontext schafft.
-Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel nach dem Viewport positioniert.
+Dies erfordert `position: relative` und `position: absolute` und ein Verständnis dafür, wie sie zueinander in Bezug stehen, da relative Positionierung einen neuen Positionierungskontext schafft.
+Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` zum Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel entsprechend dem Viewport positioniert.
 
 ```css
 .container {
@@ -94,9 +94,9 @@ Für die Bonusfrage müssen Sie dem Ziel einen negativen `z-index` hinzufügen, 
 
 ## Aufgabe 2
 
-In dieser Aufgabe, wenn Sie den Kasten im unten stehenden Beispiel scrollen, scrollt die Seitenleiste mit dem Inhalt. Wir möchten, dass Sie den Code so aktualisieren, dass die Seitenleiste (`<div class="sidebar">`) an ihrem Platz bleibt und nur der Inhalt scrollt.
+In dieser Aufgabe scrollt die Seitenleiste im untenstehenden Beispiel mit dem Inhalt mit, wenn Sie die Box scrollen. Wir möchten, dass Sie den Code aktualisieren, sodass die Seitenleiste (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt.
 
-![Der Inhalt wird gescrollt, aber die Seitenleiste bleibt an ihrem Platz.](position-task2.png)
+![Der Inhalt wird gescrollt, aber die Seitenleiste bleibt an Ort und Stelle.](position-task2.png)
 
 ```html live-sample___position2
 <div class="container">
@@ -141,7 +141,7 @@ body {
 .container {
   height: 400px;
   padding: 0.5em;
-  border: 5px solid #ccc;
+  border: 5px solid #cccccc;
   overflow: auto;
 }
 

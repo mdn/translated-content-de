@@ -3,22 +3,22 @@ title: "TextFormat: rangeEnd-Eigenschaft"
 short-title: rangeEnd
 slug: Web/API/TextFormat/rangeEnd
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`rangeEnd`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface gibt die Endposition des Textbereichs an, der mit dem gegebenen Textformat formatiert werden muss.
+Die **`rangeEnd`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Endposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden muss.
 
 ## Wert
 
-Eine {{jsxref("Number")}}.
+Ein {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des Bereichs des zu formatierenden Textes
+### Lesen des Textbereichs, der formatiert werden muss
 
-Das folgende Beispiel zeigt, wie die Eigenschaften `rangeStart` und `rangeEnd` des `textformatupdate`-Ereignisses verwendet werden, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Rückruf des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
+Das folgende Beispiel zeigt, wie die `textformatupdate`-Ereigniseigenschaften `rangeStart` und `rangeEnd` verwendet werden, um den Textbereich zu bestimmen, der formatiert werden muss. Beachten Sie, dass der Callback des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Erstellen von Text verwendet wird.
 
 ```html
 <div id="editor"></div>
@@ -27,7 +27,7 @@ Das folgende Beispiel zeigt, wie die Eigenschaften `rangeStart` und `rangeEnd` d
 ```css hidden
 #editor {
   height: 200px;
-  background: #eee;
+  background: #eeeeee;
 }
 ```
 
@@ -57,4 +57,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.

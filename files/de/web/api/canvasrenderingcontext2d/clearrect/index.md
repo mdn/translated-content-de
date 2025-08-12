@@ -1,17 +1,17 @@
 ---
-title: "CanvasRenderingContext2D: clearRect() Methode"
+title: "CanvasRenderingContext2D: Methode clearRect()"
 short-title: clearRect()
 slug: Web/API/CanvasRenderingContext2D/clearRect
 l10n:
-  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.clearRect()`** Methode der Canvas 2D API löscht die Pixel in einem rechteckigen Bereich, indem sie auf transparentes Schwarz gesetzt werden.
+Die Methode **`CanvasRenderingContext2D.clearRect()`** der Canvas 2D API löscht die Pixel in einem rechteckigen Bereich, indem sie auf transparentes Schwarz gesetzt werden.
 
 > [!NOTE]
-> Beachten Sie, dass `clearRect()` unbeabsichtigte Nebeneffekte verursachen kann, wenn Sie [Pfade nicht richtig verwenden](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#drawing_paths). Stellen Sie sicher, dass Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) aufrufen, bevor Sie nach dem Aufruf von `clearRect()` neue Elemente zeichnen.
+> Beachten Sie, dass `clearRect()` unbeabsichtigte Nebeneffekte verursachen kann, wenn Sie nicht [Pfade richtig verwenden](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#drawing_paths). Stellen Sie sicher, dass Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) aufrufen, bevor Sie nach einem `clearRect()`-Aufruf neue Elemente zeichnen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Die **`CanvasRenderingContext2D.clearRect()`** Methode der Canvas 2D API löscht
 clearRect(x, y, width, height)
 ```
 
-Die `clearRect()` Methode setzt die Pixel in einem rechteckigen Bereich auf transparent. Die obere linke Ecke des Rechtecks befindet sich bei `(x, y)`, und seine Größe wird durch `width` und `height` angegeben.
+Die Methode `clearRect()` setzt die Pixel in einem rechteckigen Bereich auf transparent. Die obere linke Ecke des Rechtecks befindet sich bei `(x, y)`, und seine Größe wird durch `width` und `height` angegeben.
 
 ### Parameter
 
@@ -28,9 +28,9 @@ Die `clearRect()` Methode setzt die Pixel in einem rechteckigen Bereich auf tran
 - `y`
   - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte sind nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte gehen nach rechts, und negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte sind nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte gehen nach unten, und negative nach oben.
 
 ### Rückgabewert
 
@@ -38,9 +38,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen der gesamten Leinwand
+### Löschen des gesamten Canvas
 
-Dieses Codebeispiel löscht die gesamte Leinwand. Dies ist häufig zu Beginn jedes Frames in einer Animation erforderlich. Die Abmessungen des gelöschten Bereichs entsprechen den `width` und `height` Attributen des {{HtmlElement("canvas")}} Elements.
+Dieses Codebeispiel löscht das gesamte Canvas. Dies ist normalerweise zu Beginn jedes Frames in einer Animation erforderlich. Die Dimensionen des gelöschten Bereichs sind so eingestellt, dass sie den `width`- und `height`-Attributen des {{HtmlElement("canvas")}}-Elements entsprechen.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -48,9 +48,9 @@ const ctx = canvas.getContext("2d");
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 ```
 
-### Löschen eines Teils einer Leinwand
+### Löschen eines Teils eines Canvas
 
-Dieses Beispiel zeichnet ein blaues Dreieck auf einem gelblichen Hintergrund. Die `clearRect()` Methode löscht dann einen Teil der Leinwand.
+Dieses Beispiel zeichnet ein blaues Dreieck auf einen gelblichen Hintergrund. Die Methode `clearRect()` löscht dann einen Teil des Canvas.
 
 #### HTML
 
@@ -60,7 +60,7 @@ Dieses Beispiel zeichnet ein blaues Dreieck auf einem gelblichen Hintergrund. Di
 
 #### JavaScript
 
-Der gelöschte Bereich ist rechteckig und seine obere linke Ecke befindet sich bei (10, 10). Der gelöschte Bereich hat eine Breite von 120 und eine Höhe von 100.
+Der gelöschte Bereich ist rechteckig und hat seine obere linke Ecke bei (10, 10). Der gelöschte Bereich hat eine Breite von 120 und eine Höhe von 100.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -68,7 +68,7 @@ const ctx = canvas.getContext("2d");
 
 // Draw yellow background
 ctx.beginPath();
-ctx.fillStyle = "#ff6";
+ctx.fillStyle = "#ffff66";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 // Draw blue triangle

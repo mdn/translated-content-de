@@ -1,19 +1,19 @@
 ---
-title: Bauen Sie das Ziegelspielfeld
+title: Bau des Ziegelspielfelds
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field
 l10n:
-  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection")}}
 
-Dies ist der **6. Schritt** von 10 des [Gamedev Canvas-Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen würde, finden Sie unter [Gamedev-Canvas-workshop/lesson6.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson06.html).
+Dies ist der **6. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson6.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson06.html) finden.
 
-Nachdem wir die Spielmechaniken verändert haben, können wir nun verlieren – das ist großartig, da das Spiel sich endlich mehr wie ein echtes Spiel anfühlt. Allerdings wird es schnell langweilig, wenn man nur den Ball von den Wänden und dem Schläger abprallen lässt. Was ein Breakout-Spiel wirklich braucht, sind einige Ziegelsteine, die man mit dem Ball zerstören kann, und genau diese werden wir jetzt erstellen!
+Nachdem wir die Spielmechaniken modifiziert haben, können wir jetzt verlieren — das ist großartig, da dies bedeutet, dass sich das Spiel endlich mehr wie ein Spiel anfühlt. Allerdings wird es schnell langweilig, wenn man nur den Ball von den Wänden und dem Schläger abprallen lässt. Was ein Breakout-Spiel wirklich braucht, sind einige Ziegel, die man mit dem Ball zerstören kann, und das erstellen wir jetzt!
 
 ## Einrichten der Ziegelvariablen
 
-Das übergeordnete Ziel dieser Lektion ist es, einige Zeilen Code für die Ziegel zu rendern, indem eine verschachtelte Schleife verwendet wird, die durch ein zweidimensionales Array arbeitet. Zuerst müssen wir jedoch einige Variablen einrichten, um Informationen über die Ziegel wie deren Breite und Höhe, Reihen und Spalten usw. zu definieren. Fügen Sie die folgenden Zeilen unter den Variablen hinzu, die Sie zuvor in Ihrem Programm deklariert haben.
+Das Gesamtziel dieser Lektion ist es, ein paar Zeilen Code für die Ziegel zu rendern, indem eine verschachtelte Schleife verwendet wird, die ein zweidimensionales Array durchläuft. Zuerst müssen wir jedoch einige Variablen einrichten, um Informationen über die Ziegel zu definieren, wie z.B. deren Breite und Höhe, Reihen und Spalten usw. Fügen Sie die folgenden Zeilen unterhalb der Variablen in Ihren Code ein, die Sie bereits in Ihrem Programm deklariert haben.
 
 ```js
 const brickRowCount = 3;
@@ -25,9 +25,9 @@ const brickOffsetTop = 30;
 const brickOffsetLeft = 30;
 ```
 
-Hier haben wir die Anzahl der Reihen und Spalten der Ziegel definiert, ihre Breite und Höhe, den Abstand zwischen den Ziegeln, damit sie sich nicht berühren, und einen oberen und linken Versatz, damit sie nicht direkt vom Rand der Leinwand gezeichnet werden.
+Hier haben wir die Anzahl der Ziegelreihen und -spalten, deren Breite und Höhe, den Abstand zwischen den Ziegeln, damit sie sich nicht berühren, und einen oberen sowie linken Versatz definiert, sodass sie nicht direkt vom Rand des Canvas gezeichnet werden.
 
-Wir werden alle unsere Ziegel in einem zweidimensionalen Array halten. Es wird die Ziegelspalten (c) enthalten, die wiederum die Ziegelreihen (r) enthalten, die wiederum ein Objekt mit der `x`- und `y`-Position enthalten, um jeden Ziegel auf dem Bildschirm zu malen. Fügen Sie das Folgende direkt unter Ihren Variablen hinzu:
+Wir werden alle unsere Ziegel in einem zweidimensionalen Array halten. Es wird die Ziegelspalten (c) enthalten, die wiederum die Ziegelreihen (r) enthalten, welche wiederum jeweils ein Objekt mit den `x`- und `y`-Positionen enthalten, um jeden Ziegel auf dem Bildschirm zu zeichnen. Fügen Sie das Folgende direkt unter Ihre Variablen hinzu:
 
 ```js
 const bricks = [];
@@ -39,11 +39,11 @@ for (let c = 0; c < brickColumnCount; c++) {
 }
 ```
 
-Der obige Code wird durch die Reihen und Spalten iterieren und die neuen Ziegel erstellen. HINWEIS: Die Ziegelobjekte werden später auch für die Kollisionserkennung verwendet.
+Der obige Code wird durch die Reihen und Spalten schleifen und die neuen Ziegel erstellen. HINWEIS: Die Ziegelobjekte werden später auch für die Kollisionsabfrage verwendet.
 
-## Ziegel-Zeichen-Logik
+## Ziegelanzeigelogik
 
-Lassen Sie uns nun eine Funktion erstellen, die durch alle Ziegel im Array loopt und sie auf dem Bildschirm zeichnet. Unser Code könnte folgendermaßen aussehen:
+Lassen Sie uns nun eine Funktion erstellen, die durch alle Ziegel im Array schleift und sie auf dem Bildschirm zeichnet. Unser Code könnte so aussehen:
 
 ```js
 function drawBricks() {
@@ -61,16 +61,16 @@ function drawBricks() {
 }
 ```
 
-Wiederholen, wir wählen durch die Reihen und Spalten, um die `x`- und `y`-Position jedes Ziegels festzulegen, und wir malen auch einen Ziegel auf die Leinwand – Größe `brickWidth` x `brickHeight` – mit jeder Schleifeniteration. Das Problem ist, dass wir sie alle an einem Ort zeichnen, bei den Koordinaten `(0,0)`. Was wir tun müssen, ist einige Berechnungen einzubeziehen, die die `x`- und `y`-Position jedes Ziegels für jede Schleifeniteration ermitteln:
+Auch hier schleifen wir durch die Reihen und Spalten, um die `x`- und `y`-Position jedes Ziegels festzulegen, und wir zeichnen auch einen Ziegel auf dem Canvas — in der Größe `brickWidth` x `brickHeight` — bei jeder Schleifeniteration. Das Problem ist, dass wir alle an einer Stelle bei den Koordinaten `(0,0)` zeichnen. Was wir tun müssen, ist, einige Berechnungen einzubeziehen, die die `x`- und `y`-Position jedes Ziegels für jede Schleifeniteration berechnen:
 
 ```js
 const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
 const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
 ```
 
-Jede `brickX`-Position wird als `brickWidth` + `brickPadding` berechnet, multipliziert mit der Spaltennummer, `c`, plus dem `brickOffsetLeft`; die Logik für die `brickY` ist identisch, verwendet jedoch die Werte für die Zeilennummer, `r`, `brickHeight` und `brickOffsetTop`. Jetzt kann jeder einzelne Ziegel an seiner richtigen Stelle in Reihe und Spalte mit Abstand zwischen jedem Ziegel, gezeichnet mit einem Versatz vom linken und oberen Rand der Leinwand, platziert werden.
+Jede `brickX`-Position wird als `brickWidth` + `brickPadding`, multipliziert mit der Spaltennummer `c`, plus `brickOffsetLeft` berechnet; die Logik für die `brickY` ist identisch, verwendet jedoch die Werte für die Zeilennummer `r`, `brickHeight` und `brickOffsetTop`. Jetzt kann jeder einzelne Ziegel an seinen richtigen Platz in Reihe und Spalte gesetzt werden, mit Abstand zwischen jedem Ziegel, gezeichnet mit einem Versatz von den linken und oberen Canvas-Rändern.
 
-Die endgültige Version der `drawBricks()`-Funktion, nachdem die `brickX`- und `brickY`-Werte als Koordinaten anstelle von `(0,0)` zugewiesen wurden, sieht so aus – fügen Sie dies unterhalb der `drawPaddle()`-Funktion in Ihren Code ein:
+Die endgültige Version der `drawBricks()`-Funktion, nachdem die `brickX`- und `brickY`-Werte anstelle von `(0,0)` jeweils als Koordinaten zugewiesen wurden, sieht so aus — fügen Sie dies in Ihren Code unterhalb der `drawPaddle()`-Funktion ein:
 
 ```js
 function drawBricks() {
@@ -90,9 +90,9 @@ function drawBricks() {
 }
 ```
 
-## Tatsächlich die Ziegel zeichnen
+## Die Ziegel tatsächlich zeichnen
 
-Das Letzte, was in dieser Lektion zu tun ist, ist einen Aufruf zu `drawBricks()` irgendwo in der `draw()`-Funktion hinzuzufügen, vorzugsweise am Anfang, zwischen dem Löschen der Leinwand und dem Zeichnen des Balls. Fügen Sie das Folgende direkt über dem `drawBall()`-Aufruf hinzu:
+Das Letzte, was in dieser Lektion zu tun ist, ist, einen Aufruf an `drawBricks()` irgendwo in die `draw()`-Funktion einzufügen, vorzugsweise am Anfang, zwischen dem Löschen des Canvas und dem Zeichnen des Balls. Fügen Sie das Folgende direkt über dem Aufruf von `drawBall()` hinzu:
 
 ```js
 drawBricks();
@@ -109,7 +109,7 @@ An diesem Punkt ist das Spiel wieder etwas interessanter geworden:
 
 ```css hidden
 canvas {
-  background: #eee;
+  background: #eeeeee;
 }
 button {
   display: block;
@@ -252,6 +252,6 @@ runButton.addEventListener("click", () => {
 
 ## Nächste Schritte
 
-Jetzt haben wir Ziegel! Aber der Ball interagiert noch nicht mit ihnen – das werden wir ändern, während wir zum siebten Kapitel übergehen: [Collision detection](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection).
+Jetzt haben wir also Ziegel! Aber der Ball interagiert überhaupt nicht mit ihnen — das werden wir ändern, während wir mit dem siebten Kapitel weitermachen: [Kollisionsabfrage](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection).
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection")}}

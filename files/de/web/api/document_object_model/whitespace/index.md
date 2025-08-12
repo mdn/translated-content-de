@@ -2,20 +2,20 @@
 title: Wie Leerzeichen von HTML, CSS und im DOM behandelt werden
 slug: Web/API/Document_Object_Model/Whitespace
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{DefaultAPISidebar("DOM")}}
 
-Die Anwesenheit von Leerzeichen im [DOM](/de/docs/Web/API/Document_Object_Model) kann Layout-Probleme verursachen und die Manipulation des Inhaltsbaums auf unerwartete Weise erschweren, abhängig davon, wo sie sich befinden. Dieser Artikel untersucht, wann Schwierigkeiten auftreten können, und betrachtet, was getan werden kann, um daraus resultierende Probleme abzumildern.
+Das Vorhandensein von Leerzeichen im [DOM](/de/docs/Web/API/Document_Object_Model) kann Layoutprobleme verursachen und die Manipulation des Inhaltsbaums auf unerwartete Weise erschweren, abhängig davon, wo sie sich befinden. Dieser Artikel untersucht, wann Schwierigkeiten auftreten können, und was getan werden kann, um die resultierenden Probleme zu mildern.
 
 ## Was sind Leerzeichen?
 
-Leerzeichen sind jede Zeichenkette, die nur aus Leerzeichen, Tabs oder Zeilenumbrüchen besteht (genauer gesagt, CRLF-Sequenzen, Wagenrückläufen oder Zeilenvorschüben). Diese Zeichen ermöglichen es Ihnen, Ihren Code so zu formatieren, dass er für Sie und andere leicht lesbar ist. Tatsächlich ist viel unser Quellcode voll von diesen Leerzeichen, und wir neigen dazu, sie in einem Produktions-Build-Schritt zu entfernen, um die Größe der Code-Downloads zu reduzieren.
+Leerzeichen sind eine beliebige Zeichenkette, die nur aus Leerzeichen, Tabs oder Zeilenumbrüchen besteht (genauer gesagt, CRLF-Sequenzen, Wagenrückläufe oder Zeilenfeeds). Diese Zeichen ermöglichen es Ihnen, Ihren Code so zu formatieren, dass er für Sie und andere leicht lesbar ist. Tatsächlich enthält ein großer Teil unseres Quellcodes diese Leerzeichen, und wir neigen dazu, sie in einem Produktions-Build-Schritt zu entfernen, um die Download-Größen des Codes zu reduzieren.
 
-### HTML ignoriert Leerzeichen weitgehend?
+### Ignoriert HTML Leerzeichen weitgehend?
 
-Im Falle von HTML werden Leerzeichen weitgehend ignoriert — Leerzeichen zwischen Wörtern werden als ein einziges Zeichen behandelt, und Leerzeichen am Anfang und Ende von Elementen und außerhalb von Elementen werden ignoriert. Nehmen Sie das folgende minimalistische Beispiel:
+Im Fall von HTML werden Leerzeichen weitgehend ignoriert — Leerzeichen zwischen Wörtern werden als einzelnes Zeichen behandelt, und Leerzeichen am Anfang und Ende von Elementen sowie außerhalb von Elementen werden ignoriert. Betrachten Sie das folgende Minimalbeispiel:
 
 ```html-nolint
 <!doctype html>
@@ -23,22 +23,22 @@ Im Falle von HTML werden Leerzeichen weitgehend ignoriert — Leerzeichen zwisch
   <h1>      Hello      World!     </h1>
 ```
 
-Dieser Quellcode enthält ein paar Zeilenvorschübe nach dem `doctype` und eine Menge Leerzeichen vor, nach und innerhalb des `<h1>` Elements, aber der Browser scheint sich überhaupt nicht darum zu kümmern und zeigt einfach die Worte "Hello World!" an, als ob diese Zeichen überhaupt nicht existierten:
+Dieser Quellcode enthält ein paar Zeilenumbrüche nach dem `doctype` und eine Reihe von Leerzeichen vor, nach und innerhalb des `<h1>`-Elements, aber der Browser scheint sich nicht darum zu kümmern und zeigt einfach die Worte "Hello World!" an, als ob diese Zeichen überhaupt nicht existieren würden:
 
 {{EmbedLiveSample('HTML_largely_ignores_whitespace')}}
 
-Dies dient dazu, dass Leerzeichen-Zeichen Ihr Seitenlayout nicht beeinträchtigen. Räume um und in Elementen zu schaffen, ist die Aufgabe von CSS.
+Dies ist so, damit Leerzeichen nicht das Layout Ihrer Seite beeinträchtigen. Das Erstellen von Abstand um und innerhalb von Elementen ist die Aufgabe von CSS.
 
 ### Was passiert mit Leerzeichen?
 
 Sie verschwinden jedoch nicht einfach.
 
-Alle Leerzeichen, die sich außerhalb von HTML-Elementen im Originaldokument befinden, sind im DOM dargestellt. Dies ist intern erforderlich, damit der Editor die Formatierung von Dokumenten beibehalten kann. Das bedeutet:
+Alle Leerzeichen, die sich in dem ursprünglichen Dokument außerhalb von HTML-Elementen befinden, sind im DOM vertreten. Dies ist intern notwendig, damit der Editor die Formatierung von Dokumenten beibehalten kann. Das bedeutet, dass:
 
-- Es wird einige Textknoten geben, die nur Leerzeichen enthalten, und
-- Einige Textknoten werden Leerzeichen am Anfang oder Ende haben.
+- Es einige Textknoten geben wird, die nur Leerzeichen enthalten, und
+- Einige Textknoten Leerzeichen am Anfang oder Ende haben werden.
 
-Nehmen Sie zum Beispiel folgendes Dokument:
+Nehmen Sie zum Beispiel das folgende Dokument:
 
 ```html
 <!doctype html>
@@ -54,19 +54,19 @@ Nehmen Sie zum Beispiel folgendes Dokument:
 </html>
 ```
 
-Der DOM-Baum dafür sieht folgendermaßen aus:
+Der DOM-Baum sieht so aus:
 
 ![Der DOM-Baum, der ein einfaches HTML-Dokument darstellt](dom-string.png)
 
-Das Beibehalten von Leerzeichen im DOM ist auf viele Arten nützlich, aber es gibt bestimmte Stellen, an denen dies bestimmte Layouts schwieriger umzusetzen macht und Probleme für Entwickler verursacht, die durch Knoten im DOM iterieren möchten. Wir werden uns dies und einige Lösungen später genauer ansehen.
+Leerzeichen im DOM zu speichern, ist auf viele Arten nützlich, aber es gibt bestimmte Orte, an denen dies bestimmte Layouts schwieriger macht und Probleme für Entwickler verursacht, die durch die Knoten im DOM iterieren möchten. Wir werden diese und einige Lösungen später untersuchen.
 
 ### Wie verarbeitet CSS Leerzeichen?
 
-Die meisten Leerzeichen-Zeichen werden ignoriert, aber nicht alle. Im vorherigen Beispiel existiert eines der Leerzeichen zwischen "Hello" und "World!" weiterhin, wenn die Seite in einem Browser gerendert wird. Es gibt Regeln in der Browser-Engine, die entscheiden, welche Leerzeichen nützlich sind und welche nicht — diese sind zumindest teilweise im [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/) spezifiziert, insbesondere die Teile über die [CSS `white-space` Eigenschaft](https://drafts.csswg.org/css-text-3/#white-space-property) und [Details zur Verarbeitung von Leerzeichen](https://drafts.csswg.org/css-text-3/#white-space-processing), aber wir bieten unten auch eine einfachere Erklärung an.
+Die meisten Leerzeichen werden ignoriert, jedoch nicht alle. In dem früheren Beispiel existiert eines der Leerzeichen zwischen "Hello" und "World!" immer noch, wenn die Seite in einem Browser gerendert wird. Es gibt Regeln in der Browser-Engine, die entscheiden, welche Leerzeichen nützlich sind und welche nicht — diese sind zumindest teilweise im [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/) spezifiziert, besonders die Teile über die [CSS `white-space`-Eigenschaft](https://drafts.csswg.org/css-text-3/#white-space-property) und [Details zur Leerzeichenverarbeitung](https://drafts.csswg.org/css-text-3/#white-space-processing), aber wir bieten auch eine einfachere Erklärung unten an.
 
 #### Beispiel
 
-Nehmen wir ein weiteres Beispiel. Um es einfacher zu machen, haben wir einen Kommentar hinzugefügt, der alle Leerzeichen mit ◦, alle Tabs mit ⇥ und alle Zeilenumbrüche mit ⏎ anzeigt:
+Nehmen wir ein weiteres Beispiel. Um es einfacher zu machen, haben wir einen Kommentar hinzugefügt, der alle Leerzeichen mit ◦, alle Tabs mit ⇥ und alle Zeilenumbrüche mit ⏎ zeigt:
 
 Dieses Beispiel:
 
@@ -86,31 +86,31 @@ wird im Browser wie folgt gerendert:
 
 #### Erklärung
 
-Das `<h1>` Element enthält nur Inline-Elemente. Tatsächlich enthält es:
+Das `<h1>`-Element enthält nur Inline-Elemente. Tatsächlich enthält es:
 
 - Einen Textknoten (bestehend aus einigen Leerzeichen, dem Wort "Hello" und einigen Tabs).
 - Ein Inline-Element (das `<span>`, das ein Leerzeichen und das Wort "World!" enthält).
-- Einen weiteren Textknoten (bestehend nur aus Tabs und Leerzeichen).
+- Einen anderen Textknoten (bestehend nur aus Tabs und Leerzeichen).
 
-Deshalb etabliert es das, was als ein [Inline-Formatting-Kontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context) bezeichnet wird. Dies ist einer der möglichen Layout-Rendering-Kontexte, mit denen Browser-Engines arbeiten.
+Deshalb etabliert es, was als [inline formatting context](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context) bezeichnet wird. Dies ist einer der möglichen Layoutdarstellungskontexte, mit denen Browser-Engines arbeiten.
 
-Innerhalb dieses Kontextes kann die Verarbeitung von Leerzeichen wie folgt zusammengefasst werden:
+Innerhalb dieses Kontexts kann die Verarbeitung von Leerzeichen wie folgt zusammengefasst werden:
 
-1. Zuerst werden alle Leerzeichen und Tabs, die unmittelbar vor und nach einem Zeilenumbruch stehen, ignoriert, sodass, wenn wir unsere Beispiel-Markup nehmen:
+1. Zuerst werden alle Leerzeichen und Tabs unmittelbar vor und nach einem Zeilenumbruch ignoriert, also nehmen wir unser vorheriges Beispiel-Markup:
 
    ```html-nolint
    <h1>◦◦◦Hello◦⏎
    ⇥⇥⇥⇥<span>◦World!</span>⇥◦◦</h1>
    ```
 
-   ...und diese erste Regel anwenden, erhalten wir:
+   ...und wenden diese erste Regel an, erhalten wir:
 
    ```html-nolint
    <h1>◦◦◦Hello⏎
    <span>◦World!</span>⇥◦◦</h1>
    ```
 
-2. Als nächstes werden alle Tab-Zeichen wie Leerzeichen behandelt, sodass das Beispiel wird zu:
+2. Als Nächstes werden alle Tab-Zeichen als Leerzeichen behandelt, sodass das Beispiel wird zu:
 
    ```html-nolint
    <h1>◦◦◦Hello⏎
@@ -123,33 +123,34 @@ Innerhalb dieses Kontextes kann die Verarbeitung von Leerzeichen wie folgt zusam
    <h1>◦◦◦Hello◦<span>◦World!</span>◦◦◦</h1>
    ```
 
-4. Danach wird jedes Leerzeichen, das einem anderen Leerzeichen unmittelbar folgt (auch zwischen zwei separaten Inline-Elementen), ignoriert, sodass wir enden mit:
+4. Danach wird jedes Leerzeichen, das unmittelbar auf ein anderes Leerzeichen folgt (sogar über zwei separate Inline-Elemente hinweg), ignoriert, sodass wir enden mit:
 
    ```html-nolint
    <h1>◦Hello◦<span>World!</span>◦</h1>
    ```
 
-5. Und schließlich werden Leerzeichensequenzen am Anfang und Ende eines Elements entfernt, sodass wir schließlich dies erhalten:
+5. Schließlich werden Sequenzen von Leerzeichen am Anfang und Ende eines Elements entfernt, sodass wir letztendlich dies erhalten:
 
    ```html-nolint
    <h1>Hello◦<span>World!</span></h1>
    ```
 
-Deswegen werden Besucher der Webseite den Satz "Hello World!" schön geschrieben oben auf der Seite sehen, anstatt eines merkwürdig eingerückten "Hello" gefolgt von einem noch merkwürdiger eingerückten "World!" auf der Zeile darunter.
+Deshalb sehen Besucher der Webseite am oberen Rand der Seite den Satz "Hello World!" schön geschrieben, und nicht ein seltsam eingerücktes "Hello", gefolgt von einem noch seltsamer eingerückten "World!" in der Zeile darunter.
 
-> [!NOTE] > [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) unterstützen seit Version 52 das Hervorheben von Textknoten, was es einfacher macht, genau zu sehen, welche Knoten Leerzeichen enthalten. Reine Leerzeichenknoten sind mit einem "whitespace"-Label gekennzeichnet.
+> [!NOTE]
+> [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) unterstützen seit Version 52 das Hervorheben von Textknoten, was es einfacher macht zu sehen, in welchen Knoten Leerzeichen enthalten sind. Reine Leerzeichenknoten sind mit einem "whitespace"-Label markiert.
 
-### Leerzeichen in Blockformatierungskontexten
+### Leerzeichen in Block-Formatierungskontexten
 
-Oben haben wir uns Elemente angeschaut, die Inline-Elemente enthalten, und Inline-Formatting-Kontexte. Wenn ein Element mindestens ein Block-Element enthält, dann etabliert es stattdessen das, was als [Block-Formatting-Kontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) bezeichnet wird.
+Oben haben wir nur Elemente betrachtet, die Inline-Elemente enthalten, und Inline-Formatierungskontexte. Wenn ein Element mindestens ein Blockelement enthält, etabliert es stattdessen, was als [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) bezeichnet wird.
 
 In diesem Kontext werden Leerzeichen sehr unterschiedlich behandelt.
 
 #### Beispiel
 
-Werfen wir einen Blick auf ein Beispiel, um zu erklären, wie. Wir haben die Leerzeichen-Zeichen wie zuvor markiert.
+Sehen wir uns ein Beispiel an, um zu erklären, wie das funktioniert. Wir haben die Leerzeichen wie zuvor markiert.
 
-Wir haben 3 Textknoten, die nur Leerzeichen enthalten, einen vor dem ersten `<div>`, einen zwischen den 2 `<div>`s, und einen nach dem zweiten `<div>`.
+Wir haben 3 Textknoten, die nur Leerzeichen enthalten, einen vor dem ersten `<div>`, einen zwischen den 2 `<div>`s und einen nach dem zweiten `<div>`.
 
 ```html-nolint
 <body>
@@ -167,15 +168,15 @@ Wir haben 3 Textknoten, die nur Leerzeichen enthalten, einen vor dem ersten `<di
 -->
 ```
 
-Dies wird wie folgt gerendert:
+Das wird so gerendert:
 
 {{EmbedLiveSample('Example_2')}}
 
 #### Erklärung
 
-Wir können zusammenfassen, wie die Leerzeichen hier behandelt werden (es kann einige leichte Unterschiede im genauen Verhalten zwischen den Browsern geben, aber im Wesentlichen funktioniert dies):
+Wir können zusammenfassen, wie die Leerzeichen hier behandelt werden, wie folgt (es kann einige geringfügige Unterschiede im genauen Verhalten zwischen den Browsern geben, aber das funktioniert im Wesentlichen so):
 
-1. Da wir uns in einem Block-Formatting-Kontext befinden, muss alles ein Block sein, also werden unsere 3 Textknoten auch zu Blöcken, genau wie die 2 `<div>`s. Blöcke nehmen die volle verfügbare Breite ein und sind übereinander gestapelt, was bedeutet, dass, ausgehend vom obigen Beispiel:
+1. Da wir uns in einem Block-Formatierungskontext befinden, muss alles ein Block sein, also werden unsere 3 Textknoten auch zu Blöcken, ebenso wie die 2 `<div>`s. Blöcke belegen die gesamte verfügbare Breite und werden übereinander gestapelt, was bedeutet, dass, ausgehend von dem obigen Beispiel:
 
    ```html-nolint
    <body>⏎
@@ -195,7 +196,7 @@ Wir können zusammenfassen, wie die Leerzeichen hier behandelt werden (es kann e
    <block>◦◦⏎</block>
    ```
 
-2. Dies wird dann weiter vereinfacht, indem die Verarbeitungsregeln für Leerzeichen in Inline-Formatting-Kontexten auf diese Blöcke angewendet werden:
+2. Dies wird dann weiter vereinfacht, indem die Verarbeitungsregeln für Leerzeichen in Inline-Formatierungskontexten auf diese Blöcke angewendet werden:
 
    ```html
    <block></block>
@@ -205,21 +206,21 @@ Wir können zusammenfassen, wie die Leerzeichen hier behandelt werden (es kann e
    <block></block>
    ```
 
-3. Die 3 leeren Blöcke, die wir jetzt haben, werden im endgültigen Layout keinen Platz einnehmen, da sie nichts enthalten, also werden wir am Ende nur 2 Blöcke haben, die Platz auf der Seite einnehmen. Personen, die die Webseite besuchen, sehen die Wörter "Hello" und "World!" auf 2 separaten Zeilen, wie Sie es erwarten würden, dass 2 `<div>`s zusammen angezeigt werden. Die Browser-Engine hat im Wesentlichen alle Leerzeichen ignoriert, die im Quellcode hinzugefügt wurden.
+3. Die 3 leeren Blöcke, die wir jetzt haben, werden im endgültigen Layout keinen Platz einnehmen, weil sie nichts enthalten, sodass wir am Ende nur 2 Blöcke haben, die Platz auf der Seite einnehmen. Leute, die die Webseite anschauen, sehen die Wörter "Hello" und "World!" auf 2 separaten Linien, wie man es bei 2 `<div>`s erwarten würde. Die Browser-Engine hat im Wesentlichen alle Leerzeichen ignoriert, die im Quellcode hinzugefügt wurden.
 
 ## Leerzeichen zwischen Inline- und Inline-Block-Elementen
 
-Lassen Sie uns über einige Probleme sprechen, die aufgrund von Leerzeichen auftreten können, und was dagegen getan werden kann. Zuerst schauen wir uns an, was mit Leerzeichen zwischen Inline- und Inline-Block-Elementen passiert. Tatsächlich haben wir das bereits in unserem allerersten Beispiel gesehen, als wir beschrieben haben, wie Leerzeichen in Inline-Formatting-Kontexten verarbeitet werden.
+Schauen wir uns einige Probleme an, die aufgrund von Leerzeichen auftreten können, und was man dagegen tun kann. Zunächst werden wir uns ansehen, was mit Leerzeichen zwischen Inline- und Inline-Block-Elementen passiert. Tatsächlich haben wir dies bereits in unserem allerersten Beispiel gesehen, als wir beschrieben haben, wie Leerzeichen in Inline-Formatierungskontexten verarbeitet werden.
 
-Wir sagten, dass es Regeln gibt, um die meisten Zeichen zu ignorieren, aber dass worttrennende Zeichen bestehen bleiben. Wenn Sie nur mit Block-Elementen wie `<p>` arbeiten, die nur Inline-Elemente wie `<em>`, `<strong>`, `<span>`, usw. enthalten, achten Sie in der Regel nicht darauf, da das zusätzliche Leerzeichen, das tatsächlich ins Layout gelangt, hilfreich ist, um die Wörter im Satz zu trennen.
+Wir haben gesagt, dass es Regeln gibt, die die meisten Zeichen ignorieren, aber worttrennende Zeichen bleiben bestehen. Wenn Sie es nur mit Block-Level-Elementen wie `<p>` zu tun haben, die nur Inline-Elemente wie `<em>`, `<strong>`, `<span>`, usw. enthalten, kümmert es normalerweise nicht, weil die zusätzlichen Leerzeichen, die im Layout erscheinen, nützlich sind, um die Wörter im Satz zu trennen.
 
-Es wird jedoch interessanter, wenn Sie beginnen, `inline-block` Elemente zu verwenden. Diese Elemente verhalten sich auf der Außenseite wie Inline-Elemente und auf der Innenseite wie Blöcke und werden oft verwendet, um komplexere UI-Stücke als nur Text nebeneinander auf der gleichen Linie anzuzeigen, z.B. Navigationselemente.
+Es wird jedoch interessanter, wenn Sie beginnen, `inline-block`-Elemente zu verwenden. Diese Elemente verhalten sich wie Inline-Elemente von außen und Blöcke von innen und werden oft verwendet, um komplexere UI-Stücke als nur Text nebeneinander auf derselben Linie anzuzeigen, wie zum Beispiel Navigationselemente.
 
-Da sie Blöcke sind, erwarten viele Menschen, dass sie sich auch so verhalten, aber das tun sie nicht wirklich. Wenn zwischen angrenzenden Inline-Elementen Formatierungs-Leerzeichen vorhanden sind, führt dies dazu, dass im Layout Raum entsteht, genau wie die Leerzeichen zwischen Wörtern im Text.
+Da sie Blöcke sind, erwarten viele, dass sie sich auch so verhalten, aber das tun sie nicht wirklich. Wenn es formatierungsbedingte Leerzeichen zwischen benachbarten Inline-Elementen gibt, führt das zu Leerstellen im Layout, genau wie die Leerzeichen zwischen Wörtern im Text.
 
 ### Beispiel
 
-Betrachten Sie dieses Beispiel (wir haben wieder einen HTML-Kommentar hinzugefügt, der die Leerzeichen-Zeichen im HTML zeigt):
+Betrachten Sie dieses Beispiel (wiederum haben wir einen HTML-Kommentar hinzugefügt, der die Leerzeichen im HTML anzeigt):
 
 ```css
 .people-list {
@@ -232,7 +233,7 @@ Betrachten Sie dieses Beispiel (wir haben wieder einen HTML-Kommentar hinzugefü
   display: inline-block;
   width: 2em;
   height: 2em;
-  background: #f06;
+  background: #ff0066;
   border: 1px solid;
 }
 ```
@@ -269,17 +270,17 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample('Example_3')}}
 
-Sie möchten wahrscheinlich nicht die Lücken zwischen den Blöcken — abhängig von Anwendungsfall (ist dies eine Liste von Avataren oder horizontale Navigationsknöpfe?), möchten Sie wahrscheinlich, dass die Kanten der Elemente bündig zueinander sind und dass Sie jeden Abstand selbst kontrollieren können.
+Sie wollen wahrscheinlich nicht die Lücken zwischen den Blöcken — je nach Anwendungsfall (ist dies eine Liste von Avataren oder horizontale Navigationsschaltflächen?), möchten Sie wahrscheinlich, dass die Elemente aneinander anliegen und dass Sie den Abstand selbst kontrollieren können.
 
-Der HTML-Inspektor von Firefox DevTools hebt Textknoten hervor und zeigt Ihnen auch genau, welchen Bereich die Elemente einnehmen — nützlich, wenn Sie sich fragen, was das Problem verursacht, und vielleicht denken, Sie hätten dort einen zusätzlichen Rand oder so etwas!
+Der HTML-Inspektor von Firefox DevTools hebt Textknoten hervor und zeigt Ihnen auch genau, welchen Bereich die Elemente einnehmen — nützlich, wenn Sie sich fragen, was das Problem verursacht, und vielleicht denken, dass Sie dort zusätzlichen Rand haben oder so etwas!
 
-![Beispiel für die Anzeige von Leerzeichen zwischen Blöcken im HTML-Inspektor von Firefox DevTools](whitespace-devtools.png)
+![Beispiel für die Anzeige von Leerzeichen zwischen Blöcken im Firefox DevTools HTML-Inspektor](whitespace-devtools.png)
 
 ### Lösungen
 
-Es gibt einige Möglichkeiten dieses Problem zu umgehen:
+Es gibt einige Möglichkeiten, dieses Problem zu umgehen:
 
-Verwenden Sie [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um die horizontale Liste von Elementen zu erstellen, anstatt eine `inline-block` Lösung zu versuchen. Dies erledigt alles für Sie und ist definitiv die bevorzugte Lösung:
+Verwenden Sie [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um die horizontale Liste von Elementen zu erstellen, anstatt eine `inline-block`-Lösung zu versuchen. Dies erledigt alles für Sie und ist definitiv die bevorzugte Lösung:
 
 ```css
 ul {
@@ -290,7 +291,7 @@ ul {
 }
 ```
 
-Wenn Sie auf `inline-block` angewiesen sein müssen, könnten Sie die [`font-size`](/de/docs/Web/CSS/font-size) der Liste auf 0 setzen. Dies funktioniert nur, wenn Ihre Blöcke nicht mit ems (basierend auf der `font-size`, sodass die Blockgröße auch auf 0 enden würde) bemessen sind. rems wären hier eine gute Wahl:
+Wenn Sie `inline-block` benötigen, könnten Sie die [`font-size`](/de/docs/Web/CSS/font-size) der Liste auf 0 setzen. Dies funktioniert nur, wenn Ihre Blöcke nicht mit `em`s (basierend auf der `font-size`, sodass die Blockgröße ebenfalls 0 wäre) dimensioniert sind. `rem`s wären hier eine gute Wahl:
 
 ```css
 ul {
@@ -306,7 +307,7 @@ li {
 }
 ```
 
-Oder Sie könnten einen negativen Rand bei den Listenelementen setzen:
+Oder Sie könnten einen negativen Rand an den Listenelementen setzen:
 
 ```css
 li {
@@ -317,21 +318,21 @@ li {
 }
 ```
 
-Sie können dieses Problem auch lösen, indem Sie Ihre Listenelemente alle in derselben Zeile im Quellcode setzen, was dazu führt, dass die Leerzeichenknoten erst gar nicht erstellt werden:
+Sie können dieses Problem auch lösen, indem Sie Ihre Listenelemente alle in einer Zeile in der Quelle platzieren, wodurch die Leerzeichenknoten gar nicht erst erstellt werden:
 
 ```html-nolint
 <li></li><li></li><li></li><li></li><li></li>
 ```
 
-## DOM-Durchlauf und Leerzeichen
+## DOM-Traversierung und Leerzeichen
 
-Beim Versuch, [DOM](/de/docs/Web/API/Document_Object_Model) Manipulationen in JavaScript durchzuführen, können auch Probleme aufgrund von Leerzeichenknoten auftreten. Wenn Sie beispielsweise eine Referenz auf einen übergeordneten Knoten haben und dessen erstes Element-Kind mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) beeinflussen möchten, bekommen Sie nicht das erwartete Ergebnis, falls ein überflüssiger Leerzeichenknoten direkt nach dem öffnenden Eltern-Tag vorhanden ist. Der Textknoten würde anstelle des gewünschten Elements ausgewählt.
+Wenn Sie versuchen, [DOM](/de/docs/Web/API/Document_Object_Model)-Manipulationen in JavaScript durchzuführen, können Sie auch auf Probleme aufgrund von Leerzeichenknoten stoßen. Beispielsweise, wenn Sie eine Referenz auf einen Elternknoten haben und dessen erstes Kind-Element mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) beeinflussen wollen, wenn es einen störenden Leerzeichenknoten direkt nach dem öffnenden Elternelement gibt, erhalten Sie nicht das erwartete Ergebnis. Der Textknoten würde ausgewählt, anstatt des Elements, das Sie beeinflussen möchten.
 
-Ein weiteres Beispiel: Wenn Sie eine bestimmte Teilmenge von Elementen haben, auf die Sie basierend auf ihrem Inhalt etwas anwenden möchten (ob sie leer sind, d.h. keine Knoten enthalten, oder nicht), könnten Sie überprüfen, ob jedes Element leer ist, indem Sie etwas wie [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) verwenden, aber wieder: wenn Ziel-Elemente Textknoten enthalten, könnten Sie falsche Ergebnisse erhalten.
+Ein weiteres Beispiel ist, wenn Sie mit bestimmten Elementen etwas tun möchten, basierend darauf, ob sie leer sind (keine Kindknoten haben) oder nicht. Sie könnten prüfen, ob jedes Element leer ist, indem Sie etwas wie [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) verwenden, aber erneut, wenn Ziel-Elemente Textknoten enthalten, könnten Sie falsche Ergebnisse bekommen.
 
 ## Hilfsfunktionen für Leerzeichen
 
-Das folgende JavaScript definiert mehrere Funktionen, die es einfacher machen, mit Leerzeichen im DOM umzugehen:
+Der untenstehende JavaScript-Code definiert mehrere Funktionen, die den Umgang mit Leerzeichen im DOM erleichtern:
 
 ```js
 /**
@@ -478,7 +479,7 @@ function dataOf(txt) {
 
 ### Beispiel
 
-Der folgende Code demonstriert die Verwendung der obigen Funktionen. Er iteriert über die Kinder eines Elements (dessen Kinder alle Elemente sind), um dasjenige zu finden, dessen Text `"This is the third paragraph"` ist, und ändert dann das `class`-Attribut und den Inhalt dieses Absatzes.
+Der folgende Code demonstriert die Verwendung der obigen Funktionen. Es wird über die Kinder eines Elements iteriert (deren Kinder alle Elemente sind), um das zu finden, dessen Text `"This is the third paragraph"` lautet, und dann das Klassenattribut und die Inhalte dieses Absatzes ändern.
 
 ```js
 let cur = firstChild(document.getElementById("test"));

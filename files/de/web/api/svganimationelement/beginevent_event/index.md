@@ -3,20 +3,20 @@ title: "SVGAnimationElement: beginEvent-Ereignis"
 short-title: beginEvent
 slug: Web/API/SVGAnimationElement/beginEvent_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("SVG")}}
 
-Das **`beginEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn der lokale Zeitstrahl des Elements beginnt, abzuspielen. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu startet, aber nicht bei Wiederholungen).
+Das **`beginEvent`**-Ereignis des [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Interfaces wird ausgelöst, wenn die lokale Zeitachse des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu startet, aber nicht, wenn es sich wiederholt).
 
-Es kann sowohl im Rahmen der normalen (d.h. geplanten oder interaktiven) Zeitstrahl-Abspielung als auch im Fall, dass das Element mit einer DOM-Methode gestartet wurde, ausgelöst werden.
+Es kann sowohl während der normalen (d.h. geplanten oder interaktiven) Zeitachsenwiedergabe als auch im Fall ausgelöst werden, dass das Element mithilfe einer DOM-Methode gestartet wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("beginEvent", (event) => { })
@@ -33,9 +33,9 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 ## Ereigniseigenschaften
 
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt es die Wiederholungsnummer der Animation an.
+  - : Ein `long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt es die Wiederholungsnummer der Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, das das Fenster identifiziert, aus dem das Ereignis generiert wurde.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, der das Fenster identifiziert, aus dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 ```css
 ul {
   height: 100px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   overflow-y: scroll;
   padding: 10px 30px;
 }
@@ -87,9 +87,9 @@ animateElem.addEventListener("repeatEvent", (e) => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '270')}}
 
-### Äquivalent zur Ereignis-Handler-Eigenschaft
+### Äquivalent zur Ereignishandler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignis-Listener für das `begin`-Ereignis erstellen können, indem Sie die `onbegin`-Ereignis-Handler-Eigenschaft verwenden:
+Beachten Sie, dass Sie auch einen Ereignislistener für das `begin`-Ereignis mithilfe der `onbegin` Ereignishandler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onbegin = () => {
@@ -108,5 +108,5 @@ animateElem.onbegin = () => {
 ## Siehe auch
 
 - [SVG-Animation mit SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL)
-- [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)-Ereignis
-- [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)-Ereignis
+- [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event) Ereignis
+- [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event) Ereignis

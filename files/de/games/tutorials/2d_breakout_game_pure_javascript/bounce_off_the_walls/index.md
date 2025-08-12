@@ -1,27 +1,27 @@
 ---
-title: Abprallen von den Wänden
+title: Gegen die Wände prallen
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls
 l10n:
-  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls")}}
 
-Dies ist der **dritte Schritt** von insgesamt 10 des [Gamedev-Canvas-Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson3.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson03.html).
+Dies ist der **dritte Schritt** von 10 des [Gamedev Canvas Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson3.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson03.html).
 
-Es ist schön zu sehen, dass sich unser Ball bewegt, aber er verschwindet schnell vom Bildschirm, was den Spaß daran einschränkt! Um das zu überwinden, werden wir eine Kollisionserkennung implementieren (die [später](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection) ausführlicher erklärt wird), damit der Ball von den vier Kanten des Canvas abprallt.
+Es ist schön, unseren Ball bewegen zu sehen, aber er verschwindet leider schnell vom Bildschirm, was den Spaß einschränkt, den wir damit haben können! Um dem entgegenzuwirken, werden wir eine Kollisionserkennung implementieren (die [später](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection) genauer erklärt wird), um den Ball an den vier Rändern des Canvas abprallen zu lassen.
 
 ## Einfache Kollisionserkennung
 
-Um die Kollision zu erkennen, prüfen wir, ob der Ball die Wand berührt (mit ihr kollidiert), und wenn ja, ändern wir die Richtung seiner Bewegung entsprechend.
+Um die Kollision zu erkennen, überprüfen wir, ob der Ball die Wand berührt (mit ihr kollidiert) und ändern entsprechend die Richtung seiner Bewegung.
 
-Um die Berechnungen zu erleichtern, definieren wir eine Variable namens `ballRadius`, die den Radius des gezeichneten Kreises enthält und für Berechnungen verwendet wird. Fügen Sie dies irgendwo unterhalb der vorhandenen Variablendeklarationen in Ihren Code ein:
+Um die Berechnungen zu erleichtern, definieren wir eine Variable namens `ballRadius`, die den Radius des gezeichneten Kreises hält und für Berechnungen verwendet wird. Fügen Sie dies irgendwo unter den bestehenden Variablendeklarationen in Ihren Code ein:
 
 ```js
 const ballRadius = 10;
 ```
 
-Aktualisieren Sie nun die Zeile, die den Ball innerhalb der Funktion `drawBall()` zeichnet, auf folgendes:
+Aktualisieren Sie jetzt die Zeile, die den Ball innerhalb der `drawBall()`-Funktion zeichnet, zu dieser:
 
 ```js
 ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -29,7 +29,7 @@ ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
 
 ### Abprallen von oben und unten
 
-Es gibt vier Wände, an denen der Ball abprallen kann — konzentrieren wir uns zunächst auf die obere. Wir müssen in jedem Frame prüfen, ob der Ball die obere Kante des Canvas berührt — wenn ja, kehren wir die Ballbewegung um, damit er sich in die entgegengesetzte Richtung bewegt und innerhalb der sichtbaren Grenzen bleibt. Wenn wir uns daran erinnern, dass das Koordinatensystem von oben links beginnt, können wir so etwas entwerfen:
+Es gibt vier Wände, an denen der Ball abprallen kann – konzentrieren wir uns zuerst auf die obere. Wir müssen in jedem Frame überprüfen, ob der Ball die obere Kante des Canvas berührt – wenn ja, kehren wir die Ballbewegung um, sodass er in die entgegengesetzte Richtung zu bewegen beginnt und innerhalb der sichtbaren Grenzen bleibt. Da das Koordinatensystem von oben links beginnt, können wir uns etwas wie folgt überlegen:
 
 ```js
 if (y + dy < 0) {
@@ -37,9 +37,9 @@ if (y + dy < 0) {
 }
 ```
 
-Wenn der `y`-Wert der Ballposition kleiner als null ist, ändern Sie die Bewegungsrichtung auf der `y`-Achse, indem Sie sie gleich ihrem umgekehrten Wert setzen. Wenn der Ball sich mit einer Geschwindigkeit von 2 Pixel pro Frame nach oben bewegte, wird er jetzt mit einer Geschwindigkeit von -2 Pixel nach "oben" bewegt, was tatsächlich einer Bewegung nach unten mit einer Geschwindigkeit von 2 Pixel pro Frame entspricht.
+Wenn der `y`-Wert der Ballposition kleiner als null ist, ändern wir die Bewegungsrichtung auf der `y`-Achse, indem wir sie in ihr Gegenteil umkehren. Wenn der Ball mit einer Geschwindigkeit von 2 Pixel pro Frame nach oben bewegt wurde, wird er nun mit einer Geschwindigkeit von -2 Pixel nach oben bewegt, was tatsächlich einer Bewegung nach unten mit einer Geschwindigkeit von 2 Pixel pro Frame entspricht.
 
-Der obige Code würde den Ball vom oberen Rand abprallen lassen, also überlegen wir jetzt den unteren Rand:
+Der obige Code würde sich um das Abprallen des Balls von der oberen Kante kümmern, denken wir also jetzt über die untere Kante nach:
 
 ```js
 if (y + dy > canvas.height) {
@@ -47,9 +47,9 @@ if (y + dy > canvas.height) {
 }
 ```
 
-Wenn die `y`-Position des Balls größer ist als die Höhe des Canvas (denken Sie daran, dass wir die `y`-Werte von oben links zählen, sodass der obere Rand bei 0 beginnt und der untere Rand bei 320 Pixeln, der Höhe des Canvas, liegt), prallen Sie ihn vom unteren Rand ab, indem Sie die `y`-Achsenbewegung wie zuvor umkehren.
+Wenn die `y`-Position des Balls größer ist als die Höhe des Canvas (denken Sie daran, dass wir die `y`-Werte von oben links zählen, also beginnt die obere Kante bei 0 und die untere Kante ist bei 320 Pixeln, der Höhe des Canvas), dann lassen Sie ihn an der unteren Kante abprallen, indem Sie die Bewegungsrichtung auf der `y`-Achse wie zuvor umkehren.
 
-Wir könnten diese beiden Anweisungen zu einer zusammenfassen, um die Redundanz im Code zu verringern:
+Wir könnten diese beiden Anweisungen zu einer zusammenfassen, um den Codeumfang zu reduzieren:
 
 ```js
 if (y + dy > canvas.height || y + dy < 0) {
@@ -57,11 +57,11 @@ if (y + dy > canvas.height || y + dy < 0) {
 }
 ```
 
-Wenn eine der beiden Anweisungen `true` ist, kehren Sie die Bewegung des Balls um.
+Wenn eine der beiden Bedingungen `true` ist, kehren Sie die Bewegung des Balls um.
 
 ### Abprallen von links und rechts
 
-Wir haben den oberen und unteren Rand abgedeckt, also denken wir über die linken und rechten nach. Es ist tatsächlich sehr ähnlich, alles, was Sie tun müssen, ist die Anweisungen für `x` statt `y` zu wiederholen:
+Wir haben die obere und untere Kante behandelt, also lassen Sie uns über die linken und rechten nachdenken. Es ist tatsächlich sehr ähnlich, alles, was Sie tun müssen, ist, die Anweisungen für `x` anstelle von `y` zu wiederholen:
 
 ```js
 if (x + dx > canvas.width || x + dx < 0) {
@@ -73,15 +73,15 @@ if (y + dy > canvas.height || y + dy < 0) {
 }
 ```
 
-An diesem Punkt sollten Sie den obigen Codeblock in die draw()-Funktion einfügen, kurz vor der schließenden geschweiften Klammer.
+An diesem Punkt sollten Sie den obigen Codeblock in die draw() Funktion einfügen, unmittelbar vor der schließenden geschweiften Klammer.
 
-### Der Ball verschwindet weiterhin in der Wand!
+### Der Ball verschwindet in die Wand!
 
-Testen Sie an diesem Punkt Ihren Code, und Sie werden beeindruckt sein — jetzt haben wir einen Ball, der von allen vier Kanten des Canvas abprallt! Wir haben jedoch ein weiteres Problem — wenn der Ball jede Wand trifft, sinkt er leicht in sie ein, bevor er die Richtung ändert:
+Testen Sie Ihren Code an diesem Punkt, und Sie werden beeindruckt sein – jetzt haben wir einen Ball, der von allen vier Rändern des Canvas abprallt! Wir haben jedoch ein anderes Problem – wenn der Ball jede Wand trifft, sinkt er ein wenig hinein, bevor er die Richtung ändert:
 
-![hellblauer Ball, der in die obere weiße Wand einsinkt.](ball-in-wall.png)
+![hellblauer Ball, der in die obere weiße Wand verschwindet.](ball-in-wall.png)
 
-Dies liegt daran, dass wir den Kollisionspunkt der Wand und der Mitte des Balls berechnen, während wir dies für dessen Umfang tun sollten. Der Ball sollte direkt abprallen, nachdem er die Wand berührt, nicht wenn er bereits halb in der Wand steckt, also passen wir unsere Anweisungen ein wenig an, um das zu berücksichtigen. Aktualisieren Sie den zuletzt hinzugefügten Code zu folgendem:
+Dies liegt daran, dass wir den Kollisionspunkt der Wand und die Mitte des Balls berechnen, während wir dies eigentlich für den Umfang tun sollten. Der Ball sollte abprallen, nachdem er die Wand berührt hat, nicht wenn er bereits halb in der Wand ist, daher passen wir unsere Anweisungen ein wenig an. Aktualisieren Sie den zuletzt hinzugefügten Code zu diesem:
 
 ```js
 if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -92,11 +92,11 @@ if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
 }
 ```
 
-Wenn der Abstand zwischen der Mitte des Balls und der Kante der Wand genau dem Radius des Balls entspricht, ändert er die Bewegungsrichtung. Indem wir den Radius vom Rand abziehen und auf der anderen Seite hinzufügen, erhalten wir den Eindruck einer ordnungsgemäßen Kollisionserkennung — der Ball prallt von den Wänden ab, wie er sollte.
+Wenn der Abstand zwischen der Mitte des Balls und dem Rand der Wand genau so groß ist wie der Radius des Balls, wird die Bewegungsrichtung geändert. Das Subtrahieren des Radius von einer Kantenbreite und das Hinzufügen zu einer anderen vermittelt uns den Eindruck einer ordnungsgemäßen Kollisionserkennung — der Ball prallt wie vorgesehen von den Wänden ab.
 
 ## Vergleichen Sie Ihren Code
 
-Lassen Sie uns den fertigen Code für diesen Teil erneut mit Ihrem vergleichen und etwas damit spielen:
+Lassen Sie uns den fertigen Code für diesen Teil erneut überprüfen und etwas spielen:
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -105,7 +105,7 @@ Lassen Sie uns den fertigen Code für diesen Teil erneut mit Ihrem vergleichen u
 
 ```css hidden
 canvas {
-  background: #eee;
+  background: #eeeeee;
 }
 button {
   display: block;
@@ -158,10 +158,10 @@ runButton.addEventListener("click", () => {
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, die Farbe des Balls bei jedem Wandtreffer in eine zufällige Farbe zu ändern.
+> Versuchen Sie, die Farbe des Balls bei jedem Wandkontakt in eine zufällige Farbe zu ändern.
 
 ## Nächste Schritte
 
-Wir sind jetzt an einem Punkt angelangt, an dem sich unser Ball sowohl bewegt als auch auf dem Spielfeld bleibt. Im vierten Kapitel werden wir über die Implementierung eines steuerbaren Schlägers sprechen — siehe [Schläger und Tastatursteuerung](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls).
+Wir haben nun den Punkt erreicht, an dem sich unser Ball sowohl bewegt als auch auf dem Spielfeld bleibt. Im vierten Kapitel werden wir uns mit der Implementierung eines steuerbaren Schlägers befassen – siehe [Schläger- und Tastatursteuerungen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls).
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls")}}

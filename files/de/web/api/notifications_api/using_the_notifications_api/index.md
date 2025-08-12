@@ -1,48 +1,48 @@
 ---
-title: Verwenden der Notifications API
+title: Verwendung der Notifications API
 slug: Web/API/Notifications_API/Using_the_Notifications_API
 l10n:
-  sourceCommit: 0d0ccc861fa024fa10836fbf0cc2c3813cd74745
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{DefaultAPISidebar("Web Notifications")}}
 
-Die [Notifications API](/de/docs/Web/API/Notifications_API) ermöglicht es einer Webseite oder App, Benachrichtigungen zu senden, die außerhalb der Seite auf Systemebene angezeigt werden; so können Web-Apps Informationen an einen Benutzer senden, selbst wenn die Anwendung im Leerlauf oder im Hintergrund ist. Dieser Artikel behandelt die Grundlagen der Verwendung dieser API in Ihren eigenen Apps.
+Die [Notifications API](/de/docs/Web/API/Notifications_API) ermöglicht es einer Webseite oder App, Benachrichtigungen zu senden, die außerhalb der Seite auf Systemebene angezeigt werden; dies erlaubt es Web-Apps, Informationen an einen Benutzer zu senden, selbst wenn die Anwendung im Leerlauf oder im Hintergrund ist. Dieser Artikel behandelt die Grundlagen der Verwendung dieser API in Ihren eigenen Apps.
 
-In der Regel beziehen sich Systembenachrichtigungen auf den Standard-Benachrichtigungsmechanismus des Betriebssystems: Denken Sie zum Beispiel an die Art und Weise, wie ein typisches Desktop-System oder mobiles Gerät Benachrichtigungen sendet.
+Normalerweise beziehen sich Systembenachrichtigungen auf den Standardbenachrichtigungsmechanismus des Betriebssystems: Denken Sie zum Beispiel daran, wie ein typisches Desktop-System oder mobiles Gerät Benachrichtigungen sendet.
 
-![Desktop-Benachrichtigung: To-Do-Liste via mdn.github.io HEY! Ihre Aufgabe "Einkaufen gehen" ist jetzt überfällig](desktop-notification.png)
+![Desktop-Benachrichtigung: To-do-Liste über mdn.github.io HEY! Ihre Aufgabe "Einkaufen gehen" ist jetzt überfällig](desktop-notification.png)
 
-Das Systembenachrichtigungssystem unterscheidet sich natürlich je nach Plattform und Browser, aber das ist in Ordnung, da die Notifications API so geschrieben ist, dass sie allgemein genug für die Kompatibilität mit den meisten Systembenachrichtigungssystemen ist.
+Das Systembenachrichtigungssystem variiert natürlich je nach Plattform und Browser, aber das ist in Ordnung, und die Notifications API ist so geschrieben, dass sie allgemein genug ist, um mit den meisten Systembenachrichtigungssystemen kompatibel zu sein.
 
 ## Beispiele
 
-Einer der offensichtlichsten Anwendungsfälle für Web-Benachrichtigungen ist eine webbasierte Mail- oder IRC-Anwendung, die den Benutzer benachrichtigen muss, wenn eine neue Nachricht eingeht, selbst wenn der Benutzer etwas anderes mit einer anderen Anwendung macht. Viele Beispiele dafür existieren bereits, wie zum Beispiel [Slack](https://slack.com/).
+Einer der offensichtlichsten Anwendungsfälle für Web-Benachrichtigungen ist eine webbasierte Mail- oder IRC-Anwendung, die den Benutzer benachrichtigen muss, wenn eine neue Nachricht eingegangen ist, selbst wenn der Benutzer mit einer anderen Anwendung beschäftigt ist. Viele Beispiele dafür existieren heute, wie z.B. [Slack](https://slack.com/).
 
-Wir haben ein praxisnahes Beispiel - eine To-Do-Liste-App - geschrieben, um Ihnen eine bessere Vorstellung davon zu geben, wie Web-Benachrichtigungen verwendet werden können. Es speichert Daten lokal mithilfe von [IndexedDB](/de/docs/Web/API/IndexedDB_API) und benachrichtigt Benutzer, wenn Aufgaben fällig sind, mit Systembenachrichtigungen. [Laden Sie den To-Do-Listen-Code herunter](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) oder [sehen Sie sich die App live an](https://mdn.github.io/dom-examples/to-do-notifications/).
+Wir haben ein praxisnahes Beispiel geschrieben — eine To-do-Liste-App — um eine Vorstellung davon zu geben, wie Web-Benachrichtigungen verwendet werden können. Sie speichert Daten lokal mit [IndexedDB](/de/docs/Web/API/IndexedDB_API) und benachrichtigt Benutzer, wenn Aufgaben fällig sind, über Systembenachrichtigungen. [Laden Sie den Code der To-do-Liste herunter](https://github.com/mdn/dom-examples/tree/main/to-do-notifications), oder [sehen Sie sich die App live an](https://mdn.github.io/dom-examples/to-do-notifications/).
 
 ## Erlaubnis anfordern
 
-Bevor eine App eine Benachrichtigung senden kann, muss der Benutzer der Anwendung das Recht dazu gewähren. Dies ist eine häufige Anforderung, wenn eine API versucht, mit etwas außerhalb einer Webseite zu interagieren – mindestens einmal muss der Benutzer der betreffenden Anwendung ausdrücklich die Erlaubnis erteilen, Benachrichtigungen anzuzeigen, wodurch der Benutzer steuern kann, welche Apps/Sites Benachrichtigungen anzeigen dürfen.
+Bevor eine App eine Benachrichtigung senden kann, muss der Benutzer der Anwendung das Recht dazu gewähren. Dies ist eine gängige Anforderung, wenn eine API versucht, mit etwas außerhalb einer Webseite zu interagieren — zumindest einmal muss der Benutzer dieser Anwendung ausdrücklich die Erlaubnis erteilen, Benachrichtigungen anzuzeigen, wodurch der Benutzer steuern kann, welche Apps/Sites Benachrichtigungen anzeigen dürfen.
 
-Aufgrund von Missbräuchen bei Push-Benachrichtigungen in der Vergangenheit haben Webbrowser und Entwickler begonnen, Strategien zu implementieren, um dieses Problem zu mildern. Sie sollten die Zustimmung zur Anzeige von Benachrichtigungen nur als Reaktion auf eine Benutzeraktion anfordern (z.B. durch Klicken auf einen Button). Dies ist nicht nur bewährte Praxis – Sie sollten Benutzer nicht mit Benachrichtigungen belästigen, denen sie nicht zugestimmt haben – sondern in Zukunft werden Browser explizit Benachrichtigungserlaubnisanfragen verbieten, die nicht als Reaktion auf eine Benutzeraktion ausgelöst werden. Firefox tut dies ab Version 72 bereits, und Safari hat dies schon seit einiger Zeit getan.
+Aufgrund des Missbrauchs von Push-Benachrichtigungen in der Vergangenheit haben Webbrowser und Entwickler begonnen, Strategien zu implementieren, um dieses Problem zu mindern. Sie sollten die Zustimmung zur Anzeige von Benachrichtigungen nur als Reaktion auf eine Benutzeraktion anfordern (z. B. Klicken auf einen Button). Das ist nicht nur eine Best Practice — Sie sollten die Benutzer nicht mit Benachrichtigungen überfluten, denen sie nicht zugestimmt haben — sondern in Zukunft werden Browser Benachrichtigungsberechtigungen explizit verbieten, wenn sie nicht als Reaktion auf eine Benutzeraktion ausgelöst werden. Firefox macht dies beispielsweise bereits ab Version 72, und Safari tut dies schon seit einiger Zeit.
 
-Zusätzlich können Sie in Chrome und Firefox Benachrichtigungen nur anfordern, wenn die Seite ein sicherer Kontext ist (d.h. HTTPS), und Sie können nicht mehr erlauben, dass Benachrichtigungserlaubnisse von cross-origin {{htmlelement("iframe")}}s angefordert werden.
+Darüber hinaus können Sie in Chrome und Firefox keine Benachrichtigungen anfordern, es sei denn, die Seite ist ein sicherer Kontext (d.h. HTTPS), und Sie können keine Benachrichtigungsberechtigungen mehr von fremden {{htmlelement("iframe")}}s anfordern lassen.
 
-### Aktuellen Berechtigungsstatus überprüfen
+### Aktuellen Berechtigungsstatus prüfen
 
-Sie können überprüfen, ob Sie bereits die Erlaubnis haben, indem Sie den Wert der schreibgeschützten Eigenschaft [`Notification.permission`](/de/docs/Web/API/Notification/permission_static) überprüfen. Es kann einen von drei möglichen Werten haben:
+Sie können überprüfen, ob Sie bereits die Berechtigung haben, indem Sie den Wert der schreibgeschützten Eigenschaft [`Notification.permission`](/de/docs/Web/API/Notification/permission_static) überprüfen. Sie kann einen von drei möglichen Werten haben:
 
 - `default`
   - : Der Benutzer wurde noch nicht um Erlaubnis gefragt, daher werden Benachrichtigungen nicht angezeigt.
 - `granted`
-  - : Der Benutzer hat die Erlaubnis zur Anzeige von Benachrichtigungen erteilt, nachdem er zuvor gefragt wurde.
+  - : Der Benutzer hat die Erlaubnis erteilt, Benachrichtigungen anzuzeigen, nachdem er zuvor gefragt wurde.
 - `denied`
-  - : Der Benutzer hat ausdrücklich abgelehnt, Benachrichtigungen anzuzeigen.
+  - : Der Benutzer hat die Erlaubnis, Benachrichtigungen zu zeigen, ausdrücklich abgelehnt.
 
-### Erlaubnis erhalten
+### Erlaubnis einholen
 
-Wenn die Erlaubnis zur Anzeige von Benachrichtigungen noch nicht erteilt wurde, muss die Anwendung die Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static) verwenden, um diese beim Benutzer anzufordern. In seiner einfachsten Form fügen wir einfach Folgendes ein:
+Wenn die Erlaubnis zur Anzeige von Benachrichtigungen noch nicht erteilt wurde, muss die Anwendung die Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static) verwenden, um diese vom Benutzer anzufordern. In ihrer einfachsten Form fügen wir einfach Folgendes ein:
 
 ```js
 Notification.requestPermission().then((result) => {
@@ -50,7 +50,7 @@ Notification.requestPermission().then((result) => {
 });
 ```
 
-Dies verwendet die auf Versprechen basierende Version der Methode. Wenn Sie ältere Versionen unterstützen möchten, müssen Sie möglicherweise die ältere Rückrufversion verwenden, die so aussieht:
+Dies verwendet die auf Versprechen basierte Version der Methode. Wenn Sie ältere Versionen unterstützen möchten, müssen Sie möglicherweise die ältere Callback-Version verwenden, die so aussieht:
 
 ```js
 Notification.requestPermission((result) => {
@@ -58,20 +58,20 @@ Notification.requestPermission((result) => {
 });
 ```
 
-Die Rückrufversion akzeptiert optional eine Rückruffunktion, die aufgerufen wird, sobald der Benutzer auf die Anforderung zur Anzeige von Berechtigungen reagiert hat.
+Die Callback-Version akzeptiert optional eine Callback-Funktion, die aufgerufen wird, sobald der Benutzer auf die Anfrage zur Anzeigeberechtigung reagiert hat.
 
 > [!NOTE]
-> Es gibt keine Möglichkeit, zuverlässig zu testen, ob `Notification.requestPermission` die auf Promises basierende Version unterstützt. Wenn Sie ältere Browser unterstützen müssen, verwenden Sie einfach die rückrufbasierte Version - obwohl diese veraltet ist, funktioniert sie weiterhin in neuen Browsern. Überprüfen Sie die [Browser-Kompatibilitätstabelle](/de/docs/Web/API/Notification/requestPermission_static#browser_compatibility) für weitere Informationen.
+> Es gibt keine Möglichkeit, zuverlässig zu testen, ob `Notification.requestPermission` die auf Versprechen basierte Version unterstützt. Wenn Sie ältere Browser unterstützen müssen, verwenden Sie einfach die Callback-basierte Version — auch wenn sie veraltet ist, funktioniert sie immer noch in neuen Browsern. Überprüfen Sie die [Browser-Kompatibilitätstabelle](/de/docs/Web/API/Notification/requestPermission_static#browser_compatibility) für weitere Informationen.
 
 ### Beispiel
 
-In unserem Demo für die To-Do-Liste haben wir einen "Benachrichtigungen aktivieren"-Button, der beim Drücken die Benachrichtigungserlaubnisse für die App anfordert.
+In unserer To-do-Liste-Demo haben wir einen "Benachrichtigungen aktivieren" Button, der beim Drücken die Benachrichtigungsberechtigungen für die App anfordert.
 
 ```html
 <button id="enable">Enable notifications</button>
 ```
 
-Durch Klicken darauf wird die `askNotificationPermission()`-Funktion aufgerufen:
+Ein Klick darauf ruft die Funktion `askNotificationPermission()` auf:
 
 ```js
 function askNotificationPermission() {
@@ -87,15 +87,15 @@ function askNotificationPermission() {
 }
 ```
 
-Wenn Sie sich zuerst den zweiten Hauptblock ansehen, werden Sie sehen, dass wir zunächst überprüfen, ob Benachrichtigungen unterstützt werden. Wenn sie unterstützt werden, führen wir die auf Promises basierende Version von `Notification.requestPermission()` aus, und wenn nicht, protokollieren wir eine Nachricht in der Konsole.
+Wenn Sie sich zuerst den zweiten Hauptblock ansehen, sehen Sie, dass wir zuerst überprüfen, ob Benachrichtigungen unterstützt werden. Falls ja, führen wir die auf Versprechen basierte Version von `Notification.requestPermission()` aus. Falls nicht, protokollieren wir eine Nachricht in der Konsole.
 
-Im Promise-Auflösungs-Handler, der an `then` übergeben wird, zeigen oder verbergen wir den Button, je nachdem, was der Benutzer im Berechtigungsdialogbox gewählt hat. Wir möchten ihn nicht anzeigen, wenn die Erlaubnis bereits erteilt wurde, aber falls der Benutzer sich entschieden hat, die Erlaubnis zu verweigern, möchten wir ihm die Möglichkeit geben, seine Meinung später zu ändern.
+Im Ladehandler des Versprechens, das an `then` übergeben wird, zeigen oder verstecken wir den Button, abhängig davon, was der Benutzer im Berechtigungsdialog ausgewählt hat. Wir möchten ihn nicht anzeigen, wenn die Erlaubnis bereits erteilt wurde, aber wenn der Benutzer sich entschieden hat, die Erlaubnis zu verweigern, möchten wir ihm die Möglichkeit geben, später seine Meinung zu ändern.
 
-## Eine Benachrichtigung erstellen
+## Erstellen einer Benachrichtigung
 
-Eine Benachrichtigung zu erstellen ist einfach; verwenden Sie einfach den [`Notification`](/de/docs/Web/API/Notification) Konstruktor. Dieser Konstruktor erwartet einen Titel zur Anzeige innerhalb der Benachrichtigung und einige Optionen, um die Benachrichtigung zu verbessern, wie ein [`icon`](/de/docs/Web/API/Notification/icon) oder ein Text [`body`](/de/docs/Web/API/Notification/body).
+Eine Benachrichtigung zu erstellen ist einfach; verwenden Sie einfach den [`Notification`](/de/docs/Web/API/Notification) Konstruktor. Dieser Konstruktor erwartet einen Titel, der in der Benachrichtigung angezeigt werden soll, und einige Optionen, um die Benachrichtigung zu verbessern, wie z.B. ein [`icon`](/de/docs/Web/API/Notification/icon) oder ein Text- [`body`](/de/docs/Web/API/Notification/body).
 
-Zum Beispiel verwenden wir im To-Do-Listen-Beispiel das folgende Snippet, um bei Bedarf eine Benachrichtigung zu erstellen (im Inneren der `createNotification()`-Funktion gefunden):
+Zum Beispiel verwenden wir im To-do-Listen-Beispiel den folgenden Schnipsel, um bei Bedarf eine Benachrichtigung zu erstellen (zu finden in der Funktion `createNotification()`):
 
 ```js
 const img = "/to-do-notifications/img/icon-128.png";
@@ -103,9 +103,9 @@ const text = `HEY! Your task "${title}" is now overdue.`;
 const notification = new Notification("To do list", { body: text, icon: img });
 ```
 
-## Benachrichtigungen schließen
+## Schließen von Benachrichtigungen
 
-Verwenden Sie [`close()`](/de/docs/Web/API/Notification/close), um eine Benachrichtigung zu entfernen, die für den Benutzer nicht mehr relevant ist (z.B. der Benutzer hat die Benachrichtigung auf der Webseite bereits gelesen, im Falle einer Messaging-App, oder das folgende Lied spielt schon in einer Musik-App, die bei Liedwechseln benachrichtigt). Die meisten modernen Browser blenden Benachrichtigungen automatisch nach wenigen Momenten (ungefähr vier Sekunden) aus, aber das sollte im Allgemeinen kein großes Problem sein, da es vom Benutzer und dem User-Agent abhängt. Die Abweisung kann auch auf der Betriebssystemebene erfolgen und die Benutzer sollten dies kontrollieren können. Alte Versionen von Chrome haben Benachrichtigungen nicht automatisch entfernt, daher können Sie dies nach einem [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) nur für diese Legacy-Versionen tun, um nicht Benachrichtigungen aus den Benachrichtigungsbereichen in anderen Browsern zu entfernen.
+Verwenden Sie [`close()`](/de/docs/Web/API/Notification/close), um eine Benachrichtigung zu entfernen, die für den Benutzer nicht mehr relevant ist (z.B. der Benutzer hat die Benachrichtigung auf der Webseite bereits gelesen, im Falle einer Messaging-App, oder der nächste Song wird bereits in einer Musik-App gespielt, die bei Songwechseln benachrichtigt). Die meisten modernen Browser schließen Benachrichtigungen automatisch nach einigen Momenten (etwa vier Sekunden), aber dies ist normalerweise nichts, worüber Sie sich Sorgen machen sollten, da es dem Benutzer und dem Benutzeragent überlassen ist. Das Entfernen kann auch auf Betriebssystemebene geschehen und die Benutzer sollten die Kontrolle darüber behalten. Alte Versionen von Chrome haben Benachrichtigungen nicht automatisch entfernt, daher können Sie das für diese älteren Versionen mit einem [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) tun, um Benachrichtigungen in Benachrichtigungstrays anderer Browser nicht zu entfernen.
 
 ```js
 const n = new Notification("My Great Song");
@@ -118,35 +118,35 @@ document.addEventListener("visibilitychange", () => {
 ```
 
 > [!NOTE]
-> Diese API sollte nicht verwendet werden, nur um die Benachrichtigung nach einer festgelegten Verzögerung (auf modernen Browsern) vom Bildschirm zu entfernen, da diese Methode die Benachrichtigung auch aus jedem Benachrichtigungsbereich entfernt und verhindert, dass Benutzer mit ihr interagieren, nachdem sie ursprünglich angezeigt wurde.
+> Diese API sollte nicht nur verwendet werden, um die Benachrichtigung nach einer festen Verzögerung (auf modernen Browsern) von der Anzeige zu entfernen, da diese Methode die Benachrichtigung auch aus jedem Benachrichtigungstray entfernt und Benutzer daran hindert, nach der ersten Anzeige damit zu interagieren.
 
 > [!NOTE]
-> Wenn Sie ein "close"-Ereignis erhalten, gibt es keine Garantie, dass der Benutzer die Benachrichtigung geschlossen hat. Dies entspricht der Spezifikation, die besagt: "Wenn eine Benachrichtigung geschlossen wird, sei es durch die zugrunde liegende Benachrichtigungsplattform oder durch den Benutzer, müssen die Schlussschritte für sie ausgeführt werden."
+> Wenn Sie ein "close"-Ereignis empfangen, gibt es keine Garantie dafür, dass der Benutzer die Benachrichtigung geschlossen hat. Dies entspricht der Spezifikation, die besagt: "Wenn eine Benachrichtigung geschlossen wird, entweder von der zugrunde liegenden Benachrichtigungsplattform oder vom Benutzer, müssen die Schrittedes Schließens ausgeführt werden."
 
 ## Benachrichtigungsereignisse
 
-Es gibt vier Ereignisse, die bei der [`Notification`](/de/docs/Web/API/Notification)-Instanz ausgelöst werden:
+Es gibt vier Ereignisse, die auf der Instanz von [`Notification`](/de/docs/Web/API/Notification) ausgelöst werden:
 
 - `click`
   - : Wird ausgelöst, wenn der Benutzer auf die Benachrichtigung klickt.
 - `close`
-  - : Wird ausgelöst, sobald die Benachrichtigung geschlossen wird.
+  - : Wird ausgelöst, nachdem die Benachrichtigung geschlossen wurde.
 - `error`
-  - : Wird ausgelöst, falls mit der Benachrichtigung etwas schiefgeht; dies liegt in der Regel daran, dass die Benachrichtigung aus irgendeinem Grund nicht angezeigt werden konnte.
+  - : Wird ausgelöst, wenn etwas mit der Benachrichtigung schief geht; dies ist normalerweise der Fall, wenn die Benachrichtigung aus irgendeinem Grund nicht angezeigt werden konnte.
 - `show`
   - : Wird ausgelöst, wenn die Benachrichtigung dem Benutzer angezeigt wird.
 
-Diese Ereignisse können mit den Handlern [`onclick`](/de/docs/Web/API/Notification/click_event), [`onclose`](/de/docs/Web/API/Notification/close_event), [`onerror`](/de/docs/Web/API/Notification/error_event) und [`onshow`](/de/docs/Web/API/Notification/show_event) verfolgt werden. Da [`Notification`](/de/docs/Web/API/Notification) auch von [`EventTarget`](/de/docs/Web/API/EventTarget) erbt, ist es möglich, die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) darauf zu verwenden.
+Diese Ereignisse können mithilfe der Handler [`onclick`](/de/docs/Web/API/Notification/click_event), [`onclose`](/de/docs/Web/API/Notification/close_event), [`onerror`](/de/docs/Web/API/Notification/error_event) und [`onshow`](/de/docs/Web/API/Notification/show_event) verfolgt werden. Da [`Notification`](/de/docs/Web/API/Notification) auch von [`EventTarget`](/de/docs/Web/API/EventTarget) erbt, ist es möglich, die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) darauf zu verwenden.
 
 ## Bestehende Benachrichtigungen ersetzen
 
-Es ist in der Regel unerwünscht, dass ein Benutzer in kurzer Zeit viele Benachrichtigungen erhält – zum Beispiel, was wäre, wenn eine Messenger-Anwendung einen Benutzer bei jeder eingehenden Nachricht benachrichtigen würde und viele gesendet würden? Um zu vermeiden, den Benutzer mit zu vielen Benachrichtigungen zu überschwemmen, ist es möglich, die ausstehenden Benachrichtigungen zu ändern, indem man einzelne oder mehrere ausstehende Benachrichtigungen mit einer neuen ersetzt.
+Es ist normalerweise unerwünscht, dass ein Benutzer eine große Menge Benachrichtigungen in kurzer Zeit erhält — was wäre zum Beispiel, wenn eine Messenger-Anwendung einen Benutzer für jede eingehende Nachricht benachrichtigen würde, und er viele Nachrichten erhält? Um zu vermeiden, dass der Benutzer mit zu vielen Benachrichtigungen überflutet wird, ist es möglich, die Warteschlange ausstehender Benachrichtigungen zu modifizieren, indem einzelne oder mehrere ausstehende Benachrichtigungen durch eine neue ersetzt werden.
 
-Dazu ist es möglich, einer neuen Benachrichtigung ein Tag hinzuzufügen. Wenn eine Benachrichtigung bereits dasselbe Tag hat und noch nicht angezeigt wurde, ersetzt die neue Benachrichtigung diese vorherige Benachrichtigung. Wenn die Benachrichtigung mit demselben Tag bereits angezeigt wurde, wird die vorherige Benachrichtigung geschlossen und die neue angezeigt.
+Hierfür ist es möglich, einer neuen Benachrichtigung ein Tag hinzuzufügen. Wenn eine Benachrichtigung bereits das gleiche Tag hat und noch nicht angezeigt wurde, ersetzt die neue Benachrichtigung diese vorherige Benachrichtigung. Wenn die Benachrichtigung mit demselben Tag bereits angezeigt wurde, wird die vorherige Benachrichtigung geschlossen und die neue wird angezeigt.
 
 ### Tag-Beispiel
 
-Nehmen Sie das folgende einfache HTML an:
+Angenommen, das folgende grundlegende HTML:
 
 ```html
 <button id="notify">Notify me!</button>
@@ -157,14 +157,14 @@ Nehmen Sie das folgende einfache HTML an:
 #demo-logs {
   width: 90%;
   height: 100px;
-  background-color: #ddd;
+  background-color: #dddddd;
   overflow-x: auto;
   padding: 10px;
   margin-top: 10px;
 }
 ```
 
-Es ist möglich, mehrere Benachrichtigungen auf diese Weise zu handhaben:
+Es ist möglich, mehrere Benachrichtigungen auf diese Weise zu verwalten:
 
 ```js
 const demoLogs = document.querySelector("#demo-logs");
@@ -228,7 +228,7 @@ window.addEventListener("load", () => {
 
 {{ EmbedLiveSample('Tag_example', '100%', 200) }}
 
-Um das obige Beispiel zu testen, ändern Sie die [mitteilungseinstellung sendenerlaubnis](https://support.mozilla.org/en-US/kb/firefox-page-info-window#w_permissions) für die Website `https://live.mdnplay.dev`.
+Um das obige Beispiel zu testen, ändern Sie die [Einstellung zum Senden von Benachrichtigungen](https://support.mozilla.org/en-US/kb/firefox-page-info-window#w_permissions) für die Website `https://live.mdnplay.dev`.
 
 ## Siehe auch
 

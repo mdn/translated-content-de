@@ -1,24 +1,24 @@
 ---
-title: "Element: scrollLeft-Eigenschaft"
+title: "Element: scrollLeft Eigenschaft"
 short-title: scrollLeft
 slug: Web/API/Element/scrollLeft
 l10n:
-  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`scrollLeft`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces ermittelt oder setzt die Anzahl der Pixel, um die der Inhalt eines Elements von seinem linken Rand gescrollt wird. Dieser Wert ist in modernen Browsern subpixelgenau, was bedeutet, dass er nicht unbedingt eine ganze Zahl ist.
+Die **`scrollLeft`** Eigenschaft der [`Element`](/de/docs/Web/API/Element) Schnittstelle gibt die Anzahl der Pixel an, um die der Inhalt eines Elements von seinem linken Rand gescrollt ist, oder legt diese fest. Dieser Wert ist in modernen Browsern subpixelgenau, was bedeutet, dass er nicht unbedingt eine ganze Zahl ist.
 
 ## Wert
 
-Ein Gleitkomma-Doppelwert, der die Anzahl der Pixel angibt, um die das Element derzeit horizontal vom Ursprung aus gescrollt ist, wobei ein positiver Wert bedeutet, dass das Element nach rechts gescrollt ist (um mehr Inhalt auf der rechten Seite anzuzeigen). Wenn das Element überhaupt nicht nach links oder rechts gescrollt ist, ist `scrollLeft` 0. Wenn das Dokument nicht das aktive Dokument ist, beträgt der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
+Ein Gleitkommawert mit doppelter Genauigkeit, der die Anzahl der Pixel angibt, um die das Element horizontal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass das Element nach rechts gescrollt ist (um mehr Inhalt auf der rechten Seite zu zeigen). Wenn das Element überhaupt nicht nach links oder rechts gescrollt ist, dann ist `scrollLeft` 0. Wenn das Dokument nicht das aktive Dokument ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
 
-Es ist möglich, dass `scrollLeft` negativ ist, wenn das Element vom initialen umschließenden Block nach links gescrollt werden kann. Beispielsweise, wenn die {{cssxref("direction")}} des Elements `rtl` (rechts-nach-links) ist und der Inhalt nach links wächst, dann ist `scrollLeft` `0`, wenn die Bildlaufleiste in ihrer rechten Position ist (am Anfang des gescrollten Inhalts) und wird zunehmend negativ, während Sie zum Ende des Inhalts scrollen.
+Es ist möglich, dass `scrollLeft` negativ ist, wenn das Element nach links vom anfänglichen Containerblock gescrollt werden kann. Zum Beispiel, wenn die {{cssxref("direction")}} des Elements `rtl` (rechts-nach-links) ist und der Inhalt nach links wächst, dann ist `scrollLeft` `0`, wenn die Scrollleiste sich an ihrer rechten Position befindet (am Anfang des gescrollten Inhalts), und dann zunehmend negativ, wenn Sie zum Ende des Inhalts scrollen.
 
-Safari reagiert auf Überscrollen, indem `scrollLeft` über die maximale Bildlaufposition hinaus aktualisiert wird (es sei denn, der Standard-"Bounce"-Effekt ist deaktiviert, indem beispielsweise {{cssxref("overscroll-behavior")}} auf `none` gesetzt wird), während Chrome und Firefox dies nicht tun.
+Safari reagiert auf ein Überscrollen, indem es `scrollLeft` über die maximale Scrollposition hinaus aktualisiert (es sei denn, der Standard-"Bounce"-Effekt ist deaktiviert, z. B. durch Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun.
 
-Die `scrollLeft`-Eigenschaft kann gesetzt werden, was dazu führt, dass das Element in die angegebene horizontale Position scrollt, genau wie bei der Verwendung von [`Element.scroll()`](/de/docs/Web/API/Element/scroll) mit `behavior: "auto"`.
+Die `scrollLeft` Eigenschaft kann festgelegt werden, wodurch das Element zur angegebenen horizontalen Position gescrollt wird, auf die gleiche Weise wie beim Verwenden von [`Element.scroll()`](/de/docs/Web/API/Element/scroll) mit `behavior: "auto"`.
 
 ## Beispiele
 
@@ -38,13 +38,13 @@ Die `scrollLeft`-Eigenschaft kann gesetzt werden, was dazu führt, dass das Elem
 #container {
   width: 100px;
   height: 100px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   overflow-x: scroll;
 }
 
 #content {
   width: 250px;
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 ```
 

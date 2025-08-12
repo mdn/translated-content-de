@@ -3,17 +3,17 @@ title: "Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente"
 short-title: Bilder und Formulare
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Images
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
+Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von "Test your skills"](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe haben Sie ein Bild, das über den Rand der Box hinausragt. Wir möchten, dass das Bild verkleinert wird, um in die Box zu passen, ohne zusätzlichen weißen Raum, aber es ist in Ordnung, wenn ein Teil des Bildes beschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
+In dieser Aufgabe haben Sie ein Bild, das aus der Box herausragt. Wir möchten, dass das Bild verkleinert wird, um in die Box zu passen, ohne zusätzlichen weißen Raum, aber es macht nichts, wenn Teile des Bildes abgeschnitten werden. Aktualisieren Sie das CSS, um dies zu erreichen.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
@@ -44,8 +44,8 @@ img {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist in Ordnung, wenn Teile des Bildes beschnitten werden.
-Die Verwendung von `object-fit: cover` ist die beste Wahl, zusätzlich müssen Sie die Breite und Höhe auf `100%` setzen:
+Es ist in Ordnung, wenn Teile des Bildes abgeschnitten werden.
+Die Verwendung von `object-fit: cover` ist die beste Wahl. Sie müssen auch die Breite und Höhe auf `100%` setzen:
 
 ```css
 img {
@@ -63,10 +63,10 @@ In dieser Aufgabe haben Sie ein einfaches Formular.
 
 Um die Aufgabe abzuschließen:
 
-1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` zu targetieren.
-2. Lassen Sie das Formularfeld und den Button die gleiche Textgröße wie der Rest des Formulars verwenden.
-3. Geben Sie dem Formularfeld und dem Button `10px` Padding.
-4. Geben Sie dem Button einen Hintergrund in `rebeccapurple`, weißen Vordergrund, keinen Rahmen und abgerundete Ecken von 5px.
+1. Verwenden Sie Attributselektoren, um das Suchfeld und die Schaltfläche innerhalb von `.my-form` zu targetieren.
+2. Stellen Sie sicher, dass das Formularfeld und die Schaltfläche die gleiche Textgröße wie der Rest des Formulars verwenden.
+3. Geben Sie dem Formularfeld und der Schaltfläche `10px` Padding.
+4. Geben Sie der Schaltfläche einen Hintergrund in `rebeccapurple`, weißen Vordergrund, keinen Rahmen und abgerundete Ecken von 5px.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
@@ -124,13 +124,13 @@ Hier ist ein Beispiel für eine Lösung der Aufgabe:
 
 ## Aufgabe 3
 
-Unsere zweite Formularstil-Bewertung ist relativ frei gestaltbar, und Sie haben viel Flexibilität darüber, was Sie hier am Ende tun. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
+Unsere zweite Formular-Styling-Bewertung ist relativ offen, und Sie haben viel Freiheit bei der Gestaltung. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
 
 Um die Aufgabe abzuschließen:
 
-1. Fügen Sie eine Art leichtes "Reset" hinzu, um Schriftarten, Polsterungen, Abstände und Größen zu Beginn konsistenter zu machen, wie im [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
-2. Fügen Sie darüber hinaus ein schönes, konsistentes Styling für die Eingaben und den Button hinzu.
-3. Verwenden Sie irgendeine Art von Layouttechnik, um die Eingaben und Labels ordentlich auszurichten.
+1. Fügen Sie eine Art leichtgewichtigen "Reset" hinzu, um Fonts, Padding, Margen und Größen von Anfang an konsistenter zu machen, wie in [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
+2. Fügen Sie darüber hinaus ein schönes, gleichmäßiges Styling für die Eingabefelder und die Schaltfläche hinzu.
+3. Verwenden Sie irgendeine Art von Layouttechnik, um die Eingabefelder und Beschriftungen sauber auszurichten.
 
 ```html hidden live-sample___forms-2
 <form>
@@ -171,7 +171,7 @@ Um die Aufgabe abzuschließen:
 
 body {
   background-color: white;
-  color: #333;
+  color: #333333;
   font:
     1em / 1.4 Helvetica Neue,
     Helvetica,
@@ -187,7 +187,7 @@ body {
 /* Add your code here */
 ```
 
-{{EmbedLiveSample("forms-2", "100%", 250)}}
+{{ EmbedLiveSample("forms-2", "100%", 250) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -234,7 +234,7 @@ select,
 button {
   display: block;
   padding: 5px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 3px;
 }
 
@@ -246,12 +246,12 @@ button {
   margin: 0 auto;
   padding: 5px 20px;
   line-height: 1.5;
-  background: #eee;
+  background: #eeeeee;
 }
 
 button:hover,
 button:focus {
-  background: #ddd;
+  background: #dddddd;
 }
 ```
 

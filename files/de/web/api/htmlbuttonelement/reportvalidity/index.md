@@ -3,12 +3,12 @@ title: "HTMLButtonElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLButtonElement/reportValidity
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces führt die gleichen Schritte zur Gültigkeitsprüfung aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)-Methode. Zusätzlich zeigt der Browser das Problem dem Benutzer an, wenn das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis nicht abgebrochen wird.
+Die **`reportValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces führt die gleichen Gültigkeitsprüfungsschritte wie die [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity) Methode aus. Zusätzlich zeigt der Browser dem Benutzer das Problem an, wenn das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis nicht abgebrochen wird.
 
 ## Syntax
 
@@ -53,23 +53,23 @@ Wir fügen ein wenig CSS hinzu, einschließlich `:valid` und `:invalid` Stile f�
 ```css
 input[type="submit"],
 button {
-  background-color: #33a;
+  background-color: #3333aa;
   border: none;
   font-size: 1.3rem;
   padding: 5px 10px;
   color: white;
 }
 button:invalid {
-  background-color: #a33;
+  background-color: #aa3333;
 }
 button:valid {
-  background-color: #3a3;
+  background-color: #33aa33;
 }
 ```
 
 #### JavaScript
 
-Wir fügen eine Funktion hinzu, um den Wert, Inhalt und die Fehlermeldung des Beispiel-Buttons umzuschalten:
+Wir fügen eine Funktion hinzu, um den Wert, den Inhalt und die Validierungsnachricht des Beispiel-Buttons umzuschalten:
 
 ```js
 const reportButton = document.querySelector("#report");
@@ -118,9 +118,9 @@ const toggleButton = () => {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Benutzerdefinierte Fehlermeldung", "100%", 220)}}
+{{EmbedLiveSample("Custom error message", "100%", 220)}}
 
-Der Button ist standardmäßig gültig. Aktivieren Sie "DIESER BUTTON", um den Wert, den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Das Aktivieren des "reportValidity()" Buttons überprüft die Gültigkeit des Buttons, meldet die benutzerdefinierte Fehlermeldung dem Benutzer und löst ein `invalid` Ereignis aus, wenn der Button die Einschränkungsvalidierung aufgrund der Meldung nicht besteht.
+Der Button ist standardmäßig gültig. Aktivieren Sie "THIS BUTTON", um den Wert und den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Die Aktivierung des "reportValidity()" Buttons überprüft die Gültigkeit des Buttons, meldet die benutzerdefinierte Fehlermeldung dem Benutzer und löst ein `invalid` Ereignis aus, wenn der Button die Einschränkungsvalidierung aufgrund der Nachricht nicht besteht.
 
 ## Spezifikationen
 
@@ -135,6 +135,6 @@ Der Button ist standardmäßig gültig. Aktivieren Sie "DIESER BUTTON", um den W
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
-- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
