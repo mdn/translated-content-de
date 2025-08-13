@@ -28,20 +28,20 @@ jobs:
 
     steps:
       - name: Checkout (yari)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: mdn/yari
           path: mdn/yari
           ref: test-de
 
       - name: Checkout (content)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: mdn/content
           path: mdn/content
 
       - name: Checkout (translated-content-de)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: mdn/translated-content-de
 
