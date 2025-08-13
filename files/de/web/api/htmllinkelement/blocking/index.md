@@ -3,21 +3,24 @@ title: "HTMLLinkElement: blocking-Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLLinkElement/blocking
 l10n:
-  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
+  sourceCommit: 0e2ec54f4eb55cccad11af843d83061857918bee
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`blocking`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist eine Zeichenkette, die angibt, dass bestimmte Operationen beim Abruf einer externen Ressource blockiert werden sollen.
+Die **`blocking`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Abrufen einer externen Ressource blockiert werden sollen.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
-Eine Zeichenkette. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten Blockierungs-Token sein, die die zu blockierenden Operationen angeben:
+Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten Blocking-Tokens sein, die die zu blockierenden Operationen angeben:
 
 - `render`
-  - : Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
+  - : Das Rendering des Inhalts auf dem Bildschirm wird blockiert.
+
+    > [!NOTE]
+    > Nur `link`-Elemente im `<head>`-Abschnitt des Dokuments können möglicherweise das Rendering blockieren. Standardmäßig blockiert ein `link`-Element mit `rel="stylesheet"` im `<head>` das Rendering, wenn der Browser es während des Parsens entdeckt. Wenn ein solches `link`-Element dynamisch über ein Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` setzen, damit es das Rendering blockiert.
 
 ## Beispiele
 
